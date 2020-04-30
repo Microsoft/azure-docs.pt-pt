@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 03/09/2020
+ms.date: 04/27/2020
 ms.author: apimpm
-ms.openlocfilehash: 0ecb7ee7f5c7c0ebaa87eb6b32eee1926d9e294d
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: cf65cd757655b496ceb87fa1ff8121ac6209d869
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81768948"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203204"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como utilizar a Gestão de API do Azure com redes virtuais
 As Redes Virtuais (VNETs) do Azure permitem-lhe colocar quaisquer recursos do Azure numa rede encaminhável sem Internet para a qual controla o acesso. Estas redes podem então ser ligadas às suas redes no local utilizando várias tecnologias VPN. Para saber mais sobre as Redes Virtuais Azure comece com a informação aqui: [Visão geral da rede virtual Azure](../virtual-network/virtual-networks-overview.md).
@@ -111,7 +111,7 @@ Segue-se uma lista de problemas comuns de configuração que podem ocorrer ao im
 | Fonte / Porta de Destino(s) | Direção          | Protocolo de transporte |   [Etiquetas de serviço](../virtual-network/security-overview.md#service-tags) <br> Fonte / Destino   | Finalidade\*( )                                                 | Tipo de Rede Virtual |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | * / [80], 443                  | Entrada            | TCP                | INTERNET / VIRTUAL_NETWORK            | Comunicação do cliente à API Management                      | Externo             |
-| * / 3443                     | Entrada            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Ponto final de gestão para portal Azure e Powershell         | Externa & Interna  |
+| * / 3443                     | Entrada            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Ponto final de gestão para portal Azure e PowerShell         | Externa & Interna  |
 | * / 443                  | Saída           | TCP                | VIRTUAL_NETWORK / Armazenamento             | **Dependência do armazenamento azure**                             | Externa & Interna  |
 | * / 443                  | Saída           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | [Diretório Ativo Azure](api-management-howto-aad.md) (se aplicável)                   | Externa & Interna  |
 | * / 1433                     | Saída           | TCP                | VIRTUAL_NETWORK / SQL                 | **Acesso a pontos finais Azure SQL**                           | Externa & Interna  |
@@ -150,6 +150,8 @@ Segue-se uma lista de problemas comuns de configuração que podem ocorrer ao im
 + **Portal de desenvolvimento CAPTCHA**: Conectividade de rede de saída para o `client.hip.live.com` CAPTCHA do portal de desenvolvimento, que se resolve sob os anfitriões e `partner.hip.live.com`.
 
 + **Portal Azure Diagnósticos**: Para permitir o fluxo de registos de diagnóstico do portal Azure ao `dc.services.visualstudio.com` utilizar a extensão de Gestão API a partir de dentro de uma Rede Virtual, é necessário o acesso de saída à porta 443. Isto ajuda a resolver problemas que poderá enfrentar ao utilizar a extensão.
+
++ **Azure Load Balancer**: Permitir o `AZURE_LOAD_BALANCER` pedido de entrada `Developer` da Etiqueta de Serviço não é um requisito para o SKU, uma vez que apenas implantamos uma unidade de Compute por trás. Mas a entrada de [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) torna-se crítica `Premium`ao escalar para sKU mais alto como , como falha da sonda de saúde do Load Balancer, falha uma implementação.
 
 + Forçar o tráfego de **túneis para a firewall no local Utilizando a Rota Expressa ou o Aparelho Virtual**da Rede : Uma configuração comum do cliente é definir a sua própria rota padrão (0.0.0.0/0) que obriga todo o tráfego da subnet delegada da API Management a fluir através de uma firewall no local ou para um aparelho virtual da Rede. Este fluxo de tráfego invariavelmente quebra a conectividade com a Azure API Management porque o tráfego de saída está bloqueado no local, ou NAT'd a um conjunto irreconhecível de endereços que já não funcionam com vários pontos finais Azure. A solução requer que faça algumas coisas:
 

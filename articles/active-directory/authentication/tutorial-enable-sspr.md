@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71b9052f364dfbae205dd324ba69de9578ccc225
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c84aa99608a4fc2ac1842c617cca54e2afc3cdbe
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77027679"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82201997"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Tutorial: Permitir que os utilizadores desbloqueiem a sua conta ou reporem palavras-passe utilizando o reset de palavra-passe self-service do Diretório Ativo Azure
 
@@ -104,7 +104,7 @@ Para manter os utilizadores informados sobre a atividade da conta, pode configur
 Se os utilizadores precisarem de ajuda adicional com o processo SSPR, pode personalizar o link para "Contacte o seu administrador". Este link é utilizado no processo de registo SSPR e quando um utilizador desbloqueia a sua conta ou redefine a sua palavra-passe. Para garantir que os seus utilizadores obtêm o suporte necessário, é altamente recomendado fornecer um e-mail de helpdesk personalizado ou URL.
 
 1. Na página de **Personalização** do menu do lado esquerdo, desempor o link de *helpdesk para* **Sim**.
-1. No **e-mail de helpdesk personalizado ou** no campo URL, forneça um endereço de e-mail ou URL da página web onde os seus utilizadores possam obter ajuda adicional da sua organização, como*https://support.contoso.com/*
+1. No **e-mail de helpdesk personalizado ou** no campo URL, forneça um endereço de e-mail ou URL da página web onde os seus utilizadores possam obter ajuda adicional da sua organização, como*`https://support.contoso.com/`*
 1. Para aplicar o link personalizado, selecione **Guardar**.
 
 ## <a name="test-self-service-password-reset"></a>Testar a reposição personalizada de palavra-passe
@@ -130,7 +130,7 @@ Num seguinte tutorial nesta série, configura-se a reescrita da palavra-passe. E
 
 Se já não pretender utilizar a funcionalidade SSPR configurada como parte deste tutorial, detete o estado SSPR para **Nenhum** utilizando os seguintes passos:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Procure e selecione **Azure Ative Directory,** em seguida, escolha **o reset password** do menu do lado esquerdo.
 1. A partir da página **Propriedades,** sob a opção Reset de senha de *serviço Self service ativada,* escolha **Nenhuma**.
 1. Para aplicar a alteração SSPR, selecione **Guardar**.

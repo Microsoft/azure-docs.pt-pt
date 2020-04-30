@@ -10,21 +10,18 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/31/2019
+ms.date: 03/31/2020
 ms.author: apimpm
-ms.openlocfilehash: d33c5f75234ad7165a9062ecc3bb2a00d502f8c3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2870a654faad4e760a9d022488cb2c4c406cbeab
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "74075291"
+ms.locfileid: "82203136"
 ---
 # <a name="provision-a-self-hosted-gateway-in-azure-api-management"></a>Providenciar uma porta de entrada auto-hospedada na Azure API Management
 
 Fornecer um recurso de gateway na sua instância de Gestão API Azure é um pré-requisito para a implementação de um gateway auto-hospedado. Este artigo percorre as etapas para fornecer um recurso de gateway na Gestão API.
-
-> [!NOTE]
-> A funcionalidade de gateway auto-hospedada está em pré-visualização. Durante a pré-visualização, o gateway auto-hospedado só está disponível nos níveis Developer e Premium sem custos adicionais. O nível de desenvolvimento está limitado a uma única implementação de gateway auto-hospedada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -42,9 +39,6 @@ Complete o seguinte quickstart: Criar uma instância de [Gestão API Azure](get-
 
 4. Opcionalmente, introduza uma **Descrição** do recurso gateway.
 5. Opcionalmente, **+** selecione em **APIs** para associar uma ou mais APIs com este recurso gateway.
-> [!TIP]
-> Pode associar e remover uma API de uma porta de entrada no separador **Definições** da API.
-
 > [!IMPORTANT]
 > Por padrão, nenhuma das APIs existentes estará associada ao novo recurso gateway. Por conseguinte, as tentativas de os invocar `404 Resource Not Found` através da nova porta de entrada resultarão em respostas.
 
@@ -55,5 +49,5 @@ Agora, o recurso gateway foi aprovisionado na sua instância de Gestão API. Pod
 ## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre o gateway auto-hospedado, consulte a [visão geral da Azure API Management](self-hosted-gateway-overview.md)
-* Saiba mais sobre como [implementar uma porta de entrada auto-hospedada para Kubernetes](api-management-howto-deploy-self-hosted-gateway-to-k8s.md)
-* Saiba mais sobre como [implementar uma porta de entrada auto-hospedada para Docker](api-management-howto-deploy-self-hosted-gateway-to-docker.md)
+* Saiba mais sobre como [implementar uma porta de entrada auto-hospedada para Kubernetes](how-to-deploy-self-hosted-gateway-kubernetes.md)
+* Saiba mais sobre como [implementar uma porta de entrada auto-hospedada para Docker](how-to-deploy-self-hosted-gateway-docker.md)

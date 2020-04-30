@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: absha
-ms.openlocfilehash: d0b28770940f0e1adeec16aa89cd087299bd4abc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: MT
+ms.openlocfilehash: ced807b25cd1e829988a1e6b7621a5f73e0edfc2
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80133002"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82202435"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Reescrever os cabeçalhos HTTP com o Gateway da Aplicação
 
@@ -56,7 +56,7 @@ Utilize ações de reescrita para especificar os cabeçalhos de pedido e respost
 
 ## <a name="server-variables"></a>Variáveis do servidor
 
-O Gateway de aplicações utiliza variáveis do servidor para armazenar informações úteis sobre o servidor, a ligação com o cliente e o pedido atual na ligação. Exemplos de informações armazenadas incluem o endereço IP do cliente e o tipo de navegador web. As variáveis do servidor mudam dinamicamente, por exemplo, quando uma nova página carrega ou quando um formulário é publicado. Pode utilizar estas variáveis para avaliar as condições de reescrita e reescrever cabeçalhos.
+O Gateway de aplicações utiliza variáveis do servidor para armazenar informações úteis sobre o servidor, a ligação com o cliente e o pedido atual na ligação. Exemplos de informações armazenadas incluem o endereço IP do cliente e o tipo de navegador web. As variáveis do servidor mudam dinamicamente, por exemplo, quando uma nova página carrega ou quando um formulário é publicado. Pode utilizar estas variáveis para avaliar as condições de reescrita e reescrever cabeçalhos. Para utilizar o valor das variáveis do servidor para reescrever os cabeçalhos, terá de especificar estas variáveis na sintaxe {var_*servidorVariável*}
 
 O gateway da aplicação suporta estas variáveis do servidor:
 
@@ -69,20 +69,21 @@ O gateway da aplicação suporta estas variáveis do servidor:
 | client_port                | O porto de clientes.                                                  |
 | client_tcp_rtt             | Informações sobre a ligação TCP do cliente. Disponível em sistemas que suportam a opção TCP_INFO tomada. |
 | client_user                | Quando a autenticação HTTP é utilizada, o nome de utilizador fornecido para autenticação. |
-| anfitrião                       | Nesta ordem de precedência: o nome do anfitrião da linha de pedido, o nome do anfitrião do campo de cabeçalho do pedido do anfitrião ou o nome do servidor correspondente a um pedido. |
+| anfitrião                       | Nesta ordem de precedência: o nome do anfitrião da linha de pedido, o nome do anfitrião do campo de cabeçalho do pedido do anfitrião ou o nome do servidor correspondente a um pedido. Exemplo: no *http://contoso.com:8080/article.aspx?id=123&title=fabrikam*pedido, o valor do hospedeiro será *contoso.com* |
 | cookie_*nome*              | O *biscoito de nome.*                                            |
 | http_method                | O método utilizado para fazer o pedido de URL. Por exemplo, GET ou POST. |
 | http_status                | O estado da sessão. Por exemplo, 200, 400 ou 403.                       |
 | http_version               | O protocolo de pedido. Normalmente HTTP/1.0, HTTP/1.1, ou HTTP/2.0. |
-| query_string               | A lista de pares variáveis/de valor que segue o "?" no URL solicitado. |
+| query_string               | A lista de pares variáveis/de valor que segue o "?" no URL solicitado. Exemplo: no *http://contoso.com:8080/article.aspx?id=123&title=fabrikam*pedido, query_string valor será *id=123&título=fabrikam* |
 | received_bytes             | A duração do pedido (incluindo a linha de pedido, cabeçalho e órgão de pedido). |
 | request_query              | Os argumentos na linha de pedido.                                |
 | request_scheme             | O regime de pedidos: http ou https.                            |
-| request_uri                | O pedido original completo URI (com argumentos).                   |
+| request_uri                | O pedido original completo URI (com argumentos). Exemplo: no *http://contoso.com:8080/article.aspx?id=123&title=fabrikam*pedido, request_uri valor será */article.aspx?id=123&title=fabrikam*   |
 | sent_bytes                 | O número de bytes enviados a um cliente.                             |
 | server_port                | A porta do servidor que aceitou um pedido.                 |
 | ssl_connection_protocol    | O protocolo de uma conexão TLS estabelecida.        |
 | ssl_enabled                | "Ligado" se a ligação funcionar no modo TLS. Caso contrário, uma corda vazia. |
+| uri_path                   | Identifica o recurso específico no anfitrião a que o cliente web quer aceder. Esta é a parte do pedido URI sem os argumentos. Exemplo: no *http://contoso.com:8080/article.aspx?id=123&title=fabrikam*pedido, uri_path valor será */article.aspx*  |
 
 ## <a name="rewrite-configuration"></a>Reescrever a configuração
 

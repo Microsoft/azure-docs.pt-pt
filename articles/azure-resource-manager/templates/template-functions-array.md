@@ -1,28 +1,26 @@
 ---
-title: Funções do modelo - matrizes e objetos
-description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure para trabalhar com matrizes e objetos.
+title: Funções do modelo - matrizes
+description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure para trabalhar com matrizes.
 ms.topic: conceptual
-ms.date: 07/31/2019
-ms.openlocfilehash: 0b4bb80f6d7a7cc20a8b2dcc71e890f2ada7c5be
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/27/2020
+ms.openlocfilehash: f34ba74847ac394e37e6ef33f859304128daacde
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156380"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203816"
 ---
-# <a name="array-and-object-functions-for-arm-templates"></a>Funções de matriz e objeto para modelos ARM
+# <a name="array-functions-for-arm-templates"></a>Funções de matriz para modelos ARM
 
-O Gestor de Recursos fornece várias funções para trabalhar com matrizes e objetos no seu modelo Degestor de Recursos Azure (ARM).
+O Gestor de Recursos fornece várias funções para trabalhar com matrizes no seu modelo Degestor de Recursos Azure (ARM).
 
 * [array](#array)
-* [coalesce](#coalesce)
 * [concat](#concat)
 * [contém](#contains)
 * [criar Array](#createarray)
 * [vazio](#empty)
 * [primeiro](#first)
 * [cruzamento](#intersection)
-* [json](#json)
 * [última](#last)
 * [comprimento](#length)
 * [máximo](#max)
@@ -99,105 +97,6 @@ A saída do exemplo anterior com os valores predefinidos é:
 | cadeiaOutput | Matriz | ["efgh"] |
 | objetoSaída | Matriz | [{"a": "b", "c": "d"}] |
 
-Para implementar este modelo de exemplo com o Azure CLI, utilize:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/array.json
-```
-
-Para implementar este modelo de exemplo com powerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/array.json
-```
-
-## <a name="coalesce"></a>coalesce
-
-`coalesce(arg1, arg2, arg3, ...)`
-
-Devolve o primeiro valor não nulo dos parâmetros. Cordas vazias, matrizes vazias e objetos vazios não são nulos.
-
-### <a name="parameters"></a>Parâmetros
-
-| Parâmetro | Necessário | Tipo | Descrição |
-|:--- |:--- |:--- |:--- |
-| arg1 |Sim |int, corda, matriz ou objeto |O primeiro valor a testar o nulo. |
-| args adicional |Não |int, corda, matriz ou objeto |Valores adicionais para testar por nulo. |
-
-### <a name="return-value"></a>Valor devolvido
-
-O valor dos primeiros parâmetros não nulos, que podem ser uma cadeia, int, matriz ou objeto. Nulo se todos os parâmetros forem nulos.
-
-### <a name="example"></a>Exemplo
-
-O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/coalesce.json) de exemplo seguinte mostra a saída de diferentes usos de coalesce.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "objectToTest": {
-            "type": "object",
-            "defaultValue": {
-                "null1": null,
-                "null2": null,
-                "string": "default",
-                "int": 1,
-                "object": {"first": "default"},
-                "array": [1]
-            }
-        }
-    },
-    "resources": [
-    ],
-    "outputs": {
-        "stringOutput": {
-            "type": "string",
-            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').string)]"
-        },
-        "intOutput": {
-            "type": "int",
-            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').int)]"
-        },
-        "objectOutput": {
-            "type": "object",
-            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').object)]"
-        },
-        "arrayOutput": {
-            "type": "array",
-            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').array)]"
-        },
-        "emptyOutput": {
-            "type": "bool",
-            "value": "[empty(coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2))]"
-        }
-    }
-}
-```
-
-A saída do exemplo anterior com os valores predefinidos é:
-
-| Nome | Tipo | Valor |
-| ---- | ---- | ----- |
-| cadeiaOutput | Cadeia | predefinição |
-| intOutput | int | 1 |
-| objetoSaída | Objeto | {"primeiro": "padrão"} |
-| arrayOutput | Matriz | [1] |
-| vazioSaída | Booleano | Verdadeiro |
-
-Para implementar este modelo de exemplo com o Azure CLI, utilize:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/coalesce.json
-```
-
-Para implementar este modelo de exemplo com powerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/coalesce.json
-```
-
 ## <a name="concat"></a>concat
 
 `concat(arg1, arg2, arg3, ...)`
@@ -260,18 +159,6 @@ A saída do exemplo anterior com os valores predefinidos é:
 | ---- | ---- | ----- |
 | regressar | Matriz | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
-Para implementar este modelo de exemplo com o Azure CLI, utilize:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
-```
-
-Para implementar este modelo de exemplo com powerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
-```
-
 O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-string.json) de exemplo seguinte mostra como combinar dois valores de corda e devolver uma corda concatenada.
 
 ```json
@@ -298,19 +185,7 @@ A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| concatOutput | Cadeia | prefixo-5yj4yjf5mbg72 |
-
-Para implementar este modelo de exemplo com o Azure CLI, utilize:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
-```
-
-Para implementar este modelo de exemplo com powerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
-```
+| concatOutput | String | prefixo-5yj4yjf5mbg72 |
 
 ## <a name="contains"></a>contém
 
@@ -393,18 +268,6 @@ A saída do exemplo anterior com os valores predefinidos é:
 | arrayTrue | Booleano | Verdadeiro |
 | arrayFalso | Booleano | Falso |
 
-Para implementar este modelo de exemplo com o Azure CLI, utilize:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
-```
-
-Para implementar este modelo de exemplo com powerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
-```
-
 ## <a name="createarray"></a>criar array
 
 `createArray (arg1, arg2, arg3, ...)`
@@ -472,18 +335,6 @@ A saída do exemplo anterior com os valores predefinidos é:
 | objetoArray | Matriz | [{"um": "a", "dois": "b", "três": "c"}] |
 | arrayArray | Matriz | ["um", "dois", "três"]] |
 
-Para implementar este modelo de exemplo com o Azure CLI, utilize:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/createarray.json
-```
-
-Para implementar este modelo de exemplo com powerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/createarray.json
-```
-
 ## <a name="empty"></a>vazio
 
 `empty(itemToTest)`
@@ -549,18 +400,6 @@ A saída do exemplo anterior com os valores predefinidos é:
 | objetoVazio | Booleano | Verdadeiro |
 | cordaVazio | Booleano | Verdadeiro |
 
-Para implementar este modelo de exemplo com o Azure CLI, utilize:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
-```
-
-Para implementar este modelo de exemplo com powerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
-```
-
 ## <a name="first"></a>primeiro
 
 `first(arg1)`
@@ -610,20 +449,8 @@ A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | Cadeia | um |
-| cadeiaOutput | Cadeia | O |
-
-Para implementar este modelo de exemplo com o Azure CLI, utilize:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
-```
-
-Para implementar este modelo de exemplo com powerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
-```
+| arrayOutput | String | um |
+| cadeiaOutput | String | O |
 
 ## <a name="intersection"></a>cruzamento
 
@@ -691,91 +518,6 @@ A saída do exemplo anterior com os valores predefinidos é:
 | objetoSaída | Objeto | {"um": "a", "três": "c"} |
 | arrayOutput | Matriz | ["dois", "três"] |
 
-Para implementar este modelo de exemplo com o Azure CLI, utilize:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/intersection.json
-```
-
-Para implementar este modelo de exemplo com powerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/intersection.json
-```
-
-## <a name="json"></a>json
-
-`json(arg1)`
-
-Devolve um objeto JSON.
-
-### <a name="parameters"></a>Parâmetros
-
-| Parâmetro | Necessário | Tipo | Descrição |
-|:--- |:--- |:--- |:--- |
-| arg1 |Sim |string |O valor para converter para JSON. |
-
-### <a name="return-value"></a>Valor devolvido
-
-O objeto JSON da corda especificada ou um objeto vazio quando for especificado **nulo.**
-
-### <a name="remarks"></a>Observações
-
-Se precisar de incluir um valor de parâmetro ou variável no objeto JSON, utilize a função [concat](template-functions-string.md#concat) para criar a cadeia que passa para a função.
-
-### <a name="example"></a>Exemplo
-
-O [seguinte modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/json.json) de exemplo mostra como usar a função json com matrizes e objetos:
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "testValue": {
-            "type": "string",
-            "defaultValue": "demo value"
-        }
-    },
-    "resources": [
-    ],
-    "outputs": {
-        "jsonOutput": {
-            "type": "object",
-            "value": "[json('{\"a\": \"b\"}')]"
-        },
-        "nullOutput": {
-            "type": "bool",
-            "value": "[empty(json('null'))]"
-        },
-        "paramOutput": {
-            "type": "object",
-            "value": "[json(concat('{\"a\": \"', parameters('testValue'), '\"}'))]"
-        }
-    }
-}
-```
-
-A saída do exemplo anterior com os valores predefinidos é:
-
-| Nome | Tipo | Valor |
-| ---- | ---- | ----- |
-| jsonOutput | Objeto | {"a": "b"} |
-| nullOutput | Booleano | Verdadeiro |
-| paramOutput | Objeto | {"a": "valor de demonstração"}
-
-Para implementar este modelo de exemplo com o Azure CLI, utilize:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/json.json
-```
-
-Para implementar este modelo de exemplo com powerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/json.json
-```
-
 ## <a name="last"></a>última
 
 `last (arg1)`
@@ -825,20 +567,8 @@ A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | Cadeia | três |
-| cadeiaOutput | Cadeia | e |
-
-Para implementar este modelo de exemplo com o Azure CLI, utilize:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
-```
-
-Para implementar este modelo de exemplo com powerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
-```
+| arrayOutput | String | três |
+| cadeiaOutput | String | e |
 
 ## <a name="length"></a>length
 
@@ -916,18 +646,6 @@ A saída do exemplo anterior com os valores predefinidos é:
 | stringLength | int | 13 |
 | objetoComprimento | int | 4 |
 
-Para implementar este modelo de exemplo com o Azure CLI, utilize:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
-```
-
-Para implementar este modelo de exemplo com powerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
-```
-
 Pode utilizar esta função com uma matriz para especificar o número de iterações ao criar recursos. No exemplo seguinte, o site de **parâmetrosNames** refere-se a uma série de nomes a utilizar na criação dos web sites.
 
 ```json
@@ -990,18 +708,6 @@ A saída do exemplo anterior com os valores predefinidos é:
 | arrayOutput | int | 5 |
 | intOutput | int | 5 |
 
-Para implementar este modelo de exemplo com o Azure CLI, utilize:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
-```
-
-Para implementar este modelo de exemplo com powerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
-```
-
 ## <a name="min"></a>min
 
 `min(arg1)`
@@ -1053,18 +759,6 @@ A saída do exemplo anterior com os valores predefinidos é:
 | arrayOutput | int | 0 |
 | intOutput | int | 0 |
 
-Para implementar este modelo de exemplo com o Azure CLI, utilize:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
-```
-
-Para implementar este modelo de exemplo com powerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
-```
-
 ## <a name="range"></a>alcance
 
 `range(startIndex, count)`
@@ -1115,18 +809,6 @@ A saída do exemplo anterior com os valores predefinidos é:
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | gamaSaída de saída | Matriz | [5, 6, 7] |
-
-Para implementar este modelo de exemplo com o Azure CLI, utilize:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/range.json
-```
-
-Para implementar este modelo de exemplo com powerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/range.json
-```
 
 ## <a name="skip"></a>saltar
 
@@ -1194,19 +876,7 @@ A saída do exemplo anterior com os valores predefinidos é:
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | Matriz | ["três"] |
-| cadeiaOutput | Cadeia | dois três |
-
-Para implementar este modelo de exemplo com o Azure CLI, utilize:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
-```
-
-Para implementar este modelo de exemplo com powerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
-```
+| cadeiaOutput | String | dois três |
 
 ## <a name="take"></a>tomar
 
@@ -1274,19 +944,7 @@ A saída do exemplo anterior com os valores predefinidos é:
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | Matriz | ["um", "dois"] |
-| cadeiaOutput | Cadeia | em |
-
-Para implementar este modelo de exemplo com o Azure CLI, utilize:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
-```
-
-Para implementar este modelo de exemplo com powerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
-```
+| cadeiaOutput | String | em |
 
 ## <a name="union"></a>união
 
@@ -1354,22 +1012,6 @@ A saída do exemplo anterior com os valores predefinidos é:
 | objetoSaída | Objeto | {"um": "a", "dois": "b", "três": "c2", "quatro": "d", "cinco": "e"} |
 | arrayOutput | Matriz | ["um", "dois", "três", "quatro"] |
 
-Para implementar este modelo de exemplo com o Azure CLI, utilize:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/union.json
-```
-
-Para implementar este modelo de exemplo com powerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/union.json
-```
-
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para uma descrição das secções num modelo de Gestor de Recursos Azure, consulte os modelos de [Gestor de Recursos Azure da Autoria](template-syntax.md).
-* Para fundir vários modelos, consulte [Utilizar modelos ligados com](linked-templates.md)o Gestor de Recursos Azure .
-* Para iterar um número especificado de vezes ao criar um tipo de recurso, consulte [Criar múltiplas instâncias de recursos no Gestor de Recursos Azure](copy-resources.md).
-* Para ver como implementar o modelo que criou, consulte [implementar uma aplicação com o modelo de Gestor](deploy-powershell.md)de Recursos Azure .
-
+* Para uma descrição das secções num modelo de Gestor de Recursos Azure, consulte [Compreender a estrutura e a sintaxe dos modelos ARM](template-syntax.md).

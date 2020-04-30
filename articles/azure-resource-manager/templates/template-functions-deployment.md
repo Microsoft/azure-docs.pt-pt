@@ -2,19 +2,19 @@
 title: Funções do modelo - implantação
 description: Descreve as funções a utilizar num modelo do Gestor de Recursos Azure para recuperar informações de implementação.
 ms.topic: conceptual
-ms.date: 11/27/2019
-ms.openlocfilehash: 86a1d3d7e05fedacd7a3c044ecab241ca9d059c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/27/2020
+ms.openlocfilehash: a52b4eae9df4ad3fdf9e481ee0a40aac48f6665b
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156332"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203799"
 ---
-# <a name="deployment-functions-for-arm-templates"></a>Funções de implantação para modelos ARM 
+# <a name="deployment-functions-for-arm-templates"></a>Funções de implantação para modelos ARM
 
 O Gestor de Recursos fornece as seguintes funções para obter valores relacionados com a implementação atual do seu modelo Degestor de Recursos Azure (ARM):
 
-* [implementação](#deployment)
+* [implantação](#deployment)
 * [ambiente](#environment)
 * [parâmetros](#parameters)
 * [variáveis](#variables)
@@ -29,7 +29,12 @@ Devolve informações sobre a operação de implantação atual.
 
 ### <a name="return-value"></a>Valor devolvido
 
-Esta função devolve o objeto que é passado durante a implantação. As propriedades do objeto devolvido diferem com base no facto de o objeto de implantação ser passado como um link ou como um objeto em linha. Quando o objeto de implantação é passado em linha, como quando se utiliza o parâmetro **-TemplateFile** em Azure PowerShell para apontar para um ficheiro local, o objeto devolvido tem o seguinte formato:
+Esta função devolve o objeto que é passado durante a implantação. As propriedades do objeto devolvido diferem com base no facto de ser:
+
+* implementando um modelo que é um arquivo local ou implementando um modelo que é um ficheiro remoto acedido através de um URI.
+* implantação para um grupo de recursos ou implantação para um dos outros âmbitos[(subscrição Azure,](deploy-to-subscription.md)grupo de [gestão,](deploy-to-management-group.md)ou [inquilino).](deploy-to-tenant.md)
+
+Ao implantar um modelo local para um grupo de recursos: a função devolve o seguinte formato:
 
 ```json
 {
@@ -44,6 +49,7 @@ Esta função devolve o objeto que é passado durante a implantação. As propri
             ],
             "outputs": {}
         },
+        "templateHash": "",
         "parameters": {},
         "mode": "",
         "provisioningState": ""
@@ -51,7 +57,7 @@ Esta função devolve o objeto que é passado durante a implantação. As propri
 }
 ```
 
-Quando o objeto é passado como um link, como quando se utiliza o parâmetro **-TemplateUri** para apontar para um objeto remoto, o objeto é devolvido no seguinte formato: 
+Ao implantar um modelo remoto para um grupo de recursos: a função devolve o seguinte formato:
 
 ```json
 {
@@ -68,6 +74,7 @@ Quando o objeto é passado como um link, como quando se utiliza o parâmetro **-
             "resources": [],
             "outputs": {}
         },
+        "templateHash": "",
         "parameters": {},
         "mode": "",
         "provisioningState": ""
@@ -75,7 +82,26 @@ Quando o objeto é passado como um link, como quando se utiliza o parâmetro **-
 }
 ```
 
-Quando [se implementa para uma subscrição Azure](deploy-to-subscription.md), em `location` vez de um grupo de recursos, o objeto de retorno inclui uma propriedade. A propriedade de localização está incluída ao implementar um modelo local ou um modelo externo.
+Quando se desdobra para uma subscrição Azure, grupo `location` de gestão ou inquilino, o objeto de retorno inclui uma propriedade. A propriedade de localização está incluída ao implementar um modelo local ou um modelo externo. O formato é:
+
+```json
+{
+    "name": "",
+    "location": "",
+    "properties": {
+        "template": {
+            "$schema": "",
+            "contentVersion": "",
+            "resources": [],
+            "outputs": {}
+        },
+        "templateHash": "",
+        "parameters": {},
+        "mode": "",
+        "provisioningState": ""
+    }
+}
+```
 
 ### <a name="remarks"></a>Observações
 
@@ -99,7 +125,7 @@ O [seguinte modelo](https://github.com/Azure/azure-docs-json-samples/blob/master
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
-        "subscriptionOutput": {
+        "deploymentOutput": {
             "value": "[deployment()]",
             "type" : "object"
         }
@@ -118,20 +144,19 @@ O exemplo anterior devolve o seguinte objeto:
       "contentVersion": "1.0.0.0",
       "resources": [],
       "outputs": {
-        "subscriptionOutput": {
+        "deploymentOutput": {
           "type": "Object",
           "value": "[deployment()]"
         }
       }
     },
+    "templateHash": "13135986259522608210",
     "parameters": {},
     "mode": "Incremental",
     "provisioningState": "Accepted"
   }
 }
 ```
-
-Para um modelo de nível de subscrição que utiliza a função de implementação, consulte a função de implementação de [subscrição](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deploymentsubscription.json). Está implantado com ou `az deployment create` `New-AzDeployment` comandados.
 
 ## <a name="environment"></a>environment
 
@@ -328,11 +353,11 @@ A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| cadeiaOutput | Cadeia | opção 1 |
+| cadeiaOutput | String | opção 1 |
 | intOutput | int | 1 |
 | objetoSaída | Objeto | {"um": "a", "dois": "b"} |
 | arrayOutput | Matriz | [1, 2, 3] |
-| crossOutput | Cadeia | opção 1 |
+| crossOutput | String | opção 1 |
 
 Para obter mais informações sobre a utilização de parâmetros, consulte [parâmetros no modelo do Gestor](template-parameters.md)de Recursos Azure .
 
@@ -346,7 +371,7 @@ Devolve o valor da variável. O nome variável especificado deve ser definido na
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| nome variável |Sim |Cadeia |O nome da variável para voltar. |
+| nome variável |Sim |String |O nome da variável para voltar. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -420,16 +445,13 @@ A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| exemploSOutput1 | Cadeia | myVariável |
+| exemploSOutput1 | String | myVariável |
 | exemploSOutput2 | Matriz | [1, 2, 3, 4] |
-| exemploSOutput3 | Cadeia | myVariável |
+| exemploSOutput3 | String | myVariável |
 | exemploSOutput4 |  Objeto | {"property1": "value1", "property2": "value2"} |
 
 Para obter mais informações sobre a utilização de variáveis, consulte [variáveis no modelo de Gestor](template-variables.md)de Recursos Azure .
 
 ## <a name="next-steps"></a>Passos seguintes
-* Para uma descrição das secções num modelo de Gestor de Recursos Azure, consulte os modelos de [Gestor de Recursos Azure da Autoria](template-syntax.md).
-* Para fundir vários modelos, consulte [Utilizar modelos ligados com](linked-templates.md)o Gestor de Recursos Azure .
-* Para iterar um número especificado de vezes ao criar um tipo de recurso, consulte [Criar múltiplas instâncias de recursos no Gestor de Recursos Azure](copy-resources.md).
-* Para ver como implementar o modelo que criou, consulte [implementar uma aplicação com o modelo de Gestor](deploy-powershell.md)de Recursos Azure .
 
+* Para uma descrição das secções num modelo de Gestor de Recursos Azure, consulte [Compreender a estrutura e a sintaxe dos modelos ARM](template-syntax.md).

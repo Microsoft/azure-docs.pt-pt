@@ -136,10 +136,10 @@
         - name: Aprovisionar débito em contentores e bases de dados
           displayName: 'request units, RUs, RU, limits, database throughput, shared throughput, container throughput'
           href: set-throughput.md
-        - name: Aprovisionar débito - modo Autopilot
-          href: provision-throughput-autopilot.md
-        - name: FAQ acerca do Autopilot
-          href: autopilot-faq.md
+        - name: Aprovisionar débito - modo de dimensionamento automático
+          href: provision-throughput-autoscale.md
+        - name: FAQ sobre dimensionamento automático
+          href: autoscale-faq.md
     - name: Consulta SQL
       items:
         - name: Introdução
@@ -518,6 +518,7 @@
         - name: Custo Total de Posse (TCO)
           href: total-cost-ownership.md
         - name: Compreender a sua fatura
+          displayName: free tier
           href: understand-your-bill.md
         - name: Otimizar o custo do débito aprovisionado
           displayName: 'request units, RUs, RU'
@@ -531,6 +532,7 @@
         - name: Otimizar o custo de várias regiões
           href: optimize-cost-regions.md
         - name: Otimizar o custo de desenvolvimento/teste
+          displayName: free tier
           href: optimize-dev-test.md
         - name: Otimizar o custo com a capacidade de reserva
           href: cosmos-db-reserved-capacity.md

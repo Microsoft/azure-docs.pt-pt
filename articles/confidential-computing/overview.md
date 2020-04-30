@@ -9,10 +9,10 @@ ms.topic: overview
 ms.date: 04/06/2020
 ms.author: JenCook
 ms.openlocfilehash: ae98325d98df1ac8a06e0c0bc950d89cc6b77eda
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82192268"
 ---
 # <a name="confidential-computing-on-azure"></a>Computação confidencial em Azure

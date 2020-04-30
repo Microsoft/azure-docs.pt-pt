@@ -2,14 +2,14 @@
 title: 'Quickstart: Use SDK para criar e gerir base de conhecimento - QnA Maker'
 description: Este quickstart mostra-lhe como criar e gerir a sua base de conhecimento usando o SDK do cliente.
 ms.topic: quickstart
-ms.date: 01/13/2020
+ms.date: 04/27/2020
 zone_pivot_groups: programming-languages-set-six
-ms.openlocfilehash: 065f88ce12037109773b7023972c151d968840a8
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 350020069edc2ae01f1716b1e6166da43054b24b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "79241767"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204041"
 ---
 # <a name="quickstart-create-and-manage-knowledge-base"></a>Quickstart: Criar e gerir base de conhecimento
 

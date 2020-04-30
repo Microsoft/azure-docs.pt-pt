@@ -3,12 +3,12 @@ title: Perguntas frequentes para o Serviço Azure Kubernetes (AKS)
 description: Encontre respostas a algumas das perguntas comuns sobre o Serviço Azure Kubernetes (AKS).
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: f91fe1c63430a0eac23cf9cbc184babb6dd5f7a4
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.openlocfilehash: a58c3510d8937b209bf6c73d33237785ecab161d
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82106089"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82206616"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Perguntas mais frequentes acerca do Azure Kubernetes Service (AKS)
 
@@ -50,7 +50,7 @@ Para obter mais informações sobre o uso de kured, consulte Aplicar atualizaç�
 
 ### <a name="windows-server-nodes"></a>Nós do Servidor do Windows
 
-No caso dos nós do Windows Server (atualmente em pré-visualização no AKS), o Windows Update não é executado automaticamente e aplica as atualizações mais recentes. Numa programação regular em torno do ciclo de lançamento do Windows Update e do seu próprio processo de validação, deverá efetuar uma atualização no cluster e no conjunto de nós do Windows Server no seu cluster AKS. Este processo de upgrade cria nós que executam a mais recente imagem e patches do Windows Server e, em seguida, remove os nós mais antigos. Para obter mais informações sobre este processo, consulte [Atualização de um conjunto][nodepool-upgrade]de nós em AKS .
+No caso dos nós do Windows Server, o Windows Update não é executado automaticamente e aplica as atualizações mais recentes. Numa programação regular em torno do ciclo de lançamento do Windows Update e do seu próprio processo de validação, deverá efetuar uma atualização no cluster e no conjunto de nós do Windows Server no seu cluster AKS. Este processo de upgrade cria nós que executam a mais recente imagem e patches do Windows Server e, em seguida, remove os nós mais antigos. Para obter mais informações sobre este processo, consulte [Atualização de um conjunto][nodepool-upgrade]de nós em AKS .
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>Porque é que dois grupos de recursos são criados com AKS?
 
@@ -122,7 +122,7 @@ A AKS não está atualmente integrada com o Cofre chave Azure. No entanto, o [pr
 
 ## <a name="can-i-run-windows-server-containers-on-aks"></a>Posso executar os contentores do Windows Server no AKS?
 
-Sim, os recipientes do Windows Server estão disponíveis na pré-visualização. Para executar os recipientes do Windows Server no AKS, cria-se uma piscina de nós que executa o Windows Server como o OS de hóspedes. Os recipientes do Windows Server só podem utilizar o Windows Server 2019. Para começar, consulte [Criar um cluster AKS com uma piscina][aks-windows-cli]de nó do Windows Server .
+Sim, os recipientes do Windows Server estão disponíveis no AKS. Para executar os recipientes do Windows Server no AKS, cria-se uma piscina de nós que executa o Windows Server como o OS de hóspedes. Os recipientes do Windows Server só podem utilizar o Windows Server 2019. Para começar, consulte [Criar um cluster AKS com uma piscina][aks-windows-cli]de nó do Windows Server .
 
 O suporte do Windows Server para piscina de nó inclui algumas limitações que fazem parte do Windows Server a montante no projeto Kubernetes. Para obter mais informações sobre estas limitações, consulte [os recipientes do Windows Server nas limitações aks][aks-windows-limitations].
 

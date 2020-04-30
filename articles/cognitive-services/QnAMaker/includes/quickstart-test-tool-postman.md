@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
 ms.custom: include file
-ms.date: 02/08/2020
+ms.date: 04/27/2020
 ms.author: diberry
-ms.openlocfilehash: dd44d9cb01ff072d89afeb4efc4a59071c621315
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 97dfe175a609ab336206098948b4e3fcc401d8bc
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80758694"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203978"
 ---
 Este quickstart baseado em Carteiro leva-o através de obter uma resposta da sua base de conhecimento.
 
@@ -40,7 +40,7 @@ Utilize este procedimento para configurar o Carteiro e, em seguida, leia cada se
     |Nome|Definição|Finalidade e valor|
     |--|--|--|
     |`POST`| `/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer`|Este é o método HTTP e a rota para o URL.|
-    |`Host`|`https://diberry-qna-s0-s.azurewebsites.net/qnamaker`|Este é o anfitrião da URL. Concatenate os valores do Anfitrião e do Post para obter o URL de resposta gerada completa.|
+    |`Host`|`https://YOUR-RESOURCE_NAME.azurewebsites.net/qnamaker`|Este é o anfitrião da URL. Concatenate os valores do Anfitrião e do Post para obter o URL de resposta gerada completa.|
     |`Authorization`|`EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`|O valor do cabeçalho para autorizar o seu pedido ao Azure. |
     |`Content-type`|`application/json`|O valor do cabeçalho para o seu conteúdo.|
     ||`{"question":"<Your question>"}`|O corpo do pedido do POST como objeto JSON. Este valor irá alterar-se em cada secção seguinte, dependendo do que a consulta deve fazer.|

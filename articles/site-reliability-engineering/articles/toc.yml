@@ -1,0 +1,7 @@
+- name: Documentação de engenharia de fiabilidade do local
+  href: ../index.yml
+- name: Perguntas Mais Frequentes
+  expanded: true
+  items:
+    - name: SRE e DevOps
+      href: devops.md

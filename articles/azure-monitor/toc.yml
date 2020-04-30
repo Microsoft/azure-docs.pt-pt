@@ -243,11 +243,13 @@
             - name: Autónomo - qualquer ambiente
               items:
                 - name: Java (pré-visualização)
-                  href: app/java-in-process-agent.md
-                - name: Configuração do JVM Java
-                  href: app/java-standalone-arguments.md
-                - name: Opções de configuração Java
-                  href: app/java-standalone-config.md
+                  items:
+                    - name: Descrição geral
+                      href: app/java-in-process-agent.md
+                    - name: Opções de configuração
+                      href: app/java-standalone-config.md
+                    - name: Configuração de argumentos JVM
+                      href: app/java-standalone-arguments.md
             - name: Servidores no local
               items:
                 - name: ASP.NET
@@ -690,8 +692,10 @@
                   href: insights/container-insights-enable-existing-clusters.md
                 - name: Ativar para cluster híbrido
                   href: insights/container-insights-hybrid-setup.md
-                - name: Ativar para o Azure Red Hat OpenShift
+                - name: Ativar para o Azure Red Hat OpenShift v3
                   href: insights/container-insights-azure-redhat-setup.md
+                - name: Ativar para o Azure Red Hat OpenShift v4
+                  href: insights/container-insights-azure-redhat4-setup.md
                 - name: Mapeamentos de região
                   href: insights/container-insights-region-mapping.md
             - name: Monitorizar desempenho
@@ -724,10 +728,16 @@
               href: insights/container-insights-update-metrics.md
             - name: Configuração da monitorização do estado de funcionamento
               href: insights/container-insights-health-monitors-config.md
-            - name: Desativar a monitorização do AKS
-              href: insights/container-insights-optout.md
-            - name: Desativar a monitorização do Red Hat OpenShift
-              href: insights/container-insights-optout-openshift.md
+            - name: Desativar a monitorização
+              items:
+                - name: Desativar a monitorização do AKS
+                  href: insights/container-insights-optout.md
+                - name: Desativar a monitorização do Red Hat OpenShift v3
+                  href: insights/container-insights-optout-openshift-v3.md
+                - name: Desativar a monitorização do Red Hat OpenShift v4
+                  href: insights/container-insights-optout-openshift-v4.md
+                - name: Desativar a monitorização do cluster híbrido
+                  href: insights/container-insights-optout-hybrid.md
             - name: Resolução de problemas
               href: insights/container-insights-troubleshoot.md
         - name: Docker e monitorização do Contentor do Windows

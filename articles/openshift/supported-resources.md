@@ -1,21 +1,21 @@
 ---
-title: Recursos suportados para o OpenShift do Chapéu Vermelho Azure
+title: Recursos suportados para O Hat Vermelho Azure OpenShift 3.11
 description: Entenda quais as regiões azure e tamanhos de máquinas virtuais suportados pelo Microsoft Azure Red Hat OpenShift.
 author: jimzim
 ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: 1b794852390141d31a3218a1a434c21133db914c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 38203cede755d776ba9142ad16e1bea1fd1637a6
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79243669"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203680"
 ---
 # <a name="azure-red-hat-openshift-resources"></a>Chapéu Vermelho Azure OpenShift recursos
 
-Este tópico lista as regiões azure e tamanhos de máquinas virtuais suportados pelo serviço Microsoft Azure Red Hat OpenShift.
+Este tópico lista as regiões azure e tamanhos de máquinas virtuais suportados pelo serviço Microsoft Azure Red Hat OpenShift 3.11.
 
 ## <a name="azure-regions"></a>Regiões do Azure
 

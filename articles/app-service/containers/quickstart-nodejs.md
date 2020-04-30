@@ -6,12 +6,12 @@ ms.author: msangapu
 ms.date: 08/12/2019
 ms.topic: quickstart
 ms.devlang: javascript
-ms.openlocfilehash: c647564d685470d86b2aa54be5a86bb995d914bc
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 24b93e9722ff399330b6843f065f183a3b1f5181
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82159733"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82202564"
 ---
 # <a name="create-a-nodejs-app-in-azure"></a>Crie uma app Node.js em Azure
 
@@ -83,7 +83,7 @@ Em seguida, certifique-se de que a aplicação está em funcionamento. A partir 
 npm start
 ```
 
-Agora, abra o seu [http://localhost:3000](http://localhost:3000)navegador e navegue para onde deve ver algo assim:
+Agora, abra o seu `http://localhost:3000`navegador e navegue para onde deve ver algo assim:
 
 ![Aplicação Expresso de Execução](./media/quickstart-nodejs/express.png)
 

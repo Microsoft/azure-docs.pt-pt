@@ -9,21 +9,18 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 10/31/2019
+ms.date: 03/31/2020
 ms.author: apimpm
-ms.openlocfilehash: 1f2184c7c62887a98a76877528b167d173c3d75b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dacf1329d35117c65bcc48a82ac27a767ebd2b3b
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335938"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203189"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurar um nome de domínio personalizado
 
 Quando você fornecer um gateway de [gestão Azure API auto-hospedado](self-hosted-gateway-overview.md) não é atribuído o nome de anfitrião e tem que ser referenciado pelo seu endereço IP. Este artigo mostra como mapear um nome dNS personalizado existente (também referido como nome de anfitrião) um gateway auto-hospedado.
-
-> [!NOTE]
-> A funcionalidade de gateway auto-hospedada está em pré-visualização. Durante a pré-visualização, o gateway auto-hospedado só está disponível nos níveis Developer e Premium sem custos adicionais. O nível de desenvolvimento está limitado a uma única implementação de gateway auto-hospedada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -45,7 +42,7 @@ Para realizar os passos descritos neste artigo, deve ter:
 
 1. Selecione **Certificados** a partir de âmbito de **segurança**.
 2. Selecione **+ Adicionar**.
-3. Introduza um nome de recurso para o certificado no campo **id.**
+3. Introduza um nome de recurso para o certificado no campo **de identificação.**
 4. Selecione o ficheiro que contém o certificado (. PFX) selecionando o campo **Certificado** ou o ícone da pasta adjacente.
 5. Introduza a palavra-passe do certificado no campo **Password.**
 6. Selecione **Criar** para adicionar o certificado ao seu serviço de Gestão API.

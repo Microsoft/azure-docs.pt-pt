@@ -16,12 +16,12 @@ ms.date: 05/31/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18b5f19e3e994aa05fa99caf360d0c1be69ec7a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0775e717c0610e122bb31f752beecd2c97599053
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80049778"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82201045"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Suporte para Vários Domínios para Federação com o Azure AD
 A seguinte documentação fornece orientações sobre como usar vários domínios e subdomínios de alto nível ao federar com domínios do Office 365 ou Azure AD.
@@ -137,7 +137,7 @@ E o EmedretoUri sobre o novo domínio foi definido para`https://bmfabrikam.com/a
 ## <a name="support-for-subdomains"></a>Apoio a subdomínios
 Quando adicionar um subdomínio, devido à forma como o Azure AD lidou com os domínios, herdará as definições do progenitor.  Então, o EmedrUri, precisa de combinar com os pais.
 
-Digamos, por exemplo, que tenho bmcontoso.com e depois adiciono corp.bmcontoso.com.  O EmitorUri para um utilizador de corp.bmcontoso.com terá de ser ** http://bmcontoso.com/adfs/services/trust.**  No entanto, a regra padrão acima implementada para a AD Azure, gerará um símbolo com um emitente como ** http://corp.bmcontoso.com/adfs/services/trust.** que não corresponda ao valor exigido do domínio e a autenticação falhará.
+Digamos, por exemplo, que tenho bmcontoso.com e depois adiciono corp.bmcontoso.com.  O EmitorUri para um utilizador **`http://bmcontoso.com/adfs/services/trust`** de corp.bmcontoso.com terá de ser .  No entanto, a regra padrão acima implementada para a AD **`http://corp.bmcontoso.com/adfs/services/trust`** Azure, gerará um símbolo com um emitente como . que não corresponda ao valor exigido do domínio e a autenticação falhará.
 
 ### <a name="how-to-enable-support-for-subdomains"></a>Como permitir o suporte para subdomínios
 Para contornar este comportamento, o AD FS confia na confiança do partido para o Microsoft Online precisa de ser atualizado.  Para isso, deve configurar uma regra de reclamação personalizada para que retire quaisquer subdomínios do sufixo UPN do utilizador ao construir o valor emitente personalizado.

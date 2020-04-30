@@ -2,17 +2,17 @@
 title: Métricas personalizadas no Monitor Azure
 description: Saiba mais sobre métricas personalizadas no Monitor Azure e como são modeladas.
 author: ancav
+ms.author: ancav
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 09/09/2019
-ms.author: ancav
+ms.date: 04/23/2020
 ms.subservice: metrics
-ms.openlocfilehash: 099ab150cde763551c2ad10a4e9159909ccff4dd
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 4286910c926cd6bd3b21acfd145e4e69548319ce
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81270711"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204309"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Métricas personalizadas no Monitor Azure
 
@@ -212,6 +212,11 @@ Durante a pré-visualização pública, a capacidade de publicar métricas perso
 |Ásia Leste | https:\//eastasia.monitoring.azure.com
 |Coreia do Sul Central   | https:\//koreacentral.monitoring.azure.com
 
+## <a name="latency-and-storage-retention"></a>Latência e retenção de armazenamento
+
+Adicionar uma nova métrica ou uma nova dimensão adicionada a uma métrica pode levar até 2 a 3 minutos para aparecer. Uma vez no sistema, os dados devem ser lançados em menos de 30 segundos 99% do tempo. 
+
+Se eliminar uma métrica ou remover uma dimensão, a alteração pode demorar uma semana a um mês a ser eliminada do sistema.
 
 ## <a name="quotas-and-limits"></a>Quotas e limites
 O Monitor Azure impõe os seguintes limites de utilização em métricas personalizadas:

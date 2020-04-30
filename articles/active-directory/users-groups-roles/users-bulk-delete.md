@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 04/16/2020
+ms.date: 04/27/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,16 +13,37 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: beb8b4f35dc5f02e59cced05a6bcfc235d42f996
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: ca30d5b050a34000fa7c6465356aba206aeaa8e4
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81532828"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203364"
 ---
 # <a name="bulk-delete-users-in-azure-active-directory"></a>Granel apaga utilizadores no Diretório Ativo do Azure
 
 Utilizando o portal Azure Ative Directory (Azure AD), pode remover um grande número de membros para um grupo utilizando um ficheiro de valores separados de vírem (CSV) para eliminar os utilizadores em massa.
+
+## <a name="understand-the-csv-template"></a>Compreenda o modelo CSV
+
+Faça o download e preencha o modelo CSV para ajudá-lo a eliminar com sucesso os utilizadores de AD Azure a granel. O modelo CSV que descarrega pode parecer este exemplo:
+
+![Folha de cálculo para upload e chamadas explicando o propósito e valores para cada linha e coluna](./media/users-bulk-delete/understand-template.png)
+
+### <a name="csv-template-structure"></a>Estrutura do modelo CSV
+
+As linhas num modelo CSV descarregado são as seguintes:
+
+- **Número**da versão : A primeira linha que contém o número da versão deve ser incluída no CSV de carregamento.
+- **Títulos da coluna**: O formato das rubricas da coluna é &lt;o nome&gt; &lt; *item* [PropertyName] *exigido ou em branco*&gt;. Por exemplo, `User name [userPrincipalName] Required`. Algumas versões mais antigas do modelo podem ter ligeiras variações.
+- **Exemplos de linha**: Incluímos no modelo uma linha de exemplos de valores aceitáveis para cada coluna. Deve remover a linha de exemplos e substituí-la pelas suas próprias entradas.
+
+### <a name="additional-guidance"></a>Orientações adicionais
+
+- As duas primeiras linhas do modelo de carregamento não devem ser removidas ou modificadas, ou o upload não pode ser processado.
+- As colunas necessárias estão listadas primeiro.
+- Não recomendamos adicionar novas colunas ao modelo. Quaisquer colunas adicionais que adicione são ignoradas e não processadas.
+- Recomendamos que descarregue a versão mais recente do modelo CSV sempre que possível.
 
 ## <a name="to-bulk-delete-users"></a>Para eliminar a granel os utilizadores
 
@@ -72,4 +93,4 @@ Verifique se os utilizadores que apagou já não estão listados.
 
 - [A granel adicionar utilizadores](users-bulk-add.md)
 - [Lista de descarregamento de utilizadores](users-bulk-download.md)
-- [A granel restaura utentes](users-bulk-restore.md)
+- [Restaurar utilizadores em massa](users-bulk-restore.md)

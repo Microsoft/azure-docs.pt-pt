@@ -1,17 +1,23 @@
 ---
-ms.openlocfilehash: 13dcdec4eff72f97e1af8ecb26e32c0ef5f881fd
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+title: 'Quickstart: Biblioteca de clientes QnA Maker para Python'
+description: Este quickstart mostra como começar com a biblioteca de clientes QnA Maker para Python.
+ms.topic: include
+ms.date: 04/27/2020
+ms.openlocfilehash: ccd046ad8e511517abd9f45072781e736f0e79b9
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81637065"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204040"
 ---
-
 Utilize a biblioteca de clientes QnA Maker para:
 
 * Criar uma base de dados de conhecimento
-* Gerir uma base de conhecimento
+* Atualizar uma base de dados de conhecimento
 * Publicar uma base de dados de conhecimento
+* Obter a chave final do ponto final publicada
+* Aguarde a tarefa de longo prazo
+* Eliminar base de conhecimento
 
 [Documentação de referência](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker?view=azure-python) | [Biblioteca Código](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-knowledge-qnamaker) | fonte[Pacote (pipi)](https://pypi.org/project/azure-cognitiveservices-knowledge-qnamaker/) | [Amostras de Python](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/blob/master/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py)
 
@@ -21,6 +27,9 @@ Utilize a biblioteca de clientes QnA Maker para:
 
 * Assinatura Azure - [Criar uma gratuitamente](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
+* Assim que tiver a sua subscrição Azure, crie um [recurso QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) no portal Azure para obter a sua chave de autor e ponto final. Depois de ser implantado, selecione **Ir para o recurso**.
+    * Necessitará da chave e do ponto final do recurso que cria para ligar a sua aplicação à API do Fabricante qnA. Vaicolar a chave e o ponto final no código abaixo no arranque rápido.
+    * Você pode usar o nível de preços gratuitos (`F0`) para experimentar o serviço, e fazer upgrade mais tarde para um nível pago para produção.
 
 ## <a name="setting-up"></a>Configuração
 

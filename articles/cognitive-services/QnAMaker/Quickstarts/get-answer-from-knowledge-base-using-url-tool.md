@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 zone_pivot_groups: URL-test-interface
 ms.topic: quickstart
-ms.date: 02/08/2020
+ms.date: 04/27/2020
 ms.author: diberry
-ms.openlocfilehash: 09337ce599b0044ab38bb0ad0b0383ee90bfcbd8
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 1f19337aea8b39bbc8c7dc11fba683bee3c2955a
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77109640"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203976"
 ---
 # <a name="quickstart-get-an-answer-from-knowledge-base"></a>Quickstart: Obtenha uma resposta da base de conhecimento
 

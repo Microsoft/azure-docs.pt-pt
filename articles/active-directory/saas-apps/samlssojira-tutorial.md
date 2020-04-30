@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/03/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 957fee48397bc0b23737157dec0e74cf6505fab5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d6f6cb87cf7628c48ce6adf12336c4b712dc0ff9
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73160127"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82202677"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>Tutorial: Integração do Diretório Ativo Azure com a SAML SSO para a Jira por resolução GmbH
 
@@ -291,7 +291,7 @@ Nesta secção, testa a configuração de um único sinal do Azure AD utilizando
 
 Quando clicar no SAML SSO para Jira por resolução, o azulejo GmbH no Painel de Acesso, deve ser automaticamente inscrito no SAML SSO para jira por resolução GmbH para o qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
 
-Também pode testar um único sinal, se navegar para [https://\<>/plugins/servlet/samlsso](https://\<server-base-url>/plugins/servlet/samlsso). Substitua o ** \<url-base do servidor>** com o URL base da sua instância Jira.
+Também pode testar um único sinal, `https://<server-base-url>/plugins/servlet/samlsso`se navegar para . Substitua o ** \<url-base do servidor>** com o URL base da sua instância Jira.
 
 
 ## <a name="enable-single-sign-on-redirection-for-jira"></a>Ativar uma única direção de sinalização para Jira
@@ -311,7 +311,7 @@ Para ativar o redirecionamento SSO, faça o seguinte na **sua instância Jira:**
 
 1. Prima o botão **'Definições de Poupança'** no canto superior direito.
 
-Depois de ativar a opção, ainda pode chegar ao pedido de username/password se a opção **Enable nosso** for assinalada navegando para [https://\<servidor-base-url>/login.jsp?nosso](https://\<server-base-url>/login.jsp?nosso). Como sempre, ** \<** substitua o>de url base do servidor com o url base.
+Depois de ativar a opção, ainda pode chegar ao pedido de username/password `https://\<server-base-url>/login.jsp?nosso`se a opção Enable **nosso** for assinalada navegando para . Como sempre, ** \<** substitua o>de url base do servidor com o url base.
 
 
 ## <a name="additional-resources"></a>Recursos adicionais

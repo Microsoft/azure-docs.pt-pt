@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: e263ecde532a8aaed420932bf355910da201723e
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 600f19a6fc0b44fa8cb4b3ba6d37fcc601605dc5
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80365837"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82206736"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Escolha o método de autenticação certo para a sua solução de identidade híbrida Azure Ative Directory
 
@@ -71,7 +71,7 @@ Detalhes sobre questões de decisão:
 
 1. O Azure AD pode lidar com o check-in para os utilizadores sem depender de componentes no local para verificar as palavras-passe.
 2. O Azure AD pode entregar o início de sessão do utilizador a um fornecedor de autenticação fidedigno, como o AD FS da Microsoft.
-3. Se necessitar de aplicar políticas de segurança de diretório ativo ao nível do utilizador, tais como conta caducada, conta desativada, senha expirada, conta bloqueada e horas de início de cada utilizador, o Azure AD requer alguns componentes no local.
+3. Se precisar de aplicar, as políticas de segurança do Diretório Ativo ao nível do utilizador, tais como a conta caducada, a conta desativada, a conta bloqueada e as horas de entrada em cada utilizador, o Azure AD requer alguns componentes no local.
 4. Características de entrada não suportadas de forma nativa pela Azure AD:
    * Inscreva-se utilizando cartões inteligentes ou certificados.
    * Iniciar sessão utilizando o MFA Server no local.
@@ -134,7 +134,7 @@ Consulte a implementação da [autenticação pass-through](../../active-directo
 
 * **Experiência do utilizador.** A experiência do utilizador da autenticação federada depende da implementação das funcionalidades, topologia e configuração da quinta da federação. Algumas organizações precisam desta flexibilidade para adaptar e configurar o acesso à quinta da federação de acordo com os seus requisitos de segurança. Por exemplo, é possível configurar utilizadores e dispositivos ligados internamente para iniciar sessão automática nos utilizadores, sem os solicitar credenciais. Esta configuração funciona porque já assinaram nos seus dispositivos. Se necessário, algumas funcionalidades de segurança avançadas dificultam o processo de início de sessão dos utilizadores.
 
-* **Cenários avançados.** Uma solução de autenticação federada é geralmente necessária quando os clientes têm um requisito de autenticação que a Azure AD não suporta de forma nativa. Consulte informações detalhadas para o ajudar [a escolher a opção de inscrição certa](https://blogs.msdn.microsoft.com/samueld/2017/06/13/choosing-the-right-sign-in-option-to-connect-to-azure-ad-office-365/). Considere os seguintes requisitos comuns:
+* **Cenários avançados.** É necessária uma solução de autenticação federada quando os clientes têm um requisito de autenticação que a Azure AD não suporta de forma nativa. Consulte informações detalhadas para o ajudar [a escolher a opção de inscrição certa](https://blogs.msdn.microsoft.com/samueld/2017/06/13/choosing-the-right-sign-in-option-to-connect-to-azure-ad-office-365/). Considere os seguintes requisitos comuns:
 
   * Autenticação que requer cartões inteligentes ou certificados.
   * No local, servidores MFA ou fornecedores multifactor de terceiros que requerem um fornecedor de identidade federado.
@@ -203,7 +203,7 @@ Utilize ou ative a sincronização de hash por palavra-passe para qualquer méto
 
 2. **No local, a sobrevivência da paralisação.**  As consequências de uma paralisação no local devido a um ciberataque ou desastre podem ser substanciais, desde danos reputacionais à marca para uma organização paralisada incapaz de lidar com o ataque. Recentemente, muitas organizações foram vítimas de ataques de malware, incluindo ransomware direcionado, o que fez com que os seus servidores no local fossem abatidos. Quando a Microsoft ajuda os clientes a lidar com este tipo de ataques, vê duas categorias de organizações:
 
-   * As organizações que anteriormente ativaram a sincronização de hash de senha alteraram o seu método de autenticação para utilizar a sincronização de hash de senha. Voltaram a funcionar numa questão de horas. Ao usar o acesso ao e-mail via Office 365, trabalharam para resolver problemas e aceder a outras cargas de trabalho baseadas na nuvem.
+   * As organizações que anteriormente também ligavam a sincronização de hash de senha em cima da autenticação federada ou pass-through alteraram o seu método de autenticação primária para depois utilizarem a sincronização de hash de senha. Voltaram a funcionar numa questão de horas. Ao usar o acesso ao e-mail via Office 365, trabalharam para resolver problemas e aceder a outras cargas de trabalho baseadas na nuvem.
 
    * As organizações que anteriormente não permitiam a sincronização de hash de palavra-passe tiveram de recorrer a sistemas de email externos não confiáveis para comunicações para resolver problemas. Nesses casos, demoraram semanas a restaurar a sua infraestrutura de identidade no local, antes de os utilizadores poderem voltar a inscrever-se em aplicações baseadas na nuvem.
 

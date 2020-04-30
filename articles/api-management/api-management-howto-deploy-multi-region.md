@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 5c71f37741de06b8633e7eafaae2f29823214f74
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0f8d9d7d90e88b4e43721dac274833a3b0df275e
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "75442671"
+ms.locfileid: "82203153"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Como implementar uma instância de serviço da Gestão de API do Azure em várias regiões do Azure
 
@@ -31,36 +31,23 @@ Um novo serviço de Gestão De API Azure contém inicialmente apenas uma [unidad
 
 [!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
 
-## <a name="deploy-an-api-management-service-instance-to-a-new-region"></a><a name="add-region"> </a>Implementar uma instância de serviço de Gestão API para uma nova região
+## <a name="deploy-api-management-service-to-a-new-region"></a><a name="add-region"> </a>Implementar serviço de Gestão API para uma nova região
 
 > [!NOTE]
 > Se ainda não criou uma instância de serviço de Gestão API, consulte Criar uma instância de serviço de [Gestão API][create an api management service instance].
 
-No portal Azure, navegue para a Escala e página **de preços** para a sua instância de serviço de Gestão API.
+1. No portal Azure, navegue para o seu serviço de Gestão API e clique na entrada **de Localizações** no menu.
+2. Clique **+ Adicione** a barra superior.
+3. Selecione a localização a partir da lista de lançamentos e detetete o número de unidades com o slider.
+4. Clique no botão **Adicionar** para confirmar.
+5. Repita este processo até configurar todos os locais.
+6. Clique em **Guardar** na barra superior para iniciar o processo de implementação.
 
-![Separador de escala][api-management-scale-service]
+## <a name="delete-an-api-management-service-location"></a><a name="remove-region"> </a>Eliminar um local de serviço de Gestão API
 
-Para se implantar numa nova região, clique em + Adicione a **região** a partir da barra de ferramentas.
-
-![Adicionar região][api-management-add-region]
-
-Selecione a localização da lista de drop-down e detetete o número de unidades com o slider.
-
-![Especificar unidades][api-management-select-location-units]
-
-Clique em **Adicionar** para colocar a sua seleção na tabela Locais.
-
-Repita este processo até ter todos os locais configurados e clique em **Guardar** a partir da barra de ferramentas para iniciar o processo de implementação.
-
-## <a name="delete-an-api-management-service-instance-from-a-location"></a><a name="remove-region"> </a>Eliminar uma instância de serviço de Gestão API a partir de um local
-
-No portal Azure, navegue para a Escala e página **de preços** para a sua instância de serviço de Gestão API.
-
-![Separador de escala][api-management-scale-service]
-
-Para a localização que deseja remover, abra o menu de contexto usando o **...** botão na extremidade direita da mesa. Selecione a opção **Eliminar.**
-
-Confirme a eliminação e clique **em Guardar** para aplicar as alterações.
+1. No portal Azure, navegue para o seu serviço de Gestão API e clique na entrada **de Localizações** no menu.
+2. Para a localização que deseja remover, abra o menu de contexto usando o **...** botão na extremidade direita da mesa. Selecione a opção **Eliminar.**
+3. Confirme a eliminação e clique **em Guardar** para aplicar as alterações.
 
 ## <a name="route-api-calls-to-regional-backend-services"></a><a name="route-backend"> </a>Rota API chama serviços regionais de backend
 
@@ -119,11 +106,6 @@ A API Management encaminha os pedidos para um _portal_ regional com base na [lat
 1. [Configure os pontos finais do estado regional da API Management no Gestor de Tráfego.](../traffic-manager/traffic-manager-monitoring.md) Os pontos finais do `https://<service-name>-<region>-01.regional.azure-api.net/status-0123456789abcdef`estado regional `https://contoso-westus2-01.regional.azure-api.net/status-0123456789abcdef`seguem o padrão URL de, por exemplo.
 1. Especifique o método de [encaminhamento](../traffic-manager/traffic-manager-routing-methods.md) do Gestor de Tráfego.
 
-[api-management-management-console]: ./media/api-management-howto-deploy-multi-region/api-management-management-console.png
-[api-management-scale-service]: ./media/api-management-howto-deploy-multi-region/api-management-scale-service.png
-[api-management-add-region]: ./media/api-management-howto-deploy-multi-region/api-management-add-region.png
-[api-management-select-location-units]: ./media/api-management-howto-deploy-multi-region/api-management-select-location-units.png
-[api-management-remove-region]: ./media/api-management-howto-deploy-multi-region/api-management-remove-region.png
 [create an api management service instance]: get-started-create-service-instance.md
 [get started with azure api management]: get-started-create-service-instance.md
 [deploy an api management service instance to a new region]: #add-region

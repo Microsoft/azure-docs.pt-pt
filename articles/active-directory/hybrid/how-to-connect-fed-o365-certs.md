@@ -16,12 +16,12 @@ ms.date: 10/20/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d98a1aabef2de505e66b2127226b9e89cd791e20
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 89de1495dc6bb411d5d43986177f11abb016cf15
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "60244841"
+ms.locfileid: "82200892"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Renovar os certificados da federação para o Office 365 e o Azure Ative Directory
 ## <a name="overview"></a>Descrição geral
@@ -120,7 +120,7 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
 onde `(your_FS_name)` é substituído pelo nome de anfitrião do serviço da federação que a sua organização usa, como fs.contoso.com.  Se conseguir verificar ambas as definições com sucesso, não tem de fazer mais nada.  
 
-Exemplo: https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
+Exemplo: `https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml`
 ## <a name="renew-the-token-signing-certificate-manually"></a>Renovar manualmente o certificado de assinatura simbólica<a name="manualrenew"></a>
 Pode optar por renovar manualmente os certificados de assinatura de símbolos. Por exemplo, os seguintes cenários podem funcionar melhor para a renovação manual:
 

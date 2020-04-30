@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: victorh
-ms.openlocfilehash: 7feb0f00c5431048d19d4ad6cb3860f6eb8ed052
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 28a909c3b4011b55fb3fb67d9d64ab57a310cb86
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312712"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82207265"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Gateway de Aplicação com dimensionamento automático e redundância entre zonas v2 
 
@@ -23,7 +23,7 @@ O novo V2 SKU inclui as seguintes melhorias:
 - **Autoscalcificação**: As implementações de Gateway de aplicação ou WAF sob o SKU autoscalcificador podem escalar para cima ou para baixo com base na alteração dos padrões de carga de tráfego. O dimensionamento automático também elimina o requisito de escolher um tamanho de implementação ou uma contagem de instâncias ou durante o aprovisionamento. Este SKU oferece uma verdadeira elasticidade. No Standard_v2 e WAF_v2 SKU, o Application Gateway pode funcionar tanto em capacidade fixa (autoscalcificação) como no modo ativado por autoescala. O modo de capacidade fixa é útil para cenários com cargas de trabalho consistentes e previsíveis. O modo de autoscalcificação é benéfico em aplicações que vêem variação no tráfego de aplicações.
 - **Redundância de zona**: Uma implementação de Gateway de aplicação ou WAF pode abranger várias Zonas de Disponibilidade, eliminando a necessidade de fornecer instâncias separadas de Gateway de aplicação em cada zona com um Gestor de Tráfego. Pode escolher uma única zona ou várias zonas onde as instâncias de Gateway de Aplicação são implementadas, o que o torna mais resistente à falha da zona. O backend pool para aplicações pode ser distribuído de forma semelhante em zonas de disponibilidade.
 
-  O despedimento da zona só está disponível quando as Zonas Azure estiverem disponíveis. Noutras regiões, todas as outras características são apoiadas. Para mais informações, consulte [O que são Zonas de Disponibilidade em Azure?](../availability-zones/az-overview.md#services-support-by-region)
+  O despedimento da zona só está disponível quando as Zonas Azure estiverem disponíveis. Noutras regiões, todas as outras características são apoiadas. Para mais informações, consulte [Regiões e Zonas de Disponibilidade em Azure](../availability-zones/az-overview.md)
 - **VIP estático**: O Gateway v2 SKU suporta exclusivamente o tipo VIP estático. Isto garante que o VIP associado ao gateway de aplicação não se altere para o ciclo de vida da implementação, mesmo após um reinício.  Não existe um VIP estático em v1, por isso deve utilizar o URL de gateway da aplicação em vez do endereço IP para o encaminhamento de nome de domínio para Serviços de Aplicação através do gateway da aplicação.
 - **Cabeçalho Reescrever**: O Gateway da aplicação permite-lhe adicionar, remover ou atualizar os cabeçalhos de pedido e resposta http com v2 SKU. Para mais informações, consulte [cabeçalhos http reescrever com Gateway de aplicação](rewrite-http-headers.md)
 - **Integração do cofre chave**: O Gateway de aplicação v2 suporta a integração com o Key Vault para certificados de servidor que estão ligados aos ouvintes ativados por HTTPS. Para mais informações, consulte a [rescisão de TLS com certificados key vault](key-vault-certs.md).
@@ -42,7 +42,7 @@ O Standard_v2 e WAF_v2 SKU está disponível nas seguintes regiões: North Centr
 Com o V2 SKU, o modelo de preços é impulsionado pelo consumo e já não está ligado a contagens ou tamanhos de instância. O preço v2 SKU tem dois componentes:
 
 - **Preço fixo** - Este é o preço de hora (ou hora parcial) para fornecer um Standard_v2 ou WAF_v2 Gateway. Por favor, note que 0 instâncias mínimas adicionais ainda garantem uma elevada disponibilidade do serviço que está sempre incluído com preço fixo.
-- **Preço unitário** de capacidade - Este é um custo baseado no consumo que é cobrado para além do custo fixo. A carga da unidade de capacidade também é calculada de hora em hora ou parcialmente. Existem três dimensões para a unidade de capacidade - unidade de computação, conexões persistentes e entrada. A unidade computacional é uma medida da capacidade do processador consumida. Os fatores que afetam a unidade computacional são ligações TLS/seg, computações de reescrita de URL e processamento de regras WAF. A ligação persistente é uma medida de conexões TCP estabelecidas à porta de aplicação num determinado intervalo de faturação. A produção é megabits/seg média processada pelo sistema num determinado intervalo de faturação.  A faturação é feita a nível da Unidade de Capacidade para qualquer coisa acima da contagem de instâncias reservada.
+- **Preço unitário** de capacidade - Este é um custo baseado no consumo que é cobrado para além do custo fixo. A carga da unidade de capacidade também é calculada de hora em hora ou parcialmente. Existem três dimensões para a unidade de capacidade - unidade de computação, conexões persistentes e entrada. A unidade de computação é uma medida da capacidade do processador consumida. Os fatores que afetam a unidade de computação são as ligações TLS/seg., as computações de Reescrita de URLs e o processamento de regras WAF. A ligação persistente é uma medida de conexões TCP estabelecidas à porta de aplicação num determinado intervalo de faturação. A produção é megabits/seg média processada pelo sistema num determinado intervalo de faturação.  A faturação é feita a nível da Unidade de Capacidade para qualquer coisa acima da contagem de instâncias reservada.
 
 Cada unidade de capacidade é composta no máximo por: 1 unidade de cálculo, ou 2500 ligações persistentes, ou 2,22 Mbps de potência.
 
@@ -175,7 +175,7 @@ A tabela seguinte compara as funcionalidades disponíveis com cada SKU.
 |Faturação|Faturação prevista para começar a 1 de julho de 2019.|
 |Modo FIPS|Estes não são atualmente apoiados.|
 |Modo iLB|Isto não é atualmente apoiado. O modo público e iLB em conjunto é apoiado.|
-|Integração netwatcher|Não suportado.|
+|Integração de observadores de rede|Não suportado.|
 |Integração do Centro de Segurança do Azure|Ainda não está disponível.
 
 ## <a name="migrate-from-v1-to-v2"></a>Migrar do v1 para v2

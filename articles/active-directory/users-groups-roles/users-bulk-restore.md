@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 04/16/2020
+ms.date: 04/27/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,16 +13,37 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f75fe224491c2853f819a45db678e87849dc72d1
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 11f35c7615135f5aa6c63d5d05898d139df61d0d
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81532726"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203313"
 ---
 # <a name="bulk-restore-deleted-users-in-azure-active-directory"></a>A granel restaura utilizadores eliminados no Diretório Ativo do Azure
 
-O Azure Ative Directory (Azure AD) suporta a criação e eliminação de operações em massa do utilizador, convite a granel para hóspedes e suporta o download de listas de utilizadores, grupos e membros do grupo.
+O Azure Ative Directory (Azure AD) suporta operações de restauro de utilizadores a granel e suporta o descarregamento de listas de utilizadores, grupos e membros do grupo.
+
+## <a name="understand-the-csv-template"></a>Compreenda o modelo CSV
+
+Descarregue e preencha o modelo CSV para ajudá-lo a restaurar com sucesso os utilizadores de AD Azure a granel. O modelo CSV que descarrega pode parecer este exemplo:
+
+![Folha de cálculo para upload e chamadas explicando o propósito e valores para cada linha e coluna](./media/users-bulk-restore/understand-template.png)
+
+### <a name="csv-template-structure"></a>Estrutura do modelo CSV
+
+As linhas num modelo CSV descarregado são as seguintes:
+
+- **Número**da versão : A primeira linha que contém o número da versão deve ser incluída no CSV de carregamento.
+- **Títulos da coluna**: O formato das rubricas da coluna é &lt;o nome&gt; &lt; *item* [PropertyName] *exigido ou em branco*&gt;. Por exemplo, `Object ID [objectId] Required`. Algumas versões mais antigas do modelo podem ter ligeiras variações.
+- **Exemplos de linha**: Incluímos no modelo uma linha de exemplos de valores aceitáveis para cada coluna. Deve remover a linha de exemplos e substituí-la pelas suas próprias entradas.
+
+### <a name="additional-guidance"></a>Orientações adicionais
+
+- As duas primeiras linhas do modelo de carregamento não devem ser removidas ou modificadas, ou o upload não pode ser processado.
+- As colunas necessárias estão listadas primeiro.
+- Não recomendamos adicionar novas colunas ao modelo. Quaisquer colunas adicionais que adicione são ignoradas e não processadas.
+- Recomendamos que descarregue a versão mais recente do modelo CSV sempre que possível.
 
 ## <a name="to-bulk-restore-users"></a>Para restaurar a granel os utilizadores
 
@@ -32,7 +53,7 @@ O Azure Ative Directory (Azure AD) suporta a criação e eliminação de operaç
 
    ![Selecione o comando de restauro a granel na página de utilizadores Eliminados](./media/users-bulk-restore/bulk-restore.png)
 
-1. Abra o ficheiro CSV e adicione uma linha para cada utilizador que pretende restaurar. O único valor exigido é **objectID**. Em seguida, guarde o ficheiro.
+1. Abra o modelo CSV e adicione uma linha para cada utilizador que pretende restaurar. O único valor exigido é **objectID**. Em seguida, guarde o ficheiro.
 
    ![Selecione um ficheiro CSV local no qual lista os utilizadores que pretende adicionar](./media/users-bulk-restore/upload-button.png)
 
@@ -71,5 +92,5 @@ Deve ver que os utilizadores que restaurou estão listados.
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Utilizadores de importação a granel](users-bulk-add.md)
-- [A granel, apaga os utilizadores](users-bulk-delete.md)
+- [Eliminar utilizadores em massa](users-bulk-delete.md)
 - [Lista de descarregamento de utilizadores](users-bulk-download.md)

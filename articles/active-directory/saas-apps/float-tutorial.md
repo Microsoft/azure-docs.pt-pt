@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/23/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05526a82ed5fc53a5c25e4c87cab1fa56a814645
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: b057f817fb0c30e45c08f8d708441bd52122af7b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82172596"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82206753"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-float"></a>Tutorial: Azure Ative Directory integração de um único sign-on (SSO) com float
 
@@ -83,28 +83,13 @@ Siga estes passos para permitir o Azure AD SSO no portal Azure.
 
 1. Na secção **Basic SAML Configuration,** caso deseje configurar a aplicação no modo iniciado do **IDP,** introduza os valores para os seguintes campos:
 
-    a. Na caixa de texto **identificador,** digite qualquer um dos seguintes URLs:
+    a. Na caixa de texto **identificador,** escreva este URL: `https://app.float.com/sso/metadata`.
 
-    | |
-    |--|
-    | `https://app.float.com/sso/metadata`|
-    | `https://app.develop.float.com/sso/metadata`|
-
-    b. Na caixa de texto **URL resposta,** digite um URL utilizando qualquer um dos seguintes padrões:
-
-    | |
-    |--|
-    | `https://<hostname>.float.com/sso/azuread`|
-    | `https://<hostname>.develop.float.com/sso/azuread`|
+    b. Na caixa de texto **URL de resposta,** escreva um URL utilizando o padrão `https://<hostname>.float.com/sso/azuread`.
 
 1. Clique em **Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação no modo iniciado **por SP:**
 
-    Na caixa de texto **de URL sign-on,** escreva um URL utilizando qualquer um dos seguintes padrões:
-
-    | |
-    |--|
-    | `https://<hostname>.float.com/login`|
-    | `https://<hostname>.develop.float.com/login`|
+    Na caixa de texto **de URL sign-on,** digite um URL no padrão `https://<hostname>.float.com/login`.
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de identificação, resposta real e URL de sinalização. Contacte a equipa de suporte do [Cliente Float](mailto:support@float.com) para obter estes valores. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.

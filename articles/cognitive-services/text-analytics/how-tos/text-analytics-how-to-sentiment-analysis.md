@@ -11,7 +11,7 @@ ms.topic: sample
 ms.date: 04/27/2020
 ms.author: aahi
 ms.openlocfilehash: 99a62daf6dced88efd9bda591a0ca44a8b259a75
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020

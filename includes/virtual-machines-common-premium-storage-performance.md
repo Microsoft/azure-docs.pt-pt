@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 88b19257a6a7d335e6a928a9eaf7526fbfd5b02e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 1827d44f4d4ac812a33aee4791c2103a10328ba7
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "75942741"
+ms.locfileid: "82204479"
 ---
 ## <a name="application-performance-indicators"></a>Indicadores de desempenho da aplicação
 
@@ -232,7 +232,7 @@ Lembre-se, os discos de Armazenamento Premium têm maiorcapacidade de desempenho
 
 ## <a name="disk-caching"></a>Colocação em cache do disco
 
-VMs de alta escala que alavancam o Armazenamento Premium Azure têm uma tecnologia de cache multi-nível chamada BlobCache. BlobCache usa uma combinação da RAM máquina virtual e SSD local para o cache. Esta cache está disponível para os discos persistentes de Armazenamento Premium e para os discos locais VM. Por predefinição, esta definição de cache está definida para Ler/Escrever para discos OS e LerApenas para discos de dados hospedados no Armazenamento Premium. Com o cache de disco ativado nos discos de Armazenamento Premium, os VMs de alta escala podem atingir níveis de desempenho extremamente elevados que excedem o desempenho do disco subjacente.
+VMs de alta escala que alavancam o Armazenamento Premium Azure têm uma tecnologia de cache multi-nível chamada BlobCache. BlobCache usa uma combinação da RAM hospedeira e SSD local para o cache. Esta cache está disponível para os discos persistentes de Armazenamento Premium e para os discos locais VM. Por predefinição, esta definição de cache está definida para Ler/Escrever para discos OS e LerApenas para discos de dados hospedados no Armazenamento Premium. Com o cache de disco ativado nos discos de Armazenamento Premium, os VMs de alta escala podem atingir níveis de desempenho extremamente elevados que excedem o desempenho do disco subjacente.
 
 > [!WARNING]
 > O Caching do disco não é suportado para discos 4 TiB e maiores. Se vários discos estiverem ligados ao seu VM, cada disco inferior a 4 TiB suportará o cache.

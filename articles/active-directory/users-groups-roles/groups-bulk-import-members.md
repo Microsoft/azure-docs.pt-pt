@@ -1,11 +1,11 @@
 ---
-title: Carregamento de importação a granel para adicionar membros a um grupo - Azure Ative Diretório [ Azure Ative Diretório ] Microsoft Docs
+title: Upload a granel para adicionar ou criar membros de um grupo - Azure Ative Diretório [ Azure Ative Diretório ] Microsoft Docs
 description: Adicione membros do grupo a granel no centro de administração do Azure Ative Directory.
 services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 04/16/2020
+ms.date: 04/27/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,16 +13,37 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15960caa55274f06159263c1af4a6c8280e83f4e
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 8902c3147bbe142fc58d4e2c3fa83601c8ccbba3
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81533491"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203535"
 ---
 # <a name="bulk-import-group-members-in-azure-active-directory"></a>Membros do grupo de importação a granel no Diretório Ativo do Azure
 
 Utilizando o portal Azure Ative Directory (Azure AD), pode adicionar um grande número de membros a um grupo utilizando um ficheiro de valores separados de vírem (CSV) aos membros do grupo de importação a granel.
+
+## <a name="understand-the-csv-template"></a>Compreenda o modelo CSV
+
+Descarregue e preencha o modelo CSV de carregamento a granel para adicionar com sucesso membros do grupo Azure AD a granel. O seu modelo CSV pode parecer este exemplo:
+
+![Folha de cálculo para upload e chamadas explicando o propósito e valores para cada linha e coluna](./media/groups-bulk-import-members/template-with-callouts.png)
+
+### <a name="csv-template-structure"></a>Estrutura do modelo CSV
+
+As linhas num modelo CSV descarregado são as seguintes:
+
+- **Número**da versão : A primeira linha que contém o número da versão deve ser incluída no CSV de carregamento.
+- **Títulos da coluna**: O formato das rubricas da coluna é &lt;o nome&gt; &lt; *item* [PropertyName] *exigido ou em branco*&gt;. Por exemplo, `Member object ID or user principal name [memberObjectIdOrUpn] Required`. Algumas versões mais antigas do modelo podem ter ligeiras variações. Para alterações na adesão ao grupo, tem a opção de identificar a utilização: id do objeto membro ou nome principal do utilizador.
+- **Exemplos de linha**: Incluímos no modelo uma linha de exemplos de valores aceitáveis para cada coluna. Deve remover a linha de exemplos e substituí-la pelas suas próprias entradas.
+
+### <a name="additional-guidance"></a>Orientações adicionais
+
+- As duas primeiras linhas do modelo de carregamento não devem ser removidas ou modificadas, ou o upload não pode ser processado.
+- As colunas necessárias estão listadas primeiro.
+- Não recomendamos adicionar novas colunas ao modelo. Quaisquer colunas adicionais que adicione são ignoradas e não processadas.
+- Recomendamos que descarregue a versão mais recente do modelo CSV sempre que possível.
 
 ## <a name="to-bulk-import-group-members"></a>Aos membros do grupo de importação a granel
 

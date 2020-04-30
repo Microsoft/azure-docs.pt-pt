@@ -4,12 +4,12 @@ ms.author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: 34de38e91d47457d215c7ebf65d04ed2dbae5324
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 007c19a10db5e000770c8c80189453d4a80edec2
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "74224489"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204631"
 ---
 A tabela seguinte enumera os limites associados aos diferentes níveis de serviço S1, S2, S3 e F1. Para obter informações sobre o custo de cada *unidade* em cada nível, consulte [o preço do Hub Azure IoT](https://azure.microsoft.com/pricing/details/iot-hub/).
 
@@ -27,7 +27,7 @@ A tabela que se segue enumera os limites aplicáveis aos recursos do IoT Hub.
 
 | Recurso | Limite |
 | --- | --- |
-| Máximo de hubs IoT pagos por subscrição do Azure |100 |
+| Máximo de hubs IoT pagos por subscrição do Azure |50 |
 | Máximo de hubs IoT gratuitos por subscrição do Azure |1 |
 | Número máximo de caracteres em identificação de dispositivo | 128 |
 | Número máximo de identidades de dispositivos<br/> devolvidas numa única chamada |1,000 |
@@ -54,7 +54,7 @@ A tabela que se segue enumera os limites aplicáveis aos recursos do IoT Hub.
 | Transferência máxima de dados de fluxo de dispositivos | 300 MB por dia (apenas para S1, S2, S3 e F1) |
 
 > [!NOTE]
-> Se precisar de mais de 100 hubs IoT pagos numa subscrição Do Azure, contacte o Microsoft Support.
+> Se precisar de mais de 50 hubs IoT pagos numa subscrição do Azure, contacte o Microsoft Support.
 
 > [!NOTE]
 > Atualmente, o número total de dispositivos mais módulos que podem ser registados num único hub IoT está limitado a 1.000.000. Se quiser aumentar este limite, contacte o Suporte da [Microsoft](https://azure.microsoft.com/support/options/).

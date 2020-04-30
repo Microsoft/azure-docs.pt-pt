@@ -2,13 +2,13 @@
 title: 'Quickstart: Biblioteca de clientes QnA Maker para Node.js'
 description: Este quickstart mostra como começar com a biblioteca de clientes QnA Maker para node.js.
 ms.topic: quickstart
-ms.date: 01/13/2020
-ms.openlocfilehash: 05e6d2c77a351c22c73f0bdb54daeaf0e03f4a9d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/27/2020
+ms.openlocfilehash: 48038c8e7e8250190d79aba7901567e18881e912
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76021229"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204039"
 ---
 Utilize a biblioteca de clientes QnA Maker para:
 
@@ -27,6 +27,9 @@ Utilize a biblioteca de clientes QnA Maker para:
 
 * Assinatura Azure - [Criar uma gratuitamente](https://azure.microsoft.com/free/)
 * A versão atual do [Node.js.](https://nodejs.org)
+* Assim que tiver a sua subscrição Azure, crie um [recurso QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) no portal Azure para obter a sua chave de autor e ponto final. Depois de ser implantado, selecione **Ir para o recurso**.
+    * Necessitará da chave e do ponto final do recurso que cria para ligar a sua aplicação à API do Fabricante qnA. Vaicolar a chave e o ponto final no código abaixo no arranque rápido.
+    * Você pode usar o nível de preços gratuitos (`F0`) para experimentar o serviço, e fazer upgrade mais tarde para um nível pago para produção.
 
 ## <a name="setting-up"></a>Configuração
 
@@ -132,7 +135,7 @@ Certifique-se de [`wait_for_operation`](#get-status-of-an-operation) que a funç
 
 ## <a name="publish-a-knowledge-base"></a>Publicar uma base de dados de conhecimento
 
-Publique a base de conhecimento utilizando o método de [publicação.](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#publish-string--msrest-requestoptionsbase-) Isto pega no modelo atual guardado e treinado, referenciado pela id base de conhecimento, e publica-o num ponto final. Verifique o código de resposta HTTP para validar a publicação bem sucedida.
+Publique a base de conhecimento utilizando o método de [publicação.](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#publish-string--msrest-requestoptionsbase-) Isto pega no modelo atual guardado e treinado, referenciado pela id base de conhecimento, e publica-o num ponto final. Verifique o código de resposta HTTP para validar que a publicação foi bem sucedida.
 
 [!code-javascript[Publish a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=publishKnowledgeBase&highlight=3)]
 
@@ -200,4 +203,4 @@ done
 Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos associados ao mesmo.
 
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+* [CLI do Azure](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)

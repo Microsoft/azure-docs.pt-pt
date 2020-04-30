@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/24/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 2b30c176cf3c9dd31ae3efa85d308b3f89bd4dbe
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 5d2d33dc2ef135fde0955336a40f851d6ed4e0e7
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81737958"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82204610"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>O utilizador precisa de ter hub e falou com dispositivos SD-WAN/VPN para utilizar o Azure Virtual WAN?
 
@@ -49,7 +49,7 @@ Existem duas opções para adicionar servidores DNS para os clientes P2S.
 
 ### <a name="for-user-vpn-point-to-site--how-many-clients-are-supported"></a>Para o User VPN (Ponto-a-site)- quantos clientes são suportados?
 
-Cada gateway VPN P2S do utilizador tem duas instâncias e cada instância suporta até certos utilizadores à medida que a unidade de escala muda. A unidade de escala 1-3 suporta 500 ligações, a unidade de escala 4-6 suporta 1000 ligações, a unidade de escala 7-10 suporta 5000 ligações e a unidade de escala 11+ suporta até 10.000 ligações. Como exemplo, digamos que o utilizador escolhe uma unidade de escala. Cada unidade de escala implicaria uma porta ativa implantada e cada uma das instâncias (neste caso 2) suportaria até 500 ligações. Uma vez que pode obter 500 ligações * 2 por gateway, não significa que planeie 1000 em vez dos 500 para esta unidade de escala, pois os casos podem precisar de ser reparados durante os quais a conectividade para o extra 500 pode ser interrompida se ultrapassar a contagem de ligação recomendada.
+Cada gateway VPN P2S do utilizador tem duas instâncias e cada instância suporta até certos utilizadores à medida que a unidade de escala muda. A unidade de escala 1-3 suporta 500 ligações, a unidade de escala 4-6 suporta 1000 ligações, a unidade de escala 7-12 suporta 5000 ligações e a unidade de escala 13-20 suporta até 10.000 ligações. Como exemplo, digamos que o utilizador escolhe uma unidade de escala. Cada unidade de escala implicaria uma porta ativa implantada e cada uma das instâncias (neste caso 2) suportaria até 500 ligações. Uma vez que pode obter 500 ligações * 2 por gateway, não significa que planeie 1000 em vez dos 500 para esta unidade de escala, pois os casos podem precisar de ser reparados durante os quais a conectividade para o extra 500 pode ser interrompida se ultrapassar a contagem de ligação recomendada.
 
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpn-gateway"></a>Qual é a diferença entre um gateway de rede virtual Azure (VPN Gateway) e um gateway Azure Virtual WAN VPN?
 
@@ -215,6 +215,10 @@ Se um Hub Virtual aprender a mesma rota a partir de múltiplos centros remotos, 
 1) Rota Origin a) Rotas de rede – Prefixos VNET diretamente aprendidos pelos gateways do Hub Virtual b) Hub RouteTable (rotas configuradas estática) c) BGP d) Rotas InterHub
 2)  Métrica de rota : Virtual WAN prefere ExpressRoute em vez de VPN. Os pares expressRoute têm uma maior ponderação em comparação com o peer VPN
 3)  Comprimento do caminho AS
+
+### <a name="is-there-support-for-ipv6-in-virtual-wan"></a>Existe suporte para o IPv6 em Wan Virtual?
+
+O IPv6 não é suportado no centro virtual WAN e nas suas portas de entrada. Se tiver um VNET que tenha suporte IPv6 e gostaria de ligar o VNET ao Virtual WAN, este cenário também não é suportado. 
 
 ### <a name="what-are-the-differences-between-the-virtual-wan-types-basic-and-standard"></a>Quais são as diferenças entre os tipos de WAN virtual (Básico e Standard)?
 

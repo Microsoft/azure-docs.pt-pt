@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: aa3617b30fe1ef9b4d4a6c5fe5aac51bff95bb92
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
-ms.translationtype: HT
+ms.openlocfilehash: f5f5c16f3d6aa1d7115e99cbae0dbd6cd926b25a
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81866681"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82202541"
 ---
 # <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>Problemas de sessão de aplicação Azure Gateway questões de afinidade
 
@@ -75,7 +75,7 @@ Se a aplicação não conseguir lidar com a finha baseada em cookies, deve utili
 
 #### <a name="symptom"></a>Sintoma
 
-Ativou a definição de Affinity baseada em Cookies, quando acede ao Gateway de [http://website](http://website/) aplicação utilizando um URL de nome curto no Internet Explorer, por exemplo: o pedido ainda está a saltar entre servidores de back-end.
+Ativou a definição de Affinity baseada em Cookies, quando acede ao Gateway de `http://website` aplicação utilizando um URL de nome curto no Internet Explorer, por exemplo: o pedido ainda está a saltar entre servidores de back-end.
 
 Para identificar este problema, siga as instruções:
 

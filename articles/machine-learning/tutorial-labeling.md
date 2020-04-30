@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
-ms.date: 04/02/2020
-ms.openlocfilehash: fa33861d86ff8bee3e2a34fb3d93032ac6180880
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.date: 04/09/2020
+ms.openlocfilehash: d960c8225cbb22c221ecaec1b7c49b5bb20c1429
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80879722"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203646"
 ---
 # <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Tutorial: Criar um projeto de rotulagem para classificação de imagem multi-classe 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -75,18 +75,6 @@ As lojas de dados Azure Machine Learning são usadas para armazenar informaçõe
 
 1. Selecione **Criar** para criar a loja de dados.
 
-### <a name="add-labelers-to-workspace"></a>Adicione etiquetadores ao espaço de trabalho
-
-Instale o seu espaço de trabalho para incluir todas as pessoas que irão rotular dados para qualquer um dos seus projetos.  Mais tarde, irá adicionar estes rótulos ao seu projeto de rotulagem específico.
-
-1. Do lado esquerdo, selecione a **rotulagem de Dados**.
-
-1. No topo da página, selecione **Labelers**.
-
-1. Selecione **Adicionar etiquetador** para adicionar o endereço de e-mail de um rotulador.
-
-1. Continue a adicionar mais etiquetadores até terminar.
-
 ### <a name="create-a-labeling-project"></a>Criar um projeto de rotulagem
 
 Agora que tem a sua lista de rotuladores e acesso aos dados que pretende ter rotulados, crie o seu projeto de rotulagem.
@@ -134,7 +122,7 @@ Agora que tem a sua lista de rotuladores e acesso aos dados que pretende ter rot
 
 1. Também pode adicionar uma breve descrição da tarefa diretamente no formulário.  Tutorial de rotulagem de tipo **- Gatos & Cães.**
 
-1. Selecione **Next**.
+1. Selecione **Seguinte**.
 
 1. No formulário de **rotulagem assistida ML,** deixe a caixa de verificação desmarcada. A rotulagem assistida ml requer mais dados do que irá utilizar neste tutorial.
 
@@ -142,51 +130,21 @@ Agora que tem a sua lista de rotuladores e acesso aos dados que pretende ter rot
 
 Esta página não atualiza automaticamente. Após uma pausa, refresque manualmente a página até que o estado do projeto mude para **Created**.
 
-### <a name="add-labelers-to-your-project"></a>Adicione etiquetadores ao seu projeto
-
-Adicione alguns ou todos os seus rótulos a este projeto.
-
-1. Selecione o nome do projeto para abrir o projeto.  
-
-1. No topo da página, selecione **Equipas**.
-
-1. Selecione a ligação **labeling_tutorial Default Team.**
-
-1. Utilize agora **etiquetadores de asign para** adicionar os rótulos que pretende participar neste projeto. 
-
-1. Selecione na lista de etiquetadores que criou anteriormente.  Uma vez selecionado todos os rótulos que deseja utilizar, selecione **etiquetadores de Assign** para adicioná-los à sua equipa de projeto padrão.
-
 ## <a name="start-labeling"></a>Começar a rotulagem
 
 Criou agora os seus recursos Azure e configurou um projeto de rotulagem de dados. É hora de adicionar rótulos aos seus dados.
 
-### <a name="notify-labelers"></a>Notificar os rótulos
+### <a name="tag-the-images"></a>Marque as imagens
 
-Se tem muitas imagens para rotular, espero que também tenha muitos rótulos para completar a tarefa.  Agora vai querer enviar-lhes instruções para que possam aceder aos dados e começar a rotular.
+Nesta parte do tutorial, você mudará as funções do administrador do *projeto* para o de um *rotulador*.  Qualquer pessoa que tenha acesso ao seu espaço de trabalho pode tornar-se um rotulador.
 
 1. No [estúdio Machine Learning,](https://ml.azure.com)selecione a **rotulagem** de Dados no lado esquerdo para encontrar o seu projeto.  
 
-1. Selecione o link de nome do projeto.
+1. Selecione o nome do projeto na lista.
 
-1. No topo da página, selecione **Detalhes**.  Vê um resumo do seu projeto.
+1. Abaixo do nome do projeto, selecione **dados de etiquetagem**.
 
-    ![Detalhes do projeto](media/tutorial-labeling/project-details.png)
-
-1. Copie o link URL do **portal de rotulagem** para enviar aos seus rotuladores.
-
-1. Agora selecione **Team** no topo para encontrar a sua equipa de rotulagem.  
-
-1. Selecione o link de nome da equipa.
-
-1. No topo da página, selecione **equipa de e-mail** para iniciar o seu email.  Pasta no url do portal de rotulagem que acabou de copiar.  
-
-Cada vez que um rotulador vai para o portal URL, eles serão apresentados com mais imagens para rotular, até que a fila esteja vazia.  
-
-### <a name="tag-the-images"></a>Marque as imagens
-
-Nesta parte do tutorial, você mudará as funções do administrador do *projeto* para o de um *rotulador*.  Use o URL que enviou para a equipa.  Este URL leva-o ao portal de rotulagem para o seu projeto.  Se tivesse satisfeito instruções, veria-as aqui quando chegasse à página.
-
-1. No topo da página, selecione **Tarefas** para começar a rotular.
+1. Leia as instruções e, em seguida, selecione **Tarefas**.
 
 1. Selecione uma imagem de miniatura à direita para exibir o número de imagens que pretende rotular de uma só vez. Tem de rotular todas estas imagens antes de poder seguir em frente. Só altere os layouts quando tiver uma página nova de dados não rotulados. Mudar os layouts iliba o trabalho de marcação em curso da página.
 

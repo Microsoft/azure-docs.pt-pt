@@ -4,12 +4,12 @@ description: Conheça a segurança no Serviço Azure Kubernetes (AKS), incluindo
 services: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: 7238e6cd7ab3625e2953a4408c82802d43372256
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1960d18396f47b3dbdd51a50ec4241be5ebe4ff1
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77595948"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82206634"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Conceitos de segurança para aplicações e clusters no Serviço Azure Kubernetes (AKS)
 
@@ -20,7 +20,7 @@ Este artigo introduz os conceitos fundamentais que asseguram as suas aplicaçõe
 - [Segurança dos componentes principais](#master-security)
 - [Segurança do nó](#node-security)
 - [Upgrades de cluster](#cluster-upgrades)
-- [Segurança de rede](#network-security)
+- [Segurança da rede](#network-security)
 - [Segredos de Kubernetes](#kubernetes-secrets)
 
 ## <a name="master-security"></a>Segurança principal
@@ -31,11 +31,11 @@ Por predefinição, o servidor Kubernetes API utiliza um endereço IP público e
 
 ## <a name="node-security"></a>Segurança do nó
 
-Os nódosos AKS são máquinas virtuais Azure que gere e mantém. Os nódosos Linux executam uma distribuição Ubuntu otimizada usando o tempo de execução do contentor Moby. Os nós do Windows Server (atualmente em pré-visualização no AKS) executam um lançamento otimizado do Windows Server 2019 e também utilizam o tempo de execução do contentor Moby. Quando um cluster AKS é criado ou dimensionado, os nós são automaticamente implantados com as mais recentes atualizações e configurações de segurança do SISTEMA.
+Os nódosos AKS são máquinas virtuais Azure que gere e mantém. Os nódosos Linux executam uma distribuição Ubuntu otimizada usando o tempo de execução do contentor Moby. Os nós do Windows Server executam um lançamento otimizado do Windows Server 2019 e também utilizam o tempo de execução do contentor Moby. Quando um cluster AKS é criado ou dimensionado, os nós são automaticamente implantados com as mais recentes atualizações e configurações de segurança do SISTEMA.
 
 A plataforma Azure aplica automaticamente patches de segurança osso aos nódoslinos Linux todas as noites. Se uma atualização de segurança do Sistema Operativo Linux necessitar de um reboot do hospedeiro, essa reinicialização não é executada automaticamente. Você pode reiniciar manualmente os nós Linux, ou uma abordagem comum é usar [Kured][kured], um daemon de reboot de código aberto para Kubernetes. Kured funciona como um [DaemonSet][aks-daemonsets] e monitoriza cada nó para a presença de um ficheiro indicando que é necessário reiniciar. As reinicializações são geridas através do cluster utilizando o mesmo processo de [cordão e drenagem](#cordon-and-drain) que um upgrade de cluster.
 
-No caso dos nós do Windows Server (atualmente em pré-visualização no AKS), o Windows Update não é executado automaticamente e aplica as atualizações mais recentes. Numa programação regular em torno do ciclo de lançamento do Windows Update e do seu próprio processo de validação, deverá realizar uma atualização no conjunto de nós do Windows Server no seu cluster AKS. Este processo de upgrade cria nós que executam a mais recente imagem e patches do Windows Server e, em seguida, remove os nós mais antigos. Para obter mais informações sobre este processo, consulte [Atualização de um conjunto][nodepool-upgrade]de nós em AKS .
+No caso dos nós do Windows Server, o Windows Update não é executado automaticamente e aplica as atualizações mais recentes. Numa programação regular em torno do ciclo de lançamento do Windows Update e do seu próprio processo de validação, deverá realizar uma atualização no conjunto de nós do Windows Server no seu cluster AKS. Este processo de upgrade cria nós que executam a mais recente imagem e patches do Windows Server e, em seguida, remove os nós mais antigos. Para obter mais informações sobre este processo, consulte [Atualização de um conjunto][nodepool-upgrade]de nós em AKS .
 
 Os nós são implantados numa subnet de rede virtual privada, sem endereços IP públicos atribuídos. Para fins de resolução de problemas e gestão, o SSH está ativado por defeito. Este acesso SSH só está disponível utilizando o endereço IP interno.
 

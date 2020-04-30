@@ -16,12 +16,12 @@ ms.date: 03/22/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c38e1a61827da547bb39a699a0e92043e63466c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5ddd8e1c64f4db8221937abc54e88d9a884acf3e
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "80128464"
+ms.locfileid: "82207249"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Resolução de problemas Azure Gestão de direitos da AD
 
@@ -87,13 +87,19 @@ Este artigo descreve alguns itens que deve verificar para ajudá-lo a resolver a
 
     Se o pedido tiver erros de entrega, o estado de pedido será **não entregue** ou **parcialmente entregue**.
 
-    Se houver erros de entrega, no painel de detalhes do pedido, haverá uma contagem de erros de entrega.
+    Se houver erros de entrega, será apresentada uma contagem de erros de entrega no painel de detalhes do pedido.
 
 1. Clique na contagem para ver todos os erros de entrega do pedido.
 
 ### <a name="reprocess-a-request"></a>Reprocessar um pedido
 
-Se um pedido encontrar um erro, pode reprocessar o pedido para tentar novamente. Só pode reprocessar um pedido que tenha um estado de **Entrega falhado** ou **parcialmente entregue** e uma data completa de menos de uma semana.
+Se um erro for atingido depois de desencadear um pedido de reprocesso do pacote de acesso, deve aguardar enquanto o sistema reprocessa o pedido. O sistema tenta várias vezes reprocessar-se por várias horas, por isso não pode forçar o reprocessamento durante este tempo. 
+
+Só pode reprocessar um pedido que tenha um estado de **Entrega falhado** ou **parcialmente entregue** e uma data completa de menos de uma semana.
+
+- Se o erro for corrigido durante a janela de ensaios, o estado de pedido mudará para **A Entrega**. O pedido será reprocessado sem ações adicionais do utilizador.
+
+- Se o erro não tiver sido corrigido durante a janela de ensaios, o estado de pedido pode ser a **entrega falhada** ou **parcialmente entregue**. Em seguida, pode utilizar o botão de **reprocessar.** Terá sete dias para reprocessar o pedido.
 
 **Papel pré-requisito:** Administrador global, administrador de utilizador, proprietário do catálogo ou gestor de pacotes de acesso
 

@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 1c58d285e77ace20531912ec150a9d44acde61b8
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 3ee78560818d3651d5822c551ba2e0ccee3376e6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81399806"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204473"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -106,7 +106,7 @@ Aqui está um exemplo de reconhecimento sincronizado de [`recognize_once()`](htt
 result = speech_recognizer.recognize_once()
 ```
 
-Aqui está um exemplo de reconhecimento sincronizado de [`recognize_once_async()`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#recognize-once-async------azure-cognitiveservices-speech-resultfuture)tiro único usando:
+Aqui está um exemplo de reconhecimento assíncrono [`recognize_once_async()`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#recognize-once-async------azure-cognitiveservices-speech-resultfuture)de tiro único usando:
 
 ```Python
 result = speech_recognizer.recognize_once_async()

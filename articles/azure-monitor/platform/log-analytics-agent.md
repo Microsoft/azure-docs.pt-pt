@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: d52d8e6d0f6e3325b5c5cdc9a2e21654e6a2b621
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 08c80b0a37e21d53fc974bd878501b9326c9449b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80520729"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82207229"
 ---
 # <a name="log-analytics-agent-overview"></a>Visão geral do agente de Log Analytics
 O agente Azure Log Analytics foi desenvolvido para uma gestão abrangente através de máquinas virtuais em qualquer nuvem, máquinas no local, e as monitorizadas pelo [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/). Os agentes Windows e Linux enviam dados recolhidos de diferentes fontes para o seu espaço de trabalho Log Analytics no Monitor Azure, bem como quaisquer registos ou métricas únicos, conforme definido numa solução de monitorização. O agente Log Analytics também suporta insights e outros serviços no Azure Monitor, tais como [O Monitor Azure para VMs,](../insights/vminsights-enable-overview.md) [Azure Security Center](/azure/security-center/)e [Azure Automation.](../../automation/automation-intro.md)
@@ -88,8 +88,12 @@ Existem vários métodos para instalar o agente Log Analytics e ligar a sua máq
 As seguintes versões do sistema operativo Windows são oficialmente suportadas para o agente Windows:
 
 * Windows Server 2019
-* Windows Server 2008 SP2 (x64), 2008 R2, 2012, 2012 R2, 2016, versão 1709 e 1803
-* Windows 7 SP1, Windows 8 Enterprise e Pro, e Windows 10 Enterprise e Pro
+* Windows Server 2016, versão 1709 e 1803
+* Windows Server 2012, 2012 R2
+* Windows Server 2008 SP2 (x64), 2008 R2
+* Windows 10 Enterprise e Pro
+* Windows 8 Enterprise e Pro 
+* Windows 7 SP1
 
 >[!NOTE]
 >Embora o agente Log Analytics para windows tenha sido projetado para suportar cenários de monitorização do servidor, percebemos que pode executar o cliente do Windows para suportar cargas de trabalho configuradas e otimizadas para o sistema operativo do servidor. O agente suporta o cliente Windows, no entanto as nossas soluções de monitorização não se focam em cenários de monitorização do cliente, a menos que explicitamente indicado.

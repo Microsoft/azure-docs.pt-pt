@@ -4,19 +4,19 @@ description: Saiba como levar a sua solução Azure IoT Edge do desenvolvimento 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 4/24/2020
+ms.date: 4/25/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 6ec196408c047682be527ee21735ce809f5916e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 173e663b66eeca676e8120dd46e8eca8b0126a17
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82191843"
+ms.locfileid: "82204207"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Prepare-se para implementar a sua solução IoT Edge em produção
 
@@ -174,12 +174,22 @@ Para um exemplo de uma convenção de etiquetas, consulte Atualizar o tempo de [
 
 Você sabe sobre armazenar as suas imagens de recipiente para módulos de código personalizados no seu registo privado do Azure, mas também pode usá-lo para armazenar imagens de contentores públicos, como para os módulos de tempo de execução edgeAgent e edgHub. Ao fazê-lo, poderá ser necessário se tiver restrições de firewall muito apertadas, uma vez que estes recipientes de tempo de execução são armazenados no Registo de Contentores da Microsoft (MCR).
 
-Obtenha as imagens com o comando de puxar o Docker para colocar no seu registo. Esteja ciente de que terá de atualizar as imagens com cada novo lançamento do tempo de execução do IoT Edge.
+Obtenha as imagens com o comando de puxar o Docker para colocar no seu registo privado. Esteja ciente de que terá de atualizar as imagens com cada novo lançamento do tempo de execução do IoT Edge.
 
 | Recipiente de tempo de corrida IoT Edge | Comando de puxar docker |
 | --- | --- |
 | [Agente de borda azure IoT](https://hub.docker.com/_/microsoft-azureiotedge-agent) | `docker pull mcr.microsoft.com/azureiotedge-agent` |
 | [HUb borda azure ioT](https://hub.docker.com/_/microsoft-azureiotedge-hub) | `docker pull mcr.microsoft.com/azureiotedge-hub` |
+
+Em seguida, certifique-se de atualizar as referências de imagem no ficheiro deployment.template.json para os módulos do sistema EdgeAgent e edgeHub. Substitua-o `mcr.microsoft.com` pelo nome do registo e pelo servidor para ambos os módulos.
+
+* EdgeAgent:
+
+    `"image": "<registry name and server>/azureiotedge-agent:1.0",`
+
+* edgeHub:
+
+    `"image": "<registry name and server>/azureiotedge-hub:1.0",`
 
 ## <a name="networking"></a>Redes
 

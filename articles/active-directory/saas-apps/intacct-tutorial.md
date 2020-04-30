@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b28390dba009226d493f5bfc6a5270b067f5bba0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 731ed4664d10d3957be160bf9e8001d5470a6f38
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73570487"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82201351"
 ---
 # <a name="tutorial-integrate-sage-intacct-with-azure-active-directory"></a>Tutorial: Integrar Sage Intacct com Diretório Ativo Azure
 
@@ -94,7 +94,7 @@ Siga estes passos para permitir o Azure AD SSO no portal Azure.
     | ---------------| --------------- |
     | Nome da Empresa | **Sage Intacct Company ID** |
     | nome | O valor deve ser o mesmo que o ID do **utilizador**intacct sage , que você introduz na secção de utilizador de **teste Create Sage Intacct**, que é explicado mais tarde no tutorial |
-    | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier | O valor deve ser o mesmo que o ID de utilizador sage intacct **federado SSO**, que você introduz na secção de utilizador de **teste Create Sage Intacct**, o que é explicado mais tarde no tutorial |
+    | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` | O valor deve ser o mesmo que o ID de utilizador sage intacct **federado SSO**, que você introduz na secção de utilizador de **teste Create Sage Intacct**, o que é explicado mais tarde no tutorial |
 
     a. Clique **Em adicionar nova alegação** para abrir o diálogo de reclamações do utilizador **Gerir.**
 

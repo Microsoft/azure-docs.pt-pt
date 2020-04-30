@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 1945025ff89a784908a1a3dffd2240172a6e2449
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 8cb74a020590fc55dcd1f046ba667be3d6640b3e
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81687991"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203748"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Quadro de Segurança: Segurança da Comunicação [ Segurança da Comunicação] Atenuações 
 | Produto/Serviço | Artigo |
@@ -30,13 +30,13 @@ ms.locfileid: "81687991"
 | **Dynamics CRM** | <ul><li>[Verifique os privilégios da conta de serviço e verifique se os Serviços personalizados ou páginas ASP.NET respeitam a segurança da CRM](#priv-aspnet)</li></ul> |
 | **Azure Data Factory** | <ul><li>[Utilize o gateway de gestão de dados ao ligar o SQL Server às instalações da Fábrica de Dados Azure](#sqlserver-factory)</li></ul> |
 | **Servidor de Identidade** | <ul><li>[Certifique-se de que todo o tráfego para O Servidor de Identidade está sobre a ligação HTTPS](#identity-https)</li></ul> |
-| **Aplicação Web** | <ul><li>[Verifique os certificados X.509 utilizados para autenticar ligações SSL, TLS e DTLS](#x509-ssltls)</li><li>[Configure o certificado SSL para domínio personalizado no Serviço de Aplicações Azure](#ssl-appservice)</li><li>[Forçar todo o tráfego para o Serviço de Aplicações Azure sobre a ligação HTTPS](#appservice-https)</li><li>[Ativar http segurança rigorosa de transporte (HSTS)](#http-hsts)</li></ul> |
-| **Base de Dados** | <ul><li>[Garantir encriptação de ligação ao servidor SQL e validação de certificado](#sqlserver-validation)</li><li>[Forçar comunicação encriptada ao servidor SQL](#encrypted-sqlserver)</li></ul> |
+| **Aplicação Web** | <ul><li>[Verifique os certificados X.509 utilizados para autenticar ligações SSL, TLS e DTLS](#x509-ssltls)</li><li>[Configure certificado TLS/SSL para domínio personalizado no Serviço de Aplicações Azure](#ssl-appservice)</li><li>[Forçar todo o tráfego para o Serviço de Aplicações Azure sobre a ligação HTTPS](#appservice-https)</li><li>[Ativar http segurança rigorosa de transporte (HSTS)](#http-hsts)</li></ul> |
+| **Base de dados** | <ul><li>[Garantir encriptação de ligação ao servidor SQL e validação de certificado](#sqlserver-validation)</li><li>[Forçar comunicação encriptada ao servidor SQL](#encrypted-sqlserver)</li></ul> |
 | **Armazenamento Azure** | <ul><li>[Certifique-se de que a comunicação ao Armazenamento Azure está acima de HTTPS](#comm-storage)</li><li>[Valide o hash MD5 após o download do blob se HTTPS não puder ser ativado](#md5-https)</li><li>[Utilize um cliente compatível com SMB 3.0 para garantir encriptação de dados em trânsito a Ações de Ficheiros Azure](#smb-shares)</li></ul> |
 | **Cliente Móvel** | <ul><li>[Aplicação de Certificado de Fixação](#cert-pinning)</li></ul> |
 | **WCF** | <ul><li>[Ativar HTTPS - Canal de Transporte Seguro](#https-transport)</li><li>[WCF: Definir o nível de proteção de segurança de mensagens para encriptar AndSign](#message-protection)</li><li>[WCF: Use uma conta menos privilegiada para executar o seu serviço WCF](#least-account-wcf)</li></ul> |
 | **API Web** | <ul><li>[Forçar todo o tráfego para APIs web sobre conexão HTTPS](#webapi-https)</li></ul> |
-| **Cache do Azure para Redis** | <ul><li>[Certifique-se de que a comunicação com Azure Cache for Redis está sobre a SSL](#redis-ssl)</li></ul> |
+| **Cache do Azure para Redis** | <ul><li>[Certifique-se de que a comunicação com Azure Cache for Redis é sobre TLS](#redis-ssl)</li></ul> |
 | **Gateway de campo iot** | <ul><li>[Dispositivo seguro para comunicação gateway de campo](#device-field)</li></ul> |
 | **Gateway da nuvem iot** | <ul><li>[Dispositivo seguro para comunicação Cloud Gateway usando SSL/TLS](#device-cloud)</li></ul> |
 
@@ -82,7 +82,7 @@ ms.locfileid: "81687991"
 | **Tecnologias Aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [IdentityServer3 - Chaves, Assinaturas e Criptografia](https://identityserver.github.io/Documentation/docsv2/configuration/crypto.html), [IdentityServer3 - Implementação](https://identityserver.github.io/Documentation/docsv2/advanced/deployment.html) |
-| **Passos** | Por defeito, o IdentityServer requer que todas as ligações de entrada venham a surgir HTTPS. É absolutamente obrigatório que a comunicação com o IdentityServer seja feita apenas sobre transportes seguros. Existem certos cenários de implantação, como o descarregamento de SSL, onde esta exigência pode ser relaxada. Consulte a página de implementação do Servidor de Identidade nas referências para obter mais informações. |
+| **Passos** | Por defeito, o IdentityServer requer que todas as ligações de entrada venham a surgir HTTPS. É absolutamente obrigatório que a comunicação com o IdentityServer seja feita apenas sobre transportes seguros. Existem certos cenários de implantação, como o descarregamento de TLS, onde esta exigência pode ser relaxada. Consulte a página de implementação do Servidor de Identidade nas referências para obter mais informações. |
 
 ## <a name="verify-x509-certificates-used-to-authenticate-ssl-tls-and-dtls-connections"></a><a id="x509-ssltls"></a>Verifique os certificados X.509 utilizados para autenticar ligações SSL, TLS e DTLS
 
@@ -95,7 +95,7 @@ ms.locfileid: "81687991"
 | **Referências**              | N/D  |
 | **Passos** | <p>As aplicações que utilizem SSL, TLS ou DTLS devem verificar plenamente os certificados X.509 das entidades a que se ligam. Isto inclui a verificação dos certificados para:</p><ul><li>Nome de domínio</li><li>Datas de validade (datas de início e expiração)</li><li>Estatuto de revogação</li><li>Utilização (por exemplo, Autenticação do Servidor para servidores, Autenticação do Cliente para clientes)</li><li>Cadeia de confiança. Os certificados devem ser acorrentados a uma autoridade de certificação de raiz (CA) que seja confiada pela plataforma ou explicitamente configurada pelo administrador</li><li>O comprimento-chave da chave pública do certificado deve ser >2048 bits</li><li>Algoritmo de hashing deve ser SHA256 ou acima |
 
-## <a name="configure-ssl-certificate-for-custom-domain-in-azure-app-service"></a><a id="ssl-appservice"></a>Configure o certificado SSL para domínio personalizado no Serviço de Aplicações Azure
+## <a name="configure-tlsssl-certificate-for-custom-domain-in-azure-app-service"></a><a id="ssl-appservice"></a>Configure certificado TLS/SSL para domínio personalizado no Serviço de Aplicações Azure
 
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
@@ -104,7 +104,7 @@ ms.locfileid: "81687991"
 | **Tecnologias Aplicáveis** | Genérica |
 | **Atributos**              | AmbienteType - Azure |
 | **Referências**              | [Ativar HTTPS para uma aplicação no Serviço de Aplicações Azure](../../app-service/configure-ssl-bindings.md) |
-| **Passos** | Por padrão, o Azure já permite HTTPS para cada aplicação com um certificado wildcard para o domínio *.azurewebsites.net. No entanto, como todos os domínios wildcard, não é tão seguro como usar um domínio personalizado com certificado próprio [Refer](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/). Recomenda-se ativar o SSL para o domínio personalizado a que a aplicação implementada será acedida através de|
+| **Passos** | Por padrão, o Azure já permite HTTPS para cada aplicação com um certificado wildcard para o domínio *.azurewebsites.net. No entanto, como todos os domínios wildcard, não é tão seguro como usar um domínio personalizado com certificado próprio [Refer](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/). Recomenda-se ativar o TLS para o domínio personalizado a que a aplicação implementada será acedida através de|
 
 ## <a name="force-all-traffic-to-azure-app-service-over-https-connection"></a><a id="appservice-https"></a>Forçar todo o tráfego para o Serviço de Aplicações Azure sobre a ligação HTTPS
 
@@ -159,7 +159,7 @@ Esta regra funciona devolvendo um código de estado HTTP de 301 (redirecionament
 | **Tecnologias Aplicáveis** | SQL Azure  |
 | **Atributos**              | Versão SQL - V12 |
 | **Referências**              | [Boas práticas na escrita de cordas de ligação seguras para base de dados SQL](https://social.technet.microsoft.com/wiki/contents/articles/2951.windows-azure-sql-database-connection-security.aspx#best) |
-| **Passos** | <p>Todas as comunicações entre a Base de Dados SQL e uma aplicação de cliente são encriptadas utilizando a Camada de Tomadas Seguras (SSL) em todos os momentos. A Base de Dados SQL não suporta ligações não encriptadas. Para validar certificados com código de aplicação ou ferramentas, solicite explicitamente uma ligação encriptada e não confie nos certificados do servidor. Se o seu código de aplicação ou ferramentas não solicitarem uma ligação encriptada, continuarão a receber ligações encriptadas</p><p>No entanto, podem não validar os certificados do servidor e, portanto, serão suscetíveis a ataques "homem no meio". Para validar certificados com `Encrypt=True` ADO.NET `TrustServerCertificate=False` código de aplicação, detetete e na cadeia de ligação à base de dados. Para validar os certificados através do Estúdio de Gestão do Servidor SQL, abra a caixa de diálogo Connect to Server. Clique em encriptar a ligação no separador Propriedades de Ligação</p>|
+| **Passos** | <p>Todas as comunicações entre a Base de Dados SQL e uma aplicação de cliente são encriptadas utilizando a Transport Layer Security (TLS), anteriormente conhecida como Secure Sockets Layer (SSL), em todos os momentos. A Base de Dados SQL não suporta ligações não encriptadas. Para validar certificados com código de aplicação ou ferramentas, solicite explicitamente uma ligação encriptada e não confie nos certificados do servidor. Se o seu código de aplicação ou ferramentas não solicitarem uma ligação encriptada, continuarão a receber ligações encriptadas</p><p>No entanto, podem não validar os certificados do servidor e, portanto, serão suscetíveis a ataques "homem no meio". Para validar certificados com `Encrypt=True` ADO.NET `TrustServerCertificate=False` código de aplicação, detetete e na cadeia de ligação à base de dados. Para validar os certificados através do Estúdio de Gestão do Servidor SQL, abra a caixa de diálogo Connect to Server. Clique em encriptar a ligação no separador Propriedades de Ligação</p>|
 
 ## <a name="force-encrypted-communication-to-sql-server"></a><a id="encrypted-sqlserver"></a>Forçar comunicação encriptada ao servidor SQL
 
@@ -170,7 +170,7 @@ Esta regra funciona devolvendo um código de estado HTTP de 301 (redirecionament
 | **Tecnologias Aplicáveis** | OnPrem |
 | **Atributos**              | Versão SQL - MsSQL2016, Versão SQL - MsSQL2012, Versão SQL - MsSQL2014 |
 | **Referências**              | [Ativar ligações encriptadas ao motor de base de dados](https://msdn.microsoft.com/library/ms191192)  |
-| **Passos** | Ativar a encriptação SSL aumenta a segurança dos dados transmitidos através de redes entre instâncias do Servidor SQL e aplicações. |
+| **Passos** | Ativar a encriptação TLS aumenta a segurança dos dados transmitidos através de redes entre instâncias do Servidor SQL e aplicações. |
 
 ## <a name="ensure-that-communication-to-azure-storage-is-over-https"></a><a id="comm-storage"></a>Certifique-se de que a comunicação ao Armazenamento Azure está acima de HTTPS
 
@@ -214,7 +214,7 @@ Esta regra funciona devolvendo um código de estado HTTP de 301 (redirecionament
 | **Tecnologias Aplicáveis** | Genérico, Windows Phone |
 | **Atributos**              | N/D  |
 | **Referências**              | [Certificado e Fixação de Chaves Públicas](https://owasp.org/www-community/controls/Certificate_and_Public_Key_Pinning) |
-| **Passos** | <p>O predileto de certificado defende-se contra os ataques man-in-the-middle (MITM). A fixação é o processo de associar um hospedeiro ao seu certificado X509 esperado ou chave pública. Uma vez que um certificado ou chave pública é conhecido ou visto para um hospedeiro, o certificado ou chave pública é associado ou 'fixado' ao hospedeiro. </p><p>Assim, quando um adversário tenta fazer o ataque Do SSL MITM, durante o aperto de mão sSL a chave do servidor do intruso será diferente da chave do certificado fixado, e `ServerCertificateValidationCallback` o pedido será descartado, evitando assim que o certificado MITM possa ser alcançado implementando o delegado do ServicePointManager.</p>|
+| **Passos** | <p>O predileto de certificado defende-se contra os ataques man-in-the-middle (MITM). A fixação é o processo de associar um hospedeiro ao seu certificado X509 esperado ou chave pública. Uma vez que um certificado ou chave pública é conhecido ou visto para um hospedeiro, o certificado ou chave pública é associado ou 'fixado' ao hospedeiro. </p><p>Assim, quando um adversário tenta fazer o ataque do TLS MITM, durante o aperto de mão tLS a chave do servidor do intruso será diferente da chave do certificado fixado, e `ServerCertificateValidationCallback` o pedido será descartado, evitando assim que o certificado MITM possa ser alcançado implementando o delegado do ServicePointManager.</p>|
 
 ### <a name="example"></a>Exemplo
 ```csharp
@@ -345,7 +345,7 @@ string GetData(int value);
 | **Passos** | Se uma aplicação tiver um CONTRATO HTTPS e um http vinculativo, os clientes podem ainda utilizar http para aceder ao site. Para evitar isto, utilize um filtro de ação para garantir que os pedidos de APIs protegidos estão sempre acima de HTTPS.|
 
 ### <a name="example"></a>Exemplo 
-O seguinte código mostra um filtro de autenticação Web API que verifica o SSL: 
+O seguinte código mostra um filtro de autenticação Web API que verifica o TLS: 
 ```csharp
 public class RequireHttpsAttribute : AuthorizationFilterAttribute
 {
@@ -365,7 +365,7 @@ public class RequireHttpsAttribute : AuthorizationFilterAttribute
     }
 }
 ```
-Adicione este filtro a quaisquer ações da Web API que exijam SSL: 
+Adicione este filtro a quaisquer ações da Web API que exijam TLS: 
 ```csharp
 public class ValuesController : ApiController
 {
@@ -374,7 +374,7 @@ public class ValuesController : ApiController
 }
 ```
  
-## <a name="ensure-that-communication-to-azure-cache-for-redis-is-over-ssl"></a><a id="redis-ssl"></a>Certifique-se de que a comunicação com Azure Cache for Redis está sobre a SSL
+## <a name="ensure-that-communication-to-azure-cache-for-redis-is-over-tls"></a><a id="redis-ssl"></a>Certifique-se de que a comunicação com Azure Cache for Redis é sobre TLS
 
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
@@ -382,8 +382,8 @@ public class ValuesController : ApiController
 | **Fase SDL**               | Compilação |  
 | **Tecnologias Aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
-| **Referências**              | [Suporte Azure Redis SSL](https://azure.microsoft.com/documentation/articles/cache-faq/#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis) |
-| **Passos** | O servidor Redis não suporta o SSL fora da caixa, mas o Azure Cache para o Redis tem. Se está a ligar-se ao Azure Cache para redis e o seu cliente suporta a SSL, tal como stackExchange.Redis, então deve utilizar o SSL. Por defeito, a porta não-SSL é desativada para o novo Azure Cache para os casos Redis. Certifique-se de que os incumprimentos seguros não são alterados a menos que exista uma dependência do suporte SSL para os clientes redis. |
+| **Referências**              | [Suporte Azure Redis TLS](https://azure.microsoft.com/documentation/articles/cache-faq/#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis) |
+| **Passos** | O servidor Redis não suporta tLS fora da caixa, mas o Azure Cache para redis sim. Se está a ligar-se ao Azure Cache para redis e o seu cliente suporta TLS, como StackExchange.Redis, então deve utilizar O TLS. Por defeito, a porta não-TLS é desativada para o novo Azure Cache para os casos Redis. Certifique-se de que os incumprimentos seguros não são alterados a menos que exista uma dependência do suporte tLS para os clientes redis. |
 
 Por favor, note que redis é projetado para ser acedido por clientes de confiança dentro de ambientes confiáveis. Isto significa que normalmente não é boa ideia expor a instância Redis diretamente à internet ou, em geral, a um ambiente onde clientes não fidedignos podem aceder diretamente à porta Redis TCP ou à tomada UNIX. 
 

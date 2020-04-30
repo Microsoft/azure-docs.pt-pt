@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f468cb294d79c44f92ef95437c0d88639a78b9a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ef355361516264db95a333dde8a117819ca1a661
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77619482"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203697"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>FaQ openshift do chapéu vermelho azure
 
@@ -23,7 +23,7 @@ Consulte [os recursos suportados](supported-resources.md#azure-regions) para uma
 
 ## <a name="can-i-deploy-a-cluster-into-an-existing-virtual-network"></a>Posso implantar um cluster numa rede virtual existente?
 
-Não. Mas pode ligar um cluster Azure Red Hat OpenShift a um VNET existente através de um peering. Consulte [a rede virtual de um cluster a uma rede virtual existente](tutorial-create-cluster.md#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network) para obter detalhes.
+Não. Mas pode ligar um cluster Azure Red Hat OpenShift a uma rede virtual existente através de um peering. Consulte [a rede virtual de um cluster a uma rede virtual existente](tutorial-create-cluster.md#create-the-cluster) para obter detalhes.
 
 ## <a name="what-cluster-operations-are-available"></a>Que operações de cluster estão disponíveis?
 

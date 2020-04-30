@@ -7,12 +7,12 @@ ms.tgt_pltfrm: linux
 ms.topic: quickstart
 ms.date: 04/22/2020
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 349aa4652ae9f52641b5865e48dcd4c113ca7f9d
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: 1eeb5bbd4b10ef660a50f40d6c1300b0ca214561
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82086300"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82206680"
 ---
 # <a name="create-an-aspnet-core-app-in-app-service-on-linux"></a>Crie uma aplicação ASP.NET Core no App Service no Linux
 
@@ -33,7 +33,7 @@ Pode seguir os passos deste artigo num computador Mac, Windows ou Linux.
 Para concluir este guia de início rápido:
 
 * <a href="https://git-scm.com/" target="_blank">Instalar o Git</a>
-* <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">Instale o mais recente .NET Core SDK 3.1</a>
+* <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">Instale o mais recente .NET Core 3.1 SDK</a>
 
 ## <a name="create-the-app-locally"></a>Criou a aplicação localmente
 

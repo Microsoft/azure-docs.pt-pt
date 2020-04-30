@@ -6,18 +6,18 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/14/2019
-ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 75100b47ddf8f36ed9a22ff3073c439f8ad9040b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017,seoapr2020
+ms.date: 04/27/2020
+ms.openlocfilehash: 471d07f4aa5abe7552ff33e767e8783239dd1989
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "74083286"
+ms.locfileid: "82203884"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Crie uma topologia da tempestade Apache em Java
 
-Aprenda a criar uma topologia baseada em Java para [a Tempestade Apache.](https://storm.apache.org/) Aqui, cria-se uma topologia de tempestade que implementa uma aplicação de contagem de palavras. [Usa-se o Apache Maven](https://maven.apache.org/) para construir e embalar o projeto. Depois, aprende-se a definir a topologia usando a estrutura do [Fluxo de Tempestade Apache.](https://storm.apache.org/releases/2.0.0/flux.html)
+Aprenda a criar uma topologia baseada em Java para a Tempestade Apache. Cria-se uma topologia de tempestade que implementa uma aplicação de contagem de palavras. Usa-se o Apache Maven para construir e embalar o projeto. Depois, aprende-se a definir a topologia usando a estrutura do Fluxo de Tempestade Apache.
 
 Depois de completar os passos deste documento, pode implementar a topologia para a Tempestade Apache no HDInsight.
 
@@ -197,7 +197,7 @@ Esta secção é usada para adicionar plug-ins, recursos e outras opções de co
 
 * **Apache Maven Compiler Plugin**
 
-    Outro plug-in útil é o [Plugin compilador Apache Maven,](https://maven.apache.org/plugins/maven-compiler-plugin/)que é usado para alterar opções de compilação. Altere a versão Java que Maven usa para a fonte e alvo para a sua aplicação.
+    Outro plug-in útil [`Apache Maven Compiler Plugin`](https://maven.apache.org/plugins/maven-compiler-plugin/)é o , que é usado para alterar opções de compilação. Altere a versão Java que Maven usa para a fonte e alvo para a sua aplicação.
 
   * Para HDInsight __3.4 ou anterior,__ defina a versão java de origem e de meta para __1.7__.
 
@@ -239,13 +239,13 @@ Uma topologia apache baseada em Java consiste em três componentes que deve ser 
 
 * **Bicos**: Lê dados de fontes externas e emite fluxos de dados para a topologia.
 
-* **Parafusos**: Executa o processamento em fluxos emitidos por bicos ou outros parafusos, e emite um ou mais fluxos.
+* **Parafusos**: O processamento em fluxos emitidos por bicos ou outros parafusos e emite um ou mais fluxos.
 
 * **Topologia**: Define como os bicos e parafusos são organizados, e fornece o ponto de entrada para a topologia.
 
 ### <a name="create-the-spout"></a>Criar o bico
 
-Para reduzir os requisitos para a criação de fontes de dados externas, o bico que se segue simplesmente emite frases aleatórias. É uma versão modificada de um bico que é fornecido com os exemplos de [Storm-Starter](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter).  Embora esta topologia utilize apenas um bico, outros podem ter vários que alimentam dados de diferentes fontes para a topologia.
+Para reduzir os requisitos para a criação de fontes de dados externas, o bico que se segue simplesmente emite frases aleatórias. É uma versão modificada de um bico que é fornecido com os exemplos de [Storm-Starter](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter).  Embora esta topologia use um bico, outros podem ter vários que alimentam dados de diferentes fontes para a topologia`.`
 
 Introduza o comando abaixo para `RandomSentenceSpout.java`criar e abra um novo ficheiro:
 
@@ -481,7 +481,7 @@ public class WordCount extends BaseBasicBolt {
 
 ### <a name="define-the-topology"></a>Defina a topologia
 
-A topologia une os bicos e parafusos num gráfico, que define como os dados fluem entre os componentes. Também fornece pistas de paralelismo que storm usa ao criar instâncias dos componentes dentro do cluster.
+A topologia liga os bicos e parafusos num gráfico. O gráfico define como os dados fluem entre os componentes. Também fornece pistas de paralelismo que storm usa ao criar instâncias dos componentes dentro do cluster.
 
 A imagem que se segue é um diagrama básico do gráfico dos componentes para esta topologia.
 
@@ -613,15 +613,15 @@ mvn compile exec:java -Dstorm.topology=com.microsoft.example.WordCountTopology
     17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word dwarfs
     17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word snow
 
-Este registo de exemplo indica que a palavra 'e' foi emitida 113 vezes. A contagem continua a subir enquanto a topologia correr porque o bico emite continuamente as mesmas frases.
+Este registo de exemplo indica que a palavra 'e' foi emitida 113 vezes. A contagem continua a aumentar enquanto a topologia correr. Este aumento deve-se ao facto de o bico emitir continuamente as mesmas frases.
 
 Há um intervalo de 5 segundos entre a emissão de palavras e as contagens. O componente **WordCount** está configurado apenas para emitir informações quando um tique-taque chegar. Pede que os tuples de carrapato só sejam entregues a cada cinco segundos.
 
 ## <a name="convert-the-topology-to-flux"></a>Converter a topologia em Flux
 
-[O Flux](https://storm.apache.org/releases/2.0.0/flux.html) é um novo quadro disponível com a Tempestade 0.10.0 e superior, que lhe permite separar a configuração da implementação. Os seus componentes ainda estão definidos em Java, mas a topologia é definida usando um ficheiro YAML. Pode embalar uma definição de topologia padrão com o seu projeto, ou usar um ficheiro autónomo ao submeter a topologia. Ao submeter a topologia à Tempestade, pode utilizar variáveis ambientais ou ficheiros de configuração para preencher valores na definição de topologia YAML.
+[O Fluxo](https://storm.apache.org/releases/2.0.0/flux.html) é um novo quadro disponível com a tempestade 0.10.0 e superior. O fluxo permite-lhe separar a configuração da implementação. Os seus componentes ainda estão definidos em Java, mas a topologia é definida usando um ficheiro YAML. Pode embalar uma definição de topologia padrão com o seu projeto, ou usar um ficheiro autónomo ao submeter a topologia. Ao submeter a topologia à Tempestade, utilize variáveis ambientais ou ficheiros de configuração para preencher valores de definição de topologia YAML.
 
-O ficheiro YAML define os componentes a utilizar para a topologia e o fluxo de dados entre eles. Pode incluir um ficheiro YAML como parte do ficheiro do frasco ou pode utilizar um ficheiro YAML externo.
+O ficheiro YAML define os componentes a utilizar para a topologia e o fluxo de dados entre eles. Pode incluir um ficheiro YAML como parte do ficheiro do frasco. Ou pode usar um ficheiro YAML externo.
 
 Para obter mais informações sobre o Flux, consulte a [estrutura do Fluxo .https://storm.apache.org/releases/current/flux.html)](https://storm.apache.org/releases/current/flux.html)
 
@@ -818,7 +818,7 @@ Para obter mais informações sobre estas e outras características da estrutura
 
 ## <a name="trident"></a>Tridente
 
-[Tridente](https://storm.apache.org/releases/current/Trident-API-Overview.html) é uma abstração de alto nível que é fornecida pela Tempestade. Apoia o processamento audais. A principal vantagem do Tridentél é que pode garantir que cada mensagem que entra na topologia seja processada apenas uma vez. Sem utilizar o Trident, a sua topologia só pode garantir que as mensagens são processadas pelo menos uma vez. Há também outras diferenças, como componentes incorporados que podem ser usados em vez de criar parafusos. Na verdade, os parafusos são substituídos por componentes menos genéricos, tais como filtros, projeções e funções.
+[Tridente](https://storm.apache.org/releases/current/Trident-API-Overview.html) é uma abstração de alto nível que é fornecida pela Tempestade. Apoia o processamento audais. A principal vantagem do Tridentél é que garante que cada mensagem que entra na topologia é processada apenas uma vez. Sem utilizar o Trident, a sua topologia só pode garantir que as mensagens são processadas pelo menos uma vez. Há também outras diferenças, como componentes incorporados que podem ser usados em vez de criar parafusos. Os parafusos são substituídos por componentes menos genéricos, tais como filtros, projeções e funções.
 
 As aplicações tridente podem ser criadas utilizando projetos Maven. Usa os mesmos passos básicos apresentados anteriormente neste artigo — só o código é diferente. O tridente também não pode (atualmente) ser usado com a estrutura do Fluxo.
 
@@ -830,6 +830,6 @@ Aprendeste a criar uma topologia da Tempestade Apache usando o Java. Agora apren
 
 * [Implementar e gerir as topoologias da tempestade Apache no HDInsight](apache-storm-deploy-monitor-topology-linux.md)
 
-* [Desenvolva topoologias C# para Apache Storm no HDInsight usando o Estúdio Visual](apache-storm-develop-csharp-visual-studio-topology.md)
+* [Desenvolver topologias com Python](apache-storm-develop-python-topology.md)
 
 Você pode encontrar mais exemplos de topoologias apache storm visitando [as topoologias exemplo para Apache Storm em HDInsight](apache-storm-example-topology.md).

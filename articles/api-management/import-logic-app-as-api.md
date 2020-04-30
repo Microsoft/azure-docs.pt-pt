@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 08/01/2019
+ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: 4077187fe04e3be914a6f7fba84c03df1b79d06a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b6cb0fa3611da44726dabd879c37fec357fc3031
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74108403"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82202779"
 ---
 # <a name="import-a-logic-app-as-an-api"></a>Importar uma Aplicação Lógica como uma API
 
@@ -40,7 +40,7 @@ Neste artigo, vai aprender a:
 
 ## <a name="import-and-publish-a-back-end-api"></a><a name="create-api"> </a>Importar e publicar uma API de back-end
 
-1. Selecione **APIs** em **GESTÃO DE API**.
+1. Navegue para o seu serviço de Gestão API no portal Azure e selecione **APIs** do menu.
 2. Selecione **Aplicação Lógica** na lista **Adicionar uma nova API**.
 
     ![Aplicação lógica](./media/import-logic-app-as-api/logic-app-api.png)
@@ -57,7 +57,8 @@ Neste artigo, vai aprender a:
     - **Inicial**
     - **Ilimitado**
 
-7. Selecione **Criar**.
+7. Introduza outras definições de API. Pode definir os valores durante a criação ou configurá-los mais tarde, indo ao separador **Definições.** As definições são explicadas no Importar e publicar o seu primeiro tutorial [API.](import-and-publish.md#-import-and-publish-a-backend-api)
+8. Selecione **Criar**.
 
 ## <a name="test-the-api-in-the-azure-portal"></a>Testar a API no portal do Azure
 

@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: lahugh
-ms.openlocfilehash: 764dc93608ae3b8882b7048a722c6d3415cbc644
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 7df8dd439008258ea1b4986054660fb0fb9070ce
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80885791"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204190"
 ---
 # <a name="mv2-series"></a>Série Mv2
 
@@ -37,7 +37,7 @@ Acelerador de escrita: [Suportado](https://docs.microsoft.com/azure/virtual-mach
 | Standard_M416ms_v2<sup>1</sup> | 416 | 11400 | 8192 | 64 | 250000 / 1600 (14080) | 80000 / 2000 | 8 / 32000 |
 | Standard_M416s_v2<sup>1</sup> | 416 | 5700 | 8192 | 64 | 250000 / 1600 (14080) | 80000 / 2000 | 8 / 32000 |
 
-<sup>1</sup> VMs série Mv2 são apenas de geração 2. Se estiver a usar o Linux, consulte suporte para os [VMs da geração 2 no Azure](./linux/generation-2.md) para obter instruções sobre como encontrar e selecionar uma imagem. Se estiver a utilizar o Windows, consulte o [Suporte para VMs da geração 2 no Azure](./windows/generation-2.md) para obter instruções sobre como encontrar e selecionar uma imagem. Libertações mínimas do sistema operativo necessárias para todos os quatro tipos vM da série Mv2 diferentes, como:
+<sup>1</sup> VMs série SMs mv2 são apenas geração 2 e suportam um subconjunto de imagens suportadas pela geração 2. Consulte abaixo a lista completa de imagens suportadas para a série Mv2. Se estiver a usar o Linux, consulte suporte para os [VMs da geração 2 no Azure](./linux/generation-2.md) para obter instruções sobre como encontrar e selecionar uma imagem. Se estiver a utilizar o Windows, consulte o [Suporte para VMs da geração 2 no Azure](./windows/generation-2.md) para obter instruções sobre como encontrar e selecionar uma imagem. 
 
 - Windows Server 2019 ou mais tarde
 - SUSE Linux Enterprise Server 12 SP4 e mais tarde ou SUSE Linux Enterprise Server 15 SP1 e mais tarde

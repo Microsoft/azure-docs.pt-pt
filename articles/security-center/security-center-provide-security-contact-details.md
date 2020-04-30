@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/09/2019
 ms.author: memildin
-ms.openlocfilehash: 64a9600a3014f7e85a7f924d38882bfadaf631db
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.openlocfilehash: 08ad761e81909e6ab23c7c07f5ce05865136bc47
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80387823"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204105"
 ---
 # <a name="provide-security-contact-details-in-azure-security-center"></a>Forneça detalhes de contacto de segurança no Centro de Segurança Azure
 O Centro de Segurança do Azure recomendará que forneça os detalhes de contacto de segurança para a subscrição do Azure, caso ainda não o tenha feito. A Microsoft irá utilizar estas informações para o contactar se o Microsoft Security Response Center (MSRC) detetar que os seus dados de cliente foram acedidos de forma ilícita ou não autorizada. O MSRC realiza uma monitorização de segurança selecionada da rede e da infraestrutura do Azure e recebe informações sobre ameaças e reclamações de abuso de terceiros.
@@ -36,12 +36,12 @@ As notificações de e-mail de alerta são enviadas:
  
 Por exemplo, se uma mensagem de e-mail já tiver sido enviada para o alertar sobre um ataque RDP, não receberá outra mensagem de e-mail sobre um ataque RDP no mesmo dia, mesmo que seja acionado outro alerta. 
 
-> [!NOTE]
+> [!IMPORTANT]
 > Este documento apresenta o serviço ao utilizar um exemplo de implementação.  Não se trata de um guia passo-a-passo.
 
 ## <a name="set-up-email-notifications-for-alerts"></a>Configurar notificações por e-mail para alertas<a name="email"></a>
 
-1. Abra a página de notificações por **e-mail:**
+1. Como utilizador com a função Security Admin ou Subscription Owner, abra a página de notificações por **e-mail:**
 
     - Para alertas, abra **as definições de preços &**, selecione a subscrição relevante e selecione notificações de **e-mail.**
 

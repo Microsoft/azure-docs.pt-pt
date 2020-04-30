@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/23/2020
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a816f2235fa5356f2300255ec9d2fb2b315acf7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 0fa43eae906c918cad940b8f5efafeea07020098
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190321"
+ms.locfileid: "82201640"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configure workday para fornecimento automático de utilizadores
 
@@ -458,11 +458,11 @@ Neste passo, estabelecemos conectividade com o Workday e o Ative Directy no port
 
    * **Senha do dia de trabalho -** Insira a palavra-passe da conta do sistema de integração do Dia de Trabalho
 
-   * **Url da API de Serviços Web de Workday –** Insira o URL no ponto final dos serviços web workday para o seu inquilino. Este valor deve https://wd3-impl-services1.workday.com/ccx/service/contoso4parecer: , onde o *contoso4* é substituído pelo seu nome de inquilino correto e *wd3-impl* é substituído pela corda ambiental correta.
+   * **Url da API de Serviços Web de Workday –** Insira o URL no ponto final dos serviços web workday para o seu inquilino. Este valor deve `https://wd3-impl-services1.workday.com/ccx/service/contoso4`parecer: , onde o *contoso4* é substituído pelo seu nome de inquilino correto e *wd3-impl* é substituído pela corda ambiental correta.
 
      > [!NOTE]
      > Por padrão, a aplicação utiliza serviços web de dia de trabalho (WWS) v21.1 se nenhuma informação da versão for especificada no URL. Para utilizar uma versão API wws específica, utilize o formato URL:https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# <br>
-     > Exemplo: https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0 <br>
+     > Exemplo: `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0` <br>
      
      > [!NOTE]
      > Se estiver a utilizar uma wws API v30.0 ou superior, antes de ligar o trabalho de provisionamento, por favor atualize as **expressões XPATH API** em **mapeamento de atributos -> Lista de atributos de Edição > Editar para** o Dia de Trabalho referindo-se à secção [Gestão da sua configuração](#managing-your-configuration) e referência de [atributo do Dia](../app-provisioning/workday-attribute-reference.md#xpath-values-for-workday-web-services-wws-api-v30)de Trabalho .  
@@ -621,11 +621,11 @@ As seguintes secções descrevem passos para configurar o fornecimento de utiliz
 
    * **Senha do dia de trabalho -** Insira a palavra-passe da conta do sistema de integração do Dia de Trabalho
 
-   * **Url da API de Serviços Web de Workday –** Insira o URL no ponto final dos serviços web workday para o seu inquilino. Este valor deve https://wd3-impl-services1.workday.com/ccx/service/contoso4parecer: , onde o *contoso4* é substituído pelo seu nome de inquilino correto e *wd3-impl* é substituído pela corda ambiental correta. Se este URL não for conhecido, trabalhe com o seu parceiro de integração workday ou representante de suporte para determinar o URL correto a utilizar.
+   * **Url da API de Serviços Web de Workday –** Insira o URL no ponto final dos serviços web workday para o seu inquilino. Este valor deve `https://wd3-impl-services1.workday.com/ccx/service/contoso4`parecer: , onde o *contoso4* é substituído pelo seu nome de inquilino correto e *wd3-impl* é substituído pela corda ambiental correta. Se este URL não for conhecido, trabalhe com o seu parceiro de integração workday ou representante de suporte para determinar o URL correto a utilizar.
 
      > [!NOTE]
      > Por padrão, a aplicação utiliza o Workday Web Services v21.1 se não forespecificada nenhuma informação da versão no URL. Para utilizar uma versão API específica do Workday Web Services, utilize o formato URL:https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# <br>
-     > Exemplo: https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0
+     > Exemplo: `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0`
 
 
    * **Email de notificação –** Insira o seu endereço de e-mail e verifique a caixa de verificação "enviar e-mail se ocorrer falha".
@@ -723,7 +723,7 @@ Siga estas instruções para configurar a redação dos endereços de e-mail do 
 
    * **Senha de administração –** Insira a palavra-passe da conta do sistema de integração do Dia de Trabalho
 
-   * **URL do inquilino –** Insira o URL no ponto final dos serviços web workday para o seu inquilino. Este valor deve https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resourcesparecer: , onde o *contoso4* é substituído pelo seu nome de inquilino correto e *wd3-impl* é substituído pela corda ambiental correta (se necessário).
+   * **URL do inquilino –** Insira o URL no ponto final dos serviços web workday para o seu inquilino. Este valor deve `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources`parecer: , onde o *contoso4* é substituído pelo seu nome de inquilino correto e *wd3-impl* é substituído pela corda ambiental correta (se necessário).
 
    * **Email de notificação –** Insira o seu endereço de e-mail e verifique a caixa de verificação "enviar e-mail se ocorrer falha".
 

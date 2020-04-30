@@ -2,20 +2,22 @@
 title: 'Quickstart: Biblioteca de clientes QnA Maker para .NET'
 description: Este quickstart mostra como começar com a biblioteca de clientes QnA Maker para .NET. Siga estes passos para instalar a embalagem e experimente o código de exemplo para tarefas básicas.  O Criador de FAQ permite-lhe incorporar um serviço de perguntas e respostas a partir do seu conteúdo semiestruturado, como documentos de FAQ, URLs e manuais de produtos.
 ms.topic: quickstart
-ms.date: 01/13/2020
-ms.openlocfilehash: 2911c74226c3b682b75e8d10b0b4b7617a48ec64
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/27/2020
+ms.openlocfilehash: ce12b0d5739f3c17a324a663a777b70e61f167d1
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "75946342"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204042"
 ---
 Utilize a biblioteca de clientes QnA Maker para .NET para:
 
 * Criar uma base de dados de conhecimento
-* Gerir uma base de conhecimento
+* Atualizar uma base de dados de conhecimento
 * Publicar uma base de dados de conhecimento
-* Gerar uma resposta a partir da base de conhecimento
+* Obter a chave final do ponto final publicada
+* Aguarde a tarefa de longo prazo
+* Eliminar base de conhecimento
 
 [Documentação de referência](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet) | [Pacote de código fonte](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Knowledge.QnAMaker) | da biblioteca[(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker/) | [C# Amostras](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp)
 
@@ -24,7 +26,10 @@ Utilize a biblioteca de clientes QnA Maker para .NET para:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura Azure - [Criar uma gratuitamente](https://azure.microsoft.com/free/)
-* A versão atual de [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
+* O [Estúdio Visual IDE](https://visualstudio.microsoft.com/vs/) ou versão atual de [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
+* Assim que tiver a sua subscrição Azure, crie um [recurso QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) no portal Azure para obter a sua chave de autor e ponto final. Depois de ser implantado, selecione **Ir para o recurso**.
+    * Necessitará da chave e do ponto final do recurso que cria para ligar a sua aplicação à API do Fabricante qnA. Vaicolar a chave e o ponto final no código abaixo no arranque rápido.
+    * Você pode usar o nível de preços gratuitos (`F0`) para experimentar o serviço, e fazer upgrade mais tarde para um nível pago para produção.
 
 ## <a name="setting-up"></a>Configuração
 
@@ -32,7 +37,7 @@ Utilize a biblioteca de clientes QnA Maker para .NET para:
 
 Os Serviços Cognitivos Azure são representados por recursos Azure que subscreve. Crie um recurso para o Fabricante QnA utilizando o [portal Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou [o Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) na sua máquina local.
 
-Depois de obter uma chave e ponto final para o `QNAMAKER_SUBSCRIPTION_KEY`seu recurso, [crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave, nomeada . O nome do recurso é usado como parte do URL do ponto final.
+Depois de obter uma chave e ponto final para o `QNAMAKER_SUBSCRIPTION_KEY`seu recurso, [crie uma variável ambiental](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave, chamada . O nome do recurso é usado como subdomínio personalizado do URL do ponto final.
 
 ### <a name="create-a-new-c-application"></a>Criar uma nova aplicação C#
 
@@ -121,7 +126,7 @@ No método **principal,** crie uma variável para a autenticação do `QNAMAKER_
 
 Crie um [QnAMakerRuntimeClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.qnamakerruntimeclient?view=azure-dotnet) para consultar a base de conhecimento para gerar uma resposta ou treinar a partir de aprendizagem ativa.
 
-[!code-csharp[Authenticate the runtime](~/samples-qnamaker-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=EndpointKey)]
+[!code-csharp[Authenticate the runtime](~/samples-qnamaker-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=EndpointKey&highlight=3)]
 
 ## <a name="create-a-knowledge-base"></a>Criar uma base de dados de conhecimento
 
@@ -135,7 +140,7 @@ Ligue para o método [CreateAsync](https://docs.microsoft.com/dotnet/api/microso
 
 A linha final do código seguinte devolve o ID da base de conhecimento da resposta da MonitorOoperation.
 
-[!code-csharp[Create a knowledge base](~/samples-qnamaker-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=CreateKB&highlight=29,30)]
+[!code-csharp[Create a knowledge base](~/samples-qnamaker-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=CreateKB&highlight=30)]
 
 Certifique-se de [`MonitorOperation`](#get-status-of-an-operation) que a função, referenciada no código acima, para criar com sucesso uma base de conhecimento.
 
@@ -197,4 +202,4 @@ O [código fonte para este quickstart](https://github.com/Azure-Samples/cognitiv
 Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos associados ao mesmo.
 
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+* [CLI do Azure](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)

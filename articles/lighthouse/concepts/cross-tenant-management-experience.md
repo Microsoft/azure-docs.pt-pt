@@ -1,14 +1,14 @@
 ---
 title: Experiências de gestão entre inquilinos
 description: A gestão de recursos delegados da Azure permite uma experiência de gestão de inquilinos cruzados.
-ms.date: 04/20/2020
+ms.date: 04/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 107350cdab90751e918d4c7845776464b43abbdd
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 51cd464da417bfd1d6d4ff52e2a2595a7ce77fe6
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81682819"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82201708"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gestão entre inquilinos
 
@@ -128,7 +128,8 @@ A maioria das tarefas e serviços podem ser realizados em recursos delegados atr
 - Utilize extensões de máquinas virtuais para fornecer tarefas de configuração e automação pós-implantação em VMs Azure em inquilinos de clientes
 - Use diagnósticos de botas para resolver os VMs azure em inquilinos de clientes
 - Aceder a VMs com consola em série nos inquilinos dos clientes
-- Note que não pode usar o Diretório Ativo Azure para iniciar sessão remota a um VM, e não pode integrar um VM com um Cofre chave para senhas, segredos ou chaves criptográficas para encriptação de disco
+- Integre VMs com Azure KeyVault para senhas, segredos ou chaves criptográficas para encriptação de discos, utilizando [a identidade gerida através da política](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/create-keyvault-secret), garantindo que os segredos são armazenados num Cofre chave nos inquilinos dos clientes
+- Note que não pode usar o Diretório Ativo Azure para login remoto para VMs em inquilinos de clientes
 
 Pedidos de apoio:
 

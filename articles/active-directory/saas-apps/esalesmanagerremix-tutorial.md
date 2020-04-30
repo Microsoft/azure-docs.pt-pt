@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 895fb0d83e383618818325263ac80c5919a0ee7b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 167d682bb5ce1266ba6b677f6223c38dd34af9bb
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "65406963"
+ms.locfileid: "82202401"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Integrar o Diretório Ativo Azure com o Remix do Gestor de Vendas E
 
@@ -158,7 +158,7 @@ Ative o único sign-on da Azure AD no portal Azure e configure um único sinal n
     
     b. Na secção de artigos de **Colaboração,** na lista de entrega, selecione **e-mail**.
 
-    c. Na caixa de artigos de **Colaboração,** colhe o valor de reclamação **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**que copiou anteriormente do portal Azure (isto é, ).
+    c. Na caixa de artigos de **Colaboração,** colhe o valor de reclamação **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`** que copiou anteriormente do portal Azure (isto é, ).
 
     d. Na caixa **Emitente (ID entidade),** colhe o valor do identificador que copiou anteriormente da secção **E Sales Manager Remix Domain e URLs** do portal Azure.
 

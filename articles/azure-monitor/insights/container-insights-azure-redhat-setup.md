@@ -3,12 +3,12 @@ title: Configure Chapéu Vermelho Azure OpenShift v3.x com Monitor Azure para co
 description: Este artigo descreve como configurar a monitorização de um cluster Kubernetes com o Azure Monitor hospedado na versão 3 do Chapéu Vermelho Azure 3 e superior.
 ms.topic: conceptual
 ms.date: 04/02/2020
-ms.openlocfilehash: 98ac5752e047c4f5f6db63d228bec7c47271aa00
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: HT
+ms.openlocfilehash: c39eda03fc5fb7521bcf08c52eaabc28d4cb1256
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82166298"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204139"
 ---
 # <a name="configure-azure-red-hat-openshift-v3-with-azure-monitor-for-containers"></a>Configure Chapéu Vermelho Azure OpenShift v3 com Monitor Azure para contentores
 
@@ -38,7 +38,7 @@ O Monitor Azure para contentores suporta a monitorização do Azure Red Hat Open
 
 ## <a name="enable-for-a-new-cluster-using-an-azure-resource-manager-template"></a>Ativar para um novo cluster usando um modelo de Gestor de Recursos Azure
 
-Execute os seguintes passos para implantar um cluster OpenShift do Chapéu Vermelho Azure com monitorização ativada. Antes de prosseguir, reveja o tutorial [Criar um cluster OpenShift](../../openshift/tutorial-create-cluster.md#prerequisites) de chapéu vermelho azure para entender as dependências que precisa para configurar para que o seu ambiente seja configurado corretamente.
+Execute os seguintes passos para implantar um cluster OpenShift do Chapéu Vermelho Azure com monitorização ativada. Antes de prosseguir, reveja o tutorial [Criar um cluster OpenShift](../../openshift/tutorial-create-cluster.md) de chapéu vermelho azure para entender as dependências que precisa para configurar para que o seu ambiente seja configurado corretamente.
 
 Este método inclui dois modelos JSON. Um modelo especifica a configuração para implantar o cluster com monitorização ativada, e o outro contém valores de parâmetros que configura para especificar o seguinte:
 

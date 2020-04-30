@@ -7,13 +7,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 02/12/2019
-ms.openlocfilehash: 35f6b74f3b6cce5a0af812d4613f9da2f9fbd552
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.date: 04/27/2020
+ms.openlocfilehash: 1874e3536a3dda123c7fff9726c02e5d92d88804
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81606270"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204343"
 ---
 # <a name="azure-data-factory-mapping-data-flow-union-transformation"></a>Azure Data Factory mapeando a transformação da união de dados
 
@@ -22,6 +22,10 @@ ms.locfileid: "81606270"
 A União combinará múltiplos fluxos de dados num só, com a União SQL desses fluxos como a nova produção da transformação da União. Todo o esquema de cada fluxo de entrada será combinado dentro do fluxo de dados, sem necessidade de ter uma chave de adesão.
 
 Pode combinar n-number de streams na tabela de definições selecionando o ícone "+" ao lado de cada linha configurada, incluindo tanto os dados de origem como os fluxos de transformações existentes no fluxo de dados.
+
+Aqui está um pequeno vídeo de caminhada da transformação sindical no fluxo de dados de mapeamento da ADF:
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4vngz]
 
 ![Transformação da União](media/data-flow/union.png "União")
 

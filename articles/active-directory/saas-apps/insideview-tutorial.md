@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 2149b8410104b39652b176895a31b42e094265f5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4278f00b1026fe4d1b95634540d6d035d43ca5ab
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67100096"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82202388"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insideview"></a>Tutorial: Integração de Diretório Ativo Azure com o InsideView
 
@@ -143,13 +143,13 @@ Para configurar o único sign-on da Azure AD com o InsideView, tome estes passos
 
     1. Abra o certificado Raw que descarregou do portal Azure. Copie o conteúdo do certificado para a pasta e, em seguida, cole o conteúdo na caixa **de certificado STS.**
 
-    1. Na caixa de mapeamento de **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**identificação do **utilizador Crm,** introduza .
+    1. Na caixa de mapeamento de **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`** identificação do **utilizador Crm,** introduza .
 
-    1. Na caixa de mapeamento **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**de **e-mail crm,** introduza .
+    1. Na caixa de mapeamento **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`** de **e-mail crm,** introduza .
 
-    1. Na caixa de mapeamento do **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**primeiro nome **crm,** introduza .
+    1. Na caixa de mapeamento do **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`** primeiro nome **crm,** introduza .
 
-    1. Na caixa **de mapeamento do último nome do Crm,** introduza **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.  
+    1. Na caixa **de mapeamento do último nome do Crm,** introduza **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`**.  
 
     1. Selecione **Guardar**.
 

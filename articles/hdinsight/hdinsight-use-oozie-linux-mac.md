@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
-ms.date: 04/23/2020
-ms.openlocfilehash: 93eddcd8ed0dae6ac6f010dce2e138fc018a06fa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.date: 04/27/2020
+ms.openlocfilehash: 48b322f32bd6e8f2a2da0c5be8eb7b7987881f83
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190661"
+ms.locfileid: "82204122"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Utilizar o Apache Oozie com o Apache Hadoop para definir e executar um fluxo de trabalho no Azure HDInsight baseado em Linux
 
@@ -644,67 +644,6 @@ Pode utilizar o coordenador para especificar um início, um fim e a frequência 
 
     ![Separador de informação sobre trabalho na consola web OOzie](./media/hdinsight-use-oozie-linux-mac/coordinator-action-job.png)
 
-## <a name="troubleshooting"></a>Resolução de problemas
-
-Com a Oozie UI, pode ver os registos da Oozie. O Oozie UI também contém links para os registos JobTracker para as tarefas MapReduce que foram iniciadas pelo fluxo de trabalho. O padrão para resolução de problemas deve ser:
-
-   1. Veja o trabalho na Oozie web UI.
-
-   2. Se houver um erro ou falha para uma ação específica, selecione a ação para ver se o campo **Error Message** fornece mais informações sobre a falha.
-
-   3. Se disponível, utilize o URL da ação para ver mais detalhes, como os registos JobTracker, para a ação.
-
-Seguem-se erros específicos que poderá encontrar e como resolvê-los.
-
-### <a name="ja009-cant-initialize-cluster"></a>JA009: Não pode inicializar o cluster
-
-**Sintomas**: O estado do trabalho muda para **SUSPENSO**. Os detalhes para `RunHiveScript` o trabalho mostram o estado como **START_MANUAL**. A seleção da ação apresenta a seguinte mensagem de erro:
-
-    JA009: Cannot initialize Cluster. Please check your configuration for map
-
-**Causa**: Os endereços de armazenamento do Azure Blob utilizados no ficheiro **job.xml** não contêm o recipiente de armazenamento ou o nome da conta de armazenamento. O formato de endereço `wasbs://containername@storageaccountname.blob.core.windows.net`de armazenamento Blob deve ser .
-
-**Resolução**: Alterar os endereços de armazenamento blob que o trabalho utiliza.
-
-### <a name="ja002-oozie-isnt-allowed-to-impersonate-ltusergt"></a>JA002: Oozie não está autorizado &lt;a personificar USER&gt;
-
-**Sintomas**: O estado do trabalho muda para **SUSPENSO**. Os detalhes para `RunHiveScript` o trabalho mostram o estado como **START_MANUAL**. Se selecionar a ação, mostra a seguinte mensagem de erro:
-
-    JA002: User: oozie is not allowed to impersonate <USER>
-
-**Causa**: As definições de permissão atuais não permitem que o Oozie se personifique pela conta de utilizador especificada.
-
-**Resolução**: Oozie pode **`users`** personificar utilizadores no grupo. Utilize `groups USERNAME` o para ver os grupos de que a conta de utilizador é membro. Se o utilizador não for **`users`** membro do grupo, utilize o seguinte comando para adicionar o utilizador ao grupo:
-
-    sudo adduser USERNAME users
-
-> [!NOTE]  
-> Pode levar alguns minutos até que o HDInsight reconheça que o utilizador foi adicionado ao grupo.
-
-### <a name="launcher-error-sqoop"></a>ERRO do lançador (Sqoop)
-
-**Sintomas**: O estado do trabalho muda para **KILLED**. Os detalhes para `RunSqoopExport` o trabalho mostram o estado como **ERRO**. Se selecionar a ação, mostra a seguinte mensagem de erro:
-
-    Launcher ERROR, reason: Main class [org.apache.oozie.action.hadoop.SqoopMain], exit code [1]
-
-**Causa**: O Sqoop não consegue carregar o controlador de base de dados necessário para aceder à base de dados.
-
-**Resolução**: Quando utilizar o Sqoop de um trabalho da Oozie, deve incluir o condutor da base de dados com os outros recursos, como o workflow.xml, que o trabalho utiliza. Consulte também o arquivo que contém `<sqoop>...</sqoop>` o controlador de base de dados da secção do fluxo de trabalho.xml.
-
-Por exemplo, para o trabalho neste documento, utilizaria os seguintes passos:
-
-1. Copie `mssql-jdbc-7.0.0.jre8.jar` o ficheiro para o diretório **/tutorial/useoozie:**
-
-    ```bash
-    hdfs dfs -put /usr/share/java/sqljdbc_7.0/enu/mssql-jdbc-7.0.0.jre8.jar /tutorials/useoozie/mssql-jdbc-7.0.0.jre8.jar
-    ```
-
-2. Modifique `workflow.xml` o seguinte XML numa nova `</sqoop>`linha acima:
-
-    ```xml
-    <archive>mssql-jdbc-7.0.0.jre8.jar</archive>
-    ```
-
 ## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a definir um fluxo de trabalho oozie e como gerir um trabalho de Oozie. Para saber mais sobre como trabalhar com o HDInsight, consulte os seguintes artigos:
@@ -712,3 +651,4 @@ Neste artigo, aprendeu a definir um fluxo de trabalho oozie e como gerir um trab
 * [Enviar dados para empregos apache Hadoop no HDInsight](hdinsight-upload-data.md)
 * [Use Apache Sqoop com Apache Hadoop em HDInsight](hadoop/apache-hadoop-use-sqoop-mac-linux.md)
 * [Use a Colmeia Apache com Hadoop Apache no HDInsight](hadoop/hdinsight-use-hive.md)
+* [Resolução de problemas Apache Oozie](./troubleshoot-oozie.md)

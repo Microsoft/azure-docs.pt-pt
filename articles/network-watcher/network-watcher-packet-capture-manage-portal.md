@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: damendo
-ms.openlocfilehash: 6fc4a25e39fb8f27151b2e3bec1959d74a619233
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d7a61438187534a05a7d3f0307a1a4ded89fc147
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76840832"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204088"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Gerir capturas de pacotes com o Azure Network Watcher usando o portal
 
@@ -27,10 +27,14 @@ Neste artigo, aprende-se a começar, parar, descarregar e eliminar uma captura d
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-A captura do pacote requer a seguinte conectividade:
-* Conectividade de saída a uma conta de armazenamento sobre a porta 443.
-* Conectividade de entrada e saída para 169.254.169.254
-* Conectividade de entrada e saída para 168.63.129.16
+A captura do pacote requer a seguinte conectividade TCP de saída:
+- para a conta de armazenamento escolhida sobre a porta 443
+- para 169.254.169.254 sobre o porto 80
+- para 168.63.129.16 sobre o porto 8037
+
+> [!NOTE]
+> As portas mencionadas nos dois últimos casos acima são comuns em todas as funcionalidades do Network Watcher que envolvem a extensão do Observador de Rede e podem ocasionalmente mudar.
+
 
 Se um grupo de segurança de rede estiver associado à interface da rede, ou subnet a que a interface de rede está, certifique-se de que existem regras que permitem as portas anteriores. Da mesma forma, adicionar rotas de tráfego definidas pelo utilizador à sua rede pode impedir a conectividade com os IPs e portas acima mencionados. Por favor, certifique-se de que estão acessíveis. 
 

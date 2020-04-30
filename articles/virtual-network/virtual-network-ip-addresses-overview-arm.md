@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/05/2019
+ms.date: 04/27/2020
 ms.author: allensu
-ms.openlocfilehash: 64940ee6451ef1a9e153ef4d699bdaed32d4030e
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: a698d0cc4653a7a9f938b8f013352d9b51e2e18c
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82146342"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203731"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipos de endereços IP e métodos de alocação no Azure
 
@@ -59,6 +59,22 @@ Os endereços IP públicos são criados com um dos SKUs seguintes:
 >[!IMPORTANT]
 > Têm de ser utilizados SKUs de correspondência para o balanceador de carga e os recursos de IP público. Não é possível ter uma mistura de recursos de SKU básicos e recursos de SKU standard. Não é possível anexar máquinas virtuais autónomas, máquinas virtuais num recurso de conjunto de disponibilidade ou uma máquina virtual dos recursos do conjunto de dimensionamento para ambos os SKUs em simultâneo.  Os novos designs devem ponderar a utilização de recursos SKU Standard.  Veja [Balanceador de Carga Standard](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para obter mais detalhes.
 
+#### <a name="standard"></a>Standard
+
+Os endereços IP de SKU Standard:
+
+- Utilize sempre o método de atribuição estático.
+- Tenha um tempo de inativa de entrada regulável de 4-30 minutos, com um padrão de 4 minutos, e um tempo de inativa de saída fixo de 4 minutos.
+- São seguros por predefinição e fechados ao tráfego de entrada. Tem de especificar a lista de permissões para o tráfego de entrada com um [grupo de segurança de rede](security-overview.md#network-security-groups).
+- Atribuído a interfaces de rede, Balanceadores de Carga públicos Standard ou Gateways de Aplicação. Para mais informações sobre o Standard Load Balancer, consulte o Equilíbrio de [Carga Padrão Azure](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Pode ser zona-redundante ou zonal (pode ser criado zonal e garantido em uma zona de disponibilidade específica). Para obter mais informações sobre zonas de disponibilidade, veja [Descrição geral de zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Balanceador de Carga Standard e Zonas de Disponibilidade](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+ 
+> [!NOTE]
+> A comunicação de entrada com um recurso SKU Padrão falha até criar e associar um grupo de segurança de [rede](security-overview.md#network-security-groups) e permitir explicitamente o tráfego de entrada desejado.
+
+> [!NOTE]
+> Apenas estão disponíveis endereços IP públicos com SKU básico sku quando utilizam o serviço de [metadados de instância IMDS](../virtual-machines/windows/instance-metadata-service.md). O SKU padrão não é suportado.
+
 #### <a name="basic"></a>Básico
 
 Todos os endereços IP públicos criados antes da introdução de SKUs são endereços IP públicos de SKU Básico. Com a introdução de SKUs, tem a opção de especificar que SKU pretende que o endereço IP público seja. Os endereços de SKU Básico:
@@ -68,22 +84,6 @@ Todos os endereços IP públicos criados antes da introdução de SKUs são ende
 - Estão abertos por predefinição.  Os grupos de segurança de rede são recomendados, mas opcionais para restringir o tráfego de entrada ou de saída.
 - São atribuídos a qualquer recurso do Azure ao qual possa ser atribuído um endereço IP público, como interfaces de rede, Gateways de VPN, Gateways de Aplicação e Balanceadores de carga com acesso à Internet.
 - Não apoie cenários da Zona de Disponibilidade.  Você precisa usar O IP público Standard SKU para cenários de Zona de Disponibilidade. Para obter mais informações sobre zonas de disponibilidade, veja [Descrição geral de zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Balanceador de Carga Standard e Zonas de Disponibilidade](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-
-#### <a name="standard"></a>Standard
-
-Os endereços IP de SKU Standard:
-
-- Utilize sempre o método de atribuição estático.
-- Tenha um tempo de inativa de entrada regulável de 4-30 minutos, com um padrão de 4 minutos, e um tempo de inativa de saída fixo de 4 minutos.
-- São seguros por predefinição e fechados ao tráfego de entrada. Tem de especificar a lista de permissões para o tráfego de entrada com um [grupo de segurança de rede](security-overview.md#network-security-groups).
-- Atribuído a interfaces de rede, Balanceadores de Carga públicos Standard ou Gateways de Aplicação. Para mais informações sobre o Standard Load Balancer, consulte o Equilíbrio de [Carga Padrão Azure](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Zona redundante por padrão e opcionalmente zonal (pode ser criada zonal e garantida numa zona de disponibilidade específica). Para obter mais informações sobre zonas de disponibilidade, veja [Descrição geral de zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Balanceador de Carga Standard e Zonas de Disponibilidade](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
- 
-> [!NOTE]
-> A comunicação de entrada com um recurso SKU Padrão falha até criar e associar um grupo de segurança de [rede](security-overview.md#network-security-groups) e permitir explicitamente o tráfego de entrada desejado.
-
-> [!NOTE]
-> Apenas estão disponíveis endereços IP públicos com SKU básico sku quando utilizam o serviço de [metadados de instância IMDS](../virtual-machines/windows/instance-metadata-service.md). O SKU padrão não é suportado.
 
 ### <a name="allocation-method"></a>Método de alocação
 

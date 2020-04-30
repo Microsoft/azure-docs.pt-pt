@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 04/16/2020
+ms.date: 04/27/2020
 ms.topic: article
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,20 +13,41 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3a8b9cb9701288d24534ab08940f6dbd4a698ad
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 03f6e3d6edde51598b1d148469aceb1ff3b3d636
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81532948"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203415"
 ---
 # <a name="bulk-create-users-in-azure-active-directory"></a>Granel cria utilizadores no Diretório Ativo do Azure
 
-O Azure Ative Directory (Azure AD) suporta a criação e eliminação de operações em massa do utilizador, convite a granel para hóspedes e suporta o download de listas de utilizadores, grupos e membros do grupo.
+O Azure Ative Directory (Azure AD) suporta a criação e eliminação de operações por parte do utilizador em massa e suporta o download de listas de utilizadores. Basta preencher o modelo de valores separados de vírem (CSV) que pode descarregar a partir do portal Azure AD.
 
 ## <a name="required-permissions"></a>Permissões obrigatórias
 
 Para criar utilizadores em massa no portal da administração, deve ser inscrito como administrador global ou administrador de utilizador.
+
+## <a name="understand-the-csv-template"></a>Compreenda o modelo CSV
+
+Descarregue e preencha o modelo CSV de carregamento a granel para ajudá-lo a criar utilizadores de AD Azure a granel. O modelo CSV que descarrega pode parecer este exemplo:
+
+![Folha de cálculo para upload e chamadas explicando o propósito e valores para cada linha e coluna](./media/users-bulk-add/create-template-example.png)
+
+### <a name="csv-template-structure"></a>Estrutura do modelo CSV
+
+As linhas num modelo CSV descarregado são as seguintes:
+
+- **Número**da versão : A primeira linha que contém o número da versão deve ser incluída no CSV de carregamento.
+- **Títulos da coluna**: O formato das rubricas da coluna é &lt;o nome&gt; &lt; *item* [PropertyName] *exigido ou em branco*&gt;. Por exemplo, `Name [displayName] Required`. Algumas versões mais antigas do modelo podem ter ligeiras variações.
+- **Exemplos de linha**: Incluímos no modelo uma linha de exemplos de valores aceitáveis para cada coluna. Deve remover a linha de exemplos e substituí-la pelas suas próprias entradas.
+
+### <a name="additional-guidance"></a>Orientações adicionais
+
+- As duas primeiras linhas do modelo de carregamento não devem ser removidas ou modificadas, ou o upload não pode ser processado.
+- As colunas necessárias estão listadas primeiro.
+- Não recomendamos adicionar novas colunas ao modelo. Quaisquer colunas adicionais que adicione são ignoradas e não processadas.
+- Recomendamos que descarregue a versão mais recente do modelo CSV sempre que possível.
 
 ## <a name="to-create-users-in-bulk"></a>Para criar utilizadores a granel
 
@@ -38,7 +59,7 @@ Para criar utilizadores em massa no portal da administração, deve ser inscrito
 
 1. Abra o ficheiro CSV e adicione uma linha para cada utilizador que pretende criar. Os únicos valores exigidos são **Nome,** **Nome principal do utilizador,** **palavra-passe inicial** e sinal de bloco **(Sim/Não)**. Em seguida, guarde o ficheiro.
 
-   ![O ficheiro CSV contém nomes e IDs dos utilizadores para criar](./media/users-bulk-add/add-csv-file.png)
+   [![](media/users-bulk-add/add-csv-file.png "The CSV file contains names and IDs of the users to create")](media/users-bulk-add/add-csv-file.png#lightbox)
 
 1. Na página **de criação de granel,** sob o upload do seu ficheiro CSV, navegue para o ficheiro. Quando selecionar o ficheiro e clicar **em Submeter,** a validação do ficheiro CSV começa.
 1. Após a validação do conteúdo do ficheiro, verá o **Ficheiro carregado com sucesso**. Se houver erros, tem de os corrigir antes de poder submeter o trabalho.
@@ -78,6 +99,6 @@ Cada atividade a granel para criar utilizadores pode funcionar até uma hora. Is
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [A granel, apaga os utilizadores](users-bulk-delete.md)
+- [Eliminar utilizadores em massa](users-bulk-delete.md)
 - [Lista de descarregamento de utilizadores](users-bulk-download.md)
-- [A granel restaura utentes](users-bulk-restore.md)
+- [Restaurar utilizadores em massa](users-bulk-restore.md)

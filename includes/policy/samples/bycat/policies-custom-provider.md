@@ -6,10 +6,10 @@ ms.date: 04/26/2020
 ms.author: dacoulte
 ms.custom: generated
 ms.openlocfilehash: 95824dafc2f22de8388d06b9cf00cc08d0f567ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82191269"
 ---
 |Nome |Descrição |Efeitos(s) |Versão |GitHub |

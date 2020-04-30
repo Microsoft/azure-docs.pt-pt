@@ -3,12 +3,12 @@ title: Sintaxe de modelo e expressões
 description: Descreve a sintaxe declarativa da JSON para os modelos do Gestor de Recursos Azure.
 ms.topic: conceptual
 ms.date: 03/17/2020
-ms.openlocfilehash: 172838fa24709eb60fbcb6a68277f44bbd42f01e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: baddedae1b918502e579d2ed230e0779960f45e7
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79460114"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203833"
 ---
 # <a name="syntax-and-expressions-in-azure-resource-manager-templates"></a>Sintaxe e expressões em modelos de Gestor de Recursos Azure
 
@@ -123,7 +123,7 @@ A mesma formatação aplica-se ao passar valores a partir de um ficheiro de par�
 
 ## <a name="null-values"></a>Valores nulos
 
-Para fixar um imóvel a nu, pode utilizar **nulo** ou **[json('null')]**. A [função json](template-functions-array.md#json) devolve um `null` objeto vazio quando fornece como parâmetro. Em ambos os casos, os modelos do Gestor de Recursos tratam-no como se a propriedade não estivesse presente.
+Para fixar um imóvel a nu, pode utilizar **nulo** ou **[json('null')]**. A [função json](template-functions-object.md#json) devolve um `null` objeto vazio quando fornece como parâmetro. Em ambos os casos, os modelos do Gestor de Recursos tratam-no como se a propriedade não estivesse presente.
 
 ```json
 "stringValue": null,
