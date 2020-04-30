@@ -14,16 +14,16 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84e419ac5c3d292b7e630d1ebb3d3b9f59ef7b8a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 4253f5bd702abd061cf1cddd4badd68c9cd5d475
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74026942"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582831"
 ---
 # <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Início rápido: Política de nomenclatura para grupos no Azure Active Directory
 
-Neste início rápido, irá configurar a política de nomenclatura no inquilino do Azure Active Directory (Azure AD) para grupos do Office 365 criados pelo utilizador, para o ajudar a ordenar e procurar os grupos do seu inquilino. Por exemplo, pode utilizar a política de nomenclatura para:
+Neste arranque rápido, você vai configurar a política de nomeação na sua organização Azure Ative Directory (Azure AD) para grupos criados pelo utilizador Office 365, para ajudá-lo a classificar e pesquisar os grupos da sua organização. Por exemplo, pode utilizar a política de nomenclatura para:
 
 * Comunicar a função de um grupo, associação, região geográfica ou quem criou o grupo.
 * Ajudar a categorizar grupos no livro de endereços.
@@ -31,7 +31,7 @@ Neste início rápido, irá configurar a política de nomenclatura no inquilino 
 
 Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-portal"></a>Configure a política de nomeação do grupo para um inquilino usando o portal Azure
+## <a name="configure-the-group-naming-policy-in-the-azure-portal"></a>Configure a política de nomeação do grupo no portal Azure
 
 1. Inscreva-se no [centro de administração da AD Azure](https://aad.portal.azure.com) com uma conta de administrador do Utilizador.
 1. Selecione **Grupos**, em seguida, selecione **a política de nomeação** para abrir a página de política de Nomeação.

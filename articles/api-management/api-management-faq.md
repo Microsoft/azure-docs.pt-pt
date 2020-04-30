@@ -13,20 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: c32fdc67c74e100e0e31dad3afde128c05c356d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 219681351159de6ac6bb48ff979cc68aa4ee18d3
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "80335976"
+ms.locfileid: "82233487"
 ---
 # <a name="azure-api-management-faqs"></a>FaQs de Gestão API Azure
 Obtenha as respostas a perguntas, padrões e boas práticas comuns para a Gestão da API Azure.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-## <a name="contact-us"></a>Contacte-nos
-* [Como posso fazer uma pergunta à equipa de Gestão API do Microsoft Azure?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 * [O que significa quando uma funcionalidade está na pré-visualização?](#what-does-it-mean-when-a-feature-is-in-preview)
@@ -48,15 +45,8 @@ Obtenha as respostas a perguntas, padrões e boas práticas comuns para a Gestã
 * [Posso mover um serviço da Gestão de API de uma subscrição para outra?](#can-i-move-an-api-management-service-from-one-subscription-to-another)
 * [Existem restrições ou questões conhecidas com a importação da minha API?](#are-there-restrictions-on-or-known-issues-with-importing-my-api)
 
-### <a name="how-can-i-ask-the-microsoft-azure-api-management-team-a-question"></a>Como posso fazer uma pergunta à equipa de Gestão API do Microsoft Azure?
-Pode contactar-nos utilizando uma destas opções:
-
-* Publique as suas perguntas no nosso [fórum DeGeSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=azureapimgmt)de Gestão de API .
-* Enviar um e-mail para <mailto:apimgmt@microsoft.com>.
-* Envie-nos um pedido de funcionalidade no fórum de [feedback do Azure.](https://feedback.azure.com/forums/248703-api-management)
-
 ### <a name="what-does-it-mean-when-a-feature-is-in-preview"></a>O que significa quando uma funcionalidade está na pré-visualização?
-Quando uma funcionalidade está em pré-visualização, significa que estamos ativamente à procura de feedback sobre como a funcionalidade está a funcionar para si. Uma funcionalidade na pré-visualização está funcionalmente completa, mas é possível que façamos uma mudança de rutura em resposta ao feedback do cliente. Recomendamos que não dependa de uma funcionalidade que esteja em pré-visualização no seu ambiente de produção. Se tiver algum feedback sobre as funcionalidades de pré-visualização, por favor informe-nos através de uma das opções de contacto em Como posso fazer uma pergunta à equipa de [Gestão aPI do Microsoft Azure?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
+Quando uma funcionalidade está em pré-visualização, significa que estamos ativamente à procura de feedback sobre como a funcionalidade está a funcionar para si. Uma funcionalidade na pré-visualização está funcionalmente completa, mas é possível que façamos uma mudança de rutura em resposta ao feedback do cliente. Recomendamos que não dependa de uma funcionalidade que esteja em pré-visualização no seu ambiente de produção.
 
 ### <a name="how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services"></a>Como posso proteger a ligação entre o gateway de Gestão de API e os meus serviços de back-end?
 Tem várias opções para garantir a ligação entre o gateway de Gestão API e os seus serviços de back-end. Pode:
