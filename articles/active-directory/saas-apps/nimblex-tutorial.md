@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: jeedes
 ms.openlocfilehash: cd7199e94a58b3f0c121a0fd9401bff94406ed84
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67096105"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nimblex"></a>Tutorial: Integração do Diretório Ativo Azure com a Nimblex

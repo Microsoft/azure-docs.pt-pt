@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: b4a3b525cd2f9c4f28ad27154be2590fa6a96691
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67099882"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intralinks"></a>Tutorial: Integração do Diretório Ativo Azure com intraligações

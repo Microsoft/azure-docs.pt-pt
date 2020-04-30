@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
 ms.openlocfilehash: 82bd284ede23e8880f79c614f4a6e2f588a4293c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74977000"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Quickstart: Criar e fornecer um dispositivo TPM simulado utilizando o dispositivo C# SDK para o Serviço de Provisionamento de Dispositivos IoT Hub

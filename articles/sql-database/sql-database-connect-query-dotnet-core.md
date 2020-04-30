@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/29/2019
 ms.openlocfilehash: 369c708fd3181076c6deb9d7ac9134c57a18f819
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73827098"
 ---
 # <a name="quickstart-use-net-core-c-to-query-an-azure-sql-database"></a>Início Rápido: Utilizar o .NET Core (C#) para consultar uma base de dados SQL do Azure
@@ -54,7 +54,7 @@ Para este tutorial, você precisa:
 
 Obtenha as informações de ligação que precisa para ligar à base de dados Azure SQL. Necessitará do nome do servidor ou nome do anfitrião totalmente qualificado, nome da base de dados e informações de login para os próximos procedimentos.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 2. Navegue para as bases de **dados SQL** ou página de **instâncias geridas pela SQL.**
 

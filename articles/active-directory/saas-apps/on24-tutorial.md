@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
 ms.openlocfilehash: 801a631b56a11e68c444ede846ff82195cd7627f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67095715"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-on24-virtual-environment-saml-connection"></a>Tutorial: Integração do Diretório Ativo Azure com conexão SAML ambiente virtual ON24

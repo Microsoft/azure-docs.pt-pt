@@ -9,13 +9,13 @@ ms.date: 04/26/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 41b019635308f094741aabfeff741acee1f509c8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67184134"
 ---
-| **Modelo/método de implementação** | **Portal Azure** | **PowerShell** | **Azure CLI** |
+| **Modelo/método de implementação** | **Portal do Azure** | **PowerShell** | **CLI do Azure** |
 | --- | --- | --- | --- |
 | Clássica |[Tutorial*](../articles/vpn-gateway/vpn-gateway-howto-vnet-vnet-portal-classic.md)|Suportado | Não suportado|
 | Resource Manager |[Tutorial+](../articles/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) |[Tutorial](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) |[Tutorial](../articles/vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md)

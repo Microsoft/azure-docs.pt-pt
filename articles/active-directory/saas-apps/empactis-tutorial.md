@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
 ms.openlocfilehash: 94e326a2c8f75f2b498ddc603d5a0895baf71b3d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67103456"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-empactis"></a>Tutorial: Integração do Diretório Ativo Azure com a Empactis

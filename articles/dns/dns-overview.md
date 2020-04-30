@@ -7,10 +7,10 @@ ms.topic: overview
 ms.date: 3/21/2019
 ms.author: rohink
 ms.openlocfilehash: 1543c0daae7d637730a5f8f9da2305423ba7f84e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76932406"
 ---
 # <a name="what-is-azure-dns"></a>O que é o DNS do Azure?

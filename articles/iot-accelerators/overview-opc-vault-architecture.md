@@ -9,10 +9,10 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 1e08968034134e2b9ab3b8064387d18663d5c866
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "71200157"
 ---
 # <a name="opc-vault-architecture"></a>Arquitetura do Cofre OPC

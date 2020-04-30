@@ -9,10 +9,10 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: seo-python-october2019
 ms.openlocfilehash: 4b0248604b6e9189d5275177a4960e4c352e8215
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76906435"
 ---
 # <a name="quickstart-manage-blobs-with-python-v21-sdk"></a>Quickstart: Gerir bolhas com Python v2.1 SDK

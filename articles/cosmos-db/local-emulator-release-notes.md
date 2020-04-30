@@ -7,10 +7,10 @@ author: milismsft
 ms.author: adrianmi
 ms.date: 06/20/2019
 ms.openlocfilehash: 4dffe169908d0dd3effa4e46140b5f6696805a3e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77168653"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Emulador Azure Cosmos - Notas de lançamento e descarregamento de informações

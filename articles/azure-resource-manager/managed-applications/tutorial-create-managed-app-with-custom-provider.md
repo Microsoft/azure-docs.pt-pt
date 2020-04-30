@@ -6,10 +6,10 @@ ms.author: lazinnat
 author: lazinnat
 ms.date: 06/20/2019
 ms.openlocfilehash: c3750da6bd76c8cb3908fbdc71ba676f09d77def
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75650080"
 ---
 # <a name="tutorial-create-managed-application-with-custom-actions-and-resources"></a>Tutorial: Criar aplicação gerida com ações e recursos personalizados
@@ -219,7 +219,7 @@ Executar o script Azure CLI abaixo ou seguir os passos no portal Azure para impl
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azurecli-interactive)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azurecli-interactive)
 
 ```azurecli-interactive
 resourceGroup="appResourcesGroup"
@@ -277,7 +277,7 @@ az managedapp definition create \
 
 Quando a definição de aplicação gerida for implementada, execute o script abaixo ou siga os passos no portal Azure para implementar a sua instância de aplicação gerida com o fornecedor personalizado:
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azurecli-interactive)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azurecli-interactive)
 
 ```azurecli-interactive
 appResourcesGroup="appResourcesGroup"

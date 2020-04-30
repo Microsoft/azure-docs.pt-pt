@@ -17,10 +17,10 @@ ms.date: 07/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ed5370fda9be2573f773bd2fe653feb74defeb7d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68248869"
 ---
 # <a name="tutorial-integrate-hyperanna-with-azure-active-directory"></a>Tutorial: Integrar hyperAnna com diretório ativo Azure

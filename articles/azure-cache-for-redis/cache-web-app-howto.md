@@ -8,10 +8,10 @@ ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
 ms.openlocfilehash: 155993bb3da781e698398ed8ddffa626e8f6cb2d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74927075"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-an-aspnet-web-app"></a>Quickstart: Use Azure Cache para Redis com uma aplicação web ASP.NET 
@@ -262,7 +262,7 @@ Depois de ter testado com êxito a aplicação localmente, pode implementar a ap
     | Definição | Valor recomendado | Descrição |
     | ------- | :---------------: | ----------- |
     | **Nome da aplicação** | Utilize a predefinição. | O nome da aplicação é o nome do anfitrião da aplicação quando é implementada no Azure. O nome pode ter um sufixo de carimbo de data/hora adicionado ao mesmo para torná-lo exclusivo, caso seja necessário. |
-    | **Assinatura** | Escolha a sua subscrição do Azure. | Esta subscrição é debitada relativamente a quaisquer custos de alojamento relacionados. Se tiver várias subscrições do Azure, verifique se a subscrição pretendida está selecionada.|
+    | **Subscrição** | Escolha a sua subscrição do Azure. | Esta subscrição é debitada relativamente a quaisquer custos de alojamento relacionados. Se tiver várias subscrições do Azure, verifique se a subscrição pretendida está selecionada.|
     | **Grupo de recursos** | Utilize o mesmo grupo de recursos onde criou a cache (por exemplo, *TestResourceGroup*). | O grupo de recursos ajuda-o a gerir todos os recursos como um grupo. Mais tarde, quando pretender eliminar a aplicação, basta apenas eliminar o grupo. |
     | **Plano de serviço de aplicações** | Selecione **Novo** e, em seguida, crie um novo plano do Serviço de Aplicações com o nome *TestingPlan*. <br />Utilize a mesma **Localização** que serviu para criar a cache. <br />Escolha **Gratuito** para o tamanho. | Um plano de Serviço de Aplicações define um conjunto de recursos de computação para a execução da aplicação Web. |
 

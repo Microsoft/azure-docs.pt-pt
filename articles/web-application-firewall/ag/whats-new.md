@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 10/24/2019
 ms.author: victorh
 ms.openlocfilehash: 0e0e67bfb893e1bf141182e45ce4a49f5f6880ca
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73502248"
 ---
 # <a name="whats-new-in-azure-web-application-firewall"></a>Quais as novidades no Firewall de Aplicação Web do Azure?

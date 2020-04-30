@@ -15,10 +15,10 @@ ms.date: 01/18/2018
 ms.author: atsenthi
 ms.custom: mvc
 ms.openlocfilehash: 3a4ef9fad8567eb145d51c6fef61773cc3a00b11
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75614745"
 ---
 # <a name="upgrade-a-service-fabric-application"></a>Atualizar uma aplicação de Tecido de Serviço
