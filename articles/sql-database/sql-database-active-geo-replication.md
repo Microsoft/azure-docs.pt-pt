@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 04/06/2020
-ms.openlocfilehash: cc9d129894cefaf2fab853d2099d754d68238e5f
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.date: 04/28/2020
+ms.openlocfilehash: 5c55c8076e41f2c4ae19bce5f75600b5872722f6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80887355"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232007"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Criação e utilização de geo-replicação ativa
 
@@ -25,7 +25,12 @@ A geo-replicação ativa é uma funcionalidade de Base de Dados Azure SQL que pe
 > [!NOTE]
 > A geo-replicação ativa não é suportada por instância gerida. Para a falha geográfica de instâncias geridas, utilize [grupos de falha automática](sql-database-auto-failover-group.md).
 
-A geo-replicação ativa é projetada como uma solução de continuidade do negócio que permite que a aplicação realize uma rápida recuperação de desastres de bases de dados individuais em caso de desastre regional ou paragem em larga escala. Se a geo-replicação estiver ativada, a aplicação pode iniciar uma falha numa base de dados secundária numa região de Azure diferente. Até quatro secundários são apoiados nas mesmas regiões ou diferentes, e os secundários também podem ser utilizados para consultas de acesso apenas à leitura. A falha deve ser iniciada manualmente pela aplicação ou pelo utilizador. Após a falha, a nova primária tem um ponto final de ligação diferente. O diagrama seguinte ilustra uma configuração típica de uma aplicação de nuvem geo-redundante usando a geo-replicação ativa.
+A geo-replicação ativa é projetada como uma solução de continuidade do negócio que permite que a aplicação realize uma rápida recuperação de desastres de bases de dados individuais em caso de desastre regional ou paragem em larga escala. Se a geo-replicação estiver ativada, a aplicação pode iniciar uma falha numa base de dados secundária numa região de Azure diferente. Até quatro secundários são apoiados nas mesmas regiões ou diferentes, e os secundários também podem ser utilizados para consultas de acesso apenas à leitura. A falha deve ser iniciada manualmente pela aplicação ou pelo utilizador. Após a falha, a nova primária tem um ponto final de ligação diferente. 
+
+> [!NOTE]
+> A geo-replicação ativa replica alterações através do registo de transações de bases de dados de streaming. Não está relacionado com a [replicação transacional](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication), que replica alterações executando comandos DML (INSERT, UPDATE, DELETE).
+
+O diagrama seguinte ilustra uma configuração típica de uma aplicação de nuvem geo-redundante usando a geo-replicação ativa.
 
 ![geo-replicação ativa](./media/sql-database-active-geo-replication/geo-replication.png )
 

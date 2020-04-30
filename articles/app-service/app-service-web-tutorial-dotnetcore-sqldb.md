@@ -3,14 +3,14 @@ title: 'Tutorial: núcleo ASP.NET com base de dados SQL'
 description: Saiba como colocar uma aplicação .NET Core a funcionar no Serviço de Aplicações do Azure, com ligação a uma Base de Dados SQL.
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 08/06/2019
+ms.date: 04/23/2020
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: c4dacd06cd53ebb71ca9db2722fdf46aade841bc
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: f8e76c90a670adb8fa5de5a33063d9de3bcc6cc3
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82085450"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82207654"
 ---
 # <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service"></a>Tutorial: Construa uma app de base de dados core e SQL ASP.NET no Serviço de Aplicações Azure
 
@@ -22,7 +22,7 @@ O [Serviço de Aplicações](overview.md) oferece um serviço de alojamento na W
 
 ![aplicação em execução no Serviço de Aplicações](./media/app-service-web-tutorial-dotnetcore-sqldb/azure-app-in-browser.png)
 
-Saiba como:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar uma Base de Dados SQL no Azure
@@ -38,8 +38,8 @@ Saiba como:
 
 Para concluir este tutorial:
 
-* [Instalar o Git](https://git-scm.com/)
-* [Instalar .NET Core SDK](https://dotnet.microsoft.com/download)
+* <a href="https://git-scm.com/" target="_blank">Instalar o Git</a>
+* <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">Instale o mais recente .NET Core 3.1 SDK</a>
 
 ## <a name="create-local-net-core-app"></a>Criar uma aplicação .NET Core local
 
@@ -63,8 +63,8 @@ O projeto de exemplo contém uma aplicação CRUD (create-read-update-delete) b�
 Execute os seguintes comandos para instalar os pacotes necessários, executar migrações de base de dados e iniciar a aplicação.
 
 ```bash
-dotnet tool install -g dotnet-ef --version 3.1.1
-dotnet-ef database update
+dotnet tool install -g dotnet-ef
+dotnet ef database update
 dotnet run
 ```
 
@@ -90,25 +90,25 @@ Para a Base de Dados SQL, este tutorial utiliza a [Base de Dados SQL do Azure](/
 
 Na Cloud Shell, crie um servidor lógico [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create) sQL Database com o comando.
 
-Substitua * \<* o server_name>espaço reservado por um nome único de Base de Dados SQL. Este nome é utilizado como parte do ponto final da Base de Dados SQL, `<server_name>.database.windows.net`, por isso, o nome tem de ser exclusivo em todos os servidores lógicos no Azure. O nome só pode conter letras minúsculas, números, o caráter hífen (-) e tem de ter entre três e 50 carateres. Além * \<* disso, substitua db_username>e * \<db_password>* por um nome de utilizador e senha à sua escolha. 
+Substitua * \<* o nome do servidor>espaço reservado por um nome *único* da Base de Dados SQL. Este nome é usado como parte do ponto final globalmente único da Base de Dados SQL, `<server-name>.database.windows.net`. Os caracteres `a` - `z` `0` - `9`válidos são, . . `-` Além * \<* disso, substitua o nome de utilizador db>e * \<a palavra-passe por>* por um nome de utilizador e senha à sua escolha. 
 
 
 ```azurecli-interactive
-az sql server create --name <server_name> --resource-group myResourceGroup --location "West Europe" --admin-user <db_username> --admin-password <db_password>
+az sql server create --name <server-name> --resource-group myResourceGroup --location "West Europe" --admin-user <db-username> --admin-password <db-password>
 ```
 
 Após criar o servidor lógico da Base de Dados SQL, a CLI do Azure mostra informações semelhantes ao exemplo seguinte:
 
 <pre>
 {
-  "administratorLogin": "&lt;db_username&gt;",
+  "administratorLogin": "&lt;db-username&gt;",
   "administratorLoginPassword": null,
-  "fullyQualifiedDomainName": "&lt;server_name&gt;.database.windows.net",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/&lt;server_name&gt;",
+  "fullyQualifiedDomainName": "&lt;server-name&gt;.database.windows.net",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/&lt;server-name&gt;",
   "identity": null,
   "kind": "v12.0",
   "location": "westeurope",
-  "name": "&lt;server_name&gt;",
+  "name": "&lt;server-name&gt;",
   "resourceGroup": "myResourceGroup",
   "state": "Ready",
   "tags": null,
@@ -122,30 +122,101 @@ Após criar o servidor lógico da Base de Dados SQL, a CLI do Azure mostra infor
 Criar uma [regra de firewall ao nível do servidor da Base de Dados SQL do Azure](../sql-database/sql-database-firewall-configure.md) com o comando [`az sql server firewall create`](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az-sql-server-firewall-rule-create). Quando os IPs inicial e final estão definidos como 0.0.0.0, a firewall apenas é aberta para outros recursos do Azure. 
 
 ```azurecli-interactive
-az sql server firewall-rule create --resource-group myResourceGroup --server <server_name> --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+az sql server firewall-rule create --resource-group myResourceGroup --server <server-name> --name AllowAzureIps --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
 > [!TIP] 
 > Pode ser ainda mais restritivo na sua regra de firewall ao [utilizar apenas os endereços IP de saída que a aplicação utiliza](overview-inbound-outbound-ips.md#find-outbound-ips).
 >
 
+Na Cloud Shell, volte a executar o comando para * \<* permitir o acesso ao seu computador local, substituindo o seu endereço ip-ip>pelo [seu endereço IP iPv4 local](https://www.whatsmyip.org/).
+
+```azurecli-interactive
+az sql server firewall-rule create --name AllowLocalClient --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address=<your-ip-address> --end-ip-address=<your-ip-address>
+```
+
 ### <a name="create-a-database"></a>Criar uma base de dados
 
 Crie uma base de dados com um [nível de desempenho S0](../sql-database/sql-database-service-tiers-dtu.md) no servidor com o comando [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-create).
 
 ```azurecli-interactive
-az sql db create --resource-group myResourceGroup --server <server_name> --name coreDB --service-objective S0
+az sql db create --resource-group myResourceGroup --server <server-name> --name coreDB --service-objective S0
 ```
 
 ### <a name="create-connection-string"></a>Criar uma cadeia de ligação
 
-Substitua a seguinte * \< *corda com o>server_name , * \<db_username>* e * \<db_password>* que usou anteriormente.
+Obtenha a corda [`az sql db show-connection-string`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-show-connection-string) de ligação utilizando o comando.
 
+```azurecli-interactive
+az sql db show-connection-string --client ado.net --server cephalin-core --name coreDB
 ```
-Server=tcp:<server_name>.database.windows.net,1433;Database=coreDB;User ID=<db_username>;Password=<db_password>;Encrypt=true;Connection Timeout=30;
-```
+
+Na saída de * \< *comando, substitua o nome de utilizador>e * \<>de palavra-passe* pelas credenciais de administrador de base de dados que utilizou anteriormente.
 
 Esta é a cadeia de ligação para a sua aplicação .NET Core. Copie-a para utilizar mais tarde.
+
+### <a name="configure-app-to-connect-to-production-database"></a>Configure app para ligar à base de dados de produção
+
+No seu repositório local, abra Startup.cs e localize o seguinte código:
+
+```csharp
+services.AddDbContext<MyDatabaseContext>(options =>
+        options.UseSqlite("Data Source=localdatabase.db"));
+```
+
+Substitua-o pelo seguinte código.
+
+```csharp
+services.AddDbContext<MyDatabaseContext>(options =>
+        options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection")));
+```
+
+> [!IMPORTANT]
+> Para aplicações de produção que precisam de escala, siga as melhores práticas na aplicação das [migrações na produção.](/aspnet/core/data/ef-rp/migrations#applying-migrations-in-production)
+> 
+
+### <a name="run-database-migrations-to-the-production-database"></a>Executar migrações de bases de dados para a base de dados de produção
+
+A sua aplicação está atualmente ligada a uma base de dados local da Sqlite. Agora que configuraste uma base de dados Azure SQL, recria a migração inicial para a visar. 
+
+A partir da raiz do repositório, executar os seguintes comandos. Substitua a * \<>de cadeia de ligação* com a cadeia de ligação que criou anteriormente.
+
+```
+# Delete old migrations
+rm Migrations -r
+# Recreate migrations
+dotnet ef migrations add InitialCreate
+
+# Set connection string to production database
+# PowerShell
+$env:ConnectionStrings:MyDbConnection="<connection-string>"
+# CMD (no quotes)
+set ConnectionStrings:MyDbConnection=<connection-string>
+# Bash (no quotes)
+export ConnectionStrings__MyDbConnection=<connection-string>
+
+# Run migrations
+dotnet ef database update
+```
+
+### <a name="run-app-with-new-configuration"></a>Executar app com nova configuração
+
+Agora que as migrações de bases de dados são executadas na base de dados de produção, teste a sua aplicação executando:
+
+```
+dotnet run
+```
+
+Navegue para `http://localhost:5000` num browser. Selecione a ligação **Criar Novo** e criar alguns itens _a fazer_. A sua aplicação está agora a ler e a escrever dados para a base de dados de produção.
+
+Cometa as suas mudanças locais e, em seguida, comprometa-as no seu repositório Git. 
+
+```bash
+git add .
+git commit -m "connect to SQLDB in Azure"
+```
+
+Está pronto para implementar o seu código.
 
 ## <a name="deploy-app-to-azure"></a>Implementar a aplicação no Azure
 
@@ -165,94 +236,44 @@ Neste passo, vai implementar a aplicação .NET Core ligada à Base de Dados SQL
 
 ### <a name="configure-connection-string"></a>Configurar a cadeia de ligação
 
-Para definir as cordas de ligação [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) para a sua aplicação Azure, utilize o comando na Cloud Shell. No comando seguinte, substitua * \<* * \< *o nome da aplicação>, bem como o connection_string>parâmetro com a cadeia de ligação que criou anteriormente.
+Para definir as cordas de ligação [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) para a sua aplicação Azure, utilize o comando na Cloud Shell. No comando seguinte, substitua * \<o nome da aplicação>, *bem como o * \<* parâmetro de>de ligação com a cadeia de ligação que criou anteriormente.
 
 ```azurecli-interactive
-az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection="<connection_string>" --connection-string-type SQLServer
+az webapp config connection-string set --resource-group myResourceGroup --name <app-name> --settings MyDbConnection="<connection-string>" --connection-string-type SQLAzure
 ```
 
 Em ASP.NET Core, pode utilizar esta`MyDbConnection`cadeia de ligação denominada ( ) utilizando o padrão padrão, como qualquer cadeia de ligação especificada em *appsettings.json*. Neste caso, `MyDbConnection` também está definido nas suas *definições de aplicações.json*. Ao ser recorrido no Serviço de Aplicações, a cadeia de ligação definida no Serviço de Aplicações tem precedência sobre a cadeia de ligação definida nas suas *definições.json*. O código utiliza o valor *appsettings.json* durante o desenvolvimento local, e o mesmo código utiliza o valor do Serviço de Aplicações quando implementado.
 
-Para ver como a cadeia de ligação é referenciada no seu código, consulte A Base de [Dados Connect to SQL em produção](#connect-to-sql-database-in-production).
-
-### <a name="configure-environment-variable"></a>Configure variável ambiental
-
-Em seguida, configure a definição da aplicação `ASPNETCORE_ENVIRONMENT` como _Produção_. Esta configuração permite-lhe saber se está a funcionar em Azure, porque utiliza o SQLite para o seu ambiente de desenvolvimento local e base de dados SQL para o seu ambiente Azure.
-
-O exemplo seguinte `ASPNETCORE_ENVIRONMENT` configura uma definição de aplicação na sua aplicação Azure. Substitua * \<* o app_name>espaço reservado.
-
-```azurecli-interactive
-az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings ASPNETCORE_ENVIRONMENT="Production"
-```
-
-Para ver como a variável ambiental é referenciada no seu código, consulte [Connect to SQL Database em produção](#connect-to-sql-database-in-production).
-
-### <a name="connect-to-sql-database-in-production"></a>Ligar à Base de Dados SQL em produção
-
-No seu repositório local, abra Startup.cs e localize o seguinte código:
-
-```csharp
-services.AddDbContext<MyDatabaseContext>(options =>
-        options.UseSqlite("Data Source=localdatabase.db"));
-```
-
-Substitua-o pelo código seguinte, que utiliza as variáveis de ambiente que configurou anteriormente.
-
-```csharp
-// Use SQL Database if in Azure, otherwise, use SQLite
-if(Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
-    services.AddDbContext<MyDatabaseContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection")));
-else
-    services.AddDbContext<MyDatabaseContext>(options =>
-            options.UseSqlite("Data Source=localdatabase.db"));
-
-// Automatically perform database migration
-services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate();
-```
-
-Se este código detetar que está em produção (o que indica o ambiente Azure), então utiliza a cadeia de ligação configurada para ligar à Base de Dados SQL.
-
-A `Database.Migrate()` chamada ajuda-o quando é executado em Azure, porque cria automaticamente as bases de dados de que a sua aplicação .NET Core necessita, com base na sua configuração de migração. 
-
-> [!IMPORTANT]
-> Para aplicações de produção que precisam de escala, siga as melhores práticas na aplicação das [migrações na produção.](/aspnet/core/data/ef-rp/migrations#applying-migrations-in-production)
-> 
-
-Guarde as alterações e, em seguida, consolide-as no seu repositório de Git. 
-
-```bash
-git add .
-git commit -m "connect to SQLDB in Azure"
-```
+Para ver como a cadeia de ligação é referenciada no seu código, consulte a [aplicação Configure para se ligar à base](#configure-app-to-connect-to-production-database)de dados de produção .
 
 ### <a name="push-to-azure-from-git"></a>Enviar para o Azure a partir do Git
 
-[!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-git-push-to-azure-no-h.md)]
+[!INCLUDE [push-to-azure-no-h](../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
 <pre>
-Counting objects: 98, done.
-Delta compression using up to 8 threads.
-Compressing objects: 100% (92/92), done.
-Writing objects: 100% (98/98), 524.98 KiB | 5.58 MiB/s, done.
-Total 98 (delta 8), reused 0 (delta 0)
+Enumerating objects: 268, done.
+Counting objects: 100% (268/268), done.
+Compressing objects: 100% (171/171), done.
+Writing objects: 100% (268/268), 1.18 MiB | 1.55 MiB/s, done.
+Total 268 (delta 95), reused 251 (delta 87), pack-reused 0
+remote: Resolving deltas: 100% (95/95), done.
 remote: Updating branch 'master'.
-remote: .
 remote: Updating submodules.
-remote: Preparing deployment for commit id '0c497633b8'.
+remote: Preparing deployment for commit id '64821c3558'.
 remote: Generating deployment script.
-remote: Project file path: ./DotNetCoreSqlDb.csproj
+remote: Project file path: .\DotNetCoreSqlDb.csproj
+remote: Generating deployment script for ASP.NET MSBuild16 App
 remote: Generated deployment script files
 remote: Running deployment command...
-remote: Handling ASP.NET Core Web Application deployment.
+remote: Handling ASP.NET Core Web Application deployment with MSBuild16.
 remote: .
 remote: .
 remote: .
 remote: Finished successfully.
 remote: Running post deployment command(s)...
-remote: Deployment successful.
+remote: Triggering recycle (preview mode disabled).
 remote: App container will begin restart within 10 seconds.
-To https://&lt;app_name&gt;.scm.azurewebsites.net/&lt;app_name&gt;.git
+To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
  * [new branch]      master -> master
 </pre>
 
@@ -261,7 +282,7 @@ To https://&lt;app_name&gt;.scm.azurewebsites.net/&lt;app_name&gt;.git
 Navegue na aplicação implementada utilizando o seu navegador web.
 
 ```bash
-http://<app_name>.azurewebsites.net
+http://<app-name>.azurewebsites.net
 ```
 
 Adicione alguns itens a fazer.
@@ -282,17 +303,12 @@ Abra _Models\Todo.cs_ no editor de código. Adicione a seguinte propriedade à c
 public bool Done { get; set; }
 ```
 
-### <a name="run-code-first-migrations-locally"></a>Executar Primeiras Migrações de Código localmente
+### <a name="rerun-database-migrations"></a>Reexecutar migrações de bases de dados
 
-Execute alguns comandos para fazer atualizações à base de dados local.
+Execute alguns comandos para fazer atualizações na base de dados de produção.
 
 ```bash
 dotnet ef migrations add AddProperty
-```
-
-Atualize a base de dados local:
-
-```bash
 dotnet ef database update
 ```
 
@@ -364,7 +380,7 @@ Uma `git push` vez que esteja completo, navegue para a sua app App Service e ten
 
 ![Aplicação Azure após código primeira migração](./media/app-service-web-tutorial-dotnetcore-sqldb/this-one-is-done.png)
 
-Todos os itens a fazer existentes continuam a ser apresentados. Quando republica a sua aplicação .NET Core, os dados existentes na sua Base de Dados SQL não se perdem. Além disso, as Migrações do Entity Framework Core apenas alteram o esquema de dados e mantêm os dados existentes intactos.
+Todos os itens a fazer existentes continuam a ser apresentados. Quando republica a sua aplicação ASP.NET Core, os dados existentes na sua Base de Dados SQL não se perdem. Além disso, as Migrações do Entity Framework Core apenas alteram o esquema de dados e mantêm os dados existentes intactos.
 
 ## <a name="stream-diagnostic-logs"></a>Transmitir registos de diagnóstico em fluxo
 
@@ -378,7 +394,7 @@ O projeto da amostra já segue a orientação da [ASP.NET Core Logging em Azure]
 Para definir o [nível](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-level) de `Information` registo ASP.NET `Error`Core no [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) Serviço de Aplicações para a partir do nível predefinido, utilize o comando na Cloud Shell.
 
 ```azurecli-interactive
-az webapp log config --name <app_name> --resource-group myResourceGroup --application-logging true --level information
+az webapp log config --name <app-name> --resource-group myResourceGroup --application-logging true --level information
 ```
 
 > [!NOTE]
@@ -388,7 +404,7 @@ az webapp log config --name <app_name> --resource-group myResourceGroup --applic
 Para iniciar o streaming [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) de registos, utilize o comando na Cloud Shell.
 
 ```azurecli-interactive
-az webapp log tail --name <app_name> --resource-group myResourceGroup
+az webapp log tail --name <app-name> --resource-group myResourceGroup
 ```
 
 Uma vez iniciado o streaming de log, refresque a aplicação Azure no navegador para obter algum tráfego web. Verá então os registos da consola direcionados para o terminal. Se não vir os registos da consola imediatamente, volte a consultar dentro de 30 segundos.
@@ -407,7 +423,7 @@ Na página de Serviços de **Aplicações,** selecione o nome da sua aplicação
 
 ![Navegação do portal para a aplicação do Azure](./media/app-service-web-tutorial-dotnetcore-sqldb/access-portal.png)
 
-Por padrão, o portal mostra a página **de visão geral** da sua aplicação. Esta página proporciona-lhe uma vista do desempenho da aplicação. Aqui, também pode realizar tarefas de gestão básicas, como navegar, parar, iniciar, reiniciar e eliminar. O lado esquerdo da página mostra as diferentes páginas de configuração que pode abrir.
+Por padrão, o portal mostra a página **de visão geral** da sua aplicação. Esta página proporciona-lhe uma vista do desempenho da aplicação. Aqui, também pode realizar tarefas de gestão básicas, como navegar, parar, iniciar, reiniciar e eliminar. Os separadores no lado esquerdo da página mostram as várias páginas de configuração que pode abrir.
 
 ![Página Serviço de Aplicações no portal do Azure](./media/app-service-web-tutorial-dotnetcore-sqldb/web-app-blade.png)
 
@@ -429,4 +445,4 @@ O que aprendeu:
 Avance para o próximo tutorial para aprender a mapear um nome DNS personalizado para a sua aplicação.
 
 > [!div class="nextstepaction"]
-> [Mapeie um nome dNS personalizado existente para o Serviço de Aplicações Azure](app-service-web-tutorial-custom-domain.md)
+> [Tutorial: Mapeie o nome dNS personalizado para a sua aplicação](app-service-web-tutorial-custom-domain.md)

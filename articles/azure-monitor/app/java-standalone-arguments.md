@@ -3,12 +3,12 @@ title: Monitor aplicativos Java em execução em qualquer ambiente - Azure Monit
 description: Monitorização do desempenho da aplicação para aplicações Java em execução em qualquer ambiente com agente autónomo java sem instrumentar a aplicação. Mapa de rastreio e aplicação distribuído.
 ms.topic: conceptual
 ms.date: 04/16/2020
-ms.openlocfilehash: 08a83fbc05276808b62a0391a5c4217cc09f6d00
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 527f1eaf04be7b5e8c89c12912a06d2f5d50321f
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641878"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82508042"
 ---
 # <a name="configuring-jvm-args-java-standalone-agent-for-azure-monitor-application-insights"></a>Configurar o agente autónomo da JVM args Java para insights de aplicação do Monitor Azure
 
@@ -20,15 +20,25 @@ Configure [Serviços de Aplicações](https://docs.microsoft.com/azure/app-servi
 
 ## <a name="spring-boot"></a>Spring Boot
 
-Adicione o jVM `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` `-jar <myapp.jar>`arg em algum lugar antes, por exemplo:
+Adicione o jVM `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` `-jar`arg em algum lugar antes, por exemplo:
 
 ```
 java -javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar -jar <myapp.jar>
 ```
 
-> [!NOTE]
-> Args colocados `-jar <myapp.jar>` depois são passados para a app como args do programa.
+## <a name="spring-boot-via-docker-entry-point"></a>Bota de primavera via ponto de entrada do Docker
 
+Se estiver a utilizar o formulário `"-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar"` *exec,* adicione o parâmetro `"-jar"` à lista de parâmetros algures antes do parâmetro, por exemplo:
+
+```
+ENTRYPOINT ["java", "-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar", "-jar", "<myapp.jar>"]
+```
+
+Se estiver a utilizar o formulário *de concha,* adicione o jVM arg `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` algures antes, `-jar`por exemplo:
+
+```
+ENTRYPOINT java -javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar -jar <myapp.jar>
+```
 
 ## <a name="tomcat-8-linux"></a>Tomcat 8 (Linux)
 

@@ -1,10 +1,10 @@
 ---
-title: Parâmetros de serviço web - Azure Machine Learning Studio (clássico) / Microsoft Docs
+title: Parâmetros de serviço web
+titleSuffix: ML Studio (classic) - Azure
 description: Como utilizar os Parâmetros do Serviço Web de Aprendizagem automática Azure para modificar o comportamento do seu modelo quando o serviço web é acedido.
 services: machine-learning
-author: xiaoharper
-ms.custom: seodec18
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 editor: cgronlun
 ms.assetid: c49187db-b976-4731-89d6-11a0bf653db1
 ms.service: machine-learning
@@ -12,12 +12,12 @@ ms.subservice: studio
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/12/2017
-ms.openlocfilehash: d6ddd9603f22bd3820d18be020b9c620cf06aa42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1308f658b6ae7c8f46b989f8205568fa195fb4aa
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79204414"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82209354"
 ---
 # <a name="use-azure-machine-learning-studio-classic-web-service-parameters"></a>Utilize os parâmetros do serviço web Azure Machine Learning Studio (clássico)
 

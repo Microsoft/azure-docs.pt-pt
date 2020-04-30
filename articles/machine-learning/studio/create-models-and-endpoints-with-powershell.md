@@ -1,5 +1,5 @@
 ---
-title: Criar vários pontos finais para um modelo
+title: Criar vários pontos finais do modelo
 titleSuffix: ML Studio (classic) - Azure
 description: Use o PowerShell para criar vários modelos de Machine Learning e pontos finais de serviço web com o mesmo algoritmo, mas diferentes conjuntos de dados de treino.
 services: machine-learning
@@ -10,14 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 4f8bb1f20dcc3a7900e3347616018a6e156962d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 70fafa79c87d19d62ef936b286c82813d8e7fe17
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79218178"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208521"
 ---
-# <a name="use-powershell-to-create-studio-classic-models-and-web-service-endpoints-from-one-experiment"></a>Use powerShell para criar modelos studio (clássicos) e pontos finais de serviço web a partir de uma experiência
+# <a name="create-multiple-web-service-endpoints-from-one-experiment-with-ml-studio-classic-and-powershell"></a>Crie vários pontos finais de serviço web a partir de uma experiência com ml Studio (clássico) e PowerShell
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 

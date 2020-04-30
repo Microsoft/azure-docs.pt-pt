@@ -6,12 +6,12 @@ ms.date: 04/15/2020
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: 6b9732aab9e3fe0d26b4c572efe87c3a9d3e29f6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: HT
+ms.openlocfilehash: 3b68531319e83eece11833dba475020060e280b6
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/29/2020
-ms.locfileid: "81535354"
+ms.locfileid: "82583315"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migrar VMs Hyper-V para o Azure 
 
@@ -40,7 +40,7 @@ Antes de começar este tutorial, tem de:
 1. [Reveja](hyper-v-migration-architecture.md) a arquitetura de migração Hyper-V.
 2. [Revisão](migrate-support-matrix-hyper-v-migration.md#hyper-v-hosts) Requisitos de hospedeiro hiper-V, e os URLs Azure que os anfitriões hyper-V precisam de aceder.
 3. [Reveja](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms) os requisitos para VMs hiper-V que pretende migrar. Os VMs hiper-V devem estar em conformidade com [os requisitos de VM Azure](migrate-support-matrix-hyper-v-migration.md#azure-vm-requirements).
-2. Recomendamos que complete os tutoriais anteriores desta série. O [primeiro tutorial](tutorial-prepare-hyper-v.md) mostra-lhe como configurar Azure e Hyper-V para migração. O segundo tutorial mostra-lhe como [avaliar Os VMs Hiper-V](tutorial-avaliar-hiper-v.md antes da migração, usando a Avaliação do Servidor Azure Migrate.Server. 
+2. Recomendamos que complete os tutoriais anteriores desta série. O [primeiro tutorial](tutorial-prepare-hyper-v.md) mostra-lhe como configurar Azure e Hyper-V para migração. O segundo tutorial mostra-lhe como [avaliar os VMs hiper-V](tutorial-assess-hyper-v.md) antes da migração, utilizando a Avaliação do Servidor Azure Migrate:Server. 
     > [!NOTE]
     > Embora recomendemos que experimente uma avaliação, não precisa fazer uma avaliação antes de migrar VMs.
     > Para os VMs hiper-V migratórios, o Azure Migrate:Server Migration executa agentes de software (fornecedor de recuperação de websites microsoft Azure e agente do Serviço de Recuperação do Microsoft Azure) em Anfitriões Hiper-V ou nós de cluster, para orquestrar e replicar dados para o Azure Migrate. O [aparelho Azure Migrate](migrate-appliance.md) não é utilizado para a migração hyper-V.

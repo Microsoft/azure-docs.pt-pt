@@ -11,12 +11,12 @@ manager: philmea
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 1398169c44dadcd11ad037e4e3a1cc0132e21f13
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: b66f5a7d85eb91970d5f551b010dd512b216b9c6
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82024698"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509521"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Fique ligado à Central Azure IoT
 
@@ -42,7 +42,7 @@ Este artigo descreve os seguintes casos de utilização:
 - [Conecte os dispositivos em escala utilizando certificados X.509](#connect-devices-using-x509-certificates) - a abordagem recomendada para ambientes de produção.
 - [Ligar dispositivos sem primeiro registrá-los](#connect-without-registering-devices)
 - [Ligar dispositivos que utilizam matrículas individuais dPS](#individual-enrollment-based-device-connectivity)
-- [Conecte dispositivos utilizando funcionalidades IoT Plug e Play (pré-visualização)](#connect-devices-with-iot-plug-and-play-preview)
+- [Associar automaticamente um dispositivo com um modelo de dispositivo](#automatically-associate-with-a-device-template)
 
 ## <a name="connect-a-single-device"></a>Ligar um único dispositivo
 
@@ -139,7 +139,7 @@ O fluxo é ligeiramente diferente dependendo se os dispositivos utilizam tokens 
     Na página de **ligação do Dispositivo > Administração,** o **Auto aprova** os controlos de opção se precisa de aprovar manualmente o dispositivo antes de poder começar a enviar dados.
 
     > [!NOTE]
-    > Para saber como associar automaticamente um dispositivo a um modelo de dispositivo, consulte [o Connect devices com ioT Plug and Play (pré-visualização)](#connect-devices-with-iot-plug-and-play-preview).
+    > Para saber como associar automaticamente um dispositivo a um modelo de dispositivo, consulte [associar automaticamente um dispositivo a um modelo](#automatically-associate-with-a-device-template)de dispositivo .
 
 ### <a name="connect-devices-that-use-x509-certificates-without-registering"></a>Ligar dispositivos que usam certificados X.509 sem registar
 
@@ -156,7 +156,7 @@ O fluxo é ligeiramente diferente dependendo se os dispositivos utilizam tokens 
     Na página de **ligação do Dispositivo > Administração,** o **Auto aprova** os controlos de opção se precisa de aprovar manualmente o dispositivo antes de poder começar a enviar dados.
 
     > [!NOTE]
-    > Para saber como associar automaticamente um dispositivo a um modelo de dispositivo, consulte [o Connect devices com ioT Plug and Play (pré-visualização)](#connect-devices-with-iot-plug-and-play-preview).
+    > Para saber como associar automaticamente um dispositivo a um modelo de dispositivo, consulte [associar automaticamente um dispositivo a um modelo](#automatically-associate-with-a-device-template)de dispositivo .
 
 ## <a name="individual-enrollment-based-device-connectivity"></a>Conectividade individual do dispositivo baseado em inscrições
 
@@ -165,7 +165,7 @@ Para os clientes que conectam dispositivos que cada um tem as suas próprias cre
 > [!NOTE]
 > Ao criar uma inscrição individual para um dispositivo, tem precedência sobre as opções de inscrição em grupo padrão na sua aplicação IoT Central.
 
-### <a name="creating-individual-enrollments"></a>Criação de matrículas individuais
+### <a name="create-individual-enrollments"></a>Criar inscrições individuais
 
 A IoT Central apoia os seguintes mecanismos de atestado para as matrículas individuais:
 
@@ -181,14 +181,22 @@ A IoT Central apoia os seguintes mecanismos de atestado para as matrículas indi
 
 - **Atestação de módulo de plataforma fidedigna (TPM):** Um [TPM](https://docs.microsoft.com/azure/iot-dps/concepts-tpm-attestation) é um tipo de módulo de segurança de hardware. Usar um TPM é uma das formas mais seguras de ligar um dispositivo. Este artigo assume que está a usar um TPM discreto, firmware ou integrado. Os TPMs emulados pelo software são adequados para prototipagem ou teste, mas não fornecem o mesmo nível de segurança que os TPMs discretos, firmware ou integrados. Não use TPMs de software em produção. Para criar uma inscrição individual que utilize um TPM, abra a página **de Ligação** de Dispositivos, selecione **a inscrição individual** como método de ligação, e **tPM** como o mecanismo. Introduza a chave de averbamento TPM e guarde as informações de ligação do dispositivo.
 
-## <a name="connect-devices-with-iot-plug-and-play-preview"></a>Ligar dispositivos com plug e reproduzir IoT (pré-visualização)
+## <a name="automatically-associate-with-a-device-template"></a>Associar-se automaticamente a um modelo de dispositivo
 
-Uma das principais funcionalidades do IoT Plug and Play (pré-visualização) com o IoT Central é a capacidade de associar automaticamente os modelos do dispositivo na ligação do dispositivo. Juntamente com as credenciais do dispositivo, os dispositivos podem agora enviar o **CapabilityModelId** como parte da chamada de registo do dispositivo. Esta capacidade permite à IoT Central descobrir e associar o modelo do dispositivo ao dispositivo. O processo de descoberta funciona da seguinte forma:
+Uma das principais características do IoT Central é a capacidade de associar automaticamente os modelos do dispositivo na ligação do dispositivo. Juntamente com as credenciais do dispositivo, os dispositivos podem enviar um **CapabilityModelId** como parte da chamada de registo do dispositivo. O **CapabilityModelID** é um URN que identifica o modelo de capacidade que o dispositivo implementa. A aplicação IoT Central pode usar o **CapabilityModelID** para identificar o modelo do dispositivo para usar e, em seguida, associar automaticamente o dispositivo ao modelo do dispositivo. O processo de descoberta funciona da seguinte forma:
 
-1. Associa-se ao modelo do dispositivo se já estiver publicado na aplicação IoT Central.
-1. Vai buscar ao repositório público de modelos de capacidade publicados e certificados.
+1. Se o modelo do dispositivo já estiver publicado na aplicação IoT Central, o dispositivo está associado ao modelo do dispositivo.
+1. Para dispositivos de Plug e Play IoT pré-certificados, se o modelo do dispositivo ainda não estiver publicado na aplicação IoT Central, o modelo do dispositivo é recolhido do repositório público.
 
-Abaixo está o formato da carga útil adicional que o dispositivo enviaria durante a chamada de registo DPS
+Os seguintes cortes mostram o formato da carga útil adicional que o dispositivo deve enviar durante a chamada de registo DPS para que a associação automática funcione.
+
+Este é o formato para dispositivos que utilizam o dispositivo geralmente disponível SDK que não suporta IoT Plug e Play:
+
+```javascript
+    iotcModelId: '< this is the URN for the capability model>';
+```
+
+Este é o formato para dispositivos que utilizam o dispositivo de pré-visualização pública SDK que suporta ioT Plug e Play:
 
 ```javascript
 '__iot:interfaces': {
@@ -197,7 +205,7 @@ Abaixo está o formato da carga útil adicional que o dispositivo enviaria duran
 ```
 
 > [!NOTE]
-> Note que o **Auto aprova** a opção na **administração > a ligação** do dispositivo deve ser ativada para que os dispositivos se conectem automaticamente, descubram o modelo do dispositivo e comecem a enviar dados.
+> O **Auto aprova** a opção na **administração > a ligação** do dispositivo deve ser ativada para que os dispositivos se conectem automaticamente, descubram o modelo do dispositivo e comecem a enviar dados.
 
 ## <a name="device-status-values"></a>Valores do estado do dispositivo
 

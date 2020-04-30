@@ -11,18 +11,18 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 02/10/2020
-ms.openlocfilehash: cc7a8df80e719173c7818055ab8771ddd7f73691
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 23984bdbcfc649c2bfe04a08787bc10149a1ed91
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "81682776"
+ms.locfileid: "82231897"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Criar conjuntos de dados de aprendizagem automática Azure
 
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Neste artigo, aprende-se a criar conjuntos de dados de Aprendizagem automática Azure para aceder a dados para as suas experiências locais ou remotas.
+Neste artigo, aprende-se a criar conjuntos de dados de Aprendizagem automática Azure para aceder a dados para as suas experiências locais ou remotas. Para entender onde os conjuntos de dados se encaixam no fluxo de trabalho global de acesso a dados da Azure Machine Learning, consulte o artigo de dados de [acesso seguro.](concept-data.md#data-workflow)
 
 Com conjuntos de dados de Aprendizagem automática Azure, pode:
 
@@ -60,13 +60,11 @@ Existem dois tipos de conjuntos de dados, baseados na forma como os utilizadores
 
 * [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) representa dados num formato tabular, analisando o ficheiro ou lista de ficheiros fornecidos. Isto fornece-lhe a capacidade de materializar os dados num Pandas ou Spark DataFrame. Pode criar `TabularDataset` um objeto a partir de .csv, .tsv, .parquet, .jsonl files, e a partir de resultados de consulta SQL. Para obter uma lista completa, consulte a [classe TabularDatasetFactory](https://aka.ms/tabulardataset-api-reference).
 
-* A classe [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) refere ficheiros únicos ou múltiplos nas suas lojas de dados ou URLs públicos. Por este método, pode descarregar ou montar os ficheiros para a sua computação como um objeto FileDataset. Os ficheiros podem estar em qualquer formato, o que permite uma gama mais alargada de cenários de aprendizagem automática, incluindo aprendizagem profunda.
-
-Para saber mais sobre as próximas alterações da API, consulte [dataset API change notice](https://aka.ms/tabular-dataset).
+* A classe [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) refere ficheiros únicos ou múltiplos nas suas lojas de dados ou URLs públicos. Por este método, pode descarregar ou montar os ficheiros para a sua computação como um objeto FileDataset. Os ficheiros podem estar em qualquer formato, o que permite uma gama mais alargada de cenários de aprendizagem automática, incluindo aprendizagem profunda. 
 
 ## <a name="create-datasets"></a>Criar conjuntos de dados
 
-Ao criar um conjunto de dados, cria-se uma referência à localização da fonte de dados, juntamente com uma cópia dos seus metadados. Como os dados permanecem na sua localização existente, não incorre em nenhum custo extra de armazenamento. Pode criar `TabularDataset` ambos `FileDataset` e conjuntos de dados utilizando https://ml.azure.como Python SDK ou em .
+Ao criar um conjunto de dados, cria-se uma referência à localização da fonte de dados, juntamente com uma cópia dos seus metadados. Como os dados permanecem na sua localização existente, não incorre em nenhum custo extra de armazenamento. Pode criar `TabularDataset` ambos `FileDataset` e conjuntos de dados utilizando o Python SDK ou o estúdio Azure Machine Learning em https://ml.azure.com.
 
 Para que os dados sejam acessíveis pelo Azure Machine Learning, os conjuntos de dados devem ser criados a partir de caminhos em lojas de [dados Azure](how-to-access-data.md) ou URLs web públicos. 
 
@@ -77,12 +75,15 @@ Para criar conjuntos de dados a partir de uma [datastore Azure](how-to-access-da
 1. Verifique se `contributor` tem `owner` ou acede à loja de dados Azure registada.
 
 2. Criar o conjunto de dados referenciando caminhos na loja de dados.
+
 > [!Note]
 > Pode criar um conjunto de dados a partir de múltiplos caminhos em várias lojas de dados. Não existe um limite rígido no número de ficheiros ou tamanho de dados a partir do dia. No entanto, para cada trajetória de dados, alguns pedidos serão enviados para o serviço de armazenamento para verificar se aponta para um ficheiro ou uma pasta. Esta sobrecarga pode levar a desempenho ou falha degradada. Um conjunto de dados que referencia uma pasta com 1000 ficheiros no interior é considerado referenciando uma via de dados. Recomendamos a criação de dataset referenciando menos de 100 caminhos nas lojas de dados para um desempenho ótimo.
 
 #### <a name="create-a-tabulardataset"></a>Criar um Conjunto TabularDataset
 
 Utilize [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false-) o método `TabularDatasetFactory` na classe para ler ficheiros em formato .csv ou .tsv e para criar um Conjunto TabularDataset não registado. Se estiver a ler de vários ficheiros, os resultados serão agregados numa representação tabular. 
+
+O seguinte código obtém o espaço de trabalho existente e a loja de dados desejada pelo nome. E depois passa a datastore e `path` as localizações de ficheiros `weather_ds`para o parâmetro para criar um novo TabularDataset, .
 
 ```Python
 from azureml.core import Workspace, Datastore, Dataset
@@ -95,10 +96,11 @@ workspace = Workspace.from_config()
 # retrieve an existing datastore in the workspace by name
 datastore = Datastore.get(workspace, datastore_name)
 
-# create a TabularDataset from 3 paths in datastore
+# create a TabularDataset from 3 file paths in datastore
 datastore_paths = [(datastore, 'weather/2018/11.csv'),
                    (datastore, 'weather/2018/12.csv'),
                    (datastore, 'weather/2019/*.csv')]
+
 weather_ds = Dataset.Tabular.from_delimited_files(path=datastore_paths)
 ```
 
@@ -124,7 +126,6 @@ titanic_ds.take(3).to_pandas_dataframe()
 0|1|Falso|3|Braund, Sr. Owen Harris.|masculino|22.0|1|0|A/5 21171|7.2500||S
 1|2|Verdadeiro|1|Cumings, Sra. John Bradley (Florence Briggs Th...|feminino|38.0|1|0|PC 17599|71.2833|C85|C
 2|3|Verdadeiro|3|Heikkinen, menina. Laina|feminino|26.0|0|0|STON/O2. 3101282|7.9250||S
-
 
 Para criar um conjunto de dados a partir de um dataframe de pandas de memória, escreva os dados para um ficheiro local, como um csv, e crie o seu conjunto de dados a partir desse ficheiro. O código que se segue demonstra este fluxo de trabalho.
 
@@ -215,7 +216,7 @@ Para criar um conjunto de dados no estúdio:
 
 ## <a name="register-datasets"></a>Registar conjuntos de dados
 
-Para completar o processo de criação, registe os seus conjuntos de dados com um espaço de trabalho. Utilize [`register()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--create-new-version-false-) o método para registar conjuntos de dados com o seu espaço de trabalho para partilhá-los com outros e reutilizá-los em várias experiências:
+Para completar o processo de criação, registe os seus conjuntos de dados com um espaço de trabalho. Utilize [`register()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--create-new-version-false-) o método para registar conjuntos de dados com o seu espaço de trabalho para partilhá-los com outros e reutilizá-los através de experiências no seu espaço de trabalho:
 
 ```Python
 titanic_ds = titanic_ds.register(workspace=workspace,

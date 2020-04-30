@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95be73bd125c124409585a478fa9707e7b6a2ac2
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e92cba923bc197d82083973b3fac476ab93117ad
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76289072"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231378"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-cloud-platform-identity-authentication"></a>Tutorial: Azure Ative Diretório integração de um único sign-on (SSO) com autenticação de identidade da plataforma de nuvem SAP
 
@@ -46,7 +46,7 @@ Neste tutorial, configura e testa o único sinal de Azure AD num ambiente de tes
 * Autenticação de identidade da plataforma SAP Cloud suporta **SP** e **IDP** iniciado SSO
 * Assim que configurar a Autenticação de Identidade da Plataforma De Nuvem SAP, pode impor controlos de sessão, que protegem a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. Os controlos de sessão estendem-se a partir do Acesso Condicional. [Saiba como impor o controlo de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
-Antes de mergulhar nos detalhes técnicos, é vital entender os conceitos que vai ver. Os Serviços de Autenticação de Identidade e Direção Ativa da Plataforma SAP permitem implementar o SSO através de aplicações ou serviços protegidos pela Azure AD (como idP) com aplicações e serviços SAP que estão protegidos pela SAP Cloud Autenticação de identidade da plataforma.
+Antes de mergulhar nos detalhes técnicos, é vital entender os conceitos que vai ver. Os Serviços de Autenticação de Identidade e Direção Ativa da Plataforma SAP permitem implementar o SSO através de aplicações ou serviços protegidos pela Azure AD (como idP) com aplicações e serviços SAP protegidos pela Autenticação de Identidade da Plataforma SAP Cloud.
 
 Atualmente, a autenticação de identidade da plataforma SAP Cloud funciona como fornecedor de identidade proxy para aplicações SAP. O Azure Ative Directory, por sua vez, atua como o principal Fornecedor de Identidade nesta configuração. 
 
@@ -176,7 +176,7 @@ Nesta secção, permitirá que a B.Simon utilize um único sign-on azure, conced
 
 ## <a name="configure-sap-cloud-platform-identity-authentication-sso"></a>Configure SSO de autenticação de identidade da plataforma de nuvem SAP
 
-1. Para obter O SSO configurado para a sua aplicação, vá à consola de autenticação de identidade da Plataforma SAP Cloud. O URL tem o `https://<tenant-id>.accounts.ondemand.com/admin`seguinte padrão: . Em seguida, leia a documentação sobre a autenticação de identidade da plataforma SAP Cloud em integração com o [Microsoft Azure AD](https://help.hana.ondemand.com/cloud_identity/frameset.htm?626b17331b4d4014b8790d3aea70b240.html).
+1. Para obter O SSO configurado para a sua aplicação, vá à consola de autenticação de identidade da Plataforma SAP Cloud. O URL tem o `https://<tenant-id>.accounts.ondemand.com/admin`seguinte padrão: . Em seguida, leia a documentação sobre a autenticação de identidade da plataforma SAP Cloud em integração com o [Microsoft Azure AD](https://help.sap.com/viewer/6d6d63354d1242d185ab4830fc04feb1/Cloud/en-US/626b17331b4d4014b8790d3aea70b240.html).
 
 2. No portal Azure, selecione o botão **Guardar.**
 
@@ -199,7 +199,7 @@ A autenticação de identidade da plataforma SAP Cloud suporta a opção Da Fede
 
 A opção Da Federação de Identidade é desativada por defeito. Se a Federação de Identidade estiver ativada, apenas os utilizadores que são importados na Autenticação de Identidade da Plataforma SAP Cloud podem aceder à aplicação.
 
-Para obter mais informações sobre como ativar ou desativar a Federação de Identidade com autenticação de identidade da plataforma De cloud SAP, consulte "Ativar a Federação de Identidade com A autenticação de identidade da plataforma de nuvem SAP" na [Configuração da Federação de Identidade com a Loja de Utilizadores da Autenticação de Identidade da Plataforma De Nuvem SAP.](https://help.hana.ondemand.com/cloud_identity/frameset.htm?c029bbbaefbf4350af15115396ba14e2.html)
+Para obter mais informações sobre como ativar ou desativar a Federação de Identidade com autenticação de identidade da plataforma De cloud SAP, consulte "Ativar a Federação de Identidade com A autenticação de identidade da plataforma de nuvem SAP" na [Configuração da Federação de Identidade com a Loja de Utilizadores da Autenticação de Identidade da Plataforma De Nuvem SAP.](https://help.sap.com/viewer/6d6d63354d1242d185ab4830fc04feb1/Cloud/en-US/c029bbbaefbf4350af15115396ba14e2.html)
 
 ## <a name="test-sso"></a>Teste SSO 
 

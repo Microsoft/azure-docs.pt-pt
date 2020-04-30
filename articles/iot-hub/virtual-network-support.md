@@ -2,17 +2,17 @@
 title: Suporte azure IoT Hub para redes virtuais
 description: Como usar o padrão de conectividade de redes virtuais com o IoT Hub
 services: iot-hub
-author: rezasherafat
+author: jlian
 ms.service: iot-fundamentals
 ms.topic: conceptual
-ms.date: 03/13/2020
-ms.author: rezas
-ms.openlocfilehash: 34f66c13b0e7eb7092332a48744f9abfd8f0db80
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/28/2020
+ms.author: jlian
+ms.openlocfilehash: c0d01ae6507864373a79282476846d6f96adf83b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79501429"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231446"
 ---
 # <a name="iot-hub-support-for-virtual-networks"></a>Suporte do IoT Hub para redes virtuais
 
@@ -199,7 +199,7 @@ Uma identidade de serviço gerida pode ser atribuída ao seu hub no tempo de for
 Depois de substituir os `name`valores pelo seu recurso, `location` `SKU.name` e `SKU.tier`pode utilizar o Azure CLI para implantar o recurso num grupo de recursos existente utilizando:
 
 ```azurecli-interactive
-az group deployment create --name <deployment-name> --resource-group <resource-group-name> --template-file <template-file.json>
+az deployment group create --name <deployment-name> --resource-group <resource-group-name> --template-file <template-file.json>
 ```
 
 Após a criação do recurso, pode recuperar a identidade de serviço gerida atribuída ao seu hub utilizando o Azure CLI:

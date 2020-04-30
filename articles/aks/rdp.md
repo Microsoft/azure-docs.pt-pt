@@ -5,18 +5,16 @@ description: Saiba como criar uma ligação RDP com os nós do Windows Server do
 services: container-service
 ms.topic: article
 ms.date: 06/04/2019
-ms.openlocfilehash: 140d59894b38c7f07f16b0ac3cf99316c201d120
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: ed849ec928cc09cd0e8911929c4abc6ae54b1536
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886794"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208045"
 ---
 # <a name="connect-with-rdp-to-azure-kubernetes-service-aks-cluster-windows-server-nodes-for-maintenance-or-troubleshooting"></a>Conecte-se com os nódos os nódos do Windows Server do Serviço RDP ao Azure Kubernetes Service (AKS) para manutenção ou resolução de problemas
 
 Ao longo do ciclo de vida do seu cluster Azure Kubernetes Service (AKS), poderá ter de aceder a um nó aks Windows Server. Este acesso pode ser para manutenção, recolha de registos ou outras operações de resolução de problemas. Pode aceder aos nós do Servidor do Windows AKS utilizando RDP. Em alternativa, se pretender utilizar o SSH para aceder aos nós do AKS Windows Server e tiver acesso ao mesmo par de chaves que foi utilizado durante a criação do cluster, pode seguir os passos em SSH até aos nós de cluster do [Serviço Azure Kubernetes (AKS).][ssh-steps] Para fins de segurança, os nós aks não estão expostos à internet.
-
-O suporte ao nó do Windows Server encontra-se atualmente em pré-visualização no AKS.
 
 Este artigo mostra-lhe como criar uma ligação RDP com um nó AKS usando os seus endereços IP privados.
 

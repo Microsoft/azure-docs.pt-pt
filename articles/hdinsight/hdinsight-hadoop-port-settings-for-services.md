@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
-ms.date: 04/06/2020
-ms.openlocfilehash: fe2cb04f36026740dc54f4668d3c3188592bd8ae
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 04/28/2020
+ms.openlocfilehash: c5f01a00d70869882d3d3398607ecfebbfd54417
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80754222"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82209082"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>Portas utilizadas pelos serviços Apache Hadoop no HDInsight
 
@@ -156,7 +156,7 @@ Exemplos:
 
 | Serviço | Nós | Porta | Protocolo | Descrição |
 | --- | --- | --- | --- | --- |
-| Corretor |Nódosos operários |9092 |[Protocolo de Arame Kafka](https://kafka.apache.org/protocol.html) |Usado para comunicação com clientes |
+| Corretor |Nódosos operários |9092 |Protocolo de Arame Kafka |Usado para comunicação com clientes |
 | &nbsp; |Nódoa zookeeper |2181 |&nbsp; |A porta que os clientes usam para ligar ao Zookeeper |
 | Procuração DE REPOUSO | Nódeos de gestão de Kafka |9400 |HTTPS |[Especificação kafka REST](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy/) |
 

@@ -4,12 +4,12 @@ description: Saiba como configurar a rede Azure CNI (avançada) no Serviço Azur
 services: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.openlocfilehash: 6f194cb97850fcb24e4789ac0ba39b6f03d99e6e
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 17778c367eb731a7e41f5017c3ae630dc152454e
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80617391"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82207501"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configure Rede Azure CNI no Serviço Azure Kubernetes (AKS)
 
@@ -39,7 +39,7 @@ Os endereços IP para as cápsulas e os nós do cluster são atribuídos a parti
 > O número de endereços IP necessários deve incluir considerações para operações de atualização e escalação. Se definir o intervalo de endereçoIP para suportar apenas um número fixo de nós, não pode atualizar ou escalar o seu cluster.
 >
 > - Ao **atualizar** o seu cluster AKS, um novo nó é implantado no cluster. Os serviços e cargas de trabalho começam a funcionar no novo nó, e um nó mais antigo é removido do cluster. Este processo de atualização de rolamento requer um mínimo de um bloco adicional de endereços IP para estar disponível. Sua contagem de `n + 1`nó é então.
->   - Esta consideração é particularmente importante quando utiliza piscinas de nó do Windows Server (atualmente em pré-visualização no AKS). Os nós do Windows Server no AKS não aplicam automaticamente as Atualizações do Windows, em vez disso, realiza uma atualização na piscina do nó. Esta atualização implementa novos nós com os mais recentes patches de imagem e segurança do nó base do Window Server 2019. Para obter mais informações sobre a atualização de um conjunto de nós do Windows Server, consulte [a atualização de um conjunto][nodepool-upgrade]de nós em AKS .
+>   - Esta consideração é particularmente importante quando utiliza piscinas de nós do Windows Server. Os nós do Windows Server no AKS não aplicam automaticamente as Atualizações do Windows, em vez disso, realiza uma atualização na piscina do nó. Esta atualização implementa novos nós com os mais recentes patches de imagem e segurança do nó base do Window Server 2019. Para obter mais informações sobre a atualização de um conjunto de nós do Windows Server, consulte [a atualização de um conjunto][nodepool-upgrade]de nós em AKS .
 >
 > - Quando **escalaum** aglomerado AKS, um novo nó é implantado no cluster. Os serviços e as cargas de trabalho começam a funcionar no novo nó. O seu intervalo de endereçoIP tem de ter em consideração a forma como pretende aumentar o número de nós e pods que o seu cluster pode suportar. Deve também ser incluído um nó adicional para operações de atualização. Sua contagem de `n + number-of-additional-scaled-nodes-you-anticipate + 1`nó é então.
 

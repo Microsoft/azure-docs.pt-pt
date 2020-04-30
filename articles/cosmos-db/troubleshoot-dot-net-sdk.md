@@ -8,18 +8,18 @@ ms.author: jawilley
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 5f92d98630c6fb875babeb907f92732b0c24bb52
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e015c1ee335cbdfed7964d63b1f4600bc6a4cb77
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "79137959"
+ms.locfileid: "82208742"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnosticar e resolver problemas ao utilizar o SDK de .NET do Azure Cosmos DB
 Este artigo abrange questões comuns, salções, passos de diagnóstico e ferramentas quando utiliza o [.NET SDK](sql-api-sdk-dotnet.md) com contas API Azure Cosmos DB SQL.
 O .NET SDK fornece representação lógica do lado do cliente para aceder à API Azure Cosmos DB SQL. Este artigo descreve as ferramentas e abordagens para o ajudar se encontrar problemas.
 
-## <a name="checklist-for-troubleshooting-issues"></a>Lista de verificação para problemas de resolução de problemas:
+## <a name="checklist-for-troubleshooting-issues"></a>Lista de verificação para problemas de resolução de problemas
 Considere a seguinte lista de verificação antes de mudar a sua candidatura para a produção. A utilização da lista de verificação evitará várias questões comuns que poderá ver. Também pode diagnosticar rapidamente quando ocorre um problema:
 
 *    Use o mais recente [SDK](sql-api-sdk-dotnet-standard.md). Os SDKs de pré-visualização não devem ser utilizados para a produção. Isto evitará que se abaterá questões conhecidas que já estão corrigidas.
@@ -101,6 +101,30 @@ As [métricas](sql-api-query-metrics.md) de consulta ajudarão a determinar onde
 * Se a consulta de back-end voltar rapidamente, e passar muito tempo no cliente, verifique a carga na máquina. É provável que não haja recursos suficientes e o SDK está à espera que os recursos estejam disponíveis para lidar com a resposta.
 * Se a consulta de back-end for lenta tente [otimizar a consulta](optimize-cost-queries.md) e olhar para a política de [indexação](index-overview.md) atual 
 
+### <a name="http-401-the-mac-signature-found-in-the-http-request-is-not-the-same-as-the-computed-signature"></a>HTTP 401: A assinatura MAC encontrada no pedido HTTP não é a mesma que a assinatura computada
+Se recebeu a seguinte mensagem de erro 401: "A assinatura MAC encontrada no pedido HTTP não é a mesma que a assinatura computada." pode ser causado pelos seguintes cenários.
+
+1. A chave foi girada e não seguiu as [melhores práticas.](secure-access-to-data.md#key-rotation) Normalmente é o caso. A rotação da chave da conta Cosmos DB pode demorar entre alguns segundos e possivelmente dias, dependendo do tamanho da conta Cosmos DB.
+   1. A assinatura 401 MAC é vista pouco depois de uma rotação da chave e acaba por parar sem alterações. 
+2. A chave está mal configurada na aplicação para que a chave não corresponda à conta.
+   1. 401 edição de assinatura MAC será consistente e acontece para todas as chamadas
+3. Há uma condição de raça com criação de contentores. Uma instância de aplicação está a tentar aceder ao contentor antes da criação do contentor estar concluída. O cenário mais comum para isso se a aplicação estiver em execução, e o recipiente for eliminado e recriado com o mesmo nome enquanto a aplicação estiver em execução. O SDK tentará utilizar o novo contentor, mas a criação do contentor ainda está em curso, pelo que não tem as chaves.
+   1. A emissão de assinatura mac 401 é vista pouco depois da criação de um contentor, e só ocorre até que a criação do recipiente esteja concluída.
+ 
+ ### <a name="http-error-400-the-size-of-the-request-headers-is-too-long"></a>Erro HTTP 400. O tamanho dos cabeçalhos de pedido é muito longo.
+ O tamanho do cabeçalho cresceu para grande e está excedendo o tamanho máximo permitido. É sempre recomendado usar o último SDK. Certifique-se de que utiliza pelo menos a versão [3.x](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/changelog.md) ou [2.x,](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md)que adiciona o tamanho do cabeçalho a rastrear a mensagem de exceção.
+
+Causas:
+ 1. O símbolo da sessão cresceu muito grande. O símbolo da sessão cresce à medida que o número de divisórias aumenta no recipiente.
+ 2. O símbolo de continuação cresceu para grande. Diferentes consultas terão diferentes tamanhos de token de continuação.
+ 3. É causado por uma combinação do símbolo da sessão e do símbolo de continuação.
+
+Solução:
+   1. Siga as [dicas de desempenho](performance-tips.md) e converta a aplicação para o modo de ligação Direct + TCP. Direct + TCP não tem a restrição de tamanho do cabeçalho como o HTTP faz o que evita este problema.
+   2. Se o símbolo da sessão for a causa, então uma mitigação temporária é para reiniciar a aplicação. Reiniciar a instância de aplicação reiniciará o token da sessão. Se as exceções pararem após o reinício, confirma-se que a ficha da sessão é a causa. Acabará por voltar ao tamanho que irá causar a exceção.
+   3. Se a aplicação não puder ser convertida para Direct + TCP e a ficha da sessão for a causa, então a mitigação pode ser feita alterando o [nível](consistency-levels.md)de consistência do cliente . O token da sessão é usado apenas para a consistência da sessão, que é o padrão para Cosmos DB. Qualquer outro nível de consistência não utilizará o símbolo da sessão. 
+   4. Se a aplicação não puder ser convertida para Direct + TCP e o token de continuação for a causa, tente definir a opção ResponseContinuationTokenLimitKb. A opção pode ser encontrada nas Opções de Feed para v2 ou nas Opções De ConsultaRequest em v3.
+
  <!--Anchors-->
 [Common issues and workarounds]: #common-issues-workarounds
 [Enable client SDK logging]: #logging
@@ -108,5 +132,3 @@ As [métricas](sql-api-query-metrics.md) de consulta ajudarão a determinar onde
 [Request Timeouts]: #request-timeouts
 [Azure SNAT (PAT) port exhaustion]: #snat
 [Production check list]: #production-check-list
-
-

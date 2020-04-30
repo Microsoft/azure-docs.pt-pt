@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm
 ms.topic: conceptual
 ms.date: 08/08/2018
 ms.author: jushiman
-ms.openlocfilehash: c8795f46e47b2ab43898f6f436b9ee6026a22fa7
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: a23164215376bee291c07d49c88bd9e916d710bf
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81011570"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82207841"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Criar um conjunto de escala de máquina virtual que utiliza Zonas de Disponibilidade
 
@@ -56,7 +56,7 @@ Ao implementar um conjunto de escala de máquina virtual, pode optar por utiliza
 
 Quando se cria uma escala definida numa única zona, controla-se a zona de todas as instâncias vm e o conjunto de escala é gerido e a escala automática apenas dentro dessa zona. Um conjunto de escala redundante permite criar um conjunto de escala única que se estende por várias zonas. À medida que as instâncias vm são criadas, por padrão são equilibradas uniformemente em todas as zonas. Se ocorrer uma interrupção numa das zonas, um conjunto de escala não aumenta automaticamente a capacidade. Uma boa prática seria configurar regras de escala automática com base no CPU ou no uso da memória. As regras de escala automática permitiriam que a escala definida respondesse a uma perda dos casos vm naquela zona, eliminando novas instâncias nas restantes zonas operacionais.
 
-Para utilizar as Zonas de Disponibilidade, o seu conjunto de escala deve ser criado numa [região azure apoiada.](../availability-zones/az-overview.md#services-support-by-region) Pode criar um conjunto de escala que utiliza Zonas de Disponibilidade com um dos seguintes métodos:
+Para utilizar as Zonas de Disponibilidade, o seu conjunto de escala deve ser criado numa [região azure apoiada.](../availability-zones/az-region.md) Pode criar um conjunto de escala que utiliza Zonas de Disponibilidade com um dos seguintes métodos:
 
 - [Portal do Azure](#use-the-azure-portal)
 - CLI do Azure

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 867b327ac25d51cd3955e622da9d8067ae6d9ae9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: aba444e618a6ee2c6808b7f6d9d706fdf18fe546
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79127722"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82209048"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparar e personalizar uma imagem VHD principal
 
@@ -58,7 +58,7 @@ Se criar um VM a partir de um VHD existente, cria um disco dinâmico por padrão
 Também pode executar o seguinte cmdlet PowerShell para mudar o disco para um disco fixo.
 
 ```powershell
-Convert-VHD –Path c:\\test\\MY-VM.vhdx –DestinationPath c:\\test\\MY-NEW-VM.vhd -VHDType Fixed
+Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd -VHDType Fixed
 ```
 
 ## <a name="software-preparation-and-installation"></a>Preparação e instalação de software

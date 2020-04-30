@@ -6,17 +6,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/26/2018
-ms.openlocfilehash: 7b88d957bce45bf518fc77584f1691de8010459a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b87179c79489bf781619b70b19ca8982f2e38dff
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77663135"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509487"
 ---
 # <a name="inventory-and-data-collection-details-for-monitoring-solutions-in-azure"></a>Inventário e detalhes de recolha de dados para soluções de monitorização em Azure
-[A monitorização](solutions.md) de soluções de alavancagem de serviços em Azure para fornecer informações adicionais sobre o funcionamento de uma determinada aplicação ou serviço. As soluções de monitorização normalmente recolhem dados de registo e fornecem consultas e pontos de vista para analisar os dados recolhidos. Pode adicionar soluções de monitorização ao Azure Monitor para quaisquer aplicações e serviços que utilize. Normalmente estão disponíveis sem custos, mas recolhem dados que podem invocar taxas de utilização.
+[As soluções](solutions.md) de monitorização utilizam serviços em Azure para obter conhecimento do funcionamento de uma determinada aplicação ou serviço. As soluções de monitorização normalmente recolhem dados de registo e fornecem consultas e pontos de vista para analisar os dados recolhidos. Pode adicionar soluções de monitorização ao Azure Monitor para quaisquer aplicações e serviços que utilize. Normalmente estão disponíveis sem custos, mas recolhem dados que podem invocar taxas de utilização.
 
-Este artigo inclui uma lista de soluções de [montioring](solutions.md) disponíveis na Microsoft com links para a sua documentação detalhada.  Também fornece informações sobre o seu método e frequência de recolha de dados no Monitor Azure.  Pode utilizar a informação neste artigo para identificar as diferentes soluções disponíveis e para compreender os requisitos de fluxo de dados e ligação para diferentes soluções de monitorização.
+Este artigo inclui uma lista de soluções de [monitorização](solutions.md) disponíveis da Microsoft com ligações à sua documentação detalhada.  Também fornece informações sobre o seu método e frequência de recolha de dados no Monitor Azure.  Pode utilizar a informação neste artigo para identificar as diferentes soluções disponíveis e para compreender os requisitos de fluxo de dados e ligação para diferentes soluções de monitorização.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -26,11 +26,11 @@ A tabela seguinte lista as [soluções de monitorização](solutions.md) em Azur
 
 As explicações das colunas são as seguintes:
 
-- Agente de **monitorização** da Microsoft - Agente utilizado no Windows e Linux para executar o pacote de gestão a partir do SCOM e soluções de monitorização do Azure. Nesta configuração, o agente está ligado diretamente ao Monitor Azure sem estar ligado a um grupo de gestão de Gestor de Operações. 
+- Agente de **monitorização** da Microsoft - Agente utilizado no Windows e Linux para executar o pack de gestão do Microsoft System Center - Operations Manager (OM) e soluções de monitorização do Azure. Nesta configuração, o agente está ligado diretamente ao Monitor Azure sem estar ligado a um grupo de gestão de Gestor de Operações. 
 - **Diretor de Operações** - Agente idêntico como agente de monitorização da Microsoft. Nesta configuração, está ligado a um grupo de gestão de Gestor de [Operações](../platform/om-agents.md) que está ligado ao Monitor Azure. 
--  **Azure Storage** - Solução recolhe dados de uma conta de armazenamento Azure. 
+-  **Azure Storage** - Solução recolhe dados de uma conta de Armazenamento Azure. 
 - **Gestor de Operações necessário?** - É necessário um grupo de gestão de Gestão de Operações ligado para a recolha de dados através da solução de monitorização. 
-- Dados do **agente de operações enviados através** de um grupo de gestão - Se o agente estiver ligado a um grupo de [gestão SCOM,](../platform/om-agents.md)então os dados são enviados para o Monitor De Operações a partir do servidor de gestão. Neste caso, o agente não precisa de se ligar diretamente ao Monitor Azure. Se esta caixa não for selecionada, os dados são enviados do agente diretamente para o Monitor Azure, mesmo que o agente esteja ligado a um grupo de gestão SCOM. Terá de ser capaz de comunicar ao Monitor Azure através do [portal Log Analytics](../platform/gateway.md).
+- Dados do **agente de operações enviados através** de um grupo de gestão - Se o agente estiver ligado a um grupo de [gestão OM,](../platform/om-agents.md)então os dados são enviados para o Monitor De Operações a partir do servidor de gestão. Neste caso, o agente não precisa de se ligar diretamente ao Monitor Azure. Se esta caixa não for selecionada, os dados são enviados do agente diretamente para o Monitor Azure, mesmo que o agente esteja ligado a um grupo de gestão om. Terá de ser capaz de comunicar ao Monitor Azure através do [portal Log Analytics](../platform/gateway.md).
 - **Frequência** de recolha - Especifica a frequência que os dados são recolhidos pela solução de monitorização. 
 
 
@@ -53,8 +53,8 @@ As explicações das colunas são as seguintes:
 | [Análise Azure SQL (Pré-visualização)](azure-sql.md) | Windows | | | | | | 1 minuto |
 | [Cópia de segurança](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) | Azure |  |  |  |  |  | a quando a notificação |
 | [Capacidade e Desempenho (Pré-visualização)](capacity-performance.md) |Windows |&#8226; |&#8226; | | |&#8226; |à chegada |
-| [Monitorização de Alterações](../../automation/change-tracking.md) |Windows |&#8226; |&#8226; | | |&#8226; |[varia](../../automation/change-tracking.md#change-tracking-data-collection-details) |
-| [Monitorização de Alterações](../../automation/change-tracking.md) |Linux |&#8226; | | | | |[varia](../../automation/change-tracking.md#change-tracking-data-collection-details) |
+| [Monitorização de Alterações](../../automation/change-tracking.md) |Windows |&#8226; |&#8226; | | |&#8226; |[varia](../../automation/change-tracking.md#change-tracking-and-inventory-data-collection) |
+| [Monitorização de Alterações](../../automation/change-tracking.md) |Linux |&#8226; | | | | |[varia](../../automation/change-tracking.md#change-tracking-and-inventory-data-collection) |
 | [Contentores](containers.md) | Windows e Linux | &#8226; | &#8226; |  |  |  | 3 minutos |
 | [Análise do Key Vault](azure-key-vault.md) |Windows | | | | | |a quando a notificação |
 | [Avaliação de Software Maligno](../../security-center/security-center-install-endpoint-protection.md) |Windows |&#8226; |&#8226; | | |&#8226; |de hora em hora |
@@ -66,7 +66,7 @@ As explicações das colunas são as seguintes:
 | [Avaliação do SQL](sql-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 dias |
 | [SurfaceHub](surface-hubs.md) |Windows |&#8226; | | | | |à chegada |
 | [Avaliação do Gestor de Operações do Centro de Sistema (Pré-visualização)](scom-assessment.md) | Windows | &#8226; | &#8226; |  |  | &#8226; | sete dias |
-| [Gestão de Atualizações](../../automation/automation-update-management.md) | Windows |&#8226; |&#8226; | | |&#8226; |pelo menos 2 vezes por dia e 15 minutos após a instalação de uma atualização |
+| [Gestão de Atualizações](../../automation/automation-update-management.md) | Windows |&#8226; |&#8226; | | |&#8226; |pelo menos duas vezes por dia e 15 minutos após a instalação de uma atualização |
 | [Atualizar Preparação](https://docs.microsoft.com/windows/deployment/upgrade/upgrade-readiness-get-started) | Windows | &#8226; |  |  |  |  | 2 dias |
 | [Monitorização VMware (Depreciada)](vmware.md) | Linux | &#8226; |  |  |  |  | 3 minutos |
 | [Dados de Arame 2.0 (Pré-visualização)](wire-data.md) |Windows (2012 R2 / 8.1 ou posterior) |&#8226; |&#8226; | | | | 1 minuto |

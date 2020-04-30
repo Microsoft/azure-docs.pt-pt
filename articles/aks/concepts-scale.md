@@ -6,12 +6,12 @@ author: zr-msft
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: zarhoads
-ms.openlocfilehash: 396e5bc31723768ada334dd5043bca724af5e84f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c5c1180acec726d0863e11a3fe0825ffc7c48e3f
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77595863"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232535"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opções de dimensionamento para aplicações no Serviço Kubernetes do Azure (AKS)
 
@@ -46,7 +46,7 @@ Para começar com o autoscaler horizontal em AKS, consulte [as cápsulas de esca
 
 À medida que o autoescalador horizontal da cápsula verifica o API métrico a cada 30 segundos, os eventos de escala anteriores podem não ter sido concluídos com sucesso antes de ser feito outro controlo. Este comportamento pode fazer com que o autoscaler horizontal da cápsula altere o número de réplicas antes que o evento de escala anterior possa receber carga de trabalho de aplicação e as exigências dos recursos se ajustarem em conformidade.
 
-Para minimizar estes eventos de corrida, os valores de arrefecimento ou atraso são definidos. Estes valores definem quanto tempo o autoscaler horizontal da cápsula deve esperar após um evento de escala antes que outro evento de escala possa ser desencadeado. Este comportamento permite que a nova contagem de réplicas produza efeito e a API métricas reflita a carga de trabalho distribuída. Por padrão, o atraso na escala de eventos é de 3 minutos, e o atraso na escala para baixo eventos é de 5 minutos
+Para minimizar os eventos de corrida, é definido um valor de atraso. Este valor define quanto tempo o autoscaler horizontal da cápsula deve esperar após um evento de escala antes que outro evento de escala possa ser desencadeado. Este comportamento permite que a nova contagem de réplicas produza efeito e a API métricas reflita a carga de trabalho distribuída. Não há [atraso para eventos de escala a partir de Kubernetes 1.12](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/#support-for-cooldown-delay), no entanto o atraso na escala para baixo eventos é indefinido para 5 minutos.
 
 Atualmente, não é possível afinar estes valores de arrefecimento a partir do padrão.
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 40db6e9f429569bc19641aa5f0f371f287db7b18
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 61318fbccdf92c6502aa8b2236d8b234cec67668
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79281473"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82209150"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs - Recuperação geo-desastre 
 
@@ -129,7 +129,7 @@ Note as seguintes considerações a ter em conta com esta libertação:
 O Evento Hubs Standard SKU suporta Zonas de [Disponibilidade,](../availability-zones/az-overview.md)fornecendo localizações isoladas de falhas dentro de uma região do Azure. 
 
 > [!NOTE]
-> O suporte das Zonas de Disponibilidade para o Azure Event Hubs Standard só está disponível nas [regiões do Azure](../availability-zones/az-overview.md#services-support-by-region) onde existem zonas de disponibilidade.
+> O suporte das Zonas de Disponibilidade para o Azure Event Hubs Standard só está disponível nas [regiões do Azure](../availability-zones/az-region.md) onde existem zonas de disponibilidade.
 
 Só pode ativar Zonas de Disponibilidade em novos espaços de nome, utilizando o portal Azure. Os Centros de Eventos não suportam a migração de espaços de nome existentes. Não é possível desativar a redundância da zona depois de a ter habilitado para o seu espaço de nome.
 
@@ -145,7 +145,7 @@ Para obter mais informações sobre os Hubs de Eventos, visite as seguintes liga
 - Introdução ao Event Hubs
     - [.NET Core](get-started-dotnet-standard-send-v2.md)
     - [Java](get-started-java-send-v2.md)
-    - [Pitão](get-started-python-send-v2.md)
+    - [Python](get-started-python-send-v2.md)
     - [JavaScript](get-started-java-send-v2.md)
 * [FAQ dos Hubs de Eventos](event-hubs-faq.md)
 * [Aplicações de exemplo que utilizam Hubs de Eventos](https://github.com/Azure/azure-event-hubs/tree/master/samples)

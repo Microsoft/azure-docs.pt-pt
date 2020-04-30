@@ -5,15 +5,15 @@ description: Como descarregar dados de cadernos (pré-visualização) no ML Stud
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: how-to
-author: xiaoharper
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.date: 04/15/2020
-ms.openlocfilehash: a342ef86817f4f66a6e74b72b4d167fa548b6345
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 8a1de4ceb42ac86d8f945ec973eaa52d6ddec736
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81419192"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208470"
 ---
 # <a name="download-notebookspreview-data"></a>Baixar dados de Cadernos (pré-visualização)
 

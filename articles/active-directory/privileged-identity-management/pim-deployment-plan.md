@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/04/2020
+ms.date: 04/28/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8c77b3454026aa309d979bd938674e7c3ae7b6a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 51a60d307ca7dac139db0097283fc08e9e41624c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "77026001"
+ms.locfileid: "82233538"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Implementar a Gestão de Identidade Privilegiada da Azure AD (PIM)
 
@@ -325,7 +325,7 @@ Deve utilizar este palco para verificar se toda a configuração configurada par
 
 ### <a name="communicate-privileged-identity-management-to-affected-stakeholders"></a>Comunicar Gestão de Identidade Privilegiada às partes interessadas afetadas
 
-A implementação da Gestão de Identidade Privilegiada introduzirá passos adicionais para os utilizadores de funções privilegiadas. Embora a Gestão de Identidade Privilegiada reduza consideravelmente as questões de segurança associadas a identidades privilegiadas, a mudança tem de ser efetivamente comunicada antes da implantação em todo o arrendamento. Dependendo do número de administradores com impacto, as organizações optam frequentemente por criar um documento interno, um vídeo ou um e-mail sobre a mudança. Frequentemente incluído nestas comunicações incluem:
+A implementação da Gestão de Identidade Privilegiada introduzirá passos adicionais para os utilizadores de funções privilegiadas. Embora a Gestão de Identidade Privilegiada reduza consideravelmente as questões de segurança associadas a identidades privilegiadas, a mudança tem de ser efetivamente comunicada antes da implantação em toda a organização. Dependendo do número de administradores com impacto, as organizações optam frequentemente por criar um documento interno, um vídeo ou um e-mail sobre a mudança. Frequentemente incluído nestas comunicações incluem:
 
 - O que é PIM
 - Qual é o benefício para a organização
@@ -371,7 +371,7 @@ Implementar com sucesso a Gestão de Identidade Privilegiada na produção é um
 
 ### <a name="use-privileged-identity-management-alerts-to-safeguard-your-privileged-access"></a>Utilize alertas privilegiados de Gestão de Identidade para salvaguardar o seu acesso privilegiado
 
-Deve utilizar a funcionalidade de alerta de identidade privilegiada incorporada para melhor salvaguardar o seu inquilino. Para mais informações, consulte [alertas](pim-how-to-configure-security-alerts.md#security-alerts)de segurança . Estes alertas incluem: os administradores não estão a usar papéis privilegiados, as funções estão a ser atribuídas fora da Gestão de Identidade Privilegiada, as funções estão a ser ativadas com demasiada frequência e mais. Para proteger totalmente a sua organização, deve analisar regularmente a sua lista de alertas e corrigir os problemas. Pode ver e corrigir os seus alertas da seguinte forma:
+Deve utilizar a funcionalidade de alerta de identidade privilegiada incorporada para melhor salvaguardar a sua organização. Para mais informações, consulte [alertas](pim-how-to-configure-security-alerts.md#security-alerts)de segurança . Estes alertas incluem: os administradores não estão a usar papéis privilegiados, as funções estão a ser atribuídas fora da Gestão de Identidade Privilegiada, as funções estão a ser ativadas com demasiada frequência e mais. Para proteger totalmente a sua organização, deve analisar regularmente a sua lista de alertas e corrigir os problemas. Pode ver e corrigir os seus alertas da seguinte forma:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 1. Open **Azure AD Privileged Identity Management.**

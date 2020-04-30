@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/02/2020
-ms.openlocfilehash: 5c388dd2b3e4f40fbf2ed75cf3f1b8ab31aee394
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 9b720470ac406ed0730e6243262dcf33d2df169a
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81606409"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82233431"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>Junte-se à transformação no fluxo de dados de mapeamento
 
@@ -69,7 +69,9 @@ Ao contrário da fusão em ferramentas como o SSIS, a transformação de adesão
 
 ![Junte-se ao otimizar de transformação](media/data-flow/joinoptimize.png "Junte-se à Otimização")
 
-Se um ou ambos os fluxos de dados encaixarem na memória do nó do trabalhador, otimize ainda mais o seu desempenho, permitindo a **Transmissão** no separador otimizado. Também pode repartipartição dos seus dados sobre a operação de adesão de modo a que se encaixe melhor na memória por trabalhador.
+Em conjuntos, as aparências e a transformação existe, se um ou ambos os fluxos de dados se encaixarem na memória do nó do trabalhador, pode otimizar o desempenho permitindo a **Radiodifusão**. Por predefinição, o motor de faísca decidirá automaticamente se transmite ou não um dos lados. Para escolher manualmente de que lado transmitir, selecione **Fixed**.
+
+Não é aconselhável desativar a radiodifusão através da opção **Off,** a menos que as suas juntas estejam a ter erros de tempo.
 
 ## <a name="self-join"></a>Auto-juntar-se
 
@@ -90,7 +92,7 @@ Ao testar as transformações de união com a pré-visualização de dados no mo
     join(
         <conditionalExpression>,
         joinType: { 'inner'> | 'outer' | 'left_outer' | 'right_outer' | 'cross' }
-        broadcast: { 'none' | 'left' | 'right' | 'both' }
+        broadcast: { 'auto' | 'left' | 'right' | 'both' | 'off' }
     ) ~> <joinTransformationName>
 ```
 

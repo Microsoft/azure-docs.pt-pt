@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: b1b0facbb7cdd0dd51c53077c21afab427facf3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 44a200f63adc0286a58c864b8ba04982ca58c76c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133588"
+ms.locfileid: "82231905"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Criar e executar gasodutos de aprendizagem automática com Azure Machine Learning SDK
 
@@ -329,7 +329,10 @@ pipeline1 = Pipeline(workspace=ws, steps=steps)
 
 ### <a name="use-a-dataset"></a>Utilize um conjunto de dados 
 
-Conjuntos de dados criados a partir do armazenamento Azure Blob, Ficheiros Azure, Armazenamento de Lagos De dados Azure Gen1, Armazenamento de Lagos De dados Azure Gen2, Base de Dados Azure SQL e Base de Dados Azure para PostgreSQL podem ser usados como entrada para qualquer passo de pipeline. Com exceção da escrita da saída a [dataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py) ou [DatabricksStep,](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py)os dados de saída[(PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py)) só podem ser escritos para as lojas de dados de partilha de dados da Azure Blob e do Ficheiro Azure.
+Conjuntos de dados criados a partir do armazenamento Azure Blob, Ficheiros Azure, Armazenamento de Lagos De dados Azure Gen1, Armazenamento de Lagos De dados Azure Gen2, Base de Dados Azure SQL e Base de Dados Azure para PostgreSQL podem ser usados como entrada para qualquer passo de pipeline. Pode escrever a saída para um [DataTransferStep,](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py) [DatabricksStep,](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py)ou se pretender escrever dados para uma utilização específica do [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py). 
+
+> [!IMPORTANT]
+> A escrita de dados de saída para uma loja de dados utilizando pipelineData é suportada apenas para lojas de dados de partilha de dados Azure Blob e Azure File. Esta funcionalidade não é suportada para as lojas de [dados ADLS Gen 2](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_data_lake_datastore.azuredatalakegen2datastore?view=azure-ml-py) neste momento.
 
 ```python
 dataset_consuming_step = PythonScriptStep(

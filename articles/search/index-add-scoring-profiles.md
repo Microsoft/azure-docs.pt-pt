@@ -19,16 +19,16 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 516637b812afece1966006ce6d894dd1e32e6293
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c702ce72492201413d6c72af9dbf37347e49afdd
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79245463"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231106"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Adicionar perfis de classificação a um índice do Azure Cognitive Search
 
-  A pontuação refere-se à computação de uma *pontuação* de pesquisa para cada item devolvido nos resultados da pesquisa. A classificação é um indicador da relevância do item no contexto da operação de pesquisa atual. Quanto maior a classificação, mais relevante será o item. Nos resultados da pesquisa, os itens são ordenados de alto a baixo, com base nas pontuações de pesquisa calculadas para cada item.  
+*Marcar* calcula uma pontuação de pesquisa para cada item em um conjunto de resultados ordenado. Cada item de um conjunto de resultados de pesquisa é atribuído a uma pontuação de pesquisa, em seguida, classificado como o mais alto para o mais baixo.
 
  A Azure Cognitive Search utiliza a pontuação padrão para calcular uma pontuação inicial, mas pode personalizar o cálculo através de um *perfil de pontuação*. Os perfis de pontuação dão-lhe um maior controlo sobre o ranking dos itens nos resultados da pesquisa. Por exemplo, é possível que queira impulsionar itens com base no seu potencial de receitas, promover itens mais recentes ou talvez impulsionar itens que estão há demasiado tempo no inventário.  
 
@@ -285,6 +285,7 @@ A pontuação de pesquisa é calculada com base em propriedades estatísticas do
  Para mais exemplos, consulte [XML Schema: Tipos de dados (W3.org site)](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration).  
 
 ## <a name="see-also"></a>Consulte também  
- [Repouso de Pesquisa Cognitiva Azure](https://docs.microsoft.com/rest/api/searchservice/)   
- [Criar índice &#40;&#41;de API de pesquisa cognitiva de pesquisa cognitiva](https://docs.microsoft.com/rest/api/searchservice/create-index)   
- [Pesquisa Cognitiva Azure .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  
+
++ [Referência da API REST](https://docs.microsoft.com/rest/api/searchservice/)   
++ [Criar API indexado](https://docs.microsoft.com/rest/api/searchservice/create-index)   
++ [Pesquisa Cognitiva Azure .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  

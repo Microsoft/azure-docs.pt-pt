@@ -1,7 +1,6 @@
 ---
-title: Começando com R
-titleSuffix: ML Studio (classic) - Azure
-description: Utilize este tutorial de programação R para começar a usar a linguagem R com o Azure Machine Learning Studio (clássico) para criar uma solução de previsão.
+title: Utilizar R com ML Studio (clássico) - Azure
+description: Utilize este tutorial de programação R para começar com o Azure Machine Learning Studio (clássico) em R para criar uma solução de previsão.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,21 +9,18 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: 1b347707b3c656bd692a29f0fd748c1503be4fb8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1dcda3efe3872100100d6e85b68a36359b7eab84
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79218002"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82209507"
 ---
-# <a name="getting-started-with-the-r-programming-language-in-azure-machine-learning-studio-classic"></a>Começar com a linguagem de programação R no Azure Machine Learning Studio (clássico)
+# <a name="get-started-with-azure-machine-learning-studio-classic-in-r"></a>Inicie-se com o Azure Machine Learning Studio (clássico) em R
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 <!-- Stephen F Elston, Ph.D. -->
-
-## <a name="introduction"></a>Introdução
-
 Este tutorial ajuda-o a começar a estender o Azure Machine Learning Studio (clássico) utilizando a linguagem de programação R. Siga este tutorial de programação R para criar, testar e executar código R dentro do Studio (clássico). À medida que trabalha através do tutorial, criará uma solução de previsão completa utilizando a linguagem R em Estúdio (clássico).  
 
 O Azure Machine Learning Studio (clássico) contém muitos poderosos módulos de aprendizagem automática e manipulação de dados. A poderosa linguagem R foi descrita como a língua franca da analítica. Felizmente, a análise e manipulação de dados em Studio (clássico) podem ser estendidas usando R. Esta combinação proporciona a escalabilidade e facilidade de implantação do Studio (clássico) com a flexibilidade e análise profunda de R.

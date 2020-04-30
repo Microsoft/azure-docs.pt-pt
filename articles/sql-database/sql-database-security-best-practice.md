@@ -9,12 +9,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: 7b3a223ca504bff380afad54afda73880717814f
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: 07e8d8690cb07cfde3e0def902bf6d8e7ba5b788
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81115375"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232364"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database"></a>Livro de jogadas para abordar requisitos comuns de segurança com base de dados Azure SQL
 
@@ -255,7 +255,7 @@ As seguintes boas práticas são opcionais, mas resultarão numa melhor gestão 
 - Crie e use papéis personalizados com as permissões exatas necessárias. Funções típicas que são usadas na prática: 
   - Implantação de segurança 
   - Administrador 
-  - Programador 
+  - Developer (Programador) 
   - Pessoal de apoio 
   - Auditor 
   - Processos automatizados 
@@ -466,7 +466,7 @@ Ao utilizar o CLE:
 
 Tenha em mente que a Always Encrypted foi concebida principalmente para proteger dados sensíveis em uso de utilizadores de alto privilégio da Base de Dados Azure SQL (operadores de nuvem, DBAs) - consulte [Proteger dados sensíveis em uso de utilizadores altamente privilegiados e não autorizados](#protect-sensitive-data-in-use-from-high-privileged-unauthorized-users). Esteja atento aos seguintes desafios ao utilizar Sempre Encriptado para proteger dados dos utilizadores da aplicação:
 
-- Por padrão, todos os controladores de clientes da Microsoft que suportam Sempre Encriptado mantêm uma cache global (uma por aplicação) de chaves de encriptação de colunas. Uma vez que um condutor cliente adquire uma chave de encriptação de coluna de texto simples contactando uma loja de chaves que segura uma chave master de coluna, a chave de encriptação da coluna de texto simples está em cache. Isto torna os dados isolados dos utilizadores de uma aplicação multiutilizador desafiante. Se a sua aplicação personifica os utilizadores finais ao interagir com uma loja chave (como o Cofre de Chaves Azure), depois de a consulta de um utilizador povoar a cache com uma chave de encriptação de coluna, uma consulta subsequente que requer a mesma chave mas que é desencadeada por outro utilizador utilizará a chave em cache. O controlador não liga para a loja de chaves e não verifica se o segundo utilizador tem permissão para aceder à chave de encriptação da coluna. Como resultado, o utilizador poderá ver os dados encriptados mesmo que o utilizador não tenha acesso às teclas. Para alcançar o isolamento dos utilizadores dentro de uma aplicação multiutilizador, pode desativar o cache da chave de encriptação da coluna. A desativação do cache causará despesas adicionais de desempenho, uma vez que o controlador terá de contactar a loja-chave para cada operação de encriptação ou desencriptação de dados.
+- Por padrão, todos os controladores de clientes da Microsoft que suportam Sempre Encriptado mantêm uma cache global (uma por aplicação) de chaves de encriptação de colunas. Uma vez que um condutor cliente adquire uma chave de encriptação de coluna de texto simples contactando uma loja de chaves que segura uma chave master de coluna, a chave de encriptação da coluna de texto simples está em cache. Isto torna os dados isolados dos utilizadores de uma aplicação multiutilizador desafiante. Se a sua aplicação personifica os utilizadores finais ao interagir com uma loja chave (como o Cofre de Chaves Azure), depois de a consulta de um utilizador povoar a cache com uma chave de encriptação de coluna, uma consulta subsequente que requer a mesma chave mas que é desencadeada por outro utilizador utilizará a chave em cache. O controlador não liga para a loja de chaves e não verifica se o segundo utilizador tem permissão para aceder à chave de encriptação da coluna. Como resultado, o utilizador pode ver os dados encriptados mesmo que o utilizador não tenha acesso às teclas. Para alcançar o isolamento dos utilizadores dentro de uma aplicação multiutilizador, pode desativar o cache da chave de encriptação da coluna. A desativação do cache causará despesas adicionais de desempenho, uma vez que o controlador terá de contactar a loja-chave para cada operação de encriptação ou desencriptação de dados.
 
 ### <a name="protect-data-against-unauthorized-viewing-by-application-users-while-preserving-data-format"></a>Proteja os dados contra a visualização não autorizada pelos utilizadores da aplicação, preservando o formato de dados
 Outra técnica para impedir que utilizadores não autorizados possam visualizar dados é obstar ou mascarar os dados, preservando os tipos e formatos de dados para garantir que as aplicações do utilizador podem continuar a manusear e exibir os dados.

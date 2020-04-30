@@ -7,14 +7,14 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: peterclu
-ms.author: amlstudiodocs
+ms.author: peterlu
 ms.date: 01/18/2019
-ms.openlocfilehash: d330235815b746a5bbdc7682622c0e238a3ab0ea
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: cd48e97f642402d1c7ff2ff71e7cee67be17f91d
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81411903"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82209439"
 ---
 # <a name="get-support-and-training-for-azure-machine-learning-studio-classic"></a>Obtenha apoio e formação para o Azure Machine Learning Studio (clássico)
 

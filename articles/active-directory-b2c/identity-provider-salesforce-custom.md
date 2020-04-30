@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 02/27/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 67fe9ef4ad2b025d11f88976973658c9cd8ae693
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 183fe1604cc363a9121d5eef3737751c54e9bdf1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78187955"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82229720"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar o início de sessão com um fornecedor SAML Salesforce utilizando políticas personalizadas no Diretório Ativo Azure B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Este artigo mostra-lhe como ativar o início de sessão para utilizadores de uma organização salesforce utilizando [políticas personalizadas](custom-policy-overview.md) no Azure Ative Directory B2C (Azure AD B2C). Habilita o início de sessão adicionando um [perfil técnico SAML](saml-technical-profile.md) a uma política personalizada.
+Este artigo mostra-lhe como ativar o início de sessão para utilizadores de uma organização salesforce utilizando [políticas personalizadas](custom-policy-overview.md) no Azure Ative Directory B2C (Azure AD B2C). Permite o início de sessão adicionando um perfil técnico de fornecedor de [identidade SAML](saml-identity-provider-technical-profile.md) a uma política personalizada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -88,7 +88,7 @@ Export-PfxCertificate -Cert $Cert -FilePath .\B2CSigningCert.pfx -Password $pwd
 
 Você precisa armazenar o certificado que criou no seu inquilino Azure AD B2C.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD B2C selecionando o filtro de **subscrição Do Diretório +** no menu superior e escolhendo o diretório que contém o seu inquilino.
 3. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
 4. Na página 'Visão Geral', selecione Quadro de **Experiência de Identidade**.
@@ -103,7 +103,7 @@ Você precisa armazenar o certificado que criou no seu inquilino Azure AD B2C.
 
 Se pretender que os utilizadores assinem através de uma conta Salesforce, tem de definir a conta como um fornecedor de sinistros com o qual o Azure AD B2C pode comunicar através de um ponto final. O ponto final fornece um conjunto de reclamações que são utilizadas pelo Azure AD B2C para verificar se um utilizador específico se autenticou.
 
-Pode definir uma conta Salesforce como fornecedor de sinistros adicionando-a ao elemento **Reclamadores** no ficheiro de extensão da sua apólice. Para mais informações, consulte [definir um perfil técnico SAML](saml-technical-profile.md).
+Pode definir uma conta Salesforce como fornecedor de sinistros adicionando-a ao elemento **Reclamadores** no ficheiro de extensão da sua apólice. Para mais informações, consulte definir um perfil técnico do fornecedor de [identidade SAML](saml-identity-provider-technical-profile.md).
 
 1. Abra as *Extensões TrustFramework.xml*.
 1. Encontre o elemento **ClaimsProviders.** Se não existir, adicione-o sob o elemento raiz.
@@ -203,7 +203,7 @@ O elemento **ClaimsProviderSelection** é análogo a um botão de fornecedor de 
 Agora que tens um botão no lugar, tens de ligá-lo a uma ação. Neste caso, a ação é que o Azure AD B2C comunique com uma conta Salesforce para receber um símbolo.
 
 1. Encontre a **OrquestraçãoStep** que inclui `Order="2"` na viagem do utilizador.
-2. Adicione o seguinte elemento **ClaimsExchange** certificando-se de que utiliza o mesmo valor para **id** que utilizou para **TargetClaimsExchangeId**:
+2. Adicione o seguinte elemento **ClaimsExchange** certificando-se de que utiliza o mesmo valor para **ID** que utilizou para **TargetClaimsExchangeId:**
 
     ```XML
     <ClaimsExchange Id="SalesforceExchange" TechnicalProfileReferenceId="salesforce" />

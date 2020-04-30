@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: ''
-ms.date: 04/17/2018
+ms.date: 04/28/2020
 ms.author: anvang
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: f92152658b9db83740ffc2de2dc6956003849e06
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 96c3c05fea912433731dc7a6a8ab705ab76d3058
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350825"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232228"
 ---
 # <a name="quickstart-scale-compute-for-synapse-sql-pool-with-the-azure-portal"></a>Quickstart: Scale compute for Synapse SQL pool with the Azure portal
 
@@ -26,7 +26,7 @@ Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.mi
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -37,7 +37,7 @@ Você pode escalar um pool SQL que você já tem ou usar [Quickstart: criar e co
 
 ## <a name="scale-compute"></a>Dimensionar computação
 
-Os recursos de computação de piscina SQL podem ser dimensionados através do aumento ou diminuição das unidades de armazém de dados. O quickstart [criar e ligar - portal] quickstart (create-data-warehouse-portal.md) criou o **mySampleDataWarehouse** e ininicializou-o com 400 DWUs. Os seguintes passos ajustam as DWUs para **mySampleDataWarehouse**.
+Os recursos de computação de piscina SQL podem ser dimensionados através do aumento ou diminuição das unidades de armazém de dados. The [Quickstart: criar e ligar - portal](create-data-warehouse-portal.md) criou o **mySampleDataWarehouse** e incourou-o com 400 DWUs. Os seguintes passos ajustam as DWUs para **mySampleDataWarehouse**.
 
 Para alterar as unidades do data warehouse:
 

@@ -4,12 +4,12 @@ description: Conheça as funcionalidades do serviço Batch e das respetivas APIs
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: fdc04c49521c9d91ef836c4d1dba76091db8f16a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 590ce6d6804c25ea9a3c1104f8fea2ea00c66356
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115385"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509198"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desenvolver soluções de computação paralelas em grande escala com o Batch
 
@@ -429,7 +429,7 @@ Uma fórmula de dimensionamento pode basear-se nas métricas seguintes:
 * **Métricas de recurso**: baseadas na utilização da CPU, da largura de banda, da memória e no número de nós.
 * **Métricas de tarefas**: baseadas no estado da tarefa, como *Ativa* (em fila), *Em Execução* ou *Concluída*.
 
-Quando o dimensionamento automático diminuir o número de nós de computação de um conjunto, tem de pensar como vai processar as tarefas que estão a ser executadas no momento da operação de diminuição. Para dar resposta a esta situação, o Batch disponibiliza uma *opção de desalocação de nós*, a qual pode incluir nas suas fórmulas. Por exemplo, pode especificar que as tarefas em execução são paradas imediatamente e recolocadas em fila para execução noutro nó ou que podem ser concluídas antes de o nó ser removido do conjunto.
+Quando o dimensionamento automático diminuir o número de nós de computação de um conjunto, tem de pensar como vai processar as tarefas que estão a ser executadas no momento da operação de diminuição. Para acomodar isto, o Batch fornece uma opção de [*deatribuição*](https://docs.microsoft.com/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) de nó que pode incluir nas suas fórmulas. Por exemplo, pode especificar que as tarefas em execução são paradas imediatamente e recolocadas em fila para execução noutro nó ou que podem ser concluídas antes de o nó ser removido do conjunto. Note que a definição da `taskcompletion` `retaineddata` opção de deatribuição do nó como ou impedirá as operações de redimensionamento do pool até que todas as tarefas estejam concluídas, ou todos os períodos de rentenção de tarefas tenham expirado, respectivamente.
 
 Para obter mais informações sobre o dimensionamento automático de uma aplicação, consulte [Dimensionar automaticamente nós de computação num conjunto do Azure Batch](batch-automatic-scaling.md).
 

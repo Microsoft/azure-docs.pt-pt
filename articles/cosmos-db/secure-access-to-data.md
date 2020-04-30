@@ -6,12 +6,12 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: 448b14168e85e75b7ed19e189600186ce11c2902
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f62ad6952170f22fe0f94a792a137f991a0e5026
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79251820"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208725"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Acesso seguro aos dados no Azure Cosmos DB
 
@@ -43,7 +43,15 @@ As teclas principais, secundárias, apenas lidas e de leitura podem ser recupera
 
 ![Controlo de acesso (IAM) no portal Azure - demonstrando segurança na base de dados NoSQL](./media/secure-access-to-data/nosql-database-security-master-key-portal.png)
 
-O processo de rotação da sua chave principal é simples. Navegue até ao portal Azure para recuperar a sua chave secundária e, em seguida, substitua a chave primária pela chave secundária na sua aplicação e, em seguida, rode a chave primária no portal Azure.
+### <a name="key-rotation"></a>Rotação da chave<a id="key-rotation"></a>
+
+O processo de rotação da sua chave principal é simples. 
+
+1. Navegue até ao portal Azure para recuperar a sua chave secundária.
+2. Substitua a chave principal pela chave secundária na sua aplicação. Certifique-se de que todos os clientes da Cosmos DB em todas as implementações são prontamente reiniciados e começarão a usar a chave atualizada.
+3. Rode a chave primária no portal Azure.
+4. Valide a nova chave primária funciona contra todos os recursos. O processo de rotação chave pode demorar a qualquer momento em que, de menos de um minuto a horas, dependendo do tamanho da conta Cosmos DB.
+5. Substitua a tecla secundária pela nova chave primária.
 
 ![Rotação de chave principal no portal Azure - demonstrando segurança na base de dados NoSQL](./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png)
 

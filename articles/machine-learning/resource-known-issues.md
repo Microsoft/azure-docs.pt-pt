@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: 58fd9225298b4322567f4feb02629e3ad4e0f00d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 2760033cd66e99a7a7f6d331e03c6f98c486d286
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82127573"
+ms.locfileid: "82231973"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Questões conhecidas e resolução de problemas Azure Machine Learning
 
@@ -56,7 +56,23 @@ Conheça as quotas de [recursos](how-to-manage-quotas.md) que pode encontrar ao 
         pip install azure-ml-datadrift
         pip install azureml-train-automl 
      ```
-     
+
+* **Erros panda: Normalmente vistos durante a Experiência AutoML:**
+   
+   Ao configurar manualmente a sua environmnet utilizando pip, irá notar erros de atributo (especialmente de pandas) devido à instalação de versões de pacote não suportadas. Para evitar tais erros, [instale o SDK AutoML utilizando o automl_setup.cmd:](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md)
+   
+    1. Abra um pedido de Anaconda e clone o repositório GitHub para um conjunto de cadernos de amostra.
+
+    ```bash
+    git clone https://github.com/Azure/MachineLearningNotebooks.git
+    ```
+    
+    2. cd à pasta de aprendizagem automática/máquina-de-utilização-como-usar-azureml/automatizado onde os cadernos de amostraforam extraídos e, em seguida, executados:
+    
+    ```bash
+    automl_setup
+    ```
+  
 * **Mensagem de erro: Não pode desinstalar 'PyYAML'**
 
     Azure Machine Learning SDK para Python: `distutils` PyYAML é um projeto instalado. Portanto, não podemos determinar com precisão quais os ficheiros que lhe pertencem se existe uma desinstalação parcial. Para continuar a instalar o SDK ignorando este erro, utilize:

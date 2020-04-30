@@ -11,12 +11,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 04/02/2020
-ms.openlocfilehash: 1c4ed77112e8c06db1946d756239e02cb187f3ef
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: b8958d9a035c3cc502384e2f378bf428d517a1fc
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618440"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208708"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Base de dados Azure SQL
 
@@ -33,7 +33,7 @@ A Base de Dados Azure SQL funciona na versão mais recente e estável do Motor d
 
 ## <a name="basic-standard-and-general-purpose-service-tier-availability"></a>Disponibilidade de nível de serviço básico, standard e geral
 
-Estes níveis de serviço alavancam a arquitetura de disponibilidade padrão. A figura que se segue mostra quatro nós diferentes com a computação separada e camadas de armazenamento.
+Os níveis de serviço Basic, Standard e General Purpose alavancam a arquitetura de disponibilidade padrão para computação sem servidor e provisionado. A figura que se segue mostra quatro nós diferentes com a computação separada e camadas de armazenamento.
 
 ![Separação de cálculo e armazenamento](media/sql-database-high-availability/general-purpose-service-tier.png)
 
@@ -78,7 +78,7 @@ Por padrão, o cluster de nós para o modelo de disponibilidade premium é criad
 Como as bases de dados redundantes da zona têm réplicas em diferentes datacenters com alguma distância entre eles, o aumento da latência da rede pode aumentar o tempo de compromisso e, assim, impactar o desempenho de algumas cargas de trabalho oLTP. Pode sempre voltar à configuração de zona única, desativando a definição de redundância da zona. Este processo é uma operação online semelhante à atualização regular do nível de serviço. No final do processo, a base de dados ou piscina é migrada de um anel redundante de zona para um único anel de zona ou vice-versa.
 
 > [!IMPORTANT]
-> Atualmente, as bases de dados redundantes da zona e as piscinas elásticas são suportadas apenas nos níveis de serviço Premium e Business Critical em regiões selecionadas. Ao utilizar o nível Business Critical, a configuração redundante da zona só está disponível quando o hardware computacional Gen5 é selecionado. Para informações atualizadas sobre as regiões que suportam bases de dados redundantes da zona, consulte [o suporte de serviços por região.](../availability-zones/az-overview.md#services-support-by-region)  
+> Atualmente, as bases de dados redundantes da zona e as piscinas elásticas são suportadas apenas nos níveis de serviço Premium e Business Critical em regiões selecionadas. Ao utilizar o nível Business Critical, a configuração redundante da zona só está disponível quando o hardware computacional Gen5 é selecionado. Para informações atualizadas sobre as regiões que suportam bases de dados redundantes da zona, consulte [o suporte de serviços por região.](../availability-zones/az-region.md)  
 > Esta funcionalidade não está disponível em instância gerida.
 
 A versão redundante da zona da arquitetura de alta disponibilidade é ilustrada pelo seguinte diagrama:

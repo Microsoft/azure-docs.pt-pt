@@ -3,7 +3,7 @@ title: 'Quickstart: Implementar um cluster de serviço Azure Kubernetes'
 description: Aprenda a criar rapidamente um cluster Kubernetes, implemente uma aplicação e monitorize o desempenho no Serviço Azure Kubernetes (AKS) utilizando o Azure CLI.
 services: container-service
 ms.topic: quickstart
-ms.date: 09/13/2019
+ms.date: 04/28/2020
 ms.custom:
 - H1Hack27Feb2017
 - mvc
@@ -11,18 +11,18 @@ ms.custom:
 - seo-javascript-september2019
 - seo-javascript-october2019
 - seo-python-october2019
-ms.openlocfilehash: 369e0da49064197524ee20bb8a0050c00c242260
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 2b45154a0198fe0845649167d0fa35aabfd0625e
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81392769"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82207399"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-the-azure-cli"></a>Quickstart: Implementar um cluster de serviço Azure Kubernetes utilizando o Azure CLI
 
 Neste arranque rápido, você implanta um cluster Azure Kubernetes Service (AKS) usando o Azure CLI. O AKS é um serviço kubernetes gerido que permite implementar e gerir rapidamente clusters. Uma aplicação multi-contentor que inclui uma extremidade frontal web e uma instância Redis é executada no cluster. Em seguida, veja como monitorizar a saúde do cluster e das cápsulas que executam a sua aplicação.
 
-Se pretender utilizar os recipientes do Windows Server (atualmente em pré-visualização no AKS), consulte [Criar um cluster AKS que suporta os recipientes do Windows Server][windows-container-cli].
+Para saber mais sobre a criação de um conjunto de nós do Windows Server, consulte [Criar um cluster AKS que suporta os recipientes do Windows Server][windows-container-cli].
 
 ![App de votação implantada no Serviço Azure Kubernetes](./media/container-service-kubernetes-walkthrough/voting-app-deployed-in-azure-kubernetes-service.png)
 

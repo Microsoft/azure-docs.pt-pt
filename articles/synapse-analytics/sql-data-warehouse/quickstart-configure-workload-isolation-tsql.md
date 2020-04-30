@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: ''
-ms.date: 02/04/2020
+ms.date: 04/27/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: d3d1b9af0b26fa775beb78b313937890cb9287b3
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 99c64e703158c40c2cc110a18be7b8c8d3800ff0
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633766"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82207807"
 ---
 # <a name="quickstart-configure-workload-isolation-using-t-sql"></a>Quickstart: Configure o isolamento da carga de trabalho utilizando t-SQL
 
@@ -30,10 +30,6 @@ Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.mi
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Este quickstart pressupõe que já tem uma instância SQL Analytics em Azure Synapse e que tem permissões de BASE DE DADOS CONTROL. Se precisar de criar um, utilize [Criar e Ligar - Portal](create-data-warehouse-portal.md) para criar um armazém de dados chamado **mySampleDataWarehouse**.
-
-## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
-
-Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-login-for-dataloads"></a>Criar login para DataLoads
 
@@ -111,20 +107,6 @@ Está a ser cobrado por unidades de armazém de dados e dados armazenados no seu
 
 - Se quiser manter os dados armazenados, pode parar a computação quando não estiver a utilizar a piscina SQL. Ao fazer uma pausa na computação, só é cobrado para armazenamento de dados. Quando estiver pronto para trabalhar com os dados, retome a computação.
 - Se quiser remover futuras cobranças, pode eliminar o armazém de dados.
-
-Siga estes passos para limpar recursos.
-
-1. Inscreva-se no [portal Azure,](https://portal.azure.com)selecione no seu armazém de dados.
-
-    ![Limpar recursos](./media/quickstart-configure-workload-isolation-tsql/clean-up-resources.png)
-
-2. Para parar a computação, selecione o botão **Pausa.** Quando o armazém de dados estiver em pausa, verá um botão **Iniciar**.  Para retomar a computação, selecione **Iniciar**.
-
-3. Para remover o armazém de dados para que não seja cobrado para computação ou armazenamento, **selecione Eliminar**.
-
-4. Para remover o servidor SQL que criou, selecione **mynewserver-20180430.database.windows.net** na imagem anterior e, em seguida, selecione **Delete**.  Tenha cuidado com esta eliminação, uma vez que eliminar o servidor também elimina todas as bases de dados atribuídas ao mesmo.
-
-5. Para remover o grupo de recursos, selecione **myResourceGroup**, e, em seguida, **selecione Eliminar o grupo de recursos**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

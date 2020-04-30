@@ -11,25 +11,27 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2019
+ms.date: 04/28/2020
 ms.author: memildin
-ms.openlocfilehash: fd84058c8421d144678c91fac3e5671511d0fd4a
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: f4379a5149fff020eb532f0e17cc1c37fbdcd694
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80435492"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232432"
 ---
 # <a name="upgrade-to-standard-tier-for-enhanced-security"></a>Upgrade para nível Standard para maior segurança
+
 O Centro de Segurança do Azure oferece gestão de segurança unificada e proteção avançada contra ameaças para cargas de trabalho em execução no Azure, no local e noutras clouds. Proporciona visibilidade e controlo sobre cargas de trabalho híbridas em nuvem, defesas ativas que reduzem a sua exposição a ameaças, e deteção inteligente para ajudá-lo a manter o ritmo com ataques cibernéticos em rápida evolução.
 
 ## <a name="pricing-tiers"></a>Escalões de preço
 O Centro de Segurança é disponibilizado em dois escalões:
 
-- O **Free** free tier está ativado em todas as suas subscrições Azure uma vez que você visita o painel do Azure Security Center no portal Azure pela primeira vez, ou se ativado programáticamente via API. O nível livre fornece política de segurança, avaliação contínua de segurança e recomendações de segurança atoveis para ajudá-lo a proteger os seus recursos Azure.
-- O nível **Standard** alarga as capacidades do free tier a cargas de trabalho em funcionamento em nuvens privadas e outras nuvens públicas, proporcionando uma gestão de segurança unificada e proteção contra ameaças em todas as suas cargas de trabalho híbridas em nuvem. O nível padrão também adiciona capacidades de proteção contra ameaças, que usam análises comportamentais incorporadas e machine learning para identificar ataques e explorações de zero dias, controlos de acesso e aplicações para reduzir a exposição a ataques de rede e malware, e muito mais. Além disso, o nível padrão adiciona a verificação de vulnerabilidade para as suas máquinas virtuais. Pode experimentar gratuitamente o nível padrão. O padrão do Security Center suporta recursos Azure, incluindo VMs, conjuntos de escala de máquinas virtuais, Serviço de Aplicações, servidores SQL e contas de Armazenamento. Se tiver o padrão do Azure Security Center, pode optar por não suportar com base no tipo de recurso. 
+- O **Free** free tier está ativado em todas as suas subscrições Azure quando visita pela primeira vez o painel do Azure Security Center no portal Azure, ou se estiver programado programáticamente através da API. O nível livre fornece política de segurança, avaliação contínua de segurança e recomendações de segurança atoveis para ajudá-lo a proteger os seus recursos Azure.
 
-A maioria das avaliações de segurança de nível livre para VMs, bem como muitos dos alertas de segurança padrão, requerem a instalação da capacidade do agente Log Analytics. Pode ativar a prestação automática no Centro de Segurança para implementar automaticamente o agente para os seus VMs Azure.
+- O nível **Standard** alarga as capacidades do nível livre às cargas de trabalho em funcionamento em nuvens privadas e outras nuvens públicas, proporcionando uma gestão de segurança unificada e proteção contra ameaças em todas as suas cargas de trabalho híbridas em nuvem. O nível padrão também adiciona capacidades de proteção contra ameaças, que usam análises comportamentais incorporadas e machine learning para identificar ataques e explorações de zero dias, controlos de acesso e aplicações para reduzir a exposição a ataques de rede e malware, e muito mais. Além disso, o nível padrão adiciona a verificação de vulnerabilidade para as suas máquinas virtuais. Pode experimentar gratuitamente o nível padrão. O padrão do Security Center suporta recursos Azure, incluindo VMs, conjuntos de escala de máquinas virtuais, Serviço de Aplicações, servidores SQL e contas de Armazenamento. Se tiver o padrão do Azure Security Center, pode optar por não suportar com base no tipo de recurso. 
+
+A maioria das avaliações de segurança de nível livre para VMs, bem como muitos dos alertas de segurança padrão, requerem a instalação do agente Log Analytics. Pode permitir que o fornecimento automático no Security Center implemente automaticamente o agente nos seus VMs Azure.
 
 ## <a name="try-standard-tier-free-for-30-days"></a>Experimente o nível padrão gratuito durante 30 dias
 O nível padrão é gratuito nos primeiros 30 dias. Ao fim de 30 dias, caso opte por continuar a utilizar o serviço, começaremos automaticamente a cobrar para utilização.
@@ -47,8 +49,9 @@ Para obter o nível padrão:
 [![Preços do Centro de Segurança](media/security-center-pricing/pricing-tier-page.png)](media/security-center-pricing/pricing-tier-page.png#lightbox)
 
 > [!NOTE]
-> Para ativar todas as funcionalidades do Security Center, deve aplicar o nível de preços padrão à subscrição que contém as máquinas virtuais aplicáveis. Configurar preços para um espaço de trabalho não permite o acesso a vm just-in-time, controlos adaptáveis de aplicações e deteções de rede para recursos Azure.
+> Para ativar todas as funcionalidades do Centro de Segurança, incluindo capacidades avançadas de proteção contra ameaças, deve aplicar o nível de preços padrão à subscrição que contém as cargas de trabalho aplicáveis. Configurar preços para um espaço de trabalho não permite o acesso a vm just-in-time, controlos adaptáveis de aplicações e deteções de rede para recursos Azure. 
 >
+> A proteção contra ameaças do Security Center para contas de armazenamento e servidores PaaS SQL/MySQL/PG são atualmente as únicas cargas de trabalho que podem ser ativadas ao nível de recursos para proteger cargas de trabalho individuais de armazenamento/SQL.
 
 ## <a name="why-upgrade-to-standard"></a>Por que fazer upgrade para o padrão?
 O Security Center oferece uma maior segurança e proteção contra ameaças para as suas cargas de trabalho híbridas em nuvem, incluindo:
@@ -63,7 +66,7 @@ O Security Center oferece uma maior segurança e proteção contra ameaças para
 ## <a name="next-steps"></a>Passos seguintes
 Neste artigo, foi apresentado aos preços do Centro de Segurança. Para saber mais sobre a segurança reforçada do nível Standard e a proteção avançada contra ameaças, consulte:
 
-- [Proteção contra ameaças no Centro de Segurança Azure](threat-protection.md)
+- [Proteção contra ameaças no Centro de Segurança do Azure](threat-protection.md)
 - [Controlo de acesso VM just-in-time](security-center-just-in-time.md)
 - [Descrição geral da segurança do contentor](container-security.md)
 - [Detalhes de preços na sua moeda de eleição, e de acordo com a sua região](https://azure.microsoft.com/pricing/details/security-center/)

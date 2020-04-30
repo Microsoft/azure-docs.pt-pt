@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: peterclu
-ms.author: amlstudiodocs
+ms.author: peterlu
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: 8094d64eab1a4b25a76554bf9eb6848c2e4d3493
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0639a525384e751ac4441da5d2c03532618b801a
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79204244"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82209456"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Retre e implemente um clássico serviço web Studio (clássico)
 
@@ -120,7 +120,7 @@ O *apiKey* e o *endpointUrl* para a chamada podem ser obtidos a partir do painel
 
 O valor do parâmetro *nome* em *Recursos* deve coincidir com o Nome de Recurso do Modelo Treinado salvo na experiência preditiva. Para obter o nome do recurso:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. No menu esquerdo, clique em **Machine Learning**.
 1. Em Nome, clique no seu espaço de trabalho e, em seguida, clique em **Web Services**.
 1. Em nome, clique **no Census Model [exp preditivo.]**.

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 6683c1b78b0e7ecba162026708c83843e2c08180
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: fa63380a8e27dcc8f4de414c483f8d8ed2323e7b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478882"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82234118"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Ligue-se a redes virtuais Azure a partir de Aplicações Lógicas Azure utilizando um ambiente de serviço de integração (ISE)
 
@@ -156,15 +156,7 @@ Esta tabela descreve as portas da sua rede virtual Azure que o seu ISE utiliza e
 
    * Utiliza o formato de [encaminhamento inter-domínio de classe (CIDR)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) e um espaço de endereço classe B.
 
-   * Utiliza pelo `/27` menos um no espaço de endereço porque cada sub-rede requer 32 endereços no *mínimo*. Por exemplo:
-
-     * `10.0.0.0/28`tem apenas 16 endereços e é muito pequeno porque 2<sup>(32-28)</sup> é 2<sup>4</sup> ou 16.
-
-     * `10.0.0.0/27`tem 32 endereços porque 2<sup>(32-27)</sup> é 2<sup>5</sup> ou 32.
-
-     * `10.0.0.0/24`tem 256 endereços porque 2<sup>(32-24)</sup> é 2<sup>8</sup> ou 256. No entanto, mais endereços não oferecem benefícios adicionais.
-
-     Para saber mais sobre o cálculo de endereços, consulte [os blocos CIDR IPv4](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
+   * Usa `/27` um no espaço de endereço porque cada subnet requer 32 endereços. Por exemplo, `10.0.0.0/27` tem 32 endereços porque 2<sup>(32-27)</sup> é 2<sup>5</sup> ou 32. Mais endereços não fornecerão benefícios adicionais.  Para saber mais sobre o cálculo de endereços, consulte [os blocos CIDR IPv4](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
 
    * Se utilizar o [ExpressRoute,](../expressroute/expressroute-introduction.md)tem de [criar uma tabela](../virtual-network/manage-route-table.md) de rotas que tenha a seguinte rota e ligar essa tabela a cada subnet que seja utilizada pelo seu ISE:
 
@@ -228,7 +220,7 @@ Esta tabela descreve as portas da sua rede virtual Azure que o seu ISE utiliza e
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Adicionar recursos aos ambientes de serviçode integração](../logic-apps/add-artifacts-integration-service-environment-ise.md)
+* [Adicionar recursos a ambientes de serviço de integração](../logic-apps/add-artifacts-integration-service-environment-ise.md)
 * [Gerir ambientes do serviço de integração](../logic-apps/ise-manage-integration-service-environment.md#check-network-health)
 * Saiba mais sobre [a Rede Virtual Azure](../virtual-network/virtual-networks-overview.md)
 * Conheça a [integração de redes virtuais para serviços Azure](../virtual-network/virtual-network-for-azure-services.md)

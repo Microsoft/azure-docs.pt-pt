@@ -4,18 +4,18 @@ description: Saiba como atualizar um cluster do Serviço Azure Kubernetes (AKS) 
 services: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.openlocfilehash: 183e0a85f65d24dc7133307391931bea754a456d
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 7e9a47b7bda4cdb0ff6f1983bc884f7441a26d9b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632615"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82207977"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Atualizar um cluster do Azure Kubernetes Service (AKS)
 
 Como parte do ciclo de vida de um cluster AKS, muitas vezes precisa de fazer upgrade para a versão mais recente da Kubernetes. É importante que aplique os mais recentes lançamentos de segurança da Kubernetes ou atualize para obter as funcionalidades mais recentes. Este artigo mostra-lhe como atualizar os componentes principais ou um único conjunto de nós padrão num cluster AKS.
 
-Para os clusters AKS que utilizam várias piscinas de nós ou nós do Windows Server (atualmente em pré-visualização no AKS), consulte [Atualização de um conjunto][nodepool-upgrade]de nós em AKS .
+Para os clusters AKS que usam várias piscinas de nós, consulte [Atualização de uma piscina de nó em AKS][nodepool-upgrade].
 
 ## <a name="before-you-begin"></a>Antes de começar
 

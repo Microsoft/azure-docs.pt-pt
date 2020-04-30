@@ -3,14 +3,14 @@ title: VMs de arranque/paragem durante a solução off-hours
 description: Esta solução de gestão VM inicia e para as suas máquinas virtuais Azure numa programação e monitoriza proativamente a partir de registos do Monitor Azure.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/01/2020
+ms.date: 04/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 631c9b37cf1fec0d39c3c362c6bc303a576d6b7c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f7e30fd0d53af7ee61d919b56e9ffcd1f1b6bd36
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187335"
+ms.locfileid: "82207603"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>VMs de arranque/paragem durante solução off-hours na Automação Azure
 
@@ -19,7 +19,7 @@ Os **VMs de arranque/paragem durante a** solução off-hours iniciam ou param as
 Esta solução utiliza o [cmdlet Start-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0) para iniciar VMs. Utiliza [stop-AzureRmVM](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Stop-AzureRmVM?view=azurermps-6.13.0) para parar VMs.
 
 > [!NOTE]
-> Os **VMs Start/stop durante a** solução off-hours foram atualizados para suportar as versões mais recentes dos módulos Azure que estão disponíveis.
+> Os **VMs Start/stop durante a** solução off-hours foram atualizados para suportar as versões mais recentes dos módulos Azure que estão disponíveis. A versão atualizada desta solução, disponível no Marketplace, não suporta módulos AzureRM porque migramos do Módulo AzureRM para Az.
 
 A solução fornece uma opção de automação descentralizada de baixo custo para os utilizadores que pretendam otimizar os seus custos de VM. Com esta solução, pode:
 

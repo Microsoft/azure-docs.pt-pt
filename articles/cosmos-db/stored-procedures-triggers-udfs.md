@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 13256377b8a8aaebf59196df57eef67d3b960cb8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 5fc74c554cbb283bc6bbfee737ef98e59dd4b0ea
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81010550"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509674"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procedimentos armazenados, gatilhos e funções definidas pelo utilizador
 
@@ -64,6 +64,9 @@ As transações estão integradas de forma nativa no modelo de programação Azu
 ### <a name="data-consistency"></a>Consistência de dados
 
 Os procedimentos e gatilhos armazenados são sempre executados na réplica primária de um contentor Azure Cosmos. Esta funcionalidade garante que as leituras dos procedimentos armazenados oferecem [uma forte consistência.](consistency-levels-tradeoffs.md) As consultas utilizando funções definidas pelo utilizador podem ser executadas na réplica primária ou secundária. Os procedimentos e gatilhos armazenados destinam-se a apoiar as escritas transacionais – entretanto, a lógica apenas de leitura é melhor implementada como lógica do lado da aplicação e consultas utilizando os [SDKs API Do MS BDM Azure Cosmos](sql-api-dotnet-samples.md), irá ajudá-lo a saturar a entrada da base de dados. 
+
+> [!TIP]
+> As consultas executadas dentro de um procedimento ou gatilho armazenados podem não ver alterações nos itens feitos pela mesma transação de scripts. Esta afirmação aplica-se tanto a consultas `getContent().getCollection.queryDocuments()`SQL, como, assim como, consultas linguísticas integradas, tais como `getContext().getCollection().filter()`.
 
 ## <a name="bounded-execution"></a>Execução vinculada
 

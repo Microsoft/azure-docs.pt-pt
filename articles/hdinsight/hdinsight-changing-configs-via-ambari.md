@@ -6,18 +6,18 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
-ms.date: 04/16/2020
-ms.openlocfilehash: c88882175ff256300dee486e680a9b63e9a65c99
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 04/28/2020
+ms.openlocfilehash: 54f65f9ef4af2c0d96dd80156eab81c49e5e52a6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81532537"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232875"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Use Apache Ambari to optimize HDInsight cluster configurations (Utilizar o Apache Ambari para otimizar as configurações do cluster do HDInsight)
 
-O HDInsight fornece clusters [Apache Hadoop](./hadoop/apache-hadoop-introduction.md) para aplicações de processamento de dados em larga escala. Gerir, monitorizar e otimizar estes complexos clusters multi-nó pode ser um desafio. [Apache Ambari](https://ambari.apache.org/) é uma interface web para gerir e monitorizar os clusters HDInsight Linux.  Para os clusters Windows, utilize a [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md).
+O HDInsight fornece clusters Apache Hadoop para aplicações de processamento de dados em larga escala. Gerir, monitorizar e otimizar estes complexos clusters multi-nó pode ser um desafio. Apache Ambari é uma interface web para gerir e monitorizar os clusters HDInsight Linux.  Para os clusters Windows, utilize a [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md).
 
 Para uma introdução à utilização do Ambari Web UI, consulte [gerir os clusters HDInsight utilizando o Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md)
 
@@ -68,7 +68,7 @@ As seguintes secções descrevem opções de configuração para otimizar o dese
 
 ### <a name="set-the-hive-execution-engine"></a>Desloque o motor de execução da Colmeia
 
-A Hive fornece dois motores de execução: [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) e [Apache TEZ](https://tez.apache.org/). Tez é mais rápido que MapReduce. Os clusters HDInsight Linux têm tez como motor de execução padrão. Para alterar o motor de execução:
+A Hive fornece dois motores de execução: Apache Hadoop MapReduce e Apache TEZ. Tez é mais rápido que MapReduce. Os clusters HDInsight Linux têm tez como motor de execução padrão. Para alterar o motor de execução:
 
 1. No separador Hive **Configs,** digite o motor de **execução** na caixa de filtro.
 
@@ -99,7 +99,7 @@ Estas mudanças afetam todos os empregos da Tez em todo o servidor. Para obter u
 
 ### <a name="tune-reducers"></a>Redutores de melodia
 
-[Apache ORC](https://orc.apache.org/) e [Snappy](https://google.github.io/snappy/) oferecem alto desempenho. No entanto, a Hive pode ter muito poucos redutores por padrão, causando estrangulamentos.
+Apache ORC e Snappy oferecem alto desempenho. No entanto, a Hive pode ter muito poucos redutores por padrão, causando estrangulamentos.
 
 Por exemplo, diga que tem um tamanho de dados de entrada de 50 GB. Esses dados em formato ORC com compressão Snappy são de 1 GB. A Hive estima o número de redutores necessários como: (número `hive.exec.reducers.bytes.per.reducer`de bytes entradas para mappers / ).
 
@@ -286,7 +286,7 @@ Recomendações adicionais para otimizar o motor de execução da Colmeia:
 
 ## <a name="apache-pig-optimization"></a>Otimização do Porco Apache
 
-As propriedades do [Apache Pig](https://pig.apache.org/) podem ser modificadas a partir da UI web ambari para afinar consultas de porco. Modificar as propriedades do porco de Ambari modifica `/etc/pig/2.4.2.0-258.0/pig.properties` diretamente as propriedades do Porco no ficheiro.
+As propriedades do Apache Pig podem ser modificadas a partir da UI web ambari para afinar consultas de porco. Modificar as propriedades do porco de Ambari modifica `/etc/pig/2.4.2.0-258.0/pig.properties` diretamente as propriedades do Porco no ficheiro.
 
 1. Para modificar as propriedades do porco, navegue até ao separador Pig **Configs** e, em seguida, expanda o painel **avançado de propriedades de porco.**
 
@@ -337,7 +337,7 @@ Porco gera ficheiros temporários durante a execução do emprego. A compressão
 
 * `pig.tmpfilecompression`: Quando for verdade, permite a compressão temporária dos ficheiros. O valor predefinido é false.
 
-* `pig.tmpfilecompression.codec`: O códice de compressão a utilizar para comprimir os ficheiros temporários. Os códigos de compressão recomendados são [LZO](https://www.oberhumer.com/opensource/lzo/) e Snappy para uma utilização mais baixa do CPU.
+* `pig.tmpfilecompression.codec`: O códice de compressão a utilizar para comprimir os ficheiros temporários. Os códigos de compressão recomendados são LZO e Snappy para uma utilização mais baixa do CPU.
 
 ### <a name="enable-split-combining"></a>Ativar a combinação de divisão
 
@@ -353,7 +353,7 @@ O número de redutores é calculado `pig.exec.reducers.bytes.per.reducer`com bas
 
 ## <a name="apache-hbase-optimization-with-the-ambari-web-ui"></a>Otimização Apache HBase com a UI web ambari
 
-A configuração [Apache HBase](https://hbase.apache.org/) é modificada a partir do separador **HBase Configs.** As seguintes secções descrevem algumas das definições de configuração importantes que afetam o desempenho da HBase.
+A configuração Apache HBase é modificada a partir do separador **HBase Configs.** As seguintes secções descrevem algumas das definições de configuração importantes que afetam o desempenho da HBase.
 
 ### <a name="set-hbase_heapsize"></a>Definir HBASE_HEAPSIZE
 

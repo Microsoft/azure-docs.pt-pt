@@ -14,60 +14,59 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 04/28/2020
 ms.author: shvija
-ms.openlocfilehash: 68aa62ad34f8db531d439a581ef024862da0f90c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 3010ee7b996c9d3e96082edeb9447c960da321bd
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77162315"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509795"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurar registos de diagnósticos para um hub de eventos do Azure
 
 Pode ver dois tipos de registos para hubs de eventos azure:
 
-* **[Registos de atividade](../azure-monitor/platform/platform-logs-overview.md)**: Estes registos têm informações sobre operações realizadas num trabalho. Os registos estão sempre ativados.
+* **[Registos de atividade](../azure-monitor/platform/platform-logs-overview.md)**: Estes registos têm informações sobre operações feitas num trabalho. Os registos estão sempre ativados. Pode ver entradas de registo de atividade selecionando **registo de atividade** no painel esquerdo para o seu espaço de nome do centro de eventos no portal Azure. Por exemplo: "Criar ou atualizar o espaço de nomes", "Criar ou atualizar o Centro de Eventos".
+
+    ![Log de atividade para um espaço de nome de Hubs de Eventos](./media/event-hubs-diagnostic-logs/activity-log.png)
 * **[Registos de diagnóstico:](../azure-monitor/platform/platform-logs-overview.md)** Pode configurar registos de diagnóstico para uma visão mais rica de tudo o que acontece com um trabalho. Os registos de diagnóstico cobrem atividades a partir do momento em que o trabalho é criado até que o trabalho seja eliminado, incluindo atualizações e atividades que ocorrem durante o trabalho em execução.
 
-## <a name="enable-diagnostic-logs"></a>Ativar registos de diagnóstico
+    A secção seguinte mostra-lhe como ativar registos de diagnóstico para um espaço de nome de Event Hubs.
 
+## <a name="enable-diagnostic-logs"></a>Ativar registos de diagnóstico
 Os registos de diagnóstico são desativados por defeito. Para ativar os registos de diagnóstico, siga estes passos:
 
-1.  No [portal Azure,](https://portal.azure.com)sob **monitorização + gestão,** clique em **registos de Diagnóstico**.
+1.  No [portal Azure,](https://portal.azure.com)navegue para o seu espaço de nome Sem Nome Do Seu Evento Hubs. 
+2. Selecione **definições de diagnóstico** sob **monitorização** no painel esquerdo e, em seguida, selecione **+ Adicione a definição de diagnóstico**. 
 
-    ![Pane navegação para registos de diagnóstico](./media/event-hubs-diagnostic-logs/image1.png)
+    ![Página de definições de diagnóstico - adicione definição de diagnóstico](./media/event-hubs-diagnostic-logs/diagnostic-settings-page.png)
+4. Na secção de detalhes da **categoria,** selecione os **tipos de registos de diagnóstico** que pretende ativar. Você encontrará detalhes sobre estas categorias mais tarde neste artigo. 
+5. Na secção de detalhes do **Destino,** detete o alvo de arquivo (destino) que deseja; por exemplo, uma conta de armazenamento, um centro de eventos ou um espaço de trabalho log Analytics.
 
-2.  Clique no recurso que pretende monitorizar.
+    ![Adicionar página de definições de diagnóstico](./media/event-hubs-diagnostic-logs/aDD-diagnostic-settings-page.png)
+6.  Selecione **Guardar** na barra de ferramentas para guardar as definições de diagnóstico.
 
-3.  Clique em **Ativar diagnósticos**.
+    As novas definições têm efeito em cerca de 10 minutos. Depois disso, os registos aparecem no alvo de arquivo configurado, no painel de registos de **diagnóstico.**
 
-    ![Ligue os registos de diagnóstico](./media/event-hubs-diagnostic-logs/image2.png)
-
-4.  Para **o Estado,** clique **em**.
-
-    ![Alterar o estado dos registos de diagnóstico](./media/event-hubs-diagnostic-logs/image3.png)
-
-5.  Definir o alvo de arquivo que deseja; por exemplo, uma conta de armazenamento, um hub de eventos ou registos do Monitor Azure.
-
-6.  Guarde as novas definições de diagnóstico.
-
-As novas definições têm efeito em cerca de 10 minutos. Depois disso, os registos aparecem no alvo de arquivo configurado, no painel de registos de **diagnóstico.**
-
-Para obter mais informações sobre a configuração dos diagnósticos, consulte a [visão geral dos registos de diagnóstico do Azure](../azure-monitor/platform/platform-logs-overview.md).
+    Para obter mais informações sobre a configuração dos diagnósticos, consulte a [visão geral dos registos de diagnóstico do Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 ## <a name="diagnostic-logs-categories"></a>Categorias de registos de diagnóstico
 
-O Event Hubs captura registos de diagnóstico para duas categorias:
+O Event Hubs captura registos de diagnóstico para as seguintes categorias:
 
-* **Registos de arquivo**: registos relacionados com arquivos de Centros de Eventos, especificamente, registos relacionados com erros de arquivo.
-* **Registos Operacionais**: informações sobre o que está a acontecer durante as operações do Event Hubs, especificamente, o tipo de operação, incluindo a criação do hub de eventos, os recursos utilizados e o estado da operação.
+- **Registos de arquivo**: registos relacionados com arquivos de Centros de Eventos, especificamente, registos relacionados com erros de arquivo.
+- **Registos Operacionais**: informações sobre o que está a acontecer durante as operações do Event Hubs, especificamente, o tipo de operação, incluindo a criação do hub de eventos, os recursos utilizados e o estado da operação.
+- **Registos de escala automática**: informações sobre operações de autoscalcificação feitas num espaço de nome event Hubs. 
+- **Registos coordenadores da Kafka** - informações sobre operações de coordenador de Kafka relacionadas com Centros de Eventos. 
+- **Registos de utilizadores de Kafka**: informações sobre operações de utilizador kafka relacionadas com Centros de Eventos. 
+- **Evento Hubs virtual network (VNet) evento**de conexão : informações sobre eventos de ligação virtual de rede De Event Hubs. 
+- **Registos de utilizadores-chave geridos pelo cliente:** informações sobre operações relacionadas com a chave gerida pelo cliente. 
 
-## <a name="diagnostic-logs-schema"></a>Esquema de logs de diagnóstico
 
-Todos os registos são armazenados no formato JavaScript Object Notation (JSON). Cada entrada tem campos de cordas que utilizam o formato descrito nas seguintes secções.
+    Todos os registos são armazenados no formato JavaScript Object Notation (JSON). Cada entrada tem campos de cordas que utilizam o formato descrito nas seguintes secções.
 
-### <a name="archive-logs-schema"></a>Esquema de registos de arquivo
+## <a name="archive-logs-schema"></a>Esquema de registos de arquivo
 
 As cordas JSON de registo de arquivo incluem elementos listados na tabela seguinte:
 
@@ -105,7 +104,7 @@ O seguinte código é um exemplo de uma cadeia JSON de registo de arquivo:
 }
 ```
 
-### <a name="operational-logs-schema"></a>Esquema de registos operacionais
+## <a name="operational-logs-schema"></a>Esquema de registos operacionais
 
 As cordas JSON de registo operacional incluem elementos listados na tabela seguinte:
 
@@ -137,6 +136,72 @@ Example:
    "category": "OperationalLogs"
 }
 ```
+
+## <a name="autoscale-logs-schema"></a>Esquema de logs de escala automática
+O log de escala automática JSON inclui elementos listados na tabela seguinte:
+
+| Nome | Descrição |
+| ---- | ----------- | 
+| trackingId | ID interno, que é usado para fins de rastreio |
+| resourceId | ID interno, que contém ID de subscrição azure e nome de espaço de nome |
+| message | Mensagem informativa, que fornece detalhes sobre a ação de auto-inflação. A mensagem contém o valor anterior e atual da unidade de entrada para um determinado espaço de nome e o que desencadeou a insuflação do TU. |
+
+## <a name="kafka-coordinator-logs-schema"></a>Kafka coordenador logs schema
+O log do coordenador kafka JSON inclui elementos listados na tabela seguinte:
+
+| Nome | Descrição |
+| ---- | ----------- | 
+| requestId | solicitar ID, que é usado para fins de rastreio |
+| resourceId | ID interno, que contém ID de subscrição azure e nome de espaço de nome |
+| operationName | Nome da operação que é feita durante a coordenação do grupo |
+| clientId | ID de Cliente |
+| nomespaceName | Nome do espaço de nomes | 
+| subscriptionId | ID de subscrição azure |
+| message | Mensagem informativa, que fornece detalhes sobre as ações efetuadas durante a coordenação do grupo de consumidores. |
+
+## <a name="kafka-user-error-logs-schema"></a>Erro do utilizador kafka regista esquema
+O registo de erros do utilizador kafka JSON inclui elementos listados na tabela seguinte:
+
+| Nome | Descrição |
+| ---- | ----------- |
+| trackingId | identificação de rastreio, que é usado para fins de rastreio. |
+| nomespaceName | Nome do espaço de nomes |
+| eventhub | Nome do hub de eventos |
+| partiçãoId | ID de Partição |
+| groupId | ID do Grupo |
+| ClientId | ID de Cliente |
+| resourceId | ID interno, que contém ID de subscrição azure e nome de espaço de nome |
+| message | Mensagem informativa, que fornece detalhes sobre um erro |
+
+## <a name="event-hubs-virtual-network-connection-event-schema"></a>Event Hubs virtual network connection event schema
+
+Evento Hubs virtual rede (VNet) evento de conexão JSON inclui elementos listados na tabela seguinte:
+
+| Nome | Descrição |
+| ---  | ----------- | 
+| subscriptionId | ID de subscrição azure |
+| nomespaceName | Nome do espaço de nomes |
+| ipAddress | Endereço IP de um cliente que liga ao serviço Event Hubs |
+| action | Ação feita pelo serviço Event Hubs ao avaliar pedidos de ligação. As ações suportadas são **AcceptConnection** e **RejectConnection**. |
+| reason | Fornece uma razão pela qual a ação foi feita |
+| count | Número de ocorrências para a determinada ação |
+| resourceId | ID de recursos internos, que contém ID de subscrição e nome de espaço de nome. |
+
+## <a name="customer-managed-key-user-logs"></a>Registos de utilizadores-chave geridos pelo cliente
+O registo de utilizador-chave gerido pelo cliente JSON inclui elementos listados na tabela seguinte:
+
+| Nome | Descrição |
+| ---- | ----------- | 
+| categoria | Tipo de categoria para uma mensagem. É um dos seguintes valores: **erro** e **informação** |
+| resourceId | ID de recursos internos, que inclui ID de subscrição azure e nome do espaço de nome |
+| keyVault | Nome do recurso Key Vault |
+| key | Nome da chave do cofre. |
+| versão | Versão da chave key vault |
+| operação | O nome de uma operação feita para servir pedidos |
+| code | Código de estado |
+| message | Mensagem, que fornece detalhes sobre um erro ou mensagem informativa |
+
+
 
 ## <a name="next-steps"></a>Passos seguintes
 - [Introdução aos Centros de Eventos](event-hubs-what-is-event-hubs.md)

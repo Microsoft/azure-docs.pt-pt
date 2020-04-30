@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
-ms.date: 04/14/2020
-ms.openlocfilehash: d68f7dc6368c2b3de7f26f2946c5fb47237a820d
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 04/28/2020
+ms.openlocfilehash: 77314514ca26997fecd6b5d7c6ba1fc7d14c2584
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81313937"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82209065"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Utilizar Assinaturas de Acesso Partilhado do Armazenamento do Azure para restringir o acesso aos dados no HDInsight
 
@@ -39,7 +39,7 @@ O HDInsight tem acesso total aos dados nas contas de Armazenamento Azure associa
 
 * Se utilizar c#, o Visual Studio deve ser a versão 2013 ou superior.
 
-* O [esquema URI](./hdinsight-hadoop-linux-information.md#URI-and-scheme) para a sua conta de armazenamento. Este esquema `wasb://` seria para o `abfs://` Armazenamento Azure, para `adl://` o Azure Data Lake Storage Gen2 ou para o Azure Data Lake Storage Gen1. Se a transferência segura estiver ativada para `wasbs://`o Armazenamento Azure, o URI seria . Ver também, [transferência segura.](../storage/common/storage-require-secure-transfer.md)
+* O esquema URI para a sua conta de armazenamento. Este esquema `wasb://` seria para o `abfs://` Armazenamento Azure, para `adl://` o Azure Data Lake Storage Gen2 ou para o Azure Data Lake Storage Gen1. Se a transferência segura estiver ativada para `wasbs://`o Armazenamento Azure, o URI seria .
 
 * Um cluster HDInsight existente para adicionar uma Assinatura de Acesso Partilhado. Caso contrário, pode utilizar o Azure PowerShell para criar um cluster e adicionar uma Assinatura de Acesso Partilhado durante a criação do cluster.
 
@@ -435,5 +435,5 @@ Utilize os seguintes passos para verificar se só pode ler e listar itens na con
 
 Agora que aprendeu a adicionar armazenamento de acesso limitado ao seu cluster HDInsight, aprenda outras formas de trabalhar com dados no seu cluster:
 
-* [Use a Colmeia Apache com HDInsight](hadoop/hdinsight-use-hive.md)
-* [Utilizar mapeiaReduzir com HDInsight](hadoop/hdinsight-use-mapreduce.md)
+* [Utilizar SSH com o HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
+* [Autorizar utilizadores para as Vistas do Apache Ambari](hdinsight-authorize-users-to-ambari.md)

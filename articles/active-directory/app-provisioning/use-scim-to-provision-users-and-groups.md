@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0507989ec25db595a85b89f15d8ff7d056a970f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a54bc3cfa67330fb0056ccd1898d9ab3de2b0ab2
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "80297685"
+ms.locfileid: "82229923"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>Construir um ponto final SCIM e configurar o fornecimento de utilizadores com o Azure Ative Directory (Azure AD)
 
@@ -810,7 +810,7 @@ Os pedidos do Azure Ative Directory incluem um token oAuth 2.0 bearer. Qualquer 
 
 No símbolo, o emitente é identificado por uma `"iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"`reivindicação do ISS, como . Neste exemplo, o endereço base do `https://sts.windows.net`valor da reclamação, identifica o Azure Ative Directory como emitente, enquanto o segmento de endereço relativo, _cbb1a5ac-f33b-45fa-9bf5-f37db0fed422,_ é um identificador único do inquilino do Azure Ative Directory para o qual o símbolo foi emitido.
 
-O público do símbolo será o ID do modelo de aplicação para a aplicação na galeria, cada uma das candidaturas registadas num único inquilino pode receber a mesma `iss` reclamação com pedidos de SCIM. O ID do modelo de aplicação para [ProvisioningFeedback@microsoft.com](mailto:ProvisioningFeedback@microsoft.com) cada aplicação na galeria varia, por favor contacte para perguntas em torno do ID do modelo de aplicação para uma aplicação de galeria. O ID do modelo de aplicação para todas as aplicações personalizadas é _8adf8e6e-67b2-4cf2-a259-e3dc5476c621_.
+O público do símbolo será o ID do modelo de aplicação para a aplicação na galeria, cada uma das candidaturas registadas num único inquilino pode receber a mesma `iss` reclamação com pedidos de SCIM. O ID do modelo de aplicação para todas as aplicações personalizadas é _8adf8e6e-67b2-4cf2-a259-e3dc5476c621_. O símbolo gerado pelo serviço de provisionamento Da Azure Só deve ser utilizado para testes. Não deve ser utilizado em ambientes de produção.
 
 No código da amostra, os pedidos são autenticados utilizando o pacote Microsoft.AspNetCore.Authentication.JwtBearer. O seguinte código aplica que os pedidos a qualquer um dos pontos finais do serviço são autenticados utilizando o token do portador emitido pelo Azure Ative Directory para um inquilino especificado:
 

@@ -5,12 +5,12 @@ description: Aprenda a instalar e configurar um controlador de ingresso NGINX b�
 services: container-service
 ms.topic: article
 ms.date: 12/20/2019
-ms.openlocfilehash: 689cfe4c94ba83b4c0b8815fd7b0438da32f6018
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
-ms.translationtype: MT
+ms.openlocfilehash: fc995bc14cd1267da3379890c5be56840487d049
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82145966"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82207467"
 ---
 # <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>Criar um controlador de ingresso no Serviço Azure Kubernetes (AKS)
 
@@ -35,7 +35,7 @@ Este artigo também requer que esteja a executar a versão Azure CLI 2.0.64 ou p
 
 Para criar o controlador de ingresso, utilize o Helm para instalar *a nginx-ingress.* Para uma maior redundância, são implementadas duas réplicas dos controladores de entrada do NGINX com o parâmetro `--set controller.replicaCount`. Para se beneficiar totalmente da execução de réplicas do controlador de ingresso, certifique-se de que há mais de um nó no seu cluster AKS.
 
-O controlador de entrada também tem de estar agendado num nó do Linux. Os nós do Windows Server (atualmente em pré-visualização no AKS) não devem executar o controlador de entrada. É especificado um seletor de nós com o parâmetro `--set nodeSelector` para indicar ao agendador do Kubernetes que execute o controlador de entrada do NGINX num nó baseado no Linux.
+O controlador de entrada também tem de estar agendado num nó do Linux. Os nós do Windows Server não devem executar o controlador de entrada. É especificado um seletor de nós com o parâmetro `--set nodeSelector` para indicar ao agendador do Kubernetes que execute o controlador de entrada do NGINX num nó baseado no Linux.
 
 > [!TIP]
 > O exemplo seguinte cria um espaço de nome Kubernetes para os recursos de ingresso *denominados ingress-basic*. Especifique um espaço de nome para o seu próprio ambiente, conforme necessário.
