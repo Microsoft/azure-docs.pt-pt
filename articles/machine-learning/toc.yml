@@ -91,6 +91,8 @@
       href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
 - name: Conceitos
   items:
+    - name: Planear e gerir custos
+      href: concept-plan-manage-cost.md
     - name: Área de trabalho
       href: concept-workspace.md
     - name: Ambientes
@@ -156,6 +158,8 @@
               href: how-to-use-azure-ad-identity.md
             - name: Voltar a gerar chaves de acesso ao armazenamento
               href: how-to-change-storage-access-key.md
+            - name: Utilizar o Azure Firewall
+              href: how-to-access-azureml-behind-firewall.md
         - name: Configurar autenticação
           displayName: 'authentication, auth, oauth'
           href: how-to-setup-authentication.md

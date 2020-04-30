@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
 ms.openlocfilehash: 5b57a2463815d5db1c83d3bc4e8cd56314fb204d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82176995"
 ---
 # <a name="map-an-existing-custom-domain-to-azure-spring-cloud"></a>Mapeie um domínio personalizado existente para azure Spring Cloud

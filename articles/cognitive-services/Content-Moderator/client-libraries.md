@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.date: 04/24/2020
 ms.author: pafarley
 ms.openlocfilehash: 36160c4fb2ee49b5b516c23d4debd8ab5a9c98d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020

@@ -23,7 +23,7 @@
               href: ./standard-contract.md
             - name: Atribuição da utilização do cliente de parceiro do Azure
               href: ./azure-partner-customer-usage-attribution.md
-        - name: Guia de publicação por tipo de oferta
+        - name: Guias de publicação por tipo de oferta
           href: ./publisher-guide-by-offer-type.md
           items:
             - name: Virtual Machines
@@ -38,13 +38,13 @@
               href: ./marketplace-containers.md
             - name: Módulos do IoT Edge
               href: ./iot-edge-module.md
-            - name: Serviço de Consultoria
+            - name: Serviços de consultadoria
               href: ./consulting-services.md
-            - name: 'Guia de publicação do Office 365, Dynamics 365 e Power BI'
+            - name: 'Office 365, Dynamics 365 e Power BI'
               href: ./appsource-offer-publishing-guide.md
             - name: Ativar uma listagem do AppSource e do Marketplace com o Azure Active Directory
               href: ./enable-appsource-marketplace-using-azure-ad.md
-            - name: Soluções Integradas
+            - name: Soluções integradas
               href: ./integrated-solutions-for-publishers.md
         - name: Melhores práticas de marketing
           href: ./gtm-marketing-best-practices.md
@@ -69,7 +69,7 @@
         - name: Suporte para o marketplace comercial
           href: ./support-azure-marketplace.md
           items:
-            - name: FAQs do Marketplace
+            - name: FAQ do Marketplace
               href: ./marketplace-faq-publisher-guide.md
             - name: Disponibilidade geográfica e moedas
               href: ./marketplace-geo-availability-currencies.md
@@ -559,6 +559,8 @@
       href: ./partner-center-portal/publishing-status.md
     - name: Atualizar ofertas existentes
       href: ./partner-center-portal/update-existing-offer.md
+    - name: Ativar benefícios
+      href: ./partner-center-portal/marketplace-rewards.md
     - name: Opções de suporte
       href: ./partner-center-portal/support.md
     - name: Análise do Centro de Parceiros
