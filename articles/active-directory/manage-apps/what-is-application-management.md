@@ -13,13 +13,13 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7ca73fac06649f801461e53130a67aa9ec0ad0d0
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77063327"
 ---
-# <a name="application-management-with-azure-active-directory"></a>Gestão de aplicações com o Microsoft Azure Active Directory
+# <a name="application-management-with-azure-active-directory"></a>Gestão de aplicações com o Azure Active Directory
 
 O Azure Ative Directory (Azure AD) simplifica a forma como gere as suas aplicações, fornecendo um único sistema de identidade para as suas aplicações cloud e on-premises. Pode adicionar o seu software como aplicações de serviço (SaaS), aplicações no local e aplicações de linha de negócios (LOB) à Azure AD. Em seguida, os utilizadores acedem uma vez para aceder de forma segura e perfeita a estas aplicações, juntamente com o Office 365 e outras aplicações empresariais da Microsoft. Pode reduzir os custos administrativos [automatizando o fornecimento de utilizadores.](../app-provisioning/user-provisioning.md) Também pode utilizar políticas de autenticação multifactor e acesso condicional para fornecer acesso seguro à aplicação.
 

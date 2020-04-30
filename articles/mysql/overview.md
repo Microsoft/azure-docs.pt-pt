@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.topic: overview
 ms.date: 3/18/2020
 ms.openlocfilehash: 8f49811ad0d40c70933d32227cfb17a5144b857a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80067812"
 ---
 # <a name="what-is-azure-database-for-mysql"></a>O que é a Base de Dados do Azure para MySQL?

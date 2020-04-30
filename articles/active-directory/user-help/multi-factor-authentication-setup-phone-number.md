@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 08/12/2019
 ms.author: curtand
 ms.openlocfilehash: b0bfaa87c77ba9fff9f6605c1989e48ffbc3fb35
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77062511"
 ---
 # <a name="set-up-a-mobile-device-as-your-two-factor-verification-method"></a>Configurar um dispositivo móvel como o seu método de verificação de dois fatores
@@ -72,7 +72,7 @@ Depois de configurar o seu método de verificação de dois fatores, pode adicio
 
 - [Gerencie as definições do método de verificação de dois fatores](multi-factor-authentication-end-user-manage-settings.md)
 
-- [Gerir as palavras-passe das aplicações](multi-factor-authentication-end-user-app-passwords.md)
+- [Gerir as palavras-passe de aplicação](multi-factor-authentication-end-user-app-passwords.md)
 
 - [Iniciar sessão utilizando verificação de dois fatores](multi-factor-authentication-end-user-signin.md)
 

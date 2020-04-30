@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 01/15/2020
 ms.author: curtand
 ms.openlocfilehash: 5a7f0e10b23bf1a541fe83c3112962c38f7e1331
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77062562"
 ---
 # <a name="what-is-the-additional-verification-page"></a>O que é a página Verificação adicional?
@@ -71,7 +71,7 @@ Depois de aceder à página adicional de verificação de **segurança,** deve s
 
 - [Gerencie as definições do método de verificação de dois fatores](multi-factor-authentication-end-user-manage-settings.md)
 
-- [Gerir as palavras-passe das aplicações](multi-factor-authentication-end-user-app-passwords.md)
+- [Gerir as palavras-passe de aplicação](multi-factor-authentication-end-user-app-passwords.md)
 
 - [Iniciar sessão utilizando verificação de dois fatores](multi-factor-authentication-end-user-signin.md)
 

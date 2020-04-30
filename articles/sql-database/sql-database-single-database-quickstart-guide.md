@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 07/29/2019
 ms.openlocfilehash: 6070b53e5f906bc378402d98275b8f798f57b505
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78674435"
 ---
 # <a name="getting-started-with-single-databases-in-azure-sql-database"></a>Começar com bases de dados únicas na Base de Dados Azure SQL

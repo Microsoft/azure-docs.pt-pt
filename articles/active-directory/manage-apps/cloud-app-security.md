@@ -12,10 +12,10 @@ ms.date: 02/03/2020
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 206e1a06acddae0973d5dbc7e64212026149f217
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77069743"
 ---
 # <a name="cloud-app-visibility-and-control"></a>Visibilidade e controlo de aplicações na cloud
@@ -26,7 +26,7 @@ Para obter o pleno benefício de aplicações e serviços na nuvem, uma equipa d
 
 Quando os administradores de TI são questionados sobre quantas aplicações na nuvem pensam que os seus colaboradores usam, em média dizem 30 ou 40, quando na realidade, a média é de mais de 1.000 aplicações separadas que estão a ser usadas pelos colaboradores da sua organização. Shadow IT ajuda-o a saber e identificar quais as aplicações que estão a ser usadas e qual é o seu nível de risco. Oitenta por cento dos colaboradores usam apps não autorizadas que ninguém reviu e pode não estar em conformidade com as suas políticas de segurança e conformidade. E como os seus colaboradores são capazes de aceder aos seus recursos e aplicações de fora da sua rede corporativa, já não basta ter regras e políticas nas suas firewalls.
 
-Utilize o Microsoft Cloud App Discovery (uma funcionalidade Azure Ative Directory Premium P1) para descobrir quais as aplicações que estão a ser utilizadas, explorar o risco destas aplicações, configurar políticas para identificar novas aplicações de risco e desanuviar estas aplicações de forma a bloqueá-las de forma nativa usando a sua proxy ou aparelho de firewall.
+Utilize o Microsoft Cloud App Discovery (uma funcionalidade Azure Ative Directory Premium P1) para descobrir quais as aplicações que estão a ser utilizadas, explorar o risco destas aplicações, configurar políticas para identificar novas aplicações de risco e desanuviar estas aplicações de forma a bloqueá-las de forma nativa usando o seu proxy ou o seu aparelho de firewall.
 
 - Descobrir e identificar a TI Sombra
 - Avaliar e analisar

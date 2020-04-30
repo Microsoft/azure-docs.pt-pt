@@ -11,10 +11,10 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/09/2020
 ms.openlocfilehash: c9ea155f3cc71dd961a3780e3b188a6d062606bc
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80067902"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-with-azure-database-for-mysql"></a>Quickstart: Use Python para conectar e consultar dados com base de dados Azure para MySQL
@@ -55,7 +55,7 @@ Instale python e o conector MySQL para Python no seu computador utilizando os se
 
 Obtenha a informação de ligação que precisa para ligar à Base de Dados Azure para MySQL a partir do portal Azure. Precisa do nome do servidor, nome da base de dados e credenciais de login.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
    
 1. Na barra de pesquisa do portal, procure e selecione a Base de Dados Azure para servidor MySQL que criou, como o **mydemoserver**.
    

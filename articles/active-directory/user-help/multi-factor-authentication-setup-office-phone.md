@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 08/12/2019
 ms.author: curtand
 ms.openlocfilehash: b94c739abffa8792afbfab4285c54a67f3eb4b65
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77062528"
 ---
 # <a name="set-up-an-office-phone-as-your-two-factor-verification-method"></a>Configurar um telefone de escritório como o seu método de verificação de dois fatores
@@ -49,7 +49,7 @@ Depois de configurar o seu método de verificação de dois fatores, pode adicio
 
 - [Gerencie as definições do método de verificação de dois fatores](multi-factor-authentication-end-user-manage-settings.md)
 
-- [Gerir as palavras-passe das aplicações](multi-factor-authentication-end-user-app-passwords.md)
+- [Gerir as palavras-passe de aplicação](multi-factor-authentication-end-user-app-passwords.md)
 
 - [Iniciar sessão utilizando verificação de dois fatores](multi-factor-authentication-end-user-signin.md)
 

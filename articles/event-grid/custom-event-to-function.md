@@ -9,10 +9,10 @@ ms.date: 11/15/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.openlocfilehash: 5e38571cf84537fd722093b96cd277743e8ce80c
-ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80292156"
 ---
 # <a name="quickstart-route-custom-events-to-an-azure-function-with-event-grid"></a>Quickstart: Rota eventos personalizados para uma função Azure com grelha de eventos

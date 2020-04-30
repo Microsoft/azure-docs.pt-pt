@@ -15,10 +15,10 @@ ms.date: 02/11/2020
 ms.author: spelluru
 ms.custom: subject-armqs
 ms.openlocfilehash: c2221fe5b5ab38afbdde167e5bcbf6b47ed4f861
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79528086"
 ---
 # <a name="quickstart-create-an-event-hub-by-using-an-azure-resource-manager-template"></a>Quickstart: Criar um hub de eventousando um modelo de Gestor de Recursos Azure
@@ -104,7 +104,7 @@ Neste artigo, criou um espaço de nome sem nome do Event Hubs e um hub de evento
 
 - [.NET Core](get-started-dotnet-standard-send-v2.md)
 - [Java](get-started-java-send-v2.md)
-- [Pitão](get-started-python-send-v2.md)
+- [Python](get-started-python-send-v2.md)
 - [JavaScript](get-started-java-send-v2.md)
 - [Ir](event-hubs-go-get-started-send.md)
 - [C (apenas enviar)](event-hubs-c-getstarted-send.md)

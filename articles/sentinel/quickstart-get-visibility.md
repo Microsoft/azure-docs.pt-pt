@@ -11,10 +11,10 @@ ms.custom: mvc, fasttrack-edit
 ms.date: 09/23/2019
 ms.author: yelevin
 ms.openlocfilehash: 95dcc135593c566eb1319ed52df3df6c1ada6609
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80067683"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Quickstart: Comece com Azure Sentinel
@@ -53,7 +53,7 @@ O corpo principal da página geral dá uma visão sobre o estado de segurança d
 
 ## <a name="use-built-in-workbooks"></a>Utilize livros embutidos<a name="dashboards"></a>
 
-Os livros incorporados fornecem dados integrados a partir das suas fontes de dados conectadas para permitir que você mergulhe profundamente nos eventos gerados nesses serviços. Os livros embutidos incluem azure AD, eventos de atividade azure e no local, que podem ser dados do Windows Events a partir de servidores, a partir de alertas de primeira parte, de qualquer terceiro, incluindo registos de tráfego de firewall, Office 365, e protocolos inseguros baseados no Windows eventos. Os livros baseiam-se em livros de trabalho do Monitor Azure para lhe proporcionar uma maior personalizabilidade e flexibilidade na conceção do seu próprio livro. Para mais informações, consulte [Livros de Trabalho.](../azure-monitor/app/usage-workbooks.md)
+Os livros incorporados fornecem dados integrados a partir das suas fontes de dados conectadas para permitir que você mergulhe profundamente nos eventos gerados nesses serviços. Os livros incorporados incluem Azure AD, eventos de atividade azure e no local, que podem ser dados de Eventos Windows a partir de servidores, a partir de alertas de primeira parte, de qualquer terceiro, incluindo registos de tráfego de firewall, Office 365, e protocolos inseguros baseados em eventos windows. Os livros baseiam-se em livros de trabalho do Monitor Azure para lhe proporcionar uma maior personalizabilidade e flexibilidade na conceção do seu próprio livro. Para mais informações, consulte [Livros de Trabalho.](../azure-monitor/app/usage-workbooks.md)
 
 1. Em **Definições,** selecione Livros de **Trabalho**. Em **Instalação,** pode ver todo o seu livro de trabalho instalado. Em **Tudo,** pode ver toda a galeria de livros embutidos que estão disponíveis para instalação. 
 2. Procure um livro específico para ver toda a lista e descrição do que cada um oferece. 
@@ -109,7 +109,7 @@ Pode querer criar uma consulta que incorpore dados de múltiplas fontes. Pode cr
     | project OperationName, RoleAssignmentTime = TimeGenerated, user = Caller) on user
     | project-away user1
 
-Pode criar diferentes livros baseados no papel da pessoa que olha para os dados e o que procura. Por exemplo, pode criar um livro de trabalho para a sua administração de rede que inclua os dados de firewall. Você também pode criar livros baseados na frequência com que você quer olhar para eles, se há coisas que você quer rever diariamente, e outros itens que você quer verificar uma vez por hora, por exemplo, você pode querer olhar para os seus sign-ins Azure AD a cada hora para procurar anomalias . 
+Pode criar diferentes livros baseados no papel da pessoa que olha para os dados e o que procura. Por exemplo, pode criar um livro de trabalho para a sua administração de rede que inclua os dados de firewall. Também pode criar livros baseados na frequência com que pretende olhar para eles, se há coisas que pretende rever diariamente, e outros itens que pretende verificar uma vez por hora, por exemplo, talvez queira ver os seus sign-ins Azure AD a cada hora para procurar anomalias. 
 
 ## <a name="create-new-detections"></a>Criar novas deteções
 

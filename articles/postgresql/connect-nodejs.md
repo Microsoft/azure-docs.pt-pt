@@ -13,10 +13,10 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 5/6/2019
 ms.openlocfilehash: 1d48fc818ca32b6168b0986ddb6453fe66fc8341
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80062251"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Quickstart: Use Node.js para ligar e consultar dados na Base de Dados Azure para PostgreSQL - Servidor Único
@@ -29,7 +29,7 @@ Neste arranque rápido, ligue-se a uma Base de Dados Azure para PostgreSQL utili
 
 - Conclusão do [Quickstart: Criar uma Base de Dados Azure para servidor PostgreSQL no portal Azure](quickstart-create-server-database-portal.md) ou [Quickstart: Criar uma Base de Dados Azure para PostgreSQL utilizando o Azure CLI](quickstart-create-server-database-azure-cli.md).
 
-- [Nó.js](https://nodejs.org)
+- [Node.js](https://nodejs.org)
 
 ## <a name="install-pg-client"></a>Instalar o cliente pg
 Instale o [pg](https://www.npmjs.com/package/pg), que é um cliente PostgreSQL para Node.js.
