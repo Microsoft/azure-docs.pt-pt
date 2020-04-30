@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 02/04/2019
 ms.openlocfilehash: b254621cc414fb9b2b76263957adc80da6e9c22d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79214010"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database"></a>Modelos de Gestor de Recursos Azure para base de dados Azure SQL
@@ -28,7 +28,7 @@ A tabela seguinte inclui links para os modelos do Gestor de Recursos Azure para 
 
 | |  |
 |---|---|
-| [Base de dados individual](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-database-transparent-encryption-create) | Este modelo de Gestor de Recursos Azure cria uma única Base de Dados Azure SQL com servidor lógico e configura regras de firewall. |
+| [Base de dados única](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-database-transparent-encryption-create) | Este modelo de Gestor de Recursos Azure cria uma única Base de Dados Azure SQL com servidor lógico e configura regras de firewall. |
 | [Servidor lógico](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server) | Este modelo de Gestor de Recursos Azure cria um servidor lógico para a Base de Dados SQL azure. |
 | [Conjunto elástico](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create) | Este modelo permite-lhe implementar uma nova piscina Elástica com o seu novo Servidor SQL associado e novas Bases de Dados SQL para lhe atribuir. |
 | [Grupos failover](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-with-failover-group) | Este modelo cria dois servidores lógicos Azure SQL, uma base de dados SQL e um grupo failover.|
@@ -41,7 +41,7 @@ A tabela seguinte inclui links para os modelos do Gestor de Recursos Azure para 
 | [Cluster HDInsight com uma Base de Dados SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-with-sql-database) | Este modelo permite-lhe criar um cluster HDInsight, um servidor de base de dados SQL, uma Base de Dados SQL e duas tabelas. Este modelo é usado pelo [Use Sqoop com Hadoop no artigo HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-use-sqoop) |
 | [App Azure Logic que executa um Procedimento Armazenado SQL em um horário](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sql-proc) | Este modelo permite-lhe criar uma Aplicação Lógica que executará um procedimento armazenado por SQL no horário. Quaisquer argumentos para o procedimento podem ser colocados na secção do corpo do modelo.|
 
-## <a name="managed-instance"></a>[Instância Gerida](#tab/managed-instance)
+## <a name="managed-instance"></a>[Instância gerida](#tab/managed-instance)
 
 A tabela seguinte inclui links para modelos de Gestor de Recursos Azure para base de dados Azure SQL - Instância Gerida.
 
