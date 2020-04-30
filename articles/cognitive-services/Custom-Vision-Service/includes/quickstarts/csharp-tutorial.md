@@ -4,10 +4,10 @@ ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 04/14/2020
 ms.openlocfilehash: de0c8fd674872a48a302a76a3f0951df13041206
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82134111"
 ---
 Este artigo disponibiliza informações e código de exemplo para o ajudar a começar a utilizar o SDK da Visão Personalizada com C# e compilar um modelo de classificação de imagens. Depois de criado, poderá adicionar etiquetas, carregar imagens, preparar o projeto, obter o URL de ponto final de predição predefinido do projeto e utilizar o ponto final para testar uma imagem de forma programática. Use este exemplo como um modelo para construir a sua própria aplicação .NET. Se quiser passar pelo processo de construção e utilização de um modelo de classificação _sem_ código, consulte a [orientação baseada no navegador.](../../getting-started-build-a-classifier.md)

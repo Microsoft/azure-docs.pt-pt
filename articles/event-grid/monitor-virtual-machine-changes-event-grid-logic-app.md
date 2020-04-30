@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.date: 10/11/2019
 ms.openlocfilehash: 045f6d50846092820014ccc7f11a81f1e2234311
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82144086"
 ---
 # <a name="tutorial-monitor-virtual-machine-changes-by-using-azure-event-grid-and-logic-apps"></a>Tutorial: Monitorize as mudanças de máquinavirtual utilizando a Grelha de Eventos Azure e aplicações lógicas

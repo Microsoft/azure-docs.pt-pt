@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3a0c8f7517e88bf4e5476c7bad98d167ce760a9a
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82116422"
 ---
 # <a name="persist-job-and-task-output"></a>Manter saída de trabalhos e tarefas

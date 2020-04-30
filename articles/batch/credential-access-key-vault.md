@@ -4,10 +4,10 @@ description: Aprenda a aceder programáticamente às suas credenciais a partir d
 ms.topic: article
 ms.date: 02/13/2020
 ms.openlocfilehash: d24904c3a539431e8aff420e9fbd8291cddde78a
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82117459"
 ---
 # <a name="securely-access-key-vault-with-batch"></a>Acesso seguro ao Key Vault com o Batch

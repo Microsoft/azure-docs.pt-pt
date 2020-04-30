@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 04/27/2020
 zone_pivot_groups: programming-languages-set-one
 ms.openlocfilehash: 68ea934e366caa4a6575a39f42156e5c3380ea10
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82134069"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-sdk"></a>Quickstart: Criar um projeto de deteção de objetos com o Custom Vision SDK

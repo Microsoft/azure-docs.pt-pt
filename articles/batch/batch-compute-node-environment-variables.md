@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 09/12/2019
 ms.author: labrenne
 ms.openlocfilehash: dd30444585cb1adaaf2b42cebdfa04683b12ecfc
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82117340"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Variáveis ambientais de tempo de execução do Lote Azure

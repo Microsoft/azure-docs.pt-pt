@@ -6,10 +6,10 @@ ms.date: 01/29/2018
 ms.author: labrenne
 ms.custom: mvc
 ms.openlocfilehash: 6674c3e1523408ea24a0b1b956c72af905821bb3
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82117476"
 ---
 # <a name="azure-cli-examples-for-azure-batch"></a>Exemplos da CLI do Azure para o Azure Batch

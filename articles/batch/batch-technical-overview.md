@@ -4,10 +4,10 @@ description: Saiba como utilizar o serviço Azure Batch para cargas de trabalho 
 ms.topic: overview
 ms.date: 01/19/2018
 ms.openlocfilehash: f2bdaeec47b50b715920b27d6adf6e078a354964
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82116354"
 ---
 # <a name="what-is-azure-batch"></a>O que é o Azure Batch?

@@ -17,10 +17,10 @@ ms.date: 05/02/2018
 ms.author: kumud
 ms.custom: mvc
 ms.openlocfilehash: 7d8b3852f31965099d8a46d2e095be0522c7e763
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82144564"
 ---
 # <a name="azure-policy-sample-built-ins-for-virtual-network"></a>Amostra de política azure incorporadas para rede virtual

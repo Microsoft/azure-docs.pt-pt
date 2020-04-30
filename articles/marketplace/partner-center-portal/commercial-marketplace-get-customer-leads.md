@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
 ms.openlocfilehash: 54c67656d7847b44c8fc83b33a4e03be3838cf76
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82131103"
 ---
 # <a name="customer-leads-from-your-marketplace-offer"></a>Clientes potenciais da oferta do marketplace

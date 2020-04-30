@@ -8,10 +8,10 @@ ms.date: 04/06/2020
 ms.author: robb
 ms.subservice: metrics
 ms.openlocfilehash: f2e3c03ba599128cc4552f64637ebd63efcb4578
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82128453"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas suportadas com monitor Azure
@@ -1590,9 +1590,9 @@ As métricas são organizadas pelo espaço de nome. Para obter uma lista de serv
 |Estatuto de Resposta|Estado de Resposta|Contagem|Total|Estado de resposta http devolvido por Application Gateway|HttpStatusGroup|
 |CurrentConnections|Conexões Atuais|Contagem|Total|Contagem das ligações atuais estabelecidas com gateway de aplicação|Nenhuma|
 |NewConnectionsPerSecond|Novas ligações por segundo|CondeEmSegundo|Média|Novas ligações por segundo estabelecidas com Application Gateway|Nenhuma|
-|CpuUtilização|Utilização do CPU|Percentagem|Média|Utilização atual do CPU do Gateway de Aplicação|Nenhuma|
+|CpuUtilização|Utilização da CPU|Percentagem|Média|Utilização atual do CPU do Gateway de Aplicação|Nenhuma|
 |Unidades de Capacidade|Unidades de Capacidade Atuais|Contagem|Média|Unidades de Capacidade consumidas|Nenhuma|
-|FixedBillableCapacityUnits|Unidades de Capacidade Facturaveta Fixa|Contagem|Média|Unidades de capacidade mínima que serão carregadas|Nenhuma|
+|FixedBillableCapacityUnits|Unidades de Capacidade Faturadas Fixas|Contagem|Média|Unidades de capacidade mínima que serão carregadas|Nenhuma|
 |Unidades estimadas de Capacidade faturada|Unidades de Capacidade Faturadas Estimadas|Contagem|Média|Unidades de capacidade estimadas que serão carregadas|Nenhuma|
 |ComputeUnits|Unidades Computadas Atuais|Contagem|Média|Unidades Computadas consumidas|Nenhuma|
 |BackendResponseStatus|Estado de resposta de backend|Contagem|Total|O número de códigos de resposta HTTP gerados pelos membros do backend. Isto não inclui quaisquer códigos de resposta gerados pelo Gateway da Aplicação.|BackendServer,BackendPool,BackendHttpSetting,HttpStatusGroup|

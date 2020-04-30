@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ce0c612e3434249c0c7d078949b10e0b9f6b1f10
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82116014"
 ---
 # <a name="manage-your-batch-account"></a>Gerir a sua conta Lote

@@ -9,10 +9,10 @@ ms.date: 05/22/2019
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: 5992726893b722b0aa46c976a0167793f5ee6bb4
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82131682"
 ---
 Os seguintes limites aplicam-se aos tópicos do sistema Azure Event Grid e tópicos personalizados, *e não* domínios de eventos.

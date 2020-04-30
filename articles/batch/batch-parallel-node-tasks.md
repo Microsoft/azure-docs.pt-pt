@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 04/17/2019
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 180294e7da95392e5c6c8055e53cea1ad3b4c7a6
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82116762"
 ---
 # <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>Executar tarefas simultaneamente para maximizar o uso de nós computacionais de Lote 

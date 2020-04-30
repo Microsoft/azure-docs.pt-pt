@@ -13,10 +13,10 @@ ms.date: 4/10/2020
 ms.author: moala
 ms.custom: devops
 ms.openlocfilehash: b51b4aed85f737e436565ce8ba1ab4a295714734
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82120479"
 ---
 # <a name="tutorial---configure-canary-deployment-strategy-for-azure-linux-virtual-machines"></a>Tutorial - Configure Estratégia de implantação canária para máquinas virtuais Azure Linux

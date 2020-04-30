@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/24/2020
 ms.openlocfilehash: cf9597f4a722ff9cda68e87b31db77c989afcb0b
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82129853"
 ---
 # <a name="evaluate-model-module"></a>Avaliar módulo modelo

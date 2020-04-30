@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
 ms.openlocfilehash: e0fbb09370e198772b4fc485b3c0fe8a56da4226
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82133640"
 ---
 # <a name="configure-lead-management-for-salesforce"></a>Configure a gestão de chumbo para a Salesforce

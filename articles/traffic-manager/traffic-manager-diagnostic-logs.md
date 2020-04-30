@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: rohink
 ms.openlocfilehash: d0ffcffd7d4a4f2072b640ace03ec819aa416d47
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82133907"
 ---
 # <a name="enable-resource-logging-in-azure-traffic-manager"></a>Ativar a exploração de recursos no Gestor de Tráfego Azure
@@ -24,7 +24,7 @@ Este artigo descreve como permitir a recolha de registos de recursos de diagnós
 
 Os registos de recursos do Gestor de Tráfego Azure podem fornecer informações sobre o comportamento do recurso de perfil do Gestor de Tráfego. Por exemplo, pode utilizar os dados de registo do perfil para determinar por que razão as sondas individuais têm cronometrado contra um ponto final.
 
-## <a name="enable-resource-logging"></a>Ativar a exploração de recursos
+## <a name="enable-resource-logging"></a>Ativar registos de recursos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

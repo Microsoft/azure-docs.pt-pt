@@ -12,17 +12,17 @@ ms.date: 03/03/2020
 ms.author: vigunase
 ms.subservice: B2C
 ms.openlocfilehash: b16c60130836cf0e3b38092b894129f503ee6e83
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82141674"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>Recomendações e boas práticas para o Diretório Ativo Azure B2C
 
 As seguintes boas práticas e recomendações abrangem alguns dos aspetos primários da integração do Azure Ative Directory (Azure AD) B2C em ambientes de aplicação existentes ou novos.
 
-## <a name="fundamentals"></a>Noções básicas
+## <a name="fundamentals"></a>Noções Básicas
 
 |  |  |
 |--|--|

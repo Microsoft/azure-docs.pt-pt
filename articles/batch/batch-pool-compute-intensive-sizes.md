@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 12/17/2018
 ms.author: labrenne
 ms.openlocfilehash: 674ee6c5b96c7aaf2926b51824488d03fc56d0a6
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82115963"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Utilize instâncias DE RDMA ou GPU em piscinas de lotes
