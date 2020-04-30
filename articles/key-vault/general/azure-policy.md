@@ -1,5 +1,5 @@
 ---
-title: Integrar o cofre chave azure com a política azure
+title: Integrar o Azure Key Vault no Azure Policy
 description: Saiba como integrar o Cofre chave Azure com a política azure
 author: msmbaldwin
 ms.author: mbaldwin
@@ -8,13 +8,13 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: quickstart
 ms.openlocfilehash: 6b54dc27f8a3e88dedb0552b1ac7fb675d75121a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81424595"
 ---
-# <a name="integrate-azure-key-vault-with-azure-policy"></a>Integrar o cofre chave azure com a política azure
+# <a name="integrate-azure-key-vault-with-azure-policy"></a>Integrar o Azure Key Vault no Azure Policy
 
 [A Azure Policy](../../governance/policy/index.yml) é uma ferramenta de governação que dá aos utilizadores a capacidade de auditar e gerir o seu ambiente Azure em escala. A Política Azure oferece a capacidade de colocar guarda-costas nos recursos do Azure para garantir que estão em conformidade com as regras políticas atribuídas. Permite que os utilizadores realizem auditorias, aplicação em tempo real e remediação do seu ambiente Azure. Os resultados das auditorias realizadas por política estarão disponíveis para os utilizadores num dashboard de conformidade onde poderão ver uma perfuração dos recursos e componentes que estão em conformidade e que não são.  Para mais informações, consulte a [visão geral do serviço De Política Azure.](../../governance/policy/overview.md)
 

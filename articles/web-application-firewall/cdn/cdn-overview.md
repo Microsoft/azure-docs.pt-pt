@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 03/18/2020
 ms.author: victorh
 ms.openlocfilehash: 28cf8d9fd60cc6fc158812aa0a1dff3a4b0dced1
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80754290"
 ---
 # <a name="azure-web-application-firewall-on-azure-content-delivery-network"></a>Firewall de aplicação web Azure na rede de entrega de conteúdos Azure

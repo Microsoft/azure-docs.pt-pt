@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 03/30/2020
 ms.author: spelluru
 ms.openlocfilehash: b08253104eeb61f6bb09fde507473d235a996494
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80422639"
 ---
 # <a name="quickstart-create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>Quickstart: Crie um espaço de nome de ônibus de serviço e uma fila usando um modelo de Gestor de Recursos Azure

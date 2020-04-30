@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 04/13/2020
 ms.custom: seodec18
 ms.openlocfilehash: 59149b2ca598104d8aca9b4e5e60194a8f6398bf
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81269963"
 ---
 # <a name="what-is-azure-time-series-insights"></a>O que é o Azure Time Series Insights?

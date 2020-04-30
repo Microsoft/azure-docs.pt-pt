@@ -9,10 +9,10 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.openlocfilehash: b8dbbb2810277bef20cb3b9b47a63deeea3e0ff9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79241613"
 ---
 # <a name="what-is-azure-machine-learning"></a>O que é o Azure Machine Learning?
@@ -48,7 +48,7 @@ O Azure Machine Learning fornece todas as ferramentas que os desenvolvedores e c
 
 + [Extensão do Visual Studio Code](tutorial-setup-vscode-extension.md)
 
-+ [CLI de Aprendizagem automática](reference-azure-machine-learning-cli.md)
++ [ClI de aprendizagem automática](reference-azure-machine-learning-cli.md)
 
 + Quadros de código aberto como PyTorch, TensorFlow e scikit-learn e muito mais
 

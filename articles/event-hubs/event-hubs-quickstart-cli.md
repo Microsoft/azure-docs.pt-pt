@@ -11,10 +11,10 @@ ms.custom: seodec18
 ms.date: 02/11/2020
 ms.author: spelluru
 ms.openlocfilehash: 92fd7d15ee5bc54cc41b78f4ba0d078d3f8fac6b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77162638"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-cli"></a>Início Rápido: Criar um hub de eventos com a CLI do Azure
@@ -78,7 +78,7 @@ Neste artigo, criou um grupo de recursos, um espaço de nomes de Hubs de Eventos
 
 - [.NET Core](get-started-dotnet-standard-send-v2.md)
 - [Java](get-started-java-send-v2.md)
-- [Pitão](get-started-python-send-v2.md)
+- [Python](get-started-python-send-v2.md)
 - [JavaScript](get-started-java-send-v2.md)
 - [Ir](event-hubs-go-get-started-send.md)
 - [C (apenas enviar)](event-hubs-c-getstarted-send.md)

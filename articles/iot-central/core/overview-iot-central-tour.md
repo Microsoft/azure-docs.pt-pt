@@ -10,10 +10,10 @@ services: iot-central
 ms.custom: mvc
 manager: corywink
 ms.openlocfilehash: b905b1e86810b25c4c94072d6cd414b993e2a883
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77426193"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Apresentação da IU do Azure IoT Central
@@ -176,7 +176,7 @@ O construtor de *soluções* também pode criar formulários e dashboards para o
 
 Para obter mais informações, veja o tutorial [Definir um novo tipo de dispositivo na aplicação do Azure IoT Central](howto-set-up-template.md). 
 
-### <a name="data-export"></a>Exportar dados
+### <a name="data-export"></a>Exportação de dados
 > [!div class="mx-imgBorder"]
 > ![Página de exportação de dados](media/overview-iot-central-tour/export-pnp.png)
 

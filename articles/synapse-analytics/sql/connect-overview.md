@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ms.openlocfilehash: 9748b0354ce09752296fb7d736e09af716f19351
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81424609"
 ---
 # <a name="connect-to-synapse-sql"></a>Ligue-se ao Synapse SQL
@@ -38,7 +38,7 @@ Descubra o nome de servidor completamente qualificado:
 4. Vai para uma visão geral.
 5. Localize o nome do servidor completo.
 
-## <a name="sql-pool"></a>**Piscina SQL**
+## <a name="sql-pool"></a>**Conjunto de SQL**
 
 ![Nome de servidor completo](./media/connect-overview/server-connect-example.png)
 

@@ -9,10 +9,10 @@ ms.author: laobri
 ms.topic: quickstart
 ms.date: 03/10/2020
 ms.openlocfilehash: f7629b4724e85f93a8dfe3e37ac2b2155288d235
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79241641"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Quickstart: Configurar a Máquina Virtual de Ciência de Dados para Linux (Ubuntu)

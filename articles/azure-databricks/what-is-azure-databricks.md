@@ -11,10 +11,10 @@ ms.date: 04/10/2020
 ms.author: mamccrea
 ms.custom: mvc
 ms.openlocfilehash: 902486f7e19f2dfd7cc64e27589e192c57ef64e8
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81255520"
 ---
 # <a name="what-is-azure-databricks"></a>O que é o Azure Databricks?

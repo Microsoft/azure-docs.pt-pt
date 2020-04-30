@@ -15,10 +15,10 @@ manager: cgronlun
 ms.date: 04/11/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: bb6cb6d86933166d2427788d697d9cd38cf04bf0
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81460176"
 ---
 # <a name="quickstart-create-and-run-simple-r-scripts-in-azure-sql-database-machine-learning-services-preview"></a>Quickstart: Crie e execute scripts R simples em Serviços de Machine Learning de Base de Dados Azure SQL (pré-visualização)

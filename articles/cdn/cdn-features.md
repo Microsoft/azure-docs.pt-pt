@@ -16,10 +16,10 @@ ms.date: 11/15/2019
 ms.author: allensu
 ms.custom: mvc
 ms.openlocfilehash: 0e57ae691bf4b07b8161bc343929510d6be041a8
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81260518"
 ---
 # <a name="compare-azure-cdn-product-features"></a>Comparar as funcionalidades do produto CDN do Azure

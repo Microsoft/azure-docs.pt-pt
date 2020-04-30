@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 02/10/2020
 ms.openlocfilehash: 8324ca0184c508591fa4568175bad0f606f952a8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80369462"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Quickstart: Criar um índice de pesquisa cognitiva Azure no portal Azure
@@ -20,10 +20,10 @@ ms.locfileid: "80369462"
 > * [Portal](search-get-started-portal.md)
 > * [C #](search-get-started-dotnet.md)
 > * [Java](search-get-started-java.md)
-> * [Nó.js](search-get-started-nodejs.md)
+> * [Node.js](search-get-started-nodejs.md)
 > * [PowerShell](search-get-started-powershell.md)
 > * [Postman](search-get-started-postman.md)
-> * [Pitão](search-get-started-python.md)
+> * [Python](search-get-started-python.md)
 
 Utilize as ferramentas de explorador de **dados de importação** do portal e **pesquisa** para acelerar rapidamente os conceitos e escrever consultas interessantes contra um índice em poucos minutos.
 

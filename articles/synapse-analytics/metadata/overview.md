@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.openlocfilehash: 3b26d516080961a482a3ba67f314e98ece4c9f24
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81424119"
 ---
 # <a name="azure-synapse-analytics-shared-metadata"></a>Metadados partilhados da Azure Synapse Analytics

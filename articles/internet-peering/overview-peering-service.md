@@ -9,10 +9,10 @@ ms.topic: overview
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 6c1205fcacd3d7228f1aecf1e603b66d9e1fcee5
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75775706"
 ---
 # <a name="internet-peering-vs-peering-service"></a>Internet peering vs. Peering Service
@@ -29,7 +29,7 @@ Peering Service é um programa de parceria com os principais prestadores de serv
 
 O segmento-alvo do Serviço de Peering é a conectividade SaaS, os clientes SD-WAN dispostos a fazer a fuga de internet na sucursal e quaisquer clientes com uma estratégia dupla MPLS e Internet de nível empresarial.
 
-O principal objetivo na ligação ao Microsoft Cloud deve ser minimizar a latência reduzindo o tempo de ida e volta (RTT) de um site de utilizador para a Microsoft Global Network, que é a espinha dorsal da rede pública da Microsoft que interliga todos os centros de dados da Microsoft e vários pontos de entrada de aplicação em nuvem. Ver [Obter a melhor conectividade e desempenho no Office 365](https://techcommunity.microsoft.com/t5/Office-365-Blog/Getting-the-best-connectivity-and-performance-in-Office-365/ba-p/124694).
+O principal objetivo na ligação ao Microsoft Cloud deve ser minimizar a latência reduzindo o tempo de ida e volta (RTT) de um site de utilizador para a Microsoft Global Network, que é a espinha dorsal da rede pública da Microsoft que interliga todos os centros de dados da Microsoft e vários pontos de entrada de aplicações na nuvem. Ver [Obter a melhor conectividade e desempenho no Office 365](https://techcommunity.microsoft.com/t5/Office-365-Blog/Getting-the-best-connectivity-and-performance-in-Office-365/ba-p/124694).
 
 > [!div class="mx-imgBorder"]
 > ![Imagem de acesso distribuído](./media/distributed-access.png)

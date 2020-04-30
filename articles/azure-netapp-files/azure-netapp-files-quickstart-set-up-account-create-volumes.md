@@ -8,10 +8,10 @@ ms.workload: storage
 ms.topic: quickstart
 ms.date: 12/01/2019
 ms.openlocfilehash: fc7f13fb7ffe1667aaeaa4a3cc1916c6049a98c1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75551663"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Quickstart: Configurar ficheiros Azure NetApp e criar um volume NFS 
@@ -62,7 +62,7 @@ Este artigo de como fazer requer o módulo Azure PowerShell Az versão 2.6.0 ou 
     Register-AzResourceProvider -ProviderNamespace Microsoft.NetApp
     ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 [!INCLUDE [azure-netapp-files-cloudshell-include](../../includes/azure-netapp-files-azure-cloud-shell-window.md)]
 
@@ -119,7 +119,7 @@ Este artigo de como fazer requer o módulo Azure PowerShell Az versão 2.6.0 ou 
     New-AzNetAppFilesAccount -ResourceGroupName $resourceGroup -Location $location -Name $anfAccountName
     ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 1. Defina algumas variáveis para que possamos encaminhá-las ao longo dos restantes exemplos:
 
@@ -191,7 +191,7 @@ Este artigo de como fazer requer o módulo Azure PowerShell Az versão 2.6.0 ou 
     New-AzNetAppFilesPool -ResourceGroupName $resourceGroup -Location $location -AccountName $anfAccountName -Name $poolName -PoolSize $poolSizeBytes -ServiceLevel $serviceLevel
     ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 1. Definindo algumas novas variáveis para referência futura
 
@@ -299,7 +299,7 @@ Este artigo de como fazer requer o módulo Azure PowerShell Az versão 2.6.0 ou 
         -ProtocolType NFSv3
     ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 1. Definindo algumas variáveis para uso posterior.
     
@@ -393,7 +393,7 @@ Quando terminar e se quiser, pode eliminar o grupo de recursos. A ação de apag
     Remove-AzResourceGroup -Name $resourceGroup
     ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Quando terminar e se quiser, pode eliminar o grupo de recursos. A ação de apagar um grupo de recursos é irreversível.  
 

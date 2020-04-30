@@ -15,10 +15,10 @@ ms.custom: seodec18
 ms.date: 01/15/2020
 ms.author: shvija
 ms.openlocfilehash: 6c830cf871c2ae650bb61e8b3712a664e9e405d4
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77187296"
 ---
 # <a name="quickstart-event-hubs-capture-walkthrough-python-azure-eventhub-version-1"></a>Quickstart: Event Hubs Capture walkthrough: Python (versão azure-eventhub 1)
@@ -56,7 +56,7 @@ Nesta passagem, tu:
 
 Crie uma conta de armazenamento e um recipiente para a captura. 
 
-1. Inicie sessão no [Portal do Azure][Azure portal].
+1. Inicie sessão no [portal do Azure][Azure portal].
 2. Na navegação à esquerda, selecione **contas de Armazenamento**, e no ecrã de contas de **Armazenamento,** selecione **Adicionar**.
 3. No ecrã de criação da conta de armazenamento, selecione um grupo de subscrição e recursos e dê um nome à conta de armazenamento. Pode deixar as outras seleções em incumprimento. Selecione **Rever + criar,** rever as definições e, em seguida, selecionar **Criar**. 
    

@@ -8,10 +8,10 @@ ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: fef3daf6e9e535736002e309e3d27491364dc553
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "71260295"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-the-azure-portal"></a>Início Rápido: Criar e gerir partilhas de ficheiros do Azure com o portal do Azure 
@@ -19,7 +19,7 @@ ms.locfileid: "71260295"
 
 Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="create-a-storage-account"></a>Criar uma conta do Storage
+## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 [!INCLUDE [storage-files-create-storage-account-portal](../../../includes/storage-files-create-storage-account-portal.md)]
 
 ## <a name="create-an-azure-file-share"></a>Criar uma partilha de ficheiros do Azure
@@ -46,7 +46,7 @@ Para montar uma partilha de ficheiros com SMB, veja o documento seguinte com bas
 ### <a name="using-an-azure-file-share-from-the-azure-portal"></a>Utilizar uma partilha de ficheiros do Azure a partir do portal do Azure
 Todos os pedidos através do Portal do Azure são efetuados com a API REST de Ficheiros, o que lhe permite criar, modificar e eliminar ficheiros e diretórios nos clientes sem acesso SMB. É possível trabalhar diretamente com o protocolo File REST (isto é, artesanato REST HTTP chama-se), mas a forma mais comum (além de usar o portal Azure) é utilizar o [módulo Descarregamento](storage-how-to-use-files-powershell.md)De Ficheiros , o [Azure CLI,](storage-how-to-use-files-cli.md)ou um SDK de Armazenamento Azure, que fornece um bom invólucro em torno do protocolo File REST na linguagem de script/programação à sua escolha. 
 
-Esperamos que a maioria dos utilizadores de Ficheiros Azure queiram trabalhar com a sua quota de ficheiroS Azure sobre o protocolo SMB, uma vez que isso lhes permite utilizar as aplicações e ferramentas existentes que esperam poder utilizar, mas existem várias razões pelas quais é vantajoso utilizar a API DO REST de Ficheiros em vez de SMB, tais como:
+Esperamos que a maioria dos utilizadores de Ficheiros Azure queiram trabalhar com a sua quota de ficheiroS Azure sobre o protocolo SMB, uma vez que isso lhes permite utilizar as aplicações e ferramentas existentes que esperam poder utilizar, mas existem várias razões pelas quais é vantajoso utilizar a API do FILE REST em vez de SMB, tais como:
 
 - Se precisar de fazer uma alteração rápida à partilha de ficheiros do Azure enquanto viaja, por exemplo, a partir de um portátil, tablet ou dispositivo móvel sem acesso SMB.
 - Se precisar de executar um script ou aplicação a partir de um cliente que não pode montar uma partilha SMB, como clientes no local que não têm a porta 445 desbloqueada.

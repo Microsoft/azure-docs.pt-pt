@@ -9,10 +9,10 @@ ms.date: 05/24/2018
 ms.author: cfowler
 ms.custom: include file
 ms.openlocfilehash: 8aa6cb3f10b86a6821cd93190ecc2135508739cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67593995"
 ---
 ## <a name="create-a-new-cdn-profile"></a>Criar um novo perfil da CDN
@@ -34,7 +34,7 @@ Um perfil da CDN é um contentor de pontos finais da CDN e especifica um escalã
     | Definição  | Valor |
     | -------- | ----- |
     | **Nome** | Introduza *my-cdn-perfil-123* como nome do perfil. Este nome deve ser globalmente exclusivo; se já estiver a ser utilizado, poderá introduzir um diferente. |
-    | **Assinatura** | Selecione uma subscrição do Azure na lista pendente. |
+    | **Subscrição** | Selecione uma subscrição do Azure na lista pendente. |
     | **Grupo de recursos** | Selecione **Criar novo** e introduza *my-resource-group-123* como nome do grupo de recursos. Se já estiver a ser utilizado, poderá introduzir um diferente ou selecionar **Utilizar existente** e selecionar **my-resource-group-123** na lista pendente. | 
     | **Localização do grupo de recursos** | Selecione **E.U.A. Central** na lista pendente. |
     | **Nível de preços** | Selecione **Standard da Verizon** na lista pendente. |

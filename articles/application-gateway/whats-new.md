@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 03/24/2020
 ms.author: victorh
 ms.openlocfilehash: 70014b5ab37a07e01eaa2db3d729b7d8af520842
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81311765"
 ---
 # <a name="whats-new-in-azure-application-gateway"></a>Quais as novidades no Portal de Aplicação Azure?

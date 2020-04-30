@@ -14,10 +14,10 @@ ms.custom: mvc, seodec18
 ms.date: 12/07/2018
 ms.author: mbaldwin
 ms.openlocfilehash: dd5ce117645ef2b368bbf8f0e441770d6e746b5b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "70881073"
 ---
 # <a name="what-is-azure-dedicated-hsm"></a>O que é o Azure Dedicated HSM?
@@ -68,7 +68,7 @@ O Azure Dedicado HSM é mais adequado para cenários de "elevação e mudança" 
 
 ### <a name="not-a-fit"></a>Não é um ajuste
 
-O Azure Dedicado HSM não é um bom ajuste para o seguinte tipo de cenário: serviços na nuvem da Microsoft que suportam encriptação com chaves geridas pelo cliente (como Proteção de Informação Azure, Encriptação de Discos Azure, Azure Data Lake Store, Armazenamento Azure, Azure SQL Base de Dados e Chave de Cliente para o Office 365) que não estão integrados com o Azure Dedicado HSM.
+O Azure Dedicated HSM não é um bom ajuste para o seguinte tipo de cenário: serviços na nuvem da Microsoft que suportam encriptação com chaves geridas pelo cliente (como Azure Information Protection, Azure Disk Crypton, Azure Data Lake Store, Azure Storage, Azure SQL Database e Customer Key for Office 365) que não estão integrados com o Azure Dedicated HSM.
 
 ### <a name="it-depends"></a>Depende
 
@@ -87,7 +87,7 @@ Este é um serviço altamente especializado. Por isso, recomendamos que compreen
 
 Os guias de [integração Gemalto](https://safenet.gemalto.com/partners/microsoft/) ajudam-no a facilitar o fornecimento de HSMs para um ambiente de rede virtual existente. Há também guias de como ajudá-lo a determinar como configurar a sua arquitetura de implantação.
 
-* [Elevada disponibilidade](high-availability.md)
+* [Alta disponibilidade](high-availability.md)
 * [Segurança física](physical-security.md)
 * [Redes](networking.md)
 * [Suportabilidade](supportability.md)

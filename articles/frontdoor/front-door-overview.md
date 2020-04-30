@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 11/23/2019
 ms.author: sharadag
 ms.openlocfilehash: b2ee41324cfaefa4d5aec3aa02b2d0d8c75da78f
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80879127"
 ---
 # <a name="what-is-azure-front-door"></a>O que é o Azure Front Door?

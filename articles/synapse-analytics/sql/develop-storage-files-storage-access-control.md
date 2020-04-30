@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick, carlrab
 ms.openlocfilehash: 0d2683091898e9c84457b3b538776f0e6b0469d4
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81424035"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview-in-azure-synapse-analytics"></a>Acesso à conta de armazenamento de controlo para SQL on-demand (pré-visualização) em Azure Synapse Analytics
@@ -246,7 +246,7 @@ Os artigos listados abaixo irão ajudá-lo a aprender como consulta diferentes t
 - [Consulta single CSV arquivo](query-single-csv-file.md)
 - [Questiões e vários ficheiros CSV](query-folders-multiple-csv-files.md)
 - [Consulta de ficheiros específicos](query-specific-files.md)
-- [Arquivos De Consulta Parquet](query-parquet-files.md)
-- [Criar e usar vistas](create-use-views.md)
-- [Consulta de ficheiros JSON](query-json-files.md)
-- [Tipos aninhados de Parquet de consulta](query-parquet-nested-types.md)
+- [Consultar ficheiros de Parquet](query-parquet-files.md)
+- [Criar e utilizar vistas](create-use-views.md)
+- [Consultar ficheiros JSON](query-json-files.md)
+- [Consultar tipos aninhados de Parquet](query-parquet-nested-types.md)

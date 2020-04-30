@@ -15,10 +15,10 @@ manager: cgronlun
 ms.date: 05/29/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: 23dc784586e85b8cbdc816ac5f4d54556fc1ffb7
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81456996"
 ---
 # <a name="quickstart-use-r-with-machine-learning-services-to-query-an-azure-sql-database-preview"></a>Quickstart: Use R com Serviços de Aprendizagem Automática para consultar uma base de dados Azure SQL (pré-visualização)

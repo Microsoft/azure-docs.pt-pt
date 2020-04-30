@@ -9,10 +9,10 @@ ms.topic: overview
 ms.date: 01/10/2020
 ms.author: cherylmc
 ms.openlocfilehash: c4a406961444845fef783c47942924b01b7aa646
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79241459"
 ---
 # <a name="what-is-vpn-gateway"></a>O que é um Gateway de VPN?
@@ -134,7 +134,7 @@ As ligações do ExpressRoute não passam para a Internet pública. Tal permite 
 
 As ligações do ExpressRoute utilizam um gateway de rede virtual como parte da configuração necessária. Numa ligação ExpressRoute, o gateway de rede virtual está configurado com o tipo de gateway "ExpressRoute", em vez de "Vpn". Embora o tráfego que circula através de um circuito do ExpressRoute não seja encriptado por predefinição, é possível criar uma solução que permita enviar tráfego encriptado através de um circuito do ExpressRoute. Para obter mais informações sobre o ExpressRoute, veja a [Descrição geral técnica do ExpressRoute](../expressroute/expressroute-introduction.md).
 
-## <a name="site-to-site-and-expressroute-coexisting-connections"></a><a name="coexisting"></a>Ligações coexistentes site-to-site e ExpressRoute
+## <a name="site-to-site-and-expressroute-coexisting-connections"></a><a name="coexisting"></a>Ligações Site a Site e ExpressRoute coexistentes
 
 O ExpressRoute é uma ligação privada direta a partir da WAN (e não através da Internet pública) para os Serviços Microsoft, incluindo o Azure. O tráfego da Rede de VPNs circula de forma encriptada através da Internet pública. Poder configurar ligações ExpressRoute e de Rede de VPNs para a mesma rede virtual tem várias vantagens.
 

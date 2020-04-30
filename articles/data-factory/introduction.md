@@ -10,10 +10,10 @@ ms.workload: data-services
 ms.topic: overview
 ms.date: 09/30/2019
 ms.openlocfilehash: 327aadbc2996e91ef0f7639da86a647ddd42247c
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81410947"
 ---
 # <a name="what-is-azure-data-factory"></a>O que é o Azure Data Factory?
@@ -119,5 +119,5 @@ Aqui estão importantes documentos de próximo passo para explorar:
 - [.NET](quickstart-create-data-factory-dot-net.md)
 - [Python](quickstart-create-data-factory-python.md)
 - [REST](quickstart-create-data-factory-rest-api.md)
-- [Modelo Azure Resource Manager](quickstart-create-data-factory-resource-manager-template.md)
+- [Modelo de Gestor de Recursos Azure](quickstart-create-data-factory-resource-manager-template.md)
  

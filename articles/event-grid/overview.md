@@ -10,10 +10,10 @@ ms.date: 02/20/2020
 ms.author: babanisa
 ms.custom: seodec18
 ms.openlocfilehash: b6f987eb283edea7f2d8e6b207b5b4e5b14f9120
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81393190"
 ---
 # <a name="what-is-azure-event-grid"></a>O que é o Azure Event Grid?
@@ -36,14 +36,14 @@ Atualmente, os seguintes serviços do Azure suportam o envio de eventos para o E
 
 - [Configuração da Aplicação Azure](event-schema-app-configuration.md)
 - [Armazenamento Azure Blob](event-schema-blob-storage.md)
-- [Registo de Contentores Azure](event-schema-container-registry.md)
+- [Registo de Contentores do Azure](event-schema-container-registry.md)
 - [Azure Event Hubs](event-schema-event-hubs.md)
 - [Azure IoT Hub](event-schema-iot-hub.md)
 - [Azure Key Vault](event-schema-key-vault.md)
 - [Azure Machine Learning](event-schema-machine-learning.md)
 - [Azure Maps](event-schema-azure-maps.md)
-- [Serviços Azure Media](event-schema-media-services.md)
-- [Grupos de recursos azure](event-schema-resource-groups.md)
+- [Serviços de Multimédia do Azure](event-schema-media-services.md)
+- [Grupos de recursos do Azure](event-schema-resource-groups.md)
 - [Service Bus do Azure](event-schema-service-bus.md)
 - [Azure SignalR](event-schema-azure-signalr.md)
 - [Subscrições do Azure](event-schema-subscriptions.md)

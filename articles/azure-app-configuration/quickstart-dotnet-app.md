@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: lcozzens
 ms.openlocfilehash: 1c56088a2c51c50c7f9cf1ff1e790d580fdb08d8
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80245400"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Quickstart: Criar uma app .NET Framework com configuração de app Azure
@@ -43,7 +43,7 @@ Neste arranque rápido, incorpora a Configuração de Aplicações Azure numa ap
 
 1. Inicie o Estúdio Visual e selecione **File** > **New** > **Project**.
 
-1. Em **Criar um novo projeto,** filtre no tipo de projeto da **Consola** e clique na App **consola (.NET Framework)**. Selecione **Next**.
+1. Em **Criar um novo projeto,** filtre no tipo de projeto da **Consola** e clique na App **consola (.NET Framework)**. Selecione **Seguinte**.
 
 1. Em **Configure o seu novo projeto,** insira um nome de projeto. **No quadro**, selecione **.NET Quadro 4.7.1** ou superior. Selecione **Criar**.
 

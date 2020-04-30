@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 03/11/2020
 ms.author: babanisa
 ms.openlocfilehash: 7ae73337ccccc2b7d2402cfa2a54ae93552d2465
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79300719"
 ---
 # <a name="azure-event-grid-premium-and-basic-tiers"></a>Azure Event Grid premium e níveis básicos

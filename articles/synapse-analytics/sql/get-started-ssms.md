@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ms.openlocfilehash: 704da86fd1d816dbf5d6cd9cf67dfee53fce2622
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81423741"
 ---
 # <a name="connect-to-synapse-sql-with-sql-server-management-studio-ssms"></a>Ligue-se ao Synapse SQL com o SQL Server Management Studio (SSMS)
@@ -42,7 +42,7 @@ Antes de começar, certifique-se de que tem os seguintes pré-requisitos:
 
 ## <a name="connect"></a>Ligar
 
-### <a name="sql-pool"></a>Piscina SQL
+### <a name="sql-pool"></a>Conjunto de SQL
 
 Para ligar ao Synapse SQL utilizando piscina SQL, siga estes passos: 
 
@@ -81,7 +81,7 @@ Para ligar ao Synapse SQL utilizando a SQL a pedido, siga estes passos:
 
 ## <a name="run-a-sample-query"></a>Executar uma consulta de exemplo
 
-### <a name="sql-pool"></a>Piscina SQL
+### <a name="sql-pool"></a>Conjunto de SQL
 
 Agora que foi estabelecida uma ligação à base de dados, pode consultar os dados.
 

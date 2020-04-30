@@ -13,10 +13,10 @@ ms.author: ninarn
 ms.reviewer: carlrab
 ms.date: 03/12/2020
 ms.openlocfilehash: c072161db7a477b7973571a18d4f686b1b9c6202
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80985682"
 ---
 # <a name="quickstart-use-the-azure-portals-query-editor-to-query-a-sql-database"></a>Quickstart: Use o editor de consulta do portal Azure para consultar uma base de dados SQL

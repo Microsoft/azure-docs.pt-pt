@@ -11,10 +11,10 @@ ms.custom: mvc
 ms.date: 12/20/2019
 ms.author: femila
 ms.openlocfilehash: 5b1574eaac8771043e09500225b65e4835c8e627
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77157487"
 ---
 # <a name="quickstart-create-a-dedicated-event-hubs-cluster-using-azure-portal"></a>Quickstart: Criar um cluster dedicado de Hubs de Eventos usando o portal Azure 
@@ -109,7 +109,7 @@ Neste artigo, criou um cluster de Centros de Eventos. Para instruções passo a 
 - Enviar e receber eventos 
     - [.NET Core](get-started-dotnet-standard-send-v2.md)
     - [Java](get-started-java-send-v2.md)
-    - [Pitão](get-started-python-send-v2.md)
+    - [Python](get-started-python-send-v2.md)
     - [JavaScript](get-started-java-send-v2.md)
 - [Utilize o portal Azure para permitir a captura de hubs de eventos](event-hubs-capture-enable-through-portal.md)
 - [Use hubs de eventos Azure para Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)

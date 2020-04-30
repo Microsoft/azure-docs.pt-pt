@@ -12,10 +12,10 @@ ms.reviewer: v-masebo
 ms.date: 03/25/2019
 ms.custom: seo-java-july2019. seo-java-august2019
 ms.openlocfilehash: 034f92ca3b7552373ae69148d09d58d3a5dd166a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76768648"
 ---
 # <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>Início Rápido: Utilizar o Java para consultar uma base de dados SQL do Azure
@@ -56,7 +56,7 @@ Neste arranque rápido, utiliza a Java para se ligar a uma base de dados Azure S
 
 Obtenha as informações de ligação que precisa para ligar à base de dados Azure SQL. Necessitará do nome do servidor ou nome do anfitrião totalmente qualificado, nome da base de dados e informações de login para os próximos procedimentos.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 2. Selecione bases de **dados SQL** ou abra a página de **instâncias geridas pela SQL.**
 

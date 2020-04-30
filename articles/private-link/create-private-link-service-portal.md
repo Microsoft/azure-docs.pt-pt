@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 02/03/2020
 ms.author: allensu
 ms.openlocfilehash: f21b440ee0e2c53d9824300e85b683629c1575da
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78252555"
 ---
 # <a name="quickstart-create-a-private-link-service-by-using-the-azure-portal"></a>Quickstart: Criar um serviço de Link Privado utilizando o portal Azure
@@ -56,7 +56,7 @@ Utilize o portal para criar um equilibrador de carga interno padrão. O nome e o
 
     | Definição                 | Valor                                              |
     | ---                     | ---                                                |
-    | **Assinatura**               | Selecione a sua subscrição.    |
+    | **Subscrição**               | Selecione a sua subscrição.    |
     | **Grupo de recursos**         | Selecione **myResourceGroupLB** da caixa.|
     | **Nome**                   | Introduza **o myLoadBalancer**.                                   |
     | **Região**         | Selecione **E.U.A. Leste 2**.                                        |
@@ -144,7 +144,7 @@ Nesta secção, cria um serviço Private Link atrás de um equilibrador de carga
     | Definição           | Valor                                                                        |
     |-------------------|------------------------------------------------------------------------------|
     | Detalhes do projeto:  |                                                                              |
-    | **Assinatura**      | Selecione a sua subscrição.                                                     |
+    | **Subscrição**      | Selecione a sua subscrição.                                                     |
     | **Grupo de Recursos**    | Selecione **myResourceGroupLB**.                                                    |
     | Detalhes da instância: |                                                                              |
     | **Nome**              | Insira **o myPrivateLinkService**. |
@@ -156,7 +156,7 @@ Nesta secção, cria um serviço Private Link atrás de um equilibrador de carga
 
     | Definição                           | Valor                                                                           |
     |-----------------------------------|---------------------------------------------------------------------------------|
-    | **Balanceador de Carga**                     | Selecione **myLoadBalancer**.                                                           |
+    | **Load balancer**                     | Selecione **myLoadBalancer**.                                                           |
     | **Endereço IP frontend do balanceor de carga** | Selecione o endereço IP frontal do **myLoadBalancer**.                                |
     | **Rede virtual NAT source**        | Selecione **myVNet**.                                                                   |
     | **Sub-rede NAT fonte**                 | Selecione **myBackendSubnet**.                                                          |

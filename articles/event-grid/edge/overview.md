@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 10/22/2019
 ms.author: babanisa
 ms.openlocfilehash: feac5891734731e6f7377750127958a40a815036
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76844666"
 ---
 # <a name="what-is-azure-event-grid-on-azure-iot-edge"></a>O que é azure event grid em Azure IoT Edge?
@@ -57,7 +57,7 @@ A Grelha de Eventos em IoT Edge foi construída para enviar eventos para onde qu
 * Outros dispositivos de borda
 * WebHooks
 * Serviço de nuvem Azure Event Grid
-* Event Hubs
+* Hubs de Eventos
 * Filas de Service Bus
 * Tópicos de Service Bus
 * Filas de Armazenamento

@@ -8,10 +8,10 @@ ms.date: 08/21/2019
 ms.author: victorh
 ms.topic: overview
 ms.openlocfilehash: 4882ac51af271625b8e61d862890beb6d5f63213
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80240069"
 ---
 # <a name="enable-web-application-firewall-using-the-azure-cli"></a>Ativar firewall de aplicação web utilizando o AZURE CLI
@@ -141,7 +141,7 @@ az vmss extension set \
 
 Neste artigo, o gateway da aplicação utiliza uma conta de armazenamento para armazenar dados para fins de deteção e prevenção. Também pode utilizar registos do Monitor Azure ou do Event Hub para registar dados. 
 
-### <a name="create-a-storage-account"></a>Criar uma conta do Storage
+### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
 Crie uma conta de armazenamento denominada *myagstore1*, com [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create).
 

@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/20/2020
 ms.openlocfilehash: 6da2c324872a86c2c0ce6f55801bc7b0ee8d713e
-ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80607625"
 ---
 # <a name="quickstart-deploy-cognitive-search-using-a-resource-manager-template"></a>Quickstart: Implementar pesquisa cognitiva usando um modelo de Gestor de Recursos

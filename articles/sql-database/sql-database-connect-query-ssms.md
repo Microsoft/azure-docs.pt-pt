@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/10/2020
 ms.openlocfilehash: 31bd47128a272e75d7021180b536fe6bf7420f55
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79299299"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Quickstart: Use o SQL Server Management Studio para ligar e consultar uma base de dados Azure SQL
@@ -37,7 +37,7 @@ Se simplesmente quiser fazer algumas consultas ad-hoc sem instalar SSMS, consult
 
 Obtenha a informação de ligação que precisa para ligar à sua base de dados. Necessitará do nome do servidor ou nome do anfitrião totalmente qualificado, nome da base de dados e informações de login para completar este arranque rápido.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 2. Navegue para a base de **dados SQL** ou para a instância gerida pela **SQL** que pretende consultar.
 

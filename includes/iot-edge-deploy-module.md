@@ -9,10 +9,10 @@ ms.date: 12/31/2019
 ms.author: kgremban
 ms.custom: include file
 ms.openlocfilehash: abbde0cb8137650faad563248c8fafe7dc0f469a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75564813"
 ---
 Uma das principais capacidades do Azure IoT Edge é conseguir implementar código para os seus dispositivos IoT Edge a partir da nuvem. Os **módulos IoT Edge** são pacotes executáveis implementados como recipientes. Nesta secção, você implementa um módulo pré-construído a partir da [secção módulos IoT Edge do Mercado Azure](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) diretamente do seu Hub Azure IoT.

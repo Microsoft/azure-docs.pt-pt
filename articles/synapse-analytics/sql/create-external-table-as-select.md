@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick, carlrab
 ms.openlocfilehash: 462185feb2b9cbebd17ce9cba54c2b23deea6c75
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81425148"
 ---
 # <a name="store-query-results-to-storage-using-sql-on-demand-preview-using-azure-synapse-analytics"></a>Armazenar resultados de consulta para armazenamento usando SQL on-demand (pré-visualização) usando Azure Synapse Analytics

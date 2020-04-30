@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
 ms.openlocfilehash: e82f8feae0096202e48a58296dd2e9d21bb61885
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76768564"
 ---
 # <a name="quickstart-use-python-to-query-an-azure-sql-database"></a>Início Rápido: Utilizar o Python para consultar uma base de dados SQL do Azure
@@ -66,7 +66,7 @@ Para explorar ainda mais a base de dados Python e a base de dados Azure SQL, con
 
 Obtenha as informações de ligação que precisa para ligar à base de dados Azure SQL. Necessitará do nome do servidor ou nome do anfitrião totalmente qualificado, nome da base de dados e informações de login para os próximos procedimentos.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 2. Vá às bases de **dados SQL** ou página de **instâncias geridas pela SQL.**
 

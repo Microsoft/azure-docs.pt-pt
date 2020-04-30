@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
 ms.openlocfilehash: aa93a816fc11158d928978bdec2dbf42119fa149
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81424658"
 ---
 # <a name="azure-synapse-analytics-cheat-sheet"></a>Folha de batota azure Synapse Analytics
@@ -32,7 +32,7 @@ A folha de batota Azure Synapse Analytics irá guiá-lo através dos conceitos b
 |:---                                 |:---                 |
 | **Espaço de trabalho sinapse (pré-visualização)** | Um limite de colaboração assegurável para fazer análises empresariais baseadas em nuvem em Azure. Um espaço de trabalho é implantado numa região específica e tem um sistema de conta e ficheiros ADLSg2 associado (para armazenar dados temporários). Um espaço de trabalho está sob um grupo de recursos. |
 | **Análise de SQL**   | Executar análises com piscinas ou com capacidades a pedido.  |
-| **Piscina SQL**   | Os recursos aprovisionados 0 a N SQL com as respetivas bases de dados podem ser implantados num espaço de trabalho. Cada piscina SQL tem uma base de dados associada. Uma piscina SQL pode ser dimensionada, pausada e retomada manualmente ou automaticamente. Uma piscina SQL pode escalar de 100 DWU até 30.000 DWU.       |
+| **Conjunto de SQL**   | Os recursos aprovisionados 0 a N SQL com as respetivas bases de dados podem ser implantados num espaço de trabalho. Cada piscina SQL tem uma base de dados associada. Uma piscina SQL pode ser dimensionada, pausada e retomada manualmente ou automaticamente. Uma piscina SQL pode escalar de 100 DWU até 30.000 DWU.       |
 | **SQL on-demand (pré-visualização)**   | Sistema de processamento de dados distribuído construído para dados em larga escala que permite executar consultas T-SQL sobre dados em data lake. É inútil para que não precise de gerir a infraestrutura.       |
 |**Apache Spark** | Tempo de faísca usado numa piscina de faíscas. A versão atual suportada é Spark 2.4 com Python 3.6.1, Scala 2.11.12, .NET suporte para Apache Spark 0.5 e Delta Lake 0.3.  | 
 | **Piscina Apache Spark (pré-visualização)**  | Os recursos aprovisionados 0-a-N Spark com as respetivas bases de dados podem ser implantados num espaço de trabalho. Uma piscina spark pode ser automaticamente pausada, retomada e escalada.  |
@@ -56,6 +56,6 @@ A folha de batota Azure Synapse Analytics irá guiá-lo através dos conceitos b
 - [Criar uma área de trabalho](quickstart-create-workspace.md)
 - [Use o Estúdio Synapse](quickstart-synapse-studio.md)
 - [Criar uma piscina SQL](quickstart-create-sql-pool.md)
-- [Use o SQL a pedido](quickstart-sql-on-demand.md)
+- [Utilizar o SQL a pedido](quickstart-sql-on-demand.md)
 - [Crie uma piscina apache spark](quickstart-create-apache-spark-pool.md)
 

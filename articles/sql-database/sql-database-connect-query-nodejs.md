@@ -12,10 +12,10 @@ ms.reviewer: v-masebo
 ms.date: 03/25/2019
 ms.custom: seo-javascript-september2019, seo-javascript-october2019
 ms.openlocfilehash: c0da38a41bf613237ea3b164d70e4729a7284ca7
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76768608"
 ---
 # <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>Início Rápido: Utilizar o Node.js para consultar uma base de dados SQL do Azure
@@ -56,7 +56,7 @@ Neste arranque rápido, utiliza o Node.js para se ligar a uma base de dados Azur
 
 Obtenha as informações de ligação que precisa para ligar à base de dados Azure SQL. Necessitará do nome do servidor ou nome do anfitrião totalmente qualificado, nome da base de dados e informações de login para os próximos procedimentos.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 2. Vá às bases de **dados SQL** ou página de **instâncias geridas pela SQL.**
 

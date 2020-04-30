@@ -9,10 +9,10 @@ ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: tables
 ms.openlocfilehash: 89581c8ae2fbdbb55a2abfbd527c8fdcf4b65761
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75749547"
 ---
 # <a name="performance-and-scalability-checklist-for-table-storage"></a>Lista de verificação de desempenho e escalabilidade para armazenamento de mesa
@@ -99,7 +99,7 @@ A largura de banda e a qualidade da ligação de rede desempenham papéis import
 
 #### <a name="throughput"></a>Débito
 
-Para a largura de banda, o problema é muitas vezes as capacidades do cliente. As instâncias azure maiores têm NICs com maior capacidade, por isso deve considerar a utilização de uma instância maior ou mais VMs se precisar de limites de rede mais elevados a partir de uma única máquina. Se estiver a aceder ao Armazenamento Azure a partir de uma aplicação no local, então a mesma regra aplica-se: compreender as capacidades de rede do dispositivo cliente e a conectividade da rede com a localização do Armazenamento Azure e melhorá-las conforme necessário ou projetar o seu aplicação para trabalhar dentro das suas capacidades.
+Para a largura de banda, o problema é muitas vezes as capacidades do cliente. As instâncias azure maiores têm NICs com maior capacidade, por isso deve considerar a utilização de uma instância maior ou mais VMs se precisar de limites de rede mais elevados a partir de uma única máquina. Se estiver a aceder ao Azure Storage a partir de uma aplicação no local, então aplica-se a mesma regra: compreender as capacidades de rede do dispositivo cliente e a conectividade da rede com a localização do Armazenamento Azure e melhorá-las conforme necessário ou projetar a sua aplicação para trabalhar dentro das suas capacidades.
 
 #### <a name="link-quality"></a>Qualidade de ligação
 
@@ -250,7 +250,7 @@ Em geral, evite exames (consultas maiores do que uma única entidade), mas se ti
 
 #### <a name="query-density"></a>Densidade de consulta
 
-Outro fator chave na eficiência da consulta é o número de entidades devolvidas em comparação com o número de entidades digitalizadas para encontrar o conjunto devolvido. Se a sua aplicação realizar uma consulta de tabela com um filtro para um valor de propriedade que apenas 1% das ações de dados, a consulta irá digitalizar 100 entidades por cada entidade que devolve. Os objetivos de escalabilidade do quadro discutidos anteriormente todos dizem respeito ao número de entidades digitalizadas, e não ao número de entidades devolvidas: uma baixa densidade de consulta pode facilmente fazer com que o serviço de Mesa acelere a sua aplicação porque deve digitalizar tantas entidades para recuperar a entidade que procura. Para obter mais informações sobre como evitar o estrangulamento, consulte a secção intitulada [Desnormalização](#denormalization).
+Outro fator chave na eficiência da consulta é o número de entidades devolvidas em comparação com o número de entidades digitalizadas para encontrar o conjunto devolvido. Se a sua aplicação realizar uma consulta de tabela com um filtro para um valor de propriedade que apenas 1% das ações de dados, a consulta irá digitalizar 100 entidades por cada entidade que devolve. Os alvos de escalabilidade de tabela seletivas anteriormente discutidos dizem respeito ao número de entidades digitalizadas, e não ao número de entidades devolvidas: uma baixa densidade de consulta pode facilmente fazer com que o serviço de Mesa acelere a sua aplicação porque deve digitalizar tantas entidades para recuperar a entidade que procura. Para obter mais informações sobre como evitar o estrangulamento, consulte a secção intitulada [Desnormalização](#denormalization).
 
 #### <a name="limiting-the-amount-of-data-returned"></a>Limitando a quantidade de dados devolvidos
 
@@ -260,7 +260,7 @@ Se a sua aplicação de cliente necessitar apenas de um conjunto limitado de pro
 
 #### <a name="denormalization"></a>Desnormalização
 
-Ao contrário de trabalhar com bases de dados relacionais, as práticas comprovadas para consulta eficiente dos dados da tabela levam à desnormalização dos seus dados. Ou seja, duplicar os mesmos dados em várias entidades (uma para cada chave que pode utilizar para encontrar os dados) para minimizar o número de entidades que uma consulta deve digitalizar para encontrar os dados de que o cliente precisa, em vez de ter de digitalizar um grande número de entidades para encontrar os dados que o seu necessidades de aplicação. Por exemplo, num site de e-commerce, pode querer encontrar uma encomenda tanto pelo ID do cliente (dê-me as encomendas deste cliente) e até à data (dê-me encomendas numa data). No Armazenamento de Mesa, o melhor é armazenar a entidade (ou uma referência a ela) duas vezes – uma vez com Nome de Mesa, PK e RK para facilitar a procura pelo ID do cliente, uma vez para facilitar a sua encontrá-la até à data.  
+Ao contrário de trabalhar com bases de dados relacionais, as práticas comprovadas para consulta eficiente dos dados da tabela levam à desnormalização dos seus dados. Ou seja, duplicar os mesmos dados em várias entidades (uma para cada chave que pode utilizar para encontrar os dados) para minimizar o número de entidades que uma consulta deve digitalizar para encontrar os dados de que o cliente precisa, em vez de ter de digitalizar um grande número de entidades para encontrar os dados que a sua aplicação necessita. Por exemplo, num site de e-commerce, pode querer encontrar uma encomenda tanto pelo ID do cliente (dê-me as encomendas deste cliente) e até à data (dê-me encomendas numa data). No Armazenamento de Mesa, o melhor é armazenar a entidade (ou uma referência a ela) duas vezes – uma vez com Nome de Mesa, PK e RK para facilitar a procura pelo ID do cliente, uma vez para facilitar a sua encontrá-la até à data.  
 
 ### <a name="insert-update-and-delete"></a>Inserir, atualizar e eliminar
 
@@ -268,7 +268,7 @@ Esta secção descreve práticas comprovadas para modificar entidades armazenada
 
 #### <a name="batching"></a>Lotes
 
-As transações de lotes são conhecidas como transações de grupo de entidades no Armazenamento Azure. Todas as operações no âmbito de uma transação de grupo de entidades devem estar numa única divisória numa única tabela. Sempre que possível, utilize as transações do grupo de entidades para efetuar inserções, atualizações e eliminações em lotes. A utilização de transações de grupos de entidades reduz o número de viagens de ida e volta da sua aplicação de cliente para o servidor, reduz o número de transações faturadas (uma transação de grupo de entidades conta como uma única transação para fins de faturação e pode conter até 100 operações de armazenamento), e permite atualizações atómicas (todas as operações têm sucesso ou falham no âmbito de uma transação de grupo de entidades). Ambientes com altas lupas, como dispositivos móveis, beneficiarão muito da utilização de transações de grupos de entidades.  
+As transações de lotes são conhecidas como transações de grupo de entidades no Armazenamento Azure. Todas as operações no âmbito de uma transação de grupo de entidades devem estar numa única divisória numa única tabela. Sempre que possível, utilize as transações do grupo de entidades para efetuar inserções, atualizações e eliminações em lotes. A utilização de transações de grupos de entidades reduz o número de viagens de ida e volta da sua aplicação cliente para o servidor, reduz o número de transações faturadas (uma transação de grupo de entidades conta como uma única transação para efeitos de faturação e pode conter até 100 operações de armazenamento), e permite atualizações atómicas (todas as operações têm sucesso ou todas falham dentro de uma transação de grupo de entidades). Ambientes com altas lupas, como dispositivos móveis, beneficiarão muito da utilização de transações de grupos de entidades.  
 
 #### <a name="upsert"></a>Upsert
 

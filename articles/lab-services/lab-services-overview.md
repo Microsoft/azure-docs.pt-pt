@@ -14,10 +14,10 @@ ms.topic: overview
 ms.date: 02/03/2020
 ms.author: spelluru
 ms.openlocfilehash: ef296035ee8f0c80b4ee078303639d7aedf5a91d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76986636"
 ---
 # <a name="an-introduction-to-azure-lab-services"></a>Introdução ao Azure Lab Services
@@ -115,5 +115,5 @@ A seguinte tabela compara dois tipos de laboratórios suportados pelo Azure Lab 
 
 Consulte os seguintes artigos: 
 
-- [Sobre laboratórios de sala de aula](./classroom-labs/classroom-labs-overview.md)
+- [Sobre os Laboratórios de Sala de Aula](./classroom-labs/classroom-labs-overview.md)
 - [Sobre o DevTest Labs](devtest-lab-overview.md)

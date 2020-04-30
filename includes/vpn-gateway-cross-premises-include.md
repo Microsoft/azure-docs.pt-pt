@@ -9,10 +9,10 @@ ms.date: 05/16/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 8c82e3d2c978a7980d02bc686346acdcb21dd591
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "66425729"
 ---
 |  | **Ponto-a-Local** | **Site-a-site** | **ExpressRoute** |
@@ -25,5 +25,5 @@ ms.locfileid: "66425729"
 | **Caso de utilização típica** |Criar protótipos, cenários de desenvolvimento/teste/laboratório para serviços em nuvem e máquinas virtuais |Cenários de desenvolvimento/teste/laboratório e cargas de trabalho de produção de pequena escala para serviços em nuvem e máquinas virtuais |Acesso a todos os serviços do Azure (lista validada), Cargas de trabalho de classe empresarial fundamentais, Cópia de segurança, Macrodados, Azure como um site de DR |
 | **SLA** |[SLA](https://azure.microsoft.com/support/legal/sla/) |[SLA](https://azure.microsoft.com/support/legal/sla/) |[SLA](https://azure.microsoft.com/support/legal/sla/) |
 | **Preços** |[Preços](https://azure.microsoft.com/pricing/details/vpn-gateway/) |[Preços](https://azure.microsoft.com/pricing/details/vpn-gateway/) |[Preços](https://azure.microsoft.com/pricing/details/expressroute/) |
-| **Documentação Técnica** |[Documentação do VPN Gateway](https://azure.microsoft.com/documentation/services/vpn-gateway/) |[Documentação do VPN Gateway](https://azure.microsoft.com/documentation/services/vpn-gateway/) |[Documentação do ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) |
+| **Documentação Técnica** |[Documentação do Gateway de VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) |[Documentação do Gateway de VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) |[Documentação do ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) |
 | **FAQ** |[FAQ do VPN Gateway](../articles/vpn-gateway/vpn-gateway-vpn-faq.md) |[FAQ do VPN Gateway](../articles/vpn-gateway/vpn-gateway-vpn-faq.md) |[FAQ do ExpressRoute](../articles/expressroute/expressroute-faqs.md) |

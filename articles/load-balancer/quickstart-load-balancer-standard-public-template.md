@@ -16,10 +16,10 @@ ms.date: 02/26/2020
 ms.author: allensu
 ms.custom: mvc,subject-armqs
 ms.openlocfilehash: 175c5a36c873d16d50d5192a489133a01018e335
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80474597"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-by-using-azure-resource-manager-template"></a>Quickstart: Criar um Balancer de carga para carregar VMs de equilíbrio utilizando o modelo de Gestor de Recursos Azure
@@ -91,7 +91,7 @@ O Azure PowerShell é usado para implantar o modelo. Além do Azure PowerShell, 
 
 ## <a name="test-the-load-balancer"></a>Testar o balanceador de carga
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. Selecione **Grupos de Recursos** a partir do painel esquerdo.
 

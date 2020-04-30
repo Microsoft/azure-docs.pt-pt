@@ -9,10 +9,10 @@ ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
 ms.openlocfilehash: 2b80efa30ac7e04b9eb21dd6f8a39ab4ee90adf6
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81424854"
 ---
 # <a name="sql-authentication"></a>Autenticação SQL
@@ -22,7 +22,7 @@ A Azure Synapse Analytics tem dois fatores de forma SQL que lhe permitem control
 Para autorizar o Synapse SQL, pode utilizar dois tipos de autorização:
 
 - Autorização da AAD
-- Autorização SQL
+- Autorização de SQL
 
 A autorização aAD baseia-se no Diretório Ativo do Azure e permite-lhe ter um único lugar para a gestão do utilizador. A autorização SQL permite que aplicações antigas utilizem synapse SQL de uma forma bem familiar.
 

@@ -11,10 +11,10 @@ ms.author: laobri
 ms.topic: overview
 ms.date: 02/19/2020
 ms.openlocfilehash: 69365d6ed6f3a008d3f195d067115dcf17c332ef
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80754233"
 ---
 # <a name="what-tools-are-included-on-the-azure-data-science-virtual-machine"></a>Que ferramentas estão incluídas na Máquina Virtual de Ciência de Dados Do Azure?

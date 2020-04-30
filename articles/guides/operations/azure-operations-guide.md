@@ -9,10 +9,10 @@ ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.openlocfilehash: 4f9da6cbfe8d1e6b92c39148b275de193730c8f1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77623569"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Inicie-se para operadores de TI Azure
@@ -114,7 +114,7 @@ Serviços de construção e aplicações operacionais:
 
 - Aplicativos azure logic para fluxos de trabalho de integração e orquestração
 
-- Serviços Azure Media
+- Serviços de Multimédia do Azure
 
 ### <a name="network-services"></a>Serviços de rede
 
@@ -484,4 +484,4 @@ Pode ajudar a proteger redes virtuais Azure utilizando um grupo de segurança de
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Criar uma VM do Windows](../../virtual-machines/windows/quick-create-portal.md)
-- [Criar uma VM de Linux](../../virtual-machines/linux/quick-create-portal.md)
+- [Criar uma VM do Linux](../../virtual-machines/linux/quick-create-portal.md)

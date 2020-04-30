@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/23/2019
 ms.author: glenga
 ms.openlocfilehash: 8530f4469a0c25f3c32e652e2b0752c51c28ff3f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78191071"
 ---
 Os atributos de ligação são definidos diretamente no ficheiro função.json. Dependendo do tipo de encadernação, podem ser necessárias propriedades adicionais. A [configuração](../articles/azure-functions/functions-bindings-storage-queue-output.md#configuration) de saída da fila descreve os campos necessários para uma ligação de fila de armazenamento Azure. A extensão facilita a adição de encadernações ao ficheiro função.json. 

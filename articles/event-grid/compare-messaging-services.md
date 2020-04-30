@@ -10,10 +10,10 @@ ms.date: 10/22/2019
 ms.author: spelluru
 ms.custom: seodec18
 ms.openlocfilehash: 6122f17637e76f42cc4fbcc87ac9f48da3cdca36
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76122207"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Escolha entre serviços de mensagens Azure - Event Grid, Event Hubs e Service Bus
@@ -21,7 +21,7 @@ ms.locfileid: "76122207"
 O Azure oferece três serviços que ajudam a entregar mensagens de eventos numa solução. Esses serviços são:
 
 * [Event Grid](/azure/event-grid/)
-* [Hubs de eventos](/azure/event-hubs/)
+* [Hubs de Eventos](/azure/event-hubs/)
 * [Service Bus](/azure/service-bus-messaging/)
 
 Embora tenham alguns semelhanças, cada serviço foi concebido para determinados cenários. Este artigo descreve as diferenças entre esses serviços e ajuda-o a compreender qual escolher para a sua aplicação. Em muitos casos, os serviços de mensagens são complementares e podem ser utilizados em conjunto.
@@ -47,7 +47,7 @@ Uma mensagem são dados não processados produzidos por um serviço e que vão s
 | Serviço | Objetivo | Tipo | Quando utilizar |
 | ------- | ------- | ---- | ----------- |
 | Event Grid | Programação reativa | Distribuição de eventos (discretos) | Reagir a alterações de estado |
-| Event Hubs | Pipeline de macrodados | Transmissão de eventos em fluxo (série) | Transmissão de telemetria e dados distribuídos em fluxo |
+| Hubs de Eventos | Pipeline de macrodados | Transmissão de eventos em fluxo (série) | Transmissão de telemetria e dados distribuídos em fluxo |
 | Service Bus | Mensagens empresariais de alto valor | Mensagem | Processamento de encomendas e de transações financeiras |
 
 ### <a name="event-grid"></a>Event Grid
@@ -65,7 +65,7 @@ Tem as seguintes características:
 * sem servidor
 * pelo menos uma entrega
 
-### <a name="event-hubs"></a>Event Hubs
+### <a name="event-hubs"></a>Hubs de Eventos
 
 Os Hubs de Eventos do Azure são um pipeline de macrodados. Facilita a captura, retenção e reprodução de dados de transmissão de telemetria e eventos. Os dados podem ter várias origens em simultâneo. Os Hubs de Eventos permitem que os dados de telemetria e eventos sejam disponibilizados a diversos serviços de análises e infraestruturas de processamento de transmissões em fluxo. Está disponível como fluxos de dados ou lotes de eventos integrados. Este serviço proporciona uma solução única que permite a obtenção de dados rápida para processamento em tempo real, bem como a reprodução repetida dos dados não processados armazenados. Pode capturar os dados de transmissão em fluxo num ficheiro para processamento e análise.
 

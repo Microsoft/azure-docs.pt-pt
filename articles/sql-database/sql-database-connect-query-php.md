@@ -11,10 +11,10 @@ ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 02/12/2019
 ms.openlocfilehash: ae119dd23da670f16c0239b14119519c431e6326
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73827002"
 ---
 # <a name="quickstart-use-php-to-query-an-azure-sql-database"></a>Início Rápido: Utilizar o PHP para consultar uma base de dados SQL do Azure
@@ -53,7 +53,7 @@ Para completar esta amostra, certifique-se de que tem os seguintes pré-requisit
 
 Obtenha as informações de ligação que precisa para ligar à base de dados Azure SQL. Necessitará do nome do servidor ou nome do anfitrião totalmente qualificado, nome da base de dados e informações de login para os próximos procedimentos.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 2. Navegue para as bases de **dados SQL** ou página de **instâncias geridas pela SQL.**
 

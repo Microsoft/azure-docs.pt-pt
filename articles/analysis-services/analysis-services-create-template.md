@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.custom: subject-armqs
 ms.openlocfilehash: d292500c5e26d3c07ff2402964166b3928cc7e44
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81384258"
 ---
 # <a name="quickstart-create-a-server---azure-resource-manager-template"></a>Quickstart: Criar um servidor - Modelo de Gestor de Recursos Azure

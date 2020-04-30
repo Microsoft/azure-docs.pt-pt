@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 03/24/2020
 ms.openlocfilehash: 475f89fc5b33948864fd83c39ee8058ab6908cad
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80247202"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novidades na Pesquisa Cognitiva Azure
@@ -27,7 +27,7 @@ A Azure Search é agora renomeada para **Azure Cognitive Search** para refletir 
 
 ## <a name="feature-announcements"></a>Anúncios de funcionalidades
 
-### <a name="march-2020"></a>março de 2020
+### <a name="march-2020"></a>Março de 2020
 
 + [A eliminação suave de bolhas nativas (pré-visualização)](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection) significa que o indexante de armazenamento de Blob Azure em Pesquisa Cognitiva Azure reconhecerá bolhas que se encontram em estado suave mente eliminada e removerá o documento de pesquisa correspondente durante a indexação.
 

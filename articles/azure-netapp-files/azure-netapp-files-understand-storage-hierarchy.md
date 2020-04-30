@@ -15,10 +15,10 @@ ms.topic: overview
 ms.date: 02/27/2020
 ms.author: b-juche
 ms.openlocfilehash: 70d3a2a501952a5e20b1ff8e99f48f4d7aefce8d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78163969"
 ---
 # <a name="what-is-the-storage-hierarchy-of-azure-netapp-files"></a>Qual é a hierarquia de armazenamento dos Ficheiros Azure NetApp

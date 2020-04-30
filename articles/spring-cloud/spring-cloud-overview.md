@@ -7,10 +7,10 @@ ms.topic: overview
 ms.date: 11/4/2019
 ms.author: brendm
 ms.openlocfilehash: 4426044b3608be0ded378f4f56cbec6bc1948d75
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78273264"
 ---
 # <a name="what-is-azure-spring-cloud"></a>O que é o Azure Spring Cloud?

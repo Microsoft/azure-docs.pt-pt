@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: eliotgra
 ms.openlocfilehash: 2aee5c56b267f9243b69a48dfd0f5f64196c5f23
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77021496"
 ---
 # <a name="building-healthcare-solutions-with-azure-iot-central"></a>Criar soluções para os cuidados de saúde com o Azure IoT Central 

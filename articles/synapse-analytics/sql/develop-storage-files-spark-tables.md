@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
 ms.openlocfilehash: 41e31a322a3d771557474fdf5c318960822bcfe1
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81424049"
 ---
 # <a name="query-spark-tables-with-azure-synapse-analytics-using-sql-on-demand-preview"></a>Mesas de Faísca synapse Azure usando SQL on-demand (pré-visualização)
