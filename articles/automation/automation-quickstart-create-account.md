@@ -7,10 +7,10 @@ ms.topic: quickstart
 ms.subservice: process-automation
 ms.custom: mvc
 ms.openlocfilehash: 7704f080b7c1878f2fa2b079a1f242c8c2cc87a9
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81536986"
 ---
 # <a name="create-an-azure-automation-account"></a>Crie uma conta de Automatização do Azure

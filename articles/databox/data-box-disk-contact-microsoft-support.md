@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/24/2019
 ms.author: alkohli
 ms.openlocfilehash: a3d533080af373ca209a9b393d02d1606d7cb22d
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81461740"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box"></a>Abra um bilhete de apoio para a Caixa de Dados Azure

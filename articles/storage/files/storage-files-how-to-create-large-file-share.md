@@ -8,10 +8,10 @@ ms.date: 11/20/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: bd7726d2bbf2830d18d78b5f0b0d7202b734124d
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81537683"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Ativar e criar grandes partilhas de ficheiros

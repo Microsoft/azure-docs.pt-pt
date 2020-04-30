@@ -4,10 +4,10 @@ description: Saiba mais sobre o suporte para avaliação vmware VM com avaliaç�
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.openlocfilehash: 8a09562f14b95256ee9c2b5ba7d9c308cde66397
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81532209"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matriz de suporte para avaliação vmware 

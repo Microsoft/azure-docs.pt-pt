@@ -4,10 +4,10 @@ description: Analise a utilização e o desempenho da sua aplicação de ambient
 ms.topic: conceptual
 ms.date: 10/29/2019
 ms.openlocfilehash: eb9e0fc480098478a3a68265ac85e0d5450e27fe
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81537394"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Monitorização de utilização e desempenho de aplicações de Ambiente de Trabalho do Windows Clássico

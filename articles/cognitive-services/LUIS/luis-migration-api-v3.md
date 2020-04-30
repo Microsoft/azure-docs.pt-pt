@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: diberry
 ms.openlocfilehash: 4b6d28b24ffc6c0a848d1c7a34e863da0606d936
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81530390"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Alterações no ponto final da previsão para v3

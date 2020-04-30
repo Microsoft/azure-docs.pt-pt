@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 04/13/2020
 ms.author: metan
 ms.openlocfilehash: c4dae18a5040d475c246d244ea7702ccfdf85cd9
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81538748"
 ---
 # <a name="language-support-for-immersive-reader"></a>Suporte linguístico para leitor imersivo

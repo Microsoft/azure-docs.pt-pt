@@ -4,10 +4,10 @@ description: Conheça o suporte para avaliação hyper-V com avaliação do serv
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.openlocfilehash: 990d5026d9621c144c31635fabac4416eb9d20e6
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81538176"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Matriz de suporte para avaliação de Hiper-V

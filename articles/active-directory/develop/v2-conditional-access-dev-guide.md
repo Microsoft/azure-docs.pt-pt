@@ -14,17 +14,17 @@ ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
 ms.openlocfilehash: aae1b8aa27363e8f1d3c72d3934146c47b0cf2c9
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81535898"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Orientação do desenvolvedor para acesso condicional do Diretório Ativo Azure
 
 A funcionalidade de Acesso Condicional no Azure Ative Directory (Azure AD) oferece uma das várias formas que pode utilizar para proteger a sua app e proteger um serviço. O Acesso Condicional permite aos desenvolvedores e clientes empresariais proteger os serviços de várias formas, incluindo:
 
-* Multi-Factor Authentication
+* Multi-factor authentication
 * Permitindo que apenas dispositivos inscritos Intune acedam a serviços específicos
 * Restringir a localização dos utilizadores e as gamas IP
 

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: spelluru
 ms.openlocfilehash: fb6092b7ccb3d1a4214f8d26119d9dc50b0ed317
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81482053"
 ---
 # <a name="topic-filters-and-actions"></a>Filtros de tópico e ações
@@ -73,6 +73,6 @@ Consulte as seguintes amostras:
 - [.NET - Filtros tópicos](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TopicFilters)
 - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/samples/javascript/advanced/topicFilters.js)
 - [Escrever script](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/samples/typescript/src/advanced/topicFilters.ts)
-- [Modelo Azure Resource Manager](https://docs.microsoft.com/azure/templates/microsoft.servicebus/2017-04-01/namespaces/topics/subscriptions/rules)
+- [Modelo de Gestor de Recursos Azure](https://docs.microsoft.com/azure/templates/microsoft.servicebus/2017-04-01/namespaces/topics/subscriptions/rules)
 
 

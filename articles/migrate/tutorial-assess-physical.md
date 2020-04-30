@@ -4,10 +4,10 @@ description: Descreve como avaliar os servidores físicos no local para migraç�
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.openlocfilehash: b36cba18bd154cd5d14e16a9f8bf85cda6bf87a8
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81535439"
 ---
 # <a name="assess-physical-servers-with-azure-migrateserver-assessment"></a>Avaliar servidores físicos com Avaliação de Migração Azure:Servidor

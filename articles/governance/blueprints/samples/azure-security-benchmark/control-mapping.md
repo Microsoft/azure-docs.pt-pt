@@ -4,10 +4,10 @@ description: Mapeamento de controlo da amostra de projeto de benchmark de segura
 ms.date: 04/16/2020
 ms.topic: sample
 ms.openlocfilehash: 0f2d24d7d8c9f7ce2568f11b15e65ed1fcd02afb
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81538734"
 ---
 # <a name="control-mapping-of-the-azure-security-benchmark-blueprint-sample"></a>Mapeamento de controlo da amostra de projeto de benchmark de segurança Azure

@@ -10,10 +10,10 @@ ms.topic: overview
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.openlocfilehash: 5b7a060aa2313902e4644fdd15068e06816e3f58
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81529897"
 ---
 # <a name="what-is-form-recognizer"></a>O que é o Reconhecedor de Formato?

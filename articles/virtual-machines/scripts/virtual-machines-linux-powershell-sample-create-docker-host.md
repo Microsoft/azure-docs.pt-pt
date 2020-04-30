@@ -15,10 +15,10 @@ ms.date: 03/02/2017
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 01bffde197827d42ead346f158308199cbb35ef9
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81460856"
 ---
 # <a name="create-a-docker-host-with-powershell"></a>Criar um anfitrião do Docker com o PowerShell

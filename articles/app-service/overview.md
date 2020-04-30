@@ -6,10 +6,10 @@ ms.topic: overview
 ms.date: 01/04/2017
 ms.custom: mvc, seodec18
 ms.openlocfilehash: f8449c516bce3f3ab949e88808f73c7240995f99
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81535643"
 ---
 # <a name="app-service-overview"></a>Descrição geral do Serviço de Aplicações

@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.openlocfilehash: 545d04bdede76a6ce25c9e4665f39c01ff6caa73
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81531988"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Ler réplicas na Base de Dados Azure para PostgreSQL - Servidor Único

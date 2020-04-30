@@ -4,10 +4,10 @@ description: Descreve como criar um projeto Azure Migrate e adicionar uma ferram
 ms.topic: how-to
 ms.date: 04/16/2020
 ms.openlocfilehash: 48bdea31d17ea1ddf0b983af962dce30b22d8dcf
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81537734"
 ---
 # <a name="add-an-assessmentmigration-tool-for-the-first-time"></a>Adicionar uma ferramenta de avaliação/migração pela primeira vez

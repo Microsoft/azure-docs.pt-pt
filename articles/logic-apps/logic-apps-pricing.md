@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/19/2019
 ms.openlocfilehash: f47c7412bdd5ada1e50d1005b8e740e3f46ffd8d
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81536238"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modelo de preços para aplicações lógicas azure

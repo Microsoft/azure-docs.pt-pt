@@ -12,10 +12,10 @@ ms.author: jaszymas
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
 ms.openlocfilehash: 1d08770d81ade2d976142b2ce1fd94dae044cf32
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
-ms.translationtype: MT
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81461400"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Uma visão geral das capacidades de segurança da Base de Dados Azure SQL

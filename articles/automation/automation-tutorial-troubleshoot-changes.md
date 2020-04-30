@@ -8,10 +8,10 @@ ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: 89f5e00c75b6b85c9a14de02504136907cde62b5
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81604702"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Resolver problemas relacionados com alterações no seu ambiente

@@ -8,10 +8,10 @@ ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 46c46faf8f7ee52978ae5542ab7ebd72a41b8357
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81536451"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Metas de escalabilidade e desempenho de Ficheiros do Azure

@@ -4,10 +4,10 @@ description: Como utilizar identidades geridas no código de aplicação Azure S
 ms.topic: article
 ms.date: 10/09/2019
 ms.openlocfilehash: 8f1f355d6add16f3b3ec25bc569f9b198a8d6778
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81461570"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>Como alavancar a identidade gerida de uma aplicação de Tecido de Serviço para aceder aos serviços Azure

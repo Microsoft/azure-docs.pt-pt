@@ -4,10 +4,10 @@ description: Saiba mais sobre o apoio à migração hyper-V com a Migração Azu
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.openlocfilehash: 8ec0b72cac75518ac938faa202b28d055409e8dc
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81538193"
 ---
 # <a name="support-matrix-for-hyper-v-migration"></a>Matriz de suporte para migração Hyper-V

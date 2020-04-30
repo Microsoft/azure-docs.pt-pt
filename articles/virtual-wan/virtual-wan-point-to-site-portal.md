@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 04/16/2020
 ms.author: alzam
 ms.openlocfilehash: 11007bc39cb1112799c89afaf0ca670aa6760de6
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81482133"
 ---
 # <a name="tutorial-create-a-user-vpn-connection-using-azure-virtual-wan"></a>Tutorial: Criar uma ligação VPN do utilizador utilizando o Azure Virtual WAN

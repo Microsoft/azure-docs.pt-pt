@@ -4,10 +4,10 @@ description: ''
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.openlocfilehash: c0f9d71f5d89d73d9cdce2a2f646859d8eba3adc
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81538580"
 ---
 # <a name="extend-app-at-prediction-runtime"></a>Estender a app no tempo de execução da previsão

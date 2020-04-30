@@ -9,10 +9,10 @@ ms.date: 3/16/2020
 ms.author: wgries
 ms.subservice: files
 ms.openlocfilehash: 82d8c8ca94f3d0f4289902ae40928ff507e2d1ec
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81460669"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de versão do agente do Azure File Sync

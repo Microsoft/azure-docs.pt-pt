@@ -11,10 +11,10 @@ ms.date: 03/31/2020
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: d103b22338672f031fa4f91349a8376f86b703c8
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81530980"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Apoio linguístico natural para serviços cognitivos azure

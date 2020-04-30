@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.openlocfilehash: e0a38eb03df3d1da64172842fb6eca3cd762f9cd
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81537241"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Assinatura de capotamento de chave no Diretório Ativo do Azure

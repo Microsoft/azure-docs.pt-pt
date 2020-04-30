@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: 52a887d2d934aa2f7e13f0c2fdb4332066aee0e7
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81604835"
 ---
 # <a name="azure-automation-scenario---provision-an-aws-virtual-machine"></a>Cenário de Automação Azure - fornecimento de uma máquina virtual AWS

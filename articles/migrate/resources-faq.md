@@ -4,10 +4,10 @@ description: Obtenha respostas a perguntas comuns sobre o serviço Azure Migrate
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.openlocfilehash: 9b71888b284fd9cc125def4758d1e3800a92acf2
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81530322"
 ---
 # <a name="azure-migrate-common-questions"></a>Azure Migrate: Questões comuns

@@ -8,10 +8,10 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 5116585b701717a82b757cae70f938c321a1f7d1
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81532562"
 ---
 # <a name="bind-a-custom-tlsssl-certificate-to-a-web-app-using-powershell"></a>Ligue um certificado Personalizado TLS/SSL a uma aplicação web usando powerShell

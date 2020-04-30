@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.openlocfilehash: 732709dbcb5ebe54025a963379128f1a1e74183e
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81536306"
 ---
 # <a name="customer-managed-key-disk-encryption"></a>Encriptação de discos chave gerida pelo cliente

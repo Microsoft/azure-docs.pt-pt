@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
 ms.openlocfilehash: c627902268af3a91e172223c1741dd24ea21fa92
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81535456"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Avaliar VMs hiper-V com avaliação do servidor migratório Azure

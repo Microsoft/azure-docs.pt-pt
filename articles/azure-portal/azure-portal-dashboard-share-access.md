@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
 ms.openlocfilehash: 4eef5a9e3f010e19871471d007ff2a0cc24d3834
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81461383"
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Partilhar dashboards do Azure mediante a utilização do Controlo de Acesso Baseado em Funções

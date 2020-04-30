@@ -4,10 +4,10 @@ description: Insira algumas linhas de código no seu dispositivo ou na aplicaç�
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.openlocfilehash: d6cb2f5ab418e8d3b5935fef535565ccf55a3906
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
-ms.translationtype: MT
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81536952"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API do Application Insights para métricas e eventos personalizados
@@ -60,7 +60,7 @@ Para ASP.NET aplicações [Core](asp-net-core.md#how-can-i-track-telemetry-thats
 
 Se utilizar o AzureFunctions v2+ ou o Azure WebJobs v3+ - siga este documento:https://docs.microsoft.com/azure/azure-functions/functions-monitoring#version-2x-and-higher
 
-*C#*
+*C #*
 
 ```csharp
 private TelemetryClient telemetry = new TelemetryClient();
@@ -89,7 +89,7 @@ TelemetriaClient é seguro para fios.
 
 Para ASP.NET e java projetos, os pedidos http estão automaticamente capturados. É melhor criar instâncias adicionais de TelemettryClient para outro módulo da sua aplicação. Por exemplo, pode ter uma instância telemetriaClient na sua classe de middleware para reportar eventos de lógica empresarial. Pode definir propriedades como UserId e DeviceId para identificar a máquina. Esta informação está anexada a todos os eventos que a instância envia.
 
-*C#*
+*C #*
 
 ```csharp
 TelemetryClient.Context.User.Id = "...";
@@ -119,7 +119,7 @@ Por exemplo, numa aplicação de jogo, envie um evento sempre que um utilizador 
 appInsights.trackEvent({name:"WinGame"});
 ```
 
-*C#*
+*C #*
 
 ```csharp
 telemetry.TrackEvent("WinGame");
@@ -153,7 +153,7 @@ Se a [amostragem](../../azure-monitor/app/sampling.md) estiver em funcionamento,
 
 ### <a name="examples"></a>Exemplos
 
-*C#*
+*C #*
 
 ```csharp
 namespace User.Namespace.Example01
@@ -263,7 +263,7 @@ Para enviar um único valor métrico:
 appInsights.trackMetric("queueLength", 42.0);
  ```
 
-*C#*
+*C #*
 
 ```csharp
 var sample = new MetricTelemetry();
@@ -305,7 +305,7 @@ Os dados do utilizador e da sessão são enviados como propriedades juntamente c
 appInsights.trackPageView("tab1");
 ```
 
-*C#*
+*C #*
 
 ```csharp
 telemetry.TrackPageView("GameReviewPage");
@@ -398,7 +398,7 @@ Consulte a [correlação de Telemetria em Insights de Aplicação](../../azure-m
 
 Ao rastrear a telemetria manualmente, a maneira mais fácil de garantir a correlação de telemetria utilizando este padrão:
 
-*C#*
+*C #*
 
 ```csharp
 // Establish an operation context and associated telemetry item:
@@ -448,7 +448,7 @@ Enviar exceções aos Insights de Aplicação:
 
 Os relatórios incluem os vestígios da pilha.
 
-*C#*
+*C #*
 
 ```csharp
 try
@@ -543,7 +543,7 @@ Em .NET [Os adaptadores](../../azure-monitor/app/asp-net-trace-logs.md) de log u
 
 Em Java para [madeireiros Standard como o Log4J, o Logback](../../azure-monitor/app/java-trace-logs.md) utiliza o Application Insights Log4j ou os Apendes de Logback para enviar registos de terceiros para o portal.
 
-*C#*
+*C #*
 
 ```csharp
 telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
@@ -586,7 +586,7 @@ Uma vantagem do TrackTrace é que pode colocar dados relativamente longos na men
 
 Além disso, pode adicionar um nível de gravidade à sua mensagem. E, tal como outras telemetrias, pode adicionar valores de propriedade para ajudá-lo a filtrar ou procurar diferentes conjuntos de vestígios. Por exemplo:
 
-*C#*
+*C #*
 
 ```csharp
 var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
@@ -615,7 +615,7 @@ Se a [amostragem](../../azure-monitor/app/sampling.md) estiver em funcionamento,
 
 Utilize a chamada TrackDependency para acompanhar os tempos de resposta e as taxas de sucesso das chamadas para um código externo. Os resultados aparecem nos gráficos de dependência no portal. O código abaixo precisa de ser adicionado onde quer que seja feita uma chamada de dependência.
 
-*C#*
+*C #*
 
 ```csharp
 var success = false;
@@ -706,7 +706,7 @@ dependencies
 
 Normalmente, o SDK envia dados em intervalos fixos (tipicamente 30 segundos) ou sempre que o tampão está cheio (normalmente 500 itens). No entanto, em alguns casos, é melhor descarregar o tampão- por exemplo, se estiver a usar o SDK numa aplicação que se desliga.
 
-*C#*
+*C #*
 
  ```csharp
 telemetry.Flush();
@@ -812,7 +812,7 @@ appInsights.trackPageView
         );
 ```
 
-*C#*
+*C #*
 
 ```csharp
 // Set up some properties and metrics:
@@ -913,7 +913,7 @@ Note que:
 
 Às vezes queremos traçar o tempo que demora a realizar uma ação. Por exemplo, talvez queira saber quanto tempo os utilizadores demoram a considerar escolhas num jogo. Pode utilizar o parâmetro de medição para isto.
 
-*C#*
+*C #*
 
 ```csharp
 var stopwatch = System.Diagnostics.Stopwatch.StartNew();
@@ -956,7 +956,7 @@ telemetry.trackEvent("SignalProcessed", properties, metrics);
 
 Se quiser definir valores de propriedade padrão para alguns dos eventos personalizados que escreve, pode defini-los numa instância TelemettryClient. Estão ligados a todos os artigos de telemetria que são enviados daquele cliente.
 
-*C#*
+*C #*
 
 ```csharp
 using Microsoft.ApplicationInsights.DataContracts;
@@ -1022,7 +1022,7 @@ Pode escrever código para processar a sua telemetria antes de ser enviada do SD
 
 Para *parar e iniciar dinamicamente* a recolha e transmissão da telemetria:
 
-*C#*
+*C #*
 
 ```csharp
 using  Microsoft.ApplicationInsights.Extensibility;
@@ -1062,7 +1062,7 @@ Para desativar estes colecionadores após a inicialização, utilize o objeto de
 
 Durante a depuração, é útil ter a sua telemetria acelerada através do oleoduto para que possa ver os resultados imediatamente. Também recebe mensagens adicionais que o ajudam a rastrear qualquer problema com a telemetria. Desligue-o em produção, pois pode abrandar a sua aplicação.
 
-*C#*
+*C #*
 
 ```csharp
 TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = true;
@@ -1087,7 +1087,7 @@ applicationInsights.defaultClient.config.maxBatchSize = 0;
 
 ## <a name="setting-the-instrumentation-key-for-selected-custom-telemetry"></a><a name="ikey"></a>Definição da chave de instrumentação para telemetria personalizada selecionada
 
-*C#*
+*C #*
 
 ```csharp
 var telemetry = new TelemetryClient();
@@ -1101,7 +1101,7 @@ Para evitar misturar telemetria a partir de ambientes de desenvolvimento, teste 
 
 Em vez de obter a chave de instrumentação do ficheiro de configuração, pode defini-la no seu código. Desloque a chave num método de inicialização, como global.aspx.cs num serviço ASP.NET:
 
-*C#*
+*C #*
 
 ```csharp
 protected void Application_Start()

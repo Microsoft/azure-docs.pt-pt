@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.date: 04/19/2019
 ms.custom: mvc,subject-armqs
 ms.openlocfilehash: bbe5d9ac21ae9e03d629a1667567a915c8653a8a
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81602634"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-azure-resource-manager-template"></a>Quickstart: Implemente um cluster azure Kubernetes Service (AKS) utilizando um modelo de Gestor de Recursos Azure

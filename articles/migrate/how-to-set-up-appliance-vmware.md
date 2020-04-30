@@ -4,10 +4,10 @@ description: Aprenda a configurar um aparelho Azure Migrate para avaliar e migra
 ms.topic: article
 ms.date: 04/16/2020
 ms.openlocfilehash: b32c6a9b703e4d341fe353d6b472ea7a18adadf3
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81538261"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Configurar um aparelho para VMware VMs

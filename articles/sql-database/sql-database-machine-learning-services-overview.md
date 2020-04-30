@@ -14,10 +14,10 @@ manager: cgronlun
 ms.date: 11/20/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: 46ca4661d06b52c861431a680a69297575ac99b0
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81461417"
 ---
 # <a name="azure-sql-database-machine-learning-services-with-r-preview"></a>Serviços de Machine Learning de Base de Dados Azure SQL com R (pré-visualização)

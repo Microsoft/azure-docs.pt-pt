@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
 ms.openlocfilehash: d1441ede9f448b3e6ffb0726c2ee92f192369e9a
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81481841"
 ---
 # <a name="multitenant-applications-in-azure"></a>Aplicações Multi-inquilino no Azure

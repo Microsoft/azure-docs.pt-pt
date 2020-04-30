@@ -14,10 +14,10 @@ ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4b35163387ed4ce71f7a2019835a1d9fdbff3051
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81532658"
 ---
 # <a name="download-a-list-of-users-in-azure-active-directory-portal"></a>Faça o download de uma lista de utilizadores no portal azure Ative Directy
@@ -81,5 +81,5 @@ Cada atividade a granel para criar uma lista de utilizadores pode funcionar até
 ## <a name="next-steps"></a>Passos seguintes
 
 - [A granel adicionar utilizadores](users-bulk-add.md)
-- [A granel, apaga os utilizadores](users-bulk-delete.md)
-- [A granel restaura utentes](users-bulk-restore.md)
+- [Eliminar utilizadores em massa](users-bulk-delete.md)
+- [Restaurar utilizadores em massa](users-bulk-restore.md)

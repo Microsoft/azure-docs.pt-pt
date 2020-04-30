@@ -15,10 +15,10 @@ ms.date: 09/12/2019
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: d2a6568b0d62c880a688160cf981fb33083ae02e
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81461485"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Tutorial – Como utilizar o cloud-init para personalizar uma máquina virtual do Linux no Azure no primeiro arranque
@@ -47,9 +47,9 @@ Estamos a trabalhar com os nossos parceiros para que o cloud-init seja incluído
 |Canónico |UbuntuServer |16.04-LTS |mais recente |sim | 
 |Canónico |UbuntuServer |14.04.5-LTS |mais recente |sim |
 |CoreOS |CoreOS |Estável |mais recente |sim |
-|OpenLogic 7.6 |CentOS |7-CI |mais recente |pré-visualização |
+|OpenLogic 7.6 |CentOS |7-CI |mais recente |preview |
 |RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |sim |
-|RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 |pré-visualização |
+|RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 |preview |
 
 
 ## <a name="create-cloud-init-config-file"></a>Criar ficheiro de configuração do cloud-init

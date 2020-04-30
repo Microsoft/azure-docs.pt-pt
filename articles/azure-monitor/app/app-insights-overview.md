@@ -5,10 +5,10 @@ ms.topic: overview
 ms.date: 06/03/2019
 ms.custom: mvc
 ms.openlocfilehash: 2dbebf13b8674ba4aa0c578e1138a5e279b54355
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81536935"
 ---
 # <a name="what-is-application-insights"></a>O que é o Application Insights?
@@ -128,7 +128,7 @@ Introdução no momento de programação com:
 * Perguntas e Problemas:
   * [Resolução de problemas][qna]
   * [Fórum MSDN](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
-  * [StackOverflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
+  * [Stackoverflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 * As suas sugestões:
   * [UserVoice](https://feedback.azure.com/forums/357324-application-insights/filters/top)
 * Blogue:

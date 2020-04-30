@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 07/15/2019
 ms.topic: tutorial
 ms.openlocfilehash: d4b35458c76da82b33dfcb530cfdc71ee3da3bb6
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81604773"
 ---
 # <a name="tutorial-send-an-email-from-an-azure-automation-runbook"></a>Tutorial: Envie um e-mail de um livro de execução da Automação Azure

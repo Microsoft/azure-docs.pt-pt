@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 04/16/2020
 ms.author: iainfou
 ms.openlocfilehash: f4bd3f75c3246cb11e88dbaae817eba8ac76b394
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81603504"
 ---
 # <a name="administer-dns-and-create-conditional-forwarders-in-an-azure-ad-domain-services-managed-domain"></a>Administrar o DNS e criar avançados condicional num domínio gerido pelos Serviços de Domínio Azure AD

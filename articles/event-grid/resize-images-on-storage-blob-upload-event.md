@@ -13,10 +13,10 @@ ms.date: 04/01/2020
 ms.author: spelluru
 ms.custom: mvc
 ms.openlocfilehash: 1d1da88d1e7eaf06ebf71da999ef8fb25c7cf066
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81482204"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Tutorial: Automatizar imagens carregadas usando a Grelha de Eventos

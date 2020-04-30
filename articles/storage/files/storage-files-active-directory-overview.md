@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: rogarana
 ms.openlocfilehash: 7d9f8ccb4273d1378c4826dea420c4edca2f8ac3
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81536590"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-support-for-smb-access"></a>Visão geral do suporte de autenticação baseado na identidade do Azure Files para acesso a SMB

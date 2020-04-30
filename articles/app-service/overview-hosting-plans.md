@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.custom: seodec18
 ms.openlocfilehash: b1c44fb9f44eb75e6d2a766213c5db094ebe79b1
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81537649"
 ---
 # <a name="azure-app-service-plan-overview"></a>Descrição Geral do plano do Serviço de Aplicações do Azure

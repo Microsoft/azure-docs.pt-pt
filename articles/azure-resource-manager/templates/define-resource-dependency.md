@@ -4,10 +4,10 @@ description: Descreve como definir um recurso como dependente de outro recurso d
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.openlocfilehash: 764b718416e1185f56c7eb6b8335792a5822f212
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81535473"
 ---
 # <a name="define-the-order-for-deploying-resources-in-arm-templates"></a>Defina a ordem para a implantação de recursos em modelos ARM
