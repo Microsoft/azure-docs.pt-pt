@@ -6,10 +6,10 @@ ms.author: msangapu
 ms.date: 08/28/2019
 ms.topic: quickstart
 ms.openlocfilehash: 51607f44f75cbd93c7ecf1c77bb52c73b27b5f3c
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82159750"
 ---
 # <a name="deploy-a-custom-linux-container-to-azure-app-service"></a>Desloque um recipiente linux personalizado para o Serviço de Aplicações Azure

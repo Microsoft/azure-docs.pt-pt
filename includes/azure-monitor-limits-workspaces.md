@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 97f265d76ac70891e9cefc0ef6651e439706ed23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 864b37c9e59786546ad2c29faf8457cfc3a21f6b
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80334617"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82161159"
 ---
 **Volume e retenção de recolha de dados** 
 
@@ -33,7 +33,7 @@ ms.locfileid: "80334617"
 | Escalão gratuito  | 10 | Este limite não pode ser aumentado. |
 | Todos os outros níveis | Sem limite | Está limitado pelo número de recursos dentro de um grupo de recursos e pelo número de grupos de recursos por subscrição. |
 
-**Portal Azure**
+**Portal do Azure**
 
 | Categoria | Limite | Comentários |
 |:---|:---|:---|
@@ -62,14 +62,14 @@ ms.locfileid: "80334617"
 |:---|:---|:---|
 | Colunas máximas numa tabela         | 500 | |
 | Caracteres máximos para o nome da coluna | 500 | |
-| Exportar dados | Não disponível atualmente | Utilize a Função Azure ou a App Lógica para agregar e exportar dados. | 
+| Exportação de dados | Não disponível atualmente | Utilize a Função Azure ou a App Lógica para agregar e exportar dados. | 
 
 **Taxa de volume de ingestão de dados**
 
 
 O Azure Monitor é um serviço de dados de alta escala que serve milhares de clientes que enviam terabytes de dados todos os meses a um ritmo crescente. O limite de taxa de volume de ingestão padrão para os dados enviados a partir de recursos Do Azure utilizando [configurações](../articles/azure-monitor/platform/diagnostic-settings.md) de diagnóstico é de aproximadamente **6 GB/min** por espaço de trabalho. Este é um valor aproximado, uma vez que o tamanho real pode variar entre os tipos de dados dependendo do comprimento do registo e da sua relação de compressão. Este limite não se aplica aos dados enviados por agentes ou pela API do [Coletor](../articles/azure-monitor/platform/data-collector-api.md)de Dados .
 
-Se enviar dados a uma taxa mais elevada para um único espaço de trabalho, alguns dados são retirados e um evento é enviado para a tabela *Operação* no seu espaço de trabalho a cada 6 horas enquanto o limiar continua a ser ultrapassado. Se o seu volume de ingestão continuar a exceder o limite de taxa ou se estiver à espera de o atingir em breve, poderá solicitar um aumento para o seu espaço de trabalho abrindo um pedido de apoio.
+Se enviar dados a uma taxa mais elevada para um único espaço de trabalho, alguns dados são retirados e um evento é enviado para a tabela *Operação* no seu espaço de trabalho a cada 6 horas enquanto o limiar continua a ser ultrapassado. Se o seu volume de ingestão continuar a exceder o limite de taxa ou se estiver à LAIngestionRate@microsoft.com espera de o atingir em breve, poderá solicitar um aumento para o seu espaço de trabalho enviando um e-mail para ou abrindo um pedido de apoio.
  
 Para ser notificado sobre tal evento no seu espaço de trabalho, crie uma regra de alerta de [registo](../articles/azure-monitor/platform/alerts-log.md) utilizando a seguinte consulta com base lógica de alerta no número de resultados do que zero.
 

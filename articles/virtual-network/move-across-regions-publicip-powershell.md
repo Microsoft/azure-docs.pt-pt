@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/29/2019
 ms.author: allensu
 ms.openlocfilehash: 76924705ff801ce3be6a5c76f7ae276bdbf93def
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82147883"
 ---
 # <a name="move-azure-public-ip-to-another-region-using-azure-powershell"></a>Move Azure Public IP para outra região usando azure PowerShell

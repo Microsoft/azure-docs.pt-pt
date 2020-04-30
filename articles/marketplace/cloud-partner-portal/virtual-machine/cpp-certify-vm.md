@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: dsindona
 ms.openlocfilehash: 81dec159a8a84adce97750666baba455ae3fdd93
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82147081"
 ---
 # <a name="certify-your-vm-image"></a>Certifica a sua imagem VM

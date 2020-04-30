@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/29/2019
 ms.author: allensu
 ms.openlocfilehash: 6dd4b3279fc0110fff2ee0397a785c87b63644d6
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82147835"
 ---
 # <a name="move-azure-public-ip-to-another-region-using-the-azure-portal"></a>Move Azure Public IP para outra região usando o portal Azure

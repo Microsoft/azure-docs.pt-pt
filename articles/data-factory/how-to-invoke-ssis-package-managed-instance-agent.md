@@ -10,10 +10,10 @@ ms.author: lle
 author: lle
 ms.date: 04/14/2020
 ms.openlocfilehash: fcbfeb5ab3a3a80fdb8f7e355f290451d4afe804
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82144809"
 ---
 # <a name="run-ssis-packages-by-using-azure-sql-database-managed-instance-agent"></a>Executar pacotes SSIS utilizando o Agente de Instância gerido pela Base de Dados Azure SQL

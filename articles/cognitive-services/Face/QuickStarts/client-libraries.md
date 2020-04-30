@@ -12,10 +12,10 @@ ms.topic: quickstart
 ms.date: 04/24/2020
 ms.author: pafarley
 ms.openlocfilehash: f9e37439cd32fea3a12e06a108ae6929782afbc8
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82149376"
 ---
 # <a name="quickstart-use-the-face-client-library"></a>Quickstart: Use a biblioteca de clientes Face
