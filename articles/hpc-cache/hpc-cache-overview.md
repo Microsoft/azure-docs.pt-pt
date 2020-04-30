@@ -7,10 +7,10 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: v-erkel
 ms.openlocfilehash: 02013abe7050f7f193b6aeb1a441e70f46a5df48
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82106462"
 ---
 # <a name="what-is-azure-hpc-cache"></a>O que é o Azure HPC Cache?

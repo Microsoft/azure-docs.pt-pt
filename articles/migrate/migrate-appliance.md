@@ -4,10 +4,10 @@ description: Fornece uma visão geral do aparelho Azure Migrate utilizado na ava
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.openlocfilehash: 71a17211a530b4cb55764f3b3ab84ff5a4d5f3e6
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82106391"
 ---
 # <a name="azure-migrate-appliance"></a>Aplicação do Azure Migrate

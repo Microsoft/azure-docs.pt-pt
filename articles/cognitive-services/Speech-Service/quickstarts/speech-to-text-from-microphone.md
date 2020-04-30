@@ -12,10 +12,10 @@ ms.date: 02/10/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
 ms.openlocfilehash: 63188a0b464ad81bef2bf439763cb2f6b477ab1d
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82115436"
 ---
 # <a name="quickstart-recognize-speech-from-a-microphone"></a>Quickstart: Reconhecer o discurso a partir de um microfone

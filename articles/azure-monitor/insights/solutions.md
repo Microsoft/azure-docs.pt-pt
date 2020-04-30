@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 04/23/2020
 ms.openlocfilehash: 58dbb52cd906d91daec7e4b16625bc264135e90c
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82114858"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Soluções de monitorização no Monitor Azure

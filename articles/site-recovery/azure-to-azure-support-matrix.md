@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: raynew
 ms.openlocfilehash: 73160a6bf416722021d76da21a32a1cd1ee04386
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82111730"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de apoio à recuperação de desastres do Azure VM entre as regiões de Azure
@@ -22,7 +22,7 @@ Este artigo resume o apoio e os pré-requisitos para a recuperação de desastre
 --- | ---
 **Portal do Azure** | Suportado.
 **PowerShell** | Suportado. [Mais informações](azure-to-azure-powershell.md)
-**REST API** | Suportado.
+**API REST** | Suportado.
 **CLI** | Atualmente, não é suportado
 
 

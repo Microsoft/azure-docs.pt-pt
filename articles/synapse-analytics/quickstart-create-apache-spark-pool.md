@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: josels
 ms.reviewer: jrasnick, carlrab
 ms.openlocfilehash: 0fd8a379927396f2ae44d74c2d968d48fbd039c1
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82096372"
 ---
 # <a name="quickstart-create-a-new-apache-spark-pool-preview"></a>Quickstart: Crie uma nova piscina Apache Spark (pré-visualização)

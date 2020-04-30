@@ -9,10 +9,10 @@ ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: ed36dc669c8b89ba4a2b7831c6eb6f8742e73730
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82100418"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>Tutorial: Monitorizar alterações e atualizar uma máquina virtual do Windows em Azure
@@ -114,7 +114,7 @@ Para agendar uma nova implementação de atualização para o VM, selecione a im
 |**Sistema Operativo**| Selecione **Linux** ou **Windows**.|
 | **Grupos para atualizar** |Para VMs hospedados no Azure, defina uma consulta baseada numa combinação de subscrição, grupos de recursos, localizações e etiquetas. Esta consulta constrói um grupo dinâmico de VMs hospedados em Azure para incluir na sua implementação. </br></br>Para VMs não hospedados no Azure, selecione uma pesquisa guardada existente. Com esta pesquisa, pode selecionar um grupo destes VMs para incluir na implementação. </br></br> Para saber mais, consulte [Grupos Dinâmicos.](../../automation/automation-update-management-groups.md)|
 | **Máquinas para atualizar** |Selecione **pesquisa saved,** **grupo importado**ou **máquinas**.<br/><br/>Se selecionar **Máquinas,** pode escolher máquinas individuais a partir da lista de lançamentos. A prontidão de cada máquina é mostrada na coluna DE PRONTIDÃO DO **AGENTE ATUALIZAÇÃO** da tabela.</br></br> Para conhecer os diferentes métodos de criação de grupos informáticos nos registos do Monitor Azure, consulte [grupos informáticos em registos do Monitor Azure](../../azure-monitor/platform/computer-groups.md) |
-|**Classificações de atualização**|Escolha todas as classificações de atualização necessárias.|
+|**Classificações de atualizações**|Escolha todas as classificações de atualização necessárias.|
 |**Incluir/excluir atualizações**|Selecione esta opção para abrir o painel **Incluir/Excluir.** As atualizações a incluir e as que devem ser excluídas estão em separados separados. Para obter mais informações sobre como a inclusão é tratada, consulte [Agendar uma Implementação de Atualização](../../automation/automation-tutorial-update-management.md#schedule-an-update-deployment). |
 |**Configurações de agenda**|Escolha a hora de começar e selecione **uma vez** ou **recorrente**.|
 | **Pré-scripts + Post-scripts**|Escolha os scripts para executar antes e depois da sua implementação.|

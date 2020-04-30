@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 04/19/2020
 ms.author: chmutali
 ms.openlocfilehash: 61f374c3fbc15e78784fe30c4e66ea109537727d
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82112886"
 ---
 # <a name="workday-attribute-reference"></a>Referência de atributo da Workday

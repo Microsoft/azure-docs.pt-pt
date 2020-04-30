@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 04/03/2020
 ms.custom: seodec18
 ms.openlocfilehash: 616118d5f75f9bfa6d97d89baac9d7ea9186cd5d
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82111900"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Crie uma piscina de Lote Azure numa rede virtual

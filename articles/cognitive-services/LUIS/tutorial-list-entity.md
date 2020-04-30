@@ -4,10 +4,10 @@ description: Obtenha dados que correspondam a uma lista de itens predefinida. Ca
 ms.topic: tutorial
 ms.date: 03/12/2020
 ms.openlocfilehash: 9530719c43260751d64d7ccf446bc7941078d6e9
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82101132"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance-with-list-entity"></a>Tutorial: Obtenha dados exatos de texto de uma expressão com entidade da lista

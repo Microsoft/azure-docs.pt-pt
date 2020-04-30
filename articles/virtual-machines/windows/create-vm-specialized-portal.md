@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 01/18/2019
 ms.author: cynthn
 ms.openlocfilehash: d360ac5a57fe72b092a6694721905c066527bba3
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82086458"
 ---
 # <a name="create-a-vm-from-a-vhd-by-using-the-azure-portal"></a>Crie um VM a partir de um VHD utilizando o portal Azure

@@ -9,10 +9,10 @@ ms.date: 05/02/2018
 ms.topic: how-to
 manager: carmonm
 ms.openlocfilehash: bd65f33663dea3663f14fb4167448e39b9b7d0b7
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82099772"
 ---
 # <a name="run-scripts-in-your-windows-vm"></a>Executar scripts no seu Windows VM

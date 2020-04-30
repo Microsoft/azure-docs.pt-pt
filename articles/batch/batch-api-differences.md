@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 02/26/2020
 ms.custom: seodec18
 ms.openlocfilehash: 33b8c5980aba1090155d6b136c6707e928666abf
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82115402"
 ---
 # <a name="service-level-and-management-level-apis"></a>APIs nível de serviço e de nível de gestão

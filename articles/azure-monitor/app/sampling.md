@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f4989f8dce32e2340357e30541548b3e7e9d8a44
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
-ms.translationtype: MT
+ms.openlocfilehash: 82e42580f5d934af96b4fad57dde1573b9c30ef5
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82508892"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82098769"
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights
 
@@ -310,7 +310,7 @@ Por padrão, não é ativada qualquer amostragem no agente Java e no SDK. Atualm
 
 #### <a name="configuring-java-agent"></a>Configurar o Agente Java
 
-1. Baixar [applicationinsights-agent-3.0.0-PREVIEW.4.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.4/applicationinsights-agent-3.0.0-PREVIEW.4.jar)
+1. Baixar [applicationinsights-agent-3.0.0-PREVIEW.3.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.3/applicationinsights-agent-3.0.0-PREVIEW.3.jar)
 
 1. Para permitir a amostragem `ApplicationInsights.json` adicione o seguinte ao seu ficheiro:
 

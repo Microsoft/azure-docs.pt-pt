@@ -4,10 +4,10 @@ description: As entidades da lista representam um conjunto fixo e fechado de pal
 ms.topic: reference
 ms.date: 03/12/2020
 ms.openlocfilehash: 273fabae38f6682cfaaffcdcc19e62adc41b7a47
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82097579"
 ---
 # <a name="list-entity"></a>Entidade de lista

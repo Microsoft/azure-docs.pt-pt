@@ -4,10 +4,10 @@ description: Explore utilizando o Azure Ative Directory para autenticar a partir
 ms.topic: article
 ms.date: 04/27/2017
 ms.openlocfilehash: 0aa95aa440303d1577b7646c1a9f1bc5b6e69ac2
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82114790"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Soluções de Gestão de Lotes Autenticados com Diretório Ativo
