@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 02/10/2020
 ms.author: travisw
 ms.openlocfilehash: 8b187e058299f8aa8b762231c0ed1e708e5ad9d1
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80659441"
 ---
 1. Lance o Android Studio e selecione **Iniciar um novo projeto Android Studio** na janela **Welcome.**
 
     ![Captura de ecrã da janela de boas-vindas do Android Studio](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-01-start-new-android-studio-project.png)
 
-1. O **Assistente de Escolha do seu projeto** aparece. Selecione **Telefone e Tablet** e Atividade **Vazia** na caixa de seleção de atividades. Selecione **Next**.
+1. O **Assistente de Escolha do seu projeto** aparece. Selecione **Telefone e Tablet** e Atividade **Vazia** na caixa de seleção de atividades. Selecione **Seguinte**.
 
    ![Screenshot de Escolha o seu assistente de projeto](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-02-target-android-devices.png)
 

@@ -9,10 +9,10 @@ ms.date: 06/22/2018
 ms.author: twooley
 ms.custom: include file
 ms.openlocfilehash: 5e5ef3084fa4e13035fe562dd3c5ed2a37b76be2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80334884"
 ---
 Azure Data Lake Storage Gen1 é um repositório de hiperescala em toda a empresa para grandes cargas de trabalho analíticas de dados. Pode utilizar data Lake Storage Gen1 para capturar dados de qualquer tamanho, tipo e velocidade de ingestão num único local para análise operacional e exploratória. Não há limite para a quantidade de dados que pode armazenar numa conta gen1 de armazenamento de data Lake.
