@@ -3,16 +3,16 @@ title: Pontos finais do serviço de chamada utilizando HTTP ou HTTPS
 description: Envie pedidos de saída http ou HTTPS para serviço de pontos finais de Aplicações Lógicas Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 03/12/2020
 tags: connectors
-ms.openlocfilehash: 6c52f2df34faf441ab70b48b11bbc393ebcecb65
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: 9ed3d960b3f5653ea8706b39559c9d5a71c45a6c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81617603"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81867638"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Pontos finais do serviço de chamada sobre HTTP ou HTTPS de Aplicações Lógicas Azure
 
@@ -20,6 +20,8 @@ Com [as Aplicações Lógicas Azure](../logic-apps/logic-apps-overview.md) e o g
 
 > [!NOTE]
 > Baseado na capacidade do ponto final do alvo, o conector HTTP suporta as versões Transport Layer Security (TLS) 1.0, 1.1 e 1.2. Logic Apps negoceia com o ponto final sobre a utilização da versão suportada mais alta possível. Assim, por exemplo, se o ponto final suportar 1.2, o conector utiliza 1.2 primeiro. Caso contrário, o conector utiliza a versão suportada mais alta.
+>
+> O conector HTTP não suporta certificados intermédios TLS/SSL para autenticação.
 
 Para verificar ou *fazer uma sondagem* sobre um calendário recorrente, [adicione o gatilho HTTP](#http-trigger) como o primeiro passo no seu fluxo de trabalho. Cada vez que o gatilho verifica o ponto final, o gatilho chama ou envia um *pedido* para o ponto final. A resposta do ponto final determina se o fluxo de trabalho da sua aplicação lógica funciona. O gatilho transmite qualquer conteúdo da resposta do ponto final às ações na sua aplicação lógica.
 

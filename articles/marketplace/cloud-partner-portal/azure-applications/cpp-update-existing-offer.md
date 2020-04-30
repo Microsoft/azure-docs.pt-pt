@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: dsindona
 ms.openlocfilehash: 409a21b3bf2b03aa969253e73fe08181ad56c8cf
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81867886"
 ---
 # <a name="update-an-existing-azure-application-offer"></a>Atualizar uma oferta de aplicação Azure existente

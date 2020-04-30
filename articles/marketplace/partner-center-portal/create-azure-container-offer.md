@@ -7,14 +7,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/07/2020
-ms.openlocfilehash: b96fe12ccc0292bb5f689fbecabd53d2af54846e
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 3170849955485c0d098ed9f39c22332456e46fe4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81266321"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81867353"
 ---
-# <a name="create-an-azure-container-offer"></a>Criar uma oferta de contentores Azure
+# <a name="create-an-azure-container-offer"></a>Criar uma oferta do Azure Container
 
 > [!IMPORTANT]
 > Estamos a mover a gestão das suas ofertas de contentores Azure do Cloud Partner Portal para partner Center. Até que as suas ofertas sejam migradas, siga as instruções em [Recipientes](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-containers-offer) para o Portal do Parceiro cloud para gerir as suas ofertas.
@@ -214,6 +214,9 @@ Para saber mais sobre a criação de anúncios de oferta, consulte [oferta de li
 ### <a name="marketplace-images"></a>Imagens do mercado
 
 Forneça logotipos e imagens para usar com a sua oferta. Todas as imagens devem estar em formato PNG. Imagens desfocadas serão rejeitadas.
+
+>[!Note]
+>Se tiver algum problema de envio de ficheiros, https://upload.xboxlive.com certifique-se de que a sua rede local não bloqueia o serviço utilizado pelo Partner Center.
 
 #### <a name="store-logos"></a>Logotipos de loja
 

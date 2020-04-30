@@ -4,10 +4,10 @@ description: Neste arranque rápido, utilize uma aplicação LIVRE pública disp
 ms.topic: quickstart
 ms.date: 04/21/2020
 ms.openlocfilehash: 5ba86882ebf3cb538ad6b865382342fcbd43d27c
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81769975"
 ---
 # <a name="quickstart-query-prediction-runtime-with-user-text"></a>Quickstart: Prazo de execução da previsão de consulta com texto do utilizador
