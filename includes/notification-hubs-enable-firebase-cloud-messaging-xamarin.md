@@ -9,10 +9,10 @@ ms.date: 08/01/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 45bdd569741dc13181bcaf9e8587a02b3d02c621
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68728831"
 ---
 1. Inicie sessão na [consola Firebase](https://firebase.google.com/console/). Crie um novo projeto Firebase se ainda não tiver um.
@@ -28,7 +28,7 @@ ms.locfileid: "68728831"
     1. Selecione **Baixar google-services.json**. Em seguida, guarde o ficheiro na pasta do seu projeto e selecione **Next**. Se ainda não criou o projeto Do Estúdio Visual, pode fazer este passo depois de criar o projeto. 
 
         ![Descarregue google-services.json](./media/notification-hubs-enable-firebase-cloud-messaging/download-google-service-button.png)
-    6. Selecione **Next**. 
+    6. Selecione **Seguinte**. 
     7. Selecione **Saltar este passo**. 
 
         ![Salta o último passo](./media/notification-hubs-enable-firebase-cloud-messaging/skip-this-step.png)

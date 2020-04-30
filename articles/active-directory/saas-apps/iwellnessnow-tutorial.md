@@ -17,10 +17,10 @@ ms.date: 08/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8ff8fd2eb14f1af5133669ad20f303d36ff5af80
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68931825"
 ---
 # <a name="tutorial-integrate-iwellnessnow-with-azure-active-directory"></a>Tutorial: Integrar o iWellnessNow com o Diretório Ativo Azure

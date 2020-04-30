@@ -17,10 +17,10 @@ ms.date: 09/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1d18676e0a8a4f366237a71784436580a8069e53
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "70743621"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-contractworks"></a>Tutorial: Azure Ative Diretório integração de inscrição única (SSO) com contractWorks

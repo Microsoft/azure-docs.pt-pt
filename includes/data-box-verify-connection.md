@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 12/07/2018
 ms.author: alkohli
 ms.openlocfilehash: 8a09a52db40f4f52219bce3e703e275b0f310c1a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67184926"
 ---
 Siga estes passos para ligar à conta de armazenamento e verificar a ligação.
@@ -17,7 +17,7 @@ Siga estes passos para ligar à conta de armazenamento e verificar a ligação.
 
     ![Painel de instrumentos da Caixa de Dados](media/data-box-verify-connection/data-box-connect-via-rest-9.png)
 
-2. Cole o nome da **conta** e a **chave conta** (chave 1 do valor da página Connect e **cópia** na UI web local). Selecione o domínio dos pontos finais de armazenamento como **Outro (insira abaixo)** e, em seguida, forneça o ponto final do serviço blob como mostrado abaixo. Verifique a opção **Use HTTP** apenas se transferir em *http*. Se utilizar *https,* deixe a opção desmarcada. Selecione **Next**.
+2. Cole o nome da **conta** e a **chave conta** (chave 1 do valor da página Connect e **cópia** na UI web local). Selecione o domínio dos pontos finais de armazenamento como **Outro (insira abaixo)** e, em seguida, forneça o ponto final do serviço blob como mostrado abaixo. Verifique a opção **Use HTTP** apenas se transferir em *http*. Se utilizar *https,* deixe a opção desmarcada. Selecione **Seguinte**.
 
     ![Painel de instrumentos da Caixa de Dados](media/data-box-verify-connection/data-box-connect-via-rest-11.png)    
 

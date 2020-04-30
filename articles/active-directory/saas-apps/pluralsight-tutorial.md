@@ -17,10 +17,10 @@ ms.date: 08/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d3659c73886f8c44dec75ab62bc9902ed6f01fd1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "70164196"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-pluralsight"></a>Tutorial: Azure Ative Diretório integração individual (SSO) com pluralsight

@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: a1db4784eb63df14b7e7971d0273512ba657df96
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68944995"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqualify-lms"></a>Tutorial: Integração do Diretório Ativo Azure com iQualify LMS
@@ -207,7 +207,7 @@ Para configurar o único signo da Azure AD com iQualify LMS, execute os seguinte
 
     d. No rótulo do **botão LOGIN** introduza o nome do botão a ser apresentado na página de login.
 
-    e. Clique em **GUARDAR**.
+    e. Clique em **SAVE**.
 
     f. Clique em **Atualizar**.
 

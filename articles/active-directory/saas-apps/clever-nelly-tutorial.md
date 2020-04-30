@@ -17,10 +17,10 @@ ms.date: 06/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ac9647bf6a9e2e763bcfb6e3d840cdccd2b6c305
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67595014"
 ---
 # <a name="tutorial-integrate-clever-nelly-with-azure-active-directory"></a>Tutorial: Integrar Clever Nelly com Diretório Ativo Azure
@@ -85,7 +85,7 @@ Siga estes passos para permitir o Azure AD SSO no portal Azure.
 
     | Ambiente | Padrão URL |
     | - | - |
-    | Test | `https://test.elephantsdontforget.com/plato`|
+    | Teste | `https://test.elephantsdontforget.com/plato`|
     | Produção | `https://secure.elephantsdontforget.com/plato` |
     | | |
 
@@ -93,7 +93,7 @@ Siga estes passos para permitir o Azure AD SSO no portal Azure.
 
     | Ambiente | Padrão URL |
     | - | - |
-    | Test | `https://test.elephantsdontforget.com/plato/callback?client_name=SAML2Client`|
+    | Teste | `https://test.elephantsdontforget.com/plato/callback?client_name=SAML2Client`|
     | Produção | `https://secure.elephantsdontforget.com/plato/callback?client_name=SAML2Client` |
     | | |
 
@@ -103,7 +103,7 @@ Siga estes passos para permitir o Azure AD SSO no portal Azure.
 
     | Ambiente | Padrão URL |
     | - | - |
-    | Test | `https://test.elephantsdontforget.com/plato/sso/microsoft/index.xhtml`|
+    | Teste | `https://test.elephantsdontforget.com/plato/sso/microsoft/index.xhtml`|
     | Produção | `https://secure.elephantsdontforget.com/plato/sso/microsoft/index.xhtml` |
     | | |
 

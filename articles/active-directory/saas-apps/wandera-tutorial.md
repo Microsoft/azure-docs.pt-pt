@@ -17,10 +17,10 @@ ms.date: 07/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d4f5004571c849d90b7d811906684e66c10ee487
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68825309"
 ---
 # <a name="tutorial-integrate-wandera-with-azure-active-directory"></a>Tutorial: Integrar wandera com diretório ativo Azure

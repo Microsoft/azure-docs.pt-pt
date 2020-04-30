@@ -17,10 +17,10 @@ ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0447a8dd464363ae7e076dde2520565005d7c0a5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67588238"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sectigo-certificate-manager"></a>Tutorial: Integração do Diretório Ativo Azure com O Gestor de Certificados da Sectigo
@@ -55,7 +55,7 @@ O Gestor de Certificados da Sectigo suporta as seguintes funcionalidades:
 
 Para integrar o Gestor de Certificados Sectigo com o Azure AD, deve adicionar o Gestor de Certificados Sectigo à sua lista de aplicações saaS geridas.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. No menu esquerdo, selecione **Azure Ative Directory**.
 
