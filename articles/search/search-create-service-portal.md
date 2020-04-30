@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 02/10/2020
 ms.openlocfilehash: 3bc3edcd0e75d8f6e3e4d6f9b200032909318040
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77209363"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Quickstart: Criar um serviço de Pesquisa Cognitiva Azure no portal
@@ -33,7 +33,7 @@ Em alternativa, [ative os benefícios do subscritor do MSDN](https://azure.micro
 
 ## <a name="find-azure-cognitive-search"></a>Encontre pesquisa cognitiva azure
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Clique no sinal de mais ("+ Criar Recurso") no canto superior esquerdo.
 3. Utilize a barra de pesquisa para encontrar "Azure Cognitive Search" ou navegue para o recurso através da Pesquisa Cognitiva **Web** > **Azure**.
 
@@ -77,7 +77,7 @@ Requisitos do nome do serviço:
 
 Como serviço Azure, a Azure Cognitive Search pode ser hospedada em datacenters em todo o mundo. A lista de regiões apoiadas pode ser consultada na página de [preços](https://azure.microsoft.com/pricing/details/search/). 
 
-Pode minimizar ou evitar taxas de largura de banda, escolhendo o mesmo local para vários serviços. Por exemplo, se estiver a indexar dados fornecidos por outro serviço Azure (armazenamento Azure, Azure Cosmos DB, Base de Dados Azure SQL), criar o seu serviço de Pesquisa Cognitiva Azure na mesma região evita taxas de largura de banda (não existem encargos para dados de saída quando os serviços estão na mesma região).
+Pode minimizar ou evitar taxas de largura de banda, escolhendo o mesmo local para vários serviços. Por exemplo, se estiver a indexar os dados fornecidos por outro serviço Azure (armazenamento Azure, Azure Cosmos DB, Base de Dados Azure SQL), criar o seu serviço de Pesquisa Cognitiva Azure na mesma região evita taxas de largura de banda (não há taxas para dados de saída quando os serviços estão na mesma região).
 
 Se estiver a usar o enriquecimento de IA, crie o seu serviço de pesquisa na mesma região que os Serviços Cognitivos. *A co-localização dos Serviços cognitivos de pesquisa e cognitivo seletiva azure na mesma região é um requisito para o enriquecimento de IA.*
 

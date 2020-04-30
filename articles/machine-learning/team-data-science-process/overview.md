@@ -12,10 +12,10 @@ ms.date: 1/10/2020
 ms.author: tdsp
 ms.custom: previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 10d6e562301e089700940ac5dfb212bcc4e09653
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79088074"
 ---
 # <a name="what-is-the-team-data-science-process"></a>O que é o Processo de Ciência de Dados da Equipa?
@@ -47,7 +47,7 @@ O ciclo de vida descreve as principais etapas que os projetos normalmente execut
 * **Compreensão de Negócios**
 * **Aquisição e Compreensão de Dados**
 * **Modelação**
-* **Implantação**
+* **Implementação**
 * **Aceitação do cliente**
 
 Aqui está uma representação visual do ciclo de vida do Processo de Ciência de Dados da **Equipa.** 

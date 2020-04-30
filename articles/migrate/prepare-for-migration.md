@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 02/17/2020
 ms.custom: MVC
 ms.openlocfilehash: eba177a254606bb847e0866ae48281a889c53f9b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78927476"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Prepare máquinas no local para migração para Azure
