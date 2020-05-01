@@ -9,10 +9,10 @@ ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
 ms.openlocfilehash: 2f920e29fafdc55478e0e2c16d683bd1c3bc81d8
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78942922"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Introdução ao Armazenamento de Lagos De Dados Azure Gen2
@@ -66,7 +66,7 @@ Seguem-se as entidades equivalentes, conforme descrito por diferentes conceitos.
 | Blobs – Armazenamento de objetos de propósito geral | Contentor              | Diretório virtual (apenas SDK – não fornece manipulação atómica) | Blobs           |
 | Armazenamento de lagos azure data Gen2 – Armazenamento analítico          | Contentor            | Diretório                                                           | Ficheiro           |
 
-## <a name="supported-blob-storage-features"></a>Recursos de armazenamento Blob suportados
+## <a name="supported-blob-storage-features"></a>Funcionalidades suportadas do Armazenamento de Blobs
 
 As funcionalidades de armazenamento blob, tais como [a exploração madeireira de diagnóstico,](../common/storage-analytics-logging.md)os níveis de [acesso,](storage-blob-storage-tiers.md)e as políticas de gestão do ciclo de [vida blob Storage](storage-lifecycle-management-concepts.md) funcionam agora com contas que têm um espaço de nome hierárquico. Por isso, pode ativar espaços hierárquicos nas suas contas de armazenamento Blob sem perder acesso a estas funcionalidades. 
 
@@ -76,7 +76,7 @@ Para obter uma lista de funcionalidades de armazenamento Blob suportadas, consul
 
 Data Lake Storage gen2 suporta vários serviços Azure que você pode usar para ingerir dados, realizar análises e criar representações visuais. Para obter uma lista de serviços Azure suportados, consulte [os serviços Azure que suportam o Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
 
-## <a name="supported-open-source-platforms"></a>Plataformas de código aberto suportadas
+## <a name="supported-open-source-platforms"></a>Plataformas open source suportadas
 
 Várias plataformas de código aberto suportam data Lake Storage Gen2. Para obter uma lista completa, consulte [plataformas Open source que suportam o Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md).
 
