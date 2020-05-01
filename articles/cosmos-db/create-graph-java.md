@@ -10,10 +10,10 @@ ms.date: 03/26/2019
 ms.author: lbosq
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
 ms.openlocfilehash: 9f9b6614c586d9c7c721dfc59da9c4a9c342b57c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77062071"
 ---
 # <a name="quickstart-build-a-graph-database-with-the-java-sdk-and-the-azure-cosmos-db-gremlin-api"></a>Quickstart: Construa uma base de dados de gráficos com o Java SDK e o Azure Cosmos DB Gremlin API
@@ -22,8 +22,8 @@ ms.locfileid: "77062071"
 > * [Consola do Gremlin](create-graph-gremlin-console.md)
 > * [.NET](create-graph-dotnet.md)
 > * [Java](create-graph-java.md)
-> * [Nó.js](create-graph-nodejs.md)
-> * [Pitão](create-graph-python.md)
+> * [Node.js](create-graph-nodejs.md)
+> * [Python](create-graph-python.md)
 > * [PHP](create-graph-php.md)
 >  
 
