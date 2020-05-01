@@ -16,10 +16,10 @@ ms.date: 01/24/2020
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
 ms.openlocfilehash: a08a071466f4f10c1364cefdda7c9c136e1e1ef5
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79137993"
 ---
 # <a name="quickstart-use-service-bus-topics-and-subscriptions-with-java"></a>Quickstart: Use tópicos de ônibus de serviço e subscrições com Java

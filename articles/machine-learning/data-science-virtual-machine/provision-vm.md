@@ -9,10 +9,10 @@ ms.author: gopalv
 ms.topic: quickstart
 ms.date: 12/31/2019
 ms.openlocfilehash: afcb676f68e7be9d3ebef11ea2c6876a86bbd062
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80281787"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>Quickstart: Configurar a máquina virtual de ciência de dados para windows

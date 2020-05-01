@@ -12,10 +12,10 @@ ms.date: 11/04/2019
 ms.custom: mvc
 ms.author: aschhab
 ms.openlocfilehash: 49a54491c36ef29209d1a53094cc5baf57057557
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79240633"
 ---
 # <a name="what-is-azure-service-bus"></a>O que é o Azure Service Bus?
@@ -119,7 +119,7 @@ Service Bus suporta bibliotecas de clientes para [.NET,](https://github.com/Azur
 O Service Bus integra-se totalmente nos seguintes serviços do Azure:
 
 * [Event Grid](https://azure.microsoft.com/services/event-grid/)
-* [Logic Apps](https://azure.microsoft.com/services/logic-apps/)
+* [Aplicações Lógicas](https://azure.microsoft.com/services/logic-apps/)
 * [Funções do Azure](https://azure.microsoft.com/services/functions/)
 * [Dynamics 365](https://dynamics.microsoft.com)
 * [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)

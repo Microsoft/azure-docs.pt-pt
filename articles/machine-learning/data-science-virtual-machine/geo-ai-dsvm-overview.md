@@ -11,10 +11,10 @@ ms.author: vijetaj
 ms.topic: overview
 ms.date: 03/05/2018
 ms.openlocfilehash: 2cefd3c7f85e043497084e2cd2b906bd546ca10d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80282278"
 ---
 # <a name="what-is-the-geo-artificial-intelligence-data-science-virtual-machine"></a>O que é a Máquina Virtual geo artificial de dados de dados?

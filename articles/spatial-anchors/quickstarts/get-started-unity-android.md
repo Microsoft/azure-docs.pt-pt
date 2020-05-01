@@ -9,10 +9,10 @@ ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 7acff7f0249cdedcebd367fc315be92cafb9ab78
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77615447"
 ---
 # <a name="quickstart-create-a-unity-android-app-with-azure-spatial-anchors"></a>Quickstart: Criar uma app Android unidade com âncoras espaciais Azure
