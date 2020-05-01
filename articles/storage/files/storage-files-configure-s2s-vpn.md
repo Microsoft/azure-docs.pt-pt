@@ -8,10 +8,10 @@ ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: ae3d38d92990d7a1af4146c25b017286ebd29352
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80061026"
 ---
 # <a name="configure-a-site-to-site-vpn-for-use-with-azure-files"></a>Configure uma VPN site-to-site para utilização com ficheiros Azure
@@ -35,7 +35,7 @@ O artigo detalha os passos para configurar uma VPN site-to-site para montar as a
 ## <a name="add-storage-account-to-vnet"></a>Adicionar conta de armazenamento à VNet
 No portal Azure, navegue para a conta de armazenamento que contém a partilha de ficheiros Azure que deseja montar no local. Na tabela de conteúdos para a conta de armazenamento, selecione as Firewalls e a entrada de **redes virtuais.** A menos que tenha adicionado uma rede virtual à sua conta de armazenamento quando a criou, o painel resultante deve ter o **acesso permitir** a partir do botão de rádio para todas as **redes** selecionadas.
 
-Para adicionar a sua conta de armazenamento à rede virtual desejada, selecione **redes Selecionadas**. Na subposição de **redes Virtuais,** clique em ou + Adicione a **rede virtual existente** ou **+Adicione uma nova rede virtual** dependendo do estado pretendido. A criação de uma nova rede virtual resultará na criação de um novo recurso Azure. O novo ou existente recurso VNet não precisa de estar no mesmo grupo de recursos ou subscrição que a conta de armazenamento, no entanto deve estar na mesma região que a conta de armazenamento e o grupo de recursos e subscrição em que implementa o seu VNet deve corresponder ao que irá implementar o seu VPN Gateway para. 
+Para adicionar a sua conta de armazenamento à rede virtual desejada, selecione **redes Selecionadas**. Na subposição de **redes Virtuais,** clique em ou + Adicione a **rede virtual existente** ou **+Adicione uma nova rede virtual** dependendo do estado pretendido. A criação de uma nova rede virtual resultará na criação de um novo recurso Azure. O novo ou existente recurso VNet não precisa de estar no mesmo grupo de recursos ou subscrição que a conta de armazenamento, no entanto deve estar na mesma região que a conta de armazenamento e o grupo de recursos e subscrição em que implementa o seu VNet deve corresponder ao em que irá implantar o seu VpN Gateway. 
 
 ![Screenshot do portal Azure dando a opção de adicionar uma rede virtual existente ou nova à conta de armazenamento](media/storage-files-configure-s2s-vpn/add-vnet-1.png)
 

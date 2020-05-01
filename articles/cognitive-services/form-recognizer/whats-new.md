@@ -11,7 +11,7 @@ ms.date: 04/14/2020
 ms.author: pafarley
 ms.openlocfilehash: 5f8c66db491b93278fedf1378d3df86e7ce5fdbf
 ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/29/2020
 ms.locfileid: "81531087"
