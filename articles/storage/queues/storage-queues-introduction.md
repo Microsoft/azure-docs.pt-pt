@@ -9,10 +9,10 @@ ms.subservice: queues
 ms.topic: overview
 ms.reviewer: cbrooks
 ms.openlocfilehash: 4a2bea77578282d68d86bc1a8cea765aa2cbd555
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80060854"
 ---
 # <a name="what-are-azure-queues"></a>O que são as filas do Azure?

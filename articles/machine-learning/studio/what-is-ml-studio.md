@@ -12,10 +12,10 @@ ms.subservice: studio
 ms.topic: overview
 ms.date: 03/24/2020
 ms.openlocfilehash: c1772ceb514e46542129759711f2d45db39abf82
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80371980"
 ---
 # <a name="what-is-machine-learning-studio-classic"></a>O que é o Estúdio de Aprendizagem automática (clássico)?

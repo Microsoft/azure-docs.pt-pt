@@ -16,10 +16,10 @@ ms.date: 01/27/2020
 ms.author: aschhab
 ms.custom: seo-javascript-september2019, seo-javascript-october2019
 ms.openlocfilehash: 7ee3939c1a1b450f2458267ab0b70e3924a4869b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78330605"
 ---
 # <a name="quickstart-use-service-bus-queues-in-azure-with-nodejs-and-the-azure-sb-package"></a>Quickstart: Use filas de ônibus de serviço em Azure com Node.js e o pacote azure-sb
@@ -182,7 +182,7 @@ serviceBusService.receiveQueueMessage('myqueue', { isPeekLock: true }, function(
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Como processar falhas da aplicação e mensagens ilegíveis
 O Service Bus fornece funcionalidades para ajudar a recuperar corretamente de erros na sua aplicação ou problemas no processamento de uma mensagem. Se uma aplicação recetora não conseguir processar a mensagem `unlockMessage` por alguma razão, então pode ligar para o método no objeto **ServiceBusService.** fará com que a Service Bus desbloqueie a mensagem dentro da fila e a disponibilize para ser recebida novamente, quer pela mesma aplicação consumista, quer por outra aplicação consumista.
 
-Há também um intervalo associado a uma mensagem bloqueada dentro da fila, e se a aplicação não processar a mensagem antes do tempo de bloqueio expirar (por exemplo, se a aplicação falhar), então o Service Bus desbloqueia a mensagem automaticamente e a tornará disponível para ser recebido novamente.
+Há também um intervalo associado a uma mensagem bloqueada dentro da fila, e se a aplicação não processar a mensagem antes do prazo de bloqueio expirar (por exemplo, se a aplicação falhar), então o Service Bus irá desbloquear a mensagem automaticamente e disponibilizá-la para ser recebida novamente.
 
 No caso de a aplicação se falhar `deleteMessage` após o processamento da mensagem, mas antes de o método ser chamado, a mensagem será reentregue à aplicação quando recomeçar. Esta abordagem é muitas vezes chamada *de Pelo Menos Uma Vez Processamento*, ou seja, cada mensagem será processada pelo menos uma vez, mas em certas situações a mesma mensagem pode ser retransmitida. Se o cenário não tolerar o processamento duplicado, então os desenvolvedores de aplicações devem adicionar lógica adicional à sua aplicação para lidar com a entrega de mensagens duplicadas. É frequentemente conseguido usando a propriedade **MessageId** da mensagem, que permanecerá constante através de tentativas de entrega.
 

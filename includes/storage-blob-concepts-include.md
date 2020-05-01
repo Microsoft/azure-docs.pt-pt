@@ -9,10 +9,10 @@ ms.date: 11/05/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: e90e750bf248bdcc8e50c6ddc6e9fa0273660195
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79136023"
 ---
 O Armazenamento de Blobs do Azure é a solução de armazenamento de objetos da Microsoft para a cloud. O Armazenamento de blobs está otimizado para armazenar quantidades em grande escala de dados não estruturados. Dados não estruturados são dados que não aderem a um determinado modelo ou definição de dados, como texto ou dados binários.
@@ -32,8 +32,8 @@ Os utilizadores ou aplicações de clientes podem aceder a objetos no armazename
 
 * [.NET](/dotnet/api/overview/azure/storage?view=azure-dotnet)
 * [Java](https://docs.microsoft.com/java/api/overview/azure/storage)
-* [Nó.js](https://azure.github.io/azure-storage-node) 
-* [Pitão](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-python)
+* [Node.js](https://azure.github.io/azure-storage-node) 
+* [Python](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-python)
 * [Ir](https://github.com/azure/azure-storage-blob-go/)
 * [PHP](https://azure.github.io/azure-storage-php/)
 * [Ruby](https://azure.github.io/azure-storage-ruby)
