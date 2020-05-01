@@ -8,10 +8,10 @@ ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: cfff05ed52258ee448d83a521b99dca7d356a0f9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80061050"
 ---
 # <a name="configure-a-point-to-site-p2s-vpn-on-linux-for-use-with-azure-files"></a>Configure uma VPN ponto-a-local (P2S) no Linux para utilização com ficheiros Azure
@@ -42,7 +42,7 @@ installDir="/etc/"
 ### <a name="deploy-a-virtual-network"></a>Implementar uma rede virtual 
 Para aceder à sua partilha de ficheiros Azure e outros recursos Azure a partir de instalações através de uma VPN Ponto-a-Site, tem de criar uma rede virtual, ou VNet. A ligação VPN P2S que irá criar automaticamente é uma ponte entre a sua máquina Linux no local e esta rede virtual Azure.
 
-O seguinte script criará uma rede virtual Azure com três subnets: uma para o ponto final de serviço da sua conta de armazenamento, uma para o ponto final privado da sua conta de armazenamento, que é necessária para aceder à conta de armazenamento no local sem criar personalizado encaminhamento para o IP público da conta de armazenamento que pode mudar, e um para o seu gateway de rede virtual que fornece o serviço VPN. 
+O seguinte script criará uma rede virtual Azure com três subredes: uma para o ponto final de serviço da sua conta de armazenamento, uma para o ponto final privado da sua conta de armazenamento, que é necessária para aceder à conta de armazenamento no local sem criar encaminhamento personalizado para o IP público da conta de armazenamento que pode mudar, e uma para o seu portal de rede virtual que fornece o serviço VPN. 
 
 Lembre-se `<region>` `<resource-group>`de `<desired-vnet-name>` substituir, e com os valores apropriados para o seu ambiente.
 
@@ -82,7 +82,7 @@ gatewaySubnet=$(az network vnet subnet create \
 ```
 
 ## <a name="create-certificates-for-vpn-authentication"></a>Criar certificados para autenticação VPN
-Para que as ligações VPN das suas máquinas Linux no local sejam autenticadas para aceder à sua rede virtual, deve criar dois certificados: um certificado de raiz, que será fornecido ao portal da máquina virtual, e um certificado de cliente, que será assinado com o certificado de raiz. O seguinte script cria os certificados necessários.
+Para que as ligações VPN das suas máquinas Linux no local sejam autenticadas para aceder à sua rede virtual, deve criar dois certificados: um certificado de raiz, que será fornecido ao portal da máquina virtual, e um certificado de cliente, que será assinado com o certificado raiz. O seguinte script cria os certificados necessários.
 
 ```bash
 rootCertName="P2SRootCert"

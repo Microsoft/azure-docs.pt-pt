@@ -4,10 +4,10 @@ description: Saiba como configurar um recipiente Linux personalizado no Serviço
 ms.topic: article
 ms.date: 03/28/2019
 ms.openlocfilehash: 6baa1fbd4932aa83a54081ff166dcae7f258fff9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79280147"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Configure um recipiente linux personalizado para o Serviço de Aplicações Azure
