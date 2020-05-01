@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 08/27/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: dee1d5a744ddfc2ad38cbe93447377a8af27a2f7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 74c412ad4c62a5821890aa5602b521f3f63da925
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75376662"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594768"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>Tutorial: Configurar um ambiente Jenkins para ativar o CI/CD para uma aplicação Java no Service Fabric
 
@@ -85,7 +85,7 @@ Pode configurar o Jenkins dentro ou fora de um cluster do Service Fabric. As ins
 
    a. Na secção geral, selecione a caixa de verificação de **Projeto do GitHub** e especifique o URL do seu projeto do GitHub. Este URL aloja a aplicação Java do Service Fabric que pretende integrar no fluxo de integração contínua do Jenkins e implementação contínua (CI/CD) (por exemplo, ``https://github.com/testaccount/dev_test``).
 
-   b. Na secção **Gestão de Código Fonte**, selecione **Git**. Especifique o URL de repositório que acolhe a aplicação Service Fabric Java *https://github.com/testaccount/dev_test.git*que pretende integrar com o fluxo de CI/CD Jenkins (por exemplo, ). Também pode especificar aqui o ramo a compilar, (por exemplo, **/master**).
+   b. Na secção **Gestão de Código Fonte**, selecione **Git**. Especifique o URL de repositório que acolhe a aplicação Service Fabric Java *`https://github.com/testaccount/dev_test.git`* que pretende integrar com o fluxo de CI/CD Jenkins (por exemplo, ). Também pode especificar aqui o ramo a compilar, (por exemplo, **/master**).
 
 1. Configure o seu *GitHub* (o que está a alojar o repositório) para que seja capaz de comunicar com o Jenkins. Utilize os passos seguintes:
 

@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 04/23/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 81adf005c2e39d9bb585c005f51ab3f89e4c8ff0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a0bd89a2ffdc15e192e51660c58c1d66efa1284a
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82209133"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598458"
 ---
 # <a name="what-is-azure-firewall"></a>O que é o Azure Firewall?
 
@@ -122,6 +122,7 @@ As regras de filtragem de rede para protocolos não TCP/UDP (por exemplo, ICMP) 
 |O DNAT não é suportado com túnel forçado habilitado|As firewalls implantadas com túneis forçados ativados não suportam o acesso à entrada da Internet devido ao encaminhamento assimétrico.|Isto é por design por causa do encaminhamento assimétrico. O caminho de retorno para ligações de entrada passa pela firewall no local, que não viu a ligação estabelecida.
 |O FTP passivo de saída não funciona para firewalls com vários endereços IP públicos.|O FTP passivo estabelece diferentes ligações para os canais de controlo e dados. Quando um Firewall com vários endereços IP públicos envia dados de saída, ele seleciona aleatoriamente um dos seus endereços IP públicos para o endereço IP fonte. O FTP falha quando os canais de dados e de controlo utilizam diferentes endereços IP de origem.|Está prevista uma configuração sNAT explícita. Entretanto, considere utilizar um único endereço IP nesta situação.|
 |A métrica NetworkRuleHit está a perder uma dimensão de protocolo|A métrica ApplicationRuleHit permite filtrar o protocolo baseado, mas esta capacidade está em falta na métrica correspondente do NetworkRuleHit.|Uma correção está a ser investigada.|
+|As regras do NAT com portos entre 64000 e 65535 não são apoiadas|O Azure Firewall permite qualquer porta na gama 1-65535 nas regras de rede e aplicação, no entanto as regras na NAT apenas suportam portas na gama 1-63999.|Esta é uma limitação atual.
 |As atualizações de configuração podem demorar, em média, cinco minutos.|Uma atualização de configuração de Firewall Azure pode demorar entre 3 a 5 minutos, em média, e as atualizações paralelas não são suportadas.|Uma correção está a ser investigada.
 
 ## <a name="next-steps"></a>Passos seguintes

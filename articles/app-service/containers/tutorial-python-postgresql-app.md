@@ -9,12 +9,12 @@ ms.custom:
 - seodec18
 - seo-python-october2019
 - cli-validate
-ms.openlocfilehash: 0c9329b46d096df1afab6f7e457d143f9c6504be
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 504e2f7c07d8d29e4fe4dad52dc008c895517a3d
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82085761"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82609787"
 ---
 # <a name="tutorial-deploy-a-python-django-web-app-with-postgresql-in-azure-app-service"></a>Tutorial: Implemente uma aplicação web Python (Django) com PostgreSQL no Serviço de Aplicações Azure
 
@@ -133,7 +133,7 @@ Quando o comando terminar, encontre as `Ran Database Query:`linhas de saída com
 
 <!-- not all locations support az postgres up -->
 > [!TIP]
-> Para especificar a localização do seu servidor `--location <location-name>`Postgres, inclua o argumento, onde `<location_name>` está uma das [regiões do Azure.](https://azure.microsoft.com/global-infrastructure/regions/) Pode obter as regiões disponíveis para [`az account list-locations`](/cli/azure/account#az-account-list-locations) a sua subscrição com o comando.
+> `--location <location-name>`, pode ser definido para qualquer uma das [regiões de Azure.](https://azure.microsoft.com/global-infrastructure/regions/) Pode obter as regiões disponíveis para [`az account list-locations`](/cli/azure/account#az-account-list-locations) a sua subscrição com o comando. Para aplicações de produção, coloque a sua base de dados e a sua aplicação no mesmo local.
 
 ## <a name="deploy-the-app-service-app"></a>Implementar a app App Service
 
@@ -149,7 +149,7 @@ Certifique-se de que está de volta`djangoapp`à raiz do repositório , porque a
 Crie uma aplicação [`az webapp up`](/cli/azure/webapp#az-webapp-up) de Serviço de Aplicações com o comando, como mostra o seguinte exemplo. Substitua * \<o nome da aplicação>* por um nome *único* (o ponto final do servidor é *https://\<nome de aplicação>.azurewebsites.net*). Os caracteres permitidos para `A` - `Z` `0` - `9` * \<>de nome de aplicativo* são , e `-`.
 
 ```azurecli
-az webapp up --plan myAppServicePlan --sku B1 --name <app-name>
+az webapp up --plan myAppServicePlan --location westus2 --sku B1 --name <app-name>
 ```
 <!-- !!! without --sku creates PremiumV2 plan!! -->
 
@@ -183,10 +183,10 @@ Uma vez terminada a implantação, vê-se uma saída JSON como a seguinte:
 Copiar o valor do * \<grupo de recursos de aplicações>*. Precisa dele para configurar a aplicação mais tarde. 
 
 > [!TIP]
-> Pode utilizar o mesmo comando mais tarde para implementar quaisquer alterações e ativar imediatamente os registos de diagnóstico com:
+> As configurações pertinentes são guardadas num diretório *oculto .azure* no seu repositório. Pode utilizar o comando simples mais tarde para recolocar quaisquer alterações e ativar imediatamente os registos de diagnóstico com:
 > 
 > ```azurecli
-> az webapp up --name <app-name>
+> az webapp up
 > ```
 
 O código da amostra está agora implementado, mas a aplicação ainda não se liga à base de dados postgres em Azure. Vais fazer isto a seguir.
@@ -219,8 +219,6 @@ cd site/wwwroot
 
 # Activate default virtual environment in App Service container
 source /antenv/bin/activate
-# Install requirements in environment
-pip install -r requirements.txt
 # Run database migrations
 python manage.py migrate
 # Create the super user (follow prompts)
@@ -358,7 +356,7 @@ python manage.py runserver
 Para recolocar as alterações, execute o seguinte comando a partir da raiz do repositório:
 
 ```azurecli
-az webapp up --name <app-name>
+az webapp up
 ```
 
 O Serviço de Aplicações deteta que a aplicação existe e apenas implementa o código.

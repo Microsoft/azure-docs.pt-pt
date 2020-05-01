@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 04/10/2020
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3dd971cec33fa9f840a48e597fb3bed9a7965895
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fd4268ecad91a023683d1d6f955178fb87d78f87
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82160022"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612848"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>O que é o Windows Virtual Desktop? 
 
@@ -98,9 +98,12 @@ As máquinas virtuais Azure que cria para o Windows Virtual Desktop devem ter ac
 |prod.warmpath.msftcloudes.com|443|Tráfego de agente|AzureCloud|
 |catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
 |kms.core.windows.net|1688|Ativação do Windows|Internet|
+|wvdportalstorageblob.blob.core.windows.net|443|Suporte do portal Azure|AzureCloud|
 
 >[!IMPORTANT]
 >Recomendamos que utilize as etiquetas de serviço em vez de URLs na maioria dos casos para evitar problemas de serviço. Desbloquear estes URLs é essencial para uma implementação fiável do Windows Virtual Desktop. O bloqueio do acesso a estes URLs não é suportado e afetará a funcionalidade do serviço. Estes URLs apenas correspondem a sites e recursos do Windows Virtual Desktop, e não incluem URLs para outros serviços como o Azure Ative Directory.
+>
+>O Windows Virtual Desktop suporta agora a etiqueta FQDN.
 
 A tabela a seguir lista URLs opcionais a que as suas máquinas virtuais Azure possam ter acesso:
 
@@ -193,7 +196,9 @@ As opções disponíveis de automação e implementação dependem do SISTEMA e 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para começar, terá de criar um inquilino. Para saber mais sobre como criar um inquilino, continue para o tutorial de criação de inquilinos.
+Se estiver a utilizar o lançamento do Windows Virtual Desktop Fall 2019, pode começar com o nosso tutorial na [Create a tenant in Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
+
+Se estiver a utilizar o lançamento do Windows Virtual Desktop Spring 2020, terá de criar uma piscina de anfitriões. Dirija-se ao seguinte tutorial para começar.
 
 > [!div class="nextstepaction"]
-> [Criar um inquilino no Windows Virtual Desktop](tenant-setup-azure-active-directory.md)
+> [Crie uma piscina de acolhimento com o portal Azure](create-host-pools-azure-marketplace.md)

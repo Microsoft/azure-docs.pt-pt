@@ -12,12 +12,12 @@ ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73aa01ea08c8bab1395516c31bb46dbfd88045db
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 10d0f949fb2a5755512a30dcca011690d86a7e7b
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79481420"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597727"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutorial: Adicione um pedido no local para acesso remoto através de Application Proxy no Diretório Ativo Azure
 
@@ -47,10 +47,12 @@ Para utilizar o Proxy da Aplicação, necessita de um servidor Windows que execu
 Para uma elevada disponibilidade no seu ambiente de produção, recomendamos ter mais do que um servidor Windows. Para este tutorial, um servidor Windows é suficiente.
 
 > [!IMPORTANT]
-> Se estiver a instalar o conector no Windows Server 2019, existe uma limitação http2. Uma suver para utilizar o conector nesta versão está a adicionar a seguinte tecla de registo e reiniciar o servidor. Nota: esta é uma chave de registo de máquinas. 
-    ```
-    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
-    ```
+> Se estiver a instalar o conector no Windows Server 2019, deve desativar o suporte do protocolo HTTP2 no componente WinHttp. Isto é desativado por padrão em versões anteriores de sistemas operativos suportados. Adicionar a seguinte tecla de registo e reiniciar o servidor desativa-a no Windows Server 2019. Note que esta é uma chave de registo em toda a máquina.
+>
+> ```
+> HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
+> ```
+>
 
 #### <a name="recommendations-for-the-connector-server"></a>Recomendações para o servidor de conector
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 04/29/2020
 ms.author: aahi
-ms.openlocfilehash: 3c183f6d0e2d80ed497654448a726a1562bd046c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: aa1cb6e9fdd504622b2f444d511a8dd0e5fc1ca8
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80874361"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82608388"
 ---
 # <a name="use-speech-service-containers-with-kubernetes-and-helm"></a>Utilize recipientes de serviço de fala com Kubernetes e Helm
 

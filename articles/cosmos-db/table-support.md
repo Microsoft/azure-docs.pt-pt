@@ -8,12 +8,12 @@ ms.date: 12/02/2019
 author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
-ms.openlocfilehash: 82397e49e473b8660dfada54a0e05cafe0da4120
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 65cc378ab5b6fd7d2ed724f56a68bdf989ced48c
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76770676"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611726"
 ---
 # <a name="developing-with-azure-cosmos-db-table-api-and-azure-table-storage"></a>Programar com a API de Tabela do Azure Cosmos DB e o armazenamento de Tabelas do Azure
 
@@ -34,7 +34,7 @@ Neste momento, a [API de Tabela do Azure Cosmos DB](table-introduction.md) tem q
 * [Node.js SDK](table-sdk-nodejs.md): Este SDK de Armazenamento Azure tem a capacidade de se ligar às contas DoM Do MDS da Azure utilizando a Tabela API.
 
 
-Estão disponíveis informações adicionais sobre como trabalhar com a API de Tabela no artigo [FAQ: Programar com a API de Tabela](faq.md#table).
+Estão disponíveis informações adicionais sobre como trabalhar com a API de Tabela no artigo [FAQ: Programar com a API de Tabela](table-api-faq.md).
 
 ## <a name="developing-with-azure-table-storage"></a>Programar com o armazenamento de Tabelas do Azure
 

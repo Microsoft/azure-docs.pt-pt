@@ -7,12 +7,12 @@ services: web-application-firewall
 ms.topic: tutorial
 ms.date: 03/18/2020
 ms.author: victorh
-ms.openlocfilehash: 738be1361bfbd944575abceb08781b241336f6e8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7a9e0cc3977892fd899b4a25e17ad72f13481506
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79485595"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82608818"
 ---
 # <a name="tutorial-create-a-waf-policy-on-azure-cdn-using-the-azure-portal"></a>Tutorial: Criar uma política waf no Azure CDN usando o portal Azure
 
@@ -22,7 +22,7 @@ Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar uma política waf
-> * Associe-o a um ponto final da CDN
+> * Associe-o a um ponto final da CDN. Só pode associar uma política waf com pontos finais hospedados no **Azure CDN Standard da Microsoft** SKU.
 > * Configure as regras waf
 
 ## <a name="prerequisites"></a>Pré-requisitos

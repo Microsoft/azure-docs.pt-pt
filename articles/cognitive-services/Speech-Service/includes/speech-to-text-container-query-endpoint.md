@@ -4,14 +4,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 04/01/2020
+ms.date: 04/29/2020
 ms.author: aahi
-ms.openlocfilehash: 1773e22a54cc86e7736c91e4be757caa0250cbf7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e5f38da6a18e8a4c59bea77f4ddd5a68db1e1902
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81422117"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610752"
 ---
 ### <a name="speech-to-text-or-custom-speech-to-text"></a>Discurso-a-texto ou Discurso Personalizado-a-texto
 
@@ -36,6 +36,7 @@ a esta chamada utilizando o [hospedeiro](https://docs.microsoft.com/dotnet/api/m
 var config = SpeechConfig.FromHost(
     new Uri("ws://localhost:5000"));
 ```
+
 # <a name="python"></a>[Python](#tab/python)
 
 Mude de utilização desta chamada de inicialização azure-cloud:
@@ -45,11 +46,4 @@ speech_config = speechsdk.SpeechConfig(
     subscription=speech_key, region=service_region)
 ```
 
-a esta chamada utilizando o [hospedeiro](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python)do contentor:
-
-```python
-speech_config = speechsdk.SpeechConfig(
-    host="ws://localhost:5000")
-```
-
-***
+---

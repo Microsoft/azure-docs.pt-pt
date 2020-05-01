@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/03/2019
-ms.openlocfilehash: 488664b028568b3014b9b839122705d35104861e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 79b8cfd3f50ffd9f1c6b36dd73942ed3ddc5929f
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79239309"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594921"
 ---
 # <a name="tutorial-analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Tutorial: Analise os dados da chamada telefónica com o Stream Analytics e visualize os resultados no dashboard Power BI
 
@@ -264,7 +264,7 @@ Pode testar uma consulta do editor de consultas com dados de exemplo. Execute os
 
 Para esta parte do tutorial, você usará uma amostra [ASP.NET](https://asp.net/) aplicação web criada pela equipa power BI para incorporar o seu dashboard. Para obter mais informações sobre a incorporação de dashboards, veja o artigo [Incorporação com o Power BI](https://docs.microsoft.com/power-bi/developer/embedding).
 
-Para configurar a aplicação, dirija-se ao repositório [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) GitHub e siga as instruções sob a secção **User Owns Data** (utilize os URLs de redirecionamento e página inicial sob a subsecção de **aplicações web integradas).** Uma vez que estamos a usar o exemplo do Dashboard, utilize o código de amostra **de aplicação web integrado** localizado no [repositório GitHub](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User%20Owns%20Data/integrate-web-app).
+Para configurar a aplicação, dirija-se ao repositório [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) GitHub e siga as instruções sob a secção **User Owns Data** (utilize os URLs de redirecionamento e página inicial sob a subsecção de **aplicações web integradas).** Uma vez que estamos a usar o exemplo do Dashboard, utilize o código de amostra **de aplicação web integrado** localizado no [repositório GitHub](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Framework/User%20Owns%20Data/integrate-web-app).
 Quando a aplicação estiver em execução no browser, siga estes passos para incorporar o dashboard que criou anteriormente na página Web:
 
 1. Selecione **Iniciar sessão no Power BI,** que concede à aplicação acesso aos dashboards na sua conta Power BI.

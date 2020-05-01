@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 04/29/2020
 ms.author: aahi
-ms.openlocfilehash: 2caae4fecdf13a1833f23cf9423cf3ded67f6f72
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d5283051de50b84ea87c0f02a391652854067168
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80879032"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610751"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Instalar e executar recipientes de serviço de fala (Pré-visualização)
 
@@ -28,7 +28,7 @@ Os recipientes de fala permitem aos clientes construir uma arquitetura de aplica
 
 | Função | Funcionalidades | Últimas |
 |--|--|--|
-| Conversão de voz em texto | Transcreve gravações contínuas de fala em tempo real ou de áudio em texto com resultados intermédios. | 2.1.1 |
+| Conversão de voz em texto | Analisa o sentimento e transcreve gravações contínuas de fala em tempo real ou gravações áudio de lote com resultados intermédios.  | 2.2.0 |
 | Discurso personalizado a texto | Utilizando um modelo personalizado do [portal Custom Speech,](https://speech.microsoft.com/customspeech)transcreve gravações contínuas de fala em tempo real ou gravações áudio em lote em texto com resultados intermédios. | 2.1.1 |
 | Conversão de texto em voz | Converte o texto em discurso de som natural com entrada de texto simples ou linguagem de marcação de síntese da fala (SSML). | 1.3.0 |
 | Texto-a-fala personalizado | Utilizando um modelo personalizado do [portal Voz Personalizada,](https://aka.ms/custom-voice-portal)converte texto em discurso de som natural com entrada de texto simples ou linguagem de marcação de síntese da fala (SSML). | 1.3.0 |
@@ -164,7 +164,7 @@ Todas as etiquetas, com exceção `latest` das que estão no seguinte formato e 
 A seguinte etiqueta é um exemplo do formato:
 
 ```
-2.1.1-amd64-en-us-preview
+2.2.0-amd64-en-us-preview
 ```
 
 Para todos os locais apoiados do recipiente **de discurso a texto,** consulte [as etiquetas](../containers/container-image-tags.md#speech-to-text)de imagem do Discurso ao Texto .
@@ -258,6 +258,33 @@ Este comando:
 * Atribui 4 núcleos cpu e 4 gigabytes (GB) de memória.
 * Expõe a porta TCP 5000 e atribui um pseudo-TTY para o recipiente.
 * Remove automaticamente o recipiente após a sua saída. A imagem do recipiente ainda está disponível no computador hospedeiro.
+
+
+#### <a name="analyze-sentiment-on-the-speech-to-text-output"></a>Analisar o sentimento sobre a saída fala-a-texto 
+
+A partir do v2.2.0 do recipiente de fala-a-texto, pode chamar a análise de [sentimento v3 API](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md) na saída. Para chamar a análise de sentimentos, você precisará de um ponto final de recurso API de Análise de Texto. Por exemplo: 
+* `https://westus2.api.cognitive.microsoft.com/text/analytics/v3.0-preview.1/sentiment`
+* `https://localhost:5000/text/analytics/v3.0-preview.1/sentiment`
+
+Se estiver a aceder a um ponto final de análise de texto na nuvem, vai precisar de uma chave. Se estiver a executar o Text Analytics localmente, pode não precisar de fornecer isto.
+
+A chave e o ponto final são passados para o contentor da Fala como argumentos, como no exemplo seguinte.
+
+```bash
+docker run -it --rm -p 5000:5000 \
+containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text:latest \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY} \
+CloudAI:SentimentAnalysisSettings:TextAnalyticsHost={TEXT_ANALYTICS_HOST} \
+CloudAI:SentimentAnalysisSettings:SentimentAnalysisApiKey={SENTIMENT_APIKEY}
+```
+
+Este comando:
+
+* Executa os mesmos passos que o comando acima.
+* Armazena um ponto final e chave da API de Análise de Texto, para o envio de pedidos de análise de sentimentos. 
+
 
 # <a name="custom-speech-to-text"></a>[Discurso personalizado a texto](#tab/cstt)
 
@@ -380,6 +407,9 @@ Este comando:
 
 ## <a name="query-the-containers-prediction-endpoint"></a>Consulta do ponto final da previsão do recipiente
 
+> [!NOTE]
+> Utilize um número de porta único se estiver a executar vários contentores.
+
 | Contentores | URL do hospedeiro SDK | Protocolo |
 |--|--|--|
 | Discurso-a-texto e Discurso Personalizado-a-texto | `ws://localhost:5000` | WS |
@@ -388,6 +418,121 @@ Este comando:
 Para obter mais informações sobre a utilização dos protocolos WSS e HTTPS, consulte a [segurança dos contentores.](../cognitive-services-container-support.md#azure-cognitive-services-container-security)
 
 [!INCLUDE [Query Speech-to-text container endpoint](includes/speech-to-text-container-query-endpoint.md)]
+
+#### <a name="analyze-sentiment"></a>Analisar sentimento
+
+Se forneceu as suas credenciais de API de Análise de Texto [ao recipiente,](#analyze-sentiment-on-the-speech-to-text-output)pode utilizar o SDK do Discurso para enviar pedidos de reconhecimento de voz com análise de sentimento. Pode configurar as respostas da API para utilizar um formato *simples* ou *detalhado.*
+
+# <a name="simple-format"></a>[Formato simples](#tab/simple-format)
+
+Para configurar o cliente Da fala `"Sentiment"` para usar `Simple.Extensions`um formato simples, adicione como valor para . Se quiser escolher uma versão específica do `'latest'` modelo `speechcontext-phraseDetection.sentimentAnalysis.modelversion` Text Analytics, substitua-a na configuração da propriedade.
+
+```python
+speech_config.set_service_property(
+    name='speechcontext-PhraseOutput.Simple.Extensions',
+    value='["Sentiment"]',
+    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+)
+speech_config.set_service_property(
+    name='speechcontext-phraseDetection.sentimentAnalysis.modelversion',
+    value='latest',
+    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+)
+```
+
+`Simple.Extensions`devolverá o resultado do sentimento na camada raiz da resposta.
+
+```json
+{
+   "DisplayText":"What's the weather like?",
+   "Duration":13000000,
+   "Id":"6098574b79434bd4849fee7e0a50f22e",
+   "Offset":4700000,
+   "RecognitionStatus":"Success",
+   "Sentiment":{
+      "Negative":0.03,
+      "Neutral":0.79,
+      "Positive":0.18
+   }
+}
+```
+
+# <a name="detailed-format"></a>[Formato detalhado](#tab/detailed-format)
+
+Para configurar o cliente da Fala `"Sentiment"` para usar `Detailed.Extensions`um `Detailed.Options`formato detalhado, adicione como valor para, ou ambos. Se quiser escolher uma versão específica do `'latest'` modelo `speechcontext-phraseDetection.sentimentAnalysis.modelversion` Text Analytics, substitua-a na configuração da propriedade.
+
+```python
+speech_config.set_service_property(
+    name='speechcontext-PhraseOutput.Detailed.Options',
+    value='["Sentiment"]',
+    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+)
+speech_config.set_service_property(
+    name='speechcontext-PhraseOutput.Detailed.Extensions',
+    value='["Sentiment"]',
+    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+)
+speech_config.set_service_property(
+    name='speechcontext-phraseDetection.sentimentAnalysis.modelversion',
+    value='latest',
+    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+)
+```
+
+`Detailed.Extensions`fornece o resultado do sentimento na camada raiz da resposta. `Detailed.Options`fornece o resultado `NBest` em camada da resposta. Podem ser usados separadamente ou em conjunto.
+
+```json
+{
+   "DisplayText":"What's the weather like?",
+   "Duration":13000000,
+   "Id":"6a2aac009b9743d8a47794f3e81f7963",
+   "NBest":[
+      {
+         "Confidence":0.973695,
+         "Display":"What's the weather like?",
+         "ITN":"what's the weather like",
+         "Lexical":"what's the weather like",
+         "MaskedITN":"What's the weather like",
+         "Sentiment":{
+            "Negative":0.03,
+            "Neutral":0.79,
+            "Positive":0.18
+         }
+      },
+      {
+         "Confidence":0.9164971,
+         "Display":"What is the weather like?",
+         "ITN":"what is the weather like",
+         "Lexical":"what is the weather like",
+         "MaskedITN":"What is the weather like",
+         "Sentiment":{
+            "Negative":0.02,
+            "Neutral":0.88,
+            "Positive":0.1
+         }
+      }
+   ],
+   "Offset":4700000,
+   "RecognitionStatus":"Success",
+   "Sentiment":{
+      "Negative":0.03,
+      "Neutral":0.79,
+      "Positive":0.18
+   }
+}
+```
+
+---
+
+Se quiser desativar completamente `false` a `sentimentanalysis.enabled`análise de sentimentos, adicione um valor a .
+
+```python
+speech_config.set_service_property(
+    name='speechcontext-phraseDetection.sentimentanalysis.enabled',
+    value='false',
+    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+)
+```
 
 ### <a name="text-to-speech-or-custom-text-to-speech"></a>Texto-a-fala ou texto personalizado-a-fala
 

@@ -1,73 +1,91 @@
 ---
-title: Implementar o Azure Firewall através de um modelo
-description: Implementar firewall azure usando um modelo. A rede criada tem um VNet com três subnets. Duas máquinas virtuais do Windows Server de dois núcleos estão implantadas.
+title: 'Quickstart: Criar uma Firewall Azure com Zonas de Disponibilidade - Modelo de Gestor de Recursos'
+description: Implementar firewall azure usando um modelo. A rede virtual tem um VNet com três subnets. Duas máquinas virtuais do Windows Server estão implantadas; uma caixa de salto e um servidor.
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: article
-ms.date: 11/19/2019
+ms.topic: quickstart
+ms.date: 04/30/2020
 ms.author: victorh
-ms.openlocfilehash: b9e82998283bf44eede88148a12d88aae521b1ca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 17ab693033b61c25ba2f5b5bd588ef52caf8c046
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74169206"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597710"
 ---
-# <a name="deploy-azure-firewall-using-a-template"></a>Implementar o Azure Firewall através de um modelo
+# <a name="quickstart-deploy-azure-firewall-with-availability-zones---resource-manager-template"></a>Quickstart: Implementar firewall azure com zonas de disponibilidade - modelo de gestor de recursos
 
-O modelo de configuração de caixa de [areia Create AzureFirewall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-with-zones-sandbox) cria um ambiente de rede de teste com uma firewall. A rede tem uma rede virtual (VNet) com três subredes: *AzureFirewallSubnet,* *ServersSubnet*e *JumpboxSubnet*. A sub-rede *ServersSubnet* e *JumpboxSubnet* têm uma única máquina virtual do Windows Server de dois núcleos.
+Neste arranque rápido, você usa um modelo de Gestor de Recursos para implementar uma Firewall Azure em três Zonas de Disponibilidade. 
+
+O modelo cria um ambiente de rede de teste com uma firewall. A rede tem uma rede virtual (VNet) com três subredes: *AzureFirewallSubnet,* *ServersSubnet*e *JumpboxSubnet*. A sub-rede *ServersSubnet* e *JumpboxSubnet* têm uma única máquina virtual do Windows Server de dois núcleos.
 
 A firewall está na subnet *AzureFirewallSubnet,* e tem uma coleção de `www.microsoft.com`regras de aplicação com uma única regra que permite o acesso a .
 
 Uma rede de pontos de rota definida pelo utilizador a partir da subnet *ServersSubnet* através da firewall, onde são aplicadas as regras de firewall.
 
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
 Para mais informações sobre o Firewall Azure, consulte [O Conjunto e configure a Firewall Azure utilizando o portal Azure](tutorial-firewall-deploy-portal.md).
 
+## <a name="prerequisites"></a>Pré-requisitos
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+- Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuitamente.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 
-## <a name="use-the-template-to-deploy-azure-firewall"></a>Use o modelo para implementar firewall Azure
+## <a name="create-an-azure-firewall-with-availability-zones"></a>Criar uma Firewall Azure com Zonas de Disponibilidade
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Este modelo cria uma Firewall Azure com Zonas de Disponibilidade, juntamente com os recursos necessários para suportar o Firewall Azure.
 
-**Para instalar e implantar o Firewall Azure utilizando o modelo:**
+### <a name="review-the-template"></a>Reveja o modelo
 
-1. Aceda ao [https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-with-zones-sandbox](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-with-zones-sandbox)modelo em .
-   
-1. Leia a introdução e, quando estiver pronto para ser implantado, selecione **Deploy para Azure**.
-   
-1. Se for necessário, inicie sessão no portal do Azure. 
+O modelo utilizado neste quickstart é de [modelos Azure Quickstart](https://github.com/Azure/azure-quickstart-templates/blob/master/101-azurefirewall-with-zones-sandbox/azuredeploy.json).
 
-1. No portal, na **Create a sandbox configuração da página AzureFirewall,** escreva ou selecione os seguintes valores:
-   
+:::code language="json" source="~/quickstart-templates/101-azurefirewall-with-zones-sandbox/azuredeploy.json" range="001-444" highlight="369-442":::
+
+Vários recursos Azure são definidos no modelo:
+
+- [**Microsoft.Network/publicIPAddresss**](/azure/templates/microsoft.network/publicipaddresses)
+- [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
+- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
+- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)
+- [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces)
+- [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageAccounts)
+- [**Microsoft.Network/azureFirewalls**](/azure/templates/microsoft.network/azureFirewalls)
+- [**Microsoft.Network/routeTables**](/azure/templates/microsoft.network/routeTables)
+
+### <a name="deploy-the-template"></a>Implementar o modelo
+
+Desloque o modelo de Gestor de Recursos para o Azure:
+
+1. Selecione **Implementar para Azure** para iniciar sessão no Azure e abrir o modelo. O modelo cria uma Firewall Azure, a infraestrutura de rede e duas máquinas virtuais.
+
+   [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurefirewall-with-zones-sandbox%2Fazuredeploy.json)
+
+2. No portal, na **Create a sandbox configuração de Azure Firewall com página Zones,** escreva ou selecione os seguintes valores:
    - **Grupo de recursos**: Selecione **Criar novo,** digite um nome para o grupo de recursos e selecione **OK**. 
    - **Nome da rede virtual**: Digite um nome para o novo VNet. 
    - **Nome de utilizador do Administrador**: Digite um nome de utilizador para a conta de utilizador do administrador.
    - **Palavra-passe do administrador**: Digite uma palavra-passe do administrador. 
-   
-1. Leia os termos e condições e, em seguida, selecione **concordo com os termos e condições acima indicados**.
-   
-1. Selecione **Comprar**.
-   
-   Levará alguns minutos para criar os recursos. 
-   
-1. Explore os recursos que foram criados com a firewall. 
+
+3. Leia os termos e condições e, em seguida, selecione **concordo com os termos e condições acima indicados** e, em seguida, selecione **Comprar**. A implantação pode demorar 10 minutos ou mais para ser concluída.
+
+## <a name="review-deployed-resources"></a>Rever os recursos implantados
+
+Explore os recursos que foram criados com a firewall.
 
 Para saber mais sobre a sintaxe jSON e propriedades para uma firewall num modelo, consulte [Microsoft.Network/azureFirewalls](/azure/templates/microsoft.network/azurefirewalls).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não precisar deles, pode remover o grupo de recursos, firewall e todos os recursos relacionados executando o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) PowerShell. Para remover um grupo de recursos chamado *MyResourceGroup,* executar: 
+Quando já não precisar deles, pode remover o grupo de recursos, `Remove-AzResourceGroup` firewall e todos os recursos relacionados executando o comando PowerShell. Para remover um grupo de recursos chamado *MyResourceGroup,* executar: 
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name MyResourceGroup
 ```
-Não remova o grupo de recursos e a firewall ainda, se pretender continuar no tutorial de monitorização de firewall. 
+Não remova o grupo de recursos e a firewall se pretender continuar no tutorial de monitorização de firewall. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Em seguida, pode monitorizar os registos da Firewall Azure:
 
-> [!div class="nextstepaction"]
-> [Tutorial: monitorizar registos do Azure Firewall](./tutorial-diagnostics.md)
+[Tutorial: monitorizar registos do Azure Firewall](./tutorial-diagnostics.md)

@@ -3,15 +3,15 @@ title: Fixe um DNS personalizado com uma ligação TLS/SSL
 description: Secure HTTPS acesso ao seu domínio personalizado criando uma ligação TLS/SSL com um certificado. Melhore a segurança do seu website aplicando HTTPS ou TLS 1.2.
 tags: buy-ssl-certificates
 ms.topic: tutorial
-ms.date: 10/25/2019
+ms.date: 04/30/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 9792181379bfa6f9e0337bf14208fe853c16b745
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c93938db4632f6509e386d440c9be75596ea254f
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80811741"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597900"
 ---
 # <a name="secure-a-custom-dns-name-with-a-tlsssl-binding-in-azure-app-service"></a>Proteja um nome DNS personalizado com uma ligação TLS/SSL no Serviço de Aplicações Azure
 
@@ -83,7 +83,7 @@ Utilize a tabela seguinte para o ajudar a configurar a ligação TLS no diálogo
 |-|-|
 | Domínio personalizado | O nome de domínio para adicionar a ligação TLS/SSL para. |
 | Impressão digital de certificado privado | O certificado para ligar. |
-| Tipo TLS/SSL | <ul><li>Podem ser adicionadas ligações **[SNI SSL](https://en.wikipedia.org/wiki/Server_Name_Indication)** - Múltiplas ligações SNI SSL. Esta opção permite que vários certificados TLS/SSL garantam vários domínios no mesmo endereço IP. A maioria dos navegadores modernos (incluindo Internet Explorer, Chrome, Firefox e Opera) suportam SNI (para mais informações, consulte [Indicação de Nome](https://wikipedia.org/wiki/Server_Name_Indication)do Servidor).</li><li>**IP SSL** - Só pode ser adicionada uma ligação IP SSL. Esta opção permite apenas um certificado TLS/SSL para garantir um endereço IP público dedicado. Depois de configurar a ligação, siga os passos no [Remap Um registo para IP SSL](#remap-a-record-for-ip-ssl).<br/>Ip SSL é suportado apenas em camadas de Produção ou Isolados. </li></ul> |
+| Tipo TLS/SSL | <ul><li>Podem ser adicionadas ligações **[SNI SSL](https://en.wikipedia.org/wiki/Server_Name_Indication)** - Múltiplas ligações SNI SSL. Esta opção permite que vários certificados TLS/SSL garantam vários domínios no mesmo endereço IP. A maioria dos navegadores modernos (incluindo Internet Explorer, Chrome, Firefox e Opera) suportam SNI (para mais informações, consulte [Indicação de Nome](https://wikipedia.org/wiki/Server_Name_Indication)do Servidor).</li><li>**IP SSL** - Só pode ser adicionada uma ligação IP SSL. Esta opção permite apenas um certificado TLS/SSL para garantir um endereço IP público dedicado. Depois de configurar a ligação, siga os passos nos [registos de Remap para IP SSL](#remap-records-for-ip-ssl).<br/>Ip SSL é suportado apenas em nível **Standard** ou superior. </li></ul> |
 
 Uma vez concluída a operação, o estado TLS/SSL do domínio personalizado é alterado para **Secure**.
 
@@ -92,15 +92,17 @@ Uma vez concluída a operação, o estado TLS/SSL do domínio personalizado é a
 > [!NOTE]
 > Um estado **seguro** nos **domínios Personalizados** significa que está protegido com um certificado, mas o Serviço de Aplicações não verifica se o certificado é auto-assinado ou expirado, por exemplo, o que também pode fazer com que os navegadores mostrem um erro ou aviso.
 
-## <a name="remap-a-record-for-ip-ssl"></a>Remapear um registo A para SSL IP
+## <a name="remap-records-for-ip-ssl"></a>Remap registos para IP SSL
 
 Se não utilizar o IP SSL na sua aplicação, salte para [o Teste HTTPS para o seu domínio personalizado](#test-https).
 
-Por padrão, a sua aplicação utiliza um endereço IP público partilhado. Quando liga um certificado com IP SSL, o App Service cria um novo endereço IP dedicado para a sua aplicação.
+Há duas alterações que precisa de fazer, potencialmente:
 
-Se mapeou um registo A para a sua aplicação, atualize o seu registo de domínio com este novo endereço IP dedicado.
+- Por padrão, a sua aplicação utiliza um endereço IP público partilhado. Quando liga um certificado com IP SSL, o App Service cria um novo endereço IP dedicado para a sua aplicação. Se mapeou um registo A para a sua aplicação, atualize o seu registo de domínio com este novo endereço IP dedicado.
 
-A página de **domínio Personalizado** da sua aplicação é atualizada com o novo endereço IP dedicado. [Copie este endereço IP](app-service-web-tutorial-custom-domain.md#info) e [remapeie o registo A ](app-service-web-tutorial-custom-domain.md#map-an-a-record) para este endereço IP novo.
+    A página de **domínio Personalizado** da sua aplicação é atualizada com o novo endereço IP dedicado. [Copie este endereço IP](app-service-web-tutorial-custom-domain.md#info) e [remapeie o registo A ](app-service-web-tutorial-custom-domain.md#map-an-a-record) para este endereço IP novo.
+
+- Se tiver uma ligação SNI `<app-name>.azurewebsites.net`SSL, [remape qualquer mapeamento CNAME](app-service-web-tutorial-custom-domain.md#map-a-cname-record) para `sni.<app-name>.azurewebsites.net` apontar (adicione o `sni` prefixo).
 
 ## <a name="test-https"></a>Tester HTTPS
 

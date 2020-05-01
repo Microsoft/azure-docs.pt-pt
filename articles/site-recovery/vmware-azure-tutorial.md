@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 37fdd42adf66ebcb11b357ece6ea63384630d9f4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 878c3aa766559e455ee4456d84b86dc486e43fa5
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79238868"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610688"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurar a recuperação após desastre para o Azure das VMs VMware no local
 
@@ -65,11 +65,11 @@ No seu ambiente de origem, precisa de uma única máquina no local, altamente di
 - **Servidor de alvo principal**: O servidor alvo principal lida com os dados de replicação durante o failback do Azure.
 
 
-Todos estes componentes são instalados em conjunto nas máquinas únicas no local que são conhecidas como o servidor de *configuração*. Por padrão, para a recuperação de desastres vMware, configuramos o servidor de configuração como um VMware VMAltamentaltamente disponível. Para isso, você descarrega um modelo preparado de aplicação de virtualização aberta (OVA) e importa o modelo em VMware para criar o VM. 
+Todos estes componentes são instalados em conjunto nas máquinas únicas no local que são conhecidas como o servidor de *configuração*. Por padrão, para a recuperação de desastres vMware, configuramos o servidor de configuração como um VMware VMAltamentaltamente disponível. Para isso, você descarrega um modelo preparado de aplicação de virtualização aberta (OVA) e importa o modelo em VMware para criar o VM.
 
 - A versão mais recente do servidor de configuração está disponível no portal. Também pode descarregá-lo diretamente do [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
 - Se, por alguma razão, não puder utilizar um modelo OVA para configurar um VM, siga [estas instruções](physical-manage-configuration-server.md) para configurar manualmente o servidor de configuração.
-- A licença fornecida com modelo OVF é uma licença de avaliação válida por 180 dias. As janelas em funcionamento no VM devem ser ativadas com a licença necessária. 
+- A licença fornecida com modelo OVF é uma licença de avaliação válida por 180 dias. As janelas em funcionamento no VM devem ser ativadas com a licença necessária.
 
 
 ### <a name="download-the-vm-template"></a>Transferir o modelo de VM
@@ -77,7 +77,7 @@ Todos estes componentes são instalados em conjunto nas máquinas únicas no loc
 1. No cofre, vá para preparar**a Fonte de** **Infraestruturas.** > 
 2. Em **Preparar origem**, selecione **+Servidor de configuração**.
 3. Em **Adicionar Servidor**, verifique se o **Servidor de configuração para VMware** é apresentado no **Tipo de servidor**.
-4. Transfira o modelo OVF para o servidor de configuração.
+4. Descarregue o modelo OVA para o servidor de configuração.
 
 
 
@@ -85,7 +85,7 @@ Todos estes componentes são instalados em conjunto nas máquinas únicas no loc
 
 
 1. Inicie sessão no servidor VMware vCenter ou no anfitrião vSphere ESXi, com o VMWare vSphere Client.
-2. No menu **'Ficheiro',** selecione Implementar o **modelo OVF** para iniciar o assistente de **modelo OVF de implantação**. 
+2. No menu **'Ficheiro',** selecione Implementar o **modelo OVF** para iniciar o assistente de **modelo OVF de implantação**.
 
      ![Modelo OVF](./media/vmware-azure-tutorial/vcenter-wizard.png)
 
@@ -105,11 +105,11 @@ Se pretender adicionar um NIC adicional ao servidor de configuração, adicione-
 
 1. No inventário do vSphere Client, clique na VM com o botão direito do rato e selecione **Editar Definições**.
 2. Em **Hardware**, selecione **Adicionar** > **Adaptador Ethernet**. Em seguida, selecione **Seguinte**.
-3. Selecione um tipo de adaptador e uma rede. 
+3. Selecione um tipo de adaptador e uma rede.
 4. Para ligar o NIC virtual quando a VM estiver ligada, selecione **Estabelecer ligação ao ligar**. Selecione **Próximo** > **Acabamento**. Em seguida, selecione **OK**.
 
 
-## <a name="register-the-configuration-server"></a>Registar o servidor de configuração 
+## <a name="register-the-configuration-server"></a>Registar o servidor de configuração
 
 Depois de configurar o servidor de configuração, registe-o no cofre.
 
@@ -179,7 +179,7 @@ Ativar a replicação para VMs da seguinte forma:
 3. Em **Tipo de máquina**, selecione **Máquinas Virtuais**.
 4. Em **vCenter/vSphere Hypervisor**, selecione o anfitrião vSphere ou o servidor vCenter que gere o anfitrião.
 5. Selecione o servidor de processo (instalado por predefinição na VM do servidor de configuração). Em seguida, selecione **OK**. O estado de saúde de cada servidor de processo é indicado de acordo com os limites recomendados e outros parâmetros. Escolha um servidor de processo saudável. Um servidor de processo [crítico](vmware-physical-azure-monitor-process-server.md#process-server-alerts) não pode ser escolhido. Pode [resolver problemas e resolver](vmware-physical-azure-troubleshoot-process-server.md) os erros **ou** configurar um servidor de [processo sem escalas](vmware-azure-set-up-process-server-scale.md).
-6. Em **Destino**, selecione a subscrição e o grupo de recursos no qual pretende criar as VMs de ativação pós-falha. Utilizamos o modelo de implementação do Resource Manager. 
+6. Em **Destino**, selecione a subscrição e o grupo de recursos no qual pretende criar as VMs de ativação pós-falha. Utilizamos o modelo de implementação do Resource Manager.
 7. Selecione a rede e a sub-rede do Azure às quais as VMs do Azure se ligam quando forem criadas após a ativação pós-falha.
 8. Selecione **Configurar agora para as máquinas selecionadas** para aplicar a definição de rede para todas as VMs em que ativa a replicação. Selecione **Configurar mais tarde** para selecionar a rede do Azure por máquina.
 9. Em **Máquinas** > Virtuais**Selecione máquinas virtuais,** selecione cada máquina que pretende replicar. Só pode selecionar máquinas para as quais a replicação pode ser ativada. Em seguida, selecione **OK**. Se não conseguir visualizar/selecionar qualquer máquina virtual em particular, [saiba mais](https://aka.ms/doc-plugin-VM-not-showing) sobre a resolução do problema.
