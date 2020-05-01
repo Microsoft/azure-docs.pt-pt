@@ -9,10 +9,10 @@ ms.date: 10/07/2019
 author: sakash279
 ms.author: akshanka
 ms.openlocfilehash: e6d61e329ba91f53b11ace4d258b35950e188dcb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76771221"
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>Como utilizar o Armazenamento de Tabelas do Azure e a API de Tabela do Azure Cosmos DB com C++
@@ -514,4 +514,4 @@ Siga estas ligações para saber mais sobre o Armazenamento do Microsoft Azure e
 * [Introdução à API da Tabela](table-introduction.md)
 * [Listar Recursos do Armazenamento do Microsoft Azure em C++](../storage/common/storage-c-plus-plus-enumeration.md)
 * [Referência da Biblioteca de Cliente do Armazenamento para C++](https://azure.github.io/azure-storage-cpp)
-* [Documentação de Armazenamento Azure](https://azure.microsoft.com/documentation/services/storage/)
+* [Documentação do Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)

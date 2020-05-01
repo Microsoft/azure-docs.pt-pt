@@ -17,10 +17,10 @@ ms.date: 01/27/2020
 ms.author: allensu
 ms:custom: seodec18
 ms.openlocfilehash: f169d7694199e496e472a6c32312cf6782270378
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80247219"
 ---
 # <a name="quickstart-create-a-load-balancer-using-azure-powershell"></a>Quickstart: Criar um Balancer de carga utilizando o Azure PowerShell

@@ -8,10 +8,10 @@ ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: c419c2127b1c5fe3aaa60c6e828ff0c5a6676c07
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77598549"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>Início Rápido: Criar e gerir uma partilha de ficheiros do Azure com o Azure PowerShell 
@@ -37,7 +37,7 @@ New-AzResourceGroup `
     -Location $region | Out-Null
 ```
 
-## <a name="create-a-storage-account"></a>Criar uma conta do Storage
+## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 Uma conta de armazenamento é um conjunto partilhado de armazenamento que pode usar para implementar ações de ficheiros Azure. Uma conta de armazenamento pode conter um número ilimitado de partilhas e uma partilha pode armazenar um número ilimitado de ficheiros, até aos limites de capacidade da conta de armazenamento. Este exemplo cria uma versão geral da versão 2 (conta de armazenamento GPv2), que pode armazenar ações padrão de ficheiros Azure ou outros recursos de armazenamento, tais como bolhas ou filas, em meios de rotação de disco rígido (HDD). O Azure Files também suporta discos de estado sólido premium (SSDs); as ações de ficheiro saqueadas premium Azure podem ser criadas em contas de armazenamento de FileStorage.
 
 Este exemplo cria uma conta de armazenamento utilizando o cmdlet [New-AzStorageAccount.](/powershell/module/az.storage/new-azstorageaccount) A conta de armazenamento é nomeada *número\<de armazenamento aleatório>* e uma referência a essa conta de armazenamento é armazenada na **variável $storageAcct**. Os nomes de contas de armazenamento têm de ser exclusivos, por isso, utilize `Get-Random` para anexar um número ao nome e torná-lo exclusivo. 

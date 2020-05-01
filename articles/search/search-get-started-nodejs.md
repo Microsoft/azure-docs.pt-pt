@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 02/25/2020
 ms.openlocfilehash: cbef6029b93f134f95ee54aa87ce0dd65bcdf50d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77624001"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-nodejs-using-rest-apis"></a>Quickstart: Criar um índice de pesquisa cognitiva azure em Node.js usando APIs REST
@@ -22,7 +22,7 @@ ms.locfileid: "77624001"
 > * [C #](search-get-started-dotnet.md)
 > * [Portal](search-get-started-portal.md)
 > * [PowerShell](search-create-index-rest-api.md)
-> * [Pitão](search-get-started-python.md)
+> * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
 Crie uma aplicação Node.js que cria, carrega e consulta um índice de Pesquisa Cognitiva Azure. Este artigo demonstra como criar a aplicação passo a passo. Em alternativa, pode [descarregar o código e os dados de origem](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/) e executar a aplicação a partir da linha de comando.
@@ -33,7 +33,7 @@ Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.mi
 
 Usamos o seguinte software e serviços para construir e testar este quickstart:
 
-+ [Nó.js](https://nodejs.org)
++ [Node.js](https://nodejs.org)
 
 + [NPM](https://www.npmjs.com) deve ser instalado por Node.js
 
@@ -43,7 +43,7 @@ Usamos o seguinte software e serviços para construir e testar este quickstart:
 
 Recomendação:
 
-* [Código de estúdio visual](https://code.visualstudio.com)
+* [Visual Studio Code](https://code.visualstudio.com)
 
 * [Extensões Mais bonitas](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) e [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) para VSCode.
 
