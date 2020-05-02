@@ -12,10 +12,10 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 55e3d5bf4fb63c35d484e4a764c7eeb2e2484fcf
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80350964"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-synapse-sql-pool-via-the-azure-portal"></a>Quickstart: Pausa e retoma a computação na piscina Synapse SQL através do portal Azure
@@ -24,7 +24,7 @@ Pode utilizar o portal Azure para parar e retomar os recursos de computação do
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -38,7 +38,7 @@ Para reduzir custos, pode parar e retomar os recursos de computação a pedido. 
 
 Siga estes passos para fazer uma pausa numa piscina SQL:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Clique em **Azure Synapse Analytics (anteriormente SQL DW)** na página de navegação esquerda do portal Azure.
 2. Selecione **mySampleDataWarehouse** da página **Azure Synapse Analytics (anteriormente SQL DW)** para abrir a piscina SQL. 
 3. Na página **mySampleDataWarehouse,** o **estado do** aviso está **online**.

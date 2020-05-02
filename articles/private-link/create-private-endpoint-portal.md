@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
 ms.openlocfilehash: 1bdc089bb89a732e329bf7d3ffd3d5b5c09ba408
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80637250"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>Quickstart: Criar um endpoint privado usando o portal Azure

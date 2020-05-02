@@ -7,10 +7,10 @@ ms.topic: quickstart
 ms.date: 03/25/2020
 ms.author: dglover
 ms.openlocfilehash: 2eb1a016e04a4150a76112c68683926810f5c66d
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80674098"
 ---
 # <a name="quickstart-create-your-first-http-triggered-function-with-kotlin-and-intellij"></a>Quickstart: Crie a sua primeira função em HTTP desencadeada com a Kotlin e a IntelliJ

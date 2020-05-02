@@ -13,10 +13,10 @@ ms.date: 11/16/2017
 ms.author: apimpm
 ms.custom: mvc
 ms.openlocfilehash: cb24f5efe70af7a1a358a1e9acc90204a1e33564
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "70071929"
 ---
 # <a name="import-an-api"></a>Importar uma API
