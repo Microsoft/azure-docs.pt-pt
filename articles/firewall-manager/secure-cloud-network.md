@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 02/18/2020
+ms.date: 05/01/2020
 ms.author: victorh
-ms.openlocfilehash: 3dc94a8be265682fbe2128f2e5870dfdf5850a2d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b13f3b4eeb57c34f51152bb6d1914f6c80f31be1
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77443062"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691024"
 ---
 # <a name="tutorial-secure-your-virtual-wan-using-azure-firewall-manager-preview"></a>Tutorial: Proteja o seu WAN virtual utilizando a pré-visualização do Azure Firewall Manager 
 
@@ -36,29 +36,34 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="create-a-hub-and-spoke-architecture"></a>Criar um hub e arquitetura falada
 
-Primeiro, crie um VNet falado onde possa colocar os seus servidores.
+Primeiro, crie uma rede virtual com voz onde possa colocar os seus servidores.
 
-### <a name="create-a-spoke-vnet-and-subnets"></a>Criar uma VNet e subnets falados
+### <a name="create-a-spoke-virtual-network-and-subnets"></a>Criar uma rede virtual e subnets falados
 
 1. A partir da página inicial do portal Azure, selecione **Criar um recurso**.
 2. Em **Rede,** selecione **rede Virtual**.
-4. Para **nome**, tipo **Spoke-01**.
-5. Em **Espaço de endereços**, escreva **10.0.0.0/16**.
-6. Em **Subscrição**, selecione a sua subscrição.
-7. Para **o grupo Recursos,** selecione **Criar novo**e digitar **FW-Manager** para o nome e selecione **OK**.
-8. Para **localização**, selecione **(EUA) East US**.
-9. Em **Subnet,** para o tipo **de nome** **Workload-SN**.
-10. Em **Intervalo de endereços**, escreva **10.0.1.0/24**.
-11. Aceite as outras definições predefinidas e, em seguida, selecione **Criar**.
+2. Em **Subscrição**, selecione a sua subscrição.
+1. Para **o grupo Recursos,** selecione **Criar novo**e digitar **FW-Manager** para o nome e selecione **OK**.
+2. Para **nome**, tipo **Spoke-01**.
+3. Para **a Região,** selecione **(EUA) Leste dos EUA**.
+4. Selecione **Seguinte: Endereços IP**.
+1. Para **o espaço 'Endereço',** aceite o padrão **10.0.0.0/16**.
+3. Sob **o nome Subnet,** selecione **predefinido**.
+4. Mude o nome da sub-rede para **Workload-SN**.
+5. Para a gama de **endereços Subnet**, tipo **10.0.1.0/24**.
+6. Selecione **Guardar**..
 
 Em seguida, crie uma sub-rede para um servidor de salto.
 
-1. Na página inicial do portal Azure, selecione **Grupos** > de Recursos**FW-Manager**.
-2. Selecione a rede virtual **Spoke-01.**
-3. Selecione **Subnets** > **+Subnet**.
-4. Para **nome**, tipo **Jump-SN**.
-5. Em **Intervalo de endereços**, escreva **10.0.2.0/24**.
-6. Selecione **OK**.
+1. **Selecione Adicionar sub-rede**.
+4. Para **o nome Subnet,** escreva **Jump-SN**.
+5. Para a gama de **endereços Subnet**, tipo **10.0.2.0/24**.
+6. Selecione **Adicionar**.
+
+Agora crie a rede virtual.
+
+1. Selecione **Rever + criar**.
+2. Selecione **Criar**.
 
 ### <a name="create-the-secured-virtual-hub"></a>Criar o centro virtual seguro
 
@@ -66,17 +71,18 @@ Crie o seu hub virtual seguro usando o Firewall Manager.
 
 1. A partir da página inicial do portal Azure, selecione **Todos os serviços.**
 2. Na caixa de pesquisa, digite **O Firewall Manager** e selecione Firewall **Manager**.
-3. Na página **do Firewall Manager,** selecione **Criar um Hub Virtual Seguro**.
-4. Na **página Create new Secured virtual hub,** selecione a sua subscrição e o grupo de recursos **FW-Manager.**
-5. Para o nome do **hub virtual seguro,** tipo **Hub-01**.
-6. Para **localização,** selecione **East US**.
-7. Para **o espaço de endereço**hub , tipo **10.1.0.0/16**.
-8. Para o novo nome vWAN, escreva **vwan-01**.
-9. Deixe a porta de **entrada VpN incluir para ativar** a caixa de verificação de parceiros de segurança fidedigna saqueada.
-10. Selecione **Seguinte:Firewall Azure**.
-11. Aceite a definição **ativada** por predefinição do **Firewall Do Azure** e, em seguida, selecione **Next: Trusted Security Partner**.
-12. Aceite a definição de **desativação de desativação** do parceiro de **segurança fidedigno** por defeito e selecione **Seguinte: Rever + criar**.
-13. Selecione **Criar**. Levará cerca de 30 minutos para ser implantado.
+3. Na página **do Firewall Manager,** selecione **'Ver polos virtuais' protegidos**.
+4. No **Gestor de Firewall [ Página de hubs virtuais seguros,** **selecione Criar novo hub virtual seguro**.
+5. Para **o grupo Derecursos,** selecione **FW-Manager**.
+7. Para **a Região,** selecione **East US**.
+1. Para o nome do **hub virtual seguro,** tipo **Hub-01**.
+2. Para **o espaço de endereço**hub , tipo **10.1.0.0/16**.
+3. Para o novo nome vWAN, escreva **Vwan-01**.
+4. Deixe a porta de **entrada VpN incluir para ativar** a caixa de verificação de parceiros de segurança fidedigna saqueada.
+5. Selecione **Seguinte:Firewall Azure**.
+6. Aceite a definição **ativada** por predefinição do **Firewall Do Azure** e, em seguida, selecione **Next: Trusted Security Partner**.
+7. Aceite a definição de **desativação de desativação** do parceiro de **segurança fidedigno** por defeito e selecione **Seguinte: Rever + criar**.
+8. Selecione **Criar**. Levará cerca de 30 minutos para ser implantado.
 
 ### <a name="connect-the-hub-and-spoke-vnets"></a>Ligue o hub e falou VNets
 
@@ -87,15 +93,16 @@ Agora pode espreitar o centro e falar VNets.
 3. **Selecione Adicionar ligação**.
 4. Para **o nome de ligação,** digite **hub-spoke**.
 5. Para **Hubs,** selecione **Hub-01**.
-6. Para **a rede Virtual,** selecione **Spoke-01**.
-7. Selecione **OK**.
+6. Para **o grupo Derecursos,** selecione **FW-Manager**.
+7. Para **a rede Virtual,** selecione **Spoke-01**.
+8. Selecione **OK**.
 
 ## <a name="create-a-firewall-policy-and-secure-your-hub"></a>Crie uma política de firewall e proteja o seu hub
 
 Uma política de firewall define coleções de regras para direcionar o tráfego em um ou mais centros virtuais seguros. Vaicriar a sua política de firewall e, em seguida, proteger o seu centro.
 
-1. A partir do Firewall Manager, selecione Criar uma Política de **Firewall Azure**.
-2. Selecione a sua subscrição e, em seguida, selecione o grupo de recursos **FW-Manager.**
+1. A partir do Firewall Manager, selecione **as políticas de Firewall Do View Azure**.
+2. Selecione **Criar a Política de Firewall Azure**.
 3. Em **detalhes de política**, para o tipo de **nome** **Política-01** e para **região** selecione **Leste DOS EUA**.
 4. Selecione **Next:Rules**.
 5. No separador **Regras,** selecione **Adicionar uma coleção de regras**.
@@ -109,10 +116,11 @@ Uma política de firewall define coleções de regras para direcionar o tráfego
 13. Certifique-se de que o tipo de destino é **FQDN**.
 14. Para **destino**, escreva ** \*.microsoft.com**.
 15. Selecione **Adicionar**.
-16. Selecione **Seguinte: Centros virtuais seguros**.
-17. No separador **de cubos virtuais Seguros,** selecione **Hub-01**.
-19. Selecione **Rever + criar**.
-20. Selecione **Criar**.
+16. Selecione **Seguinte: Hubs**.
+17. No separador **Hubs,** selecione **Centros virtuais Associados**.
+18. Selecione **Hub-01** e, em seguida, **selecione Adicionar**.
+1. Selecione **Rever + criar**.
+2. Selecione **Criar**.
 
 Isto pode levar cerca de cinco minutos ou mais para ser concluído.
 
@@ -126,10 +134,9 @@ Agora tem de garantir que o tráfego de rede é encaminhado para a sua firewall.
 4. Sob tráfego de **Internet**, Tráfego de **Redes Virtuais,** selecione **Enviar via Firewall Azure**.
 5. Sob **tráfego privado Azure**, **Tráfego para Redes Virtuais,** selecione **Enviar via Firewall Azure**.
 6. Selecione **Editar prefixo de endereço IP (es)**.
-7. **Selecione Adicionar um prefixo**de endereço IP .
 8. Tipo **10.0.1.0/24** como endereço da sub-rede de carga de trabalho e selecione **Guardar**.
 9. Em **Definições,** selecione **Ligações**.
-10. Selecione a ligação **com porta-hub** e, em seguida, selecione **o tráfego de internet Seguro** e, em seguida, selecione **OK**.
+10. Verifique se a ligação **com porta-hub** mostra o Tráfego de **Internet** como **Protegido**.
 
 
 ## <a name="test-your-firewall"></a>Teste a sua firewall
@@ -147,12 +154,11 @@ Para testar as suas regras de firewall, terá de implantar alguns servidores. Vo
    |Grupo de recursos     |**FW-Manager**|
    |Nome da máquina virtual     |**Salta-Srv**|
    |Região     |**(EUA) Leste dos EUA)**|
-   |Nome de utilizador do administrador     |**azureuser**|
-   |Palavra-passe     |escrever a sua senha|
+   |Nome de utilizador do administrador     |escrever um nome de utilizador|
+   |Palavra-passe     |escrever uma senha|
 
 4. De acordo com as regras da **porta de entrada**, para as portas de entrada **pública,** selecione **Permitir portas selecionadas**.
 5. Para **selecionar as portas de entrada,** selecione **RDP (3389)**.
-
 6. Aceite as outras predefinições e selecione **Seguinte: Discos**.
 7. Aceite as predefinições do disco e selecione **Seguinte: Networking**.
 8. Certifique-se de que o **Spoke-01** está selecionado para a rede virtual e a sub-rede é **Jump-SN**.

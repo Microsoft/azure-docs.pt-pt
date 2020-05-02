@@ -9,16 +9,16 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: d49918fc67a45419e5c7ca123642c48e689a1496
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 43f361fbaf4ab0462af0a720d7711f219134a165
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82113787"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692176"
 ---
 # <a name="quickstart-using-sql-on-demand"></a>Quickstart: Utilização a pedido do SQL
 
-Synapse SQL on-demand (pré-visualização) é um serviço de consulta sem servidor que lhe permite executar as consultas SQL nos seus ficheiros colocados no Armazenamento Azure. Neste arranque rápido, você vai aprender a consultar vários tipos de ficheiros usando sQL on-demand.
+Synapse SQL on-demand (pré-visualização) é um serviço de consulta sem servidor que lhe permite executar consultas SQL em ficheiros colocados no Armazenamento Azure. Neste arranque rápido, você vai aprender a consultar vários tipos de ficheiros usando sQL on-demand.
 
 Os seguintes tipos de ficheiros são suportados: JSON, CSV, Apache Parquet
 
@@ -41,19 +41,18 @@ Parâmetros para o arranque rápido:
 
 ## <a name="first-time-setup"></a>Configuração pela primeira vez
 
-Antes da utilização de amostras:
+Antes de utilizar as amostras:
 
 - Crie base de dados para os seus pontos de vista (caso pretenda utilizar pontos de vista)
 - Criar credenciais a utilizar pela SQL a pedido para aceder a ficheiros no armazenamento
 
 ### <a name="create-database"></a>Criar base de dados
 
-Crie a sua própria base de dados para fins de demonstração. Esta é a base de dados em que se cria a sua opinião. Utilize esta base de dados nas consultas de amostra neste artigo.
+Crie a sua própria base de dados para fins de demonstração. Você vai usar esta base de dados para criar as suas opiniões e para as consultas de amostra neste artigo.
 
 > [!NOTE]
 > As bases de dados são utilizadas apenas para visualizar metadados, não para dados reais.
->
-> Escreva o nome da base de dados que utilizar para ser utilizado mais tarde no Quickstart.
+>Escreva o nome da base de dados que utilizar para ser utilizado mais tarde no Quickstart.
 
 Use a seguinte consulta, mudando `mydbname` para um nome à sua escolha:
 
@@ -66,15 +65,15 @@ CREATE DATABASE mydbname
 Para executar consultas utilizando o SQL on-demand, crie credenciais para a SQL a pedido de utilização para aceder a ficheiros no armazenamento.
 
 > [!NOTE]
-> Para executar com sucesso amostras nesta secção, tem de utilizar token SAS.
+> Para executar com sucesso amostras nesta secção, tem de utilizar um símbolo SAS.
 >
 > Para começar a utilizar tokens SAS tem de largar a Identidade de Utilizador que é explicada no [seguinte artigo](sql/develop-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through).
 >
 > SQL on-demand por padrão usa sempre a passagem do AAD.
 
-Para obter mais informações sobre como gerir o controlo de acesso ao armazenamento, verifique este [link](sql/develop-storage-files-storage-access-control.md).
+Para obter mais informações sobre como gerir o controlo de acesso ao armazenamento, consulte o acesso à conta de armazenamento de Controlo para artigo[sql on-demand.](sql/develop-storage-files-storage-access-control.md)
 
-Executar o seguinte fragmento de código para criar credenciais utilizadas em amostras nesta secção:
+Execute o seguinte código de corte para criar credenciais utilizadas em amostras nesta secção:
 
 ```sql
 -- create credentials for containers in our demo storage account
@@ -135,7 +134,7 @@ FROM OPENROWSET
   ) AS nyc
 ```
 
-Encontre mais informações sobre a [consulta de ficheiros de parquet].](sql/query-parquet-files.md)
+Encontre mais informações sobre a [consulta de ficheiros de parquet](sql/query-parquet-files.md).
 
 ## <a name="querying-json-files"></a>Consulta de ficheiros JSON
 
@@ -161,7 +160,7 @@ Os ficheiros são armazenados em recipiente *json,* *livros*de pastas, e contêm
 
 ### <a name="querying-json-files"></a>Consulta de ficheiros JSON
 
-A consulta mostra como usar [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para recuperar valores escalar (título, editor) de um livro com o título *Probabilístico e Métodos Estatísticos em Criptologia, Uma Introdução por artigos selecionados:*
+A seguinte consulta mostra como usar [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para recuperar valores escalar (título, editor) de um livro com o título *Probabilístico e Métodos Estatísticos em Criptologia, Uma Introdução por artigos selecionados:*
 
 ```sql
 SELECT
@@ -183,11 +182,11 @@ WHERE
 ```
 
 > [!IMPORTANT]
-> Estamos a ler todo o ficheiro JSON como uma única linha/coluna para que FIELDTERMINATOR, FIELDQUOTE e ROWTERMINATOR estejam definidos para 0x0b porque não esperamos encontrá-lo no ficheiro.
+> Estamos a ler todo o ficheiro JSON como uma única linha/coluna. Assim, FIELDTERMINATOR, FIELDQUOTE e ROWTERMINATOR estão definidos para 0x0b porque não esperamos encontrá-lo no ficheiro.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora está pronto para começar com os seguintes artigos da Quickstart:
+Está agora pronto para continuar com os seguintes artigos:
 
 - [Consulta single CSV arquivo](sql/query-single-csv-file.md)
 - [Questiões e vários ficheiros CSV](sql/query-folders-multiple-csv-files.md)
@@ -198,7 +197,4 @@ Agora está pronto para começar com os seguintes artigos da Quickstart:
 - [Criação e utilização de pontos de vista](sql/create-use-views.md)
 - [Criação e utilização de tabelas externas](sql/create-use-external-tables.md)
 - [Persistir resultado da consulta ao armazenamento do Azure](sql/create-external-table-as-select.md)
-
-Avance para o próximo artigo para aprender a consultar um único ficheiro CSV.
-> [!div class="nextstepaction"]
-> [Consulta single CSV arquivo](sql/query-single-csv-file.md)
+- [Consulta single CSV arquivo](sql/query-single-csv-file.md)

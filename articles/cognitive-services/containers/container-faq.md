@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 8aae650065e8de11ccdc55a8a056c379a219fcb4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: faae149cc6cfe9140f7e6908f5eb92d3031ef6d8
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80876511"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690826"
 ---
 # <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Os contentores dos Serviços Cognitivos Azure fazem frequentemente perguntas (FAQ)
 
@@ -76,7 +76,11 @@ Infelizmente, os contentores dos Serviços Cognitivos *não* são apoiados de fo
 
 **P: Como devo executar os recipientes dos Serviços Cognitivos em dispositivos IoT?**
 
-Quer não tenha uma ligação de internet fiável, ou se quer economizar no custo da largura de banda. Ou se tem requisitos de baixa latência, ou se está a lidar com dados sensíveis que precisam de ser analisados no local, [o Azure IoT Edge com os recipientes dos Serviços Cognitivos](https://azure.microsoft.com/blog/running-cognitive-services-on-iot-edge/) dá-lhe consistência com a nuvem.
+**A:** Quer não tenha uma ligação de internet fiável, ou se quer economizar no custo da largura de banda. Ou se tem requisitos de baixa latência, ou se está a lidar com dados sensíveis que precisam de ser analisados no local, [o Azure IoT Edge com os recipientes dos Serviços Cognitivos](https://azure.microsoft.com/blog/running-cognitive-services-on-iot-edge/) dá-lhe consistência com a nuvem.
+
+**P: Estes recipientes são compatíveis com o OpenShift?** 
+
+Não testamos contentores com OpenShift, mas geralmente, os recipientes dos Serviços Cognitivos devem funcionar em qualquer plataforma que suporte imagens do Docker. Se estiver a utilizar o OpenShift, recomendamos que os recipientes estejam a executar os recipientes como `root-user`.
 
 **P: Como fornecer feedback do produto e recomendações de recurso?**
 

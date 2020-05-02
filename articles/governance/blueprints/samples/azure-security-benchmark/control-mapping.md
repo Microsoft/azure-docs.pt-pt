@@ -3,16 +3,16 @@ title: Controlos de amostrade modelo de benchmark de segurança Azure
 description: Mapeamento de controlo da amostra de projeto de benchmark de segurança Azure para a Política Azure.
 ms.date: 04/16/2020
 ms.topic: sample
-ms.openlocfilehash: 0f2d24d7d8c9f7ce2568f11b15e65ed1fcd02afb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f80b72f06532adef28bf5e5afd1eb94c2e34ee2d
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81538734"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691296"
 ---
 # <a name="control-mapping-of-the-azure-security-benchmark-blueprint-sample"></a>Mapeamento de controlo da amostra de projeto de benchmark de segurança Azure
 
-O seguinte artigo detalha como a amostra de projeto de referência de segurança Azure Blueprints Azure mapeia os controlos de benchmark de segurança do Azure. Para obter mais informações sobre os controlos, consulte [o Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview).
+O seguinte artigo detalha como a amostra de projeto de referência de segurança Azure Blueprints Azure mapeia os controlos de benchmark de segurança do Azure. Para obter mais informações sobre os controlos, consulte [o Azure Security Benchmark](../../../../security/benchmarks/overview.md).
 
 Os seguintes mapeamentos são para os controlos de benchmark de **segurança Azure.** Utilize a navegação à direita para saltar diretamente para um mapeamento de controlo específico. Os controlos mapeados são implementados com uma iniciativa da [Política Azure.](../../../policy/overview.md) Para rever a iniciativa completa, abra a **Política** no portal Azure e selecione a página **Definições.** Em seguida, encontre e selecione as ** \[recomendações de\]Pré-visualização : Audite Azure Security Benchmark e implemente** iniciativapolítica específica de apoio a extensões vm incorporadas.
 

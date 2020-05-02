@@ -10,14 +10,19 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: a9506d45350a567e3643b6edd6afc7668662f6e5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 27e6c7beb8c88a29b90b30e0c77e35e493f2480a
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81416033"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690911"
 ---
 # <a name="what-is-azure-synapse-analytics-formerly-sql-dw"></a>O que é Azure Synapse Analytics (anteriormente SQL DW)?
+
+> [!NOTE] 
+> Experimente as mais recentes funcionalidades azure synapse, tais como espaços de trabalho, Spark, SQL a pedido, e a experiência integrada do Estúdio Synapse, [solicitando acesso ao Azure Synapse (pré-visualização](https://aka.ms/synapsepreview)dos espaços de trabalho) . 
+>
+>Explore a [documentação Azure Synapse (pré-visualização](../overview-what-is.md)dos espaços de trabalho) .
 
 Azure Synapse é um serviço de análise que reúne o armazenamento de dados da empresa e a análise de Big Data. Dá-lhe a liberdade de consultar dados nos seus termos, através de recursos a pedido ou aprovisionados sem servidor, em escala. A Azure Synapse reúne estes dois mundos com uma experiência unificada para ingerir, preparar, gerir e servir dados para as necessidades imediatas de BI e machine learning.
 
@@ -30,10 +35,7 @@ Azure Synapse tem quatro componentes:
 - Gasodutos Synapse: Integração de dados híbridos (Pré-visualização)
 - Estúdio: Experiência unificada do utilizador.  (Pré-visualização)
 
-> [!NOTE]
-> Para aceder às funcionalidades de pré-visualização do Azure Synapse, solicite acesso [aqui.](https://aka.ms/synapsepreview) A Microsoft triagemtodos os pedidos e responderá o mais rapidamente possível.
->
-> Consulte a documentação de [pré-visualização Azure Synapse](../overview-what-is.md).
+
 
 ## <a name="synapse-sql-pool-in-azure-synapse"></a>Piscina SQL synapse em Azure Synapse
 

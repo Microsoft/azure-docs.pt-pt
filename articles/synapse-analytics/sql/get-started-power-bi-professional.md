@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: a9db42bcd69d9a24a454c02c9bb0e2d339cb4860
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4bedcc1f7375cb83131b00be93c785069a7d3e7d
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82185783"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692383"
 ---
 # <a name="connect-to-synapse-sql-with-power-bi-professional"></a>Ligue-se ao Synapse SQL com power bi professional
 
@@ -70,10 +70,10 @@ DROP DATABASE IF EXISTS demo;
 
 ### <a name="create-credentials"></a>Criar credenciais
 
-Temos de criar credenciais antes que possas fazer consultas. As credenciais serão utilizadas pelo serviço on-demand SQL para aceder a ficheiros armazenados.
+Temos de criar credenciais antes que possas fazer consultas. Esta credencial será utilizada pelo serviço on-demand SQL para aceder a ficheiros armazenados.
 
 > [!NOTE]
-> Precisa criar credenciais para acesso à conta de armazenamento. Embora a SQL a pedido possa aceder ao armazenamento de diferentes regiões, ter armazenamento e espaço de trabalho Azure Synapse na mesma região proporcionará uma melhor experiência de desempenho.
+> Precisa criar credenciais para o acesso à conta de armazenamento. Embora a SQL a pedido possa aceder ao armazenamento de diferentes regiões, ter armazenamento e espaço de trabalho Azure Synapse na mesma região proporcionará uma melhor experiência de desempenho.
 
 **Código de snippet sobre como criar credenciais para os recipientes**de dados do Census, executar:
 
@@ -92,7 +92,8 @@ GO
 
 ## <a name="creating-power-bi-desktop-report"></a>Criação de relatório de desktop Power BI
 
-Abra a aplicação de ambiente de trabalho Do Power BI e selecione Obter a opção **de dados.**
+Abra a aplicação de ambiente de trabalho Power BI e selecione a opção **Obter dados.**
+
 ![Abra a aplicação de ambiente de trabalho Do Power BI e selecione obter dados.](./media/get-started-power-bi-professional/step-0-open-powerbi.png)
 
 ### <a name="step-1---select-data-source"></a>Passo 1 - Selecione fonte de dados

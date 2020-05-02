@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.subservice: ''
 ms.topic: quickstart
 ms.date: 04/15/2020
-ms.openlocfilehash: f8525c883eb6b2c736e5fbf433464aa64ff42068
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ae866c8be8d162213077e0488a19a556399384b2
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82101787"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692695"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-preview-in-azure-synapse-analytics-using-web-tools"></a>Quickstart: Crie uma piscina Apache Spark (pré-visualização) no Azure Synapse Analytics usando ferramentas web
 
@@ -33,7 +33,7 @@ Se não tiver uma subscrição Azure, [crie uma conta gratuita antes](https:/azu
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inscreva-se no [portal Azure](https:/portal.azure.com/)
+Inicie sessão no [portal do Azure](https:/portal.azure.com/).
 
 Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -66,7 +66,7 @@ Um caderno é um ambiente interativo que suporta várias linguagens de programa�
 
    ![Criar objeto de quadro de dados](./media/quickstart-apache-spark-notebook/spark-get-started-create-data-frame-object.png "Saída do trabalho de Spark")
 
-10. Se a instância da piscina Apache Spark ainda não estiver em funcionamento, é automaticamente iniciada. Pode ver o estado da piscina Apache Spark abaixo da célula que está a executar e também no painel de estado na parte inferior do caderno. Dependendo do tamanho da piscina, começar deve demorar 2-5 minutos. Uma vez que o código tenha terminado de funcionar, as informações abaixo dos ecrãs das células mostram quanto tempo demorou a correr e a sua execução. Na célula de saída, vê-se a saída.
+10. Se a instância da piscina Apache Spark ainda não estiver em funcionamento, é automaticamente iniciada. Pode ver o estado da instância da piscina Apache Spark abaixo da célula que está a executar e também no painel de estado na parte inferior do caderno. Dependendo do tamanho da piscina, começar deve demorar 2-5 minutos. Uma vez que o código tenha terminado de funcionar, as informações abaixo dos ecrãs das células mostram quanto tempo demorou a correr e a sua execução. Na célula de saída, vê-se a saída.
 
     ![Saída da execução de uma célula](./media/quickstart-apache-spark-notebook/run-cell-with-output.png "Saída do trabalho de Spark")
 
@@ -89,7 +89,7 @@ Um caderno é um ambiente interativo que suporta várias linguagens de programa�
 
 ## <a name="run-spark-sql-statements"></a>Executar instruções SQL do Spark
 
-SQL (Structured Query Language) é a linguagem mais comum e mais utilizada para consultar e definir dados. O Spark SQL funciona como uma extensão do Apache Spark para o processamento de dados estruturados e utiliza a sintaxe familiar do SQL Server.
+A Linguagem de Consulta Estruturada (SQL) é a linguagem mais comum e amplamente utilizada para consulta e definição de dados. O Spark SQL funciona como uma extensão do Apache Spark para o processamento de dados estruturados e utiliza a sintaxe familiar do SQL Server.
 
 1. Colhe o seguinte código numa cela vazia e, em seguida, executar o código. O comando lista as mesas na piscina.
 
@@ -109,11 +109,11 @@ SQL (Structured Query Language) é a linguagem mais comum e mais utilizada para 
 
     O código produz duas células de saída, uma que contém resultados de dados, a outra, que mostra a visão do trabalho.
 
-    Por defeito, a vista de resultados mostra uma grelha, mas existe um interruptor de visualização por baixo da grelha que permite que a vista altere entre as vistas da grelha e do gráfico.
+    Por padrão, a visualização dos resultados mostra uma grelha. Mas, há um interruptor de visão por baixo da grelha que permite que a vista altere entre as vistas da grelha e do gráfico.
 
     ![Saída de consulta em Azure Synapse Spark](./media/quickstart-apache-spark-notebook/spark-get-started-query.png "Saída de consulta em Azure Synapse Spark")
 
-3. No comutador **'Ver',** selecione **Gráfico**
+3. No comutador **'Ver',** selecione **Gráfico**.
 4. Selecione o ícone das **opções de Visualização** do lado direito.
 5. No campo **do tipo Gráfico,** selecione "gráfico de barras".
 6. No campo da coluna do eixo X, selecione "estado".
@@ -133,13 +133,13 @@ SQL (Structured Query Language) é a linguagem mais comum e mais utilizada para 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-A Azure Synapse guarda os seus dados no Armazenamento do Lago Azure Data. Pode deixar uma instância spark desligar-se com segurança quando não estiver a ser utilizada. É cobrado por uma piscina De Faísca Synapse Azure, desde que esteja em funcionamento, mesmo quando não estiver a ser utilizada. Uma vez que as taxas para a piscina são muitas vezes mais do que as taxas de armazenamento, faz sentido económico deixar as instâncias spark encerrarquando não estão a ser utilizadas.
+A Azure Synapse guarda os seus dados no Armazenamento do Lago Azure Data. Pode permitir que uma instância de Spark desligue quando não estiver a ser utilizada. Você é cobrado por uma piscina De Faísca Synapse Azure, desde que esteja funcionando, mesmo quando não está em uso. As taxas para a piscina são muitas vezes mais do que as taxas de armazenamento. Como tal, faz sentido económico deixar as instâncias spark encerrarem quando não estão a ser utilizadas.
 
 Para garantir que a instância Spark é encerrada, termine as sessões ligadas (cadernos). A piscina fecha quando o **tempo de inativo** especificado na piscina apache Spark é atingido. Também pode selecionar a **sessão final** a partir da barra de estado na parte inferior do caderno.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, aprendeu a criar uma piscina Azure Synapse Apache Spark e executar uma consulta básica de Spark SQL.
+Neste arranque rápido, aprendeu a criar uma piscina De Faísca Synapse Azure e executar uma consulta básica de Spark SQL.
 
 - [Azure Synapse Analytics](overview-what-is.md)
 - [.NET para documentação Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)

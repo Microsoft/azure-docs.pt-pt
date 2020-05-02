@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: a29fd66cf264b09cc5e0db7ac1a329be3f297bb8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 64895e5f48168305aea3e83596cdbcae982a6cb9
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82096338"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692427"
 ---
 # <a name="quickstart-using-synapse-studio-preview"></a>Quickstart: Usando o Estúdio Synapse (pré-visualização)
 
@@ -56,7 +56,7 @@ Pode criar novas pastas e carregar ficheiros utilizando os links na barra de fer
 
    ![Arquivos de consulta no armazenamento](./media/quickstart-synapse-studio/query-files-on-storage.png)
 
-3. Executar a consulta ou caderno gerado para ver o conteúdo do ficheiro:
+3. Execute a consulta ou o caderno gerados para ver o conteúdo do ficheiro.
 
    ![Ver o conteúdo do ficheiro](./media/quickstart-synapse-studio/query-files-on-storage-result.png)
 
@@ -64,7 +64,7 @@ Pode criar novas pastas e carregar ficheiros utilizando os links na barra de fer
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Ativar os utilizadores de Anúncios Azure para consultar ficheiros [atribuindo permissões rBAC do Leitor de **Dados Blob de Armazenamento** ou do Contribuinte de Armazenamento **Blob** no Armazenamento Azure](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-a-built-in-rbac-role)
-- [Arquivos de consulta sobre armazenamento Azure usando SQL On-Demand](sql/on-demand-workspace-overview.md)
-- [Criar piscina apache spark](quickstart-create-apache-spark-pool.md)
+- Ativar os utilizadores de Anúncios Azure para consultar ficheiros atribuindo [permissões rBAC do Leitor de **Dados Blob de Armazenamento** ou do Contribuinte de Armazenamento **Blob** no Armazenamento Azure](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-a-built-in-rbac-role)
+- [Arquivos de consulta sobre armazenamento Azure usando SQL on-Demand](sql/on-demand-workspace-overview.md)
+- [Crie a piscina Apache Spark usando o portal Azure](quickstart-create-apache-spark-pool.md)
 - [Criar relatório Power BI sobre ficheiros armazenados no Armazenamento Azure](sql/tutorial-connect-power-bi-desktop.md)

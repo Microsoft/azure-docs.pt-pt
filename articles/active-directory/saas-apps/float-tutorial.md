@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/23/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b057f817fb0c30e45c08f8d708441bd52122af7b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 92d3f2381f2fdce123511caa2339d41b0641b077
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82206753"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690646"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-float"></a>Tutorial: Azure Ative Directory integração de um único sign-on (SSO) com float
 
@@ -37,7 +37,7 @@ Para saber mais sobre a integração de apps SaaS com a Azure AD, consulte [o qu
 Para começar, precisa dos seguintes itens:
 
 * Uma subscrição da AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
-* Float single sign-on (SSO) ativado por subscrição.
+* Uma assinatura Float. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://app.float.com/join?)
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -92,7 +92,7 @@ Siga estes passos para permitir o Azure AD SSO no portal Azure.
     Na caixa de texto **de URL sign-on,** digite um URL no padrão `https://<hostname>.float.com/login`.
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL de identificação, resposta real e URL de sinalização. Contacte a equipa de suporte do [Cliente Float](mailto:support@float.com) para obter estes valores. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
+    > Estes valores não são reais. Atualize estes valores com o URL de identificação, resposta real e URL de sinalização. Substitua-o <hostname> pelo seu nome de anfitrião Float. Contacte a equipa de suporte do [Cliente Float](mailto:support@float.com) se não tiver a certeza. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
 
 1. A aplicação float espera as afirmações do SAML num formato específico, o que requer que adicione mapeamentos personalizados de atributos à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos.
 
@@ -143,11 +143,11 @@ Nesta secção, permitirá que b.Simon utilize um único sign-on Azure, conceden
 
 ## <a name="configure-float-sso"></a>Configure Float SSO
 
-Para configurar um único sinal no lado **float,** você precisa enviar o Certificado descarregado **(Base64)** e URLs copiados apropriados do portal Azure para a equipa de [suporte Float](mailto:support@float.com). Eles definiram esta definição para ter a ligação SAML SSO corretamente definida em ambos os lados.
+Para configurar um único sinal no lado **float,** visite a secção de definições da equipa Float e selecione Configurar a partir do módulo de autenticação. Colar o URL de Login Azure AD no campo URL sAML 2.0 Endpoint, colar o identificador Azure AD no campo URL do Emitente de Identidade, colar o texto completo do Certificado descarregado **(Base64)** no campo de Certificado X.509 e Guardar.
 
 ### <a name="create-float-test-user"></a>Criar utilizador de teste float
 
-Nesta secção, cria-se uma utilizadora chamada Britta Simon in Float. Trabalhe com a equipa de [suporte float](mailto:support@float.com) para adicionar os utilizadores na plataforma Float. Os utilizadores devem ser criados e ativados antes de utilizar um único sinal.
+Nesta secção, crie um utilizador chamado Britta Simon em Float. Adicione o utilizador da secção Pessoas ou Definições de Equipa Do Convidado e conceda-lhes um direito de acesso. Os utilizadores devem ser criados e aceitar o convite antes de utilizar um único sinal.
 
 ## <a name="test-sso"></a>Teste SSO 
 

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 2126996620d6f891dde4e7530c057d2c7f31a996
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 941fa8d2570d22b6c2a54de02a61b4a7ece2e632
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81676678"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691882"
 ---
 # <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Ficheiros de armazenamento de consulta utilizando recursos sql on-demand (pré-visualização) dentro do Synapse SQL
 
@@ -123,11 +123,15 @@ OPENROWSET(
 BULK N'path_to_file(s)', FORMAT='PARQUET');
 ```
 
+Certifique-se de que são utilizados tipos de [dados inferidos adequados](best-practices-sql-on-demand.md#check-inferred-data-types) para um desempenho ótimo. 
+
 ### <a name="filename-function"></a>Função nome de ficheiro
 
-Esta função devolve o nome de ficheiro de que a linha é originária.
+Esta função devolve o nome de ficheiro de que a linha é originária. 
 
 Para consultar ficheiros específicos, leia a secção Filename no artigo de [ficheiros específicos](query-specific-files.md#filename) da Consulta.
+
+O tipo de dados de devolução é nvarchar (1024). Para um desempenho ótimo, molde sempre o resultado da função de nome de ficheiro para o tipo de dados apropriado. Se utilizar o tipo de dados de caracteres, certifique-se de que o comprimento adequado é utilizado.
 
 ### <a name="filepath-function"></a>Função path de arquivo
 
@@ -137,6 +141,8 @@ Esta função devolve um caminho completo ou uma parte do caminho:
 - Quando chamado com parâmetro, devolve parte do caminho que corresponde ao wildcard na posição especificada no parâmetro. Por exemplo, o valor do parâmetro 1 devolveria parte do caminho que corresponde ao primeiro wildcard.
 
 Para mais informações, leia a secção Filepath do artigo de [ficheiros específicos](query-specific-files.md#filepath) da Consulta.
+
+O tipo de dados de devolução é nvarchar (1024). Para um desempenho ótimo, molde sempre o resultado da função de path path para o tipo de dados apropriado. Se utilizar o tipo de dados de caracteres, certifique-se de que o comprimento adequado é utilizado.
 
 ### <a name="work-with-complex-types-and-nested-or-repeated-data-structures"></a>Trabalhar com tipos complexos e estruturas de dados aninhadas ou repetidas
 
