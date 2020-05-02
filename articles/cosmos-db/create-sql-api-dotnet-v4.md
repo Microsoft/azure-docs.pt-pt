@@ -9,10 +9,10 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/10/2020
 ms.openlocfilehash: b69d67a5c4fc1d907f676cf4e400f9fa7df2653b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77585939"
 ---
 # <a name="quickstart-build-a-console-app-using-the-net-v4-sdk-to-manage-azure-cosmos-db-sql-api-account-resources"></a>Quickstart: Construa uma aplicação de consola utilizando o .Net V4 SDK para gerir os recursos da conta API Da Azure Cosmos DB SQL.
@@ -21,8 +21,8 @@ ms.locfileid: "77585939"
 > * [.NET V3](create-sql-api-dotnet.md)
 > * [.NET V4](create-sql-api-dotnet-V4.md)
 > * [Java](create-sql-api-java.md)
-> * [Nó.js](create-sql-api-nodejs.md)
-> * [Pitão](create-sql-api-python.md)
+> * [Node.js](create-sql-api-nodejs.md)
+> * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 
 Inicie-se com a biblioteca de clientes Azure Cosmos DB SQL API para .NET. Siga os passos neste doc para instalar o pacote .NET V4 (Azure.Cosmos), construir uma app e experimentar o código de exemplo para operações crud básicas nos dados armazenados em Azure Cosmos DB. 
@@ -122,7 +122,7 @@ Ainda no diretório de aplicações, instale a biblioteca de clientes Azure Cosm
 
 A aplicação da amostra precisa de autenticar na sua conta Azure Cosmos. Para autenticar, deverá passar as credenciais da conta Azure Cosmos para a aplicação. Obtenha as credenciais da sua conta Azure Cosmos seguindo estes passos:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 1. Navegue para a sua conta Azure Cosmos.
 

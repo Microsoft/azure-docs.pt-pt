@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.custom: hdinsightactive
 ms.date: 12/03/2019
 ms.openlocfilehash: 49b576fd511d17616880e5d981fd3f649de797df
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79367929"
 ---
 # <a name="quickstart-execute-apache-hive-queries-in-azure-hdinsight-with-apache-zeppelin"></a>Quickstart: Execute consultas de Hive Apache em Azure HDInsight com Apache Zeppelin

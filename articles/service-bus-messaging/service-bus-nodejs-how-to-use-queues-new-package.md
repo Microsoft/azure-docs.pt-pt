@@ -14,10 +14,10 @@ ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: aschhab
 ms.openlocfilehash: c2e24e9dea2c8463294c85f04c9e4d7d2da17261
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78330656"
 ---
 # <a name="quickstart-how-to-use-service-bus-queues-with-nodejs-and-the-azureservice-bus-package"></a>Quickstart: Como utilizar as filas de ônibus de serviço com node.js e o pacote azure/service-bus

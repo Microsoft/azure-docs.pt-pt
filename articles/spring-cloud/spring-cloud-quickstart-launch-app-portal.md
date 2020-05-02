@@ -7,10 +7,10 @@ ms.topic: quickstart
 ms.date: 02/15/2020
 ms.author: brendm
 ms.openlocfilehash: 9cd59fdf81e9b5d56872d20c76e8ea177b3c8577
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79470899"
 ---
 # <a name="quickstart-launch-an-existing-azure-spring-cloud-application-using-the-azure-portal"></a>Quickstart: Lançar uma aplicação azure cloud existente usando o portal Azure

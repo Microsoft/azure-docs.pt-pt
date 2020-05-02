@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 82b539ba8f275755ee31a00c2127a0dba7c38d9f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78398514"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Tutorial: Construir e implantar imagens de contentores na nuvem com tarefas de registo de contentores azure
