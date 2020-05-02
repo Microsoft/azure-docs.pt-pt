@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   author: bandersmsft
   ms.author: banders
-  ms.date: 02/13/2020
-  ms.openlocfilehash: 6d2a654fc584a45335b02763ade5a215964652c4
-  ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+  ms.date: 04/30/2020
+  ms.openlocfilehash: 648ba197fd30771061f6629fb834bd3dd95cab40
+  ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/14/2020
-  ms.locfileid: "81382839"
+  ms.lasthandoff: 05/01/2020
+  ms.locfileid: "82628593"
 landingContent:
 - title: Comprar reservas
   linkLists:
@@ -31,7 +31,7 @@ landingContent:
     links:
     - text: Renovar reservas
       url: reservation-renew.md
-    - text: SQL Data Warehouse
+    - text: Azure Synapse Analytics
       url: prepay-sql-data-warehouse-charges.md
     - text: Máquina virtual
       url: ../../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/reservations/toc.json
@@ -61,7 +61,7 @@ landingContent:
       url: understand-cosmosdb-reservation-charges.md
     - text: Capacidade de reserva da Base de Dados SQL
       url: understand-reservation-charges.md
-    - text: SQL Data Warehouse
+    - text: Azure Synapse Analytics
       url: reservation-discount-azure-sql-dw.md
     - text: Azure Data Explorer
       url: understand-azure-data-explorer-reservation-charges.md

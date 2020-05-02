@@ -8,6 +8,8 @@
       href: sql-data-warehouse-overview-what-is.md
     - name: Arquitetura do Azure Synapse Analytics
       href: massively-parallel-processing-mpp-architecture.md
+    - name: Unidades do armazém de dados
+      href: what-is-a-data-warehouse-unit-dwu-cdwu.md
     - name: Truques e dicas
       href: cheat-sheet.md
     - name: Melhores práticas

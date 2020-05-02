@@ -36,8 +36,12 @@
       href: powershell-samples.md
 - name: Conceitos
   items:
-    - name: Componentes e limitações
-      href: concepts-limitations.md
+    - name: Componentes
+      href: components.md
+    - name: Conceitos
+      href: concepts.md
+    - name: Tipos
+      href: types.md
     - name: Monitorização do estado de funcionamento
       items:
         - name: Sondas do estado de funcionamento
@@ -133,6 +137,8 @@
       items:
         - name: Resolver problemas do Balanceador de Carga do Azure
           href: load-balancer-troubleshoot.md
+        - name: Resolver erros de implementação comuns
+          href: load-balancer-common-deployment-errors.md
 - name: Referência
   items:
     - name: Exemplos de código

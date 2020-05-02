@@ -225,7 +225,7 @@
               href: ../nvv3-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Série NVv4
               href: ../nvv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-            - name: Configurar controladores de GPU
+            - name: Configurar controladores de GPU NVIDIA
               href: n-series-driver-setup.md
             - name: Configurar controladores GPU AMD
               href: n-series-amd-driver-setup.md
