@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 79771e082a4a6ffae15f33f636b0300e93bcdaba
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77587571"
 ---
 # <a name="bulk-import-data-to-azure-cosmos-db-sql-api-account-by-using-the-net-sdk"></a>Dados de importação a granel para a conta API Da Azure Cosmos DB SQL utilizando o SDK .NET
@@ -81,7 +81,7 @@ Ainda no diretório de aplicações, instale a biblioteca de clientes Azure Cosm
 
 A aplicação da amostra precisa de autenticar na sua conta Azure Cosmos. Para autenticar, deverá passar as credenciais da conta Azure Cosmos para a aplicação. Obtenha as credenciais da sua conta Azure Cosmos seguindo estes passos:
 
-1.  Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1.  Inicie sessão no [portal do Azure](https://portal.azure.com/).
 1.  Navegue para a sua conta Azure Cosmos.
 1.  Abra o painel **de Teclas** e copie a CHAVE **URI** e **PRIMÁRIA** da sua conta.
 

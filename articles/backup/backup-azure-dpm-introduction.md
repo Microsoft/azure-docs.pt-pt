@@ -4,10 +4,10 @@ description: Neste artigo, aprenda a preparar-se para backups do System Center D
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.openlocfilehash: 2119d46ca6102286ca879777058a49938b501ad6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79273465"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Prepare-se para apoiar as cargas de trabalho para Azure com o Centro de Sistema DPM
@@ -97,7 +97,7 @@ Para obter as credenciais, descarregue o ficheiro credencial do cofre através d
 
 Descarregue o ficheiro de credenciais do cofre para uma máquina local da seguinte forma:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Abra o cofre no qual pretende registar o servidor DPM.
 3. Em **Definições,** clique em **Propriedades**.
 
