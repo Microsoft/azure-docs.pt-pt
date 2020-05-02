@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/29/2020
 ms.author: aahi
-ms.openlocfilehash: d5283051de50b84ea87c0f02a391652854067168
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 53110875596830f63a946c1263bdbff3711366bf
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610751"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82653143"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Instalar e executar recipientes de serviço de fala (Pré-visualização)
 
 Os recipientes permitem-lhe executar algumas das APIs do serviço de fala no seu próprio ambiente. Os contentores são ótimos para requisitos específicos de segurança e governação de dados. Neste artigo você vai aprender a descarregar, instalar e executar um recipiente de Discurso.
 
-Os recipientes de fala permitem aos clientes construir uma arquitetura de aplicação de voz que é otimizada tanto para capacidades de nuvem robustas como para a localidade de borda. Há quatro recipientes diferentes disponíveis. Os dois recipientes padrão são **discurso-a-texto** e **texto-a-fala**. Os dois recipientes personalizados são **discurso-a-texto personalizado** e **texto personalizado-a-fala**.
+Os recipientes de fala permitem aos clientes construir uma arquitetura de aplicação de voz que é otimizada tanto para capacidades de nuvem robustas como para a localidade de borda. Há quatro recipientes diferentes disponíveis. Os dois recipientes padrão são **discurso-a-texto** e **texto-a-fala**. Os dois recipientes personalizados são **discurso-a-texto personalizado** e **texto personalizado-a-fala**. Os contentores da fala têm os mesmos [preços](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) que os Serviços de Fala Azure baseados na nuvem.
 
 > [!IMPORTANT]
 > Todos os contentores da fala são atualmente oferecidos como parte de uma [pré-visualização pública "Gated".](../cognitive-services-container-support.md#public-gated-preview-container-registry-containerpreviewazurecrio) Será feito um anúncio quando os contentores da fala avançarem para a Disponibilidade Geral (GA).

@@ -1,14 +1,14 @@
 ---
 title: CIS Microsoft Azure Foundations Benchmark controlos de amostras de projeto
 description: Mapeamento de recomendações da amostra de projeto de referência da CIS Microsoft Azure Foundations para a Política Azure.
-ms.date: 11/04/2019
+ms.date: 05/01/2020
 ms.topic: sample
-ms.openlocfilehash: ea61ae4ea05b34c785485cbb5fd39c8a772565e3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 735ab26e1f9432a87d5a0d927c64d44e680b0694
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80656971"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82688099"
 ---
 # <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Mapeamento de recomendações da amostra de projeto de referência da CIS Microsoft Azure Foundations
 
@@ -25,7 +25,7 @@ Muitas das recomendações mapeadas são implementadas com uma iniciativa da [Po
 Este projeto atribui definições de [Política Azure](../../../policy/overview.md) que o ajudam a monitorizar quando a autenticação de vários fatores não está ativada em contas privilegiadas do Diretório Ativo Azure.
 
 - MFA deve ser ativado em contas com permissões do proprietário na sua subscrição
-- MFA deve ser ativado em contas com permissões de escrita na sua subscrição
+- MFA deve ser ativado contas com permissões de escrita na sua subscrição
 
 ## <a name="12-ensure-that-multi-factor-authentication-is-enabled-for-all-non-privileged-users"></a>1.2 Certifique-se de que a autenticação multifactor está ativada para todos os utilizadores não privilegiados
 
@@ -37,9 +37,9 @@ Este projeto atribui uma definição de [Política Azure](../../../policy/overvi
 
 Esta planta atribui definições de [Política Azure](../../../policy/overview.md) que o ajudam a monitorizar as contas dos hóspedes que podem necessitar de ser removidas.
 
-- As contas externas com permissões do proprietário devem ser removidas da sua subscrição
 - As contas externas com permissões de leitura devem ser removidas da sua subscrição
 - As contas externas com permissões de escrita devem ser removidas da sua subscrição
+- As contas externas com permissões do proprietário devem ser removidas da sua subscrição
 
 ## <a name="123-ensure-that-no-custom-subscription-owner-roles-are-created"></a>1.23 Certifique-se de que não são criadas funções personalizadas do proprietário da subscrição
 
@@ -51,7 +51,7 @@ Esta planta atribui definições de [Política Azure](../../../policy/overview.m
 
 Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a monitorizar redes e máquinas virtuais onde o nível padrão do Centro de Segurança não está ativado.
 
- - Nível de preços padrão do Centro de Segurança deve ser selecionado
+- Nível de preços padrão do Centro de Segurança deve ser selecionado
 
 ## <a name="22-ensure-that-automatic-provisioning-of-monitoring-agent-is-set-to-on"></a>2.2 Assegurar que o "fornecimento automático do agente de monitorização" está definido para 'On'
 
@@ -87,20 +87,14 @@ Esta planta atribui uma definição de [Política Azure](../../../policy/overvie
 
 Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a proteger as máquinas virtuais viradas para a Internet.
 
-- As regras do Grupo de Segurança da Rede para as máquinas virtuais viradas para a Internet devem ser endurecidas
-
-## <a name="28-ensure-asc-default-policy-setting-monitor-web-application-firewall-is-not-disabled"></a>2.8 Garantir que a definição da definição da política padrão ASC "Firewall de aplicação web do monitor" não é "Desativada"
-
-Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a proteger as máquinas virtuais que executam aplicações web.
-
-- As regras do NSGs para aplicações web em IaaS devem ser endurecidas
+- Recomendações adapttivas de endurecimento da rede devem ser aplicadas na Internet viradas para máquinas virtuais
 
 ## <a name="29-ensure-asc-default-policy-setting-enable-next-generation-firewallngfw-monitoring-is-not-disabled"></a>2.9 Garantir que a definição da política padrão ASC "Enable Next Generation Firewall (NGFW) Monitoring" não é "Desativada"
 
 Esta planta atribui definições [de Política Azure](../../../policy/overview.md) que ajudam a proteger as subredes e as máquinas virtuais de ameaças, restringindo o acesso. A política do Security Center referenciada por esta recomendação de referência do CIS Microsoft Azure Foundations foi substituída por duas novas recomendações. As políticas abaixo referidas abordam as novas recomendações.
 
 - As subredes devem ser associadas a um Grupo de Segurança da Rede
-- As máquinas virtuais devem ser associadas a um Grupo de Segurança da Rede
+- As máquinas virtuais viradas para a Internet devem ser protegidas com grupos de segurança da rede
 
 ## <a name="210-ensure-asc-default-policy-setting-monitor-vulnerability-assessment-is-not-disabled"></a>2.10 Garantir que a definição da política padrão ASC "Monitor Vulnerability Assessment" não é "Deficiente"
 
@@ -128,7 +122,7 @@ Esta planta atribui uma definição de [Política Azure](../../../policy/overvie
 
 Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que ajuda a garantir que a auditoria do servidor SQL está ativada.
 
-- A auditoria deve ser ativada em definições avançadas de segurança de dados no Servidor SQL
+- A auditoria no servidor SQL deve ser ativada
 
 ## <a name="215-ensure-asc-default-policy-setting-monitor-sql-encryption-is-not-disabled"></a>2.15 Garantir que a definição de definição de definição de padrão ASC "Monitor SQL Encryption" não é "Desativada"
 
@@ -182,7 +176,7 @@ Esta planta atribui uma definição de [Política Azure](../../../policy/overvie
 
 Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que ajuda a garantir que a auditoria do servidor SQL está ativada. 
 
-- A auditoria deve ser ativada em definições avançadas de segurança de dados no Servidor SQL
+- A auditoria no servidor SQL deve ser ativada
 
 ## <a name="42-ensure-that-auditactiongroups-in-auditing-policy-for-a-sql-server-is-set-properly"></a>4.2 Certifique-se de que a política de "AuditActionGroups" na política de "auditoria" para um servidor SQL é corretamente definida
 
@@ -200,8 +194,8 @@ Esta planta atribui uma definição de [Política Azure](../../../policy/overvie
 
 Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que a segurança avançada de dados está ativada em servidores SQL e instâncias geridas pela SQL.
 
-- A segurança avançada de dados deve ser ativada nos seus casos geridos pela SQL
 - A segurança avançada de dados deve ser ativada nos seus servidores SQL
+- A segurança avançada de dados deve ser ativada nos seus casos geridos pela SQL
 
 ## <a name="45-ensure-that-threat-detection-types-is-set-to-all"></a>4.5 Certifique-se de que os "tipos de deteção de ameaças" estão definidos para 'All'
 
@@ -214,15 +208,15 @@ Esta planta atribui definições de [Política Azure](../../../policy/overview.m
 
 Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que notificações avançadas de segurança de dados estão devidamente ativadas.
 
-- As definições avançadas de segurança de dados para a instância gerida pela SQL devem conter um endereço de e-mail para receber alertas de segurança
 - As definições avançadas de segurança de dados para o servidor SQL devem conter um endereço de e-mail para receber alertas de segurança
+- As definições avançadas de segurança de dados para a instância gerida pela SQL devem conter um endereço de e-mail para receber alertas de segurança
 
 ## <a name="47-ensure-that-email-service-and-co-administrators-is-enabled"></a>4.7 Certifique-se de que o 'serviço de e-mail e os co-administradores' estão 'habilitados'
 
 Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que notificações avançadas de segurança de dados estão devidamente ativadas.
 
-- As notificações por e-mail aos administradores e proprietários de subscrições devem ser ativadas em definições avançadas de segurança de dados geridas pela SQL
 - As notificações de e-mail para administradores e proprietários de subscrições devem ser ativadas em definições avançadas de segurança de dados do servidor SQL
+- As notificações por e-mail aos administradores e proprietários de subscrições devem ser ativadas em definições avançadas de segurança de dados geridas pela SQL
 
 ## <a name="48-ensure-that-azure-active-directory-admin-is-configured"></a>4.8 Certifique-se de que o Administrador de Diretório Ativo Azure está configurado
 
@@ -240,8 +234,8 @@ Esta planta atribui uma definição de [Política Azure](../../../policy/overvie
 
 Esta planta atribui definições de [Política Azure](../../../policy/overview.md) que o ajudam a garantir que o protetor encriptado de dados transparente para servidores SQL e instâncias geridas pela SQL é encriptado com a sua própria chave.
 
-- SQL gerido exemplo TDE protetor deve ser encriptado com a sua própria chave
 - O protetor TDE do servidor SQL deve ser encriptado com a sua própria chave
+- SQL gerido exemplo TDE protetor deve ser encriptado com a sua própria chave
 
 ## <a name="411-ensure-enforce-ssl-connection-is-set-to-enabled-for-mysql-database-server"></a>4.11 Certifique-se de que a 'ligação SSL' está definida como 'ACTIVADA' para o Servidor de Base de Dados MySQL
 
@@ -315,11 +309,83 @@ Esta planta atribui uma definição de [Política Azure](../../../policy/overvie
 
 - O Monitor Azure deve recolher registos de atividade sacar registos de atividades de todas as regiões
 
+## <a name="516-ensure-the-storage-account-containing-the-container-with-activity-logs-is-encrypted-with-byok-use-your-own-key"></a>5.1.6 Certifique-se de que a conta de armazenamento que contém o recipiente com registos de atividade está encriptada com BYOK (Use a sua própria chave)
+
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que as contas de armazenamento que contêm registos de atividade são encriptadas com BYOK.
+
+- A conta de armazenamento que contenha o contentor com registos de atividade deve ser encriptada com BYOK
+
 ## <a name="517-ensure-that-logging-for-azure-keyvault-is-enabled"></a>5.1.7 Certifique-se de que a exploração madeireira para o Azure KeyVault está 'activada'
 
 Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que os registos de diagnóstico estão ativados para cofres chave.
 
 - Os registos de diagnóstico no Cofre-Chave devem ser ativados
+
+## <a name="521-ensure-that-activity-log-alert-exists-for-create-policy-assignment"></a>5.2.1 Garantir que existe alerta de registo de atividade para criar atribuição de políticas
+
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que existem alertas específicos de registo de atividade.
+
+- Deve existir um alerta de registo de atividade para operações políticas específicas
+
+## <a name="522-ensure-that-activity-log-alert-exists-for-create-or-update-network-security-group"></a>5.2.2 Garantir que existe alerta de registo de atividade para criar ou atualizar o Grupo de Segurança da Rede
+
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que existem alertas específicos de registo de atividade.
+
+- Deve existir um alerta de registo de atividade para operações administrativas específicas
+
+## <a name="523-ensure-that-activity-log-alert-exists-for-delete-network-security-group"></a>5.2.3 Certifique-se de que existe alerta de registo de atividade para eliminar o Grupo de Segurança da Rede
+
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que existem alertas específicos de registo de atividade.
+
+- Deve existir um alerta de registo de atividade para operações administrativas específicas
+
+## <a name="524-ensure-that-activity-log-alert-exists-for-create-or-update-network-security-group-rule"></a>5.2.4 Certifique-se de que existe alerta de registo de atividade para a regra do grupo de segurança da rede de criação ou atualização
+
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que existem alertas específicos de registo de atividade.
+
+- Deve existir um alerta de registo de atividade para operações administrativas específicas
+
+## <a name="525-ensure-that-activity-log-alert-exists-for-the-delete-network-security-group-rule"></a>5.2.5 Certifique-se de que existe alerta de registo de atividade para a regra do grupo de segurança da rede de eliminação
+
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que existem alertas específicos de registo de atividade.
+
+- Deve existir um alerta de registo de atividade para operações administrativas específicas
+
+## <a name="526-ensure-that-activity-log-alert-exists-for-create-or-update-security-solution"></a>5.2.6 Certifique-se de que existe alerta de registo de atividade para criar ou atualizar solução de segurança
+
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que existem alertas específicos de registo de atividade.
+
+- Deve existir um alerta de registo de atividade para operações específicas de segurança
+
+## <a name="527-ensure-that-activity-log-alert-exists-for-delete-security-solution"></a>5.2.7 Certifique-se de que existe alerta de registo de atividade para eliminar solução de segurança
+
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que existem alertas específicos de registo de atividade.
+
+- Deve existir um alerta de registo de atividade para operações específicas de segurança
+
+## <a name="528-ensure-that-activity-log-alert-exists-for-create-or-update-or-delete-sql-server-firewall-rule"></a>5.2.8 Certifique-se de que existe alerta de registo de atividade para criar ou atualizar ou eliminar a regra de firewall do servidor SQL
+
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que existem alertas específicos de registo de atividade.
+
+- Deve existir um alerta de registo de atividade para operações administrativas específicas
+
+## <a name="529-ensure-that-activity-log-alert-exists-for-update-security-policy"></a>5.2.9 Certifique-se de que existe alerta de registo de atividade para a Política de Segurança da Atualização
+
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que existem alertas específicos de registo de atividade.
+
+- Deve existir um alerta de registo de atividade para operações específicas de segurança
+
+## <a name="61-ensure-that-rdp-access-is-restricted-from-the-internet"></a>6.1 Certifique-se de que o acesso rdp é restrito da internet
+
+Este projeto atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que o acesso rdp é restrito.
+
+- O acesso rdp da Internet deve ser bloqueado
+
+## <a name="62-ensure-that-ssh-access-is-restricted-from-the-internet"></a>6.2 Certifique-se de que o acesso sSH é restrito da internet
+
+Este projeto atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que o acesso ao SSH é restrito.
+
+- O acesso sSH a partir da Internet deve ser bloqueado
 
 ## <a name="65-ensure-that-network-watcher-is-enabled"></a>6.5 Certifique-se de que o Observador da Rede está 'Activado'
 
@@ -349,7 +415,7 @@ Esta planta atribui uma definição de [Política Azure](../../../policy/overvie
 
 Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que apenas as extensões de máquinas virtuais aprovadas são instaladas. Esta política requer uma matriz de parâmetros que especifica todas as extensões de máquinas virtuais aprovadas. Esta definição de iniciativa política contém incumprimentos sugeridos que os clientes devem validar. 
 
- - Só devem ser instaladas extensões VM aprovadas
+- Só devem ser instaladas extensões VM aprovadas
 
 ## <a name="75-ensure-that-the-latest-os-patches-for-all-virtual-machines-are-applied"></a>7.5 Certifique-se de que são aplicados os mais recentes Patches de OS para todas as Máquinas Virtuais
 
@@ -373,7 +439,15 @@ Esta planta atribui uma definição de [Política Azure](../../../policy/overvie
 
 Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que o controlo de acesso baseado em papéis é usado para permissões geridas em clusters de serviços Kubernetes
 
-- \[Pré-visualização\]: O Controlo de Acesso baseado em funções (RBAC) deve ser utilizado nos serviços kubernetes
+- O Controlo de Acesso baseado em funções (RBAC) deve ser utilizado nos serviços kubernetes
+
+## <a name="91-ensure-app-service-authentication-is-set-on-azure-app-service"></a>9.1 Garantir que a autenticação do serviço de aplicações está definida no Serviço de Aplicações Azure
+
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que os pedidos para aplicações do App Service são autenticados.
+
+- A autenticação deve ser ativada na sua aplicação API
+- A autenticação deve ser ativada na sua aplicação Função
+- A autenticação deve ser ativada na sua aplicação web
 
 ## <a name="92-ensure-web-app-redirects-all-http-traffic-to-https-in-azure-app-service"></a>9.2 Garantir que a aplicação web redireciona todo o tráfego HTTP para HTTPS no Serviço de Aplicações Azure
 
@@ -434,7 +508,7 @@ Esta planta atribui definições de [Política Azure](../../../policy/overview.m
 Esta planta atribui definições de [Política Azure](../../../policy/overview.md) que o ajudam a garantir que as aplicações web estão a usar a versão mais recente de Java.
 
 - Certifique-se de que 'versão Java' é a mais recente, se usada como parte da app Api
-- Certifique-se de que 'Versão Java' é a mais recente, se usada como parte da aplicação Funtion
+- Certifique-se de que 'versão Java' é a mais recente, se usada como parte da aplicação Fun
 - Certifique-se de que 'versão Java' é a mais recente, se usada como parte da aplicação Web
 
 ## <a name="910-ensure-that-http-version-is-the-latest-if-used-to-run-the-web-app"></a>9.10 Certifique-se de que 'VERSÃO HTTP' é a mais recente, se usada para executar a aplicação web
@@ -444,7 +518,6 @@ Esta planta atribui definições de [Política Azure](../../../policy/overview.m
 - Certifique-se de que 'VERSÃO HTTP' é o mais recente, se usado para executar a app Api
 - Certifique-se de que 'VERSÃO HTTP' é o mais recente, se usado para executar a aplicação Função
 - Certifique-se de que 'VERSÃO HTTP' é o mais recente, se usado para executar a aplicação Web
-
 
 ## <a name="next-steps"></a>Passos seguintes
 

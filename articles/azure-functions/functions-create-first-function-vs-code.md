@@ -5,51 +5,42 @@ ms.topic: quickstart
 ms.date: 01/10/2020
 ms.custom: mvc, devcenter, seo
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 8954f75aba176d8222f8a82256e66131bdee8921
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 64c2e813743a772692efcb1d966c8ab7b52cc66d
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610960"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628202"
 ---
-::: zone pivot="programming-language-csharp"  
-# <a name="quickstart-create-a-c-function-in-azure-using-visual-studio-code"></a>Quickstart: Criar uma função C# em Azure usando o Código de Estúdio Visual
+# <a name="quickstart-create-a-function-in-azure-using-visual-studio-code"></a>Quickstart: Criar uma função em Azure usando o Código de Estúdio Visual
 
-Neste artigo, você usa o Código do Estúdio Visual para criar uma função baseada em biblioteca de classe C# que responde aos pedidos http. Depois de testar o código localmente, implementa-o para o ambiente sem servidor estoirar das Funções Azure. Completar este quickstart incorre num pequeno custo de alguns cêntimos de USD ou menos na sua conta Azure. 
+::: zone pivot="programming-language-csharp"  
+Neste artigo, você usa o Código do Estúdio Visual para criar uma função baseada em biblioteca de classe C# que responde aos pedidos http. Depois de testar o código localmente, implementa-o para o ambiente sem servidor estoirar das Funções Azure. 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"
-# <a name="quickstart-create-a-javascript-function-in-azure-using-visual-studio-code"></a>Quickstart: Criar uma função JavaScript em Azure usando o Código de Estúdio Visual
-
-Neste artigo, utiliza o Código do Estúdio Visual para criar uma função JavaScript que responda aos pedidos do HTTP. Depois de testar o código localmente, implementa-o para o ambiente sem servidor estoirar das Funções Azure. Completar este quickstart incorre num pequeno custo de alguns cêntimos de USD ou menos na sua conta Azure. 
+Neste artigo, utiliza o Código do Estúdio Visual para criar uma função JavaScript que responda aos pedidos do HTTP. Depois de testar o código localmente, implementa-o para o ambiente sem servidor estoirar das Funções Azure. 
 ::: zone-end
 ::: zone pivot="programming-language-typescript"
-# <a name="quickstart-create-a-typescript-function-in-azure-using-visual-studio-code"></a>Quickstart: Criar uma função TypeScript em Azure usando o Código de Estúdio Visual
-
-Neste artigo, utiliza o Código do Estúdio Visual para criar uma função TypeScript que responda aos pedidos do HTTP. Depois de testar o código localmente, implementa-o para o ambiente sem servidor estoirar das Funções Azure. Completar este quickstart incorre num pequeno custo de alguns cêntimos de USD ou menos na sua conta Azure. 
+Neste artigo, utiliza o Código do Estúdio Visual para criar uma função TypeScript que responda aos pedidos do HTTP. Depois de testar o código localmente, implementa-o para o ambiente sem servidor estoirar das Funções Azure. 
 ::: zone-end   
 ::: zone pivot="programming-language-powershell"
-# <a name="quickstart-create-a-powershell-function-in-azure-using-visual-studio-code"></a>Quickstart: Criar uma função PowerShell em Azure usando o Código de Estúdio Visual
-
-Neste artigo, utiliza o Visual Studio Code para criar uma função PowerShell que responda aos pedidos do HTTP. Depois de testar o código localmente, implementa-o para o ambiente sem servidor estoirar das Funções Azure. Completar este quickstart incorre num pequeno custo de alguns cêntimos de USD ou menos na sua conta Azure. 
+Neste artigo, utiliza o Visual Studio Code para criar uma função PowerShell que responda aos pedidos do HTTP. Depois de testar o código localmente, implementa-o para o ambiente sem servidor estoirar das Funções Azure. 
 ::: zone-end  
 ::: zone pivot="programming-language-python" 
-# <a name="quickstart-create-a-python-function-in-azure-using-visual-studio-code"></a>Quickstart: Criar uma função Python em Azure usando o Código de Estúdio Visual
-
-Neste artigo, você usa o Visual Studio Code para criar uma função Python que responda aos pedidos http. Depois de testar o código localmente, implementa-o para o ambiente sem servidor estoirar das Funções Azure. Completar este quickstart incorre num pequeno custo de alguns cêntimos de USD ou menos na sua conta Azure. 
+Neste artigo, você usa o Visual Studio Code para criar uma função Python que responda aos pedidos http. Depois de testar o código localmente, implementa-o para o ambiente sem servidor estoirar das Funções Azure. 
 ::: zone-end  
 ::: zone pivot="programming-language-java" 
-# <a name="quickstart-create-a-java-function-in-azure-using-visual-studio-code"></a>Quickstart: Criar uma função Java em Azure usando o Código de Estúdio Visual
-
-Neste artigo, você usa o Visual Studio Code para criar uma função Java que responda aos pedidos http. Depois de testar o código localmente, implementa-o para o ambiente sem servidor estoirar das Funções Azure. Completar este quickstart incorre num pequeno custo de alguns cêntimos de USD ou menos na sua conta Azure. 
+Neste artigo, você usa o Visual Studio Code para criar uma função Java que responda aos pedidos http. Depois de testar o código localmente, implementa-o para o ambiente sem servidor estoirar das Funções Azure. 
 ::: zone-end
 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python" 
-Há também uma [versão baseada em CLI](functions-create-first-azure-function-azure-cli.md) deste artigo.
-::: zone-end  
+Completar este quickstart incorre num pequeno custo de alguns cêntimos de USD ou menos na sua conta Azure. 
 
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
+Há também uma [versão baseada em CLI](functions-create-first-azure-function-azure-cli.md) deste artigo.
+::: zone-end
 ::: zone pivot="programming-language-java"  
 > [!NOTE]
-> Se o Código VS não for a sua ferramenta de desenvolvimento preferencial, consulte os nossos tutoriais semelhantes para desenvolvedores java usando [Maven,](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java) [Gradle](/azure/azure-functions/functions-create-first-java-gradle) e [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions).
+> Se o Visual Studio Code não é a sua ferramenta de desenvolvimento preferencial, confira os nossos tutoriais semelhantes para desenvolvedores de Java usando [Maven,](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java) [Gradle](/azure/azure-functions/functions-create-first-java-gradle) e [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions).
 ::: zone-end  
 
 ## <a name="configure-your-environment"></a>Configurar o ambiente

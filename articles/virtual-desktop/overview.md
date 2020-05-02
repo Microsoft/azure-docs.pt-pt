@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: fd4268ecad91a023683d1d6f955178fb87d78f87
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 15bf167df52e8ef54ab45de7b7b03efdaf83672a
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612848"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628321"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>O que é o Windows Virtual Desktop? 
 
@@ -103,7 +103,7 @@ As máquinas virtuais Azure que cria para o Windows Virtual Desktop devem ter ac
 >[!IMPORTANT]
 >Recomendamos que utilize as etiquetas de serviço em vez de URLs na maioria dos casos para evitar problemas de serviço. Desbloquear estes URLs é essencial para uma implementação fiável do Windows Virtual Desktop. O bloqueio do acesso a estes URLs não é suportado e afetará a funcionalidade do serviço. Estes URLs apenas correspondem a sites e recursos do Windows Virtual Desktop, e não incluem URLs para outros serviços como o Azure Ative Directory.
 >
->O Windows Virtual Desktop suporta agora a etiqueta FQDN.
+>O Windows Virtual Desktop suporta agora a etiqueta FQDN. Para mais informações, consulte utilize firewall [Azure para proteger as implementações](../firewall/protect-windows-virtual-desktop.md)de ambiente de trabalho virtual da janela .
 
 A tabela a seguir lista URLs opcionais a que as suas máquinas virtuais Azure possam ter acesso:
 

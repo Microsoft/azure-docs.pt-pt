@@ -4,53 +4,42 @@ description: Aprenda a criar uma função a partir da linha de comando e, em seg
 ms.date: 03/30/2020
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 5022ff7239a040a163d8d6a82864d0dee8e65f1e
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 7826701a2d328fe40ad75bb3d68b2764d53f9590
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610909"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82626263"
 ---
-::: zone pivot="programming-language-csharp"  
-# <a name="quickstart-create-a-c-function-in-azure-that-responds-to-http-requests"></a>Quickstart: Criar uma função C# em Azure que responda aos pedidos do HTTP
+# <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Quickstart: Criar uma função em Azure que responda aos pedidos do HTTP
 
-Neste artigo, utiliza ferramentas de linha de comando para criar uma função baseada na biblioteca da classe C# que responda aos pedidos do HTTP. Depois de testar o código localmente, implementa-o para o ambiente sem servidor estoirar das Funções Azure. Completar este quickstart incorre num pequeno custo de alguns cêntimos de USD ou menos na sua conta Azure.
+::: zone pivot="programming-language-csharp"  
+Neste artigo, utiliza ferramentas de linha de comando para criar uma função baseada na biblioteca da classe C# que responda aos pedidos do HTTP. Depois de testar o código localmente, implementa-o para o ambiente sem servidor estoirar das Funções Azure. 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"
-# <a name="quickstart-create-a-javascript-function-in-azure-that-responds-to-http-requests"></a>Quickstart: Criar uma função JavaScript em Azure que responda aos pedidos do HTTP
-
-Neste artigo, utiliza ferramentas de linha de comando para criar uma função JavaScript que responda aos pedidos http. Depois de testar o código localmente, implementa-o para o ambiente sem servidor estoirar das Funções Azure. Completar este quickstart incorre num pequeno custo de alguns cêntimos de USD ou menos na sua conta Azure.
+Neste artigo, utiliza ferramentas de linha de comando para criar uma função JavaScript que responda aos pedidos http. Depois de testar o código localmente, implementa-o para o ambiente sem servidor estoirar das Funções Azure. 
 ::: zone-end
 ::: zone pivot="programming-language-typescript"
-# <a name="quickstart-create-a-typescript-function-in-azure-that-responds-to-http-requests"></a>Quickstart: Criar uma função TypeScript em Azure que responda aos pedidos do HTTP
-
-Neste artigo, utiliza ferramentas de linha de comando para criar uma função TypeScript que responda aos pedidos http. Depois de testar o código localmente, implementa-o para o ambiente sem servidor estoirar das Funções Azure. Completar este quickstart incorre num pequeno custo de alguns cêntimos de USD ou menos na sua conta Azure.
+Neste artigo, utiliza ferramentas de linha de comando para criar uma função TypeScript que responda aos pedidos http. Depois de testar o código localmente, implementa-o para o ambiente sem servidor estoirar das Funções Azure. 
 ::: zone-end   
 ::: zone pivot="programming-language-powershell"
-# <a name="quickstart-create-a-powershell-function-in-azure-that-responds-to-http-requests"></a>Quickstart: Criar uma função PowerShell em Azure que responda aos pedidos do HTTP
-
-Neste artigo, utiliza ferramentas de linha de comando para criar uma função PowerShell que responda aos pedidos http. Depois de testar o código localmente, implementa-o para o ambiente sem servidor estoirar das Funções Azure. Completar este quickstart incorre num pequeno custo de alguns cêntimos de USD ou menos na sua conta Azure.
+Neste artigo, utiliza ferramentas de linha de comando para criar uma função PowerShell que responda aos pedidos http. Depois de testar o código localmente, implementa-o para o ambiente sem servidor estoirar das Funções Azure. 
 ::: zone-end  
 ::: zone pivot="programming-language-python" 
-# <a name="quickstart-create-a-python-function-in-azure-that-responds-to-http-requests"></a>Quickstart: Criar uma função Python em Azure que responda aos pedidos do HTTP
-
-Neste artigo, utiliza ferramentas de linha de comando para criar uma função Python que responda aos pedidos http. Depois de testar o código localmente, implementa-o para o ambiente sem servidor estoirar das Funções Azure. Completar este quickstart incorre num pequeno custo de alguns cêntimos de USD ou menos na sua conta Azure.
+Neste artigo, utiliza ferramentas de linha de comando para criar uma função Python que responda aos pedidos http. Depois de testar o código localmente, implementa-o para o ambiente sem servidor estoirar das Funções Azure. 
 ::: zone-end  
 ::: zone pivot="programming-language-java" 
-# <a name="quickstart-create-a-java-function-in-azure-that-responds-to-http-requests"></a>Quickstart: Criar uma função Java em Azure que responda aos pedidos do HTTP
-
-Neste artigo, utiliza ferramentas de linha de comando para criar uma função Java que responda aos pedidos http. Depois de testar o código localmente, implementa-o para o ambiente sem servidor estoirar das Funções Azure. Completar este quickstart incorre num pequeno custo de alguns cêntimos de USD ou menos na sua conta Azure.
+Neste artigo, utiliza ferramentas de linha de comando para criar uma função Java que responda aos pedidos http. Depois de testar o código localmente, implementa-o para o ambiente sem servidor estoirar das Funções Azure. 
 ::: zone-end
 
-Neste artigo, utiliza ferramentas de linha de comando para criar uma função que responda aos pedidos do HTTP. Depois de testar o código localmente, implementa-o para o ambiente sem servidor estoirar das Funções Azure. Completar este quickstart incorre num pequeno custo de alguns cêntimos de USD ou menos na sua conta Azure.
+Completar este quickstart incorre num pequeno custo de alguns cêntimos de USD ou menos na sua conta Azure.
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
 Há também uma [versão baseada em Código](functions-create-first-function-vs-code.md) de Estúdio Visual deste artigo.
 ::: zone-end  
-
 ::: zone pivot="programming-language-java"  
 > [!NOTE]
-> Se a Maven não é a sua ferramenta de desenvolvimento preferencial, consulte os nossos tutoriais semelhantes para desenvolvedores de Java usando [Gradle,](/azure/azure-functions/functions-create-first-java-gradle) [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions) e [VS Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java).
+> Se a Maven não é a sua ferramenta de desenvolvimento preferencial, confira os nossos tutoriais semelhantes para desenvolvedores de Java usando [Gradle,](/azure/azure-functions/functions-create-first-java-gradle) [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions) e [Visual Studio Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java).
 ::: zone-end  
 
 [!INCLUDE [functions-requirements-cli](../../includes/functions-requirements-cli.md)]

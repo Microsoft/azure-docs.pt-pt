@@ -3,24 +3,24 @@ title: Ligação Privada
 description: Visão geral da funcionalidade private endpoint
 author: rohitnayakmsft
 ms.author: rohitna
-titleSuffix: Azure SQL Database and SQL Data Warehouse
+titleSuffix: Azure SQL Database and Azure Synapse Analytics
 ms.service: sql-database
 ms.topic: overview
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 4338c179fb8c0eebbb64ac5b33dc5dd8878d0794
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dd717d653e57fbb8c540e4ef023011c64778a3b0
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82176724"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629002"
 ---
-# <a name="private-link-for-azure-sql-database-and-data-warehouse"></a>Link privado para Base de Dados EArmazém de Dados Azure SQL
+# <a name="private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Link privado para Base de Dados Azure SQL e Azure Synapse Analytics
 
 O Private Link permite-lhe ligar-se a vários serviços PaaS em Azure através de um **ponto final privado.** Para obter uma lista de serviços PaaS que suportam a funcionalidade Private Link, vá à página de Documentação de [Link Privado.](../private-link/index.yml) Um ponto final privado é um endereço IP privado dentro de uma [VNet](../virtual-network/virtual-networks-overview.md) e Subnet específicas. 
 
 > [!IMPORTANT]
-> Este artigo aplica-se ao servidor Azure SQL e tanto às bases de dados SQL como ao SQL Data Warehouse que são criados no servidor Azure SQL. Para simplificar, a Base de Dados SQL é utilizada para referenciar a Base de Dados SQL e o SQL Data Warehouse. Este artigo *não* se aplica a uma implantação de **instânciagerida** na Base de Dados Azure SQL.
+> Este artigo aplica-se ao servidor Azure SQL e tanto às bases de dados SQL como à Azure Synapse Analytics que são criadas no servidor Azure SQL. Para a simplicidade, a Base de Dados SQL é usada quando se refere tanto à Base de Dados SQL como ao Azure Synapse Analytics. Este artigo *não* se aplica a uma implantação de **instânciagerida** na Base de Dados Azure SQL.
 
 ## <a name="data-exfiltration-prevention"></a>Prevenção da exfiltração de dados
 
@@ -28,7 +28,7 @@ A exfiltração de dados na Base de Dados Azure SQL é quando um utilizador auto
 
 Considere um cenário com um utilizador que executa o SQL Server Management Studio (SSMS) dentro de um Azure VM que liga a uma Base de Dados SQL. Esta Base de Dados SQL está no centro de dados dos EUA Ocidentais. O exemplo abaixo mostra como limitar o acesso com pontos finais públicos na Base de Dados SQL utilizando controlos de acesso à rede.
 
-1. Desative todo o tráfego de serviço azure para a Base de Dados SQL através do ponto final, definindo os Serviços De acesso ao Azure **.** Certifique-se de que não são permitidos endereços IP nas regras de firewall do servidor e da base de dados. Para mais informações, consulte os controlos de acesso à [rede Azure SQL e Data Warehouse](sql-database-networkaccess-overview.md).
+1. Desative todo o tráfego de serviço azure para a Base de Dados SQL através do ponto final, definindo os Serviços De acesso ao Azure **.** Certifique-se de que não são permitidos endereços IP nas regras de firewall do servidor e da base de dados. Para mais informações, consulte os controlos de acesso à [rede Azure SQL e Azure Synapse Analytics](sql-database-networkaccess-overview.md).
 1. Apenas permita o tráfego na Base de Dados SQL utilizando o endereço IP privado do VM. Para mais informações, consulte os artigos sobre as regras de firewall [do Service Endpoint](sql-database-vnet-service-endpoint-rule-overview.md) e [VNet](sql-database-firewall-configure.md).
 1. No VM Azure, reduza o âmbito de ligação de saída utilizando grupos de segurança de [rede (NSGs)](../virtual-network/manage-network-security-group.md) e etiquetas de serviço da seguinte forma
     - Especifique uma regra NSG para permitir o tráfego para etiqueta de serviço = SQL. WestUs - apenas permitindo a ligação à Base de Dados SQL nos EUA Ocidentais
@@ -142,7 +142,6 @@ Nmap done: 256 IP addresses (1 host up) scanned in 207.00 seconds
 
 O resultado mostra que um endereço IP está em cima; que corresponde ao endereço IP para o ponto final privado.
 
-
 ### <a name="check-connectivity-using-sql-server-management-studio-ssms"></a>Verifique a conectividade utilizando o Estúdio de Gestão de Servidores SQL (SSMS)
 > [!NOTE]
 > Utilize o Nome de **Domínio Totalmente Qualificado (FQDN)** do servidor nas cadeias de ligação para os seus clientes. Qualquer tentativa de login efetuada diretamente no endereço IP falhará. Este comportamento é por design, uma vez que o tráfego de pontos finais privados para o Portal SQL na região e o FQDN precisa de ser especificado para que os logins tenham sucesso.
@@ -174,11 +173,9 @@ Para estabelecer a conectividade de um ambiente no local até à Base de Dados S
 - [Circuito do ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)
 
 
-## <a name="connecting-from-an-azure-sql-data-warehouse-to-azure-storage-using-polybase"></a>Ligação de um Armazém de Dados Azure SQL ao Armazenamento Azure usando a Polybase
+## <a name="connecting-from-azure-synapse-analytics-to-azure-storage-using-polybase"></a>Ligação de Azure Synapse Analytics ao Armazenamento Azure usando a Polybase
 
-A PolyBase é comumente usada para carregar dados no Armazém de Dados Azure SQL a partir de contas de Armazenamento Azure. Se a conta de Armazenamento Azure que está a carregar dados dos limites aceder apenas a um conjunto de subredes VNet através de pontos finais privados, pontos finais de serviço ou firewalls baseados em IP, a conectividade da PolyBase para a conta quebrará. Para permitir tanto cenários de importação e exportação da PolyBase com o Azure SQL Data Warehouse que está ligado ao Armazenamento Azure que está seguro a um VNet, siga os passos [aqui](sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)fornecidos . 
-
-
+A PolyBase é comumente usada para carregar dados em Azure Synapse Analytics a partir de contas de Armazenamento Azure. Se a conta de Armazenamento Azure que está a carregar dados dos limites aceder apenas a um conjunto de subredes VNet através de pontos finais privados, pontos finais de serviço ou firewalls baseados em IP, a conectividade da PolyBase para a conta quebrará. Para permitir tanto cenários de importação e exportação da PolyBase com a Azure Synapse Analytics a ligar-se ao Armazenamento Azure que está seguro a um VNet, siga os passos [aqui](sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)fornecidos . 
 
 ## <a name="next-steps"></a>Passos seguintes
 

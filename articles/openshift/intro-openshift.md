@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 04/24/2020
 ms.custom: mvc
-ms.openlocfilehash: 87126d1beca97a905f0f3b09b565c12c37a4774d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a3bdc3673474b778aa7c1003e48e215bac6d05bf
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82203918"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628525"
 ---
 # <a name="azure-red-hat-openshift"></a>Azure Red Hat OpenShift
 
@@ -32,19 +32,11 @@ Para uma melhor segurança e gestão, o Azure Red Hat OpenShift permite-lhe inte
 
 ## <a name="cluster-and-node"></a>Cluster e nó
 
-Os nódosos OpenShift do Chapéu Vermelho Azure funcionam em máquinas virtuais Azure. Pode ligar o armazenamento aos nós e aos pods, atualizar os componentes de cluster e utilizar GPUs.
-
-## <a name="virtual-networks-and-ingress"></a>Redes virtuais e entrada
-
-Pode ligar a [rede virtual de um cluster a uma rede virtual existente ou criar uma rede virtual quando criar um cluster](tutorial-create-cluster.md#create-a-virtual-network-containing-two-empty-subnets).
-
-## <a name="kubernetes-certification"></a>Certificação Kubernetes
-
-O serviço Azure Red Hat OpenShift foi certificado pela CNCF como conformante kubernetes.
+Os nódosos OpenShift do Chapéu Vermelho Azure funcionam em máquinas virtuais Azure. Pode ligar o armazenamento a nós e cápsulas e atualizar componentes de cluster.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Aprenda os pré-requisitos para o Azure Red Hat OpenShift:
 
 > [!div class="nextstepaction"]
-> [Configurar o ambiente de desenvolvimento](howto-setup-environment.md)
+> [Configurar o ambiente de desenvolvimento](tutorial-create-cluster.md)

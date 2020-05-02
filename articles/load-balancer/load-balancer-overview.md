@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/14/2020
 ms.author: allensu
-ms.openlocfilehash: dd15b2ec985ddaba6031765368571a582fae1993
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 11c63c9dac6186e1c21cc0e76518a95e117574ec
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583709"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629461"
 ---
 # <a name="what-is-azure-load-balancer"></a>O que é o Balanceador de Carga do Azure?
 
@@ -27,9 +27,9 @@ ms.locfileid: "82583709"
 
 O Azure Load Balancer funciona na camada quatro do modelo de Interconexão de Sistemas Abertos (OSI). É o único ponto de contacto para os clientes. O Balancer load distribui fluxos de entrada que chegam à extremidade dianteira do equilibrador de carga para as instâncias da piscina de backend. Estes fluxos são de acordo com regras configuradas de equilíbrio de carga e sondas de saúde. As instâncias de piscina de backend podem ser Máquinas Virtuais Azure ou instâncias em um conjunto de escala de máquina virtual.
 
-Um **[equilibrador](./concepts-limitations.md#publicloadbalancer)** de carga público pode fornecer ligações de saída para máquinas virtuais (VMs) dentro da sua rede virtual. Estas ligações são realizadas traduzindo os seus endereços IP privados para endereços IP públicos. Os Balanceadores de Carga Pública são usados para carregar o tráfego de internet de equilíbrio para os seus VMs.
+Um **[equilibrador](./types.md#publicloadbalancer)** de carga público pode fornecer ligações de saída para máquinas virtuais (VMs) dentro da sua rede virtual. Estas ligações são realizadas traduzindo os seus endereços IP privados para endereços IP públicos. Os Balanceadores de Carga Pública são usados para carregar o tráfego de internet de equilíbrio para os seus VMs.
 
-Um **[equilibrista de carga interno (ou privado)](./concepts-limitations.md#internalloadbalancer)** é utilizado onde os IPs privados são necessários apenas na extremidade frontal. Os equilibradores internos de carga são usados para carregar o tráfego de equilíbrio dentro de uma rede virtual. Um frontend de equilíbrio de carga pode ser acedido a partir de uma rede no local em um cenário híbrido.
+Um **[equilibrista de carga interno (ou privado)](./types.md#internalloadbalancer)** é utilizado onde os IPs privados são necessários apenas na extremidade frontal. Os equilibradores internos de carga são usados para carregar o tráfego de equilíbrio dentro de uma rede virtual. Um frontend de equilíbrio de carga pode ser acedido a partir de uma rede no local em um cenário híbrido.
 
 <p align="center">
   <img src="./media/load-balancer-overview/load-balancer.svg" width="512" title="Azure Load Balancer">
@@ -37,7 +37,7 @@ Um **[equilibrista de carga interno (ou privado)](./concepts-limitations.md#inte
 
 *Figura: Equilibrar aplicações a vários níveis utilizando equilibrantes de carga públicos e internos*
 
-Para obter mais informações sobre os componentes individuais do equilíbrio de carga, consulte os componentes e limitações do [Equilíbrio de Carga Azure](./concepts-limitations.md).
+Para obter mais informações sobre os componentes individuais do equilíbrio de carga, consulte [os componentes do Equilíbrio de Carga Azure](./components.md).
 
 ## <a name="why-use-azure-load-balancer"></a>Porquê usar o Equilíbrio de Carga Azure?
 Com o Standard Load Balancer, pode escalar as suas aplicações e criar serviços altamente disponíveis. O equilibrista de carga suporta cenários de entrada e saída. O equilibrador de carga proporciona baixa latência e alta afluência, e escala até milhões de fluxos para todas as aplicações TCP e UDP.
@@ -80,6 +80,6 @@ Consulte [a atualização de um Balancer](upgrade-basic-standard.md) de carga b�
 
 Consulte [Criar um Balancer de Carga Padrão público](quickstart-load-balancer-standard-public-portal.md) para começar com o uso de um Balancer de Carga.
 
-Para obter mais informações sobre limitações e componentes do Equilíbrio de Carga Azure, consulte [conceitos e limitações do Azure Load Balancer](./concepts-limitations.md)
+Para obter mais informações sobre as limitações e componentes do Equilíbrio de Carga Azure, consulte componentes do [Equilíbrio de Carga Azure](./components.md) e [conceitos de Equilíbrio de Carga Azure](./concepts.md)
 
 Para uma comparação de opções de equilíbrio de carga Azure, consulte [a visão geral das opções de equilíbrio de carga em Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).

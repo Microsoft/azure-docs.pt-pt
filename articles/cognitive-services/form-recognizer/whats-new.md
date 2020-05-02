@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 5f8c66db491b93278fedf1378d3df86e7ce5fdbf
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: HT
+ms.openlocfilehash: c2b67989cbffb03eb182b4de2bf471a02ee33e7b
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81531087"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82627998"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Novidades no Reconhecedor de Formato?
 
@@ -22,6 +22,23 @@ O serviço 'Reconhecimento de Formulários' é atualizado de forma contínua. Ut
 
 > [!NOTE]
 > Os quickstarts e guias para reconhecimento de formulários usam sempre a versão mais recente da API, salvo especificação.
+
+## <a name="april-2020"></a>Abril de 2020
+
+### <a name="new-features"></a>Novas funcionalidades
+* **Suporte sDK para Reconhecimento de Formulário API v2.0 Visualização pública** Este mês expandimos o nosso suporte de serviço para incluir uma pré-visualização SDK para versão De reconhecimento de formulário v2.0 (pré-visualização). Use os links abaixo para começar com a sua linguagem de eleição: 
+   * [SDK .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer)
+   * [SDK Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/formrecognizer/azure-ai-formrecognizer)
+   * [SDK Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer)
+   * [SDK JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer)
+
+
+  O novo SDK suporta todas as funcionalidades da V2.0 REST API para reconhecimento de formulários. Por exemplo, pode treinar um modelo com ou sem etiquetas e texto de extração, pares de valor-chave e tabelas dos seus formulários, extrair dados de recibos com o serviço de recibos pré-construídos e extrair texto e tabelas com o serviço de layout dos seus documentos. Pode partilhar o seu feedback sobre os SDKs através do [formulário de feedback SDK](https://aka.ms/FR_SDK_v1_feedback).
+ 
+* **Copiar Modelo Personalizado** Agora pode copiar modelos entre regiões e subscrições utilizando a nova funcionalidade Copy Custom Model. Antes de invocar a API do Modelo Personalizado copy, primeiro deve obter autorização para copiar no recurso-alvo, chamando a operação de Autorização de Cópia contra o ponto final do recurso alvo.
+   * [Gerar uma autorização de cópia](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/CopyCustomFormModelAuthorization) REST API
+   * [Copiar um modelo personalizado](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/CopyCustomFormModel) REST API 
+
 
 ## <a name="march-2020"></a>Março de 2020 
 
