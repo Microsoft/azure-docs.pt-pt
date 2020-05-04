@@ -214,6 +214,7 @@
             - name: Páginas Web
               items:
                 - name: JavaScript do lado do cliente
+                  displayname: 'SPA, Single Page Applications, React, JS, Angular'
                   href: app/javascript.md
                 - name: Mapa de origem para JavaScript
                   href: app/source-map-support.md
@@ -441,6 +442,11 @@
               href: app/custom-data-correlation.md
             - name: Cadeias de ligação
               href: app/sdk-connection-string.md
+            - name: Cadeias de ligação
+              href: app/sdk-connection-string.md
+            - name: GetMetric
+              displayname: 'get metric, custom metrics, metrics, TrackMetric'
+              href: app/get-metric.md
             - name: Tópicos especiais
               items:
                 - name: Diagnósticos avançados para aplicações Web e serviços
