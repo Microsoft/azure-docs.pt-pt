@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: trbye
-ms.openlocfilehash: b2c119f6552773bce7bb93a503c22324278ac0bc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cb016ec490dc14cbde1a1cb3f34caf39e4740961
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81399465"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82732376"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Tutorial: Ativar a voz do seu bot usando o SDK da Fala
 
@@ -178,7 +178,7 @@ O [Bot Framework Emulator](https://github.com/microsoft/botframework-emulator) �
 O próximo passo é colocar o Echo Bot em Azure. Existem algumas formas de implementar um bot, mas neste tutorial vamos focar-nos em publicar diretamente do Visual Studio.
 
 > [!NOTE]
-> Em alternativa, pode utilizar um bot utilizando o [CLI Azure](https://docs.microsoft.com/azure/bot-service/bot-builder-deploy-az-cli) e [os modelos](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/directline-speech/csharp_dotnetcore/02.echo-bot/DeploymentTemplates)de implantação .
+> Em alternativa, pode utilizar um bot utilizando o [CLI Azure](https://docs.microsoft.com/azure/bot-service/bot-builder-deploy-az-cli) e [os modelos](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/adaptive-dialog/csharp_dotnetcore/04.core-bot/deploymentTemplates)de implantação .
 
 1. A partir do Estúdio Visual, abra o Echo Bot que foi configurado para uso com o canal Direct Line Speech:
 

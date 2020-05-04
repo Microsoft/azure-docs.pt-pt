@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Criar um papel personalizado para os recursos Azure com o Azure CLI'
-description: O START começou a criar um papel personalizado para os recursos Azure usando o Azure CLI neste tutorial.
+title: 'Tutorial: Criar um papel personalizado azure com o Azure CLI - Azure RBAC'
+description: Comece a criar uma função personalizada Azure utilizando o controlo de acesso baseado em papel Azure CLI e Azure (Azure RBAC) neste tutorial.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
-ms.openlocfilehash: f1a6e72e1444a26b675379d9948217a7773c4a1c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3efe9670d03a754cc90689c4b66d0843de4e275f
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79239869"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735509"
 ---
-# <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-cli"></a>Tutorial: Criar uma função personalizada para os recursos Azure usando o Azure CLI
+# <a name="tutorial-create-an-azure-custom-role-using-azure-cli"></a>Tutorial: Criar uma função personalizada azure usando o Azure CLI
 
-Se as [funções incorporadas para os recursos Azure](built-in-roles.md) não atenderem às necessidades específicas da sua organização, pode criar os seus próprios papéis personalizados. Neste tutorial vai criar uma função personalizada com o nome Pedidos de Suporte do Leitor com a CLI do Azure. A função personalizada permite ao utilizador visualizar tudo no plano de gestão de uma subscrição e também abrir bilhetes de apoio.
+Se os [papéis integrados](built-in-roles.md) do Azure não atenderem às necessidades específicas da sua organização, pode criar os seus próprios papéis personalizados. Neste tutorial vai criar uma função personalizada com o nome Pedidos de Suporte do Leitor com a CLI do Azure. A função personalizada permite ao utilizador visualizar tudo no plano de gestão de uma subscrição e também abrir bilhetes de apoio.
 
 Neste tutorial, ficará a saber como:
 
@@ -61,7 +61,7 @@ A forma mais fácil de criar uma função personalizada é começar com um model
 
 1. Abra ReaderSupportRole.json num editor e adicione o seguinte JSON.
 
-    Para obter informações sobre as diferentes propriedades, consulte [funções personalizadas para os recursos Azure.](custom-roles.md)
+    Para obter informações sobre as diferentes propriedades, consulte [as funções personalizadas do Azure.](custom-roles.md)
 
     ```json
     {
@@ -269,4 +269,4 @@ Para atualizar a função personalizada, atualize o ficheiro JSON e, em seguida,
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Create custom roles for Azure resources using Azure CLI](custom-roles-cli.md) (Utilizar a CLI do Azure para criar funções personalizadas para recursos do Azure)
+> [Criar ou atualizar funções personalizadas do Azure utilizando o Azure CLI](custom-roles-cli.md)

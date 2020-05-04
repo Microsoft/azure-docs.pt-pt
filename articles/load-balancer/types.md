@@ -1,6 +1,6 @@
 ---
-title: Tipos de balanceadores de carga azure
-description: Visão geral dos tipos de balanceadores de carga Azure
+title: Equilíbrio de carga azure SKUs
+description: Visão geral do Equilíbrio de Carga Azure SKUs
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -9,54 +9,20 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/30/2020
+ms.date: 05/01/2020
 ms.author: allensu
-ms.openlocfilehash: 31e2bf19967bb8870ee6ab75687bb3fcc37373f7
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: c7ca630b4a6a1bedeab21feacc22cd27a1a3ee7e
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629974"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734948"
 ---
-# <a name="azure-load-balancer-types"></a>Tipos de balanceadores de carga azure
+# <a name="azure-load-balancer-skus"></a>Equilíbrio de carga azure SKUs
 
-O Azure Load Balancer tem dois tipos e dois SKU's.
+O Equilíbrio de Carga Azure tem dois sabores ou SKUs.
 
-## <a name="public-load-balancer"></a><a name = "publicloadbalancer"></a>Equilibrador de carga pública
-
-Um equilibrador de carga pública mapeia o IP público e o porto de tráfego de entrada para o IP privado e porto do VM. Os mapas do equilíbrio de carga são contrários para o tráfego de resposta do VM. Pode distribuir tipos específicos de tráfego em vários VMs ou serviços aplicando regras de equilíbrio de carga. Por exemplo, pode distribuir a carga do tráfego de pedidos da Web entre múltiplos servidores Web.
-
->[!NOTE]
->Só pode implementar um equilibrador de carga pública e um equilibrador de carga interna por conjunto de disponibilidade.
-
-O valor seguinte mostra um ponto final equilibrado em carga para o tráfego web que é partilhado entre três VMs para o público e porta TCP 80. Estas três VMs estão num conjunto com carga balanceada.
-
-![Exemplo de equilibrador de carga pública](./media/load-balancer-overview/load-balancer.png)
-
-*Figura: Equilibrar o tráfego web utilizando um equilibrador de carga pública*
-
-Os clientes da Internet enviam pedidos de página web para o endereço IP público de uma aplicação web na porta 80 do TCP. O Azure Load Balancer distribui os pedidos pelos três VMs no conjunto equilibrado em carga. Para obter mais informações sobre algoritmos de equilíbrio de carga, consulte os conceitos de [balanceadores de carga.](concepts.md)
-
-O Azure Load Balancer distribui o tráfego da rede de forma igual entre várias instâncias vm por padrão. Também pode configurar a afinidade de sessão. Para mais informações, consulte Configure o modo de [distribuição para O Equilíbrio de Carga Azure](load-balancer-distribution-mode.md).
-
-## <a name="internal-load-balancer"></a><a name = "internalloadbalancer"></a>Equilibrador de carga interna
-
-Um equilibrador de carga interna distribui tráfego a recursos que estão dentro de uma rede virtual. O Azure restringe o acesso aos endereços IP front-end de uma rede virtual que são equilibradas em carga. 
-
-Os endereços IP front-end e as redes virtuais nunca são diretamente expostos a um ponto final da Internet. As aplicações de linha de negócio internas são executadas no Azure e acedidas de dentro do Azure ou a partir de recursos no local.
-
-Um equilibrador de carga interno permite os seguintes tipos de equilíbrio de carga:
-
-* **Dentro de uma rede virtual**: O equilíbrio de carga dos VMs na rede virtual para um conjunto de VMs que estão na mesma rede virtual.
-* **Para uma rede virtual transversal**: O equilíbrio de carga dos computadores no local para um conjunto de VMs que se encontram na mesma rede virtual.
-* **Para aplicações de vários níveis**: Equilibre a carga para aplicações multi-camadas viradas para a Internet, onde os níveis de back-end não estejam virados para a Internet. Os níveis de back-end requerem o equilíbrio da carga de tráfego a partir do nível virado para a Internet. Veja a próxima figura.
-* **Para aplicações de linha de negócio**: balanceamento de carga para aplicações de linha de negócio que estão alojadas no Azure sem hardware ou software adicional de balanceador de carga. Este cenário inclui servidores no local que estão no conjunto de computadores cujo tráfego é equilibrado.
-
-![Exemplo de Balanceador de Carga Interno](./media/load-balancer-overview/load-balancer.png)
-
-*Figura: Equilibrar aplicações a vários níveis utilizando equilibrantes de carga públicos e internos*
-
-## <a name="load-balancer-sku-comparison"></a><a name="skus"></a> Comparação de SKUs do Balanceador de Carga
+## <a name="sku-comparison"></a><a name="skus"></a>Comparação SKU
 
 O equilibrador de carga suporta as SKUs Básicas e Standard. Estas SKUs diferem na escala de cenários, funcionalidades e preços. Qualquer cenário que seja possível com o equilíbrio de carga Basic pode ser criado com o equilibrador de carga Standard.
 
@@ -66,7 +32,21 @@ Para comparar e compreender as diferenças, veja a tabela seguinte. Para mais in
 > A Microsoft recomenda um equilíbrio de carga Standard.
 As VMs autónomas, os conjuntos de disponibilidade e os conjuntos de dimensionamento de máquinas virtuais só podem ser ligados a um SKU, nunca a ambos. O equilibrador de carga e o endereço IP público SKU devem coincidir quando os utilizar com endereços IP públicos. O equilibrador de carga e as IP SKUs públicas não são mutáveis.
 
-[!INCLUDE [comparison table](../../includes/load-balancer-comparison-table.md)]
+| | Balanceador de Carga Padrão | Balanceador de Carga Básico |
+| --- | --- | --- |
+| [Tamanho da piscina de backend](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer) | Suporta até 1000 casos. | Suporta até 300 instâncias. |
+| Pontos finais do pool backend | Quaisquer máquinas virtuais ou conjuntos de escala de máquinavirtual numa única rede virtual. | Máquinas virtuais num único conjunto de disponibilidade ou conjunto de escala de máquina virtual. |
+| [Sondas do estado de funcionamento](./load-balancer-custom-probe-overview.md#types) | TCP, HTTP, HTTPS | TCP, HTTP |
+| [Saúde sonda para baixo comportamento](./load-balancer-custom-probe-overview.md#probedown) | As ligações TCP permanecem vivas numa sonda de exemplo para baixo __e__ em todas as sondas para baixo. | As ligações TCP permanecem vivas numa sonda de exemplo. Todas as ligações TCP terminam quando todas as sondas estão em baixo. |
+| Zonas de Disponibilidade | Extremidades de zona redundante e zonal para tráfego de entrada e saída. | Não disponível |
+| Diagnóstico | [Métricas multidimensionais do Monitor Azure](./load-balancer-standard-diagnostics.md) | [Registos do Azure Monitor](./load-balancer-monitor-log.md) |
+| Portos HA | [Disponível para Balancer de Carga Interna](./load-balancer-ha-ports-overview.md) | Não disponível |
+| Seguro por padrão | Fechado a fluxos de entrada a menos que seja permitido por um grupo de segurança da rede. Por favor, note que o tráfego interno do VNet para o equilibrador de carga interno é permitido. | Aberto por defeito. Grupo de segurança de rede opcional. |
+| Regras de Saída | [Configuração nat de saída declarativa](./load-balancer-outbound-rules-overview.md) | Não disponível |
+| Reset TCP em Idle | [Disponível em qualquer regra](./load-balancer-tcp-reset.md) | Não disponível |
+| [Múltiplas extremidades dianteiras](./load-balancer-multivip-overview.md) | Entrada e [saída](./load-balancer-outbound-connections.md) | Apenas a entrada |
+| Operações de Gestão | A maioria das operações < 30 segundos | 60-90 segundos típicos |
+| SLA | [99,99%](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/) | Não disponível | 
 
 Para obter mais informações, consulte [os limites do equilíbrio de carga](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer). Relativamente aos detalhes do Balanceador de Carga Standard, veja a [descrição geral](load-balancer-standard-overview.md), os [preços](https://aka.ms/lbpricing) e o [SLA](https://aka.ms/lbsla).
 

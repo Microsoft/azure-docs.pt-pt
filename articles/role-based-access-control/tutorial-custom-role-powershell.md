@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Criar um papel personalizado para os recursos Azure com a Azure PowerShell'
-description: O START começou a criar um papel personalizado para os recursos Azure usando o Azure PowerShell neste tutorial.
+title: 'Tutorial: Criar um papel personalizado azure com azure PowerShell - Azure RBAC'
+description: Comece a criar uma função personalizada Azure utilizando o controlo de acesso baseado em papel Azure PowerShell e Azure (Azure RBAC) neste tutorial.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
-ms.openlocfilehash: d337e31f554c0aabbb94771aa7bfca4afb19a431
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8aedc59fc34278bf84983d78bf0e9a31fe38ee93
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77138269"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735594"
 ---
-# <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-powershell"></a>Tutorial: Criar uma função personalizada para os recursos Azure usando o Azure PowerShell
+# <a name="tutorial-create-an-azure-custom-role-using-azure-powershell"></a>Tutorial: Criar uma função personalizada azure usando o Azure PowerShell
 
-Se as [funções incorporadas para os recursos Azure](built-in-roles.md) não atenderem às necessidades específicas da sua organização, pode criar os seus próprios papéis personalizados. Neste tutorial vai criar uma função personalizada com o nome Pedidos de Suporte do Leitor com o Azure PowerShell. A função personalizada permite ao utilizador visualizar tudo no plano de gestão de uma subscrição e também abrir bilhetes de apoio.
+Se os [papéis integrados](built-in-roles.md) do Azure não atenderem às necessidades específicas da sua organização, pode criar os seus próprios papéis personalizados. Neste tutorial vai criar uma função personalizada com o nome Pedidos de Suporte do Leitor com o Azure PowerShell. A função personalizada permite ao utilizador visualizar tudo no plano de gestão de uma subscrição e também abrir bilhetes de apoio.
 
 Neste tutorial, ficará a saber como:
 
@@ -73,7 +73,7 @@ A forma mais fácil de criar uma função personalizada é começar com uma fun�
 
 1. Abra o ficheiro **ReaderSupportRole.json** num editor.
 
-    O seguinte mostra o resultado do JSON. Para obter informações sobre as diferentes propriedades, veja [Funções personalizadas](custom-roles.md).
+    O seguinte mostra o resultado do JSON. Para obter informações sobre as diferentes propriedades, consulte [as funções personalizadas do Azure.](custom-roles.md)
 
     ```json
     {
@@ -277,4 +277,4 @@ Para atualizar a função personalizada, pode atualizar o ficheiro JSON ou utili
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Create custom roles for Azure resources using Azure PowerShell](custom-roles-powershell.md) (Utilizar o Azure PowerShell para criar funções personalizadas para recursos do Azure)
+> [Criar ou atualizar funções personalizadas do Azure utilizando o Azure PowerShell](custom-roles-powershell.md)

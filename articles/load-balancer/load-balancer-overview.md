@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/14/2020
 ms.author: allensu
-ms.openlocfilehash: 11c63c9dac6186e1c21cc0e76518a95e117574ec
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 1bc18788019c3ec97e06e3b01e823a0ba53541b8
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629461"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734761"
 ---
 # <a name="what-is-azure-load-balancer"></a>O que é o Balanceador de Carga do Azure?
 
@@ -27,9 +27,9 @@ ms.locfileid: "82629461"
 
 O Azure Load Balancer funciona na camada quatro do modelo de Interconexão de Sistemas Abertos (OSI). É o único ponto de contacto para os clientes. O Balancer load distribui fluxos de entrada que chegam à extremidade dianteira do equilibrador de carga para as instâncias da piscina de backend. Estes fluxos são de acordo com regras configuradas de equilíbrio de carga e sondas de saúde. As instâncias de piscina de backend podem ser Máquinas Virtuais Azure ou instâncias em um conjunto de escala de máquina virtual.
 
-Um **[equilibrador](./types.md#publicloadbalancer)** de carga público pode fornecer ligações de saída para máquinas virtuais (VMs) dentro da sua rede virtual. Estas ligações são realizadas traduzindo os seus endereços IP privados para endereços IP públicos. Os Balanceadores de Carga Pública são usados para carregar o tráfego de internet de equilíbrio para os seus VMs.
+Um **[equilibrador](./components.md#frontend-ip-configurations)** de carga público pode fornecer ligações de saída para máquinas virtuais (VMs) dentro da sua rede virtual. Estas ligações são realizadas traduzindo os seus endereços IP privados para endereços IP públicos. Os Balanceadores de Carga Pública são usados para carregar o tráfego de internet de equilíbrio para os seus VMs.
 
-Um **[equilibrista de carga interno (ou privado)](./types.md#internalloadbalancer)** é utilizado onde os IPs privados são necessários apenas na extremidade frontal. Os equilibradores internos de carga são usados para carregar o tráfego de equilíbrio dentro de uma rede virtual. Um frontend de equilíbrio de carga pode ser acedido a partir de uma rede no local em um cenário híbrido.
+Um **[equilibrista de carga interno (ou privado)](./components.md#frontend-ip-configurations)** é utilizado onde os IPs privados são necessários apenas na extremidade frontal. Os equilibradores internos de carga são usados para carregar o tráfego de equilíbrio dentro de uma rede virtual. Um frontend de equilíbrio de carga pode ser acedido a partir de uma rede no local em um cenário híbrido.
 
 <p align="center">
   <img src="./media/load-balancer-overview/load-balancer.svg" width="512" title="Azure Load Balancer">

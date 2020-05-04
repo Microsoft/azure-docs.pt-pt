@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Conceder acesso ao utilizador aos recursos Azure com rBAC e Azure PowerShell'
-description: Aprenda a conceder a um utilizador o acesso aos recursos Azure utilizando o controlo de acesso baseado em papéis (RBAC) e o Azure PowerShell neste tutorial.
+title: 'Tutorial: Conceder acesso a recursos Azure utilizando o Azure PowerShell - Azure RBAC'
+description: Aprenda a conceder a um utilizador acesso aos recursos Azure utilizando o controlo de acesso baseado em papel Azure PowerShell e Azure (Azure RBAC) neste tutorial.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: f4ba56bf79d707200bf361ab4c717bb63d081953
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9c35c08889892e877ecfac20910607ddf85b2282
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77138234"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735492"
 ---
-# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Tutorial: Conceder ao utilizador acesso aos recursos Azure utilizando o RBAC e o Azure PowerShell
+# <a name="tutorial-grant-a-user-access-to-azure-resources-using-azure-powershell"></a>Tutorial: Conceder ao utilizador acesso aos recursos Azure utilizando o Azure PowerShell
 
-[O controlo de acesso baseado em funções (RBAC)](overview.md) é a forma como gere o acesso aos recursos do Azure. Neste tutorial irá conceder acesso a um utilizador para ver tudo numa subscrição e gerir tudo num grupo de recursos com o Azure PowerShell.
+O [controlo de acesso baseado em funções azure (Azure RBAC)](overview.md) é a forma como gere o acesso aos recursos azure. Neste tutorial irá conceder acesso a um utilizador para ver tudo numa subscrição e gerir tudo num grupo de recursos com o Azure PowerShell.
 
 Neste tutorial, ficará a saber como:
 
@@ -44,7 +44,7 @@ Para concluir este tutorial, irá precisar de:
 
 ## <a name="role-assignments"></a>Atribuições de funções
 
-No RBAC, para conceder acesso, crie uma atribuição de função. Uma atribuição de função é composta por três elementos: principal de segurança, definição de função e âmbito. Seguem-se as duas atribuições de funções que vai realizar neste tutorial:
+No Azure RBAC, para conceder acesso, cria-se uma atribuição de funções. Uma atribuição de função é composta por três elementos: principal de segurança, definição de função e âmbito. Seguem-se as duas atribuições de funções que vai realizar neste tutorial:
 
 | Principal de segurança | Definição de função | Âmbito |
 | --- | --- | --- |
@@ -279,4 +279,4 @@ Para limpar os recursos criados por este tutorial, elimine o grupo de recursos e
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Gerir o acesso aos recursos azure utilizando o RBAC e o Azure PowerShell](role-assignments-powershell.md)
+> [Adicione ou remova atribuições de funções Azure usando o Azure PowerShell](role-assignments-powershell.md)

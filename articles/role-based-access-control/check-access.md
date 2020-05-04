@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Veja o acesso que um utilizador tem aos recursos do Azure
-description: Neste QuickStart, aprenda a visualizar o acesso que um utilizador ou outro diretor de segurança tem aos recursos do Azure utilizando o controlo de acesso baseado em funções (RBAC) e o portal Azure.
+title: Quickstart - Veja o acesso que um utilizador tem aos recursos do Azure - Azure RBAC
+description: Neste arranque rápido, aprende-se a visualizar o acesso que um utilizador ou outro diretor de segurança tem aos recursos azure utilizando o portal Azure e o controlo de acesso baseado em funções Azure (Azure RBAC).
 services: role-based-access-control
 documentationCenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b23c10fc2a551b8044b208911dbc048968b06564
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9be53aa964e75bab0b90495640537fe927a5af0e
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74419613"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734166"
 ---
 # <a name="quickstart-view-the-access-a-user-has-to-azure-resources"></a>Quickstart: Veja o acesso que um utilizador tem aos recursos do Azure
 
-Pode utilizar a lâmina de controlo de **acesso (IAM)** no controlo de acesso baseado em [funções (RBAC)](overview.md) para visualizar o acesso que um utilizador ou outro diretor de segurança tem aos recursos Do Azure. No entanto, por vezes basta ver rapidamente o acesso a um único utilizador ou a outro diretor de segurança. A forma mais fácil de o fazer é utilizar a funcionalidade **de acesso check** no portal Azure.
+Pode utilizar a lâmina de controlo de **acesso (IAM)** no [controlo de acesso baseado em funções azure (Azure RBAC)](overview.md) para visualizar o acesso que um utilizador ou outro diretor de segurança tem aos recursos Azure. No entanto, por vezes basta ver rapidamente o acesso a um único utilizador ou a outro diretor de segurança. A forma mais fácil de o fazer é utilizar a funcionalidade **de acesso check** no portal Azure.
 
 ## <a name="view-role-assignments"></a>Ver atribuições de funções
 
@@ -54,4 +54,4 @@ Pode utilizar a lâmina de controlo de **acesso (IAM)** no controlo de acesso ba
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial: Conceder ao utilizador acesso aos recursos Azure utilizando o RBAC e o portal Azure](quickstart-assign-role-user-portal.md)
+> [Tutorial: Conceder ao utilizador acesso aos recursos azure utilizando o portal Azure](quickstart-assign-role-user-portal.md)

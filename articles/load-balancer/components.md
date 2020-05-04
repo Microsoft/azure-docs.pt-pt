@@ -11,18 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/30/2020
 ms.author: allensu
-ms.openlocfilehash: 532dc313a673d28ffe4fc66060d6dcb491ce866c
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 4a84c43b57ec4f632a2bfabb10d112e4975249bf
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691275"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82733112"
 ---
 # <a name="azure-load-balancer-components"></a>Componentes do equilíbrio de carga Azure
 
-O Azure Load Balancer contém vários componentes-chave para o seu funcionamento.  
-
-Estes componentes podem ser configurados na sua subscrição através do portal Azure, Azure CLI, Azure PowerShell ou Templates.
+O Azure Load Balancer contém vários componentes-chave para o seu funcionamento. Estes componentes podem ser configurados na sua subscrição através do portal Azure, Azure CLI, Azure PowerShell ou Templates.
 
 ## <a name="frontend-ip-configurations"></a>Configurações IP frontend
 
@@ -32,6 +30,14 @@ O endereço IP do equilibrador de carga. É o ponto de contacto dos clientes. Es
 - **Endereço IP privado**
 
 A seleção do endereço IP determina o **tipo** de equilíbrio de carga criado. A seleção privada de endereços IP cria um equilibrador interno de carga. A seleção de endereços IP públicos cria um equilibrador de carga pública.
+
+|  | Balanceador de Carga Público  | Balanceador de Carga Interno |
+| ---------- | ---------- | ---------- |
+| Configuração IP frontend| Endereço IP público | Endereço IP privado|
+| Descrição | Um equilibrador de carga pública mapeia o IP público e o porto de tráfego de entrada para o IP privado e porto do VM. Os mapas do equilíbrio de carga são contrários para o tráfego de resposta do VM. Pode distribuir tipos específicos de tráfego em vários VMs ou serviços aplicando regras de equilíbrio de carga. Por exemplo, pode distribuir a carga do tráfego de pedidos da Web entre múltiplos servidores Web.| Um equilibrador de carga interna distribui tráfego a recursos que estão dentro de uma rede virtual. O Azure restringe o acesso aos endereços IP frontend de uma rede virtual equilibrada. Os endereços IP front-end e as redes virtuais nunca são diretamente expostos a um ponto final da Internet. As aplicações de linha de negócio internas são executadas no Azure e acedidas de dentro do Azure ou a partir de recursos no local. |
+| SKUs apoiados | Básico, Padrão | Básico, Padrão |
+
+![Exemplo de equilibrador de carga hierárquico](./media/load-balancer-overview/load-balancer.png)
 
 ## <a name="backend-pool"></a>Conjunto de back-end
 
