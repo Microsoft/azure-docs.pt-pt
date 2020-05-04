@@ -43,6 +43,8 @@
       href: analysis-services-long-operations.md
     - name: Origens de dados suportadas
       href: analysis-services-datasource.md
+    - name: FAQ sobre conectividade de rede
+      href: analysis-services-network-faq.md
 - name: Procedimentos
   items:
     - name: Server

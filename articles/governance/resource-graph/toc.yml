@@ -17,6 +17,9 @@
     - name: Executar a sua primeira consulta - PowerShell
       displayName: 'module, docker, Az.ResourceGraph'
       href: first-query-powershell.md
+    - name: Implementar uma consulta partilhada - modelo ARM
+      displayName: 'resource manager, queries'
+      href: shared-query-template.md
 - name: Tutoriais
   items:
     - name: Criar e partilhar uma consulta no portal do Azure
@@ -78,6 +81,8 @@
       href: /rest/api/azure-resourcegraph/
     - name: OpenAPI
       href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/stable/2019-04-01'
+    - name: Modelos do Resource Manager
+      href: /azure/templates/microsoft.resourcegraph/allversions
     - name: Tabelas e tipos de recursos do Resource Graph
       href: ./reference/supported-tables-resources.md
 - name: Recursos

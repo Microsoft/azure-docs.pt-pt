@@ -10,12 +10,12 @@ metadata:
   author: vhorne
   ms.author: victorh
   ms.date: 03/03/2020
-  ms.openlocfilehash: 396b416d2c2fae101fee4ba64d85375e6d3da794
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 4bdb7c1765bdbd170d06eaef44b7578d1ddebedc
+  ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "79471443"
+  ms.lasthandoff: 04/29/2020
+  ms.locfileid: "82509640"
 landingContent:
 - title: Saiba mais sobre o Azure Front Door
   linkLists:
@@ -23,6 +23,8 @@ landingContent:
     links:
     - text: O que é o Azure Front Door?
       url: front-door-overview.md
+    - text: Novidades
+      url: front-door-whats-new.md
 - title: Criar uma Porta de Entrada
   linkLists:
   - linkListType: quickstart
@@ -69,3 +71,17 @@ landingContent:
     links:
     - text: Balanceamento de carga do Azure
       url: front-door-lb-with-azure-app-delivery-suite.md
+- title: Configurar um Motor de Regras
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: O que é um Motor de Regras?
+      url: front-door-rules-engine.md
+    - text: Condições de Correspondência do Motor de Regras
+      url: front-door-rules-engine-match-conditions.md
+    - text: Ações do Motor de Regras
+      url: front-door-rules-engine-actions.md
+  - linkListType: tutorial
+    links:
+    - text: Definir uma configuração do Motor de Regras
+      url: front-door-tutorial-rules-engine.md

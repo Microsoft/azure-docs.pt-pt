@@ -31,6 +31,8 @@
           href: concept-fundamentals-block-legacy-authentication.md
         - name: Pontuação de segurança de identidade
           href: identity-secure-score.md
+        - name: Proteger os trabalhadores à distância
+          href: concept-secure-remote-workers.md
         - name: Avaliação contínua de acesso
           href: concept-fundamentals-continuous-access-evaluation.md
     - name: Grupos e utilizadores

@@ -6,6 +6,10 @@
       href: overview-iot-central.md
     - name: Apresentação da IU
       href: overview-iot-central-tour.md
+    - name: Atualizações recentes
+      items:
+        - name: Março de 2020
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-march-2020-updates/'
 - name: Guias de Início Rápido
   expanded: true
   items:
@@ -127,6 +131,14 @@
               href: howto-show-hide-chat.md
 - name: Recursos
   items:
+    - name: Atualizações recentes (ou consulta)
+      href: 'https://azure.microsoft.com/updates/?category=iot&query=azure%20iot%20central'
+    - name: Atualizações recentes (ou lista...)
+      items:
+        - name: Abril de 2020
+          href: 'https://azure.microsoft.com//updates/new-iot-central-pricing-plans/'
+        - name: Março de 2020
+          href: 'https://azure.microsoft.com//updates/new-iot-central-pricing-plans/'
     - name: Opções de suporte e ajuda
       href: /azure/iot-fundamentals/iot-support-help
     - name: Modelos de aplicação do setor

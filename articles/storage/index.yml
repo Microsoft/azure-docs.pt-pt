@@ -9,13 +9,13 @@ metadata:
   ms.topic: hub-page
   author: twooley
   ms.author: twooley
-  ms.date: 04/07/2020
-  ms.openlocfilehash: 5f599c7cc608a5e6a6246ed82c8f7b48e427dd66
-  ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+  ms.date: 05/01/2020
+  ms.openlocfilehash: f4428556c33bc476b21932034fa43b020f9e779d
+  ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/09/2020
-  ms.locfileid: "80985342"
+  ms.lasthandoff: 05/03/2020
+  ms.locfileid: "82735033"
 highlightedContent:
   items:
   - title: Introdução aos principais serviços de armazenamento
@@ -144,6 +144,6 @@ additionalContent:
       - url: /azure/backup/quick-backup-vm-portal
         text: Fazer cópias de segurança de VMs (Azure Backup)
       - url: /azure/backup/tutorial-backup-azure-files
-        text: Fazer cópias de segurança das partilhas de ficheiros do Azure (pré-visualização)
+        text: Fazer cópia de segurança das partilhas de ficheiros do Azure
       - url: /azure/backup/
         text: Ver mais >

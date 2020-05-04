@@ -155,11 +155,11 @@
           href: directory-assign-admin-roles.md
         - name: Ver e atribuir funções
           href: directory-manage-roles-portal.md
-        - name: Função personalizada
+        - name: Funções personalizadas
           items:
-            - name: Função personalizada
+            - name: Funções personalizadas
               href: roles-custom-overview.md
-            - name: Criar função personalizada
+            - name: Criar uma função personalizada
               href: roles-create-custom.md
             - name: Ver atribuições de funções personalizadas
               href: roles-view-assignments.md

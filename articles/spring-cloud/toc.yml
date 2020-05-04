@@ -42,6 +42,10 @@
       href: spring-cloud-quotas.md
     - name: Compreender as métricas no Azure Spring Cloud
       href: spring-cloud-concept-metrics.md
+    - name: Controlos de segurança do Serviço Azure Spring Cloud
+      href: spring-cloud-concept-security-controls.md
+    - name: Compreender o estado das aplicações no Azure Spring Cloud
+      href: spring-cloud-concept-app-status.md
     - name: Planear a recuperação após desastre
       href: disaster-recovery.md
 - name: Guias de procedimentos

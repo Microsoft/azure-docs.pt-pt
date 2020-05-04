@@ -40,8 +40,6 @@
       href: components.md
     - name: Conceitos
       href: concepts.md
-    - name: Tipos
-      href: types.md
     - name: Monitorização do estado de funcionamento
       items:
         - name: Sondas do estado de funcionamento

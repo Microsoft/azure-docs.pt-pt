@@ -262,9 +262,11 @@
       items:
         - name: Trabalhar com os resultados
           href: search-pagination-page-layout.md
-        - name: Otimização da relevância (perfis de classificação)
+        - name: Classificação de relevância
+          href: index-similarity-and-scoring.md
+        - name: Perfis de classificação
           href: index-add-scoring-profiles.md
-        - name: Otimização da relevância (algoritmo de semelhança)
+        - name: Algoritmo de semelhança
           href: index-ranking-similarity.md
     - name: Planear
       items:
