@@ -2,20 +2,21 @@
 title: Recursos sem limite de contagem de 800
 description: Lista os tipos de recursos Azure que podem ter mais de 800 instâncias num grupo de recursos.
 ms.topic: conceptual
-ms.date: 04/06/2020
-ms.openlocfilehash: 8644bec1a68acebff18cf83d17acb014784dc964
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+author: davidsmatlak
+ms.author: v-dasmat
+ms.date: 05/04/2020
+ms.openlocfilehash: 892b59b3d3e980abfcdb9cd692c2598ceb1284ad
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80804780"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780934"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Recursos não limitados a 800 instâncias por grupo de recursos
 
 Por padrão, pode implementar até 800 instâncias de um tipo de recurso em cada grupo de recursos. No entanto, alguns tipos de recursos estão isentos do limite de 800 instâncias. Este artigo lista os tipos de recursos Azure que podem ter mais de 800 instâncias num grupo de recursos. Todos os outros tipos de recursos estão limitados a 800 instâncias.
 
 Para alguns tipos de recursos, é necessário contactar o suporte para remover o limite de 800 instâncias. Estes tipos de recursos são anotados neste artigo.
-
 
 ## <a name="microsoftautomation"></a>Microsoft.Automação
 
