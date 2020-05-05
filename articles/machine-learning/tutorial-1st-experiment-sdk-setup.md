@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
-ms.openlocfilehash: 75ae07de9d5c80245a6e75dcb2c12be9128ff4fe
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 535cf95216cca210b5add5ca22cd6e5b1b997541
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82184593"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82779020"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Tutorial: Começar a criar a sua primeira experiência ML com o Python SDK
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -47,11 +47,7 @@ Cria um espaço de trabalho através do portal Azure, uma consola baseada na web
 
 Este tutorial utiliza o servidor de portátil em nuvem no seu espaço de trabalho para uma experiência sem instalação e pré-configurada. Use [o seu próprio ambiente](how-to-configure-environment.md#local) se preferir ter controlo sobre o seu ambiente, pacotes e dependências.
 
-Acompanhe este vídeo ou use os passos detalhados abaixo para clonar e executar o tutorial a partir do seu espaço de trabalho. 
-
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4mTUr]
-
-
+ Use os passos detalhados abaixo para clonar e executar o tutorial a partir do seu espaço de trabalho. 
 
 ### <a name="clone-a-notebook-folder"></a>Clone uma pasta de caderno
 
@@ -63,7 +59,7 @@ Completa as seguintes etapas de experimentação no estúdio Azure Machine Learn
 
 1. Selecione **Cadernos** à esquerda.
 
-1. Abra a pasta **Amostras.**
+1. Selecione o separador **Amostras** na parte superior.
 
 1. Abra a pasta **Python.**
 
@@ -71,20 +67,21 @@ Completa as seguintes etapas de experimentação no estúdio Azure Machine Learn
 
 1. Selecione o **"..."** à direita da pasta dos **tutoriais** e, em seguida, selecione **Clone**.
 
-    ![Pasta clone](./media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png)
+    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png" alt-text="Pasta de tutoriais clone":::
 
 1. Uma lista de exibições de pastas mostrando cada utilizador que acede ao espaço de trabalho.  Selecione a pasta para clonar a pasta dos **tutoriais.**
 
-### <a name="a-nameopenopen-the-cloned-notebook"></a><a name="open">Abra o caderno clonado
+### <a name="open-the-cloned-notebook"></a><a name="open"></a>Abra o caderno clonado
 
-1. Em **Ficheiros de Utilizador** abra a pasta e abra a pasta dos **tutoriais** clonados.
-
-    ![Pasta de tutoriais abertos](./media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png)
+1. Abra a pasta dos **tutoriais** que acabou de ser fechada na secção **de ficheiros do Utilizador.**
 
     > [!IMPORTANT]
     > Pode ver cadernos na pasta **de amostras,** mas não pode executar um caderno a partir daí.  Para executar um caderno, certifique-se de que abre a versão clonada do caderno na secção Ficheiros do **Utilizador.**
     
 1. Selecione o ficheiro **tutorial-1st-experiment-sdk-train.ipynb** nos seus **tutoriais/pasta create-first-ml-experiment.**
+
+    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png" alt-text="Pasta de tutoriais abertos":::
+
 
 1. Na barra superior, selecione uma instância de cálculo para utilizar para executar o caderno. Estes VMs estão pré-configurados com tudo o [que precisa para executar o Azure Machine Learning.](concept-compute-instance.md#contents) 
 

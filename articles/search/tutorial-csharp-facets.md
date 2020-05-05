@@ -1,21 +1,21 @@
 ---
 title: C# tutorial sobre o uso de facetas para ajudar na navegação
 titleSuffix: Azure Cognitive Search
-description: Este tutorial baseia-se no projeto "Pesquisa de resultados de paginação - Pesquisa Cognitiva Azure", para adicionar navegação de faceta. Aprenda como as facetas podem ser usadas para reduzir facilmente uma pesquisa.
+description: Continue a partir de "Resultados paging" para adicionar navegação faceada. Aprenda como as facetas podem ser usadas para reduzir facilmente uma pesquisa.
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/10/2020
-ms.openlocfilehash: d88a9d7efdabd493fd31b961748bb6ad3bd8d738
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bc25ba6d95fe58a80c90881c6ad60cdb8801cce4
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77121563"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780594"
 ---
-# <a name="c-tutorial-use-facets-to-aid-navigation---azure-cognitive-search"></a>C# tutorial: Use facetas para ajudar na navegação - Pesquisa Cognitiva Azure
+# <a name="tutorial-add-faceted-navigation-using-the-net-sdk"></a>Tutorial: Adicione navegação facetada utilizando o .NET SDK
 
 As facetas são usadas para ajudar a navegação, fornecendo ao utilizador um conjunto de links para usar para concentrar a sua pesquisa. Facetas são atributos dos dados (como a categoria, ou uma característica específica, de um hotel nos nossos dados de amostra).
 

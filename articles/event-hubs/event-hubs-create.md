@@ -7,14 +7,14 @@ author: spelluru
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 02/11/2020
+ms.date: 05/04/2020
 ms.author: spelluru
-ms.openlocfilehash: 5e80ab6d5ed0076e03f5378cbe975b15d0a28f47
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c678965048a6437deb8cbf39f38f12dc116d39ab
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79240997"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82743921"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Início Rápido: Criar um hub de eventos com o portal do Azure
 Os Hubs de Eventos do Azure são uma plataforma de fluxo de Macrodados e um serviço de ingestão de eventos capaz de receber e processar milhões de eventos por segundo. Os Hubs de Eventos podem processar e armazenar eventos, dados ou telemetria produzidos por dispositivos e software distribuído. Os dados enviados para um hub de eventos podem ser transformados e armazenados em qualquer fornecedor de análise em tempo real ou adaptadores de armazenamento/criação de batches. Para uma descrição geral detalhada dos Hubs de Eventos, veja [Descrição geral dos Hubs de Eventos](event-hubs-about.md) e [Funcionalidades dos Hubs de Eventos](event-hubs-features.md).
@@ -58,21 +58,27 @@ Um espaço de nomes dos Hubs de Eventos fornece um contentor de âmbito exclusiv
 
    ![Botão Adicionar](./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png)
 4. Na página Criar espaço de **nome,** tome os seguintes passos:
-    1. Insira um **nome** para o espaço de nome. O sistema verifica imediatamente a disponibilidade do nome.
-    2. Escolha o **nível de preços** (Básico ou Standard).
-    3. Note que a opção **Enable Kafka** está ativada automaticamente. O Azure Event Hubs fornece-lhe um ponto final de Kafka. Este ponto final permite que o seu espaço de nome Sem Nome Do Evento Para entender de forma nativa o protocolo de mensagens [Apache Kafka](https://kafka.apache.org/intro) e APIs. Com esta capacidade, pode comunicar com os seus centros de eventos como faria com os tópicos kafka sem alterar os seus clientes protocolares ou executar os seus próprios clusters. O Event Hubs suporta as [versões Apache Kafka 1.0](https://kafka.apache.org/10/documentation.html) e mais tarde.
-    4. Selecione a **subscrição** na qual pretende criar o espaço de nome.
-    5. Selecione um grupo de **recursos** existente ou crie um novo grupo de recursos. 
-    4. Selecione um **local** para o espaço de nome.
-    5. Selecione **Criar**. Poderá ter de aguardar alguns minutos para que o sistema aprovisione totalmente os recursos.
+    1. Selecione a **subscrição** na qual pretende criar o espaço de nome.
+    2. Selecione o **grupo de recursos** que criou no passo anterior. 
+    3. Insira um **nome** para o espaço de nome. O sistema verifica imediatamente a disponibilidade do nome.
+    4. Selecione um **local** para o espaço de nome.    
+    5. Escolha o **nível de preços** (Básico ou Standard).  
+    6. Deixe as definições das **unidades** de entrada tal como estão. Para aprender sobre unidades de produção, consulte a escalabilidade do [Event Hubs](event-hubs-scalability.md#throughput-units)  
+    5. Selecione **Review + Criar** na parte inferior da página.
 
        ![Criar um espaço de nomes do hub de eventos](./media/event-hubs-quickstart-portal/create-event-hub1.png)
-5. Refresque a página **Do Event Hubs** para ver o espaço de nome do centro do evento. Pode verificar o estado da criação do hub do evento nos alertas. 
+   6. Na página **Review + Criar,** reveja as definições e selecione **Criar**. Aguarde pela conclusão da implementação. 
 
-    ![Criar um espaço de nomes do hub de eventos](./media/event-hubs-quickstart-portal/event-hubs-refresh.png)
-6. Selecione o espaço de nome. Você vê a página inicial para o seu espaço de **nome Sem Nome Do Evento Hubs** no portal. 
+       ![Rever + criar página](./media/event-hubs-quickstart-portal/review-create.png)
+   7. Na página **de Implementação,** selecione **Recorrer para** navegar na página para o seu espaço de nome. 
 
-   ![Página inicial para o espaço de nome](./media/event-hubs-quickstart-portal/namespace-home-page.png)
+      ![Implementação completa - vá para o recurso](./media/event-hubs-quickstart-portal/deployment-complete.png)
+   8. Confirme que vê a página Namespace do **Event Hubs** semelhante ao seguinte exemplo: 
+
+       ![Página inicial para o espaço de nome](./media/event-hubs-quickstart-portal/namespace-home-page.png)       
+
+       > [!NOTE]
+       > O Azure Event Hubs fornece-lhe um ponto final de Kafka. Este ponto final permite que o seu espaço de nome Sem Nome Do Evento Para entender de forma nativa o protocolo de mensagens [Apache Kafka](https://kafka.apache.org/intro) e APIs. Com esta capacidade, pode comunicar com os seus centros de eventos como faria com os tópicos kafka sem alterar os seus clientes protocolares ou executar os seus próprios clusters. O Event Hubs suporta as [versões Apache Kafka 1.0](https://kafka.apache.org/10/documentation.html) e mais tarde. Para mais informações, consulte [Use Event Hubs a partir de aplicações Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md).
     
 ## <a name="create-an-event-hub"></a>Criar um hub de eventos
 
@@ -88,8 +94,6 @@ Para criar um hub de eventos no espaço de nomes, faça as ações seguintes:
 4. Pode verificar o estado da criação do hub do evento em alertas. Após a criação do hub do evento, vê-lo na lista de centros de eventos como mostrado na seguinte imagem:
 
     ![Hub de eventos criado](./media/event-hubs-quickstart-portal/event-hub-created.png)
-
-Parabéns! Utilizou o portal para criar um espaço de nomes dos Hubs de Eventos e um hub de eventos nesse espaço de nomes. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

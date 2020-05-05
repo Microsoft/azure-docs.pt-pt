@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: C# e IA sobre bolhas Azure'
+title: C# tutorial usando IA em bolhas Azure
 titleSuffix: Azure Cognitive Search
 description: Percorra um exemplo de extração de texto e processamento de linguagem natural sobre conteúdos no armazenamento blob usando C# e o Azure Cognitive Search .NET SDK.
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/27/2020
-ms.openlocfilehash: 169a33d12e98235dcb4e4f317dbb8d91eb7446a4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 51e1b24f9080d102dee234fa1ca6d460c400ba78
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78851130"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780679"
 ---
-# <a name="tutorial-use-c-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Tutorial: Use C# e IA para gerar conteúdo pesquisável a partir de blobs Azure
+# <a name="tutorial-ai-generated-searchable-content-from-azure-blobs-using-the-net-sdk"></a>Tutorial: Conteúdo pesquisável gerado por IA a partir de bolhas Azure usando o .NET SDK
 
 Se tiver texto ou imagens não estruturadas no armazenamento do Azure Blob, um pipeline de enriquecimento de [IA](cognitive-search-concept-intro.md) pode extrair informações e criar novos conteúdos que são úteis para cenários de pesquisa de texto completo ou de mineração de conhecimento. Neste tutorial C#, aplique reconhecimento ótico de caracteres (OCR) em imagens e execute o processamento de linguagem natural para criar novos campos que você pode aproveitar em consultas, facetas e filtros.
 

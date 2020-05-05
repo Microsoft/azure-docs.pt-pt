@@ -1,21 +1,21 @@
 ---
 title: C# tutorial sobre a encomenda de resultados
 titleSuffix: Azure Cognitive Search
-description: Este tutorial demonstra como encomendar resultados de pesquisa. Baseia-se num projeto de hotéis anteriores, encomendando por propriedade primária, propriedade secundária, e inclui um perfil de pontuação para adicionar critérios de reforço.
+description: Este tutorial C# demonstra como encomendar resultados de pesquisa. Baseia-se num projeto de hotéis anteriores, classificando por propriedade primária, propriedade secundária, e inclui um perfil de pontuação para adicionar critérios de aumento.
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/10/2020
-ms.openlocfilehash: 812085a5a4b3e8d1233f19c947d2fd5e433f6ab7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 699b3e5b7e51e12ec0bf39ec0c9045dd3a27a6fd
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77121560"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780611"
 ---
-# <a name="c-tutorial-order-the-results---azure-cognitive-search"></a>C# tutorial: Encomende os resultados - Pesquisa Cognitiva Azure
+# <a name="tutorial-order-search-results-using-the-net-sdk"></a>Tutorial: Encomendar resultados de pesquisa utilizando o .NET SDK
 
 Até este ponto da nossa série de tutoriais, os resultados são devolvidos e apresentados por ordem padrão. Esta pode ser a ordem em que os dados estão localizados, ou possivelmente um perfil de _pontuação_ padrão foi definido, que será usado quando não forem especificados parâmetros de encomenda. Neste tutorial, vamos entrar em como encomendar resultados com base numa propriedade primária, e depois para resultados que têm a mesma propriedade primária, como encomendar essa seleção em uma propriedade secundária. Como alternativa ao pedido com base em valores numéricos, o exemplo final mostra como encomendar com base num perfil de pontuação personalizado. Iremos também um pouco mais fundo na exibição de _tipos complexos._
 
