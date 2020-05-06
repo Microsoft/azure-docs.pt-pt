@@ -1,31 +1,35 @@
 ---
-title: Resolver problemas de inscrição no Azure
-description: Resolver um problema quando se tenta inscrever numa conta nova no Centro de Contas do portal do Microsoft Azure.
+title: Resolução de problemas quando se inscreve numa nova conta no portal do Azure ou no centro de contas do Azure
+description: Resolver um problema quando se tenta inscrever numa nova conta no centro de contas do portal do Microsoft Azure.
+services: cost-management-billing
 author: v-miegge
-ms.reviewer: dcscontentpm
+manager: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: v-miegge
-ms.openlocfilehash: 540cb5b4ca8f78c734fbc7dcd16358be8eb391c0
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 7bcf3197ae218c469983200814cecf551dc42a6b
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409463"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133173"
 ---
-# <a name="troubleshoot-azure-sign-up"></a>Resolver problemas de inscrição no Azure
+# <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-azure-portal-or-azure-account-center"></a>Resolução de problemas quando se inscreve numa nova conta no portal do Azure ou no centro de contas do Azure
 
-Poderá deparar-se com problemas quando se tenta inscrever numa conta nova no portal do Microsoft Azure ou no Centro de Contas do Microsoft Azure. Antes de resolver os problemas, verifique antes o seguinte:
+Poderá ter problemas quando se tentar inscrever numa nova conta no portal do Microsoft Azure ou no centro de contas do Azure. Antes de resolver os problemas, verifique antes o seguinte:
 
-- As informações que forneceu no seu perfil da conta do Azure (incluindo o endereço de e-mail, o endereço e o número de telefone) estão corretas.
+- As informações que forneceu no Perfil da Conta do Azure (incluindo o endereço de e-mail, o endereço e o número de telefone) estão corretas.
 - As informações do cartão de crédito estão corretas.
-- Ainda não tem uma conta Microsoft com as mesmas informações.
+- Se já não tem uma conta Microsoft com as mesmas informações.
+
+> [!NOTE]
+> Se já tem uma conta e está à procura de orientação para resolver problemas de início de sessão, veja [Resolver problemas relativos a início de sessão da subscrição do Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-sign-in-issue).
 
 ## <a name="resolutions"></a>Resoluções
 
-Para resolver quaisquer erros, selecione o problema que está a ter ao tentar inscrever-se no Azure.
+Para resolver os erros, selecione o problema que está a ter ao tentar inscrever-se no Azure.
 
 ### <a name="error-we-cannot-proceed-with-sign-up-due-to-an-issue-with-your-account-please-contact-billing-support"></a>Erro: *Não podemos continuar com a inscrição devido a um problema na sua conta. Contacte o apoio ao cliente de faturação.*
 
@@ -37,7 +41,7 @@ Para resolver o problema, siga estes passos:
 
 3. Certifique-se de que todos os campos do endereço são preenchidos e válidos.
 
-4. Quando se inscreve na subscrição do Azure, confirme que o endereço de faturação do registo do cartão de crédito corresponde aos seus dados bancários.
+4. Quando se inscrever na subscrição do Azure, certifique-se de que o endereço de faturação do registo do cartão de crédito corresponde aos seus dados bancários.
 
 Se continuar a receber a mensagem de erro, tente inscrever-se com um browser diferente.
 
@@ -84,7 +88,7 @@ Já usou uma subscrição do Azure anteriormente? O contrato dos Termos de Utili
 
 ### <a name="i-saw-a-charge-on-my-free-trial-account"></a>Vi uma cobrança na minha conta de Avaliação Gratuita
 
-Poderá ver uma pequena retenção de verificação na sua conta de cartão de crédito depois de se inscrever. Este valor é removido em três a cinco dias. Se estiver preocupado com a gestão dos custos, leia mais sobre como [evitar custos inesperados](getting-started.md).
+Poderá ver uma breve retenção da verificação na sua conta de cartão de crédito depois de se inscrever. Este valor é removido em três a cinco dias. Se estiver preocupado com a gestão dos custos, leia mais sobre como [evitar custos inesperados](getting-started.md).
 
 ### <a name="cant-activate-azure-benefit-plan-like-msdn-bizspark-bizsparkplus-or-mpn"></a>Não consegue ativar o plano de vantagens do Azure como MSDN, BizSpark, BizSparkPlus ou MPN
 
@@ -110,13 +114,13 @@ Para resolver este problema, verifique novamente se os seguintes itens são verd
 
 - As informações que forneceu no seu perfil da conta do Azure (incluindo o endereço de e-mail, o endereço e o número de telefone) estão corretas.
 - As informações do cartão de crédito estão corretas.
-- Ainda não tem uma conta Microsoft que usa as mesmas informações.
+- Se já não tem uma conta Microsoft que utilize as mesmas informações.
 
 ### <a name="error-your-current-account-type-is-not-supported"></a>Erro: *Não há suporte para o seu tipo de conta atual*
 
-Este problema pode ocorrer se a conta estiver registada num [diretório do Microsoft Azure AD não gerido](../../active-directory/users-groups-roles/directory-self-service-signup.md) e não estiver no diretório do Microsoft Azure AD da sua organização.
+Este problema pode ocorrer se a conta estiver registada num [diretório do Azure AD não gerido](../../active-directory/users-groups-roles/directory-self-service-signup.md) e não estiver no diretório do Azure AD da sua organização.
 
-Para resolver este problema, inscreva-se na conta do Azure com outra conta ou assuma o diretório do AD não gerido. Para obter mais informações, veja [Take over an unmanaged directory as administrator in Azure Active Directory](../../active-directory/users-groups-roles/domains-admin-takeover.md) (Assumir um diretório não gerido como administrador no Azure Active Directory).
+Para resolver este problema, inscreva-se na conta do Azure com outra conta ou assuma o controlo do diretório do AD não gerido. Para obter mais informações, veja [Take over an unmanaged directory as administrator in Azure Active Directory](../../active-directory/users-groups-roles/domains-admin-takeover.md) (Assumir um diretório não gerido como administrador no Azure Active Directory).
 
 ## <a name="additional-help-resources"></a>Recursos de ajuda adicionais
 
