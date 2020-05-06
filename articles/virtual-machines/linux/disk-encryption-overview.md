@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: fa7e085f723d4f4c411f52e045c9437d5cb293b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7d8cf03342f51a7bc6584800cb9fff8d8238921e
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81459785"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801659"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Encriptação de disco azure para VMs Linux 
 
@@ -28,7 +28,7 @@ Se utilizar o Centro de [Segurança Azure,](../../security-center/index.yml)é a
 > - Certas recomendações podem aumentar a utilização de dados, rede ou computação de recursos, resultando em custos adicionais de licença ou subscrição. Deve ter uma subscrição azure ativa válida para criar recursos em Azure nas regiões apoiadas.
 > - Atualmente, os VMs da Geração 2 não suportam a encriptação do disco Azure. Consulte [o Suporte para VMs da Geração 2 no Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) para obter mais detalhes.
 
-Você pode aprender os fundamentos da Encriptação de Disco Azure para Linux em apenas alguns minutos com o [Create e encriptar um Linux VM com quickstart Azure CLI](disk-encryption-cli-quickstart.md) ou o [Create e encriptar um Linux VM com quickstart Azure Powershell](disk-encryption-powershell-quickstart.md).
+Você pode aprender os fundamentos da Encriptação de Disco Azure para Linux em apenas alguns minutos com o [Create e encriptar um Linux VM com quickstart Azure CLI](disk-encryption-cli-quickstart.md) ou o [Create e encriptar um VM Linux com quickstart Azure PowerShell](disk-encryption-powershell-quickstart.md).
 
 ## <a name="supported-vms-and-operating-systems"></a>VMs e sistemas operativos suportados
 
@@ -56,29 +56,36 @@ A encriptação do disco Azure é suportada num subconjunto das [distribuições
 
 As distribuições de servidores Linux que não são endossadas pelo Azure não suportam encriptação do disco Azure; dos que são endossados, apenas as seguintes distribuições e versões suportam encriptação do Disco Azure:
 
-| Distribuição linux | Versão | Tipo de volume suportado para encriptação|
-| --- | --- |--- |
-| Ubuntu | 18.04| SEm e disco de dados |
-| Ubuntu | 16.04| SEm e disco de dados |
-| Ubuntu | 14.04.5</br>[com kernel afinado Azure atualizado a 4.15 ou mais tarde](disk-encryption-troubleshooting.md) | SEm e disco de dados |
-| RHEL | 7.7 | S e disco de dados (ver nota abaixo) |
-| RHEL | 7.6 | S e disco de dados (ver nota abaixo) |
-| RHEL | 7,5 | S e disco de dados (ver nota abaixo) |
-| RHEL | 7.4 | S e disco de dados (ver nota abaixo) |
-| RHEL | 7.3 | S e disco de dados (ver nota abaixo) |
-| RHEL | 7.2 | S e disco de dados (ver nota abaixo) |
-| RHEL | 6.8 | Disco de dados (ver nota abaixo) |
-| RHEL | 6.7 | Disco de dados (ver nota abaixo) |
-| CentOS | 7.7 | SEm e disco de dados |
-| CentOS | 7.6 | SEm e disco de dados |
-| CentOS | 7,5 | SEm e disco de dados |
-| CentOS | 7.4 | SEm e disco de dados |
-| CentOS | 7.3 | SEm e disco de dados |
-| CentOS | 7.2n | SEm e disco de dados |
-| CentOS | 6.8 | Disco de dados |
-| openSUSE | 42.3 | Disco de dados |
-| SLES | 12-SP4 | Disco de dados |
-| SLES | 12-SP3 | Disco de dados |
+| Publicador | Oferta | SKU | URN | Tipo de volume suportado para encriptação |
+| --- | --- |--- | --- |
+| Canónico | Ubuntu | 18.04-LTS | Canonical:UbuntuServer:18.04-LTS:mais recente | SEm e disco de dados |
+| Canónico | Ubuntu 18.04 | 18.04-DIÁRIO-LTS | Canonical:UbuntuServer:18.04-DAILY-LTS:mais recente | SEm e disco de dados |
+| Canónico | Ubuntu 16.04 | 16.04-DIÁRIO-LTS | Canonical:UbuntuServer:16.04-DAILY-LTS:mais recente | SEm e disco de dados |
+| Canónico | Ubuntu 14.04.5</br>[com kernel afinado Azure atualizado a 4.15 ou mais tarde](disk-encryption-troubleshooting.md) | 14.04.5-LTS | Canonical:UbuntuServer:14.04.5-LTS:mais recente | SEm e disco de dados |
+| Canónico | Ubuntu 14.04.5</br>[com kernel afinado Azure atualizado a 4.15 ou mais tarde](disk-encryption-troubleshooting.md) | 14.04.5-DIÁRIO-LTS | Canonical:UbuntuServer:14.04.5-DAILY-LTS:mais recente | SEm e disco de dados |
+| RedHat | RHEL 7.7 | 7.7 | RedHat:RHEL:7.7:mais recente | S e disco de dados (ver nota abaixo) |
+| RedHat | RHEL 7.7 | 7-RAW | RedHat:RHEL:7-RAW:mais recente | S e disco de dados (ver nota abaixo) |
+| RedHat | RHEL 7.7 | 7-LVM | RedHat:RHEL:7-LVM:mais recente | S e disco de dados (ver nota abaixo) |
+| RedHat | RHEL 7.6 | 7.6 | RedHat:RHEL:7.6:mais recente | S e disco de dados (ver nota abaixo) |
+| RedHat | RHEL 7.5 | 7,5 | RedHat:RHEL:7.5:mais recente | S e disco de dados (ver nota abaixo) |
+| RedHat | RHEL 7.4 | 7.4 | RedHat:RHEL:7.4:mais recente | S e disco de dados (ver nota abaixo) |
+| RedHat | RHEL 7.3 | 7.3 | RedHat:RHEL:7.3:mais recente | S e disco de dados (ver nota abaixo) |
+| RedHat | RHEL 7.2 | 7.2 | RedHat:RHEL:7.2:mais recente | S e disco de dados (ver nota abaixo) |
+| RedHat | RHEL 6.8 | 6.8 | RedHat:RHEL:6.8:mais recente | Disco de dados (ver nota abaixo) |
+| RedHat | RHEL 6.7 | 6.7 | RedHat:RHEL:6.7:mais recente | Disco de dados (ver nota abaixo) |
+| OpenLogic | Centos 7.7 | 7.7 | OpenLogic:CentOS:7.7:mais recente | SEm e disco de dados |
+| OpenLogic | Centos 7.7 | 7-LVM | OpenLogic:CentOS:7-LVM:mais recente | SEm e disco de dados |
+| OpenLogic | Centos 7.6 | 7.6 | OpenLogic:CentOS:7.6:mais recente | SEm e disco de dados |
+| OpenLogic | CentOS 7.5 | 7,5 | OpenLogic:CentOS:7.5:mais recente | SEm e disco de dados |
+| OpenLogic | CentOS 7.4 | 7.4 | OpenLogic:CentOS:7.4:mais recente | SEm e disco de dados |
+| OpenLogic | Centos 7.3 | 7.3 | OpenLogic:CentOS:7.3:mais recente | SEm e disco de dados |
+| OpenLogic | CentOS 7.2n | 7.2n | OpenLogic:CentOS:7.2n:mais recente | SEm e disco de dados |
+| OpenLogic | Centos 7.1 | 7.1 | OpenLogic:CentOS:7.1:mais recente | Disco de dados apenas |
+| OpenLogic | Centos 7.0 | 7.0 | OpenLogic:CentOS:7.0:mais recente | Disco de dados apenas |
+| OpenLogic | Centos 6.8 | 6.8 | OpenLogic:CentOS:6.8:mais recente | Disco de dados apenas |
+| SUSE | aberturaSUSE 42.3 | 42.3 | SUSE:openSUSE-Leap:42.3:mais recente | Disco de dados apenas |
+| SUSE | SLES Prioridade 12-SP4 | 12-SP4 | SUSE:SLES:12-SP4:mais recente | Disco de dados apenas |
+| SUSE | SLES HPC 12-SP3 | 12-SP3 | SUSE:SLES-HPC:12-SP3:mais recente | Disco de dados apenas |
 
 > [!NOTE]
 > A nova implementação de encriptação de disco azure é suportada para O RHEL OS e disco de dados para imagens RHEL7 Pay-As-You-Go.  

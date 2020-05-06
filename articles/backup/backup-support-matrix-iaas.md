@@ -3,12 +3,12 @@ title: Matriz de suporte da cópia de segurança de uma VM do Azure
 description: Fornece um resumo das definições de suporte e limitações ao apoiar os VMs Azure com o serviço de backup Azure.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: d86ce94c62ec9f25b364e9fdc963e3043b274722
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 86141532e0db80f75c6e79277b36060ecb939a53
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80389295"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801438"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte da cópia de segurança de uma VM do Azure
 
@@ -158,7 +158,7 @@ Gen2 VMs | Suportado <br> O Azure Backup suporta backup e restauro de [VMs Gen2]
 
 **Componente** | **Suporte**
 --- | ---
-Discos de dados Azure VM | Volte a fazer um VM com 16 ou menos discos de dados.<BR> Para se registar para obter a pré-visualização privada de VMs com mais de 16 discos (até 32 discos), contacte-nos através de AskAzureBackupTeam@microsoft.com
+Discos de dados Azure VM | Volte a fazer um VM com 16 ou menos discos de dados.<BR> Para se inscrever para a pré-visualização limitada de VMs com mais de 16 discos (até 32 discos), escreva-nos emAskAzureBackupTeam@microsoft.com
 Tamanho do disco de dados | O tamanho do disco individual pode ser até 32 TB e um máximo de 256 TB combinado para todos os discos de um VM.
 Tipo de armazenamento | HDD padrão, SSD padrão, SSD premium.
 Managed disks | Suportado.

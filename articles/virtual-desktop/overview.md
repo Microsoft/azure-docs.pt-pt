@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 15bf167df52e8ef54ab45de7b7b03efdaf83672a
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 438edd88b3699f3811d8bd32170b62569971c2e9
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628321"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82837401"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>O que é o Windows Virtual Desktop? 
 
@@ -109,13 +109,13 @@ A tabela a seguir lista URLs opcionais a que as suas máquinas virtuais Azure po
 
 |Endereço|Porta TCP de saída|Objetivo|Etiqueta de serviço|
 |---|---|---|---|
-|*.microsoftonline.com|443|Autenticação aos Serviços Online Da MS|Nenhuma|
-|*.events.data.microsoft.com|443|Serviço de Telemetria|Nenhuma|
-|www.msftconnecttest.com|443|Deteta se o SO está ligado à internet|Nenhuma|
-|*.prod.do.dsp.mp.microsoft.com|443|Windows Update|Nenhuma|
-|login.windows.net|443|Login para MS Serviços Online, Office 365|Nenhuma|
-|*.sfx.ms|443|Atualizações para software de cliente OneDrive|Nenhuma|
-|*.digicert.com|443|Verificação de revogação do certificado|Nenhuma|
+|*.microsoftonline.com|443|Autenticação aos Serviços Online Da MS|Nenhum|
+|*.events.data.microsoft.com|443|Serviço de Telemetria|Nenhum|
+|www.msftconnecttest.com|443|Deteta se o SO está ligado à internet|Nenhum|
+|*.prod.do.dsp.mp.microsoft.com|443|Windows Update|Nenhum|
+|login.windows.net|443|Login para MS Serviços Online, Office 365|Nenhum|
+|*.sfx.ms|443|Atualizações para software de cliente OneDrive|Nenhum|
+|*.digicert.com|443|Verificação de revogação do certificado|Nenhum|
 
 
 >[!NOTE]
@@ -183,16 +183,16 @@ O Windows Virtual Desktop não suporta imagens do sistema operativo X86 (32 bits
 
 As opções disponíveis de automação e implementação dependem do SISTEMA e versão que escolher, como mostra a seguinte tabela: 
 
-|Sistema operativo|Galeria de Imagem Azure|Implantação manual de VM|Integração do modelo do Gestor de Recursos Azure|Piscinas de anfitriões de provisão no Azure Marketplace|Atualizações do Windows Virtual Desktop Agent|
-|--------------------------------------|:------:|:------:|:------:|:------:|:------:|
-|Windows 10 multi-sessão, versão 1903|Sim|Sim|Sim|Sim|Automático|
-|Windows 10 multi-sessão, versão 1809|Sim|Sim|Não|Não|Automático|
-|Windows 10 Enterprise, versão 1903|Sim|Sim|Sim|Sim|Automático|
-|Windows 10 Enterprise, versão 1809|Sim|Sim|Não|Não|Automático|
-|Windows 7 Enterprise|Sim|Sim|Não|Não|Manual|
-|Windows Server 2019|Sim|Sim|Não|Não|Automático|
-|Windows Server 2016|Sim|Sim|Sim|Sim|Automático|
-|Windows Server 2012 R2|Sim|Sim|Não|Não|Automático|
+|Sistema operativo|Galeria de Imagem Azure|Implantação manual de VM|Integração do modelo do Gestor de Recursos Azure|Piscinas de anfitriões de provisão no Azure Marketplace|
+|--------------------------------------|:------:|:------:|:------:|:------:|
+|Windows 10 multi-sessão, versão 1903|Sim|Sim|Sim|Sim|
+|Windows 10 multi-sessão, versão 1809|Sim|Sim|Não|Não|
+|Windows 10 Enterprise, versão 1903|Sim|Sim|Sim|Sim|
+|Windows 10 Enterprise, versão 1809|Sim|Sim|Não|Não|
+|Windows 7 Enterprise|Sim|Sim|Não|Não|
+|Windows Server 2019|Sim|Sim|Não|Não|
+|Windows Server 2016|Sim|Sim|Sim|Sim|
+|Windows Server 2012 R2|Sim|Sim|Não|Não|
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -201,4 +201,4 @@ Se estiver a utilizar o lançamento do Windows Virtual Desktop Fall 2019, pode c
 Se estiver a utilizar o lançamento do Windows Virtual Desktop Spring 2020, terá de criar uma piscina de anfitriões. Dirija-se ao seguinte tutorial para começar.
 
 > [!div class="nextstepaction"]
-> [Crie uma piscina de acolhimento com o portal Azure](create-host-pools-azure-marketplace.md)
+> [Criar um conjunto de anfitriões com o portal do Azure](create-host-pools-azure-marketplace.md)

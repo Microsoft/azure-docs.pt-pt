@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 04/01/2020
+ms.date: 05/05/2020
 ms.author: victorh
-ms.openlocfilehash: 8acf04d26d0c69c426eb86f8a26a9f243c6f5ad2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92011495f5f746b18a7706ed2f9583548cc51286
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82136673"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836670"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Perguntas frequentes sobre o Gateway de Aplicação
 
@@ -329,42 +329,6 @@ Para vários encaminhamentobaseados em domínio (baseados em hospedeiros), pode 
 ### <a name="can-i-use-special-characters-in-my-pfx-file-password"></a>Posso usar caracteres especiais na minha senha de ficheiro .pfx?
 
 Não, utilize apenas caracteres alfanuméricos na sua senha de ficheiro .pfx.
-
-## <a name="configuration---web-application-firewall-waf"></a>Configuração - firewall de aplicação web (WAF)
-
-### <a name="does-the-waf-sku-offer-all-the-features-available-in-the-standard-sku"></a>O WAF SKU oferece todas as funcionalidades disponíveis no SKU Standard?
-
-Sim. A WAF suporta todas as funcionalidades do SKU Standard.
-
-### <a name="how-do-i-monitor-waf"></a>Como posso monitorizar a WAF?
-
-Monitorize o WAF através da exploração de diagnóstico. Para mais informações, consulte o [registo de diagnóstico e as métricas para o Gateway](application-gateway-diagnostics.md)da Aplicação .
-
-### <a name="does-detection-mode-block-traffic"></a>O modo de deteção bloqueia o tráfego?
-
-Não. O modo de deteção apenas regista o tráfego que aciona uma regra WAF.
-
-### <a name="can-i-customize-waf-rules"></a>Posso personalizar as regras da WAF?
-
-Sim. Para mais informações, consulte [Customize WAF rule groups and rules](application-gateway-customize-waf-rules-portal.md).
-
-### <a name="what-rules-are-currently-available-for-waf"></a>Quais as regras atualmente disponíveis para a WAF?
-
-A WAF suporta atualmente O CRS [2.2.9](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp229), [3.0](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp30)e [3.1](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp31). Estas regras fornecem segurança de base contra a maioria das vulnerabilidades do top-10 que o Open Web Application Security Project (OWASP) identifica: 
-
-* Proteção contra injeção de SQL
-* Proteção de scripts cross-site
-* Proteção contra ataques comuns na Web, tais como injeção de comando, http solicitar contrabando, divisão de resposta HTTP e ataque de inclusão de ficheiros remotos
-* Proteção contra violações de protocolo HTTP
-* Proteção contra anomalias de protocolo HTTP, como agente de utilizador de anfitrião e cabeçalhos de aceitação em falta
-* Prevenção de contra bots, crawlers e scanners
-* Deteção de configurações de aplicações comuns (isto é, Apache, IIS, e assim por diante)
-
-Para mais informações, consulte [as vulnerabilidades do Top-10 da OWASP.](https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013)
-
-### <a name="does-waf-support-ddos-protection"></a>A WAF suporta a proteção dDoS?
-
-Sim. Pode ativar a proteção DDoS na rede virtual onde o gateway da aplicação está implantado. Esta definição garante que o serviço de proteção Azure DDoS também protege o ip virtual de gateway de aplicação (VIP).
 
 ## <a name="configuration---ingress-controller-for-aks"></a>Configuração - controlador de ingresso para AKS
 

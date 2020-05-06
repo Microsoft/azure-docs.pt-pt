@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/13/2019
+ms.date: 05/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: d48f83df4e83fd1d1fe38eea76432e1b1c711b76
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 77755ab6bdbb3c1e6416475f5066b5dd463eb7f5
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461468"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82838761"
 ---
 # <a name="expressroute-encryption"></a>Encriptação ExpressRoute
  
@@ -30,8 +30,8 @@ Sim. Para a configuração do MACsec, suportamos apenas o modo chave pré-partil
 Não. Se o MACsec estiver configurado e ocorrer um desfasamento chave, perde-se a conectividade com a Microsoft. Por outras palavras, não voltaremos a uma ligação não encriptada, expondo os seus dados. 
 ### <a name="will-enabling-macsec-on-expressroute-direct-degrade-network-performance"></a>Permitirá que o MACsec no ExpressRoute Direct degrade o desempenho da rede?
 A encriptação e desencriptação do MACsec ocorrem em hardware nos routers que utilizamos. Não há impacto no desempenho do nosso lado. No entanto, deverá consultar o fornecedor de rede para os dispositivos que utiliza e verificar se o MACsec tem alguma implicação de desempenho.
-### <a name="which-cipher-suites-are-supported-for-encryption"></a>que suítes cifrasão são suportadas para encriptação?
-Apoiamos a AES128 e a AES256.
+### <a name="which-cipher-suites-are-supported-for-encryption"></a>Que suítes cifras são suportadas para encriptação?
+Apoiamos a versão de [numeração de pacotes estendidos](https://1.ieee802.org/security/802-1aebw/) apenas de AES128 e AES256. Além disso, desative o [Secure Channel Identifier (SCI)](https://en.wikipedia.org/wiki/IEEE_802.1AE) na configuração MACsec no seu dispositivo. 
 
 ## <a name="end-to-end-encryption-by-ipsec-faq"></a>Encriptação de ponta a ponta por IPsec FAQ
 IPsec é um [padrão IETF.](https://tools.ietf.org/html/rfc6071) Encripta dados ao nível do Protocolo de Internet (IP) ou da Camada de Rede 3. Pode utilizar o IPsec para encriptar uma ligação de ponta a ponta entre a sua rede no local e a sua rede virtual (VNET) no Azure. Consulte outras FAQs abaixo.

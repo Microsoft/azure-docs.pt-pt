@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/16/2020
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 82d8c8ca94f3d0f4289902ae40928ff507e2d1ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4cb5a3d471aa3131d3233841cd6450f0a968dfe7
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81460669"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82800979"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de versão do agente do Azure File Sync
 O Azure File Sync permite-lhe centralizar as partilhas de ficheiros da sua organização nos Ficheiros do Azure sem abdicar da flexibilidade, do desempenho e da compatibilidade de um servidor de ficheiros no local. As suas instalações do Windows Server são transformadas numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS). Pode ter o número de caches que precisar em todo o mundo.
@@ -25,7 +25,7 @@ São suportadas as seguintes versões para o agente do Azure File Sync:
 
 | Marco | Número de versão do agente | Data da versão | Estado |
 |----|----------------------|--------------|------------------|
-| Lançamento V10 - [KB4522359](https://support.microsoft.com/en-us/help/4522409/azure-file-sync-agent-v10-release-march-2020)| 10.0.0.0 | 9 de abril de 2020 | Em voo |
+| Lançamento V10 - [4522409](https://support.microsoft.com/en-us/help/4522409)| 10.0.0.0 | 9 de abril de 2020 | Em voo |
 | Rollup de atualização de dezembro de 2019 - [KB4522360](https://support.microsoft.com/help/4522360)| 9.1.0.0 | 12 de dezembro de 2019 | Suportado |
 | V9 Lançamento - [KB4522359](https://support.microsoft.com/help/4522359)| 9.0.0.0 | 2 de dezembro de 2019 | Suportado |
 | V8 Lançamento - [KB4511224](https://support.microsoft.com/help/4511224)| 8.0.0.0 | 8 de outubro de 2019 | Suportado |

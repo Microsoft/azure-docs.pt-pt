@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 04/26/2020
+ms.date: 05/05/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 00f6810defe6242338bfa766192b2aa007454513
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f71cc165480b16e26dfe9ab8c35aee3bef5597cb
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82190779"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82837757"
 ---
-|Nome |Descrição |Políticas |Versão |
+|Name |Descrição |Políticas |Versão |
 |---|---|---|---|
 |[\[Pré-visualização\]: Audite os controlos federais do PBMM do Canadá e implemente extensões vm específicas para apoiar os requisitos de auditoria](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CanadaFederalPBMM_audit.json) |Esta iniciativa inclui políticas de auditoria e de implementação de extensão vm que abordam um subconjunto de controlos Federais de PBMM do Canadá. Políticas adicionais serão adicionadas nos próximos lançamentos. Para mais informações, visite[https://aka.ms/canadafederalPBMM-blueprint](https://aka.ms/canadafederalPBMM-blueprint) |67 |2.0.0-pré-visualização |
 |[\[Pré-visualização\]: AuditFedRAMP Controlos moderados e implementação de extensões vm específicas para apoiar requisitos de auditoria](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/FedRAMP_M_audit.json) |Esta iniciativa inclui políticas de auditoria e implementação de extensão VM que abordam um subconjunto de controlos FedRAMP M. Políticas adicionais serão adicionadas nos próximos lançamentos. Para mais informações, visite. [https://aka.ms/fedrampm-blueprint](https://aka.ms/fedrampm-blueprint) |70 |2.0.0-pré-visualização |

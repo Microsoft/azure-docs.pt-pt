@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 04/26/2020
+ms.date: 05/05/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 067d23f44b673ed72177677d7e15b272d009196e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 707838690fcb3c7c08cc49a1ed720083ebfe3f0c
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82191266"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82838301"
 ---
-|Nome |Descrição |Efeitos(s) |Versão |GitHub |
+|Name |Descrição |Efeitos(s) |Versão |GitHub |
 |---|---|---|---|---|
 |[Implementar definições de diagnóstico para o cofre de chaves para o centro de eventos](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fed7c8c13-51e7-49d1-8a43-8490431a0da2) |Implementa as definições de diagnóstico para o Key Vault transmitir para um Hub de Eventos regionais quando qualquer Cofre chave que esteja em falta nesta definição de diagnóstico é criado ou atualizado. |implementarIfNotExists |2.0.0 |[Ligação](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_DiagnosticLog_Deploy.json) |
 |[Os registos de diagnóstico no Cofre-Chave devem ser ativados](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcf820ca0-f99e-4f3e-84fb-66e913812d21) |Auditoria que permite registos de diagnóstico. Isto permite-lhe recriar trilhas de atividade para fins de investigação quando ocorre um incidente de segurança ou quando a sua rede está comprometida |AuditoriaIfNotExists, Deficiente |2.0.0 |[Ligação](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_AuditDiagnosticLog_Audit.json) |

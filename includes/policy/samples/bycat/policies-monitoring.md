@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 04/26/2020
+ms.date: 05/05/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: a11cb7b94541c54270eed167f0b0327ed1106df8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9e18449fe415cd97ef14565d38e2554662a6f93c
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82191336"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82838358"
 ---
-|Nome |Descrição |Efeitos(s) |Versão |GitHub |
+|Name |Descrição |Efeitos(s) |Versão |GitHub |
 |---|---|---|---|---|
 |[\[Pré-visualização\]: Implementação de agente de análise de registo de auditoria - Imagem VM (OS) não listada](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F32133ab0-ee4b-4b44-98d6-042180979d50) |Os VMs reportam como não conformes se a Imagem VM (OS) não estiver na lista definida e o agente não estiver instalado. A lista de imagens de SO será atualizada ao longo do tempo à medida que o suporte for atualizado. |auditoriaIfNotExists |1.0.0-pré-visualização |[Ligação](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/LogAnalytics_OSImage_Audit.json) |
 |[O registo de atividade deve ser conservado por pelo menos um ano](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb02aacc0-b073-424e-8298-42b22829ee0a) |Esta política audita o registo de atividade se a retenção não estiver definida por 365 dias ou para sempre (dias de retenção definidos para 0). |AuditoriaIfNotExists, Deficiente |1.0.0 |[Ligação](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLogRetention_365orGreater.json) |

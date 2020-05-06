@@ -6,12 +6,12 @@ ms.author: msangapu
 ms.date: 08/12/2019
 ms.topic: quickstart
 ms.devlang: javascript
-ms.openlocfilehash: 24b93e9722ff399330b6843f065f183a3b1f5181
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 52466bac083f78002a8208ba52ca7d1b951c4064
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82202564"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801489"
 ---
 # <a name="create-a-nodejs-app-in-azure"></a>Crie uma app Node.js em Azure
 
@@ -151,7 +151,7 @@ Nesta secção, aprende-se a visualizar (ou "cauda") os registos da aplicação 
 
 Encontre a aplicação no explorador de **SERVIÇO SAC,** clique na aplicação e escolha **'Ver Registos de Streaming'.**
 
-Quando solicitado, opte por ativar a exploração e reiniciar a aplicação. Uma vez reiniciada a aplicação, a janela de saída do Código VS abre-se com uma ligação ao fluxo de registo.
+A janela de saída do Código VS abre-se com uma ligação ao fluxo de registo.
 
 ![Ver registos de streaming](./media/quickstart-nodejs/view-logs.png)
 

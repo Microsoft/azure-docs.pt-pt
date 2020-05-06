@@ -1,21 +1,21 @@
 ---
-title: Lista de definições políticas incorporadas para farol de Azure
-description: Lista definições políticas integradas da Política Azure para o Farol Azure. Estes incorporados fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 04/30/2020
+title: Definições políticas incorporadas para farol azure
+description: Lista definições políticas integradas da Política Azure para o Farol Azure. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
+ms.date: 05/05/2020
 ms.topic: sample
 ms.custom: subject-policy-samples
-ms.openlocfilehash: bb7052101c0343715ac757c32a2af320f12caff7
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: adfa0b208f69fe44c26d252f164ef1d620f76f55
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629876"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82837448"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-lighthouse"></a>Definições políticas integradas da Política Azure para o Farol de Azure
 
 Esta página é um índice de definições políticas integradas da [Política Azure](../../governance/policy/overview.md) para o Farol Azure. Para obter mais insins de política azure para outros serviços, consulte [definições in-in da Política Azure.](../../governance/policy/samples/built-in-policies.md)
 
-O nome de cada um embutido liga-se à definição de política no portal Azure. Utilize o link na coluna **Fonte** para visualizar a fonte no [repo da política azure GitHub](https://github.com/Azure/azure-policy).
+O nome de cada definição política incorporada está ligado à definição de política no portal Azure. Utilize o link na coluna **GitHub** para visualizar a fonte no repo da [política azure GitHub](https://github.com/Azure/azure-policy).
 
 ## <a name="azure-lighthouse"></a>Azure Lighthouse
 

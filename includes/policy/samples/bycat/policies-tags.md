@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 04/26/2020
+ms.date: 05/05/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 752081d1fdbac025d9c2a9287d59738ca10bf609
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 63d92962b2d41bcc4502d60ad80297a21c82e36a
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82181205"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82838173"
 ---
-|Nome |Descrição |Efeitos(s) |Versão |GitHub |
+|Name |Descrição |Efeitos(s) |Versão |GitHub |
 |---|---|---|---|---|
 |[Adicione uma etiqueta aos grupos de recursos](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F726aca4c-86e9-4b04-b0c5-073027359532) |Adiciona a etiqueta e o valor especificados quando qualquer grupo de recursos em falta esta etiqueta é criado ou atualizado. Os grupos de recursos existentes podem ser remediados desencadeando uma tarefa de reparação. Se a etiqueta existir com um valor diferente, não será alterada. |modificar |1.0.0 |[Ligação](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/AddTag_ResourceGroup_Modify.json) |
 |[Adicione uma etiqueta aos recursos](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4f9dc7db-30c1-420c-b61a-e1d640128d26) |Adiciona a etiqueta e o valor especificados quando qualquer recurso em falta esta etiqueta é criado ou atualizado. Os recursos existentes podem ser corrigidos ao acionar uma tarefa de remediação. Se a etiqueta existir com um valor diferente, não será alterada. Não modifica as etiquetas nos grupos de recursos. |modificar |1.0.0 |[Ligação](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/AddTag_Modify.json) |

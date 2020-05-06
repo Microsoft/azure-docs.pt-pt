@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 04/26/2020
+ms.date: 05/05/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 705c2834aaa6b8409e9baebcfcba0736cf092037
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5ddb8e8987e1bd42f28f98b6a609bb460ce4fc7e
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82191170"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82838285"
 ---
-|Nome |Descrição |Efeitos(s) |Versão |GitHub |
+|Name |Descrição |Efeitos(s) |Versão |GitHub |
 |---|---|---|---|---|
 |[Localizações permitidas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe56962a6-4747-49cd-b67b-bf8b01975c4c) |Esta política permite-lhe restringir as localizações que a sua organização pode especificar ao implementar recursos. Utilize para impor os requisitos de conformidade geográfica. Exclui grupos de recursos, Microsoft.AzureActiveDirectory/b2cDirectories, e recursos que utilizam a região 'global'. |negar |1.0.0 |[Ligação](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/General/AllowedLocations_Deny.json) |
 |[Locais permitidos para grupos de recursos](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe765b5de-1225-4ba3-bd56-1ac6695af988) |Esta política permite-lhe restringir os locais em que a sua organização pode criar grupos de recursos. Utilize para impor os requisitos de conformidade geográfica. |negar |1.0.0 |[Ligação](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/General/ResourceGroupAllowedLocations_Deny.json) |

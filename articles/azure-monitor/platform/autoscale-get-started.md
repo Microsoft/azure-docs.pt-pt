@@ -4,12 +4,12 @@ description: Saiba como escalar a sua aplicação web de recursos, serviço de n
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 0a40496e4d496d0062c6ee7a6ab935c1ad9b35a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: db1814c0a27ac6d61c7353a2c66cb5a1a72688d3
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75396358"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801608"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introdução ao Dimensionamento Automático no Azure
 Este artigo descreve como configurar as definições de escala automática para o seu recurso no portal Microsoft Azure.
@@ -17,6 +17,9 @@ Este artigo descreve como configurar as definições de escala automática para 
 A escala automática Do Monitor Azure aplica-se apenas a conjuntos de escala de [máquinas virtuais, serviços](https://azure.microsoft.com/services/virtual-machine-scale-sets/) [de cloud,](https://azure.microsoft.com/services/cloud-services/) [serviço de aplicações - Aplicações Web](https://azure.microsoft.com/services/app-service/web/)e serviços de [Gestão API.](https://docs.microsoft.com/azure/api-management/api-management-key-concepts)
 
 ## <a name="discover-the-autoscale-settings-in-your-subscription"></a>Descubra as definições de escala automática na sua subscrição
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4u7ts]
+
 Pode descobrir todos os recursos para os quais a Escala Automática é aplicável no Monitor Azure. Utilize os seguintes passos para uma passagem passo a passo:
 
 1. Abra o [portal Azure.][1]

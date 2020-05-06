@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: Dawgfan
 ms.author: mmcc
 ms.date: 09/20/2019
-ms.openlocfilehash: 5414a70180a82be8253dace7d800c90c1ae6a9bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: daea761d027341eaf8f6c0d137f3049c45e82924
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79276078"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836619"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas Web
 
@@ -76,7 +76,7 @@ Por padrão, o JavaScript SDK insights de aplicação recolhe uma série de iten
     - ID (se houver) do utilizador que efaz o pedido
     - Contexto de correlação (se houver) onde o pedido é feito
 - **Informações dos utilizadores** (por exemplo, Localização, rede, IP)
-- **Informações sobre dispositivos** (por exemplo, Navegador, OS, versão, idioma, resolução, modelo)
+- **Informação do dispositivo** (por exemplo, Navegador, OS, versão, idioma, modelo)
 - **Informações de sessão**
 
 ### <a name="telemetry-initializers"></a>Inicializadores de telemetria
@@ -99,7 +99,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ## <a name="configuration"></a>Configuração
 A maioria dos campos de configuração são nomeados de tal forma que podem ser indefinidos a falsos. Todos os campos `instrumentationKey`são opcionais, exceto para .
 
-| Nome | Predefinição | Descrição |
+| Name | Predefinição | Descrição |
 |------|---------|-------------|
 | instrumentaçãoChave | nulo | **Necessário**<br>Chave de instrumentação que obteve do portal Azure. |
 | accountId | nulo | Um ID de conta opcional, se a sua aplicação agrupa os utilizadores em contas. Sem espaços, vírgulas, pontos evígonos, iguais ou barras verticais |
