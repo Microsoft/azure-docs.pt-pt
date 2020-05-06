@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 18490ec7c3cfde33cef186b753e2adc809f854c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6821e3de3bfec891d98e9291a479cbb7537364ca
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641354"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82733669"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Elevate access to manage all Azure subscriptions and management groups (Elevar o acesso para gerir todas as subscrições e grupos de gestão do Azure)
 
@@ -84,7 +84,7 @@ Siga estes passos para elevar o acesso a um Administrador Global utilizando o po
 
 1. Faça as alterações que precisa de fazer no acesso elevado.
 
-    Para obter informações sobre funções de atribuição, consulte [Gerir o acesso utilizando o RBAC e o portal Azure](role-assignments-portal.md). Se estiver a utilizar a Azure AD Privileged Identity Management (PIM), consulte [os recursos do Discover Azure para gerir em](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) funções de recurso PIM ou [Atribuíris Azure na PIM.](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md)
+    Para obter informações sobre a atribuição de funções, consulte Adicionar ou remover atribuições de [funções Azure utilizando o portal Azure](role-assignments-portal.md). Se estiver a utilizar a Azure AD Privileged Identity Management (PIM), consulte [os recursos do Discover Azure para gerir em](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) funções de recurso PIM ou [Atribuíris Azure na PIM.](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md)
 
 ### <a name="remove-elevated-access"></a>Remover o acesso elevado
 
@@ -321,5 +321,5 @@ Quando ligar, `elevateAccess`cria uma atribuição de funções para si mesmo, p
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Compreender as diferentes funções no Azure](rbac-and-directory-admin-roles.md)
-- [Gerir o acesso aos recursos Azure utilizando o RBAC e a API REST](role-assignments-rest.md)
+- [Compreender as diferentes funções](rbac-and-directory-admin-roles.md)
+- [Adicione ou remova atribuições de funções Azure utilizando a API REST](role-assignments-rest.md)

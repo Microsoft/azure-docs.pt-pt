@@ -1,6 +1,6 @@
 ---
-title: Criar ou atualizar funções personalizadas para recursos Azure com a Azure PowerShell
-description: Saiba como listar, criar, atualizar ou eliminar funções personalizadas com controlo de acesso baseado em papéis (RBAC) para recursos Azure utilizando o Azure PowerShell.
+title: Criar ou atualizar funções personalizadas azure usando Azure PowerShell - Azure RBAC
+description: Saiba como listar, criar, atualizar ou eliminar funções personalizadas utilizando o controlo de acesso baseado em papel Azure PowerShell e Azure (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,23 +14,23 @@ ms.workload: identity
 ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 3c72e04ff7a08fecc2ef352a5879898c4c6d41c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ffb53bff4e70fbeb80e518fe13aaeaa8b396cfac
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062283"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734812"
 ---
-# <a name="create-or-update-custom-roles-for-azure-resources-using-azure-powershell"></a>Criar ou atualizar funções personalizadas para recursos Azure usando o Azure PowerShell
+# <a name="create-or-update-azure-custom-roles-using-azure-powershell"></a>Criar ou atualizar funções personalizadas do Azure utilizando o Azure PowerShell
 
 > [!IMPORTANT]
 > A adição de `AssignableScopes` um grupo de gestão está atualmente em pré-visualização.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
 > Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 
-Se as [funções incorporadas para os recursos Azure](built-in-roles.md) não atenderem às necessidades específicas da sua organização, pode criar os seus próprios papéis personalizados. Este artigo descreve como listar, criar, atualizar ou eliminar funções personalizadas usando o Azure PowerShell.
+Se os [papéis integrados](built-in-roles.md) do Azure não atenderem às necessidades específicas da sua organização, pode criar os seus próprios papéis personalizados. Este artigo descreve como listar, criar, atualizar ou eliminar funções personalizadas usando o Azure PowerShell.
 
-Para um tutorial passo a passo sobre como criar um papel personalizado, consulte [Tutorial: Crie um papel personalizado para os recursos Azure usando o Azure PowerShell.](tutorial-custom-role-powershell.md)
+Para um tutorial passo a passo sobre como criar um papel personalizado, consulte [Tutorial: Crie uma função personalizada Azure usando o Azure PowerShell](tutorial-custom-role-powershell.md).
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
@@ -401,6 +401,6 @@ Are you sure you want to remove role definition with name 'Virtual Machine Opera
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Tutorial: Criar uma função personalizada para os recursos Azure usando o Azure PowerShell](tutorial-custom-role-powershell.md)
-- [Custom roles for Azure resources](custom-roles.md) (Funções personalizadas para recursos do Azure)
+- [Tutorial: Criar uma função personalizada azure usando o Azure PowerShell](tutorial-custom-role-powershell.md)
+- [Papéis personalizados do Azure](custom-roles.md)
 - [Operações de fornecedor de recursos do Gestor de Recursos Azure](resource-provider-operations.md)
