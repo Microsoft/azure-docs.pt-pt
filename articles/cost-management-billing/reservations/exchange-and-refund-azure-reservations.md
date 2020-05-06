@@ -6,14 +6,14 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 393db5d2e14e047ade04e0b688582e272c6ca44f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 174ed17056bf49b541d55719f4058141e88e7ea5
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200440"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192115"
 ---
-# <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Self-service exchanges and refunds for Azure Reservations (Trocas e reembolsos self-service para Reservas do Azure)
+# <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Trocas e reembolsos personalizados das Reservas do Azure
 
 As Reservas do Azure fornecem flexibilidade para ajudar a dar resposta às suas necessidades em evolução. Pode trocar uma reserva por outra reserva do mesmo tipo. Também pode reembolsar uma reserva, até 50 000 $ por ano, se já não precisar da mesma. O limite máximo do reembolso aplica-se a todas as reservas no âmbito do contrato com a Microsoft.
 
@@ -85,7 +85,7 @@ Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://port
 
 - Para saber como gerir uma reserva, veja [Gerir Reservas do Azure](manage-reserved-vm-instance.md).
 - Para saber mais sobre as Reservas do Azure, veja os seguintes artigos:
-    - [O que são as Reservas do Azure?](save-compute-costs-reservations.md)
+    - [O que são as reservas do Azure?](save-compute-costs-reservations.md)
     - [Gerir Reservas no Azure](manage-reserved-vm-instance.md)
     - [Compreender como o desconto das reservas é aplicado](../manage/understand-vm-reservation-charges.md)
     - [Compreender a utilização de reservas na sua subscrição Pay As You Go](understand-reserved-instance-usage.md)

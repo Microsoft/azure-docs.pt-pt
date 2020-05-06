@@ -4,12 +4,12 @@ description: Resume o apoio à recuperação de desastres dos VMs Azure para uma
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: raynew
-ms.openlocfilehash: 73160a6bf416722021d76da21a32a1cd1ee04386
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ea0b6763f4438033a8a5a1a4044479fc00f8456c
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82111730"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864577"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de apoio à recuperação de desastres do Azure VM entre as regiões de Azure
 
@@ -80,7 +80,7 @@ A Recuperação do Site suporta a replicação de VMs Azure que executam os sist
 ### <a name="windows"></a>Windows
 
 
-**Sistema Operativo** | **Detalhes**
+**Sistema operativo** | **Detalhes**
 --- | ---
 Windows Server 2019 | Suportado para Server Core, Server com Experiência de Ambiente de Trabalho.
 Windows Server 2016  | Núcleo de servidor suportado, servidor com experiência de ambiente de trabalho.
@@ -96,7 +96,7 @@ Windows 7 (x64) com SP1 em diante | A partir da versão [9.30](https://support.m
 
 #### <a name="linux"></a>Linux
 
-**Sistema Operativo** | **Detalhes**
+**Sistema operativo** | **Detalhes**
 --- | ---
 Red Hat Enterprise Linux | 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6,[7.7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [8.0,](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery)8.1
 CentOS | 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 8.0, 8.1
@@ -154,7 +154,8 @@ SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | 9.29 | Todos os núcleos SUS
 
 **Libertar** | **Versão do serviço de mobilidade** | **Versão de kernel** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 15 e 15 SP1 | 9.32 | Todos os núcleos SUSE 15 e 15 são suportados.</br></br> 4.12.14-5.5-azure a 4.12.14-8.22-azure |
+SUSE Linux Enterprise Server 15 e 15 SP1 | 9.32 | Por padrão, todas as [ações SUSE 15 e 15 núcleos](https://www.suse.com/support/kb/doc/?id=000019587) são suportados.</br></br> 4.12.14-5.5-azure a 4.12.14-8.22-azure |
+
 
 ## <a name="replicated-machines---linux-file-systemguest-storage"></a>Máquinas replicadas - sistema de ficheiros Linux/armazenamento de hóspedes
 
@@ -178,6 +179,8 @@ Imagens personalizadas - Terceiro publicado | Suportado | Suportado se o VM func
 VMs migraram usando a recuperação do site | Suportado | Se um VMware VM ou uma máquina física foi migrado para O T.A. usando a Recuperação do Site, é necessário desinstalar a versão mais antiga do serviço mobility que funciona na máquina e reiniciar a máquina antes de a replicar para outra região do Azure.
 Políticas rbac | Não suportado | As políticas de controlo de acesso (RBAC) baseadas em funções não são replicadas para o VM failover na região-alvo.
 Extensões | Não suportado | As extensões não são replicadas ao VM failover na região-alvo. Tem de ser instalado manualmente após a falha.
+Grupos de Colocação de Proximidade | Não suportado | As máquinas virtuais localizadas dentro de um Grupo de Colocação de Proximidade não podem ser protegidas utilizando a Recuperação do Local.
+
 
 ## <a name="replicated-machines---disk-actions"></a>Máquinas replicadas - ações de disco
 

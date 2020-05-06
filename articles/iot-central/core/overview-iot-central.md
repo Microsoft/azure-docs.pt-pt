@@ -8,16 +8,16 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 05d73ae09d95879c37e86f5f3e73e35ed4607296
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 409ba6cd192f65c73aba6bd6eb11a26ec1f820fa
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82560964"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790886"
 ---
 # <a name="what-is-azure-iot-central"></a>O que é o Azure IoT Central?
 
-A IoT Central é uma plataforma de aplicação IoT que reduz os encargos e os custos de desenvolvimento, gestão e manutenção de soluções IoT de nível empresarial. Optar por construir com a IoT Central dá-lhe a oportunidade de concentrar o tempo, o dinheiro e a energia na transformação do seu negócio com dados IoT, em vez de apenas manter e atualizar uma infraestrutura ioT complexa e em constante evolução.
+O IoT Central é uma plataforma de aplicação IoT que reduz a carga e o custo de desenvolvimento, gestão e manutenção de soluções IoT de nível empresarial. Optar por construir com a IoT Central dá-lhe a oportunidade de concentrar o tempo, o dinheiro e a energia na transformação do seu negócio com dados IoT, em vez de apenas manter e atualizar uma infraestrutura ioT complexa e em constante evolução.
 
 A Web UI permite monitorizar as condições do dispositivo, criar regras e gerir milhões de dispositivos e seus dados ao longo do seu ciclo de vida. Além disso, permite-lhe agir sobre as informações do dispositivo, alargando a inteligência IoT a aplicações de linha de negócio.
 
@@ -29,19 +29,6 @@ Este artigo descreve, para a IoT Central:
 - Como gerir a sua aplicação.
 - Capacidades azure IoT Edge na IoT Central.
 - Como ligar os seus dispositivos de funcionamento Azure IoT Edge à sua aplicação.
-
-## <a name="known-issues"></a>Problemas conhecidos
-
-- A exportação contínua de dados não suporta o formato Avro (incompatibilidade).
-- A GeoJSON não é atualmente apoiada.
-- O azulejo do mapa não é suportado atualmente.
-- Os empregos não suportam tipos complexos.
-- Os tipos de esquemas matrizes não são suportados.
-- Apenas o dispositivo C SDK e o dispositivo Node.js e os SDKs de serviço são suportados.
-- A IoT Central está atualmente disponível nas localizações dos Estados Unidos, Europa, Ásia-Pacífico, Austrália, Reino Unido e Japão.
-- Não é possível utilizar o modelo de **aplicação personalizado (legado)** nas localizações do Reino Unido e do Japão.
-- Os modelos de capacidade do dispositivo devem ter todas as interfaces definidas inline no mesmo ficheiro.
-- O suporte para [IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) está em pré-visualização e só é suportado em regiões selecionadas.
 
 ## <a name="personas"></a>Pessoas fictícias
 
@@ -152,7 +139,7 @@ Os administradores gerem o acesso à sua aplicação com [funções e permissõe
 
 Com qualquer solução IoT projetada para funcionar em escala, é importante uma abordagem estruturada para a gestão do dispositivo. Não basta apenas ligar os seus dispositivos à nuvem, é necessário manter os seus dispositivos ligados e saudáveis. Um operador pode utilizar as seguintes capacidades IoT Central para gerir os seus dispositivos ao longo do ciclo de vida da aplicação:
 
-### <a name="dashboards"></a>Dashboards 
+### <a name="dashboards"></a>Dashboards
 
 Os [tabliers incorporados](./howto-set-up-template.md#generate-default-views) fornecem um UI personalizável para monitorizar a saúde e a telemetria do dispositivo. Comece com um dashboard pré-construído num modelo de [aplicação](howto-use-app-templates.md) ou crie os seus próprios dashboards adaptados às necessidades dos seus operadores. Pode partilhar dashboards com todos os utilizadores da sua aplicação ou mantê-los privados.
 
@@ -193,6 +180,18 @@ Construir soluções IoT tais como:
 ## <a name="quotas"></a>Quotas
 
 Cada subscrição do Azure tem quotas padrão que podem afetar o âmbito da sua solução IoT. Atualmente, a IoT Central limita o número de aplicações que pode implementar numa subscrição de 10. Se precisar de aumentar este limite, contacte o [suporte da Microsoft](https://azure.microsoft.com/support/options/).
+
+## <a name="known-issues"></a>Problemas conhecidos
+
+- A exportação contínua de dados não suporta o formato Avro (incompatibilidade).
+- A GeoJSON não é atualmente apoiada.
+- O azulejo do mapa não é suportado atualmente.
+- Os tipos de esquemas matrizes não são suportados.
+- Apenas o dispositivo C SDK e o dispositivo Node.js e os SDKs de serviço são suportados.
+- A IoT Central está atualmente disponível nas localizações dos Estados Unidos, Europa, Ásia-Pacífico, Austrália, Reino Unido e Japão.
+- Não é possível utilizar o modelo de **aplicação personalizado (legado)** nas localizações do Reino Unido e do Japão.
+- Os modelos de capacidade do dispositivo devem ter todas as interfaces definidas inline no mesmo ficheiro.
+- O suporte para [IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) está em pré-visualização e só é suportado em regiões selecionadas.
 
 ## <a name="next-steps"></a>Passos seguintes
 

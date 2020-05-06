@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a resolver erros encontrados com backup e res
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 019c27b1f7e8560c86252aaf2ed1fb79df2439fa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dd199bc0245ab1daa090f88b1e92216c714042ee
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81677343"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864450"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Falhas de backup em máquinas virtuais Azure
 
@@ -97,6 +97,14 @@ Reinicie os escritores da VSS que estão em mau estado. A partir de um ```vssadm
 
 * ```net stop serviceName```
 * ```net start serviceName```
+
+Outro procedimento que pode ajudar é executar o seguinte comando a partir de um comando elevado (como administrador).
+
+```CMD
+REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThreads /t REG_SZ /d True /f
+```
+
+A adição desta chave de registo fará com que os fios não sejam criados para imagens blob e evitará o tempo de saída.
 
 ## <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure - Falha na análise do config para a extensão de backup
 
@@ -196,10 +204,10 @@ Desta forma, garante-es que os instantâneos são criados através do anfitrião
 
 | Detalhes do erro | Solução |
 | --- | --- |
-| O cancelamento não é suportado para este tipo de trabalho: <br>Espere até o trabalho terminar. |Nenhuma |
+| O cancelamento não é suportado para este tipo de trabalho: <br>Espere até o trabalho terminar. |Nenhum |
 | O trabalho não está num estado cancelável: <br>Espere até o trabalho terminar. <br>**ou**<br> O trabalho selecionado não está num estado cancelável: <br>Espere que o trabalho termine. |É provável que o trabalho esteja quase terminado. Espere até o trabalho estar terminado.|
 | O reforço não pode cancelar o trabalho porque não está em andamento. <br>O cancelamento é suportado apenas para postos de trabalho em curso. Tente cancelar um trabalho em andamento. |Este erro acontece por causa de um estado transitório. Espere um minuto e tente novamente a operação de cancelamento. |
-| O reforço não cancelou o trabalho: <br>Espere até o trabalho terminar. |Nenhuma |
+| O reforço não cancelou o trabalho: <br>Espere até o trabalho terminar. |Nenhum |
 
 ## <a name="restore"></a>Restauro
 
@@ -207,14 +215,14 @@ Desta forma, garante-es que os instantâneos são criados através do anfitrião
 | --- | --- |
 | Restaurar falhou com um erro interno na nuvem. |<ol><li>O serviço de nuvem ao qual está a tentar restaurar está configurado com as definições de DNS. Pode verificar: <br>**$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production" Get-AzureDns -DnsSettings $deployment. DnsSettings**.<br>Se o **Endereço** estiver configurado, as definições de DNS são configuradas.<br> <li>O serviço de nuvem ao qual está a tentar restaurar está configurado com **O IP Reservado**, e os VMs existentes no serviço de nuvem estão em estado de paragem. Pode verificar se um serviço na nuvem reservou um IP utilizando os seguintes cmdlets PowerShell: **$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep. Nome IP Reservado**. <br><li>Está a tentar restaurar uma máquina virtual com as seguintes configurações especiais de rede no mesmo serviço de nuvem: <ul><li>Máquinas virtuais sob configuração do equilíbrio de carga, interna e externa.<li>Máquinas virtuais com vários IPs reservados. <li>Máquinas virtuais com vários NICs. </ul><li>Selecione um novo serviço de nuvem na UI ou consulte [considerações](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) de restauro para VMs com configurações especiais de rede.</ol> |
 | O nome DNS selecionado já foi tomado: <br>Especifique um nome DNS diferente e tente novamente. |Este nome DNS refere-se ao nome do serviço na nuvem, normalmente terminando com **.cloudapp.net**. Este nome tem de ser único. Se tiver este erro, terá de escolher um nome VM diferente durante o restauro. <br><br> Este erro é mostrado apenas aos utilizadores do portal Azure. A operação de restauro através da PowerShell tem sucesso porque restaura apenas os discos e não cria o VM. O erro será enfrentado quando o VM for explicitamente criado por si após a operação de restauro do disco. |
-| A configuração de rede virtual especificada não está correta: <br>Especifique uma configuração de rede virtual diferente e tente novamente. |Nenhuma |
-| O serviço de nuvem especificado está a utilizar um IP reservado que não corresponde à configuração da máquina virtual que está a ser restaurada: <br>Especifique um serviço de nuvem diferente que não esteja a usar um IP reservado. Ou escolha outro ponto de recuperação para restaurar. |Nenhuma |
-| O serviço de nuvem atingiu o seu limite no número de pontos finais de entrada: <br>Tente novamente a operação especificando um serviço de nuvem diferente ou utilizando um ponto final existente. |Nenhuma |
-| O cofre dos Serviços de Recuperação e a conta de armazenamento alvo estão em duas regiões diferentes: <br>Certifique-se de que a conta de armazenamento especificada na operação de restauro está na mesma região do Azure que o seu cofre dos Serviços de Recuperação. |Nenhuma |
-| A conta de armazenamento especificada para a operação de restauro não é suportada: <br>São suportadas apenas contas de armazenamento Básicas ou Standard com configurações de replicação localmente redundantes ou georedundantes. Selecione uma conta de armazenamento suportada. |Nenhuma |
+| A configuração de rede virtual especificada não está correta: <br>Especifique uma configuração de rede virtual diferente e tente novamente. |Nenhum |
+| O serviço de nuvem especificado está a utilizar um IP reservado que não corresponde à configuração da máquina virtual que está a ser restaurada: <br>Especifique um serviço de nuvem diferente que não esteja a usar um IP reservado. Ou escolha outro ponto de recuperação para restaurar. |Nenhum |
+| O serviço de nuvem atingiu o seu limite no número de pontos finais de entrada: <br>Tente novamente a operação especificando um serviço de nuvem diferente ou utilizando um ponto final existente. |Nenhum |
+| O cofre dos Serviços de Recuperação e a conta de armazenamento alvo estão em duas regiões diferentes: <br>Certifique-se de que a conta de armazenamento especificada na operação de restauro está na mesma região do Azure que o seu cofre dos Serviços de Recuperação. |Nenhum |
+| A conta de armazenamento especificada para a operação de restauro não é suportada: <br>São suportadas apenas contas de armazenamento Básicas ou Standard com configurações de replicação localmente redundantes ou georedundantes. Selecione uma conta de armazenamento suportada. |Nenhum |
 | O tipo de conta de armazenamento especificada para a operação de restauro não está online: <br>Certifique-se de que a conta de armazenamento especificada na operação de restauro está on-line. |Este erro pode acontecer devido a um erro transitório no Armazenamento Azure ou por causa de uma paragem. Escolha outra conta de armazenamento. |
-| A quota do grupo de recursos foi atingida: <br>Elimine alguns grupos de recursos do portal Azure ou contacte o Suporte Azure para aumentar os limites. |Nenhuma |
-| A sub-rede selecionada não existe: <br>Selecione uma sub-rede que exista. |Nenhuma |
+| A quota do grupo de recursos foi atingida: <br>Elimine alguns grupos de recursos do portal Azure ou contacte o Suporte Azure para aumentar os limites. |Nenhum |
+| A sub-rede selecionada não existe: <br>Selecione uma sub-rede que exista. |Nenhum |
 | O serviço de backup não tem autorização para aceder a recursos na sua subscrição. |Para resolver este erro, restaure primeiro os discos utilizando os passos em [discos restabelecidos restaurados](backup-azure-arm-restore-vms.md#restore-disks). Em seguida, utilize os passos PowerShell em [Criar um VM a partir de discos restaurados](backup-azure-vms-automation.md#restore-an-azure-vm). |
 
 ## <a name="backup-or-restore-takes-time"></a>Backup ou restaurar leva tempo
