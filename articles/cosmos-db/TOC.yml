@@ -87,6 +87,9 @@
       href: cli-samples.md
     - name: Azure Resource Manager
       href: resource-manager-samples.md
+    - name: Incorporações do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Conceitos
   items:
     - name: Bases de dados relacionais vs. NoSQL
@@ -1051,22 +1054,26 @@
       items:
         - name: Monitorizar o Cosmos DB
           href: monitor-cosmos-db.md
-        - name: Monitorizar a latência do lado do servidor
-          href: monitor-server-side-latency.md
-        - name: Monitorizar a utilização da unidade de pedido
-          href: monitor-request-unit-usage.md
-        - name: Monitorizar com registos de diagnósticos
-          href: cosmosdb-monitor-resource-logs.md
-        - name: Auditar registos de planos de controlo
-          href: audit-control-plane-logs.md
-        - name: Azure Monitor para Cosmos (pré-visualização)
-          href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Utilizar as métricas de monitorização do Azure
+          items:
+            - name: Azure Monitor para Cosmos (pré-visualização)
+              href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+            - name: Monitorizar a latência do lado do servidor
+              href: monitor-server-side-latency.md
+            - name: Monitorizar a utilização da unidade de pedido
+              href: monitor-request-unit-usage.md
+        - name: Utilizar registos de diagnóstico
+          items:
+            - name: Monitorizar com registos de diagnósticos
+              href: cosmosdb-monitor-resource-logs.md
+            - name: Auditar registos de planos de controlo
+              href: audit-control-plane-logs.md
         - name: Ver métricas da conta do Cosmos DB
           href: use-metrics.md
-        - name: Registo de aplicações com as Logic Apps
-          href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Monitorizar a referência de dados
           href: monitor-cosmos-db-reference.md
+        - name: Registo de aplicações com as Logic Apps
+          href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
     - name: Programar localmente
       items:
         - name: Utilizar o emulador
