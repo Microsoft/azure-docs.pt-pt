@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 03/19/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c822e8af076f74e1bccc46b7a71717d9631de0a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e978a5e7e76c8ddc9b7e6b80ec7170c45baa2cae
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461868"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82784117"
 ---
 ### <a name="azure-regions-within-a-geopolitical-region"></a>Regiões de Azure dentro de uma região geopolítica
 
-A conectividade VPN baseada no local e a arquitetura Virtual WAN estão disponíveis para as seguintes regiões:
+O WAN virtual está disponível para as seguintes regiões:
 
 |Região geopolítica | Regiões do Azure|
 |---|---|
@@ -37,7 +37,7 @@ A conectividade VPN baseada no local e a arquitetura Virtual WAN estão disponí
 
 ### <a name="azure-regions-and-geopolitical-boundaries-for-national-clouds"></a>Regiões azuis e fronteiras geopolíticas para nuvens nacionais
 
-A conectividade VPN baseada no local e a arquitetura Virtual WAN estão disponíveis para as seguintes regiões:
+O WAN virtual está disponível para as seguintes regiões:
 
 |Região geopolítica | Regiões do Azure|
 |---|---|

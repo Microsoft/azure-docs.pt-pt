@@ -7,12 +7,12 @@ ms.service: virtual-machines-windows
 ms.subservice: security
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: 3a5fb354ab32dd560a94875dd84d891ce0b9d68c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2d1600a688af09515b069a3161d724bb8882596a
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82081749"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791175"
 ---
 # <a name="quickstart-create-and-encrypt-a-windows-virtual-machine-with-the-azure-portal"></a>Quickstart: Criar e encriptar uma máquina virtual do Windows com o portal Azure
 
@@ -34,8 +34,18 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Para **a Região,** selecione a mesma região que usou ao fazer o seu cofre-chave acima (por exemplo, *Leste dos EUA).*
 1. Certifique-se de que o **tamanho** é *Standard D2s v3*.
 1. Na **conta do Administrador,** selecione **Password**. Introduza um nome de utilizador e uma palavra-passe.
-    ![Tela de criação do Grupo de Recursos](../media/disk-encryption/portal-qs-windows-vm-creation.png)
-1. Selecione o separador "Gestão" e verifique se tem uma Conta de Armazenamento de Diagnósticos. Se não tiver contas de armazenamento, selecione "Create New", dê ![um nome à sua nova conta e selecione o ecrã de criação do Grupo de Recursos "Ok"](../media/disk-encryption/portal-qs-vm-creation-storage.png)
+
+    :::image type="content" source="../media/disk-encryption/portal-qs-windows-vm-creation.png" alt-text="Tela de criação do Grupo de Recursos":::
+
+    > [!WARNING]
+    > O separador "Discos" possui um campo "Tipo de encriptação" em **opções de disco**. Este campo é utilizado para especificar opções de encriptação para [Discos Geridos](managed-disks-overview.md) + CMK, e não para encriptação de disco azure. 
+    >
+    > Para evitar confusões, sugerimos que ignore completamente o separador *De Discos* enquanto completa este tutorial. 
+
+1. Selecione o separador "Gestão" e verifique se tem uma Conta de Armazenamento de Diagnósticos. Se não tiver contas de armazenamento, selecione "Create New", dê um nome à sua nova conta e selecione "Ok"
+
+    :::image type="content" source="../media/disk-encryption/portal-qs-vm-creation-storage.png" alt-text="Tela de criação do Grupo de Recursos":::
+
 1. Clique em "Rever + Criar".
 1. Na página **Criar uma máquina virtual**, pode ver os detalhes sobre a VM que está prestes a criar. Quando estiver pronto, selecione **Criar**.
 
@@ -47,19 +57,19 @@ Irá demorar alguns minutos até a VM ser implementada. Quando a implementação
 1. Na barra lateral esquerda, selecione **Discos**.
 1. No ecrã dos Discos, selecione **Encriptação**. 
 
-    ![disquetes e seleção de encriptação](../media/disk-encryption/portal-qs-disks-to-encryption.png)
+    :::image type="content" source="../media/disk-encryption/portal-qs-disks-to-encryption.png" alt-text="disquetes e seleção de encriptação":::
 
 1. No ecrã de encriptação, sob **os Discos para encriptar,** escolha **OS e discos**de dados .
 1. Nas definições de **encriptação,** escolha **Selecione um cofre de chave e uma chave para encriptação**.
 1. Na tecla Select a partir do ecrã **do Cofre de Chaves Azure,** selecione Criar **Novo**.
 
-    ![disquetes e seleção de encriptação](../media/disk-encryption/portal-qs-keyvault-create.png)
+    :::image type="content" source="../media/disk-encryption/portal-qs-keyvault-create.png" alt-text="disquetes e seleção de encriptação":::
 
 1. No ecrã do **cofre de teclas Create,** certifique-se de que o Grupo de Recursos é o mesmo que o que usou para criar o VM.
 1. Dê um nome ao cofre da chave.  Todos os cofres chave em Azure devem ter um nome único.
 1. No separador Políticas de **Acesso,** verifique a encriptação do **disco Azure para obter** uma caixa de encriptação de volume.
 
-    ![disquetes e seleção de encriptação](../media/disk-encryption/portal-qs-keyvault-enable.png)
+    :::image type="content" source="../media/disk-encryption/portal-qs-keyvault-enable.png" alt-text="disquetes e seleção de encriptação":::
 
 1. Selecione **Rever + criar**.  
 1. Depois de o cofre da chave ter passado a validação, selecione **Criar**. Isto irá devolvê-lo à tecla Select a partir do ecrã **Do cofre de chaves Azure.**

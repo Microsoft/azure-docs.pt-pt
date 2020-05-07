@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: d1929f937d86001a0f2a399b1ebd92e47bbd2c86
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a6efe74008b2271b960f877f5f0f6b2b6b549a8d
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80990910"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583079"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Ative Directory (Azure AD) Application Proxy frequentemente feito perguntas
 
@@ -95,6 +95,10 @@ Se os servidores do conector e a conta de serviço de aplicação web estiverem 
 
 Se os servidores do conector e a conta de serviço de aplicação web estiverem em diferentes domínios, a delegação baseada em Recursos é utilizada. As permissões da delegação estão configuradas no servidor web-alvo e na conta de serviço de aplicação web. Este método de delegação constrangida é relativamente novo. O método foi introduzido no Windows Server 2012, que suporta a delegação de domínio seletiva, permitindo ao proprietário de recursos (serviço web) controlar quais as contas de máquinas e serviços que podem delegar no mesmo. Não há UI para ajudar nesta configuração, por isso terá de usar o PowerShell.
 Para mais informações, consulte a delegação de entendimento de [branco Kerberos constrangida com procuração](https://aka.ms/kcdpaper)de aplicação .
+
+### <a name="does-ntlm-authentication-work-with-azure-ad-application-proxy"></a>A autenticação NTLM funciona com a Procuração de Aplicação AD Azure?
+
+A autenticação NTLM não pode ser usada como um método de pré-autenticação ou de inscrição única. A autenticação NTLM só pode ser utilizada quando pode ser negociada diretamente entre o cliente e a aplicação web publicada. A utilização da autenticação NTLM geralmente faz com que um pedido de sessão apareça no navegador.
 
 ## <a name="pass-through-authentication"></a>Autenticação pass-through
 

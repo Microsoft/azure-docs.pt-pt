@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: josels
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 1ccfb1b008a7e3e48f56b1af62087d303522ed73
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 49bd251b7f76a844a0d3fd1b1a09f7e15c5e7ddb
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81676736"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792212"
 ---
 # <a name="quickstart-create-an-azure-synapse-analytics-workspace-preview"></a>Quickstart: Criar um espaço de trabalho Azure Synapse Analytics (pré-visualização)
 
@@ -41,7 +41,7 @@ Inscreva-se no [portal Azure](https://portal.azure.com/)
     | Definição | Valor sugerido | Descrição |
     | :------ | :-------------- | :---------- |
     | **Subscrição** | *A sua subscrição* | Para obter detalhes sobre as suas subscrições, veja [Subscriptions](https://account.windowsazure.com/Subscriptions) (Subscrições). |
-    | **Grupo de recursos** | *Qualquer grupo de recursos* | Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) (Atribuição de nomes de regras e restrições). |
+    | **Grupo de recursos** | *Qualquer grupo de recursos* | Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) (Atribuição de nomes de regras e restrições). |
     | **Nome da área de trabalho** | mysampleworkspace | Especifica o nome do espaço de trabalho, que também será utilizado para pontos finais de ligação.|
     | **Região** | E.U.A. Leste 2 | Especifica a localização do espaço de trabalho.|
     | **Armazenamento do Data Lake Ger2** | Conta:`storage account name` </br> Sistema de ficheiros:`root file system to use` | Especifica o nome da conta de armazenamento ADLS Gen2 para usar como armazenamento primário e o sistema de ficheiros a utilizar.|

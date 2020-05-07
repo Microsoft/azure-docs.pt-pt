@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/31/2019
-ms.openlocfilehash: a73e1e9f7a9c017dd29b627a24c25ae2e064c0a9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2cf4859d3bf4c34fff4cb076eec11bcd2d81e4ab
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75894135"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780781"
 ---
 # <a name="scenario-invalidnetworksecuritygroupsecurityrules---cluster-creation-fails-in-azure-hdinsight"></a>Cenário: InvalidNetworkSecurityGroupSecurityRules - criação de cluster falha no Azure HDInsight
 
@@ -28,7 +28,7 @@ Provavelmente um problema com as regras do grupo de segurança da [rede](../../v
 
 ## <a name="resolution"></a>Resolução
 
-Vá ao portal Azure e identifique o NSG que está associado à subrede onde o cluster está a ser implantado. Na secção de regras de segurança de **entrada,** certifique-se de que as regras permitem o acesso à entrada na porta 443 para os endereços IP [aqui](../hdinsight-plan-virtual-network-deployment.md#hdinsight-ip)mencionados .
+Vá ao portal Azure e identifique o NSG que está associado à subrede onde o cluster está a ser implantado. Na secção de regras de segurança de **entrada,** certifique-se de que as regras permitem o acesso à entrada na porta 443 para os endereços IP [aqui](../control-network-traffic.md)mencionados .
 
 ## <a name="next-steps"></a>Passos seguintes
 

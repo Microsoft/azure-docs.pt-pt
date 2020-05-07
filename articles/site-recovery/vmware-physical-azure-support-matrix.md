@@ -3,12 +3,12 @@ title: Matriz de suporte para recuperação de vmware/desastre físico na recupe
 description: Resume o suporte para a recuperação de desastres de VMware VMs e servidor físico para O Azure usando a Recuperação do Site Azure.
 ms.topic: conceptual
 ms.date: 2/24/2020
-ms.openlocfilehash: eb78f6073d2bcb7289f13d5c994cff8c13f9a6e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d8e7b2f8f6483d462f781d95011ef7b972e83b87
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82185800"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801795"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastres de VMware VMs e servidores físicos para O Azure
 
@@ -128,7 +128,9 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | [9.25][9.25 UR] | SP1 3.1
 
 **Libertar** | **Versão do serviço de mobilidade** | **Versão de kernel** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 15 e 15 SP1 | [9.32](https://support.microsoft.com/help/4550047/) | Todos os núcleos SUSE 15 e 15 são suportados. </br></br> 4.12.14-5.5-azure a 4.12.14-8.22-azure
+SUSE Linux Enterprise Server 15 e 15 SP1 | [9.32](https://support.microsoft.com/help/4550047/) | Por padrão, todas as [ações SUSE 15 e 15 núcleos](https://www.suse.com/support/kb/doc/?id=000019587) são suportados. </br></br> 4.12.14-5.5-azure a 4.12.14-8.22-azure
+
+
 
 ## <a name="linux-file-systemsguest-storage"></a>Sistemas de ficheiros Linux/armazenamento de hóspedes
 
@@ -183,34 +185,34 @@ Endereço IP reservado | Sim
 IPv4 | Sim
 Reter endereço IP de origem | Sim
 Pontos finais do serviço de rede virtual Azure<br/> | Sim
-Redes aceleradas | Não
+Redes aceleradas | No
 
 ## <a name="storage"></a>Armazenamento
 **Componente** | **Apoiado**
 --- | ---
 Disco dinâmico | O disco osso deve ser um disco básico. <br/><br/>Os discos de dados podem ser discos dinâmicos
-Configuração do disco docker | Não
+Configuração do disco docker | No
 NFS hospedeiro | Sim para VMware<br/><br/> Não para servidores físicos
 Anfitrião SAN (iSCSI/FC) | Sim
 Anfitrião vSAN | Sim para VMware<br/><br/> N/A para servidores físicos
 Multipath anfitrião (MPIO) | Sim, testado com Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM para CLARiiON
 Volumes Virtuais de Hospedar (VVols) | Sim para VMware<br/><br/> N/A para servidores físicos
 VMDK convidado/servidor | Sim
-Disco de cluster partilhado convidado/servidor | Não
-Disco encriptado de hóspede/servidor | Não
-NFS convidado/servidor | Não
+Disco de cluster partilhado convidado/servidor | No
+Disco encriptado de hóspede/servidor | No
+NFS convidado/servidor | No
 Convidado/servidor iSCSI | Para a migração - Sim<br/>Para recuperação de desastres - Não, o iSCSI falhará como um disco ligado ao VM
-Hóspede/servidor SMB 3.0 | Não
+Hóspede/servidor SMB 3.0 | No
 RDM convidado/servidor | Sim<br/><br/> N/A para servidores físicos
 Disco convidado/servidor > 1 TB | Sim, o disco deve ser maior que 1024 MB<br/><br/>Até 8.192 GB ao replicar discos geridos (versão 9.26 em diante)<br></br> Até 4.095 GB ao replicar contas de armazenamento
-Disco de hóspede/servidor com tamanho de setor físico lógico e 4k | Não
-Disco de hóspede/servidor com 4K lógico e 512 bytes tamanho do setor físico | Não
+Disco de hóspede/servidor com tamanho de setor físico lógico e 4k | No
+Disco de hóspede/servidor com 4K lógico e 512 bytes tamanho do setor físico | No
 Volume de hóspedes/servidor com disco listrado >4 TB | Sim
 Gestão lógica do volume (LVM)| Fornecimento grosso - Sim <br></br> Fornecimento fino - Não
-Hóspede/servidor - Espaços de Armazenamento | Não
-Disco de adição/remoção de hot/servidor/hóspede/servidor | Não
+Hóspede/servidor - Espaços de Armazenamento | No
+Disco de adição/remoção de hot/servidor/hóspede/servidor | No
 Hóspede/servidor - excluir o disco | Sim
-Multipata convidado/servidor (MPIO) | Não
+Multipata convidado/servidor (MPIO) | No
 Partições GPT convidado/servidor | Cinco partições são suportadas a partir do [Rollup update 37](https://support.microsoft.com/help/4508614/) (versão 9.25 do serviço mobility) em diante. Anteriormente, quatro foram apoiados.
 ReFS | Sistema de Ficheiros Resiliente é suportado com versão de serviço de Mobilidade 9.23 ou superior
 Bota EFI/UEFI de hóspede/servidor | - Suportado para Windows Server 2012 ou posteriormente, SLES 12 SP4 e RHEL 8.0 com versão 9.30 do agente de mobilidade<br/> - Não é suportado o tipo de boot UEFI seguro.
@@ -219,9 +221,9 @@ Bota EFI/UEFI de hóspede/servidor | - Suportado para Windows Server 2012 ou pos
 
 |**Tipo de replicação**   |**Apoiado**  |
 |---------|---------|
-|Transferências de dados descarregadas (ODX)    |       Não  |
-|Sementeing offline        |   Não      |
-| Azure Data Box | Não
+|Transferências de dados descarregadas (ODX)    |       No  |
+|Sementeing offline        |   No      |
+| Azure Data Box | No
 
 ## <a name="azure-storage"></a>Storage do Azure
 
@@ -230,13 +232,13 @@ Bota EFI/UEFI de hóspede/servidor | - Suportado para Windows Server 2012 ou pos
 Armazenamento localmente redundante | Sim
 Armazenamento georredundante | Sim
 Armazenamento georredundante com acesso de leitura | Sim
-Armazenamento fresco | Não
-Armazenamento quente| Não
-Blobs de blocos | Não
+Armazenamento fresco | No
+Armazenamento quente| No
+Blobs de blocos | No
 Encriptação em repouso (SSE)| Sim
 Encriptação em repouso (CMK)| Sim (via PowerShell Az 3.3.0 módulo em diante)
 Armazenamento Premium | Sim
-Serviço de importação/exportação | Não
+Serviço de importação/exportação | No
 Firewalls de armazenamento azure para VNets | Sim.<br/> Configurado na conta de armazenamento/cache alvo (utilizada para armazenar dados de replicação).
 Contas de armazenamento v2 de uso geral (níveis quentes e frescos) | Sim (os custos de transação são substancialmente mais elevados para o V2 em comparação com o V1)
 
@@ -245,7 +247,7 @@ Contas de armazenamento v2 de uso geral (níveis quentes e frescos) | Sim (os cu
 **Funcionalidade** | **Apoiado**
 --- | ---
 Conjuntos de disponibilidade | Sim
-Zonas de disponibilidade | Não
+Zonas de disponibilidade | No
 HUB | Sim
 Managed disks | Sim
 
@@ -301,10 +303,10 @@ Máximo de alterações a dados por dia suportadas por um Servidor de Processos 
 
 **Ação** | **Apoiado**
 --- | ---
-Mova o cofre através de grupos de recursos | Não
-Mover o cofre dentro e através de assinaturas | Não
-Movimentar armazenamento, rede, VMs Azure em grupos de recursos | Não
-Mover armazenamento, rede, VMs Azure dentro e através de subscrições. | Não
+Mova o cofre através de grupos de recursos | No
+Mover o cofre dentro e através de assinaturas | No
+Movimentar armazenamento, rede, VMs Azure em grupos de recursos | No
+Mover armazenamento, rede, VMs Azure dentro e através de subscrições. | No
 
 
 ## <a name="obtain-latest-components"></a>Obter componentes mais recentes

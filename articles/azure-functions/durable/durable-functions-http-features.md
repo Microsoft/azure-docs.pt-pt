@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: fece1155d2f707f11dda9f3896bd8a08deff1557
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1ffa116f6877b58d54c22f918b4e83574b85860c
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80802388"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82800724"
 ---
 # <a name="http-features"></a>Características http
 
@@ -141,7 +141,7 @@ const df = require("durable-functions");
 
 module.exports = df.orchestrator(function*(context){
     const url = context.df.getInput();
-    const response = context.df.callHttp("GET", url)
+    const response = yield context.df.callHttp("GET", url)
 
     if (response.statusCode >= 400) {
         // handling of error codes goes here

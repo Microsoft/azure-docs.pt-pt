@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: f68f973882af28d80b3a27bc4591c5ee932404a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9c9ad45ac1cf59f05454cba0babff8c3b7368f72
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75443609"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82839118"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Saída do Azure Stream Analytics para a Base de Dados Azure SQL
 
@@ -24,7 +24,7 @@ Aqui estão algumas configurações dentro de cada serviço que podem ajudar a m
 
 ## <a name="azure-stream-analytics"></a>Azure Stream Analytics
 
-- **Divisão Herdada** – Esta opção de configuração de saída SQL permite herdar o esquema de partição do seu passo ou entrada de consulta anterior. Com isto habilitado, escrever para uma tabela baseada em disco e ter uma topologia [totalmente paralela](stream-analytics-parallelization.md#embarrassingly-parallel-jobs) para o seu trabalho, espere ver melhores resultados. Esta divisão já acontece automaticamente para muitas [outras saídas](stream-analytics-parallelization.md#partitions-in-sources-and-sinks). O bloqueio de mesa (TABLOCK) também é desativado para inserções a granel feitas com esta opção.
+- **Divisão Herdada** – Esta opção de configuração de saída SQL permite herdar o esquema de partição do seu passo ou entrada de consulta anterior. Com isto habilitado, escrever para uma tabela baseada em disco e ter uma topologia [totalmente paralela](stream-analytics-parallelization.md#embarrassingly-parallel-jobs) para o seu trabalho, espere ver melhores resultados. Esta divisão já acontece automaticamente para muitas [outras saídas](stream-analytics-parallelization.md#partitions-in-inputs-and-outputs). O bloqueio de mesa (TABLOCK) também é desativado para inserções a granel feitas com esta opção.
 
 > [!NOTE] 
 > Quando existam mais de 8 divisórias de entrada, herdar o regime de partição de entrada pode não ser uma escolha adequada. Este limite superior foi observado numa tabela com uma única coluna de identidade e um índice agrupado. Neste caso, considere usar [o INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count) 8 na sua consulta, para especificar explicitamente o número de autores de saída. Com base no seu esquema e escolha de índices, as suas observações podem variar.

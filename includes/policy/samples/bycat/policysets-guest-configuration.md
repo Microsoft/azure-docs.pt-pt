@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 04/26/2020
+ms.date: 05/05/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: ebfe8dd785a45b99a5067a8c79655cd0133716ec
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 963bc25ffb34d724b61bc63d1c240a0b7fb16a8f
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82190778"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82837756"
 ---
-|Nome |Descrição |Políticas |Versão |
+|Name |Descrição |Políticas |Versão |
 |---|---|---|---|
 |[Audite VMs Linux que não tenham as aplicações especificadas instaladas](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_InstalledApplicationLinux.json) |Esta iniciativa implementa os requisitos políticos e audita as máquinas virtuais Linux que não têm as aplicações especificadas instaladas. Para mais informações sobre as políticas de Configuração de Hóspedes, visite[https://aka.ms/gcpol](https://aka.ms/gcpol) |2 |1.1.0 |
 |[Audite VMs Linux que tenham as aplicações especificadas instaladas](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_NotInstalledApplicationLinux.json) |Esta iniciativa implementa os requisitos políticos e audita as máquinas virtuais Linux que têm as aplicações especificadas instaladas. Para mais informações sobre as políticas de Configuração de Hóspedes, visite[https://aka.ms/gcpol](https://aka.ms/gcpol) |2 |1.1.0 |
