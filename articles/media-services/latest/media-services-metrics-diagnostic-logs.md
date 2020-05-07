@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: 75363212684bb09e84a4bc4881af26e6d2a8e7e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f051d02ac06163cf1861ab6bfc6afd0dcbb0ad8a
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80585278"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559539"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-via-azure-monitor"></a>Monitor Media Services métricas e registos de diagnóstico via Azure Monitor
 
@@ -63,7 +63,7 @@ As seguintes métricas de [streaming](https://docs.microsoft.com/rest/api/media/
 |Nome da métrica|Nome a apresentar|Descrição|
 |---|---|---|
 |Pedidos|Pedidos|Fornece o número total de pedidos HTTP servidos pelo Streaming Endpoint.|
-|Saída|Saída|O número total de bytes de egress. Por exemplo, bytes transmitidos pelo Streaming Endpoint.|
+|Saída|Saída|Bytes de egress total por minuto por ponto final de streaming.|
 |SuccessE2ELatency|Fim do sucesso para acabar com a Latência|Duração do tempo a partir do momento em que o Ponto final de streaming recebeu o pedido para quando o último byte da resposta foi enviado.|
 
 ### <a name="why-would-i-want-to-use-metrics"></a>Por que haveria de querer usar métricas?
@@ -92,7 +92,7 @@ Os Serviços de Media suportam os seguintes registos de diagnóstico:
 
 ### <a name="key-delivery"></a>Entrega de chaves
 
-|Nome|Descrição|
+|Name|Descrição|
 |---|---|
 |Pedido de serviço de entrega chave|Registos que mostram a informação de pedido de pedido de serviço de entrega de chaves. Para mais informações, consulte [schemas.](media-services-diagnostic-logs-schema.md)|
 

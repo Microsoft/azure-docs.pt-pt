@@ -1,20 +1,17 @@
 ---
-title: Como um desconto de reserva é aplicado à Base de Dados do Azure para MySQL
-description: Como um desconto de reserva é aplicado à Base de Dados do Azure para MySQL
+title: Compreender um desconto de reserva - Base de Dados do Azure para MySQL
+description: Saiba como um desconto de reserva é aplicado aos servidores da Base de Dados do Azure para MySQL.
 author: kummanish
 ms.author: manishku
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/13/2020
-ms.openlocfilehash: ed067e4bbde737cb08afe7c9429854e54e2ef3d9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e47153b24234480ee52847f07e723c02fabb3113
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199318"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509436"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-database-for-mysql"></a>Como um desconto de reserva é aplicado à Base de Dados do Azure para MySQL
 
@@ -44,5 +41,6 @@ Para o resto destes exemplos, assuma que a capacidade reservada da Base de Dados
 
 Para compreender e ver a aplicação das Reservas do Azure em relatórios de utilização da faturação, veja [Compreender a utilização das reservas do Azure](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea).
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos
+## <a name="next-steps"></a>Passos seguintes
+
 Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).

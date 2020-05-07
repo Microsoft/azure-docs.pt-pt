@@ -4,14 +4,15 @@ description: Este artigo descreve como configurar e aceder a alertas métricos p
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
+ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 3/16/2020
-ms.openlocfilehash: 80c061f72ce827df8f8354a5881c032c6f874fe1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8bf887b8d86131e0b358056fc1744a8d144be3fc
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80063149"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82584105"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---hyperscale-citus"></a>Utilize o portal Azure para configurar alertas sobre métricas para a Base de Dados Azure para PostgreSQL - Hiperescala (Citus)
 

@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
-ms.date: 04/14/2020
-ms.openlocfilehash: 317d12f6d5dee92d998266d4e9b6d52e6ef9c7a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 04/29/2020
+ms.openlocfilehash: 48602cb65430bcf6720b4d6f4ba05c771a7bd55b
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81381386"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559958"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Gerir os clusters HDInsight utilizando a API De REPOUSO Apache Ambari
 
@@ -23,7 +23,7 @@ Aprenda a usar a API Apache Ambari REST para gerir e monitorizar os clusters Apa
 
 ## <a name="what-is-apache-ambari"></a>O que é Apache Ambari
 
-[Apache Ambari](https://ambari.apache.org) simplifica a gestão e monitorização dos clusters Hadoop, fornecendo uma UI web fácil de usar apoiada pelas suas [APIs REST](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).  Ambari é fornecido por padrão com clusters HDInsight baseados em Linux.
+Apache Ambari simplifica a gestão e monitorização dos clusters Hadoop, fornecendo uma UI web fácil de usar apoiada pelas suas [APIs REST](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).  Ambari é fornecido por padrão com clusters HDInsight baseados em Linux.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -33,7 +33,7 @@ Aprenda a usar a API Apache Ambari REST para gerir e monitorizar os clusters Apa
 
 * jq, um processador JSON de linha de comando.  Vê. [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)
 
-* Windows PowerShell.  Ou podes usar [o Bash.](https://www.gnu.org/software/bash/)
+* Windows PowerShell.  Ou podes usar o Bash.
 
 ## <a name="base-uniform-resource-identifier-for-ambari-rest-api"></a>Identificador de recursos uniformes de base para Ambari Rest API
 

@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 02/18/2020
-  ms.openlocfilehash: 277cc5b2427dd422e49247cb52aff3c25c7fce81
-  ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+  ms.openlocfilehash: f25cea0da33ca2b96e0e3fb7aa2462c01a830546
+  ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/22/2020
-  ms.locfileid: "82024800"
+  ms.lasthandoff: 04/29/2020
+  ms.locfileid: "82560952"
 landingContent:
 - title: Acerca do Azure IoT Central
   linkLists:
@@ -25,6 +25,8 @@ landingContent:
       url: overview-iot-central.md
     - text: Visita guiada à IU
       url: overview-iot-central-tour.md
+    - text: Atualizações recentes
+      url: https://azure.microsoft.com/updates/?status=nowavailable&updateType=features&category=iot&query=azure%20iot%20central
   - linkListType: architecture
     links:
     - text: Arquitetura do Azure IoT Central
