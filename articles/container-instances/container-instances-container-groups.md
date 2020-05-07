@@ -4,12 +4,12 @@ description: Conheça grupos de contentores em Casos de Contentores Azure, uma c
 ms.topic: article
 ms.date: 11/01/2019
 ms.custom: mvc
-ms.openlocfilehash: 3efc4528863286da676fc7eb758176156c87a32a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: b5f4f834d44294d846495a59af2fb65b231e4820
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115657"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583828"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Grupos de contentores no Azure Container Instances
 
@@ -69,7 +69,7 @@ Neste cenário, pode definir um limite de recursos de até 2 CPUs para a instân
 
 ## <a name="networking"></a>Redes
 
-Os grupos de contentores podem partilhar um endereço IP virado para o exterior, uma ou mais portas nesse endereço IP, e uma etiqueta DNS com um nome de domínio totalmente qualificado (FQDN). Para permitir que os clientes externos cheguem a um contentor dentro do grupo, deve expor a porta no endereço IP e a partir do recipiente. Como os contentores dentro do grupo partilham um espaço de nome portuário, o mapeamento portuário não é suportado. O endereço IP de um grupo de contentores e o FQDN serão libertados quando o grupo de contentores for eliminado. 
+Os grupos de contentores podem partilhar um endereço IP virado para o exterior, uma ou mais portas nesse endereço IP, e uma etiqueta DNS com um nome de domínio totalmente qualificado (FQDN). Para permitir que os clientes externos cheguem a um contentor dentro do grupo, deve expor a porta no endereço IP e a partir do recipiente. O endereço IP de um grupo de contentores e o FQDN são libertados quando o grupo de contentores é eliminado. 
 
 Dentro de um grupo de contentores, as instâncias de contentores podem chegar entre si através de um local de acolhimento em qualquer porto, mesmo que esses portos não sejam expostos externamente no endereço IP do grupo ou a partir do contentor.
 
@@ -118,7 +118,7 @@ Saiba como implantar um grupo de contentores multi-contentores com um modelo de 
 [resource-limits]: /rest/api/container-instances/containergroups/createorupdate#resourcelimits
 [resource-requirements]: /rest/api/container-instances/containergroups/createorupdate#resourcerequirements
 [azure-files]: container-instances-volume-azure-files.md
-[virtual-network]: container-instances-vnet.md
+[virtual-network]: container-instances-virtual-network-concepts.md
 [secret]: container-instances-volume-secret.md
 [volume-gitrepo]: container-instances-volume-gitrepo.md
 [gpus]: container-instances-gpu.md

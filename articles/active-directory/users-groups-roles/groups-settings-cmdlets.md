@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d56bb7c30a8289fe7f261979dca6a4ffe2bfe99
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b50118dcd4bf0fafa3e25399cf7d82558b7c776c
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80048146"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582788"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlets do Azure Active Directory para configurar definições de grupo
 
@@ -160,7 +160,7 @@ Aqui estão as definições definidas no Modelo de Definições Unificadas do Gr
 |  <ul><li>PermitirhóspedesToBeGroupOwner<li>Tipo: Boolean<li>Padrão: Falso | Boolean indicando se um utilizador convidado pode ou não ser proprietário de grupos. |
 |  <ul><li>PermitirhóspedesAccessGroups<li>Tipo: Boolean<li>Padrão: Verdadeiro | Boolean indicando se um utilizador convidado pode ou não ter acesso ao conteúdo dos grupos do Office 365.  Esta definição não requer uma licença Azure Ative Directory Premium P1.|
 |  <ul><li>GuestUsageGuidelinesUrl<li>Tipo: Cadeia<li>Padrão: "" | A url de um link para as diretrizes de utilização do hóspede. |
-|  <ul><li>Hóspedes allowtoaddguests<li>Tipo: Boolean<li>Padrão: Verdadeiro | Um boolean o que indica se é ou não permitido adicionar convidados a este diretório. <br>Esta definição pode ser ultrapassada e tornar-se apenas de leitura se a *EnableMIPLabels* for definida para *True* e uma política de hóspedes estiver associada ao rótulo de sensibilidade atribuído ao grupo.<br>Se a definição allowToAddGuests estiver definida como Falsa ao nível do inquilino, qualquer definição de AllowToAddGuests ao nível do grupo é ignorada. Se quiser ativar o acesso dos hóspedes a apenas alguns grupos, tem de definir o AllowToAddGuests para ser verdadeiro ao nível do inquilino e, em seguida, desativá-lo seletivamente para grupos específicos. |
+|  <ul><li>Hóspedes allowtoaddguests<li>Tipo: Boolean<li>Padrão: Verdadeiro | Um boolean o que indica se é ou não permitido adicionar convidados a este diretório. <br>Esta definição pode ser ultrapassada e tornar-se apenas de leitura se a *EnableMIPLabels* for definida para *True* e uma política de hóspedes estiver associada ao rótulo de sensibilidade atribuído ao grupo.<br>Se a definição allowToAddGuests estiver definida para Falso ao nível da organização, qualquer definição de AllowToAddGuests ao nível do grupo é ignorada. Se pretender ativar o acesso dos hóspedes a apenas alguns grupos, tem de definir o AllowToAddGuests para ser verdadeiro ao nível da organização e, em seguida, desativá-lo seletivamente para grupos específicos. |
 |  <ul><li>Lista de Classificações<li>Tipo: Cadeia<li>Padrão: "" | Uma lista de valores de classificação válidos que podem ser aplicadas aos Grupos 365 do Office. <br>Esta definição não se aplica quando enableMIPLabels == Verdadeiro.|
 |  <ul><li>Rótulos EnableMIP<li>Tipo: Boolean<li>Padrão: "Falso" |A bandeira indicando se as etiquetas de sensibilidade publicadas no Microsoft 365 Compliance Center podem ser aplicadas aos Grupos do Office 365. Para mais informações, consulte etiquetas de sensibilidade para o [Office 365 grupos](groups-assign-sensitivity-labels.md). |
 

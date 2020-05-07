@@ -13,16 +13,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 04/29/2020
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 6e109c5a7f4911893c81c88ae84322fb962fff6e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cb984a944067ddb1449f58b464e596fd138dc7c7
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71213186"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82592014"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Envio de notificações push com Hubs de Notificação Azure e Node.js
 
@@ -133,7 +133,7 @@ Tal como acontece com as `ApnsService` aplicações Android `send` acima descrit
 - **Carga útil** - a mensagem é JSON ou carga de corda.
 - **Callback** - a função de callback.
 
-Para mais informações sobre o formato de carga útil, consulte a secção de Carga Útil da **Notificação** [Local e Push.](https://developer.apple.com/library/ios/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html)
+Para mais informações sobre o formato de carga útil, consulte a secção de Conteúdo de **Notificação** do [guia UserNotifications](https://developer.apple.com/documentation/usernotifications).
 
 O seguinte código `ApnsService` utiliza a `NotificationHubService` instância exposta pelo para enviar uma mensagem de alerta a todos os clientes:
 

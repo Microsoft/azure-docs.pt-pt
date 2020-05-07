@@ -10,12 +10,12 @@ ms.workload: azure-vs
 ms.topic: how-to
 ms.date: 11/03/2017
 ms.author: ghogen
-ms.openlocfilehash: abf0570ee9f01a2378e8c0370cfc3ba5fecc7406
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: d864230ff524f6c008f9f05c16505cd9d0e9f229
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82098238"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583364"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Publique uma ASP.NET Web App para um Azure VM do Visual Studio
 
@@ -24,7 +24,7 @@ Este documento descreve como publicar uma aplicação web ASP.NET a uma máquina
 ## <a name="prerequisites"></a>Pré-requisitos
 Para utilizar o Visual Studio para publicar um projeto ASP.NET a um Azure VM, o VM deve ser corretamente configurado.
 
-- A máquina deve ser configurada para executar uma aplicação web ASP.NET e ter o WebDeploy instalado.
+- A máquina deve ser configurada para executar uma aplicação web ASP.NET e ter o WebDeploy instalado. Para mais informações, consulte [Criar um VM ASP.NET com WebDeploy](https://github.com/aspnet/Tooling/blob/AspNetVMs/docs/create-asp-net-vm-with-webdeploy.md).
 
 - O VM deve ter um nome DNS configurado. Para mais informações, consulte Criar um nome de [domínio totalmente qualificado no portal Azure para um Windows VM](portal-create-fqdn.md).
 
