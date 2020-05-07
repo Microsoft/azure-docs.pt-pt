@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 09/20/2019
 ms.custom: include file
 ms.openlocfilehash: 19fac46fae2ae938c4ed00967171067ec9f67435
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80277260"
 ---
 Você pode opcionalmente selecionar até duas indústrias e duas verticais sob cada indústria. Estas categorias são utilizadas para exibir a sua oferta, quando a indústria e as verticais são usadas em filtros de pesquisa e aplicadas na Montra.  Se a sua oferta estiver direcionada a uma indústria específica e/ou vertical, certifique-se de descrever como a sua oferta suporta as indústrias ou verticais selecionadas na descrição da oferta.  Caso contrário, se a sua oferta não for específica para a indústria, não faça uma seleção e deixe esta secção em branco.

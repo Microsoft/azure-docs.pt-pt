@@ -3,12 +3,12 @@ title: Fornecedores de recursos por serviços Azure
 description: Lista todos os espaços de nome do fornecedor de recursos para O Gestor de Recursos Azure e mostra o serviço Azure para esse espaço de nome.
 ms.topic: conceptual
 ms.date: 03/17/2020
-ms.openlocfilehash: 55fbe4ae383e5275d185e2a03224e77660a01ef5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 9bb8d91d141997a7dd466d247ddcb0bd364e1c80
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81382501"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559853"
 ---
 # <a name="resource-providers-for-azure-services"></a>Fornecedores de recursos para serviços Azure
 
@@ -51,7 +51,7 @@ Este artigo mostra como os espaços de nome do fornecedor de recursos mapeiam os
 | Microsoft.ClassicSubscription | Modelo de implementação clássica |
 | Microsoft.Serviços Cognitivos | [Serviços Cognitivos](/azure/cognitive-services/) |
 | Microsoft.Commerce | núcleo |
-| Microsoft.Compute | [Virtual Machines](/azure/virtual-machines/)<br />[Conjuntos de Dimensionamento de Máquinas Virtuais](/azure/virtual-machine-scale-sets/) |
+| Microsoft.Compute | [Máquinas Virtuais](/azure/virtual-machines/)<br />[Conjuntos de escala de máquina virtual](/azure/virtual-machine-scale-sets/) |
 | Microsoft.Consumo | [Gestão de Custos](/azure/cost-management/) |
 | Microsoft.ContainerInstance | [Container Instances](/azure/container-instances/) |
 | Microsoft.ContainerRegistry | [Registo de Contentor](/azure/container-registry/) |
@@ -61,12 +61,12 @@ Este artigo mostra como os espaços de nome do fornecedor de recursos mapeiam os
 | Microsoft.CustomerLockbox | Caixa de bloqueio de clientes para o Microsoft Azure |
 | Microsoft.CustomProviders | [Fornecedores Personalizados do Azure](../custom-providers/overview.md) |
 | Microsoft.DataBox | [Azure Data Box](/azure/databox-family/) |
-| Microsoft.DataBoxEdge | [Azure Stack Edge](../../databox-online/data-box-edge-overview.md) |
+| Microsoft.DataBoxEdge | [Azure Stack Edge](../../databox-online/azure-stack-edge-overview.md) |
 | Microsoft.Databricks | [Azure Databricks](/azure/azure-databricks/) |
 | Microsoft.DataCatalog | [Catálogo de Dados](/azure/data-catalog/) |
 | Microsoft.DataFactory | [Data Factory](/azure/data-factory/) |
 | Microsoft.DataLakeAnalytics | [Data Lake Analytics](/azure/data-lake-analytics/) |
-| Microsoft.DataLakeStore | [Armazenamento do Azure Data Lake Ger2](../../storage/blobs/data-lake-storage-introduction.md) |
+| Microsoft.DataLakeStore | [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md) (Armazenamento do Azure Data Lake Gen2) |
 | Microsoft.DataMigration | [Azure Database Migration Service](/azure/dms/) |
 | Microsoft.DataShare | [Azure Data Share](/azure/data-share/) |
 | Microsoft.DBforMariaDB | [Azure Database for MariaDB](/azure/mariadb/) |

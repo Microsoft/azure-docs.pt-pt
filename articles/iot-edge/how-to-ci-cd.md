@@ -8,12 +8,12 @@ ms.date: 08/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9a653d13137a3067bfaf51c64c09454a08783e31
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: ac37e9bd10caea5c6e58fc797eac73ce6c714162
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131402"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561029"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Integração contínua e implantação contínua para Azure IoT Edge
 
@@ -100,6 +100,13 @@ Nesta secção, cria-se um novo oleoduto de construção. Configure o gasoduto p
    * **Plataforma padrão**: Selecione a plataforma adequada para os seus módulos com base no dispositivo IoT Edge alvo.
    * **Variáveis de saída**: As variáveis de saída incluem um nome de referência que pode utilizar para configurar o caminho do ficheiro onde o ficheiro deployment.json será gerado. Desloque o nome de referência para algo memorável como **edge**.
 
+
+   Estas configurações utilizam o repositório de imagem `module.json` e a etiqueta que são definidas no ficheiro para nomear e marcar a imagem do módulo. **Construir imagens** de módulos também ajuda a substituir `module.json` as variáveis pelo valor exato que define no ficheiro. No Visual Studio ou visual Studio Code, está `.env` a especificar o valor real num ficheiro. Nos Gasodutos Azure, define o valor no separador **Variáveis pipeline.** Selecione o separador **Variáveis** e configure o nome e o valor como seguinte:
+
+    * **ACR_ADDRESS:** O seu endereço de registo de contentores Azure. 
+
+    Se tiver outras variáveis no seu projeto, pode especificar **Build module images** o nome e o valor neste `${VARIABLE}` separador. Certifique-se de que `**/module.json` utiliza este formato nos seus ficheiros.
+    
 7. Selecione a segunda tarefa **Azure IoT Edge** para editá-la. Esta tarefa empurra todas as imagens do módulo para o registo do recipiente que selecionar.
 
    * Nome do **visor**: O nome do visor é automaticamente atualizado quando o campo de ação muda.

@@ -8,16 +8,16 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 09/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 69c905176a5beb1c7d442cd5f1a69161cd520c5a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9f4633a3fcafcb2b3151270715036e7940eb1c91
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71099489"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561841"
 ---
 # <a name="azure-data-box-edge-and-azure-data-box-gateway-1906-release-notes"></a>Notas de lançamento da Caixa de Dados Azure Edge e Azure Data Box Gateway 1906
 
-As seguintes notas de lançamento identificam as questões críticas em aberto e as questões resolvidas para o lançamento de 1906 para Azure Data Box Edge e Azure Data Box Gateway.
+As seguintes notas de lançamento identificam as questões críticas em aberto e as questões resolvidas para o lançamento de 1906 para Azure Data Box Edge e Azure Data Box Gateway. 
 
 As notas de lançamento são continuamente atualizadas e, à medida que são descobertas questões críticas que exigem uma suver, são adicionadas. Antes de implementar o seu Portal de Data Box Edge/Data Box, reveja cuidadosamente as informações contidas nas notas de lançamento.
 
@@ -31,8 +31,8 @@ Esta versão corresponde às versões do software:
 
 ## <a name="whats-new"></a>Novidades
 
-- Correção de bugs no fluxo de trabalho de **gestão da chave** de recuperação - No lançamento anterior, houve um bug devido ao qual a chave de recuperação não estava a ser aplicada. Este bug está fixado nesta libertação. Recomendamos vivamente que aplique esta atualização, uma vez que a chave de recuperação permite recuperar os dados do dispositivo, caso o dispositivo não arranque. Para mais informações, consulte como guardar a chave de [recuperação ao implementar](data-box-edge-deploy-connect-setup-activate.md#set-up-and-activate-the-physical-device)data Box Edge ou Data Box Gateway .
-- Foram efetuadas melhorias de registo de **portaprogramáveis de campo (FPGA)** - Foram efetuadas melhorias de lançamento, registo e alerta de 1905 relacionadas com a FPGA. Esta continua a ser uma atualização necessária para data box edge se estiver a utilizar a funcionalidade de computação Edge com a FPGA. Para mais informações, consulte como [transformar dados com a computação Edge na sua Data Box Edge](data-box-edge-deploy-configure-compute-advanced.md).
+- Correção de bugs no fluxo de trabalho de **gestão da chave** de recuperação - No lançamento anterior, houve um bug devido ao qual a chave de recuperação não estava a ser aplicada. Este bug está fixado nesta libertação. Recomendamos vivamente que aplique esta atualização, uma vez que a chave de recuperação permite recuperar os dados do dispositivo, caso o dispositivo não arranque. Para mais informações, consulte como guardar a chave de [recuperação ao implementar](azure-stack-edge-deploy-connect-setup-activate.md#set-up-and-activate-the-physical-device)data Box Edge ou Data Box Gateway .
+- Foram efetuadas melhorias de registo de **portaprogramáveis de campo (FPGA)** - Foram efetuadas melhorias de lançamento, registo e alerta de 1905 relacionadas com a FPGA. Esta continua a ser uma atualização necessária para data box edge se estiver a utilizar a funcionalidade de computação Edge com a FPGA. Para mais informações, consulte como [transformar dados com a computação Edge na sua Data Box Edge](azure-stack-edge-deploy-configure-compute-advanced.md).
 
 ## <a name="known-issues-in-ga-release"></a>Questões conhecidas no lançamento da GA
 
@@ -42,4 +42,4 @@ Não são divulgados novos problemas para esta libertação. Todas as questões 
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Preparar para implementar o Azure Data Box Gateway](data-box-gateway-deploy-prep.md)
-- [Preparar para implementar o Azure Data Box Edge](data-box-edge-deploy-prep.md)
+- [Preparar para implementar o Azure Data Box Edge](azure-stack-edge-deploy-prep.md)

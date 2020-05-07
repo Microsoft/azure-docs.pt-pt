@@ -6,18 +6,18 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 04/16/2020
-ms.openlocfilehash: 26695df299ba5d0f50c8f271b5da99284a8d6764
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
+ms.date: 04/27/2020
+ms.openlocfilehash: 48bd53160c3d2e76dccd1f22723c30c2c7e00d7a
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81531138"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559950"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Use Apache Spark MLlib para construir uma aplicação de machine learning e analisar um conjunto de dados
 
-Aprenda a usar Apache Spark [MLlib](https://spark.apache.org/mllib/) para criar uma aplicação de machine learning. A aplicação fará análises preditivas num conjunto de dados aberto. Das bibliotecas de machine learning incorporadas da Spark, este exemplo utiliza a *classificação* através da regressão logística.
+Aprenda a usar Apache Spark MLlib para criar uma aplicação de machine learning. A aplicação fará análises preditivas num conjunto de dados aberto. Das bibliotecas de machine learning incorporadas da Spark, este exemplo utiliza a *classificação* através da regressão logística.
 
 MLlib é uma biblioteca core Spark que fornece muitos utilitários úteis para tarefas de aprendizagem automática, tais como:
 
@@ -180,7 +180,7 @@ Vamos começar a perceber o que o conjunto de dados contém.
 
     ![Saída de consulta SQL](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-query-output.png "Saída de consulta SQL")
 
-3. Também pode usar [o Matplotlib,](https://en.wikipedia.org/wiki/Matplotlib)uma biblioteca usada para construir visualização de dados, para criar um enredo. Como o enredo deve ser criado a partir da contagem localpersistenteResultsdf dataframe, o código de corte deve começar com a **countResultsdf** `%%local` magia. Esta ação garante que o código é executado localmente no servidor Jupyter.
+3. Você também pode usar Matplotlib, uma biblioteca usada para construir visualização de dados, para criar um enredo. Como o enredo deve ser criado a partir da contagem localpersistenteResultsdf dataframe, o código de corte deve começar com a **countResultsdf** `%%local` magia. Esta ação garante que o código é executado localmente no servidor Jupyter.
 
     ```PySpark
     %%local
@@ -362,28 +362,5 @@ Depois de ter terminado a execução da aplicação, deve encerrar o caderno par
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
-
-### <a name="scenarios"></a>Cenários
-
-* [Apache Spark com BI: Análise de dados interativa utilizando Spark in HDInsight com ferramentas BI](apache-spark-use-bi-tools.md)
-* [Apache Spark com Machine Learning: Use Spark no HDInsight para analisar a temperatura do edifício utilizando dados de AVAC](apache-spark-ipython-notebook-machine-learning.md)
 * [Análise de log do site usando Apache Spark em HDInsight](apache-spark-custom-library-website-log-analysis.md)
-
-### <a name="create-and-run-applications"></a>Criar e executar aplicações
-
-* [Criar uma aplicação autónoma com o Scala](apache-spark-create-standalone-application.md)
-* [Executar trabalhos remotamente em um cluster Apache Spark usando Apache Livy](apache-spark-livy-rest-interface.md)
-
-### <a name="tools-and-extensions"></a>Ferramentas e extensões
-
-* [Utilizar o Plug-in das Ferramentas do HDInsight para o IntelliJ IDEA para criar e submeter aplicações do Spark Scala](apache-spark-intellij-tool-plugin.md)
-* [Utilize o Plugin de Ferramentas HDInsight para intelliJ IDEA para depurar aplicações Apache Spark remotamente](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Use os cadernos Apache Zeppelin com um cluster Apache Spark no HDInsight](apache-spark-zeppelin-notebook.md)
-* [Kernels disponíveis para o portátil Jupyter no cluster Apache Spark para HDInsight](apache-spark-jupyter-notebook-kernels.md)
-* [Utilizar pacotes externos com blocos de notas do Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
-* [Instalar o Jupyter no computador e ligar a um cluster do Spark do HDInsight](apache-spark-jupyter-notebook-install-locally.md)
-
-### <a name="manage-resources"></a>Gerir recursos
-
-* [Gerir recursos para o cluster do Apache Spark no Azure HDInsight](apache-spark-resource-manager.md)
-* [Controlar e depurar tarefas em execução num cluster do Apache Spark do HDInsight](apache-spark-job-debugging.md)
+* [Microsoft Cognitive Toolkit modelo de aprendizagem profunda com Azure HDInsight](apache-spark-microsoft-cognitive-toolkit.md)

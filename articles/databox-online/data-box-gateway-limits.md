@@ -8,16 +8,16 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 641d7410e414be2adae2a83840c90a680aedd2fc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: d160b0ead1ceb8c41bede20cb389a360d24258f9
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81683358"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561392"
 ---
 # <a name="azure-data-box-gateway-limits"></a>Limites de Gateway da Caixa de Dados Azure
 
-Considere estes limites à medida que implementa e opera a sua solução Microsoft Azure Data Box Gateway. 
+Considere estes limites à medida que implementa e opera a sua solução Microsoft Azure Data Box Gateway.
 
 ## <a name="data-box-gateway-service-limits"></a>Limites de serviço de Data Box Gateway
 

@@ -7,12 +7,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 771d7f5b037fde1144b18dc4ed0dee7aecac6744
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: cf051da4e2976ca54c95b54cd6ac89cb6f6cc1b1
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82100214"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562224"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>Problemas de ligação à Base de Dados Azure para PostgreSQL - Servidor Único
 
@@ -49,6 +49,7 @@ Se a aplicação não conseguir ligar persistentemente à Base de Dados Azure pa
 * Configuração da firewall do servidor: Certifique-se de que a Base de Dados Azure para firewall do servidor PostgreSQL está configurada para permitir ligações do seu cliente, incluindo servidores proxy e gateways.
 * Configuração da firewall do cliente: A firewall do seu cliente deve permitir ligações ao seu servidor de base de dados. Endereços IP e portas do servidor que não pode ser permitido, bem como nomes de aplicações como PostgreSQL em algumas firewalls.
 * Erro do utilizador: Pode ter parâmetros de ligação enevoados, como o nome do servidor na cadeia de ligação ou um sufixo de nome de * \@servidor* em falta no nome do utilizador.
+* Se vir o erro O _Servidor não está configurado para permitir ligações ipv6,_ note que o nível Basic não suporta pontos finais do serviço VNet. Tem de remover o ponto final Microsoft.Sql da sub-rede que está a tentar ligar-se ao servidor Basic.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Passos para resolver problemas persistentes de conectividade
 

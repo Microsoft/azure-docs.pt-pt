@@ -5,15 +5,15 @@ services: logic-apps
 ms.suite: integration
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam, estfan, logicappspm
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/13/2019
-ms.openlocfilehash: b1f4feab9587fb77089be265801c71f5b23b26ab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 79c99a8ba2712fe69ec6d3b9b9d32ddf6aa081cb
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146783"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82580642"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Ligar a sistemas de ficheiros no local com Azure Logic Apps
 
@@ -72,8 +72,8 @@ Este artigo mostra como pode ligar-se a um sistema de ficheiros no local, confor
    | -------- | -------- | ----- | ----------- |
    | **Nome de ligação** | Sim | <*nome de ligação*> | O nome que quer para a sua ligação |
    | **Pasta raiz** | Sim | <*nome da pasta raiz*> | A pasta-raiz do seu sistema de ficheiros, por exemplo, se instalou o seu portal de dados no local, como uma pasta local no computador onde está instalada a porta de dados no local, ou a pasta para uma partilha de rede a que o computador pode aceder. <p>Por exemplo: `\\PublicShare\\DropboxFiles` <p>A pasta-raiz é a pasta principal dos pais, que é usada para caminhos relativos para todas as ações relacionadas com ficheiros. |
-   | **Tipo de autenticação** | Não | <*auth-tipo*> | O tipo de autenticação que o seu sistema de ficheiros utiliza: **Windows** |
-   | **Nome de utilizador** | Sim | <*domain*>\\<*nome de utilizador* de domínio> | O nome de utilizador do computador onde tem o seu sistema de ficheiros |
+   | **Tipo de autenticação** | No | <*auth-tipo*> | O tipo de autenticação que o seu sistema de ficheiros utiliza: **Windows** |
+   | **Nome de utilizador** | Sim | <*domain*>\\<*nome de utilizador* de domínio> <p>-ou- <p><*local-computer*>\\<*nome* de utilizador local-computador> | O nome de utilizador do computador onde tem a pasta do sistema de ficheiros. <p>Se a pasta do sistema de ficheiros estiver no mesmo computador que a porta de dados no local, pode utilizar <*nome* de utilizador *de computador*>\\<local>. |
    | **Palavra-passe** | Sim | <*sua senha*> | A palavra-passe para o computador onde tem o seu sistema de ficheiros |
    | **porta de entrada** | Sim | <*instalado-gateway-nome*> | O nome para o seu gateway previamente instalado |
    |||||

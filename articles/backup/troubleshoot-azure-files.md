@@ -3,12 +3,12 @@ title: Troubleshoot Azure partilha backup de partilha de ficheiros
 description: Este artigo apresenta informações sobre a resolução de problemas que ocorrem ao proteger as suas partilhas de ficheiros do Azure.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: a6ce613b8c0fe8a7a5df6397ba2f1eb508d61aae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a9b3514b4c1a00cc2f9bb1e1922975bf0bb70d24
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82100061"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562088"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Problemas de resolução de problemas ao apoiar ações de ficheiros da Azure
 
@@ -25,6 +25,7 @@ Este artigo fornece informações de resolução de problemas para resolver quai
   >Todas as ações de ficheiros numa Conta de Armazenamento só podem ser protegidas sob um cofre dos Serviços de Recuperação. Pode usar [este script](scripts/backup-powershell-script-find-recovery-services-vault.md) para encontrar o cofre dos serviços de recuperação onde a sua conta de armazenamento está registada.
 
 - Certifique-se de que a parte do ficheiro não está presente em nenhuma das Contas de Armazenamento não suportadas. Pode consultar a matriz de suporte para a cópia de segurança de partilha de [ficheiros Azure](azure-file-share-support-matrix.md) para encontrar contas de armazenamento suportadas.
+- Verifique as definições de firewall da conta de armazenamento para garantir que a opção de permitir que os Serviços Microsoft fidedignos acedam à conta de armazenamento.
 
 ### <a name="error-in-portal-states-discovery-of-storage-accounts-failed"></a>Erro no portal afirma que descoberta de contas de armazenamento falhou
 
@@ -280,5 +281,5 @@ Aguarde que a outra operação em curso termine e retente mais tarde.
 
 Para mais informações sobre o backup de ações de ficheiros Azure, consulte:
 
-- [Back up Ações de ficheiros Azure](backup-afs.md)
+- [Fazer cópia de segurança das partilhas de ficheiros do Azure](backup-afs.md)
 - [Back up Azure partilha de ficheiros FAQ](backup-azure-files-faq.md)

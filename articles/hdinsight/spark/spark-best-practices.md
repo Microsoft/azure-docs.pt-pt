@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 424a0cfd02cfce9fb87bc3e21d7b067740df8218
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
-ms.translationtype: HT
+ms.openlocfilehash: 01cdc121abded954c2443599c5d69689acd69b62
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509419"
+ms.locfileid: "82562343"
 ---
 # <a name="apache-spark-guidelines"></a>Diretrizes da Faísca Apache
 
@@ -30,8 +30,8 @@ Este artigo fornece várias diretrizes para a utilização de Apache Spark no Az
 | Submissão de trabalho remoto com Livy | [Utilizar a API REST do Apache Spark para submeter trabalhos remotos para um cluster do HDInsight Spark](./apache-spark-livy-rest-interface.md) |
 |[Apache Oozie](../hdinsight-use-oozie-linux-mac.md)|Oozie é um sistema de fluxo de trabalho e coordenação que gere os empregos de Hadoop.|
 |[Apache Livy](./apache-spark-livy-rest-interface.md)|Você pode usar Livy para executar conchas de faísca interativaou submeter trabalhos de lote para ser executado em Spark.|
-|[Fábrica de Dados Azure para Apache Spark](/../data-factory/transform-data-using-spark.md)|A atividade spark em um pipeline Data Factory executa um programa Spark por conta própria ou [cluster HDInsight on demand.|
-|[Fábrica de Dados Azure para A Colmeia Apache](/../data-factory/transform-data-using-hadoop-hive.md)|A atividade da Hive HDInsight num pipeline data factory executa consultas de Hive por conta própria ou por um cluster HDInsight a pedido.|
+|[Fábrica de Dados Azure para Apache Spark](../../data-factory/transform-data-using-spark.md)|A atividade spark em um pipeline Data Factory executa um programa Spark por conta própria ou [cluster HDInsight on demand.|
+|[Fábrica de Dados Azure para A Colmeia Apache](../../data-factory/transform-data-using-hadoop-hive.md)|A atividade da Hive HDInsight num pipeline data factory executa consultas de Hive por conta própria ou por um cluster HDInsight a pedido.|
 
 ## <a name="how-do-i-monitor-and-debug-spark-jobs"></a>Como posso monitorizar e depurar empregos de Spark?
 

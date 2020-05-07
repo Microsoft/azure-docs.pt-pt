@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 03/04/2019
 ms.author: alkohli
-ms.openlocfilehash: d5af557a62f4bd35c242d334c28a38c3d632f7cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 94c132421f1e113b667341b094acad8047e5f465
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67184719"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561771"
 ---
 1. [Ligue-se à interface PowerShell](#connect-to-the-powershell-interface).
 2. Use `Get-HcsApplianceInfo` o para obter a informação para o seu dispositivo.
@@ -49,7 +49,7 @@ ms.locfileid: "67184719"
     |--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
     | FriendlyName                   | O nome amigável do dispositivo, tal como configurado através da UI web local durante a implementação do dispositivo. O nome amigável padrão é o número de série do dispositivo.  |   |
     | SerialNumber                   | O número de série do dispositivo é um número único atribuído na fábrica.                                                                             |   |
-    | Modelo                          | O modelo para o seu dispositivo Data Box Edge ou Data Box Gateway. O modelo é virtual para Data Box Gateway e físico para Data Box Edge.                   |   |
+    | Modelo                          | O modelo para o seu dispositivo Azure Stack Edge ou Data Box Gateway. O modelo é físico para Azure Stack Edge e virtual para Data Box Gateway.                   |   |
     | Versão amigável do software        | A corda amigável que corresponde à versão do software do dispositivo. Para uma pré-visualização de sistema, a versão amigável do software seria Data Box Edge 1902. |   |
     | HcsVersion                     | A versão do software HCS em execução no seu dispositivo. Por exemplo, a versão de software HCS correspondente ao Data Box Edge 1902 é de 1.4.771.324.            |   |
     | Capacidade localInMb              | A capacidade local total do dispositivo em Megabits.                                                                                                        |   |
