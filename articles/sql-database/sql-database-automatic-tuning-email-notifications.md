@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/03/2019
-ms.openlocfilehash: b3b235833e794e48ae655d184bf938effc0d7ac0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f117f1518211680c4ea1f5ac51ecf0e44396a133
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81768373"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856761"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>Notificações por e-mail para afinação automática
 
@@ -69,7 +69,7 @@ O próximo passo é criar um Livro de Corridas em Automação Azure no interior 
 Siga estes passos para criar um novo livro de execução da Automação Azure:
 
 1. Aceda à conta Azure Automation que criou no passo anterior.
-1. Uma vez no painel de conta de automação, clique no item do menu "**Runbooks**" no lado esquerdo para criar um novo livro de execução da Automação Azure com o script PowerShell. Para saber mais sobre a criação de livros de automação, consulte Criar um novo livro de [corridas.](../automation/manage-runbooks.md#creating-a-runbook)
+1. Uma vez no painel de conta de automação, clique no item do menu "**Runbooks**" no lado esquerdo para criar um novo livro de execução da Automação Azure com o script PowerShell. Para saber mais sobre a criação de livros de automação, consulte Criar um novo livro de [corridas.](../automation/manage-runbooks.md#create-a-runbook)
 1. Para adicionar um novo livro de corridas, clique na opção de menu "**+Adicionar um livro**de execução " e, em seguida, clique na "**Criação rápida – Criar um novo livro**de execução "..
 1. No painel Runbook, escreva em nome do seu livro de execução (para efeitos deste exemplo, "**AutomaticTuningEmailAutomation**" é usado), selecione o tipo de livro como **PowerShell** e escreva uma descrição deste livro de execução para descrever o seu propósito.
 1. Clique no botão **Criar** para terminar a criação de um novo livro de corridas.

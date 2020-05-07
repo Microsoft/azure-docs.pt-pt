@@ -139,7 +139,7 @@
         - name: Aprovisionar débito em contentores e bases de dados
           displayName: 'request units, RUs, RU, limits, database throughput, shared throughput, container throughput'
           href: set-throughput.md
-        - name: Aprovisionar débito - modo de dimensionamento automático
+        - name: Aprovisionar débito - dimensionamento automático
           href: provision-throughput-autoscale.md
         - name: FAQ sobre dimensionamento automático
           href: autoscale-faq.md
@@ -916,6 +916,8 @@
           href: how-to-manage-consistency.md
         - name: Configurar políticas de resolução de conflitos
           href: how-to-manage-conflicts.md
+        - name: Converter formato de tokens de sessão
+          href: how-to-convert-session-token.md
     - name: Débito aprovisionado
       items:
         - name: Aprovisionar o débito num contentor
@@ -1062,7 +1064,7 @@
               href: monitor-server-side-latency.md
             - name: Monitorizar a utilização da unidade de pedido
               href: monitor-request-unit-usage.md
-        - name: Utilizar registos de diagnóstico
+        - name: Utilizar registos do Azure Monitor
           items:
             - name: Monitorizar com registos de diagnósticos
               href: cosmosdb-monitor-resource-logs.md

@@ -4,12 +4,12 @@ description: Neste tutorial, aprende-se a escalar um cluster de Tecido sinuoso e
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: f1b813576a94541cdc2ab0a67fea71b6f49696c5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6e8dbb5a56bf313bf35ad97ec6ea7df8ce483be9
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78251802"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82788863"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Tutorial: Dimensionar um cluster do Service Fabric no Azure
 
@@ -84,7 +84,7 @@ A escala para dentro e para fora, ou escalação horizontal, altera o número de
 
 Assim, ao atualizar o valor do *nt1InstanceCount* muda o número de nós no segundo tipo de nó.  Lembre-se, não pode escalar um nó para mais de 100 nós.  Os tipos de nós não primários que executam cargas horárias de produção audais devem ter sempre cinco ou mais nós. Os tipos não primários de nó que executam cargas de trabalho apátridas de produção apátrida devem ter sempre dois ou mais nós.
 
-Se estiver a escalonar, retirando os nós de um [nível][durability] de durabilidade de bronze, deve [remover manualmente o estado desses nós](service-fabric-cluster-scale-up-down.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set).  Para o nível de durabilidade prata e ouro, estes passos são feitos automaticamente pela plataforma.
+Se estiver a escalonar, retirando os nós de um [nível][durability] de durabilidade de bronze, deve [remover manualmente o estado desses nós](service-fabric-cluster-scale-in-out.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set).  Para o nível de durabilidade prata e ouro, estes passos são feitos automaticamente pela plataforma.
 
 ### <a name="deploy-the-updated-template"></a>Implementar o modelo atualizado
 Guarde quaisquer alterações nos *ficheiros template.json* e *parâmetros.json.*  Para implementar o modelo atualizado, execute o seguinte comando:

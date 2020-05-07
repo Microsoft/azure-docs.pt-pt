@@ -11,12 +11,12 @@ ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 03/13/2020
-ms.openlocfilehash: 6bc0f002c6927cfd9a314797663e1dabbac392b6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6d18a8d09749b832984872b57eec8a36abc1b2e2
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416644"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857690"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Create and configure a self-hosted integration runtime (Criar e configurar um runtime de integração autoalojado)
 
@@ -67,7 +67,7 @@ Utilize os seguintes passos para criar um IR auto-hospedado utilizando a Azure D
 1. Na página de configuração do tempo de execução da **Integração,** selecione **Azure, Self-Hosted,** e, em seguida, selecione **Continue**. 
 
 1. Na página seguinte, selecione **Self-Hosted** para criar um IR auto-hospedado e, em seguida, selecione **Continuar**.
-   ![Criar um IR auto-organizado](media/create-self-hosted-integration-runtime/new-selfhosted-ir.png)
+   ![Criar um IR auto-organizado](media/create-self-hosted-integration-runtime/new-selfhosted-integration-runtime.png)
 
 1. Introduza um nome para o seu IR e selecione **Criar**.
 
@@ -109,22 +109,22 @@ Aqui estão detalhes dos parâmetros e propriedades da aplicação:
 
 | Propriedade                                                    | Descrição                                                  | Necessário |
 | ----------------------------------------------------------- | ------------------------------------------------------------ | -------- |
-| **Registro Novo Nóde** "`<AuthenticationKey>`"                     | Registe um nó de tempo de integração auto-hospedado com a chave de autenticação especificada. | Não       |
-| **Registro Novo Nóde** "`<AuthenticationKey>`" "`<NodeName>`"      | Registe um nó de tempo de integração auto-hospedado com a chave de autenticação especificada e o nome do nó. | Não       |
-| **EnableRemoteAccess** "`<port>`" ["`<thumbprint>`"]            | Ative o acesso remoto no nó atual para criar um cluster de alta disponibilidade. Ou ativar a definição de credenciais diretamente contra o IR auto-hospedado sem passar pela Azure Data Factory. Faça este último utilizando o cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** de uma máquina remota na mesma rede. | Não       |
-| **EnableRemoteAccessIncontainer** "`<port>`" ["`<thumbprint>`"] | Ative o acesso remoto ao nó atual quando o nó correr num recipiente. | Não       |
-| **Desativar O Telecomando**                                         | Desative o acesso remoto ao nó atual. É necessário acesso remoto para configuração de multinódos. O **Novo AzDataFactoryV2LinkedServiceEncryptedCredential** PowerShell cmdlet ainda funciona mesmo quando o acesso remoto é desativado. Este comportamento é verdadeiro desde que o cmdlet seja executado na mesma máquina que o nó de INFRAVERMELHOS auto-hospedado. | Não       |
-| **Chave** "`<AuthenticationKey>`"                                 | Sobrepor ou atualizar a chave de autenticação anterior. Cuidado com esta ação. O seu anterior nó de IR auto-hospedado pode ficar offline se a chave for um novo tempo de funcionação de integração. | Não       |
-| **GenerateBackupFile** "`<filePath>`" "`<password>`"            | Gere um ficheiro de reserva para o nó atual. O ficheiro de reserva inclui a chave do nó e as credenciais da loja de dados. | Não       |
-| **ImportBackupFile** "`<filePath>`" "`<password>`"              | Restaure o nó de um ficheiro de reserva.                          | Não       |
-| **Reiniciar**                                                     | Reinicie o serviço de hospedar-se em tempo de integração auto-hospedado.   | Não       |
-| **Iniciar**                                                       | Inicie o serviço de hospedar-se em tempo de integração auto-hospedado.     | Não       |
-| **Parar**                                                        | Pare o serviço de hospedar-se em tempo de integração auto-hospedado.        | Não       |
-| **StartUpgradeService**                                         | Inicie o serviço de upgrade de tempo de integração auto-hospedado.       | Não       |
-| **Serviço StopUpgrade**                                          | Pare o serviço de atualização de tempo de integração auto-hospedado.        | Não       |
-| **Atualização TurnOnAuto**                                            | Ligue a atualização automática de tempo de execução de integração auto-hospedada.        | Não       |
-| **DesativarAutoUpdate**                                           | Desligue a atualização automática de tempo de integração auto-hospedada.       | Não       |
-| **Conta SwitchService** "`<domain\user>`" ["`<password>`"]           | Desplique o DIAHostService para funcionar como uma nova conta. Utilize a palavra-passe vazia "" para contas do sistema e contas virtuais. | Não       |
+| **Registro Novo Nóde** "`<AuthenticationKey>`"                     | Registe um nó de tempo de integração auto-hospedado com a chave de autenticação especificada. | No       |
+| **Registro Novo Nóde** "`<AuthenticationKey>`" "`<NodeName>`"      | Registe um nó de tempo de integração auto-hospedado com a chave de autenticação especificada e o nome do nó. | No       |
+| **EnableRemoteAccess** "`<port>`" ["`<thumbprint>`"]            | Ative o acesso remoto no nó atual para criar um cluster de alta disponibilidade. Ou ativar a definição de credenciais diretamente contra o IR auto-hospedado sem passar pela Azure Data Factory. Faça este último utilizando o cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** de uma máquina remota na mesma rede. | No       |
+| **EnableRemoteAccessIncontainer** "`<port>`" ["`<thumbprint>`"] | Ative o acesso remoto ao nó atual quando o nó correr num recipiente. | No       |
+| **Desativar O Telecomando**                                         | Desative o acesso remoto ao nó atual. É necessário acesso remoto para configuração de multinódos. O **Novo AzDataFactoryV2LinkedServiceEncryptedCredential** PowerShell cmdlet ainda funciona mesmo quando o acesso remoto é desativado. Este comportamento é verdadeiro desde que o cmdlet seja executado na mesma máquina que o nó de INFRAVERMELHOS auto-hospedado. | No       |
+| **Chave** "`<AuthenticationKey>`"                                 | Sobrepor ou atualizar a chave de autenticação anterior. Cuidado com esta ação. O seu anterior nó de IR auto-hospedado pode ficar offline se a chave for um novo tempo de funcionação de integração. | No       |
+| **GenerateBackupFile** "`<filePath>`" "`<password>`"            | Gere um ficheiro de reserva para o nó atual. O ficheiro de reserva inclui a chave do nó e as credenciais da loja de dados. | No       |
+| **ImportBackupFile** "`<filePath>`" "`<password>`"              | Restaure o nó de um ficheiro de reserva.                          | No       |
+| **Reiniciar**                                                     | Reinicie o serviço de hospedar-se em tempo de integração auto-hospedado.   | No       |
+| **Iniciar**                                                       | Inicie o serviço de hospedar-se em tempo de integração auto-hospedado.     | No       |
+| **Parar**                                                        | Pare o serviço de hospedar-se em tempo de integração auto-hospedado.        | No       |
+| **StartUpgradeService**                                         | Inicie o serviço de upgrade de tempo de integração auto-hospedado.       | No       |
+| **Serviço StopUpgrade**                                          | Pare o serviço de atualização de tempo de integração auto-hospedado.        | No       |
+| **Atualização TurnOnAuto**                                            | Ligue a atualização automática de tempo de execução de integração auto-hospedada.        | No       |
+| **DesativarAutoUpdate**                                           | Desligue a atualização automática de tempo de integração auto-hospedada.       | No       |
+| **Conta SwitchService** "`<domain\user>`" ["`<password>`"]           | Desplique o DIAHostService para funcionar como uma nova conta. Utilize a palavra-passe vazia "" para contas do sistema e contas virtuais. | No       |
 
 
 ## <a name="command-flow-and-data-flow"></a>Fluxo de comando e fluxo de dados

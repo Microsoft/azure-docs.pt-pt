@@ -3,12 +3,12 @@ title: Saiba mais sobre o Tecido de Serviço Azure
 description: Conheça os conceitos centrais e as principais áreas do Tecido de Serviço Azure. Fornece uma visão geral alargada do Tecido de Serviço e como criar microserviços.
 ms.topic: conceptual
 ms.date: 12/08/2017
-ms.openlocfilehash: 4e6e21f5f9ebfeddb5292e00dc8a929341e77372
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 573b1ec662bdc7e72f964698f5e0670860895586
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75458145"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791855"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Quer aprender sobre o Tecido de Serviço?
 O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, a implementação e a gestão de microsserviços dimensionáveis e fiáveis.  O Tecido de Serviço tem uma grande área de superfície, no entanto, e há muito a aprender.  Este artigo fornece uma sinopse de Tecido de Serviço e descreve os conceitos fundamentais, modelos de programação, ciclo de vida da aplicação, testes, clusters e monitorização da saúde. Leia a [visão geral](service-fabric-overview.md) e quais são [os microserviços?](service-fabric-overview-microservices.md) Este artigo não contém uma lista completa de conteúdos, mas liga-se à visão geral e ao início de artigos para todas as áreas do Tecido de Serviço. 
@@ -136,7 +136,7 @@ Os cenários de segurança do cluster são:
 Para mais informações, leia [Secure a cluster](service-fabric-cluster-security.md).
 
 ### <a name="scaling"></a>Dimensionamento
-Se adicionar novos nós ao cluster, o Tecido de Serviço reequilibra as réplicas e instâncias de partição em todo o número aumentado de nós. O desempenho global da aplicação melhora e a contenção para o acesso à memória diminui. Se os nós do cluster não estiverem a ser utilizados de forma eficiente, pode diminuir o número de nós no cluster. O Service Fabric reequilibra novamente as réplicas e instâncias da partição através do número reduzido de nós para fazer melhor uso do hardware em cada nó. Pode escalar aglomerados em Azure [manualmente](service-fabric-cluster-scale-up-down.md) ou [programáticamente](service-fabric-cluster-programmatic-scaling.md). Os clusters autónomos podem ser dimensionados [manualmente](service-fabric-cluster-windows-server-add-remove-nodes.md).
+Se adicionar novos nós ao cluster, o Tecido de Serviço reequilibra as réplicas e instâncias de partição em todo o número aumentado de nós. O desempenho global da aplicação melhora e a contenção para o acesso à memória diminui. Se os nós do cluster não estiverem a ser utilizados de forma eficiente, pode diminuir o número de nós no cluster. O Service Fabric reequilibra novamente as réplicas e instâncias da partição através do número reduzido de nós para fazer melhor uso do hardware em cada nó. Pode escalar aglomerados em Azure [manualmente](service-fabric-cluster-scale-in-out.md) ou [programáticamente](service-fabric-cluster-programmatic-scaling.md). Os clusters autónomos podem ser dimensionados [manualmente](service-fabric-cluster-windows-server-add-remove-nodes.md).
 
 ### <a name="cluster-upgrades"></a>Upgrades de cluster
 Periodicamente, são lançadas novas versões do tempo de execução do Tecido de Serviço. Execute o tempo de execução, ou tecido, upgrades no seu cluster para que esteja sempre a executar uma [versão suportada](service-fabric-support.md). Além de atualizações de tecidos, também pode atualizar a configuração do cluster, como certificados ou portas de aplicação.

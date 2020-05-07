@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 4/2/2020
+ms.date: 4/17/2020
 ms.author: swmachan
-ms.openlocfilehash: fcbaabac0961f1269a929fb4a56f81ac282bae29
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bf7701055c8c325f02c0daca1755806f3ca17b76
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80619154"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857305"
 ---
 # <a name="translator-text-api-v30"></a>Texto tradutor API v3.0
 
@@ -147,7 +147,7 @@ Um símbolo de autenticação é válido por 10 minutos. O símbolo deve ser reu
 
 ## <a name="virtual-network-support"></a>Suporte de Rede Virtual
 
-O serviço de tradutor está agora disponível`WestUS2`com `EastUS` `SouthCentralUS`capacidades de Rede Virtual em regiões limitadas ( , , `WestUS`, `Central US EUAP`, , ). `global` Para ativar a Rede Virtual, consulte configurar redes virtuais de [Serviços Cognitivos Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
+O serviço de tradutor está agora disponível`WestUS2`com `EastUS` `SouthCentralUS`capacidades de Rede Virtual em regiões limitadas ( , , `WestUS`, `CentralUSEUAP`, , ). `global` Para ativar a Rede Virtual, consulte configurar redes virtuais de [Serviços Cognitivos Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
 
 Uma vez ligado esta capacidade, deve utilizar o ponto final personalizado para chamar a API tradutora. Não é possível utilizar o ponto final do tradutor global ("api.cognitive.microsofttranslator.com") e não pode autenticar com um símbolo de acesso.
 

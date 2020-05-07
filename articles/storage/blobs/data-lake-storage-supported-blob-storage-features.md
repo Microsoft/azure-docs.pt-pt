@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: b270ce3cd15dbd1e8dd53bd60376a87d6e08f75c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cfc7e12efb0e5e4613bb4cc5f2f9a35383f37546
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80637219"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857251"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Funcionalidades de armazenamento blob disponíveis no Azure Data Lake Storage Gen2
 
@@ -38,9 +38,9 @@ Esta tabela lista as funcionalidades de armazenamento Blob que pode utilizar com
 |APIs de armazenamento de blob|Disponível em Geral|[Quickstart: Biblioteca de clientes de armazenamento Azure Blob v12 para .NET](storage-quickstart-blobs-dotnet.md)<br>[Quickstart: Gerir bolhas com Java v12 SDK](storage-quickstart-blobs-java.md)<br>[Quickstart: Gerir bolhas com Python v12 SDK](storage-quickstart-blobs-python.md)<br>[Quickstart: Gerir bolhas com JavaScript v12 SDK em Node.js](storage-quickstart-blobs-nodejs.md)|
 |Nível de acesso de arquivo|Pré-visualização|[Armazenamento de blobs do Azure: camadas de armazenamento frequente, esporádico e de arquivo](storage-blob-storage-tiers.md)|
 |Políticas de gestão do ciclo de vida|Pré-visualização|[Gerir o ciclo de vida do Armazenamento de Blobs do Azure](storage-lifecycle-management-concepts.md)|
-|Registos de diagnósticos|Disponível em Geral|[Registo da análise de Armazenamento do Azure](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Registos de diagnósticos|Disponível em Geral|[Azure Storage analytics logging](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) (Registo de análise do Armazenamento do Azure)|
 |Feed de alterações|Ainda não apoiado|[Alterar suporte para alimentação no armazenamento de Blob Azure](storage-blob-change-feed.md)|
-|Falha na conta|Ainda não apoiado|[Recuperação de desastres e falha na conta](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Falha na conta|Ainda não apoiado|[Falha na conta de recuperação e armazenamento de desastres](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Contentor blob ACL|Ainda não apoiado|[Set Container ACL](https://docs.microsoft.com/rest/api/storageservices/set-container-acl)|
 |Domínios personalizados|Ainda não apoiado|[Mapear um domínio personalizado para um ponto final de armazenamento De Blob Azure](storage-custom-domain-name.md)|
 |Armazenamento imutável|Ainda não apoiado|[Armazenar dados de blob críticos de negócios com armazenamento imutável](storage-blob-immutable-storage.md)|

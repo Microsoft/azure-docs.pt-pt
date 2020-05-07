@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/3/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 1fffb3eb10b7d3cbb3360a03112c3b4d7db8d109
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 5356ff0ac165deefc5053cf4faa40c1159e98678
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209490"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856875"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planear uma implementação dos Ficheiros do Azure
 [Os Ficheiros Azure](storage-files-introduction.md) podem ser implementados de duas formas principais: montando diretamente as ações de ficheiros Azure sem servidor ou por cache ingequedem ações de ficheiros Azure no local utilizando o Azure File Sync. Qual a opção de implementação que escolher altera as coisas que precisa de considerar como planeia para a sua implantação. 
@@ -84,7 +84,7 @@ Em geral, as funcionalidades do Azure Files e a interoperabilidade com outros se
     - As ações de ficheiropremium são faturadas usando um modelo de faturação provisionado, o que significa que você paga por quanto armazenamento você fornecer em vez de quanto armazenamento você realmente pede. 
     - As ações de ficheiropadrão são faturadas usando um modelo pay-as-you-go, que inclui um custo base de armazenamento para quanto armazenamento você está realmente consumindo e, em seguida, um custo adicional de transação com base na forma como você usa a ação. Com as partilhas de ficheiros padrão, a sua conta aumentará se utilizar (ler/escrever/montar) o ficheiro Azure partilha mais.
 - **Opções de despedimento**
-    - As ações de ficheiropremium só estão disponíveis para armazenamento redundante localmente redundante (LRS) e zona redundante (ZRS). 
+    - As ações de ficheiropremium só estão disponíveis para armazenamento redundante localmente redundante (LRS) e zona redundante (ZRS).
     - As ações padrão de ficheiros estão disponíveis para armazenamento localmente redundante, redundante, geo-redundante (GRS) e geozona redundante (GZRS).
 - **Tamanho máximo da partilha de ficheiros**
     - As ações de ficheiropremium podem ser provisionadas até 100 TiB sem qualquer trabalho adicional.
