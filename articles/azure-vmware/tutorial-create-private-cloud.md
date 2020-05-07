@@ -3,12 +3,12 @@ title: Tutorial - Implementar cluster vSphere em Azure
 description: Aprenda a implementar um cluster vSphere em Azure utilizando a Azure VMWare Solution (AVS)
 ms.topic: tutorial
 ms.date: 05/04/2020
-ms.openlocfilehash: f6dab0dd56adae8b98137354896412e447931c69
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.openlocfilehash: 712be25acf5984a4bcdf95ad70e0ccfa660c06bc
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82740144"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82838807"
 ---
 # <a name="tutorial-deploy-an-avs-private-cloud-in-azure"></a>Tutorial: Implementar uma nuvem privada AVS em Azure
 
@@ -28,6 +28,16 @@ Neste tutorial, ficará a saber como:
 - Direitos administrativos adequados e permissão para criar uma nuvem privada.
 - Certifique-se de que tem a rede adequada configurada conforme descrito no Tutorial: Lista de [verificação de rede](tutorial-network-checklist.md).
 
+## <a name="register-the-resource-provider"></a>Registar o fornecedor de recursos
+
+Para utilizar a Solução Azure VMWare, tem primeiro de registar o fornecedor de recursos. O exemplo seguinte regista o fornecedor de recursos com a sua subscrição.
+
+```azurecli-interactive
+az provider register -n Microsoft.VMwareVirtustream --subscription <your subscription ID>
+```
+
+Para obter formas adicionais de registar o fornecedor de recursos, consulte os fornecedores e tipos de [recursos do Azure.](../azure-resource-manager/management/resource-providers-and-types.md)
+
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
 Inicie sessão no [portal do Azure](https://portal.azure.com).
@@ -38,7 +48,7 @@ Pode criar uma nuvem privada AVS utilizando o [portal Azure](#azure-portal) ou u
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-No portal Azure, selecione **+ Crie um novo recurso.** No **Search the Marketplace** tipo `vmcp`de caixa de texto Marketplace , e selecione **VMCP - Nuvem Privada** da lista. Na janela **VMCP - Private Cloud,** selecione **Create**
+No portal Azure, selecione **+ Crie um novo recurso.** No **Search the Marketplace** tipo `Azure VMware Solution`de caixa de texto Marketplace , e selecione **Azure VMware Solution** da lista. Na janela **Azure VMware Solution,** selecione **Create**
 
 No separador **Basics,** introduza valores para os campos. A tabela seguinte mostra uma lista detalhada das propriedades.
 
@@ -70,14 +80,6 @@ Em alternativa, pode utilizar o Azure CLI para criar uma nuvem privada AVS em Az
 O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta.
 
 Para abrir o Cloud Shell, basta selecionar **Experimente** no canto superior direito de um bloco de código. Também pode iniciar o Cloud Shell num separador do browser separado ao aceder a https://shell.azure.com/bash. Selecione **Copiar** para copiar os blocos de código, cole-o na Cloud Shell e prima **Enter** para o executar.
-
-#### <a name="register-the-resource-provider"></a>Registar o fornecedor de recursos
-
-Para utilizar a Solução Azure VMWare, tem primeiro de registar o fornecedor de recursos. O exemplo seguinte regista o fornecedor de recursos com a sua subscrição.
-
-```azurecli-interactive
-az extension add --name vmware
-```
 
 #### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.author: keli19
 author: likebupt
 ms.date: 04/06/2020
-ms.openlocfilehash: 721e5414fc4753cd5d58a17fc7ed51ea99868778
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 77c1cc6ef5a7353d246958d1b047f054d5f49890
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80810388"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82837163"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Preparar novamente modelos com o Azure Machine Learning Designer (pré-visualização)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -32,13 +32,7 @@ Neste artigo, vai aprender a:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Um espaço de trabalho azure machine learning com a Enterprise SKU.
-* Um conjunto de dados acessível ao designer. Este pode ser um dos seguintes:
-   * Um conjunto de dados registado em Azure Machine Learning
-    
-     **- ou...**
-   * Um ficheiro de dados armazenado numa loja de dados Azure Machine Learning.
-   
-Para obter informações sobre o acesso de dados usando o designer ver [como importar dados para o designer](how-to-designer-import-data.md).
+* Complete a parte 1 desta série de como fazer, [Transforme os dados no designer.](how-to-designer-transform-data.md)
 
 Este artigo também assume que você tem conhecimento básico de construção de oleodutos no designer. Para uma introdução guiada, complete o [tutorial.](tutorial-designer-automobile-price-train-score.md) 
 

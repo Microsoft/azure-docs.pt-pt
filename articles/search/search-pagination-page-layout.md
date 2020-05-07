@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 0f815003449f0600bce1cb8927b92b85b51b09a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: da01d0f7d2313b9700c5aae08edbda9e355b3774
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641609"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801778"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Como trabalhar com os resultados da pesquisa em Pesquisa Cognitiva Azure
 
@@ -92,9 +92,15 @@ Outra opção é usar um perfil de [pontuação personalizado.](index-add-scorin
 
 ## <a name="hit-highlighting"></a>Detetor de ocorrências
 
-O destaque do hit refere-se à formatação de texto (como destaques arrojados ou amarelos) aplicados a um termo correspondente num resultado, facilitando a identificação da partida. As instruções de destaque do hit são fornecidas no pedido de [consulta](https://docs.microsoft.com/rest/api/searchservice/search-documents). O motor de busca encerra o termo `highlightPreTag` `highlightPostTag`correspondente em etiquetas e, e o seu código trata da resposta (por exemplo, aplicando uma fonte arrojada).
+O destaque do hit refere-se à formatação de texto (como destaques arrojados ou amarelos) aplicados em termos correspondentes num resultado, facilitando a identificação da partida. As instruções de destaque do hit são fornecidas no pedido de [consulta](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
 
-A formatação é aplicada a consultas de termo inteiros. No exemplo seguinte, os termos "areia", "areia", "praias", "praia" encontradas dentro do campo Descrição estão marcados para destaque. As consultas que desencadeiam a expansão da consulta no motor, como a pesquisa fuzzy e wildcard, têm suporte limitado para o destaque do sucesso.
+Para permitir a realce de impacto, adicione `highlight=[comma-delimited list of string fields]` para especificar quais os campos que irão utilizar o realce. O destaque é útil para campos de conteúdo mais longos, como um campo de descrição, onde a correspondência não é imediatamente óbvia. Apenas definições de campo que são atribuídas como **pesquisáveis** qualificam-se para o destaque do hit.
+
+Por padrão, a Pesquisa Cognitiva Azure retorna até cinco destaques por campo. Pode ajustar este número através de uma pitada seguida de um inteiro. Por exemplo, `highlight=Description-10` os retornos até 10 destaques sobre o conteúdo correspondente no campo Descrição.
+
+A formatação é aplicada a consultas de termo inteiros. O tipo de formatação é `highlightPreTag` determinado `highlightPostTag`por tags e, e o seu código trata da resposta (por exemplo, aplicando uma fonte arrojada ou um fundo amarelo).
+
+No exemplo seguinte, os termos "areia", "areia", "praias", "praia" encontradas dentro do campo Descrição estão marcados para destaque. As consultas que desencadeiam a expansão da consulta no motor, como a pesquisa fuzzy e wildcard, têm suporte limitado para o destaque do sucesso.
 
 ```http
 GET /indexes/hotels-sample-index/docs/search=sandy beaches&highlight=Description?api-version=2019-05-06 
