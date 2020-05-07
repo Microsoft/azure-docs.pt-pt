@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/18/2020
 ms.custom: seodec18
-ms.openlocfilehash: 87ce101910a94cbddf0af4df7b04fc000928845f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5d064b0953d8d6e9089dcfa765ff29bb97088f34
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82111866"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801115"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Tutorial: Implementar um modelo de classificação de imagem em instâncias de contentores azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -149,7 +149,7 @@ model = Model(ws, 'sklearn_mnist')
 
 
 myenv = Environment.get(workspace=ws, name="tutorial-env", version="1")
-inference_config = InferenceConfig(entry_script="score.py", environment=tutorial-env)
+inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
 
 service = Model.deploy(workspace=ws, 
                        name='sklearn-mnist-svc3', 

@@ -13,19 +13,19 @@ ms.date: 04/17/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: f4138c4ae24ae599d4058c9fd06c33b69657fe38
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3e66cd6a05a7c616b22eefffdd9d132aa0f4d36d
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81680077"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853980"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Toda a vida de fichas configuráveis em Diretório Ativo Azure (Pré-visualização)
 
 Pode especificar a duração de um token emitido pelo Azure Active Directory (Azure AD). Pode definir durações de tokens para todas as aplicações existentes na sua organização, para uma aplicação multi-inquilino (com várias organizações) ou para um principal de serviço específico na sua organização.
 
 > [!IMPORTANT]
-> Depois de ouvir os clientes durante a pré-visualização, implementamos capacidades de gestão de sessões de [autenticação](https://go.microsoft.com/fwlink/?linkid=2083106) no Acesso Condicional Azure AD. Pode utilizar esta nova funcionalidade para configurar a atualização das vidas token, definindo o sinal na frequência. Depois de 1 de maio de 2020, não poderá utilizar a política configurável token lifetime para configurar sessão e refrescar fichas. Ainda pode configurar as vidas de acesso ao token após a depreciação.
+> Depois de ouvir os clientes durante a pré-visualização, implementamos capacidades de gestão de sessões de [autenticação](https://go.microsoft.com/fwlink/?linkid=2083106) no Acesso Condicional Azure AD. Pode utilizar esta nova funcionalidade para configurar a atualização das vidas token, definindo o sinal na frequência. Depois de 30 de maio de 2020 nenhum novo inquilino poderá usar a política configurável token lifetime para configurar sessão e refrescar fichas. A depreciação acontecerá dentro de vários meses depois disso, o que significa que deixaremos de honrar a sessão existente e refrescar mos as polícias. Ainda pode configurar as vidas de acesso ao token após a depreciação.
 
 Em Azure AD, um objeto político representa um conjunto de regras que são aplicadas em aplicações individuais ou em todas as aplicações de uma organização. Cada tipo de política tem uma estrutura única, com um conjunto de propriedades que são aplicadas a objetos aos quais são atribuídos.
 

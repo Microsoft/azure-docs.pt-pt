@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: dcadfcb4c2f8e6bc371b0a70b917c8c1e218fba9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b990db39ffe0623b50a2cfc728da61bc51bdd4da
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81679518"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82855356"
 ---
 # <a name="source-control-integration-in-azure-automation---legacy"></a>Integração de controlo de fontes na Automação Azure - Legado
 
@@ -102,7 +102,7 @@ O check-in do livro de reparações permite-lhe empurrar as alterações que etr
    > [!NOTE]
    > Os livros de controlo de fontes são livros de execução especiais da Automation que não pode ver ou editar. Embora não apareçam na sua lista de livros, vê-se trabalhos sincronizados na sua lista de empregos.
 
-5. O nome do livro de execução modificado é enviado como parâmetro de entrada para o livro de execução verificado. Pode [ver os detalhes do trabalho](automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) expandindo o livro de execução na página de Sincronização repositória.  
+5. O nome do livro de execução modificado é enviado como parâmetro de entrada para o livro de execução verificado. Pode [ver os detalhes do trabalho](automation-runbook-execution.md#job-statuses) expandindo o livro de execução na página de Sincronização repositória.  
 
     ![Uma janela mostrando a entrada para um trabalho de sincronização](media/source-control-integration-legacy/automation-CheckinInput.png)
 6. Refresque o seu repositório GitHub assim que o trabalho terminar para ver as alterações.  Deve haver um compromisso no seu repositório com uma mensagem de compromisso: **Nome de *livro* atualizado em Automação Azure.**  

@@ -13,12 +13,12 @@ ms.date: 07/19/2017
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: f1437ec5d9c3fd0ff69be0c884c340cb857ee181
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 333f23ddfe834307b5cbfebb9540e0b5efc79a53
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80881287"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853792"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocolo SAML de início único
 
@@ -153,12 +153,12 @@ O `Response` elemento inclui o resultado do pedido de autorização. A AD Azure 
 
 ### <a name="issuer"></a>Emissor
 
-A Azure AD `Issuer` define `https://login.microsoftonline.com/<TenantIDGUID>/` \<o elemento onde o TenantIDGUID> é a identificação do inquilino do inquilino Azure AD.
+A Azure AD `Issuer` define `https://sts.windows.net/<TenantIDGUID>/` \<o elemento onde o TenantIDGUID> é a identificação do inquilino do inquilino Azure AD.
 
 Por exemplo, uma resposta com elemento emitente pode parecer a seguinte amostra:
 
 ```
-<Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
+<Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://sts.windows.net/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
 ```
 
 ### <a name="status"></a>Estado
@@ -191,7 +191,7 @@ Além do `ID` `IssueInstant` , `Version`e , Azure AD define `Assertion` os segui
 Isto é `https://sts.windows.net/<TenantIDGUID>/`definido \<para onde o TenantIDGUID> é a identificação do inquilino azure ad.
 
 ```
-<Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
+<Issuer>https://sts.windows.net/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
 ```
 
 #### <a name="signature"></a>Assinatura

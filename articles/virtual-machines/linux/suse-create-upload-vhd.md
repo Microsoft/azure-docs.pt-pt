@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: guybo
-ms.openlocfilehash: 032b49631c6adb30d4b25f8b82d35dab49ffd3a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5bf26fa096058f5a73d5527c0c6adb1649c9884f
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81757667"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857313"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Prepare a SLES or openSUSE virtual machine for Azure (Preparar uma máquina virtual SLES ou openSUSE para o Azure)
 
@@ -39,7 +39,7 @@ Como alternativa à construção do seu próprio VHD, a SUSE também publica ima
 4. Atualize o sistema com as últimas correções:
    
         # sudo zypper update
-5. Instale o Agente Azure Linux no repositório SLES:
+5. Instale o Agente Azure Linux do repositório SLES (SLE11-Public-Cloud-Module):
    
         # sudo zypper install python-azure-agent
 6. Verifique se o waagent está definido para "ligar" em chkconfig e, se não, ative-o para o arranque automático:

@@ -5,21 +5,20 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 04/30/2020
 ms.author: jgao
-ms.openlocfilehash: 99db4ec61a515301224691d7c2e4e3c905fee1c1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 14663e71126d8c201015996e3e4dc76976128bcc
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188914"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610807"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Utilize scripts de implementação em modelos (Pré-visualização)
 
 Aprenda a usar scripts de implementação em modelos de Recursos Azure. Com um novo `Microsoft.Resources/deploymentScripts`tipo de recurso chamado , os utilizadores podem executar scripts de implementação em implementações de modelos e rever os resultados da execução. Estes scripts podem ser usados para executar passos personalizados tais como:
 
 - adicionar utilizadores a um diretório
-- criar um registo de aplicativos
 - executar operações de aviões de dados, por exemplo, copiar bolhas ou bases de dados de sementes
 - olhar para cima e validar uma chave de licença
 - criar um certificado auto-assinado
@@ -37,14 +36,14 @@ Os benefícios do script de implantação:
 O recurso de script de implantação só está disponível nas regiões onde o Azure Container Instance está disponível.  Consulte a disponibilidade de recursos para instâncias de [contentores Azure nas regiões de Azure.](../../container-instances/container-instances-region-availability.md)
 
 > [!IMPORTANT]
-> Dois recursos de script de implementação, uma conta de armazenamento e uma instância de contentores, são criados no mesmo grupo de recursos para execução de scripts e resolução de problemas. Estes recursos são geralmente eliminados pelo serviço de script quando a execução do script de implementação fica em estado terminal. Você é cobrado pelos recursos até que os recursos sejam eliminados. Para saber mais, consulte [os recursos do script de implementação](#clean-up-deployment-script-resources)de limpeza.
+> Uma conta de armazenamento e uma instância de contentores são necessárias para a execução do script e resolução de problemas. Tem as opções para especificar uma conta de armazenamento existente, caso contrário a conta de armazenamento, juntamente com a instância do recipiente, são automaticamente criadas pelo serviço de script. Os dois recursos criados automaticamente são geralmente eliminados pelo serviço de script quando a execução do script de implementação fica em um estado terminal. Você é cobrado pelos recursos até que os recursos sejam eliminados. Para saber mais, consulte [os recursos do script de implementação](#clean-up-deployment-script-resources)de limpeza.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma identidade gerida atribuída ao **utilizador com o papel do contribuinte para o grupo-recurso-alvo**. Esta identidade é usada para executar scripts de implantação. Para realizar operações fora do grupo de recursos, é necessário conceder permissões adicionais. Por exemplo, atribuir a identidade ao nível de subscrição se quiser criar um novo grupo de recursos.
 
   > [!NOTE]
-  > O motor de script de implantação cria uma conta de armazenamento e uma instância de contentor estanque no fundo.  É necessária uma identidade gerida atribuída ao utilizador com o papel do contribuinte ao nível da subscrição se a subscrição não tiver registado os fornecedores de recursos da conta de armazenamento Azure (Microsoft.Storage) e da instância de contentores Azure (Microsoft.ContainerInstance).
+  > O serviço de script cria uma conta de armazenamento (a menos que especifique uma conta de armazenamento existente) e uma instância de contentorem em segundo plano .  É necessária uma identidade gerida atribuída ao utilizador com o papel do contribuinte ao nível da subscrição se a subscrição não tiver registado os fornecedores de recursos da conta de armazenamento Azure (Microsoft.Storage) e da instância de contentores Azure (Microsoft.ContainerInstance).
 
   Para criar uma identidade, consulte Criar uma identidade gerida atribuída pelo [utilizador utilizando o portal Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md), ou utilizando o [Azure CLI,](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)ou utilizando o [Azure PowerShell.](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md) Precisa da identificação de identidade quando implementar o modelo. O formato da identidade é:
 
@@ -101,6 +100,13 @@ O seguinte json é um exemplo.  O mais recente esquema de modelo pode ser encont
   },
   "properties": {
     "forceUpdateTag": 1,
+    "containerSettings": {
+      "containerGroupName": "mycustomaci"
+    },
+    "storageAccountSettings": {
+      "storageAccountName": "myStorageAccount",
+      "storageAccountKey": "myKey"
+    },
     "azPowerShellVersion": "3.0",  // or "azCliVersion": "2.0.80"
     "arguments": "[concat('-name ', parameters('name'))]",
     "environmentVariables": [
@@ -132,6 +138,8 @@ Detalhes do valor da propriedade:
 - **Identidade**: O serviço de script de implementação utiliza uma identidade gerida atribuída pelo utilizador para executar os scripts. Atualmente, apenas a identidade gerida atribuída ao utilizador é suportada.
 - **tipo:** Especificar o tipo de script. Atualmente, os scripts Azure PowerShell e Azure CLI são suporte. Os valores são **AzurePowerShell** e **AzureCLI**.
 - **forceUpdateTag**: Alterar este valor entre as implementações do modelo obriga o script de implantação a reexecutar. Utilize a função newGuid() ou utcNow() que precisa de ser definida como o valor padrão de um parâmetro. Para saber mais, consulte [o guião run mais de uma vez](#run-script-more-than-once).
+- **recipienteDefinições**: Especifique as definições para personalizar a instância do contentor Azure.  **containerGroupName** é para especificar o nome do grupo de contentores.  Se não especificado, o nome do grupo será automaticamente gerado.
+- **armazenamentoDefinições de contas**: Especifique as definições para utilizar uma conta de armazenamento existente. Se não especificada, é criada automaticamente uma conta de armazenamento. Consulte [Utilize uma conta](#use-an-existing-storage-account)de armazenamento existente .
 - **azPowerShellVersion**/**azCliVersion**: Especifique a versão do módulo a utilizar. Para obter uma lista de versões PowerShell e CLI suportadas, consulte [pré-requisitos](#prerequisites).
 - **argumentos**: Especificar os valores dos parâmetros. Os valores são separados por espaços.
 - **ambienteVariáveis**: Especifique as variáveis ambientais para passar para o script. Para mais informações, consulte [Desenvolver scripts](#develop-deployment-scripts)de implementação .
@@ -241,7 +249,7 @@ As saídas de scriptde de implantação devem ser guardadas na localização AZ_
 ### <a name="handle-non-terminating-errors"></a>Lidar com erros não terminadores
 
 Pode controlar a forma como o PowerShell reage a erros não terminadores utilizando a [**variável $ErrorActionPreference**](/powershell/module/microsoft.powershell.core/about/about_preference_variables?view=powershell-7#erroractionpreference
-) no seu script de implementação. O motor de script de implantação não define/altera o valor.  Apesar do valor que definiu para $ErrorActionPreference, o script de implementação define o estado de fornecimento de recursos para *Failed* quando o script encontra um erro.
+) no seu script de implementação. O serviço de scriptnão define/altera o valor.  Apesar do valor que definiu para $ErrorActionPreference, o script de implementação define o estado de fornecimento de recursos para *Failed* quando o script encontra um erro.
 
 ### <a name="pass-secured-strings-to-deployment-script"></a>Passe cordas seguras para o script de implementação
 
@@ -249,7 +257,7 @@ A definição de variáveis ambientais (EnvironmentVariable) nas instâncias do 
 
 ## <a name="debug-deployment-scripts"></a>Scripts de implementação de depurados
 
-O serviço de script cria uma [conta de armazenamento](../../storage/common/storage-account-overview.md) e uma instância de [contentores](../../container-instances/container-instances-overview.md) para a execução do script. Ambos os recursos têm os **azscripts** sufixos nos nomes de recursos.
+O serviço de script cria uma conta de [armazenamento](../../storage/common/storage-account-overview.md) (a menos que especifique uma conta de armazenamento existente) e uma instância de [contentores](../../container-instances/container-instances-overview.md) para execução de scripts. Se estes recursos forem automaticamente criados pelo serviço de script, ambos os recursos têm o sufixo **azscripts** nos nomes de recursos.
 
 ![Nomes de script de script de implementação de modelo de gestor de recursos de gestor de recursos de recursos](./media/deployment-script-template/resource-manager-template-deployment-script-resources.png)
 
@@ -292,17 +300,38 @@ Para ver o recurso de implementação Scripts no portal, selecione **Tipos ocult
 
 ![Script de implementação de modelo de gestor de recursos, mostrar tipos ocultos, portal](./media/deployment-script-template/resource-manager-deployment-script-portal-show-hidden-types.png)
 
+## <a name="use-an-existing-storage-account"></a>Utilize uma conta de armazenamento existente
+
+Uma conta de armazenamento e uma instância de contentores são necessárias para a execução do script e resolução de problemas. Tem as opções para especificar uma conta de armazenamento existente, caso contrário a conta de armazenamento, juntamente com a instância do recipiente, são automaticamente criadas pelo serviço de script. Os requisitos para a utilização de uma conta de armazenamento existente:
+
+- Os tipos de conta de armazenamento suportado são: Contas v2 de uso geral, contas v1 de propósito geral e contas de armazenamento de ficheiros. Para mais informações, consulte [tipos de contas de armazenamento](../../storage/common/storage-account-overview.md).
+- As regras de firewall da conta de armazenamento devem ser desligadas. Ver [Configure Firewalls de Armazenamento Azure e rede virtual](../../storage/common/storage-network-security.md)
+- A identidade gerida atribuída pelo utilizador do script de implementação deve ter permissões para gerir a conta de armazenamento, que inclui ler, criar, eliminar as partilhas de ficheiros.
+
+Para especificar uma conta de armazenamento existente, adicione o `Microsoft.Resources/deploymentScripts`seguinte json ao elemento de propriedade de:
+
+```json
+"storageAccountSettings": {
+  "storageAccountName": "myStorageAccount",
+  "storageAccountKey": "myKey"
+},
+```
+
+Consulte [os modelos de amostra](#sample-templates) para obter uma amostra completa `Microsoft.Resources/deploymentScripts` de definição.
+
+Quando uma conta de armazenamento existente é utilizada, o serviço de script cria uma partilha de ficheiros com um nome único. Consulte os recursos de script de [implementação de limpeza](#clean-up-deployment-script-resources) para saber como o serviço de script limpa a parte do ficheiro.
+
 ## <a name="clean-up-deployment-script-resources"></a>Limpar os recursos do script de implementação
 
-O script de implementação cria uma conta de armazenamento e uma instância de contentorque que são usadas para executar scripts de implementação e armazenar informações de depuração. Estes dois recursos são criados no mesmo grupo de recursos que os recursos provisionados, e serão eliminados pelo serviço de script quando o script expirar. Pode controlar o ciclo de vida destes recursos.  Até que sejam apagados, é cobrado por ambos os recursos. Para obter informações sobre os preços dos preços, consulte os preços dos casos de [contentores](https://azure.microsoft.com/pricing/details/container-instances/) e os preços de [armazenamento do Azure.](https://azure.microsoft.com/pricing/details/storage/)
+Uma conta de armazenamento e uma instância de contentores são necessárias para a execução do script e resolução de problemas. Tem as opções para especificar uma conta de armazenamento existente, caso contrário uma conta de armazenamento juntamente com uma instância de contentores são automaticamente criadas pelo serviço de script. Os dois recursos criados automaticamente são eliminados pelo serviço de script quando a execução do script de implementação fica em estado terminal. Você é cobrado pelos recursos até que os recursos sejam eliminados. Para obter informações sobre os preços dos preços, consulte os preços dos casos de [contentores](https://azure.microsoft.com/pricing/details/container-instances/) e os preços de [armazenamento do Azure.](https://azure.microsoft.com/pricing/details/storage/)
 
 O ciclo de vida destes recursos é controlado pelas seguintes propriedades no modelo:
 
-- **limpezaPreferência**: Limpe a preferência quando a execução do script estiver em estado terminal.  Os valores suportados são:
+- **limpezaPreferência**: Limpe a preferência quando a execução do script estiver em estado terminal. Os valores suportados são:
 
-  - **Sempre:** Apagar os recursos assim que a execução do guião entrar em estado terminal. Uma vez que o recurso de implementação Scripts ainda pode estar presente após a limpeza dos recursos, o script do sistema copiaria os resultados da execução do script, por exemplo, stdout, saídas, valor de retorno, etc. para DB antes de os recursos serem eliminados.
-  - **OnSuccess**: Elimine os recursos apenas quando a execução do script for bem sucedida. Ainda pode aceder aos recursos para encontrar a informação de depuração.
-  - **OnExpiração**: Elimine os recursos apenas quando a definição de intervalo de **retenção** estiver expirada. Esta propriedade está atualmente desativada.
+  - **Sempre:** Elimine os recursos criados automaticamente assim que a execução do script entrar em estado terminal. Se for utilizada uma conta de armazenamento existente, o serviço de script elimina a parte de ficheiro criada na conta de armazenamento. Uma vez que o recurso de implementação Scripts ainda pode estar presente após a limpeza dos recursos, os serviços de script persistem os resultados da execução do script, por exemplo, stdout, saídas, valor de retorno, etc. antes de os recursos serem eliminados.
+  - **OnSuccess**: Elimine os recursos criados automaticamente apenas quando a execução do script for bem sucedida. Se for utilizada uma conta de armazenamento existente, o serviço de script remove a parte do ficheiro apenas quando a execução do script for bem sucedida. Ainda pode aceder aos recursos para encontrar a informação de depuração.
+  - **OnExpiração**: Elimine automaticamente os recursos apenas quando a definição de intervalo de **retenção** expirar. Se for utilizada uma conta de armazenamento existente, o serviço de script remove a parte do ficheiro, mas mantém a conta de armazenamento.
 
 - intervalo de **retençãoIntervalo**: Especifique o intervalo de tempo de que um recurso de script será retido e após o qual será expirado e eliminado.
 
