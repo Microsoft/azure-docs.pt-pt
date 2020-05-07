@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 04/26/2020
+ms.date: 05/05/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 34ad2c38ebc79615603cf528625136b0f4784a0a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 280c7bb39c5c920c92608e639bbe3cf7b0c2f006
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82191294"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82838326"
 ---
-|Nome |Descrição |Efeitos(s) |Versão |GitHub |
+|Name |Descrição |Efeitos(s) |Versão |GitHub |
 |---|---|---|---|---|
 |[\[Pré-visualização\]limitada : \[AKS\] Não permita contentores privilegiados no AKS](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7ce7ac02-a5c6-45d6-8d1b-844feb1c1531) |Esta política não permite a criação de contentores privilegiados num cluster do Serviço Azure Kubernetes. As políticas limitadas de pré-visualização funcionam apenas para subscrições registadas. Para se registar, [https://aka.ms/akspolicyonboarding](https://aka.ms/akspolicyonboarding)por favor, vá a . Para obter instruções sobre a [https://aka.ms/akspolicydoc](https://aka.ms/akspolicydoc)utilização desta política, dirija-se a . |EnforceRegoPolicy, Deficientes |1.0.0-pré-visualização |[Ligação](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes%20service/ContainerNoPrivilege_EnforceRegoPolicy.json) |
 |[\[Pré-visualização\]limitada : \[AKS\] Enforce HTTPS ingressing in AKS](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2fbff515-eecc-4b7e-9b63-fcc7138b7dc3) |Esta política aplica a entrada https num cluster de Serviço Azure Kubernetes. As políticas limitadas de pré-visualização funcionam apenas para subscrições registadas. Para se registar, [https://aka.ms/akspolicyonboarding](https://aka.ms/akspolicyonboarding)por favor, vá a . Para obter instruções sobre a [https://aka.ms/akspolicydoc](https://aka.ms/akspolicydoc)utilização desta política, dirija-se a . |EnforceRegoPolicy, Deficientes |1.0.0-pré-visualização |[Ligação](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes%20service/IngressHttpsOnly_EnforceRegoPolicy.json) |

@@ -3,12 +3,12 @@ title: Tutorial - Configure a rede para a sua nuvem privada VMWare em Azure
 description: Aprenda a criar e configurar o networking necessário para implantar a sua nuvem privada em Azure
 ms.topic: tutorial
 ms.date: 05/04/2020
-ms.openlocfilehash: e8278eb3ab5e99d330e34fd9739ed2bc49aa7f08
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.openlocfilehash: 41043b98a6e270d8d9f4373de7876b3fcae86747
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82740214"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82837622"
 ---
 # <a name="tutorial-configure-networking-for-your-vmware-private-cloud-in-azure"></a>Tutorial: Configure a rede para a sua nuvem privada VMWare em Azure
 
@@ -24,7 +24,7 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [portal do Azure](https://rc.portal.azure.com).
+Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 

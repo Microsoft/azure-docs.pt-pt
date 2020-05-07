@@ -8,28 +8,28 @@ ms.topic: include
 ms.date: 02/11/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 0fbd2f1d01665d7fefe03430855dc5c063fdaec9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2eda1fc8595962849b6a24cc272f6604d0be9175
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77137711"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744552"
 ---
 **Modelos de aplicação**
 
-| Modelo                 | Nome        | Descrição |
+| Modelo                 | Name        | Descrição |
 | ------------------------ | ----------- | ----------- |
-| iotc-pnp-preview@1.0.0   | Aplicação personalizada | Cria uma aplicação vazia que pode preencher com os seus próprios modelos de dispositivo e dispositivos. |
-| iotc-default@1.0.0       | Aplicação personalizada (legado) | Cria uma aplicação de legado vazia para você povoar com os seus próprios modelos e dispositivos de dispositivos.
-| iotc-condition@1.0.0     | Análise na loja – Monitorização de Condições | Cria uma aplicação para ligar e monitorizar um ambiente de loja. |
-| iotc-consumption@1.0.0   | Monitorização do Consumo de Água | Cria uma aplicação para monitorizar e controlar o fluxo de água. |
-| iotc-distribution@1.0.0  | Centro de Distribuição Digital | Cria uma aplicação para melhorar a eficiência de produção do armazém digitalizando ativos e ações chave. |
-| iotc-inventory@1.0.0     | Gestão inteligente de inventário | Cria uma aplicação para automatizar a receção, o movimento do produto, a contagem de ciclos e o rastreio. |
-| iotc-logistics@1.0.0     | Logística Conectada | Cria uma aplicação para rastrear os seus envios em tempo real através do ar, da água e do terreno com localização e monitorização de condições. |
-| iotc-meter@1.0.0         | Analytics de Contadores Inteligentes | Cria uma aplicação para monitorizar o consumo de energia, o estado da rede e identificar tendências para melhorar o apoio ao cliente e a gestão de contadores inteligentes.  |
-| iotc-mfc@1.0.0           | Centro de Micro-realização | Cria uma aplicação para conectar e gerir digitalmente um centro de realização totalmente automatizado. |
-| iotc-patient@1.0.0       | Monitorização contínua do paciente | Cria uma aplicação para alargar os cuidados do paciente, reduzir as readmissões e gerir doenças. |
-| iotc-power@1.0.0         | Monitorização de Energia Solar | Cria uma aplicação para monitorizar o estado do painel solar e as tendências de geração de energia. |
-| iotc-quality@1.0.0       | Monitorização da Qualidade da Água | Cria uma aplicação para monitorizar digitalmente a qualidade da água. |
-| iotc-store@1.0.0         | Na loja Analytics – Check-out | Cria uma aplicação para monitorizar e gerir o fluxo de check-out dentro da sua loja. |
-| iotc-waste@1.0.0         | Gestão de Resíduos Conectados | Cria uma aplicação para monitorizar os caixotes do lixo e os operadores de campo de expedição. |
+| iotc-pnp-pré-visualização         | Aplicação personalizada | Cria uma aplicação vazia que pode preencher com os seus próprios modelos de dispositivo e dispositivos. |
+| iotc-padrão             | Aplicação personalizada (legado) | Cria uma aplicação de legado vazia para você povoar com os seus próprios modelos e dispositivos de dispositivos.
+| iotc-condição           | Análise na loja – Monitorização de Condições | Cria uma aplicação para ligar e monitorizar um ambiente de loja. |
+| iotc-consumo         | Monitorização do Consumo de Água | Cria uma aplicação para monitorizar e controlar o fluxo de água. |
+| iotc-distribuição        | Centro de Distribuição Digital | Cria uma aplicação para melhorar a eficiência de produção do armazém digitalizando ativos e ações chave. |
+| iotc-inventário           | Gestão inteligente de inventário | Cria uma aplicação para automatizar a receção, o movimento do produto, a contagem de ciclos e o rastreio. |
+| iotc-logística           | Logística Conectada | Cria uma aplicação para rastrear os seus envios em tempo real através do ar, da água e do terreno com localização e monitorização de condições. |
+| iotc-meter               | Analytics de Contadores Inteligentes | Cria uma aplicação para monitorizar o consumo de energia, o estado da rede e identificar tendências para melhorar o apoio ao cliente e a gestão de contadores inteligentes.  |
+| iotc-mfc                 | Centro de Micro-realização | Cria uma aplicação para conectar e gerir digitalmente um centro de realização totalmente automatizado. |
+| iotc-paciente             | Monitorização contínua do paciente | Cria uma aplicação para alargar os cuidados do paciente, reduzir as readmissões e gerir doenças. |
+| iotc-poder               | Monitorização de Energia Solar | Cria uma aplicação para monitorizar o estado do painel solar e as tendências de geração de energia. |
+| iotc-qualidade             | Monitorização da Qualidade da Água | Cria uma aplicação para monitorizar digitalmente a qualidade da água. |
+| iotc-loja               | Na loja Analytics – Check-out | Cria uma aplicação para monitorizar e gerir o fluxo de check-out dentro da sua loja. |
+| iotc-resíduos               | Gestão de Resíduos Conectados | Cria uma aplicação para monitorizar os caixotes do lixo e os operadores de campo de expedição. |

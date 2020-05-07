@@ -7,16 +7,16 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: jushiman
-ms.openlocfilehash: 0e7d61516b0b7fb9bab9aa0444a123ac932aaa56
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 7b84537693b3ffc3f7398c6eb84615a96bf8e7df
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509181"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744690"
 ---
 # <a name="m-series"></a>Série M
 
-A série M oferece uma alta contagem de vCPU (até 128 vCPUs) e uma grande quantidade de memória (até 3,8 TiB). Também é ideal para bases de dados extremamente grandes ou outras aplicações que beneficiam de altas contagens de vCPU e grandes quantidades de memória. Os tamanhos da série M são&reg; suportados&reg; tanto no Intel Xeon CPU E7-8890&reg; v3&reg; @ 2.50GHz como na Intel Xeon Platinum 8280M 2.7GHz (Lago cascade).
+A série M oferece uma alta contagem de vCPU (até 128 vCPUs) e uma grande quantidade de memória (até 3,8 TiB). Também é ideal para bases de dados extremamente grandes ou outras aplicações que beneficiam de altas contagens de vCPU e grandes quantidades de memória. Os tamanhos da série M são&reg; suportados&reg; tanto no Intel Xeon CPU E7-8890&reg; v3&reg; @ 2.50GHz como na Intel Xeon Platinum 8280M (Lago cascade).
 
 A funcionalidade da Série M&reg; VM intel Hyper-Threading Technology.
 

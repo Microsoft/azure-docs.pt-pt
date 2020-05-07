@@ -1,59 +1,57 @@
 ---
-title: Criar uma oferta de aplicativo Power BI - Azure Marketplace
+title: Criar uma oferta de aplicativo seletiva Power BI no mercado comercial da Microsoft
 description: Saiba como criar e publicar uma oferta de aplicação Power BI para o Microsoft AppSource.
 author: anbene
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/02/2020
-ms.openlocfilehash: dc036ae3cba6aa4d3a689562afffb991fadc8c0a
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.date: 05/01/2020
+ms.openlocfilehash: 17a6b7e46341ee0231ac88b849495cfc7e46ad88
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81867606"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82839152"
 ---
-# <a name="create-a-power-bi-app"></a>Criar uma aplicação Power BI
-
-> [!IMPORTANT]
-> Estamos a mover a gestão das ofertas da sua aplicação Power BI do Cloud Partner Portal para partner Center. Até que as suas ofertas sejam migradas, siga as instruções na [Oferta de Aplicações Create a Power BI](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/power-bi/cpp-create-offer) para o Cloud Partner Portal para gerir as suas ofertas.
+# <a name="create-a-power-bi-app-for-microsoft-appsource"></a>Criar um aplicativo Power BI para microsoft AppSource
 
 Este artigo descreve como criar e publicar uma oferta de aplicação Power BI para o Microsoft [AppSource](https://appsource.microsoft.com/).
 
-Antes de poder criar uma oferta de aplicações Power BI, deve ter uma conta de marketplace comercial no Partner Center. Se ainda não criou uma, consulte criar uma conta de Mercado Comercial na conta [partner center.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)
+Antes de começar, [Crie uma conta de Marketplace Comercial no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) se ainda não o fez. Certifique-se de que a sua conta está inscrita no programa de marketplace comercial.
 
 ## <a name="create-a-new-offer"></a>Criar uma nova oferta
 
 1. Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/home).
 2. No menu de navegação à esquerda, selecione **Commercial Marketplace** > **Overview**.
+3. Na página 'Visão Geral', selecione **+ Nova oferta** > **Power BI Service App**.
 
-    :::image type="content" source="media/power-bi-menu-overview.png" alt-text="visão geral do menu do mercado comercial" border="false":::
+   ![Ilustra o menu de navegação à esquerda.](./media/new-offer-pbi-app.png)
 
-3. Selecione **+ Nova oferta** > **Power BI App**. A caixa de diálogo **da Nova Oferta** aparece.
+> [!NOTE]
+> Depois de publicada uma oferta, as edificações feitas no Partner Center só aparecem nas montras depois de reeditarem a oferta. Certifique-se de que republique sempre depois de fazer alterações.
 
 > [!IMPORTANT]
-> Se a opção **Power BI App** não for&#39;mostrada ou&#39;não estiver ativada, a sua conta não&#39;ter permissão para criar este tipo de oferta. Por favor, verifique se&#39;cumpriu todos os [requisitos](create-power-bi-app-overview.md) para este tipo de oferta, incluindo o registo para uma conta de desenvolvedor
+> Se a **Aplicação** de Serviço Power BI não for mostrada ou ativada, a sua conta não tem permissão para criar este tipo de oferta. Por favor, verifique se preencheu todos os [requisitos](create-power-bi-app-overview.md) para este tipo de oferta, incluindo o registo para uma conta de desenvolvedor.
 
-### <a name="offer-id-and-alias"></a>Oferecer ID e pseudónimo
+## <a name="new-offer"></a>Nova oferta
 
 Introduza um **ID de oferta**. Este é um identificador único para cada oferta na sua conta.
 
 - Este ID é visível para os clientes no endereço web para a oferta de mercado e modelos do Gestor de Recursos Azure, se aplicável.
-- Utilize apenas letras minúsculas e números. Pode incluir hífenes e sublinhados, mas sem espaços, e está limitado a 50 caracteres. Por exemplo, se introduzir o **test-offer-1,** `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`o endereço web da oferta será .
-
+- Utilize apenas letras minúsculas e números. Pode incluir hífenes e sublinhados, mas sem espaços, e está limitado a 50 caracteres. Por exemplo, se introduzir o **test-offer-1** aqui, `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`o endereço web da oferta será .
 - O ID da Oferta não pode ser alterado depois de selecionar **Criar**.
 
-Insira um **pseudónimo da Oferta.** Este é o nome usado para se referir à oferta no Partner Center.
+Insira um **pseudónimo da Oferta.** Este é o nome usado para a oferta no Partner Center.
 
 - Este nome não é usado no mercado e é diferente do nome da oferta e outros valores mostrados aos clientes.
-- Isto não pode ser alterado depois de selecionar **Criar**.
+- O pseudónimo da Oferta não pode ser alterado depois de selecionar **Criar**.
 
-Depois de introduzir estes dois valores, selecione **Criar** para continuar na página de visão geral da Oferta.
+Selecione **Criar** para gerar a oferta e continuar.
 
 ## <a name="offer-overview"></a>Visão geral da oferta
 
-A página geral da **Oferta** mostra uma representação visual dos passos necessários para publicar esta oferta (completa e próxima) e quanto tempo cada passo deve demorar a ser concluído.
+Esta página mostra uma representação visual dos passos necessários para publicar esta oferta (completa e próxima) e quanto tempo cada passo deve demorar a ser concluído.
 
 Inclui links para realizar operações nesta oferta com base na seleção que faz. Por exemplo:
 
@@ -63,8 +61,6 @@ Inclui links para realizar operações nesta oferta com base na seleção que fa
 - Se ainda não tiver concluído a inscrição da editora - [Cancele a publicação](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#cancel-publishing)
 
 ## <a name="offer-setup"></a>Configuração de oferta
-
-Siga estes passos para configurar a sua oferta.
 
 ### <a name="connect-lead-management"></a>Ligar a gestão de chumbo
 
@@ -90,7 +86,7 @@ Aqui estão alguns recursos adicionais de gestão de chumbo:
 - [Erros de configuração comuns de oportunidades potenciais](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
 - [Visão geral da gestão de chumbo](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (certifique-se de que o seu bloqueador pop-up está desligado)
 
-Selecione **Guardar rascunho** antes de continuar na secção seguinte, Propriedades.
+Selecione **guardar rascunho** antes de continuar.
 
 ## <a name="properties"></a>Propriedades
 
@@ -102,7 +98,7 @@ Selecione um mínimo de uma e um máximo de três categorias. Estas categorias s
 
 ### <a name="industry"></a>Setor
 
-Opcionalmente, selecione até duas indústrias e duas verticais sob cada indústria. Enquanto as categorias são usadas para exibir a sua oferta, a indústria e os verticais são usados em filtros de pesquisa e são aplicados na Montra. Se a sua oferta visar uma indústria específica e/ou vertical, use a descrição da oferta para explicar como a sua oferta suporta as indústrias ou verticais selecionadas. Se a sua oferta não for&#39;específica da indústria, deixe esta secção em branco.
+Opcionalmente, selecione até duas indústrias e duas verticais sob cada indústria. Enquanto as categorias são usadas para exibir a sua oferta, a indústria e os verticais são usados em filtros de pesquisa e são aplicados na Montra. Se a sua oferta visar uma indústria específica e/ou vertical, use a descrição da oferta para explicar como a sua oferta suporta as indústrias ou verticais selecionadas. Se a sua oferta não for específica da indústria, deixe esta secção em branco.
 
 > [!NOTE]
 > À medida que trabalhamos para introduzir novas indústrias e verticais para melhorar a experiência de descoberta de ofertas, algumas indústrias ou verticais podem ainda não ser visíveis na Montra. Indústrias e verticais marcados com um (*) estarão disponíveis numa data futura. Todas as ofertas publicadas são detetáveis através da pesquisa de palavras-chave.
@@ -147,9 +143,9 @@ Selecione o idioma em que a sua oferta será listada. Atualmente, **o inglês (E
 Defina detalhes do mercado (como nome, descrição e imagens de oferta) para cada idioma/mercado. Selecione o nome idioma/mercado para fornecer esta informação.
 
 > [!NOTE]
-> Os detalhes da oferta não são necessários para estar &quot;em inglês se a descrição da oferta começar com a frase, esta aplicação está disponível apenas em [língua não inglesa]. &quot; Também&#39;é bom fornecer um Link Útil para oferecer conteúdo num idioma que&#39;é diferente daquele usado na listagem de ofertas.
+> Os detalhes da oferta não são necessários para estar em inglês se a descrição da oferta começar com a frase: "Esta aplicação está disponível apenas em [língua não inglesa]." Também é normal fornecer um Link Útil para oferecer conteúdo num idioma diferente do usado na listagem de ofertas.
 
-### <a name="name"></a>Nome
+### <a name="name"></a>Name
 
 O nome que insere aqui mostra como o título da sua oferta. Este campo está pré-preenchido com o texto que inseriu na caixa **de pseudónimos Offer** quando criou a oferta. Pode alterar este nome posteriormente.
 
@@ -184,9 +180,13 @@ Aqui ficam algumas dicas para escrever a sua descrição:
 - Não confie em funcionalidades e funcionalidades para vender o seu produto. Em vez disso, concentre-se no valor que a sua oferta proporciona.
 - Tente utilizar vocabulário específico da indústria ou formulação baseada em benefícios.
 
-Para tornar a sua oferta **Descrição** mais envolvente, use o rico editor de texto para formatar a sua descrição. O rico editor de texto permite-lhe adicionar números, balas, ousados, itálicos e travessos para tornar a sua descrição mais legível.
+Para tornar a sua descrição mais envolvente, use o rico editor de texto para aplicar formatação.
 
-:::image type="content" source="media/power-bi-rich-text-editor.png" alt-text="ilustra o rico editor de texto" border="false":::
+![Usando o rico editor de texto](./media/rich-text-editor.png)
+
+| <center>Alterar o formato de texto | <center>Adicionar balas ou numerar | <center>Adicionar ou remover o travessão de texto |
+| --- | --- | --- |
+| <center>![Usando o rico editor de texto para alterar o formato de texto](./media/text-editor3.png) |  <center>![Usando o rico editor de texto para adicionar listas](./media/text-editor4.png) |  <center>![Usando o rico editor de texto para o travessão](./media/text-editor5.png) |
 
 ### <a name="search-keywords"></a>Pesquisar palavras-chave
 
@@ -206,7 +206,7 @@ Insira o endereço web para a política de privacidade da sua organização. É 
 
 ### <a name="contact-information"></a>Informações de Contacto
 
-Deve fornecer o nome, e-mail e número de telefone para um contacto de **suporte** e um **contacto de Engenharia**. Esta informação não é&#39;mostrada aos clientes. Está disponível para a Microsoft e pode ser fornecido aos parceiros do Cloud Solution Provider (CSP).
+Deve fornecer o nome, e-mail e número de telefone para um contacto de **suporte** e um **contacto de Engenharia**. Esta informação não é mostrada aos clientes. Está disponível para a Microsoft e pode ser fornecido aos parceiros do Cloud Solution Provider (CSP).
 
 - Contacto de suporte (obrigatório): Para questões de apoio geral.
 - Contacto de engenharia (obrigatório): Para questões técnicas e questões de certificação.
@@ -222,12 +222,14 @@ Forneça pelo menos um e até três documentos de marketing relacionados em form
 
 Forneça logotipos e imagens para usar com a sua oferta. Todas as imagens devem estar em formato .png. Imagens desfocadas serão rejeitadas.
 
->[!Note]
+>[!NOTE]
 >Se tiver algum problema de envio de ficheiros, https://upload.xboxlive.com certifique-se de que a sua rede local não bloqueia o serviço utilizado pelo Partner Center.
 
 #### <a name="store-logos"></a>Logotipos de loja
 
-Forneça ficheiros .png da sua oferta&#39;logotipo s em dois tamanhos: **Pequeno** (48 x 48 pixels) e **Large** (216 x 216 pixels).
+Forneça ficheiros .png do logótipo da sua oferta em dois tamanhos de pixel:
+- **Pequeno** (48 x 48)
+- **Grande** (216 x 216)
 
 Ambos os logótipos são necessários e são usados em diferentes lugares na listagem do mercado.
 
@@ -237,7 +239,7 @@ Adicione pelo menos uma e até cinco imagens que mostram como a sua oferta funci
 
 #### <a name="videos-optional"></a>Vídeos (opcional)
 
-Adicione cinco vídeos que demonstram a sua oferta. Introduza o vídeo&#39;nome, o seu endereço web e a imagem miniatura do vídeo a 1280 x 720 pixels de tamanho.
+Adicione cinco vídeos que demonstram a sua oferta. Introduza o nome do vídeo, o seu endereço web e a imagem miniatura do vídeo a 1280 x 720 pixels de tamanho.
 
 #### <a name="additional-marketplace-listing-resources"></a>Recursos adicionais de listagem de mercado
 
@@ -249,7 +251,7 @@ Promova a sua aplicação no Power BI Service para produção e forneça o link 
 
 ## <a name="supplemental-content"></a>Conteúdo suplementar
 
-Forneça informações adicionais sobre a sua oferta para nos ajudar a validá-la. Esta informação não é&#39;mostrada aos clientes nem publicada no mercado.
+Forneça informações adicionais sobre a sua oferta para nos ajudar a validá-la. Esta informação não é mostrada aos clientes nem publicada no mercado.
 
 ### <a name="validation-assets"></a>Ativos de validação
 
@@ -257,13 +259,13 @@ Opcionalmente, adicione instruções (até 3.000 caracteres) para ajudar a equip
 
 ## <a name="review-and-publish"></a>Rever e publicar
 
-Depois de ter concluído&#39;todas as secções necessárias da oferta, pode submeter a sua oferta para rever e publicar.
+Depois de ter concluído todas as secções necessárias da oferta, pode submeter a sua oferta para rever e publicar.
 
 No canto superior direito do portal, selecione **Rever e publique**.
 
 Na página de revisão pode:
 
-- Consulte o estado de conclusão de cada secção da oferta. Não pode publicar&#39;até que todas as secções da oferta estejam marcadas como completas.
+- Consulte o estado de conclusão de cada secção da oferta. Não pode publicar até que todas as secções da oferta estejam marcadas como completas.
   - **Não começou** - A secção ainda não foi iniciada e precisa de ser concluída.
   - **Incompleto** - A secção tem erros que precisam de ser corrigidos ou exigem que forneça mais informações. Consulte as secções anteriores neste documento para obter orientação.
   - **Completo** - A secção tem todos os dados necessários e não há erros. Todas as secções da oferta devem estar completas antes de poder submeter a oferta.

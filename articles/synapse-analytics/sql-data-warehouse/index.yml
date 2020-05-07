@@ -12,12 +12,12 @@ metadata:
   author: julieMSFT
   ms.author: jrasnick
   ms.date: 04/15/2020
-  ms.openlocfilehash: ea895ce94ed3b1fde574a1753981ac58adcb72b3
-  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+  ms.openlocfilehash: a2abb47c7f4f0f4ada47f923b1c1a722ef568841
+  ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/16/2020
-  ms.locfileid: "81414252"
+  ms.lasthandoff: 05/05/2020
+  ms.locfileid: "82793113"
 landingContent:
 - title: Acerca do Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse)
   linkLists:

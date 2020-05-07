@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: 0d6d69b82e80ff9bc33e49302cf59766b9c2e8d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5e1f61641eed0584ecb5bb33f1a510c7df6e60e3
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81270830"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82839084"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Frequently asked questions for SQL Server running on Windows virtual machines in Azure (Perguntas frequentes sobre o SQL Server em execução em máquinas virtuais do Windows no Azure)
 
@@ -52,10 +52,14 @@ Este artigo fornece respostas a algumas das perguntas mais comuns sobre executar
 1. **É possível implementar uma imagem mais antiga do SQL Server que não seja visível no portal Azure?**
 
    Sim, usando powerShell. Para obter mais informações sobre a implementação de VMs do Servidor SQL utilizando powerShell, consulte [como fornecer máquinas virtuais SQL Server com O PowerShell Azure](virtual-machines-windows-ps-sql-create.md).
+   
+1. **É possível criar uma imagem generalizada do Mercado do Servidor Azure SQL do meu VM de servidor SQL e usá-lo para implementar VMs?**
 
-1. **Como posso generalizar o SQL Server no Azure VM e usá-lo para implementar novos VMs?**
+   Sim, mas deve [então registar cada VM do Servidor SQL com o fornecedor de recursos SQL Server VM](virtual-machines-windows-sql-register-with-resource-provider.md) para gerir o seu VM de Servidor SQL no portal, bem como utilizar funcionalidades como patching automatizado e backups automáticos. Ao registar-se com o fornecedor de recursos, também terá de especificar o tipo de licença para cada VM do Servidor SQL.
 
-   Pode implementar um VM do Servidor Windows (sem qualquer Servidor SQL instalado no mesmo) e utilizar o processo de [sysprep SQL](/sql/database-engine/install-windows/install-sql-server-using-sysprep?view=sql-server-ver15) para generalizar o Servidor SQL no Azure VM (Windows) com os meios de instalação do Servidor SQL. Os clientes que possuam garantia de [software](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot%3aprimaryr3) podem obter os seus suportes de instalação a partir do Centro de Licenciamento de [Volume.](https://www.microsoft.com/Licensing/servicecenter/default.aspx) Os clientes que não possuem garantia de software podem usar os suportes de configuração a partir de uma imagem VM do Marketplace SQL Server que tem a edição desejada.
+1. **Como generalizo o SQL Server no Azure VM e uso-o para implementar novos VMs?**
+
+   Pode implementar um VM do Servidor Windows (sem o Servidor SQL instalado no mesmo) e utilizar o processo de [sysprep SQL](/sql/database-engine/install-windows/install-sql-server-using-sysprep?view=sql-server-ver15) para generalizar o Servidor SQL no Azure VM (Windows) com os meios de instalação do Servidor SQL. Os clientes que possuam garantia de [software](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot%3aprimaryr3) podem obter os seus suportes de instalação a partir do Centro de Licenciamento de [Volume.](https://www.microsoft.com/Licensing/servicecenter/default.aspx) Os clientes que não possuem garantia de software podem usar os suportes de configuração a partir de uma imagem VM do Marketplace SQL Server que tem a edição desejada.
 
    Em alternativa, utilize uma das imagens do SQL Server formando o mercado Azure para generalizar o Servidor SQL no Azure VM. Tenha em anote que deve eliminar a seguinte chave de registo na imagem de origem antes de criar a sua própria imagem. Se não o fizer, pode resultar no inchaço da pasta de botas de configuração do Servidor SQL e na extensão SQL IaaS em estado falhado.
 
@@ -63,7 +67,7 @@ Este artigo fornece respostas a algumas das perguntas mais comuns sobre executar
    `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\SysPrepExternal\Specialize`
 
    > [!NOTE]
-   > Recomendamos que todos os VMs SQL Server Azure, incluindo os implantados a partir de imagens personalizadas generalizadas, sejam registados com um fornecedor de [recurso SQL VM](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-resource-provider?tabs=azure-cli%2Cbash) para satisfazer os requisitos de conformidade e utilizar funcionalidades opcionais, tais como patching automatizado e backups automáticos. Também lhe permitirá [especificar o tipo](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-ahb?tabs=azure-portal) de licença para cada VM do Servidor SQL.
+   > O SQL Server em VMs Azure, incluindo os implantados a partir de imagens generalizadas personalizadas, deve ser registado no fornecedor de [recursos SQL VM](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-resource-provider?tabs=azure-cli%2Cbash) para satisfazer os requisitos de conformidade e utilizar funcionalidades opcionais, tais como patching automatizado e backups automáticos. O fornecedor de recursos também permite [especificar o tipo](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-ahb?tabs=azure-portal) de licença para cada VM do Servidor SQL.
 
 1. **Posso usar o meu próprio VHD para implantar um VM sQL Server?**
 
@@ -92,7 +96,7 @@ Este artigo fornece respostas a algumas das perguntas mais comuns sobre executar
 
 1. **Posso alterar uma VM para utilizar a minha própria licença do SQL Server caso tenha sido criada com uma das imagens da galeria pay as you go?**
 
-   Sim. Pode facilmente trocar uma imagem de galeria pay-as-you-go (PAYG) para trazer a sua própria licença (BYOL) permitindo o [Benefício Híbrido Azure](https://azure.microsoft.com/pricing/hybrid-benefit/faq/).  Para mais informações, consulte [Como alterar o modelo de licenciamento para um VM do Servidor SQL](virtual-machines-windows-sql-ahb.md). Atualmente, esta facilidade está disponível apenas para clientes de Public Cloud.
+   Sim. Pode facilmente trocar uma imagem de galeria pay-as-you-go (PAYG) para trazer a sua própria licença (BYOL) permitindo o [Benefício Híbrido Azure](https://azure.microsoft.com/pricing/hybrid-benefit/faq/).  Para mais informações, consulte [Como alterar o modelo de licenciamento para um VM do Servidor SQL](virtual-machines-windows-sql-ahb.md). Atualmente, esta facilidade só está disponível para clientes públicos e do Governo azure.
 
 1. **A mudança do modelo de licenciamento requer algum período de inatividade do SQL Server?**
 
@@ -154,10 +158,7 @@ Este artigo fornece respostas a algumas das perguntas mais comuns sobre executar
 
 1. **É possível registar VMs de servidor SQL auto-implantados com o fornecedor de recursos VM do Servidor SQL?**
 
-    Sim. Se implementou o SQL Server a partir dos seus próprios meios de comunicação e instalou a extensão SQL IaaS, pode registar o seu VM sQL Server com o fornecedor de recursos para obter os benefícios de gestão fornecidos pela extensão SQL IaaS. No entanto, não é capaz de converter um VM De Servidor SQL auto-implantado para pagar-as-se-go.
-
-
-   
+    Sim. Se implementou o SQL Server a partir dos seus próprios meios de comunicação e instalou a extensão SQL IaaS, pode registar o seu VM sQL Server com o fornecedor de recursos para obter os benefícios de gestão fornecidos pela extensão SQL IaaS.    
 
 
 ## <a name="administration"></a>Administração

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/29/2019
-ms.openlocfilehash: 39ea8dda0fd823d3061b2cb29e1c548f99281c82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: bbcbb19530aebe777a91cbe4c5487e1b50ace2e5
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418801"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559764"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>Criar uma dependência de acionamento de janela em cascata
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -24,6 +24,10 @@ ms.locfileid: "81418801"
 Este artigo fornece passos para criar uma dependência de um gatilho de janela caindo. Para obter informações gerais sobre os gatilhos da Janela Tumbling, consulte [Como criar](how-to-create-tumbling-window-trigger.md)o gatilho da janela .
 
 Para construir uma cadeia de dependência e certificar-se de que um gatilho é executado apenas após a execução bem sucedida de outro gatilho na fábrica de dados, utilize esta funcionalidade avançada para criar uma dependência de janelas caindo.
+
+Para uma demonstração sobre como criar oleodutos dependentes na sua Fábrica de Dados Azure utilizando o gatilho da janela, veja o seguinte vídeo:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Create-dependent-pipelines-in-your-Azure-Data-Factory/player]
 
 ## <a name="create-a-dependency-in-the-data-factory-ui"></a>Criar uma dependência na UI da Fábrica de Dados
 
@@ -79,10 +83,10 @@ A tabela seguinte fornece a lista de atributos necessários para definir uma dep
 |---|---|---|---|
 | tipo  | Todos os gatilhos existentes da janela são exibidos nesta queda para baixo. Escolha o gatilho para assumir a dependência.  | TumblingWindowTriggerDependencyReference ou SelfDependencyTumblingWindowTriggerReference | Sim |
 | offset | Compensado do gatilho da dependência. Fornecer um valor no formato de tempo e compensações negativas e positivas são permitidas. Este imóvel é obrigatório se o gatilho depender de si mesmo e em todos os outros casos é opcional. A auto-dependência deve ser sempre uma compensação negativa. Se não for especificado qualquer valor, a janela é a mesma que o próprio gatilho. | Timespan<br/>(hh:mm:ss) | Auto-Dependência: Sim<br/>Outros: Não |
-| size | Tamanho da janela de tropeçar da dependência. Forneça um valor de tempo positivo. Esta propriedade é opcional. | Timespan<br/>(hh:mm:ss) | Não  |
+| size | Tamanho da janela de tropeçar da dependência. Forneça um valor de tempo positivo. Esta propriedade é opcional. | Timespan<br/>(hh:mm:ss) | No  |
 
 > [!NOTE]
-> Um gatilho da janela pode depender de um máximo de dois outros gatilhos.
+> Um gatilho da janela pode depender de um máximo de cinco outros gatilhos.
 
 ## <a name="tumbling-window-self-dependency-properties"></a>Propriedades de auto-dependência de janelas caindo
 
@@ -147,10 +151,6 @@ Um trabalho diário de processamento de telemetria, dependendo de outro trabalho
 Um trabalho diário sem lacunas nos fluxos de saída do trabalho:
 
 ![Exemplo de auto-dependência](media/tumbling-window-trigger-dependency/tumbling-window-dependency06.png "Exemplo de auto-dependência")
-
-Para uma demonstração sobre como criar oleodutos dependentes na sua Fábrica de Dados Azure utilizando o gatilho da janela, veja o seguinte vídeo:
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Create-dependent-pipelines-in-your-Azure-Data-Factory/player]
 
 ## <a name="monitor-dependencies"></a>Monitorizar dependências
 

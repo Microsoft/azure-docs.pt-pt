@@ -1,37 +1,40 @@
-- name: Referências de Segurança do Azure
+- name: Referência de Segurança do Azure
   href: index.yml
 - name: Introdução
   href: introduction.md
 - name: Controlos de Segurança
+  expanded: true
   items:
-    - name: Descrição geral do Centro de Segurança do Azure
+    - name: Descrição geral dos controlos de segurança do Azure
       href: overview.md
-    - name: Segurança de Rede
+    - name: Segurança da rede
       href: security-control-network-security.md
-    - name: Início de sessão e Monitorização
+    - name: Início de sessão e monitorização
       href: security-control-logging-monitoring.md
-    - name: Identidade e Controlo de Acesso
+    - name: Identidade e controlo de acesso
       href: security-control-identity-access-control.md
-    - name: Proteção de Dados
+    - name: Proteção de dados
       href: security-control-data-protection.md
-    - name: Gestão de Vulnerabilidades
+    - name: Gestão de vulnerabilidades
       href: security-control-vulnerability-management.md
-    - name: Gestão de Recursos e Inventário
+    - name: Gestão de recursos e inventário
       href: security-control-inventory-asset-management.md
-    - name: Configuração Segura
+    - name: Configuração segura
       href: security-control-secure-configuration.md
-    - name: Defesa contra Software maligno
+    - name: Defesa contra malware
       href: security-control-malware-defense.md
-    - name: Recuperação de Dados
+    - name: Recuperação de dados
       href: security-control-data-recovery.md
-    - name: Resposta a Incidentes
+    - name: Resposta a incidentes
       href: security-control-incident-response.md
-    - name: Testes de Penetração e Exercícios de Red Team
+    - name: Testes de penetração e exercícios da Red Team
       href: security-control-penetration-tests-red-team-exercises.md
-- name: Linhas de Base de Segurança
+- name: Linhas de base de segurança do Azure
   items:
     - name: Descrição geral das linhas de base de segurança do Azure
       href: security-baselines-overview.md
+    - name: Linha de base de segurança da Gestão de API
+      href: ../../api-management/security-baseline.md
     - name: Linha de base de segurança da Cache do Azure para Redis
       href: ../../azure-cache-for-redis/security-baseline.md
     - name: Linha de base de segurança do Backup
@@ -44,8 +47,12 @@
       href: ../../cosmos-db/security-baseline.md
     - name: Linha de base de segurança do Data Explorer
       href: /azure/data-explorer/security-baseline
+    - name: Linha de base de segurança do Databricks
+      href: ../../azure-databricks/security-baseline.md
     - name: Linha de base de segurança dos Hubs de Eventos
       href: ../../event-hubs/security-baseline.md
+    - name: Linha de base de segurança das Funções
+      href: ../../azure-functions/security-baseline.md
     - name: Linha de base de segurança do HDInsight
       href: ../../hdinsight/security-baseline.md
     - name: Linha de base de segurança do Key Vault

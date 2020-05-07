@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: ca9b70bd71a618f8e3d5f4fe9504ba66a9f14c6f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cf9fa48019ab88190175131b27f4a40e29eb5ed0
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76935482"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801727"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Resolver problemas do Balanceador de Carga do Azure
-
+<p class="alert is-flex is-primary"><span class="has-padding-left-medium has-padding-top-extra-small"><a class="button is-primary" href="https://azurevirtualsupportagent.services.microsoft.com?content=fb23185b-6c56-d9f1-7ce1-758c978e08e1" target='_blank'>Comece a</a></span>resolver o seu problema rapidamente usando o<span class="has-padding-small">nosso agente virtual para executar <b>diagnósticos automatizados.</b> </span> Declaração <sub>de Privacidade</sub> <span class="has-padding-small"> <a href="https://privacy.microsoft.com/privacystatement" target='_blank'> <div align="right"></div></a></span></p>
 Esta página fornece informações de resolução de problemas para questões básicas e standard comuns do Equilíbrio de Carga Azure. Para mais informações sobre o Standard Load Balancer, consulte a visão geral do [Balancer de Carga Padrão](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics).
 
 Quando a conectividade do Balancer de Carga não está disponível, os sintomas mais comuns são os seguintes: 
@@ -124,7 +124,7 @@ Se a sua aplicação alojada no VM de backend de um Balancer de carga estiver a 
 
 ### <a name="cause-4-accessing-the-internal-load-balancer-frontend-from-the-participating-load-balancer-backend-pool-vm"></a>Causa 4: Aceder à face frontal interna do Balancer de Carga a partir do pool de backend do Balancer de Carga participante VM
 
-Se um Balancer de carga interno estiver configurado dentro de um VNet, e um dos VMs de backend participante estiver a tentar aceder à extremidade frontal interna do Balancer de Carga, podem ocorrer falhas quando o fluxo é mapeado para o VM originário. Este cenário não é suportado. Rever [limitações](concepts-limitations.md#limitations) para uma discussão detalhada.
+Se um Balancer de carga interno estiver configurado dentro de um VNet, e um dos VMs de backend participante estiver a tentar aceder à extremidade frontal interna do Balancer de Carga, podem ocorrer falhas quando o fluxo é mapeado para o VM originário. Este cenário não é suportado. Rever [limitações](concepts.md#limitations) para uma discussão detalhada.
 
 **Resolução** Existem várias formas de desbloquear este cenário, incluindo o uso de um proxy. Avaliar o Gateway de Aplicação ou outros proxies de terceiros (por exemplo, nginx ou haproxy). Para mais informações sobre o Gateway de Aplicação, consulte [a visão geral do Gateway de Aplicação](../application-gateway/application-gateway-introduction.md)
 

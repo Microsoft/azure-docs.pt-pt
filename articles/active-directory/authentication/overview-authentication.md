@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f4c2fa8488490561e8f11746e8e737718ee9f37
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c2a6b5c22e2988ed33e6dc15a4729e7bfe938c5f
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76261267"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82786922"
 ---
 # <a name="what-is-azure-active-directory-authentication"></a>O que é a autenticação do Diretório Ativo Azure?
 
@@ -86,14 +86,14 @@ A Azure AD fornece formas de autenticar de forma nativa usando métodos sem pala
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para começar, consulte o [quickstart para reset de senha de autosserviço][quickstart-sspr] e tutorial de [autenticação multi-factor Azure][tutorial-mfa-applications].
+Para começar, consulte o tutorial para reset de [senha de autosserviço (SSPR)][tutorial-sspr] e [autenticação de multi-factores Azure][tutorial-azure-mfa].
 
 Para saber mais sobre conceitos de redefinição de senha de autosserviço, consulte como funciona o reset da [palavra-passe autosserviço da Azure AD][concept-sspr].
 
 Para saber mais sobre conceitos de autenticação multifactor, consulte como funciona a [autenticação multi-factor Azure.][concept-mfa]
 
 <!-- INTERNAL LINKS -->
-[quickstart-sspr]: quickstart-sspr.md
-[tutorial-mfa-applications]: tutorial-mfa-applications.md
+[tutorial-sspr]: tutorial-enable-sspr.md
+[tutorial-azure-mfa]: tutorial-enable-azure-mfa.md
 [concept-sspr]: concept-sspr-howitworks.md
 [concept-mfa]: concept-mfa-howitworks.md

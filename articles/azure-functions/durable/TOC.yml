@@ -83,6 +83,8 @@
       href: durable-functions-http-api.md
     - name: API .NET
       href: /dotnet/api/microsoft.azure.webjobs.extensions.durabletask?view=azure-dotnet
+    - name: API do Node.js
+      href: /javascript/api/durable-functions/?view=azure-node-latest
 - name: Guias de procedimentos
   items:
     - name: Programar
