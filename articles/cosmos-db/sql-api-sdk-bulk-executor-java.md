@@ -1,19 +1,19 @@
 ---
 title: 'Azure Cosmos DB: Executor a granel Java API, SDK & recursos'
 description: Saiba tudo sobre o executor a granel Java API e SDK, incluindo datas de lançamento, datas de reforma e alterações feitas entre cada versão do executor a granel do Azure Cosmos DB Java SDK.
-author: tknandu
+author: milismsft
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
 ms.date: 11/21/2018
-ms.author: ramkris
-ms.openlocfilehash: 1a5de2647df5b8092fdcf8e6233f1fddc1690b03
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: adrianmi
+ms.openlocfilehash: 0030f974a36dc80dc8c4112000aa5934126a2482
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80981329"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836449"
 ---
 # <a name="java-bulk-executor-library-download-information"></a>Biblioteca executor a granel de Java: Descarregue informações
 
@@ -39,4 +39,27 @@ ms.locfileid: "80981329"
 | **Documentação da API**| [Documentação de referência da API java](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor)|
 |**Introdução**|[Começar com a biblioteca de executor esfarofoneiro Java SDK](bulk-executor-java.md)|
 |**Tempo mínimo de execução suportado**|[Kit de Desenvolvimento Java (JDK) 7+](/java/azure/jdk/?view=azure-java-stable)|
+
+## <a name="release-notes"></a>Notas de versão
+
+### <a name="2100"></a><a name="2.10.0"/>2.10.0
+
+* Fixe o DocumentAnalyzer.java para extrair corretamente valores-chave de divisória sinuosa do json.
+
+### <a name="294"></a><a name="2.9.4"/>2.9.4
+
+* Adicione funcionalidade nas operações BulkDelete para voltar a tentar falhas específicas e também devolver uma lista de falhas ao utilizador que poderiam ser novamente tentadas.
+
+### <a name="293"></a><a name="2.9.3"/>2.9.3
+
+* Atualização para cosmos SDK versão 2.4.7.
+
+### <a name="292"></a><a name="2.9.2"/>2.9.2
+
+* Correção para que o 'mergeAll' continue no valor chave 'id' e divisória de modo a que quaisquer propriedades de documentos remendadas que sejam colocadas após 'id' e divisória valor chave sejam adicionados à lista de itens atualizados.
+
+### <a name="291"></a><a name="2.9.1"/>2.9.1
+
+* Atualizar o grau de início da moeda a 1 e adicionar registos de depuração para minibatch.
+
 

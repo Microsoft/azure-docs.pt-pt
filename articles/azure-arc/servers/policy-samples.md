@@ -1,25 +1,25 @@
 ---
-title: Lista de definições políticas incorporadas para O Arco Azure para servidores
-description: Lista definições políticas integradas da Política Azure para o Azure Arc para servidores. Estes incorporados fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 04/30/2020
+title: Definições políticas incorporadas para Azure Arc para servidores
+description: Lista definições políticas integradas da Política Azure para o Azure Arc para servidores. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
+ms.date: 05/05/2020
 ms.topic: sample
 ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
 ms.custom: subject-policy-samples
-ms.openlocfilehash: de68d0705c5eee041897327445d0304f63c3c570
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.openlocfilehash: 3b9f14eed44130929d3707598f2a82300f8d5a6c
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82653289"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836580"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-arc-for-servers"></a>Definições políticas integradas da Política Azure para o Arco Do Azure para servidores
 
 Esta página é um índice de definições políticas incorporadas da [Política Azure](../../governance/policy/overview.md) para servidores. Para obter mais insins de política azure para outros serviços, consulte [definições in-in da Política Azure.](../../governance/policy/samples/built-in-policies.md)
 
-O nome de cada um embutido liga-se à definição de política no portal Azure. Utilize o link na coluna **Fonte** para visualizar a fonte no [repo da política azure GitHub](https://github.com/Azure/azure-policy).
+O nome de cada definição política incorporada está ligado à definição de política no portal Azure. Utilize o link na coluna **GitHub** para visualizar a fonte no repo da [política azure GitHub](https://github.com/Azure/azure-policy).
 
 ## <a name="azure-arc-for-servers"></a>Azure Arc para servidores
 

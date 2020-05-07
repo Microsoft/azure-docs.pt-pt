@@ -1,24 +1,24 @@
 ---
-title: Configure os leads da sua oferta de mercado comercial da Microsoft
-description: Configure os leads do cliente no mercado comercial da Microsoft.
+title: Gestão de chumbo do mercado comercial da Microsoft
+description: Saiba mais sobre gerar e receber pistas de clientes a partir das suas ofertas Microsoft AppSource e Azure Marketplace
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 54c67656d7847b44c8fc83b33a4e03be3838cf76
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5d1bf859968c7b7a889abe635c917d0da11bf6e1
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131103"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82837333"
 ---
-# <a name="customer-leads-from-your-marketplace-offer"></a>Clientes potenciais da oferta do marketplace
+# <a name="customer-leads-from-your-commercial-marketplace-offer"></a>O cliente lidera a sua oferta de marketplace comercial
 
-Os leads são clientes interessados ou implementando as suas ofertas a partir do Microsoft [AppSource](https://appsource.microsoft.com) e [do Azure Marketplace](https://azuremarketplace.microsoft.com). Receberá pistas de clientes após a sua oferta ser publicada no mercado. Este artigo explica:
+Os leads são clientes interessados ou implementando as suas ofertas a partir do [Microsoft AppSource](https://appsource.microsoft.com) e [do Azure Marketplace](https://azuremarketplace.microsoft.com). Pode receber pistas de clientes após a sua oferta ser publicada no mercado comercial. Este artigo explica os seguintes conceitos de gestão de chumbo:
 
-* A forma como a sua oferta de marketplace gera o cliente leva a garantir que não perde oportunidades de negócio. 
+* A forma como a sua oferta de marketplace comercial gera o cliente leva a garantir que não perde oportunidades de negócio. 
 * Como ligar o seu sistema de gestão de relacionamento com o cliente (CRM) à sua oferta para que possa gerir os seus leads numa localização central.
 * Os dados de chumbo que lhe enviamos para que possa acompanhar os clientes que lhe contactaram.
 
@@ -56,7 +56,7 @@ Cada chumbo que recebe durante o processo de aquisição do cliente tem dados em
 
 Os valores possíveis são:
 
-- **"INS"**: Stands para *instalação*. Esta ação é no Azure Marketplace ou AppSource quando um cliente compra o seu produto.
+- **"INS"**: Stands para *instalação*. Esta ação está no Azure Marketplace ou appSource quando um cliente adquire o seu produto.
 - **"PLT"**: Significa *julgamento liderado por parceiros.* Esta ação está no AppSource quando um cliente seleciona a opção **Contacte-me.**
 - **"DNC"**: Os pontos *de espera não contactam*. Esta ação está no AppSource quando um parceiro que foi listado na sua página de aplicações é solicitado para ser contactado. Partilhamos uma notificação de que este cliente foi listado na sua aplicação, mas não precisa de ser contactado.
 - **"Criar"**: Esta ação está apenas dentro do portal Azure e é gerada quando um cliente compra a sua oferta na sua conta.
@@ -92,7 +92,7 @@ A informação do cliente é enviada através de vários campos. O exemplo que s
 - **Continuação:** Não se esqueça de acompanhar. Espere que a transação típica exija 5 a 12 chamadas de seguimento.
 - **Nurture**: Nurture as suas pistas para levá-lo a caminho de uma margem de lucro mais elevada.
 
-## <a name="leads-frequently-asked-questions"></a>Pistas frequentemente feitas perguntas
+## <a name="common-questions-about-lead-management"></a>Questões comuns sobre a gestão de chumbo
 
 ### <a name="where-can-i-get-help-in-setting-up-my-lead-destination"></a>Onde posso arranjar ajuda para preparar o meu destino principal?
 
@@ -133,7 +133,7 @@ O armazenamento Azure Blob já não é suportado como um destino de chumbo, pelo
 
 ### <a name="i-received-an-email-from-the-commercial-marketplace-but-why-cant-i-find-the-lead-in-my-crm"></a>Recebi um e-mail do mercado comercial, mas por que não encontro a pista no meu CRM?
 
-É possível que o domínio de e-mail do utilizador final seja de .edu. Por razões de privacidade, não passamos informações pessoalmente identificáveis do domínio .edu. Envie um bilhete de apoio através da [Ajuda e suporte do Partner Center.](https://partner.microsoft.com/support/v2/?stage=1)
+É possível que o domínio de e-mail do utilizador final seja de .edu. Por razões de privacidade, não passamos informações pessoais do domínio .edu. Envie um bilhete de apoio através da [Ajuda e suporte do Partner Center.](https://partner.microsoft.com/support/v2/?stage=1)
 
 ### <a name="i-configured-an-azure-table-as-my-lead-destination-how-can-i-view-the-leads"></a>Configurei uma mesa Azure como o meu destino principal. Como posso ver as pistas?
 
@@ -149,7 +149,7 @@ Verifique se o formulário web-to-lead é um campo obrigatório baseado numa lis
 
 ### <a name="there-was-an-issue-with-my-lead-destination-and-i-missed-some-leads-can-i-have-them-sent-to-me-in-an-email"></a>Houve um problema com o meu destino principal, e perdi algumas pistas. Posso mandá-los num e-mail?
 
-Devido a políticas de informação pessoalmente identificáveis, não podemos partilhar informações de chumbo através de e-mail não seguro.
+Devido a políticas de informação pessoal, não podemos partilhar informações de chumbo através de e-mail não seguro.
 
 ### <a name="i-configured-an-azure-table-as-my-lead-destination-how-much-will-it-cost"></a>Configurei uma mesa Azure como o meu destino principal. Quanto vai custar?
 
