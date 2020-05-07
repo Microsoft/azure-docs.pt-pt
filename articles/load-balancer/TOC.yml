@@ -40,6 +40,8 @@
       href: components.md
     - name: Conceitos
       href: concepts.md
+    - name: SKUs
+      href: skus.md
     - name: Monitorização do estado de funcionamento
       items:
         - name: Sondas do estado de funcionamento

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Treine e implante um modelo utilizando a extensão do Código do Estúdio Visual'
+title: 'Tutorial: & de treino saem modelos: Código VS'
 titleSuffix: Azure Machine Learning
 description: Saiba como treinar e implementar um modelo de classificação de imagem utilizando o TensorFlow e a extensão do código do estúdio visual de aprendizagem automática Azure
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 04/13/2020
-ms.openlocfilehash: f793f8c4cb84f821c098cc5ce98e693d272e725f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: b8b72e85f1d1660ee7d21afe3d34fde66f08ff8c
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81272827"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791838"
 ---
 # <a name="train-and-deploy-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension"></a>Treine e implemente um modelo de classificação de imagem TensorFlow utilizando a extensão do código do estúdio visual de aprendizagem automática Azure
 

@@ -1,146 +1,197 @@
 ---
 title: Tutorial - Crie imagens VM personalizadas com o Azure CLI
 description: Neste tutorial, vai aprender a utilizar a CLI do Azure para criar uma imagem de máquina virtual personalizada no Azure
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
+ms.subservice: imaging
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/13/2017
+ms.date: 05/04/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: dc7b395d46fd28cde9ccbbda8a8a55447efa61c9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.reviewer: akjosh
+ms.openlocfilehash: 9f3a175352aa0455cecc2e31e235a60cc27c76c5
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81460057"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792178"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>Tutorial: Criar uma imagem personalizada de uma VM do Azure com a CLI do Azure
 
 As imagens personalizadas são como imagens do marketplace, mas são criadas por si. As imagens personalizadas podem ser utilizadas para configurações do programa de arranque do sistema, como o pré-carregamento de aplicações, configurações de aplicação e outras configurações do SO. Neste tutorial, vai criar a sua imagem personalizada de uma máquina virtual do Azure. Saiba como:
 
 > [!div class="checklist"]
-> * Desaprovisionar e generalizar VMs
-> * Criar uma imagem personalizada
-> * Criar uma VM a partir de uma imagem personalizada
-> * Listar todas as imagens na sua subscrição
-> * Eliminar uma imagem
+> * Criar um Shared Image Gallery
+> * Criar uma definição de imagem
+> * Criar uma versão de imagem
+> * Criar um VM a partir de uma imagem 
+> * Partilhar uma galeria de imagens
+
 
 Este tutorial utiliza o CLI dentro da [Cloud Shell Azure,](https://docs.microsoft.com/azure/cloud-shell/overview)que é constantemente atualizada para a versão mais recente. Para abrir a Cloud Shell, selecione **Experimente a** partir do topo de qualquer bloco de código.
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar o CLI localmente, este tutorial requer que esteja a executar a versão 2.4.0 do Azure CLI ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli).
+
+## <a name="overview"></a>Descrição geral
+
+Uma [Galeria de Imagem Partilhada](shared-image-galleries.md) simplifica a partilha de imagens personalizadas em toda a sua organização. As imagens personalizadas são como imagens do marketplace, mas são criadas por si. As imagens personalizadas podem ser utilizadas para configurações do programa de arranque do sistema, como o pré-carregamento de aplicações, configurações de aplicação e outras configurações do SO. 
+
+A Galeria de Imagem Partilhada permite-lhe partilhar as suas imagens VM personalizadas com outras. Escolha quais as imagens que pretende partilhar, quais as regiões em que as quer disponibilizar e com quem as quer partilhar. 
+
+A funcionalidade Da Galeria de Imagem Partilhada tem vários tipos de recursos:
+
+[!INCLUDE [virtual-machines-shared-image-gallery-resources](../../../includes/virtual-machines-shared-image-gallery-resources.md)]
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 Os passos abaixo detalham como tornar uma VM existente numa imagem personalizada reutilizável que pode utilizar para criar novas instâncias da VM.
 
-Para concluir o exemplo neste tutorial, tem de ter uma máquina virtual existente. Se necessário, esta amostra de [guião](../scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md) pode criar uma para si. Quando trabalhar no tutorial, substitua o grupo de recursos e os nomes da VM sempre que preciso.
+Para concluir o exemplo neste tutorial, tem de ter uma máquina virtual existente. Se necessário, pode ver o [CLI quickstart](quick-create-cli.md) para criar um VM para usar para este tutorial. Ao trabalhar através do tutorial, substitua os nomes de recursos sempre que necessário.
 
-## <a name="create-a-custom-image"></a>Criar uma imagem personalizada
+## <a name="launch-azure-cloud-shell"></a>Iniciar o Azure Cloud Shell
 
-Para criar uma imagem de uma máquina virtual, tem de preparar a VM ao desaprovisionar, desalocar e, em seguida, marcar a VM de origem como generalizada. Assim que a VM tiver sido preparada, pode criar uma imagem.
+O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. 
 
-### <a name="deprovision-the-vm"></a>Desaprovisionar a VM 
+Para abrir o Cloud Shell, basta selecionar **Experimente** no canto superior direito de um bloco de código. Também pode lançar cloud Shell em um [https://shell.azure.com/powershell](https://shell.azure.com/powershell)separado separado browser, indo para . Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
 
-O desaprovisionamento generaliza a VM ao remover informações específicas do computador. Esta generalização torna possível implementar várias VMs a partir de uma única imagem. Durante o desaprovisionamento, o nome do anfitrião é reposto para *localhost.localdomain*. Também são eliminadas as chaves de anfitrião do SSH, as configurações do servidor de nomes, a palavra-passe de raiz e as concessões DHCP em cache.
+## <a name="create-an-image-gallery"></a>Criar uma galeria de imagens 
 
-> [!WARNING]
-> A desprovisionamento e a marcação do VM como generalizado tornarão a fonte VM inutilizável, não podendo ser reiniciada. 
+Uma galeria de imagens é o recurso principal usado para permitir a partilha de imagens. 
 
-Para desaprovisionar a VM, utilize o agente da VM do Azure (waagent). O agente da VM do Azure é instalado na VM e gere o aprovisionamento e a interação com o Controlador dos Recursos de Infraestrutura do Azure. Para obter mais informações, veja o [Guia de utilizador do Agente Linux do Azure](../extensions/agent-linux.md).
+Os caracteres permitidos para o nome da Galeria são letras maiúsculas ou minúsculas, dígitos, pontos e períodos. O nome da galeria não pode conter traços.   Os nomes das galerias devem ser únicos dentro da sua subscrição. 
 
-Ligue à VM atual através do SSH e execute o comando para desaprovisionar a VM. Com o argumento `+user`, a última conta de utilizador aprovisionada e quaisquer dados associados também são eliminados. Substitua o endereço IP de exemplo pelo endereço IP público da VM.
+Crie uma galeria de imagens usando [az sig criar.](/cli/azure/sig#az-sig-create) O exemplo seguinte cria um grupo de recursos chamado *myGalleryRG* no *Leste dos EUA,* e uma galeria chamada *myGallery*.
 
-SSH para a VM.
-```bash
-ssh azureuser@52.174.34.95
-```
-Desaprovisione a VM.
-
-```bash
-sudo waagent -deprovision+user -force
-```
-Feche a sessão SSH.
-
-```bash
-exit
+```azurecli-interactive
+az group create --name myGalleryRG --location eastus
+az sig create --resource-group myGalleryRG --gallery-name myGallery
 ```
 
-### <a name="deallocate-and-mark-the-vm-as-generalized"></a>Desaloque e marque a VM como generalizada
+## <a name="get-infornation-about-the-vm"></a>Infornation sobre o VM
 
-Para criar uma imagem, a VM tem de ser desalocada. Desaloque a VM com [az vm deallocate](/cli//azure/vm). 
-   
+Pode ver uma lista de VMs disponíveis através [da lista Az Vm](/cli/azure/vm#az-vm-list). 
+
+```azurecli-interactive
+az vm list --output table
+```
+
+Assim que souber o nome VM e em que grupo de recursos se encontra, obtenha a identificação do VM usando [az vm get-instance-view](/cli/azure/vm#az-vm-get-instance-view). 
+
+```azurecli-interactive
+az vm get-instance-view -g MyResourceGroup -n MyVm --query id
+```
+
+Copie a identificação do seu VM para usar mais tarde.
+
+## <a name="create-an-image-definition"></a>Criar uma definição de imagem
+
+As definições de imagem criam um agrupamento lógico para imagens. São utilizados para gerir informação sobre as versões de imagem que são criadas dentro delas. 
+
+Os nomes de definição de imagem podem ser compostos por letras maiúsculas ou minúsculas, dígitos, pontos, traços e períodos. 
+
+Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, consulte [definições](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#image-definitions)de imagem .
+
+Crie uma definição de imagem na galeria utilizando a [criação de definição de imagem az sig](/cli/azure/sig/image-definition#az-sig-image-definition-create). 
+
+Neste exemplo, a definição de imagem é denominada *myImageDefinition*, e é para uma imagem o Linux OS [especializada.](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#generalized-and-specialized-images) 
+
 ```azurecli-interactive 
-az vm deallocate --resource-group myResourceGroup --name myVM
+az sig image-definition create \
+   --resource-group myGalleryRG \
+   --gallery-name myGallery \
+   --gallery-image-definition myImageDefinition \
+   --publisher myPublisher \
+   --offer myOffer \
+   --sku mySKU \
+   --os-type Linux \
+   --os-state specialized
 ```
 
-Por fim, defina o estado da VM como generalizado com [az vm generalize](/cli//azure/vm), para que a plataforma do Azure saiba que a VM foi generalizada. Pode criar apenas uma imagem a partir de uma VM generalizada.
-   
+Copie a identificação da definição de imagem da saída para utilizar mais tarde.
+
+## <a name="create-the-image-version"></a>Criar a versão de imagem
+
+Crie uma versão de imagem a partir do VM utilizando a imagem [da galeria az criar-versão de imagem.](/cli/azure/sig/image-version#az-sig-image-version-create)  
+
+Os caracteres permitidos para a versão de imagem são números e períodos. Os números devem estar dentro do alcance de um inteiro de 32 bits. Formato: *MajorVersion*. *Versão menor.* *Patch*.
+
+Neste exemplo, a versão da nossa imagem é *de 1.0.0* e vamos criar 2 réplicas na região *centro-oeste dos EUA,* 1 réplica na região *centro-sul dos EUA* e 1 réplica na região leste dos EUA *2* utilizando armazenamento redundante. As regiões de replicação devem incluir a região onde se encontra a fonte VM.
+
+Substitua o `--managed-image` valor deste exemplo pela identificação do seu VM do passo anterior.
+
 ```azurecli-interactive 
-az vm generalize --resource-group myResourceGroup --name myVM
+az sig image-version create \
+   --resource-group myGalleryRG \
+   --gallery-name myGallery \
+   --gallery-image-definition myImageDefinition \
+   --gallery-image-version 1.0.0 \
+   --target-regions "westcentralus" "southcentralus=1" "eastus=1=standard_zrs" \
+   --replica-count 2 \
+   --managed-image "/subscriptions/<Subscription ID>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM"
 ```
 
-### <a name="create-the-image"></a>Criar a imagem
+> [!NOTE]
+> É preciso esperar que a versão de imagem termine completamente de ser construída e replicada antes de poder utilizar a mesma imagem gerida para criar outra versão de imagem.
+>
+> Também pode armazenar a sua imagem no `--storage-account-type  premium_lrs`armazenamento Premiun através `--storage-account-type  standard_zrs` de um armazenamento de adição ou [Zona Redundante](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) adicionando quando criar a versão de imagem.
+>
 
-Já pode criar uma imagem da VM com [az image create](/cli//azure/image). O exemplo seguinte cria uma imagem designada *myImage* a partir de uma VM designada *myVM*.
-   
-```azurecli-interactive 
-az image create \
-    --resource-group myResourceGroup \
-    --name myImage \
-    --source myVM
-```
  
-## <a name="create-vms-from-the-image"></a>Criar VMs a partir da imagem
+## <a name="create-the-vm"></a>Crie a VM
 
-Agora que tem uma imagem, pode criar uma ou mais VMs novas a partir da imagem com [az vm create](/cli/azure/vm). O exemplo seguinte cria uma VM denominada *myVMfromImage* a partir de uma imagem denominada *myImage*.
+Criar o VM usando [az vm criar](/cli/azure/vm#az-vm-create) usando o parâmetro --especializado para indicar que a imagem é uma imagem especializada. 
 
-```azurecli-interactive 
-az vm create \
-    --resource-group myResourceGroup \
-    --name myVMfromImage \
-    --image myImage \
-    --admin-username azureuser \
-    --generate-ssh-keys
+Utilize o ID `--image` de definição de imagem para criar o VM a partir da versão mais recente da imagem que está disponível. Também pode criar o VM a partir de uma `--image`versão específica, fornecendo o ID da versão de imagem para . 
+
+Neste exemplo, estamos a criar um VM a partir da versão mais recente da imagem *myImageDefinition.*
+
+```azurecli
+az group create --name myResourceGroup --location eastus
+az vm create --resource-group myResourceGroup \
+    --name myVM \
+    --image "/subscriptions/<Subscription ID>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition" \
+    --specialized
 ```
 
-Recomendamos que limite o número de implementações simultâneas a 20 VMs de uma única imagem. Se estiver a planear implementações em larga escala e simultâneas de mais de 20 VMs a partir da mesma imagem personalizada, deve utilizar uma Galeria de [Imagem Partilhada](shared-image-galleries.md) com múltiplas réplicas de imagem. 
+## <a name="share-the-gallery"></a>Partilhar a galeria
 
-## <a name="image-management"></a>Gestão das imagens 
+Pode partilhar imagens através de subscrições utilizando o Controlo de Acesso Baseado em Funções (RBAC). Pode partilhar imagens na galeria, definição de imagem ou versão de imagem. Qualquer utilizador que tenha lido permissões para uma versão de imagem, mesmo através de subscrições, será capaz de implementar um VM utilizando a versão de imagem.
 
-Seguem-se alguns exemplos de tarefas comuns de gestão de imagens e como concluí-las com a CLI do Azure.
+Recomendamos que partilhe com outros utilizadores ao nível da galeria. Para obter a identificação do objeto da sua galeria, use [az sig show](/cli/azure/sig#az-sig-show).
 
-Liste todas as imagens por nome num formato de tabela.
-
-```azurecli-interactive 
-az image list \
-    --resource-group myResourceGroup
+```azurecli-interactive
+az sig show \
+   --resource-group myGalleryRG \
+   --gallery-name myGallery \
+   --query id
 ```
 
-Elimine uma imagem. Este exemplo elimina a imagem denominada *myOldImage* do *myResourceGroup*.
+Utilize o ID do objeto como âmbito, juntamente com um endereço de e-mail e [uma atribuição de função az criar](/cli/azure/role/assignment#az-role-assignment-create) para dar a um utilizador acesso à galeria de imagens partilhadas. `<email-address>` Substitua `<gallery iD>` e com a sua própria informação.
 
-```azurecli-interactive 
-az image delete \
-    --name myOldImage \
-    --resource-group myResourceGroup
+```azurecli-interactive
+az role assignment create \
+   --role "Reader" \
+   --assignee <email address> \
+   --scope <gallery ID>
 ```
+
+Para obter mais informações sobre como partilhar recursos usando o RBAC, consulte [Gerir o acesso utilizando o RBAC e o Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli).
+
+## <a name="azure-image-builder"></a>Azure Image Builder
+
+A Azure também oferece um serviço, construído em Packer, [Azure VM Image Builder.](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview) Basta descrever as suas personalizações num modelo, e tratará da criação de imagem. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, criou uma imagem de VM personalizada. Aprendeu a:
 
 > [!div class="checklist"]
-> * Desaprovisionar e generalizar VMs
-> * Criar uma imagem personalizada
-> * Criar uma VM a partir de uma imagem personalizada
-> * Listar todas as imagens na sua subscrição
-> * Eliminar uma imagem
+> * Criar um Shared Image Gallery
+> * Criar uma definição de imagem
+> * Criar uma versão de imagem
+> * Criar um VM a partir de uma imagem 
+> * Partilhar uma galeria de imagens
 
 Avance para o próximo tutorial para saber mais sobre máquinas virtuais de elevada disponibilidade.
 

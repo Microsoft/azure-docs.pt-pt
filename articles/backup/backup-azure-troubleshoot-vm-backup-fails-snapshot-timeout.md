@@ -5,12 +5,12 @@ ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: a3eedb5440711c7a45a13dcd53dd489c490588fc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4f87f2de3747f55562d3f683e1738595624940dd
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81677415"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854629"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Falha de backup de Troubleshoot Azure: Problemas com o agente ou extensão
 
@@ -200,7 +200,7 @@ Se necessitar de extração verbosa para agente, siga estes passos:
 
 ### <a name="vm-agent-configuration-options-are-not-set-for-linux-vms"></a>As opções de configuração VM-Agent não estão definidas (para VMs Linux)
 
-Um ficheiro de configuração (/etc/waagent.conf) controla as ações do agente. Configuração De definição De Definição De Definição De **Extensões.Ativação** e **Provisionamento.O agente** deve ser definido para **y** para o backup funcionar.
+Um ficheiro de configuração (/etc/waagent.conf) controla as ações do agente. Configuração De definição De definição De definição De **extensões.Ativar** deve ser definido para **y** e **Provisioning.O agente** deve ser definido para **auto** para backup funcionar.
 Para obter a lista completa das opções de ficheiros de configuração vm-agent, consulte<https://github.com/Azure/WALinuxAgent#configuration-file-options>
 
 ### <a name="the-snapshot-status-cant-be-retrieved-or-a-snapshot-cant-be-taken"></a><a name="the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>O estado instantâneo não pode ser recuperado, ou uma foto não pode ser tirada

@@ -1010,6 +1010,8 @@
         - name: Descrição geral da segurança
           href: /azure/databricks/security/index
           maintainContext: true
+        - name: Linha de base de segurança
+          href: security-baseline.md
         - name: Controlo de acesso
           items:
             - name: Descrição geral do controlo de acesso

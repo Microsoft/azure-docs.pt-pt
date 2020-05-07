@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 04/26/2020
+ms.date: 05/05/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: d14f31741147ebe497efbf47b077e41c31b36b7b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ff2a55d9eb7b5c0787c5327ea34338a7efb90da0
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82653282"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836581"
 ---
-|Nome |Descrição |Efeitos(s) |Versão |GitHub |
+|Name |Descrição |Efeitos(s) |Versão |GitHub |
 |---|---|---|---|---|
 |[Auditwindows VMs em que o Windows Defender Exploit Guard não está ativado](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbed48b13-6647-468e-aa2f-1af1d3f4dd40) |O Windows Defender Exploit Guard ajuda a proteger contra malwares que utilizam explorações para infetar dispositivos e espalhar. A proteção da Explore Guard consiste numa série de mitigações que podem ser aplicadas tanto ao sistema operativo como às aplicações individuais. Esta política requer a Política Azure para a extensão do Windows. Para mais [https://aks.ms/gcpol](https://aks.ms/gcpol)detalhes, visite. |AuditoriaIfNotExists, Deficiente |1.0.0-pré-visualização |[Ligação](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_WindowsDefenderExploitGuard_AuditIfNotExist.json) |
 |[Configure o fuso horário nas máquinas windows.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6141c932-9384-44c6-a395-59e4c057d7c9) |Esta política cria uma atribuição de Configuração de Hóspedes para definir o fuso horário especificado nas máquinas virtuais do Windows. |implementarIfNotExists |1.0.0-pré-visualização |[Ligação](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_SetWindowsTimeZone_Deploy.json) |

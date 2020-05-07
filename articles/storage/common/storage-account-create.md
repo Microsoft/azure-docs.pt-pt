@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 02/07/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: c2d1e8b4975be0657983192df00cc434da00a6f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7ff7db383a74ce01f7f1a7bf49a33e41f91decf8
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79255408"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853493"
 ---
 # <a name="create-an-azure-storage-account"></a>Criar uma conta de Armazenamento do Azure
 
@@ -152,8 +152,8 @@ Para criar uma conta de armazenamento v2 de uso geral com uma opção de replica
 |Armazenamento com redundância entre zonas (ZRS)     |Standard_ZRS         |
 |Armazenamento georredundante (GRS)     |Standard_GRS         |
 |Armazenamento georredundante com acesso de leitura (GRS)     |Standard_RAGRS         |
-|Armazenamento geo-zona-redundante (GZRS) (pré-visualização)    |Standard_GZRS         |
-|Armazenamento geo-zona-redundante de acesso de leitura (RA-GZRS) (pré-visualização)    |Standard_RAGZRS         |
+|Armazenamento com redundância entre zonas (GZRS)    |Standard_GZRS         |
+|Armazenamento geozona-redundante de acesso de leitura (RA-GZRS)    |Standard_RAGZRS         |
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -195,12 +195,12 @@ Para criar uma conta de armazenamento v2 de propósito geral com uma opção de 
 |Armazenamento com redundância entre zonas (ZRS)     |Standard_ZRS         |
 |Armazenamento georredundante (GRS)     |Standard_GRS         |
 |Armazenamento georredundante com acesso de leitura (GRS)     |Standard_RAGRS         |
-|Armazenamento geo-zona-redundante (GZRS) (pré-visualização)    |Standard_GZRS         |
-|Armazenamento geo-zona-redundante de acesso de leitura (RA-GZRS) (pré-visualização)    |Standard_RAGZRS         |
+|Armazenamento com redundância entre zonas (GZRS)    |Standard_GZRS         |
+|Armazenamento geozona-redundante de acesso de leitura (RA-GZRS)    |Standard_RAGZRS         |
 
 # <a name="template"></a>[Modelo](#tab/template)
 
-Pode utilizar o Azure Powershell ou o Azure CLI para implementar um modelo de Gestor de Recursos para criar uma conta de armazenamento. O modelo utilizado neste artigo de como-a-artigo é de [modelos de quickstart do Gestor](https://azure.microsoft.com/resources/templates/101-storage-account-create/)de Recursos Do Azure . Para executar os scripts, selecione **Experimente-o** para abrir a concha Azure Cloud. Para colar o script, clique na concha e, em seguida, selecione **Pasta**.
+Pode utilizar o Azure PowerShell ou o Azure CLI para implementar um modelo de Gestor de Recursos para criar uma conta de armazenamento. O modelo utilizado neste artigo de como-a-artigo é de [modelos de quickstart do Gestor](https://azure.microsoft.com/resources/templates/101-storage-account-create/)de Recursos Do Azure . Para executar os scripts, selecione **Experimente-o** para abrir a Casca de Nuvem Azure. Para colar o script, clique na concha e, em seguida, selecione **Pasta**.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
