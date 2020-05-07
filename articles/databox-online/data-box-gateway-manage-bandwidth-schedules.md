@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 63f3572dcb5affb9fcf89d86a665bef9414cb011
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: feae75b1fbb832f833a01fa20ce07962ab5c484f
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60755381"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561479"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-data-box-gateway"></a>Utilizar o portal do Azure para gerir as agendas de largura de banda do Azure Data Box Gateway  
 
@@ -84,4 +84,4 @@ Efetue os seguintes passos para eliminar uma agenda de largura de banda associad
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba como [Gerir a largura de banda](data-box-gateway-manage-bandwidth-schedules.md).
+- Saiba como [Gerir a largura de banda](data-box-gateway-manage-bandwidth-schedules.md). 
