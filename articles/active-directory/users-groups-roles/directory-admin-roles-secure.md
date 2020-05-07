@@ -6,7 +6,7 @@ keywords: ''
 author: curtand
 manager: daveba
 ms.author: curtand
-ms.date: 11/13/2019
+ms.date: 04/29/2020
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 512efa959ccb78533845cd1f376318394b5c377b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3a83593b96d14261bbfb957e802cc16ee028466e
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82129171"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583058"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Proteção de acesso privilegiado para implementações híbridas e na cloud no Azure AD
 
@@ -55,10 +55,10 @@ Garantir o acesso privilegiado requer alterações
 
 Este documento centra-se principalmente na criação de um roteiro para proteger identidades e acessos que são geridos ou reportados em Azure AD, Microsoft Azure, Office 365 e outros serviços na nuvem. Para as organizações que tenham contas administrativas no local, consulte as orientações para o acesso privilegiado no local e híbrido gerido a partir do Diretório Ativo na Garantia de [Acesso Privilegiado.](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access) 
 
-> [!NOTE] 
-> A orientação deste artigo refere-se principalmente às funcionalidades do Azure Ative Directory que estão incluídas nos planos Azure Ative Directory Premium P1 e P2. O Azure Ative Directory Premium P2 está incluído na suite EMS E5 e na suite Microsoft 365 E5. Esta orientação pressupõe que a sua organização já tem licenças Azure AD Premium P2 adquiridas para os seus utilizadores. Se não tiver estas licenças, algumas das orientações podem não se aplicar à sua organização. Além disso, ao longo deste artigo, o termo administrador global (ou administrador global) é sinónimo de "administrador da empresa" ou "administrador de inquilinos".
+> [!NOTE]
+> A orientação deste artigo refere-se principalmente às funcionalidades do Azure Ative Directory que estão incluídas nos planos Azure Ative Directory Premium P1 e P2. O Azure Ative Directory Premium P2 está incluído na suite EMS E5 e na suite Microsoft 365 E5. Esta orientação pressupõe que a sua organização já tem licenças Azure AD Premium P2 adquiridas para os seus utilizadores. Se não tiver estas licenças, algumas das orientações podem não se aplicar à sua organização. Além disso, ao longo deste artigo, o termo administrador global (ou administrador global) significa o mesmo que "administrador da empresa" ou "administrador de inquilinos".
 
-## <a name="develop-a-roadmap"></a>Desenvolver um roteiro 
+## <a name="develop-a-roadmap"></a>Desenvolver um roteiro
 
 A Microsoft recomenda que desenvolva e siga um roteiro para garantir o acesso privilegiado contra ciberataques. Pode sempre ajustar o seu roteiro para acomodar as suas capacidades e requisitos específicos dentro da sua organização. Cada etapa do roteiro deve aumentar o custo e a dificuldade para os adversários atacarem o acesso privilegiado para os seus ativos no local, nuvem e híbridos. A Microsoft recomenda as seguintes quatro fases do roteiro: Este roteiro recomendado programa as implementações mais eficazes e rápidas primeiro, com base nas experiências da Microsoft com incidentes de ciberataque e implementação de resposta. As cronologias deste roteiro são aproximadas.
 
@@ -84,25 +84,25 @@ A fase 1 do roteiro está focada em tarefas críticas que são rápidas e fácei
 
 #### <a name="turn-on-azure-ad-privileged-identity-management"></a>Ligue a Azure AD Privileged Identity Management
 
-Se ainda não ligou a Azure AD Privileged Identity Management (PIM), faça-o no seu inquilino de produção. Depois de ativar a Gestão de Identidade Privilegiada, receberá mensagens de correio eletrónico de notificação para alterações de funções de acesso privilegiadas. Estas notificações fornecem um alerta precoce quando os utilizadores adicionais são adicionados a papéis altamente privilegiados no seu diretório.
+Se ainda não ligou a Azure AD Privileged Identity Management (PIM), faça-o na sua organização de produção Azure AD. Depois de ativar a Gestão de Identidade Privilegiada, receberá mensagens de correio eletrónico de notificação para alterações de funções de acesso privilegiadas. Estas notificações fornecem um alerta precoce quando os utilizadores adicionais são adicionados a papéis altamente privilegiados no seu diretório.
 
 A Azure AD Privileged Identity Management está incluída no Azure AD Premium P2 ou emems E5. Estas soluções ajudam-no a proteger o acesso a aplicações e recursos através do ambiente no local e na nuvem. Se ainda não tiver Azure AD Premium P2 ou EMS E5 e pretender avaliar mais das funcionalidades referidas neste roteiro, [inscreva-se](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-trial)no ensaio gratuito de 90 dias da Enterprise Mobility + Security. Utilize estes testes de licença para tentar a Azure AD Privileged Identity Management e azure AD Identity Protection, para monitorizar a atividade utilizando relatórios avançados de segurança, auditoria e alertas de segurança da Azure AD.
 
 Depois de ter ligado a Azure AD Privileged Identity Management:
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com/) com uma conta que é administradora global do seu inquilino de produção.
+1. Inscreva-se no [portal Azure](https://portal.azure.com/) com uma conta que é administradora global da sua organização de produção Azure AD.
 
-2. Para selecionar o inquilino onde pretende utilizar a Gestão de Identidade Privilegiada, selecione o seu nome de utilizador no canto superior direito do portal Azure.
+2. Para selecionar a organização Azure AD onde pretende utilizar a Gestão de Identidade Privilegiada, selecione o seu nome de utilizador no canto superior direito do portal Azure.
 
 3. No menu do portal Azure, selecione **Todos os serviços** e filtre a lista para a Gestão de Identidade Privilegiada do **Azure AD.**
 
 4. Abra a Gestão de Identidade Privilegiada da lista **de todos os serviços** e coloque-a no seu painel de instrumentos.
 
-A primeira pessoa a utilizar a Azure AD Privileged Identity Management no seu inquilino é automaticamente atribuída ao administrador de **Segurança** e **funções** privilegiadas de administrador no inquilino. Apenas administradores privilegiados podem gerir as atribuições de diretório seletiva seletiva dos utilizadores. Além disso, depois de adicionar a Azure AD Privileged Identity Management, é-lhe mostrado o assistente de segurança que o acompanha através da experiência inicial de descoberta e atribuição. Pode sair do assistente sem fazer alterações adicionais neste momento. 
+A primeira pessoa a utilizar a Azure AD Privileged Identity Management na sua organização é automaticamente atribuída ao administrador de **Segurança** e funções de **administrador privilegiado** na organização. Apenas administradores privilegiados podem gerir as atribuições de diretório seletiva seletiva dos utilizadores. Além disso, depois de adicionar a Azure AD Privileged Identity Management, é-lhe mostrado o assistente de segurança que o acompanha através da experiência inicial de descoberta e atribuição. Pode sair do assistente sem fazer alterações adicionais neste momento. 
 
 #### <a name="identify-and-categorize-accounts-that-are-in-highly-privileged-roles"></a>Identificar e categorizar contas que estejam em papéis altamente privilegiados 
 
-Depois de ligar a Azure AD Privileged Identity Management, consulte os utilizadores que estão nas funções de administrador global, administrador de papéis privilegiados, administrador exchange online e administrador sharePoint Online. Se não tiver o Azure AD PIM no seu inquilino, pode utilizar a [API PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0). Comece com o papel de administrador global como este papel é genérico: um utilizador a quem é atribuída esta função de administrador tem as mesmas permissões em todos os serviços na nuvem para os quais a sua organização subscreveu, independentemente de terem sido atribuídos este papel no centro de administração da Microsoft 365, no portal Azure, ou utilizando o módulo AD Azure para o Microsoft PowerShell. 
+Depois de ligar a Azure AD Privileged Identity Management, consulte os utilizadores que estão nas funções de administrador global, administrador de papéis privilegiados, administrador exchange online e administrador sharePoint Online. Se não tiver o Azure AD PIM na sua organização, pode utilizar a [API PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0). Comece com o papel de administrador global como este papel é genérico: um utilizador a quem é atribuída esta função de administrador tem as mesmas permissões em todos os serviços na nuvem para os quais a sua organização subscreveu, independentemente de terem sido atribuídos este papel no centro de administração da Microsoft 365, no portal Azure, ou utilizando o módulo AD Azure para o Microsoft PowerShell. 
 
 Remova quaisquer contas que já não sejam necessárias nessas funções. Em seguida, categorize as restantes contas que são atribuídas às funções de administrador:
 
@@ -115,7 +115,7 @@ Remova quaisquer contas que já não sejam necessárias nessas funções. Em seg
 
 #### <a name="define-at-least-two-emergency-access-accounts"></a>Definir pelo menos duas contas de acesso de emergência 
 
-Certifique-se de que não se mete numa situação em que possam ser inadvertidamente bloqueados fora da administração do seu inquilino Azure AD devido à incapacidade de iniciar sessão ou ativar a conta de um utilizador individual existente como administrador. Por exemplo, se a organização for federada a um fornecedor de identidade no local, esse fornecedor de identidade pode estar indisponível para que os utilizadores não possam inscrever-se no local. Pode mitigar o impacto da falta acidental de acesso administrativo armazenando duas ou mais contas de acesso de emergência no seu inquilino.
+Certifique-se de que não se mete numa situação em que possam ser inadvertidamente bloqueados fora da administração da sua organização Azure AD devido à incapacidade de iniciar sessão ou ativar a conta de um utilizador individual existente como administrador. Por exemplo, se a organização for federada a um fornecedor de identidade no local, esse fornecedor de identidade pode estar indisponível para que os utilizadores não possam inscrever-se no local. Pode mitigar o impacto da falta acidental de acesso administrativo armazenando duas ou mais contas de acesso de emergência na sua organização.
 
 As contas de acesso de emergência ajudam as organizações a restringir o acesso privilegiado dentro de um ambiente de Diretório Ativo Azure existente. Estas contas são altamente privilegiadas e não são atribuídas a indivíduos específicos. As contas de acesso de emergência limitam-se a situações de emergência para cenários de "vidro partido", em que as contas administrativas normais não podem ser utilizadas. As organizações devem assegurar o objetivo de controlar e reduzir a utilização da conta de emergência apenas para o tempo necessário.
 
@@ -195,7 +195,7 @@ Realizar uma resposta de incidente eficaz é uma tarefa complexa. Por conseguint
 
 #### <a name="secure-on-premises-privileged-administrative-accounts-if-not-already-done"></a>Contas administrativas privilegiadas no local, se não já feitas
 
-Se o seu inquilino do Diretório Ativo Azure estiver sincronizado com o Diretório Ativo no local, siga as orientações no Roteiro de [Acesso Privilegiado](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access)de Segurança : Fase 1. Isto inclui a criação de contas administrativas separadas para os utilizadores que precisam de realizar tarefas administrativas no local, a implementação de Postos de Trabalho de Acesso Privilegiado para administradores de Diretórios Ativos e a criação de senhas de administração locais únicas para estações de trabalho e servidores.
+Se a sua organização Azure Ative Directory estiver sincronizada com o Diretório Ativo no local, siga as orientações no Roteiro de [Acesso Privilegiado](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access)de Segurança : Fase 1. Isto inclui a criação de contas administrativas separadas para os utilizadores que precisam de realizar tarefas administrativas no local, a implementação de Postos de Trabalho de Acesso Privilegiado para administradores de Diretórios Ativos e a criação de senhas de administração locais únicas para estações de trabalho e servidores.
 
 ### <a name="additional-steps-for-organizations-managing-access-to-azure"></a>Passos adicionais para organizações que gerem o acesso ao Azure
 

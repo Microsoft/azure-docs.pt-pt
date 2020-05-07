@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/07/2019
+ms.date: 04/30/2020
 ms.author: allensu
-ms.openlocfilehash: 5a65982c5c13eb4e4273efcfd8d14910b0f35572
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5ecfbc610bfa62f723e0a02b8cdeb52cd33fb5cd
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78197152"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853453"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Balanceador de Carga Standard e Zonas de Disponibilidade
 
@@ -26,20 +26,20 @@ O Azure Standard Load Balancer suporta [cenários de zonas](../availability-zone
 
 ## <a name="availability-zones-concepts-applied-to-load-balancer"></a><a name="concepts"></a>Conceitos de Zonas de Disponibilidade aplicados ao Balancer de Carga
 
-Um recurso load Balancer em si é regional e nunca zonal. A granularidade do que pode configurar é limitada por cada configuração de definição frontal, regra e reserva.
-No contexto das zonas de disponibilidade, o comportamento e as propriedades de uma regra do Balancer de Carga são descritos como zona-redundante ou zonal.  Zona-redundante e zonal descrevem a zonade de uma propriedade.  No contexto do Balancer load, zona-redundante significa sempre *múltiplas zonas* e zonais significa isolar o serviço para uma *única zona*.
-Tanto cenários públicos e internos de suporte de balanceadores de carga são zonas redundantes e zonais e ambos podem direcionar o tráfego através das zonas conforme necessário *(equilíbrio de carga*transversal). 
+Um recurso load Balancer herda a configuração da zona a partir dos seus componentes: frontend, regra e definição de piscina de backend.
+No contexto das zonas de disponibilidade, o comportamento e as propriedades de uma regra do Balancer de Carga são descritos como zona-redundante ou zonal.  No contexto do Balancer load, zona-redundante significa sempre *múltiplas zonas* e zonais significa isolar o serviço para uma *única zona*.
+Ambos os tipos (públicos, internos) suporte de suporte de suporte de zona redundante e zonal e ambos podem direcionar o tráfego através de zonas conforme necessário.
 
-### <a name="frontend"></a>Front-end
+## <a name="frontend"></a>Front-end
 
 Um frontend do Balancer de carga é uma configuração IP frontal que refere um recurso de endereço IP público ou um endereço IP privado dentro da subnet de um recurso de rede virtual.  Forma o ponto final equilibrado da carga onde o seu serviço está exposto.
 Um recurso load Balancer pode conter regras com extremidades dianteiras zonais e zona-redundante simultaneamente. Quando um recurso IP público ou um endereço IP privado foi garantido para uma zona, a zona (ou falta dela) não é mutável.  Se desejar alterar ou omitir a zonade de um ip público ou endereço IP privado frontend, você precisa recriar o IP público na zona apropriada.  As zonas de disponibilidade não alteram os constrangimentos para várias extremidades dianteiras, reveja [várias extremidades frontais para](load-balancer-multivip-overview.md) o Balancer de Carga para obter detalhes para esta capacidade.
 
-#### <a name="zone-redundant"></a>Zona redundante 
+### <a name="zone-redundant"></a>Zona redundante 
 
 Numa região com zonas de disponibilidade, um frontend de balanceadores de carga padrão pode ser redundante em zona.  A zona redundante significa que todos os fluxos de entrada ou saída são servidos por múltiplas zonas de disponibilidade numa região simultaneamente utilizando um único endereço IP. Não são necessários esquemas de despedimento do DNS. Um único endereço IP frontal pode sobreviver à falha da zona e pode ser usado para alcançar todos os membros da piscina (não impactados) independentemente da zona. Uma ou mais zonas de disponibilidade podem falhar e o caminho dos dados sobrevive enquanto uma zona da região permanecer saudável. O único endereço IP do frontend é servido simultaneamente por múltiplas implementações independentes de infraestruturas em múltiplas zonas de disponibilidade.  Isto não significa uma trajetória de dados sem sucesso, mas qualquer tentativa ou reestabelecimento terá sucesso noutras zonas não afetadas pela falha da zona.   
 
-#### <a name="optional-zone-isolation"></a>Isolamento de zona opcional
+### <a name="zonal"></a>Zonal
 
 Você pode optar por ter uma frontend garantida a uma única zona, que é conhecida como uma *extremidade frontal zonal*.  Isto significa que qualquer fluxo de entrada ou saída é servido por uma única zona numa região.  A sua fachada partilha o destino com a saúde da zona.  A trajetória de dados não é afetada por falhas em zonas diferentes das que foram garantidas. Pode utilizar as extremidades dianteiras zonais para expor um endereço IP por Zona de Disponibilidade.  
 
@@ -51,13 +51,7 @@ Para uma extremidade frontal do Balanceor de Carga pública, adicione um parâme
 
 Para uma extremidade frontal interna do balanceor de carga, adicione um parâmetro de *zonas* à configuração IP frontal do Balanceor de Carga interna. A extremidade frontal zonal faz com que o Balancer de carga garanta um endereço IP numa subrede a uma zona específica.
 
-### <a name="cross-zone-load-balancing"></a>Cross-zone Load-Balanceing
-
-O equilíbrio de carga transversal é a capacidade do Balancer de Carga atingir um ponto final em qualquer zona e é independente da frontend e da sua zonalidade.  Qualquer regra de equilíbrio de carga pode visar a instância de backend em qualquer zona de disponibilidade ou instâncias regionais.
-
-Você precisa ter cuidado para construir o seu cenário de uma forma que expresse uma noção de zonas de disponibilidade. Por exemplo, você precisa garantir a sua implantação de máquina virtual dentro de uma única zona ou múltiplas zonas, e alinhar os recursos de frente zonal e zonal para a mesma zona.  Se cruzar zonas de disponibilidade apenas com recursos zonais, o cenário funcionará, mas poderá não ter um modo de falha claro no que diz respeito às zonas de disponibilidade. 
-
-### <a name="backend"></a>Back-end
+## <a name="backend"></a>Back-end
 
 O Balancer de Carga funciona com casos de máquinas virtuais.  Estes podem ser autónomos, conjuntos de disponibilidade ou conjuntos de escala de máquina virtual.  Qualquer caso de máquina virtual numa única rede virtual pode fazer parte da piscina de backend, independentemente de ter ou não sido garantida a uma zona ou qual a zona que estava garantida.
 
@@ -65,13 +59,13 @@ Se desejar alinhar e garantir a sua facefrontal e a sua extremidade traseira com
 
 Se desejar dirigir máquinas virtuais em várias zonas, basta colocar máquinas virtuais de várias zonas na mesma piscina de backend.  Ao utilizar conjuntos de escala de máquinavirtual, pode colocar uma ou mais conjuntos de escala de máquina virtual na mesma piscina de backend.  E cada um destes conjuntos de escala de máquinas virtuais pode estar em uma única ou múltiplas zonas.
 
-### <a name="outbound-connections"></a>Ligações de saída
+## <a name="outbound-connections"></a>Ligações de saída
 
 As mesmas propriedades zona-redundantes e zonais aplicam-se às [ligações de saída](load-balancer-outbound-connections.md).  Um endereço IP público redundante usado para ligações de saída é servido por todas as zonas. Um endereço IP público zonal é servido apenas pela zona onde está garantido.  Ligação de saída As dotações por porta SNAT sobrevivem a falhas de zona e o seu cenário continuará a fornecer conectividade SNAT de saída se não for afetada por falha de zona.  Isto pode exigir transmissões ou restabelecer ligações para cenários de zona redundante se um fluxo for servido por uma zona afetada.  Os fluxos em zonas diferentes das zonas afetadas não são afetados.
 
 O algoritmo de pré-alocação da porta SNAT é o mesmo com ou sem zonas de disponibilidade.
 
-### <a name="health-probes"></a>Sondas do estado de funcionamento
+## <a name="health-probes"></a>Sondas do estado de funcionamento
 
 As definições de sonda de saúde existentes permanecem como estão sem zonas de disponibilidade.  No entanto, expandimos o modelo de saúde a nível de infraestruturas. 
 

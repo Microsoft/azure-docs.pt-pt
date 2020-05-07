@@ -1,20 +1,17 @@
 ---
-title: Como um desconto de reserva é aplicado ao Servidor único da Base de Dados do Azure para PostgreSQL
-description: Como um desconto de reserva é aplicado ao Servidor único da Base de Dados do Azure para PostgreSQL
+title: Compreender um desconto de reserva - Servidor único da Base de Dados do Azure para PostgreSQL
+description: Saiba como um desconto de reserva é aplicado aos servidores únicos da Base de Dados do Azure para PostgreSQL.
 author: kummanish
 ms.author: manishku
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/13/2020
-ms.openlocfilehash: e0dc7780ee570ce2d731bedf9ef56be606088a1f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e01b35bc540045bc272484159380f8a11e5a6c48
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199301"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509402"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-database-for-postgresql-single-server"></a>Como um desconto de reserva é aplicado ao Servidor único da Base de Dados do Azure para PostgreSQL
 
@@ -44,5 +41,6 @@ Para o resto destes exemplos, assuma que a capacidade reservada do Servidor úni
 
 Para compreender e ver a aplicação das Reservas do Azure em relatórios de utilização da faturação, veja [Compreender a utilização das reservas do Azure](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea).
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos
+## <a name="next-steps"></a>Passos seguintes
+
 Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 09122581a3ade4e741a29996b7202ce0f96d074b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 053a506ad28978404a147e0604fe731f0b474225
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82145535"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82855734"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de runbooks na Automatização do Azure
 
@@ -33,20 +33,54 @@ O diagrama seguinte mostra o ciclo de vida de um trabalho de livro de corridas p
 >[!NOTE]
 >Este artigo foi atualizado para utilizar o novo módulo AZ do Azure PowerShell. Pode continuar a utilizar o módulo AzureRM, que continuará a receber correções de erros até, pelo menos, dezembro de 2020. Para obter mais informações sobre o novo módulo Az e a compatibilidade do AzureRM, veja [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para instruções de instalação do módulo Az no seu Executor Híbrido, consulte [Instalar o Módulo PowerShell Azure](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para a sua conta Automation, pode atualizar os seus módulos para a versão mais recente, utilizando [como atualizar os módulos Azure PowerShell em Automação Azure](automation-update-azure-modules.md).
 
-## <a name="where-to-run-your-runbooks"></a>Onde executar os seus livros de execução
+## <a name="security"></a>Segurança
 
-Os livros de execução em Azure Automation podem funcionar numa caixa de areia Azure ou num Trabalhador híbrido do livro de [corridas.](automation-hybrid-runbook-worker.md) Quando os livros são projetados para autenticar e correr contra recursos em Azure, eles funcionam numa caixa de areia Azure, que é um ambiente partilhado que vários trabalhos podem usar. Os trabalhos que utilizam a mesma caixa de areia estão ligados às limitações de recursos da caixa de areia.
+A Azure Automation utiliza o [Azure Security Center (ASC)](https://docs.microsoft.com/azure/security-center/security-center-introAzure) para garantir a segurança dos seus recursos e detetar compromissos nos sistemas Linux. A segurança é fornecida através das suas cargas de trabalho, quer os recursos estejam ou não em Azure. Ver [Introdução à autenticação na Automação Azure.](https://docs.microsoft.com/azure/automation/automation-security-overview)
+
+O ASC coloca constrangimentos aos utilizadores que possam executar quaisquer scripts, assinados ou não assinados, num VM. Se for um utilizador com acesso à raiz a um VM, deve configurar explicitamente a máquina com uma assinatura digital ou desligá-la. Caso contrário, só é possível executar um script para aplicar atualizações do sistema operativo após a criação de uma conta Automation e ativar a funcionalidade adequada.
+
+## <a name="subscriptions"></a>Subscrições
+
+Uma [subscrição](https://docs.microsoft.com/office365/enterprise/subscriptions-licenses-accounts-and-tenants-for-microsoft-cloud-offerings) do Azure é um acordo com a Microsoft para utilizar um ou mais serviços baseados na nuvem, para os quais é cobrado. Para a Automatização Azure, cada subscrição está ligada a uma conta Azure Automation, podendo [criar várias subscrições](manage-runbooks.md#work-with-multiple-subscriptions) na conta.
+
+## <a name="azure-monitor"></a>Azure Monitor
+
+A Azure Automation utiliza o [Monitor Azure](https://docs.microsoft.com/azure/azure-monitor/overview) para monitorizar as suas operações de máquina. As operações requerem um espaço de trabalho log Analytics e [agentes de Log Analytics.](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent)
+
+### <a name="log-analytics-agent-for-windows"></a>Agente de Log Analytics para Windows
+
+O [agente Log Analytics para windows](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windowsmonitor) trabalha com o Monitor Azure para gerir VMs windows e computadores físicos. As máquinas podem estar a funcionar em Azure ou num ambiente não Azure, como um datacenter local. Tem de configurar o agente para reportar a um ou mais espaços de trabalho do Log Analytics.
 
 >[!NOTE]
->O ambiente de caixa de areia Azure não suporta operações interativas. Também requer o uso de ficheiros MOF locais para livros de execução que fazem chamadas Win32.
+>O agente Log Analytics para Windows era anteriormente conhecido como o Microsoft Monitoring Agent (MMA).
 
-Você pode usar um Trabalhador de Runbook Híbrido para executar livros de execução diretamente no computador que acolhe o papel e contra os recursos locais no ambiente. A Azure Automation armazena e gere os livros de execução e depois entrega-os a um ou mais computadores atribuídos.
+### <a name="log-analytics-agent-for-linux"></a>Agente de Log Analytics para Linux
+
+O [agente Log Analytics para o Linux](https://docs.microsoft.com/azure/azure-monitor/platform/agent-linux) funciona de forma semelhante ao agente para windows, mas liga os computadores Linux ao Monitor Azure. O agente é instalado com uma conta de utilizador **de nxautomation** que permite a execução de comandos que requerem permissões de raiz, por exemplo, num Trabalhador de Livro Híbrido. A conta **de nxautomation** é uma conta do sistema que não requer uma senha. 
+
+A conta **de nxautomation** com as permissões sudo correspondentes deve estar presente durante a instalação de um trabalhador do [Livro de Execução Híbrido Linux](automation-linux-hrw-install.md). Se tentar instalar o trabalhador e a conta não estiver presente ou não tiver as permissões adequadas, a instalação falha.
+
+Os registos disponíveis para o agente Log Analytics e a conta **de nxautomation** são:
+
+* /var/opt/microsoft/omsagent/log/omsagent.log - Log Analytics agent log 
+* /var/opt/microsoft/omsagent/run/automationworker/worker.log - Automação registo de trabalhadores
+
+## <a name="runbook-execution-environment"></a>Ambiente de execução de livro de corridas
+
+Os livros de execução em Azure Automation podem funcionar numa caixa de areia Azure ou num Trabalhador híbrido do livro de [corridas.](automation-hybrid-runbook-worker.md) 
+
+Quando os livros são projetados para autenticar e correr contra recursos em Azure, eles funcionam numa caixa de areia Azure, que é um ambiente partilhado que vários trabalhos podem usar. Os trabalhos que utilizam a mesma caixa de areia estão ligados às limitações de recursos da caixa de areia. O ambiente de caixa de areia Azure não suporta operações interativas. Impede o acesso a todos os servidores COM fora de processo. Também requer o uso de ficheiros MOF locais para livros de execução que fazem chamadas Win32.
+
+Você também pode usar um Trabalhador de [Runbook Híbrido](automation-hybrid-runbook-worker.md) para executar livros de execução diretamente no computador que acolhe o papel e contra os recursos locais no ambiente. A Azure Automation armazena e gere os livros de execução e depois entrega-os a um ou mais computadores atribuídos.
+
+>[!NOTE]
+>Para funcionar num Trabalhador de Runbook Híbrido Linux, os seus scripts devem ser assinados e o trabalhador configurado em conformidade. Em alternativa, a [validação](https://docs.microsoft.com/azure/automation/automation-linux-hrw-install#turn-off-signature-validation)da assinatura deve ser desligada . 
 
 A tabela seguinte lista algumas tarefas de execução do livro de execução com o ambiente de execução recomendado listado para cada um.
 
 |Tarefa|Recomendação|Notas|
 |---|---|---|
-|Integrar com recursos Azure|Caixa de areia azure|Hospedada em Azure, a autenticação é mais simples. Se estiver a usar um Trabalhador De Raqui híbrido num VM Azure, pode utilizar [identidades geridas para recursos Azure](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources).|
+|Integrar com recursos Azure|Caixa de areia azure|Hospedada em Azure, a autenticação é mais simples. Se estiver a utilizar um Trabalhador de Livro Híbrido num VM Azure, pode utilizar a autenticação do [livro de corridas com identidades geridas](automation-hrw-run-runbooks.md#runbook-auth-managed-identities).|
 |Obtenha um desempenho ideal para gerir os recursos do Azure|Caixa de areia azure|O guião é executado no mesmo ambiente, que tem menos latência.|
 |Minimizar os custos operacionais|Caixa de areia azure|Não há despesas de cálculo nem necessidade de um VM.|
 |Executar script de longa duração|Função de Trabalho de Runbook Híbrida|As caixas de areia azure têm limites de [recursos.](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)|
@@ -60,102 +94,65 @@ A tabela seguinte lista algumas tarefas de execução do livro de execução com
 |Executar scripts que requerem elevação|Função de Trabalho de Runbook Híbrida|As caixas de areia não permitem a elevação. Com um Trabalhador híbrido do livro, pode desligar o UAC e utilizar o [Comando Invocado](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7) ao executar o comando que requer elevação.|
 |Executar scripts que requerem acesso a Instrumentação de Gestão do Windows (WMI)|Função de Trabalho de Runbook Híbrida|Os empregos em caixas de areia na nuvem não podem aceder ao fornecedor de WMI. |
 
-## <a name="using-modules-in-your-runbooks"></a>Usando módulos nos seus livros de execução
+## <a name="resources"></a>Recursos
+
+Os seus livros devem incluir lógica para lidar com recursos, por exemplo, VMs, rede e recursos na rede. Os recursos estão ligados a uma subscrição do Azure, e os livros recorrem que requerem credenciais adequadas para aceder a qualquer recurso. Ver [Recursos.](https://docs.microsoft.com/rest/api/resources/resources) Para um exemplo de manipulação de recursos num livro de rumeiro, consulte [os recursos do Handle](manage-runbooks.md#handle-resources). 
+
+## <a name="credentials"></a>Credenciais
+
+Um livro de execução requer [credenciais](shared-resources/credentials.md) adequadas para aceder a qualquer recurso, seja para sistemas Azure ou de terceiros. Estas credenciais são armazenadas em Azure Automation, Key Vault, etc.  
+
+## <a name="runbook-permissions"></a>Permissões do Runbook
+
+O livro de recortes precisa de permissões para autenticação para o Azure, através de credenciais. Pode fornecer credenciais utilizando:
+
+- Uma conta de utilizador local para aceder aos recursos locais
+- [Identidades geridas para recursos Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview), para VMs em funcionamento em Azure
+- Uma Execução de Automação Como conta para permitir aceder aos certificados da sua conta Deautomação no seu VM e usá-los localmente para autenticação
+
+## <a name="modules"></a>Módulos
 
 A Azure Automation suporta uma série de módulos predefinidos, incluindo os módulos AzureRM (AzureRM.Automation) e um módulo contendo vários cmdlets internos. Também são suportados módulos instalados, incluindo os módulos Az (Az.Automation), atualmente a ser utilizados em preferência aos módulos AzureRM. Para mais detalhes sobre os módulos disponíveis para os seus livros de execução e configurações DSC, consulte [Gerir módulos em Automação Azure](shared-resources/modules.md).
 
-## <a name="creating-resources"></a>Criação de recursos
+## <a name="certificates"></a>Certificados
 
-Se o seu livro de execução criar um recurso, o script deve verificar se o recurso já existe antes de tentar criá-lo. Aqui está um exemplo básico.
+A Azure Automation utiliza [certificados](shared-resources/certificates.md) para autenticação no Azure ou adiciona-os a recursos Azure ou de terceiros. Os certificados são armazenados de forma segura para acesso por livros de execução e configurações dSC. 
 
-```powershell
-$vmName = "WindowsVM1"
-$resourceGroupName = "myResourceGroup"
-$myCred = Get-AutomationPSCredential "MyCredential"
-$vmExists = Get-AzResource -Name $vmName -ResourceGroupName $resourceGroupName
+Os seus livros de execução podem utilizar certificados auto-assinados, que não são assinados por uma autoridade de certificados (CA). Ver [Criar um novo certificado.](shared-resources/certificates.md#create-a-new-certificate)
 
-if(!$vmExists)
-    {
-    Write-Output "VM $vmName does not exist, creating"
-    New-AzVM -Name $vmName -ResourceGroupName $resourceGroupName -Credential $myCred
-    }
-else
-    {
-    Write-Output "VM $vmName already exists, skipping"
-    }
-```
+## <a name="jobs"></a>Tarefas
 
-## <a name="supporting-time-dependent-scripts"></a>Apoiar scripts dependentes do tempo
+A Azure Automation apoia um ambiente para executar postos de trabalho a partir da mesma conta automation. Um único livro de corridas pode ter muitos empregos a funcionar de uma só vez. Quanto mais empregos se gere ao mesmo tempo, mais frequentemente podem ser enviados para a mesma caixa de areia. 
 
-Os seus livros devem ser robustos e capazes de lidar com erros transitórios que possam fazê-los reiniciar ou falhar. Se um livro de execução falhar, a Azure Automation tenta-o novamente.
+Os empregos a funcionar no mesmo processo de caixa de areia podem afetar-se mutuamente. Um exemplo é executar o cmdlet [Disconnect-AzAccount.](https://docs.microsoft.com/powershell/module/az.accounts/disconnect-azaccount?view=azps-3.7.0) A execução deste cmdlet desliga cada trabalho de livro de execução no processo de caixa de areia partilhada. Para mais informações, consulte [Prevenir empregos simultâneos](manage-runbooks.md#prevent-concurrent-jobs).
 
-Se o seu livro de execução normalmente estiver dentro de uma restrição de tempo, faça com que o script implemente a lógica para verificar o tempo de execução. Este controlo garante o funcionamento de operações como arranque, paragem ou escala apenas em tempos específicos.
+>[!NOTE]
+>Os trabalhos da PowerShell começaram a partir de um livro de corridas que funciona numa caixa de areia Azure pode não funcionar em todo o [modo de idioma PowerShell](/powershell/module/microsoft.powershell.core/about/about_language_modes). 
 
-> [!NOTE]
-> A hora local no processo de caixa de areia Azure está definida para UTC. Os cálculos relativos à data e hora nos seus livros de execução devem ter em conta este facto.
+### <a name="job-statuses"></a>Estatuto laboral
 
-## <a name="tracking-progress"></a>Acompanhar o progresso
+A tabela seguinte descreve os estatutos que são possíveis para um trabalho. Pode ver um resumo de estado para todos os trabalhos de livro ou perfurar detalhes de um trabalho específico de livro de corridas no portal Azure. Também pode configurar a integração com o seu espaço de trabalho Log Analytics para reencaminhar o estado do trabalho do livro de corridas e os fluxos de emprego. Para obter mais informações sobre a integração com os registos do Monitor Azure, consulte o [estado de trabalho avançado e os fluxos de trabalho da Automação para os registos do Monitor Azure](automation-manage-send-joblogs-log-analytics.md). Consulte também [a obtenção](manage-runbooks.md#obtain-job-statuses) de estatutos de emprego para um exemplo de trabalhar com estatutos num livro de execução.
 
-É uma boa prática autorizar os seus livros de corridas para serem modulares na natureza, com lógica que pode ser reutilizada e reiniciada facilmente. Acompanhar o progresso num livro de corridas é uma boa forma de garantir que a lógica do livro executa corretamente se houver problemas. É possível acompanhar o progresso de um livro de execução usando uma fonte externa, como uma conta de armazenamento, uma base de dados ou ficheiros partilhados. Pode criar lógica no seu livro de execução para verificar primeiro o estado da última ação tomada. Em seguida, com base no resultado da verificação, a lógica pode saltar ou continuar tarefas específicas no livro de execução.
+| Estado | Descrição |
+|:--- |:--- |
+| Concluído |A tarefa foi concluída com êxito. |
+| Falhou |Um livro de execução de fluxo de trabalho gráfico ou PowerShell não compilou. Um livro de scripts PowerShell não começou ou o trabalho teve uma exceção. Consulte os tipos de [livro de execução da Automação Azure](automation-runbook-types.md).|
+| Falhou, à espera de recursos |O trabalho falhou porque atingiu o limite [de ações justas](#fair-share) três vezes e partiu do mesmo posto de controlo ou desde o início do livro de corridas de cada vez. |
+| Em fila |O trabalho está à espera que os recursos de um trabalhador da Automação fiquem disponíveis para que possa ser iniciado. |
+| A iniciar |O trabalho foi atribuído a um trabalhador, e o sistema está a iniciá-lo. |
+| A retomar |O sistema está a retomar o trabalho depois de ter sido suspenso. |
+| A executar |A tarefa está a ser executada. |
+| Correndo, esperando por recursos |O trabalho foi descarregado porque atingiu o limite de ações justas. Será retomado em breve do seu último posto de controlo. |
+| Parada |A tarefa foi parada pelo utilizador antes de ser concluída. |
+| A parar |O sistema está a parar o trabalho. |
+| Suspenso |Aplica-se apenas aos [livros de execução gráfico e powerShell Workflow.](automation-runbook-types.md) A tarefa foi suspensa pelo utilizador, pelo sistema ou por um comando no runbook. Se um livro não tem um posto de controlo, começa desde o início. Se tiver um posto de controlo, pode recomeçar e retomar a partir do seu último posto de controlo. O sistema só suspende o livro de execução quando ocorre uma exceção. Por predefinição, a `ErrorActionPreference` variável está definida para Continuar, indicando que o trabalho continua a funcionar com um erro. Se a variável de preferência for definida para parar, o trabalho suspende-se por um erro.  |
+| A suspender |Aplica-se apenas aos [livros de execução gráfico e powerShell Workflow.](automation-runbook-types.md) O sistema está a tentar suspender o trabalho a pedido do utilizador. O runbook tem de atingir o próximo ponto de verificação antes de poder ser suspenso. Se já passou o seu último posto de controlo, completa antes de poder ser suspenso. |
 
-## <a name="preventing-concurrent-jobs"></a>Prevenção de empregos simultâneos
+## <a name="activity-logging"></a>Registo de atividades
 
-Alguns livros comportam-se de forma estranha se encontrarem vários empregos ao mesmo tempo. Neste caso, é importante que um livro implemente a lógica para determinar se já existe um trabalho em execução. Aqui está um exemplo básico.
+A execução de livros de execução na Azure Automation escreve detalhes num registo de atividade para a conta Automation. Para mais detalhes sobre a utilização do registo, consulte [a Recuperação de detalhes do Registo de Atividade](manage-runbooks.md#retrieve-details-from-activity-log). 
 
-```powershell
-# Authenticate to Azure
-$connection = Get-AutomationConnection -Name AzureRunAsConnection
-Connect-AzAccount -ServicePrincipal -Tenant $connection.TenantID `
--ApplicationId $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint
-
-$AzContext = Select-AzSubscription -SubscriptionId $connection.SubscriptionID
-
-# Check for already running or new runbooks
-$runbookName = "<RunbookName>"
-$rgName = "<ResourceGroupName>"
-$aaName = "<AutomationAccountName>"
-$jobs = Get-AzAutomationJob -ResourceGroupName $rgName -AutomationAccountName $aaName -RunbookName $runbookName -AzContext $AzureContext
-
-# Check to see if it is already running
-$runningCount = ($jobs | ? {$_.Status -eq "Running"}).count
-
-If (($jobs.status -contains "Running" -And $runningCount -gt 1 ) -Or ($jobs.Status -eq "New")) {
-    # Exit code
-    Write-Output "Runbook is already running"
-    Exit 1
-} else {
-    # Insert Your code here
-}
-```
-
-## <a name="working-with-multiple-subscriptions"></a>Trabalhar com várias subscrições
-
-Para lidar com várias subscrições, o seu livro de execução deve utilizar o cmdlet [Desactivação-AzContextAutosave.](https://docs.microsoft.com/powershell/module/Az.Accounts/Disable-AzContextAutosave?view=azps-3.5.0) Este cmdlet garante que o contexto de autenticação não é recuperado de outro livro de corridas que funciona na mesma caixa de areia. O livro de`AzContext` execução também utiliza o parâmetro no módulo Az cmdlets e passa-lhe o contexto adequado.
-
-```powershell
-# Ensures that you do not inherit an AzContext in your runbook
-Disable-AzContextAutosave –Scope Process
-
-$Conn = Get-AutomationConnection -Name AzureRunAsConnection
-Connect-AzAccount -ServicePrincipal `
--Tenant $Conn.TenantID `
--ApplicationId $Conn.ApplicationID `
--CertificateThumbprint $Conn.CertificateThumbprint
-
-$context = Get-AzContext
-
-$ChildRunbookName = 'ChildRunbookDemo'
-$AutomationAccountName = 'myAutomationAccount'
-$ResourceGroupName = 'myResourceGroup'
-
-Start-AzAutomationRunbook `
-    -ResourceGroupName $ResourceGroupName `
-    -AutomationAccountName $AutomationAccountName `
-    -Name $ChildRunbookName `
-    -DefaultProfile $context
-```
-
-## <a name="handling-exceptions"></a>Processamento de exceções
+## <a name="exceptions"></a>Exceções
 
 Esta secção descreve algumas formas de lidar com exceções ou problemas intermitentes nos seus livros de execução. Um exemplo é uma exceção WebSocket. O manuseamento correto da exceção impede que falhas de rede transitórias causem a falha dos seus livros de execução. 
 
@@ -203,147 +200,27 @@ function Get-ContosoFiles
 }
 ```
 
-## <a name="using-executables-or-calling-processes"></a>Utilização de executáveis ou processos de chamada
+## <a name="errors"></a>Erros
 
-Os livros de execução que funcionam em caixas de areia Azure não suportam processos de chamada, tais como executáveis (ficheiros **.exe)** ou subprocessos. A razão para isso é que uma caixa de areia Azure é um processo partilhado executado num recipiente que pode não ser capaz de aceder a todas as APIs subjacentes. Para cenários que exijam software de terceiros ou chamadas para subprocessos, deve executar um livro de execução num [Trabalhador de Runbook Híbrido](automation-hybrid-runbook-worker.md).
+Os seus livros devem lidar com erros. A Azure Automation suporta dois tipos de erros PowerShell, terminando e não terminando. 
 
-## <a name="accessing-device-and-application-characteristics"></a>Aceder às características do dispositivo e da aplicação
-
-Os trabalhos de livro de corridas que funcionam em caixas de areia Azure não podem aceder a qualquer dispositivo ou características de aplicação. A API mais comum usada para consultar métricas de desempenho no Windows é o WMI, com algumas das métricas comuns a serem a memória e o uso do CPU. No entanto, não importa o que a API é usada, uma vez que os empregos que correm na nuvem não podem aceder à implementação da Microsoft de Web-Based Enterprise Management (WBEM). Esta plataforma baseia-se no Modelo de Informação Comum (CIM), fornecendo as normas da indústria para definir as características do dispositivo e da aplicação.
-
-## <a name="handling-errors"></a>Processar erros
-
-Os seus livros devem ser capazes de lidar com erros. A PowerShell tem dois tipos de erros, terminando e não terminando. Os erros de terminação impedem a execução do livro quando ocorrem. O livro para com um estatuto de trabalho de Falhado.
+Os erros de terminação impedem a execução do livro quando ocorrem. O livro para com um estatuto de trabalho de Falhado.
 
 Erros não terminadores permitem que um script continue mesmo depois de ocorrerem. Um exemplo de um erro não terminante é aquele que `Get-ChildItem` ocorre quando um livro de execução usa o cmdlet com um caminho que não existe. PowerShell vê que o caminho não existe, lança um erro e continua para a próxima pasta. O erro neste caso não define o estatuto de trabalho do livro de execução para falhado, e o trabalho pode até estar concluído. Para forçar um livro de ruma para parar `ErrorAction Stop` num erro não terminante, pode utilizar o cmdlet.
 
-## <a name="handling-jobs"></a>Manuseamento de postos de trabalho
+## <a name="executables-or-calling-processes"></a>Executáveis ou processos de chamada
 
-Pode reutilizar o ambiente de execução para trabalhos na mesma conta de Automação. Um único livro de corridas pode ter muitos empregos a funcionar de uma só vez. Quanto mais empregos se gere ao mesmo tempo, mais frequentemente podem ser enviados para a mesma caixa de areia.
+Os livros de execução que funcionam em caixas de areia Azure não suportam processos de chamada, tais como executáveis (ficheiros **.exe)** ou subprocessos. A razão para isso é que uma caixa de areia Azure é um processo partilhado executado num recipiente que pode não ser capaz de aceder a todas as APIs subjacentes. Para cenários que exijam software de terceiros ou chamadas para subprocessos, deve executar um livro de execução num [Trabalhador de Runbook Híbrido](automation-hybrid-runbook-worker.md).
 
-Os empregos a funcionar no mesmo processo de caixa de areia podem afetar-se mutuamente. Um exemplo é executar o cmdlet [Disconnect-AzAccount.](https://docs.microsoft.com/powershell/module/az.accounts/disconnect-azaccount?view=azps-3.7.0) A execução deste cmdlet desliga cada trabalho de livro de execução no processo de caixa de areia partilhada.
+## <a name="access-to-device-and-application-characteristics"></a>Acesso às características do dispositivo e da aplicação
 
-Os trabalhos da PowerShell começaram a partir de um livro de corridas que funciona numa caixa de areia Azure pode não funcionar em todo o [modo de idioma PowerShell](/powershell/module/microsoft.powershell.core/about/about_language_modes). Para obter mais informações sobre a interação com os empregos na Azure Automation, consulte [a Recuperação do estatuto de emprego com](#retrieving-job-status-using-powershell)a PowerShell .
+Os trabalhos de livro de corridas que funcionam em caixas de areia Azure não podem aceder a qualquer dispositivo ou características de aplicação. A API mais comum usada para consultar métricas de desempenho no Windows é o WMI, com algumas das métricas comuns a serem a memória e o uso do CPU. No entanto, não importa o que a API é usada, uma vez que os empregos que correm na nuvem não podem aceder à implementação da Microsoft de Web-Based Enterprise Management (WBEM). Esta plataforma baseia-se no Modelo de Informação Comum (CIM), fornecendo as normas da indústria para definir as características do dispositivo e da aplicação.
 
-### <a name="job-statuses"></a>Estatuto laboral
+## <a name="webhooks"></a>Webhooks
 
-A tabela seguinte descreve os estatutos que são possíveis para um trabalho.
+Os serviços externos, por exemplo, a Azure DevOps Services e a GitHub, podem iniciar um livro de execução na Azure Automation. Para fazer este tipo de arranque, o serviço utiliza um [webhook](automation-webhooks.md) através de um único pedido HTTP. A utilização de um webhook permite que os livros de execução sejam iniciados sem a implementação de uma solução full Azure Automation. 
 
-| Estado | Descrição |
-|:--- |:--- |
-| Concluído |A tarefa foi concluída com êxito. |
-| Falhou |Um livro de execução de fluxo de trabalho gráfico ou PowerShell não compilou. Um livro de scripts PowerShell não começou ou o trabalho teve uma exceção. Consulte os tipos de [livro de execução da Automação Azure](automation-runbook-types.md).|
-| Falhou, à espera de recursos |O trabalho falhou porque atingiu o limite [de ações justas](#fair-share) três vezes e partiu do mesmo posto de controlo ou desde o início do livro de corridas de cada vez. |
-| Em fila |O trabalho está à espera que os recursos de um trabalhador da Automação fiquem disponíveis para que possa ser iniciado. |
-| A iniciar |O trabalho foi atribuído a um trabalhador, e o sistema está a iniciá-lo. |
-| A retomar |O sistema está a retomar o trabalho depois de ter sido suspenso. |
-| A executar |A tarefa está a ser executada. |
-| Correndo, esperando por recursos |O trabalho foi descarregado porque atingiu o limite de ações justas. Será retomado em breve do seu último posto de controlo. |
-| Parada |A tarefa foi parada pelo utilizador antes de ser concluída. |
-| A parar |O sistema está a parar o trabalho. |
-| Suspenso |Aplica-se apenas aos [livros de execução gráfico e powerShell Workflow.](automation-runbook-types.md) A tarefa foi suspensa pelo utilizador, pelo sistema ou por um comando no runbook. Se um livro não tem um posto de controlo, começa desde o início. Se tiver um posto de controlo, pode recomeçar e retomar a partir do seu último posto de controlo. O sistema só suspende o livro de execução quando ocorre uma exceção. Por predefinição, a `ErrorActionPreference` variável está definida para Continuar, indicando que o trabalho continua a funcionar com um erro. Se a variável de preferência for definida para parar, o trabalho suspende-se por um erro.  |
-| A suspender |Aplica-se apenas aos [livros de execução gráfico e powerShell Workflow.](automation-runbook-types.md) O sistema está a tentar suspender o trabalho a pedido do utilizador. O runbook tem de atingir o próximo ponto de verificação antes de poder ser suspenso. Se já passou o seu último posto de controlo, completa antes de poder ser suspenso. |
-
-### <a name="viewing-job-status-from-the-azure-portal"></a>Visualização do estado do emprego no portal Azure
-
-Pode ver um resumo de estado para todos os trabalhos de livro ou perfurar detalhes de um trabalho específico de livro de corridas no portal Azure. Também pode configurar a integração com o seu espaço de trabalho Log Analytics para reencaminhar o estado do trabalho do livro de corridas e os fluxos de emprego. Para obter mais informações sobre a integração com os registos do Monitor Azure, consulte o [estado de trabalho avançado e os fluxos de trabalho da Automação para os registos do Monitor Azure](automation-manage-send-joblogs-log-analytics.md).
-
-À direita da sua conta de Automação selecionada, pode ver um resumo de todos os trabalhos de livro de corridas no âmbito do azulejo de Estatísticas do **Emprego.**
-
-![Azulejo sintetizar estatísticas de emprego](./media/automation-runbook-execution/automation-account-job-status-summary.png)
-
-Este azulejo apresenta uma contagem e representação gráfica do estatuto de trabalho para cada trabalho executado.
-
-Clicar no azulejo apresenta a página Jobs, que inclui uma lista resumida de todos os empregos executados. Esta página mostra o estado, o nome do livro de execução, o tempo de início e o tempo de conclusão para cada trabalho.
-
-![Página de trabalhos da conta de automação](./media/automation-runbook-execution/automation-account-jobs-status-blade.png)
-
-Pode filtrar a lista de trabalhos selecionando **trabalhos**de filtro . Filtre num livro específico, no estado do trabalho ou numa escolha da lista de abandono escolar e forneça o intervalo de tempo para a pesquisa.
-
-![Estatuto de trabalho de filtragem](./media/automation-runbook-execution/automation-account-jobs-filter.png)
-
-Em alternativa, pode ver detalhes de resumo de trabalho para um livro de execução específico, selecionando esse livro de execução a partir da página Runbooks na sua conta Automation e, em seguida, selecionando o azulejo **Jobs.** Esta ação apresenta a página Jobs. A partir daqui, pode clicar no registo de trabalho para ver os seus detalhes e saídas.
-
-![Página de trabalhos da conta de automação](./media/automation-runbook-execution/automation-runbook-job-summary-blade.png)
-
-### <a name="viewing-the-job-summary"></a>Visualizando o resumo do trabalho
-
-O resumo de trabalho acima descrito permite-lhe olhar para uma lista de todos os empregos criados para um determinado livro de execução e seus estatutos mais recentes. Para ver informações detalhadas e saída para um trabalho, clique no seu nome na lista. A visão detalhada do trabalho inclui os valores dos parâmetros do livro de execução que foram fornecidos a esse trabalho.
-
-Pode utilizar os passos seguintes para ver as tarefas de um runbook.
-
-1. No portal Azure, selecione **Automation** e, em seguida, selecione o nome de uma conta Automation.
-2. A partir do centro, selecione **Runbooks** em **Process Automation**.
-3. Na página Runbooks, selecione um livro de execução da lista.
-3. Na página do livro de execução selecionado, clique no azulejo **Jobs.**
-4. Clique num dos trabalhos da lista e veja os seus detalhes e saídas na página de detalhes do trabalho do livro de corridas.
-
-### <a name="retrieving-job-status-using-powershell"></a>Recuperação do estado do trabalho usando powerShell
-
-Utilize o cmdlet [Get-AzAutomationJob](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0) para recuperar os postos de trabalho criados para um livro de corridas e os detalhes de um determinado trabalho. Se iniciar um livro de `Start-AzAutomationRunbook`execução com a utilização da PowerShell, devolve o trabalho resultante. Utilize [o Get-AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0) para recuperar a saída de emprego.
-
-O exemplo seguinte obtém o último trabalho para um livro de amostras e mostra o seu estado, os valores previstos para os parâmetros do livro de execução e a saída de trabalho.
-
-```azurepowershell-interactive
-$job = (Get-AzAutomationJob –AutomationAccountName "MyAutomationAccount" `
-–RunbookName "Test-Runbook" -ResourceGroupName "ResourceGroup01" | sort LastModifiedDate –desc)[0]
-$job.Status
-$job.JobParameters
-Get-AzAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
-–AutomationAccountName "MyAutomationAcct" -Id $job.JobId –Stream Output
-```
-
-O exemplo seguinte recupera a saída para um trabalho específico e devolve cada registo. Se houver uma exceção para um dos registos, o guião escreve a exceção em vez do valor. Este comportamento é útil, uma vez que as exceções podem fornecer informações adicionais que podem não ser registadas normalmente durante a saída.
-
-```azurepowershell-interactive
-$output = Get-AzAutomationJobOutput -AutomationAccountName <AutomationAccountName> -Id <jobID> -ResourceGroupName <ResourceGroupName> -Stream "Any"
-foreach($item in $output)
-{
-    $fullRecord = Get-AzAutomationJobOutputRecord -AutomationAccountName <AutomationAccountName> -ResourceGroupName <ResourceGroupName> -JobId <jobID> -Id $item.StreamRecordId
-    if ($fullRecord.Type -eq "Error")
-    {
-        $fullRecord.Value.Exception
-    }
-    else
-    {
-    $fullRecord.Value
-    }
-}
-```
-
-## <a name="getting-details-from-the-activity-log"></a>Obtenção de detalhes do registo de Atividades
-
-Pode recuperar detalhes do livro de execução, como a pessoa ou conta que iniciou o livro de execução, a partir do registo de Atividade sonorizador a conta Automation. O exemplo powerShell seguinte fornece o último utilizador a executar o livro de execução especificado.
-
-```powershell-interactive
-$SubID = "00000000-0000-0000-0000-000000000000"
-$AutomationResourceGroupName = "MyResourceGroup"
-$AutomationAccountName = "MyAutomationAccount"
-$RunbookName = "MyRunbook"
-$StartTime = (Get-Date).AddDays(-1)
-$JobActivityLogs = Get-AzLog -ResourceGroupName $AutomationResourceGroupName -StartTime $StartTime `
-                                | Where-Object {$_.Authorization.Action -eq "Microsoft.Automation/automationAccounts/jobs/write"}
-
-$JobInfo = @{}
-foreach ($log in $JobActivityLogs)
-{
-    # Get job resource
-    $JobResource = Get-AzResource -ResourceId $log.ResourceId
-
-    if ($JobInfo[$log.SubmissionTimestamp] -eq $null -and $JobResource.Properties.runbook.name -eq $RunbookName)
-    {
-        # Get runbook
-        $Runbook = Get-AzAutomationJob -ResourceGroupName $AutomationResourceGroupName -AutomationAccountName $AutomationAccountName `
-                                            -Id $JobResource.Properties.jobId | ? {$_.RunbookName -eq $RunbookName}
-
-        # Add job information to hashtable
-        $JobInfo.Add($log.SubmissionTimestamp, @($Runbook.RunbookName,$Log.Caller, $JobResource.Properties.jobId))
-    }
-}
-$JobInfo.GetEnumerator() | sort key -Descending | Select-Object -First 1
-```
-
-## <a name="sharing-resources-among-runbooks"></a><a name="fair-share"></a>Partilhar recursos entre livros de execução
+## <a name="shared-resources-among-runbooks"></a><a name="fair-share"></a>Recursos partilhados entre livros de execução
 
 Para partilhar recursos entre todos os livros na nuvem, a Azure Automation descarrega ou para temporariamente qualquer trabalho que tenha funcionado por mais de três horas. Os postos de trabalho para os livros de [execução da PowerShell](automation-runbook-types.md#powershell-runbooks) e [os livros de execução python](automation-runbook-types.md#python-runbooks) são parados e não reiniciados, e o estado de trabalho torna-se parado.
 
@@ -355,7 +232,7 @@ A utilização de livros infantis diminui o tempo total para que o livro de exec
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para saber como trabalhar com um livro de corridas, consulte [Gerir livros de execução em Automação Azure](manage-runbooks.md).
+* Para aprender a trabalhar com um livro de corridas, consulte [Gerir livros de execução em Automação Azure.](manage-runbooks.md)
 * Para saber mais sobre os métodos que podem ser usados para iniciar um livro de corridas em Automação Azure, consulte [Iniciar um livro de corridas em Automação Azure.](automation-starting-a-runbook.md)
 * Para obter mais informações sobre o PowerShell, incluindo módulos de referência linguística e aprendizagem, consulte os [Docs PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
 * Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation

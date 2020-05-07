@@ -1,14 +1,14 @@
 ---
 title: Como gerir atribuições com a PowerShell
 description: Saiba como gerir as atribuições de plantas com o módulo oficial de PowerShell da Azure Blueprints, Az.Blueprint.
-ms.date: 09/30/2019
+ms.date: 05/06/2020
 ms.topic: how-to
-ms.openlocfilehash: 0868e5e207202511c1981a930870bfdc68a77a8f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fa0f89df79c4ae1c5b66998089f04575bd53ea37
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80677432"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82863982"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>Como gerir atribuições com a PowerShell
 
@@ -205,8 +205,7 @@ ResourceGroups    : ResourceGroup
 
 ### <a name="example-2-use-a-json-assignment-definition-file"></a>Exemplo 2: Utilize um ficheiro de definição de atribuição JSON
 
-O exemplo seguinte cria quase a mesma atribuição que o [Exemplo 1](#example-1-provide-parameters).
-Em vez de passar parâmetros para o cmdlet, o exemplo mostra a utilização de um ficheiro de definição de definição de atribuição JSON e do parâmetro **AssignmentFile.** Adicionalmente, a propriedade excluída dos Principais é **configurada** como parte de **fechaduras**. Não existe um parâmetro PowerShell para **os Diretores excluídos** e a propriedade só pode ser configurada definindo-a através do ficheiro de definição de definição de atribuição JSON.
+O exemplo seguinte cria quase a mesma atribuição que o [Exemplo 1](#example-1-provide-parameters). Em vez de passar parâmetros para o cmdlet, o exemplo mostra a utilização de um ficheiro de definição de definição de atribuição JSON e do parâmetro **AssignmentFile.** Adicionalmente, a propriedade excluída dos Principais é **configurada** como parte de **fechaduras**. Não existe um parâmetro PowerShell para **os Diretores excluídos** e a propriedade só pode ser configurada definindo-a através do ficheiro de definição de definição de atribuição JSON.
 
 ```json
 {
@@ -335,7 +334,7 @@ $blueprintAssignment = Get-AzBlueprintAssignment -Name 'Assignment-lock-resource
 Remove-AzBlueprintAssignment -InputObject $blueprintAssignment -SubscriptionId '{subId}'
 ```
 
-## <a name="end-to-end-code-example"></a>Exemplo de código de ponta a ponta
+## <a name="code-example"></a>Exemplo de código
 
 Juntando todos os passos, o seguinte exemplo obtém a definição de planta, depois cria, atualiza e remove uma atribuição de plantas na subscrição específica representada como: `{subId}`
 

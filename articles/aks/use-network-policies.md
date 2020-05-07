@@ -5,12 +5,12 @@ description: Saiba como proteger o tráfego que flui dentro e fora das cápsulas
 services: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.openlocfilehash: a2794f53407be3ce3d7e69caa8039c13217a0356
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ca0b6d4acd48dde0ea381ab37080fb6af1fb936c
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81392620"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854220"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Tráfego seguro entre cápsulas utilizando políticas de rede no Serviço Azure Kubernetes (AKS)
 
@@ -55,7 +55,7 @@ Ambas as implementações utilizam *IPTables* Linux para impor as políticas esp
 | Plataformas suportadas                      | Linux                      | Linux                       |
 | Opções de networking suportadas             | Azure CNI                  | Azure CNI e kubenet       |
 | Conformidade com a especificação kubernetes | Todos os tipos de políticas suportados |  Todos os tipos de políticas suportados |
-| Características adicionais                      | Nenhuma                       | Modelo de política alargado composto por Global Network Policy, Global Network set e Host Endpoint. Para obter mais `calicoctl` informações sobre a utilização do CLI para gerir estas funcionalidades estendidas, consulte a [referência do utilizador calicoctl][calicoctl]. |
+| Características adicionais                      | Nenhum                       | Modelo de política alargado composto por Global Network Policy, Global Network set e Host Endpoint. Para obter mais `calicoctl` informações sobre a utilização do CLI para gerir estas funcionalidades estendidas, consulte a [referência do utilizador calicoctl][calicoctl]. |
 | Suporte                                  | Apoiado pela equipa de apoio e engenharia do Azure | Apoio comunitário de Calico. Para obter mais informações sobre apoio pago adicional, consulte as opções de suporte do [Project Calico.][calico-support] |
 | Registo                                  | As regras adicionadas /eliminadas nos IPTables são registadas em cada anfitrião em */var/log/azure-npm.log.log* | Para mais informações, consulte os registos de [componentes da Calico][calico-logs] |
 
@@ -481,7 +481,7 @@ Para saber mais sobre as políticas, consulte as políticas de [rede kubernetes.
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
-[use-advanced-networking]: configure-advanced-networking.md
+[use-advanced-networking]: configure-azure-cni.md
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [concepts-network]: concepts-network.md
 [az-feature-register]: /cli/azure/feature#az-feature-register
