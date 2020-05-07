@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 04/26/2020
+ms.date: 05/05/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: ec2055f1dc151ede06defca5b65314fba47347ac
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cfba44f739043116bca798a698be7c155e081b2d
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82191161"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82838413"
 ---
-|Nome |Descrição |Efeitos(s) |Versão |GitHub |
+|Name |Descrição |Efeitos(s) |Versão |GitHub |
 |---|---|---|---|---|
 |[Uma política personalizada de IPsec/IKE deve ser aplicada a todas as ligações de gateway da rede virtual Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F50b83b09-03da-41c1-b656-c293c914862b) |Esta política garante que todas as ligações de gateway de rede virtual Azure utilizem uma política personalizada de Segurança do Protocolo de Internet (Ipsec)/Internet Key Exchange (IKE). Algoritmos suportados e pontos fortes -[https://aka.ms/AA62kb0](https://aka.ms/AA62kb0) |Auditoria, Deficientes |1.0.0 |[Ligação](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VPNGateways_CustomIpSecPolicies_Audit.json) |
 |[Todo o tráfego de Internet deve ser encaminhado através do seu Azure Firewall implantado](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffc5e4038-4584-4632-8c85-c0448d374b2c) |O Centro de Segurança Azure identificou que algumas das suas subredes não estão protegidas com uma firewall de próxima geração. Proteja as suas subredes de potenciais ameaças, restringindo o acesso a eles com firewall Azure ou uma firewall de próxima geração suportada |AuditoriaIfNotExists, Deficiente |1.0.0-pré-visualização |[Ligação](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/ASC_All_Internet_traffic_should_be_routed_via_Azure_Firewall.json) |

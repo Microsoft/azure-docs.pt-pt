@@ -5,14 +5,14 @@ author: bwren
 ms.author: bwren
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: edb34b1456efae4d06465cfa2e64e546f621c6da
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cbef0244f30a7cf14f8fea4c6a445cf0de662dc4
+ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81681214"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82737900"
 ---
 # <a name="create-diagnostic-setting-to-collect-resource-logs-and-metrics-in-azure"></a>Criar definição de diagnóstico para recolher registos e métricas de recursos em Azure
 
@@ -31,7 +31,13 @@ Cada recurso Azure requer a sua própria definição de diagnóstico, que define
 Uma única definição de diagnóstico pode definir não mais do que um dos destinos. Se quiser enviar dados para mais do que um tipo de destino particular (por exemplo, dois espaços de trabalho diferentes do Log Analytics), então crie várias configurações. Cada recurso pode ter até 5 configurações de diagnóstico.
 
 > [!NOTE]
-> [As métricas da plataforma](metrics-supported.md) são recolhidas automaticamente para [as Métricas do Monitor Azure](data-platform-metrics.md). As definições de diagnóstico podem ser utilizadas para recolher métricas para determinados serviços Azure em Registos do Monitor Azure para análise com outros dados de monitorização utilizando consultas de [registo](../log-query/log-query-overview.md).
+> [As métricas da plataforma](metrics-supported.md) são recolhidas automaticamente para [as Métricas do Monitor Azure](data-platform-metrics.md). As definições de diagnóstico podem ser utilizadas para recolher métricas para determinados serviços Azure em Registos do Monitor Azure para análise com outros dados de monitorização utilizando consultas de [registo](../log-query/log-query-overview.md) com determinadas limitações. 
+>  
+>  
+> Atualmente, o envio de métricas multidimensionais através das definições de diagnóstico não é suportado. As métricas com dimensões são exportadas como métricas dimensionais simples e agregadas em valores de dimensões. *Por exemplo:* A métrica 'IOReadBytes' num Blockchain pode ser explorada e cartografada a um nível de nó. No entanto, quando exportado através de definições de diagnóstico, a métrica exportada representa como todos os bytes lidos para todos os nós. Além disso, devido a limitações internas, nem todas as métricas são exportáveis para registos de monitores Do Azure / Log Analytics. Para mais informações, consulte a [lista de métricas exportáveis.](metrics-supported-export-diagnostic-settings.md) 
+>  
+>  
+> Para contornar estas limitações para métricas específicas, sugerimos que as extrai manualmente utilizando a API DE [CAIXA métricae](https://docs.microsoft.com/rest/api/monitor/metrics/list) importe-as em Registos de Monitor Estanque utilizando a API do colecionador de [dados Do Monitor Azure](data-collector-api.md).  
 
 ## <a name="destinations"></a>Destinos
 
@@ -78,9 +84,8 @@ Pode configurar as definições de diagnóstico no portal Azure, quer a partir d
      - **A AllMetrics** encaminha as métricas da plataforma de um recurso para a loja De Registos Azure, mas em forma de registo. Estas métricas são geralmente enviadas apenas para a base de dados da série de tempo das métricas Do Monitor Azure. Enviando-os para a loja de registos do Monitor Azure (que é pesquisável através do Log Analytics) para integrá-los em consultas que procuram em outros registos. Esta opção pode não estar disponível para todos os tipos de recursos. Quando é suportado, [as métricas suportadas](metrics-supported.md) pelo Azure Monitor listam quais as métricas recolhidas para que tipos de recursos.
 
        > [!NOTE]
-       > Atualmente, o envio de métricas multidimensionais através das definições de diagnóstico não é suportado. As métricas com dimensões são exportadas como métricas dimensionais simples e agregadas em valores de dimensões.
-       >
-       > *Por exemplo:* A métrica 'IOReadBytes' num Blockchain pode ser explorada e cartografada a um nível de nó. No entanto, quando exportado através de definições de diagnóstico, a métrica exportada representa como todos os bytes lidos para todos os nós.
+       > Consulte a limitação das métricas de encaminhamento para os Registos do Monitor Azure no início deste artigo.  
+
 
      - **Os registos** listam as diferentes categorias disponíveis dependendo do tipo de recurso. Verifique quaisquer categorias que deseja supor para um destino.
 

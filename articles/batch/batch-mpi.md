@@ -4,12 +4,12 @@ description: Saiba como executar aplicações de Interface de Passagem de Mensag
 ms.topic: article
 ms.date: 03/13/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 39c7aff0618daafc2c02efaea229de3741804c7a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4502fc9632c2cb05d757459d07bcfe17ae96aea2
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231701"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735271"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Utilize tarefas de várias instâncias para executar aplicações de interface de passagem de mensagens (MPI) em Lote
 
@@ -327,7 +327,7 @@ Sample complete, hit ENTER to exit...
 [batch_labs]: https://azure.github.io/BatchExplorer/
 [blog_mpi_linux]: https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/
 [cmd_start]: https://technet.microsoft.com/library/cc770297.aspx
-[coord_cmd_example]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/article_samples/mpi/data/linux/openfoam/coordination-cmd
+[coord_cmd_example]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/article_samples/mpi/data/coordination-cmd
 [github_mpi]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/MultiInstanceTasks
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_samples_zip]: https://github.com/Azure/azure-batch-samples/archive/master.zip

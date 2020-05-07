@@ -3,12 +3,12 @@ title: Move Os VMs Azure para um novo grupo de subscrição ou recursos
 description: Utilize o Gestor de Recursos Azure para mover máquinas virtuais para um novo grupo de recursos ou subscrição.
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: 144888c4a66ef68448ae8bc863f6aef0923dfb69
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: e5bd004b6619db9c9882b8e9e6005309317b8ca5
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160124"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744643"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Mover orientação para máquinas virtuais
 
@@ -29,7 +29,7 @@ Os seguintes cenários ainda não são suportados:
 
 Para mover máquinas virtuais configuradas com Cópia de Segurança Azure, tem de eliminar os pontos de restauro do cofre.
 
-Se o [soft delete](../../../backup/backup-azure-security-feature-cloud.md) estiver ativado para a sua máquina virtual, não pode mover a máquina virtual enquanto esses pontos de restauro forem mantidos. Ou [desativa risa suavemente](../../../backup/backup-azure-security-feature-cloud.md#disabling-soft-delete) ou espera 14 dias após a eliminação dos pontos de restauro.
+Se o [soft delete](../../../backup/backup-azure-security-feature-cloud.md) estiver ativado para a sua máquina virtual, não pode mover a máquina virtual enquanto esses pontos de restauro forem mantidos. Ou [desativa risa suavemente](../../../backup/backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete) ou espera 14 dias após a eliminação dos pontos de restauro.
 
 ### <a name="portal"></a>Portal
 
