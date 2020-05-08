@@ -1,14 +1,14 @@
 ---
-title: FaQ migração do servidor migratório Azure
+title: Perguntas comuns sobre migração do servidor migratório azure migrate
 description: Obtenha respostas a perguntas comuns sobre a utilização da Migração do Servidor Migratório Azure migrate para migrar máquinas.
 ms.topic: conceptual
-ms.date: 02/17/2020
-ms.openlocfilehash: 8d4d83791366e153f0fa8b81ae120ca3fd33be2d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/04/2020
+ms.openlocfilehash: 0cfe23b4e544040fc3ab69796988ca34b1bdcdbf
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146043"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744330"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Migração do servidor migratório Azure Migrador: Questões comuns
 
@@ -86,6 +86,10 @@ Pode acelerar utilizando a NetQosPolicy. Por exemplo:
 O AppNamePrefix a utilizar na NetQosPolicy é "GatewayWindowsService.exe". Poderia criar uma política sobre o aparelho Azure Migrate para acelerar o tráfego de replicação do aparelho, criando uma política como esta:
  
 New-NetQosPolicy -Name "ThrottleReplication" -AppPathNameMatchCondition "GatewayWindowsService.exe" -ThrottleRateActionBitsPerSecond 1MB
+
+## <a name="can-i-migrate-vms-that-are-already-being-replicated-to-azure"></a>Posso migrar VMs que já estão sendo replicados para Azure? 
+
+Se os VMs já estão a ser replicados para o Azure por outros meios, não podemigrar essas máquinas como VMs com migração de servidores migratórios Azure. Como uma supressão, pode tratar os VMs como servidores físicos e emigrar de acordo com a [migração de servidores físicos suportados](migrate-support-matrix-physical-migration.md).
 
 ## <a name="when-do-i-migrate-machines-as-physical-servers"></a>Quando migrarei máquinas como servidores físicos?
 

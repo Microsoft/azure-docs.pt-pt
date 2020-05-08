@@ -6,12 +6,12 @@ author: sauryadas
 ms.topic: troubleshooting
 ms.date: 12/13/2019
 ms.author: saudas
-ms.openlocfilehash: 7bdabf2ec109fe96c28185bd1a2a680ce19c2650
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8460f4f2a66a1f545bea767cccf3aa77c9d3bff3
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79368337"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82778962"
 ---
 # <a name="aks-troubleshooting"></a>Resolução de problemas do AKS
 
@@ -58,7 +58,7 @@ A razão para as advertências no painel de instrumentos é que o cluster está 
 
 ## <a name="i-cant-connect-to-the-dashboard-what-should-i-do"></a>Não é possível ligar ao dashboard. O que devo fazer?
 
-A forma mais fácil de aceder ao `kubectl proxy`seu serviço fora do cluster é executar, quais os pedidos enviados para o seu porto de acolhimento local 8001 para o servidor Kubernetes API. A partir daí, o servidor API `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/#!/node?namespace=default`pode proxy para o seu serviço: .
+A forma mais fácil de aceder ao `kubectl proxy`seu serviço fora do cluster é executar, quais os pedidos enviados para o seu porto de acolhimento local 8001 para o servidor Kubernetes API. A partir daí, o servidor API `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/`pode proxy para o seu serviço: .
 
 Se não vir o painel kubernetes, verifique `kube-proxy` se a `kube-system` cápsula está a funcionar no espaço de nome. Se não estiver em estado de funcionamento, apague a cápsula e recomeçará.
 

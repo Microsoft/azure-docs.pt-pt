@@ -4,12 +4,12 @@ description: Saiba como definir uma rota de saída personalizada no Serviço Azu
 services: container-service
 ms.topic: article
 ms.date: 03/16/2020
-ms.openlocfilehash: 3780680c485aebf1ffc654d31c577821a9b96fff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e7dbde4095fb635180bb1ba663734f8dbfd602f7
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80676510"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82733503"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route-preview"></a>Personalizar a saída do cluster com uma rota definida pelo utilizador (Pré-visualização)
 
@@ -73,7 +73,7 @@ Abaixo está uma topologia de rede implantada em `outboundType` clusters AKS por
 
 Se `userDefinedRouting` estiver definido, o AKS não configurará automaticamente os caminhos de saída. Espera-se que o **utilizador**seja feito o seguinte.
 
-O cluster deve ser implantado numa rede virtual existente com uma sub-rede configurada. Deve existir uma rota válida definida pelo utilizador (UDR) na subnet com conectividade de saída.
+O cluster AKS deve ser implantado numa rede virtual existente com uma sub-rede configurada. Ao utilizar a arquitetura de equilíbrio de carga padrão (SLB), deve estabelecer uma saída explícita. Isto requer o envio de pedidos de saída para um aparelho como uma firewall, gateway, on-prem ou para permitir que a saída seja feita por um IP público atribuído ao equilibrador de carga padrão ou a um determinado nó.
 
 O fornecedor de recursos AKS irá implantar um equilibrador de carga padrão (SLB). O equilibrista de carga não está configurado com quaisquer regras e [não incorre numa carga até](https://azure.microsoft.com/pricing/details/load-balancer/)que uma regra seja colocada . A AKS **não** fornecerá automaticamente um endereço IP público para o frontend SLB. O AKS **não** configurará automaticamente o conjunto de backend do equilibrador de carga.
 

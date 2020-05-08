@@ -17,7 +17,7 @@
               href: ./lead-management-for-cloud-marketplace.md
             - name: Realizar transações no marketplace comercial
               href: ./marketplace-commercial-transaction-capabilities-and-considerations.md
-            - name: Ofertas Privadas
+            - name: Ofertas privadas
               href: ./private-offers.md
             - name: Contrato Standard
               href: ./standard-contract.md
@@ -26,11 +26,11 @@
         - name: Guias de publicação por tipo de oferta
           href: ./publisher-guide-by-offer-type.md
           items:
-            - name: Virtual Machines
+            - name: Máquinas virtuais
               href: ./marketplace-virtual-machines.md
-            - name: 'Aplicações do Azure: modelos de solução'
+            - name: Modelos de soluções de aplicações do Azure
               href: ./marketplace-solution-templates.md
-            - name: 'Aplicações do Azure: aplicações geridas'
+            - name: Aplicações geridas do Azure
               href: ./marketplace-managed-apps.md
             - name: Aplicações SaaS
               href: ./marketplace-saas-applications-technical-publishing-guide.md
@@ -42,7 +42,7 @@
               href: ./consulting-services.md
             - name: 'Office 365, Dynamics 365 e Power BI'
               href: ./appsource-offer-publishing-guide.md
-            - name: Ativar uma listagem do AppSource e do Marketplace com o Azure Active Directory
+            - name: Ativar a autenticação de ofertas com o Azure AD
               href: ./enable-appsource-marketplace-using-azure-ad.md
             - name: Soluções integradas
               href: ./integrated-solutions-for-publishers.md
@@ -51,7 +51,7 @@
           items:
             - name: Melhores práticas de listagem de ofertas
               href: ./gtm-offer-listing-best-practices.md
-            - name: Como ficar em destaque
+            - name: Obter funcionalidades
               href: ./gtm-how-to-get-featured.md
             - name: Validação de conteúdos do Marketplace
               href: ./marketplace-criteria-content-validation.md
@@ -69,7 +69,7 @@
         - name: Suporte para o marketplace comercial
           href: ./support-azure-marketplace.md
           items:
-            - name: FAQ do Marketplace
+            - name: FAQ do marketplace comercial
               href: ./marketplace-faq-publisher-guide.md
             - name: Disponibilidade geográfica e moedas
               href: ./marketplace-geo-availability-currencies.md
@@ -80,7 +80,7 @@
       href: ./cloud-partner-portal-orig/cloud-partner-portal-migration-to-partner-center.md
     - name: FAQ da migração
       href: ./cloud-partner-portal-orig/cloud-partner-portal-migration-faq.md
-    - name: Tour pelo Portal
+    - name: Apresentação do portal
       href: ./cloud-partner-portal/portal-tour/cpp-portal-tour.md
       items:
         - name: Navegação no Portal
@@ -289,49 +289,9 @@
             - name: Wiki de ajuda
               href: ./cloud-partner-portal-orig/help-wiki.md
         - name: Oferta do módulo do IoT Edge
-          href: ./cloud-partner-portal/iot-edge-module/cpp-offer-process-parts.md
-          items:
-            - name: Pré-requisitos
-              href: ./cloud-partner-portal/iot-edge-module/cpp-prerequisites.md
-            - name: Criar uma oferta de módulo do IoT Edge
-              href: ./cloud-partner-portal/iot-edge-module/cpp-create-offer.md
-              items:
-                - name: Separador Definições de Oferta
-                  href: ./cloud-partner-portal/iot-edge-module/cpp-offer-settings-tab.md
-                - name: Separador de SKUs
-                  href: ./cloud-partner-portal/iot-edge-module/cpp-skus-tab.md
-                - name: Separador Marketplace
-                  href: ./cloud-partner-portal/iot-edge-module/cpp-marketplace-tab.md
-                - name: Separador Suporte
-                  href: ./cloud-partner-portal/iot-edge-module/cpp-support-tab.md
-            - name: Criar ativos técnicos do módulo de IoT Edge
-              href: ./cloud-partner-portal/iot-edge-module/cpp-create-technical-assets.md
-            - name: Publicar uma oferta de módulo do IoT Edge
-              href: ./cloud-partner-portal/iot-edge-module/cpp-publish-offer.md
-            - name: Atualizar oferta existente
-              href: ./cloud-partner-portal/iot-edge-module/cpp-update-existing-offer.md
+          href: ./cloud-partner-portal/iot-edge-module/iot-edge-module-offer.md
         - name: Oferta da aplicação do Power BI
           href: ./cloud-partner-portal/power-bi/cpp-power-bi-offer.md
-          items:
-            - name: Pré-requisitos
-              href: ./cloud-partner-portal/power-bi/cpp-prerequisites.md
-            - name: Criar oferta da aplicação do Power BI
-              href: ./cloud-partner-portal/power-bi/cpp-create-offer.md
-              items:
-                - name: Separador Definições de Oferta
-                  href: ./cloud-partner-portal/power-bi/cpp-offer-settings-tab.md
-                - name: Separador Informações Técnicas
-                  href: ./cloud-partner-portal/power-bi/cpp-technical-info-tab.md
-                - name: Separador de detalhes da vitrine
-                  href: ./cloud-partner-portal/power-bi/cpp-storefront-details-tab.md
-                - name: Separador Contactos
-                  href: ./cloud-partner-portal/power-bi/cpp-contacts-tab.md
-            - name: Criar recursos técnicos da aplicação do Power BI
-              href: ./cloud-partner-portal/power-bi/cpp-create-technical-assets.md
-            - name: Publicar oferta da aplicação do Power BI
-              href: ./cloud-partner-portal/power-bi/cpp-publish-offer.md
-            - name: Atualizar oferta existente
-              href: ./cloud-partner-portal/power-bi/cpp-update-existing-offer.md
         - name: Oferta da aplicação SaaS
           href: ./cloud-partner-portal/saas-app/cpp-saas-offer.md
         - name: Oferta de máquina virtual
@@ -449,6 +409,8 @@
           items:
             - name: Criar uma oferta de aplicações do Azure
               href: ./partner-center-portal/create-new-azure-apps-offer.md
+            - name: Faturação limitada das aplicações do Azure
+              href: ./partner-center-portal/azure-app-metered-billing.md
             - name: Processar comentários de crítica
               href: ./partner-center-portal/azure-apps-review-feedback.md
             - name: API para integração
@@ -493,10 +455,10 @@
               href: ./partner-center-portal/create-new-business-central-offer.md
         - name: Ofertas do módulo do IoT Edge
           items:
-            - name: Preparar recursos técnicos do módulo do IoT Edge
-              href: ./partner-center-portal/create-iot-edge-module-asset.md
             - name: Criar uma oferta de módulo do IoT Edge
               href: ./partner-center-portal/azure-iot-edge-module-creation.md
+            - name: Preparar recursos técnicos do módulo do IoT Edge
+              href: ./partner-center-portal/create-iot-edge-module-asset.md
         - name: Ofertas do Serviço Gerido
           items:
             - name: Criar uma oferta de Serviço Gerido
@@ -515,11 +477,6 @@
               href: ./partner-center-portal/create-new-saas-offer.md
             - name: Faturação limitada SaaS
               href: ./partner-center-portal/saas-metered-billing.md
-              items:
-                - name: FAQ - APIs do serviço de medição do Marketplace
-                  href: ./partner-center-portal/marketplace-metering-service-apis-faq.md
-                - name: APIs do serviço de medição do Marketplace
-                  href: ./partner-center-portal/marketplace-metering-service-apis.md
             - name: SaaS Fulfillment APIs
               href: ./partner-center-portal/pc-saas-fulfillment-apis.md
               items:
@@ -546,6 +503,14 @@
               href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md
             - name: Salesforce
               href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md
+        - name: Serviço de medição do Marketplace
+          items:
+            - name: Estratégias de autenticação
+              href: ./partner-center-portal/marketplace-metering-service-authentication.md
+            - name: APIs do serviço de medição do Marketplace
+              href: ./partner-center-portal/marketplace-metering-service-apis.md
+            - name: FAQ - APIs do serviço de medição do Marketplace
+              href: ./partner-center-portal/marketplace-metering-service-apis-faq.md
         - name: Experimente a Versão de Teste da sua oferta
           href: ./partner-center-portal/test-drive.md
         - name: Opção de venda conjunta
@@ -589,11 +554,13 @@
           href: ./partner-center-portal/get-paid.md
         - name: Configurar a conta de dividendos e os formulários fiscais
           href: ./partner-center-portal/set-up-your-payout-account-tax-forms.md
-        - name: Detalhes de faturação
-          href: ./partner-center-portal/billing-details.md
         - name: 'Limiares, métodos e períodos de tempo de pagamento'
           href: ./partner-center-portal/payment-thresholds-methods-timeframes.md
-        - name: Resumo dos dividendos
+        - name: Descrição geral do resumo de dividendos
+          href: ./partner-center-portal/payout-summary-overview.md
+        - name: Resumos de dividendos
           href: ./partner-center-portal/payout-summary.md
+        - name: Detalhes da política de dividendos
+          href: ./partner-center-portal/payout-policy-details.md
         - name: Detalhes fiscais
           href: ./partner-center-portal/tax-details-paid-transactions.md

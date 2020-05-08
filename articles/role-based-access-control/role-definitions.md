@@ -1,6 +1,6 @@
 ---
-title: Compreender definições de papel no RBAC para recursos Azure / Microsoft Docs
-description: Conheça as definições de papéis no controlo de acesso baseado em papéis (RBAC) para a gestão de acesso sinuoso dos recursos Azure.
+title: Compreender definições de papéis azure - Azure RBAC
+description: Conheça as definições de papel azure no controlo de acesso baseado em funções azure (Azure RBAC) para gestão de acesso de grãos finos de recursos Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,16 +15,16 @@ ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 777ea7cc29679a3819e94d39913f167ea1cb3453
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 03edb8e5c58f0fe746921d50ab3f657f291d16da
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641384"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735543"
 ---
-# <a name="understand-role-definitions-for-azure-resources"></a>Compreender definições de papéis para os recursos do Azure
+# <a name="understand-azure-role-definitions"></a>Compreender definições de papéis de Azure
 
-Se está a tentar perceber como funciona um papel ou se está a criar o seu próprio [papel personalizado para os recursos Do Azure,](custom-roles.md)é útil compreender como os papéis são definidos. Este artigo descreve os detalhes das definições de papéis e fornece alguns exemplos.
+Se está a tentar perceber como funciona um papel azure ou se está a criar o seu próprio [papel personalizado azure,](custom-roles.md)é útil perceber como os papéis são definidos. Este artigo descreve os detalhes das definições de papéis e fornece alguns exemplos.
 
 ## <a name="role-definition"></a>Definição de função
 
@@ -170,7 +170,7 @@ As permissões do Bob limitam-se apenas ao `Actions` e `DataActions` especificad
 
 Para obter mais informações sobre gestão e segurança de aviões de dados para armazenamento, consulte o guia de [segurança azure Storage](../storage/blobs/security-recommendations.md).
 
-### <a name="what-tools-support-using-rbac-for-data-operations"></a>Que ferramentas suportam a utilização do RBAC para operações de dados?
+### <a name="what-tools-support-using-azure-roles-for-data-operations"></a>Que ferramentas suportam a utilização de funções Azure para operações de dados?
 
 Para visualizar e trabalhar com operações de dados, deve ter as versões corretas das ferramentas ou SDKs:
 
@@ -188,7 +188,7 @@ Para visualizar e utilizar as operações de dados na API REST, deve definir o p
 
 - 2018-07-01
 
-## <a name="actions"></a>Ações
+## <a name="actions"></a>Actions (Ações)
 
 A `Actions` permissão especifica as operações de gestão que a função permite ser executada. Trata-se de uma coleção de cadeias de operação que identificam operações de segurança dos fornecedores de recursos azure. Aqui estão alguns exemplos de `Actions`operações de gestão que podem ser usadas em .
 
@@ -245,10 +245,10 @@ As funções `AssignableScopes` incorporadas definiram-se no âmbito raiz ().`"/
 > | Grupo de gestão e uma subscrição | `"/providers/Microsoft.Management/managementGroups/{groupId1}", /subscriptions/{subscriptionId1}",` |
 > | Todos os âmbitos (aplicam-se apenas às funções incorporadas) | `"/"` |
 
-Para obter `AssignableScopes` informações sobre funções personalizadas, consulte [funções personalizadas para os recursos Do Azure.](custom-roles.md)
+Para obter `AssignableScopes` informações sobre funções personalizadas, consulte [papéis personalizados do Azure.](custom-roles.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Built-in roles for Azure resources](built-in-roles.md) (Funções incorporadas para recursos do Azure)
-* [Custom roles for Azure resources](custom-roles.md) (Funções personalizadas para recursos do Azure)
+* [Papéis azure embutidos](built-in-roles.md)
+* [Papéis personalizados do Azure](custom-roles.md)
 * [Operações de fornecedor de recursos do Gestor de Recursos Azure](resource-provider-operations.md)
