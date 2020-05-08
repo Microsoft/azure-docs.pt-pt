@@ -10,20 +10,20 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/07/2020
+ms.date: 04/29/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/28/2020
-ms.openlocfilehash: 4da96df50e961f4291029a37e883fdcf88c6c87f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a87f3563b995081de8e7cbb4b4499718f77b02ff
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80885757"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583261"
 ---
 # <a name="transport-layer-security-tls"></a>Transport Layer Security (TLS)
 
-Para garantir um nível mais elevado de segurança, os Centros de Notificação desativarão o suporte para as versões TLS 1.0 e 1.1 em 31 de maio de 2020 (estendido a partir de 30 de abril de 2020). Estes protocolos antigos fornecem criptografia fraca, e são vulneráveis aos ataques beast e POODLE. As aplicações implementadas para dispositivos que executam a versão 5 ou superior do Android, ou a versão 5 ou superior do iOS, não são afetadas por esta alteração, uma vez que esses sistemas operativos suportam o TLS 1.2 e o cliente e servidor negociarão a versão mais elevada do protocolo com suporte mútuo após a ligação.
+Para garantir um nível mais elevado de segurança, os Centros de Notificação desativarão o suporte para as versões TLS 1.0 e 1.1 em 31 de dezembro de **2020** (estendido a partir de 30 de abril de 2020). Estes protocolos antigos fornecem criptografia fraca, e são vulneráveis aos ataques beast e POODLE. As aplicações implementadas para dispositivos que executam a versão 5 ou superior do Android, ou a versão 5 ou superior do iOS, não são afetadas por esta alteração, uma vez que esses sistemas operativos suportam o TLS 1.2 e o cliente e servidor negociarão a versão mais elevada do protocolo com suporte mútuo após a ligação.
 
 Recomendamos que reveja todas as suas aplicações que utilizam hubs de notificação Do Azure, para garantir que utilizam as bibliotecas mais aplicáveis e pilhas TLS que suportam TLS 1.2.
 

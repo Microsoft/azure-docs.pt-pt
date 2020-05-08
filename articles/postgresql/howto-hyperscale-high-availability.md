@@ -4,14 +4,15 @@ description: Como ativar ou desativar a alta disponibilidade
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
+ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: a8d4b5949b34d16191e9ec10a1dd39faff3660dc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78e6e8c18e67ce2dff0de94d298f06693a40135f
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74977672"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82584049"
 ---
 # <a name="configure-hyperscale-citus-high-availability"></a>Configure hiperescala (Citus) alta disponibilidade
 
