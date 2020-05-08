@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 17a96479b80410cbfcb2a6061904491f95c45f10
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a5820856f7d4c51e41162f01a9687304cb223088
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116269"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791923"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Mapeamentos e transformações de campo usando indexadores de pesquisa cognitiva Azure
 
@@ -28,7 +28,7 @@ Algumas situações em que os mapeamentos de campo são úteis:
 * Precisa de codificar ou descodificar os seus dados no Base64. Os mapeamentos de campo suportam **várias funções de mapeamento,** incluindo funções para codificação e descodificação base64.
 
 > [!NOTE]
-> Os mapeamentos de campo nos indexadores são uma forma simples de mapear campos de dados para campos de índice, com alguma capacidade de conversão de dados de peso leve. Dados mais complexos podem exigir o pré-processamento para remodelá-lo em uma forma que é propícia à indexação. Uma opção que pode considerar é [a Azure Data Factory.](https://docs.microsoft.com/zure/data-factory/)
+> Os mapeamentos de campo nos indexadores são uma forma simples de mapear campos de dados para campos de índice, com alguma capacidade de conversão de dados de peso leve. Dados mais complexos podem exigir o pré-processamento para remodelá-lo em uma forma que é propícia à indexação. Uma opção que pode considerar é [a Azure Data Factory.](https://docs.microsoft.com/azure/data-factory/)
 
 ## <a name="set-up-field-mappings"></a>Configurar mapeamentos de campo
 
@@ -188,7 +188,7 @@ A tabela seguinte compara diferentes codificações `00>00?00`base64 da cadeia .
 | Base64 com enchimento | `MDA+MDA/MDA=` | Utilize caracteres de url-safe e remova o enchimento | Use caracteres base64 padrão e adicione enchimento |
 | Base64 sem estofamento | `MDA+MDA/MDA` | Utilize caracteres de url-safe | Use caracteres base64 padrão |
 | Base de segurança URL64 com enchimento | `MDA-MDA_MDA=` | Remover o acolchoado | Adicionar acolchoado |
-| Base de segurança URL64 sem estofamento | `MDA-MDA_MDA` | Nenhuma | Nenhuma |
+| Base de segurança URL64 sem estofamento | `MDA-MDA_MDA` | Nenhum | Nenhum |
 
 <a name="extractTokenAtPositionFunction"></a>
 

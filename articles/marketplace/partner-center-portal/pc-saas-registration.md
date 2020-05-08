@@ -1,23 +1,22 @@
 ---
-title: Registe uma aplicação SaaS Mercado Azure
-description: Explica como registar uma aplicação SaaS utilizando o portal Azure.
+title: Registe uma aplicação SaaS - Azure Marketplace
+description: Saiba como utilizar o portal Azure para registar uma aplicação SaaS e receber um token de segurança do Diretório Ativo Azure.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: dsindona
-ms.openlocfilehash: 9c20fe34e108de95a34aabea56390e8a6f0d858f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b3c20d25917d66cba8ae3d811eddaa6455b87722
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80275718"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792960"
 ---
 # <a name="register-a-saas-application"></a>Registar uma aplicação SaaS
 
 Este artigo explica como registar uma aplicação SaaS utilizando o portal Microsoft [Azure](https://portal.azure.com/).  Após uma inscrição bem sucedida, receberá um sinal de segurança do Azure Ative Directory (Azure AD) que pode utilizar para aceder às APIs de Realização do SaaS.  Para mais informações sobre a AD Azure, consulte [o que é a autenticação?](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios)
-
 
 ## <a name="service-to-service-authentication-flow"></a>Fluxo de autenticação serviço-a-serviço
 
@@ -26,7 +25,6 @@ O diagrama seguinte mostra o fluxo de subscrição de um novo cliente e quando e
 ![SaaS oferecem fluxo DeAPi](./media/saas-offer-publish-api-flow-v1.png)
 
 A Azure não impõe quaisquer restrições à autenticação que o serviço SaaS expõe aos seus utilizadores finais. No entanto, a autenticação com as APIs de Cumprimento do SaaS é realizada com um token de segurança Azure AD, tipicamente obtido através do registo da app SaaS através do portal Azure. 
-
 
 ## <a name="register-an-azure-ad-secured-app"></a>Registe uma aplicação azure ad-secured
 
@@ -55,7 +53,6 @@ Qualquer aplicação que pretenda utilizar as capacidades do Azure AD, tem de es
 
 >[!Note]
 >Por predefinição, a aplicação recém-registada está configurada para permitir que apenas os utilizadores do mesmo inquilino possam iniciar sessão na sua aplicação.
-
 
 ## <a name="using-the-azure-ad-security-token"></a>Usando o símbolo de segurança da AD Azure
 
@@ -123,7 +120,6 @@ Ficha de resposta da amostra:
       "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayIsImtpZCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayJ9…"
   }               
 ```
-
 
 ## <a name="next-steps"></a>Passos seguintes
 

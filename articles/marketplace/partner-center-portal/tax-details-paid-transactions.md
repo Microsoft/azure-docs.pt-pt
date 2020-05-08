@@ -1,17 +1,17 @@
 ---
+title: Detalhes fiscais para o mercado comercial da Microsoft
 Description: Para compreender as suas considerações fiscais para a seleção de preços, implicações de pagamento e responsabilidade fiscal, consulte os seus países/regiões de distribuição nas tabelas abaixo.
-title: Detalhes fiscais Mercado Azure
-ms.date: 2/13/2020
 ms.topic: conceptual
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
-ms.openlocfilehash: 2546de2b63c70d7456712ba39086cd7fb540cf82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/04/2020
+ms.openlocfilehash: 0276a859fb82f7775aca498d73d1cbf780aaf5fc
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80285168"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793028"
 ---
 # <a name="tax-details-for-commercial-marketplace-publishers"></a>Detalhes fiscais para editores de mercado comercial
 
@@ -23,10 +23,6 @@ Para compreender as suas considerações fiscais para a seleção de preços e r
 > [!IMPORTANT]
 > A responsabilidade fiscal dos países/regiões e circunstâncias revendedores (conforme descrito [abaixo](#reseller-countriesregions)) é abrangida pela prova A do [Microsoft Azure Marketplace Publisher Agreement,](https://go.microsoft.com/fwlink/p/?LinkID=699560)não obstante as informações no quadro abaixo.
 > Note que a coluna **de implicação** do Pagamento se aplica apenas aos editores. As taxas de imposto observadas nesta coluna estão sujeitas a alterações a qualquer momento, e a Microsoft não pode garantir que as taxas nas tabelas abaixo serão sempre precisas.
-
-
-
- 
 
 | Pais/região                   | Consideração fiscal para a seleção de preços                                                                                                             | Implicação do pagamento                    | Responsabilidade fiscal |
 |----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|--------------------|
@@ -262,19 +258,18 @@ Para compreender as suas considerações fiscais para a seleção de preços e r
 | Zâmbia                           | O preço a ser selecionado é o preço final de venda e inclui quaisquer impostos aplicáveis.                                                                   | Preço menos Taxa de loja                 | Publicador          |
 | Zimbabué                         | O preço a ser selecionado é o preço final de venda e inclui quaisquer impostos aplicáveis.                                                                   | Preço menos Taxa de loja                 | Publicador          |
 
-O seguinte aplica-se apenas aos Editores do Mercado Azure, não obstante nada em contrário: 
+O seguinte aplica-se apenas aos Editores do Mercado Azure, não obstante nada em contrário:
 
-| Pais/região                   | Consideração fiscal para a seleção de preços                                                                                                             | Gestão fiscal                    | 
+| Pais/região                   | Consideração fiscal para a seleção de preços                                                                                                             | Gestão fiscal                    |
 |----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|
 | Austrália (para compras efetuadas através de todos os cenários de compra de clientes, exceto Acordo Empresarial) | O preço a ser selecionado é o preço final de venda e inclui quaisquer impostos aplicáveis. | Microsoft |
 | Austrália (apenas para compras efetuadas através do cenário de compra de clientes do Acordo Empresarial) | O preço a ser selecionado é o preço final de venda e inclui quaisquer impostos aplicáveis. | Publicador |
-| Brasil | O preço a ser selecionado é o preço final de venda e inclui quaisquer impostos aplicáveis. | Editor **(Ver Países/Regiões Revendedores)** |
-| México | O preço a ser selecionado é o preço final de venda e inclui quaisquer impostos aplicáveis. | Editor **(Ver Países/Regiões Revendedores)** |
+| Brasil | O preço a ser selecionado é o preço final de venda e inclui quaisquer impostos aplicáveis. | Editor (**Ver Países/Regiões Revendedores)** |
+| México | O preço a ser selecionado é o preço final de venda e inclui quaisquer impostos aplicáveis. | Editor (**Ver Países/Regiões Revendedores)** |
 
 ## <a name="mixed-remittance-countriesregions-for-publishers"></a>Países/regiões de remessas mistas para editores
 
-
-Alguns parceiros de faturação da Microsoft podem cobrar e remeter vendas, utilização, bens e serviços, valor acrescentado ou impostos semelhantes, se houver, aplicáveis à aquisição de Clientes da sua App ou Produto In-App através da Loja nos países/regiões listados abaixo. Os [relatórios](payout-summary.md#transaction-history-download-export) que a Microsoft disponibiliza identificarão as transações para as quais um parceiro de faturação recolheu vendas, utilização, bens e serviços, valor acrescentado ou impostos semelhantes aplicáveis à aquisição de Clientes da sua App ou Produto In-App através da Loja. Com exceção das transações descritas nestes relatórios, nem a Microsoft nem os seus prestadores de serviços de faturação irão remeter quaisquer vendas, utilizações, bens e serviços, valor acrescentado ou outro imposto similar relacionado com a aquisição de clientes da sua(s) App ou Produto In-App nestes ou no país. É responsável por rever os relatórios que lhe são fornecidos e determinar e cumprir as suas obrigações, caso existam, de registar, cobrar e remeter impostos relacionados com transações que envolvam as suas Aplicações ou Produtos In-App( s).
+Alguns parceiros de faturação da Microsoft podem cobrar e remeter vendas, utilização, bens e serviços, valor acrescentado ou impostos semelhantes, se houver, aplicáveis à aquisição de Clientes da sua App ou Produto In-App através da Loja nos países/regiões listados abaixo. Os [relatórios](payout-summary-overview.md#transaction-history-download-export) que a Microsoft disponibiliza identificarão as transações para as quais um parceiro de faturação recolheu vendas, utilização, bens e serviços, valor acrescentado ou impostos semelhantes aplicáveis à aquisição de Clientes da sua App ou Produto In-App através da Loja. Com exceção das transações descritas nestes relatórios, nem a Microsoft nem os seus prestadores de serviços de faturação irão remeter quaisquer vendas, utilizações, bens e serviços, valor acrescentado ou outro imposto similar relacionado com a aquisição de clientes da sua(s) App ou Produto In-App nestes ou no país. É responsável por rever os relatórios que lhe são fornecidos e determinar e cumprir as suas obrigações, caso existam, de registar, cobrar e remeter impostos relacionados com transações que envolvam as suas Aplicações ou Produtos In-App( s).
 
 | Países/regiões de remessas mistas |
 |------------------------------------|
@@ -285,16 +280,13 @@ Alguns parceiros de faturação da Microsoft podem cobrar e remeter vendas, util
 
 Em certos países/regiões, a Microsoft atua como um revendedor, em vez do seu agente, ao disponibilizar na Loja as suas aplicações e produtos in-app. Para mais detalhes sobre os termos e condições para os países/regiões revendedores, consulte o Acordo de [Editor estoiro do Microsoft Azure Marketplace](https://go.microsoft.com/fwlink/p/?LinkID=699560).
 
-O seguinte aplica-se apenas aos Editores do Mercado De Azure: 
+O seguinte aplica-se apenas aos Editores do Mercado De Azure:
 
 |                    Países/regiões revendedores                                                                          |
 |------------------------------------------------------------------------------------------------------------------------|
 | Brasil (para compras efetuadas através de todos os cenários de compra de clientes, exceto CSP) |
 | México (apenas para compras efetuadas através do cenário de compra de clientes do Acordo Empresarial) |
 
+## <a name="next-steps"></a>Passos seguintes
 
- 
-
-
-
-
+[Configurar a conta de dividendos e os formulários fiscais](set-up-your-payout-account-tax-forms.md)

@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 720cc157111293146b796f8567f94a4f1f4830c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ce0cd0866cc6daa36d598767a486faeabac8076d
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75376941"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791821"
 ---
 # <a name="monitoring-the-cluster"></a>Monitorização do cluster
 
@@ -74,7 +74,7 @@ Se necessitar de contactar o suporte da Microsoft para obter ajuda com o seu clu
 
 ## <a name="measuring-performance"></a>Desempenho de medição
 
-Medir o desempenho do seu cluster irá ajudá-lo a entender como é capaz de lidar com a carga e conduzir decisões em torno da escala do seu cluster (ver mais sobre escalar um cluster [em Azure](service-fabric-cluster-scale-up-down.md), ou [no local).](service-fabric-cluster-windows-server-add-remove-nodes.md) Os dados de desempenho também são úteis quando comparados com as ações que você ou as suas aplicações e serviços podem ter tomado, ao analisar registos no futuro. 
+Medir o desempenho do seu cluster irá ajudá-lo a entender como é capaz de lidar com a carga e conduzir decisões em torno da escala do seu cluster (ver mais sobre escalar um cluster [em Azure](service-fabric-cluster-scale-in-out.md), ou [no local).](service-fabric-cluster-windows-server-add-remove-nodes.md) Os dados de desempenho também são úteis quando comparados com as ações que você ou as suas aplicações e serviços podem ter tomado, ao analisar registos no futuro. 
 
 Para obter uma lista de contadores de desempenho para recolher ao utilizar o Tecido de Serviço, consulte Contadores de [Desempenho em Tecido de Serviço](service-fabric-diagnostics-event-generation-perf.md)
 

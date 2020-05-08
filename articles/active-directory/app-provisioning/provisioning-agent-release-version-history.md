@@ -2,28 +2,24 @@
 title: 'Azure AD Connect Provisioning Agent: Version release history | Microsoft Docs'
 description: Este artigo lista todas as versões do Agente de Provisionamento de Ligação AD Azure e descreve novas funcionalidades e questões fixas
 services: active-directory
-documentationcenter: ''
 author: cmmdesai
-manager: daveba
-editor: ''
-ms.assetid: ''
+manager: CelesteDG
 ms.service: active-directory
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/26/2020
 ms.subservice: app-provisioning
 ms.author: chmutali
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 559bca4f5020cebe06be7f24f7af5ec2e94bec0e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: celested
+ms.openlocfilehash: 9a756d276b194aa8d1acb0297a7b4909a8082a84
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78183249"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593254"
 ---
 # <a name="azure-ad-connect-provisioning-agent-version-release-history"></a>Agente de provisionamento de ligação Azure AD: histórico de lançamento de versão
+
 Este artigo lista as versões e funcionalidades do Agente de Provisionamento de Ligação de Diretório Ativo Azure que foram lançados. A equipa da Azure AD atualiza regularmente o Agente de Provisionamento com novas funcionalidades e funcionalidades. O Agente de Provisionamento é atualizado automaticamente quando uma nova versão é lançada. 
 
 A Microsoft fornece suporte direto para a versão mais recente do agente e uma versão anterior.

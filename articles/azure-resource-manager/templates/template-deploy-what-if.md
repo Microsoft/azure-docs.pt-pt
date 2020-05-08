@@ -3,14 +3,14 @@ title: Implementação do modelo o que-se (Pré-visualização)
 description: Determine quais as mudanças que acontecerão aos seus recursos antes de implementar um modelo de Gestor de Recursos Azure.
 author: mumian
 ms.topic: conceptual
-ms.date: 04/28/2020
+ms.date: 04/29/2020
 ms.author: jgao
-ms.openlocfilehash: f13789912e5b801295f1f926a12db50849cd75d8
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
-ms.translationtype: HT
+ms.openlocfilehash: 70023f4fa5d44c74c7ce14f3a2c09ff14c9d2f8c
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509589"
+ms.locfileid: "82581199"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>Implantação do modelo ARM que-se operação (Pré-visualização)
 
@@ -106,7 +106,7 @@ Para pré-visualizar alterações antes `-Whatif` de implementar um modelo, adic
 * `New-AzResourceGroupDeployment -Whatif`para implantações de grupos de recursos
 * `New-AzSubscriptionDeployment -Whatif`e `New-AzDeployment -Whatif` para implementações de nível de subscrição
 
-Ou, pode utilizar `-Confirm` o parâmetro do interruptor para pré-visualizar as alterações e ser solicitado para continuar com a implementação.
+Pode utilizar `-Confirm` o parâmetro do interruptor para pré-visualizar as alterações e ser solicitado para continuar com a implementação.
 
 * `New-AzResourceGroupDeployment -Confirm`para implantações de grupos de recursos
 * `New-AzSubscriptionDeployment -Confirm`e `New-AzDeployment -Confirm` para implementações de nível de subscrição
@@ -123,10 +123,10 @@ Para pré-visualizar alterações `what-if` antes de implementar um modelo, util
 * `az deployment group what-if`para implantações de grupos de recursos
 * `az deployment sub what-if`para implementações de nível de subscrição
 
-Ou, pode utilizar `--confirm-with-what-if` o parâmetro para pré-visualizar as alterações e ser solicitado para continuar com a implementação.
+Pode utilizar `--confirm-with-what-if` o interruptor (ou `-c`o seu formulário curto) para pré-visualizar as alterações e ser solicitado para continuar com a implementação.
 
-* `az deployment group create --confirm-with-what-if`para implantações de grupos de recursos
-* `az deployment sub create --confirm-with-what-if`para implementações de nível de subscrição
+* `az deployment group create --confirm-with-what-if`ou `-c` para implantações de grupos de recursos
+* `az deployment sub create --confirm-with-what-if`ou `-c` para implementações de nível de subscrição
 
 Os comandos anteriores devolvem um resumo de texto que pode inspecionar manualmente. Para obter um objeto JSON que possa inspecionar programáticamente para obter alterações, utilize:
 
@@ -340,7 +340,7 @@ results=$(az deployment group what-if --resource-group ExampleGroup --template-u
 
 A operação "e se" suporta a utilização do modo de [implantação](deployment-modes.md). Quando definido para completar o modo, os recursos não no modelo são eliminados. O exemplo seguinte implementa um [modelo que não tem recursos definidos](https://github.com/Azure/azure-docs-json-samples/blob/master/empty-template/azuredeploy.json) em modo completo.
 
-Para pré-visualizar alterações antes `-Confirm` de implementar um modelo, utilize o parâmetro do interruptor com o comando de implantação. Se as alterações forem como esperava, confirme que pretende que a implementação esteja concluída.
+Para pré-visualizar alterações antes de implementar um modelo, utilize o parâmetro de comutador de confirmação com o comando de implantação. Se as alterações forem como esperava, reconheça que quer que a implementação esteja concluída.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

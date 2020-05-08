@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/07/2019
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: d2423d04ead9040cce53d847d24efe75be680d94
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4ea29888d4dcf589e3e5d4dfe594f5f4bff2287e
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80397312"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559973"
 ---
 # <a name="view-and-retrieve-azure-activity-log-events"></a>Ver e recuperar eventos de log da Atividade Azure
 
@@ -71,7 +71,7 @@ Para saber mais sobre a história da Mudança, consulte [obter alterações de r
 Utilize o cmdlet [Get-AzLog](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog) para recuperar o Registo de Atividade da PowerShell. Seguem-se alguns exemplos comuns.
 
 > [!NOTE]
-> `Get-AzLog`apenas fornece 15 dias de história. Use o parâmetro **-MaxEvents** para consultar os últimos eventos N para além de 15 dias. Para aceder a eventos com mais de 15 dias, utilize o REST API ou SDK. Se não incluir o **StartTime,** então o valor predefinido é **EndTime** menos uma hora. Se não incluir o **EndTime,** então o valor predefinido é o tempo atual. Todos os tempos estão na UTC.
+> `Get-AzLog`apenas fornece 15 dias de história. Use o parâmetro **-MaxRecord** para consultar os últimos eventos N para além de 15 dias. Para aceder a eventos com mais de 15 dias, utilize o REST API ou SDK. Se não incluir o **StartTime,** então o valor predefinido é **EndTime** menos uma hora. Se não incluir o **EndTime,** então o valor predefinido é o tempo atual. Todos os tempos estão na UTC.
 
 
 Obtenha entradas de log criadas após uma hora específica de data:
@@ -107,7 +107,7 @@ Get-AzLog -Caller 'myname@company.com'
 Obtenha os últimos 1000 eventos:
 
 ```powershell
-Get-AzLog -MaxEvents 1000
+Get-AzLog -MaxRecord 1000
 ```
 
 

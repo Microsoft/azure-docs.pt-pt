@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/19/2019
 ms.author: victorh
-ms.openlocfilehash: ae80b49c3bfb40743665768622d3f4a8a6990c12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 286c9329be38055808571d8d32c724d27a61cbf3
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81311854"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82855872"
 ---
 # <a name="overview-of-tls-termination-and-end-to-end-tls-with-application-gateway"></a>Visão geral da rescisão de TLS e fim para terminar TLS com Gateway de Aplicação
 
@@ -28,6 +28,10 @@ O Gateway de aplicação suporta a rescisão de TLS no gateway, após o qual o t
 - **Gestão de certificados** – Os certificados só precisam de ser adquiridos e instalados no gateway da aplicação e nem todos os servidores de backend. Isto poupa tempo e dinheiro.
 
 Para configurar a rescisão de TLS, é necessário adicionar ao ouvinte um certificado TLS/SSL para permitir que o portal de aplicação obtenha uma chave simétrica de acordo com a especificação do protocolo TLS/SSL. A chave simétrica é então usada para encriptar e desencriptar o tráfego enviado para o portal. O certificado TLS/SSL tem de estar no formato Personal Information Exchange (PFX). Este formato de ficheiro permite-lhe exportar a chave privada que é exigida pela porta de entrada de aplicação para realizar a encriptação e desencriptação do tráfego.
+
+> [!IMPORTANT] 
+> Por favor, note que o certificado no ouvinte requer que toda a cadeia de certificados seja carregada. 
+
 
 > [!NOTE] 
 >

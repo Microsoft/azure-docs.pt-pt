@@ -4,12 +4,12 @@ description: Obtenha uma visão geral do que pode fazer com alertas métricos e 
 ms.date: 03/17/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: a6860cad077b597df923274f8971f5652d4ba9e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 310d484fa1c88b2c54918fff84020a3438db9ae0
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80397978"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82855050"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Compreender a forma como os alertas de métrica funcionam no Azure Monitor
 
@@ -26,7 +26,7 @@ Digamos que criou uma regra de alerta métrica de limiar estática simples da se
 - Recurso-alvo (o recurso Azure que pretende monitorizar): myVM
 - Métrica: CPU percentual
 - Tipo de condição: Estática
-- Agregação do tempo (Estatística que é atropelada por valores métricos brutos. As agregações de tempo suportadas são Min, Max, Avg, Total, Conde): Média
+- Agregação do tempo (Estatística que é atropelada por valores métricos brutos. [As agregações de tempo suportadas](metrics-charts.md#changing-aggregation) são Min, Max, Avg, Total, Conde): Média
 - Período (A janela de olhar para trás sobre quais os valores métricos são verificados): Ao longo dos últimos 5 minutos
 - Frequência (A frequência com que o alerta métrico verifica se as condições são satisfeitas): 1 min
 - Operador: Maior do que
@@ -43,7 +43,7 @@ Digamos que criou uma regra simples de alerta métrico Dynamic Thresholds da seg
 - Recurso-alvo (o recurso Azure que pretende monitorizar): myVM
 - Métrica: CPU percentual
 - Tipo de condição: Dinâmico
-- Agregação do tempo (Estatística que é atropelada por valores métricos brutos. As agregações de tempo suportadas são Min, Max, Avg, Total, Conde): Média
+- Agregação do tempo (Estatística que é atropelada por valores métricos brutos. [As agregações de tempo suportadas](metrics-charts.md#changing-aggregation) são Min, Max, Avg, Total, Conde): Média
 - Período (A janela de olhar para trás sobre quais os valores métricos são verificados): Ao longo dos últimos 5 minutos
 - Frequência (A frequência com que o alerta métrico verifica se as condições são satisfeitas): 1 min
 - Operador: Maior do que
@@ -129,9 +129,9 @@ Esta funcionalidade é atualmente suportada para métricas de plataforma (não m
 | Serviço | Azure Público | Governo | China |
 |:--------|:--------|:--------|:--------|
 | Máquinas virtuais  | **Sim** | Não | Não |
-| Bases de dados de servidores SQL | **Sim** | **Sim** | Não |
-| Piscinas elásticas de servidor SQL | **Sim** | **Sim** | Não |
-| Dispositivos de borda de caixa de dados | **Sim** | **Sim** | Não |
+| Bases de dados de servidores SQL | **Sim** | **Sim** | No |
+| Piscinas elásticas de servidor SQL | **Sim** | **Sim** | No |
+| Dispositivos de borda de caixa de dados | **Sim** | **Sim** | No |
 
 Pode especificar o âmbito de monitorização por uma regra de alerta métrica única de uma de três maneiras. Por exemplo, com máquinas virtuais pode especificar o âmbito como:  
 

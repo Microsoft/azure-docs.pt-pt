@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/08/2019
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34451fcc4597f77464e5e9566613e21e9fecdbc6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aff304b0866092badc515df7201fb4873acc298e
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74027319"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582936"
 ---
 # <a name="change-static-group-membership-to-dynamic-in-azure-active-directory"></a>Mude a adesão ao grupo estático para dinâmica no Diretório Ativo azure
 
@@ -32,7 +32,7 @@ Pode alterar a adesão de um grupo de estática a dinâmica (ou vice-versa) no A
 
 ## <a name="change-the-membership-type-for-a-group"></a>Alterar o tipo de membro para um grupo
 
-1. Inscreva-se no [centro de administração da Azure AD](https://aad.portal.azure.com) com uma conta que é administradora global ou administradora de utilizadores no seu inquilino.
+1. Inscreva-se no [centro de administração da Azure AD](https://aad.portal.azure.com) com uma conta que é um administrador global ou um administrador de utilizador na sua organização Azure AD.
 2. Selecione **Grupos**.
 3. Da lista de **todos os grupos,** abra o grupo que quer mudar.
 4. Selecione **Propriedades**.

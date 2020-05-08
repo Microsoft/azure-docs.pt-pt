@@ -3,15 +3,16 @@ title: Prepare a imagem VM Azure para uso com cloud-init
 description: Como preparar uma imagem VM Azure pré-existente para implantação com cloud-init
 author: danis
 ms.service: virtual-machines-linux
+ms.subservice: imaging
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: danis
-ms.openlocfilehash: fef41f4dc90c03e3efbe4c8a75e495c26eec64b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c41368b311708d5ead36d589cf9c320787e596ec
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80066807"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792314"
 ---
 # <a name="prepare-an-existing-linux-azure-vm-image-for-use-with-cloud-init"></a>Prepare uma imagem VM Linux Azure existente para uso com cloud-init
 Este artigo mostra-lhe como pegar numa máquina virtual Azure existente e prepará-la para ser reimplantada e pronta para usar cloud-init. A imagem resultante pode ser usada para implantar uma nova máquina virtual ou conjuntos de escala de máquinavirtual - qualquer um dos quais poderia ser mais personalizado por cloud-init no momento de implantação.  Estes scripts de cloud-init funcionam na primeira bota uma vez que os recursos foram aprovisionados pelo Azure. Para mais informações sobre como o cloud-init funciona nativamente em Azure e os distros linux suportados, consulte a [visão geral cloud-init](using-cloud-init.md)

@@ -1,29 +1,29 @@
 ---
-title: Criar um ativo técnico Azure VM
-description: Este artigo descreve os passos e requisitos para configurar uma oferta de contentores no Azure Marketplace.
+title: Conceitos técnicos para ofertas de contentores Azure - Mercado comercial da Microsoft
+description: Recursos técnicos e diretrizes para ajudá-lo a configurar uma oferta de contentores no Azure Marketplace.
 author: anbene
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: e51b8c705533fd74a5e46eaa2570563fef485309
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b3c6f88df151cc497f0de670d5d78a05c7477459
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81730627"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791889"
 ---
-# <a name="create-an-azure-vm-technical-asset"></a>Criar um ativo técnico Azure VM
+# <a name="create-an-azure-container-offer"></a>Criar uma oferta de contentores Azure
 
 > [!IMPORTANT]
 > Estamos a mover a gestão das suas ofertas de contentores Azure do Cloud Partner Portal para partner Center. Até que as suas ofertas sejam migradas, siga as instruções em Prepare os [seus ativos técnicos](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-create-technical-assets) de contentores para o Portal do Parceiro cloud para gerir as suas ofertas.
 
-Este artigo descreve os passos e requisitos para configurar uma oferta de contentores no Azure Marketplace.
+Este artigo fornece recursos técnicos e recomendações para ajudá-lo a criar uma oferta de contentores no Azure Marketplace.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Para Quickstarts, Tutoriais e Amostras, consulte as instâncias do [contentor azure.](https://docs.microsoft.com/azure/container-instances)
+Para Quickstarts, Tutoriais e Amostras, consulte a documentação de Instâncias de [Contentores Azure](https://docs.microsoft.com/azure/container-instances).
 
 ## <a name="fundamental-technical-knowledge"></a>Conhecimento técnico fundamental
 
@@ -61,6 +61,6 @@ Para mais informações, consulte os seguintes tutoriais:
 - [Tutorial: Criar uma imagem de contentor para implantação em Instâncias de Contentores Azure](https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app)
 - [Tutorial: Construa e implante imagens de contentores na nuvem com tarefas](https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-quick-task)de registo de contentores Azure .
 
-## <a name="next-step"></a>Passo seguinte
+## <a name="next-steps"></a>Passos seguintes
 
 - [Crie a sua oferta de contentores.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-offer)

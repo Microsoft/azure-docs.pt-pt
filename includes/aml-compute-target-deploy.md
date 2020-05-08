@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 08/23/2019
-ms.openlocfilehash: ba1e0eee5de65364d8e5e762195f7de98384c2a7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9eedc0c3044717360494b222c88d73b3c8999e94
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76122593"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82587854"
 ---
 | Destino de computação | Utilizado para | Apoio à GPU | Apoio da FPGA | Descrição |
 | ----- | ----- | ----- | ----- | ----- |
@@ -25,7 +25,7 @@ ms.locfileid: "76122593"
 | [Clusters de computação do Azure Machine Learning](../articles/machine-learning/how-to-use-parallel-run-step.md) | (Pré-visualização) Inferência do lote&nbsp; | [Sim](../articles/machine-learning/how-to-use-parallel-run-step.md) (pipeline de aprendizagem automática) | &nbsp;  | Executar pontuação de lote em computação sem servidor. Suporta VMs normais e de baixa prioridade. |
 | [Funções do Azure](../articles/machine-learning/how-to-deploy-functions.md) | (Pré-visualização) Inferência em tempo real | &nbsp; | &nbsp; | &nbsp; |
 | [Azure IoT Edge](../articles/machine-learning/how-to-deploy-and-where.md#iotedge) | (Pré-visualização) Módulo IoT&nbsp; |  &nbsp; | &nbsp; | Implementar e servir modelos ML em dispositivos IoT. |
-| [Azure Data Box Edge](../articles/databox-online/data-box-edge-overview.md)   | Via Borda IoT |  &nbsp; | Sim | Implementar e servir modelos ML em dispositivos IoT. |
+| [Azure Data Box Edge](../articles/databox-online/azure-stack-edge-overview.md)   | Via Borda IoT |  &nbsp; | Sim | Implementar e servir modelos ML em dispositivos IoT. |
 
 > [!NOTE]
 > Embora alvos computacionais como o local, o caso de computação de Machine Learning Azure, e os clusters de computação Azure Machine Learning suportem a GPU para formação e experimentação, usando GPU para inferência __quando implantado como um serviço web__ é suportado apenas no Serviço Azure Kubernetes.

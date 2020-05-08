@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: 6dcda58652abe51d360748222263f30f337a2251
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e4d578596471153e4fc0e37d3ca093685326ecc7
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82182740"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791770"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas de serviço Azure Cosmos DB
 
@@ -138,9 +138,9 @@ Cosmos DB usa HMAC para autorização. Pode utilizar uma chave principal, ou um 
 
 Cosmos DB apoia a execução de gatilhos durante os escritos. O serviço suporta um máximo de um pré-gatilho e um pós-gatilho por operação de escrita. 
 
-## <a name="autoscale-mode-limits"></a>Limites de modo de escala automática
+## <a name="limits-for-autoscale-provisioned-throughput"></a>Limites para a produção de escala automática aprovisionada
 
-Consulte o artigo [de escala automática](provision-throughput-autoscale.md#autoscale-limits) para os limites de produção e armazenamento no modo de escala automática.
+Consulte o artigo [de escala automática](provision-throughput-autoscale.md#autoscale-limits) para os limites de produção e armazenamento com escala automática.
 
 ## <a name="sql-query-limits"></a>Limites de consulta SQL
 

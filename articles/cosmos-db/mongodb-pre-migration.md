@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: lbosq
-ms.openlocfilehash: 9e867a544de8904274286cb68fc047f3f4b93e0d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 89cd1de3658c16fccdb70567641a68f5c1575507
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183318"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791753"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Etapas de pré-migração para migrações de dados de MongoDB para API da Azure Cosmos DB para MongoDB
 
@@ -30,7 +30,7 @@ Se já preencheu os pré-requisitos acima referidos para a migração, pode migr
 
 Seguem-se características específicas sobre a API da Azure Cosmos DB para o MongoDB:
 
-- **Modelo de capacidade**: A capacidade da base de dados no Azure Cosmos DB baseia-se num modelo baseado em despesas. Este modelo baseia-se em [Unidades de Pedido por segundo,](request-units.md)que é uma unidade que representa o número de operações de base de dados que podem ser executadas contra uma recolha por segundo. Esta capacidade pode ser atribuída a nível de base de [dados ou de recolha,](set-throughput.md)podendo ser aprovisionada num modelo de atribuição, ou utilizando o modelo de escala [automática.](provision-throughput-autoscale.md)
+- **Modelo de capacidade**: A capacidade da base de dados no Azure Cosmos DB baseia-se num modelo baseado em despesas. Este modelo baseia-se em [Unidades de Pedido por segundo,](request-units.md)que é uma unidade que representa o número de operações de base de dados que podem ser executadas contra uma recolha por segundo. Esta capacidade pode ser atribuída a nível de base de [dados ou de recolha,](set-throughput.md)podendo ser aprovisionada num modelo de atribuição, ou utilizando a produção de escala automática [prevista](provision-throughput-autoscale.md).
 
 - **Unidades de Pedido**: Cada operação de base de dados tem um custo associado das Unidades de Pedido (RUs) em Azure Cosmos DB. Quando executado, este é subtraído do nível de unidades de pedido disponíveis em um segundo. Se um pedido requer mais RUs do que os RU/s atualmente atribuídos, existem duas opções para resolver o problema - aumentar a quantidade de RUs, ou esperar até que o segundo seguinte comece e, em seguida, rejulgar a operação.
 

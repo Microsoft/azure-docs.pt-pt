@@ -17,7 +17,7 @@ Respostas para perguntas frequentes sobre a Azure VMware Solution (AVS).
 
 ## <a name="general"></a>Geral
 
-**O que é a Solução Azure VMware (AVS)?**
+**O que é a Solução VMware no Azure (AVS)?**
 
 À medida que as empresas prosseguem estratégias de modernização de TI para melhorar a agilidade do negócio, reduzir custos e acelerar a inovação, as plataformas híbridas de nuvem surgiram como principais facilitadores da transformação digital dos clientes. O AVS combina o software Software Defined Data Center (SDDC) da VMware com o ecossistema global de serviços em nuvem do Microsoft Azure. A solução AVS é conseguida para atender aos requisitos de desempenho, disponibilidade, segurança e conformidade.
 

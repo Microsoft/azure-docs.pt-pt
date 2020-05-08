@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 11/06/2019
 ms.author: cynthn
-ms.openlocfilehash: 1560a67d73b712ba1f295992fce4f7f1a2ae75bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e484cccb2dc15266fb7889c335a0acc981053e5c
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82100707"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792144"
 ---
 # <a name="create-an-azure-shared-image-gallery-using-the-portal"></a>Criar uma Galeria de Imagem Partilhada Azure usando o portal
 
@@ -25,26 +25,11 @@ A galeria é um recurso de alto nível que fornece um controlo completo de acess
 
 A funcionalidade Da Galeria de Imagem Partilhada tem vários tipos de recursos. Vamos usar ou construir estes neste artigo:
 
-| Recurso | Descrição|
-|----------|------------|
-| **Imagem gerida** | Uma imagem básica que pode ser usada sozinha ou usada para criar uma versão de **imagem** numa galeria de imagens. As imagens geridas são criadas a partir de VMs [generalizados.](shared-image-galleries.md#generalized-and-specialized-images) Uma imagem gerida é um tipo especial de VHD que pode ser usado para fazer vários VMs e agora pode ser usado para criar versões de imagem partilhada. |
-| **Instantâneo** | Uma cópia de um VHD que pode ser usado para fazer uma versão de **imagem**. Os instantâneos podem ser retirados de um VM [especializado](shared-image-galleries.md#generalized-and-specialized-images) (que não foi generalizado) e depois utilizados sozinhos ou com instantâneos de discos de dados, para criar uma versão de imagem especializada.
-| **Galeria de imagens** | Tal como o Azure Marketplace, uma galeria de **imagens** é um repositório para gerir e partilhar imagens, mas controla quem tem acesso. |
-| **Definição de imagem** | As imagens são definidas dentro de uma galeria e transportam informações sobre a imagem e requisitos para a sua utilização dentro da sua organização. Pode incluir informações como se a imagem é generalizada ou especializada, o sistema operativo, requisitos mínimos e máximos de memória e notas de lançamento. É uma definição de um tipo de imagem. |
-| **Versão de imagem** | Uma **versão de imagem** é o que se usa para criar um VM quando se utiliza uma galeria. Pode ter várias versões de uma imagem necessária para o seu ambiente. Como uma imagem gerida, quando se usa uma versão de **imagem** para criar um VM, a versão de imagem é usada para criar novos discos para o VM. As versões de imagem podem ser usadas várias vezes. |
+
+[!INCLUDE [virtual-machines-shared-image-gallery-resources](../../../includes/virtual-machines-shared-image-gallery-resources.md)]
 
 <br>
 
-
-> [!IMPORTANT]
-> Imagens especializadas estão atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
->
-> **Limitações de pré-visualização conhecidas** Os VMs só podem ser criados a partir de imagens especializadas utilizando o portal ou API. O suporte não é CLI ou PowerShell para a pré-visualização.
-
-## <a name="before-you-begin"></a>Antes de começar
-
-Para completar o exemplo neste artigo, deve ter uma imagem gerida existente de um VM generalizado, ou uma imagem de um VM especializado. Pode seguir o [Tutorial: Criar uma imagem personalizada de um Azure VM com A Azure PowerShell](tutorial-custom-images.md) para criar uma imagem gerida, ou [criar um instantâneo](snapshot-copy-managed-disk.md) para um VM especializado. Tanto para imagens geridas como para imagens, o tamanho do disco de dados não pode ser superior a 1 TB.
 
 Ao trabalhar através deste artigo, substitua o grupo de recursos e os nomes VM sempre que necessário.
 
@@ -79,10 +64,10 @@ Se pretender eliminar recursos individuais, tem de os eliminar por ordem inversa
 
 Também pode criar recurso da Galeria de Imagem Partilhada utilizando modelos. Existem vários modelos Azure Quickstart disponíveis: 
 
-- [Criar uma Galeria de Imagem Partilhada](https://azure.microsoft.com/resources/templates/101-sig-create/)
-- [Criar uma Definição de Imagem numa Galeria de Imagem Partilhada](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
-- [Criar uma versão de imagem numa galeria de imagem partilhada](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
-- [Criar um VM a partir da versão de imagem](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
+- [Criar um Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-create/)
+- [Criar uma Definição de Imagem num Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
+- [Criar uma Versão de Imagem num Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
+- [Criar uma VM a partir de uma Versão de Imagem](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
 
 Para mais informações sobre galerias de imagem partilhadas, consulte a [visão geral.](shared-image-galleries.md) Se tiver problemas, veja as galerias de [imagens partilhadas de Troubleshooting.](troubleshooting-shared-images.md)
 

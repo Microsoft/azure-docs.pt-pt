@@ -4,15 +4,16 @@ description: Crie imagens De Linux VM com Azure Image Builder e Galeria de Image
 author: cynthn
 ms.author: cynthn
 ms.date: 04/20/2019
-ms.topic: article
+ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
-ms.openlocfilehash: bf1dca61ec6b39e52d4f76c1c77cd3def6973ab8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.reviewer: danis
+ms.openlocfilehash: 196f7b41a9d7eb5da1b2cf52a38917c34905d7bb
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78945026"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791515"
 ---
 # <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>Pré-visualização: Crie uma imagem Linux e distribua-a para uma Galeria de Imagem Partilhada 
 

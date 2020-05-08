@@ -1,32 +1,36 @@
 ---
-title: Mesa Azure no programa de marketplace comercial Mercado Azure
-description: Configure gestão de chumbo para Azure Blob
+title: Gestão de chumbo com armazenamento Azure Blob - Mercado comercial da Microsoft
+description: Saiba como usar o Azure Blob para configurar os leads para o Microsoft AppSource e o Azure Marketplace
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 7/30/2019
+ms.date: 05/01/2020
 ms.author: dsindona
-ms.openlocfilehash: 062252b007e22fcd2644c8b647fc0ecc2f5938cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 076edc62a467701eaf0de23f280cdaf2abd945de
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80285253"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792722"
 ---
-# <a name="lead-management-instructions-for-azure-blob"></a>Instruções de gestão de chumbo para Azure Blob
+# <a name="use-azure-blob-storage-to-manage-commercial-marketplace-leads"></a>Use o armazenamento Azure Blob para gerir os leads do mercado comercial
 
 >[!Caution]
->A opção Azure Blob para processar os leads da sua oferta de mercado foi depreciada. Se tem atualmente uma oferta publicada com configuração de gestão de chumbo para o Azure Blob, já não está a receber pistas de clientes. Por favor, atualize a sua configuração de gestão de chumbo para qualquer uma das outras opções de gestão de chumbo. Conheça as outras opções na página de aterragem de [gestão de chumbo](./commercial-marketplace-get-customer-leads.md)."
+>O suporte ao mercado comercial para o armazenamento Da Blob Azure foi depreciado e já não é uma opção para processar os leads da sua oferta. Se tem atualmente uma oferta de marketplace comercial com gestão de chumbo configurada para o Azure Blob, deixará de receber pistas de clientes. Por favor, atualize a sua configuração de gestão de chumbo para qualquer uma das outras opções de gestão de chumbo. Conheça as outras opções na página de aterragem de [gestão de chumbo](./commercial-marketplace-get-customer-leads.md)."
 
-Se o seu sistema de Gestão de Relacionamento com o Cliente (CRM) não for explicitamente suportado no Partner Center para receber os leads Azure Marketplace e AppSource, pode utilizar um Azure Blob para lidar com estes cabos. Em seguida, pode optar por exportar os dados e importá-lo para o seu sistema de CRM. As instruções deste artigo dar-lhe-ão através do processo de criação de uma conta de Armazenamento Azure, e de um Azure Blob sob essa conta. Além disso, pode criar um novo fluxo utilizando o Microsoft Flow para enviar uma notificação de e-mail quando a sua oferta receber um chumbo.
+ Se o seu sistema de Gestão de Relacionamento com o Cliente (CRM) não for explicitamente suportado no Partner Center para receber os cabos Microsoft AppSource e Azure Marketplace, pode utilizar o armazenamento Azure Blob. Em seguida, pode optar por exportar os dados e importá-lo para o seu sistema de CRM. As instruções deste artigo dar-lhe-ão através do processo de criação de uma conta de Armazenamento Azure, e uma bolha nessa conta. Além disso, pode criar um novo fluxo utilizando power automate para enviar uma notificação de e-mail quando a sua oferta receber um chumbo.
 
+>[!NOTE]
+>O conector Power Automate utilizado nestas instruções requer uma subscrição paga ao Power Automate. Certifique-se de que explica isto antes de seguir as instruções deste artigo.
 
-## <a name="how-to-configure-azure-blob"></a>Como configurar o Azure Blob
+## <a name="configure-azure-blob-storage"></a>Configure armazenamento De Blob Azure
 
 1. Se não tiver uma conta Azure, pode [criar uma conta de teste gratuita.](https://azure.microsoft.com/pricing/free-trial/)
-1. Depois da sua conta Azure estar ativa, inscreva-se no [portal Azure.](https://portal.azure.com)
-1. No portal Azure, crie uma conta de armazenamento utilizando o seguinte procedimento.  
+
+2. Depois da sua conta Azure estar ativa, inscreva-se no [portal Azure.](https://portal.azure.com)
+
+3. No portal Azure, crie uma conta de armazenamento utilizando o seguinte procedimento.  
     1. Selecione **+Criar um recurso** na barra de menu seletiva esquerda.  O **New** novo painel (lâmina) será exibido à direita.
     2. Selecione **Armazenamento** no painel **Novo.**  Uma lista **em destaque** é apresentada à direita.
     3. Selecione a **Conta de Armazenamento** para iniciar a criação de conta.  Siga as instruções do artigo [Criar uma conta](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)de armazenamento .
@@ -65,7 +69,7 @@ Se o seu sistema de Gestão de Relacionamento com o Cliente (CRM) não for expli
 
     ![Novo Recipiente](./media/commercial-marketplace-lead-management-instructions-azure-blob/new-container.png)
 
-## <a name="configure-your-offer-to-send-leads-to-the-azure-blob"></a>Configure a sua oferta para enviar leva ao Azure Blob
+## <a name="configure-your-offer-to-send-leads-to-azure-blob-storage"></a>Configure a sua oferta para enviar pistas para o armazenamento da Blob Azure
 
 Quando estiver pronto para configurar as informações de gestão de chumbo para a sua oferta no portal editorial, siga os passos abaixo:
 

@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/15/2019
-ms.openlocfilehash: d0669a89527cabd23b81a0948e8cf9962dcd1e9e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: HT
+ms.openlocfilehash: 52f389e00d63f3659dfe79487b31ec9c3fab1ced
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232058"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82580689"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Expressões de transformação de dados no fluxo de dados de mapeamento
 
@@ -26,10 +26,10 @@ Na Data Factory, utilize a linguagem de expressão da função de fluxo de dados
 ___
 ### <code>abs</code>
 <code><b>abs(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
-Valor absoluto de um número.
+Valor absoluto de um número.  
 * ``abs(-20) -> 20``  
 * ``abs(10) -> 10``  
-___
+___   
 ### <code>acos</code>
 <code><b>acos(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Calcula um valor inverso cosseno* ``acos(1) -> 0.0``  
@@ -116,7 +116,7 @@ Recolhe todos os valores da expressão no grupo agregado numa matriz. As estrutu
 ___
 ### <code>columnNames</code>
 <code><b>columnNames(<i>&lt;value1&gt;</i> : string) => array</b></code><br/><br/>
-Obtém todas as colunas de saída para um fluxo. Pode passar um nome de fluxo opcional como segundo argumento.
+Obtém todas as colunas de saída para um fluxo. Pode passar um nome de fluxo opcional como segundo argumento.  
 * ``columnNames()``
 * ``columnNames('DeriveStream')``
 ___
@@ -156,8 +156,8 @@ Calcula o hash CRC32 de conjunto de coluna sinuosidade sinuosa mente, dado um co
 ___
 ### <code>currentDate</code>
 <code><b>currentDate([<i>&lt;value1&gt;</i> : string]) => date</b></code><br/><br/>
-Tem a data atual quando este trabalho começar a funcionar. Você pode passar um fuso horário opcional sob a forma de 'GMT', 'PST', 'UTC', 'America/Cayman'. O fuso horário local é usado como padrão. Consulte o SimpleDateFormat da Java para obter formatos disponíveis. ["https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html)
-* ``currentDate() == toDate('2250-12-31') -> false`` * ``currentDate('PST')  == toDate('2250-12-31') -> false``  
+Tem a data atual quando este trabalho começar a funcionar. Você pode passar um fuso horário opcional sob a forma de 'GMT', 'PST', 'UTC', 'America/Cayman'. O fuso horário local é usado como padrão. Consulte o SimpleDateFormat da Java para obter formatos disponíveis. ["https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) * ``currentDate() == toDate('2250-12-31') -> false``  
+* ``currentDate('PST')  == toDate('2250-12-31') -> false``  
 * ``currentDate('America/New_York')  == toDate('2250-12-31') -> false``  
 ___
 ### <code>currentTimestamp</code>
@@ -278,9 +278,11 @@ Com base numa condição aplica-se um valor ou outro. Se outros não especificad
 ___
 ### <code>iifNull</code>
 <code><b>iifNull(<i>&lt;value1&gt;</i> : any, [<i>&lt;value2&gt;</i> : any], ...) => any</b></code><br/><br/>
-Verifica se o valor NÃO é NULO e devolve-o e devolve-o o suplente. Testa todas as inputs até encontrar o primeiro valor não nulo* ``iifNull(10, 20) -> 10``  
+Verifica se o primeiro parâmetro é nulo. Se não for nulo, o primeiro parâmetro é devolvido. Se nulidade, o segundo parâmetro é devolvido. Se forem especificados três parâmetros, o comportamento é o mesmo que iif (é Nulo(valor1), valor2, valor3) e o terceiro parâmetro é devolvido se o primeiro valor não for nulo.  
+* ``iifNull(10, 20) -> 10``  
 * ``iifNull(null, 20, 40) -> 20``  
-* ``iifNull('bojjus', 'bo', 'dumbo') -> 'dumbo'``  
+* ``iifNull('azure', 'data', 'factory') -> 'factory'``  
+* ``iifNull(null, 'data', 'factory') -> 'data'``  
 ___
 ### <code>in</code>
 <code><b>in(<i>&lt;array of items&gt;</i> : array, <i>&lt;item to find&gt;</i> : any) => boolean</b></code><br/><br/>
@@ -373,7 +375,7 @@ ___
 ### <code>like</code>
 <code><b>like(<i>&lt;string&gt;</i> : string, <i>&lt;pattern match&gt;</i> : string) => boolean</b></code><br/><br/>
 O padrão é uma corda que é literalmente igualada. As exceções são os seguintes símbolos especiais: _ corresponde a qualquer personagem na entrada (semelhante a . em posix expressões regulares) % corresponde a zero ou mais caracteres na entrada (semelhante a .* em expressões regulares posix).
-O personagem da fuga é "". Se um personagem de fuga precede um símbolo especial ou outro personagem de fuga, o seguinte personagem é literalmente combinado. É inválido escapar a qualquer outro personagem.
+O personagem da fuga é "". Se um personagem de fuga precede um símbolo especial ou outro personagem de fuga, o seguinte personagem é literalmente combinado. É inválido escapar a qualquer outro personagem.  
 * ``like('icecream', 'ice%') -> true``  
 ___
 ### <code>locate</code>
@@ -504,7 +506,7 @@ Operador lógico ou lógico. O mesmo que []* ``or(true, false) -> true``
 ___
 ### <code>pMod</code>
 <code><b>pMod(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
-Modulo positivo de par de números.
+Modulo positivo de par de números.  
 * ``pmod(-20, 8) -> 4``  
 ___
 ### <code>partitionId</code>
@@ -944,7 +946,7 @@ Com base num critério, obtém a variância imparcial de uma coluna* ``varianceS
 ##Funções da janela As seguintes funções só estão disponíveis em transformações de janelas___
 ### <code>cumeDist</code>
 <code><b>cumeDist() => integer</b></code><br/><br/>
-A função CumeDist calcula a posição de um valor em relação a todos os valores da partição. O resultado é o número de linhas anteriores ou iguais à linha atual na ordem da divisória dividida pelo número total de linhas na divisória da janela. Qualquer valore de empate na ordem avaliará para a mesma posição.
+A função CumeDist calcula a posição de um valor em relação a todos os valores da partição. O resultado é o número de linhas anteriores ou iguais à linha atual na ordem da divisória dividida pelo número total de linhas na divisória da janela. Qualquer valore de empate na ordem avaliará para a mesma posição.  
 * ``cumeDist()``  
 ___
 ### <code>denseRank</code>
@@ -963,7 +965,7 @@ Obtém o valor do primeiro parâmetro avaliado n linhas após a linha atual. O s
 ___
 ### <code>nTile</code>
 <code><b>nTile([<i>&lt;value1&gt;</i> : integer]) => integer</b></code><br/><br/>
-A função NTile divide as linhas `n` para cada divisória `n`de janela em baldes que variam de 1 a no máximo . Os valores do balde diferirão no máximo 1. Se o número de linhas na divisória não se dividir uniformemente no número de baldes, então os valores restantes são distribuídos um por balde, começando pelo primeiro balde. A função NTile é útil para o cálculo de tertiles, quartiles, deciles e outras estatísticas sumárias comuns. A função calcula duas variáveis durante a inicialização: O tamanho de um balde normal terá uma linha extra adicionada a ele. Ambas as variáveis baseiam-se no tamanho da partição atual. Durante o processo de cálculo, a função mantém o registo do número atual da linha, do número atual do balde e do número da linha em que o balde irá mudar (bucketThreshold). Quando o número atual da linha atinge o limiar do balde, o valor do balde é aumentado por um e o limiar é aumentado pelo tamanho do balde (mais um extra se o balde atual for acolchoado).
+A função NTile divide as linhas `n` para cada divisória `n`de janela em baldes que variam de 1 a no máximo . Os valores do balde diferirão no máximo 1. Se o número de linhas na divisória não se dividir uniformemente no número de baldes, então os valores restantes são distribuídos um por balde, começando pelo primeiro balde. A função NTile é útil para o cálculo de tertiles, quartiles, deciles e outras estatísticas sumárias comuns. A função calcula duas variáveis durante a inicialização: O tamanho de um balde normal terá uma linha extra adicionada a ele. Ambas as variáveis baseiam-se no tamanho da partição atual. Durante o processo de cálculo, a função mantém o registo do número atual da linha, do número atual do balde e do número da linha em que o balde irá mudar (bucketThreshold). Quando o número atual da linha atinge o limiar do balde, o valor do balde é aumentado por um e o limiar é aumentado pelo tamanho do balde (mais um extra se o balde atual for acolchoado).  
 * ``nTile()``  
 * ``nTile(numOfBuckets)``  
 ___

@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: H1Hack27Feb2017, it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5948fba67d3f071d77192f9ad89bc696fdc0c3cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 521982a5cf09e0da9c52bca2fe367432a1d29e57
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253458"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583134"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Delegação Limitada Kerberos para inscrição única nas suas apps com Procuração de Aplicação
 
@@ -100,11 +100,13 @@ A configuração do Diretório Ativo varia, dependendo se o conector Proxy de Ap
 
 ## <a name="sso-for-non-windows-apps"></a>SSO para aplicações não Windows
 
-O fluxo da delegação Kerberos em Azure AD Application Proxy começa quando a Azure AD autentica o utilizador na nuvem. Assim que o pedido chegar ao local, o conector De procuração de aplicação da AD Azure emite um bilhete Kerberos em nome do utilizador interagindo com o Diretório Ativo local. Este processo é referido como Delegação Limitada kerberos (KCD). Na fase seguinte, um pedido é enviado para o pedido de backend com este bilhete Kerberos. 
+O fluxo da delegação Kerberos em Azure AD Application Proxy começa quando a Azure AD autentica o utilizador na nuvem. Assim que o pedido chegar ao local, o conector De procuração de aplicação da AD Azure emite um bilhete Kerberos em nome do utilizador interagindo com o Diretório Ativo local. Este processo é referido como Delegação Limitada kerberos (KCD). 
 
-Existem vários protocolos que definem como enviar tais pedidos. A maioria dos servidores não Windows espera negociar com o SPNEGO. Este protocolo é suportado no Proxy de Aplicação AD Azure, mas é desativado por padrão. Um servidor pode ser configurado para SPNEGO ou KCD padrão, mas não ambos.
+Na fase seguinte, um pedido é enviado para o pedido de backend com este bilhete Kerberos. 
 
-Se configurar uma máquina de conector para SPNEGO, certifique-se de que todos os outros conectores desse grupo de Conectores também estão configurados com SPNEGO. As aplicações que esperam o KCD padrão devem ser encaminhadas através de outros conectores que não estejam configurados para SPNEGO.
+Existem vários mecanismos que definem como enviar o bilhete Kerberos em tais pedidos. A maioria dos servidores não Windows espera recebê-lo sob a forma de ficha SPNEGO. Este mecanismo é suportado no Proxy de Aplicação AD Azure, mas é desativado por padrão. Um conector pode ser configurado para ficha SPNEGO ou Kerberos padrão, mas não ambos.
+
+Se configurar uma máquina de conector para SPNEGO, certifique-se de que todos os outros conectores desse grupo de Conectores também estão configurados com SPNEGO. As aplicações que esperam ficha seleção de Kerberos padrão devem ser encaminhadas através de outros conectores que não estejam configurados para SPNEGO.
  
 
 Para ativar o SPNEGO:

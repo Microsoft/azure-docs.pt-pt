@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: dineshm
-ms.openlocfilehash: 0f9e80aff20c1b2663491f6d6ceb99aaec58230f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 29ce845fa3239dd48ff2ff0480beff08cf704b30
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74269455"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82591691"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Listar Recursos do Armazenamento do Microsoft Azure em C++
 
@@ -62,7 +62,7 @@ A resposta para uma operação de listagem segmentada inclui:
 * *_segment*, que contém o conjunto de resultados devolvidos para uma única chamada para a API de listagem.
 * *continuation_token*, que é passado para a chamada seguinte para obter a próxima página dos resultados. Quando não há mais resultados para regressar, o sinal de continuação é nulo.
 
-Por exemplo, uma chamada típica para listar todas as bolhas num recipiente pode parecer o seguinte código snippet. O código está disponível nas [nossas amostras:](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted/Application.cpp)
+Por exemplo, uma chamada típica para listar todas as bolhas num recipiente pode parecer o seguinte código snippet. O código está disponível nas [nossas amostras:](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted.cpp)
 
 ```cpp
 // List blobs in the blob container

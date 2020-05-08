@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/02/2019
 ms.author: alkohli
-ms.openlocfilehash: e72113313e27949819db567c550401b1f051473f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dde84f0973cc7e21e57574bbabe398b38581358f
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77022686"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562416"
 ---
 # <a name="use-cases-for-azure-data-box-gateway"></a>Utilize casos para gateway de caixa de dados Azure
 
@@ -77,7 +77,7 @@ Esta transferência a granel completa a fase inicial de semente.
 
 ### <a name="ongoing-feed-with-data-box-gateway"></a>Feed contínuo com Data Box Gateway
 
-Siga estes passos para a ingestão contínua pelo Data Box Gateway.
+Siga estes passos para a ingestão contínua pelo Data Box Gateway. 
 
 1. Crie uma partilha de nuvem no Data Box Gateway. Esta parte envia automaticamente quaisquer dados para a conta de Armazenamento Azure. Vá a **Partilhas** no seu recurso Data Box Gateway e clique **+ Adicionar partilha**.
 

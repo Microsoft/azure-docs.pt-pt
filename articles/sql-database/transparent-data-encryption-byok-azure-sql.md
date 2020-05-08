@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: d72a1057c359127eb70f0a82fbf2637409535dce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fe85fed9268e1a4248ef373d577c89e58c01eba5
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131171"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792042"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Encriptação de dados transparente sql Azure com chave gerida pelo cliente
 
@@ -93,7 +93,7 @@ Os auditores podem usar o Monitor Azure para rever os registos do cofre de chave
 
 ### <a name="recommendations-when-configuring-akv"></a>Recomendações ao configurar AKV
 
-- Associe-se no máximo 500 bases de dados De Propósito Geral ou 200 Business Critical no total com um cofre chave numa única subscrição para garantir uma alta disponibilidade quando o servidor acede ao protetor TDE no cofre chave. Estes números baseiam-se na experiência e documentados nos [principais limites](https://docs.microsoft.com/azure/key-vault/key-vault-service-limits)de serviço do cofre. A intenção aqui é prevenir problemas após falha do servidor, uma vez que irá desencadear tantas operações chave contra o cofre como há bases de dados nesse servidor.
+- Associe-se no máximo 500 bases de dados De Propósito Geral ou 200 Business Critical no total com um cofre chave numa única subscrição para garantir uma alta disponibilidade quando o servidor acede ao protetor TDE no cofre chave. Estes números baseiam-se na experiência e documentados nos [principais limites](https://docs.microsoft.com/azure/key-vault/general/service-limits)de serviço do cofre. A intenção aqui é prevenir problemas após falha do servidor, uma vez que irá desencadear tantas operações chave contra o cofre como há bases de dados nesse servidor.
 
 - Coloque um bloqueio de recursos no cofre da chave para controlar quem pode eliminar este recurso crítico e evitar a eliminação acidental ou não autorizada. Saiba mais sobre bloqueios de [recursos.](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources)
 
