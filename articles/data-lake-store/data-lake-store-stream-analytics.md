@@ -1,26 +1,20 @@
 ---
-title: Transmita dados do Stream Analytics para o Azure Data Lake Storage Gen1 [ Microsoft Docs
-description: Use o Azure Stream Analytics para transmitir dados para o Azure Data Lake Storage Gen1
-services: data-lake-store,stream-analytics
-documentationcenter: ''
+title: Transmita dados do Stream Analytics para data lake storage Gen1 - Azure
+description: Utilize o Azure Stream Analytics para transmitir dados para o Azure Data Lake Storage Gen1.
 author: twooley
-manager: mtillman
-editor: cgronlun
-ms.assetid: edb58e0b-311f-44b0-a499-04d7e6c07a90
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: twooley
-ms.openlocfilehash: d3dbacd58b3bda3fbf8ee8ad5f175eccc2cb2a24
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: f1740d167bedd20f51ad5bf24a56b7e7e787f754
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60194948"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690987"
 ---
 # <a name="stream-data-from-azure-storage-blob-into-azure-data-lake-storage-gen1-using-azure-stream-analytics"></a>Transmita dados do Azure Storage Blob para o Azure Data Lake Storage Gen1 usando o Azure Stream Analytics
-Neste artigo você aprenderá a usar Azure Data Lake Storage Gen1 como uma saída para um trabalho de Azure Stream Analytics. Este artigo demonstra um cenário simples que lê dados de uma bolha de armazenamento azure (entrada) e escreve os dados para Data Lake Storage Gen1 (saída).
+Neste artigo, aprende-se a usar o Azure Data Lake Storage Gen1 como uma saída para um trabalho de Azure Stream Analytics. Este artigo demonstra um cenário simples que lê dados de uma bolha de armazenamento azure (entrada) e escreve os dados para Data Lake Storage Gen1 (saída).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este tutorial, tem de ter o seguinte:
@@ -29,12 +23,12 @@ Antes de começar este tutorial, tem de ter o seguinte:
 
 * **Conta de Armazenamento Azure.** Utilizará um recipiente de bolha desta conta para inserir dados para um trabalho de Stream Analytics. Para este tutorial, assuma que tem uma conta de armazenamento chamada **storageforasa** e um recipiente dentro da conta chamada **storageforasacontainer**. Depois de ter criado o recipiente, faça o upload de um ficheiro de dados de amostras para o mesmo. 
   
-* **Uma conta Gen1 de Armazenamento de Lago**de Dados. Siga as instruções no [Get started com Azure Data Lake Storage Gen1 utilizando o Portal Azure](data-lake-store-get-started-portal.md). Vamos supor que tem uma conta data Lake Storage Gen1 chamada **myadlsg1**. 
+* **Uma conta Gen1 de Armazenamento de Lago**de Dados. Siga as instruções no [Get started com Azure Data Lake Storage Gen1 utilizando o portal Azure](data-lake-store-get-started-portal.md). Vamos supor que tem uma conta data Lake Storage Gen1 chamada **myadlsg1**. 
 
 ## <a name="create-a-stream-analytics-job"></a>Criar uma Tarefa do Stream Analytics
 Começa-se por criar um trabalho de Stream Analytics que inclui uma fonte de entrada e um destino de saída. Para este tutorial, a fonte é um recipiente de blob Azure e o destino é Data Lake Storage Gen1.
 
-1. Inscreva-se no [Portal Azure.](https://portal.azure.com)
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. A partir do painel esquerdo, clique em **trabalhos de Stream Analytics,** e depois clique em **Adicionar**.
 
