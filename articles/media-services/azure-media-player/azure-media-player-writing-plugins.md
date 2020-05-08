@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
 ms.date: 04/20/2020
-ms.openlocfilehash: b7aac80b19a7c30d994f3c14e19047583d5334ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7902dfdf81d8e44921a5218d56effc90f433f02d
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81727115"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857401"
 ---
 # <a name="writing-plugins-for-azure-media-player"></a>Plugins de escrita para Azure Media Player #
 
@@ -87,7 +87,7 @@ Para inspiração e mais exemplos sobre a criação de um plugin, dê uma olhada
 
 ### <a name="plugin-gallery"></a>Galeria Plugin ###
 
-A [galeria plugin](http//:aka.ms/ampplugins) tem vários plugins que a comunidade já contribuiu para funcionalidades como marcadores de linha temporal, zoom, análise e muito mais. A página fornece acessos aos plugins e instruções sobre como configurar, bem como uma demonstração que mostra o plugin em ação. Se criar um plugin legal que acha que deve ser incluído na nossa galeria, sinta-se à vontade para o submeter para que possamos verificar.
+A [galeria plugin](https://aka.ms/ampplugins) tem vários plugins que a comunidade já contribuiu para funcionalidades como marcadores de linha temporal, zoom, análise e muito mais. A página fornece acessos aos plugins e instruções sobre como configurar, bem como uma demonstração que mostra o plugin em ação. Se criar um plugin legal que acha que deve ser incluído na nossa galeria, sinta-se à vontade para o submeter para que possamos verificar.
 
 ## <a name="next-steps"></a>Passos seguintes ##
 

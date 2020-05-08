@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 753d606e1fc2dc966c970a210cf6fc5066d5ed83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7c49467451963ceb52f114430343fafb955ec4f7
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81460142"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82786993"
 ---
 # <a name="azure-disk-encryption-for-linux-virtual-machines-faq"></a>Encriptação de disco azure para máquinas virtuais Linux FAQ
 
@@ -21,7 +21,7 @@ Este artigo fornece respostas a perguntas frequentes (FAQ) sobre encriptação d
 
 ## <a name="what-is-azure-disk-encryption-for-linux-vms"></a>O que é encriptação de disco azure para VMs Linux?
 
-A encriptação do disco Azure para VMs Linux utiliza a funcionalidade dm-criptografia do Linux para fornecer encriptação completa do disco de disco dos OS* e dos discos de dados. Além disso, fornece encriptação do disco de recursos efémeros ao utilizar a [funcionalidade EncryptFormatAll](disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms). O conteúdo flui encriptado do VM para o backend do Armazenamento. Assim, fornecendo encriptação de ponta a ponta com uma chave gerida pelo cliente.
+A encriptação do disco Azure para VMs Linux utiliza a funcionalidade dm-criptografia do Linux para fornecer encriptação completa do disco de disco dos OS* e dos discos de dados. Além disso, fornece encriptação do disco temporário ao utilizar a [funcionalidade EncryptFormatAll](disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms). O conteúdo flui encriptado do VM para o backend do Armazenamento. Assim, fornecendo encriptação de ponta a ponta com uma chave gerida pelo cliente.
  
 Ver [VMs suportados e sistemas operativos.](disk-encryption-overview.md#supported-vms-and-operating-systems)
 
@@ -61,7 +61,7 @@ A encriptação do lado do servidor de armazenamento encripta os discos geridos 
  
 ## <a name="how-is-azure-disk-encryption-different-from-storage-server-side-encryption-with-customer-managed-key-and-when-should-i-use-each-solution"></a>Como é que a encriptação do disco Azure é diferente da encriptação do lado do servidor de armazenamento com a chave gerida pelo cliente e quando devo usar cada solução?
 
-A encriptação do disco Azure fornece encriptação de ponta a ponta para o disco DE, discos de dados e o disco de recursos efémeros com uma chave gerida pelo cliente.
+A encriptação do disco Azure fornece encriptação de ponta a ponta para o disco DES, discos de dados e o disco temporário, utilizando uma chave gerida pelo cliente.
 - Se os seus requisitos incluem encriptar toda a encriptação acima e de ponta a ponta, utilize encriptação do Disco Azure. 
 - Se os seus requisitos incluem encriptar apenas dados em repouso com a chave gerida pelo cliente, em seguida, use [a encriptação do lado do Servidor com chaves geridas pelo cliente](disk-encryption.md). Não é possível encriptar um disco com encriptação de encriptação do disco Azure e encriptação do lado do servidor de armazenamento com chaves geridas pelo cliente. 
 - Se o seu distro Linux não estiver listado em [sistemas operativos suportados para encriptação](disk-encryption-overview.md#supported-operating-systems) de disco azure ou estiver a utilizar um cenário chamado nos [cenários não suportados para windows](disk-encryption-linux.md#unsupported-scenarios), considere a [encriptação do lado do Servidor com chaves geridas pelo cliente](disk-encryption.md).

@@ -3,12 +3,12 @@ title: Melhorar o desempenho das aplicações do Azure com o Azure Advisor
 description: Utilize o Advisor para otimizar o desempenho das suas implementações Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 405ec395feeb33b8511b9b915151b2ed9503c371
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ff9b8fb9494c887397947f009b22cdc89d8f70b5
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75443062"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82787945"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Melhorar o desempenho das aplicações do Azure com o Azure Advisor
 
@@ -28,6 +28,10 @@ O Advisor fornece-lhe uma visão consistente e consolidada das recomendações p
 > Para obter recomendações, uma base de dados deve ter cerca de uma semana de utilização, e dentro dessa semana deve haver alguma atividade consistente. O SQL Database Advisor pode otimizar mais facilmente para padrões de consulta consistentes do que para explosões aleatórias de atividade.
 
 Para mais informações sobre o SQL Database Advisor, consulte O Consultor de Base de [Dados SQL](https://azure.microsoft.com/documentation/articles/sql-database-advisor/).
+
+## <a name="upgrade-your-storage-client-library-to-the-latest-version-for-better-reliability-and-performance"></a>Atualize a sua Biblioteca de Cliente de Armazenamento para a versão mais recente para melhorar a fiabilidade e o desempenho
+
+A versão mais recente da Biblioteca de Clientes de Armazenamento/SDK contém correções para problemas comunicados pelos clientes e identificados proativamente através do nosso processo de GQ. A versão mais recente também apresenta otimizações de fiabilidade e desempenho, além de novas funcionalidades que podem melhorar a sua experiência geral com o Armazenamento do Azure. O Advisor fornece-lhe recomendações e passos para atualizar para a versão mais recente do SDK se estiver numa versão velha. As recomendações são para línguas apoiadas - C++ e .Net.
 
 ## <a name="improve-app-service-performance-and-reliability"></a>Melhorar o desempenho e a fiabilidade do Serviço de Aplicações
 
@@ -73,6 +77,26 @@ Migrar o seu modelo de implementação da Conta de Armazenamento para o Gestor d
 ## <a name="design-your-storage-accounts-to-prevent-hitting-the-maximum-subscription-limit"></a>Desenhe as suas contas de armazenamento para evitar atingir o limite máximo de subscrição
 
 Uma região do Azure pode suportar um máximo de 250 contas de armazenamento por subscrição. Uma vez atingido o limite, não poderá criar mais contas de armazenamento nessa combinação região/subscrição. O Advisor irá verificar as suas subscrições e recomendações de superfície para que desenhe por menos contas de armazenamento para qualquer pessoa que esteja perto de atingir o limite máximo.
+
+## <a name="consider-increasing-the-size-of-your-vnet-gateway-sku-to-adress-high-p2s-use"></a>Considere aumentar o tamanho do seu VNet Gateway SKU para aderindo o uso de P2S
+
+Cada gateway SKU só pode suportar uma contagem especificada de ligações P2S simultâneas. Se a sua contagem de ligação estiver perto do limite de gateway, para que tentativas adicionais de ligação possam falhar. Aumentar o tamanho do seu portal permitir-lhe-á suportar utilizadores P2S mais simultâneos. O conselheiro fornece recomendações e passos a tomar, para isso.
+
+## <a name="consider-increasing-the-size-of-your-vnet-gateway-sku-to-address-high-cpu"></a>Considere aumentar o tamanho do seu VNet Gateway SKU para abordar o alto CPU
+
+Sob alta carga de tráfego, o gateway VPN pode deixar cair pacotes devido a um alto CPU. Deve considerar a atualização do seu VPN Gateway SKU, uma vez que a sua VPN tem funcionado consistentemente. O aumento do tamanho do seu gateway VPN garantirá que as ligações não sejam largadas devido ao alto CPU. O conselheiro provde recomenda-se a abordar esta questão de forma proactiva. 
+
+## <a name="increase-batch-size-when-loading-to-maximize-load-throughput-data-compression-and-query-performance"></a>Aumente o tamanho do lote ao carregar para maximizar a produção de carga, a compressão de dados e o desempenho da consulta
+
+O Advisor pode detetar que pode aumentar o desempenho da carga e a produção aumentando o tamanho do lote ao carregar na sua base de dados. Pode considerar usar a declaração copy. Se não puder utilizar a declaração COPY, considere aumentar o tamanho do lote ao utilizar utilitários de carregamento como o SQLBulkCopy API ou o BCP - uma boa regra do polegar é um tamanho de lote entre 100 k e 1M linhas. Isto irá aumentar a carga de carga, a compressão de dados e o desempenho da consulta.
+
+## <a name="co-locate-the-storage-account-within-the-same-region-to-minimize-latency-when-loading"></a>Co-localizar a conta de armazenamento dentro da mesma região para minimizar a latência ao carregar
+
+O advisor pode detetar que está a carregar de uma região diferente da sua piscina SQL. Deve considerar o carregamento de uma conta de armazenamento que se encontra dentro da mesma região que o seu pool SQL para minimizar a latência ao carregar dados. Isto ajudará a minimizar a latência e aumentar o desempenho da carga.
+
+## <a name="unsupported-kubernetes-version-is-detected"></a>Versão Kubernetes não suportada é detetada
+
+O advisor pode detetar se uma versão Kubernetes não suportada for detetada. A recomendação ajudará a garantir que o cluster Kubernetes funciona com uma versão apoiada.
 
 ## <a name="optimize-the-performance-of-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers"></a>Otimize o desempenho dos seus servidores Azure MySQL, Azure PostgreSQL e Azure MariaDB 
 

@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: kgremban
-ms.openlocfilehash: 61b382f1c286209a12d0be39a81e6817806d3251
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e95f68610f8469a829255d6a16115dcf728ef612
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81113464"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856748"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Instalar o runtime do Azure IoT Edge no Windows
 
@@ -193,17 +193,21 @@ Examine os registos de serviço dos últimos 5 minutos. Se terminar de instalar 
 . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
 ```
 
-Faça uma verificação automatizada para os erros de configuração e de rede mais comuns.
+Execute a ferramenta de resolução de [problemas](troubleshoot.md#run-the-check-command) para verificar se há erros de configuração e de rede mais comuns.
 
 ```powershell
 iotedge check
 ```
 
-Lista de módulos de execução. Depois de uma nova instalação, o único módulo que deve ver a correr é **o EdgeAgent**. Depois de implementar pela primeira vez [módulos IoT Edge,](how-to-deploy-modules-portal.md) o outro módulo de sistema, **edgeHub,** também começará no dispositivo.
+Até que implemente o seu primeiro módulo para IoT Edge no seu dispositivo, o módulo **de $edgeHub** do sistema não será implantado no dispositivo. Como resultado, a verificação automatizada `Edge Hub can bind to ports on host` devolverá um erro para a verificação de conectividade. Este erro pode ser ignorado a menos que ocorra após a implementação de um módulo para o dispositivo.
+
+Finalmente, lista ruminar módulos de execução:
 
 ```powershell
 iotedge list
 ```
+
+Depois de uma nova instalação, o único módulo que deve ver a correr é **o EdgeAgent**. Depois de implementar pela primeira vez [módulos IoT Edge,](how-to-deploy-modules-portal.md) o outro módulo de sistema, **edgeHub,** também começará no dispositivo.
 
 ## <a name="manage-module-containers"></a>Gerir contentores de módulos
 
@@ -270,7 +274,7 @@ O comando Deploy-IoTEdge descarrega e implanta o IoT Edge Security Daemon e as s
 | **Proxy** | Proxy URL | Inclua este parâmetro se o seu dispositivo precisar de passar por um servidor proxy para chegar à internet. Para mais informações, consulte [configurar um dispositivo IoT Edge para comunicar através de um servidor proxy](how-to-configure-proxy-support.md). |
 | **Caminho de Instalação Offline** | Caminho do diretório | Se este parâmetro estiver incluído, o instalador verificará o diretório listado para os ficheiros MSI da cabina IoT Edge e VC Runtime MSI necessários para a instalação. Quaisquer ficheiros não encontrados no diretório são descarregados. Se ambos os ficheiros estiverem no diretório, pode instalar o IoT Edge sem uma ligação à Internet. Também pode utilizar este parâmetro para utilizar uma versão específica. |
 | **InvocarWebRequestParameters** | Hashtable de parâmetros e valores | Durante a instalação, são feitos vários pedidos web. Utilize este campo para definir parâmetros para esses pedidos web. Este parâmetro é útil para configurar credenciais para servidores proxy. Para mais informações, consulte [configurar um dispositivo IoT Edge para comunicar através de um servidor proxy](how-to-configure-proxy-support.md). |
-| **Reiniciar ifNeeded** | nenhuma | Esta bandeira permite que o script de implantação reinicie a máquina sem solicitação, se necessário. |
+| **Reiniciar ifNeeded** | nenhum | Esta bandeira permite que o script de implantação reinicie a máquina sem solicitação, se necessário. |
 
 ### <a name="initialize-iotedge"></a>Inicializar-IoTEdge
 
@@ -278,8 +282,8 @@ O comando Initialize-IoTEdge configura ioT Edge com a corda de ligação do disp
 
 | Parâmetro | Valores aceites | Comentários |
 | --------- | --------------- | -------- |
-| **Manual** | Nenhuma | **Mudar o parâmetro**. Se não for especificado o tipo de provisionamento, o manual é o valor predefinido.<br><br>Declara que irá fornecer uma cadeia de ligação ao dispositivo para fornecer o dispositivo manualmente |
-| **Dps** | Nenhuma | **Mudar o parâmetro**. Se não for especificado o tipo de provisionamento, o manual é o valor predefinido.<br><br>Declara que fornecerá um Id de âmbito do Serviço de Fornecimento de Dispositivos (DPS) e o ID de Registo do seu dispositivo para fornecer através do DPS.  |
+| **Manual** | Nenhum | **Mudar o parâmetro**. Se não for especificado o tipo de provisionamento, o manual é o valor predefinido.<br><br>Declara que irá fornecer uma cadeia de ligação ao dispositivo para fornecer o dispositivo manualmente |
+| **Dps** | Nenhum | **Mudar o parâmetro**. Se não for especificado o tipo de provisionamento, o manual é o valor predefinido.<br><br>Declara que fornecerá um Id de âmbito do Serviço de Fornecimento de Dispositivos (DPS) e o ID de Registo do seu dispositivo para fornecer através do DPS.  |
 | **String de conexão de dispositivos** | Uma cadeia de ligação de um dispositivo IoT Edge registado num Hub IoT, em cotações individuais | **Necessário** para o fornecimento manual. Se não fornecer uma corda de ligação nos parâmetros do script, será solicitado para um. |
 | **Scopeid** | Um id de âmbito de uma instância do Serviço de Provisionamento de Dispositivos associado ao seu Hub IoT. | **Necessário** para o fornecimento de DPS. Se não fornecer uma identificação de âmbito nos parâmetros do script, será solicitado para um. |
 | **RegistroId** | Um ID de registo gerado pelo seu dispositivo | **Necessário** para o fornecimento de DPS se utilizar TPM ou atestado de chave simétrica. **Opcional** se utilizar o atestado de certificado X.509. |
@@ -300,14 +304,14 @@ O comando Initialize-IoTEdge configura ioT Edge com a corda de ligação do disp
 | **Proxy** | Proxy URL | Inclua este parâmetro se o seu dispositivo precisar de passar por um servidor proxy para chegar à internet. Para mais informações, consulte [configurar um dispositivo IoT Edge para comunicar através de um servidor proxy](how-to-configure-proxy-support.md). |
 | **InvocarWebRequestParameters** | Hashtable de parâmetros e valores | Durante a instalação, são feitos vários pedidos web. Utilize este campo para definir parâmetros para esses pedidos web. Este parâmetro é útil para configurar credenciais para servidores proxy. Para mais informações, consulte [configurar um dispositivo IoT Edge para comunicar através de um servidor proxy](how-to-configure-proxy-support.md). |
 | **Caminho de Instalação Offline** | Caminho do diretório | Se este parâmetro estiver incluído, o instalador verificará o diretório listado para os ficheiros MSI da cabina IoT Edge e VC Runtime MSI necessários para a instalação. Quaisquer ficheiros não encontrados no diretório são descarregados. Se ambos os ficheiros estiverem no diretório, pode instalar o IoT Edge sem uma ligação à Internet. Também pode utilizar este parâmetro para utilizar uma versão específica. |
-| **Reiniciar ifNeeded** | nenhuma | Esta bandeira permite que o script de implantação reinicie a máquina sem solicitação, se necessário. |
+| **Reiniciar ifNeeded** | nenhum | Esta bandeira permite que o script de implantação reinicie a máquina sem solicitação, se necessário. |
 
 ### <a name="uninstall-iotedge"></a>Desinstalar-IoTEdge
 
 | Parâmetro | Valores aceites | Comentários |
 | --------- | --------------- | -------- |
-| **Força** | nenhuma | Esta bandeira obriga à desinstalação caso a tentativa anterior de desinstalar não tenha sido bem sucedida.
-| **Reiniciar ifNeeded** | nenhuma | Esta bandeira permite que o script desinstalado reinicie a máquina sem solicitação, se necessário. |
+| **Força** | nenhum | Esta bandeira obriga à desinstalação caso a tentativa anterior de desinstalar não tenha sido bem sucedida.
+| **Reiniciar ifNeeded** | nenhum | Esta bandeira permite que o script desinstalado reinicie a máquina sem solicitação, se necessário. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -5,15 +5,16 @@ author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.workload: infrastructure-services
-ms.topic: article
-ms.date: 04/05/2019
+ms.topic: how-to
+ms.date: 05/04/2019
 ms.author: cynthn
-ms.openlocfilehash: 4259ca01dbe45463b73cf1ec1c620c3921ab9459
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: akjosh
+ms.openlocfilehash: 62f136eb1c2684bfd307a05ccbb4836739da6f3a
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81758476"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82789458"
 ---
 # <a name="share-gallery-vm-images-across-azure-tenants"></a>Partilhar imagens vM da galeria através dos inquilinos do Azure
 

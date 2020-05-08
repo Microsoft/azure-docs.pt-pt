@@ -1,25 +1,27 @@
 ---
-title: Gestão de chumbo do mercado comercial da Microsoft com HTTPS
-description: Configure a gestão de chumbo do mercado comercial da Microsoft para um ponto final HTTPS.
+title: Gestão de chumbo com um ponto final HTTPS - Mercado comercial da Microsoft
+description: Saiba como utilizar o Power Automate e um ponto final HTTPS para gerir os cabos do Microsoft AppSource e do Azure Marketplace.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 1c3337e970fdbb22cb1ed88f105d5e7798a68f74
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7a4fc57b3be8dd59997ef2bfc9624892cf726160
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133741"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790988"
 ---
-# <a name="configure-lead-management-by-using-an-https-endpoint"></a>Configure a gestão de chumbo utilizando um ponto final HTTPS
+# <a name="use-an-https-endpoint-to-manage-commercial-marketplace-leads"></a>Utilize um ponto final HTTPS para gerir os leads do mercado comercial
+
+Se o seu sistema de gestão de relacionamento com o cliente (CRM) não for explicitamente suportado no Partner Center para receber os leads Microsoft AppSource e Azure Marketplace, pode utilizar um ponto final HTTPS no [Power Automate](https://powerapps.microsoft.com/automate-processes/) para lidar com estes leads. Com um ponto final HTTPS, os leads de mercado comercial podem ser enviados como uma notificação de e-mail ou podem ser escritos para um sistema CRM suportado pela Power Automate.
+
+Este artigo explica como criar um novo fluxo no Power Automate para gerar o URL HTTP POST que utilizará para configurar os leads no Partner Center. Também inclui passos para testar o seu fluxo com [o Carteiro.](https://www.getpostman.com/downloads/)
 
 >[!NOTE]
->O conector Power Automate utilizado nestas instruções requer uma subscrição paga ao Power Automate. Certifique-se de que explica isto antes de seguir as instruções deste artigo.
-
-Se o seu sistema de gestão de relacionamento com o cliente (CRM) não for explicitamente suportado no Partner Center para receber os leads Microsoft AppSource e Azure Marketplace, pode utilizar um ponto final HTTPS no Power Automate para lidar com estes leads. Com um ponto final HTTPS, estes cabos podem ser enviados como uma notificação de e-mail ou podem ser escritos para um sistema CRM suportado pela Power Automate. As instruções deste artigo passam por si através do processo básico para criar um novo fluxo utilizando power automate, que gera o URL HTTP POST que você vai introduzir no portal de publicação para o campo URL de ponto final HTTPS De > **Gestão** **de Chumbo.** Também estão incluídas instruções sobre como testar o seu fluxo com a ajuda de uma ferramenta chamada [Carteiro,](https://www.getpostman.com/downloads/)que está disponível online.
+>O conector Power Automate utilizado nestas instruções requer uma subscrição paga ao Power Automate. Certifique-se de que explica isto antes de configurar este fluxo.
 
 ## <a name="create-a-flow-by-using-power-automate"></a>Criar um fluxo usando power automate
 
@@ -27,22 +29,24 @@ Se o seu sistema de gestão de relacionamento com o cliente (CRM) não for expli
 
 1. Inscreva-se e selecione **Os meus fluxos** no menu.
 
-1. Selecione **+ Automatizado -- a partir de branco**.
+    ![Assine os meus fluxos](./media/commercial-marketplace-lead-management-instructions-https/my-flows-automated.png)
 
-    ![Meus fluxos + Automatizado-- de branco](./media/commercial-marketplace-lead-management-instructions-https/my-flows-automated.png)
+1. Abaixo **+ Novo**, selecione + Instantâneo — a partir de **branco**.
 
-1. Na **Construção de uma janela de fluxo automatizada,** selecione **Skip**. 
+    ![Meus fluxos + Automatizado-- de branco](./media/commercial-marketplace-lead-management-instructions-https/https-myflows-create-fromblank.png)
 
-    ![Construa um botão de salto automatizado da janela de fluxo](./media/commercial-marketplace-lead-management-instructions-https/build-automated-flow.png)
+1. Nomeie o seu fluxo e, em seguida, **escolha como acionar este fluxo,** selecione **Quando um pedido HTTP for recebido**.
 
-1. No campo **de conectores e gatilhos de pesquisa,** insira o **pedido** para encontrar o conector de pedido.
-1. Em **'Gatilhos',** selecione **Quando for recebido um pedido HTTP**. 
+    ![Construa um botão de salto automatizado da janela de fluxo](./media/commercial-marketplace-lead-management-instructions-https/https-myflows-pick-request-trigger.png)
 
-    ![Menu de gatilhos](./media/commercial-marketplace-lead-management-instructions-https/request-connector.png)
+1. Clique no passo de fluxo para expandi-lo.
 
-1. No **Pedido Quando um pedido HTTP é recebido** janela, cópia e cola o seguinte esquema JSON na caixa de texto Do Corpo de Pedido **JSON Schema.** Este esquema é utilizado pela Microsoft para conter os seus dados de chumbo.
+    ![Expandir o passo de fluxo](./media/commercial-marketplace-lead-management-instructions-https/expand-flow-step.png)
 
-    ![Caixa de texto Do Corpo de Solicitação JSON Schema](./media/commercial-marketplace-lead-management-instructions-https/https-request-received.png)
+1. Utilize um dos seguintes métodos para configurar o **Órgão de Pedido JSON Schema:**
+
+    - Copie o esquema JSON na caixa de texto **Do Corpo de Pedido JSON Schema.**
+    - Selecione **Utilizar o payload de exemplo para gerar esquema**. No Enter ou pasta uma caixa de texto **de carga útil JSON de amostra,** cola no exemplo JSON. Selecione **Feito** para criar o esquema.
 
     **Esquema jSON**
 
@@ -103,6 +107,26 @@ Se o seu sistema de gestão de relacionamento com o cliente (CRM) não for expli
     }
     ```
 
+    **Exemplo jSON**
+    
+    ```json
+    {
+      "UserDetails": {
+        "FirstName": "Some",
+        "LastName": "One",
+        "Email": "someone@contoso.com",
+        "Phone": "16175555555",
+        "Country": "USA",
+        "Company": "Contoso",
+        "Title": "Esquire"
+     },
+      "LeadSource": "AzureMarketplace",
+      "ActionCode": "INS",
+      "OfferTitle": "Test Microsoft",
+      "Description": "Test run through Power Automate"
+    }
+    ```
+
 >[!NOTE]
 >Nesta altura da configuração, pode selecionar para ligar a um sistema CRM ou configurar uma notificação de e-mail. Siga as instruções restantes com base na sua escolha.
 
@@ -157,7 +181,7 @@ Se o seu sistema de gestão de relacionamento com o cliente (CRM) não for expli
 
 ### <a name="testing"></a>Testar
 
-Pode testar que tudo funciona como esperado usando uma ferramenta chamada [Carteiro](https://app.getpostman.com/app/download/win64), que pode ser descarregada online. Esta ferramenta está disponível para Windows. 
+Pode testar a sua configuração com [o Carteiro.](https://app.getpostman.com/app/download/win64) Um download online do Carteiro está disponível para Windows. 
 
 1. Inicie o Carteiro e selecione **New** > **Request** para configurar a sua ferramenta de teste. 
 
@@ -201,10 +225,18 @@ Pode testar que tudo funciona como esperado usando uma ferramenta chamada [Carte
 
 Quando estiver pronto para configurar as informações de gestão de chumbo para a sua oferta no portal editorial, siga estes passos.
 
-1. Vá à página de **configuração** da Oferta para a sua oferta.
-1. Selecione **Ligar** sob a secção **de Gestão** de Chumbo.
+1. Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/home).
+
+1. Selecione a sua oferta e vá ao separador **oferta.**
+
+1. Sob a secção de **gestão de chumbo,** selecione **Connect**. 
+    ![Botão de ligação de gestão de chumbo](./media/commercial-marketplace-lead-management-instructions-https/lead-management-connect.png)
+
 1. Na janela de detalhes da **Ligação,** selecione **HTTPS Endpoint** para o **Destino de Chumbo**. Colar o URL HTTP POST do fluxo que criou seguindo passos anteriores no campo URL do **ponto final HTTPS.**
+    ![Detalhes de ligação Contacte e-mail](./media/commercial-marketplace-lead-management-instructions-https/https-connection-details.png)
+
 1. Em **contato e-mail**, insira endereços de e-mail para pessoas da sua empresa que devem receber notificações de e-mail quando um novo chumbo for recebido. Pode fornecer vários e-mails separando-os com um ponto evío.
+
 1. Selecione **OK**.
 
 Para se certificar de que se ligou com sucesso a um destino de chumbo, selecione o botão **Validate.** Se for bem sucedido, terá um teste de chumbo no destino principal.
@@ -213,10 +245,3 @@ Para se certificar de que se ligou com sucesso a um destino de chumbo, selecione
 >Tem de terminar de configurar o resto da oferta e publicá-la antes de poder receber pistas para a oferta.
 
 Quando os cabos são gerados, a Microsoft envia pistas para o fluxo. Os cabos são encaminhados para o sistema CRM ou endereço de e-mail configurado.
-
-![Botão de ligação de gestão de chumbo](./media/commercial-marketplace-lead-management-instructions-https/lead-management-connect.png)
-
-![Detalhes de ligação Destino principal](./media/commercial-marketplace-lead-management-instructions-https/connection-details.png)
-
-![Detalhes de ligação Contacte e-mail](./media/commercial-marketplace-lead-management-instructions-https/https-connection-details.png)
-

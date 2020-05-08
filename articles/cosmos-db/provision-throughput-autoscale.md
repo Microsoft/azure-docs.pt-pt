@@ -1,72 +1,72 @@
 ---
-title: Crie recipientes e bases de dados Azure Cosmos em modo de escala automática.
-description: Conheça os benefícios, use casos e como fornecer bases de dados e recipientes Azure Cosmos em modo de escala automática.
+title: Crie recipientes e bases de dados Azure Cosmos em escala automática.
+description: Conheça os benefícios, use casos e como fornecer bases de dados e contentores Azure Cosmos em produção de escala automática.
 author: kirillg
 ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 49fea2cc9a48d5afc794d6932208b61252bea424
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 81a13dcb7955a7d46f485416bf9b7e4e7be4d9ac
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82196494"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791719"
 ---
-# <a name="create-azure-cosmos-containers-and-databases-in-autoscale-mode"></a>Criar recipientes e bases de dados Azure Cosmos em modo de escala automática
+# <a name="create-azure-cosmos-containers-and-databases-with-autoscale-provisioned-throughput"></a>Crie contentores e bases de dados Azure Cosmos com produção de escala automática
 
-O Azure Cosmos DB permite-lhe fornecer a entrada nos seus recipientes em modo manual ou de escala automática. Este artigo descreve os benefícios e utiliza casos de modo de escala automática.
+O Azure Cosmos DB permite-lhe configurar os seus recipientes com a produção de entrada ou de escala automática aprovisionada padrão (manual). Este artigo descreve os benefícios e utiliza casos de escala automática.
 
 > [!NOTE]
 > Só é possível ativar a [escala automática para novas bases de dados e contentores.](#create-db-container-autoscale) Não está disponível para contentores e bases de dados existentes.
 
-Além do fornecimento manual de entrada, pode agora configurar os recipientes Azure Cosmos em modo de escala automática. Os contentores e bases de dados configurados no modo de escala automática **irão automaticamente e instantaneamente escalar a produção aprovisionada com base nas necessidades da sua aplicação sem afetar a disponibilidade, latência, produção ou desempenho da carga de trabalho a nível global.**
+Além do fornecimento padrão de produção, pode agora configurar os contentores Azure Cosmos com a produção aprovisionada em escala automática. Os contentores e bases de dados configurados em escala automática de produção aprovisionada **escalarão automaticamente e instantaneamente a produção aprovisionada com base nas necessidades da sua aplicação sem afetar a disponibilidade, latência, produção ou desempenho da carga de trabalho a nível global.**
 
-Ao configurar recipientes e bases de dados no modo de `Tmax` escala automática, é necessário especificar a entrada máxima não deve ser ultrapassada. Os recipientes podem então escalar `0.1*Tmax < T < Tmax`a sua entrada de modo a que . Por outras palavras, os contentores e bases de dados escalam instantaneamente com base nas necessidades de carga de trabalho, desde 10% do valor máximo de entrada que configuraste até ao valor máximo de entrada configurado. Depois de configurar a escala automática,`Tmax`pode alterar a regulação máxima de entrada ( ) numa base de dados ou recipiente em qualquer momento. Com a opção de escala automática, o rendimento mínimo de 400 RU/s por recipiente ou base de dados já não é aplicável.
+Ao configurar recipientes e bases de dados em escala `Tmax` automática, é necessário especificar que a entrada máxima não deve ser ultrapassada. Os recipientes podem então escalar `0.1*Tmax < T < Tmax`a sua entrada de modo a que . Por outras palavras, os contentores e bases de dados escalam instantaneamente com base nas necessidades de carga de trabalho, desde 10% do valor máximo de entrada que configuraste até ao valor máximo de entrada configurado. Depois de configurar a escala automática,`Tmax`pode alterar a regulação máxima de entrada ( ) numa base de dados ou recipiente em qualquer momento. Com a opção de escala automática, o rendimento mínimo de 400 RU/s por recipiente ou base de dados já não é aplicável.
 
-Para a potência máxima especificada no recipiente ou na base de dados, o sistema permite operar dentro do limite de armazenamento calculado. Se o limite de armazenamento for ultrapassado, a entrada máxima é automaticamente ajustada para um valor mais elevado. Ao utilizar a entrada de nível de base de dados com modo `0.001*TMax`de escala automática, calcula-se o número de contentores permitidos dentro de uma base de dados como: . Por exemplo, se fornecer 20.000 RU/s de escala automática, então a base de dados pode ter 20 contentores.
+Para a potência máxima especificada no recipiente ou na base de dados, o sistema permite operar dentro do limite de armazenamento calculado. Se o limite de armazenamento for ultrapassado, a entrada máxima é automaticamente ajustada para um valor mais elevado. Ao utilizar a entrada de nível de base de dados com `0.001*TMax`escala automática, o número de contentores permitidos dentro de uma base de dados é calculado como: . Por exemplo, se fornecer 20.000 RU/s de escala automática, então a base de dados pode ter 20 contentores.
 
-## <a name="benefits-of-autoscale-mode"></a><a id="autoscale-benefits"></a>Benefícios do modo de escala automática
+## <a name="benefits-of-autoscale-provisioned-throughput"></a><a id="autoscale-benefits"></a>Benefícios da produção de escala automática provisionada
 
-Os recipientes Azure Cosmos que estão configurados em modo de escala automática têm os seguintes benefícios:
+Os recipientes Azure Cosmos que são configurados com escala automática têm os seguintes benefícios:
 
-* **Simples:** Os recipientes em modo de escala automática removem a complexidade de gerir o transporte (RUs) e a capacidade manualmente para vários recipientes.
+* **Simples:** Os recipientes com escala automática removem manualmente a complexidade da gestão do transporte (UI) e a capacidade manualmente para vários contentores.
 
-* **Escalável:** Os recipientes em modo de escala automática escalam perfeitamente a capacidade de produção prevista, conforme necessário. Não há nenhuma perturbação nas ligações com clientes, aplicações e não afetam quaisquer SLAs existentes.
+* **Escalável:** Os recipientes com escala automática escalam perfeitamente a capacidade de produção prevista, se necessário. Não há nenhuma perturbação nas ligações com clientes, aplicações e não afetam quaisquer SLAs existentes.
 
-* **Rentável:** Quando utiliza recipientes configurados em modo de escala automática, só paga os recursos de que as suas cargas de trabalho precisam numa base de hora.
+* **Rentável:** Quando utiliza recipientes configurados com escala automática, só paga os recursos de que as suas cargas de trabalho precisam numa base de hora.
 
-* **Altamente disponível:** Os contentores em modo de escala automática utilizam o mesmo backend distribuído globalmente, tolerante a falhas, altamente disponível para garantir a durabilidade dos dados e a elevada disponibilidade.
+* **Altamente disponível:** Os recipientes com escala automática utilizam o mesmo backend distribuído globalmente, tolerante a falhas, altamente disponível para garantir a durabilidade dos dados e a elevada disponibilidade.
 
-## <a name="use-cases-of-autoscale-mode"></a><a id="autoscale-usecases"></a>Utilize caixas de modo de escala automática
+## <a name="use-cases-of-autoscale-provisioned-throughput"></a><a id="autoscale-usecases"></a>Utilizar casos de produção de escala automática aprovisionado
 
-As caixas de utilização para recipientes Azure Cosmos configuradas em modo de escala automática incluem:
+As caixas de utilização para contentores Azure Cosmos configuradas com escala automática incluem:
 
-* **Cargas de trabalho variáveis:** Quando estiver a executar uma aplicação levemente utilizada com o uso máximo de 1 hora a várias horas algumas vezes por dia ou várias vezes por ano. Exemplos incluem aplicações de recursos humanos, orçamentação e relatórios operacionais. Para tais cenários, os recipientes configurados em modo de escala automática podem ser utilizados, e já não é necessário fornecer manualmente para atingir o pico ou a capacidade média.
+* **Cargas de trabalho variáveis:** Quando estiver a executar uma aplicação levemente utilizada com o uso máximo de 1 hora a várias horas algumas vezes por dia ou várias vezes por ano. Exemplos incluem aplicações de recursos humanos, orçamentação e relatórios operacionais. Para tais cenários, os recipientes configurados com escala automática podem ser utilizados, e já não é necessário fornecer manualmente para atingir o pico ou a capacidade média.
 
-* **Cargas de trabalho imprevisíveis:** Quando se está a executar cargas de trabalho onde há uso de base de dados ao longo do dia, mas também picos de atividade que são difíceis de prever. Um exemplo inclui um site de tráfego que vê um aumento de atividade quando a previsão meteorológica muda. Os recipientes configurados em modo de escala automática ajustam a capacidade de satisfazer as necessidades da carga máxima da aplicação e reduzam a escala quando o aumento de atividade terminar.
+* **Cargas de trabalho imprevisíveis:** Quando se está a executar cargas de trabalho onde há uso de base de dados ao longo do dia, mas também picos de atividade que são difíceis de prever. Um exemplo inclui um site de tráfego que vê um aumento de atividade quando a previsão meteorológica muda. Os recipientes configurados com escala automática ajustam a capacidade de atender às necessidades da carga máxima da aplicação e voltam a reduzir a escala quando o aumento de atividade terminar.
 
-* **Novas aplicações:** Se estiver a implementar uma nova aplicação e não tiver a certeza de quanto é que o produto forprovisionado (isto é, quantas RUs) precisa. Com os recipientes configurados no modo de escala automática, pode automaticamente escalar as necessidades e requisitos de capacidade da sua aplicação.
+* **Novas aplicações:** Se estiver a implementar uma nova aplicação e não tiver a certeza de quanto é que o produto forprovisionado (isto é, quantas RUs) precisa. Com recipientes configurados com escala automática, pode automaticamente escalar as necessidades e requisitos de capacidade da sua aplicação.
 
 * **Aplicações pouco utilizadas:** Se tiver uma aplicação que só seja utilizada por algumas horas várias vezes por dia ou semana ou mês, como uma aplicação de baixo volume/web/blog site.
 
-* Bases de dados de **desenvolvimento e de ensaio:** Se tiver desenvolvedores que usam contentores durante o horário de trabalho, mas não precisa deles em noites ou fins de semana. Com os recipientes configurados em modo de escala automática, reduzem-se ao mínimo quando não estão a ser utilizados.
+* Bases de dados de **desenvolvimento e de ensaio:** Se tiver desenvolvedores que usam contentores durante o horário de trabalho, mas não precisa deles em noites ou fins de semana. Com os recipientes configurados com escala automática, reduzem-se ao mínimo quando não estão a ser utilizados.
 
-* **Cargas de trabalho/consultas de produção programadas:** Quando você tem uma série de pedidos/operações/consultas programadas em um único recipiente, e se houver períodos ociosos em que você quer correr a uma entrada absolutamente baixa, você pode agora fazê-lo facilmente. Quando uma consulta/pedido programado é submetido a um recipiente configurado em modo de escala automática, ele automaticamente escalará o quanto necessário e executará a operação.
+* **Cargas de trabalho/consultas de produção programadas:** Quando você tem uma série de pedidos/operações/consultas programadas em um único recipiente, e se houver períodos ociosos em que você quer correr a uma entrada absolutamente baixa, você pode agora fazê-lo facilmente. Quando uma consulta/pedido programado é submetido a um recipiente configurado com escala automática, ele automaticamente escalará o quanto necessário e executará a operação.
 
-As soluções para os problemas anteriores não só requerem uma enorme quantidade de tempo de implementação, como também introduzem complexidade na configuração ou no seu código, e exigem frequentemente uma intervenção manual para os abordar. O modo de escala automática permite que os cenários acima referidos saisse da caixa, para que não precise mais de se preocupar com estes problemas.
+As soluções para os problemas anteriores não só requerem uma enorme quantidade de tempo de implementação, como também introduzem complexidade na configuração ou no seu código, e exigem frequentemente uma intervenção manual para os abordar. A escala automática permite que os cenários acima indicados saem da caixa, para que não precise mais de se preocupar com estes problemas.
 
-## <a name="comparison--containers-configured-in-manual-mode-vs-autoscale-mode"></a>Comparação – Recipientes configurados no modo manual vs. modo de escala automática
+## <a name="comparison--standard-manual-vs-autoscale-provisioned-throughput"></a>Comparação – standard (manual) Vs. autoescala provisionada
 
-|  | Recipientes configurados em modo manual  | Recipientes configurados em modo de escala automática |
+|  | Contentores configurados com entrada normalizada  | Recipientes configurados com produção de autoescala provisionada |
 |---------|---------|---------|
 | **Débito aprovisionado** | Provisões manualmente. | Escalado automaticamente e instantaneamente com base nos padrões de utilização da carga de trabalho. |
-| **Limitação da taxa dos pedidos/operações (429)**  | Pode acontecer, se o consumo exceder a capacidade prevista. | Não acontecerá se a entrada consumida estiver dentro da potência máxima que escolher com o modo de escala automática.   |
+| **Limitação da taxa dos pedidos/operações (429)**  | Pode acontecer, se o consumo exceder a capacidade prevista. | Não acontecerá se a entrada consumida estiver dentro da potência máxima que escolher com escala automática.   |
 | **Planeamento de capacidade** |  Tem de fazer um planeamento inicial de capacidade e fornecimento da entrada de que necessita. |    Não tens de te preocupar com o planeamento de capacidades. O sistema cuida automaticamente do planeamento de capacidades e da gestão da capacidade. |
 | **Preços** | RS/s manualmente aprovisionado por hora. | Para contas de região de escrita única, você paga a entrada usada de hora em hora, utilizando a taxa de RU/s por hora de escala automática. <br/><br/>Para contas com várias regiões de escrita, não há custo extra para a escala automática. Paga-se a entrada utilizada de hora em hora utilizando a mesma taxa de RU/s multi-master por hora. |
 | **Mais adequado para tipos de carga de trabalho** |  Cargas de trabalho previsíveis e estáveis|   Cargas de trabalho imprevisíveis e variáveis  |
 
-## <a name="create-a-database-or-a-container-with-autoscale-mode"></a><a id="create-db-container-autoscale"></a>Criar uma base de dados ou um recipiente com modo de escala automática
+## <a name="create-a-database-or-a-container-with-autoscale"></a><a id="create-db-container-autoscale"></a>Criar uma base de dados ou um recipiente com escala automática
 
 Pode configurar automaticamente para novas bases de dados ou contentores ao criá-los através do portal Azure. Utilize os seguintes passos para criar uma nova base de dados ou recipiente, ativar automaticamente e especificar a potência máxima (RU/s).
 
@@ -80,11 +80,11 @@ Pode configurar automaticamente para novas bases de dados ou contentores ao cri�
 
 1. Selecione **OK**.
 
-Pode criar uma base de dados de entrada partilhada com modo de escala automática selecionando a opção de entrada de base de **dados Provision.**
+Pode criar uma base de dados de entrada partilhada com escala automática selecionando a opção de entrada de base de **dados Provision.**
 
 ## <a name="throughput-and-storage-limits-for-autoscale"></a><a id="autoscale-limits"></a>Limites de produção e armazenamento para a escala automática
 
-O quadro seguinte mostra os limites máximos de armazenamento para diferentes opções no modo de escala automática:
+O quadro seguinte mostra os limites máximos de armazenamento e de armazenamento para diferentes opções em escala automática:
 
 |Limite máximo de entrada  |Limite máximo de armazenamento  |
 |---------|---------|

@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.subservice: ''
 ms.topic: quickstart
 ms.date: 04/15/2020
-ms.openlocfilehash: ae866c8be8d162213077e0488a19a556399384b2
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 47235ca0e420e0de9f6c4beb070e0b75b72e7549
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692695"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82786673"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-preview-in-azure-synapse-analytics-using-web-tools"></a>Quickstart: Crie uma piscina Apache Spark (pré-visualização) no Azure Synapse Analytics usando ferramentas web
 
@@ -23,17 +23,17 @@ Neste arranque rápido, aprende-se a criar uma piscina Apache Spark (pré-visual
 > [!IMPORTANT]
 > A faturação dos casos Spark é pronunciada por minuto, quer esteja a usá-las ou não. Certifique-se de que encerra a sua instância Spark depois de terminar de usá-la, ou demarcar um curto prazo. Para obter mais informações, consulte a secção **Limpar recursos** deste artigo.
 
-Se não tiver uma subscrição Azure, [crie uma conta gratuita antes](https:/azure.microsoft.com/free/)de começar .
+Se não tiver uma subscrição Azure, [crie uma conta gratuita antes](https://azure.microsoft.com/free/)de começar .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Assinatura Azure - [crie uma gratuitamente](https:/azure.microsoft.com/free/)
+- Assinatura Azure - [crie uma gratuitamente](https://azure.microsoft.com/free/)
 - [Espaço de trabalho synapse Analytics](quickstart-create-workspace.md)
 - [Piscina apache faísca](quickstart-create-apache-spark-pool.md)
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [portal do Azure](https:/portal.azure.com/).
+Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 

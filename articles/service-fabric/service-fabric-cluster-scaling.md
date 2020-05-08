@@ -4,12 +4,12 @@ description: Aprenda sobre a escala de clusters azure service fabric dentro ou f
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: atsenthi
-ms.openlocfilehash: 9dd60a5898b648215fc8b26e49a706a7b19dfeeb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a21182c974d6141264c8ca0c36bfc8f6a366d6f3
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258697"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793181"
 ---
 # <a name="scaling-azure-service-fabric-clusters"></a>Clusters de tecido de serviço Azure de escala
 Um cluster de tecido de serviço é um conjunto de máquinas virtuais ou físicas ligadas à rede, nas quais os seus microserviços são implantados e geridos. Uma máquina ou VM que faz parte de um aglomerado é chamado de nó. Os aglomerados podem conter potencialmente milhares de nós. Depois de criar um cluster de Tecido de Serviço, pode escalar o cluster horizontalmente (alterar o número de nós) ou verticalmente (alterar os recursos dos nós).  Pode escalar o cluster a qualquer momento, mesmo quando as cargas de trabalho estão a decorrer no cluster.  À medida que o cluster escala, as suas aplicações também escalam automaticamente.
@@ -29,13 +29,13 @@ Ao escalonar um cluster Azure, tenha em mente as seguintes orientações:
 - Os tipos de nó não primários que executam cargas horárias de produção audais devem ter sempre cinco ou mais nós.
 - Os tipos não primários de nó que executam cargas de trabalho apátridas de produção apátridas devem sempre ter dois ou mais nós.
 - Qualquer nó de nível de [durabilidade](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) de Ouro ou Prata deve ter sempre cinco ou mais nós.
-- Não remova as instâncias/nós de VM aleatórios de um tipo de nó, utilize sempre a função de escala de escala de máquina virtual. A eliminação de instâncias vm aleatórias pode afetar negativamente a capacidade dos sistemas de carregar corretamente o equilíbrio.
+- Não remova as instâncias/nós de VM aleatórios de um tipo de nó, utilize sempre a balança de conjunto de máquinas virtuais na função. A eliminação de instâncias vm aleatórias pode afetar negativamente a capacidade dos sistemas de carregar corretamente o equilíbrio.
 - Se utilizar regras de escala automática, estabeleça as regras para que a escala (remoção das instâncias VM) seja feita com um nó de cada vez. Reduzir mais do que um caso de cada vez não é seguro.
 
-Uma vez que os tipos de nó de tecido de serviço no seu cluster são compostos por conjuntos de escala de máquina virtual na extremidade traseira, pode [configurar regras de escala automática ou escalar manualmente](service-fabric-cluster-scale-up-down.md) cada conjunto de escala de tipo de nó/máquina virtual.
+Uma vez que os tipos de nó de tecido de serviço no seu cluster são compostos por conjuntos de escala de máquina virtual na extremidade traseira, pode [configurar regras de escala automática ou escalar manualmente](service-fabric-cluster-scale-in-out.md) cada conjunto de escala de tipo de nó/máquina virtual.
 
 ### <a name="programmatic-scaling"></a>Escala programática
-Em muitos cenários, [escalar um cluster manualmente ou com regras](service-fabric-cluster-scale-up-down.md) de escala automática são boas soluções. Para cenários mais avançados, no entanto, eles podem não ser o ajuste certo. As potenciais desvantagens destas abordagens incluem:
+Em muitos cenários, [escalar um cluster manualmente ou com regras](service-fabric-cluster-scale-in-out.md) de escala automática são boas soluções. Para cenários mais avançados, no entanto, eles podem não ser o ajuste certo. As potenciais desvantagens destas abordagens incluem:
 
 - A escalação manual requer que você assine e solicite explicitamente operações de escala. Se forem necessárias operações de escala frequenteou em momentos imprevisíveis, esta abordagem pode não ser uma boa solução.
 - Quando as regras de escala automática removem uma instância de um conjunto de escala de máquina virtual, não removem automaticamente o conhecimento desse nó do cluster de tecido de serviço associado, a menos que o tipo de nó tenha um nível de durabilidade de Prata ou Ouro. Como as regras de escala automática funcionam ao nível definido pela escala (e não ao nível do Tecido de Serviço), as regras de escala automática podem remover os nódosos de Tecido de Serviço sem os desligar graciosamente. Esta remoção rude do nó deixará o nó de 'ghost' Service Fabric para trás após operações de escala. Um indivíduo (ou um serviço) teria de limpar periodicamente o estado do nó removido no cluster Service Fabric.

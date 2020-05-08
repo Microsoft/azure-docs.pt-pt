@@ -8,16 +8,16 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: deb2860c8d027a0a258c4a962fe33d6f516e10dc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4509c62b15eb06c89fe80555a26773fdd3876e66
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82085648"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790903"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Cenários do Azure Disk Encryption em VMs do Windows
 
-A encriptação do disco azure para máquinas virtuais do Windows (VMs) utiliza a funcionalidade Bitlocker do Windows para fornecer encriptação completa do disco de disco e disco de dados. Além disso, fornece encriptação do disco de recursos efémeros quando o parâmetro VolumeType é All.
+A encriptação do disco Azure para máquinas virtuais do Windows (VMs) utiliza a funcionalidade BitLocker do Windows para fornecer encriptação completa do disco de disco e disco de dados. Além disso, fornece encriptação do disco temporário quando o parâmetro VolumeType é All.
 
 A encriptação do disco Azure está integrada com o [Azure Key Vault](disk-encryption-key-vault.md) para ajudá-lo a controlar e gerir as chaves e segredos de encriptação do disco. Para uma visão geral do serviço, consulte a [Encriptação do Disco Azure para VMs do Windows](disk-encryption-overview.md).
 
@@ -161,7 +161,7 @@ New-AzVM -VM $VirtualMachine -ResourceGroupName "MyVirtualMachineResourceGroup"
 Pode [adicionar um novo disco a um VM windows utilizando powerShell](attach-disk-ps.md), ou [através do portal Azure](attach-managed-disk-portal.md). 
 
 ### <a name="enable-encryption-on-a-newly-added-disk-with-azure-powershell"></a>Ativar a encriptação num disco recém-adicionado com a Azure PowerShell
- Ao utilizar o Powershell para encriptar um novo disco para VMs do Windows, deve ser especificada uma nova versão de sequência. A versão da sequência tem de ser única. O script abaixo gera um GUID para a versão de sequência. Em alguns casos, um disco de dados recentemente adicionado pode ser encriptado automaticamente pela extensão de encriptação do disco Azure. A encriptação automática ocorre geralmente quando o VM reinicia após a onda do novo disco. Isto é normalmente causado porque "All" foi especificado para o tipo de volume quando a encriptação do disco anteriormente funcionava no VM. Se a encriptação automática ocorrer num disco de dados recém-adicionado, recomendamos que volte a executar o cmdlet Set-AzVmDiskEncryptionExtension com nova versão de sequência. Se o seu novo disco de dados estiver encriptado automaticamente e não pretender ser encriptado, desencriptar primeiro todas as unidades e depois voltar a encriptar com uma nova versão de sequência especificando OS para o tipo de volume. 
+ Ao utilizar o PowerShell para encriptar um novo disco para VMs do Windows, deve ser especificada uma nova versão de sequência. A versão da sequência tem de ser única. O script abaixo gera um GUID para a versão de sequência. Em alguns casos, um disco de dados recentemente adicionado pode ser encriptado automaticamente pela extensão de encriptação do disco Azure. A encriptação automática ocorre geralmente quando o VM reinicia após a onda do novo disco. Isto é normalmente causado porque "All" foi especificado para o tipo de volume quando a encriptação do disco anteriormente funcionava no VM. Se a encriptação automática ocorrer num disco de dados recém-adicionado, recomendamos que volte a executar o cmdlet Set-AzVmDiskEncryptionExtension com nova versão de sequência. Se o seu novo disco de dados estiver encriptado automaticamente e não pretender ser encriptado, desencriptar primeiro todas as unidades e depois voltar a encriptar com uma nova versão de sequência especificando OS para o tipo de volume. 
   
  
 
@@ -201,7 +201,7 @@ Pode [adicionar um novo disco a um VM windows utilizando powerShell](attach-disk
     > A sintaxe para o valor do parâmetro de cofre de encriptação de disco é a cadeia de identificação completa: /subscrições/[subscrição-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br> A sintaxe para o valor do parâmetro chave-encriptação-chave é o URI completo para o KEK como em: https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
 
 ### <a name="enable-encryption-on-a-newly-added-disk-with-azure-cli"></a>Ativar a encriptação num disco recém-adicionado com o Azure CLI
- O comando Azure CLI fornecerá automaticamente uma nova versão de sequência para si quando executar o comando para ativar a encriptação. O exemplo usa "All" para o parâmetro do tipo volume. Pode ser necessário alterar o parâmetro do tipo volume para OS se estiver apenas a encriptar o disco OS. Ao contrário da sintaxe Powershell, o CLI não requer que o utilizador forneça uma versão de sequência única ao permitir a encriptação. O CLI gera automaticamente e utiliza o seu próprio valor de versão de sequência única.   
+ O comando Azure CLI fornecerá automaticamente uma nova versão de sequência para si quando executar o comando para ativar a encriptação. O exemplo usa "All" para o parâmetro do tipo volume. Pode ser necessário alterar o parâmetro do tipo volume para OS se estiver apenas a encriptar o disco OS. Ao contrário da sintaxe PowerShell, o CLI não requer que o utilizador forneça uma versão de sequência única ao permitir a encriptação. O CLI gera automaticamente e utiliza o seu próprio valor de versão de sequência única.   
 
 -  **Criptografe um VM em execução:**
 

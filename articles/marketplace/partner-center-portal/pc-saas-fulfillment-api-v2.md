@@ -1,22 +1,22 @@
 ---
-title: Realização do SaaS API v2 [ Mercado Azure
-description: Este artigo explica como criar e gerir uma oferta SaaS no AppSource e Azure Marketplace utilizando o cumprimento associado v2 APIs.
+title: SaaS cumpre mAVVV no mercado comercial da Microsoft
+description: Aprenda a criar e gerir uma oferta SaaS no Microsoft AppSource e Azure Marketplace utilizando a versão 2 da ADs de realização.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 10/18/2019
 ms.author: dsindona
-ms.openlocfilehash: ca49418013357ecaae62ea5e91374eaa1cbde59d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8f452349c0d636bc74a3722e2526623c955093f7
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80275769"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854187"
 ---
-# <a name="saas-fulfillment-apis-version-2"></a>APIs de Cumprimento SaaS, versão 2 
+# <a name="saas-fulfillment-apis-version-2-in-microsoft-commercial-marketplace"></a>SaaS cumpre versão 2 da VERSÃO 2 no mercado comercial da Microsoft
 
-Este artigo detalha as APIs que permitem aos parceiros vender as suas aplicações SaaS no mercado appSource e no Azure Marketplace. Estas APIs são um requisito para ofertas transacionáveis do SaaS no AppSource e no Azure Marketplace.
+Este artigo detalha as APIs de realização que permitem aos parceiros vender as suas aplicações SaaS no Microsoft AppSource e no Azure Marketplace. Estas APIs são necessárias para ofertas transacionáveis da SaaS.
 
 ## <a name="managing-the-saas-subscription-life-cycle"></a>Gestão do ciclo de vida da subscrição saaS
 

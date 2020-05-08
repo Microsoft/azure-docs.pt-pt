@@ -1,44 +1,41 @@
 ---
-title: Painel de avaliações e avaliações na análise do mercado comercial no Partner Center
-description: Saiba como aceder a uma visão consolidada do feedback dos clientes para as suas ofertas no Azure Marketplace e appSource.
+title: Ratings & Reviews analytics dashboard no Partner Center
+description: Saiba como aceder a uma visão consolidada do feedback dos clientes para as suas ofertas no Microsoft AppSource e Azure Marketplace.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 405ba37fd10fa48bf45f1031d2e9b5b17620ea0a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a7ed477ea095defa27878e8f4a84162043829273
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262422"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792926"
 ---
-# <a name="ratings-and-reviews-dashboard-in-commercial-marketplace-analytics"></a>Avaliações e avaliações de dashboard na análise do mercado comercial
+# <a name="ratings--reviews-analytics-dashboard-in-partner-center"></a>Ratings & Reviews analytics dashboard no Partner Center
 
-Este artigo fornece informações sobre as avaliações & painel de comentários no Partner Center. Este dashboard apresenta uma visão consolidada do feedback do cliente para ofertas no Azure Marketplace e AppSource.
+Este artigo fornece informações sobre o painel de avaliações de avaliações de rating & reviews no Partner Center. Este dashboard apresenta uma visão consolidada do feedback do cliente para ofertas no Microsoft AppSource e No Azure Marketplace. À medida que os clientes navegam, pesquisam e compram ofertas em ambos os mercados, podem deixar classificações e avaliações pelas ofertas que adquiriram.
 
-Para aceder às **Classificações & analisa** o dashboard nas ferramentas de análise do Partner Center, abra o dashboard **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** no Mercado Comercial.
+- Os clientes podem submeter uma nova classificação ou revisão e atualizar ou apagar uma classificação ou revisão existente que tenham apresentado. Os clientes podem fazer alterações apenas nas classificações e avaliações que possuem.  
+- As opiniões são publicadas no separador Comentários na página de exibição do produto da oferta no Azure Marketplace ou appSource. Os clientes podem incluir o seu nome ou publicação anonimamente.  
 
 >[!NOTE]
 > Para definições detalhadas de terminologia analítica, consulte [frequentemente perguntas e terminologia para análise](./faq-terminology.md)de mercado comercial.
 
-## <a name="ratings--reviews"></a>Avaliações & avaliações
+## <a name="access-the-dashboard"></a>Aceda ao painel de instrumentos
 
-À medida que os clientes navegam, pesquisam e compram ofertas em ambos os mercados, podem deixar classificações e avaliações pelas ofertas que adquiriram.
+No [dashboard do Mercado Comercial](https://partner.microsoft.com/en-us/dashboard/commercial-marketplace/overview) no Partner Center, expanda a secção **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** e selecione **Ratings & Reviews**.
 
-- Os clientes podem submeter uma nova classificação ou revisão e atualizar ou apagar uma classificação ou revisão existente que tenham apresentado. Os clientes podem fazer alterações apenas nas classificações e avaliações que possuem.  
-- As opiniões são publicadas no separador Comentários na página de exibição do produto da oferta no mercado azure ou appSource. Os clientes podem incluir o seu nome ou publicação anonimamente.  
-
-O **Painel de Avaliação & Ratings** apresenta as tendências e insights desta atividade pelos clientes. Pode ver uma representação gráfica dos seguintes itens:
+O painel de instrumentos apresenta uma representação gráfica da seguinte atividade do cliente:
 
 - Avaliações & avaliações  
 - Comentários de revisão
 
-Os **separadores de montra saem** do Marketplace que permitem aos editores visualizar em separado as suas métricas de oferta nos separados AppSource & Azure Marketplace. Para ver métricas de oferta específicas, selecione a oferta da lista de dropdown da oferta.
+Utilize os separadores **de montra seleção marketplace** para visualizar separadamente as métricas Microsoft AppSource e Azure Marketplace. Para ver métricas de oferta específicas, selecione a oferta da lista de dropdown da oferta.
 
-
-### <a name="ratings-and-reviews-summary"></a>Resumo de avaliações e avaliações
+### <a name="ratings--reviews-summary"></a>Resumo das avaliações & avaliações
 
 As classificações & secção resumo de avaliações apresenta as métricas abaixo para uma gama de datas selecionada:
 

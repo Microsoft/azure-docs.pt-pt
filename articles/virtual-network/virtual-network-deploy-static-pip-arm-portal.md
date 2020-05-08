@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/08/2018
 ms.author: allensu
-ms.openlocfilehash: 0de28fc75d5eb1b0867e4ba6d8eda9f0f42c8498
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3ef96c83b460346ba49051f6f5c4fd0dd5df34ab
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82148008"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790172"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-the-azure-portal"></a>Crie uma máquina virtual com um endereço IP público estático utilizando o portal Azure
 
@@ -49,7 +49,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
    ![Selecione estática](./media/virtual-network-deploy-static-pip-arm-portal/select-static.png)
 
-   Se o endereço IP público tiver de ser um SKU padrão, selecione **Standard** sob **SKU**. Saiba mais sobre o [endereço IP Público SKUs](virtual-network-ip-addresses-overview-arm.md#sku). Se a máquina virtual for adicionada ao pool de back-end de um equilíbrio público de carga Azure, o SKU do endereço IP público da máquina virtual deve corresponder ao SKU do endereço IP público do equilibrador de carga. Para mais detalhes, consulte [O Equilíbrio de Carga Sinuoso Azure](../load-balancer/concepts-limitations.md#skus).
+   Se o endereço IP público tiver de ser um SKU padrão, selecione **Standard** sob **SKU**. Saiba mais sobre o [endereço IP Público SKUs](virtual-network-ip-addresses-overview-arm.md#sku). Se a máquina virtual for adicionada ao pool de back-end de um equilíbrio público de carga Azure, o SKU do endereço IP público da máquina virtual deve corresponder ao SKU do endereço IP público do equilibrador de carga. Para mais detalhes, consulte [O Equilíbrio de Carga Sinuoso Azure](../load-balancer/skus.md).
 
 6. Selecione uma porta ou nenhuma porta sob **portas de entrada pública Selecione**. O Portal 3389 é selecionado, para permitir o acesso remoto à máquina virtual do Windows Server a partir da internet. A abertura da porta 3389 da internet não é recomendada para cargas horárias de produção.
 
