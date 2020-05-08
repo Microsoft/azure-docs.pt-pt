@@ -5,12 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: 8e7e01dac29cb9ba91c83270dac4e46c73b2089e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d0279cc323f7eee87feb2a596a4c2df0b4667e1
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75610132"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790852"
 ---
 # <a name="upgrade-the-configuration-of-a-standalone-cluster"></a>Atualizar a configuração de um cluster autónomo 
 
@@ -75,7 +75,7 @@ São apoiadas quatro opções:
 
 ## <a name="next-steps"></a>Passos seguintes
 * Aprenda a personalizar algumas [definições](service-fabric-cluster-fabric-settings.md)de cluster de Tecido de Serviço .
-* Aprenda a [escalar o seu cluster para dentro e para fora.](service-fabric-cluster-scale-up-down.md)
+* Aprenda a [escalar o seu cluster para dentro e para fora.](service-fabric-cluster-scale-in-out.md)
 * Conheça as atualizações de [aplicações.](service-fabric-application-upgrade.md)
 
 <!--Image references-->

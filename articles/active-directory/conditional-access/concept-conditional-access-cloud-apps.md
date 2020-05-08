@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b15b022726c09ccbaf9674775d114c8dd1916e1d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 022c6360b97c7c27887ff5d2f6460f69cb8126c6
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457302"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82778469"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Acesso Condicional: Aplicações ou ações em nuvem
 
@@ -71,7 +71,7 @@ Os administradores podem atribuir uma política de Acesso Condicional às seguin
 
 O Office 365 fornece serviços de produtividade e colaboração baseados na nuvem, como Exchange, SharePoint e Microsoft Teams. Os serviços de nuvem do Office 365 estão profundamente integrados para garantir experiências suaves e colaborativas. Esta integração pode causar confusão ao criar políticas, uma vez que algumas aplicações como as Microsoft Teams têm dependências de outras, como o SharePoint ou o Exchange.
 
-A aplicação Office 365 (pré-visualização) permite direcionar estes serviços de uma só vez. Recomendamos a utilização da nova aplicação Office 365 (pré-visualização), em vez de direcionar as aplicações individuais para a nuvem. Direcionar este grupo de aplicações ajuda a evitar problemas que possam surgir devido a políticas e dependências inconsistentes.
+A aplicação Office 365 (pré-visualização) permite direcionar estes serviços de uma só vez. Recomendamos a utilização da nova aplicação Office 365 (pré-visualização), em vez de direcionar as aplicações individuais para a nuvem para evitar problemas com [dependências](service-dependencies.md)de serviços. Direcionar este grupo de aplicações ajuda a evitar problemas que possam surgir devido a políticas e dependências inconsistentes.
 
 Os administradores podem optar por excluir aplicações específicas da política, se assim o desejarem, incluindo a aplicação Office 365 (pré-visualização) e excluindo as aplicações específicas da sua escolha na política.
 

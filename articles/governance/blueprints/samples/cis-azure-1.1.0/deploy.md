@@ -1,14 +1,14 @@
 ---
 title: Implementar a amostra de projeto de referência da CIS Microsoft Azure Foundations
 description: Implemente passos para a amostra de projeto de referência cis Microsoft Azure Foundations Benchmark, incluindo detalhes do parâmetro de artefacto de plantas.
-ms.date: 10/14/2019
+ms.date: 05/06/2020
 ms.topic: sample
-ms.openlocfilehash: 7476addee3d31ec355c793ab7fbe1fbb732b8013
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9f132ee47784eedf8d1ced7e0b67f957877d12ef
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74544525"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864475"
 ---
 # <a name="deploy-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Implementar a amostra de projeto de referência da CIS Microsoft Azure Foundations
 
@@ -93,8 +93,8 @@ A tabela seguinte fornece uma lista dos parâmetros do artefacto da planta:
 
 |Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Descrição|
 |-|-|-|-|
-|\[Pré-visualização\]: Audit EC Microsoft Azure Foundations Benchmark 1.1.0 recomendações e implemente extensões vm específicas|Atribuição de política|Lista de regiões onde o Observador da Rede deve ser ativado|Uma lista de regiões separadas pelo ponto e vírgula. Para ver uma lista completa de regiões, utilize o Get-AzLocation. Ex: eastus; eastus2|
-|\[Pré-visualização\]: Audit EC Microsoft Azure Foundations Benchmark 1.1.0 recomendações e implemente extensões vm específicas|Atribuição de política|Lista de extensões de máquinas virtuais que são aprovadas para utilização|Uma lista de extensões separadas pelo ponto evícito. Para ver uma lista completa de extensões de máquinas virtuais, utilize a Get-AzVMExtensionImage. Ex: AzureDiskEncryption; IaaSAntimalware|
+|Auditoria CIS Microsoft Azure Foundations Benchmark 1.1.0 recomendações e implemente extensões vm específicas|Atribuição de política|Lista de regiões onde o Observador da Rede deve ser ativado|Uma lista de regiões separadas pelo ponto e vírgula. Para ver uma lista completa de regiões, utilize o Get-AzLocation. Ex: eastus; eastus2|
+|Auditoria CIS Microsoft Azure Foundations Benchmark 1.1.0 recomendações e implemente extensões vm específicas|Atribuição de política|Lista de extensões de máquinas virtuais que são aprovadas para utilização|Uma lista de extensões separadas pelo ponto e vírgula. Para ver uma lista completa de extensões de máquinas virtuais, utilize a Get-AzVMExtensionImage. Ex: AzureDiskEncryption; IaaSAntimalware|
 
 ## <a name="next-steps"></a>Passos seguintes
 

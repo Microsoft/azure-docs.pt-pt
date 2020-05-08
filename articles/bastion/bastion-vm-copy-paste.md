@@ -5,20 +5,24 @@ services: bastion
 author: charwen
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 05/04/2020
 ms.author: charwen
-ms.openlocfilehash: 0af0fdfa1b0bcbb06d9424390e7ca8c8f406bcb3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8580b7e28c8a4860739efa0763ebb7c20a80585e
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80619310"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780288"
 ---
 # <a name="copy-and-paste-to-a-virtual-machine-azure-bastion"></a>Copiar e colar a uma máquina virtual: Bastião Azure
 
 Este artigo ajuda-o a copiar e colar texto de e para máquinas virtuais quando utilizar o Azure Bastion. Antes de trabalhar com um VM, certifique-se de ter seguido os passos para [criar um hospedeiro bastião.](bastion-create-host-portal.md) Em seguida, ligue-se ao VM com o que pretende trabalhar utilizando [rdp](bastion-connect-vm-rdp.md) ou [SSH](bastion-connect-vm-ssh.md).
 
 Para os navegadores que suportam o acesso avançado da Clipboard API, pode copiar e colar texto entre o seu dispositivo local e a sessão remota da mesma forma que copia e cola entre aplicações no seu dispositivo local. Para outros navegadores, pode utilizar a paleta de ferramentas de acesso à pasta Bastion.
+
+>[!NOTE]
+>Apenas a cópia/pasta de texto é suportada atualmente.
+>
 
    ![Permitir a pasta](./media/bastion-vm-manage/allow.png)
 

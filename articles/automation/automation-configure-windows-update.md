@@ -3,14 +3,14 @@ title: Configure as definições de atualização do Windows para funcionar com 
 description: Este artigo descreve as definições de Atualização do Windows que configura para trabalhar com a Azure Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 03/02/2020
+ms.date: 05/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7f226c4d297d25644b2650d085655f70d8326927
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b9b5f2b19b29eae0132ec01a9f3fb7e8355361f5
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79279029"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82779455"
 ---
 # <a name="configure-windows-update-settings-for-update-management"></a>Configure as definições de atualização do Windows para gestão de atualizações
 
@@ -22,6 +22,8 @@ A Azure Update Management conta com o [cliente do Windows Update](https://docs.m
 - Edição direta do Registo
 
 A Atualização Management respeita muitas das definições especificadas para controlar o cliente da Atualização do Windows. Se utilizar as definições para ativar atualizações não Windows, a Atualização também irá gerir essas atualizações. Se pretender permitir o download de atualizações antes de ocorrer uma implementação de atualização, a implementação da atualização pode ser mais rápida, eficiente e menos provável de exceder a janela de manutenção.
+
+Para recomendações adicionais sobre a configuração do WSUS na sua subscrição Azure e manter de forma segura as suas máquinas virtuais windows atualizadas, reveja [o Plano de Utilização da sua implementação para atualizar as máquinas virtuais do Windows em Azure utilizando o WSUS](https://docs.microsoft.com/azure/architecture/example-scenario/wsus/).
 
 ## <a name="pre-download-updates"></a>Atualizações de pré-download
 

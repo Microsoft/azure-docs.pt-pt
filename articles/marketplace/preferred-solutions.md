@@ -1,19 +1,19 @@
 ---
-title: Soluções preferidas do Azure Marketplace e appSource
-description: Visão geral das soluções preferenciais dentro do Mercado e como são selecionadas
+title: Soluções preferidas do Azure Marketplace e appSource - mercado comercial da Microsoft
+description: Soluções preferenciais dentro do Mercado e como são selecionadas
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: dsindona
-ms.openlocfilehash: 83ac4a3e69cac8a83e41ad52c9b93a1b61de7ed6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 690ee5ed332c7ed342f786e1a9889746054834fa
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80285083"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872374"
 ---
-# <a name="preferred-solutions-in-azure-marketplace-and-appsource"></a>Soluções Preferenciais no Azure Marketplace e AppSource
+# <a name="preferred-solutions-in-microsoft-appsource-and-azure-marketplace"></a>Soluções preferenciais no Microsoft AppSource e Azure Marketplace
 
 Uma solução preferida da Microsoft é uma aplicação em nuvem selecionada pela sua qualidade, desempenho e capacidade de responder às necessidades dos clientes numa determinada área vertical ou de solução da indústria. Uma equipa de especialistas da Microsoft valida soluções de parceiros com competências e capacidades comprovadas específicas. Estas soluções estão em destaque nas nossas montras de marketplace em nuvem, Azure Marketplace e AppSource, bem como no portal Azure. As soluções preferenciais no AppSource podem ser descobertas por verticais da indústria. Soluções preferenciais no Azure Marketplace e no portal Azure podem ser descobertas em categorias horizontais de soluções.

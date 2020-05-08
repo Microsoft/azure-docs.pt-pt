@@ -4,14 +4,14 @@ description: Explica como configurar configurações adicionais para a cache com
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 05/06/2020
 ms.author: v-erkel
-ms.openlocfilehash: 7938fcc0819fc3e5e0762cc8c3c2931594ed1c68
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a3bab06166110a3627bb3a99d51ceb09b0c7ed80
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195065"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871409"
 ---
 # <a name="configure-additional-azure-hpc-cache-settings"></a>Configure configurar configurações adicionais de cache Azure HPC
 
@@ -42,13 +42,15 @@ Saiba mais sobre as definições de MTU nas redes virtuais Azure, lendo [a sinto
 ## <a name="configure-root-squash"></a>Configurar abóbora-raiz
 <!-- linked from troubleshoot -->
 
-A definição de **abóbora de raiz Ativa** controla como o Cache Azure HPC permite o acesso à raiz. A abóbora-raiz ajuda a impedir o acesso ao nível da raiz de clientes não autorizados.
+A definição de **abóbora de raiz Ativa** controla a forma como o Cache Azure HPC trata os pedidos do utilizador raiz nas máquinas do cliente.
 
-Esta definição permite que os utilizadores controlem o acesso à ``no_root_squash`` raiz ao nível da cache, o que pode ajudar a compensar a definição necessária para os sistemas NAS utilizados como alvos de armazenamento. (Ler mais sobre os [pré-requisitos](hpc-cache-prereqs.md#nfs-storage-requirements)do objetivo de armazenamento nFS .) Também pode melhorar a segurança quando usado com alvos de armazenamento Azure Blob.
+Quando a base de raízes está ativada, os utilizadores de raiz de um cliente são automaticamente mapeados para o utilizador "ninguém" quando enviam pedidos através do Cache Azure HPC. Também impede os pedidos dos clientes de utilizarem brocas de permissão set-UID.
+
+Se a abóbora de raiz for desativada, um pedido do utilizador raiz do cliente (UID 0) é transmitido através de um sistema de armazenamento NFS de back-end como raiz. Esta configuração pode permitir um acesso inadequado ao ficheiro.
+
+A colocação de abóboras de raiz ``no_root_squash`` na cache pode ajudar a compensar a definição necessária nos sistemas NAS que são usados como alvos de armazenamento. (Ler mais sobre os [pré-requisitos](hpc-cache-prereqs.md#nfs-storage-requirements)do objetivo de armazenamento nFS .) Também pode melhorar a segurança quando usado com alvos de armazenamento Azure Blob.
 
 A definição predefinida é **Sim**. (Caches criados antes de abril de 2020 podem ter a definição padrão **Nº**.)
-
-Quando ativado, esta funcionalidade também impede a utilização de bits de permissão set-UID nos pedidos do cliente para a cache.
 
 ## <a name="view-snapshots-for-blob-storage-targets"></a>Ver instantâneos para alvos de armazenamento de bolhas
 

@@ -1,30 +1,30 @@
 ---
 title: Chamar, acionar ou aninhar aplicações lógicas
-description: Configurar os pontos finais do HTTP para ligar, desencadear ou nest logic app workflows em Azure Logic Apps
+description: Configurar pontos finais HTTPS para ligar, desencadear ou nest logic app workflows em Azure Logic Apps
 services: logic-apps
 ms.workload: integration
-ms.reviewer: klam, jehollan, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 11/04/2019
-ms.openlocfilehash: d5b5a69c7927d07c0ae6b3b56ec97b6551e5d46b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/06/2020
+ms.openlocfilehash: 734ddcacf46804db8d9aac091b0a9ac0ca512e18
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77191339"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983805"
 ---
-# <a name="call-trigger-or-nest-logic-apps-by-using-http-endpoints-in-azure-logic-apps"></a>Aplicativos de call, trigger ou nest logic usando pontos finais HTTP em Aplicações Lógicas Azure
+# <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Aplicativos de call, trigger ou nest logic usando pontos finais HTTPS em Aplicações Lógicas Azure
 
-Para tornar a sua aplicação lógica chamada através de um URL para que a sua aplicação lógica possa receber pedidos de outros serviços, pode expor de forma nativa um ponto final sincronizado de HTTP como um gatilho nessa aplicação lógica. Ao configurar esta capacidade, também pode nidificar a sua aplicação lógica dentro de outras aplicações lógicas, o que permite criar um padrão de pontos finais callable.
+Para tornar a sua aplicação lógica chamada através de um URL para que a sua aplicação lógica possa receber pedidos de entrada de outros serviços, pode expor de forma nativa um ponto final de HTTPS sincronizado como um gatilho nessa aplicação lógica. Ao configurar esta capacidade, também pode nidificar a sua aplicação lógica dentro de outras aplicações lógicas, o que permite criar um padrão de pontos finais callable.
 
-Para configurar um ponto final http, você pode usar qualquer um destes tipos de gatilho, que permitem que aplicações lógicas recebam pedidos de entrada:
+Para configurar um ponto final calivel, pode utilizar qualquer um destes tipos de gatilho, que permitem que as aplicações lógicas recebam pedidos de entrada:
 
 * [Pedir](../connectors/connectors-native-reqres.md)
 * [Webhook de HTTP](../connectors/connectors-native-webhook.md)
-* Gatilhos de conector geridos que têm o [tipo ApiConnectionWebhook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) e podem receber pedidos http recebidos
+* Gatilhos de conector geridos que têm o [tipo ApiConnectionWebhook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) e podem receber pedidos https recebidos
 
 > [!NOTE]
-> Estes exemplos utilizam o gatilho do Pedido, mas pode utilizar qualquer gatilho baseado em pedidos HTTP que esteja na lista anterior. Todos os princípios se aplicam de forma idêntica a estes outros tipos de gatilho.
+> Estes exemplos utilizam o gatilho do Pedido, mas pode utilizar qualquer gatilho baseado em pedidos HTTPS que esteja na lista anterior. Todos os princípios se aplicam de forma idêntica a estes outros tipos de gatilho.
 
 Se você é novo em aplicativos lógicos, veja [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) e [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -32,13 +32,13 @@ Se você é novo em aplicativos lógicos, veja [What is Azure Logic Apps](../log
 
 * Uma subscrição do Azure. Se não tiver uma subscrição, [inscreva-se numa conta do Azure gratuita](https://azure.microsoft.com/free/).
 
-* A aplicação lógica onde pretende configurar o ponto final http como gatilho. Pode começar com uma aplicação lógica em branco ou com uma aplicação lógica existente onde pretende substituir o gatilho atual. Este exemplo começa com uma aplicação lógica em branco.
+* A aplicação lógica onde pretende utilizar o gatilho para criar o ponto final calivel . Pode começar com uma aplicação lógica em branco ou com uma aplicação lógica existente onde pretende substituir o gatilho atual. Este exemplo começa com uma aplicação lógica em branco.
 
 ## <a name="create-a-callable-endpoint"></a>Criar um ponto final calivel
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). Crie e abra uma aplicação lógica em branco no Logic App Designer.
 
-   Este exemplo utiliza o gatilho do Pedido, mas pode utilizar qualquer gatilho que possa receber pedidos http recebidos. Todos os princípios se aplicam de forma idêntica a estes gatilhos. Para mais informações sobre o gatilho do Pedido, consulte [Receber e responder às chamadas HTTPS recebidas utilizando aplicações lógicas do Azure](../connectors/connectors-native-reqres.md).
+   Este exemplo utiliza o gatilho Do Pedido, mas pode utilizar qualquer gatilho que possa receber pedidos HTTPS recebidos. Todos os princípios se aplicam de forma idêntica a estes gatilhos. Para mais informações sobre o gatilho do Pedido, consulte [Receber e responder a chamadas HTTPS de entrada utilizando aplicações lógicas do Azure](../connectors/connectors-native-reqres.md).
 
 1. Sob a caixa **de**pesquisa, selecione Incorporado . Na caixa de `request` pesquisa, introduza como filtro. A partir da lista de gatilhos, selecione **Quando um pedido HTTP for recebido**.
 
@@ -100,91 +100,165 @@ Se você é novo em aplicativos lógicos, veja [What is Azure Logic Apps](../log
 
 1. Guarde a aplicação lógica.
 
-   O **HTTP POST para esta** caixa de URL mostra agora o URL de callback gerado que outros serviços podem usar para ligar e acionar a sua aplicação lógica. Este URL inclui uma chave De Assinatura de Acesso Partilhado (SAS), que é utilizada para autenticação, nos parâmetros de consulta, por exemplo:
+   A caixa **DEURL HTTP POST** mostra agora o URL de callback gerado que outros serviços podem usar para ligar e acionar a sua aplicação lógica. Este URL inclui parâmetros de consulta que especificam uma chave De Acesso Partilhado (SAS), que é usada para autenticação.
 
    ![URL de callback gerado para ponto final](./media/logic-apps-http-endpoint/generated-endpoint-url.png)
 
-   Também pode obter o URL de ponto final http do painel de **visão geral** da sua aplicação lógica.
+1. Para copiar o URL de callback, tem estas opções:
 
-   1. No menu da sua aplicação lógica, selecione **Visão Geral**.
+   * À direita da caixa **URL HTTP POST,** selecione **Copy Url** (ícone de ficheiros de cópia).
 
-   1. Na secção **Resumo,** selecione **Ver histórico**do gatilho .
+   * Faça esta chamada POST:
 
-      ![Obtenha URL de ponto final HTTP do portal Azure](./media/logic-apps-http-endpoint/find-manual-trigger-url.png)
+     `POST https://management.azure.com/{logic-app-resource-ID}/triggers/{endpoint-trigger-name}/listCallbackURL?api-version=2016-06-01`
 
-   1. Sob **url de Callback [POST],** copie o URL:
+   * Copie o URL de callback do painel de **visão geral** da sua aplicação lógica.
 
-      ![Copy HTTP endpoint URL do portal Azure](./media/logic-apps-http-endpoint/copy-manual-trigger-callback-url.png)
+     1. No menu da sua aplicação lógica, selecione **Visão Geral**.
 
-      Ou pode obter o URL fazendo esta chamada:
+     1. Na secção **Resumo,** selecione **Ver histórico**do gatilho .
 
-      ```http
-      POST https://management.azure.com/{logic-app-resource-ID}/triggers/{endpoint-trigger-name}/listCallbackURL?api-version=2016-06-01
-      ```
+        ![Obtenha URL de ponto final do portal Azure](./media/logic-apps-http-endpoint/find-manual-trigger-url.png)
 
-<a name="set-method"></a>
+     1. Sob **url de Callback [POST],** copie o URL:
 
-## <a name="set-expected-http-method"></a>Definir método HTTP esperado
+        ![URL de ponto final de cópia do portal Azure](./media/logic-apps-http-endpoint/copy-manual-trigger-callback-url-post.png)
 
-Por defeito, o gatilho do Pedido espera um pedido HTTP POST. No entanto, pode especificar um método diferente a esperar, mas apenas um método.
+<a name="select-method"></a>
+
+## <a name="select-expected-request-method"></a>Selecione o método de pedido esperado
+
+Por defeito, o gatilho do Pedido espera um pedido de CORREIO. Pode especificar um método diferente a esperar, mas apenas um método único.
 
 1. No gatilho Request, abra a **lista de novos parâmetros** e selecione **Método,** que adiciona esta propriedade ao gatilho.
 
    ![Adicione a propriedade "Método" para desencadear](./media/logic-apps-http-endpoint/select-add-new-parameter-for-method.png)
 
-1. A partir da lista **método,** selecione outro método que o gatilho espera. Ou, pode especificar um método personalizado.
+1. Na lista **método,** selecione o método que o gatilho deve esperar. Ou, pode especificar um método personalizado.
 
-   Por exemplo, selecione o método **GET** para que possa testar o URL do ponto final http mais tarde.
+   Por exemplo, selecione o método **GET** para que possa testar o URL do seu ponto final mais tarde.
 
-   ![Selecione método HTTP para usar para o gatilho](./media/logic-apps-http-endpoint/select-method-request-trigger.png)
+   ![Selecione o método de pedido esperado pelo gatilho](./media/logic-apps-http-endpoint/select-method-request-trigger.png)
 
 ## <a name="accept-parameters-in-endpoint-url"></a>Aceitar parâmetros em URL de ponto final
 
-Quando pretender que o URL do ponto final aceite parâmetros, especifique o caminho relativo no seu gatilho. Também precisa definir explicitamente [o método](#set-method) que o seu pedido HTTP espera.
+Quando pretende que o seu URL de ponto final aceite valores de parâmetros através do URL do ponto final, tem estas opções:
+
+* [Aceite valores através](#get-parameters) de parâmetros GET ou URL.
+
+  Estes valores são passados como pares de valor de nome ao enviar o pedido para o URL do ponto final. Para esta opção, tem de utilizar o método GET no gatilho 'Pedido'. Numa ação posterior, pode obter os valores do parâmetro `triggerOutputs()` como saídas de gatilho utilizando a função numa expressão.
+
+* [Aceite valores através de um caminho relativo](#relative-path) para parâmetros no gatilho Do seu Pedido.
+
+  Estes valores são passados ao enviar o pedido para o URL do ponto final. Também precisa selecionar explicitamente [o método](#select-method) que o gatilho espera. Numa ação posterior, pode obter os valores do parâmetro como saídas de gatilho, referenciando essas saídas diretamente.
+
+<a name="get-parameters"></a>
+
+### <a name="accept-values-through-get-parameters"></a>Aceitar valores através dos parâmetros GET
+
+1. No gatilho Request, abra a **lista de parâmetros Adicionar novos,** adicione a propriedade **Método** ao gatilho e selecione o método **GET.**
+
+   Para mais informações, consulte O método de [pedido esperado .](#select-method)
+
+1. Sob o gatilho Solicitar, adicione a ação onde pretende utilizar o valor do parâmetro. Para este exemplo, adicione a ação **Resposta.**
+
+   1. Sob o gatilho pedido, selecione **Novo passo** > **Adicione uma ação**.
+   
+   1. Em **'Escolha uma ação**' `response` na caixa de pesquisa, introduza como filtro. Na lista de ações, selecione a ação **Resposta.**
+
+1. Para construir `triggerOutputs()` a expressão que recupera o valor do parâmetro, siga estes passos:
+
+   1. Clique na propriedade **body** da ação resposta para que a lista de conteúdos dinâmicos apareça e selecione **Expression**.
+
+   1. Na caixa **'Expressão',** introduza `parameter-name` esta expressão, substituindo pelo nome do parâmetro e selecione **OK**.
+
+      `triggerOutputs()['queries']['parameter-name']`
+
+      ![Adicione a expressão "triggerOutputs()" para desencadear](./media/logic-apps-http-endpoint/trigger-outputs-expression.png)
+
+      Na propriedade **do Corpo,** a `triggerOutputs()` expressão resolve-se ao símbolo.
+
+      ![Expressão resolvida "triggerOutputs()"](./media/logic-apps-http-endpoint/trigger-outputs-expression-token.png)
+
+      Se guardar a aplicação lógica, navegar para longe do designer e regressar ao designer, o símbolo mostra o nome do parâmetro que especificou, por exemplo:
+
+      ![Expressão resolvida para nome de parâmetro](./media/logic-apps-http-endpoint/resolved-expression-parameter-token.png)
+
+      Em vista de código, a propriedade **do Corpo** aparece na definição da ação resposta da seguinte forma:
+
+      `"body": "@{triggerOutputs()['queries']['parameter-name']}",`
+
+      Por exemplo, suponha que quer passar um `postalCode`valor para um parâmetro chamado . A propriedade **do Corpo** `Postal Code: ` especifica a corda, com um espaço de trailing, seguida da expressão correspondente:
+
+      ![Adicione a expressão "triggerOutputs()" para desencadear](./media/logic-apps-http-endpoint/trigger-outputs-expression-postal-code.png)
+
+1. Para testar o seu ponto final calivel, copie o URL de chamada do gatilho do Pedido e cole o URL noutra janela do navegador. No URL, adicione o nome e o valor`?`do parâmetro seguindo o ponto de interrogação () ao URL no seguinte formato e prima Enter.
+
+   `...?{parameter-name=parameter-value}&api-version=2016-10-01...`
+
+   `https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?{parameter-name=parameter-value}&api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
+
+   O navegador devolve uma resposta com este texto:`Postal Code: 123456`
+
+   ![Resposta do envio de pedido para URL de callback](./media/logic-apps-http-endpoint/callback-url-returned-response.png)
+
+1. Para colocar o nome e o valor do parâmetro numa posição diferente dentro`&`do URL, certifique-se de utilizar a ampersand ( ) como prefixo, por exemplo:
+
+   `...?api-version=2016-10-01&{parameter-name=parameter-value}&...`
+
+   Este exemplo mostra o URL de chamada com `postalCode=123456` o nome e valor do parâmetro da amostra em diferentes posições dentro do URL:
+
+   * 1ª posição:`https://prod-07.westus.logic.azure.com:433/workflows/XXXXXXXXXXXXXXXXXXXXXX/triggers/manual/paths/invoke?postalCode=123456&api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=ZZZZZZZZZZZZZZZZZZZZZZZZ`
+
+   * Segunda posição:`https://prod-07.westus.logic.azure.com:433/workflows/XXXXXXXXXXXXXXXXXXXXXX/triggers/manual/paths/invoke?api-version=2016-10-01&postalCode=123456&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=ZZZZZZZZZZZZZZZZZZZZZZZZ`
+
+<a name="relative-path"></a>
+
+### <a name="accept-values-through-a-relative-path"></a>Aceitar valores através de um caminho relativo
 
 1. No gatilho Pedido, abra a **lista adicionar novo parâmetro** e selecione caminho **relativo,** que adiciona esta propriedade ao gatilho.
 
    ![Adicione a propriedade "Caminho Relativo" para desencadear](./media/logic-apps-http-endpoint/select-add-new-parameter-for-relative-path.png)
 
-1. Na propriedade **relativa,** especifique o caminho relativo para o parâmetro no seu esquema JSON `address/{postalCode}`que pretende que o seu URL aceite, por exemplo, .
+1. Na propriedade **relativa,** especifique o caminho relativo para o parâmetro no seu esquema JSON `/address/{postalCode}`que pretende que o seu URL aceite, por exemplo, .
 
    ![Especificar o caminho relativo para o parâmetro](./media/logic-apps-http-endpoint/relative-path-url-value.png)
 
-1. Para utilizar o parâmetro, encontre e adicione uma ação **de Resposta** à sua aplicação lógica.
+1. Sob o gatilho Solicitar, adicione a ação onde pretende utilizar o valor do parâmetro. Para este exemplo, adicione a ação **Resposta.**
 
    1. Sob o gatilho pedido, selecione **Novo passo** > **Adicione uma ação**.
 
-   1. Em **'Escolha uma ação**' `response` na caixa de pesquisa, introduza como filtro.
-
-   1. Na lista de ações, selecione a ação **Resposta.**
+   1. Em **'Escolha uma ação**' `response` na caixa de pesquisa, introduza como filtro. Na lista de ações, selecione a ação **Resposta.**
 
 1. Na propriedade do **Corpo** da Ação resposta, inclua o símbolo que representa o parâmetro que especificou no caminho relativo do seu gatilho.
 
    Por exemplo, suponha que quer `Postal Code: {postalCode}`que a ação de resposta regresse.
 
-   Na propriedade Do `Postal Code: ` **Corpo,** entre com um espaço de trailing. A partir da lista de conteúdos dinâmicos que aparece, selecione o símbolo **do Código Postal.**
+   1. Na propriedade Do `Postal Code: ` **Corpo,** entre com um espaço de trailing. Mantenha o cursor dentro da caixa de edição para que a lista de conteúdos dinâmicos permaneça aberta.
 
-   ![Adicione o parâmetro especificado ao corpo de resposta](./media/logic-apps-http-endpoint/relative-url-with-parameter-token.png)
+   1. Na lista de conteúdos dinâmicos, a partir da secção **Quando um pedido HTTP é recebido,** selecione o token **postalCode.**
 
-   A propriedade **Body** agora inclui o parâmetro selecionado:
+      ![Adicione o parâmetro especificado ao corpo de resposta](./media/logic-apps-http-endpoint/relative-url-with-parameter-token.png)
 
-   ![Corpo de resposta de exemplo com parâmetro](./media/logic-apps-http-endpoint/relative-url-with-parameter.png)
+      A propriedade **Body** agora inclui o parâmetro selecionado:
+
+      ![Corpo de resposta de exemplo com parâmetro](./media/logic-apps-http-endpoint/relative-url-with-parameter.png)
 
 1. Guarde a aplicação lógica.
 
-    O URL do ponto final http agora inclui o caminho relativo, por exemplo:
+   No gatilho do Pedido, o URL de retorno de chamada é atualizado e agora inclui o caminho relativo, por exemplo:
 
-    ```http
-    https://prod-25.westus.logic.azure.com/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke/address/{postalCode}?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}
-    ```
+   `https://prod-07.westus.logic.azure.com/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke/address/{postalCode}?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
-1. Para testar o seu ponto final http, copie e cole `{postalCode}` `123456`o URL atualizado em outra janela do navegador, mas substitua por , e prima Enter.
+1. Para testar o seu ponto final calivel, copie o URL de callback atualizado `{postalCode}` do gatilho `123456`do Pedido, cole o URL noutra janela do navegador, substitua no URL com , e prima Enter.
 
-   O seu navegador mostra este texto:`Postal Code: 123456`
+   O navegador devolve uma resposta com este texto:`Postal Code: 123456`
 
-## <a name="call-logic-app-through-http-endpoint"></a>Call logic app através do ponto final http
+   ![Resposta do envio de pedido para URL de callback](./media/logic-apps-http-endpoint/callback-url-returned-response.png)
 
-Depois de criar o ponto final http, pode acionar a aplicação lógica enviando um pedido HTTP `POST` para o URL completo do ponto final. As aplicações lógicas têm suporte incorporado para pontos finais de acesso direto.
+## <a name="call-logic-app-through-endpoint-url"></a>App lógica de chamada através de URL de ponto final
+
+Depois de criar o ponto final, pode acionar `POST` a aplicação lógica enviando um pedido HTTPS para o URL completo do ponto final. As aplicações lógicas têm suporte incorporado para pontos finais de acesso direto.
 
 <a name="generated-tokens"></a>
 
@@ -261,7 +335,7 @@ Para aceder `body` especificamente à propriedade, pode usar a [ `@triggerBody()
 
 ## <a name="respond-to-requests"></a>Responder a pedidos
 
-Por vezes, pretende responder a certos pedidos que desencadeiam a sua aplicação lógica devolvendo conteúdo ao chamador. Para construir o código de estado, cabeçalho e corpo para a sua resposta, use a ação Resposta. Esta ação pode aparecer em qualquer lugar da sua aplicação lógica, não apenas no final do seu fluxo de trabalho. Se a sua aplicação lógica não incluir uma ação de Resposta, o ponto final do HTTP responde *imediatamente* com o estatuto **aceite em 202.**
+Por vezes, pretende responder a certos pedidos que desencadeiam a sua aplicação lógica devolvendo conteúdo ao chamador. Para construir o código de estado, cabeçalho e corpo para a sua resposta, use a ação Resposta. Esta ação pode aparecer em qualquer lugar da sua aplicação lógica, não apenas no final do seu fluxo de trabalho. Se a sua aplicação lógica não incluir uma ação de Resposta, o ponto final responde *imediatamente* com o estatuto aceite em **202.**
 
 Para que o chamador original obtenha com sucesso a resposta, todos os passos necessários para a resposta devem terminar dentro do prazo de [pedido,](./logic-apps-limits-and-config.md) a menos que a aplicação lógica desencadeada seja chamada de uma aplicação lógica aninhada. Se nenhuma resposta for devolvida dentro deste limite, o pedido de entrada é de saem e recebe a resposta de timeout do **Cliente 408.**
 
@@ -271,13 +345,13 @@ Para aplicações lógicas aninhadas, a aplicação lógica dos pais continua à
 
 No corpo de resposta, pode incluir vários cabeçalhos e qualquer tipo de conteúdo. Por exemplo, o cabeçalho desta resposta especifica que `application/json` o tipo de conteúdo `town` da `postalCode` resposta é e que o corpo contém valores para o e propriedades, com base no esquema JSON descrito anteriormente neste tópico para o gatilho do Pedido.
 
-![Fornecer conteúdo de resposta para a ação de resposta http](./media/logic-apps-http-endpoint/content-for-response-action.png)
+![Fornecer conteúdo de resposta para a ação de resposta HTTPS](./media/logic-apps-http-endpoint/content-for-response-action.png)
 
 As respostas têm estas propriedades:
 
 | Propriedade (Exibição) | Propriedade (JSON) | Descrição |
 |--------------------|-----------------|-------------|
-| **Código de Estado** | `statusCode` | O código de estado HTTP a utilizar na resposta para o pedido de entrada. Este código pode ser qualquer código de estado válido que comece com 2xx, 4xx ou 5xx. No entanto, não são permitidos códigos de estado 3xx. |
+| **Código de Estado** | `statusCode` | O código de estado HTTPS a utilizar na resposta para o pedido de entrada. Este código pode ser qualquer código de estado válido que comece com 2xx, 4xx ou 5xx. No entanto, não são permitidos códigos de estado 3xx. |
 | **Cabeçalhos** | `headers` | Um ou mais cabeçalhos para incluir na resposta |
 | **Corpo** | `body` | Um objeto corporal que pode ser uma corda, um objeto JSON, ou mesmo conteúdo binário referenciado a partir de um passo anterior |
 ||||
@@ -314,9 +388,9 @@ Para ver a definição JSON para a ação Resposta e a definição completa jSON
 > * A chave de acesso partilhada aparece no URL.
 > * Não é possível gerir as políticas de conteúdos de segurança devido a domínios partilhados entre os clientes da Azure Logic Apps.
 
-#### <a name="q-can-i-configure-http-endpoints-further"></a>P: Posso configurar ainda mais os pontos finais do HTTP?
+#### <a name="q-can-i-configure-callable-endpoints-further"></a>P: Posso configurar ainda mais os pontos finais reputáveis?
 
-**R:** Sim, os pontos finais http suportam uma configuração mais avançada através da [Gestão API Azure](../api-management/api-management-key-concepts.md). Este serviço também oferece a capacidade para você gerir consistentemente todas as suas APIs, incluindo aplicações lógicas, configurar nomes de domínio personalizados, usar mais métodos de autenticação, e muito mais, por exemplo:
+**R:** Sim, os pontos finais HTTPS suportam uma configuração mais avançada através da [Gestão API Azure.](../api-management/api-management-key-concepts.md) Este serviço também oferece a capacidade para você gerir consistentemente todas as suas APIs, incluindo aplicações lógicas, configurar nomes de domínio personalizados, usar mais métodos de autenticação, e muito mais, por exemplo:
 
 * [Alterar o método de pedido](../api-management/api-management-advanced-policies.md#SetRequestMethod)
 * [Alterar os segmentos de URL do pedido](../api-management/api-management-transformation-policies.md#RewriteURL)

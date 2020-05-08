@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: 0c77e9d0aa4f44f33b1345a6021fc0378459ee85
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dcd5668fa2c6e1840eed13a9ee0cbd30d8d8a25a
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79296970"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983249"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Monitor Azure ML executa e métricas
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -40,7 +40,7 @@ As seguintes métricas podem ser adicionadas a uma corrida enquanto treinam uma 
 |Listas|Função:<br>`run.log_list(name, value, description='')`<br><br>Exemplo:<br>run.log_list ("exatidão", [0,6, 0,7, 0,87]) | Faça loga numa lista de valores para a execução com o nome dado.|
 |Linha|Função:<br>`run.log_row(name, description=None, **kwargs)`<br>Exemplo:<br>run.log_row ("Y over X", x=1, y=0.4) | Usar *log_row* cria uma métrica com múltiplas colunas como descrito em kwargs. Cada parâmetro nomeado gera uma coluna com o valor especificado.  *log_row* pode ser chamado uma vez para registar uma tuple arbitrária, ou várias vezes em um loop para gerar uma tabela completa.|
 |Tabela|Função:<br>`run.log_table(name, value, description='')`<br><br>Exemplo:<br>run.log_table ("Y over X", {"x":[1, 2, 3], "y":[0.6, 0.7, 0.89]} | Faça loga num objeto de dicionário para a execução com o nome dado. |
-|Imagens|Função:<br>`run.log_image(name, path=None, plot=None)`<br><br>Exemplo:<br>`run.log_image("ROC", plot=plt)` | Faça log a imagem no registo de execução. Utilize log_image para registar um ficheiro de imagem ou um enredo matplotlib para a execução.  Estas imagens serão visíveis e comparáveis no registo de execução.|
+|Imagens|Função:<br>`run.log_image(name, path=None, plot=None)`<br><br>Exemplo:<br>`run.log_image("ROC", plot=plt)` | Faça log a imagem no registo de execução. Utilize log_image para registar um . Ficheiro de imagem PNG ou um enredo matplotlib para a execução.  Estas imagens serão visíveis e comparáveis no registo de execução.|
 |Marque uma corrida|Função:<br>`run.tag(key, value=None)`<br><br>Exemplo:<br>run.tag("selecionado", "sim") | Marque a corrida com uma chave de cordas e valor de corda opcional.|
 |Upload de ficheiro ou diretório|Função:<br>`run.upload_file(name, path_or_stream)`<br> <br> Exemplo:<br>run.upload_file ("best_model.pkl", "./model.pkl") | Faça o upload de um ficheiro para o registo de execução. Executa a captura automática do ficheiro no diretório de saída especificado, que se incorre em "./saídas" para a maioria dos tipos de execução.  Utilize upload_file apenas quando for necessário carregar ficheiros adicionais ou não for especificado um diretório de saída. Sugerimos `outputs` adicionar ao nome para que seja enviado para o diretório de saídas. Pode listar todos os ficheiros associados a este registo de execução chamado`run.get_file_names()`|
 

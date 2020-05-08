@@ -5,12 +5,12 @@ ms.topic: tutorial
 ms.date: 1/24/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: c5d2bbe920f87421550fadf30a7e7e9d23931bfd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 145ae5f6f9204366052d9a182c61d76ff7ffa715
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80292473"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871503"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Configurar recuperação de desastres para VMs Azure
 
@@ -170,8 +170,8 @@ Se a fonte VM tiver encriptação de disco Azure (ADE) ativada, reveja as defini
    1. **Cofres chave de encriptação**: Por padrão, a Recuperação do Site cria um novo cofre chave na região alvo. O nome `asr` tem um sufixo, e é baseado nas chaves de encriptação da chave VM de origem. Se o cofre de chaves criado pela Recuperação do Site já existe, é reutilizado.
 1. Selecione **Personalizar** para selecionar cofres de chaves personalizados.
 
-> [!NOTE]
-> Apenas os VMs Azure que executam sistemas operativos Windows e [estão habilitados para encriptação com a aplicação Azure AD](https://aka.ms/ade-aad-app) são atualmente suportados pela Azure Site Recovery.
+>[!NOTE]
+> ATualmente, a Recovery do Site suporta a ADE, com e sem Diretório Ativo Azure (AAD) para VMs que executam sistemas operativos Windows. Para os sistemas operativos Linux, só suportamos a ADE sem AAD. Além disso, para as máquinas que executam a ADE 1.1 (sem AAD), os VMs devem estar a utilizar discos geridos. VMs com discos não geridos não são suportados. Se mudar de ADE 0.1 (com AAD) para 1.1, tem de desativar a replicação e ativar a replicação de um VM após ativar 1.1.
 
 ### <a name="track-replication-status"></a>Controlar o estado de replicação
 

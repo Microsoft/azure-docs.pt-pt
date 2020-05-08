@@ -1,5 +1,5 @@
 ---
-title: Criar uma nova oferta de Serviçogerido no Mercado Comercial
+title: Criar uma oferta de Serviço Gerido no mercado comercial da Microsoft
 description: Como criar uma nova oferta de Serviço gerido para listagem no Azure Marketplace utilizando o portal Mercado Comercial no Partner Center.
 author: JnHs
 ms.author: jenhayes
@@ -8,56 +8,60 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: c82c3e0b6e6d11ccc33bf8556b06aeb04a6d37b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 41b2e12a94f5751e31f482c913c71b4731b1cf6c
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82147917"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871903"
 ---
-# <a name="create-a-new-managed-service-offer"></a>Criar uma nova oferta de Serviço Gerido
+# <a name="create-a-managed-service-offer"></a>Criar uma oferta de Serviço Gerido
 
-> [!IMPORTANT]
-> Estamos a mover a gestão das suas ofertas de Serviço Gerido do Portal do Parceiro cloud para o Partner Center. Até que as suas ofertas sejam migradas, siga as instruções em Publicar uma oferta de [Serviço Gerido ao Azure Marketplace](../../lighthouse/how-to/publish-managed-services-offers.md) para gerir as suas ofertas no Portal do Parceiro cloud.
+O Serviço Gerido oferece ajuda para ativar cenários do [Farol Azure.](../../lighthouse/overview.md) Quando um cliente aceita uma oferta de Serviço Gerido, eles são então capazes de embarcar recursos para a [gestão de recursos delegados do Azure.](../../lighthouse/concepts/azure-delegated-resource-management.md) Antes de começar, [Crie uma conta de Marketplace Comercial no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) se ainda não o fez. Certifique-se de que a sua conta está inscrita no programa de marketplace comercial.
 
-O Serviço Gerido oferece ajuda para ativar cenários do [Farol Azure.](../../lighthouse/overview.md) Quando um cliente aceita uma oferta de Serviço Gerido, eles são então capazes de embarcar recursos para a [gestão de recursos delegados do Azure.](../../lighthouse/concepts/azure-delegated-resource-management.md)
-
-Para começar a criar ofertas de Serviço Gerido, certifique-se de que primeiro [cria uma conta de Partner Center](./create-account.md) e abre o dashboard do Mercado [Comercial,](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)com a página **de visão geral** selecionada. Você deve ter um [nível](https://partner.microsoft.com/membership/cloud-platform-competency) de competência silver ou gold cloud platform ou ser um MSP Especialista [Azure](https://partner.microsoft.com/membership/azure-expert-msp) para publicar uma oferta de Serviço Gerido.
-
-![Dashboard do Mercado Comercial no Partner Center](./media/new-offer-overview.png)
-
->[!Note]
-> Uma vez publicada uma oferta, as edimas para a oferta feita no Partner Center só serão atualizadas no sistema e as fachadas da loja após a republicação. Certifique-se de que submete a oferta para publicação depois de fazer alterações.
+Você deve ter um [nível](https://partner.microsoft.com/membership/cloud-platform-competency) de competência silver ou gold cloud platform ou ser um MSP Especialista [Azure](https://partner.microsoft.com/membership/azure-expert-msp) para publicar uma oferta de Serviço Gerido.
 
 ## <a name="create-a-new-offer"></a>Criar uma nova oferta
 
-Selecione o botão **+ Nova oferta** e, em seguida, selecione o item do menu **'Serviço Gerido'.** A nova caixa de diálogo da **oferta** aparecerá.
+1. Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/home).
+2. No menu de navegação à esquerda, selecione **Commercial Marketplace** > **Overview**.
+3. Na página 'Visão Geral', selecione **+ Novo Serviço** > **Gerido**.
 
-### <a name="offer-id-and-alias"></a>Oferecer ID e pseudónimo
+    ![Ilustra o menu de navegação à esquerda.](./media/new-offer-managed-service.png)
 
-- **ID oferta**: Identificador único para cada oferta na sua conta. Este ID será visível para os clientes no endereço URL para a oferta de mercado. Este ID só pode conter caracteres alfanuméricos minúsculos (incluindo hífenes e sublinhados, mas sem espaço branco), limitado a 50 caracteres, e não pode ser alterado depois de selecionar **Criar**.  Por exemplo, se introduzir aqui a *oferta de teste-1,* o URL de oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+>[!NOTE]
+>Depois de publicada uma oferta, as edificações feitas no Partner Center só aparecem nas montras depois de reeditarem a oferta. Certifique-se de que republique sempre depois de fazer alterações.
 
-- **Oferta pseudónimo**: O nome usado para se referir à oferta dentro do Partner Center. Este nome não será usado no mercado, e é diferente do nome da oferta e outros valores que serão mostrados aos clientes. Este valor não pode ser alterado depois de selecionar **Criar**.
+## <a name="new-offer"></a>Nova oferta
 
-Assim que introduzir o seu **Id de Oferta** e oferecer **pseudónimo,** selecione **Criar**. Em seguida, poderá trabalhar em todas as diferentes partes da sua oferta.
+Introduza um **ID de oferta**. Este é um identificador único para cada oferta na sua conta.
+
+* Este ID é visível para os clientes no endereço web para a oferta de mercado e modelos do Gestor de Recursos Azure, se aplicável.
+* Utilize apenas letras minúsculas e números. Pode incluir hífenes e sublinhados, mas sem espaços, e está limitado a 50 caracteres. Por exemplo, se introduzir o **test-offer-1,** `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`o endereço web da oferta será .
+* O ID da Oferta não pode ser alterado depois de selecionar **Criar**.
+
+Insira um **pseudónimo da Oferta.** Este é o nome usado para a oferta no Partner Center.
+
+* Este nome não é usado no mercado e é diferente do nome da oferta e outros valores mostrados aos clientes.
+* Th Offer alias não pode ser alterado depois de selecionar **Criar**.
+
+Selecione **Criar** para gerar a oferta e continuar.
 
 ## <a name="offer-setup"></a>Configuração de oferta
-
-A página de **configuração da Oferta** pede as seguintes informações. Certifique-se de selecionar **Guardar** depois de completar estes campos.
 
 ## <a name="connect-lead-management"></a>Ligar a gestão de chumbo
 
 [!INCLUDE [Connect lead management](./includes/connect-lead-management.md)]
 
-Note que de acordo com as políticas de certificação de [Serviços Geridos,](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services)é necessário um **Destino Principal.** Isto criará um registo no seu sistema CRM sempre que um cliente implementa a sua oferta.
+De acordo com as políticas de certificação de [Serviços Geridos,](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services)é necessário um **Destino Principal.** Isto criará um registo no seu sistema CRM sempre que um cliente implementa a sua oferta.
 
 Para mais informações, consulte a visão geral da [gestão de chumbo](./commercial-marketplace-get-customer-leads.md).
 
-Lembre-se de **guardar** a página antes de passar para a secção seguinte.
+Selecione **guardar rascunho** antes de continuar.
 
 ## <a name="properties"></a>Propriedades
 
-A página **Propriedades** permite definir as categorias utilizadas para agrupar a sua oferta no mercado e os contratos legais que suportam a sua oferta. Selecione **Guardar** depois de completar esta página.
+Esta página permite definir as categorias utilizadas para agrupar a sua oferta no mercado e os contratos legais que suportam a sua oferta.
 
 ### <a name="category"></a>Categoria
 
@@ -67,14 +71,16 @@ Selecione um mínimo de uma e um máximo de cinco categorias que serão usadas p
 
 Forneça os seus próprios termos e condições legais no campo **Termos e Condições.** Também pode fornecer o URL onde os seus termos e condições podem ser encontrados. Os clientes serão obrigados a aceitar estes termos antes de poderem experimentar a sua oferta.
 
+Selecione **guardar rascunho** antes de continuar.
+
 ## <a name="offer-listing"></a>Oferta listagem
 
-A página **de listagem de oferta** permite definir detalhes do mercado (nome, descrição, imagens, etc.) para a sua oferta.
+Esta página permite definir detalhes do mercado (como nome, descrição e imagens de oferta) para a sua oferta.
 
 > [!NOTE]
-> Oferecer conteúdo de listagem (como a descrição, documentos, screenshots, termos de uso, etc.) não é necessário estar em inglês, desde que a descrição da oferta comece com a frase: "Esta aplicação só está disponível em [língua não inglesa]." Também é aceitável fornecer um URL de *Link Útil* para oferecer conteúdo num idioma diferente do utilizado no conteúdo de listagem de oferta.
+> Oferecer conteúdo de listagem (como a descrição, documentos, imagens e termos de utilização) não é necessário estar em inglês, desde que a descrição da oferta comece com a frase: "Esta aplicação está disponível apenas em [língua não inglesa]." Também é aceitável fornecer um URL de *Link Útil* para oferecer conteúdo num idioma diferente do utilizado no conteúdo de listagem de oferta.
 
-### <a name="name"></a>Nome
+### <a name="name"></a>Name
 
 O nome que introduzir aqui será mostrado aos clientes como título da sua oferta. Este campo é pré-povoado com o texto que inscreveu para **o pseudónimo oferta** quando criou a oferta, mas pode alterar este valor. Este nome pode ser marcado por marca (e pode incluir símbolos de marca ou direitos de autor). O nome não pode ser mais de 50 caracteres e não pode incluir emojis.
 
@@ -100,23 +106,13 @@ Algumas dicas para escrever a sua descrição:
 - Não confie em funcionalidades e funcionalidades para vender o seu produto. Em vez disso, concentre-se no valor que entregar.  
 - Utilize o vocabulário específico da indústria ou a formulação baseada em benefícios o máximo possível.
 
-Para tornar a sua descrição mais envolvente, use o rico editor de texto para formatar a sua descrição.
+Para tornar a sua descrição mais envolvente, use o rico editor de texto para aplicar formatação.
 
-![Usando o rico editor de texto](./media/text-editor2.png)
+![Usando o rico editor de texto](./media/rich-text-editor.png)
 
-Utilize as seguintes instruções para utilizar o rico editor de texto:
-
-- Para alterar o formato do seu conteúdo, realce o texto que pretende formatar e selecionar um estilo de texto, como mostrado abaixo:
-
-     ![Usando o rico editor de texto para alterar o formato de texto](./media/text-editor3.png)
-
-- Para adicionar uma lista com bala ou numerada ao texto, utilize as opções abaixo:
-
-     ![Usando o rico editor de texto para adicionar listas](./media/text-editor4.png)
-
-- Para adicionar ou remover o recuo ao texto, utilize as opções abaixo:
-
-     ![Usando o rico editor de texto para o travessão](./media/text-editor5.png)
+| <center>Alterar o formato de texto | <center>Adicionar balas ou numerar | <center>Adicionar ou remover o travessão de texto |
+| --- | --- | --- |
+| <center>![Usando o rico editor de texto para alterar o formato de texto](./media/text-editor3.png) |  <center>![Usando o rico editor de texto para adicionar listas](./media/text-editor4.png) |  <center>![Usando o rico editor de texto para o travessão](./media/text-editor5.png) |
 
 ### <a name="privacy-policy-link"></a>Ligação política de privacidade
 
@@ -138,12 +134,19 @@ Se tiver websites de suporte para **clientes Azure Global Customers** e/ou **Azu
 
 Nesta secção, pode fornecer logótipos e imagens que serão utilizados ao mostrar a sua oferta ao cliente. Todas as imagens devem estar em formato .png.
 
->[!Note]
+>[!NOTE]
 >Se tiver algum problema de envio de ficheiros, https://upload.xboxlive.com certifique-se de que a sua rede local não bloqueia o serviço utilizado pelo Partner Center.
 
 #### <a name="marketplace-logos"></a>Logotipos do mercado
 
-São necessários quatro tamanhos de logotipo: **Pequeno (40x40)**, **Médio (90x90)**, **Grande (115x115)** e **Largo (255x115)**. Siga estas orientações para os seus logotipos:
+Forneça o logótipo da sua oferta em quatro tamanhos de pixel:
+
+- **Pequeno** (40 x 40)
+- **Médio** (90 x 90)
+- **Grande** (115 x 115)
+- **Ampla** (255 x 115)
+
+Siga estas orientações para os seus logotipos:
 
 - O design do Azure tem uma paleta de cores simples. Limite o número de cores primárias e secundárias no logótipo.
 - As cores do tema do portal são preto e branco. Não utilize estas cores como cor de fundo do logótipo. Utilize uma cor que realce o logótipo no portal. Recomendamos cores primárias simples.
@@ -164,6 +167,8 @@ Pode adicionar opcionalmente cinco vídeos que demonstram a sua oferta. Estes v�
 
 - [Boas práticas para anúncios de oferta de mercado](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
 
+Selecione **guardar rascunho** antes de continuar.
+
 ## <a name="preview"></a>Pré-visualização
 
 Antes de publicar a sua oferta ao vivo para a oferta de mercado mais ampla, você primeiro terá que disponibilizá-la a um público de pré-visualização limitado. Isto permite-lhe confirmar como a sua oferta aparece no Mercado Azure antes de a disponibilizar aos clientes. As equipas de suporte e engenharia da Microsoft também poderão ver a sua oferta durante este período de pré-visualização.
@@ -171,6 +176,8 @@ Antes de publicar a sua oferta ao vivo para a oferta de mercado mais ampla, voc�
 Pode definir o público de pré-visualização introduzindo iDs de subscrição azure na secção **Preview Audience.** Pode introduzir até 10 IDs de subscrição manualmente ou carregar um ficheiro .csv com até 100 IDs de subscrição.
 
 Quaisquer clientes associados a estas subscrições poderão ver a oferta no Azure Marketplace antes de entrar em funcionação. Certifique-se de incluir as suas próprias subscrições aqui para que possa fazer a pré-visualização da sua oferta.
+
+Selecione **guardar rascunho** antes de continuar.
 
 ## <a name="plan-overview"></a>Visão geral do plano
 
@@ -237,18 +244,20 @@ Para cada **Autorização,** terá de fornecer o seguinte. Em seguida, pode sele
 
 Depois de ter concluído todas as secções para o seu plano, pode selecionar **+ Criar um novo plano** quantas vezes for necessário para criar planos adicionais. Quando tiver terminado, selecione **Guardar**.
 
+Selecione **guardar rascunho** antes de continuar.
+
 ## <a name="publish"></a>Publicar
 
 ### <a name="submit-offer-to-preview"></a>Enviar oferta para pré-visualização
 
-Depois de ter concluído todas as secções necessárias da oferta, **selecione publicar** no canto superior direito do portal. Será redirecionado para a página **De Revisão e publicação.**
+Depois de ter concluído todas as secções necessárias da oferta, selecione **Rever e publique** no canto superior direito do portal.
 
 Se for a primeira vez que publica esta oferta, pode:
 
 - Consulte o estado de conclusão de cada secção da oferta.
-  - *Não começou* - significa que a secção não foi tocada e precisa de ser concluída.
-  - *Incompleto* - significa que a secção tem erros que precisam de ser corrigidos ou exige mais informações a fornecer. Volte para a secção(s) e atualize-a.
-  - *Completo* - significa que a secção está completa, todos os dados necessários foram fornecidos e não há erros. Todas as secções da oferta devem estar em estado total antes de poder submeter a oferta.
+  - **Não começou** - A secção não foi tocada e precisa de ser concluída.
+  - **Incompleto** - A secção tem erros que precisam de ser corrigidos ou exigemais informações a fornecer. Volte para a secção(s) e atualize-a.
+  - **Completo** - A secção está completa, todos os dados necessários foram fornecidos e não há erros. Todas as secções da oferta devem estar em estado total antes de poder submeter a oferta.
 - Na secção **Notas para certificação,** forneça instruções de teste à equipa de certificação para garantir que a sua aplicação é testada corretamente, além de quaisquer notas suplementares úteis para a compreensão da sua aplicação.
 - Submeta a oferta para publicação selecionando **Enviar**. Enviaremos um e-mail quando estiver disponível uma versão de pré-visualização da oferta para que possa rever e aprovar. Volte ao Partner Center e selecione **Go-live** para a oferta de publicar a sua oferta ao público (ou se uma oferta privada, para o público privado).
 

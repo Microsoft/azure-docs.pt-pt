@@ -1,14 +1,14 @@
 ---
 title: CIS Microsoft Azure Foundations Benchmark controlos de amostras de projeto
 description: Mapeamento de recomendações da amostra de projeto de referência da CIS Microsoft Azure Foundations para a Política Azure.
-ms.date: 05/01/2020
+ms.date: 05/06/2020
 ms.topic: sample
-ms.openlocfilehash: 735ab26e1f9432a87d5a0d927c64d44e680b0694
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 2163162f52eb4ad7f580c01d6539c242bd332645
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82688099"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82863965"
 ---
 # <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Mapeamento de recomendações da amostra de projeto de referência da CIS Microsoft Azure Foundations
 

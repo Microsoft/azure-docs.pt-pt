@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 03/30/2020
-ms.openlocfilehash: f9ca75943eaec2ae018b54145d872fc09294035e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ed65d69c18f2dbcd53324fe3cc18af8c51c546b2
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80398188"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780118"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Quais são os alvos da computação no Azure Machine Learning? 
 
@@ -57,18 +57,44 @@ Pode criar instâncias computacionais de Aprendizagem automática Azure (pré-vi
 
 Também pode criar clusters computacionais utilizando a extensão de [aprendizagem automática para o Azure CLI](tutorial-train-deploy-model-cli.md#create-the-compute-target-for-training).
 
-Quando criados estes recursos computacionais são automaticamente parte do seu espaço de trabalho, ao contrário de outros tipos de alvos computacionais.
+Quando criados estes recursos computacionais fazem automaticamente parte do seu espaço de trabalho, ao contrário de outros tipos de alvos computacionais.
 
 ### <a name="compute-clusters"></a>Clusters computacionais
 
 Pode utilizar clusters de computação Azure Machine Learning para treino e para inferência de lotes (pré-visualização).  Com este recurso de computação, você tem:
 
 * Cluster de nó único ou multi-nó
-* Escalas automáticas cada vez que submete uma corrida 
+* Autoscalcificação cada vez que submete uma corrida 
 * Gestão automática de clusters e agendamento de emprego 
 * Apoio tanto aos recursos da CPU como da GPU
 
+### <a name="supported-vm-series-and-sizes"></a>Séries e tamanhos VM suportados
 
+Ao selecionar um tamanho de nó para um recurso de computação gerido em Azure Machine Learning, pode escolher entre os tamanhos vm selecionados disponíveis em Azure. O Azure oferece uma gama de tamanhos para Linux e Windows para diferentes cargas de trabalho. Consulte aqui para saber mais sobre os diferentes [tipos e tamanhos vm](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+
+Existem algumas exceções e limitações para escolher um tamanho VM:
+* Algumas séries VM não são suportadas no Azure Machine Learning.
+* Algumas séries VM são restritas. Para utilizar uma série restrita, contacte o suporte e solicite um aumento de quota para a série. Para obter informações sobre o suporte de contato, consulte opções de [suporte Azure](https://azure.microsoft.com/support/options/)
+
+Consulte a tabela seguinte para saber mais sobre séries e restrições apoiadas. 
+
+| **Série VM suportada**  | **Restrições** |
+|------------|------------|
+| D | Nenhum |
+| Dv2 | Nenhum |  
+| DSv2 | Nenhum |  
+| FSv2 | Nenhum |  
+| M | Requer aprovação |
+| NC | Nenhum |    
+| NCsv2 | Requer aprovação |
+| NCsv3 | Requer aprovação |  
+| NDs | Requer aprovação |
+| NDv2 | Requer aprovação |
+| NV | Nenhum |
+| NVv3 | Requer aprovação | 
+
+
+Embora o Azure Machine Learning apoie estas séries VM, podem não estar disponíveis em todas as regiões do Azure. Pode consultar as séries VM aqui: [Produtos Disponíveis por Região](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
 
 ## <a name="unmanaged-compute"></a>Computação não gerida
 

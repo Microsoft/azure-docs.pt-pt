@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: 392329d254615406204d67a4e135b6857e13a57d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8a69cb83492fabc692886fe6966a147de3bcbb04
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192557"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780849"
 ---
-# <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: Perguntas frequentes
+# <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: Frequently asked questions (Autenticação Pass-through: Perguntas mais frequentes)
 
 Este artigo fornece respostas a algumas das perguntas mais comuns sobre como executar [O Azure HDInsight](https://azure.microsoft.com/services/hdinsight/).
 
@@ -133,7 +133,7 @@ Sim, pode implantar uma máquina virtual adicional dentro da mesma sub-rede que 
 
 - Nós de borda: Pode adicionar outro nó de borda ao cluster, como descrito em [Usar nós de borda vazias em clusters Apache Hadoop em HDInsight](hdinsight-apps-use-edge-node.md).
 
-- Nós autónomos: Pode adicionar uma máquina virtual autónoma à mesma sub-rede e aceder ao cluster `https://<CLUSTERNAME>-int.azurehdinsight.net`a partir dessa máquina virtual utilizando o ponto final privado . Para mais informações, consulte Controlar o [tráfego da rede](hdinsight-plan-virtual-network-deployment.md#networktraffic).
+- Nós autónomos: Pode adicionar uma máquina virtual autónoma à mesma sub-rede e aceder ao cluster `https://<CLUSTERNAME>-int.azurehdinsight.net`a partir dessa máquina virtual utilizando o ponto final privado . Para mais informações, consulte o [tráfego da rede de controlo.](./control-network-traffic.md)
 
 ### <a name="should-i-store-data-on-the-local-disk-of-an-edge-node"></a>Devo armazenar dados no disco local de um nó de borda?
 

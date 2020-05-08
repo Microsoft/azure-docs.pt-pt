@@ -8,12 +8,12 @@ ms.date: 03/17/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 91ecff311b8820d3b97e1de0e4b4e87c150e749b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f936b62349a534e6193a3c628c66c49d1a58b681
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81678929"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790835"
 ---
 # <a name="troubleshoot-issues-with-the-update-management-solution"></a>Problemas de resolução de problemas com a solução de Gestão de Atualização
 
@@ -49,13 +49,13 @@ Este erro pode ocorrer pelas seguintes razões:
 
 * Execute o resolução de problemas para [Windows](update-agent-issues.md#troubleshoot-offline) ou [Linux](update-agent-issues-linux.md#troubleshoot-offline), dependendo do SISTEMA.
 
-* Vá à [Rede planejando](../automation-hybrid-runbook-worker.md#network-planning) saber quais endereços e portas devem ser autorizados a atualizar gestão para funcionar.  
+* Vá à [configuração da Rede](../automation-hybrid-runbook-worker.md#network-planning) para saber quais os endereços e portas que devem ser autorizados a atualizar a Gestão.  
 
-* Vá à [Rede planejando](../../azure-monitor/platform/log-analytics-agent.md#network-requirements) saber quais endereços e portas devem ser autorizados para que o agente Log Analytics funcione.
+* Aceda à [configuração da Rede](../../azure-monitor/platform/log-analytics-agent.md#network-requirements) para saber quais os endereços e portas que devem ser autorizados a trabalhar para o agente Log Analytics.
 
 * Verifique se há problemas de configuração de âmbito. [A configuração do âmbito](../automation-onboard-solutions-from-automation-account.md#scope-configuration) determina quais as máquinas configuradas para a solução. Se a sua máquina estiver a aparecer no seu espaço de trabalho, mas não no Portal de Gestão de Atualizações, terá de definir a configuração de âmbito para direcionar as máquinas. Para saber mais sobre a configuração do âmbito, consulte [as máquinas de bordo no espaço de trabalho](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace).
 
-* Retire a configuração do trabalhador seguindo os passos de [eliminação do trabalhador híbrido](../automation-hybrid-runbook-worker.md#remove-a-hybrid-runbook-worker)do livro de corridas . 
+* Remova a configuração do trabalhador seguindo os passos em Remover um Trabalhador do [Livro híbrido do Windows](../automation-windows-hrw-install.md#remove-windows-hybrid-runbook-worker) ou remova um trabalhador do livro de [corridas híbrido Linux](../automation-linux-hrw-install.md#remove-linux-hybrid-runbook-worker). 
 
 ## <a name="scenario-superseded-update-indicated-as-missing-in-update-management"></a>Cenário: Atualização supersedindicada indicada como desaparecida na Gestão de Atualizações
 
@@ -448,7 +448,7 @@ A máquina já foi a bordo de outro espaço de trabalho para gestão de atualiza
 ### <a name="resolution"></a>Resolução
 
 1. Siga os [passos em Machines não apareça no portal sob Gestão](#nologs) de Atualização para se certificar de que a máquina está reportando ao espaço de trabalho correto.
-2. Limpe os artefactos na [máquina, apagando o grupo de livros híbridos](../automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group)e tente novamente.
+2. Limpe os artefactos na [máquina, apagando o grupo de livros híbridos](../automation-windows-hrw-install.md#remove-a-hybrid-worker-group)e tente novamente.
 
 ## <a name="scenario-machine-cant-communicate-with-the-service"></a><a name="machine-unable-to-communicate"></a>Cenário: Máquina não pode comunicar com o serviço
 

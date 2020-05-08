@@ -2,28 +2,23 @@
 title: Desenvolver um ponto final do SCIM para o fornecimento de utilizadores a apps da Azure AD
 description: O sistema de gestão de identidade de domínio transversal (SCIM) normaliza o fornecimento automático de utilizadores. Aprenda a desenvolver um ponto final do SCIM, integre o seu SCIM API com o Diretório Ativo Azure e comece a automatizar utilizadores e grupos de aprovisionamento nas suas aplicações na nuvem.
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/07/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.custom: aaddev;it-pro;seohack1
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a54bc3cfa67330fb0056ccd1898d9ab3de2b0ab2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 65bbb35d041a48e68d01a50e88e42fbeb73f2ea6
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82229923"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864288"
 ---
-# <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>Construir um ponto final SCIM e configurar o fornecimento de utilizadores com o Azure Ative Directory (Azure AD)
+# <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Construa um ponto final sCIM e configure o fornecimento de utilizadores com a AD Azure
 
 Como desenvolvedor de aplicações, pode utilizar o Sistema de Gestão de Identidade de Domínio Transversal (SCIM) para permitir o fornecimento automático de utilizadores e grupos entre a sua aplicação e a Azure AD. Este artigo descreve como construir um ponto final do SCIM e integrar-se com o serviço de provisionamento de AD Azure. A especificação SCIM fornece um esquema comum de utilização para o fornecimento. Quando utilizado em conjunto com padrões da federação como o SAML ou o OpenID Connect, o SCIM oferece aos administradores uma solução de ponta a ponta, baseada em padrões para a gestão de acesso.
 
@@ -1200,8 +1195,8 @@ A especificação SCIM não define um regime específico de autenticação e aut
 [!NOTE] Não é aconselhável deixar o campo simbólico em branco na aplicação personalizada de configuração de configuração de adi. O símbolo gerado está principalmente disponível para fins de teste.
 
 Fluxo de concessão de código de **autorização OAuth:** O serviço de provisionamento apoia a concessão do código de [autorização.](https://tools.ietf.org/html/rfc6749#page-24) Depois de submeter o seu pedido de publicação da sua app na galeria, a nossa equipa trabalhará consigo para recolher as seguintes informações:
-*  URL de autorização: Um URL do cliente para obter autorização do proprietário do recurso através de redirecionamento do utilizador-agente. O utilizador é redirecionado para este URL para autorizar o acesso. 
-*  URL de troca de token: Um URL do cliente para trocar uma bolsa de autorização para um token de acesso, tipicamente com autenticação do cliente.
+*  URL de autorização: Um URL do cliente para obter autorização do proprietário do recurso através de redirecionamento do utilizador-agente. O utilizador é redirecionado para este URL para autorizar o acesso. Note que este URL não é atualmente configurável por inquilino.
+*  URL de troca de token: Um URL do cliente para trocar uma bolsa de autorização para um token de acesso, tipicamente com autenticação do cliente. Note que este URL não é atualmente configurável por inquilino.
 *  ID do cliente: O servidor de autorização emite ao cliente registado um identificador de cliente, que é uma cadeia única que representa as informações de registo fornecidas pelo cliente.  O identificador de cliente não é um segredo; é exposto ao proprietário do recurso e **não deve** ser utilizado sozinho para autenticação do cliente.  
 *  Segredo do cliente: O segredo do cliente é um segredo gerado pelo servidor de autorização. Deve ser um valor único conhecido apenas pelo servidor de autorização. 
 

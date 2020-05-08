@@ -3,12 +3,12 @@ title: Ver Dados Ao Vivo (pré-visualização) com o Monitor Azure para contento
 description: Este artigo descreve a visão em tempo real de registos, eventos e métricas de cápsulas kubernetes sem usar kubectl no Monitor Azure para recipientes.
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 9e7c7a7b7bf276b3451cee1d289b8b07ac0f40ba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 38615acf079c33c49e27394bfdb9b8104e5a68ac
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79216554"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872107"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Como ver registos, eventos e métricas de cápsulas kubernetes em tempo real
 
@@ -42,7 +42,7 @@ Para suspender o autoscroll e controlar o comportamento do painel, permitindo-lh
 >Recomendamos apenas suspender ou fazer uma pausa no autoscroll por um curto período de tempo enquanto resoluta problemas. Estes pedidos podem afetar a disponibilidade e o estrangulamento da API kubernetes no seu cluster. 
 
 >[!IMPORTANT]
->Nenhum dado é armazenado permanentemente durante o funcionamento desta funcionalidade. Todas as informações captadas durante a sessão são eliminadas quando fecha o seu navegador ou navega para longe dele. Os dados só permanecem presentes para visualização dentro da janela de cinco minutos da funcionalidade métrica; as métricas com mais de cinco minutos também são eliminadas. As consultas tampão de dados ao vivo (pré-visualização) dentro de limites razoáveis de utilização da memória (precisam de ser mais específicos aqui, o que é razoável?). 
+>Nenhum dado é armazenado permanentemente durante o funcionamento desta funcionalidade. Todas as informações captadas durante a sessão são eliminadas quando fecha o seu navegador ou navega para longe dele. Os dados só permanecem presentes para visualização dentro da janela de cinco minutos da funcionalidade métrica; as métricas com mais de cinco minutos também são eliminadas. O tampão de dados ao vivo (pré-visualização) dentro de limites razoáveis de utilização da memória.
 
 ## <a name="view-logs"></a>Ver registos
 

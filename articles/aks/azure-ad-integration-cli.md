@@ -4,12 +4,12 @@ description: Aprenda a usar o Azure CLI para criar e azure ative diretório Azur
 services: container-service
 ms.topic: article
 ms.date: 04/16/2019
-ms.openlocfilehash: d17ae12beecf9d83ef6d688af799787c5ccf322b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dba6590daf5c64dd1e53663e71a0cc27941b1470
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253055"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82779948"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Integrar o Diretório Ativo Azure com o Serviço Azure Kubernetes utilizando o Azure CLI
 
@@ -57,7 +57,7 @@ serverApplicationId=$(az ad app create \
     --identifier-uris "https://${aksname}Server" \
     --query appId -o tsv)
 
-# Update the application group memebership claims
+# Update the application group membership claims
 az ad app update --id $serverApplicationId --set groupMembershipClaims=All
 ```
 

@@ -4,15 +4,15 @@ description: Este artigo descreve como fazer backup e restaurar metadados de mod
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/24/2020
+ms.date: 05/05/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2866ec860cbc9037aa6b57389b35f17ec71a7c9d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: aa98a13b84e89c90e29525fb6743ac33faf1d917
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82145466"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871295"
 ---
 # <a name="backup-and-restore"></a>Cópia de segurança e restauro
 
@@ -24,7 +24,7 @@ Apoiar as bases de dados de modelos tabular nos Serviços de Análise azure é p
 > 
 
 > [!NOTE]
-> Se a conta de armazenamento estiver numa região diferente, as definições de firewall devem ser configuradas para permitir o acesso a partir de **todas as redes**. As definições de firewall configuradas para redes Selecionadas com endereços IP listados em branco e permitir a exceção de serviços da Microsoft fidedignas não são suportadas.
+> Se a conta de armazenamento estiver noutra região, configure as definições de firewall da conta de armazenamento para permitir o acesso a partir de **redes Selecionadas**. Na **gama 'Endereço**firewall', especifique a gama de endereços IP para a região onde o servidor de Serviços de Análise se encontra. Configurar as definições de firewall da conta de armazenamento para permitir o acesso a partir de todas as redes é suportado, no entanto, escolher redes Selecionadas e especificar uma gama de endereços IP é preferível. Para saber mais, consulte [a conectividade da rede FAQ](analysis-services-network-faq.md#backup-and-restore).
 
 Os backups são guardados com uma extensão .abf. Para modelos tabulares na memória, tanto os dados do modelo como os metadados são armazenados. Para os modelos tabular DirectQuery, apenas os metadados do modelo são armazenados. As cópias de segurança podem ser comprimidas e encriptadas, dependendo das opções que escolher.
 
@@ -107,5 +107,5 @@ Utilize o cmdlet [Restore-ASDatabase.](https://docs.microsoft.com/powershell/mod
 ## <a name="related-information"></a>Informações relacionadas
 
 [Contas de armazenamento do Azure](../storage/common/storage-create-storage-account.md)  
-[Alta disponibilidade](analysis-services-bcdr.md)     
-[Gerir serviços de análise azure](analysis-services-manage.md)
+[Alta disponibilidade](analysis-services-bcdr.md)      
+[Conectividade de rede de serviços de análise FAQ](analysis-services-network-faq.md)

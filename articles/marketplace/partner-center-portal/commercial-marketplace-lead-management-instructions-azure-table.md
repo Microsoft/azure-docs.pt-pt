@@ -1,24 +1,24 @@
 ---
-title: Configure a gestão de chumbo do mercado comercial da Microsoft com uma tabela Azure
-description: Saiba como usar uma tabela Azure para gerir os cabos do Microsoft AppSource e do Azure Marketplace.
+title: Gestão de chumbo com armazenamento de mesa Azure - mercado comercial da Microsoft
+description: Saiba como usar o armazenamento da Tabela Azure para configurar os leads para o Microsoft AppSource e o Azure Marketplace
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 9814b03e348fc807c04364afbf027369f917670a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2ecca18e9de02bfe5f3bcb972d0b4034ab8012ac
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131133"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791022"
 ---
-# <a name="configure-lead-management-by-using-an-azure-table"></a>Configure a gestão de chumbo utilizando uma tabela Azure
+# <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Use o armazenamento da Mesa Azure para gerir os leads do mercado comercial
 
-Se o seu sistema de gestão de relacionamento com o cliente (CRM) não for explicitamente suportado no Partner Center para receber os leads Microsoft AppSource e Azure Marketplace, pode utilizar uma tabela Azure para lidar com estes leads. Em seguida, pode optar por exportar os dados e importá-lo para o seu sistema de CRM. As instruções deste artigo passam por si o processo de criação de uma conta de Armazenamento Azure e de uma tabela Azure nessa conta. Além disso, pode criar um novo fluxo utilizando power automate para enviar uma notificação de e-mail quando a sua oferta receber um chumbo.
+Se o seu sistema de gestão de relacionamento com o cliente (CRM) não for explicitamente suportado no Partner Center para receber os cabos Microsoft AppSource e Azure Marketplace, pode utilizar o armazenamento da Tabela Azure para lidar com estes cabos. Em seguida, pode optar por exportar os dados e importá-lo para o seu sistema de CRM. Este artigo explica como criar uma conta de armazenamento Azure e uma tabela nessa conta. Além disso, pode criar um novo fluxo utilizando power automate para enviar uma notificação de e-mail quando a sua oferta receber um chumbo.
 
-## <a name="configure-an-azure-table"></a>Configure uma mesa Azure
+## <a name="configure-an-azure-storage-account"></a>Configure uma conta de armazenamento Azure
 
 1. Se não tiver uma conta Azure, pode [criar uma conta de teste gratuita.](https://azure.microsoft.com/pricing/free-trial/)
 1. Depois da sua conta Azure estar ativa, inscreva-se no [portal Azure.](https://portal.azure.com)
@@ -32,7 +32,11 @@ Se o seu sistema de gestão de relacionamento com o cliente (CRM) não for expli
 
         Para mais informações sobre contas de armazenamento, consulte [o tutorial Quickstart](https://docs.microsoft.com/azure/storage/). Para obter mais informações sobre os preços de armazenamento, consulte [os preços de armazenamento.](https://azure.microsoft.com/pricing/details/storage/)
 
-1. Espere até que a sua conta de armazenamento seja aprovisionada. Este processo normalmente demora alguns minutos. Em seguida, aceda à sua conta de armazenamento a partir da página **inicial** do portal Azure, selecionando **Ver todos os seus recursos**. Também pode selecionar **Todos os recursos** da barra de menu sobra do portal Azure.
+1. Espere até que a sua conta de armazenamento seja aprovisionada. Este processo normalmente demora alguns minutos. 
+
+## <a name="create-a-table-in-your-storage-account"></a>Crie uma tabela na sua conta de armazenamento
+
+1. A partir da página **inicial** do portal Azure, selecione **Veja todos os seus recursos** para aceder à sua conta de armazenamento. Também pode selecionar **Todos os recursos** da barra de menu sobra do portal Azure.
 
     ![Aceda à sua conta de armazenamento Azure](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-access.png)
 
@@ -52,13 +56,13 @@ Se o seu sistema de gestão de relacionamento com o cliente (CRM) não for expli
 
     Pode utilizar o [Azure Storage Explorer](https://archive.codeplex.com/?p=azurestorageexplorer) ou qualquer outra ferramenta para ver os dados na sua tabela de armazenamento. Também pode exportar os dados na tabela Azure. 
 
-## <a name="optional-use-power-automate-with-an-azure-table"></a>(Opcional) Use Power Automate com uma mesa Azure 
+## <a name="optional-use-power-automate-to-get-lead-notifications"></a>(Opcional) Use power automate para obter notificações de chumbo
 
-Pode utilizar [o Power Automate](https://docs.microsoft.com/flow/) para automatizar notificações sempre que um fio é adicionado a uma tabela Azure. Se não tiver uma conta, pode [inscrever-se para uma conta gratuita.](https://flow.microsoft.com/)
+Pode utilizar [o Power Automate](https://docs.microsoft.com/flow/) para automatizar notificações sempre que um fio for adicionado à sua tabela de armazenamento Azure. Se não tiver uma conta, pode [inscrever-se para uma conta gratuita.](https://flow.microsoft.com/)
 
 ### <a name="lead-notification-example"></a>Exemplo de notificação de chumbo
 
-Use este exemplo como um guia para criar um fluxo simples que automaticamente envia uma notificação por e-mail quando um novo fio é adicionado a uma tabela Azure. Este exemplo cria uma recorrência para enviar informações de chumbo a cada hora se o armazenamento da mesa for atualizado.
+O exemplo cria um fluxo que envia automaticamente uma notificação por e-mail quando um novo chumbo é adicionado ao armazenamento da Tabela Azure. Este exemplo cria uma recorrência para enviar informações de chumbo a cada hora se o armazenamento da mesa for atualizado.
 
 1. Inscreva-se na sua conta Power Automate.
 1. Na barra esquerda, selecione **Os meus fluxos.**
@@ -82,28 +86,28 @@ Use este exemplo como um guia para criar um fluxo simples que automaticamente en
 1. Na janela de **tempo Get passado,** coloque **intervalo** para **1**. A partir da lista de abandono da **unidade de tempo,** selecione **Hora**.
 
     >[!IMPORTANT]
-    >Certifique-se de que o intervalo e a unidade de tempo que enviou no passo 8 correspondem ao intervalo e frequência que configurapara a recorrência no passo 5.
+    >Certifique-se de que o intervalo e a unidade de tempo que enviou no Passo 8 correspondem ao intervalo e frequência que configurapara recorrência no Passo 5.
 
     ![Set Get passado intervalo de tempo](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-getpast-time.png)
 
    >[!TIP] 
    >Pode verificar o seu fluxo a qualquer momento para verificar se cada passo está configurado corretamente. Para verificar o seu fluxo, selecione **Flow checker** da barra de menu **Flow.**
 
-   No próximo conjunto de passos, irá ligar-se à sua tabela Azure e configurar a lógica de processamento para lidar com novos cabos.
+   No próximo conjunto de passos, irá ligar-se à sua mesa e configurar a lógica de processamento para lidar com novos cabos.
 
-1. Depois do passo 8, selecione **+ Novo passo**. Em seguida, procure **por entidades Obter** Na Escolha uma janela de **ação.**
+1. Selecione **+Novo passo**. Em seguida, procure **por entidades Obter** Na Escolha uma janela de **ação.**
 1. No âmbito **de Ações**, selecione Obter entidades (Armazenamento de **Mesa Azure)**.
 1. Na janela de armazenamento de **mesa azul,** forneça informações para as seguintes caixas e selecione **Criar:**
 
-    * **Nome de ligação**: Forneça um nome significativo para a ligação que está a estabelecer entre este fluxo e a tabela Azure.
-    * **Nome da conta**de armazenamento : Forneça o nome da conta de armazenamento para a sua tabela Azure. Pode encontrar este nome na página de chaves de **acesso** da conta de armazenamento.
-    * **Chave de Armazenamento Partilhada**: Forneça o valor-chave para a sua conta de loja para a sua tabela Azure. Pode encontrar este valor na página de chaves de **acesso** da conta de armazenamento.
+    * **Nome de ligação**: Forneça um nome significativo para a ligação que está a estabelecer entre este fluxo e a tabela.
+    * **Nome da conta**de armazenamento : Forneça o nome da conta de armazenamento para a sua tabela. Pode encontrar este nome na página de chaves de **acesso** da conta de armazenamento.
+    * **Chave de Armazenamento Partilhada**: Forneça o valor-chave para a sua conta de loja para a sua tabela. Pode encontrar este valor na página de chaves de **acesso** da conta de armazenamento.
 
       ![Janela de armazenamento de mesa azul](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-storage.png)
 
    Depois de selecionar **Criar,** aparece a janela **de entidades Get.** Aqui, selecione **Mostrar opções avançadas,** e fornecer informações para as seguintes caixas:
 
-   * **Tabela**: Selecione o nome do seu armazenamento de mesa Azure (a partir do passo 6 das instruções na secção "Configurar uma mesa Azure"). A imagem que se segue mostra o pedido quando a tabela "marketplaceleads" é selecionada para este exemplo.
+   * **Tabela**: Selecione o nome da sua tabela (a partir de [Criar uma tabela](#create-a-table-in-your-storage-account)). A imagem que se segue mostra o pedido quando a tabela "marketplaceleads" é selecionada para este exemplo.
 
      ![Obtenha a janela das entidades](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
 
@@ -177,9 +181,18 @@ Se não receber notificações de e-mail de chumbo, significa que novas pistas n
 Quando estiver pronto para configurar as informações de gestão de chumbo para a sua oferta no portal editorial, siga estes passos.
 
 1. Vá à página de **configuração** da Oferta para a sua oferta.
+
 1. Selecione **Ligar** sob a secção de gestão de **chumbo.**
-1. Na janela pop-up de detalhes da **Ligação,** **selecione Azure Table** para o **destino Lead**. Colar na cadeia de ligação da conta de armazenamento Azure que criou seguindo passos anteriores na caixa de **cadeiade ligação** à conta de armazenamento.
+     ![Gestão de oportunidades potenciais](./media/commercial-marketplace-lead-management-instructions-azure-table/lead-management.png)
+
+1. Na janela pop-up de detalhes da **Ligação,** **selecione Azure Table** para o **destino Lead**. 
+     ![Gestão de chumbo, detalhes de ligação](./media/commercial-marketplace-lead-management-instructions-azure-table/connection-details.png)
+
+1. Colar na cadeia de ligação da conta de armazenamento Azure que criou seguindo passos anteriores na caixa de **cadeiade ligação** à conta de armazenamento.
+     ![Gestão de chumbo, conta de armazenamento de detalhes de ligação](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-connection-details.png)
+
 1. **E-mail de contacto**: Forneça e-mails para pessoas da sua empresa que devam receber notificações de e-mail quando um novo chumbo for recebido. Pode fornecer vários e-mails separando-os com pontos evíolos.
+
 1. Selecione **OK**.
 
 Para se certificar de que se ligou com sucesso a um destino de chumbo, selecione o botão **Validate.** Se for bem sucedido, terá um teste de chumbo no destino principal.
@@ -188,10 +201,3 @@ Para se certificar de que se ligou com sucesso a um destino de chumbo, selecione
 >Tem de terminar de configurar o resto da oferta e publicá-la antes de poder receber pistas para a oferta.
 
 Quando os cabos são gerados, a Microsoft envia pistas para a tabela Azure. Se configurar um fluxo, um e-mail também será enviado para o endereço de e-mail que configurado.
-
-![Gestão de oportunidades potenciais](./media/commercial-marketplace-lead-management-instructions-azure-table/lead-management.png)
-
-![Gestão de chumbo, detalhes de ligação](./media/commercial-marketplace-lead-management-instructions-azure-table/connection-details.png)
-
-![Gestão de chumbo, conta de armazenamento de detalhes de ligação](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-connection-details.png)
-

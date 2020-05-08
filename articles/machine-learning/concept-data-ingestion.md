@@ -1,5 +1,5 @@
 ---
-title: Opções de ingestão de dados
+title: Ingestão de dados & automatização
 titleSuffix: Azure Machine Learning
 description: Conheça as opções de ingestão de dados para treinar os seus modelos de aprendizagem automática.
 services: machine-learning
@@ -10,25 +10,27 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
-ms.openlocfilehash: 6b1c671d2079c7d8ab59e9afe981ccef3f58ef27
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 475c4fd6b34996c83035c4f7ef93b9fa02ded11f
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79086893"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82789866"
 ---
-# <a name="data-ingestion-in-azure-machine-learning"></a>Ingestão de dados em Aprendizagem automática azure
+# <a name="data-ingestion-options-for-azure-machine-learning-workflows"></a>Opções de ingestão de dados para fluxos de trabalho de Aprendizagem Automática Azure
 
-Neste artigo, você aprende os prós e contras das seguintes opções de ingestão de dados disponíveis com o Azure Machine Learning. 
+Neste artigo, você aprende os prós e contras das opções de ingestão de dados disponíveis com o Azure Machine Learning. 
 
-1. Oleodutos [Azure Data Factory](#use-azure-data-factory)
-2. [Pitão de aprendizagem de máquina sdk azure](#use-the-python-sdk)
+Escolha entre:
++ Oleodutos [Azure Data Factory,](#azure-data-factory) especificamente construídos para extrair, carregar e transformar dados
+
++ [Azure Machine Learning Python SDK,](#azure-machine-learning-python-sdk)fornecendo uma solução de código personalizada para tarefas básicas de ingestão de dados.
+
++ uma combinação de ambos
 
 A ingestão de dados é o processo em que os dados não estruturados são extraídos de uma ou múltiplas fontes e, em seguida, preparados para treinar modelos de aprendizagem automática. Também é intensivo em tempo, especialmente se feito manualmente, e se você tiver grandes quantidades de dados de várias fontes. Automatizar este esforço liberta recursos e garante que os seus modelos utilizam os dados mais recentes e aplicáveis.
 
-A Azure Data Factory (ADF) foi especificamente construída para extrair, carregar e transformar dados, no entanto o Python SDK permite-lhe desenvolver uma solução de código personalizada para tarefas básicas de ingestão de dados. Se nenhum dos dois é o que precisa, também pode usar a ADF e o Python SDK em conjunto para criar um fluxo de trabalho global de ingestão de dados que satisfaça as suas necessidades. 
-
-## <a name="use-azure-data-factory"></a>Utilize o Azure Data Factory
+## <a name="azure-data-factory"></a>Azure Data Factory
 
 [A Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) oferece suporte nativo para monitorização de fontes de dados e gatilhos para gasodutos de ingestão de dados.  
 
@@ -55,7 +57,7 @@ Estes passos e o diagrama seguinte ilustram o fluxo de trabalho de ingestão de 
     
 Saiba como construir um pipeline de ingestão de dados para machine learning com a [Azure Data Factory](how-to-data-ingest-adf.md).
 
-## <a name="use-the-python-sdk"></a>Utilizar o SDK Python 
+## <a name="azure-machine-learning-python-sdk"></a>Pitão de aprendizagem de máquina sdk azure 
 
 Com o [Python SDK,](https://docs.microsoft.com/python/api/overview/azure/ml)pode incorporar tarefas de ingestão de dados num passo de [pipeline Azure Machine Learning.](how-to-create-your-first-pipeline.md)
 
@@ -73,5 +75,7 @@ No diagrama seguinte, o gasoduto Azure Machine Learning consiste em dois passos:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba como construir um pipeline de ingestão de dados para machine learning com [a Azure Data Factory](how-to-data-ingest-adf.md)
-* Aprenda a automatizar e gerir os ciclos de vida de desenvolvimento dos seus gasodutos de ingestão de dados com [pipelines Azure](how-to-cicd-data-ingestion.md).
+Siga estes artigos:
+* [Construir um pipeline de ingestão de dados com a Azure Data Factory](how-to-data-ingest-adf.md)
+
+* [Automatizar e gerir os gasodutos de ingestão de dados com os gasodutos Azure](how-to-cicd-data-ingestion.md).

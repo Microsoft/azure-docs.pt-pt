@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 03/15/2020
+ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: eee0fc2797fbe0666a6b848fde574c7807f47cc9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 120dbe9c4b79755105ba634c68606edfbfdc4ad2
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80282448"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872428"
 ---
 # <a name="what-is-azure-importexport-service"></a>O que é o serviço azure import/exportação?
 
@@ -41,7 +41,7 @@ O serviço de importação/exportação utiliza os seguintes componentes:
 * **Ferramenta WAImportExport**: Esta é uma ferramenta de linha de comando que faz o seguinte:
   * Prepara as suas unidades de disco que são enviadas para importação.
   * Facilita a cópia dos seus dados para a unidade.
-  * Encripta os dados na unidade com BitLocker de 128 bits AES. Pode utilizar um protetor de teclas externo para proteger a sua tecla BitLocker.
+  * Encripta os dados na unidade com BitLocker de 256 bits AES. Pode utilizar um protetor de teclas externo para proteger a sua tecla BitLocker.
   * Gera os ficheiros do diário de unidade usados durante a criação de importação.
   * Ajuda a identificar o número de unidades necessárias para os trabalhos de exportação.
 
@@ -131,7 +131,7 @@ O serviço Azure Import/Export suporta a cópia de dados de e para todas as cont
 
 ## <a name="security-considerations"></a>Considerações de segurança
 
-Os dados da unidade são encriptados utilizando encriptação BitLocker Drive de 128 bits AES 128 bit. Esta encriptação protege os seus dados durante o seu transporte.
+Os dados da unidade são encriptados utilizando encriptação BitLocker Drive de 256 bits. Esta encriptação protege os seus dados durante o seu transporte.
 
 Para os empregos de importação, os discos são encriptados de duas formas.  
 
