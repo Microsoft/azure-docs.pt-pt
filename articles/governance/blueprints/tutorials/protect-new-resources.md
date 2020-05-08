@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Proteja novos recursos com fechaduras'
 description: Neste tutorial, utiliza as opções de bloqueios de recursos do Azure Blueprints Leia Apenas e Não Elimine para proteger os recursos recém-implantados.
-ms.date: 11/21/2019
+ms.date: 05/06/2020
 ms.topic: tutorial
-ms.openlocfilehash: ee57ff0c08f4fb8aa710dd2fa4dcef664484973d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 90ffb0f5b8c1b6d3919b05abf778c5082bfee0dc
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74327450"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864169"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Tutorial: Proteja novos recursos com fechaduras de recursos da Azure Blueprints
 
@@ -154,7 +154,7 @@ Após a publicação da definição de projeto, pode atribuí-la a uma subscriç
 
      |Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Valor|Descrição|
      |-|-|-|-|-|
-     |Grupo de recursos RGtoLock|Grupo de recursos|Nome|TestingBPLocks|Define o nome do novo grupo de recursos para aplicar fechaduras de plantas.|
+     |Grupo de recursos RGtoLock|Grupo de recursos|Name|TestingBPLocks|Define o nome do novo grupo de recursos para aplicar fechaduras de plantas.|
      |Grupo de recursos RGtoLock|Grupo de recursos|Localização|E.U.A.Oeste 2|Define a localização do novo grupo de recursos para aplicar fechaduras de plantas.|
      |StorageAccount|Modelo do Resource Manager|armazenamentoAccountType (StorageAccount)|Standard_GRS|O armazém SKU. O valor predefinido é _Standard_LRS_.|
 

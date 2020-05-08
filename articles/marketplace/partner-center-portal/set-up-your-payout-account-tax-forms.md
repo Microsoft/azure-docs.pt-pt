@@ -1,17 +1,17 @@
 ---
-Description: Para receber dinheiro das vendas de ofertas no mercado comercial, precisa de configurar a sua conta de pagamento e preencher os formulários fiscais necessários.
-title: Configurar a sua conta de pagamento e formulários fiscais / Mercado Azure
+title: Configurar conta de pagamento & formulários fiscais - Mercado comercial da Microsoft
+Description: Para receber dinheiro das vendas de ofertas no mercado comercial, aprenda a configurar a sua conta de pagamento e preencha os formulários fiscais necessários.
 ms.date: 12/10/2019
 ms.topic: conceptual
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
-ms.openlocfilehash: fb0caa64feb7cb024b684a2e94937aec8893bb5e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 627f6f01a17fc8cabb4f1883306baeb0e2d77e70
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80281311"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792892"
 ---
 # <a name="set-up-your-payout-account-and-tax-forms"></a>Configurar a conta de dividendos e os formulários fiscais
 
@@ -32,7 +32,7 @@ Depois de configurar a sua conta, há duas coisas que precisa de fazer antes de 
 
 ## <a name="tax-forms"></a>Formulários fiscais
 
-### <a name="filling-out-your-tax-forms"></a>Preenchendo os seus formulários fiscais
+### <a name="fill-out-your-tax-forms"></a>Preencha os seus formulários fiscais
 
 Primeiro, terá de criar um perfil fiscal e atribuí-lo aos programas em que participa. Pode criar o seu *perfil fiscal* para o mercado comercial, completando os seguintes passos:
 
@@ -45,18 +45,21 @@ Pode preencher e submeter os seus formulários fiscais eletronicamente no Partne
 > Diferentes países e regiões têm diferentes requisitos fiscais. O valor exato que deve pagar em impostos depende dos países e regiões onde vende a sua oferta. Consulte o [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560) para saber em que países a Microsoft atribui vendas e utiliza o imposto em seu nome. Noutros países, dependendo do local onde está registado, poderá ter de remeter as vendas e utilizar o imposto para a sua oferta de venda diretamente à autoridade tributária local. Além disso, as receitas de venda de aplicações que recebe podem ser tributáveis como rendimento. Encorajamo-lo vivamente a contactar a autoridade relevante para o seu país ou região que melhor o ajude a determinar a informação fiscal certa para as suas atividades no mercado comercial.
 
 1. No [Partner Center,](https://partner.microsoft.com/dashboard)selecione o ícone de **definições da Conta** no canto superior direito e, em seguida, selecione as **definições do Desenvolvedor**.
+
 2. No menu de navegação à esquerda, **selecione Pagamento e imposto,** em seguida, selecione **Atribuição e atribuição de impostos.**
 
 3. Selecione a combinação de ID do programa e do vendedor para a qual pretende configurar informações fiscais.
 
 4. Se quiser utilizar um perfil fiscal existente, selecione-o a partir da queda. Caso contrário, selecione **Criar novo perfil** e prima **Enviar**. Será levado para a página de perfis fiscais.
+
 5. Clique no botão **Editar** para editar as suas informações fiscais.
+
 6. Selecione o botão de rádio apropriado e selecione o seu país se for solicitado. Este passo determina a entidade empresarial da Microsoft que será usada para fazer pagamentos na sua conta.
 
 7. Dependendo das suas seleções no passo 6, será solicitado a fornecer informações fiscais necessárias para o seu país.
 
-> [!NOTE]
-> Independentemente do seu país de residência ou cidadania, deve preencher formulários fiscais dos Estados Unidos para vender qualquer oferta ou complemento através do mercado comercial. Os editores que satisfaçam determinados requisitos de residência nos Estados Unidos devem preencher um formulário de IRS W-9. Outras editoras fora dos Estados Unidos devem preencher um formulário de IRS W-8. Pode preencher estes formulários online à medida que completa o seu perfil fiscal.
+   > [!NOTE]
+   > Independentemente do seu país de residência ou cidadania, deve preencher formulários fiscais dos Estados Unidos para vender qualquer oferta ou complemento através do mercado comercial. Os editores que satisfaçam determinados requisitos de residência nos Estados Unidos devem preencher um formulário de IRS W-9. Outras editoras fora dos Estados Unidos devem preencher um formulário de IRS W-8. Pode preencher estes formulários online à medida que completa o seu perfil fiscal.
 
 ### <a name="withholding-rates"></a>Taxas de retenção
 
@@ -108,8 +111,8 @@ Se optar por usar uma conta bancária para receber pagamentos, completará o seg
 
 6. Clique em submeter para guardar as suas alterações.
 
-> [!NOTE]
-> A Microsoft pode demorar até 48 horas a validar a informação no seu perfil. Quando este processo estiver completo, o estado de *verificação* mostrará **Completo**
+   > [!NOTE]
+   > A Microsoft pode demorar até 48 horas a validar a informação no seu perfil. Quando este processo estiver completo, o estado de *verificação* mostrará **Completo**
 
 Para garantir que o seu pagamento é bem sucedido, certifique-se de:
 
@@ -122,7 +125,9 @@ Para garantir que o seu pagamento é bem sucedido, certifique-se de:
 Pode editar os perfis de pagamento existentes se precisar de fazer alterações ou corrigir qualquer informação incorreta.
 
 1. No [Partner Center,](https://partner.microsoft.com/dashboard)selecione o ícone de engrenagem **Definições** no canto superior direito e, em seguida, selecione **as definições do Desenvolvedor**.
+
 2. Por baixo da rubrica *de pagamento e impostos,* selecione **O Pagamento e os perfis fiscais**.
+
 3. Os seus perfis de pagamento serão listados juntamente com o seu estado. Encontre o perfil que deseja editar e clique em **Editar** na extrema-direita
 
 > [!IMPORTANT]
@@ -138,9 +143,13 @@ Em países e regiões selecionados, pode criar uma conta de pagamento inserindo 
 Questões comuns sobre a utilização do PayPal como método de pagamento:
 
 - **Que configurações do PayPal preciso de ter para receber pagamentos?** Certifique-se de que a sua conta PayPal não bloqueia os pagamentos do eCheck. Esta definição é gerida na página de Preferências de Receção de Pagamentodo do PayPal. Consulte a [página de configuração da conta payPal](https://go.microsoft.com/fwlink/p/?linkid=513139) para obter mais informações.
+
 - **O meu país/região é apoiado?** Consulte [os limiares de pagamento, métodos e prazos](payment-thresholds-methods-timeframes.md) para saber onde o PayPal é um método de pagamento suportado.
+
 - **A minha conta PayPal tem de ser registada no mesmo país/região que a minha conta partner center?** Não. Quando configurar uma conta PayPal, pode aceitar a configuração predefinida. Não deve ter problemas com outros países/regiões e moedas, a menos que tenha bloqueado o pagamento em algumas moedas. Esta definição é gerida na página de Preferências de Receção de Pagamentodo do PayPal.
+
 - **Tenho de aceitar os pagamentos payPal manualmente?** Não. As contas PayPal são definidas por padrão para exigir que os utilizadores aceitem os pagamentos manualmente, o que significa que se não aceitar o pagamento no prazo de 30 dias, é devolvido. Pode alterar esta definição desligando "Ask Me" na página Mais Definições do PayPal.
+
 - **Que moedas o PayPal suporta?** Consulte a [página de suporte do PayPal](https://developer.paypal.com/docs/classic/api/currency-codes/#paypal) para a lista atual
 
 ### <a name="specific-requirements-for-certain-countriesregions"></a>Requisitos específicos para determinados países/regiões
@@ -193,3 +202,7 @@ Se optar por usar uma conta bancária para receber pagamentos, completará o seg
 4. De volta à página de atribuição de *Perfil,* selecione a moeda que gostaria que usássemos quando emitimos os seus pagamentos.
 5. Terá de selecionar um perfil de pagamento para cada programa em que participa, embora possa utilizar o mesmo perfil para vários programas.
 6. Clique em submeter para guardar as suas alterações.
+
+## <a name="next-steps"></a>Passos seguintes
+
+[Faturação do marketplace comercial](billing-details.md)

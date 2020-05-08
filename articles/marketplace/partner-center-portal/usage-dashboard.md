@@ -1,31 +1,31 @@
 ---
-title: Dashboard de uso na análise do mercado comercial no Partner Center
-description: Saiba como aceder a todos os VM oferece métricas de utilização e faturação medição.
+title: Dashboard de utilização na análise do mercado comercial da Microsoft
+description: Saiba como aceder a todos os VM oferece métricas de utilização e faturação medição. Vá ao dashboard de utilização no Partner Center no Mercado Comercial.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 33762540d14ea51e8325abe9a466007cd7cca748
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 89a0a782b4a18b71f7be8bcdd3728fd008c24d5a
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262184"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793011"
 ---
-# <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Dashboard de utilização na análise do mercado comercial
+# <a name="usage-dashboard-in-microsoft-commercial-marketplace-analytics"></a>Dashboard de utilização na análise do mercado comercial da Microsoft
 
 Este artigo fornece informações sobre o dashboard de utilização no Partner Center. Este dashboard exibe todos os VM que oferecem métricas de faturação de utilização e medimétricas em dois separadores: utilização de VM e utilização de faturação medida.
 
-Para aceder ao dashboard de utilização, abra o dashboard **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** no Mercado Comercial.
+Para aceder ao painel de instrumentos de utilização, abra o dashboard **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** no **mercado comercial.**
 
 >[!NOTE]
 > Para definições detalhadas de terminologia analítica, consulte [frequentemente perguntas e terminologia para análise](./faq-terminology.md)de mercado comercial.
 
 ## <a name="usage-dashboard"></a>Dashboard de utilização
 
-O Dashboard de Utilização representa as métricas para todas as máquinas virtuais (VM) que oferece utilização e utilização de faturação medida. Estes encontram-se em dois separadores distintos: utilização de VM e utilização de faturação medição.
+O painel de instrumentos de utilização representa as métricas para todas as Máquinas Virtuais (VM) que oferece utilização e utilização de faturação medida. Estas métricas encontram-se em dois separadores distintos: utilização de VM e utilização de faturação medida.
 
 No separador de utilização VM, existem representações gráficas dos seguintes itens:
 
@@ -46,7 +46,7 @@ No separador de utilização VM, existem representações gráficas dos seguinte
 A tabela de resumo de utilização mostra as horas de utilização do cliente para todas as ofertas que adquiriu.
 
 - As horas de utilização normalizadas são definidas como as horas de utilização normalizadas para contabilizar o número de núcleos VM ([número de núcleos VM] x [horas de utilização bruta]). Os VMs designados como "SHAREDCORE" utilizam 1/6 (ou 0,1666) como multiplicador [número de núcleos VM].
-- As horas de utilização brutas são definidas como a quantidade de tempo que os VMs têm funcionado em termos de horas.
+- As horas de utilização brutas são definidas como o número de vMs de tempo tem funcionado em termos de horas.
 - O valor percentual representa uma variação de crescimento do uso para a gama de datas selecionada ([no mês passado – utilização do primeiro mês])/utilização do primeiro mês).
 - Triângulos verdes apontando para cima indicam uma mudança de crescimento.
 - O triângulo vermelho apontando para baixo indica uma mudança de crescimento negativa em relação ao mês anterior.
@@ -58,13 +58,13 @@ O **uso normalizado pelo** mapa de calor da geografia mostra horas de utilizaç�
 
 ### <a name="usage-by-offers"></a>Utilização por ofertas
 
-- O **uso normalizado por ofertas** de gráfico de tarte saem de uma repartição das horas de utilização normalizadas por ofertas de acordo com a gama de datas selecionada. As 5 melhores ofertas são exibidas em gráfico, enquanto as restantes estão agruparadas na categoria "descanse todos".
+- O **uso normalizado por ofertas** de gráfico de tarte saem de uma repartição das horas de utilização normalizadas por ofertas de acordo com a gama de datas selecionada. As cinco principais ofertas são exibidas em gráfico, enquanto as restantes estão agruparadas nas **restantes categorias.**
 - O gráfico de barras retrata uma tendência de crescimento mensal para a gama de datas selecionadas. As colunas mensais representam horas de utilização das ofertas com as horas de utilização mais elevadas para o mês respetivo. O gráfico de linha mostra a tendência percentual de crescimento traçada no eixo Y secundário.
 - Utilize o slider na parte superior da tabela para rolar para a esquerda ao longo do eixo x e/ou concentrar-se em pontos de dados específicos.
 
 ### <a name="usage-trend-by-offers-and-skus"></a>Tendência de utilização por ofertas e SKUs
 
-Este gráfico apresenta a tendência de utilização normalizada para as SKUs selecionadas de uma oferta. O leaderboard de oferta exibe as 50 melhores ofertas com o maior uso e são classificados por horas de utilização. O leaderboard SKU exibe os 50 Melhores SKUs com a maior utilização para a oferta selecionada.
+Este gráfico apresenta a tendência de utilização normalizada para as SKUs selecionadas de uma oferta. O leaderboard de oferta exibe as 50 melhores ofertas com o maior uso, ordenadas por horas de utilização. O leaderboard SKU exibe os 50 Melhores SKUs com a maior utilização para a oferta selecionada.
 
 ### <a name="usage-by-offer-type"></a>Utilização por tipo de oferta
 
@@ -101,7 +101,7 @@ Os filtros da **página de utilização** são aplicados ao nível da página. P
 
 - **Os tipos** de oferta e **os nomes de Oferta** estão listados apenas para as ofertas que adquiriu durante a gama de datas selecionadas. Os nomes de oferta na lista são apresentados para tipos de oferta selecionados da lista.
 - A seleção predefinida é "All" para cada uma das opções do filtro, com exceção do **tipo de utilização**. A seleção padrão para **o tipo de utilização** é uma utilização normalizada. Para visualizar o uso bruto nas tabelas, selecione "uso bruto".
-- Os filtros aplicados mostram as seleções de contagem para as seleções de filtro s que foram feitas. Os filtros aplicados não são apresentados para as seleções predefinidas.
+- Os filtros aplicados mostram a seleção de contagem para as seleções de filtro seleções que foram feitas. Os filtros aplicados não são apresentados para as seleções predefinidas.
 
 > [!NOTE]
 > Uma definição detalhada de cada um dos campos na grelha de "dados de ordem detalhada", filtros de página e todas as seleções possíveis são definidas na secção do dicionário de dados das PERGUNTAS FAQs e artigo de [terminologia.](link needed)
@@ -123,5 +123,5 @@ O separador de utilização de **faturação medido** apresenta informações de
 - Para obter informações sobre as suas encomendas num formato gráfico e descarregável, consulte [o Painel de Encomendas na análise do mercado comercial](./orders-dashboard.md).
 - Para obter informações detalhadas sobre os seus clientes, incluindo tendências de crescimento, consulte o [Customer Dashboard na análise do mercado comercial.](./customer-dashboard.md)
 - Para obter uma lista dos seus pedidos de descarregamento ao longo dos últimos 30 dias, consulte [Downloads Dashboard na análise do mercado comercial](./downloads-dashboard.md).
-- Para ver uma visão consolidada do feedback dos clientes para as ofertas no Azure Marketplace e appSource, consulte [ratings e avaliações de dashboard na análise do mercado comercial.](./ratings-reviews.md)
+- Para ver uma visão consolidada do feedback dos clientes para as ofertas no Microsoft AppSource e no Azure Marketplace, consulte [ratings e análises de dashboard na análise do mercado comercial.](./ratings-reviews.md)
 - Para perguntas frequentes sobre análise de mercado comercial e para um dicionário abrangente de termos de dados, consulte [frequentemente perguntas e terminologia para análise](./faq-terminology.md)de mercado comercial.

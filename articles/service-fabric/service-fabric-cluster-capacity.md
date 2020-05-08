@@ -4,12 +4,12 @@ description: Considerações de planeamento de capacidade de cluster de tecido d
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: pepogors
-ms.openlocfilehash: 6e60fc10dd7e0eec24de4a089d09d914624dcfbc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f011dee94e135ba40f8d3c87240e905e4a2739ec
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258918"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793062"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerações de planeamento de capacidade de cluster de tecido de serviço
 Para qualquer implementação de produção, o planeamento da capacidade é um passo importante. Aqui estão alguns dos itens que você tem que considerar como parte desse processo.
@@ -104,7 +104,7 @@ Use durabilidade prateada ou dourada para todos os tipos de nós que acolhem ser
 
 - Mantenha uma contagem mínima de cinco nódosos para qualquer conjunto de escala de máquina virtual que tenha um nível de durabilidade de Ouro ou Prata ativado.
 - Cada escala de máquina virtual definida com nível de durabilidade Prata ou Ouro deve mapear para o seu próprio tipo de nó no cluster De Tecido de Serviço. Mapear vários conjuntos de escala de máquinavirtual para um único nó impedirá a coordenação entre o cluster de tecido de serviço e a infraestrutura Azure de funcionar corretamente.
-- Não elimine instâncias vm aleatórias, utilize sempre a função de escala de escala de máquina virtual. A eliminação de casos de VM aleatórios tem o potencial de criar desequilíbrios na instância VM espalhada pela UD e FD. Este desequilíbrio pode afetar negativamente a capacidade dos sistemas de carregar corretamente o equilíbrio entre as instâncias de serviço/réplicas do serviço.
+- Não elimine casos de VM aleatórios, utilize sempre a escala de conjunto de máquinas virtuais na função. A eliminação de casos de VM aleatórios tem o potencial de criar desequilíbrios na instância VM espalhada pela UD e FD. Este desequilíbrio pode afetar negativamente a capacidade dos sistemas de carregar corretamente o equilíbrio entre as instâncias de serviço/réplicas do serviço.
 - Se utilizar a Escala Automática, então estabeleça as regras que escalam (remoção de instâncias VM) são feitas apenas um nó de cada vez. Reduzir mais do que um caso de cada vez não é seguro.
 - Se apagar ou vender VMs no tipo de nó primário, nunca deve reduzir a contagem de VMs atribuídos abaixo do que o nível de fiabilidade requer. Estas operações serão bloqueadas indefinidamente numa escala definida com um nível de durabilidade de Prata ou Ouro.
 
