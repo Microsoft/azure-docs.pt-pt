@@ -3,12 +3,12 @@ title: Referência de erro para verificações de saúde
 description: Códigos de erro e possíveis soluções para problemas encontrados através do comando de diagnóstico de check-health az acr no Registo de Contentores de Azure
 ms.topic: article
 ms.date: 07/02/2019
-ms.openlocfilehash: 971b28b2bf8d9ac22cec0efe979837886762cf17
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a23b95ea0eaffc053c47b70107c95d2b1cdc0645
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80289146"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82978319"
 ---
 # <a name="health-check-error-reference"></a>Referência de erro de verificação de saúde
 
@@ -58,7 +58,7 @@ Este erro significa que o DNS para o determinado servidor de login de registo fo
 
 ## <a name="connectivity_forbidden_error"></a>CONNECTIVITY_FORBIDDEN_ERROR
 
-Este erro significa que o ponto final do desafio para o registo dado respondeu com um estatuto de HTTP proibido 403. Este erro significa que os utilizadores não têm acesso ao registo, muito provavelmente devido a uma configuração de rede virtual. Para ver as regras de firewall `az acr show --query networkRuleSet --name <registry>`atualmente configuradas, corra .
+Este erro significa que o ponto final do desafio para o registo dado respondeu com um estatuto de HTTP proibido 403. Este erro significa que os utilizadores não têm acesso ao registo, muito provavelmente devido a uma configuração de rede virtual ou porque o acesso ao ponto final do registo não é permitido. Para ver as regras de firewall `az acr show --query networkRuleSet --name <registry>`atualmente configuradas, corra .
 
 *Soluções potenciais*: Remova as regras de rede virtuais ou adicione o endereço IP do cliente atual à lista permitida.
 

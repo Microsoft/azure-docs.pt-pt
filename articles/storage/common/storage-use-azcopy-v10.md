@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 8701fe6857e95334a5e1d24bfe70feb130d5512c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6e6bd55fbb73113dfbcd01e94753c4fb21219c14
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80756025"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780883"
 ---
 # <a name="get-started-with-azcopy"></a>Introdução ao AzCopy
 
@@ -65,7 +65,7 @@ Utilize esta tabela como guia:
 
 | Tipo de armazenamento | Atualmente apoiado método de autorização |
 |--|--|
-|**Armazenamento de blobs** | Azure AD & SAS |
+|**Armazenamento de bolhas** | Azure AD & SAS |
 |**Armazenamento de blob (espaço hierárquico)** | Azure AD & SAS |
 |**Armazenamento de ficheiros** | SAS apenas |
 
@@ -84,7 +84,7 @@ Se apenas quiser descarregar ficheiros, verifique se o Leitor de Dados do [Depó
 
 Se quiser fazer o upload de ficheiros, verifique se uma destas funções foi atribuída ao seu diretor de segurança:
 
-- [Contribuinte de dados blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
+- [Contribuinte de dados blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)
 - [Proprietário de dados blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
 
 Estas funções podem ser atribuídas ao seu diretor de segurança em qualquer um destes âmbitos:
@@ -273,8 +273,8 @@ Para obter o link, executar este comando:
 
 | Sistema operativo  | Comando |
 |--------|-----------|
-| **Linux** | `curl -v https://aka.ms/downloadazcopy-v10-linux` |
-| **Windows** | `(curl https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue).RawContent` |
+| **Linux** | `curl -s -D- https://aka.ms/downloadazcopy-v10-linux | grep ^Location` |
+| **Windows** | `(curl https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue).headers.location` |
 
 > [!NOTE]
 > Para o `--strip-components=1` Linux, no `tar` comando remove a pasta de nível superior que contém o nome da versão e, em vez disso, extrai o binário diretamente na pasta atual. Isto permite que o script seja `azcopy` atualizado com `wget` uma nova versão apenas atualizando o URL.

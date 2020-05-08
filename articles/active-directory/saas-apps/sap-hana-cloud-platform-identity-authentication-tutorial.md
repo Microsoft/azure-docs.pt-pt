@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 04/28/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e92cba923bc197d82083973b3fac476ab93117ad
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: db852254d7f6ec9c0cb76151fa23e58e2d97bd2c
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231378"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82981804"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-cloud-platform-identity-authentication"></a>Tutorial: Azure Ative Diretório integração de um único sign-on (SSO) com autenticação de identidade da plataforma de nuvem SAP
 
@@ -126,7 +126,7 @@ Siga estes passos para permitir o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação de autenticação de identidade da plataforma SAP Cloud espera que poucos atributos sejam retransmitidos na resposta SAML que são mostradas abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
 
-    | Nome | Atributo fonte|
+    | Name | Atributo fonte|
     | ---------------| --------------- |
     | nomePróprio | user.givenname |
 
@@ -176,7 +176,7 @@ Nesta secção, permitirá que a B.Simon utilize um único sign-on azure, conced
 
 ## <a name="configure-sap-cloud-platform-identity-authentication-sso"></a>Configure SSO de autenticação de identidade da plataforma de nuvem SAP
 
-1. Para obter O SSO configurado para a sua aplicação, vá à consola de autenticação de identidade da Plataforma SAP Cloud. O URL tem o `https://<tenant-id>.accounts.ondemand.com/admin`seguinte padrão: . Em seguida, leia a documentação sobre a autenticação de identidade da plataforma SAP Cloud em integração com o [Microsoft Azure AD](https://help.sap.com/viewer/6d6d63354d1242d185ab4830fc04feb1/Cloud/en-US/626b17331b4d4014b8790d3aea70b240.html).
+1. Para obter O SSO configurado para a sua aplicação, vá à consola de autenticação de identidade da Plataforma SAP Cloud. O URL tem o `https://<tenant-id>.accounts.ondemand.com/admin`seguinte padrão: . Em seguida, leia a documentação sobre a autenticação de identidade da plataforma SAP Cloud em integração com o [Microsoft Azure AD](https://developers.sap.com/tutorials/cp-ias-azure-ad.html).
 
 2. No portal Azure, selecione o botão **Guardar.**
 
@@ -199,7 +199,7 @@ A autenticação de identidade da plataforma SAP Cloud suporta a opção Da Fede
 
 A opção Da Federação de Identidade é desativada por defeito. Se a Federação de Identidade estiver ativada, apenas os utilizadores que são importados na Autenticação de Identidade da Plataforma SAP Cloud podem aceder à aplicação.
 
-Para obter mais informações sobre como ativar ou desativar a Federação de Identidade com autenticação de identidade da plataforma De cloud SAP, consulte "Ativar a Federação de Identidade com A autenticação de identidade da plataforma de nuvem SAP" na [Configuração da Federação de Identidade com a Loja de Utilizadores da Autenticação de Identidade da Plataforma De Nuvem SAP.](https://help.sap.com/viewer/6d6d63354d1242d185ab4830fc04feb1/Cloud/en-US/c029bbbaefbf4350af15115396ba14e2.html)
+Para obter mais informações sobre como ativar ou desativar a Federação de Identidade com autenticação de identidade da plataforma De cloud SAP, consulte "Ativar a Federação de Identidade com A autenticação de identidade da plataforma de nuvem SAP" na [Configuração da Federação de Identidade com a Loja de Utilizadores da Autenticação de Identidade da Plataforma De Nuvem SAP.](https://help.sap.com/viewer/6d6d63354d1242d185ab4830fc04feb1/Cloud/c029bbbaefbf4350af15115396ba14e2.html)
 
 ## <a name="test-sso"></a>Teste SSO 
 

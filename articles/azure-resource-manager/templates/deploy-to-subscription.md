@@ -2,13 +2,13 @@
 title: Implementar recursos para a subscrição
 description: Descreve como criar um grupo de recursos num modelo de Gestor de Recursos Azure. Mostra também como utilizar recursos no âmbito de subscrição do Azure.
 ms.topic: conceptual
-ms.date: 03/23/2020
-ms.openlocfilehash: 6bec29a07653ff5ad7d1e2f8317246049e127c8c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/07/2020
+ms.openlocfilehash: a48bc2fd4efb383b42fd0889df079c9a6f700dda
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81604994"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929065"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Criar grupos e recursos de recursos ao nível da subscrição
 
@@ -20,6 +20,7 @@ Para implementar modelos ao nível da subscrição, utilize o Azure CLI, PowerSh
 
 Pode implementar os seguintes tipos de recursos ao nível da subscrição:
 
+* [plantas](/azure/templates/microsoft.blueprint/blueprints)
 * [orçamentos](/azure/templates/microsoft.consumption/budgets)
 * [implementações](/azure/templates/microsoft.resources/deployments) - para modelos aninhados que se implantam em grupos de recursos.
 * [eventoSSubscrições](/azure/templates/microsoft.eventgrid/eventsubscriptions)
@@ -34,6 +35,7 @@ Pode implementar os seguintes tipos de recursos ao nível da subscrição:
 * [scopeAssignments](/azure/templates/microsoft.managednetwork/scopeassignments)
 * [plantypes de planos de suporte](/azure/templates/microsoft.addons/supportproviders/supportplantypes)
 * [tags](/azure/templates/microsoft.resources/tags)
+* [ambientes de espaço de trabalho](/azure/templates/microsoft.security/workspacesettings)
 
 ### <a name="schema"></a>Esquema
 
@@ -95,11 +97,11 @@ Para implementações de nível de subscrição, existem algumas considerações
 * Utilize a função [de subscriçãoResourceId()](template-functions-resource.md#subscriptionresourceid) para obter o ID de recursos que são implantados a nível de subscrição.
 
   Por exemplo, para obter o ID de recurso para uma definição de política, use:
-  
+
   ```json
   subscriptionResourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
   ```
-  
+
   O ID de recurso devolvido tem o seguinte formato:
 
   ```json
@@ -244,11 +246,11 @@ O exemplo seguinte cria um grupo de recursos e implementa uma conta de armazenam
 }
 ```
 
-## <a name="create-policies"></a>Criar políticas
+## <a name="azure-policy"></a>Azure Policy
 
-### <a name="assign-policy"></a>Política de atribuição
+### <a name="assign-policy-definition"></a>Designar definição de política
 
-O exemplo seguinte atribui uma definição de política existente à subscrição. Se a política tiver parâmetros, forneça-os como um objeto. Se a apólice não tomar parâmetros, use o objeto vazio por defeito.
+O exemplo seguinte atribui uma definição de política existente à subscrição. Se a definição de política tiver parâmetros, forneça-os como um objeto. Se a definição de política não tomar parâmetros, use o objeto vazio predefinido.
 
 ```json
 {
@@ -285,7 +287,7 @@ O exemplo seguinte atribui uma definição de política existente à subscriçã
 Para implantar este modelo com o Azure CLI, utilize:
 
 ```azurecli-interactive
-# Built-in policy that accepts parameters
+# Built-in policy definition that accepts parameters
 definition=$(az policy definition list --query "[?displayName=='Allowed locations'].id" --output tsv)
 
 az deployment sub create \
@@ -312,9 +314,9 @@ New-AzSubscriptionDeployment `
   -policyParameters $policyParams
 ```
 
-### <a name="define-and-assign-policy"></a>Definir e atribuir política
+### <a name="create-and-assign-policy-definitions"></a>Criar e atribuir definições políticas
 
-Pode [definir](../../governance/policy/concepts/definition-structure.md) e atribuir uma apólice no mesmo modelo.
+Pode [definir](../../governance/policy/concepts/definition-structure.md) e atribuir uma definição de política no mesmo modelo.
 
 ```json
 {
@@ -357,7 +359,7 @@ Pode [definir](../../governance/policy/concepts/definition-structure.md) e atrib
 }
 ```
 
-Para criar a definição de política na sua subscrição e aplicá-la à subscrição, utilize o seguinte comando CLI:
+Para criar a definição de política na sua subscrição e atribuí-la à subscrição, utilize o seguinte comando CLI:
 
 ```azurecli
 az deployment sub create \
@@ -373,6 +375,32 @@ New-AzSubscriptionDeployment `
   -Name definePolicy `
   -Location centralus `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json"
+```
+
+## <a name="azure-blueprints"></a>Azure Blueprints
+
+### <a name="create-blueprint-definition"></a>Criar definição de planta
+
+Pode [criar](../../governance/blueprints/tutorials/create-from-sample.md) uma definição de planta a partir de um modelo.
+
+:::code language="json" source="~/quickstart-templates/subscription-level-deployments/blueprints-new-blueprint/azuredeploy.json":::
+
+Para criar a definição de planta na sua subscrição, utilize o seguinte comando CLI:
+
+```azurecli
+az deployment sub create \
+  --name demoDeployment \
+  --location centralus \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/subscription-level-deployments/blueprints-new-blueprint/azuredeploy.json"
+```
+
+Para implementar este modelo com o PowerShell, utilize:
+
+```azurepowershell
+New-AzSubscriptionDeployment `
+  -Name demoDeployment `
+  -Location centralus `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/subscription-level-deployments/blueprints-new-blueprint/azuredeploy.json"
 ```
 
 ## <a name="template-samples"></a>Exemplos de modelo

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: ac111b06d578a0e9af8581ef2e8caeccfc4a291e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b712148b9e619cbf5c6886bf0510b4015183d018
+ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79536892"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82883346"
 ---
 # <a name="change-feed-support-in-azure-blob-storage-preview"></a>Alterar suporte para alimentação em Armazenamento de Blob Azure (Pré-visualização)
 
@@ -42,7 +42,7 @@ Alterar o suporte para feed é adequado para cenários que processam dados basea
 
 ## <a name="enable-and-disable-the-change-feed"></a>Ativar e desativar o feed de mudança
 
-Tem de ativar o feed de alteração na sua conta de armazenamento para começar a capturar e registar alterações. Desative o feed de alteração para parar de capturar alterações. Pode ativar e desativar as alterações utilizando modelos do Gestor de Recursos Azure no Portal ou powershell.
+Tem de ativar o feed de alteração na sua conta de armazenamento para começar a capturar e registar alterações. Desative o feed de alteração para parar de capturar alterações. Pode ativar e desativar as alterações utilizando modelos do Gestor de Recursos Azure no Portal ou powerShell.
 
 Aqui estão algumas coisas a ter em mente quando ativar a mudança.
 
@@ -61,15 +61,15 @@ Aqui estão algumas coisas a ter em mente quando ativar a mudança.
 
 Ativar o feed de alteração na sua conta de armazenamento utilizando o portal Azure:
 
-1. No [portal Azure,](https://portal.azure.com/)selecione a sua conta de armazenamento. 
+1. No [portal Azure,](https://portal.azure.com/)selecione a sua conta de armazenamento.
 
 2. Navegue para a opção **de Proteção** de Dados no **âmbito do Serviço Blob**.
 
-3. Clique **ativado** sob feed de **alteração blob**
+3. Clique **ativado** sob a alimentação de **alterações blob**.
 
-4. Escolha o botão **Guardar** para confirmar as definições de Proteção de Dados
+4. Escolha o botão **Guardar** para confirmar as definições de **Proteção de Dados.**
 
-![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-configuration.png)
+    ![](media/soft-delete-enable/storage-blob-soft-delete-portal-configuration.png)
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -81,7 +81,7 @@ Ativar o feed de alteração utilizando o PowerShell:
    Install-Module PowerShellGet –Repository PSGallery –Force
    ```
 
-2. Feche e, em seguida, reabra a consola Powershell.
+2. Feche e, em seguida, reabra a consola PowerShell.
 
 3. Instale o módulo de pré-visualização **Az.Storage.**
 

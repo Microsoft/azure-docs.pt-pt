@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: ddd24eb510405d49465ca4e0e0f326f7260e2ed1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 14c3dde4a86e36a4015a319e608ab8543302932f
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416230"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791294"
 ---
 # <a name="continuous-integration-and-deployment-for-data-warehousing"></a>Integração e implantação contínuas para armazenamento de dados
 
@@ -46,7 +46,7 @@ Neste ponto, você tem um ambiente simples onde qualquer check-in no seu ramo pr
 
 ## <a name="continuous-deployment-with-the-azure-sql-data-warehouse-or-database-deployment-task"></a>Implantação contínua com a tarefa de implantação do Armazém de Dados Azure SQL (ou Base de Dados)
 
-1. Adicione uma nova tarefa utilizando a tarefa de implementação da Base de [Dados Azure SQL](/devops/pipelines/targets/azure-sqldb?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) e preencha os campos necessários para se ligar ao seu armazém de dados-alvo. Quando esta tarefa funciona, o DACPAC gerado a partir do processo de construção anterior é implantado para o armazém de dados alvo. Também pode utilizar a tarefa de implementação do Armazém de [Dados Azure SQL](https://marketplace.visualstudio.com/items?itemName=ms-sql-dw.SQLDWDeployment).
+1. Adicione uma nova tarefa utilizando a tarefa de implementação da Base de [Dados Azure SQL](/azure/devops/pipelines/targets/azure-sqldb) e preencha os campos necessários para se ligar ao seu armazém de dados-alvo. Quando esta tarefa funciona, o DACPAC gerado a partir do processo de construção anterior é implantado para o armazém de dados alvo. Também pode utilizar a tarefa de implementação do Armazém de [Dados Azure SQL](https://marketplace.visualstudio.com/items?itemName=ms-sql-dw.SQLDWDeployment).
 
       ![Tarefa de implantação](./media/sql-data-warehouse-continuous-integration-and-deployment/4-deployment-task.png "Tarefa de implantação")
 

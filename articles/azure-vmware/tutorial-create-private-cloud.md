@@ -3,12 +3,12 @@ title: Tutorial - Implementar cluster vSphere em Azure
 description: Aprenda a implementar um cluster vSphere em Azure utilizando a Azure VMWare Solution (AVS)
 ms.topic: tutorial
 ms.date: 05/04/2020
-ms.openlocfilehash: 712be25acf5984a4bcdf95ad70e0ccfa660c06bc
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
-ms.translationtype: MT
+ms.openlocfilehash: a11928dd936c29b8be0816257a64deadacda4578
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82838807"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82928555"
 ---
 # <a name="tutorial-deploy-an-avs-private-cloud-in-azure"></a>Tutorial: Implementar uma nuvem privada AVS em Azure
 
@@ -19,7 +19,7 @@ Uma vez que o AVS não lhe permitirá gerir a sua nuvem privada com o seu vCente
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Criar uma nuvem privada AVS
+> * Criar uma cloud privada do AVS
 > * Verifique a nuvem privada implantada
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -58,7 +58,7 @@ No separador **Basics,** introduza valores para os campos. A tabela seguinte mos
 | **Grupo de recursos** | O grupo de recursos para os seus recursos privados na nuvem. |
 | **Localização** | Selecione um local, como **o leste de nós.**|
 | **Nome do recurso** | O nome da sua nuvem privada AVS. |
-| **SKU** | Selecione o SKU apropriado, os valores disponíveis são: |
+| **SKU** | Selecione o valor SKU seguinte: AV36 |
 | **Anfitriões** | Este é o número de anfitriões para adicionar ao aglomerado privado de nuvens. O valor padrão é 3. Este valor pode ser aumentado ou reduzido após a implantação.  |
 | **senha de administração vCenter** | Introduza uma senha de administrador de nuvem. |
 | **Senha de gerente NSX-T** | Introduza uma senha de administrador NSX-T. |
@@ -126,7 +126,7 @@ Para isso, navegue para a sua nuvem privada no portal Azure e selecione **Delete
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
-> * Criar uma nuvem privada AVS
+> * Criar uma cloud privada do AVS
 > * Verificado a Nuvem Privada implantada
 
 Continue para o próximo tutorial para aprender a criar uma rede virtual para uso com a sua nuvem privada como parte da criação de gestão local para os seus clusters de nuvem privada.

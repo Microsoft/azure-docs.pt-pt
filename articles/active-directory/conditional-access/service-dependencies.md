@@ -5,24 +5,24 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 05/04/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b39238575c05d35a2d87999e08c49c0c77e99bfb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3b0d7816dc83a7c3536e44ff2461d85ea6178ff1
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74380015"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82778486"
 ---
 # <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>O que são dependências de serviço no Acesso Condicional do Diretório Ativo Azure? 
 
 Com as políticas de Acesso Condicional, pode especificar os requisitos de acesso a websites e serviços. Por exemplo, os seus requisitos de acesso podem incluir a necessidade de autenticação multifactor (MFA) ou [dispositivos geridos](require-managed-devices.md). 
 
-Quando se acede diretamente a um site ou serviço, o impacto de uma política relacionada é tipicamente fácil de avaliar. Por exemplo, se tiver uma política que exija MFA para o SharePoint Online configurado, o MFA é aplicado para cada sessão no portal web SharePoint. No entanto, nem sempre é direto avaliar o impacto de uma política porque existem aplicações na nuvem com dependências de outras aplicações na nuvem. Por exemplo, as Equipas Microsoft podem fornecer acesso a recursos no SharePoint Online. Assim, ao aceder às Equipas Microsoft no nosso cenário atual, também está sujeito à política do SharePoint MFA.   
+Quando se acede diretamente a um site ou serviço, o impacto de uma política relacionada é tipicamente fácil de avaliar. Por exemplo, se tiver uma política que requer autenticação multifactor (MFA) para configuração Online do SharePoint, o MFA é aplicado para cada sessão no portal web SharePoint. No entanto, nem sempre é direto avaliar o impacto de uma política porque existem aplicações na nuvem com dependências de outras aplicações na nuvem. Por exemplo, as Equipas Microsoft podem fornecer acesso a recursos no SharePoint Online. Assim, ao aceder às Equipas Microsoft no nosso cenário atual, também está sujeito à política do SharePoint MFA. 
 
 ## <a name="policy-enforcement"></a>Aplicação da política 
 
@@ -36,6 +36,8 @@ O diagrama abaixo ilustra as dependências de serviço das Equipas MS. Setas só
 ![Dependências de serviço das Equipas MS](./media/service-dependencies/01.png)
 
 Como uma boa prática, deve definir políticas comuns entre aplicações e serviços relacionados sempre que possível. Ter uma postura de segurança consistente proporciona-lhe a melhor experiência do utilizador. Por exemplo, a definição de uma política comum em exchange online, SharePoint Online, Microsoft Teams e Skype para negócios reduz significativamente as indicações inesperadas que podem surgir de diferentes políticas que estão a ser aplicadas a serviços a jusante. 
+
+Uma ótima maneira de o conseguir com aplicações na stack do Office é utilizar o [Office 365 (pré-visualização)](concept-conditional-access-cloud-apps.md#office-365-preview) em vez de direcionar aplicações individuais.
 
 A tabela abaixo lista dependências adicionais de serviço, onde as aplicações do cliente devem satisfazer  
 

@@ -1,26 +1,24 @@
 ---
-title: Perguntas e terminologia frequentes para a análise do mercado comercial no Partner Center
-description: Saiba como abordar perguntas comumente feitas sobre análise de mercado comercial. Inclui um dicionário de dados para terminologia de análise.
+title: Análise de mercado comercial FAQ & terminologia - Partner Center
+description: Obtenha respostas a perguntas comumente feitas sobre análise de mercado comercial no Partner Center. Este artigo inclui um dicionário de dados para terminologia de análise.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: b7367e58de818c20723c02a6763b1bf1e3b18f24
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 42478f6e6d6cb28364fe39aafcb52b3a17aa3c23
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81251831"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791481"
 ---
-# <a name="frequently-asked-questions-and-terminology-for-commercial-marketplace-analytics"></a>Perguntas frequentes e terminologia para análise de mercado comercial
+# <a name="commercial-marketplace-analytics-terminology-and-common-questions"></a>Terminologia de análise de mercado comercial e questões comuns
 
 Este artigo aborda perguntas comumente feitas sobre mensagens de análise no Partner Center e também fornece um dicionário de terminologia analítica.
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
-
-Esta secção fornece respostas a perguntas comumente feitas sobre mensagens no Centro de Parceiros disponíveis **no Analytics.**
+## <a name="common-questions"></a>Perguntas comuns
 
 **Não consigo ver os meus dados de análise no Partner Center. Quando acedo a estas páginas, vejo a mensagem abaixo. Por que é isto?**
 

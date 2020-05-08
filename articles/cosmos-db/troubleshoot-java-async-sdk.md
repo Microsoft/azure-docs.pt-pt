@@ -1,22 +1,35 @@
 ---
-title: Diagnosticar e resolver problemas Azure Cosmos DB Java Async SDK
-description: Utilize funcionalidades como a exploração madeireira do lado do cliente e outras ferramentas de terceiros para identificar, diagnosticar e resolver problemas com problemas da Azure Cosmos DB.
-author: moderakh
+title: Diagnosticar e resolver problemas Azure Cosmos DB Async Java SDK v2
+description: Utilize funcionalidades como a exploração madeireira do lado do cliente e outras ferramentas de terceiros para identificar, diagnosticar e resolver problemas com problemas da Azure Cosmos DB em Async Java SDK v2.
+author: anfeldma-ms
 ms.service: cosmos-db
-ms.date: 04/30/2019
-ms.author: moderakh
+ms.date: 05/08/2020
+ms.author: anfeldma
 ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 572139743c66546622450cef8f8a0fa264d24779
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 04fa8d65ffb822fcd37f6da1bf3074a4e6a1d088
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "65519987"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982620"
 ---
-# <a name="troubleshoot-issues-when-you-use-the-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Resolver problemas ao utilizar o SDK do Java Async com contas da API SQL do Azure Cosmos DB
+# <a name="troubleshoot-issues-when-you-use-the-azure-cosmos-db-async-java-sdk-v2-with-sql-api-accounts"></a>Problemas de resolução de problemas quando se utiliza o Azure Cosmos DB Async Java SDK v2 com contas SQL API
+
+> [!div class="op_single_selector"]
+> * [Java SDK v4](troubleshoot-java-sdk-v4-sql.md)
+> * [SDK v2 Java assíncrono](troubleshoot-java-async-sdk.md)
+> * [.NET](troubleshoot-dot-net-sdk.md)
+> 
+
+> [!IMPORTANT]
+> Este *não* é o mais recente Java SDK para Azure Cosmos DB! Considere utilizar o Azure Cosmos DB Java SDK v4 para o seu projeto. Siga as instruções no guia [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) e no guia [Reator vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) para atualizar. 
+>
+> Este artigo abrange apenas a resolução de problemas para a Azure Cosmos DB Async Java SDK v2. Consulte as notas de [lançamento](sql-api-sdk-async-java.md)do Azure Cosmos DB Async Java SDK v2, [repositório maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) e dicas de [desempenho](performance-tips-async-java.md) para obter mais informações.
+>
+
 Este artigo abrange questões comuns, salções, passos de diagnóstico e ferramentas quando utiliza o [Java Async SDK](sql-api-sdk-async-java.md) com contas API Azure Cosmos DB SQL.
 O SDK do Java Async fornece a representação lógica do lado do cliente para aceder à API SQL do Azure Cosmos DB. Este artigo descreve as ferramentas e abordagens para o ajudar se encontrar problemas.
 
@@ -80,6 +93,9 @@ O SDK usa a biblioteca [Netty](https://netty.io/) IO para comunicar com o Azure 
 Os fios Netty IO destinam-se a ser utilizados apenas para trabalhos de Netty IO que não bloqueiam. O SDK devolve o resultado da invocação da API num dos fios Netty IO ao código da aplicação. Se a aplicação realizar uma operação duradoura depois de receber resultados na linha Netty, o SDK pode não ter fios IO suficientes para realizar o seu trabalho interno de IO. Tal codificação de aplicações pode resultar em `io.netty.handler.timeout.ReadTimeoutException` baixa entrada, alta latência e falhas. A sutique é mudar a linha quando se sabe que a operação leva tempo.
 
 Por exemplo, dê uma olhada no seguinte código snippet. Pode realizar um trabalho duradouro que leva mais do que alguns milissegundos no fio Netty. Se assim for, pode eventualmente entrar num estado em que nenhum fio Netty IO está presente para processar o trabalho da IO. Como resultado, obtém-se uma falha de ReadTimeoutException.
+
+### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-readtimeout"></a>Async Java SDK V2 (Maven com.microsoft.azure::azure-cosmosdb)
+
 ```java
 @Test
 public void badCodeWithReadTimeoutException() throws Exception {
@@ -131,13 +147,19 @@ public void badCodeWithReadTimeoutException() throws Exception {
     assertThat(failureCount.get()).isGreaterThan(0);
 }
 ```
-   A sutição é alterar o fio em que executa o trabalho que leva tempo. Defina uma instância singleton do programador para a sua aplicação.
-   ```java
+A sutição é alterar o fio em que executa o trabalho que leva tempo. Defina uma instância singleton do programador para a sua aplicação.
+
+### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-scheduler"></a>Async Java SDK V2 (Maven com.microsoft.azure::azure-cosmosdb)
+
+```java
 // Have a singleton instance of an executor and a scheduler.
 ExecutorService ex  = Executors.newFixedThreadPool(30);
 Scheduler customScheduler = rx.schedulers.Schedulers.from(ex);
-   ```
-   Você pode precisar de fazer um trabalho que leva tempo, por exemplo, trabalho computacionalmente pesado ou bloqueio de IO. Neste caso, mude a linha para `customScheduler` um trabalhador `.observeOn(customScheduler)` fornecido pelo seu utilizando a API.
+```
+Você pode precisar de fazer um trabalho que leva tempo, por exemplo, trabalho computacionalmente pesado ou bloqueio de IO. Neste caso, mude a linha para `customScheduler` um trabalhador `.observeOn(customScheduler)` fornecido pelo seu utilizando a API.
+
+### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-applycustomscheduler"></a>Async Java SDK V2 (Maven com.microsoft.azure::azure-cosmosdb)
+
 ```java
 Observable<ResourceResponse<Document>> createObservable = client
         .createDocument(getCollectionLink(), docDefinition, null, false);
@@ -169,7 +191,7 @@ Exception in thread "main" java.lang.NoSuchMethodError: rx.Observable.toSingle()
 
 A exceção acima sugere que você tem uma dependência de uma versão mais antiga de RxJava lib (por exemplo, 1.2.2). O nosso SDK conta com RxJava 1.3.8 que não tem APIs disponíveis na versão anterior do RxJava. 
 
-A suposições para tais issuses é identificar que outra dependência traz rxJava-1.2.2 e excluir a dependência transitiva de RxJava-1.2.2, e permitir que cosmosDB SDK traga a versão mais recente.
+A suposições para estas questões é identificar que outra dependência traz rxJava-1.2.2 e excluir a dependência transitiva do RxJava-1.2.2, e permitir que cosmosDB SDK traga a versão mais recente.
 
 Para identificar que biblioteca traz RxJava-1.2.2 executar o seguinte comando ao lado do seu ficheiro pom.xml do projeto:
 ```bash
