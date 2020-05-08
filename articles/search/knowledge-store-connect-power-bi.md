@@ -7,20 +7,25 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/26/2019
-ms.openlocfilehash: 4fd71a7f322cb2672eb485f17e4de2619a7c2d2c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/05/2020
+ms.openlocfilehash: e67bd688d720ed3d7549a86c9cff752bc19fb2fc
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78270034"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858811"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Ligue uma loja de conhecimentos com o Power BI
 
 > [!IMPORTANT] 
 > A loja de conhecimento está atualmente em pré-visualização pública. A funcionalidade de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure . A [versão REST API 2019-05-06-Preview](search-api-preview.md) fornece funcionalidades de pré-visualização. Existe atualmente um suporte de portal limitado e nenhum suporte sdk .NET.
 
-Neste artigo, aprenda a conectar-se e explore uma loja de conhecimentos usando power query na aplicação Power BI Desktop. Você pode começar mais rápido com modelos, ou construir um dashboard personalizado de raiz.
+Neste artigo, aprenda a conectar-se e explore uma loja de conhecimentos usando power query na aplicação Power BI Desktop. Você pode começar mais rápido com modelos, ou construir um dashboard personalizado de raiz. Este breve vídeo abaixo demonstra como pode enriquecer a sua experiência com os seus dados utilizando a Pesquisa Cognitiva Azure em combinação com o Power BI.
+
+
+> [!VIDEO https://www.youtube.com/embed/XWzLBP8iWqg?version=3&start=593&end=663]
+
+
 
 + Siga os passos na [Create a knowledge store no portal Azure](knowledge-store-create-portal.md) ou Crie uma loja de conhecimentos de Pesquisa Cognitiva [Azure utilizando](knowledge-store-create-rest.md) o REST para criar a loja de conhecimento de amostras utilizada nesta passagem. Também necessitará do nome da conta De armazenamento Azure que usou para criar a loja de conhecimentos, juntamente com a sua chave de acesso a partir do portal Azure.
 
