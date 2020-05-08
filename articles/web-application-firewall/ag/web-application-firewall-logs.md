@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 10/25/2019
 ms.author: victorh
-ms.openlocfilehash: 4bc2aa055c40fb33edade8f7815311e392633885
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4bca41effc4e9834f8c76308556facb0681717cd
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133871"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82888881"
 ---
 # <a name="resource-logs-for-azure-web-application-firewall"></a>Registos de recursos para firewall de aplicação web Azure
 
@@ -305,7 +305,7 @@ Publicamos um modelo de Gestor de Recursos que instala e executa o popular anali
 ## <a name="next-steps"></a>Passos seguintes
 
 * Visualizar os registos de contadores e eventos utilizando [registos do Monitor Azure](../../azure-monitor/insights/azure-networking-analytics.md).
-* [Visualize o seu log](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) de atividade do Azure com a publicação de blog Power BI.
+* [Visualize o seu log](https://powerbi.microsoft.com/blog/monitor-azure-audit-logs-with-power-bi/) de atividade do Azure com a publicação de blog Power BI.
 * Ver e analisar registos de atividade do [Azure no Power BI e mais posts](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) de blog.
 
 [1]: ../media/web-application-firewall-logs/figure1.png
