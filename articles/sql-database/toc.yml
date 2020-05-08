@@ -56,6 +56,11 @@
       href: sql-database-single-database-quickstart-guide.md
     - name: Instâncias geridas SQL
       href: sql-database-managed-instance-quickstart-guide.md
+- name: Amostras
+  items:
+    - name: Incorporações do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Conceitos
   items:
     - name: Comparação de funcionalidades
@@ -189,7 +194,7 @@
               href: /sql/connect/sql-server-drivers
               items:
                 - name: ADO.NET
-                  href: /sql/connect/ado-net/microsoft-ado-net-for-sql-server
+                  href: /sql/connect/ado-net/microsoft-ado-net-sql-server
                 - name: JDBC
                   href: /sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server
                 - name: Node.js

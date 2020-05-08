@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/24/2020
+ms.date: 05/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bf8c797edec143d09739272917b5781a239280ba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bb1dba32ed2e913268a9fc37f37ab8cec360c5de
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82147751"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858434"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Use o Azure para hospedar e executar cenários de carga de trabalho SAP
 
@@ -111,6 +111,7 @@ Para obter informações sobre a integração dos serviços Azure nos componente
 
 ## <a name="change-log"></a>Alterar Log
 
+- 05/05/2020: Alterações no planeamento e implementação de [Máquinas Virtuais Azure para a SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) para expressar que as implementações da Gen2 estão disponíveis para a família Mv1 VM
 - 04/24/2020: Alterações na [escala SAP HANA com nó de standby em VMs Azure com ANF em SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse), em [escala SAP HANA com nó de standby em VMs Azure com ANF em RHE L](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel), Alta disponibilidade para [SAP NetWeaver em VMs Azure em SLES com ANF](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) e [alta disponibilidade para SAP NetWeaver em VMs Azure em RHEL com ANF](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files) para adicionar esclarecimentos de que os endereços IP para volumes ANF são automaticamente atribuídos
 - 04/22/2020: Alteração da [alta disponibilidade de SAP HANA em VMs Azure em SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability) para remover meta atributo `is-managed` das instruções, uma vez que entra em conflito com a colocação do cluster dentro ou fora do modo de manutenção
 - 04/21/2020: Adicionado SQL Azure DB como DBMS suportado para a Plataforma de Comércio SAP (Hybris) 1811 e mais tarde nos artigos Qual o [software SAP suportado para implementações Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure) e [certificações SAP e configurações em execução no Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-certifications)

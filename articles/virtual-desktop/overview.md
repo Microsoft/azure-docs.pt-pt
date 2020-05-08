@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 04/30/2020
+ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 438edd88b3699f3811d8bd32170b62569971c2e9
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: ab1d0318464f6b44e1f46bd30dc76272584fde64
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82837401"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929830"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>O que é o Windows Virtual Desktop? 
 
@@ -67,8 +67,8 @@ Planeamos adicionar suporte para os seguintes OSes, por isso certifique-se de qu
 
 |SO|Licença obrigatória|
 |---|---|
-|Windows 10 Enterprise multi-sessão ou Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F3, Negócios<br>Janelas E3, E5, A3, A5|
-|Windows 7 Enterprise |Microsoft 365 E3, E5, A3, A5, F3, Negócios<br>Janelas E3, E5, A3, A5|
+|Windows 10 Enterprise multi-sessão ou Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F3, Business Premium<br>Janelas E3, E5, A3, A5|
+|Windows 7 Enterprise |Microsoft 365 E3, E5, A3, A5, F3, Business Premium<br>Janelas E3, E5, A3, A5|
 |Windows Server 2012 R2, 2016, 2019|Licença de Acesso ao Cliente RDS (CAL) com Garantia de Software|
 
 A sua infraestrutura necessita das seguintes coisas para suportar o Windows Virtual Desktop:
@@ -101,9 +101,9 @@ As máquinas virtuais Azure que cria para o Windows Virtual Desktop devem ter ac
 |wvdportalstorageblob.blob.core.windows.net|443|Suporte do portal Azure|AzureCloud|
 
 >[!IMPORTANT]
->Recomendamos que utilize as etiquetas de serviço em vez de URLs na maioria dos casos para evitar problemas de serviço. Desbloquear estes URLs é essencial para uma implementação fiável do Windows Virtual Desktop. O bloqueio do acesso a estes URLs não é suportado e afetará a funcionalidade do serviço. Estes URLs apenas correspondem a sites e recursos do Windows Virtual Desktop, e não incluem URLs para outros serviços como o Azure Ative Directory.
->
 >O Windows Virtual Desktop suporta agora a etiqueta FQDN. Para mais informações, consulte utilize firewall [Azure para proteger as implementações](../firewall/protect-windows-virtual-desktop.md)de ambiente de trabalho virtual da janela .
+>
+>Recomendamos que utilize etiquetas FQDN ou etiquetas de serviço em vez de URLs para evitar problemas de serviço. Os URLs e etiquetas listados apenas correspondem a sites e recursos do Windows Virtual Desktop. Não incluem URLs para outros serviços como o Azure Ative Directory.
 
 A tabela a seguir lista URLs opcionais a que as suas máquinas virtuais Azure possam ter acesso:
 

@@ -1,14 +1,14 @@
 ---
 title: 'Quickstart: Criar uma planta com powerShell'
 description: Neste arranque rápido, utiliza-se plantas Azure para criar, definir e implementar artefactos utilizando a PowerShell.
-ms.date: 11/21/2019
+ms.date: 05/06/2020
 ms.topic: quickstart
-ms.openlocfilehash: 53fcf53bdcc3b5fcd1c6ec07a7d8ab45b39955b6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 79feafa48d5d180949b8a23163f2ee9b686e6076
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80676597"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864118"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Quickstart: Defina e atribua um projeto azure com PowerShell
 
@@ -29,7 +29,7 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
 > [!NOTE]
 > Ao utilizar o PowerShell, o objeto de _planta_ é criado primeiro. Para cada _artefacto_ a adicionar que tenha parâmetros, os parâmetros precisam de ser definidos com antecedência no _esquema_ inicial.
 
-1. Crie o objeto _esquema_ inicial. O parâmetro **BlueprintFile** leva um ficheiro JSON que inclui propriedades sobre a planta, quaisquer grupos de recursos para criar e todos os parâmetros de nível de planta. Os parâmetros são definidos durante a atribuição e utilizados pelos artefactos adicionados nos passos posteriores.
+1. Crie o objeto _esquema_ inicial. O parâmetro **BlueprintFile** leva um ficheiro JSON que inclui propriedades sobre a planta, quaisquer grupos de recursos para criar, e todos os parâmetros de nível de planta. Os parâmetros são definidos durante a atribuição e utilizados pelos artefactos adicionados nos passos posteriores.
 
    - Arquivo JSON - blueprint.json
 

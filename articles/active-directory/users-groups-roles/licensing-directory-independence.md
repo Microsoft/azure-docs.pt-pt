@@ -1,7 +1,7 @@
 ---
 title: Características da interação múltipla do arrendatário - Azure AD [ Microsoft Docs
-description: Compreender os seus inquilinos do Azure Ative Directory como organizações totalmente independentes
-services: active-tenant
+description: Compreender a independência de dados das suas organizações de Diretório Sonérório Sinuoso
+services: active-directory
 documentationcenter: ''
 author: curtand
 manager: daveba
@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 04/07/2020
+ms.date: 04/29/2020
 ms.author: curtand
 ms.custom: it-pro
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 175d9ce7db1657e0e654f46adaf8a8d8ef28c25e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bbe7b0211775e59504443d30fa253cfa14af13b1
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80878124"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582737"
 ---
 # <a name="understand-how-multiple-azure-active-directory-organizations-interact"></a>Entenda como várias organizações de Diretório Saem do Azure Ative
 
-No Azure Ative Directory (Azure AD), cada inquilino é uma organização totalmente independente: um par que é logicamente independente das outras organizações azure aD que gere. Esta independência entre organizações inclui independência de recursos, independência administrativa e independência sincronizada. Não há relação entre pais e filhos entre organizações.
+No Azure Ative Directory (Azure AD), cada organização da Azure AD é totalmente independente: um par que é logicamente independente das outras organizações azure aD que gere. Esta independência entre organizações inclui independência de recursos, independência administrativa e independência sincronizada. Não há relação entre pais e filhos entre organizações.
 
 ## <a name="resource-independence"></a>Independência de recursos
 

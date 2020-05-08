@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: def3ed840d2886aabfce1d1081c94298083fe6d6
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 3195be3486aaafa91a22b6f6e9cb4fd5f4fe6de2
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611664"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930000"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Tutorial: Criar uma piscina de acolhimento com o portal Azure
 
@@ -40,6 +40,8 @@ Também precisa saber as seguintes coisas:
 
 - Onde está a fonte da imagem que pretende utilizar. É da Galeria Azure ou é uma imagem personalizada?
 - O seu domínio junta-se a credenciais.
+
+Além disso, certifique-se de que registou o fornecedor de recursos Microsoft.DesktopVirtualization. Se ainda não o fez, vá a **Assinaturas,** selecione o nome da subscrição yoru e, em seguida, selecione fornecedores de **recursos Azure**.
 
 Ao criar um conjunto de anfitriões do Windows Virtual Desktop com o modelo Do Gestor de Recursos Azure, pode criar uma máquina virtual a partir da galeria Azure, uma imagem gerida ou uma imagem não gerida. Para saber mais sobre como criar imagens VM, consulte [Prepare um Windows VHD ou VHDX para fazer o upload para Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md) e [Criar uma imagem gerida de um VM generalizado em Azure](../virtual-machines/windows/capture-image-resource.md).
 

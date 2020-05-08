@@ -1,33 +1,26 @@
 ---
-title: Exemplos de modelo de política | Microsoft Docs
-description: Amostras de modelo de política azure para rede virtual.
-services: virtual-network
-documentationcenter: ''
-author: KumudD
-manager: twooley
-editor: ''
-tags: ''
-ms.assetid: ''
-ms.service: virtual-network
-ms.devlang: na
-ms.topic: sample
-ms.tgt_pltfrm: ''
-ms.workload: ''
+title: Definições políticas incorporadas para rede virtual Azure
+description: Lista definições políticas integradas da Política Azure para a Rede Virtual Azure. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
 ms.date: 05/05/2020
+ms.topic: sample
+author: KumudD
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: 93d0138f336ffc7055daf9988658a6284af53188
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.service: virtual-network
+ms.custom: subject-policy-samples
+ms.openlocfilehash: 557e3658b73314660ffde134b6151f9d83b26824
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82839135"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82928521"
 ---
-# <a name="azure-policy-sample-built-ins-for-virtual-network"></a>Amostra de política azure incorporadas para rede virtual
+# <a name="azure-policy-built-in-policy-definitions-for-azure-virtual-network"></a>Definições políticas integradas da Azure Policy para a Rede Virtual Azure
 
-O quadro seguinte inclui ligações às amostras [da Política Azure.](../governance/policy/overview.md) Os exemplos encontram-se no [repositório de exemplos do Azure Policy](https://github.com/Azure/azure-policy).
+Esta página é um índice de definições políticas integradas da [Azure Policy](../governance/policy/overview.md) para a Rede Virtual Azure. Para obter mais insins de política azure para outros serviços, consulte [definições in-in da Política Azure.](../governance/policy/samples/built-in-policies.md)
 
-## <a name="network"></a>Rede
+O nome de cada definição política incorporada está ligado à definição de política no portal Azure. Utilize o link na coluna **GitHub** para visualizar a fonte no repo da [política azure GitHub](https://github.com/Azure/azure-policy).
+
+## <a name="azure-virtual-network"></a>Rede Virtual do Azure
 
 [!INCLUDE [azure-policy-samples-policies-network](../../includes/policy/samples/bycat/policies-network.md)]
 
@@ -38,3 +31,9 @@ O quadro seguinte inclui ligações às amostras [da Política Azure.](../govern
 ## <a name="general"></a>Geral
 
 [!INCLUDE [azure-policy-samples-policies-general](../../includes/policy/samples/bycat/policies-general.md)]
+
+## <a name="next-steps"></a>Passos seguintes
+
+- Veja as incorporações no [repositório do GitHub do Azure Policy](https://github.com/Azure/azure-policy).
+- Reveja a [estrutura de definição do Azure Policy](../governance/policy/concepts/definition-structure.md).
+- Veja [Compreender os efeitos do Policy](../governance/policy/concepts/effects.md).

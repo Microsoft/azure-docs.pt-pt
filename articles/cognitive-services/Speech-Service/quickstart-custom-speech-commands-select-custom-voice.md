@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: anhoang
-ms.openlocfilehash: b0ecbc4dc030fa8e7fbe362c1304c3c97278bdf5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c2b9b4d51e89975d988ed94bf85695bd8a1cc770
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75456412"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872452"
 ---
 # <a name="quickstart-use-custom-commands-with-custom-voice-preview"></a>Quickstart: Use comandos personalizados com voz personalizada (pré-visualização)
 
@@ -35,7 +35,8 @@ Neste artigo, vamos selecionar uma voz de saída personalizada para a aplicaçã
 > ![Frases de amostra com parâmetros](media/custom-speech-commands/select-custom-voice.png)
 
 > [!NOTE]
-> Vozes personalizadas podem ser criadas a partir da página do projeto Custom Voice. Selecione o link **Speech Studio** e, em seguida, **Voz Personalizada** para começar.
+> - Para **vozes públicas,** os **tipos neurais** só estão disponíveis para regiões específicas. Para verificar a disponibilidade, consulte [vozes standard e neurais por região/ponto final](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices).
+> - Para **vozes personalizadas,** podem ser criadas a partir da página do projeto Custom Voice. Ver [Começar com voz personalizada](./how-to-custom-voice.md).
 
 Agora a aplicação responderá na voz selecionada, em vez da voz predefinida.
 

@@ -16,6 +16,11 @@
       href: data-lake-analytics-get-started-powershell.md
     - name: CLI do Azure
       href: data-lake-analytics-get-started-cli.md
+- name: Amostras
+  items:
+    - name: Incorporações do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Procedimento
   items:
     - name: Gerir o Data Lake Analytics

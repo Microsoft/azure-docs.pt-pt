@@ -2,7 +2,7 @@
 title: Personalize as tarefas de análise de códigos de segurança da Microsoft
 titleSuffix: Azure
 description: Este artigo descreve a personalização das tarefas na extensão de análise de código de segurança da Microsoft
-author: vharindra
+author: sukhans
 manager: sukhans
 ms.author: terrylan
 ms.date: 07/31/2019
@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 6cdf892651407defc21f359a8e3b326b4af63b62
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d074c12f28abdc61f4d70356c2a7aa264deb44c
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77499992"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871890"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Configure e personalize as tarefas de construção
 
@@ -91,7 +91,8 @@ Os detalhes da configuração da tarefa são mostrados na seguinte imagem e list
 ![Configurar a tarefa de construção do Scanner Credencial](./media/security-tools/3-taskdetails.png)
 
 As opções disponíveis incluem:
-
+  - **Nome**do ecrã : Nome da Tarefa Azure DevOps. O valor padrão é Run Credencial Scanner
+  - **Ferramenta Maior Versão**: Os valores disponíveis incluem **CredScan V2,** **CredScan V1**. Recomendamos que os clientes utilizem a versão **CredScan V2.**
   - **Formato de saída**: Os valores disponíveis incluem **TSV,** **CSV,** **SARIF**e **PREfast**.
   - **Versão da ferramenta**: Recomendamos que selecione **Mais recente**.
   - **Pasta de digitalização**: A pasta de reprodução a digitalizar.
@@ -206,7 +207,7 @@ Os detalhes da configuração do Relatório de Segurança são mostrados na segu
 - **Opções Avançadas**: Se não houver registos para uma das ferramentas selecionadas, pode optar por registar um aviso ou um erro. Se registar um erro, a tarefa falha.
 - Pasta de **Registos base**: Pode personalizar a pasta de registos base onde os registos são encontrados. Mas esta opção normalmente não é usada.
 
-Para obter informações sobre a configuração yAML para esta tarefa, consulte as [opções yAML](yaml-configuration.md#security-report-task) do nosso relatório de segurança
+Para obter informações sobre a configuração do YAML para esta tarefa, consulte [as opções yAML](yaml-configuration.md#security-report-task) do nosso relatório de segurança
 
 ## <a name="post-analysis-task"></a>Tarefa de pós-análise
 
@@ -218,7 +219,7 @@ Os detalhes da configuração da tarefa são mostrados na seguinte imagem e list
 - **Relatório**: Pode escrever opcionalmente os resultados que estão a causar a rutura da construção. Os resultados estão escritos na janela da consola Azure DevOps e no ficheiro de registo.
 - **Opções Avançadas**: Se não houver registos para uma das ferramentas selecionadas, pode optar por registar um aviso ou um erro. Se registar um erro, a tarefa falha.
 
-Para obter informações sobre a configuração yAML para esta tarefa, consulte as nossas [opções de YAML](yaml-configuration.md#post-analysis-task) de Análise Pós
+Para obter informações sobre a configuração yAML para esta tarefa, consulte as nossas [opções de YAML de Análise Pós-Análise](yaml-configuration.md#post-analysis-task)
 
 ## <a name="next-steps"></a>Passos seguintes
 

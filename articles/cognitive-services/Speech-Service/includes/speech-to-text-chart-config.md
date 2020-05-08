@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 04/15/2020
+ms.date: 05/05/2020
 ms.author: trbye
-ms.openlocfilehash: 267c2fb72b38053429019746a573c740d812c38c
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 85c4e0641e1989ddea6c8aa8b8a8895a966a5ddb
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82608387"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82876038"
 ---
 ### <a name="speech-to-text-sub-chart-chartsspeechtotext"></a>Discurso a Texto (sub-gráfico: gráficos/discursoToTexto)
 
@@ -43,7 +43,7 @@ Para anular o gráfico "guarda-chuva", `speechToText.` adicione o prefixo em qua
 
 #### <a name="sentiment-analysis-sub-chart-chartsspeechtotext"></a>Análise de sentimento (sub-gráfico: gráficos/speechToText)
 
-A partir do v2.2.0 do recipiente de fala-a-texto, são utilizados os seguintes parâmetros para a análise de sentimentos utilizando a API text analytics.
+A partir do v2.2.0 do recipiente de fala-a-texto e v0.2.0 do gráfico Helm, são utilizados os seguintes parâmetros para a análise de sentimentos utilizando a API text analytics.
 
 |Parâmetro|Descrição|Valores|Predefinição|
 | --- | --- | --- | --- |

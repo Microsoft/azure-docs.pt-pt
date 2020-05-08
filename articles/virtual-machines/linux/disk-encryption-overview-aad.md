@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 029743dbb44ab0ebb6ab8f695c0c966137c45107
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cc9f3b54d427a30b587d8335f6ce9b013f407374
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81459802"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792569"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-previous-release"></a>Encriptação de disco azure com AD Azure (versão anterior)
 
@@ -26,8 +26,6 @@ A informação nestas secções permanece a mesma:
 - [VMs e sistemas operativos suportados](disk-encryption-overview.md#supported-vms-and-operating-systems)
 - [Requisitos adicionais de VM](disk-encryption-overview.md#additional-vm-requirements)
 
-
- 
 
 ## <a name="networking-and-group-policy"></a>Política de Networking e Grupo
 

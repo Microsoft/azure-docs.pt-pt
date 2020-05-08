@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Configure implementações canárias para Máquinas Virtuais Azure Linux
-description: Neste tutorial você aprenderá como configurar o oleoduto de implantação contínua (CD) que atualiza um grupo de máquinas virtuais Azure usando a estratégia de implementação azul-verde
+title: Tutorial - Configure implementações canárias para máquinas virtuais Azure Linux
+description: Neste tutorial, aprende-se a configurar um oleoduto de implantação contínua (CD). Este oleoduto atualiza um grupo de máquinas virtuais Azure Linux utilizando a estratégia de implantação azul-verde.
 author: moala
 manager: jpconnock
 tags: azure-devops-pipelines
@@ -12,69 +12,81 @@ ms.workload: infrastructure
 ms.date: 4/10/2020
 ms.author: moala
 ms.custom: devops
-ms.openlocfilehash: b1a57245434bb188ffaab56a8891b4b0ee27f044
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a98989ed48e515cafeca27ae492c83efca6002c4
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82120493"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871608"
 ---
-# <a name="tutorial---configure-blue-green-deployment-strategy-for-azure-linux-virtual-machines"></a>Tutorial - Configure estratégia de implantação Blue-Green para máquinas virtuais Azure Linux
+# <a name="tutorial---configure-the-blue-green-deployment-strategy-for-azure-linux-virtual-machines"></a>Tutorial - Configure a estratégia de implantação azul-verde para máquinas virtuais Azure Linux
 
+## <a name="infrastructure-as-a-service-iaas---configure-cicd"></a>Infraestrutura como serviço (IaaS) - Configure CI/CD
 
-## <a name="iaas---configure-cicd"></a>IaaS - Configure CI/CD 
-A Azure Pipelines fornece um conjunto completo e completo de ferramentas de automatização CI/CD para implementações em máquinas virtuais. Pode configurar um gasoduto de entrega contínuo para um Azure VM diretamente do portal Azure. Este documento contém os passos associados à criação de um oleoduto CI/CD que utiliza a estratégia azul-verde para implantações multi-máquinas. Você também pode olhar para outras estratégias como [rolar](https://aka.ms/AA7jlh8) e [canário](https://aka.ms/AA7jdrz), que são suportados fora da caixa do portal Azure. 
+A Azure Pipelines fornece um conjunto completo de ferramentas de automatização CI/CD para implementações em máquinas virtuais. Pode configurar um gasoduto de entrega contínua para um Azure VM a partir do portal Azure.
 
- 
- **Configure CI/CD em máquinas virtuais**
+Este artigo mostra como configurar um oleoduto CI/CD que utiliza a estratégia azul-verde para implementações multi-máquinas. O portal Azure também apoia outras estratégias como [o rolling](https://aka.ms/AA7jlh8) e [o canário.](https://aka.ms/AA7jdrz)
 
-As máquinas virtuais podem ser adicionadas como alvos de um grupo de [implementação](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups) e podem ser direcionadas para atualizações multi-máquinas. Uma vez implantado, o Histórico de Implementação de **visualização** dentro de um grupo de implantação fornece rastreabilidade da VM para o oleoduto e, em seguida, para o compromisso. 
- 
-  
-**Destacamentos Blue-Green**: Uma implantação Blue-Green reduz o tempo de inatividade por ter um ambiente de espera idêntico. A qualquer momento, um dos ambientes está ao vivo. Enquanto se prepara para um novo lançamento, completa a fase final de testes no ambiente verde. Uma vez que o software esteja a funcionar em ambiente verde, mude o tráfego para que todos os pedidos de entrada vão para o ambiente verde - o ambiente azul está agora inativo.
-Pode configurar as implementações Blue-Green para as suas "**máquinas virtuais**" a partir do portal Azure utilizando a opção de entrega contínua. 
+### <a name="configure-cicd-on-virtual-machines"></a>Configure CI/CD em máquinas virtuais
 
-Aqui está a passagem passo a passo.
+Pode adicionar máquinas virtuais como alvos a um grupo de [implantação](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups). Em seguida, pode direcioná-las para atualizações multi-máquinas. Depois de se implantar em máquinas, veja o Histórico de **Implantação** dentro de um grupo de implantação. Esta vista permite-lhe rastrear desde vm até ao oleoduto e depois ao compromisso.
 
-1. Inscreva-se no seu portal Azure e navegue para uma máquina virtual 
-2. No painel esquerdo VM, vá **entrega contínua.** Em seguida, clique em **Configurar**. 
+### <a name="blue-green-deployments"></a>Implantações verde-azuladas
 
-   ![AzDevOps_configure](media/tutorial-devops-azure-pipelines-classic/azure-devops-configure.png) 
-3. No painel de configuração, clique na **Organização Azure DevOps** para selecionar uma conta existente ou criar uma. Em seguida, selecione o projeto sob o qual pretende configurar o gasoduto.  
+Uma implantação azul-verde reduz o tempo de inatividade por ter um ambiente de espera idêntico. Apenas um ambiente é vivo a qualquer momento.
 
+Enquanto se prepara para um novo lançamento, complete a fase final dos testes em ambiente verde. Depois de o software funcionar em ambiente verde, altere o tráfego para que todos os pedidos de entrada vão para o ambiente verde. O ambiente azul está inativo.
 
-   ![AzDevOps_project](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling.png) 
-4. Um grupo de implantação é um conjunto lógico de máquinas-alvo de implantação que representam os ambientes físicos; por exemplo, "Dev", "Test", "UAT" e "Production". Pode criar um novo grupo de implementação ou selecionar um grupo de implementação existente. 
-5. Selecione o pipeline de construção que publica o pacote a ser implantado na máquina virtual. Note que o pacote publicado deve ter um _deploy.sh_ script `deployscripts` de implementação _deploy.ps1_ ou deploy.sh na pasta na raiz do pacote. Este script de implantação será executado pelo oleoduto Azure DevOps no tempo de execução.
-6. Selecione a estratégia de implementação à sua escolha. Selecione **Blue-Green**.
-7. Adicione uma etiqueta "azul" ou "verde" aos VMs que devem fazer parte das implementações Blue-Green. Se o VM é para um papel de standby, então você deve marcá-lo como "verde", caso contrário, marque-o como "azul".
-![AzDevOps_bluegreen_configure](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-configure.png)
+Utilizando a opção de entrega contínua, pode configurar implementações verde-azuladas para as suas máquinas virtuais a partir do portal Azure. Aqui está o passo a passo passo:
 
-8. Clique **em OK** para configurar o gasoduto de entrega contínua. Terá agora um gasoduto de entrega contínuo configurado para ser implantado na máquina virtual.
-![AzDevOps_bluegreen_pipeline](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-pipeline.png)
+1. Inscreva-se no portal Azure e navegue para uma máquina virtual.
+1. No painel mais à esquerda das definições vM, selecione **a entrega contínua**. Em seguida, **selecione Configurar**.
 
+   ![O painel de entrega contínua com o botão Configurar](media/tutorial-devops-azure-pipelines-classic/azure-devops-configure.png)
 
-9. Clique no oleoduto de lançamento **editar** em Azure DevOps para ver a configuração do pipeline. O gasoduto é composto por três fases. A primeira fase é uma fase de grupo de implantação e implanta-se para VMs que são marcados como _verdes_ (VMs de espera). A segunda fase interrompe o gasoduto e aguarda a intervenção manual para retomar a execução. Uma vez que um utilizador esteja convencido de que a implantação é estável, pode agora redirecionar o tráfego para VMs _verdes_ e retomar a execução do gasoduto que, em seguida, trocará etiquetas _azuis_ e _verdes_ nos VMs. Isto garante que os VMs que têm versão de aplicação mais antiga são marcados como _verdes_ e são implantados na próxima execução do gasoduto.
-![AzDevOps_bluegreen_task](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-tasks.png)
+1. No painel de configuração, **selecione Azure DevOps Organization** para escolher uma conta existente ou criar uma nova. Em seguida, selecione o projeto sob o qual pretende configurar o gasoduto.  
 
+   ![O painel de entrega contínua](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling.png)
 
-10. A tarefa execute script de execução executará por padrão `deployscripts` executar o script de _implementação deploy.ps1_ ou _deploy.sh_ na pasta no diretório raiz do pacote publicado. Certifique-se de que o pipeline de construção selecionado publica isto na pasta raiz do pacote.
-![AzDevOps_publish_package](media/tutorial-deployment-strategy/package.png)
+1. Um grupo de implantação é um conjunto lógico de máquinas-alvo de implantação que representam os ambientes físicos. Dev, Test, UAT e Produção são exemplos. Pode criar um novo grupo de implementação ou selecionar um existente.
+1. Selecione o pipeline de construção que publica o pacote a ser implantado na máquina virtual. O pacote publicado deve ter um script de implementação denominado deploy.ps1 ou deploy.sh na pasta de scripts de implementação na pasta raiz do pacote. O oleoduto executa este guião de implantação.
+1. Na **estratégia de implantação,** selecione **Blue-Green**.
+1. Adicione uma etiqueta "azul" ou "verde" aos VMs que devem fazer parte de implantações verde-azuladas. Se um VM é para um papel de espera, marque-o como "verde". Caso contrário, marque-o como "azul".
 
+   ![O painel de entrega contínua, com o valor de estratégia de implantação Blue-Green escolhido](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-configure.png)
 
+1. Selecione **OK** para configurar o gasoduto de entrega contínua para implantar na máquina virtual.
 
+   ![O oleoduto azul-verde](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-pipeline.png)
+
+1. Os detalhes de implantação da máquina virtual são apresentados. Pode selecionar o link para ir ao gasoduto de libertação em Azure DevOps. No gasoduto de lançamento, selecione **Editar** para visualizar a configuração do gasoduto. O oleoduto tem estas três fases:
+
+   1. Esta fase é uma fase de grupo de implantação. As aplicações são implementadas para vMs de espera, que são marcados como "verdes".
+   1. Nesta fase, o gasoduto para e aguarda a intervenção manual para retomar a execução. Os utilizadores podem retomar o funcionamento do gasoduto depois de terem assegurado manualmente a estabilidade da implantação para VMs marcados como "verdes".
+   1. Esta fase troca as etiquetas "azul" e "verde" nos VMs. Isto garante que os VMs com versões de aplicação mais antigas são agora marcados como "verdes". Durante a próxima execução do gasoduto, serão implementadas aplicações para estes VMs.
+
+      ![O painel do grupo de implantação para a tarefa Deploy Blue-Green](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-tasks.png)
+
+1. A tarefa execute executar o Script de implementação por padrão executa o script de implementação de implementação.ps1 ou deploy.sh. O script está na pasta de scripts de implantação na pasta raiz do pacote publicado. Certifique-se de que o pipeline de construção selecionado publica a implantação na pasta raiz da embalagem.
+
+   ![O painel de artefactos mostrando deploy.sh na pasta de implantscripts](media/tutorial-deployment-strategy/package.png)
 
 ## <a name="other-deployment-strategies"></a>Outras estratégias de implantação
-- [Configure estratégia de implantação rolante](https://aka.ms/AA7jlh8)
-- [Configure estratégia de implantação canária](https://aka.ms/AA7jdrz)
 
-## <a name="azure-devops-project"></a>Projeto Azure DevOps 
-Começa com o Azure mais facilmente do que nunca.
- 
-Com a DevOps Projects, comece a executar a sua aplicação em qualquer serviço Azure em apenas três etapas: selecione um idioma de aplicação, um tempo de execução e um serviço Azure.
- 
-[Saiba mais](https://azure.microsoft.com/features/devops-projects/ ).
- 
-## <a name="additional-resources"></a>Recursos adicionais 
-- [Implementar para máquinas virtuais Azure usando o projeto DevOps](https://docs.microsoft.com/azure/devops-project/azure-devops-project-vms)
+- [Configure a estratégia de implantação em movimento](https://aka.ms/AA7jlh8)
+- [Configure a estratégia de implantação canária](https://aka.ms/AA7jdrz)
+
+## <a name="azure-devops-projects"></a>Azure DevOps Projects
+
+Pode começar com azure facilmente. Com a Azure DevOps Projects, comece a executar a sua aplicação em qualquer serviço Azure em apenas três passos selecionando:
+
+- Uma linguagem de aplicação
+- Um tempo de execução
+- Um serviço Azure
+
+[Saiba mais](https://azure.microsoft.com/features/devops-projects/).
+
+## <a name="additional-resources"></a>Recursos adicionais
+
+- [Implemente para máquinas virtuais Azure utilizando projetos Azure DevOps](https://docs.microsoft.com/azure/devops-project/azure-devops-project-vms)
 - [Implemente a implementação contínua da sua app para um conjunto de escala de máquina virtual Azure](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset)

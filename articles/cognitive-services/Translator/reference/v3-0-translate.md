@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/20/2020
+ms.date: 04/17/2020
 ms.author: swmachan
-ms.openlocfilehash: 1821623fbe2a22234af649934ac06e72897a19cf
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 14d1f042240fd045925afe1725b32ddade490dfe
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80052402"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858551"
 ---
 # <a name="translator-text-api-30-translate"></a>Texto tradutor API 3.0: Traduzir
 
@@ -202,7 +202,7 @@ Seguem-se os possíveis códigos de estado http que um pedido devolve.
   <th>Descrição</th>
   <tr>
     <td>200</td>
-    <td>Êxito.</td>
+    <td>Com êxito.</td>
   </tr>
   <tr>
     <td>400</td>
@@ -454,6 +454,14 @@ A resposta é:
 
 ### <a name="obtain-alignment-information"></a>Obter informações de alinhamento
 
+O alinhamento é devolvido como um valor de cadeia do seguinte formato para cada palavra da fonte. A informação para cada palavra é separada por um espaço, incluindo para línguas não separadas do espaço (scripts) como o chinês:
+
+[[SourceTextStartIndex]:[SourceTextEndIndex]-[TgtTextStartIndex]:[TgtTextEndIndex]] *
+
+Exemplo de alinhamento: "0:0-7:10 1:2-11:20 3:4-0:3 3:4-4:6 5:5-21:21".
+
+Por outras palavras, o cólon separa o índice de início e fim, o traço separa as línguas, e o espaço separa as palavras. Uma palavra pode alinhar-se com zero, uma ou múltiplas palavras na outra língua, e as palavras alinhadas podem não ser contíguas. Quando não houver informação de alinhamento disponível, o elemento Alinhamento estará vazio. O método não devolve nenhum erro nesse caso.
+
 Para receber informações `includeAlignment=true` de alinhamento, especifique na cadeia de consulta.
 
 ```curl
@@ -483,9 +491,10 @@ Obter informações de alinhamento é uma característica experimental que permi
 
 * O alinhamento não está disponível para texto em formato HTML, ou seja, textType=html
 * O alinhamento só é devolvido para um subconjunto dos pares linguísticos:
-  - do inglês para qualquer outra língua;
-  - de qualquer outra língua para inglês, com exceção do chinês simplificado, chinês tradicional, e letão para inglês;
+  - Inglês de/de qualquer outra língua, exceto chinês tradicional, cantonês (tradicional) ou sérvio (cirílico).
   - de japonês a coreano ou de coreano para japonês.
+  - do japonês ao chinês simplificado e chinês simplificado para japonês. 
+  - da chinesa simplificada à tradicional chinesa e chinesa tradicional para chinesa simplificada. 
 * Não receberá alinhamento se a frase for uma tradução enlatada. Exemplo de uma tradução enlatada é "Isto é um teste", "Amo-te" e outras frases de alta frequência.
 * O alinhamento não está disponível quando aplica qualquer uma das abordagens para evitar a tradução como descrito [aqui](../prevent-translation.md)
 
@@ -515,7 +524,7 @@ A resposta é:
 
 ### <a name="translate-with-dynamic-dictionary"></a>Traduzir com dicionário dinâmico
 
-Se já sabe a tradução que pretende aplicar a uma palavra ou a uma frase, pode fornecê-la como marcação dentro do pedido. O dicionário dinâmico só é seguro para substantivos compostos como nomes apropriados e nomes de produtos.
+Se já sabe a tradução que pretende aplicar a uma palavra ou a uma frase, pode fornecê-la como marcação dentro do pedido. O dicionário dinâmico só é seguro para substantivos adequados, como nomes pessoais e nomes de produtos.
 
 A marcação para fornecimento utiliza a seguinte sintaxe.
 

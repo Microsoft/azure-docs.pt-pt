@@ -5,12 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: 489a90180454e2b4a9dad34730fbd3c4f235a2ad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5921fc9038e53f34e23f6fd97111c71b29699dc5
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77598107"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793147"
 ---
 # <a name="upgrade-the-service-fabric-version-that-runs-on-your-cluster"></a>Atualize a versão Service Fabric que funciona no seu cluster 
 
@@ -162,7 +162,7 @@ Para mais detalhes de utilização, consulte o comando [Start-ServiceFabricClust
 ## <a name="next-steps"></a>Passos seguintes
 * [Atualizar a configuração de um cluster autónomo](service-fabric-cluster-config-upgrade-windows-server.md)
 * Personalize algumas definições de [cluster de tecido de serviço.](service-fabric-cluster-fabric-settings.md)
-* [Escala o teu cluster para dentro e para fora.](service-fabric-cluster-scale-up-down.md)
+* [Escala o teu cluster para dentro e para fora.](service-fabric-cluster-scale-in-out.md)
 
 <!--Image references-->
 [getfabversions]: ./media/service-fabric-cluster-upgrade-windows-server/getfabversions.PNG

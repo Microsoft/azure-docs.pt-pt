@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: e333dfb109840538fd5dec8110e1c32adedce989
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8605e269f09e4fedf7a61817a3634e75081593ca
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76759266"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890243"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Use a PowerShell para gerir os recursos do Ônibus de serviço
 
@@ -170,8 +170,8 @@ Pode utilizar o [módulo Service Bus PowerShell](/powershell/module/az.servicebu
 
 Existem algumas formas alternativas de gerir as entidades de Ônibus de serviço, como descrito nestas publicações de blog:
 
-* [Como criar filas de ônibus de serviço, tópicos e subscrições usando um script PowerShell](https://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
-* [Como criar um espaço de nome de ônibus de serviço e um hub de eventousando um script PowerShell](https://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
+* [Como criar filas de ônibus de serviço, tópicos e subscrições usando um script PowerShell](https://docs.microsoft.com/archive/blogs/paolos/how-to-create-service-bus-queues-topics-and-subscriptions-using-a-powershell-script)
+* [Como criar um espaço de nome de ônibus de serviço e um hub de eventousando um script PowerShell](https://docs.microsoft.com/archive/blogs/paolos/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script)
 * [Scripts PowerShell de ônibus de serviço](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
 
 <!--Anchors-->

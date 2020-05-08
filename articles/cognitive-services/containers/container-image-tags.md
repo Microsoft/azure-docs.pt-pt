@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: reference
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 786fde90e1bcf47e08857c26235a27862c5b3d75
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 850d7b9732ad547d502b042e7eaad5d3b471030e
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80878770"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926005"
 ---
 # <a name="azure-cognitive-services-container-image-tags"></a>Etiquetas de imagem de contentores de serviços cognitivos Azure
 
@@ -106,6 +106,7 @@ Esta imagem do recipiente tem as seguintes etiquetas disponíveis:
 | Etiquetas de imagem            | Notas |
 |-----------------------|:------|
 | `latest`              |       |
+| `2.2.0-amd64-preview` |       |
 | `2.1.1-amd64-preview` |       |
 | `2.1.0-amd64-preview` |       |
 | `2.0.2-amd64-preview` |       |
@@ -131,6 +132,46 @@ Esta imagem do recipiente tem as seguintes etiquetas disponíveis:
 | Etiquetas de imagem                  | Notas                                    |
 |-----------------------------|:-----------------------------------------|
 | `latest`                    | Imagem de `en-US` contentor com o local. |
+| `2.2.0-amd64-ar-ae-preview` | Imagem de `ar-AE` contentor com o local. |
+| `2.2.0-amd64-ar-eg-preview` | Imagem de `ar-EG` contentor com o local. |
+| `2.2.0-amd64-ar-kw-preview` | Imagem de `ar-KW` contentor com o local. |
+| `2.2.0-amd64-ar-qa-preview` | Imagem de `ar-QA` contentor com o local. |
+| `2.2.0-amd64-ar-sa-preview` | Imagem de `ar-SA` contentor com o local. |
+| `2.2.0-amd64-ca-es-preview` | Imagem de `ca-ES` contentor com o local. |
+| `2.2.0-amd64-da-dk-preview` | Imagem de `da-DK` contentor com o local. |
+| `2.2.0-amd64-de-de-preview` | Imagem de `de-DE` contentor com o local. |
+| `2.2.0-amd64-en-au-preview` | Imagem de `en-AU` contentor com o local. |
+| `2.2.0-amd64-en-ca-preview` | Imagem de `en-CA` contentor com o local. |
+| `2.2.0-amd64-en-gb-preview` | Imagem de `en-GB` contentor com o local. |
+| `2.2.0-amd64-en-in-preview` | Imagem de `en-IN` contentor com o local. |
+| `2.2.0-amd64-en-nz-preview` | Imagem de `en-NZ` contentor com o local. |
+| `2.2.0-amd64-en-us-preview` | Imagem de `en-US` contentor com o local. |
+| `2.2.0-amd64-es-es-preview` | Imagem de `es-ES` contentor com o local. |
+| `2.2.0-amd64-es-mx-preview` | Imagem de `es-MX` contentor com o local. |
+| `2.2.0-amd64-fi-fi-preview` | Imagem de `fi-FI` contentor com o local. |
+| `2.2.0-amd64-fr-ca-preview` | Imagem de `fr-CA` contentor com o local. |
+| `2.2.0-amd64-fr-fr-preview` | Imagem de `fr-FR` contentor com o local. |
+| `2.2.0-amd64-gu-in-preview` | Imagem de `gu-IN` contentor com o local. |
+| `2.2.0-amd64-hi-in-preview` | Imagem de `hi-IN` contentor com o local. |
+| `2.2.0-amd64-it-it-preview` | Imagem de `it-IT` contentor com o local. |
+| `2.2.0-amd64-ja-jp-preview` | Imagem de `ja-JP` contentor com o local. |
+| `2.2.0-amd64-ko-kr-preview` | Imagem de `ko-KR` contentor com o local. |
+| `2.2.0-amd64-mr-in-preview` | Imagem de `mr-IN` contentor com o local. |
+| `2.2.0-amd64-nb-no-preview` | Imagem de `nb-NO` contentor com o local. |
+| `2.2.0-amd64-nl-nl-preview` | Imagem de `nl-NL` contentor com o local. |
+| `2.2.0-amd64-pl-pl-preview` | Imagem de `pl-PL` contentor com o local. |
+| `2.2.0-amd64-pt-br-preview` | Imagem de `pt-BR` contentor com o local. |
+| `2.2.0-amd64-pt-pt-preview` | Imagem de `pt-PT` contentor com o local. |
+| `2.2.0-amd64-ru-ru-preview` | Imagem de `ru-RU` contentor com o local. |
+| `2.2.0-amd64-sv-se-preview` | Imagem de `sv-SE` contentor com o local. |
+| `2.2.0-amd64-ta-in-preview` | Imagem de `ta-IN` contentor com o local. |
+| `2.2.0-amd64-te-in-preview` | Imagem de `te-IN` contentor com o local. |
+| `2.2.0-amd64-th-th-preview` | Imagem de `th-TH` contentor com o local. |
+| `2.2.0-amd64-tr-tr-preview` | Imagem de `tr-TR` contentor com o local. |
+| `2.2.0-amd64-zh-cn-preview` | Imagem de `zh-CN` contentor com o local. |
+| `2.2.0-amd64-zh-hk-preview` | Imagem de `zh-HK` contentor com o local. |
+| `2.2.0-amd64-zh-tw-preview` | Imagem de `zh-TW` contentor com o local. |
+| `2.1.1-amd64-en-us-preview` | Imagem de `en-US` contentor com o local. |
 | `2.1.1-amd64-ar-ae-preview` | Imagem de `ar-AE` contentor com o local. |
 | `2.1.1-amd64-ar-eg-preview` | Imagem de `ar-EG` contentor com o local. |
 | `2.1.1-amd64-ar-kw-preview` | Imagem de `ar-KW` contentor com o local. |

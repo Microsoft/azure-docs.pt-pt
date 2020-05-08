@@ -7,13 +7,13 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/11/2019
-ms.openlocfilehash: 0ad780c04954c09ddfd432b3c7de3dc65f0841bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/05/2020
+ms.openlocfilehash: 20819bc6ec091eddf5d65b1c0d7aa57c821b2fc1
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78942985"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858792"
 ---
 # <a name="introduction-to-knowledge-stores-in-azure-cognitive-search"></a>Introdução a lojas de conhecimento em Pesquisa Cognitiva Azure
 
@@ -25,6 +25,10 @@ A knowledge store é uma característica da Pesquisa Cognitiva Azure que persist
 Se já usou habilidades cognitivas no passado, já sabe que as *habilidades* movem um documento através de uma sequência de enriquecimentos. O resultado pode ser um índice de pesquisa, ou (novas nesta pré-visualização) projeções numa loja de conhecimento. As duas saídas, índice de pesquisa e loja de conhecimento, são produtos do mesmo oleoduto; derivado das mesmas entradas, mas resultando numa saída estruturada, armazenada e usada de formas muito diferentes.
 
 Fisicamente, uma loja de conhecimentos é [o Azure Storage,](https://docs.microsoft.com/azure/storage/common/storage-account-overview)ou o armazenamento de mesa Azure, armazenamento Azure Blob, ou ambos. Qualquer ferramenta ou processo que possa ligar-se ao Armazenamento Azure pode consumir o conteúdo de uma loja de conhecimento.
+
+
+> [!VIDEO https://www.youtube.com/embed/XWzLBP8iWqg?version=3&start=235&end=426]
+
 
 ![Loja de conhecimento no diagrama do oleoduto](./media/knowledge-store-concept-intro/knowledge-store-concept-intro.svg "Loja de conhecimento no diagrama do oleoduto")
 
@@ -46,6 +50,10 @@ Enumerados, os benefícios da loja de conhecimento incluem o seguinte:
 > Novo no enriquecimento de IA e habilidades cognitivas? A Pesquisa Cognitiva Azure integra-se com funcionalidades de Visão e Linguagem de Serviços Cognitivos para extrair e enriquecer dados de origem usando o Reconhecimento ótico de caracteres (OCR) sobre ficheiros de imagem, reconhecimento de entidades e extração de frases-chave de ficheiros de texto, e muito mais. Para mais informações, consulte o [enriquecimento de IA em Pesquisa Cognitiva Azure.](cognitive-search-concept-intro.md)
 
 ## <a name="physical-storage"></a>Armazenamento físico
+
+
+> [!VIDEO https://www.youtube.com/embed/XWzLBP8iWqg?version=3&start=455&end=542]
+
 
 A expressão física de uma loja `projections` de conhecimento `knowledgeStore` é articulada através do elemento de uma definição num Skillset. A projeção define uma estrutura da saída de modo a corresponder à utilização pretendida.
 

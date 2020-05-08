@@ -6,13 +6,13 @@ ms.service: open-datasets
 ms.topic: overview
 author: cjgronlund
 ms.author: cgronlun
-ms.date: 11/04/2019
-ms.openlocfilehash: fd5697f9c325dc4ad866c333ce1b20e008ebfa24
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.date: 05/06/2020
+ms.openlocfilehash: aa7cbd9b213d35becd65d9335312c0468760d655
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73606160"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872040"
 ---
 # <a name="what-are-azure-open-datasets-and-how-can-you-use-them"></a>O que são Conjuntos de Dados Abertos Azure e como pode usá-los?
 
@@ -24,6 +24,8 @@ Os conjuntos de dados incluem dados de domínio público para meteorologia, rece
 
 ## <a name="curated-prepared-datasets"></a>Conjuntos de dados curados e preparados
 Conjuntos de dados públicos abertos com curadoria em Conjuntos de Dados Abertos Do Azure são otimizados para consumo em fluxos de trabalho de aprendizagem automática. 
+
+Para ver todos os conjuntos de dados disponíveis, vá ao Catálogo de Conjuntos de [Dados Abertos do Azure](https://azure.microsoft.com/services/open-datasets/catalog/).
 
 Os cientistas de dados passam frequentemente a maior parte do seu tempo a limpar e a preparar dados para análises avançadas. Os Conjuntos de Dados Abertos são copiados para a nuvem Azure e pré-processados para economizar tempo. Em intervalos regulares, os dados são retirados das fontes, como por exemplo por uma ligação FTP à Administração Oceânica e Atmosférica Nacional (NOAA). Em seguida, os dados são analisados num formato estruturado e, em seguida, enriquecidos conforme apropriado com funcionalidades como código POSTAL ou localização da estação meteorológica mais próxima.
 

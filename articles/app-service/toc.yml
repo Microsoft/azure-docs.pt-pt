@@ -63,6 +63,9 @@
       href: samples-powershell.md
     - name: Modelos do Resource Manager
       href: samples-resource-manager-templates.md
+    - name: Incorporações do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Conceitos
   items:
     - name: Planos do Serviço de Aplicações

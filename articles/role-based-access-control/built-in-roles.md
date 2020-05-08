@@ -15,12 +15,12 @@ ms.date: 05/04/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: b6587ca113319c266d2335c9cbb154e0ecc4afa1
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
-ms.translationtype: HT
+ms.openlocfilehash: b5ba4b84fcd9c1722e8ab2f4031ec1551357e406
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82838744"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82869989"
 ---
 # <a name="azure-built-in-roles"></a>Papéis azure embutidos
 
@@ -156,7 +156,7 @@ A tabela seguinte fornece uma breve descrição e a identificação única de ca
 > | [Criador de Laboratório](#lab-creator) | Permite-lhe criar, gerir, apagar os seus laboratórios geridos sob as suas Contas Azure Lab. | b97fb8bc-a8b2-4522-a38b-dd33c7e65ead |
 > | **Monitorização** |  |  |
 > | [Contribuidor de componentes de insights de aplicação](#application-insights-component-contributor) | Pode gerir componentes de Insights de Aplicação | ae349356-3a1b-4a5e-921d-050484c6347e |
-> | [Insights de aplicação Snapshot Debugger](#application-insights-snapshot-debugger) | Dá permissão ao utilizador para visualizar e descarregar imagens de depuração recolhidas com o Debugger Snapshot Debugger da Aplicação Insights. Note que estas permissões não estão incluídas nas funções [de Proprietário](#owner) ou [Colaborador.](#contributor) | 08954f03-6346-4c2e-81c0-ec3a5cfae23b |
+> | [Insights de aplicação Snapshot Debugger](#application-insights-snapshot-debugger) | Dá permissão ao utilizador para visualizar e descarregar imagens de depuração recolhidas com o Debugger Snapshot Debugger da Aplicação Insights. Note que estas permissões não estão incluídas nas funções [de Proprietário](#owner) ou [Colaborador.](#contributor) Ao atribuir aos utilizadores a função Debugger Snapshot Debugger de Insights de Aplicação, deve conceder o papel diretamente ao utilizador. O papel não é reconhecido quando é adicionado a um papel personalizado. | 08954f03-6346-4c2e-81c0-ec3a5cfae23b |
 > | [Colaborador de Monitorização](#monitoring-contributor) | Pode ler todos os dados de monitorização e editar definições de monitorização. Ver também [Começar com funções, permissões e segurança com o Monitor Azure.](https://docs.microsoft.com/azure/azure-monitor/platform/roles-permissions-security#built-in-monitoring-roles) | 749f88d5-cbae-40b8-bcfc-e573ddc772fa |
 > | [Editor de Métricas de Monitorização](#monitoring-metrics-publisher) | Permite a publicação de métricas contra recursos Azure | 3913510d-42f4-4e42-8a64-420c39005eb |
 > | [Leitor de Monitorização](#monitoring-reader) | Pode ler todos os dados de monitorização (métricas, registos, etc.). Ver também [Começar com funções, permissões e segurança com o Monitor Azure.](https://docs.microsoft.com/azure/azure-monitor/platform/roles-permissions-security#built-in-monitoring-roles) | 43d0d8ad-25c7-4714-9337-8ba259a9fe05 |
@@ -6144,7 +6144,7 @@ Pode gerir componentes de Insights de Aplicação
 
 ### <a name="application-insights-snapshot-debugger"></a>Insights de aplicação Snapshot Debugger
 
-Dá permissão ao utilizador para visualizar e descarregar imagens de depuração recolhidas com o Debugger Snapshot Debugger da Aplicação Insights. Note que estas permissões não estão incluídas nas funções [de Proprietário](#owner) ou [Colaborador.](#contributor)
+Dá permissão ao utilizador para visualizar e descarregar imagens de depuração recolhidas com o Debugger Snapshot Debugger da Aplicação Insights. Note que estas permissões não estão incluídas nas funções [de Proprietário](#owner) ou [Colaborador.](#contributor) Ao atribuir aos utilizadores a função Debugger Snapshot Debugger de Insights de Aplicação, deve conceder o papel diretamente ao utilizador. O papel não é reconhecido quando é adicionado a um papel personalizado. 
 
 > [!div class="mx-tableFixed"]
 > |  |  |

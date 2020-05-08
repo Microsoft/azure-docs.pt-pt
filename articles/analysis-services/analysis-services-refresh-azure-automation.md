@@ -6,12 +6,12 @@ ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: chlound
-ms.openlocfilehash: a79123d57f80474e1871ef68f9a92ea9417089ac
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: MT
+ms.openlocfilehash: 7908b168adcaa00819990d7ced04ba4888d67d63
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73572359"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871310"
 ---
 # <a name="refresh-with-azure-automation"></a>Atualizar com a Automatização do Azure
 
@@ -173,7 +173,7 @@ Uma Máquina Virtual Azure com um endereço IP público estático pode ser usada
 > [!IMPORTANT]
 > Certifique-se de que o endereço IP público da Máquina Virtual está configurado como estático.
 >
->Para saber mais sobre a configuração dos Trabalhadores Híbridos da Automação Azure, consulte [os recursos automate no seu datacenter ou nuvem utilizando o Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md#install-a-hybrid-runbook-worker).
+>Para saber mais sobre a configuração dos Trabalhadores Híbridos da Automação Azure, consulte a [instalação hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md#hybrid-runbook-worker-installation).
 
 Uma vez configurado um Trabalhador Híbrido, crie um Webhook conforme descrito na secção [Consumir com Fábrica](#consume-with-data-factory)de Dados .  A única diferença aqui é selecionar a opção **Executar no** > **Trabalhador Híbrido** ao configurar o Webhook.
 

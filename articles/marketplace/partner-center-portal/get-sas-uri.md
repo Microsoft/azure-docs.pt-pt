@@ -1,18 +1,18 @@
 ---
-title: Obtenha assinatura de acesso partilhado URI para a sua imagem VM / Mercado Azure
-description: Este artigo explica como obter a assinatura de acesso partilhado (SAS) URI para cada disco rígido virtual (VHD).
+title: Assinatura de acesso partilhado URI para imagens VM - Azure Marketplace
+description: Gere uma assinatura de acesso partilhado (SAS) URI para os seus discos rígidos virtuais (VHD) no Azure Marketplace.
 author: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mingshen
-ms.openlocfilehash: c226d35647e4a5a2b1d583dd6328bfb73dae2a1c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b521a3a035044e2f0c1b625df19d265cfa35b49a
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81732645"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857938"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>Obtenha assinatura de acesso partilhado URI para a sua imagem VM
 

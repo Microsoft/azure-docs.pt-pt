@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 04/17/2020
-ms.openlocfilehash: 6cf89790ee125d8d09d9bdead2f6e34dcb73e8f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5e4f811d39c75742f11c52de5c178fbf4063000d
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188128"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864645"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Empregos de experimentação e inferência secure Azure ML dentro de uma Rede Virtual Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -359,7 +359,7 @@ Para utilizar uma máquina virtual ou um cluster Azure HDInsight numa rede virtu
 Para adicionar AKS numa rede virtual ao seu espaço de trabalho, use os seguintes passos:
 
 > [!IMPORTANT]
-> Antes de iniciar o seguinte procedimento, siga os pré-requisitos no [sistema de rede avançado Configure no Serviço Azure Kubernetes (AKS)](https://docs.microsoft.com/azure/aks/configure-advanced-networking#prerequisites) como e planeie o endereço IP para o seu cluster.
+> Antes de iniciar o seguinte procedimento, siga os pré-requisitos no [sistema de rede avançado Configure no Serviço Azure Kubernetes (AKS)](https://docs.microsoft.com/azure/aks/configure-azure-cni#prerequisites) como e planeie o endereço IP para o seu cluster.
 >
 > A instância AKS e a rede virtual Azure devem estar na mesma região. Se proteger a conta de armazenamento Azure(s) utilizada pelo espaço de trabalho numa rede virtual, devem estar na mesma rede virtual que a instância AKS.
 
@@ -506,7 +506,7 @@ Para utilizar o ACI numa rede virtual para o seu espaço de trabalho, utilize os
 
 
 
-## <a name="use-azure-firewall"></a>Utilizar firewall Azure
+## <a name="use-azure-firewall"></a>Utilizar o Azure Firewall
 
 Para obter informações sobre a utilização de Machine Learning Azure com firewall Azure, consulte [Use Azure Machine Learning espaço de trabalho atrás do Azure Firewall](how-to-access-azureml-behind-firewall.md).
 
@@ -557,7 +557,7 @@ Para obter informações sobre a utilização de Machine Learning Azure com fire
     
     Para mais informações, consulte a referência do método [de atualização()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-)
 
-1. Se estiver a utilizar o Private Link para o seu espaço de trabalho de Aprendizagem automática Azure e colocar o Registo de Contentores Azure para o seu espaço de trabalho numa rede virtual, também deve aplicar o seguinte modelo de Gestor de Recursos Azure. Este modelo permite que o seu espaço de trabalho se comunique com a ACR através do Link Privado.
+1. Deve aplicar o seguinte modelo de Gestor de Recursos Azure. Este modelo permite que o seu espaço de trabalho se comunique com a ACR.
 
     ```json
     {

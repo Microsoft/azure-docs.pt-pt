@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
-ms.date: 04/23/2020
-ms.openlocfilehash: 64fe56ff506cf256dd7e317984551949f9ffad06
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/29/2020
+ms.openlocfilehash: 2dae0f662eefa7f7b1f56d057cd47f1cb92244ce
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189369"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82592065"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Clusters Scale Azure HDInsight
 
@@ -74,27 +74,38 @@ O impacto da alteração do número de nós de dados varia para cada tipo de clu
 
 * Apache Storm
 
-    Pode adicionar ou remover os nódosos de dados enquanto a Tempestade está em execução. No entanto, após uma conclusão bem sucedida da operação de escala, terá de reequilibrar a topologia.
-
-    O reequilíbrio pode ser realizado de duas formas:
+    Pode adicionar ou remover os nódosos de dados enquanto a Tempestade está em execução. No entanto, após uma conclusão bem sucedida da operação de escala, terá de reequilibrar a topologia. O reequilíbrio permite que a topologia reajuste as definições de [paralelismo](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) com base no novo número de nós no cluster. Para reequilibrar as topoologias de execução, utilize uma das seguintes opções:
 
   * UI web tempestade
+
+    Utilize os seguintes passos para reequilibrar uma topologia utilizando a Tempestade UI.
+
+    1. Abra `https://CLUSTERNAME.azurehdinsight.net/stormui` no seu navegador `CLUSTERNAME` web, onde está o nome do seu cluster Storm. Se solicitado, introduza o nome e a palavra-passe do administrador do cluster HDInsight (administrador) especificado ao criar o cluster.
+
+    1. Selecione a topologia que deseja reequilibrar e, em seguida, selecione o botão **Reequilibrar.** Introduza o atraso antes de a operação de reequilíbrio estar pronta.
+
+        ![Reequilíbrio da escala de tempestade HDInsight](./media/hdinsight-scaling-best-practices/hdinsight-portal-scale-cluster-storm-rebalance.png)
+
   * Ferramenta de interface de linha de comando (CLI)
 
-    Para mais informações, consulte a documentação da [Tempestade Apache.](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)
+    Ligue-se ao servidor e utilize o seguinte comando para reequilibrar uma topologia:
 
-    O UI web storm está disponível no cluster HDInsight:
+    ```bash
+     storm rebalance TOPOLOGYNAME
+    ```
 
-    ![Reequilíbrio da escala de tempestade HDInsight](./media/hdinsight-scaling-best-practices/hdinsight-portal-scale-cluster-storm-rebalance.png)
+    Também pode especificar parâmetros para anular as dicas de paralelismo originalmente fornecidas pela topologia. Por exemplo, o código `mytopology` abaixo reconfigura a topologia a 5 processos de trabalhadores, 3 executores para o componente de bico azul e 10 executores para o componente de parafusoamarelo.
 
-    Aqui está um exemplo de comando CLI para reequilibrar a topologia da tempestade:
-
-    ```console
+    ```bash
     ## Reconfigure the topology "mytopology" to use 5 worker processes,
     ## the spout "blue-spout" to use 3 executors, and
     ## the bolt "yellow-bolt" to use 10 executors
     $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
     ```
+
+* Kafka
+
+    Deve reequilibrar as réplicas da partição após operações de escala. Para mais informações, consulte a alta disponibilidade de dados com Apache Kafka no documento [HDInsight.](./kafka/apache-kafka-high-availability.md)
 
 ## <a name="how-to-safely-scale-down-a-cluster"></a>Como escalar com segurança um aglomerado
 
@@ -252,3 +263,8 @@ Os servidores da região são automaticamente equilibrados dentro de alguns minu
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Escala automaticamente os clusters Azure HDInsight](hdinsight-autoscale-clusters.md)
+
+Para obter informações específicas sobre a escala do seu cluster HDInsight, consulte:
+
+* [Gerir os clusters Apache Hadoop em HDInsight utilizando o portal Azure](hdinsight-administer-use-portal-linux.md#scale-clusters)
+* [Gerir os clusters Apache Hadoop em HDInsight utilizando o Azure CLI](hdinsight-administer-use-command-line.md#scale-clusters)

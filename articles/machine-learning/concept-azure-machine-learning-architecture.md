@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 03/17/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: 9f1d23f11cf73680a8861c9f1ac6cbd40ad497a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e70401bbaa97920163f3c7e76e32b9b9be2f5e72
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81257339"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871459"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Como funciona o Azure Machine Learning: Arquitetura e conceitos
 
@@ -119,7 +119,7 @@ Por exemplo, executar configurações, consulte [Select e use um alvo de cálcul
 Quando submete uma execução, o Azure Machine Learning comprime o diretório que contém o script como ficheiro zip e envia-o para o alvo da computação. O ficheiro zip é então extraído, e o script é executado lá. O Azure Machine Learning também armazena o ficheiro zip como instantâneo como parte do registo de execução. Qualquer pessoa com acesso ao espaço de trabalho pode navegar num registo de execução e descarregar o instantâneo.
 
 > [!NOTE]
-> Para evitar que ficheiros desnecessários sejam incluídos no instantâneo, faça um ficheiro de ignorar (.gitignore ou .amlignore). Coloque este ficheiro no diretório Snapshot e adicione os nomes de ficheiros para ignorar nele. O ficheiro .amlignore utiliza a mesma [sintaxe e padrões que o ficheiro .gitignore](https://git-scm.com/docs/gitignore). Se ambos os ficheiros existirem, o ficheiro .amlignore tem precedência.
+> [!INCLUDE [amlinclude-info](../../includes/machine-learning-amlignore-gitignore.md)]
 
 ### <a name="github-tracking-and-integration"></a>Rastreio e integração gitHub
 
@@ -224,7 +224,7 @@ Os Conjuntos de Dados de **Aprendizagem Automática Azure** (pré-visualização
 
 Os conjuntos de dados fornecem métodos para trabalhar `from_delimited_files()` `to_pandas_dataframe()`com dados em formatos populares, tais como a utilização ou .
 
-Para mais informações, consulte Criar e registar Conjuntos de Dados de [Aprendizagem Automática Azure](how-to-create-register-datasets.md).  Para mais exemplos utilizando conjuntos de dados, consulte os [cadernos de amostras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/datasets).
+Para mais informações, consulte Criar e registar Conjuntos de Dados de [Aprendizagem Automática Azure](how-to-create-register-datasets.md).  Para mais exemplos utilizando conjuntos de dados, consulte os [cadernos de amostras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/datasets-tutorial).
 
 Uma loja de **dados** é uma abstração de armazenamento sobre uma conta de armazenamento Azure. A loja de dados pode utilizar um recipiente de blob Azure ou uma partilha de ficheiros Azure como armazenamento final. Cada espaço de trabalho tem uma loja de dados padrão, e pode registar reservas adicionais de dados. Utilize o Python SDK API ou o Azure Machine Learning CLI para armazenar e recuperar ficheiros da loja de dados.
 
