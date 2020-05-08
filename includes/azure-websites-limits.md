@@ -4,12 +4,12 @@ ms.service: cost-management-billing
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: jroth
-ms.openlocfilehash: 505e2d8eec20853fba3743b40cbe289585d14d61
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: af0f7ef04ce746c502a8ddf7b0d3971f13a42484
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78305068"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82844543"
 ---
 | Recurso | Gratuito | Partilhado | Básico | Standard | Premium (v2) | Isolado </th> |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -17,7 +17,7 @@ ms.locfileid: "78305068"
 | [Plano de serviço de aplicações](../articles/app-service/overview-hosting-plans.md) |10 por região |10 por grupo de recursos |100 por grupo de recursos |100 por grupo de recursos |100 por grupo de recursos |100 por grupo de recursos|
 | Tipo de instância computacional |Partilhado |Partilhado |Dedicado<sup>3</sup> |Dedicado<sup>3</sup> |Dedicado<sup>3</sup></p> |Dedicado<sup>3</sup>|
 | [Escala para fora](../articles/app-service/manage-scale-up.md) (instâncias máximas) |1 partilhado |1 partilhado |3<sup>dedicado3</sup> |10<sup>dedicados 3</sup> |30<sup>dedicados 3</sup>|100<sup>dedicados 4</sup>|
-| Armazenamento<sup>5</sup> |1 GB<sup>5</sup> |1 GB<sup>5</sup> |10 GB<sup>5</sup> |50 GB<sup>5</sup> |250 GB<sup>5</sup></p> |1 TB<sup>5</sup>|
+| Armazenamento<sup>5</sup> |1 GB<sup>5</sup> |1 GB<sup>5</sup> |10 GB<sup>5</sup> |50 GB<sup>5</sup> |250 GB<sup>5</sup> <br/><br/> Para mais de 250 GB, submeta um pedido de apoio. |1 TB<sup>5</sup> <br/><br/> A quota de armazenamento disponível é de 999 GB. |
 | Tempo de CPU (5 minutos)<sup>6</sup> |3 minutos |3 minutos |Ilimitado, pague a [taxas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a> |Ilimitado, pague a [taxas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a> |Ilimitado, pague a [taxas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a> |Ilimitado, pague a [taxas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a>|
 | Hora do CPU (dia)<sup>6</sup> |60 minutos |240 minutos |Ilimitado, pague a [taxas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a> |Ilimitado, pague a [taxas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a> |Ilimitado, pague a [taxas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a> |Ilimitado, pague a [taxas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a> |
 | Memória (1 hora) |1.024 MB por plano de serviço de aplicações |1.024 MB por app |N/D |N/D |N/D |N/D |

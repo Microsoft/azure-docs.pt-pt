@@ -3,19 +3,19 @@ title: Como cumprir comandos de um cliente com o SDK de Fala
 titleSuffix: Azure Cognitive Services
 description: Neste artigo, explicamos como lidar com atividades de Comandos Personalizados num cliente com o Speech SDK.
 services: cognitive-services
-author: don-d-kim
-manager: yetian
+author: trevorbye
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/12/2020
-ms.author: donkim
-ms.openlocfilehash: e109955774722da7f55defe1417de35ff202cce8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/04/2020
+ms.author: trbye
+ms.openlocfilehash: f11f5f3c2ad4c9f0241d34edeb664f739f88d15c
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79367754"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871795"
 ---
 # <a name="fulfill-commands-from-a-client-with-the-speech-sdk-preview"></a>Cumprir comandos de um cliente com o SDK de Fala (Pré-visualização)
 
@@ -27,14 +27,11 @@ Neste artigo, vai:
 - Receba e visualize os conteúdos de carga útil personalizados da JSON a partir de uma aplicação de cliente C# UWP Speech SDK
 
 ## <a name="prerequisites"></a>Pré-requisitos
-
-- [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-- Uma chave de subscrição Azure para o serviço de Fala
-  - [Obtenha um de graça](get-started.md) ou crie-o no [portal Azure](https://portal.azure.com)
-- Uma aplicação de Comandos Personalizados previamente criada
-  - [Quickstart: Criar um comando personalizado com parâmetros (pré-visualização)](./quickstart-custom-speech-commands-create-parameters.md)
-- Uma aplicação de clientes ativada por SDK de Fala
-  - [Quickstart: Ligue-se a uma aplicação de comando personalizado com o SDK de Fala (Pré-visualização)](./quickstart-custom-speech-commands-speech-sdk.md)
+> [!div class = "checklist"]
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
+> * Chave de subscrição Azure para o serviço de Fala: [Obtenha uma gratuitamente](get-started.md) ou crie-a no [portal Azure](https://portal.azure.com)
+> * Uma aplicação de comandos personalizados previamente criada: [Quickstart: Criar um Comando Personalizado com Parâmetros (Pré-visualização)](./quickstart-custom-speech-commands-create-parameters.md)
+> * Aplicação ativada por SDK de Discurso: [Quickstart: Ligue-se a uma aplicação de comando personalizado com o SDK de Fala (Pré-visualização)](./quickstart-custom-speech-commands-speech-sdk.md)
 
 ## <a name="optional-get-started-fast"></a>Opcional: Começar rápido
 
@@ -42,7 +39,7 @@ Este artigo descreve, passo a passo, como fazer uma aplicação de cliente para 
 
 ## <a name="fulfill-with-json-payload"></a>Cumprir com a carga útil da JSON
 
-1. Abra a sua aplicação de Comandos Personalizados previamente criada do Estúdio de [Discurso](https://speech.microsoft.com/)
+1. Abra a aplicação Comandos Personalizados que criou anteriormente a partir de [Quickstarts: Criar um comando personalizado com parâmetros](./quickstart-custom-speech-commands-create-parameters.md)
 1. Consulte a secção **Regras de Conclusão** para se certificar de que tem a regra previamente criada que responde ao utilizador
 1. Para enviar uma carga diretamente ao cliente, crie uma nova regra com uma ação de Atividade de Envio
 
@@ -53,11 +50,9 @@ Este artigo descreve, passo a passo, como fazer uma aplicação de cliente para 
    | ------- | --------------- | ----------- |
    | Nome da Regra | UpdateDeviceState | Um nome que descreve o propósito da regra |
    | Condições | Parâmetro necessário - `OnOff` e`SubjectDevice` | Condições que determinam quando a regra pode ser executada |
-   | Ações | `SendActivity`(ver abaixo) | A ação a tomar quando a condição da regra é verdadeira |
+   | Actions (Ações) | `SendActivity`(ver abaixo) | A ação a tomar quando a condição da regra é verdadeira |
 
-   > [!div class="mx-imgBorder"]
-   > ![Enviar carga útil da Atividade](media/custom-speech-commands/fulfill-sdk-send-activity-action.png)
-
+1. Copiar o JSON abaixo para **o conteúdo de atividade**
    ```json
    {
      "type": "event",
@@ -66,12 +61,14 @@ Este artigo descreve, passo a passo, como fazer uma aplicação de cliente para 
      "device": "{SubjectDevice}"
    }
    ```
+   > [!div class="mx-imgBorder"]
+   > ![Enviar carga útil da Atividade](media/custom-speech-commands/fulfill-sdk-send-activity-action.png)
 
 ## <a name="create-visuals-for-device-on-or-off-state"></a>Criar visuais para dispositivo dentro ou fora do estado
 
-Em [Quickstart: Ligue-se a uma aplicação de Comando Personalizado com o SDK de Fala (Pré-visualização)](./quickstart-custom-speech-commands-speech-sdk.md) criou uma aplicação de cliente SDK de Discurso que lidou com comandos como `turn on the tv`, `turn off the fan`. Adicione alguns visuais para que possa ver o resultado desses comandos.
+Em [Quickstart: Connect to a Custom Command application with the Speech SDK,](./quickstart-custom-speech-commands-speech-sdk.md)you created `turn on the tv`a `turn off the fan`Speech SDK client application that handled commands tais como , . Com alguns visuais adicionados, pode ver o resultado desses comandos.
 
-Adicione caixas etiquetadas com texto indicando **On** ou **Off** utilizando o seguinte XML adicionado a`MainPage.xaml.cs`
+Adicione caixas etiquetadas com texto indicando **On** ou **Off** utilizando o seguinte XML adicionado a`MainPage.xaml`
 
 ```xml
 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
@@ -91,13 +88,23 @@ Adicione caixas etiquetadas com texto indicando **On** ou **Off** utilizando o s
 ```
 
 ## <a name="handle-customizable-payload"></a>Manusear carga útil personalizável
+### <a name="add-reference-libraries"></a>Adicionar bibliotecas de referência
 
-Agora que criou uma carga útil JSON, pode adicionar uma referência à biblioteca [JSON.NET](https://www.newtonsoft.com/json) para lidar com a desserialização.
+Uma vez que criou uma carga útil JSON, precisa adicionar uma referência à biblioteca [JSON.NET](https://www.newtonsoft.com/json) para lidar com a desserialização.
+- Cliente direito a sua solução.
+- Escolha **gerir pacotes NuGet para solução,** selecione **instalar** 
+- Procure **newtonsoft.json** na lista de atualizações, Update **Microsoft.NETCore.UniversalWindowsPlatform** para a versão mais recente
 
 > [!div class="mx-imgBorder"]
 > ![Enviar carga útil da Atividade](media/custom-speech-commands/fulfill-sdk-json-nuget.png)
 
-Adicione `InitializeDialogServiceConnector` o seguinte `ActivityReceived` ao seu manipulador de eventos. O código adicional extrairá a carga útil da atividade e alterará o estado visual da televisão ou do ventilador em conformidade.
+Em 'MainPage.xaml.cs', adicione
+- `using Newtonsoft.Json;` 
+- `using Windows.ApplicationModel.Core;`
+
+### <a name="handle-received-payload"></a>Cabo recebido carga
+
+Em `InitializeDialogServiceConnector`, `ActivityReceived` substitua o manipulador de eventos por um código seguinte. O manipulador `ActivityReceived` de eventos modificado sairá da carga útil da atividade e alterará o estado visual da televisão ou ventilador em conformidade.
 
 ```C#
 connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
@@ -105,22 +112,33 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
     NotifyUser($"Activity received, hasAudio={activityReceivedEventArgs.HasAudio} activity={activityReceivedEventArgs.Activity}");
 
     dynamic activity = JsonConvert.DeserializeObject(activityReceivedEventArgs.Activity);
+    var name = activity?.name != null ? activity.name.ToString() : string.Empty;
 
-    if(activity?.name == "SetDeviceState")
+    if (name.Equals("UpdateDeviceState"))
     {
-        var state = activity?.state;
-        var device = activity?.device;
-        switch(device)
+        Debug.WriteLine("Here");
+        var state = activity?.device != null ? activity.state.ToString() : string.Empty;
+        var device = activity?.device != null ? activity.device.ToString() : string.Empty;
+
+        if (state.Equals("on") || state.Equals("off"))
         {
-            case "tv":
-                State_TV.Text = state;
-                break;
-            case "fan":
-                State_Fan.Text = state;
-                break;
-            default:
-                NotifyUser($"Received request to set unsupported device {device} to {state}");
-                break;
+            switch (device)
+            {
+                case "tv":
+                    await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(
+                        CoreDispatcherPriority.Normal, () => { State_TV.Text = state; });
+                    break;
+                case "fan":
+                    await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(
+                        CoreDispatcherPriority.Normal, () => { State_Fan.Text = state; });
+                    break;
+                default:
+                    NotifyUser($"Received request to set unsupported device {device} to {state}");
+                    break;
+            }
+        }
+        else { 
+            NotifyUser($"Received request to set unsupported state {state}");
         }
     }
 
@@ -138,6 +156,8 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
 1. Selecione o botão Falar
 1. Dizer`turn on the tv`
 1. O estado visual da televisão deve mudar para "On"
+   > [!div class="mx-imgBorder"]
+   > ![Enviar carga útil da Atividade](media/custom-speech-commands/fulfill-sdk-turn-on-tv.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

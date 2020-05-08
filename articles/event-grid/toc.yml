@@ -8,8 +8,6 @@
       href: overview.md
     - name: Comparar serviços de mensagens
       href: compare-messaging-services.md
-    - name: Escalões premium vs. básicos
-      href: premium-basic-tiers.md
 - name: Guias de Início Rápido
   expanded: true
   items:
@@ -149,6 +147,8 @@
           href: event-filtering.md
         - name: Entrega e tentativa
           href: delivery-and-retry.md
+        - name: Entrega de eventos de webhook
+          href: webhook-event-delivery.md
     - name: Recuperação após desastre
       items:
         - name: Recuperação após desastre geográfica
@@ -161,20 +161,18 @@
           href: security-authorization.md
         - name: Segurança da rede
           href: network-security.md
+    - name: Monitorizar e resolver problemas
+      items:
+        - name: Registos de diagnósticos
+          href: diagnostic-logs.md
+        - name: Métricas
+          href: metrics.md
 - name: Guias de procedimentos
   items:
-    - name: Configurar pontos finais privados (pré-visualização)
-      href: configure-private-endpoints.md
-    - name: Configurar firewall do IP (pré-visualização)
-      href: configure-firewall.md
-    - name: Atualizar escalão de preço
-      href: update-tier.md
     - name: Publicar em tópico personalizado
       href: post-to-custom-topic.md
     - name: Receber eventos num ponto final de HTTP
       href: receive-events.md
-    - name: Proteger o WebHook com o AAD
-      href: secure-webhook-delivery.md
     - name: Mensagens não entregues e tentar novamente
       href: manage-event-delivery.md
     - name: Filtrar eventos
@@ -191,12 +189,24 @@
       href: how-to-event-domains.md
     - name: Implementar aplicação pós-falha do lado do cliente
       href: custom-disaster-recovery.md
+    - name: Controlar operações REST assíncronas
+      href: ../azure-resource-manager/management/async-operations.md?toc=%2fazure%2fevent-grid%2ftoc.json
+    - name: Proteger
+      items:
+        - name: Configurar pontos finais privados (pré-visualização)
+          href: configure-private-endpoints.md
+        - name: Configurar firewall do IP (pré-visualização)
+          href: configure-firewall.md
+        - name: Proteger o WebHook com o AAD
+          href: secure-webhook-delivery.md
     - name: Resolução de problemas
       items:
-        - name: Ativar registos de diagnóstico para um tópico
+        - name: Ativar registos de diagnóstico
           href: enable-diagnostic-logs-topic.md
         - name: Resolver erros
           href: troubleshoot-errors.md
+        - name: Resolver problemas de validação de subscrições
+          href: troubleshoot-subscription-validation.md
         - name: Monitorize a entrega de eventos
           href: monitor-event-delivery.md
 - name: Referência

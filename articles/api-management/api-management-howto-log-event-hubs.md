@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: 2f67079938ddcf4a65e01ef50ab7e5cdf7078b73
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0d122a56035e58bd5065da8fde56246da6478d54
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81260943"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871270"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Como registar eventos para hubs de eventos Azure na Gestão da API Azure
 Os Event Hubs do Azure são um serviço de entrada de dados altamente dimensionável, que pode ingerir milhões de eventos por segundo para que possa processar e analisar os quantidades enormes de dados produzidos pelos dispositivos e aplicações ligados. O Event Hubs funciona como a "porta da frente" para um oleoduto de eventos, e uma vez recolhidos dados num centro de eventos, pode ser transformado e armazenado usando qualquer fornecedor de análise em tempo real ou adaptadores de lotação/armazenamento. Os Event Hubs desacoplam a produção de um fluxo de eventos do consumo desses eventos, para que os consumidores de eventos possam aceder aos eventos de acordo com seu próprio agendamento.
@@ -34,9 +34,9 @@ Agora que tem um Hub de Eventos, o próximo passo é configurar um [Logger](http
 
 Os madeireiros de gestão da API são configurados utilizando a [API Management REST API](https://aka.ms/apimapi). Para exemplos de pedidos detalhados, consulte [como criar Maders](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger/createorupdate).
 
-## <a name="configure-log-to-eventhubs-policies"></a>Configure as políticas de log-to-eventhubs
+## <a name="configure-log-to-eventhub-policies"></a>Configure as políticas de log-to-eventhub
 
-Assim que o seu logger estiver configurado na Gestão API, pode configurar as suas políticas de log-to-eventhubs para registar os eventos desejados. A política de log-to-eventhubs pode ser utilizada na secção política de entrada ou na secção política de saída.
+Assim que o seu logger estiver configurado na Gestão API, pode configurar a sua política de log-to-eventhub para registar os eventos desejados. A política de log-to-eventhub pode ser utilizada na secção política de entrada ou na secção política de saída.
 
 1. Navegue até à sua instância APIM.
 2. Selecione o separador API.
@@ -49,15 +49,32 @@ Assim que o seu logger estiver configurado na Gestão API, pode configurar as su
 9. Na janela à direita, selecione **Políticas Avançadas** > **Faça log to EventHub**. Isto insere o modelo de `log-to-eventhub` declaração de política.
 
 ```xml
-<log-to-eventhub logger-id ='logger-id'>
-  @( string.Join(",", DateTime.UtcNow, context.Deployment.ServiceName, context.RequestId, context.Request.IpAddress, context.Operation.Name))
+<log-to-eventhub logger-id="logger-id">
+    @{
+        return new JObject(
+            new JProperty("EventTime", DateTime.UtcNow.ToString()),
+            new JProperty("ServiceName", context.Deployment.ServiceName),
+            new JProperty("RequestId", context.RequestId),
+            new JProperty("RequestIp", context.Request.IpAddress),
+            new JProperty("OperationName", context.Operation.Name)
+        ).ToString();
+    }
 </log-to-eventhub>
 ```
-Substitua-a `logger-id` pelo `{new logger name}` valor utilizado no URL para criar o madeireiro no passo anterior.
+Substitua `logger-id` pelo valor `{loggerId}` utilizado no URL de pedido para criar o madeireiro no passo anterior.
 
-Pode usar qualquer expressão que retorne uma `log-to-eventhub` corda como valor para o elemento. Neste exemplo, é registada uma cadeia que contenha a data e a hora, nome do serviço, id de pedido, endereço IP de pedido e nome de operação.
+Pode usar qualquer expressão que retorne uma `log-to-eventhub` corda como valor para o elemento. Neste exemplo, é registada uma cadeia em formato JSON contendo a data e hora, nome do serviço, id de pedido, endereço IP de pedido e nome de operação.
 
 Clique em **Guardar** para salvar a configuração de política atualizada. Assim que é salva, a política está ativa e os eventos são registados no centro de eventos designado.
+
+## <a name="preview-the-log-in-event-hubs-by-using-azure-stream-analytics"></a>Pré-visualizar o log in Event Hubs utilizando o Azure Stream Analytics
+
+Pode pré-visualizar o log in Event Hubs utilizando consultas de Análise de Fluxo de [Azure](https://docs.microsoft.com/azure/event-hubs/process-data-azure-stream-analytics). 
+
+1. No portal Azure, navegue até ao centro de eventos para o que o madeireiro envia eventos. 
+2. Em **Funções**, selecione o separador de dados do **Processo.**
+3. No Enable insights em tempo real do cartão **de eventos,** selecione **Explore**.
+4. Deverá ser possível visualizar o log no separador **de pré-visualização de entrada.** Se os dados mostrados não estiverem atuais, selecione **Refresh** para ver os eventos mais recentes.
 
 ## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre os Hubs de Eventos Azure

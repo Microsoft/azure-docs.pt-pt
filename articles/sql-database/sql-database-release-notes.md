@@ -7,14 +7,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/28/2020
+ms.date: 05/04/2020
 ms.author: sstein
-ms.openlocfilehash: c3dc5b26435f6d876e5eaea943e359055018913b
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
-ms.translationtype: MT
+ms.openlocfilehash: aa8d1634c015f338053a4d167db34ef0b5a83505
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82201317"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801693"
 ---
 # <a name="sql-database-release-notes"></a>Notas de lançamento da Base de Dados SQL
 
@@ -78,30 +78,35 @@ As seguintes funcionalidades estão ativadas no modelo de implementação de ins
 
 |Problema  |Data descoberta  |Estado  |Data resolvida  |
 |---------|---------|---------|---------|
-|[Permissões em grupo de recursos não aplicadas à Instância Gerida](#permissions-on-resource-group-not-applied-to-managed-instance)|Fev 2020|Tem Sem-teto||
-|[Limitação da falha manual via portal para grupos de failover](#limitation-of-manual-failover-via-portal-for-failover-groups)|Jan 2020|Tem Sem-teto||
-|[As funções do Agente SQL precisam de permissões de EXECUÇÃ explícitas para logins não-sysadmin](#in-memory-oltp-memory-limits-are-not-applied)|Dez 2019|Tem Sem-teto||
+|[Agente torna-se insensível ao modificar, desativar ou permitir empregos existentes](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|maio de 2020|Atenuado automaticamente| |
+|[Permissões em grupo de recursos não aplicadas à Instância Gerida](#permissions-on-resource-group-not-applied-to-managed-instance)|Fev 2020|Tem Sem-teto| |
+|[Limitação da falha manual via portal para grupos de failover](#limitation-of-manual-failover-via-portal-for-failover-groups)|Jan 2020|Tem Sem-teto| |
+|[As funções do Agente SQL precisam de permissões de EXECUÇÃ explícitas para logins não-sysadmin](#in-memory-oltp-memory-limits-are-not-applied)|Dez 2019|Tem Sem-teto| |
 |[Os trabalhos do Agente SQL podem ser interrompidos pelo reinício do processo do Agente](#sql-agent-jobs-can-be-interrupted-by-agent-process-restart)|Dez 2019|Resolvido|Mar 2020|
-|[Os logins e utilizadores da AAD não são suportados no SSDT](#aad-logins-and-users-are-not-supported-in-ssdt)|Nov 2019|Sem Sem Suver||
-|[Não são aplicados limites de memória OLTP na memória](#in-memory-oltp-memory-limits-are-not-applied)|Out 2019|Tem Sem-teto||
-|[Erro errado devolvido ao tentar remover um ficheiro que não está vazio](#wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty)|Out 2019|Tem Sem-teto||
-|[Alterar nível de serviço e criar operações de instância são bloqueadas por restauro de base de dados em curso](#change-service-tier-and-create-instance-operations-are-blocked-by-ongoing-database-restore)|Set 2019|Tem Sem-teto||
-|[O Governador de Recursos no nível de serviço Business Critical pode ter de ser reconfigurado após o fracasso](#resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover)|Set 2019|Tem Sem-teto||
-|[Os diálogos do Corretor de Serviços cross-database devem ser reinicializados após a atualização do nível de serviço](#cross-database-service-broker-dialogs-must-be-re-initialized-after-service-tier-upgrade)|Ago 2019|Tem Sem-teto||
-|[A ipersonificação dos tipos de login Azure AD não é suportada](#impersonification-of-azure-ad-login-types-is-not-supported)|Jul 2019|Sem Sem Suver||
-|[@queryparâmetro não suportado em sp_send_db_mail](#-parameter-not-supported-in-sp_send_db_mail)|Abr 2019|Sem Sem Suver||
-|[A replicação transacional deve ser reconfigurada após a geofalha](#transactional-replication-must-be-reconfigured-after-geo-failover)|Mar 2019|Sem Sem Suver||
-|[Base de dados temporária é utilizada durante o funcionamento do RESTAURO](#temporary-database-is-used-during-restore-operation)||Tem Sem-teto||
-|[Estrutura e conteúdo TEMPDB é recriado](#tempdb-structure-and-content-is-re-created)||Sem Sem Suver||
-|[Exceder espaço de armazenamento com pequenos ficheiros de base de dados](#exceeding-storage-space-with-small-database-files)||Tem Sem-teto||
-|[Valores GUIA mostrados em vez de nomes de bases de dados](#guid-values-shown-instead-of-database-names)||Tem Sem-teto||
-|[Os registos de erro não são persistidos](#error-logs-arent-persisted)||Sem Sem Suver||
+|[Os logins e utilizadores da AAD não são suportados no SSDT](#aad-logins-and-users-are-not-supported-in-ssdt)|Nov 2019|Sem Sem Suver| |
+|[Não são aplicados limites de memória OLTP na memória](#in-memory-oltp-memory-limits-are-not-applied)|Out 2019|Tem Sem-teto| |
+|[Erro errado devolvido ao tentar remover um ficheiro que não está vazio](#wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty)|Out 2019|Tem Sem-teto| |
+|[Alterar nível de serviço e criar operações de instância são bloqueadas por restauro de base de dados em curso](#change-service-tier-and-create-instance-operations-are-blocked-by-ongoing-database-restore)|Set 2019|Tem Sem-teto| |
+|[O Governador de Recursos no nível de serviço Business Critical pode ter de ser reconfigurado após o fracasso](#resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover)|Set 2019|Tem Sem-teto| |
+|[Os diálogos do Corretor de Serviços cross-database devem ser reinicializados após a atualização do nível de serviço](#cross-database-service-broker-dialogs-must-be-re-initialized-after-service-tier-upgrade)|Ago 2019|Tem Sem-teto| |
+|[A ipersonificação dos tipos de login Azure AD não é suportada](#impersonification-of-azure-ad-login-types-is-not-supported)|Jul 2019|Sem Sem Suver| |
+|[@queryparâmetro não suportado em sp_send_db_mail](#-parameter-not-supported-in-sp_send_db_mail)|Abr 2019|Sem Sem Suver| |
+|[A replicação transacional deve ser reconfigurada após a geofalha](#transactional-replication-must-be-reconfigured-after-geo-failover)|Mar 2019|Sem Sem Suver| |
+|[Base de dados temporária é utilizada durante o funcionamento do RESTAURO](#temporary-database-is-used-during-restore-operation)||Tem Sem-teto| |
+|[Estrutura e conteúdo TEMPDB é recriado](#tempdb-structure-and-content-is-re-created)||Sem Sem Suver| |
+|[Exceder espaço de armazenamento com pequenos ficheiros de base de dados](#exceeding-storage-space-with-small-database-files)||Tem Sem-teto| |
+|[Valores GUIA mostrados em vez de nomes de bases de dados](#guid-values-shown-instead-of-database-names)||Tem Sem-teto| |
+|[Os registos de erro não são persistidos](#error-logs-arent-persisted)||Sem Sem Suver| |
 |[O âmbito de transação em duas bases de dados dentro da mesma instância não é suportado](#transaction-scope-on-two-databases-within-the-same-instance-isnt-supported)||Tem Sem-teto|Mar 2020|
-|[Módulos CLR e servidores ligados às vezes não conseguem fazer referência a um endereço IP local](#clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address)||Tem Sem-teto||
-|Consistência da base de dados não verificada utilizando o DBCC CHECKDB após restaurar a base de dados do Armazenamento De Blob Azure.||Resolvido|Nov 2019|
-|A restauração da base de dados ponto-a-tempo do nível Business Critical para o nível de Propósito Geral não terá sucesso se a base de dados de origem contiver objetos OLTP na memória.||Resolvido|Out 2019|
-|Recurso de correio de base de dados com servidores de correio externos (não-Azure) utilizando ligação segura||Resolvido|Out 2019|
-|Bases de dados contidas não suportadas em instância gerida||Resolvido|Ago 2019|
+|[Módulos CLR e servidores ligados às vezes não conseguem fazer referência a um endereço IP local](#clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address)||Tem Sem-teto| |
+|Consistência da base de dados não verificada utilizando o DBCC CHECKDB após restaurar a base de dados do Armazenamento De Blob Azure.| |Resolvido|Nov 2019|
+|A restauração da base de dados ponto-a-tempo do nível Business Critical para o nível de Propósito Geral não terá sucesso se a base de dados de origem contiver objetos OLTP na memória.| |Resolvido|Out 2019|
+|Recurso de correio de base de dados com servidores de correio externos (não-Azure) utilizando ligação segura| |Resolvido|Out 2019|
+|Bases de dados contidas não suportadas em instância gerida| |Resolvido|Ago 2019|
+
+### <a name="agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs"></a>Agente torna-se insensível ao modificar, desativar ou permitir empregos existentes
+
+Em certas circunstâncias, modificar um trabalho existente, desativar ou permitir que possa fazer com que o agente fique sem resposta. O problema é automaticamente atenuado após a deteção, resultando no reinício do processo do agente.
 
 ### <a name="permissions-on-resource-group-not-applied-to-managed-instance"></a>Permissões no grupo de recursos não aplicadas a instância gerida
 

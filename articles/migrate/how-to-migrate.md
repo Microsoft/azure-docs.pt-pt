@@ -1,32 +1,21 @@
 ---
 title: Adicione ferramentas de migração em Azure Migrate
 description: Aprenda a adicionar ferramentas de migração em Azure Migrate.
-author: rayne-wiselman
-ms.service: azure-migrate
-ms.manager: carmonm
 ms.topic: article
-ms.date: 11/18/2019
-ms.author: raynew
-ms.openlocfilehash: 6bcb65912627356215769ccc8380ee1a7404f6f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/26/2020
+ms.openlocfilehash: e7d36a642f41b77e3b4c4125bae64f02def3b306
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74185967"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901446"
 ---
 # <a name="add-migration-tools"></a>Adicionar ferramentas de migração
 
 Este artigo descreve como adicionar ferramentas de migração em [Azure Migrate](migrate-overview.md).
 
-A Azure Migrate fornece um centro de ferramentas para avaliação e migração para Azure. Inclui ferramentas nativas, ferramentas fornecidas por outros serviços Azure e ofertas de fornecedores de software independentes de terceiros (ISV).
-
-Se quiser adicionar uma ferramenta de migração e ainda não tiver montado um projeto Azure Migrate, siga este [artigo.](how-to-add-tool-first-time.md)
-
-
-
-## <a name="selecting-an-isv-tool"></a>Selecionar uma ferramenta ISV
-
-Se escolher uma [ferramenta ISV](migrate-services-overview.md#isv-integration) para migração, pode começar por obter uma licença, ou inscrever-se para um teste gratuito, de acordo com a política do ISV. Em cada ferramenta, há uma opção para ligar ao Azure Migrate. Implante a ferramenta e siga as instruções e documentação da ferramenta para ligar o espaço de trabalho da ferramenta com o Azure Migrate. 
+- Se quiser adicionar uma ferramenta de migração e ainda não tiver montado um projeto Azure Migrate, siga este [artigo.](how-to-add-tool-first-time.md)
+- Se adicionou uma ferramenta ISV para migração, [siga os passos,](prepare-isv-movere.md)prepare-se para trabalhar com a ferramenta.
 
 ## <a name="select-a-migration-scenario"></a>Selecione um cenário de migração
 
