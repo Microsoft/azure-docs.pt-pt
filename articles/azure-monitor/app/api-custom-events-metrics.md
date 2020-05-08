@@ -3,12 +3,12 @@ title: Aplicação Insights API para eventos e métricas personalizados / Micros
 description: Insira algumas linhas de código no seu dispositivo ou na aplicação de desktop, página web ou serviço, para rastrear problemas de utilização e diagnóstico.
 ms.topic: conceptual
 ms.date: 03/27/2019
-ms.openlocfilehash: 152bd117ec0ae76c2c85ead26ba5278aa71d582f
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 74ca6d6a13967c2139d3d47dd425b6cb1a3ee31a
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509292"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927943"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API do Application Insights para métricas e eventos personalizados
 
@@ -79,7 +79,7 @@ Private Dim telemetry As New TelemetryClient
 private TelemetryClient telemetry = new TelemetryClient();
 ``` 
 
-*Node.js*
+*Nó.js*
 
 ```javascript
 var telemetry = applicationInsights.defaultClient;
@@ -137,7 +137,7 @@ telemetry.TrackEvent("WinGame")
 telemetry.trackEvent("WinGame");
 ```
 
-*Node.js*
+*Nó.js*
 
 ```javascript
 telemetry.trackEvent({name: "WinGame"});
@@ -193,7 +193,7 @@ telemetryClient.TrackMetric(sample);
 telemetry.trackMetric("queueLength", 42.0);
 ```
 
-*Node.js*
+*Nó.js*
 
  ```javascript
 telemetry.trackMetric({name: "queueLength", value: 42.0});
@@ -399,7 +399,7 @@ catch (ex)
 }
 ```
 
-*Node.js*
+*Nó.js*
 
 ```javascript
 try
@@ -470,7 +470,7 @@ telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
 telemetry.trackTrace(message, SeverityLevel.Warning, properties);
 ```
 
-*Node.js*
+*Nó.js*
 
 ```javascript
 telemetry.trackTrace({
@@ -570,7 +570,7 @@ finally {
 }
 ```
 
-*Node.js*
+*Nó.js*
 
 ```javascript
 var success = false;
@@ -637,7 +637,7 @@ telemetry.flush();
 Thread.sleep(5000);
 ```
 
-*Node.js*
+*Nó.js*
 
 ```javascript
 telemetry.flush();
@@ -649,7 +649,7 @@ Idealmente, o método de descarga () deve ser utilizado na atividade de encerram
 
 ## <a name="authenticated-users"></a>Utilizadores autenticados
 
-Numa aplicação web, os utilizadores são (por padrão) identificados por cookies. Um utilizador pode ser contado mais de uma vez se aceder à sua aplicação a partir de uma máquina ou navegador diferente, ou se apagar cookies.
+Numa aplicação web, os utilizadores são (por padrão) [identificados por cookies](../../azure-monitor/app/usage-segmentation.md#the-users-sessions-and-events-segmentation-tool). Um utilizador pode ser contado mais de uma vez se aceder à sua aplicação a partir de uma máquina ou navegador diferente, ou se apagar cookies.
 
 Se os utilizadores iniciarem sessão na sua aplicação, poderá obter uma contagem mais precisa, definindo o ID do utilizador autenticado no código do navegador:
 
@@ -740,7 +740,7 @@ var metrics = new Dictionary <string, double>
 telemetry.TrackEvent("WinGame", properties, metrics);
 ```
 
-*Node.js*
+*Nó.js*
 
 ```javascript
 // Set up some properties and metrics:
@@ -906,7 +906,7 @@ context.getProperties().put("Game", currentGame.Name);
 gameTelemetry.TrackEvent("WinGame");
 ```
 
-*Node.js*
+*Nó.js*
 
 ```javascript
 var gameTelemetry = new applicationInsights.TelemetryClient();
@@ -953,7 +953,7 @@ telemetry.getConfiguration().setTrackingDisabled(true);
 
 Para *desativar os colecionadores padrão selecionados*-- por exemplo, contadores de desempenho, pedidos HTTP ou dependências -- excluir ou comentar as linhas relevantes em [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Pode fazê-lo, por exemplo, se quiser enviar os seus próprios dados do TrackRequest.
 
-*Node.js*
+*Nó.js*
 
 ```javascript
 telemetry.config.disableAppInsights = true;
@@ -989,7 +989,7 @@ TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = true;
 TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
 ```
 
-*Node.js*
+*Nó.js*
 
 Para node.js, pode ativar o modo `setInternalLogging` de `maxBatchSize` desenvolvimento, permitindo a exploração interna através e a regulação para 0, o que faz com que a sua telemetria seja enviada assim que for recolhida.
 

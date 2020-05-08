@@ -3,46 +3,45 @@ title: Lista de atualizações aplicadas ao Os De hóspedes do Azure [ Microsoft
 description: A lista de atualizações aplicadas aos lançamentos do Guest OS
 services: cloud-services
 documentationcenter: na
-author: raiye
+author: yohaddad
 editor: ''
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
 ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 04/17/2020
-ms.author: raiye
-ms.openlocfilehash: a271eca3c3b6e7cd364f2bc87f2e15006874fa08
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 5/4/2020
+ms.author: yohaddad
+ms.openlocfilehash: e74bccbd7465a8f0e0d2da0a672a88c7d70d666f
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617692"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791566"
 ---
 # <a name="azure-guest-os"></a>Os Convidados Azure
 As tabelas seguintes mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao Os Do Convidado Azure. Procure neste artigo para determinar se uma determinada atualização se aplica ao Sistema operativo convidado que está a utilizar. As atualizações levam sempre para a [família][family-explain] em particular em que foram introduzidas.
 
 ## <a name="april-2020-guest-os"></a>Abril 2020 Guest OS
 
->[!NOTE]
->O Os Convidado de abril está atualmente a ser lançado para VMs do Cloud Service que estão configurados para atualizações automáticas. Quando o lançamento estiver concluído, esta versão será disponibilizada para atualizações manuais através do portal Azure e ficheiros de configuração. Os seguintes patches estão incluídos no Os convidado de abril. Esta lista está sujeita a alterações.
 
 | Product Category (Categoria de Produto) | Artigo KB da mãe | Descrição da vulnerabilidade | SO convidado | Data primeira introduzida |
 | --- | --- | --- | --- | --- |
-|  Rel 20-04  |  [4550965]  |  Segurança do Windows  | 2.97 | Abr 14, 2020 |
-|  Rel 20-04  |  [4550905]  |  Internet Explorer  | 2.97, 3.84, 4.77 | Abr 14, 2020 |
-|  Rel 20-04  |  [4550971]  |  Segurança do Windows  | 3.84 | Abr 14, 2020 |
-|  Rel 20-04  |  [4550970]  |  Segurança do Windows  | 4.77 | Abr 14, 2020 |
-|  Rel 20-04  |  [4550929]  |  Última atualização cumulativa (UCI)  | 5.42 | Abr 14, 2020 |
-|  Rel 20-04  |  [4549949]  |  Última atualização cumulativa (UCI)  | 6.18 | Abr 14, 2020 |
-|  Rel 20-04  |  [4540688]  |  Rollup mensal  | 2.97 | Mar 10, 2020 |
-|  Rel 20-04  |  [4550735]  |  Atualização do Stack de Manutenção  | 2.97 | Mar 10, 2020 |
-|  Rel 20-04  |  [4540726]  |  Atualização do Stack de Manutenção  | 3.84 | Mar 10, 2020 |
-|  Rel 20-04  |  [4541510]  |  Rollup mensal  | 3.84 | Mar 10, 2020 |
-|  Rel 20-04  |  [4541509]  |  Rollup mensal  | 4.77 | Mar 10, 2020 |
-|  Rel 20-04  |  [4540725]  |  Atualização do Stack de Manutenção  | 4.77 | Mar 10, 2020 |
-|  Rel 20-04  |  [4540723]  |  Atualização do Stack de Manutenção  | 5.42 | Mar 10, 2020 |
-|  Rel 20-04  |  [4539571]  |  Atualização do Stack de Manutenção  | 6.18 | Mar 10, 2020 |
+|  Rel 20-04   |  [4550965]  |  Segurança do Windows   |  [2.97]  |  Abr 14, 2020  |
+|  Rel 20-04   |  [4550905]  |  Internet Explorer   |  [2.97,] [3.84], [4.77]  |  Abr 14, 2020  |
+|  Rel 20-04   |  [4550971]  |  Segurança do Windows   |  [3.84]  |  Abr 14, 2020  |
+|  Rel 20-04   |  [4550970]  |  Segurança do Windows   |  [4.77]  |  Abr 14, 2020  |
+|  Rel 20-04   |  [4550929]  |  Última atualização cumulativa (UCI)   |  [5.42]  |  Abr 14, 2020  |
+|  Rel 20-04   |  [4549949]  |  Última atualização cumulativa (UCI)   |  [6.18]  |  Abr 14, 2020  |
+|  Rel 20-04   |  [4540688]  |  Rollup mensal   |  [2.97]  |  Mar 10, 2020  |
+|  Rel 20-04   |  [4550735]  |  Atualização do Stack de Manutenção   |  [2.97]  |  Mar 10, 2020  |
+|  Rel 20-04   |  [4540726]  |  Atualização do Stack de Manutenção   |  [3.84]  |  Mar 10, 2020  |
+|  Rel 20-04   |  [4541510]  |  Rollup mensal   |  [3.84]  |  Mar 10, 2020  |
+|  Rel 20-04   |  [4541509]  |  Rollup mensal   |  [4.77]  |  Mar 10, 2020  |
+|  Rel 20-04   |  [4540725]  |  Atualização do Stack de Manutenção   |  [4.77]  |  Mar 10, 2020  |
+|  Rel 20-04   |  [4540723]  |  Atualização do Stack de Manutenção   |  [5.42]  |  Mar 10, 2020  |
+|  Rel 20-04   |  [4539571]  |  Atualização do Stack de Manutenção   |  [6.18]  |  Mar 10, 2020  |
+
 
 [4550965]: https://support.microsoft.com/kb/4550965
 [4550905]: https://support.microsoft.com/kb/4550905
@@ -58,6 +57,11 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 [4540725]: https://support.microsoft.com/kb/4540725
 [4540723]: https://support.microsoft.com/kb/4540723
 [4539571]: https://support.microsoft.com/kb/4539571
+[2.97]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[3.84]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[4.77]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[5.42]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[6.18]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
 
 
 ## <a name="march-2020-guest-os"></a>Março 2020 Guest OS

@@ -1,18 +1,18 @@
 ---
-title: Gestão de chumbo para a Dynamics 365 Customer Engagement [ Mercado Azure
-description: Configure a gestão de chumbo para o Envolvimento do Cliente Da Dinâmica 365.
+title: Gestão de chumbo para O Envolvimento com clientes da Dynamics 365 - Mercado comercial da Microsoft
+description: Saiba como configurar o Envolvimento do Cliente da Dynamics 365 para gerir os leads do Microsoft AppSource e do Azure Marketplace.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: b9158f7b2e3fc73a2fe2a9b20ead2558b7467f6f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 985b3258eb0b957242d529945f32ed9704a91e7d
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131045"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791005"
 ---
 # <a name="configure-lead-management-for-dynamics-365-customer-engagement"></a>Configure a gestão de chumbo para a Dynamics 365 Customer Engagement
 
@@ -23,12 +23,12 @@ Este artigo descreve como configurar o Envolvimento do Cliente da Dynamics 365 (
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-São necessárias as seguintes permissões de utilizador para completar os passos deste artigo. Precisa:
+São necessárias as seguintes permissões de utilizador para completar os passos deste artigo:
 
-* Seja um administrador na sua instância de Envolvimento com o Cliente Dynamics 365 para poder instalar uma solução e seguir estas instruções.
-* Seja um administrador inquilino para criar uma nova conta de serviço para o serviço de chumbo usado para enviar pistas de ofertas de mercado comercial.
-* Tenha acesso ao portal de administração do Office 365.
-* Tenha acesso ao portal Azure.
+* Direitos de administrador na sua instância de Envolvimento com o Cliente Dynamics 365 para poder instalar uma solução.
+* O administrador dos inquilinos tem direito a criar uma nova conta de serviço para o serviço de chumbo utilizado para enviar pistas de ofertas de mercado comercial.
+* Acesso ao portal de administração do Office 365.
+* Acesso ao portal Azure.
 
 ## <a name="install-the-solution"></a>Instalar a solução
 

@@ -7,24 +7,20 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 6f93e00cb9f840b27578eb9a5b0c6a2cab1ac525
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: c41831f528ae425b35a04503180a956f67762b70
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160550"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82789849"
 ---
 # <a name="lead-management-for-commercial-marketplace"></a>Gestão de chumbo para o mercado comercial
 
-
 Os clientes são o centro de qualquer bom negócio. Na transformação das aquisições de produtos atualmente, os marketers precisam de se concentrar em conectar-se diretamente com os clientes e construir uma relação. É por isso que gerar leads de alta qualidade é uma ferramenta vital para o seu ciclo de vendas. Depois de listar a sua oferta no [Partner Center,](https://partner.microsoft.com/)existem ferramentas habilitadas para que receba programadamente informações de contacto do cliente imediatamente após um cliente expressar interesse ou implementar o seu produto no mercado. 
-
-
 
 ## <a name="what-are-leads-in-the-marketplace"></a>O que são pistas no mercado?
 
 Os leads são de clientes interessados ou implantando os seus produtos no Mercado. Quer o seu produto esteja listado no Azure Marketplace ou no AppSource, poderá receber pistas dos clientes assim que este for configurado corretamente desde o seu CRM até à sua listagem no Partner Center. 
-
 
 ## <a name="how-to-connect-your-crm-system-with-partner-center"></a>Como ligar o seu sistema CRM ao Partner Center
 
@@ -48,7 +44,7 @@ Assim que configurar corretamente o seu destino principal e ter atingido a Publi
 
 Uma vez que a configuração técnica esteja em vigor, deve incorporar estes leads na sua estratégia de marketing & de vendas e processos operacionais. Estamos interessados em compreender melhor o seu processo de vendas global e queremos trabalhar em estreita colaboração consigo para fornecer leads de alta qualidade e dados suficientes para torná-lo bem sucedido. Congratulamo-nos com o seu feedback sobre como podemos otimizar e melhorar as pistas que lhe enviamos com dados adicionais para ajudar a tornar estes clientes bem sucedidos. Informe-nos se está interessado em fornecer feedback e sugestões para permitir que a sua equipa de vendas tenha mais sucesso com o Marketplace Leads.
 
-## <a name="common-lead-configuration-errors-during-publishing-in-partner-center"></a>Erros comuns de configuração de chumbo durante a publicação no Partner Center
+## <a name="common-lead-configuration-errors-during-publishing-in-partner-center"></a><a id="publishing-config-errors"></a>Erros comuns de configuração de chumbo durante a publicação no Partner Center
 
 **Não conseguiu salvar a liderança para a Dynamics CRM. Verifique as definições da conta DeCR MDinâmica. LastCRMError: Incapaz de iniciar sessão na Dynamics CRM, LastCRMException:** 
 

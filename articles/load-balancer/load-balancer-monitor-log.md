@@ -11,19 +11,16 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/27/2018
+ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: 0a21af683d9fa7849d3e96c545983c9f40a8d4c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7563eb4d22048021886925f6864e3616bed83a75
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76935325"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858760"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Registos do Azure Monitor para o Balanceador de Carga Básico público
-
->[!IMPORTANT]
->O Balanceador de Carga do Azure suporta dois tipos diferentes: Básico e Standard. Este artigo aborda o Balanceador de Carga Básico. Para obter mais informações sobre o Standard Load Balancer, consulte a visão geral do [Balancer de Carga Padrão](load-balancer-standard-overview.md) que expõe a telemetria através de métricas multidimensionais no Monitor Azure.
 
 Pode utilizar diferentes tipos de registos em Azure para gerir e resolver problemas os Equilíbrios básicos de carga. Alguns destes registos podem ser acedidos através do portal. Os registos podem ser transmitidos para um centro de eventos ou para um espaço de trabalho log Analytics. Todos os registos podem ser extraídos do armazenamento de blob Azure, e vistos em diferentes ferramentas, como Excel e Power BI.  Pode saber mais sobre os diferentes tipos de registos da lista abaixo.
 
