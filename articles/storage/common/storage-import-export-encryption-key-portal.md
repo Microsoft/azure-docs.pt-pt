@@ -5,15 +5,15 @@ services: storage
 author: alkohli
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/12/2020
+ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: d3e4535c05ef077d14ef74310459a84af0f02fd5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 71426d131cdd46b176c387a31e3dc2ca66ae3761
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176333"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871155"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-importexport-service"></a>Utilize chaves geridas pelo cliente no Cofre chave Azure para serviço de importação/exportação
 
@@ -90,9 +90,8 @@ Configurar a chave gerida pelo cliente para o seu serviço de importação/expor
 
 Na lâmina **de encriptação,** pode ver o cofre da chave e a chave selecionada para a chave gerida pelo cliente.
 
-## <a name="disable-keys"></a>Desativar as chaves
-
-Só pode desativar as chaves geridas pela Microsoft e mudar-se para as chaves geridas pelo cliente em qualquer fase do trabalho de importação/exportação. No entanto, não é possível desativar a chave gerida pelo cliente depois de a ter criado.
+> [!IMPORTANT]
+> Só pode desativar as chaves geridas pela Microsoft e mudar-se para as chaves geridas pelo cliente em qualquer fase do trabalho de importação/exportação. No entanto, não é possível desativar a chave gerida pelo cliente depois de a ter criado.
 
 ## <a name="troubleshoot-customer-managed-key-errors"></a>Problemas geridos pelo cliente erros-chave
 

@@ -1,21 +1,21 @@
 ---
-title: Alterar biblioteca de processadores de feed em Azure Cosmos DB
-description: Saiba como usar a biblioteca de processadores de feed de mudança Azure Cosmos DB para ler o feed de mudança, os componentes do processador de feed de mudança
-author: markjbrown
-ms.author: mjbrown
+title: Processador do feed de alterações no Azure Cosmos DB
+description: Saiba como usar o processador de feed de mudança Azure Cosmos DB para ler o feed de mudança, os componentes do processador de feed de mudança
+author: timsander1
+ms.author: tisande
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 4/29/2020
 ms.reviewer: sngun
-ms.openlocfilehash: e71b2807595aebeb1f0c8682fde119f4e267e55d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d069df0a095cc0356cd61155dde875a5d92ed18d
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78273312"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594156"
 ---
-# <a name="change-feed-processor-in-azure-cosmos-db"></a>Processador do feed de alterações no Azure Cosmos DB 
+# <a name="change-feed-processor-in-azure-cosmos-db"></a>Processador do feed de alterações no Azure Cosmos DB
 
 O processador de feed de mudança faz parte do [Azure Cosmos DB SDK V3](https://github.com/Azure/azure-cosmos-dotnet-v3). Simplifica o processo de leitura do feed de mudança e distribui eficazmente o processamento do evento por vários consumidores.
 
@@ -23,13 +23,13 @@ O principal benefício da biblioteca de processadores de feed de mudança é o s
 
 ## <a name="components-of-the-change-feed-processor"></a>Componentes do processador de alimentos para alterações
 
-Existem quatro componentes principais da implementação do processador de alimentação de mudança: 
+Existem quatro componentes principais da implementação do processador de alimentação de mudança:
 
 1. **O recipiente monitorizado:** O recipiente monitorizado tem os dados a partir dos quais o feed de mudança é gerado. Quaisquer inserções e atualizações do recipiente monitorizado refletem-se na alimentação de alterações do recipiente.
 
-1. **O contentor de aluguer:** O contentor de arrendamento funciona como um armazenamento estatal e coordena o processamento da mudança de alimentos em vários trabalhadores. O contentor de aluguer pode ser armazenado na mesma conta que o recipiente monitorizado ou numa conta separada. 
+1. **O contentor de aluguer:** O contentor de arrendamento funciona como um armazenamento estatal e coordena o processamento da mudança de alimentos em vários trabalhadores. O contentor de aluguer pode ser armazenado na mesma conta que o recipiente monitorizado ou numa conta separada.
 
-1. **O hospedeiro:** Um hospedeiro é uma instância de aplicação que utiliza o processador de feed de mudança para ouvir alterações. Várias instâncias com a mesma configuração de locação podem ser executadas em paralelo, mas cada instância deve ter um nome de **instância**diferente . 
+1. **O hospedeiro:** Um hospedeiro é uma instância de aplicação que utiliza o processador de feed de mudança para ouvir alterações. Várias instâncias com a mesma configuração de locação podem ser executadas em paralelo, mas cada instância deve ter um nome de **instância**diferente .
 
 1. **O delegado:** O delegado é o código que define o que você, o desenvolvedor, quer fazer com cada lote de alterações que o processador de feed de mudança lê. 
 
@@ -65,7 +65,11 @@ O ciclo de vida normal de um hospedeiro é:
 
 ## <a name="error-handling"></a>Processamento de erros
 
-O processador de alimentação de alteração é resiliente a erros de código do utilizador. Isto significa que se a implementação do seu delegado tiver uma exceção não tratada (passo #4), o processamento de fios que determinado lote de alterações será interrompido, e um novo fio será criado. A nova linha verificará qual foi o último ponto no tempo que a loja de arrendamento tem para essa gama de valores-chave de divisórias, e reiniciar a partir daí, efetivamente enviando o mesmo lote de alterações ao delegado. Este comportamento continuará até que o seu delegado processe as alterações corretamente e é por isso que o processador de feed de mudança tem uma garantia "pelo menos uma vez", porque se o código delegado for lançado, irá voltar a tentar esse lote.
+O processador de alimentação de alteração é resiliente a erros de código do utilizador. Isto significa que se a implementação do seu delegado tiver uma exceção não tratada (passo #4), o processamento de fios que determinado lote de alterações será interrompido, e um novo fio será criado. A nova linha verificará qual foi o último ponto no tempo que a loja de arrendamento tem para essa gama de valores-chave de divisórias, e reiniciar a partir daí, efetivamente enviando o mesmo lote de alterações ao delegado. Este comportamento continuará até que o seu delegado processe as alterações corretamente e é por isso que o processador de feed de mudança tem uma garantia "pelo menos uma vez", porque se o código delegado lançar uma exceção, irá voltar a tentar esse lote.
+
+Para evitar que o seu processador de feed de mudança fique "preso" continuamente a tentar o mesmo lote de alterações, deve adicionar lógica no seu código de delegado para escrever documentos, exceto, a uma fila de cartas mortas. Este design garante que pode acompanhar alterações não processadas enquanto ainda pode continuar a processar futuras alterações. A fila de cartas mortas pode ser apenas outro contentor cosmos. A loja de dados exata não importa, simplesmente que as alterações não processadas são perduradas.
+
+Além disso, pode utilizar o estimador de alimentação de [alterações](how-to-use-change-feed-estimator.md) para monitorizar o progresso das instâncias do seu processador de feed de mudança à medida que lêem o feed de mudança. Além de monitorizar se o processador de feed de mudança ficar "preso" continuamente a tentar o mesmo lote de alterações, também pode entender se o seu processador de feed de mudança está atrasado devido a recursos disponíveis como CPU, memória e largura de banda da rede.
 
 ## <a name="dynamic-scaling"></a>Dimensionamento dinâmico
 

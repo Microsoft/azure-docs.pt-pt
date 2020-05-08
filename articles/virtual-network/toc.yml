@@ -35,8 +35,9 @@
       href: powershell-samples.md
     - name: Modelos do Resource Manager
       href: template-samples.md
-    - name: Modelos do Azure Policy
-      href: policy-samples.md
+    - name: Incorporações do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Conceitos
   items:
     - name: Continuidade do negócio
@@ -390,7 +391,7 @@
     - name: Azure PowerShell
       href: /powershell/module/az.network
     - name: .NET
-      href: /api/overview/azure/virtual-network
+      href: /dotnet/api/overview/azure/virtual-network
     - name: Java
       href: /java/api/
     - name: Node.js

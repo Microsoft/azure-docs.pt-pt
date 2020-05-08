@@ -7,13 +7,13 @@ author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 02/27/2020
-ms.openlocfilehash: 51e1b24f9080d102dee234fa1ca6d460c400ba78
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.date: 05/05/2020
+ms.openlocfilehash: 57cb68726adf8818f9ef0c8804be9c388ea39ff5
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780679"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872320"
 ---
 # <a name="tutorial-ai-generated-searchable-content-from-azure-blobs-using-the-net-sdk"></a>Tutorial: Conteúdo pesquisável gerado por IA a partir de bolhas Azure usando o .NET SDK
 
@@ -32,7 +32,7 @@ Se não tiver uma subscrição Azure, abra uma [conta gratuita](https://azure.mi
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-+ [Armazenamento Azure](https://azure.microsoft.com/services/storage/)
++ [Storage do Azure](https://azure.microsoft.com/services/storage/)
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/)
 + [Criar](search-create-service-portal.md) ou [encontrar um serviço](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) de pesquisa existente 
 
@@ -43,7 +43,9 @@ Se não tiver uma subscrição Azure, abra uma [conta gratuita](https://azure.mi
 
 1. Abra esta [pasta OneDrive](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) e no canto superior esquerdo, clique em **Baixar** para copiar os ficheiros para o seu computador. 
 
-1. Clique no ficheiro zip e **selecione Extrato Tudo**. Existem 14 ficheiros de vários tipos. Use-os todos para este tutorial.
+1. Clique no ficheiro zip e **selecione Extrato Tudo**. Existem 14 ficheiros de vários tipos. Vaiusar 7 para este exercício.
+
+Também pode descarregar o código fonte para este tutorial. O código fonte está na pasta de enriquecimento tutorial-ai no repositório de amostras de [amostras azure-search-dotnet.](https://github.com/Azure-Samples/azure-search-dotnet-samples)
 
 ## <a name="1---create-services"></a>1 - Criar serviços
 
@@ -75,22 +77,22 @@ Se possível, crie tanto na mesma região como grupo de recursos para proximidad
 
 1. Clique no serviço **Blobs.**
 
-1. Clique **em + Recipiente** para criar um recipiente e nomeá-lo *básico-demo-data-pr*.
+1. Clique em **+ Recipiente** para criar um recipiente e *nomeá-lo cog-search-demo*.
 
-1. Selecione *basic-demo-data-pr* e, em seguida, clique em **Carregar** para abrir a pasta onde guardou os ficheiros de descarregamento. Selecione todos os 14 ficheiros e clique em **OK** para carregar.
+1. Selecione *cog-search-demo* e, em seguida, clique em **Carregar** para abrir a pasta onde guardou os ficheiros de descarregamento. Selecione todos os 14 ficheiros e clique em **OK** para carregar.
 
    ![Upload de ficheiros de amostras](media/cognitive-search-quickstart-blob/sample-data.png "Upload de ficheiros de amostras")
 
 1. Antes de sair do Azure Storage, obtenha uma cadeia de ligação para que possa formular uma ligação em Azure Cognitive Search. 
 
-   1. Volte para a página de visão geral da sua conta de armazenamento (usamos *blobstragewestus* como exemplo). 
+   1. Volte para a página de visão geral da sua conta de armazenamento (usamos *blobstoragewestus* como exemplo). 
    
    1. No painel de navegação esquerdo, selecione **teclas de acesso** e copie uma das cordas de ligação. 
 
    A cadeia de ligação é um URL semelhante ao seguinte exemplo:
 
       ```http
-      DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=<your account key>;EndpointSuffix=core.windows.net
+      DefaultEndpointsProtocol=https;AccountName=blobstoragewestus;AccountKey=<your account key>;EndpointSuffix=core.windows.net
       ```
 
 1. Guarde a corda de ligação ao Bloco de Notas. Vai precisar mais tarde quando configurar a ligação de fonte de dados.
@@ -99,7 +101,7 @@ Se possível, crie tanto na mesma região como grupo de recursos para proximidad
 
 O enriquecimento de IA é apoiado por Serviços Cognitivos, incluindo Text Analytics e Computer Vision para linguagem natural e processamento de imagem. Se o seu objetivo fosse completar um protótipo ou projeto real, nesta altura forneceria serviços cognitivos (na mesma região que a Pesquisa Cognitiva Azure) para que o pudesse anexar a operações de indexação.
 
-Para este exercício, no entanto, você pode saltar o fornecimento de recursos porque a Pesquisa Cognitiva Azure pode ligar-se aos Serviços Cognitivos nos bastidores e dar-lhe 20 transações gratuitas por corrida de indexador. Uma vez que este tutorial utiliza 7 transações, a atribuição gratuita é suficiente. Para projetos maiores, planeie o fornecimento de Serviços Cognitivos no nível S0 pay-as-you-go. Para mais informações, consulte [Anexar Serviços Cognitivos](cognitive-search-attach-cognitive-services.md).
+Para este exercício, no entanto, você pode saltar o fornecimento de recursos porque a Pesquisa Cognitiva Azure pode ligar-se aos Serviços Cognitivos nos bastidores e dar-lhe 20 transações gratuitas por corrida de indexador. Uma vez que este tutorial utiliza 14 transações, a atribuição gratuita é suficiente. Para projetos maiores, planeie o fornecimento de Serviços Cognitivos no nível S0 pay-as-you-go. Para mais informações, consulte [Anexar Serviços Cognitivos](cognitive-search-attach-cognitive-services.md).
 
 ### <a name="azure-cognitive-search"></a>Azure Cognitive Search
 
@@ -129,15 +131,15 @@ O [Azure Cognitive Search .NET SDK](https://aka.ms/search-sdk) é composto por a
 
 Para este projeto, instale a `Microsoft.Azure.Search` versão 9 ou posterior do pacote NuGet.
 
-1. Abra a consola de gestor de pacotes. Selecione **ferramentas** > **nuget pacote manager** > **consola**. 
-
-1. Navegue para [Microsoft.Azure.Search NuGet página de pacotes](https://www.nuget.org/packages/Microsoft.Azure.Search).
+1. Num browser, vá à página de [pacotes Microsoft.Azure.Search NuGet](https://www.nuget.org/packages/Microsoft.Azure.Search).
 
 1. Selecione a versão mais recente (9 ou mais tarde).
 
 1. Copie o comando do Gestor de Pacotes.
 
-1. Volte à consola do Gestor de Pacotes e execute o comando que copiou no passo anterior.
+1. Abra a consola de gestor de pacotes. Selecione **ferramentas** > **nuget pacote manager** > **consola**. 
+
+1. Cola e corre o comando que copiaste no passo anterior.
 
 Em seguida, `Microsoft.Extensions.Configuration.Json` instale o mais recente pacote NuGet.
 
@@ -167,8 +169,10 @@ Em seguida, `Microsoft.Extensions.Configuration.Json` instale o mais recente pac
       "AzureBlobConnectionString": "Put your Azure Blob connection string here",
     }
     ```
-
+    
 Adicione o seu serviço de pesquisa e informações de conta de armazenamento blob. Lembre-se que pode obter esta informação a partir das etapas de fornecimento de serviços indicadas na secção anterior.
+
+Para **SearchServiceName,** introduza o nome de serviço curto e não o URL completo.
 
 ### <a name="add-namespaces"></a>Adicionar espaços de nome
 
@@ -246,7 +250,7 @@ private static DataSource CreateOrUpdateDataSource(SearchServiceClient serviceCl
     DataSource dataSource = DataSource.AzureBlobStorage(
         name: "demodata",
         storageConnectionString: configuration["AzureBlobConnectionString"],
-        containerName: "basic-demo-data-pr",
+        containerName: "cog-search-demo",
         description: "Demo files to demonstrate cognitive search capabilities.");
 
     // The data source does not need to be deleted if it was already created
@@ -281,34 +285,6 @@ public static void Main(string[] args)
     Console.WriteLine("Creating or updating the data source...");
     DataSource dataSource = CreateOrUpdateDataSource(serviceClient, configuration);
 ```
-
-
-<!-- 
-```csharp
-DataSource dataSource = DataSource.AzureBlobStorage(
-    name: "demodata",
-    storageConnectionString: configuration["AzureBlobConnectionString"],
-    containerName: "basic-demo-data-pr",
-    deletionDetectionPolicy: new SoftDeleteColumnDeletionDetectionPolicy(
-        softDeleteColumnName: "IsDeleted",
-        softDeleteMarkerValue: "true"),
-    description: "Demo files to demonstrate cognitive search capabilities.");
-```
-
-Now that you have initialized the `DataSource` object, create the data source. `SearchServiceClient` has a `DataSources` property. This property provides all the methods you need to create, list, update, or delete Azure Cognitive Search data sources.
-
-For a successful request, the method will return the data source that was created. If there is a problem with the request, such as an invalid parameter, the method will throw an exception.
-
-```csharp
-try
-{
-    serviceClient.DataSources.CreateOrUpdate(dataSource);
-}
-catch (Exception e)
-{
-    // Handle the exception
-}
-``` -->
 
 Crie e execute a solução. Uma vez que este é o seu primeiro pedido, consulte o portal Azure para confirmar que a fonte de dados foi criada na Pesquisa Cognitiva Azure. Na página do dashboard do serviço de pesquisa, verifique se o mosaico Origens de Dados tem um novo item. Poderá ter de aguardar alguns minutos para a página do portal atualizar.
 
@@ -630,33 +606,6 @@ namespace EnrichwithAI
 }
 ```
 
-<!-- Add the below model class definition to `DemoIndex.cs` and include it in the same namespace where you'll create the index.
-
-```csharp
-// The SerializePropertyNamesAsCamelCase attribute is defined in the Azure Cognitive Search .NET SDK.
-// It ensures that Pascal-case property names in the model class are mapped to camel-case
-// field names in the index.
-[SerializePropertyNamesAsCamelCase]
-public class DemoIndex
-{
-    [System.ComponentModel.DataAnnotations.Key]
-    [IsSearchable, IsSortable]
-    public string Id { get; set; }
-
-    [IsSearchable]
-    public string Content { get; set; }
-
-    [IsSearchable]
-    public string LanguageCode { get; set; }
-
-    [IsSearchable]
-    public string[] KeyPhrases { get; set; }
-
-    [IsSearchable]
-    public string[] Organizations { get; set; }
-}
-``` -->
-
 Agora que definiu uma classe modelo, `Program.cs` pode criar uma definição de índice facilmente. O nome deste índice `demoindex`será. Se já existir um índice com esse nome, será eliminado.
 
 ```csharp
@@ -696,27 +645,14 @@ Adicione as seguintes linhas a `Main`.
 ```csharp
     // Create the index
     Console.WriteLine("Creating the index...");
-    Index demoIndex = CreateDemoIndex(serviceClient);
+    Microsoft.Azure.Search.Models.Index demoIndex = CreateDemoIndex(serviceClient);
 ```
 
-<!-- ```csharp
-try
-{
-    bool exists = serviceClient.Indexes.Exists(index.Name);
+Adicione a seguinte declaração utilizando a seguinte declaração para resolver a referência desambiguada.
 
-    if (exists)
-    {
-        serviceClient.Indexes.Delete(index.Name);
-    }
-
-    serviceClient.Indexes.Create(index);
-}
-catch (Exception e)
-{
-    // Handle exception
-}
+```csharp
+using Index = Microsoft.Azure.Search.Models.Index;
 ```
- -->
 
 Para saber mais sobre a definição de um índice, consulte [Create Index (Azure Cognitive Search REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
@@ -799,7 +735,7 @@ Adicione as seguintes linhas a `Main`.
 
 ```csharp
     // Create the indexer, map fields, and execute transformations
-    Console.WriteLine("Creating the indexer...");
+    Console.WriteLine("Creating the indexer and executing the pipeline...");
     Indexer demoIndexer = CreateDemoIndexer(serviceClient, dataSource, skillset, demoIndex);
 ```
 

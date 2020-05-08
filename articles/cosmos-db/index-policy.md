@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: tisande
-ms.openlocfilehash: f010ec46c41c2302cc9c99a631fd18b1af9661eb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 68adfb8b4cfb7c665a8e8b162b4698a095bb671e
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232075"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82869934"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Políticas de indexação no Azure Cosmos DB
 
@@ -27,7 +27,7 @@ Em algumas situações, poderá querer substituir este comportamento automático
 O Azure Cosmos DB suporta dois modos de indexação:
 
 - **Consistente**: O índice é atualizado sincronizadamente à medida que cria, atualiza ou elimina itens. Isto significa que a consistência das suas consultas de leitura será a [consistência configurada para a conta](consistency-levels.md).
-- **Nenhuma**: A indexação é desativada no recipiente. Isto é comumente usado quando um recipiente é usado como uma loja de valor-chave puro sem a necessidade de índices secundários. Também pode ser usado para melhorar o desempenho das operações a granel. Após as operações a granel estarem concluídas, o modo de índice pode ser definido para Consistente e, em seguida, monitorizado utilizando o [IndexTransformationProgress](how-to-manage-indexing-policy.md#use-the-net-sdk-v2) até estar concluído.
+- **Nenhuma**: A indexação é desativada no recipiente. Isto é comumente usado quando um recipiente é usado como uma loja de valor-chave puro sem a necessidade de índices secundários. Também pode ser usado para melhorar o desempenho das operações a granel. Após as operações a granel estarem concluídas, o modo de índice pode ser definido para Consistente e, em seguida, monitorizado utilizando o [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) até estar concluído.
 
 > [!NOTE]
 > O Azure Cosmos DB também suporta um modo de indexação preguiçoso. A indexação preguiçosa executa atualizações ao índice a um nível de prioridade muito mais baixo quando o motor não está a fazer qualquer outro trabalho. Isto pode resultar em resultados de consulta **inconsistentes ou incompletos.** Se planeia consultar um recipiente Cosmos, não deve selecionar a indexação preguiçosa.

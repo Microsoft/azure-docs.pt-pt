@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2020
 ms.author: sohamnc
-ms.openlocfilehash: e2785baab27f5bfc996b57607816062195a19b2b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ee4bd24264be9e7730d4dc99af4e61b05a7692bc
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81313760"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594139"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Perguntas frequentes para a Porta da Frente Azure
 
@@ -91,7 +91,7 @@ Para bloquear a sua aplicação para aceitar o tráfego apenas a partir da sua p
 
 - Configure o IP ACLing para os seus backends para aceitar o tráfego do espaço de endereço IP backend da Azure Front Door e apenas os serviços de infraestrutura do Azure. Consulte os detalhes ip abaixo para AACLing o seu backend:
  
-    - Consulte a secção *AzureFrontDoor.Backend* em [Gamas E Etiquetas](https://www.microsoft.com/download/details.aspx?id=56519) de Serviço Azure IP para o intervalo de endereçoIP iPv4 da Porta Frontal ou também pode utilizar a etiqueta de serviço *AzureFrontDoor.Backend* nos seus [grupos](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) de segurança de rede ou com [firewall Azure](https://docs.microsoft.com/azure/firewall/service-tags).
+    - Consulte a secção *AzureFrontDoor.Backend* em [Gamas Ip Azure e etiquetas](https://www.microsoft.com/download/details.aspx?id=56519) de serviço para o intervalo de endereçoIP iPv4 da Porta Frontal ou também pode utilizar a etiqueta de serviço *AzureFrontDoor.Backend* nos seus [grupos](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules)de segurança de rede .
     - O espaço IP **iPv6** da Porta Frontal enquanto está coberto na etiqueta de serviço, não está listado no ficheiro JSON das gamas Azure IP. Se procura um intervalo de endereços IPv6 explícito, está atualmente limitado a`2a01:111:2050::/44`
     - Serviços básicos de [infraestrutura](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) da Azure através de endereços IP de acolhimento virtualizados: `168.63.129.16` e`169.254.169.254`
 

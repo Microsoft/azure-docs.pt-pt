@@ -1,22 +1,22 @@
 ---
-title: Contrato Standard [ Contrato Padrão] Mercado Azure
-description: Contrato Padrão para Azure Marketplace e AppSource
+title: Contrato Padrão para o mercado comercial da Microsoft
+description: Contrato Padrão para Azure Marketplace e AppSource no Partner Center
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: facb500299f7196e0e1387c3a7267a917d13a3a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3886b29a47edcfb36114cedf8b8edb3799e0c345
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81681450"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871428"
 ---
-# <a name="standard-contract-for-the-microsoft-commercial-marketplace"></a>Contrato Padrão para o mercado comercial da Microsoft
+# <a name="standard-contract-for-microsoft-commercial-marketplace"></a>Contrato Padrão para o mercado comercial da Microsoft
 
-Para simplificar o processo de aquisição para clientes e reduzir a complexidade jurídica dos fornecedores de software, a Microsoft oferece um Contrato Padrão para o mercado comercial da Microsoft, de forma a ajudar a facilitar as transações no mercado. Em vez de elaborar em condições e condições personalizadas, os editores de marketplace comercial podem optar por oferecer o seu software ao abrigo do Contrato Padrão, que os clientes só precisam de vetar e aceitar uma vez. O Contrato Padrão pode [https://go.microsoft.com/fwlink/?linkid=2041178](https://go.microsoft.com/fwlink/?linkid=2041178)ser consultado aqui: .
+A Microsoft oferece um Contrato Padrão para o mercado comercial da Microsoft. Isto ajuda a simplificar o processo de aquisição para os clientes, a reduzir a complexidade jurídica para os fornecedores de software e a facilitar as transações no mercado. Em vez de elaborar termos e condições personalizados, como editor de marketplace comercial, pode optar por oferecer o seu software ao abrigo do [Contrato Padrão](https://go.microsoft.com/fwlink/?linkid=2041178), que os clientes só precisam de vetar e aceitar uma vez.
 
 Os termos e condições para uma oferta são definidos na criação da oferta no Partner Center. Pode selecionar para utilizar o Contrato Padrão para o mercado comercial da Microsoft em vez de fornecer os seus próprios termos e condições personalizados.
 
@@ -40,7 +40,7 @@ Pode aproveitar o Contrato Padrão para o mercado comercial da Microsoft para os
 
 ## <a name="customer-experience"></a>Experiência do cliente
 
-Durante a experiência de descoberta no mercado Azure ou AppSource, os clientes poderão ver os termos associados à oferta como o Contrato Padrão para o mercado comercial da Microsoft e quaisquer alterações universais.
+Durante a experiência de descoberta no Azure Marketplace ou appSource, os clientes poderão ver os termos associados à oferta como o Contrato Padrão para o mercado comercial da Microsoft e quaisquer alterações universais.
 
 ![A experiência de descoberta de clientes do portal Azure.](media/marketplace-publishers-guide/azure-discovery-process.png)
 

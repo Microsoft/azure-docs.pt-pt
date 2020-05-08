@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 05/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 24befd6e5d90c7c3fffd2049bae3bee392e6e0e0
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: HT
+ms.openlocfilehash: ca5d8c35aea06143e058aade473282a038212605
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/06/2020
-ms.locfileid: "82855664"
+ms.locfileid: "82872161"
 ---
 # <a name="update-management-in-azure-automation"></a>Gestão de Atualizações na Automação Azure
 
@@ -197,7 +197,7 @@ Para as máquinas Windows, também deve permitir o tráfego em todos os pontos f
 
 Para as máquinas Red Hat Linux, consulte [os iPs para os servidores](../virtual-machines/workloads/redhat/redhat-rhui.md#the-ips-for-the-rhui-content-delivery-servers) de entrega de conteúdo RHUI para obter pontos finais necessários. Para outras distribuições linux, consulte a documentação do seu fornecedor.
 
-Para obter mais informações sobre as portas necessárias para o Trabalhador do Livro Híbrido, consulte as portas de [função do Trabalhador Híbrido.](automation-hybrid-runbook-worker.md#hybrid-worker-role)
+Para obter mais informações sobre as portas necessárias para o Trabalhador do Livro de Corridas Híbrido, consulte [os endereços de Gestão de Atualização para o Trabalhador do Livro de Corridas Híbridos](automation-hybrid-runbook-worker.md#update-management-addresses-for-hybrid-runbook-worker).
 
 Recomendamos que utilize os endereços listados ao definir exceções. Para endereços IP, pode baixar [as gamas IP do Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653). Este ficheiro é atualizado semanalmente, e reflete as gamas atualmente implementadas e quaisquer alterações futuras nas gamas IP.
 
