@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 0926f41fb030e27ab8be54a2672ff9ed20e15206
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: df02c7d2ace6c58d86f4044607eca386f1790e1d
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181584"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734319"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>Aplicação web que assina nos utilizadores: Iniciar sessão e iniciar sessão
 
@@ -74,7 +74,7 @@ else
 
 # <a name="java"></a>[Java](#tab/java)
 
-No nosso java quickstart, o botão de início de sessão está localizado no ficheiro [main/resources/templates/index.html.](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/master/src/main/resources/templates/index.html)
+No nosso java quickstart, o botão de início de sessão está localizado no ficheiro [main/resources/templates/index.html.](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/master/msal-java-webapp-sample/src/main/resources/templates/index.html)
 
 ```html
 <!DOCTYPE html>

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: a7957c7cbcfa511ea441d8c7bd4371f56ab87560
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b39eb24b5611e36d14b151aaec96941ff52f3dfa
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461689"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731705"
 ---
 # <a name="introduction-to-azure-security"></a>Introdução à segurança do Azure
 ## <a name="overview"></a>Descrição geral
@@ -266,9 +266,9 @@ O Traffic Manager fornece uma gama de métodos de encaminhamento de tráfego par
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 O [Balanceador de Carga do Azure](../../load-balancer/load-balancer-overview.md) oferece elevada disponibilidade e elevado desempenho de rede às suas aplicações. Trata-se de um equilibrista de carga da Camada 4 (TCP, UDP) que distribui o tráfego de entrada entre casos saudáveis de serviços definidos num conjunto equilibrado em carga. O Equilíbrio de Carga Azure pode ser configurado para:
 
--   Carregar o tráfego de Internet de entrada de tráfego de Internet para máquinas virtuais. Esta configuração é conhecida como [equilíbrio de carga virado para a Internet.](../../load-balancer/concepts-limitations.md#publicloadbalancer)
+-   Carregar o tráfego de Internet de entrada de tráfego de Internet para máquinas virtuais. Esta configuração é conhecida como equilíbrio de [carga pública.](../../load-balancer/components.md#frontend-ip-configurations)
 
--   Equilibre o tráfego entre máquinas virtuais numa rede virtual, entre máquinas virtuais em serviços na nuvem, ou entre computadores no local e máquinas virtuais numa rede virtual transversal. Esta configuração é conhecida como equilíbrio interno de [carga.](../../load-balancer/concepts-limitations.md#internalloadbalancer)
+-   Equilibre o tráfego entre máquinas virtuais numa rede virtual, entre máquinas virtuais em serviços na nuvem, ou entre computadores no local e máquinas virtuais numa rede virtual transversal. Esta configuração é conhecida como equilíbrio interno de [carga.](../../load-balancer/components.md#frontend-ip-configurations)
 
 - Encaminhar tráfego externo para uma máquina virtual específica
 

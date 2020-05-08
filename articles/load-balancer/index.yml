@@ -11,12 +11,12 @@ metadata:
   author: asudbring
   ms.author: allensu
   ms.date: 12/05/2019
-  ms.openlocfilehash: d215bbfb80d634780ebfb7e33129c19f241d12a7
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 46afc139f240b46b9512360e79411a5bc8b03ec4
+  ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "76263528"
+  ms.lasthandoff: 05/03/2020
+  ms.locfileid: "82732993"
 landingContent:
 - title: Acerca do Balanceador de Carga
   linkLists:
@@ -24,6 +24,10 @@ landingContent:
     links:
     - text: O que é o Balanceador de Carga?
       url: load-balancer-overview.md
+    - text: Conceitos do Balanceador de Carga
+      url: concepts.md
+    - text: Componentes do Balanceador de Carga
+      url: components.md
 - title: Introdução
   linkLists:
   - linkListType: quickstart
@@ -80,6 +84,8 @@ landingContent:
       url: load-balancer-standard-diagnostics.md
     - text: Resolver problemas do Balanceador de Carga do Azure
       url: load-balancer-troubleshoot.md
+    - text: Erros comuns do Balanceador de Carga do Azure
+      url: load-balancer-common-deployment-errors.md
 - title: Referência
   linkLists:
   - linkListType: reference

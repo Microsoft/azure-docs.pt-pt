@@ -6,12 +6,12 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.openlocfilehash: 02d9ce87d45c5f1c9a123aae18f7d710b268f03e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d6817ac4ebc272747776eab8b11dba62f318e4ed
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80582259"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690729"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Ligação de saída de ônibus de serviço Azure para funções Azure
 
@@ -21,7 +21,7 @@ Para obter informações sobre os detalhes da configuração e configuração, c
 
 ## <a name="example"></a>Exemplo
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 O exemplo seguinte mostra uma [função C#](functions-dotnet-class-library.md) que envia uma mensagem de fila de ônibus de serviço:
 
@@ -227,7 +227,7 @@ As funções java também podem escrever para um tópico de ônibus de serviço.
 
 ## <a name="attributes-and-annotations"></a>Atributos e anotações
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Nas [bibliotecas da classe C#,](functions-dotnet-class-library.md)utilize o [ServiceBusAttribute](https://github.com/Azure/azure-functions-servicebus-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusAttribute.cs).
 
@@ -287,7 +287,7 @@ A tabela a seguir explica as propriedades de configuração de ligação que def
 |**queueName**|**Nome da fila**|Nome da fila.  Definir apenas se enviar mensagens de fila, não para um tópico.
 |**tópicoNome**|**Nome tópico**|Nome do tema. Definir apenas se enviar mensagens de tópicos, não para uma fila.|
 |**conexão**|**Conexão**|O nome de uma definição de aplicação que contém a cadeia de ligação service Bus para usar para esta ligação. Se o nome de definição da aplicação começar com "AzureWebJobs", pode especificar apenas o restante do nome. Por exemplo, se `connection` definir para "MyServiceBus", o tempo de funcionamento das Funções procura uma definição de aplicação que se chama "AzureWebJobsMyServiceBus". Se deixar `connection` vazio, o tempo de funcionamento das funções utiliza a cadeia de ligação de ônibus de serviço predefinido na definição da aplicação que se chama "AzureWebJobsServiceBus".<br><br>Para obter uma cadeia de ligação, siga os passos mostrados no [Get the management credentials](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). A cadeia de ligação deve ser para um espaço de nome do Ônibus de serviço, não se limitando a uma fila ou tópico específico.|
-|**acessoDireitos**|**Acesso**|Direitos de acesso para a cadeia de ligação. Os valores disponíveis são `manage` e `listen`. O padrão `manage`é , `connection` o que indica que tem a permissão **Gerir.** Se utilizar uma cadeia de ligação que `accessRights` não tenha a permissão **'Gerir',** definida para "ouvir". Caso contrário, o tempo de funcionamento das Funções pode falhar ao tentar realizar operações que requerem direitos de gestão. Na versão 2.x e superior da Azure Functions, esta propriedade não está disponível porque a versão mais recente do Service Bus SDK não suporta operações de gestão.|
+|**direitos de acesso** (apenas v1)|**Acesso**|Direitos de acesso para a cadeia de ligação. Os valores disponíveis são `manage` e `listen`. O padrão `manage`é , `connection` o que indica que tem a permissão **Gerir.** Se utilizar uma cadeia de ligação que `accessRights` não tenha a permissão **'Gerir',** definida para "ouvir". Caso contrário, o tempo de funcionamento das Funções pode falhar ao tentar realizar operações que requerem direitos de gestão. Na versão 2.x e superior da Azure Functions, esta propriedade não está disponível porque a versão mais recente do Service Bus SDK não suporta operações de gestão.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -295,7 +295,7 @@ A tabela a seguir explica as propriedades de configuração de ligação que def
 
 Nas Funções Azure 1.x, o tempo de funcionamento cria a `accessRights` `manage`fila se não existir e tem definido para . Nas Funções versão 2.x e superior, a fila ou tópico já deve existir; se especificar uma fila ou tópico que não existe, a função falhará. 
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Utilize os seguintes tipos de parâmetros para a ligação de saída:
 
@@ -366,9 +366,9 @@ Esta secção descreve as definições de configuração global disponíveis par
         "serviceBus": {
             "prefetchCount": 100,
             "messageHandlerOptions": {
-                "autoComplete": false,
+                "autoComplete": true,
                 "maxConcurrentCalls": 32,
-                "maxAutoRenewDuration": "00:55:00"
+                "maxAutoRenewDuration": "00:05:00"
             },
             "sessionHandlerOptions": {
                 "autoComplete": false,
@@ -380,13 +380,15 @@ Esta secção descreve as definições de configuração global disponíveis par
     }
 }
 ```
+Se tiver `isSessionsEnabled` que `true`se `sessionHandlerOptions` preparar, será homenageado.  Se tiver `isSessionsEnabled` que `false`se `messageHandlerOptions` preparar, será homenageado.
 
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------|
 |pré-fetchCount|0|Obtém ou define o número de mensagens que o recetor de mensagens pode simultaneamente solicitar.|
 |maxAutoRenovar Duração|00:05:00|A duração máxima dentro da qual o bloqueio da mensagem será renovado automaticamente.|
-|autoComplete|true|Se o gatilho deve marcar imediatamente a mensagem como completa (autocompleta) ou esperar que a função saia com sucesso para ligar completa.|
-|maxConcurrentCalls|16|O número máximo de chamadas simultâneas para o backback que a bomba de mensagem deve iniciar. Por predefinição, o tempo de execução das Funções processa várias mensagens simultaneamente. Para direcionar o tempo de execução para processar apenas `maxConcurrentCalls` uma única fila ou mensagem de tópico de cada vez, definida para 1. |
+|autoComplete|true|Se o gatilho deve ligar automaticamente após o processamento ou se o código de função irá ligar manualmente.|
+|maxConcurrentCalls|16|O número máximo de chamadas simultâneas para o backback que a bomba de mensagem deve iniciar por instância escalada. Por predefinição, o tempo de execução das Funções processa várias mensagens simultaneamente.|
+|maxConcurrentSessions|2000|O número máximo de sessões que podem ser tratadas simultaneamente por instância escalada.|
 
 ## <a name="next-steps"></a>Passos seguintes
 

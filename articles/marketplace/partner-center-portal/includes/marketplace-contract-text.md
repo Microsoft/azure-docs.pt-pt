@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 01/22/2020
 ms.author: dsindona
 ms.custom: include file
-ms.openlocfilehash: 9b99876b66826cc5a66cba686a7d6a5243b47b98
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e7692d8c90d71e76628ecb44ade529eabedfa909
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80277227"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691529"
 ---
 A Microsoft fornece um modelo de contrato padrão para o mercado comercial.
 
@@ -55,5 +55,4 @@ Se quiser fornecer os seus próprios termos e condições personalizados, pode o
 
 Os clientes são obrigados a aceitar estes termos antes de poderem experimentar a sua oferta.
 
-Lembre-se de **Guardar** antes de passar para a secção seguinte.
-Lembre-se de **Guardar** antes de passar para a secção seguinte.
+Selecione **guardar rascunho** antes de continuar.
