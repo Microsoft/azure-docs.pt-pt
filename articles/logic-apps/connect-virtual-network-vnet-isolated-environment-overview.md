@@ -3,15 +3,15 @@ title: Aceder às redes virtuais do Azure
 description: Visão geral sobre como os ambientes de serviços de integração (ISEs) ajudam as aplicações lógicas a aceder às redes virtuais Azure (VNETs)
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
-ms.topic: article
-ms.date: 03/12/2020
-ms.openlocfilehash: 9d5e0c088fe773f16e1fc57f292ca812906aa09c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: jonfan, logicappspm
+ms.topic: conceptual
+ms.date: 05/01/2020
+ms.openlocfilehash: d74303df74a1e877645b333fa0726a68055c819b
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79127243"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734926"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Acesso aos recursos da Rede Virtual Azure a partir de Aplicações Lógicas Azure utilizando ambientes de serviçode integração (ISEs)
 
@@ -94,7 +94,7 @@ Para sistemas no local que não estejam ligados a uma rede virtual ou que não t
 
 Quando criar o seu ISE, pode selecionar o Developer SKU ou Premium SKU. Aqui estão as diferenças entre estas UsK:
 
-* **Developer (Programador)**
+* **Programador**
 
   Fornece um ISE de baixo custo que pode usar para experimentação, desenvolvimento e teste, mas não para testes de produção ou desempenho. O Developer SKU inclui gatilhos e ações incorporados, conectores Standard, conectores Enterprise e uma única conta de integração de [nível Livre](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) por um preço mensal fixo. No entanto, este SKU não inclui qualquer acordo de nível de serviço (SLA), opções para aumentar a capacidade, ou redundância durante a reciclagem, o que significa que você pode experimentar atrasos ou tempo de inatividade.
 
@@ -111,16 +111,18 @@ Para preços, consulte [preços de Apps Lógicas.](https://azure.microsoft.com/p
 
 ## <a name="ise-endpoint-access"></a>Acesso ao ponto final do ISE
 
-Quando criar o seu ISE, pode optar por utilizar pontos finais de acesso internos ou externos. A sua seleção determina se o pedido ou webhook dispara em aplicações lógicas no seu ISE pode receber chamadas de fora da sua rede virtual.
-
-Estes pontos finais também afetam a forma como pode aceder a inputs e saídas no histórico de execução das suas aplicações lógicas.
-
-* **Interna**: Pontos finais privados que permitem chamadas para aplicações lógicas no seu ISE onde você pode ver e aceder às inputs e saídas das suas aplicações lógicas na história de execução *apenas a partir de dentro da sua rede virtual*
-
-* **External**: Pontos finais públicos que permitem chamadas para aplicações lógicas no seu ISE onde você pode ver e aceder às inputs e saídas das suas aplicações lógicas em histórico de execução *de fora da sua rede virtual*. Se utilizar grupos de segurança de rede (NSGs), certifique-se de que são configurados com regras de entrada para permitir o acesso às inputs e saídas do histórico de execução. Para mais informações, consulte [Permitir o acesso ao ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access).
+Quando criar o seu ISE, pode optar por utilizar pontos finais de acesso internos ou externos. A sua seleção determina se o pedido ou webhook dispara em aplicações lógicas no seu ISE pode receber chamadas de fora da sua rede virtual. Estes pontos finais também afetam a forma como pode aceder às inputs e saídas a partir do histórico de execuções das suas aplicações lógicas.
 
 > [!IMPORTANT]
-> A opção de ponto final de acesso está disponível apenas na criação do ISE e não pode ser alterada mais tarde.
+> Só pode selecionar o ponto final de acesso durante a criação do ISE e não pode alterar esta opção mais tarde.
+
+* **Interna**: Os pontos finais privados permitem chamadas para aplicações lógicas no seu ISE onde você pode ver e aceder a inputs e saídas a partir de aplicações lógicas corre o histórico *apenas a partir de dentro da sua rede virtual*. Certifique-se de que tem conectividade de rede entre os pontos finais privados e o computador de onde pretende aceder ao histórico de execuções. Por exemplo, o seu computador cliente pode existir dentro da rede virtual do ISE ou dentro de uma rede virtual que esteja ligada à rede virtual do ISE, por exemplo, através de um peering ou de uma rede privada virtual.
+
+* **External**: Os pontos finais do público permitem chamadas para aplicações lógicas no seu ISE onde pode ver e aceder a inputs e saídas de aplicações lógicas que executam o histórico *de aplicações de fora da sua rede virtual.* Se utilizar grupos de segurança de rede (NSGs), certifique-se de que são configurados com regras de entrada para permitir o acesso às inputs e saídas do histórico de execução. Para mais informações, consulte [Permitir o acesso ao ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access).
+
+Para determinar se o seu ISE utiliza um ponto final de acesso interno ou externo, no menu do ISE, em **Definições,** selecione **Propriedades,** e encontre a propriedade de ponto final de **acesso:**
+
+![Encontre o ponto final de acesso ise](./media/connect-virtual-network-vnet-isolated-environment-overview/find-ise-access-endpoint.png)
 
 <a name="create-integration-account-environment"></a>
 

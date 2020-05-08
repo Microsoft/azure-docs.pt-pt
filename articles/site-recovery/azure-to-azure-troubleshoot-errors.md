@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: 9f95677211a89c1bb2a18076741dec08e76c5d70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bbb2ddaa1fb84590f9dec1c84ac4bc87a8e03022
+ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81390404"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82738121"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Erro de replicação de VM Azure-to-Azure
 
@@ -172,8 +172,6 @@ Como o SUSE Linux utiliza links simbólicos, ou simligações, para manter uma l
 ## <a name="outbound-urls-or-ip-ranges-error-code-151037-or-151072"></a>UrLs de saída ou intervalos IP (código de erro 151037 ou 151072)
 
 Para que a replicação da recuperação do site funcione, a conectividade de saída a URLs específicos é necessária a partir do VM. Se o seu VM estiver por detrás de uma firewall ou utilizar regras do grupo de segurança de rede (NSG) para controlar a conectividade de saída, poderá enfrentar um destes problemas. Embora continuemos a apoiar o acesso de saída através de URLs, a utilização de uma lista de intervalos IP já não é suportada.
-
-### <a name="issue-1-failed-to-register-azure-vm-with-site-recovery-151195"></a>Edição 1: Falha no registo do Azure VM com a Recuperação do Local (151195)
 
 #### <a name="possible-causes"></a>Possíveis causas
 

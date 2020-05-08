@@ -12,12 +12,12 @@ ms.date: 04/23/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7704a758f53b6ba26b1c9cf9e9e2811f533601f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 08f142a270cae525571ae414602a89b2538c17d0
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82112206"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82981991"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: histórico de versões
 A equipa azure Ative Directory (Azure AD) atualiza regularmente o Azure AD Connect com novas funcionalidades e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -47,6 +47,17 @@ Nem todos os lançamentos do Azure AD Connect serão disponibilizados para atual
 >Se tiver ativado o Azure AD Connect para sincronização, em breve começará automaticamente a receber notificações de Saúde que o avisam sobre as próximas depreciações quando estiver a executar uma das versões mais antigas.
 >
 >Consulte [este artigo](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) para saber mais sobre como atualizar o Azure AD Connect para a versão mais recente.
+
+## <a name="15300"></a>1.5.30.0
+
+### <a name="release-status"></a>Estado de lançamento
+05/07/2020: Lançado para download
+
+### <a name="fixed-issues"></a>Problemas corrigidos
+- Corrigiu um problema em que os domínios não selecionados estavam a ser incorretamente selecionados a partir do UI do assistente.
+- Corrigiu um problema no módulo ADSyncConfig PowerShell, onde invocar o comando DSACLS utilizado em todos os cmdlets set-ADSync* provocaria um dos seguintes erros:
+     - `GrantAclsNoInheritance : The parameter is incorrect.   The command failed to complete successfully.`
+     - `GrantAcls : No GUID Found for computer …`
 
 ## <a name="15290"></a>1.5.29.0
 
@@ -105,6 +116,7 @@ Esta construção de hotfix corrige um problema com a build 1.5.18.0 se tiver a 
 - Corrigiu um problema com a criação da conta de sincronização do Diretório Ativo Azure onde a habilitação de extensões de diretório ou PHS pode falhar porque a conta não se propagou em todas as réplicas de serviço antes de tentar a utilização. 
 - Fixou um bug na utilidade de compressão de erros de sincronização que não manuseava corretamente os caracteres de substituição. 
 - Fixou um bug na atualização automática que deixou o servidor no estado suspenso do programador. 
+- Fixou um bug na página de filtragem Domain/OU que removeria os Perfis de Execução de um domínio expandindo parcialmente a árvore de domínio, sem fazer quaisquer alterações.
 
 ## <a name="14380"></a>1.4.38.0
 ### <a name="release-status"></a>Estado de lançamento
@@ -554,7 +566,7 @@ Bloqueie o acesso à conta AD DS implementando as seguintes alterações de perm
 *   Remova todos os ACEs no objeto específico, exceto ACEs específicos de SELF. Queremos manter intactas as permissões por defeito no que diz respeito a SELF.
 *   Atribuir estas permissões específicas:
 
-Tipo     | Nome                          | Acesso               | Aplica-se A
+Tipo     | Name                          | Acesso               | Aplica-se A
 ---------|-------------------------------|----------------------|--------------|
 Permitir    | SISTEMA                        | Controlo Total         | Este objeto  |
 Permitir    | Administradores da Empresa             | Controlo Total         | Este objeto  |
@@ -1093,7 +1105,7 @@ Lançado: dezembro de 2016
 ## <a name="113710"></a>1.1.371.0
 Lançado: dezembro de 2016
 
-**Known issue:**
+**Edição conhecida:**
 
 * A regra de reivindicação emitida para a AD FS está em falta nesta construção. A regra de reclamação emitida é necessária se estiver a federar vários domínios com o Azure Ative Directory (Azure AD). Se estiver a utilizar o Azure AD Connect para gerir a sua implementação aD FS no local, a atualização para esta construção remove a regra de reclamação emitida existente da sua configuração AD FS. Pode contornar o problema adicionando a regra de reclamação emitida após a instalação/atualização. Para mais detalhes sobre a adição da regra de reclamação emitida, consulte este artigo sobre suporte de [domínio múltiplo para federação com AD Azure](how-to-connect-install-multiple-domains.md).
 
@@ -1122,7 +1134,7 @@ Lançado: dezembro de 2016
 ## <a name="113430"></a>1.1.343.0
 Lançado: novembro de 2016
 
-**Known issue:**
+**Edição conhecida:**
 
 * A regra de reivindicação emitida para a AD FS está em falta nesta construção. A regra de reclamação emitida é necessária se estiver a federar vários domínios com a AD Azure. Se estiver a utilizar o Azure AD Connect para gerir a sua implementação aD FS no local, a atualização para esta construção remove a regra de reclamação emitida existente da sua configuração AD FS. Pode contornar o problema adicionando a regra de reclamação emitida após a instalação/atualização. Para mais detalhes sobre a adição da regra de reclamação emitida, consulte este artigo sobre suporte de [domínio múltiplo para federação com AD Azure](how-to-connect-install-multiple-domains.md).
 

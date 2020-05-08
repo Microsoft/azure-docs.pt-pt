@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mqtt
-ms.openlocfilehash: d3e456d57d98b796fb1aea2e82de51f9fae40c68
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1b299cf21652c23451aed735b10597adb85dc3db
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81733171"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982733"
 ---
 # <a name="understand-how-azure-iot-edge-uses-certificates"></a>Entenda como azure IoT Edge usa certificados
 
@@ -36,7 +36,7 @@ A autoridade do certificado, ou 'CA' para abreviar, é uma entidade que emite ce
 
 ### <a name="root-ca-certificate"></a>Certificado Root CA
 
-Um certificado de ac raiz é a raiz da confiança de todo o processo. Em cenários de produção, este certificado de CA é geralmente comprado a uma autoridade de certificados comerciais confiáveis como Baltimore, Verisign ou DigiCert. Se tiver controlo total sobre os dispositivos que se ligam aos seus dispositivos IoT Edge, é possível utilizar uma autoridade de certificado de nível corporativo. Em qualquer dos casos, toda a cadeia de certificados do hub IoT Edge chega até ele, pelo que os dispositivos IoT de folha devem confiar no certificado de raiz. Pode armazenar o certificado ca raiz na loja de certificados de raiz fidedigno, ou fornecer os dados do certificado no seu código de aplicação.
+Um certificado de ac raiz é a raiz da confiança de todo o processo. Em cenários de produção, este certificado de CA é geralmente comprado a uma autoridade de certificados comerciais confiáveis como Baltimore, Verisign ou DigiCert. Se tiver controlo total sobre os dispositivos que se ligam aos seus dispositivos IoT Edge, é possível utilizar uma autoridade de certificado de nível corporativo. Em qualquer dos casos, toda a cadeia de certificados do hub IoT Edge passa até ele, pelo que os dispositivos IoT de folha devem confiar no certificado de raiz. Pode armazenar o certificado ca raiz na loja de certificados de raiz fidedigno, ou fornecer os dados do certificado no seu código de aplicação.
 
 ### <a name="intermediate-certificates"></a>Certificados intermédios
 
