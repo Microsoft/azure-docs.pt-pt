@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
-ms.openlocfilehash: 78275211b77cb34cf9aa92e44778e5d4d81fffed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7490eef7b6203b6bb2623efa4518c7bee5400fb3
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80521019"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610773"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Funcionalidades & ferramentas para Casca de Nuvem Azure
 
@@ -69,10 +69,10 @@ Cloud Shell inclui autenticação pré-configurada para ferramentas de código a
 
 ## <a name="tools"></a>Ferramentas
 
-|Categoria   |Nome   |
+|Categoria   |Name   |
 |---|---|
 |Ferramentas Linux            |bash<br> zsh<br> sh<br> tmux<br> cavar<br>               |
-|Ferramentas Azure            |[ClI clássico azure cli](https://github.com/Azure/azure-cli) e [Azure](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#writing-your-first-azcopy-command)<br> [CLI das Funções do Azure](https://github.com/Azure/azure-functions-core-tools)<br> [CLI do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
+|Ferramentas Azure            |[ClI clássico azure cli](https://github.com/Azure/azure-cli) e [Azure](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)<br> [CLI das Funções do Azure](https://github.com/Azure/azure-functions-core-tools)<br> [CLI do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
 |Editores de texto           |código (editor da Cloud Shell)<br> vim<br> nano<br> emacs    |
 |Controlo de código fonte         |git                    |
 |Ferramentas de compilação            |modelo<br> maven<br> npm<br> pip         |

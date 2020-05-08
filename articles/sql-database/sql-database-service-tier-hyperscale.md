@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: 074a28af8c80c109dbe97306900e8f00618e435a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a5512aa1a2538d3336bbcc4f65cad671d52b711a
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81411690"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610671"
 ---
 # <a name="hyperscale-service-tier"></a>Camada de serviços do Hyperscale
 
@@ -209,7 +209,7 @@ Estas são as limitações atuais para o nível de serviço de hiperescala a par
 | Se uma base de dados tiver um ou mais ficheiros de dados maiores do que 1 TB, a migração falha | Em alguns casos, pode ser possível contornar esta questão, reduzindo os ficheiros grandes para menos de 1 TB. Se migrar uma base de dados que está a ser utilizada durante o processo de migração, certifique-se de que nenhum ficheiro é superior a 1 TB. Utilize a seguinte consulta para determinar o tamanho dos ficheiros de base de dados. `SELECT *, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
 | Instância Gerida | A Instância Gerida pela Base de Dados Azure SQL não é suportada atualmente com bases de dados de hiperescala. |
 | Conjuntos Elásticos |  As Piscinas Elásticas não são suportadas atualmente com hiperescala de base de dados SQL.|
-| Migração para Hiperescala é atualmente uma operação de sentido único | Uma vez que uma base de dados é migrada para Hyperscale, não pode ser migrada diretamente para um nível de serviço não hiperescala. Atualmente, a única forma de migrar uma base de dados de Hiperescala para não-Hiperescala é exportar/importar utilizando um ficheiro BACPAC ou outras tecnologias de movimento de dados (Copy Bulk, Azure Data Factory, Azure Databricks, SSIS, etc.)|
+| Migração para Hiperescala é atualmente uma operação de sentido único | Uma vez que uma base de dados é migrada para Hyperscale, não pode ser migrada diretamente para um nível de serviço não hiperescala. Atualmente, a única forma de migrar uma base de dados de Hiperescala para não-Hiperescala é exportar/importar utilizando um ficheiro bacpac ou outras tecnologias de movimento de dados (Copy Bulk, Azure Data Factory, Azure Databricks, SSIS, etc.) Bacpac export/importação do portal Azure, da PowerShell utilizando [a New-AzSqlDatabaseExport](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseexport) ou [New-AzSqlDatabaseImport,](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseimport)do Azure CLI utilizando a [exportação az sql db](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-export) e [az sql db importação,](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-import)e da [REST API](https://docs.microsoft.com/rest/api/sql/databases%20-%20import%20export) não é suportado. A importação/exportação de Bacpac para bases de dados de hiperescala mais pequenas (até 200 GB) é suportada utilizando a versão 18.4 e posterior do SSMS e [do SqlPackage.](https://docs.microsoft.com/sql/tools/sqlpackage) Para bases de dados maiores, a exportação/importação de bacpac pode demorar muito tempo, podendo falhar por várias razões.|
 | Migração de bases de dados com objetos persistentes na memória | A hiperescala suporta apenas objetos in-memory não persistentes (tipos de tabela, SPs nativos e funções).  As tabelas persistentes de Memória e outros objetos devem ser largadas e recriadas como objetos não-in-Memory antes de migraruma base de dados para o nível de serviço de hiperescala.|
 | Geo Replicação  | Ainda não é possível configurar a geo-replicação para a hiperescala de base de dados Azure SQL. |
 | Cópia da base de dados | Ainda não é possível utilizar a Database Copy para criar uma nova base de dados em Hiperescala Azure SQL. |

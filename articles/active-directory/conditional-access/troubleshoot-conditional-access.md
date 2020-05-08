@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: troubleshooting
-ms.date: 03/13/2020
+ms.date: 04/30/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdf1daca79f3ed20d9b7a89af20d74ff5f3148b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c9a2ab4b1ebc1c958be9dc4bd07a010f7fef8afc
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80337444"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610527"
 ---
 # <a name="troubleshooting-sign-in-problems-with-conditional-access"></a>Problemas de suturação de problemas com acesso condicional
 
@@ -55,8 +55,11 @@ Para saber qual a política ou políticas de acesso condicional aplicadas e por 
    1. As informações no separador de resolução de **problemas e suporte** podem fornecer uma razão clara para que um inserido falhou, como um dispositivo que não preencheu os requisitos de conformidade.
    1. Para investigar mais, descumes na configuração das políticas clicando no Nome da **Política**. Clicar no Nome de **Política** mostrará a interface de utilizador de configuração de políticas para a política selecionada para revisão e edição.
    1. Os dados do **utilizador** cliente e do **dispositivo** que foram utilizados para a avaliação da política de Acesso Condicional também estão disponíveis na **Informação Básica**, **Localização,** Informações do **Dispositivo,** Detalhes de **Autenticação**e **Detalhes Adicionais** do evento de início de sessão.
+   1. A seleção da elipse do lado direito da política traz pormenores políticos. Isto dá aos administradores informações adicionais sobre o porquê de uma apólice ter sido aplicada com sucesso ou não.
 
    ![Assine em caso de acesso condicional](./media/troubleshoot-conditional-access/image5.png)
+
+   ![Detalhes da política (pré-visualização)](./media/troubleshoot-conditional-access/policy-details.png)
 
 Se a informação no evento não for suficiente para compreender os resultados do início de sessão ou ajustar a política para obter os resultados desejados, então poderá ser aberto um incidente de apoio. Navegue para o separador de resolução de **problemas e suporte** do evento de início de evento e selecione Criar um novo pedido de **suporte**.
 

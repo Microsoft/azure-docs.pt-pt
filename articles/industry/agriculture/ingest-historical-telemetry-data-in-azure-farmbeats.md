@@ -5,12 +5,13 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 5b50906fac613a4e7470b0e13d6f068c3872f625
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 3833b27e9f90cbffa2320c84877d4eb5bb6520f7
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82136911"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82613273"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Ingerir dados telemétricos do histórico
 
@@ -58,7 +59,7 @@ Siga estes passos.
 5. Vá ao seu diretório de casa.
 
     ```azurepowershell-interactive 
-    cd  
+    cd
     ```
 
 6. Execute o seguinte comando. Isto irá transferir um guião para o seu diretório em casa.
@@ -73,7 +74,7 @@ Siga estes passos.
 
     ```azurepowershell-interactive 
 
-    ./generatePartnerCredentials.ps1   
+    ./generatePartnerCredentials.ps1
 
     ```
 
@@ -92,7 +93,7 @@ Siga estes passos.
 - /**DeviceModel**: DeviceModel corresponde aos metadados do dispositivo, como o fabricante e o tipo de dispositivo, que é um portal ou um nó.
 - /**Dispositivo**: O dispositivo corresponde a um dispositivo físico presente na exploração.
 - /**SensorModel**: SensorModel corresponde aos metadados do sensor, como o fabricante, o tipo de sensor, que é analógico ou digital, e a medição do sensor, como temperatura ambiente e pressão.
-- /**Sensor**: Sensor corresponde a um sensor físico que regista valores. Um sensor é normalmente ligado a um dispositivo com um ID do dispositivo.  
+- /**Sensor**: Sensor corresponde a um sensor físico que regista valores. Um sensor é normalmente ligado a um dispositivo com um ID do dispositivo.
 
 
 |        DeviceModel   |  Sugestões   |
@@ -101,16 +102,16 @@ Siga estes passos.
 |          Fabricante            |         Nome do fabricante    |
 |  Código de Produto                    |  Código do produto do dispositivo ou nome ou número do modelo. Por exemplo, EnviroMonitor#6800.  |
 |            Portas          |     Nome e tipo de porta, que é digital ou analógico.
-|     Nome                 |  Nome para identificar o recurso. Por exemplo, o nome do modelo ou o nome do produto.
+|     Name                 |  Nome para identificar o recurso. Por exemplo, o nome do modelo ou o nome do produto.
       Descrição     | Forneça uma descrição significativa do modelo.
 |    Propriedades          |    Propriedades adicionais do fabricante.   |
 |    **Dispositivo**             |                      |
 |   DeviceModelId     |     IDENTIFICAÇÃO do modelo de dispositivo associado.  |
 |  HardwareId          | Identificação única para o dispositivo, como o endereço MAC.
 |  Intervalo de Reporte        |   Intervalo de reporte em segundos.
-|  Localização            |  Latitude do dispositivo (-90 a +90), longitude (-180 a 180) e elevação (em metros).   
+|  Localização            |  Latitude do dispositivo (-90 a +90), longitude (-180 a 180) e elevação (em metros).
 |ParentDeviceid       |    Identificação do dispositivo-mãe ao qual este dispositivo está ligado. Por exemplo, um nó que está ligado a um portal. Um nó tem o paiDeviceId como porta de entrada.  |
-|    Nome            | Um nome para identificar o recurso. Os parceiros do dispositivo devem enviar um nome consistente com o nome do dispositivo no lado do parceiro. Se o nome do dispositivo parceiro for definido pelo utilizador, o mesmo nome definido pelo utilizador deve ser propagado ao FarmBeats.|
+|    Name            | Um nome para identificar o recurso. Os parceiros do dispositivo devem enviar um nome consistente com o nome do dispositivo no lado do parceiro. Se o nome do dispositivo parceiro for definido pelo utilizador, o mesmo nome definido pelo utilizador deve ser propagado ao FarmBeats.|
 |     Descrição       |      Forneça uma descrição significativa. |
 |     Propriedades    |  Propriedades adicionais do fabricante.
 |     **Modelo de Sensores**        |          |
@@ -122,7 +123,7 @@ Siga estes passos.
 |    SensorMedidas > tipo    |Tipo de medição dos dados de telemetria do sensor. Os tipos definidos pelo sistema são AmbientTemperature, CO2, Profundidade, ElectricConductivity, LeafWetness, Length, LiquidLevel, Nitrato, O2, PH, Phosfato, PointInTime, Potássio, Pressão, RainGauge, Humidade Relativa, Salinidade, Humidade do Solo, SoilTemperature, Radiação Solar, Estado, Duração do Tempo, UVRadiation, UVIndex, Volume, WindDirection, WindRun, WindSpeed, Evapiration, Para adicionar mais, consulte a API /ExtendedType.|
 |        SensorMeasures > Unit              | Unidade de dados de telemetria de sensores. As unidades definidas pelo sistema são NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercúrio, PSI, Millimeter, Centimeter, Meter, Polegada, Pés, Milha, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Percentagem, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerSquaredPerSecond, InchesPerHour|
 |    SensorMeasures > AgregaçãoType    |  Os valores não podem ser, médios, máximos, mínimos ou StandardDeviation.  |
-|          Nome            | Nome para identificar um recurso. Por exemplo, o nome do modelo ou o nome do produto.  |
+|          Name            | Nome para identificar um recurso. Por exemplo, o nome do modelo ou o nome do produto.  |
 |    Descrição        | Forneça uma descrição significativa do modelo.|
 |   Propriedades       |  Propriedades adicionais do fabricante.|
 |    **Sensor**      |          |
@@ -131,7 +132,7 @@ Siga estes passos.
 | Localização          |  Latitude do sensor (-90 a +90), longitude (-180 a 180) e elevação (em metros).|
 |   Nome > do Porto        |  Nome e tipo da porta a que o sensor está ligado no dispositivo. Este tem de ter o mesmo nome definido no modelo do dispositivo.|
 |    DispositivoID  |    Identificação do dispositivo a que o sensor está ligado. |
-| Nome            |   Nome para identificar recurso. Por exemplo, nome do sensor ou nome do produto e número de modelo ou código do produto.|
+| Name            |   Nome para identificar recurso. Por exemplo, nome do sensor ou nome do produto e número de modelo ou código do produto.|
 |    Descrição      | Forneça uma descrição significativa.|
 |    Propriedades        |Propriedades adicionais do fabricante.|
 
@@ -139,7 +140,7 @@ Para mais informações sobre objetos, consulte [Swagger](https://aka.ms/FarmBea
 
 ### <a name="api-request-to-create-metadata"></a>Pedido da API para criar metadados
 
-Para efetuar um pedido de API, combina o método HTTP (POST), o URL ao serviço API e o URI a um recurso para consultar, submeter dados, criar ou apagar um pedido. Em seguida, adicione um ou mais cabeçalhos de pedido HTTP. O URL do serviço API é o ponto final da API, isto é, o URL datahub (https://\<o seu datahub>.azurewebsites.net).  
+Para efetuar um pedido de API, combina o método HTTP (POST), o URL ao serviço API e o URI a um recurso para consultar, submeter dados, criar ou apagar um pedido. Em seguida, adicione um ou mais cabeçalhos de pedido HTTP. O URL do serviço API é o ponto final da API, isto é, o URL datahub (https://\<o seu datahub>.azurewebsites.net).
 
 ### <a name="authentication"></a>Autenticação
 
@@ -297,10 +298,10 @@ Sensor
 O seguinte pedido de amostra cria um dispositivo. Este pedido tem a entrada JSON como carga útil com o organismo de pedido.
 
 ```bash
-curl -X POST "https://<datahub>.azurewebsites.net/Device" -H  
+curl -X POST "https://<datahub>.azurewebsites.net/Device" -H
 "accept: application/json" -H  "Content-Type: application/json" -H
-"Authorization: Bearer <Access-Token>" -d "{  \"deviceModelId\": \"ID123\",  \"hardwareId\": \"MHDN123\",  
-\"reportingInterval\": 900,  \"name\": \"Device123\",  
+"Authorization: Bearer <Access-Token>" -d "{  \"deviceModelId\": \"ID123\",  \"hardwareId\": \"MHDN123\",
+\"reportingInterval\": 900,  \"name\": \"Device123\",
 \"description\": \"Test Device 123\"}" *
 ```
 

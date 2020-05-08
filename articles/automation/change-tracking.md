@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 01/28/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1208e08f7b85e893ba754bdbdf71a2da4f68c90a
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 6a21effc3e567e75a8851fec35ff80dffc60a761
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509075"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82787180"
 ---
 # <a name="overview-of-change-tracking-and-inventory"></a>Visão geral do rastreio e inventário de alterações
 
@@ -23,10 +23,15 @@ Este artigo apresenta-o ao Change Tracking and Inventory in Azure Automation. Es
 - Serviços da Microsoft
 - Daemons linux
 
-Alterar rastreio e inventário obtém os seus dados do serviço Azure Monitor na nuvem. O Azure envia alterações ao software instalado, serviços microsoft, registo e ficheiros do Windows e daemons Linux em servidores monitorizados para o Monitor Azure para processamento. O serviço na nuvem aplica lógica aos dados recebidos, regista-os e disponibiliza-os. 
-
 > [!NOTE]
 > Para acompanhar as mudanças de propriedade do Gestor de Recursos Azure, consulte o histórico de [alterações](../governance/resource-graph/how-to/get-resource-changes.md)do Gráfico de Recursos Azure.
+
+Alterar rastreio e inventário obtém os seus dados do Monitor Azure. As máquinas virtuais ligadas aos espaços de trabalho do Log Analytics utilizam agentes Do Log Analytics para recolher dados sobre alterações a software instalado, serviços microsoft, registo e ficheiros windows, e quaisquer daemons Linux em servidores monitorizados. Quando os dados estão disponíveis, os agentes enviam-nos para o Monitor Azure para processamento. O Monitor Azure aplica lógica aos dados recebidos, regista-os e disponibiliza-os. 
+
+A funcionalidade de Rastreio e Inventário de Alterações permite tanto as áreas funcionais de rastreio de alterações como de inventário na Automação Azure. Uma vez que ambas as áreas utilizam o mesmo agente Log Analytics, o processo de adição de um VM é o mesmo em qualquer área funcional. 
+
+> [!NOTE]
+> Para utilizar a funcionalidade De Rastreio e Inventário de Alterações, tem de localizar todos os seus VMs na mesma subscrição e região da conta Automation.
 
 Alterar rastreio e inventário atualmente não suporta os seguintes itens:
 
@@ -38,7 +43,7 @@ Alterar rastreio e inventário atualmente não suporta os seguintes itens:
 Outras limitações:
 
 * A coluna max **file size** e os valores não são utilizados na implementação atual.
-* Se recolher mais de 2500 ficheiros num ciclo de recolha de 30 minutos, o desempenho da solução poderá ser degradado.
+* Se recolher mais de 2500 ficheiros num ciclo de recolha de 30 minutos, alterar o rastreio e o desempenho do inventário pode ser degradado.
 * Quando o tráfego da rede é elevado, os registos de alteração podem demorar até seis horas a ser exibidos.
 * Se modificar uma configuração enquanto um computador é desligado, o computador pode publicar alterações pertencentes à configuração anterior.
 
@@ -49,33 +54,7 @@ Change Tracking and Inventory está atualmente a ter os seguintes problemas:
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos suportados
 
-O Rastreio e Inventário de Alterações e os agentes Azure Monitor Log Analytics são suportados tanto nos sistemas operativos Windows como Linux.
-
-### <a name="windows-operating-systems"></a>Sistemas operativos Windows
-
-A versão do sistema operativo Windows que é suportada oficialmente é o Windows Server 2008 R2 ou mais tarde.
-
-### <a name="linux-operating-systems"></a>Sistemas operativos Linux
-
-As distribuições linux discutidas abaixo são oficialmente suportadas para o agente Log Analytics para linux. No entanto, o agente Linux também pode funcionar com outras distribuições não listadas. Salvo indicação em contrário, todas as versões menores são suportadas para cada versão principal listada.
-
-#### <a name="64-bit-linux-operating-systems"></a>Sistemas operativos Linux de 64 bits
-
-* CentOS 6 e 7
-* Amazon Linux 2017.09
-* Oracle Linux 6 e 7
-* Red Hat Enterprise Linux Server 6 e 7
-* Debian GNU/Linux 8 e 9
-* Ubuntu Linux 14.04 LTS, 16.04 LTS e 18.04 LTS
-* SUSE Linux Enterprise Server 12
-
-#### <a name="32-bit-linux-operating-systems"></a>Sistemas operativos Linux de 32 bits
-
-* Centos 6
-* Oracle Linux 6
-* Red Hat Enterprise Linux Server 6
-* Debian GNU/Linux 8 e 9
-* Ubuntu Linux 14.04 LTS e 16.04 LTS
+O Rastreio e Inventário de Alterações é suportado em todos os sistemas operativos que satisfaçam os requisitos do agente Log Analytics. As versões do sistema operativo Windows que são suportadas oficialmente são o Windows Server 2008 SP1 ou mais tarde e o Windows 7 SP1 ou mais tarde. Alguns sistemas operativos Linux também são suportados. Consulte a [visão geral do agente Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent). 
 
 ## <a name="network-requirements"></a>Requisitos da rede
 
@@ -83,14 +62,14 @@ Alterar o Rastreio e o Inventário requer especificamente os endereços de rede 
 
 |Azure Público  |Azure Government  |
 |---------|---------|
-|*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
+|*.ods.opinsights.azure.com    | *.ods.opinsights.azure.us         |
 |*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
-|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
-|*.azure-automation.net|*.azure-automation.us|
+|*.blob.core.windows.net | *.blob.core.usgovcloudapi.net|
+|*.azure-automation.net | *.azure-automation.us|
 
 ## <a name="change-tracking-and-inventory-user-interface"></a>Alterar a interface de utilizador de rastreio e inventário
 
-Utilize o Rastreio e O Inventário de Alterações no portal Azure para ver o resumo das alterações para computadores monitorizados. A funcionalidade está disponível selecionando o **rastreio de alteração** sob gestão de **configuração** na sua conta Deautomação. 
+Utilize o Rastreio e O Inventário de Alterações no portal Azure para ver o resumo das alterações para computadores monitorizados. A funcionalidade está disponível selecionando uma das opções de VMs adicionais para **alterar o rastreio** ou o **inventário** sob gestão de **configuração** na sua conta Deautomação.  
 
 ![Alterar painel de rastreio](./media/change-tracking/change-tracking-dash01.png)
 
@@ -186,7 +165,7 @@ A tabela seguinte mostra os limites de item rastreados por máquina para rastrei
 |Serviços|250|
 |Daemons|250|
 
-O uso médio de dados do Log Analytics para uma máquina que utilize o Change Tracking and Inventory é de aproximadamente 40 MB por mês. Este valor é apenas uma aproximação e está sujeito a alterações com base no seu ambiente. Recomenda-se que monitorize o seu ambiente para ver o uso exato que tem.
+O uso médio de dados do Log Analytics para uma máquina que utilize o Change Tracking and Inventory é de aproximadamente 40 MB por mês, dependendo do seu ambiente. Utilizando a funcionalidade de utilização e custos estimados do espaço de trabalho Log Analytics, pode visualizar os dados ingeridos pelo Change Tracking e Pelo Inventário num gráfico de utilização. Pode utilizar esta visão de dados para avaliar o uso dos seus dados e determinar como está a afetar a sua conta. Ver [Compreender o seu uso e estimar custos.](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs)  
 
 ### <a name="microsoft-service-data"></a>Dados do serviço da Microsoft
 

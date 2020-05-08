@@ -4,12 +4,13 @@ description: Como autenticar pedidos e utilizar a API DO MONITOR Azure para recu
 ms.subservice: metrics
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.openlocfilehash: 6b0e321747e0f84be5a75ab96749311ff0071e8d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 1de3afc380c5c3c82a869de0ff2319b013e26438
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81687421"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610892"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Passagem da API de Monitorização Azure
 

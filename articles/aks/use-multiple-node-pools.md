@@ -4,12 +4,12 @@ description: Aprenda a criar e gerir várias piscinas de nós para um cluster no
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: f948c115b86abc532a121c68fa7a148ff15caae9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bf7e767f1a7b0c657c744c96b308160393e3f326
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81259090"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610926"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Crie e gerencie várias piscinas de nós para um cluster no Serviço Azure Kubernetes (AKS)
 
@@ -722,22 +722,65 @@ az group deployment create \
 
 Pode levar alguns minutos para atualizar o seu cluster AKS dependendo das configurações e operações do conjunto de nós que define no seu modelo de Gestor de Recursos.
 
-## <a name="assign-a-public-ip-per-node-for-a-node-pool-preview"></a>Atribuir um IP público por nó para uma piscina de nó (pré-visualização)
+## <a name="assign-a-public-ip-per-node-for-your-node-pools-preview"></a>Atribua um IP público por nó para as piscinas do seu nó (pré-visualização)
 
 > [!WARNING]
-> Durante a pré-visualização da atribuição de um IP público por nó, não pode ser utilizado com o *SKU standard Load Balancer em AKS* devido a possíveis regras de equilíbrio de carga em conflito com o provisionamento de VM. Como resultado desta limitação, as piscinas de agentes do Windows não são suportadas com esta funcionalidade de pré-visualização. Durante a pré-visualização, deve utilizar o *SKU* de Equilíbrio de Carga Básico se precisar de atribuir um IP público por nó.
+> Deve instalar a extensão de pré-visualização CLI 0.4.43 ou mais para utilizar a função IP pública por nó.
 
 Os nódosos AKS não requerem os seus próprios endereços IP públicos para comunicação. No entanto, os cenários podem exigir que nós numa piscina de nós recebam os seus próprios endereços IP públicos dedicados. Um cenário comum é para as cargas de trabalho dos jogos, onde uma consola precisa de fazer uma ligação direta a uma máquina virtual em nuvem para minimizar o lúpulo. Este cenário pode ser alcançado no AKS através do registo para uma funcionalidade de pré-visualização, Node Public IP (pré-visualização).
 
-Registe-se na funcionalidade IP pública do nó, emitindo o seguinte comando Azure CLI.
+Para instalar e atualizar a mais recente extensão de pré-visualização de aks, utilize os seguintes comandos Azure CLI:
+
+```azurecli
+az extension add --name aks-preview
+az extension update --name aks-preview
+az extension list
+```
+
+Registe-se na funcionalidade IP pública do nó com o seguinte comando Azure CLI:
 
 ```azurecli-interactive
 az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
 ```
+Pode levar vários minutos para a funcionalidade se registar.  Pode verificar o estado com o seguinte comando:
 
-Após o registo bem sucedido, implemente um modelo de Gestor de `enableNodePublicIP` Recursos Azure seguindo as mesmas instruções que [acima](#manage-node-pools-using-a-resource-manager-template) e adicione a propriedade booleana ao agentePoolProfiles. Desdefinir `true` o valor como por `false` defeito, é definido como se não especificado. 
+```azurecli-interactive
+ az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/NodePublicIPPreview')].{Name:name,State:properties.state}"
+```
 
-Este imóvel é um imóvel apenas para criar tempo e requer uma versão API mínima de 2019-06-01. Isto pode ser aplicado tanto nas piscinas de nó linux como no Windows.
+Após o registo bem sucedido, crie um novo grupo de recursos.
+
+```azurecli-interactive
+az group create --name myResourceGroup2 --location eastus
+```
+
+Crie um novo cluster AKS e anexe um IP público para os seus nós. Cada um dos nós na piscina do nó recebe um IP público único. Pode verificar isto olhando para as instâncias do Conjunto de Escala de Máquina virtual.
+
+```azurecli-interactive
+az aks create -g MyResourceGroup2 -n MyManagedCluster -l eastus  --enable-node-public-ip
+```
+
+Para os aglomerados AKS existentes, você também pode adicionar uma nova piscina de nó, e anexar um IP público para seus nós.
+
+```azurecli-interactive
+az aks nodepool add -g MyResourceGroup2 --cluster-name MyManagedCluster -n nodepool2 --enable-node-public-ip
+```
+
+> [!Important]
+> Durante a pré-visualização, o Serviço de Metadados de Instância SKU não suporta atualmente a recuperação de endereços IP públicos para o Nível Padrão VM SKU. Devido a esta limitação, não pode usar comandos kubectl para exibir os IPs públicos atribuídos aos nós. No entanto, os IPs são atribuídos e funcionam conforme pretendido. Os IPs públicos para os seus nódosos estão ligados às instâncias do seu Conjunto de Escala de Máquina virtual.
+
+Pode localizar os iPs públicos para os seus nódosos de várias maneiras:
+
+* Utilize o comando Azure CLI [az vmss list-instance-public-ips][az-list-ips]
+* Utilize [comandos PowerShell ou Bash][vmss-commands]. 
+* Também pode ver os IPs públicos no portal Azure visualizando as ocorrências no Conjunto de Escala de Máquinavirtual.
+
+> [!Important]
+> O grupo de recursos do [nó][node-resource-group] contém os nódosos e os seus IPs públicos. Use o grupo de recursos do nó ao executar comandos para encontrar os IPs públicos para os seus nódosos.
+
+```azurecli
+az vmss list-instance-public-ips -g MC_MyResourceGroup2_MyManagedCluster_eastus -n YourVirtualMachineScaleSetName
+```
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -753,6 +796,12 @@ Para eliminar o aglomerado em si, utilize o [grupo Az eliminar][az-group-delete]
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
+```
+
+Também pode eliminar o cluster adicional que criou para o cenário de IP público para piscinas de nós.
+
+```azurecli-interactive
+az group delete --name myResourceGroup2 --yes --no-wait
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
@@ -795,3 +844,7 @@ Para criar e utilizar piscinas de nó de contentores do Windows Server, consulte
 [taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
 [vm-sizes]: ../virtual-machines/linux/sizes.md
 [use-system-pool]: use-system-pools.md
+[ip-limitations]: ../virtual-network/virtual-network-ip-addresses-overview-arm#standard
+[node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
+[vmss-commands]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine
+[az-list-ips]: /cli/azure/vmss?view=azure-cli-latest.md#az-vmss-list-instance-public-ips

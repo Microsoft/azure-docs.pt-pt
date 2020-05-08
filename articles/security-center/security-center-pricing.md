@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/28/2020
 ms.author: memildin
-ms.openlocfilehash: f4379a5149fff020eb532f0e17cc1c37fbdcd694
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2eb302462e402e701cc5ae664239c457c90ab1b9
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232432"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612797"
 ---
 # <a name="upgrade-to-standard-tier-for-enhanced-security"></a>Upgrade para nível Standard para maior segurança
 
@@ -49,9 +49,12 @@ Para obter o nível padrão:
 [![Preços do Centro de Segurança](media/security-center-pricing/pricing-tier-page.png)](media/security-center-pricing/pricing-tier-page.png#lightbox)
 
 > [!NOTE]
-> Para ativar todas as funcionalidades do Centro de Segurança, incluindo capacidades avançadas de proteção contra ameaças, deve aplicar o nível de preços padrão à subscrição que contém as cargas de trabalho aplicáveis. Configurar preços para um espaço de trabalho não permite o acesso a vm just-in-time, controlos adaptáveis de aplicações e deteções de rede para recursos Azure. 
+> Para ativar todas as funcionalidades do Centro de Segurança, incluindo capacidades de proteção contra ameaças, deve aplicar o nível de preços padrão à subscrição que contém as cargas de trabalho aplicáveis. Configurar preços para um espaço de trabalho não permite o acesso a vm just-in-time, controlos adaptáveis de aplicações e deteções de rede para recursos Azure. 
 >
-> A proteção contra ameaças do Security Center para contas de armazenamento e servidores PaaS SQL/MySQL/PG são atualmente as únicas cargas de trabalho que podem ser ativadas ao nível de recursos para proteger cargas de trabalho individuais de armazenamento/SQL.
+> Pode ativar a proteção contra ameaças para **as contas de Armazenamento Azure** ao nível de subscrição ou ao nível de recursos.
+> Pode ativar a proteção contra ameaças para **servidores SQL Database SQL Do Azure,** quer ao nível da subscrição, quer ao nível dos recursos.
+> Pode ativar a proteção contra ameaças para a Base de **Dados Azure para MariaDB/ MySQL/ PostgreSQL** apenas ao nível dos recursos.
+
 
 ## <a name="why-upgrade-to-standard"></a>Por que fazer upgrade para o padrão?
 O Security Center oferece uma maior segurança e proteção contra ameaças para as suas cargas de trabalho híbridas em nuvem, incluindo:

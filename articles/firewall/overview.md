@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 04/23/2020
+ms.date: 05/06/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: a0bd89a2ffdc15e192e51660c58c1d66efa1284a
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: 9d5fc95c5845b9a75666860ce8900676972a16bc
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82598458"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864101"
 ---
 # <a name="what-is-azure-firewall"></a>O que é o Azure Firewall?
 
@@ -83,12 +83,12 @@ O tráfego de rede de Internet de entrada para o seu endereço IP público firew
 
 ## <a name="multiple-public-ip-addresses"></a>Múltiplos endereços IP públicos
 
-Pode associar vários endereços IP públicos (até 100) com a sua firewall.
+Pode associar vários endereços IP públicos (até 250) com a sua firewall.
 
 Isto permite os seguintes cenários:
 
 - **DNAT** - Pode traduzir várias instâncias de porta padrão para os seus servidores de backend. Por exemplo, se tiver dois endereços IP públicos, pode traduzir a porta TCP 3389 (RDP) para ambos os endereços IP.
-- **SNAT** - Portos adicionais estão disponíveis para ligações SNAT de saída, reduzindo o potencial de exaustão da porta SNAT. Neste momento, o Azure Firewall seleciona aleatoriamente o endereço IP público de origem para utilizar para uma ligação. Se tiver alguma filtragem a jusante na sua rede, tem de permitir todos os endereços IP públicos associados à sua firewall.
+- **SNAT** - Portos adicionais estão disponíveis para ligações SNAT de saída, reduzindo o potencial de exaustão da porta SNAT. Neste momento, o Azure Firewall seleciona aleatoriamente o endereço IP público de origem para utilizar para uma ligação. Se tiver alguma filtragem a jusante na sua rede, tem de permitir todos os endereços IP públicos associados à sua firewall. Considere utilizar um [prefixo de endereço IP público](../virtual-network/public-ip-address-prefix.md) para simplificar esta configuração.
 
 ## <a name="azure-monitor-logging"></a>Registo do Azure Monitor
 

@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4e9f90035816269d2d41781be34d0d8080628b12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 54bff88e9650240a3703e18d583f603cafeb3022
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75431655"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611896"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Compreender a monitorização do trabalho do Stream Analytics e como monitorizar as consultas
 
@@ -37,7 +37,7 @@ A janela aparecerá como mostrado:
 | Pedidos de Função      | Número de chamadas para a função Azure Machine Learning (se presente). |
 | Erros de desserialização de entrada       | Número de eventos de entrada que não podiam ser desserializados.  |
 | Bytes de Evento de Entrada      | Quantidade de dados recebidos pelo trabalho do Stream Analytics, em bytes. Isto pode ser usado para validar que os eventos estão a ser enviados para a fonte de entrada. |
-| Eventos de entrada           | Número de registos desserializados dos eventos de entrada. Esta contagem não inclui eventos que resultem em erros de desserialização. |
+| Eventos de entrada           | Número de registos desserializados dos eventos de entrada. Esta contagem não inclui eventos que resultem em erros de desserialização. Os mesmos eventos podem ser ingeridos pelo Stream Analytics várias vezes em cenários como recuperações internas e auto-uniões. Por isso, recomenda-se que não espere que as métricas de Eventos de Entrada e De saída correspondam se o seu trabalho tiver uma simples consulta de 'passar'. |
 | Fontes de entrada recebidas       | Número de mensagens recebidas pelo trabalho. Para o Event Hub, uma mensagem é um único EventData. Para Blob, uma mensagem é uma única bolha. Por favor, note que as fontes de entrada são contadas antes da desserialização. Se houver erros de desserialização, as fontes de entrada podem ser maiores do que os eventos de entrada. Caso contrário, pode ser menos ou igual a eventos de entrada, uma vez que cada mensagem pode conter vários eventos. |
 | Eventos de entrada tardia      | Eventos que chegaram mais tarde do que a janela de tolerância à chegada tardia configurada. Saiba mais sobre as considerações de ordem de [eventos do Azure Stream Analytics.](stream-analytics-out-of-order-and-late-events.md) |
 | Eventos fora de ordem    | Número de eventos recebidos fora de ordem que foram retirados ou dado um carimbo de tempo ajustado, com base na Política de Ordenação de Eventos. Isto pode ser impactado pela configuração da definição da janela de tolerância fora de ordem. |

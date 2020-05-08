@@ -8,12 +8,12 @@ ms.date: 05/21/2019
 author: sakash279
 ms.author: akshanka
 ms.custom: seodec18
-ms.openlocfilehash: 166076d366cbbf7bef24648772beaba9b3a88253
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fcae1ed9064d38457ede73c675afb75ce4872fe6
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79246477"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611790"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Guia de design de mesa de armazenamento de mesa azure: tabelas escaláveis e performantes
 
@@ -208,7 +208,7 @@ Aqui estão algumas diretrizes gerais para a conceção de consultas de armazena
 * O segundo melhor é uma consulta de *alcance.* Utiliza os `PartitionKey`filtros e filtros `RowKey` numa gama de valores para devolver mais do que uma entidade. O `PartitionKey` valor identifica uma partição específica, e os `RowKey` valores identificam um subconjunto das entidades nessa partição. Por exemplo: `$filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'`.  
 * O terceiro melhor é uma *varredura de partição.* Utiliza o `PartitionKey`e filtra outra propriedade não chave e pode devolver mais do que uma entidade. O `PartitionKey` valor identifica uma partição específica, e os valores de propriedade selecionam para um subconjunto das entidades nessa partição. Por exemplo: `$filter=PartitionKey eq 'Sales' and LastName eq 'Smith'`.  
 * Uma *digitalização* de mesa `PartitionKey`não inclui o , e é ineficiente porque procura todas as divisórias que compõem a sua mesa para quaisquer entidades correspondentes. Executa uma digitalização de mesa independentemente de `RowKey`o seu filtro utilizar ou não o . Por exemplo: `$filter=LastName eq 'Jones'`.  
-* Consultas de armazenamento de mesa azure que `PartitionKey` `RowKey` devolvem várias entidades ordenam-nas e encomendam. Para evitar recorrer às entidades do `RowKey` cliente, escolha um que defina a ordem de classificação mais comum. Os resultados da consulta devolvidos pela API da Tabela Azure em Azure Cosmos DB não são classificados por chave de partição ou chave de linha. Para obter uma lista detalhada das diferenças de características, consulte [diferenças entre a Tabela API no armazenamento de Azure Cosmos DB e Azure Table.](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior)
+* Consultas de armazenamento de mesa azure que `PartitionKey` `RowKey` devolvem várias entidades ordenam-nas e encomendam. Para evitar recorrer às entidades do `RowKey` cliente, escolha um que defina a ordem de classificação mais comum. Os resultados da consulta devolvidos pela API da Tabela Azure em Azure Cosmos DB não são classificados por chave de partição ou chave de linha. Para obter uma lista detalhada das diferenças de características, consulte [diferenças entre a Tabela API no armazenamento de Azure Cosmos DB e Azure Table.](table-api-faq.md#table-api-vs-table-storage)
 
 A utilização de um " `RowKey` **ou**" para especificar um filtro com base em valores resulta numa varredura de divisória, e não é tratada como uma consulta de alcance. Por isso, evite consultas que utilizem `$filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')`filtros tais como: .  
 
@@ -250,7 +250,7 @@ Muitos desenhos devem satisfazer os requisitos para permitir a procura de entida
 O armazenamento de tabelas devolve os resultados `PartitionKey` da `RowKey`consulta ordenadas em ordem ascendente, com base e depois por .
 
 > [!NOTE]
-> Os resultados da consulta devolvidos pela API da Tabela Azure em Azure Cosmos DB não são classificados por chave de partição ou chave de linha. Para obter uma lista detalhada das diferenças de características, consulte [diferenças entre a Tabela API no armazenamento de Azure Cosmos DB e Azure Table.](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior)
+> Os resultados da consulta devolvidos pela API da Tabela Azure em Azure Cosmos DB não são classificados por chave de partição ou chave de linha. Para obter uma lista detalhada das diferenças de características, consulte [diferenças entre a Tabela API no armazenamento de Azure Cosmos DB e Azure Table.](table-api-faq.md#table-api-vs-table-storage)
 
 As chaves no armazenamento da mesa são valores de cordas. Para garantir que os valores numéricos se classificam corretamente, deve convertê-los num comprimento fixo e remar com zeros. Por exemplo, se o valor de `RowKey` identificação do empregado que usa como o é um valor inteiro, deve converter o ID **123** do empregado para **00000123**. 
 
@@ -733,7 +733,7 @@ Os padrões e orientações que se seguem também podem ser relevantes ao implem
 Recupere as entidades *n* mais recentemente `RowKey` adicionadas a uma partição usando um valor que classifica na data e ordem de tempo inversa.  
 
 > [!NOTE]
-> Os resultados da consulta devolvidos pela API da Tabela Azure em Azure Cosmos DB não são classificados por chave de partição ou chave de linha. Assim, embora este padrão seja adequado para armazenamento de mesa, não é adequado para Azure Cosmos DB. Para obter uma lista detalhada das diferenças de funcionalidades, consulte [diferenças entre a Tabela API em Azure Cosmos DB e Azure Table Storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+> Os resultados da consulta devolvidos pela API da Tabela Azure em Azure Cosmos DB não são classificados por chave de partição ou chave de linha. Assim, embora este padrão seja adequado para armazenamento de mesa, não é adequado para Azure Cosmos DB. Para obter uma lista detalhada das diferenças de funcionalidades, consulte [diferenças entre a Tabela API em Azure Cosmos DB e Azure Table Storage](table-api-faq.md#table-api-vs-table-storage).
 
 #### <a name="context-and-problem"></a>Contexto e problema
 Um requisito comum é poder recuperar as entidades mais recentemente criadas, por exemplo, os dez pedidos de despesas mais recentes apresentados por um empregado. As consultas de `$top` mesa suportam uma operação de consulta para devolver as primeiras entidades *n* de um conjunto. Não há nenhuma operação de consulta equivalente para devolver as últimas entidades *num* conjunto.  
