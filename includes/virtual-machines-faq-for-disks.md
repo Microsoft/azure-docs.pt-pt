@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/31/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ad36547b0cf9457d7ff4fdd919a0bb1362539eb5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e1cf3905a34fdced878526cfcc55e6dd0a1a369f
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80522692"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82595342"
 ---
 Este artigo responde a algumas perguntas frequentes sobre discos Azure Managed Disks e Discos SSD Azure Premium.
 
@@ -120,7 +120,7 @@ Não. Isto não é suportado atualmente, uma vez que está presente um contrato 
 Não. Não pode atualizar a propriedade do nome do computador. O novo VM herda-o do VM-progenitor, que foi usado para criar o disco do sistema operativo. 
 
 **Onde posso encontrar modelos de Gestor de Recursos Azure para criar VMs com discos geridos?**
-* [Lista de modelos usando discos geridos](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
+* [Lista de modelos usando discos geridos](https://github.com/Azure/azure-quickstart-templates/)
 * https://github.com/chagarw/MDPP
 
 **Ao criar um disco a partir de uma bolha, existe alguma relação continuamente existente com essa bolha de origem?**

@@ -4,20 +4,20 @@ description: É útil ser capaz de configurar a conta de utilizador sob a qual p
 ms.topic: article
 ms.date: 11/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 22827a1a1406be7cb6ea0bd6e19f6ce316598a48
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1aeb96075e95d7bc0d1e4527fb50b2d5238dbab5
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82111747"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82980291"
 ---
+# <a name="run-tasks-under-user-accounts-in-batch"></a>Executar tarefas sob contas de utilizador em Lote
+
 > [!NOTE] 
 > As contas de utilizador discutidas neste artigo são diferentes das contas dos utilizadores utilizadas para o Protocolo de Ambiente de Trabalho Remoto (RDP) ou Secure Shell (SSH), por razões de segurança. 
 >
 > Para ligar a um nó que executa a configuração da máquina virtual Linux via SSH, consulte [Use Remote Desktop a um Linux VM em Azure](../virtual-machines/virtual-machines-linux-use-remote-desktop.md). Para ligar aos nós que executam o Windows via RDP, consulte [Connect to a Windows Server VM](../virtual-machines/windows/connect-logon.md).<br /><br />
 > Para ligar a um nó que executa a configuração do serviço em nuvem via RDP, consulte [enable Remote Desktop Connection for a Role in Azure Cloud Services](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
-
-# <a name="run-tasks-under-user-accounts-in-batch"></a>Executar tarefas sob contas de utilizador em Lote
 
 Uma tarefa no Lote Azure é sempre realizada sob uma conta de utilizador. Por predefinição, as tarefas são executadas sob as contas de utilizador padrão, sem permissões de administrador. Estas definições de conta de utilizador predefinidas são normalmente suficientes. Para certos cenários, no entanto, é útil ser capaz de configurar a conta de utilizador sob a qual pretende que uma tarefa seja executada. Este artigo discute os tipos de contas de utilizador e como as pode configurar para o seu cenário.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c003af296b10037505e6d6006b6bfc788e641dc3
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: HT
+ms.openlocfilehash: 474eb4f5247aeb77edce0ebfde1611bf2deef493
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82731462"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930408"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Criar um conjunto de anfitriões com o PowerShell
 
@@ -37,7 +37,7 @@ Execute o seguinte cmdlet para iniciar sessão no ambiente de ambiente de trabal
 New-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -WorkspaceName <workspacename> -HostPoolType <Pooled|Personal> -LoadBalancerType <BreadthFirst|DepthFirst|Persistent> -Location <region> -DesktopAppGroupName <appgroupname> 
 ```
 
-Este cmdlet criará o grupo de aplicativos host pool, workspace e desktop. Além disso, irá registar o grupo de aplicações de desktop para o espaço de trabalho. Só é possível criar um espaço de trabalho com este cmdlet, não utilizar um espaço de trabalho existente neste cmdlet. 
+Este cmdlet criará o grupo de aplicativos host pool, workspace e desktop. Além disso, irá registar o grupo de aplicações de desktop para o espaço de trabalho. Pode criar um espaço de trabalho com este cmdlet ou utilizar um espaço de trabalho existente. 
 
 Execute o próximo cmdlet para criar um sinal de inscrição para autorizar um anfitrião da sessão a juntar-se à piscina anfitriã e guardá-lo para um novo ficheiro no seu computador local. Pode especificar quanto tempo o token de registo é válido utilizando o parâmetro -ExpirationHours.
 

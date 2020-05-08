@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: b25d35ce467786c402c56c8a7d19a305381db94f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f6b6e261b5cdfee00a9346338b6eb5d7e1f2a2a0
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137795"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982110"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Encriptação do lado do servidor dos discos geridos pelo Azure
 
@@ -79,7 +79,7 @@ Por enquanto, as chaves geridas pelo cliente têm as seguintes restrições:
 - Todos os recursos relacionados com as suas chaves geridas pelo cliente (Cofres chave Azure, conjuntos de encriptação de discos, VMs, discos e instantâneos) devem estar na mesma subscrição e região.
 - Discos, instantâneos e imagens encriptadas com chaves geridas pelo cliente não podem mover-se para outra subscrição.
 - Se utilizar o portal Azure para criar o seu conjunto de encriptação de discos, não pode utilizar instantâneos por enquanto.
-- Os discos geridos encriptados utilizando chaves geridas pelo cliente também não podem ser encriptados com encriptação do disco Azure.
+- Os discos geridos encriptados utilizando encriptação do lado do servidor com chaves geridas pelo cliente também não podem ser encriptados com encriptação de disco azure e vice-versa
 
 ### <a name="powershell"></a>PowerShell
 

@@ -10,12 +10,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 554bb99121190198982f64deb6ee0674aa8831ed
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: 8159ef45dee8a2f9ace69c2a5b66a29e4948d82c
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "60381200"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982008"
 ---
 # <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Ligação Azure AD: Referência aDSyncConfig PowerShell
 A seguinte documentação fornece informações de referência para o Módulo PowerShell ADSyncConfig.psm1 que está incluído com Azure AD Connect.
@@ -59,25 +59,24 @@ Pesquisas em AD a partir do parâmetro SearchBase e devolvem todos os objetos, f
 ### <a name="examples"></a>EXEMPLOS
 
 #### <a name="example-1"></a>EXEMPLO 1
+Encontre objetos com herança desativada no domínio 'Contoso' (por padrão devolve objetos 'OrganizationalUnit' apenas)
 ```
-Find objects with disabled inheritance in 'Contoso' domain (by default returns 'organizationalUnit' objects only)
+Get-ADSyncObjectsWithInheritanceDisabled -SearchBase 'Contoso'
 ```
-
-Get-ADSyncObjects WithHerherDisabled -SearchBase 'Contoso'
 
 #### <a name="example-2"></a>EXEMPLO 2
+Encontre objetos 'utilizador' com herança desativada no domínio 'Contoso'
 ```
-Find 'user' objects with disabled inheritance in 'Contoso' domain
+Get-ADSyncObjectsWithInheritanceDisabled -SearchBase 'Contoso' -ObjectClass 'user'
 ```
-
-Get-ADSyncObjectsWithHerDisabled -SearchBase 'Contoso' -ObjectClass 'user'
 
 #### <a name="example-3"></a>EXEMPLO 3
+Encontre todos os tipos de objetos com herança deficiente num OU
 ```
-Find all types of objects with disabled inheritance in a OU
+Get-ADSyncObjectsWithInheritanceDisabled -SearchBase OU=AzureAD,DC=Contoso,DC=com -ObjectClass '*'
 ```
 
-Get-ADSyncObjectsWithHerDisabled -SearchBase OU=AzureAD,DC=Contoso,DC=com -ObjectClass '*'
+
 
 ### <a name="parameters"></a>PARÂMETROS
 

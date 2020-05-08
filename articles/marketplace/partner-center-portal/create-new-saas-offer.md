@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 9ffa10726c1ca838f00b713e6640f609c122975a
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: HT
+ms.openlocfilehash: b85846419ce5f6cd4093e198d83240817c95754a
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735101"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983062"
 ---
 # <a name="create-a-new-saas-offer-in-the-commercial-marketplace"></a>Criar uma nova oferta SaaS no mercado comercial
 
@@ -77,7 +77,6 @@ Para listar o Software como um Serviço (SaaS) oferece com o Mercado Comercial n
 
 - A sua oferta deve utilizar o [Azure Ative Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) para gestão de identidade e autenticação.
 - A sua oferta deve utilizar APIs de [cumprimento saas](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) para integrar com o Mercado Azure.
-- Para obter requisitos mais extensos, consulte o Guia editorial da [Oferta SaaS](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
 
 #### <a name="saas-pricing-and-billing-options"></a>Opções de preços e faturação saaS
 

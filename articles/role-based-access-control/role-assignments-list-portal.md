@@ -1,6 +1,6 @@
 ---
-title: Lista de atribuições de funções utilizando o Azure RBAC e o portal Azure
-description: Saiba como determinar que recursos utilizadores, grupos, diretores de serviços ou identidades geridas têm acesso a usar o controlo de acesso baseado em funções azure (RBAC) e o portal Azure.
+title: Atribuição de funções da List Azure utilizando o portal Azure - Azure RBAC
+description: Saiba como determinar que recursos utilizadores, grupos, diretores de serviços ou identidades geridas têm acesso a usar o portal Azure e o controlo de acesso baseado em funções azure (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.workload: identity
 ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 03a3d3c7d572d7ec5b8d3ac3d527d0d59e649bc2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ed7f2b57df97a99a73ad191e45fb900a04f8021f
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062246"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983028"
 ---
-# <a name="list-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Lista de atribuições de funções utilizando o Azure RBAC e o portal Azure
+# <a name="list-azure-role-assignments-using-the-azure-portal"></a>Lista de atribuições de funções azure usando o portal Azure
 
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)]Este artigo descreve como listar atribuições de papéis usando o portal Azure.
 
@@ -32,7 +32,9 @@ ms.locfileid: "80062246"
 
 A forma mais fácil de ver as funções atribuídas a um utilizador ou grupo numa subscrição é utilizar o painel de **recursos Azure.**
 
-1. No portal Azure, clique em **Todos os serviços** e, em seguida, selecione **Utilizadores** ou **Grupos**.
+1. No portal Azure, selecione **Todos os serviços** do menu portal Azure.
+
+1. Selecione **Diretório Ativo Azure** e, em seguida, selecione **Utilizadores** ou **Grupos**.
 
 1. Clique no utilizador ou grupo que deseja listar as atribuições de funções para.
 
@@ -138,5 +140,5 @@ Se estiver perto do número máximo e tentar adicionar mais tarefas, verá um av
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Adicionar ou remover atribuições de funções utilizando o Azure RBAC e o portal Azure](role-assignments-portal.md)
-- [RBAC de resolução de problemas para recursos Azure](troubleshooting.md)
+- [Adicione ou remova atribuições de funções Azure utilizando o portal Azure](role-assignments-portal.md)
+- [Resolução de problemas Azure RBAC](troubleshooting.md)

@@ -13,16 +13,16 @@ ms.workload: infrastructure-services
 ms.date: 06/13/2019
 ms.author: kumud
 ms.reviewer: ypitsch
-ms.openlocfilehash: 10a061163447a60f1c25b386ef28028436284650
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b78e227159065d2ae85d9b1dc989e8ea192ae26a
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75453061"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982807"
 ---
 # <a name="microsoft-global-network"></a>Rede global da Microsoft
 
-A Microsoft detém e opera uma das maiores redes de espinha dorsal do mundo. Esta arquitetura global e sofisticada, com mais de 160.000 km, liga os nossos datacenters e clientes. 
+A Microsoft detém e opera uma das maiores redes de espinha dorsal do mundo. Esta arquitetura global e sofisticada, com mais de 160.000 milhas, liga os nossos datacenters e clientes. 
  
 Todos os dias, os clientes de todo o mundo conectam e passam triliões de pedidos para o Microsoft Azure, Bing, Dynamics 365, Office 365, XBox, entre muitos outros. Independentemente do tipo, os clientes esperam fiabilidade instantânea e capacidade de resposta dos nossos serviços. 
  
@@ -32,7 +32,7 @@ A [rede global](https://azure.microsoft.com/global-infrastructure/global-network
  
 ## <a name="get-the-premium-cloud-network"></a>Obtenha a rede de nuvem premium
  
-Optar pela [melhor experiência possível](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/) é fácil quando se utiliza a nuvem da Microsoft. A partir do momento em que o tráfego de clientes entra na nossa rede global através dos nossos nódeos de borda estrategicamente posicionados, os seus dados viajam através de rotas otimizadas a uma velocidade de luz. Isto garante uma latência ótima para um melhor desempenho. Estes nódeos de borda, todos interligados a mais de 3500 parceiros exclusivos da Internet (pares) através de milhares de conexões em mais de 145 locais, fornecem a base da nossa estratégia de interconexão. 
+Optar pela [melhor experiência possível](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/) é fácil quando se utiliza a nuvem da Microsoft. A partir do momento em que o tráfego de clientes entra na nossa rede global através dos nossos nódeos de borda estrategicamente posicionados, os seus dados viajam através de rotas otimizadas a uma velocidade de luz. Isto garante uma latência ótima para um melhor desempenho. Estes nódeos de borda, todos interligados a mais de 3500 parceiros exclusivos da Internet (pares) através de milhares de conexões em mais de 165 locais, fornecem a base da nossa estratégia de interconexão. 
  
 Quer se ligue de Londres a Tóquio, ou de Washington DC a Los Angeles, o desempenho da rede é quantificado e impactado por coisas como latência, nervosismo, perda de pacotes e entrada.  Na Microsoft, preferimos e utilizamos interligações diretas em oposição às ligações de trânsito, isto mantém a resposta simétrica do tráfego e ajuda a manter o lúpulo, as festas e os caminhos o mais curtos e simples possível. 
 

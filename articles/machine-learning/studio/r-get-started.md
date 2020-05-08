@@ -9,41 +9,37 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: 1dcda3efe3872100100d6e85b68a36359b7eab84
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 665bb12c91c8d6a5a60fd8f60216f30131f34915
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209507"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982195"
 ---
 # <a name="get-started-with-azure-machine-learning-studio-classic-in-r"></a>Inicie-se com o Azure Machine Learning Studio (clássico) em R
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 <!-- Stephen F Elston, Ph.D. -->
-Este tutorial ajuda-o a começar a estender o Azure Machine Learning Studio (clássico) utilizando a linguagem de programação R. Siga este tutorial de programação R para criar, testar e executar código R dentro do Studio (clássico). À medida que trabalha através do tutorial, criará uma solução de previsão completa utilizando a linguagem R em Estúdio (clássico).  
+Neste tutorial, aprende-se a usar o ML Studio (clássico) para criar, testar e executar código R. No final, terá uma solução de previsão completa.  
 
-O Azure Machine Learning Studio (clássico) contém muitos poderosos módulos de aprendizagem automática e manipulação de dados. A poderosa linguagem R foi descrita como a língua franca da analítica. Felizmente, a análise e manipulação de dados em Studio (clássico) podem ser estendidas usando R. Esta combinação proporciona a escalabilidade e facilidade de implantação do Studio (clássico) com a flexibilidade e análise profunda de R.
+> [!div class="checklist"]
+> * Criar código para limpeza e transformação de dados.
+> * Analise as correlações entre várias variáveis no nosso conjunto de dados.
+> * Crie um modelo de previsão sazonal da série de tempo para a produção de leite.
 
-### <a name="forecasting-and-the-dataset"></a>Previsão e conjunto de dados
 
-A previsão é um método analítico amplamente utilizado e bastante útil. As utilizações comuns vão desde a previsão de vendas de itens sazonais, a determinação dos níveis ótimos de inventário, até a previsão de variáveis macroeconómicas. A previsão é normalmente feita com modelos de séries temporais.
+O Azure Machine Learning Studio (clássico) contém muitos poderosos módulos de aprendizagem automática e manipulação de dados. E com a linguagem de programação R, esta combinação proporciona a escalabilidade e facilidade de implantação do Studio (clássico) com a flexibilidade e análise profunda de R.
 
-Os dados da série time são dados em que os valores têm um índice de tempo. O índice de tempo pode ser regular, por exemplo, todos os meses ou cada minuto, ou irregular. Um modelo de série de tempo baseia-se em dados da série de tempo. A linguagem de programação R contém um quadro flexível e uma análise extensiva para dados de séries temporais.
+A previsão é um método analítico amplamente utilizado e bastante útil. As utilizações comuns vão desde a previsão de vendas de itens sazonais, a determinação dos níveis ótimos de inventário, até a previsão de variáveis macroeconómicas. A previsão é normalmente feita com modelos de séries temporais. Os dados da série time são dados em que os valores têm um índice de tempo. O índice de tempo pode ser regular, por exemplo, todos os meses ou cada minuto, ou irregular. Um modelo de série de tempo baseia-se em dados da série de tempo. A linguagem de programação R contém um quadro flexível e uma análise extensiva para dados de séries temporais.
 
-Neste guia vamos trabalhar com a produção de lacticínios da Califórnia e os dados de preços. Estes dados incluem informações mensais sobre a produção de vários produtos lácteos e o preço da gordura leiteira, uma mercadoria de referência.
+## <a name="get-the-data"></a>Obter os dados
+
+Neste tutorial, utiliza-se os dados de produção e preços de produtos lácteos da Califórnia, que inclui informações mensais sobre a produção de vários produtos lácteos e o preço da gordura leiteira, uma mercadoria de referência.
 
 Os dados utilizados neste artigo, juntamente com scripts R, podem ser descarregados a partir de [MachineLearningSamples-Notebooks/studio-samples](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/tree/master/studio-samples). Os dados `cadairydata.csv` do ficheiro foram originalmente sintetizados a [https://dairymarkets.com](https://dairymarkets.com)partir de informações disponíveis na Universidade de Wisconsin em .
 
-### <a name="organization"></a>Organização
 
-Vamos progredir através de vários passos à medida que aprender a criar, testar e executar analítica e manipulação de dados R código R no ambiente Azure Machine Learning Studio (clássico).  
-
-* Primeiro vamos explorar o básico de usar a linguagem R no ambiente Azure Machine Learning Studio (clássico).
-* Em seguida, progredimos para discutir vários aspetos do I/O para dados, código R e gráficos no ambiente Azure Machine Learning Studio (clássico).
-* Construiremos então a primeira parte da nossa solução de previsão, criando código para a limpeza e transformação de dados.
-* Com os nossos dados preparados, vamos realizar uma análise das correlações entre várias variáveis no nosso conjunto de dados.
-* Por último, criaremos um modelo sazonal de previsão de séries temporais para a produção de leite.
 
 ## <a name="interact-with-r-language-in-machine-learning-studio-classic"></a><a id="mlstudio"></a>Interaja com a linguagem R no Machine Learning Studio (clássico)
 
@@ -143,7 +139,7 @@ Nesta secção discutiremos como obtém dados dentro e fora do módulo [Execute 
 
 O código completo para esta secção está em [MachineLearningSamples-Notebooks/studio-samples](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/tree/master/studio-samples).
 
-### <a name="load-and-check-data-in-machine-learning-studio-classic"></a>Carregue e verifique os dados no Estúdio de Aprendizagem automática (clássico)
+### <a name="load-and-check-data"></a>Carregar e verificar dados 
 
 #### <a name="load-the-dataset"></a><a id="loading"></a>Carregar o conjunto de dados
 

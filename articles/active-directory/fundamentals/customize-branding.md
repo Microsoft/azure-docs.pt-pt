@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 05/07/2020
 ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 441fdd14cc2c734b6ce532f3ad1d30663b2f56c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7e0fc3cb450c253882ed34a2c4f5748efe55d0ec
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80049800"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982042"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Adicione branding à página de inscrição do Azure Ative Directory da sua organização
 Utilize o logótipo da sua organização e esquemas de cores personalizadas para fornecer uma aparência e sensação consistentes nas suas páginas de entrada de login Azure Ative (Azure AD). As suas páginas de entrada aparecem quando os utilizadores entram nas aplicações baseadas na web da sua organização, como o Office 365, que utiliza o Azure AD como fornecedor de identidade.
@@ -52,9 +52,9 @@ A sua marca personalizada não aparecerá imediatamente quando os\.seus utilizad
 
         - **A linguagem.** O idioma é automaticamente definido como o seu padrão e não pode ser alterado.
         
-        - **Imagem de fundo de página de iniciar sessão.** Selecione um ficheiro de imagem .png ou .jpg para aparecer como pano de fundo para as suas páginas de inscrição. 
+        - **Imagem de fundo de página de iniciar sessão.** Selecione um ficheiro de imagem .png ou .jpg para aparecer como pano de fundo para as suas páginas de inscrição. A imagem será ancorada ao centro do navegador, e escalará para o tamanho do espaço visível. Não é possível selecionar uma imagem maior do que 1920x1080 pixels de tamanho ou que tenha um tamanho de ficheiro superior a 300 KB.
         
-            A imagem não pode ser maior do que 1920x1080 pixels de tamanho e deve ter um tamanho de arquivo inferior a 300 KB.
+            Recomenda-se usar imagens sem um forte foco de assunto, por exemplo, uma caixa branca opaca aparece no centro do ecrã, e pode cobrir qualquer parte da imagem dependendo das dimensões do espaço visível.
 
         - **Logotipo do banner.** Selecione uma versão .png ou .jpg do seu logótipo para aparecer na página de entrada após o utilizador introduzir um nome de utilizador e na página do portal **My Apps.**
             
@@ -62,7 +62,7 @@ A sua marca personalizada não aparecerá imediatamente quando os\.seus utilizad
 
         - **Sugestão de nome de utilizador.** Digite o texto de dica que aparece aos utilizadores se esquecerem o seu nome de utilizador. Este texto deve ser Unicode, sem links ou código, e não pode exceder 64 caracteres. Se os hóspedes assinarem na sua aplicação, sugerimos que não adicione esta dica.
 
-        - **Sessão de texto de página.** Digite o texto que aparece na parte inferior da página de inscrição. Pode utilizar este texto para comunicar informações adicionais, como o número de telefone para o seu balcão de ajuda ou uma declaração legal. Este texto deve ser Unicode e não exceder 256 caracteres. Também sugerimos não incluir links ou tags HTML.
+        - **Sessão de texto de página.** Digite o texto que aparece na parte inferior da página de inscrição. Pode utilizar este texto para comunicar informações adicionais, como o número de telefone para o seu balcão de ajuda ou uma declaração legal. Este texto deve ser Unicode e não exceder 256 caracteres.
 
     - **Definições avançadas**
             

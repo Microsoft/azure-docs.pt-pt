@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/08/2019
 ms.author: alkarche
-ms.openlocfilehash: 72a6f97f45ec1adaa42d1f17a1916af137845392
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 013001eebeec232cc60e31f1a850aeab4fd6c905
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82559987"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982246"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Gatilho de aquecimento funções azure
 
@@ -38,7 +38,7 @@ Note que o gatilho de aquecimento só é chamado durante as operações de escal
 
 ## <a name="trigger---example"></a>Gatilho - exemplo
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 O exemplo seguinte mostra uma [função C#](functions-dotnet-class-library.md) que será executada em cada nova instância quando for adicionada à sua aplicação. Não é necessário um atributo de valor de retorno.
 
@@ -132,7 +132,6 @@ Aqui está o código JavaScript:
 ```javascript
 module.exports = async function (context, warmupContext) {
     context.log('Function App instance is warm 🌞🌞🌞');
-    context.done();
 };
 ```
 
@@ -188,7 +187,7 @@ public void run( ExecutionContext context) {
 
 Nas bibliotecas da `WarmupTrigger` [classe C#,](functions-dotnet-class-library.md)o atributo está disponível para configurar a função.
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 Este exemplo demonstra como usar o atributo de [aquecimento.](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions/Extensions/Warmup/Trigger/WarmupTriggerAttribute.cs)
 

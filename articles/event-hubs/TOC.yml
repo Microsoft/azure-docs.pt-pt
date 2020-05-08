@@ -78,7 +78,12 @@
       href: ../azure-databricks/databricks-stream-from-eventhubs.md
       maintainContext: true
 - name: Amostras
-  href: event-hubs-samples.md
+  items:
+    - name: Exemplos de código
+      href: event-hubs-samples.md
+    - name: Incorporações do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Conceitos
   items:
     - name: Terminologia dos Hubs de Eventos
@@ -245,7 +250,7 @@
         - name: Biblioteca de cliente
           items:
             - name: azure-eventhub versão 5
-              href: /python/api/overview/azure/eventhub/client
+              href: /python/api/azure-eventhub/?view=azure-python
             - name: azure-eventhub versão 1
               href: /python/api/azure-eventhub/?view=azure-python-previous
         - name: Biblioteca de gestão

@@ -9,7 +9,7 @@ ms.author: dech
 ms.custom: seodec18, has-adal-ref
 ms.openlocfilehash: d2fe231dce26311268e578a495fb2ba7076651e0
 ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/30/2020
 ms.locfileid: "82608035"

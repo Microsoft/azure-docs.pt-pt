@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 04/23/2020
-ms.openlocfilehash: 8170a0190e2d322c07f8f4978a77a8171579cbfb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 04/24/2020
+ms.openlocfilehash: 05d057be76a1b468f892b3123080e32a948153ae
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232892"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598503"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gerir os clusters Apache Hadoop em HDInsight utilizando o portal Azure
 
@@ -219,13 +219,19 @@ A palavra-passe é alterada em todos os nós do cluster.
 4. A partir da página de ações do **Script,** selecione **Enviar nova**.
 5. A partir da página de ação do **script Enviar,** introduza as seguintes informações:
 
+> [!NOTE]
+> As palavras-passe SSH não podem conter os seguintes caracteres:
+> ```
+> " ' ` / \ < % ~ | $ & ! 
+> ```
+
    | Campo | Valor |
    | --- | --- |
    | Tipo de script | Selecione **- Personalizado** da lista de lançamentos.|
-   | Nome |"Alterar credenciais ssh" |
+   | Name |"Alterar credenciais ssh" |
    | Roteiro de bash URI |O URI para o arquivo changecredentials.sh |
    | Tipo de nó): (Cabeça, Trabalhador, Nimbus, Supervisor ou Zookeeper.) |✓ para todos os tipos de nó listados |
-   | Parâmetros |Introduza o nome de utilizador SSH e, em seguida, a nova palavra-passe. Deve haver um espaço entre o nome do utilizador e a palavra-passe. Os seguintes caracteres não são suportados em palavras-passe ssh: " ' / \ < % ~ | $&
+   | Parâmetros |Introduza o nome de utilizador SSH e, em seguida, a nova palavra-passe. Deve haver um espaço entre o nome do utilizador e a palavra-passe. |
    | Persista esta ação do guião... |Deixe este campo descontrolado. |
 
 6. Selecione **Criar** para aplicar o script. Uma vez terminada a script, é possível ligar-se ao cluster utilizando o SSH com as novas credenciais.
