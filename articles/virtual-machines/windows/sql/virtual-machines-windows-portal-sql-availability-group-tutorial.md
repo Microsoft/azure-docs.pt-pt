@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 426ba4c0ac84799b4d0e6bf9330508f928437fd8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f5494b1a7590e87bac9f8ffeaeef8f1da791fd6e
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80060182"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791141"
 ---
 # <a name="tutorial-configure-availability-group-on-azure-sql-server-vm-manually"></a>Tutorial: Configure grupo de disponibilidade no Azure SQL Server VM manualmente
 
@@ -348,7 +348,7 @@ Neste ponto, você tem um Grupo de Disponibilidade com réplicas em duas instân
 
 Nas máquinas virtuais Azure, um Grupo de Disponibilidade de ServidorEs SQL requer um equilíbrio de carga. O equilibrador de carga detém os endereços IP para os ouvintes do Grupo de Disponibilidade e o Cluster de Failover do Servidor do Windows. Esta secção resume como criar o equilibrista de carga no portal Azure.
 
-Um balancedor de carga Azure pode ser um balanceor de carga padrão ou um equilíbrio de carga básico. O Equilíbrio de Carga Standard tem mais funcionalidades do que o Equilíbrio de Carga Básico. Para um grupo de disponibilidade, o Balancer de Carga Padrão é necessário se utilizar uma Zona de Disponibilidade (em vez de um Conjunto de Disponibilidade). Para obter mais detalhes sobre a diferença entre os tipos de equilíbrio de carga, consulte a [comparação SKU](../../../load-balancer/concepts-limitations.md#skus)do Balancer de Carga .
+Um balancedor de carga Azure pode ser um balanceor de carga padrão ou um equilíbrio de carga básico. O Equilíbrio de Carga Standard tem mais funcionalidades do que o Equilíbrio de Carga Básico. Para um grupo de disponibilidade, o Balancer de Carga Padrão é necessário se utilizar uma Zona de Disponibilidade (em vez de um Conjunto de Disponibilidade). Para obter mais detalhes sobre a diferença entre o equilibrador de carga SKUs, consulte a [comparação SKU](../../../load-balancer/skus.md)do Balancer de Carga .
 
 1. No portal Azure, vá ao grupo de recursos onde estão os seus Servidores SQL e clique **+ Adicione**.
 1. Procurar o **Balancer de Carga**. Escolha o equilibrador de carga publicado pela Microsoft.

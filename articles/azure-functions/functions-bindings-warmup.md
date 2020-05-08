@@ -38,7 +38,7 @@ Note que o gatilho de aquecimento só é chamado durante as operações de escal
 
 ## <a name="trigger---example"></a>Gatilho - exemplo
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 O exemplo seguinte mostra uma [função C#](functions-dotnet-class-library.md) que será executada em cada nova instância quando for adicionada à sua aplicação. Não é necessário um atributo de valor de retorno.
 
@@ -188,7 +188,7 @@ public void run( ExecutionContext context) {
 
 Nas bibliotecas da `WarmupTrigger` [classe C#,](functions-dotnet-class-library.md)o atributo está disponível para configurar a função.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Este exemplo demonstra como usar o atributo de [aquecimento.](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions/Extensions/Warmup/Trigger/WarmupTriggerAttribute.cs)
 

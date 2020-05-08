@@ -1,27 +1,27 @@
 ---
 title: Verifique a propriedade Do Último Tempo sincronizado para obter uma conta de armazenamento
 titleSuffix: Azure Storage
-description: Saiba como verificar a propriedade **Do Último Tempo sincronizado** para obter uma conta de armazenamento geo-replicada. A propriedade **Last Sync Time** indica a última vez em que todas as escritas da região primária foram escritas com sucesso para a região secundária.
+description: Saiba como verificar a propriedade Do Último Tempo sincronizado para obter uma conta de armazenamento geo-replicada. A propriedade Last Sync Time indica a última vez em que todas as escritas da região primária foram escritas com sucesso para a região secundária.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/16/2019
+ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 3a406ce6db060b9ff5be7bcadecb6c7ff7e65a1f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: afcadd55e87579b25f03176fa3227024863b90fb
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77165491"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858518"
 ---
 # <a name="check-the-last-sync-time-property-for-a-storage-account"></a>Verifique a propriedade Do Último Tempo sincronizado para obter uma conta de armazenamento
 
 Ao configurar uma conta de armazenamento, pode especificar que os seus dados são copiados para uma região secundária que fica a centenas de milhas da região primária. A geo-replicação oferece durabilidade para os seus dados em caso de paragem significativa na região primária, como um desastre natural. Se permitir ainda ler o acesso à região secundária, os seus dados permanecem disponíveis para operações de leitura se a região primária ficar indisponível. Pode projetar a sua aplicação para mudar perfeitamente para a leitura da região secundária se a região primária não responder.
 
-O armazenamento geo-redundante (GRS) e o armazenamento geo-zona-redundante (GZRS) (pré-visualização) replicam os seus dados assincronicamente para uma região secundária. Para ler o acesso à região secundária, permita o armazenamento geo-redundante de acesso à leitura (RA-GRS) ou o armazenamento geo-zona-redundante de acesso à leitura (RA-GZRS). Para obter mais informações sobre as várias opções de despedimento oferecidas pelo Azure Storage, consulte o [despedimento do Armazenamento Azure.](storage-redundancy.md)
+O armazenamento geo-redundante (GRS) e o armazenamento geo-zona-redundante (GZRS) replicam os seus dados assincronicamente para uma região secundária. Para ler o acesso à região secundária, permita o armazenamento geo-redundante de acesso à leitura (RA-GRS) ou o armazenamento geo-zona-redundante de acesso à leitura (RA-GZRS). Para obter mais informações sobre as várias opções de despedimento oferecidas pelo Azure Storage, consulte o [despedimento do Armazenamento Azure.](storage-redundancy.md)
 
 Este artigo descreve como verificar a propriedade **do Último Tempo de Sincronização** para a sua conta de armazenamento para que possa avaliar qualquer discrepância entre as regiões primária e secundária.
 
@@ -37,10 +37,10 @@ Pode utilizar o PowerShell ou o Azure CLI para recuperar o valor da propriedade 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Para obter o último tempo de sincronização para a conta de armazenamento com powerShell, instale um módulo de pré-visualização de Armazenamento Azure que suporta obter estatísticas de georeplicação. Por exemplo:
+Para obter o último tempo de sincronização para a conta de armazenamento com powerShell, instale uma versão do módulo Az.Storage que suporta obter estatísticas de georeplicação. Por exemplo:
 
 ```powershell
-Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.1.1-preview –AllowPrerelease –AllowClobber –Force
+Install-Module Az.Storage –Repository PSGallery -RequiredVersion ??? –AllowPrerelease –AllowClobber –Force
 ```
 
 Em seguida, verifique a propriedade **GeoReplicationStats.LastSyncTime** da conta de armazenamento. Lembre-se de substituir os valores do espaço reservado por valores próprios:
@@ -70,4 +70,4 @@ $lastSyncTime=$(az storage account show \
 
 - [Redundância de armazenamento azure](storage-redundancy.md)
 - [Alterar a opção de despedimento para uma conta de armazenamento](redundancy-migration.md)
-- [Conceber aplicações altamente disponíveis utilizando armazenamento geo-redundante de acesso de leitura](storage-designing-ha-apps-with-ragrs.md)
+- [Use geo-redundância para conceber aplicações altamente disponíveis](geo-redundant-design.md)

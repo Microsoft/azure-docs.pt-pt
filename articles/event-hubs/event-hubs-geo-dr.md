@@ -14,12 +14,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 61318fbccdf92c6502aa8b2236d8b234cec67668
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 2c42637dda9d1a413c0521ea2d7565a63ca58e81
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209150"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858296"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs - Recuperação geo-desastre 
 
@@ -60,7 +60,7 @@ As seguintes combinações de espaços de nomes primários e secundários são s
 | Standard | Standard | Sim | 
 | Standard | Dedicada | Sim | 
 | Dedicada | Dedicada | Sim | 
-| Dedicada | Standard | Não | 
+| Dedicada | Standard | No | 
 
 > [!NOTE]
 > Não se pode emparelhar espaços de nomes que estão no mesmo aglomerado dedicado. Pode emparelhar espaços de nome sinuosos em aglomerados separados. 
@@ -138,7 +138,7 @@ Só pode ativar Zonas de Disponibilidade em novos espaços de nome, utilizando o
 ## <a name="next-steps"></a>Passos seguintes
 
 * A [amostra no GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) atravessa um simples fluxo de trabalho que cria um geo-emparelhamento e inicia uma falha para um cenário de recuperação de desastres.
-* A [referência REST API](/rest/api/eventhub/disasterrecoveryconfigs) descreve APIs para executar a configuração de recuperação de geo-desastres.
+* A [referência REST API](/rest/api/eventhub/) descreve APIs para executar a configuração de recuperação de geo-desastres.
 
 Para obter mais informações sobre os Hubs de Eventos, visite as seguintes ligações:
 

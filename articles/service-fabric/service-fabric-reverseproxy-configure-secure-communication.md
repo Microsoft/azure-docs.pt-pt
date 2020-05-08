@@ -1,23 +1,21 @@
 ---
 title: Azure Service Fabric reverter proxy secure communication
 description: Configure o proxy inverso para permitir uma comunicação segura de ponta a ponta numa aplicação Azure Service Fabric.
-author: kavyako
 ms.topic: conceptual
 ms.date: 08/10/2017
-ms.author: kavyako
-ms.openlocfilehash: 61a8d1e766ea576f7d2984add239b0da7e2e8183
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e88a81108f38efefe413024fb2b41bbd82f297b2
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80617117"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858520"
 ---
 # <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>Ligar a um serviço seguro com o proxy inverso
 
 Este artigo explica como estabelecer uma ligação segura entre o proxy e os serviços invertidos, permitindo assim o fim do canal seguro. Para saber mais sobre procuração inversa, consulte [Procuração Reversa no Tecido de Serviço Azure](service-fabric-reverseproxy.md)
 
-A ligação a serviços seguros só é suportada quando o proxy inverso estiver configurado para ouvir em HTTPS. Este artigo assume que este é o caso.
-Consulte a [Configuração de procuração inversa no Tecido de Serviço Azure](service-fabric-reverseproxy-setup.md) para configurar o proxy inverso no Tecido de Serviço.
+> [!IMPORTANT]
+> A ligação a serviços seguros só é suportada quando o proxy inverso estiver configurado para ouvir em HTTPS. Este artigo assume que este é o caso. Consulte a [Configuração de procuração inversa no Tecido de Serviço Azure](service-fabric-reverseproxy-setup.md) para configurar o proxy inverso no Tecido de Serviço.
 
 ## <a name="secure-connection-establishment-between-the-reverse-proxy-and-services"></a>Estabelecimento de ligação seguro entre o proxy e os serviços invertidos 
 
@@ -180,10 +178,10 @@ Este é o comportamento padrão.
 
 2. Quando o **ForwardClientCertificate** estiver definido como **verdadeiro,** o proxy inverso solicita o certificado do cliente durante o seu aperto de mão TLS com o cliente.
 Em seguida, encaminhará os dados do certificado de cliente num cabeçalho HTTP personalizado chamado **X-Cliente-Certificado**. O valor do cabeçalho é a cadeia de formato PEM codificada base64 do certificado do cliente. O serviço pode suceder/falhar o pedido com o código de estado adequado após a inspeção dos dados do certificado.
-Se o cliente não apresentar um certificado, o proxy inverso encaminha um cabeçalho vazio e deixe o serviço tratar da caixa.
+Se o cliente não apresentar um certificado, o proxy inverso encaminha um cabeçalho vazio e permite que o serviço trate da caixa.
 
 > [!NOTE]
-> Procuração inversa é um mero avançado. Não realizará qualquer validação do certificado do cliente.
+> O proxy invertido age apenas como um serviço de encaminhamento. Não realizará qualquer validação do certificado do cliente.
 
 
 ## <a name="next-steps"></a>Passos seguintes

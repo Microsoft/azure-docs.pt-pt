@@ -1,27 +1,25 @@
 ---
-title: Referência do atributo do dia de trabalho [ Microsoft Docs
+title: Referência de atributo da Workday
 description: Saiba quais os atributos de SuccessFactors suportados por fornecimento sonante SuccessFactors-HR
 services: active-directory
 author: cmmdesai
-documentationcenter: na
-manager: jodadzie
-ms.assetid: afb77f2d-5ddd-4c2e-a840-09021b0efef1
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/19/2020
 ms.author: chmutali
-ms.openlocfilehash: 61f374c3fbc15e78784fe30c4e66ea109537727d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: celested
+ms.openlocfilehash: b0acb058e7e58656257d55f82f5dd02a8ae7d9c3
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82112886"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593068"
 ---
 # <a name="workday-attribute-reference"></a>Referência de atributo da Workday
+
 Esta secção fornece uma lista de atributos que pode obter do Workday usando consultas XPATH. Com base na versão Workday Web Services API, planeia utilizar, consulte a secção apropriada. 
 
 ## <a name="xpath-values-for-workday-web-services-wws-api-v211"></a>Valores XPATH para Serviços Web workday (WWS) API v21.1
@@ -29,7 +27,7 @@ Esta secção fornece uma lista de atributos que pode obter do Workday usando co
 
 A tabela abaixo captura a lista de atributos do Dia de Trabalho e as expressões XPATH correspondentes que são enviadas para fora da caixa com o conector de aplicações de fornecimento de entrada workday. 
 
-| \# | Nome                                  | Expressão aPI do dia de trabalho                                                                                                                                                                                                                                                                                                                                                                                       |
+| \# | Name                                  | Expressão aPI do dia de trabalho                                                                                                                                                                                                                                                                                                                                                                                       |
 |----|---------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1  | Ativa                                | wd:Trabalhador/wd:Dados\_do trabalhador/wd:Dados de\_\_emprego/wd:Dados\_do Estado do Trabalhador/wd:Ativo/texto\(\)                                                                                                                                                                                                                                                                                                                     |
 | 2  | AddressLine2Data                      | wd:Trabalhador/wd:Dados\_do trabalhador/wd:Dados de\_emprego/wd:Dados\_de\_posição/wd:Site\_\_empresarial\_Resumo Dados/wd:Endereço\_\_Dados/wd:Endereço\_\_Dados\[@wd:Typeda linha ='ADDRESS LINE 2'\]/texto\(\)                                                                                                                                                                                                                             |
@@ -117,7 +115,7 @@ A tabela abaixo captura a lista de atributos do Dia de Trabalho e as expressões
 Se estiver a utilizar uma wws API v30.0 ou superior, antes de ligar o trabalho de provisionamento, por favor atualize as **expressões XPATH API** no âmbito **do Attribute Mapping -> Advanced Options -> Editar lista de atributos para** o Workday para utilizar os valores listados abaixo. Para configurar XPATHs adicionais, consulte a secção [Tutorial: Gerir a sua configuração](../saas-apps/workday-inbound-tutorial.md#managing-your-configuration). 
 
 
-| \# | Nome                                  | Expressão aPI do dia de trabalho XPATH                                                                                                                                                                                                                                                                                                                                                |
+| \# | Name                                  | Expressão aPI do dia de trabalho XPATH                                                                                                                                                                                                                                                                                                                                                |
 |----|---------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1  | Ativa                                | wd:Trabalhador/wd:Dados\_do trabalhador/wd:Dados de\_\_emprego/wd:Dados\_do Estado do Trabalhador/wd:Ativo/texto\(\)                                                                                                                                                                                                                                                                                               |
 | 2  | AddressLine2Data                      | wd:Trabalhador/wd:Dados\_do trabalhador/wd:Dados de emprego/wd:Trabalho\_do trabalhador\_\_Trabalho de\_\_trabalho=1\_\[@wd:Primary\_\]/wd:Dados de\_posição/wd:Site de negócios\]Dados resumo/wd:Endereço\_Dados/wd:Endereço\_\_Dados\[@wd:Typeda linha ='ADDRESS\_LINE\_2' /texto\(\)                                                                                                                                                            |

@@ -7,15 +7,15 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 02/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 239dc0f3133a5adf59a23d333131c91d3a655597
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: fe9ae8997e05e4ab99dba66de88976342fbabe56
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81770376"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858359"
 ---
 # <a name="upgrade-azure-internal-load-balancer--no-outbound-connection-required"></a>Upgrade Azure Internal Load Balancer - Sem necessidade de ligação de saída
-[O Azure Standard Load Balancer](load-balancer-overview.md) oferece um conjunto rico de funcionalidades e alta disponibilidade através de redundância de zona. Para saber mais sobre o Load Balancer SKU, consulte a [tabela de comparação](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus).
+[O Azure Standard Load Balancer](load-balancer-overview.md) oferece um conjunto rico de funcionalidades e alta disponibilidade através de redundância de zona. Para saber mais sobre o Load Balancer SKU, consulte a [tabela de comparação](https://docs.microsoft.com/azure/load-balancer/skus#skus).
 
 Este artigo introduz um script PowerShell que cria um Balancer de Carga Padrão com a mesma configuração do Equilíbrio de Carga Básico juntamente com o tráfego migratório do Equilíbrio de Carga Básica para o Equilíbrio de Carga Padrão.
 
@@ -33,6 +33,17 @@ Está disponível um script Azure PowerShell que faz o seguinte:
 * O script apenas suporta a atualização do Balancer de Carga Interna onde não é necessária nenhuma ligação de saída. Se necessitar de [ligação de saída](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) para alguns dos seus VMs, consulte esta [página](upgrade-InternalBasic-To-PublicStandard.md) para obter instruções. 
 * Se o equilibrador de carga Standard for criado numa região diferente, não poderá associar os VMs existentes na região antiga ao recém-criado Standard Load Balancer. Para contornar esta limitação, certifique-se de criar um novo VM na nova região.
 * Se o seu Balancer de Carga não tiver qualquer configuração IP frontal ou piscina de backend, é provável que acerte um erro ao executar o script. Certifique-se de que não estão vazios.
+
+## <a name="change-ip-allocation-method-to-static-for-frontend-ip-configuration-ignore-this-step-if-its-already-static"></a>Alterar o método de atribuição de IP para Static para configuração IP frontend (Ignore este passo se já estiver estático)
+
+1. Selecione **todos os serviços** no menu à esquerda, selecione **Todos os recursos**e, em seguida, selecione o seu Equilíbrio de Carga Básico da lista de recursos.
+
+2. Em **definições,** selecione **a configuração IP frontend**, e selecione a configuração IP da primeira extremidade frontal. 
+
+3. Para **atribuição,** **selecione Estática**
+
+4. Repita o passo 3 para todas as configurações IP frontend as configurações ip do Equilíbrio de Carga Básica.
+
 
 ## <a name="download-the-script"></a>Descarregue o script
 

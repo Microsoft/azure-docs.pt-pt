@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 07/12/2019
-ms.openlocfilehash: 1a0a6cf5a26854539dc4bbb0ae0254bbf08dad1f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 052b12817b788ff38f0fab72a5420896b062c732
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73494598"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857429"
 ---
 # <a name="failure-spark-job-debugging-with-azure-toolkit-for-intellij-preview"></a>Falha no trabalho de faísca com Kit de Ferramentas Azure para IntelliJ (pré-visualização)
 
-Este artigo fornece orientações passo a passo sobre como usar ferramentas HDInsight no [Kit de Ferramentas Azure para intelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij?view=azure-java-stable) executar aplicações **Spark Failure Debug.**
+Este artigo fornece orientações passo a passo sobre como usar ferramentas HDInsight no [Kit de Ferramentas Azure para intelliJ](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij) executar aplicações **Spark Failure Debug.**
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -26,7 +26,7 @@ Este artigo fornece orientações passo a passo sobre como usar ferramentas HDIn
   
 * IntelliJ IDEA. Este artigo utiliza [intelliJ IDEA Community ver. 2019.1.3](https://www.jetbrains.com/idea/download/#section=windows).
   
-* Kit de ferramentas Azure para IntelliJ. Consulte [a instalação do Kit de Ferramentas Azure para IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable).
+* Kit de ferramentas Azure para IntelliJ. Consulte [a instalação do Kit de Ferramentas Azure para IntelliJ](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/installation).
 
 * Ligue-se ao seu cluster HDInsight. Consulte [a Ligação ao seu cluster HDInsight](apache-spark-intellij-tool-plugin.md).
 

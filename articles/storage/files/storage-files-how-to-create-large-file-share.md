@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: bd7726d2bbf2830d18d78b5f0b0d7202b734124d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: add2805d9a360d3d9cd45ab54f476a6852fb7bd5
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537683"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858578"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Ativar e criar grandes partilhas de ficheiros
 
@@ -26,8 +26,9 @@ Quando ativa grandes ações de ficheiros na sua conta de armazenamento, as suas
 
 ## <a name="restrictions"></a>Restrições
 
-Por enquanto, só pode utilizar armazenamento redundante localmente (LRS) ou armazenamento redundante (ZRS) em contas ativadas por grandes partilhas de ficheiros. Não é possível utilizar armazenamento geo-zona redundante (GZRS), armazenamento geo-redundante (GRS) ou armazenamento geo-redundante de acesso de leitura (RA-GRS).
-Permitir grandes ações de ficheiros numa conta é um processo irreversível. Depois de o ativar, não poderá converter a sua conta em GZRS, GRS ou RA-GRS.
+Por enquanto, só pode utilizar armazenamento redundante localmente (LRS) ou armazenamento redundante (ZRS) em contas ativadas por grandes partilhas de ficheiros. Não é possível utilizar armazenamento geo-zona redundante (GZRS), armazenamento geo-redundante (GRS), armazenamento geo-redundante de acesso de leitura (RA-GRS) ou armazenamento geo-zona-redundante de acesso à leitura (RA-GZRS).
+
+Permitir grandes ações de ficheiros numa conta é um processo irreversível. Depois de o ativar, não poderá converter a sua conta para GZRS, GRS, RA-GRS ou RA-GZRS.
 
 ## <a name="create-a-new-storage-account"></a>Criar uma nova conta de armazenamento
 
@@ -68,7 +69,7 @@ Em primeiro lugar, [instale a versão mais recente do Azure CLI](https://docs.mi
 Para criar uma conta de armazenamento com grandes partilhas de ficheiros ativadas, utilize o seguinte comando. Substitua, `<yourStorageAccountName>` `<yourResourceGroup>` `<yourDesiredRegion>` e com a sua informação.
 
 ```azurecli-interactive
-## This command creates a large file share–enabled account. It will not support GZRS, GRS, or RA-GRS.
+## This command creates a large file share–enabled account. It will not support GZRS, GRS, RA-GRS, or RA-GZRS.
 az storage account create --name <yourStorageAccountName> -g <yourResourceGroup> -l <yourDesiredRegion> --sku Standard_LRS --kind StorageV2 --enable-large-file-share
 ```
 
@@ -79,13 +80,13 @@ Em primeiro lugar, [instale a versão mais recente do PowerShell](https://docs.m
 Para criar uma conta de armazenamento com grandes partilhas de ficheiros ativadas, utilize o seguinte comando. Substitua, `<yourStorageAccountName>` `<yourResourceGroup>` `<yourDesiredRegion>` e com a sua informação.
 
 ```powershell
-## This command creates a large file share–enabled account. It will not support GZRS, GRS, or RA-GRS.
+## This command creates a large file share–enabled account. It will not support GZRS, GRS, RA-GRS, or RA-GZRS.
 New-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAccountName> -Location <yourDesiredRegion> -SkuName Standard_LRS -EnableLargeFileShare;
 ```
 
 ## <a name="enable-large-files-shares-on-an-existing-account"></a>Ativar grandes partilhas de ficheiros numa conta existente
 
-Também pode ativar grandes partilhas de ficheiros nas suas contas existentes. Se ativar grandes ações de ficheiros, não poderá converter-se em GZRS, GRS ou RA-GRS. Permitir grandes ações de ficheiros é irreversível nesta conta de armazenamento.
+Também pode ativar grandes partilhas de ficheiros nas suas contas existentes. Se ativar grandes ações de ficheiros, não poderá converter-se em GZRS, GRS, RA-GRS ou RA-GZRS. Permitir grandes ações de ficheiros é irreversível nesta conta de armazenamento.
 
 ### <a name="portal"></a>Portal
 

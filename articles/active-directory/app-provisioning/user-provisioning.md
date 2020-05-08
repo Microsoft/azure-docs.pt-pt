@@ -1,28 +1,24 @@
 ---
-title: Fornecimento automatizado de utilizadores de aplicações SaaS em Azure AD Microsoft Docs
+title: Fornecimento automatizado de utilizadores de aplicativos SaaS em Azure AD
 description: Uma introdução à forma como pode utilizar o Azure AD para fornecer, desprovisionar e atualizar continuamente as contas de utilizadores em várias aplicações SaaS de terceiros.
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/25/2019
 ms.author: mimart
-ms.reviewer: arvinh
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e828fd9c2561007c332db67bfd0b20dda9b845f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: arvinh, celested
+ms.openlocfilehash: 1e72d885858b543999090a4a0521845d556802fd
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79454538"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593119"
 ---
-# <a name="automate-user-provisioning-and-deprovisioning-to-applications-with-azure-active-directory"></a>Automatizar o fornecimento e o desprovisionamento de utilizadores a aplicações com o Diretório Ativo da Azure
+# <a name="automate-user-provisioning-and-deprovisioning-to-applications-with-azure-ad"></a>Automatizar o fornecimento e o desprovisionamento de utilizadores a aplicações com a Azure AD
 
 No Azure Ative Directory (Azure AD), o fornecimento de **aplicações** de termo refere-se à criação automática de identidades e funções de utilizador nas aplicações cloud[(SaaS)](https://azure.microsoft.com/overview/what-is-saas/)a que os utilizadores precisam de acesso. Além de criar identidades de utilizador, o fornecimento automático inclui a manutenção e remoção das identidades dos utilizadores como alteração de estado ou funções. Os cenários comuns incluem o fornecimento de um utilizador de AD Azure em aplicações como [Dropbox,](../saas-apps/dropboxforbusiness-provisioning-tutorial.md) [Salesforce,](../saas-apps/salesforce-provisioning-tutorial.md) [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md)e muito mais.
 

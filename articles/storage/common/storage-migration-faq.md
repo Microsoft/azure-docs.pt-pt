@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: 39f1137638f9cd4926b712bdd18e681d90adcdc4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b020cbd15ba17609b7a476ccda9b1e814405341e
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80668554"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858790"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Perguntas mais frequentes sobre a migração do Armazenamento do Azure
 
@@ -284,7 +284,7 @@ O armazenamento geo-redundante de acesso de leitura é necessário para aceder a
 
 **Para uma conta de armazenamento replicada (como armazenamento redundante de zona, armazenamento geo-redundante ou armazenamento geo-redundante de acesso à leitura), como posso aceder aos dados armazenados na região secundária?**
 
--   Se estiver a utilizar armazenamento redundante ou armazenamento geo-redundante, não pode aceder a dados da região secundária a menos que inicie uma falha nessa região. Para obter mais informações sobre o processo de failover, consulte a falha da conta de [recuperação de desastres e armazenamento (pré-visualização) no Armazenamento Azure](storage-disaster-recovery-guidance.md).
+-   Se estiver a utilizar armazenamento redundante ou armazenamento geo-redundante, não pode aceder a dados da região secundária a menos que inicie uma falha nessa região. Para obter mais informações sobre o processo de failover, consulte a falha da conta de [recuperação de desastres e armazenamento](storage-disaster-recovery-guidance.md).
 
 -   Se estiver a utilizar armazenamento geo-redundante de acesso de leitura, pode aceder a dados da região secundária a qualquer momento. Utilize um dos seguintes métodos:  
 

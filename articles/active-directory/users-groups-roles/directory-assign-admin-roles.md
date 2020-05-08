@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: reference
-ms.date: 04/22/2020
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8033122601077945790005e23ec728911c3a4e1f
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
-ms.translationtype: HT
+ms.openlocfilehash: 0c16ba26d1c59bd932e657f41882fbd23dc3a69e
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207535"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82592235"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administrator role permissions in Azure Active Directory (Permissões de cargos de administrador no Azure Active Directory)
 
@@ -102,11 +102,11 @@ Os utilizadores com esta função têm todas as permissões no serviço de Prote
 
 ### <a name="b2c-user-flow-administrator"></a>[Administrador de fluxo de utilizador B2C](#b2c-user-flow-administrator-permissions)
 
-Os utilizadores com esta função podem criar e gerir fluxos de utilizadores B2C (também chamados de políticas "incorporadas") no portal Azure.Ao criar ou editar fluxos de utilizadores, estes utilizadores podem alterar o conteúdo html/CSS/javascript da experiência do utilizador, alterar os requisitos de MFA por fluxo de utilizador, alterar reclamações no token e ajustar as definições de sessão para todas as políticas do inquilino. Por outro lado, esta função não inclui a capacidade de rever os dados dos utilizadores, nem fazer alterações aos atributos que estão incluídos no esquema do inquilino.As alterações ao Quadro de Experiência de Identidade (também conhecida como Personalizada) também estão fora do âmbito desta função.
+Os utilizadores com esta função podem criar e gerir fluxos de utilizadores B2C (também chamados de políticas "incorporadas") no portal Azure.Ao criar ou editar fluxos de utilizadores, estes utilizadores podem alterar o conteúdo html/CSS/javascript da experiência do utilizador, alterar os requisitos de MFA por fluxo de utilizador, alterar reclamações no token e ajustar as definições de sessão para todas as políticas da organização Azure AD. Por outro lado, esta função não inclui a capacidade de rever os dados dos utilizadores, nem fazer alterações aos atributos que estão incluídos no esquema da organização.As alterações ao Quadro de Experiência de Identidade (também conhecida como Personalizada) também estão fora do âmbito desta função.
 
 ### <a name="b2c-user-flow-attribute-administrator"></a>[Administrador de atributo de fluxo de utilizador B2C](#b2c-user-flow-attribute-administrator-permissions)
 
-Os utilizadores com esta função adicionam ou apagam atributos personalizados disponíveis para todos os fluxos de utilizador no inquilino.Como tal, os utilizadores com esta função podem alterar ou adicionar novos elementos ao esquema do utilizador final e impactar o comportamento de todos os fluxos de utilizadores e resultar indiretamente em alterações aos dados que podem ser solicitados aos utilizadores finais e, em última análise, enviados como alegações para aplicações.Esta função não pode editar fluxos de utilizadores.
+Os utilizadores com esta função adicionam ou apagam atributos personalizados disponíveis para todos os fluxos de utilizadores na organização Azure AD.Como tal, os utilizadores com esta função podem alterar ou adicionar novos elementos ao esquema do utilizador final e impactar o comportamento de todos os fluxos de utilizadores e resultar indiretamente em alterações aos dados que podem ser solicitados aos utilizadores finais e, em última análise, enviados como alegações para aplicações.Esta função não pode editar fluxos de utilizadores.
 
 ### <a name="b2c-ief-keyset-administrator"></a>[Administrador de teclas B2C IEF](#b2c-ief-keyset-administrator-permissions)
 
@@ -117,10 +117,10 @@ O utilizador pode criar e gerir chaves e segredos de política para encriptaçã
 
 ### <a name="b2c-ief-policy-administrator"></a>[Administrador de Política B2C IEF](#b2c-ief-policy-administrator-permissions)
 
-Os utilizadores desta função têm a capacidade de criar, ler, atualizar e eliminar todas as políticas personalizadas em Azure AD B2C e, portanto, ter total controlo sobre o Quadro de Experiência de Identidade no inquilino Azure AD B2C relevante. Ao editar políticas, este utilizador pode estabelecer uma federação direta com fornecedores de identidade externos, alterar o esquema de diretório, alterar todos os conteúdos virados para o utilizador (HTML, CSS, JavaScript), alterar os requisitos para completar uma autenticação, criar novos utilizadores, enviar dados de utilizadores para sistemas externos, incluindo migrações completas, e editar todas as informações do utilizador, incluindo campos sensíveis como palavras-passe e números de telefone. Inversamente, este papel não pode alterar as chaves de encriptação ou editar os segredos usados para a federação no inquilino.
+Os utilizadores desta função têm a capacidade de criar, ler, atualizar e eliminar todas as políticas personalizadas no Azure AD B2C e, portanto, têm total controlo sobre o Quadro de Experiência de Identidade na organização Azure AD B2C. Ao editar políticas, este utilizador pode estabelecer uma federação direta com fornecedores de identidade externos, alterar o esquema de diretório, alterar todos os conteúdos virados para o utilizador (HTML, CSS, JavaScript), alterar os requisitos para completar uma autenticação, criar novos utilizadores, enviar dados de utilizadores para sistemas externos, incluindo migrações completas, e editar todas as informações do utilizador, incluindo campos sensíveis como palavras-passe e números de telefone. Inversamente, este papel não pode alterar as chaves de encriptação ou editar os segredos usados para a federação na organização.
 
 > [!IMPORTANT]
-> O Administrador de Política B2 IEF é um papel altamente sensível que deve ser atribuído numa base muito limitada aos inquilinos em produção.As atividades destes utilizadores devem ser auditadas de perto, especialmente para os inquilinos em produção.
+> O Administrador de Política B2 IEF é um papel altamente sensível que deve ser atribuído numa base muito limitada para as organizações em produção.As atividades destes utilizadores devem ser auditadas de perto, especialmente para as organizações em produção.
 
 ### <a name="billing-administrator"></a>[Administrador de Faturação](#billing-administrator-permissions)
 
@@ -202,7 +202,7 @@ Este é um papel legado que deve ser atribuído a candidaturas que não apoiem o
 
 ### <a name="dynamics-365-administrator--crm-administrator"></a>[Administrador dinâmica 365 / Administrador crm](#crm-service-administrator-permissions)
 
-Os utilizadores com esta função têm permissões globais dentro do Microsoft Dynamics 365 Online, quando o serviço está presente, bem como a capacidade de gerir bilhetes de suporte e monitorizar a saúde do serviço. Mais informações na Utilização do serviço de [administração para gerir o seu inquilino.](https://docs.microsoft.com/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant)
+Os utilizadores com esta função têm permissões globais dentro do Microsoft Dynamics 365 Online, quando o serviço está presente, bem como a capacidade de gerir bilhetes de suporte e monitorizar a saúde do serviço. Mais informações na Utilização do serviço de [administração para gerir a sua organização Azure AD](https://docs.microsoft.com/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
 
 > [!NOTE]
 > No Microsoft Graph API e Azure AD PowerShell, esta função é identificada como "Administrador de Serviço Dynamics 365". É "Administrador Da Dinâmica 365" no [portal Azure.](https://portal.azure.com)
@@ -216,14 +216,14 @@ Os utilizadores com esta função têm permissões globais dentro do Microsoft E
 
 ### <a name="external-identity-provider-administrator"></a>[Administrador de Fornecedor de Identidade Externa](#external-identity-provider-administrator-permissions)
 
-Este administrador gere a federação entre inquilinos do Azure Ative Directory e fornecedores de identidade externa.Com esta função, os utilizadores podem adicionar novos fornecedores de identidade e configurar todas as definições disponíveis (por exemplo, via de autenticação, ID de serviço, recipientes-chave atribuídos).Este utilizador pode permitir ao arrendatário confiar em autenticações de fornecedores de identidade externos.O impacto resultante nas experiências do utilizador final depende do tipo de inquilino:
+Este administrador gere a federação entre organizações da AD Azure e fornecedores de identidade externa.Com esta função, os utilizadores podem adicionar novos fornecedores de identidade e configurar todas as definições disponíveis (por exemplo, via de autenticação, ID de serviço, recipientes-chave atribuídos).Este utilizador pode permitir à organização Azure AD confiar em autenticações de fornecedores de identidade externos.O impacto resultante nas experiências de utilizador final depende do tipo de organização:
 
-* Inquilinos do Diretório Ativo Azure para colaboradores e parceiros: A adição de uma federação (por exemplo, com o Gmail) terá imediatamente impacto em todos os convites de hóspedes ainda não resgatados. Consulte a adição do Google como fornecedor de [identidade para utilizadores convidados B2B](https://docs.microsoft.com/azure/active-directory/b2b/google-federation).
-* Inquilinos do Azure Ative Directory B2C: A adição de uma federação (por exemplo, com o Facebook, ou com outra organização Azure AD) não impacta imediatamente os fluxos de utilizadores finais até que o fornecedor de identidade seja adicionado como uma opção num fluxo de utilizador (também chamado de política incorporada). Consulte [configurar uma conta microsoft como um fornecedor de identidade,](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app) por exemplo.Para alterar os fluxos de utilizador, é necessária a função limitada de "Administrador de Fluxo de Utilizador B2C".
+* Organizações da Azure AD para colaboradores e parceiros: A adição de uma federação (por exemplo, com o Gmail) terá imediatamente impacto em todos os convites de hóspedes ainda não resgatados. Consulte a adição do Google como fornecedor de [identidade para utilizadores convidados B2B](https://docs.microsoft.com/azure/active-directory/b2b/google-federation).
+* Organizações Azure Ative Directory B2C: A adição de uma federação (por exemplo, com o Facebook, ou com outra organização Azure AD) não impacta imediatamente os fluxos de utilizadores finais até que o fornecedor de identidade seja adicionado como uma opção num fluxo de utilizador (também chamado de política incorporada). Consulte [configurar uma conta microsoft como um fornecedor de identidade,](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app) por exemplo.Para alterar os fluxos de utilizador, é necessária a função limitada de "Administrador de Fluxo de Utilizador B2C".
 
 ### <a name="global-administrator--company-administrator"></a>[Administrador Global / Administrador da Empresa](#company-administrator-permissions)
 
-Os utilizadores com esta função têm acesso a todas as funcionalidades administrativas do Diretório Ativo do Azure, bem como a serviços que utilizam identidades do Azure Ative Directory como o Microsoft 365 security center, microsoft 365 compliance center, Exchange Online, SharePoint Online e Skype para Business Online. A pessoa que se inscreve no inquilino do Azure Ative Directory torna-se administradora global. Pode haver mais do que um administrador global na sua empresa. Os administradores globais podem redefinir a palavra-passe para qualquer utilizador e todos os outros administradores.
+Os utilizadores com esta função têm acesso a todas as funcionalidades administrativas do Diretório Ativo do Azure, bem como a serviços que utilizam identidades do Azure Ative Directory como o Microsoft 365 security center, microsoft 365 compliance center, Exchange Online, SharePoint Online e Skype para Business Online. A pessoa que se inscreve na organização Azure AD torna-se um administrador global. Pode haver mais do que um administrador global na sua empresa. Os administradores globais podem redefinir a palavra-passe para qualquer utilizador e todos os outros administradores.
 
 > [!NOTE]
 > No Microsoft Graph API e Azure AD PowerShell, esta função é identificada como "Administrador da Empresa". É "Administrador Global" no [portal Azure.](https://portal.azure.com)
@@ -240,7 +240,6 @@ Os utilizadores desta função podem ler configurações e informações adminis
 >- [OneDrive centro de administração](https://admin.onedrive.com/) - O centro de administração OneDrive não suporta o papel do leitor Global.
 >- [Portal Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) - O leitor global não consegue ler o modo de provisionamento de uma aplicação empresarial.
 >- [Centro de administração M365](https://admin.microsoft.com/Adminportal/Home#/homepage) - O leitor global não consegue ler pedidos de bloqueio de clientes. Não encontrará o separador de pedidos de **bloqueio do Cliente** sob **suporte** no painel esquerdo do Centro de Administração M365.
->- [Centro de Segurança M365](https://security.microsoft.com/homepage) - O leitor global não consegue ler etiquetas de sensibilidade e retenção. Não encontrará **etiquetas**de sensibilidade, etiquetas de **retenção**e separadores de análise de **etiquetas** no painel esquerdo do centro de segurança M365.
 >- [Office Security & Compliance Center](https://sip.protection.office.com/homepage) - O leitor global não consegue ler registos de auditoria do SCC, fazer pesquisa de conteúdo ou ver Secure Score.
 >- [Teams admin center](https://admin.teams.microsoft.com) - Global reader can read **Teams lifecycle**, **Analytics & reports**, IP phone device **management** and **App catalog**.
 >- [A Privileged Access Management (PAM)](https://docs.microsoft.com/office365/securitycompliance/privileged-access-management-overview) não apoia o papel de leitor global.
@@ -251,7 +250,7 @@ Os utilizadores desta função podem ler configurações e informações adminis
 
 ### <a name="groups-administrator"></a>[Administrador de Grupos](#groups-administrator-permissions)
 
-Os utilizadores desta função podem criar/gerir grupos e suas configurações como políticas de nomeação e expiração. É importante entender que atribuir um utilizador a esta função lhes dá a capacidade de gerir todos os grupos do inquilino em várias cargas de trabalho como Teams, SharePoint, Yammer para além do Outlook. Também o utilizador será capaz de gerir as configurações dos vários grupos em vários portais de administração como o Microsoft Admin Center, portal Azure, bem como os específicos da carga de trabalho, como Teams e SharePoint Admin Centers.
+Os utilizadores desta função podem criar/gerir grupos e suas configurações como políticas de nomeação e expiração. É importante entender que atribuir um utilizador a esta função lhes dá a capacidade de gerir todos os grupos da organização em várias cargas de trabalho como Teams, SharePoint, Yammer para além do Outlook. Também o utilizador será capaz de gerir as configurações dos vários grupos em vários portais de administração como o Microsoft Admin Center, portal Azure, bem como os específicos da carga de trabalho, como Teams e SharePoint Admin Centers.
 
 ### <a name="guest-inviter"></a>[Convidado convidado](#guest-inviter-permissions)
 
@@ -288,7 +287,7 @@ Os utilizadores desta função podem ativar, configurar e gerir serviços e conf
 
 Os utilizadores com esta função têm permissões globais dentro do Microsoft Intune Online, quando o serviço está presente. Além disso, esta função contém a capacidade de gerir utilizadores e dispositivos de forma a associar a política, bem como criar e gerir grupos. Mais informações sobre [o controlo da administração baseado em Role (RBAC) com](https://docs.microsoft.com/intune/role-based-access-control)a Microsoft Intune .
 
-Este papel pode criar e gerir todos os grupos de segurança. No entanto, a Intune Admin não tem direitos de administração sobre os grupos de escritórios. Isto significa que o administrador não pode atualizar os proprietários ou membros de todos os grupos de escritórios do inquilino. No entanto, pode gerir o grupo office que cria, que vem como parte dos seus privilégios de utilizador final. Assim, qualquer grupo do Office (não grupo de segurança) que cria deve ser contado contra a sua quota de 250.
+Este papel pode criar e gerir todos os grupos de segurança. No entanto, a Intune Admin não tem direitos de administração sobre os grupos de escritórios. Isto significa que o administrador não pode atualizar os proprietários ou membros de todos os grupos do Office na organização. No entanto, pode gerir o grupo office que cria, que vem como parte dos seus privilégios de utilizador final. Assim, qualquer grupo do Office (não grupo de segurança) que cria deve ser contado contra a sua quota de 250.
 
 > [!NOTE]
 > No Microsoft Graph API e Azure AD PowerShell, esta função é identificada como "Intune Service Administrator". É "Administrador Intune" no [portal Azure.](https://portal.azure.com)
@@ -493,7 +492,7 @@ As tabelas seguintes descrevem as permissões específicas no Diretório Ativo A
 
 Pode criar e gerir todos os aspetos dos registos de aplicações e aplicações empresariais.
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.directy/Application/appProxyAuthentication/update | Atualizar as propriedades de autenticação da App Proxy nos principais de serviço sintetizar em Diretório Ativo Azure. |
 | microsoft.directory/Application/appProxyUrlSettings/update | Atualizar urls internos e externos proxy proxy em Diretório Ativo Azure. |
@@ -547,7 +546,7 @@ Pode criar e gerir todos os aspetos dos registos de aplicações e aplicações 
 
 Pode criar registos de aplicações independentes da definição de 'Utilizadores podem registar aplicações'.
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.directy/applications/createAsOwner | Criar aplicações no Diretório Ativo Azure. O criador é adicionado como o primeiro proprietário, e o objeto criado conta com a quota de 250 objetos criados pelo criador. |
 | microsoft.directy/appRoleAssignments/createAsOwner | Crie appRoleAssignments no Diretório Ativo Azure. O criador é adicionado como o primeiro proprietário, e o objeto criado conta com a quota de 250 objetos criados pelo criador. |
@@ -558,7 +557,7 @@ Pode criar registos de aplicações independentes da definição de 'Utilizadore
 
 Permitido visualizar, definir e repor informações do método de autenticação para qualquer utilizador não administrador.
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.directy/users/invalidateAllRefreshTokens | Invalide todas as fichas de atualização do utilizador no Diretório Ativo Azure. |
 | microsoft.directy/users/strongAuthentication/update | Atualizar propriedades de autenticação forte como informações de credenciais MFA. |
@@ -578,7 +577,7 @@ Pode gerir a política e configurações da organização Azure DevOps.
 >
 >
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.azure.devOps/allEntities/allTasks | Leia e configure Os DevOps Azure. |
 
@@ -591,7 +590,7 @@ Pode gerir todos os aspetos do serviço de Proteção de Informação Azure.
 >
 >
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.azure.informationProtection/allEntities/allTasks | Gerir todos os aspetos da Proteção de Informação Azure. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Leia e configure a Azure Service Health. |
@@ -603,7 +602,7 @@ Pode gerir todos os aspetos do serviço de Proteção de Informação Azure.
 
 Criar e gerir todos os aspetos dos fluxos de utilizadores.
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.aad.b2c/userFlows/allTasks | Leia e configure os fluxos de utilizadores no Diretório Ativo Azure B2C. |
 
@@ -611,7 +610,7 @@ Criar e gerir todos os aspetos dos fluxos de utilizadores.
 
 Crie e gerencie o esquema de atributo disponível para todos os fluxos de utilizador.
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.aad.b2c/userAtributos/allTasks | Leia e configure os atributos dos utilizadores no Diretório Ativo Azure B2C. |
 
@@ -619,7 +618,7 @@ Crie e gerencie o esquema de atributo disponível para todos os fluxos de utiliz
 
 Gerir segredos para a federação e encriptação no Quadro de Experiência de Identidade.
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.aad.b2c/trustFramework/keySets/allTasks | Leia e configure os conjuntos de chaves no Diretório Ativo Azure B2C. |
 
@@ -627,7 +626,7 @@ Gerir segredos para a federação e encriptação no Quadro de Experiência de I
 
 Criar e gerir políticas-quadro de confiança no Quadro de Experiência seleção de Identidade.
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.aad.b2c/trustFramework/policies/allTasks | Leia e configure políticas personalizadas no Diretório Ativo Azure B2C. |
 
@@ -640,7 +639,7 @@ Pode executar tarefas relacionadas com a faturação comum, como atualizar infor
 >
 >
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.directy/organization/basic/update | Atualizar propriedades básicas sobre organização em Azure Ative Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Leia e configure a Azure Service Health. |
@@ -654,7 +653,7 @@ Pode executar tarefas relacionadas com a faturação comum, como atualizar infor
 
 Pode criar e gerir todos os aspetos dos registos de aplicações e aplicações empresariais, exceto app Proxy.
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.directy/applications/audience/update | Atualizar aplicações.propriedade do público em Azure Ative Directory. |
 | microsoft.directy/applications/autenticação/atualização | Atualizar aplicações.propriedade de autenticação no Diretório Ativo Azure. |
@@ -697,7 +696,7 @@ Pode criar e gerir todos os aspetos dos registos de aplicações e aplicações 
 
 Acesso total para gerir dispositivos em Azure AD.
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.directy/auditLogs/allProperties/read | Leia todas as propriedades (incluindo propriedades privilegiadas) em auditlogs no Diretório Ativo Azure. |
 | microsoft.directy/devices/bitLockerRecoveryKeys/read | Leia a propriedade devices.bitLockerRecoveryKeys no Diretório Ativo Azure. |
@@ -717,7 +716,7 @@ Pode gerir todos os aspetos dos serviços Azure AD e Microsoft que utilizam iden
 >
 >
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.aad.cloudAppSecurity/allEntities/allTasks | Crie e elimine todos os recursos e leia e atualize propriedades padrão em microsoft.aad.cloudAppSecurity. |
 | microsoft.directy/administrativeUnits/allProperties/allTasks | Crie e elimine unidades administrativas e leia e atualize todas as propriedades no Diretório Ativo Azure. |
@@ -784,7 +783,7 @@ Pode ler e gerir a configuração de conformidade e relatórios em Azure AD e Of
 >
 >
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Leia e configure a Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Crie e gereos bilhetes de apoio Azure. |
@@ -805,7 +804,7 @@ Cria e gere o conteúdo de conformidade.
 >
 >
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.aad.cloudAppSecurity/allEntities/allTasks | Leia e configure a Segurança da Aplicação Microsoft Cloud. |
 | microsoft.azure.informationProtection/allEntities/allTasks | Gerir todos os aspetos da Proteção de Informação Azure. |
@@ -823,7 +822,7 @@ Cria e gere o conteúdo de conformidade.
 
 Pode gerir as capacidades de Acesso Condicional.
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.directy/policies/conditionalAccess/basic/read | Leia as políticas.condicionalAccess propriedade em Diretório Ativo Azure. |
 | microsoft.directy/policies/conditionalAccess/basic/update | Atualizar políticas.condicionalAccess propriedade em Diretório Ativo Azure. |
@@ -843,7 +842,7 @@ Pode gerir todos os aspetos do produto Dynamics 365.
 >
 >
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Leia e configure a Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Crie e gereos bilhetes de apoio Azure. |
@@ -861,7 +860,7 @@ Pode aprovar pedidos de suporte da Microsoft para aceder aos dados organizaciona
 >
 >
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.office365.webPortal/allEntities/basic/read | Leia propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | microsoft.office365.lockbox/allEntities/allTasks | Gerir todos os aspetos do Office 365 Customer Lockbox |
@@ -875,7 +874,7 @@ Pode gerir os serviços de Personalização de Desktop analytics e & Política d
 >
 >
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Leia e configure a Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Crie e gereos bilhetes de apoio Azure. |
@@ -888,7 +887,7 @@ Pode gerir os serviços de Personalização de Desktop analytics e & Política d
 
 Os utilizadores atribuídos a esta função são adicionados ao grupo de administradores locais em dispositivos ligados à AD Azure.
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.directy/groupSettings/basic/read | Leia as propriedades básicas em groupSettings no Diretório Ativo Azure. |
 | microsoft.directy/groupSettingTemplates/basic/read | Leia propriedades básicas em modelos de definição de grupo em Diretório Ativo Azure. |
@@ -896,7 +895,7 @@ Os utilizadores atribuídos a esta função são adicionados ao grupo de adminis
 ### <a name="directory-readers-permissions"></a>Permissões dos Leitores de Diretório
 Pode ler informações básicas sobre o diretório. Para conceder acesso a aplicações, não destinado supor utilizadores.
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.directy/administrativeUnits/basic/read | Leia propriedades básicas em Unidades administrativas em Diretório Ativo Azure. |
 | microsoft.directy/administrativeUnits/members/read | Leia a propriedade administrativaUnits.members em Azure Ative Directory. |
@@ -950,7 +949,7 @@ Pode ler informações básicas sobre o diretório. Para conceder acesso a aplic
 
 Utilizado apenas pelo serviço Azure AD Connect.
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.directy/organization/dirSync/update | Atualização organization.dirSync property in Azure Ative Directory. |
 | microsoft.diretório/políticas/criar | Criar políticas no Diretório Ativo Azure. |
@@ -985,7 +984,7 @@ Utilizado apenas pelo serviço Azure AD Connect.
 
 Pode ler & escrever informações básicas sobre o diretório. Para conceder acesso a aplicações, não destinado supor utilizadores.
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.diretório/grupos/criar | Crie grupos no Diretório Ativo Azure. |
 | microsoft.directy/groups/createAsOwner | Crie grupos no Diretório Ativo Azure. O criador é adicionado como o primeiro proprietário, e o objeto criado conta com a quota de 250 objetos criados pelo criador. |
@@ -1013,7 +1012,7 @@ Pode gerir todos os aspetos do produto Exchange.
 >
 >
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Leia e configure a Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Crie e gereos bilhetes de apoio Azure. |
@@ -1034,7 +1033,7 @@ Pode gerir todos os aspetos do produto Exchange.
 
 Configure os fornecedores de identidade para utilização na federação direta.
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.aad.b2c/identityProviders/allTasks | Leia e configure fornecedores de identidade no Diretório Ativo Azure B2C. |
 
@@ -1046,7 +1045,7 @@ Pode ler tudo o que um Administrador Global pode, mas não editar nada.
 >
 >
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.commerce.billing/allEntities/read    | Leia todos os aspetos da faturação. |
 | microsoft.directy/administrativeUnits/basic/read    | Leia propriedades básicas em Unidades administrativas em Diretório Ativo Azure. |
@@ -1112,7 +1111,7 @@ Pode ler tudo o que um Administrador Global pode, mas não editar nada.
 ### <a name="groups-administrator-permissions"></a>Permissões de administrador de grupos
 Pode gerir todos os aspetos de grupos e configurações de grupo, como políticas de nomeação e expiração.
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.diretório/grupos/básico/lido | Leia as propriedades padrão em Grupos no Diretório Ativo Azure.  |
 | microsoft.directy/groups/basic/update | Atualizar propriedades básicas em grupos em Azure Ative Directory. |
@@ -1133,7 +1132,7 @@ Pode gerir todos os aspetos de grupos e configurações de grupo, como política
 ### <a name="guest-inviter-permissions"></a>Permissões convidadas
 Pode convidar utilizadores convidados independentemente da definição de "membros podem convidar os hóspedes".
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.directy/users/appRoleAssignments/read | Leia a propriedade users.appRoleAssignments no Diretório Ativo Azure. |
 | microsoft.directy/users/basic/read | Leia as propriedades básicas dos utilizadores no Diretório Ativo Azure. |
@@ -1150,7 +1149,7 @@ Pode convidar utilizadores convidados independentemente da definição de "membr
 
 Pode redefinir palavras-passe para não administradores e administradores de helpdesk.
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.directy/devices/bitLockerRecoveryKeys/read | Leia a propriedade devices.bitLockerRecoveryKeys no Diretório Ativo Azure. |
 | microsoft.directy/users/invalidateAllRefreshTokens | Invalide todas as fichas de atualização do utilizador no Diretório Ativo Azure. |
@@ -1165,7 +1164,7 @@ Pode redefinir palavras-passe para não administradores e administradores de hel
 
 Ativar, implementar, configurar, gerir, monitorizar e resolver serviços de fornecimento e autenticação em nuvem. 
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Leia e configure a Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Crie e gereos bilhetes de apoio Azure. |
@@ -1214,7 +1213,7 @@ Pode gerir todos os aspetos do produto Intune.
 >
 >
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.directy/contacts/basic/update | Atualizar propriedades básicas sobre contactos em Diretório Ativo Azure. |
 | microsoft.directy/contacts/create | Crie contactos no Diretório Ativo Azure. |
@@ -1252,7 +1251,7 @@ Pode gerir as definições para o Microsoft Kaizala.
 >
 >
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Leia e configure o Gabinete 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Crie e gerencie os bilhetes de apoio do Office 365. |
@@ -1262,7 +1261,7 @@ Pode gerir as definições para o Microsoft Kaizala.
 
 Pode gerir licenças de produtos em utilizadores e grupos.
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.directy/users/assignLicense | Gerir licenças sobre utilizadores em Diretório Ativo Azure. |
 | microsoft.directy/users/usageLocation/update | Atualizar utilizadores.usageLocation propriedade em Azure Ative Directory. |
@@ -1279,7 +1278,7 @@ Pode gerir todos os aspetos do produto Skype for Business.
 >
 >
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Leia e configure a Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Crie e gereos bilhetes de apoio Azure. |
@@ -1299,7 +1298,7 @@ Pode ler posts do Message Center, mensagens de privacidade de dados, grupos, dom
 >
 >
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.office365.webPortal/allEntities/basic/read | Leia propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | microsoft.office365.messageCenter/messages/read | Leia mensagens em microsoft.office365.messageCenter. |
@@ -1313,7 +1312,7 @@ Pode ler mensagens e atualizações para a sua organização apenas no Office 36
 >
 >
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.office365.webPortal/allEntities/basic/read | Leia propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | microsoft.office365.messageCenter/messages/read | Leia mensagens em microsoft.office365.messageCenter. |
@@ -1326,7 +1325,7 @@ Pode gerir as localizações da rede e rever as ideias de design de rede da empr
 >
 >
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.office365.network/performance/allProperties/read | Leia as páginas de desempenho da rede no Centro de Administração M365.  |
 | microsoft.office365.network/locations/allProperties/allTasks | Leia e configure propriedades de localização de rede para cada local. |
@@ -1339,7 +1338,7 @@ Pode gerir os serviços de cloud das aplicações do Office, incluindo a gestão
 >
 >
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Leia e configure a Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Crie e gereos bilhetes de apoio Azure. |
@@ -1359,7 +1358,7 @@ Não utilize - não destinado a uso geral.
 >
 >
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.directy/contacts/basic/update | Atualizar propriedades básicas sobre contactos em Diretório Ativo Azure. |
 | microsoft.directy/contacts/create | Crie contactos no Diretório Ativo Azure. |
@@ -1392,7 +1391,7 @@ Não utilize - não destinado a uso geral.
 >
 >
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.directy/contacts/basic/update | Atualizar propriedades básicas sobre contactos em Diretório Ativo Azure. |
 | microsoft.directy/contacts/create | Crie contactos no Diretório Ativo Azure. |
@@ -1422,7 +1421,7 @@ Não utilize - não destinado a uso geral.
 
 Pode redefinir palavras-passe para não administradores e administradores de palavras-passe.
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.directy/users/password/update | Atualizar palavras-passe para todos os utilizadores no Diretório Ativo do Azure. Consulte a documentação online para mais detalhes. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leia propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
@@ -1435,7 +1434,7 @@ Pode gerir todos os aspetos do produto Power BI.
 > Este papel tem permissões adicionais fora do Azure Ative Directory. Para mais informações, consulte a descrição do papel acima.
 >
 >
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Leia e configure a Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Crie e gereos bilhetes de apoio Azure. |
@@ -1453,7 +1452,7 @@ Pode criar e gerir todos os aspetos do Microsoft Dynamics 365, PowerApps e Micro
 > Este papel tem permissões adicionais fora do Azure Ative Directory. Para mais informações, consulte a descrição do papel acima.
 >
 >
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Leia e configure a Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Crie e gereos bilhetes de apoio Azure. |
@@ -1472,7 +1471,7 @@ Pode gerir todos os aspetos das impressoras e conectores da impressora.
 > Este papel tem permissões adicionais fora do Azure Ative Directory. Para mais informações, consulte a descrição do papel acima.
 >
 >
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.azure.print/allEntities/allProperties/allTasks | Crie e elimine impressoras e conectores e leia e atualize todas as propriedades na Microsoft Print. |
 
@@ -1484,7 +1483,7 @@ Pode registar e desregistar impressoras e atualizar o estado da impressora.
 > Este papel tem permissões adicionais fora do Azure Ative Directory. Para mais informações, consulte a descrição do papel acima.
 >
 >
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.azure.print/conectores/allProperties/read | Leia todas as propriedades dos conectores na Microsoft Print. |
 | microsoft.azure.print/printers/allProperties/read | Leia todas as propriedades das impressoras na Microsoft Print. |
@@ -1496,7 +1495,7 @@ Pode registar e desregistar impressoras e atualizar o estado da impressora.
 
 Permitido visualizar, definir e repor informações do método de autenticação para qualquer utilizador (administrador ou não administrador).
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.directy/users/invalidateAllRefreshTokens | Invalide todas as fichas de atualização do utilizador no Diretório Ativo Azure. |
 | microsoft.directy/users/strongAuthentication/update | Atualizar propriedades de autenticação forte como informações de credenciais MFA. |
@@ -1516,7 +1515,7 @@ Pode gerir atribuições de papéis em Azure AD, e todos os aspetos da Gestão d
 >
 >
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.aad.privilegedIdentityManagement/allEntities/allTasks | Crie e elimine todos os recursos e leia e atualize as propriedades padrão em microsoft.aad.privilegedIdentityManagement. |
 | microsoft.directy/servicePrincipas/appRoleAssignedTo/allTasks | Leia e configure serviçoSPrincipais.appRoleAssignedTo propriedade em Azure Ative Directory. |
@@ -1534,7 +1533,7 @@ Pode ler relatórios de inscrição e auditoria.
 >
 >
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.directy/auditLogs/allProperties/read | Leia todas as propriedades (incluindo propriedades privilegiadas) em auditlogs no Diretório Ativo Azure. |
 | microsoft.directy/signInReports/allProperties/read | Leia todas as propriedades (incluindo propriedades privilegiadas) no signInReports in Azure Ative Directory. |
@@ -1550,7 +1549,7 @@ Pode criar e gerir todos os aspetos das definições de Pesquisa do Microsoft.
 >
 >
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.office365.messageCenter/messages/read | Leia mensagens em microsoft.office365.messageCenter. |
 | microsoft.office365.search/allEntities/allProperties/allTasks | Crie e elimine todos os recursos e leia e atualize todas as propriedades em microsoft.office365.search. |
@@ -1567,7 +1566,7 @@ Pode criar e gerir os conteúdos editoriais, tais como marcadores, Q e As, local
 >
 >
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.office365.messageCenter/messages/read | Leia mensagens em microsoft.office365.messageCenter. |
 | microsoft.office365.search/content/allProperties/allTasks | Crie e elimine conteúdos e leia e atualize todas as propriedades em microsoft.office365.search. |
@@ -1581,7 +1580,7 @@ Pode ler informações e relatórios de segurança e gerir a configuração em A
 >
 >
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.directy/applications/policies/update | Atualizar aplicações.policies property in Azure Ative Directory. |
 | microsoft.directy/auditLogs/allProperties/read | Leia todas as propriedades (incluindo propriedades privilegiadas) em auditlogs no Diretório Ativo Azure. |
@@ -1611,7 +1610,7 @@ Cria e gere eventos de segurança.
 >
 >
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.aad.cloudAppSecurity/allEntities/allTasks | Leia e configure a Segurança da Aplicação Microsoft Cloud. |
 | microsoft.aad.identityProtection/allEntities/read | Leia todos os recursos em microsoft.aad.identityProtection. |
@@ -1630,7 +1629,7 @@ Pode ler informações de segurança e relatórios em Azure AD e Office 365.
 >
 >
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.directy/auditLogs/allProperties/read | Leia todas as propriedades (incluindo propriedades privilegiadas) em auditlogs no Diretório Ativo Azure. |
 | microsoft.directy/devices/bitLockerRecoveryKeys/read | Leia a propriedade devices.bitLockerRecoveryKeys no Diretório Ativo Azure. |
@@ -1652,7 +1651,7 @@ Pode ler informações de saúde de serviço e gerir bilhetes de apoio.
 >
 >
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Leia e configure a Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Crie e gereos bilhetes de apoio Azure. |
@@ -1669,7 +1668,7 @@ Pode gerir todos os aspetos do serviço SharePoint.
 >
 >
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Leia e configure a Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Crie e gereos bilhetes de apoio Azure. |
@@ -1695,7 +1694,7 @@ Pode gerir as funcionalidades de chamadas e reuniões dentro do serviço Microso
 >
 >
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Leia e configure a Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Crie e gereos bilhetes de apoio Azure. |
@@ -1713,7 +1712,7 @@ Pode resolver problemas de comunicações dentro das Equipas usando ferramentas 
 >
 >
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Leia e configure a Azure Service Health. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leia propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
@@ -1728,7 +1727,7 @@ Pode resolver problemas de comunicações dentro das Equipas usando ferramentas 
 >
 >
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Leia e configure a Azure Service Health. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leia propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
@@ -1743,7 +1742,7 @@ Pode gerir o serviço Microsoft Teams.
 >
 >
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Leia e configure a Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Crie e gereos bilhetes de apoio Azure. |
@@ -1763,7 +1762,7 @@ Pode gerir o serviço Microsoft Teams.
 ### <a name="user-administrator-permissions"></a>Permissões do Administrador do Utilizador
 Pode gerir todos os aspetos dos utilizadores e grupos, incluindo a reposição de senhas para administradores limitados.
 
-| **Ações** | **Descrição** |
+| **Actions (Ações)** | **Descrição** |
 | --- | --- |
 | microsoft.directy/appRoleAssignments/create | Crie appRoleAssignments no Diretório Ativo Azure. |
 | microsoft.directy/appRoleAssignments/delete | Eliminar as atribuições de aplicações no Diretório Ativo Azure. |

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 667fb39aabfec14cff01221b82a45ba8ad1d68d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0e4dabad5057fda39fe3753c810a85e6aeb55b3a
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78329737"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582948"
 ---
 # <a name="assign-sensitivity-labels-to-office-365-groups-in-azure-active-directory-preview"></a>Atribuir etiquetas de sensibilidade aos grupos do Office 365 no Diretório Ativo azure (pré-visualização)
 
@@ -112,10 +112,10 @@ Depois de ativar esta funcionalidade, as classificações "clássicas" para grup
 
 A opção de etiqueta de sensibilidade só é apresentada para grupos quando todas as seguintes condições forem satisfeitas:
 
-1. As etiquetas são publicadas no Microsoft 365 Compliance Center para este inquilino.
+1. As etiquetas são publicadas no Microsoft 365 Compliance Center para esta organização Azure AD.
 1. A funcionalidade está ativada, o EnableMIPLabels está definido para True in PowerShell.
 1. O grupo é um grupo do Office 365.
-1. O inquilino tem uma licença ativa azure Ative Directory Premium P1.
+1. A organização tem uma licença ativa azure Ative Directory Premium P1.
 1. O atual utilizador inscrito tem privilégios suficientes para atribuir etiquetas. O utilizador deve ser um Administrador Global, Administrador de Grupo ou o proprietário do grupo.
 
 Certifique-se de que todas as condições estão reunidas para atribuir etiquetas a um grupo.

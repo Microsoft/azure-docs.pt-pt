@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 01b5f87c2557e2195573b90766ee45e001798cca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5aee3a19e33204da00483d0f4ee3f6ee97e8a07d
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537700"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856264"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas mais frequentes (FAQ) sobre os Ficheiros do Azure
 [O Azure Files](storage-files-introduction.md) oferece partilhas de ficheiros totalmente geridas na nuvem que são acessíveis através do protocolo do Bloco de Mensagens de [Servidor (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)padrão da indústria. Pode montar partilhas de ficheiros Azure simultaneamente em implementações em nuvem ou no local de implementações de Windows, Linux e macOS. Também pode cache as partilhas de ficheiros Azure nas máquinas do Windows Server utilizando o Azure File Sync para acesso rápido perto do local onde os dados são utilizados.
@@ -68,7 +68,7 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
 
 * <a id="redundancy-options"></a>
   **Que opções de redundância de armazenamento são suportadas pela Azure Files?**  
-    Atualmente, o Azure Files suporta armazenamento redundante localmente (LRS), armazenamento redundante de zona (ZRS), armazenamento geo-redundante (GRS) e armazenamento geo-zona redundante (GZRS) (pré-visualização). Planeamos apoiar o armazenamento geo-redundante de acesso à leitura (RA-GRS) no futuro, mas não temos prazos para partilhar neste momento.
+    Atualmente, a Azure Files suporta armazenamento redundante localmente (LRS), armazenamento redundante de zona (ZRS), armazenamento geo-redundante (GRS) e armazenamento geo-zona redundante (GZRS). Planeamos apoiar o armazenamento geo-redundante de acesso à leitura (RA-GRS) no futuro, mas não temos prazos para partilhar neste momento.
 
 * <a id="tier-options"></a>
   **Que níveis de armazenamento são suportados em Ficheiros Azure?**  

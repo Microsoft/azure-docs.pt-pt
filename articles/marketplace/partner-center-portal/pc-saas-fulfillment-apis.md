@@ -1,26 +1,25 @@
 ---
-title: Apis de realização do SaaS Mercado Azure
-description: Introduz as versões das APIs de realização que lhe permitem integrar as suas ofertas SaaS com o Azure Marketplace.
+title: SaaS cumpre mANo no mercado comercial da Microsoft
+description: Uma introdução às APIs de realização que lhe permitem integrar as suas ofertas SaaS no Microsoft AppSource e Azure Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: dsindona
-ms.openlocfilehash: 92b1c52457fa92709381124480c05a5f636167f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ba1b158bc529b148a8e3138d122c13ead19e073e
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80275735"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858085"
 ---
-# <a name="saas-fulfillment-apis"></a>SaaS Fulfillment APIs
+# <a name="saas-fulfillment-apis-in-microsoft-commercial-marketplace"></a>SaaS cumpre mANo no mercado comercial da Microsoft
 
-As APIs de cumprimento do SaaS permitem que fornecedores de software independentes (ISVs) integrem as suas aplicações SaaS com o Azure Marketplace. Estas APIs permitem que as aplicações ISV participem em todos os canais habilitados ao comércio: diretos, liderados por parceiros (revendedores) e orientados para o campo.  São um requisito para a listagem de ofertas transacionárias saaS no Mercado Azure.
+As APIs de cumprimento do SaaS permitem que fornecedores de software independentes (ISVs) integrem as suas aplicações SaaS no Microsoft AppSource e Azure Marketplace. Estas APIs permitem que as aplicações ISV participem em todos os canais habilitados ao comércio: diretos, liderados por parceiros (revendedores) e orientados por campo. São obrigados a listar ofertas transacionáveis do SaaS no Microsoft AppSource e no Azure Marketplace.
 
 > [!WARNING]
 > A versão atual deste API é a versão 2, que deve ser usada para todas as novas ofertas do SaaS.  A versão 1 da API está depreciada e está a ser mantida para suportar as ofertas existentes.
-
 
 ## <a name="business-model-support"></a>Suporte de modelo de negócio
 

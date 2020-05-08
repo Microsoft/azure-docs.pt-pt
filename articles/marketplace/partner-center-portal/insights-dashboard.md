@@ -1,22 +1,22 @@
 ---
-title: Painel de insights do marketplace no mercado comercial analytics no Partner Center
-description: Aceda a um resumo da análise web do marketplace, que permite aos editores medir o envolvimento dos clientes nas lojas AppSource e Azure Marketplace.
+title: Marketplace Insights - Mercado comercial da Microsoft
+description: Aceda a um resumo da análise web do marketplace, que lhe permite medir o envolvimento dos clientes no Microsoft AppSource e no Azure Marketplace.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/16/2019
-ms.openlocfilehash: 05389f0aea7e2637dd28281236e7fd7ec2b412fd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cecff7347189c5e5b964e10439297bce405810b7
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81251712"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857918"
 ---
-# <a name="marketplace-insights-dashboard-in-commercial-marketplace-analytics"></a>Painel de insights do marketplace na análise do mercado comercial
+# <a name="marketplace-insights-dashboard-in-partner-center"></a>Painel de insights do mercado no Partner Center
 
-Este artigo fornece informações sobre o dashboard Marketplace Insights no Partner Center. Este dashboard apresenta um resumo da análise web do marketplace, que permite aos editores medir o envolvimento dos clientes nas respetivas páginas de detalhes de produtos listadas nas montras do mercado: AppSource e Azure Marketplace.
+Este artigo fornece informações sobre o dashboard Marketplace Insights no Partner Center. Este dashboard apresenta um resumo da análise web do marketplace, que permite aos editores medir o envolvimento dos clientes nas respetivas páginas de detalhes de produtos listadas nas montras do mercado: Microsoft AppSource e Azure Marketplace.
 
 ## <a name="marketplace-insights-dashboard"></a>Dashboard de Informações do Marketplace
 

@@ -1,7 +1,7 @@
 ---
-title: Dados de entrada e de saída dos gasodutos ML
+title: Dados móveis em gasodutos ML
 titleSuffix: Azure Machine Learning
-description: Preparar, consumir e gerar dados em oleodutos De Aprendizagem Automática Azure
+description: Saiba mais sobre a entrada & saída de dados em pipelines de Aprendizagem automática Azure.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,18 +9,19 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 04/01/2020
-ms.openlocfilehash: 3dd1a82bf7fad1f201f5c0f52af944ef44a3fdf9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: contperfq4
+ms.openlocfilehash: 233361fb238342cde3c692174e85fb57f69979b1
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80879768"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858467"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Mover dados para e entre os passos de pipeline de ML (Python)
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Os dados são centrais para os gasodutos de aprendizagem automática. Este artigo fornece código para importar, transformar e mover dados entre passos num oleoduto Azure Machine Learning. Para uma visão geral de como os dados funcionam em Azure Machine Learning, consulte os dados de acesso nos serviços de [armazenamento do Azure.](how-to-access-data.md) Para obter os benefícios e estrutura dos oleodutos Azure Machine Learning, veja [o que são os oleodutos Azure Machine Learning?](concept-ml-pipelines.md)
+Este artigo fornece código para importar, transformar e mover dados entre passos num oleoduto Azure Machine Learning. Para uma visão geral de como os dados funcionam em Azure Machine Learning, consulte os dados de acesso nos serviços de [armazenamento do Azure.](how-to-access-data.md) Para obter os benefícios e estrutura dos oleodutos Azure Machine Learning, veja [o que são os oleodutos Azure Machine Learning?](concept-ml-pipelines.md)
 
 Este artigo irá mostrar-lhe como:
 

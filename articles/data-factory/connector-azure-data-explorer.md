@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/18/2020
-ms.openlocfilehash: 12bf807f5866567508b644105f377cfde1494250
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: ba8c35fc1802f7ef3ac54c693c8106bbc40cc185
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81410766"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82560157"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-by-using-azure-data-factory"></a>Copiar dados de ou para o Azure Data Explorer utilizando a Azure Data Factory
 
@@ -149,8 +149,8 @@ Para copiar dados do Azure Data Explorer, delineie a propriedade do **tipo** na 
 |:--- |:--- |:--- |
 | tipo | A propriedade **do tipo** da fonte de atividade de cópia deve ser definida para: **AzureDataExplorerSource** | Sim |
 | consulta | Um pedido de leitura apenas dado em [formato KQL](/azure/kusto/query/). Utilize a consulta kQL personalizada como referência. | Sim |
-| consultaTimeout | O tempo de espera antes da consulta pedir tempo saem. O valor predefinido é de 10 min (00:10:00); o valor máximo permitido é de 1 hora (01:00:00). | Não |
-| noTruncation | Indica se trunca o conjunto de resultados devolvidos. Por padrão, o resultado é truncado após 500.000 registos ou 64 megabytes (MB). A truncação é fortemente recomendada para garantir o comportamento correto da atividade. |Não |
+| consultaTimeout | O tempo de espera antes da consulta pedir tempo saem. O valor predefinido é de 10 min (00:10:00); o valor máximo permitido é de 1 hora (01:00:00). | No |
+| noTruncation | Indica se trunca o conjunto de resultados devolvidos. Por padrão, o resultado é truncado após 500.000 registos ou 64 megabytes (MB). A truncação é fortemente recomendada para garantir o comportamento correto da atividade. |No |
 
 >[!NOTE]
 >Por padrão, a fonte do Azure Data Explorer tem um limite de tamanho de 500.000 registos ou 64 MB. Para recuperar todos os registos sem `set notruncation;` truncation, pode especificar no início da sua consulta. Para mais informações, consulte os [limites](https://docs.microsoft.com/azure/kusto/concepts/querylimits)de consulta .
@@ -195,8 +195,8 @@ Para copiar dados para o Azure Data Explorer, delineie a propriedade do tipo na 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade **tipo** do sumidouro da atividade de cópia deve ser definida para: **AzureDataExplorerSink**. | Sim |
-| ingestionMappingName | Nome de um [mapeamento](/azure/kusto/management/mappings#csv-mapping) pré-criado numa mesa de Kusto. Para mapear as colunas da fonte para o Azure Data Explorer (que se aplica a [todas as lojas e formatos de origem suportados,](copy-activity-overview.md#supported-data-stores-and-formats)incluindo os formatos CSV/JSON/Avro), pode utilizar o [mapeamento](copy-activity-schema-and-type-mapping.md) da coluna de atividade de cópia (implicitamente pelo nome ou explicitamente como configurado) e/ou mapeamento do Explorador de Dados Azure. | Não |
-| propriedades adicionais | Um saco de propriedade que pode ser usado para especificar qualquer uma das propriedades de ingestão que ainda não estão sendo definidas pelo Azure Data Explorer Sink. Especificamente, pode ser útil para especificar etiquetas de ingestão. Saiba mais com o Azure Data Explore a [ingestão de dados do c.](https://kusto.azurewebsites.net/docs/management/data-ingestion/index.html) | Não |
+| ingestionMappingName | Nome de um [mapeamento](/azure/kusto/management/mappings#csv-mapping) pré-criado numa mesa de Kusto. Para mapear as colunas da fonte para o Azure Data Explorer (que se aplica a [todas as lojas e formatos de origem suportados,](copy-activity-overview.md#supported-data-stores-and-formats)incluindo os formatos CSV/JSON/Avro), pode utilizar o [mapeamento](copy-activity-schema-and-type-mapping.md) da coluna de atividade de cópia (implicitamente pelo nome ou explicitamente como configurado) e/ou mapeamento do Explorador de Dados Azure. | No |
+| propriedades adicionais | Um saco de propriedade que pode ser usado para especificar qualquer uma das propriedades de ingestão que ainda não estão sendo definidas pelo Azure Data Explorer Sink. Especificamente, pode ser útil para especificar etiquetas de ingestão. Saiba mais com o Azure Data Explore a [ingestão de dados do c.](https://docs.microsoft.com/azure/data-explorer/ingestion-properties) | No |
 
 **Exemplo:**
 

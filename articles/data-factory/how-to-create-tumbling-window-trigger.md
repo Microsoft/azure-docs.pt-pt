@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 97c8f8a5bb2111264e9459a7d2128c1ab7c2503d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ed7b01fb83ebd0c494f3f0f06a28dbf4e98c0b2d
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414420"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82592088"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Create a trigger that runs a pipeline on a tumbling window(Criar um acionador que execute um pipeline numa janela em cascata)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -102,13 +102,16 @@ A tabela seguinte fornece uma visão geral de alto nível dos principais element
 | **intervalo** | Um valor inteiro positivo que indica o intervalo do valor **frequency**, que determina o número de vezes que o acionador é executado. Por exemplo, se o **intervalo** for de 3 e a **frequência** for "hora", o gatilho repete-se a cada 3 horas. <br/>**Nota:** O intervalo mínimo da janela é de 5 minutos. | Número inteiro | Um inteiro positivo. | Sim |
 | **startTime**| A primeira ocorrência, que pode ser no passado. O primeiro intervalo do gatilho é (**início,****intervalo** **de inícioTime** + ). | DateTime | Um valor datetime. | Sim |
 | **endTime**| A última ocorrência, que pode ser no passado. | DateTime | Um valor datetime. | Sim |
-| **atraso** | O tempo para atrasar o início do processamento de dados para a janela. A execução do gasoduto é iniciada após o tempo de execução esperado mais a quantidade de **atraso**. O **atraso** define quanto tempo o gatilho espera para além do devido tempo antes de desencadear uma nova execução. O **atraso** não altera o início da **janelaTempo.** Por exemplo, um valor de **atraso** de 00:10:00 implica um atraso de 10 minutos. | Timespan<br/>(hh:mm:ss)  | Um valor de tempo onde o padrão é 00:00:00. | Não |
+| **atraso** | O tempo para atrasar o início do processamento de dados para a janela. A execução do gasoduto é iniciada após o tempo de execução esperado mais a quantidade de **atraso**. O **atraso** define quanto tempo o gatilho espera para além do devido tempo antes de desencadear uma nova execução. O **atraso** não altera o início da **janelaTempo.** Por exemplo, um valor de **atraso** de 00:10:00 implica um atraso de 10 minutos. | Timespan<br/>(hh:mm:ss)  | Um valor de tempo onde o padrão é 00:00:00. | No |
 | **maxConcurrency** | O número de disparos simultâneos que são disparados para janelas prontas. Por exemplo, para voltar a encher de hora a hora para ontem resulta em 24 janelas. Se **a moeda máxima** = 10, os eventos de disparo são disparados apenas para as primeiras 10 janelas (00:00-01:00 - 09:00-10:00). Depois de concluídas as primeiras 10 corridas de gasodutos acionados, são disparados disparos para as próximas 10 janelas (10:00-11:00 - 19:00-20:00). Continuando com este exemplo de **maxConcurrency** = 10, se houver 10 janelas prontas, existem 10 execuções totais de gasodutos. Se só houver uma janela pronta, só há uma corrida de oleoduto. | Número inteiro | Um inteiro entre 1 e 50. | Sim |
-| **retryPolítica: Contar** | O número de repetições antes da execução do gasoduto é marcado como "Falhado".  | Número inteiro | Um inteiro, onde o padrão é 0 (sem repetições). | Não |
-| **retryPolicy: intervaloInSeconds** | O atraso entre as tentativas de retry especificadas em segundos. | Número inteiro | O número de segundos, onde o padrão é de 30. | Não |
-| **depende: tipo** | O tipo de TumblingWindowTriggerReference. Necessário se for definida uma dependência. | String |  "TumblingWindowTriggerDependencyReference", "SelfDependencyTumblingWindowTriggerReference" | Não |
-| **depende: tamanho** | Do tamanho da janela de tropeçar da dependência. | Timespan<br/>(hh:mm:ss)  | Um valor de tempo positivo onde o padrão é o tamanho da janela do gatilho da criança  | Não |
+| **retryPolítica: Contar** | O número de repetições antes da execução do gasoduto é marcado como "Falhado".  | Número inteiro | Um inteiro, onde o padrão é 0 (sem repetições). | No |
+| **retryPolicy: intervaloInSeconds** | O atraso entre as tentativas de retry especificadas em segundos. | Número inteiro | O número de segundos, onde o padrão é de 30. | No |
+| **depende: tipo** | O tipo de TumblingWindowTriggerReference. Necessário se for definida uma dependência. | String |  "TumblingWindowTriggerDependencyReference", "SelfDependencyTumblingWindowTriggerReference" | No |
+| **depende: tamanho** | Do tamanho da janela de tropeçar da dependência. | Timespan<br/>(hh:mm:ss)  | Um valor de tempo positivo onde o padrão é o tamanho da janela do gatilho da criança  | No |
 | **depende: compensado** | A compensação do gatilho da dependência. | Timespan<br/>(hh:mm:ss) |  Um valor de tempo que deve ser negativo numa auto-dependência. Se não for especificado qualquer valor, a janela é a mesma que o próprio gatilho. | Auto-Dependência: Sim<br/>Outros: Não  |
+
+> [!NOTE]
+> Depois de publicado um gatilho da janela, o **intervalo** e a **frequência** não podem ser editados.
 
 ### <a name="windowstart-and-windowend-system-variables"></a>Variáveis do sistema WindowStart e WindowEnd
 

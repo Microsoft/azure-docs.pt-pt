@@ -4,16 +4,16 @@ ms.service: databox
 ms.topic: include
 ms.date: 04/16/2019
 ms.author: alkohli
-ms.openlocfilehash: 8840e6649058837207c75dbdf7baa5c0b11ef387
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9ac9865afe37916f1777d92eab8637884eba0c08
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75467992"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562134"
 ---
 O seu dispositivo está associado a uma conta de armazenamento que é usada como destino para os seus dados em Azure. O acesso à conta de armazenamento é controlado pela subscrição e duas chaves de acesso de armazenamento de 512 bits associadas a essa conta de armazenamento.
 
-Uma das teclas é utilizada para autenticação quando o dispositivo Data Box Edge acede à conta de armazenamento. A outra tecla é mantida na reserva, para que possa rodar as teclas periodicamente.
+Uma das chaves é utilizada para autenticação quando o dispositivo Azure Stack Edge acede à conta de armazenamento. A outra tecla é mantida na reserva, para que possa rodar as teclas periodicamente.
 
 Por razões de segurança, muitos centros de dados requerem rotação chave. Recomendamos que siga estas boas práticas para a rotação da chave:
 

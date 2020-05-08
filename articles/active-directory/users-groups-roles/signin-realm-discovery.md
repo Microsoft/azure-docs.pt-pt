@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8b6a65a964016f702fcf75aa4cbdab33a952e3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c1f27c7b91a78da8944c23fd353d3b6791b3e015
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74024259"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582550"
 ---
 # <a name="home-realm-discovery-for-azure-active-directory-sign-in-pages"></a>Descoberta do reino doméstico para páginas de inscrição do Diretório Ativo Azure
 
@@ -28,7 +28,7 @@ Estamos a mudar o nosso comportamento de entrada de sign-in Azure Ative Director
 
 Historicamente, a descoberta do reino doméstico foi governada pelo domínio que é fornecido no sign-in ou por uma política home realm discovery para algumas aplicações antigas. Por exemplo, no nosso comportamento de descoberta, um utilizador do Azure Ative Directory poderia escrever mal o seu nome de utilizador, mas ainda chegaria ao ecrã de recolha credencial da sua organização. Isto ocorre quando o utilizador fornece corretamente o nome de domínio da organização "contoso.com". Este comportamento não permite que a granularidade personalize experiências para um utilizador individual.
 
-Para suportar uma gama mais alargada de credenciais e aumentar a usabilidade, o comportamento de pesquisa de nome de utilizador do Azure Ative Directory durante o processo de início de sessão é agora atualizado. O novo comportamento toma decisões inteligentes lendo as definições de inquilino e de nível de utilizador com base no nome de utilizador introduzido na página de entrada. Para que isso seja possível, o Azure Ative Directory verificará se o nome de utilizador introduzido na página de entrada existe no seu domínio especificado ou redireciona o utilizador para fornecer as suas credenciais.
+Para suportar uma gama mais alargada de credenciais e aumentar a usabilidade, o comportamento de pesquisa de nome de utilizador do Azure Ative Directory durante o processo de início de sessão é agora atualizado. O novo comportamento toma decisões inteligentes lendo as definições de nível de organização e de nível de utilizador com base no nome de utilizador introduzido na página de entrada. Para que isso seja possível, o Azure Ative Directory verificará se o nome de utilizador introduzido na página de entrada existe no seu domínio especificado ou redireciona o utilizador para fornecer as suas credenciais.
 
 Um benefício adicional deste trabalho é a melhoria das mensagens de erro. Aqui estão alguns exemplos da melhoria das mensagens de erro ao iniciar sessão numa aplicação que suporta apenas utilizadores do Azure Ative Directory.
 
