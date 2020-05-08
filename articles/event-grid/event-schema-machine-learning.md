@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: spelluru
-ms.openlocfilehash: 7d9af420c7e2b47d2aeb4a8bf42ee138a605b305
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f77a76d6acb67c739e0adf186d23e9b16ff7e2ee
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81393280"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82928878"
 ---
 # <a name="azure-machine-learning-as-an-event-grid-source"></a>Aprendizagem automática azure como fonte da Grelha de Eventos
 
@@ -224,7 +224,7 @@ O objeto de dados tem as seguintes propriedades para cada tipo de evento:
 
 ### <a name="microsoftmachinelearningservicesruncompleted"></a>Microsoft.MachineLearningServices.RunCompleted
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
 | Experimentóide | string | A identificação da experiência a que a corrida pertence. |
 | Nome da experiência | string | O nome da experiência a que a corrida pertence. |
@@ -235,7 +235,7 @@ O objeto de dados tem as seguintes propriedades para cada tipo de evento:
 
 ### <a name="microsoftmachinelearningservicesdatasetdriftdetected"></a>Microsoft.MachineLearningServices.DatasetDriftDetected
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
 | DataDriftid | string | A identificação do monitor de deriva de dados que desencadeou o evento. |
 | DataDriftName | string | O nome do monitor de deriva de dados que desencadeou o evento. |
@@ -248,7 +248,7 @@ O objeto de dados tem as seguintes propriedades para cada tipo de evento:
 
 ### <a name="microsoftmachinelearningservicesrunstatuschanged"></a>Microsoft.MachineLearningServices.runstatuschanged
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
 | Experimentóide | string | A identificação da experiência a que a corrida pertence. |
 | Nome da experiência | string | O nome da experiência a que a corrida pertence. |
@@ -267,5 +267,5 @@ O objeto de dados tem as seguintes propriedades para cada tipo de evento:
 
 * Para uma introdução à Grelha de Eventos Azure, veja [o que é a Grelha de Eventos?](overview.md)
 * Para mais informações sobre a criação de uma subscrição da Rede de Eventos Do Evento, consulte o esquema de [subscrição](subscription-creation-schema.md) da Event Grid
-* Para uma introdução à utilização da Grelha de Eventos Azure com Machine Learning Azure, consulte [eventos de Aprendizagem Automática Azure](/azure/machine-learning/service/concept-event-grid-integration)
-* Para um exemplo de utilização da Grelha de Eventos Azure com Aprendizagem automática Azure, consulte [Create evento sond](/azure/machine-learning/service/how-to-use-event-grid) machine learning workflows
+* Para uma introdução à utilização da Grelha de Eventos Azure com Machine Learning Azure, consulte [eventos de Aprendizagem Automática Azure](/azure/machine-learning/concept-event-grid-integration)
+* Para um exemplo de utilização da Grelha de Eventos Azure com Aprendizagem automática Azure, consulte [Create evento sond](/azure/machine-learning/how-to-use-event-grid) machine learning workflows

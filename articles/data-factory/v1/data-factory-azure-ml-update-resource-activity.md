@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: afc79badd19fa180e631f1f8fa9735567a0b1e33
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 83cb62efd98615b7eda7f52ebafe95dedc282355
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74978718"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930459"
 ---
 # <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>Atualizar os modelos de Aprendizagem automática Azure utilizando a Atividade de Recursos Atualizados
 
@@ -44,7 +44,7 @@ Com o tempo, os modelos preditivos nas experiências de pontuação do Azure ML 
 1. Crie uma experiência no [Azure Machine Learning Studio (clássico)](https://studio.azureml.net).
 2. Quando estiver satisfeito com o modelo, use o Azure Machine Learning Studio (clássico) para publicar serviços web tanto para a experiência de **treino** como para a experiência de pontuação/**preditiva**.
 
-A tabela seguinte descreve os serviços web utilizados neste exemplo.  Consulte os [modelos Retrain Machine Learning programáticamente](../../machine-learning/machine-learning-retrain-models-programmatically.md) para obter mais detalhes.
+A tabela seguinte descreve os serviços web utilizados neste exemplo.  Consulte os [modelos Retrain Machine Learning Studio (clássicos) programaticamente](../../machine-learning/studio/retrain-machine-learning-model.md) para mais detalhes.
 
 - Serviço web de **formação** - Recebe dados de formação e produz modelos treinados. A saída da reconversão é um ficheiro .ilearner num armazenamento Azure Blob. O **ponto final padrão** é automaticamente criado para si quando publica a experiência de treino como um serviço web. Pode criar mais pontos finais, mas o exemplo utiliza apenas o ponto final predefinido.
 - **Pontuação do serviço web** - Recebe exemplos de dados não rotulados e faz previsões. A saída de previsão pode ter vários formulários, tais como um ficheiro .csv ou linhas numa base de dados Azure SQL, dependendo da configuração da experiência. O ponto final padrão é automaticamente criado para si quando publica a experiência preditiva como um serviço web. 

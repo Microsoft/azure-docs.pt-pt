@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 03/18/2020
 ms.author: sajaya
-ms.openlocfilehash: 7452b5dd3c952a13a28566914d2fe513689d4751
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 39b543c5f886b22d488198873b75cf76555692fa
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80618797"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731649"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Perguntas frequentes sobre o Registo de Contentores de Azure
 
@@ -493,10 +493,10 @@ Atualmente não apoiamos o GitLab para os gatilhos source.
 
 | Serviço Git | Contexto de origem | Construção manual | Construção automática através do gatilho de compromisso |
 |---|---|---|---|
-| GitHub | https://github.com/user/myapp-repo.git#mybranch:myfolder | Sim | Sim |
-| Repositórios do Azure | https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder | Sim | Sim |
-| GitLab | https://gitlab.com/user/myapp-repo.git#mybranch:myfolder | Sim | Não |
-| BitBucket | https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder | Sim | Não |
+| GitHub | `https://github.com/user/myapp-repo.git#mybranch:myfolder` | Sim | Sim |
+| Repositórios do Azure | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` | Sim | Sim |
+| GitLab | `https://gitlab.com/user/myapp-repo.git#mybranch:myfolder` | Sim | Não |
+| BitBucket | `https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder` | Sim | Não |
 
 ## <a name="run-error-message-troubleshooting"></a>Executar resolução de problemas de mensagem de erro
 
@@ -507,7 +507,7 @@ Atualmente não apoiamos o GitLab para os gatilhos source.
 ## <a name="cicd-integration"></a>Integração CI/CD
 
 - [CircleCI](https://github.com/Azure/acr/blob/master/docs/integration/CircleCI.md)
-- [Ações gitHub](https://github.com/Azure/acr/blob/master/docs/integration/github-actions/github-actions.md)
+- [GitHub Actions](https://github.com/Azure/acr/blob/master/docs/integration/github-actions/github-actions.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

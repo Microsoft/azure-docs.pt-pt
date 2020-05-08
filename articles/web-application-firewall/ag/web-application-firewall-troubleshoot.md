@@ -7,18 +7,20 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: ant
 ms.topic: conceptual
-ms.openlocfilehash: 9cfb44fbf84ad85f3e2684dfec21cc83d4aaa666
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6fa959b1c9ed021a97031ba03822ae89fbbb7bbb
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131259"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983079"
 ---
 # <a name="troubleshoot-web-application-firewall-waf-for-azure-application-gateway"></a>Firewall de aplicação web de resolução de problemas (WAF) para Gateway de aplicação Azure
 
 Existem algumas coisas que pode fazer se os pedidos que devem passar através da sua Firewall de Aplicação Web (WAF) estiverem bloqueados.
 
 Em primeiro lugar, certifique-se de que leu a visão geral da [WAF](ag-overview.md) e os documentos de [configuração waf.](application-gateway-waf-configuration.md) Além disso, certifique-se de que permitiu [a monitorização](../../application-gateway/application-gateway-diagnostics.md) do WAF Estes artigos explicam como funciona a WAF, como funciona a regra WAF e como aceder aos registos waf.
+
+As regras oWASP são concebidas para serem muito rigorosas fora da caixa e para serem sintonizadas de acordo com as necessidades específicas da aplicação ou organização utilizando o WAF. É perfeitamente normal, e na verdade esperado em muitos casos, criar exclusões, regras personalizadas e até mesmo desativar regras que possam estar a causar problemas ou falsos positivos. As políticas por site e por URI permitem que estas alterações afetem apenas sites/URIs específicos, pelo que quaisquer alterações não devem ter de afetar outros sites que possam não estar a deter os mesmos problemas. 
 
 ## <a name="understanding-waf-logs"></a>Compreender os registos waf
 

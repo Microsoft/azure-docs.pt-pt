@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/07/2020
-ms.openlocfilehash: 45e766c624ee96f7faa06fb07d00349e620a4c0a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d167c603ada885a1a4917c66bab110e4ce38cab4
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133475"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598373"
 ---
 # <a name="user-defined-functions-in-azure-stream-analytics"></a>Funções definidas pelo utilizador no Azure Stream Analytics
 
@@ -47,6 +47,9 @@ O Azure Stream Analytics não mantém um registo de todas as funções invocaç�
 
 Quaisquer erros de tempo de execução são considerados fatais e são surgidos através de registos de atividade e recursos. Recomenda-se que a sua função lide com todas as exceções e erros e devolva um resultado válido à sua consulta. Isto impedirá que o seu trabalho vá para um [estado falhado.](job-states.md)  
 
+## <a name="exception-handling"></a>Processamento de exceções
+
+Qualquer exceção durante o processamento de dados é considerada uma falha catastrófica ao consumir dados no Azure Stream Analytics. As funções definidas pelo utilizador têm um maior potencial para lançar exceções e fazer com que o processamento pare. Para evitar este problema, utilize um bloco *de tentativas* em JavaScript ou C# para capturar exceções durante a execução do código. As exceções que são apanhadas podem ser registadas e tratadas sem causar uma falha no sistema. É encorajado a embrulhar sempre o seu código personalizado num bloco *de tentativas* para evitar lançar exceções inesperadas ao motor de processamento.
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -54,4 +57,3 @@ Quaisquer erros de tempo de execução são considerados fatais e são surgidos 
 * [Agregados definidos pelo utilizador do Azure Stream Analytics JavaScript](stream-analytics-javascript-user-defined-aggregates.md)
 * [Desenvolver funções definidas pelo utilizador .NET Standard para trabalhos de Análise de Fluxo de Azure](stream-analytics-edge-csharp-udf-methods.md)
 * [Integrar o Azure Stream Analytics com o Azure Machine Learning](machine-learning-udf.md)
-

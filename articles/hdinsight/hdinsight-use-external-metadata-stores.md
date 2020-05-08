@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 04/03/2020
-ms.openlocfilehash: e53164d1e25f8a8d0a14d21c0544d95cf912fe9f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/30/2020
+ms.openlocfilehash: 14d4a3616a1be0964029ddfd8d2697df8e4e8031
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81313943"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929337"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Use external metadata stores in Azure HDInsight (Utilizar arquivos de metadados externos no Azure HDInsight)
 
@@ -41,6 +41,8 @@ Por padrão, o HDInsight cria uma metaloja com cada tipo de cluster. Em vez diss
 * A metaloja predefinida utiliza o Azure SQL DB básico, que tem um limite de cinco DTU (unidade de transação de base de dados).
 Esta metaloja padrão é normalmente utilizada para cargas de trabalho relativamente simples. Cargas de trabalho que não requerem vários clusters e não precisam de metadados preservados para além do ciclo de vida do cluster.
 
+* Para cargas de trabalho de produção, recomendamos a migração para uma metaloja externa. Consulte a secção abaixo para mais detalhes.
+
 ## <a name="custom-metastore"></a>Metaloja personalizada
 
 O HDInsight também suporta metalojas personalizadas, que são recomendadas para clusters de produção:
@@ -64,6 +66,8 @@ O HDInsight também suporta metalojas personalizadas, que são recomendadas para
 Crie ou tenha uma base de dados Azure SQL existente antes de criar uma metaloja de Colmeia personalizada para um cluster HDInsight.  Para mais informações, consulte [Quickstart: Crie uma única base de dados em Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started?tabs=azure-portal).
 
 Ao criar o cluster, o serviço HDInsight precisa de se ligar à metaloja externa e verificar as suas credenciais. Configure as regras de firewall da Base de Dados Azure SQL para permitir que os serviços e recursos do Azure acedam ao servidor. Ative esta opção no portal Azure selecionando a firewall do **servidor set**. Em seguida, selecione **No** under **Deny acesso**à rede pública , e **Sim** por baixo **permitir serviços e recursos do Allow Azure para aceder a este servidor** para o servidor ou base de dados Azure SQL. Para mais informações, consulte [Criar e gerir as regras de firewall IP](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
+
+Os pontos finais privados das lojas SQL não são suportados.
 
 ![definir botão de firewall do servidor](./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall1.png)
 
@@ -94,6 +98,8 @@ Pode indicar o seu cluster para uma base de dados Azure SQL previamente criada a
 * Se partilhar uma metaloja em vários clusters, certifique-se de que todos os clusters são a mesma versão HDInsight. Diferentes versões da Hive usam diferentes esquemas de base de dados de metastore. Por exemplo, não é possível partilhar uma metaloja através da Hive 2.1 e da Hive 3.1.
 
 * No HDInsight 4.0, a Spark e a Hive utilizam catálogos independentes para aceder a mesas SparkSQL ou Hive. Uma mesa criada pela Spark vive no catálogo spark. Uma mesa criada pela Hive vive no catálogo da Hive. Este comportamento é diferente do HDInsight 3.6 onde a Hive e a Spark partilharam o catálogo comum. A Integração da Hive e Spark no HDInsight 4.0 depende do Conector de Armazém hive (HWC). A HWC funciona como uma ponte entre A Faísca e a Colmeia. Saiba mais sobre o [Conector de Armazém da Colmeia.](../hdinsight/interactive-query/apache-hive-warehouse-connector.md)
+
+* No HDInsight 4.0 se quiser partilhar a metaloja entre a Hive e a Spark, pode fazê-lo alterando a metastore da propriedade.catalog.default para colmeia no seu cluster Spark. Você pode encontrar esta propriedade em Ambari Advanced spark2-hive-site-override. É importante entender que a partilha de metaloja funciona apenas para mesas de colmeia externas, isso não funcionará se tiver mesas de colmeia internas/geridas ou mesas ACID.  
 
 ## <a name="apache-oozie-metastore"></a>Metastore Apache Oozie
 

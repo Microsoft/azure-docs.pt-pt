@@ -9,16 +9,16 @@ ms.topic: article
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.date: 04/23/2020
+ms.date: 05/01/2020
 ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 282946a023e4e79ee79b05cc2a317efc5a4056e4
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: b88f4aad650d77fea12677e61d3f249a77367e6f
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82165875"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690698"
 ---
 # <a name="manage-your-users-with-my-staff-preview"></a>Gerencie os seus utilizadores com o My Staff (pré-visualização)
 
@@ -26,9 +26,28 @@ O meu pessoal permite-lhe delegar uma figura de autoridade, como um gerente de l
 
 Antes de configurar o Meu Pessoal para a sua organização, recomendamos que reveja esta documentação, bem como a [documentação](../user-help/my-staff-team-manager.md) do utilizador para garantir que compreende a funcionalidade e o impacto desta funcionalidade nos seus utilizadores. Pode aproveitar a documentação do utilizador para treinar e preparar os seus utilizadores para a nova experiência e ajudar a garantir um lançamento bem-sucedido.
 
+A autenticação baseada em SMS para utilizadores é uma funcionalidade de pré-visualização pública do Diretório Ativo Azure. Para mais informações sobre pré-visualizações, consulte [Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) do Microsoft Azure
+
 ## <a name="how-my-staff-works"></a>Como funciona o meu pessoal
 
 O meu pessoal baseia-se em unidades administrativas (UA), que são um contentor de recursos que pode ser utilizado para restringir o âmbito do controlo administrativo de uma missão. Em My Staff, as UA são usadas para definir um subconjunto de utilizadores de uma organização, como uma loja ou departamento. Depois, por exemplo, um team manager poderia ser atribuído a um papel cujo âmbito é um ou mais UsA. No exemplo abaixo, foi concedido ao utilizador a função De Autenticação Administrativa, e as três Usa são o âmbito do papel. Para obter mais informações sobre unidades administrativas, consulte [a gestão de unidades administrativas no Diretório Ativo do Azure.](directory-administrative-units.md)
+
+## <a name="before-you-begin"></a>Antes de começar
+
+Para completar este artigo, precisa dos seguintes recursos e privilégios:
+
+* Uma subscrição ativa do Azure.
+
+  * Se não tiver uma assinatura Azure, [crie uma conta.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Um inquilino azure Ative Diretório associado à sua subscrição.
+
+  * Se necessário, crie um inquilino do [Azure Ative Directory](../fundamentals/sign-up-organization.md) ou [associe uma assinatura Azure à sua conta.](../fundamentals/active-directory-how-subscriptions-associated-directory.md)
+* Você precisa de privilégios *de administrador global* no seu inquilino Azure AD para permitir a autenticação baseada em SMS.
+* Cada utilizador habilitado na política do método de autenticação de mensagens de texto deve ser licenciado, mesmo que não o utilize. Cada utilizador ativado deve ter uma das seguintes licenças Azure AD ou Microsoft 365:
+
+  * [Azure AD Premium P1 ou P2](https://azure.microsoft.com/pricing/details/active-directory/)
+  * [Microsoft 365 (M365) F1 ou F3](https://www.microsoft.com/licensing/news/m365-firstline-workers)
+  * [Mobilidade Empresarial + Segurança (EMS) E3 ou E5](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/compare-plans-and-pricing) ou [Microsoft 365 (M365) E3 ou E5](https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans)
 
 ## <a name="how-to-enable-my-staff"></a>Como ativar o Meu Pessoal
 
@@ -47,7 +66,7 @@ Pode proteger o portal My Staff utilizando a política de acesso condicional Azu
 
 Recomendamos vivamente que proteja o meu pessoal utilizando políticas de [acesso condicional Azure AD.](https://docs.microsoft.com/azure/active-directory/conditional-access/) Para aplicar uma política de acesso condicional ao Meu Pessoal, deve criar manualmente o diretor de serviço my staff utilizando o PowerShell.
 
-### <a name="apply-a-----conditional-access-policy-to-my-staff"></a>Aplicar uma política de acesso condicional ao meu pessoal
+### <a name="apply-a-conditional-access-policy-to-my-staff"></a>Aplicar uma política de acesso condicional ao meu pessoal
 
 1. Instale os [cmdlets Beta PowerShell](https://github.com/microsoftgraph/msgraph-sdk-powershell/blob/dev/samples/0-InstallModule.ps1)do Microsoft Graph .
 1. Execute os seguintes comandos:
@@ -62,13 +81,6 @@ Recomendamos vivamente que proteja o meu pessoal utilizando políticas de [acess
 ## <a name="using-my-staff"></a>Usando o meu pessoal
 
 Quando um utilizador vai ao Meu Pessoal, é-lhes mostrado os nomes das [unidades administrativas](directory-administrative-units.md) sobre as quais têm permissões administrativas. Na [documentação](../user-help/my-staff-team-manager.md)do utilizador do Meu Pessoal, utilizamos o termo "localização" para se referir às unidades administrativas. Se as permissões de um administrador não tiverem um âmbito de UA, as permissões aplicam-se em toda a organização. Depois de o meu pessoal ter sido ativado, os utilizadores que estão [https://mystaff.microsoft.com](https://mystaff.microsoft.com)habilitados e que lhe foram atribuídos um papel administrativo podem aceder-lhe através de . Podem selecionar uma UA para visualizar os utilizadores nessa UA e selecionar um utilizador para abrir o seu perfil.
-
-## <a name="licenses"></a>Licenças
-
-Cada utilizador habilitado no Meu Pessoal deve ser licenciado, mesmo que não utilize o portal My Staff. Cada utilizador ativado deve ter uma das seguintes licenças Azure AD ou Microsoft 365:
-
-- Azure AD Premium P1 ou P2
-- Microsoft 365 F1 ou F3
 
 ## <a name="reset-a-users-password"></a>Repor a palavra-passe de um utilizador
 

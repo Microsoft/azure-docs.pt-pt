@@ -9,18 +9,44 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 03/10/2020
-ms.openlocfilehash: eaf94bcc894a7ac4d05540239695094856ed8a41
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 40ea1bfe65c963dbbe78c8aca8f5e9e96fd986cb
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82186974"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82928895"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de lançamento de Azure Machine Learning
 
 Neste artigo, conheça os lançamentos de Azure Machine Learning.  Para obter o conteúdo completo de referência do SDK, visite o [**principal SDK**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) da Azure Machine Learning para a página de referência python.
 
 Consulte [a lista de questões conhecidas](resource-known-issues.md) para conhecer bugs conhecidos e salões.
+
+## <a name="2020-05-04"></a>2020-05-04
+**Nova experiência de caderno**
+
+Agora pode criar, editar e partilhar cadernos e ficheiros de machine learning diretamente dentro da experiência web do estúdio do Azure Machine Learning. Você pode usar todas as aulas e métodos disponíveis em [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) a partir de dentro destes cadernos Começar [aqui](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks)
+
+**Novas funcionalidades introduzidas:**
+
++ Editor melhorado (editor do Mónaco) usado pelo CÓDIGO VS 
++ Melhorias UI/UX
++ Barra de ferramentas celular
++ Novos controlos de barra de ferramentas e cálculo de blocos de ferramentas de caderno
++ Barra de Estado do Caderno 
++ Comutação de Kernel Inline
++ Suporte R
++ Melhorias de acessibilidade e localização
++ Paleta de Comando
++ Atalhos adicionais de teclado
++ Autosave
++ Melhor desempenho e fiabilidade
+
+Aceda às seguintes ferramentas de autoria baseadas na Web do estúdio:
+    
+| Ferramenta baseada na Web  |     Descrição  | Edição | 
+|---|---|---|
+| Cadernos do Estúdio Azure ML   |     Primeira autoria em classe para ficheiros de cadernos e suporte a toda a operação disponível no Azure ML Python SDK. | Empresa de & Básica  |   
 
 ## <a name="2020-04-27"></a>2020-04-27
 
@@ -93,7 +119,7 @@ Consulte [a lista de questões conhecidas](resource-known-issues.md) para conhec
   + **azureml-train-automl-runtime**
     + Acrescentou telemetria adicional em torno de operações pós-treino.
     + suporte sparse sparse e2e
-  + **azureml-opendatasets**
+  + **conjuntos de dados azureml-open**
     + Adicionei telemetria adicional para monitor de serviço.
     + Ativar a porta da frente para a bolha aumentar a estabilidade 
 
@@ -558,7 +584,7 @@ Consulte o site do [pacote](https://azure.github.io/azureml-sdk-for-r) para obte
 
 ### <a name="azure-machine-learning-integration-with-event-grid"></a>Integração de Machine Learning Azure com Grelha de Eventos 
 
-O Azure Machine Learning é agora um fornecedor de recursos para a Rede de Eventos, pode configurar eventos de aprendizagem automática através do portal Azure ou do Azure CLI. Os utilizadores podem criar eventos para a conclusão de execução, registo de modelos, implementação de modelos e deriva de dados detetada. Estes eventos podem ser encaminhados para manipuladores de eventos apoiados pela Event Grid para consumo. Consulte o [esquema](https://docs.microsoft.com/azure/event-grid/event-schema-machine-learning)do evento de machine learning, [conceitos](https://docs.microsoft.com/azure/machine-learning/concept-event-grid-integration) e artigos [tutoriais](https://docs.microsoft.com/azure/machine-learning/how-to-use-event-grid) para mais detalhes.
+O Azure Machine Learning é agora um fornecedor de recursos para a Rede de Eventos, pode configurar eventos de aprendizagem automática através do portal Azure ou do Azure CLI. Os utilizadores podem criar eventos para a conclusão de execução, registo de modelos, implementação de modelos e deriva de dados detetada. Estes eventos podem ser encaminhados para manipuladores de eventos apoiados pela Event Grid para consumo. Consulte o [esquema](https://docs.microsoft.com/azure/event-grid/event-schema-machine-learning) do evento de machine learning e artigos [tutoriais](how-to-use-event-grid.md) para mais detalhes.
 
 ## <a name="2019-10-31"></a>2019-10-31
 
@@ -572,7 +598,7 @@ O Azure Machine Learning é agora um fornecedor de recursos para a Rede de Event
   + **Funcionalidades de pré-visualização**
     + Estamos a lançar suporte de pré-visualização para encriptação de discos do seu SSD local em Azure Machine Learning Compute. Por favor, levante um bilhete de suporte técnico para obter a sua subscrição whitelist para usar esta funcionalidade.
     + Pré-visualização pública da Inferência do Lote de Aprendizagem automática Azure. A Inferência do Lote de Aprendizagem automática Azure tem como alvo grandes inferências que não são sensíveis ao tempo. A Inferência do Lote fornece uma escala de inferência eficaz em termos de custos, com uma produção incomparável para aplicações assíncronas. Está otimizado para inferência de alta-adgente, fogo e esquecimento sobre grandes coleções de dados.
-    + [**conjunto de dados azureml-contrib**](https://docs.microsoft.com/python/api/azureml-contrib-dataset)
+    + [**azureml-contrib-dataset**](https://docs.microsoft.com/python/api/azureml-contrib-dataset)
         + Funcionalidades ativadas para conjunto de dados rotulado
         ```Python
         import azureml.core
@@ -1036,7 +1062,7 @@ No momento desta versão, os seguintes navegadores são suportados: Chrome, Fire
     + Adicione um parâmetro para adicionar um ID modelo às explicações no upload.
     + Adicionou `is_raw` a marcação a explicações na memória e no upload.
     + Suporte de maçarico adicionado e testes para pacote de modelo de explicação azureml.
-  + **azureml-opendatasets**
+  + **conjuntos de dados azureml-open**
     + Suporte de deteção e exploração automática ambiente de teste automático.
     + Aulas adicionadas para obter população americana por condado e zip.
   + **azureml-pipeline-core**
@@ -1132,7 +1158,7 @@ No momento desta versão, os seguintes navegadores são suportados: Chrome, Fire
 + **Novas funcionalidades**
   + Machine Learning Automatizado agora suporta a formação de modelos ONNX no alvo da computação remota
   + O Azure Machine Learning oferece agora capacidade para retomar a formação a partir de um anterior ensaio, checkpoint ou ficheiros de modelos.
-    + Aprenda a [usar os estimadores para retomar](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-tensorflow-resume-training/train-tensorflow-resume-training.ipynb) a formação de uma corrida anterior
+    + Aprenda a [usar os estimadores para retomar](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/tensorflow/training/train-tensorflow-resume-training/train-tensorflow-resume-training.ipynb) a formação de uma corrida anterior
 
 + **Correções e melhorias de bugs**
   + **automl-cliente-core-nativocliente**
@@ -1198,7 +1224,7 @@ No momento desta versão, os seguintes navegadores são suportados: Chrome, Fire
     + Melhorar a utilização de recursos de ensaios remotos utilizando o fluxo em azureml.mlflow.
     + Melhorar a documentação do pacote de fluxo de mílum-azureml
     + Permenção em que o mlflow.log_artifacts ("my_dir") salvaria artefactos em "my_dir/<artefactos-caminhos>" em vez de "<caminhos de artefactos>"
-  + **azureml-opendatasets**
+  + **conjuntos de dados azureml-open**
     + Pin `pyarrow` `opendatasets` de versões antigas (<0.14.0) por causa da emissão de memória recentemente introduzida lá.
     + Mova conjuntos de dados abertos em azureml-contrib para conjuntos de dados abertos em azureml.
     + Permitir que as aulas abertas de conjunto de dados sejam registadas no espaço de trabalho de Aprendizagem automática azure e alavancar as capacidades aml Dataset sem problemas.
@@ -1237,7 +1263,7 @@ No momento desta versão, os seguintes navegadores são suportados: Chrome, Fire
 ### <a name="azure-machine-learning-sdk-for-python-v1048"></a>Azure Machine Learning SDK para Python v1.0.48
 
 + **Novas funcionalidades**
-  + **azureml-opendatasets**
+  + **conjuntos de dados azureml-open**
     + Os conjuntos de **dados azureml-contrib-open** estão agora disponíveis como **conjuntos de dados abertos em azureml**. O pacote antigo ainda pode funcionar, mas recomendamos que utilize **conjuntos de dados abertos em azureml,** avançando para capacidades e melhorias mais ricas.
     + Este novo pacote permite-lhe registar conjuntos de dados abertos como Dataset no espaço de trabalho de Aprendizagem Automática Azure, e aproveitar quaisquer funcionalidades que o Dataset ofereça.
     + Também inclui capacidades existentes, tais como consumir conjuntos de dados abertos como quadros de dados Pandas/SPARK, e a localização junta-se para algum conjunto de dados como o tempo.
@@ -1282,7 +1308,7 @@ No momento desta versão, os seguintes navegadores são suportados: Chrome, Fire
     + As cordas são agora aceites como alvo de cálculo para a afinação automatizada do hiperparâmetro.
     + Deprecendo a definição de Configuração de Execução não utilizada em auto_prepare_environment.
     + Parâmetros `conda_dependencies_file_path` precatiados `pip_requirements_file_path` e `conda_dependencies_file` `pip_requirements_file` a favor e respectivamente.
-  + **azureml-opendatasets**
+  + **conjuntos de dados azureml-open**
     + Melhorar o noaaIsdWeather enriquecer significativamente o desempenho na versão não-SPARK.
 
 ### <a name="azure-machine-learning-data-prep-sdk-v118"></a>Azure Machine Learning Data Prep SDK v1.1.8
@@ -1355,7 +1381,7 @@ Revertemos uma mudança que melhorou o desempenho, uma vez que estava a causar p
 
 + **Novas funcionalidades**
   + O Azure Machine Learning oferece agora suporte de primeira classe para o popular quadro de aprendizagem automática e análise de dados Scikit-learn. Utilizando [ `SKLearn` o estimador,](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py)os utilizadores podem facilmente treinar e implementar modelos de aprendizagem de Scikit.
-    + Aprenda a executar a finação do [hiperparâmetro com scikit-learn usando HyperDrive](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-deploy-with-sklearn.ipynb).
+    + Aprenda a executar a finação do [hiperparâmetro com scikit-learn usando HyperDrive](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/scikit-learn/training/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-deploy-with-sklearn.ipynb).
   + Suporte adicional para a criação de ModuleStep em oleodutos juntamente com classes de Módulo solo e ModuleVersion para gerir unidades computacionais reutilizáveis.
   + Os serviços web da ACI suportam agora scoring_uri persistentes através de atualizações. O scoring_uri passará de IP para FQDN. A etiqueta de nome Dns para FQDN pode ser configurada definindo o dns_name_label no deploy_configuration.
   + Novas funcionalidades automatizadas de aprendizagem automática:
@@ -1641,8 +1667,8 @@ Nota: A Preparação de Dados `numpy` Python `pandas` SDK deixará de instalar e
 + **Novas funcionalidades**
 
   + A Azure Machine Learning oferece agora suporte de primeira classe para a popular cadeia de quadros DNN. A [`Chainer`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) utilização de utilizadores de classe pode facilmente treinar e implementar modelos Chainer.
-    + Saiba como [executar treino distribuído com chainerMN](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/distributed-chainer/distributed-chainer.ipynb)
-    + Aprenda a executar a finação do [hiperparâmetro com o Chainer usando o HyperDrive](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/train-hyperparameter-tune-deploy-with-chainer.ipynb)
+    + Saiba como [executar treino distribuído com chainerMN](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/chainer/training/distributed-chainer/distributed-chainer.ipynb)
+    + Aprenda a executar a finação do [hiperparâmetro com o Chainer usando o HyperDrive](https://github.com/Azure/MachineLearningNotebooks/blob/b881f78e4658b4e102a72b78dbd2129c24506980/how-to-use-azureml/ml-frameworks/chainer/deployment/train-hyperparameter-tune-deploy-with-chainer/train-hyperparameter-tune-deploy-with-chainer.ipynb)
   + Os pipelines de aprendizagem automática Azure adicionaram capacidade de desencadear uma execução de Pipeline com base em modificações de datastore. O caderno de [horários](https://aka.ms/pl-schedule) do pipeline é atualizado para mostrar esta funcionalidade.
 
 + **Correções e melhorias de bugs**
@@ -1841,7 +1867,7 @@ A Azure Machine Learning Compute pode ser criada em Python, utilizando o portal 
 
 + **Alterações interruptivas**
   * *azureml.train.widgets* namespace mudou-se para *azureml.widgets*.
-  * *azureml.core.compute.AmlCompute* deprecia as seguintes classes - *azureml.core.compute.BatchAICompute* e *azureml.core.compute.DSVMCompute*. Esta última classe será removida em lançamentos posteriores. A classe AmlCompute tem uma definição mais fácil agora, e simplesmente precisa de um vm_size e do max_nodes, e escalará automaticamente o seu cluster de 0 para o max_nodes quando um trabalho é submetido. Os [nossos cadernos](https://github.com/Azure/MachineLearningNotebooks/tree/master/training) de amostras foram atualizados com esta informação e devem dar-lhe exemplos de utilização. Esperamos que goste desta simplificação e de muitas características mais emocionantes para vir em um lançamento posterior!
+  * *azureml.core.compute.AmlCompute* deprecia as seguintes classes - *azureml.core.compute.BatchAICompute* e *azureml.core.compute.DSVMCompute*. Esta última classe será removida em lançamentos posteriores. A classe AmlCompute tem uma definição mais fácil agora, e simplesmente precisa de um vm_size e do max_nodes, e escalará automaticamente o seu cluster de 0 para o max_nodes quando um trabalho é submetido. Os [nossos cadernos](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training) de amostras foram atualizados com esta informação e devem dar-lhe exemplos de utilização. Esperamos que goste desta simplificação e de muitas características mais emocionantes para vir em um lançamento posterior!
 
 ### <a name="azure-machine-learning-data-prep-sdk-v051"></a>Azure Machine Learning Data Prep SDK v0.5.1
 
@@ -1886,7 +1912,7 @@ O portal Azure para O Machine Learning Azure tem as seguintes atualizações:
   * A classe *PipelineData* espera agora um objeto de datastore como parâmetro e não datastore_name. Da mesma forma, *pipeline* aceita default_datastore em vez de default_datastore_name.
 
 + **Novas funcionalidades**
-  * O caderno de [amostras](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline/pipeline-mpi-batch-prediction.ipynb) Azure Machine Learning Pipelines utiliza agora passos DEMPI.
+  * O caderno de [amostras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines) Azure Machine Learning Pipelines utiliza agora passos DEMPI.
   * O widget RunDetails para os cadernos Jupyter é atualizado para mostrar uma visualização do pipeline.
 
 ### <a name="azure-machine-learning-data-prep-sdk-v040"></a>Azure Machine Learning Data Prep SDK v0.4.0

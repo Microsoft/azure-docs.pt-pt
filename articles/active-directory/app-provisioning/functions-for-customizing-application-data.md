@@ -1,30 +1,28 @@
 ---
-title: Expressões de escrita para mapeamento de atributos em Anúncio azure
+title: Escreva expressões para mapeamentos de atributos no Diretório Ativo Azure
 description: Aprenda a usar mapeamentos de expressão para transformar valores de atributos num formato aceitável durante o fornecimento automatizado de objetos de aplicações SaaS no Diretório Ativo Azure.
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: mimart
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28e591234e28770a90bed827e4d36c6342661dd1
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: c8573f9151ac59178b19bbf354da43990405b3e0
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81866590"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593697"
 ---
-# <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escrever Expressões para Mapeamentos de Atributos no Azure Active Directory
+# <a name="how-to-write-expressions-for-attribute-mappings-in-azure-ad"></a>Como: Escrever expressões para mapeamento de atributos em Azure AD
+
 Ao configurar o fornecimento a uma aplicação SaaS, um dos tipos de mapeamento de atributos que pode especificar é um mapeamento de expressão. Para estes, deve escrever uma expressão semelhante a um guião que lhe permita transformar os dados dos seus utilizadores em formatos mais aceitáveis para a aplicação SaaS.
 
 ## <a name="syntax-overview"></a>Visão geral da sintaxe
+
 A sintaxe para expressões para mapeamento de atributos faz lembrar as funções de Base Visual para Aplicações (VBA).
 
 * Toda a expressão deve ser definida em termos de funções, que consistem num nome seguido de argumentos em parênteses: <br>
@@ -38,17 +36,19 @@ A sintaxe para expressões para mapeamento de atributos faz lembrar as funções
 * Para as constantes de cordas, se precisar de um backslash ( \ ) ou de uma marca de citação ( " ) na corda, deve ser escapado com o símbolo de backslash (\). Por exemplo: "Nome \\da\\empresa: "Contoso".
 
 ## <a name="list-of-functions"></a>Lista de Funções
+
 [Append](#append) &nbsp; [Join](#join) [Count](#count) &nbsp; &nbsp; [Guid](#guid) &nbsp; [Left](#left) [Not](#not) [Mid](#mid) [Replace](#replace) [BitAnd](#bitand) &nbsp; &nbsp; &nbsp; &nbsp; [CStr](#cstr) &nbsp; &nbsp; &nbsp; [InStr](#instr) &nbsp; [DateFromNum](#datefromnum) &nbsp; &nbsp; [IIF](#iif) &nbsp; [IsNull](#isnull) &nbsp; [Item](#item) &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; [CBool](#cbool) &nbsp; &nbsp; &nbsp; &nbsp; [Coalesce](#coalesce) &nbsp; &nbsp; &nbsp; [SelectUniqueValue](#selectuniquevalue) [IsString](#isstring) &nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp; [RemoveDuplicates](#removeduplicates) [IsPresent](#ispresent) &nbsp; [NormalizeDiacritics](#normalizediacritics) [ConvertToBase64](#converttobase64) &nbsp; &nbsp; &nbsp; &nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp; &nbsp; &nbsp; &nbsp; Apêndice BitAnd &nbsp; &nbsp; &nbsp; &nbsp; CBool &nbsp; &nbsp; &nbsp; Coalesce &nbsp; &nbsp; &nbsp; ConverttoBase64 &nbsp; &nbsp; &nbsp; ConvertToUTF8Hex &nbsp; &nbsp; Count &nbsp; CStr &nbsp; DateFromTime &nbsp; Guid &nbsp; &nbsp; IIF &nbsp; InStr &nbsp; IsNull &nbsp; OrEmpty &nbsp; IsPresent IsPresent IsString &nbsp; Item Join &nbsp; Left Mid &nbsp; NormalizeDiacritics Not RemoveDuplicates Replace SelectUniqueValue &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [Switch](#switch) [Split](#split)&nbsp; [Word](#word) [StripSpaces](#stripspaces) &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; [ToUpper](#toupper) [ToLower](#tolower) Singleapproleassignment &nbsp; &nbsp; split &nbsp; &nbsp; stripspaces&nbsp; switch&nbsp; tolower&nbsp; toupper word&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
 
 ---
 ### <a name="append"></a>Acrescentar
+
 **Função:**<br> Apêndice (fonte, sufixo)
 
 **Description:**<br> Pega num valor de cadeia de origem e afixa o sufixo até ao fim.
 
 **Parâmetros:**<br> 
 
-| Nome | Obrigatório/ Repetição | Tipo | Notas |
+| Name | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **fonte** |Necessário |String |Normalmente, o nome do atributo do objeto de origem. |
 | **sufixo** |Necessário |String |A corda que quer anexar até ao fim do valor de origem. |
@@ -66,7 +66,7 @@ Por outras palavras, retorna a 0 em todos os casos, exceto quando os bits corres
 
 **Parâmetros:**<br> 
 
-| Nome | Obrigatório/ Repetição | Tipo | Notas |
+| Name | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **valor1** |Necessário |num |Valor numérico que deve ser E'ed com valor2|
 | **valor2** |Necessário |num |Valor numérico que deve ser E'ed com valor1|
@@ -83,7 +83,7 @@ BitAnd (&HF, &HF7)
 
 **Parâmetros:**<br> 
 
-| Nome | Obrigatório/ Repetição | Tipo | Notas |
+| Name | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **expressão** |Necessário | expression | Qualquer expressão válida |
 
@@ -99,7 +99,7 @@ Devoluções Verdadeiras se ambos os atributos tiverem o mesmo valor.
 
 **Parâmetros:**<br> 
 
-| Nome | Obrigatório/ Repetição | Tipo | Notas |
+| Name | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **fonte1 ... fonteN** | Necessário | String |Obrigatório, número variável de vezes. Normalmente, o nome do atributo do objeto de origem. |
 | **defaultValor** | Opcional | String | Valor predefinido a utilizar quando todos os valores de origem são NULOS. Pode ser corda vazia ("").
@@ -112,7 +112,7 @@ Devoluções Verdadeiras se ambos os atributos tiverem o mesmo valor.
 
 **Parâmetros:**<br> 
 
-| Nome | Obrigatório/ Repetição | Tipo | Notas |
+| Name | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **fonte** |Necessário |String |Corda a ser convertida para base 64|
 
@@ -128,7 +128,7 @@ Devoluções "SABlAGwAbABvACAAdwBvAHIAbABkACEA"
 
 **Parâmetros:**<br> 
 
-| Nome | Obrigatório/ Repetição | Tipo | Notas |
+| Name | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **fonte** |Necessário |String |Corda a ser convertida em UTF8 Hex|
 
@@ -144,7 +144,7 @@ Devoluções 48656C6C6F20776F726C6421
 
 **Parâmetros:**<br> 
 
-| Nome | Obrigatório/ Repetição | Tipo | Notas |
+| Name | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **atributo** |Necessário |atributo |Atributo multivalorizado que terá elementos contados|
 
@@ -156,7 +156,7 @@ Devoluções 48656C6C6F20776F726C6421
 
 **Parâmetros:**<br> 
 
-| Nome | Obrigatório/ Repetição | Tipo | Notas |
+| Name | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **valor** |Necessário | numérico, referência ou booleano | Pode ser um valor numérico, atributo de referência, ou Boolean. |
 
@@ -172,7 +172,7 @@ Devoluções "cn=Joe,dc=contoso,dc=com"
 
 **Parâmetros:**<br> 
 
-| Nome | Obrigatório/ Repetição | Tipo | Notas |
+| Name | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **valor** |Necessário | Date | Data AD a converter para o tipo DateTime |
 
@@ -189,7 +189,7 @@ Devoluções DataTime representando 2012-01-01 23:00:00
 
 **Parâmetros:**<br> 
 
-| Nome | Obrigatório/ Repetição | Tipo | Notas |
+| Name | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **fonte** |Necessário |String |Normalmente, o nome do atributo do objeto de origem. |
 | **inputFormat** |Necessário |String |Formato esperado do valor de origem. Para formatos suportados, consulte [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
@@ -209,7 +209,7 @@ Devoluções DataTime representando 2012-01-01 23:00:00
 
 **Parâmetros:**<br> 
 
-| Nome | Obrigatório/ Repetição | Tipo | Notas |
+| Name | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **condição** |Necessário |Variável ou Expressão |Qualquer valor ou expressão que possa ser avaliado a verdade ou falsa. |
 | **valorIfTrue** |Necessário |Variável ou Corda | Se a condição avaliar a verdade, o valor devolvido. |
@@ -226,7 +226,7 @@ IIF[[país]="EUA,"[country],[department])
 
 **Parâmetros:**<br> 
 
-| Nome | Obrigatório/ Repetição | Tipo | Notas |
+| Name | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **valor1** |Necessário |String |Corda a ser revistada |
 | **valor2** |Necessário |String |Corda a ser encontrada |
@@ -248,7 +248,7 @@ Avalia para 7
 
 **Parâmetros:**<br> 
 
-| Nome | Obrigatório/ Repetição | Tipo | Notas |
+| Name | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **expressão** |Necessário |expression |Expressão a avaliar |
 
@@ -265,7 +265,7 @@ O inverso desta função chama-se IsPresent.
 
 **Parâmetros:**<br> 
 
-| Nome | Obrigatório/ Repetição | Tipo | Notas |
+| Name | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **expressão** |Necessário |expression |Expressão a avaliar |
 
@@ -281,7 +281,7 @@ Devoluções Verdadeirase se o atributo não estiver presente ou se for uma cord
 
 **Parâmetros:**<br> 
 
-| Nome | Obrigatório/ Repetição | Tipo | Notas |
+| Name | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **expressão** |Necessário |expression |Expressão a avaliar |
 
@@ -296,7 +296,7 @@ Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager],
 
 **Parâmetros:**<br> 
 
-| Nome | Obrigatório/ Repetição | Tipo | Notas |
+| Name | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **expressão** |Necessário |expression |Expressão a avaliar |
 
@@ -308,7 +308,7 @@ Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager],
 
 **Parâmetros:**<br> 
 
-| Nome | Obrigatório/ Repetição | Tipo | Notas |
+| Name | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **atributo** |Necessário |Atributo |Atributo multivalorizado a ser pesquisado |
 | **índice** |Necessário |Número inteiro | Index a um item na cadeia multi-valorizado|
@@ -326,7 +326,7 @@ Se um dos valores de origem for um atributo de vários valores, então cada valo
 
 **Parâmetros:**<br> 
 
-| Nome | Obrigatório/ Repetição | Tipo | Notas |
+| Name | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **separador** |Necessário |String |Cordas usadas para separar os valores de origem quando são concatenadas numa só corda. Pode ser "" se não for necessário separador. |
 | **fonte1 ... fonteN** |Obrigatório, número variável de vezes |String |Valores de cordas a unir. |
@@ -342,7 +342,7 @@ Se a corda contiver menos caracteres do que o número especificado em numChars, 
 
 **Parâmetros:**<br> 
 
-| Nome | Obrigatório/ Repetição | Tipo | Notas |
+| Name | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **String** |Necessário |Atributo | A corda para devolver personagens de |
 | **Numchars** |Necessário |Número inteiro | Um número que identifica o número de caracteres a regressar do início (à esquerda) da corda|
@@ -359,7 +359,7 @@ Devoluções "Joh"
 
 **Parâmetros:**<br> 
 
-| Nome | Obrigatório/ Repetição | Tipo | Notas |
+| Name | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **fonte** |Necessário |String |Normalmente o nome do atributo. |
 | **começar** |Necessário |número inteiro |Índice na cadeia **de origem** onde deve iniciar a subcadeia. O primeiro personagem na cadeia terá índice de 1, segundo personagem terá índice 2, e assim por diante. |
@@ -373,7 +373,7 @@ Devoluções "Joh"
 
 **Parâmetros:**<br> 
 
-| Nome | Obrigatório/ Repetição | Tipo | Notas |
+| Name | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **fonte** |Necessário |String | Normalmente um primeiro nome ou apelido. |
 
@@ -385,7 +385,7 @@ Devoluções "Joh"
 
 **Parâmetros:**<br> 
 
-| Nome | Obrigatório/ Repetição | Tipo | Notas |
+| Name | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **fonte** |Necessário |Corda Booleana |Os valores **de origem** esperados são "Verdadeiros" ou "Falsos". |
 
@@ -397,7 +397,7 @@ Devoluções "Joh"
 
 **Parâmetros:**<br> 
 
-| Nome | Obrigatório/ Repetição | Tipo | Notas |
+| Name | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **valor** |Necessário | String | Linha de hora de data no formato suportado. Para formatos suportados, consulte https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx. |
 
@@ -419,7 +419,7 @@ Devoluções "Joh"
 
 **Parâmetros:**<br> 
 
-| Nome | Obrigatório/ Repetição | Tipo | Notas |
+| Name | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **atributo** |Necessário |Atributo multivalorizado |Atributo multivalorizado que terá duplicados removidos|
 
@@ -453,7 +453,7 @@ Substitui valores dentro de uma corda. Funciona de forma diferente dependendo do
 
 **Parâmetros:**<br> 
 
-| Nome | Obrigatório/ Repetição | Tipo | Notas |
+| Name | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **fonte** |Necessário |String |Normalmente, o nome do atributo do objeto **de origem.** |
 | **oldValue** |Opcional |String |Valor a substituir na **fonte** ou **no modelo.** |
@@ -478,7 +478,7 @@ Substitui valores dentro de uma corda. Funciona de forma diferente dependendo do
 
 **Parâmetros:**<br> 
 
-| Nome | Obrigatório/ Repetição | Tipo | Notas |
+| Name | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **únicoValueRule1 ... únicoValueRuleN** |Pelo menos 2 são necessários, sem limite superior |String | Lista de regras únicas de geração de valor para avaliar. |
 
@@ -491,7 +491,7 @@ Substitui valores dentro de uma corda. Funciona de forma diferente dependendo do
 
 **Parâmetros:**<br> 
 
-| Nome | Obrigatório/ Repetição | Tipo | Notas |
+| Name | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **[appRoleAssignments]** |Necessário |String |**[appRoleAssignments]** objeto. |
 
@@ -503,7 +503,7 @@ Substitui valores dentro de uma corda. Funciona de forma diferente dependendo do
 
 **Parâmetros:**<br> 
 
-| Nome | Obrigatório/ Repetição | Tipo | Notas |
+| Name | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **fonte** |Necessário |String |valor **de origem** para atualização. |
 | **delimitador** |Necessário |String |Especifica o personagem que será usado para dividir a corda (exemplo: "") |
@@ -516,7 +516,7 @@ Substitui valores dentro de uma corda. Funciona de forma diferente dependendo do
 
 **Parâmetros:**<br> 
 
-| Nome | Obrigatório/ Repetição | Tipo | Notas |
+| Name | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **fonte** |Necessário |String |valor **de origem** para atualização. |
 
@@ -528,7 +528,7 @@ Substitui valores dentro de uma corda. Funciona de forma diferente dependendo do
 
 **Parâmetros:**<br> 
 
-| Nome | Obrigatório/ Repetição | Tipo | Notas |
+| Name | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **fonte** |Necessário |String |**Valor de origem** para atualização. |
 | **defaultValor** |Opcional |String |Valor predefinido a ser usado quando a fonte não corresponde a nenhuma tecla. Pode ser corda vazia (""). |
@@ -543,7 +543,7 @@ Substitui valores dentro de uma corda. Funciona de forma diferente dependendo do
 
 **Parâmetros:**<br> 
 
-| Nome | Obrigatório/ Repetição | Tipo | Notas |
+| Name | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **fonte** |Necessário |String |Normalmente nome do atributo do objeto de origem |
 | **cultura** |Opcional |String |O formato para o nome da cultura baseado no RFC 4646 é *languagecode2-country/regioncode2*, onde o *código linguístico2* é o código linguístico de duas letras e o *código de país/região2* é o código de subcultura de duas letras. Exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Nos casos em que não esteja disponível um código linguístico de duas letras, é utilizado um código de três letras derivado da ISO 639-2.|
@@ -556,7 +556,7 @@ Substitui valores dentro de uma corda. Funciona de forma diferente dependendo do
 
 **Parâmetros:**<br> 
 
-| Nome | Obrigatório/ Repetição | Tipo | Notas |
+| Name | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **fonte** |Necessário |String |Normalmente, o nome do atributo do objeto de origem. |
 | **cultura** |Opcional |String |O formato para o nome da cultura baseado no RFC 4646 é *languagecode2-country/regioncode2*, onde o *código linguístico2* é o código linguístico de duas letras e o *código de país/região2* é o código de subcultura de duas letras. Exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Nos casos em que não esteja disponível um código linguístico de duas letras, é utilizado um código de três letras derivado da ISO 639-2.|
@@ -573,7 +573,7 @@ Se a corda contiver menos de palavras numéricas, ou a corda não contiver palav
 
 **Parâmetros:**<br> 
 
-| Nome | Obrigatório/ Repetição | Tipo | Notas |
+| Name | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **String** |Necessário |Atributo multivalorizado |Corda para devolver uma palavra de.|
 | **Número de palavras** |Necessário | Número inteiro | Número identificando qual número de palavra deve devolver|

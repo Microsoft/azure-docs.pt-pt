@@ -13,12 +13,12 @@ metadata:
   ms.date: 02/27/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: b52a66e23e7f1f0324655146d62a56873cfc5eef
-  ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+  ms.openlocfilehash: 2cc8369c59905e1d1e1b794b8cbdefce1ede0a67
+  ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/28/2020
-  ms.locfileid: "82182417"
+  ms.lasthandoff: 05/04/2020
+  ms.locfileid: "82739433"
 highlightedContent:
   items:
   - title: Guia de introdução para programadores do Azure
@@ -443,12 +443,12 @@ productDirectory:
     - compute
     - web
     url: spring-cloud/index.yml
-  - title: Azure VMware Solution by CloudSimple
+  - title: Solução VMware no Azure
     summary: Execute as suas cargas de trabalho do VMware de forma nativa no Azure
-    imageSrc: ./media/index/cs_dedicatedcloudnode.svg
+    imageSrc: ./media/index/azure-vmware.svg
     azureCategories:
     - compute
-    url: vmware-cloudsimple/index.md
+    url: azure-vmware/index.yml
   - title: Batch
     summary: Agendamento de tarefas à escala da nuvem e gestão de computação
     imageSrc: https://static.docs.com/ui/media/product/azure/batch-accounts.svg

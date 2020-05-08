@@ -4,12 +4,12 @@ description: Capacidade de restauro instantâneo azure e FAQs para pilha de back
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 7cf437c6b20ea6b688e8e93e401cf71ef0260888
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fc29d1ac4c2e4c22ce6e6f8356927e768dc274e3
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76705433"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597659"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Obtenha uma cópia de segurança melhorada e restaure o desempenho com a capacidade de restauro instantâneo de backup azure
 
@@ -24,7 +24,7 @@ O novo modelo de Restauro Instantâneo fornece as seguintes melhorias de funcion
 * Suporta tamanhos de disco até 32 TB. A redimensionamento de discos não é recomendada pela Azure Backup.
 * Suporta discos SSD standard juntamente com discos Standard HDD e discos Premium SSD.
 * Capacidade de utilizar uma conta de armazenamento original de VMs não gerida (por disco), ao restaurar. Esta capacidade existe mesmo quando o VM tem discos que são distribuídos através de contas de armazenamento. Acelera as operações de restauro para uma grande variedade de configurações VM.
-* Para backup de VMs que estão usando armazenamento premium, com Instant Restore, recomendamos alocação *de 50%* de espaço livre do espaço total de armazenamento atribuído, que é necessário **apenas** para a primeira cópia de segurança. O espaço 50% livre não é um requisito para backups após a primeira cópia de segurança estar completa.
+* Para backup de VMs que estão usando discos premium não geridos em contas de armazenamento, com Instant Restore, recomendamos a locação *50%* de espaço livre do espaço total de armazenamento atribuído, que é necessário **apenas** para a primeira cópia de segurança. O espaço 50% livre não é um requisito para backups após a primeira cópia de segurança estar completa.
 
 ## <a name="whats-new-in-this-feature"></a>O que há de novo nesta funcionalidade
 

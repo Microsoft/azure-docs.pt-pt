@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2020
+ms.date: 05/01/2020
 ms.author: spelluru
-ms.openlocfilehash: 8d1ed128181d036af0026ae273c2c5bf1d3a066e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ee64f26d0ff685a83718c5d5e3d6f6eaf9230807
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77443504"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691806"
 ---
 # <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Laboratórios de sala de aula em Serviços de Laboratório Azure — Perguntas frequentes (FAQ)
 Obtenha respostas para algumas das perguntas mais comuns sobre laboratórios de salas de aula em Serviços de Laboratório Azure. 
@@ -57,6 +57,9 @@ Consulte [as gamas e etiquetas de serviço Azure IP — Public Cloud,](https://w
 ### <a name="as-a-lab-creator-why-cant-i-enable-additional-image-options-in-the-virtual-machine-images-dropdown-when-creating-a-new-lab"></a>Como criador de laboratório, por que não posso permitir opções de imagem adicionais nas imagens de máquinas virtuais quando se cria um novo laboratório?
 
 Quando um administrador te adiciona como criador de laboratório a uma conta de laboratório, é-te dada permissão para criar laboratórios. Mas não tem permissão para editar quaisquer configurações dentro da conta do laboratório, incluindo a lista de imagens de máquinas virtuais ativadas. Para permitir imagens adicionais, contacte o administrador da sua conta de laboratório para o fazer por si, ou peça ao administrador que o adicione como colaborador na conta do laboratório. O papel do Colaborador irá dar-lhe as permissões para editar a lista de imagens de máquinavirtual na conta de laboratório.
+
+### <a name="can-i-attach-additional-disks-to-a-virtual-machine"></a>Posso anexar discos adicionais a uma máquina virtual?
+Não. não é possível anexar discos adicionais a um VM num laboratório de sala de aula. 
 
 ## <a name="users"></a>Utilizadores
 

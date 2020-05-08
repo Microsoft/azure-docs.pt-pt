@@ -4,12 +4,12 @@ description: Resume o apoio à recuperação de desastres dos VMs Azure para uma
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: raynew
-ms.openlocfilehash: ea0b6763f4438033a8a5a1a4044479fc00f8456c
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: 2fc2a32c47991b9b3615417dfb8f50ca3e7c988f
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864577"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983504"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de apoio à recuperação de desastres do Azure VM entre as regiões de Azure
 
@@ -20,8 +20,8 @@ Este artigo resume o apoio e os pré-requisitos para a recuperação de desastre
 
 **Implementação** |  **Suporte**
 --- | ---
-**Portal do Azure** | Suportado.
-**PowerShell** | Suportado. [Mais informações](azure-to-azure-powershell.md)
+**Portal Azure** | Suportado.
+**PowerShell** | Suportado. [Saiba mais](azure-to-azure-powershell.md)
 **API REST** | Suportado.
 **CLI** | Atualmente, não é suportado
 
@@ -215,9 +215,9 @@ Armazenamento fresco e quente | Não suportado | Os discos VM não são suportad
 Espaços de Armazenamento | Suportado |
 Encriptação em repouso (SSE) | Suportado | SSE é a definição padrão nas contas de armazenamento.
 Encriptação em repouso (CMK) | Suportado | Tanto as teclas Software como HSM são suportadas para discos geridos
-Encriptação de disco azure (ADE) para Windows OS | Suportado para VMs com discos geridos. | Não são suportados vMs que utilizem discos não geridos. <br/><br/> As chaves protegidas pelo HSM não são suportadas. |
-Encriptação de disco azure (ADE) para Linux OS | Suportado para VMs com discos geridos. | Não são suportados vMs que utilizem discos não geridos. <br/><br/> As chaves protegidas pelo HSM não são suportadas. |
-Hot add    | Suportado | Permitir a replicação de um disco de dados que adicione a um VM Azure replicado é suportado para VMs que utilizam discos geridos.
+Encriptação de disco azure (ADE) para Windows OS | Suportado para VMs com discos geridos. | Não são suportados vMs que utilizem discos não geridos. <br/><br/> As chaves protegidas pelo HSM não são suportadas. <br/><br/> A encriptação de volumes individuais num único disco não é suportada. |
+Encriptação de disco azure (ADE) para Linux OS | Suportado para VMs com discos geridos. | Não são suportados vMs que utilizem discos não geridos. <br/><br/> As chaves protegidas pelo HSM não são suportadas. <br/><br/> A encriptação de volumes individuais num único disco não é suportada. |
+Hot add    | Suportado | Permitir a replicação de um disco de dados que adicione a um VM Azure replicado é suportado para VMs que utilizam discos geridos. <br/><br/> Apenas um disco pode ser adicionado a um VM Azure de cada vez. A adição paralela de vários discos não é suportada. |
 Disco de remoção a quente    | Não suportado | Se remover o disco de dados no VM, tem de desativar a replicação e ativar novamente a replicação para o VM.
 Excluir o disco | Apoio, apoio. Tem de usar o [PowerShell](azure-to-azure-exclude-disks.md) para configurar. |    Os discos temporários são excluídos por defeito.
 Direto de Espaços de Armazenamento  | Apoiado para pontos de recuperação consistentes de acidentes. Não são apoiados pontos de recuperação consistentes de aplicação. |
@@ -267,10 +267,10 @@ Vários endereços IP | Não suportado | Quando falha um VM que tem um NIC com v
 Gestor de Tráfego     | Suportado | Pode configurar regularmente o Traffic Manager para que o tráfego seja encaminhado para o ponto final da região de origem e para o ponto final na região alvo em caso de falha.
 DNS do Azure | Suportado |
 DNS Personalizado    | Suportado |
-Procuração não autenticada | Suportado | [Mais informações](site-recovery-azure-to-azure-networking-guidance.md)
+Procuração não autenticada | Suportado | [Saiba mais](site-recovery-azure-to-azure-networking-guidance.md)
 Procuração Autenticada | Não suportado | Se o VM estiver a utilizar um proxy autenticado para a conectividade de saída, não pode ser replicado utilizando a Recuperação do Site Azure.
-VPN ligação site-to-site para as instalações<br/><br/>(com ou sem ExpressRoute)| Suportado | Certifique-se de que os UDRs e NSGs estão configurados de modo a que o tráfego de recuperação do site não seja encaminhado para as instalações. [Mais informações](site-recovery-azure-to-azure-networking-guidance.md)
-Ligação VNET a VNET    | Suportado | [Mais informações](site-recovery-azure-to-azure-networking-guidance.md)
+VPN ligação site-to-site para as instalações<br/><br/>(com ou sem ExpressRoute)| Suportado | Certifique-se de que os UDRs e NSGs estão configurados de modo a que o tráfego de recuperação do site não seja encaminhado para as instalações. [Saiba mais](site-recovery-azure-to-azure-networking-guidance.md)
+Ligação VNET a VNET    | Suportado | [Saiba mais](site-recovery-azure-to-azure-networking-guidance.md)
 Pontos Finais de Serviço de Rede Virtual | Suportado | Se estiver a restringir o acesso à rede virtual às contas de armazenamento, certifique-se de que os serviços confiáveis da Microsoft têm acesso à conta de armazenamento.
 Redes aceleradas | Suportado | A ligação acelerada deve ser ativada no VM de origem. [Saiba mais](azure-vm-disaster-recovery-with-accelerated-networking.md).
 

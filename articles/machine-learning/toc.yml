@@ -56,12 +56,10 @@
             - name: Preparar automaticamente um modelo de ML
               displayName: 'automl, automated, auto ml,'
               href: tutorial-auto-train-models.md
-        - name: Pipelines de Machine Learning (avançado)
-          items:
-            - name: Classificar com lote um modelo de classificação
-              displayName: pipelines
-              href: tutorial-pipeline-batch-scoring-classification.md
-        - name: Passar da experiência à produção
+        - name: Modelos de classificação em lote com pipelines
+          displayName: pipelines
+          href: tutorial-pipeline-batch-scoring-classification.md
+        - name: Preparar o seu código para produção
           displayName: 'mlops, mlopspython, production'
           href: tutorial-convert-ml-experiment-to-production.md
     - name: SDK para R
@@ -88,54 +86,63 @@
     - name: Exemplos de MLOps ponto a ponto
       href: 'https://github.com/microsoft/MLOps'
     - name: Open Datasets (público)
-      href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
+      href: /azure/open-datasets/samples?context=azure/machine-learning/context/ml-context
 - name: Conceitos
   items:
     - name: Planear e gerir custos
       href: concept-plan-manage-cost.md
+    - name: Estruturador (arrastar e largar ML)
+      items:
+        - name: Descrição geral do estruturador
+          displayName: studio
+          href: concept-designer.md
+        - name: Referência rápida para algoritmos
+          href: /azure/machine-learning/algorithm-cheat-sheet
+        - name: Como selecionar algoritmos
+          href: /azure/machine-learning/how-to-select-algorithms
+    - name: ML Automatizado
+      items:
+        - name: Descrição geral de ML Automatizado
+          displayName: 'automl, auto ml'
+          href: concept-automated-ml.md
+        - name: Sobreajuste e dados desequilibrados
+          displayName: 'automl, auto ml, risks'
+          href: concept-manage-ml-pitfalls.md
     - name: Área de trabalho
       href: concept-workspace.md
     - name: Ambientes
       href: concept-environments.md
-    - name: Ingestão de dados
-      href: concept-data-ingestion.md
-    - name: Acesso a dados
-      href: concept-data.md
-    - name: Preparação de modelos
-      displayName: 'run config, estimator, machine learning pipeline, ml pipeline, train model'
-      href: concept-train-machine-learning-model.md
-    - name: Preparação distribuída
-      displayName: 'parallellization, deep learning, deep neural network, dnn'
-      href: concept-distributed-training.md
-    - name: Gestão de modelos (MLOps)
-      displayName: 'deploy, deployment, publish, production, operationalize, operationalization'
-      href: concept-model-management-and-deployment.md
-    - name: Capacidade de interpretação
-      displayName: explainability
-      href: how-to-machine-learning-interpretability.md
-    - name: 'Estruturador: ML sem código'
-      displayName: studio
-      href: concept-designer.md
-    - name: Referência rápida para algoritmos
-      href: /azure/machine-learning/algorithm-cheat-sheet
-    - name: Como selecionar algoritmos
-      href: /azure/machine-learning/how-to-select-algorithms
-    - name: ML Automatizado
-      displayName: 'automl, auto ml'
-      href: concept-automated-ml.md
-    - name: Sobreajuste e dados desequilibrados
-      displayName: 'automl, auto ml, risks'
-      href: concept-manage-ml-pitfalls.md
     - name: Instância de computação
       displayName: 'resource, dsvm, Data Science Virtual Machine'
       href: concept-compute-instance.md
     - name: Destino de computação
       displayName: 'resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight'
       href: concept-compute-target.md
+    - name: Dados
+      items:
+        - name: Acesso a dados
+          href: concept-data.md
+        - name: Ingestão de dados
+          href: concept-data-ingestion.md
+    - name: Preparação de modelos
+      displayName: 'run config, estimator, machine learning pipeline, ml pipeline, train model'
+      href: concept-train-machine-learning-model.md
+    - name: Preparação distribuída
+      displayName: 'parallellization, deep learning, deep neural network, dnn'
+      href: concept-distributed-training.md
+    - name: Aprendizagem aprofundada
+      displayName: 'deep learning vs machine learning, deep learning, vs, versus'
+      href: concept-deep-learning-vs-machine-learning.md
+    - name: Gestão de modelos (MLOps)
+      displayName: 'deploy, deployment, publish, production, operationalize, operationalization'
+      href: concept-model-management-and-deployment.md
+    - name: Portabilidade de modelos (ONNX)
+      href: concept-onnx.md
+    - name: Capacidade de interpretação do modelo
+      displayName: explainability
+      href: how-to-machine-learning-interpretability.md
     - name: Pipelines de ML
       href: concept-ml-pipelines.md
-    - name: ONNX
-      href: concept-onnx.md
     - name: Preparação e segurança para empresas
       items:
         - name: Segurança empresarial
@@ -165,11 +172,6 @@
           href: how-to-setup-authentication.md
         - name: Monitorizar o Azure Machine Learning
           href: monitor-azure-machine-learning.md
-    - name: Integração do Event Grid
-      href: concept-event-grid-integration.md
-    - name: Aprendizagem aprofundada
-      displayName: 'deep learning vs machine learning, deep learning, vs, versus'
-      href: concept-deep-learning-vs-machine-learning.md
 - name: Guias de procedimentos
   items:
     - name: Criar e gerir áreas de trabalho
@@ -188,6 +190,8 @@
         - name: Configurar ambientes de desenvolvimento
           displayName: 'local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB'
           href: how-to-configure-environment.md
+        - name: Executar Blocos de Notas do Jupyter
+          href: how-to-run-jupyter-notebooks.md
         - name: Configurar ambientes de software
           displayName: 'pip, Conda, anaconda'
           href: how-to-use-environments.md
@@ -269,14 +273,14 @@
           href: how-to-train-keras.md
         - name: PyTorch
           href: how-to-train-pytorch.md
-    - name: Explicar modelos
+    - name: Interpretar e explicar modelos
       displayName: interpretability
       items:
-        - name: Explicar modelos de ML
-          displayName: 'SDK, interpret'
+        - name: Interpretar modelos de ML
+          displayName: 'SDK, interpret, explain, explanability, interpretability'
           href: how-to-machine-learning-interpretability-aml.md
         - name: Explicar modelos de ML automatizados
-          displayName: 'SDK, interpret, automl'
+          displayName: 'SDK, interpret, interpret, explain, explanability, interpretability, automated ML, automl, auto ml'
           href: how-to-machine-learning-interpretability-automl.md
     - name: Automatizar a aprendizagem automática
       displayName: 'automl, auto ml'
@@ -295,6 +299,9 @@
         - name: Preparar automaticamente um modelo de previsão
           displayName: time series
           href: how-to-auto-train-forecast.md
+        - name: Utilizar o ML automatizado em pipelines de ML (Python)
+          displayName: machine learning automl
+          href: how-to-use-automlstep-in-pipelines.md
         - name: Entender os gráficos e as métricas
           href: how-to-understand-automated-ml.md
     - name: Controlar e monitorizar experimentações
@@ -334,7 +341,7 @@
               displayName: functions app
               href: how-to-deploy-functions.md
             - name: Dispositivos Azure IoT Edge
-              href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
+              href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/context/ml-context
             - name: Inferência de FPGA
               href: how-to-deploy-fpga-web-service.md
             - name: Imagens personalizadas do Docker
@@ -375,7 +382,10 @@
           href: how-to-debug-pipelines-application-insights.md
         - name: Pipelines do Azure para CI/CD
           displayName: 'continuous, integration, delivery'
-          href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
+          href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/context/ml-context
+        - name: Dados de transformação do estruturador
+          displayName: pipeline
+          href: how-to-designer-transform-data.md
         - name: Reeducação do estruturador com pipelines publicados
           displayName: 'retrain, designer, published pipeline'
           href: how-to-retrain-designer.md
@@ -391,6 +401,9 @@
         - name: Depurar e resolver problemas de execução paralela
           displayName: debug_batch consume pipeline parallelrunstep inference
           href: how-to-debug-parallel-run-step.md
+        - name: Iterar e evoluir pipelines de machine learning
+          displayName: modularizing testing
+          href: concept-pipeline-practices-tips.md
     - name: Gerir quotas de recursos
       displayName: limits
       href: how-to-manage-quotas.md
@@ -441,7 +454,7 @@
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning-service'
     - name: Comparar os nossos produtos de ML
-      href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/service/context/ml-context
+      href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/context/ml-context
     - name: O que aconteceu ao Workbench
       displayName: 'desktop, ui, Workbench, upgrade, update, transfer'
       href: overview-what-happened-to-workbench.md

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 04/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5cb3752e5a74f26936efcbb9dba5cdcda76e01f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d77fc756530115ff828c79a3b444c1152ffe5c5a
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82113311"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82608682"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Gerir a execução de automação azure como contas
 
@@ -475,7 +475,7 @@ Alguns itens de configuração necessários para uma execução Como ou corrida 
 * Executar Como conta removida da função contributiva
 * Principal de serviço ou aplicação no Azure AD
 
-Para tais casos de configuração errada, a conta Automation `Incomplete` deteta as alterações e apresenta um estado no painel de propriedades Run As Contas para a conta.
+Para tais casos de configuração errada, a conta Automation deteta as alterações e apresenta um estado de *Incompleto* no painel de propriedades 'Run As Contas' para a conta.
 
 ![Estado de configuração Não concluída da conta Run As](media/manage-runas-account/automation-account-runas-incomplete-config.png)
 

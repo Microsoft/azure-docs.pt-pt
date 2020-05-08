@@ -3,12 +3,12 @@ title: Desloque recursos para o inquilino
 description: Descreve como implementar recursos no âmbito do inquilino num modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: fcdfc5b1c4333a0d7eeec80a09ad85579a1f8b77
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8a3748c0948238b588a01f7d91780693a2c5bf3a
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79460267"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930068"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Criar recursos ao nível dos inquilinos
 
@@ -19,6 +19,7 @@ ms.locfileid: "79460267"
 Pode implementar os seguintes tipos de recursos ao nível do arrendatário:
 
 * [implementações](/azure/templates/microsoft.resources/deployments) - para modelos aninhados que se desdobram em grupos de gestão ou subscrições.
+* grupos de gestão
 * [políticasAtribuis](/azure/templates/microsoft.authorization/policyassignments)
 * [definições políticas](/azure/templates/microsoft.authorization/policydefinitions)
 * [definições políticasSetDefinições](/azure/templates/microsoft.authorization/policysetdefinitions)
@@ -103,13 +104,13 @@ Para as implementações de inquilinos, existem algumas considerações importan
 * Utilize a função de [inquilinoResourceId()](template-functions-resource.md#tenantresourceid) para obter o ID de recursos que são implantados ao nível do arrendatário.
 
   Por exemplo, para obter o ID de recurso para uma definição de política, use:
-  
+
   ```json
   tenantResourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))
   ```
-  
+
   O ID de recurso devolvido tem o seguinte formato:
-  
+
   ```json
   /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
   ```

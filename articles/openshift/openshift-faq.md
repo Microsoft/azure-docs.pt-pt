@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ef355361516264db95a333dde8a117819ca1a661
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 92529c2d60b32e9c8b57b897008b5333adc2a4d4
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203697"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594972"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>FaQ openshift do chapéu vermelho azure
 
@@ -135,7 +135,7 @@ Os clientes podem aceder às métricas CPU/Memória ao `oc adm top nodes` `kubec
 
 ## <a name="what-is-the-default-pod-scheduler-configuration-for-aro"></a>Qual é a configuração do programador de cápsulas padrão para ARO?
 
-A ARO usa o programador padrão que envia no OpenShift. Existem alguns mecanismos adicionais que não são suportados na ARO. Consulte a [documentação do programador predefinido](https://docs.openshift.com/container-platform/3.11/admin_guide/scheduling/scheduler.html#generic-scheduler) e a [documentação do programador principal](https://github.com/openshift/openshift-azure/blob/master/pkg/startup/v6/data/master/etc/origin/master/scheduler.json) para mais detalhes.
+A ARO usa o programador padrão que envia no OpenShift. Existem alguns mecanismos adicionais que não são suportados na ARO. Consulte a [documentação do programador predefinido](https://docs.openshift.com/container-platform/3.11/admin_guide/scheduling/scheduler.html#generic-scheduler) e a [documentação do programador principal](https://github.com/openshift/openshift-azure/blob/master/pkg/startup/v16/data/master/etc/origin/master/scheduler.json) para mais detalhes.
 
 O agendamento avançado/personalizado não é suportado. Consulte a [documentação](https://docs.openshift.com/container-platform/3.11/admin_guide/scheduling/index.html) de Agendamento para mais detalhes.
 

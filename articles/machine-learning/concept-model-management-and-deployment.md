@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 7857d11c625911cd1b49dfcf0e0d612fc6a3871e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 12d86f9415f7f5b813d2dce8eb3ad4bb63dec30c
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81314296"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929762"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: Gestão de modelos, implantação e monitorização com Aprendizagem automática Azure
 
@@ -153,7 +153,7 @@ O Azure ML dá-lhe a capacidade de rastrear o rasto de auditoria de ponta a pont
 - [A interpretação](how-to-machine-learning-interpretability.md) permite-lhe explicar os seus modelos, cumprir a conformidade regulamentar e compreender como os modelos chegam a um resultado para determinada entrada.
 - O histórico azure ML Run armazena uma imagem instantânea do código, dados e cálculos usados para treinar um modelo.
 - O Registo do Modelo Azure ML captura todos os metadados associados ao seu modelo (que experiência o treinou, onde está a ser implantado, se as suas implementações forem saudáveis).
-- [A integração com](concept-event-grid-integration.md) a Azure Event Grid permite-lhe atuar em eventos no ciclo de vida ml. Por exemplo, registo de modelos, implantação, deriva de dados e eventos de formação (executar).
+- [A integração com](how-to-use-event-grid.md) o Azure permite-lhe atuar em eventos no ciclo de vida ml. Por exemplo, registo de modelos, implantação, deriva de dados e eventos de formação (executar).
 
 > [!TIP]
 > Enquanto algumas informações sobre modelos e conjuntos de dados são automaticamente capturadas, pode adicionar informações adicionais utilizando __tags__. Ao procurar modelos e conjuntos de dados registados no seu espaço de trabalho, pode utilizar etiquetas como filtro.

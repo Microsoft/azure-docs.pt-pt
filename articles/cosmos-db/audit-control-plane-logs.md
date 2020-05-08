@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: sngun
-ms.openlocfilehash: d380e4c025b35f0000e13c62422d54dc10079524
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a5df7866f7897109dbd7a0ea8a52b857ab671875
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192872"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735356"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Como auditar operações de aviões de controlo da Azure Cosmos DB
 
@@ -27,7 +27,9 @@ Seguem-se alguns cenários de exemplo em que a auditoria das operações de cont
 
 ## <a name="disable-key-based-metadata-write-access"></a>Desativar o acesso de escrita de metadados baseados na chave
 
-Antes de auditar as operações de controlo de aviões em Azure Cosmos DB, desative os metadados baseados na chave, a escrever acesso na sua conta. Quando o acesso de escrita de metadados baseados na chave é desativado, os clientes que ligam à conta Azure Cosmos através de chaves de conta são impedidos de aceder à conta. Você pode desativar `disableKeyBasedMetadataWriteAccess` o acesso de escrita, definindo a propriedade como verdadeira. Depois de definir esta propriedade, as alterações a qualquer recurso podem ocorrer a partir de um utilizador com a função e credenciais de controlo de acesso baseados em Funções adequadas(RBAC). Para saber mais sobre como definir esta propriedade, consulte as [alterações de Prevenção do artigo dos SDKs.](role-based-access-control.md#preventing-changes-from-cosmos-sdk) Depois de desativar o acesso à escrita, as alterações baseadas em SDK para a entrada, o índice continuará a funcionar.
+Antes de auditar as operações de controlo de aviões em Azure Cosmos DB, desative os metadados baseados na chave, a escrever acesso na sua conta. Quando o acesso de escrita de metadados baseados na chave é desativado, os clientes que ligam à conta Azure Cosmos através de chaves de conta são impedidos de aceder à conta. Você pode desativar `disableKeyBasedMetadataWriteAccess` o acesso de escrita, definindo a propriedade como verdadeira. Depois de definir esta propriedade, as alterações a qualquer recurso podem ocorrer a partir de um utilizador com a função e credenciais de controlo de acesso baseados em Funções adequadas(RBAC). Para saber mais sobre como definir esta propriedade, consulte as [alterações de Prevenção do artigo dos SDKs.](role-based-access-control.md#preventing-changes-from-cosmos-sdk) 
+
+Depois `disableKeyBasedMetadataWriteAccess` de ligado, se os clientes baseados no SDK executarem operações de criação ou atualização, não é devolvido um erro *"Operação 'POST' no recurso 'ContainerNameorDatabaseName' através* do ponto final do Azure Cosmos DB. Tem de ativar o acesso a essas operações para a sua conta, ou realizar as operações de criação/atualização através do Azure Resource Manager, Azure CLI ou Azure Powershell. Para voltar atrás, desactiveODesmaWriteADeto **falso** utilizando o Azure CLI conforme descrito no artigo de [Prevenção do SDK da Cosmos.](role-based-access-control.md#preventing-changes-from-cosmos-sdk) Certifique-se de mudar `disableKeyBasedMetadataWriteAccess` o valor de falso em vez de verdadeiro.
 
 Considere os seguintes pontos ao desligar o acesso de escrita dos metadados:
 
@@ -65,7 +67,7 @@ Depois de ligar a exploração madeireira, utilize os seguintes passos para rast
    | where TimeGenerated >= ago(1h)
    ```
 
-As seguintes imagens capturam registos quando um VNET é adicionado a uma conta Azure Cosmos:
+As seguintes imagens capturam registos quando um nível de consistência é alterado para uma conta Azure Cosmos:
 
 ![Controle os registos de planos quando um VNet é adicionado](./media/audit-control-plane-logs/add-ip-filter-logs.png)
 
@@ -149,8 +151,25 @@ Para operações específicas da API, a operação é nomeada com o seguinte for
 
 * CassandraKeyspacesUpdateStart, CassandraKeyspacesUpdateComplete
 * CassandraKeyspacesThroughputUpdateStart, CassandraKeyspacesThroughputUpdateComplete
+* SqlContainersUpdateStart, SqlContainersUpdateComplete
 
 A propriedade *ResourceDetails* contém todo o corpo de recursos como uma carga útil de pedido e contém todas as propriedades solicitadas para atualizar
+
+## <a name="diagnostic-log-queries-for-control-plane-operations"></a>Consultas de registo de diagnóstico para operações de controlo de aviões
+
+Seguem-se alguns exemplos para obter registos de diagnóstico para operações de controlo de aviões:
+
+```kusto
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
+| where  OperationName startswith "SqlContainersUpdateStart"
+```
+
+```kusto
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
+| where  OperationName startswith "SqlContainersThroughputUpdateStart"
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 

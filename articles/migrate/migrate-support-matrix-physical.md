@@ -3,12 +3,12 @@ title: Suporte para avaliação de servidor físico em Azure Migrate
 description: Conheça o suporte para avaliação do servidor físico com a Avaliação do Servidor Migratório Azure
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: ae76a6b570ec58e71a8a1728a2a601728030f58c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 31fd676a339a6c82cec84e0f355ac875f68a653c
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81538159"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983674"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Matriz de suporte para avaliação do servidor físico 
 
@@ -24,7 +24,7 @@ Para avaliar servidores físicos, cria um projeto Azure Migrate e adiciona a fer
 --- | ---
 **Limites de avaliação** | Você pode descobrir e avaliar até 35.000 servidores físicos em um único [projeto Azure Migrate](migrate-support-matrix.md#azure-migrate-projects).
 **Limites do projeto** | Pode criar vários projetos numa subscrição do Azure. Além de servidores físicos, um projeto pode incluir VMware VMs e VMs Hiper-V, até os limites de avaliação para cada um.
-**Descoberta** | O aparelho Azure Migrate pode descobrir até 250 servidores físicos.
+**Deteção** | O aparelho Azure Migrate pode descobrir até 250 servidores físicos.
 **Avaliação** | Pode adicionar até 35.000 máquinas num único grupo.<br/><br/> Pode avaliar até 35.000 máquinas numa única avaliação.
 
 [Saiba mais](concepts-assessment-calculation.md) sobre avaliações.
@@ -34,16 +34,18 @@ Para avaliar servidores físicos, cria um projeto Azure Migrate e adiciona a fer
 | **Suporte**                | **Detalhes**               
 | :-------------------       | :------------------- |
 | **Implementação física do servidor**       | O servidor físico pode ser autónomo ou implantado num cluster. |
-| **Permissões**           | **Janelas:** Precisa de uma conta de utilizador local ou de domínio em todos os servidores do Windows que pretende descobrir. A conta de utilizador deve ser adicionada a estes grupos: Utilizadores de desktop remoto, utilizadores do Monitor de Desempenho e utilizadores de Registo de Desempenho. <br/><br/> **Linux:** Precisa de uma conta de raiz nos servidores Linux que pretende descobrir. |
-| **Sistema Operativo** | Todos os sistemas operativos [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) e [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) que são suportados pelo Azure, com exceção do Windows Server 2003, e do SUSE Linux.|
+| **Permissões**           | **Janelas:** Tem de ser administrador de domínio, ou administrador local em todos os servidores do Windows que pretende descobrir. A conta de utilizador deve ser adicionada a estes grupos: Utilizadores de Gestão Remota, Utilizadores do Monitor de Desempenho e Utilizadores de Registo de Desempenho. <br/><br/> **Linux:** Precisa de uma conta de raiz nos servidores Linux que pretende descobrir. |
+| **Sistema operativo** | Todos os sistemas operativos [windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) e [linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) que são suportados pelo Azure, exceto o Windows Server 2003, e o SUSE Linux.<br/><br/> Sistemas operativos para clientes Windows 10 e Windows 8. |
 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Requisitos de aplicação do Azure Migrate
 
-A Azure Migrate utiliza o [aparelho Migratório Azure](migrate-appliance.md) para descoberta e avaliação. O aparelho para servidores físicos pode funcionar num VM ou numa máquina física. Configura o aparelho utilizando um script PowerShell que descarrega a partir do portal Azure.
+A Azure Migrate utiliza o [aparelho Migratório Azure](migrate-appliance.md) para descoberta e avaliação. O aparelho para servidores físicos pode funcionar num VM ou numa máquina física. 
 
 - Conheça os [requisitos](migrate-appliance.md#appliance---physical) do aparelho para servidores físicos.
 - Saiba mais sobre os URLs que o aparelho precisa de aceder em nuvens [públicas](migrate-appliance.md#public-cloud-urls) e [governamentais.](migrate-appliance.md#government-cloud-urls)
+- Configura o aparelho utilizando um [script PowerShell](how-to-set-up-appliance-physical.md) que descarrega a partir do portal Azure.
+No Governo Azure, implante o aparelho [utilizando esta script](deploy-appliance-script-government.md).
 
 ## <a name="port-access"></a>Acesso portuário
 

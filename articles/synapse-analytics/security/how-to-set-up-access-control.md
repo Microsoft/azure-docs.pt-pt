@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: ae8be848b5d12e01865fe6bd3b394b460252aa3e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 383a28e90c093c0885c34af03371608261ece110
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606012"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692620"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Proteja o seu espaço de trabalho Synapse (pré-visualização)
 
@@ -165,9 +165,22 @@ O Estúdio Synapse comportar-se-á de forma diferente com base nas funções dos
 | Gerir os serviços hub / Linked | SIM | SIM | SIM |
 | Gerir o Hub / Controlo de Acesso (atribuir utilizadores às funções do espaço de trabalho Synapse) | SIM | NO | NO |
 | Gerir os tempos de execução do Hub / Integração | SIM | SIM | SIM |
+| Use o Monitor Hub | SIM | SIM | SIM |
+| Monitor Hub / Orquestração / Pipeline corre  | SIM | NO | NO |
+| Monitor Hub / Orquestração / Trigger runs  | SIM | NO | NO |
+| Monitor Hub / Orquestração / Tempos de execução de integração  | SIM | SIM | SIM |
+| Monitor Hub / Atividades / Aplicações Spark | SIM | SIM | NO  |
+| Monitor Hub / Atividades / Pedidos SQL | SIM | NO | SIM |
+| Monitor Hub / Atividades / Piscinas de Faíscas | SIM | SIM | NO  |
+| Monitor Hub / Gatilhos | SIM | NO | NO |
+| Gerir os serviços hub / Linked | SIM | SIM | SIM |
+| Gerir o Hub / Controlo de Acesso (atribuir utilizadores às funções do espaço de trabalho Synapse) | SIM | NO | NO |
+| Gerir os tempos de execução do Hub / Integração | SIM | SIM | SIM |
+
 
 > [!NOTE]
-> [1] O acesso aos dados em contentores depende do controlo de acesso nas tabelas DeSQL OD e mesas Spark sql e spark armazenam os seus dados em ADLSGen2 e o acesso requer as permissões adequadas na ADLSGen2.
+> [1] O acesso aos dados em contentores depende do controlo de acesso na ADLSGen2. </br>
+> [2] As tabelas de OD SQL e as tabelas Spark armazenam os seus dados na ADLSGen2 e o acesso requer as permissões adequadas na ADLSGen2.
 
 ## <a name="next-steps"></a>Passos seguintes
 

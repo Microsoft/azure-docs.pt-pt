@@ -1,7 +1,7 @@
 ---
 title: Visão geral da API do Relé Azure [ Microsoft Docs
 description: Este artigo fornece uma visão geral das APIs disponíveis do Azure Relay (.NET Standard, .NET Framework, Node.js, etc.)
-services: event-hubs
+services: service-bus-relay
 documentationcenter: na
 author: spelluru
 manager: timlt
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: 41d9e2026c19c959dc6fe2546b0ef699571ec7cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ad7226b5c5badfddf9f436a1229a48f729485821
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76513971"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983130"
 ---
 # <a name="available-relay-apis"></a>APIs de retransmissão disponível
 
@@ -33,7 +33,7 @@ A secção de [informação adicional](#additional-information) contém mais inf
 | --- | --- | --- | --- |
 | .NET Standard | Ligações Híbridas | [Microsoft.Azure.Relay](https://www.nuget.org/packages/Microsoft.Azure.Relay/) | [GitHub](https://github.com/azure/azure-relay-dotnet) |
 | .NET Framework | Reencaminhamento do WCF | [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | N/D |
-| Nó | Ligações Híbridas | [Websockets:`hyco-ws`](https://www.npmjs.com/package/hyco-ws)<br/>[Websockets:`hyco-websocket`](https://www.npmjs.com/package/hyco-websocket)<br/>[PEDIDOS HTTP:`hyco-https`](https://www.npmjs.com/package/hyco-https) | [GitHub](https://github.com/Azure/azure-relay-node) |
+| Nó | Ligações Híbridas | [WebSockets:`hyco-ws`](https://www.npmjs.com/package/hyco-ws)<br/>[WebSockets:`hyco-websocket`](https://www.npmjs.com/package/hyco-websocket)<br/>[PEDIDOS HTTP:`hyco-https`](https://www.npmjs.com/package/hyco-https) | [GitHub](https://github.com/Azure/azure-relay-node) |
 
 ### <a name="additional-information"></a>Informações adicionais
 
@@ -43,7 +43,7 @@ O ecossistema .NET tem vários tempos de execução, pelo que existem várias bi
 
 A biblioteca-quadro .NET apenas suporta o modelo de programação wCF e baseia-se `net.tcp` num protocolo binário proprietário baseado no transporte wCF. Este protocolo e biblioteca mantém-se para retrocompatibilidade com aplicações existentes.
 
-A biblioteca .NET Standard baseia-se na definição de protocolo aberto para o Relé de Ligações Híbridas que se baseia em HTTP e WebSockets. A biblioteca suporta uma abstração de fluxo sobre Websockets e um simples gesto de Resposta de Pedido-Resposta API para responder a pedidos http. A amostra [web API](https://github.com/Azure/azure-relay-dotnet) mostra como integrar ligações híbridas com ASP.NET Core para serviços web.
+A biblioteca .NET Standard baseia-se na definição de protocolo aberto para o Relé de Ligações Híbridas que se baseia em HTTP e WebSockets. A biblioteca suporta uma abstração de fluxo sobre WebSockets e um simples gesto de Resposta de Pedido-Resposta API para responder a pedidos HTTP. A amostra [web API](https://github.com/Azure/azure-relay-dotnet) mostra como integrar ligações híbridas com ASP.NET Core para serviços web.
 
 #### <a name="nodejs"></a>Node.js
 

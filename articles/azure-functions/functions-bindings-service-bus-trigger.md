@@ -6,22 +6,22 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.openlocfilehash: 1ead7fcd9d474369e3a62e372a971d88d26f4e9c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b5e7f1b70aca50b4e42d056beb0b17795430091c
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78273571"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690710"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Gatilho de ônibus de serviço Azure para funções azure
 
-Utilize o gatilho do Ônibus de serviço para responder a mensagens de uma fila de ônibus de serviço ou tópico.
+Utilize o gatilho do Ônibus de serviço para responder a mensagens de uma fila de ônibus de serviço ou tópico. Começando pela versão de extensão 3.1.0, pode acionar uma fila ou tópico ativado por sessão.
 
 Para obter informações sobre os detalhes da configuração e configuração, consulte a [visão geral](functions-bindings-service-bus-output.md).
 
 ## <a name="example"></a>Exemplo
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 O exemplo seguinte mostra uma [função C#](functions-dotnet-class-library.md) que lê metadados de [mensagens](#message-metadata) e regista uma mensagem de fila de ônibus de serviço:
 
@@ -203,7 +203,7 @@ As funções java também podem ser desencadeadas quando uma mensagem é adicion
 
 ## <a name="attributes-and-annotations"></a>Atributos e anotações
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Nas [bibliotecas da classe C#,](functions-dotnet-class-library.md)utilize os seguintes atributos para configurar um gatilho de autocarro de serviço:
 
@@ -222,7 +222,7 @@ Nas [bibliotecas da classe C#,](functions-dotnet-class-library.md)utilize os seg
   }
   ```
 
-  Pode definir `Connection` a propriedade para especificar o nome de uma definição de aplicação que contém a cadeia de ligação service Bus a utilizar, como mostra o seguinte exemplo:
+  Uma `Connection` vez que a propriedade não está definida, `AzureWebJobsServiceBus`as Funções procuram uma definição de app chamada , que é o nome padrão para a cadeia de ligação service Bus. Também pode definir `Connection` a propriedade para especificar o nome de uma definição de aplicação que contém a cadeia de ligação do Ônibus de serviço a utilizar, como mostra o seguinte exemplo:
 
   ```csharp
   [FunctionName("ServiceBusQueueTriggerCSharp")]                    
@@ -304,7 +304,7 @@ A tabela a seguir explica as propriedades de configuração de ligação que def
 
 ## <a name="usage"></a>Utilização
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Os seguintes tipos de parâmetros estão disponíveis para a fila ou mensagem tópico:
 
@@ -354,21 +354,24 @@ O `maxAutoRenewDuration` é configurável em *host.json*, que mapeia para [OnMes
 
 ## <a name="message-metadata"></a>Metadados de mensagens
 
-O gatilho do Ônibus de serviço fornece várias [propriedades de metadados.](./functions-bindings-expressions-patterns.md#trigger-metadata) Estas propriedades podem ser usadas como parte de expressões de ligação noutras encadernações ou como parâmetros no seu código. Estas propriedades são membros da classe [BrokeredMessage.](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)
+O gatilho do Ônibus de serviço fornece várias [propriedades de metadados.](./functions-bindings-expressions-patterns.md#trigger-metadata) Estas propriedades podem ser usadas como parte de expressões de ligação noutras encadernações ou como parâmetros no seu código. Estas propriedades são membros da classe [Mensagem.](/dotnet/api/microsoft.azure.servicebus.message?view=azure-dotnet)
 
 |Propriedade|Tipo|Descrição|
 |--------|----|-----------|
-|`DeliveryCount`|`Int32`|O número de entregas.|
-|`DeadLetterSource`|`string`|A fonte da carta morta.|
-|`ExpiresAtUtc`|`DateTime`|O tempo de validade na UTC.|
-|`EnqueuedTimeUtc`|`DateTime`|O tempo enqueuado na UTC.|
-|`MessageId`|`string`|Um valor definido pelo utilizador que o Service Bus pode usar para identificar mensagens duplicadas, se ativado.|
 |`ContentType`|`string`|Um identificador de tipo de conteúdo utilizado pelo remetente e pelo recetor para uma lógica específica da aplicação.|
-|`ReplyTo`|`string`|A resposta ao endereço da fila.|
-|`SequenceNumber`|`Int64`|O número único atribuído a uma mensagem pelo Ônibus de Serviço.|
-|`To`|`string`|O envio para o endereço.|
-|`Label`|`string`|O rótulo específico da aplicação.|
 |`CorrelationId`|`string`|A identificação da correlação.|
+|`DeadLetterSource`|`string`|A fonte da carta morta.|
+|`DeliveryCount`|`Int32`|O número de entregas.|
+|`EnqueuedTimeUtc`|`DateTime`|O tempo enqueuado na UTC.|
+|`ExpiresAtUtc`|`DateTime`|O tempo de validade na UTC.|
+|`Label`|`string`|O rótulo específico da aplicação.|
+|`MessageId`|`string`|Um valor definido pelo utilizador que o Service Bus pode usar para identificar mensagens duplicadas, se ativado.|
+|`MessageReceiver`|`MessageReceiver`|Recetor de mensagem de ônibus de serviço. Pode ser usado para abandonar, completar ou escrever a mensagem.|
+|`MessageSession`|`MessageSession`|Um recetor de mensagens especificamente para filas e tópicos ativados por sessão.|
+|`ReplyTo`|`string`|A resposta ao endereço da fila.|
+|`SequenceNumber`|`long`|O número único atribuído a uma mensagem pelo Ônibus de Serviço.|
+|`To`|`string`|O envio para o endereço.|
+|`UserProperties`|`IDictionary<string, object>`|Propriedades definidas pelo remetente.|
 
 Consulte [exemplos](#example) de código que usam estas propriedades no início deste artigo.
 

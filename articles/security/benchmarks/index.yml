@@ -1,24 +1,24 @@
 ### YamlMime:Landing
-title: Documentação das referências de segurança do Azure
+title: Documentação da Referência de Segurança do Azure
 summary: Saiba como proteger as suas soluções cloud no Azure com as nossas melhores práticas e orientações.
 metadata:
-  title: Referências de segurança do Azure
-  description: A Referência dos Controlos de Segurança do Azure contém recomendações que ajudam a melhorar a segurança das aplicações e dos dados no Azure.
+  title: Referências de Segurança do Azure
+  description: A Referência de Segurança do Azure contém recomendações que ajudam a melhorar a segurança das aplicações e dos dados no Azure.
   services: security
   ms.service: security
   ms.subservice: fundamentals
-  ms.custom: security-baselines
+  ms.custom: security-benchmark
   ms.topic: landing-page
   author: msmbaldwin
   ms.author: mbaldwin
   manager: rkarlin
   ms.date: 12/23/2019
-  ms.openlocfilehash: c2b36e098314af78ca3d6f28534c3d3e97697363
-  ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+  ms.openlocfilehash: 7cebc4fb6e676470b46a52cf1ea62e0990e708e9
+  ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/15/2020
-  ms.locfileid: "81393842"
+  ms.lasthandoff: 04/30/2020
+  ms.locfileid: "82607758"
 landingContent:
 - title: Acerca da Referência de Segurança do Azure
   linkLists:
@@ -26,29 +26,29 @@ landingContent:
     links:
     - text: Introdução à Referência de Segurança do Azure
       url: introduction.md
-    - text: Descrição geral do Centro de Segurança do Azure
+    - text: Descrição geral dos controlos de segurança do Azure
       url: overview.md
-- title: Controlos de Segurança
+- title: Controlos de segurança
   linkLists:
   - linkListType: overview
     links:
-    - text: Segurança de Rede
+    - text: Segurança da rede
       url: security-control-network-security.md
-    - text: Início de sessão e Monitorização
+    - text: Início de sessão e monitorização
       url: security-control-logging-monitoring.md
-    - text: Identidade e Controlo de Acesso
+    - text: Identidade e controlo de acesso
       url: security-control-identity-access-control.md
-    - text: Proteção de Dados
+    - text: Proteção de dados
       url: security-control-data-protection.md
-    - text: Gestão de Vulnerabilidades
+    - text: Gestão de vulnerabilidades
       url: security-control-vulnerability-management.md
     - text: Ver mais
       url: security-control-inventory-asset-management.md
-- title: Mais Informações de Segurança do Azure
+- title: Mais informações de segurança do Azure
   linkLists:
   - linkListType: learn
     links:
-    - text: Noções Básicas da Segurança do Azure
+    - text: Noções básicas da segurança do Azure
       url: ../fundamentals/index.yml
     - text: Responsabilidade partilhada na cloud
       url: ../fundamentals/shared-responsibility.md

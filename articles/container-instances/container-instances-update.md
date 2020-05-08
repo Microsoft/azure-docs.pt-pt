@@ -3,16 +3,16 @@ title: Atualizar grupo de contentores
 description: Saiba como atualizar os contentores em funcionamento nos grupos de contentores de contentores Do seu Contentor Azure.
 ms.topic: article
 ms.date: 04/17/2020
-ms.openlocfilehash: dc10e38aa6be9473f89df6f7fa10a72f63d9ada8
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: cfc27de8caae98dd1c3065b5ed06433c4baaa5d2
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854443"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82928725"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Atualizar contentores no Azure Container Instances
 
-Durante o funcionamento normal das instâncias do seu contentor, poderá ser necessário atualizar os contentores de funcionamento num grupo de [contentores](container-instances-container-groups.md). Por exemplo, você pode desejar atualizar uma propriedade como uma versão de imagem, um nome DNS, ou uma variável ambiental, ou refrescar uma propriedade em um recipiente cuja aplicação se despenhou.
+Durante o funcionamento normal das instâncias do seu contentor, poderá ser necessário atualizar os contentores de funcionamento num grupo de [contentores](./container-instances-container-groups.md). Por exemplo, você pode desejar atualizar uma propriedade como uma versão de imagem, um nome DNS, ou uma variável ambiental, ou refrescar uma propriedade em um recipiente cuja aplicação se despenhou.
 
 Atualize os contentores num grupo de contentores em execução, reimplantando um grupo existente com pelo menos uma propriedade modificada. Ao atualizar um grupo de contentores, todos os contentores em funcionamento do grupo são reiniciados no local, normalmente no mesmo hospedeiro subjacente.
 
@@ -28,7 +28,7 @@ Para atualizar um grupo de contentores existente:
 * Detete outras propriedades com os valores que forneceu anteriormente. Se não definir um valor para uma propriedade, reverte para o seu valor padrão.
 
 > [!TIP]
-> Um [ficheiro YAML](container-instances-container-groups.md#deployment) ajuda a manter a configuração de implementação de um grupo de contentores e fornece um ponto de partida para implantar um grupo atualizado. Se usou um método diferente para criar o grupo, pode exportar a configuração para o YAML utilizando a exportação de [contentores az,][az-container-export] 
+> Um [ficheiro YAML](./container-instances-container-groups.md#deployment) ajuda a manter a configuração de implementação de um grupo de contentores e fornece um ponto de partida para implantar um grupo atualizado. Se usou um método diferente para criar o grupo, pode exportar a configuração para o YAML utilizando a exportação de [contentores az,][az-container-export] 
 
 ### <a name="example"></a>Exemplo
 
@@ -80,7 +80,7 @@ Quando se apaga um grupo de contentores e o recria, não é "reimplantado", mas 
 
 Mencionado várias vezes neste artigo é o grupo de **contentores.** Todos os contentores em Conjunto de Contentores de Azure são implantados num grupo de contentores, e os grupos de contentores podem conter mais do que um contentor.
 
-[Grupos de contentores no Azure Container Instances](container-instances-container-groups.md)
+[Grupos de contentores no Azure Container Instances](./container-instances-container-groups.md)
 
 [Implementar um grupo com vários contentores](container-instances-multi-container-group.md)
 

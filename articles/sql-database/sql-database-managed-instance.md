@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 04/02/2020
-ms.openlocfilehash: 04b07ff60c882501c49ad58607db867e7e99897c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 65bce50665b6dd99662e99ca57569f906f3af208
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80879076"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598543"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>O que é a base de dados Azure SQL gerida?
 
@@ -63,7 +63,7 @@ As principais características dos casos geridos são mostradas na tabela seguin
 | Número de ficheiros de dados (ROWS) por base de dados | Vários |
 | Número de ficheiros de registo (LOG) por base de dados | 1 |
 | VNet - Implantação do Gestor de Recursos Azure | Sim |
-| VNet - Modelo de implantação clássico | Não |
+| VNet - Modelo de implantação clássico | No |
 | Suporte do portal | Sim|
 | Serviço integrado de Integração (SSIS) | Não - O SSIS faz parte da [Azure Data Factory PaaS](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
 | Serviço de Análise Incorporada (SSAS) | Não - SSAS é [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) separado |
@@ -167,19 +167,31 @@ O quadro seguinte resume as operações e as durações globais típicas:
 
 \*\*\*12 horas é a configuração atual, mas isso pode mudar no futuro, por isso não tomes uma dependência dura dela. Se precisar de eliminar um cluster virtual mais cedo (para libertar a sub-rede, por exemplo), consulte Apagar uma sub-rede depois de eliminar uma instância gerida pela Base de [Dados Azure SQL](sql-database-managed-instance-delete-virtual-cluster.md).
 
-### <a name="instance-availability-during-management"></a>Disponibilidade de exemplo durante a gestão
+### <a name="instance-availability-during-management-operations"></a>Disponibilidade de exemplo durante operações de gestão
 
-Casos geridos não estão disponíveis para aplicações de clientes durante operações de implantação e eliminação.
+A instância gerida não está disponível para aplicações de clientes durante operações de implantação e eliminação.
 
-Os casos geridos estão disponíveis durante as operações de atualização, mas há um curto período de inatividade causado pela falha que acontece no final de atualizações que normalmente duram até 10 segundos. A exceção a isto é a atualização do espaço de armazenamento reservado no nível de serviço General Purpose que não incorre em falhas nem afeta a disponibilidade de instâncias.
-
-> [!IMPORTANT]
-> A duração de uma falha pode variar significativamente em caso de transações de longo prazo que ocorram nas bases de dados devido ao [tempo de recuperação prolongado](sql-database-accelerated-database-recovery.md#the-current-database-recovery-process). Por conseguinte, não é recomendado escalar a computação ou o armazenamento da Base de Dados Azure SQL gerida ou alterar o nível de serviço ao mesmo tempo com as transações de longo prazo (importação de dados, empregos de processamento de dados, reconstrução de índices, etc.). A falha na base de dados que será realizada no final da operação cancelará as transações em curso e resultará num tempo de recuperação prolongado.
+A instância gerida está disponível durante as operações de atualização, exceto um curto período de inatividade causado pela falha que ocorre no final da atualização. Normalmente dura até 10 segundos mesmo em caso de transações interrompidas a longo prazo, graças à recuperação da base de [dados Acelerada](sql-database-accelerated-database-recovery.md).
 
 > [!TIP]
 > A atualização do espaço de armazenamento reservado no nível de serviço General Purpose não incorre em falhas nem afeta a disponibilidade de instâncias.
 
-[A recuperação acelerada da base de dados](sql-database-accelerated-database-recovery.md) não está atualmente disponível para casos geridos pela Base de Dados Azure SQL. Uma vez ativada, esta funcionalidade reduzirá significativamente a variabilidade do tempo de failover, mesmo em caso de transações de longo prazo.
+> [!IMPORTANT]
+> Não é aconselhável escalar a computação ou o armazenamento da Base de Dados Azure SQL gerida ou alterar o nível de serviço ao mesmo tempo com as transações de longo prazo (importação de dados, empregos de processamento de dados, reconstrução de índices, etc.). A falha na base de dados que será realizada no final da operação cancelará todas as transações em curso.
+
+
+### <a name="management-operations-cross-impact"></a>Operações de gestão com impacto cruzado
+
+As operações de gestão de instâncias geridas podem afetar outras operações de gestão das instâncias colocadas dentro do mesmo cluster virtual. Isto inclui o seguinte:
+
+- **As operações** de restauro de longo prazo num cluster virtual colocarão em espera outras operações de criação ou escalação na mesma sub-rede.<br/>**Exemplo:** se houver uma operação de restauro de longo curso e houver um pedido de criação ou escala na mesma sub-rede, este pedido demorará mais tempo a ser concluído, uma vez que aguardará a conclusão da operação de restauro antes de continuar.
+    
+- Posteriormente, a **criação ou** operação de escala por exemplo é posta em suspenso pela criação de instâncias ou escala de instância seleções previamente iniciadas que iniciaram a redimensionamento do cluster virtual.<br/>**Exemplo:** se houver múltiplos pedidos de criação e/ou escala na mesma sub-rede sob o mesmo cluster virtual, e um deles iniciar o redimensionamento do cluster virtual, todos os pedidos que foram submetidos 5+ minutos após o necessário redimensionamento do cluster virtual durarão mais tempo do que o esperado, uma vez que estes pedidos terão de esperar que o redimensionamento seja concluído antes de retomar.
+
+- **As operações de criação/escala submetidas em janela** de 5 minutos serão lotadas e executadas em paralelo.<br/>**Exemplo:** Apenas um cluster virtual será realizado para todas as operações submetidas em janela de 5 minutos (medindo a partir do momento da execução do primeiro pedido de operação). Caso outro pedido seja apresentado mais de 5 minutos após a apresentação do primeiro, aguardará que o cluster virtual seja concluído antes do início da execução.
+
+> [!IMPORTANT]
+> As operações de gestão que são postas em suspenso por causa de outra operação em curso serão automaticamente retomadas assim que as condições para prosseguir. Não é necessária qualquer ação do utilizador para retomar a operação de gestão temporariamente interrompida.
 
 ### <a name="canceling-management-operations"></a>Cancelamento de operações de gestão
 
@@ -187,14 +199,14 @@ O quadro seguinte resume a capacidade de cancelar operações de gestão especí
 
 Categoria  |Operação  |Cancelável  |Duração estimada do cancelamento  |
 |---------|---------|---------|---------|
-|Implementação |Criação de instâncias |Não |  |
-|Atualizar |Por exemplo, a escala de armazenamento para cima/para baixo (Propósito Geral) |Não |  |
+|Implementação |Criação de instâncias |No |  |
+|Atualizar |Por exemplo, a escala de armazenamento para cima/para baixo (Propósito Geral) |No |  |
 |Atualizar |Por exemplo, o armazenamento para cima/para baixo (Business Critical) |Sim |90% das operações terminam em 5 minutos |
 |Atualizar |Por exemplo, a computação (vCores) a escalonar para cima e para baixo (Propósito Geral) |Sim |90% das operações terminam em 5 minutos |
 |Atualizar |Compute de instância (vCores) escalando para cima e para baixo (Business Critical) |Sim |90% das operações terminam em 5 minutos |
 |Atualizar |Mudança de nível de serviço de instância (Propósito Geral para Business Critical e vice-versa) |Sim |90% das operações terminam em 5 minutos |
-|Eliminar |Eliminação da instância |Não |  |
-|Eliminar |Eliminação virtual do cluster (como operação iniciada pelo utilizador) |Não |  |
+|Eliminar |Eliminação da instância |No |  |
+|Eliminar |Eliminação virtual do cluster (como operação iniciada pelo utilizador) |No |  |
 
 Para cancelar a operação de gestão, vá à lâmina de visão geral e clique na caixa de notificação da operação em curso. Do lado direito, aparecerá um ecrã com operação em curso e haverá botão para cancelamento de operação. Após o primeiro clique, será-lhe pedido que clique novamente e confirme que pretende cancelar a operação.
 

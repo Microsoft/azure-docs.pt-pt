@@ -4,15 +4,15 @@ description: Saiba como monitorizar aplicações no Azure App Service utilizando
 author: btardif
 ms.assetid: d273da4e-07de-48e0-b99d-4020d84a425e
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 8baefcbfa1eb34bc6cd37e4325d9a9bfc11e2d20
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7205f8a842f2086b1cf3a6bbf76c2df48ed679e9
+ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181227"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82738104"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Monitorize aplicações no Serviço de Aplicações Azure
 O [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) fornece funcionalidades de monitorização incorporadas para aplicações web, aplicações móveis e API no [portal Azure.](https://portal.azure.com)
@@ -49,7 +49,7 @@ Se uma aplicação exceder o *CPU (curto)* *CPU (Dia)*, ou quota de largura de *
 
 ![403 mensagem de erro][http403]
 
-Se a quota de memória da aplicação for ultrapassada, a aplicação é reiniciada.
+Se a quota de memória da aplicação for ultrapassada, a aplicação é interrompida temporariamente.
 
 Se a quota do Sistema de Ficheiros for excedida, qualquer operação de escrita falha. As falhas de operação de escrita incluem quaisquer escritos para registos.
 
@@ -131,8 +131,7 @@ Existem duas métricas que refletem o uso do CPU:
 **Percentagem de CPU**: Útil para apps hospedadas em planos Básicos, Standard e Premium, porque podem ser dimensionados. A percentagem de CPU é uma boa indicação da utilização global em todos os casos.
 
 ## <a name="metrics-granularity-and-retention-policy"></a>Política de granularidade e retenção de métricas
-
-As métricas para um plano de serviço de aplicações e aplicações são registadas e agregadas pelo serviço. As métricas são retidas por 90 dias.
+As métricas para um plano de serviço de aplicações e aplicações são registadas e agregadas pelo serviço e mantidas de [acordo com estas regras.](../azure-monitor/platform/data-platform-metrics.md#retention-of-metrics)
 
 ## <a name="monitoring-quotas-and-metrics-in-the-azure-portal"></a>Quotas e métricas de monitorização no portal Azure
 Para rever o estado das várias quotas e métricas que afetam uma app, vá ao [portal Azure.](https://portal.azure.com)

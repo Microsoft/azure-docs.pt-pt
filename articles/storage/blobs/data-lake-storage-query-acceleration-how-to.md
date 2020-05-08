@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/21/2020
 ms.author: normesta
 ms.reviewer: jamsbak
-ms.openlocfilehash: b71d4e0eab0c1c1a7cfaf6e5bf9169776308fd3b
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
-ms.translationtype: HT
+ms.openlocfilehash: d7213bb44503fbe191a69683188bdea6976827ee
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583856"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930085"
 ---
 # <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration-preview"></a>Filtrar dados utilizando a aceleração da consulta de armazenamento do lago de dados do Azure (pré-visualização)
 
@@ -244,7 +244,7 @@ class ErrorHandler : IBlobQueryErrorReceiver
 {
     public void ReportError(BlobQueryError err)
     {
-        Console.Error.WriteLine(String.Format("Error: {1}:{2}", err.Name, err.Description));
+        Console.Error.WriteLine($"Error: {err.Name}:{ err.Description }");
     }
 }
 

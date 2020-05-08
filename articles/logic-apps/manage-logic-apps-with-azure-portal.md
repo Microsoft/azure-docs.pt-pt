@@ -5,16 +5,16 @@ services: logic-apps
 ms.suite: integration
 author: lauradolan
 ms.author: ladolan
-ms.reviewer: estfan, logicappspm
+ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.custom: mvc
-ms.date: 04/13/2020
-ms.openlocfilehash: f726ca90c215c4aff3734bd8022bbc1ad4dc5f87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/29/2020
+ms.openlocfilehash: d80972cd200b8f85e14d316c4c06a38f88ac81b5
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416000"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598169"
 ---
 # <a name="manage-logic-apps-in-the-azure-portal"></a>Gerir aplicações lógicas no portal Azure
 
@@ -60,7 +60,7 @@ Para encontrar e abrir a sua aplicação lógica, siga estes passos:
    * **Localização**
    * **Tipo** 
    * **Nome de subscrição**
-   * **ID de subscrição**
+   * **ID da subscrição**
    * **Ponto final de acesso**
    * **Endereços IP de saída de tempo de execução**
    * **Endereços IP do ponto final de acesso**
@@ -145,6 +145,10 @@ A apagar a sua aplicação lógica afeta os seus casos de fluxo de trabalho dest
 * Todas as corridas em curso e pendentes continuam até terminarem. Dependendo do número destas corridas, este processo pode demorar algum tempo.
 
 * O motor Logic Apps não vai criar ou executar novos casos de fluxo de trabalho.
+
+> [!NOTE]
+> Se eliminar e recriar uma aplicação de lógica infantil, terá de resalvar a aplicação lógica dos pais. A aplicação infantil recriada terá diferentes metadados.
+> Se não resalvar a aplicação lógica dos pais depois de recriar o seu filho, as suas chamadas para a aplicação lógica infantil falharão com um erro de "não autorizado". Este comportamento aplica-se a aplicações lógicas pais-filhos, por exemplo, aquelas que usam artefactos em contas de integração ou chamam funções de Azure.
 
 <a name="delete-single-logic-app"></a>
 

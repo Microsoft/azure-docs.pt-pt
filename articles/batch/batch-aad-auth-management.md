@@ -3,12 +3,13 @@ title: Utilize o Diretório Ativo Azure para autenticar soluções de Gestão de
 description: Explore utilizando o Azure Ative Directory para autenticar a partir de aplicações que utilizam a biblioteca Batch Management .NET.
 ms.topic: article
 ms.date: 04/27/2017
-ms.openlocfilehash: 0aa95aa440303d1577b7646c1a9f1bc5b6e69ac2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 7ca32e5f9ff32d635d7f662c74dea5534e3dd072
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82114790"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82608460"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Soluções de Gestão de Lotes Autenticados com Diretório Ativo
 
@@ -28,7 +29,7 @@ Para registar a aplicação da amostra De Gestão de Contas, siga os passos na s
 
 ![](./media/batch-aad-auth-management/app-registration-management-plane.png)
 
-Assim que concluir o processo de registo, verá o ID da aplicação e o ID do objeto (principal de serviço) listado para a sua aplicação.  
+Assim que concluir o processo de registo, verá o ID da aplicação e o ID do objeto (principal de serviço) listado para a sua aplicação.
 
 ![](./media/batch-aad-auth-management/app-registration-client-id.png)
 
@@ -44,7 +45,7 @@ Siga os passos abaixo no portal do Azure:
     ![Procure o seu nome de candidatura](./media/batch-aad-auth-management/search-app-registration.png)
 
 3. Exiba a lâmina **Definições.** Na secção **Acesso API,** selecione **permissões necessárias**.
-4. Clique em **Adicionar** para adicionar uma nova permissão necessária. 
+4. Clique em **Adicionar** para adicionar uma nova permissão necessária.
 5. No passo 1, introduza a API de Gestão de **Serviços Windows Azure,** selecione essa API da lista de resultados e clique no botão **Select.**
 6. No passo 2, selecione a caixa de verificação ao lado do **modelo de implementação clássico**do Access Azure como utilizadores da organização , e clique no botão **Select.**
 7. Clique no botão **Done.**
@@ -70,11 +71,11 @@ A aplicação da amostra De Gestão de Contas define constantes para estes ponto
 ```csharp
 // Azure Active Directory "common" endpoint.
 private const string AuthorityUri = "https://login.microsoftonline.com/common";
-// Azure Resource Manager endpoint 
+// Azure Resource Manager endpoint
 private const string ResourceUri = "https://management.core.windows.net/";
 ```
 
-## <a name="reference-your-application-id"></a>Referenciar o seu ID de aplicação 
+## <a name="reference-your-application-id"></a>Referenciar o seu ID de aplicação
 
 A sua aplicação de cliente utiliza o ID da aplicação (também referido como ID do cliente) para aceder à AD Azure em tempo de execução. Depois de ter registado a sua aplicação no portal Azure, atualize o seu código para utilizar o ID de aplicação fornecido pela Azure AD para a sua aplicação registada. Na aplicação da amostra De Gestão de Contas, copie o seu ID de aplicação do portal Azure para a constante adequada:
 
@@ -96,7 +97,7 @@ private const string RedirectUri = "http://myaccountmanagementsample";
 
 ## <a name="acquire-an-azure-ad-authentication-token"></a>Adquirir um símbolo de autenticação Azure AD
 
-Depois de registar a amostra de Gestão de Contas no inquilino da AD Azure e atualizar o código fonte da amostra com os seus valores, a amostra está pronta para autenticar utilizando a AD Azure. Quando executa a amostra, a ADAL tenta adquirir um símbolo de autenticação. Neste passo, solicita-lhe as credenciais da Microsoft: 
+Depois de registar a amostra de Gestão de Contas no inquilino da AD Azure e atualizar o código fonte da amostra com os seus valores, a amostra está pronta para autenticar utilizando a AD Azure. Quando executa a amostra, a ADAL tenta adquirir um símbolo de autenticação. Neste passo, solicita-lhe as credenciais da Microsoft:
 
 ```csharp
 // Obtain an access token using the "common" AAD resource. This allows the application
@@ -109,7 +110,7 @@ AuthenticationResult authResult = authContext.AcquireToken(ResourceUri,
                                                         PromptBehavior.Auto);
 ```
 
-Depois de fornecer as suas credenciais, o pedido de amostra pode proceder à emissão de pedidos autenticados ao serviço de gestão do Lote. 
+Depois de fornecer as suas credenciais, o pedido de amostra pode proceder à emissão de pedidos autenticados ao serviço de gestão do Lote.
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -117,7 +118,7 @@ Para obter mais informações sobre a execução da aplicação da [amostra De G
 
 Para saber mais sobre o Azure AD, consulte a Documentação de [Diretório Ativo Azure.](https://docs.microsoft.com/azure/active-directory/) Exemplos aprofundados que mostram como utilizar o ADAL estão disponíveis na biblioteca De amostras de [código azul.](https://azure.microsoft.com/resources/samples/?service=active-directory)
 
-Para autenticar aplicações de serviço batch utilizando a AD Azure, consulte soluções de [serviço Authenticate Batch com Diretório Ativo](batch-aad-auth.md). 
+Para autenticar aplicações de serviço batch utilizando a AD Azure, consulte soluções de [serviço Authenticate Batch com Diretório Ativo](batch-aad-auth.md).
 
 
 [aad_about]:../active-directory/fundamentals/active-directory-whatis.md "O que é o Azure Ative Directory?"

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: spelluru
-ms.openlocfilehash: 46c53c99c12ade986ab913bf013b652a931a4d22
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ed1c2f14ca5a791743a95cc50e5af0c29c74fefe
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81257747"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983317"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Gerir laboratórios de salas de aula em Serviços de Laboratório Azure 
 Este artigo descreve como criar e apagar um laboratório de sala de aula. Também mostra como ver todos os laboratórios numa conta de laboratório. 
@@ -104,9 +104,10 @@ Para configurar um laboratório de sala de aula numa conta do laboratório, tem 
 | Pequeno | 2 | 3,5 GB | Este tamanho é mais adequado para linha de comando, abertura do navegador web, servidores web de tráfego baixo, bases de dados pequenas a médias. |
 | Médio | 4 | 7 GB | Este tamanho é mais adequado para bases de dados relacionais, caches na memória e análise | 
 | Médio (virtualização aninhada) | 4 | 16 GB | Este tamanho é mais adequado para bases de dados relacionais, caches na memória e análise. Este tamanho também suporta a virtualização aninhada. <p>Este tamanho pode ser usado em cenários onde cada aluno precisa de vários VMs. Os professores podem usar a virtualização aninhada para configurar algumas máquinas virtuais aninhadas de pequena dimensão dentro da máquina virtual. </p> |
-| Grande | 8 | 32 GB | Este tamanho é mais adequado para aplicações que precisam de CPUs mais rápido, melhor desempenho do disco local, grandes bases de dados, grandes caches de memória. Este tamanho também suporta a virtualização aninhada |  
-| Pequena GPU (Visualização) | 6 | 56 GB | Este tamanho é mais adequado para visualização remota, streaming, gaming, codificação usando quadros como OpenGL e DirectX. | 
 | Pequena GPU (Computação) | 6 | 56 GB | Este tamanho é mais adequado para aplicações intensivas de computação e de rede intensiva, como inteligência artificial e aplicações de aprendizagem profunda. | 
+| Pequena GPU (Visualização) | 6 | 56 GB | Este tamanho é mais adequado para visualização remota, streaming, gaming, codificação usando quadros como OpenGL e DirectX. | 
+| Grande | 8 | 16 GB | Este tamanho é mais adequado para aplicações que precisam de CPUs mais rápido, melhor desempenho do disco local, grandes bases de dados, grandes caches de memória. |
+| Grande (virtualização aninhada) | 8 | 32 GB | Este tamanho é mais adequado para aplicações que precisam de CPUs mais rápido, melhor desempenho do disco local, grandes bases de dados, grandes caches de memória. Este tamanho também suporta a virtualização aninhada. |  
 | Média GPU (Visualização) | 12 | 112 GB | Este tamanho é mais adequado para visualização remota, streaming, gaming, codificação usando quadros como OpenGL e DirectX. | 
 
 > [!NOTE]

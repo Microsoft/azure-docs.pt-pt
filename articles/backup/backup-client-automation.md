@@ -3,12 +3,12 @@ title: Use o PowerShell para fazer o back-up do Windows Server para o Azure
 description: Neste artigo, aprenda a utilizar o PowerShell para configurar o Azure Backup no Windows Server ou num cliente windows, e gerir a cópia de segurança e recuperação.
 ms.topic: conceptual
 ms.date: 12/2/2019
-ms.openlocfilehash: 3b9bcf8e777244cec11383619d145e3a99ff46d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fde81aba5a2b74ce25c8f3cd70dc24df6f566420
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82193025"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597982"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Implementar e gerir cópias de segurança para o Azure para o Windows Server/cliente Windows com o PowerShell
 
@@ -209,7 +209,12 @@ Server properties updated successfully.
 
 Os dados de backup enviados para o Azure Backup são encriptados para proteger a confidencialidade dos dados. A frase-passe de encriptação é a "palavra-passe" para desencriptar os dados no momento da restauração.
 
-Deve gerar um pino de segurança selecionando **Generate,** em **Definições** > **Properties** > **Security PIN** na secção de cofre de Serviços de **Recuperação** do portal Azure. Em seguida, use `generatedPIN` isto como o comando:
+Deve gerar um pino de segurança selecionando **Generate,** em **Definições** > **Properties** > **Security PIN** na secção de cofre de Serviços de **Recuperação** do portal Azure. 
+
+>[!NOTE]
+> O PIN de segurança só pode ser gerado através do portal Azure.
+
+Em seguida, use `generatedPIN` isto como o comando:
 
 ```powershell
 $PassPhrase = ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force

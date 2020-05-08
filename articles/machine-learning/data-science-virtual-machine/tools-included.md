@@ -8,14 +8,14 @@ ms.service: machine-learning
 ms.subservice: data-science-vm
 author: lobrien
 ms.author: laobri
-ms.topic: overview
-ms.date: 02/19/2020
-ms.openlocfilehash: 69365d6ed6f3a008d3f195d067115dcf17c332ef
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.topic: reference
+ms.date: 05/07/2020
+ms.openlocfilehash: 394f143748912861cc4b819c9c28860b9a9ffddf
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80754233"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82928997"
 ---
 # <a name="what-tools-are-included-on-the-azure-data-science-virtual-machine"></a>Que ferramentas estão incluídas na Máquina Virtual de Ciência de Dados Do Azure?
 

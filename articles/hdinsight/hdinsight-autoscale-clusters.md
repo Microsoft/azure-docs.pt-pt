@@ -7,43 +7,30 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 04/07/2020
-ms.openlocfilehash: 7d741e2fc787c057ebfcdeceeab2ea096df3f9ca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/29/2020
+ms.openlocfilehash: f41a15fb52698eaa17d6f76b991cbd31a56ba14f
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195218"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731978"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Escala automaticamente os clusters Azure HDInsight
 
-> [!Important]
-> A funcionalidade Azure HDInsight Autoscale foi lançada para disponibilidade geral a 7 de novembro de 2019 para os clusters Spark e Hadoop e incluiu melhorias não disponíveis na versão de pré-visualização da funcionalidade. Se criou um cluster Spark antes de 7 de novembro de 2019 e pretende utilizar a funcionalidade De Escala Automática no seu cluster, o caminho recomendado é criar um novo cluster e ativar a Escala Automática no novo cluster.
->
-> A escala automática para clusters De Consulta Interativa (LLAP) e HBase ainda está em pré-visualização. A escala automática só está disponível nos clusters Spark, Hadoop, Interactive Query e HBase.
-
-A função de cluster Autoscale da Azure HDInsight escala automaticamente o número de nós de trabalhador num cluster para cima e para baixo. Outros tipos de nós no cluster não podem ser escalados atualmente.  Durante a criação de um novo cluster HDInsight, pode ser definido um número mínimo e máximo de nós de trabalhadores. A escala automática monitoriza então os requisitos de recursos da carga de análise e escala o número de nós dos trabalhadores para cima ou para baixo. Não há nenhuma taxa adicional para esta funcionalidade.
-
-## <a name="cluster-compatibility"></a>Compatibilidade do cluster
-
-A tabela seguinte descreve os tipos de cluster e versões compatíveis com a função De escala Automática.
-
-| Versão | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
-|---|---|---|---|---|---|---|---|
-| HDInsight 3.6 sem ESP | Sim | Sim | Sim | Sim* | Não | Não | Não |
-| HDInsight 4.0 sem ESP | Sim | Sim | Sim | Sim* | Não | Não | Não |
-| HDInsight 3.6 com ESP | Sim | Sim | Sim | Sim* | Não | Não | Não |
-| HDInsight 4.0 com ESP | Sim | Sim | Sim | Sim* | Não | Não | Não |
-
-\*Os clusters HBase só podem ser configurados para escalas baseadas em horários, não baseadas em carga.
+A função de autoescala gratuita do Azure HDInsight pode aumentar ou diminuir automaticamente o número de nós dos trabalhadores no seu cluster com base em critérios previamente definidos. Você estabelece um número mínimo e máximo de nós durante a criação de cluster, estabelece os critérios de escala usando um horário diurno ou métricas específicas de desempenho, e a plataforma HDInsight faz o resto.
 
 ## <a name="how-it-works"></a>Como funciona
 
-Pode escolher a escala baseada na carga ou a escalação baseada em horários para o seu cluster HDInsight. A escala baseada em carga altera o número de nós no seu cluster, dentro de uma gama que definiu, para garantir uma utilização ótima do CPU e minimizar o custo de funcionamento.
+A função De escala automática utiliza dois tipos de condições para desencadear eventos de escala: limiares para várias métricas de desempenho do cluster (chamada *escala baseada em carga)* e gatilhos baseados no tempo (chamada *escala baseada no horário).* A escala baseada em carga altera o número de nós no seu cluster, dentro de uma gama que definiu, para garantir uma utilização ótima do CPU e minimizar o custo de funcionamento. A escala baseada na programação altera o número de nós no seu cluster com base em operações que associa a datas e horários específicos.
 
-A escala baseada na programação altera o número de nós no seu cluster com base em condições que têm efeito em momentos específicos. Estas condições escalam o cluster para um número pretendido de nós.
+### <a name="choosing-load-based-or-schedule-based-scaling"></a>Escolha a escala baseada em carga ou em horário
 
-### <a name="metrics-monitoring"></a>Monitorização de métricas
+Considere os seguintes fatores na escolha de um tipo de escala:
+
+* Variação da carga: a carga do cluster segue um padrão consistente em momentos específicos, em dias específicos? Caso contrário, o agendamento baseado em carga é uma opção melhor.
+* Requisitos de SLA: A escala automática é reativa em vez de preditiva. Haverá um atraso suficiente entre quando a carga começa a aumentar e quando o cluster precisa de estar no seu tamanho-alvo? Se existem requisitos sla rigorosos e a carga for um padrão conhecido fixo, "baseado em horários" é uma opção melhor.
+
+### <a name="cluster-metrics"></a>Métricas de cluster
 
 A escala automática monitoriza continuamente o cluster e recolhe as seguintes métricas:
 
@@ -56,7 +43,7 @@ A escala automática monitoriza continuamente o cluster e recolhe as seguintes m
 |Memória Usada por Nó|A carga num nó de trabalhador. Um nó de trabalhador em que é utilizado 10 GB de memória é considerado sob mais carga do que um trabalhador com 2 GB de memória usada.|
 |Número de Mestrados de Aplicação por Nó|O número de contentores De Aplicação Master (AM) em funcionamento num nó de trabalhador. Um nó de trabalhador que alberga dois contentores AM, é considerado mais importante do que um nó de trabalhador que alberga zero contentores AM.|
 
-As métricas acima são verificadas a cada 60 segundos. A escala automática toma decisões com base nestas métricas.
+As métricas acima são verificadas a cada 60 segundos. Pode configurar operações de escala para o seu cluster utilizando qualquer uma destas métricas.
 
 ### <a name="load-based-scale-conditions"></a>Condições de escala baseadas em carga
 
@@ -70,6 +57,24 @@ Quando forem detetadas as seguintes condições, a Escala Automática emitirá u
 Para a escala, a Escala Automática emite um pedido de escala para adicionar o número necessário de nós. A escala baseia-se no número de novos nódosos operários necessários para satisfazer os atuais requisitos de CPU e memória.
 
 Para reduzir a escala, a Escala Automática emite um pedido para remover um certo número de nós. A redução da escala baseia-se no número de recipientes AM por nó. E os atuais requisitos de CPU e memória. O serviço também deteta quais os nódosos candidatos à remoção com base na execução atual do emprego. A operação de redução da escala primeiro desativa os nós e, em seguida, retira-os do cluster.
+
+### <a name="cluster-compatibility"></a>Compatibilidade do cluster
+
+> [!Important]
+> A funcionalidade Azure HDInsight Autoscale foi lançada para disponibilidade geral a 7 de novembro de 2019 para os clusters Spark e Hadoop e incluiu melhorias não disponíveis na versão de pré-visualização da funcionalidade. Se criou um cluster Spark antes de 7 de novembro de 2019 e pretende utilizar a funcionalidade De Escala Automática no seu cluster, o caminho recomendado é criar um novo cluster e ativar a Escala Automática no novo cluster.
+>
+> A escala automática para clusters De Consulta Interativa (LLAP) e HBase ainda está em pré-visualização. A escala automática só está disponível nos clusters Spark, Hadoop, Interactive Query e HBase.
+
+A tabela seguinte descreve os tipos de cluster e versões compatíveis com a função De escala Automática.
+
+| Versão | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
+|---|---|---|---|---|---|---|---|
+| HDInsight 3.6 sem ESP | Sim | Sim | Sim | Sim* | Não | Não | Não |
+| HDInsight 4.0 sem ESP | Sim | Sim | Sim | Sim* | Não | Não | Não |
+| HDInsight 3.6 com ESP | Sim | Sim | Sim | Sim* | Não | Não | Não |
+| HDInsight 4.0 com ESP | Sim | Sim | Sim | Sim* | Não | Não | Não |
+
+\*Os clusters HBase só podem ser configurados para escalas baseadas em horários, não baseadas em carga.
 
 ## <a name="get-started"></a>Introdução
 
@@ -205,32 +210,7 @@ Utilize os parâmetros adequados na carga útil do pedido. A carga útil json ab
 
 Consulte a secção anterior sobre [a escala automática baseada em carga](#load-based-autoscaling) para obter uma descrição completa de todos os parâmetros de carga útil.
 
-## <a name="guidelines"></a>Diretrizes
-
-### <a name="choosing-load-based-or-schedule-based-scaling"></a>Escolha a escala baseada em carga ou em horário
-
-Considere os seguintes fatores antes de tomar uma decisão sobre qual o modo a escolher:
-
-* Ativar a escala automática durante a criação do cluster.
-* O número mínimo de nós deve ser pelo menos três.
-* Variação da carga: a carga do cluster segue um padrão consistente em momentos específicos, em dias específicos. Caso contrário, o agendamento baseado em carga é uma opção melhor.
-* Requisitos de SLA: A escala automática é reativa em vez de preditiva. Haverá um atraso suficiente entre quando a carga começa a aumentar e quando o cluster precisa de estar no seu tamanho-alvo? Se existem requisitos sla rigorosos e a carga for um padrão conhecido fixo, "baseado em horários" é uma opção melhor.
-
-### <a name="consider-the-latency-of-scale-up-or-scale-down-operations"></a>Considere a latência da escala para cima ou para baixo operações
-
-Pode levar 10 a 20 minutos para que uma operação de escalação esteja concluída. Ao configurar um horário personalizado, planeje este atraso. Por exemplo, se precisar do tamanho do cluster para ser 20 às 9:00, detete o gatilho para um horário mais precoce, como 8:30 AM, de modo a que a operação de escala esteja concluída até às 9:00 da manhã.
-
-### <a name="preparation-for-scaling-down"></a>Preparação para a escala
-
-Durante o processo de escala de cluster, a Escala Automática irá desativar os nós para atingir o tamanho do alvo. Se as tarefas estiverem a decorrer nesses nós, a Escala Automática aguardará até que as tarefas estejam concluídas. Uma vez que cada nó de trabalhador também desempenha um papel no HDFS, os dados temporários serão transferidos para os restantes nós. Então deve certificar-se de que há espaço suficiente nos restantes nós para alojar todos os dados temporários.
-
-Os trabalhos de corrida continuarão. Os postos de trabalho pendentes vão esperar pelo agendamento com menos nós de trabalhadordisponível.
-
-### <a name="minimum-cluster-size"></a>Tamanho mínimo do cluster
-
-Não reduza o seu agrupamento para menos de três nós. Escalar o seu cluster para menos de três nós pode resultar em ficar preso em modo de segurança devido à replicação insuficiente do ficheiro.  Para mais informações, consulte [Ficar preso em modo de segurança](./hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode).
-
-## <a name="monitoring"></a>Monitorização
+## <a name="monitoring-autoscale-activities"></a>Monitorização de atividades de escala automática
 
 ### <a name="cluster-status"></a>Estado do cluster
 
@@ -257,6 +237,22 @@ Pode ver a história de escala de cluster e escala como parte das métricas do c
 Selecione **Métricas** sob **monitorização**. Em seguida, **selecione Adicionar métrica** e Número de **Trabalhadores Ativos** da caixa de dropdown **Métrica.** Selecione o botão na parte superior direita para alterar o intervalo de tempo.
 
 ![Ativar a métrica de escala automática baseada no horário do nó do trabalhador](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-chart-metric.png)
+
+## <a name="other-considerations"></a>Outras considerações
+
+### <a name="consider-the-latency-of-scale-up-or-scale-down-operations"></a>Considere a latência da escala para cima ou para baixo operações
+
+Pode levar 10 a 20 minutos para que uma operação de escalação esteja concluída. Ao configurar um horário personalizado, planeje este atraso. Por exemplo, se precisar do tamanho do cluster para ser 20 às 9:00, detete o gatilho para um horário mais precoce, como 8:30 AM, de modo a que a operação de escala esteja concluída até às 9:00 da manhã.
+
+### <a name="preparation-for-scaling-down"></a>Preparação para a escala
+
+Durante o processo de escala de cluster, a Escala Automática irá desativar os nós para atingir o tamanho do alvo. Se as tarefas estiverem a decorrer nesses nós, a Escala Automática aguardará até que as tarefas estejam concluídas. Uma vez que cada nó de trabalhador também desempenha um papel no HDFS, os dados temporários serão transferidos para os restantes nós. Então deve certificar-se de que há espaço suficiente nos restantes nós para alojar todos os dados temporários.
+
+Os trabalhos de corrida continuarão. Os postos de trabalho pendentes vão esperar pelo agendamento com menos nós de trabalhadordisponível.
+
+### <a name="minimum-cluster-size"></a>Tamanho mínimo do cluster
+
+Não reduza o seu agrupamento para menos de três nós. Escalar o seu cluster para menos de três nós pode resultar em ficar preso em modo de segurança devido à replicação insuficiente do ficheiro.  Para mais informações, consulte [Ficar preso em modo de segurança](./hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode).
 
 ## <a name="next-steps"></a>Passos seguintes
 
