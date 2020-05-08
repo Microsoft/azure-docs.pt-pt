@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 11/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: b71384e0a42af5481af7b17b91cd0b1d0ed82ee8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 61de52e5a6703682d52d49efe9decb814231dae4
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82082599"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901289"
 ---
 # <a name="azure-disk-encryption-for-windows-virtual-machines-faq"></a>Encriptação de disco azure para máquinas virtuais do Windows FAQ
 
@@ -21,7 +21,7 @@ Este artigo fornece respostas a perguntas frequentes (FAQ) sobre encriptação d
 
 ## <a name="what-is-azure-disk-encryption-for-windows-vms"></a>O que é encriptação de disco azure para VMs do Windows?
 
-A encriptação do disco Azure para VMs do Windows utiliza a funcionalidade Bitlocker do Windows para fornecer encriptação completa do disco operativo e dos discos de dados. Além disso, fornece encriptação do disco de recursos efémeros quando o [parâmetro VolumeType é All](disk-encryption-windows.md#enable-encryption-on-a-newly-added-data-disk).  O conteúdo flui encriptado do VM para o backend do Armazenamento. Assim, fornecendo encriptação de ponta a ponta com uma chave gerida pelo cliente.
+A encriptação do disco Azure para VMs do Windows utiliza a funcionalidade BitLocker do Windows para fornecer encriptação completa do disco operativo e dos discos de dados. Além disso, fornece encriptação do disco temporário quando o [parâmetro VolumeType é All](disk-encryption-windows.md#enable-encryption-on-a-newly-added-data-disk).  O conteúdo flui encriptado do VM para o backend do Armazenamento. Assim, fornecendo encriptação de ponta a ponta com uma chave gerida pelo cliente.
  
 Ver [VMs suportados e sistemas operativos.](disk-encryption-overview.md#supported-vms-and-operating-systems)
  
@@ -61,7 +61,7 @@ A encriptação do lado do servidor de armazenamento encripta os discos geridos 
  
 ## <a name="how-is-azure-disk-encryption-different-from-storage-server-side-encryption-with-customer-managed-key-and-when-should-i-use-each-solution"></a>Como é que a encriptação do disco Azure é diferente da encriptação do lado do servidor de armazenamento com a chave gerida pelo cliente e quando devo usar cada solução?
 
-A encriptação do disco Azure fornece encriptação de ponta a ponta para o disco DE, discos de dados e o disco de recursos efémeros com uma chave gerida pelo cliente.
+A encriptação do disco Azure fornece encriptação de ponta a ponta para o disco DES, discos de dados e o disco temporário com uma chave gerida pelo cliente.
 
 - Se os seus requisitos incluem encriptar toda a encriptação acima e de ponta a ponta, utilize encriptação do Disco Azure. 
 - Se os seus requisitos incluem encriptar apenas dados em repouso com a chave gerida pelo cliente, em seguida, use [a encriptação do lado do Servidor com chaves geridas pelo cliente](disk-encryption.md). Não é possível encriptar um disco com encriptação do lado da encriptação do disco Azure e do lado do servidor de armazenamento com as chaves geridas pelo cliente.
@@ -129,9 +129,6 @@ A Encriptação do Disco Azure seleciona o método de encriptação no BitLocker
 \*AES 256 bit com Diffuser não é suportado no Windows 2012 e mais tarde.
 
 Para determinar a versão do Windows OS, execute a ferramenta 'winver' na sua máquina virtual.
-
-## <a name="if-i-use-encryptformatall-and-specify-all-volume-types-will-it-erase-the-data-on-the-data-drives-that-we-already-encrypted"></a>Se eu usar o EncryptFormatAll e especificar todos os tipos de volume, irá apagar os dados nas unidades de dados que já encriptamos?
-Não, os dados não serão apagados de unidades de dados que já estão encriptadas usando encriptação de disco azure. Semelhante à forma como o EncryptFormatAll não reencripta a unidade DE, não vai voltar a encriptar a unidade de dados já encriptada. 
 
 ## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>Posso fazer backup e restaurar um VM encriptado? 
 

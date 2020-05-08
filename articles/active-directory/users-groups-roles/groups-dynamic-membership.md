@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/27/2019
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6f8237ac13744e56baa8551f8cced12b2785a48
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a399ee43ef0ce97274f060b7a5b7df46fb523605
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81114729"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582897"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regras dinâmicas de adesão para grupos no Diretório Ativo do Azure
 
@@ -31,7 +31,7 @@ Quando qualquer atributo de um utilizador ou dispositivo muda, o sistema avalia 
 - Não é possível criar um grupo de dispositivos com base nos atributos dos proprietários do dispositivo. As regras de adesão ao dispositivo só podem fazer referência aos atributos do dispositivo.
 
 > [!NOTE]
-> Esta funcionalidade requer uma licença Azure AD Premium P1 para cada utilizador único que seja membro de um ou mais grupos dinâmicos. Não é necessário atribuir licenças aos utilizadores para que sejam membros de grupos dinâmicos, mas deve ter o número mínimo de licenças no inquilino para cobrir todos esses utilizadores. Por exemplo, se tivesse um total de 1.000 utilizadores únicos em todos os grupos dinâmicos do seu inquilino, precisaria de pelo menos 1.000 licenças para o Azure AD Premium P1 para satisfazer o requisito da licença.
+> Esta funcionalidade requer uma licença Azure AD Premium P1 para cada utilizador único que seja membro de um ou mais grupos dinâmicos. Não é necessário atribuir licenças aos utilizadores para que sejam membros de grupos dinâmicos, mas deve ter o número mínimo de licenças na organização Azure AD para cobrir todos esses utilizadores. Por exemplo, se tivesse um total de 1.000 utilizadores únicos em todos os grupos dinâmicos da sua organização, precisaria de pelo menos 1.000 licenças para o Azure AD Premium P1 para satisfazer o requisito da licença.
 > Não é necessária nenhuma licença para dispositivos que sejam membros de um grupo de dispositivos dinâmicos.
 
 ## <a name="rule-builder-in-the-azure-portal"></a>Construtor de regras no portal Azure
@@ -310,20 +310,20 @@ Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
 As seguintes dicas podem ajudá-lo a usar a regra corretamente.
 
 - O ID do **gerente** é a identificação do objeto do gerente. Pode ser encontrado no **perfil**do gerente.
-- Para que a regra funcione, certifique-se de que a propriedade **do Gestor** está corretamente definida para os utilizadores do seu inquilino. Pode verificar o valor atual no **Perfil**do utilizador .
+- Para que a regra funcione, certifique-se de que a propriedade **do Gestor** está corretamente definida para os utilizadores da sua organização. Pode verificar o valor atual no **Perfil**do utilizador .
 - Esta regra apoia apenas os relatórios diretos do gerente. Por outras palavras, não se pode criar um grupo com os relatórios diretos do gestor *e* os seus relatórios.
 - Esta regra não pode ser combinada com outras regras de adesão.
 
 ### <a name="create-an-all-users-rule"></a>Criar uma regra "Todos os utilizadores"
 
-Você pode criar um grupo contendo todos os utilizadores dentro de um inquilino usando uma regra de adesão. Quando os utilizadores são adicionados ou removidos do inquilino no futuro, a adesão do grupo é ajustada automaticamente.
+Pode criar um grupo que contenha todos os utilizadores dentro de uma organização usando uma regra de adesão. Quando os utilizadores são adicionados ou removidos da organização no futuro, a adesão do grupo é ajustada automaticamente.
 
 A regra "Todos os utilizadores" é construída utilizando uma única expressão utilizando o operador -ne e o valor nulo. Esta regra adiciona utilizadores convidados B2B, bem como utilizadores membros ao grupo.
 
 ```
 user.objectId -ne null
 ```
-Se quiser que o seu grupo exclua os utilizadores convidados e inclua apenas membros do seu inquilino, pode utilizar a seguinte sintaxe:
+Se quiser que o seu grupo exclua os utilizadores convidados e inclua apenas membros da sua organização, pode utilizar a seguinte sintaxe:
 
 ```
 (user.objectId -ne null) -and (user.userType -eq "Member")
@@ -331,7 +331,7 @@ Se quiser que o seu grupo exclua os utilizadores convidados e inclua apenas memb
 
 ### <a name="create-an-all-devices-rule"></a>Criar uma regra "Todos os dispositivos"
 
-Você pode criar um grupo contendo todos os dispositivos dentro de um inquilino usando uma regra de adesão. Quando os dispositivos são adicionados ou removidos do inquilino no futuro, a adesão do grupo é ajustada automaticamente.
+Você pode criar um grupo que contenha todos os dispositivos dentro de uma organização usando uma regra de adesão. Quando os dispositivos são adicionados ou removidos da organização no futuro, a adesão do grupo é ajustada automaticamente.
 
 A regra "Todos os Dispositivos" é construída utilizando uma única expressão utilizando o operador -ne e o valor nulo:
 

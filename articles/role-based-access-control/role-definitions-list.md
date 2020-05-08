@@ -1,6 +1,6 @@
 ---
-title: Lista de definições de funções no Azure RBAC utilizando o portal Azure, Azure PowerShell, Azure CLI ou REST API ; Microsoft Docs
-description: Saiba como listar papéis incorporados e personalizados no Azure RBAC utilizando o portal Azure, Azure PowerShell, Azure CLI ou REST API.
+title: Definições de papel da Lista Azure - Azure RBAC
+description: Saiba como listar as funções integradas e personalizadas do Azure utilizando o portal Azure, O PowerShell, o Azure CLI ou o REST API.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/19/2020
+ms.date: 05/06/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: aa888eedc81ceb3188f801e273c70722207bf512
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e691e37a85604132a6b1c4b2af3501f2c8636e18
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062993"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891258"
 ---
-# <a name="list-role-definitions-in-azure-rbac"></a>Lista de definições de papel no Azure RBAC
+# <a name="list-azure-role-definitions"></a>Lista de definições de papéis azure
 
-Uma definição de papel é uma coleção de permissões que podem ser realizadas, tais como ler, escrever e excluir. Normalmente chama-se um papel. O [controlo de acesso baseado em funções azure (RBAC)](overview.md) tem mais de 120 [funções incorporadas](built-in-roles.md) ou pode criar as suas próprias funções personalizadas. Este artigo descreve como listar as funções incorporadas e personalizadas que pode usar para dar acesso aos recursos do Azure.
+Uma definição de papel é uma coleção de permissões que podem ser realizadas, tais como ler, escrever e excluir. Normalmente chama-se um papel. O [controlo de acesso baseado em funções azure (Azure RBAC)](overview.md) tem mais de 120 [funções incorporadas](built-in-roles.md) ou pode criar as suas próprias funções personalizadas. Este artigo descreve como listar as funções incorporadas e personalizadas que pode usar para dar acesso aos recursos do Azure.
 
 Para ver a lista de funções de administrador para o Diretório Ativo do Azure, consulte [permissões de funções de administrador no Diretório Ativo do Azure](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
@@ -344,6 +344,55 @@ Para listar definições de papéis, utilize as [Definições](/rest/api/authori
     > | `$filter=atScopeAndBelow()` | Enumera as definições de funções para o âmbito especificado e quaisquer subscópios. |
     > | `$filter=type+eq+'{type}'` | Lista as definições de funções do tipo especificado. Tipo de papel `CustomRole` `BuiltInRole`pode ser ou . |
 
+O seguinte pedido lista definições de funções personalizadas no âmbito da subscrição:
+
+```http
+GET https://management.azure.com/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter=type+eq+'CustomRole'
+```
+
+O seguinte mostra um exemplo da saída:
+
+```json
+{
+    "value": [
+        {
+            "properties": {
+                "roleName": "Billing Reader Plus",
+                "type": "CustomRole",
+                "description": "Read billing data and download invoices",
+                "assignableScopes": [
+                    "/subscriptions/{subscriptionId1}"
+                ],
+                "permissions": [
+                    {
+                        "actions": [
+                            "Microsoft.Authorization/*/read",
+                            "Microsoft.Billing/*/read",
+                            "Microsoft.Commerce/*/read",
+                            "Microsoft.Consumption/*/read",
+                            "Microsoft.Management/managementGroups/read",
+                            "Microsoft.CostManagement/*/read",
+                            "Microsoft.Billing/invoices/download/action",
+                            "Microsoft.CostManagement/exports/*"
+                        ],
+                        "notActions": [
+                            "Microsoft.CostManagement/exports/delete"
+                        ]
+                    }
+                ],
+                "createdOn": "2020-02-21T04:49:13.7679452Z",
+                "updatedOn": "2020-02-21T04:49:13.7679452Z",
+                "createdBy": "{createdByObjectId1}",
+                "updatedBy": "{updatedByObjectId1}"
+            },
+            "id": "/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId1}",
+            "type": "Microsoft.Authorization/roleDefinitions",
+            "name": "{roleDefinitionId1}"
+        }
+    ]
+}
+```
+
 ### <a name="list-a-role-definition"></a>Enumerar uma definição de papel
 
 Para listar os detalhes de uma função específica, utilize as [Definições](/rest/api/authorization/roledefinitions/get) de Papel - Obter ou [Definições](/rest/api/authorization/roledefinitions/getbyid) de Papel - Obter Por Id REST API.
@@ -372,9 +421,45 @@ Para listar os detalhes de uma função específica, utilize as [Definições](/
      
 1. Substitua *{roleDefinitionId}* com o identificador de definição de funções.
 
+O seguinte pedido lista a definição de função [do Leitor:](built-in-roles.md#reader)
+
+```http
+GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7?api-version=2015-07-01
+```
+
+O seguinte mostra um exemplo da saída:
+
+```json
+{
+    "properties": {
+        "roleName": "Reader",
+        "type": "BuiltInRole",
+        "description": "Lets you view everything, but not make any changes.",
+        "assignableScopes": [
+            "/"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "*/read"
+                ],
+                "notActions": []
+            }
+        ],
+        "createdOn": "2015-02-02T21:55:09.8806423Z",
+        "updatedOn": "2019-02-05T21:24:35.7424745Z",
+        "createdBy": null,
+        "updatedBy": null
+    },
+    "id": "/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "type": "Microsoft.Authorization/roleDefinitions",
+    "name": "acdd72a7-3385-48ef-bd42-f606fba81ae7"
+}
+```
+
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Built-in roles for Azure resources](built-in-roles.md) (Funções incorporadas para recursos do Azure)
-- [Custom roles for Azure resources](custom-roles.md) (Funções personalizadas para recursos do Azure)
-- [Lista de atribuições de funções utilizando o Azure RBAC e o portal Azure](role-assignments-list-portal.md)
-- [Adicionar ou remover atribuições de funções utilizando o Azure RBAC e o portal Azure](role-assignments-portal.md)
+- [Papéis azure embutidos](built-in-roles.md)
+- [Papéis personalizados do Azure](custom-roles.md)
+- [Lista de atribuições de funções azure usando o portal Azure](role-assignments-list-portal.md)
+- [Adicione ou remova atribuições de funções Azure utilizando o portal Azure](role-assignments-portal.md)

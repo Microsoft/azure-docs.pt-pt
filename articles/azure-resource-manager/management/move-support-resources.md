@@ -3,12 +3,12 @@ title: Mover suporte de operação por tipo de recurso
 description: Lista os tipos de recursos Azure que podem ser transferidos para um novo grupo de recursos ou subscrição.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 90fbec4dc076feb1fee8c38cf9757d3c5ddbafaf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 45450b21b1cd3236712043629f433c2c5fe20f80
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80804797"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82900983"
 ---
 # <a name="move-operation-support-for-resources"></a>Suporte da operação de movimentação para recursos
 Este artigo enumera se um tipo de recurso Azure suporta a operação de movimento. Também fornece informações sobre condições especiais a considerar ao mover um recurso.
@@ -418,8 +418,8 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | nomes de domínio | Sim | Não |
-> | máquinas virtuais | Sim | Não |
+> | nomes de domínio | Sim | No |
+> | máquinas virtuais | Sim | No |
 
 > [!IMPORTANT]
 > Consulte a orientação de movimento de movimento de [implementação clássica](./move-limitations/classic-model-move-limitations.md). Os recursos de implantação clássicos podem ser movidos através de subscrições com uma operação específica para esse cenário.
@@ -441,7 +441,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | contas de armazenamento | Sim | Não |
+> | contas de armazenamento | Sim | No |
 
 > [!IMPORTANT]
 > Consulte a orientação de movimento de movimento de [implementação clássica](./move-limitations/classic-model-move-limitations.md). Os recursos de implantação clássicos podem ser movidos através de subscrições com uma operação específica para esse cenário.
@@ -771,10 +771,10 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | centros de laboratório | Não | Não |
-> | laboratórios | Sim | Não |
+> | laboratórios | Sim | No |
 > | laboratórios / ambientes | Sim | Sim |
 > | laboratórios / corredores de serviço | Sim | Sim |
-> | laboratórios / máquinas virtuais | Sim | Não |
+> | laboratórios / máquinas virtuais | Sim | No |
 > | horários | Sim | Sim |
 
 ## <a name="microsoftdigitaltwins"></a>Microsoft.DigitalTwins
@@ -1025,8 +1025,8 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | ambientes de hospedagem | Não | Não |
 > | contas de integração | Sim | Sim |
-> | integraçõesambientes de serviços | Sim | Não |
-> | integraçõesambientes de serviços / managedapis | Sim | Não |
+> | integraçõesambientes de serviços | Sim | No |
+> | integraçõesambientes de serviços / managedapis | Sim | No |
 > | ambientes isolados | Não | Não |
 > | fluxos de trabalho | Sim | Sim |
 
@@ -1036,7 +1036,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | planos de compromisso | Não | Não |
-> | webservices | Sim | Não |
+> | webservices | Sim | No |
 > | áreas de trabalho | Sim | Sim |
 
 ## <a name="microsoftmachinelearningcompute"></a>Microsoft.MachineLearningCompute
@@ -1197,10 +1197,10 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | interfaces de rede | Sim | Sim |
 > | perfis de rede | Não | Não |
 > | networksecuritygroups | Sim | Sim |
-> | observadores de rede | Sim | Não |
-> | networkwatchers / monitores de ligação | Sim | Não |
-> | networkwatchers / flowlogs | Sim | Não |
-> | networkwatchers / pingmeshes | Sim | Não |
+> | observadores de rede | Sim | No |
+> | networkwatchers / monitores de ligação | Sim | No |
+> | networkwatchers / flowlogs | Sim | No |
+> | networkwatchers / pingmeshes | Sim | No |
 > | p2svpngateways | Não | Não |
 > | zonas privadas | Sim | Sim |
 > | privatednszones / virtualnetworklinks | Sim | Sim |
@@ -1252,7 +1252,10 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | áreas de trabalho | Sim | Sim |
 
 > [!IMPORTANT]
-> Certifique-se de que a mudança para uma nova subscrição não excede [as quotas de subscrição.](azure-subscription-service-limits.md#azure-monitor-limits)
+> Certifique-se de que a mudança para uma nova subscrição não excede as quotas de [subscrição.](azure-subscription-service-limits.md#azure-monitor-limits)
+
+> [!IMPORTANT]
+> Espaços de trabalho que têm uma conta de automação ligada não podem ser movidos. Antes de iniciar uma operação de movimento, certifique-se de desligar quaisquer contas de automação.   
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 
@@ -1396,7 +1399,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | aplicações | Sim | Não |
+> | aplicações | Sim | No |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 
@@ -1523,6 +1526,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | instâncias | Não | Não |
+> | locais | Sim | Sim |
 > | casos geridos | Não | Não |
 > | casos geridos / bases de dados | Não | Não |
 > | servidores | Sim | Sim |
@@ -1709,7 +1713,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | certificados | Não | Sim |
+> | certificados | No | Sim |
 > | connectiongateways | Sim | Sim |
 > | conexões | Sim | Sim |
 > | prismapa | Sim | Sim |

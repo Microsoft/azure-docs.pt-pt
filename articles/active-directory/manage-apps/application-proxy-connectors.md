@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f1b8b9af8f90629d087246edf0cb3426bd9b66c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3737603360d3fce9d6e11e6c4ce9b2de58f76a6d
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81406835"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583121"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Compreender os conectores de procuração de aplicação da AD Azure
 
@@ -136,7 +136,7 @@ Para obter mais informações sobre a otimização da sua rede, consulte conside
 
 Os conectores podem funcionar numa máquina que não é unida ao domínio. No entanto, se pretender um único sinal (SSO) para aplicações que utilizem autenticação integrada do Windows (IWA), precisa de uma máquina unida para o domínio. Neste caso, as máquinas de conector devem ser unidas a um domínio que possa realizar a Delegação Limitada [kerberos](https://web.mit.edu/kerberos) em nome dos utilizadores para as aplicações publicadas.
 
-Os conectores também podem ser unidos a domínios ou florestas que tenham uma confiança parcial, ou a controladores de domínio apenas de leitura.
+Os conectores também podem ser unidos a domínios em florestas que tenham uma confiança parcial, ou a controladores de domínio apenas de leitura.
 
 ## <a name="connector-deployments-on-hardened-environments"></a>Implantações de conector em ambientes endurecidos
 

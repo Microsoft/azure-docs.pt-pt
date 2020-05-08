@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/05/2018
+ms.date: 05/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2de891ee109677f92ff603759701f7732f5951ba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 059c43b24ddc9f319eac4f2783cfc203bed8c7f1
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78188516"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82900441"
 ---
 # <a name="set-up-sign-in-with-an-amazon-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar o início de sessão com uma conta Amazon utilizando políticas personalizadas no Diretório Ativo Azure B2C
 
@@ -29,17 +29,16 @@ Este artigo mostra-lhe como ativar o início de sessão para utilizadores a part
 - Complete os passos em [Get started com políticas personalizadas.](custom-policy-get-started.md)
 - Se ainda não tem uma conta Amazon, [https://www.amazon.com/](https://www.amazon.com/)crie uma em .
 
-## <a name="register-the-application"></a>Registar o pedido
+## <a name="create-an-app-in-the-amazon-developer-console"></a>Criar uma aplicação na consola de desenvolvimento da Amazon
 
-Para permitir o sessão de sessão para utilizadores a partir de uma conta Amazon, é necessário criar uma aplicação Amazon.
+Para utilizar uma conta Amazon como fornecedor de identidade federada no Azure Ative Directory B2C (Azure AD B2C), precisa de criar uma aplicação nos seus [Serviços e Tecnologias](https://developer.amazon.com)de Desenvolvimento da Amazon. Se ainda não tem uma conta Amazon, pode [https://www.amazon.com/](https://www.amazon.com/)inscrever-se em .
 
-1. Inscreva-se no [Amazon Developer Center](https://login.amazon.com/) com as suas credenciais de conta Amazon.
-2. Se ainda não o fez, clique em **Sign Up,** siga os passos de registo do programador e aceite a apólice.
-3. Selecione **Registar nova aplicação**.
-4. Introduza um URL de Aviso de **Nome,** **Descrição**e Aviso de **Privacidade,** e, em seguida, clique em **Guardar**. O aviso de privacidade é uma página que gere que fornece informações de privacidade aos utilizadores.
-5. Na secção **Definições Web,** copie os valores do ID do **Cliente**. Selecione **Show Secret** para obter o segredo do cliente e, em seguida, copiá-lo. Você precisa de ambos para configurar uma conta Amazon como um fornecedor de identidade no seu inquilino. **Client Secret** é uma importante credencial de segurança.
-6. Na secção **Definições Web,** selecione **Editar**, e depois introduza `https://your-tenant-name.b2clogin.com` nas **Origens JavaScript permitidas** e `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` em **URLs de retorno permitidos**. Substitua `your-tenant-name` pelo nome do seu inquilino. Utilize todas as letras minúsculas ao introduzir o nome do seu inquilino, mesmo que o inquilino seja definido com letras maiúsculas em Azure AD B2C.
-7. Clique em **Guardar**.
+> [!NOTE]  
+> Utilize os seguintes URLs no `your-tenant-name` passo **8** abaixo, substituindo pelo nome do seu inquilino. Ao introduzir o nome do seu inquilino, utilize todas as letras minúsculas, mesmo que o inquilino seja definido com letras maiúsculas em Azure AD B2C.
+> - Para **origens permitidas,** entre`https://your-tenant-name.b2clogin.com` 
+> - Para **URLs de Devolução Permitidos,** insira`https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`
+
+[!INCLUDE [identity-provider-amazon-idp-register.md](../../includes/identity-provider-amazon-idp-register.md)]
 
 ## <a name="create-a-policy-key"></a>Criar uma chave política
 

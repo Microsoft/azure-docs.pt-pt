@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 16587feaca65aa21836d9be1c44e00faa0f4f8d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7a01ab91fe84aaa1fe55018754eddbf8b8f89643
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76722140"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890859"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Monitorizar a entrega de mensagens da Grelha de Eventos 
 
@@ -27,18 +27,21 @@ Para obter informações sobre entrega e repetições de eventos, entrega e rete
 
 O portal exibe métricas para o estado de entrega de mensagens de eventos.
 
-Para os tópicos, as métricas são:
+Para tópicos, aqui estão algumas das métricas:
 
 * **Publish Succeeded**: Evento enviado com sucesso para o tema, e processado com uma resposta 2xx.
 * **Publicar Failed**: Evento enviado para o tópico mas rejeitado com um código de erro.
 * **Unmatched**: Evento publicado com sucesso para o tema, mas não corresponde a uma subscrição de evento. O evento foi abandonado.
 
-Para as assinaturas, as métricas são:
+Para subscrições, aqui estão algumas das métricas:
 
 * **Entrega Bem sucedida**: Evento entregue com sucesso no ponto final da subscrição, e recebeu uma resposta 2xx.
-* **Entrega Falhada**: Evento enviado para o ponto final da subscrição, mas recebeu uma resposta 4xx ou 5xx.
+* **Entrega Falhada**: Sempre que o serviço tenta entregar e o manipulador de eventos não devolve um código 2xx de sucesso, o contador **Failed delivery** é incrementado. Se tentarmos entregar o mesmo evento várias vezes e falharmos, o contador **Failed delivery** é incrementado para cada falha.
 * **Eventos Expirados**: O evento não foi entregue e todas as tentativas de retenção foram enviadas. O evento foi abandonado.
 * **Eventos Combinados**: Evento no tema foi acompanhado pela subscrição do evento.
+
+    > [!NOTE]
+    > Para a lista completa de métricas, consulte [Métricas suportadas pela Azure Event Grid](metrics.md).
 
 ## <a name="event-subscription-status"></a>Estado de subscrição de eventos
 

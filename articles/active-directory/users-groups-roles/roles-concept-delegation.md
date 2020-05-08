@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fa3c6bf39dbef601fe64e125999f519f725f2e2
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 87f5b1ec02400c5cd9d26cc324ddbafdf8d76537
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "67083774"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582599"
 ---
 # <a name="delegate-administration-in-azure-active-directory"></a>Administração de delegados no Diretório Ativo de Azure
 
@@ -100,7 +100,7 @@ Para manter o acesso à sua loja de gestão de identidade quando surge problema,
 
 ## <a name="secure-your-administrator-roles"></a>Proteja as suas funções de administrador
 
-Os atacantes que obtêm o controlo de contas privilegiadas podem causar danos tremendos, por isso protejam estas contas primeiro, utilizando a política de [acesso de base](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/22/baseline-security-policy-for-azure-ad-admin-accounts-in-public-preview/) que está disponível por defeito a todos os inquilinos da AD Azure (em pré-visualização pública). A política impõe a autenticação de vários fatores em contas adad privilegiadas do Azure. As seguintes funções da AD Azure são abrangidas pela política de base da AD Azure:
+Os atacantes que obtêm o controlo de contas privilegiadas podem causar danos tremendos, por isso protejam estas contas primeiro, utilizando a política de [acesso de base](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/22/baseline-security-policy-for-azure-ad-admin-accounts-in-public-preview/) que está disponível por defeito a todas as organizações da AD Azure (em pré-visualização pública). A política impõe a autenticação de vários fatores em contas adad privilegiadas do Azure. As seguintes funções da AD Azure são abrangidas pela política de base da AD Azure:
 
 * Administrador global
 * Administrador do SharePoint

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2027629e1e9e297c97cbf40485ebe7dc2e3e6c0d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4673bcb71fc2f45c3b02f8fe5e463184395e8ef8
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277729"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891284"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Gatilho da grelha de eventos azure para funções azure
 
@@ -21,7 +21,7 @@ Para obter informações sobre os detalhes da configuração e configuração, c
 
 ## <a name="example"></a>Exemplo
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Para um exemplo de gatilho HTTP, consulte [Receber eventos para um ponto final HTTP](../event-grid/receive-events.md).
 
@@ -269,7 +269,7 @@ Na [biblioteca de tempo de funcionamento das funções java,](/java/api/overview
 
 ## <a name="attributes-and-annotations"></a>Atributos e anotações
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Nas [bibliotecas da classe C#,](functions-dotnet-class-library.md)utilize o atributo [EventGridTrigger.](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/TriggerBinding/EventGridTriggerAttribute.cs)
 
@@ -315,7 +315,7 @@ A tabela que se segue explica as propriedades de configuração de ligação que
 
 ## <a name="usage"></a>Utilização
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Nas funções Azure 1.x, pode utilizar os seguintes tipos de parâmetros para o gatilho da Grelha de Eventos:
 
@@ -570,4 +570,4 @@ A função de gatilho da Grelha de Eventoexecuta e mostra registos semelhantes a
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Despachar um evento da Grelha de Eventos](./functions-bindings-event-grid-trigger.md)
+* [Despachar um evento da Grelha de Eventos](./functions-bindings-event-grid-output.md)

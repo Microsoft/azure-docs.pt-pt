@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ddfc4bf7ed3bdf214a44a5dfe03259d32b2f3f94
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 43eba1b2f3373555e871b586ae633dcb64abfd9b
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74025702"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582693"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificar e resolver problemas de atribuição de licenças para um grupo no Diretório Ativo do Azure
 
@@ -100,7 +100,7 @@ Para resolver este problema, remova os utilizadores de locais não suportados do
 
 ## <a name="duplicate-proxy-addresses"></a>Endereços de procuração duplicados
 
-Se utilizar o Exchange Online, alguns utilizadores do seu inquilino podem estar incorretamente configurados com o mesmo valor de endereço de procuração. Quando o licenciamento baseado em grupo tenta atribuir uma licença a esse utilizador, falha e mostra que "o endereço Proxy já está a ser utilizado".
+Se utilizar o Exchange Online, alguns utilizadores da sua organização podem estar incorretamente configurados com o mesmo valor de endereço de procuração. Quando o licenciamento baseado em grupo tenta atribuir uma licença a esse utilizador, falha e mostra que "o endereço Proxy já está a ser utilizado".
 
 > [!TIP]
 > Para ver se existe um endereço de procuração duplicado, execute o seguinte cmdlet PowerShell contra exchange Online:

@@ -4,13 +4,13 @@ description: Saiba como configurar a autenticação do Diretório Ativo Azure co
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
-ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 913aac7755e6c4f9a4b42d45933728fcc8840bfb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: seodec18, fasttrack-edit, has-adal-ref
+ms.openlocfilehash: 60a5d50b511fc9db02daa9b7e74eedfe40eeb7a5
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190015"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82609906"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configure o seu app service ou app Funções Azure para usar login Azure AD
 
@@ -33,7 +33,7 @@ Siga estas boas práticas ao configurar a sua app e autenticação:
 ## <a name="configure-with-express-settings"></a><a name="express"> </a>Configure com configurações expressas
 
 > [!NOTE]
-> A opção **Express** não está disponível para nuvens governamentais. 
+> A opção **Express** não está disponível para nuvens governamentais.
 
 1. No [portal Azure,]procure e selecione **Serviços de Aplicações**e, em seguida, selecione a sua aplicação.
 2. A partir da navegação à esquerda, selecione **Autenticação / Autorização** > **On**.
@@ -45,9 +45,9 @@ Siga estas boas práticas ao configurar a sua app e autenticação:
    2. Escolha o registo de uma aplicação existente e clique **em OK**.
 
 3. Selecione **OK** para registar a app Service no Diretório Ativo Azure. É criado um novo registo de aplicações.
-   
+
     ![Configurações expressas em Diretório Ativo Azure](./media/configure-authentication-provider-aad/express-settings.png)
-   
+
 4. (Opcional) Por padrão, o Serviço de Aplicações fornece a autenticação, mas não restringe o acesso autorizado aos conteúdos e APIs do seu site. Tem de autorizar os utilizadores no seu código de aplicações. Para restringir o acesso à aplicação apenas aos utilizadores autenticados pelo Diretório Ativo do Azure, deteteto **a Ação a tomar quando o pedido não for autenticado** para iniciar sessão com o **Diretório Ativo do Azure**. Ao definir esta funcionalidade, a sua aplicação requer que todos os pedidos sejam autenticados. Também redireciona todos os não autenticados para o Diretório Ativo Azure para autenticação.
 
     > [!CAUTION]
@@ -75,7 +75,7 @@ Execute os seguintes passos:
 1. Inscreva-se no [portal Azure,]procure e selecione **Serviços de Aplicações,** e depois selecione a sua aplicação. Tenha em anotao o **URL**da sua aplicação. Irá usá-lo para configurar o registo da sua aplicação Azure Ative Directory.
 1. Selecione Registos de**Aplicações** >  **de Diretório** > Ativo Azure**Novas inscrições**.
 1. Na página **do Registo de inscrição,** insira um **Nome** para o registo da sua aplicação.
-1. Em **Redirecione URI,** selecione **Web** e escreva `<app-url>/.auth/login/aad/callback`. Por exemplo, `https://contoso.azurewebsites.net/.auth/login/aad/callback`. 
+1. Em **Redirecione URI,** selecione **Web** e escreva `<app-url>/.auth/login/aad/callback`. Por exemplo, `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
 1. Selecione **Criar**.
 1. Após a criação do registo da aplicação, copie o ID da **Aplicação (cliente)** e o **ID do Diretório (inquilino)** para mais tarde.
 1. Selecione **Autenticação**. Sob **a subvenção Implícita,** ative **fichas de ID** para permitir o openID Connect user sign-ins do Serviço de Aplicações.
@@ -87,14 +87,14 @@ Execute os seguintes passos:
 
 1. Selecione **Adicionar âmbito**.
    1. No **nome Scope,** *introduza user_impersonation*.
-   1. Nas caixas de texto, introduza o nome e descrição do âmbito de consentimento que pretende que os utilizadores vejam na página de consentimento. Por exemplo, insira *Aceder à minha aplicação*. 
+   1. Nas caixas de texto, introduza o nome e descrição do âmbito de consentimento que pretende que os utilizadores vejam na página de consentimento. Por exemplo, insira *Aceder à minha aplicação*.
    1. **Selecione Adicionar âmbito**.
 1. (Opcional) Para criar um segredo de cliente, selecione **Certificados & segredos** > **Novo segredo** > do cliente**Adicionar**. Copie o valor secreto do cliente mostrado na página. Não voltará a ser mostrado.
 1. (Opcional) Para adicionar **vários URLs**de Resposta, selecione **Autenticação**.
 
 ### <a name="enable-azure-active-directory-in-your-app-service-app"></a><a name="secrets"> </a>Ativar o Diretório Ativo Azure na sua app App Service
 
-1. No [portal Azure,]procure e selecione **Serviços de Aplicações**e, em seguida, selecione a sua aplicação. 
+1. No [portal Azure,]procure e selecione **Serviços de Aplicações**e, em seguida, selecione a sua aplicação.
 1. No painel esquerdo, em **Definições,** selecione **Autenticação / Autorização** > **Ligado**.
 1. (Opcional) Por defeito, a autenticação do Serviço de Aplicações permite o acesso não autenticado à sua aplicação. Para impor a autenticação do utilizador, detete a **Ação a tomar quando o pedido não for autenticado** para iniciar sessão com o **Diretório Ativo Azure**.
 1. No âmbito dos **Fornecedores de Autenticação,** selecione **Diretório Ativo Azure**.

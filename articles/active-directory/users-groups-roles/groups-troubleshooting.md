@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f685ac63e3b4a8cf466be4eb4561472fb084d49
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 689a528a75613ac6a38bed74d6597d492f498e8b
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74026547"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582728"
 ---
 # <a name="troubleshoot-and-resolve-groups-issues"></a>Problemas de resolução e resolução de problemas de grupos
 
@@ -43,7 +43,7 @@ Para desativar a criação de grupo para utilizadores não administradores na Po
    ```
 
 <br/>**Recebi um erro de grupos max ao tentar criar um Grupo Dinâmico em Powershell**<br/>
-Se receber uma mensagem no Powershell indicando que as políticas dinâmicas do grupo max permitiram a contagem de _grupos alcançada,_ isto significa que atingiu o limite máximo para grupos Dinâmicos no seu inquilino. O número máximo de grupos Dinâmicos por inquilino é de 5.000.
+Se receber uma mensagem no Powershell indicando que as políticas dinâmicas do grupo max permitiram a contagem de _grupos alcançada,_ isto significa que atingiu o limite máximo para grupos Dinâmicos na sua organização. O número máximo de grupos Dinâmicos por organização é de 5.000.
 
 Para criar novos grupos Dinâmicos, primeiro terá de eliminar alguns grupos Dinâmicos existentes. Não há como aumentar o limite.
 
@@ -53,7 +53,7 @@ Para criar novos grupos Dinâmicos, primeiro terá de eliminar alguns grupos Din
 1. Verifique os valores dos atributos do utilizador ou do dispositivo na regra. Certifique-se de que há utilizadores que satisfaçam a regra. Para os dispositivos, verifique as propriedades do dispositivo para garantir que quaisquer atributos sincronizados contenham os valores esperados.<br/>
 2. Verifique o estado de processamento da adesão para confirmar se está completo. Pode verificar o estado de processamento de [membros](groups-create-rule.md#check-processing-status-for-a-rule) e a última data atualizada na página **'Visão Geral** do grupo'.
 
-Se tudo estiver bem, por favor, dê algum tempo para o grupo povoar. Dependendo do tamanho do seu inquilino, o grupo pode demorar até 24 horas a ser preenchido pela primeira vez, ou após uma alteração de regra.
+Se tudo estiver bem, por favor, dê algum tempo para o grupo povoar. Dependendo do tamanho da sua organização Azure AD, o grupo pode demorar até 24 horas para a população pela primeira vez ou após uma mudança de regras.
 
 **Configurei uma regra, mas agora os membros existentes da regra são removidos**<br/>Este comportamento está previsto. Os membros existentes do grupo são removidos quando uma regra é ativada ou alterada. Os utilizadores devolvidos da avaliação da regra são adicionados como membros ao grupo.
 

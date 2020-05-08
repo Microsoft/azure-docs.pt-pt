@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 76af5f398edd736874fa79095f2e80c02298eac0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dd8442c00e2b7685b0dc1a7bd5150c87f2c27b7c
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277339"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891454"
 ---
 # <a name="azure-queue-storage-output-bindings-for-azure-functions"></a>Encadernações de saída de armazenamento de fila Azure para funções azure
 
@@ -21,7 +21,7 @@ Para obter informações sobre os detalhes da configuração e configuração, c
 
 ## <a name="example"></a>Exemplo
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 O exemplo seguinte mostra uma [função C#](functions-dotnet-class-library.md) que cria uma mensagem de fila para cada pedido http recebido.
 
@@ -123,7 +123,7 @@ Aqui está o ficheiro *função.json:*
     {
       "type": "queue",
       "direction": "out",
-      "name": "$return",
+      "name": "myQueueItem",
       "queueName": "outqueue",
       "connection": "MyStorageConnectionAppSetting"
     }
@@ -137,7 +137,8 @@ Aqui está o código JavaScript:
 
 ```javascript
 module.exports = function (context, input) {
-    context.done(null, input.body);
+    context.bindings.myQueueItem = input.body;
+    context.done();
 };
 ```
 
@@ -235,7 +236,7 @@ Na biblioteca de tempo de funcionamento das [funções java,](/java/api/overview
 
 ## <a name="attributes-and-annotations"></a>Atributos e anotações
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Nas [bibliotecas da classe C#,](functions-dotnet-class-library.md)utilize o [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Queues/QueueAttribute.cs).
 
@@ -326,7 +327,7 @@ A tabela a seguir explica as propriedades de configuração de ligação que def
 
 ## <a name="usage"></a>Utilização
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Escreva uma única mensagem de fila `out T paramName`utilizando um parâmetro de método como . Pode utilizar o tipo de `out` devolução do `T` método em vez de um parâmetro, podendo ser qualquer um dos seguintes tipos:
 

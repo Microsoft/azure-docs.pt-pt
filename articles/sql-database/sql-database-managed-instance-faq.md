@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: 393d67b200a4f8d44cb001b3a7e2e491209e9d58
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 99fbda6f6d5e8fc88f9f4f34c6e194412a120057
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80364166"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598516"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>SQL Database gerido instância frequentemente feita perguntas (FAQ)
 
@@ -94,7 +94,13 @@ A troca automática online entre gerações de hardware é possível se ambas as
 
 Trata-se de uma operação de longa duração, uma vez que uma nova instância gerida será aprovisionada em segundo plano e bases de dados automaticamente transferidas entre a antiga e a nova instância com uma rápida falha no final do processo. 
 
+**E se ambas as gerações de hardware não forem apoiadas na mesma região?**
+
 Se ambas as gerações de hardware não forem suportadas na mesma região, a alteração da geração de hardware é possível, mas deve ser feita manualmente. Isto requer que você ofereci de uma nova instância na região onde a geração de hardware procurada está disponível, e manualmente fazer cópias de segurança e restaurar dados entre a antiga e a nova instância.
+
+**E se não houver endereços IP suficientes para a realização da operação de atualização?**
+
+No caso de não existirem endereços IP suficientes na sub-rede onde a sua instância gerida é aprovisionada, terá de criar uma nova subnet e uma nova instância gerida no seu interior. Sugerimos também que seja criada uma nova subrede com mais endereços IP alocadas para que futuras operações de atualização evitem situações semelhantes (para o tamanho da subnet do propper, verifique [como determinar o tamanho da subnet vnet](sql-database-managed-instance-determine-size-vnet-subnet.md). Depois de aprovisionada nova instância, pode fazer o repor e restaurar manualmente os dados entre a antiga e a nova instância ou efetuar a restauração de [pontos a tempo.](sql-database-managed-instance-point-in-time-restore.md?tabs=azure-powershell) 
 
 
 ## <a name="tune-performance"></a>Otimizar o desempenho

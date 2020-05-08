@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/26/2020
-ms.openlocfilehash: ffa348c796a4d9d4e3bdb8e7ce18ba0eb82e17ad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 214d97822bdb2efbe164c3526939ddbe78777e59
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418393"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890741"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration runtime no Azure Data Factory 
 
@@ -128,6 +128,10 @@ A localização do runtime de integração define a localização da respetiva c
 
 ### <a name="azure-ir-location"></a>Localização do IR do Azure
 
+Pode definir uma certa localização de um IR Azure, caso em que a execução ou despacho de atividade sairá nessa região específica.
+
+Se optar por utilizar o Auto-Resolve Azure IR, que é o padrão,
+
 - Para a atividade de cópia, a ADF fará o melhor esforço para detetar automaticamente a localização do seu depósito de dados afundado, em seguida, utilizar o IR na mesma região, se disponível ou o mais próximo na mesma geografia; se a região da loja de dados do lavatório não for detetável, o IR na região da fábrica de dados como alternativa é utilizado.
 
   Por exemplo, tem a sua fábrica criada no Leste dos EUA, 
@@ -135,7 +139,8 @@ A localização do runtime de integração define a localização da respetiva c
   - Quando copiam os dados para o Azure Blob, no Oeste dos EUA, se a ADF detetou com sucesso que a Blob está nos EUA Ocidentais, a atividade de cópia é executada em IR nos EUA Ocidentais; se a deteção da região falhar, a atividade de cópia é executada em IR no Leste dos EUA.
   - Quando copiam dados para a Salesforce de que a região não é detetável, a atividade de cópia é executada em IR no Leste dos EUA.
 
-- Para a atividade de cópia, a ADF faz o melhor esforço para detetar automaticamente o seu depósito de dados de sumidouro e fonte para escolher a melhor localização, seja na mesma região (se disponível), ou a mais próxima na mesma geografia, ou se não for detetável para usar a região da fábrica de dados como alternativa.
+  >[!TIP] 
+  >Se tiver requisitos de conformidade de dados estritos e precisar de garantir que os dados não saem de uma detemrinada geografia, pode criar explicitamente um IR do Azure numa determinada região e apontar o Serviço Ligado a esse RI ao utilizar a propriedade ConnectVia. Por exemplo, se quiser copiar dados do Blob no Sul do Reino Unido para o SQL DW no Sul do Reino Unido e quiser garantir que os dados não saem do Reino Unido, crie um IR do Azure no Sul do Reino Unido e ligue ambos os Serviços Ligados a este IR.
 
 - Para a execução de atividade supérbio/GetMetadata/Eliminar (também conhecida como atividades de Pipeline), despachação de atividades de transformação (também conhecidas como atividades externas) e operações de autoria (ligação de teste, lista de pastas de navegação e lista de tabelas, dados de pré-visualização), a ADF utiliza o IR na região da fábrica de dados.
 

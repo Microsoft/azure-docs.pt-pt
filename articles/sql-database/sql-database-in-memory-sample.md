@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: b707d67c88eb550d397134b2294c1c5b0e1f7f7d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7ff4647682f5f4d688f3b581b96715e01976a387
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80528220"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891160"
 ---
 # <a name="in-memory-sample"></a>Amostra de memória
 
@@ -182,7 +182,7 @@ No VM, ou em qualquer anfitrião que escolher, instale os utilitários Replay Ma
 Para obter mais informações, consulte:
 - A discussão ostress.exe na Base de [Dados de Amostras para OLTP em Memória](https://msdn.microsoft.com/library/mt465764.aspx).
 - [Base de Dados de Amostras para OLTP em Memória](https://msdn.microsoft.com/library/mt465764.aspx).
-- O [blog para instalar ostress.exe](https://blogs.msdn.com/b/psssql/archive/20../../cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx).
+- O [blog para instalar ostress.exe](https://techcommunity.microsoft.com/t5/sql-server-support/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql/ba-p/317910).
 
 
 

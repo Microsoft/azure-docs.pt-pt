@@ -14,16 +14,16 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 141e83e21db18f21468113fd9927c2bdd2ed176d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9018228ec685d69fb03dfbc23de530e1bb8abb4f
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79497873"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582860"
 ---
 # <a name="enforce-a-naming-policy-on-office-365-groups-in-azure-active-directory"></a>Impor uma política de nomeação dos grupos do Office 365 no Diretório Ativo de Azure
 
-Para impor convenções de nomeação consistentes para os grupos office 365 criados ou editados pelos seus utilizadores, criar uma política de nomeação de grupo para os seus inquilinos em Azure Ative Directory (Azure AD). Por exemplo, poderia usar a política de nomeação para comunicar a função de um grupo, membro, região geográfica ou que criou o grupo. Também poderia usar a política de nomeação para ajudar a categorizar grupos no livro de endereços. Pode utilizar a política para impedir que palavras específicas sejam usadas em nomes de grupos e pseudónimos.
+Para impor convenções de nomeação consistentes para os grupos office 365 criados ou editados pelos seus utilizadores, criar uma política de nomeação de grupo para as suas organizações em Azure Ative Directory (Azure AD). Por exemplo, poderia usar a política de nomeação para comunicar a função de um grupo, membro, região geográfica ou que criou o grupo. Também poderia usar a política de nomeação para ajudar a categorizar grupos no livro de endereços. Pode utilizar a política para impedir que palavras específicas sejam usadas em nomes de grupos e pseudónimos.
 
 > [!IMPORTANT]
 > A utilização da política de nomeação da Azure AD para os grupos Office 365 requer que possua, mas não necessariamente atribua uma licença Azure Ative Directory Premium P1 ou licença Azure AD Basic EDU para cada utilizador único que seja membro de um ou mais grupos do Office 365.
@@ -42,7 +42,7 @@ Pode impor a política de nomeação de grupos de duas maneiras diferentes:
 
 ### <a name="prefix-suffix-naming-policy"></a>Política de nomeação prefixo-sufixo
 
-A estrutura geral da convenção de nomeação é "Prefixo[Nome de Grupo]Sufixo". Embora possa definir vários prefixos e sufixos, só pode ter uma instância do [Nome do Grupo] na definição. Os prefixos ou sufixos podem ser cordas fixas ou atributos de utilizador, tais como \[O Departamento\] que são substituídos com base no utilizador que está a criar o grupo. O número total admissível de caracteres para as cordas de prefixo e sufixo combinados é de 53 caracteres. 
+A estrutura geral da convenção de nomeação é "Prefixo[Nome de Grupo]Sufixo". Embora possa definir vários prefixos e sufixos, só pode ter uma instância do [Nome do Grupo] na definição. Os prefixos ou sufixos podem ser cordas fixas ou atributos de utilizador, tais como \[O Departamento\] que são substituídos com base no utilizador que está a criar o grupo. O número total admissível de caracteres para as cordas de prefixo e sufixo, incluindo o nome de grupo, é de 53 caracteres. 
 
 Prefixos e sufixos podem conter caracteres especiais que são suportados em nome de grupo e pseudónimo de grupo. Quaisquer caracteres no prefixo ou sufixo que não sejam suportados no pseudónimo do grupo ainda são aplicados no nome do grupo, mas removidos do pseudónimo do grupo. Devido a esta restrição, os prefixos e sufixos aplicados ao nome de grupo podem ser diferentes dos aplicados ao pseudónimo do grupo. 
 
@@ -69,7 +69,7 @@ Regras de lista de palavras bloqueadas:
 
 ### <a name="roles-and-permissions"></a>Funções e permissões
 
-Para configurar a política de nomeação, é necessária uma das funções de abrandamento:
+Para configurar a política de nomeação, é necessária uma das seguintes funções:
 - Administrador global
 - Administrador do grupo
 - Administrador de utilizadores
@@ -138,7 +138,7 @@ Certifique-se de que desinstala qualquer versão anterior do módulo Azure Activ
 
    No ecrã **Iniciar sessão na sua conta** apresentado, introduza a conta de administrador e a palavra-passe para ligar ao serviço e selecione **Iniciar sessão**.
 
-1. Siga os passos em [Cmdlets do Azure Active Directory para configurar definições de grupo](groups-settings-cmdlets.md) para criar definições de grupo para este inquilino.
+1. Siga os passos em [Cmdlets de Diretório Ativo Azure para configurar as configurações](groups-settings-cmdlets.md) do grupo para criar configurações de grupo para esta organização.
 
 ### <a name="view-the-current-settings"></a>Ver as definições atuais
 
@@ -257,7 +257,7 @@ StaffHub  | As equipas do StaffHub não seguem a política de nomeação, mas o 
 Exchange PowerShell | Os cmdlets Exchange PowerShell estão em conformidade com a política de nomeação. Os utilizadores recebem mensagens de erro apropriadas com prefixos e sufixos sugeridos e para palavras bloqueadas personalizadas se não seguirem a política de nomeação no nome do grupo e pseudónimo de grupo (mailNickname).
 Cindlets powershell de diretório ativo Azure | Os cmdlets de PowerShell do Diretório Ativo Azure estão em conformidade com a política de nomeação. Os utilizadores recebem mensagens de erro apropriadas com prefixos e sufixos sugeridos e para palavras bloqueadas personalizadas se não seguirem a convenção de nomeação em nomes de grupo e pseudónimode grupo.
 Centro de administração de intercâmbio | O centro de administração de intercâmbio está em conformidade com a política de nomeação. Os utilizadores recebem mensagens de erro apropriadas com prefixos e sufixos sugeridos e para palavras bloqueadas personalizadas se não seguirem a convenção de nomeação no nome do grupo e pseudónimo de grupo.
-Centro de administração do Microsoft 365 | O centro de administração do Microsoft 365 está em conformidade com a política de nomeação. Quando um utilizador cria ou edita nomes de grupo, a política de nomeação é aplicada automaticamente e os utilizadores recebem erros adequados quando introduzem palavras bloqueadas personalizadas. O centro de administração do Microsoft 365 ainda não mostra uma pré-visualização da política de nomeação e não devolve erros de palavras bloqueados personalizados quando o utilizador entra no nome do grupo.
+Microsoft 365 admin center (Centro de administração do Microsoft 365) | O centro de administração do Microsoft 365 está em conformidade com a política de nomeação. Quando um utilizador cria ou edita nomes de grupo, a política de nomeação é aplicada automaticamente e os utilizadores recebem erros adequados quando introduzem palavras bloqueadas personalizadas. O centro de administração do Microsoft 365 ainda não mostra uma pré-visualização da política de nomeação e não devolve erros de palavras bloqueados personalizados quando o utilizador entra no nome do grupo.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -4,12 +4,12 @@ description: Idiomas, plataformas e integrações disponíveis para Insights de 
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.reviewer: olegan
-ms.openlocfilehash: cbda252fece638393ee7757dc165c4b009a0195e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 153d4ad3d95c182dcc4f2aa3bad857d7e1984cc2
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79136728"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891115"
 ---
 # <a name="supported-languages"></a>Linguagens suportadas
 
@@ -46,7 +46,7 @@ ms.locfileid: "79136728"
 * [Azure Monitor](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)
 
 ## <a name="export-and-data-analysis"></a>Exportação e análise de dados
-* [Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
+* [Power BI](https://powerbi.microsoft.com/blog/explore-your-application-insights-data-with-power-bi/)
 * [Stream Analytics](../../azure-monitor/app/export-power-bi.md)
 
 ## <a name="unsupported-sdks"></a>SDKs não suportados

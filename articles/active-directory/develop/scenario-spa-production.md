@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 04a900c98311f4e7dcccbfca93ea41e212308759
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 777f3de8f2872e378fe30cc50ee0a5eb3823a625
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80882102"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82900317"
 ---
 # <a name="single-page-application-move-to-production"></a>Aplicação de página única: Passar para a produção
 
@@ -40,7 +40,7 @@ Mergulho profundo da amostra quickstart, que explica o código de como iniciar o
 Amostra que demonstra como obter fichas para a sua própria API web de back-end usando MSAL.js:
 
 > [!div class="nextstepaction"]
-> [SPA com uma ASP.NET final](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2)
+> [SPA com um ASP.NET back-end](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-aspnetcore-webapi)
 
 Amostra que mostra como usar MSAL.js para iniciar sessão de utilizadores numa aplicação que está registada no Azure Ative Directory B2C (Azure AD B2C):
 

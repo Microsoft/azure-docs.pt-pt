@@ -2,21 +2,20 @@
 author: dlepow
 ms.service: container-instances
 ms.topic: include
-ms.date: 01/31/2020
+ms.date: 04/27/2020
 ms.author: danlep
-ms.openlocfilehash: edf7b7c7c7c94fd269f69bd8c5e13e53a6de1c03
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: de070f14dbcda0808d52250e5b83caae14dd652b
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77117813"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583906"
 ---
 ### <a name="regions-and-resource-availability"></a>Regiões e disponibilidade de recursos
 
 | Regiões | SO | CPU Máxima | Memória Max (GB) | Armazenamento (GB) |
 | -------- | :---: | :---: | :-----------: | :---: |
-| Austrália Leste, Canadá Central, Centro dos EUA, Leste<sup>DOS</sup>1 , Leste DOS 2, Norte da Europa, Centro-Sul dos EUA<sup>1</sup>, Sudeste Asiático, Europa Ocidental, Oeste EUA 2<sup>1</sup> | Linux | 4 | 16 | 50 |
+| Austrália Leste, Canadá Central, Centro dos EUA, Leste dos EUA, Leste DOS 2, Norte da Europa, Centro-Sul dos EUA, Sudeste Asiático, Europa Ocidental, Oeste DOS EUA | Linux | 4 | 16 | 50 |
 | Leste do Japão | Linux | 2 | 8 | 50 |
 | Centro Norte dos EUA, Índia do Sul, Oeste dos EUA | Linux | 2 | 3.5 | 50 |
 
-<sup>1</sup> Região em que as implantações de grupos de contentores para uma rede virtual estão geralmente disponíveis para cargas de trabalho de produção. Noutras regiões, as implantações de redes virtuais estão em pré-visualização.

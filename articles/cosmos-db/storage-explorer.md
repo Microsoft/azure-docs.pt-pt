@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: dech
-ms.custom: seodec18
-ms.openlocfilehash: 914551bab47ad9db4e0bca4d53226fbae74b92f3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: seodec18, has-adal-ref
+ms.openlocfilehash: d2fe231dce26311268e578a495fb2ba7076651e0
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80411676"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82608035"
 ---
 # <a name="work-with-data-using-azure-storage-explorer"></a>Trabalhar com dados com o Explorador de Armazenamento do Azure
 
@@ -30,9 +30,9 @@ Instale os bits mais recentes do Explorador de Armazenamento do Azure aqui: [Exp
 ## <a name="connect-to-an-azure-subscription"></a>Ligar a uma subscrição do Azure
 
 1. Depois de instalar o Explorador de **Armazenamento Azure,** clique no ícone **plug-in** à esquerda, como mostrado na seguinte imagem:
-       
+
    ![Ícone de plug-in](./media/storage-explorer/plug-in-icon.png)
- 
+
 2. Selecione **Adicionar uma Conta do Azure** e clique em **Iniciar sessão**.
 
    ![Ligar a uma subscrição do Azure](./media/storage-explorer/connect-to-azure-subscription.png)
@@ -100,27 +100,27 @@ Ao clicar com o botão direito do rato numa subscrição no painel do Explorador
 * Também pode adicionar a conta do Azure Cosmos DB, a base de dados e a coleção ao **Acesso Rápido**.
 * **Procurar a partir daqui** permite procurar por palavra-chave no caminho selecionado.
 
-    ![procurar a partir daqui](./media/storage-explorer/search-from-here.png) 
+    ![procurar a partir daqui](./media/storage-explorer/search-from-here.png)
 
 ### <a name="database-and-collection-management"></a>Gestão de bases de dados e coleções
-#### <a name="create-a-database"></a>Criar uma base de dados 
+#### <a name="create-a-database"></a>Criar uma base de dados
 -   Clique com o botão direito do rato na conta do Azure Cosmos DB, selecione **Criar Base de Dados**, introduza o nome da base de dados e prima **Enter** para concluir.
-       
-    ![Criar base de dados](./media/storage-explorer/create-database.png) 
+
+    ![Criar base de dados](./media/storage-explorer/create-database.png)
 
 #### <a name="delete-a-database"></a>Eliminar uma base de dados
 - Clique com o botão direito do rato na base de dados, clique em **Eliminar Base de Dados** e em **Sim** na janela de pop-up. O nó da base de dados é eliminado e a conta do Azure Cosmos DB é atualizada automaticamente.
 
-    ![Eliminar base de dados1](./media/storage-explorer/delete-database1.png)  
+    ![Eliminar base de dados1](./media/storage-explorer/delete-database1.png)
 
-    ![Eliminar base de dados2](./media/storage-explorer/delete-database2.png) 
+    ![Eliminar base de dados2](./media/storage-explorer/delete-database2.png)
 
 #### <a name="create-a-collection"></a>Criar uma coleção
-1. Clique na sua base de dados, escolha **Criar Coleção,** e em seguida, forneça as seguintes informações como **Id de Recolha,** Capacidade de **Armazenamento,** etc. Clique **em OK** para terminar. 
+1. Clique na sua base de dados, escolha **Criar Coleção,** e em seguida, forneça as seguintes informações como **Id de Recolha,** Capacidade de **Armazenamento,** etc. Clique **em OK** para terminar.
 
     ![Criar coleção1](./media/storage-explorer/create-collection.png)
 
-    ![Criar coleção2](./media/storage-explorer/create-collection2.png) 
+    ![Criar coleção2](./media/storage-explorer/create-collection2.png)
 
 2. Selecione **Ilimitado** para poder especificar a chave de partição, em seguida, clique em **OK** para concluir.
 
@@ -128,12 +128,12 @@ Ao clicar com o botão direito do rato numa subscrição no painel do Explorador
 
     ![Chave de partição](./media/storage-explorer/partitionkey.png)
 
-#### <a name="delete-a-collection"></a>Eliminar uma coleção
-- Clique com o botão direito do rato na coleção, clique em **Eliminar Coleção** e em **Sim** na janela de pop-up. 
+#### <a name="delete-a-collection"></a>Delete a collection (Eliminar uma coleção)
+- Clique com o botão direito do rato na coleção, clique em **Eliminar Coleção** e em **Sim** na janela de pop-up.
 
     O nó da coleção é eliminado e a base de dados é atualizada automaticamente.
 
-    ![Eliminar coleção](./media/storage-explorer/delete-collection.png) 
+    ![Eliminar coleção](./media/storage-explorer/delete-collection.png)
 
 ### <a name="document-management"></a>Gestão de documentos
 
@@ -155,8 +155,8 @@ Ao clicar com o botão direito do rato numa subscrição no painel do Explorador
 ### <a name="graph-management"></a>Gestão de gráficos
 
 #### <a name="create-and-modify-vertex"></a>Criar e modificar um vértice
-1. Para criar um novo vértice, abra o **Graph** na janela esquerda, clique em **Vértice Novo**, edite o conteúdo e clique em **OK**.    
-2. Para modificar um vértice existente, clique no ícone de caneta no painel direito.   
+1. Para criar um novo vértice, abra o **Graph** na janela esquerda, clique em **Vértice Novo**, edite o conteúdo e clique em **OK**.
+2. Para modificar um vértice existente, clique no ícone de caneta no painel direito.
 
     ![Graph](./media/storage-explorer/vertex.png)
 
@@ -193,7 +193,7 @@ Ao clicar com o botão direito do rato numa subscrição no painel do Explorador
     ![Consulta de Tabela](./media/storage-explorer/table-query.png)
 
 ### <a name="manage-stored-procedures-triggers-and-udfs"></a>Gerir procedimentos armazenados, acionadores e UDFs
-* Para criar um procedimento armazenado, na árvore à esquerda, clique com o botão direito do rato em **Procedimento Armazenado**, selecione **Criar Procedimento Armazenado**, introduza um nome à esquerda, escreva os scripts do procedimento armazenado na janela à direita e, em seguida, clique em **Criar**. 
+* Para criar um procedimento armazenado, na árvore à esquerda, clique com o botão direito do rato em **Procedimento Armazenado**, selecione **Criar Procedimento Armazenado**, introduza um nome à esquerda, escreva os scripts do procedimento armazenado na janela à direita e, em seguida, clique em **Criar**.
 * Também pode editar procedimentos armazenados existentes ao fazer duplo clique, ao efetuar a atualização e, em seguida, ao clicar em **Atualizar** para guardar ou em **Eliminar** para cancelar a alteração.
 
     ![Procedimento armazenado](./media/storage-explorer/stored-procedure.png)
@@ -248,7 +248,7 @@ Se não conseguir obter as suas subscrições depois de iniciar sessão com êxi
 
 ![consola](./media/storage-explorer/console.png)
 
-#### <a name="unable-to-see-the-authentication-page"></a>Não é possível ver a página de autenticação 
+#### <a name="unable-to-see-the-authentication-page"></a>Não é possível ver a página de autenticação
 
 Se não conseguir ver a página de autenticação:
 
@@ -273,7 +273,7 @@ Se não conseguir remover uma conta ou se a ligação de reautenticação não f
 
 ### <a name="httphttps-proxy-issue"></a>Problema de proxy Http/Https
 
-Não é possível listar os nós do Azure Cosmos DB na árvore à esquerda quando configurar um proxy http/https num ASE. Este é um problema conhecido e será corrigido na versão seguinte. Pode utilizar o explorador de dados do Azure Cosmos DB no portal do Azure como uma solução neste momento. 
+Não é possível listar os nós do Azure Cosmos DB na árvore à esquerda quando configurar um proxy http/https num ASE. Este é um problema conhecido e será corrigido na versão seguinte. Pode utilizar o explorador de dados do Azure Cosmos DB no portal do Azure como uma solução neste momento.
 
 ### <a name="development-node-under-local-and-attached-node-issue"></a>Problema do nó "Desenvolvimento" no nó "Local e Anexado"
 
@@ -289,7 +289,7 @@ Se vir o erro abaixo depois de anexar uma conta do Azure Cosmos DB no nó "Local
 
 ### <a name="expand-azure-cosmos-db-node-error"></a>Erro ao expandir o nó do Azure Cosmos DB
 
-Pode ver o erro abaixo ao tentar expandir os nós da árvore à esquerda. 
+Pode ver o erro abaixo ao tentar expandir os nós da árvore à esquerda.
 
 ![Erro ao expandir](./media/storage-explorer/expand-error.png)
 
@@ -306,4 +306,3 @@ Se nenhuma das soluções funcionar para si, envie um e-mail[cosmosdbtooling@mic
 
 * Veja o vídeo seguinte para ver como utilizar o Azure Cosmos DB no Explorador de Armazenamento do Azure: [Utilizar o Azure Cosmos DB no Explorador de Armazenamento do Azure](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
 * Saiba mais sobre o Explorador de Armazenamento e como ligar mais serviços em [Introdução ao Explorador de Armazenamento](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
-

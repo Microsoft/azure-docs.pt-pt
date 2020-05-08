@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: seodec18
-ms.openlocfilehash: 3305cfb81980984574961b2a84a056f5d1879ead
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: cb68860af56914acede6c9cbf04d3e8ad3edbe04
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79280056"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891059"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Troubleshoot uma aplicação no Azure App Service usando o Visual Studio
 ## <a name="overview"></a>Descrição geral
@@ -614,7 +614,7 @@ Já viu como o Visual Studio facilita a visualização de registos criados por u
 Para obter mais informações sobre aplicações de resolução de problemas no Azure App Service, consulte os seguintes recursos:
 
 * [Como monitorizar aplicações](web-sites-monitor.md)
-* Investigar fugas de [memória no Serviço de Aplicações Azure com o Estúdio Visual 2013](https://blogs.msdn.com/b/visualstudioalm/archive/2013/12/20/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013.aspx). Post de blog da Microsoft ALM sobre funcionalidades do Estúdio Visual para analisar problemas de memória geridos.
+* Investigar fugas de [memória no Serviço de Aplicações Azure com o Estúdio Visual 2013](https://devblogs.microsoft.com/devops/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013/). Post de blog da Microsoft ALM sobre funcionalidades do Estúdio Visual para analisar problemas de memória geridos.
 * [Ferramentas online do Azure App Service que deve conhecer.](https://azure.microsoft.com/blog/2014/03/28/windows-azure-websites-online-tools-you-should-know-about-2/) Post de blog de Amit Apple.
 
 Para ajudar com uma questão específica de resolução de problemas, inicie um fio num dos seguintes fóruns:
@@ -678,7 +678,7 @@ Para obter mais informações sobre a análise de registos de servidores web, co
   Uma ferramenta para visualizar dados em registos de servidores web *(ficheiros .log).*
 * [Resolução de problemas Problemas de Problemas problemas de desempenho ou erros de aplicação usando LogParser](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
   Uma introdução à ferramenta Log Parser que pode utilizar para analisar registos de servidores web.
-* [Posts de blog de Robert McMurray sobre a utilização de LogParser](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
+* [Posts de blog de Robert McMurray sobre a utilização de LogParser](https://docs.microsoft.com/archive/blogs/robert_mcmurray/using-logparser-with-ftp-7-x-sessions)<br/>
 * [O código de estado HTTP no IIS 7.0, IIS 7.5 e IIS 8.0](https://support.microsoft.com/kb/943891)
 
 ### <a name="analyzing-failed-request-tracing-logs"></a>Analisar registos de rastreio de pedidos falhados

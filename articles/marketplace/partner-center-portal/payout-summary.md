@@ -1,5 +1,5 @@
 ---
-title: Resumos de pagamento - Azure Marketplace
+title: Relatórios de pagamento - Mercado comercial da Microsoft
 description: Os relatórios do Pagamento mostram-lhe detalhes sobre o dinheiro que ganhou com a sua oferta, incluindo o valor do pagamento e quando será pago.
 author: mingshen
 ms.author: mingshen
@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 40f8ca1cdbdf44639b009792c71cbf9fd55d8841
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
-ms.translationtype: HT
+ms.openlocfilehash: 0380330c2cfd4b0a72dcc158a0d6e051d5547b31
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82779848"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857015"
 ---
 # <a name="payout-summaries"></a>Resumos de pagamento
 

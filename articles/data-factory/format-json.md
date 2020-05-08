@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/05/2020
+ms.date: 05/05/2020
 ms.author: jingwang
-ms.openlocfilehash: 7b554ea5c2868559574979c58697fd31f8d2a2c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2e26a2ed81ed215d7ef2029123349b39e6e67d25
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686269"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890927"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Formato JSON na Fábrica de Dados Azure
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -31,10 +31,10 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 | ---------------- | ------------------------------------------------------------ | -------- |
 | tipo             | A propriedade tipo do conjunto de dados deve ser definida para **Json**. | Sim      |
 | localização         | Definições de localização dos ficheiros. Cada conector baseado em ficheiros tem `location`o seu próprio tipo de localização e propriedades suportadas em . Consulte os detalhes na secção de propriedades do conjunto de dados **do conector ->**. | Sim      |
-| encodingName     | O tipo de codificação utilizado para ler/escrever ficheiros de teste. <br>Os valores permitidos são os seguintes: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM86 0", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149", "IBM01149", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2 8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-8", "ISO-8859-9", "ISO-8859-9", "ISO-8859-9", "ISO-8859-8", "ISO-8859-8", "ISO-8859-9", "ISO-8859-9", "ISO-8859-9", "ISO-8859-9", "ISO-8859-9", "ISo-8859-8", "ISo-8859-9", "ISO-8859-9", "ISO-8859-9", "ISO-8859-9", "ISO-8859-9", "ISO-8859-9", "ISO-8859-9", "ISO-8859-9", "ISO-8859-9", "ISO-8859 , "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".| Não       |
-| compressão | Grupo de propriedades para configurar a compressão de ficheiros. Configure esta secção quando pretender fazer compressão/descompressão durante a execução da atividade. | Não |
+| encodingName     | O tipo de codificação utilizado para ler/escrever ficheiros de teste. <br>Os valores permitidos são os seguintes: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM868", "IBM86 0", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149", "IBM01149", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2022-JP", "ISO-2 8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-8", "ISO-8859-9", "ISO-8859-9", "ISO-8859-9", "ISO-8859-8", "ISO-8859-8", "ISO-8859-9", "ISO-8859-9", "ISO-8859-9", "ISO-8859-9", "ISO-8859-9", "ISo-8859-8", "ISo-8859-9", "ISO-8859-9", "ISO-8859-9", "ISO-8859-9", "ISO-8859-9", "ISO-8859-9", "ISO-8859-9", "ISO-8859-9", "ISO-8859-9", "ISO-8859 , "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".| No       |
+| compressão | Grupo de propriedades para configurar a compressão de ficheiros. Configure esta secção quando pretender fazer compressão/descompressão durante a execução da atividade. | No |
 | tipo | O código de compressão usado para ler/escrever ficheiros JSON. <br>Os valores permitidos são **bzip2,** **gzip,** **desinsuflação,** **ZipDeflate,** **snappy,** ou **lz4**. para usar ao guardar o ficheiro. O padrão não é comprimido.<br>**Nota** atualmente A atividade da Cópia não suporta "snappy" & "lz4", e o fluxo de dados de mapeamento não suporta "ZipDeflate".<br>**Note** ao utilizar a atividade de cópia para descomprimir ficheiros ZipDeflate e escrever para `<path specified in dataset>/<folder named as source zip file>/`a loja de dados do lavatório baseado em ficheiros, os ficheiros serão extraídos para a pasta: . | Não.  |
-| nível | A relação de compressão. <br>Os valores permitidos são **Ideais** ou **Mais Rápidos.**<br>- **Mais rápido:** A operação de compressão deve ser concluída o mais rapidamente possível, mesmo que o ficheiro resultante não esteja devidamente comprimido.<br>- **Ótimo:** O funcionamento da compressão deve ser optimizadamente comprimido, mesmo que a operação leve mais tempo a concluir. Para mais informações, consulte o tópico [do Nível de Compressão.](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) | Não       |
+| nível | A relação de compressão. <br>Os valores permitidos são **Ideais** ou **Mais Rápidos.**<br>- **Mais rápido:** A operação de compressão deve ser concluída o mais rapidamente possível, mesmo que o ficheiro resultante não esteja devidamente comprimido.<br>- **Ótimo:** O funcionamento da compressão deve ser optimizadamente comprimido, mesmo que a operação leve mais tempo a concluir. Para mais informações, consulte o tópico [do Nível de Compressão.](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) | No       |
 
 Abaixo está um exemplo de conjunto de dados JSON no Armazenamento de Blob Azure:
 
@@ -73,7 +73,7 @@ As seguintes propriedades são suportadas na secção de *** \*origem\* *** da a
 | Propriedade      | Descrição                                                  | Necessário |
 | ------------- | ------------------------------------------------------------ | -------- |
 | tipo          | A propriedade do tipo da fonte de atividade de cópia deve ser definida para **JSONSource**. | Sim      |
-| lojasDefinições | Um grupo de propriedades sobre como ler dados de uma loja de dados. Cada conector baseado em ficheiros `storeSettings`tem as suas próprias definições de leitura suportadas em . . Consulte os detalhes na secção de propriedades de propriedade do artigo do **conector -> Copiar**. | Não       |
+| lojasDefinições | Um grupo de propriedades sobre como ler dados de uma loja de dados. Cada conector baseado em ficheiros `storeSettings`tem as suas próprias definições de leitura suportadas em . . Consulte os detalhes na secção de propriedades de propriedade do artigo do **conector -> Copiar**. | No       |
 
 ### <a name="json-as-sink"></a>JSON como pia
 
@@ -82,24 +82,23 @@ As seguintes propriedades são suportadas na secção de *** \*sumidouro\* *** d
 | Propriedade      | Descrição                                                  | Necessário |
 | ------------- | ------------------------------------------------------------ | -------- |
 | tipo          | A propriedade do tipo da fonte de atividade de cópia deve ser definida para **JSONSink**. | Sim      |
-| formatoDefinições | Um grupo de propriedades. Consulte a tabela de definições de **escrita JSON** abaixo. | Não       |
-| lojasDefinições | Um grupo de propriedades sobre como escrever dados para uma loja de dados. Cada conector baseado em ficheiros `storeSettings`tem as suas próprias definições de escrita suportadas em baixo . Consulte os detalhes na secção de propriedades de propriedade do artigo do **conector -> Copiar**. | Não       |
+| formatoDefinições | Um grupo de propriedades. Consulte a tabela de definições de **escrita JSON** abaixo. | No       |
+| lojasDefinições | Um grupo de propriedades sobre como escrever dados para uma loja de dados. Cada conector baseado em ficheiros `storeSettings`tem as suas próprias definições de escrita suportadas em baixo . Consulte os detalhes na secção de propriedades de propriedade do artigo do **conector -> Copiar**. | No       |
 
 Definições de **escrita JSON** suportadas em: `formatSettings`
 
 | Propriedade      | Descrição                                                  | Necessário                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
 | tipo          | O tipo de formatoDefinições devem ser definidas para **JsonWriteSettings**. | Sim                                                   |
-| filePattern |Indica o padrão dos dados armazenados em cada ficheiro JSON. Os valores permitidos são **setOfObjects** e **arrayOfObjects**. O valor **predefinido** é **setOfObjects**. Veja a secção [Padrões de ficheiro JSON](#json-file-patterns) para obter detalhes sobre estes padrões. |Não |
+| filePattern |Indica o padrão dos dados armazenados em cada ficheiro JSON. Os valores permitidos são: **setOfObjects** (Linhas JSON) e **arrayOfObjects**. O valor **predefinido** é **setOfObjects**. Veja a secção [Padrões de ficheiro JSON](#json-file-patterns) para obter detalhes sobre estes padrões. |No |
 
 ### <a name="json-file-patterns"></a>Padrões de ficheiro JSON
 
-A atividade de cópia pode detetar e analisar automaticamente os seguintes padrões dos ficheiros JSON. 
+Ao copiar dados de ficheiros JSON, a atividade de cópia pode detetar e analisar automaticamente os seguintes padrões dos ficheiros JSON. Ao escrever dados para ficheiros JSON, pode configurar o padrão de ficheiro na pia da atividade da cópia.
 
 - **Tipo I: setOfObjects**
 
-    Cada ficheiro contém um único objeto ou múltiplos objetos delimitados por linha/concatenados. 
-    Quando esta opção é escolhida no sink de atividade de cópia, a atividade de cópia produz um único ficheiro JSON com cada objeto por linha (linha delimitada).
+    Cada ficheiro contém um único objeto, linhas JSON ou objetos concatenados.
 
     * **Exemplo de JSON de objeto único**
 
@@ -114,7 +113,7 @@ A atividade de cópia pode detetar e analisar automaticamente os seguintes padr�
         }
         ```
 
-    * **Exemplo de JSON delimitado por linha**
+    * **Linhas JSON (padrão para pia)**
 
         ```json
         {"time":"2015-04-29T07:12:20.9100000Z","callingimsi":"466920403025604","callingnum1":"678948008","callingnum2":"567834760","switch1":"China","switch2":"Germany"}

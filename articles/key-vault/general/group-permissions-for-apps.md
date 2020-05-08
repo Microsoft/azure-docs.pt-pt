@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 008058e42dfeb84cb2812ac4e8378cb5a8b5913a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: db6b8b2ff199b7b26d0c641ded31a5c1417468b9
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81422600"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901266"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>Forneça a autenticação do Cofre chave com uma política de controlo de acesso
 
@@ -60,10 +60,10 @@ O objectid para aplicações corresponde ao seu diretor de serviço associado. P
 
 Existem duas formas de obter um objectId para uma aplicação.  A primeira é registar a sua candidatura no Azure Ative Directory. Para tal, siga os passos no quickstart [Registe uma aplicação com a plataforma de identidade Microsoft](../../active-directory/develop/quickstart-register-app.md). Quando o registo estiver concluído, o objectid será listado como o "Id de aplicação (cliente) ".
 
-A segunda é criar um diretor de serviço numa janela terminal. Com o Azure CLI, utilize o comando [az ad sp create-for-rbac.](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac)
+A segunda é criar um diretor de serviço numa janela terminal. Com o Azure CLI, utilize o comando [az ad sp create-for-rbac,](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) e forneça um nome de princípio de serviço único à bandeira -n no formato "http://<my-unique-service-principle-principle>".
 
 ```azurecli-interactive
-az ad sp create-for-rbac -n "http://mySP"
+az ad sp create-for-rbac -n "http://<my-unique-service-principle-name"
 ```
 
 O objectid será listado na `clientID`saída como .
@@ -72,7 +72,7 @@ Com a Azure PowerShell, utilize o cmdlet [New-AzADServicePrincipal.](/powershell
 
 
 ```azurepowershell-interactive
-New-AzADServicePrincipal -DisplayName mySP
+New-AzADServicePrincipal -DisplayName <my-unique-service-principle-name>
 ```
 
 O objectid será listado na `Id` saída `ApplicationId`como (não ).

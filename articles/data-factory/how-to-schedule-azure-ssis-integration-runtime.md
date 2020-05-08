@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
-ms.openlocfilehash: 50ff0afe13b5b098fbc8d9fbeefba295a6217192
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 83ccc3160ed62a1ea801dd8c5795328fd2b5109f
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606076"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82584015"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Como iniciar e parar o Azure-SSIS Integration Runtime numa agenda
 
@@ -353,7 +353,7 @@ A secção seguinte fornece passos para a criação de um livro de execução Po
 
 ## <a name="create-schedules-for-your-runbook-to-startstop-azure-ssis-ir"></a>Crie horários para o seu livro de corridas iniciar/parar O IR Azure-SSIS
 
-Na secção anterior, criou o seu livro de execução Azure Automation que pode iniciar ou parar o IR Azure-SSIS. Nesta secção, irá criar dois horários para o seu livro de corridas. Ao configurar o primeiro horário, especifice **START** para **OPERAÇÃO**. Da mesma forma, ao configurar o segundo, especifice **STOP** para **OPERAÇÃO**. Para dar passos detalhados para criar horários, consulte Criar um artigo de [agenda.](../automation/shared-resources/schedules.md#creating-a-schedule)
+Na secção anterior, criou o seu livro de execução Azure Automation que pode iniciar ou parar o IR Azure-SSIS. Nesta secção, irá criar dois horários para o seu livro de corridas. Ao configurar o primeiro horário, especifice **START** para **OPERAÇÃO**. Da mesma forma, ao configurar o segundo, especifice **STOP** para **OPERAÇÃO**. Para dar passos detalhados para criar horários, consulte Criar um artigo de [agenda.](../automation/shared-resources/schedules.md#create-a-schedule)
 
 1. Na janela **'Livro de Execução',** selecione **Horários**e selecione **+ Adicione um horário** na barra de ferramentas. 
 

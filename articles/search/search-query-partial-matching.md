@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: 5a05f2973ac17460250fb3e80eb7bc0da9849940
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 05ff56c904fc48a1041ad40f00110a8ff0fd01f1
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262881"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82592048"
 ---
 # <a name="partial-term-search-and-patterns-with-special-characters-wildcard-regex-patterns"></a>Pesquisa parcial de termo e padrões com caracteres especiais (wildcard, regex, padrões)
 
@@ -24,7 +24,7 @@ A pesquisa parcial e padrão pode ser problemática se o índice não tiver term
 A solução é invocar um analisador que preserve uma cadeia completa, incluindo espaços e caracteres especiais, se necessário, para que possa combinar em termos e padrões parciais. Criar um campo adicional para uma cadeia intacta, além de usar um analisador de preservação de conteúdo, é a base da solução.
 
 > [!TIP]
-> Familiarizado com o Carteiro e as APIs do REST? [Descarregue a coleção](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/full-syntax-examples) de exemplos de consulta para consultar termos parciais e caracteres especiais descritos neste artigo.
+> Familiarizado com o Carteiro e as APIs do REST? [Descarregue a coleção](https://github.com/Azure-Samples/azure-search-postman-samples/) de exemplos de consulta para consultar termos parciais e caracteres especiais descritos neste artigo.
 
 ## <a name="what-is-partial-search-in-azure-cognitive-search"></a>O que é pesquisa parcial na Pesquisa Cognitiva Azure
 

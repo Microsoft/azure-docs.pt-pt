@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 5aee3a19e33204da00483d0f4ee3f6ee97e8a07d
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: HT
+ms.openlocfilehash: b4d3be9fbacee82f36f1238c5d9b4598c95b5df2
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856264"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82888810"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas mais frequentes (FAQ) sobre os Ficheiros do Azure
 [O Azure Files](storage-files-introduction.md) oferece partilhas de ficheiros totalmente geridas na nuvem que são acessíveis através do protocolo do Bloco de Mensagens de [Servidor (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)padrão da indústria. Pode montar partilhas de ficheiros Azure simultaneamente em implementações em nuvem ou no local de implementações de Windows, Linux e macOS. Também pode cache as partilhas de ficheiros Azure nas máquinas do Windows Server utilizando o Azure File Sync para acesso rápido perto do local onde os dados são utilizados.
@@ -170,7 +170,7 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
 
     - Pode utilizar assinaturas de acesso partilhado (SAS) para gerar fichas que tenham permissões específicas, e que são válidas para um intervalo de tempo especificado. Por exemplo, pode gerar um símbolo com acesso apenas de leitura a um ficheiro específico que tem uma expiração de 10 minutos. Qualquer um que possua o símbolo enquanto o símbolo é válido tem acesso apenas a esse ficheiro durante esses 10 minutos. As chaves de assinatura de acesso partilhado são suportadas apenas através da API REST ou nas bibliotecas de clientes. Deve montar a partilha de ficheiros Azure sobre sMB utilizando as chaves da conta de armazenamento.
 
-    - O Azure File Sync preserva e replica todos os ACLs discricionários, ou DACLs, (baseados em Diretório Ativo ou locais) a todos os pontos finais do servidor a que se sincroniza. Uma vez que o Windows Server já pode autenticar com o Diretório Ativo, o Azure File Sync é uma opção de stop-gap eficaz até chegar o suporte total para autenticação baseada em Diretório ativo e suporte ACL.
+    - O Azure File Sync preserva e replica todos os ACLs discricionários, ou DACLs, (baseados em Diretório Ativo ou locais) a todos os pontos finais do servidor a que se sincroniza. 
     
     Pode consultar o [Autorizo o acesso ao Armazenamento Azure](https://docs.microsoft.com/azure/storage/common/storage-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para uma representação abrangente de todos os protocolos suportados nos serviços de Armazenamento Azure. 
 

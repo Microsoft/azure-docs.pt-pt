@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 274ee09ae98dd229b255e58261f462e322be9f89
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7e5f6b7fa505890dc6bc818d1bd2578e5d974ff0
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77565745"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594870"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Inserir anúncios no lado do cliente
 Este artigo contém informações sobre como inserir vários tipos de anúncios no lado do cliente.
@@ -586,7 +586,7 @@ Esta amostra utiliza o VmapSchedulerPlugin para agendar anúncios utilizando um 
 ```
 
 ## <a name="implementing-an-ios-video-player-with-ad-support"></a>Implementação de um leitor de vídeo iOS com suporte a anúncios
-A Microsoft Media Platform: Player Framework for iOS contém uma coleção de aplicações de amostra que mostram como implementar uma aplicação de leitor de vídeo utilizando a estrutura. Você pode baixar o Quadro do Jogador e as amostras da Estrutura do [Jogador Azure Media](https://github.com/Azure/azure-media-player-framework). A página GitHub tem um link para um Wiki que contém informações adicionais sobre o quadro do jogador e uma introdução à amostra do jogador: [Azure Media Player Wiki](https://github.com/Azure/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework).
+A Microsoft Media Platform: Player Framework for iOS contém uma coleção de aplicações de amostra que mostram como implementar uma aplicação de leitor de vídeo utilizando a estrutura. Você pode baixar o Quadro do Jogador e as amostras da Estrutura do [Jogador Azure Media](https://github.com/CloudMetal/azure-media-player-framework). A página GitHub tem um link para um Wiki que contém informações adicionais sobre o quadro do jogador e uma introdução à amostra do jogador: [Azure Media Player Wiki](https://github.com/CloudMetal/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework).
 
 ### <a name="scheduling-ads-with-vmap"></a>Anúncios de agendamento com VMAP
 O exemplo que se segue mostra como agendar anúncios utilizando um ficheiro VMAP.

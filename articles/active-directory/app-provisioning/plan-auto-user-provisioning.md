@@ -10,14 +10,13 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/17/2019
 ms.author: martinco
-ms.reviewer: arvindha
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d2f284fddfc49632e467adbf5877856b40a81dd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: arvindha, celested
+ms.openlocfilehash: 4f391a2fce669c2684ac5001e3659247adfeb4f6
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77522415"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593544"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planear uma implementação de aprovisionamento automático de utilizadores
 
@@ -27,7 +26,7 @@ O fornecimento automático de utilizadores do Azure Ative Directory (Azure AD) s
 
 Consulte o [fornecimento e o desprovisionamento de utilizadores da Automatização para aplicações SaaS com o Diretório Ativo Azure](../app-provisioning/user-provisioning.md) para melhor compreender a funcionalidade.
 
-## <a name="learn"></a>Saiba mais
+## <a name="learn"></a>Learn
 
 O fornecimento de utilizadores cria uma base para a governação de identidade em curso e melhora a qualidade dos processos empresariais que dependem de dados de identidade autoritários.
 

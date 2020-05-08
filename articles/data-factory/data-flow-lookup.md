@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/23/2020
-ms.openlocfilehash: af4e33e2653aebe5d1c979aa314463e4beb7b0d7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: HT
+ms.openlocfilehash: 672fecc7487a73909efa5b4247f4889bb47b7b7e
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82233402"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594326"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>Transformação de procura no fluxo de dados de mapeamento
 
@@ -33,7 +33,7 @@ Uma transformação de lookup é semelhante a uma união exterior esquerda. Toda
 
 **Corresponder a várias linhas:** Se ativado, uma linha com vários fósforos no fluxo primário devolverá várias linhas. Caso contrário, apenas uma única linha será devolvida com base na condição 'Match on'.
 
-**Jogo em:** Só é visível se estiver ativado 'Corresponder várias linhas'. Escolha se combina em qualquer linha, no primeiro jogo ou no último jogo. Qualquer linha é recomendada à medida que executa o mais rápido. Se a primeira fila ou última fila forem selecionadas, será necessário especificar as condições de classificação.
+**Jogo em:** Só visível se não for selecionada 'Corresponder várias linhas'. Escolha se combina em qualquer linha, no primeiro jogo ou no último jogo. Qualquer linha é recomendada à medida que executa o mais rápido. Se a primeira fila ou última fila forem selecionadas, será necessário especificar as condições de classificação.
 
 **Condições de procura:** Escolha quais colunas combinar. Se a condição de igualdade for satisfeita, as linhas serão consideradas compatíveis. Pairar e selecionar 'Coluna Computada' para extrair um valor utilizando a linguagem de expressão do fluxo de [dados](data-flow-expression-functions.md).
 

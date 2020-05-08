@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 04/03/2020
-ms.openlocfilehash: 8cba02d3c7d1e649853570b199b646b1c4dcce2d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3c7d4f0a6d33a52fd972815923e60b33ce8a7448
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80667403"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901355"
 ---
 # <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Replicação de problemas na recuperação de desastres da VM Azure
 
@@ -41,7 +41,7 @@ Se selecionar o evento, deverá ver as informações exatas sobre o disco:
 
 A tabela seguinte fornece os limites do Azure Site Recovery. Estes limites baseiam-se nos nossos testes, mas não podem cobrir todas as combinações possíveis de entrada de entrada (I/O). Os resultados reais podem variar consoante a combinação de E/S da sua aplicação.
 
-Há dois limites a ter em conta: o churn de dados por disco e o churn de dados por máquina virtual. Vejamos o disco Premium P20 na tabela seguinte, por exemplo. Para um único VM, a Recuperação do Site pode manusear 5 MB/s de churn por disco com um máximo de cinco discos deste tipo. A Recuperação do Site tem um limite de 25 MB/s de total de churn por VM.
+Há dois limites a ter em conta: o churn de dados por disco e o churn de dados por máquina virtual. Vejamos o disco Premium P20 na tabela seguinte, por exemplo. Para um único VM, a Recuperação do Site pode manusear 5 MB/s de churn por disco com um máximo de cinco discos deste tipo. A Recuperação do Site tem um limite de 54 MB/s de total de churn por VM.
 
 **Alvo de armazenamento de replicação** | **Tamanho médio de I/S para disco de origem** |**Recolha média de dados para disco de origem** | **Total de dados churn por dia para disco de dados de origem**
 ---|---|---|---

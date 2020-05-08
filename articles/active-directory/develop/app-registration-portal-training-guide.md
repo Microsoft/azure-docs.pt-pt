@@ -13,16 +13,16 @@ ms.date: 11/8/2019
 ms.author: marsma
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
-ms.openlocfilehash: 50c88dd1785bd9177219054fed3800ca725a5274
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3a954167dc0698389680a92511621fb6acf4b12b
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80154598"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82889981"
 ---
 # <a name="the-new-azure-portal-app-registration-experience"></a>A nova experiência de registo de aplicativos do portal Azure
 
-Existem [muitas melhorias](https://go.microsoft.com/fwlink/?linkid=2083908) na experiência de registos da nova App no portal Azure. Se estiver mais familiarizado com a experiência do portal de registo de aplicações (apps.dev.microsoft.com) para registar ou gerir aplicações convergentes, referida como a experiência antiga, este guia de formação vai começar a usar a nova experiência.
+Existem [muitas melhorias](https://go.microsoft.com/fwlink/?linkid=2083908) na experiência de registos da nova App no portal Azure. Se estiver mais familiarizado com o portal de registo de aplicações (apps.dev.microsoft.com) para registar ou gerir aplicações, aqui referida como a "experiência antiga", este guia irá fazê-lo começar a usar a nova experiência.
 
 ## <a name="whats-not-changing"></a>O que não está a mudar?
 
@@ -37,7 +37,7 @@ Existem [muitas melhorias](https://go.microsoft.com/fwlink/?linkid=2083908) na e
 
 ## <a name="key-changes"></a>Alterações-chave
 
--   Na experiência antiga, as aplicações foram registadas por padrão como aplicações convergentes que suportam todas as contas organizacionais (multitenant) bem como contas pessoais da Microsoft. Isto não poderia ser modificado através da experiência antiga, dificultando a criação de apps que suportassem apenas contas organizacionais (multiarrendatária ou inquilino único).
+-   Na experiência antiga, as aplicações foram registadas por padrão como aplicações *convergentes* - aplicações que suportam todas as contas organizacionais (multitenant) bem como contas pessoais da Microsoft. Isto não poderia ser modificado através da experiência antiga, dificultando a criação de apps que suportassem apenas contas organizacionais (multiarrendatária ou inquilino único).
     A nova experiência permite-lhe registar aplicações que suportam todas essas opções. Saiba mais sobre os tipos de [aplicativos.](active-directory-v2-registration-portal.md)
 
 -   Na nova experiência, se a sua conta pessoal da Microsoft também estiver num inquilino da AD Azure, você verá três separadores - todas as aplicações no inquilino, aplicações próprias no inquilino, bem como aplicações da sua conta pessoal. Portanto, se acredita que as aplicações registadas na sua conta pessoal da Microsoft estão em falta, verifique as **Aplicações a partir do seu** separador de conta pessoal.
@@ -52,28 +52,23 @@ Existem [muitas melhorias](https://go.microsoft.com/fwlink/?linkid=2083908) na e
 
 ## <a name="new-app-registration"></a>Registo de nova aplicação
 
-Na experiência antiga, para registar uma aplicação convergente, só foi obrigado a fornecer um Nome. As aplicações criadas foram registadas como aplicações convergentes que suportam todos os diretórios organizacionais (multitenant) bem como contas pessoais da Microsoft.  Isto não poderia ser modificado através da experiência antiga, dificultando a criação de apps que suportassem apenas contas organizacionais (multiarrendatária ou inquilino único). [Saiba mais sobre tipos de conta suportados](v2-supported-account-types.md)
+Na experiência antiga, para registar uma app, só foi obrigado a fornecer um Nome. As aplicações criadas foram registadas como aplicações *convergentes* - aplicações que suportam todos os diretórios organizacionais (multitenant) bem como contas pessoais da Microsoft.  Isto não poderia ser modificado através da experiência antiga, dificultando a criação de apps que suportassem apenas contas organizacionais (ou um único ou multi-inquilino). [Saiba mais sobre tipos de conta suportados](v2-supported-account-types.md)
 
 Na nova experiência, deve fornecer um Nome para a app e escolher os tipos de conta Suportada. Você pode opcionalmente fornecer um URI redirecionado.
 Se fornecer um URI redirecionado, terá de especificar se é web/público (nativo/móvel e ambiente de trabalho). Para obter mais informações sobre como registar uma aplicação utilizando a experiência de registos de novas aplicações, consulte [este arranque rápido](quickstart-register-app.md).
 
 ## <a name="app-management-page"></a>Página de gestão de aplicativos
 
-A experiência antiga tinha uma única página de gestão de aplicações para aplicações convergentes com as seguintes secções: Propriedades, segredos de aplicação, plataformas, proprietários, permissões de gráficos da Microsoft, perfil e opções avançadas.
+A experiência antiga tinha uma única página de gestão de aplicações para apps com as seguintes secções: Propriedades, segredos de aplicação, plataformas, proprietários, permissões de gráficos da Microsoft, perfil e opções avançadas.
 
-A nova experiência no portal Azure representa estas funcionalidades em páginas separadas. Aqui é onde você pode encontrar a funcionalidade equivalente:
+A nova experiência no portal Azure apresenta estas funcionalidades em páginas separadas. Aqui é onde você pode encontrar a funcionalidade equivalente:
 
--   Propriedades - Identificação de Nome e Aplicação está na página 'Visão Geral'.
-
--   Os Segredos de Aplicação estão na página de Certificados & segredos
-
--   A configuração das plataformas está na página de Autenticação
-
--   As permissões do Microsoft Graph estão na página de permissões da API juntamente com outras permissões
-
--   O perfil está na página de Branding
-
--   Opção avançada - Suporte Ao Vivo SDK está na página de Autenticação.
+- Propriedades - Identificação de Nome e Aplicação está na página 'Visão Geral'.
+- Os Segredos de Aplicação estão na página de Certificados & segredos
+- A configuração das plataformas está na página de Autenticação
+- As permissões do Microsoft Graph estão na página de permissões da API juntamente com outras permissões
+- O perfil está na página de Branding
+- Opção avançada - Suporte Ao Vivo SDK está na página de Autenticação.
 
 ## <a name="application-secretscertificates--secrets"></a>Segredos de aplicação/Certificados & segredos
 
@@ -111,7 +106,7 @@ Há novos UI para propriedades que anteriormente só podiam ser definidas usando
 
 -   Os âmbitos definidos por esta API (oauth2Permissions) e aplicações autorizadas do cliente (pré-Aplicações autorizadas) podem ser configurados através da página Expor uma API. Para obter mais informações sobre como configurar uma aplicação para ser uma API web e expor permissões/âmbitos, consulte [este arranque rápido](quickstart-configure-app-expose-web-apis.md).
 
--   O domínio da editora (que é apresentado aos utilizadores no pedido de [consentimento da\'aplicação)](application-consent-experience.md)pode ser encontrado na página da lâmina branding. Para obter mais informações sobre como configurar um domínio de editor, consulte [este como .](howto-configure-publisher-domain.md)
+-   O domínio da editora (que é apresentado aos utilizadores no pedido de [consentimento da\'aplicação)](application-consent-experience.md)pode ser encontrado na página branding. Para obter mais informações sobre como configurar um domínio de editor, consulte [este como .](howto-configure-publisher-domain.md)
 
 ## <a name="limitations"></a>Limitações
 
@@ -125,3 +120,7 @@ A nova experiência tem as seguintes limitações:
 
    > [!NOTE]
    > Se é um utilizador pessoal da conta da Microsoft no inquilino da AD Azure, e o administrador do inquilino tem acesso restrito ao portal Azure, poderá obter um acesso negado. No entanto, se passar pelo atalho digitando as inscrições da App na barra de pesquisa ou fixando-a, poderá aceder à nova experiência.
+
+## <a name="next-steps"></a>Passos seguintes
+
+Para começar com a nova experiência de registo de aplicações, consulte [Quickstart: Registe uma aplicação com a plataforma de identidade microsoft](quickstart-register-app.md).

@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: f1d08581c5d29fc41fb33541d766af7cece88cdc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5c171c1bab99e4e3748267308745ee66631ed08d
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81451674"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82888967"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Sempre Encriptado: Proteja dados sensíveis e guarde chaves de encriptação no Cofre de Chaves Azure
 
@@ -621,4 +621,4 @@ Depois de criar uma base de dados que utiliza Sempre Encriptado, poderá querer 
 - [Encriptação de Dados Transparente](https://msdn.microsoft.com/library/bb934049.aspx)
 - [Encriptação do Servidor SQL](https://msdn.microsoft.com/library/bb510663.aspx)
 - [Sempre encriptado assistente](https://msdn.microsoft.com/library/mt459280.aspx)
-- [Blog sempre encriptado](https://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
+- [Blog sempre encriptado](https://docs.microsoft.com/archive/blogs/sqlsecurity/always-encrypted-key-metadata)

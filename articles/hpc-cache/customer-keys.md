@@ -4,14 +4,14 @@ description: Como utilizar o Cofre de Chaves Azure com cache Azure HPC para cont
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 04/23/2020
+ms.date: 04/29/2020
 ms.author: v-erkel
-ms.openlocfilehash: f8a8b8dfedd9c4ac0590dc91e5cdced50d2be6ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2d10241b8395c33767ffeeb550d9d8060bde3ce3
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195082"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597744"
 ---
 # <a name="use-customer-managed-encryption-keys-for-azure-hpc-cache"></a>Utilize chaves de encriptação geridas pelo cliente para cache Azure HPC
 
@@ -20,11 +20,7 @@ Pode utilizar o Cofre de Chaves Azure para controlar a propriedade das chaves ut
 > [!NOTE]
 > Todos os dados armazenados no Azure, incluindo nos discos de cache, são encriptados em repouso utilizando por padrão as chaves geridas pela Microsoft. Só precisa de seguir os passos deste artigo se pretender gerir as chaves utilizadas para encriptar os seus dados.
 
-Esta funcionalidade está disponível apenas nestas regiões do Azure:
-
-* E.U.A. Leste
-* E.U.A. Centro-Sul
-* E.U.A.Oeste 2
+Esta funcionalidade está disponível apenas em algumas regiões do Azure onde o Azure HPC Cache está disponível. Consulte a lista de disponibilidade da [Região](hpc-cache-overview.md#region-availability) para mais detalhes.
 
 Existem três passos para permitir a encriptação de chaves gerida pelo cliente para a Cache Azure HPC:
 
@@ -71,7 +67,7 @@ No momento da criação de cache deve especificar um cofre, chave e versão chav
 Leia a documentação do Cofre de [Chaves Azure](../key-vault/key-vault-overview.md) para mais detalhes.
 
 > [!NOTE]
-> O Cofre chave Azure deve utilizar a mesma subscrição e estar na mesma região que o Azure HPC Cache. Utilize uma das regiões apoiadas enumeradas no início deste artigo.
+> O Cofre chave Azure deve utilizar a mesma subscrição e estar na mesma região que o Azure HPC Cache. Certifique-se de que a região que escolhe suporta a função de [teclas gerida pelo cliente](hpc-cache-overview.md#region-availability).
 
 ## <a name="2-create-the-cache-with-customer-managed-keys-enabled"></a>2. Criar a cache com chaves geridas pelo cliente ativadas
 

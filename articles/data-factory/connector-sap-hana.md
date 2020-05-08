@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/17/2020
-ms.openlocfilehash: 74462b68bea38e4d84219adeedb7c3bb0893bbb4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/22/2020
+ms.openlocfilehash: 945ef895304a151ea7e0ef5b94ed0b42757743ad
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417226"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890618"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Copiar dados do SAP HANA utilizando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -46,7 +46,7 @@ Especificamente, este conector SAP HANA suporta:
 - Cópia paralela de uma fonte da SAP HANA. Consulte a cópia paralela da secção [SAP HANA](#parallel-copy-from-sap-hana) para obter mais detalhes.
 
 > [!TIP]
-> Para copiar dados **para** a loja de dados SAP HANA, utilize conector genérico ODBC. Veja [a pia sap HANA](connector-odbc.md#sap-hana-sink) com detalhes. Note que os serviços ligados para o conector SAP HANA e o conector ODBC estão com um tipo diferente, pelo que não podem ser reutilizados.
+> Para copiar dados **para** a loja de dados SAP HANA, utilize conector genérico ODBC. Consulte a secção [de pia SAP HANA](#sap-hana-sink) com detalhes. Note que os serviços ligados para o conector SAP HANA e o conector ODBC estão com um tipo diferente, pelo que não podem ser reutilizados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -69,8 +69,8 @@ As seguintes propriedades são suportadas para o serviço ligado sAP HANA:
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo deve ser definida para: **SapHana** | Sim |
 | conexãoString | Especifique as informações necessárias para se ligar ao SAP HANA utilizando a **autenticação básica** ou a **autenticação do Windows**. Consulte as seguintes amostras.<br>Na cadeia de ligação, o servidor/porta é obrigatório (a porta predefinida é 30015), e o nome de utilizador e a palavra-passe são obrigatórios quando se utiliza a autenticação básica. Para configurações avançadas adicionais, consulte as propriedades de [conexão SAP HANA ODBC](<https://help.sap.com/viewer/0eec0d68141541d1b07893a39944924e/2.0.02/en-US/7cab593774474f2f8db335710b2f5c50.html>)<br/>Também pode colocar palavra-passe no Cofre de Chaves Azure e retirar a configuração da palavra-passe da cadeia de ligação. Consulte [as credenciais da Loja no](store-credentials-in-key-vault.md) artigo do Cofre de Chaves Azure com mais detalhes. | Sim |
-| userName | Especifique o nome do utilizador ao utilizar a autenticação do Windows. Exemplo: `user@domain.com` | Não |
-| palavra-passe | Especifique a palavra-passe para a conta de utilizador. Marque este campo como um SecureString para o armazenar de forma segura na Data Factory, ou [refira um segredo armazenado no Cofre de Chaves Azure](store-credentials-in-key-vault.md). | Não |
+| userName | Especifique o nome do utilizador ao utilizar a autenticação do Windows. Exemplo: `user@domain.com` | No |
+| palavra-passe | Especifique a palavra-passe para a conta de utilizador. Marque este campo como um SecureString para o armazenar de forma segura na Data Factory, ou [refira um segredo armazenado no Cofre de Chaves Azure](store-credentials-in-key-vault.md). | No |
 | connectVia | O Tempo de [Integração](concepts-integration-runtime.md) a utilizar para se ligar à loja de dados. É necessário um tempo de execução de integração auto-hospedado, tal como mencionado nos [pré-requisitos.](#prerequisites) |Sim |
 
 **Exemplo: utilizar a autenticação básica**
@@ -298,6 +298,34 @@ Ao copiar dados do SAP HANA, os seguintes mapeamentos são utilizados desde tipo
 | RIO VARCHAR            | String                         |
 | CARIMBO TEMPORAL          | DateTime                       |
 | VARBINARY          | Byte[]                         |
+
+### <a name="sap-hana-sink"></a>Pia SAP HANA
+
+Atualmente, o conector SAP HANA não é suportado como pia, enquanto pode utilizar o conector genérico ODBC com o controlador SAP HANA para escrever dados no SAP HANA. 
+
+Siga os [Pré-requisitos](#prerequisites) para configurar o Tempo de Integração Auto-Hospedado e instale primeiro o controlador SAP HANA ODBC. Crie um serviço ligado à ODBC para se ligar à sua loja de dados SAP HANA, como mostra o exemplo seguinte, em seguida, crie um conjunto de dados e copie a atividade com o tipo ODBC em conformidade. Saiba mais sobre o artigo do [conector ODBC.](connector-odbc.md)
+
+```json
+{
+    "name": "SAPHANAViaODBCLinkedService",
+    "properties": {
+        "type": "Odbc",
+        "typeProperties": {
+            "connectionString": "Driver={HDBODBC};servernode=<HANA server>.clouddatahub-int.net:30015",
+            "authenticationType": "Basic",
+            "userName": "<username>",
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
 
 ## <a name="lookup-activity-properties"></a>Propriedades de atividade de procura
 

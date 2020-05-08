@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 04/20/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40fd8217285643aa7d706d194d7f78ba0634dd32
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4af0390ab7ef8f84860d1d62fa86b8ec87a42210
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80048968"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890808"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Tutorial: Azure Ative Directory integração individual (SSO) com a Amazon Web Services (AWS)
 
@@ -110,6 +110,18 @@ Siga estes passos para permitir o Azure AD SSO no portal Azure.
 1. Quando estiver a configurar mais de um caso, forneça um valor de identificador. A partir de segunda instância, utilize **#** o seguinte formato, incluindo um sinal para especificar um valor SPN único.
 
     `https://signin.aws.amazon.com/saml#2`
+
+1. A aplicação AWS espera as afirmações do SAML num formato específico, o que requer que adicione mapeamentos personalizados de atributos à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos.
+
+    ![image](common/default-attributes.png)
+
+1. Além de acima, a aplicação AWS espera que poucos atributos sejam retransmitidos na resposta SAML que são mostradas abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
+    
+    | Name  | Atributo de origem  | Espaço de nomes |
+    | --------------- | --------------- | --------------- |
+    | Nome rolesession | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
+    | Função            | user.atribuídos |  https://aws.amazon.com/SAML/Attributes |
+    | Duração das sessões             | "fornecer um valor entre 900 segundos (15 minutos) a 43200 segundos (12 horas)" |  https://aws.amazon.com/SAML/Attributes |
 
 1. Na configuração de um único sessão com a página **SAML,** na secção Certificado de **Assinatura SAML,** encontre **metadados da Federação XML** e selecione **Descarregar** para descarregar o certificado e guardá-lo no seu computador.
 
