@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: terrylan
 manager: rkarlin
 ms.date: 11/04/2019
-ms.openlocfilehash: abc16ae7f7ab8bf15173248a6e7668e689e127de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5330c751aaa3fcbd5c7fc268e4a4de08d336d474
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77561974"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735441"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Caixa de bloqueio de clientes para o Microsoft Azure
 
@@ -49,7 +49,7 @@ Os seguintes passos delineiam um fluxo de trabalho típico para um pedido de blo
 
     O pedido encontra-se agora num estado notificado pelo **Cliente,** aguardando a aprovação do cliente antes de conceder acesso.
 
-7. Na organização de clientes, o utilizador que tem a [função Proprietário](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles) para a subscrição do Azure recebe um e-mail da Microsoft, para notificá-los sobre o pedido de acesso pendente. Para pedidos de bloqueio de cliente, esta pessoa é o aprovador designado.
+7. Na organização de clientes, o utilizador que tem a [função Proprietário](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) para a subscrição do Azure recebe um e-mail da Microsoft, para notificá-los sobre o pedido de acesso pendente. Para pedidos de bloqueio de cliente, esta pessoa é o aprovador designado.
 
     E-mail de exemplo:
 

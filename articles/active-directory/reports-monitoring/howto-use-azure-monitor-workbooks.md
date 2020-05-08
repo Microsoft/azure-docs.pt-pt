@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 10/30/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2e94d9f56a865999f9169650f621a6af892c27ae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 094939ee62046c72f07ac46f0781e687034f731f
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74014367"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690621"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Como utilizar os livros de trabalho do Azure Monitor para relatórios de Diretório Ativo Azure
 
@@ -42,7 +42,7 @@ Quer:
 
 - Obtenha informações mais profundas sobre consultas de login, o livro informa quantos utilizadores receberam ou negaram o acesso, bem como quantos utilizadores contornaram as políticas de Acesso Condicional ao aceder aos recursos.
 
-- Para ajudá-lo a resolver estas questões, o Ative Directy fornece livros de monitorização. [Os livros Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) combinam texto, consultas de análise, métricas e parâmetros em relatórios interativos ricos.
+- Para ajudá-lo a resolver estas questões, o Azure Ative Directory fornece livros de acompanhamento. [Os livros Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) combinam texto, consultas de análise, métricas e parâmetros em relatórios interativos ricos.
 
 
 
@@ -58,7 +58,7 @@ Este artigo:
 
 Para utilizar os livros monitor, precisa de:
 
-- Um inquilino de Diretório Ativo com licença premium (P1 ou P2). Saiba como [obter uma licença premium.](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium)
+- Um inquilino azure Ative Diretório com licença premium (P1 ou P2). Saiba como [obter uma licença premium.](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium)
 
 - Um [espaço de trabalho log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
@@ -186,7 +186,7 @@ Os livros de trabalho contêm consultas de log in sessão que podem ajudar os ad
 ### <a name="instructions"></a>Instruções 
 Para aceder ao livro de trabalho para Insights de Acesso Condicional, selecione o livro de informação de **acesso condicional** insights na secção acesso condicional. Este livro mostra o impacto esperado de cada política de Acesso Condicional no seu inquilino. Selecione uma ou mais políticas de Acesso Condicional da lista de abandono escolar e reduza o âmbito do livro aplicando os seguintes filtros: 
 
-- **Intervalo de tempo**
+- **Intervalo de Tempo**
 
 - **Utilizador**
 

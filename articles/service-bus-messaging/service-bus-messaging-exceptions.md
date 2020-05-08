@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: aschhab
-ms.openlocfilehash: d04902a8d53397b7e7d9712a1c75ce44cc7aa7ad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f1a4caf6ffd5740b4227aff2f38d9cb709c77b48
+ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80880793"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82739352"
 ---
 # <a name="service-bus-messaging-exceptions"></a>Exceções de mensagens de ônibus de serviço
 Este artigo enumera as exceções .NET geradas por .NET Framework APIs. 
@@ -46,8 +46,6 @@ A tabela seguinte lista tipos de exceções de mensagens e suas causas, e notas 
 | [MessageNotFoundException](/dotnet/api/microsoft.servicebus.messaging.messagenotfoundexception) |Tente receber uma mensagem com um número de sequência particular. Esta mensagem não foi encontrada. |Certifique-se de que a mensagem ainda não foi recebida. Verifique a fila da carta morta para ver se a mensagem foi escrita. |Retry não ajuda. |
 | [Falta de comunicação de mensagens](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception) |O cliente não é capaz de estabelecer uma ligação com o Service Bus. |Certifique-se de que o nome do anfitrião fornecido está correto e que o hospedeiro está acessível. |A retry pode ajudar se houver problemas de conectividade intermitentes. |
 | [ServerBusyException](/dotnet/api/microsoft.azure.servicebus.serverbusyexception) |O serviço não é capaz de processar o pedido neste momento. |O cliente pode esperar por um período de tempo, e depois voltar a tentar a operação. |O cliente pode voltar a tentar após determinado intervalo. Se uma nova tentativa resultar numa exceção diferente, verifique o comportamento de novo de tentativa dessa exceção. |
-| [MessageLockLostException](/dotnet/api/microsoft.azure.servicebus.messagelocklostexception) |O sinal de bloqueio associado à mensagem expirou, ou o sinal de bloqueio não foi encontrado. |Elimine a mensagem. |Retry não ajuda. |
-| [SessãoLockLostException](/dotnet/api/microsoft.azure.servicebus.sessionlocklostexception) |O bloqueio associado a esta sessão está perdido. |Aborte o objeto [MessageSession.](/dotnet/api/microsoft.servicebus.messaging.messagesession) |Retry não ajuda. |
 | [Reexceção de mensagens](/dotnet/api/microsoft.servicebus.messaging.messagingexception) |Exceção genérica de mensagens que podem ser lançadas nos seguintes casos:<p>É feita uma tentativa de criar um [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) usando um nome ou caminho que pertença a um tipo de entidade diferente (por exemplo, um tópico).</p><p>É feita uma tentativa de enviar uma mensagem maior que 256 KB. </p>O servidor ou serviço encontrou um erro durante o processamento do pedido. Consulte a mensagem de exceção para mais detalhes. Normalmente é uma exceção transitória.</p><p>O pedido foi encerrado porque a entidade está a ser estrangulada. Código de erro: 50001, 50002, 50008. </p> | Verifique o código e certifique-se de que apenas são utilizados objetos serlizáveis para o corpo da mensagem (ou utilize um serializador personalizado). <p>Verifique a documentação dos tipos de valor suportados das propriedades e utilize apenas tipos suportados.</p><p> Verifique a propriedade [IsTransient.](/dotnet/api/microsoft.servicebus.messaging.messagingexception) Se for **verdade,** pode voltar a tentar a operação. </p>| Se a exceção for devido à aceleração, aguarde alguns segundos e volte a tentar a operação. O comportamento de retry é indefinido e pode não ajudar em outros cenários.|
 | [Entidade de Mensagens Já Existe Exceção](/dotnet/api/microsoft.servicebus.messaging.messagingentityalreadyexistsexception) |Tente criar uma entidade com um nome que já é usado por outra entidade nesse espaço de nome de serviço. |Eliminar a entidade existente ou escolher um nome diferente para a entidade a criar. |Retry não ajuda. |
 | [QuotaExceedException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception) |A entidade de mensagens atingiu o seu tamanho máximo admissível, ou o número máximo de ligações a um espaço de nome foi ultrapassado. |Criar espaço na entidade recebendo mensagens da entidade ou das suas subfilas. Ver [QuotaExceededException](#quotaexceededexception). |A retry pode ajudar se as mensagens tiverem sido removidas entretanto. |
@@ -102,6 +100,96 @@ Deve verificar o valor da propriedade [ServicePointManager.DefaultConnectionLimi
 
 ### <a name="queues-and-topics"></a>Filas e tópicos
 Para filas e tópicos, o tempo limite é especificado quer na propriedade [MessagingFactorySettings.OperationTimeout,](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings) como parte da cadeia de ligação, quer através do [ServiceBusConnectionStringBuilder](/dotnet/api/microsoft.azure.servicebus.servicebusconnectionstringbuilder). A mensagem de erro em si pode variar, mas contém sempre o valor limite especificado para o funcionamento atual. 
+
+## <a name="messagelocklostexception"></a>MessageLockLostException
+
+### <a name="cause"></a>Causa
+
+O **MessageLockLostException** é lançado quando uma mensagem é recebida utilizando o modo [PeekLock](message-transfers-locks-settlement.md#peeklock) Receive e o bloqueio detido pelo cliente expira no lado do serviço.
+
+O bloqueio de uma mensagem pode expirar por várias razões - 
+
+  * O temporizador de bloqueio expirou antes de ser renovado pela aplicação do cliente.
+  * A aplicação do cliente adquiriu o cadeado, guardou-o para uma loja persistente e recomeçou. Uma vez reiniciado, a aplicação do cliente analisou as mensagens de bordo e tentou completá-las.
+
+### <a name="resolution"></a>Resolução
+
+No caso de uma **MessageLockLostException,** a aplicação do cliente já não pode processar a mensagem. A aplicação do cliente pode considerar opcionalmente registar a exceção para análise, mas o cliente *deve* eliminar a mensagem.
+
+Uma vez expirado o bloqueio da mensagem, voltaria à Fila (ou Subscrição) e pode ser processado pela próxima aplicação do cliente que as chamadas recebem.
+
+Se o **MaxDeliveryCount** tiver excedido, a mensagem pode ser transferida para a **DeadLetterQueue**.
+
+## <a name="sessionlocklostexception"></a>SessãoLockLostException
+
+### <a name="cause"></a>Causa
+
+O **SessionLockLostException** é lançado quando uma sessão é aceite e o bloqueio detido pelo cliente expira no lado do serviço.
+
+O bloqueio de uma sessão pode expirar por várias razões - 
+
+  * O temporizador de bloqueio expirou antes de ser renovado pela aplicação do cliente.
+  * A aplicação do cliente adquiriu o cadeado, guardou-o para uma loja persistente e recomeçou. Uma vez reiniciado, a aplicação do cliente analisou as sessões de bordo e tentou processar as mensagens nessas sessões.
+
+### <a name="resolution"></a>Resolução
+
+No caso de uma **SessãoLockLostException,** a aplicação do cliente já não pode processar as mensagens na sessão. A aplicação do cliente pode considerar registar a exceção para análise, mas o cliente *deve* eliminar a mensagem.
+
+Uma vez expirado o bloqueio da sessão, voltaria à Fila (ou Subscrição) e pode ser bloqueado pela próxima aplicação do cliente que aceita a sessão. Uma vez que o bloqueio da sessão é mantido por um único pedido de cliente em qualquer momento, o processamento em ordem é garantido.
+
+## <a name="socketexception"></a>TomadaExcepção
+
+### <a name="cause"></a>Causa
+
+Uma **SoqueteExcep** é lançada nos casos abaixo -
+   * Quando uma tentativa de ligação falha porque o hospedeiro não respondeu corretamente após um determinado tempo (código de erro TCP 10060).
+   * Uma ligação estabelecida falhou porque o hospedeiro conectado não respondeu.
+   * Houve um erro a processar a mensagem ou o tempo limite é ultrapassado pelo hospedeiro remoto.
+   * Problema de recursos de rede subjacente.
+
+### <a name="resolution"></a>Resolução
+
+Os erros **de Exceção** da Tomada indicam que o VM que acolhe as aplicações não pode converter o nome `<mynamespace>.servicebus.windows.net` no endereço IP correspondente. 
+
+Verifique se o comando abaixo consegue mapear um endereço IP.
+
+```Powershell
+PS C:\> nslookup <mynamespace>.servicebus.windows.net
+```
+
+que deve fornecer uma saída como abaixo
+
+```bash
+Name:    <cloudappinstance>.cloudapp.net
+Address:  XX.XX.XXX.240
+Aliases:  <mynamespace>.servicebus.windows.net
+```
+
+Se o nome acima **não for resolvido** a um IP e ao pseudónimo do espaço de nome, verifique qual o administrador da rede para investigar mais. A resolução de nomes é feita através de um servidor DNS tipicamente um recurso na rede de clientes. Se a resolução do DNS for feita pelo Azure DNS contacte o suporte do Azure.
+
+Se a resolução **de nomes funcionar como esperado,** verifique se as ligações ao Azure Service Bus são permitidas [aqui](service-bus-troubleshooting-guide.md#connectivity-certificate-or-timeout-issues)
+
+
+## <a name="messagingexception"></a>Reexceção de mensagens
+
+### <a name="cause"></a>Causa
+
+**MensagensExcep** é uma exceção genérica que pode ser lançada por várias razões. Algumas das razões estão listadas abaixo.
+
+   * É feita uma tentativa de criar um **QueueClient** num **Tópico** ou numa **Subscrição.**
+   * O tamanho da mensagem enviada é maior do que o limite para o determinado nível. Leia mais sobre as [quotas e limites](service-bus-quotas.md)de ônibus de serviço.
+   * O pedido específico de avião de dados (enviar, receber, completar, abandonar) foi encerrado devido à estrangulamento.
+   * Problemas transitórios causados devido a atualizações de serviço e reinícios.
+
+> [!NOTE]
+> A lista acima das exceções não é exaustiva.
+
+### <a name="resolution"></a>Resolução
+
+Os passos de resolução dependem do que causou a aditamento da Exceção de **Mensagens.**
+
+   * Para **questões transitórias** (quando ***o é transiente*** for definido para ***verdade)*** ou para questões de **estrangulamento,** tentar novamente a operação pode resolvê-la. A política de retry padrão no SDK pode ser alavancada para isso.
+   * Para outras questões, os detalhes da exceção indicam que as medidas de emissão e resolução podem ser deduzidas das mesmas.
 
 ## <a name="next-steps"></a>Passos seguintes
 Para obter a referência completa do Bus service .NET API, consulte a [referência Azure .NET API](/dotnet/api/overview/azure/service-bus).

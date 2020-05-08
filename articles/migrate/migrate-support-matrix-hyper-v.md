@@ -3,12 +3,12 @@ title: Suporte para avaliação de Hiper-V em Migração Azure
 description: Conheça o suporte para avaliação hyper-V com avaliação do servidor migratório Azure
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 990d5026d9621c144c31635fabac4416eb9d20e6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 67fabebf805e38a6bca5dda6e691c263ee235219
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81538176"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744606"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Matriz de suporte para avaliação de Hiper-V
 
@@ -23,7 +23,7 @@ Para configurar a avaliação de Hyper-V VM, cria um projeto Azure Migrate e adi
 --- | ---
 **Limites de avaliação** | Você pode descobrir e avaliar até 35.000 VMs Hiper-V em um único [projeto Azure Migrate](migrate-support-matrix.md#azure-migrate-projects).
 **Limites do projeto** | Pode criar vários projetos numa subscrição do Azure. Além de Hiper-VMs, um projeto pode incluir VMware VMs e servidores físicos, até os limites de avaliação para cada um.
-**Descoberta** | O aparelho Azure Migrate pode descobrir até 5000 VMs Hiper-V.<br/><br/> O aparelho pode ligar até 300 hospedeiros Hyper-V.
+**Deteção** | O aparelho Azure Migrate pode descobrir até 5000 VMs Hiper-V.<br/><br/> O aparelho pode ligar até 300 hospedeiros Hyper-V.
 **Avaliação** | Pode adicionar até 35.000 máquinas num único grupo.<br/><br/> Você pode avaliar até 35.000 VMs numa única avaliação para um grupo.
 
 [Saiba mais](concepts-assessment-calculation.md) sobre avaliações.
@@ -44,7 +44,7 @@ Para configurar a avaliação de Hyper-V VM, cria um projeto Azure Migrate e adi
 
 | **Suporte**                  | **Detalhes**               
 | :----------------------------- | :------------------- |
-| **Sistema Operativo** | Todos os sistemas [operativos Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) e [Linux.](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) |
+| **Sistema operativo** | Todos os sistemas [operativos Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) e [Linux.](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) |
 | **Serviços de Integração**       | Os [Serviços de Integração Hiper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/integration-services) devem estar a funcionar em VMs que avalia, de modo a capturar informações do sistema operativo. |
 
 
@@ -54,7 +54,7 @@ A Azure Migrate utiliza o [aparelho Migratório Azure](migrate-appliance.md) par
 
 - Conheça os [requisitos](migrate-appliance.md#appliance---hyper-v) do aparelho para hyper-V.
 - Saiba mais sobre os URLs que o aparelho precisa de aceder em nuvens [públicas](migrate-appliance.md#public-cloud-urls) e [governamentais.](migrate-appliance.md#government-cloud-urls)
-- No Governo Azure, deve utilizar o aparelho utilizando o script.
+- No Governo Azure, deve utilizar o aparelho [utilizando o script](deploy-appliance-script-government.md).
 
 ## <a name="port-access"></a>Acesso portuário
 

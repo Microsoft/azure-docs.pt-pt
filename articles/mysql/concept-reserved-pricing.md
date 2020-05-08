@@ -5,13 +5,13 @@ author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 78c8750de7189bad33e9bbc766a3d7543a646f6e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/20/2020
+ms.openlocfilehash: a8a5914b51b56fbe8b4b7b7ba331f58ec451f975
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80159358"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731888"
 ---
 # <a name="prepay-for-azure-database-for-mysql-compute-resources-with-reserved-capacity"></a>Pré-pagamento para Base de Dados Azure para recursos computacionais MySQL com capacidade reservada
 
@@ -19,7 +19,7 @@ A Base de Dados Azure para o MySQL ajuda-o agora a economizar dinheiro pagando o
 
 Não necessita de atribuir a reserva a uma base de dados específica do Azure para servidores MySQL. Uma base de dados Azure já em execução para mySQL ou aquelas que são recentemente implantadas, receberá automaticamente o benefício de preços reservados. Ao comprar uma reserva, está a pré-pagar os custos do cálculo por um período de um ou três anos. Assim que comprar uma reserva, a base de dados Azure para taxas de computação MySQL que correspondam aos atributos de reserva já não são cobradas às taxas de pagamento. Uma reserva não cobre software, networking ou custos de armazenamento associados ao servidor de base de dados MySQL. No final do prazo de reserva, o benefício de faturação expira, e a Base de Dados Azure para MySQL são faturadas ao preço de pagamento. As reservas não renovam automaticamente. Para obter informações sobre preços, consulte a Base de Dados Azure para a oferta de capacidade reservada à [MySQL.](https://azure.microsoft.com/pricing/details/mysql/) </br>
 
-Pode comprar base de dados Azure para a capacidade reservada mySQL no [portal Azure](https://portal.azure.com/). Para comprar a capacidade reservada:
+Pode comprar base de dados Azure para a capacidade reservada mySQL no [portal Azure](https://portal.azure.com/). Pague pela reserva [antecipadamente ou com pagamentos mensais](../cost-management-billing/reservations/monthly-payments-reservations.md). Para comprar a capacidade reservada:
 
 * Você deve estar no papel de proprietário para pelo menos uma Empresa ou subscrição individual com taxas pay-as-you-go.
 * Para subscrições Enterprise, **Adicionar Instâncias Reservadas** tem de estar ativada no [EA Portal](https://ea.azure.com/). Ou, se essa definição for desativada, deve ser um Administrador EA na subscrição.
@@ -38,7 +38,7 @@ Por exemplo, suponhamos que está a executar uma base de dados Gen5 – 32 vCore
 ## <a name="buy-azure-database-for-mysql-reserved-capacity"></a>Comprar Base de Dados Azure para a capacidade reservada mySQL
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. Selecione todas as reservas **de serviços** > **Reservations**.
+2. Selecione **Todos os serviços** > **Reservas**.
 3. Selecione **Adicionar** e, em seguida, no painel de reservas de compra, selecione Base de **Dados Azure para MySQL** para comprar uma nova reserva para as suas bases de dados MySQL.
 4. Preencha os campos necessários. Bases de dados existentes ou novas que correspondam aos atributos que seleciona qualificam-se para obter o desconto de capacidade reservado. O número real da sua Base de Dados Azure para servidores MySQL que obtêm o desconto depende do âmbito e quantidade selecionados.
 
@@ -60,7 +60,7 @@ A tabela seguinte descreve os campos necessários.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Cancelar, trocar ou reembolsar reservas
 
-Pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para mais informações, consulte [trocas de self-service e reembolsos para Reservas Azure](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund).
+Pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para obter mais informações, veja [Trocas e reembolsos personalizados das Reservas do Azure](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund).
 
 ## <a name="vcore-size-flexibility"></a>flexibilidade do tamanho vCore
 

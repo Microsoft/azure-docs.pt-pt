@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 02736b63b900600c51eda8666aff0117b9307824
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1aeab1a7dcdf2b12efc268ed0d47834b24d34b87
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81310776"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734982"
 ---
 # <a name="azure-security-center-for-iot-frequently-asked-questions"></a>Perguntas mais frequentes sobre o Centro de Segurança do Azure para IoT
 
@@ -66,7 +66,7 @@ O Azure Security Center para o agente IoT fornece cobertura de ameaça de nível
 
 ## <a name="where-can-i-get-the-azure-security-center-for-iot-security-agent"></a>Onde posso arranjar o Centro de Segurança Azure para agente de segurança IoT?
 
-O Azure Security Center for IoT security agent é de código aberto e está disponível no https://github.com/Azure/Azure-Security-IoTGitHub em versões windows e Linux de 32 bits e 64 bits: .
+O Azure Security Center for IoT security agent é de código aberto e está disponível no https://github.com/Azure/Azure-IoT-SecurityGitHub em versões windows e Linux de 32 bits e 64 bits: .
 
 ## <a name="where-does-the-azure-security-center-for-iot-agent-get-installed"></a>Onde é que o Centro de Segurança Azure para agente IoT é instalado?
 

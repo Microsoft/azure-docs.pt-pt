@@ -1,6 +1,6 @@
 ---
-title: Criar ou atualizar funções personalizadas do Azure utilizando o portal Azure (Pré-visualização) - Azure RBAC
-description: Aprenda a criar funções personalizadas azure para o controlo de acesso baseado em funções Azure (Azure RBAC) utilizando o portal Azure. Isto inclui como listar, criar, atualizar e eliminar funções personalizadas.
+title: Criar ou atualizar funções personalizadas do Azure utilizando o portal Azure - Azure RBAC
+description: Saiba como criar funções personalizadas azure utilizando o portal Azure e o controlo de acesso baseado em funções Azure (Azure RBAC). Isto inclui como listar, criar, atualizar e eliminar funções personalizadas.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -10,23 +10,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/26/2020
+ms.date: 04/30/2020
 ms.author: rolyon
-ms.openlocfilehash: 3204cdf51f3f37588f684f801a811f569b337d13
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f9ba8fa64a9699917fe73365cb5d9aa0c858cde7
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77674873"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734184"
 ---
-# <a name="create-or-update-azure-custom-roles-using-the-azure-portal-preview"></a>Criar ou atualizar funções personalizadas do Azure utilizando o portal Azure (Pré-visualização)
+# <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Criar ou atualizar funções personalizadas do Azure utilizando o portal Azure
 
-> [!IMPORTANT]
-> As funções personalizadas azure utilizando o portal Azure estão atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-> Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
-
-Se os [papéis integrados](built-in-roles.md) do Azure não atenderem às necessidades específicas da sua organização, pode criar os seus próprios papéis personalizados Azure. Tal como as funções incorporadas, pode atribuir funções personalizadas a utilizadores, grupos e diretores de serviços nos âmbitos de grupode subscrição e recursos. As funções personalizadas são armazenadas num diretório Azure Ative Directory (Azure AD) e podem ser partilhadas através de subscrições. Cada diretório pode ter até 5000 papéis personalizados. As funções personalizadas podem ser criadas através do portal Azure, Azure PowerShell, Azure CLI ou da REST API. Este artigo descreve como criar papéis personalizados usando o portal Azure (atualmente em pré-visualização).
+Se os [papéis integrados](built-in-roles.md) do Azure não atenderem às necessidades específicas da sua organização, pode criar os seus próprios papéis personalizados Azure. Tal como as funções incorporadas, pode atribuir funções personalizadas a utilizadores, grupos e diretores de serviços nos âmbitos de grupode subscrição e recursos. As funções personalizadas são armazenadas num diretório Azure Ative Directory (Azure AD) e podem ser partilhadas através de subscrições. Cada diretório pode ter até 5000 papéis personalizados. As funções personalizadas podem ser criadas através do portal Azure, Azure PowerShell, Azure CLI ou da REST API. Este artigo descreve como criar papéis personalizados usando o portal Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -77,7 +72,7 @@ Se preferir, pode seguir estes passos para iniciar um papel personalizado do zer
 
 1. No portal Azure, abra uma subscrição ou grupo de recursos onde pretende que o papel personalizado seja atribuído e, em seguida, abra o controlo de **acesso (IAM)**.
 
-1. Clique em **Adicionar** e, em seguida, clique em **Adicionar a função personalizada (pré-visualização)**.
+1. Clique em **Adicionar** e, em seguida, clique em **Adicionar a função personalizada**.
 
     ![Adicionar menu de papel personalizado](./media/custom-roles-portal/add-custom-role-menu.png)
 
@@ -109,7 +104,7 @@ Se preferir, pode especificar a maioria dos seus valores de papel personalizados
     }
     ```
 
-1. No ficheiro JSON, especifique valores para as várias propriedades. Aqui está um exemplo com alguns valores adicionados. Para obter informações sobre as diferentes propriedades, consulte Compreender definições de [papéis.](role-definitions.md)
+1. No ficheiro JSON, especifique valores para as várias propriedades. Aqui está um exemplo com alguns valores adicionados. Para obter informações sobre as diferentes propriedades, consulte Definições de [função De Understand Azure.](role-definitions.md)
 
     ```json
     {
@@ -141,7 +136,7 @@ Se preferir, pode especificar a maioria dos seus valores de papel personalizados
     
 1. No portal Azure, abra a página de Controlo de **Acesso (IAM).**
 
-1. Clique em **Adicionar** e, em seguida, clique em **Adicionar a função personalizada (pré-visualização)**.
+1. Clique em **Adicionar** e, em seguida, clique em **Adicionar a função personalizada**.
 
     ![Adicionar menu de papel personalizado](./media/custom-roles-portal/add-custom-role-menu.png)
 
@@ -260,7 +255,7 @@ Quando se exclui uma permissão, `NotActions` `NotDataActions`é adicionada como
 
 ## <a name="step-5-assignable-scopes"></a>Passo 5: Âmbitos atribuíveis
 
-No separador de **âmbitos designados,** especifica onde está disponível a sua função personalizada para atribuição, como por exemplo, subscrição ou grupo de recursos. Dependendo da forma como escolheu começar, este separador pode listar o âmbito onde abriu a página de controlo de acesso (IAM). A definição do âmbito atribuível ao âmbito raiz ("/") não é suportada. Para esta pré-visualização, não é possível adicionar um grupo de gestão como um âmbito atribuível.
+No separador de **âmbitos designados,** especifica onde está disponível a sua função personalizada para atribuição, como por exemplo, subscrição ou grupo de recursos. Dependendo da forma como escolheu começar, este separador pode listar o âmbito onde abriu a página de controlo de acesso (IAM). A definição do âmbito atribuível ao âmbito raiz ("/") não é suportada. Atualmente, não é possível adicionar um grupo de gestão como um âmbito atribuível.
 
 1. Clique **em Adicionar âmbitos atribuíveis** para abrir o painel de âmbitos atribuíveis Adicionar.
 
@@ -352,6 +347,6 @@ Siga estes passos para ver os seus papéis personalizados.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Tutorial: Criar uma função personalizada com o Azure PowerShell](tutorial-custom-role-powershell.md)
-- [Custom roles in Azure](custom-roles.md) (Funções personalizadas no Azure)
+- [Tutorial: Criar uma função personalizada azure usando o Azure PowerShell](tutorial-custom-role-powershell.md)
+- [Papéis personalizados do Azure](custom-roles.md)
 - [Operações de fornecedor de recursos do Gestor de Recursos Azure](resource-provider-operations.md)

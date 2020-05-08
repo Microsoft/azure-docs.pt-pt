@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: spelluru
-ms.openlocfilehash: 9593d60f76802cd515ca85616bce028cf3aa0d49
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7591f22286f9ac451a15dd926adab0212adb190e
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77589322"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691292"
 ---
 # <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>Configurar uma galeria de imagem partilhada no Azure DevTest Labs
 A DevTest Labs agora suporta a funcionalidade Da Galeria de [Imagem Partilhada.](../virtual-machines/windows/shared-image-galleries.md) Permite que os utilizadores de laboratório acedam a imagens de um local partilhado enquanto criam recursos laboratoriais. Também o ajuda a construir estrutura e organização em torno das suas imagens VM personalizadas. A galeria de imagens partilhadas apresenta suportes:
@@ -91,9 +91,21 @@ Se estiver a usar um modelo do Gestor de Recursos Azure para anexar uma galeria 
 
 Para obter um exemplo completo do modelo do Gestor de Recursos, consulte estas amostras de modelo do Gestor de Recursos no nosso repositório público gitHub: Configure uma galeria de [imagens partilhadas enquanto cria um laboratório](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates/101-dtl-create-lab-shared-gallery-configured).
 
-## <a name="use-api"></a>Utilizar API
+## <a name="use-rest-api"></a>Utilizar a API REST
 
-### <a name="shared-image-galleries---create-or-update"></a>Galerias de imagem partilhadas - criar ou atualizar
+### <a name="get-a-list-of-labs"></a>Obtenha uma lista de laboratórios 
+
+```rest
+GET  https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs?api-version= 2018-10-15-preview
+```
+
+### <a name="get-the-list-of-shared-image-galleries-associated-with-a-lab"></a>Obtenha a lista de galerias de imagem partilhadas associadas a um laboratório
+
+```rest
+GET  https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/sharedgalleries?api-version= 2018-10-15-preview
+   ```
+
+### <a name="create-or-update-shared-image-gallery"></a>Criar ou atualizar galeria de imagens partilhadas
 
 ```rest
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/sharedgalleries/{name}?api-version= 2018-10-15-preview
@@ -107,12 +119,11 @@ Body:
 
 ```
 
-### <a name="shared-image-galleries-images---list"></a>Imagens de Galerias de Imagem Partilhada - Lista 
+### <a name="list-images-in-a-shared-image-gallery"></a>Liste imagens numa galeria de imagens partilhadas
 
 ```rest
 GET  https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/sharedgalleries/{name}/sharedimages?api-version= 2018-10-15-preview
 ```
-
 
 
 

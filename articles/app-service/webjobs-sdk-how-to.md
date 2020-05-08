@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 5a8d5f96449cfecd4628c38fa2788a1e06e96b07
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a046791b8c50577c1921764b06bac5d88780194d
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81758901"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734999"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>How to use the Azure WebJobs SDK for event-driven background processing (Como utilizar o SDK de WebJobs do Azure para processamento em segundo plano condicionado por eventos)
 
@@ -829,7 +829,7 @@ Cada registo criado `ILogger` por um `Category` caso `Level`tem um associado e .
 |Aviso     | 3 |
 |Erro       | 4 |
 |Crítica    | 5 |
-|Nenhuma        | 6 |
+|Nenhum        | 6 |
 
 Pode filtrar de forma [`LogLevel`](/dotnet/api/microsoft.extensions.logging.loglevel)independente cada categoria para um determinado . Por exemplo, você pode querer ver todos os registos para processamento de gatilho blob, mas apenas `Error` e mais alto para todo o resto.
 
@@ -956,9 +956,9 @@ Na versão 3. *x,* já não é [`TelemetryClient`] preciso descarregar o quando 
 
 #### <a name="version-2x"></a>Versão 2. *x*
 
-Na versão 2. *x*, [`TelemetryClient`] criado internamente pelo fornecedor de Insights de [`ServerTelemetryChannel`](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/ServerTelemetryChannel/ServerTelemetryChannel.cs)Aplicação para as utilizações do WebJobs SDK . Quando o ponto final do Application Insights não está disponível ou a estrangular os pedidos de entrada, este canal [guarda pedidos no sistema de ficheiros da aplicação web e reenvia-os mais tarde](https://apmtips.com/blog/2015/09/03/more-telemetry-channels).
+Na versão 2. *x*, [`TelemetryClient`] criado internamente pelo fornecedor de Insights de [`ServerTelemetryChannel`](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/.publicApi/Microsoft.AI.ServerTelemetryChannel.dll)Aplicação para as utilizações do WebJobs SDK . Quando o ponto final do Application Insights não está disponível ou a estrangular os pedidos de entrada, este canal [guarda pedidos no sistema de ficheiros da aplicação web e reenvia-os mais tarde](https://apmtips.com/blog/2015/09/03/more-telemetry-channels).
 
-O [`TelemetryClient`] é criado por uma `ITelemetryClientFactory`classe que implementa. Por defeito, [`DefaultTelemetryClientFactory`](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/DefaultTelemetryClientFactory.cs)este é o .
+O [`TelemetryClient`] é criado por uma `ITelemetryClientFactory`classe que implementa. Por defeito, [`DefaultTelemetryClientFactory`](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/)este é o .
 
 Se quiser modificar qualquer parte do pipeline Application Insights, `ITelemetryClientFactory`pode fornecer o seu próprio [`TelemetryClient`], e o anfitrião usará a sua classe para construir a . Por exemplo, este `DefaultTelemetryClientFactory` código substitui para `ServerTelemetryChannel`modificar uma propriedade de:
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: acc8ceaa96f6fddafdbf4aa74ab9e43a1a60714a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 68453341defd2d359e69e0ecf8a821464fead0d3
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195677"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744034"
 ---
 # <a name="azure-security-baseline-for-backup"></a>Linha de base de segurança azure para backup
 
@@ -460,7 +460,7 @@ A Microsoft gere a infraestrutura subjacente ao Azure Backup e implementou contr
 
 **Orientação**: O tráfego de backup dos servidores para o cofre dos Serviços de Recuperação é transferido através de um link HTTPS seguro e encriptado utilizando advanced Encryption Standard (AES) 256 quando armazenado no cofre.
 
-- [Compreender a encriptação em repouso em Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#encryption)
+- [Compreender a encriptação em repouso em Azure Backup](https://docs.microsoft.com/azure/backup/backup-encryption)
 
 **Monitorização**do Azure Security Center : Não aplicável
 
@@ -508,7 +508,7 @@ A Azure Backup fornece três funções incorporadas para controlar as operaçõe
 
 Ao fazer backup com o agente MARS ou utilizar um cofre de Serviços de Recuperação encriptado com uma chave gerida pelo cliente, apenas tem acesso à chave de encriptação. A Microsoft nunca mantém uma cópia e não tem acesso à chave. Se a chave estiver deslocada, a Microsoft não pode recuperar os dados de backup.
 
-- [Compreender a encriptação em repouso para o Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#encryption)
+- [Compreender a encriptação em repouso para o Azure Backup](https://docs.microsoft.com/azure/backup/backup-encryption)
 
 **Monitorização**do Azure Security Center : Não aplicável
 
@@ -902,7 +902,7 @@ O cliente de reserva geria as chaves dentro do Cofre de Chaves Azure.
 
 - [Como apoiar as chaves do cofre chave em Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
-- [Compreender a encriptação em Backup Azure](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#encryption-of-backup-data-using-customer-managed-keys)
+- [Compreender a encriptação em Backup Azure](https://docs.microsoft.com/azure/backup/backup-encryption#encryption-of-backup-data-using-customer-managed-keys)
 
 **Monitorização**do Azure Security Center : Não aplicável
 

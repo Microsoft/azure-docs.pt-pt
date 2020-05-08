@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 03/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5376562d9df35539a33f6746b387a1ff7083b8f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6a878ecf4519a852a9798b320bda26cd490487a4
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81676451"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731990"
 ---
 # <a name="manage-updates-for-multiple-azure-virtual-machines"></a>Gerir atualizações para várias máquinas virtuais do Azure
 
@@ -21,7 +21,7 @@ Pode utilizar a Azure Automation Update Management para gerir atualizações e p
 - Agendar a instalação das atualizações necessárias.
 - Reveja os resultados da implementação para verificar se as atualizações foram aplicadas com sucesso a todas as máquinas virtuais para as quais a Atualização está ativada.
 
-Para conhecer os requisitos do sistema para a Gestão de Atualizações, consulte os [requisitos do cliente](automation-update-management.md#clients)da Atualização Management .
+Para conhecer os requisitos do sistema para a Gestão de Atualizações, consulte os [requisitos do cliente](automation-update-management.md#client-requirements)da Atualização Management .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -81,7 +81,7 @@ A tabela seguinte descreve as origens ligadas que são suportadas por esta solu�
 | Agentes do Windows |Sim |A Update Management recolhe informações sobre atualizações do sistema a partir de agentes do Windows e inicia a instalação de atualizações necessárias. |
 | Agentes do Linux |Sim |A Update Management recolhe informações sobre atualizações do sistema a partir de agentes Linux e inicia a instalação de atualizações necessárias sobre distribuições suportadas. |
 | Grupo de gestão do Operations Manager |Sim |A Update Management recolhe informações sobre atualizações do sistema de agentes de um grupo de gestão conectado. |
-| conta de Armazenamento do Azure |Não |O Azure Storage não inclui informações sobre atualizações do sistema. |
+| Conta de armazenamento do Azure |No |O Azure Storage não inclui informações sobre atualizações do sistema. |
 
 ### <a name="collection-frequency"></a>Frequência da recolha
 

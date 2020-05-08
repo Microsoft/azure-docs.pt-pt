@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 03/18/2020
-ms.openlocfilehash: 9c2e00ed14a45c6df7cf72845db2ecd069381ca5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4f0eb6aa92dd8999baed6868a159c86d5e7bd0c8
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81257221"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594656"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Depurar e resolver problemas de pipelines de machine learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -128,28 +128,32 @@ logger.error("I am an OpenCensus error statement with custom dimensions", {'step
 
 ## <a name="debug-and-troubleshoot-in-azure-machine-learning-designer-preview"></a>Debug e troubleshoot em Azure Machine Learning designer (pré-visualização)
 
-Esta secção fornece uma visão geral de como resolver os oleodutos no designer.
-Para os oleodutos criados no designer, pode encontrar os **ficheiros** de registo na página de autor, quer na página de detalhes do pipeline.
+Esta secção fornece uma visão geral de como resolver os oleodutos no designer. Para os oleodutos criados no designer, pode encontrar o **ficheiro 70_driver_log** na página de autor, ou na página de detalhes do pipeline run.
 
-### <a name="access-logs-from-the-authoring-page"></a>Acesso de registos a partir da página de autor
+### <a name="get-logs-from-the-authoring-page"></a>Obtenha registos da página de autor
 
-Quando submeter uma execução de pipeline e permanecer na página de autor, pode encontrar os ficheiros de registo gerados para cada módulo.
+Quando submeter uma execução de pipeline e permanecer na página de autor, pode encontrar os ficheiros de registo gerados para cada módulo à medida que cada módulo termina em execução.
 
-1. Selecione qualquer módulo na tela de autoria.
+1. Selecione um módulo que tenha terminado de funcionar na tela de autoria.
 1. No painel direito do módulo, aceda ao separador **Outputs + logs.**
-1. Selecione `70_driver_log.txt`o ficheiro de registo .
+1. Expanda o painel certo e selecione o **70_driver_log.txt** para visualizar o ficheiro no navegador. Também pode baixar registos localmente.
 
-    ![Registos de módulos de página de autoria](./media/how-to-debug-pipelines/pipelinerun-05.png)
+    ![Painel de saída expandido no designer](./media/how-to-debug-pipelines/designer-logs.png)
 
-### <a name="access-logs-from-pipeline-runs"></a>Registos de acesso a partir de pipeline runs
+### <a name="get-logs-from-pipeline-runs"></a>Obtenha registos de corridas de gasodutos
 
-Também pode encontrar os ficheiros de registo de execuções específicas na página de detalhes de execução do gasoduto nas secções **Pipelines** ou **Experiments.**
+Também pode encontrar os ficheiros de registo para execuções específicas na página de detalhes de execução do pipeline, que podem ser encontrados na secção **Pipelines** ou **Experiments** do estúdio.
 
 1. Selecione uma execução de pipeline criada no designer.
-    ![Página de execução do gasoduto](./media/how-to-debug-pipelines/pipelinerun-04.png)
-1. Selecione qualquer módulo no painel de pré-visualização.
+
+    ![Página de execução do gasoduto](./media/how-to-debug-pipelines/designer-pipelines.png)
+
+1. Selecione um módulo no painel de pré-visualização.
 1. No painel direito do módulo, aceda ao separador **Outputs + logs.**
-1. Selecione `70_driver_log.txt`o ficheiro de registo .
+1. Expanda o painel certo para ver o ficheiro **70_driver_log.txt** no navegador ou selecione o ficheiro para descarregar os registos localmente.
+
+> [!IMPORTANT]
+> Para atualizar um pipeline a partir da página de detalhes da execução do gasoduto, deve **clonar** o gasoduto executar para um novo projeto de pipeline. Uma corrida de gasodutos é uma imagem do oleoduto. É semelhante a um ficheiro de registo, e não pode ser alterado. 
 
 ## <a name="debug-and-troubleshoot-in-application-insights"></a>Depuração e resolução de problemas em Insights de Aplicação
 Para obter mais informações sobre a utilização da biblioteca OpenCensus Python desta forma, consulte este guia: [Debug e troubleshoot machine learning pipelines in Application Insights](how-to-debug-pipelines-application-insights.md)

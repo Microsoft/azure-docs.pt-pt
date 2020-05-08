@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 05/01/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd41e79a1e08c57e806f6ada32faccfa5fdf5792
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0c5643b0ce9d93c28372b30e6fc114816cafbce6
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80295288"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690448"
 ---
 # <a name="what-is-conditional-access-report-only-mode"></a>O que é o modo de relatório de acesso condicional?
 
@@ -26,7 +26,7 @@ O modo apenas de relatório é um novo estado de política de Acesso Condicional
 
 - As políticas de acesso condicional podem ser ativadas no modo apenas para relatórios.
 - Durante o iniciar o adséris, as políticas em modo de relatório são avaliadas, mas não aplicadas.
-- Os resultados são registados nos separadores de **acesso condicional** e apenas de **relatório (Pré-visualização)** dos dados de registo de início de sessão.
+- Os resultados são registados nos separadores de **acesso condicional** e **apenas** de relatório dos dados de registo de início de sessão.
 - Os clientes com uma subscrição do Monitor Azure podem monitorizar o impacto das suas políticas de Acesso Condicional utilizando o livro de insights de acesso condicional.
 
 > [!WARNING]

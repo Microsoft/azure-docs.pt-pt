@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
-ms.openlocfilehash: ff8dc58b9122e5173a9a6065e2efdbc5697be0d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 250fd242e76f64002a6e55e7caf616ac201b593b
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81727219"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692247"
 ---
 # <a name="known-issues"></a>Problemas Conhecidos #
 
@@ -46,9 +46,10 @@ O lançamento atual tem as seguintes questões conhecidas:
 
 - Na janela DVR do conteúdo ao vivo, quando o conteúdo terminar a linha do tempo continuará a crescer até procurar a área ou chegar ao fim da apresentação.
 - Apresentações ao vivo no Firefox com MSE ativadas tem alguns problemas
-- Os ativos que são áudio ou vídeo só não reprodução ão através da tecnologia AzureHtml5JS.
-  - Se quiser reproduzir ativos sem áudio ou vídeo, pode fazê-lo inserindo áudio ou vídeo em branco utilizando a [ferramenta Azure Media Services Explorer](https://aka.ms/amse)
-    - Instruções sobre como inserir áudio silencioso podem ser encontradas [aqui](https://azure.microsoft.com/documentation/articles/media-services-advanced-encoding-with-mes/#silent_audio)
+
+- Os ativos que são áudio só não reprodução ão através da tecnologia AzureHtml5JS.
+  - Se quiser reproduzir ativos sem áudio, pode fazê-lo inserindo áudio em branco utilizando a [ferramenta Azure Media Services Explorer](https://aka.ms/amse)
+  - Instruções sobre como inserir áudio silencioso podem ser encontradas [aqui](https://azure.microsoft.com/documentation/articles/media-services-advanced-encoding-with-mes/#silent_audio)
 
 ## <a name="flash"></a>Flash ##
 

@@ -22,6 +22,11 @@
       href: data-lake-store-get-started-powershell.md
     - name: Utilizar a CLI do Azure
       href: data-lake-store-get-started-cli-2.0.md
+- name: Amostras
+  items:
+    - name: Incorporações do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Procedimento
   items:
     - name: Carregar e mover dados

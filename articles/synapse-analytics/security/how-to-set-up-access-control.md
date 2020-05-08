@@ -11,7 +11,7 @@ ms.author: mahi
 ms.reviewer: jrasnick
 ms.openlocfilehash: 383a28e90c093c0885c34af03371608261ece110
 ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/01/2020
 ms.locfileid: "82692620"

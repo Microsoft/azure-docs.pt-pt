@@ -4,12 +4,12 @@ description: Aprenda a codificar e configurar Funções Duráveis para executar 
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: d8dd0c86fbc520d0bd3ef6034891bd9871774b4a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ad498bdbc4e6dc9745c6ef45b3dc601ad36c0a62
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74232730"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82733418"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Como executar funções duráveis como WebJobs
 
@@ -19,7 +19,7 @@ Por predefinição, as Funções Duráveis utilizam o tempo de funcionamento das
 
 Na versão 3.x do WebJobs SDK, o `IHost`anfitrião é uma implementação `JobHost` de , e na versão 2.x utiliza o objeto.
 
-A amostra de funções duráveis em cadeia está disponível numa versão WebJobs SDK 2.x: descarregue ou clone o [repositório de Funções Duráveis,](https://github.com/azure/azure-functions-durable-extension/)e vá para as *amostras\\webjobssdk\\chaining* pasta.
+A amostra de funções duráveis em cadeia está disponível numa versão WebJobs SDK 2.x: descarregue ou clone o [repositório de Funções Duráveis,](https://github.com/azure/azure-functions-durable-extension/)e verifique o ramo *v1* e vá para a pasta de *corrente webjobssdk\\\\de amostras.*
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -184,7 +184,7 @@ while (true)
 
 Tem funções duráveis configuradas para funcionar como um WebJob, e agora tem uma compreensão de como isso vai diferir de executar Funções Duráveis como Funções Azure autónomas. Neste momento, vê-lo funcionar numa amostra pode ser útil.
 
-Esta secção fornece uma visão geral de como executar o [projeto da amostra.](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/webjobssdk/chaining) Para instruções detalhadas que expliquem como executar um projeto WebJobs SDK localmente e implementá-lo para um WebJob Azure, consulte [Get started with the WebJobs SDK](../../app-service/webjobs-sdk-get-started.md#deploy-as-a-webjob).
+Esta secção fornece uma visão geral de como executar o [projeto da amostra.](https://github.com/Azure/azure-functions-durable-extension/tree/v1/samples/webjobssdk/chaining) Para instruções detalhadas que expliquem como executar um projeto WebJobs SDK localmente e implementá-lo para um WebJob Azure, consulte [Get started with the WebJobs SDK](../../app-service/webjobs-sdk-get-started.md#deploy-as-a-webjob).
 
 ### <a name="run-locally"></a>Executar localmente
 

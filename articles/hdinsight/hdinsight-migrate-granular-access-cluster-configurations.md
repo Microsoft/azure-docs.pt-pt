@@ -6,13 +6,13 @@ ms.author: tyfox
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/22/2019
-ms.openlocfilehash: bb78d84aa0f9a2832b6599edeac9d50e0e226437
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/20/2020
+ms.openlocfilehash: 058300dca3e7eae41b7d8010e1ca5ee7d4cdcf3a
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80546345"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598475"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migrar para o acesso granular baseado em funções para as configurações de cluster
 
@@ -28,10 +28,10 @@ Estamos também a introduzir uma nova função de Operador de [Cluster HDInsight
 
 | Função                                  | Anteriormente                                                                                       | Indo para a frente       |
 |---------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
-| Leitor                                | - Ler acesso, incluindo segredos                                                                   | - Ler acesso, **excluindo** segredos |           |   |   |
+| Leitor                                | - Ler acesso, incluindo segredos.                                                                   | - Ler acesso, **excluindo** segredos |           |   |   |
 | Operador de cluster HDInsight<br>(Novo Papel) | N/D                                                                                              | - Ler/escrever acesso, incluindo segredos         |   |   |
-| Contribuinte                           | - Ler/escrever acesso, incluindo segredos<br>- Criar e gerir todos os tipos de recursos Azure.     | Sem alterações |
-| Proprietário                                 | - Ler/escrever acesso incluindo segredos<br>- Acesso total a todos os recursos<br>- Delegar acesso a outros | Sem alterações |
+| Contribuinte                           | - Ler/escrever acesso, incluindo segredos.<br>- Criar e gerir todos os tipos de recursos Azure.<br>- Executar ações de guião.     | Sem alterações |
+| Proprietário                                 | - Ler/escrever acesso, incluindo segredos.<br>- Acesso total a todos os recursos<br>- Delegar acesso a outros.<br>- Executar ações de guião. | Sem alterações |
 
 Para obter informações sobre como adicionar a atribuição de função de Operador de Cluster HDInsight a um utilizador para conceder-lhes acesso de leitura/escrita a segredos de cluster, consulte a secção abaixo, Adicione a atribuição de função de Operador de [Cluster HDInsight a um utilizador](#add-the-hdinsight-cluster-operator-role-assignment-to-a-user).
 

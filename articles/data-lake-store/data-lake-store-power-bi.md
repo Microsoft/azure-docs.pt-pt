@@ -1,26 +1,20 @@
 ---
-title: Analise dados em Azure Data Lake Storage Gen1 usando Power BI / Microsoft Docs
-description: Use o Power BI para analisar os dados armazenados no Azure Data Lake Storage Gen1
-services: data-lake-store
-documentationcenter: ''
+title: Analisar dados em Azure Data Lake Storage Gen1 - Power BI
+description: Use o Power BI para analisar os dados armazenados no Azure Data Lake Storage Gen1.
 author: twooley
-manager: mtillman
-editor: cgronlun
-ms.assetid: 57d19d27-e135-49d9-a7ea-46c48ef4e3bd
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: d8717b8f365e692b5f27bf8a04d65c5147b8f31b
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 952be68a1675732857969f875cd2b39c2feab674
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "65603207"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691664"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen1-by-using-power-bi"></a>Analise dados em Azure Data Lake Storage Gen1 usando Power BI
-Neste artigo, aprenderá a usar o Power BI Desktop para analisar e visualizar dados armazenados no Azure Data Lake Storage Gen1.
+Neste artigo, aprende-se a usar o Power BI Desktop para analisar e visualizar dados armazenados no Azure Data Lake Storage Gen1.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este tutorial, tem de ter o seguinte:
@@ -38,7 +32,7 @@ Antes de começar este tutorial, tem de ter o seguinte:
 4. Na caixa de diálogo **Azure Data Lake Store,** forneça o URL à sua conta Data Lake Storage Gen1 e, em seguida, clique em **OK**.
    
     ![URL para Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-url.png "URL para Data Lake Storage Gen1")
-5. Na caixa de diálogo seguinte, clique **em Iniciar** sessão para iniciar sessão na conta Data Lake Storage Gen1. Será redirecionado para o sinal da sua organização na página. Siga as instruções para assinar na conta.
+5. Na caixa de diálogo seguinte, clique **em Iniciar** sessão para iniciar sessão na conta Data Lake Storage Gen1. Será redirecionado para a página de inscrição da sua organização. Siga as instruções para assinar na conta.
    
     ![Assine o Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-signin.png "Assine o Data Lake Storage Gen1")
 6. Depois de ter assinado com sucesso, clique em **Connect**.

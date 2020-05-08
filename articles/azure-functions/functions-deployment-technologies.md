@@ -1,17 +1,17 @@
 ---
 title: Tecnologias de implantação em Funções Azure
 description: Aprenda as diferentes formas de implementar código para funções Azure.
-author: georgewallace
+author: ggailey777
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: gwallace
-ms.openlocfilehash: 43352117d149abbe41ba7bf49a1ffb68e46d2707
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: glenga
+ms.openlocfilehash: ec5e9da2ab80f4728d342303e1eb08c49f765485
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277131"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735305"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologias de implantação em Funções Azure
 

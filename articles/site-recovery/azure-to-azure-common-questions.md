@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 7d3bcc32dc8f1412a5adbc175a5f8618628bce83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bc2acc4303a270a2bf71f0c9ff249b60a0328a09
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80547881"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983283"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Questões comuns: Recuperação de desastres Azure-to-Azure
 
@@ -100,6 +100,10 @@ Não, a Recuperação do Site não requer conectividade na Internet. Mas requer 
 Sim, pode replicar a aplicação e manter a configuração de recuperação de desastres num grupo de recursos separados também.
 
 Por exemplo, se a sua aplicação tiver a aplicação, base de dados e web de cada nível num grupo de recursos separado, então terá de selecionar o assistente de [replicação](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) três vezes para proteger todos os níveis. A Recuperação do Site irá replicar estes três níveis em três grupos de recursos diferentes.
+
+### <a name="can-i-move-storage-accounts-across-resource-groups"></a>Posso mover contas de armazenamento através de grupos de recursos?
+
+Não, este é um cenário não apoiado. No entanto, se transferir acidentalmente as contas de armazenamento para um grupo de recursos diferentes e eliminar o grupo de recursos originais, então pode criar um novo grupo de recursos com o mesmo nome que o antigo grupo de recursos e, em seguida, mover a conta de armazenamento para este grupo de recursos.
 
 ## <a name="replication-policy"></a>Política de replicação
 
@@ -194,10 +198,10 @@ Pode replicar 16 máquinas virtuais juntas num grupo de replicação.
 Uma vez que a consistência multi-VM é intensiva em CPU, permitindo-lhe afetar o desempenho da carga de trabalho. Utilize a consistência multi-VM apenas se as máquinas estiverem a funcionar a mesma carga de trabalho e precisar de consistência em várias máquinas. Por exemplo, se tiver duas instâncias do SQL Server e dois servidores web numa aplicação, deve ter consistência multi-VM apenas para as instâncias do Servidor SQL.
 
 ### <a name="can-you-add-an-already-replicating-vm-to-a-replication-group"></a>Pode adicionar um VM já replicando a um grupo de replicação?
-
 Pode adicionar um VM a um novo grupo de replicação, permitindo a replicação. Também pode adicionar um VM a um grupo de replicação existente, permitindo a replicação. No entanto, não é possível adicionar um VM já replicado a um novo grupo de replicação ou grupo de replicação existente.
-
+ 
 ## <a name="failover"></a>Ativação pós-falha
+
 
 ### <a name="how-is-capacity-ensured-in-the-target-region-for-azure-vms"></a>Como é assegurada a capacidade na região-alvo para os VMs Azure?
 

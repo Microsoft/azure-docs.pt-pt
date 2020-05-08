@@ -2,13 +2,13 @@
 title: referência host.json para funções Azure 2.x
 description: Documentação de referência para o ficheiro host.json funções azure com o tempo de funcionamento v2.
 ms.topic: conceptual
-ms.date: 01/06/2020
-ms.openlocfilehash: 7967cdc7f5f7cbb92c12de15d31471fda8aa6569
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/28/2020
+ms.openlocfilehash: 39e6ce5d6807a554cc1714a3970bed8303c31ce8
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81758845"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690890"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>referência host.json para funções Azure 2.x e mais tarde 
 
@@ -24,6 +24,8 @@ O ficheiro de metadados *host.json* contém opções de configuração global qu
 Outras opções de configuração de aplicações de função são geridas nas definições da sua [aplicação](functions-app-settings.md) (para aplicações implementadas) ou no ficheiro [local.settings.json](functions-run-local.md#local-settings-file) (para desenvolvimento local).
 
 As configurações em host.json relacionadas com encadernações são aplicadas igualmente a cada função na aplicação de função. 
+
+Também pode [substituir ou aplicar configurações por ambiente](#override-hostjson-values) utilizando as definições de aplicação.
 
 ## <a name="sample-hostjson-file"></a>Arquivo host.json da amostra
 
@@ -386,6 +388,23 @@ Um conjunto de [diretórios](functions-reference-csharp.md#watched-directories) 
 ```json
 {
     "watchDirectories": [ "Shared" ]
+}
+```
+
+## <a name="override-hostjson-values"></a>Sobrepor os valores do host.json
+
+Pode haver casos em que deseja configurar ou modificar configurações específicas num ficheiro host.json para um ambiente específico, sem alterar o próprio ficheiro host.json.  Pode substituir valores específicos do host.json e criar um valor equivalente como definição de aplicação. Quando o tempo de execução `AzureFunctionsJobHost__path__to__setting`encontra uma definição de aplicação no `path.to.setting` formato, substitui a configuração equivalente host.json localizada no JSON. Quando expressa como uma definição`.`de aplicação, o ponto () usado para`__`indicar a hierarquia JSON é substituído por um duplo sublinhado ( ). 
+
+Por exemplo, diga que queria desativar a amostragem de Insight de Aplicação quando se executa localmente. Se alterar o ficheiro host.json local para desativar os Insights de Aplicação, esta alteração pode ser empurrada para a sua aplicação de produção durante a implementação. A forma mais segura de o fazer `"AzureFunctionsJobHost__logging__applicationInsights__samplingSettings__isEnabled":"false"` é, `local.settings.json` em vez disso, criar uma definição de aplicação como no ficheiro. Pode ver isso no `local.settings.json` seguinte ficheiro, que não é publicado:
+
+```json
+{
+    "IsEncrypted": false,
+    "Values": {
+        "AzureWebJobsStorage": "{storage-account-connection-string}",
+        "FUNCTIONS_WORKER_RUNTIME": "{language-runtime}",
+        "AzureFunctionsJobHost__logging__applicationInsights__samplingSettings__isEnabled":"false"
+    }
 }
 ```
 

@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/14/2020
-ms.openlocfilehash: 1dceb3db4572ecdaf504745dba1099a5eccead43
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/30/2020
+ms.openlocfilehash: 7ed01a57a4c2a55d777907a6cc14b111fb2086e3
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80395791"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731905"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Eliminar e recuperar o espaço de trabalho do Azure Log Analytics
 
@@ -59,14 +59,13 @@ PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-
 
 ### <a name="troubleshooting"></a>Resolução de problemas
 
-Deve ter permissões de 'Log Analytics Contributor' para eliminar o espaço de trabalho do Log Analytics.<br>
-Se receber uma mensagem de erro '*Este nome de espaço de trabalho já está em uso*' ao criar um espaço de trabalho, pode ser desde então:
+Deve ter, pelo menos, permissões do Colaborador de *Análise de Log* para eliminar um espaço de trabalho.<br>
+Se receber uma mensagem de erro Este nome do espaço de *trabalho já está em uso* ou em *conflito* ao criar um espaço de trabalho, pode ser desde então:
 * O nome do espaço de trabalho não está disponível e está a ser usado por alguém da sua organização, ou por outro cliente.
-* O espaço de trabalho foi eliminado nos últimos 14 dias e o seu nome manteve-se reservado para o período de eliminação suave. Para anular o soft-delete e eliminar imediatamente o seu espaço de trabalho e criar um novo espaço de trabalho com o mesmo nome, siga estes passos para recuperar primeiro o espaço de trabalho e execute a eliminação permanente:<br>
+* O espaço de trabalho foi eliminado nos últimos 14 dias e o seu nome manteve-se reservado para o período de eliminação suave. Para anular o soft-delete e eliminar permanentemente o seu espaço de trabalho para criar um novo espaço de trabalho com o mesmo nome, siga estes passos para recuperar primeiro o espaço de trabalho e execute a eliminação permanente:<br>
    1. [Recupere](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) o seu espaço de trabalho.
    2. [Elimine permanentemente](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) o seu espaço de trabalho.
    3. Crie um novo espaço de trabalho usando o mesmo nome de espaço de trabalho.
-
 
 ## <a name="permanent-workspace-delete"></a>Espaço de trabalho permanente apaga
 O método soft-delete pode não caber em alguns cenários, tais como desenvolvimento e teste, onde você precisa repetir uma implementação com as mesmas configurações e nome do espaço de trabalho. Nesses casos, pode eliminar permanentemente o seu espaço de trabalho e "anular" o período de eliminação suave. O espaço de trabalho permanente elimina a operação liberta o nome do espaço de trabalho e pode criar um novo espaço de trabalho com o mesmo nome.
@@ -96,12 +95,7 @@ Onde 'eyJ0eXAiOiJKV1Qi...' representa o símbolo de autorização completa.
 
 Se tiver permissões do Colaborador para o grupo de subscrição e recursos onde o espaço de trabalho estava associado antes da operação de eliminação suave, pode recuperá-lo durante o seu período de eliminação suave, incluindo os seus dados, configuração e agentes conectados. Após o período de eliminação suave, o espaço de trabalho não é recuperável e atribuído para eliminação permanente. Os nomes dos espaços de trabalho eliminados são preservados durante o período de eliminação suave e não podem ser utilizados quando se tenta criar um novo espaço de trabalho.  
 
-Pode recuperar um espaço de trabalho recriando-o utilizando os seguintes métodos de criação do espaço de trabalho: [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/New-AzOperationalInsightsWorkspace) ou [REST API]( https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate) desde que as seguintes propriedades sejam povoadas com os detalhes do espaço de trabalho eliminados:
-
-* ID da subscrição
-* Nome do Grupo de Recursos
-* Nome da área de trabalho
-* Região
+Pode recuperar o seu espaço de trabalho criando um espaço de trabalho com os detalhes do espaço de trabalho eliminado, estes incluem *ID de subscrição,* *nome do Grupo de Recursos,* *Nome do Espaço de Trabalho* e *Região.* Se o seu grupo de recursos também foi eliminado e não existe, crie um grupo de recursos com o mesmo nome que foi usado antes do aeliminar, então crie um espaço de trabalho usando qualquer um destes métodos: [portal Azure,](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/New-AzOperationalInsightsWorkspace) ou [REST API](https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate).
 
 ### <a name="powershell"></a>PowerShell
 ```PowerShell

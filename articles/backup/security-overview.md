@@ -3,12 +3,12 @@ title: Visão geral dos recursos de segurança
 description: Conheça as capacidades de segurança no Azure Backup que o ajudam a proteger os seus dados de backup e a atender às necessidades de segurança do seu negócio.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 2eec3ee50f1de695b5432ee50b0900e35b81a6eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 688573b571c6ce4473f06d4c194795a38a33244b
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80585823"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82743644"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Visão geral das funcionalidades de segurança no Azure Backup
 
@@ -16,9 +16,9 @@ Um dos passos mais importantes que pode tomar para proteger os seus dados é ter
 
 ## <a name="management-and-control-of-identity-and-user-access"></a>Gestão e controlo da identidade e do acesso ao utilizador
 
-A Backup Azure permite-lhe gerir o acesso de grãos finos utilizando o Controlo de [Acesso baseado em papel Azure (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles). O RBAC permite-lhe segregar os deveres dentro da sua equipa e conceder apenas a quantidade de acesso aos utilizadores necessários para fazer o seu trabalho.
+As contas de armazenamento utilizadas pelos cofres dos serviços de recuperação estão isoladas e não podem ser acedidas pelos utilizadores para qualquer finalidade maliciosa. O acesso só é permitido através de operações de gestão de backup azure, como restaurar. A Backup Azure permite controlar as operações geridas através de um acesso fino utilizando o Controlo de Acesso baseado [em papel Azure (RBAC)](https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault). O RBAC permite-lhe segregar os deveres dentro da sua equipa e conceder apenas a quantidade de acesso aos utilizadores necessários para fazer o seu trabalho.
 
-A Azure Backup fornece três funções incorporadas para controlar as operações de gestão de backup:
+A Azure Backup fornece três [funções incorporadas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) para controlar as operações de gestão de backup:
 
 * Backup Contributor - para criar e gerir backups, exceto apagar cofre de Serviços de Recuperação e dar acesso a outros
 * Backup Operator - tudo o que um colaborador faz, exceto remover backup e gerir políticas de backup
@@ -47,13 +47,13 @@ Agora pode utilizar [pontos finais privados](https://docs.microsoft.com/azure/pr
 
 A encriptação protege os seus dados e ajuda-o a cumprir os seus compromissos de segurança organizacional e conformidade. Dentro do Azure, os dados em trânsito entre o armazenamento do Azure e o cofre estão protegidos por HTTPS. Estes dados permanecem na rede de espinha dorsal Azure.
 
-* Os dados de cópia de segurança são automaticamente encriptados utilizando chaves geridas pela Microsoft. Também pode encriptar os seus VMs de disco geridos com backed no Cofre de Serviços de Recuperação utilizando [chaves geridas](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#encryption-of-backup-data-using-customer-managed-keys) pelo cliente armazenadas no Cofre de Chaves Azure. Não precisa de tomar nenhuma medida explícita para permitir esta encriptação. Aplica-se a todas as cargas de trabalho que estão a ser apoiadas no cofre dos Serviços de Recuperação.
+* Os dados de cópia de segurança são automaticamente encriptados utilizando chaves geridas pela Microsoft. Também pode encriptar os seus VMs de disco geridos com backed no Cofre de Serviços de Recuperação utilizando [chaves geridas](backup-encryption.md#encryption-of-backup-data-using-customer-managed-keys) pelo cliente armazenadas no Cofre de Chaves Azure. Não precisa de tomar nenhuma medida explícita para permitir esta encriptação. Aplica-se a todas as cargas de trabalho que estão a ser apoiadas no cofre dos Serviços de Recuperação.
 
 * O Azure Backup suporta cópias de segurança e restauro de VMs Azure que têm os seus discos OS/dados encriptados com encriptação de disco azure (ADE). [Saiba mais sobre Os VMs Azure encriptados e backup azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
 
 ## <a name="protection-of-backup-data-from-unintentional-deletes"></a>Proteção de dados de backup de exclusões não intencionais
 
-O Azure Backup fornece funcionalidades de segurança para ajudar a proteger os dados de backup mesmo após a eliminação. Com a eliminação suave, se o utilizador eliminar a cópia de segurança de um VM, os dados de backup são conservados por 14 dias adicionais, permitindo a recuperação desse item de backup sem perda de dados. A retenção adicional de 14 dias de dados de backup no estado de "soft delete" não incorre em nenhum custo para o cliente. [Saiba mais sobre a eliminação suave](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#soft-delete).
+O Azure Backup fornece funcionalidades de segurança para ajudar a proteger os dados de backup mesmo após a eliminação. Com a eliminação suave, se o utilizador eliminar a cópia de segurança de um VM, os dados de backup são conservados por 14 dias adicionais, permitindo a recuperação desse item de backup sem perda de dados. A retenção adicional de 14 dias de dados de backup no estado de "soft delete" não incorre em nenhum custo para o cliente. [Saiba mais sobre a eliminação suave](backup-azure-security-feature-cloud.md).
 
 ## <a name="monitoring-and-alerts-of-suspicious-activity"></a>Monitorização e alertas de atividades suspeitas
 

@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a atualizar a configuração do cofre utiliza
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: 6cecbb18e0cd6f548e1688ef978f10dcee7d9fbc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4c604fe067e73f5f9a17f4b5f810708121cff767
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79252366"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744572"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Atualizar as configurações do cofre dos serviços de recuperação azure utilizando a API REST
 
@@ -21,7 +21,7 @@ A desminagem de cópias de segurança de um item protegido é uma operação sig
 
 Mas há cenários em que esta capacidade não é necessária. Um cofre dos Serviços de Recuperação Azure não pode ser eliminado se houver itens de reserva dentro dele, mesmo os apagados. Isto pode ser um problema se o cofre precisar de ser imediatamente apagado. Por exemplo: as operações de implantação limpam frequentemente os recursos criados no mesmo fluxo de trabalho. Uma implementação pode criar um cofre, configurar cópias de segurança para um item, fazer um restauro de teste e, em seguida, proceder para apagar os itens de reserva e o cofre. Se a eliminação do cofre falhar, todo o destacamento pode falhar. Desativar a eliminação suave é a única forma de garantir a eliminação imediata.
 
-Por isso, o cliente precisa de escolher cuidadosamente se deve ou não desativar o soft-delete para um determinado cofre, dependendo do cenário. Para mais informações, consulte o [artigo soft-delete](backup-azure-security-feature-cloud.md#soft-delete).
+Por isso, o cliente precisa de escolher cuidadosamente se deve ou não desativar o soft-delete para um determinado cofre, dependendo do cenário. Para mais informações, consulte o [artigo soft-delete](backup-azure-security-feature-cloud.md).
 
 ### <a name="fetch-soft-delete-state-using-rest-api"></a>Buscar estado de eliminação suave usando a API REST
 
@@ -43,7 +43,7 @@ GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 A resposta bem sucedida para a operação 'GET' é mostrada abaixo:
 
-|Nome  |Tipo  |Descrição  |
+|Name  |Tipo  |Descrição  |
 |---------|---------|---------|
 |200 OK     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
 
@@ -83,10 +83,10 @@ THe seguindo definições comuns são usados para criar um corpo de pedido
 
 Para mais detalhes, consulte [a documentação rest API](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/update#request-body)
 
-|Nome  |Necessário  |Tipo  |Descrição  |
+|Name  |Necessário  |Tipo  |Descrição  |
 |---------|---------|---------|---------|
 |eTag     |         |   String      |  ETag opcional       |
-|localização     |  true       |String         |   Localização do recurso      |
+|localização     |  true       |String         |   Localização dos recursos      |
 |propriedades     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Propriedades do cofre       |
 |etiquetas     |         | Objeto        |     Etiquetas de recursos    |
 
@@ -107,7 +107,7 @@ O exemplo seguinte é utilizado para atualizar o estado de eliminação suave pa
 
 A resposta bem sucedida para a operação 'PATCH' é mostrada abaixo:
 
-|Nome  |Tipo  |Descrição  |
+|Name  |Tipo  |Descrição  |
 |---------|---------|---------|
 |200 OK     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 600167e529e1ff8cfa65eeb3d0fb6fe26e9466bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9883065993f35054338079c8b9647a8420574414
+ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137523"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82738070"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Reproteger falhou sobre os VMs azure para a região primária
 
@@ -95,6 +95,10 @@ As seguintes condições determinam quanto é que os dados são replicados:
 |A região de origem tem 1 VM com disco premium de 1 TB.<br/>Apenas são utilizados dados de 20 GB e o resto do disco está vazio.<br/>O tipo de disco é premium com 200 MBps.<br/>Os dados iniciais no disco imediatamente após a falha foram de 15 GB. Houve uma alteração de dados de 5 GB após a falha. O total de dados povoados é, portanto, de 20 GB| Tempo aproximado: 30-45 minutos.<br/>Uma vez que os dados povoados no disco são inferiores a 10% do tamanho do disco, realizamos uma replicação inicial completa.<br/>A velocidade de transferência é aproximadamente 16% da entrada, ou 32MBps. Portanto, o tempo de transferência para aplicar alterações de 20 GB que são de 20 GB/32 MBps, aproximadamente 11 minutos.<br/>É necessário algum tempo para a recuperação do site à escala automática, aproximadamente 20-30 minutos |
 
 Quando o VM é reprotegido após a falha na região primária (isto é, se o VM for reprotegido da região primária para a região DR), o VM-alvo e os NIC(s) associados são eliminados.
+
+Quando o VM é reprotegido da região DR para a região primária, não eliminamos o VM primário e o NIC(s associado).
+
+Quando o VM é reprotegido após a falha na região primária (isto é, se o VM for reprotegido da região primária para a região DR), o VM-alvo e os NIC(s) associados são eliminados. 
 
 Quando o VM é reprotegido da região DR para a região primária, não eliminamos o VM primário e o NIC(s associado).
 

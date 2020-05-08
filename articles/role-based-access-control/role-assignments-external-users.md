@@ -1,6 +1,6 @@
 ---
-title: Adicionar ou remover atribuições de funções para utilizadores externos com RBAC e o portal Azure
-description: Saiba como conceder acesso aos recursos do Azure para utilizadores externos a uma organização que utilize o controlo de acesso baseado em funções do Azure (RBAC).
+title: Adicionar ou remover atribuições de funções azure para utilizadores externos usando o portal Azure - Azure RBAC
+description: Saiba como conceder acesso aos recursos do Azure para utilizadores externos a uma organização que utilize o portal Azure e o controlo de acesso baseado em funções azure (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,16 +16,16 @@ ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 1c440b85f792ac5bb1336f4d20f930aafc38ad7d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 568cb7602d9cb454685ef69e820288bcc68563c4
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79245645"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735764"
 ---
-# <a name="add-or-remove-role-assignments-for-external-guest-users-using-azure-rbac-and-the-azure-portal"></a>Adicione ou remova atribuições de funções para utilizadores externos usando o Azure RBAC e o portal Azure
+# <a name="add-or-remove-azure-role-assignments-for-external-guest-users-using-the-azure-portal"></a>Adicione ou remova atribuições de funções azure para utilizadores externos usando o portal Azure
 
-O [controlo de acesso baseado em funções azure (RBAC)](overview.md) permite uma melhor gestão de segurança para as grandes organizações e para pequenas e médias empresas que trabalham com colaboradores externos, fornecedores ou freelancers que precisam de acesso a recursos específicos no seu ambiente, mas não necessariamente a toda a infraestrutura ou quaisquer âmbitos relacionados com a faturação. Pode utilizar as capacidades do [Azure Ative Directory B2B](../active-directory/b2b/what-is-b2b.md) para colaborar com utilizadores externos e pode utilizar o RBAC para conceder apenas as permissões de que os utilizadores de hóspedes precisam no seu ambiente.
+O [controlo de acesso baseado em funções azure (Azure RBAC)](overview.md) permite uma melhor gestão de segurança para as grandes organizações e para pequenas e médias empresas que trabalham com colaboradores externos, fornecedores ou freelancers que precisam de acesso a recursos específicos no seu ambiente, mas não necessariamente a toda a infraestrutura ou quaisquer âmbitos relacionados com a faturação. Pode utilizar as capacidades do [Azure Ative Directory B2B](../active-directory/b2b/what-is-b2b.md) para colaborar com utilizadores externos e pode utilizar o Azure RBAC para conceder apenas as permissões de que os utilizadores convidados precisam no seu ambiente.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -69,7 +69,7 @@ Para mais informações sobre o processo de convite, consulte o convite de [cola
 
 ## <a name="add-a-role-assignment-for-a-guest-user"></a>Adicione uma atribuição de funções para um utilizador convidado
 
-No RBAC, para conceder acesso, atribui-se um papel. Para adicionar uma atribuição de funções para um utilizador convidado, siga [os mesmos passos](role-assignments-portal.md#add-a-role-assignment) que faria para um utilizador, grupo, diretor de serviço ou identidade gerida. Siga estes passos adicione uma atribuição de funções para um utilizador convidado em diferentes âmbitos.
+No Azure RBAC, para conceder acesso, atribui-se um papel. Para adicionar uma atribuição de funções para um utilizador convidado, siga [os mesmos passos](role-assignments-portal.md#add-a-role-assignment) que faria para um utilizador, grupo, diretor de serviço ou identidade gerida. Siga estes passos adicione uma atribuição de funções para um utilizador convidado em diferentes âmbitos.
 
 1. No portal do Azure, clique em **Todos os serviços**.
 

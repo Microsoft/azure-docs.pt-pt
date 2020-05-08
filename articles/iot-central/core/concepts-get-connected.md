@@ -11,12 +11,12 @@ manager: philmea
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: b66f5a7d85eb91970d5f551b010dd512b216b9c6
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: ddbb1c6fd705e658867c0d594981e87bc8cd6afe
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509521"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930493"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Fique ligado à Central Azure IoT
 
@@ -95,6 +95,14 @@ Para ligar a granel os dispositivos utilizando certificados X.509, primeiro regi
 
 Gere certificados de folhaX.509 para os seus dispositivos utilizando o certificado raiz ou intermédio carregado. Utilize o **ID** `CNAME` do dispositivo como valor nos certificados de folha. O código do seu dispositivo necessita do valor de âmbito de **identificação** da sua aplicação, do ID do **dispositivo**e do certificado de dispositivo correspondente.
 
+#### <a name="sample-device-code"></a>Código do dispositivo de amostra
+
+A seguinte amostra do [Nó Azure IoT.JS SDK](https://github.com/Azure/azure-iot-sdk-node/blob/master/provisioning/device/samples/register_x509.js) mostra como um cliente do dispositivo Node.js usa um certificado de folha X.509 e DPS para se registar com uma aplicação IoT Central:
+
+:::code language="nodejs" source="~/azure-iot-sdk-node/provisioning/device/samples/register_x509.js":::
+
+Para obter uma amostra C equivalente, consulte [prov_dev_client_sample.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c) no Cliente SDK do Dispositivo de [Provisionamento Azure IoT C](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md).
+
 ### <a name="for-testing-purposes-only"></a>Para efeitos de teste apenas
 
 Apenas para testes, pode utilizar os seguintes utilitários para gerar certificados de raiz, intermédios e dispositivos:
@@ -106,11 +114,6 @@ Apenas para testes, pode utilizar os seguintes utilitários para gerar certifica
   - Guarde os certificados como ficheiros .cer para fazer upload para a sua aplicação IoT Central.
   - Utilize o código de verificação da aplicação IoT Central para gerar o certificado de verificação.
   - Crie certificados de folhas para os seus dispositivos utilizando os seus IDs do dispositivo como parâmetro para a ferramenta.
-
-### <a name="further-reference"></a>Outra referência
-
-- [Implementação da amostra para RaspberryPi](https://aka.ms/iotcentral-docs-Raspi-releases)
-- [Cliente de dispositivo de amostra em C](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)
 
 ## <a name="connect-without-registering-devices"></a>Ligar sem registar dispositivos
 
@@ -143,11 +146,11 @@ O fluxo é ligeiramente diferente dependendo se os dispositivos utilizam tokens 
 
 ### <a name="connect-devices-that-use-x509-certificates-without-registering"></a>Ligar dispositivos que usam certificados X.509 sem registar
 
-1. [Adicione e verifique um certificado X.509 raiz ou intermédio](#connect-devices-using-x509-certificates) na sua aplicação IoT Central. (certificados #connect-dispositivos-utilização-x509)
+1. [Adicione e verifique um certificado X.509 raiz ou intermédio](#connect-devices-using-x509-certificates) na sua aplicação IoT Central.
 
 1. Gere os certificados de folha sinuoso para os seus dispositivos utilizando o certificado raiz ou intermédio que adicionou à sua aplicação IoT Central. Utilize iDs de dispositivo `CNAME` minúsculos como os certificados de folha.
 
-1. O OEM pisca cada dispositivo com um ID do dispositivo, um certificado x.509 esquerdo gerado e o valor de âmbito de **identificação** da aplicação.
+1. O OEM pisca cada dispositivo com um ID do dispositivo, um certificado de folha gerada X.509 e o valor de âmbito de **identificação** da aplicação.
 
 1. Quando liga um dispositivo, liga-se primeiro ao DPS para recuperar as suas informações de registo IoT Central.
 

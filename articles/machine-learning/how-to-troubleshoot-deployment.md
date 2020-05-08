@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: fab46f7d7ae74ad643ce3f122b27b0dc767f5a78
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 01fa9c111371c3ede5d3be33f4066f325bad4680
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78399678"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929252"
 ---
 # <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Resolução de problemas Azure Machine Learning Azure Kubernetes Service e implantação de instâncias de contentores Azure
 
@@ -24,12 +24,12 @@ Aprenda a contornar ou a resolver erros comuns de implementação do Docker com 
 
 Ao implementar um modelo em Azure Machine Learning, o sistema executa uma série de tarefas.
 
-A abordagem recomendada e mais atualizada para a implementação do modelo é através da API [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) utilizando um objeto [Ambiente](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-environments) como parâmetro de entrada. Neste caso, o nosso serviço criará uma imagem base de estivador para si durante a fase de implantação e montará os modelos necessários, todos numa única chamada. As tarefas básicas de implantação são:
+A abordagem recomendada e mais atualizada para a implementação do modelo é através da API [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) utilizando um objeto [Ambiente](how-to-use-environments.md) como parâmetro de entrada. Neste caso, o nosso serviço criará uma imagem base de estivador para si durante a fase de implantação e montará os modelos necessários, todos numa única chamada. As tarefas básicas de implantação são:
 
 1. Registe o modelo no registo do modelo workspace.
 
 2. Definir Configuração de Inferência:
-    1. Crie um objeto [Ambiente](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-environments) baseado nas dependências que especifica no ficheiro iaml ambiente ou utilize um dos nossos ambientes adquiridos.
+    1. Crie um objeto [Ambiente](how-to-use-environments.md) baseado nas dependências que especifica no ficheiro iaml ambiente ou utilize um dos nossos ambientes adquiridos.
     2. Crie uma configuração de inferência (objeto InferenceConfig) com base no ambiente e no script de pontuação.
 
 3. Desloque o modelo para o serviço Azure Container Instance (ACI) ou para o Serviço Azure Kubernetes (AKS).
@@ -50,7 +50,7 @@ Saiba mais sobre este processo na introdução da Gestão de [Modelos.](concept-
 
 Se tiver algum problema, a primeira coisa a fazer é decompor a tarefa de implantação (descrita anteriormente) em passos individuais para isolar o problema.
 
-Assumindo que está a utilizar o novo/recomendado método de implementação através do [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) API com um objeto [Ambiente](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-environments) como parâmetro de entrada, o seu código pode ser desfeito em três passos principais:
+Assumindo que está a utilizar o novo/recomendado método de implementação através do [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) API com um objeto [Ambiente](how-to-use-environments.md) como parâmetro de entrada, o seu código pode ser desfeito em três passos principais:
 
 1. Registar o modelo. Aqui está um código de amostra:
 

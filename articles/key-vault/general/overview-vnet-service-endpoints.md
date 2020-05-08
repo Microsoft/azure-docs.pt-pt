@@ -9,12 +9,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 2a68a50a5d15b9f38407c19494a39a14abfa0a5a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bd67c3b7eed6b3ce3730bd48cda69d85aa276df4
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81432076"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930595"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Pontos finais de serviço de rede virtual para cofre chave Azure
 
@@ -79,6 +79,7 @@ Aqui está uma lista de serviços fidedignos que são autorizados a aceder a um 
 |Azure Event Hubs|[Permitir o acesso a um cofre chave para o cenário de chaves gerida pelo cliente](https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key)|
 |Service Bus do Azure|[Permitir o acesso a um cofre chave para o cenário de chaves gerida pelo cliente](https://docs.microsoft.com/azure/service-bus-messaging/configure-customer-managed-key)|
 |Importar/Exportar do Microsoft Azure| [Utilize chaves geridas pelo cliente no Cofre chave Azure para serviço de importação/exportação](https://docs.microsoft.com/azure/storage/common/storage-import-export-encryption-key-portal)
+|Registo de Contentores do Azure|[Encriptação de registo utilizando chaves geridas pelo cliente](../../container-registry/container-registry-customer-managed-keys.md)
 
 > [!NOTE]
 > Deve configurar as políticas de acesso ao Cofre chave relevantes para permitir que os serviços correspondentes tenham acesso ao Key Vault.
