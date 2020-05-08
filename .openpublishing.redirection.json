@@ -16076,6 +16076,11 @@
       "redirect_document_id": false
     },    
     {
+      "source_path": "articles/machine-learning/sample-designer-datasets.md",
+      "redirect_url": "/azure/machine-learning/samples-designer",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/log-analytics/log-analytics-add-solutions.md",
       "redirect_url": "/azure/monitoring/monitoring-solutions",
       "redirect_document_id": false
@@ -20288,6 +20293,36 @@
     {
       "source_path": "articles/marketplace/partner-center-portal/billing-details.md",
       "redirect_url": "/azure/marketplace/marketplace-commercial-transaction-capabilities-and-considerations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-consulting-service-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/consulting-services/cpp-consulting-service-prerequisites.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/consulting-service-prerequisites",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/consulting-services/cpp-consulting-service-create-offer.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-consulting-service-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/consulting-services/cpp-consulting-service-define-offer-settings.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-consulting-service-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/consulting-services/cpp-consulting-service-storefront-details.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-consulting-service-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/consulting-services/cpp-consulting-service-publish-offer.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-consulting-service-offer",
       "redirect_document_id": false
     },
     {
