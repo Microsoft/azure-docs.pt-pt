@@ -2,13 +2,13 @@
 title: Implementar recursos para a subscrição
 description: Descreve como criar um grupo de recursos num modelo de Gestor de Recursos Azure. Mostra também como utilizar recursos no âmbito de subscrição do Azure.
 ms.topic: conceptual
-ms.date: 05/07/2020
-ms.openlocfilehash: a48bc2fd4efb383b42fd0889df079c9a6f700dda
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.date: 04/30/2020
+ms.openlocfilehash: 80fe451f696480ec24b3d8eced64941de9492fef
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929065"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610824"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Criar grupos e recursos de recursos ao nível da subscrição
 
@@ -35,7 +35,6 @@ Pode implementar os seguintes tipos de recursos ao nível da subscrição:
 * [scopeAssignments](/azure/templates/microsoft.managednetwork/scopeassignments)
 * [plantypes de planos de suporte](/azure/templates/microsoft.addons/supportproviders/supportplantypes)
 * [tags](/azure/templates/microsoft.resources/tags)
-* [ambientes de espaço de trabalho](/azure/templates/microsoft.security/workspacesettings)
 
 ### <a name="schema"></a>Esquema
 
@@ -97,11 +96,11 @@ Para implementações de nível de subscrição, existem algumas considerações
 * Utilize a função [de subscriçãoResourceId()](template-functions-resource.md#subscriptionresourceid) para obter o ID de recursos que são implantados a nível de subscrição.
 
   Por exemplo, para obter o ID de recurso para uma definição de política, use:
-
+  
   ```json
   subscriptionResourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
   ```
-
+  
   O ID de recurso devolvido tem o seguinte formato:
 
   ```json
