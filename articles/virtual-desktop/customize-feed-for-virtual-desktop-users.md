@@ -8,22 +8,26 @@ ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 24a295d220cfaa7efe2fdc0d4eee53bb5c409708
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 961fadfff0147d8c5258fa5acf31d8b0649ea12a
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79128077"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612899"
 ---
 # <a name="customize-feed-for-windows-virtual-desktop-users"></a>Personalizar o feed para utilizadores do Windows Virtual Desktop
 
+>[!IMPORTANT]
+>Este conteúdo aplica-se à atualização da primavera de 2020 com os objetos de ambiente de trabalho virtual do Gestor de Recursos Do Azure Windows. Se estiver a utilizar o lançamento do Windows Virtual Desktop Fall 2019 sem objetos do Gestor de Recursos Azure, consulte [este artigo](./virtual-desktop-fall-2019/customize-feed-virtual-desktop-users-2019.md).
+>
+> A atualização Do Windows Virtual Desktop Spring 2020 encontra-se atualmente em pré-visualização pública. Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não recomendamos usá-la para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. 
+> Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
+
 Pode personalizar o feed para que os recursos remotos e de ambiente de trabalho remoto apareçam de forma reconhecível para os seus utilizadores.
 
-Primeiro, [descarregue e importe o módulo Windows Virtual Desktop PowerShell](/powershell/windows-virtual-desktop/overview/) para utilizar na sua sessão PowerShell se ainda não o fez. Depois disso, execute o seguinte cmdlet para iniciar sessão na sua conta:
+## <a name="prerequisites"></a>Pré-requisitos
 
-```powershell
-Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-```
+Este artigo assume que já descarregou e instalou o módulo PowerShell do Windows Virtual Desktop. Se não o fez, siga as instruções no [módulo PowerShell](powershell-module.md).
 
 ## <a name="customize-the-display-name-for-a-remoteapp"></a>Personalize o nome do ecrã para um RemoteApp
 
@@ -32,16 +36,55 @@ Pode alterar o nome do ecrã para um RemoteApp publicado, definindo o nome amig�
 Para recuperar uma lista de RemoteApps publicados para um grupo de aplicações, execute o seguinte cmdlet PowerShell:
 
 ```powershell
-Get-RdsRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname>
+Get-AzWvdApplication -ResourceGroupName <resourcegroupname> -ApplicationGroupName <appgroupname>
 ```
-![Uma imagem de PowerShell cmdlet Get-RDSRemoteApp com nome e nome amigável destacados.](media/get-rdsremoteapp.png)
 
-Para atribuir um nome amigável a um RemoteApp, execute o seguinte cmdlet PowerShell:
+Para atribuir um nome amigável a um RemoteApp, execute o seguinte cmdlet com os parâmetros necessários:
 
 ```powershell
-Set-RdsRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname> -Name <existingappname> -FriendlyName <newfriendlyname>
+Update-AzWvdApplication -ResourceGroupName <resourcegroupname> -ApplicationGroupName <appgroupname> -Name <applicationname> -FriendlyName <newfriendlyname>
 ```
-![Uma imagem de PowerShell cmdlet Set-RDSRemoteApp com nome e novo nome amigável destacado.](media/set-rdsremoteapp.png)
+
+Por exemplo, digamos que recuperou as aplicações atuais com o seguinte exemplo cmdlet:
+
+```powershell
+Get-AzWvdApplication -ResourceGroupName 0301RG -ApplicationGroupName 0301RAG | format-list
+```
+
+A saída seria assim:
+
+```powershell
+CommandLineArgument : 
+CommandLineSetting  : DoNotAllow 
+Description         : 
+FilePath            : C:\Program Files\Windows NT\Accessories\wordpad.exe 
+FriendlyName        : Microsoft Word 
+IconContent         : {0, 0, 1, 0…} 
+IconHash            : --iom0PS6XLu-EMMlHWVW3F7LLsNt63Zz2K10RE0_64 
+IconIndex           : 0 
+IconPath            : C:\Program Files\Windows NT\Accessories\wordpad.exe 
+Id                  : /subscriptions/<subid>/resourcegroups/0301RG/providers/Microsoft.DesktopVirtualization/applicationgroups/0301RAG/applications/Microsoft Word 
+Name                : 0301RAG/Microsoft Word 
+ShowInPortal        : False 
+Type                : Microsoft.DesktopVirtualization/applicationgroups/applications 
+```
+Para atualizar o nome amigável, execute este cmdlet:
+
+```powershell
+Update-AzWvdApplication -GroupName 0301RAG -Name "Microsoft Word" -FriendlyName "WordUpdate" -ResourceGroupName 0301RG -IconIndex 0 -IconPath "C:\Program Files\Windows NT\Accessories\wordpad.exe" -ShowInPortal:$true -CommandLineSetting DoNotallow -FilePath "C:\Program Files\Windows NT\Accessories\wordpad.exe" 
+```
+
+Para confirmar que atualizou com sucesso o nome amigável, execute este cmdlet:
+
+```powershell
+Get-AzWvdApplication -ResourceGroupName 0301RG -ApplicationGroupName 0301RAG | format-list FriendlyName 
+```
+
+O cmdlet deve dar-lhe a seguinte saída:
+
+```powershell
+FriendlyName        : WordUpdate
+```
 
 ## <a name="customize-the-display-name-for-a-remote-desktop"></a>Personalize o nome do ecrã para um ambiente de trabalho remoto
 
@@ -50,20 +93,39 @@ Pode alterar o nome do ecrã para um ambiente de trabalho remoto publicado, defi
 Para recuperar o recurso remoto de ambiente de trabalho, execute o seguinte cmdlet PowerShell:
 
 ```powershell
-Get-RdsRemoteDesktop -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname>
+Get-AzWvdDesktop -ResourceGroupName <resourcegroupname> -ApplicationGroupName <appgroupname> -Name <applicationname>
 ```
-![Uma imagem de PowerShell cmdlet Get-RDSRemoteApp com nome e nome amigável destacados.](media/get-rdsremotedesktop.png)
 
 Para atribuir um nome amigável ao recurso de ambiente de trabalho remoto, execute o seguinte cmdlet PowerShell:
 
 ```powershell
-Set-RdsRemoteDesktop -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname> -FriendlyName <newfriendlyname>
+Update-AzWvdDesktop -ResourceGroupName <resourcegroupname> -ApplicationGroupName <appgroupname> -Name <applicationname> -FriendlyName <newfriendlyname>
 ```
-![Uma imagem de PowerShell cmdlet Set-RDSRemoteApp com nome e novo nome amigável destacado.](media/set-rdsremotedesktop.png)
+
+## <a name="customize-a-display-name-in-azure-portal"></a>Personalize um nome de exibição no portal Azure
+
+Pode alterar o nome do ecrã para um ambiente de trabalho remoto publicado, definindo um nome amigável utilizando o portal Azure. 
+
+1. Inicie sessão no portal do Azure em <https://portal.azure.com>. 
+
+2. Pesquisa por **Windows Virtual Desktop**.
+
+3. Em Serviços, selecione **Windows Virtual Desktop**. 
+
+4. Na página do Windows Virtual Desktop, selecione **grupos de aplicação** no lado esquerdo do ecrã e, em seguida, selecione o nome do grupo de aplicações que pretende editar. 
+
+5. Selecione **Aplicações** no menu no lado esquerdo do ecrã.
+
+6. Selecione a aplicação que pretende atualizar e introduza um novo **nome display**. 
+
+7. Selecione **Guardar**. A aplicação que editou deve agora apresentar o nome atualizado.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Agora que personalizou o feed para os utilizadores, pode iniciar sessão num cliente do Windows Virtual Desktop para o testar. Para tal, continue a ligar ao Windows Virtual Desktop How-tos:
     
- * [Ligar a partir do Windows 10 ou Windows 7](connect-windows-7-and-10.md)
- * [Ligar a partir de um browser web](connect-web.md) 
+ * [Conecte-se com o Windows 10 ou windows 7](connect-windows-7-and-10.md)
+ * [Ligar com o cliente web](connect-web.md) 
+ * [Ligar ao cliente Android](connect-android.md)
+ * [Ligar ao cliente de iOS](connect-ios.md)
+ * [Ligar ao cliente de macOS](connect-macos.md)

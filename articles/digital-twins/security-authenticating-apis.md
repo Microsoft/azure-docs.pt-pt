@@ -8,12 +8,13 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: d950d41186d578702343645875dd7c565002d5a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 63cc188b5bdabedf0902c02264c1a269ca8111af
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76513009"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611811"
 ---
 # <a name="connect-to-and-authenticate-with-apis"></a>Ligar e autenticar com APIs
 

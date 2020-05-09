@@ -8,18 +8,21 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b6436059cc8b3637edfc2a146d0aab3e2beae6a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2b16818856ca8196b82eb8f618cf22b5fc1b6854
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80154343"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612695"
 ---
 # <a name="connect-with-the-windows-desktop-client"></a>Ligar ao cliente de Ambiente de Trabalho do Windows
 
 > Aplica-se a: Windows 7, Windows 10 e Windows 10 IoT Enterprise
 
 Pode aceder aos recursos do Windows Virtual Desktop em dispositivos com Windows 7, Windows 10 e Windows 10 IoT Enterprise utilizando o cliente windows Desktop.
+
+>[!NOTE]
+>O cliente Windows falha automaticamente no lançamento do Windows Virtual Desktop Fall 2019. No entanto, se o cliente detetar que o utilizador também possui recursos do Gestor de Recursos Do Azure, adiciona automaticamente os recursos ou notifica o utilizador de que estão disponíveis. 
 
 > [!IMPORTANT]
 > O Windows Virtual Desktop não suporta o cliente remoteApp e Desktop Connections (RADC) ou o cliente de Ligação remota de ambiente de trabalho (MSTSC).

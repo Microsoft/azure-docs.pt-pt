@@ -11,14 +11,15 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26e52930211611673b6fe2309e2dca067a91ebc8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 08f083fe60076c80b5b7d60f555daac499974254
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80331775"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611318"
 ---
-# <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Resolução de problemas híbrido Azure Ative Directory juntou-se a dispositivos 
+# <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Resolução de problemas híbrido Azure Ative Directory juntou-se a dispositivos
 
 O conteúdo deste artigo é aplicável aos dispositivos que executam o Windows 10 ou o Windows Server 2016.
 
@@ -30,13 +31,13 @@ Este artigo pressupõe que configuraste o [Azure Ative Directory híbrido juntou
 - [Roaming empresarial de configurações](../active-directory-windows-enterprise-state-roaming-overview.md)
 - [Windows Hello para empresas](../active-directory-azureadjoin-passport-deployment.md)
 
-Este documento fornece orientações de resolução de problemas para resolver potenciais problemas. 
+Este documento fornece orientações de resolução de problemas para resolver potenciais problemas.
 
 Para windows 10 e Windows Server 2016, a adesão híbrida azure Ative Directy suporta a Atualização do Windows 10 de novembro de 2015 e acima.
 
 ## <a name="troubleshoot-join-failures"></a>Resolução de problemas junta-se a falhas
 
-### <a name="step-1-retrieve-the-join-status"></a>Passo 1: Recuperar o estado da adesão 
+### <a name="step-1-retrieve-the-join-status"></a>Passo 1: Recuperar o estado da adesão
 
 **Para recuperar o estado de adesão:**
 
@@ -88,22 +89,22 @@ WamDefaultAuthority: organizations
          AzureAdPrt: YES
 ```
 
-### <a name="step-2-evaluate-the-join-status"></a>Passo 2: Avaliar o estado da adesão 
+### <a name="step-2-evaluate-the-join-status"></a>Passo 2: Avaliar o estado da adesão
 
 Reveja os seguintes campos e certifique-se de que têm os valores esperados:
 
-#### <a name="domainjoined--yes"></a>Domínio Unido: SIM  
+#### <a name="domainjoined--yes"></a>Domínio Unido: SIM
 
-Este campo indica se o dispositivo está ou não ligado a um Diretório Ativo no local. Se o valor for **NO,** o dispositivo não pode realizar uma adesão híbrida azure AD.  
+Este campo indica se o dispositivo está ou não ligado a um Diretório Ativo no local. Se o valor for **NO,** o dispositivo não pode realizar uma adesão híbrida azure AD.
 
-#### <a name="workplacejoined--no"></a>WorkplaceJoined : NO  
+#### <a name="workplacejoined--no"></a>WorkplaceJoined : NO
 
 Este campo indica se o dispositivo está registado com a AD Azure como um dispositivo pessoal (marcado como *Workplace Joined*). Este valor deve ser **NÃO** para um computador de domínio que também é híbrido Azure AD aderiu. Se o valor for **SIM**, foi adicionada uma conta de trabalho ou escola antes da conclusão da adesão híbrida azure AD. Neste caso, a conta é ignorada ao utilizar a versão De aniversário do Windows 10 (1607).
 
-#### <a name="azureadjoined--yes"></a>AzureAdJoined: SIM  
+#### <a name="azureadjoined--yes"></a>AzureAdJoined: SIM
 
 Este campo indica se o dispositivo está unido. O valor será **SIM** se o dispositivo for um dispositivo azure ad ou um dispositivo híbrido Azure AD.
-Se o valor for **NO,** a adesão à Azure AD ainda não está concluída. 
+Se o valor for **NO,** a adesão à Azure AD ainda não está concluída.
 
 Proceda aos próximos passos para mais resolução de problemas.
 
@@ -155,7 +156,7 @@ Possíveis razões para o fracasso:
    - É necessário um objeto SCP válido na floresta AD, a que o dispositivo pertence, que aponta para um nome de domínio verificado em Azure AD.
    - Os detalhes podem ser encontrados na secção [Configurar um ponto](hybrid-azuread-join-federated-domains.md#configure-hybrid-azure-ad-join)de ligação de serviço .
 - Falha em ligar e recolher os metadados de descoberta do ponto final da descoberta.
-   - O dispositivo deve poder `https://enterpriseregistration.windows.net`aceder, no contexto DO SISTEMA, para descobrir os pontos finais de registo e autorização. 
+   - O dispositivo deve poder `https://enterpriseregistration.windows.net`aceder, no contexto DO SISTEMA, para descobrir os pontos finais de registo e autorização.
    - Se o ambiente no local necessitar de um proxy de saída, o administrador informático deve certificar-se de que a conta de computador do dispositivo é capaz de descobrir e autenticar silenciosamente o representante de saída.
 - Falha na ligação ao ponto final do reino do utilizador e na realização da descoberta do reino. (Versão 1809 do Windows 10 e mais tarde apenas)
    - O dispositivo deve ser `https://login.microsoftonline.com`capaz de aceder, no contexto DO SISTEMA, para realizar a descoberta do reino para o domínio verificado e determinar o tipo de domínio (gerido/federado).
@@ -173,7 +174,7 @@ Possíveis razões para o fracasso:
    - Razão: A operação temprazo durante a realização do Discovery.
    - Resolução: `https://enterpriseregistration.windows.net` Certifique-se de que está acessível no contexto SYSTEM. Para mais informações, consulte os [requisitos](hybrid-azuread-join-managed-domains.md#prerequisites)de conectividade da rede da secção .
 - **DSREG_AUTOJOIN_USERREALM_DISCOVERY_FAILED** (0x801c0021/-2145648611)
-   - Razão: Falha genérica da descoberta do reino. Não conseguiu determinar o tipo de domínio (gerido/federado) a partir de STS. 
+   - Razão: Falha genérica da descoberta do reino. Não conseguiu determinar o tipo de domínio (gerido/federado) a partir de STS.
    - Resolução: Encontre o suberro abaixo para investigar mais aprofundadamente.
 
 **Códigos comuns de suberrogéo:**
@@ -260,7 +261,7 @@ Utilize os registos do Visualizador de Eventos para localizar o código de erro,
 
 - **ERROR_ADAL_PROTOCOL_NOT_SUPPORTED** (0xcaa90017/-894894057)
    - Razão: O protocolo de autenticação não é WS-Trust.
-   - Resolução: O fornecedor de identidade no local deve apoiar a WS-Trust 
+   - Resolução: O fornecedor de identidade no local deve apoiar a WS-Trust
 - **ERROR_ADAL_FAILED_TO_PARSE_XML** (0xcaa9002c/-894894036)
    - Razão: O serviço da federação no local não devolveu uma resposta XML.
    - Resolução: Certifique-se de que o ponto final do MEX está a devolver um XML válido. Certifique-se de que o proxy não está a interferir e a devolver respostas não xml.
@@ -278,7 +279,7 @@ Utilize os registos do Visualizador de Eventos para localizar o código de erro,
    - Resolução: Tente depois de algum tempo ou tente juntar-se a partir de uma localização de rede estável alternativa.
 - **ERROR_ADAL_INTERNET_SECURE_FAILURE** (0xcaa82f8f/-894947441)
    - Razão: A Segurança da Camada de Transporte (TLS), anteriormente conhecida como Secure Sockets Layer (SSL), o certificado enviado pelo servidor não pôde ser validado.
-   - Resolução: Verifique o tempo do cliente distorcido. Tente de novo após algum tempo ou tente juntar-se a partir de uma localização de rede estável alternativa. 
+   - Resolução: Verifique o tempo do cliente distorcido. Tente de novo após algum tempo ou tente juntar-se a partir de uma localização de rede estável alternativa.
 - **ERROR_ADAL_INTERNET_CANNOT_CONNECT** (0xcaa82efd/-894947587)
    - Razão: A tentativa `https://login.microsoftonline.com` de ligação ao fracasso.
    - Resolução: Verifique `https://login.microsoftonline.com`a ligação da rede a .
@@ -293,11 +294,11 @@ Utilize os registos do Visualizador de Eventos para localizar o código de erro,
    - Resolução: Verifique as definições do servidor da federação. Procure o código de erro do servidor nos registos de autenticação.
 - **ERROR_ADAL_WSTRUST_TOKEN_REQUEST_FAIL** (0xcaa90006/-894894074)
    - Razão: Recebeu um erro ao tentar obter o sinal de acesso do ponto final simbólico.
-   - Resolução: Procure o erro subjacente no registo ADAL. 
+   - Resolução: Procure o erro subjacente no registo ADAL.
 - **ERROR_ADAL_OPERATION_PENDING** (0xcaa1002d/-895418323)
    - Razão: Falha geral da ADAL
    - Resolução: Procure o código de suberroou o código de erro do servidor a partir dos registos de autenticação.
-    
+
 #### <a name="join-phase"></a>Fase de adsiná-
 
 Razões para o fracasso:
@@ -337,7 +338,7 @@ Utilize os registos do Visualizador de Eventos para localizar a fase e código d
    - Razão: Recebeu uma resposta de erro do DRS com ErrorCode: "ErroryError"
    - Resolução: Consulte o código de erro do servidor por possíveis razões e resoluções.
 - **DSREG_E_DEVICE_AUTHENTICATION_ERROR** (0x801c0002/-2145648638)
-   - Razão: Recebeu uma resposta de erro do DRS com ErrorCode: "AuthenticationError" e ErrorSubCode NÃO é "DeviceNotFound". 
+   - Razão: Recebeu uma resposta de erro do DRS com ErrorCode: "AuthenticationError" e ErrorSubCode NÃO é "DeviceNotFound".
    - Resolução: Consulte o código de erro do servidor por possíveis razões e resoluções.
 - **DSREG_E_DEVICE_INTERNALSERVICE_ERROR** (0x801c0006/-2145648634)
    - Razão: Recebeu uma resposta de erro do DRS com ErrorCode: "ErroryError"
@@ -349,7 +350,7 @@ Utilize os registos do Visualizador de Eventos para localizar a fase e código d
    - Razão: Operação TPM falhou ou foi inválida
    - Resolução: Provavelmente devido a uma má imagem de sysprep. Certifique-se de que a máquina a partir da qual a imagem de sysprep foi criada não é Azure AD aderiu, híbrido Azure AD juntou-se, ou Azure AD registrado.
 - **TPM_E_PCP_INTERNAL_ERROR** (0x80290407/-2144795641)
-   - Razão: Erro genérico do TPM. 
+   - Razão: Erro genérico do TPM.
    - Resolução: Desative o TPM nos dispositivos com este erro. A versão 1809 do Windows 10 deteta automaticamente falhas de TPM e completa a adido híbrido Azure Sem utilizar o TPM.
 - **TPM_E_NOTFIPS** (0x80280036/-2144862154)
    - Razão: TPM no modo FIPS não suportado atualmente.
@@ -386,28 +387,32 @@ Utilize os registos do Visualizador de Eventos para localizar a fase e código d
 
 ### <a name="step-5-collect-logs-and-contact-microsoft-support"></a>Passo 5: Recolher registos e contactar o Suporte da Microsoft
 
-Obtenha roteiros públicos aqui: [ https://1drv.ms/u/s! AkyTjQ17vtfagYkZ6VJzPg78e3o7PQ]( https://1drv.ms/u/s!AkyTjQ17vtfagYkZ6VJzPg78e3o7PQ)
+Descarregue o ficheiro Auth.zip de[https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH](https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH)
 
-1. Abra um pedido de `start_ngc_tracing_public.cmd`comando administrativo e corra.
-2. Execute os passos para reproduzir a questão.
-3. Pare de executar o `stop_ngc_tracing_public.cmd`script de registo executando .
-4. Feche e envie os `%SYSTEMDRIVE%\TraceDJPP\*` registos para análise.
+1. Desinserto os ficheiros e mude o nome dos ficheiros incluídos **start-auth.txt** e **stop-auth.txt** para **start-auth.cmd** e **stop-auth.cmd**.
+1. A partir de um pedido de comando elevado, corra **start-auth.cmd**.
+1. Utilize a Conta Switch para alternar para outra sessão com o utilizador do problema.
+1. Reproduza o problema.
+1. Utilize a Conta Switch para voltar à sessão de administração que executa o rastreio.
+1. A partir de um pedido de comando elevado, corra **stop-auth.cmd**.
+1. Zip e envie a pasta **Authlogs** da pasta de onde os scripts foram executados.
 
 ## <a name="troubleshoot-post-join-issues"></a>Problemas de pós-adesão
 
-### <a name="retrieve-the-join-status"></a>Recuperar o estado de adesão 
+### <a name="retrieve-the-join-status"></a>Recuperar o estado de adesão
 
 #### <a name="wamdefaultset-yes-and-azureadprt-yes"></a>WamDefaultSet: YES e AzureADPrt: SIM
-  
-Estes campos indicam se o utilizador autenticou com sucesso à Azure AD ao iniciar a sessão no dispositivo. Se os valores forem **NÃO,** pode ser devido:
+
+Estes campos indicam se o utilizador autenticou com sucesso à Azure AD ao iniciar a sessão no dispositivo.
+Se os valores forem **NÃO,** pode ser devido:
 
 - Má chave de armazenamento no TPM associado ao dispositivo no momento do registo (verifique o KeySignTest enquanto está em funcionamento elevado).
 - Id de login alternativo
 - HTTP Proxy não encontrado
 
 ## <a name="known-issues"></a>Problemas conhecidos
-- Em Definições -> Contas -> Trabalho de Acesso ou Escola, os dispositivos adesados do Hybrid Azure AD podem apresentar duas contas diferentes, uma para a AD Azure e outra para a AD no local, quando ligadas a hotspots móveis ou redes Wi-Fi externas. Este é apenas um problema de UI e não tem qualquer impacto na funcionalidade. 
- 
+- Em Definições -> Contas -> Trabalho de Acesso ou Escola, os dispositivos adesados do Hybrid Azure AD podem apresentar duas contas diferentes, uma para a AD Azure e outra para a AD no local, quando ligadas a hotspots móveis ou redes Wi-Fi externas. Este é apenas um problema de UI e não tem qualquer impacto na funcionalidade.
+
 ## <a name="next-steps"></a>Passos seguintes
 
 Continue os dispositivos de resolução de [problemas utilizando o comando dsregcmd](troubleshoot-device-dsregcmd.md)

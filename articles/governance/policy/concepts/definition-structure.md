@@ -3,12 +3,12 @@ title: Detalhes da estrutura de definição de políticas
 description: Descreve como as definições políticas são usadas para estabelecer convenções para os recursos azure na sua organização.
 ms.date: 04/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5d4a86f4d9f74cf17229467f19a3afa8bebcf40f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f396f46fa77f75452ac8ac3cd98bccd58fe0dfe4
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187771"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82613307"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -73,14 +73,14 @@ Todas as amostras da Política Azure estão em amostras da [Política Azure.](..
 
 O **modo** determina quais os tipos de recursos que serão avaliados para uma política. Os modos suportados são:
 
-- `all`: avaliar grupos de recursos e todos os tipos de recursos
+- `all`: avaliar grupos de recursos, subscrições e todos os tipos de recursos
 - `indexed`: apenas avaliar tipos de recursos que suportem tags e localização
 
 Por exemplo, `Microsoft.Network/routeTables` o recurso suporta etiquetas e localização e é avaliado em ambos os modos. No entanto, o recurso `Microsoft.Network/routeTables/routes` não pode ser `Indexed` marcado e não é avaliado em modo.
 
 Recomendamos que ajuste `all` o **modo** na maioria dos casos. Todas as definições de política `all` criadas através do portal utilizam o modo. Se utilizar o PowerShell ou o Azure CLI, pode especificar manualmente o parâmetro de **modo.** Se a definição de política não incluir um `all` valor de **modo,** não se aplica a Azure PowerShell e ao `null` Azure CLI. Um `null` modo é o `indexed` mesmo que usar para suportar a compatibilidade para trás.
 
-`indexed`deve ser utilizado na criação de políticas que apliquem etiquetas ou locais. Apesar de não ser necessário, evita que recursos que não suportem etiquetas e locais apareçam como incompatíveis nos resultados de conformidade. A exceção são **os grupos de recursos.** As políticas que impõem a localização ou `all` as etiquetas `Microsoft.Resources/subscriptions/resourceGroups` num grupo de recursos devem definir **o modo** e especificamente direcionar o tipo. Por exemplo, consulte [Impor etiquetas](../samples/enforce-tag-rg.md)de grupo de recursos . Para obter uma lista de recursos que suportem tags, consulte o suporte da [Tag para os recursos Azure.](../../../azure-resource-manager/management/tag-support.md)
+`indexed`deve ser utilizado na criação de políticas que apliquem etiquetas ou locais. Apesar de não ser necessário, evita que recursos que não suportem etiquetas e locais apareçam como incompatíveis nos resultados de conformidade. A exceção são **os grupos de recursos** e as **assinaturas.** As políticas que impõem a localização ou as etiquetas num `Microsoft.Resources/subscriptions/resourceGroups` `Microsoft.Resources/subscriptions` grupo de recursos ou subscrição devem definir **o modo** e `all` especificamente direcionar o ou tipo. Por exemplo, consulte [Impor etiquetas](../samples/enforce-tag-rg.md)de grupo de recursos . Para obter uma lista de recursos que suportem tags, consulte o suporte da [Tag para os recursos Azure.](../../../azure-resource-manager/management/tag-support.md)
 
 ### <a name="resource-provider-modes-preview"></a><a name="resource-provider-modes" />Modos de Fornecedor de Recursos (pré-visualização)
 

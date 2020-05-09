@@ -3,13 +3,13 @@ title: Utilize piscinas de nó de sistema no Serviço Azure Kubernetes (AKS)
 description: Aprenda a criar e gerir piscinas de nós de sistema no Serviço Azure Kubernetes (AKS)
 services: container-service
 ms.topic: article
-ms.date: 04/06/2020
-ms.openlocfilehash: b567d9e618877463e1e659f368d35fbb787a4ef2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/28/2020
+ms.openlocfilehash: 04322bdaa2e0e72c5fbdbadb07f2608ee360e1e3
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81259073"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790563"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Gerir piscinas de nó de sistema no Serviço Azure Kubernetes (AKS)
 
@@ -29,6 +29,8 @@ As seguintes limitações aplicam-se quando cria e gere clusters AKS que suporta
 * Ver Quotas, restrições de tamanho de máquina virtual e disponibilidade da [região no Serviço Azure Kubernetes (AKS)][quotas-skus-regions].
 * O cluster AKS deve ser construído com conjuntos de escala de máquina virtual como o tipo VM.
 * O nome de uma piscina de nó só pode conter caracteres alfanuméricos minúsculos e deve começar com uma letra minúscula. Para piscinas de nó linux, o comprimento deve ser entre 1 e 12 caracteres. Para piscinas de nó windows, o comprimento deve ser entre 1 e 6 caracteres.
+* Uma versão API de 2020-03-01 ou superior deve ser utilizada para definir um modo de piscina de nó.
+* O modo de uma piscina de nó é uma propriedade necessária e deve ser explicitamente definido quando utilizar modelos ARM ou chamadas API diretas.
 
 ## <a name="system-and-user-node-pools"></a>Piscinas de nó de sistema e utilizador
 
@@ -175,4 +177,4 @@ Neste artigo, aprendeu a criar e gerir piscinas de nós de sistema num cluster A
 [taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
 [vm-sizes]: ../virtual-machines/linux/sizes.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
-[maximum-pods]: faq.md#why-cant-i-set-maxpods-below-30
+[maximum-pods]: configure-azure-cni.md#maximum-pods-per-node

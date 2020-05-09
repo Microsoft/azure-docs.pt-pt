@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/14/2019
 ms.author: chrimo
-ms.openlocfilehash: 2543dd12e8a75a038a1fc04371b8c562ef696e25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 994edf26e43c7ad67d4f8822d4ed0d18d53b510b
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254238"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612457"
 ---
 # <a name="apply-windows-license-to-session-host-virtual-machines"></a>Aplicar licença do Windows para sessão de anfitriões de máquinas virtuais
 
@@ -23,7 +23,7 @@ O licenciamento do Windows Virtual Desktop permite-lhe aplicar uma licença a qu
 
 Existem algumas formas de utilizar a licença de ambiente de trabalho virtual do Windows:
 - Você pode criar uma piscina anfitriã e sua sessão hospedar máquinas virtuais usando a [oferta Azure Marketplace](./create-host-pools-azure-marketplace.md). As máquinas virtuais criadas desta forma têm automaticamente a licença aplicada.
-- Você pode criar um pool anfitrião e sua sessão anfitrião máquinas virtuais usando o [modelo GitHub Azure Resource Manager](./create-host-pools-arm-template.md). As máquinas virtuais criadas desta forma têm automaticamente a licença aplicada.
+- Você pode criar um pool anfitrião e sua sessão anfitrião máquinas virtuais usando o [modelo GitHub Azure Resource Manager](./virtual-desktop-fall-2019/create-host-pools-arm-template.md). As máquinas virtuais criadas desta forma têm automaticamente a licença aplicada.
 - Pode aplicar uma licença a uma máquina virtual de anfitrião de sessão existente. Para isso, siga primeiro as instruções em [Criar um pool de anfitriões com](./create-host-pools-powershell.md) a PowerShell para criar uma piscina hospedeira e VMs associados, em seguida, volte a este artigo para aprender a aplicar a licença.
 
 ## <a name="apply-a-windows-license-to-a-session-host-vm"></a>Aplicar uma licença do Windows a um VM anfitrião de sessão

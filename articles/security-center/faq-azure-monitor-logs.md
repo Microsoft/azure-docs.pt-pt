@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: f6384c1e9e14e38b4c44c5ac79a674839b43b4ca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2fe306cf7d17f0789c5e134c3fcad3f8f07a0b80
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80436155"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612831"
 ---
 # <a name="faq-for-customers-already-using-azure-monitor-logs"></a>FAQ para clientes que já usam registos do Monitor Azure<a name="existingloganalyticscust"></a>
 
@@ -42,7 +42,7 @@ Quando o Security Center identifica que um VM já está ligado a um espaço de t
 ## <a name="i-already-have-workspaces-in-my-environment-can-i-use-them-to-collect-security-data"></a>Já tenho espaços de trabalho no meu ambiente, posso usá-los para recolher dados de segurança?
 Se um VM já tiver o agente Log Analytics instalado como uma extensão Azure, o Security Center utiliza o espaço de trabalho conectado existente. Uma solução De Centro de Segurança está instalada no espaço de trabalho se ainda não estiver presente, e a solução é aplicada apenas aos VMs relevantes através [de uma solução direcionada](../operations-management-suite/operations-management-suite-solution-targeting.md).
 
-Quando o Security Center instala o agente Log Analytics em VMs, utiliza o espaço de trabalho predefinido criado pelo Security Center.
+Quando o Security Center instala o agente Log Analytics em VMs, utiliza o espaço de trabalho padrão criado pelo Security Center se o Security Center não for apontado para um espaço de trabalho existente.
 
 ## <a name="i-already-have-security-solution-on-my-workspaces-what-are-the-billing-implications"></a>Já tenho solução de segurança nos meus espaços de trabalho. Quais são as implicações da faturação?
 A solução de auditoria & de segurança é utilizada para permitir funcionalidades de nível padrão do Security Center para VMs Azure. Se a solução de Auditoria & de Segurança já estiver instalada num espaço de trabalho, o Security Center utiliza a solução existente. Não há alteração na faturação.

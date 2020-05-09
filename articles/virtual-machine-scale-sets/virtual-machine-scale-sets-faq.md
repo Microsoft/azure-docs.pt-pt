@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: mimckitt
-ms.openlocfilehash: c2db0cca120d08b85229618547a2aaabbba437ad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0a5fcb3bb1ebf48eaa9cdce70800a4239c5fae03
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81870224"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611403"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>FAQ dos conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -45,11 +45,13 @@ Crie e capture uma imagem VM, em seguida, use-a como fonte para o seu conjunto d
 
 ### <a name="if-i-reduce-my-scale-set-capacity-from-20-to-15-which-vms-are-removed"></a>Se reduzir a capacidade do conjunto de dimensionamento de 20 para 15, que VMs são removidas?
 
-As máquinas virtuais são removidas do conjunto de dimensionamento de forma uniforme entre domínios de atualização e domínios de falha, para maximizar a disponibilidade. São removidas primeiro as VMs com os IDs mais altos.
+Por predefinição, as máquinas virtuais são removidas da escala definida uniformemente através das zonas de disponibilidade (se o conjunto de escala for implantado na configuração zonal) e domínios de falha para maximizar a disponibilidade. São removidas primeiro as VMs com os IDs mais altos.
+
+Pode alterar a ordem de remoção da máquina virtual especificando uma [política de escala para](virtual-machine-scale-sets-scale-in-policy.md) o conjunto de escala.
 
 ### <a name="what-if-i-then-increase-the-capacity-from-15-to-18"></a>E se, depois, aumentar a capacidade de 15 para 18?
 
-Se aumentar a capacidade para 18, então, são criadas três VMs novas. Sempre que isso acontecer, o ID da instância da VM é aumentado a partir do valor mais alto anterior (por exemplo, 20, 21, 22). As VMs são balanceadas entre os domínios de falhas e os domínios de atualização.
+Se aumentar a capacidade para 18, então, são criadas três VMs novas. Sempre que isso acontecer, o ID da instância da VM é aumentado a partir do valor mais alto anterior (por exemplo, 20, 21, 22). Os VMs são equilibrados em domínios de falhas.
 
 ### <a name="when-im-using-multiple-extensions-in-a-scale-set-can-i-enforce-an-execution-sequence"></a>Se utilizar várias extensões num conjunto de dimensionamento, posso forçar uma sequência de execução?
 
@@ -223,7 +225,7 @@ Você pode fornecer chaves públicas SSH em texto simples quando criar um VM Lin
 
 nome do elemento linuxConfiguration | Necessário | Tipo | Descrição
 --- | --- | --- | ---
-ssh | Não | Coleção | Especifica a configuração da chave SSH para um Sistema Operativo Linux
+ssh | No | Coleção | Especifica a configuração da chave SSH para um Sistema Operativo Linux
 path | Sim | String | Especifica o caminho do ficheiro Linux onde devem ser localizadas as chaves ou certificadoS SSH
 keyData | Sim | String | Especifica uma chave pública SSH codificada com base64
 
@@ -335,13 +337,13 @@ Para mais informações, consulte [o Microsoft Trust Center](https://www.microso
 
 Sim. Pode ver alguns modelos de MSI exemplo em modelos Azure Quickstart para [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) e [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi).
 
-## <a name="deleting"></a>Apagando 
+## <a name="deleting"></a>Apagando
 
 ### <a name="will-the-locks-i-set-in-place-on-virtual-machine-scale-set-instances-be-respected-when-deleting-instances"></a>As fechaduras que coloquei em instâncias de conjunto de máquinas virtuais serão respeitadas ao apagar casos?
 
-No Portal Azure, tem a capacidade de eliminar uma instância individual ou apagar a granel selecionando várias instâncias. Se tentar eliminar uma única instância que tenha um cadeado no lugar, o bloqueio é respeitado e não poderá apagar a instância. No entanto, se selecionar várias instâncias em massa e qualquer uma dessas instâncias tiver um bloqueio no lugar, o bloqueio(s) não será respeitado e todas as instâncias selecionadas serão eliminadas. 
- 
-No Azure CLI, só tem a capacidade de eliminar uma instância individual. Se tentar eliminar uma única instância que tenha um cadeado no lugar, o bloqueio é respeitado e não poderá eliminar essa instância. 
+No Portal Azure, tem a capacidade de eliminar uma instância individual ou apagar a granel selecionando várias instâncias. Se tentar eliminar uma única instância que tenha um cadeado no lugar, o bloqueio é respeitado e não poderá apagar a instância. No entanto, se selecionar várias instâncias em massa e qualquer uma dessas instâncias tiver um bloqueio no lugar, o bloqueio(s) não será respeitado e todas as instâncias selecionadas serão eliminadas.
+
+No Azure CLI, só tem a capacidade de eliminar uma instância individual. Se tentar eliminar uma única instância que tenha um cadeado no lugar, o bloqueio é respeitado e não poderá eliminar essa instância.
 
 ## <a name="extensions"></a>Extensões
 

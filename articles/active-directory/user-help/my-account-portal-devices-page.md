@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: curtand
-ms.openlocfilehash: e273a44c1cbc5a6a6161f059038c7e87973a33d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d43b2bd5912375c3bb2010f0f2ae75a119512f03
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77062494"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82625838"
 ---
 # <a name="manage-your-connected-devices-from-the-devices-page"></a>Gerencie os seus dispositivos conectados a partir da página Dispositivos
 
@@ -31,7 +31,7 @@ A página **dispositivos** do portal **My Account** ajuda-o a gerir os dispositi
 
 ## <a name="view-your-connected-devices"></a>Veja os seus dispositivos conectados
 
-1. Inscreva-se na sua conta de trabalho ou escolahttps://myprofile.microsoft.com/) e, em seguida, vá para a Minha **Conta** (página.
+1. Inscreva-se na sua conta de trabalho ou escolahttps://myaccount.microsoft.com/) e, em seguida, vá para a Minha **Conta** (página.
 
 2. Selecione **Dispositivos** a partir do painel de navegação esquerdo ou selecione a ligação **de dispositivos Gerir** a partir do bloco **dispositivos.**
 

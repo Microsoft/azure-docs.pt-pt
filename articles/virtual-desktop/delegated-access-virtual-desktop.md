@@ -5,17 +5,23 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 91451ff3024a9a5019b3982b0e4471e2c4d80c74
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 16b4fca475f91a8cb5b7f9a20ea5aa74b6b674a3
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81683920"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612865"
 ---
 # <a name="delegated-access-in-windows-virtual-desktop"></a>Acesso delegado ao Windows Virtual Desktop
+
+>[!IMPORTANT]
+>Este conteúdo aplica-se à atualização da primavera de 2020 com os objetos de ambiente de trabalho virtual do Gestor de Recursos Do Azure Windows. Se estiver a utilizar o lançamento do Windows Virtual Desktop Fall 2019 sem objetos do Gestor de Recursos Azure, consulte [este artigo](./virtual-desktop-fall-2019/delegated-access-virtual-desktop-2019.md).
+>
+> A atualização Do Windows Virtual Desktop Spring 2020 encontra-se atualmente em pré-visualização pública. Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não recomendamos usá-la para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. 
+> Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 
 O Windows Virtual Desktop tem um modelo de acesso delegado que permite definir a quantidade de acesso que um determinado utilizador pode ter atribuindo-lhes uma função. Uma atribuição de funções tem três componentes: diretor de segurança, definição de funções e âmbito. O modelo de acesso delegado do Windows Virtual Desktop baseia-se no modelo Azure RBAC. Para saber mais sobre atribuições específicas e seus componentes, consulte a visão geral [do controlo de acesso baseado em papéis azure.](../role-based-access-control/built-in-roles.md)
 
@@ -23,48 +29,38 @@ O acesso delegado do Windows Virtual Desktop suporta os seguintes valores para c
 
 * Principal de segurança
     * Utilizadores
+    * Grupos de utilizadores
     * Principais de serviço
 * Definição de função
     * Funções incorporadas
+    * Funções personalizadas
 * Âmbito
-    * Grupos de inquilinos
-    * Inquilinos
     * Piscinas de acolhimento
     * Grupos de aplicações
-
-## <a name="built-in-roles"></a>Funções incorporadas
-
-O acesso delegado no Windows Virtual Desktop tem várias definições de funções incorporadas que pode atribuir aos utilizadores e aos diretores de serviço.
-
-* Um Proprietário RDS pode gerir tudo, incluindo o acesso aos recursos.
-* Um Colaborador rds pode gerir tudo, mas não pode ter acesso a recursos.
-* Um leitor rds pode ver tudo, mas não pode fazer alterações.
-* Um operador RDS pode ver atividades de diagnóstico.
+    * Áreas de Trabalho
 
 ## <a name="powershell-cmdlets-for-role-assignments"></a>PowerShell cmdlets para atribuições de papéis
 
-Pode executar os seguintes cmdlets para criar, visualizar e remover atribuições de funções:
+Antes de começar, certifique-se de seguir as instruções no [conjunto do módulo PowerShell](powershell-module.md) para configurar o módulo PowerShell virtual do Windows se ainda não o fez.
 
-* **Get-RdsRoleAssignment** apresenta uma lista de atribuições de papéis.
-* **A New-RdsRoleAssignment** cria uma nova atribuição de papéis.
-* **Remover-RdsRoleAssignment** elimina atribuições de funções.
+O Windows Virtual Desktop utiliza o controlo de acesso baseado em funções do Azure (RBAC) enquanto publica grupos de aplicações para utilizadores ou grupos de utilizadores. A função de Utilizador de Virtualização do Ambiente de Trabalho é atribuída ao utilizador ou grupo de utilizadores e o âmbito é o grupo de aplicações. Esta função dá ao utilizador acesso especial de dados no grupo de aplicações.  
 
-### <a name="accepted-parameters"></a>Parâmetros aceites
+Executar o seguinte cmdlet para adicionar utilizadores de Diretório Ativo Azure a um grupo de aplicações:
 
-Pode modificar os três cmdlets básicos com os seguintes parâmetros:
+```powershell
+New-AzRoleAssignment -SignInName <userupn> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <hostpoolname> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'  
+```
 
-* **AadTenantId**: especifica o ID do inquilino do Diretório Ativo Azure a partir do qual o diretor de serviço é membro.
-* **Nome do AppGroup**: nome do grupo de aplicações Remote Desktop.
-* **Diagnósticos:** indica o âmbito de diagnóstico. (Deve ser emparelhado com os parâmetros **infraestrutura** ou **inquilino.)**
-* **HostPoolName**: nome da piscina de anfitriões do Ambiente de Trabalho Remoto.
-* **Infraestrutura**: indica o âmbito da infraestrutura.
-* **RoleDefinitionName**: nome da função de controlo de acesso baseado em funções de Serviços de Secretária Remoto atribuído ao utilizador, grupo ou aplicação. (Por exemplo, Proprietário de Serviços de Ambiente de Trabalho Remoto, Leitor de Serviços de Ambiente de Trabalho Remoto, e assim por diante.)
-* **Nome do ServidorPrincipleName**: nome da aplicação Azure Ative Directory.
-* **SignInName**: o endereço de e-mail do utilizador ou o nome principal do utilizador.
-* **Nome do inquilino**: nome do inquilino do Ambiente de Trabalho Remoto.
+Execute o seguinte cmdlet para adicionar o grupo de utilizadores Azure Ative Directory a um grupo de aplicações:
+
+```powershell
+New-AzRoleAssignment -ObjectId <usergroupobjectid> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <hostpoolname> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups' 
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Para obter uma lista mais completa de cmdlets PowerShell cada função pode ser utilizada, consulte a [referência PowerShell](/powershell/windows-virtual-desktop/overview).
+
+Para obter uma lista completa de funções suportadas no Azure RBAC, consulte [as funções azure incorporadas.](../role-based-access-control/built-in-roles.md)
 
 Para obter diretrizes sobre como configurar um ambiente de ambiente de trabalho virtual windows, consulte o ambiente de ambiente de [trabalho virtual do Windows](environment-setup.md).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 9595ee87801fa4ce187a50197fc58d6c448eac24
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 09dd4ea3cd039bcb91acc877e51fee7e40168ac3
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78303227"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612763"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Configure uma instância de cluster de failover do SQL Server com partilha de ficheiropremium em máquinas virtuais Azure
 
@@ -47,7 +47,7 @@ Deve também ter uma compreensão geral destas tecnologias:
 > [!IMPORTANT]
 > Neste momento, as instâncias de cluster de falha do SQL Server nas máquinas virtuais Azure são suportadas apenas com o modo de [gestão leve](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes) da extensão do [agente SQL Server IaaS](virtual-machines-windows-sql-server-agent-extension.md). Para mudar do modo de extensão completo para leve, elimine o recurso **SQL Virtual Machine** para os VMs correspondentes e, em seguida, registe-os com o fornecedor de recursos SQL VM em modo leve. Ao apagar o recurso **SQL Virtual Machine** utilizando o portal Azure, limpe a caixa de **verificação junto à máquina virtual correta**. A extensão completa suporta funcionalidades como backup automatizado, patching e gestão avançada do portal. Estas funcionalidades não funcionarão para VMs SQL depois de o agente ser reinstalado em modo de gestão leve.
 
-As ações de ficheiropremium fornecem IOPS e em todas as capacidades que irão atender às necessidades de muitas cargas de trabalho. Para cargas de trabalho intensivas em IO, considere [as instâncias de cluster de failover do Servidor SQL com espaços](virtual-machines-windows-portal-sql-create-failover-cluster.md)de armazenamento diretos, com base em discos premium geridos ou discos ultra.  
+As ações de ficheiropremium fornecem iOPS e capacidades de entrada que irão atender às necessidades de muitas cargas de trabalho. Para cargas de trabalho intensivas em IO, considere [as instâncias de cluster de failover do Servidor SQL com espaços](virtual-machines-windows-portal-sql-create-failover-cluster.md)de armazenamento diretos, com base em discos premium geridos ou discos ultra.  
 
 Verifique a atividade iops do seu ambiente e verifique se as ações de ficheiropremium fornecerão o IOPS de que necessita antes de iniciar uma implementação ou migração. Utilize os contadores de discos do Windows Performance Monitor para monitorizar o total de IOPS (Transferências de Discos/segundo) e a entrada (Bytes/segundo do Disco) necessárias para os ficheiros SQL Server, Log e Temp DB.
 

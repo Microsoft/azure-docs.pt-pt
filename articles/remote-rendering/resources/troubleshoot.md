@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: b86af2ff8fad3793fc47cec9399fd499c1cabba7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c1b807c6e4fa269ac2ab8d7eacd3ca1d4f81a1ca
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81681862"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792620"
 ---
 # <a name="troubleshoot"></a>Resolução de problemas
 
@@ -98,6 +98,10 @@ Se estes dois passos não ajudaram, é necessário descobrir se os quadros de v�
 
 ### <a name="common-client-side-issues"></a>Problemas comuns do lado do cliente
 
+**O modelo excede os limites do VM selecionado, especificamente o número máximo de polígonos:**
+
+Consulte [limitações específicas do tamanho](../reference/limits.md#overall-number-of-polygons)do VM .
+
 **O modelo não está dentro da vista frustum:**
 
 Em muitos casos, o modelo é apresentado corretamente, mas localizado fora do frustum da câmara. Uma razão comum é que o modelo foi exportado com um pivô muito fora do centro, por isso é cortado pelo avião de corte da câmara. Ajuda a consultar a caixa de delimitação do modelo programáticamente e visualizar a caixa com a Unidade como uma caixa de linha ou imprimir os seus valores para o registo de depuração.
@@ -139,8 +143,20 @@ Os ganchos de renderização remota Azure no pipeline de renderização da Unida
 
 ## <a name="unity-code-using-the-remote-rendering-api-doesnt-compile"></a>Código de unidade usando a API de renderização remota não compila
 
+### <a name="use-debug-when-compiling-for-unity-editor"></a>Use debug ao compilar para Editor de Unidade
+
 Mude o tipo de *construção* da solução Deunidade para **Debug**. Ao testar arr no editor `UNITY_EDITOR` de Unidade, o definição só está disponível nas construções 'Debug'. Note que isto não está relacionado com o tipo de construção utilizado para [aplicações implantadas,](../quickstarts/deploy-to-hololens.md)onde deve preferir as construções 'Release'.
 
+### <a name="compile-failures-when-compiling-unity-samples-for-hololens-2"></a>Compile falhas ao compilar amostras de unidade para HoloLens 2
+
+Temos visto falhas espúrias ao tentar compilar amostras de Unidade (quickstart, ShowCaseApp, ..) para HoloLens 2. O Visual Studio queixa-se de não poder copiar alguns ficheiros, apesar de estarem lá. Se acertar neste problema:
+* Remova todos os ficheiros de Unidade temporários do projeto e tente novamente.
+* Certifique-se de que os projetos estão localizados num diretório no disco com um percurso razoavelmente curto, uma vez que o passo da cópia às vezes parece ter problemas com nomes de ficheiros longos.
+* Se isso não ajudar, pode ser que a MS Sense interfira com o passo da cópia. Para estabelecer uma exceção, executar este comando de registo a partir da linha de comando (requer direitos de administração):
+    ```cmd
+    reg.exe ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Advanced Threat Protection" /v groupIds /t REG_SZ /d "Unity”
+    ```
+    
 ## <a name="unstable-holograms"></a>Hologramas instáveis
 
 No caso de objetos renderizados parecerem mover-se juntamente com movimentos da cabeça, pode estar a encontrar problemas com a *Reprojection Late Stage* (LSR). Consulte a secção de [Reprojeção](../overview/features/late-stage-reprojection.md) de Fase Tardia para obter orientações sobre como abordar tal situação.

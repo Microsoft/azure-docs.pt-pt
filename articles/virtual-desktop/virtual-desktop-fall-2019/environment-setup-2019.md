@@ -5,25 +5,26 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ad535dd18b89cbe2fceab90f73789180ad332b57
+ms.openlocfilehash: d666f7e3e43b5429423a5356aa00e074ed020869
 ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612372"
+ms.locfileid: "82615334"
 ---
 # <a name="windows-virtual-desktop-environment"></a>Ambiente do Windows Virtual Desktop
 
 >[!IMPORTANT]
->Este conteúdo aplica-se à atualização da primavera de 2020 com os objetos de ambiente de trabalho virtual do Gestor de Recursos Do Azure Windows. Se estiver a utilizar o lançamento do Windows Virtual Desktop Fall 2019 sem objetos do Gestor de Recursos Azure, consulte [este artigo](./virtual-desktop-fall-2019/environment-setup-2019.md).
->
-> A atualização Do Windows Virtual Desktop Spring 2020 encontra-se atualmente em pré-visualização pública. Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não recomendamos usá-la para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. 
-> Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
+>Este conteúdo aplica-se à versão outono 2019 que não suporta objetos de ambiente de trabalho virtual do Gestor de Recursos Do Azure. Se está a tentar gerir os objetos de ambiente de trabalho virtual do Gestor de Recursos Do Azure Windows introduzidos na atualização da primavera de 2020, consulte [este artigo](../environment-setup.md).
 
 O Windows Virtual Desktop é um serviço que dá aos utilizadores acesso fácil e seguro aos seus desktops e RemoteApps virtualizados. Este tópico irá dizer-lhe um pouco mais sobre a estrutura geral do ambiente de ambiente de trabalho virtual do Windows.
+
+## <a name="tenants"></a>Inquilinos
+
+O inquilino do Windows Virtual Desktop é a interface principal para gerir o seu ambiente de trabalho virtual windows. Cada inquilino do Windows Virtual Desktop deve estar associado ao Diretório Ativo Azure contendo os utilizadores que irão iniciar sessão no ambiente. A partir do inquilino do Windows Virtual Desktop, você pode começar a criar piscinas de hospedas para executar as cargas de trabalho dos seus utilizadores.
 
 ## <a name="host-pools"></a>Piscinas de acolhimento
 
@@ -47,12 +48,12 @@ Por padrão, um grupo de aplicações de ambiente de trabalho (chamado "Desktop 
 
 Para publicar recursos aos utilizadores, deve atribuí-los a grupos de aplicações. Ao atribuir os utilizadores a grupos de aplicações, considere as seguintes coisas:
 
-- Um utilizador pode ser atribuído tanto a um grupo de aplicações para desktop como a um grupo de aplicações RemoteApp na mesma piscina de anfitriões. No entanto, os utilizadores só podem lançar um tipo de grupo de aplicações por sessão. Os utilizadores não podem lançar ambos os tipos de grupos de aplicações ao mesmo tempo numa única sessão.
+- Um utilizador não pode ser atribuído tanto a um grupo de aplicações para desktop como a um grupo de aplicações RemoteApp na mesma piscina de anfitriões.
 - Um utilizador pode ser atribuído a vários grupos de aplicações dentro da mesma piscina de anfitriões, e o seu feed será uma acumulação de ambos os grupos de aplicações.
 
-## <a name="workspaces"></a>Áreas de Trabalho
+## <a name="tenant-groups"></a>Grupos de inquilinos
 
-Um espaço de trabalho é um agrupamento lógico de grupos de aplicações no Windows Virtual Desktop. Cada grupo de aplicações do Windows Virtual Desktop deve estar associado a um espaço de trabalho para os utilizadores verem as aplicações remotas e os desktops publicados para os mesmos.  
+No Windows Virtual Desktop, o inquilino do Windows Virtual Desktop é onde acontece a maior parte da configuração e configuração. O inquilino do Windows Virtual Desktop contém as piscinas de anfitriões, grupos de aplicações e atribuições de utilizadores do grupo de aplicações. No entanto, pode haver algumas situações em que você precisa gerir vários inquilinos do Windows Virtual Desktop de uma só vez, especialmente se você é um Fornecedor de Serviços cloud (CSP) ou um parceiro de hospedagem. Nestas situações, você pode usar um grupo de inquilinos personalizados do Windows Virtual Desktop para colocar cada um dos inquilinos do Windows Virtual Desktop dos clientes e gerir centralmente o acesso. No entanto, se você está apenas gerindo um único inquilino windows virtual desktop, o conceito do grupo de inquilinos não se aplica e você pode continuar a operar e gerir o seu inquilino que existe no grupo de inquilinos padrão.
 
 ## <a name="end-users"></a>Utilizadores finais
 
@@ -60,14 +61,11 @@ Depois de ter atribuído os utilizadores aos seus grupos de aplicações, estes 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre o acesso delegado e como atribuir funções aos utilizadores [no Acesso Delegado no Windows Virtual Desktop](delegated-access-virtual-desktop.md).
+Saiba mais sobre o acesso delegado e como atribuir funções aos utilizadores [no Acesso Delegado no Windows Virtual Desktop](delegated-access-virtual-desktop-2019.md).
 
-Para aprender a configurar o seu pool de anfitriões Windows Virtual Desktop, consulte [Create a host pool com o portal Azure](create-host-pools-azure-marketplace.md).
+Para aprender a configurar o seu inquilino de ambiente de trabalho virtual Windows, consulte [Criar um inquilino no Windows Virtual Desktop](tenant-setup-azure-active-directory.md).
 
 Para aprender a ligar-se ao Windows Virtual Desktop, consulte um dos seguintes artigos:
 
-- [Conecte-se com o Windows 10 ou windows 7](connect-windows-7-and-10.md)
-- [Conecte-se com um navegador web](connect-web.md)
-- [Ligar ao cliente Android](connect-android.md)
-- [Ligar ao cliente de macOS](connect-macos.md)
-- [Ligar ao cliente de iOS](connect-ios.md)
+- [Ligar a partir do Windows 10 ou Windows 7](../connect-windows-7-and-10.md)
+- [Ligar a partir de um browser web](connect-web-2019.md)

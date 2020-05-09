@@ -1,18 +1,18 @@
 ---
 title: Garantir a continuidade do negócio & recuperação de desastres usando as Regiões Emparelhadas de Azure
 description: Garantir a resiliência da aplicação usando o emparelhamento regional azure
-author: jpconnock
-manager: angrobe
+author: barbkess
+manager: barbkess
 ms.service: multiple
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.author: jeconnoc
-ms.openlocfilehash: 778943dad9a04632797d5d9165b6f1f9a3eb9850
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: barbkess
+ms.openlocfilehash: be6d2fb590dfefb170b3f23378c507b4d6b2295d
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79248258"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82980053"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuidade empresarial e recuperação após desastre (BCDR): Regiões Emparelhadas do Azure
 

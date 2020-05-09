@@ -8,20 +8,20 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: bfbe311d9768923eee8c1b0cc4f3b4ec1a7ad69a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ed93ba937a843618f36bac6e88b15ff77355ca75
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82186310"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610705"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Compare opções de armazenamento para uso com clusters Azure HDInsight
 
 Pode escolher entre alguns serviços de armazenamento Azure diferentes ao criar clusters HDInsight:
 
-* [Armazenamento Azure](./overview-azure-storage.md)
-* [Armazenamento do Azure Data Lake Ger2](./overview-data-lake-storage-gen1.md)
-* [Armazenamento do Azure Data Lake Ger1](./overview-data-lake-storage-gen2.md)
+* [Storage do Azure](./overview-azure-storage.md)
+* [Azure Data Lake Storage Gen2](./overview-data-lake-storage-gen2.md) (Armazenamento do Azure Data Lake Gen2)
+* [Armazenamento do Azure Data Lake Ger1](./overview-data-lake-storage-gen1.md)
 
 Este artigo fornece uma visão geral destes tipos de armazenamento e suas características únicas.
 
@@ -48,15 +48,15 @@ Pode criar clusters utilizando combinações de serviços para armazenamento sec
 | Versão HDInsight | Armazenamento Primário | Armazenamento Secundário | Suportado |
 |---|---|---|---|
 | 3,6 & 4.0 | Propósito Geral V1, Propósito Geral V2 | Objetivo Geral V1, Propósito Geral V2, BlobStorage (Bloco blobs) | Sim |
-| 3,6 & 4.0 | Propósito Geral V1, Propósito Geral V2 | Armazenamento do Data Lake Ger2 | Não |
+| 3,6 & 4.0 | Propósito Geral V1, Propósito Geral V2 | Armazenamento do Data Lake Ger2 | No |
 | 3,6 & 4.0 | Data Lake Storage Gen2* | Armazenamento do Data Lake Ger2 | Sim |
 | 3,6 & 4.0 | Data Lake Storage Gen2* | Objetivo Geral V1, Propósito Geral V2, BlobStorage (Bloco blobs) | Sim |
-| 3,6 & 4.0 | Armazenamento do Data Lake Ger2 | Armazenamento do Data Lake Ger1 | Não |
+| 3,6 & 4.0 | Armazenamento do Data Lake Ger2 | Armazenamento do Data Lake Ger1 | No |
 | 3.6 | Armazenamento do Data Lake Ger1 | Armazenamento do Data Lake Ger1 | Sim |
 | 3.6 | Armazenamento do Data Lake Ger1 | Objetivo Geral V1, Propósito Geral V2, BlobStorage (Bloco blobs) | Sim |
-| 3.6 | Armazenamento do Data Lake Ger1 | Armazenamento do Data Lake Ger2 | Não |
-| 4,0 | Armazenamento do Data Lake Ger1 | Qualquer | Não |
-| 4,0 | Propósito Geral V1, Propósito Geral V2 | Armazenamento do Data Lake Ger1 | Não |
+| 3.6 | Armazenamento do Data Lake Ger1 | Armazenamento do Data Lake Ger2 | No |
+| 4,0 | Armazenamento do Data Lake Ger1 | Qualquer | No |
+| 4,0 | Propósito Geral V1, Propósito Geral V2 | Armazenamento do Data Lake Ger1 | No |
 
 *=Esta pode ser uma ou múltiplas contas de Data Lake Storage Gen2, desde que estejam todas configuradas para usar a mesma identidade gerida para acesso ao cluster.
 

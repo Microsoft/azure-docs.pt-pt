@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: 4f4cc5cefe8090e9e95f80b8b74bf15591cb7887
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5cde80bf3205557884dfe8f2b8f5e79031bbca69
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133078"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612066"
 ---
 # <a name="read-input-in-any-format-using-net-custom-deserializers"></a>Leia a entrada em qualquer formato utilizando desserializers personalizados .NET
 
@@ -247,6 +247,10 @@ Esta funcionalidade não é suportada. Se precisar desta capacidade, pode votar 
 ### <a name="can-i-share-my-deserializer-implementation-with-the-community-so-that-others-can-benefit"></a>Posso partilhar a minha implementação de desserializador com a comunidade para que outros possam beneficiar?
 
 Uma vez implementado o seu desserializer, pode ajudar os outros partilhando-o com a comunidade. Envie o seu código para o [repo Do Azure Stream Analytics GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/CustomDeserializers).
+
+### <a name="what-are-the-other-limitation-of-using-custom-deserializers-in-stream-analytics"></a>Qual é a outra limitação de usar desserializers personalizados no Stream Analytics?
+
+Se a sua entrada for de formato Protobuf com esquema que contenha o tipo MapField, não será capaz de implementar um desserializador personalizado. Estamos a trabalhar no apoio a este tipo de avanço.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

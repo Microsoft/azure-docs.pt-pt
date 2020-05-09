@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: thvankra
-ms.openlocfilehash: 94cdeff36553268d691fc968036c5264e77fddc2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 13d7e0bfd3c7061d9dec68a1d14ff2a5e2c05fcd
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188812"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791260"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Escala elástica uma conta API Da API do Azure Cosmos DB Cassandra
 
@@ -58,9 +58,9 @@ Pode escalar o sistema dinamicamente com código executando os [comandos CQL ALT
 
 A vantagem desta abordagem é que permite responder às necessidades de escala de forma dinâmica e personalizada que se adequa à sua aplicação. Com esta abordagem, ainda pode alavancar as taxas e taxas padrão de RU/s. Se as necessidades de escala do seu sistema forem maioritariamente previsíveis (cerca de 70% ou mais), usar SDK com CQL pode ser um método mais rentável de escala automática do que usar a escala automática. A desvantagem desta abordagem é que pode ser bastante complexo implementar repetições, enquanto a limitação das taxas pode aumentar a latência.
 
-## <a name="use-autoscale"></a><a id="use-autoscale"></a>Utilizar dimensionamento automático
+## <a name="use-autoscale-provisioned-throughput"></a><a id="use-autoscale"></a>Utilizar a escala automática de produção aprovisionada
 
-Além da forma manual ou programática de fornecer a produção, também pode configurar recipientes de cosmos Azure em modo de escala automática. O modo de escala automática escalará automaticamente e instantaneamente as suas necessidades de consumo dentro das gamas DERU especificadas sem comprometer os SLAs. Para saber mais, consulte os recipientes e bases de [dados Create Azure Cosmos em artigo](provision-throughput-autoscale.md) modo de escala automática.
+Além da forma padrão (manual) ou programática de fornecer a produção, também pode configurar recipientes de cosmos Azure em escala automática de produção aprovisionada. A escala automática escalará automaticamente e instantaneamente as suas necessidades de consumo dentro das gamas de RU especificadas sem comprometer os SLAs. Para saber mais, consulte os recipientes e bases de [dados Create Azure Cosmos em](provision-throughput-autoscale.md) artigo de escala automática.
 
 A vantagem desta abordagem é que é a forma mais fácil de gerir as necessidades de escala no seu sistema. Garante não aplicar a limitação das taxas **dentro das gamas DERU configuradas**. A desvantagem é que, se as necessidades de escala no seu sistema forem previsíveis, a escala automática pode ser uma forma menos rentável de lidar com as suas necessidades de escala do que utilizar o plano de controlo sob medida ou as abordagens de nível SDK acima mencionadas.
 

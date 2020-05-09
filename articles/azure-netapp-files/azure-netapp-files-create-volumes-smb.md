@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/03/2020
+ms.date: 04/30/2020
 ms.author: b-juche
-ms.openlocfilehash: c4e7566eeb28bc5709acd60ced9fcdffb7e8a725
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7dfc17825fab6c9a5f0d832318cb1d57271c56da
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80668007"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82625553"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Criar um volume SMB para o Azure NetApp Files
 
@@ -222,6 +222,23 @@ Esta definição está configurada nas Conexões de **Diretório Ativo** sob **c
     O volume que criou aparece na página Volumes. 
  
     Um volume herda a subscrição, grupo de recursos e atributos de localização do seu conjunto de capacidade. Para monitorizar o estado da implementação do volume, pode utilizar o separador Notificações.
+
+## <a name="control-access-to-an-smb-volume"></a>Controlar o acesso a um volume SMB  
+
+O acesso a um volume SMB é gerido através de permissões.  
+
+### <a name="share-permissions"></a>Partilhar permissões  
+
+Por padrão, um novo volume tem as permissões de partilha **De Todos / Controlo Total.** Os membros do grupo Domain Admins podem alterar as permissões de partilha utilizando a Computer Management na conta de computador que é usada para o volume de Ficheiros Azure NetApp.
+
+![Caminho de](../media/azure-netapp-files/smb-mount-path.png) 
+![montagem SMB Definir permissões de partilha](../media/azure-netapp-files/set-share-permissions.png) 
+
+### <a name="ntfs-file-and-folder-permissions"></a>Permissões de ficheiros e pastas NTFS  
+
+Pode definir permissões para um ficheiro ou pasta utilizando o separador **De Segurança** das propriedades do objeto no cliente SMB do Windows.
+ 
+![Definir permissões de ficheiros e pastas](../media/azure-netapp-files/set-file-folder-permissions.png) 
 
 ## <a name="next-steps"></a>Passos seguintes  
 

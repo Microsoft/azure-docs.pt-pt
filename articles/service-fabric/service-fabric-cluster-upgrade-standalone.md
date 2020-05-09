@@ -3,12 +3,12 @@ title: Atualizar um cluster autónomo de Tecido de Serviço Azure
 description: Aprenda sobre a atualização da versão ou configuração de um cluster autónomo do Tecido de Serviço Azure.  T
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.openlocfilehash: 6da9b4c6890895141ecc419382f05f667614fb31
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ac3e80aae440c6709057e4211f7a4f6a1beea058
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75451831"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790648"
 ---
 # <a name="upgrading-and-updating-a-service-fabric-standalone-cluster"></a>Atualizar e atualizar um cluster autónomo de Tecido de Serviço
 
@@ -38,7 +38,7 @@ A aplicação de orquestração de patch (POA) é uma aplicação service Fabric
 
 ## <a name="next-steps"></a>Passos seguintes
 * Aprenda a personalizar algumas das [configurações](service-fabric-cluster-fabric-settings.md) de tecido de tecido de serviço
-* Aprenda a [escalar o seu cluster para dentro e para fora](service-fabric-cluster-scale-up-down.md)
+* Aprenda a [escalar o seu cluster para dentro e para fora](service-fabric-cluster-scale-in-out.md)
 * Conheça as atualizações de [aplicações](service-fabric-application-upgrade.md)
 
 <!--Image references-->

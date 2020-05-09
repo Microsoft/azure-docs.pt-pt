@@ -4,12 +4,12 @@ ms.author: memildin
 manager: rkarlin
 ms.date: 02/24/2020
 ms.topic: include
-ms.openlocfilehash: c77849b2285283a34e6adf84dc3845a4076407af
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78bf29a170152666d82ec26504ee8f61ed90636a
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77597950"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82615989"
 ---
 ## <a name="attack-scenario"></a>Cenário de ataque
 
@@ -29,9 +29,16 @@ Quando um utilizador solicita acesso a um VM, o Security Center verifica se o ut
  > Se for aprovado um pedido de acesso JIT para um VM atrás de uma Firewall Azure, o Security Center altera automaticamente as regras de política de NSG e firewall. Durante o período de tempo especificado, as regras permitem o tráfego de entrada para as portas selecionadas e endereços IP de origem solicitados ou gamas. Após o fim do tempo, o Security Center restaura as regras da firewall e da NSG para os seus estados anteriores.
 
 
+## <a name="roles-that-can-read-jit-policies"></a>Papéis que podem ler políticas de JIT
+
+**As** funções do Leitor e do **SecurityReader** podem ler as políticas.
+
 ## <a name="permissions-needed-to-configure-and-use-jit"></a>Permissões necessárias para configurar e usar JIT
+
+Se quiser criar papéis personalizados que possam funcionar com o JIT, necessitará dos seguintes detalhes:
 
 | Para permitir que um utilizador: | Permissões para definir|
 | --- | --- |
 | Configure ou edite uma política de JIT para um VM | *Atribuir estas ações ao papel:*  <ul><li>No âmbito de um grupo de subscrição ou de recursos associado ao VM:<br/> `Microsoft.Security/locations/jitNetworkAccessPolicies/write` </li><li> No âmbito de uma subscrição ou grupo de recursos de VM: <br/>`Microsoft.Compute/virtualMachines/write`</li></ul> | 
 |Solicitar acesso jIT a um VM | *Atribuir estas ações ao utilizador:*  <ul><li>No âmbito de um grupo de subscrição ou de recursos associado ao VM:<br/>  `Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action` </li><li>No âmbito de um grupo de subscrição ou de recursos associado ao VM:<br/>  `Microsoft.Security/locations/jitNetworkAccessPolicies/*/read` </li><li>  No âmbito de um grupo de subscrição ou de recursos ou VM:<br/> `Microsoft.Compute/virtualMachines/read` </li><li>  No âmbito de um grupo de subscrição ou de recursos ou VM:<br/> `Microsoft.Network/networkInterfaces/*/read` </li></ul>|
+|Ler as políticas do JIT| *Atribuir estas ações ao utilizador:*  <ul><li>`Microsoft.Security/locations/jitNetworkAccessPolicies/read`</li><li>`Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action`</li><li>`Microsoft.Security/policies/read`</li><li>`Microsoft.Compute/virtualMachines/read`</li><li>`Microsoft.Network/*/read`</li>|

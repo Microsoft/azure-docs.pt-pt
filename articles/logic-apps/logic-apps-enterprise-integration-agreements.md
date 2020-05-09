@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
-ms.openlocfilehash: 521a0ef4053be55e6c7322da5af26ccfc6c844e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c8cbfb619c9eed325161503f705bf5c4c0746265
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74790732"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612338"
 ---
 # <a name="create-and-manage-trading-partner-agreements-in-azure-logic-apps"></a>Criar e gerir acordos de parceiros comerciais em Aplicações Lógicas Azure
 
@@ -68,6 +68,14 @@ No menu Azure principal, selecione **Todos os serviços.** Na caixa de pesquisa,
    | **Receber Definições** | Varia | Varia | Estas propriedades especificam como o parceiro anfitrião recebe todas as mensagens do parceiro convidado no acordo. Para mais informações, consulte o respetivo tipo de acordo: <p>- [Definições de mensagem AS2](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Definições de mensagem EDIFACT](logic-apps-enterprise-integration-edifact.md) <br>- [Definições de mensagem X12](logic-apps-enterprise-integration-x12.md) |
    | **Enviar Definições** | Varia | Varia | Estas propriedades especificam como o parceiro anfitrião envia todas as mensagens de saída para o parceiro convidado no acordo. Para mais informações, consulte o respetivo tipo de acordo: <p>- [Definições de mensagem AS2](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Definições de mensagem EDIFACT](logic-apps-enterprise-integration-edifact.md) <br>- [Definições de mensagem X12](logic-apps-enterprise-integration-x12.md) |
    |||||
+
+   > [!IMPORTANT]
+   > A resolução de um acordo depende da correspondência destes itens definidos no parceiro e na mensagem de entrada:
+   >
+   > * O qualificador e identificador do remetente
+   > * O qualificador e identificador do recetor
+   >
+   > Se estes valores mudarem para o seu parceiro, certifique-se de que também atualiza o acordo.
 
 1. Quando terminar de criar o seu acordo, na página **Adicionar,** escolha **OK**, e volte à sua conta de integração.
 
