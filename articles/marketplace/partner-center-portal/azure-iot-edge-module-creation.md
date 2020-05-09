@@ -1,36 +1,30 @@
 ---
-title: Crie uma oferta de módulo Azure IoT Edge com Partner Center - Azure Marketplace
-description: Saiba como criar uma oferta de móduloIT Edge no Azure Marketplace usando partner center
+title: Crie uma oferta de módulo Azure IoT Edge com Partner Center no Azure Marketplace
+description: Saiba como criar, configurar e publicar uma oferta de móduloIT Edge no Azure Marketplace usando o Partner Center
 author: anbene
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: cca54e4e456fe766b190f64657cd1aca1d9520e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d69090eb07159c2c188c54499a167f127269df24
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81869153"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857665"
 ---
-# <a name="create-an-iot-edge-module-offer"></a>Criar uma oferta de módulo do IoT Edge
+# <a name="create-configure-and-publish-an-iot-edge-module-offer-in-azure-marketplace"></a>Criar, configurar e publicar uma oferta de móduloIOT Edge no Azure Marketplace
 
-> [!IMPORTANT]
-> Estamos a mover a gestão das ofertas do módulo IoT Edge do Portal do Parceiro Cloud para o Partner Center. Até que as suas ofertas sejam migradas, siga as instruções do [módulo IoT Edge que ofereça uma visão geral](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-offer-process-parts) para o Cloud Partner Portal para gerir as suas ofertas.
-
-Este artigo descreve como criar e publicar uma oferta de módulos De Borda Internet of Things (IoT) para o Azure Marketplace.
-
-Antes de poder criar uma oferta de móduloIT Edge, deve ter uma conta de marketplace comercial no Partner Center. Se ainda não criou uma, consulte [criar uma conta de marketplace comercial no Partner Center.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)
+Este artigo descreve como criar e publicar uma oferta de módulos De Borda Internet of Things (IoT) para o Azure Marketplace. Antes de começar, [Crie uma conta de Marketplace Comercial no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) se ainda não o fez. Certifique-se de que a sua conta está inscrita no programa de marketplace comercial.
 
 ## <a name="create-a-new-offer"></a>Criar uma nova oferta
 
-1. Inicie sessão no Centro de Parceiros.
+1. Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/home).
 2. No menu de navegação à esquerda, selecione **Commercial Marketplace** > **Overview**.
+3. Na página 'Visão Geral', selecione **+ Novo módulo** > **IoT Edge**.
 
-    ![Ilustra o menu de navegação à esquerda.](./media/cs-menu-overview.png)
-
-3. Selecione **+ Novo módulo** > **IoT Edge**. A caixa de diálogo **da Nova Oferta** aparece.
+    ![Ilustra o menu de navegação à esquerda.](./media/new-offer-iot-edge.png)
 
 > [!IMPORTANT]
 > Depois de publicada uma oferta, as edificações feitas no Partner Center só aparecem nas montras depois de reeditarem a oferta. Certifique-se de que republique sempre depois de fazer alterações.
@@ -41,14 +35,14 @@ Introduza um **ID de oferta**. Este é um identificador único para cada oferta 
 
 - Este ID é visível para os clientes no endereço web para a oferta de mercado e modelos do Gestor de Recursos Azure, se aplicável.
 - Utilize apenas letras minúsculas e números. Pode incluir hífenes e sublinhados, mas sem espaços, e está limitado a 50 caracteres. Por exemplo, se introduzir o **test-offer-1,** `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`o endereço web da oferta será .
-- O ID da Oferta não pode ser alterado depois de selecionar Criar.
+- O ID da Oferta não pode ser alterado depois de selecionar **Criar**.
 
-Insira um **pseudónimo da Oferta.** Este é o nome usado para se referir à oferta no Partner Center.
+Insira um **pseudónimo da Oferta.** Este é o nome usado para a oferta no Partner Center.
 
 - Este nome não é usado no mercado e é diferente do nome da oferta e outros valores mostrados aos clientes.
 - Isto não pode ser alterado depois de selecionar **Criar**.
 
-Depois de introduzir estes dois valores, selecione **Criar** antes de continuar para a página seguinte, Ofereça uma visão geral.
+Selecione **Criar** para gerar a oferta e continuar.
 
 ## <a name="offer-overview"></a>Visão geral da oferta
 
@@ -86,10 +80,10 @@ Aqui estão alguns recursos adicionais de gestão de chumbo:
 
 - [Visão geral da gestão de chumbo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)
 - [FAQs de gestão de oportunidades potenciais](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Erros de configuração comuns de oportunidades potenciais](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
+- [Erros de configuração comuns de oportunidades potenciais](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#publishing-config-errors)
 - [Visão geral da gestão de chumbo](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Certifique-se de que o seu bloqueador pop-up está desligado).
 
-Selecione **Guardar rascunho** antes de continuar na secção seguinte, Propriedades.
+Selecione **guardar rascunho** antes de continuar.
 
 ### <a name="properties"></a>Propriedades
 
@@ -132,7 +126,7 @@ Aqui irá definir os detalhes da oferta que são exibidos no mercado. Isto inclu
 > [!NOTE]
 > Os detalhes da oferta não são necessários para estar em inglês se a descrição da oferta começar com a frase: "Esta aplicação está disponível apenas em [língua não inglesa]." Também é normal fornecer um Link Útil para oferecer conteúdo num idioma diferente do usado nos detalhes da listagem de oferta.
 
-### <a name="name"></a>Nome
+### <a name="name"></a>Name
 
 O nome que insere aqui mostra como o título da sua oferta. Este campo está pré-preenchido com o texto que inseriu na caixa **de pseudónimos Offer** quando criou a oferta. Pode alterar este nome posteriormente.
 

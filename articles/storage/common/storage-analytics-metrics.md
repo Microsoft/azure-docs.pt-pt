@@ -8,12 +8,12 @@ ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 897ae1fa474de8726ed0caa1def162a00e142dbe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 03e5f1e888680f6020b45f51103e7b5cb6dc86ab
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79268408"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692736"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Métricas de análise de armazenamento azure (Clássico)
 
@@ -23,7 +23,7 @@ O Storage Analytics pode armazenar métricas que incluem estatísticas de transa
 
 > [!NOTE]
 > As métricas de Armazenamento Analytics estão disponíveis para os serviços Blob, Queue, Table e File.
-> As métricas de Armazenamento Analytics são agora métricas clássicas. A Microsoft recomenda a utilização de Métricas de [Armazenamento no Monitor Azure](storage-metrics-in-azure-monitor.md) em vez de métricas de Storage Analytics.
+> As métricas de Armazenamento Analytics são agora métricas clássicas. A Microsoft recomenda a utilização de Métricas de [Armazenamento no Monitor Azure](monitor-storage.md) em vez de métricas de Storage Analytics.
 
 ## <a name="transaction-metrics"></a>Métricas de transação  
  Um conjunto robusto de dados é registado em intervalos de hora ou minuto para cada serviço de armazenamento e solicitado operação API, incluindo entradas/egress, disponibilidade, erros e percentagens de pedidos categorizadas. Pode ver uma lista completa dos detalhes da transação no tópico [Schema](/rest/api/storageservices/storage-analytics-metrics-table-schema) de Tabela de Métricas de Análise de Armazenamento.  

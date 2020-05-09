@@ -52,6 +52,8 @@
       href: language-support.md
     - name: Desvios de texto
       href: concepts/text-offsets.md
+    - name: Limites de dados
+      href: concepts/data-limits.md
 - name: Guias de procedimentos
   items:
     - name: Chamar a API de Análise de Texto

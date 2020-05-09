@@ -13,16 +13,22 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
-ms.openlocfilehash: e344d09497a30dec546dfaedd3d78f30c7d214d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 738ce8dad7237f9703d3ccb998c221ffec29dc17
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79535702"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629104"
 ---
 # <a name="azure-compute-unit-acu"></a>Unidade de computação Azure (ACU)
 
-O conceito da Unidade de Computação Azure (ACU) fornece uma forma de comparar o desempenho da computação (CPU) em todas as SKUs azure. Isto ajudará a identificar facilmente que SKU é mais provável de satisfazer as suas necessidades de desempenho. A ACU está atualmente normalizada numa VM Pequena (Standard_A1) de 100 e todos os outros SKUs representam aproximadamente a velocidade máxima a que esse SKU consegue executar um teste de desempenhopadrão.
+O conceito da Unidade de Computação Azure (ACU) fornece uma forma de comparar o desempenho da computação (CPU) em todas as SKUs azure. Isto ajudará a identificar facilmente que SKU é mais provável de satisfazer as suas necessidades de desempenho. A ACU é atualmente padronizada num Pequeno (Standard_A1) VM sendo 100 e todos os outros SKUs então representam aproximadamente quão mais rápido que sKU pode executar um benchmark padrão
+
+*A ACUs usa a tecnologia Intel® Turbo para aumentar a frequência do CPU e proporcionar um aumento de desempenho.  A quantidade do aumento de desempenho pode variar em função do tamanho do VM, carga de trabalho e outras cargas de trabalho em funcionamento no mesmo hospedeiro.
+
+**ACUs usam a tecnologia AMD® Boost para aumentar a frequência do CPU e proporcionar um aumento de desempenho.  A quantidade do aumento de desempenho pode variar em função do tamanho do VM, carga de trabalho e outras cargas de trabalho em funcionamento no mesmo hospedeiro.
+
+Hiper-roscado e capaz de executar virtualização aninhada
 
 > [!IMPORTANT]
 > A ACU é apenas uma orientação. Os resultados da sua carga de trabalho podem variar.
@@ -55,10 +61,6 @@ O conceito da Unidade de Computação Azure (ACU) fornece uma forma de comparar 
 | [L4s - L32s](sizes-previous-gen.md) |180 - 240* | 1:1 |
 | [L8s_v2 - L80s_v2](lsv2-series.md) |150 - 175** | 2:1 |
 | [M](m-series.md) | 160 - 180 | 2:1\*\*\* |
-
-*A ACUs usa a tecnologia Intel® Turbo para aumentar a frequência do CPU e proporcionar um aumento de desempenho.  A quantidade do aumento de desempenho pode variar em função do tamanho do VM, carga de trabalho e outras cargas de trabalho em funcionamento no mesmo hospedeiro.
-**ACUs usam a tecnologia AMD® Boost para aumentar a frequência do CPU e proporcionar um aumento de desempenho.  A quantidade do aumento de desempenho pode variar em função do tamanho do VM, carga de trabalho e outras cargas de trabalho em funcionamento no mesmo hospedeiro.
-Hiper-roscado e capaz de executar virtualização aninhada
 
 Aqui estão os links para mais informações sobre os diferentes tamanhos:
 

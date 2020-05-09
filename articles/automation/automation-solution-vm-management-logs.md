@@ -1,20 +1,20 @@
 ---
-title: Como consultar os registos da solução Start/Stop VMs
-description: Este artigo descreve como consultar os dados de registo gerados pela solução Start/Stop VMs do Azure Monitor.
+title: Como consultar os registos dos VMs de início/paragem durante o horário de folga
+description: Este artigo descreve como consultar os dados de registo gerados por VMs Start/Stop durante a solução off-hours do Azure Monitor.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 472f3762ca18f71ba95053576daf025d8477fee9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 472baa3f4b3cbb970a8f365ccc94929ad565c421
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81604731"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864237"
 ---
-# <a name="how-to-query-logs-from-startstop-vms-solution"></a>Como consultar os registos da solução Start/Stop VMs
+# <a name="how-to-query-logs-from-startstop-vms-during-off-hours"></a>Como consultar os registos dos VMs de início/paragem durante o horário de folga
 
-A Azure Automation encaminha dois tipos de registos para o espaço de trabalho linked Log Analytics: registos de emprego e fluxos de trabalho. Estes dados estão disponíveis para [consulta](../azure-monitor/log-query/log-query-overview.md) no Monitor Azure.
+A Azure Automation encaminha dois tipos de registos para o espaço de trabalho linked Log Analytics: registos de emprego e fluxos de trabalho. Este artigo analisa os dados disponíveis para [consulta](../azure-monitor/log-query/log-query-overview.md) no Monitor Azure.
 
 ## <a name="job-logs"></a>Registos de trabalhos
 

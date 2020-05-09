@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 6574ccd7616ac1442b1c8c69b6218431ad912ab3
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
-ms.translationtype: MT
+ms.openlocfilehash: 47663072be0931961d0f2fded938322027148d7a
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204224"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929286"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Dez coisas que pode fazer na Máquina Virtual de Ciência de Dados do Windows
 
@@ -68,7 +68,7 @@ O Jupyter Notebook fornece um IDE baseado no navegador para a exploração e mod
 
 Para iniciar o Caderno Jupyter, selecione o ícone **do Caderno Jupyter** no menu **Iniciar** ou no ambiente de trabalho. No pedido de comando DSVM, também ```jupyter notebook``` pode executar o comando a partir do diretório onde tem cadernos existentes ou onde pretende criar novos cadernos.  
 
-Depois de iniciar o Jupyter, deve ver um diretório que contém alguns cadernos de exemplo que são pré-embalados no DSVM. Agora pode:
+Depois de iniciar o Jupyter, navegue para o `/notebooks` diretório, por exemplo, por exemplo, cadernos que são pré-embalados no DSVM. Agora pode:
 
 * Selecione o caderno para ver o código.
 * Executar cada célula selecionando Shift+Enter.

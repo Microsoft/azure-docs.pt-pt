@@ -12,22 +12,22 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: b8708aec1137836516852135412c4c7cec2feba4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6a89c5e3fb84f797d9ad7f81626fb7185ce3e076
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79408407"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854134"
 ---
-# <a name="configure-group-claims-for-applications-with-azure-active-directory-public-preview"></a>Configure reivindicações de grupo para candidaturas com Diretório Ativo Azure (Pré-visualização Pública)
+# <a name="configure-group-claims-for-applications-with-azure-active-directory"></a>Configure reivindicações de grupo para candidaturas com Diretório Ativo Azure
 
 O Azure Ative Directory pode fornecer informações de membros do grupo de utilizadores em tokens para utilização dentro das aplicações.  São suportados dois padrões principais:
 
-- Grupos identificados pelo seu identificador de objetos de diretório Ativo Azure (OID) (Geralmente Disponível)
-- Grupos identificados por atributos sAMAccountName ou GroupSID para grupos e utilizadores sincronizados de Diretório Ativo (AD)
+- Grupos identificados pelo seu identificador de objetos de diretório Ativo Azure (OID)
+- Grupos identificados por sAMAccountName ou atributos GroupSID para grupos e utilizadores sincronizados de Diretório Ativo (AD)
 
 > [!IMPORTANT]
-> Existem várias ressalvas a notar para esta funcionalidade de pré-visualização:
+> Há uma série de ressalvas a notar para esta funcionalidade:
 >
 >- O suporte à utilização de atributos sAMAccountName e identificador de segurança (SID) sincronizados a partir de instalações foi concebido para permitir a deslocação de aplicações existentes a partir de AD FS e outros fornecedores de identidade. Os grupos geridos em Azure AD não contêm os atributos necessários para emitir estas alegações.
 >- Em organizações maiores o número de grupos de que um utilizador é membro pode exceder o limite que o Azure Ative Directory irá adicionar a um símbolo. 150 grupos para um símbolo SAML, e 200 para um JWT. Isto pode levar a resultados imprevisíveis. Se os seus utilizadores tiverem um grande número de membros do grupo, recomendamos a utilização da opção de restringir os grupos emitidos em reclamações aos grupos relevantes para a aplicação.  

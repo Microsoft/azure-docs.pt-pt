@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
-ms.openlocfilehash: 89bae60c30cfe82d38c61f385dbaef574b4152d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4ec81ef69f21fc74864e437a3c6de46550a70c18
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80547790"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891649"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Extensão de configuração do Estado desejada com modelos de Gestor de Recursos Azure
 
@@ -185,8 +185,8 @@ Para obter uma lista dos argumentos disponíveis para o script de configuração
 | configurações.configuração.função |string |Especifica o nome da sua configuração DSC. A configuração que está nomeada deve ser incluída no script que **as configurações.configuração.script** define. Esta propriedade é necessária se **as configurações.configuração.url** ou **configurações.configuração.função** for definida. Se não for dado qualquer valor para estas propriedades, a extensão chama o script de configuração padrão para definir metadados LCM, e os argumentos devem ser fornecidos. |
 | configurações.configuraçõesArguments |Coleção |Define quaisquer parâmetros que queira passar para a sua configuração DSC. Esta propriedade não está encriptada. |
 | configurações.configuraçãoData.url |string |Especifica o URL a partir do qual descarregar os seus dados de configuração (.psd1) para utilizar como entrada para a sua configuração DSC. Se o URL fornecido necessitar de um token SAS para acesso, delineie a propriedade **ProtectedSettings.configurationDataUrlSasToken** para o valor do seu token SAS. |
-| definições.privacy.dataCollection |string |Permite ou desativa a recolha de telemetria. Os únicos valores possíveis para esta propriedade são **Enable**, **Disable,** **'ou** **$null**. Deixar esta propriedade em branco ou nula permite a telemetria. O valor predefinido é **''**. Para mais informações, consulte a recolha de dados de [extensão Azure DSC.](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/) |
-| definições.advancedOptions.downloadMappings |Coleção |Define locais alternativos a partir dos quais descarregar WMF. Para mais informações, consulte a [extensão Azure DSC 2.8 e como mapear os downloads das dependências de extensão para a sua própria localização](https://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx). |
+| definições.privacy.dataCollection |string |Permite ou desativa a recolha de telemetria. Os únicos valores possíveis para esta propriedade são **Enable**, **Disable,** **'ou** **$null**. Deixar esta propriedade em branco ou nula permite a telemetria. O valor predefinido é **''**. Para mais informações, consulte a recolha de dados de [extensão Azure DSC.](https://devblogs.microsoft.com/powershell/azure-dsc-extension-data-collection-2/) |
+| definições.advancedOptions.downloadMappings |Coleção |Define locais alternativos a partir dos quais descarregar WMF. Para mais informações, consulte a [extensão Azure DSC 2.8 e como mapear os downloads das dependências de extensão para a sua própria localização](https://devblogs.microsoft.com/powershell/azure-dsc-extension-2-8-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location/). |
 | definições protegidas.configuraçãoArguments |Coleção |Define quaisquer parâmetros que queira passar para a sua configuração DSC. Esta propriedade está encriptada. |
 | definições protegidasUrlSasToken |string |Especifica o token SAS para usar para aceder ao URL que **configura.configuração.url** define. Esta propriedade está encriptada. |
 | definições protegidas.configuraçãoDataUrlSasToken |string |Especifica o token SAS para usar para aceder ao URL que **configura.configuraçãoData.url** define. Esta propriedade está encriptada. |

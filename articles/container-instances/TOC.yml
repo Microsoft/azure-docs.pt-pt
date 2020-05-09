@@ -13,6 +13,9 @@
       href: container-instances-quickstart-portal.md
     - name: Implementar uma instância de contentor - PowerShell
       href: container-instances-quickstart-powershell.md
+    - name: Implementar uma instância de contentor - modelo ARM
+      displayName: Resource Manager
+      href: container-instances-quickstart-template.md
 - name: Tutoriais
   items:
     - name: Criar e implementar a imagem de contentor
@@ -51,6 +54,8 @@
       href: container-instances-orchestrator-relationship.md
     - name: Considerações de segurança
       href: container-instances-image-security.md
+    - name: Redes virtuais
+      href: container-instances-virtual-network-concepts.md
 - name: Guias de procedimentos
   items:
     - name: Implementação
@@ -77,8 +82,6 @@
           href: container-instances-start-command.md
         - name: Executar um comando (exec)
           href: container-instances-exec.md
-        - name: Executar tarefa de compilação do Jenkins
-          href: container-instances-jenkins.md
         - name: Utilizar uma identidade gerida (pré-visualização)
           href: container-instances-managed-identity.md
         - name: Utilizar recursos da GPU (pré-visualização)
