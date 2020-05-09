@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: cc12cc9a4828404e960aee239bd388af5b1ea3b7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 854a489f6381514f80f16665f89042a0e8ed7470
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81431907"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995766"
 ---
 # <a name="monitoring-key-vault-with-azure-event-grid-preview"></a>Cofre de chaves de monitorização com grelha de eventos Azure (pré-visualização)
 
@@ -30,8 +30,6 @@ Para mais informações, consulte o esquema do [evento Key Vault](../../event-gr
 
 > [!WARNING]
 > Os eventos de notificação são desencadeados apenas em novas versões de segredos, chaves e certificados, e você deve primeiro subscrever o evento no seu cofre chave para receber estas notificações.
-> 
-> Receberá eventos de notificação em certificados apenas quando o certificado for automaticamente renovado de acordo com a política especificada para o seu certificado.
 
 ## <a name="practices-for-consuming-events"></a>Práticas para consumir eventos
 

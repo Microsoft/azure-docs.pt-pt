@@ -10,12 +10,12 @@ ms.subservice: secrets
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d2981495a256ce5fb8f8f3584e68ac91541f9d62
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a5aaef50f12bfec89cf5e883ed6b1c85fa984ad6
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81430256"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995984"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Configurar o Cofre chave Azure com rotação de chaves e auditoria
 
@@ -85,23 +85,35 @@ Em primeiro lugar, deve registar a sua candidatura no Azure Ative Directory. Em 
 > [!NOTE]
 > A sua candidatura deve ser criada no mesmo inquilino do Azure Ative Directory que o seu cofre chave.
 
-1. Diretório **Ativo Open Azure.**
-2. Selecione **Registos das aplicações**. 
-3. Selecione **novo registo** de candidatura para adicionar uma aplicação ao Azure Ative Directory.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
+1. Se a sua conta lhe der acesso a mais de um inquilino, selecione a sua conta no canto superior direito. Detete a sua sessão de portal para o inquilino da AD Azure que quiser.
+1. Procure e selecione **Azure Active Directory**. Em **Gerir**, selecione **Registos de aplicações**.
+1. Selecione **Novo registo**.
+1. No **Registo de uma aplicação,** introduza um nome de aplicação significativo para exibir aos utilizadores.
+1. Especifique quem pode utilizar a aplicação, da seguinte forma:
 
-    ![Candidaturas abertas no Diretório Ativo do Azure](../media/keyvault-keyrotation/azure-ad-application.png)
+    | Tipos de conta suportados | Descrição |
+    |-------------------------|-------------|
+    | **Contas apenas neste diretório organizacional** | Selecione esta opção se estiver a criar uma aplicação de linha de negócio (LOB). Esta opção não está disponível se não estiver a registar a candidatura num diretório.<br><br>Esta opção mapeia para o inquilino único do Azure AD.<br><br>Esta opção é o padrão a menos que esteja a registar a app fora de um diretório. Nos casos em que a aplicação é registada fora de um diretório, a predefinição é contas da Microsoft pessoais e de multi-inquilino do Azure AD. |
+    | **Contas em qualquer diretório organizacional** | Selecione esta opção se quiser visar todos os clientes comerciais ou pedagógicos.<br><br>Esta opção mapeia para um multi-inquilino único do Azure AD.<br><br>Se registou a aplicação como Azure AD apenas um único inquilino, pode atualizá-la para ser multi-inquilino da Azure AD e voltar a inquilino único através da página **de Autenticação.** |
+    | **Contas em qualquer diretório organizacional e contas Microsoft pessoais** | Selecione esta opção para visar o maior conjunto de clientes.<br><br>Esta opção mapeia para contas da Microsoft pessoais e de multi-inquilino do Azure AD.<br><br>Se registou a aplicação como multi-inquilino e contas pessoais da Microsoft, não pode alterar esta definição na UI. Em vez disso, tem de utilizar o editor de manifesto de aplicação para alterar os tipos de conta suportados. |
 
-4. Em **Create,** deixe o tipo de aplicação como **aplicação Web / API** e dê um nome à sua aplicação. Dê à sua aplicação um **URL de inscrição**. Este URL pode ser o que quiser para esta demonstração.
+1. Em **Redirect URI (opcional)**, selecione o tipo de aplicação que está a construir: **Web** ou Cliente Público (ambiente de trabalho **& móvel)**. Em seguida, introduza o URI redirecionamento, ou URL de resposta, para a sua aplicação.
 
-    ![Criar inscrição de candidatura](../media/keyvault-keyrotation/create-app.png)
+    * Para aplicações Web, indique o URL base da sua aplicação. Por exemplo, `https://localhost:31544` pode ser o URL de uma aplicação Web em execução no seu computador local. Os utilizadores utilizariam este URL para iniciar sessão numa aplicação de cliente Web.
+    * Para aplicações cliente públicas, indique o URI utilizado pelo Azure AD para devolver respostas de token. Introduza um valor específico para a aplicação, por exemplo `myapp://auth`.
 
-5. Depois de a aplicação ser adicionada ao Diretório Ativo Azure, a página de candidatura abre. Selecione **Definições,** e, em seguida, selecione **Propriedades**. Copiar o valor de ID da **aplicação.** Vai precisar em passos posteriores.
+1. Quando terminar, selecione **Registar**.
 
-Em seguida, gere uma chave para a sua aplicação para que possa interagir com o Diretório Ativo Azure. Para criar uma tecla, selecione **Teclas** em **Definições**. Tome nota da chave recém-gerada para a sua aplicação Azure Ative Directory. Irá precisar deles noutro passo. A chave não estará disponível depois de deixar esta secção. 
+    ![Mostra o ecrã para registar uma nova aplicação no portal Azure](../media/new-app-registration.png)
 
-![Chaves de aplicativo sinuoso Azure Ative Diretório](../media/keyvault-keyrotation/create-key.png)
+A Azure AD atribui uma aplicação única, ou cliente, ID para a sua aplicação. O portal abre a página **de visão geral** da sua aplicação. Note o valor de ID da **Aplicação (cliente).**
 
-Antes de estabelecer chamadas da sua aplicação para o cofre da chave, deve contar ao cofre da chave sobre a sua aplicação e as suas permissões. O comando seguinte utiliza o nome do cofre e o ID da aplicação da sua aplicação Azure Ative Directory para conceder a aplicação **Ter** acesso ao seu cofre chave.
+Para adicionar capacidades à sua aplicação, pode selecionar outras opções de configuração, incluindo branding, certificados e segredos, permissões API e muito mais.
+
+![Exemplo de uma página de visão geral de aplicações recém-registada](../media//new-app-overview-page-expanded.png)
+
+Antes de estabelecer chamadas da sua aplicação para o cofre da chave, deve contar ao cofre da chave sobre a sua aplicação e as suas permissões. O comando seguinte utiliza o nome do cofre e o ID da **Aplicação (cliente)** da sua aplicação Azure Ative Directory para conceder a aplicação **Ter** acesso ao seu cofre chave.
 
 ```powershell
 Set-AzKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <clientIDfromAzureAD> -PermissionsToSecrets Get

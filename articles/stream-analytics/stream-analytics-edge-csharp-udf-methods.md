@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: c15f16692e92c4d25d8194aaf93a3da907ae0e67
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: 53ebf8adb99362b5aaf27676bbd50fb8b525f526
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82598152"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82994491"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-jobs-preview"></a>Desenvolver funções definidas pelo utilizador .NET Standard para trabalhos de Análise de Fluxo de Azure (Pré-visualização)
 
@@ -51,7 +51,7 @@ Para que os valores do Azure Stream Analytics sejam utilizados em C#, precisam d
 |nvarchar (max) | string |
 |datetime | DateTime |
 |Record | Corda\<do dicionário, objeto> |
-|Matriz | >\<de objeto de matriz |
+|Matriz | Objeto[] |
 
 O mesmo acontece quando os dados precisam de ser madados de C# para Azure Stream Analytics, o que acontece no valor de saída de uma UDF. O quadro abaixo mostra quais os tipos suportados:
 
@@ -63,7 +63,7 @@ O mesmo acontece quando os dados precisam de ser madados de C# para Azure Stream
 |DateTime  |  dataTempo   |
 |estruturar  |  Record   |
 |objeto  |  Record   |
-|>\<de objeto de matriz  |  Matriz   |
+|Objeto[]  |  Matriz   |
 |Corda\<do dicionário, objeto>  |  Record   |
 
 ## <a name="codebehind"></a>CodeBehind
@@ -140,6 +140,43 @@ Expanda a secção **Configuração do Código Definido Pelo Utilizador** e pree
    |Recipiente de definições de armazenamento de código personalizado|< o seu > de recipiente de armazenamento|
    |Fonte de montagem de código personalizado|Pacotes de montagem existentes da nuvem|
    |Fonte de montagem de código personalizado|UserCustomCode.zip|
+
+## <a name="user-logging"></a>Registo de utilizadores
+O mecanismo de exploração de madeira permite-lhe capturar informações personalizadas enquanto um trabalho está em execução. Pode utilizar dados de registo para depurar ou avaliar a correção do código personalizado em tempo real.
+
+A `StreamingContext` aula permite-lhe publicar `StreamingDiagnostics.WriteError` informações de diagnóstico utilizando a função. O código abaixo mostra a interface exposta pelo Azure Stream Analytics.
+
+```csharp
+public abstract class StreamingContext
+{
+    public abstract StreamingDiagnostics Diagnostics { get; }
+}
+
+public abstract class StreamingDiagnostics
+{
+    public abstract void WriteError(string briefMessage, string detailedMessage);
+}
+```
+
+`StreamingContext`é passado como um parâmetro de entrada para o método UDF e pode ser usado dentro da UDF para publicar informações de registo personalizadas. No exemplo `MyUdfMethod` abaixo, define uma entrada de **dados,** que é fornecida pela consulta, e uma entrada de **contexto** como a `StreamingContext`, fornecida pelo motor de tempo de execução. 
+
+```csharp
+public static long MyUdfMethod(long data, StreamingContext context)
+{
+    // write log
+    context.Diagnostics.WriteError("User Log", "This is a log message");
+    
+    return data;
+}
+```
+
+O `StreamingContext` valor não precisa de ser passado pela consulta SQL. O Azure Stream Analytics fornece automaticamente um objeto de contexto se estiver presente um parâmetro de entrada. A utilização `MyUdfMethod` do não muda, como mostra a seguinte consulta:
+
+```sql
+SELECT udf.MyUdfMethod(input.value) as udfValue FROM input
+```
+
+Pode aceder a mensagens de registo através dos [registos de diagnóstico](data-errors.md).
 
 ## <a name="limitations"></a>Limitações
 A pré-visualização da UDF tem atualmente as seguintes limitações:

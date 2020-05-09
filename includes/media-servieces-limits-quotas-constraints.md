@@ -4,12 +4,12 @@ ms.service: media-services
 ms.topic: include
 ms.date: 03/31/2020
 ms.author: juliako
-ms.openlocfilehash: 99aeb5384b317d1b4d291c769b5402e829247b30
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d6ff823951e6474a35a514036f02c0aabb17bf01
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80656221"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82997663"
 ---
 > [!NOTE]
 > Para recursos que não estão fixos, abra um bilhete de apoio para pedir um aumento das quotas. Não crie contas adicionais da Azure Media Services numa tentativa de obter limites mais elevados.
@@ -66,7 +66,7 @@ Qualquer registo de emprego na sua conta com mais de 90 dias será automaticamen
 | --- | --- | 
 | Eventos ao Vivo <sup>(4)</sup> por conta de Serviços de Media |5|
 | Saídas ao vivo por evento ao vivo |3 <sup>(5)</sup> |
-| Duração da saída de Max Live | 25 horas |
+| Duração da saída de Max Live | [Tamanho da janela DVR](../articles/media-services/latest/live-event-cloud-dvr.md) |
 
 <sup>4</sup> Para obter informações detalhadas sobre as limitações do Evento Ao Vivo, consulte a [comparação e limitações](../articles/media-services/latest/live-event-types-comparison.md)dos tipos de eventos ao vivo .
 

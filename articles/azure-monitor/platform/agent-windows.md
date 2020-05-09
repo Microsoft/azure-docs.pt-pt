@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2019
-ms.openlocfilehash: 70fa66a96291e0c2a638bf69bdce7da531d32bb7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 644d1094ec57e148804941297d50398e36b1b068
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80637475"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996431"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Ligar computadores Windows ao Monitor Azure
 
@@ -176,8 +176,8 @@ Configuration MMAgent
 ```
 
 4. Atualize `ProductId` o valor no script com o código do produto extraído da versão mais recente do pacote de instalação do agente utilizando os métodos recomendados anteriormente. 
-5. [Importe o script de configuração MMAgent.ps1](../../automation/automation-dsc-getting-started.md#importing-a-configuration-into-azure-automation) na sua conta De automação. 
-5. [Atribuir um computador ou nó do Windows](../../automation/automation-dsc-getting-started.md#onboarding-an-azure-vm-for-management-with-azure-automation-state-configuration) à configuração. Dentro de 15 minutos, o nó verifica a sua configuração e o agente é empurrado para o nó.
+5. [Importe o script de configuração MMAgent.ps1](../../automation/automation-dsc-getting-started.md#import-a-configuration-into-azure-automation) na sua conta De automação. 
+6. [Atribuir um computador ou nó do Windows](../../automation/automation-dsc-getting-started.md#enable-an-azure-resource-manager-vm-for-management-with-state-configuration) à configuração. Dentro de 15 minutos, o nó verifica a sua configuração e o agente é empurrado para o nó.
 
 ## <a name="verify-agent-connectivity-to-log-analytics"></a>Verifique a conectividade do agente com o Log Analytics
 

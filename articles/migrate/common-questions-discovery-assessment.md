@@ -3,12 +3,12 @@ title: Perguntas sobre descoberta, avaliação e análise de dependência em Azu
 description: Obtenha respostas a perguntas comuns sobre descoberta, avaliação e análise de dependência em Azure Migrate.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 868755bb8926ffe218fdab76714c9970f26bb0a9
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: 9374330044bcd0c0c5f2be44688c2b35760d4418
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744591"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996747"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Descoberta, avaliação e análise de dependência - Questões comuns
 
@@ -22,7 +22,7 @@ Este artigo responde a perguntas comuns sobre descoberta, avaliação e análise
 
 ## <a name="what-geographies-are-supported-for-discovery-and-assessment-with-azure-migrate"></a>Que geografias são apoiadas para a descoberta e avaliação com a Migração Azure?
 
-Reveja as geografias apoiadas para as nuvens [públicas](migrate-support-matrix.md#supported-geographies-public-cloud) e [governamentais.](migrate-support-matrix.md#supported-geographies-azure-government)
+Reveja as regiões suportadas em [clouds públicas](migrate-support-matrix.md#supported-geographies-public-cloud) e do [Azure Government](migrate-support-matrix.md#supported-geographies-azure-government).
 
 
 ## <a name="how-many-vms-can-i-discover-with-an-appliance"></a>Quantos VMs posso descobrir com um aparelho?
@@ -141,7 +141,7 @@ Para visualização da dependência baseada em agentes:
 
 - Utilize um [script para instalar o agente Dependency](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples).
 - Para MMA, [utilize a linha de comando ou automação,](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration)ou utilize um [script](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab).
-- Além de scripts, pode utilizar ferramentas de implementação como o Microsoft Endpoint Configuration Manager e a [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration) para implementar os agentes.
+- Além de scripts, pode utilizar ferramentas de implementação como o Microsoft Endpoint Configuration Manager e a [Intigua](https://www.intigua.com/intigua-for-azure-migration) para implementar os agentes.
 
 ## <a name="what-operating-systems-does-mma-support"></a>Que sistemas operativos suporta mMmA?
 

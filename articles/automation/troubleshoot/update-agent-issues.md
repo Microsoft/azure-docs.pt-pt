@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 1b4467128fae3fd71a6e588e3c05d287c153e168
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: HT
+ms.openlocfilehash: e9af9c6472f49ebccd36e8d73688636c98918ff1
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927892"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996444"
 ---
 # <a name="troubleshoot-windows-update-agent-issues"></a>Problemas problemas com problemas com o agente de atualização do Windows
 
@@ -27,21 +27,21 @@ Pode haver muitas razões pelas quais a sua máquina não aparece tão pronta (s
 > [!NOTE]
 > Pode haver um ligeiro atraso entre o que o portal Azure mostra e o estado atual de uma máquina.
 
-Este artigo discute como executar o resolução de problemas para máquinas Azure a partir do portal Azure, e máquinas não-Azure no [cenário offline](#troubleshoot-offline). O resoluto de problemas inclui agora verificações para os Serviços de Atualização do Servidor do Windows (WSUS) e para as chaves de descarregamento automático e instalação.
+Este artigo discute como executar o resolução de problemas para máquinas Azure a partir do portal Azure, e máquinas não-Azure no [cenário offline](#troubleshoot-offline). 
 
 > [!NOTE]
-> O script de resolução de problemas atualmente não encaminha o tráfego através de um servidor proxy se um estiver configurado.
+> O script de resolução de problemas inclui agora verificações para os Serviços de Atualização do Servidor do Windows (WSUS) e para as chaves de descarregamento automático e instalação. 
 
 ## <a name="start-the-troubleshooter"></a>Inicie o resolução de problemas
 
-Para máquinas Azure, pode lançar a página **Do Agente de Atualização** de Problemas selecionando o link **Troubleshoot** sob a coluna **de prontidão** do agente de atualização no portal. Para máquinas não-Azure, o link leva-o a este artigo. Consulte as [instruções offline](#troubleshoot-offline) para filmar uma máquina não Azure.
+Para máquinas Azure, pode lançar a página Do Agente de Atualização de Problemas selecionando o link **Troubleshoot** sob a coluna **de prontidão** do agente de atualização no portal. Para máquinas não-Azure, o link leva-o a este artigo. Consulte as [instruções offline](#troubleshoot-offline) para filmar uma máquina não Azure.
 
 ![Screenshot da lista de Gestão de Atualizações de máquinas virtuais](../media/update-agent-issues/vm-list.png)
 
 > [!NOTE]
 > Para verificar a saúde do Trabalhador do Livro De Execução Híbrido, o VM deve estar em execução. Se o VM não estiver a funcionar, aparece um botão **VM.**
 
-Na página do **Agente de Atualização de Problemas,** selecione **verificações de executar** para iniciar o resolução de problemas. O resoluto de problemas usa [o Comando de Execução](../../virtual-machines/windows/run-command.md) para executar um guião na máquina, para verificar dependências. Quando o resoluto de problemas estiver terminado, devolve o resultado dos cheques.
+Na página do Agente de Atualização de Problemas, selecione **verificações de executar** para iniciar o resolução de problemas. O resoluto de problemas usa [o Comando de Execução](../../virtual-machines/windows/run-command.md) para executar um guião na máquina, para verificar dependências. Quando o resoluto de problemas estiver terminado, devolve o resultado dos cheques.
 
 ![Screenshot da página do Agente de Atualização de Problemas](../media/update-agent-issues/troubleshoot-page.png)
 
@@ -53,7 +53,7 @@ Os resultados são mostrados na página quando estão prontos. As secções de v
 
 ### <a name="operating-system"></a>Sistema operativo
 
-A verificação do sistema operativo verifica se o Trabalhador do Resta Híbrido está a executar um dos seguintes sistemas operativos:
+A verificação do sistema operativo verifica se o Trabalhador do Livro híbrido está a executar um dos sistemas operativos apresentados na tabela seguinte.
 
 |Sistema operativo  |Notas  |
 |---------|---------|
@@ -61,11 +61,11 @@ A verificação do sistema operativo verifica se o Trabalhador do Resta Híbrido
 
 ### <a name="net-462"></a>.net 4.6.2
 
-A verificação de quadro .NET verifica que o sistema tem um mínimo de [.NET Framework 4.6.2](https://www.microsoft.com/en-us/download/details.aspx?id=53345) instalado.
+A verificação de quadro .NET verifica que o sistema tem [.NET Framework 4.6.2](https://www.microsoft.com/en-us/download/details.aspx?id=53345) ou posteriormente instalado.
 
 ### <a name="wmf-51"></a>WMF 5.1
 
-A verificação wmf verifica que o sistema tem a versão necessária da Estrutura de Gestão do Windows (WMF): Quadro de [Gestão do Windows 5.1](https://www.microsoft.com/download/details.aspx?id=54616).
+A verificação wmf verifica que o sistema tem a versão necessária da Estrutura de Gestão do Windows (WMF), que é a Estrutura de Gestão do [Windows 5.1](https://www.microsoft.com/download/details.aspx?id=54616).
 
 ### <a name="tls-12"></a>TLS 1.2
 
@@ -77,13 +77,13 @@ Esta verificação determina se está a utilizar o TLS 1.2 para encriptar as sua
 
 Esta verificação determina se o agente pode comunicar corretamente com o serviço do agente.
 
-As configurações de proxy e firewall devem permitir que o agente Hybrid Runbook Worker comunique com o ponto final de registo. Para abrir uma lista de endereços e portos, consulte o [planeamento da rede para trabalhadores híbridos.](../automation-hybrid-runbook-worker.md#network-planning)
+As configurações de proxy e firewall devem permitir que o agente Hybrid Runbook Worker comunique com o ponto final de registo. Para que uma lista de endereços e portas seja aberta, consulte [o planeamento da rede.](../automation-hybrid-runbook-worker.md#network-planning)
 
 ### <a name="operations-endpoint"></a>Ponto final de operações
 
 Esta verificação determina se o agente pode comunicar corretamente com o Serviço de Dados do Funcionano de Trabalho.
 
-As configurações de proxy e firewall devem permitir que o agente Hybrid Runbook Worker se comunique com o Serviço de Dados do Tempo de Execução de Emprego. Para abrir uma lista de endereços e portos, consulte o [planeamento da rede para trabalhadores híbridos.](../automation-hybrid-runbook-worker.md#network-planning)
+As configurações de proxy e firewall devem permitir que o agente Hybrid Runbook Worker se comunique com o Serviço de Dados do Tempo de Execução de Emprego. Para que uma lista de endereços e portas seja aberta, consulte [o planeamento da rede.](../automation-hybrid-runbook-worker.md#network-planning)
 
 ## <a name="vm-service-health-checks"></a>Verificações de saúde de serviço VM
 
@@ -91,15 +91,18 @@ As configurações de proxy e firewall devem permitir que o agente Hybrid Runboo
 
 Esta verificação determina se o`healthservice`agente Log Analytics para Windows () está a funcionar na máquina. Para saber mais sobre a resolução de problemas do serviço, consulte [o agente Log Analytics para windows não está a funcionar](hybrid-runbook-worker.md#mma-not-running).
 
-Para reinstalar o agente Log Analytics para Windows, consulte [instalar e configurar o agente Log Analytics para windows](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
+Para reinstalar o agente Log Analytics para Windows, consulte [Instalar o agente para windows](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
 
 ### <a name="monitoring-agent-service-events"></a>Eventos de serviço de agente de monitorização
 
 Esta verificação determina se quaisquer eventos de 4502 aparecem no registo do Gestor de Operações Azure na máquina nas últimas 24 horas.
 
-Para saber mais sobre este evento, consulte o guia de resolução de [problemas](hybrid-runbook-worker.md#event-4502) para este evento.
+Para saber mais sobre este evento, consulte o [Evento 4502 no registo do Gestor](hybrid-runbook-worker.md#event-4502) de Operações para este evento.
 
 ## <a name="access-permissions-checks"></a>Verificações de permissões de acesso
+
+> [!NOTE]
+> O resoluto de problemas atualmente não encaminha o tráfego através de um servidor proxy se um estiver configurado.
 
 ### <a name="crypto-folder-access"></a>Acesso a pasta Crypto
 

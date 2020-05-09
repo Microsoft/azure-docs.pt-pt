@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/30/2020
+ms.date: 05/08/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5030fb50313e1db2173990c55930c22fdf58f559
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: HT
+ms.openlocfilehash: 3a30ea70c623c8456ae97c8ca9475e4989784edf
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82734795"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995840"
 ---
 # <a name="azure-custom-roles"></a>Papéis personalizados do Azure
 
@@ -35,7 +35,7 @@ As funções personalizadas podem ser partilhadas entre subscrições que confia
 
 ## <a name="custom-role-example"></a>Exemplo de exemplo de papel personalizado
 
-O seguinte mostra como um papel personalizado parece como exibido no formato JSON. Esta função personalizada pode ser usada para monitorizar e reiniciar máquinas virtuais.
+O seguinte mostra como é um papel personalizado como exibido usando o Azure PowerShell em formato JSON. Esta função personalizada pode ser usada para monitorizar e reiniciar máquinas virtuais.
 
 ```json
 {
@@ -67,45 +67,85 @@ O seguinte mostra como um papel personalizado parece como exibido no formato JSO
 }
 ```
 
+O seguinte mostra o mesmo papel personalizado que o apresentado usando o Azure CLI.
+
+```json
+[
+  {
+    "assignableScopes": [
+      "/subscriptions/{subscriptionId1}",
+      "/subscriptions/{subscriptionId2}",
+      "/providers/Microsoft.Management/managementGroups/{groupId1}"
+    ],
+    "description": "Can monitor and restart virtual machines.",
+    "id": "/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleDefinitions/88888888-8888-8888-8888-888888888888",
+    "name": "88888888-8888-8888-8888-888888888888",
+    "permissions": [
+      {
+        "actions": [
+          "Microsoft.Storage/*/read",
+          "Microsoft.Network/*/read",
+          "Microsoft.Compute/*/read",
+          "Microsoft.Compute/virtualMachines/start/action",
+          "Microsoft.Compute/virtualMachines/restart/action",
+          "Microsoft.Authorization/*/read",
+          "Microsoft.ResourceHealth/availabilityStatuses/read",
+          "Microsoft.Resources/subscriptions/resourceGroups/read",
+          "Microsoft.Insights/alertRules/*",
+          "Microsoft.Insights/diagnosticSettings/*",
+          "Microsoft.Support/*"
+        ],
+        "dataActions": [],
+        "notActions": [],
+        "notDataActions": []
+      }
+    ],
+    "roleName": "Virtual Machine Operator",
+    "roleType": "CustomRole",
+    "type": "Microsoft.Authorization/roleDefinitions"
+  }
+]
+```
+
 Quando se cria um papel personalizado, aparece no portal Azure com um ícone de recurso laranja.
 
 ![Ícone de papel personalizado](./media/custom-roles/roles-custom-role-icon.png)
 
-## <a name="steps-to-create-a-custom-role"></a>Passos para criar um papel personalizado
-
-1. Decida como pretende criar o papel personalizado
-
-    Pode criar funções personalizadas utilizando [o portal Azure,](custom-roles-portal.md) [O Azure PowerShell,](custom-roles-powershell.md) [o Azure CLI](custom-roles-cli.md)ou o [REST API](custom-roles-rest.md).
-
-1. Determine as permissões que precisa
-
-    Quando cria uma função personalizada, precisa de conhecer as operações do fornecedor de recursos que estão disponíveis para definir as suas permissões. Para visualizar a lista de operações, consulte as operações do fornecedor de recursos do Gestor de [Recursos do Azure.](resource-provider-operations.md) Você adicionará as `Actions` operações às propriedades ou `NotActions` propriedades da definição de [papel.](role-definitions.md) Se tiver operações de dados, `DataActions` irá `NotDataActions` adicioná-las às propriedades ou propriedades.
-
-1. Criar o papel personalizado
-
-    Normalmente, começa-se com um papel incorporado existente e depois modifica-o para as suas necessidades. Em seguida, você usa a [definição](/cli/azure/role/definition#az-role-definition-create) de papel [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) ou az criar comandos para criar o papel personalizado. Para criar uma função personalizada, `Microsoft.Authorization/roleDefinitions/write` deve `AssignableScopes`ter a permissão em todos, como [Proprietário](built-in-roles.md#owner) ou Administrador de Acesso ao [Utilizador.](built-in-roles.md#user-access-administrator)
-
-1. Testar o papel personalizado
-
-    Uma vez que tenha o seu papel personalizado, tem que testá-lo para verificar se funciona como espera. Se precisar de fazer ajustes mais tarde, pode atualizar a função personalizada.
-
-Para um tutorial passo a passo sobre como criar um papel personalizado, consulte [Tutorial: Crie uma função personalizada Azure usando Azure PowerShell](tutorial-custom-role-powershell.md) ou [Tutorial: Crie uma função personalizada Azure usando o Azure CLI](tutorial-custom-role-cli.md).
-
 ## <a name="custom-role-properties"></a>Propriedades de papel personalizado
 
-Um papel personalizado tem as seguintes propriedades.
+A tabela seguinte descreve o que as propriedades de papel personalizado significam.
 
 | Propriedade | Necessário | Tipo | Descrição |
 | --- | --- | --- | --- |
-| `Name` | Sim | String | O nome de exibição do papel personalizado. Embora uma definição de função seja um grupo de gestão ou um recurso de nível de subscrição, uma definição de função pode ser usada em múltiplas subscrições que partilham o mesmo diretório Azure AD. Este nome de exibição deve ser único no âmbito do diretório Azure AD. Pode incluir letras, números, espaços e personagens especiais. O número máximo de caracteres é de 128. |
-| `Id` | Sim | String | A identificação única do papel personalizado. Para o Azure PowerShell e o Azure CLI, este ID é gerado automaticamente quando cria uma nova função. |
-| `IsCustom` | Sim | String | Indica se este é um papel personalizado. Pronto `true` para papéis personalizados. |
-| `Description` | Sim | String | A descrição do papel personalizado. Pode incluir letras, números, espaços e personagens especiais. O número máximo de caracteres é 1024. |
-| `Actions` | Sim | Corda[] | Uma série de cordas que especifica as operações de gestão que a função permite ser executadas. Para mais informações, consulte [Ações](role-definitions.md#actions). |
-| `NotActions` | No | Corda[] | Um conjunto de cordas que especifica as operações de `Actions`gestão que estão excluídas das permitidas . Para mais informações, consulte [NotActions](role-definitions.md#notactions). |
-| `DataActions` | No | Corda[] | Um conjunto de cordas que especifica as operações de dados que a função permite ser executada aos seus dados dentro desse objeto. Se criar um papel `DataActions`personalizado com , esse papel não pode ser atribuído no âmbito do grupo de gestão. Para mais informações, consulte [DataActions](role-definitions.md#dataactions). |
-| `NotDataActions` | No | Corda[] | Um conjunto de cordas que especifica as operações de `DataActions`dados que estão excluídas das permitidas . Para mais informações, consulte [NotDataActions](role-definitions.md#notdataactions). |
-| `AssignableScopes` | Sim | Corda[] | Uma variedade de cordas que especifica os âmbitos que a função personalizada está disponível para atribuição. Só se pode definir `AssignableScopes` um grupo de gestão com um papel personalizado. A adição de `AssignableScopes` um grupo de gestão está atualmente em pré-visualização. Para mais informações, consulte [Os Scopes Atribuídos](role-definitions.md#assignablescopes). |
+| `Name`</br>`roleName` | Sim | String | O nome de exibição do papel personalizado. Embora uma definição de função seja um grupo de gestão ou um recurso de nível de subscrição, uma definição de função pode ser usada em múltiplas subscrições que partilham o mesmo diretório Azure AD. Este nome de exibição deve ser único no âmbito do diretório Azure AD. Pode incluir letras, números, espaços e personagens especiais. O número máximo de caracteres é de 128. |
+| `Id`</br>`name` | Sim | String | A identificação única do papel personalizado. Para o Azure PowerShell e o Azure CLI, este ID é gerado automaticamente quando cria uma nova função. |
+| `IsCustom`</br>`roleType` | Sim | String | Indica se este é um papel personalizado. Definir `true` para `CustomRole` ou para funções personalizadas. Definido `false` para `BuiltInRole` ou para papéis incorporados. |
+| `Description`</br>`description` | Sim | String | A descrição do papel personalizado. Pode incluir letras, números, espaços e personagens especiais. O número máximo de caracteres é 1024. |
+| `Actions`</br>`actions` | Sim | Corda[] | Uma série de cordas que especifica as operações de gestão que a função permite ser executadas. Para mais informações, consulte [Ações](role-definitions.md#actions). |
+| `NotActions`</br>`notActions` | Não | Corda[] | Um conjunto de cordas que especifica as operações de `Actions`gestão que estão excluídas das permitidas . Para mais informações, consulte [NotActions](role-definitions.md#notactions). |
+| `DataActions`</br>`dataActions` | Não | Corda[] | Um conjunto de cordas que especifica as operações de dados que a função permite ser executada aos seus dados dentro desse objeto. Se criar um papel `DataActions`personalizado com , esse papel não pode ser atribuído no âmbito do grupo de gestão. Para mais informações, consulte [DataActions](role-definitions.md#dataactions). |
+| `NotDataActions`</br>`notDataActions` | Não | Corda[] | Um conjunto de cordas que especifica as operações de `DataActions`dados que estão excluídas das permitidas . Para mais informações, consulte [NotDataActions](role-definitions.md#notdataactions). |
+| `AssignableScopes`</br>`assignableScopes` | Sim | Corda[] | Uma variedade de cordas que especifica os âmbitos que a função personalizada está disponível para atribuição. Só se pode definir `AssignableScopes` um grupo de gestão com um papel personalizado. A adição de `AssignableScopes` um grupo de gestão está atualmente em pré-visualização. Para mais informações, consulte [Os Scopes Atribuídos](role-definitions.md#assignablescopes). |
+
+## <a name="steps-to-create-a-custom-role"></a>Passos para criar um papel personalizado
+
+Para criar um papel personalizado, aqui estão os passos básicos que deve seguir.
+
+1. Decida como quer criar o papel personalizado.
+
+    Pode criar funções personalizadas utilizando o portal Azure, O PowerShell, o Azure CLI ou a Rest API.
+
+1. Determine as permissões que precisa.
+
+    Quando cria um papel personalizado, precisa de conhecer as operações que estão disponíveis para definir as suas permissões. Para visualizar a lista de operações, consulte as operações do fornecedor de recursos do Gestor de [Recursos do Azure.](resource-provider-operations.md) Você adicionará as `Actions` operações às propriedades ou `NotActions` propriedades da definição de [papel.](role-definitions.md) Se tiver operações de dados, `DataActions` irá `NotDataActions` adicioná-las às propriedades ou propriedades.
+
+1. Criar o papel personalizado.
+
+    Normalmente, começa-se com um papel incorporado existente e depois modifica-o para as suas necessidades. A maneira mais fácil é usar o portal Azure. Para passos sobre como criar uma função personalizada usando o portal Azure, consulte [Criar ou atualizar funções personalizadas do Azure utilizando o portal Azure](custom-roles-portal.md).
+
+1. Teste o papel personalizado.
+
+    Uma vez que tenha o seu papel personalizado, tem que testá-lo para verificar se funciona como espera. Se precisar de fazer ajustes mais tarde, pode atualizar a função personalizada.
 
 ## <a name="who-can-create-delete-update-or-view-a-custom-role"></a>Quem pode criar, eliminar, atualizar ou ver um papel personalizado
 
@@ -130,7 +170,150 @@ A lista seguinte descreve os limites para funções personalizadas.
 
 Para obter mais informações sobre papéis personalizados e grupos de gestão, consulte Organizar os seus recursos com grupos de [gestão Azure.](../governance/management-groups/overview.md#custom-rbac-role-definition-and-assignment)
 
+## <a name="input-and-output-formats"></a>Formatos de entrada e saída
+
+Para criar uma função personalizada utilizando a linha de comando, normalmente utiliza a JSON para especificar as propriedades que deseja para a função personalizada. Dependendo das ferramentas que utiliza, os formatos de entrada e saída serão ligeiramente diferentes. Esta secção lista os formatos de entrada e saída dependendo da ferramenta.
+
+### <a name="azure-powershell"></a>Azure PowerShell
+
+Para criar uma função personalizada utilizando o Azure PowerShell, deve fornecer a seguinte entrada.
+
+```json
+{
+  "Name": "",
+  "Description": "",
+  "Actions": [],
+  "NotActions": [],
+  "DataActions": [],
+  "NotDataActions": [],
+  "AssignableScopes": []
+}
+```
+
+Para atualizar uma função personalizada utilizando o Azure PowerShell, deve fornecer a seguinte entrada. Note que `Id` a propriedade foi adicionada. 
+
+```json
+{
+  "Name": "",
+  "Id": "",
+  "Description": "",
+  "Actions": [],
+  "NotActions": [],
+  "DataActions": [],
+  "NotDataActions": [],
+  "AssignableScopes": []
+}
+```
+
+O seguinte mostra um exemplo da saída quando lista uma função personalizada usando o Azure PowerShell e o comando [ConvertTo-Json.](/powershell/module/microsoft.powershell.utility/convertto-json) 
+
+```json
+{
+  "Name": "",
+  "Id": "",
+  "IsCustom": true,
+  "Description": "",
+  "Actions": [],
+  "NotActions": [],
+  "DataActions": [],
+  "NotDataActions": [],
+  "AssignableScopes": []
+}
+```
+
+### <a name="azure-cli"></a>CLI do Azure
+
+Para criar ou atualizar uma função personalizada utilizando o Azure CLI, deve fornecer a seguinte entrada. Este formato é o mesmo formato quando cria uma função personalizada usando o Azure PowerShell.
+
+```json
+{
+  "Name": "",
+  "Description": "",
+  "Actions": [],
+  "NotActions": [],
+  "DataActions": [],
+  "NotDataActions": [],
+  "AssignableScopes": []
+}
+```
+
+O seguinte mostra um exemplo da saída quando lista uma função personalizada usando o Azure CLI.
+
+```json
+[
+  {
+    "assignableScopes": [],
+    "description": "",
+    "id": "",
+    "name": "",
+    "permissions": [
+      {
+        "actions": [],
+        "dataActions": [],
+        "notActions": [],
+        "notDataActions": []
+      }
+    ],
+    "roleName": "",
+    "roleType": "CustomRole",
+    "type": "Microsoft.Authorization/roleDefinitions"
+  }
+]
+```
+
+### <a name="rest-api"></a>API REST
+
+Para criar ou atualizar uma função personalizada utilizando a API REST, deve fornecer a seguinte entrada. Este formato é o mesmo formato que é gerado quando se cria uma função personalizada utilizando o portal Azure.
+
+```json
+{
+  "properties": {
+    "roleName": "",
+    "description": "",
+    "assignableScopes": [],
+    "permissions": [
+      {
+        "actions": [],
+        "notActions": [],
+        "dataActions": [],
+        "notDataActions": []
+      }
+    ]
+  }
+}
+```
+
+O seguinte mostra um exemplo da saída quando lista uma função personalizada usando a API REST.
+
+```json
+{
+    "properties": {
+        "roleName": "",
+        "type": "CustomRole",
+        "description": "",
+        "assignableScopes": [],
+        "permissions": [
+            {
+                "actions": [],
+                "notActions": [],
+                "dataActions": [],
+                "notDataActions": []
+            }
+        ],
+        "createdOn": "",
+        "updatedOn": "",
+        "createdBy": "",
+        "updatedBy": ""
+    },
+    "id": "",
+    "type": "Microsoft.Authorization/roleDefinitions",
+    "name": ""
+}
+```
+
 ## <a name="next-steps"></a>Passos seguintes
-- [Criar ou atualizar funções personalizadas do Azure utilizando o portal Azure](custom-roles-portal.md)
+
+- [Tutorial: Criar uma função personalizada azure usando o Azure PowerShell](tutorial-custom-role-powershell.md)
+- [Tutorial: Criar uma função personalizada azure usando o Azure CLI](tutorial-custom-role-cli.md)
 - [Compreender definições de papéis de Azure](role-definitions.md)
 - [Resolução de problemas Azure RBAC](troubleshooting.md)

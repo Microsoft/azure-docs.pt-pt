@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/17/2020
+ms.date: 05/08/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 03edb8e5c58f0fe746921d50ab3f657f291d16da
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: HT
+ms.openlocfilehash: 3dc2834af501d3ecc2ff44c2511916447f27cfae
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735543"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996620"
 ---
 # <a name="understand-azure-role-definitions"></a>Compreender definições de papéis de Azure
 
@@ -28,7 +28,9 @@ Se está a tentar perceber como funciona um papel azure ou se está a criar o se
 
 ## <a name="role-definition"></a>Definição de função
 
-Uma *definição de função* é uma coleção de permissões. Por vezes é denominada apenas *função*. Uma definição de função lista as operações que podem ser efetuadas, por exemplo, ler, escrever e eliminar. Pode também listar as operações que não podem ser efetuadas ou operações relacionadas a dados subjacentes. Uma definição de função tem as seguintes propriedades:
+Uma *definição de função* é uma coleção de permissões. Por vezes é denominada apenas *função*. Uma definição de função lista as operações que podem ser efetuadas, por exemplo, ler, escrever e eliminar. Também pode enumerar as operações que estão excluídas das operações ou operações permitidas relacionadas com os dados subjacentes.
+
+O seguinte mostra um exemplo das propriedades numa definição de função quando exibida usando o Azure PowerShell:
 
 ```
 Name
@@ -42,17 +44,33 @@ NotDataActions []
 AssignableScopes []
 ```
 
+O seguinte mostra um exemplo das propriedades numa definição de função quando exibida seletiva com o portal Azure, Azure CLI ou a API REST:
+
+```
+roleName
+name
+type
+description
+actions []
+notActions []
+dataActions []
+notDataActions []
+assignableScopes []
+```
+
+A tabela seguinte descreve o que as propriedades do papel significam.
+
 | Propriedade | Descrição |
 | --- | --- |
-| `Name` | O nome da exibição do papel. |
-| `Id` | A identificação única do papel. |
-| `IsCustom` | Indica se este é um papel personalizado. Pronto `true` para papéis personalizados. |
-| `Description` | A descrição do papel. |
-| `Actions` | Uma série de cordas que especifica as operações de gestão que a função permite ser executadas. |
-| `NotActions` | Um conjunto de cordas que especifica as operações de `Actions`gestão que estão excluídas das permitidas . |
-| `DataActions` | Um conjunto de cordas que especifica as operações de dados que a função permite ser executada aos seus dados dentro desse objeto. |
-| `NotDataActions` | Um conjunto de cordas que especifica as operações de `DataActions`dados que estão excluídas das permitidas . |
-| `AssignableScopes` | Uma série de cordas que especifica os âmbitos que a função está disponível para atribuição. |
+| `Name`</br>`roleName` | O nome da exibição do papel. |
+| `Id`</br>`name` | A identificação única do papel. |
+| `IsCustom`</br>`roleType` | Indica se este é um papel personalizado. Definir `true` para `CustomRole` ou para funções personalizadas. Definido `false` para `BuiltInRole` ou para papéis incorporados. |
+| `Description`</br>`description` | A descrição do papel. |
+| `Actions`</br>`actions` | Uma série de cordas que especifica as operações de gestão que a função permite ser executadas. |
+| `NotActions`</br>`notActions` | Um conjunto de cordas que especifica as operações de `Actions`gestão que estão excluídas das permitidas . |
+| `DataActions`</br>`dataActions` | Um conjunto de cordas que especifica as operações de dados que a função permite ser executada aos seus dados dentro desse objeto. |
+| `NotDataActions`</br>`notDataActions` | Um conjunto de cordas que especifica as operações de `DataActions`dados que estão excluídas das permitidas . |
+| `AssignableScopes`</br>`assignableScopes` | Uma série de cordas que especifica os âmbitos que a função está disponível para atribuição. |
 
 ### <a name="operations-format"></a>Formato de operações
 
@@ -72,7 +90,9 @@ A `{action}` parte de uma cadeia de operação especifica o tipo de operações 
 
 ### <a name="role-definition-example"></a>Exemplo de definição de papel
 
-Aqui está a definição de papel [do Colaborador](built-in-roles.md#contributor) no formato JSON. A operação de caráter universal (`*`) em `Actions` indica que o principal atribuído a esta função pode efetuar todas as ações ou, por outras palavras, pode gerir tudo. Isto inclui ações definidas no futuro, uma vez que o Azure adiciona novos tipos de recursos. As operações em `NotActions` são subtraídas de `Actions`. No caso da função [Contribuidor](built-in-roles.md#contributor), `NotActions` remove a capacidade desta função para gerir o acesso aos recursos e também atribuir acesso aos recursos.
+Aqui está a definição de função [De Contribuinte,](built-in-roles.md#contributor) exibida no Azure PowerShell e no Azure CLI. A operação de caráter universal (`*`) em `Actions` indica que o principal atribuído a esta função pode efetuar todas as ações ou, por outras palavras, pode gerir tudo. Isto inclui ações definidas no futuro, uma vez que o Azure adiciona novos tipos de recursos. As operações em `NotActions` são subtraídas de `Actions`. No caso da função [Contribuidor](built-in-roles.md#contributor), `NotActions` remove a capacidade desta função para gerir o acesso aos recursos e também atribuir acesso aos recursos.
+
+Papel contributivo como mostrado no Azure PowerShell:
 
 ```json
 {
@@ -86,13 +106,47 @@ Aqui está a definição de papel [do Colaborador](built-in-roles.md#contributor
   "NotActions": [
     "Microsoft.Authorization/*/Delete",
     "Microsoft.Authorization/*/Write",
-    "Microsoft.Authorization/elevateAccess/Action"
+    "Microsoft.Authorization/elevateAccess/Action",
+    "Microsoft.Blueprint/blueprintAssignments/write",
+    "Microsoft.Blueprint/blueprintAssignments/delete"
   ],
   "DataActions": [],
   "NotDataActions": [],
   "AssignableScopes": [
     "/"
   ]
+}
+```
+
+Papel contributivo apresentado no Azure CLI:
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets you manage everything except access to resources.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c",
+  "name": "b24988ac-6180-42a0-ab88-20f7382dd24c",
+  "permissions": [
+    {
+      "actions": [
+        "*"
+      ],
+      "notActions": [
+        "Microsoft.Authorization/*/Delete",
+        "Microsoft.Authorization/*/Write",
+        "Microsoft.Authorization/elevateAccess/Action",
+        "Microsoft.Blueprint/blueprintAssignments/write",
+        "Microsoft.Blueprint/blueprintAssignments/delete"
+      ],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
@@ -116,6 +170,8 @@ Para apoiar as operações de dados, foram adicionadas novas propriedades de dad
 
 Aqui está a definição de função de Leitor `Actions` de `DataActions` Dados blob de [armazenamento,](built-in-roles.md#storage-blob-data-reader) que inclui operações tanto nas propriedades como nas propriedades. Esta função permite-lhe ler o recipiente blob e também os dados de blob subjacentes.
 
+Papel de Leitor de Dados Blob de Armazenamento como apresentado no Azure PowerShell:
+
 ```json
 {
   "Name": "Storage Blob Data Reader",
@@ -123,7 +179,8 @@ Aqui está a definição de função de Leitor `Actions` de `DataActions` Dados 
   "IsCustom": false,
   "Description": "Allows for read access to Azure Storage blob containers and data",
   "Actions": [
-    "Microsoft.Storage/storageAccounts/blobServices/containers/read"
+    "Microsoft.Storage/storageAccounts/blobServices/containers/read",
+    "Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action"
   ],
   "NotActions": [],
   "DataActions": [
@@ -133,6 +190,35 @@ Aqui está a definição de função de Leitor `Actions` de `DataActions` Dados 
   "AssignableScopes": [
     "/"
   ]
+}
+```
+
+Papel de Leitor de Dados Blob de Armazenamento como apresentado no Azure CLI:
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for read access to Azure Storage blob containers and data",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/2a2b9908-6ea1-4ae2-8e65-a410df84e7d1",
+  "name": "2a2b9908-6ea1-4ae2-8e65-a410df84e7d1",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Storage/storageAccounts/blobServices/containers/read",
+        "Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Storage Blob Data Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
@@ -159,9 +245,11 @@ Contribuinte de dados blob de armazenamento
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/delete`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/read`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/write`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Ações de Dados<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`
 
 Uma vez que`*`Alice tem uma ação wildcard ( ) em um âmbito de subscrição, suas permissões herdam para baixo para permitir-lhes executar todas as ações de gestão. Alice pode ler, escrever e apagar recipientes. No entanto, Alice não pode realizar operações de dados sem tomar medidas adicionais. Por exemplo, por defeito, Alice não consegue ler as bolhas dentro de um recipiente. Para ler as bolhas, Alice teria que recuperar as chaves de acesso ao armazenamento e usá-las para aceder às bolhas.

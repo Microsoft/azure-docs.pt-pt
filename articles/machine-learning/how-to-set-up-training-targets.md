@@ -11,19 +11,19 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: 0ac0352fbca73aca7cc8c19a851dad9149af14a1
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: fc5d2b8f7673488169ee3ae393efcb74ef0a27a2
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872097"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996457"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurar e utilizar alvos de cálculo para formação de modelos 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Com o Azure Machine Learning, pode treinar o seu modelo numa variedade de recursos ou ambientes, coletivamente referidos como alvos de [__cálculo.__](concept-azure-machine-learning-architecture.md#compute-targets) Um destino de computação pode ser um computador local ou um recurso da cloud, tal como uma Computação do Azure Machine Learning, o Azure HDInsight ou uma máquina virtual remota.  Também pode criar alvos de cálculo para a implementação do modelo, conforme descrito em ["Onde e como implementar os seus modelos".](how-to-deploy-and-where.md)
+Com o Azure Machine Learning, pode treinar o seu modelo numa variedade de recursos ou ambientes, coletivamente referidos como alvos de [__cálculo.__](concept-azure-machine-learning-architecture.md#compute-targets) Um alvo computacional pode ser uma máquina local ou um recurso em nuvem, como uma Computação de Aprendizagem automática Azure, Azure HDInsight ou uma máquina virtual remota.  Também pode criar alvos de cálculo para a implementação do modelo, conforme descrito em ["Onde e como implementar os seus modelos".](how-to-deploy-and-where.md)
 
-Pode criar e gerir um alvo de cálculo utilizando a extensão Azure Machine Learning SDK, Azure Machine Learning, Azure CLI ou Azure Machine Learning VS Code. Se tiver alvos de cálculo que foram criados através de outro serviço (por exemplo, um cluster HDInsight), pode usá-los ligando-os ao seu espaço de trabalho Azure Machine Learning.
+Pode criar e gerir um alvo de cálculo utilizando o Azure Machine Learning SDK, o estúdio Azure Machine Learning, o Azure CLI ou a extensão do Código VS de Aprendizagem automática Azure. Se tiver alvos de cálculo que foram criados através de outro serviço (por exemplo, um cluster HDInsight), pode usá-los ligando-os ao seu espaço de trabalho Azure Machine Learning.
  
 Neste artigo, aprende-se a usar vários alvos de computação para a formação de modelos.  Os passos para todos os objetivos da computação seguem o mesmo fluxo de trabalho:
 1. __Crie__ um alvo de cálculo se ainda não tiver um.
@@ -36,7 +36,7 @@ Neste artigo, aprende-se a usar vários alvos de computação para a formação 
 
 ## <a name="compute-targets-for-training"></a>Metas computadas para a formação
 
-O Azure Machine Learning tem um suporte variado em diferentes alvos de cálculo. Um ciclo de vida de desenvolvimento de modelotípico começa com dev/experimentação em uma pequena quantidade de dados. Nesta fase, recomendamos a utilização de um ambiente local. Por exemplo, o seu computador local ou um VM baseado em nuvem. À medida que aumenta a sua formação em conjuntos de dados maiores, ou faz treino distribuído, recomendamos a utilização da Azure Machine Learning Compute para criar um cluster de um ou vários nós que se autodimensiona cada vez que submete uma corrida. Também pode anexar o seu próprio recurso computacional, embora o suporte para vários cenários possa variar conforme detalhado abaixo:
+O Azure Machine Learning tem um suporte variado em diferentes alvos de cálculo. Um ciclo de vida de desenvolvimento de modelotípico começa com dev/experimentação em uma pequena quantidade de dados. Nesta fase, recomendamos a utilização de um ambiente local. Por exemplo, o seu computador local ou um VM baseado em nuvem. À medida que aumenta a sua formação em conjuntos de dados maiores, ou realiza treino distribuído, recomendamos a utilização da Azure Machine Learning Compute para criar um cluster de um ou vários nós que se autodimensiona cada vez que submete uma corrida. Também pode anexar o seu próprio recurso computacional, embora o suporte para vários cenários possa variar conforme detalhado abaixo:
 
 [!INCLUDE [aml-compute-target-train](../../includes/aml-compute-target-train.md)]
 
@@ -64,7 +64,7 @@ Para mais informações, consulte [os Modelos Train ML com estimadores](how-to-t
 
 Com os gasodutos ML, pode otimizar o seu fluxo de trabalho com simplicidade, velocidade, portabilidade e reutilização. Ao construir oleodutos com O Machine Learning Azure, pode focar-se na sua experiência, aprendizagem automática, em vez de infraestruturas e automação.
 
-Os gasodutos ML são construídos a partir de múltiplas **etapas,** que são unidades computacionais distintas no gasoduto. Cada passo pode funcionar de forma independente e usar recursos computacionais isolados. Isto permite que vários cientistas de dados trabalhem no mesmo oleoduto ao mesmo tempo sem recursos computacionais sobre-impostos, e também facilita a utilização de diferentes tipos/tamanhos de computação para cada passo.
+Os gasodutos ML são construídos a partir de múltiplas **etapas,** que são unidades computacionais distintas no gasoduto. Cada passo pode funcionar de forma independente e usar recursos computacionais isolados. Esta abordagem permite que vários cientistas de dados trabalhem no mesmo oleoduto ao mesmo tempo sem sobretaxar os recursos computacionais, e também facilita a utilização de diferentes tipos/tamanhos de computação para cada passo.
 
 > [!TIP]
 > Os pipelines ML podem utilizar a configuração do execução ou os estimadores quando treinam os modelos.
@@ -101,9 +101,10 @@ A Azure Machine Learning Compute tem limites de predefinição, como o número d
 
 > [!TIP]
 > Os clusters podem geralmente escalar até 100 nós, desde que tenha quota suficiente para o número de núcleos necessários. Por padrão, os clusters são configurados com uma comunicação inter-nó ativada entre os nós do cluster para apoiar os empregos de PMI, por exemplo. No entanto, pode escalar os seus clusters para 1000 s de nós, [bastando levantar um bilhete](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)de apoio e solicitar para whitelist a sua subscrição, ou espaço de trabalho, ou um cluster específico para desativar a comunicação inter-nó. 
->
 
-A Computação de Aprendizagem automática Azure pode ser reutilizada em percursos. O cálculo pode ser partilhado com outros utilizadores no espaço de trabalho e é retido entre corridas, escalando automaticamente os nós para cima ou para baixo com base no número de execuções submetidas, e o max_nodes definido no seu cluster.
+A Computação de Aprendizagem automática Azure pode ser reutilizada em percursos. O cálculo pode ser partilhado com outros utilizadores no espaço de trabalho e é retido entre corridas, escalando automaticamente os nós para cima ou para baixo com base no número de execuções submetidas, e o max_nodes definido no seu cluster. A definição de min_nodes controla os nós mínimos disponíveis.
+
+[!INCLUDE [min-nodes-note](../../includes/machine-learning-min-nodes.md)]
 
 1. **Criar e anexar**: Para criar um recurso de computação de aprendizagem automática Azure persistente em Python, especifique as **propriedades vm_size** e **max_nodes.** O Azure Machine Learning utiliza então predefinições inteligentes para as outras propriedades. A computação automaticamente desce para zero nódosos quando não é usado.   VMs dedicados são criados para gerir os seus trabalhos conforme necessário.
     
@@ -483,7 +484,7 @@ az ml run submit-hyperdrive -e <experiment> -c <runconfig> --hyperdrive-configur
 
 Note a secção *de argumentos* em runconfig e *espaço parametrómetro* em config HyperDrive. Contêm os argumentos da linha de comando para serem passados para o guião de treino. O valor em runconfig permanece o mesmo para cada iteração, enquanto a gama em Config HyperDrive é iterada. Não especifique o mesmo argumento em ambos os ficheiros.
 
-Para mais detalhes ```az ml``` sobre estes comandos CLI e conjunto completo de argumentos, consulte [a documentação de referência](reference-azure-machine-learning-cli.md).
+Para mais detalhes ```az ml``` sobre estes comandos CLI, consulte [a documentação de referência](reference-azure-machine-learning-cli.md).
 
 <a id="gitintegration"></a>
 

@@ -6,12 +6,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1bf60d17af1d9866de6a62ac538fa0bd9a15ce52
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92919d2e0cc7ca685d2b60a8e7a8cf20433bbefc
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82113396"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82994702"
 ---
 # <a name="authenticate-azure-automation-runbooks-with-amazon-web-services"></a>Autenticar runbooks da Automatização do Azure com o Amazon Web Services
 
@@ -33,4 +33,4 @@ Depois de ter criado e copiado as chaves de segurança AWS, tem de criar um recu
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Leia o artigo de solução [Automating deployment of a VM in Amazon Web Services (Automatizar a implementação de uma VM nos Amazon Web Services)](automation-scenario-aws-deployment.md) para saber como criar runbooks para automatizar as tarefas no AWS.
+* Reveja a [implantação automatizada de um VM nos Serviços Web da Amazon](automation-scenario-aws-deployment.md) para aprender a criar livros de corridas para automatizar tarefas em AWS.

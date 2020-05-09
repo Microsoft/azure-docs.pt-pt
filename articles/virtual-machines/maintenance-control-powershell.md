@@ -7,12 +7,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: cynthn
-ms.openlocfilehash: b1c72c2f606ab653d7e3f1d81f7278571e8e4978
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 834ff39b0ffd8ee38156e468008c332971b742d0
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82136537"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996480"
 ---
 # <a name="control-updates-with-maintenance-control-and-azure-powershell"></a>Atualizações de controlo com Controlo de Manutenção e PowerShell Azure
 
@@ -20,11 +20,17 @@ O controlo de manutenção permite-lhe decidir quando aplicar atualizações aos
  
 ## <a name="enable-the-powershell-module"></a>Ativar o módulo PowerShell
 
-Certifique-se de que `PowerShellGet` está atualizado.
+Certifique-se de que `PowerShellGet` está atualizado.    
 
-```azurepowershell-interactive
-Install-Module -Name PowerShellGet -Repository PSGallery -Force
-```
+```azurepowershell-interactive  
+Install-Module -Name PowerShellGet -Repository PSGallery -Force 
+``` 
+
+Instale `Az.Maintenance` o módulo PowerShell.     
+
+```azurepowershell-interactive  
+Install-Module -Name Az.Maintenance
+``` 
 
 Se estiver a instalar-se localmente, certifique-se de que abre o seu pedido PowerShell como administrador.
 

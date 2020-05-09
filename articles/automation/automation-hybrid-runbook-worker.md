@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 0b36651a40267ec3ea8bfe7285c5f6c5d5c31562
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: c02a61366b05fa2750c581a1dedefb0d6239dada
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871650"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82994751"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Descrição geral das Funções de Trabalho de Runbook Híbridas (Hybrid Runbook Worker overview)
 
@@ -42,7 +42,7 @@ O processo de instalação de um Trabalhador do Livro De Execução Híbrido dep
 
 O método de instalação recomendado é utilizar um livro de execução da Automatização Azure para automatizar completamente o processo de configuração de um computador Windows. O segundo método consiste em seguir um procedimento passo a passo para instalar manualmente e configurar a função. Para as máquinas Linux, executa um guião Python para instalar o agente na máquina.
 
-## <a name="network-configuration"></a><a name="network-planning"></a>Configuração da rede
+## <a name="network-planning"></a><a name="network-planning"></a>Planeamento da rede
 
 Para que o Trabalhador do Livro Híbrido se ligue e registe-se com a Automação Azure, deve ter acesso ao número de porta e URLs descritos nesta secção. O trabalhador deve também ter acesso às [portas e URLs necessários para](../azure-monitor/platform/agent-windows.md) que o agente Log Analytics se ligue ao espaço de trabalho Azure Monitor Log Analytics.
 

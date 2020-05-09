@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.custom: amqp
-ms.openlocfilehash: 169d926e466559bc83ba64ce9e976e0d725f614d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bf7c4118e17727c6c8141570ab146026d5383059
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81729995"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996939"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Ler mensagens de dispositivo para cloud a partir do ponto final incorporado
 
@@ -51,7 +51,7 @@ Quando utiliza SDKs de Hubs de Eventos ou integrações de produtos que desconhe
 
 No portal, o campo final compatível com o Event Hub contém uma cadeia completa de ligação De Event Hubs que se parece com: **Endpoint=sb://abcd1234namespace.servicebus.windows.net/; SharedAccessKeyName=iothubowner; SharedAccessKey=keykeykeykeykeykey=; EntidadePath=iothub-ehub-abcd-1234-123456**. Se o SDK que está a usar requer outros valores, então seriam:
 
-| Nome | Valor |
+| Name | Valor |
 | ---- | ----- |
 | Ponto Final | sb://abcd1234namespace.servicebus.windows.net/ |
 | Nome de anfitrião | abcd1234namespace.servicebus.windows.net |
@@ -61,12 +61,12 @@ Em seguida, pode utilizar qualquer política de acesso partilhado que tenha as p
 
 Os SDKs que pode utilizar para ligar ao ponto final compatível com o Hub de Eventos incorporado que o IoT Hub expõe incluem:
 
-| Idioma | SDK | Exemplo | Notas |
-| -------- | --- | ------ | ----- |
-| .NET | https://github.com/Azure/azure-event-hubs-dotnet | [Início Rápido](quickstart-send-telemetry-dotnet.md) | Utiliza informações compatíveis com hubs de eventos |
- Java | https://github.com/Azure/azure-event-hubs-java | [Início Rápido](quickstart-send-telemetry-java.md) | Utiliza informações compatíveis com hubs de eventos |
-| Node.js | https://github.com/Azure/azure-event-hubs-node | [Início Rápido](quickstart-send-telemetry-node.md) | Usa a cadeia de ligação IoT Hub |
-| Python | https://github.com/Azure/azure-event-hubs-python | https://github.com/Azure/azure-event-hubs-python/blob/master/examples/iothub_recv.py | Usa a cadeia de ligação IoT Hub |
+| Idioma | SDK | Exemplo |
+| -------- | --- | ------ |
+| .NET | https://github.com/Azure/azure-event-hubs-dotnet | [Início Rápido](quickstart-send-telemetry-dotnet.md) |
+ Java | https://github.com/Azure/azure-event-hubs-java | [Início Rápido](quickstart-send-telemetry-java.md) |
+| Node.js | https://www.npmjs.com/package/@azure/event-hubs | [Início Rápido](quickstart-send-telemetry-node.md) |
+| Python | https://pypi.org/project/azure-eventhub/ | https://github.com/Azure-Samples/azure-iot-samples-python/tree/master/iot-hub/Quickstarts/read-d2c-messages |
 
 As integrações do produto que pode utilizar com o ponto final compatível com o Event Hub que o IoT Hub expõe incluem:
 
