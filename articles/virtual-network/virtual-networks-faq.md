@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: e45d5393833973889b28a95ec86b89593a091f99
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d59a2fe32742c2d1d50b9ed33ccace5d377c59c2
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79244813"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791991"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ) da Rede Virtual do Azure
 
@@ -88,7 +88,7 @@ Sim. Pode criar uma mesa de rota e associá-la a uma subnet. Para mais informaç
 Não. Não são suportados multicast e transmissão.
 
 ### <a name="what-protocols-can-i-use-within-vnets"></a>Que protocolos posso usar dentro dos VNets?
-Pode utilizar protocolos TCP, UDP e ICMP TCP/IP dentro dos VNets. A Unicast é suportada dentro de VNets, com exceção do Protocolo de Configuração de Hospedeiro Dinâmico (DHCP) via Unicast (porta de origem UDP/68 / porta de destino UDP/67). Pacotes encapsulados de ip-in-IP e pacotes genéricos de encapsulamento encapsulamento (GRE) estão bloqueados dentro de VNets. 
+Pode utilizar protocolos TCP, UDP e ICMP TCP/IP dentro dos VNets. A Unicast é suportada dentro de VNets, com exceção do Protocolo de Configuração de Hospedeiro Dinâmico (DHCP) via Unicast (porta de origem UDP/68 / porta de destino UDP/67) e da porta de origem da UDP 65330, reservada ao hospedeiro. Pacotes encapsulados de ip-in-IP e pacotes genéricos de encapsulamento encapsulamento (GRE) estão bloqueados dentro de VNets. 
 
 ### <a name="can-i-ping-my-default-routers-within-a-vnet"></a>Posso ver os meus routers padrão dentro de um VNet?
 Não.

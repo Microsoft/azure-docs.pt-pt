@@ -23,6 +23,9 @@
     - name: Implementar com vários endereços
       displayName: Resource Manager
       href: quick-create-multiple-ip-template.md
+    - name: Implementar com Zonas de Disponibilidade
+      displayName: Resource Manager
+      href: deploy-template.md
 - name: Amostras
   items:
     - name: Azure PowerShell
@@ -61,8 +64,6 @@
       href: tutorial-hybrid-ps.md
     - name: Implementar com a CLI do Azure
       href: deploy-cli.md
-    - name: Implementar com um modelo
-      href: deploy-template.md
     - name: Implementar com vários IPs públicos
       href: deploy-multi-public-ip-powershell.md
     - name: Implementar com Zonas de Disponibilidade
@@ -75,6 +76,8 @@
       href: snat-private-range.md
     - name: Criar Grupos IP
       href: create-ip-group.md
+    - name: Proteger o Windows Virtual Desktop
+      href: protect-windows-virtual-desktop.md
 - name: Referência
   items:
     - name: CLI do Azure

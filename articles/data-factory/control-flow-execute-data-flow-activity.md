@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 04/25/2020
-ms.openlocfilehash: 78ef749f36e9ffd3aae510d201b0700e5e197065
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/30/2020
+ms.openlocfilehash: a2e80b9320509144456663672ac5ae03f522459a
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183301"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735390"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Atividade de Fluxo de Dados na Fábrica de Dados azure
 
@@ -57,9 +57,9 @@ Utilize a atividade data Flow para transformar e mover dados através de fluxos 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
 fluxo de dados | A referência ao Fluxo de Dados que está a ser executada | Referência de fluxo de dados | Sim
-integraçãoTempo de corrida | O ambiente computacional em que o fluxo de dados funciona. Se não especificado, o tempo de execução de integração azure de resolução automática será usado | IntegraçãoRuntimeReference | Não
-compute.coreCount | O número de núcleos usados no aglomerado de faíscas. Só pode ser especificado se o tempo de execução de integração azure de resolução automática for utilizado | 8, 16, 32, 48, 80, 144, 272 | Não
-compute.computeType | O tipo de computação usada no aglomerado de faíscas. Só pode ser especificado se o tempo de execução de integração azure de resolução automática for utilizado | "Geral", "ComputeOptimized", "MemoryOptimized" | Não
+integraçãoTempo de corrida | O ambiente computacional em que o fluxo de dados funciona. Se não for especificado, será utilizado o tempo de execução de integração Azure de resolução automática. Apenas são apoiados os tempos de integração da auto-resolução da região. | IntegraçãoRuntimeReference | No
+compute.coreCount | O número de núcleos usados no aglomerado de faíscas. Só pode ser especificado se o tempo de execução de integração azure de resolução automática for utilizado | 8, 16, 32, 48, 80, 144, 272 | No
+compute.computeType | O tipo de computação usada no aglomerado de faíscas. Só pode ser especificado se o tempo de execução de integração azure de resolução automática for utilizado | "Geral", "ComputeOptimized", "MemoryOptimized" | No
 staging.linkedService | Se estiver a utilizar uma fonte ou pia SQL DW, a conta de armazenamento utilizada para a encenação da PolyBase | Referência de Serviços Linked | Só se o fluxo de dados ler ou escrever para um DW SQL
 staging.folderPath | Se estiver a utilizar uma fonte ou pia SQL DW, o caminho da pasta na conta de armazenamento blob utilizada para a encenação da PolyBase | String | Só se o fluxo de dados ler ou escrever para um DW SQL
 
@@ -75,13 +75,13 @@ As propriedades do Core Count e do Compute Type podem ser definidas de forma din
 
 ### <a name="data-flow-integration-runtime"></a>Tempo de execução da integração do Fluxo de Dados
 
-Escolha qual o Tempo de Execução de Integração a utilizar para a execução da sua atividade de Fluxo de Dados. Por padrão, a Data Factory utilizará o tempo de execução de integração azure de resolução automática com quatro núcleos de trabalhadores e sem tempo para viver (TTL). Este IR tem um tipo de computação de propósito geral e funciona na mesma região que a sua fábrica. Pode criar os seus próprios RunTimes de Integração Azure que definem regiões específicas, tipo de computação, contagens de núcleo e TTL para a execução da sua atividade de fluxo de dados.
+Escolha qual o Tempo de Execução de Integração a utilizar para a execução da sua atividade de Fluxo de Dados. Por padrão, a Data Factory utilizará o tempo de execução de integração azure de resolução automática com quatro núcleos de trabalhadores e sem tempo para viver (TTL). Este IR tem um tipo de computação de propósito geral e funciona na mesma região que a sua fábrica. Pode criar os seus próprios RunTimes de Integração Azure que definem regiões específicas, tipo de computação, contagens de núcleo e TTL para a execução da sua atividade de fluxo de dados. Neste momento, apenas os tempos de integração da auto-resolução da região são suportados na atividade de fluxo de dados.
 
 Para execuções em gasodutos, o cluster é um aglomerado de trabalho, que leva vários minutos para começar antes da execução começar. Se não for especificado nenhum TTL, este tempo de arranque é necessário em todas as condutas de gasodutos. Se especificar um TTL, um cluster quente permanecerá ativo durante o tempo especificado após a última execução, resultando em tempos de arranque mais curtos. Por exemplo, se tiver um TTL de 60 minutos e executar um fluxo de dados nele uma vez por hora, o cluster pool permanecerá ativo. Para mais informações, consulte o tempo de [execução da integração do Azure.](concepts-integration-runtime.md)
 
 ![Tempo de execução da integração azure](media/data-flow/ir-new.png "Tempo de execução da integração azure")
 
-> [!NOTE]
+> [!IMPORTANT]
 > A seleção de tempo de integração na atividade do Fluxo de Dados aplica-se apenas às *execuções desencadeadas* do seu pipeline. Depurando o seu pipeline com fluxos de dados no cluster especificado na sessão de depuração.
 
 ### <a name="polybase"></a>PolyBase
@@ -98,9 +98,7 @@ Se o fluxo de dados utilizar conjuntos de dados parametrizados, defina os valore
 
 ### <a name="parameterized-data-flows"></a>Fluxos de dados parametrizados
 
-Se o seu fluxo de dados estiver parametrómetro, defina os valores dinâmicos dos parâmetros de fluxo de dados no separador **Parâmetros.** Pode utilizar a linguagem de expressão do gasoduto ADF ou a linguagem de expressão do fluxo de dados para atribuir valores de parâmetros dinâmicos ou literais. Para mais informações, consulte [Parâmetros de Fluxo](parameters-data-flow.md)de Dados . Se desejar incluir propriedades de gasoduto como parte da sua expressão para passar para um parâmetro de fluxo de dados, escolha as expressões do gasoduto.
-
-![Execute o exemplo do parâmetro de fluxo de dados](media/data-flow/parameter-example.png "Exemplo de parâmetro")
+Se o seu fluxo de dados estiver parametrómetro, defina os valores dinâmicos dos parâmetros de fluxo de dados no separador **Parâmetros.** Pode utilizar a linguagem de expressão do gasoduto ADF ou a linguagem de expressão do fluxo de dados para atribuir valores de parâmetros dinâmicos ou literais. Para mais informações, consulte [Parâmetros de Fluxo](parameters-data-flow.md)de Dados .
 
 ### <a name="parameterized-compute-properties"></a>Propriedades computacionais parametrizadas.
 

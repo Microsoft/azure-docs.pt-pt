@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/28/2019
+ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1f7be4d01dd930e9ff421b2a163f1648f1793da9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ea8c40faad4ee709ae98f868e36fd42e46501bea
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82230915"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927042"
 ---
 # <a name="azure-ad-b2c-session"></a>Sessão Azure AD B2C
 
@@ -99,22 +99,20 @@ Mediante um pedido de inscrição, Azure AD B2C:
    - SAML - Se os metadados `SingleLogoutService` do fornecedor de identidade contiverem a localização.
 1. Opcionalmente, despede-se de outras aplicações. Para mais informações, consulte a secção [de inscrição single.](#single-sign-out)
 
-> [!NOTE]
-> O sign-out iliba o único estado de inscrição do utilizador com o Azure AD B2C, mas pode não assinar o utilizador fora da sua sessão de fornecedor de identidade social. Se o utilizador selecionar o mesmo fornecedor de identidade durante um início de sessão subsequente, poderá reautenticar sem introduzir as suas credenciais. Se um utilizador quiser assinar a aplicação, isso não significa necessariamente que queira assinar a sua conta de Facebook. No entanto, se as contas locais forem utilizadas, a sessão do utilizador termina corretamente.
+O sign-out iliba o único estado de inscrição do utilizador com o Azure AD B2C, mas pode não assinar o utilizador fora da sua sessão de fornecedor de identidade social. Se o utilizador selecionar o mesmo fornecedor de identidade durante um início de sessão subsequente, poderá reautenticar sem introduzir as suas credenciais. Se um utilizador quiser assinar a aplicação, isso não significa necessariamente que queira assinar a sua conta de Facebook. No entanto, se as contas locais forem utilizadas, a sessão do utilizador termina corretamente.
 
-### <a name="single-sign-out"></a>Fim de sessão único
+### <a name="single-sign-out"></a>Fim de sessão único 
+
+
+> [!NOTE]
+> Esta funcionalidade limita-se a [políticas personalizadas.](custom-policy-overview.md)
 
 Ao redirecionar o utilizador para o ponto final de sinalização Azure AD B2C (para os protocolos OAuth2 e SAML), o Azure AD B2C iliba a sessão do utilizador a partir do navegador. No entanto, o utilizador poderá ainda ser inscrito noutras aplicações que utilizem o Azure AD B2C para autenticação. Para permitir que essas aplicações assinem o utilizador em simultâneo, o `LogoutUrl` Azure AD B2C envia um pedido HTTP GET ao registo de todas as aplicações a que o utilizador está atualmente inscrito.
 
-As aplicações devem responder a este pedido, limpando `200` qualquer sessão que identifique o utilizador e devolvendo uma resposta. Se pretender apoiar uma única inscrição na sua `LogoutUrl` aplicação, tem de implementar um no código da sua aplicação. Pode definir `LogoutUrl` o do portal Azure:
 
-1. Navegue para o [portal Azure.](https://portal.azure.com)
-1. Escolha o seu diretório Ative B2C clicando na sua conta no canto superior direito da página.
-1. A partir do painel de navegação à esquerda, escolha **Azure AD B2C,** selecione registos de **aplicações**e, em seguida, selecione a sua aplicação.
-1. Selecione **Definições,** selecione **Propriedades**e, em seguida, encontre a caixa de texto **URL de Logout.** 
-
+As aplicações devem responder a este pedido, limpando `200` qualquer sessão que identifique o utilizador e devolvendo uma resposta. Se pretender apoiar uma única inscrição na sua `LogoutUrl` aplicação, tem de implementar um no código da sua aplicação. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como configurar o comportamento da [sessão no fluxo do utilizador](session-behavior.md).
-- Saiba como configurar o comportamento da [sessão na política personalizada.](custom-policy-manage-sso-and-token-config.md#session-behavior-and-sso)
+- Saiba como configurar o comportamento da [sessão em políticas personalizadas.](session-behavior-custom-policy.md)

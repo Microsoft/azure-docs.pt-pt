@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 0a67360ab840b7897c85a382dfc3965bd27f6a3e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9667d82551e169dcc4a4bfd3ac79b15390f58aa0
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81688064"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82609226"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Elevada disponibilidade com o Azure Cosmos DB
 
@@ -99,6 +99,10 @@ Esta funcionalidade está disponível nas seguintes regiões do Azure:
 - E.U.A.Oeste 2
 
 - Leste da Austrália
+
+- Leste do Japão
+
+- Europa do Norte
 
 > [!NOTE]
 > Permitir zonas de disponibilidade para uma única região a conta Azure Cosmos resultará em encargos equivalentes a adicionar uma região adicional à sua conta. Para mais detalhes sobre os preços, consulte a página de [preços](https://azure.microsoft.com/pricing/details/cosmos-db/) e o [custo multi-região nos artigos da Azure Cosmos DB.](optimize-cost-regions.md)

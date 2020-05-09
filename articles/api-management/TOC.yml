@@ -53,6 +53,8 @@
           href: api-management-policies.md
     - name: Segurança
       items:
+        - name: Linha de base de segurança
+          href: security-baseline.md
         - name: Controlos de segurança incorporados
           href: api-management-security-controls.md
     - name: Subscrições

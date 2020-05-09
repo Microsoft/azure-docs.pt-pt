@@ -1,0 +1,46 @@
+---
+title: Grelha de Eventos Azure - Registos de diagnóstico para tópicos ou domínios
+description: Este artigo fornece informações conceptuais sobre registos de diagnóstico para um tópico de grelha de eventos Azure ou um domínio.
+services: event-grid
+author: spelluru
+ms.service: event-grid
+ms.topic: conceptual
+ms.date: 04/29/2020
+ms.author: spelluru
+ms.openlocfilehash: 93e7e47cbcc1ab9542ba333b89f7dd655a412489
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82630255"
+---
+#  <a name="diagnostic-logs-for-azure-event-grid-topicsdomains"></a>Registos de diagnóstico para tópicos/domínios da Grelha de Eventos Azure
+As definições de diagnóstico permitem que os utilizadores da Rede de Eventos capturem e vejam registos de falhas de **publicação e entrega** numa conta de Armazenamento, num hub de eventos ou num Espaço de Trabalho de Log Analytics. Este artigo fornece esquemas para os registos e uma entrada de registo exemplo.
+
+
+## <a name="schema-for-publishdelivery-failure-logs"></a>Schema para registos de falha de publicação/entrega
+
+| Nome da propriedade | Tipo de dados | Descrição |
+| ------------- | --------- | ----------- | 
+| Hora | DateTime | O tempo em que a entrada de registo foi gerada <p>Valor do **exemplo:** 01-29-2020 09:52:02.700</p> |
+| Nome de subscrição de eventos | String | O nome da subscrição do evento <p>**Valor do exemplo:** "EVENTSUB1"</p> <p>Esta propriedade existe apenas para registos de falha de entrega.</p>  |
+| Categoria | String | O nome da categoria de registo. <p>**Valores de exemplo:** "Falhas de entrega" ou "Falhas de publicação" | 
+| OperationName | String | O nome da operação realizada durante o encontro com a falha.<p>**Exemplo valores:** "Entregar" para falhas de entrega. |
+| Mensagem | String | A mensagem de log para o utilizador explicando o motivo da falha e outros detalhes adicionais. |
+| ResourceId | String | O ID de recurso para o recurso tópico/domínio<p>**Exemplo valores:**`/SUBSCRIPTIONS/SAMPLE-SUBSCRIPTION-ID/RESOURCEGROUPS/SAMPLE-RESOURCEGROUP/PROVIDERS/MICROSOFT.EVENTGRID/TOPICS/TOPIC1` |
+
+## <a name="example"></a>Exemplo
+
+```json
+{
+    "time": "2019-11-01T00:17:13.4389048Z",
+    "resourceId": "/SUBSCRIPTIONS/SAMPLE-SUBSCTIPTION-ID /RESOURCEGROUPS/SAMPLE-RESOURCEGROUP-NAME/PROVIDERS/MICROSOFT.EVENTGRID/TOPICS/SAMPLE-TOPIC-NAME ",
+    "eventSubscriptionName": "SAMPLEDESTINATION",
+    "category": "DeliveryFailures",
+    "operationName": "Deliver",
+    "message": "Message:outcome=NotFound, latencyInMs=2635, systemId=17284f7c-0044-46fb-84b7-59fda5776017, state=FilteredFailingDelivery, deliveryTime=11/1/2019 12:17:10 AM, deliveryCount=0, probationCount=0, deliverySchema=EventGridEvent, eventSubscriptionDeliverySchema=EventGridEvent, fields=InputEvent, EventSubscriptionId, DeliveryTime, State, Id, DeliverySchema, LastDeliveryAttemptTime, SystemId, fieldCount=, requestExpiration=1/1/0001 12:00:00 AM, delivered=False publishTime=11/1/2019 12:17:10 AM, eventTime=11/1/2019 12:17:09 AM, eventType=Type, deliveryTime=11/1/2019 12:17:10 AM, filteringState=FilteredWithRpc, inputSchema=EventGridEvent, publisher=DIAGNOSTICLOGSTEST-EASTUS.EASTUS-1.EVENTGRID.AZURE.NET, size=363, fields=Id, PublishTime, SerializedBody, EventType, Topic, Subject, FilteringHashCode, SystemId, Publisher, FilteringTopic, TopicCategory, DataVersion, MetadataVersion, InputSchema, EventTime, fieldCount=15, url=sb://diagnosticlogstesting-eastus.servicebus.windows.net/, deliveryResponse=NotFound: The messaging entity 'sb://diagnosticlogstesting-eastus.servicebus.windows.net/eh-diagnosticlogstest' could not be found. TrackingId:c98c5af6-11f0-400b-8f56-c605662fb849_G14, SystemTracker:diagnosticlogstesting-eastus.servicebus.windows.net:eh-diagnosticlogstest, Timestamp:2019-11-01T00:17:13, referenceId: ac141738a9a54451b12b4cc31a10dedc_G14:"
+}
+```
+
+## <a name="next-steps"></a>Passos seguintes
+Para aprender a ativar registos de diagnóstico para tópicos ou domínios, consulte [Iniciars](enable-diagnostic-logs-topic.md)de diagnóstico .

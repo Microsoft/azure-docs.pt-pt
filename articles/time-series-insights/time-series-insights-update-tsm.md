@@ -8,21 +8,22 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 04/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 648578563a0e53d3ed5bda6ab47f85c3c6a2a24e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1487cbb7885711beca969604316fd151defb114a
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79476659"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82580597"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-preview"></a>Modelo de série de tempo na pré-visualização de insights da série de tempo azure
 
 Este artigo descreve o Modelo da Série de Tempo, as capacidades e como começar a construir e atualizar os seus próprios modelos no ambiente de pré-visualização da Série De Tempo Azure Insights.
 
 > [!TIP]
->  * Vá ao ambiente de demonstração do [Parque Eólico De Contoso](https://insights.timeseries.azure.com/preview/samples) para um exemplo de Modelo da Série Do Tempo ao vivo.
+>
+> * Vá ao ambiente de demonstração do [Parque Eólico De Contoso](https://insights.timeseries.azure.com/preview/samples) para um exemplo de Modelo da Série Do Tempo ao vivo.
 > * Leia sobre o explorador de [pré-visualização](time-series-insights-update-explorer.md) da Série De Tempo Azure Insights para aprender a navegar no seu Modelo De Série De Tempo UI.
 > * Saiba como trabalhar com o Modelo da [Série De Tempo](time-series-insights-update-how-to-tsm.md) utilizando o web explorer da Série Time Insights.
 
@@ -51,9 +52,9 @@ O Modelo série de **tempo fornece uma solução conveniente** para muitos dos c
 
 [![Exemplo de gráfico inteligente do forno da Série Tempo](media/v2-update-tsm/time-series-model-smart-oven.png)](media/v2-update-tsm/time-series-model-smart-oven.png#lightbox)
 
-* O Modelo série de tempo desempenha um papel vital nas consultas e na navegação porque contextualiza os dados, permitindo que as comparações sejam desenhadas entre intervalos de tempo e entre os tipos de sensores e dispositivos. (**A**) 
+* O Modelo série de tempo desempenha um papel vital nas consultas e na navegação porque contextualiza os dados, permitindo que as comparações sejam desenhadas entre intervalos de tempo e entre os tipos de sensores e dispositivos. (**A**)
 * Os dados são ainda contextualizados porque os dados persistidos no Modelo da Série Temporal preservam as computações da série temporal como variáveis e reutilizam-nas no momento da consulta.
-* O Modelo série de tempo organiza e agrega dados para uma melhor visualização e capacidades de gestão. B**B** 
+* O Modelo série de tempo organiza e agrega dados para uma melhor visualização e capacidades de gestão. B**B**
 
 ### <a name="key-capabilities"></a>Principais capacidades
 
@@ -290,7 +291,7 @@ Os tipos de Insights da Série Time podem ter muitas variáveis que especificam 
 
 Cada variável pode ser um de três *tipos:* *numérico,* *categórico,* e *agregado.*
 
-* Os tipos **numéricos** funcionam com valores contínuos. 
+* Os tipos **numéricos** funcionam com valores contínuos.
 * **Tipos categóricos** funcionam com um conjunto definido de valores discretos.
 * Os valores **agregados** combinam múltiplas variáveis de um único tipo (seja todos numéricos ou todos categóricos).
 

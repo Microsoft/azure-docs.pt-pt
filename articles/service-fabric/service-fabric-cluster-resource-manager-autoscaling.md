@@ -5,12 +5,12 @@ author: radicmilos
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: edcf2774873cc23a74a47cc1c9a12e2daa2ed419
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3d81feaede7658de69e255c32d3a3ef570156f93
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80984542"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793096"
 ---
 # <a name="introduction-to-auto-scaling"></a>Introdução ao Auto Scaling
 A escala automática é uma capacidade adicional do Service Fabric para escalar dinamicamente os seus serviços com base na carga que os serviços estão a reportar, ou com base no seu uso de recursos. A escala automática proporciona uma grande elasticidade e permite o fornecimento de instâncias adicionais ou divisórias do seu serviço a pedido. Todo o processo de escala automática é automatizado e transparente, e uma vez configurado as suas políticas num serviço, não há necessidade de operações de escala manual ao nível do serviço. A escala automática pode ser ligada quer no momento da criação do serviço, quer a qualquer momento, atualizando o serviço.
@@ -130,7 +130,7 @@ Tal como com o mecanismo que utiliza a escala, adicionando ou removendo instânc
 * _Contagem de instâncias mínimas_ define o limite inferior para a escala. Se o número de divisórias do serviço atingir este limite, então o serviço não será escalado independentemente da carga.
 
 > [!WARNING] 
-> Quando o AddRemoveIncrementalNamedPartitionScalingMechanism for utilizado com serviços estatais, o Tecido de Serviço adicionará ou removerá divisórias **sem notificação ou aviso**. A repartição dos dados não será efetuada quando for acionado o mecanismo de escala. Em caso de funcionamento de escala, novas divisórias ficarão vazias e, em caso de funcionamento de escala, a **partição será eliminada juntamente com todos os dados que contém**.
+> Quando o AddRemoveIncrementalNamedPartitionScalingMechanism for utilizado com serviços estatais, o Tecido de Serviço adicionará ou removerá divisórias **sem notificação ou aviso**. A repartição dos dados não será efetuada quando for acionado o mecanismo de escala. Em caso de funcionamento em escala, as novas divisórias ficarão vazias e, em caso de escala em funcionamento, a **partilha será eliminada juntamente com todos os dados que contém**.
 
 ## <a name="setting-auto-scaling-policy"></a>Definição da política de escala automática
 

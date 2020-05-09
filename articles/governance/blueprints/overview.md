@@ -1,18 +1,18 @@
 ---
 title: Descrição Geral do Azure Blueprints
 description: Compreenda como o serviço Azure Blueprints lhe permite criar, definir e implementar artefactos no seu ambiente Azure.
-ms.date: 11/21/2019
+ms.date: 05/06/2020
 ms.topic: overview
-ms.openlocfilehash: 4787f2d559daffcbf5d4057ac381f0f7e1ae0c57
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 68baeb8030caa17a9880cb0846688f1db6a15c87
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80677405"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864509"
 ---
 # <a name="what-is-azure-blueprints"></a>O que é o Azure Blueprints?
 
-Da mesma forma que um esquema permite que um engenheiro ou um arquiteto crie um esboço dos parâmetros de design de um projeto, o Azure Blueprints permite que os arquitetos da cloud e os grupos de tecnologias de informação definam um conjunto repetível de recursos do Azure que implemente e adira às normas, padrões e requisitos de uma organização. O Azure Blueprints permite que as equipas de desenvolvimento criem e edifiquem rapidamente novos ambientes, com a confiança de que estão a ser criados no âmbito da conformidade organizacional com um conjunto de componentes incorporados, tais como rede, para acelerar o desenvolvimento e a entrega.
+Da mesma forma que um esquema permite que um engenheiro ou um arquiteto crie um esboço dos parâmetros de design de um projeto, o Azure Blueprints permite que os arquitetos da cloud e os grupos de tecnologias de informação definam um conjunto repetível de recursos do Azure que implemente e adira às normas, padrões e requisitos de uma organização. A Azure Blueprints permite que as equipas de desenvolvimento construam e defendam rapidamente novos ambientes com confiança que estão a construir dentro do cumprimento organizacional de um conjunto de componentes incorporados, como o networking, para acelerar o desenvolvimento e a entrega.
 
 Os esquemas são uma forma declarativa de orquestrar a implementação de vários modelos de recursos e de outros artefactos, tais como:
 
@@ -21,12 +21,11 @@ Os esquemas são uma forma declarativa de orquestrar a implementação de vário
 - Modelos do Azure Resource Manager
 - Grupos de Recursos
 
-O serviço do Azure Blueprints é apoiado pelo [Azure Cosmos DB](../../cosmos-db/introduction.md) globalmente distribuído.
-Os objetos do Blueprint são replicados para várias regiões do Azure. Esta replicação proporciona baixa latência, alta disponibilidade e acesso consistente aos seus objetos de plantas, independentemente da região para onde o Azure Blueprints implanta os seus recursos.
+O serviço do Azure Blueprints é apoiado pelo [Azure Cosmos DB](../../cosmos-db/introduction.md) globalmente distribuído. Os objetos do Blueprint são replicados para várias regiões do Azure. Esta replicação proporciona baixa latência, alta disponibilidade e acesso consistente aos seus objetos de plantas, independentemente da região para onde o Azure Blueprints implanta os seus recursos.
 
 ## <a name="how-its-different-from-resource-manager-templates"></a>Em que medida difere dos modelos do Resource Manager
 
-O serviço foi concebido para ajudar na _configuração do ambiente_. Esta configuração consiste frequentemente num conjunto de grupos de recursos, políticas, atribuições de funções e implementações de modelos do Resource Manager. Um esquema é um pacote que reúne cada um destes tipos de _artefacto_ e permite compor e criar uma versão desse pacote, nomeadamente através de um pipeline CI/CD. Por fim, cada um deles é atribuído a uma subscrição numa única operação que pode ser auditada e controlada.
+O serviço foi concebido para ajudar na _configuração do ambiente_. Esta configuração consiste frequentemente num conjunto de grupos de recursos, políticas, atribuições de funções e implementações de modelos do Resource Manager. Uma planta é um pacote para juntar cada um destes tipos de _artefactos_ e permitir-lhe compor e versar esse pacote, incluindo através de um pipeline CI/CD. Por fim, cada um deles é atribuído a uma subscrição numa única operação que pode ser auditada e controlada.
 
 Quase tudo o que pretende incluir para implantação em Plantas Azure pode ser realizado com um modelo de Gestor de Recursos. No entanto, um modelo do Resource Manager é um documento que não existe nativamente no Azure – cada modelo é armazenado localmente ou no controlo de origem. O modelo é utilizado para implementações de um ou mais recursos do Azure, mas assim que esses recursos são implementados, não existe nenhuma ligação ou relação ativa com o modelo.
 
@@ -124,10 +123,10 @@ Existem as seguintes limitações para determinados campos:
 
 |Objeto|Campo|Caracteres permitidos|Um máximo de Comprimento|
 |-|-|-|-|
-|Planta|Nome|letras, números, hífenes e períodos|48|
+|Planta|Name|letras, números, hífenes e períodos|48|
 |Planta|Versão|letras, números, hífenes e períodos|20|
-|Atribuição do esquema|Nome|letras, números, hífenes e períodos|90|
-|Artefacto de planta|Nome|letras, números, hífenes e períodos|48|
+|Atribuição do esquema|Name|letras, números, hífenes e períodos|90|
+|Artefacto de planta|Name|letras, números, hífenes e períodos|48|
 
 ## <a name="video-overview"></a>Descrição geral em vídeo
 
