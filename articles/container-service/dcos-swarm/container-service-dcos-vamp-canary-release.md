@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 2af20a1ddf4239b7eec6cceabf2ff9711959c128
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dfdf6e1f8edfb4dafaf93e62090ed51878f9b2aa
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77189115"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734829"
 ---
 # <a name="deprecated-canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>(DEPRECIADO) Canário liberta microserviços com vamp em um cluster Azure Container Service DC/OS
 
@@ -129,7 +129,7 @@ Agora que o Vamp está a funcionar, implanta um serviço a partir de uma planta.
 
 Na sua forma mais simples, um [projeto vamp](https://docs.vamp.io/how-vamp-works/vamp-and-kubernetes#vamp-deployments) descreve os pontos finais (gateways), clusters e serviços para implantar. Vamp usa clusters para agrupar diferentes variantes do mesmo serviço em grupos lógicos para a libertação de canários ou testes de A/B.  
 
-Este cenário utiliza uma aplicação monolítica de amostra chamada [**sava**](https://github.com/magneticio/sava), que está na versão 1.0. O monólito é embalado num contentor do Docker, que fica em Docker Hub sob magnético/sava:1.0.0. A aplicação normalmente funciona na porta 8080, mas você quer expô-la sob a porta 9050 neste caso. Implemente a aplicação através do Vamp utilizando uma planta simples.
+Este cenário utiliza uma aplicação monolítica de amostra chamada [**sava**](https://github.com/magneticio/sava-product), que está na versão 1.0. O monólito é embalado num contentor do Docker, que fica em Docker Hub sob magnético/sava:1.0.0. A aplicação normalmente funciona na porta 8080, mas você quer expô-la sob a porta 9050 neste caso. Implemente a aplicação através do Vamp utilizando uma planta simples.
 
 1. Ir a **Destacamentos.**
 

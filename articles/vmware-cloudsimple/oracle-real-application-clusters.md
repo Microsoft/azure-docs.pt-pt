@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: b945beaa7497e1ad19315bacf1284dd0cbc24d6a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f657e18d7185d6b3c63ac8f1424da9d36d4189e9
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81868082"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793045"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Otimize a sua CloudSimple Private Cloud para instalar o Oracle RAC
 
@@ -46,10 +46,10 @@ Seguindo o exemplo utiliza os discos definidos na tabela abaixo.
 
 | Disco                                      | Objetivo                                       | Disco Partilhado |
 |-------------------------------------------|-----------------------------------------------|-------------|
-| SO                                        | Disco do sistema operativo                         | Não          |
-| GRELHA                                      | Instale a localização para o software Oracle Grid     | Não          |
-| BASE DE DADOS                                  | Instale a localização para o software de base de dados Oracle | Não          |
-| ORAHOME                                   | Localização base para binários de base de dados Oracle    | Não          |
+| SO                                        | Disco do sistema operativo                         | No          |
+| GRELHA                                      | Instale a localização para o software Oracle Grid     | No          |
+| BASE DE DADOS                                  | Instale a localização para o software de base de dados Oracle | No          |
+| ORAHOME                                   | Localização base para binários de base de dados Oracle    | No          |
 | DATA1, DATA2, DATA3, DATA4                | Disco onde os ficheiros da base de dados da Oracle são armazenados   | Sim         |
 | REDO1, REDO2, REDO3, REDO4, REDO5, REDO6  | Redote slog disks                                | Sim         |
 | OCR1, OCR2, OCR3, OCR4, OCR5              | Discos de votação                                  | Sim         |
@@ -244,7 +244,7 @@ Repita os passos 2 - 7 para todos os novos discos necessários para os dados ora
 As regras de afinidade VM-to-host asseguram que o VM funciona com o hospedeiro desejado.  Pode definir regras no vCenter para garantir que o VM oracle funciona no hospedeiro com recursos adequados e para satisfazer quaisquer requisitos específicos de licenciamento.
 
 1. No portal CloudSimple, [aumente os privilégios](escalate-private-cloud-privileges.md) do utilizador do cloudowner.
-2. [Faça login no cliente vSphere](https://docs.azure.cloudsimple.com/vsphere-access) da sua Nuvem Privada.
+2. Faça login no cliente vSphere da sua Nuvem Privada.
 3. No cliente vSphere, selecione o cluster onde os VMs oracle são implantados e clique em **Configurar**.
 4. Em Configurar, selecione **Grupos VM/Host**.
 5. Clique **+** em .

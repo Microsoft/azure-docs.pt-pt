@@ -2,26 +2,21 @@
 title: Saiba quando um utilizador específico poderá aceder a uma aplicação
 description: Como descobrir quando um utilizador criticamente importante pode aceder a uma aplicação que configurapara o fornecimento de utilizadores com AD Azure
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/03/2019
 ms.author: mimart
 ms.reviewer: arvinh
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48370e2806b70d550bce95ceff3857a79561f247
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9d976785340e1a032aa4484dd2e8fd6cb2915129
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79264144"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593918"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>Verifique o estado do fornecimento de utilizadores
 
@@ -35,7 +30,7 @@ Quando configura o fornecimento automático pela primeira vez, a secção **Esta
 - O tipo de ciclo de provisionamento (inicial ou incremental) que está atualmente em execução ou foi concluído pela última vez.
 - Uma barra de **progresso** que mostra a percentagem do ciclo de provisionamento que está concluído. A percentagem reflete a contagem de páginas aprovisionadas. Note que cada página pode conter vários utilizadores ou grupos, pelo que a percentagem não se relaciona diretamente com o número de utilizadores, grupos ou funções aprovisionadas.
 - Um botão **Refresh** que pode utilizar para manter a vista atualizada.
-- O número de **Utilizadores** e **Grupos** na loja de dados do conector. A contagem aumenta sempre que um objeto é adicionado ao âmbito de provisionamento. A contagem não diminuirá se um utilizador for eliminado ou eliminado duramente, uma vez que este não remove o objeto da loja de dados do conector. A contagem será recatada a primeira sincronização após a [reset](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http) do CDS 
+- O número de **Utilizadores** e **Grupos** na loja de dados do conector. A contagem aumenta sempre que um objeto é adicionado ao âmbito de provisionamento. A contagem não diminuirá se um utilizador for eliminado ou eliminado duramente, uma vez que este não remove o objeto da loja de dados do conector. A contagem será recalculada a primeira sincronização após a [redefinição](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http) do CDS 
 - Um link **'Ver Registos de Auditoria',** que abre os registos de fornecimento de Anúncios Azure para mais detalhes sobre todas as operações executadas pelo serviço de provisionamento do utilizador, incluindo o estado de provisionamento para utilizadores individuais (ver a secção de registos de fornecimento de [utilização](#use-provisioning-logs-to-check-a-users-provisioning-status) abaixo).
 
 Após a conclusão de um ciclo de provisionamento, a secção estatísticas até **à data** mostra o número acumulado de utilizadores e grupos que foram previstos até à data, juntamente com a data de conclusão e duração do último ciclo. O **ID de Atividade** identifica exclusivamente o ciclo de provisionamento mais recente. O **Job ID** é um identificador único para o trabalho de provisionamento, e é específico da app no seu inquilino.

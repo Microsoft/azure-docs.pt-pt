@@ -3,17 +3,17 @@ title: Gestão do ciclo de vida do Armazenamento Azure
 description: Aprenda a criar regras de política de ciclo de vida para transitar dados de envelhecimento de hot para cool e archive tiers.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 05/21/2019
+ms.date: 04/24/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: 238c12baf55b525a24107a727d09588ef06a6bef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 255e440586af2a5c9115023f45fbf02e25c57ab6
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77598311"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692133"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gerir o ciclo de vida do Armazenamento de Blobs do Azure
 
@@ -24,7 +24,7 @@ A política de gestão do ciclo de vida permite::
 - Bolhas de transição para um nível de armazenamento mais frio (quente para arrefecer, quente para arquivar ou fresco para arquivar) para otimizar para o desempenho e custo
 - Eliminar bolhas no final dos seus ciclos de vida
 - Definir regras a executar uma vez por dia ao nível da conta de armazenamento
-- Aplicar regras aos contentores ou a um subconjunto de bolhas (utilizando prefixos como filtros)
+- Aplicar regras aos contentores ou a um subconjunto de bolhas (utilizando prefixos de nome ou [etiquetas de índice](storage-manage-find-blobs.md) de blob como filtros)
 
 Considere um cenário em que os dados tenham acesso frequente durante as fases iniciais do ciclo de vida, mas apenas ocasionalmente após duas semanas. Para além do primeiro mês, o conjunto de dados raramente é acedido. Neste cenário, o armazenamento quente é o melhor durante as fases iniciais. O armazenamento legal é mais adequado para acesso ocasional. O armazenamento de arquivo é a melhor opção de nível após a idade dos dados ao longo de um mês. Ao ajustar os níveis de armazenamento em relação à idade dos dados, pode desenhar as opções de armazenamento menos dispendiosas para as suas necessidades. Para alcançar esta transição, estão disponíveis regras de política de gestão de ciclos de vida para mover dados de envelhecimento para níveis mais frios.
 
@@ -128,7 +128,7 @@ Há duas formas de adicionar uma política através do portal Azure.
 
 6. Para obter mais informações sobre este exemplo da JSON, consulte as secções [política](#policy) e [de regras.](#rules)
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 O seguinte script PowerShell pode ser usado para adicionar uma apólice à sua conta de armazenamento. A `$rgname` variável deve ser inicializada com o nome do seu grupo de recursos. A `$accountName` variável deve ser inicializada com o nome da sua conta de armazenamento.
 
@@ -292,7 +292,11 @@ Os filtros incluem:
 | Nome do filtro | Tipo de filtro | Notas | É necessário |
 |-------------|-------------|-------|-------------|
 | blobTypes   | Uma variedade de valores enum pré-definidos. | A versão atual `blockBlob`suporta . | Sim |
-| prefixoMatch | Uma série de cordas para os prefixos serem compatíveis. Cada regra pode definir até 10 prefixos. Uma corda de prefixo deve começar com um nome de recipiente. Por exemplo, se quiser combinar todas `https://myaccount.blob.core.windows.net/container1/foo/...` as bolhas por regra, `container1/foo`o prefixoMatch é . | Se não definir o prefixoMatch, a regra aplica-se a todas as bolhas dentro da conta de armazenamento.  | Não |
+| prefixoMatch | Uma série de cordas para os prefixos serem combinados. Cada regra pode definir até 10 prefixos. Uma corda de prefixo deve começar com um nome de recipiente. Por exemplo, se quiser combinar todas `https://myaccount.blob.core.windows.net/container1/foo/...` as bolhas por regra, `container1/foo`o prefixoMatch é . | Se não definir o prefixoMatch, a regra aplica-se a todas as bolhas dentro da conta de armazenamento.  | No |
+| blobIndexMatch | Uma série de valores dicionários constituídos pela chave de etiqueta seleção do Índice Blob e condições de valor a serem correspondidas. Cada regra pode definir até 10 condição de etiqueta do Índice Blob. Por exemplo, se quiser combinar todas `Project = Contoso` as `https://myaccount.blob.core.windows.net/` bolhas com por regra, `{"name": "Project","op": "==","value": "Contoso"}`o blobIndexMatch é . | Se não definir o blobIndexMatch, a regra aplica-se a todas as bolhas dentro da conta de armazenamento. | No |
+
+> [!NOTE]
+> O Índice Blob está em pré-visualização pública, e está disponível nas regiões France **Central** e **France South.** Para saber mais sobre esta funcionalidade juntamente com questões e limitações conhecidas, consulte [Gerir e encontrar dados sobre o Armazenamento de Blob Azure com o Blob Index (Pré-visualização)](storage-manage-find-blobs.md).
 
 ### <a name="rule-actions"></a>Ações de regras
 
@@ -405,6 +409,42 @@ Espera-se que alguns dados expirem dias ou meses após a criação. Pode configu
 }
 ```
 
+### <a name="delete-data-with-blob-index-tags"></a>Eliminar dados com tags do Índice Blob
+Alguns dados só devem ser expirados se forem explicitamente marcados para eliminação. Pode configurar uma política de gestão de ciclo de vida para expirar dados que estejam marcados com atributos chave/valor do índice blob. O exemplo que se segue mostra uma política que `Project = Contoso`elimina todas as bolhas de bloco saqueadas com . Para saber mais sobre o Índice Blob, consulte [Gerir e encontrar dados sobre o Armazenamento de Blob Azure com índice blob (pré-visualização)](storage-manage-find-blobs.md).
+
+```json
+{
+    "rules": [
+        {
+            "enabled": true,
+            "name": "DeleteContosoData",
+            "type": "Lifecycle",
+            "definition": {
+                "actions": {
+                    "baseBlob": {
+                        "delete": {
+                            "daysAfterModificationGreaterThan": 0
+                        }
+                    }
+                },
+                "filters": {
+                    "blobIndexMatch": [
+                        {
+                            "name": "Project",
+                            "op": "==",
+                            "value": "Contoso"
+                        }
+                    ],
+                    "blobTypes": [
+                        "blockBlob"
+                    ]
+                }
+            }
+        }
+    ]
+}
+```
+
 ### <a name="delete-old-snapshots"></a>Eliminar fotos antigas
 
 Para dados que são modificados e acedidos regularmente ao longo da sua vida útil, as imagens são frequentemente usadas para rastrear versões mais antigas dos dados. Pode criar uma política que apague imagens antigas com base na idade instantânea. A idade instantânea é determinada avaliando o tempo de criação de instantâneos. Esta regra de política elimina os `activedata` instantâneos de blocos dentro do recipiente que têm 90 dias ou mais após a criação instantânea.
@@ -448,3 +488,7 @@ Quando uma bolha é movida de um nível de acesso para outro, o seu último temp
 Aprenda a recuperar dados após a eliminação acidental:
 
 - [Eliminação de forma recuperável dos blobs do Armazenamento do Microsoft Azure](../blobs/storage-blob-soft-delete.md)
+
+Saiba como gerir e encontrar dados com o Índice Blob:
+
+- [Gerir e encontrar dados sobre o armazenamento de Blob Azure com índice blob](storage-manage-find-blobs.md)

@@ -1,26 +1,26 @@
 ---
-title: SaaS cumprindo APIs - FAQ / Mercado Azure
-description: Experiências de descoberta e compra por parte dos clientes de uma oferta SaaS no Mercado Azure.
+title: SaaS realização API FAQ - Mercado comercial da Microsoft
+description: Conheça vários dos requisitos de integração para o mercado comercial da Microsoft para permitir aos clientes azure subscrever em ofertas SaaS.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: 6d3a84341d5221950da20f39456461dafc5d2e75
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1a1ba6f393eba257fcbe2757b8b4bced00bef8fe
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80275701"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792909"
 ---
-# <a name="saas-fulfillment-apis---faq"></a>FAQ - SaaS fulfillment APIs
+# <a name="common-questions-about-saas-fulfillment-apis"></a>Perguntas comuns sobre APIs de cumprimento do SaaS
 
-Os requisitos de integração com o Azure Marketplace para permitir aos clientes azure subscrever a oferta SaaS estão listados.
+Este artigo descreve vários dos requisitos de integração para o mercado comercial da Microsoft para permitir aos clientes azure subscrever em ofertas SaaS.
 
 ## <a name="discovery-experience"></a>Experiência de descoberta
 
-Uma vez publicada a oferta, os utilizadores do Azure podem descobrir a oferta SaaS no Azure Marketplace. Os seus clientes poderão filtrar ofertas com base no tipo de produto (SaaS) e descobrir os serviços SaaS em que estão interessados.
+Uma vez publicada uma oferta SaaS, os utilizadores do Azure podem descobri-la no Azure Marketplace. Os seus clientes podem filtrar ofertas com base no tipo de produto (SaaS) e descobrir os serviços SaaS que lhes interessam.
 
 ## <a name="purchase-experience"></a>Experiência de compra
 
@@ -30,7 +30,7 @@ Uma vez que um utilizador esteja interessado num serviço SaaS específico, o ut
 
 Isto significa que um utilizador pode ver os termos de utilização e declaração de privacidade associados ao serviço SaaS, e concordar em pagá-lo de acordo com os termos de faturação definidos por si, o editor da oferta SaaS, na fatura da Microsoft. Os utilizadores podem utilizar o seu perfil de pagamento existente em Azure para pagar o consumo de serviço SaaS.
 
-Isto é benéfico por muitas razões. Os clientes podem agora descobrir e subscrever num só local usando a Microsoft Cloud Platform como uma fonte de confiança, sem ter de verificar todos os softwareis ISV que pretende utilizar. Além disso, os clientes podem usar o seu perfil de pagamento existente sem terem de pagar explicitamente cada software ISV de forma independente.
+Esta capacidade é benéfica de várias maneiras. Os clientes podem agora descobrir e subscrever num só local usando a Microsoft Cloud Platform como uma fonte de confiança, sem ter de verificar todos os softwareis ISV que pretende utilizar. Além disso, os clientes podem usar o seu perfil de pagamento existente sem terem de pagar explicitamente cada software ISV de forma independente.
 
 ### <a name="is-the-user-charged-automatically-when-the-offer-is-subscribed"></a>O utilizador é cobrado automaticamente quando a oferta é subscrita?
 
@@ -38,15 +38,15 @@ Ao subscrever a oferta saaS, o utilizador concordou em pagar o consumo do servi�
 
 ### <a name="how-are-you-notified-when-a-user-subscribes-to-your-saas-offer"></a>Como é notificado quando um utilizador subscreve a sua oferta SaaS?
 
-Depois de subscrever uma oferta, o utilizador azure pode descobrir e gerir todas as suas ofertas em Azure. Por defeito, o estado de uma oferta SaaS recém-subscrita é **"Provisioning, cumprimento pendente".** Neste estado, o utilizador azure será solicitado com uma ação de **'Configure Account',** de forma a navegar para a sua experiência de gestão de subscrição SaaS no portal Azure.
+Depois de subscrever uma oferta, o utilizador azure pode descobrir e gerir todas as suas ofertas em Azure. Por predefinição, o estado de uma oferta SaaS recém-subscrita é mostrado como **Provisioning, cumprimento pendente**. Neste estado, o utilizador azure será solicitado com uma ação para **configurar a Conta,** de forma a navegar para a sua experiência de gestão de subscrição SaaS no portal Azure.
 
-Quando o utilizador clicar na **'Conta Configurar',** serão redirecionados para o website do serviço SaaS. O URL para onde são navegados é fornecido pela editora no momento da publicação da oferta. Esta página é referida como a página de aterragem da editora. Os utilizadores do Azure devem poder fazer login na página de aterragem do SaaS com base nas credenciais AAD existentes em Azure.
+Quando o utilizador seleciona **a Conta Configurar,** são redirecionados para o website do serviço SaaS. A editora configurou o URL no momento da publicação da oferta. Esta página é referida como a página de aterragem da editora. Os utilizadores do Azure entram na página de aterragem do SaaS com base nas credenciais aad existentes em Azure.
 
 Quando o utilizador Azure é redirecionado para a página de aterragem, é adicionado um token ao URL de consulta. Este símbolo é de curta duração, e válido por um período de tempo de 24 horas. Em seguida, pode detetar a presença deste símbolo e ligar para a API da Microsoft para obter mais contexto associado ao símbolo.
 
 ![Fluxo de subscrição do cliente](media/saas-metering-service-integration-flow-a.png)
 
-Consulte o documento da API de cumprimento do [SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) para obter mais informações sobre o contrato da API para lidar com cenários transatas no ciclo de vida de uma oferta SaaS.
+Para obter mais informações sobre o contrato da API para lidar com cenários transatas no ciclo de vida de uma oferta SaaS, consulte a API de realização do [SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2).
 
 ### <a name="how-do-you-know-the-saas-offer-to-which-the-user-subscribes-in-azure"></a>Como conhece a oferta SaaS à qual o utilizador subscreve em Azure?
 
@@ -56,7 +56,7 @@ A resposta `Resolve` à API inclui a oferta e informação de plano associada à
 
 * O utilizador do Azure pode alterar o plano associado à subscrição SaaS diretamente na experiência SaaS, ou através da plataforma microsoft.
 
-* As conversões podem ser feitas a qualquer momento do ciclo de faturação. Deve reconhecer qualquer conversão, que se tornará eficaz uma vez reconhecida.
+* As conversões podem ser feitas a qualquer momento do ciclo de faturação. É-lhe pedido que reconheça qualquer conversão, que se tornará eficaz uma vez reconhecida.
 
 * As tarifas pré-pagas **(mensais** ou **anuais)** são a favor. Qualquer excesso de idade emitido até ao momento da conversão será cobrado na próxima fatura. Novos excessos serão emitidos com base no novo plano.
 
@@ -85,4 +85,4 @@ A sequência abaixo captura o fluxo quando o utilizador azure desabre as subscri
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Consulte o serviço de [medição do Marketplace APIs](./marketplace-metering-service-apis.md) para obter mais informações.
+[APIs do serviço de medição do Marketplace](./marketplace-metering-service-apis.md)

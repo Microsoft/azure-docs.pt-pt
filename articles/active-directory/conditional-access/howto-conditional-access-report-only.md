@@ -5,20 +5,20 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 05/01/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d9bec829d7fb3e76eb243bda73423303670585e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: eb13eb699f770d4d7f896b8179888d1514b1c46d
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80295118"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690360"
 ---
-# <a name="configure-a-conditional-access-policy-in-report-only-mode-preview"></a>Configure uma política de acesso condicional no modo apenas para relatórios (Pré-visualização)
+# <a name="configure-a-conditional-access-policy-in-report-only-mode"></a>Configure uma política de acesso condicional em modo apenas de relatório
 
 Para configurar uma política de acesso condicional no modo apenas para relatórios:
 
@@ -42,7 +42,7 @@ Ver o resultado de uma política apenas de relatório para um determinado sign-i
 1. Assine no **portal Azure** como leitor de relatórios, leitor de segurança, administrador de segurança ou administrador global.
 1. Navegue nos > **Sign-ins** **de Diretório Ativo azure**.
 1. Selecione um sessão ou adicione filtros para obter resultados estreitos.
-1. Na gaveta **detalhes,** selecione o separador **apenas para relatório (Pré-visualização)** para ver as políticas avaliadas durante o sessão.
+1. Na gaveta **detalhes,** selecione o separador **apenas** para ver as políticas avaliadas durante o sessão.
 
 > [!NOTE]
 > Ao descarregar os registos de login, escolha o formato JSON para incluir dados de resultados apenas de Acesso Condicional.
@@ -62,7 +62,7 @@ Depois de ter integrado os seus registos De AD Azure com o Monitor Azure, pode m
 
 1. Assine no **portal Azure** como administrador de segurança ou administrador global.
 1. Navegue nos > **livros**de trabalho de **diretório ativo azure.**
-1. Selecione **Insights de acesso condicional (pré-visualização)**.
+1. Selecione **Insights de Acesso Condicional**.
 1. Selecione uma ou mais políticas da política de **acesso condicional.** Todas as políticas ativadas são selecionadas por defeito.
 1. Selecione um intervalo de tempo (se o intervalo de tempo exceder o conjunto de dados disponível, o relatório mostrará todos os dados disponíveis). Depois de definir os parâmetros da Política de **Acesso Condicional** e do Intervalo de **Tempo,** o relatório carregará.
    1. Opcionalmente, procure utilizadores **ou** **Apps** individuais para reduzir o âmbito do relatório.

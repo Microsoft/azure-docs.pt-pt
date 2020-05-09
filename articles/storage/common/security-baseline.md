@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 184b60f6147089cbdfd855b473b3346d021f7fbc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92f2102d8d6353da2002a4ee9d5bfbe57a774e10
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176605"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792076"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Linha de base de segurança azure para armazenamento azure
 
@@ -82,7 +82,7 @@ Note que se tiver pontos finais privados anexados à sua conta de armazenamento,
 
 **Orientação**: A captura de pacotes do Network Watcher permite-lhe criar sessões de captura para rastrear o tráfego entre a conta de Armazenamento e uma máquina virtual. Os filtros são fornecidos para a sessão de captura para garantir que captura apenas o tráfego que deseja. A captura de pacotes ajuda a diagnosticar anomalias de rede, tanto reactivamente como proactivamente. Outros usos incluem recolher estatísticas de rede, obter informações sobre intrusões de rede, depurar a comunicação cliente-servidor, e muito mais. Ser capaz de disparar remotamente capturas de pacotes, alivia o fardo de executar uma captura de pacote manualmente numa máquina virtual desejada, o que poupa tempo valioso. 
 
-- [Gerir capturas de pacotes com o Azure Network Watcher usando o portal](https://docs.microsoft.comazure/network-watcher/network-watcher-packet-capture-manage-portal)
+- [Gerir capturas de pacotes com o Azure Network Watcher usando o portal](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-manage-portal)
 
 **Monitorização do Centro de Segurança Azure:** Sim
 
@@ -240,7 +240,7 @@ Além disso, ative a proteção avançada de ameaças para a sua conta de Armaze
 
 - [Como alertar sobre os dados de registo de análise de registo](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
 
-- [Registo da análise de Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
+- [Azure Storage analytics logging](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging) (Registo de análise do Armazenamento do Azure)
 
 **Monitorização do Centro de Segurança Azure:** Sim
 
@@ -428,7 +428,7 @@ Uma forma eficaz de reduzir o risco de acesso insuspeito à conta do utilizador 
 
 Crie Definições de Diagnóstico para contas de utilizadores do Diretório Ativo Azure, enviando os registos de auditoria e os registos de log-in para um espaço de trabalho de Log Analytics. Pode configurar os alertas desejados dentro do espaço de trabalho de Log Analytics. Para monitorizar falhas de autenticação contra contas de armazenamento azure, pode criar alertas para notificá-lo quando determinados limiares tiverem sido atingidos para métricas de recursos de armazenamento. Além disso, utilize o Monitor Azure para alertar sobre o acesso anónimo às contas de Armazenamento utilizando condição de autenticação anónima.
 
-- [Registo da análise de Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
+- [Azure Storage analytics logging](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging) (Registo de análise do Armazenamento do Azure)
 
 - [Como integrar registos de atividade do Azure no Monitor Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 
@@ -574,7 +574,7 @@ Além disso, utilize políticas de ponto final de serviço de rede virtual para 
 
 - [Como criar alertas para eventos de Log de Atividade do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
 
-- [Registo da análise de Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
+- [Azure Storage analytics logging](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging) (Registo de análise do Armazenamento do Azure)
 
 - [Como configurar alertas de métricas para contas de armazenamento azure](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account)
 
@@ -887,7 +887,7 @@ Utilize recomendações do Azure Security Center como base de configuração seg
 
 Adicionalmente, rode as Chaves da Conta de Armazenamento numa base frequente para limitar o impacto da perda ou divulgação das chaves da Conta de Armazenamento.
 
-- [Encriptação azure storage para dados em repouso](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)
+- [Azure Storage encryption for data at rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) (Encriptação do Armazenamento do Azure para dados inativos)
 
 - [Gerir as chaves de acesso à conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage)
 

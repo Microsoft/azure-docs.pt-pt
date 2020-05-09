@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
-ms.openlocfilehash: a3eae08510e57227b91deeeb7a7a608a6652cb4a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1ca20f2c8cda84c241391f67ac542faa4a1f5ecd
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79535413"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594717"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Utilize a versão 1 de extensão personalizada do script azure com máquinas virtuais Linux
 
@@ -118,13 +118,13 @@ Estes itens devem ser tratados como dados sensíveis e especificados na configur
 
 ### <a name="property-values"></a>Valores patrimoniais
 
-| Nome | Valor / Exemplo | Tipo de Dados |
+| Name | Valor / Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
+| apiVersion | 2015-06-15 | data |
 | publicador | Microsoft.OSTCExtensions | string |
 | tipo | CustomScriptForLinux | string |
 | typeHandlerVersion | 1.5 | int |
-| fileUris (por exemplo) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
+| fileUris (por exemplo) | `https://github.com/MyProject/Archive/MyPythonScript.py` | array |
 | comandoToExecutar (por exemplo) | python \<MyPythonScript.py meu-param1\> | string |
 | ativarInternalDNSCheck | true | boolean |
 | armazenamentoAccountName (por exemplo) | exemplostorageacct | string |

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2b5b95349b8a84cc8294dbcf9ab80eff8c7b86b9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2b06a7ee41a69e32f44c44cdec0da6a47ec4b284
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78247845"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731871"
 ---
 # <a name="azure-analysis-services-samples"></a>Amostras de Serviços de Análise Azure
 
@@ -34,7 +34,7 @@ A Azure Synapse Analytics (SQL Data Warehouse) fornece uma base de dados adventu
 
 Estas bases de dados de amostras no GitHub podem ser usadas para criar e testar os seus próprios modelos. 
 
-[Bases de dados de amostras da Adventure Works](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks2014)
+[Bases de dados de amostras da Adventure Works](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks)
 
 [Bases de dados de amostras de importadores do mundo vasto](https://github.com/Microsoft/sql-server-samples/releases/tag/wide-world-importers-v1.0)
 

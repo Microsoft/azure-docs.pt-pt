@@ -10,12 +10,12 @@ ms.date: 08/28/2019
 ms.topic: conceptual
 ms.service: key-vault
 ms.subservice: general
-ms.openlocfilehash: cd630acfd65f0a79c186ba35bc15627bf7ccfdbe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 84cf12aa91de72ae54e63f2cfe7a61586b6bf457
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686199"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857077"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Autenticação serviço-a-serviço para cofre chave Azure usando .NET
 
@@ -272,7 +272,7 @@ Utilizando o Azure CLI, detete a subscrição predefinida para uma que tenha a c
 
 #### <a name="unauthorized-access-access-denied-forbidden-or-similar-error"></a>Acesso não autorizado, acesso negado, proibido ou erro semelhante
 
-O principal utilizado não tem acesso ao recurso que está a tentar aceder. Conceda o acesso à conta de utilizador ou ao MSI "Contributor" do Serviço de Aplicações a um recurso. Qual depende se está a executar a amostra no seu computador local ou implantada em Azure para o seu Serviço de Aplicações. Alguns recursos, como os cofres-chave, também têm as suas próprias políticas de [acesso](https://docs.microsoft.com/azure/key-vault/secure-your-key-vault#data-plane-and-access-policies) que utiliza para conceder acesso a diretores, como utilizadores, apps e grupos.
+O principal utilizado não tem acesso ao recurso que está a tentar aceder. Conceda o acesso à conta de utilizador ou ao MSI "Contributor" do Serviço de Aplicações a um recurso. Qual depende se está a executar a amostra no seu computador local ou implantada em Azure para o seu Serviço de Aplicações. Alguns recursos, como os cofres-chave, também têm as suas próprias políticas de [acesso](https://docs.microsoft.com/azure/key-vault/general/secure-your-key-vault#data-plane-and-access-policies) que utiliza para conceder acesso a diretores, como utilizadores, apps e grupos.
 
 ### <a name="common-issues-when-deployed-to-azure-app-service"></a>Questões comuns quando implantados no Serviço de Aplicações Azure
 

@@ -1,29 +1,30 @@
 ---
-title: Referência de acesso à plataforma de identidade da Microsoft Azure
+title: Fichas de acesso à plataforma de identidade da Microsoft / Azure
+titleSuffix: Microsoft identity platform
 description: Saiba mais sobre os tokens de acesso emitidos pelos pontos finais da Azure AD v1.0 e microsoft (v2.0).
 services: active-directory
-author: rwike77
+author: hpsin
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 3/27/2020
+ms.date: 05/06/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: ed583abc8f60f3d367bf75254807e3f28cd0f1c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dedaf5214305003bf302c7c74466adb84c42b2f4
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81309718"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926804"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Fichas de acesso à plataforma de identidade da Microsoft
 
-Os tokens de acesso permitem que os clientes liguem de forma segura para apis protegidos pelo Azure. Os tokens de acesso à plataforma de identidade da Microsoft são [JWTs](https://tools.ietf.org/html/rfc7519), Base64 codificado objetos JSON assinados pelo Azure. Os clientes devem tratar os tokens de acesso como cordas opacas, uma vez que o conteúdo do token se destina apenas ao recurso. Para fins de validação e depuração, os desenvolvedores podem descodificar JWTs usando um site como [jwt.ms](https://jwt.ms). O seu cliente pode obter um sinal de acesso a partir do ponto final v1.0 ou do ponto final v2.0 usando uma variedade de protocolos.
+Os tokens de acesso permitem que os clientes liguem de forma segura para apis protegidos. Os tokens de acesso à plataforma de identidade da Microsoft são [JWTs](https://tools.ietf.org/html/rfc7519), Base64 codificados objetos JSON assinados pela plataforma de identidade Microsoft. Os clientes devem tratar os tokens de acesso como cordas opacas, uma vez que o conteúdo do token se destina apenas ao recurso. Para fins de validação e depuração, os desenvolvedores podem descodificar JWTs (JSON Web Tokens) usando um site como [jwt.ms](https://jwt.ms). O seu cliente pode obter um sinal de acesso a partir do ponto final v1.0 ou do ponto final v2.0 usando uma variedade de protocolos.
 
-Quando o seu cliente pede um token de acesso, o Azure AD também devolve alguns metadados sobre o sinal de acesso para consumo da sua aplicação. Estas informações incluem o tempo de validade do token de acesso e os âmbitos para os quais é válido. Estes dados permitem que a sua aplicação faça um cache inteligente de fichas de acesso sem ter que analisar o próprio token de acesso.
+Quando o seu cliente pede um sinal de acesso, a plataforma de identidade da Microsoft também devolve alguns metadados sobre o sinal de acesso para consumo da sua aplicação. Estas informações incluem o tempo de validade do token de acesso e os âmbitos para os quais é válido. Estes dados permitem que a sua aplicação faça um cache inteligente de fichas de acesso sem ter que analisar o próprio token de acesso.
 
 Se a sua aplicação for um recurso (Web API) a que os clientes possam solicitar acesso, os tokens de acesso fornecem informações úteis para uso na autenticação e autorização, tais como o utilizador, cliente, emitente, permissões e muito mais.
 
@@ -55,7 +56,7 @@ Veja este símbolo v2.0 em [JWT.ms](https://jwt.ms/#access_token=eyJ0eXAiOiJKV1Q
 
 ## <a name="claims-in-access-tokens"></a>Reclamações em fichas de acesso
 
-Os JWTs são divididos em três pedaços:
+JWTs (JSON Web Tokens) são divididos em três peças:
 
 * **Header** - Fornece informações sobre como [validar o símbolo,](#validating-tokens) incluindo informações sobre o tipo de ficha e como foi assinado.
 * **Payload** - Contém todos os dados importantes sobre o utilizador ou app que está a tentar ligar para o seu serviço.
@@ -113,7 +114,7 @@ As reclamações só estão presentes se existir um valor para o preencher. Ent�
 
 **Reivindicação de excesso de grupos**
 
-Para garantir que o tamanho do token não exceda os limites de tamanho do cabeçalho HTTP, o Azure AD limita o número de ids do objeto que inclui na reivindicação dos grupos. Se um utilizador for membro de mais grupos do que o limite de sobresagem (150 para tokens SAML, 200 para fichas JWT), então a Azure AD não emite a reivindicação dos grupos no símbolo. Em vez disso, inclui uma alegação de excesso de idade no símbolo que indica a aplicação para consultar a API do Microsoft Graph para recuperar a adesão do grupo do utilizador.
+Para garantir que o tamanho do token não exceda os limites de tamanho do cabeçalho HTTP, o Azure AD limita o número de IDs de objeto que inclui na reivindicação dos grupos. Se um utilizador for membro de mais grupos do que o limite de sobresagem (150 para tokens SAML, 200 para fichas JWT), então a Azure AD não emite a reivindicação dos grupos no símbolo. Em vez disso, inclui uma alegação de excesso de idade no símbolo que indica a aplicação para consultar a API do Microsoft Graph para recuperar a adesão do grupo do utilizador.
 
 ```JSON
 {

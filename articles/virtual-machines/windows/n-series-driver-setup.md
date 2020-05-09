@@ -1,5 +1,5 @@
 ---
-title: Configuração do piloto da GPU da série N Azurpara windows
+title: Configuração do piloto da NVIDIA GPU da série Azure N para windows
 description: Como configurar os controladores GPU da NVIDIA para VMs da série N que executam o Windows Server ou o Windows em Azure
 author: vikancha
 manager: jkabat
@@ -10,18 +10,18 @@ ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: vikancha
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bc11937410bf0307a00895e0ebd1f01a58bd1b1b
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: 0b00b2340445e7d103c78c1d8c1ea0e08ecabba5
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81865787"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628117"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>Instale os controladores GPU da NVIDIA em VMs da série N que executam o Windows 
 
-Para tirar partido das capacidades de GPU dos VMs da série N Azure que executam o Windows, os controladores GPU da NVIDIA devem ser instalados. A Extensão do [Condutor GPU da NVIDIA](../extensions/hpccompute-gpu-windows.md) instala os condutores adequados da NVIDIA CUDA ou grid num VM da série N. Instale ou gerea extensão utilizando o portal Azure ou ferramentas como os modelos Azure PowerShell ou Azure Resource Manager. Consulte a documentação de extensão do [condutor da NVIDIA GPU](../extensions/hpccompute-gpu-windows.md) para sistemas operativos suportados e etapas de implementação.
+Para tirar partido das capacidades de GPU das VMs da série Azure n apoiadas por GPUs da NVIDIA, tem de instalar os pilotos gpu da NVIDIA. A Extensão do [Condutor GPU da NVIDIA](../extensions/hpccompute-gpu-windows.md) instala os condutores adequados da NVIDIA CUDA ou grid num VM da série N. Instale ou gerea extensão utilizando o portal Azure ou ferramentas como os modelos Azure PowerShell ou Azure Resource Manager. Consulte a documentação de extensão do [condutor da NVIDIA GPU](../extensions/hpccompute-gpu-windows.md) para sistemas operativos suportados e etapas de implementação.
 
-Se optar por instalar manualmente os controladores GPU, este artigo fornece sistemas operativos, controladores e etapas de instalação e verificação suportados. A informação manual de configuração do controlador também está disponível para [VMs Linux](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Se optar por instalar manualmente os controladores GPU da NVIDIA, este artigo fornece sistemas operativos, controladores e etapas de instalação e verificação suportados. A informação manual de configuração do controlador também está disponível para [VMs Linux](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Para especificações básicas, capacidades de armazenamento e detalhes do disco, consulte os [tamanhos de VM do Windows GPU](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 

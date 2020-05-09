@@ -1,7 +1,7 @@
 ---
-title: Use a aprendizagem automática azure atrás de uma firewall
+title: Use uma firewall
 titleSuffix: Azure Machine Learning
-description: Utilize de forma segura o Azure Machine Learning atrás da Firewall Azure. Saiba mais sobre os anfitriões que deve permitir que através da firewall para o Azure Machine Learning funcione corretamente.
+description: Controle o acesso aos espaços de trabalho azure machine learning com firewalls Azure. Saiba mais sobre os anfitriões que deve permitir que através da firewall para o Azure Machine Learning funcione corretamente.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 04/27/2020
-ms.openlocfilehash: 2c5fe9d46ef408775cc4b99d4820a652a91683c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 40c25dda3fefa9c54df832e16149a68a4aa5a33b
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82196325"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82981970"
 ---
-# <a name="use-azure-machine-learning-workspace-behind-azure-firewall"></a>Utilize espaço de trabalho azure machine learning atrás da Firewall Azure
+# <a name="use-workspace-behind-azure-firewall-for-azure-machine-learning"></a>Use espaço de trabalho atrás de Azure Firewall para Aprendizagem automática Azure
 
-Este artigo contém informações sobre a configuração da Firewall Azure para utilização com o Azure Machine Learning.
+Neste artigo, aprenda a configurar o Azure Firewall para utilização com um espaço de trabalho Azure Machine Learning.
 
 O Azure Firewall pode ser usado para controlar o acesso ao seu espaço de trabalho Azure Machine Learning e à internet pública. Se não estiver configurada corretamente, a firewall pode causar problemas utilizando o seu espaço de trabalho.
 

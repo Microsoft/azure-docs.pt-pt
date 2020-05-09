@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/21/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: db098210d6de28d9dc1db7e264459f57bc0f4d86
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: c859176857f64559b9a2994c9cfc2d4ec5f61e57
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82161028"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691084"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Use powerShell para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2
 
@@ -351,15 +351,25 @@ Neste exemplo, o utilizador próprio e o grupo de possuir apenas leram e escreve
 
 ### <a name="set-acls-on-all-items-in-a-file-system"></a>Desloque os ACLs em todos os itens de um sistema de ficheiros
 
-Pode utilizar `Get-AzDataLakeGen2Item` o `-Recurse` e o parâmetro `Update-AzDataLakeGen2Item` juntamente com o cmdlet para configurar o ACL de todos os diretórios e ficheiros num sistema de ficheiros. 
+Pode utilizar `Get-AzDataLakeGen2Item` o `-Recurse` e o parâmetro `Update-AzDataLakeGen2Item` juntamente com o cmdlet para configurar o ACL para diretórios e ficheiros num sistema de ficheiros. 
 
 ```powershell
 $filesystemName = "my-file-system"
 $acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rw- 
 $acl = set-AzDataLakeGen2ItemAclObject -AccessControlType group -Permission rw- -InputObject $acl 
 $acl = set-AzDataLakeGen2ItemAclObject -AccessControlType other -Permission -wx -InputObject $acl
-Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Recurse | Update-AzDataLakeGen2Item -Acl $acl
+
+$Token = $Null
+do
+{
+     $items = Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Recurse -ContinuationToken $Token    
+     if($items.Length -le 0) { Break;}
+     $items | Update-AzDataLakeGen2Item -Acl $acl
+     $Token = $items[$items.Count -1].ContinuationToken;
+}
+While ($Token -ne $Null) 
 ```
+
 ### <a name="add-or-update-an-acl-entry"></a>Adicione ou atualize uma entrada ACL
 
 Primeiro, pegue a ACL. Em seguida, `set-AzDataLakeGen2ItemAclObject` utilize o cmdlet para adicionar ou atualizar uma entrada ACL. Utilize `Update-AzDataLakeGen2Item` o cmdlet para comprometer o ACL.
@@ -414,5 +424,5 @@ A tabela seguinte mostra como os cmdlets utilizados para o mapa Gen1 de Armazena
 
 ## <a name="see-also"></a>Consulte também
 
-* [Questões conhecidas](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
+* [Problemas conhecidos](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 * [Cmdlets do Armazenamento do PowerShell](/powershell/module/az.storage)

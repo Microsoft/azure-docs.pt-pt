@@ -5,17 +5,17 @@ author: mimckitt
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
-ms.date: 01/30/2019
+ms.date: 05/06/2020
 ms.author: mimckitt
-ms.openlocfilehash: cb5f1d48bb1a95db004d9da553e19a35071c73b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 30f68d22a228e6de596e6999490ea7789ab21547
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81273737"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864373"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Utilizar a extensão Estado da Aplicação com conjuntos de dimensionamento de máquinas virtuais
-Monitorizar a saúde da sua aplicação é um sinal importante para gerir e melhorar a sua implementação. Os conjuntos de escala de máquinas virtuais Azure fornecem suporte para [atualizações de rolos,](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) incluindo [atualizações automáticas de imagem de OS,](virtual-machine-scale-sets-automatic-upgrade.md)que dependem da monitorização da saúde das instâncias individuais para atualizar a sua implementação.
+Monitorizar a saúde da sua aplicação é um sinal importante para gerir e melhorar a sua implementação. Os conjuntos de escala de máquinas virtuais Azure fornecem suporte para [atualizações de rolos,](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) incluindo [atualizações automáticas de imagem de OS,](virtual-machine-scale-sets-automatic-upgrade.md)que dependem da monitorização da saúde das instâncias individuais para atualizar a sua implementação. Também pode utilizar uma extensão de saúde para monitorizar a saúde da aplicação de cada instância no seu conjunto de escala e efetuar reparações por exemplo utilizando [reparações automáticas](virtual-machine-scale-sets-automatic-instance-repairs.md)de instâncias .
 
 Este artigo descreve como pode utilizar a extensão de Saúde de Aplicação para monitorizar a saúde das suas aplicações implementadas em conjuntos de escala de máquinas virtuais.
 
@@ -31,7 +31,7 @@ Como a extensão reporta a saúde de dentro de um VM, a extensão pode ser usada
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
-O seguinte JSON mostra o esquema para a extensão da Saúde de Aplicação. A extensão requer, no mínimo, um pedido de "tcp" ou "http" com uma via portuária ou de pedido associada, respectivamente.
+O seguinte JSON mostra o esquema para a extensão da Saúde de Aplicação. A extensão requer, no mínimo, um pedido "tcp", "http" ou "https" com uma via portuária ou de pedido associada, respectivamente.
 
 ```json
 {
@@ -55,20 +55,20 @@ O seguinte JSON mostra o esquema para a extensão da Saúde de Aplicação. A ex
 
 ### <a name="property-values"></a>Valores patrimoniais
 
-| Nome | Valor / Exemplo | Tipo de Dados
+| Name | Valor / Exemplo | Tipo de Dados
 | ---- | ---- | ---- 
-| apiVersion | `2018-10-01` | date |
+| apiVersion | `2018-10-01` | data |
 | publicador | `Microsoft.ManagedServices` | string |
 | tipo | `ApplicationHealthLinux`(Linux), `ApplicationHealthWindows` (Janelas) | string |
 | typeHandlerVersion | `1.0` | int |
 
 ### <a name="settings"></a>Definições
 
-| Nome | Valor / Exemplo | Tipo de Dados
+| Name | Valor / Exemplo | Tipo de Dados
 | ---- | ---- | ----
-| protocolo | `http` ou `tcp` | string |
-| porta | Opcional quando `http`o protocolo é obrigatório quando o protocolo é`tcp` | int |
-| requestPath | Obrigatório quando o `http`protocolo é , não permitido quando o protocolo é`tcp` | string |
+| protocolo | `http`ou `https` ou ou`tcp` | string |
+| porta | Opcional quando `http` o `https`protocolo é ou, obrigatório quando o protocolo é`tcp` | int |
+| requestPath | Obrigatório quando o `http` `https`protocolo é ou , não permitido quando o protocolo é`tcp` | string |
 
 ## <a name="deploy-the-application-health-extension"></a>Implementar a extensão da Saúde de Aplicação
 Existem várias formas de implementar a extensão de Saúde de Aplicação aos seus conjuntos de escala, conforme detalhado nos exemplos abaixo.

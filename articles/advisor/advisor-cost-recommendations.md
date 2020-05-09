@@ -3,12 +3,12 @@ title: Reduzir os custos de serviço utilizando o Azure Advisor
 description: Utilize o Azure Advisor para otimizar o custo das suas implementações Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 0237feab59551ecab87d78b0d4d66b9fc7b47e90
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 13e7b1d7c6b0fe342020c40e1bb4abeba97d18bb
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259698"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82788098"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>Reduzir os custos de serviço utilizando o Azure Advisor
 
@@ -49,6 +49,9 @@ Para poupar 60% no custo, recomendamos que guarde os instantâneos no Armazename
 
 ## <a name="utilize-lifecycle-management"></a>Utilizar a Gestão do Ciclo de Vida
 O Azure Advisor utilizará informações sobre a contagem de objetos de armazenamento de blob Azure, tamanho total e transações para detetar se uma ou mais das suas contas de armazenamento seriam mais adequadas para permitir a gestão do ciclo de vida a dados de nível. Irá instá-lo a criar regras de Gestão de Ciclo sonoridade para tieribilizar automaticamente os seus dados para Cool ou Archive para otimizar os seus custos de armazenamento, mantendo os seus dados no armazenamento de blob Azure para compatibilidade com aplicações.
+
+## <a name="create-an-ephemeral-os-disk-recommendation"></a>Criar uma recomendação efémera do disco do OS
+Com [o Disco Ephemeral OS,](https://docs.microsoft.com/azure/virtual-machines/windows/ephemeral-os-disks)os clientes obtêm estes benefícios: Poupe no custo de armazenamento do disco OS. Obtenha menor latência de leitura/escrita para o disco OS. Operação de reimagem vm mais rápida repondo os OS (e disco temporário) para o seu estado original. É mais preferível usar o Disco Ephemeral OS para VMs ou VMs de curta duração com cargas de trabalho apátridas. O consultor tem recomendação para recursos que podem beneficiar com o Disco Efémero osso. 
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Como aceder às recomendações de custos no Consultor Azure
 

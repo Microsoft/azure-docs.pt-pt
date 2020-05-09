@@ -7,44 +7,31 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 249b9bb282024431d0ecd38c62d8d780602e6709
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f5400b47c1e0b4657e40d2c57f8212711bbdaf3f
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82229974"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927076"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Configure comportamento de sessão no Diretório Ativo Azure B2C
 
-Esta funcionalidade confere-lhe um controlo fino, numa [base de fluxo por utilizador,](user-flow-overview.md)de:
-
-- Vida útil de sessões de aplicação web geridas por Azure AD B2C.
-- Comportamento de entrada única (SSO) em várias aplicações e fluxos de utilizadores no seu inquilino Azure AD B2C.
-
-Estas definições não estão disponíveis para redefinir os fluxos de utilizador da palavra-passe.
-
-O Azure AD B2C suporta o protocolo de [autenticação OpenID Connect](openid-connect.md) para permitir o acesso seguro às aplicações web. Pode utilizar as seguintes propriedades para gerir sessões de aplicação web:
+A gestão da sessão de sessão de início de [sessão (SSO)](session-overview.md) no Azure Ative Directory B2C (Azure AD B2C) permite a um administrador controlar a interação com um utilizador depois de o utilizador já ter autenticado. Por exemplo, o administrador pode controlar se a seleção dos fornecedores de identidade é apresentada ou se os detalhes da conta precisam de ser novamente introduzidos. Este artigo descreve como configurar as definições sSO para Azure AD B2C.
 
 ## <a name="session-behavior-properties"></a>Propriedades do comportamento da sessão
+
+Pode utilizar as seguintes propriedades para gerir sessões de aplicação web:
 
 - Vida útil da sessão da **aplicação web (minutos)** - A vida útil do cookie de sessão do Azure AD B2C armazenado no navegador do utilizador após a autenticação bem sucedida.
     - Predefinição = 1440 minutos.
     - Mínimo (inclusivo) = 15 minutos.
     - Máximo (inclusivo) = 1440 minutos.
-- Tempo limite de sessão de **aplicações web** - Se este interruptor estiver definido para **Absolute,** o utilizador é obrigado a autenticar novamente após o período de tempo especificado pela sessão de **aplicação web (minutos)** decorrido. Se este interruptor estiver definido para **A Rolling** (a definição predefinida), o utilizador permanece inscrito enquanto o utilizador estiver continuamente ativo na sua aplicação web.
-- **Configuração de inscrição única** Se tiver várias aplicações e fluxos de utilizadores no seu inquilino B2C, pode gerir as interações do utilizador através delas utilizando a propriedade **de configuração de entrada individual.** Pode definir a propriedade para uma das seguintes definições:
-    - **Inquilino** - Esta definição é o padrão. A utilização desta definição permite que várias aplicações e fluxos de utilizadores no seu inquilino B2C partilhem a mesma sessão de utilizador. Por exemplo, uma vez que um utilizador assina numa aplicação, o utilizador também pode iniciar sem problemas outra, a Farmácia Contoso, ao aceder à sua.
-    - **Aplicação** - Esta definição permite manter uma sessão de utilizador exclusivamente para uma aplicação, independente de outras aplicações. Por exemplo, se quiser que o utilizador instituna a Farmácia Contoso (com as mesmas credenciais), mesmo que o utilizador já esteja inscrito no Contoso Shopping, outra aplicação no mesmo inquilino B2C.
-    - **Política** - Esta definição permite manter uma sessão de utilizador exclusivamente para um fluxo de utilizador, independentemente das aplicações que a utilizam. Por exemplo, se o utilizador já tiver assinado e concluído uma etapa de autenticação multifactor (MFA), o utilizador pode ter acesso a partes de maior segurança de várias aplicações, desde que a sessão ligada ao fluxo do utilizador não expire.
-    - **Desativado** - Esta definição obriga o utilizador a executar todo o fluxo do utilizador em cada execução da apólice.
+- **Timeout** de sessão de aplicação web - O tipo de expiração da [sessão,](session-overview.md#session-expiry-type) *Rolling*, ou *Absolute*. 
+- **Configuração de inscrição única** - O âmbito da [sessão](session-overview.md#session-scope) do comportamento de entrada única (SSO) em várias aplicações e fluxos de utilizadores no seu inquilino Azure AD B2C. 
 
-Os seguintes casos de utilização são ativados utilizando estas propriedades:
-
-- Cumpra os requisitos de segurança e conformidade da sua indústria, definindo as vidas de sessão de aplicação web apropriadas.
-- Forçar a autenticação após um período de tempo definido durante a interação de um utilizador com uma parte de alta segurança da sua aplicação web.
 
 ## <a name="configure-the-properties"></a>Configure as propriedades
 
