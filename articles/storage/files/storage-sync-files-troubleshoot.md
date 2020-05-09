@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/22/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 11942a08d46f4b46dc5478fca4b64796b9ce0a7c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 41bc2a05b81bca586cde261bf2eb05db96d687f8
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176129"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801321"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as ações de ficheiros da sua organização em Ficheiros Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Podes ter as caches que precisares em todo o mundo.
@@ -357,7 +357,7 @@ A tabela abaixo contém todos os caracteres unicódigo Azure File Sync ainda nã
 | **HRESULT** | 0x800704c7 |
 | **HRESULT (decimal)** | -2147023673 | 
 | **Cadeia do erro** | ERROR_CANCELLED |
-| **Reparação necessária** | Não |
+| **Reparação necessária** | No |
 
 As sessões de sincronização podem falhar por várias razões, incluindo o reinício ou atualização do servidor, instantâneos VSS, etc. Embora este erro pareça necessitar de acompanhamento, é seguro ignorar este erro a menos que persista durante um período de várias horas.
 
@@ -379,7 +379,7 @@ As sessões de sincronização podem falhar por várias razões, incluindo o rei
 | **HRESULT** | 0x80c8004c |
 | **HRESULT (decimal)** | -2134376372 |
 | **Cadeia do erro** | ECS_E_USER_REQUEST_THROTTLED |
-| **Reparação necessária** | Não |
+| **Reparação necessária** | No |
 
 Não é necessária qualquer ação; o servidor tentará novamente. Se este erro persistir durante várias horas, crie um pedido de suporte.
 
@@ -390,7 +390,7 @@ Não é necessária qualquer ação; o servidor tentará novamente. Se este erro
 | **HRESULT** | 0x80c83075 |
 | **HRESULT (decimal)** | -2134364043 |
 | **Cadeia do erro** | ECS_E_SYNC_BLOCKED_ON_CHANGE_DETECTION_POST_RESTORE |
-| **Reparação necessária** | Não |
+| **Reparação necessária** | No |
 
 nenhuma ação necessária. Quando uma partilha de ficheiros ou ficheiros (cloud endpoint) é restaurada utilizando o Azure Backup, a sincronização é bloqueada até que a deteção de alterações esteja concluída na partilha de ficheiros Azure. A deteção de alterações é executada imediatamente após o restauro ser concluído e a duração é baseada no número de ficheiros na partilha de ficheiros.
 
@@ -401,7 +401,7 @@ nenhuma ação necessária. Quando uma partilha de ficheiros ou ficheiros (cloud
 | **HRESULT** | 0x80041295 |
 | **HRESULT (decimal)** | -2147216747 |
 | **Cadeia do erro** | SYNC_E_METADATA_INVALID_OPERATION |
-| **Reparação necessária** | Não |
+| **Reparação necessária** | No |
 
 Este erro normalmente ocorre quando uma aplicação de cópia de segurança cria um instantâneo do VSS e a base de dados de sincronização é descarregada. Se este erro persistir durante várias horas, crie um pedido de suporte.
 
@@ -570,7 +570,7 @@ Este erro ocorre quando a partilha de ficheiros do Azure está inacessível devi
 | **HRESULT** | 0x80c80219 |
 | **HRESULT (decimal)** | -2134375911 |
 | **Cadeia do erro** | ECS_E_SYNC_METADATA_WRITE_LOCK_TIMEOUT |
-| **Reparação necessária** | Não |
+| **Reparação necessária** | No |
 
 Este erro resolve-se normalmente de forma autónoma e poderá ocorrer se existir:
 
@@ -704,7 +704,7 @@ Este erro ocorre porque o volume ficou cheio. Este erro geralmente ocorre porque
 | **HRESULT** | 0x80c8300f |
 | **HRESULT (decimal)** | -2134364145 |
 | **Cadeia do erro** | ECS_E_REPLICA_NOT_READY |
-| **Reparação necessária** | Não |
+| **Reparação necessária** | No |
 
 Este erro ocorre porque o ponto final da nuvem foi criado com conteúdo já existente na partilha de ficheiros Azure. O Azure File Sync deve digitalizar a parte do ficheiro Azure para todos os conteúdos antes de permitir que o ponto final do servidor prossiga com a sua sincronização inicial.
 
@@ -761,7 +761,7 @@ Este erro ocorre porque a versão do controlador de filtro de Arrumo na Cloud (S
 | **HRESULT** | 0x80c8004b |
 | **HRESULT (decimal)** | -2134376373 |
 | **Cadeia do erro** | ECS_E_SERVICE_UNAVAILABLE |
-| **Reparação necessária** | Não |
+| **Reparação necessária** | No |
 
 Este erro ocorre porque o serviço Azure File Sync está indisponível. Este erro será resolvido automaticamente quando o serviço do Azure File Sync estiver novamente disponível.
 
@@ -772,7 +772,7 @@ Este erro ocorre porque o serviço Azure File Sync está indisponível. Este err
 | **HRESULT** | 0x80131500 |
 | **HRESULT (decimal)** | -2146233088 |
 | **Cadeia do erro** | COR_E_EXCEPTION |
-| **Reparação necessária** | Não |
+| **Reparação necessária** | No |
 
 Este erro ocorre porque a sincronização falhou devido a uma exceção. Se o erro persistir durante várias horas, por favor crie um pedido de apoio.
 
@@ -794,7 +794,7 @@ Este erro ocorreu porque a conta de armazenamento efetuou uma ativação pós-fa
 | **HRESULT** | 0x80c8020e |
 | **HRESULT (decimal)** | -2134375922 |
 | **Cadeia do erro** | ECS_E_SYNC_METADATA_WRITE_LEASE_LOST |
-| **Reparação necessária** | Não |
+| **Reparação necessária** | No |
 
 Esse erro ocorre devido a um problema interno na base de dados de sincronização. Este erro será resolvido automaticamente quando a tentar executar novamente a sincronização. Se este erro continuar por um longo período de tempo, crie um pedido de apoio e entraremos em contacto consigo para ajudá-lo a resolver este problema.
 
@@ -807,12 +807,9 @@ Esse erro ocorre devido a um problema interno na base de dados de sincronizaçã
 | **Cadeia do erro** | ECS_E_INVALID_AAD_TENANT |
 | **Reparação necessária** | Sim |
 
-Este erro ocorre porque o Azure File Sync atualmente não suporta mover a subscrição para um inquilino do Azure Active Directory diferente.
+Certifique-se de que tem o mais recente agente Da sincronização de ficheiros Azure. A partir do agente V10, o Azure File Sync suporta a deslocação da subscrição para um inquilino azure Ative Directory diferente.
  
-Para resolver este problema, realize uma das opções seguintes:
-
-- **Opção 1 (recomendado)**: Mover a subscrição de volta para o inquilino original do Diretório Ativo Azure
-- **Opção 2**: Eliminar e recriar o grupo de sincronização atual. Se o arrumo na cloud tiver sido ativado no ponto final do servidor, elimine o grupo de sincronização e, em seguida, execute os passos documentados na [Secção Arrumo na Cloud]( https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) para remover os ficheiros em camadas órfãos antes de recriar os grupos de sincronização. 
+Uma vez que tenha a versão mais recente do agente, tem de dar à aplicação Microsoft.StorageSync acesso à conta de armazenamento (ver [Certifique-se de que o Ficheiro Sync do Azure tem acesso à conta](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot#troubleshoot-rbac)de armazenamento).
 
 <a id="-2134364010"></a>**Sync falhou devido à firewall e à exceção da rede virtual não configurada**  
 
@@ -881,7 +878,7 @@ Este erro ocorre porque o Azure File Sync não suporta a reorientação http (c�
 | **HRESULT** | 0x80c83085 |
 | **HRESULT (decimal)** | -2134364027 |
 | **Cadeia do erro** | ECS_E_DATA_INGESTION_WAIT_TIMEOUT |
-| **Reparação necessária** | Não |
+| **Reparação necessária** | No |
 
 Este erro ocorre quando uma operação de ingestão de dados excede o tempo limite. Este erro pode ser ignorado se a sincronização estiver a progredir (AppliedItemCount é superior a 0). Vêcomo [posso monitorizar o progresso de uma sessão de sincronização atual?](#how-do-i-monitor-the-progress-of-a-current-sync-session)
 
@@ -1248,7 +1245,25 @@ Se encontrar problemas com o Azure File Sync num servidor, comece por completar 
 3. Verifique se os controladores de filtro Sincronia de Ficheiros Azure (StorageSync.sys e StorageSyncGuard.sys) estão em execução:
     - Num pedido de comando `fltmc`elevado, corra. Verifique se os controladores de filtro de ficheiros StorageSync.sys e StorageSyncGuard.sys estão listados.
 
-Se o problema não for resolvido, execute a ferramenta AFSDiag:
+Se o problema não for resolvido, execute a ferramenta AFSDiag e envie a sua saída de ficheiro .zip para o engenheiro de suporte atribuído ao seu caso para posterior diagnóstico.
+
+Para a versão do agente v11 e posteriormente:
+
+1. Abra uma janela PowerShell elevada e, em seguida, executar os seguintes comandos (prima Entrar após cada comando):
+
+    > [!NOTE]
+    >A AFSDiag criará o diretório de saída e uma pasta temporária dentro dele antes de recolher registos e eliminará a pasta temporária após a execução. Especifique um local de saída que não contenha dados.
+    
+    ```powershell
+    cd "c:\Program Files\Azure\StorageSyncAgent"
+    Import-Module .\afsdiag.ps1
+    Debug-AFS -OutputDirectory C:\output -KernelModeTraceLevel Verbose -UserModeTraceLevel Verbose
+    ```
+
+2. Reproduza o problema. Quando terminar, entre em **D.**
+3. Um ficheiro .zip que contém registos e ficheiros de rastreio é guardado no diretório de saída que especificou. 
+
+Para a versão do agente v10 e anterior:
 1. Crie um diretório onde a saída AFSDiag será guardada (por exemplo, C:\Output).
     > [!NOTE]
     >A AFSDiag eliminará todos os conteúdos do diretório de saída antes de recolher registos. Especifique um local de saída que não contenha dados.
