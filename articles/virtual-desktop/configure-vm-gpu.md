@@ -7,14 +7,20 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: 8b675a78041b68210fa7583510582783c506c720
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aae3f8b1cfe224f0a948eb16bd6ee5120b19dde1
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81767036"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612083"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configure a aceleração da unidade de processamento de gráficos (GPU) para o Windows Virtual Desktop
+
+>[!IMPORTANT]
+>Este conteúdo aplica-se à atualização da primavera de 2020 com os objetos de ambiente de trabalho virtual do Gestor de Recursos Do Azure Windows. Se estiver a utilizar o lançamento do Windows Virtual Desktop Fall 2019 sem objetos do Gestor de Recursos Azure, consulte [este artigo](./virtual-desktop-fall-2019/configure-vm-gpu-2019.md).
+>
+> A atualização Do Windows Virtual Desktop Spring 2020 encontra-se atualmente em pré-visualização pública. Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não recomendamos usá-la para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. 
+> Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 
 O Windows Virtual Desktop suporta a renderização e codificação aceleradas por GPU para melhorar o desempenho e a escalabilidade das aplicações. A aceleração da GPU é particularmente crucial para aplicações com grande intensidade gráfica.
 
@@ -26,7 +32,7 @@ O Azure oferece uma série de tamanhos de [máquinavirtual otimizada para a GPU.
 
 ## <a name="create-a-host-pool-provision-your-virtual-machine-and-configure-an-app-group"></a>Crie uma piscina de anfitriões, forre a sua máquina virtual e configure um grupo de aplicações
 
-Crie uma nova piscina de anfitriões utilizando um VM do tamanho que selecionou. Para obter instruções, consulte [Tutorial: Crie uma piscina de acolhimento com o Azure Marketplace](/azure/virtual-desktop/create-host-pools-azure-marketplace).
+Crie uma nova piscina de anfitriões utilizando um VM do tamanho que selecionou. Para obter instruções, consulte [Tutorial: Crie uma piscina de acolhimento com o portal Azure](/azure/virtual-desktop/create-host-pools-azure-marketplace).
 
 O Windows Virtual Desktop suporta a renderização e codificação aceleradas por GPU nos seguintes sistemas operativos:
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: donkim
-ms.openlocfilehash: 9e324af0b90f595b5b7af2a417a562efb193d854
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 186b684cc7e4442d1a8ce14f06e16c839e117a26
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76156782"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872512"
 ---
 # <a name="quickstart-connect-to-a-custom-commands-application-with-the-speech-sdk-preview"></a>Quickstart: Ligue-se a uma aplicação de comandos personalizados com o SDK de Fala (Pré-visualização)
 
@@ -24,19 +24,20 @@ Depois de criar uma aplicação de Comandos Personalizados hospedado, pode come�
 Neste artigo, vai:
 
 - Publique uma aplicação de Comandos Personalizados e obtenha um identificador de aplicação (Id de aplicação)
-- Crie uma aplicação para clientes utilizando o SDK de Discurso para permitir que fale com a sua aplicação Decomandos Personalizados
+- Crie uma aplicação de cliente Universal Windows Platform (UWP) utilizando o SDK de Discurso para permitir que fale com a sua aplicação De comandos personalizados
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 É necessária uma aplicação de Comandos Personalizados para completar este artigo. Se ainda não criou uma aplicação de Comandos Personalizados, pode fazê-lo nestes quickstarts anteriores:
-
-- [Quickstart: Criar um Comando Personalizado (Pré-visualização)](./quickstart-custom-speech-commands-create-new.md)
-- [Quickstart: Criar um comando personalizado com parâmetros (pré-visualização)](./quickstart-custom-speech-commands-create-parameters.md)
+> [!div class = "checklist"]
+> * [Quickstart: Criar um Comando Personalizado (Pré-visualização)](./quickstart-custom-speech-commands-create-new.md)
+> * [Quickstart: Criar um comando personalizado com parâmetros (pré-visualização)](./quickstart-custom-speech-commands-create-parameters.md)
 
 Também vai precisar:
-
-- [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-- Uma chave de subscrição Azure para serviços de fala. [Obtenha um de graça](get-started.md) ou crie-o no [portal Azure](https://portal.azure.com)
+> [!div class = "checklist"]
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
+> * Uma chave de subscrição Azure para serviços de fala. [Obtenha um de graça](get-started.md) ou crie-o no [portal Azure](https://portal.azure.com)
+> * [Ative o seu dispositivo para o desenvolvimento](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)
 
 ## <a name="optional-get-started-fast"></a>Opcional: Começar rápido
 
@@ -44,12 +45,13 @@ Este quickstart descreve, passo a passo, como fazer uma aplicação de cliente p
 
 ## <a name="step-1-publish-custom-commands-application"></a>Passo 1: Publicar aplicação de comandos personalizados
 
-1. Abra a sua [aplicação de Comandos Personalizados previamente criada](./quickstart-custom-speech-commands-create-new.md) e selecione **Publicar**
+1. Abra a sua [aplicação de Comandos Personalizados previamente criada (Pré-visualização)](./quickstart-custom-speech-commands-create-new.md) e selecione **Publicar**
 
    > [!div class="mx-imgBorder"]
    > ![Publicar a aplicação](media/custom-speech-commands/fulfill-sdk-publish-application.png)
 
 1. Copiar o ID da aplicação da notificação de publicação para posterior utilização
+1. Copiar a Chave de Recursos da Fala para posterior utilização
 
 ## <a name="step-2-create-a-visual-studio-project"></a>Passo 2: Criar um projeto de Estúdio Visual
 
@@ -129,7 +131,7 @@ Adicione a fonte por trás do código da seguinte forma:
 
 1. No **Solution Explorer,** abra o `MainPage.xaml.cs` ficheiro código `MainPage.xaml`por trás da fonte (agrupado em )
 
-1. Substitua o conteúdo do ficheiro pelo seguinte código:
+1. Substitua o conteúdo do ficheiro pelo seguinte código: 
 
    ```csharp
    using Microsoft.CognitiveServices.Speech;
@@ -298,6 +300,11 @@ Adicione a fonte por trás do código da seguinte forma:
        }
    }
    ```
+    > [!NOTE]
+    > Se vir erro: "O tipo 'Objeto' é definido num conjunto que não é referenciado"
+    > 1. Cliente direito a sua solução.
+    > 1. Escolha **gerir pacotes NuGet para solução,** selecione **atualizações** 
+    > 1. Se vir **Microsoft.NETCore.UniversalWindowsPlatform** na lista de atualizações, atualize **microsoft.NETCore.UniversalWindowsPlatform** para a versão mais recente
 
 1. Adicione o seguinte código ao corpo metodológico de`InitializeDialogServiceConnector`
 
@@ -419,3 +426,6 @@ Adicione a fonte por trás do código da seguinte forma:
 > [!div class="nextstepaction"]
 > [Como: Cumprir comandos no cliente com o SDK de Fala (pré-visualização)](./how-to-custom-speech-commands-fulfill-sdk.md)
 > [Como: Adicionar validações aos parâmetros de Comando Personalizado (Pré-visualização)](./how-to-custom-speech-commands-validations.md)
+
+## <a name="sample-source-code"></a>Código fonte da amostra
+Confira os códigos de amostra do nosso cliente no [GitHub-VoiceAssistant](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant)

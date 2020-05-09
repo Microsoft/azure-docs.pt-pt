@@ -7,14 +7,14 @@ ms.service: mysql
 ms.devlang: azurepowershel
 ms.topic: conceptual
 ms.date: 4/28/2020
-ms.openlocfilehash: 1e63a6e57e1dc929c78e5278df6ef0e4ab2a17d7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 871b1ba81f672459378b23705ad5b96213667a73
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82230850"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82609090"
 ---
-# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-powershell"></a>Como fazer cópias e restaurar um servidor na Base de Dados Azure para o MySQL usando o PowerShell
+# <a name="how-to-back-up-and-restore-an-azure-database-for-mysql-server-using-powershell"></a>Como fazer cópias e restaurar uma Base de Dados Azure para o servidor MySQL utilizando o PowerShell
 
 A Base de Dados Azure para servidores MySQL é apoiada periodicamente para permitir a restauração de funcionalidades. Utilizando esta funcionalidade, poderá restaurar o servidor e todas as suas bases de dados num momento anterior, num novo servidor.
 
@@ -77,7 +77,7 @@ O conjunto de parâmetros **PointInTimeRestore** do `Restore-AzMySqlServer` cmdl
 | Definição | Valor sugerido | Descrição  |
 | --- | --- | --- |
 | ResourceGroupName |  myResourceGroup |  O grupo de recursos onde o servidor de origem existe.  |
-| Nome | mydemoserver-restored | O nome do novo servidor que é criado pelo comando restore. |
+| Name | mydemoserver-restored | O nome do novo servidor que é criado pelo comando restore. |
 | RestorePointInTime | 2020-03-13T13:59:00Z | Selecione um ponto a tempo para restaurar. Esta data e hora têm de estar dentro do período de retenção de cópias de segurança do servidor de origem. Utilize o formato de data e hora ISO8601. Por exemplo, pode utilizar o seu próprio fuso horário local, como **2020-03-13T05:59:00-08:00**. Também pode utilizar o formato UTC Zulu, por exemplo, **2018-03-13T13:59:00Z**. |
 | UtilizaçãoPointInTimeRestore | `<SwitchParameter>` | Utilize o modo ponto-a-tempo para restaurar. |
 
@@ -119,7 +119,7 @@ O conjunto de **parâmetros GeoRestore** do `Restore-AzMySqlServer` cmdlet reque
 | Definição | Valor sugerido | Descrição  |
 | --- | --- | --- |
 |ResourceGroupName | myResourceGroup | O nome do grupo de recursos a que o novo servidor pertence.|
-|Nome | mydemoserver-georestauro | O nome do novo servidor. |
+|Name | mydemoserver-georestauro | O nome do novo servidor. |
 |Localização | eastus | A localização do novo servidor. |
 |UseGeoRestore | `<SwitchParameter>` | Utilize o modo geopara restaurar. |
 
@@ -131,6 +131,5 @@ O novo servidor criado durante uma restauração não tem os pontos finais do se
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre os [backups](concepts-backup.md) do serviço
-- Saiba mais sobre [réplicas](concepts-read-replicas.md)
-- Saiba mais sobre opções [de continuidade do negócio](concepts-business-continuity.md)
+> [!div class="nextstepaction"]
+> [Personalize a Base de Dados Azure para parâmetros do servidor MySQL usando powerShell](howto-configure-server-parameters-using-powershell.md)

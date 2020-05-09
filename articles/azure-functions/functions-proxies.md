@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 09e4616bc7cbb4361ad067ed64984ed95e9a20c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5e756258bb92d7def195959d909068e87e765c0f
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74849195"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562071"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Trabalho com proxies de funções azure
 
@@ -184,8 +184,8 @@ Os proxies lêem todas as cordas de um ficheiro JSON, usando \ como símbolo de 
 O objeto requestOverrides define alterações feitas ao pedido quando o recurso de back-end é chamado. O objeto é definido pelas seguintes propriedades:
 
 * **backend.request.method**: O método HTTP que é usado para chamar o back-end.
-* **backend.request.consultastring. Nome do\>parâmetro : Um parâmetro de corda de consulta que pode ser definido para a chamada para a parte de trás. \<** Substitua * \<\> * o Nome do Parâmetro com o nome do parâmetro que pretende definir. Por favor, note que se a corda vazia for fornecida, o parâmetro ainda está incluído no pedido de back-end.
-* **backend.request.cabeçalhos. Nome \<do cabeçalho : Um cabeçalho que pode ser definido para a chamada para a parte de\>** trás. Substitua * \<\> o HeaderName* pelo nome do cabeçalho que pretende definir. Se fornecer a corda vazia, o cabeçalho não está incluído no pedido de back-end.
+* **backend.request.consultastring. Nome do\>parâmetro : Um parâmetro de corda de consulta que pode ser definido para a chamada para a parte de trás. \<** Substitua * \<\> * o Nome do Parâmetro com o nome do parâmetro que pretende definir. Note que se for fornecida uma corda vazia, o parâmetro ainda está incluído no pedido de back-end.
+* **backend.request.cabeçalhos. Nome \<do cabeçalho : Um cabeçalho que pode ser definido para a chamada para a parte de\>** trás. Substitua * \<\> o HeaderName* pelo nome do cabeçalho que pretende definir. Note que se for fornecida uma corda vazia, o parâmetro ainda está incluído no pedido de back-end.
 
 Os valores podem referenciar as definições e parâmetros de aplicação a partir do pedido original do cliente.
 

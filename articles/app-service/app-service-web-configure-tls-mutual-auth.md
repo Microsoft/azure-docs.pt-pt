@@ -5,12 +5,12 @@ ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.topic: article
 ms.date: 10/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2f6dd455024aba184cbb16b5b9c7cfffd032dc70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 143317cd424428d7f480f4880d3aab750853890b
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80811727"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82592371"
 ---
 # <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Configure autenticação mútua TLS para serviço de aplicações azure
 
@@ -24,7 +24,7 @@ Pode restringir o acesso à sua aplicação Azure App Service, permitindo-lhe di
 
 ## <a name="enable-client-certificates"></a>Ativar certificados de cliente
 
-Para configurar a sua aplicação para exigir `clientCertEnabled` certificados de `true`cliente, precisa definir a definição para a sua aplicação para . Para definir a definição, execute o seguinte comando na [Cloud Shell](https://shell.azure.com).
+Para configurar a sua aplicação para exigir certificados de cliente, pode **ligar** o certificado de entrada Requirecoming selecionando `true`**Configurações Gerais** de **Configuração** > do Portal Azure ou precisa definir a `clientCertEnabled` definição para a sua app para . Para definir a definição, execute o seguinte comando na [Cloud Shell](https://shell.azure.com).
 
 ```azurecli-interactive
 az webapp update --set clientCertEnabled=true --name <app_name> --resource-group <group_name>

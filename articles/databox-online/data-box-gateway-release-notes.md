@@ -8,18 +8,18 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: alkohli
-ms.openlocfilehash: f4ee3a5bd754335ab1c7f124671e9c37307a6a28
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1a8a9840cc6e1f3627c5fbd30e0b7432db0f16e4
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265405"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561042"
 ---
 # <a name="azure-data-box-edgeazure-data-box-gateway-general-availability-release-notes"></a>Notas de lançamento da Caixa de Dados Azure Edge/Azure Data Box Gateway
 
 ## <a name="overview"></a>Descrição geral
 
-As seguintes notas de lançamento identificam as questões críticas em aberto e as questões resolvidas para a libertação da Disponibilidade Geral (GA) para o Azure Data Box Edge e o Azure Data Box Gateway.
+As seguintes notas de lançamento identificam as questões críticas em aberto e as questões resolvidas para a libertação da Disponibilidade Geral (GA) para o Azure Data Box Edge e o Azure Data Box Gateway. 
 
 As notas de lançamento são continuamente atualizadas e, à medida que são descobertas questões críticas que exigem uma suver, são adicionadas. Antes de implementar o seu Portal de Data Box Edge/Data Box, reveja cuidadosamente as informações contidas nas notas de lançamento.
 
@@ -50,4 +50,4 @@ A tabela seguinte fornece um resumo de questões conhecidas para o lançamento e
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Prepare-se para implementar o Portal](data-box-gateway-deploy-prep.md)da Caixa de Dados Azure .
-- [Prepare-se para implantar o Edge da Caixa](data-box-edge-deploy-prep.md)de Dados Azure .
+- [Prepare-se para implantar o Edge da Caixa](azure-stack-edge-deploy-prep.md)de Dados Azure .

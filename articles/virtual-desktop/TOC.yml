@@ -1,22 +1,20 @@
-- name: Windows Virtual Desktop
+- name: Versão da Primavera de 2020 do Windows Virtual Desktop
   href: index.yml
 - name: Descrição geral
   items:
     - name: O que é o Windows Virtual Desktop?
       href: overview.md
+    - name: Documentação da Versão do Outono de 2019
+      href: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
 - name: Tutoriais
   items:
-    - name: 1. Criar um inquilino no Windows Virtual Desktop
-      href: tenant-setup-azure-active-directory.md
-    - name: 2. Criar principais de serviço e atribuições de funções com o PowerShell
-      href: create-service-principal-role-powershell.md
-    - name: 3. Criar um conjunto de anfitriões com o Azure Marketplace
+    - name: 1. Criar um conjunto de anfitriões com o portal do Azure
       href: create-host-pools-azure-marketplace.md
-    - name: 4. Gerir grupos de aplicações
+    - name: 2. Gerir grupos de aplicações
       href: manage-app-groups.md
-    - name: 5. Criar um conjunto de anfitriões para validar as atualizações de serviço
+    - name: 3. Criar um conjunto de anfitriões para validar as atualizações de serviço
       href: create-validation-host-pool.md
-    - name: 6. Configurar alertas de serviço
+    - name: 4. Configurar alertas de serviço
       href: set-up-service-alerts.md
 - name: Procedimentos
   items:
@@ -32,18 +30,18 @@
           href: connect-macos.md
         - name: Ligar ao cliente de iOS
           href: connect-ios.md
+    - name: Configurar o módulo do PowerShell
+      href: powershell-module.md
     - name: Criar um conjunto de anfitriões e anfitriões de sessões
       items:
-        - name: Modelo Azure Resource Manager
-          href: create-host-pools-arm-template.md
         - name: PowerShell
           href: create-host-pools-powershell.md
-        - name: Implementar uma máquina virtual do Windows 7
-          href: deploy-windows-7-virtual-machine.md
         - name: Implementar um anfitrião de sessões baseado em GPU
           href: configure-vm-gpu.md
         - name: Expandir um conjunto de anfitriões existente
           href: expand-existing-host-pool.md
+        - name: Gerir grupos de aplicações com o PowerShell
+          href: manage-app-groups-powershell.md
     - name: Criar um contentor de perfil
       items:
         - name: Utilizar uma partilha de ficheiros baseada em VM
@@ -68,20 +66,10 @@
           href: set-up-customize-master-image.md
         - name: Instalar o Office numa imagem principal de VHD
           href: install-office-on-wvd-master-image.md
-    - name: Dimensionar automaticamente os anfitriões de sessão
-      href: set-up-scaling-script.md
     - name: Personalizar o feed
       href: customize-feed-for-virtual-desktop-users.md
-    - name: Implementar a ferramenta de gestão
-      items:
-        - name: Modelo Azure Resource Manager
-          href: manage-resources-using-ui.md
-        - name: PowerShell
-          href: manage-resources-using-ui-powershell.md
     - name: Utilizar o diagnóstico do serviço
       items:
-        - name: Implementar a ferramenta de diagnóstico
-          href: deploy-diagnostics.md
         - name: Utilizar o diagnóstico com o Log Analytics
           href: diagnostics-log-analytics.md
     - name: Publicar aplicações incorporadas
@@ -124,10 +112,6 @@
       href: troubleshoot-set-up-issues.md
     - name: Configuração da máquina virtual do anfitrião da sessão
       href: troubleshoot-vm-configuration.md
-    - name: Resolução de problemas das máquinas virtuais do Windows 7 no Windows Virtual Desktop
-      href: troubleshoot-windows-7-vm.md
-    - name: Resolução de problemas da ferramenta de gestão do Windows Virtual Desktop
-      href: troubleshoot-management-tool.md
     - name: Ligações do serviço de Ambiente de Trabalho Remoto
       href: troubleshoot-service-connection.md
     - name: Problemas no cliente de Ambiente de Trabalho Remoto
@@ -140,10 +124,6 @@
   items:
     - name: Apoio Técnico para Linux
       href: linux-overview.md
-    - name: PowerShell
-      href: /powershell/windows-virtual-desktop/overview
-    - name: API REST
-      href: /rest/api/virtual-desktop/
     - name: Definições de ficheiro RDP suportadas
       href: 'https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context'
     - name: Diretrizes para a rede
