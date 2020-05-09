@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: vkukke
-ms.openlocfilehash: ed3b70ad267252981110e7970bc5c5fad6cf4b4b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d6d6d8df8f3c5da762ac672b304ec072a723e7d7
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79300157"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857042"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Segurança da rede para recursos da Rede de Eventos Azure
 Este artigo descreve como usar as seguintes funcionalidades de segurança com a Grelha de Eventos Azure: 
@@ -58,16 +58,16 @@ Quando se cria um ponto final privado, o registo DNS CNAME para o recurso `priva
 
 Quando resolve o tópico ou o url final do ponto final de domínio de fora da VNet com o ponto final privado, resolve-se até ao ponto final público do serviço. Os registos de recursos dNS para 'topicA', quando resolvidos **de fora da VNet** que acolhe o ponto final privado, serão:
 
-| Nome                                          | Tipo      | Valor                                         |
+| Name                                          | Tipo      | Valor                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
-| `topicA.westus.privatelink.eventgrid.azure.net` | CNAME     | \<perfil de gestor de tráfego azure\>
+| `topicA.westus.privatelink.eventgrid.azure.net` | CNAME     | \<Perfil do gestor de tráfego azure\>
 
 Pode negar ou controlar o acesso a um cliente fora do VNet através do ponto final público utilizando a [firewall IP](#ip-firewall). 
 
 Quando resolvido a partir do VNet que acolhe o ponto final privado, o URL de ponto final de tópico ou domínio resolve-se para o endereço IP do ponto final privado. Os registos de recursos do DNS para o tópico 'topicA', quando resolvidos a partir de **dentro da VNet** que acolhe o ponto final privado, serão:
 
-| Nome                                          | Tipo      | Valor                                         |
+| Name                                          | Tipo      | Valor                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
 | `topicA.westus.privatelink.eventgrid.azure.net` | A         | 10.0.0.5
@@ -85,17 +85,16 @@ O quadro seguinte descreve os vários estados da ligação de ponto final privad
 | Estado de Ligação   |  Publicação com sucesso (Sim/Não) |
 | ------------------ | -------------------------------|
 | Aprovado           | Sim                            |
-| Rejected           | Não                             |
-| Pendente            | Não                             |
-| Desligado       | Não                             |
+| Rejected           | No                             |
+| Pendente            | No                             |
+| Desligado       | No                             |
 
 Para que a publicação seja bem sucedida, o estado de ligação de pontofinal privado deve ser **aprovado.** Se uma ligação for rejeitada, não pode ser aprovada através do portal Azure. A única possibilidade é eliminar a ligação e criar uma nova.
 
 ## <a name="pricing-and-quotas"></a>Preços e quotas
-**Os pontos finais privados** só estão disponíveis com tópicos e domínios de nível premium. A Grelha de Eventos permite que até 64 ligações de ponto final privados sejam criadas por tópico ou domínio. Para atualizar de nível básico para nível premium, consulte o artigo do nível de [preços da Atualização.](update-tier.md)
+**Os pontos finais privados** estão disponíveis tanto nos níveis básicos como premium da Grelha de Eventos. A Grelha de Eventos permite que até 64 ligações de ponto final privados sejam criadas por tópico ou domínio. 
 
 A funcionalidade **IP Firewall** está disponível tanto nos níveis básicos como premium da Grelha de Eventos. Permitimos que até 16 regras ip firewall sejam criadas por tópico ou domínio.
-
 
 ## <a name="next-steps"></a>Passos seguintes
 Pode configurar a firewall IP para o seu recurso Da Rede de Eventos para restringir o acesso através da internet pública a partir de apenas um conjunto selecionado de endereços IP ou intervalos ip Address. Para obter instruções passo a passo, consulte a [firewall IP configurar](configure-firewall.md).

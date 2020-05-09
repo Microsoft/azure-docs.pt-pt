@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 712e7bcf513592f97950902faff2f7754093b9fc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9e44aecc5015986079afb3190101cdaabc4a6874
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76549296"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82981957"
 ---
+# <a name="tutorial-azure-active-directory-integration-with-smarteru"></a>Tutorial: Integração de Diretório Sonárte Azure com a SmarterU
+
 > [!NOTE]
 > O processo de integração da SmarterU com o Diretório Ativo Azure também é documentado e mantido no sistema de [ajuda SmarterU.](https://help.smarteru.com/ID2053086)
-
-# <a name="tutorial-azure-active-directory-integration-with-smarteru"></a>Tutorial: Integração de Diretório Sonárte Azure com a SmarterU
 
 Neste tutorial, aprende-se a integrar a SmarterU com o Azure Ative Directory (Azure AD).
 Integrar smarteru com AD Azure proporciona-lhe os seguintes benefícios:

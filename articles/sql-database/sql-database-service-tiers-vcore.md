@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/27/2019
-ms.openlocfilehash: 5fd69dcd30292630862887ab5434764ba377b396
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78e01c854201e3c5253cd86aebcd85b62bf5568d
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79481087"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629305"
 ---
 # <a name="vcore-model-overview"></a>Descrição geral do modelo vCore
 
@@ -102,7 +102,7 @@ Para permitir o hardware da série M para uma subscrição e região, deve ser a
 |Gen4     |- Processadores Intel E5-2673 v3 (Haswell) 2.4 GHz<br>- Provisão até 24 vCores (1 vCore = 1 núcleo físico)  |- 7 GB por vCore<br>- Provisão até 168 GB|
 |Gen5     |**Cálculo provisionado**<br>- Processadores Intel E5-2673 v4 (Broadwell) 2.3-GHz e Intel SP-8160 (Skylake)*<br>- Provisão até 80 vCores (1 vCore = 1 hiper-fio)<br><br>**Computação sem servidor**<br>- Processadores Intel E5-2673 v4 (Broadwell) 2.3-GHz e Intel SP-8160 (Skylake)*<br>- Auto-escala até 16 vCores (1 vCore = 1 hiper-fio)|**Cálculo provisionado**<br>- 5,1 GB por vCore<br>- Provisão até 408 GB<br><br>**Computação sem servidor**<br>- Auto-escala até 24 GB por vCore<br>- Auto-escala até 48 GB max|
 |Série Fsv2     |- Processadores Intel Xeon Platinum 8168 (SkyLake)<br>- Com uma velocidade de relógio turbo de 3,4 GHz e uma velocidade máxima de 3,7 GHz no relógio turbo do núcleo único.<br>- Provisão 72 vCores (1 vCore = 1 hiper-fio)|- 1,9 GB por vCore<br>- Provisão 136 GB|
-|Série M     |- Processadores Intel Xeon E7-8890 v3 2.5 GHz<br>- Provisão 128 vCores (1 vCore = 1 hiper-fio)|- 29 GB por vCore<br>- Provisão 3.7 TB|
+|Série M     |- Processadores Intel Xeon E7-8890 v3 2.5 GHz e Intel Xeon Platinum 8280M 2,7 GHz (Lago cascade)<br>- Provisão 128 vCores (1 vCore = 1 hiper-fio)|- 29 GB por vCore<br>- Provisão 3.7 TB|
 
 \*Na visão dinâmica de gestão [sys.dm_user_db_resource_governance,](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) a geração de hardware para bases de dados gen5 usando processadores Intel SP-8160 (Skylake) aparece como Gen6. Os limites de recursos para todas as bases de dados gen5 são os mesmos, independentemente do tipo de processador (Broadwell ou Skylake).
 
