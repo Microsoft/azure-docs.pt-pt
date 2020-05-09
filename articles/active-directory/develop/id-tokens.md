@@ -1,5 +1,6 @@
 ---
-title: Referência token da plataforma de identidade da Microsoft
+title: Fichas de ID da plataforma de identidade da Microsoft / Azure
+titleSuffix: Microsoft identity platform
 description: Saiba como utilizar id_tokens emitidos pelos pontos finais da Azure AD V1.0 e microsoft (v2.0).
 services: active-directory
 author: hpsin
@@ -8,21 +9,21 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/16/2020
+ms.date: 05/06/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: 0d1a5ee3ae56e8b5c4886308624159853c52b52c
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
-ms.translationtype: HT
+ms.openlocfilehash: e0e327d169c246d023be1aca27d6844b9b92f03e
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690172"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926719"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Fichas de ID da plataforma de identidade da Microsoft
 
-`id_tokens`são enviados para a aplicação do cliente como parte de um fluxo [OpenID Connect.](v2-protocols-oidc.md) Podem ser enviados juntamente ou em vez de um sinal de acesso, e são utilizados pelo cliente para autenticar o utilizador.
+`id_tokens`são enviados para a aplicação do cliente como parte de um fluxo [OpenID Connect](v2-protocols-oidc.md) (OIDC). Podem ser enviados juntamente ou em vez de um sinal de acesso, e são utilizados pelo cliente para autenticar o utilizador.
 
 ## <a name="using-the-id_token"></a>Usando o id_token
 
@@ -30,7 +31,7 @@ Os tokens de id devem ser usados para validar que um utilizador é quem eles afi
 
 ## <a name="claims-in-an-id_token"></a>Reclamações num id_token
 
-`id_tokens`para uma identidade da Microsoft são [JWTs,](https://tools.ietf.org/html/rfc7519)o que significa que consistem numa parte de cabeçalho, carga útil e assinatura. Pode utilizar o cabeçalho e a assinatura para verificar a autenticidade do símbolo, enquanto a carga útil contém as informações sobre o utilizador solicitadas pelo seu cliente. Exceto quando indicado, todos os pedidos listados aqui aparecem em fichas v1.0 e v2.0.
+`id_tokens`para uma identidade da Microsoft são [JWTs](https://tools.ietf.org/html/rfc7519) (JSON Web Tokens), o que significa que consistem numa parte de cabeçalho, carga útil e assinatura. Pode utilizar o cabeçalho e a assinatura para verificar a autenticidade do símbolo, enquanto a carga útil contém as informações sobre o utilizador solicitadas pelo seu cliente. Exceto quando indicado, todos os pedidos jWT listados aqui aparecem em fichas v1.0 e v2.0.
 
 ### <a name="v10"></a>v1.0
 
@@ -52,14 +53,14 @@ Veja este símbolo de amostra v2.0 em [jwt.ms](https://jwt.ms/#id_token=eyJ0eXAi
 
 |Afirmação | Formato | Descrição |
 |-----|--------|-------------|
-|`typ` | String - sempre "JWT" | Indica que o símbolo é um JWT.|
+|`typ` | String - sempre "JWT" | Indica que o símbolo é um símbolo jWT.|
 |`alg` | String | Indica o algoritmo que foi usado para assinar o símbolo. Exemplo: "RS256" |
 |`kid` | String | Impressão digital para a chave pública usada para assinar este símbolo. Emitido tanto em v1.0 como `id_tokens`v2.0 . |
 |`x5t` | String | O mesmo (em uso `kid`e valor) que . No entanto, esta é uma reivindicação `id_tokens` de legado emitida apenas em v1.0 para fins de compatibilidade. |
 
 ### <a name="payload-claims"></a>Reclamações de carga útil
 
-Esta lista mostra as alegações que estão na maioria das id_tokens por defeito (exceto quando anotada).  No entanto, a sua aplicação pode utilizar [reclamações opcionais](active-directory-optional-claims.md) para solicitar reclamações adicionais no id_token.  Estes podem ir `groups` desde a reclamação até à informação sobre o nome do utilizador.
+Esta lista mostra as alegações do JWT que estão na maioria das id_tokens por defeito (exceto quando anotada).  No entanto, a sua aplicação pode utilizar [reclamações opcionais](active-directory-optional-claims.md) para solicitar reclamações adicionais de JWT no id_token.  Estes podem ir `groups` desde a reclamação até à informação sobre o nome do utilizador.
 
 |Afirmação | Formato | Descrição |
 |-----|--------|-------------|
@@ -85,23 +86,23 @@ Esta lista mostra as alegações que estão na maioria das id_tokens por defeito
 |`uti` | Corda Opaca | Uma reivindicação interna usada pelo Azure para revalidar fichas. Deve ser ignorado. |
 |`ver` | Corda, ou 1.0 ou 2.0 | Indica a versão do id_token. |
 
-
 > [!NOTE]
-> Os id_token v1 e v2 têm diferenças na quantidade de informação que irão transportar como visto dos exemplos acima referidos. A versão especifica essencialmente o ponto final da plataforma Azure AD a partir do local onde foi emitida. A implementação da [Azure AD Oauth](https://docs.microsoft.com/azure/active-directory/develop/about-microsoft-identity-platform) evoluiu ao longo dos anos. Atualmente temos dois pontos finais oAuth diferentes para aplicações AzureAD. Pode utilizar qualquer um dos novos pontos finais que são categorizados como v2 ou o antigo que se diz ser v1. Os pontos finais de Oauth para ambos são diferentes. O ponto final v2 é o mais recente onde estamos a tentar migrar todas as funcionalidades do ponto final v1 e recomendamos novos desenvolvedores para usar o ponto final v2. 
+> Os id_token v1 e v2 têm diferenças na quantidade de informação que irão transportar como visto dos exemplos acima referidos. A versão especifica essencialmente o ponto final da plataforma Azure AD a partir do local onde foi emitida. A implementação da [Azure AD Oauth](https://docs.microsoft.com/azure/active-directory/develop/about-microsoft-identity-platform) evoluiu ao longo dos anos. Atualmente temos dois pontos finais oAuth diferentes para aplicações AzureAD. Pode utilizar qualquer um dos novos pontos finais que são categorizados como v2 ou o antigo que se diz ser v1. Os pontos finais de Oauth para ambos são diferentes. O ponto final v2 é o mais recente onde estamos a tentar migrar todas as funcionalidades do ponto final v1 e recomendamos novos desenvolvedores para usar o ponto final v2.
+>
 > - V1: Pontos finais do Diretório Ativo Azure:`https://login.microsoftonline.com/common/oauth2/authorize`
 > - V2: Microsoft Identity Platform Endpoints:`https://login.microsoftonline.com/common/oauth2/v2.0/authorize`
 
 ## <a name="validating-an-id_token"></a>Validando um id_token
 
-Validar `id_token` um é semelhante ao primeiro passo de validação de [um token](access-tokens.md#validating-tokens) de acesso - o seu cliente deve validar que o emitente correto enviou o símbolo de volta e que não foi adulterado. Como `id_tokens` são sempre um JWT, existem muitas bibliotecas para validar estes tokens - recomendamos que use um destes em vez de fazê-lo por si mesmo.
+Validar `id_token` um é semelhante ao primeiro passo de validação de [um token](access-tokens.md#validating-tokens) de acesso - o seu cliente deve validar que o emitente correto enviou o símbolo de volta e que não foi adulterado. Como `id_tokens` são sempre um símbolo jWT, existem muitas bibliotecas para validar estes tokens - recomendamos que use um destes em vez de fazê-lo por si mesmo.
 
-Para validar manualmente o símbolo, consulte os detalhes dos passos na [validação de um sinal](access-tokens.md#validating-tokens)de acesso . Após a validação da assinatura no símbolo, as seguintes reclamações devem ser validadas no id_token (estas podem também ser feitas pela sua biblioteca de validação simbólica):
+Para validar manualmente o símbolo, consulte os detalhes dos passos na [validação de um sinal](access-tokens.md#validating-tokens)de acesso . Após a validação da assinatura no símbolo, as seguintes reclamações jWT devem ser validadas na id_token (estas também podem ser feitas pela sua biblioteca de validação simbólica):
 
-* Carimbos temporais: os `iat`, `nbf`e `exp` os selos temporais devem cair todos antes ou depois do tempo atual, conforme apropriado. 
+* Carimbos temporais: os `iat`, `nbf`e `exp` os selos temporais devem cair todos antes ou depois do tempo atual, conforme apropriado.
 * Público: `aud` a reclamação deve corresponder ao ID da aplicação para a sua aplicação.
 * Nonce: `nonce` a reclamação na carga deve corresponder ao parâmetro nonce passado para o ponto final /autorizar durante o pedido inicial.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [fichas](access-tokens.md) de acesso
-* Personalize as reclamações no seu id_token utilizando [reclamações opcionais.](active-directory-optional-claims.md)
+* Personalize as reclamações do JWT no seu id_token utilizando [reclamações opcionais.](active-directory-optional-claims.md)

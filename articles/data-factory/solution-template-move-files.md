@@ -11,15 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 7/12/2019
-ms.openlocfilehash: b36eb2615e98ee8ea7751c836fd43e81a5a0f4e2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 81f072822226e4a573cf0086cac7e64ca1cfe45f
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414750"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628168"
 ---
 # <a name="move-files-with-azure-data-factory"></a>Mova ficheiros com a Azure Data Factory
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Este artigo descreve um modelo de solução que pode utilizar para mover ficheiros de uma pasta para outra entre lojas baseadas em ficheiros. Um dos cenários comuns de utilização deste modelo: Os ficheiros são continuamente deixados cair numa pasta de aterragem da sua loja de origem. Ao criar um gatilho de horário, o gasoduto ADF pode periodicamente mover esses ficheiros da fonte para a loja de destino.  A forma como o pipeline ADF consegue "ficheiros em movimento" é obter os ficheiros da pasta de aterragem, copiando cada um deles para outra pasta na loja de destino e, em seguida, apagando os mesmos ficheiros da pasta de aterragem na loja fonte.
 

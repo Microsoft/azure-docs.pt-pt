@@ -3,17 +3,17 @@ title: Otimizar o investimento na cloud com o Azure Cost Management
 description: Este artigo ajuda-o a obter o valor máximo dos seus investimentos na cloud, reduzir os custos e a avaliar onde está a gastar o seu dinheiro.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/07/2020
+ms.date: 05/04/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 8df98514545a2670ea18a2b4b131a097244d7b46
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 759c69544c083e95cbd5198eecf9f7bb0e882aa8
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80874590"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791617"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Como otimizar o investimento na cloud com o Azure Cost Management
 
@@ -104,6 +104,12 @@ Para saber mais informações sobre as várias opções, visite [Como comprar o 
 
 - Opções para alocações monetárias prévias
 - Acesso a preços do Azure com redução
+
+#### <a name="azure-in-csp"></a>[Azure no CSP](https://azure.microsoft.com/offers/ms-azr-0145p/)
+
+- Os parceiros CSP são o primeiro ponto de contacto para as necessidades dos clientes e o centro da relação com os mesmos
+- Os parceiros CSP aprovisionam os novos clientes, encomendam subscrições, gerem subscrições e realizam tarefas de administração em nome dos seus clientes
+- Os parceiros CSP agregam serviços com soluções únicas ou revendem o Azure enquanto controlam os preços, os termos e a faturação
 
 ## <a name="estimate-the-cost-of-your-solution"></a>Estimar o custo da solução
 

@@ -13,13 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5b65bbdc790a27a06298a77aac2721e071adec8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f24b3c9256f759b87c705aae9b93c2d6bc74d30c
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80882714"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82652648"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>Registe aplicações móveis que liguem para apis web
 

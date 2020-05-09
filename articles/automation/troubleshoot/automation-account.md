@@ -1,5 +1,5 @@
 ---
-title: Resolução de problemas da conta de automatização
+title: Resolução de problemas da conta azure Automation
 description: Aprenda a resolver problemas e a resolver problemas com uma conta Azure.
 services: automation
 author: mgoedtel
@@ -8,16 +8,16 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 7b5e7171ac679384966e9dce79425cd1fa881c53
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6a7defdaa9b4b0f0b3580a3ac6b1a0487434a97c
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81679387"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864135"
 ---
-# <a name="troubleshoot-the-automation-account"></a>Resolução de problemas na conta da Automação
+# <a name="troubleshoot-an-azure-automation-account"></a>Resolução de problemas uma conta de Automação Azure
 
-Este artigo discute soluções para questões que pode encontrar quando utiliza uma conta de Automação. As seguintes secções destacam mensagens de erro específicas e possíveis resoluções para cada um. Para obter informações gerais sobre as contas da Automação, consulte [Criar uma conta Azure](../automation-quickstart-create-account.md).
+Este artigo discute soluções para problemas que poderá encontrar quando utiliza uma conta De Automação Azure. Para obter informações gerais sobre as contas da Automação, consulte [Criar uma conta Azure](../automation-quickstart-create-account.md).
 
 ## <a name="scenario-unable-to-register-automation-resource-provider-for-subscriptions"></a><a name="rp-register"></a>Cenário: Incapaz de registar Fornecedor de Recursos Automation para subscrições
 
@@ -39,7 +39,7 @@ Para registar o Fornecedor de Recursos Automation, siga estes passos no portal A
 
 1. Do seu navegador, vá ao [portal Azure.](https://portal.azure.com)
 
-2. Navegue para **Subscrições** e selecione a sua subscrição na página De Assinaturas.   
+2. Vá a **Assinaturas**e selecione a sua subscrição.   
 
 3. Em **Definições,** selecione **Fornecedores de Recursos**.
 
@@ -49,8 +49,8 @@ Para registar o Fornecedor de Recursos Automation, siga estes passos no portal A
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se não vir o seu problema acima ou não conseguir resolver o seu problema, experimente um dos seguintes canais para obter apoio adicional:
+Se este artigo não resolver o seu problema, experimente um dos seguintes canais para obter apoio adicional:
 
 * Obtenha respostas de especialistas do Azure através dos [Fóruns Azure.](https://azure.microsoft.com/support/forums/)
-* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport)a conta oficial do Microsoft Azure para melhorar a experiência do cliente, ligando a comunidade Azure aos recursos certos: respostas, suporte e especialistas.
-* Arquiva um incidente de apoio ao Azure. Vá ao site de [suporte azure](https://azure.microsoft.com/support/options/) e selecione **Obter Suporte**.
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport). Esta é a conta oficial do Microsoft Azure para ligar a comunidade Azure aos recursos certos: respostas, suporte e especialistas.
+* Arquiva um incidente de apoio ao Azure. Vá ao site de [suporte azure](https://azure.microsoft.com/support/options/), e selecione **Obter Suporte**.

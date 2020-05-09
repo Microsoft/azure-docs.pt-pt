@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 03/18/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 084b364f4a1414febb7b6f11c9cf70958ee823c4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f28b660a2afc97cf9faf0f601e247a97e99098cd
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82176674"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853356"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Introdução ao Armazenamento de blobs do Azure
 
@@ -65,7 +65,7 @@ Para obter mais informações sobre os diferentes tipos de bolhas, consulte [Und
 
 Existem várias soluções para a migração dos dados existentes para o armazenamento da Blob:
 
-- **O AzCopy** é uma ferramenta de linha de comando fácil de usar para Windows e Linux que copia dados de e para o armazenamento blob, através de contentores ou através de contas de armazenamento. Para mais informações sobre o AzCopy, consulte [os dados de transferência com o AzCopy v10 (Pré-visualização)](../common/storage-use-azcopy-v10.md).
+- **O AzCopy** é uma ferramenta de linha de comando fácil de usar para Windows e Linux que copia dados de e para o armazenamento blob, através de contentores ou através de contas de armazenamento. Para mais informações sobre o AzCopy, consulte os [dados de transferência com o AzCopy v10](../common/storage-use-azcopy-v10.md).
 - A **biblioteca Azure Storage Data Movement** é uma biblioteca .NET para movimentar dados entre os serviços de Armazenamento Azure. O utilitário AzCopy é construído com a biblioteca Data Movement. Para mais informações, consulte a [documentação de referência](/dotnet/api/microsoft.azure.storage.datamovement) para a biblioteca do Movimento de Dados.
 - A **Azure Data Factory** suporta a cópia de dados de e para o armazenamento da Blob utilizando a chave de conta, uma assinatura de acesso partilhado, um diretor de serviço ou identidades geridas para os recursos Do Azure. Para mais informações, consulte [os dados da Cópia de ou para o armazenamento da Blob Azure utilizando](../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)a Azure Data Factory .
 - **Blobfuse** é um controlador virtual do sistema de ficheiros para o armazenamento de Azure Blob. Pode utilizar blobfuse para aceder aos dados de blob de bloco existentes na sua conta de Armazenamento através do sistema de ficheiros Linux. Para mais informações, consulte como montar o armazenamento blob como um sistema de [ficheiros com blobfuse](storage-how-to-mount-container-linux.md).

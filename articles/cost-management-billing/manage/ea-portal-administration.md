@@ -3,16 +3,16 @@ title: Administração do Azure EA Portal
 description: Este artigo explica as tarefas comuns que um administrador realiza no Azure EA Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/01/2020
+ms.date: 05/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 12276270b0cb2c01a9ac549eb4d115fd7c5d8385
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 2b2ec7a5954649c36cf9da5d7933c83eec67faa3
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80586290"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692648"
 ---
 # <a name="azure-ea-portal-administration"></a>Administração do Azure EA Portal
 

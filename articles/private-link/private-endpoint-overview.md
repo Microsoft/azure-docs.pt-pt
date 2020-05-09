@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: a4117acb2fada5c4422e177e9e6b84d7a0a51b69
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c0cf8a91ee1dbdd70f1b911dba24fb69ee7bc0e3
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82129327"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744397"
 ---
 # <a name="what-is-azure-private-endpoint"></a>O que é Azure Private Endpoint?
 
@@ -24,7 +24,7 @@ O Ponto Final Privado do Azure é uma interface de rede que o liga a um serviço
 
 |Propriedade  |Descrição |
 |---------|---------|
-|Nome    |    Um nome único dentro do grupo de recursos.      |
+|Name    |    Um nome único dentro do grupo de recursos.      |
 |Subrede    |  A subnet para implantar e alocar endereços IP privados a partir de uma rede virtual. Para obter requisitos de sub-rede, consulte a secção Limitações neste artigo.         |
 |Recurso de ligação privada    |   O recurso de ligação privada para ligar usando identificação ou pseudónimo de recursos, a partir da lista de tipos disponíveis. Será gerado um identificador de rede único para todo o tráfego enviado para este recurso.       |
 |Subrecurso-alvo   |      O subrecurso para ligar. Cada tipo de recurso de ligação privada tem diferentes opções para selecionar com base na preferência.    |
@@ -35,7 +35,7 @@ O Ponto Final Privado do Azure é uma interface de rede que o liga a um serviço
 Aqui estão alguns detalhes chave sobre pontos finais privados: 
 - O ponto final privado permite a conectividade entre os consumidores do mesmo VNet, VNets regionalmente peered, VNets globalmente e em instalações usando [VPN](https://azure.microsoft.com/services/vpn-gateway/) ou [Rota Expresso](https://azure.microsoft.com/services/expressroute/) e serviços alimentados por Private Link.
  
-- Ao criar um ponto final privado, é também criada uma interface de rede para o ciclo de vida do recurso. A interface é atribuída a um endereço IP privado da subnet que mapeia para o Serviço de Ligação Privada.
+- Ao criar um ponto final privado, é também criada uma interface de rede apenas para leitura para o ciclo de vida do recurso. A interface é atribuída a um endereço IP privado da subnet que mapeia para o recurso de ligação privada.
  
 - O ponto final privado deve ser implantado na mesma região que a rede virtual. 
  
@@ -55,8 +55,8 @@ Um recurso de ligação privada é o alvo de destino de um determinado ponto fin
 |**Serviço de Link Privado** (Seu próprio serviço)   |  Microsoft.Network/privateLinkServices       | vazio |
 |**Base de Dados SQL do Azure** | Microsoft.Sql/servidores    |  Sql Server (sqlServer)        |
 |**Azure Synapse Analytics** | Microsoft.Sql/servidores    |  Sql Server (sqlServer)        | 
-|**Armazenamento Azure**  | Microsoft.Storage/storageAccounts    |  Blob (bolha, blob_secondary)<BR> Tabela (mesa, table_secondary)<BR> Fila (fila, queue_secondary)<BR> Arquivo (arquivo, file_secondary)<BR> Web (web, web_secondary)        |
-|**Armazenamento do Azure Data Lake Ger2**  | Microsoft.Storage/storageAccounts    |  Blob (bolha, blob_secondary)<BR> Data Lake File System Gen2 (dfs, dfs_secondary)       |
+|**Storage do Azure**  | Microsoft.Storage/storageAccounts    |  Blob (bolha, blob_secondary)<BR> Tabela (mesa, table_secondary)<BR> Fila (fila, queue_secondary)<BR> Arquivo (arquivo, file_secondary)<BR> Web (web, web_secondary)        |
+|**Azure Data Lake Storage Gen2** (Armazenamento do Azure Data Lake Gen2)  | Microsoft.Storage/storageAccounts    |  Blob (bolha, blob_secondary)<BR> Data Lake File System Gen2 (dfs, dfs_secondary)       |
 |**Azure Cosmos DB** | Microsoft.AzureCosmosDB/databaseAccounts    | Sql, MongoDB, Cassandra, Gremlin, Mesa|
 |**Base de Dados Azure para PostgreSQL -Servidor único** | Microsoft.DBforPostgreSQL/servidores    | postgresqlServer |
 |**Base de Dados do Azure para MySQL** | Microsoft.DBforMySQL/servidores    | mysqlServer |

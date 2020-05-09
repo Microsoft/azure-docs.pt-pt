@@ -2,26 +2,21 @@
 title: Estatuto de Prestação de Candidaturas de Quarentena [ Microsoft Docs
 description: Quando configurar uma aplicação para o fornecimento automático de utilizadores, saiba o que significa um estado de provisionamento de Quarentena e como limpá-lo.
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0355bb1c4255e6de4ed17d55097b7b22d6b37db6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c1e0039133b7f9a7ae827e348640f6379b7f10ac
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82229906"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593935"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>Fornecimento de candidaturas em estado de quarentena
 
