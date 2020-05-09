@@ -5,13 +5,13 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/28/2020
-ms.openlocfilehash: 1a760b4cedad5e43a2ef9f186162675aaf6d5ea5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/06/2020
+ms.openlocfilehash: a9368e67abf3c45981cf1f85fe46a2a2799a6877
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82234184"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864339"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Criação de partições no Azure Cosmos DB
 
@@ -56,7 +56,7 @@ No entanto, se o seu recipiente é pequeno, provavelmente não tem divisórias f
 Se o seu recipiente pode crescer para mais do que algumas divisórias físicas, então deve certificar-se de que escolhe uma chave de partição que minimize as consultas de divisóriacruzada. O seu recipiente necessitará de mais do que algumas divisórias físicas quando qualquer uma das seguintes partes for verdadeira:
 
 * O seu contentor terá mais de 30.000 RU's aprovisionados
-* O seu contentor irá armazenar mais de 100 GB de dados
+* O seu contentor armazenará mais de 100 GB de dados
 
 ## <a name="using-item-id-as-the-partition-key"></a>Usando o ID do item como chave de partição
 

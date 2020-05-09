@@ -2,31 +2,27 @@
 title: Entenda como funciona o fornecimento de Anúncios Azure [ Microsoft Docs
 description: Entenda como funciona o fornecimento de anúncios Azure
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/10/2019
 ms.author: mimart
 ms.reviewer: arvinh
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 241d90981ed9ba54d253e6c22c00f9e5a9197863
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7ee685da3492b6915a687151beea3e82e46185de
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80884890"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593731"
 ---
 # <a name="how-provisioning-works"></a>Como funciona o aprovisionamento
 
 O fornecimento automático refere-se à criação de identidades e funções de utilizador nas aplicações na nuvem a que os utilizadores precisam de ter acesso. Além de criar identidades de utilizador, o fornecimento automático inclui a manutenção e remoção das identidades dos utilizadores como alteração de estado ou funções. Antes de iniciar uma implementação, pode rever este artigo para saber como funciona a provisão da Azure AD e obter recomendações de configuração. 
 
-O Serviço de Provisionamento de **AD Azure** fornece aos utilizadores aplicações SaaS e outros sistemas através da ligação a um Sistema de Gestão de Identidade de Domínio Transversal (SCIM) 2.0 ponto final de gestão de utilizadores Fornecido pelo fornecedor de aplicações. Este ponto final do SCIM permite que o Azure AD crie, atualize e remova os utilizadores programáticamente. Para aplicações selecionadas, o serviço de provisionamento também pode criar, atualizar e remover objetos adicionais relacionados com a identidade, tais como grupos e funções. O canal utilizado para o fornecimento entre a AD Azure e a aplicação é encriptado utilizando encriptação HTTPS TLS.
+O Serviço de Provisionamento de **AD Azure** fornece aos utilizadores aplicações SaaS e outros sistemas através da ligação a um Sistema de Gestão de Identidade de Domínio Transversal (SCIM) 2.0 ponto final de gestão de utilizadores Fornecido pelo fornecedor de aplicações. Este ponto final do SCIM permite que o Azure AD crie, atualize e remova os utilizadores programáticamente. Para aplicações selecionadas, o serviço de provisionamento também pode criar, atualizar e remover objetos adicionais relacionados com a identidade, tais como grupos e funções. O canal utilizado para o fornecimento entre a AD Azure e a aplicação é encriptado utilizando encriptação HTTPS TLS 1.2.
 
 
 ![Azure AD Provisioning Service](./media/how-provisioning-works/provisioning0.PNG)
