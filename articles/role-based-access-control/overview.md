@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: d186fd2182603709921f876d0bc212762cb8586b
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 3846a4669cc2a77862e73dbb8e7743b19740e8a4
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735866"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996496"
 ---
 # <a name="what-is-azure-role-based-access-control-azure-rbac"></a>O que é o controlo de acesso baseado em funções azure (Azure RBAC)?
 
@@ -90,7 +90,7 @@ O diagrama seguinte mostra um exemplo de uma atribuição de função. Neste exe
 
 ![Atribuição de função para controlar o acesso](./media/overview/rbac-overview.png)
 
-Pode criar atribuições de funções no portal do Azure, CLI do Azure, Azure PowerShell, SDKs do Azure ou APIs REST. Pode ter até **2000** atribuições de funções em cada subscrição e **500** atribuições de funções em cada grupo de gestão. Para criar e remover atribuições de funções, precisa de ter a permissão `Microsoft.Authorization/roleAssignments/*`. Esta permissão é concedida através das funções [Proprietário](built-in-roles.md#owner) ou [Administrador de Acesso de Utilizador](built-in-roles.md#user-access-administrator).
+Pode criar atribuições de funções no portal do Azure, CLI do Azure, Azure PowerShell, SDKs do Azure ou APIs REST. Pode ter até **2000** atribuições em cada subscrição. Este limite inclui atribuições de funções na subscrição, grupo de recursos e âmbitos de recursos. Você pode ter até **500** atribuições de funções em cada grupo de gestão. Para criar e remover atribuições de funções, precisa de ter a permissão `Microsoft.Authorization/roleAssignments/*`. Esta permissão é concedida através das funções [Proprietário](built-in-roles.md#owner) ou [Administrador de Acesso de Utilizador](built-in-roles.md#user-access-administrator).
 
 ## <a name="multiple-role-assignments"></a>Atribuições de múltiplos papéis
 

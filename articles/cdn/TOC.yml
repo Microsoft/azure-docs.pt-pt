@@ -8,10 +8,10 @@
       href: cdn-features.md
 - name: Guias de Início Rápido
   items:
-    - name: Criar um perfil e ponto final
-      href: cdn-create-new-endpoint.md
     - name: Integrar uma conta de armazenamento
       href: cdn-create-a-storage-account-with-cdn.md
+    - name: Criar um perfil e ponto final
+      href: cdn-create-new-endpoint.md
     - name: Criar um perfil com um modelo do Azure Resource Manager
       href: create-profile-resource-manager-template.md
 - name: Tutoriais

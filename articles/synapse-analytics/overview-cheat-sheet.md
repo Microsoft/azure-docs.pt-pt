@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: aa93a816fc11158d928978bdec2dbf42119fa149
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c7ae76128e90dbd9328c4bc5adcbddc334ab11cc
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81424658"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983164"
 ---
 # <a name="azure-synapse-analytics-cheat-sheet"></a>Folha de batota azure Synapse Analytics
 
@@ -30,7 +30,7 @@ A folha de batota Azure Synapse Analytics irá guiá-lo através dos conceitos b
 ## <a name="concepts"></a>Conceitos
 | Substantivos e verbos                         | O que faz       |
 |:---                                 |:---                 |
-| **Espaço de trabalho sinapse (pré-visualização)** | Um limite de colaboração assegurável para fazer análises empresariais baseadas em nuvem em Azure. Um espaço de trabalho é implantado numa região específica e tem um sistema de conta e ficheiros ADLSg2 associado (para armazenar dados temporários). Um espaço de trabalho está sob um grupo de recursos. |
+| **Espaço de trabalho sinapse (pré-visualização)** | Um limite de colaboração assegurável para fazer análises empresariais baseadas em nuvem em Azure. Um espaço de trabalho é implantado numa região específica e tem um sistema de conta e ficheiros Associado aDLS Gen2 (para armazenar dados temporários). Um espaço de trabalho está sob um grupo de recursos. |
 | **Análise de SQL**   | Executar análises com piscinas ou com capacidades a pedido.  |
 | **Conjunto de SQL**   | Os recursos aprovisionados 0 a N SQL com as respetivas bases de dados podem ser implantados num espaço de trabalho. Cada piscina SQL tem uma base de dados associada. Uma piscina SQL pode ser dimensionada, pausada e retomada manualmente ou automaticamente. Uma piscina SQL pode escalar de 100 DWU até 30.000 DWU.       |
 | **SQL on-demand (pré-visualização)**   | Sistema de processamento de dados distribuído construído para dados em larga escala que permite executar consultas T-SQL sobre dados em data lake. É inútil para que não precise de gerir a infraestrutura.       |

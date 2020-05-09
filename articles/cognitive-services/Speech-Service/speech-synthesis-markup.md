@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: eb3db23189cbfd07362b1bd5be9aaa181064a2d6
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: b1c19ed556a55dec8c84686e80ec988bc593a7a2
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583218"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996036"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Melhorar a síntese com a linguagem de marcação da síntese da fala (SSML)
 
@@ -258,7 +258,7 @@ Utilize `break` o elemento para inserir pausas (ou pausas) entre palavras ou evi
 
 | Atributo | Descrição | Obrigatório / Opcional |
 |-----------|-------------|---------------------|
-| `strength` | Especifica a duração relativa de uma pausa utilizando um dos seguintes valores:<ul><li>nenhuma</li><li>x-fraco</li><li>fraco</li><li>meio (padrão)</li><li>forte</li><li>x-forte</li></ul> | Opcional |
+| `strength` | Especifica a duração relativa de uma pausa utilizando um dos seguintes valores:<ul><li>nenhum</li><li>x-fraco</li><li>fraco</li><li>meio (padrão)</li><li>forte</li><li>x-forte</li></ul> | Opcional |
 | `time` | Especifica a duração absoluta de uma pausa em segundos ou milissegundos. Exemplos de valores válidos são `2s` e`500` | Opcional |
 
 | Força                      | Descrição |
@@ -359,7 +359,10 @@ Os alfabetos fonéticos são compostos por telefones, que são compostos por let
 
 ## <a name="use-custom-lexicon-to-improve-pronunciation"></a>Use léxico personalizado para melhorar a pronúncia
 
-Por vezes, o TTS não consegue pronunciar com precisão uma palavra, por exemplo, uma empresa ou nome estrangeiro. Os desenvolvedores podem definir a leitura destas entidades no SSML usando `phoneme` e `sub` etiquetar, ou `lexicon` definir a leitura de várias entidades, referindo-se a um ficheiro lexicon personalizado usando tag.
+Por vezes, o serviço de texto à fala não consegue pronunciar com precisão uma palavra. Por exemplo, o nome de uma empresa, ou um termo médico. Os desenvolvedores podem definir como entidades únicas são lidas no SSML usando as `phoneme` etiquetas e `sub` etiquetas. No entanto, se precisar de definir como várias entidades são `lexicon` lidas, pode criar um léxico personalizado usando a etiqueta.
+
+> [!NOTE]
+> O léxico personalizado suporta atualmente a codificação UTF-8. 
 
 **Sintaxe**
 
@@ -375,14 +378,10 @@ Por vezes, o TTS não consegue pronunciar com precisão uma palavra, por exemplo
 
 **Utilização**
 
-Passo 1: Definir léxico personalizado 
-
-Pode definir a leitura de entidades através de uma lista de itens de léxico personalizados, armazenados como um ficheiro .xml ou .pls.
-
-**Exemplo**
+Para definir como várias entidades são lidas, pode criar um léxico personalizado, que é armazenado como um ficheiro .xml ou .pls. Segue-se um ficheiro .xml de amostra.
 
 ```xml
-<?xml version="1.0" encoding="UTF-16"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <lexicon version="1.0" 
       xmlns="http://www.w3.org/2005/01/pronunciation-lexicon"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
@@ -400,39 +399,61 @@ Pode definir a leitura de entidades através de uma lista de itens de léxico pe
 </lexicon>
 ```
 
-Cada `lexeme` elemento é um item de léxico. `grapheme`contém texto que descreve o `lexeme`ortografo de . O formulário de leitura `alias`pode ser fornecido como . A corda telefónica `phoneme` pode ser fornecida em elemento.
+O `lexicon` elemento contém `lexeme` pelo menos um elemento. Cada `lexeme` elemento contém `grapheme` pelo menos um `grapheme` `alias`elemento `phoneme` e um ou mais, e elementos. O `grapheme` elemento contém texto que descreve a <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">ortografia. <span class="docon docon-navigate-external x-hidden-focus"> </span> </a> Os `alias` elementos são usados para indicar a pronúncia de um acrónimo ou termo abreviado. O `phoneme` elemento fornece texto descrevendo `lexeme` como o é pronunciado.
 
-O `lexicon` elemento contém `lexeme` pelo menos um elemento. Cada `lexeme` elemento contém `grapheme` pelo menos um `grapheme` `alais`elemento `phoneme` e um ou mais, e elementos. O `grapheme` elemento contém texto que descreve a <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">ortografia. <span class="docon docon-navigate-external x-hidden-focus"> </span> </a> Os `alias` elementos são usados para indicar a pronúncia de um acrónimo ou termo abreviado. O `phoneme` elemento fornece texto descrevendo `lexeme` como o é pronunciado.
+É importante notar que não se pode definir diretamente a pronúncia de uma palavra usando o léxico personalizado. Se precisar definir a pronúncia para `alias`um, primeiro `phoneme` forneça `alias`um , em seguida, associe o com que . Por exemplo:
 
-Para obter mais informações sobre o ficheiro lexicon personalizado, consulte a [Versão 1.0 da Pronunciação Lexicon (PLS)](https://www.w3.org/TR/pronunciation-lexicon/) no site da W3C.
+```xml
+  <lexeme>
+    <grapheme>Scotland MV</grapheme> 
+    <alias>ScotlandMV</alias> 
+  </lexeme>
+  <lexeme>
+    <grapheme>ScotlandMV</grapheme> 
+    <phoneme>ˈskɒtlənd.ˈmiːdiəm.weɪv</phoneme>
+  </lexeme>
+```
 
-Passo 2: Faça upload do ficheiro lexicon personalizado criado no passo 1 online, pode armazená-lo em qualquer lugar, e sugerimos que o guarde no Microsoft Azure, por exemplo, [armazenamento de Blob Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
+> [!IMPORTANT]
+> O `phoneme` elemento não pode conter espaços brancos quando se utiliza IPA.
 
-Passo 3: Consulte o ficheiro lexicon personalizado no SSML
+Para mais informações sobre o ficheiro lexicon personalizado, consulte a [Versão 1.0 da Pronunciação Lexicon (PLS) .](https://www.w3.org/TR/pronunciation-lexicon/)
+
+Em seguida, publique o seu ficheiro lexicon personalizado. Embora não tenhamos restrições sobre onde este ficheiro pode ser armazenado, recomendamos a utilização do [Armazenamento Azure Blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
+
+Depois de publicar o seu léxico personalizado, pode referenciar a partir do seu SSML.
+
+> [!NOTE]
+> O `lexicon` elemento deve `voice` estar dentro do elemento.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" 
           xmlns:mstts="http://www.w3.org/2001/mstts" 
           xml:lang="en-US">
-<lexicon uri="http://www.example.com/customlexicon.xml"/>
-BTW, we will be there probably 8:00 tomorrow morning.
-Could you help leave a message to Robert Benigni for me?
+    <voice name="en-US-AriaRUS">
+        <lexicon uri="http://www.example.com/customlexicon.xml"/>
+        BTW, we will be there probably at 8:00 tomorrow morning.
+        Could you help leave a message to Robert Benigni for me?
+    </voice>
 </speak>
 ```
-"BTW" será lido como "A propósito". "Benigni" será lido com ipa "binânji".  
 
-**Limitação**
+Ao utilizar este léxico personalizado, "BTW" será lido como "A propósito". "Benigni" será lido com o IPA "bâmânji" fornecido.  
+
+**Limitações**
 - Tamanho do ficheiro: o limite máximo do tamanho do ficheiro léxico personalizado é de 100KB, se para além deste tamanho, o pedido de síntese falhará.
 - Atualização da cache lexicon: o léxico personalizado será colocado com URI como chave no Serviço TTS quando for carregado pela primeira vez. O léxico com o mesmo URI não será recarregado dentro de 15 minutos, por isso a mudança de léxico personalizado precisa de esperar no máximo 15 minutos para fazer efeito.
 
 **Conjuntos fonéticos do serviço de fala**
 
-Na amostra acima, estamos a usar o Alfabeto Fonético Internacional, também conhecido como o conjunto telefónico IPA. Sugerimos que os desenvolvedores utilizem o IPA, porque é o padrão internacional. Tendo em conta que o IPA não é fácil de lembrar, o`en-US` `fr-FR`serviço `de-DE` `es-ES`de `ja-JP` `zh-CN`Fala `zh-TW`define um conjunto fonético para sete línguas ( , , , , , e ).
+Na amostra acima, estamos a usar o Alfabeto Fonético Internacional, também conhecido como o conjunto telefónico IPA. Sugerimos que os desenvolvedores utilizem o IPA, porque é o padrão internacional. Para alguns caracteres IPA, eles têm a versão 'pré-composta' e 'decomposta' quando estão representados com o Unicode. O léxico personalizado só suporta os unicódigos decompostos.
+
+Tendo em conta que o IPA não é fácil de lembrar, o`en-US` `fr-FR`serviço `de-DE` `es-ES`de `ja-JP` `zh-CN`Fala `zh-TW`define um conjunto fonético para sete línguas ( , , , , , e ).
 
 Você pode `sapi` usar o vale `alphabet` como vale para o atributo com léxicos personalizados como demonstrado abaixo:
 
 ```xml
-<?xml version="1.0" encoding="UTF-16"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <lexicon version="1.0" 
       xmlns="http://www.w3.org/2005/01/pronunciation-lexicon"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
