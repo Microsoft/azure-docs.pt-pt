@@ -8,15 +8,16 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: babanisa
-ms.openlocfilehash: 03bc2f9de6f50f08c9f62f86a3d1791a067cecd0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5f8b0a779e6cb70537d126c251e1e065892934a9
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78899285"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629512"
 ---
 # <a name="authorizing-access-to-event-grid-resources"></a>Autorizar o acesso aos recursos da Rede de Eventos
 A Azure Event Grid permite controlar o nível de acesso dado aos diferentes utilizadores para fazer várias operações de gestão, tais como subscrições de eventos de listas, criar novas e gerar chaves. A Event Grid utiliza o controlo de acesso baseado em papéis da Azure (RBAC).
+
 
 ## <a name="operation-types"></a>Tipos de operação
 
@@ -182,6 +183,23 @@ Pode criar funções personalizadas com [PowerShell,](../role-based-access-contr
 ### <a name="encryption-at-rest"></a>Encriptação inativa
 
 Todos os eventos ou dados escritos em disco pelo serviço Event Grid são encriptados por uma chave gerida pela Microsoft, garantindo que está encriptado em repouso. Adicionalmente, o período máximo de tempo que os eventos ou dados retidos é de 24 horas de adesão à política de [retry da Rede](delivery-and-retry.md)de Eventos . A Grelha de Eventos eliminará automaticamente todos os eventos ou dados após 24 horas, ou o evento tem tempo de vida, o que for menor.
+
+## <a name="permissions-for-event-subscriptions"></a>Permissões para subscrições de eventos
+Se estiver a usar um manipulador de eventos que não seja um WebHook (como um hub de eventos ou armazenamento de fila), precisa de ter acesso a esse recurso. Esta verificação de permissões impede um utilizador não autorizado de enviar eventos para o seu recurso.
+
+Tem de ter a **microsoft.EventGrid/EventSubscriptions/Write** no recurso que é a fonte do evento. Precisa desta permissão porque está a escrever uma nova subscrição no âmbito do recurso. O recurso necessário difere com base no facto de estar a subscrever um tópico do sistema ou um tópico personalizado. Ambos os tipos são descritos nesta secção.
+
+### <a name="system-topics-azure-service-publishers"></a>Tópicos do sistema (editores de serviços Azure)
+Para tópicos do sistema, precisa de permissão para escrever uma nova subscrição de evento sintetizador no âmbito do recurso que publica o evento. O formato do recurso é:`/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}`
+
+Por exemplo, para subscrever um evento numa conta de armazenamento chamada **myacct,** precisa da Microsoft.EventGrid/EventSubscriptions/Write permission em:`/subscriptions/####/resourceGroups/testrg/providers/Microsoft.Storage/storageAccounts/myacct`
+
+### <a name="custom-topics"></a>Tópicos personalizados
+Para tópicos personalizados, você precisa de permissão para escrever uma nova subscrição de evento no âmbito do tópico da grelha de eventos. O formato do recurso é:`/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}`
+
+Por exemplo, para subscrever um tópico personalizado chamado **mytopic,** você precisa da Microsoft.EventGrid/EventSubscriptions/Write permission em:`/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic`
+
+
 
 ## <a name="next-steps"></a>Passos seguintes
 
