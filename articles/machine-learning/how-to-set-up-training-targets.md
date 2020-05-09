@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4db00fd43095c44a88cc0aae40778ab5b4b751b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0ac0352fbca73aca7cc8c19a851dad9149af14a1
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137404"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872097"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurar e utilizar alvos de cálculo para formação de modelos 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -365,7 +365,7 @@ Depois de criar uma configuração de execução, usa-a para executar a sua expe
 > [!IMPORTANT]
 > Quando submete o treino, uma imagem do diretório que contém os seus scripts de treino é criada e enviada para o alvo da computação. Também é armazenado como parte da experiência no seu espaço de trabalho. Se alterar ficheiros e submeter a execução novamente, apenas os ficheiros alterados serão carregados.
 >
-> Para evitar que os ficheiros sejam incluídos no `.amlignore` instantâneo, crie um [.gitignore](https://git-scm.com/docs/gitignore) ou ficheiro no diretório e adicione os ficheiros ao mesmo. O `.amlignore` ficheiro utiliza a mesma sintaxe e padrões que o ficheiro [.gitignore.](https://git-scm.com/docs/gitignore) Se ambos os `.amlignore` ficheiros existirem, o ficheiro tem precedência.
+> [!INCLUDE [amlinclude-info](../../includes/machine-learning-amlignore-gitignore.md)]
 > 
 > Para mais informações, consulte [Snapshots](concept-azure-machine-learning-architecture.md#snapshots).
 

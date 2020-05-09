@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: curtand
-ms.openlocfilehash: b68e7b517ddaa9b2aaef00cf87d5b6e63871654b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c828878506ee69e90945d1f4be07eb81541b9757
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77064024"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82625413"
 ---
 # <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-preview-page"></a>Veja e procure a sua recente atividade de inscrição na página My Sign-ins (pré-visualização)
 
@@ -30,7 +30,7 @@ Pode ver todo o seu trabalho recente ou atividade de inscrição na conta escola
 
 ## <a name="view-your-recent-sign-in-activity"></a>Ver a sua atividade de início de sessão recente
 
-1. Inscreva-se na sua conta de trabalho https://myprofile.microsoft.com/ ou escola e depois vá para a sua página.
+1. Inscreva-se na sua conta de trabalho https://myaccount.microsoft.com/ ou escola e depois vá para a sua página.
 
 2. Selecione **My Sign-ins (pré-visualização)** do painel de navegação esquerdo ou selecione o link de **atividade recente da Revisão** a partir do bloco My **sign-ins (pré-visualização).**
 

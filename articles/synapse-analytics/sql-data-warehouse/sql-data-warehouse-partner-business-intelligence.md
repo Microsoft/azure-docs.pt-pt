@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 75020b0dd58a80f989bd03eb92031d904ebf4c82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cb37efb796ddf41bd1d19e10d22f934590604274
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81313694"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871705"
 ---
 # <a name="azure-synapse-analytics-business-intelligence-partners"></a>Parceiros de inteligência empresarial Azure Synapse Analytics
 
@@ -38,7 +38,7 @@ Para criar a sua solução completa de armazém de dados utilizando piscina SQL 
 | ![SiSense](./media/sql-data-warehouse-partner-business-intelligence/sisense_logo.png) |**SiSense**<br>O SiSense é um software de Business Intelligence de grande pilha que vem com ferramentas que uma empresa precisa para analisar e visualizar dados: uma base de dados analítica de alto desempenho, a capacidade de juntar várias fontes, extração simples de dados (ETL) e visualização de dados baseadona na Web. Comece a analisar e visualizar grandes conjuntos de dados com o SiSense BI e o Analytics hoje. |[Página do produto](https://www.sisense.com/product/)<br> |
 | ![Tableau](./media/sql-data-warehouse-partner-business-intelligence/tableau_sparkle_logo.png) |**Tableau**<br>A análise de self-service de Tableau ajuda qualquer pessoa a ver e entender os seus dados, através de muitos tipos de dados, desde ficheiros planos a bases de dados. Tableau tem um conector nativo e otimizado para o pool SYnapse SQL que suporta tanto dados ao vivo como análise sintetizada. |[Página do produto](https://www.tableau.com/)<br> [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/tableau/tableau-server/)<br>|
 | ![Rio Targit](./media/sql-data-warehouse-partner-business-intelligence/targit_logo.png) |**Targit (Decision Suite)**<br>A Targit Decision Suite fornece a plataforma BI e Analytics que fornece dashboards em tempo real, análise de self-service, relatórios fáceis de utilizar, capacidades móveis impressionantes e tecnologia simples de descoberta de dados numa única solução coesa. Targit dá às empresas a coragem de agir. |[Página do produto](https://www.targit.com/targit-decision-suite/analytics)<br> [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/targit/targit-decision-suite/)<br> |
-| ![ThoughtSpot](./media/sql-data-warehouse-partner-business-intelligence/thoughtspot-logo.png) |**ThoughtSpot**<br>As empresas mais inovadoras do mundo usam o ThoughtSpot para capacitar todas as pessoas da sua organização, desde o executivo da C-suite até aos funcionários da linha da frente, com a capacidade de descobrir rapidamente insights orientados por dados. Com o ThoughtSpot, os empresários podem escrever uma pesquisa simples para analisar instantaneamente milhares de milhões de linhas de dados, e alavancar a inteligência artificial para obter informações confiáveis e relevantes empurradas para eles como respostas a milhares de perguntas que talvez não tenham pensado fazer. O ThoughtSpot é suficientemente simples para qualquer empresário usar, mas poderoso o suficiente para lidar com os maiores e mais complexos dados empresariais sem sacrificar a velocidade, segurança ou governação. É por isso que clientes como walmart, 7-11, BT, Daimler, Exxon, Hulu, Royal Bank of Canada, Bank of the West, e Nationwide Building Society recorreram ao ThoughtSpot para transformar as suas culturas de decisão e a empresa analista Gartner nomeou ThoughtSpot um Líder no Quadrante Mágico de 2020. Ao fazer insights uma parte de cada conversa e cada decisão, o ThoughtSpot está a reimaginar o papel dos dados na criação de um mundo mais orientado para os factos. |[Página do produto](https://www.thoughtspot.com)<br>|
+| ![ThoughtSpot](./media/sql-data-warehouse-partner-business-intelligence/thoughtspot-logo.png) |**ThoughtSpot**<br>Use a pesquisa para obter insights granulares de biliões de linhas de dados, ou deixe a IA descobrir insights de perguntas que você poderia não ter pensado fazer. O ThoughtSpot ajuda os empresários a encontrar insights escondidos nos dados da empresa em segundos. Use a pesquisa para analisar os seus dados e obtenha insights automatizados quando precisar deles.|[Página do produto](https://www.thoughtspot.com)<br>|
 | ![Barbatana amarela](./media/sql-data-warehouse-partner-business-intelligence/yellowfin_logo.png) |**Barbatana amarela**<br>Yellowfin é um fornecedor de Cloud BI com melhor classificação para relatórios ad hoc e dashboards por BARC; A Pesquisa bi. Conecte-se à piscina SYnapse SQL, em seguida, crie e partilhe belos relatórios e dashboards com funcionalidades de bi colaborativa e inteligência de localização premiadas. |[Página do produto](https://www.yellowfinbi.com/)<br> [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/yellowfin/yellowfin-for-azure-byol/) |
 
 <!--https://img.youtube.com/vi/0b8sPW2UHrU/0.jpg-->

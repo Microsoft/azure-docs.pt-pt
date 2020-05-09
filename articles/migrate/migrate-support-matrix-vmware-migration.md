@@ -3,12 +3,12 @@ title: Apoio à migração de VMware em Azure Migrate
 description: Conheça o suporte à migração VMware VM em Azure Migrate.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: eee16b244ae4f9d517bdd42a0b7f37b1494ac480
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 666fcc3771dfd4adadeab30fa5d1ec51da5bc038
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81538142"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82743670"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matriz de suporte para migração vMware
 
@@ -69,7 +69,7 @@ A migração sem agente utiliza o [aparelho Migratório Azure](migrate-appliance
 
 - Conheça os [requisitos](migrate-appliance.md#appliance---vmware) do aparelho para vMware.
 - Saiba mais sobre os URLs que o aparelho precisa de aceder em nuvens [públicas](migrate-appliance.md#public-cloud-urls) e [governamentais.](migrate-appliance.md#government-cloud-urls)
-- No Governo Azure, deve utilizar o aparelho utilizando o script.
+- No Governo Azure, deve utilizar o aparelho [utilizando o script](deploy-appliance-script-government.md).
 
 ## <a name="agentless-ports"></a>Portas sem agente
 

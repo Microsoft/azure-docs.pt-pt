@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: 7e16eabc4f9572591eabd37b93258fcd783cce7e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f68221666f370f87af7539d9302aaa3ed472d5e8
+ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80351157"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82883146"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-fstab-errors"></a>Problemas de jogo do Linux VM iniciam problemas devido a erros de fstab
 
@@ -242,4 +242,3 @@ Para resolver este problema, inicie o VM em modo de emergência utilizando a con
 
 * [Resolução de problemas um VM Linux, ligando o disco OS a um VM de recuperação com o Azure CLI 2.0](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-troubleshoot-recovery-disks)
 * [Troubleshoot a Linux VM ligando o disco OS a um VM de recuperação usando o portal Azure](https://docs.microsoft.com/azure/virtual-machines/linux/troubleshoot-recovery-disks-portal)
-

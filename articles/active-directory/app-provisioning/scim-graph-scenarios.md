@@ -1,6 +1,6 @@
 ---
 title: Utilize o SCIM, o Microsoft Graph e o Azure AD para fornecer aos utilizadores e enriquecer aplicações com dados
-description: Utilizando o SCIM e o Microsoft Graph em conjunto para fornecer aos utilizadores e enriquecer a sua aplicação com os dados de que necessita .
+description: Utilizando o SCIM e o Microsoft Graph em conjunto para fornecer aos utilizadores e enriquecer a sua aplicação com os dados de que necessita.
 services: active-directory
 author: msmimart
 manager: CelesteDG
@@ -10,13 +10,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/26/2020
 ms.author: mimart
-ms.reviewer: arvinh
-ms.openlocfilehash: ceba22e9289e0a10211ee26a7758238a8b1f06c7
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.reviewer: arvinh, celested
+ms.openlocfilehash: 0b2c8e6bb71e00ccb6eda33ecb1b087d09ce5de7
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82201691"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82626195"
 ---
 # <a name="using-scim-and-microsoft-graph-together-to-provision-users-and-enrich-your-application-with-the-data-it-needs"></a>Utilizando o SCIM e o Microsoft Graph em conjunto para fornecer aos utilizadores e enriquecer a sua aplicação com os dados de que necessita
 
@@ -103,8 +103,8 @@ A minha aplicação está integrada nas Equipas microsoft e baseia-se em dados d
 Preciso de ser capaz de rastrear as alterações nas mensagens Teams e Outlook e reagir a elas em tempo real. Como posso conseguir que estas alterações me empurrem para a minha candidatura?
 
 **Recomendação:** O Microsoft Graph fornece [notificações](https://docs.microsoft.com/graph/webhooks) de alteração e [alterações](https://docs.microsoft.com/graph/delta-query-overview) no rastreio de vários recursos. Note as seguintes limitações das notificações de alteração:
-- Se um recetor de eventos reconhecer um evento, mas não agir nele por qualquer motivo, o evento pode ser perdido
-- Se um recetor de eventos reconhecer um evento, mas não agir nele por qualquer motivo, o evento pode ser perdido
+- Se um recetor de eventos reconhecer um evento, mas não agir nele por qualquer motivo, o evento pode ser perdido.
+- A ordem em que são recebidas alterações não é garantida como cronológica.
 - As notificações de alteração nem sempre contêm os dados de [recursos](https://docs.microsoft.com/graph/webhooks-with-resource-data) Pelas razões acima referidas, os desenvolvedores usam frequentemente notificações de alteração juntamente com o rastreio de alterações para cenários de sincronização. 
 
 ## <a name="scenario-6-provision-users-and-groups-in-azure-ad"></a>Cenário 6: Fornecer utilizadores e grupos em Azure AD

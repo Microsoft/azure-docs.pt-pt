@@ -8,17 +8,17 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6b60ccc7a635e4b6071b43d7ff75e182aa96cd08
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 74a4c13197863d0d41e183826cafd64976b44431
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81313631"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792586"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Cenários do Azure Disk Encryption em VMs do Linux
 
 
-A encriptação do disco Azure para máquinas virtuais Linux (VMs) utiliza a funcionalidade DM-Crypt do Linux para fornecer encriptação completa do disco do SISTEMA e dos discos de dados. Além disso, fornece encriptação do disco de recursos efémeros ao utilizar a funcionalidade EncryptFormatAll.
+A encriptação do disco Azure para máquinas virtuais Linux (VMs) utiliza a funcionalidade DM-Crypt do Linux para fornecer encriptação completa do disco do SISTEMA e dos discos de dados. Além disso, fornece encriptação do disco temporário ao utilizar a funcionalidade EncryptFormatAll.
 
 A encriptação do disco Azure está integrada com o [Azure Key Vault](disk-encryption-key-vault.md) para ajudá-lo a controlar e gerir as chaves e segredos de encriptação do disco. Para uma visão geral do serviço, consulte a [Encriptação do Disco Azure para VMs Linux](disk-encryption-overview.md).
 
@@ -209,9 +209,9 @@ Para obter mais informações sobre a configuração do modelo de encriptação 
 
 ## <a name="use-encryptformatall-feature-for-data-disks-on-linux-vms"></a>Utilize a funcionalidade EncryptFormatAll para discos de dados em VMs Linux
 
-O parâmetro **EncryptFormatAll** reduz o tempo para os discos de dados do Linux serem encriptados. As divisórias que satisfaçam determinados critérios serão formatadas (com o seu sistema de ficheiros atual), e depois remontadas ao local onde estava antes da execução do comando. Se desejar excluir um disco de dados que satisfaça os critérios, pode desmontá-lo antes de executar o comando.
+O parâmetro **EncryptFormatAll** reduz o tempo para os discos de dados do Linux serem encriptados. As divisórias que satisfaçam determinados critérios serão formatadas, juntamente com os seus sistemas de ficheiros atuais, e depois remontadas ao local onde estavam antes da execução do comando. Se desejar excluir um disco de dados que satisfaça os critérios, pode desmontá-lo antes de executar o comando.
 
- Depois de executar este comando, quaisquer unidades que foram montadas anteriormente serão formatadas, e a camada de encriptação será iniciada em cima da unidade agora vazia. Quando esta opção for selecionada, o disco de recursos efémeros ligado ao VM também será encriptado. Se a unidade efémera for recriada, será reformada e reencriptada para o VM pela solução de encriptação do disco Azure na próxima oportunidade. Assim que o disco de recursos for encriptado, o [Agente Microsoft Azure Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) não será capaz de gerir o disco de recursos e ativar o ficheiro swap, mas poderá configurar manualmente o ficheiro swap.
+ Depois de executar este comando, quaisquer unidades que foram montadas anteriormente serão formatadas, e a camada de encriptação será iniciada em cima da unidade agora vazia. Quando esta opção for selecionada, o disco temporário ligado ao VM também será encriptado. Se o disco temporário for reposto, será reformado e reencriptado para o VM pela solução de encriptação do disco Azure na próxima oportunidade. Assim que o disco de recursos for encriptado, o [Agente Microsoft Azure Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) não será capaz de gerir o disco de recursos e ativar o ficheiro swap, mas poderá configurar manualmente o ficheiro swap.
 
 >[!WARNING]
 > EncryptFormatAll não deve ser usado quando existem dados necessários sobre os volumes de dados de um VM. Pode excluir discos da encriptação desmontando-os. Primeiro deve experimentar o EncryptFormatAll primeiro num VM de teste, compreender o parâmetro de funcionalidade e a sua implicação antes de experimentá-lo no VM de produção. A opção EncryptFormatAll formata o disco de dados e todos os dados nele serão perdidos. Antes de prosseguir, verifique se os discos que pretende excluir estão devidamente desmontados. </br></br>
@@ -320,7 +320,7 @@ Pode adicionar um novo disco de dados utilizando a fixação do [disco Az vm,](a
 
  Se o VM foi previamente encriptado com "All" então o parâmetro do tipo volume deve permanecer "All". Tudo inclui os discos de OS e de dados. Se o VM foi previamente encriptado com um tipo de volume de "OS", então o parâmetro do tipo volume deve ser alterado para "All" para que tanto o SISTEMA como o novo disco de dados sejam incluídos. Se o VM foi encriptado apenas com o tipo de volume de "Dados", então pode permanecer "Data" como demonstrado abaixo. Adicionar e anexar um novo disco de dados a um VM não é uma preparação suficiente para encriptação. O disco recém-ligado também deve ser formatado e montado corretamente dentro do VM antes de permitir a encriptação. No Linux, o disco deve ser montado em /etc/fstab com um [nome de dispositivo](troubleshoot-device-names-problems.md)de bloco persistente .  
 
-Ao contrário da sintaxe Powershell, o CLI não requer que o utilizador forneça uma versão de sequência única ao permitir a encriptação. O CLI gera automaticamente e utiliza o seu próprio valor de versão de sequência única.
+Ao contrário da sintaxe PowerShell, o CLI não requer que o utilizador forneça uma versão de sequência única ao permitir a encriptação. O CLI gera automaticamente e utiliza o seu próprio valor de versão de sequência única.
 
 -  **Criptografe volumes de dados de um VM em execução:**
 
@@ -335,7 +335,7 @@ Ao contrário da sintaxe Powershell, o CLI não requer que o utilizador forneça
      ```
 
 ### <a name="enable-encryption-on-a-newly-added-disk-with-azure-powershell"></a>Ativar a encriptação num disco recém-adicionado com a Azure PowerShell
- Ao utilizar o Powershell para encriptar um novo disco para o Linux, é necessário especificar uma nova versão de sequência. A versão da sequência tem de ser única. O script abaixo gera um GUID para a versão de sequência. Pegue uma [fotografia](snapshot-copy-managed-disk.md) e/ou volte a fazer o VM com [a Cópia de Segurança Azure](../../backup/backup-azure-vms-encryption.md) antes de os discos estarem encriptados. O parâmetro -skipVmBackup já está especificado nos scripts PowerShell para encriptar um disco de dados recém-adicionado.
+ Ao utilizar o PowerShell para encriptar um novo disco para o Linux, é necessário especificar uma nova versão de sequência. A versão da sequência tem de ser única. O script abaixo gera um GUID para a versão de sequência. Pegue uma [fotografia](snapshot-copy-managed-disk.md) e/ou volte a fazer o VM com [a Cópia de Segurança Azure](../../backup/backup-azure-vms-encryption.md) antes de os discos estarem encriptados. O parâmetro -skipVmBackup já está especificado nos scripts PowerShell para encriptar um disco de dados recém-adicionado.
  
 
 -  **Criptografe volumes de dados de um VM em execução:** O script abaixo inicializa as suas variáveis e executa o cmdlet set-AzVMDiskEncryptionExtension. O grupo de recursos, VM e cofre chave já deviam ter sido criados como pré-requisitos. Substitua o MyVirtualMachineResourceGroup, mySecureVM e MySecureVault com os seus valores. Os valores aceitáveis para o parâmetro -VolumeType são All, OS e Data. Se o VM foi previamente encriptado com um tipo de volume de "OS" ou "All", então o parâmetro -VolumeType deve ser alterado para "All" para que tanto o SISTEMA como o novo disco de dados sejam incluídos.
@@ -408,9 +408,10 @@ A encriptação do disco azure não funciona para os seguintes cenários, funcio
 - Encriptação de sistemas de ficheiros partilhados/distribuídos como (mas não se limitando a): DFS, GFS, DRDB e CephFS.
 - Mover um VM encriptado para outra subscrição.
 - Kernel Crash Dump (kdump).
-- Oracle ACFS (Sistema de Ficheiros de Cluster ASM)
-- Gen2 VMs (ver: [Suporte para geração 2 VMs em Azure)](generation-2.md#generation-1-vs-generation-2-capabilities)
-- VMs série Lsv2 (ver: [Lsv2-series)](../lsv2-series.md)
+- Oracle ACFS (Sistema de Ficheiros de Cluster ASM).
+- Gen2 VMs (ver: [Suporte para geração 2 VMs em Azure](generation-2.md#generation-1-vs-generation-2-capabilities)).
+- VMs série Lsv2 (ver: [Lsv2-series](../lsv2-series.md)).
+- Um VM com "pontos de montagem aninhados"; ou seja, vários pontos de montagem num único caminho (como "/1stmountpoint/data/2stmountpoint").
 
 ## <a name="next-steps"></a>Passos seguintes
 

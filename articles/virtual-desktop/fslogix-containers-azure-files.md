@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1dc5d54fa24217c91e14a8f37e092888b2bb6474
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7728ff96ccc3da5a36d919e61518a3ce3d13581c
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79127876"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611981"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Contentores de perfil FSLogix e ficheiros do Azure
 
@@ -49,11 +49,11 @@ A tabela que se segue mostra benefícios e limitações de tecnologias de perfil
 
 | Tecnologia | Configurações modernas | Configurações Win32 | Definições de OS | Dados de utilizador | Suportado no servidor SKU | Armazenamento de back-end em Azure | Armazenamento de back-end no local | Suporte de versão | Sinal subsequente a tempo |Notas|
 | ---------- | :-------------: | :------------: | :---------: | --------: | :---------------------: | :-----------------------: | :--------------------------: | :-------------: | :---------------------: |-----|
-| **Discos de perfil do utilizador (UPD)** | Sim | Sim | Sim | Sim | Sim | Não | Sim | Ganhar 7+ | Sim | |
-| **Perfil de utilizador de roaming (RUP), modo de manutenção** | Não | Sim | Sim | Sim | Sim| Não | Sim | Ganhar 7+ | Não | |
-| **Roaming do Estado Empresarial (ESR)** | Sim | Não | Sim | Não | Ver notas | Sim | Não | Ganhar 10 | Não | Funções no servidor SKU mas sem interface de utilizador de suporte |
-| **Virtualização da experiência do utilizador (UE-V)** | Sim | Sim | Sim | Não | Sim | Não | Sim | Ganhar 7+ | Não |  |
-| **Ficheiros de nuvem OneDrive** | Não | Não | Não | Sim | Ver notas | Ver notas  | Ver Notas | Ganhar 10 RS3 | Não | Não testado no servidor SKU. O armazenamento no Azure depende do cliente sincronizado. O armazenamento no ventel precisa de um cliente sincronizado. |
+| **Discos de perfil do utilizador (UPD)** | Sim | Sim | Sim | Sim | Sim | No | Sim | Ganhar 7+ | Sim | |
+| **Perfil de utilizador de roaming (RUP), modo de manutenção** | No | Sim | Sim | Sim | Sim| No | Sim | Ganhar 7+ | No | |
+| **Roaming do Estado Empresarial (ESR)** | Sim | No | Sim | No | Ver notas | Sim | No | Ganhar 10 | No | Funções no servidor SKU mas sem interface de utilizador de suporte |
+| **Virtualização da experiência do utilizador (UE-V)** | Sim | Sim | Sim | No | Sim | No | Sim | Ganhar 7+ | No |  |
+| **Ficheiros de nuvem OneDrive** | Não | Não | Não | Sim | Ver notas | Ver notas  | Ver Notas | Ganhar 10 RS3 | No | Não testado no servidor SKU. O armazenamento no Azure depende do cliente sincronizado. O armazenamento no ventel precisa de um cliente sincronizado. |
 
 #### <a name="performance"></a>Desempenho
 
@@ -98,7 +98,7 @@ Para garantir que o ambiente de ambiente de trabalho virtual do Windows segue as
 
 Utilize os seguintes guias para configurar um ambiente de ambiente de trabalho virtual windows.
 
-- Para começar a construir a sua solução de virtualização de ambiente de trabalho, consulte [Criar um inquilino no Windows Virtual Desktop](tenant-setup-azure-active-directory.md).
+- Para começar a construir a sua solução de virtualização de ambiente de trabalho, consulte [Criar um inquilino no Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
 - Para criar uma piscina de anfitriões dentro do seu inquilino windows Virtual Desktop, consulte [Create a host pool com o Azure Marketplace](create-host-pools-azure-marketplace.md).
 - Para configurar as ações de ficheiro totalmente geridas na nuvem, consulte a [partilha de Ficheiros Azure](/azure/storage/files/storage-files-active-directory-enable/).
 - Para configurar os recipientes de perfil FSLogix, consulte Criar um recipiente de [perfil para uma piscina hospedeira utilizando uma partilha de ficheiros](create-host-pools-user-profile.md).

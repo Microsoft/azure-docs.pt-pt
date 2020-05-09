@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/28/2019
-ms.openlocfilehash: ceaed0800df01bf2c44fee13d98b01b6e726200d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/05/2020
+ms.openlocfilehash: b6b32f9eadc6677bad591f4040981c4c95bf1f76
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77662489"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871241"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Otimize o seu ambiente SQL com a solução SQL Server Health Check no Monitor Azure
 
@@ -34,8 +34,8 @@ Depois de ter adicionado a solução e de ser concluída uma avaliação, são m
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * A solução SQL Health Check requer uma versão suportada do .NET Framework 4.6.2 instalado em cada computador que tenha o Microsoft Monitoring Agent (MMA) instalado.  O agente MMA é utilizado pelo System Center 2016 - Diretor de Operações e Gestor de Operações 2012 R2 e Azure Monitor.  
-* A solução suporta a versão SQL Server 2012, 2014 e 2016.
-* Um espaço de trabalho de Log Analytics para adicionar a solução SQL Health Check do mercado Azure no portal Azure.  Para instalar a solução, deve ser administrador ou colaborador na subscrição do Azure.
+* A solução suporta a versão SQL Server 2012, 2014, 2016, 2017 e 2019.
+* Um espaço de trabalho de Log Analytics para adicionar a solução SQL Health Check do mercado Azure no portal Azure. Para instalar a solução, deve ser administrador ou colaborador na subscrição do Azure.
 
   > [!NOTE]
   > Depois de ter adicionado a solução, o ficheiro AdvisorAssessment.exe é adicionado aos servidores com agentes. Os dados de configuração são lidos e depois enviados para o Monitor Azure na nuvem para processamento. A lógica é aplicada aos dados recebidos e o serviço cloud regista os dados.

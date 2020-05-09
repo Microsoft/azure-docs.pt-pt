@@ -3,12 +3,12 @@ title: Descubra aplicações, papéis e funcionalidades em servidores no local c
 description: Saiba como descobrir aplicações, papéis e funcionalidades em servidores no local com avaliação do servidor de migração Azure.
 ms.topic: article
 ms.date: 03/12/2020
-ms.openlocfilehash: e8ce279afc845ebf37ad4ab8b2ce7236cb18137a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ff9f5489b513cd1405e6b093d7537e4cbcead041
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79453587"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744618"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>Descubra aplicações, papéis e funcionalidades de máquinas
 
@@ -30,17 +30,47 @@ Descoberta de aplicativos usando Azure Migrate: A avaliação do servidor é sem
 5. Verifique os [requisitos](migrate-appliance.md) para a colocação do aparelho Azure Migrate.
 6. [Verifique o suporte e os requisitos](migrate-support-matrix-vmware.md#application-discovery) para a descoberta da aplicação.
 
-## <a name="prepare-for-app-discovery"></a>Prepare-se para a descoberta de apps
 
-1. [Prepare-se para a colocação do aparelho](tutorial-prepare-vmware.md). A preparação inclui verificar as definições do aparelho e criar uma conta que o aparelho utilizará para aceder ao VCenter Server.
-2. Certifique-se de que tem uma conta de utilizador (uma para servidores Windows e Linux) com permissões de administrador para máquinas nas quais pretende descobrir aplicações, funções e funcionalidades.
-3. [Implante o aparelho Azure Migrate](how-to-set-up-appliance-vmware.md) para iniciar a descoberta. Para implantar o aparelho, faça o download e importe um modelo DEOVA em VMware para criar o aparelho como VMware VM. Configure o aparelho e, em seguida, registe-o com a Migração Azure.
-2. Ao utilizar o aparelho, para iniciar uma descoberta contínua, especifique o seguinte:
+
+## <a name="deploy-the-azure-migrate-appliance"></a>Implante o aparelho Azure Migrate
+
+1. [Reveja](migrate-appliance.md#appliance---vmware) os requisitos para a implantação do aparelho Azure Migrate.
+2. Reveja os URLs Azure a que o aparelho terá de aceder nas [nuvens](migrate-appliance.md#government-cloud-urls) [públicas](migrate-appliance.md#public-cloud-urls) e governamentais.
+3. [Reveja os dados](migrate-appliance.md#collected-data---vmware) que o aparelho recolhe durante a descoberta e avaliação.
+4. [Note](migrate-support-matrix-vmware.md#port-access) os requisitos de acesso à porta do aparelho.
+5. [Implante o aparelho Azure Migrate](how-to-set-up-appliance-vmware.md) para iniciar a descoberta. Para implantar o aparelho, faça o download e importe um modelo DEOVA em VMware para criar o aparelho como VMware VM. Configure o aparelho e, em seguida, registe-o com a Migração Azure.
+6. Ao utilizar o aparelho, para iniciar uma descoberta contínua, especifique o seguinte:
     - O nome do vCenter Server ao qual pretende ligar.
     - Credenciais que criou para o aparelho ligar ao VCenter Server.
     - As credenciais de conta que criou para o aparelho ligar aos VMs Windows/Linux.
 
 Depois de o aparelho ser implantado e ter fornecido credenciais, o aparelho inicia a descoberta contínua de metadados VM e dados de desempenho, juntamente com e descoberta de apps, funcionalidades e funções.  A duração da descoberta da aplicação depende de quantos VMs você tem. Normalmente demora uma hora para a descoberta de aplicações de 500 VMs.
+
+## <a name="prepare-a-user-account"></a>Preparar uma conta de utilizador
+
+Crie uma conta para ser descoberta e adicione-a ao aparelho.
+
+### <a name="create-a-user-account-for-discovery"></a>Criar uma conta de utilizador para descoberta
+
+Configurar uma conta de utilizador para que a Avaliação do Servidor possa aceder ao VM para ser descoberta. [Conheça](migrate-support-matrix-vmware.md#application-discovery) os requisitos da conta.
+
+
+### <a name="add-the-user-account-to-the-appliance"></a>Adicione a conta do utilizador ao aparelho
+
+Adicione a conta de utilizador ao aparelho.
+
+1. Abra a aplicação de gestão de aparelhos. 
+2. Navegue para o painel de **detalhes Provide vCenter.**
+3. Em **Discover aplicação e dependências em VMs,** clique em **Adicionar credenciais**
+3. Escolha o **sistema operativo,** forneça um nome amigável para a conta e o **nome de utilizador**/**Palavra-passe**
+6. Clique em **Guardar**.
+7. Clique em **Guardar e começar a descoberta**.
+
+    ![Adicionar conta de utilizador VM](./media/how-to-create-group-machine-dependencies-agentless/add-vm-credential.png)
+
+
+
+
 
 ## <a name="review-and-export-the-inventory"></a>Rever e exportar o inventário
 

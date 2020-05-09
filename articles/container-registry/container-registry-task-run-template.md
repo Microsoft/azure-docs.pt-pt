@@ -3,12 +3,12 @@ title: Execução rápida de tarefacom modelo
 description: Faça fila com uma tarefa ACR para construir uma imagem usando um modelo de Gestor de Recursos Azure
 ms.topic: article
 ms.date: 04/22/2020
-ms.openlocfilehash: 6e85e4a3d10ea34d71efde959aa7d179eba69e3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7ad40d2e925d5e1443af9bce4115d45b0e8c06e1
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82196533"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927773"
 ---
 # <a name="run-acr-tasks-using-resource-manager-templates"></a>Executar tarefas ACR usando modelos de gestor de recursos
 
@@ -139,7 +139,7 @@ Para efeitos de demonstração, crie um registo de contentores separado como reg
 
 ### <a name="create-new-dockerfile"></a>Criar novo Dockerfile
 
-Crie um Dockerfile que retire a imagem base do registo base. Execute os seguintes passos no seu garfo local do https://github.com/myGitHubID/acr-build-helloworld-node.gitrepo GitHub, por exemplo, *.
+Crie um Dockerfile que retire a imagem base do registo base. Execute os seguintes passos no garfo local do repo GitHub, por exemplo, `https://github.com/myGitHubID/acr-build-helloworld-node.git`.
 
 1. No GitHub UI, selecione **Criar novo ficheiro**.
 1. Nomeie o seu ficheiro *Teste de Ficheiros E* colhe o seguinte conteúdo. Substitua o seu nome de registo por *registo mybase.*

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: d7ee8ae121e3cbb9760a87c95d12109a9b05e0c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 61d7d2a52f58162d288b1155f9724c7912e451f3
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74951518"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780101"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Migrar no local Apache Hadoop clusters para Azure HDInsight - infraestruturas melhores práticas
 
@@ -109,7 +109,7 @@ Para obter mais informações, veja os artigos seguintes:
 
 ## <a name="customize-hdinsight-configs-using-bootstrap"></a>Personalize os configs HDInsight usando a Bootstrap
 
-Alterações aos configs nos ficheiros `hive-site.xml` `oozie-env.xml` de config, tais como `core-site.xml`, e podem ser feitas usando bootstrap. O seguinte script é um exemplo utilizando o módulo Powershell [AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) cmdlet [New-AzHDInsightClusterConfig:](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster)
+Alterações aos configs nos ficheiros `hive-site.xml` `oozie-env.xml` de config, tais como `core-site.xml`, e podem ser feitas usando bootstrap. O seguinte script é um exemplo utilizando o módulo PowerShell [AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) cmdlet [New-AzHDInsightClusterConfig](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster):
 
 ```powershell
 # hive-site.xml configuration
@@ -167,7 +167,7 @@ Utilizar a Rede Virtual Azure com o HDInsight permite os seguintes cenários:
 - Ligar o HDInsight a lojas de dados numa rede Azure Virtual.
 - Acedendo diretamente aos serviços Hadoop que não estão disponíveis publicamente através da internet. Por exemplo, Kafka APIs ou a HBase Java API.
 
-O HDInsight pode ser adicionado a uma rede virtual Azure nova ou existente. Se o HDInsight estiver a ser adicionado a uma Rede Virtual existente, os grupos de segurança de rede existentes e as rotas definidas pelo utilizador precisam de ser atualizadas para permitir o acesso sem restrições a [vários endereços IP](../hdinsight-management-ip-addresses.md) no centro de dados Azure. Além disso, certifique-se de não bloquear o tráfego para as [portas](../hdinsight-plan-virtual-network-deployment.md#hdinsight-ports), que estão a ser utilizadas pelos serviços HDInsight.
+O HDInsight pode ser adicionado a uma rede virtual Azure nova ou existente. Se o HDInsight estiver a ser adicionado a uma Rede Virtual existente, os grupos de segurança de rede existentes e as rotas definidas pelo utilizador precisam de ser atualizadas para permitir o acesso sem restrições a [vários endereços IP](../hdinsight-management-ip-addresses.md) no centro de dados Azure. Além disso, certifique-se de não bloquear o tráfego para as [portas](../control-network-traffic.md#required-ports), que estão a ser utilizadas pelos serviços HDInsight.
 
 > [!Note]  
 > O HDInsight não suporta atualmente túneis forçados. A escavação forçada é uma subrede que obriga a saída do tráfego da Internet para um dispositivo de inspeção e exploração madeireira. Ou remova o túnel forçado antes de instalar o HDInsight numa subneta ou crie uma nova sub-rede para o HDInsight. O HDInsight também não suporta restringir a conectividade da rede de saída.

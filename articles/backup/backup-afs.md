@@ -3,12 +3,12 @@ title: Back up Ações de arquivo Azure no portal Azure
 description: Saiba como usar o portal Azure para apoiar as ações de ficheiros azure no cofre dos Serviços de Recuperação
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: da2c7fa4cc5c3b7b948604a6f6d3999671cb3697
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a77f7fd0ec21eae60a7313a9ffa889fbef4372c6
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82101340"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82978033"
 ---
 # <a name="back-up-azure-file-shares-in-a-recovery-services-vault"></a>Back up Ações de arquivo Azure em cofre de Serviços de Recuperação
 
@@ -50,35 +50,70 @@ Para modificar o tipo de replicação de armazenamento:
 
 ## <a name="discover-file-shares-and-configure-backup"></a>Descubra as partilhas de ficheiros e configure a cópia de segurança
 
-1. No [portal Azure,](https://portal.azure.com/)abra o cofre dos Serviços de Recuperação que pretende utilizar para fazer o back up da partilha de ficheiros.
+1. No [portal Azure,](https://portal.azure.com/)abra o cofre dos Serviços de Recuperação que pretende utilizar para configurar a cópia de segurança para a partilha de ficheiros.
 
-1. No painel de **abóbadas** dos Serviços de Recuperação, selecione **+Backup**.
+1. No painel de **abóbadas** dos Serviços de Recuperação, selecione o **+Backup** do menu em cima.
 
    ![Cofre dos Serviços de Recuperação](./media/backup-afs/recovery-services-vault.png)
 
-    a. In **Backup Goal**, set Where **Azure**your **workload running?**
+    1. No painel **'Backup Goal',** definido Onde está a sua **Azure** carga de **trabalho em funcionamento?** **Azure**
 
-    ![Escolha a Partilha de Ficheiros Azure como objetivo de backup](./media/backup-afs/backup-goal.png)
+          ![Escolha Azure como carga de trabalho](./media/backup-afs/backup-goal.png)
 
-    b.  Em O que quer fazer de **Azure File Share** **reserva?**
+    2. Em O que quer fazer de **Azure File Share** **reserva?**
 
-    c.  Selecione **Backup** para registar a extensão de partilha de ficheiros Azure no cofre.
+          ![Selecione FileShare Azure](./media/backup-afs/select-azure-file-share.png)
 
-    ![Selecione Backup para associar a partilha de ficheiros Azure com cofre](./media/backup-afs/register-extension.png)
+    3. Selecione **Backup** para registar a extensão de partilha de ficheiros Azure no cofre.
 
-1. Depois de selecionar **Backup**, o painel **de backup** abre e pede-lhe para selecionar uma conta de armazenamento a partir de uma lista de contas de armazenamento suportadas descobertas. Ou estão associados a este cofre ou presentes na mesma região que o cofre, mas ainda não estão associados a qualquer cofre dos Serviços de Recuperação.
+          ![Selecione Backup para associar a partilha de ficheiros Azure com cofre](./media/backup-afs/register-extension.png)
 
-1. A partir da lista de contas de armazenamento descobertas, selecione uma conta e selecione **OK**. O Azure procura na conta de armazenamento por ações de ficheiros que podem ser apoiadas. Se adicionou recentemente as suas ações de ficheiro e não as vê na lista, dê algum tempo para que as ações do ficheiro apareçam.
+1. Depois de selecionar **Backup,** abre-se o painel **de backup.** Para selecionar a conta de armazenamento que hospeda a partilha de ficheiros que pretende proteger, clique no texto de link **Select** abaixo da caixa de texto da Conta de **Armazenamento.**
 
-    ![Descobrir ações de ficheiros](./media/backup-afs/discovering-file-shares.png)
+   ![Escolha o link Select](./media/backup-afs/choose-select-link.png)
 
-1. A partir da lista de **Partilhas** de Ficheiros, selecione uma ou mais das ações de ficheiro que pretende fazer. Selecione **OK**.
+1. O Painel de Conta de **Armazenamento Select** abre à direita, listando um conjunto de contas de armazenamento suportadas descobertas. Ou estão associados a este cofre ou presentes na mesma região que o cofre, mas ainda não estão associados a qualquer cofre dos Serviços de Recuperação.
+
+1. A partir da lista de contas de armazenamento descobertas, selecione uma conta e selecione **OK**.
+
+   ![Selecione a partir das contas de armazenamento descobertas](./media/backup-afs/select-discovered-storage-account.png)
+
+1. O próximo passo é selecionar as ações de ficheiro que pretende fazer. Clique no botão **Adicionar** na secção **FileShares para Backup.**
+
+   ![Selecione as ações de ficheiro para fazer o back-up](./media/backup-afs/select-file-shares-to-back-up.png)
+
+1. O painel de contexto **Select File Shares** abre à direita. O Azure procura na conta de armazenamento por ações de ficheiros que podem ser apoiadas. Se adicionou recentemente as suas ações de ficheiro e não as vê na lista, dê algum tempo para que as ações do ficheiro apareçam.
+
+1. A partir da lista de Partilhas de **Ficheiros Selecionados,** selecione uma ou mais das ações de ficheiro que pretende fazer. Selecione **OK**.
 
    ![Selecione as ações de ficheiro](./media/backup-afs/select-file-shares.png)
 
-1. Depois de escolher as suas partilhas de ficheiros, o menu **'Backup'** muda para a política de **backup**. A partir deste menu, selecione uma política de backup existente ou crie uma nova. Em seguida, selecione **'Ativar 'Backup**' .
+1. Para escolher uma política de backup para a sua partilha de ficheiros, tem três opções:
 
-    ![Selecione política de backup](./media/backup-afs/select-backup-policy.png)
+   * Escolha a política de incumprimento.<br>
+   Esta opção permite-lhe ativar o backup diário que será retido durante 30 dias. Se não tiver uma política de backup existente no cofre, o painel de reserva abre-se com as definições de política padrão. Se pretender escolher as definições predefinidas, pode clicar diretamente na cópia de **segurança .**
+
+   * Criar uma nova política <br>
+
+      1. Para criar uma nova política de backup para a sua partilha de ficheiros, clique no texto de link abaixo da lista de drop-down na secção Política de **Backup.**<br>
+
+         ![Criar nova política](./media/backup-afs/create-new-policy.png)
+
+      1. O painel de contexto **da Política de Backup** abre à direita. Especifique um nome de política na caixa de texto e escolha o período de retenção de acordo com o seu requisito. Apenas a opção de retenção diária é ativada por padrão. Se quiser ter retenção semanal, mensal ou anual, selecione a caixa de verificação correspondente e forneça o valor de retenção desejado.
+
+      1. Depois de especificar os valores de retenção e um nome de política válido, clique em OK.<br>
+
+         ![Dar nome político e valores de retenção](./media/backup-afs/policy-name.png)
+
+   * Escolha uma das políticas de backup existentes <br>
+
+   Para escolher uma das políticas de backup existentes para configurar a proteção, selecione a política desejada a partir da lista de abandono da política de **backup.**<br>
+
+   ![Escolha a política existente](./media/backup-afs/choose-existing-policy.png)
+
+1. Clique em **Ativar a Cópia de Segurança** para começar a proteger a parte do ficheiro.
+
+   ![Escolha ativar a cópia de segurança](./media/backup-afs/enable-backup.png)
 
 Depois de definir uma política de backup, uma foto das ações de arquivo é tirada na hora programada. O ponto de recuperação também é mantido para o período escolhido.
 

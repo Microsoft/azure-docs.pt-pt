@@ -11,12 +11,12 @@ metadata:
   author: HeidiSteen
   ms.author: heidist
   ms.date: 02/25/2020
-  ms.openlocfilehash: fbfa0b08fbe8230253c9b1d8fca835538f2884ca
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: ab3352dbd6631c0c86656764dac748eac10fa79b
+  ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "78205964"
+  ms.lasthandoff: 05/07/2020
+  ms.locfileid: "82890092"
 landingContent:
 - title: Acerca da Pesquisa Cognitiva
   linkLists:
@@ -30,8 +30,8 @@ landingContent:
       url: search-indexer-overview.md
   - linkListType: video
     links:
-    - text: O que é a Pesquisa Cognitiva (1 min. 27 seg.)
-      url: https://channel9.msdn.com/Blogs/Azure/What-is-Azure-Search/player
+    - text: Utilizar a IA em soluções de pesquisa
+      url: https://youtu.be/M4Rf1s0WcWQ?t=19
 - title: Indexar dados do Azure
   linkLists:
   - linkListType: how-to-guide

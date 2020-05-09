@@ -6,14 +6,14 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 04/13/2020
+ms.date: 05/06/2020
 tags: connectors
-ms.openlocfilehash: d7fafdd5830ec2825771d4d611a5f4bd5d87260a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7635d98bb48543dd07f05f34ea854af870876cc3
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81393639"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927450"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorize, crie e gere os ficheiros SFTP utilizando aplicações lógicas SSH e Azure
 
@@ -34,7 +34,7 @@ Para as diferenças entre o conector SFTP-SSH e o conector SFTP, reveja a secç�
 * As ações SFTP-SSH que suportam [a chunking](../logic-apps/logic-apps-handle-large-messages.md) podem lidar com ficheiros até 1 GB, enquanto as ações SFTP-SSH que não suportam a chunking podem lidar com ficheiros até 50 MB. Embora o tamanho do pedaço padrão seja de 15 MB, este tamanho pode mudar dinamicamente, a partir de 5 MB e aumentando gradualmente para o máximo de 50 MB, com base em fatores como latência da rede, tempo de resposta do servidor, e assim por diante.
 
   > [!NOTE]
-  > Para aplicações lógicas num ambiente de serviço de [integração (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)a versão do conector com o rótulo ISE utiliza os limites de [mensagem ISE.](../logic-apps/logic-apps-limits-and-config.md#message-size-limits)
+  > Para aplicações lógicas num ambiente de serviço de [integração (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)a versão do conector com o rótulo ISE requer, em vez disso, uma utilização dos limites de [mensagem ISE.](../logic-apps/logic-apps-limits-and-config.md#message-size-limits)
 
   Pode anular este comportamento adaptativo quando [especifica um tamanho constante](#change-chunk-size) para usar. Este tamanho pode variar entre 5 MB e 50 MB. Por exemplo, suponha que tenha um ficheiro de 45 MB e uma rede que possa suportar esse tamanho de ficheiro sem latência. Chunking adaptativo resulta em várias chamadas, em vez de uma chamada. Para reduzir o número de chamadas, pode tentar definir um tamanho de 50 MB. Em cenários diferentes, se a sua aplicação lógica estiver a cronometrar, por exemplo, ao utilizar pedaços de 15 MB, pode tentar reduzir o tamanho para 5 MB.
 
@@ -248,7 +248,7 @@ Se não conseguir evitar ou atrasar a movimentação do ficheiro, pode ignorar a
 Para obter mais detalhes técnicos sobre este conector, tais como gatilhos, ações e limites descritos pelo ficheiro Swagger do conector, consulte a [página de referência do conector](https://docs.microsoft.com/connectors/sftpwithssh/).
 
 > [!NOTE]
-> Para aplicações lógicas num ambiente de serviço de [integração (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)a versão do conector com o rótulo ISE utiliza os limites de [mensagem ISE.](../logic-apps/logic-apps-limits-and-config.md#message-size-limits)
+> Para aplicações lógicas num ambiente de serviço de [integração (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)a versão do conector com o rótulo ISE requer uma utilização dos limites de [mensagem ISE.](../logic-apps/logic-apps-limits-and-config.md#message-size-limits)
 
 ## <a name="next-steps"></a>Passos seguintes
 

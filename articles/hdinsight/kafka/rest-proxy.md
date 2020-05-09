@@ -7,12 +7,13 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: 265e15713f8159e370ef22a197ffe931200a88f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: affdbfba125b7e9b3f3fe250a56af30e9efe816e
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81758993"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611011"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>Interaja com os clusters Apache Kafka em Azure HDInsight usando um proxy REST
 
@@ -38,7 +39,7 @@ O acesso ao proxy Kafka REST é gerido com grupos de segurança do Diretório At
 
 Para pedidos de ponto final de procuração REST, os pedidos de cliente devem obter um token OAuth. O símbolo é usado para verificar a adesão ao grupo de segurança. Encontre uma amostra de [aplicação do Cliente](#client-application-sample) abaixo que mostre como obter um token OAuth. A aplicação do cliente passa o token OAuth no pedido http ao proxy REST.
 
-> [!NOTE]  
+> [!NOTE]
 > Consulte gerir aplicativos e acesso a recursos utilizando grupos de [Diretórios Ativos Azure,](../../active-directory/fundamentals/active-directory-manage-groups.md)para saber mais sobre grupos de segurança AAD. Para obter mais informações sobre o funcionamento das fichas da OAuth, consulte [Autorizar o acesso às aplicações web do Azure Ative Directory utilizando o fluxo de subvenção de código OAuth 2.0](../../active-directory/develop/v1-protocols-oauth-code.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos

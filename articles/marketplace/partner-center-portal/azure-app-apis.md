@@ -1,20 +1,20 @@
 ---
-title: Onboarding API para aplicações Azure no Mercado Comercial
-description: Pré-requisitos da API para aplicações Azure no mercado comercial no Microsoft Partner Center.
+title: Asubmissão do Partner Center a apps Azure a bordo no mercado comercial da Microsoft
+description: Aprenda os pré-requisitos para utilizar a Submissão do Partner Center API para aplicações Azure no mercado comercial no Microsoft Partner Center.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: cc4d56058ce3985ec3a1d9124ef4ec73ff6be1a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2c37e51ad0c6618e20d9445fab7472b1a3a72ab9
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80279764"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744883"
 ---
-# <a name="api-for-onboarding-azure-apps-in-partner-center"></a>API para aplicações azure onboarding no Partner Center
+# <a name="partner-center-submission-api-to-onboard-azure-apps-in-partner-center"></a>Submissão do Partner Center API para aplicações azure a bordo no Partner Center
 
 Utilize a Submissão do *Partner Center API* para consulta programática, crie submissões para e publique ofertas azure.  Esta API é útil se a sua conta gere muitas ofertas e pretende automatizar e otimizar o processo de submissão destas ofertas.
 
@@ -70,3 +70,8 @@ Para o *valor* `POST URI` tenant_id nos parâmetros *client_id* e *client_secret
 Depois de ter um token de acesso AD Azure, pode ligar para métodos na Submissão API do Partner Center. Para criar ou atualizar submissões, normalmente chama vários métodos na API de submissão do Partner Center numa ordem específica. Para obter informações sobre cada cenário e a sintaxe de cada método, consulte a ingestão da API.
 
 https://apidocs.microsoft.com/services/partneringestion/
+
+## <a name="next-steps"></a>Passos seguintes
+
+* Saiba como criar um [ativo técnico Azure VM](create-azure-container-technical-assets.md)
+* Aprenda enxada para criar uma [oferta de contentores Azure](create-azure-container-offer.md)

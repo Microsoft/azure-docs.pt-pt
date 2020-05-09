@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 160898f8535d3dad4811af016ebca779b7ef43a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a2b9cc0c69f0c559c9561a02de4192974ee7f521
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78189622"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926192"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>Configure fichas no Diretório Ativo Azure B2C
 
@@ -25,7 +25,7 @@ Neste artigo, aprende-se a configurar a vida e a [compatibilidade de um símbolo
 
 [Crie um fluxo de utilizador](tutorial-create-user-flows.md) para permitir que os utilizadores se inscrevam e inscrevam-se na sua aplicação.
 
-## <a name="configure-token-lifetime"></a>Configure token lifetime
+## <a name="configure-jwt-token-lifetime"></a>Configure a vida útil do símbolo JWT
 
 Pode configurar a vida útil do token em qualquer fluxo do utilizador.
 
@@ -41,7 +41,7 @@ Pode configurar a vida útil do token em qualquer fluxo do utilizador.
 
 8. Clique em **Guardar**.
 
-## <a name="configure-token-compatibility"></a>Configure compatibilidade simbólica
+## <a name="configure-jwt-token-compatibility"></a>Configure compatibilidade simbólica JWT
 
 1. Selecione **fluxos de utilizador (políticas)**.
 2. Abra o fluxo de utilizador que criou anteriormente.

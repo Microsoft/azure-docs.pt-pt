@@ -4,12 +4,12 @@ description: Saiba como o Agente MARS suporta os cenários de backup
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: d2cc8e32152f6930c9c250e2811668cc2c924616
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5656c113a6823a1708854a547b199bd16c521b04
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78673281"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611488"
 ---
 # <a name="about-the-microsoft-azure-recovery-services-mars-agent"></a>Sobre o agente microsoft Azure Recovery Services (MARS)
 
@@ -39,19 +39,21 @@ O agente MARS suporta os seguintes cenários de restauro:
 
 ## <a name="backup-process"></a>Processo de cópia de segurança
 
-1. A partir do portal Azure, crie um cofre de Serviços de [Recuperação](install-mars-agent.md#create-a-recovery-services-vault), e escolha ficheiros, pastas e o estado do sistema a partir dos objetivos de Backup.
+1. A partir do portal Azure, crie um cofre de Serviços de [Recuperação,](install-mars-agent.md#create-a-recovery-services-vault)e escolha ficheiros, pastas e o estado do sistema a partir dos **objetivos de Backup**.
 2. [Descarregue as credenciais do cofre dos Serviços](https://docs.microsoft.com/azure/backup/install-mars-agent#download-the-mars-agent) de Recuperação e o instalador de agentes para uma máquina no local.
 
-    Para proteger a máquina no local selecionando a opção 'Backup', escolha ficheiros, pastas e o estado do sistema e, em seguida, baixe o agente MARS.
-
-3. Preparar a infraestrutura:
-
-    a. Executar o instalador para [instalar o agente](https://docs.microsoft.com/azure/backup/install-mars-agent#install-and-register-the-agent).
-
-    b. Use as suas credenciais de cofre descarregadas para registar a máquina no cofre dos Serviços de Recuperação.
-4. A partir da consola do agente no cliente, [configure a cópia](https://docs.microsoft.com/azure/backup/backup-windows-with-mars-agent#create-a-backup-policy)de segurança . Especifique a política de retenção dos seus dados de backup para começar a protegê-los.
+3. [instale o agente](https://docs.microsoft.com/azure/backup/install-mars-agent#install-and-register-the-agent) e utilize as credenciais de cofre descarregadas para registar a máquina no cofre dos Serviços de Recuperação.
+4. A partir da consola do agente no cliente, [configure a cópia](https://docs.microsoft.com/azure/backup/backup-windows-with-mars-agent#create-a-backup-policy) de segurança para especificar o que fazer backup, quando fazer backup (o horário), quanto tempo as cópias de segurança devem ser mantidas em Azure (a política de retenção) e começar a proteger.
 
 ![Diagrama de agente de backup Azure](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
+
+### <a name="additional-information"></a>Informações adicionais
+
+- O **Backup Inicial** (primeira cópia de segurança) é executado de acordo com as definições de backup.  O agente MARS utiliza o VSS para tirar uma foto ponto-a-tempo dos volumes selecionados para cópia de segurança. O agente apenas utiliza a operação Do Windows System Writer para capturar o instantâneo. Não utiliza nenhuma aplicação de escritores VSS, e não captura imagens consistentes com aplicações. Depois de tirar a fotografia com VSS, o agente MARS cria um disco rígido virtual (VHD) na pasta de cache que especificou quando configuraa a cópia de segurança. O agente também armazena cheques para cada bloco de dados.
+
+- **As cópias de segurança incrementais** (cópias de segurança subsequentes) funcionam de acordo com o horário que especifica. Durante as cópias de segurança incrementais, os ficheiros alterados são identificados e é criado um novo VHD. O VHD é comprimido e encriptado, e depois é enviado para o cofre. Após os acabamentos de backup incremental, o novo VHD é fundido com o VHD criado após a replicação inicial. Este VHD fundido fornece o mais recente estado a ser usado para comparação para backup contínuo.
+
+- O agente MARS pode executar o trabalho de backup em **modo otimizado** utilizando o diário de alteração USN (Número de Sequência de Atualização) ou em **modo não otimizado,** verificando se há alterações nos diretórios ou ficheiros através da digitalização de todo o volume. O modo não otimizado é mais lento porque o agente tem de digitalizar cada ficheiro no volume e compará-lo com os metadados para determinar os ficheiros alterados.  A **cópia de segurança inicial** será sempre executada em modo não otimizado. Se a cópia de segurança anterior falhar, o próximo trabalho de backup programado será executado em modo não otimizado.
 
 ### <a name="additional-scenarios"></a>Cenários adicionais
 
