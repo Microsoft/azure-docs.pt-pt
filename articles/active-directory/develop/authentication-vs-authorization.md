@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/28/2020
+ms.date: 05/06/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 61c0202d12756201d45fe829078d84382e44b54e
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: b905b8f3fe99b83bafdd61b1daa25549354c5275
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82584301"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926787"
 ---
 # <a name="authentication-vs-authorization"></a>Autenticação vs. autorização
 
@@ -26,19 +26,25 @@ Este artigo define a autenticação e a autorização e cobre brevemente como po
 
 ## <a name="authentication"></a>Autenticação
 
-**A autenticação** é o processo de provar que é quem diz ser. Por vezes, o termo é abreviado como AuthN. A plataforma de identidade da Microsoft implementa o protocolo [OpenID Connect](https://openid.net/connect/) para manusear a autenticação.
+**A autenticação** é o processo de provar que é quem diz ser. Por vezes, o termo é abreviado como AuthN. A plataforma de identidade da Microsoft implementa os protocolos [OpenID Connect](https://openid.net/connect/) e [SAML 2.0](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html) para manusear a autenticação.
 
 ## <a name="authorization"></a>Autorização
 
 **Autorização** é o ato de conceder uma autorização autenticada para fazer algo. Especifica quais os dados a que pode aceder e o que pode fazer com esses dados. Por vezes, o termo é abreviado como AuthZ. A plataforma de identidade microsoft implementa o protocolo [OAuth 2.0](https://oauth.net/2/) para manusear a autorização.
 
-## <a name="authentication-and-authorization-using-the-microsoft-identity-platform"></a>Autenticação e autorização utilizando a plataforma de identidade da Microsoft
+## <a name="authentication-and-authorization-using-microsoft-identity-platform"></a>Autenticação e autorização utilizando plataforma de identidade da Microsoft
 
 Em vez de criar aplicações que cada um mantenha o seu próprio nome de utilizador e informações de palavra-passe, que incorre num elevado fardo administrativo quando precisa de adicionar ou remover utilizadores através de várias aplicações, as aplicações podem delegar essa responsabilidade num fornecedor de identidade centralizado.
 
 O Azure Ative Directory (Azure AD) é um fornecedor de identidade centralizado na nuvem. Delegar a autenticação e autorização permite que cenários como as políticas de Acesso Condicional que exijam que um utilizador esteja num local específico, o uso da autenticação multifactor, bem como permitir que um utilizador assine uma vez e depois seja automaticamente inscrito em todas as aplicações web que partilhem o mesmo diretório centralizado. Esta capacidade é referida como **Single Sign On (SSO)**.
 
-A plataforma de identidade da Microsoft simplifica a autenticação e a autorização para os desenvolvedores de aplicações, fornecendo identidade como serviço, com suporte para protocolos padrão da indústria, como OAuth 2.0 e OpenID Connect, bem como bibliotecas de código aberto para diferentes plataformas para ajudá-lo a começar a codificar rapidamente. Permite que os desenvolvedores construam aplicações que assinam todas as identidades da Microsoft, obter fichas para ligar para o [Microsoft Graph](https://developer.microsoft.com/graph/), outras APIs da Microsoft ou APIs que os desenvolvedores construíram. Para mais informações, consulte a [evolution of Microsoft identity platform](about-microsoft-identity-platform.md).
+A plataforma de identidade da Microsoft simplifica a autenticação e a autorização para os desenvolvedores de aplicações, fornecendo identidade como serviço, com suporte para protocolos padrão da indústria como OAuth 2.0, OpenID Connect e SAML 2.0, bem como bibliotecas de código aberto para diferentes plataformas para ajudá-lo a começar a codificar rapidamente. Permite que os desenvolvedores construam aplicações que assinam todas as identidades da Microsoft, obter fichas para ligar para o [Microsoft Graph](https://developer.microsoft.com/graph/), outras APIs da Microsoft ou APIs que os desenvolvedores construíram. Para mais informações, consulte a [evolution of Microsoft identity platform](about-microsoft-identity-platform.md).
+
+Segue-se uma breve comparação dos vários protocolos utilizados pela plataforma de identidade da Microsoft:
+
+* **OAuth vs. OpenID Connect**: OAuth é utilizado para autorização e o OpenID Connect (OIDC) é utilizado para a autenticação. O OpenID Connect é construído em cima do OAuth 2.0, pelo que a terminologia e o fluxo são semelhantes entre os dois. Pode até autenticar um utilizador (utilizando o OpenID Connect) e obter autorização para aceder a um recurso protegido que o utilizador possui (utilizando o OAuth 2.0) num pedido. Para mais informações, consulte os [protocolos OAuth 2.0 e OpenID Connect](active-directory-v2-protocols.md) e [o protocolo OpenID Connect](v2-protocols-oidc.md).
+* **OAuth vs. SAML**: OAuth é utilizado para autorização e o SAML é utilizado para autenticação. Consulte a plataforma de identidade da Microsoft e o fluxo de afirmação do [portador OAuth 2.0 SAML](v2-saml-bearer-assertion.md) para obter mais informações sobre como os dois protocolos podem ser usados em conjunto para autenticar um utilizador (usando o SAML) e obter autorização para aceder a um recurso protegido (usando OAuth 2.0).
+* **OpenID Connect vs. SAML**: Tanto o OpenID Connect como o SAML são utilizados para autenticar um utilizador e são utilizados para ativar o Single Sign On. A autenticação SAML é comumente utilizada com fornecedores de identidade, como os Serviços da Federação de Diretórios Ativos (ADFS) federados para a Azure AD e, portanto, são frequentemente utilizados em aplicações empresariais.
 
 ## <a name="next-steps"></a>Passos seguintes
 

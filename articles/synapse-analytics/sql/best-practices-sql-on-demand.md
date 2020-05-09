@@ -2,20 +2,20 @@
 title: Boas práticas para SQL on-demand (pré-visualização) em Azure Synapse Analytics
 description: Recomendações e boas práticas que deve conhecer enquanto trabalha com a SQL on-demand (pré-visualização).
 services: synapse-analytics
-author: mlee3gsd
+author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: ''
-ms.date: 04/15/2020
-ms.author: martinle
-ms.reviewer: igorstan
-ms.openlocfilehash: 1d4203141973c10fe7673f6ab9dedbc3bfdc8999
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/01/2020
+ms.author: fipopovi
+ms.reviewer: jrasnick
+ms.openlocfilehash: 0015beadfea61fc31bf3f37232105b9cfd2ced71
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81429073"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692152"
 ---
 # <a name="best-practices-for-sql-on-demand-preview-in-azure-synapse-analytics"></a>Boas práticas para SQL on-demand (pré-visualização) em Azure Synapse Analytics
 
@@ -50,11 +50,73 @@ Se possível, pode preparar ficheiros para um melhor desempenho:
 - É melhor ter ficheiros de tamanho igual para um único caminho OPENROWSET ou uma localização de mesa externa.
 - Partifique os seus dados armazenando divisórias em diferentes pastas ou nomes de ficheiros - verifique funções de nome de [ficheiro e de ficheiros para direcionar divisórias específicas](#use-fileinfo-and-filepath-functions-to-target-specific-partitions).
 
+## <a name="push-wildcards-to-lower-levels-in-path"></a>Empurre os wildcards para níveis mais baixos no caminho
+
+Pode utilizar wildcards no seu caminho para [consultar vários ficheiros e pastas](develop-storage-files-overview.md#query-multiple-files-or-folders). A SQL lista ficheiros na sua conta de armazenamento a partir do primeiro * utilizando a API de armazenamento e elimina ficheiros que não correspondem ao caminho especificado. A redução da lista inicial de ficheiros pode melhorar o desempenho se existirem muitos ficheiros que correspondem ao caminho especificado até ao primeiro wildcard.
+
+## <a name="use-appropriate-data-types"></a>Utilizar tipos de dados adequados
+
+Os tipos de dados utilizados na sua consulta afetam o desempenho. Pode obter um melhor desempenho se: 
+
+- Utilize o menor tamanho de dados que acomodará o maior valor possível.
+  - Se o comprimento máximo do valor do caracteres for de 30 caracteres, utilize o tipo de comprimento 30 do tipo de dados de caracteres.
+  - Se todos os valores da coluna de caracteres forem de tamanho fixo, use char ou nchar. Caso contrário, use varchar ou nvarchar.
+  - Se o valor máximo da coluna de inteiro for de 500, utilize o menor tipo de dados que pode acomodar este valor. Pode encontrar [gamas](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=sql-server-ver15)de dados inteiros aqui .
+- Se possível, use varchar e char em vez de nvarchar e nchar.
+- Utilize tipos de dados baseados em inteiros, se possível. Ordenar, juntar e grupo por operações são realizados mais rapidamente em inteiros do que em dados de caracteres.
+- Se estiver a utilizar inferência de esquema, verifique o [tipo de dados inferidos](#check-inferred-data-types).
+
+## <a name="check-inferred-data-types"></a>Verificar tipos de dados inferidos
+
+[A inferência do schema](query-parquet-files.md#automatic-schema-inference) ajuda-o a escrever rapidamente consultas e a explorar dados sem saber esquema de ficheiros. Este conforto vem em detrimento de tipos de dados inferidos serem maiores do que realmente são. Acontece quando não há informação suficiente nos ficheiros de origem para garantir que o tipo de dados adequado é utilizado. Por exemplo, os ficheiros Parquet não contêm metadados sobre o comprimento máximo da coluna de caracteres e a SQL a pedido infere-a como varchar (8000). 
+
+Pode verificar os tipos de dados resultantes da sua consulta utilizando [sp_describe_first_results_set](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-describe-first-result-set-transact-sql?view=sql-server-ver15).
+
+O exemplo que se segue mostra como pode otimizar tipos de dados inferidos. O procedimento é usado para mostrar tipos de dados inferidos. 
+```sql  
+EXEC sp_describe_first_result_set N'
+    SELECT
+        vendor_id, pickup_datetime, passenger_count
+    FROM 
+        OPENROWSET(
+            BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/*/*/*'',
+            FORMAT=''PARQUET''
+        ) AS nyc';
+```
+
+Aqui está o conjunto de resultados.
+
+|is_hidden|column_ordinal|nome|system_type_name|max_length|
+|----------------|---------------------|----------|--------------------|-------------------||
+|0|1|vendor_id|varchar(8000)|8000|
+|0|2|pickup_datetime|data2(7)|8|
+|0|3|passenger_count|int|4|
+
+Assim que soubermos os tipos de dados inferidos para consulta, podemos especificar os tipos de dados adequados:
+
+```sql  
+SELECT
+    vendor_id, pickup_datetime, passenger_count
+FROM 
+    OPENROWSET(
+        BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/*/*/*',
+        FORMAT='PARQUET'
+    ) 
+    WITH (
+        vendor_id varchar(4), -- we used length of 4 instead of inferred 8000
+        pickup_datetime datetime2,
+        passenger_count int
+    ) AS nyc;
+```
+
 ## <a name="use-fileinfo-and-filepath-functions-to-target-specific-partitions"></a>Utilize funções de fileinfo e filepath para direcionar divisórias específicas
 
 Os dados são frequentemente organizados em divisórias. Pode instruir a SQL a pedido para consultar determinadas pastas e ficheiros. Esta função reduzirá o número de ficheiros e a quantidade de dados que a consulta precisa de ler e processar. Um bónus adicional é que conseguirá um melhor desempenho.
 
 Para mais informações, verifique o nome de [ficheiros](develop-storage-files-overview.md#filename-function) e as funções [de path path](develop-storage-files-overview.md#filepath-function) e exemplos sobre como consultar [ficheiros específicos](query-specific-files.md).
+
+> [!TIP]
+> Lance sempre o resultado das funções de filepath e fileinfo para tipos de dados adequados. Se utilizar tipos de dados de caracteres, certifique-se de que o comprimento adequado é utilizado.
 
 Se os seus dados armazenados não forem divididos, considere dividi-los para que possa usar estas funções para otimizar consultas direcionadas a esses ficheiros. Ao [consultar tabelas de Faíscas divididas](develop-storage-files-spark-tables.md) a pedido da SQL, a consulta irá automaticamente direcionar apenas os ficheiros necessários.
 

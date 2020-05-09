@@ -11,18 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b0d7816dc83a7c3536e44ff2461d85ea6178ff1
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
-ms.translationtype: HT
+ms.openlocfilehash: a108c952c4f1f9b8298e57c8fd94c767bb065f00
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82778486"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82981778"
 ---
 # <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>O que são dependências de serviço no Acesso Condicional do Diretório Ativo Azure? 
 
 Com as políticas de Acesso Condicional, pode especificar os requisitos de acesso a websites e serviços. Por exemplo, os seus requisitos de acesso podem incluir a necessidade de autenticação multifactor (MFA) ou [dispositivos geridos](require-managed-devices.md). 
 
 Quando se acede diretamente a um site ou serviço, o impacto de uma política relacionada é tipicamente fácil de avaliar. Por exemplo, se tiver uma política que requer autenticação multifactor (MFA) para configuração Online do SharePoint, o MFA é aplicado para cada sessão no portal web SharePoint. No entanto, nem sempre é direto avaliar o impacto de uma política porque existem aplicações na nuvem com dependências de outras aplicações na nuvem. Por exemplo, as Equipas Microsoft podem fornecer acesso a recursos no SharePoint Online. Assim, ao aceder às Equipas Microsoft no nosso cenário atual, também está sujeito à política do SharePoint MFA. 
+
+> [!TIP]
+> A utilização da aplicação [Office 365 (pré-visualização)](concept-conditional-access-cloud-apps.md#office-365-preview) terá como alvo todas as aplicações do Office para evitar problemas com dependências de serviços na stack do Office.
 
 ## <a name="policy-enforcement"></a>Aplicação da política 
 

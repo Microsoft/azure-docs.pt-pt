@@ -3,14 +3,14 @@ title: Configurar ambientes de encenação
 description: Aprenda a implementar aplicações para uma ranhura de não produção e a swap automático para a produção. Aumente a fiabilidade e elimine o tempo de inatividade da aplicação a partir de implementações.
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
-ms.date: 03/04/2020
+ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 21e025088e59c7f65f848b332ecb393b05918261
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 11e133a24ff728cc864e50e898e9db982b186337
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78300876"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597926"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de teste no Serviço de Aplicações do Azure
 <a name="Overview"></a>
@@ -58,11 +58,11 @@ A aplicação deve estar a funcionar no nível **Standard**, **Premium**ou **Iso
    
     ![Título de ranhura de implantação](./media/web-sites-staged-publishing/StagingTitle.png)
 
-    A slot de encenação tem uma página de gestão como qualquer outra app do App Service. Pode alterar a configuração da ranhura. O nome da ranhura é mostrado no topo da página para lembrá-lo que está a ver a ranhura de implantação.
+    A slot de encenação tem uma página de gestão como qualquer outra app do App Service. Pode alterar a configuração da ranhura. Para lembrá-lo que está a visualizar a ranhura de implementação, o nome da aplicação é mostrado como ** \<nome de aplicação>/\<nome de slot>**, e o tipo de aplicação é App Service **(Slot)**. Também pode ver a ranhura como uma aplicação separada no seu grupo de recursos, com as mesmas designações.
 
 6. Selecione o URL da aplicação na página de recursos da ranhura. A ranhura de implementação tem o seu próprio nome de anfitrião e é também uma aplicação ao vivo. Para limitar o acesso do público à ranhura de implantação, consulte as restrições IP do Serviço de [Aplicações Azure](app-service-ip-restrictions.md).
 
-A nova ranhura de implementação não tem conteúdo, mesmo que clone as definições de uma ranhura diferente. Por exemplo, pode [publicar nesta ranhura com Git](app-service-deploy-local-git.md). Você pode implantar para a ranhura a partir de um ramo de repositório diferente ou de um repositório diferente. 
+A nova ranhura de implementação não tem conteúdo, mesmo que clone as definições de uma ranhura diferente. Por exemplo, pode [publicar nesta ranhura com Git](app-service-deploy-local-git.md). Você pode implantar para a ranhura a partir de um ramo de repositório diferente ou de um repositório diferente.
 
 <a name="AboutConfiguration"></a>
 
@@ -272,7 +272,7 @@ Por padrão, são dadas novas ranhuras com uma regra de encaminhamento de `0%`, 
 
 ## <a name="delete-a-slot"></a>Apagar uma ranhura
 
-Procure e selecione a sua aplicação. Selecione > *\<ranhuras *de **implantação**para eliminar> >  **visão geral**. **Selecione Excluir** na barra de comando.  
+Procure e selecione a sua aplicação. Selecione > *\<ranhuras *de **implantação**para eliminar> >  **visão geral**. O tipo de aplicação é mostrado como **App Service (Slot)** para lembrá-lo que está a ver uma ranhura de implementação. **Selecione Excluir** na barra de comando.  
 
 ![Eliminar uma ranhura de implantação](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
 

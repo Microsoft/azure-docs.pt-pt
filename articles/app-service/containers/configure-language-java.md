@@ -10,12 +10,12 @@ ms.date: 11/22/2019
 ms.author: brendm
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f4f6de807628704051cdddf74bcefbed678f8fcd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ffc7c289fd675a68c8b02af1777fea3d4530e17a
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457897"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82889501"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configurar uma aplicação Java do Linux para o Serviço de Aplicações do Azure
 
@@ -25,7 +25,7 @@ Este guia fornece conceitos e instruções fundamentais para os desenvolvedores 
 
 ## <a name="deploying-your-app"></a>Implementação da sua aplicação
 
-Pode utilizar [o Maven Plugin para](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) o Azure App Service para implementar ficheiros .jar e .war. A implantação com IDEs populares também é suportada com [O Kit de Ferramentas Azure para IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij) ou [Azure Toolkit para Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse).
+Pode utilizar [o Maven Plugin para](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) o Azure App Service para implementar ficheiros .jar e .war. A implantação com IDEs populares também é suportada com [O Kit de Ferramentas Azure para IntelliJ](/azure/developer/java/toolkit-for-intellij/) ou [Azure Toolkit para Eclipse](/azure/developer/java/toolkit-for-eclipse).
 
 Caso contrário, o seu método de implantação dependerá do seu tipo de arquivo:
 
@@ -561,21 +561,25 @@ Para utilizar o Tomcat com o Redis, tem de configurar a sua aplicação para uti
 
 8. Atualize `azure-webapp-maven-plugin` a configuração no ficheiro *pom.xml* da sua aplicação para se referir às informações da sua conta Redis. Este ficheiro utiliza as variáveis ambientais que definiu anteriormente para manter a informação da sua conta fora dos seus ficheiros de origem.
 
-    Se for necessário, mude `1.7.0` para a versão atual do [Maven Plugin for Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme).
+    Se for necessário, mude `1.9.1` para a versão atual do [Maven Plugin for Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme).
 
     ```xml
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.7.0</version>
-        <configuration>
-
+        <version>1.9.1</version>
+        <configuration>            
             <!-- Web App information -->
+            <schemaVersion>v2</schemaVersion>
             <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
             <appServicePlanName>${WEBAPP_PLAN_NAME}-${REGION}</appServicePlanName>
             <appName>${WEBAPP_NAME}-${REGION}</appName>
-            <region>${REGION}</region>
-            <linuxRuntime>tomcat 9.0-jre8</linuxRuntime>
+            <region>${REGION}</region>            
+            <runtime>
+                <os>linux</os>
+                <javaVersion>jre8</javaVersion>
+                <webContainer>tomcat 9.0</webContainer>
+            </runtime>
 
             <appSettings>
                 <property>
