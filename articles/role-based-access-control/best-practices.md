@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: dc86dd488ff9e8649ae80f4768941791dd37fce6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 053e86f3493c7a11a3cbbaad0871e45345697878
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81726777"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735339"
 ---
 # <a name="best-practices-for-azure-rbac"></a>Boas práticas para O RBAC Azure
 
@@ -26,13 +26,13 @@ Este artigo descreve algumas boas práticas para utilizar o controlo de acesso b
 
 ## <a name="only-grant-the-access-users-need"></a>Apenas conceder os utilizadores de acesso precisam
 
-Utilizando o Azure RBAC, pode segregar tarefas dentro da sua equipa e conceder apenas a quantidade de acesso aos utilizadores de que necessitam para desempenhar em seu trabalho. Em vez de dar a todas as pessoas permissões sem restrições na sua subscrição do Azure ou recursos, pode permitir apenas determinadas ações num âmbito específico.
+Com o RBAC do Azure, pode fazer a segregação de deveres na sua equipa e conceder aos utilizadores apenas a quantidade de acesso de que precisam para desempenhar as suas funções. Em vez de dar a todas as pessoas permissões sem restrições na sua subscrição do Azure ou recursos, pode permitir apenas determinadas ações num âmbito específico.
 
-Quando planear a estratégia de controlo de acesso, é boa prática conceder aos utilizadores o privilégio menor de que precisam para trabalhar. O diagrama seguinte mostra um padrão sugerido para utilizar o RBAC.
+Quando planear a estratégia de controlo de acesso, é boa prática conceder aos utilizadores o privilégio menor de que precisam para trabalhar. O diagrama seguinte mostra um padrão sugerido para a utilização de Azure RBAC.
 
-![RBAC e menor privilégio](./media/best-practices/rbac-least-privilege.png)
+![Azure RBAC e menos privilégio](./media/best-practices/rbac-least-privilege.png)
 
-Para obter informações sobre como adicionar atribuições de papéis, consulte [Adicionar ou remover atribuições](role-assignments-portal.md)de funções .
+Para obter informações sobre como adicionar atribuições de papéis, consulte Adicionar ou remover atribuições de [funções Azure utilizando o portal Azure](role-assignments-portal.md).
 
 ## <a name="limit-the-number-of-subscription-owners"></a>Limitar o número de proprietários de assinaturas
 
