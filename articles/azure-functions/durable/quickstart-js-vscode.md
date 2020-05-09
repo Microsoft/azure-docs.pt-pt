@@ -3,20 +3,18 @@ title: Crie a sua primeira função durável em Azure usando javaScript
 description: Crie e publique uma Função Durável Azure utilizando o Código do Estúdio Visual.
 author: anthonychu
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 05/07/2020
 ms.reviewer: azfuncdf, antchu
-ms.openlocfilehash: 55098daa69d3e878140b20095b0a3e08811269e1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6544cd115dbae2268492a8775a780d2f045f4e4a
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80257653"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82889681"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Create your first durable function in JavaScript (Criar a sua primeira função durável em JavaScript)
 
 *Funções Duráveis* é uma extensão das [Funções Azure](../functions-overview.md) que permite escrever funções imponentes num ambiente sem servidores. A extensão gere o estado, os pontos de verificação e os reinícios por si.
-
-[!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
 Neste artigo, aprende-se a usar a extensão visual do Código de Código Azure para criar e testar localmente uma função durável "hello world".  Esta função irá orquestrar e acorrentar chamadas em conjunto para outras funções. Em seguida, publique o código de função no Azure.
 
@@ -61,7 +59,7 @@ O Visual Studio Code instala as Ferramentas Core funções Do Azure, se necessá
 
 Um ficheiro package.json também é criado na pasta raiz.
 
-### <a name="enable-azure-functions-v2-compatibility-mode"></a>Ativar o modo de compatibilidade V2 funções do Azure
+### <a name="enable-compatibility-mode"></a>Ativar o modo de compatibilidade
 
 Atualmente, as funções duráveis JavaScript requerem que o modo de compatibilidade V2 das funções Azure seja ativado.
 
@@ -165,7 +163,7 @@ As Ferramentas de Núcleo das Funções do Azure permitem-lhe executar um projet
     | Selecione uma conta de armazenamento | Criar uma nova conta de armazenamento |  |
     | Insira o nome da nova conta de armazenamento | *nome único* | Nome da conta de armazenamento para criar |
     | Selecionar um grupo de recursos | *nome único* | Nome do grupo de recursos para criar |
-    | Selecionar uma localização | *região* | Selecione uma região próxima de si |
+    | Selecionar uma localização | *.* | Selecione uma região próxima de si |
 
 1. No painel **Terminal**, copie o ponto final do URL da sua função acionada por HTTP.
 
@@ -204,7 +202,7 @@ Depois de verificar que a função é executada corretamente no computador local
 
 [!INCLUDE [functions-publish-project-vscode](../../../includes/functions-publish-project-vscode.md)]
 
-### <a name="enable-azure-functions-v2-compatibility-mode"></a>Ativar o modo de compatibilidade V2 funções do Azure
+### <a name="enable-compatibility-mode"></a>Ativar o modo de compatibilidade
 
 A mesma compatibilidade azure Funções V2 que permitiu localmente precisa ser ativada na aplicação em Azure.
 

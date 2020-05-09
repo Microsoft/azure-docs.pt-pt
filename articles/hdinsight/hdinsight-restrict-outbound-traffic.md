@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: c65e3ad7ed02ddd4e6ed1d60628a738d333e9a9c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: eaf51f6778d38d236808c3fd809082bc3b2d54b2
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189386"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82863438"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Configure o tráfego de rede de saída para clusters Azure HDInsight usando firewall
 
@@ -69,13 +69,13 @@ Crie uma coleção de regras de aplicação que permita ao cluster enviar e rece
 
     **Seção de etiquetas FQDN**
 
-    | Nome | Endereço de origem | Etiqueta FQDN | Notas |
+    | Name | Endereço de origem | Etiqueta FQDN | Notas |
     | --- | --- | --- | --- |
     | Rule_1 | * | WindowsUpdate e HDInsight | Obrigatório para os serviços de HDI |
 
     **Secção de FQDNs alvo**
 
-    | Nome | Endereços de origem | `Protocol:Port` | FQDNS alvo | Notas |
+    | Name | Endereços de origem | `Protocol:Port` | FQDNS alvo | Notas |
     | --- | --- | --- | --- | --- |
     | Rule_2 | * | https:443 | login.windows.net | Permite atividade de login do Windows |
     | Rule_3 | * | https:443 | login.microsoftonline.com | Permite atividade de login do Windows |
@@ -103,7 +103,7 @@ Crie as regras de rede para configurar corretamente o seu cluster HDInsight.
 
     **Secção de endereços IP**
 
-    | Nome | Protocolo | Endereços de origem | Endereços de destino | Portas de destino | Notas |
+    | Name | Protocolo | Endereços de origem | Endereços de destino | Portas de destino | Notas |
     | --- | --- | --- | --- | --- | --- |
     | Rule_1 | UDP | * | * | 123 | Serviço de tempo |
     | Rule_2 | Qualquer | * | DC_IP_Address_1, DC_IP_Address_2 | * | Se estiver a utilizar o Enterprise Security Package (ESP), adicione uma regra de rede na secção endereços IP que permite a comunicação com clusters AAD-DS para clusters ESP. Pode encontrar os endereços IP dos controladores de domínio na secção AAD-DS no portal |
@@ -112,7 +112,7 @@ Crie as regras de rede para configurar corretamente o seu cluster HDInsight.
 
     **Secção etiquetas de serviço**
 
-    | Nome | Protocolo | Endereços de Origem | Etiquetas de Serviço | Portos de Destino | Notas |
+    | Name | Protocolo | Endereços de Origem | Etiquetas de Serviço | Portos de Destino | Notas |
     | --- | --- | --- | --- | --- | --- |
     | Rule_7 | TCP | * | SQL | 1433 | Configure uma regra de rede na secção Etiquetas de Serviço para SQL que lhe permitirá registar e auditar o tráfego SQL. A menos que tenha configurado os pontos finais do serviço para o Servidor SQL na subnet HDInsight, que irá contornar a firewall. |
 
@@ -188,61 +188,7 @@ Depois de ter a firewall configurada com sucesso,`https://CLUSTERNAME-int.azureh
 
 Para utilizar o ponto`https://CLUSTERNAME.azurehdinsight.net`final do público (`CLUSTERNAME-ssh.azurehdinsight.net`) ou ssh endpoint ( ), certifique-se de que você tem as rotas certas na tabela de rotas e regras DE NSG para evitar a questão de encaminhamento assimétrico explicado [aqui](../firewall/integrate-lb.md). Especificamente neste caso, você precisa permitir o endereço IP do cliente nas regras NSG de entrada e `internet`também adicioná-lo à tabela de rota definida pelo utilizador com o próximo conjunto de lúpulo como . Se o encaminhamento não estiver bem configurado, verá um erro de tempo.
 
-## <a name="configure-another-network-virtual-appliance"></a>Configure outro aparelho virtual de rede
-
-> [!Important]
-> As seguintes informações **só** são necessárias se pretender configurar um aparelho virtual de rede (NVA) que não seja o Firewall Azure.
-
-As instruções anteriores ajudam-no a configurar o Firewall Azure para restringir o tráfego de saída do seu cluster HDInsight. O Azure Firewall é configurado automaticamente para permitir o tráfego para muitos dos cenários importantes comuns. A utilização de outro aparelho virtual de rede exigirá que configure uma série de funcionalidades adicionais. Tenha em mente os seguintes fatores à medida que configura o seu aparelho virtual de rede:
-
-* Os serviços de endpoint de serviço devem ser configurados com pontos finais de serviço.
-* As dependências de endereçoip são para tráfego não HTTP/S (tanto o tráfego TCP como uDP).
-* Os pontos finais FQDN HTTP/HTTPS podem ser colocados no seu dispositivo NVA.
-* Os pontos finais wildcard HTTP/HTTPS são dependências que podem variar com base numa série de qualificações.
-* Atribua a tabela de rotas que cria à sua sub-rede HDInsight.
-
-### <a name="service-endpoint-capable-dependencies"></a>Dependências de ponto final de serviço
-
-| **Ponto Final** |
-|---|
-| SQL do Azure |
-| Storage do Azure |
-| Azure Active Directory |
-
-#### <a name="ip-address-dependencies"></a>Dependências de endereços IP
-
-| **Ponto Final** | **Detalhes** |
-|---|---|
-| \*:123 | Verificação do relógio NTP. O tráfego é verificado em vários pontos finais no porto 123 |
-| IPs [publicados aqui](hdinsight-management-ip-addresses.md) | Estes IPs são serviço HDInsight |
-| IPs privados AAD-DS para clusters ESP |
-| \*:16800 para ativação do Windows KMS |
-| \*12000 para Log Analytics |
-
-#### <a name="fqdn-httphttps-dependencies"></a>Dependências fQDN HTTP/HTTPS
-
-> [!Important]
-> A lista abaixo dá apenas alguns dos FQDNs mais importantes. Pode obter FQDNs adicionais (principalmente Azure Storage e Azure Service Bus) para configurar o seu NVA [neste ficheiro](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json).
-
-| **Ponto Final**                                                          |
-|---|
-| azure.archive.ubuntu.com:80                                           |
-| security.ubuntu.com:80                                                |
-| ocsp.msocsp.com:80                                                    |
-| ocsp.digicert.com:80                                                  |
-| wawsinfraprodbay063.blob.core.windows.net:443                         |
-| registry-1.docker.io:443                                              |
-| auth.docker.io:443                                                    |
-| production.cloudflare.docker.com:443                                  |
-| download.docker.com:443                                               |
-| us.archive.ubuntu.com:80                                              |
-| download.mono-project.com:80                                          |
-| packages.treasuredata.com:80                                          |
-| security.ubuntu.com:80                                                |
-| azure.archive.ubuntu.com:80                                           |
-| ocsp.msocsp.com:80                                                    |
-| ocsp.digicert.com:80                                                  |
-
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Arquitetura de rede virtual Azure HDInsight](hdinsight-virtual-network-architecture.md)
+* [Configurar aparelho virtual de rede](./network-virtual-appliance.md)
