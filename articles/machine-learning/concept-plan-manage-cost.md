@@ -9,13 +9,13 @@ ms.reviewer: nigup
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 04/22/2020
-ms.openlocfilehash: b777e6a45bdfe78889366982a6c28e10e21c4fbc
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.date: 05/08/2020
+ms.openlocfilehash: 2161a9e4460526113aaf89609b72250a09fc6af3
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856996"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891208"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Planear e gerir custos para o Azure Machine Learning
 
@@ -63,7 +63,7 @@ Veja os custos em gráficos e tabelas para intervalos de tempo diferentes. Algun
 
 Não verá uma área de serviço separada para machine learning.  Em vez disso, verá os vários recursos que adicionou aos seus espaços de trabalho de Machine Learning.
 
-## <a name="use-amlcompute"></a>Utilizar amlCompute
+## <a name="use-azure-machine-learning-compute-cluster-amlcompute"></a>Utilize o cluster de computação azure machine learning (AmlCompute)
 
 Com dados em constante mudança, é necessário um treino e reconversão rápidos e simplificados para manter modelos precisos. No entanto, o treino contínuo tem um custo, especialmente para modelos de aprendizagem profunda em GPUs. 
 
@@ -138,5 +138,7 @@ A Azure Machine Learning Compute suporta casos reservados inerentemente. Assim, 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre gestão de custos com análise de [custos.](../cost-management-billing/costs/quick-acm-cost-analysis.md)
-* Saiba mais sobre o [computado de Aprendizagem automática Azure.](how-to-set-up-training-targets.md#amlcompute)
+Saiba mais sobre:
+* [Gerir e aumentar as quotas de recursos](how-to-manage-quotas.md)
+* [Gerir os custos com análise de [custos.](../cost-management-billing/costs/quick-acm-cost-analysis.md)
+* [Computação azure machine learning.](how-to-set-up-training-targets.md#amlcompute)

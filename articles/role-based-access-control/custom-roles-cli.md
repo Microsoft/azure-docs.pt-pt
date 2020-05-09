@@ -1,6 +1,6 @@
 ---
-title: Criar ou atualizar funções personalizadas para os recursos do Azure utilizando o Azure CLI [ Microsoft Docs
-description: Aprenda a listar, criar, atualizar ou eliminar funções personalizadas com controlo de acesso baseado em papéis (RBAC) para recursos Azure utilizando o Azure CLI.
+title: Criar ou atualizar funções personalizadas azure usando O Azure CLI - Azure RBAC
+description: Saiba como listar, criar, atualizar ou eliminar funções personalizadas do Azure utilizando o controlo de acesso baseado em papel Azure CLI e Azure (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,23 +14,23 @@ ms.workload: identity
 ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 44676f7b92c2bcd30612295840054ab2f0c0cf12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cac0116cf7a068e63cb54698f7273b8c063ff854
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062216"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734846"
 ---
-# <a name="create-or-update-custom-roles-for-azure-resources-using-azure-cli"></a>Criar ou atualizar funções personalizadas para os recursos do Azure utilizando o Azure CLI
+# <a name="create-or-update-azure-custom-roles-using-azure-cli"></a>Criar ou atualizar funções personalizadas do Azure utilizando o Azure CLI
 
 > [!IMPORTANT]
 > A adição de `AssignableScopes` um grupo de gestão está atualmente em pré-visualização.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
 > Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 
-Se as [funções incorporadas para os recursos Azure](built-in-roles.md) não atenderem às necessidades específicas da sua organização, pode criar os seus próprios papéis personalizados. Este artigo descreve como listar, criar, atualizar ou eliminar funções personalizadas usando o Azure CLI.
+Se os [papéis integrados](built-in-roles.md) do Azure não atenderem às necessidades específicas da sua organização, pode criar os seus próprios papéis personalizados. Este artigo descreve como listar, criar, atualizar ou eliminar funções personalizadas usando o Azure CLI.
 
-Para um tutorial passo a passo sobre como criar um papel personalizado, consulte [Tutorial: Crie um papel personalizado para os recursos Azure usando o Azure CLI](tutorial-custom-role-cli.md).
+Para um tutorial passo a passo sobre como criar um papel personalizado, consulte [Tutorial: Crie uma função personalizada Azure usando o Azure CLI](tutorial-custom-role-cli.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -244,6 +244,6 @@ az role definition delete --name "Virtual Machine Operator"
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Tutorial: Criar uma função personalizada para os recursos Azure usando o Azure CLI](tutorial-custom-role-cli.md)
-- [Custom roles for Azure resources](custom-roles.md) (Funções personalizadas para recursos do Azure)
+- [Tutorial: Criar uma função personalizada azure usando o Azure CLI](tutorial-custom-role-cli.md)
+- [Papéis personalizados do Azure](custom-roles.md)
 - [Operações de fornecedor de recursos do Gestor de Recursos Azure](resource-provider-operations.md)

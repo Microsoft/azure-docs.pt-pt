@@ -3,12 +3,12 @@ title: Create a Service Fabric cluster in the Azure portal (Criar um cluster do 
 description: Aprenda a configurar um cluster de tecido de serviço seguro em Azure utilizando o portal Azure e o Cofre chave Azure.
 ms.topic: conceptual
 ms.date: 09/06/2018
-ms.openlocfilehash: e0cd3d5e5a37720134a5bce596bba211b375f19d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 64a4c430cc7402419d64b77fdcc9a6389cf9de6d
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81458322"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792484"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Criar um cluster de tecido de serviço em Azure utilizando o portal Azure
 > [!div class="op_single_selector"]
@@ -107,7 +107,7 @@ Configure os seus nós de cluster. Os tipos de nó definem os tamanhos vm, o nú
 2. O **tamanho** mínimo de VMs para o tipo de nó primário é conduzido pelo **nível de Durabilidade** que escolher para o cluster. O padrão para o nível de durabilidade é o bronze. Para obter mais informações sobre durabilidade, consulte [como escolher a durabilidade do cluster do Tecido de Serviço][service-fabric-cluster-durability].
 3. Selecione o tamanho da **máquina Virtual**. Os VMs da série D têm unidades SSD e são altamente recomendados para aplicações imponentes. Não utilize nenhum VM SKU que tenha núcleos parciais ou tenha menos de 10 GB de capacidade de disco disponível. Consulte o documento de [consideração][service-fabric-cluster-capacity] de planeamento de cluster de tecido de serviço para obter ajuda na seleção do tamanho vm.
 4.  **O aglomerado de nó único e três aglomerados** de nós destinam-se apenas ao ensaio. Não são apoiados para qualquer carga de trabalho de produção em execução.
-5. Escolha a capacidade definida de **escala VM inicial** para o tipo de nó. Pode aumentar ou descer o número de VMs num nó mais tarde, mas no tipo de nó primário, o mínimo é de cinco para cargas de trabalho de produção. Outros tipos de nó podem ter um mínimo de um VM. O **número** mínimo de VMs para o tipo de nó primário impulsiona a **fiabilidade** do seu cluster.  
+5. Escolha a capacidade definida de **escala VM inicial** para o tipo de nó. Pode escalar para dentro ou para fora o número de VMs em um tipo de nó mais tarde, mas no tipo de nó primário, o mínimo é de cinco para cargas de trabalho de produção. Outros tipos de nó podem ter um mínimo de um VM. O **número** mínimo de VMs para o tipo de nó primário impulsiona a **fiabilidade** do seu cluster.  
 6. Configurar **pontos finais personalizados**. Este campo permite-lhe introduzir uma lista separada de portas que pretende expor através do Azure Load Balancer à Internet pública para as suas aplicações. Por exemplo, se planeia implementar uma aplicação web para o seu cluster, introduza "80" aqui para permitir o tráfego na porta 80 no seu cluster. Para obter mais informações sobre pontos finais, consulte [a comunicação com aplicações][service-fabric-connect-and-communicate-with-services]
 7. **Ativar o proxy invertido**.  O [proxy inverso do Tecido de Serviço](service-fabric-reverseproxy.md) ajuda os microserviços a funcionar num cluster de Tecido de Serviço a descobrir e a comunicar com outros serviços que têm pontos finais.
 8. De volta à lâmina de configuração do **Cluster,** em **+Mostrar configurações opcionais,** configurar **diagnósticos**de cluster . Por padrão, os diagnósticos estão ativados no seu cluster para ajudar com problemas de resolução de problemas. Se pretender desativar os diagnósticos, altere o **estado** para **desligar**. **Não** é aconselhável desligar os diagnósticos. Se já tem o projeto Application Insights criado, então dê a sua chave, para que os vestígios de aplicação sejam encaminhados para ele.

@@ -5,27 +5,27 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 07/03/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7dc218416e3b91998a6f06a62670ff8d2158d533
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 8ca1bd7a724d3256bc2e171ce39fd6a06e2e5935
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509154"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82779302"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Gerir o Controlo de Alterações e o Inventário
 
 Quando adiciona uma nova chave de ficheiros ou registos para rastrear, a Automatização Azure permite-o para a funcionalidade de Rastreio e Inventário de [Alterações.](change-tracking.md) Este artigo inclui procedimentos para trabalhar com esta funcionalidade.
 
-## <a name="enable-the-full-change-tracking-and-inventory-solution"></a>Ativar a solução completa de rastreio de alterações e inventário
+## <a name="enable-the-full-change-tracking-and-inventory-feature"></a>Ativar a funcionalidade completa de rastreio e inventário de alterações
 
-Se tiver ativado a Monitorização da Integridade do Ficheiro do Centro de [Segurança Azure (FIM),](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring)pode utilizar a solução completa de Rastreio e Inventário de Alterações, conforme descrito abaixo. As suas definições não são removidas por este processo.
+Se tiver ativado a Monitorização da Integridade do Ficheiro do Centro de [Segurança Azure (FIM),](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring)pode utilizar a funcionalidade completa de Rastreio e Inventário de Alterações, conforme descrito abaixo. As suas definições não são removidas por este processo.
 
 > [!NOTE]
-> Permitir a solução completa de rastreio de alterações e inventário pode causar encargos adicionais. Ver [Preços de Automação](https://azure.microsoft.com/pricing/details/automation/).
+> Ativar a funcionalidade completa de rastreio e inventário de alterações pode causar encargos adicionais. Ver [Preços de Automação](https://azure.microsoft.com/pricing/details/automation/).
 
 1. Retire a solução de monitorização navegando para o espaço de trabalho e localizando-a na [lista de soluções de monitorização instaladas](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions).
 2. Clique no nome da solução para abrir a sua página sumária e, em seguida, clique em **Delete**, conforme detalhado em [Remover uma solução de monitorização](../azure-monitor/insights/solutions.md#remove-a-monitoring-solution).
-3. Para reativar a solução, navegue para a conta Automation e selecione **o rastreio de alteração** sob gestão de **configuração**.
+3. Para reativar o Rastreio e O Inventário de Alterações, navegue para a conta Desativação e selecione **o rastreio** de alteração sob gestão de **configuração**.
 4. Escolha o espaço de trabalho e a conta de Automação do Log Analytics, confirme as definições do espaço de trabalho e clique em **Ativar**.
 
 ## <a name="onboard-machines-to-change-tracking-and-inventory"></a><a name="onboard"></a>Máquinas de bordo para alterar rastreio e inventário

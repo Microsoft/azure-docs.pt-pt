@@ -1,5 +1,6 @@
 ---
-title: Fluxo de código de autorização DaOAuth - plataforma de identidade da Microsoft Azure
+title: Plataforma de identidade da Microsoft e fluxo de código de autorização OAuth 2.0 [ Azure
+titleSuffix: Microsoft identity platform
 description: Construa aplicações web utilizando a implementação da plataforma de identidade Microsoft do protocolo de autenticação OAuth 2.0.
 services: active-directory
 author: hpsin
@@ -8,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/31/2020
+ms.date: 05/06/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: b01a0a9162412092f9339810a51838c4bdbb0a20
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
-ms.translationtype: HT
+ms.openlocfilehash: 29720b338326a29e65af1b6564cb0b59a976c62c
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864186"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926447"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Plataforma de identidade da Microsoft e fluxo de código de autorização OAuth 2.0
 
@@ -25,11 +26,11 @@ A concessão de código de autorização OAuth 2.0 pode ser utilizada em aplica�
 
 Este artigo descreve como programar diretamente contra o protocolo na sua aplicação.  Sempre que possível, recomendamos que utilize as Bibliotecas de Autenticação da Microsoft (MSAL) suportadas em vez de adquirir fichas e ligar para [APIs web protegidos](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Veja também as [aplicações de amostra que utilizam o MSAL.](sample-v2-code.md)
 
-O fluxo de código de autorização OAuth 2.0 é descrito na [secção 4.1 da especificação OAuth 2.0](https://tools.ietf.org/html/rfc6749). É usado para realizar autenticação e autorização na maioria dos tipos de aplicações, incluindo [aplicações web](v2-app-types.md#web-apps) e [aplicações instaladas de forma nativa.](v2-app-types.md#mobile-and-native-apps) O fluxo permite que as aplicações adquiram de forma segura access_tokens que podem ser usadas para aceder a recursos protegidos pelo ponto final da plataforma de identidade da Microsoft.
+O fluxo de código de autorização OAuth 2.0 é descrito na [secção 4.1 da especificação OAuth 2.0](https://tools.ietf.org/html/rfc6749). É usado para realizar autenticação e autorização na maioria dos tipos de aplicações, incluindo [aplicações web](v2-app-types.md#web-apps) e [aplicações instaladas de forma nativa.](v2-app-types.md#mobile-and-native-apps) Este fluxo OAuth permite que as aplicações adquiram de forma segura access_tokens que podem ser usadas para aceder a recursos protegidos pelo ponto final da plataforma de identidade da Microsoft.
 
 ## <a name="protocol-diagram"></a>Diagrama de protocolo
 
-A um nível elevado, todo o fluxo de autenticação para uma aplicação nativa/móvel é um pouco assim:
+A um nível elevado, todo o fluxo de autenticação OAuth2 para uma aplicação nativa/móvel é um pouco assim:
 
 ![Fluxo de Código Auth Auth OAuth](./media/v2-oauth2-auth-code-flow/convergence-scenarios-native.svg)
 
@@ -148,7 +149,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `scope`      | necessário   | Uma lista de âmbitos separados pelo espaço. Os âmbitos solicitados nesta perna devem ser equivalentes ou a um subconjunto dos âmbitos solicitados na primeira perna. Os âmbitos devem ser todos de um único recurso,`profile` `openid`juntamente com os âmbitos oIDC (, . . `email`). Para obter uma explicação mais detalhada dos âmbitos, consulte [permissões, consentimento e âmbitos.](v2-permissions-and-consent.md) |
 | `code`          | necessário  | O authorization_code que adquiriu na primeira etapa do fluxo. |
 | `redirect_uri`  | necessário  | O mesmo valor redirect_uri que foi usado para adquirir o authorization_code. |
-| `client_secret` | necessário para aplicações web | O segredo de aplicação que criou no portal de registo de aplicações para a sua aplicação. Não deve usar o segredo da aplicação numa aplicação nativa porque client_secrets não pode ser armazenado de forma fiável em dispositivos. É necessário para aplicações web e APIs web, que têm a capacidade de armazenar o client_secret de forma segura no lado do servidor.  O segredo do cliente deve ser codificado antes de ser enviado. Para mais informações clique [aqui](https://tools.ietf.org/html/rfc3986#page-12). |
+| `client_secret` | necessário para aplicações web | O segredo de aplicação que criou no portal de registo de aplicações para a sua aplicação. Não deve usar o segredo da aplicação numa aplicação nativa porque client_secrets não pode ser armazenado de forma fiável em dispositivos. É necessário para aplicações web e APIs web, que têm a capacidade de armazenar o client_secret de forma segura no lado do servidor.  O segredo do cliente deve ser codificado antes de ser enviado. Para mais informações, consulte a especificação de [Sintaxe Genérica URI](https://tools.ietf.org/html/rfc3986#page-12). |
 | `code_verifier` | opcional  | O mesmo code_verifier que foi usado para obter o authorization_code. Necessário se o PKCE foi utilizado no pedido de concessão de código de autorização. Para mais informações, consulte o [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 
 ### <a name="successful-response"></a>Resposta bem sucedida
@@ -260,7 +261,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `grant_type`    | necessário    | Deve `refresh_token` ser para esta perna do fluxo de código de autorização. |
 | `scope`         | necessário    | Uma lista de âmbitos separados pelo espaço. Os âmbitos solicitados nesta perna devem ser equivalentes ou a um subconjunto dos âmbitos solicitados na perna de pedido de authorization_code original. Se os âmbitos especificados neste pedido abrangerem vários servidores de recursos, então o ponto final da plataforma de identidade da Microsoft devolverá um símbolo para o recurso especificado no primeiro âmbito. Para obter uma explicação mais detalhada dos âmbitos, consulte [permissões, consentimento e âmbitos.](v2-permissions-and-consent.md) |
 | `refresh_token` | necessário    | O refresh_token que adquiriu na segunda etapa do fluxo. |
-| `client_secret` | necessário para aplicações web | O segredo de aplicação que criou no portal de registo de aplicações para a sua aplicação. Não deve ser usado numa aplicação nativa, porque client_secrets não podem ser armazenados de forma fiável em dispositivos. É necessário para aplicações web e APIs web, que têm a capacidade de armazenar o client_secret de forma segura no lado do servidor. Este segredo precisa de ser codificado por URL, para mais informações clique [aqui](https://tools.ietf.org/html/rfc3986#page-12). |
+| `client_secret` | necessário para aplicações web | O segredo de aplicação que criou no portal de registo de aplicações para a sua aplicação. Não deve ser usado numa aplicação nativa, porque client_secrets não podem ser armazenados de forma fiável em dispositivos. É necessário para aplicações web e APIs web, que têm a capacidade de armazenar o client_secret de forma segura no lado do servidor. Este segredo tem de ser codificado por URL. Para mais informações, consulte a especificação de [Sintaxe Genérica URI](https://tools.ietf.org/html/rfc3986#page-12). |
 
 #### <a name="successful-response"></a>Resposta bem sucedida
 
