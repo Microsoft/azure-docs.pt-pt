@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: yinhew
-ms.openlocfilehash: 005824b0953be741f47c027d121dbe073adca3ba
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2f102199c14ba9611a83e3ed3b31ebcd189624d6
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82131289"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82978625"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST de conversão de voz em texto
 
@@ -52,7 +52,7 @@ Estes parâmetros podem ser incluídos na cadeia de consulta do pedido REST.
 | Parâmetro | Descrição | Obrigatório / Opcional |
 |-----------|-------------|---------------------|
 | `language` | Identifica a língua falada que está a ser reconhecida. Ver [línguas apoiadas.](language-support.md#speech-to-text) | Necessário |
-| `format` | Especifica o formato de resultados. Os valores aceites são `simple` e. `detailed` Os resultados `DisplayText` `Offset`simples `Duration`incluem, `RecognitionStatus`e . As respostas detalhadas incluem múltiplos resultados com valores de confiança e quatro representações diferentes. A predefinição é `simple`. | Opcional |
+| `format` | Especifica o formato de resultados. Os valores aceites são `simple` e. `detailed` Os resultados `DisplayText` `Offset`simples `Duration`incluem, `RecognitionStatus`e . As respostas detalhadas incluem quatro representações diferentes do texto de exibição. A predefinição é `simple`. | Opcional |
 | `profanity` | Especifica como lidar com a profanação nos resultados de reconhecimento. Os valores aceites são `masked`, que substitui `removed`a profanação por asteriscos, `raw`que remove toda a profanação do resultado, ou , que inclui a profanação no resultado. A predefinição é `masked`. | Opcional |
 | `pronunciationScoreParams` | Especifica os parâmetros para a apresentação de pontuações de pronúncia nos resultados do reconhecimento, que avaliam a qualidade da pronúncia da entrada da fala, com indicadores de precisão, fluência, completude, etc. Este parâmetro é um json codificado base64 contendo múltiplos parâmetros detalhados. Consulte os parâmetros de [avaliação da pronúncia](#pronunciation-assessment-parameters) para como construir este parâmetro. | Opcional |
 | `cid` | Ao utilizar o [portal Custom Speech](how-to-custom-speech.md) para criar modelos personalizados, pode utilizar modelos personalizados através do id **endpoint** encontrado na página **de Implementação.** Utilize o **ID endpoint** como `cid` argumento para o parâmetro de corda de consulta. | Opcional |
@@ -74,10 +74,10 @@ Esta tabela lista seletiva e cabeçalhos opcionais para pedidos de discurso a te
 
 O áudio é enviado no `POST` corpo do pedido HTTP. Deve estar num dos formatos desta tabela:
 
-| Formato | Codec | Bitrate | Taxa de amostragem  |
-|--------|-------|---------|--------------|
-| WAV    | PCM   | 16 bits  | 16 kHz, mono |
-| OGG    | OPUS  | 16 bits  | 16 kHz, mono |
+| Formato | Codec | Taxa bit | Taxa de amostragem  |
+|--------|-------|----------|--------------|
+| WAV    | PCM   | 256 kbps | 16 kHz, mono |
+| OGG    | OPUS  | 256 kpbs | 16 kHz, mono |
 
 >[!NOTE]
 >Os formatos acima são suportados através da REST API e WebSocket no serviço De Fala. O [SDK de Speech](speech-sdk.md) suporta atualmente o formato WAV com codec PCM, bem como outros [formatos](how-to-use-codec-compressed-audio-input-streams.md).
@@ -200,9 +200,10 @@ O `RecognitionStatus` campo pode conter estes valores:
 > [!NOTE]
 > Se o áudio for composto apenas `profanity` por profanação, e `remove`se o parâmetro de consulta estiver definido, o serviço não devolve um resultado de fala.
 
-O `detailed` formato inclui os `simple` mesmos `NBest`dados que o formato, juntamente com, uma lista de interpretações alternativas do mesmo resultado de reconhecimento. Estes resultados são classificados de muito provavelmente para o menos provável. A primeira entrada é a mesma que o resultado principal do reconhecimento.  Ao utilizar `detailed` o `DisplayText` formato, é fornecido quanto `Display` a cada resultado na `NBest` lista.
+O `detailed` formato inclui formas adicionais de resultados reconhecidos.
+Ao utilizar `detailed` o `DisplayText` formato, é fornecido quanto `Display` a cada resultado na `NBest` lista.
 
-Cada objeto `NBest` da lista inclui:
+O objeto `NBest` na lista pode incluir:
 
 | Parâmetro | Descrição |
 |-----------|-------------|
@@ -244,13 +245,6 @@ Uma resposta `detailed` típica para reconhecimento:
         "ITN" : "remind me to buy 5 pencils",
         "MaskedITN" : "remind me to buy 5 pencils",
         "Display" : "Remind me to buy 5 pencils.",
-      },
-      {
-        "Confidence" : "0.54",
-        "Lexical" : "rewind me to buy five pencils",
-        "ITN" : "rewind me to buy 5 pencils",
-        "MaskedITN" : "rewind me to buy 5 pencils",
-        "Display" : "Rewind me to buy 5 pencils.",
       }
   ]
 }

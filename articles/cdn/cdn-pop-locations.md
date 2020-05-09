@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2020
 ms.author: allensu
-ms.openlocfilehash: 227aae23babbcd5d734a10821d9311f91532ea4e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 32b76687910b2bf028365cc6df2bc8272b393f32
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81770985"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82837469"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>Cobertura Azure CDN por Metro 
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Este artigo lista os atuais Metros contendo localizações de ponto de presença
 | Região | Microsoft | Verizon | Rio Akamai |
 | --- | --- | --- | --- |
 | América do Norte | Toronto<br />Vancouver<br />Montreal<br />Querétaro<br />San Juan<br />Ashburn, VA, EUA<br />Atlanta, GA, EUA<br />Boston, MA, EUA<br />Cheyenne, WY, EUA<br />Chicago, IL, EUA<br /> Dallas, TX, EUA<br />Denver, CO, EUA<br />Honolulu, HI, EUA<br />Houston, TX, EUA<br />Las Vegas, NV, EUA<br />Los Angeles, CA, EUA<br />Miami, FL, EUA<br />Nova Iorque, NY, EUA<br />Newark, NJ, EUA<br />Phoenix, AZ, EUA<br />Portland, OR, EUA<br />San Antonio, TX, EUA<br />San Jose, CA, EUA<br />Seattle, WA, EUA | Guadalajara<br />Cidade do México, México<br />Puebla<br />Querétaro<br />Atlanta, GA, EUA<br />Boston, MA, EUA<br />Chicago, IL, EUA<br />Dallas, TX, EUA<br />Denver, CO, EUA<br />Detroit, MI, EUA<br />Los Angeles, CA, EUA<br />Miami, FL, EUA<br />Nova Iorque, NY, EUA<br />Filadélfia, PA, EUA<br />San Jose, CA, EUA<br />Seattle, WA, EUA<br />Washington, DC, EUA | Canadá<br />México<br />EUA |
-| América do Sul | Campinas<br />Rio de Janeiro, Brasil<br />São Paulo<br />Santiago | Buenos Aires<br />Rio de Janeiro, Brasil<br />São Paulo<br />Valparaíso<br />Bogotá<br />Barranquilla<br />Medellín<br />Quito<br />Lima | Argentina<br />Brasil<br />Chile<br />Colômbia<br />Equador<br />Peru<br />Uruguai |
+| América do Sul | Campinas<br />Rio de Janeiro, Brasil<br />São Paulo<br />Santiago<br />Bogotá<br />Buenos Aires | Buenos Aires<br />Rio de Janeiro, Brasil<br />São Paulo<br />Valparaíso<br />Bogotá<br />Barranquilla<br />Medellín<br />Quito<br />Lima | Argentina<br />Brasil<br />Chile<br />Colômbia<br />Equador<br />Peru<br />Uruguai |
 | Europa | Viena<br />Bruxelas<br />Sofia<br />Zagreb<br />Praga<br />Copenhague<br /> Helsínquia<br /> Oslo<br />Marselha, França<br />Paris, França<br />Berlim, Alemanha<br />Frankfurt<br />Atenas<br />Budapeste<br />Dublin<br />Milão, Itália<br />Amsterdão, Holanda<br />Varsóvia<br />Lisboa, Portugal<br />Bucareste<br />Barcelona, Espanha<br />Madrid<br />Estocolmo, Suécia<br />Zurique<br />Londres, Reino Unido<br />Manchester, Reino Unido | Viena<br />Copenhague<br />Helsínquia<br />Marselha, França<br />Paris, França<br />Frankfurt<br />Milão, Itália<br />Riga<br />Amsterdão, Holanda<br />Varsóvia<br />Madrid<br />Estocolmo, Suécia<br />Londres, Reino Unido | Áustria<br />Bulgária<br />Dinamarca<br />Finlândia<br />França<br />Alemanha<br />Grécia<br />Irlanda<br />Itália<br />Países Baixos<br />Polónia<br />Rússia<br />Espanha<br />Suécia<br />Suíça<br />Reino Unido |
 | África | Cidade do Cabo, África do Sul<br />Joanesburgo<br />Lagos<br />Nairobi | Joanesburgo | África do Sul |
 | Médio Oriente | Dubai, Emirados Árabes Unidos<br />Tel Aviv<br />Istambul | Mascate<br />Fujirah, Emirados Árabes Unidos | Catar<br />Emirados Árabes Unidos |

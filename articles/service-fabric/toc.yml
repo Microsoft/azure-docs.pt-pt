@@ -116,6 +116,9 @@
       href: service-fabric-powershell-samples.md
     - name: CLI do Service Fabric
       href: samples-cli.md
+    - name: Incorporações do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Conceitos
   items:
     - name: Compreender os microsserviços

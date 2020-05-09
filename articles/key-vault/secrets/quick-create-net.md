@@ -7,12 +7,12 @@ ms.date: 03/12/2020
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: be612c1e28c0d07228a0f9a183a82edd1ed70753
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
-ms.translationtype: HT
+ms.openlocfilehash: 46ffcfbe382a974b2e8cf465f35bf9eff77dbb7e
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901543"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983181"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net-sdk-v4"></a>Quickstart: Biblioteca de clientes Azure Key Vault para .NET (SDK v4)
 
@@ -97,12 +97,12 @@ New-AzKeyVault -Name <your-unique-keyvault-name> -ResourceGroupName myResourceGr
 
 A forma mais simples de autenticar uma aplicação .NET baseada na nuvem é com uma identidade gerida; ver Utilize um Serviço de [Aplicações gerido identidade para aceder ao Cofre de Chaves Azure](../general/managed-identity.md) para obter mais detalhes. 
 
-No entanto, por uma questão de simplicidade, este quickstart cria uma aplicação de consola .NET, que requer a utilização de um diretor de serviço e de uma política de controlo de acesso. O seu princípio de serviço requer um nome único no formato "http://<my-unique-service-principle-name>".
+No entanto, por uma questão de simplicidade, este quickstart cria uma aplicação de consola .NET, que requer a utilização de um diretor de serviço e de uma política de controlo de acesso. O seu princípio de serviço requer um&lt;nome único no formato&gt;"http:// meu nome único de princípio de serviço".
 
 Crie um princípio de serviço utilizando o comando Azure CLI [az ad sp create-for-rbac:](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac)
 
 ```azurecli
-az ad sp create-for-rbac -n "http://<my-unique-service-principle-name>" --sdk-auth
+az ad sp create-for-rbac -n "http://&lt;my-unique-service-principle-name&gt;" --sdk-auth
 ```
 
 Esta operação devolverá uma série de pares chave/valor. 
@@ -125,7 +125,7 @@ Crie um diretor de serviço utilizando o comando Azure PowerShell [New-AzADServi
 
 ```azurepowershell
 # Create a new service principal
-$spn = New-AzADServicePrincipal -DisplayName "http://<my-unique-service-principle-name>"
+$spn = New-AzADServicePrincipal -DisplayName "http://&lt;my-unique-service-principle-name&gt;"
 
 # Get the tenant ID and subscription ID of the service principal
 $tenantId = (Get-AzContext).Tenant.Id

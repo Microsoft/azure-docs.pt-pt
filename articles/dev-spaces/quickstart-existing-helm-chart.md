@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: Este quickstart mostra-lhe como usar o Azure Dev Spaces e a linha de comando para desenvolver uma aplicação com um gráfico Helm existente no Serviço Azure Kubernetes
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, Helm, malha de serviço, encaminhamento de malha de serviço, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: e767b1ade2a80882ee33ff1fdd718c691dcefcf3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c37ea0b04e99cf1bba555e098bdf33b8a8558cfa
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82033565"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996688"
 ---
 # <a name="quickstart-develop-an-application-with-an-existing-helm-chart-on-kubernetes---azure-dev-spaces"></a>Quickstart: Desenvolver uma aplicação com um gráfico helm existente em Kubernetes - Azure Dev Spaces
 Neste guia, vai aprender a:
@@ -96,7 +96,7 @@ Press Ctrl+C to detach
 ...
 ```
 
-Pode ver o serviço a funcionar abrindo o URL público, `azds up` que é exibido na saída a partir do comando. Neste exemplo, o URL *http://dev.service.1234567890abcdef1234.eus.azds.io/* público é .
+Pode ver o serviço a funcionar abrindo o URL público, `azds up` que é exibido na saída a partir do comando. Neste exemplo, o URL `http://dev.service.1234567890abcdef1234.eus.azds.io/`público é .
 
 > [!NOTE]
 > Quando navega para o `azds up`seu serviço durante a execução, os vestígios de pedido http também são apresentados na saída do `azds up` comando. Estes vestígios podem ajudá-lo a resolver problemas e a depurar o seu serviço. Pode desativar `--disable-http-traces` estes `azds up`vestígios utilizando durante a execução .

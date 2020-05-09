@@ -199,19 +199,7 @@
             - name: Atualizar oferta existente
               href: ./cloud-partner-portal/azure-applications/cpp-update-existing-offer.md
         - name: Serviços de consultadoria
-          href: ./cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md
-          items:
-            - name: Pré-requisitos
-              href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-prerequisites.md
-            - name: Criar uma oferta de serviço de consultoria
-              href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-create-offer.md
-              items:
-                - name: Separador Definições de Oferta
-                  href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-define-offer-settings.md
-                - name: Separador de detalhes da vitrine
-                  href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-storefront-details.md
-            - name: Publicar oferta de serviço de consultoria
-              href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-publish-offer.md
+          href: ./cloud-partner-portal/consulting-services/consulting-services-offer.md
         - name: Oferta de contentores
           href: ./cloud-partner-portal/containers/cpp-containers-offer.md
           items:

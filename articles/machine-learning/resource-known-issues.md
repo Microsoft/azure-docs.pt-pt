@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: 2760033cd66e99a7a7f6d331e03c6f98c486d286
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 93015da810f163a48529704e69e1747ac1aec401
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231973"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82889402"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Questões conhecidas e resolução de problemas Azure Machine Learning
 
@@ -39,7 +39,7 @@ Este artigo ajuda-o a encontrar e corrigir erros ou falhas que poderá encontrar
 Conheça as quotas de [recursos](how-to-manage-quotas.md) que pode encontrar ao trabalhar com a Azure Machine Learning.
 
 ## <a name="installation-and-import"></a>Instalação e importação
-
+                           
 * **Instalação pip: Não se garante que as dependências sejam consistentes com a instalação**de uma linha única: 
 
    Esta é uma limitação conhecida do pip, uma vez que não tem uma dependência funcional quando se instala como uma única linha. A primeira dependência única é a única que olha. 
@@ -56,7 +56,29 @@ Conheça as quotas de [recursos](how-to-manage-quotas.md) que pode encontrar ao 
         pip install azure-ml-datadrift
         pip install azureml-train-automl 
      ```
-
+     
+* **Pacote de explicação não guarateed para ser instalado na instalação do azureml-train-automl-cliente:** 
+   
+   Ao executar uma execução automática remota com explicação do modelo ativada, verá uma mensagem de erro a dizer "Por favor, instale um pacote de modelo de explicação azureml para explicações do modelo." Esta é uma questão conhecida e como uma suver, por favor siga um dos passos abaixo:
+  
+  1. Instale o modelo azureml-explica-o localmente.
+   ```
+      pip install azureml-explain-model
+   ```
+  2. Desative inteiramente a função de explicabilidade, passando model_explainability=Falsa na configuração automl.
+   ```
+      automl_config = AutoMLConfig(task = 'classification',
+                             path = '.',
+                             debug_log = 'automated_ml_errors.log',
+                             compute_target = compute_target,
+                             run_configuration = aml_run_config,
+                             featurization = 'auto',
+                             model_explainability=False,
+                             training_data = prepped_data,
+                             label_column_name = 'Survived',
+                             **automl_settings)
+    ``` 
+    
 * **Erros panda: Normalmente vistos durante a Experiência AutoML:**
    
    Ao configurar manualmente a sua environmnet utilizando pip, irá notar erros de atributo (especialmente de pandas) devido à instalação de versões de pacote não suportadas. Para evitar tais erros, [instale o SDK AutoML utilizando o automl_setup.cmd:](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md)

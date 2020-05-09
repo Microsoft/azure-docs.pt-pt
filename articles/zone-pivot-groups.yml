@@ -58,6 +58,10 @@ groups:
     title: Java
   - id: programming-language-python
     title: Python
+  - id: programming-language-go
+    title: Ir
+  - id: programming-language-javascript
+    title: JavaScript
 - id: programming-languages-set-four
   title: Linguagens de programação
   prompt: Escolher uma linguagem de programação
@@ -186,6 +190,8 @@ groups:
     title: PowerShell
   - id: programming-language-python
     title: Python
+  - id: programming-language-typescript
+    title: TypeScript
 - id: programming-languages-text-analytics
   title: Linguagens de programação
   prompt: Escolha uma linguagem de programação.
@@ -268,6 +274,18 @@ groups:
     title: Java
   - id: programming-language-more
     title: Mais linguagens...
+- id: programming-languages-set-fifteen
+  title: Linguagens de programação
+  prompt: Escolher uma linguagem de programação
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-go
+    title: Ir
+  - id: programming-language-more
+    title: Mais linguagens...
 - id: programming-languages-set-sixteen
   title: Linguagens de programação
   prompt: Escolher uma linguagem de programação
@@ -278,10 +296,10 @@ groups:
     title: C++
   - id: programming-language-java
     title: Java
-  - id: programming-language-javascript
-    title: JavaScript
   - id: programming-language-python
     title: Python
+  - id: programming-language-go
+    title: Ir
   - id: programming-language-more
     title: Mais linguagens...
 - id: programming-languages-set-seventeen
@@ -292,8 +310,8 @@ groups:
     title: C#
   - id: programming-language-javascript
     title: JavaScript
-  - id: programming-language-python
-    title: Python
+  - id: programming-language-more
+    title: Mais linguagens...
 - id: programming-languages-set-eighteen
   title: Linguagens de programação
   prompt: Escolher uma linguagem de programação
@@ -304,10 +322,90 @@ groups:
     title: Python
   - id: programming-language-go
     title: Ir
+- id: programming-languages-set-two-with-js
+  title: Linguagens de programação
+  prompt: Escolher uma linguagem de programação
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-more
+    title: Mais linguagens...
+- id: programming-languages-set-two-with-js-go
+  title: Linguagens de programação
+  prompt: Escolher uma linguagem de programação
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-go
+    title: Ir
+  - id: programming-language-more
+    title: Mais linguagens...
+- id: programming-languages-speech-services-one-nomore
+  title: Linguagens de programação
+  prompt: Escolher uma linguagem de programação
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-go
+    title: Ir
+  - id: programming-language-javascript
+    title: JavaScript
+- id: programming-languages-speech-services-one-nomore-no-go
+  title: Linguagens de programação
+  prompt: Escolher uma linguagem de programação
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-javascript
+    title: JavaScript
+- id: programming-languages-speech-services-nomore-variant
+  title: Linguagens de programação
+  prompt: Escolher uma linguagem de programação
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-objectivec
+    title: Objective-C
 metadata:
-  ms.openlocfilehash: 5da5cf4aebfdaeec784e3cffe18e5b834b8dc26f
-  ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+  ms.openlocfilehash: da1e4c0150749cf17b36e6f1a69b76666895f5ab
+  ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/24/2020
-  ms.locfileid: "82146846"
+  ms.lasthandoff: 05/08/2020
+  ms.locfileid: "82981817"

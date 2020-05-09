@@ -112,8 +112,6 @@
           href: platform/alerts-unified-log.md
         - name: Alertas do registo de atividades
           href: platform/activity-log-alerts.md
-        - name: Alterar análise
-          href: app/change-analysis.md
     - name: Visualizar os dados
       href: visualizations.md
     - name: Integrações de parceiros
@@ -528,6 +526,8 @@
               href: platform/resource-logs-blob-format.md
         - name: Transmitir dados para os Hubs de Eventos
           href: platform/stream-monitoring-data-event-hubs.md
+        - name: Alterar análise
+          href: app/change-analysis.md
     - name: Monitorizar VMs e SO convidado
       items:
         - name: Monitorizar máquinas virtuais do Azure
