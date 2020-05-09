@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: 94da1639b5398a03b36fba3ff88877468a97ec36
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a9468f437a89a85f28b6ce869b948ca2a4aff7bf
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80294122"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983334"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Arquitetura da recuperação após desastre do Azure para o Azure
 
@@ -55,15 +55,14 @@ Quando ativa a replicação de um VM, a Recuperação do Site dá-lhe a opção 
 Pode gerir os recursos-alvo da seguinte forma:
 
 - Pode modificar as definições de alvo à medida que ativa a replicação.
-- Pode modificar as definições de alvo depois de a replicação já estar a funcionar. A exceção é o tipo de disponibilidade (instância única, conjunto ou zona). Para alterar esta definição, é necessário desativar a replicação, modificar a definição e, em seguida, reativar.
-
+- Pode modificar as definições de alvo depois de a replicação já estar a funcionar. Por favor, note que o SKU padrão para a região alvo VM é o mesmo que o SKU da fonte VM (ou o próximo Melhor SKU disponível em comparação com a fonte VM SKU). À semelhança de outros recursos, como o grupo de recursos-alvo, o nome-alvo e outros, a região-alvo VM SKU também pode ser atualizada após a replicação estar em curso. Um recurso que não pode ser atualizado é o tipo de disponibilidade (instância única, conjunto ou zona). Para alterar esta definição, é necessário desativar a replicação, modificar a definição e, em seguida, reativar. 
 
 
 ## <a name="replication-policy"></a>Política de replicação 
 
 Quando ativa a replicação do Azure VM, por padrão, a Recuperação do Site cria uma nova política de replicação com as definições predefinidas resumidas na tabela.
 
-**Definição de políticas** | **Detalhes** | **Padrão**
+**Definição de políticas** | **Detalhes** | **Predefinição**
 --- | --- | ---
 **Retenção de pontos de recuperação** | Especifica quanto tempo a Recuperação do Site mantém os pontos de recuperação | 24 horas
 **Frequência instantânea consistente com aplicativos** | Quantas vezes a Recuperação do Site tira uma imagem consistente com aplicações. | A cada quatro horas

@@ -62,6 +62,9 @@
   items:
     - name: CLI do Azure
       href: cli-samples.md
+    - name: Incorporações do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Conceitos
   items:
     - name: Arquivo de chave-valor

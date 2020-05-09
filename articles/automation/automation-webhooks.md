@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8cb641f95e7327e80f42df86a56eba8c34e7e598
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cbe43b298c57d266f0b031b5192f25fe3df07c05
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79367028"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582445"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Starting an Azure Automation runbook with a webhook (Iniciar um runbook da Automatização do Azure com um webhook)
 
@@ -30,7 +30,7 @@ A tabela seguinte descreve as propriedades que deve configurar para um webhook.
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| Nome |Nome do gancho web. Pode fornecer o nome que quiser, já que não está exposto ao cliente. Só é usado para identificar o livro de execução na Automação Azure. Como uma boa prática, deve dar ao webhook um nome relacionado com o cliente que o utiliza. |
+| Name |Nome do gancho web. Pode fornecer o nome que quiser, já que não está exposto ao cliente. Só é usado para identificar o livro de execução na Automação Azure. Como uma boa prática, deve dar ao webhook um nome relacionado com o cliente que o utiliza. |
 | do IdP |URL do webhook. Este é o endereço único que um cliente liga com um POST HTTP para iniciar o livro de execução ligado ao webhook. É gerado automaticamente quando se cria o webhook. Não pode especificar um URL personalizado. <br> <br> O URL contém um símbolo de segurança que permite que um sistema de terceiros invoque o livro de execução sem mais autenticação. Por esta razão, deve tratar o URL como uma senha. Por razões de segurança, só pode ver o URL no portal Azure ao criar o webhook. Note o URL num local seguro para utilização futura. |
 | Data de validade | Data de validade do webhook, após o qual já não pode ser utilizado. Pode modificar a data de validade após a criação do webhook, desde que o webhook não tenha expirado. |
 | Ativado | Regulação indicando se o webhook está ativado por padrão quando é criado. Se você definir esta propriedade para Deficientes, nenhum cliente pode usar o webhook. Você pode definir esta propriedade quando você criar o webhook ou qualquer outro momento após a sua criação. |
@@ -88,7 +88,7 @@ Você pode incluir lógica dentro de um livro de execução para determinar se �
 
 Outra estratégia é fazer com que o livro de execução execute alguma validação de uma condição externa quando recebe um pedido de webhook. Por exemplo, considere um livro de corridas que é chamado pelo GitHub sempre que houver um novo compromisso com um repositório GitHub. O livro de execução pode ligar-se ao GitHub para validar que um novo compromisso ocorreu antes de continuar.
 
-## <a name="creating-a-webhook"></a>Criar um webhook
+## <a name="create-a-webhook"></a>Criar um webhook
 
 Utilize o seguinte procedimento para criar um novo webhook ligado a um livro de execução no portal Azure.
 
@@ -106,7 +106,7 @@ Utilize o seguinte procedimento para criar um novo webhook ligado a um livro de 
 1. Clique em **Parâmetros** para fornecer valores para os parâmetros do livro de execução. Se o livro de execução tiver parâmetros obrigatórios, não pode criar o webhook a menos que forneça valores.
 1. Clique em **Criar** para criar o webhook.
 
-## <a name="using-a-webhook"></a>Usando um webhook
+## <a name="use-a-webhook"></a>Use um webhook
 
 Para utilizar um webhook depois de ter sido `POST` criado, o seu cliente deve emitir um pedido http com o URL para o webhook. A sintaxe é:
 
@@ -131,7 +131,7 @@ Assumindo que o pedido é bem sucedido, a resposta do webhook contém o ID de tr
 
 O cliente não pode determinar quando o trabalho do livro de reprodução termina ou o seu estado de conclusão a partir do webhook. Pode descobrir esta informação utilizando o ID de trabalho com outro mecanismo, como [o Windows PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationjob) ou a [API de Automação Azure](/rest/api/automation/job).
 
-## <a name="renewing-a-webhook"></a><a name="renew-webhook"></a>Renovação de um webhook
+## <a name="renew-a-webhook"></a>Renovar um webhook
 
 Quando um webhook é criado, tem um prazo de validade de dez anos, após o qual expira automaticamente. Uma vez expirado um webhook, não pode reativar. Só pode removê-lo e recriá-lo. 
 
@@ -200,7 +200,7 @@ else {
 }
 ```
 
-## <a name="testing-the-sample"></a>Testar a amostra
+## <a name="test-the-sample"></a>Testar a amostra
 
 O exemplo que se segue utiliza o Windows PowerShell para iniciar um livro de execução com um webhook. Qualquer idioma que possa fazer um pedido HTTP pode usar um webhook. O Windows PowerShell é utilizado aqui como exemplo.
 

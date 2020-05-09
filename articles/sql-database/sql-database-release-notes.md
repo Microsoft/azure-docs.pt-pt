@@ -9,12 +9,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: sstein
-ms.openlocfilehash: aa8d1634c015f338053a4d167db34ef0b5a83505
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
-ms.translationtype: HT
+ms.openlocfilehash: 2d89320b4e5237017b51d19495c60c03ce6288f7
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801693"
+ms.locfileid: "82838489"
 ---
 # <a name="sql-database-release-notes"></a>Notas de lançamento da Base de Dados SQL
 
@@ -93,12 +93,12 @@ As seguintes funcionalidades estão ativadas no modelo de implementação de ins
 |[@queryparâmetro não suportado em sp_send_db_mail](#-parameter-not-supported-in-sp_send_db_mail)|Abr 2019|Sem Sem Suver| |
 |[A replicação transacional deve ser reconfigurada após a geofalha](#transactional-replication-must-be-reconfigured-after-geo-failover)|Mar 2019|Sem Sem Suver| |
 |[Base de dados temporária é utilizada durante o funcionamento do RESTAURO](#temporary-database-is-used-during-restore-operation)||Tem Sem-teto| |
-|[Estrutura e conteúdo TEMPDB é recriado](#tempdb-structure-and-content-is-re-created)||Sem Sem Suver| |
-|[Exceder espaço de armazenamento com pequenos ficheiros de base de dados](#exceeding-storage-space-with-small-database-files)||Tem Sem-teto| |
-|[Valores GUIA mostrados em vez de nomes de bases de dados](#guid-values-shown-instead-of-database-names)||Tem Sem-teto| |
+|[Estrutura e conteúdo TEMPDB é recriado](#tempdb-structure-and-content-is-re-created)| |Sem Sem Suver| |
+|[Exceder espaço de armazenamento com pequenos ficheiros de base de dados](#exceeding-storage-space-with-small-database-files)| |Tem Sem-teto| |
+|[Valores GUIA mostrados em vez de nomes de bases de dados](#guid-values-shown-instead-of-database-names) ||Tem Sem-teto| |
 |[Os registos de erro não são persistidos](#error-logs-arent-persisted)||Sem Sem Suver| |
-|[O âmbito de transação em duas bases de dados dentro da mesma instância não é suportado](#transaction-scope-on-two-databases-within-the-same-instance-isnt-supported)||Tem Sem-teto|Mar 2020|
-|[Módulos CLR e servidores ligados às vezes não conseguem fazer referência a um endereço IP local](#clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address)||Tem Sem-teto| |
+|[Módulos CLR e servidores ligados às vezes não conseguem fazer referência a um endereço IP local](#clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address)| |Tem Sem-teto| |
+|[O âmbito de transação em duas bases de dados dentro da mesma instância não é suportado](#transaction-scope-on-two-databases-within-the-same-instance-isnt-supported)| |Resolvido|Mar 2020|
 |Consistência da base de dados não verificada utilizando o DBCC CHECKDB após restaurar a base de dados do Armazenamento De Blob Azure.| |Resolvido|Nov 2019|
 |A restauração da base de dados ponto-a-tempo do nível Business Critical para o nível de Propósito Geral não terá sucesso se a base de dados de origem contiver objetos OLTP na memória.| |Resolvido|Out 2019|
 |Recurso de correio de base de dados com servidores de correio externos (não-Azure) utilizando ligação segura| |Resolvido|Out 2019|

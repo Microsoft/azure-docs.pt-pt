@@ -3,12 +3,12 @@ title: Restringir o acesso com uma rede virtual
 description: Permitir o acesso a um registo de contentores Azure apenas a partir de recursos numa rede virtual Azure ou a partir de gamas públicas de endereços IP.
 ms.topic: article
 ms.date: 07/01/2019
-ms.openlocfilehash: 5c9e628099eddd827c6285e829e0209c110642d2
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: f639225c6b83385c6a209da88a20566d665529d7
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891392"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864356"
 ---
 # <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>Restringir o acesso a um registo de contentores Azure utilizando uma rede virtual Azure ou regras de firewall
 
@@ -28,6 +28,8 @@ Se em vez disso precisar de estabelecer regras de acesso para os recursos para c
 * Apenas um registo de **contentores Premium** pode ser configurado com regras de acesso à rede. Para obter informações sobre os níveis de serviço de registo, consulte o Registo de [Contentores Azure SKUs](container-registry-skus.md). 
 
 * Apenas um cluster [de serviço Azure Kubernetes](../aks/intro-kubernetes.md) ou [uma máquina virtual](../virtual-machines/linux/overview.md) Azure podem ser usados como hospedeiro para aceder a um registo de contentores numa rede virtual. *Outros serviços azure, incluindo as instâncias de contentores azure, não são atualmente suportados.*
+
+* Executar [Tarefas ACR](container-registry-tasks-overview.md) num registo de contentores acedido numa rede virtual requer uma [piscina de agentes dedicada](container-registry-tasks-agent-pools.md).
 
 * Cada registo suporta um máximo de 100 regras de rede virtual.
 

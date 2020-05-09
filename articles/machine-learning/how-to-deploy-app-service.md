@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/27/2019
-ms.openlocfilehash: 3e6cfde20d9f4d56af836e06b0c9a84010dea47b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 646254238f83166c53fe94a1821c68ff4dac8f04
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80282822"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82651931"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Implementar um modelo de aprendizagem automática para o Azure App Service (pré-visualização)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -114,7 +114,7 @@ package.wait_for_creation(show_output=True)
 print(package.location)
 ```
 
-Quando, `show_output=True`a saída do processo de construção do Docker é mostrada. Uma vez terminado o processo, a imagem foi criada no Registo de Contentores Azure para o seu espaço de trabalho. Uma vez construída a imagem, a localização no registo do contentor Azure é exibida. A localização devolvida encontra-se no formato `<acrinstance>.azurecr.io/package:<imagename>`. Por exemplo, `myml08024f78fd10.azurecr.io/package:20190827151241`.
+Quando, `show_output=True`a saída do processo de construção do Docker é mostrada. Uma vez terminado o processo, a imagem foi criada no Registo de Contentores Azure para o seu espaço de trabalho. Uma vez construída a imagem, a localização no registo do contentor Azure é exibida. A localização devolvida encontra-se no formato `<acrinstance>.azurecr.io/package@sha256:<imagename>`. Por exemplo, `myml08024f78fd10.azurecr.io/package@sha256:20190827151241`.
 
 > [!IMPORTANT]
 > Guarde as informações de localização, pois é utilizada ao implementar a imagem.
@@ -162,7 +162,7 @@ Quando, `show_output=True`a saída do processo de construção do Docker é most
 1. Para criar a aplicação web, utilize o seguinte comando. Substitua `<app-name>` pelo nome que pretende utilizar. `<acrinstance>` Substitua `<imagename>` e com `package.location` os valores de volta anterior:
 
     ```azurecli-interactive
-    az webapp create --resource-group myresourcegroup --plan myplanname --name <app-name> --deployment-container-image-name <acrinstance>.azurecr.io/package:<imagename>
+    az webapp create --resource-group myresourcegroup --plan myplanname --name <app-name> --deployment-container-image-name <acrinstance>.azurecr.io/package@sha256:<imagename>
     ```
 
     Este comando devolve informações semelhantes ao seguinte documento JSON:
@@ -191,7 +191,7 @@ Quando, `show_output=True`a saída do processo de construção do Docker é most
 1. Para fornecer à aplicação web as credenciais necessárias para aceder ao registo do contentor, utilize o seguinte comando. Substitua `<app-name>` pelo nome que pretende utilizar. `<acrinstance>` Substitua `<imagename>` e com `package.location` os valores de volta anterior. `<username>` Substitua `<password>` e com as informações de login da ACR recuperadas anteriormente:
 
     ```azurecli-interactive
-    az webapp config container set --name <app-name> --resource-group myresourcegroup --docker-custom-image-name <acrinstance>.azurecr.io/package:<imagename> --docker-registry-server-url https://<acrinstance>.azurecr.io --docker-registry-server-user <username> --docker-registry-server-password <password>
+    az webapp config container set --name <app-name> --resource-group myresourcegroup --docker-custom-image-name <acrinstance>.azurecr.io/package@sha256:<imagename> --docker-registry-server-url https://<acrinstance>.azurecr.io --docker-registry-server-user <username> --docker-registry-server-password <password>
     ```
 
     Este comando devolve informações semelhantes ao seguinte documento JSON:
@@ -220,7 +220,7 @@ Quando, `show_output=True`a saída do processo de construção do Docker é most
     },
     {
         "name": "DOCKER_CUSTOM_IMAGE_NAME",
-        "value": "DOCKER|myml08024f78fd10.azurecr.io/package:20190827195524"
+        "value": "DOCKER|myml08024f78fd10.azurecr.io/package@sha256:20190827195524"
     }
     ]
     ```

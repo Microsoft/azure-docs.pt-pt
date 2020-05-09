@@ -10,12 +10,12 @@ ms.subservice: secrets
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: eabfa03aa70f54a967fe256f694ef59ad0fe7ebe
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7aa2feba5a2b2fa47bbb0c055a2f556b8997ab34
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81685444"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930476"
 ---
 # <a name="about-azure-key-vault-secrets"></a>Sobre os segredos do Cofre chave Azure
 
@@ -26,6 +26,10 @@ Do ponto de vista de um desenvolvedor, as APIs do Cofre Chave aceitam e devolvem
 Para dados altamente confidenciais, os clientes devem considerar camadas adicionais de proteção para os dados. A encriptação de dados com uma chave de proteção separada antes do armazenamento no Key Vault é um exemplo disso.  
 
 O Key Vault também suporta um campo de conteúdoType para segredos. Os clientes podem especificar o tipo de conteúdo de um segredo para ajudar na interpretação dos dados secretos quando são recuperados. O comprimento máximo deste campo é de 255 caracteres. Não há valores pré-definidos. O uso sugerido é uma dica para interpretar os dados secretos. Por exemplo, uma implementação pode armazenar palavras-passe e certificados como segredos, em seguida, usar este campo para diferenciar. Não há valores predefinidos.  
+
+## <a name="encryption"></a>Encriptação
+
+Todos os segredos do seu Cofre Está armazenado encriptado. Esta encriptação é transparente e não requer qualquer ação do utilizador. O serviço Azure Key Vault encripta os seus segredos quando os adiciona e os desencripta automaticamente quando os lê. A chave de encriptação é única em cada cofre chave.
 
 ## <a name="secret-attributes"></a>Atributos secretos
 

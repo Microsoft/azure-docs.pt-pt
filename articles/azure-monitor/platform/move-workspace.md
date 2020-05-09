@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
-ms.openlocfilehash: 9213ddf034e725f6e31c9280d47bd13e4703b3f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ca9bb3853698b831fe87f48de346183e4bcd0976
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77659497"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731717"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Mova um espaço de trabalho log Analytics para diferentes subscrições ou grupo de recursos
 
@@ -29,16 +29,17 @@ As assinaturas de fonte de espaço de trabalho e destino devem existir dentro do
 ```
 
 ## <a name="workspace-move-considerations"></a>Workspace move considerações
-As soluções geridas instaladas no espaço de trabalho serão movidas com a operação de movimento do espaço de trabalho Log Analytics. Os agentes conectados permanecerão ligados e manterão o envio de dados para o espaço de trabalho após a mudança. Uma vez que a operação de movimento requer que não exista ligação do espaço de trabalho a qualquer conta de automação, as soluções que dependem desse link devem ser removidas.
+As soluções geridas instaladas no espaço de trabalho serão movidas com a operação de movimento do espaço de trabalho Log Analytics. Os agentes conectados permanecerão ligados e manterão o envio de dados para o espaço de trabalho após a mudança. Uma vez que a operação de movimento requer que não existam Serviços Linked do espaço de trabalho, as soluções que dependem dessa ligação devem ser removidas para permitir a deslocação do espaço de trabalho.
 
 Soluções que devem ser removidas antes de poder desligar a sua conta de automação:
 
 - Gestão de Atualizações
 - Monitorização de Alterações
 - Iniciar/Parar VMs durante horas de inatividade
+- Centro de Segurança do Azure
 
 
-### <a name="delete-in-azure-portal"></a>Eliminar no portal do Azure
+### <a name="delete-solutions-in-azure-portal"></a>Eliminar soluções no portal Azure
 Utilize o seguinte procedimento para remover as soluções utilizando o portal Azure:
 
 1. Abra o menu para o grupo de recursos onde estão instaladas quaisquer soluções.
@@ -57,8 +58,8 @@ Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -Reso
 Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -ResourceName "Start-Stop-VM(<workspace-name>)" -ResourceGroupName <resource-group-name>
 ```
 
-### <a name="remove-alert-rules"></a>Remover regras de alerta
-Para a solução **Start/Stop VMs,** também é necessário remover as regras de alerta criadas pela solução. Utilize o seguinte procedimento no portal Azure para remover estas regras.
+### <a name="remove-alert-rules-for-startstop-vms-solution"></a>Remova as regras de alerta para a solução De Início/Paragem vMs
+Para remover a solução **Start/Stop VMs,** também é necessário remover as regras de alerta criadas pela solução. Utilize o seguinte procedimento no portal Azure para remover estas regras.
 
 1. Abra o menu **Monitor** e, em seguida, selecione **Alertas**.
 2. Clique em **gerir as regras**de alerta .
@@ -98,8 +99,6 @@ Para mover o seu espaço de trabalho utilizando o PowerShell, utilize o [Move-Az
 ``` PowerShell
 Move-AzResource -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyResourceGroup01/providers/Microsoft.OperationalInsights/workspaces/MyWorkspace" -DestinationSubscriptionId "00000000-0000-0000-0000-000000000000" -DestinationResourceGroupName "MyResourceGroup02"
 ```
-
-
 
 > [!IMPORTANT]
 > Após o funcionamento do movimento, as soluções removidas e a ligação da conta Automation devem ser reconfiguradas para trazer o espaço de trabalho de volta ao seu estado anterior.
