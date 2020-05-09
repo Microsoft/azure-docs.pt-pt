@@ -6,16 +6,16 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e7a2611312ffc33703dd5cc9d0a2d7142ddb0532
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0237bcbf98578d9f83f3c9652661c786df54e73a
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77368951"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82627692"
 ---
 # <a name="azure-event-grid-output-binding-for-azure-functions"></a>Ligação de saída da Rede de Eventos Azure para funções Azure
 
-Utilize a ligação de saída da Rede de Eventos para escrever eventos para um tópico personalizado. Deve ter uma chave de acesso válida [para o tópico personalizado](../event-grid/security-authentication.md#custom-topic-publishing).
+Utilize a ligação de saída da Rede de Eventos para escrever eventos para um tópico personalizado. Deve ter uma chave de acesso válida [para o tópico personalizado](../event-grid/security-authentication.md#authenticate-publishing-clients-using-sas-or-key).
 
 Para obter informações sobre os detalhes da configuração e configuração, consulte a [visão geral](./functions-bindings-event-grid.md).
 
@@ -27,7 +27,7 @@ Para obter informações sobre os detalhes da configuração e configuração, c
 
 ## <a name="example"></a>Exemplo
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 O exemplo seguinte mostra uma [função C#](functions-dotnet-class-library.md) que escreve uma mensagem para um tópico personalizado da Rede de Eventos, utilizando o valor de retorno do método como saída:
 
@@ -172,7 +172,7 @@ A ligação de saída da Rede de Eventos não está disponível para java.
 
 ## <a name="attributes-and-annotations"></a>Atributos e anotações
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Para [bibliotecas de classe C#,](functions-dotnet-class-library.md)utilize o atributo [EventGridAttribute.](https://github.com/Azure/azure-functions-eventgrid-extension/blob/dev/src/EventGridExtension/OutputBinding/EventGridAttribute.cs)
 
@@ -226,7 +226,7 @@ A tabela a seguir explica as propriedades de configuração de ligação que def
 
 ## <a name="usage"></a>Utilização
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Envie mensagens utilizando um parâmetro `out EventGridEvent paramName`de método como . Para escrever várias mensagens, pode utilizar `ICollector<EventGridEvent>` ou `IAsyncCollector<EventGridEvent>` no lugar de `out EventGridEvent`.
 

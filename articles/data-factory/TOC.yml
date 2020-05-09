@@ -675,6 +675,8 @@
           href: how-to-fixed-width.md
         - name: Processamento da linha de erro
           href: how-to-data-flow-error-rows.md
+        - name: BD SQL do Azure para o Cosmos DB
+          href: how-to-sqldb-to-cosmosdb.md
     - name: Migração SSIS a partir do local
       items:
         - name: Descrição geral da migração SSIS

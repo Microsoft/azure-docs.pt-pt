@@ -11,12 +11,12 @@ ms.author: robinsh
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: b9b27bb142cb729536a3b7a561ed8b8ff5e0ccf5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a2c2a1d817dbe88bebc36f66b441e609b5faea2a
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81731311"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629359"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Dispositivo Azure IoT SDK para C
 
@@ -88,7 +88,7 @@ A ferramenta exploradora de dispositivos utiliza as bibliotecas de serviço SIOT
 
 Se não estiver familiarizado com a ferramenta exploradora do dispositivo, o procedimento seguinte descreve como usá-lo para adicionar um dispositivo e obter uma cadeia de ligação ao dispositivo.
 
-1. Para instalar a ferramenta de explorador de dispositivos, consulte [como utilizar o Device Explorer para dispositivos IoT Hub](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
+1. Para instalar a ferramenta de explorador de dispositivos, consulte [como utilizar o Device Explorer para dispositivos IoT Hub](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/).
 
 1. Quando executa o programa, vê esta interface:
 

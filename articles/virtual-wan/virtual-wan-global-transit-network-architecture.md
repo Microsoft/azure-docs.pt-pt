@@ -6,14 +6,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: article
-ms.date: 02/06/2020
+ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: c32d42de5290bff63a897e7b9d5c8a2b1bf04ce4
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: HT
+ms.openlocfilehash: 19eaaa1ac442a04799bfa8d8d495b9c7dd393e5a
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82786976"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82928283"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Arquitetura global da rede de trânsito e WAN Virtual
 
@@ -114,6 +114,15 @@ O caminho Remoto user-to-branch permite que os utilizadores remotos que estão a
 
 O trânsito VNet-to-VNet permite que os VNets se conectem entre si de forma a interligar aplicações de vários níveis que são implementadas em vários VNets. Opcionalmente, pode ligar VNets entre si através do VNet Peering e isso pode ser adequado para alguns cenários em que o trânsito através do hub VWAN não é necessário.
 
+
+## <a name="force-tunneling-and-default-route-in-azure-virtual-wan"></a><a name="DefaultRoute"></a>Túnel de Força e Rota padrão em Wan Virtual Azure
+
+A Escavação da Força pode ser ativada configurando a rota de predefinição ativada numa ligação VPN, ExpressRoute ou Rede Virtual em WAN Virtual.
+
+Um hub virtual propaga uma rota padrão aprendida para uma ligação VPN/ExpressRoute de rede virtual/site-para-site se a bandeira de predefinição ativar é 'Activada' na ligação. 
+
+Esta bandeira é visível quando o utilizador edita uma ligação de rede virtual, uma ligação VPN ou uma ligação ExpressRoute. Por predefinição, esta bandeira é desativada quando um local ou um circuito ExpressRoute está ligado a um hub. É ativado por padrão quando uma ligação de rede virtual é adicionada para ligar um VNet a um hub virtual. A rota padrão não tem origem no centro virtual WAN; a rota padrão é propagada se já for aprendida pelo centro virtual WAN como resultado da implantação de uma firewall no centro, ou se outro local conectado tiver um túnel forçado ativado.
+
 ## <a name="security-and-policy-control"></a><a name="security"></a>Controlo de segurança e política
 
 Os hubs Azure Virtual WAN interligam todos os pontos finais de rede através da rede híbrida e potencialmente vêem todo o tráfego da rede de trânsito. Os hubs virtuais WAN podem ser convertidos para Centros Virtuais Seguros, implantando o Firewall Azure dentro dos hubs VWAN para permitir a segurança, acesso e controlo de políticas baseados na nuvem. A orquestração de Firewalls Azure em centros wan virtuais pode ser executada pelo Azure Firewall Manager.
@@ -140,6 +149,24 @@ O vnet-to-Internet ou o trânsito seguro de terceiros permite que os VNets se co
 
 ### <a name="branch-to-internet-or-third-party-security-service-j"></a>Serviço de Segurança Sucursal para internet ou serviço de segurança de terceiros (j)
 O trânsito seguro de sucursais para internet ou de terceiros permite que as agências se conectem à internet ou a serviços de segurança de terceiros apoiados através do Azure Firewall no centro virtual WAN.
+
+### <a name="how-do-i-enable-default-route-00000-in-a-secured-virtual-hub"></a>Como posso ativar a rota padrão (0.0.0.0/0) num Centro Virtual Seguro
+
+O Azure Firewall implantado num hub Virtual WAN (Secure Virtual Hub) pode ser configurado como router padrão para a Internet ou Fornecedor de Segurança Fidedigno para todos os ramos (ligados por VPN ou Rota expresso), Vnets e Utilizadores falados (ligados via P2S VPN). Esta configuração deve ser feita utilizando o Azure Firewall Manager.  Consulte o Tráfego de Rotas até ao seu hub para configurar todo o tráfego de balcões (incluindo utilizadores) bem como Vnets para a Internet através do Firewall Azure. 
+
+Esta é uma configuração de dois passos:
+
+1. Configure o encaminhamento de tráfego de Internet utilizando o menu de definição de rota do hub virtual seguro. Configure Vnets e Ramos que podem enviar tráfego para a internet através da Firewall.
+
+2. Configure quais ligações (Vnet e Branch) podem encaminhar o tráfego para a internet (0.0.0.0/0) através do Azure FW no hub ou Trusted Security Provider. Este passo garante que a rota padrão é propagada a ramos selecionados e Vnets que estão ligados ao centro virtual WAN através das Ligações. 
+
+### <a name="force-tunneling-traffic-to-on-premises-firewall-in-a-secured-virtual-hub"></a>Força de túnel de tráfego para firewall no local em um centro virtual seguro
+
+Se já existe uma rota padrão aprendida (via BGP) pelo Centro Virtual a partir de um dos sites DeRP (VPN ou ER), esta rota padrão é ultrapassada pela rota padrão aprendida com a definição do Azure Firewall Manager. Neste caso, todo o tráfego que está a entrar no centro a partir de Vnets e sucursais destinadas à internet, será encaminhado para o Azure Firewall ou Trusted Security Provider.
+
+> [!NOTE]
+> Atualmente não existe qualquer opção para selecionar no local Firewall ou Azure Firewall (e Trusted Security Provider) para tráfego ligado à Internet com origem em Vnets, Sucursais ou Utilizadores. A rota padrão aprendida com a definição do Azure Firewall Manager é sempre preferível sobre a rota padrão aprendida com um dos balcões.
+
 
 ## <a name="next-steps"></a>Passos seguintes
 
