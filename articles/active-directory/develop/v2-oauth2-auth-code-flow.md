@@ -2,7 +2,7 @@
 title: Fluxo de código de autorização DaOAuth - plataforma de identidade da Microsoft Azure
 description: Construa aplicações web utilizando a implementação da plataforma de identidade Microsoft do protocolo de autenticação OAuth 2.0.
 services: active-directory
-author: rwike77
+author: hpsin
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -12,12 +12,12 @@ ms.date: 01/31/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: fcd80c052edf659f93f97800da3112c1f11309cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b01a0a9162412092f9339810a51838c4bdbb0a20
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81868497"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864186"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Plataforma de identidade da Microsoft e fluxo de código de autorização OAuth 2.0
 

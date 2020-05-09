@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: fbd8e03b1f8af7802133c35ae4860116aaea0c3c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ab25b2e300f9fe9b0b1d077a42538c69fa543af2
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81430568"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982705"
 ---
 # <a name="ingesting-data-into-a-sql-pool"></a>Ingerir dados num pool SQL
 
@@ -39,7 +39,7 @@ No Azure Synapse Analytics, um serviço ligado é onde define as suas informaç�
 
 ## <a name="create-pipeline"></a>Criar pipeline
 
-Um oleoduto contém o fluxo lógico para a execução de um conjunto de atividades. Nesta secção, você vai criar um pipeline contendo uma atividade de cópia que ingere dados do ADLS gen 2 em um pool SQL.
+Um oleoduto contém o fluxo lógico para a execução de um conjunto de atividades. Nesta secção, você vai criar um pipeline contendo uma atividade de cópia que ingere dados da ADLS Gen2 em um pool SQL.
 
 1. Vá ao **separador Orchestrate.** Clique no ícone plus ao lado do cabeçalho dos gasodutos e selecione **Pipeline**.
 1. Em **Movimento e Transforme** no painel de atividades, arraste **os dados da Cópia** para a tela do gasoduto.

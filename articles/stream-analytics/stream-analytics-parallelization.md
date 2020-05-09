@@ -6,30 +6,28 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/07/2018
-ms.openlocfilehash: 31ac43ec796d305b8a8f4b62ea09481e262b6b3f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/04/2020
+ms.openlocfilehash: 5bae53c04867233138929867c4895e7f6a2f2149
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80256985"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82838778"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Alavancar a paralelização da consulta no Azure Stream Analytics
 Este artigo mostra-lhe como aproveitar a paralelização no Azure Stream Analytics. Você aprende a dimensionar os trabalhos do Stream Analytics configurando divisórias de entrada e afinando a definição de consulta de análise.
 Como pré-requisito, pode querer estar familiarizado com a noção de Unidade de Streaming descrita em [Compreender e ajustar unidades](stream-analytics-streaming-unit-consumption.md)de streaming .
 
 ## <a name="what-are-the-parts-of-a-stream-analytics-job"></a>Quais são as partes de um trabalho de Stream Analytics?
-Uma definição de trabalho stream Analytics inclui inputs, uma consulta e saída. As inputs são de onde o trabalho lê o fluxo de dados. A consulta é usada para transformar o fluxo de entrada de dados, e a saída é para onde o trabalho envia os resultados do trabalho.
+Uma definição de trabalho stream Analytics inclui pelo menos uma entrada de streaming, uma consulta e saída. As inputs são de onde o trabalho lê o fluxo de dados. A consulta é usada para transformar o fluxo de entrada de dados, e a saída é para onde o trabalho envia os resultados do trabalho.
 
-Um trabalho requer pelo menos uma fonte de entrada para o streaming de dados. A fonte de entrada de fluxo de dados pode ser armazenada num hub de eventos Azure ou no armazenamento de blob Azure. Para mais informações, consulte [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md) e Get [começou a usar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md).
-
-## <a name="partitions-in-sources-and-sinks"></a>Divisórias em fontes e pias
-Dimensionar um trabalho de Stream Analytics tira partido das divisórias na entrada ou saída. A partilha permite dividir os dados em subconjuntos com base numa chave de partição. Um processo que consome os dados (como um trabalho de Streaming Analytics) pode consumir e escrever diferentes divisórias em paralelo, o que aumenta a sua entrada. 
+## <a name="partitions-in-inputs-and-outputs"></a>Divisórias em inputs e saídas
+A partilha permite dividir os dados em subconjuntos com base numa [chave de partição](https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#partitions). Se a sua entrada (por exemplo, Os Centros de Eventos) for dividida por uma chave, é altamente recomendável especificar esta chave de partição ao adicionar entrada ao seu trabalho de Stream Analytics. Dimensionar um trabalho de Stream Analytics tira partido das divisórias na entrada e saída. Um trabalho de Stream Analytics pode consumir e escrever diferentes divisórias em paralelo, o que aumenta a entrada. 
 
 ### <a name="inputs"></a>Entradas
 Toda a entrada da Azure Stream Analytics pode tirar partido da partilha:
--   EventHub (necessidade de definir explicitamente a chave de partição com palavra-chave PARTITION BY)
--   IoT Hub (necessidade de definir explicitamente a chave de partição com palavra-chave partition by)
+-   EventHub (necessidade de definir explicitamente a chave de partição com palavra-chave PARTITION BY se utilizar o nível de compatibilidade 1.1 ou abaixo)
+-   IoT Hub (necessidade de definir explicitamente a chave de partição com palavra-chave PARTITION BY se utilizar o nível de compatibilidade 1.1 ou abaixo)
 -   Armazenamento de blobs
 
 ### <a name="outputs"></a>Saídas
@@ -54,13 +52,13 @@ Para obter mais informações sobre divisórias, consulte os seguintes artigos:
 
 
 ## <a name="embarrassingly-parallel-jobs"></a>Empregos embaraçosamente paralelos
-Um trabalho *embaraçosamente paralelo* é o cenário mais escalável que temos no Azure Stream Analytics. Liga uma divisória da entrada a uma instância da consulta a uma partição da saída. Este paralelismo tem os seguintes requisitos:
+Um trabalho *embaraçosamente paralelo* é o cenário mais escalável no Azure Stream Analytics. Liga uma divisória da entrada a uma instância da consulta a uma partição da saída. Este paralelismo tem os seguintes requisitos:
 
-1. Se a sua lógica de consulta depender da mesma chave que está a ser processada pela mesma instância de consulta, deve certificar-se de que os eventos vão para a mesma divisão da sua entrada. Para os Hubs de Eventos ou IoT Hub, isto significa que os dados do evento devem ter o conjunto de valor **partitionKey.** Em alternativa, pode utilizar remetentes divididos. Para armazenamento de bolhas, isto significa que os eventos são enviados para a mesma pasta de partição. Se a sua lógica de consulta não exigir que a mesma chave seja processada pela mesma instância de consulta, pode ignorar esta exigência. Um exemplo desta lógica seria uma simples consulta de filtro de projeto selecionado.  
+1. Se a sua lógica de consulta depender da mesma chave que está a ser processada pela mesma instância de consulta, deve certificar-se de que os eventos vão para a mesma divisão da sua entrada. Para os Hubs de Eventos ou IoT Hub, isto significa que os dados do evento devem ter o conjunto de valor **partitionKey.** Em alternativa, pode utilizar remetentes divididos. Para armazenamento de bolhas, isto significa que os eventos são enviados para a mesma pasta de partição. Um exemplo seria uma instância de consulta que agrega dados por utilizador ID onde o centro de eventos de entrada é dividido usando o userID como chave de partição. No entanto, se a sua lógica de consulta não exigir que a mesma chave seja processada pela mesma instância de consulta, pode ignorar esta exigência. Um exemplo desta lógica seria uma simples consulta de filtro de projeto selecionado.  
 
-2. Uma vez que os dados são estabelecidos no lado da entrada, deve certificar-se de que a sua consulta está dividida. Isto requer que utilize a **PARTIÇÃO POR** EM todos os passos. São permitidos vários passos, mas todos devem ser divididos pela mesma chave. Nos termos da compatibilidade dos níveis 1.0 e 1.1, a chave de partição deve ser fixada ao **PartitionId** para que o trabalho seja totalmente paralelo. Para trabalhos com nível de compatibilidade 1.2 e superior, a coluna personalizada pode ser especificada como Chave de Partição nas definições de entrada e o trabalho será automaticamente paralelado mesmo sem cláusula DE PARTIÇÃO POR. Para a saída do hub de eventos, a propriedade "Coluna de teclas de partição" deve ser definida para utilizar "PartitionId".
+2. O próximo passo é fazer a sua consulta ser dividida. Para trabalhos com o nível de compatibilidade 1.2 ou superior (recomendado), a coluna personalizada pode ser especificada como Chave de Partição nas definições de entrada e o trabalho será automaticamente parapente. Os trabalhos com compatibilidade nível 1.0 ou 1.1, exigem que utilize **partitionid por partição** em todos os passos da sua consulta. São permitidos vários passos, mas todos devem ser divididos pela mesma chave. 
 
-3. A maior parte da nossa produção pode tirar partido da partilha, no entanto, se utilizar um tipo de saída que não suporte a divisão do seu trabalho não será totalmente paralelo. Para as saídas do Event Hub, certifique-se de que a **coluna de teclas de partição** está definida da mesma forma que a chave de partição de consultas. Consulte a secção de [saída](#outputs) para mais detalhes.
+3. A maioria das saídas suportadas no Stream Analytics podem tirar partido da partilha. Se utilizar um tipo de saída que não apoie a divisão do seu trabalho não será *embaraçosamente paralelo*. Para as saídas do Event Hub, certifique-se de que a **coluna de teclas de partição** está definida na mesma tecla de partição utilizada na consulta. Consulte a secção de [saída](#outputs) para mais detalhes.
 
 4. O número de divisórias de entrada deve igualar o número de divisórias de saída. A saída de armazenamento blob pode suportar divisórias e herdar o esquema de partição da consulta a montante. Quando é especificada uma chave de partição para o armazenamento blob, os dados são divididos por divisória de entrada, pelo que o resultado ainda é totalmente paralelo. Aqui estão exemplos de valores de partição que permitem um trabalho totalmente paralelo:
 
@@ -80,8 +78,14 @@ As seguintes secções discutem alguns cenários de exemplo que são embaraçosa
 Consulta:
 
 ```SQL
+    --Using compatibility level 1.2 or above
     SELECT TollBoothId
-    FROM Input1 Partition By PartitionId
+    FROM Input1
+    WHERE TollBoothId > 100
+    
+    --Using compatibility level 1.0 or 1.1
+    SELECT TollBoothId
+    FROM Input1 PARTITION BY PartitionId
     WHERE TollBoothId > 100
 ```
 
@@ -95,6 +99,12 @@ Esta consulta é um filtro simples. Portanto, não precisamos de nos preocupar e
 Consulta:
 
 ```SQL
+    --Using compatibility level 1.2 or above
+    SELECT COUNT(*) AS Count, TollBoothId
+    FROM Input1
+    GROUP BY TumblingWindow(minute, 3), TollBoothId
+    
+    --Using compatibility level 1.0 or 1.1
     SELECT COUNT(*) AS Count, TollBoothId
     FROM Input1 Partition By PartitionId
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
@@ -110,7 +120,7 @@ Na secção anterior, mostrámos alguns cenários embaraçosamente paralelos. Ne
 * Entrada: Centro de eventos com 8 divisórias
 * Saída: Centro de eventos com 32 divisórias
 
-Neste caso, não importa qual é a consulta. Se a contagem de divisórias de entrada não corresponder à contagem de divisórias de saída, a topologia não é embaraçosamente paralela.+ No entanto, ainda podemos obter algum nível ou paralelinização.
+Se a contagem de divisórias de entrada não corresponder à contagem de divisórias de saída, a topologia não é embaraçosamente paralela independentemente da consulta. No entanto, ainda podemos obter algum nível ou paralelização.
 
 ### <a name="query-using-non-partitioned-output"></a>Consulta utilizando saída não dividida
 * Entrada: Centro de eventos com 8 divisórias
@@ -121,6 +131,7 @@ A saída de POWER BI não suporta atualmente a partilha. Portanto, este cenário
 ### <a name="multi-step-query-with-different-partition-by-values"></a>Consulta em várias etapas com diferentes valores de partição
 * Entrada: Centro de eventos com 8 divisórias
 * Saída: Centro de eventos com 8 divisórias
+* Nível de compatibilidade: 1.0 ou 1.1
 
 Consulta:
 
@@ -138,11 +149,10 @@ Consulta:
 
 Como pode ver, o segundo passo usa **o TollBoothId** como a chave de partição. Este passo não é o mesmo que o primeiro passo, pelo que nos obriga a fazer uma confusão. 
 
-Os exemplos anteriores mostram alguns trabalhos de Stream Analytics que se conformam com (ou não) uma topologia embaraçosamente paralela. Se se conformarem, têm potencial para a escala máxima. Para empregos que não se enquadram num destes perfis, a orientação de escala estará disponível em futuras atualizações. Por enquanto, utilize a orientação geral nas seguintes secções.
-
-### <a name="compatibility-level-12---multi-step-query-with-different-partition-by-values"></a>Compatibilidade nível 1.2 - Consulta em várias etapas com diferentes valores DE PARTIÇÃO 
+### <a name="multi-step-query-with-different-partition-by-values"></a>Consulta em várias etapas com diferentes valores de partição
 * Entrada: Centro de eventos com 8 divisórias
 * Saída: O centro de eventos com 8 divisórias ("Coluna de teclas de partição" deve ser definido para utilizar "TollBoothId")
+* Nível de compatibilidade - 1.2 ou superior
 
 Consulta:
 
@@ -158,7 +168,7 @@ Consulta:
     GROUP BY TumblingWindow(minute, 3), TollBoothId
 ```
 
-A compatibilidade do nível 1.2 permite a execução de consulta paralela por defeito. Por exemplo, a consulta da secção anterior será dividida enquanto a coluna "TollBoothId" for definida como chave de partição de entrada. PartIÇÃO POR Partição A cláusula Id não é necessária.
+A compatibilidade do nível 1.2 ou superior permite a execução de consulta paralela por defeito. Por exemplo, a consulta da secção anterior será dividida enquanto a coluna "TollBoothId" for definida como chave de partição de entrada. PartIÇÃO POR Partição A cláusula Id não é necessária.
 
 ## <a name="calculate-the-maximum-streaming-units-of-a-job"></a>Calcular as unidades de streaming máximas de um trabalho
 O número total de unidades de streaming que podem ser usadas por um trabalho de Stream Analytics depende do número de passos na consulta definida para o trabalho e do número de divisórias para cada passo.

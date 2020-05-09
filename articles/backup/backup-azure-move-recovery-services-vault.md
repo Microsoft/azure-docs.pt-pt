@@ -4,12 +4,12 @@ description: Instruções sobre como mover o cofre de serviços de recuperação
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.openlocfilehash: 3cfd442d49de2661d68de3c4e4b3575119504eb4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 93c3f2db6500023755796d50e71d44a427a2ce82
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80804423"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597999"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Mova um cofre de serviços de recuperação através de assinaturas e grupos de recursos do Azure
 
@@ -37,7 +37,7 @@ França Central, França Sul, Alemanha Nordeste, Alemanha Central, EUA Gov Iowa,
 - Para mover uma máquina virtual com discos geridos, consulte este [artigo](https://azure.microsoft.com/blog/move-managed-disks-and-vms-now-available/).
 - As opções para movimentar recursos implementados através do modelo Classic diferem consoante esteja a mover os recursos dentro de uma subscrição ou para uma nova subscrição. Para mais informações, consulte este [artigo.](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
 - As políticas de backup definidas para o cofre são retidas após a abóbada se mover através de subscrições ou para um novo grupo de recursos.
-- Não são suportados cofres em movimento com ficheiros Azure, Sincronização de Ficheiros Azure ou SQL em VMs IaaS em assinaturas e grupos de recursos.
+- Só se pode mover um cofre se as máquinas virtuais azure forem os únicos itens de reserva no cofre.
 - Se mover um cofre contendo dados de backup VM, através de subscrições, tem de mover os seus VMs para a mesma subscrição e utilizar o mesmo nome de grupo de recursos VM alvo (como era em subscrição antiga) para continuar as cópias de segurança.
 
 > [!NOTE]

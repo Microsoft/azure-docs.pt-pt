@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 08/08/2019
+ms.date: 04/27/2020
 ms.author: absha
-ms.openlocfilehash: ced807b25cd1e829988a1e6b7621a5f73e0edfc2
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
-ms.translationtype: HT
+ms.openlocfilehash: 421c1f4d1abe9be5f5081235e78ebe77b1813e6e
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82202435"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562241"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Reescrever os cabeçalhos HTTP com o Gateway da Aplicação
 
@@ -157,6 +157,8 @@ Pode avaliar um cabeçalho de pedido ou resposta HTTP para a presença de um cab
 ## <a name="limitations"></a>Limitações
 
 - Se uma resposta tiver mais do que um cabeçalho com o mesmo nome, então reescrever o valor de um desses cabeçalhos resultará em deixar cair os outros cabeçalhos na resposta. Isto normalmente pode acontecer com o cabeçalho Set-Cookie, uma vez que pode ter mais do que um cabeçalho Set-Cookie numa resposta. Um desses cenários é quando está a utilizar um serviço de aplicações com um portal de aplicações e tem configurado a afinidade de sessão baseada em cookies no gateway da aplicação. Neste caso, a resposta conterá dois cabeçalhos Set-Cookie: um `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` utilizado pelo serviço de aplicações, por exemplo: e outro para a afinidade de gateway de aplicações, por exemplo, `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/`. Reescrever um dos cabeçalhos set-cookie neste cenário pode resultar na remoção do outro cabeçalho Set-Cookie da resposta.
+
+- As reescritas não são suportadas quando o gateway da aplicação está configurado para redirecionar os pedidos ou para mostrar uma página de erro personalizada.
 
 - A reescrita dos cabeçalhos de Ligação, Upgrade e Anfitrião não é suportada atualmente.
 

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 383a28e90c093c0885c34af03371608261ece110
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
-ms.translationtype: HT
+ms.openlocfilehash: 88e58fbf6acc15b71fd135184cf8806a793140f3
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692620"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983215"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Proteja o seu espaço de trabalho Synapse (pré-visualização)
 
@@ -145,7 +145,7 @@ O Estúdio Synapse comportar-se-á de forma diferente com base nas funções dos
 | Open Synapse Studio | SIM | SIM | SIM |
 | Ver home hub | SIM | SIM | SIM |
 | Ver Centro de Dados | SIM | SIM | SIM |
-| Data Hub / Ver contas e contentores ADLSGen2 ligados | SIM [1] | SIM[1] | SIM[1] |
+| Data Hub / Ver contas e contentores ADLS Gen2 ligados | SIM [1] | SIM[1] | SIM[1] |
 | Data Hub / Ver Bases de Dados | SIM | SIM | SIM |
 | Data Hub / Ver objetos em bases de dados | SIM | SIM | SIM |
 | Data Hub / Dados de acesso nas bases de dados do pool SQL | SIM   | NO   | SIM   |
@@ -179,8 +179,8 @@ O Estúdio Synapse comportar-se-á de forma diferente com base nas funções dos
 
 
 > [!NOTE]
-> [1] O acesso aos dados em contentores depende do controlo de acesso na ADLSGen2. </br>
-> [2] As tabelas de OD SQL e as tabelas Spark armazenam os seus dados na ADLSGen2 e o acesso requer as permissões adequadas na ADLSGen2.
+> [1] O acesso aos dados em contentores depende do controlo de acesso na ADLS Gen2. </br>
+> [2] As tabelas de OD SQL e as tabelas Spark armazenam os seus dados na ADLS Gen2 e o acesso requer as permissões adequadas na ADLS Gen2.
 
 ## <a name="next-steps"></a>Passos seguintes
 
