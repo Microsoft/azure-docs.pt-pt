@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/08/2018
 ms.author: kumud
-ms.openlocfilehash: 4b8f91d7d9fc414ed0ae6387c25f71b1601e0b6c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8e3e37347c8c23ccc9746bbb98ef6a822743848b
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76043403"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790291"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-the-azure-cli"></a>Crie uma máquina virtual com um endereço IP público estático utilizando o Azure CLI
 
@@ -50,7 +50,7 @@ Pode completar os seguintes passos do seu computador local ou utilizando a Casca
      --public-ip-address-allocation static
    ```
 
-   Se o endereço IP público tiver de `--public-ip-sku Standard` ser um SKU padrão, adicione ao comando anterior. Saiba mais sobre o [endereço IP Público SKUs](virtual-network-ip-addresses-overview-arm.md#sku). Se a máquina virtual for adicionada ao pool de back-end de um equilíbrio público de carga Azure, o SKU do endereço IP público da máquina virtual deve corresponder ao SKU do endereço IP público do equilibrador de carga. Para mais detalhes, consulte [O Equilíbrio de Carga Sinuoso Azure](../load-balancer/concepts-limitations.md#skus).
+   Se o endereço IP público tiver de `--public-ip-sku Standard` ser um SKU padrão, adicione ao comando anterior. Saiba mais sobre o [endereço IP Público SKUs](virtual-network-ip-addresses-overview-arm.md#sku). Se a máquina virtual for adicionada ao pool de back-end de um equilíbrio público de carga Azure, o SKU do endereço IP público da máquina virtual deve corresponder ao SKU do endereço IP público do equilibrador de carga. Para mais detalhes, consulte [O Equilíbrio de Carga Sinuoso Azure](../load-balancer/skus.md).
 
 4. Consulte o endereço IP público atribuído e confirme que foi criado como um endereço SKU estático e básico, com [a rede az public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show):
 

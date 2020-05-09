@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 86b68b794928900717bea25623e7eb833c23e86c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92b3fd2453a4fb121c97f8f25f1d3ca129826092
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80655355"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926974"
 ---
 # <a name="frequently-asked-questions-faqs"></a>Perguntas frequentes (Perguntas Frequentes)
 
@@ -91,6 +91,7 @@ Sim. Cada domínio gerido pelo Azure AD Domain Services inclui dois controladore
 * [Posso modificar ou adicionar registos dNS no meu domínio gerido?](#can-i-modify-or-add-dns-records-in-my-managed-domain)
 * [Qual é a política de vida da palavra-passe num domínio gerido?](#what-is-the-password-lifetime-policy-on-a-managed-domain)
 * [Os Serviços de Domínio Da Azure AD fornecem proteção contra bloqueio de conta AD?](#does-azure-ad-domain-services-provide-ad-account-lockout-protection)
+* [Posso configurar o Sistema de Ficheiros Distribuídos (DFS) e a replicação dentro dos Serviços de Domínio Azure AD?](#can-i-configure-distributed-file-system-and-replication-within-azure-ad-domain-services)
 
 ### <a name="can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop"></a>Posso ligar-me ao controlador de domínio para o meu domínio gerido utilizando o Remote Desktop?
 Não. Não tem permissões para se ligar aos controladores de domínio para o domínio gerido utilizando o Remote Desktop. Os membros do grupo de administradores da *AAD DC* podem administrar o domínio gerido usando ferramentas de administração aD, tais como o Ative Directory Administration Center (ADAC) ou a AD PowerShell. Estas ferramentas estão instaladas utilizando a funcionalidade Ferramentas de *Administração* do Servidor Remoto num servidor Windows ligado ao domínio gerido. Para mais informações, consulte Criar um VM de [gestão para configurar e administrar um domínio gerido pelos Serviços de Domínio Azure AD](tutorial-create-management-vm.md).
@@ -118,6 +119,9 @@ A vida útil da palavra-passe padrão num domínio gerido pelo Azure AD Domain S
 
 ### <a name="does-azure-ad-domain-services-provide-ad-account-lockout-protection"></a>Os Serviços de Domínio Da Azure AD fornecem proteção contra bloqueio de conta AD?
 Sim. Cinco tentativas de senha inválidas dentro de 2 minutos no domínio gerido fazem com que uma conta de utilizador seja bloqueada durante 30 minutos. Após 30 minutos, a conta de utilizador é automaticamente desbloqueada. As tentativas de senha inválidas no domínio gerido não bloqueiam a conta de utilizador em Azure AD. A conta de utilizador está bloqueada apenas dentro do domínio gerido pelos Serviços de Domínio Azure AD. Para obter mais informações, consulte as políticas de bloqueio de [passwords e de conta em domínios geridos](password-policy.md).
+
+### <a name="can-i-configure-distributed-file-system-and-replication-within-azure-ad-domain-services"></a>Posso configurar o Sistema de Ficheiros Distribuídos e a replicação dentro dos Serviços de Domínio Azure AD?
+Não. O Sistema de Ficheiros Distribuídos (DFS) e a replicação não estão disponíveis quando utilizarem os Serviços de Domínio Azure AD.
 
 ## <a name="billing-and-availability"></a>Faturação e disponibilidade
 

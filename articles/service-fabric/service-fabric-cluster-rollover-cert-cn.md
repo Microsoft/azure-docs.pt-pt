@@ -3,12 +3,12 @@ title: Rolar sobre um certificado de cluster Azure Service Fabric
 description: Aprenda a revestir um certificado de cluster service Fabric identificado pelo nome comum do certificado.
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: 94cc6841886b1b0eb4271ac0f727a2e3561e0081
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7a5fe2a7f2a05295605ef0e1d5db321a83b96712
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75451967"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611913"
 ---
 # <a name="manually-roll-over-a-service-fabric-cluster-certificate"></a>Rolar manualmente sobre um certificado de cluster de tecido de serviço
 Quando um certificado de cluster service Fabric está perto de expirar, você precisa atualizar o certificado.  A capotação do certificado é simples se o cluster foi [criado para utilizar certificados baseados no nome comum](service-fabric-cluster-change-cert-thumbprint-to-cn.md) (em vez de impressão digital).  Obtenha um novo certificado de uma autoridade de certificados com uma nova data de validade.  Os certificados auto-assinados não são suporte para clusters de tecido de serviço de produção, para incluir certificados gerados durante o fluxo de trabalho de criação do portal Azure Cluster. O novo certificado deve ter o mesmo nome comum que o certificado mais antigo. 
@@ -64,7 +64,7 @@ $certConfig = New-AzVmssVaultCertificateConfig -CertificateUrl $CertificateURL -
 $vmss = Get-AzVmss -ResourceGroupName $VmssResourceGroupName -VMScaleSetName $VmssName
 
 # Add new secret to the VM scale set.
-$vmss = Add-AzVmssSecret -VirtualMachineScaleSet $vmss -SourceVaultId $SourceVault -VaultCertificate $certConfig
+$vmss.VirtualMachineProfile.OsProfile.Secrets[0].VaultCertificates.Add($newVaultCertificate)
 
 # Update the VM scale set 
 Update-AzVmss -ResourceGroupName $VmssResourceGroupName -Name $VmssName -VirtualMachineScaleSet $vmss  -Verbose

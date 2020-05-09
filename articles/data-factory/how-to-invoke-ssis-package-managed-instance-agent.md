@@ -1,6 +1,6 @@
 ---
-title: Executar pacotes SSIS utilizando o Agente de Instância gerido pela Base de Dados Azure SQL
-description: Aprenda a executar pacotes SSIS utilizando o Agente de Instância gerido pela Base de Dados SQL Azure.
+title: Agendar execuções de pacotes SSIS utilizando o Agente de Instância gerido pela Base de Dados SQL do Azure SQL
+description: Saiba como programar execuções de pacotes SSIS utilizando o Agente de Instância gerido pela Base de Dados SQL Azure.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -9,14 +9,17 @@ ms.topic: conceptual
 ms.author: lle
 author: lle
 ms.date: 04/14/2020
-ms.openlocfilehash: fcbfeb5ab3a3a80fdb8f7e355f290451d4afe804
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f230e4d33686b006b20e856d5e8033847e3f3d67
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82144809"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628491"
 ---
-# <a name="run-ssis-packages-by-using-azure-sql-database-managed-instance-agent"></a>Executar pacotes SSIS utilizando o Agente de Instância gerido pela Base de Dados Azure SQL
+# <a name="schedule-ssis-package-executions-by-using-azure-sql-database-managed-instance-agent"></a>Agendar execuções de pacotes SSIS utilizando o Agente de Instância gerido pela Base de Dados SQL do Azure SQL
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 Este artigo descreve como executar um pacote de Serviços de Integração de Servidores SQL (SSIS) utilizando o Agente de Instância gerido pela Base de Dados Azure SQL. Esta funcionalidade fornece comportamentos semelhantes ao programar pacotes SSIS utilizando o Agente servidor SQL no seu ambiente no local.
 
 Com esta funcionalidade, pode executar pacotes SSIS que são armazenados no SSISDB numa instância gerida pela Azure SQL Database ou num sistema de ficheiros como o Azure Files.
@@ -78,7 +81,7 @@ Neste procedimento, utiliza o Agente de Instância gerido pela Base de Dados Azu
 
         ![Opções para o tipo de fonte de ficheiro](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-file-system.png)
       
-        O caminho do pacote é ** \\ <storage account name>\< \<.file.core.windows.net nome de partilha de ficheiros>nome de pacote>.dtsx**.
+        O caminho **`\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx`** do pacote é.
       
         No âmbito da credencial de acesso ao **ficheiro Pacote,** introduza o nome da conta de ficheiro Sintetizador e a chave de conta azure para aceder ao ficheiro Azure. O domínio é definido como **Azure**.
 
@@ -89,11 +92,14 @@ Neste procedimento, utiliza o Agente de Instância gerido pela Base de Dados Azu
         Introduza o domínio, nome de utilizador e senha correspondentes para aceder ao ficheiro pacote de partilha de rede.
    1. Se o ficheiro do pacote estiver encriptado com uma palavra-passe, selecione **a palavra-passe de Encriptação** e introduza a palavra-passe.
 1. No separador **Configurações,** introduza o caminho do ficheiro de configuração se precisar de um ficheiro de configuração para executar o pacote SSIS.
+   Se armazenar a sua configuração em Ficheiros **`\\<storage account name>.file.core.windows.net\<file share name>\<configuration name>.dtsConfig`** Azure, o seu caminho de configuração será .
 1. No separador **opções de Execução,** pode escolher se utiliza a **autenticação do Windows** ou o **tempo de execução de 32 bits** para executar o pacote SSIS.
-1. No separador **Logado,** pode escolher a via de registo e a credencial de acesso ao registo correspondente para armazenar os ficheiros de registo. Por predefinição, o caminho de registo é o mesmo que o caminho da pasta do pacote, e a credencial de acesso ao registo é a mesma que a credencial de acesso ao pacote.
+1. No separador **Logado,** pode escolher a via de registo e a credencial de acesso ao registo correspondente para armazenar os ficheiros de registo. 
+   Por predefinição, o caminho de registo é o mesmo que o caminho da pasta do pacote, e a credencial de acesso ao registo é a mesma que a credencial de acesso ao pacote.
+   Se guardar os seus registos em Ficheiros **`\\<storage account name>.file.core.windows.net\<file share name>\<log folder name>`** Azure, o seu caminho de registo será .
 1. No separador **de valores set,** pode entrar no caminho da propriedade e valorizar para anular as propriedades do pacote.
  
-   Por exemplo, para sobrepor o valor da variável do utilizador, insira o seu caminho no seguinte formato: **<variable name>\Package.Variables[Utilizador:: ]. Valor**.
+   Por exemplo, para anular o valor da variável do utilizador, insira o seu caminho no seguinte formato: **`\Package.Variables[User::<variable name>].Value`**.
 1. Selecione **OK** para salvar a configuração de trabalho do agente.
 1. Inicie o trabalho de agente para executar o pacote SSIS.
 

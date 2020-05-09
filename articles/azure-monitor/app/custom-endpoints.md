@@ -3,12 +3,12 @@ title: Insights de aplicação Azure sobrepõem pontos finais sdk padrão
 description: Modificar os pontos finais de aplicação do Monitor de Azure padrão SDK para regiões como o Governo Azure.
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: b43bd13c73f77c6292e2062db88d68a20e5bf480
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f5bf5b07f7c058b4778e7695f150fdc71e048182
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81729535"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629189"
 ---
 # <a name="application-insights-overriding-default-endpoints"></a>Insights de aplicação sobrepondo pontos finais de padrão
 
@@ -76,56 +76,9 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPuls
 
 # <a name="azure-functions"></a>[Funções do Azure](#tab/functions)
 
-### <a name="azure-functions-v2x"></a>Funções Azure v2.x
+Para funções Azure, recomenda-se agora utilizar as cordas de [ligação definidas](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) nas definições de Aplicação da Função. Para aceder às definições de aplicação para a sua função a partir das funções, selecione**definições**de**configuração** > de configurações de **configurações** > . 
 
-Instale os seguintes pacotes no seu projeto de função:
-
-- Microsoft.ApplicationInsights versão 2.10.0
-- Microsoft.ApplicationInsights.PerfCounterCollector versão 2.10.0
-- Microsoft.ApplicationInsights.WindowsServer.TelemettryChannel versão 2.10.0
-
-Em seguida, adicione (ou modifique) o código de arranque para a sua aplicação de função:
-
-```csharp
-[assembly: WebJobsStartup(typeof(Example.Startup))]
-namespace Example
-{
-  class Startup : FunctionsStartup
-  {
-      public override void Configure(IWebJobsBuilder builder)
-      {
-          var quickPulseFactory = builder.Services.FirstOrDefault(sd => sd.ServiceType == typeof(ITelemetryModule) && 
-                                               sd.ImplementationType == typeof(QuickPulseTelemetryModule));
-          if (quickPulseFactory != null)
-          {
-              builder.Services.Remove(quickPulseFactory);
-          }
-
-          var appIdFactory = builder.Services.FirstOrDefault(sd => sd.ServiceType == typeof(IApplicationIdProvider));
-          if (appIdFactory != null)
-          {
-              builder.Services.Remove(appIdFactory);
-          }
-
-          var channelFactory = builder.Services.FirstOrDefault(sd => sd.ServiceType == typeof(ITelemetryChannel));
-          if (channelFactory != null)
-          {
-              builder.Services.Remove(channelFactory);
-          }
-
-          builder.Services.AddSingleton<ITelemetryModule, QuickPulseTelemetryModule>(_ =>
-              new QuickPulseTelemetryModule
-              {
-                  QuickPulseServiceEndpoint = "QuickPulse_Endpoint_Address"
-              });
-
-          builder.Services.AddSingleton<IApplicationIdProvider, ApplicationInsightsApplicationIdProvider>(_ => new ApplicationInsightsApplicationIdProvider() { ProfileQueryEndpoint = "Profile_Query_Endpoint_address" });
-
-          builder.Services.AddSingleton<ITelemetryChannel>(_ => new ServerTelemetryChannel() { EndpointAddress = "TelemetryChannel_Endpoint_Address" });
-      }
-  }
-}
-```
+Nome: `APPLICATIONINSIGHTS_CONNECTION_STRING` Valor:`Connection String Value`
 
 # <a name="java"></a>[Java](#tab/java)
 

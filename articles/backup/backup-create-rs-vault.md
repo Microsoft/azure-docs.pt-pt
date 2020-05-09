@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a criar cofres de Serviços de Recuperação 
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 439f102e8f13bff63ab388be8f10df07ab2dc7d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6ac1c7e887f80767d6ff1819476e91cb4b06bf1b
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80672853"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744950"
 ---
 # <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 
 
@@ -121,7 +121,7 @@ Recomendamos vivamente que reveja as definições predefinidas para o tipo de **
 
 - **O tipo** de replicação de armazenamento por padrão está definido para **Geo-redundante**. Uma vez configurado a cópia de segurança, a opção de modificar é desativada. Siga estes [passos](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) para rever e modificar as definições.
 
-- **O soft delete** por padrão é **ativado** em cofres recém-criados para proteger os dados de backup de eliminações acidentais ou maliciosas. Siga estes [passos](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#disabling-soft-delete) para rever e modificar as definições.
+- **O soft delete** por padrão é **ativado** em cofres recém-criados para proteger os dados de backup de eliminações acidentais ou maliciosas. Siga estes [passos](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#enabling-and-disabling-soft-delete) para rever e modificar as definições.
 
 ## <a name="next-steps"></a>Passos seguintes
 

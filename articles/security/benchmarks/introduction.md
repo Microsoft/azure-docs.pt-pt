@@ -7,13 +7,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: mbaldwin
-ms.custom: security-baselines
-ms.openlocfilehash: 8f65eb008d5df6ea3f2f85778d538023e6ce98eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: security-benchmark
+ms.openlocfilehash: 883042c94576014c3bdeabd38516d9531c8fd3dc
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75945324"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82606862"
 ---
 # <a name="azure-security-benchmark-introduction"></a>Introdução de referência de segurança azure
 

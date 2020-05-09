@@ -1,22 +1,22 @@
 ---
-title: Configure a gestão de chumbo no Marketo Mercado Azure
-description: Configure a gestão de chumbo para marketo para clientes Do Mercado Azure.
+title: Gestão de chumbo no Marketo - Mercado comercial da Microsoft
+description: Aprenda a utilizar um sistema Marketo CRM para gerir os leads do Microsoft AppSource e do Azure Marketplace.
 author: qianw211
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: b142e0ab1aaa242157e207ceecf958be51bb1721
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1f3a097629f8c5f4a3f0ecefa5ee50f2d3e62162
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133643"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82789883"
 ---
-# <a name="configure-lead-management-in-marketo"></a>Configure a gestão de chumbo em Marketo
+# <a name="use-marketo-to-manage-commercial-marketplace-leads"></a>Utilizar o Marketo para gerir os líderes do mercado comercial
 
-Este artigo descreve como configurar o seu sistema de CRM Marketo para processar as vendas da sua oferta de mercado comercial.
+Este artigo descreve como configurar o seu sistema Marketo CRM para processar os leads de vendas das suas ofertas no Microsoft AppSource e No Azure Marketplace.
 
 ## <a name="set-up-your-marketo-crm-system"></a>Crie o seu sistema de CRM Marketo
 
@@ -67,9 +67,11 @@ Este artigo descreve como configurar o seu sistema de CRM Marketo para processar
 
 Quando estiver pronto para configurar as informações de gestão de chumbo para a sua oferta no portal editorial, siga estes passos. 
 
-1. Vá à página de **configuração** da Oferta para a sua oferta.
+1. Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/home).
 
-1. Selecione **Ligar** sob a secção de gestão de **chumbo.** 
+1. Selecione a sua oferta e vá ao separador **oferta.**
+
+1. Sob a secção de **gestão de chumbo,** selecione **Connect**. 
 
     ![Secção de gestão de chumbo Botão de ligação](./media/commercial-marketplace-lead-management-instructions-marketo/lead-management-connect.png)
 
@@ -86,6 +88,6 @@ Quando estiver pronto para configurar as informações de gestão de chumbo para
 
 1. Selecione **OK**.
 
-   Para se certificar de que se ligou com sucesso a um destino de chumbo, selecione o botão **Validate.** Se for bem sucedido, terá um teste de chumbo no destino principal.
+   Para se certificar de que se ligou com sucesso a um destino de chumbo, selecione **Validate**. Se for bem sucedido, terá um teste de chumbo no destino principal.
 
    ![Detalhes de ligação janela pop-up](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-connection-details.png)

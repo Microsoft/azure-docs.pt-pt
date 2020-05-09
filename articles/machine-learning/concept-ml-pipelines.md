@@ -1,7 +1,6 @@
 ---
-title: O que são os Gasodutos ML
-titleSuffix: Azure Machine Learning
-description: Neste artigo, aprenda as vantagens dos gasodutos de machine learning (ML) que pode construir com o Azure Machine Learning SDK para Python. Os gasodutos de aprendizagem automática são usados pelos cientistas de dados para construir, otimizar e gerir os seus fluxos de trabalho de aprendizagem automática.
+title: O que são Pipelines de Aprendizagem automática Azure
+description: Saiba como os gasodutos de machine learning (ML) ajudam a construir, otimizar e gerir fluxos de trabalho de aprendizagem automática.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +8,16 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 04/01/2020
-ms.openlocfilehash: 0cefa78b6f52cc67df8817f68a9b793ab86b2a7f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 79e9551650866e5f5fc28b123c1259e2a5fb6f20
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80878583"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983453"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>O que são os oleodutos Azure Machine Learning?
 
-Os oleodutos Azure Machine Learning permitem criar fluxos de trabalho nos seus projetos de aprendizagem automática. Estes fluxos de trabalho têm uma série de benefícios: 
+Neste artigo, você pode aprender como os oleodutos Azure Machine Learning ajudam a construir, otimizar e gerir fluxos de trabalho de aprendizagem automática. Estes fluxos de trabalho têm uma série de benefícios: 
 
 + Simplicidade
 + Velocidade
@@ -45,7 +44,6 @@ A nuvem Azure fornece vários outros oleodutos, cada um com um propósito difere
 | Orquestração de modelos (Machine learning) | Cientista de dados | Gasodutos de Aprendizagem automática Azure | Gasodutos Kubeflow | Modelo de dados -> | Distribuição, cache, código primeiro, reutilização | 
 | Orquestração de dados (Preparação de dados) | Engenheiro de dados | [Pipelines do Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) | Fluxo de ar Apache | Dados -> dados -dados | Movimento fortemente dactilografado. Atividades centradas em dados. |
 | Orquestração de aplicações & código (CI/CD) | Desenvolvedor de aplicativos / Operações | [Gasodutos Azure DevOps](https://azure.microsoft.com/services/devops/pipelines/) | Jenkins | Código + Modelo -app/serviço > | Mais apoio de atividade aberta e flexível, filas de aprovação, fases com marcha | 
-
 
 ## <a name="what-can-azure-ml-pipelines-do"></a>O que podem os oleodutos Azure ML fazer?
 
