@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 08/09/2019
 ms.author: rohink
-ms.openlocfilehash: 271770935cf4cb83d4abc6e82a4f4b13ffe865b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3378036c4800b274d879743abf937c7860e63ded
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80295494"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926236"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Descrição geral dos registos de alias do DNS do Azure
 
@@ -66,7 +66,7 @@ Por exemplo, contoso.com\.e www contoso.com podem apontar para o mesmo perfil do
 
 Tal como um perfil do Traffic Manager, também pode utilizar registos de pseudónimos para indicar o seu ápice da zona DNS para os pontos finais do Azure CDN. Isto é útil quando se criam sites estáticos utilizando o armazenamento Azure e o Azure CDN. Em seguida, pode aceder ao site sem pré-gastar "www" para o seu nome DNS.
 
-Por exemplo, se o `www.contoso.com, your users can access your site using contoso.com` seu site estático for nomeado sem a necessidade de preparar www ao nome DNS.
+Por exemplo, se o `www.contoso.com`seu site estático for `contoso.com` nomeado, os seus utilizadores podem aceder ao seu site usando sem a necessidade de preparar www com o nome DNS.
 
 Como descrito anteriormente, os registos CNAME não são suportados no ápice da zona. Então, não pode usar um disco CNAME para apontar contoso.com para o seu ponto final do CDN. Em vez disso, pode utilizar um registo de pseudónimos para apontar o ápice da zona diretamente para um ponto final de CDN.
 

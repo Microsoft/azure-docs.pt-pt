@@ -12,12 +12,12 @@ ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 12a38b08fd429280f34b4eb02d4b72187b622261
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0938888b7343b441725faace7a5f20d8f50674c8
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79078443"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872058"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Onde guardar e escrever ficheiros para experiências de Aprendizagem automática de Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -54,7 +54,7 @@ Para resolver este erro, guarde os seus ficheiros de experiência numa loja de d
 Descrição da experiência&nbsp;|Solução limite de armazenamento
 ---|---
 Menos de 2000 ficheiros & não podem usar uma loja de dados| Limite de tamanho de instantâneo de sobreposição com <br> `azureml._restclient.snapshots_client.SNAPSHOT_MAX_SIZE_BYTES = 'insert_desired_size'`<br> Isto pode demorar vários minutos dependendo do número e tamanho dos ficheiros.
-Deve usar o diretório de script específico| Faça `.amlignore` um ficheiro para excluir ficheiros da sua fotografia de experiência que não façam parte do código fonte. Adicione os nomes `.amlignore` de ficheiros ao ficheiro e coloque-os no mesmo diretório que o seu script de treino. O `.amlignore` ficheiro usa a mesma [sintaxe e padrões](https://git-scm.com/docs/gitignore) como um `.gitignore` ficheiro.
+Deve usar o diretório de script específico| [!INCLUDE [amlinclude-info](../../includes/machine-learning-amlignore-gitignore.md)]
 Pipeline|Use um subdiretório diferente para cada passo
 Jupyter Notebooks| Crie `.amlignore` um ficheiro ou mude o seu caderno para um novo, vazio, subdiretório e volte a executar o seu código.
 

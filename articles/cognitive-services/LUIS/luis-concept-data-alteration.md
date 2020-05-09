@@ -2,13 +2,13 @@
 title: Alteração de dados - LUIS
 description: Saiba como os dados podem ser alterados antes das previsões na Compreensão da Linguagem (LUIS)
 ms.topic: conceptual
-ms.date: 02/11/2020
-ms.openlocfilehash: b3b36351a64a4e1a0bd13d5785a4e0609a80901d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/06/2020
+ms.openlocfilehash: 3a88739caa9b35679f10b0cb63a804e9464c871c
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80292064"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872245"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>Alterar os dados de expressão antes ou durante a previsão
 Luis fornece formas de manipular a expressão antes ou durante a previsão. Estes incluem [a fixação](luis-tutorial-bing-spellcheck.md)de ortografias e a fixação de problemas de fuso horário para data pré-construídaV2 . [datetimeV2](luis-reference-prebuilt-datetimev2.md)
@@ -75,42 +75,27 @@ A verificação de feitiços Bing API utilizada no LUIS não suporta uma lista d
 ## <a name="change-time-zone-of-prebuilt-datetimev2-entity"></a>Alterar o fuso horário da entidade datav2 pré-construída
 Quando uma aplicação LUIS utiliza a entidade [datav2](luis-reference-prebuilt-datetimev2.md) pré-construída, um valor de data pode ser devolvido na resposta à previsão. O fuso horário do pedido é utilizado para determinar a hora de regresso correta. Se o pedido vier de um bot ou de outra aplicação centralizada antes de chegar ao LUIS, corrija o fuso horário que o LUIS utiliza.
 
-### <a name="endpoint-querystring-parameter"></a>Parâmetro de corda de consulta de ponto final
-O fuso horário é corrigido adicionando o fuso horário `timezoneOffset` do utilizador ao ponto [final](https://go.microsoft.com/fwlink/?linkid=2092356) utilizando o param. O valor `timezoneOffset` deve ser o número positivo ou negativo, em minutos, para alterar o tempo.
+### <a name="v3-prediction-api-to-alter-timezone"></a>Previsão V3 API para alterar fuso horário
 
-|Param|Valor|
-|--|--|
-|`timezoneOffset`|número positivo ou negativo, em minutos|
+Em V3, `datetimeReference` o fuso horário compensa. Saiba mais sobre [as previsões v3.](luis-migration-api-v3.md#v3-post-body)
 
-### <a name="daylight-savings-example"></a>Exemplo de poupança de luz do dia
-Se necessitar do data-data pré-construído devolvidoV2 para se `timezoneOffset` ajustar ao horário de verão, deve utilizar o parâmetro de corda de consulta com um valor de +/- em minutos para a consulta do [ponto final.](https://go.microsoft.com/fwlink/?linkid=2092356)
+### <a name="v2-prediction-api-to-alter-timezone"></a>Previsão V2 API para alterar fuso horário
+O fuso horário é corrigido adicionando o fuso horário `timezoneOffset` do utilizador ao ponto final utilizando o parâmetro com base na versão API. O valor do parâmetro deve ser o número positivo ou negativo, em minutos, para alterar o tempo.
 
-#### <a name="v2-prediction-endpoint-request"></a>[Pedido de ponto final de previsão V2](#tab/V2)
+#### <a name="v2-prediction-daylight-savings-example"></a>Exemplo de poupança de verão de previsão V2
+Se necessitar do data-data pré-construído devolvidoV2 para se ajustar ao horário de verão, deve utilizar o parâmetro de corda de consulta com um valor de +/- em minutos para a consulta do [ponto final.](https://go.microsoft.com/fwlink/?linkid=2092356)
 
 Adicione 60 minutos:
 
-`https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q=Turn the lights on?**timezoneOffset=60**&verbose={boolean}&spellCheck={boolean}&staging={boolean}&bing-spell-check-subscription-key={string}&log={boolean}`
+`https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q=Turn the lights on?timezoneOffset=60&verbose={boolean}&spellCheck={boolean}&staging={boolean}&bing-spell-check-subscription-key={string}&log={boolean}`
 
 Retire 60 minutos:
 
-`https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q=Turn the lights on?**timezoneOffset=-60**&verbose={boolean}&spellCheck={boolean}&staging={boolean}&bing-spell-check-subscription-key={string}&log={boolean}`
+`https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q=Turn the lights on?timezoneOffset=-60&verbose={boolean}&spellCheck={boolean}&staging={boolean}&bing-spell-check-subscription-key={string}&log={boolean}`
 
-#### <a name="v3-prediction-endpoint-request"></a>[Pedido de ponto final de previsão V3](#tab/V3)
+#### <a name="v2-prediction-c-code-determines-correct-value-of-parameter"></a>V2 previsão C# código determina o valor correto do parâmetro
 
-Adicione 60 minutos:
-
-`https://{region}.api.cognitive.microsoft.com/luis/v3.0-preview/apps/{appId}/slots/production/predict?query=Turn the lights on?**timezoneOffset=60**&spellCheck={boolean}&bing-spell-check-subscription-key={string}&log={boolean}`
-
-Retire 60 minutos:
-
-`https://{region}.api.cognitive.microsoft.com/luis/v3.0-preview/apps/{appId}/slots/production/predict?query=Turn the lights on?**timezoneOffset=-60**&spellCheck={boolean}&bing-spell-check-subscription-key={string}&log={boolean}`
-
-Saiba mais sobre o ponto final da [previsão V3](luis-migration-api-v3.md).
-
-* * *
-
-## <a name="c-code-determines-correct-value-of-timezoneoffset"></a>Código C# determina o valor correto do timezoneOffset
-O seguinte código C# utiliza o método [FindSystemTimeZoneById](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.findsystemtimezonebyid#examples) da `timezoneOffset` classe [TimeZoneInfo](https://docs.microsoft.com/dotnet/api/system.timezoneinfo) para determinar o correto com base no tempo do sistema:
+O seguinte código C# utiliza o método [FindSystemTimeZoneById](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.findsystemtimezonebyid#examples) da classe [TimeZoneInfo](https://docs.microsoft.com/dotnet/api/system.timezoneinfo) para determinar o valor correto de compensação com base no tempo do sistema:
 
 ```csharp
 // Get CST zone id
@@ -122,8 +107,8 @@ DateTime utcDatetime = DateTime.UtcNow;
 // Get Central Standard Time value of Now
 DateTime cstDatetime = TimeZoneInfo.ConvertTimeFromUtc(utcDatetime, targetZone);
 
-// Find timezoneOffset
-int timezoneOffset = (int)((cstDatetime - utcDatetime).TotalMinutes);
+// Find timezoneOffset/datetimeReference
+int offset = (int)((cstDatetime - utcDatetime).TotalMinutes);
 ```
 
 ## <a name="next-steps"></a>Passos seguintes

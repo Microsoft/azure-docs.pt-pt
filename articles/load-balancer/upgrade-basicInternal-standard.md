@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 02/23/2020
 ms.author: irenehua
-ms.openlocfilehash: fe9ae8997e05e4ab99dba66de88976342fbabe56
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: HT
+ms.openlocfilehash: 960897abca67bf2a43c4c056b8dfa8cce0119faa
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858359"
+ms.locfileid: "82871580"
 ---
 # <a name="upgrade-azure-internal-load-balancer--no-outbound-connection-required"></a>Upgrade Azure Internal Load Balancer - Sem necessidade de ligação de saída
 [O Azure Standard Load Balancer](load-balancer-overview.md) oferece um conjunto rico de funcionalidades e alta disponibilidade através de redundância de zona. Para saber mais sobre o Load Balancer SKU, consulte a [tabela de comparação](https://docs.microsoft.com/azure/load-balancer/skus#skus).
@@ -31,6 +31,7 @@ Está disponível um script Azure PowerShell que faz o seguinte:
 ### <a name="caveatslimitations"></a>Ressalvas\Limitações
 
 * O script apenas suporta a atualização do Balancer de Carga Interna onde não é necessária nenhuma ligação de saída. Se necessitar de [ligação de saída](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) para alguns dos seus VMs, consulte esta [página](upgrade-InternalBasic-To-PublicStandard.md) para obter instruções. 
+* O Equilíbrio de Carga Básica tem de estar no mesmo grupo de recursos que os VMs e OS NICs de backend.
 * Se o equilibrador de carga Standard for criado numa região diferente, não poderá associar os VMs existentes na região antiga ao recém-criado Standard Load Balancer. Para contornar esta limitação, certifique-se de criar um novo VM na nova região.
 * Se o seu Balancer de Carga não tiver qualquer configuração IP frontal ou piscina de backend, é provável que acerte um erro ao executar o script. Certifique-se de que não estão vazios.
 
@@ -47,7 +48,7 @@ Está disponível um script Azure PowerShell que faz o seguinte:
 
 ## <a name="download-the-script"></a>Descarregue o script
 
-Descarregue o script de migração da [Galeria PowerShell.](https://www.powershellgallery.com/packages/AzureILBUpgrade/2.0)
+Descarregue o script de migração da [Galeria PowerShell.](https://www.powershellgallery.com/packages/AzureILBUpgrade/3.0)
 ## <a name="use-the-script"></a>Use o script
 
 Existem duas opções para si, dependendo da configuração e preferências locais do ambiente PowerShell:

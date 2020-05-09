@@ -13,12 +13,12 @@ ms.date: 01/30/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 25c219bedbbbec9fbc0c5617c7bd9fc482faf49a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: db9937d87692a1221d72bd27cfd653d803b9a1c6
+ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80050514"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82883248"
 ---
 # <a name="authentication-flows"></a>Fluxos de autenticação
 
@@ -232,4 +232,4 @@ Para além dos [constrangimentos integrados de autenticação do Windows,](#inte
 
 ### <a name="azure-ad-b2c-specifics"></a>Especificidades do Azure AD B2C
 
-Para obter mais informações sobre a utilização de MSAL.NET e Azure AD B2C, consulte [A Utilização de ROPC com Azure AD B2C (MSAL.NET)](msal-net-aad-b2c-considerations.md#resource-owner-password-credentials-ropc-with-azure-ad-b2c).
+Para obter mais informações sobre a utilização do ROPC em MSAL.NET e Azure AD B2C, consulte [AD PC com Azure AD B2C](msal-net-aad-b2c-considerations.md#resource-owner-password-credentials-ropc).

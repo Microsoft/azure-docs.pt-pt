@@ -3,15 +3,15 @@ title: Criar uma nova versão de imagem a partir de uma versão de imagem existe
 description: Crie uma nova versão de imagem VM a partir de uma versão de imagem existente usando o Azure Image Builder.
 author: cynthn
 ms.author: cynthn
-ms.date: 05/02/2019
+ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
-ms.openlocfilehash: 766e7d5c4151000a582bcf07d80b89af3b7d8a65
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ee3e2a224789c899dcfabdbee56b949ea86f0a08
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81869529"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872267"
 ---
 # <a name="preview-create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder"></a>Pré-visualização: Crie uma nova versão de imagem VM a partir de uma versão de imagem existente usando o Azure Image Builder
 
@@ -40,16 +40,18 @@ Verifique o seu registo.
 
 ```azurecli-interactive
 az provider show -n Microsoft.VirtualMachineImages | grep registrationState
-az provider show -n Microsoft.Storage | grep registrationState
+az provider show -n Microsoft.KeyVault | grep registrationState
 az provider show -n Microsoft.Compute | grep registrationState
+az provider show -n Microsoft.Storage | grep registrationState
 ```
 
 Se não disserem registado, execute o seguinte:
 
 ```azurecli-interactive
 az provider register -n Microsoft.VirtualMachineImages
-az provider register -n Microsoft.Storage
 az provider register -n Microsoft.Compute
+az provider register -n Microsoft.KeyVault
+az provider register -n Microsoft.Storage
 ```
 
 
@@ -93,16 +95,15 @@ sigDefImgVersionId=$(az sig image-version list \
    --subscription $subscriptionID --query [].'id' -o json | grep 0. | tr -d '"' | tr -d '[:space:]')
 ```
 
-
-Se já tem a sua própria Galeria de Imagem Partilhada, e não seguiu o exemplo anterior, terá de atribuir permissões ao Image Builder para aceder ao Grupo de Recursos, para que possa aceder à galeria.
-
+## <a name="create-a-user-assigned-identity-and-set-permissions-on-the-resource-group"></a>Criar uma identidade atribuída ao utilizador e definir permissões no grupo de recursos
+Como definiu a identidade de utilizador no exemplo anterior, basta obter o ID de Recurso, isto será então anexado ao modelo.
 
 ```azurecli-interactive
-az role assignment create \
-    --assignee cf32a0cc-373c-47c9-9156-0db11f6a6dfc \
-    --role Contributor \
-    --scope /subscriptions/$subscriptionID/resourceGroups/$sigResourceGroup
+#get identity used previously
+imgBuilderId=$(az identity list -g $sigResourceGroup --query "[?contains(name, 'aibBuiUserId')].id" -o tsv)
 ```
+
+Se já tem a sua própria Galeria de Imagem Partilhada, e não seguiu o exemplo anterior, terá de atribuir permissões ao Image Builder para aceder ao Grupo de Recursos, para que possa aceder à galeria. Por favor, reveja os passos na [Create uma imagem e distribua para um](image-builder-gallery.md) exemplo da Galeria de Imagem Partilhada.
 
 
 ## <a name="modify-helloimage-example"></a>Modificar o exemplo helloImage
@@ -121,6 +122,7 @@ sed -i -e "s%<sigDefImgVersionId>%$sigDefImgVersionId%g" helloImageTemplateforSI
 sed -i -e "s/<region1>/$location/g" helloImageTemplateforSIGfromWinSIG.json
 sed -i -e "s/<region2>/$additionalregion/g" helloImageTemplateforSIGfromWinSIG.json
 sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateforSIGfromWinSIG.json
+sed -i -e "s%<imgBuilderId>%$imgBuilderId%g" helloImageTemplateforSIGfromWinSIG.json
 ```
 
 ## <a name="create-the-image"></a>Criar a imagem
