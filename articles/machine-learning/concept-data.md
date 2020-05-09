@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 04/24/2020
-ms.openlocfilehash: 614cc866529cd4ead8a6ea798526d59aff13d4d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e41d00a31a0065e2923259cbb0bb36986cbb2ec8
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82144475"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995057"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Acesso seguro de dados em Aprendizagem automática azure
 
@@ -73,7 +73,7 @@ Os conjuntos de dados podem ser criados a partir de ficheiros locais, urls públ
 Apoiamos 2 tipos de conjuntos de dados: 
 + Um [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) representa dados num formato tabular, analisando o ficheiro ou lista de ficheiros fornecidos. Pode carregar um TabularDataset num Pandas ou Spark DataFrame para posterior manipulação e limpeza. Para obter uma lista completa de formatos de dados pode criar TabularDatasets a partir de, consulte a [classe TabularDatasetFactory](https://aka.ms/tabulardataset-api-reference).
 
-+ Um [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) refere ficheiros únicos ou múltiplos nas suas lojas de dados ou URLs públicos. Pode [descarregar ou montar ficheiros](how-to-train-with-datasets.md#option-2--mount-files-to-a-remote-compute-target) referenciados por FileDatasets para o seu alvo de cálculo.
++ Um [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) refere ficheiros únicos ou múltiplos nas suas lojas de dados ou URLs públicos. Pode [descarregar ou montar ficheiros](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) referenciados por FileDatasets para o seu alvo de cálculo.
 
 Capacidades adicionais de conjuntos de dados podem ser encontradas na seguinte documentação:
 

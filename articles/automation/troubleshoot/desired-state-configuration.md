@@ -9,19 +9,16 @@ ms.author: magoedte
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d0801bb44fc0c08df1adee1f817e8fccab166fb5
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
-ms.translationtype: HT
+ms.openlocfilehash: 4c9e7b6d93fb4bbc3e3b05d9346ec84197665a55
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82652813"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995297"
 ---
-# <a name="troubleshoot-issues-with-azure-automation-state-configuration"></a>Problemas de resolução de problemas com configuração do Estado da Automação Azure
+# <a name="troubleshoot-azure-automation-state-configuration-issues"></a>Problemas de suturação de problemas Problemas De Automação Azure Problemas de Configuração do Estado
 
 Este artigo fornece informações sobre problemas de resolução de problemas que surgem enquanto compila ou implementa configurações na Configuração do Estado da Automação Azure.
-
->[!NOTE]
->Este artigo foi atualizado para utilizar o novo módulo AZ do Azure PowerShell. Pode continuar a utilizar o módulo AzureRM, que continuará a receber correções de erros até, pelo menos, dezembro de 2020. Para obter mais informações sobre o novo módulo Az e a compatibilidade do AzureRM, veja [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para instruções de instalação do módulo Az no seu Executor Híbrido, consulte [Instalar o Módulo PowerShell Azure](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para a sua conta Automation, pode atualizar os seus módulos para a versão mais recente seguindo os passos em Como atualizar os [módulos Azure PowerShell em Automação Azure](../automation-update-azure-modules.md).
 
 ## <a name="diagnose-an-issue"></a>Diagnosticar um problema
 
@@ -112,7 +109,7 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC / 
 
 ### <a name="cause"></a>Causa
 
-Esta questão é causada por um certificado mau ou caducado. Ver [Expiração do certificado e reinscrição](../automation-dsc-onboarding.md#re-registering-a-node).
+Esta questão é causada por um certificado mau ou caducado. Consulte [Re-registar um nó](../automation-dsc-onboarding.md#re-register-a-node).
 
 Este problema também pode ser causado por uma configuração de procuração que não permite o acesso a ***.azure-automation.net**. Para mais informações, consulte [Configuração de redes privadas.](../automation-dsc-overview.md#network-planning) 
 
@@ -239,11 +236,11 @@ Usaste uma credencial numa configuração, mas `ConfigurationData` não `PSDscAl
 
 Certifique-se de passar `ConfigurationData` no `PSDscAllowPlainTextPassword` adequado para ser fiel a cada configuração do nó que é mencionada na configuração. Consulte a compilação de [configurações dSC na configuração do Estado da Automação Azure](../automation-dsc-compile.md).
 
-## <a name="scenario-failure-processing-extension-error-when-onboarding-from-a-dsc-extension"></a><a name="failure-processing-extension"></a>Cenário: Erro de "extensão de processamento de falhas" ao embarcar a partir de uma extensão DSC
+## <a name="scenario-failure-processing-extension-error-when-enabling-a-machine-from-a-dsc-extension"></a><a name="failure-processing-extension"></a>Cenário: Erro de "extensão de processamento de falha" ao ativar uma máquina a partir de uma extensão DSC
 
 ### <a name="issue"></a>Problema
 
-Ao embarcar utilizando uma extensão DSC, ocorre uma falha que contém o erro:
+Quando ativa uma máquina utilizando uma extensão DSC, ocorre uma falha que contém o erro:
 
 ```error
 VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. Error message: \"DSC COnfiguration 'RegistrationMetaConfigV2' completed with error(s). Following are the first few: Registration of the Dsc Agent with the server <url> failed. The underlying error is: The attempt to register Dsc Agent with Agent Id <ID> with the server <url> return unexpected response code BadRequest. .\".
@@ -256,7 +253,7 @@ Este erro ocorre tipicamente quando o nó é atribuído um nome de configuraçã
 ### <a name="resolution"></a>Resolução
 
 * Certifique-se de que está a atribuir o nó com um nome que corresponda exatamente ao nome do serviço.
-* Pode optar por não incluir o nome de configuração do nó, o que resulta em embarcar no nó, mas não atribuir uma configuração de nó.
+* Pode optar por não incluir o nome de configuração do nó, o que resulta em permitir o nó, mas não atribuir uma configuração de nó.
 
 ## <a name="scenario-one-or-more-errors-occurred-error-when-registering-a-node-by-using-powershell"></a><a name="cross-subscription"></a>Cenário: Erro de "Um ou mais erros ocorreram" ao registar um nó utilizando o PowerShell
 
@@ -274,10 +271,10 @@ Este erro ocorre quando se tenta registar um nó numa subscrição separada da u
 
 ### <a name="resolution"></a>Resolução
 
-Trate o nó de subscrição cruzada como se estivesse definido para uma nuvem separada, ou no local. Registe o nó utilizando uma destas opções de embarque:
+Trate o nó de subscrição cruzada como se estivesse definido para uma nuvem separada, ou no local. Registe o nó utilizando uma destas opções para permitir máquinas:
 
-* Janelas: [Máquinas de Janelas físicas/virtuais no local ou numa nuvem diferente do Azure/AWS](../automation-dsc-onboarding.md#onboarding-physicalvirtual-windows-machines).
-* Linux: [Máquinas linux físicas/virtuais no local, ou numa nuvem diferente do Azure](../automation-dsc-onboarding.md#onboarding-physicalvirtual-linux-machines).
+* Janelas: [Máquinas de Janelas físicas/virtuais no local ou numa nuvem diferente do Azure/AWS](../automation-dsc-onboarding.md#enable-physicalvirtual-windows-machines).
+* Linux: [Máquinas linux físicas/virtuais no local, ou numa nuvem diferente do Azure](../automation-dsc-onboarding.md#enable-physicalvirtual-linux-machines).
 
 ## <a name="scenario-provisioning-has-failed-error-message"></a><a name="agent-has-a-problem"></a>Cenário: "Provisão falhou" mensagem de erro
 

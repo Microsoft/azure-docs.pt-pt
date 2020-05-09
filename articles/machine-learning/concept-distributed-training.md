@@ -9,18 +9,18 @@ ms.author: nibaccam
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: a0d5bf795e4759a105b9a235770f37aa10bd6751
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 52716e070437dd7a6b3b880a5a7f3a4afafe8738
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80385548"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995023"
 ---
 # <a name="distributed-training-with-azure-machine-learning"></a>Formação distribuída com Aprendizagem automática Azure
 
 Neste artigo, aprende-se sobre formação distribuída e como o Azure Machine Learning o apoia para modelos de aprendizagem profunda. 
 
-Na formação distribuída, a carga de trabalho para treinar um modelo é dividida e partilhada entre vários mini processadores, chamados nós operários. Estes nódosos operários trabalham paralelamente para acelerar a formação de modelos. A formação distribuída pode ser usada para modelos tradicionais de ML, mas é mais adequada para tarefas intensivas em computação e tempo, como [a aprendizagem profunda](concept-deep-learning-vs-machine-learning.md) para a formação de redes neuronais profundas.
+Na formação distribuída, a carga de trabalho para treinar um modelo é dividida e partilhada entre vários mini processadores, chamados nós operários. Estes nódosos operários trabalham paralelamente para acelerar a formação de modelos. A formação distribuída pode ser usada para modelos tradicionais de ML, mas é mais adequada para tarefas intensivas em computação e tempo, como [a aprendizagem profunda](concept-deep-learning-vs-machine-learning.md) para a formação de redes neuronais profundas. 
 
 ## <a name="deep-learning-and-distributed-training"></a>Aprendizagem profunda e formação distribuída 
 
@@ -36,7 +36,9 @@ Para modelos ML que não requerem formação distribuída, consulte modelos de [
 
 O paralelismo de dados é o mais fácil de implementar das duas abordagens de formação distribuídas, e é suficiente para a maioria dos casos de utilização.
 
-Nesta abordagem, os dados são divididos em divisórias, onde o número de divisórias é igual ao número total de nós disponíveis, no cluster computacional. O modelo é copiado em cada um destes nós operários, e cada trabalhador opera no seu próprio subconjunto de dados. Tenha em mente que cada nó tem de ter a capacidade de suportar o modelo que está a ser treinado, ou seja, o modelo tem de se encaixar inteiramente em cada nó.
+Nesta abordagem, os dados são divididos em divisórias, onde o número de divisórias é igual ao número total de nós disponíveis, no cluster computacional. O modelo é copiado em cada um destes nós operários, e cada trabalhador opera no seu próprio subconjunto de dados. Tenha em mente que cada nó tem de ter a capacidade de suportar o modelo que está a ser treinado, ou seja, o modelo tem de se encaixar inteiramente em cada nó. O diagrama seguinte proporciona uma demonstração visual desta abordagem.
+
+![Data-parallelismo-concept-diagram](./media/concept-distributed-training/distributed-training.svg)
 
 Cada nó calcula de forma independente os erros entre as suas previsões para as suas amostras de formação e as saídas rotuladas. Por sua vez, cada nó atualiza o seu modelo com base nos erros e deve comunicar todas as suas alterações aos outros nós para atualizar os seus modelos correspondentes. Isto significa que os nós dos trabalhadores precisam de sincronizar os parâmetros do modelo, ou gradientes, no final do computação do lote para garantir que estão a treinar um modelo consistente. 
 
