@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: article
 ms.date: 02/06/2020
 ms.author: cherylmc
-ms.openlocfilehash: 9515058bc78a2d56dc1734c046dac5d5b04f68d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c32d42de5290bff63a897e7b9d5c8a2b1bf04ce4
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81113170"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82786976"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Arquitetura global da rede de trânsito e WAN Virtual
 
@@ -98,6 +98,9 @@ Neste modelo, cada ramo ligado ao hub virtual WAN utilizando o ExpressRoute pode
 Os balcões podem ser ligados a um hub wan virtual Azure utilizando circuitos ExpressRoute e/ou ligações VPN site-to-site. Pode ligar os ramos ao centro virtual WAN que se encontra na região mais próxima do ramo.
 
 Esta opção permite que as empresas aproveitem a espinha dorsal azure para ligar balcões. No entanto, mesmo que esta capacidade esteja disponível, deve pesar os benefícios de ligar balcões através do Azure Virtual WAN vs. usando um WAN privado.  
+
+> [!NOTE]
+> Desativando a conectividade ramificante em WAN virtual - O WAN virtual pode ser configurado para desativar a conectividade Branch-to-Branch. Esta configuação bloqueará a propagação da rota entre os locais ligados vpn (S2S e P2S) e Express Route. Esta configuração não afetará a propogamoação e conectividade da rota Do ramo-a-Vnet e Vnet-to-Vnet. Para configurar esta definição utilizando o Portal Azure: Sob o menu de configuração virtual WAN, escolha a definição: Branch-to-Branch - Disabled. 
 
 ### <a name="remote-user-to-vnet-c"></a>Remoto User-to-VNet (c)
 

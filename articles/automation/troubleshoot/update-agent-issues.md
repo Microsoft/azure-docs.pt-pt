@@ -9,25 +9,28 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 25f3734a2a12ddf87862cc1d127f88f175225e07
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
-ms.translationtype: HT
+ms.openlocfilehash: 1b4467128fae3fd71a6e588e3c05d287c153e168
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82900295"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927892"
 ---
 # <a name="troubleshoot-windows-update-agent-issues"></a>Problemas problemas com problemas com o agente de atualização do Windows
 
-Pode haver muitas razões pelas quais a sua máquina não aparece tão pronta (saudável) na Gestão de Atualizações. Na Gestão de Atualizações, pode verificar a saúde de um agente híbrido do Runbook Worker para determinar o problema subjacente. Este artigo discute como executar o resolução de problemas para máquinas Azure a partir do portal Azure, e máquinas não-Azure no [cenário offline](#troubleshoot-offline).
-
-Seguem-se os três estados de prontidão para uma máquina:
+Pode haver muitas razões pelas quais a sua máquina não aparece tão pronta (saudável) na Gestão de Atualizações. Pode verificar a saúde de um agente do Trabalhador do Runbook Híbrido windows para determinar o problema subjacente. Seguem-se os três estados de prontidão para uma máquina:
 
 * Ready: The Hybrid Runbook Worker está implantado e foi visto pela última vez há menos de uma hora.
-* Desligado: O Trabalhador híbrido do livro está implantado e foi visto pela última vez há mais de uma hora.
+* Desligado: O Trabalhador híbrido do livro de corridas está implantado e foi visto pela última vez há mais de uma hora.
 * Não configurado: O Trabalhador híbrido do runbook não é encontrado ou ainda não terminou o embarque.
 
 > [!NOTE]
 > Pode haver um ligeiro atraso entre o que o portal Azure mostra e o estado atual de uma máquina.
+
+Este artigo discute como executar o resolução de problemas para máquinas Azure a partir do portal Azure, e máquinas não-Azure no [cenário offline](#troubleshoot-offline). O resoluto de problemas inclui agora verificações para os Serviços de Atualização do Servidor do Windows (WSUS) e para as chaves de descarregamento automático e instalação.
+
+> [!NOTE]
+> O script de resolução de problemas atualmente não encaminha o tráfego através de um servidor proxy se um estiver configurado.
 
 ## <a name="start-the-troubleshooter"></a>Inicie o resolução de problemas
 

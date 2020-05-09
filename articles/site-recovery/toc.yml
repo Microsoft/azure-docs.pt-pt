@@ -11,9 +11,6 @@
   items:
     - name: Replicar uma VM do Azure para outra região
       href: azure-to-azure-quickstart.md
-    - name: Criar um cofre - Modelo ARM
-      displayName: Resource Manager
-      href: quickstart-create-vault-template.md
 - name: Tutoriais
   items:
     - name: Recuperação após desastre da VM para o Azure

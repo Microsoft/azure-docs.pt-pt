@@ -1,46 +1,46 @@
 ---
-title: Reduzir os custos do SQL Data Warehouse com a capacidade reservada do Azure
-description: Saiba como economizar custos para encargos do SQL Data Warehouse com a capacidade de reserva para poupar dinheiro.
+title: Poupe nos custos do Azure Synapse Analytics com a capacidade reservada do Azure
+description: Saiba como economizar custos para encargos do Azure Synapse Analytics com a capacidade reservada para poupar dinheiro.
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 04/30/2020
 ms.author: banders
-ms.openlocfilehash: c428472d5564393e9f9fcdc3103bb1506dc50936
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3706493f0132cd4cc57af589e0d2935c31d6657e
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200372"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629155"
 ---
-# <a name="save-costs-for-sql-data-warehouse-charges-with-reserved-capacity"></a>Economize custos para encargos do SQL Data Warehouse com a capacidade de reserva
+# <a name="save-costs-for-azure-synapse-analytics-charges-with-reserved-capacity"></a>Poupe nos custos do Azure Synapse Analytics com a capacidade reservada
 
-Pode poupar dinheiro com o Azure SQL Data Warehouse ao consolidar uma reserva de utilização do cDWU para uma duração de um ou três anos. Para comprar capacidade de reserva do SQL Data Warehouse, tem de escolher a região do Azure e o termo. Depois, adicione a SKU do SQL Data Warehouse ao carrinho e escolha a quantidade de unidades de cDWU que quer comprar.
+Pode poupar dinheiro com o Azure Synapse Analytics ao consolidar uma reserva de utilização de cDWUs para uma duração de um ou três anos. Para comprar capacidade reservada do Azure Synapse Analytics, tem de escolher a região do Azure e o termo. Depois, adicione o SKU do Azure Synapse Analytics ao carrinho e escolha a quantidade de unidades de cDWU que quer comprar.
 
-Quando compra uma reserva, a utilização do SQL Data Warehouse que corresponde aos atributos da reserva deixa de ser cobrada às tarifas de pay as you go.
+Quando compra uma reserva, a utilização do Azure Synapse Analytics que corresponde aos atributos da reserva deixa de ser cobrada às tarifas de pay as you go.
 
-A reserva não cobre os custos de armazenamento ou rede associados à utilização do SQL Data Warehouse.
+Uma reserva não abrange os custos de armazenamento ou rede associados à utilização do Azure Synapse Analytics.
 
-Quando a capacidade reservada expirar, as instâncias do SQL Data Warehouse continuam a ser executadas, mas são cobradas à tarifa de pay as you go. As reservas não se renovam automaticamente.
+Quando a capacidade reservada expirar, as instâncias do Azure Synapse Analytics continuam a ser executadas, mas são cobradas à tarifa de pay as you go. As reservas não se renovam automaticamente.
 
-Para obter informações sobre preços, veja a [oferta de capacidade de reserva do SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/gen2/).
+Para obter informações sobre preços, veja a [oferta de capacidade reservada do Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/synapse-analytics/).
 
-Pode comprar capacidade de reserva do Azure SQL Data Warehouse no [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade). Pague pela reserva [antecipadamente ou com pagamentos mensais](monthly-payments-reservations.md). Para comprar capacidade de reserva:
+Pode comprar capacidade reservada do Azure Synapse Analytics no [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade). Pague pela reserva [antecipadamente ou com pagamentos mensais](monthly-payments-reservations.md). Para comprar capacidade de reserva:
 
 - Deve ter a função de proprietário em pelo menos uma subscrição Enterprise ou Pay As You Go.
 - Para subscrições Enterprise, a opção **Adicionar Instâncias Reservadas** deve ser ativada no [EA Portal](https://ea.azure.com/). Se a definição estiver desativada, tem ser um Administrador EA.
-- Para o programa Fornecedor de Solução Cloud (CSP), apenas os agentes de administração ou os agentes de vendas podem comprar capacidade de reserva do SQL Data Warehouse.
+- Para o programa Fornecedor de Soluções Cloud (CSP), apenas os agentes de administração ou os agentes de vendas podem comprar capacidade reservada do Azure Synapse Analytics.
 
 Para obter mais informações sobre como os clientes Enterprise e os clientes Pay As You Go são cobrados por compras de reserva, veja [understand Azure reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md) (compreender a utilização da reserva do Azure para a sua inscrição Enterprise) e [understand Azure reservation usage for your Pay-As-You-Go subscription](understand-reserved-instance-usage.md) (compreender a utilização da reserva do Azure para a sua inscrição Pay As You Go).
 
 ## <a name="choose-the-right-size-before-purchase"></a>Escolha o tamanho certo antes da compra
 
-O tamanho da reserva do SQL Data Warehouse deve basear-se no total de unidades de computação do Data Warehouse (cDWU) que consumir. As compras são feitas em incrementos de 100 cDWU.
+O tamanho da reserva do Azure Synapse Analytics deve basear-se no total de unidades de computação do Data Warehouse (cDWU) que consumir. As compras são feitas em incrementos de 100 cDWU.
 
-Por exemplo, suponha que o consumo total do SQL Data Warehouse é DW3000c. Quer comprar capacidade de reserva para tudo. Portanto, deve comprar 30 unidades de capacidade de reserva de cDWU.
+Por exemplo, suponha que o consumo total do Azure Synapse Analytics é DW3000c. Quer comprar capacidade de reserva para tudo. Portanto, deve comprar 30 unidades de capacidade de reserva de cDWU.
 
-## <a name="buy-sql-data-warehouse-reserved-capacity"></a>Comprar capacidade de reserva do SQL Data Warehouse
+## <a name="buy-azure-synapse-analytics-reserved-capacity"></a>Comprar capacidade reservada do Azure Synapse Analytics
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Selecione **Todos os serviços** > **Reservas**.
@@ -56,7 +56,7 @@ Por exemplo, suponha que o consumo total do SQL Data Warehouse é DW3000c. Quer 
 5. Selecione uma região para escolher uma região do Azure coberta pela capacidade de reserva.
 6. Escolha uma quantidade. Insira a quantidade de 100 unidades de Data Warehouse (cDWU) que quer comprar.    
    Por exemplo, uma quantidade de 30 dar-lhe-ia 3.000 cDWU de capacidade de reserva por hora.
-7. Verifique o custo da reserva de capacidade de reserva do SQL Data Warehouse na secção **Custos**.
+7. Verifique o custo da reserva de capacidade reservada do Azure Synapse Analytics na secção **Custos**.
 8. Selecione **Comprar**.
 9. Selecione **Ver esta Reserva** para ver o estado da sua compra.
 
@@ -64,7 +64,7 @@ Por exemplo, suponha que o consumo total do SQL Data Warehouse é DW3000c. Quer 
 
 Pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para obter mais informações, veja [Trocas e reembolsos personalizados das Reservas do Azure](exchange-and-refund-azure-reservations.md).
 
-Um desconto de reserva é aplicado automaticamente ao número de instâncias do SQL Data Warehouse que correspondem à região e ao âmbito da capacidade de reserva do SQL Data Warehouse. Pode atualizar o âmbito da capacidade de reserva do SQL Data Warehouse com o [portal do Azure](https://portal.azure.com/), o PowerShell, a CLI ou através da API.
+É aplicado automaticamente um desconto de reserva ao número de instâncias do Azure Synapse Analytics que correspondem à região e ao âmbito da capacidade reservada do Azure Synapse Analytics. Pode atualizar o âmbito da capacidade reservada do Azure Synapse Analytics com o [portal do Azure](https://portal.azure.com/), o PowerShell, a CLI ou através da API.
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos
 
@@ -72,7 +72,7 @@ Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://port
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para saber mais sobre como os descontos de reservas se aplicam ao Azure SQL Data Warehouse, veja [Como os descontos de reserva se aplicam ao Azure SQL Data Warehouse](prepay-sql-data-warehouse-charges.md).
+- Para saber mais sobre como os descontos de reservas se aplicam ao Azure Synapse Analytics, veja [Como os descontos de reserva se aplicam ao Azure Synapse Analytics](prepay-sql-data-warehouse-charges.md).
 
 - Para saber mais sobre as Reservas do Azure, veja os seguintes artigos:
   - [O que são as reservas do Azure?](save-compute-costs-reservations.md)

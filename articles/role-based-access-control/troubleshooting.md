@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/18/2020
+ms.date: 05/01/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 6baa83037d51e850a9f3535be3cc365e7c35e0a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9eabd6d2a8f3179c5553bc6ca6d59407388c4d42
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131443"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735573"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Resolução de problemas Azure RBAC
 
@@ -57,7 +57,7 @@ $ras.Count
 
 - Se precisar de passos para criar um papel personalizado, consulte os tutoriais de função personalizada utilizando o [portal Azure](custom-roles-portal.md) (atualmente em pré-visualização), [Azure PowerShell](tutorial-custom-role-powershell.md), ou [Azure CLI](tutorial-custom-role-cli.md).
 - Se não conseguir atualizar uma função personalizada existente, verifique se está atualmente a assinar com `Microsoft.Authorization/roleDefinition/write` um utilizador que lhe seja atribuída uma função que tenha a permissão, como [Proprietário](built-in-roles.md#owner) ou Administrador de Acesso ao [Utilizador.](built-in-roles.md#user-access-administrator)
-- Se não conseguir apagar uma função personalizada e obter a mensagem de erro "Existem atribuições de funções existentes a referenciar funções (código: RoleDefinitionHasAssignments)", então ainda existem atribuições de funções utilizando a função personalizada. Remova essas atribuições e experimente eliminar a função personalizada novamente.
+- Se não conseguir eliminar uma função personalizada e obtiver a mensagem de erro “Não existem atribuições de funções existentes que façam referência à função (código: RoleDefinitionHasAssignments)", significa que ainda há atribuições de funções a utilizar a função personalizada. Remova essas atribuições e experimente eliminar a função personalizada novamente.
 - Se receber a mensagem de erro “Limite de definição de função excedido. Não podem ser criadas mais definições de papéis (código: RoleDefinitionLimitExceeded)" quando se tenta criar uma nova função personalizada, eliminar quaisquer funções personalizadas que não estejam a ser utilizadas. O Azure suporta até **5000** papéis personalizados num diretório. (Para a Azure Germany e a Azure China 21Vianet, o limite é 2000 funções personalizadas.)
 - Se tiver um erro semelhante ao "O cliente tem permissão para executar a ação 'Microsoft.Authorization/roleDefinitions/write' no âmbito '/subscrições/{subscrição}', no entanto a subscrição ligada não foi encontrada" quando tenta atualizar uma função personalizada, verifique se um ou mais [âmbitos atribuíveis](role-definitions.md#assignablescopes) foram eliminados no diretório. Se o âmbito tiver sido eliminado, crie um pedido de suporte, pois não existe nenhuma solução self-service atualmente.
 
@@ -76,20 +76,29 @@ $ras.Count
 
 ## <a name="issues-with-service-admins-or-co-admins"></a>Problemas relacionados com administradores ou coadministradores de serviços
 
-- Se tiver problemas com administradores de serviços ou coadministradores, consulte adicionar ou alterar administradores de [subscrição Azure](../cost-management-billing/manage/add-change-subscription-administrator.md) e funções de administrador de [subscrição Classic, funções Azure e administrador aD Azure](rbac-and-directory-admin-roles.md).
+- Se tiver problemas com administradores de serviços ou coadministradores, consulte adicionar ou alterar administradores de [subscrição Azure](../cost-management-billing/manage/add-change-subscription-administrator.md) e funções de administrador de [subscrição Classic, funções Azure e Azure AD](rbac-and-directory-admin-roles.md).
 
 ## <a name="access-denied-or-permission-errors"></a>Erros de acesso negados ou de permissão
 
-- Se obtém o erro de permissões "O cliente com id de objeto não tem autorização para realizar ação sobre o âmbito (código: AutorizaçãoFalha)" quando tentar criar um recurso, verifique se está atualmente inscrito com um utilizador que lhe é atribuída uma função que tenha permissão de escrita para o recurso no âmbito selecionado. Por exemplo, para gerir máquinas virtuais num grupo de recursos, deve ter a função [Contribuidor de Máquina Virtual](built-in-roles.md#virtual-machine-contributor) no grupo de recursos (ou no âmbito principal). Para obter uma lista das permissões de cada função incorporada, veja [Built-in roles for Azure resources](built-in-roles.md) (Funções incorporadas dos recursos do Azure)
+- Se receber o erro de permissões “O cliente com o id de objeto não tem autorização para realizar a ação acima do âmbito (código: AuthorizationFailed)" quando tenta criar um recurso, confirme que tem sessão iniciada com um utilizador que tenha atribuída uma função com a permissão de escrita no recurso no âmbito selecionado. Por exemplo, para gerir máquinas virtuais num grupo de recursos, deve ter a função [Contribuidor de Máquina Virtual](built-in-roles.md#virtual-machine-contributor) no grupo de recursos (ou no âmbito principal). Para obter uma lista das permissões para cada papel incorporado, consulte [as funções de Azure incorporadas.](built-in-roles.md)
 - Se obtém o erro de permissões "Não tem permissão para criar um pedido de suporte" quando tentar criar ou atualizar um bilhete de `Microsoft.Support/supportTickets/write` suporte, verifique se está atualmente inscrito com um utilizador que lhe é atribuída uma função que tenha a permissão, como o Colaborador do Pedido de [Apoio.](built-in-roles.md#support-request-contributor)
 
-## <a name="role-assignments-with-unknown-security-principal"></a>Atribuições de funções com diretor de segurança desconhecido
+## <a name="role-assignments-with-identity-not-found"></a>Atribuições de funções com identidade não encontrada
 
-Se atribuir uma função a um diretor de segurança (utilizador, grupo, diretor de serviço ou identidade gerida) e, posteriormente, eliminar esse diretor de segurança sem remover a atribuição de funções, o tipo principal de segurança para a atribuição de funções será listado como **Desconhecido**. A seguinte captura de ecrã mostra um exemplo no portal do Azure. O nome principal de segurança está listado como **Identidade apagada** e identidade já **não existe**. 
+Na lista de atribuições de funções para o portal Azure, poderá notar que o diretor de segurança (utilizador, grupo, diretor de serviço ou identidade gerida) está listado como **Identidade não encontrada** com um tipo **desconhecido.**
 
 ![Grupo de recursos de aplicativos web](./media/troubleshooting/unknown-security-principal.png)
 
-Se listar esta tarefa usando o Azure PowerShell, verá um vazio `DisplayName` e um `ObjectType` conjunto para Desconhecido. Por exemplo, [a Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) devolve uma atribuição de funções semelhante à seguinte:
+A identidade pode não ser encontrada por duas razões:
+
+- Convidou recentemente um utilizador ao criar uma atribuição de funções
+- Apagou um diretor de segurança que tinha uma função.
+
+Se recentemente convidou um utilizador para criar uma atribuição de funções, este diretor de segurança ainda pode estar no processo de replicação em todas as regiões. Em caso afirmativo, espere alguns momentos e refresque a lista de atribuições.
+
+No entanto, se este diretor de segurança não for um utilizador recentemente convidado, pode ser um diretor de segurança eliminado. Se atribuir uma função a um diretor de segurança e, posteriormente, eliminar esse diretor de segurança sem primeiro retirar a atribuição da função, o diretor de segurança será listado como **Identidade não encontrada** e um tipo **desconhecido.**
+
+Se listar esta tarefa usando o Azure PowerShell, poderá ver um vazio `DisplayName` e um `ObjectType` conjunto para **Unknown**. Por exemplo, [a Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) devolve uma atribuição de funções semelhante à seguinte saída:
 
 ```
 RoleAssignmentId   : /subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
@@ -103,7 +112,7 @@ ObjectType         : Unknown
 CanDelegate        : False
 ```
 
-Da mesma forma, se listar esta atribuição de funções `principalName`usando o Azure CLI, verá um vazio . Por exemplo, a [lista de atribuição de papéis az](/cli/azure/role/assignment#az-role-assignment-list) devolve uma atribuição de funções semelhante à seguinte:
+Da mesma forma, se listar esta atribuição de funções `principalName`usando o Azure CLI, poderá ver um vazio . Por exemplo, a [lista de atribuição de papéis az](/cli/azure/role/assignment#az-role-assignment-list) devolve uma atribuição de funções semelhante à seguinte saída:
 
 ```
 {
@@ -119,9 +128,9 @@ Da mesma forma, se listar esta atribuição de funções `principalName`usando o
 }
 ```
 
-Não é um problema deixar estas atribuições, mas pode removê-las usando passos semelhantes a outras atribuições de papéis. Para obter informações sobre como remover atribuições de funções, consulte [portal Azure,](role-assignments-portal.md#remove-a-role-assignment) [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)ou [Azure CLI](role-assignments-cli.md#remove-a-role-assignment)
+Não é problema deixar estas missões onde o diretor de segurança foi apagado. Se quiser, pode remover estas atribuições de funções usando passos semelhantes a outras atribuições de papéis. Para obter informações sobre como remover atribuições de funções, consulte [portal Azure,](role-assignments-portal.md#remove-a-role-assignment) [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)ou [Azure CLI](role-assignments-cli.md#remove-a-role-assignment)
 
-Na PowerShell, se tentar remover as atribuições de funções utilizando o nome de identificação do objeto e definição de papel, e mais do que uma função de atribuição corresponde aos seus parâmetros, receberá a mensagem de erro: "A informação fornecida não mapeia para uma atribuição de funções". O seguinte mostra um exemplo da mensagem de erro:
+Na PowerShell, se tentar remover as atribuições de funções utilizando o nome de identificação do objeto e definição de papel, e mais do que uma função de atribuição corresponde aos seus parâmetros, receberá a mensagem de erro: "A informação fornecida não mapeia para uma atribuição de funções". A saída seguinte mostra um exemplo da mensagem de erro:
 
 ```
 PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -RoleDefinitionName "Storage Blob Data Contributor"
@@ -217,5 +226,5 @@ Um leitor pode clicar no separador de **funcionalidades** da Plataforma e, em se
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Resolução de problemas para utilizadores convidados](role-assignments-external-users.md#troubleshoot)
-- [Manage access to Azure resources using RBAC and the Azure portal](role-assignments-portal.md) (Gerir o acesso a recursos do Azure com RBAC e o portal do Azure)
-- [Ver registos de atividade para alterações rBAC nos recursos do Azure](change-history-report.md)
+- [Adicione ou remova atribuições de funções Azure utilizando o portal Azure](role-assignments-portal.md)
+- [Ver registos de atividade para alterações do RBAC do Azure](change-history-report.md)

@@ -11,12 +11,12 @@ metadata:
   author: Heidilohr
   ms.author: helohr
   ms.date: 03/06/2020
-  ms.openlocfilehash: f37b0cd68c62813dd4c642d9e45a20a91d08c31c
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 2f00d7b0b1c0bdf78a4908e945dd0f8a890ded1b
+  ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "78898659"
+  ms.lasthandoff: 04/30/2020
+  ms.locfileid: "82611522"
 landingContent:
 - title: Acerca do Windows Virtual Desktop
   linkLists:
@@ -24,18 +24,30 @@ landingContent:
     links:
     - text: O que é o Windows Virtual Desktop?
       url: overview.md
-- title: Introdução
+- title: Introdução à Versão da Primavera de 2020 do Windows Virtual Desktop
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Criar um conjunto de anfitriões com o Azure Marketplace
+      url: create-host-pools-azure-marketplace.md
+    - text: Gerir grupos de aplicações do Windows Virtual Desktop
+      url: manage-app-groups.md
+    - text: Criar um conjunto de anfitriões para validar as atualizações de serviço
+      url: create-validation-host-pool.md
+    - text: Configurar alertas de serviço
+      url: set-up-service-alerts.md
+- title: Introdução à Versão do Outono de 2019 do Windows Virtual Desktop
   linkLists:
   - linkListType: tutorial
     links:
     - text: Criar um inquilino no Windows Virtual Desktop
-      url: tenant-setup-azure-active-directory.md
+      url: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
     - text: Criar um conjunto de anfitriões com o Azure Marketplace
       url: create-host-pools-azure-marketplace.md
     - text: Gerir grupos de aplicações do Windows Virtual Desktop
       url: manage-app-groups.md
     - text: Criar principais de serviço e atribuições de funções com o PowerShell
-      url: create-service-principal-role-powershell.md
+      url: ./virtual-desktop-fall-2019/create-service-principal-role-powershell.md
 - title: Ligar ao Windows Virtual Desktop
   linkLists:
   - linkListType: how-to-guide

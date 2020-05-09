@@ -5,16 +5,59 @@ ms.subservice: ''
 ms.topic: overview
 author: bwren
 ms.author: bwren
-ms.date: 03/05/2020
-ms.openlocfilehash: a2e6d2a459a6713aa9372496fc3a933c0a886ed9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 04/06/2020
+ms.openlocfilehash: 8701acc6ac10dd9d31df99bb04dd030d156250e2
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80802609"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871397"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Quais as novidades na documentação do Monitor Azure?
 Este artigo fornece listas de artigos do Monitor Do Azure que são novos ou foram significativamente atualizados. Será atualizado na primeira semana de cada mês para incluir atualizações de artigos do mês anterior.
+
+## <a name="april-2020"></a>Abril de 2020
+
+### <a name="general"></a>Geral
+- [Chave gerida pelo cliente do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys.md) - Secção adicionada em operações assíncronas
+- Gerir espaços de [trabalho de Log Analytics no Monitor Azure](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access.md) - secções de registos personalizados atualizados.
+
+### <a name="alerts"></a>Alertas
+- [Regras de ação para alertas Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-action-rules) - Vídeo adicionado.
+- [Visão geral de alerta e monitorização de notificação em Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview.md) - Vídeo adicionado.
+
+### <a name="application-insights"></a>Application Insights
+- [Mapa de aplicação em Insights de Aplicação Azure](https://docs.microsoft.com/azure/azure-monitor/app/app-map.md) - nomes de papéis em nuvem adicionados config para agente java.
+- [Azure Application Insights .Net Agent API reference](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference.md) - Referência Consolidada da API.
+- [Endereços IP utilizados por Application Insights e Log Analytics](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses.md) - Endereços IP atualizados para App Insights e Log Analytics APIs, Webhooks do grupo de ação, Governo dos EUA Azure.
+- [Monitorize aplicações java em qualquer lugar](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-config.md) - Novo artigo
+- [Monitorize aplicações java em qualquer ambiente](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent.md) - Novo artigo
+- [Monitor ize aplicações java em execução em qualquer ambiente](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-arguments.md) - Novo artigo
+- [Monitor aplicativos Java em execução nas instalações](https://docs.microsoft.com/azure/azure-monitor/app/java-on-premises.md) - Novo artigo
+- [Remover insights de aplicação em estúdio visual](https://docs.microsoft.com/azure/azure-monitor/app/remove-application-insights.md) - novo artigo
+- [Amostragem de telemetria em Insights de Aplicação Azure](https://docs.microsoft.com/azure/azure-monitor/app/sampling) - Fixar na amostra de taxa fixa em Python.
+
+### <a name="containers"></a>Contentores
+- [Configure Azure Red Hat OpenShift v4.x com Monitor Azure para contentores](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-azure-redhat4-setup) - Novo artigo
+- [Como corrigir manualmente os problemas de sincronização do ServiceNow](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-resync-servicenow) - Novo artigo
+- [Como parar de monitorizar o seu cluster Azure e Red Hat OpenShift v4](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-optout-openshift-v4) - Novo artigo
+- [Como parar de monitorizar o seu cluster Azure Red Hat OpenShift v3](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-optout-openshift-v3) - Novo artigo
+- [Como parar de monitorizar o seu cluster híbrido Kubernetes](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-optout-hybrid) - Novo artigo
+
+### <a name="insights"></a>Informações
+- [Monitor Azure Key Vaults com Monitor Azure para cofres chave (pré-visualização)](https://docs.microsoft.com/azure/azure-monitor/insights/key-vault-insights-overview) - Novo artigo
+
+### <a name="logs"></a>Registos
+- [Limites](https://docs.microsoft.com/azure/azure-monitor/service-limits) de serviço do Azure Monitor - Aceleração adicional da consulta do utilizador.
+- [Gerir o uso e os custos para os registos do Monitor Azure](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage) - faturação adicional para clusters de Logs. Adicionou a consulta kusto para permitir aos clientes com um nível de preços por nó legado determinar se devem ou não mudar-se para um nível de Reserva per GB ou de Reserva de Capacidade.
+
+### <a name="metrics"></a>Métricas
+- [Características avançadas do Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts) - Secção de agregação adicionada.
+
+### <a name="workbooks"></a>Livros
+- [Azure Monitor Books e Modelos](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-automate) de Gestor de Recursos Azure - Modelo de gestor de recursos adicionado para implementar um modelo de livro.
+
+
 
 ## <a name="march-2020"></a>Março de 2020
 

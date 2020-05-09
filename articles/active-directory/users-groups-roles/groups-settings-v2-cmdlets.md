@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a218e956c72f8005e533db7b8800e98ee72ce223
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cc12e571ca955a0ddc47e1c1dd73c2717161df4b
+ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74233118"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82739318"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Azure Ative Directory versão 2 cmdlets para gestão de grupo
 
@@ -52,6 +52,10 @@ Para verificar se o módulo está pronto a ser utilizado, utilize o seguinte com
 
 Agora pode começar a utilizar os cmdlets no módulo. Para obter uma descrição completa dos cmdlets no módulo AD Azure, consulte a documentação de referência on-line para a Versão 2 do [Diretório Ativo Azure PowerShell 2](/powershell/azure/install-adv2?view=azureadps-2.0).
 
+> [!NOTE]
+> Os cmdlets Azure AD PowerShell não funcionam com o novo Powershell 7, uma vez que se baseia em .net Core. Estamos cientes e isso está em vias de ser atualizado. A partir de agora, sugerimos utilizar o Módulo Powershell 5.x Windows powershell para ser utilizado para operações de powershell Azure AD. 
+
+
 ## <a name="connect-to-the-directory"></a>Ligue-se ao diretório
 
 Antes de poder começar a gerir grupos utilizando cmdlets Azure AD PowerShell, tem de ligar a sua sessão PowerShell ao diretório que pretende gerir. Utilize o seguinte comando:
@@ -63,8 +67,8 @@ Antes de poder começar a gerir grupos utilizando cmdlets Azure AD PowerShell, t
 O cmdlet solicita-lhe as credenciais que pretende utilizar para aceder ao seu diretório. Neste exemplo, estamos karen@drumkit.onmicrosoft.com a utilizar para aceder ao diretório de demonstração. O cmdlet devolve uma confirmação para mostrar que a sessão foi ligada com sucesso ao seu diretório:
 
 ```powershell
-    Account                       Environment Tenant
-    -------                       ----------- ------
+    Account                       Environment Tenant ID
+    -------                       ----------- ---------
     Karen@drumkit.onmicrosoft.com AzureCloud  85b5ff1e-0402-400c-9e3c-0f…
 ```
 

@@ -2,17 +2,17 @@
 title: Desdobrar para o botão Azure
 description: Utilize o botão para implantar modelos do Gestor de Recursos Azure a partir de um repositório GitHub.
 ms.topic: conceptual
-ms.date: 02/07/2020
-ms.openlocfilehash: 88436eac970b252d7b0bc7bccee4131e06e9e0cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/04/2020
+ms.openlocfilehash: e403d095f7419ed13742dcfa8e8407a92ad10be0
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77109043"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744097"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Use um botão de implementação para implementar modelos do repositório GitHub
 
-Este artigo descreve como usar o botão **Deploy to Azure** para implementar modelos a partir de um repositório GitHub. Pode adicionar o botão diretamente ao ficheiro README.md no seu repositório GitHub ou a uma página web que referencia o repositório.
+Este artigo descreve como usar o botão **Deploy to Azure** para implementar modelos a partir de um repositório GitHub. Pode adicionar o botão diretamente ao ficheiro README.md no seu repositório GitHub ou a uma página web que referencia o repositório. Este método apenas suporta a implantação do nível do grupo de recursos.
 
 ## <a name="use-common-image"></a>Use imagem comum
 

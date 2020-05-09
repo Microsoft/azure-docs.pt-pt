@@ -5,131 +5,243 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 355acb081afef8c78cdf971c7a82acdb91ab5593
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 99a9e68a2e0c39364cc5105f230b00ffb90d867d
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79127959"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82888801"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>Utilize o Log Analytics para a funcionalidade de diagnóstico
 
-O Windows Virtual Desktop oferece uma funcionalidade de diagnóstico que permite ao administrador identificar problemas através de uma única interface. Esta funcionalidade regista informações de diagnóstico sempre que alguém designado função de Ambiente de Trabalho Virtual do Windows utiliza o serviço. Cada registo contém informações sobre qual a função do Windows Virtual Desktop envolvida na atividade, quaisquer mensagens de erro que apareçam durante a sessão, informações do inquilino e informações do utilizador. A função de diagnóstico cria registos de atividade tanto para as ações do utilizador como para as ações administrativas. Cada registo de atividade pertence a três categorias principais: 
+>[!IMPORTANT]
+>Este conteúdo aplica-se à atualização da primavera de 2020 com os objetos de ambiente de trabalho virtual do Gestor de Recursos Do Azure Windows. Se estiver a utilizar o lançamento do Windows Virtual Desktop Fall 2019 sem objetos do Gestor de Recursos Azure, consulte [este artigo](./virtual-desktop-fall-2019/diagnostics-log-analytics-2019.md).
+>
+> A atualização Do Windows Virtual Desktop Spring 2020 encontra-se atualmente em pré-visualização pública. Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não recomendamos usá-la para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. 
+> Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 
-- Atividades de subscrição de feed: quando um utilizador tenta ligar-se ao seu feed através de aplicações do Microsoft Remote Desktop.
-- Atividades de ligação: quando um utilizador tenta ligar-se a um ambiente de trabalho ou a um RemoteApp através de aplicações do Microsoft Remote Desktop.
-- Atividades de gestão: quando um administrador realiza operações de gestão no sistema, tais como a criação de piscinas de anfitriões, a atribuição de utilizadores a grupos de aplicações e a criação de atribuições de funções.
+O Windows Virtual Desktop utiliza o [Monitor Azure](../azure-monitor/overview.md) para monitorização e alertas como muitos outros serviços Do Azure. Isto permite que os administradores identifiquem problemas através de uma única interface. O serviço cria registos de atividade tanto para ações de utilizador como administrativas. Cada registo de atividade pertence às seguintes categorias:  
+
+- Atividades de Gestão:
+    - Acompanhe se as tentativas de alterar os objetos do Windows Virtual Desktop utilizando APIs ou PowerShell são bem-sucedidas. Por exemplo, alguém pode criar com sucesso uma piscina de anfitriões usando o PowerShell?
+- Alimentação: 
+    - Os utilizadores podem subscrever com sucesso espaços de trabalho? 
+    - Os utilizadores vêem todos os recursos publicados no cliente Remote Desktop?
+- Ligações: 
+    - Quando os utilizadores iniciam e completam as ligações ao serviço. 
+- Registo do anfitrião: 
+    - O anfitrião da sessão foi registado com sucesso com o serviço após a ligação?
+- Erros: 
+    - Os utilizadores estão a encontrar algum problema com atividades específicas? Esta funcionalidade pode gerar uma tabela que rastreia os dados de atividade para si, desde que a informação seja acompanhada das atividades.
+- Pontos de verificação:  
+    - Passos específicos na vida de uma atividade que foram alcançadas. Por exemplo, durante uma sessão, um utilizador foi carregado equilibrado para um determinado hospedeiro, então o utilizador foi assinado durante uma ligação, e assim por diante.
 
 As ligações que não chegam ao Windows Virtual Desktop não vão aparecer nos resultados de diagnóstico porque o próprio serviço de funções de diagnóstico faz parte do Windows Virtual Desktop. Os problemas de ligação ao Windows Virtual Desktop podem acontecer quando o utilizador está a ter problemas de conectividade de rede.
 
-## <a name="why-you-should-use-log-analytics"></a>Por que deve usar log analytics
+O Azure Monitor permite-lhe analisar os dados do Windows Virtual Desktop e rever os contadores de desempenho da máquina virtual (VM), tudo dentro da mesma ferramenta. Este artigo irá dizer-lhe mais sobre como ativar diagnósticos para o seu ambiente de ambiente de trabalho virtual windows. 
 
-Recomendamos que utilize o Log Analytics para analisar dados de diagnóstico no cliente Azure que vão além da resolução de problemas de um único utilizador. Como pode puxar os contadores de desempenho vM para o Log Analytics, tem uma ferramenta para recolher informações para a sua implementação.
+>[!NOTE] 
+>Para aprender a monitorizar os seus VMs em Azure, consulte [Monitoring Azure virtual machines with Azure Monitor](../azure-monitor/insights/monitor-vm-azure.md). Além disso, certifique-se de [rever os limiares de contador](../virtual-desktop/virtual-desktop-fall-2019/deploy-diagnostics.md#windows-performance-counter-thresholds) de desempenho para uma melhor compreensão da sua experiência de utilizador no anfitrião da sessão.
 
 ## <a name="before-you-get-started"></a>Antes de começar
 
-Antes de poder utilizar o Log Analytics com a função de diagnóstico, terá de [criar um espaço](../azure-monitor/learn/quick-collect-windows-computer.md#create-a-workspace)de trabalho .
+Antes de poder utilizar o Log Analytics, terá de criar um espaço de trabalho. Para isso, siga as instruções num dos dois seguintes artigos:
 
-Depois de criar o seu espaço de trabalho, siga as instruções em [Connect Windows computers to Azure Monitor](../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key) para obter as seguintes informações: 
+- Se preferir utilizar o portal Azure, consulte Criar um espaço de [trabalho Log Analytics no portal Azure](../azure-monitor/learn/quick-create-workspace.md).
+- Se preferir o PowerShell, consulte Criar um espaço de [trabalho Log Analytics com powerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
+
+Depois de criar o seu espaço de trabalho, siga as instruções em [Connect Windows computers to Azure Monitor](../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key) para obter as seguintes informações:
 
 - O ID do espaço de trabalho
 - A chave principal do seu espaço de trabalho
 
 Vai precisar desta informação mais tarde no processo de configuração.
 
-## <a name="push-diagnostics-data-to-your-workspace"></a>Empurre os dados de diagnóstico para o seu espaço de trabalho 
+Certifique-se de que revê a gestão da permissão do Monitor Azure para permitir o acesso de dados a quem monitoriza e mantém o ambiente de ambiente de trabalho virtual do Windows. Para mais informações, consulte [Começar com funções, permissões e segurança com o Monitor Azure.](../azure-monitor/platform/roles-permissions-security.md) 
 
-Pode empurrar dados de diagnóstico do seu inquilino do Windows Virtual Desktop para o Log Analytics para o seu espaço de trabalho. Você pode configurar esta funcionalidade imediatamente quando você criar o seu inquilino pela primeira vez ligando o seu espaço de trabalho ao seu inquilino, ou você pode configurar-lo mais tarde com um inquilino existente.
+## <a name="push-diagnostics-data-to-your-workspace"></a>Empurre os dados de diagnóstico para o seu espaço de trabalho
 
-Para ligar o seu inquilino ao seu espaço de trabalho Log Analytics enquanto está a configurar o seu novo inquilino, execute o seguinte cmdlet para iniciar sessão no Windows Virtual Desktop com a sua conta de utilizador TenantCreator: 
+Pode empurrar os dados de diagnóstico dos seus objetos de ambiente de trabalho virtual do Windows para o Log Analytics para o seu espaço de trabalho. Pode configurar esta funcionalidade imediatamente quando criar os seus objetos pela primeira vez.
 
-```powershell
-Add-RdsAccount -DeploymentUrl https://rdbroker.wvd.microsoft.com 
-```
+Para configurar o Log Analytics para um novo objeto:
 
-Se vai ligar um inquilino existente em vez de um novo inquilino, faça este cmdlet em vez disso: 
+1. Inscreva-se no portal Azure e vá ao **Windows Virtual Desktop**. 
 
-```powershell
-Set-RdsTenant -Name <TenantName> -AzureSubscriptionId <SubscriptionID> -LogAnalyticsWorkspaceId <String> -LogAnalyticsPrimaryKey <String> 
-```
+2. Navegue para o objeto (como um pool de anfitriões, grupo de aplicações ou espaço de trabalho) para o que pretende capturar registos e eventos. 
 
-Você precisará executar estes cmdlets para cada inquilino que você quiser ligar ao Log Analytics. 
+3. Selecione **definições de diagnóstico** no menu do lado esquerdo do ecrã. 
+
+4. **Selecione Adicionar definição de diagnóstico** no menu que aparece no lado direito do ecrã. 
+   
+    As opções apresentadas na página Definições de Diagnóstico variarão dependendo do tipo de objeto que está a editar.
+
+    Por exemplo, quando estiver a ativar diagnósticos para um grupo de aplicações, verá opções para configurar pontos de verificação, erros e gestão. Para espaços de trabalho, estas categorias configuram um feed para rastrear quando os utilizadores subscrevem a lista de aplicações. Para saber mais sobre as definições de diagnóstico consulte [Criar definição de diagnóstico para recolher registos e métricas](../azure-monitor/platform/diagnostic-settings.md)de recursos no Azure . 
+
+     >[!IMPORTANT] 
+     >Lembre-se de ativar diagnósticos para cada objeto do Gestor de Recursos Azure que pretende monitorizar. Os dados estarão disponíveis para atividades após a ativação do diagnóstico. Pode levar algumas horas depois da primeira instalação.  
+
+5. Introduza um nome para a configuração das definições e, em seguida, selecione **Enviar para Registar Análises**. O nome que usa não deve ter espaços e deve estar em conformidade com as convenções de [nomeação do Azure.](../azure-resource-manager/management/resource-name-rules.md) Como parte dos registos, pode selecionar todas as opções que deseja adicionar ao seu Log Analytics, tais como Checkpoint, Error, Management, e assim por diante.
+
+6. Selecione **Guardar**.
 
 >[!NOTE]
->Se não quiser ligar o espaço de trabalho do Log Analytics `New-RdsTenant` quando criar um inquilino, faça o cmdlet em vez disso. 
+>O Log Analytics dá-lhe a opção de transmitir dados para [Os Hubs](../event-hubs/event-hubs-about.md) de Eventos ou arquivá-lo numa conta de armazenamento. Para saber mais sobre esta funcionalidade, consulte os dados de [monitorização do Stream Azure para um hub](../azure-monitor/platform/stream-monitoring-data-event-hubs.md) de eventos e registos de [recursos do Archive Azure para a conta](../azure-monitor/platform/resource-logs-collect-storage.md)de armazenamento . 
+
+## <a name="how-to-access-log-analytics"></a>Como aceder ao Log Analytics
+
+Pode aceder aos espaços de trabalho do Log Analytics no portal Azure ou no Monitor Azure.
+
+### <a name="access-log-analytics-on-a-log-analytics-workspace"></a>Aceder ao Log Analytics num espaço de trabalho de Log Analytics
+
+1. Inicie sessão no Portal do Azure.
+
+2. Pesquisar por **Log Analytics espaço de trabalho**. 
+
+3. Em Serviços, selecione espaços de **trabalho Log Analytics**. 
+   
+4. A partir da lista, selecione o espaço de trabalho configurado para o seu objeto de ambiente de trabalho Windows Virtual.
+
+5. Uma vez no seu espaço de trabalho, selecione **Registos**. Pode filtrar a sua lista de menus com a função **'Procurar'.** 
+
+### <a name="access-log-analytics-on-azure-monitor"></a>Aceder ao Log Analytics no Monitor Azure
+
+1. Iniciar sessão no portal do Azure
+
+2. Procure e selecione **Monitor**. 
+
+3. Selecionar **Registos**.
+
+4. Siga as instruções na página de registo para definir o âmbito da sua consulta.  
+
+5. Está pronto para consultar diagnósticos. Todas as tabelas de diagnóstico têm um prefixo "WVD".
 
 ## <a name="cadence-for-sending-diagnostic-events"></a>Cadência para envio de eventos de diagnóstico
 
-Os eventos de diagnóstico são enviados para o Log Analytics quando concluídos.  
+Os eventos de diagnóstico são enviados para o Log Analytics quando concluídos.
+
+Log Analytics apenas reporta nestes estados intermédios para atividades de conexão:
+
+- Iniciado
+- Ligada
+- Concluído
 
 ## <a name="example-queries"></a>Consultas de exemplo
 
-As seguintes consultas de exemplo mostram como a funcionalidade de diagnóstico gera um relatório para as atividades mais frequentes no seu sistema:
+As seguintes consultas de exemplo mostram como a funcionalidade de diagnóstico gera um relatório para as atividades mais frequentes do seu sistema.
 
-Este primeiro exemplo mostra atividades de conexão iniciadas por utilizadores com clientes de ambiente de trabalho remoto suportados:
+Para obter uma lista de ligações feitas pelos seus utilizadores, execute este cmdlet:
 
-```powershell
-WVDActivityV1_CL 
-
-| where Type_s == "Connection" 
-
+```kusto
+WVDConnections 
+| project-away TenantId,SourceSystem 
+| summarize arg_max(TimeGenerated, *), StartTime =  min(iff(State== 'Started', TimeGenerated , datetime(null) )), ConnectTime = min(iff(State== 'Connected', TimeGenerated , datetime(null) ))   by CorrelationId 
 | join kind=leftouter ( 
-
-    WVDErrorV1_CL 
-
-    | summarize Errors = makelist(pack('Time', Time_t, 'Code', ErrorCode_s , 'CodeSymbolic', ErrorCodeSymbolic_s, 'Message', ErrorMessage_s, 'ReportedBy', ReportedBy_s , 'Internal', ErrorInternal_s )) by ActivityId_g 
-
-    ) on $left.Id_g  == $right.ActivityId_g   
-
-| join  kind=leftouter (  
-
-    WVDCheckpointV1_CL 
-
-    | summarize Checkpoints = makelist(pack('Time', Time_t, 'ReportedBy', ReportedBy_s, 'Name', Name_s, 'Parameters', Parameters_s) ) by ActivityId_g 
-
-    ) on $left.Id_g  == $right.ActivityId_g  
-
-|project-away ActivityId_g, ActivityId_g1 
+    WVDErrors 
+    |summarize Errors=makelist(pack('Code', Code, 'CodeSymbolic', CodeSymbolic, 'Time', TimeGenerated, 'Message', Message ,'ServiceError', ServiceError, 'Source', Source)) by CorrelationId 
+    ) on CorrelationId     
+| join kind=leftouter ( 
+   WVDCheckpoints 
+   | summarize Checkpoints=makelist(pack('Time', TimeGenerated, 'Name', Name, 'Parameters', Parameters, 'Source', Source)) by CorrelationId 
+   | mv-apply Checkpoints on 
+    ( 
+        order by todatetime(Checkpoints['Time']) asc 
+        | summarize Checkpoints=makelist(Checkpoints) 
+    ) 
+   ) on CorrelationId 
+| project-away CorrelationId1, CorrelationId2 
+| order by  TimeGenerated desc 
 ```
 
-Este próximo exemplo mostra as atividades de gestão por administradores sobre inquilinos:
+Para ver a atividade de alimentação dos seus utilizadores:
 
-```powershell
-WVDActivityV1_CL 
+```kusto
+WVDFeeds  
+| project-away TenantId,SourceSystem  
+| join kind=leftouter (  
+    WVDErrors  
+    |summarize Errors=makelist(pack('Code', Code, 'CodeSymbolic', CodeSymbolic, 'Time', TimeGenerated, 'Message', Message ,'ServiceError', ServiceError, 'Source', Source)) by CorrelationId  
+    ) on CorrelationId      
+| join kind=leftouter (  
+   WVDCheckpoints  
+   | summarize Checkpoints=makelist(pack('Time', TimeGenerated, 'Name', Name, 'Parameters', Parameters, 'Source', Source)) by CorrelationId  
+   | mv-apply Checkpoints on  
+    (  
+        order by todatetime(Checkpoints['Time']) asc  
+        | summarize Checkpoints=makelist(Checkpoints)  
+    )  
+   ) on CorrelationId  
+| project-away CorrelationId1, CorrelationId2  
+| order by  TimeGenerated desc 
+```
 
-| where Type_s == "Management" 
+Para encontrar todas as ligações para um único utilizador: 
 
-| join kind=leftouter ( 
-
-    WVDErrorV1_CL 
-
-    | summarize Errors = makelist(pack('Time', Time_t, 'Code', ErrorCode_s , 'CodeSymbolic', ErrorCodeSymbolic_s, 'Message', ErrorMessage_s, 'ReportedBy', ReportedBy_s , 'Internal', ErrorInternal_s )) by ActivityId_g 
-
-    ) on $left.Id_g  == $right.ActivityId_g   
-
-| join  kind=leftouter (  
-
-    WVDCheckpointV1_CL 
-
-    | summarize Checkpoints = makelist(pack('Time', Time_t, 'ReportedBy', ReportedBy_s, 'Name', Name_s, 'Parameters', Parameters_s) ) by ActivityId_g 
-
-    ) on $left.Id_g  == $right.ActivityId_g  
-
-|project-away ActivityId_g, ActivityId_g1 
+```kusto
+|where UserName == "userupn" 
+|take 100 
+|sort by TimeGenerated asc, CorrelationId 
 ```
  
-## <a name="stop-sending-data-to-log-analytics"></a>Pare de enviar dados para Log Analytics 
 
-Para parar de enviar dados de um inquilino existente para o Log Analytics, executar o seguinte cmdlet e definir cordas vazias:
+Para encontrar o número de vezes que um utilizador conectado por dia:
 
-```powershell
-Set-RdsTenant -Name <TenantName> -AzureSubscriptionId <SubscriptionID> -LogAnalyticsWorkspaceId <String> -LogAnalyticsPrimaryKey <String> 
+```kusto
+WVDConnections 
+|where UserName == "userupn" 
+|take 100 
+|sort by TimeGenerated asc, CorrelationId 
+|summarize dcount(CorrelationId) by bin(TimeGenerated, 1d) 
+```
+ 
+
+Para encontrar a duração da sessão pelo utilizador:
+
+```kusto
+let Events = WVDConnections | where UserName == "userupn" ; 
+Events 
+| where State == "Connected" 
+| project CorrelationId , UserName, ResourceAlias , StartTime=TimeGenerated 
+| join (Events 
+| where State == "Completed" 
+| project EndTime=TimeGenerated, CorrelationId) 
+on CorrelationId 
+| project Duration = EndTime - StartTime, ResourceAlias 
+| sort by Duration asc 
 ```
 
-Você precisa executar este cmdlet para todos os inquilinos que você quiser parar de enviar dados. 
+Para encontrar erros para um utilizador específico:
+
+```kusto
+WVDErrors
+| where UserName == "userupn" 
+|take 100
+```
+
+Para saber se ocorreu um erro específico:
+
+```kusto
+WVDErrors 
+| where CodeSymbolic =="ErrorSymbolicCode" 
+| summarize count(UserName) by CodeSymbolic 
+```
+
+Para encontrar a ocorrência de um erro em todos os utilizadores:
+
+```kusto
+WVDErrors 
+| where ServiceError =="false" 
+| summarize usercount = count(UserName) by CodeSymbolic 
+| sort by usercount desc
+| render barchart 
+```
+
+>[!NOTE]
+>A mesa mais importante para a resolução de problemas são os WVDErrors. Utilize esta consulta para entender quais os problemas que ocorrem para atividades do utilizador, como ligações ou feeds quando um utilizador subscreve a lista de apps ou desktops. A tabela irá mostrar-lhe erros de gestão, bem como problemas de registo de anfitriões.
+>
+>Durante a pré-visualização pública, se precisar de ajuda para resolver um problema, certifique-se de que dá o CorrelationID pelo erro no seu pedido de ajuda. Além disso, certifique-se de que o valor do Erro de Serviço diz sempre serviceError = "falso". Um valor "falso" significa que a questão pode ser resolvida através de uma tarefa administrativa da sua parte. Se serviceError = "verdadeiro", terá de agravar o problema para a Microsoft.
 
 ## <a name="next-steps"></a>Passos seguintes 
 

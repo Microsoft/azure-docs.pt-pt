@@ -1,20 +1,20 @@
 ---
-title: Analytics para o mercado comercial no Partner Center
-description: Visão geral sobre o acesso a relatórios analíticos para monitorizar as vendas, avaliar o desempenho e otimizar as suas ofertas de mercado.
+title: Analytics para o mercado comercial da Microsoft no Partner Center
+description: Saiba como aceder a relatórios analíticos para monitorizar as vendas, avaliar o desempenho e otimizar as suas ofertas de marketplace no Microsoft Partner Center.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 41b9c5244ce9d468d9bf0fb7bafa719b4e6f55ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0c406efd30e891c8ca69481299801e7309cdff81
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262286"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744914"
 ---
-# <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Analytics para o mercado comercial no Partner Center
+# <a name="access-analytic-reports-for-the-commercial-marketplace-in-partner-center"></a>Relatórios analíticos de acesso ao mercado comercial no Partner Center
 
 Saiba como aceder a relatórios analíticos no Microsoft Partner Center para monitorizar as vendas, avaliar o desempenho e otimizar as suas ofertas no mercado. Como parceiro, pode monitorizar as suas listas de ofertas utilizando os gráficos de visualização e insight de dados suportados pelo Partner Center e encontrar formas de maximizar as suas vendas. As ferramentas de análise melhoradas permitem-lhe agir com base nos resultados de desempenho e manter melhores relações com os seus clientes e revendedores.
 

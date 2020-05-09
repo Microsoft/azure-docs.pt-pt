@@ -6,12 +6,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 109bb6dd29ea9c4239e0abcfc668f1185f7e9783
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3d3dbaad18f6acbe1ddf17d81f54e4232c838dd7
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82114535"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82787418"
 ---
 # <a name="introduction-to-authentication-in-azure-automation"></a>Introdução à Autenticação na Automatização do Azure
 
@@ -25,7 +25,7 @@ Quando inicia a Automatização do Azure pela primeira vez, tem de criar pelo me
 
 Os recursos de Automatização de cada conta de Automatização estão associados a uma única região do Azure, mas as contas de Automatização podem gerir todos os recursos na sua subscrição. A razão principal para criar contas de Automatização em diferentes regiões seria se tiver políticas que exigem que os dados e os recursos estejam isolados numa região específica.
 
-Todas as tarefas que executa relativamente aos recursos que utilizam o Azure Resource Manager e os cmdlets do Azure na Automatização do Azure têm de ser autenticados no Azure utilizando a autenticação com base em credenciais de identidade organizacional do Azure Active Directory. Executar Como contas na Azure Automation fornecem autenticação para gestão de recursos em Azure usando os cmdlets Azure. Ao criar uma conta Run As, cria um novo utilizador principal de serviço no Azure Ative Directory (AD) e atribui a função de Colaborador a este utilizador ao nível da subscrição. Para livros de corridas que utilizam trabalhadores híbridos em máquinas virtuais Azure, pode utilizar [identidades geridas para recursos Azure](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources) em vez de Run As contas para autenticar os seus recursos Azure.
+Todas as tarefas que executa relativamente aos recursos que utilizam o Azure Resource Manager e os cmdlets do Azure na Automatização do Azure têm de ser autenticados no Azure utilizando a autenticação com base em credenciais de identidade organizacional do Azure Active Directory. Executar Como contas na Azure Automation fornecem autenticação para gestão de recursos em Azure usando os cmdlets Azure. Ao criar uma conta Run As, cria um novo utilizador principal de serviço no Azure Ative Directory (AD) e atribui a função de Colaborador a este utilizador ao nível da subscrição. Para livros de corridas que utilizam trabalhadores híbridos em máquinas virtuais Azure, pode utilizar a autenticação do [livro de corridas com identidades geridas](automation-hrw-run-runbooks.md#runbook-auth-managed-identities) em vez de Executar Como contas para autenticar os seus recursos Azure.
 
 O diretor de serviço de uma Conta Não tem permissões para ler Azure AD por padrão. Se quiser adicionar permissões para ler ou gerir o Azure AD, terá de conceder as permissões no diretor de serviço sob **permissões DaPI**. Para saber mais, consulte [Adicionar permissões para aceder a APIs web](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
 

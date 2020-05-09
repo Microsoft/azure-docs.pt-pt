@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 12/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 20a82cbd7de4b5678648bac19ab9b59bf557b0ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ec69a9906eabb4ce56f79b1b88c2b5f2440f84b1
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79128329"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612474"
 ---
 # <a name="set-up-msix-app-attach"></a>Configurar a anexação da aplicação MSIX
 
 > [!IMPORTANT]
 > A anexação da aplicação MSIX encontra-se atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
+> Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não recomendamos usá-la para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 
 Este tópico irá acompanhá-lo sobre como configurar a aplicação MSIX anexar-se num ambiente de ambiente de trabalho virtual do Windows.
 
@@ -28,7 +28,7 @@ Este tópico irá acompanhá-lo sobre como configurar a aplicação MSIX anexar-
 Antes de começar, eis o que precisa para configurar a anexação da aplicação MSIX:
 
 - O acesso ao portal Insider do Windows para obter a versão do Windows 10 com suporte para a aplicação MSIX anexa mAP.
-- Uma implementação funcional do Windows Virtual Desktop. Para obter informações, consulte [Criar um inquilino no Windows Virtual Desktop](tenant-setup-azure-active-directory.md).
+- Uma implementação funcional do Windows Virtual Desktop. Para obter informações, consulte [Criar um inquilino no Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
 - A ferramenta de embalagem MSIX
 - Uma partilha de rede na sua implementação do Windows Virtual Desktop onde o pacote MSIX será armazenado
 
