@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/17/2020
+ms.date: 05/07/2020
 ms.author: jingwang
-ms.openlocfilehash: 2c2071e4b2a3daa528c7d01f64e38247b063e6f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9f705a0a56975860cf07d8a9b09de9999a923501
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417422"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891426"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copiar dados do DB2 utilizando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -70,19 +70,70 @@ As seguintes propriedades são suportadas para o serviço ligado ao DB2:
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo deve ser definida para: **Db2** | Sim |
+| conexãoString | Especifique as informações necessárias para se ligar à instância DB2.<br/> Também pode colocar palavra-passe no Cofre `password` de Chaves Azure e retirar a configuração da cadeia de ligação. Consulte as seguintes amostras e [guarde as credenciais no](store-credentials-in-key-vault.md) artigo do Cofre chave Azure com mais detalhes. | Sim |
+| connectVia | O Tempo de [Integração](concepts-integration-runtime.md) a utilizar para se ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não especificado, utiliza o tempo de funcionar de integração azure padrão. |No |
+
+Propriedades típicas dentro da cadeia de ligação:
+
+| Propriedade | Descrição | Necessário |
+|:--- |:--- |:--- |
 | servidor |Nome do servidor DB2. Pode especificar o número de porta seguindo o nome `server:port`do servidor delimitado pelo cólon, por exemplo. |Sim |
 | base de dados |Nome da base de dados DB2. |Sim |
 | authenticationType |Tipo de autenticação utilizada para ligar à base de dados DB2.<br/>O valor permitido é: **Básico**. |Sim |
 | o nome de utilizador |Especifique o nome do utilizador para se ligar à base de dados DB2. |Sim |
 | palavra-passe |Especifique a palavra-passe para a conta de utilizador especificada para o nome de utilizador. Marque este campo como um SecureString para o armazenar de forma segura na Data Factory, ou [refira um segredo armazenado no Cofre de Chaves Azure](store-credentials-in-key-vault.md). |Sim |
-| pacoteColeção | Especifique em que os pacotes necessários são criados automaticamente pela ADF ao consultar a base de dados. | Não |
-| certificadoNome Comum | Quando utilizar a encriptação Secure Sockets Layer (SSL) ou Transport Layer Security (TLS), deve introduzir um valor para o nome comum do Certificado. | Não |
-| connectVia | O Tempo de [Integração](concepts-integration-runtime.md) a utilizar para se ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não especificado, utiliza o tempo de funcionar de integração azure padrão. |Não |
+| pacoteColeção | Especifique em que os pacotes necessários são criados automaticamente pela ADF ao consultar a base de dados. | No |
+| certificadoNome Comum | Quando utilizar a encriptação Secure Sockets Layer (SSL) ou Transport Layer Security (TLS), deve introduzir um valor para o nome comum do Certificado. | No |
 
 > [!TIP]
 > Se receber uma mensagem `The package corresponding to an SQL statement execution request was not found. SQLSTATE=51002 SQLCODE=-805`de erro que indique , a razão é que um pacote necessário não é criado para o utilizador. Por padrão, a ADF tentará criar um pacote sob a sua designação como o utilizador que usou para ligar ao DB2. Especifique a propriedade de recolha de pacotes para indicar onde pretende que a ADF crie os pacotes necessários ao consultar a base de dados.
 
 **Exemplo:**
+
+```json
+{
+    "name": "Db2LinkedService",
+    "properties": {
+        "type": "Db2",
+        "typeProperties": {
+            "connectionString": "server=<server:port>; database=<database>; authenticationType=Basic;username=<username>; password=<password>; packageCollection=<packagecollection>;certificateCommonName=<certname>;"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+**Exemplo: palavra-passe de loja no Cofre de Chaves Azure**
+
+```json
+{
+    "name": "Db2LinkedService",
+    "properties": {
+        "type": "Db2",
+        "typeProperties": {
+            "connectionString": "server=<server:port>; database=<database>; authenticationType=Basic;username=<username>; packageCollection=<packagecollection>;certificateCommonName=<certname>;",
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+Se estava a utilizar o serviço ligado ao DB2 com a seguinte carga útil, ainda é suportado como está, enquanto é sugerido que utilize o novo para a frente.
+
+**Carga útil anterior:**
 
 ```json
 {

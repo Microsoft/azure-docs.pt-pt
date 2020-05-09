@@ -7,16 +7,16 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: a180a7a0c85b642ac09d1d027c95809c4638dee1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f5a7f372f286a7b26a4a9916ed9df913b151e967
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81408998"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628474"
 ---
 # <a name="prepare-data-with-wrangling-data-flow"></a>Preparar dados com fluxo de dados de estrangulamento
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 ## <a name="create-a-wrangling-data-flow"></a>Criar um fluxo de dados de sangling
 
