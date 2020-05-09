@@ -1,22 +1,17 @@
 ---
-title: 'Autenticação do utilizador final: REST API com Azure Data Lake Storage Gen1 utilizando o Diretório Ativo Azure [ Microsoft Docs'
+title: Autenticação de utilizador final - REST com Data Lake Storage Gen1 - Azure
 description: Saiba como obter a autenticação de utilizador final com o Azure Data Lake Storage Gen1 utilizando o Azure Ative Directory utilizando a REST API
-services: data-lake-store
-documentationcenter: ''
 author: twooley
-manager: mtillman
-editor: cgronlun
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 0ef65c23ee1bf4f064695779b71c8616427da204
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ac06c9ef355eeba489d2006c435a48b7efcfd7f0
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60877827"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82688071"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Autenticação de utilizador final com Azure Data Lake Storage Gen1 utilizando a REST API
 > [!div class="op_single_selector"]

@@ -1,5 +1,6 @@
 ---
-title: Protocolos OAuth 2.0 e OpenID Connect - plataforma de identidade da Microsoft Azure
+title: Protocolos OAuth 2.0 e OpenID Connect na plataforma de identidade da Microsoft Azure
+titleSuffix: Microsoft identity platform
 description: Um guia para os protocolos OAuth 2.0 e OpenID Connect que são suportados pelo ponto final da plataforma de identidade da Microsoft.
 services: active-directory
 author: hpsin
@@ -8,20 +9,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 05/06/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 80b93efb58d225c53a64fa044f51145b392460d7
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
-ms.translationtype: HT
+ms.openlocfilehash: 12f5df9b644246092f0a5da2b30dc5a7187ca827
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690272"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926821"
 ---
-# <a name="oauth-20-and-openid-connect-protocols-on-the-microsoft-identity-platform"></a>Protocolos OAuth 2.0 e OpenID Connect na plataforma de identidade da Microsoft
+# <a name="oauth-20-and-openid-connect-protocols-on-microsoft-identity-platform"></a>Protocolos OAuth 2.0 e OpenID Connect na plataforma de identidade da Microsoft
 
-O ponto final da plataforma de identidade da Microsoft para identidade como serviço com protocolos padrão da indústria, OpenID Connect e OAuth 2.0. Embora o serviço seja compatível com as normas, pode haver diferenças subtis entre quaisquer duas implementações destes protocolos. As informações aqui serão úteis se optar por escrever o seu código enviando e manuseando diretamente pedidos de HTTP ou utilizar uma biblioteca de código aberto de terceiros, em vez de utilizar uma das [nossas bibliotecas de código aberto.](reference-v2-libraries.md)
+O ponto final da plataforma de identidade da Microsoft para identidade como serviço com protocolos padrão da indústria, OpenID Connect (OIDC) e OAuth 2.0. Embora o serviço seja compatível com as normas, pode haver diferenças subtis entre quaisquer duas implementações destes protocolos. As informações aqui serão úteis se optar por escrever o seu código enviando e manuseando diretamente pedidos de HTTP ou utilizar uma biblioteca de código aberto de terceiros, em vez de utilizar uma das [nossas bibliotecas de código aberto.](reference-v2-libraries.md)
 
 ## <a name="the-basics"></a>Noções básicas
 
@@ -69,7 +70,7 @@ Para aprender a interagir com estes pontos finais, escolha um tipo de aplicaçã
 
 ## <a name="tokens"></a>Tokens
 
-A implementação da plataforma identitária Microsoft de OAuth 2.0 e OpenID Connect fazem uso extensivo de tokens ao portador, incluindo tokens ao portador representados como JWTs. Um símbolo portador é um símbolo de segurança leve que concede ao "portador" acesso a um recurso protegido. Neste sentido, o "portador" é qualquer partido que possa apresentar o símbolo. Embora uma parte tenha primeiro de autenticar com a plataforma de identidade da Microsoft para receber o símbolo do portador, se não forem tomadas as medidas necessárias para proteger o símbolo na transmissão e armazenamento, pode ser intercetado e usado por uma parte não intencional. Embora algumas fichas de segurança tenham um mecanismo incorporado para impedir que as partes não autorizadas as utilizem, as fichas do portador não têm este mecanismo e devem ser transportadas num canal seguro, como a segurança da camada de transporte (HTTPS). Se um token portador for transmitido à luz, uma parte maliciosa pode usar um ataque homem-no-meio para adquirir o símbolo e usá-lo para acesso não autorizado a um recurso protegido. Os mesmos princípios de segurança aplicam-se ao armazenar ou cortar fichas para utilização posterior. Certifique-se sempre de que a sua aplicação transmite e armazena fichas ao portador de forma segura. Para obter mais considerações de segurança sobre as fichas do portador, consulte [a Secção 5 rFC 6750](https://tools.ietf.org/html/rfc6750).
+A implementação da plataforma identitária Microsoft de OAuth 2.0 e OpenID Connect fazem uso extensivo de tokens ao portador, incluindo tokens ao portador representados como JWTs (JSON Web Tokens). Um símbolo portador é um símbolo de segurança leve que concede ao "portador" acesso a um recurso protegido. Neste sentido, o "portador" é qualquer partido que possa apresentar o símbolo. Embora uma parte tenha primeiro de autenticar com a plataforma de identidade da Microsoft para receber o símbolo do portador, se não forem tomadas as medidas necessárias para proteger o símbolo na transmissão e armazenamento, pode ser intercetado e usado por uma parte não intencional. Embora algumas fichas de segurança tenham um mecanismo incorporado para impedir que as partes não autorizadas as utilizem, as fichas do portador não têm este mecanismo e devem ser transportadas num canal seguro, como a segurança da camada de transporte (HTTPS). Se um token portador for transmitido à luz, uma parte maliciosa pode usar um ataque homem-no-meio para adquirir o símbolo e usá-lo para acesso não autorizado a um recurso protegido. Os mesmos princípios de segurança aplicam-se ao armazenar ou cortar fichas para utilização posterior. Certifique-se sempre de que a sua aplicação transmite e armazena fichas ao portador de forma segura. Para obter mais considerações de segurança sobre as fichas do portador, consulte [a Secção 5 rFC 6750](https://tools.ietf.org/html/rfc6750).
 
 Mais detalhes sobre diferentes tipos de tokens utilizados no ponto final da plataforma de identidade da Microsoft estão disponíveis na [referência token de](v2-id-and-access-tokens.md)ponto final da plataforma de identidade da Microsoft .
 
