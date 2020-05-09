@@ -7,15 +7,15 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/16/2019
 ms.author: amsriva
-ms.openlocfilehash: 17bed17b536f6e88fc821fd83e09a1d6ea218bc3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a48ed39af243296bcb76cb61f1fe64e4e95ab7e7
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74130483"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801761"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Resolução de problemas de erros de gateway incorreto no Gateway de Aplicação
-
+<p class="alert is-flex is-primary"><span class="has-padding-left-medium has-padding-top-extra-small"><a class="button is-primary" href="https://azurevirtualsupportagent.services.microsoft.com?content=66c070b6-1c47-4c7f-b928-317a8c8b452f" target='_blank'>Comece a</a></span>resolver o seu problema rapidamente usando o<span class="has-padding-small">nosso agente virtual para executar <b>diagnósticos automatizados.</b> </span> Declaração <sub>de Privacidade</sub> <span class="has-padding-small"> <a href="https://privacy.microsoft.com/privacystatement" target='_blank'> <div align="right"></div></a></span></p>
 Saiba como resolver problemas com erros de gateway (502) recebidos ao utilizar o Portal de Aplicações Azure.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -108,7 +108,7 @@ São adicionadas as seguintes propriedades adicionais:
 
 | Propriedade da sonda | Descrição |
 | --- | --- |
-| Nome |Nome da sonda. Este nome é utilizado para se referir à sonda nas definições http back-end. |
+| Name |Nome da sonda. Este nome é utilizado para se referir à sonda nas definições http back-end. |
 | Protocolo |O protocolo costumava enviar a sonda. A sonda utiliza o protocolo definido nas definições de HTTP de back-end |
 | Anfitrião |Nome anfitrião para enviar a sonda. Aplicável apenas quando vários sites estiverem configurados no gateway da aplicação. Isto é diferente do nome de anfitrião vm. |
 | Caminho |Caminho relativo da sonda. O caminho válido começa a partir de '/'. A sonda é \<\>enviada\<\>para\<\>\<o protocolo :// anfitrião: caminho portuário\> |
