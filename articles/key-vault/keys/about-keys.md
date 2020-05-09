@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3d89275e1418035fed8aad3ffddd8def2c1d59ce
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f96ec80b529c594a383be8d668fd28b77372cd80
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81686047"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82900925"
 ---
 # <a name="about-azure-key-vault-keys"></a>Sobre as chaves do cofre de chaves Azure
 
@@ -103,9 +103,9 @@ Para mais informações, consulte [as principais operações na referência](/re
 
 Uma vez criada uma chave no Cofre chave, as seguintes operações criptográficas podem ser realizadas utilizando a chave:  
 
--   **Sinal e Verificação**: Estritamente, esta operação é "sinal de hash" ou "verificar hash", uma vez que o Key Vault não suporta o hashing dos conteúdos como parte da criação de assinaturas. As aplicações devem hash os dados a assinar localmente, em seguida, solicitar que key vault assine o hash. A verificação de hashes assinados é suportada como uma operação de conveniência para aplicações que podem não ter acesso a material-chave [público]. Para um melhor desempenho de aplicação, verifique se as operações são realizadas localmente.  
+-   **Sinal e Verificação**: Estritamente, esta operação é "sinal de hash" ou "verificar hash", uma vez que o Key Vault não suporta o hashing dos conteúdos como parte da criação de assinaturas. As aplicações devem hash os dados a assinar localmente, em seguida, solicitar que key vault assine o hash. A verificação de hashes assinados é suportada como uma operação de conveniência para aplicações que podem não ter acesso a material-chave [público]. Para um melhor desempenho de aplicação, as operações de VERIFICAÇÃO devem ser realizadas localmente.  
 -   **Encriptação da chave / Embrulho**: Uma chave armazenada no Cofre chave pode ser usada para proteger outra chave, tipicamente uma chave de encriptação de conteúdo simétrico (CEK). Quando a chave no Cofre chave é assimétrica, a encriptação da chave é usada. Por exemplo, as operações RSA-OAEP e WRAPKEY são equivalentes a ENCRIPTAÇÃO/DECRYPT. Quando a chave no Cofre-Chave é simétrica, o invólucro da chave é utilizado. Por exemplo, AES-KW. A operação WRAPKEY é suportada como uma conveniência para aplicações que podem não ter acesso a material chave [público]. Para um melhor desempenho de aplicação, as operações WRAPKEY devem ser realizadas localmente.  
--   **Encriptar e desencriptar:** Uma chave armazenada no Cofre de Chaves pode ser usada para encriptar ou desencriptar um único bloco de dados. O tamanho do bloco é determinado pelo tipo chave e algoritmo de encriptação selecionado. A operação Encrypt está prevista para conveniência, para aplicações que podem não ter acesso a material chave [público]. Para um melhor desempenho da aplicação, as operações de encriptação devem ser realizadas localmente.  
+-   **Encriptar e desencriptar:** Uma chave armazenada no Cofre de Chaves pode ser usada para encriptar ou desencriptar um único bloco de dados. O tamanho do bloco é determinado pelo tipo chave e algoritmo de encriptação selecionado. A operação Encrypt está prevista para conveniência, para aplicações que podem não ter acesso a material chave [público]. Para um melhor desempenho de aplicação, as operações de ENCRIPTAÇÃO devem ser realizadas localmente.  
 
 Embora o WRAPKEY/UNWRAPKEY utilize teclas assimétricas pode parecer supérfluo (uma vez que a operação é equivalente a ENCRIPTAÇÃO/DECRYPT), a utilização de operações distintas é importante. A distinção proporciona a separação semântica e de autorização destas operações, e a consistência quando outros tipos-chave são suportados pelo serviço.  
 

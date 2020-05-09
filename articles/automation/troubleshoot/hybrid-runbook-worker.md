@@ -9,29 +9,29 @@ ms.author: magoedte
 ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2b3bf6706e977bdb6915335dee59da3c250e7895
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6d734c910cc966cfd83f1e1c7f9cbd728643fbc4
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81679339"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836517"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Trabalhadores do livro híbrido de troubleshoot
 
-Este artigo fornece informações sobre problemas de resolução de problemas com os Trabalhadores híbridos do livro de corridas.
+Este artigo fornece informações sobre problemas de resolução de problemas com os Trabalhadores de Runbook Híbridos da Automação Azure.
 
 >[!NOTE]
->Este artigo foi atualizado para utilizar o novo módulo AZ do Azure PowerShell. Pode continuar a utilizar o módulo AzureRM, que continuará a receber correções de erros até, pelo menos, dezembro de 2020. Para obter mais informações sobre o novo módulo Az e a compatibilidade do AzureRM, veja [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para instruções de instalação do módulo Az no seu Executor Híbrido, consulte [Instalar o Módulo PowerShell Azure](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para a sua conta Automation, pode atualizar os seus módulos para a versão mais recente, utilizando [como atualizar os módulos Azure PowerShell em Automação Azure](../automation-update-azure-modules.md).
+>Este artigo foi atualizado para utilizar o novo módulo AZ do Azure PowerShell. Pode continuar a utilizar o módulo AzureRM, que continuará a receber correções de erros até, pelo menos, dezembro de 2020. Para obter mais informações sobre o novo módulo Az e a compatibilidade do AzureRM, veja [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para instruções de instalação do módulo Az no seu Executor Híbrido, consulte [Instalar o Módulo PowerShell Azure](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para a sua conta Azure Automation, pode atualizar os seus módulos para a versão mais recente, utilizando [como atualizar os módulos Azure PowerShell em Automação Azure](../automation-update-azure-modules.md).
 
 ## <a name="general"></a>Geral
 
-O Trabalhador do Livro Híbrido depende de um agente para comunicar com a sua conta De automação para registar o trabalhador, receber trabalhos de livro e reportar o estado. Para windows, este agente é o agente Log Analytics para Windows. Para linux, é o agente de Log Analytics para linux.
+O Trabalhador do Livro Híbrido depende de um agente para comunicar com a sua conta Azure Automation para registar o trabalhador, receber trabalhos de livro e reportar o estado. Para windows, este agente é o agente Log Analytics para Windows. Para linux, é o agente de Log Analytics para linux.
 
 ### <a name="scenario-runbook-execution-fails"></a><a name="runbook-execution-fails"></a>Cenário: Execução do livro falha
 
 #### <a name="issue"></a>Problema
 
-A execução do livro de corridas falha e recebe o seguinte erro.
+A execução do livro de executantes falha e recebe a seguinte mensagem de erro:
 
 ```error
 "The job action 'Activate' cannot be run, because the process stopped unexpectedly. The job action was attempted three times."
@@ -51,13 +51,13 @@ As seguintes são as possíveis causas:
 
 Verifique se o computador tem acesso de saída a ***.azure-automation.net** na porta 443.
 
-Os computadores que executam o Hybrid Runbook Worker devem cumprir os requisitos mínimos de hardware antes de o trabalhador ser configurado para hospedar esta funcionalidade. Os livros de execução e o processo de fundo que utilizam podem fazer com que o sistema seja usado em excesso e causar atrasos ou intervalos de trabalho.
+Os computadores que executam o Hybrid Runbook Worker devem cumprir os requisitos mínimos de hardware antes de o trabalhador ser configurado para hospedar esta funcionalidade. Os livros de execução e o processo de fundo que utilizam podem fazer com que o sistema seja sobreutilizado e causar atrasos ou intervalos de trabalho.
 
 Confirme que o computador para executar a função Hybrid Runbook Worker cumpre os requisitos mínimos de hardware. Se isso acontecer, monitorize o CPU e o uso da memória para determinar qualquer correlação entre o desempenho dos processos híbridos do Runbook Worker e do Windows. Qualquer pressão de memória ou CPU pode indicar a necessidade de atualizar os recursos. Também pode selecionar um recurso computacional diferente que suporte os requisitos mínimos e a escala quando as exigências de carga de trabalho indicam que é necessário um aumento.
 
-Verifique o registo do evento **Microsoft-SMA** para obter um evento correspondente com descrição `Win32 Process Exited with code [4294967295]`. A causa deste erro é que não configurau a autenticação nos seus livros de execução ou especificou a Execução Como credenciais para o grupo Operário de Runbook Híbrido. Reveja as permissões do livro de execução em runbook running [on a Hybrid Runbook Worker](../automation-hrw-run-runbooks.md) para confirmar que você tem corretamente configurado a autenticação para os seus livros de execução.
+Verifique o registo do evento **Microsoft-SMA** `Win32 Process Exited with code [4294967295]`para obter um evento correspondente com a descrição . A causa deste erro é que não configurau a autenticação nos seus livros de execução ou especificou a Execução Como credenciais para o grupo Operário de Runbook Híbrido. Reveja as permissões do livro de execução em runbook running em um Trabalhador de [Runbook Híbrido](../automation-hrw-run-runbooks.md) para confirmar que você configuracorretamente a autenticação para os seus livros de execução.
 
-### <a name="scenario-event-15011-in-hybrid-runbook-worker"></a><a name="cannot-connect-signalr"></a>Cenário: Evento 15011 no Trabalhador do Livro Híbrido
+### <a name="scenario-event-15011-in-the-hybrid-runbook-worker"></a><a name="cannot-connect-signalr"></a>Cenário: Evento 15011 no Trabalhador do Livro Híbrido
 
 #### <a name="issue"></a>Problema
 
@@ -73,7 +73,7 @@ O Trabalhador do Livro Híbrido recebe o evento 15011, indicando que um resultad
 
 #### <a name="cause"></a>Causa
 
-O Trabalhador do Livro híbrido não foi configurado corretamente para a solução de implementação automatizada. Esta solução contém uma peça que liga o VM ao espaço de trabalho log Analytics. O script PowerShell procura o espaço de trabalho na subscrição com o nome fornecido. Neste caso, o espaço de trabalho log Analytics encontra-se numa subscrição diferente. O guião não consegue encontrar o espaço de trabalho e tenta criar um, mas o nome já está tomado. Assim, a implantação falha.
+O Trabalhador do Livro Híbrido não foi configurado corretamente para a solução de implementação automatizada. Esta solução contém uma peça que liga o VM ao espaço de trabalho log Analytics. O script PowerShell procura o espaço de trabalho na subscrição com o nome fornecido. Neste caso, o espaço de trabalho log Analytics encontra-se numa subscrição diferente. O guião não consegue encontrar o espaço de trabalho e tenta criar um, mas o nome já está tomado. Como resultado, a implantação falha.
 
 #### <a name="resolution"></a>Resolução
 
@@ -83,7 +83,7 @@ Tem duas opções para resolver esta questão:
 
 * Configure manualmente a máquina operária para funcionar numa caixa de areia Orchestrator. Em seguida, executar um livro de execução criado na conta Azure Automation sobre o trabalhador para testar a funcionalidade.
 
-### <a name="scenario-windows-azure-vms-automatically-dropped-from-hybrid-worker-group"></a><a name="vm-automatically-dropped"></a>Cenário: VMs do Windows Azure automaticamente retirados do grupo de trabalhadores híbridos
+### <a name="scenario-windows-azure-vms-automatically-dropped-from-a-hybrid-worker-group"></a><a name="vm-automatically-dropped"></a>Cenário: VMs Do Windows Azure automaticamente retirados de um grupo de trabalhadores híbridos
 
 #### <a name="issue"></a>Problema
 
@@ -95,13 +95,13 @@ A máquina híbrida do Runbook Worker não pisa a Automação Azure há mais de 
 
 #### <a name="resolution"></a>Resolução
 
-Ligue a máquina de trabalho e, em seguida, reregique-a com a Automação Azure. Consulte as instruções para instalar o ambiente do livro de execução e ligar-se à Automação Azure em implementar um Trabalhador do [Livro híbrido do Windows](../automation-windows-hrw-install.md).
+Ligue a máquina de trabalhador e, em seguida, reregique-a com a Automação Azure. Para obter instruções sobre como instalar o ambiente do livro de execução e ligar-se à Automação Azure, consulte [A utilização de um Executador Híbrido windows](../automation-windows-hrw-install.md).
 
-### <a name="scenario-no-certificate-was-found-in-the-certificate-store-on-hybrid-runbook-worker"></a><a name="no-cert-found"></a>Cenário: Não foi encontrado nenhum certificado na loja de certificados da Hybrid Runbook Worker
+### <a name="scenario-no-certificate-was-found-in-the-certificate-store-on-the-hybrid-runbook-worker"></a><a name="no-cert-found"></a>Cenário: Não foi encontrado nenhum certificado na loja de certificados do Trabalhador do Livro Híbrido
 
 #### <a name="issue"></a>Problema
 
-Um livro de corridas em execução num Trabalhador de Runbook Híbrido falha com a seguinte mensagem de erro.
+Um livro de corridas em execução num Trabalhador de Runbook Híbrido falha com a seguinte mensagem de erro:
 
 ```error
 Connect-AzAccount : No certificate was found in the certificate store with thumbprint 0000000000000000000000000000000000000000
@@ -117,13 +117,13 @@ Este erro ocorre quando se tenta utilizar uma [conta Run As](../manage-runas-acc
 
 #### <a name="resolution"></a>Resolução
 
-Se o seu Executbook Worker híbrido for um VM Azure, pode utilizar [identidades geridas para recursos Azure.](../automation-hrw-run-runbooks.md#managed-identities-for-azure-resources) Este cenário simplifica a autenticação, permitindo-lhe autenticar recursos Azure utilizando a identidade gerida do VM Azure em vez da conta Run As. Quando o Trabalhador do Livro Híbrido é uma máquina no local, é necessário instalar o certificado de conta Run As na máquina. Para saber instalar o certificado, consulte os passos para executar o livro de execução PowerShell **Export-RunAsCertificateToHybridWorker** em [runbook em execução de um trabalhador de resta híbrida](../automation-hrw-run-runbooks.md).
+Se o seu Executbook Worker híbrido for um VM Azure, pode utilizar a autenticação do [livro de corridas com identidades geridas.](../automation-hrw-run-runbooks.md#runbook-auth-managed-identities) Este cenário simplifica a autenticação, permitindo-lhe autenticar recursos Azure utilizando a identidade gerida do VM Azure em vez da conta Run As. Quando o Trabalhador do Livro Híbrido é uma máquina no local, é necessário instalar o certificado de conta Run As na máquina. To learn how to install the certificate, see the steps to run the PowerShell runbook **Export-RunAsCertificateToHybridWorker** in [Run runbooks on a Hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
 
-### <a name="scenario-error-403-during-registration-of-hybrid-runbook-worker"></a><a name="error-403-on-registration"></a>Cenário: Erro 403 durante o registo do Trabalhador do Livro Híbrido
+### <a name="scenario-error-403-during-registration-of-a-hybrid-runbook-worker"></a><a name="error-403-on-registration"></a>Cenário: Erro 403 durante o registo de um trabalhador híbrido de runbook
 
 #### <a name="issue"></a>Problema
 
-A fase inicial de registo do trabalhador falha e recebe o seguinte erro (403).
+A fase inicial de registo do trabalhador falha e recebe o seguinte erro (403):
 
 ```error
 "Forbidden: You don't have permission to access / on this server."
@@ -131,32 +131,47 @@ A fase inicial de registo do trabalhador falha e recebe o seguinte erro (403).
 
 #### <a name="cause"></a>Causa
 
-As seguintes são as possíveis causas:
+As seguintes questões são possíveis causas:
 
 * Há uma identificação do espaço de trabalho enevoado ou chave do espaço de trabalho (primária) nas configurações do agente. 
-
-* O Trabalhador do Livro Híbrido não pode descarregar a configuração, causando um erro de ligação de conta. Quando o Azure permite soluções, suporta apenas certas regiões para ligar um espaço de trabalho log Analytics e uma conta de Automação. Também é possível que uma data e/ou hora incorretas seja definida no computador. Se o tempo for de +/-15 minutos a partir do tempo atual, o embarque falha.
+* O Trabalhador do Livro Híbrido não pode descarregar a configuração, o que causa um erro de ligação de conta. Quando o Azure permite soluções, suporta apenas certas regiões para ligar um espaço de trabalho log Analytics e uma conta de Automação. Também é possível que uma data ou hora incorretaseja seja definida no computador. Se o tempo for mais ou menos 15 minutos a partir do tempo atual, o embarque falha.
 
 #### <a name="resolution"></a>Resolução
 
-##### <a name="mistyped-workspace-idkey"></a>ID/chave do espaço de trabalho mistyped
-Para verificar se o ID ou a chave do espaço de trabalho do agente foram enevoados, consulte [adicionar ou remover um espaço](../../azure-monitor/platform/agent-manage.md#windows-agent) de trabalho – agente windows para o agente Windows ou Adicionar ou remover um espaço de trabalho – agente [Linux](../../azure-monitor/platform/agent-manage.md#linux-agent) para o agente Linux.  Certifique-se de selecionar a cadeia completa do portal Azure e copiá-la e colar cuidadosamente.
+##### <a name="mistyped-workspace-id-or-key"></a>ID ou chave do espaço de trabalho mistyped
+Para verificar se o ID ou a chave do espaço de trabalho do agente estava enevoado, consulte [adicionar ou remover um espaço](../../azure-monitor/platform/agent-manage.md#windows-agent) de trabalho – agente windows para o agente Windows ou Adicionar ou remover um espaço de trabalho – agente [Linux](../../azure-monitor/platform/agent-manage.md#linux-agent) para o agente Linux. Certifique-se de selecionar a cadeia completa do portal Azure e copiá-la e colar cuidadosamente.
 
 ##### <a name="configuration-not-downloaded"></a>Configuração não descarregada
 
 O seu espaço de trabalho log Analytics e a sua conta de Automação devem estar numa região ligada. Para obter uma lista de regiões apoiadas, consulte [o Azure Automation e o Log Analytics workspace mapeamentos.](../how-to/region-mappings.md)
 
-Também poderá necessitar de atualizar a data e/ou fuso horário do seu computador. Se selecionar um intervalo de tempo personalizado, certifique-se de que o intervalo está em UTC, que pode diferir do seu fuso horário local.
+Também poderá ser necessário atualizar a data ou o fuso horário do seu computador. Se selecionar um intervalo de tempo personalizado, certifique-se de que o intervalo está em UTC, que pode diferir do seu fuso horário local.
 
 ## <a name="linux"></a>Linux
 
-O Linux Hybrid Runbook Worker depende do agente Log Analytics para o [Linux](../../azure-monitor/platform/log-analytics-agent.md) comunicar com a sua conta Automation para registar o trabalhador, receber trabalhos de livro e reportar o estado. Se o registo do trabalhador falhar, eis algumas possíveis causas para o erro:
+O Linux Hybrid Runbook Worker depende do agente Log Analytics para o [Linux](../../azure-monitor/platform/log-analytics-agent.md) comunicar com a sua conta Automation para registar o trabalhador, receber trabalhos de livro e reportar o estado. Se o registo do trabalhador falhar, eis algumas possíveis causas para o erro.
+
+### <a name="scenario-linux-hybrid-runbook-worker-receives-prompt-for-a-password-when-signing-a-runbook"></a><a name="prompt-for-password"></a>Cenário: Trabalhador do Livro de Corridas Híbrido sinuoso do Linux recebe pedido de senha ao assinar um livro de corridas
+
+#### <a name="issue"></a>Problema
+
+Executar `sudo` o comando de um Trabalhador do Livro híbrido Linux recupera um pedido inesperado para uma senha.
+
+#### <a name="cause"></a>Causa
+
+A conta **de nxautomationuser** para o agente Log Analytics para Linux não está corretamente configurada no ficheiro **sudoers.** O Trabalhador do Livro de Corridas Híbrido sofres necessita da configuração adequada de permissões de conta e outros dados para que possa assinar livros de execução no Linux Runbook Worker.
+
+#### <a name="resolution"></a>Resolução
+
+* Certifique-se de que o Trabalhador do Livro Híbrido tem o GnuPG (GPG) executável na máquina.
+
+* Verifique a configuração da conta **nxautomationuser** no ficheiro **sudoers.** Ver livros de corrida em um trabalhador híbrido do livro de [corridas](../automation-hrw-run-runbooks.md).
 
 ### <a name="scenario-the-log-analytics-agent-for-linux-isnt-running"></a><a name="oms-agent-not-running"></a>Cenário: O agente log analytics do Linux não está a funcionar
 
 #### <a name="issue"></a>Problema
 
-O agente log analytics do Linux não está a funcionar.
+O agente de Log Analytics do Linux não está a funcionar.
 
 #### <a name="cause"></a>Causa
 
@@ -164,7 +179,7 @@ Se o agente não estiver a funcionar, impede que o Trabalhador do Livro Híbrido
 
 #### <a name="resolution"></a>Resolução
 
- Verifique se o agente está `ps -ef | grep python`a funcionar entrando no comando . Deve ver a saída semelhante à seguinte, os processos Python com conta de utilizador **de nxautomation.** Se a solução De Gestão de Atualização ou De solução De Automação Azure não estiver ativada, nenhum dos seguintes processos está em execução.
+ Verifique se o agente está `ps -ef | grep python`a funcionar entrando no comando . Deverá ver um resultado semelhante ao seguinte. O Python processa com a conta de utilizador **da nxautomation.** Se a solução De Gestão de Atualização ou De solução De Automação Azure não estiver ativada, nenhum dos seguintes processos está em execução.
 
 ```bash
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
@@ -172,19 +187,17 @@ nxautom+   8593      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfi
 nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/hybridworker.py /var/opt/microsoft/omsagent/<workspaceId>/state/automationworker/diy/worker.conf managed rworkspace:<workspaceId> rversion:<Linux hybrid worker version>
 ```
 
-A lista seguinte mostra os processos iniciados para um Linux Hybrid Runbook Worker. Estão todos localizados no **diretório /var/opt/microsoft/omsagent/state/automationworker/** diretório.
+A lista seguinte mostra os processos iniciados para um Linux Hybrid Runbook Worker. Estão todos localizados no diretório /var/opt/microsoft/omsagent/state/automationworker/ diretório.
 
-* **oms.conf** - O processo de gerente de trabalho. Começou diretamente da DSC.
-
-* **worker.conf** - O processo de trabalhador híbrido auto-registado. É iniciado pelo gerente dos trabalhadores. Este processo é utilizado pela Update Management e é transparente para o utilizador. Este processo não está presente se a solução de Gestão de Atualização não estiver ativada na máquina.
-
-* **diy/worker.conf** - O processo de trabalhador híbrido DIY. O processo de trabalhador híbrido DIY é usado para executar livros de execução de utilizadores no Trabalhador do Livro híbrido. Apenas difere do processo de trabalhador híbrido auto-registado no detalhe chave que utiliza uma configuração diferente. Este processo não está presente se a solução Deautomação Azure estiver desativada e o Diy Linux Hybrid Worker não estiver registado.
+* **oms.conf**: O processo de gestor de trabalhadores. Começou diretamente da DSC.
+* **worker.conf**: O processo de trabalhador híbrido auto-registado. É iniciado pelo gerente dos trabalhadores. Este processo é utilizado pela Update Management e é transparente para o utilizador. Este processo não está presente se a solução de Gestão de Atualização não estiver ativada na máquina.
+* **diy/worker.conf**: O processo de trabalhador híbrido DIY. O processo de trabalhador híbrido DIY é usado para executar livros de execução de utilizadores no Trabalhador do Livro híbrido. Apenas difere do processo de trabalhador híbrido auto-registado no detalhe chave que utiliza uma configuração diferente. Este processo não está presente se a solução Deautomação Azure estiver desativada e o Diy Linux Hybrid Worker não estiver registado.
 
 Se o agente não estiver a funcionar, execute `sudo /opt/microsoft/omsagent/bin/service_control restart`o seguinte comando para iniciar o serviço: .
 
 ### <a name="scenario-the-specified-class-doesnt-exist"></a><a name="class-does-not-exist"></a>Cenário: A classe especificada não existe
 
-Se vir o `The specified class does not exist..` erro no **/var/opt/microsoft/omsconfig/omsconfig.log**, o agente Log Analytics para o Linux precisa de ser atualizado. Executar o seguinte comando para reinstalar o agente:
+Se vir a `The specified class does not exist..` mensagem de erro em **/var/opt/microsoft/omsconfig/omsconfig.log**, o agente Log Analytics para o Linux precisa de ser atualizado. Executar o seguinte comando para reinstalar o agente.
 
 ```bash
 wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
@@ -208,19 +221,19 @@ Se o log analytics para o serviço Windows não estiver em funcionamento, o Trab
 
 Verifique se o agente está a funcionar ao `Get-Service healthservice`introduzir o seguinte comando no PowerShell: . Se o serviço for interrompido, introduza o seguinte `Start-Service healthservice`comando na PowerShell para iniciar o serviço: .
 
-### <a name="scenario-event-4502-in-operations-manager-log"></a><a name="event-4502"></a>Cenário: Evento 4502 no registo do Gestor de Operações
+### <a name="scenario-event-4502-in-the-operations-manager-log"></a><a name="event-4502"></a>Cenário: Evento 4502 no registo do Gestor de Operações
 
 #### <a name="issue"></a>Problema
 
-No registo de eventos do Gestor de **Registos de Aplicações e Serviços\Diretor de Operações,** vê o evento 4502 e o EventMessage que contém `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent` com a seguinte descrição:<br>`The certificate presented by the service \<wsid\>.oms.opinsights.azure.com was not issued by a certificate authority used for Microsoft services. Please contact your network administrator to see if they are running a proxy that intercepts TLS/SSL communication.`
+No registo de eventos do Gestor de **Registos de Aplicações e Serviços\Diretor de Operações,** vê o evento 4502 e uma mensagem de evento que contém `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent` com a seguinte descrição:<br>`The certificate presented by the service \<wsid\>.oms.opinsights.azure.com was not issued by a certificate authority used for Microsoft services. Please contact your network administrator to see if they are running a proxy that intercepts TLS/SSL communication.`
 
 #### <a name="cause"></a>Causa
 
-Este problema pode ser causado pelo seu proxy ou firewall de rede bloqueando a comunicação ao Microsoft Azure. Verifique se o computador tem acesso de saída a ***.azure-automation.net** na porta 443. 
+Este problema pode ser causado pelo seu proxy ou firewall de rede bloqueando a comunicação ao Microsoft Azure. Verifique se o computador tem acesso de saída a ***.azure-automation.net** na porta 443.
 
 #### <a name="resolution"></a>Resolução
 
-Os registos são armazenados localmente em cada trabalhador híbrido em **C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes**. Pode verificar se existem algum aviso ou erros nos registos de registos de **aplicações e serviços\Microsoft-SMA\Operações** e **Registos de Aplicações e Serviços\Operations Manager** registos de eventos. Estes registos indicam uma conectividade ou outro tipo de problema que afeta o embarque do papel para a Automação Azure, ou um problema encontrado em operações normais. Para obter problemas adicionais de resolução de problemas com o agente Log Analytics, consulte [problemas de resolução](../../azure-monitor/platform/agent-windows-troubleshoot.md)de problemas com o agente do Log Analytics Windows .
+Os registos são armazenados localmente em cada trabalhador híbrido em C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. Pode verificar se existem algum aviso ou erros nos registos de registos de **aplicações e serviços\Microsoft-SMA\Operações** e **Registos de Aplicações e Serviços\Operations Manager** registos de eventos. Estes registos indicam uma conectividade ou outro tipo de problema que afeta o embarque do papel para a Automação Azure, ou um problema encontrado em operações normais. Para obter problemas adicionais de resolução de problemas com o agente Log Analytics, consulte [problemas de resolução](../../azure-monitor/platform/agent-windows-troubleshoot.md)de problemas com o agente do Log Analytics Windows .
 
 Os trabalhadores híbridos enviam [saída seletiva e mensagens](../automation-runbook-output-and-messages.md) para a Automação Azure da mesma forma que os trabalhos de runbook que funcionam na nuvem enviam saída e mensagens. Pode ativar os fluxos Verbose e Progress, tal como você para livros de execução.
 
@@ -234,11 +247,11 @@ Se ajustar **o Orchestrator.Sandbox.exe.config** para definir o proxy e a lista 
 
 #### <a name="cause"></a>Causa
 
-A ligação aos Serviços da Federação de Diretórios Ativos (ADFS) no servidor não pode contornar o proxy. Lembre-se que uma caixa de areia PowerShell funciona como o utilizador registado. No entanto, uma caixa de areia Orchestrator é fortemente personalizada e pode ignorar as definições de ficheiro **Orchestrator.Sandbox.exe.config.** Tem um código especial para manusear a máquina ou configurações de procuração de MMA, mas não para manusear outras definições de procuração personalizadas. 
+A ligação aos Serviços da Federação de Diretórios Ativos (AD FS) no servidor não pode contornar o proxy. Lembre-se que uma caixa de areia PowerShell funciona como o utilizador registado. No entanto, uma caixa de areia Orchestrator é fortemente personalizada e pode ignorar as definições de ficheiro **Orchestrator.Sandbox.exe.config.** Tem um código especial para manusear as definições de procuração da máquina ou do agente Log Analytics, mas não para manusear outras definições de procuração personalizadas. 
 
 #### <a name="resolution"></a>Resolução
 
-Pode resolver o problema da caixa de areia Orchestrator migrando o seu script para utilizar os módulos Azure AD em vez do módulo MSOnline para cmdlets PowerShell. Ver [Migrar do Orquestrador para a Automação Azure (Beta)](https://docs.microsoft.com/azure/automation/automation-orchestrator-migration).
+Pode resolver o problema para a caixa de areia Orchestrator migrando o seu script para utilizar os módulos Azure Ative Directory em vez do módulo MSOnline para cmdlets PowerShell. Para mais informações, consulte [Migrating from Orchestrator to Azure Automation (Beta)](https://docs.microsoft.com/azure/automation/automation-orchestrator-migration).
 
 Se pretender continuar a utilizar os cmdlets do módulo MSOnline, altere o seu script para utilizar [o Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7). Especifique `ComputerName` `Credential` valores para os e parâmetros. 
 
@@ -287,7 +300,7 @@ Start-Service -Name HealthService
 
 #### <a name="issue"></a>Problema
 
-Recebe a seguinte mensagem ao tentar adicionar um `Add-HybridRunbookWorker` Trabalhador do Livro Híbrido utilizando o cmdlet.
+Recebe a seguinte mensagem quando tenta adicionar um Trabalhador `Add-HybridRunbookWorker` do Livro Híbrido utilizando o cmdlet:
 
 ```error
 Machine is already registered
@@ -295,18 +308,18 @@ Machine is already registered
 
 #### <a name="cause"></a>Causa
 
-Este problema pode ser causado se a máquina já estiver registada com uma conta de Automação diferente ou se tentar ler o Trabalhador do Livro Híbrido depois de o retirar de uma máquina.
+Este problema pode ser causado se a máquina já estiver registada com uma conta de Automação diferente ou se tentar readicionar o Trabalhador do Livro Híbrido depois de o retirar de uma máquina.
 
 #### <a name="resolution"></a>Resolução
 
-Para resolver este problema, retire a seguinte `HealthService`tecla de `Add-HybridRunbookWorker` registo, reinicie a , e volte a tentar o cmdlet.
+Para resolver este problema, retire a `HealthService`seguinte chave `Add-HybridRunbookWorker` de registo, reinicie, e tente novamente o cmdlet.
 
 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\HybridRunbookWorker`
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se não vir o seu problema acima ou não conseguir resolver o seu problema, experimente um dos seguintes canais para obter apoio adicional:
+Se não vir o seu problema aqui ou não conseguir resolver o seu problema, experimente um dos seguintes canais para obter apoio adicional:
 
 * Obtenha respostas de especialistas do Azure através dos [Fóruns Azure.](https://azure.microsoft.com/support/forums/)
-* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport)a conta oficial do Microsoft Azure para melhorar a experiência do cliente, ligando a comunidade Azure aos recursos certos: respostas, suporte e especialistas.
-* Arquiva um incidente de apoio ao Azure. Vá ao site de [suporte azure](https://azure.microsoft.com/support/options/) e selecione **Obter Suporte**.
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport)a conta oficial do Microsoft Azure para melhorar a experiência do cliente. O Azure Support liga a comunidade Azure a respostas, apoios e especialistas.
+* Arquiva um incidente de apoio ao Azure. Vá ao site de [suporte azure](https://azure.microsoft.com/support/options/), e selecione **Obter Suporte**.

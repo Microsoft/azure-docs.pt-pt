@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 65037ec0cc8b10b176622a7047beb7d912c7f701
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8a881f1cbc93d4774e25833a5c57b4727cc2e4be
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77617553"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594836"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Máquinas Virtuais Azure alta disponibilidade para SAP NetWeaver
 
@@ -397,9 +397,9 @@ Os modelos de três níveis no Gestor de Recursos Azure também suportam cenári
 
 Aqui é onde você pode obter modelos de Gestor de Recursos Azure para o cenário de exemplo que descrevemos neste artigo:
 
-* [Imagem do Azure Marketplace](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image)  
+* [Imagem do Azure Marketplace](https://github.com/Azure/azure-quickstart-templates/)  
 * [Imagem do Azure Marketplace usando discos geridos](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-md)  
-* [Imagem personalizada](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image)
+* [Imagem personalizada](https://github.com/Azure/azure-quickstart-templates/)
 * [Imagem personalizada usando discos geridos](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-md)
 
 Para preparar a infraestrutura para o modelo arquitetônico 1:
@@ -490,9 +490,9 @@ Você pode usar este modelo de Gestor de Recursos Azure para SAP para ajudar a s
 
 Aqui é onde você pode obter modelos de Gestor de Recursos Azure para este cenário de implementação:
 
-* [Imagem do Azure Marketplace](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-converged)  
+* [Imagem do Azure Marketplace](https://github.com/Azure/azure-quickstart-templates/)  
 * [Imagem do Azure Marketplace usando discos geridos](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-converged-md)  
-* [Imagem personalizada](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-converged)
+* [Imagem personalizada](https://github.com/Azure/azure-quickstart-templates/)
 * [Imagem personalizada usando discos geridos](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-converged-md)
 
 
@@ -740,7 +740,7 @@ Se pretender utilizar diferentes números para as instâncias SAP ASCS ou SCS, t
 1. No portal Azure, selecione >  ** < *SID*>-lb-ascs carregar**regras de equilíbrio de carga de**carga**.
 2. Para todas as regras de equilíbrio de carga que pertencem à instância SAP ASCS ou SCS, altere estes valores:
 
-   * Nome
+   * Name
    * Porta
    * Porto de back-end
 

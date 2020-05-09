@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: brendm
-ms.openlocfilehash: 4961e5a63e5bc1933cf19b1f291b521d89cbda0e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e8f32f574a4ff7be0cc3cc7915b8203b53824c63
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76279144"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792331"
 ---
 # <a name="azure-spring-cloud-disaster-recovery"></a>Recuperação do desastre da Nuvem de primavera de Azure
 
@@ -32,3 +32,32 @@ Garantir uma elevada disponibilidade e proteção contra desastres requer que vo
 [O Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) fornece o equilíbrio de carga de tráfego baseado no DNS e pode distribuir o tráfego da rede por várias regiões.  Utilize o Gestor de Tráfego Azure para direcionar os clientes para a instância de serviço azure spring cloud mais próxima.  Para melhor desempenho e redundância, direcione todo o tráfego de aplicações através do Azure Traffic Manager antes de enviá-lo para o seu serviço Azure Spring Cloud.
 
 Se tiver aplicações Azure Spring Cloud em várias regiões, utilize o Gestor de Tráfego Azure para controlar o fluxo de tráfego para as suas aplicações em cada região.  Defina um ponto final do Gestor de Tráfego Azure para cada serviço utilizando o IP de serviço. Os clientes devem ligar-se a um nome DNS do Gestor de Tráfego Azure que aponta para o serviço Azure Spring Cloud.  A carga do Gestor de Tráfego Azure equilibra o tráfego nos pontos finais definidos.  Se um desastre atingir um centro de dados, o Gestor de Tráfego azure direcionará o tráfego daquela região para o seu par, garantindo a continuidade do serviço.
+
+## <a name="create-azure-traffic-manager-for-azure-spring-cloud"></a>Crie o Gestor de Tráfego Azure para a Nuvem de primavera Azure
+
+1. Crie a Nuvem de primavera Azure em duas regiões diferentes.
+Você precisará de duas instâncias de serviço de Azure Spring Cloud implantadas em duas regiões diferentes (Leste dos EUA e Europa Ocidental). Lance uma aplicação Azure Spring Cloud existente utilizando o portal Azure para criar duas instâncias de serviço. Cada um servirá como ponto final primário e falhado para o tráfego. 
+
+**Duas instâncias de serviço informação:**
+
+| Nome do Serviço | Localização | Aplicação |
+|--|--|--|
+| amostra de serviço-a | E.U.A. Leste | gateway / auth-service / serviço de conta |
+| serviço-amostra-b | Europa ocidental | gateway / auth-service / serviço de conta |
+
+2. Configurar o Domínio Personalizado para o Serviço Siga [o Documento de Domínio Personalizado](spring-cloud-tutorial-custom-domain.md) para configurar o domínio personalizado para estas duas instâncias de serviço existentes. Após a configuração bem sucedida, ambas as instâncias de serviço ligar-se-ão ao domínio personalizado: bcdr-test.contoso.com
+
+3. Criar um gestor de tráfego e dois pontos finais: Criar um perfil de Gestor de [Tráfego utilizando o portal Azure](https://docs.microsoft.com/azure/traffic-manager/quickstart-create-traffic-manager-profile).
+
+Aqui está o perfil do gestor de tráfego:
+* Nome DNS do Gestor de Tráfego:http://asc-bcdr.trafficmanager.net
+* Perfis de ponto final: 
+
+| Perfil | Tipo | Destino | Prioridade | Definições personalizadas do cabeçalho |
+|--|--|--|--|--|
+| Perfil endpoint A | Ponto Final Externo | service-sample-a.asc-test.net | 1 | anfitrião: bcdr-test.contoso.com |
+| Perfil do ponto final B | Ponto Final Externo | service-sample-b.asc-test.net | 2 | anfitrião: bcdr-test.contoso.com |
+
+4. Crie um disco CNAME na Zona DNS: bcdr-test.contoso.com asc-bcdr.trafficmanager.net CNAME. 
+
+5. Agora, o ambiente está completamente preparado. Os clientes devem poder aceder à aplicação através de: bcdr-test.contoso.com
