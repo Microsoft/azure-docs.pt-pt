@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
-ms.openlocfilehash: 1d08770d81ade2d976142b2ce1fd94dae044cf32
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 7feb6282f3a3551e08d1bb8db2cf6ad2fcd754a8
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461400"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82626161"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Uma visão geral das capacidades de segurança da Base de Dados Azure SQL
 
@@ -30,7 +30,7 @@ A Microsoft Azure SQL Database fornece um serviço de base de dados relacional p
 
 ### <a name="ip-firewall-rules"></a>Regras de firewall IP
 
-As regras de firewall IP concedem acesso a bases de dados com base no endereço IP originário de cada pedido. Para mais informações, consulte a visão geral da Base de [Dados Azure SQL e](sql-database-firewall-configure.md)das regras de firewall do Armazém de Dados SQL .
+As regras de firewall IP concedem acesso a bases de dados com base no endereço IP originário de cada pedido. Para mais informações, consulte a visão geral da Base de Dados Azure SQL e das regras de [firewall Azure Synapse Analytics](sql-database-firewall-configure.md).
 
 ### <a name="virtual-network-firewall-rules"></a>Regras de firewall de rede virtual
 
@@ -56,7 +56,7 @@ A autenticação é o processo de provar que o utilizador é quem afirmam ser. A
 
 - **Autenticação do Diretório Ativo Azure:**
 
-    A autenticação do Diretório Ativo Azure é um mecanismo de ligação à Base de [Dados Azure SQL](sql-database-technical-overview.md) e ao [SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) utilizando identidades no Azure Ative Directory (Azure AD). A autenticação da AD Azure permite aos administradores gerir centralmente as identidades e permissões dos utilizadores de bases de dados, juntamente com outros serviços da Microsoft numa localização central. Isto inclui a minimização do armazenamento de palavras-passe e permite políticas centralizadas de rotação de passwords.
+    A autenticação do Diretório Ativo Azure é um mecanismo de ligação à Base de [Dados Azure SQL](sql-database-technical-overview.md) e à [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) utilizando identidades no Azure Ative Directory (Azure AD). A autenticação da AD Azure permite aos administradores gerir centralmente as identidades e permissões dos utilizadores de bases de dados, juntamente com outros serviços da Microsoft numa localização central. Isto inclui a minimização do armazenamento de palavras-passe e permite políticas centralizadas de rotação de passwords.
 
      Um administrador de servidor chamado administrador de **Diretório Ativo** deve ser criado para utilizar a autenticação Azure AD com base de dados SQL. Para mais informações, consulte a Ligação à Base de [Dados SQL utilizando a autenticação de diretório ativo Azure](sql-database-aad-authentication.md). A autenticação azure AD suporta contas geridas e federadas. As contas federadas suportam utilizadores e grupos do Windows para um domínio de cliente federado com AD Azure.
 
@@ -97,7 +97,7 @@ A Advanced Threat Protection está a analisar os registos do Seu Servidor SQL pa
 
 A Base de Dados SQL protege os dados dos clientes encriptando os dados em movimento com a Segurança da Camada de [Transporte](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
 
-O Sql Server aplica sempre a encriptação (SSL/TLS) para todas as ligações. Isto garante que todos os dados estão encriptados "em trânsito" entre o cliente e o servidor, independentemente da definição de **Encrypt** ou **TrustServerCertificate** na cadeia de ligação.
+O Sql Server aplica sempre a encriptação (TLS) para todas as ligações. Isto garante que todos os dados estão encriptados "em trânsito" entre o cliente e o servidor, independentemente da definição de **Encrypt** ou **TrustServerCertificate** na cadeia de ligação.
 
 Como uma boa prática, recomende que na cadeia de ligação da sua aplicação especifique uma ligação encriptada e _**não**_ confie no certificado de servidor. Isto força a sua aplicação a verificar o certificado de servidor e assim impede que a sua aplicação seja vulnerável ao homem nos ataques do tipo médio.
 

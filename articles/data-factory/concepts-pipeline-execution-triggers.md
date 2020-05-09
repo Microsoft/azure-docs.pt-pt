@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.openlocfilehash: fac9933c57a54736aed5ccfdd54d126f0ca32973
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a31f800ad157e22f3d35abae3d3b714fa29178ef
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418359"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562207"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Execução de pipelines e acionadores no Azure Data Factory
 
@@ -232,7 +232,7 @@ Para que o acionador de agenda desencadeie uma execução de pipeline, inclua um
 > [!IMPORTANT]
 > A propriedade **parameters** é uma propriedade obrigatória do elemento **pipelines**. Se o seu pipeline não utiliza parâmetros, deve incluir uma definição JSON vazia para a propriedade **parameters**.
 
-### <a name="schema-overview"></a>Descrição geral do esquema
+### <a name="schema-overview"></a>Schema overview (Descrição geral do esquema)
 A tabela que se segue fornece uma descrição geral de alto nível dos principais elementos do esquema relacionados com a periodicidade e o agendamento de um acionador:
 
 | Propriedade JSON | Descrição |
@@ -283,11 +283,11 @@ A tabela que se segue fornece uma descrição geral de alto nível dos principai
 
 | Propriedade JSON | Tipo | Necessário | Valor predefinido | Valores válidos | Exemplo |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | string | Sim | Nenhuma | Data-horas no formato ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **recorrência** | objeto | Sim | Nenhuma | Um objeto de periodicidade | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
-| **intervalo** | número | Não | 1 | 1 a 1000 | `"interval":10` |
-| **endTime** | string | Sim | Nenhuma | Um valor de data/hora que representa uma hora no futuro | `"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **agenda** | objeto | Não | Nenhuma | Um objeto de agenda | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| **startTime** | string | Sim | Nenhum | Data-horas no formato ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **recorrência** | objeto | Sim | Nenhum | Um objeto de periodicidade | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **intervalo** | número | No | 1 | 1 a 1000 | `"interval":10` |
+| **endTime** | string | Sim | Nenhum | Um valor de data/hora que representa uma hora no futuro | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **agenda** | objeto | No | Nenhum | Um objeto de agenda | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Propriedade startTime
 A tabela que se segue mostra o modo como a propriedade **startTime** controla a execução de um acionador:
@@ -326,6 +326,9 @@ A tabela seguinte descreve os elementos de **schedule** de forma detalhada:
 Os acionadores de janela em cascata são um tipo de acionador que é acionado num intervalo de tempo periódico a partir de uma hora de início especificada, mantendo o estado. As janelas em cascata são uma série de intervalos de tempo com tamanho fixo, não sobrepostos e contínuos.
 
 Para obter mais informações sobre os gatilhos das janelas e, por exemplo, consulte [Criar um gatilho](how-to-create-tumbling-window-trigger.md)de janela caindo .
+
+> [!NOTE]
+> O gatilho da janela de tropeçar *espera que o gasoduto acionado termine.* O seu estado de execução reflete o estado da execução do gasoduto desencadeado. Por exemplo, se um gasoduto acionado for cancelado, o curso correspondente do gatilho da janela de tropeçar é marcado cancelado. Isto é diferente do comportamento "fogo e esquecimento" do gatilho do horário, que é marcado como bem sucedido desde que um gasoduto começou.
 
 ## <a name="event-based-trigger"></a>Acionador baseado em eventos
 

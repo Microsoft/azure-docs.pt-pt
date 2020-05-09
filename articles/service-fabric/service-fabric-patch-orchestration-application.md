@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: atsenthi
-ms.openlocfilehash: 857a4da0b24d600ecc572933af578e2e8faf501a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5a5ffdf217483c60836f67213c20ff3afd9043d5
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80366322"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82608920"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Remenda o sistema operativo Windows no seu cluster De Tecido de Serviço
 
@@ -165,7 +165,7 @@ Pode configurar o comportamento da POA para satisfazer as suas necessidades. Sob
 | WUOperationTimeTimeInMinutes | int <br>(Predefinido: *90)*                   | Especifica o prazo limite para qualquer operação de Atualização do Windows (pesquisar ou descarregar ou instalar). Se a operação não estiver concluída dentro do prazo previsto, é abortada.       |
 | WURescheduleCount     | int <br> (Predefinido: *5*)                  | O número máximo de vezes que o serviço remarca a atualização do Windows se uma operação falhar persistentemente.          |
 | WUReScheduleTimeInMinutes | int <br>(Predefinido: *30)* | O intervalo em que o serviço remarca as atualizações do Windows caso persista falha. |
-| WUFrequency           | Corda separada com vírina (Padrão: *Semanal, quarta-feira, 7:00:00*)     | A frequência para instalar atualizações do Windows. O formato e os valores possíveis são: <br>&nbsp;&nbsp;- Mensal: DD, HH:MM:SS (por exemplo, *Mensal, 5,12:22:32*)<br>Os valores permitidos para o campo DD (dia) são números de 1 a 28 e "último". <br> &nbsp;&nbsp;- Semanal, DIA, HH:MM:SS (por exemplo, *Semanal, terça-feira, 12:22:32*)  <br> &nbsp;&nbsp;- Diariamente, HH:MM:SS (por exemplo, *Diariamente, 12:22:32*)  <br> &nbsp;&nbsp;-  *Nenhuma* indica que as atualizações do Windows não devem ser feitas.  <br><br> Os tempos estão na UTC.|
+| WUFrequency           | Corda separada com vírina (Padrão: *Semanal, quarta-feira, 7:00:00*)     | A frequência para instalar atualizações do Windows. O formato e os valores possíveis são: <br>- Mensal, DD, HH:MM:SS (exemplo: *Mensal, 5, 12:22:32*). Os valores permitidos para o campo _DD_ (dia) são números de 1 a 28 e _último_. <br>- Semanal, Dia, HH:MM:SS (exemplo: *Semanal, terça-feira, 12:22:32*)  <br>- Diariamente, HH:MM:SS (exemplo: *Diariamente, 12:22:32*)  <br>- Semana, dia, HH:MM:SS (exemplo: *2, sexta-feira, 21:00:00* indica 2:00 PM UTC na sexta-feira da 2ª semana de cada mês) <br>- *Nenhuma* indica que as atualizações do Windows não devem ser feitas.  <br><br> Os tempos estão na UTC.|
 | AceitarWindowsUpdateEula | Booleano <br>(Padrão: *verdadeiro)* | Ao definir esta bandeira, a aplicação aceita o Contrato de Licença de Utilizador Final para Atualização do Windows em nome do proprietário da máquina.              |
 
 > [!TIP]
