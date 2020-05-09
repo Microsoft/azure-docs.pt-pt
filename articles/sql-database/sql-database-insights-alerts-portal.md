@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
-ms.date: 03/10/2020
-ms.openlocfilehash: 67c47b35e84a93d7d9032ad55b425ae2bb6971fe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/04/2020
+ms.openlocfilehash: 37eabd4b2f61a82388b1c8d0aaf4aef2320f008e
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79209500"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801812"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-azure-synapse-analytics-databases-using-azure-portal"></a>Criar alertas para bases de dados Azure SQL e Azure Synapse Analytics usando o portal Azure
 
@@ -24,8 +24,8 @@ ms.locfileid: "79209500"
 
 Este artigo mostra como configurar alertas para bases de dados individuais, pooled e data warehouse na Base de Dados Azure SQL e Azure Synapse Analytics (ex-Azure SQL Data Warehouse) usando o portal Azure. Os alertas podem enviar-lhe um e-mail ou chamar um gancho web quando alguma métrica (por exemplo, tamanho de base de dados ou utilização de CPU) atinge o limiar. Este artigo também fornece as melhores práticas para definir períodos de alerta.
 
-> [!IMPORTANT]
-> Esta funcionalidade ainda não está disponível em Managed Instance. Como alternativa, pode utilizar o Agente SQL para enviar alertas de e-mail para algumas métricas baseadas em Pontos de Vista de [Gestão Dinâmica](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
+> [!NOTE]
+> Para instruções específicas de instância gerida sql, consulte [Criar alertas para a Instância Gerida Azure SQL](sql-database-managed-instance-alerts.md).
 
 Pode receber um alerta com base em métricas de monitorização ou eventos nos seus serviços Azure.
 

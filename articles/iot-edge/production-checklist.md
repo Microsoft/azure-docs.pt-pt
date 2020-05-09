@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 173e663b66eeca676e8120dd46e8eca8b0126a17
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: e818de4885d3859199108d7d88e4cbcb215dc4cc
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204207"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780747"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Prepare-se para implementar a sua solução IoT Edge em produção
 
@@ -107,7 +107,7 @@ O hub IoT Edge está otimizado para o desempenho por padrão, pelo que tenta alo
 
 Quando o **OptimizeForPerformance** está definido para **ser verdade,** o chefe do protocolo MQTT utiliza o Localizador PooledByteBufferAl, que tem melhor desempenho mas aloca mais memória. O alocósero não funciona bem em sistemas operativos de 32 bits ou em dispositivos com pouca memória. Além disso, quando otimizado para o desempenho, o RocksDb aloca mais memória pelo seu papel como fornecedor de armazenamento local.
 
-Para obter mais informações, consulte [questões de estabilidade em dispositivos limitados](troubleshoot.md#stability-issues-on-resource-constrained-devices)de recursos .
+Para mais informações, consulte [questões de estabilidade em dispositivos mais pequenos](troubleshoot-common-errors.md#stability-issues-on-smaller-devices).
 
 #### <a name="disable-unused-protocols"></a>Desativar protocolos não utilizados
 
@@ -200,7 +200,7 @@ Em seguida, certifique-se de atualizar as referências de imagem no ficheiro dep
 
 ### <a name="review-outboundinbound-configuration"></a>Rever a configuração de saída/entrada
 
-Os canais de comunicação entre o Hub Azure IoT e o IoT Edge estão sempre configurados para estarem de saída. Para a maioria dos cenários de IoT Edge, apenas três ligações são necessárias. O motor do recipiente tem de se ligar ao registo do contentor (ou registos) que detém as imagens do módulo. O tempo de execução do IoT Edge precisa de se ligar ao IoT Hub para recuperar informações de configuração do dispositivo e enviar mensagens e telemetria. E se utilizar o fornecimento automático, o daemon IoT Edge precisa de se ligar ao Serviço de Provisionamento de Dispositivos. Para mais informações, consulte [as regras de configuração da Firewall e da porta](troubleshoot.md#firewall-and-port-configuration-rules-for-iot-edge-deployment).
+Os canais de comunicação entre o Hub Azure IoT e o IoT Edge estão sempre configurados para estarem de saída. Para a maioria dos cenários de IoT Edge, apenas três ligações são necessárias. O motor do recipiente tem de se ligar ao registo do contentor (ou registos) que detém as imagens do módulo. O tempo de execução do IoT Edge precisa de se ligar ao IoT Hub para recuperar informações de configuração do dispositivo e enviar mensagens e telemetria. E se utilizar o fornecimento automático, o daemon IoT Edge precisa de se ligar ao Serviço de Provisionamento de Dispositivos. Para mais informações, consulte [as regras de configuração da Firewall e da porta](troubleshoot.md#check-your-firewall-and-port-configuration-rules).
 
 ### <a name="allow-connections-from-iot-edge-devices"></a>Permitir ligações a partir de dispositivos IoT Edge
 
