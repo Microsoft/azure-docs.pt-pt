@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 00a98fdeb4b8febbcb9d1183fabffc7298cc9e4c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 083bad1aa9abd2cb8efe3520b0acecc9ab00853c
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81770731"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983878"
 ---
 # <a name="azure-synapse-analytics-workspace-preview-frequently-asked-questions"></a>Azure Synapse Analytics (pré-visualização do espaço de trabalho) frequentemente faz perguntas
 
@@ -94,9 +94,9 @@ R: O fluxo de dados permite que os engenheiros de dados desenvolvam lógica de t
 
 R: Experiência de inscrição única de ponta a ponta é um importante processo de autenticação na Synapse Analytics. Gerir e passar a identidade através de uma integração aAD completa é imprescindível.
 
-### <a name="q-how-do-i-get-access-to-files-and-folders-in-the-adlsg2"></a>P: Como posso ter acesso a ficheiros e pastas no ADLSg2
+### <a name="q-how-do-i-get-access-to-files-and-folders-in-the-adls-gen2"></a>P: Como posso ter acesso a ficheiros e pastas no ADLS Gen2
 
-R: O acesso a ficheiros e pastas é atualmente gerido através do ADLSg2. Para mais informações, consulte o controlo de [acesso ao armazenamento do Data Lake](../storage/blobs/data-lake-storage-access-control.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+R: O acesso a ficheiros e pastas é atualmente gerido através do ADLS Gen2. Para mais informações, consulte o controlo de [acesso ao armazenamento do Data Lake](../storage/blobs/data-lake-storage-access-control.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ### <a name="q-can-i-use-third-party-business-intelligence-tools-to-access-azure-synapse-analytics"></a>P: Posso usar ferramentas de inteligência empresarial de terceiros para aceder à Azure Synapse Analytics
 

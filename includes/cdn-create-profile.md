@@ -5,46 +5,40 @@ services: cdn
 author: SyntaxC4
 ms.service: azure-cdn
 ms.topic: include
-ms.date: 05/24/2018
+ms.date: 04/30/2020
 ms.author: cfowler
 ms.custom: include file
-ms.openlocfilehash: 8aa6cb3f10b86a6821cd93190ecc2135508739cb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d73a8d743a948cbd94a3af81fe2e77c45c0eeb67
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67593995"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996221"
 ---
 ## <a name="create-a-new-cdn-profile"></a>Criar um novo perfil da CDN
 
 Um perfil da CDN é um contentor de pontos finais da CDN e especifica um escalão de preço.
 
-1. No portal do Azure portal, na parte superior esquerda, selecione **Criar um recurso**. 
-    
-    O painel **Novo** é apresentado.
+1. No portal Azure, selecione **Criar um recurso** (na parte superior esquerda). O painel **Novo** é apresentado.
    
-2. Selecione **Web + Móvel** e, em seguida, selecione **CDN**.
+1. Procure e selecione **CDN,** então selecione **Criar:**
    
     ![Selecione o recurso CDN](./media/cdn-create-profile/cdn-new-resource.png)
 
     O painel de **perfil da CDN** aparece.
 
-3. Nas definições do perfil da CDN, utilize os valores especificados na tabela seguinte:
+1. Introduza os seguintes valores:
    
     | Definição  | Valor |
     | -------- | ----- |
-    | **Nome** | Introduza *my-cdn-perfil-123* como nome do perfil. Este nome deve ser globalmente exclusivo; se já estiver a ser utilizado, poderá introduzir um diferente. |
+    | **Nome** | Introduza *o perfil cdn-123* para o seu nome de perfil. Este nome deve ser globalmente único; se já está em uso, insira um nome diferente. |
     | **Subscrição** | Selecione uma subscrição do Azure na lista pendente. |
-    | **Grupo de recursos** | Selecione **Criar novo** e introduza *my-resource-group-123* como nome do grupo de recursos. Se já estiver a ser utilizado, poderá introduzir um diferente ou selecionar **Utilizar existente** e selecionar **my-resource-group-123** na lista pendente. | 
-    | **Localização do grupo de recursos** | Selecione **E.U.A. Central** na lista pendente. |
-    | **Nível de preços** | Selecione **Standard da Verizon** na lista pendente. |
+    | **Grupo de recursos** | Selecione **Criar novo** e introduza *cDNQuickstart-rg* para o nome do seu grupo de recursos, ou selecione **Use o existente** e escolha *CDNQuickstart-rg* se já tiver o grupo. | 
+    | **Localização do grupo de recursos** | Selecione um local perto de si da lista de lançamentos. |
+    | **Nível de preços** | Selecione uma opção **Standard Akamai** na lista de drop-down. (O tempo de implantação para o nível Akamai é de cerca de um minuto. O nível da Microsoft demora cerca de 10 minutos e os níveis Verizon demoram cerca de 90 minutos.) |
     | **Agora, crie um novo ponto final da CDN** | Deixe por selecionar. |  
    
     ![Novo perfil da CDN](./media/cdn-create-profile/cdn-new-profile.png)
 
-4. Selecione **Afixar ao dashboard** para guardar o perfil ao seu dashboard depois de criado.
-    
-5. Selecione **Criar** para criar o perfil. 
-
-    Apenas para os perfis **CDN do Azure Standard da Microsoft**, a conclusão do perfil demora normalmente duas horas. 
+1. Selecione **Criar** para criar o perfil.
 
