@@ -3,12 +3,12 @@ title: Tutorial - Implementar cluster vSphere em Azure
 description: Aprenda a implementar um cluster vSphere em Azure utilizando a Azure VMWare Solution (AVS)
 ms.topic: tutorial
 ms.date: 05/04/2020
-ms.openlocfilehash: a11928dd936c29b8be0816257a64deadacda4578
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: HT
+ms.openlocfilehash: 6a192454367f2e6ca071e9cfe0a9f1a94868cbdb
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/08/2020
-ms.locfileid: "82928555"
+ms.locfileid: "82977709"
 ---
 # <a name="tutorial-deploy-an-avs-private-cloud-in-azure"></a>Tutorial: Implementar uma nuvem privada AVS em Azure
 
@@ -33,7 +33,7 @@ Neste tutorial, ficará a saber como:
 Para utilizar a Solução Azure VMWare, tem primeiro de registar o fornecedor de recursos. O exemplo seguinte regista o fornecedor de recursos com a sua subscrição.
 
 ```azurecli-interactive
-az provider register -n Microsoft.VMwareVirtustream --subscription <your subscription ID>
+az provider register -n Microsoft.AVS --subscription <your subscription ID>
 ```
 
 Para obter formas adicionais de registar o fornecedor de recursos, consulte os fornecedores e tipos de [recursos do Azure.](../azure-resource-manager/management/resource-providers-and-types.md)

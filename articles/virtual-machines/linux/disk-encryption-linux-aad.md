@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: ee365d37a957350fa8a68da0f34149d3210d6238
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2ce3afb533aa33b88b15510eacc88c0884811cc6
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78970612"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792603"
 ---
 # <a name="enable-azure-disk-encryption-with-azure-ad-on-linux-vms-previous-release"></a>Ativar encriptação de disco Azure com AD Azure em VMs Linux (versão anterior)
 
@@ -158,7 +158,7 @@ A tabela seguinte lista os parâmetros de modelo do Gestor de Recursos para VMs 
 ## <a name="use-the-encryptformatall-feature-for-data-disks-on-linux-iaas-vms"></a><a name="bkmk_EFA"> </a>Utilize a funcionalidade EncryptFormatAll para discos de dados em VMs Linux IaaS
 O parâmetro EncryptFormatAll reduz o tempo para os discos de dados do Linux serem encriptados. As divisórias que satisfaçam determinados critérios são formatadas (com o seu sistema de ficheiros atual). Depois voltam a ser remontados ao sítio onde estavam antes da execução do comando. Se quiser excluir um disco de dados que satisfaça os critérios, pode desmontá-lo antes de executar o comando.
 
- Depois de executar este comando, quaisquer unidades que foram montadas anteriormente são formatadas. Em seguida, a camada de encriptação começa em cima da unidade agora vazia. Quando esta opção é selecionada, o disco de recursos efémeros ligado ao VM também é encriptado. Se a unidade efémera for recriada, é reformada e reencriptada para o VM pela solução de encriptação do disco Azure na próxima oportunidade.
+ Depois de executar este comando, quaisquer unidades que foram montadas anteriormente são formatadas. Em seguida, a camada de encriptação começa em cima da unidade agora vazia. Quando esta opção é selecionada, o disco temporário ligado ao VM também é encriptado. Se a unidade efémera for recriada, é reformada e reencriptada para o VM pela solução de encriptação do disco Azure na próxima oportunidade.
 
 >[!WARNING]
 > O EncryptFormatAll não deve ser utilizado quando existem dados necessários sobre os volumes de dados de um VM. Pode excluir discos da encriptação desmontando-os. Experimente o parâmetro EncryptFormatAll num VM de teste primeiro para compreender o parâmetro de funcionalidade e a sua implicação antes de o experimentar no VM de produção. A opção EncryptFormatAll formata o disco de dados, pelo que todos os dados nele serão perdidos. Antes de prosseguir, verifique se os discos que pretende excluir estão devidamente desmontados. </br></br>
@@ -259,7 +259,7 @@ Pode adicionar um novo disco de dados utilizando a fixação do [disco Az vm](ad
 ### <a name="enable-encryption-on-a-newly-added-disk-with-the-azure-cli"></a>Ativar a encriptação num disco recém-adicionado com o Azure CLI
  Se o VM foi previamente encriptado com "All", então o parâmetro do tipo volume deve permanecer All. Tudo inclui os discos de OS e de dados. Se o VM foi previamente encriptado com um tipo de volume de "OS", então o parâmetro do tipo -volume deve ser alterado para Todos para que tanto o SISTEMA como o novo disco de dados sejam incluídos. Se o VM foi encriptado apenas com o tipo de volume de "Dados", então pode permanecer Data como demonstrado aqui. Adicionar e anexar um novo disco de dados a um VM não é uma preparação suficiente para encriptação. O disco recém-ligado também deve ser formatado e montado corretamente dentro do VM antes de ativar a encriptação. No Linux, o disco deve ser montado em /etc/fstab com um [nome de dispositivo](troubleshoot-device-names-problems.md)de bloco persistente . 
 
-Ao contrário da sintaxe Powershell, o CLI não requer que forneça uma versão de sequência única quando ativa a encriptação. O CLI gera automaticamente e utiliza o seu próprio valor de versão de sequência única.
+Ao contrário da sintaxe PowerShell, o CLI não requer que forneça uma versão de sequência única quando ativa a encriptação. O CLI gera automaticamente e utiliza o seu próprio valor de versão de sequência única.
 
 -  **Criptografe um VM em execução utilizando um segredo de cliente:** 
     
@@ -274,7 +274,7 @@ Ao contrário da sintaxe Powershell, o CLI não requer que forneça uma versão 
      ```
 
 ### <a name="enable-encryption-on-a-newly-added-disk-with-azure-powershell"></a>Ativar a encriptação num disco recém-adicionado com a Azure PowerShell
- Quando utiliza o Powershell para encriptar um novo disco para o Linux, é necessário especificar uma nova versão de sequência. A versão da sequência tem de ser única. O seguinte script gera um GUID para a versão de sequência. 
+ Quando utiliza o PowerShell para encriptar um novo disco para o Linux, é necessário especificar uma nova versão de sequência. A versão da sequência tem de ser única. O seguinte script gera um GUID para a versão de sequência. 
  
 
 -  **Criptografe um VM em execução utilizando um segredo** de cliente: O seguinte script inicializa as suas variáveis e executa o cmdlet set-AzVMDiskEncryptionExtension. O grupo de recursos, VM, cofre chave, app Azure AD e segredo de cliente já deveriam ter sido criados como pré-requisitos. Substitua o MyVirtualMachineResourceGroup, myKeyVaultResourceGroup, MySecureVM, MySecureVault, My-AAD-client-ID e o my-AAD-client-secret com os seus valores. O parâmetro -VolumeType é definido para discos de dados e não para o disco OS. Se o VM foi previamente encriptado com um tipo de volume de "OS" ou "All", então o parâmetro -VolumeType deve ser alterado para Todos para que tanto o SISTEMA como o novo disco de dados sejam incluídos.

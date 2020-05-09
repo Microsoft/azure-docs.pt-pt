@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54e3821d269d11397ec4f9f5833e33ac6b555abc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: faa80bf09113786e35a6ce98157f18639e30d210
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80755114"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582640"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Integrar as ligações de conta linkedIn no Diretório Ativo do Azure
 
@@ -30,8 +30,8 @@ Pode permitir que os utilizadores da sua organização acedam às suas ligaçõe
 > Exceções:
 >
 > * A definição não está disponível para clientes que utilizem o Microsoft Cloud para o Governo dos EUA, Microsoft Cloud Germany ou Azure e Office 365 operados pela 21Vianet na China.
-> * A fixação é destícida por defeito para os inquilinos aprovisionados na Alemanha. Note que a definição não está disponível para clientes que usam o Microsoft Cloud Germany.
-> * A fixação é por defeito para os inquilinos aprovisionados em França.
+> * A definição é desligada por defeito para as organizações Azure AD aprovisionadas na Alemanha. Note que a definição não está disponível para clientes que usam o Microsoft Cloud Germany.
+> * A definição é desligada por defeito para as organizações aprovisionadas em França.
 >
 > Assim que as ligações de conta do LinkedIn estiverem ativadas para a sua organização, as ligações da conta funcionam após os utilizadores consentirem que as aplicações acedem aos dados da empresa em seu nome. Para obter informações sobre a definição de consentimento do utilizador, consulte como remover o [acesso de um utilizador a uma aplicação](https://docs.microsoft.com/azure/active-directory/application-access-assignment-how-to-remove-assignment).
 

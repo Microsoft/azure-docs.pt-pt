@@ -2,13 +2,13 @@
 title: Aplicação do Azure Migrate
 description: Fornece uma visão geral do aparelho Azure Migrate utilizado na avaliação e migração do servidor.
 ms.topic: conceptual
-ms.date: 04/23/2020
-ms.openlocfilehash: 71a17211a530b4cb55764f3b3ab84ff5a4d5f3e6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/04/2020
+ms.openlocfilehash: 439f6d9c80a0b93f071d30d580facc4604cabbac
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82106391"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780339"
 ---
 # <a name="azure-migrate-appliance"></a>Aplicação do Azure Migrate
 
@@ -42,6 +42,7 @@ A tabela que se segue resume os requisitos do aparelho Azure Migrate para vMware
 
 **Requisito** | **VMware** 
 --- | ---
+**Permissões** | Para aceder à aplicação web do aparelho local ou remotamente, é necessário ser administrador de domínio ou administração local na máquina do aparelho.
 **Componentes de aparelhos** | O aparelho tem os seguintes componentes:<br/><br/> - **Aplicativo de gestão**: Esta é uma aplicação web para a entrada do utilizador durante a implementação do aparelho. Usado na avaliação de máquinas para migração para Azure.<br/> - **Discovery agent**: O agente recolhe dados de configuração da máquina. Usado na avaliação de máquinas para migração para Azure.<br/>- **Agente de avaliação**: O agente recolhe dados de desempenho. Usado na avaliação de máquinas para migração para Azure.<br/>- **Serviço de atualização automática**: Atualiza os componentes do aparelho (funciona a cada 24 horas).<br/>- **Agente DRA**: Orquestra a replicação vm e coordena a comunicação entre máquinas replicadas e Azure. Usado apenas quando replica VMware VMs para Azure usando migração sem agente.<br/>- **Gateway**: Envia dados replicados para o Azure. Usado apenas quando replica VMware VMs para Azure usando migração sem agente.
 **Implantação apoiada** | Implemente como VMware VM utilizando o modelo OVA.<br/><br/> Implemente como VMware VM ou máquina física utilizando o script de instalação PowerShell.
 **Apoio ao projeto** |  Um aparelho pode ser associado a um único projeto. <br/> Qualquer número de aparelhos pode ser associado a um único projeto.<br/> 
@@ -61,6 +62,7 @@ A tabela que se segue resume os requisitos do aparelho Azure Migrate para vMware
 
 **Requisito** | **Hyper-V** 
 --- | ---
+**Permissões** | Para aceder à aplicação web do aparelho local ou remotamente, é necessário ser administrador de domínio ou administração local na máquina do aparelho.
 **Componentes de aparelhos** | O aparelho tem os seguintes componentes:<br/><br/>- **Aplicativo de gestão**: Esta é uma aplicação web para a entrada do utilizador durante a implementação do aparelho. Usado na avaliação de máquinas para migração para Azure.<br/> - **Discovery agent**: O agente recolhe dados de configuração da máquina. Usado na avaliação de máquinas para migração para Azure.<br/>- **Agente de avaliação**: O agente recolhe dados de desempenho. Usado na avaliação de máquinas para migração para Azure.<br/>- **Serviço de atualização automática**: Atualiza os componentes do aparelho (funciona a cada 24 horas).
 **Implantação apoiada** | Desdobre como Hyper-V VM utilizando um modelo VHD.<br/><br/> Desloque-se como um VM hiper-V ou uma máquina física utilizando um script de instalação PowerShell.
 **Apoio ao projeto** |  Um aparelho pode ser associado a um único projeto. <br/> Qualquer número de aparelhos pode ser associado a um único projeto.<br/> 
@@ -77,12 +79,13 @@ A tabela que se segue resume os requisitos do aparelho Azure Migrate para vMware
 
 **Requisito** | **Físico** 
 --- | ---
+**Permissões** | Para aceder à aplicação web do aparelho local ou remotamente, é necessário ser administrador de domínio ou administração local na máquina do aparelho.
 **Componentes de aparelhos** | O aparelho tem os seguintes componentes: <br/><br/> - **Aplicativo de gestão**: Esta é uma aplicação web para a entrada do utilizador durante a implementação do aparelho. Usado na avaliação de máquinas para migração para Azure.<br/> - **Discovery agent**: O agente recolhe dados de configuração da máquina. Usado na avaliação de máquinas para migração para Azure.<br/>- **Agente de avaliação**: O agente recolhe dados de desempenho. Usado na avaliação de máquinas para migração para Azure.<br/>- **Serviço de atualização automática**: Atualiza os componentes do aparelho (funciona a cada 24 horas).
 **Implantação apoiada** | Desloque-se como uma máquina física dedicada, ou um VM, utilizando um script de instalação PowerShell. O script está disponível para download a partir do portal.
 **Apoio ao projeto** |  Um aparelho pode ser associado a um único projeto. <br/> Qualquer número de aparelhos pode ser associado a um único projeto.<br/> 
 **Limites de descoberta** | Um aparelho pode descobrir até 250 servidores físicos.
 **Script do PowerShell** | Descarregue o script (AzureMigrateInstaller.ps1) numa pasta com fecho a partir do portal. [Saiba mais](tutorial-assess-physical.md#set-up-the-appliance). Em alternativa, [baixe diretamente](https://go.microsoft.com/fwlink/?linkid=2105112).<br/><br/> O tamanho do download é de 59,7 MB.
-**Software/hardware** |  O aparelho deve funcionar na máquina com o Windows Server 2016, 32-GB RAM, 8 vCPUs, cerca de 80 GB de armazenamento de disco e um interruptor virtual externo.<br/> O aparelho necessita de um endereço IP estático ou dinâmico e necessita de acesso à Internet, quer diretamente quer através de um representante.<br/><br/> Se executar o aparelho numa máquina física, certifique-se de que está a executar o Windows Server 2016 e cumpre os requisitos de hardware. 
+**Software/hardware** |  O aparelho deve funcionar na máquina com o Windows Server 2016, 32-GB RAM, 8 vCPUs, cerca de 80 GB de armazenamento de disco e um interruptor virtual externo.<br/> O aparelho necessita de um endereço IP estático ou dinâmico e necessita de acesso à Internet, quer diretamente quer através de um representante.<br/><br/> Se executar o aparelho numa máquina física, certifique-se de que está a executar o Windows Server 2016 e cumpre os requisitos de hardware.<br/> Não é suportado o funcionamento do aparelho numa máquina com o Windows Server 2019.
 **Valor de hash** | [Verifique](deploy-appliance-script.md#verify-file-security) os valores de hash do script PowerShell.
 
 ## <a name="url-access"></a>Acesso url
@@ -90,7 +93,8 @@ A tabela que se segue resume os requisitos do aparelho Azure Migrate para vMware
 O aparelho Azure Migrate precisa de conectividade com a internet.
 
 - Quando implanta o aparelho, a Azure Migrate faz uma verificação de conectividade aos URLs necessários.
-- Se estiver a usar um proxy baseado em URL para se ligar à internet, tem de permitir o acesso a estes URLs, certificando-se de que o proxy resolve quaisquer registos CNAME recebidos enquanto procura os URLs.
+- Tem de permitir o acesso a todos os URLs da lista. Se estiver a fazer apenas avaliação, pode saltar os URLs que estão marcados como necessários apenas para a migração sem agente VMware.
+-  Se estiver a utilizar um representante baseado em URL para se ligar à internet, certifique-se de que o representante resolve quaisquer registos CNAME recebidos enquanto procura os URLs.
 
 ### <a name="public-cloud-urls"></a>URLs de nuvem pública
 
@@ -100,7 +104,7 @@ O aparelho Azure Migrate precisa de conectividade com a internet.
 *.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com | Inscreva-se na sua assinatura Azure.
 *.microsoftonline.com <br/> *.microsoftonline-p.com | Crie aplicativos azure Ative Directory (AD) para que o aparelho se comunique com a Azure Migrate.
 management.azure.com | Crie aplicativos Azure AD para o aparelho comunicar com o serviço Azure Migrate.
-dc.services.visualstudio.com | Faça upload dos registos de aplicativos utilizados para monitorização interna.
+*.services.visualstudio.com | Faça upload dos registos de aplicativos utilizados para monitorização interna.
 *.vault.azure.net | Gerencie segredos no Cofre de Chaves Azure.
 aka.ms/* | Permitir o acesso a links aka. Utilizado para atualizações de aparelhos Azure Migrate.
 download.microsoft.com/download | Permitir transferências a partir do download da Microsoft.
@@ -176,7 +180,7 @@ Endereços IPv6 | vm. Guest.Net
 Ler a entrada (MB por segundo) | net.received.average
 Escreva a entrada (MB por segundo) | net.transmitted.average
 **Detalhes do caminho do inventário** | 
-Nome | recipiente. GetType(). Nome
+Name | recipiente. GetType(). Nome
 Tipo de objeto infantil | recipiente. Tipo infantil
 Detalhes de referência | recipiente. MoRef
 Detalhes dos pais | Contentor.Pai
@@ -257,7 +261,7 @@ Os metadados descobertos pelo aparelho Azure Migrate ajudam-no a descobrir se as
 
 Aqui está a lista completa dos metadados Hyper-V VM que o aparelho recolhe e envia para o Azure.
 
-**DADOS* | **Classe WMI** | **PROPRIEDADE CLASSE WMI**
+**DADOS** | **Classe WMI** | **PROPRIEDADE CLASSE WMI**
 --- | --- | ---
 **Detalhes da máquina** | 
 Número de série de BIOS _ Msvm_BIOSElement | BIOSSerialNumber
@@ -298,6 +302,84 @@ Adaptador de rede virtual Hiper-V | Bytes Enviados/Segundo | Cálculo para o tam
 - A utilização do CPU é a soma de toda a utilização, para todos os processadores virtuais ligados a um VM.
 - A utilização da memória é (Pressão atual * Memória Física Visível do Hóspede) / 100.
 - Os valores de utilização do disco e da rede são recolhidos nos contadores de desempenho hiper-V listados.
+
+
+## <a name="collected-data---physical"></a>Dados recolhidos - Físico
+
+O aparelho recolhe metadados, dados de desempenho e dados de análise de dependência (se for utilizada [uma análise](concepts-dependency-visualization.md) de dependência sem agente).
+
+### <a name="windows-metadata"></a>Metadados do Windows
+
+Os metadados descobertos pelo aparelho Azure Migrate ajudam-no a descobrir se as máquinas e aplicações estão prontas para a migração para o Azure, máquinas e aplicações de tamanho direito, planos de custos e análise de dependências de aplicações. A Microsoft não utiliza estes dados em nenhuma auditoria de conformidade com a licença.
+
+Aqui está a lista completa dos metadados do servidor do Windows que o aparelho recolhe e envia para o Azure.
+
+**DADOS** | **Classe WMI** | **PROPRIEDADE CLASSE WMI**
+--- | --- | ---
+FQDN | Win32_ComputerSystem | Domínio, Nome, PartofDomain
+Contagem do núcleo do processador | Win32_PRocessor | NumberOfCores
+Memória atribuída | Win32_ComputerSystem | Memória Total Física
+Número de série bios | Win32_ComputerSystemProduct | Número de identificação
+BIOS GUID | Win32_ComputerSystemProduct | UUID
+Tipo de arranque | Win32_DiskPartition | Verifique a partilha com o Tipo = **GPT:Sistema** de EFI/BIOS
+Nome os | Win32_OperatingSystem | Legenda
+Versão do SO |Win32_OperatingSystem | Versão
+Arquitetura osso | Win32_OperatingSystem | ARQUITETURA OS
+Contagem de discos | Win32_DiskDrive | Modelo, Tamanho, DispositivoID, MediaType, Nome
+Tamanho do disco | Win32_DiskDrive | Tamanho
+Lista NIC | Win32_NetworkAdapterConfiguration | Descrição, Índice
+Endereço IP NIC | Win32_NetworkAdapterConfiguration | IPAddress
+Endereço NIC MAC | Win32_NetworkAdapterConfiguration | MACAddress
+
+### <a name="linux-metadata"></a>Metadados Linux
+
+Aqui está a lista completa dos metadados do servidor Linux que o aparelho recolhe e envia para o Azure.
+
+**DADOS** | **LINUX** 
+--- | --- 
+FQDN | gato /proc/sys/kernel/hostname, nome de anfitrião -f
+Contagem do núcleo do processador |  /proc/cpuinfo \| awk '/^processador/{print $3}' \| wc -l
+Memória atribuída | gato /proc/meminfo \| grep \| MemTotal awk '{printf "%.0f", $2/1024}'
+Número de série bios | Lshw \| grep "serial:" \| head \| -n1 awk '{print $2}' <br/> /usr/sbin/dmidecode -t \| 1 grep \| 'Serial' awk '{ $1="" ; $2="; print}'
+BIOS GUID | gato /sys/class/dmi/id/product_uuid
+Tipo de arranque | [ -d /sys/firmware/efi ] && \| \| eco EFI echo BIOS
+Nome/versão osso | Acedemos a estes ficheiros para a versão e nome sinuosos:<br/><br/> /etc/os-release<br/> /usr/lib/os-release <br/> /etc/lançamento da empresa <br/> /etc/redhat-release<br/> /etc/oráculo-libertação<br/>  /etc/Libertação suSE<br/>  /etc/lsb-release  <br/> /etc/debian_version
+Arquitetura osso | Uname -m
+Contagem de discos | fdisk -l \| egrep 'Disk.*bytes' \| awk '{print $2}' \| cut -f1 -d ':'
+Disco de arranque | df /boot \| sed -n 2p \| awk '{print $1}'
+Tamanho do disco | fdisk -l \| egrep 'Disk.*bytes' \| egrep $disk: \| awk '{print $5}'
+Lista NIC | ip -o -4 \| addr mostrar awk '{print $2}'
+Endereço IP NIC | ip addr \| mostrar $nic grep inet \| awk \| '{print $2}' cut -f1-d "/" 
+Endereço NIC MAC | ip addr \| mostrar $nic ether \| grep awk '{print $2}'
+
+### <a name="windows-performance-data"></a>Dados de desempenho do Windows
+
+Aqui estão os dados de desempenho do servidor do Windows que o aparelho recolhe e envia para o Azure.
+
+**Dados** | **Classe WMI** | **Propriedade classe WMI**
+--- | --- | ---
+Utilização da CPU | Win32_PerfFormattedData_PerfOS_Processor | PercentidleTime
+Uso da memória | Win32_PerfFormattedData_PerfOS_Memory | MBytes disponíveis
+Contagem nic | Win32_PerfFormattedData_Tcpip_NetworkInterface | Faça a contagem do dispositivo de rede.
+Dados recebidos por NIC | Win32_PerfFormattedData_Tcpip_NetworkInterface  | BytesReceivedPerSec
+Dados transmitidos por NIC | BWin32_PerfFormattedData_Tcpip_NetworkInterface | BytesSentPersec
+Contagem de discos | BWin32_PerfFormattedData_PerfDisk_PhysicalDisk | Contagem de discos
+Detalhes do disco | Win32_PerfFormattedData_PerfDisk_PhysicalDisk | DiskWritesPerSec, DiskWriteBytesPerSec, DiskReadsPerSec, DiskReadBytesPerSec.
+
+### <a name="linux-performance-data"></a>Dados de desempenho do Linux
+
+Aqui estão os dados de desempenho do servidor Linux que o aparelho recolhe e envia para o Azure.
+
+**Dados** | **Linux** 
+--- | --- 
+Utilização da CPU | gato /proc/stat/| grep 'cpu' /proc/stat
+Uso da memória | grep free \| \| Mem awk '{print $3/$2 * 100.0}'
+Contagem nic | Lshw -classe \| rede grep eth[0-60] \| wc -l
+Dados recebidos por NIC | gato /sys/class/net/eth$nic/statistics/rx_bytes
+Dados transmitidos por NIC | gato /sys/class/net/eth$nic/statistics/tx_bytes
+Contagem de discos | fdisk -l \| egrep 'Disk.*bytes' \| awk '{print $2}' \| cut -f1 -d ':'
+Detalhes do disco | gato /proc/diskstats
+
 
 ## <a name="appliance-upgrades"></a>Atualizações de aparelhos
 

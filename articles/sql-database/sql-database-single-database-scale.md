@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 03/10/2020
-ms.openlocfilehash: 84846e642fa102045b89eb12dbc85b0995867a3e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/30/2020
+ms.openlocfilehash: a13b860e01e7ef295df629d79dfa44700b5f0d02
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80061602"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691594"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Dimensionar recursos de base de dados individuais na Base de Dados Azure SQL
 
@@ -48,13 +48,27 @@ A alteração do nível de serviço ou do tamanho da computação envolve princi
 
 ## <a name="latency"></a>Latência 
 
-A latência estimada para alterar o nível de serviço ou redimensionar o tamanho do cálculo de uma única base de dados ou piscina elástica é parametrizada da seguinte forma:
+A latência estimada para alterar o nível de serviço, escalar o tamanho da computação de uma única base de dados ou piscina elástica, mover uma base de dados para dentro/para fora de uma piscina elástica, ou mover uma base de dados entre piscinas elásticas é parametrizada da seguinte forma:
 
 |Camada de serviços|Base de dados única básica,</br>Padrão (S0-S1)|Piscina elástica básica,</br>Padrão (S2-S12), </br>Hiperescala, </br>Base de dados única de propósito geral ou piscina elástica|Premium ou Business Critical única base de dados ou piscina elástica|
 |:---|:---|:---|:---|
 |**Base de</br> dados única básica, Standard (S0-S1)**|&bull;&nbsp;Latência de tempo constante independente do espaço utilizado</br>&bull;&nbsp;Tipicamente, menos de 5 minutos|&bull;&nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull;&nbsp;Tipicamente, menos de 1 minuto por GB de espaço usado|&bull;&nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull;&nbsp;Tipicamente, menos de 1 minuto por GB de espaço usado|
 |**Piscina elástica </br>básica, Standard (S2-S12), </br>Hiperescala, Base de </br>Dados Única de Propósito Geral ou piscina elástica**|&bull;&nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull;&nbsp;Tipicamente, menos de 1 minuto por GB de espaço usado|&bull;&nbsp;Latência de tempo constante independente do espaço utilizado</br>&bull;&nbsp;Tipicamente, menos de 5 minutos|&bull;&nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull;&nbsp;Tipicamente, menos de 1 minuto por GB de espaço usado|
 |**Premium ou Business Critical única base de dados ou piscina elástica**|&bull;&nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull;&nbsp;Tipicamente, menos de 1 minuto por GB de espaço usado|&bull;&nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull;&nbsp;Tipicamente, menos de 1 minuto por GB de espaço usado|&bull;&nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull;&nbsp;Tipicamente, menos de 1 minuto por GB de espaço usado|
+
+> [!NOTE]
+> Adicionalmente, para as bases de dados Standard (S2-S12) e General Purpose, a latência para mover uma base de dados dentro/fora de uma piscina elástica ou entre piscinas elásticas será proporcional ao tamanho da base de dados se a base de dados estiver a utilizar o armazenamento premium file Share[(PFS).](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)
+>
+> Para determinar se uma base de dados está a utilizar o armazenamento de PFS, execute a seguinte consulta no contexto da base de dados. Se o valor na coluna `PremiumFileStorage`AccountType estiver, a base de dados está a utilizar o armazenamento de PFS.
+ 
+```sql
+SELECT s.file_id,
+       s.type_desc,
+       s.name,
+       FILEPROPERTYEX(s.name, 'AccountType') AS AccountType
+FROM sys.database_files AS s
+WHERE s.type_desc IN ('ROWS', 'LOG');
+```
 
 > [!TIP]
 > Para monitorizar as operações em curso, consulte: [Gerir as operações utilizando o SQL REST API](https://docs.microsoft.com/rest/api/sql/operations/list), [Gerir as operações utilizando cli,](/cli/azure/sql/db/op) [monitorizar as operações utilizando o T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) e estes dois comandos PowerShell: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) e [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).

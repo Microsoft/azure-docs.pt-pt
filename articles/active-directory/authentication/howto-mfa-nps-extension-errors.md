@@ -11,12 +11,13 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 330363a78aa9b642f4794cee40bbf040d3484b4b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 09468272397925d9afd1d3014f4fcc1d6a222198
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80653719"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611386"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Resolver mensagens de erro da extensão NPS para Multi-Factor Authentication do Azure
 
@@ -66,9 +67,9 @@ Se encontrar erros com a extensão NPS para autenticação de multi-factores Azu
 
 Por vezes, os utilizadores podem receber mensagens da Autenticação Multi-Factor porque o seu pedido de autenticação falhou. Estes não são erros no produto da configuração, mas são avisos intencionais explicando por que um pedido de autenticação foi negado.
 
-| Código de erro | Mensagem de erro | Passos recomendados | 
+| Código de erro | Mensagem de erro | Passos recomendados |
 | ---------- | ------------- | ----------------- |
-| **JuramentoCódigoIn** | Código errado introduzido\CÓDIGO OATH Incorreto | O utilizador introduziu o código errado. Peça-lhes que tentem novamente solicitando um novo código ou insintendo novamente. | 
+| **JuramentoCódigoIn** | Código errado introduzido\CÓDIGO OATH Incorreto | O utilizador introduziu o código errado. Peça-lhes que tentem novamente solicitando um novo código ou insintendo novamente. |
 | **SMSAuthFailedMaxAllowedCodeRetryReached** | Máximo permitido retry código alcançado | O utilizador falhou no desafio de verificação demasiadas vezes. Dependendo das suas definições, elas podem precisar de ser desbloqueadas por um administrador agora.  |
 | **SMSAuthFailedWrongCodeEntered** | Código errado introduzido/Mensagem de Texto OTP Incorreto | O utilizador introduziu o código errado. Peça-lhes que tentem novamente solicitando um novo código ou insintendo novamente. |
 

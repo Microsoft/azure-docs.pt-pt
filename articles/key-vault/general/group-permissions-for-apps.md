@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: db6b8b2ff199b7b26d0c641ded31a5c1417468b9
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
-ms.translationtype: HT
+ms.openlocfilehash: 9ba568f3a6b6e85ce90db7d6b4d72c2c0d958da1
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901266"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982739"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>Forneça a autenticação do Cofre chave com uma política de controlo de acesso
 
@@ -60,7 +60,7 @@ O objectid para aplicações corresponde ao seu diretor de serviço associado. P
 
 Existem duas formas de obter um objectId para uma aplicação.  A primeira é registar a sua candidatura no Azure Ative Directory. Para tal, siga os passos no quickstart [Registe uma aplicação com a plataforma de identidade Microsoft](../../active-directory/develop/quickstart-register-app.md). Quando o registo estiver concluído, o objectid será listado como o "Id de aplicação (cliente) ".
 
-A segunda é criar um diretor de serviço numa janela terminal. Com o Azure CLI, utilize o comando [az ad sp create-for-rbac,](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) e forneça um nome de princípio de serviço único à bandeira -n no formato "http://<my-unique-service-principle-principle>".
+A segunda é criar um diretor de serviço numa janela terminal. Com o Azure CLI, utilize o comando [az ad sp create-for-rbac,](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) e forneça um&lt;nome de princípio de serviço&gt;único à bandeira -n no formato "http:// meu nome único de princípio de serviço".
 
 ```azurecli-interactive
 az ad sp create-for-rbac -n "http://<my-unique-service-principle-name"

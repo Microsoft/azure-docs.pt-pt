@@ -8,16 +8,21 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: 2e4a6ab8825982969ffa4654c2418f7a9d168d2e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d7be56fa48887e2ee500f1b253c078bde16d91e6
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75460711"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891234"
 ---
 # <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Analisadores para processamento de texto em Pesquisa Cognitiva Azure
 
 Um *analisador* é um componente do motor de pesquisa de [texto completo](search-lucene-query-architecture.md) responsável pelo processamento de texto em cordas de consulta e documentos indexados. Diferentes analisadores manipulam texto de diferentes maneiras dependendo do cenário. Os analisadores de linguagem processam texto usando regras linguísticas para melhorar a qualidade da pesquisa, enquanto outros analisadores executam tarefas mais básicas como converter caracteres em minúsculas, por exemplo. 
+
+O segmento de vídeo seguinte avança para uma explicação de como o processamento de texto funciona na Pesquisa Cognitiva Azure.
+
+> [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=132&end=189]
+
 
 Os analisadores de linguagem são os mais utilizados, e há um analisador de linguagem padrão atribuído a todos os campos pesquisáveis num índice de Pesquisa Cognitiva Azure. As seguintes transformações linguísticas são típicas durante a análise de texto:
 

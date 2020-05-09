@@ -1,5 +1,5 @@
 ---
-title: Administradores de subscrição clássicos do Azure Microsoft Docs
+title: Administradores de subscrição clássicos do Azure
 description: Descreve como adicionar ou alterar as funções de Coadministrador e Administrador de Serviço seleções do Azure e como visualizar o Administrador de Conta.
 services: active-directory
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 01/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 2493e893f9afda0642bd838c94538dd0b984bce5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cacdeee4512c512b058be96c4fe3a829c2933f06
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79243487"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734863"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administradores de subscrição clássicos do Azure
 
-A Microsoft recomenda que gere o acesso aos recursos do Azure utilizando o controlo de acesso baseado em funções (RBAC). No entanto, se ainda estiver a utilizar o modelo de implementação clássico, terá de utilizar uma função clássica de administrador de subscrição: Administrador de Serviço e Coadministrador. Para mais informações, consulte [O Gestor de Recursos Azure vs. implantação clássica](../azure-resource-manager/management/deployment-models.md).
+A Microsoft recomenda que gere o acesso aos recursos do Azure utilizando o controlo de acesso baseado em funções do Azure (Azure RBAC). No entanto, se ainda estiver a utilizar o modelo de implementação clássico, terá de utilizar uma função clássica de administrador de subscrição: Administrador de Serviço e Coadministrador. Para mais informações, consulte [O Gestor de Recursos Azure vs. implantação clássica](../azure-resource-manager/management/deployment-models.md).
 
 Este artigo descreve como adicionar ou alterar as funções de Coadministrador e Administrador de Serviço, e como visualizar o Administrador de Conta.
 
@@ -71,9 +71,9 @@ Os utilizadores convidados que tenham sido atribuídos ao papel de Coadministrad
 
 Seria de esperar que o utilizador B conseguisse gerir tudo. A razão para esta diferença é que a conta Microsoft é adicionada à subscrição como utilizador convidado em vez de um utilizador membro. Os utilizadores de hóspedes têm diferentes permissões padrão em AD Azure em comparação com os utilizadores membros. Por exemplo, os utilizadores membros podem ler outros utilizadores em AD Azure e os utilizadores de hóspedes não podem. Os utilizadores membros podem registar novos diretores de serviço em Azure AD e os utilizadores convidados não podem.
 
-Se um utilizador convidado precisar de ser capaz de executar estas tarefas, uma solução possível é atribuir as funções específicas de administrador da AD Azure que o utilizador convidado necessita. Por exemplo, no cenário anterior, poderia atribuir a função de Leitores de [Diretório](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) para ler outros utilizadores e atribuir a função de Desenvolvedor de [Aplicações](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer) para poder criar diretores de serviço. Para obter mais informações sobre os utilizadores membros e convidados e as suas permissões, consulte [as permissões padrão dos utilizadores no Diretório Ativo do Azure?](../active-directory/fundamentals/users-default-permissions.md) Para obter mais informações sobre a concessão de acesso aos utilizadores convidados, consulte [Gerir o acesso aos recursos do Azure para utilizadores externos que utilizem o RBAC.](role-assignments-external-users.md)
+Se um utilizador convidado precisar de ser capaz de executar estas tarefas, uma solução possível é atribuir as funções específicas de AD Azure que o utilizador convidado necessita. Por exemplo, no cenário anterior, poderia atribuir a função de Leitores de [Diretório](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) para ler outros utilizadores e atribuir a função de Desenvolvedor de [Aplicações](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer) para poder criar diretores de serviço. Para obter mais informações sobre os utilizadores membros e convidados e as suas permissões, consulte [as permissões padrão dos utilizadores no Diretório Ativo do Azure?](../active-directory/fundamentals/users-default-permissions.md) Para obter mais informações sobre a concessão de acesso aos utilizadores convidados, consulte Adicionar ou remover atribuições de [funções azure para utilizadores externos usando o portal Azure](role-assignments-external-users.md).
 
-Note que as [funções incorporadas para os recursos Azure](../role-based-access-control/built-in-roles.md) são diferentes das funções de [administrador da AD Azure.](../active-directory/users-groups-roles/directory-assign-admin-roles.md) As funções incorporadas não concedem acesso a Azure AD. Para mais informações, consulte [Compreender os diferentes papéis.](../role-based-access-control/rbac-and-directory-admin-roles.md)
+Note que as [funções azure incorporadas](../role-based-access-control/built-in-roles.md) são diferentes das [funções azure AD](../active-directory/users-groups-roles/directory-assign-admin-roles.md). As funções incorporadas não concedem acesso a Azure AD. Para mais informações, consulte [Compreender os diferentes papéis.](../role-based-access-control/rbac-and-directory-admin-roles.md)
 
 Para obter informações que comparem utilizadores membros e utilizadores convidados, consulte [as permissões padrão dos utilizadores no Diretório Ativo do Azure?](../active-directory/fundamentals/users-default-permissions.md)
 
@@ -126,7 +126,7 @@ Só pode haver um Administrador de Serviço por subscrição azure. A alteraçã
 | Conta administradora de conta | Pode alterar o Administrador de Serviço para uma conta Microsoft diferente? | Pode alterar o Administrador de Serviço para uma conta Azure AD no mesmo diretório? | Pode alterar o Administrador de Serviço para uma conta Azure AD num diretório diferente? |
 | --- | --- | --- | --- |
 | Conta Microsoft | Sim | Não | Não |
-| Conta do Azure AD | Sim | Sim | Não |
+| Conta do Azure AD | Sim | Sim | No |
 
 Se o Administrador de Conta for uma conta Azure AD, pode alterar o Administrador de Serviço para uma conta Azure AD no mesmo diretório, mas não num diretório diferente. Por abby@contoso.com exemplo, pode alterar bob@contoso.como Administrador de Serviço john@notcontoso.com para, mas não pode alterar o Administrador de Serviço para a menos que john@notcontoso.com tenha uma presença no diretório contoso.com.
 
@@ -150,6 +150,6 @@ Siga estes passos para visualizar o Administrador de Conta.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Compreender as diferentes funções no Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
-* [Manage access to Azure resources using RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md) (Gerir o acesso a recursos do Azure com RBAC e o portal do Azure)
+* [Compreender as diferentes funções](../role-based-access-control/rbac-and-directory-admin-roles.md)
+* [Adicione ou remova atribuições de funções Azure utilizando o portal Azure](../role-based-access-control/role-assignments-portal.md)
 * [Adicionar ou alterar administradores de subscrição do Azure](../cost-management-billing/manage/add-change-subscription-administrator.md)
