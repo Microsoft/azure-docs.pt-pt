@@ -1,6 +1,6 @@
 ---
-title: Adicionar ou remover atribuições de funções utilizando o Azure RBAC e o Azure CLI
-description: Saiba como conceder acesso aos recursos do Azure para utilizadores, grupos, diretores de serviços ou identidades geridas utilizando o controlo de acesso baseado em funções azure (RBAC) e Azure CLI.
+title: Adicione ou remova atribuições de funções Azure utilizando o Azure CLI - Azure RBAC
+description: Saiba como conceder acesso aos recursos do Azure para utilizadores, grupos, diretores de serviços ou identidades geridas utilizando o controlo de acesso baseado em papel Azure CLI e Azure (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b32df50715d5e7276861e0696df1bd6ceb3f684e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3a66482aeee7832baa91fe98357b870e2a280912
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79245671"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735781"
 ---
-# <a name="add-or-remove-role-assignments-using-azure-rbac-and-azure-cli"></a>Adicionar ou remover atribuições de funções utilizando o Azure RBAC e o Azure CLI
+# <a name="add-or-remove-azure-role-assignments-using-azure-cli"></a>Adicione ou remova atribuições de funções Azure utilizando o Azure CLI
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)]Este artigo descreve como atribuir funções usando o Azure CLI.
 
@@ -62,7 +62,7 @@ az ad sp list --display-name "{name}" --query [].objectId --output tsv
 
 ## <a name="add-a-role-assignment"></a>Adicionar uma atribuição de função
 
-No RBAC, para conceder acesso, adiciona-se uma atribuição de funções.
+No Azure RBAC, para conceder acesso, adiciona-se uma atribuição de funções.
 
 ### <a name="user-at-a-resource-group-scope"></a>Utilizador num âmbito de grupo de recursos
 
@@ -97,7 +97,7 @@ Para adicionar uma atribuição de funções usando o ID de função único em v
 az role assignment create --role <role_id> --assignee <assignee> --resource-group <resource_group>
 ```
 
-O exemplo seguinte atribui o papel de [Colaborador da Máquina Virtual](built-in-roles.md#virtual-machine-contributor) ao *patlong\@contoso.com* utilizador no âmbito do grupo de recursos de venda de *pharma.* Para obter o ID de função único, você pode usar a lista de definição de [papel az](/cli/azure/role/definition#az-role-definition-list) ou ver [papéis incorporados para recursos Azure](built-in-roles.md).
+O exemplo seguinte atribui o papel de [Colaborador da Máquina Virtual](built-in-roles.md#virtual-machine-contributor) ao *patlong\@contoso.com* utilizador no âmbito do grupo de recursos de venda de *pharma.* Para obter o ID de função único, você pode usar a lista de definição de [papel az](/cli/azure/role/definition#az-role-definition-list) ou ver [papéis azure incorporados](built-in-roles.md).
 
 ```azurecli
 az role assignment create --role 9980e02c-c2be-4d73-94e8-173b1dc7cf3c --assignee patlong@contoso.com --resource-group pharma-sales
@@ -187,7 +187,7 @@ az role assignment create --role "Virtual Machine Contributor" --assignee-object
 
 ## <a name="remove-a-role-assignment"></a>Remover uma atribuição de função
 
-No RBAC, para remover o acesso, remove-se uma atribuição de funções utilizando a [atribuição de funções az:](/cli/azure/role/assignment#az-role-assignment-delete)
+No Azure RBAC, para remover o acesso, remove-se uma atribuição de funções utilizando a [atribuição de funções az:](/cli/azure/role/assignment#az-role-assignment-delete)
 
 ```azurecli
 az role assignment delete --assignee <assignee> --role <role_name_or_id> --resource-group <resource_group>
@@ -213,5 +213,5 @@ az role assignment delete --assignee alain@example.com --role "Billing Reader" -
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Atribuição de papéis de lista utilizando Azure RBAC e Azure CLI](role-assignments-list-cli.md)
+- [Atribuição de funções da List Azure utilizando o Azure CLI](role-assignments-list-cli.md)
 - [Utilize o Azure CLI para gerir os recursos e grupos de recursos do Azure](../azure-resource-manager/cli-azure-resource-manager.md)

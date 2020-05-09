@@ -3,16 +3,16 @@ title: Editar e gerir aplicações lógicas utilizando o Estúdio Visual com o C
 description: Editar, atualizar, gerir, adicionar ao controlo de fontes e implementar aplicações lógicas usando o Visual Studio com o Cloud Explorer
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.custom: mvc
-ms.date: 10/29/2019
-ms.openlocfilehash: 73df5b7f10e038b6894996eb83dec7b6914a4536
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/29/2020
+ms.openlocfilehash: 62807ef25fe6ee70844e72c90751eb383d0ece7c
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80803195"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598441"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gerir aplicações lógicas com o Visual Studio
 
@@ -45,9 +45,9 @@ Também pode [gerir as suas aplicações lógicas no portal Azure.](manage-logic
 
   * As mais recentes ferramentas de aplicações da Azure Logic apps para a extensão do Estúdio Visual para a versão que deseja:
 
-    * [Visual Studio 2019](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019)
+    * [Visual Studio 2019](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019)
 
-    * [Estúdio Visual 2017](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2017)
+    * [Visual Studio 2017](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2017)
 
     * [Visual Studio 2015](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015)
 
@@ -259,7 +259,11 @@ Para eliminar a sua aplicação lógica do portal Azure, no Cloud Explorer, abra
 ![Elimine a sua aplicação lógica do portal Azure](./media/manage-logic-apps-with-visual-studio/delete-logic-app-from-azure-portal.png)
 
 > [!NOTE]
-> Quando elimina uma aplicação lógica, não são instanciadas novas execuções. Todas as execuções em curso e pendentes são canceladas. Se tiver milhares de execuções, o cancelamento pode demorar muito tempo a concluir. 
+> Quando elimina uma aplicação lógica, não são instanciadas novas execuções. Todas as execuções em curso e pendentes são canceladas. Se tiver milhares de execuções, o cancelamento pode demorar muito tempo a concluir.
+
+> [!NOTE]
+> Se eliminar e recriar uma aplicação de lógica infantil, terá de resalvar a aplicação lógica dos pais. A aplicação infantil recriada terá diferentes metadados.
+> Se não resalvar a aplicação lógica dos pais depois de recriar o seu filho, as suas chamadas para a aplicação lógica infantil falharão com um erro de "não autorizado". Este comportamento aplica-se a aplicações lógicas pais-filhos, por exemplo, aquelas que usam artefactos em contas de integração ou chamam funções de Azure.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 

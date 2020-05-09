@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 300f44daeeea5e8a774575dabcb00686906bb5de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b212316970b77d325552956cfacded2dc570234f
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80804372"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82778979"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Protect an API by using OAuth 2.0 with Azure Active Directory and API Management (Proteger uma API com o OAuth 2.0 com o Azure Active Directory e a Gestão de API)
 
@@ -79,7 +79,7 @@ Todas as aplicações de clientes que liguem para a API também têm de ser regi
     - Na secção **Nome,** introduza um nome de aplicação significativo que será exibido aos utilizadores da app, como a *aplicação cliente.'* 
     - Na secção de tipos de **conta suportada,** selecione **Contas em qualquer diretório organizacional (Qualquer diretório AD Azure - Multitenant)**. 
 
-1. Na secção **Redirecionamento URI,** selecione `Web` e introduza o URL `https://contoso5.portal.azure-api.net/signin`.
+1. Na secção **Redirecionamento URI,** selecione `Web` e deixe o campo URL vazio por enquanto.
 
 1. Selecione **Registar** para criar a aplicação. 
 
@@ -149,9 +149,9 @@ Neste exemplo, a Consola de Desenvolvimento é a aplicação cliente-app. Os seg
 
 1. Selecione **Criar**.
 
-1. Volte para a sua aplicação de cliente e **selecione Autenticação**.
+1. Volte ao registo da sua aplicação de cliente no Diretório Ativo Do Azure e **selecione Autenticação**.
 
-1. Em **Redirecione os URIs**, selecione o tipo como **Web**, repasse o **redirect_url** em **Redirect URI**, e, em seguida, guarde.
+1. Nas **configurações da Plataforma** clique em Adicionar uma **plataforma**, e selecione o tipo como **Web,** cola o **redirect_url** em **Redirect URI,** e depois clique no botão **Configure** para guardar.
 
 Agora que configuraum servidor de autorização OAuth 2.0, a Consola de Desenvolvimento pode obter fichas de acesso a partir de Azure AD. 
 

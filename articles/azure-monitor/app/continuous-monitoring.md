@@ -2,13 +2,13 @@
 title: Monitorização contínua do seu gasoduto de lançamento de DevOps com Pipelines Azure e Insights de Aplicação Azure [ Microsoft Docs
 description: Fornece instruções para configurar rapidamente a monitorização contínua com insights de aplicação
 ms.topic: conceptual
-ms.date: 07/16/2019
-ms.openlocfilehash: e565101218b975ef2bd29b8a32a4aa1bf4300b6d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/01/2020
+ms.openlocfilehash: 0d47fb1eccdfcfc7b2719825575f06dc85e62452
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77655400"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82652757"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Adicione monitorização contínua ao seu gasoduto de libertação
 
@@ -51,17 +51,19 @@ Fora da caixa, a implementação do Serviço de **Aplicações Azure com** model
 
 Para modificar as definições de regra de alerta:
 
-1. No painel esquerdo da página do pipeline de lançamento, **selecione Configurar Alertas**de Insights de Aplicação .
+No painel esquerdo da página do pipeline de lançamento, **selecione Configurar Alertas**de Insights de Aplicação .
 
-1. No painel **de alertas do Monitor Azure,** selecione a elipse... ao lado das **regras de Alerta.** **...**
-   
-1. No diálogo das **regras de alerta,** selecione o símbolo de drop-down ao lado de uma regra de alerta, como **disponibilidade**. 
-   
-1. Modifique o **Limiar** e outras definições para satisfazer os seus requisitos.
-   
-   ![Modificar alerta](media/continuous-monitoring/003.png)
-   
-1. Selecione **OK**e, em seguida, selecione **Guardar** na parte superior direita na janela Azure DevOps. Introduza um comentário descritivo e, em seguida, selecione **OK**.
+As quatro regras de alerta padrão são criadas através de um script Inline:
+
+```bash
+$subscription = az account show --query "id";$subscription.Trim("`"");$resource="/subscriptions/$subscription/resourcegroups/"+"$(Parameters.AppInsightsResourceGroupName)"+"/providers/microsoft.insights/components/" + "$(Parameters.ApplicationInsightsResourceName)";
+az monitor metrics alert create -n 'Availability_$(Release.DefinitionName)' -g $(Parameters.AppInsightsResourceGroupName) --scopes $resource --condition 'avg availabilityResults/availabilityPercentage < 99' --description "created from Azure DevOps";
+az monitor metrics alert create -n 'FailedRequests_$(Release.DefinitionName)' -g $(Parameters.AppInsightsResourceGroupName) --scopes $resource --condition 'count requests/failed > 5' --description "created from Azure DevOps";
+az monitor metrics alert create -n 'ServerResponseTime_$(Release.DefinitionName)' -g $(Parameters.AppInsightsResourceGroupName) --scopes $resource --condition 'avg requests/duration > 5' --description "created from Azure DevOps";
+az monitor metrics alert create -n 'ServerExceptions_$(Release.DefinitionName)' -g $(Parameters.AppInsightsResourceGroupName) --scopes $resource --condition 'count exceptions/server > 5' --description "created from Azure DevOps";
+```
+
+Pode modificar o script e adicionar regras adicionais de alerta, modificar as condições de alerta ou remover regras de alerta que não façam sentido para os seus propósitos de implementação.
 
 ## <a name="add-deployment-conditions"></a>Adicionar condições de implantação
 

@@ -4,12 +4,12 @@ description: Explicação passo a passo para restaurar o Sistema de Servidores d
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 08/18/2017
-ms.openlocfilehash: 6d46a091a4e620e26d05735f12a201009663e65d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 39cac84c4a33c1da209d0a0cc7b0f8ac8ee390a0
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77602463"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610790"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Restaurar o Estado do Sistema para o Servidor windows
 
@@ -124,7 +124,7 @@ Depois de ter recuperado o System State como ficheiros utilizando o Agente de Se
 
 2. Após o reboot, abra o encaixe de backup do Windows Server. Se não souber onde o snap-in foi instalado, procure no computador ou no servidor a cópia de segurança do **Windows Server**.
 
-    A aplicação de ambiente de trabalho aparece nos resultados da pesquisa.
+    A aplicação de ambiente de trabalho aparece nos resultados da pesquisa. Se não aparecer, ou encontrar erros ao abrir a aplicação, tem de instalar as **Funcionalidades**de Backup do Servidor do Windows e os componentes dependentes abaixo dela, que estão disponíveis no Assistente de **Funcionalidades de Adição** no Servidor **Manager**.
 
 3. No snap-in, selecione **Backup Local**.
 

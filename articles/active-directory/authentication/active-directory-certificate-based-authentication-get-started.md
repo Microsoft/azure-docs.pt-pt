@@ -11,12 +11,13 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a6c44a8253c81b44d02351b2df9c943d9f358f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 9c3ea7596e589431412489bea4ac9a23fa604540
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80654344"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610654"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Introdução à autenticação baseada em certificado no Azure Active Directory
 
@@ -45,7 +46,7 @@ Para configurar a autenticação baseada em certificados, as seguintes declaraç
 - Um certificado de cliente para autenticação de cliente deve ter sido emitido ao seu cliente.
 
 >[!IMPORTANT]
->O tamanho máximo de um CRL para o Azure Ative Directory para descarregar e cache com sucesso é de 20MB, e o tempo necessário para descarregar o CRL não deve exceder 10 segundos.  Se o Azure Ative Directory não conseguir descarregar um CRL, as autenticações baseadas em certificados utilizando certificados emitidos pela CA correspondente falharão. As melhores práticas para garantir que os ficheiros CRL estão dentro das restrições de tamanho são manter as vidas de certificado dentro de limites razoáveis e limpar certificados expirados. 
+>O tamanho máximo de um CRL para o Azure Ative Directory para descarregar e cache com sucesso é de 20MB, e o tempo necessário para descarregar o CRL não deve exceder 10 segundos.  Se o Azure Ative Directory não conseguir descarregar um CRL, as autenticações baseadas em certificados utilizando certificados emitidos pela CA correspondente falharão. As melhores práticas para garantir que os ficheiros CRL estão dentro das restrições de tamanho são manter as vidas de certificado dentro de limites razoáveis e limpar certificados expirados.
 
 ## <a name="step-1-select-your-device-platform"></a>Passo 1: Selecione a plataforma do seu dispositivo
 
