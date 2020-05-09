@@ -17,7 +17,7 @@ ms.reviewer: bagovind
 ms.custom: ''
 ms.openlocfilehash: 03edb8e5c58f0fe746921d50ab3f657f291d16da
 ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/03/2020
 ms.locfileid: "82735543"

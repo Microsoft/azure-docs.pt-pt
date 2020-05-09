@@ -13,7 +13,7 @@ ms.locfileid: "67184699"
 ---
 | Porto nº.| Dentro ou fora | Âmbito do porto| Necessário|   Notas |   |
 |--------|-----|-----|-----------|----------|-----------|
-| TCP 80 (HTTP)|Saída|WAN |Não|A porta de saída é utilizada para o acesso à Internet para recuperar atualizações. <br>O proxy web de saída é configurável pelo utilizador. |
+| TCP 80 (HTTP)|Saída|WAN |No|A porta de saída é utilizada para o acesso à Internet para recuperar atualizações. <br>O proxy web de saída é configurável pelo utilizador. |
 | TCP 443 (HTTPS)|Saída|WAN|Sim|A porta de saída é utilizada para aceder a dados na nuvem.<br>O proxy web de saída é configurável pelo utilizador.|
 | UDP 123 (NTP)|Saída|WAN|Em alguns casos<br>Ver notas|Esta porta só é necessária se estiver a utilizar um servidor NTP baseado na Internet.  |   
 | UDP 53 (DNS)|Saída|WAN|Em alguns casos<br>Ver notas|Esta porta só é necessária se estiver a utilizar um servidor DNS baseado na Internet.<br>Recomendamos a utilização de um servidor DNS local. |

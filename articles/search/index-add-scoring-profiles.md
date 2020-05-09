@@ -3,34 +3,29 @@ title: Aumentar o ranking de pesquisa usando perfis de pontuação
 titleSuffix: Azure Cognitive Search
 description: Aumente as pontuações de classificação de pesquisa para resultados de Pesquisa Cognitiva Azure adicionando perfis de pontuação.
 manager: nitinme
-author: Brjohnstmsft
-ms.author: brjohnst
+author: shmed
+ms.author: ramero
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/28/2019
-translation.priority.mt:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pt-br
-- ru-ru
-- zh-cn
-- zh-tw
-ms.openlocfilehash: c702ce72492201413d6c72af9dbf37347e49afdd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/06/2020
+ms.openlocfilehash: 56757d1c2810efe608601c231946b2242df82b19
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231106"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890169"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Adicionar perfis de classificação a um índice do Azure Cognitive Search
 
 *Marcar* calcula uma pontuação de pesquisa para cada item em um conjunto de resultados ordenado. Cada item de um conjunto de resultados de pesquisa é atribuído a uma pontuação de pesquisa, em seguida, classificado como o mais alto para o mais baixo.
 
  A Azure Cognitive Search utiliza a pontuação padrão para calcular uma pontuação inicial, mas pode personalizar o cálculo através de um *perfil de pontuação*. Os perfis de pontuação dão-lhe um maior controlo sobre o ranking dos itens nos resultados da pesquisa. Por exemplo, é possível que queira impulsionar itens com base no seu potencial de receitas, promover itens mais recentes ou talvez impulsionar itens que estão há demasiado tempo no inventário.  
+
+ O segmento de vídeo seguinte acelera para a forma como os perfis de pontuação funcionam na Pesquisa Cognitiva Azure.
+ 
+> [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=463&end=970]
+
+## <a name="scoring-profile-definitions"></a>Definições de perfil de pontuação
 
  Um perfil de pontuação faz parte da definição de índice, composta por campos ponderados, funções e parâmetros.  
 
@@ -286,6 +281,6 @@ A pontuação de pesquisa é calculada com base em propriedades estatísticas do
 
 ## <a name="see-also"></a>Consulte também  
 
-+ [Referência da API REST](https://docs.microsoft.com/rest/api/searchservice/)   
++ [Referência aPI REST](https://docs.microsoft.com/rest/api/searchservice/)   
 + [Criar API indexado](https://docs.microsoft.com/rest/api/searchservice/create-index)   
 + [Pesquisa Cognitiva Azure .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  

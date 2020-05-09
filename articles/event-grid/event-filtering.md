@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: spelluru
-ms.openlocfilehash: ab5dd716253875e4a992b94a4e143cb3e806a4b0
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 0f503b21d5a7d0fdfbee79354c198775789c0b91
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509657"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82888784"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Compreender a filtragem de eventos para subscrições da Grelha de Eventos
 
@@ -158,6 +158,7 @@ A filtragem avançada tem as seguintes limitações:
 * Cinco filtros avançados por subscrição da grelha de eventos
 * 512 caracteres por valor de cadeia
 * Cinco valores para **dentro** e **não para operadores**
+* Chaves com ** `.` (ponto)** caráter neles. Por `http://schemas.microsoft.com/claims/authnclassreference` exemplo: `john.doe@contoso.com`ou . Atualmente, não há suporte para caracteres de fuga em teclas. 
 
 A mesma tecla pode ser utilizada em mais de um filtro.
 

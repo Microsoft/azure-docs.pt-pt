@@ -1,20 +1,20 @@
 ---
-title: VMs de arranque/paragem de automatização azure durante a solução de horas de folga
+title: VMs de arranque/paragem de automatização azure durante a solução off-hours
 description: Este artigo descreve como configurar os VMs de início/paragem durante a solução off-hours para suportar diferentes casos ou cenários de utilização.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9842a736cf922e0490f2b0c8acb1d2e5833f3d6c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4cceb0d5ada82de73bc74c0ed408f8eb988ea8ec
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81604768"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864271"
 ---
-# <a name="how-to-configure-startstop-vms-during-off-hours-solution"></a>Como configurar Os VMs start/stop durante a solução de horas de folga
+# <a name="how-to-configure-startstop-vms-during-off-hours-solution"></a>Como configurar Os VMs start/stop durante a solução off-hours
 
-Com os **VMs iniciar/parar durante a** solução de horas de folga, pode:
+Com os **VMs iniciar/parar durante a solução off-hours,** pode:
 
 - [Agende VMs para começar e parar.](#schedule)
 - Agendar VMs para iniciar e parar em ordem ascendente [usando Tags Azure](#tags) (não suportados para VMs clássicos).
@@ -125,7 +125,7 @@ Ao executar o **livro de** AutoStop_CreateAlert_Parent, verifica que a subscriç
 
 ### <a name="to-target-the-autostop-action-to-a-list-of-vms"></a>Para direcionar a ação de paragem automática para uma lista de VMs
 
-1. Crie um novo [Horário](shared-resources/schedules.md#creating-a-schedule) e ligue-o ao **livro de AutoStop_CreateAlert_Parent,** adicionando uma `VMList` lista separada de nomes vma ao parâmetro.
+1. Crie um novo [Horário](shared-resources/schedules.md#create-a-schedule) e ligue-o ao **livro de AutoStop_CreateAlert_Parent,** adicionando uma `VMList` lista separada de nomes vma ao parâmetro.
 
 2. Opcionalmente, se quiser excluir alguns VMs da paragem automática, pode adicionar uma lista separada `External_ExcludeVMNames` de nomes vma à variável.
 

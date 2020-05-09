@@ -1,19 +1,20 @@
 ---
-title: Ser pago no mercado comercial Mercado Azure
-description: Saiba receber pagamentos pelos seus ganhos no mercado comercial.
+title: Ser pago no mercado comercial da Microsoft
+description: Saiba receber pagamentos pelos seus ganhos no mercado comercial da Microsoft.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: 3c75d5ccdd2d632fbc31d1be3faf6cbc6d3fb223
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 678c47fc345838f6d1e93ac397a4e54d1c61391f
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80275837"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780502"
 ---
-# <a name="getting-paid"></a>Receber o pagamento
+# <a name="getting-paid-in-commercial-marketplace"></a>Ser pago no mercado comercial
+
 Aqui está uma informação importante sobre receber o pagamento pelas suas ofertas, addons e ganhos publicitários.
 
 > [!IMPORTANT]
@@ -40,18 +41,17 @@ Cada nível de preço tem um valor correspondente em cada uma das moedas ofereci
 
 Você também tem a opção de inserir um preço gratuito da sua escolha em moeda local de um determinado mercado. Quando o fizer, o preço não será ajustado (mesmo que as taxas de conversão mudem) a menos que envie uma atualização com um novo preço. 
 
-Tenha em mente que o preço que selecionar pode incluir vendas ou imposto sobre o valor acrescentado que os seus clientes devem pagar. Consulte [os detalhes do Imposto sobre](tax-details-paid-transactions.md) a oferta paga para mais informações.
+Tenha em mente que o preço que selecionar pode incluir vendas ou imposto sobre o valor acrescentado que os seus clientes devem pagar. Para mais detalhes, consulte [os detalhes do Imposto sobre a oferta paga.](tax-details-paid-transactions.md)
 
 
 ## <a name="payout-reporting"></a>Relatórios de pagamento
 
-Pode aceder a detalhes sobre as suas informações de pagamento e relatórios de descarregamento no resumo do **Pagamento** do [Partner Center](https://partner.microsoft.com/dashboard). Para mais informações mostradas aqui, e como categorizamos o dinheiro que ganha, consulte o resumo do [Pagamento.](payout-summary.md)
+Pode aceder a detalhes sobre as suas informações de pagamento e relatórios de descarregamento no resumo do **Pagamento** do [Partner Center](https://partner.microsoft.com/dashboard). Para mais detalhes sobre as informações aqui mostradas e como categorizamos o dinheiro que ganha, consulte a [síntese do Pagamento.](payout-summary-overview.md)
 
 
-## <a name="payout-timeframe"></a>Prazo de pagamento
+## <a name="payout-time-frame"></a>Prazo de pagamento
 
-Os pagamentos são feitos mensalmente (desde que o limiar de pagamento aplicável tenha sido cumprido e não tenha colocado o seu pagamento em espera como descrito abaixo). Normalmente enviaremos qualquer pagamento devido num dado mês até ao 15º dia desse mês. Note que os pagamentos geralmente demoram entre 3 a 10 dias úteis adicionais para chegar à sua conta de pagamento. Para mais informações, consulte [limiares de pagamento, métodos e prazos.](payment-thresholds-methods-timeframes.md)
-
+Os pagamentos são feitos mensalmente (desde que o limiar de pagamento aplicável tenha sido cumprido e não tenha colocado o seu pagamento em espera como descrito abaixo). Normalmente enviaremos qualquer pagamento devido num dado mês até ao 15º dia desse mês. Note que os pagamentos geralmente demoram entre 3 a 10 dias úteis adicionais para chegar à sua conta de pagamento. Para mais detalhes, consulte [os limiares de pagamento, métodos e prazos.](payment-thresholds-methods-timeframes.md)
 
 ##  <a name="payout-hold-status"></a>Estatuto de detenção de pagamento
 
@@ -63,12 +63,3 @@ Uma vez definido o seu estado de reserva de pagamento para **On**, todos os paga
 
 > [!NOTE]
 > O seu estatuto de **retenção** de Pagamento aplica-se individualmente a cada programa (Microsoft Store, publicidade, Azure Marketplace, etc.). Se desejar realizar pagamentos em todos os seus programas, deve realizar pagamentos em cada programa individualmente.
-
-
- 
-
- 
-
-
-
-

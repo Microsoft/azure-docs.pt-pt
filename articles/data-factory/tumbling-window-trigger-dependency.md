@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/29/2019
-ms.openlocfilehash: bbcbb19530aebe777a91cbe4c5487e1b50ace2e5
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
-ms.translationtype: HT
+ms.openlocfilehash: 3b417e7c4589f3a4214400a877812d196a63349b
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82559764"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82870047"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>Criar uma dependência de acionamento de janela em cascata
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -90,7 +90,10 @@ A tabela seguinte fornece a lista de atributos necessários para definir uma dep
 
 ## <a name="tumbling-window-self-dependency-properties"></a>Propriedades de auto-dependência de janelas caindo
 
-Em cenários em que o gatilho não deve passar para a janela seguinte até que a janela anterior seja concluída com sucesso, construa uma auto-dependência. Um gatilho de auto-dependência que está dependente do sucesso de corridas anteriores dentro do hr anterior terá as propriedades abaixo:
+Em cenários em que o gatilho não deve passar para a janela seguinte até que a janela anterior seja concluída com sucesso, construa uma auto-dependência. Um gatilho de auto-dependência que dependa do sucesso de corridas anteriores dentro da hora anterior terá as propriedades indicadas no seguinte código.
+
+> [!NOTE]
+> Se o seu gasoduto acionado depender da saída de gasodutos em janelas previamente acionadas, recomendamos que utilize apenas a auto-dependência do gatilho da janela. Para limitar as corridas paralelas do gatilho, detete a moeda do gatilho máximo.
 
 ```json
 {
