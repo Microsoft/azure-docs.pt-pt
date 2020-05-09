@@ -9,12 +9,19 @@
 - name: Guias de Início Rápido
   expanded: true
   items:
-    - name: Criar BD - Portal
-      href: quickstart-create-mysql-server-database-using-azure-portal.md
-    - name: Criar BD - CLI do Azure
-      href: quickstart-create-mysql-server-database-using-azure-cli.md
-    - name: Criar BD - comando up da CLI do Azure
-      href: quickstart-create-server-up-azure-cli.md
+    - name: Criar BD
+      items:
+        - name: Criar BD - Portal
+          href: quickstart-create-mysql-server-database-using-azure-portal.md
+        - name: Criar BD - CLI do Azure
+          href: quickstart-create-mysql-server-database-using-azure-cli.md
+        - name: Criar BD - comando up da CLI do Azure
+          href: quickstart-create-server-up-azure-cli.md
+        - name: Criar BD - Azure PowerShell
+          href: quickstart-create-mysql-server-database-using-azure-powershell.md
+        - name: Criar BD - modelo ARM
+          href: quickstart-create-mysql-server-database-using-arm-template.md
+          displayName: deploy azure resource manager template
     - name: Ligar e consultar
       items:
         - name: PHP
@@ -43,6 +50,8 @@
           href: tutorial-design-database-using-portal.md
         - name: CLI do Azure
           href: tutorial-design-database-using-cli.md
+        - name: Azure PowerShell
+          href: tutorial-design-database-using-powershell.md
         - name: Modelo Azure Resource Manager
           href: tutorial-provision-mysql-server-using-Azure-Resource-Manager-templates.md
     - name: 2 - Criar uma Aplicação Web
@@ -59,6 +68,9 @@
       href: sample-scripts-azure-cli.md
     - name: Conjunto de ligações Java
       href: sample-scripts-java-connection-pooling.md
+    - name: Incorporações do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Conceitos
   items:
     - name: BD e Servidores
@@ -160,6 +172,8 @@
           href: howto-restore-server-portal.md
         - name: CLI do Azure
           href: howto-restore-server-cli.md
+        - name: Azure PowerShell
+          href: howto-restore-server-powershell.md
     - name: Migrar uma base de dados
       items:
         - name: Informação de falha de sistema e restauro
@@ -186,12 +200,16 @@
           href: howto-server-parameters.md
         - name: CLI do Azure
           href: howto-configure-server-parameters-using-cli.md
+        - name: Azure PowerShell
+          href: howto-configure-server-parameters-using-powershell.md
     - name: Aumentar automaticamente o armazenamento
       items:
         - name: Portal do Azure
           href: howto-auto-grow-storage-portal.md
         - name: CLI do Azure
           href: howto-auto-grow-storage-cli.md
+        - name: Azure PowerShell
+          href: howto-auto-grow-storage-powershell.md
     - name: Aceder a registos do servidor
       items:
         - name: Registos de consulta lenta
@@ -218,6 +236,8 @@
           href: howto-read-replicas-portal.md
         - name: Criar réplicas de leitura da CLI do Azure e API REST
           href: howto-read-replicas-cli.md
+        - name: Criar réplicas de leitura do Azure PowerShell
+          href: howto-read-replicas-powershell.md
     - name: Resolução de problemas
       items:
         - name: Resolver problemas de erros de ligação
@@ -250,6 +270,8 @@
           href: howto-data-encryption-portal.md
         - name: CLI do Azure
           href: howto-data-encryption-cli.md
+        - name: Validação de encriptação de dados
+          href: howto-data-encryption-validation.md
     - name: Integração do Azure AD
       items:
         - name: Configurar a integração do Azure AD
@@ -264,6 +286,8 @@
           href: howto-restart-server-portal.md
         - name: CLI do Azure
           href: howto-restart-server-cli.md
+        - name: Azure PowerShell
+          href: howto-restart-server-powershell.md
 - name: Referência
   items:
     - name: CLI do Azure

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: d1a972a1d89066b961f2dcc28fba830e3a04ebc1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 446beca9b8491fb252a1e3284a9ec9a0e6dabef5
+ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79274765"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82739369"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Fontes de dados de desempenho do Windows e Linux no Monitor Azure
 Os contadores de desempenho no Windows e no Linux fornecem informações sobre o desempenho de componentes de hardware, sistemas operativos e aplicações.  O Azure Monitor pode recolher contadores de desempenho em intervalos frequentes para análise de tempo próximo em tempo real (NRT), além de agregar dados de desempenho para análise e reporte a longo prazo.
@@ -175,7 +175,7 @@ Segue-se a configuração padrão para métricas de desempenho.
     </source>
 
 ## <a name="data-collection"></a>Recolha de dados
-O Monitor Azure recolhe todos os contadores de desempenho especificados no intervalo de amostra especificado em todos os agentes que tenham esse contador instalado.  Os dados não são agregados e os dados brutos estão disponíveis em todas as vistas de consulta de registo durante a duração especificada pela sua subscrição.
+O Monitor Azure recolhe todos os contadores de desempenho especificados no intervalo de amostra especificado em todos os agentes que tenham esse contador instalado.  Os dados não são agregados e os dados brutos estão disponíveis em todas as vistas de consulta de registo durante a duração especificada pelo seu espaço de trabalho de análise de registo.
 
 ## <a name="performance-record-properties"></a>Propriedades de recorde de desempenho
 Os registos de desempenho têm um tipo de **Perf** e têm as propriedades na tabela seguinte.

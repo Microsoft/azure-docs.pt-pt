@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ms.custom: has-adal-ref
-ms.openlocfilehash: 08325c8163073c083e927f84fecbde9a9d104572
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
-ms.translationtype: HT
+ms.openlocfilehash: 70f3c52adc10556c358ed75a75fd023ffb21a813
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82652786"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82855091"
 ---
 # <a name="troubleshoot-runbook-errors"></a>Erros do livro de corridas de resolução de problemas
 
@@ -49,7 +49,7 @@ Quando receber erros durante a execução do livro de corridas na Automatizaçã
     * [Renove o webhook](../automation-webhooks.md#renew-a-webhook) se estiver a tentar utilizar um webhook expirado para iniciar o livro de execução.
     * [Verifique o estado](../automation-runbook-execution.md#job-statuses) do trabalho para determinar os estados atuais do livro de corridas e algumas possíveis causas do problema.
     * [Adicione uma saída adicional](../automation-runbook-output-and-messages.md#message-streams) ao livro de execução para identificar o que acontece antes da suspensão do livro de execução.
-    * [Lide com quaisquer exceções](../automation-runbook-execution.md#handling-exceptions) que sejam lançadas pelo seu trabalho.
+    * [Lide com quaisquer exceções](../automation-runbook-execution.md#exceptions) que sejam lançadas pelo seu trabalho.
 
 1. Faça este passo se o trabalho do livro ou o ambiente no Trabalhador do Livro Híbrido não responder.
 
@@ -234,7 +234,7 @@ O livro de execução não está a usar o contexto correto quando corre.
 
 ### <a name="resolution"></a>Resolução
 
-O contexto de subscrição pode perder-se quando um livro de execução invoca vários livros de execução. Para garantir que o contexto de subscrição é passado para os `Start-AzureRmAutomationRunbook` livros de execução, o livro de execução do cliente passe o contexto para o cmdlet no `AzureRmContext` parâmetro. Utilize `Disable-AzureRmContextAutosave` o cmdlet `Scope` com o `Process` parâmetro definido para garantir que as credenciais especificadas só são utilizadas para o livro de execução atual. Para mais informações, consulte [Trabalhar com várias subscrições.](../automation-runbook-execution.md#working-with-multiple-subscriptions)
+O contexto de subscrição pode perder-se quando um livro de execução invoca vários livros de execução. Para garantir que o contexto de subscrição é passado para os `Start-AzureRmAutomationRunbook` livros de execução, o livro de execução do cliente passe o contexto para o cmdlet no `AzureRmContext` parâmetro. Utilize `Disable-AzureRmContextAutosave` o cmdlet `Scope` com o `Process` parâmetro definido para garantir que as credenciais especificadas só são utilizadas para o livro de execução atual. Para mais informações, consulte [Subscrições](../automation-runbook-execution.md#subscriptions).
 
 ```azurepowershell-interactive
 # Ensures that any credentials apply only to the execution of this runbook
@@ -634,7 +634,7 @@ Este problema pode ocorrer porque as caixas de areia Azure impedem o acesso a to
 
 ### <a name="resolution"></a>Resolução
 
-Para mais detalhes sobre a utilização de caixas de areia Azure, consulte a execução do Livro de [Corridas na Automação Azure.](../automation-runbook-execution.md#where-to-run-your-runbooks)
+Para mais detalhes sobre a utilização de caixas de areia Azure, consulte o ambiente de [execução do Livro](../automation-runbook-execution.md#runbook-execution-environment)de Corridas.
 
 ## <a name="scenario-invalid-forbidden-status-code-when-using-key-vault-inside-a-runbook"></a>Cenário: Código de estado proibido inválido ao utilizar o Cofre chave dentro de um livro de execução
 
