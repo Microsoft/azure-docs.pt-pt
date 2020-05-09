@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 04/30/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: c56db99b056d4b1e9b7dd75bc2f21bf582ee2ab7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d039a7e21ac1ef6415cc363201c9754b47503add
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80756847"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82627777"
 ---
 # <a name="frequently-asked-questions-faqs-about-the-microsoft-authenticator-app"></a>Perguntas frequentes (PERGUNTAS) sobre a aplicação Microsoft Authenticator
 
@@ -27,8 +27,9 @@ A aplicação Microsoft Authenticator substituiu a aplicação Azure Authenticat
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
-| Pergunta | Solução |
-| -------- | -------- |
+| Pergunta | Resposta |
+| -------- | ------ |
+| O registo de um dispositivo está a concordar em dar à empresa ou ao serviço acesso ao meu dispositivo? | Registar um dispositivo dá acesso ao seu dispositivo aos serviços da sua organização e não permite o acesso da sua organização ao seu dispositivo. |
 | Posso tirar fotografias dos meus códigos OTP no Autenticador Microsoft Android? | A partir do microsoft Authenticator Android lançamento 6.2003.1704, por padrão, quando uma imagem do Autenticador é tirada, todos os códigos OTP estão escondidos para proteger melhor os nossos utilizadores. Se um utilizador quiser ver os seus códigos OTP em imagens ou permitir que outras aplicações capturem o ecrã do Autenticador, podem fazê-lo permitindo a definição de "Screen Capture" na sua aplicação Authenticator e, em seguida, reiniciar a aplicação. |
 | Que dados o Autenticador armazena em meu nome e como posso apagá-lo? | A aplicação Microsoft Authenticator recolhe três tipos de informações:<ul><li>Informações de conta que fornece quando adiciona a sua conta. Estes dados podem ser removidos removendo a sua conta.</li><li>Dados de registo de diagnóstico que permanecem apenas na aplicação até selecionar **Enviar Registos** do menu **ajuda** da aplicação para enviar registos para a Microsoft. Estes ficheiros de registo contêm dados pessoais, alain@contoso.comcomo os seus endereços de e-mail (tais como, endereços de servidor ou IP, e dados do dispositivo (como, por exemplo, nome do dispositivo e versão do sistema operativo), com os dados pessoais limitados a informações necessárias para ajudar a resolver problemas com as aplicações. Pode ver estes ficheiros de registo na aplicação a qualquer momento para ver a informação a ser recolhida. Se enviar os ficheiros de registo, os engenheiros da aplicação Authentication podem usá-lo para resolver problemas reportados pelo cliente.</li><li>Dados de utilização não pessoalmente identificáveis, tais "começaram a adicionar fluxo de conta/contas adicionadas com sucesso", ou "notificação aprovada". Estes dados são parte integrante das nossas decisões de engenharia e ajudam-nos a determinar quais as funcionalidades importantes para si, e onde é necessário fazer melhorias sob a forma de atualizações para as apps. Você, como utilizador de aplicações, vê uma notificação desta recolha de dados no primeiro lançamento da app, e é informado de que pode ser desligado na página de **Definições** da aplicação. Pode ativar ou desativar esta definição a qualquer momento.</li></ul> |
 | Para que são os códigos na aplicação? | Quando abrir a aplicação Microsoft Authenticator, verá as suas contas adicionadas como azulejos.<li>Num dispositivo iOS, as suas contas de trabalho ou escola e as suas contas pessoais da Microsoft terão seis - ou oito - números de dígitos visíveis na visão completa do ecrã da conta (acedido através da escuta na conta).<br><br>![Ecrã de contas na app](./media/user-help-auth-app-faq/auth-app-accounts.png)<li>Para outras contas num dispositivo iOS e todas as contas num dispositivo Android, verá um número de seis ou oito dígitos na página contas da aplicação. Vais usar estes códigos como verificação de que és quem dizes ser. Depois de iniciar sessão com o seu nome de utilizador e senha, irá digitar o código de verificação que está associado a essa conta. Por exemplo, se estiver a iniciar sessão na sua conta Contoso e estiver a usar um dispositivo iOS, toque no azulejo da conta e, em seguida, use o código de verificação para verificar a sua identidade. Se fores a Katy a assinar a tua conta do Outlook, seguirias os mesmos passos.<br><br>![depois de tocar o azulejo da conta na app](./media/user-help-auth-app-faq/katy-signin.png)<br><br>Depois de tocar no azulejo da conta Contoso, Katy vê o código de verificação na vista completa do ecrã e entra no 895823 para terminar a sessão.<br><br>![tela de código de verificação na app](./media/user-help-auth-app-faq/verification-code.png) |

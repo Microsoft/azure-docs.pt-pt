@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 04/24/2020
-ms.openlocfilehash: 45045cb1360658d394e5469d022ac03033d11aff
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: dd8706c1e95e6b1e4ca4a38d4a336f6186464696
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82165795"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872200"
 ---
 # <a name="onboard-update-management-solution-using-azure-resource-manager-template"></a>Solução de Gestão de Atualização de Bordo utilizando o modelo de Gestor de Recursos Azure
 
@@ -26,6 +26,9 @@ Pode utilizar modelos do Gestor de [Recursos Azure](../azure-resource-manager/te
 O modelo não automatiza o embarque de um ou mais VMs Azure ou não-Azure.
 
 Se já tem uma conta log Analytics e de Automação implantada numa região apoiada na sua subscrição, não estão ligadas. O espaço de trabalho ainda não tem a solução de Gestão de Atualização implementada. A utilização deste modelo cria com sucesso o link e implementa a solução de Gestão de Atualização. 
+
+>[!NOTE]
+>O utilizador **da nxautomation** a bordo como parte da Atualização management no Linux executa apenas livros de execução assinados.
 
 >[!NOTE]
 >Este artigo foi atualizado para utilizar o novo módulo AZ do Azure PowerShell. Pode continuar a utilizar o módulo AzureRM, que continuará a receber correções de erros até, pelo menos, dezembro de 2020. Para obter mais informações sobre o novo módulo Az e a compatibilidade do AzureRM, veja [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para instruções de instalação do módulo Az no seu Executor Híbrido, consulte [Instalar o Módulo PowerShell Azure](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para a sua conta Automation, pode atualizar os seus módulos para a versão mais recente, utilizando [como atualizar os módulos Azure PowerShell em Automação Azure](automation-update-azure-modules.md).

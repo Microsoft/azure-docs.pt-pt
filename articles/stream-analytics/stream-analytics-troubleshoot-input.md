@@ -6,14 +6,14 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/31/2020
+ms.date: 05/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 68fe7da136d744e1efa76a89061afe6995a75051
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 920755e128f10a79a056d47813b1b65d8633c937
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133268"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628747"
 ---
 # <a name="troubleshoot-input-connections"></a>Resolver problemas em ligações de entrada
 
@@ -51,9 +51,18 @@ Nos casos em que a carga útil da mensagem seja superior a 32 KB ou esteja em fo
 
 A melhor prática para usar os Hubs de Eventos é utilizar vários grupos de consumidores para escalabilidade de emprego. O número de leitores no trabalho do Stream Analytics para uma entrada específica afeta o número de leitores num único grupo de consumidores. O número preciso de recetores baseia-se em detalhes de implementação interna para a lógica de topologia de escala e não é exposto externamente. O número de leitores pode mudar quando um trabalho é iniciado ou durante as atualizações de trabalho.
 
-O erro mostrado quando o número de recetores excede o máximo é 
+As seguintes mensagens de erro são mostradas quando o número de recetores excede o máximo. A mensagem de erro inclui uma lista de ligações existentes feitas ao Event Hub no âmbito de um grupo de consumidores. A `AzureStreamAnalytics` etiqueta indica que as ligações são do Serviço de Streaming Azure.
 
-`The streaming job failed: Stream Analytics job has validation errors: Job will exceed the maximum amount of Event Hub Receivers.`
+```
+The streaming job failed: Stream Analytics job has validation errors: Job will exceed the maximum amount of Event Hub Receivers.
+
+The following information may be helpful in identifying the connected receivers: Exceeded the maximum number of allowed receivers per partition in a consumer group which is 5. List of connected receivers – 
+AzureStreamAnalytics_c4b65e4a-f572-4cfc-b4e2-cf237f43c6f0_1, 
+AzureStreamAnalytics_c4b65e4a-f572-4cfc-b4e2-cf237f43c6f0_1, 
+AzureStreamAnalytics_c4b65e4a-f572-4cfc-b4e2-cf237f43c6f0_1, 
+AzureStreamAnalytics_c4b65e4a-f572-4cfc-b4e2-cf237f43c6f0_1, 
+AzureStreamAnalytics_c4b65e4a-f572-4cfc-b4e2-cf237f43c6f0_1.
+```
 
 > [!NOTE]
 > Quando o número de leitores muda durante uma atualização de trabalho, os avisos transitórios são escritos para registos de auditoria. Os trabalhos da Stream Analytics recuperam-se automaticamente destas questões transitórias.

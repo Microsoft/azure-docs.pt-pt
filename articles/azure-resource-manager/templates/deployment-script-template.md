@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 05/06/2020
 ms.author: jgao
-ms.openlocfilehash: 14663e71126d8c201015996e3e4dc76976128bcc
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: HT
+ms.openlocfilehash: 5b938e2072daec56261e529ab8a2a8b15b55d143
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610807"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872332"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Utilize scripts de implementação em modelos (Pré-visualização)
 
@@ -304,8 +304,8 @@ Para ver o recurso de implementação Scripts no portal, selecione **Tipos ocult
 
 Uma conta de armazenamento e uma instância de contentores são necessárias para a execução do script e resolução de problemas. Tem as opções para especificar uma conta de armazenamento existente, caso contrário a conta de armazenamento, juntamente com a instância do recipiente, são automaticamente criadas pelo serviço de script. Os requisitos para a utilização de uma conta de armazenamento existente:
 
-- Os tipos de conta de armazenamento suportado são: Contas v2 de uso geral, contas v1 de propósito geral e contas de armazenamento de ficheiros. Para mais informações, consulte [tipos de contas de armazenamento](../../storage/common/storage-account-overview.md).
-- As regras de firewall da conta de armazenamento devem ser desligadas. Ver [Configure Firewalls de Armazenamento Azure e rede virtual](../../storage/common/storage-network-security.md)
+- Os tipos de conta de armazenamento suportado são: contas v2 de uso geral, v1 de uso geral e fileStorage. Apenas fileStorage suporta SKU premium. Para mais informações, consulte [tipos de contas de armazenamento](../../storage/common/storage-account-overview.md).
+- As regras de firewall da conta de armazenamento ainda não são suportadas. Para obter mais informações, veja [Configurar firewalls e redes virtuais do Armazenamento do Microsoft Azure](../../storage/common/storage-network-security.md).
 - A identidade gerida atribuída pelo utilizador do script de implementação deve ter permissões para gerir a conta de armazenamento, que inclui ler, criar, eliminar as partilhas de ficheiros.
 
 Para especificar uma conta de armazenamento existente, adicione o `Microsoft.Resources/deploymentScripts`seguinte json ao elemento de propriedade de:
@@ -316,6 +316,16 @@ Para especificar uma conta de armazenamento existente, adicione o `Microsoft.Res
   "storageAccountKey": "myKey"
 },
 ```
+
+- **nome da conta**de armazenamento : especifique o nome da conta de armazenamento.
+- **armazenamentoAccountKey":** especificar uma das chaves da conta de armazenamento. Pode utilizar [`listKeys()`](./template-functions-resource.md#listkeys) a função para recuperar a chave. Por exemplo:
+
+    ```json
+    "storageAccountSettings": {
+        "storageAccountName": "[variables('storageAccountName')]",
+        "storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').keys[0].value]"
+    }
+    ```
 
 Consulte [os modelos de amostra](#sample-templates) para obter uma amostra completa `Microsoft.Resources/deploymentScripts` de definição.
 
@@ -336,7 +346,7 @@ O ciclo de vida destes recursos é controlado pelas seguintes propriedades no mo
 - intervalo de **retençãoIntervalo**: Especifique o intervalo de tempo de que um recurso de script será retido e após o qual será expirado e eliminado.
 
 > [!NOTE]
-> Não é aconselhável utilizar os recursos do script de implantação para outros fins.
+> Não é aconselhável utilizar a conta de armazenamento e a instância do recipiente que são geradas pelo serviço de script para outros fins. Os dois recursos podem ser removidos dependendo do ciclo de vida do guião.
 
 ## <a name="run-script-more-than-once"></a>Executar o script mais de uma vez
 

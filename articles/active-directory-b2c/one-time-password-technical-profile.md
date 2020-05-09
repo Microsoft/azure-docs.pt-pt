@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bd5fed45332c73c633db1137bdc23aea66fd3403
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 35497f978a1819f09411487e4bbc7eb1d05cc80d
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80332772"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82900385"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Defina um perfil técnico de senha única numa política personalizada Azure AD B2C
 
@@ -73,12 +73,12 @@ As seguintes definições podem ser utilizadas para configurar o modo de geraç�
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| CodeExpirationInSeconds | Não | Tempo em segundos até a expiração do código. Mínimo: `60`; Máximo: `1200`; Predefinição: `600`. |
-| Comprimento de código | Não | Comprimento do código. O valor predefinido é `6`. |
-| Conjunto de caracteres | Não | O conjunto de caracteres para o código, formatado para uso numa expressão regular. Por exemplo, `a-z0-9A-Z`. O valor predefinido é `0-9`. O conjunto de caracteres deve incluir um mínimo de 10 caracteres diferentes no conjunto especificado. |
-| Tentativas de Numretry | Não | O número de tentativas de verificação antes do código é considerado inválido. O valor predefinido é `5`. |
+| CodeExpirationInSeconds | No | Tempo em segundos até a expiração do código. Mínimo: `60`; Máximo: `1200`; Predefinição: `600`. |
+| Comprimento de código | No | Comprimento do código. O valor predefinido é `6`. |
+| Conjunto de caracteres | No | O conjunto de caracteres para o código, formatado para uso numa expressão regular. Por exemplo, `a-z0-9A-Z`. O valor predefinido é `0-9`. O conjunto de caracteres deve incluir um mínimo de 10 caracteres diferentes no conjunto especificado. |
+| Tentativas de Numretry | No | O número de tentativas de verificação antes do código é considerado inválido. O valor predefinido é `5`. |
 | Operação | Sim | A operação a ser realizada. Valor possível: `GenerateCode`. |
-| Reutilização Do SameCode | Não | Se um código duplicado deve ser dado em vez de gerar um novo código quando o código não expirou e ainda é válido. O valor predefinido é `false`. |
+| Reutilização Do SameCode | No | Se um código duplicado deve ser dado em vez de gerar um novo código quando o código não expirou e ainda é válido. O valor predefinido é `false`. |
 
 ### <a name="example"></a>Exemplo
 
@@ -141,10 +141,11 @@ Os seguintes metadados podem ser utilizados para configurar as mensagens de erro
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| UserMessageifSessionNão existe | Não | A mensagem a mostrar ao utilizador se a sessão de verificação de código tiver expirado. Ou o código expirou ou o código nunca foi gerado para um determinado identificador. |
-| UserMessageIfMaxRetryTryTry | Não | A mensagem para mostrar ao utilizador se tiver excedido as tentativas máximas de verificação permitidas. |
-| UserMessageIfInvalidcode | Não | A mensagem para mostrar ao utilizador se tiver fornecido um código inválido. |
-|UserMessageifSessionConflict|Não| A mensagem a mostrar ao utilizador se o código não puder ser verificado.|
+| UserMessageifSessionNão existe | No | A mensagem a mostrar ao utilizador se a sessão de verificação de código tiver expirado. Ou o código expirou ou o código nunca foi gerado para um determinado identificador. |
+| UserMessageIfMaxRetryTryTry | No | A mensagem para mostrar ao utilizador se tiver excedido as tentativas máximas de verificação permitidas. |
+| UserMessageIfInvalidcode | No | A mensagem para mostrar ao utilizador se tiver fornecido um código inválido. |
+| Mensagem de utilizadorIfVerificationFailedRetryAllowed | No | A mensagem para mostrar ao utilizador se tiver fornecido um código inválido, e o utilizador pode fornecer o código correto.  |
+|UserMessageifSessionConflict|No| A mensagem a mostrar ao utilizador se o código não puder ser verificado.|
 
 ### <a name="example"></a>Exemplo
 

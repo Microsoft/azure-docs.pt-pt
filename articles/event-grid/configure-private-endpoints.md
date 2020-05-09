@@ -7,20 +7,17 @@ ms.service: event-grid
 ms.topic: how-to
 ms.date: 04/22/2020
 ms.author: spelluru
-ms.openlocfilehash: 97f08bf0f89fdb65f0ffef7d18557f210e45a8d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b72462334fa2311b017be49860ed422dfa35430c
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82101013"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890815"
 ---
-# <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains-preview"></a>Configure pontos finais privados para tópicos ou domínios da Grelha de Eventos Do Azure (Pré-visualização)
+# <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains"></a>Configure pontos finais privados para tópicos ou domínios da Grelha de Eventos Do Azure
 Você pode usar [pontos finais privados](../private-link/private-endpoint-overview.md) para permitir a entrada de eventos diretamente da sua rede virtual para os seus tópicos e domínios de forma segura através de um [link privado](../private-link/private-link-overview.md) sem passar pela internet pública. O ponto final privado utiliza um endereço IP do espaço de endereço VNet para o seu tópico ou domínio. Para obter mais informações conceptuais, consulte a [segurança da Rede.](network-security.md)
 
 Este artigo descreve como configurar pontos finais privados para tópicos ou domínios.
-
-> [!IMPORTANT]
-> A funcionalidade de pontos finais privados está disponível para tópicos e domínios apenas em nível premium. Para atualizar de nível básico para nível premium, consulte o artigo do nível de [preços da Atualização.](update-tier.md) 
 
 ## <a name="use-azure-portal"></a>Utilizar o portal do Azure 
 Esta secção mostra-lhe como usar o portal Azure para criar um ponto final privado para um tópico ou domínio.
@@ -76,7 +73,7 @@ Existem quatro estados de provisionamento:
 
 | Ação de serviço | Estado de ponto final privado do consumidor de serviço | Descrição |
 |--|--|--|
-| Nenhuma | Pendente | A ligação é criada manualmente e está pendente de aprovação do proprietário de recursos de Link privado. |
+| Nenhum | Pendente | A ligação é criada manualmente e está pendente de aprovação do proprietário de recursos de Link privado. |
 | Aprovar | Aprovado | A ligação foi aprovada automaticamente ou manualmente e está pronta a ser utilizada. |
 | Rejeitar | Rejected | A ligação foi rejeitada pelo proprietário de recursos de ligação privada. |
 | Remover | Desligado | A ligação foi removida pelo proprietário do recurso de ligação privada, o ponto final privado torna-se informativo e deve ser eliminado para limpeza. |
@@ -205,7 +202,7 @@ Aqui está um script de amostra que cria os seguintes recursos Azure:
 - Grupo de recursos
 - Rede virtual
 - Subnet na rede virtual
-- Tópico da Grelha de Eventos Azure (nível premium)
+- Tópico da Grelha de Eventos Azure
 - Ponto final privado para o tema
 
 > [!NOTE]
@@ -254,8 +251,7 @@ az network vnet subnet update \
 az eventgrid topic create \
     --resource-group $resourceGroupName \
     --name $topicName \
-    --location $location \
-    --sku "Premium" 
+    --location $location
 
 # verify that the topic was created.
 az eventgrid topic show \
@@ -369,7 +365,7 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 
 ```azurepowershell-interactive
-$body = @{"location"="<LOCATION>"; "sku"= @{"name"="premium"}; "properties"=@{"publicNetworkAccess"="disabled"}} | ConvertTo-Json
+$body = @{"location"="<LOCATION>"; "properties"=@{"publicNetworkAccess"="disabled"}} | ConvertTo-Json
 
 # create topic
 Invoke-RestMethod -Method 'Put'  `

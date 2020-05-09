@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: klam, logicappspm
 ms.topic: conceptual
-ms.date: 03/12/2020
+ms.date: 05/04/2020
 tags: connectors
-ms.openlocfilehash: 1885d7f8713b3801ce0c9846b7a8509b3864032a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8137bea37c25554d814e237380ba5c57c5b24d57
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80656309"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82900965"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Receber e responder a pedidos de entrada em HTTPS em Aplicações Lógicas Azure
 
@@ -22,10 +22,13 @@ Com [as Aplicações Lógicas Azure](../logic-apps/logic-apps-overview.md) e a a
 * Desencadeie um fluxo de trabalho quando um evento externo de webhook acontece.
 * Receba e responda a uma chamada HTTPS de outra aplicação lógica.
 
+O gatilho do Pedido suporta a Autenticação Aberta do [Diretório Ativo Azure](../active-directory/develop/about-microsoft-identity-platform.md) (Azure AD OAuth) para autorizar chamadas de entrada para a sua aplicação lógica. Para obter mais informações sobre a ativação desta autenticação, consulte [o acesso seguro e os dados nas Aplicações lógicas do Azure - Enable Azure AD AD AUth autenticação](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
+
 > [!NOTE]
-> O gatilho do Pedido suporta *apenas* a Segurança da Camada de Transporte (TLS) 1.2 para chamadas recebidas. As chamadas de saída continuam a apoiar tLS 1.0, 1.1 e 1.2. Para mais informações, consulte [A resolução do problema TLS 1.0](https://docs.microsoft.com/security/solving-tls1-problem).
+> O gatilho do Pedido suporta *apenas* a Segurança da Camada de Transporte (TLS) 1.2 para chamadas recebidas. Chamadas de saída suportam TLS 1.0, 1.1 e 1.2. Para mais informações, consulte [A resolução do problema TLS 1.0](https://docs.microsoft.com/security/solving-tls1-problem).
 >
-> Se vir erros de aperto de mão TLS, certifique-se de que utiliza TLS 1.2. Para chamadas recebidas, aqui estão as suítes de cifra suportadas:
+> Se tiver erros de aperto de mão TLS, certifique-se de que utiliza TLS 1.2. 
+> Para chamadas recebidas, aqui estão as suítes de cifra suportadas:
 >
 > * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
 > * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
@@ -46,7 +49,7 @@ Com [as Aplicações Lógicas Azure](../logic-apps/logic-apps-overview.md) e a a
 
 ## <a name="add-request-trigger"></a>Adicionar gatilho de pedido
 
-Este gatilho incorporado cria um ponto final HTTPS manualmente calivel que *só* pode receber pedidos HTTPS recebidos. Quando este evento acontece, o gatilho dispara e executa a aplicação lógica. Para obter mais informações sobre a definição json subjacente do gatilho e como chamar este gatilho, consulte o tipo de [gatilho do Pedido](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) e [call, trigger ou nest workflows com pontos finais HTTP em Aplicações Lógicas Azure](../logic-apps/logic-apps-http-endpoint.md).
+Este gatilho incorporado cria um ponto final HTTPS manualmente calivel que *só* pode receber pedidos HTTPS recebidos. Quando este evento acontece, o gatilho dispara e executa a aplicação lógica.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). Criar uma aplicação lógica em branco.
 
@@ -61,7 +64,7 @@ Este gatilho incorporado cria um ponto final HTTPS manualmente calivel que *só*
    | Nome da propriedade | Nome da propriedade JSON | Necessário | Descrição |
    |---------------|--------------------|----------|-------------|
    | **HTTP POST URL** | {nenhum} | Sim | O URL de ponto final que é gerado depois de guardar a aplicação lógica e é usado para chamar a sua app lógica |
-   | **Solicitar corpo JSON Schema** | `schema` | Não | O esquema JSON que descreve as propriedades e valores no corpo de pedido de entrada |
+   | **Solicitar corpo JSON Schema** | `schema` | No | O esquema JSON que descreve as propriedades e valores no corpo de pedido de entrada |
    |||||
 
 1. Na caixa **Do Corpo de Pedido JSON Schema,** introduza opcionalmente um esquema JSON que descreve o corpo no pedido de entrada, por exemplo:
@@ -159,8 +162,8 @@ Este gatilho incorporado cria um ponto final HTTPS manualmente calivel que *só*
 
    | Nome da propriedade | Nome da propriedade JSON | Necessário | Descrição |
    |---------------|--------------------|----------|-------------|
-   | **Método** | `method` | Não | O método que o pedido de entrada deve usar para chamar a app lógica |
-   | **Caminho relativo** | `relativePath` | Não | O caminho relativo para o parâmetro que o URL final da app lógica pode aceitar |
+   | **Método** | `method` | No | O método que o pedido de entrada deve usar para chamar a app lógica |
+   | **Caminho relativo** | `relativePath` | No | O caminho relativo para o parâmetro que o URL final da app lógica pode aceitar |
    |||||
 
    Este exemplo adiciona a propriedade **Método:**
@@ -177,13 +180,17 @@ Este gatilho incorporado cria um ponto final HTTPS manualmente calivel que *só*
 
    A sua aplicação lógica mantém o pedido de entrada aberto apenas por um minuto. Assumindo que o fluxo de trabalho da sua aplicação lógica inclui uma ação de Resposta, `504 GATEWAY TIMEOUT` se a aplicação lógica não devolver uma resposta após este tempo passa, a sua aplicação lógica devolve uma ao chamador. Caso contrário, se a sua aplicação lógica não incluir uma `202 ACCEPTED` ação de Resposta, a sua aplicação lógica devolve imediatamente uma resposta ao chamador.
 
-1. Quando terminar, guarde a sua aplicação lógica. Na barra de ferramentas de design, selecione **Guardar**. 
+1. Quando terminar, guarde a sua aplicação lógica. Na barra de ferramentas de design, selecione **Guardar**.
 
    Este passo gera o URL a utilizar para o envio do pedido que desencadeia a aplicação lógica. Para copiar este URL, selecione o ícone da cópia ao lado do URL.
 
    ![URL para usar desencadeando a sua aplicação lógica](./media/connectors-native-reqres/generated-url.png)
 
-1. Para desencadear a sua aplicação lógica, envie um POST HTTP para o URL gerado. Por exemplo, pode utilizar uma ferramenta como [o Carteiro](https://www.getpostman.com/).
+1. Para desencadear a sua aplicação lógica, envie um POST HTTP para o URL gerado.
+
+   Por exemplo, pode utilizar uma ferramenta como [o Carteiro](https://www.getpostman.com/) para enviar o HTTP POST. Se ativar a Autenticação Aberta do [Diretório Ativo Azure](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth) (Azure AD OAuth) para autorizar chamadas de entrada no gatilho do Pedido, ligue para o gatilho utilizando um URL de Assinatura de [Acesso Partilhado (SAS)](../logic-apps/logic-apps-securing-a-logic-app.md#sas) ou utilizando um símbolo de autenticação, mas não pode utilizar ambos. O símbolo de autenticação `Bearer` deve especificar o tipo no cabeçalho de autorização. Para mais informações, consulte [O acesso seguro e os dados nas Aplicações lógicas do Azure - Acesso a triggers baseados em pedidos](../logic-apps/logic-apps-securing-a-logic-app.md#secure-triggers).
+
+Para obter mais informações sobre a definição json subjacente do gatilho e como chamar este gatilho, consulte estes tópicos, tipo de [gatilho de pedido](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) e [Call, trigger ou nest workflows com pontos finais HTTP em Aplicações Lógicas Azure](../logic-apps/logic-apps-http-endpoint.md).
 
 ### <a name="trigger-outputs"></a>Saídas de gatilho
 
@@ -247,8 +254,8 @@ A sua aplicação lógica mantém o pedido de entrada aberto apenas por um minut
    | Nome da propriedade | Nome da propriedade JSON | Necessário | Descrição |
    |---------------|--------------------|----------|-------------|
    | **Código de Estado** | `statusCode` | Sim | O código de estado para devolver na resposta |
-   | **Cabeçalhos** | `headers` | Não | Um objeto JSON que descreve um ou mais cabeçalhos para incluir na resposta |
-   | **Corpo** | `body` | Não | O corpo de resposta |
+   | **Cabeçalhos** | `headers` | No | Um objeto JSON que descreve um ou mais cabeçalhos para incluir na resposta |
+   | **Corpo** | `body` | No | O corpo de resposta |
    |||||
 
 1. Para especificar propriedades adicionais, como um esquema JSON para o corpo de resposta, abra a **lista de novos parâmetros Adicionar** e selecione os parâmetros que pretende adicionar.

@@ -7,16 +7,16 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 71df574602518fdc252d9d86859ed772a17be443
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3b8632eaf7662d705235adaad7cd03d2e7e4904b
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81408988"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82626876"
 ---
 # <a name="what-are-wrangling-data-flows"></a>O que são fluxos de dados?
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 As organizações precisam de fazer a preparação de dados e a luta para uma análise precisa de dados complexos que continuam a crescer todos os dias. É necessária a preparação de dados para que as organizações possam utilizar os dados em vários processos de negócio e reduzir o tempo para valorizar.
 
@@ -44,9 +44,9 @@ Digitalmente, digitalize os seus dados de forma livre de códigos para remover q
 
 | Conector | Formato de dados | Tipo de autenticação |
 | -- | -- | --|
-| [Armazenamento Azure Blob](connector-azure-blob-storage.md) | CSV | Chave de conta |
+| [Armazenamento de Blobs do Azure](connector-azure-blob-storage.md) | CSV | Chave de conta |
 | [Armazenamento do Azure Data Lake Ger1](connector-azure-data-lake-store.md) | CSV | Principal de Serviço |
-| [Armazenamento do Azure Data Lake Ger2](connector-azure-data-lake-storage.md) | CSV | Chave de Conta, Diretor de Serviço |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) (Armazenamento do Azure Data Lake Gen2) | CSV | Chave de Conta, Diretor de Serviço |
 | [Base de Dados SQL do Azure](connector-azure-sql-database.md) | - | Autenticação do SQL |
 | [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) | - | Autenticação do SQL |
 

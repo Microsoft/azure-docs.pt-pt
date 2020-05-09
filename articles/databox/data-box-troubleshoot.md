@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 06/24/2019
+ms.date: 04/30/2020
 ms.author: alkohli
-ms.openlocfilehash: 51935516e26f263e44a926bf9b7d7ec24a5eeb9e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 12ca4df6e5dd4ba86ece8469255195e2fa1c155e
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77560070"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628900"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Problemas relacionados com a Caixa de Dados Azure e a Caixa de Dados Azure Heavy
 
@@ -92,6 +92,17 @@ Estes são erros relacionados com o contentor e compartilham nomes.
     - Exemplos de nomes que `my-folder_1`não `my` `--myfolder`são `myfolder--`válidos: , ,`myfolder!`
 
     Para mais informações, consulte as convenções de nomedo Azure para [nomes](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) de contentores e [nomes de partilha](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
+    
+### <a name="error_file_or_directory_name_illegal"></a>ERROR_FILE_OR_DIRECTORY_NAME_ILLEGAL
+
+**Descrição do erro**: O diretório ou os nomes do recipiente contêm caracteres ilegais.
+
+**Resolução sugerida**: O diretório ou os nomes do recipiente que copiou contêm caracteres não suportados.
+
+- Na página Connect e cópia da UI web local, descarregue e reveja os ficheiros de erro para identificar os nomes das pastas com problemas. 
+- Mude o nome do diretório ou dos contentores para garantir que estão em conformidade com as convenções de nomeação do Azure.
+
+Para mais informações, consulte as convenções de nomeação azure para [diretórios](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) e [contentores.](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names)
 
 ## <a name="container-or-share-size-limit-errors"></a>Erros de limite de tamanho de contentores ou partilhas
 
