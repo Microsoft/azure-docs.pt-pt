@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: absha
-ms.openlocfilehash: 89d894a5125a16f95e6ef8a15c2503d48f3a8e55
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 046946bb9d3ce1ae86d49409d024c862d2edb982
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80632180"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856070"
 ---
 # <a name="application-gateway-configuration-overview"></a>Visão geral da configuração do Gateway de aplicação
 
@@ -101,18 +101,18 @@ Para este cenário, utilize NSGs na subnet Application Gateway. Coloque as segui
 
    Pode criar um UDR para enviar o tráfego 0.0.0.0/0 diretamente para a Internet. 
 
-  **Cenário 3**: UDR para Azure Kubernetes Service kubenet
+  **Cenário 3**: UDR para Serviço Azure Kubernetes com kubenet
 
-  Se estiver a utilizar kubenet com o Serviço Azure Kubernetes (AKS) e o Application Gateway Ingress Controller (AGIC), precisa de configurar uma tabela de rotas para permitir que o tráfego enviado para as cápsulas seja encaminhado para o nó correto. Isto não será necessário se usar estoque sinuoso. 
+  Se estiver a utilizar kubenet com o Serviço Azure Kubernetes (AKS) e o Application Gateway Ingress Controller (AGIC), precisará de uma tabela de rotas para permitir que o tráfego enviado para as cápsulas do Application Gateway seja encaminhado para o nó correto. Isto não será necessário se usar estoque sinuoso. 
 
-   Para configurar a tabela de rotas para permitir que o kubenet funcione, utilize os seguintes passos:
+  Para utilizar a tabela de rotas para permitir que kubenet funcione, siga os passos abaixo:
 
-  1. Crie um recurso de Mesa de Rota em Azure. 
-  2. Uma vez criado, vá à página **rotas.** 
-  3. Adicione uma nova rota:
+  1. Vá ao grupo de recursos criado pela AKS (o nome do grupo de recursos deve começar com "MC_")
+  2. Encontre a tabela de rotas criada pela AKS nesse grupo de recursos. A tabela de rotas deve ser povoada com as seguintes informações:
      - O prefixo de endereço deve ser o intervalo IP das cápsulas que pretende alcançar no AKS. 
-     - O próximo tipo de lúpulo deve ser **o Aparelho Virtual**. 
-     - O próximo endereço de lúpulo deve ser o endereço IP do nó que acolhe as cápsulas dentro da gama IP definida no campo de prefixo de endereço. 
+     - O próximo tipo de lúpulo deve ser o Aparelho Virtual. 
+     - O próximo endereço de lúpulo deve ser o endereço IP do nó que acolhe as cápsulas.
+  3. Associe esta tabela de rotas à subnet Application Gateway. 
     
   **v2 cenários não apoiados**
 

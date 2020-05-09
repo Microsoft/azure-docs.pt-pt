@@ -1,18 +1,18 @@
 ---
 title: Trabalho com javaScript consulta integrada API em Procedimentos e Gatilhos Azure Cosmos DB Armazenados
 description: Este artigo introduz os conceitos de API de consulta integrada em língua JavaScript para criar procedimentos e gatilhos armazenados em Azure Cosmos DB.
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/01/2019
-ms.author: mjbrown
+ms.date: 05/07/2020
+ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 7b7ad470b3330224e80a7160fc1a37bb5ee1cde8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 785c430347bc62a00eee80c977f2d6ce440c08db
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76901832"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982280"
 ---
 # <a name="javascript-query-api-in-azure-cosmos-db"></a>JavaScript consulta API em Azure Cosmos DB
 

@@ -60,6 +60,9 @@
   items:
     - name: CLI do Azure
       href: sample-scripts-azure-cli.md
+    - name: Incorporações do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Conceitos
   items:
     - name: Servidor único

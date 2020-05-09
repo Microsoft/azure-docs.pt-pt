@@ -4,14 +4,15 @@ description: Este artigo descreve como pode criar novas contas de utilizador par
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
+ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 1/8/2019
-ms.openlocfilehash: 674fd4372bdf7c3782d18aaf04b48eb0067a9b2e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 684116f92544e61a892b3653f8539f9f8f03e0c9
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77484932"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82584093"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---hyperscale-citus"></a>Criar utilizadores na Base de Dados Azure para PostgreSQL - Hiperescala (Citus)
 

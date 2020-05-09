@@ -1,14 +1,14 @@
 ---
 title: Compreenda a ordem da sequência de implantação
 description: Saiba mais sobre a ordem padrão em que os artefactos da planta são implantados durante uma atribuição de plantas e como personalizar a ordem de implementação.
-ms.date: 08/22/2019
+ms.date: 05/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 41b1b1ada5b7c6c919f227927001570332eeccbf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 91e11f8127ba2532ad48362de1689f4be2b6f935
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80677568"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864526"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Compreenda a sequência de implantação em Plantas Azure
 
@@ -47,8 +47,7 @@ Ao compor grandes definições de plantas, pode ser necessário que os recursos 
 A encomenda é realizada definindo uma `dependsOn` propriedade no JSON. A definição de planta, para grupos de recursos, e objetos de artefacto supor esta propriedade. `dependsOn`é uma série de nomes de artefactos que o artefacto em particular precisa de ser criado antes de ser criado.
 
 > [!NOTE]
-> Ao criar objetos de plantas, cada recurso de artefacto obtém o seu nome a partir do nome de ficheiro, se utilizar [powerShell](/powershell/module/az.blueprint/new-azblueprintartifact), ou o ponto final do URL, se utilizar [a API REST](/rest/api/blueprints/artifacts/createorupdate).
-> _recursos As_ referências do grupo em artefactos devem corresponder às definidas na definição de projeto.
+> Ao criar objetos de plantas, cada recurso de artefacto obtém o seu nome a partir do nome de ficheiro, se utilizar [powerShell](/powershell/module/az.blueprint/new-azblueprintartifact), ou o ponto final do URL, se utilizar [a API REST](/rest/api/blueprints/artifacts/createorupdate). _recursos As_ referências do grupo em artefactos devem corresponder às definidas na definição de projeto.
 
 ### <a name="example---ordered-resource-group"></a>Exemplo - grupo de recursos encomendados
 
@@ -137,7 +136,8 @@ O artefacto do modelo de nível de subscrição, dependendo do grupo de recursos
 
 Durante o processo de criação, um tipo topológico é usado para criar o gráfico de dependência dos artefactos das plantas. O controlo assegura que cada nível de dependência entre grupos de recursos e artefactos é suportado.
 
-Se uma dependência de artefactos for declarada que não alteraria a ordem padrão, então não se faz qualquer alteração. Um exemplo é um grupo de recursos que depende de uma política de nível de subscrição. Outro exemplo é uma atribuição de política infantil "standard-rg" do grupo de recursos que depende da atribuição de funções para crianças do grupo de recursos "standard-rg". Em ambos os `dependsOn` casos, não teria alterado a ordem de sequenciação padrão e não seriam feitas alterações.
+Se uma dependência de artefactos for declarada que não alteraria a ordem padrão, então não se faz qualquer alteração.
+Um exemplo é um grupo de recursos que depende de uma política de nível de subscrição. Outro exemplo é uma atribuição de política infantil "standard-rg" do grupo de recursos que depende da atribuição de funções para crianças do grupo de recursos "standard-rg". Em ambos os `dependsOn` casos, não teria alterado a ordem de sequenciação padrão e não seriam feitas alterações.
 
 ## <a name="next-steps"></a>Passos seguintes
 
