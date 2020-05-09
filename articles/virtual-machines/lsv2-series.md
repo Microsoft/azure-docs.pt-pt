@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 103e19d6e299956b5ee1ad45b577e25f9f2de1c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bdb9e346b8deea71ef2af9f9f271ffa446be624e
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78164037"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594343"
 ---
 # <a name="lsv2-series"></a>Série Lsv2
 
@@ -27,6 +27,8 @@ A série Lsv2 apresenta alta potência, baixa latência, armazenamento nVMe loca
 
 ACU: 150-175
 
+Rebentamento: Suportado
+
 Armazenamento Premium: Suportado
 
 Caching de armazenamento premium: Não suportado
@@ -35,14 +37,14 @@ Migração Ao Vivo: Não Suportado
 
 Atualizações de preservação da memória: não suportadas
 
-| Tamanho | vCPU | Memória (GiB) | Disco temporário<sup>1</sup> (GiB) | Discos NVMe<sup>2</sup> | Entrada de disco NVMe<sup>3</sup> (Ler IOPS/MBps) | Entrada de disco de dados max uncached (IOPs/MBps)<sup>4</sup> | Discos de dados Max | Max NICs / Largura de banda de rede esperada (Mbps) |
-|---|---|---|---|---|---|---|---|---|
-| Standard_L8s_v2   |  8 |  64 |  80 |  1x1.92 TB  | 400000/2000  | 8000/160   | 16 | 2 / 3200   |
-| Standard_L16s_v2  | 16 | 128 | 160 |  2x1.92 TB  | 800000/4000  | 16000/320  | 32 | 4 / 6400   |
-| Standard_L32s_v2  | 32 | 256 | 320 |  4x1.92 TB  | 1.5M/8000    | 32000/640  | 32 | 8 / 12800  |
-| Standard_L48s_v2  | 48 | 384 | 480 |  6x1.92 TB  | 2.2M/14000   | 48000/960  | 32 | 8 / 16000+ |
-| Standard_L64s_v2  | 64 | 512 | 640 |  8x1.92 TB  | 2.9M/16000   | 64000/1280 | 32 | 8 / 16000+ |
-| Standard_L80s_v2<sup>5</sup> | 80 | 640 | 800 | 10x1.92TB | 3.8M/20000 | 80000/1400 | 32 | 8 / 16000+ |
+| Tamanho | vCPU | Memória (GiB) | Disco temporário<sup>1</sup> (GiB) | Discos NVMe<sup>2</sup> | Entrada de disco NVMe<sup>3</sup> (Ler IOPS/MBps) | Entrada de disco de dados não cached (IOPs/MBps)<sup>4</sup> | Max burst uncached data de supressão de entrada de disco (IOPs/MBps)<sup>5</sup>| Discos de dados Max | Max NICs / Largura de banda de rede esperada (Mbps) |
+|---|---|---|---|---|---|---|---|---|---|
+| Standard_L8s_v2   |  8 |  64 |  80 |  1x1.92 TB  | 400000/2000  | 8000/160   | 8000/1280 | 16 | 2 / 3200   |
+| Standard_L16s_v2  | 16 | 128 | 160 |  2x1.92 TB  | 800000/4000  | 16000/320  | 16000/1280 | 32 | 4 / 6400   |
+| Standard_L32s_v2  | 32 | 256 | 320 |  4x1.92 TB  | 1.5M/8000    | 32000/640  | 32000/1280 | 32 | 8 / 12800  |
+| Standard_L48s_v2  | 48 | 384 | 480 |  6x1.92 TB  | 2.2M/14000   | 48000/960  | 48000/2000 | 32 | 8 / 16000+ |
+| Standard_L64s_v2  | 64 | 512 | 640 |  8x1.92 TB  | 2.9M/16000   | 64000/1280 | 64000/2000 | 32 | 8 / 16000+ |
+| Standard_L80s_v2<sup>6</sup> | 80 | 640 | 800 | 10x1.92TB | 3.8M/20000 | 80000/1400 | 80000/2000 | 32 | 8 / 16000+ |
 
 <sup>1</sup> Os VMs da série Lsv2 têm um disco de recursos temporários baseado em SCSI padrão para a utilização de ficheiros de paging/swap (D: no Windows, /dev/sdb no Linux). Este disco fornece 80 GiB de armazenamento, 4.000 IOPS e 80 MBps taxa de transferência por cada 8 vCPUs (por exemplo, Standard_L80s_v2 fornece 800 GiB a 40.000 IOPS e 800 MBPS). Isto garante que as unidades NVMe podem ser totalmente dedicadas ao uso da aplicação. Este disco é efémero, e todos os dados serão perdidos em stop/deallocate.
 
@@ -52,7 +54,9 @@ Atualizações de preservação da memória: não suportadas
 
 <sup>4</sup> VMs série Lsv2 não fornecem cache hospedeiro para disco de dados, uma vez que não beneficia as cargas de trabalho Lsv2.  No entanto, os VMs Lsv2 podem acomodar a opção de disco Ephemeral VM OS da Azure (até 30 GiB).
 
-<sup>5</sup> VMs com mais de 64 vCPUs requerem um destes sistemas operativos de hóspedes suportados:
+<sup>5</sup> VMs da série Lsv2 podem [rebentar](linux/disk-bursting.md) o seu desempenho do disco até 30 minutos de cada vez. 
+
+<sup>6</sup> VMs com mais de 64 vCPUs requerem um destes sistemas operativos de hóspedes suportados:
 
 - Windows Server 2016 ou mais tarde
 - Ubuntu 16.04 LTS ou posteriormente, com kernel afinado azure (4.15 kernel ou posterior)

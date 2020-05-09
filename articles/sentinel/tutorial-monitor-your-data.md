@@ -1,6 +1,6 @@
 ---
-title: Visualize os seus dados utilizando dashboards baseados em Livros de Trabalho do Monitor Azure em Azure Sentinel [ Microsoft Docs
-description: Utilize este tutorial para aprender a visualizar os seus dados utilizando dashboards baseados em livros de trabalho em Azure Sentinel.
+title: Visualizar os seus dados utilizando livros de trabalho do Monitor Azure em Azure Sentinel [ Microsoft Docs
+description: Utilize este tutorial para aprender a visualizar os seus dados usando livros em Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/01/2020
+ms.date: 05/04/2020
 ms.author: yelevin
-ms.openlocfilehash: b4461ac43e9356536914b345ef28f5de62fc9f82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f145b75ba351121bf750f90dbc0a7df382ca04b1
+ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77585225"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82739165"
 ---
 # <a name="tutorial-visualize-and-monitor-your-data"></a>Tutorial: Visualizar e monitorizar os seus dados
 
 
 
-Depois de [ligar as suas fontes](quickstart-onboard.md) de dados ao Azure Sentinel, pode visualizar e monitorizar os dados utilizando a adoção do Azure Sentinel de Livros de Trabalho do Monitor Azure, que proporciona versatilidade na criação de dashboards personalizados. Embora os livros de trabalho sejam exibidos de forma diferente no Azure Sentinel, pode ser útil para si ver como [criar relatórios interativos com livros](../azure-monitor/app/usage-workbooks.md)de trabalho do Monitor Azure . O Azure Sentinel permite-lhe criar livros personalizados através dos seus dados, e também vem com modelos de livro incorporados para permitir-lhe obter rapidamente informações sobre os seus dados assim que ligar uma fonte de dados.
+Depois de ter [ligado as suas fontes](quickstart-onboard.md) de dados ao Azure Sentinel, pode visualizar e monitorizar os dados utilizando a adoção do Azure Sentinel dos Livros de Trabalho do Monitor Azure, que proporciona versatilidade na criação de dashboards personalizados. Embora os livros de trabalho sejam exibidos de forma diferente no Azure Sentinel, pode ser útil para si ver como [criar relatórios interativos com livros](../azure-monitor/app/usage-workbooks.md)de trabalho do Monitor Azure . O Azure Sentinel permite-lhe criar livros personalizados através dos seus dados, e também vem com modelos de livro incorporados para permitir-lhe obter rapidamente informações sobre os seus dados assim que ligar uma fonte de dados.
 
 
 Este tutorial ajuda-o a visualizar os seus dados no Azure Sentinel.
@@ -38,7 +38,7 @@ Este tutorial ajuda-o a visualizar os seus dados no Azure Sentinel.
 - Deve ter pelo menos permissões de leitor de livro ou contribuinte de livro no grupo de recursos do espaço de trabalho Azure Sentinel.
 
 > [!NOTE]
-> Os livros que se pode ver no Azure Sentinel são guardados dentro do grupo de recursos do espaço de trabalho Azure Sentinel e são marcados pelo espaço de trabalho em que foram criados.
+> Os livros que se podem ver no Azure Sentinel são guardados dentro do grupo de recursos do espaço de trabalho Azure Sentinel e são marcados pelo espaço de trabalho em que foram criados.
 
 ## <a name="use-built-in-workbooks"></a>Utilize livros embutidos
 

@@ -655,7 +655,7 @@
             - name: Escala
               items:
                 - name: Aumentar horizontalmente manualmente
-                  href: service-fabric-cluster-scale-up-down.md
+                  href: service-fabric-cluster-scale-in-out.md
                 - name: Aumentar horizontalmente através de programação
                   href: service-fabric-cluster-programmatic-scaling.md
                 - name: Aumentar verticalmente o tipo de nó principal

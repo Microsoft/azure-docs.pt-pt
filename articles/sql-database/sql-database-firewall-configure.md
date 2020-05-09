@@ -1,28 +1,27 @@
 ---
 title: Regras de firewall IP
-description: Configure as regras de firewall IP de nível de servidor para uma base de dados SQL ou firewall SQL Data Warehouse. Gerencie as regras de firewall IP de nível de base de dados para uma única ou piscina de bases de dados.
+description: Configure as regras de firewall IP de nível de servidor para uma base de dados SQL ou firewall Azure Synapse Analytics. Gerencie as regras de firewall IP de nível de base de dados para uma única ou piscina de bases de dados.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-titleSuffix: Azure SQL Database and SQL Data Warehouse
-ms.custom: ''
+titleSuffix: Azure SQL Database and Azure Synapse Analytics
 ms.devlang: ''
 ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/18/2019
-ms.openlocfilehash: 12280e8a5b90c6712703fefc60ec1bfb12ba8573
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2fe0881a7e6c624ea1104d1ebace307e6cf4e337
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606098"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629240"
 ---
-# <a name="azure-sql-database-and-azure-sql-data-warehouse-ip-firewall-rules"></a>Base de Dados Azure SQL e regras de firewall IP do Armazém de Dados Azure SQL
+# <a name="azure-sql-database-and-azure-synapse-analytics-ip-firewall-rules"></a>Base de Dados Azure SQL e regras de firewall IP Azure Synapse Analytics
 
 > [!NOTE]
-> Este artigo aplica-se aos servidores Azure SQL e tanto às bases de dados azure SQL como ao Azure SQL Data Warehouse num servidor Azure SQL. Para a simplicidade, a Base de *Dados SQL* é usada para se referir tanto à Base de Dados SQL como ao Armazém de Dados SQL.
+> Este artigo aplica-se aos servidores Azure SQL e tanto às bases de dados Azure SQL como à Azure Synapse Analytics num servidor Azure SQL. Para a simplicidade, a Base de *Dados SQL* é usada para se referir tanto à Base de Dados SQL como ao Synapse Azure.
 
 > [!IMPORTANT]
 > Este artigo *não* se aplica à instância gerida pela Base de *Dados Azure SQL*. Para obter informações sobre a configuração da rede, consulte Ligue a sua aplicação à instância gerida pela Base de [Dados Azure SQL](sql-database-managed-instance-connect-app.md).
@@ -30,7 +29,7 @@ ms.locfileid: "81606098"
 Quando cria um novo servidor Azure SQL chamado *mysqlserver*, por exemplo, a firewall SQL Database bloqueia todo o acesso ao ponto final público para o servidor (que é acessível a *mysqlserver.database.windows.net).*
 
 > [!IMPORTANT]
-> O SQL Data Warehouse apenas suporta as regras de firewall IP de nível de servidor. Não suporta regras de firewall IP de nível de base de dados.
+> O Azure Synapse apenas suporta as regras de firewall IP de nível de servidor. Não suporta regras de firewall IP de nível de base de dados.
 
 ## <a name="how-the-firewall-works"></a>Como funciona a firewall
 As tentativas de ligação a partir da internet e do Azure devem passar pela firewall antes de chegarem ao seu servidor SQL ou à base de dados SQL, como mostra o diagrama seguinte.
@@ -149,9 +148,9 @@ A página de visão geral do seu servidor abre. Mostra o nome do servidor totalm
 
 | Vista de catálogo ou procedimento armazenado | Nível | Descrição |
 | --- | --- | --- |
-| [sys.firewall_rules](https://msdn.microsoft.com/library/dn269980.aspx) |Server |Apresenta as atuais regras de firewall IP ao nível do servidor |
-| [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx) |Server |Cria ou atualiza as regras de firewall IP ao nível do servidor |
-| [sp_delete_firewall_rule](https://msdn.microsoft.com/library/dn270024.aspx) |Server |Remove as regras de firewall IP de nível de servidor |
+| [sys.firewall_rules](https://msdn.microsoft.com/library/dn269980.aspx) |Servidor |Apresenta as atuais regras de firewall IP ao nível do servidor |
+| [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx) |Servidor |Cria ou atualiza as regras de firewall IP ao nível do servidor |
+| [sp_delete_firewall_rule](https://msdn.microsoft.com/library/dn270024.aspx) |Servidor |Remove as regras de firewall IP de nível de servidor |
 | [sys.database_firewall_rules](https://msdn.microsoft.com/library/dn269982.aspx) |Base de Dados |Apresenta as atuais regras de firewall IP de nível de base de dados |
 | [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) |Base de Dados |Cria ou atualiza as regras de firewall IP de nível de base de dados |
 | [sp_delete_database_firewall_rule](https://msdn.microsoft.com/library/dn270030.aspx) |Bases de Dados |Remove regras de firewall IP de nível de base de dados |
@@ -183,10 +182,10 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 
 | Cmdlet | Nível | Descrição |
 | --- | --- | --- |
-| [Get-AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule) |Server |Devolve as regras de firewall ao nível do servidor atuais |
-| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) |Server |Cria uma regra de firewall ao nível do servidor nova |
-| [Set-AzSqlServerFirewallRule](/powershell/module/az.sql/set-azsqlserverfirewallrule) |Server |Atualiza as propriedades de uma regra de firewall ao nível do servidor existente |
-| [Remover-AzSqlServerFirewallRule](/powershell/module/az.sql/remove-azsqlserverfirewallrule) |Server |Remove as regras de firewall ao nível do servidor |
+| [Get-AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule) |Servidor |Devolve as regras de firewall ao nível do servidor atuais |
+| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) |Servidor |Cria uma regra de firewall ao nível do servidor nova |
+| [Set-AzSqlServerFirewallRule](/powershell/module/az.sql/set-azsqlserverfirewallrule) |Servidor |Atualiza as propriedades de uma regra de firewall ao nível do servidor existente |
+| [Remover-AzSqlServerFirewallRule](/powershell/module/az.sql/remove-azsqlserverfirewallrule) |Servidor |Remove as regras de firewall ao nível do servidor |
 
 O exemplo que se segue utiliza o PowerShell para definir uma regra de firewall IP de nível de servidor:
 
@@ -205,11 +204,11 @@ New-AzSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 
 | Cmdlet | Nível | Descrição |
 | --- | --- | --- |
-|[az sql servidor firewall-rule criar](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|Server|Cria uma regra de firewall IP do servidor|
-|[az sql lista de firewall-rule do servidor az sql](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|Server|Lista as regras de firewall IP num servidor|
-|[az sql servidor firewall-rule show](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-show)|Server|Mostra o detalhe de uma regra de firewall IP|
-|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|Server|Atualiza uma regra de firewall IP|
-|[az sql servidor firewall-rule excluir](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|Server|Elimina uma regra de firewall IP|
+|[az sql servidor firewall-rule criar](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|Servidor|Cria uma regra de firewall IP do servidor|
+|[az sql lista de firewall-rule do servidor az sql](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|Servidor|Lista as regras de firewall IP num servidor|
+|[az sql servidor firewall-rule show](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-show)|Servidor|Mostra o detalhe de uma regra de firewall IP|
+|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|Servidor|Atualiza uma regra de firewall IP|
+|[az sql servidor firewall-rule excluir](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|Servidor|Elimina uma regra de firewall IP|
 
 O exemplo seguinte utiliza o CLI para definir uma regra de firewall IP ao nível do servidor:
 
@@ -227,10 +226,10 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 
 | API | Nível | Descrição |
 | --- | --- | --- |
-| [Lista rindo regras de firewall](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver) |Server |Apresenta as atuais regras de firewall IP ao nível do servidor |
-| [Criar ou atualizar regras de firewall](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate) |Server |Cria ou atualiza as regras de firewall IP ao nível do servidor |
-| [Eliminar regras de firewall](https://docs.microsoft.com/rest/api/sql/firewallrules/delete) |Server |Remove as regras de firewall IP de nível de servidor |
-| [Obter regras de firewall](https://docs.microsoft.com/rest/api/sql/firewallrules/get) | Server | Obtém regras de firewall IP ao nível do servidor |
+| [Lista rindo regras de firewall](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver) |Servidor |Apresenta as atuais regras de firewall IP ao nível do servidor |
+| [Criar ou atualizar regras de firewall](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate) |Servidor |Cria ou atualiza as regras de firewall IP ao nível do servidor |
+| [Eliminar regras de firewall](https://docs.microsoft.com/rest/api/sql/firewallrules/delete) |Servidor |Remove as regras de firewall IP de nível de servidor |
+| [Obter regras de firewall](https://docs.microsoft.com/rest/api/sql/firewallrules/get) | Servidor | Obtém regras de firewall IP ao nível do servidor |
 
 ## <a name="troubleshoot-the-database-firewall"></a>Resolução de problemas na firewall da base de dados
 
@@ -253,7 +252,7 @@ Considere os seguintes pontos quando o acesso ao serviço de base de dados SQL n
 
 - **O login não está autorizado, ou foi utilizada uma senha incorreta:**
 
-  Se um login não tiver permissões no servidor de base de dados SQL ou se a palavra-passe estiver errada, a ligação ao servidor é negada. A criação de uma definição de firewall só dá aos clientes a *oportunidade* de tentarem ligar-se ao seu servidor. O cliente deve ainda fornecer as credenciais de segurança necessárias. Para obter mais informações sobre a preparação de logins, consulte Controlar e conceder acesso à base de [dados SQL e ao SQL Data Warehouse](sql-database-manage-logins.md).
+  Se um login não tiver permissões no servidor de base de dados SQL ou se a palavra-passe estiver errada, a ligação ao servidor é negada. A criação de uma definição de firewall só dá aos clientes a *oportunidade* de tentarem ligar-se ao seu servidor. O cliente deve ainda fornecer as credenciais de segurança necessárias. Para obter mais informações sobre a preparação de logins, consulte Controlar e conceder acesso à base de [dados SQL e Azure Synapse](sql-database-manage-logins.md).
 
 - **Endereço IP dinâmico:**
 

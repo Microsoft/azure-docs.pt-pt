@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: curtand
-ms.openlocfilehash: 06e5abe04ed1ec75dcbf1b216bfaab1a7458ce72
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 75564ea463198967c6ed170851058202b5ba3478
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77064058"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82625957"
 ---
 # <a name="change-your-work-or-school-account-password-from-the-change-password-page"></a>Altere a sua palavra-passe de trabalho ou conta escolar na página 'Alterar Palavra-passe'
 
@@ -27,7 +27,7 @@ A página de **palavra-passe Change** do portal **My Account** ajuda-o a atualiz
 
 ## <a name="update-a-password-from-the-change-password-page"></a>Atualizar uma palavra-passe da página de palavra-passe Alterar
 
-1. Inscreva-se na sua conta de trabalho ou escolar, utilizando ahttps://myprofile.microsoft.com/) sua senha existente, e depois vá para a Minha **Conta** (página).
+1. Inscreva-se na sua conta de trabalho ou escolar, utilizando ahttps://myaccount.microsoft.com/) sua senha existente, e depois vá para a Minha **Conta** (página).
 
 2. Selecione **Palavra-passe** a partir do painel de navegação esquerdo ou selecione o link **de palavra-passe Alterar** a partir do bloco **Password.**
 

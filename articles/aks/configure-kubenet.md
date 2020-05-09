@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/26/2019
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 01b2f3baefc2320ec11f9cb7f29392ebb0841289
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
-ms.translationtype: HT
+ms.openlocfilehash: 09fd5326c2532e115dbab0752af31a809488f04c
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207484"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559686"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Utilize a rede kubenet com as suas próprias gamas de endereços IP no Serviço Azure Kubernetes (AKS)
 
@@ -199,7 +199,7 @@ Quando se cria um cluster AKS, é criado um grupo de segurança de rede e uma ta
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Com um cluster AKS implantado na sua subnet de rede virtual existente, pode agora usar o cluster normalmente. Inicie-se com aplicações de [construção utilizando espaços Azure Dev][dev-spaces] ou [usando O Draft,][use-draft]ou [implemente aplicações usando Helm][use-helm].
+Com um cluster AKS implantado na sua subnet de rede virtual existente, pode agora usar o cluster normalmente. Inicie-se com a construção de [apps utilizando o Azure Dev Spaces,][dev-spaces] [implemente aplicações existentes usando helm][use-helm], ou [crie novas aplicações usando helm][develop-helm].
 
 <!-- LINKS - External -->
 [dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/
@@ -217,8 +217,8 @@ Com um cluster AKS implantado na sua subnet de rede virtual existente, pode agor
 [az-network-vnet-subnet-show]: /cli/azure/network/vnet/subnet#az-network-vnet-subnet-show
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[develop-helm]: quickstart-helm.md
 [use-helm]: kubernetes-helm.md
-[use-draft]: kubernetes-draft.md
 [virtual-nodes]: virtual-nodes-cli.md
 [vnet-peering]: ../virtual-network/virtual-network-peering-overview.md
 [express-route]: ../expressroute/expressroute-introduction.md

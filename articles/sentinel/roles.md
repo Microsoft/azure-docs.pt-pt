@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: yelevin
-ms.openlocfilehash: e7629a53190433c6c331ce372476b0ed768fc5eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2e1b1a4786670974a40b22d44fc219c6be5d97a3
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77587180"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744755"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Permissões em Azure Sentinel
 
@@ -44,7 +44,7 @@ Além das funções rBAC dedicadas ao Azure Sentinel, existem funções RBAC Azu
 > As funções de Log Analytics também concedem acesso lido em todos os recursos do Azure, mas apenas atribuirão permissões de escrita para os recursos do Log Analytics.
 
 
-Por exemplo, um utilizador que seja atribuído com funções de **leitor Azure Sentinel** e **colaborador do Azure** (não colaborador **do Azure Sentinel),** poderá editar dados no Azure Sentinel, embora apenas tenham permissões de **leitor Sentinel.** Portanto, se pretender conceder permissões a um único no Azure Sentinel, deve remover cuidadosamente as permissões prévias deste utilizador, certificando-se de que não quebra qualquer função de permissão necessária para outro recurso.
+Por exemplo, um utilizador que seja atribuído com funções de **leitor Azure Sentinel** e **colaborador do Azure** (não colaborador **do Azure Sentinel),** poderá editar dados no Azure Sentinel, embora apenas tenham permissões de **leitor Sentinel.** Por isso, se pretender conceder permissões a um utilizador apenas no Azure Sentinel, deverá remover cuidadosamente as permissões prévias deste utilizador, certificando-se de que não quebra qualquer função de permissão necessária para outro recurso.
 
 > [!NOTE]
 >- O Azure Sentinel usa playbooks para resposta automatizada à ameaça. Os playbooks alavancam as Aplicações Lógicas Azure e são um recurso Azure separado. É possível atribuir membros específicos da sua equipa de operações de segurança com a opção de utilizar aplicações lógicas para operações de orquestração de segurança, automação e resposta (SOAR). Pode utilizar a função de colaborador da [Logic App](../role-based-access-control/built-in-roles.md#logic-app-contributor) ou a função de operador [de Aplicações Lógicas](../role-based-access-control/built-in-roles.md#logic-app-operator) para atribuir permissão explícita para o uso de playbooks.

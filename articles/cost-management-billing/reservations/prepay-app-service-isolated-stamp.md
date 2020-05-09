@@ -5,14 +5,14 @@ author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 04/30/2020
 ms.author: banders
-ms.openlocfilehash: 21c4b7de0324abd2755644265bec61de5e16724f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d6d91b455501e2deec4f5ea36e48fafd17144b2c
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199420"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628151"
 ---
 # <a name="save-costs-for-azure-app-service-isolated-stamp-fee-with-reserved-capacity"></a>Economize custos para o Imposto de Selo do Plano Isolado do Serviço de Aplicações com a capacidade de reserva
 
@@ -41,7 +41,7 @@ Compre reservas de selos do Windows se tiver um ou mais funções de trabalho do
 Pode comprar capacidade de reserva de Plano Isolado no [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22AppService%22%7D). Pague pela reserva [antecipadamente ou com pagamentos mensais](monthly-payments-reservations.md). Para comprar a capacidade de reserva, deve ter a função de proprietário em pelo menos uma subscrição Enterprise ou uma subscrição individual com tarifas pay as you go.
 
 - Para subscrições Enterprise, a opção **Adicionar Instâncias Reservadas** deve ser ativada no [EA Portal](https://ea.azure.com/). Em alternativa, se a definição estiver desativada, tem ser um Administrador EA.
-- Para o programa Fornecedor de Solução Cloud (CSP), apenas os agentes de administração ou os agentes de vendas podem comprar capacidade de reserva do SQL Data Warehouse.
+- Para o programa Fornecedor de Soluções Cloud (CSP), apenas os agentes de administração ou os agentes de vendas podem comprar capacidade reservada do Azure Synapse Analytics.
 
 **Para Comprar:**
 

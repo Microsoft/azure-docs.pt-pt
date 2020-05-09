@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: babanisa
-ms.openlocfilehash: 404052984cb99e37f7404a47f3ac374088d32d6c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2e4de91034de0d036cd99e265949ba85a5939180
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81393480"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629332"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>Use CloudEvents v1.0 schema com grelha de eventos
 Além do seu [esquema de evento padrão,](event-schema.md)a Azure Event Grid apoia de forma nativa eventos na [implementação jSON de CloudEvents v1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) e [http protocol binding](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md). [CloudEvents](https://cloudevents.io/) é uma [especificação aberta](https://github.com/cloudevents/spec/blob/v1.0/spec.md) para descrever dados do evento.
@@ -139,7 +139,7 @@ New-AzureRmEventGridSubscription `
 
  ## <a name="endpoint-validation-with-cloudevents-v10"></a>Validação do ponto final com CloudEvents v1.0
 
-Se já está familiarizado com a Grelha de Eventos, pode estar ciente do aperto de mão de validação de ponto final da Event Grid para prevenir abusos. CloudEvents v1.0 implementa a sua própria [semântica](security-authentication.md#webhook-event-delivery) de proteção contra abusos utilizando o método HTTP OPTIONS. Pode ler mais sobre o assunto [aqui](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). Ao utilizar o esquema CloudEvents para saída, a Rede de Eventos utiliza com a proteção de abuso CloudEvents v1.0 em vez do mecanismo de eventode validação da Rede de Eventos.
+Se já está familiarizado com a Grelha de Eventos, pode estar ciente do aperto de mão de validação de ponto final da Event Grid para prevenir abusos. CloudEvents v1.0 implementa a sua própria [semântica](webhook-event-delivery.md) de proteção contra abusos utilizando o método HTTP OPTIONS. Pode ler mais sobre o assunto [aqui](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). Ao utilizar o esquema CloudEvents para saída, a Rede de Eventos utiliza com a proteção de abuso CloudEvents v1.0 em vez do mecanismo de eventode validação da Rede de Eventos.
 
 <a name="azure-functions"></a>
 
@@ -147,7 +147,7 @@ Se já está familiarizado com a Grelha de Eventos, pode estar ciente do aperto 
 
 A [ligação da Grelha de Eventos de Funções Azure](../azure-functions/functions-bindings-event-grid.md) não suporta de forma nativa cloudEvents, pelo que as funções desencadeadas por HTTP são usadas para ler mensagens CloudEvents. Ao utilizar um gatilho HTTP para ler CloudEvents, tem de escrever código para o que o gatilho da Grelha de Eventos faz automaticamente:
 
-* Envia uma resposta de validação a um pedido de [validação](../event-grid/security-authentication.md#webhook-event-delivery)de assinaturas.
+* Envia uma resposta de validação a um pedido de [validação](../event-grid/webhook-event-delivery.md)de assinaturas.
 * Invoca a função uma vez por elemento da matriz do evento contida no organismo de pedido.
 
 Para obter informações sobre o URL a utilizar para invocar a função localmente ou quando funciona em Azure, consulte a documentação de [referência de ligação http trigger](../azure-functions/functions-bindings-http-webhook.md)

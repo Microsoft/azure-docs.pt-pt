@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: ff2267c2d03076d3abc44d0bd1dddc64577cc7f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f9eefc40f7bca3f0bc21510a2d8a3d3fe76711b0
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79283865"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611420"
 ---
 # <a name="schema-reference-guide-for-the-workflow-definition-language-in-azure-logic-apps"></a>Guia de referência schema para a linguagem de definição de fluxo de trabalho em aplicações lógicas azure
 
@@ -39,12 +39,12 @@ Aqui está a estrutura de alto nível para uma definição de fluxo de trabalho:
 |-----------|----------|-------------|
 | `definition` | Sim | O elemento de partida para a sua definição de fluxo de trabalho |
 | `$schema` | Só quando se refere externamente a uma definição de fluxo de trabalho | A localização do ficheiro schema JSON que descreve a versão Idioma de Definição de Fluxo de Trabalho, que pode encontrar aqui: <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json`</p> |
-| `actions` | Não | As definições para uma ou mais ações a executar no tempo de funcionamento do fluxo de trabalho. Para mais informações, consulte [Triggers e ações](#triggers-actions). <p><p>Ações máximas: 250 |
-| `contentVersion` | Não | O número da versão para a sua definição de fluxo de trabalho, que é "1.0.0.0" por padrão. Para ajudar a identificar e confirmar a definição correta ao implementar um fluxo de trabalho, especifique um valor a utilizar. |
-| `outputs` | Não | As definições para que as saídas regressem de uma corrida de fluxo de trabalho. Para mais informações, consulte [Saídas](#outputs). <p><p>Saídas máximas: 10 |
-| `parameters` | Não | As definições para um ou mais parâmetros que passam os valores para usar no tempo de execução da sua aplicação lógica. Para mais informações, consulte [Parâmetros](#parameters). <p><p>Parâmetros máximos: 50 |
-| `staticResults` | Não | As definições para um ou mais resultados estáticos devolvidos por ações como saídas falsas quando os resultados estáticos são ativados nessas ações. Em cada definição `runtimeConfiguration.staticResult.name` de ação, o `staticResults`atributo refere a definição correspondente no seu interior . Para mais informações, consulte [resultados estáticos](#static-results). |
-| `triggers` | Não | As definições para um ou mais gatilhos que instantaneamente o seu fluxo de trabalho. Pode definir mais do que um gatilho, mas apenas com a Linguagem definição de fluxo de trabalho, não visualmente através do Logic Apps Designer. Para mais informações, consulte [Triggers e ações](#triggers-actions). <p><p>Gatilhos máximos: 10 |
+| `actions` | No | As definições para uma ou mais ações a executar no tempo de funcionamento do fluxo de trabalho. Para mais informações, consulte [Triggers e ações](#triggers-actions). <p><p>Ações máximas: 250 |
+| `contentVersion` | No | O número da versão para a sua definição de fluxo de trabalho, que é "1.0.0.0" por padrão. Para ajudar a identificar e confirmar a definição correta ao implementar um fluxo de trabalho, especifique um valor a utilizar. |
+| `outputs` | No | As definições para que as saídas regressem de uma corrida de fluxo de trabalho. Para mais informações, consulte [Saídas](#outputs). <p><p>Saídas máximas: 10 |
+| `parameters` | No | As definições para um ou mais parâmetros que passam os valores para usar no tempo de execução da sua aplicação lógica. Para mais informações, consulte [Parâmetros](#parameters). <p><p>Parâmetros máximos: 50 |
+| `staticResults` | No | As definições para um ou mais resultados estáticos devolvidos por ações como saídas falsas quando os resultados estáticos são ativados nessas ações. Em cada definição `runtimeConfiguration.staticResult.name` de ação, o `staticResults`atributo refere a definição correspondente no seu interior . Para mais informações, consulte [resultados estáticos](#static-results). |
+| `triggers` | No | As definições para um ou mais gatilhos que instantaneamente o seu fluxo de trabalho. Pode definir mais do que um gatilho, mas apenas com a Linguagem definição de fluxo de trabalho, não visualmente através do Logic Apps Designer. Para mais informações, consulte [Triggers e ações](#triggers-actions). <p><p>Gatilhos máximos: 10 |
 ||||
 
 <a name="triggers-actions"></a>
@@ -79,8 +79,8 @@ Aqui está a estrutura geral para uma definição de parâmetro:
 | <*nome do parâmetro*> | Sim | String | O nome para o parâmetro que quer definir |
 | <*parâmetro-tipo*> | Sim | int, flutuante, corda, bool, matriz, objeto, corda de segurança, objeto seguro <p><p>**Nota:** Para todas as palavras-passe, `securestring` `secureobject` chaves e `GET` segredos, utilize os ou tipos porque a operação não devolve estes tipos. Para obter mais informações sobre a segurança dos [parâmetros, consulte recomendações de segurança para os parâmetros](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)de ação e de entrada . | O tipo para o parâmetro |
 | <*valor de parâmetro sinuoso*> | Sim | O mesmo que`type` | O valor do parâmetro padrão a utilizar se não for especificado qualquer valor quando o fluxo de trabalho instantaneamente. O `defaultValue` atributo é necessário para que o Logic App Designer possa mostrar corretamente o parâmetro, mas pode especificar um valor vazio. |
-| <*matriz-com-parâmetro permitido-valores*> | Não | Matriz | Uma matriz com valores que o parâmetro pode aceitar |
-| <*parâmetro-descrição*> | Não | Objeto JSON | Quaisquer outros detalhes do parâmetro, como uma descrição para o parâmetro |
+| <*matriz-com-parâmetro permitido-valores*> | No | Matriz | Uma matriz com valores que o parâmetro pode aceitar |
+| <*parâmetro-descrição*> | No | Objeto JSON | Quaisquer outros detalhes do parâmetro, como uma descrição para o parâmetro |
 ||||
 
 Em seguida, crie um modelo de Gestor de [Recursos Azure](../azure-resource-manager/templates/overview.md) para a sua definição de fluxo de trabalho, defina parâmetros de modelo que aceitem os valores que pretende na implementação, substitua valores codificados com referências a parâmetros de definição de modelo ou de fluxo de trabalho, conforme apropriado, e guarde os valores a utilizar na implementação num [ficheiro de parâmetro](../azure-resource-manager/templates/parameter-files.md)separado . Desta forma, pode alterar esses valores mais facilmente através do ficheiro parâmetro sem ter de atualizar e reimplantar a sua aplicação lógica. Para obter informações sensíveis ou devem ser protegidas, tais como nomes de utilizador, senhas e segredos, pode armazenar esses valores no Cofre de Chaves Azure e fazer com que o seu ficheiro de parâmetro recupere esses valores do seu cofre chave. Para mais informações e exemplos sobre a definição de parâmetros nos níveis de definição de modelo e de fluxo de trabalho, consulte [a visão geral: Implementação automática para aplicações lógicas com modelos](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)de Gestor de Recursos Azure .
@@ -116,7 +116,7 @@ No `staticResults` atributo, defina a `outputs` simulação de uma ação e `sta
 |-----------|----------|------|-------------|
 | <*nome de definição de resultado estático*> | Sim | String | O nome para uma definição de resultado `runtimeConfiguration.staticResult` estático que uma definição de ação pode referir através de um objeto. Para mais informações, consulte as definições de [configuração do Tempo de Execução](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options). <p>Pode usar qualquer nome único que quiser. Por padrão, este nome único é anexado com um número, que é incrementado conforme necessário. |
 | <*output-atributos-e-valores-devolvido*> | Sim | Varia | Os requisitos para estes atributos variam em função de diferentes condições. Por exemplo, `status` quando `Succeeded`o `outputs` é, o atributo inclui atributos e valores devolvidos como saídas falsas pela ação. Se `status` for, `Failed` `outputs` o atributo `errors` inclui o atributo, que é `message` uma matriz com um ou mais objetos de erro que têm informações de erro. |
-| <*valores cabeçalho*> | Não | JSON | Quaisquer valores de cabeçalho devolvidos pela ação |
+| <*valores cabeçalho*> | No | JSON | Quaisquer valores de cabeçalho devolvidos pela ação |
 | <*status-code-returned*> | Sim | String | O código de estado devolvido pela ação |
 | <*estatuto de ação*> | Sim | String | O estado da ação, `Succeeded` por exemplo, ou`Failed` |
 |||||
@@ -178,7 +178,7 @@ Com a JSON, pode ter valores literais que existem no momento do design, por exem
 "rainbowColorsCount": 7
 ```
 
-Também pode ter valores que não existem até o tempo de execução. Para representar estes valores, pode utilizar *expressões*, que são avaliadas no tempo de execução. Uma expressão é uma sequência que pode conter uma ou mais [funções,](#functions) [operadores,](#operators)variáveis, valores explícitos ou constantes. Na sua definição de fluxo de trabalho, pode utilizar uma expressão em qualquer lugar\@de um valor de corda JSON, prefixando a expressão com o sinal de at (). Ao avaliar uma expressão que representa um valor JSON, o \@ corpo de expressão é extraído removendo o personagem, e sempre resulta em outro valor JSON.
+Também pode ter valores que não existem até o tempo de execução. Para representar estes valores, pode utilizar *expressões*, que são avaliadas no tempo de execução. Uma expressão é uma sequência que pode conter uma ou mais [funções,](#functions) [operadores,](#operators) [variáveis, valores](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-variables-store-values)explícitos ou constantes. Na sua definição de fluxo de trabalho, pode utilizar uma expressão em qualquer lugar\@de um valor de corda JSON, prefixando a expressão com o sinal de at (). Ao avaliar uma expressão que representa um valor JSON, o \@ corpo de expressão é extraído removendo o personagem, e sempre resulta em outro valor JSON.
 
 Por exemplo, para o `customerName` imóvel previamente definido, pode obter o valor patrimonial utilizando a função `accountName` [de parâmetros()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) numa expressão e atribuir esse valor ao imóvel:
 

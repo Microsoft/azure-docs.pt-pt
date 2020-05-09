@@ -1,6 +1,6 @@
 ---
-title: Papéis personalizados para os recursos do Azure / Microsoft Docs
-description: Aprenda a criar papéis personalizados com controlo de acesso baseado em papéis (RBAC) para gestão de acesso de grãos finos de recursos Azure.
+title: Funções personalizadas azure - Azure RBAC
+description: Aprenda a criar funções personalizadas azure com o controlo de acesso baseado em papel Azure (Azure RBAC) para gestão de acesso de grãos finos de recursos Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,27 +11,27 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/19/2020
+ms.date: 04/30/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9454962e210781559f2fdceb1c36f499c4ae8ff7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5030fb50313e1db2173990c55930c22fdf58f559
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062176"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734795"
 ---
-# <a name="custom-roles-for-azure-resources"></a>Custom roles for Azure resources (Funções personalizadas para recursos do Azure)
+# <a name="azure-custom-roles"></a>Papéis personalizados do Azure
 
 > [!IMPORTANT]
 > A adição de `AssignableScopes` um grupo de gestão está atualmente em pré-visualização.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
 > Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 
-Se as [funções incorporadas para os recursos Azure](built-in-roles.md) não atenderem às necessidades específicas da sua organização, pode criar os seus próprios papéis personalizados. Tal como as funções incorporadas, pode atribuir funções personalizadas a utilizadores, grupos e diretores de serviços em âmbitos de grupos de gestão, subscrição e grupo de recursos.
+Se os [papéis integrados](built-in-roles.md) do Azure não atenderem às necessidades específicas da sua organização, pode criar os seus próprios papéis personalizados. Tal como as funções incorporadas, pode atribuir funções personalizadas a utilizadores, grupos e diretores de serviços em âmbitos de grupos de gestão, subscrição e grupo de recursos.
 
-As funções personalizadas podem ser partilhadas entre subscrições que confiam no mesmo diretório Azure AD. Há um limite de **5.000** funções personalizadas por diretório. (Para a Azure Germany e a Azure China 21Vianet, o limite é de 2.000 funções personalizadas.) As funções personalizadas podem ser criadas utilizando o portal Azure (Preview), Azure PowerShell, Azure CLI ou a REST API.
+As funções personalizadas podem ser partilhadas entre subscrições que confiam no mesmo diretório Azure AD. Há um limite de **5.000** funções personalizadas por diretório. (Para a Azure Germany e a Azure China 21Vianet, o limite é de 2.000 funções personalizadas.) As funções personalizadas podem ser criadas através do portal Azure, Azure PowerShell, Azure CLI ou da REST API.
 
 ## <a name="custom-role-example"></a>Exemplo de exemplo de papel personalizado
 
@@ -75,7 +75,7 @@ Quando se cria um papel personalizado, aparece no portal Azure com um ícone de 
 
 1. Decida como pretende criar o papel personalizado
 
-    Pode criar funções personalizadas utilizando [o portal Azure](custom-roles-portal.md) (Preview), [O Azure PowerShell,](custom-roles-powershell.md) [o Azure CLI](custom-roles-cli.md)ou o [REST API](custom-roles-rest.md).
+    Pode criar funções personalizadas utilizando [o portal Azure,](custom-roles-portal.md) [O Azure PowerShell,](custom-roles-powershell.md) [o Azure CLI](custom-roles-cli.md)ou o [REST API](custom-roles-rest.md).
 
 1. Determine as permissões que precisa
 
@@ -89,7 +89,7 @@ Quando se cria um papel personalizado, aparece no portal Azure com um ícone de 
 
     Uma vez que tenha o seu papel personalizado, tem que testá-lo para verificar se funciona como espera. Se precisar de fazer ajustes mais tarde, pode atualizar a função personalizada.
 
-Para um tutorial passo a passo sobre como criar um papel personalizado, consulte [Tutorial: Crie uma função personalizada usando Azure PowerShell](tutorial-custom-role-powershell.md) ou [Tutorial: Crie uma função personalizada usando o Azure CLI](tutorial-custom-role-cli.md).
+Para um tutorial passo a passo sobre como criar um papel personalizado, consulte [Tutorial: Crie uma função personalizada Azure usando Azure PowerShell](tutorial-custom-role-powershell.md) ou [Tutorial: Crie uma função personalizada Azure usando o Azure CLI](tutorial-custom-role-cli.md).
 
 ## <a name="custom-role-properties"></a>Propriedades de papel personalizado
 
@@ -102,9 +102,9 @@ Um papel personalizado tem as seguintes propriedades.
 | `IsCustom` | Sim | String | Indica se este é um papel personalizado. Pronto `true` para papéis personalizados. |
 | `Description` | Sim | String | A descrição do papel personalizado. Pode incluir letras, números, espaços e personagens especiais. O número máximo de caracteres é 1024. |
 | `Actions` | Sim | Corda[] | Uma série de cordas que especifica as operações de gestão que a função permite ser executadas. Para mais informações, consulte [Ações](role-definitions.md#actions). |
-| `NotActions` | Não | Corda[] | Um conjunto de cordas que especifica as operações de `Actions`gestão que estão excluídas das permitidas . Para mais informações, consulte [NotActions](role-definitions.md#notactions). |
-| `DataActions` | Não | Corda[] | Um conjunto de cordas que especifica as operações de dados que a função permite ser executada aos seus dados dentro desse objeto. Se criar um papel `DataActions`personalizado com , esse papel não pode ser atribuído no âmbito do grupo de gestão. Para mais informações, consulte [DataActions](role-definitions.md#dataactions). |
-| `NotDataActions` | Não | Corda[] | Um conjunto de cordas que especifica as operações de `DataActions`dados que estão excluídas das permitidas . Para mais informações, consulte [NotDataActions](role-definitions.md#notdataactions). |
+| `NotActions` | No | Corda[] | Um conjunto de cordas que especifica as operações de `Actions`gestão que estão excluídas das permitidas . Para mais informações, consulte [NotActions](role-definitions.md#notactions). |
+| `DataActions` | No | Corda[] | Um conjunto de cordas que especifica as operações de dados que a função permite ser executada aos seus dados dentro desse objeto. Se criar um papel `DataActions`personalizado com , esse papel não pode ser atribuído no âmbito do grupo de gestão. Para mais informações, consulte [DataActions](role-definitions.md#dataactions). |
+| `NotDataActions` | No | Corda[] | Um conjunto de cordas que especifica as operações de `DataActions`dados que estão excluídas das permitidas . Para mais informações, consulte [NotDataActions](role-definitions.md#notdataactions). |
 | `AssignableScopes` | Sim | Corda[] | Uma variedade de cordas que especifica os âmbitos que a função personalizada está disponível para atribuição. Só se pode definir `AssignableScopes` um grupo de gestão com um papel personalizado. A adição de `AssignableScopes` um grupo de gestão está atualmente em pré-visualização. Para mais informações, consulte [Os Scopes Atribuídos](role-definitions.md#assignablescopes). |
 
 ## <a name="who-can-create-delete-update-or-view-a-custom-role"></a>Quem pode criar, eliminar, atualizar ou ver um papel personalizado
@@ -131,6 +131,6 @@ A lista seguinte descreve os limites para funções personalizadas.
 Para obter mais informações sobre papéis personalizados e grupos de gestão, consulte Organizar os seus recursos com grupos de [gestão Azure.](../governance/management-groups/overview.md#custom-rbac-role-definition-and-assignment)
 
 ## <a name="next-steps"></a>Passos seguintes
-- [Criar ou atualizar funções personalizadas do Azure utilizando o portal Azure (Pré-visualização)](custom-roles-portal.md)
-- [Compreender definições de papéis para os recursos do Azure](role-definitions.md)
-- [RBAC de resolução de problemas para recursos Azure](troubleshooting.md)
+- [Criar ou atualizar funções personalizadas do Azure utilizando o portal Azure](custom-roles-portal.md)
+- [Compreender definições de papéis de Azure](role-definitions.md)
+- [Resolução de problemas Azure RBAC](troubleshooting.md)

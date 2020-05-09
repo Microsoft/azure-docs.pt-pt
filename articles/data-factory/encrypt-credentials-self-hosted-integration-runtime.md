@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 8ce26360aca8d8408135cbe89aabff4f923013b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: cd775c5a3bf367600a4537a9409a9bb8f902f588
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416371"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628985"
 ---
 # <a name="encrypt-credentials-for-on-premises-data-stores-in-azure-data-factory"></a>Criptografe credenciais para lojas de dados no local na Fábrica de Dados Azure
 
@@ -25,7 +25,6 @@ ms.locfileid: "81416371"
 Pode encriptar e armazenar credenciais para as suas lojas de dados no local (serviços ligados com informações sensíveis) numa máquina com tempo de execução de integração auto-hospedada. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Você passa um arquivo de definição JSON com credenciais para o <br/>[**Novo AzDataFactoryV2LinkedServiceEncriptadoCredential**](/powershell/module/az.datafactory/New-AzDataFactoryV2LinkedServiceEncryptedCredential) cmdlet para produzir um ficheiro de definição JSON de saída com as credenciais encriptadas. Em seguida, utilize a definição jSON atualizada para criar os serviços ligados.
 

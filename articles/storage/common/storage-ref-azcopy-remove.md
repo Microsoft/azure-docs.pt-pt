@@ -4,16 +4,16 @@ description: Este artigo fornece informações de referência para a remoção d
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 10/16/2019
+ms.date: 05/04/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: abce1acb88e920c0de7bbb6447ec9d838f10486c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f76489f384f233f65eb8fcca3a8359cd5b67c20a
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74033985"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780730"
 ---
 # <a name="azcopy-remove"></a>azcopy remove
 
@@ -89,9 +89,13 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 
 ## <a name="options"></a>Opções
 
-**--excluir-caminho string**      Exclua estes caminhos ao remover. Esta opção não suporta caracteres wildcard (*). Verifica o prefixo relativo do caminho. Por exemplo: myFolder;myFolder/subDirName/file.pdf.
+**-eliminar as imagens** por defeito, a operação de eliminação falha se uma bolha tiver instantâneos. Especificar 'incluir' para remover a bolha da raiz e todos os seus instantâneos; em alternativa, especifique "apenas" para remover apenas os instantâneos, mas mantenha a bolha da raiz.
+
+**-excluir-caminho** de corda Exclua estes caminhos ao remover. Esta opção não suporta caracteres wildcard (*). Verifica o prefixo relativo do caminho. Por exemplo: myFolder;myFolder/subDirName/file.pdf.
 
 **-excluir a** cadeia de padrão Exclua ficheiros onde o nome corresponde à lista de padrões. Por exemplo: *.jpg;* pdf;exactNome
+
+**--força-se-ler-apenas**    Ao apagar um ficheiro ou pasta De Ficheiros Azure, force a eliminação a funcionar mesmo que o objeto existente tenha o seu conjunto de atributos de leitura apenas para leitura
 
 **-h, -ajuda** para remover
 
@@ -111,6 +115,7 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 |---|---|
 |--cap-mbps uint32|Cobre a taxa de transferência, em megabits por segundo. A entrada momentânea pode variar ligeiramente a partir da tampa. Se esta opção estiver definida para zero, ou for omitida, a entrada não está limitada.|
 |--cadeia tipo saída|Formato da saída do comando. As escolhas incluem: texto, json. O valor predefinido é "texto".|
+|---confiança-microsoft-sufixos string   | Especifica sufixos de domínio adicionais onde podem ser enviados tokens de login do Azure Ative Directory.  O padrão é '*.core.windows.net;* core.chinacloudapi.cn; *.core.cloudapi.de;* core.usgovcloudapi.net'. Qualquer lista aqui é adicionada ao padrão. Por segurança, só deve colocar domínios do Microsoft Azure aqui. Separe várias entradas com semi-cólons.|
 
 ## <a name="see-also"></a>Consulte também
 

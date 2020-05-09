@@ -5,16 +5,16 @@ author: mjrousos
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: ffe07960c6d32bea8ec31b1fe8248b6abc2b63af
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bd7c57f3089115e4da861fc8fd20331ab92bc33e
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75458282"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82787146"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Escala de um cluster de tecido de serviço programática 
 
-Os clusters de tecido de serviço em funcionamento em Azure são construídos em cima de conjuntos de escala de máquinas virtuais.  [A escala de cluster](./service-fabric-cluster-scale-up-down.md) descreve como os clusters de tecido de serviço podem ser dimensionados manualmente ou com regras de escala automática. Este artigo descreve como gerir credenciais e escalar um cluster dentro ou fora usando o fluente sdk de computação Azure, que é um cenário mais avançado. Para uma visão geral, leia [métodos programáticos de coordenação de operações de escala azure.](service-fabric-cluster-scaling.md#programmatic-scaling) 
+Os clusters de tecido de serviço em funcionamento em Azure são construídos em cima de conjuntos de escala de máquinas virtuais.  [A escala de cluster](./service-fabric-cluster-scale-in-out.md) descreve como os clusters de tecido de serviço podem ser dimensionados manualmente ou com regras de escala automática. Este artigo descreve como gerir credenciais e escalar um cluster dentro ou fora usando o fluente sdk de computação Azure, que é um cenário mais avançado. Para uma visão geral, leia [métodos programáticos de coordenação de operações de escala azure.](service-fabric-cluster-scaling.md#programmatic-scaling) 
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -119,6 +119,6 @@ await client.ClusterManager.RemoveNodeStateAsync(mostRecentLiveNode.NodeName);
 
 Para começar a implementar a sua própria lógica de auto-escala, familiarize-se com os seguintes conceitos e APIs úteis:
 
-- [Escalamanualmente ou com regras de escala automática](./service-fabric-cluster-scale-up-down.md)
+- [Escalamanualmente ou com regras de escala automática](./service-fabric-cluster-scale-in-out.md)
 - [Fluent Azure Management Libraries for .NET](https://github.com/Azure/azure-sdk-for-net/tree/Fluent) (útil para interagir com os conjuntos de escala de máquinavirtual subjacentes de um cluster de tecido de serviço)
 - [System.Fabric.FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) (útil para interagir com um cluster de tecido de serviço e seus nós)

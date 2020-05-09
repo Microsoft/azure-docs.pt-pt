@@ -5,13 +5,13 @@ author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/17/2019
-ms.openlocfilehash: 66d7228e78f03196da0b26249e7f1f86e79d79fd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/02/2020
+ms.openlocfilehash: 7f671e2a77a0a00fd1cc4338e29c14f7b8fca4f2
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80159018"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734727"
 ---
 # <a name="prepay-for-azure-database-for-postgresql-compute-resources-with-reserved-capacity"></a>Pré-pagamento para Base de Dados Azure para recursos computacionais PostgreSQL com capacidade reservada
 
@@ -22,7 +22,7 @@ Não necessita de atribuir a reserva a uma base de dados específica do Azure pa
 > [!IMPORTANT]
 > Os preços de capacidade reservados só estão disponíveis para a Base de Dados Azure para a implementação [do servidor Single](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server) PostgreSQL e não para a implementação do [Hyperscale Citus.](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---hyperscale-citus)
 
-Pode comprar base de dados Azure para capacidade reservada postgresQL no [portal Azure](https://portal.azure.com/). Para comprar a capacidade reservada:
+Pode comprar base de dados Azure para capacidade reservada postgresQL no [portal Azure](https://portal.azure.com/). Pague pela reserva [antecipadamente ou com pagamentos mensais](../cost-management-billing/reservations/monthly-payments-reservations.md). Para comprar a capacidade reservada:
 
 * Você deve estar no papel de proprietário para pelo menos uma Empresa ou subscrição individual com taxas pay-as-you-go.
 * Para subscrições Enterprise, **Adicionar Instâncias Reservadas** tem de estar ativada no [EA Portal](https://ea.azure.com/). Ou, se essa definição for desativada, deve ser um Administrador EA na subscrição.
@@ -41,7 +41,7 @@ Por exemplo, suponhamos que está a executar uma base de dados gen5 – 32 vCore
 ## <a name="buy-azure-database-for-postgresql-reserved-capacity"></a>Comprar Base de Dados Azure para capacidade reservada postgresQL
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. Selecione todas as reservas **de serviços** > **Reservations**.
+2. Selecione **Todos os serviços** > **Reservas**.
 3. Selecione **Adicionar** e, em seguida, no painel de reservas de compra, selecione Base de **Dados Azure para PostgreSQL** para comprar uma nova reserva para as suas bases de dados PostgreSQL.
 4. Preencha os campos necessários. Bases de dados existentes ou novas que correspondam aos atributos que seleciona qualificam-se para obter o desconto de capacidade reservado. O número real da sua Base de Dados Azure para servidores PostgreSQL que obtêm o desconto depende do âmbito e quantidade selecionados.
 
@@ -63,7 +63,7 @@ A tabela seguinte descreve os campos necessários.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Cancelar, trocar ou reembolsar reservas
 
-Pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para mais informações, consulte [trocas de self-service e reembolsos para Reservas Azure](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund).
+Pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para obter mais informações, veja [Trocas e reembolsos personalizados das Reservas do Azure](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund).
 
 ## <a name="vcore-size-flexibility"></a>flexibilidade do tamanho vCore
 

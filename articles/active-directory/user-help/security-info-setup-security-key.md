@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: curtand
-ms.openlocfilehash: ee868ded0dc3a46f2ec20d0141aa2576cbf71f45
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 016a09432499c5fd2be8fd488c7ef7a644c00bca
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77062341"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628338"
 ---
 # <a name="set-up-a-security-key-as-your-verification-method"></a>Configurar uma chave de segurança como o seu método de verificação
 
@@ -63,7 +63,7 @@ Antes de poder registar a sua chave de segurança, o seguinte deve ser verdade:
 
 Você deve criar a sua chave de segurança e dar-lhe um PIN único antes de poder iniciar sessão no seu trabalho ou conta escolar usando a chave. Pode ter até 10 chaves registadas na sua conta. 
 
-1. Vá à página do https://myprofile.microsoft.com Meu **Perfil** e inscreva-se se ainda não o fez.
+1. Vá à página do https://myaccount.microsoft.com Meu **Perfil** e inscreva-se se ainda não o fez.
 
 2. Selecione Informações de **Segurança,** selecione **método adicionar**e, em seguida, selecione a chave de **segurança** a partir da lista de drop-down do **método.**
 

@@ -3,12 +3,12 @@ title: Atualizar a versão Azure Service Fabric de um cluster
 description: Atualize o código e/ou configuração do Tecido de Serviço que executa um cluster de tecido de serviço, incluindo a definição do modo de atualização do cluster, a atualização de certificados, a adição de portas de aplicação, a realização de patches de OS, e assim por diante. O que se pode esperar quando as atualizações forem realizadas?
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.openlocfilehash: c3ffcbd4296385623ff5e2c1ee001c27598ff3fb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 802e7402f60370b7151c5e373c8a4921a5af7c80
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75451812"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82789605"
 ---
 # <a name="upgrade-the-service-fabric-version-of-a-cluster"></a>Atualizar a versão do Service Fabric de um cluster
 
@@ -110,7 +110,7 @@ Output:
 
 ## <a name="next-steps"></a>Passos seguintes
 * Aprenda a personalizar algumas das [configurações](service-fabric-cluster-fabric-settings.md) de tecido de tecido de serviço
-* Aprenda a [escalar o seu cluster para dentro e para fora](service-fabric-cluster-scale-up-down.md)
+* Aprenda a [escalar o seu cluster para dentro e para fora](service-fabric-cluster-scale-in-out.md)
 * Conheça as atualizações de [aplicações](service-fabric-application-upgrade.md)
 
 <!--Image references-->
