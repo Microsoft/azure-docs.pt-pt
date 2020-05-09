@@ -3,20 +3,20 @@ title: Receber e responder a chamadas utilizando HTTPS
 description: Lidar com pedidos HTTPS de entrada de serviços externos utilizando aplicações da Azure Logic
 services: logic-apps
 ms.suite: integration
-ms.reviewers: klam, logicappspm
+ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 05/06/2020
 tags: connectors
-ms.openlocfilehash: 8137bea37c25554d814e237380ba5c57c5b24d57
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
-ms.translationtype: HT
+ms.openlocfilehash: c6d8dc087e6306173fc4d55368cd3c4c624d5302
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82900965"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82978574"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Receber e responder a pedidos de entrada em HTTPS em Aplicações Lógicas Azure
 
-Com [as Aplicações Lógicas Azure](../logic-apps/logic-apps-overview.md) e a ação de gatilho ou resposta de pedido incorporado, pode criar tarefas automatizadas e fluxos de trabalho que recebem e respondem aos pedidos https recebidos. Por exemplo, pode ter a sua aplicação lógica:
+Com [as Aplicações Lógicas Azure](../logic-apps/logic-apps-overview.md) e a ação de gatilho e resposta de pedido incorporado, pode criar tarefas automatizadas e fluxos de trabalho que recebem e respondem aos pedidos https recebidos. Por exemplo, pode ter a sua aplicação lógica:
 
 * Receba e responda a um pedido https de dados numa base de dados no local.
 * Desencadeie um fluxo de trabalho quando um evento externo de webhook acontece.
@@ -49,11 +49,11 @@ O gatilho do Pedido suporta a Autenticação Aberta do [Diretório Ativo Azure](
 
 ## <a name="add-request-trigger"></a>Adicionar gatilho de pedido
 
-Este gatilho incorporado cria um ponto final HTTPS manualmente calivel que *só* pode receber pedidos HTTPS recebidos. Quando este evento acontece, o gatilho dispara e executa a aplicação lógica.
+Este gatilho incorporado cria um ponto final HTTPS manualmente calivel que *só* pode receber pedidos HTTPS recebidos. Quando este evento acontece, o gatilho dispara e executa a aplicação lógica. Para obter mais informações sobre a definição json subjacente do gatilho e como chamar este gatilho, consulte o tipo de [gatilho do Pedido](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) e [call, trigger ou nest workflows com pontos finais HTTPS em Aplicações Lógicas Azure](../logic-apps/logic-apps-http-endpoint.md).
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). Criar uma aplicação lógica em branco.
 
-1. Depois da Logic App Designer abrir, na caixa de pesquisa, insira "http request" como filtro. A partir da lista de gatilhos, selecione o **gatilho quando um pedido HTTP é recebido,** que é o primeiro passo no fluxo de trabalho da aplicação lógica.
+1. Depois da Logic App Designer abrir, `http request` na caixa de pesquisa, introduza como filtro. A partir da lista de gatilhos, selecione o **gatilho quando um pedido HTTP é recebido,** que é o primeiro passo no fluxo de trabalho da aplicação lógica.
 
    ![Selecione gatilho de pedido](./media/connectors-native-reqres/select-request-trigger.png)
 
@@ -64,7 +64,7 @@ Este gatilho incorporado cria um ponto final HTTPS manualmente calivel que *só*
    | Nome da propriedade | Nome da propriedade JSON | Necessário | Descrição |
    |---------------|--------------------|----------|-------------|
    | **HTTP POST URL** | {nenhum} | Sim | O URL de ponto final que é gerado depois de guardar a aplicação lógica e é usado para chamar a sua app lógica |
-   | **Solicitar corpo JSON Schema** | `schema` | No | O esquema JSON que descreve as propriedades e valores no corpo de pedido de entrada |
+   | **Solicitar corpo JSON Schema** | `schema` | Não | O esquema JSON que descreve as propriedades e valores no corpo de pedido de entrada |
    |||||
 
 1. Na caixa **Do Corpo de Pedido JSON Schema,** introduza opcionalmente um esquema JSON que descreve o corpo no pedido de entrada, por exemplo:
@@ -162,8 +162,8 @@ Este gatilho incorporado cria um ponto final HTTPS manualmente calivel que *só*
 
    | Nome da propriedade | Nome da propriedade JSON | Necessário | Descrição |
    |---------------|--------------------|----------|-------------|
-   | **Método** | `method` | No | O método que o pedido de entrada deve usar para chamar a app lógica |
-   | **Caminho relativo** | `relativePath` | No | O caminho relativo para o parâmetro que o URL final da app lógica pode aceitar |
+   | **Método** | `method` | Não | O método que o pedido de entrada deve usar para chamar a app lógica |
+   | **Caminho relativo** | `relativePath` | Não | O caminho relativo para o parâmetro que o URL final da app lógica pode aceitar |
    |||||
 
    Este exemplo adiciona a propriedade **Método:**
@@ -254,8 +254,8 @@ A sua aplicação lógica mantém o pedido de entrada aberto apenas por um minut
    | Nome da propriedade | Nome da propriedade JSON | Necessário | Descrição |
    |---------------|--------------------|----------|-------------|
    | **Código de Estado** | `statusCode` | Sim | O código de estado para devolver na resposta |
-   | **Cabeçalhos** | `headers` | No | Um objeto JSON que descreve um ou mais cabeçalhos para incluir na resposta |
-   | **Corpo** | `body` | No | O corpo de resposta |
+   | **Cabeçalhos** | `headers` | Não | Um objeto JSON que descreve um ou mais cabeçalhos para incluir na resposta |
+   | **Corpo** | `body` | Não | O corpo de resposta |
    |||||
 
 1. Para especificar propriedades adicionais, como um esquema JSON para o corpo de resposta, abra a **lista de novos parâmetros Adicionar** e selecione os parâmetros que pretende adicionar.

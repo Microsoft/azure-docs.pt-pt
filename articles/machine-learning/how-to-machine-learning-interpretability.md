@@ -10,12 +10,12 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: Luis.Quintanilla
 ms.date: 04/02/2020
-ms.openlocfilehash: fcb837af85a54102e8c9eafc33249af9dba6b5ce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f4210352a9d8cd3cd9cb9afda7d9a4798d96f44b
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80631394"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982892"
 ---
 # <a name="model-interpretability-in-azure-machine-learning"></a>Interpretação do modelo em Aprendizagem automática azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -74,17 +74,17 @@ Aprenda sobre técnicas de interpretação suportadas, modelos de aprendizagem a
 
 |Técnica de Interpretação|Descrição|Tipo|
 |--|--|--------------------|
-|1. Explicador de árvores SHAP| O explicador de árvores do [SHAP,](https://github.com/slundberg/shap)que se foca no algoritmo de estimativa rápida de valor shap do tempo polinomial específico das **árvores e conjuntos de árvores.**|Modelo específico|
-|2. Explicador Profundo SHAP| Baseado na explicação do [SHAP,](https://github.com/slundberg/shap)Deep Explainer "é um algoritmo de aproximação de alta velocidade para valores SHAP em modelos de aprendizagem profunda que se baseia numa ligação com deepLIFT descrita no [papel SHAP NIPS.](https://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions) Os modelos **TensorFlow** e **Keras** utilizando o backend TensorFlow são suportados (existe também suporte preliminar para pyTorch)".|Modelo específico|
-|3. Explicador Linear SHAP| O explicador linear do [SHAP](https://github.com/slundberg/shap)calcula os valores SHAP para um **modelo linear,** contabilizando opcionalmente correlações inter-características.|Modelo específico|
-|4. Explicador de Kernel SHAP| O explicador Kernel do [SHAP](https://github.com/slundberg/shap)usa uma regressão linear local especialmente ponderada para estimar os valores de SHAP para **qualquer modelo**.|Modelo-agnóstico|
-|5. Mimic Explainer (Substituto Global)| O explicador mimic baseia-se na ideia de treinar [modelos de substitutos globais](https://christophm.github.io/interpretable-ml-book/global.html) para imitar modelos de blackbox. Um modelo global de substitutos é um modelo intrinsecamente interpretável que é treinado para aproximar as previsões de qualquer modelo de **caixa preta** com a maior precisão possível. Os cientistas de dados podem interpretar o modelo de substituto para tirar conclusões sobre o modelo da caixa preta. Pode utilizar um dos seguintes modelos interpretáveis como modelo de substituição: LightGBM (LGBMExplainableModel), Regressão Linear (LinearExplainableModel), Modelo explicador de Descida De Gradiente Stocástico (SGDExplainableModel) e Decision Tree (DecisionTreeExplainableModel).|Modelo-agnóstico|
-|6. Explicador de importância da característica permutação (PFI)| Permutação Característica Importância é uma técnica usada para explicar modelos de classificação e regressão que é inspirado no [papel de Breiman Random Forests](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf) (ver secção 10). A um nível elevado, a forma como funciona é baralhando aleatoriamente dados uma característica de cada vez para todo o conjunto de dados e calculando quanto a métrica de desempenho do interesse muda. Quanto maior for a mudança, mais importante é a característica. O PFI pode explicar o comportamento geral de **qualquer modelo subjacente,** mas não explica as previsões individuais. |Modelo-agnóstico|
+|Explicador de árvores SHAP| O explicador de árvores do [SHAP,](https://github.com/slundberg/shap)que se foca no algoritmo de estimativa rápida de valor shap do tempo polinomial específico das **árvores e conjuntos de árvores.**|Modelo específico|
+|Explicador Profundo SHAP| Com base na explicação do SHAP, deep explainer "é um algoritmo de aproximação de alta velocidade para valores SHAP em modelos de aprendizagem profunda que se baseia numa ligação com deepLIFT descrita no [papel SHAP NIPS](https://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions). Os modelos **TensorFlow** e **Keras** utilizando o backend TensorFlow são suportados (existe também suporte preliminar para pyTorch)".|Modelo específico|
+|Explicador linear SHAP| O explicador linear do SHAP calcula os valores SHAP para um **modelo linear,** contabilizando opcionalmente correlações inter-características.|Modelo específico|
+|Explicador De Kernel SHAP| O explicador Kernel da SHAP usa uma regressão linear local especialmente ponderada para estimar os valores de SHAP para **qualquer modelo**.|Modelo-agnóstico|
+|Mimic Explainer (Substituto Global)| O explicador mimic baseia-se na ideia de treinar [modelos de substitutos globais](https://christophm.github.io/interpretable-ml-book/global.html) para imitar modelos de blackbox. Um modelo global de substitutos é um modelo intrinsecamente interpretável que é treinado para aproximar as previsões de qualquer modelo de **caixa preta** com a maior precisão possível. Os cientistas de dados podem interpretar o modelo de substituto para tirar conclusões sobre o modelo da caixa preta. Pode utilizar um dos seguintes modelos interpretáveis como modelo de substituição: LightGBM (LGBMExplainableModel), Regressão Linear (LinearExplainableModel), Modelo explicador de Descida De Gradiente Stocástico (SGDExplainableModel) e Decision Tree (DecisionTreeExplainableModel).|Modelo-agnóstico|
+|Explicador de importância da característica permutação (PFI)| Permutação Característica Importância é uma técnica usada para explicar modelos de classificação e regressão que é inspirado no [papel de Breiman Random Forests](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf) (ver secção 10). A um nível elevado, a forma como funciona é baralhando aleatoriamente dados uma característica de cada vez para todo o conjunto de dados e calculando quanto a métrica de desempenho do interesse muda. Quanto maior for a mudança, mais importante é a característica. O PFI pode explicar o comportamento geral de **qualquer modelo subjacente,** mas não explica as previsões individuais. |Modelo-agnóstico|
 
 
 
 
-Além das técnicas de interpretabilidade acima descritas, apoiamos `TabularExplainer`outro [explicador baseado em SHAP,](https://github.com/slundberg/shap)chamado . Dependendo do modelo, `TabularExplainer` utiliza um dos explicadores SHAP suportados:
+Além das técnicas de interpretabilidade acima descritas, apoiamos `TabularExplainer`outro explicador baseado em SHAP, chamado . Dependendo do modelo, `TabularExplainer` utiliza um dos explicadores SHAP suportados:
 
 * TreeExplainer para todos os modelos à base de árvores
 * DeepExplainer para modelos DNN
@@ -120,4 +120,6 @@ Pode executar a explicação remotamente na Computação de Aprendizagem automá
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Veja o [como](how-to-machine-learning-interpretability-aml.md) permitir a interpretação de modelos formando recursos de computação remota azure machine learning. Consulte os cadernos de [amostras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) para cenários adicionais.
+- Veja o [como](how-to-machine-learning-interpretability-aml.md) permitir a interpretação de modelos formando recursos de computação remota azure machine learning. 
+- Consulte os cadernos de [amostras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) para cenários adicionais. 
+- Se estiver interessado em interpretar cenários de texto, consulte [Interpret-text](https://github.com/interpretml/interpret-text), um repo de código aberto relacionado para [interpretar-comunidade](https://github.com/interpretml/interpret-community/), para técnicas de interpretação para NLP. `azureml.interpret`o pacote não suporta atualmente estas técnicas, mas pode começar com um [caderno de exemplo sobre classificação](https://github.com/interpretml/interpret-text/blob/master/notebooks/text_classification/text_classification_classical_text_explainer.ipynb)de texto .
