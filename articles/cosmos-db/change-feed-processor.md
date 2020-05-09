@@ -6,14 +6,14 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 4/29/2020
+ms.date: 05/06/2020
 ms.reviewer: sngun
-ms.openlocfilehash: d069df0a095cc0356cd61155dde875a5d92ed18d
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: aa9b090627b6f27a54b67c361b45b6f99e3a6338
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594156"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982382"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Processador do feed de alterações no Azure Cosmos DB
 
@@ -100,6 +100,7 @@ Além disso, o processador de alimentos para alterações pode ajustar-se dinami
 Pode agora proceder a mais informações sobre o processador de feed de mudança nos seguintes artigos:
 
 * [Visão geral do feed de mudança](change-feed.md)
+* [Alterar modelo de puxar por feed](change-feed-pull-model.md)
 * [Como migrar da biblioteca de processadores de feed de mudança](how-to-migrate-from-change-feed-library.md)
 * [Utilizar o calculador do feed de alterações](how-to-use-change-feed-estimator.md)
 * [Hora de início do processador do feed de alterações](how-to-configure-change-feed-start-time.md)

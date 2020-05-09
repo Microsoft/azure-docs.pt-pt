@@ -22,5 +22,5 @@ Pode utilizar uma das seguintes ferramentas ou SDKs para utilizar a atividade de
 - [SDK Python](../articles/data-factory/quickstart-create-data-factory-python.md)
 - [Azure PowerShell](../articles/data-factory/quickstart-create-data-factory-powershell.md)
 - [API REST](../articles/data-factory/quickstart-create-data-factory-rest-api.md)
-- [Modelo de Gestor de Recursos Azure](../articles/data-factory/quickstart-create-data-factory-resource-manager-template.md)
+- [Modelo Azure Resource Manager](../articles/data-factory/quickstart-create-data-factory-resource-manager-template.md)
 

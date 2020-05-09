@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 7f927d230efba580cff163d31c6f572a10d0b4aa
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2e225d4d37f6bdb3d50b32f6464456e4f7fa0036
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80991148"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853951"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Quickstart: Adicione o início da plataforma de identidade da Microsoft a uma aplicação web ASP.NET
 Neste arranque rápido, você usa uma amostra de código para aprender como uma ASP.NET aplicação web para assinar em contas pessoais (hotmail.com, outlook.com, outros) e contas de trabalho e escola de qualquer instância do Azure Ative Directory (Azure AD).  (Ver [como funciona a amostra](#how-the-sample-works) para uma ilustração.)
@@ -43,7 +43,7 @@ Neste arranque rápido, você usa uma amostra de código para aprender como uma 
 > 1. Selecione **Novo registo**.
 > 1. Quando a página **Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação:
 >      - Na secção **Nome,** introduza um nome de aplicação significativo que `ASPNET-Quickstart`será apresentado aos utilizadores da aplicação, por exemplo.
->      - Adicione `http://localhost:44368/` o **Redirecionamento URI,** clique em **Registar**.
+>      - Adicione `https://localhost:44368/` o **Redirecionamento URI,** clique em **Registar**.
 >      - A partir do painel de navegação esquerdo sob a secção Gerir, **selecione Autenticação**
 >          - Sob a subsecção **Implicit Grant,** selecione **fichas de identificação**.
 >          - E, em seguida, selecione **Guardar**.
