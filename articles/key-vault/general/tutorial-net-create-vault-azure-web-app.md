@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 962b738d7e5f91076d17c19daad01f8dbaf92341
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: HT
+ms.openlocfilehash: dca7392c35c398ae3d9da62114c991ee4c0e57ca
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82888825"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82997009"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-with-net"></a>Tutorial: Use uma identidade gerida para ligar o Cofre chave a uma Web App Azure com .NET
 
@@ -102,7 +102,7 @@ FtP e Git local podem implantar-se numa aplicação web Azure utilizando um util
 
 Para configurar o utilizador de implementação, execute o comando de conjunto de utilizadores de [implementação az webapp.](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) Escolha um nome de utilizador e uma senha que adere a estas diretrizes: 
 
-- O nome de utilizador deve ser único dentro do Azure, e para os pushs git locais, não deve conter o símbolo @. 
+- O nome de utilizador deve ser único dentro do Azure e, para os pushs git locais, não deve conter o símbolo '@'. 
 - A palavra-passe deve ter pelo menos oito caracteres de comprimento, com dois dos seguintes três elementos: letras, números e símbolos. 
 
 ```azurecli-interactive
@@ -281,10 +281,20 @@ using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
 ```
 
-Adicione estas três `app.UseEndpoints` linhas antes da chamada, `vaultUri` atualizando o URI para refletir o seu cofre chave.
+Adicione estas linhas `app.UseEndpoints` antes da chamada, `vaultUri` atualizando o URI para refletir o seu cofre chave. Abaixo o código está a usar [o 'DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) para autenticação no cofre chave, que está a usar ficha da identidade gerida pela aplicação para autenticar. Também está a usar backoff exponencial para repetições em caso de cofre chave está a ser estrangulado.
 
 ```csharp
-var client = new SecretClient(new Uri("https://<your-unique-key-vault-name>.vault.azure.net/"), new DefaultAzureCredential());
+SecretClientOptions options = new SecretClientOptions()
+    {
+        Retry =
+        {
+            Delay= TimeSpan.FromSeconds(2),
+            MaxDelay = TimeSpan.FromSeconds(16),
+            MaxRetries = 5,
+            Mode = RetryMode.Exponential
+         }
+    };
+var client = new SecretClient(new Uri("https://<your-unique-key-vault-name>.vault.azure.net/"), new DefaultAzureCredential(),options);
 
 KeyVaultSecret secret = client.GetSecret("mySecret");
 

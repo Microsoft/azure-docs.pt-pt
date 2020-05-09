@@ -1,23 +1,23 @@
 ---
-title: Lista de definições políticas incorporadas para o Monitor Azure
-description: Lista definições políticas integradas da Política Azure para o Monitor Azure. Estes incorporados fornecem abordagens comuns para gerir os seus recursos Azure.
+title: Definições políticas incorporadas para o Monitor Azure
+description: Lista definições políticas integradas da Política Azure para o Monitor Azure. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
 ms.date: 04/30/2020
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.custom: subject-policy-samples
-ms.openlocfilehash: eec29d12d167fa3eae9233095ccc5f38da77d9b1
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 0434d2d1d532839ff18ea08a445f0b9ad50103a2
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/08/2020
-ms.locfileid: "82966289"
+ms.locfileid: "82982127"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-monitor"></a>Definições políticas integradas da Política Azure para o Monitor Azure
 
 Esta página é um índice de definições políticas integradas da [Política Azure](../governance/policy/overview.md) para o Monitor Azure. Para obter mais insins de política azure para outros serviços, consulte [definições in-in da Política Azure.](../governance/policy/samples/built-in-policies.md)
 
-O nome de cada um embutido liga-se à definição de política no portal Azure. Utilize o link na coluna **Fonte** para visualizar a fonte no [repo da política azure GitHub](https://github.com/Azure/azure-policy).
+O nome de cada definição política incorporada está ligado à definição de política no portal Azure. Utilize o link na coluna **GitHub** para visualizar a fonte no repo da [política azure GitHub](https://github.com/Azure/azure-policy).
 
 ## <a name="azure-monitor"></a>Azure Monitor
 

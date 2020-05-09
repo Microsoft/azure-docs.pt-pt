@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Implementar um modelo de machine learning com o designer'
+title: 'Tutorial: Implementar modelos ML com designer'
 titleSuffix: Azure Machine Learning
 description: Este tutorial mostra-lhe como construir uma solução de análise preditiva no designer de Machine Learning Azure (pré-visualização). Treine, marque e implemente um modelo de aprendizagem automática utilizando módulos de arrasto e queda.
 author: peterclu
@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: c3ca37fd47b6551a95f9a491053ec7863acd1eeb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d8c38707f68b5841edb39e4527ec2cdcb1a35adf
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80389397"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983385"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Tutorial: Implementar um modelo de machine learning com o designer (pré-visualização)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]

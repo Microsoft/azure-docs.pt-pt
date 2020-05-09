@@ -1,20 +1,17 @@
 ---
-title: Compreender como um desconto de reserva é aplicado ao armazenamento de discos do Azure
+title: Compreender o desconto de reservas para armazenamento de discos do Azure
 description: Saiba como o desconto de discos reservados do Azure é aplicado aos seus discos geridos SSD premium do Azure.
 author: roygara
-ms.service: cost-management-billing
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/30/2020
 ms.author: rogarana
-ms.openlocfilehash: 18fdda3e28761fcf912b716f51b5e270a9b224d0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.service: cost-management-billing
+ms.topic: conceptual
+ms.date: 01/30/2020
+ms.openlocfilehash: 3541e3f12a6d0b1beecdd67821d31f71b47f6c68
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77586653"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509470"
 ---
 # <a name="understand-how-your-reservation-discount-is-applied-to-azure-disk-storage"></a>Compreender como o desconto de reserva é aplicado ao armazenamento de discos do Azure
 
@@ -58,4 +55,4 @@ Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://go.m
 
 - [Reduzir custos com a Reserva de Discos do Azure (Linux)](../../virtual-machines/linux/disks-reserved-capacity.md)
 - [Reduzir custos com a Reserva de Discos do Azure (Windows)](../../virtual-machines/windows/disks-reserved-capacity.md)
-- [O que são as Reservas do Azure?](save-compute-costs-reservations.md)
+- [O que são as reservas do Azure?](save-compute-costs-reservations.md)

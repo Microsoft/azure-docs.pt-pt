@@ -8,12 +8,12 @@ ms.reviewer: jrasnick, carlrab
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: fc7551c081d14a871c8ee96610ca7190f629901d
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 62546fc98429c3a28217b1992f803aa40ce615c8
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790971"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982348"
 ---
 # <a name="tutorial-use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-spark-pools-preview"></a>Tutorial: Utilize o Kit de Ferramentas Azure para o IntelliJ para criar aplicações Apache Spark para piscinas Spark (pré-visualização)
 
@@ -143,7 +143,7 @@ Depois de criar uma aplicação Scala, pode executá-la remotamente.
     |Nome principal da classe|O valor predefinido é a classe principal do ficheiro selecionado. Pode mudar a classe selecionando a **...** elipse e escolhendo outra classe.|
     |Configurações de trabalho|Pode alterar a chave e os valores predefinidos. Para mais informações, consulte [Apache Livy REST API](https://livy.incubator.apache.org./docs/latest/rest-api.html).|
     |Argumentos da linha de comandos|Pode introduzir argumentos separados pelo espaço para a classe principal, se necessário.|
-    |Frascos referenciados e ficheiros referenciados|Pode introduzir os caminhos para os frascos e ficheiros referenciados, se houver. Também pode navegar em ficheiros no sistema de ficheiros virtual Azure, que atualmente suporta apenas o cluster ADLS Gen 2. Para mais informações: [Configuração de Faísca apache](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) e [como carregar recursos para cluster](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).|
+    |Frascos referenciados e ficheiros referenciados|Pode introduzir os caminhos para os frascos e ficheiros referenciados, se houver. Também pode navegar em ficheiros no sistema de ficheiros virtual Azure, que atualmente suporta apenas o cluster ADLS Gen2. Para mais informações: [Configuração de Faísca apache](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) e [como carregar recursos para cluster](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).|
     |Armazenamento de upload de trabalho|Expanda para revelar opções adicionais.|
     |Tipo de armazenamento|Selecione **Use o Azure Blob para fazer o upload** da lista de lançamentos.|
     |Conta de Armazenamento|Insira a sua conta de armazenamento.|
