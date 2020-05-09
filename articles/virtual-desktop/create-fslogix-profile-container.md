@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 149fb5818ee360c7333997655ea9eb8d7ded346c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 294a59ed94344ecf590eb9b34f991deaaa10db69
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81270898"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82607389"
 ---
 # <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Crie um recipiente de perfil FSLogix para uma piscina de anfitriões usando ficheiros Azure NetApp
 
@@ -23,7 +23,7 @@ Pode criar recipientes de perfil FSLogix utilizando [ficheiros Azure NetApp,](ht
 
 Este guia irá mostrar-lhe como configurar uma conta Azure NetApp Files e criar recipientes de perfil FSLogix no Windows Virtual Desktop.
 
-Este artigo assume que já tem piscinas de [anfitriões](create-host-pools-azure-marketplace.md) configuradas e agrupadas em um ou mais inquilinos no seu ambiente de ambiente de trabalho virtual windows. Para aprender a configurar inquilinos, consulte [Criar um inquilino no Windows Virtual Desktop](tenant-setup-azure-active-directory.md) e na nossa publicação de blog tech [community](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Getting-started-with-Windows-Virtual-Desktop/ba-p/391054).
+Este artigo assume que já tem piscinas de [anfitriões](create-host-pools-azure-marketplace.md) configuradas e agrupadas em um ou mais inquilinos no seu ambiente de ambiente de trabalho virtual windows. Para aprender a configurar inquilinos, consulte [Criar um inquilino no Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) e na nossa publicação de blog tech [community](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Getting-started-with-Windows-Virtual-Desktop/ba-p/391054).
 
 As instruções deste guia são especificamente para utilizadores do Windows Virtual Desktop. Se procura orientações mais gerais para configurar ficheiros Azure NetApp e criar recipientes de perfil FSLogix fora do Windows Virtual Desktop, consulte o Conjunto de [Ficheiros NetApp do Azure e crie um arranque rápido de volume NFS](../azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes.md).
 
@@ -210,7 +210,7 @@ Esta secção baseia-se em Criar um recipiente de [perfil para uma piscina hospe
 
 ## <a name="make-sure-users-can-access-the-azure-netapp-file-share"></a>Certifique-se de que os utilizadores podem aceder à partilha de Ficheiros Azure NetApp
 
-1. Abra o seu navegador <https://rdweb.wvd.microsoft.com/webclient/index.html>de internet e vá para .
+1. Abra o seu navegador <https://rdweb.wvd.microsoft.com/arm/webclient>de internet e vá para .
 
 2. Inscreva-se com as credenciais de um utilizador atribuído ao grupo Remote Desktop.
 

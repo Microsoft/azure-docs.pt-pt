@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aa0810818bf7cfea21f925ee639b4b5a50dcb23b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d9cf3d739054422d219bb6536129c5eb22a2994a
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79246126"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594887"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Alta disponibilidade para SAP NetWeaver em VMs Azure
 
@@ -452,7 +452,7 @@ Para simplificar a implementação e configuração, neste artigo, utilizamos os
 ## <a name="prerequisites"></a><a name="217c5479-5595-4cd8-870d-15ab00d4f84c"></a>Pré-requisitos
 Antes de começar, certifique-se de que cumpre os pré-requisitos descritos nas seguintes secções. Além disso, certifique-se de verificar todos os recursos listados na secção [Recursos.][sap-ha-guide-2]
 
-Neste artigo, utilizamos modelos do Gestor de Recursos Azure para [sap netWeaver de três níveis.](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image/) Para uma visão geral útil dos modelos, consulte os modelos do Gestor de [Recursos SAP Azure](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/).
+Neste artigo, utilizamos modelos do Gestor de Recursos Azure para [sap netWeaver de três níveis.](https://github.com/Azure/azure-quickstart-templates/) Para uma visão geral útil dos modelos, consulte os modelos do Gestor de [Recursos SAP Azure](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/).
 
 ## <a name="resources"></a><a name="42b8f600-7ba3-4606-b8a5-53c4f026da08"></a>Recursos
 Estes artigos abrangem as implantações sap em Azure:
@@ -677,8 +677,8 @@ Os modelos de três níveis no Gestor de Recursos Azure também suportam cenári
 
 Aqui é onde você pode obter modelos de Gestor de Recursos Azure para o cenário de exemplo que descrevemos neste artigo:
 
-* [Imagem do Azure Marketplace](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image)  
-* [Imagem personalizada](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image)
+* [Imagem do Azure Marketplace](https://github.com/Azure/azure-quickstart-templates/)  
+* [Imagem personalizada](https://github.com/Azure/azure-quickstart-templates/)
 
 Para preparar a infraestrutura para o modelo arquitetônico 1:
 
@@ -768,8 +768,8 @@ Você pode usar este modelo de Gestor de Recursos Azure para SAP para ajudar a s
 
 Aqui é onde você pode obter modelos de Gestor de Recursos Azure para este cenário de implementação:
 
-* [Imagem do Azure Marketplace](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-converged)  
-* [Imagem personalizada](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-converged)
+* [Imagem do Azure Marketplace](https://github.com/Azure/azure-quickstart-templates/)  
+* [Imagem personalizada](https://github.com/Azure/azure-quickstart-templates/)
 
 
 ### <a name="prepare-the-infrastructure-for-architectural-template-3"></a>Preparar a infraestrutura para o modelo arquitetônico 3
@@ -1016,7 +1016,7 @@ Se pretender utilizar diferentes números para as instâncias SAP ASCS ou SCS, t
 1. No portal Azure, selecione >  ** < *SID*>-lb-ascs carregar**regras de equilíbrio de carga de**carga**.
 2. Para todas as regras de equilíbrio de carga que pertencem à instância SAP ASCS ou SCS, altere estes valores:
 
-   * Nome
+   * Name
    * Porta
    * Porto de back-end
 

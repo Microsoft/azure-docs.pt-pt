@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: be76c665e1f5319b3e1ff1976e44fee9cd90ea6b
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: HT
+ms.openlocfilehash: d46d5618d7e3dc26775401f4a90d0c98d75ea31a
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82607203"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929218"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Expandir uma piscina de anfitriões existente com novos anfitriões de sessão
 
@@ -31,7 +31,7 @@ Este artigo irá dizer-lhe como você pode expandir uma piscina de anfitriões e
 
 Antes de começar, certifique-se de que criou uma piscina de anfitriões e máquinas virtuais de anfitrião de sessão (VMs) utilizando um dos seguintes métodos:
 
-- [Portal do Azure](./create-host-pools-azure-marketplace.md)
+- [Portal Azure](./create-host-pools-azure-marketplace.md)
 - [Criar um conjunto de anfitriões com o PowerShell](./create-host-pools-powershell.md)
 
 Você também vai precisar das seguintes informações a partir de quando você criou o pool anfitrião e vMs anfitrião de sessão:
@@ -58,7 +58,7 @@ Para expandir a sua piscina de acolhimento adicionando máquinas virtuais:
 
 7. Selecione o grupo de recursos que pretende criar os VMs abaixo e, em seguida, selecione a região. Pode escolher a região atual que está a usar ou uma nova região.
    
-8. Insira o novo número total de anfitriões de sessão que deseja em **Número de VMs**. Por exemplo, se estiver a expandir a sua piscina de anfitriões de cinco anfitriões para oito sessões, insira **8**. 
+8. Insira o número de anfitriões de sessão que pretende adicionar ao seu pool anfitrião em **Número de VMs**. Por exemplo, se estiver a expandir a sua piscina de anfitriões por cinco anfitriões, insira **5**.
    
     >[!NOTE]
     >Não é possível editar o tamanho ou imagem dos VMs porque é importante garantir que todos os VMs na piscina anfitriã têm o mesmo tamanho.

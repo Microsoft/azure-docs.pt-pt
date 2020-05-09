@@ -10,12 +10,12 @@ ms.author: rezas
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 13936a55baed59d5b6257f13f69305a1ce72927a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 9fb2242f6e3f8ce78a0e5043a53ce3055819725b
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81730391"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583674"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Compreender e invocar métodos diretos a partir do Hub IoT
 
@@ -83,11 +83,19 @@ O valor `connectTimeoutInSeconds` fornecido como no pedido é o tempo após a in
 
 #### <a name="example"></a>Exemplo
 
-Veja abaixo um exemplo `curl`de sosses usando . 
+Este exemplo permitir-lhe-á iniciar de forma segura um pedido de invocação de um Método Direto num dispositivo IoT registado num Hub Azure IoT.
+
+Para começar, utilize a [extensão Microsoft Azure IoT para o Azure CLI](https://github.com/Azure/azure-iot-cli-extension) para criar uma Assinatura de Acesso Partilhado. 
+
+```bash
+az iot hub generate-sas-token -n <iothubName> -du <duration>
+```
+
+Em seguida, substitua o cabeçalho de Autorização pelo `iothubName` `deviceId`seu `methodName` `payload` recém-gerado SharedAccessSignature e, em seguida, modifique os parâmetros e parâmetros para combinar com a sua implementação no comando de exemplo `curl` abaixo.  
 
 ```bash
 curl -X POST \
-  https://iothubname.azure-devices.net/twins/myfirstdevice/methods?api-version=2018-06-30 \
+  https://<iothubName>.azure-devices.net/twins/<deviceId>/methods?api-version=2018-06-30 \
   -H 'Authorization: SharedAccessSignature sr=iothubname.azure-devices.net&sig=x&se=x&skn=iothubowner' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -100,6 +108,14 @@ curl -X POST \
 }'
 ```
 
+Execute o comando modificado para invocar o método direto especificado. Os pedidos bem sucedidos devolverão um código de estado HTTP 200.
+
+> [!NOTE]
+> O exemplo acima demonstra invocar um Método Direto num dispositivo.  Se desejar invocar um Método Direto num Módulo IoT Edge, terá de modificar o pedido de url, como mostrado abaixo:
+
+```bash
+https://<iothubName>.azure-devices.net/twins/<deviceId>/modules/<moduleName>/methods?api-version=2018-06
+```
 ### <a name="response"></a>Resposta
 
 A aplicação back-end recebe uma resposta que é composta dos seguintes itens:

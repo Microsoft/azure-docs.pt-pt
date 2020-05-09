@@ -7,12 +7,12 @@ ms.date: 3/30/2020
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.openlocfilehash: e6120d5961dc31845c1322d052d46b52f4d2be6c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: 7414bd656f21e65288a06f26095a29b2d9cc27f8
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81424182"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82900726"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-python"></a>Quickstart: Biblioteca de clientes Azure Key Vault para Python
 
@@ -67,12 +67,14 @@ az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
 
 ### <a name="create-a-service-principal"></a>Criar um principal de serviço
 
-A forma mais simples de autenticar uma aplicação .NET baseada na nuvem é com uma identidade gerida; ver Utilize um Serviço de [Aplicações gerido identidade para aceder ao Cofre de Chaves Azure](../general/managed-identity.md) para obter mais detalhes. No entanto, por uma questão de simplicidade, este quickstart cria uma aplicação de consola .NET. A autenticação de uma aplicação de ambiente de trabalho com o Azure requer a utilização de um diretor de serviço e de uma política de controlo de acesso.
+A forma mais simples de autenticar uma aplicação .NET baseada na nuvem é com uma identidade gerida; ver Utilize um Serviço de [Aplicações gerido identidade para aceder ao Cofre de Chaves Azure](../general/managed-identity.md) para obter mais detalhes. 
+
+No entanto, por uma questão de simplicidade, este quickstart cria uma aplicação de ambiente de trabalho, que requer a utilização de um diretor de serviço e de uma política de controlo de acesso. O seu princípio de serviço requer um nome único no formato "http://<my-unique-service-principle-name>".
 
 Crie um princípio de serviço utilizando o comando Azure CLI [az ad sp create-for-rbac:](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac)
 
 ```azurecli
-az ad sp create-for-rbac -n "http://mySP" --sdk-auth
+az ad sp create-for-rbac -n "http://<my-unique-service-principle-name>" --sdk-auth
 ```
 
 Esta operação devolverá uma série de pares chave/valor. 

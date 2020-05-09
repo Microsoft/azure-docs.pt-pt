@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Configure rolling implementações para máquinas virtuais Azure Linux
-description: Neste tutorial você aprenderá como configurar o pipeline de implantação contínua (CD) que atualiza incrementalmente um grupo de Máquinas Virtuais Azure Linux usando a estratégia de implementação rolling
+title: Tutorial - Configure implementações rolantes para máquinas virtuais Azure Linux
+description: Neste tutorial, aprende-se a configurar um oleoduto de implantação contínua (CD). Este gasoduto atualiza gradualmente um grupo de máquinas virtuais Azure Linux utilizando a estratégia de implantação de rolos.
 author: moala
 manager: jpconnock
 tags: azure-devops-pipelines
@@ -12,75 +12,86 @@ ms.workload: infrastructure
 ms.date: 4/10/2020
 ms.author: moala
 ms.custom: devops
-ms.openlocfilehash: 75888b1ebbda33891296fe0b54c5d204955e32a3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 28f093bc464a45862d3b253d628b7ae03810f81a
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82113493"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871228"
 ---
-# <a name="tutorial---configure-rolling-deployment-strategy-for-azure-linux-virtual-machines"></a>Tutorial - Configure estratégia de implantação de rolling para máquinas virtuais Azure Linux
+# <a name="tutorial---configure-the-rolling-deployment-strategy-for-azure-linux-virtual-machines"></a>Tutorial - Configure a estratégia de implantação rolante para máquinas virtuais Azure Linux
 
-O Azure DevOps é um serviço Azure incorporado que automatiza cada parte do processo DevOps com integração contínua e entrega contínua para qualquer recurso Azure.
-Quer a sua aplicação utilize máquinas virtuais, aplicações web, Kubernetes ou qualquer outro recurso, pode implementar infraestruturas como código, integração contínua, testes contínuos, entrega contínua e monitorização contínua com Azure e Azure DevOps.  
+Azure DevOps é um serviço Azure incorporado que automatiza cada parte do processo DevOps para qualquer recurso Azure. Quer a sua aplicação utilize máquinas virtuais, aplicações web, Kubernetes ou qualquer outro recurso, pode implementar infraestruturas como código (IaaC), integração contínua, testes contínuos, entrega contínua e monitorização contínua com Azure e Azure DevOps.
 
-![AzDevOps_portalView](media/tutorial-devops-azure-pipelines-classic/azdevops-view.png) 
+![O portal Azure com A Azure DevOps selecionado ao abrigo de Serviços](media/tutorial-devops-azure-pipelines-classic/azdevops-view.png)
 
+## <a name="infrastructure-as-a-service-iaas---configure-cicd"></a>Infraestrutura como serviço (IaaS) - Configure CI/CD
 
-## <a name="iaas---configure-cicd"></a>IaaS - Configure CI/CD 
-A Azure Pipelines fornece um conjunto completo e completo de ferramentas de automatização CI/CD para implementações em máquinas virtuais. Pode configurar um gasoduto de entrega contínuo para um Azure VM diretamente do portal Azure. Este documento contém os passos associados à criação de um gasoduto CI/CD para a implantação de várias máquinas a partir do portal Azure. Você também pode olhar para outras estratégias como [canário](https://aka.ms/AA7jdrz) e [azul-verde](https://aka.ms/AA83fwu), que são suportadas fora da caixa do portal Azure. 
+A Azure Pipelines fornece um conjunto completo de ferramentas de automatização CI/CD para implementações em máquinas virtuais. Pode configurar um gasoduto de entrega contínua para um Azure VM a partir do portal Azure.
 
+Este artigo mostra como configurar um oleoduto CI/CD para a implantação de multimáquinas rolantes a partir do portal Azure. O portal Azure também apoia outras estratégias como [canário](https://aka.ms/AA7jdrz) e [azul-verde.](https://aka.ms/AA83fwu)
 
-**Configure CI/CD em máquinas virtuais**
+### <a name="configure-cicd-on-virtual-machines"></a>Configure CI/CD em máquinas virtuais
 
-As máquinas virtuais podem ser adicionadas como alvos de um grupo de [implementação](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups) e podem ser direcionadas para a atualização multi-máquina. Uma vez implantado, o Histórico de **Implantação** dentro de um grupo de implantação fornece rastreabilidade da VM para o oleoduto e, em seguida, para o compromisso. 
- 
+Pode adicionar máquinas virtuais como alvos a um grupo de [implantação](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups). Em seguida, pode direcioná-las para atualizações multi-máquinas. Depois de se implantar em máquinas, veja o Histórico de **Implantação** dentro de um grupo de implantação. Esta vista permite-lhe rastrear desde vm até ao oleoduto e depois ao compromisso.
 
-**Rolling Deployments**: Uma implantação rolante substitui as instâncias da versão anterior de uma aplicação por instâncias da nova versão da aplicação num conjunto fixo de máquinas (rolling set) em cada iteração. Vamos ver como pode configurar uma atualização rolante para máquinas virtuais.  
-Pode configurar atualizações de rolamento para as suas "**máquinas virtuais**" dentro do portal Azure utilizando a opção de entrega contínua. 
+### <a name="rolling-deployments"></a>Implantações rolantes
 
-Aqui está a passagem passo a passo. 
-1. Inscreva-se no seu portal Azure e navegue para uma máquina virtual. 
-2. No painel esquerdo VM, navegue para o menu de **entrega** contínua. Em seguida, clique em **Configurar**. 
+Em cada iteração, uma implementação rolante substitui os casos da versão anterior de uma aplicação. Substitui-os por instâncias da nova versão num conjunto fixo de máquinas (conjunto de rolamentos). O seguinte walk-through mostra como configurar uma atualização rolante para máquinas virtuais.
 
-   ![AzDevOps_configure](media/tutorial-devops-azure-pipelines-classic/azure-devops-configure.png) 
-3. No painel de configuração, clique em "Azure DevOps Organization" para selecionar uma conta existente ou criar uma. Em seguida, selecione o projeto sob o qual pretende configurar o gasoduto.  
+Utilizando a opção de entrega contínua, pode configurar atualizações de rolamento para as suas máquinas virtuais dentro do portal Azure. Aqui está o passo a passo passo:
 
+1. Inscreva-se no portal Azure e navegue para uma máquina virtual.
+1. No painel mais à esquerda das definições vM, selecione **a entrega contínua**. Em seguida, **selecione Configurar**.
 
-   ![AzDevOps_project](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling.png) 
-4. Um grupo de implantação é um conjunto lógico de máquinas-alvo de implantação que representam os ambientes físicos; por exemplo, "Dev", "Test", "UAT" e "Production". Pode criar um novo grupo de implementação ou selecionar um grupo de implementação existente. 
-5. Selecione o pipeline de construção que publica o pacote a ser implantado na máquina virtual. Note que o pacote publicado deve ter um _deploy.sh_ script `deployscripts` de implementação _deploy.ps1_ ou deploy.sh na pasta na raiz do pacote. Este script de implantação será executado pelo oleoduto Azure DevOps no tempo de execução.
-6. Selecione a estratégia de implementação à sua escolha. Neste caso, permite selecionar 'Rolling'.
-7. Opcionalmente, pode marcar a máquina com o papel. Por exemplo, 'web', 'db' etc. Isto ajuda-o a direcionar Os VMs que têm um papel específico apenas.
-8. Clique **ok** no diálogo para configurar o gasoduto de entrega contínua. 
-9. Uma vez feito, terá um gasoduto de entrega contínuo configurado para ser implantado na máquina virtual.  
+   ![O painel de entrega contínua com o botão Configurar](media/tutorial-devops-azure-pipelines-classic/azure-devops-configure.png)
 
+1. No painel de configuração, **selecione Azure DevOps Organization** para escolher uma conta existente ou criar uma nova. Em seguida, selecione o projeto sob o qual pretende configurar o gasoduto.  
 
-   ![AzDevOps_pipeline](media/tutorial-devops-azure-pipelines-classic/azure-devops-deployment-history.png)
-10. Verá que a implantação para a máquina virtual está em andamento. Pode clicar no link para navegar até ao oleoduto. Clique no **Lançamento-1** para visualizar a implementação. Ou pode clicar na **Edição** para modificar a definição do pipeline de lançamento. 
-11. Se tiver vários VMs para configurar, repita os passos 2-4 para que outros VMs sejam adicionados ao grupo de implementação. Note que se selecionar um Grupo de Implantação para o qual já existe um pipeline, o VM será adicionado ao grupo de implantação sem criar novos oleodutos. 
-12. Uma vez feito, clique na definição do pipeline, navegue para a organização Azure DevOps e clique no pipeline de lançamento **edit.** 
-   ![AzDevOps_edit_pipeline](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling-pipeline.png)
-13. Clique no **link 1 trabalho, 1 tarefa** na fase **de dev.** Clique na fase **de implantação.**
-   ![AzDevOps_deploymentGroup](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling-pipeline-tasks.png)
-14. A partir do painel de configuração à direita, pode especificar o número de máquinas que pretende implantar paralelamente em cada iteração. Caso pretenda ser implantado em várias máquinas de cada vez, pode especificá-lo em termos de percentagem utilizando o slider.  
+   ![O painel de entrega contínua](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling.png)
 
-15. A tarefa execute script de execução executará por padrão o script de _implementação de implementação.ps1_ ou _deploy.sh_ na pasta 'deployscripts' no diretório raiz do pacote publicado.  
-![AzDevOps_publish_package](media/tutorial-deployment-strategy/package.png)
+1. Um grupo de implantação é um conjunto lógico de máquinas-alvo de implantação que representam os ambientes físicos. Dev, Test, UAT e Produção são exemplos. Pode criar um novo grupo de implementação ou selecionar um existente.
+1. Selecione o pipeline de construção que publica o pacote a ser implantado na máquina virtual. O pacote publicado deve ter um script de implementação denominado deploy.ps1 ou deploy.sh na pasta de scripts de implementação na pasta raiz do pacote. O oleoduto executa este guião de implantação.
+1. Na **estratégia de implantação,** selecione **Rolling**.
+1. Opcionalmente, pode marcar cada máquina com o seu papel. As tags "web" e "db" são exemplos. Estas etiquetas ajudam-no a direcionar apenas VMs que têm um papel específico.
+1. Selecione **OK** para configurar o gasoduto de entrega contínua.
+1. Após os acabamentos de configuração, tem um gasoduto de entrega contínua configurado para ser implantado na máquina virtual.  
+
+   ![O painel de entrega contínua que mostra o histórico de implantação](media/tutorial-devops-azure-pipelines-classic/azure-devops-deployment-history.png)
+
+1. Os detalhes de implantação da máquina virtual são apresentados. Pode selecionar o link para ir ao pipeline, **Release-1** para visualizar a implementação ou **Editar** para modificar a definição de pipeline de lançamento.
+
+1. Se estiver a configurar vários VMs, repita os passos 2 a 4 para que outros VMs adicionem ao grupo de implementação. Se selecionar um grupo de implantação que já tem uma execução de gasoduto, os VMs são adicionados ao grupo de implantação. Não são criados novos oleodutos.
+1. Depois de feita a configuração, selecione a definição do pipeline, navegue para a organização Azure DevOps e selecione **Editar** para o pipeline de lançamento.
+
+   ![Edição do gasoduto rolante](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling-pipeline.png)
+
+1. Selecione **1 trabalho, 1 tarefa** na fase de **dev.** Selecione a fase **de implantação.**
+
+   ![Tarefas de pipeline rolante com a tarefa de implantação selecionada](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling-pipeline-tasks.png)
+
+1. A partir do painel de configuração mais à direita, pode especificar o número de máquinas que pretende implantar paralelamente em cada iteração. Se pretender ser implantado em várias máquinas de cada vez, pode especificar o número de máquinas em percentagem utilizando o slider.  
+
+1. A tarefa executar executar script de execução por padrão executa o script de implementação de implementação.ps1 ou deploy.sh. O script está na pasta de scripts de implantação na pasta raiz do pacote publicado.
+
+   ![O painel de artefactos mostrando deploy.sh na pasta de implantscripts](media/tutorial-deployment-strategy/package.png)
 
 ## <a name="other-deployment-strategies"></a>Outras estratégias de implantação
 
-- [Configure estratégia de implantação canária](https://aka.ms/AA7jdrz)
-- [Configure estratégia de implantação azul-verde](https://aka.ms/AA83fwu)
+- [Configure a estratégia de implantação canária](https://aka.ms/AA7jdrz)
+- [Configure a estratégia de implantação azul-verde](https://aka.ms/AA83fwu)
 
+## <a name="azure-devops-projects"></a>Azure DevOps Projects
+
+Pode começar com azure facilmente. Com a Azure DevOps Projects, comece a executar a sua aplicação em qualquer serviço Azure em apenas três passos selecionando:
+
+- Uma linguagem de aplicação
+- Um tempo de execução
+- Um serviço Azure
  
-## <a name="azure-devops-project"></a>Projeto Azure DevOps 
-Começa com o Azure mais facilmente do que nunca.
+[Saiba mais](https://azure.microsoft.com/features/devops-projects/).
  
-Com a DevOps Projects, comece a executar a sua aplicação em qualquer serviço Azure em apenas três etapas: selecione um idioma de aplicação, um tempo de execução e um serviço Azure.
- 
-[Saiba mais](https://azure.microsoft.com/features/devops-projects/ ).
- 
-## <a name="additional-resources"></a>Recursos adicionais 
-- [Implementar para máquinas virtuais Azure usando o projeto DevOps](https://docs.microsoft.com/azure/devops-project/azure-devops-project-vms)
+## <a name="additional-resources"></a>Recursos adicionais
+
+- [Implemente para máquinas virtuais Azure utilizando projetos Azure DevOps](https://docs.microsoft.com/azure/devops-project/azure-devops-project-vms)
 - [Implemente a implementação contínua da sua app para um conjunto de escala de máquina virtual Azure](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset)

@@ -4,14 +4,14 @@ description: Este artigo descreve como codificar atualizações de modelos para 
 author: chrislound
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 05/07/2020
 ms.author: chlound
-ms.openlocfilehash: 7908b168adcaa00819990d7ced04ba4888d67d63
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: HT
+ms.openlocfilehash: bbbc2863e06b4602a4175d46bbe21414041583ba
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871310"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926566"
 ---
 # <a name="refresh-with-azure-automation"></a>Atualizar com a Automatização do Azure
 
@@ -60,7 +60,7 @@ O Diretor de Serviço que cria deve ter permissões de administrador de servidor
 
     ![Criar credenciais](./media/analysis-services-refresh-azure-automation/6.png)
 
-2. Introduza os detalhes para a credencial.  Para o **nome utilizador**, introduza o **ClienteId SPN,** para a **Palavra-Passe,** introduza o **Segredo SPN**.
+2. Introduza os detalhes para a credencial. No **nome do utilizador,** introduza o id de aplicação principal do serviço (appid) e, em seguida, em **Password,** insira o principal segredo do serviço.
 
     ![Criar credenciais](./media/analysis-services-refresh-azure-automation/7.png)
 
@@ -68,7 +68,7 @@ O Diretor de Serviço que cria deve ter permissões de administrador de servidor
 
     ![Livro de Recorridos de Importação](./media/analysis-services-refresh-azure-automation/8.png)
 
-4. Procure o ficheiro **Refresh-Model.ps1,** forneça um **Nome** e **descrição,** e clique em **Criar**.
+4. Procure o ficheiro **Refresh-Model.ps1,** forneça um **Nome** e **Descrição,** e clique em **Criar**.
 
     ![Livro de Recorridos de Importação](./media/analysis-services-refresh-azure-automation/9.png)
 

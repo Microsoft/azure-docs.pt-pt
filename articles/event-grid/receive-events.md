@@ -8,16 +8,16 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: babanisa
-ms.openlocfilehash: cb38fd17c0c1bfbe3e5957d8f432f0a43b285c93
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 2c34a9e1463c49ab1822d1de6bf33e81f19cf003
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60803784"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629597"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Receber eventos para um ponto final HTTP
 
-Este artigo descreve como [validar um ponto final http](security-authentication.md#webhook-event-delivery) para receber eventos de uma Subscrição de Eventos e, em seguida, receber e desserializar eventos. Este artigo utiliza uma Função Azure para fins de demonstração, no entanto os mesmos conceitos aplicam-se independentemente do local onde a aplicação está hospedada.
+Este artigo descreve como [validar um ponto final http](webhook-event-delivery.md) para receber eventos de uma Subscrição de Eventos e, em seguida, receber e desserializar eventos. Este artigo utiliza uma Função Azure para fins de demonstração, no entanto os mesmos conceitos aplicam-se independentemente do local onde a aplicação está hospedada.
 
 > [!NOTE]
 > Recomenda-se **vivamente** que utilize um gatilho da grelha de [eventos](../azure-functions/functions-bindings-event-grid.md) ao acionar uma Função Azure com grelha de eventos. O uso de um gatilho genérico do WebHook aqui é demonstrativo.
@@ -28,7 +28,7 @@ Precisa de uma aplicação de função com uma função ativada http.
 
 ## <a name="add-dependencies"></a>Adicionar dependências
 
-Se estiver a desenvolver-se em .NET, adicione uma `Microsoft.Azure.EventGrid` [dependência](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies) à sua função para o pacote [Nuget](https://www.nuget.org/packages/Microsoft.Azure.EventGrid). Os exemplos deste artigo requerem a versão 1.4.0 ou mais tarde.
+Se estiver a desenvolver-se em .NET, adicione uma `Microsoft.Azure.EventGrid` [dependência](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies) à sua função para o pacote [NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventGrid). Os exemplos deste artigo requerem a versão 1.4.0 ou mais tarde.
 
 Os SDKs para outros idiomas estão disponíveis através da referência [Publish SDKs.](./sdk-overview.md#data-plane-sdks) Estes pacotes têm os modelos `EventGridEvent`para `StorageBlobCreatedEventData`tipos `EventHubCaptureFileCreatedEventData`de eventos nativos, tais como, e .
 
@@ -50,7 +50,7 @@ Clique no link "Ver Ficheiros" na sua Função Azure (direita a maioria do paine
 
 ## <a name="endpoint-validation"></a>Validação de ponto final
 
-A primeira coisa que queres `Microsoft.EventGrid.SubscriptionValidationEvent` fazer é lidar com os acontecimentos. Sempre que alguém subscreve um evento, a Event Grid envia `validationCode` um evento de validação para o ponto final com um na carga útil de dados. O ponto final é necessário para ecoar isto de volta no corpo de resposta para provar que [o ponto final é válido e propriedade de si](security-authentication.md#webhook-event-delivery). Se estiver a utilizar um Gatilho de Grelha de [Eventos](../azure-functions/functions-bindings-event-grid.md) em vez de uma Função ativada pelo WebHook, a validação do ponto final é manipulada para si. Se utilizar um serviço de API de terceiros (como [zapier](https://zapier.com) ou [IFTTT),](https://ifttt.com/)poderá não conseguir fazer eco programático do código de validação. Para esses serviços, pode validar manualmente a subscrição utilizando um URL de validação enviado no evento de validação de subscrição. Copie esse `validationUrl` URL na propriedade e envie um pedido GET através de um cliente REST ou do seu navegador web.
+A primeira coisa que queres `Microsoft.EventGrid.SubscriptionValidationEvent` fazer é lidar com os acontecimentos. Sempre que alguém subscreve um evento, a Event Grid envia `validationCode` um evento de validação para o ponto final com um na carga útil de dados. O ponto final é necessário para ecoar isto de volta no corpo de resposta para provar que [o ponto final é válido e propriedade de si](webhook-event-delivery.md). Se estiver a utilizar um Gatilho de Grelha de [Eventos](../azure-functions/functions-bindings-event-grid.md) em vez de uma Função ativada pelo WebHook, a validação do ponto final é manipulada para si. Se utilizar um serviço de API de terceiros (como [zapier](https://zapier.com) ou [IFTTT),](https://ifttt.com/)poderá não conseguir fazer eco programático do código de validação. Para esses serviços, pode validar manualmente a subscrição utilizando um URL de validação enviado no evento de validação de subscrição. Copie esse `validationUrl` URL na propriedade e envie um pedido GET através de um cliente REST ou do seu navegador web.
 
 Em C#, `DeserializeEventGridEvents()` a função desserializa os eventos da Grelha de Eventos. Desserializa os dados do evento no tipo apropriado, como StorageBlobCreatedEventData. Use `Microsoft.Azure.EventGrid.EventTypes` a classe para obter tipos e nomes de eventos suportados.
 

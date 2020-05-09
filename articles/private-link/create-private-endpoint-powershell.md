@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 60032677594537f1e7791b7108eebd5d4cfad5b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8af33e95c92cf51bdabe3325bd9249b4662b7d28
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75430350"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583764"
 ---
 # <a name="create-a-private-endpoint-using-azure-powershell"></a>Criar um ponto final privado usando o Azure PowerShell
 Um Private Endpoint é o bloco de construção fundamental para ligação privada em Azure. Permite que os recursos azure, como as Máquinas Virtuais (VMs), comuniquem privadamente com recursos de ligação privada. 
@@ -137,7 +137,7 @@ $subnet = $virtualNetwork `
 $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName "myResourceGroup" `
   -Name "myPrivateEndpoint" `
   -Location "westcentralus" `
-  -Subnet  $subnet`
+  -Subnet  $subnet `
   -PrivateLinkServiceConnection $privateEndpointConnection
 ``` 
 
@@ -198,9 +198,10 @@ mstsc /v:<publicIpAddress>
 ## <a name="access-sql-database-server-privately-from-the-vm"></a>Aceda ao Servidor de Base de Dados SQL em privado a partir do VM
 
 1. No Ambiente de Trabalho Remoto do myVM, abra a PowerShell.
-2. Introduza `nslookup myserver.database.windows.net`. 
+2. Introduza `nslookup myserver.database.windows.net`. Lembre-se `myserver` de substituir pelo nome do servidor SQL.
 
     Receberá uma mensagem semelhante a esta:
+    
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
@@ -209,14 +210,21 @@ mstsc /v:<publicIpAddress>
     Address:  10.0.0.5
     Aliases:   myserver.database.windows.net
     ```
-3. Instale o Estúdio de Gestão de Servidores SQL
-4. No Connect ao servidor, introduza ou selecione estas informações: Configurar o tipo de servidor de valor Selecione o motor base de dados.
-      Nome do servidor Selecione myserver.database.windows.net nome de utilizador Introduza um nome de utilizador fornecido durante a criação.
-      Password Introduza uma palavra-passe fornecida durante a criação.
-      Lembre-se de palavra-passe Selecione Sim.
-5. Selecione Ligar.
-6. Consulte as Bases de Dados do menu esquerdo. 
-7. (Opcionalmente) Criar ou consultar informações a partir da minha base de dados
+    
+3. Instale o Estúdio de Gestão de Servidores SQL.
+4. No **Connect ao servidor,** introduza ou selecione estas informações:
+
+    | Definição | Valor |
+    | --- | --- |
+    | Tipo de servidor | Motor de Base de Dados |
+    | Nome do servidor | myserver.database.windows.net |
+    | Nome de utilizador | Introduza o nome de utilizador fornecido durante a criação |
+    | Palavra-passe | Introduza a palavra-passe fornecida durante a criação |
+    | Lembre-se da palavra-passe | Sim |
+    
+5. Selecione **Ligar**.
+6. Consulte **as Bases** de Dados do menu esquerdo. 
+7. (Opcionalmente) Crie ou questione informações a partir da minha base de dados.
 8. Feche a ligação remota de ambiente de trabalho ao *myVM*. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos 

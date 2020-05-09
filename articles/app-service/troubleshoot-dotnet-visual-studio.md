@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: seodec18
-ms.openlocfilehash: cb68860af56914acede6c9cbf04d3e8ad3edbe04
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: HT
+ms.openlocfilehash: 516c7f50f7ff9fe947475b12120a527fc69353bc
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891059"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926855"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Troubleshoot uma aplicação no Azure App Service usando o Visual Studio
 ## <a name="overview"></a>Descrição geral
@@ -634,7 +634,7 @@ Para obter mais informações sobre depuração remota para aplicações de Serv
 * [Introdução à Depuração Remota no Serviço de Aplicações Azure parte 3 - Ambiente multi-instância e GIT](https://azure.microsoft.com/blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/)
 * [Depuração webJobs (vídeo)](https://www.youtube.com/watch?v=ncQm9q5ZFZs&list=UU_SjTh-ZltPmTYzAybypB-g&index=1)
 
-Se a sua aplicação utilizar um Back-end Azur API ou Mobile Services e tiver de o desmarcar, consulte [Debugging .NET Backend em Visual Studio](https://blogs.msdn.com/b/azuremobile/archive/2014/03/14/debugging-net-backend-in-visual-studio.aspx).
+Se a sua aplicação utilizar um Back-end Azur API ou Mobile Services e tiver de o desmarcar, consulte [Debugging .NET Backend em Visual Studio](/archive/blogs/azuremobile/debugging-net-backend-in-visual-studio).
 
 ### <a name="tracing-in-aspnet-applications"></a>Rastreio em aplicações ASP.NET
 Não existem introduções completas e atualizadas para ASP.NET rastreio disponível na Internet. O melhor que pode fazer é começar com materiais introdutórios antigos escritos para Formulários Web porque o MVC ainda não existia, e complementá-lo com publicações de blogmais recentes que se focam em questões específicas. Alguns bons lugares para começar são os seguintes recursos:
@@ -647,7 +647,7 @@ Não existem introduções completas e atualizadas para ASP.NET rastreio dispon�
   Informações sobre os ouvintes de rastreio, mas não menciona o [WebPageTraceListener](/dotnet/api/system.web.webpagetracelistener).
 * [Walkthrough: Integração ASP.NET Rastreio com Sistema.Rastreio de Diagnósticos](/previous-versions/b0ectfxd(v=vs.140))<br/>
   Este artigo também é antigo, mas inclui algumas informações adicionais que o artigo introdutório não cobre.
-* [Rastreio em ASP.NET Vistas da Navalha MVC](https://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
+* [Rastreio em ASP.NET Vistas da Navalha MVC](https://devblogs.microsoft.com/aspnet/tracing-in-asp-net-mvc-razor-views/)<br/>
   Além de rastrear nas vistas da Razor, o post também explica como criar um filtro de erro para registar todas as exceções não tratadas numa aplicação MVC. Para obter informações sobre como registar todas as exceções não tratadas numa aplicação de Formulários Web, consulte o exemplo Global.asax em [Completo Exemplo para Manipuladores](/previous-versions/bb397417(v=vs.140)) de Erros na MSDN. Em MVC ou Formulários Web, se pretender registar certas exceções, mas deixar que o manuseamento de quadros predefinidos faça efeito para eles, pode capturar e relançar como no seguinte exemplo:
 
     ```csharp

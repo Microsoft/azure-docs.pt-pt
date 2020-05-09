@@ -2,14 +2,14 @@
 title: Disponibilidade de recursos por região
 description: Disponibilidade de recursos de computação e memória para o serviço De casos de contentores Azure em diferentes regiões de Azure.
 ms.topic: article
-ms.date: 02/19/2020
+ms.date: 04/27/2020
 ms.author: danlep
-ms.openlocfilehash: c84ab7833f7c90d5d4b3c340c268fd9f75e20da9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 119c1202fe59e02a1b6ff802e3dbdc4d52133abe
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81399407"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583895"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilidade de recursos para instâncias de contentores azure nas regiões de Azure
 

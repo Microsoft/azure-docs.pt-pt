@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 3/13/2020
+ms.date: 5/4/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: a60b927f7239818b582ffcd85ddb4b7d69594482
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 09f27c922df4a15858236b2635b962f4bc92811b
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535966"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871531"
 ---
 # <a name="whats-new-for-authentication"></a>O que há de novo para autenticação?
 
@@ -37,13 +37,31 @@ O sistema de autenticação altera e adiciona funcionalidades de forma contínua
 
 Nenhum agendado neste momento.  Veja abaixo as alterações que estão dentro ou estão a chegar à produção.
 
+## <a name="may-2020"></a>maio de 2020
+
+### <a name="azure-government-endpoints-are-changing"></a>Pontos finais do Governo azure estão a mudar
+
+**Data de funcionação**: 5 de maio (final de junho de 2020) 
+
+**Pontos finais impactados**: Todos
+
+**Protocolo impactado**: Todos os fluxos
+
+Em 1 de junho de 2018, a Autoridade Oficial de Diretório Ativo `https://login-us.microsoftonline.com` `https://login.microsoftonline.us`azure (AAD) para o Governo Azure passou de ... Esta alteração também se aplica à Microsoft 365 GCC High e DoD, que a Azure Government AAD também presta serviços. Se possuir uma aplicação dentro de um inquilino do Governo dos `.us` EUA, tem de atualizar a sua aplicação para iniciar sessão de utilizadores no ponto final.  
+
+A partir de 5 de maio, a Azure AD começará a impor a mudança de ponto final, impedindo`microsoftonline.com`os utilizadores do governo de assinarem em aplicações hospedadas em inquilinos do Governo dos EUA usando o ponto final do público ( ).  As aplicações com impacto `AADSTS900439`  -  `USGClientNotSupportedOnPublicEndpoint`começarão a ver um erro. Este erro indica que a aplicação está a tentar assinar um utilizador do Governo dos EUA no ponto final da nuvem pública. Se a sua aplicação estiver num inquilino de nuvem pública e destinar-se a apoiar os utilizadores do Governo dos EUA, terá de atualizar a [sua aplicação para os suportar explicitamente](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud). Isto pode exigir a criação de um novo registo de aplicações na nuvem do Governo dos EUA. 
+
+A aplicação desta alteração será feita utilizando um lançamento gradual com base na frequência com que os utilizadores do Governo dos EUA assinam a aplicação - as aplicações que assinam em utilizadores do Governo dos EUA raramente verão a aplicação da lei em primeiro lugar, e as aplicações frequentemente utilizadas pelos utilizadores do Governo dos EUA serão as últimas a aplicar a aplicação da lei. Esperamos que a aplicação seja completa em todas as aplicações em junho de 2020. 
+
+Para mais detalhes, consulte o post do [governo azure sobre esta migração.](https://devblogs.microsoft.com/azuregov/azure-government-aad-authority-endpoint-update/) 
+
 ## <a name="march-2020"></a>Março de 2020
 
 ### <a name="user-passwords-will-be-restricted-to-256-characters"></a>As palavras-passe dos utilizadores serão restritas a 256 caracteres.
 
 **Data de funcionação**: 13 de março de 2020
 
-**Pontos finais impactados**: V1.0 e v2.0
+**Pontos finais impactados**: Todos
 
 **Protocolo impactado**: Todos os fluxos de utilizador.
 

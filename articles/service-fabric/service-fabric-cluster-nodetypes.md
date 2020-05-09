@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: 37d4c27d3033545c523cefc2f317073af531f095
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 03076a711041812f7587aa1c388b0889b49725d2
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78199721"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82787138"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Tipos de nó de tecido de serviço Azure e conjuntos de escala de máquina virtual
 

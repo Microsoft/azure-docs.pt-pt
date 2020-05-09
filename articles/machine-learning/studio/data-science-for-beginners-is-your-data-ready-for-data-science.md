@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: ccc422dfb3105fd1e12569a84a4ebfd22182b225
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8eb9c5a182c17815d4efcf171cc99b1e9f5bc89e
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73837806"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930170"
 ---
 # <a name="is-your-data-ready-for-data-science"></a>Os seus dados estão prontos para a ciência de dados?
 ## <a name="video-2-data-science-for-beginners-series"></a>Vídeo 2: Data Science for Beginners series
@@ -104,4 +104,4 @@ Certifique-se de conferir os outros quatro vídeos em *Data Science para Princip
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Experimente uma primeira experiência de ciência de dados com o Machine Learning Studio (clássico)](create-experiment.md)
-* [Obtenha uma introdução ao Machine Learning no Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)
+* [Obtenha uma introdução ao Machine Learning no Microsoft Azure](/azure/machine-learning/overview-what-is-azure-ml)

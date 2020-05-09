@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de91bd7e1e4c5f9909213f663dd3ede0f979d4de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 69c96d123ebe97ba4a7a6df0395efe698924fef1
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79262155"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734744"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Adicione o seu nome de domínio personalizado usando o portal azure ative diretório
 
@@ -37,7 +37,7 @@ Crie o seu novo diretório seguindo os passos em [Criar um novo inquilino para a
 >[!IMPORTANT]
 >A pessoa que cria o inquilino é automaticamente o administrador global para esse inquilino. O administrador global pode adicionar administradores adicionais ao inquilino.
 
-Para obter mais informações sobre funções de subscrição, consulte [as funções Do Azure RBAC.](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles)
+Para obter mais informações sobre funções de subscrição, consulte [as funções do Azure.](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles)
 
 >[!TIP]
 > Se planeia federar o seu Anúncio de Servidor estivado no local com a AD Azure, então precisa selecionar **i planeio configurar este domínio para uma única inscrição com o meu Diretório Ativo local** quando executar a ferramenta Azure AD Connect para sincronizar os seus diretórios.

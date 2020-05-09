@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: dd01b950435fadb96a961b6bb1c6b28ff436907a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 916d34abfaf8223e3cf29977e13dfddf15a3fbf9
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81265775"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82607287"
 ---
 # <a name="create-an-fslogix-profile-container-with-azure-files"></a>Criar um recipiente de perfil FSLogix com Ficheiros Azure
 
@@ -219,7 +219,7 @@ Agora tudo o que tens de fazer é certificar-te que o perfil que criaste existe 
 
 Para verificar o seu perfil:
 
-1. Abra um navegador e vá ao [cliente web do Windows Virtual Desktop](https://rdweb.wvd.microsoft.com/webclient/index.html).
+1. Abra um navegador e vá ao [cliente web do Windows Virtual Desktop](https://rdweb.wvd.microsoft.com/arm/webclient).
 
 2. Inscreva-se na conta de utilizador atribuída ao grupo Remote Desktop.
 

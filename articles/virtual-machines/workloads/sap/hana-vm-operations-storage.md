@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c4e8b544ea3daeb23b22f3864beb21ba9d3f342f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b0d8228586c0e20e4314331339aa2f2c46a38c9a
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81255622"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792161"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurações de armazenamento da máquina virtual do Azure do SAP HANA
 
@@ -281,7 +281,7 @@ Os limites de produção dos [Ficheiros Azure NetApp](https://docs.microsoft.com
 - Ultra Storage Tier - 128 MiB/s  
 
 > [!IMPORTANT]
-> Independentemente da capacidade que desloque num único volume NFS, espera-se que o planalto atinja a largura de banda de 1,2-1,4 GB/seg alavancada por um consumidor numa máquina virtual. Isto tem a ver com a arquitetura subjacente da oferta da ANF e os limites de sessão linux relacionados em torno do NFS. Os números de desempenho e de desempenho, tal como documentados no artigo, foram realizados resultados de testes de [referência de desempenho para Ficheiros Azure NetApp](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-performance-benchmarks) contra um volume NFS partilhado com vários VMs de clientes e como resultado com várias sessões. Este cenário é diferente do cenário que medimos no SAP. Quando medimos a entrada de um único VM contra um volume NFS. hospedado na ANF.
+> Independentemente da capacidade que desloque num único volume NFS, espera-se que o planalto atinja a largura de banda de 1,2-1,4 GB/seg alavancada por um consumidor numa máquina virtual. Isto tem a ver com a arquitetura subjacente da oferta da ANF e os limites de sessão linux relacionados em torno do NFS. Os números de desempenho e de desempenho, tal como documentados no artigo, foram realizados resultados de testes de [referência de desempenho para Ficheiros Azure NetApp](https://docs.microsoft.com/azure/azure-netapp-files/performance-benchmarks-linux) contra um volume NFS partilhado com vários VMs de clientes e como resultado com várias sessões. Este cenário é diferente do cenário que medimos no SAP. Quando medimos a entrada de um único VM contra um volume NFS. hospedado na ANF.
 
 Para satisfazer os requisitos mínimos de entrada de dados e `/hana/shared`registo sapeios os dados e registos, e de acordo com as diretrizes para, os tamanhos recomendados seriam:
 

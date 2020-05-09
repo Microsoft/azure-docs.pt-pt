@@ -26,6 +26,10 @@
           href: quickstart-create-apache-spark-pool.md
         - name: Criar um conjunto de SQL
           href: quickstart-create-sql-pool.md
+    - name: Carregar dados com conjuntos de SQL
+      items:
+        - name: Declaração COPY
+          href: ./sql-data-warehouse/quickstart-bulk-load-copy-tsql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Utilizar o SQL a pedido
       href: quickstart-sql-on-demand.md
 - name: Tutoriais

@@ -11,13 +11,13 @@ author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 11/20/2019
-ms.openlocfilehash: c891cb4eca2c286b3ac636e5995714accd591772
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/06/2020
+ms.openlocfilehash: 255c39eac2285a23403da2db893d9de8835f7d2c
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417350"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891536"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copiar dados de e para a Dynamics 365 (Serviço Comum de Dados) ou O CRM da Dynamics utilizando a Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -60,6 +60,10 @@ Este conector Dynamics é construído em cima da [ferramenta Dynamics XRM](https
 
 >[!TIP]
 >Para copiar dados da **Dynamics 365 Finance and Operations,** pode utilizar o [conector Dynamics AX](connector-dynamics-ax.md).
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Para utilizar este conector com a autenticação principal do serviço AAD, é necessário configurar a autenticação Servidor-a-Servidor (S2S) no Common Data Service ou na Dynamics. Consulte [este artigo](https://docs.microsoft.com/powerapps/developer/common-data-service/build-web-applications-server-server-s2s-authentication) sobre passos detalhados.
 
 ## <a name="get-started"></a>Introdução
 
@@ -320,7 +324,7 @@ Para copiar dados para a Dynamics, as seguintes propriedades são suportadas na 
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo do sumidouro da atividade de cópia deve ser definida para **DynamicsSink,** **DynamicsCrmSink**, ou **CommonDataServiceForAppsSink**. | Sim |
 | escreverComportamento | O comportamento de escrita da operação.<br/>O valor permitido é **"Upsert".** | Sim |
-| nome chave alternativo | Especifique o nome chave alternativo definido na sua entidade para executar "Upsert". | Não |
+| nome chave alternativo | Especifique o nome chave alternativo definido na sua entidade para executar "Upsert". | No |
 | escreverBatchSize | A contagem de linhas de dados escritos à Dynamics em cada lote. | Não (o padrão é 10) |
 | ignorar Valores Nulos | Indica se deve ignorar valores nulos dos dados de entrada (exceto os campos-chave) durante uma operação de escrita.<br/>Os valores permitidos são **verdadeiros** e **falsos.**<br>- **Verdade**: Deixe os dados no objeto de destino inalterados quando fizer uma operação de atualização/atualização. Insira um valor predefinido definido quando fizer uma operação de inserção.<br/>- **Falso**: Atualize os dados no objeto de destino para NULL quando fizer uma operação de atualização/atualização. Insira um valor NULO quando fizer uma operação de inserção. | Não (o padrão é falso) |
 

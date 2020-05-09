@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 93c21656a768ae458572e0b4917412c8103b2f2d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dd23745f811cf67aa5e7ef7aa96b877b5980c270
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80992220"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793130"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Access control in Azure Data Lake Storage Gen2 (Controlo de acesso no Azure Data Lake Storage Gen2)
 
@@ -287,7 +287,7 @@ Se o HNS for desligado, as regras de autorização Azure RBAC continuam a ser ap
 
 ### <a name="what-is-the-best-way-to-apply-acls"></a>Qual é a melhor maneira de aplicar ACLs?
 
-Utilize sempre os grupos de segurança Azure AD como o principal designado em ACLs. Resista à oportunidade de atribuir diretamente utilizadores individuais ou diretores de serviço. A utilização desta estrutura permitir-lhe-á adicionar e remover utilizadores ou diretores de serviço sem a necessidade de reaplicar OSAC a toda uma estrutura de diretório. ) Em vez disso, basta adicioná-los ou removê-los do grupo de segurança Azure AD apropriado. Tenha em mente que os ACLs não são herdados e, por isso, a reaplicação dos ACLs requer a atualização do ACL em todos os ficheiros e subdiretórios. 
+Utilize sempre os grupos de segurança Azure AD como o principal designado em ACLs. Resista à oportunidade de atribuir diretamente utilizadores individuais ou diretores de serviço. A utilização desta estrutura permitir-lhe-á adicionar e remover utilizadores ou diretores de serviço sem a necessidade de reaplicar OSAC a toda uma estrutura de diretório. Em vez disso, basta adicioná-los ou removê-los do grupo de segurança Azure AD apropriado. Tenha em mente que os ACLs não são herdados e, por isso, a reaplicação dos ACLs requer a atualização do ACL em todos os ficheiros e subdiretórios. 
 
 ### <a name="which-permissions-are-required-to-recursively-delete-a-directory-and-its-contents"></a>Que permissões são necessárias para apagar recursivamente um diretório e o seu conteúdo?
 

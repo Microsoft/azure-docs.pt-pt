@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 595762e6e8f22dddff30f1cff8c4bb79e89624b1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e42a4d738d375b4bceeb32f6159b4476843cf281
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80473845"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612661"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>Resolução de problemas ao cliente do Ambiente de Trabalho Remoto
 
@@ -81,7 +81,7 @@ Se o cliente da Web continuar a pedir credenciais, siga estas instruções:
 ## <a name="next-steps"></a>Passos seguintes
 
 - Para uma visão geral sobre a resolução de problemas do Windows Virtual Desktop e as faixas de escalada, consulte a [visão geral, feedback e suporte](troubleshoot-set-up-overview.md)de Resolução de Problemas.
-- Para resolver problemas ao criar um inquilino e uma piscina de hospedas num ambiente de ambiente de trabalho virtual windows, consulte [tenant e host pool creation](troubleshoot-set-up-issues.md).
+- Para resolver problemas ao criar um ambiente de ambiente de trabalho virtual windows e piscina de hospedar num ambiente de ambiente de trabalho virtual windows, consulte Ambiente e criação de [piscina anfitrião.](troubleshoot-set-up-issues.md)
 - Para resolver problemas ao configurar uma máquina virtual (VM) no Windows Virtual Desktop, consulte a [configuração virtual](troubleshoot-vm-configuration.md)do anfitrião da sessão .
 - Para resolver problemas ao utilizar o PowerShell com o Windows Virtual Desktop, consulte [o Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
 - Para passar por um tutorial de resolução de [problemas, consulte Tutorial: Implementações](../azure-resource-manager/templates/template-tutorial-troubleshoot.md)do modelo de gestor de recursos de resolução de problemas .
