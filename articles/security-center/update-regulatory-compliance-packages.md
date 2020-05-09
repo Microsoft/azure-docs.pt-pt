@@ -13,70 +13,82 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: fa5027ed285456247891c84e559b74a14237f553
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7a017f9485ec847c0a2c045e4c511b6a68db0cb2
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537785"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82889934"
 ---
-# <a name="update-to-dynamic-compliance-packages-in-your-regulatory-compliance-dashboard"></a>Atualização para pacotes dinâmicos de conformidade no seu dashboard de conformidade regulamentar
+# <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Personalizando o conjunto de normas no seu dashboard de conformidade regulamentar
 
 O Azure Security Center compara continuamente a configuração dos seus recursos com requisitos nos padrões, regulamentos e referências da indústria. O dashboard de **conformidade regulamentar** fornece informações sobre a sua postura de conformidade com base na forma como está a cumprir controlos e requisitos específicos de conformidade.
 
-Um padrão para o qual pode acompanhar a sua postura de conformidade é [o Azure CIS 1.1.0](https://www.cisecurity.org/benchmark/azure/) (mais formalmente, a versão 1.1.0 do "CIS Microsoft Azure Foundations Benchmark" 1.1.0). 
 
-A representação do Azure CIS que aparece inicialmente no seu dashboard de conformidade baseia-se num conjunto estático de regras que está incluída no Centro de Segurança.
+## <a name="overview-of-compliance-packages"></a>Visão geral dos pacotes de conformidade
 
-Com a funcionalidade **de pacotes dinâmicos** de conformidade, o Security Center melhora automaticamente a sua cobertura dos padrões da indústria ao longo do tempo. Os pacotes de conformidade são essencialmente iniciativas definidas na Política Azure. Podem ser atribuídos ao seu âmbito selecionado (subscrição, grupo de gestão, e assim por diante). Para ver os dados de conformidade mapeados como avaliações no seu dashboard, adicione um pacote de conformidade ao seu grupo de gestão ou subscrição a partir da Política de Segurança. A adição de um pacote de conformidade atribui efetivamente a iniciativa de conformidade regulamentar ao seu âmbito selecionado. Desta forma, pode acompanhar as iniciativas regulamentares recentemente publicadas como padrões de conformidade no seu painel de instrumentos. Quando a Microsoft lança novos conteúdos para a iniciativa (novas políticas que mapeiam para mais controlos no padrão), o conteúdo adicional aparece automaticamente no seu dashboard.
+As normas do setor, as normas regulamentares e os critérios de referência estão representados no Centro de Segurança como pacotes de *conformidade.*  Cada pacote é uma iniciativa definida na Política Do Azure. Para ver os dados de conformidade mapeados como avaliações no seu dashboard, adicione um pacote de conformidade ao seu grupo de gestão ou subscrição a partir da página de política de **Segurança.** (Saiba mais sobre a Política azure e iniciativas no [trabalho com políticas](tutorial-security-policy.md)de segurança .)
 
-O pacote dinâmico de conformidade para o referencial Azure CIS, **Azure CIS 1.1.0 (novo),** melhora a versão *estática* original por:
+Quando abordou um padrão ou referência ao seu âmbito selecionado, o padrão aparece no seu painel de conformidade regulamentar com todos os dados de conformidade associados mapeados como avaliações. Também pode descarregar relatórios sumários para qualquer uma das normas que tenham sido a bordo.
 
-* Incluindo mais políticas
-* Atualizar automaticamente com nova cobertura à medida que é adicionada 
+A Microsoft também rastreia os padrões regulamentares em si e melhora automaticamente a sua cobertura em alguns dos pacotes ao longo do tempo. Quando a Microsoft lança novos conteúdos para a iniciativa (novas políticas que mapeiam para mais controlos no padrão), o conteúdo adicional aparece automaticamente no seu dashboard.
 
-Atualização para o novo pacote dinâmico, conforme descrito abaixo.
+> [!TIP]
+> Um padrão que melhora com o tempo à medida que a Microsoft lança novos conteúdos é **o Azure CIS 1.1.0 (novo)** (mais formalmente, a [versão 1.1.0 do CIS Microsoft Azure Foundations Benchmark ).](https://www.cisecurity.org/benchmark/azure/) Terá de adicionar isto ao seu painel de instrumentos ao lado do "Azure CIS 1.1.0", a representação do Azure CIS que é configurado por padrão em todos os ambientes do Centro de Segurança. Este pacote baseia-se num conjunto estático de regras. O pacote mais recente inclui mais políticas e irá automaticamente atualizar ao longo do tempo. Atualização para o novo pacote dinâmico, conforme descrito abaixo.
 
-## <a name="adding-a-dynamic-compliance-package"></a>Adicionar um pacote dinâmico de conformidade
 
-Os seguintes passos explicam como adicionar o pacote dinâmico para monitorizar a sua conformidade com o benchmark Azure CIS v1.1.0.   
+## <a name="available-packages"></a>Pacotes disponíveis
 
-### <a name="update-to-the-azure-cis-110-new-dynamic-compliance-package"></a>Atualização para o Pacote de conformidade dinâmica Azure CIS 1.1.0 
+Pode adicionar padrões como NIST SP 800-53 R4, SWIFT CSP CSCF-v2020, UK Official e UK NHS, Canada Federal PBMM e Azure CIS 1.1.0 (novo) - uma representação mais completa do Azure CIS 1.1.0. 
 
-1. Abra a página da política de **segurança.** Esta página mostra o número de grupos de gestão, subscrições, espaços de trabalho e a estrutura do seu grupo de gestão.
+Além disso, pode adicionar o **Azure Security Benchmark,** as diretrizes específicas da Microsoft para as melhores práticas de segurança e conformidade baseadas em quadros comuns de conformidade. ([Saiba mais sobre o Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/introduction).)
 
-1. Selecione o grupo de subscrição ou gestão para o qual pretende gerir a postura de conformidade regulamentar. Recomendamos a seleção do âmbito mais elevado para o qual a norma é aplicável para que os dados de conformidade sejam agregados e rastreados para todos os recursos aninhados. 
+Normas adicionais serão suportadas no painel de instrumentos à medida que forem disponibilizadas. 
 
-1. Na secção de normas regulamentares da Indústria &, verá que o Azure CIS 1.1.0 pode ser atualizado para novos conteúdos. Clique em **Atualizar agora**. 
 
-1. Opcionalmente, clique **Em adicionar mais padrões** para abrir a página de padrões de **conformidade regulamentar Adicionar.** Lá, você pode pesquisar manualmente por **Azure CIS 1.1.0 (Novo)** e pacotes dinâmicos para outros padrões de conformidade tais como **NIST SP 800-53 R4**, **SWIFT CSP CSCF-v2020,** **UKO e UK NHS**, e Canada **PBMM**.
-    
+## <a name="adding-a-regulatory-standard-to-your-dashboard"></a>Adicionar um padrão regulamentar ao seu painel de instrumentos
+
+Os seguintes passos explicam como adicionar um pacote para monitorizar o seu cumprimento com uma das normas regulamentares suportadas.
+
+> [!NOTE]
+> Apenas os utilizadores que são proprietários ou contribuintes têm as permissões necessárias para adicionar padrões de conformidade. 
+
+1. A partir da barra lateral do Security Center, **selecione conformidade regulamentar** para abrir o painel de conformidade regulamentar. Aqui pode ver as normas de conformidade atualmente atribuídas às subscrições atualmente selecionadas.   
+
+1. A partir do topo da página, selecione **Gerir as políticas**de conformidade . A página de Gestão de Políticas aparece.
+
+1. Selecione o grupo de subscrição ou gestão para o qual pretende gerir a postura de conformidade regulamentar. 
+
     > [!TIP]
-    > Apenas os utilizadores que são proprietários ou contribuintes têm as permissões necessárias para adicionar padrões de conformidade. 
+    > Recomendamos a seleção do âmbito mais elevado para o qual a norma é aplicável para que os dados de conformidade sejam agregados e rastreados para todos os recursos aninhados. 
 
-    ![Adicionar pacotes regulamentares ao painel de controlo regulamentar do Azure Security Center](./media/update-regulatory-compliance-packages/security-center-dynamic-regulatory-compliance-additional-standards.png)
+1. Para adicionar os padrões relevantes à sua organização, clique **em Adicionar mais padrões**. 
 
+1. A partir da página de normas de **conformidade regulamentar Add,** pode procurar pacotes para qualquer uma das normas disponíveis. Algumas das normas disponíveis são:
 
-1. A partir da barra lateral do Security Center, **selecione conformidade regulamentar** para abrir o painel de conformidade regulamentar. 
-    * O Azure CIS 1.1.0 (Novo) aparece agora na sua lista de normas regulamentares & Indústria. 
-    * A vista *estática* original do seu Azure CIS 1.1.0 também permanecerá ao seu lado. Pode ser removido automaticamente no futuro.
+    - **Referência de Segurança do Azure**
+    - **NIST SP 800-53 R4**
+    - **SWIFT CSP CSCF-v2020**
+    - **UKO e UK NHS**
+    - **PBMM do Canadá**
+    
+    ![Adicionar pacotes regulamentares ao painel de controlo regulamentar do Azure Security Center](./media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png)
+
+1. A partir da barra lateral do Security Center, selecione o **cumprimento regulamentar** novamente para voltar ao dashboard de conformidade regulamentar.
+    * O seu novo padrão aparece na sua lista de normas regulamentares da Indústria &. 
+    * Se adicionou **O Azure CIS 1.1.0 (Novo),** a vista *estática* original do seu Azure CIS 1.1.0 também permanecerá ao seu lado. Pode ser removido automaticamente no futuro.
 
     > [!NOTE]
     > Pode levar algumas horas para que um padrão recém-adicionado apareça no painel de conformidade.
 
-
-    [![Painel de controlo regulamentar que mostra cIS antigo e novo do Azure](media/update-regulatory-compliance-packages/security-center-dynamic-regulatory-compliance-cis-old-and-new.png)](media/update-regulatory-compliance-packages/security-center-dynamic-regulatory-compliance-cis-old-and-new.png#lightbox)
-
+    [![Painel de controlo regulamentar que mostra cIS antigo e novo do Azure](media/update-regulatory-compliance-packages/regulatory-compliance-dashboard-with-benchmark-small.png)](media/update-regulatory-compliance-packages/regulatory-compliance-dashboard-with-benchmark.png#lightbox)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, aprendeste:
-
-* Como **atualizar as normas** mostradas no seu dashboard de conformidade regulamentar para os novos pacotes *dinâmicos*
-* Como **adicionar pacotes** de conformidade para monitorizar o seu cumprimento com padrões adicionais. 
+Neste artigo, aprendeu a **adicionar pacotes** de conformidade para monitorizar o seu cumprimento com padrões adicionais. 
 
 Para outros materiais relacionados, consulte os seguintes artigos: 
 
+- [Referência de Segurança do Azure](https://docs.microsoft.com/azure/security/benchmarks/introduction)
 - [Painel de conformidade regulamentar do centro de segurança](security-center-compliance-dashboard.md)
 - [Trabalhar com políticas de segurança](tutorial-security-policy.md)
-- [Gerir recomendações](security-center-recommendations.md) de segurança no Azure Security Center - Aprenda a usar recomendações no Azure Security Center para ajudar a proteger os seus recursos Azure.

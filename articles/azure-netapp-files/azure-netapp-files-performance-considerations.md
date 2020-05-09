@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: b-juche
-ms.openlocfilehash: 97e3c6212edd2ade4eabb96db3543e9b3b68e2ae
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 4badf550809df6cc63711c47e6e6f5b3690fdfca
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "67454142"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691323"
 ---
 # <a name="performance-considerations-for-azure-netapp-files"></a>Considerações de desempenho para o Azure NetApp Files
 
@@ -34,8 +34,6 @@ Considerações típicas de desempenho de armazenamento, incluindo ler e escreve
 A potência empírica máxima observada nos testes é de 4.500 MiB/s.  No nível de armazenamento Premium, uma quota de volume de 70.31 TiB fornecerá um limite de produção suficientemente elevado para atingir este nível de desempenho.  
 
 Se estiver a considerar atribuir valores de quota de volume para além de 70.31 TiB, pode ser atribuída uma quota adicional a um volume para armazenar dados adicionais. No entanto, a quota adicional não resultará num novo aumento do produto efetivo.  
-
-Consulte os critérios de referência de [Desempenho para ficheiros Azure NetApp](azure-netapp-files-performance-benchmarks.md) para obter informações adicionais.
 
 ## <a name="overprovisioning-the-volume-quota"></a>Sobreprovisionamento da quota de volume
 
@@ -64,4 +62,4 @@ Se os seus requisitos de desempenho forem de natureza temporária, ou se tiver n
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Níveis de serviços do Azure NetApp Files](azure-netapp-files-service-levels.md)
-- [Referências de desempenho para o Azure NetApp Files](azure-netapp-files-performance-benchmarks.md)
+- [Testes de referência de desempenho para Linux](performance-benchmarks-linux.md)

@@ -1,6 +1,6 @@
 ---
-title: Adicionar atribuições de funções com modelos rBAC e Gestor de Recursos Azure
-description: Saiba como conceder acesso aos recursos do Azure para utilizadores, grupos, diretores de serviços ou identidades geridas utilizando modelos de controlo de acesso baseado em funções azure (RBAC) e Azure Resource Manager.
+title: Adicione atribuições de funções Azure usando modelos de Gestor de Recursos Azure - Azure RBAC
+description: Saiba como conceder acesso aos recursos do Azure para utilizadores, grupos, diretores de serviços ou identidades geridas utilizando modelos de Gestor de Recursos Azure e controlo de acesso baseado em funções azure (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9f817880f938f5d03024e3aacd9b84817a5ac721
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 777d11a129f02d1a2f5c796dea0af438ca81ba8c
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77138291"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735628"
 ---
-# <a name="add-role-assignments-using-azure-rbac-and-azure-resource-manager-templates"></a>Adicione atribuições de funções utilizando modelos azure RBAC e Azure Resource Manager
+# <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>Adicione atribuições de funções Azure usando modelos de Gestor de Recursos Azure
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)]Além de utilizar o Azure PowerShell ou o Azure CLI, pode atribuir funções utilizando [modelos de Gestor de Recursos Azure](../azure-resource-manager/templates/template-syntax.md). Os modelos podem ser úteis se precisar de implantar recursos de forma consistente e repetida. Este artigo descreve como atribuir funções usando modelos.
 
@@ -66,7 +66,7 @@ objectid=$(az ad sp list --display-name "{name}" --query [].objectId --output ts
 
 ## <a name="add-a-role-assignment"></a>Adicionar uma atribuição de função
 
-No RBAC, para conceder acesso, adiciona-se uma atribuição de funções.
+No Azure RBAC, para conceder acesso, adiciona-se uma atribuição de funções.
 
 ### <a name="resource-group-without-parameters"></a>Grupo de recursos (sem parâmetros)
 

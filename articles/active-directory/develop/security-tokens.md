@@ -9,26 +9,29 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/28/2020
+ms.date: 05/06/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: faaf4a9c4fe37bc184b9860390f1eb99eede035c
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 1161575104efe8cfc797f84c109a12116f723cad
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82584288"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926583"
 ---
 # <a name="security-tokens"></a>Fichas de segurança
 
 Um fornecedor de identidade centralizado é especialmente útil para apps que têm utilizadores localizados em todo o mundo que não necessariamente se inscrevem na rede da empresa. A plataforma de identidade da Microsoft autentica os utilizadores e fornece fichas de segurança, tais como token de [acesso,](developer-glossary.md#access-token) [token de atualização](developer-glossary.md#refresh-token)e [ficha de identificação,](developer-glossary.md#id-token)que permitem a uma [aplicação de cliente](developer-glossary.md#client-application) aceder a recursos protegidos num servidor de [recursos.](developer-glossary.md#resource-server)
 
-Um **tokens** de acesso é um símbolo de segurança que é emitido por um servidor de [autorização](developer-glossary.md#authorization-server) como parte de um fluxo [OAuth 2.0.](active-directory-v2-protocols.md) Contém informações sobre o utilizador e a aplicação para a qual se destina o símbolo; que podem ser usados para aceder a APIs web e outros recursos protegidos. Para saber mais sobre como a plataforma de identidade da Microsoft emite fichas de acesso, consulte [fichas](access-tokens.md)de acesso .
+Um **sinal de acesso** é um símbolo de segurança que é emitido por um servidor de [autorização](developer-glossary.md#authorization-server) como parte de um fluxo [OAuth 2.0.](active-directory-v2-protocols.md) Contém informações sobre o utilizador e a aplicação para a qual se destina o símbolo; que podem ser usados para aceder a APIs web e outros recursos protegidos. Para saber mais sobre como a plataforma de identidade da Microsoft emite fichas de acesso, consulte [fichas](access-tokens.md)de acesso .
 
-Os tokens de acesso são válidos apenas por um curto período de tempo, pelo que os servidores de autorização por vezes emitem uma ficha de **atualização** ao mesmo tempo que o token de acesso é emitido. A aplicação do cliente pode então trocar este token de atualização por um novo token de acesso quando necessário. Para saber mais sobre como a plataforma de identidade da Microsoft usa fichas de atualização para revogar permissões, consulte a revogação de [Token](access-tokens.md#token-revocation).
+Os tokens de acesso são válidos apenas por um curto período de tempo, pelo que os servidores de autorização por vezes emitirão um token de **atualização** ao mesmo tempo que o token de acesso é emitido. A aplicação do cliente pode então trocar este token de atualização por um novo token de acesso quando necessário. Para saber mais sobre como a plataforma de identidade da Microsoft usa fichas de atualização para revogar permissões, consulte a revogação de [Token](access-tokens.md#token-revocation).
 
 **As fichas de identificação** são enviadas para a aplicação do cliente como parte de um fluxo [OpenID Connect.](v2-protocols-oidc.md) Podem ser enviados juntamente ou em vez de um sinal de acesso, e são utilizados pelo cliente para autenticar o utilizador. Para saber mais sobre como a plataforma de identidade da Microsoft emite fichas de identificação, consulte [fichas de identificação](id-tokens.md).
+
+> [!NOTE]
+> Este artigo discute fichas de segurança para os protocolos OAuth2 e OpenID Connect. Muitas aplicações empresariais usam o SAML para autenticar os utilizadores. Consulte a referência simbólica [Azure AD SAML](reference-saml-tokens.md) para obter informações sobre as afirmações da SAML.
 
 ## <a name="validating-security-tokens"></a>Validação de fichas de segurança
 
@@ -45,7 +48,7 @@ As fichas de acesso são passadas para uma `Authorization` API web como o símbo
 
 A plataforma de identidade da Microsoft implementa tokens de segurança como **JSON Web Tokens (JWTs)** que contêm **reclamações**.
 
-Uma [reclamação](developer-glossary.md#claim) fornece afirmações sobre uma entidade, como uma aplicação de cliente ou proprietário de [recursos,](developer-glossary.md#resource-owner)a outra entidade, como um servidor de recursos.
+Uma [reclamação](developer-glossary.md#claim) fornece afirmações sobre uma entidade, como uma aplicação de cliente ou proprietário de [recursos,](developer-glossary.md#resource-owner)a outra entidade, como um servidor de recursos. Uma reclamação também pode ser referida como uma reclamação JWT ou jSON Web Token.
 
 As alegações são pares de nome/valor que transmitem factos sobre o assunto simbólico. Por exemplo, uma reclamação pode conter factos sobre o diretor de segurança que foi autenticado pelo servidor de autorização. As alegações presentes num dado sinal ão de penderá de muitas coisas, incluindo o tipo de ficha, o tipo de credencial usada para autenticar o sujeito, a configuração da aplicação, e assim por diante.
 

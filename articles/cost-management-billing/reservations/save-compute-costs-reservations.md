@@ -5,14 +5,14 @@ author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 04/30/2020
 ms.author: banders
-ms.openlocfilehash: 4baa06ad0011b06da50fd7a83aaa3e87db62c6ac
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: ae94a5c8d7e9ff93098e85535aea3699206b9e03
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81417515"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82626962"
 ---
 # <a name="what-are-azure-reservations"></a>O que é o Azure Reservations?
 
@@ -86,11 +86,11 @@ Para obter mais informações, veja [Trocas e reembolsos self-service para Reser
 
 ## <a name="charges-covered-by-reservation"></a>Custos abrangidos pelas reservas
 
-- **Instância de Máquina Virtual Reservada** – a reserva abrange apenas os custos de computação de máquinas virtuais. Não abrange custos de armazenamento, rede, Windows ou software adicionais.
+- **Instância de Máquina Virtual Reservada** – A reserva abrange apenas os custos de computação de máquinas virtuais e serviços cloud. Não abrange custos de armazenamento, rede, Windows ou software adicionais.
 - **Capacidade reservada do Armazenamento do Microsoft Azure** – uma reserva abrange a capacidade de armazenamento das contas de armazenamento standard do Armazenamento de blobs ou do armazenamento do Azure Data Lake Gen2. A reserva não abrange taxas de largura de banda nem de transação.
 - **Capacidade reservada do Azure Cosmos DB** – a reserva abrange o débito aprovisionado para os seus recursos. Não abrange os custos de armazenamento e de rede.
 - **VCore reservado de Base de Dados SQL** – apenas os custos de computação são incluídos na reserva. A licença do SQL é faturada separadamente.
-- **SQL Data Warehouse** – a reserva abrange a utilização de cDWUs. Não abrange os custos de armazenamento ou rede associados à utilização do SQL Data Warehouse.
+- **Azure Synapse Analytics** - Uma reserva abrange a utilização de cDWUs. Não abrange os custos de armazenamento ou de rede associados à utilização do Azure Synapse Analytics.
 - **Azure Databricks** – as reservas abrangem apenas a utilização de DBU. Outros custos, como computação, armazenamento e rede, são aplicados em separado.
 - **Imposto de selo do Serviço de Aplicações** – a reserva abrange a utilização de selos. Não se aplica às funções de trabalho, pelo que todos os outros recursos associados ao selo serão cobrados separadamente.
 - **Base de Dados do Azure para MySQL** – só estão incluídos nas reservas os custos de computação. As reservas não abrangem os custos de software, rede e armazenamento associados ao servidor da Base de Dados MySQL.

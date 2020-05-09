@@ -3,16 +3,16 @@ title: Instâncias reservadas de VM do Azure EA
 description: Este artigo resume como as reservas do Azure para instâncias reservadas de VM o podem ajudar a economizar dinheiro com a sua inscrição Enterprise.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/01/2020
+ms.date: 05/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: cfd3693825d34561ad08154882247c159a40b3e8
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 4321d2b48a3672b537cf0f50c5e02e3196e68ed8
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80586181"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691174"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Instâncias reservadas de VM do Azure EA
 

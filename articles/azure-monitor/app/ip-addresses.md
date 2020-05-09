@@ -4,26 +4,26 @@ description: Exceções à firewall do servidor exigidas por Insights de Aplica�
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
-ms.date: 04/23/2020
-ms.openlocfilehash: 73147fe2e8c834fd4fc67c4c396bb095f616b6d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/01/2020
+ms.openlocfilehash: bd0ed9db9723af9015d15429d632712d63e249c1
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82105850"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82652748"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Endereços IP utilizados por Insights de Aplicação e Log Analytics
 O serviço [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) utiliza vários endereços IP. Poderá precisar de saber estes endereços se a aplicação que está a monitorizar estiver hospedada atrás de uma firewall.
 
 > [!NOTE]
 > Embora estes endereços sejam estáticos, é possível que tenhamos que mudá-los de vez em quando. Todo o tráfego de Insights de Aplicação representa tráfego de saída, com exceção da monitorização da disponibilidade e dos webhooks que requerem regras de firewall de entrada.
-> 
-> 
 
 > [!TIP]
-> Subscreva esta página como um feed https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/azure-monitor/app/ip-addresses.md.atom RSS adicionando ao seu leitor rSS/ATOM favorito para ser notificado das últimas alterações.
-> 
-> 
+> Pode utilizar [etiquetas](https://docs.microsoft.com/azure/virtual-network/service-tags-overview
+) de serviço de rede Azure para gerir o acesso se estiver a utilizar grupos de segurança de rede Azure. Se estiver a gerir o acesso a recursos híbridos/nas instalações, pode descarregar as listas de endereços IP equivalentes como [ficheiros JSON](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) que são atualizados todas as semanas: . Para cobrir todas as exceções neste artigo, teria de utilizar as etiquetas de serviço: 'ActionGroup', 'ApplicationInsightsAvailability', 'AzureMonitor'.
+
+Em alternativa, pode subscrever esta página como um https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/azure-monitor/app/ip-addresses.md.atom feed RSS adicionando ao seu leitor rSS/ATOM favorito para ser notificado das últimas alterações.
+
 
 ## <a name="outgoing-ports"></a>Portos de saída
 É necessário abrir algumas portas de saída na firewall do seu servidor para permitir que o SDK de Insights de Aplicação e/ou monitor de estado envie dados para o portal:
@@ -178,6 +178,13 @@ East US
 20.42.35.112/28
 20.42.35.128/28
 
+Azure US Government (Not needed if you are an Azure Public cloud customer)
+
+20.140.48.160/27
+20.140.56.160/27
+20.140.64.160/27
+20.140.72.160/27
+52.127.49.96/27
 ```  
 
 ## <a name="application-insights--log-analytics-apis"></a>Insights de aplicação & APIs de análise de log
@@ -220,11 +227,11 @@ Nota: *.loganalytics.io domínio é propriedade da equipa Log Analytics.
 | Insights de aplicação JS SDK CDN | az416426.vo.msecnd.net | dynamic | 80,443 |
 | Insights de aplicação Java SDK | aijavasdk.blob.core.windows.net | dynamic | 80,443 |
 
-## <a name="alert-webhooks"></a>Ganchos de alerta
+## <a name="action-group-webhooks"></a>Webhooks do Grupo de Ação
 
 | Objetivo | IP | Portas
 | --- | --- | --- |
-| Alertas | 23.96.11.4 | 443 |
+| Alertas | 13.72.19.232 <br/>13.106.57.181<br/>13.106.54.3<br/>13.106.54.19<br/>13.106.38.142<br/>13.106.38.148<br/>13.106.57.196<br/>13.106.57.197<br/>52.244.68.117<br/>52.244.65.137<br/>52.183.31.0<br/>52.184.145.166<br/>51.4.138.199<br/>51.5.148.86<br/>51.5.149.19 | 443 |
 
 ## <a name="profiler"></a>Gerador de perfis
 

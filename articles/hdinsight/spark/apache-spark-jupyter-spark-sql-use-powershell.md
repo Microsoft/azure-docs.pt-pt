@@ -8,18 +8,20 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 06/12/2019
 ms.custom: mvc
-ms.openlocfilehash: 7416c25128da8dcaf803a9f03144110941200ab2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 14340138a221dd00aa10651da9e209468b3c8550
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77049087"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891712"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-powershell"></a>Quickstart: Criar o cluster Apache Spark em Azure HDInsight usando powerShell
 
 Neste arranque rápido, utiliza-se o Azure PowerShell para criar um cluster Apache Spark em Azure HDInsight. Em seguida, cria-se um portátil Jupyter e usa-o para executar consultas Spark SQL contra as mesas da Apache Hive. O Azure HDInsight é um serviço de análise gerido, de espectro completo e de código aberto para empresas. A estrutura Apache Spark para Azure HDInsight permite análise rápida de dados e computação de cluster utilizando o processamento na memória. O caderno jupyter permite-lhe interagir com os seus dados, combinar código com texto de marcação e fazer visualizações simples.
 
 [Visão geral: Apache Spark em Azure HDInsight](apache-spark-overview.md) | [Apache Spark](https://spark.apache.org/) | [Apache Hive](https://hive.apache.org/) | [Jupyter Notebook](https://jupyter.org/)
+
+Se estiver a utilizar vários clusters juntos, vai querer criar uma rede virtual, e se estiver a usar um cluster Spark, também vai querer usar o Conector de Armazém hive. Para mais informações, consulte [Plan a rede virtual para Azure HDInsight](../hdinsight-plan-virtual-network-deployment.md) e [integre a Apache Spark e a Apache Hive com o Conector de Armazém hive](../interactive-query/apache-hive-warehouse-connector.md).
 
 ## <a name="prerequisite"></a>Pré-requisito
 

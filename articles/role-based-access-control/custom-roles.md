@@ -17,7 +17,7 @@ ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5030fb50313e1db2173990c55930c22fdf58f559
 ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/03/2020
 ms.locfileid: "82734795"

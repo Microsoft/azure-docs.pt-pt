@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: rohink
-ms.openlocfilehash: acdac6e3eafc5251ebd31a34bcb9a4db34f0ebbe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ad6acbad57df24e5cd78c72c9d00bcd32a83219a
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254368"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731582"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Gestor de Tráfego frequentemente perguntas (FAQ)
 
@@ -29,7 +29,7 @@ Como explicado em Como funciona o Gestor de [Tráfego,](../traffic-manager/traff
 Portanto, o Traffic Manager não fornece um endereço final ou IP para os clientes se conectarem. Se quiser um endereço IP estático para o seu serviço, isso deve ser configurado no serviço e não no Traffic Manager.
 
 ### <a name="what-types-of-traffic-can-be-routed-using-traffic-manager"></a>Que tipos de tráfego podem ser encaminhados através do Traffic Manager?
-Como explicado em Como funciona o [Traffic Manager,](../traffic-manager/traffic-manager-how-it-works.md)um ponto final do Traffic Manager pode ser qualquer serviço virado para a Internet hospedado dentro ou fora de Azure. Assim, o Traffic Manager pode encaminhar o tráfego que vem da internet pública para um conjunto de pontos finais que também estão virados para a Internet. Se tiver pontos finais dentro de uma rede privada (por exemplo, uma versão interna do [Azure Load Balancer)](../load-balancer/concepts-limitations.md#internalloadbalancer)ou tiver utilizadores a fazer pedidos dNS a partir dessas redes internas, então não pode utilizar o Traffic Manager para encaminhar este tráfego.
+Como explicado em Como funciona o [Traffic Manager,](../traffic-manager/traffic-manager-how-it-works.md)um ponto final do Traffic Manager pode ser qualquer serviço virado para a Internet hospedado dentro ou fora de Azure. Assim, o Traffic Manager pode encaminhar o tráfego que vem da internet pública para um conjunto de pontos finais que também estão virados para a Internet. Se tiver pontos finais dentro de uma rede privada (por exemplo, uma versão interna do [Azure Load Balancer)](../load-balancer/components.md#frontend-ip-configurations)ou tiver utilizadores a fazer pedidos dNS a partir dessas redes internas, então não pode utilizar o Traffic Manager para encaminhar este tráfego.
 
 ### <a name="does-traffic-manager-support-sticky-sessions"></a>O Gestor de Tráfego apoia sessões "pegajosas"?
 

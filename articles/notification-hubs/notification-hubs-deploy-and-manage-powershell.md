@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 863fdb445cce41f0fe4cbee63a3d6198c0a79339
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e6334659d41ba201cfdde190ccc9bfa0d58009e3
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76264649"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891188"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Implementar e gerir centros de notificação usando o PowerShell
 
@@ -149,8 +149,8 @@ else
 ## <a name="additional-resources"></a>Recursos Adicionais
 
 - [Gerir o Barramento de Serviço com o PowerShell](../service-bus-messaging/service-bus-powershell-how-to-provision.md)
-- [Como criar filas de ônibus de serviço, tópicos e subscrições usando um script PowerShell](https://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
-- [Como criar um espaço de nome de ônibus de serviço e um hub de eventousando um script PowerShell](https://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
+- [Como criar filas de ônibus de serviço, tópicos e subscrições usando um script PowerShell](https://docs.microsoft.com/archive/blogs/paolos/how-to-create-service-bus-queues-topics-and-subscriptions-using-a-powershell-script)
+- [Como criar um espaço de nome de ônibus de serviço e um hub de eventousando um script PowerShell](https://docs.microsoft.com/archive/blogs/paolos/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script)
 
 Alguns scripts prontos também estão disponíveis para download:
 
@@ -158,7 +158,7 @@ Alguns scripts prontos também estão disponíveis para download:
 
 [Opções de Compra]: https://azure.microsoft.com/pricing/purchase-options/
 [Ofertas de Membros]: https://azure.microsoft.com/pricing/member-offers/
-[Julgamento Gratuito]: https://azure.microsoft.com/pricing/free-trial/
+[Avaliação Gratuita]: https://azure.microsoft.com/pricing/free-trial/
 [Instalar e configurar o Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [.NET API para Centros de Notificação]: https://docs.microsoft.com/dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
 [Get-AzureSBNamespace]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azuresbnamespace

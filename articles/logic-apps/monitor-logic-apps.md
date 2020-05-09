@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
-ms.date: 01/30/2020
-ms.openlocfilehash: 495877f1c839de2cf3583a37180054c91bd9f139
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/04/2020
+ms.openlocfilehash: c2a609266a77293a0e3a5cb9c973a6eb3f7f72a9
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76907776"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82732007"
 ---
 # <a name="monitor-run-status-review-trigger-history-and-set-up-alerts-for-azure-logic-apps"></a>Monitorize o estado da execução, reveja o histórico do gatilho e instale alertas para aplicações lógicas do Azure
 
@@ -19,7 +19,8 @@ Depois de [criar e executar uma aplicação lógica,](../logic-apps/quickstart-c
 
 Para monitorização de eventos em tempo real e depuração mais rica, configura o registo de diagnósticos para a sua aplicação lógica utilizando [registos do Monitor Azure](../azure-monitor/overview.md). Este serviço Azure ajuda-o a monitorizar os ambientes de nuvem e no local para que possa manter mais facilmente a sua disponibilidade e desempenho. Você pode então encontrar e ver eventos, tais como eventos de desencadeamento, eventos de execução e eventos de ação. Ao armazenar esta informação nos [registos do Monitor Azure,](../azure-monitor/platform/data-platform-logs.md)pode criar consultas de [registo](../azure-monitor/log-query/log-query-overview.md) que o ajudam a encontrar e analisar esta informação. Também pode utilizar estes dados de diagnóstico com outros serviços Azure, como o Azure Storage e o Azure Event Hubs. Para mais informações, consulte [aplicações lógicas do Monitor utilizando o Monitor Azure](../logic-apps/monitor-logic-apps-log-analytics.md).
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+> [!NOTE]
+> Se as suas aplicações lógicas funcionarem num ambiente de serviço de [integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) criado para utilizar um ponto final de [acesso interno,](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access)pode ver e aceder a inputs e saídas a partir da aplicação lógica que corre o histórico *apenas a partir de dentro da sua rede virtual*. Certifique-se de que tem conectividade de rede entre os pontos finais privados e o computador de onde pretende aceder ao histórico de execuções. Por exemplo, o seu computador cliente pode existir dentro da rede virtual do ISE ou dentro de uma rede virtual que esteja ligada à rede virtual do ISE, por exemplo, através de um peering ou de uma rede privada virtual. Para mais informações, consulte [o acesso ao ponto final do ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). 
 
 <a name="review-runs-history"></a>
 

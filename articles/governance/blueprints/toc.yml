@@ -17,6 +17,9 @@
     - name: Criar um esquema - API REST
       displayName: 'publish, assign, track, unassign, delete'
       href: create-blueprint-rest-api.md
+    - name: Criar um esquema - modelo ARM
+      displayName: 'assign, compliance, resource manager'
+      href: ../../azure-resource-manager/templates/deploy-to-subscription.md??toc=/azure/governance/blueprints/toc.json&bc=/azure/governance/blueprints/breadcrumb/toc.json
 - name: Tutoriais
   items:
     - name: Criar a partir de um exemplo de esquema
@@ -32,9 +35,20 @@
       href: ./samples/index.md
     - name: Referência de Segurança do Azure
       items:
+        - name: Descrição geral
+          displayName: 'standards, azure, benchmark'
+          href: ./samples/azure-security-benchmark/index.md
         - name: Mapeamento de controlo
           displayName: 'standards, azure, benchmark'
           href: ./samples/azure-security-benchmark/control-mapping.md
+        - name: Passos para implementar
+          displayName: 'standards, azure, benchmark'
+          href: ./samples/azure-security-benchmark/deploy.md
+    - name: ISM PROTECTED da Administração Australiana
+      items:
+        - name: Mapeamento de controlo
+          displayName: 'standards, Australian, Government, ISM, PROTECTED'
+          href: ./samples/ism-protected/control-mapping.md
     - name: Canada Federal PBMM
       items:
         - name: Descrição geral

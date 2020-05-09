@@ -1,6 +1,6 @@
 ---
-title: Atribuição de papéis de lista utilizando Azure RBAC e Azure CLI
-description: Saiba como determinar que recursos utilizadores, grupos, diretores de serviços ou identidades geridas têm acesso a usar o controlo de acesso baseado em funções azure (RBAC) e Azure CLI.
+title: Atribuição de funções da List Azure utilizando o Azure CLI - Azure RBAC
+description: Saiba como determinar que recursos os utilizadores, grupos, diretores de serviços ou identidades geridas têm acesso à utilização do controlo de acesso baseado em papéis Azure CLI e Azure (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.workload: identity
 ms.date: 01/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 5716e7bb89d017866bd1575256e2d119bb7acbe5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f4b635d6867c36b8b0f385320e3720bea41b54d1
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80385066"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735747"
 ---
-# <a name="list-role-assignments-using-azure-rbac-and-azure-cli"></a>Atribuição de papéis de lista utilizando Azure RBAC e Azure CLI
+# <a name="list-azure-role-assignments-using-azure-cli"></a>Atribuição de funções da List Azure utilizando o Azure CLI
 
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)]Este artigo descreve como listar atribuições de papéis usando o Azure CLI.
 
@@ -144,4 +144,4 @@ az role assignment list --scope /providers/Microsoft.Management/managementGroups
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Adicionar ou remover atribuições de funções utilizando o Azure RBAC e o Azure CLI](role-assignments-cli.md)
+- [Adicione ou remova atribuições de funções Azure utilizando o Azure CLI](role-assignments-cli.md)

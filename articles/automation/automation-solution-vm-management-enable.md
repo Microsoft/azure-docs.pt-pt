@@ -1,16 +1,16 @@
 ---
-title: Ativar os VMs de arranque/paragem de automatização azure durante a solução de horas de folga
-description: Este artigo descreve como ativar a solução Azure Automation Start/Stop VM para as suas máquinas virtuais Azure.
+title: Ativar os VMs de arranque/paragem de automatização azure durante a solução off-hours
+description: Este artigo descreve como ativar o Azure Automation Start/Stop VM durante a solução off-hours para as suas máquinas virtuais Azure.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: d47daa29c65f847fdeb33b9e24a892ac1f31b52a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ed9937576334fcba6707f2737e92c3cddce2d7f7
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82096967"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864220"
 ---
 # <a name="enable-azure-automation-startstop-vms-solution"></a>Ativar a solução de VMs start/stop de automação Azure
 

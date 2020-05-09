@@ -5,12 +5,12 @@ services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: f5f18e9365b09f06c1bd4f25a8efe909cc308dad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d97fbe6ac515a2559340474105d73b7c9b9c6ee4
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537020"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731922"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Ativar soluções de Gestão de Atualização, Rastreio de Alterações e Inventário em vários VMs
 
@@ -129,7 +129,7 @@ Ao embarcar em várias máquinas, pode `Cannot enable`haver máquinas que mostra
 
 **Causa:** A solução não é suportada para todas as distribuições do Linux ou todas as versões do Windows.
 
-**Solução:** Consulte a [lista de clientes apoiados](automation-update-management.md#clients) para a solução.
+**Solução:** Consulte a [lista de clientes apoiados](automation-update-management.md#supported-client-types).
 
 ### <a name="classic-vms-cannot-be-enabled"></a>VMs clássicos não podem ser ativados
 

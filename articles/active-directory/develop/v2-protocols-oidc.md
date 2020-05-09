@@ -1,5 +1,6 @@
 ---
-title: Protocolo OpenID Connect - Plataforma de identidade da Microsoft Azure
+title: Plataforma de identidade da Microsoft e protocolo OpenID Connect / Azure
+titleSuffix: Microsoft identity platform
 description: Construa aplicações web utilizando a implementação da plataforma de identidade Microsoft do protocolo de autenticação OpenID Connect.
 services: active-directory
 author: hpsin
@@ -8,20 +9,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 05/06/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: be24c4cfd255b33a38acc1e62763350d3d7e989b
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
-ms.translationtype: HT
+ms.openlocfilehash: 88f647bbb72c92db194407b677e533a867261ce4
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82688217"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926498"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Plataforma de identidade da Microsoft e protocolo OpenID Connect
 
-OpenID Connect é um protocolo de autenticação construído no OAuth 2.0 que pode utilizar para assinar de forma segura num utilizador uma aplicação web. Quando utilizar a implementação do OpenID Connect na plataforma de identidade da Microsoft, pode adicionar acesso de iniciação e acesso API às suas aplicações baseadas na Web. Este artigo mostra como fazer isto independentemente do idioma e descreve como enviar e receber mensagens HTTP sem usar quaisquer bibliotecas de código aberto da Microsoft.
+OpenID Connect (OIDC) é um protocolo de autenticação construído em OAuth 2.0 que pode utilizar para assinar de forma segura num utilizador para uma aplicação web. Quando utilizar a implementação do OpenID Connect na plataforma de identidade da Microsoft, pode adicionar acesso de iniciação e acesso API às suas aplicações baseadas na Web. Este artigo mostra como fazer isto independentemente do idioma e descreve como enviar e receber mensagens HTTP sem usar quaisquer bibliotecas de código aberto da Microsoft.
 
 [O OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) alarga o protocolo de *autorização* OAuth 2.0 para utilizar como protocolo de *autenticação,* para que possa fazer um único sinal usando o OAuth. O OpenID Connect introduz o conceito de ficha *de identificação,* que é um símbolo de segurança que permite ao cliente verificar a identidade do utilizador. O token ID também obtém informações básicas de perfil sobre o utilizador. Uma vez que o OpenID Connect estende o OAuth 2.0, as aplicações podem adquirir de forma segura fichas de *acesso,* que podem ser usadas para aceder a recursos que são protegidos por um servidor de [autorização.](active-directory-v2-protocols.md#the-basics) O ponto final da plataforma de identidade da Microsoft também permite que aplicações de terceiros que estejam registadas com a AD Azure emitam tokens de acesso para recursos seguros, como APIs web. Para obter mais informações sobre como configurar uma aplicação para emitir fichas de acesso, consulte [Como registar uma aplicação com o ponto final da plataforma de identidade da Microsoft](quickstart-register-app.md). Recomendamos que utilize o OpenID Connect se estiver a construir uma [aplicação web](v2-app-types.md#web-apps) que esteja hospedada num servidor e acessada através de um browser.
 

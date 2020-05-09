@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/28/2020
-ms.openlocfilehash: 94525ce901a89935c4ee7800ada44a9dff84b27a
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.openlocfilehash: 309e467f5831961b6bc5a94ad2ce05fd3b991794
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927909"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629274"
 ---
 # <a name="custom-metric-collection-in-net-and-net-core"></a>Coleção métrica personalizada em .NET e .NET Core
 
@@ -20,7 +20,7 @@ Os Insights de Aplicação do Monitor Azure .NET e .NET Core SDKs têm dois mét
 
 ## <a name="trackmetric-versus-getmetric"></a>TrackMetric versus GetMetric
 
-`TrackMetric()`envia telemetria crua denotando uma métrica. É ineficiente enviar um único item de telemetria para cada valor. `TrackMetric()`é também ineficiente em termos `TrackMetric(item)` de desempenho, uma vez que cada um passa pelo oleoduto SDK completo de iniciantes e processadores de telemetria. Ao `TrackMetric()` `GetMetric()` contrário, trata da pré-agregação local para si e, em seguida, apenas apresenta uma métrica de resumo agregado num intervalo fixo de um minuto. Por isso, se precisar de monitorizar de perto alguma métrica personalizada no segundo ou mesmo milissegundo, pode fazê-lo enquanto apenas incorre no custo de armazenamento e tráfego de rede de apenas monitorização a cada minuto. Isto também reduz consideravelmente o risco de estrangulamento que ocorre, uma vez que o número total de artigos de telemetria que precisam de ser enviados para uma métrica agregada são muito reduzidos.
+`TrackMetric()`envia telemetria crua denotando uma métrica. É ineficiente enviar um único item de telemetria para cada valor. `TrackMetric()`envia telemetria crua denotando uma métrica. É ineficiente enviar um único item de telemetria para cada valor. `TrackMetric()`é também ineficiente em termos `TrackMetric(item)` de desempenho, uma vez que cada um passa pelo oleoduto SDK completo de iniciantes e processadores de telemetria. Ao `TrackMetric()` `GetMetric()` contrário, trata da pré-agregação local para si e, em seguida, apenas apresenta uma métrica de resumo agregado num intervalo fixo de um minuto. Por isso, se precisar de monitorizar de perto alguma métrica personalizada no segundo ou mesmo milissegundo, pode fazê-lo enquanto apenas incorre no custo de armazenamento e tráfego de rede de apenas monitorização a cada minuto. Isto também reduz consideravelmente o risco de estrangulamento que ocorre, uma vez que o número total de artigos de telemetria que precisam de ser enviados para uma métrica agregada são muito reduzidos.
 
 Em Application Insights, as `TrackMetric()` métricas personalizadas recolhidas via e `GetMetric()` não estão sujeitas a [amostragem.](https://docs.microsoft.com/azure/azure-monitor/app/sampling) A amostragem de métricas importantes pode levar a cenários em que alertar pode ter construído em torno dessas métricas pode tornar-se pouco fiável. Ao nunca provar as suas métricas personalizadas, geralmente pode estar confiante de que quando os seus limiares de alerta forem violados, um alerta disparará.  Mas como as métricas personalizadas não são amostradas, há algumas preocupações potenciais.
 
@@ -186,22 +186,7 @@ No entanto, você vai notar que você não é capaz de dividir a métrica pela s
 
 ![Apoio à divisão](./media/get-metric/splitting-support.png)
 
-Por padrão, as métricas multidimensionais dentro da experiência do explorador métrico não são ligadas nos recursos da Application Insights.
-
-### <a name="enable-multi-dimensional-metrics"></a>Ativar métricas multidimensionais
-
-Para ativar métricas multidimensionais para um recurso Deinsights de Aplicação, Selecione **o uso e os custos** > estimados As**métricas personalizadas** > **Ative alertar sobre dimensões métricas personalizadas** > **OK**. Mais detalhes sobre isto podem ser encontrados [aqui.](pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation)
-
-Depois de ter feito essa alteração e enviar uma nova telemetria multidimensional, poderá **aplicar a divisão**.
-
-> [!NOTE]
-> Só as métricas recém-enviadas após a adesão ter sido ligada no portal terão dimensões armazenadas.
-
-![Aplicar divisão](./media/get-metric/apply-splitting.png)
-
-E veja as suas agregações métricas para cada dimensão _do FormFactor:_
-
-![Fatores de forma](./media/get-metric/formfactor.png)
+Por padrão, as métricas multidimensionais dentro da experiência do explorador métrico não são ligadas nos recursos da Application Insights. Para ativar este comportamento vá para o separador de custos e para o uso estimado, verificando ["Ativar o alerta sobre dimensões métricas personalizadas"](pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 
 ### <a name="how-to-use-metricidentifier-when-there-are-more-than-three-dimensions"></a>Como utilizar o MetricIdentifier quando existem mais de três dimensões
 
@@ -214,6 +199,21 @@ MetricIdentifier id = new MetricIdentifier("CustomMetricNamespace","ComputerSold
 Metric computersSold  = _telemetryClient.GetMetric(id);
 computersSold.TrackValue(110,"Laptop", "Nvidia", "DDR4", "39Wh", "1TB");
 ```
+
+### <a name="enable-multi-dimensional-metrics"></a>Ativar métricas multidimensionais
+
+Para ativar métricas multidimensionais para um recurso Deinsights de Aplicação, Selecione **o uso e os custos** > estimados As**métricas personalizadas** > **Ative alertar sobre dimensões métricas personalizadas** > **OK**.
+
+Depois de ter feito essa alteração e enviar uma nova telemetria multidimensional, poderá **aplicar a divisão**.
+
+> [!NOTE]
+> Só as métricas recém-enviadas após a adesão ter sido ligada no portal terão dimensões armazenadas.
+
+![Aplicar divisão](./media/get-metric/apply-splitting.png)
+
+E veja as suas agregações métricas para cada dimensão _do FormFactor:_
+
+![Fatores de forma](./media/get-metric/formfactor.png)
 
 ## <a name="custom-metric-configuration"></a>Configuração métrica personalizada
 

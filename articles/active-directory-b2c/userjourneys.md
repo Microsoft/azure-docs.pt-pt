@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 02/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d73a1a3ce23817d9d6f742a4a8c730afb58ee0c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 189343888d2856a6945723c030485e58394c912f
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78226999"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559595"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -64,9 +64,9 @@ O elemento **OrchestrationStep** contém os seguintes atributos:
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
 | `Order` | Sim | A ordem dos passos da orquestração. |
-| `Type` | Sim | O tipo de passo de orquestração. Valores possíveis: <ul><li>**ClaimsProviderSelection** - Indica que o passo da orquestração apresenta vários fornecedores de sinistros ao utilizador para selecionar um.</li><li>**CombinedSignInAndSignUp** - Indica que o passo da orquestração apresenta uma página combinada de inscrição de prestador social e de inscrição de conta local.</li><li>**ClaimsExchange** - Indica que o passo da orquestra troca reclamações com um prestador de sinistros.</li><li>**GetClaims** - Indica que o passo da orquestração lê as alegações de entrada.</li><li>**SendClaims** - Indica que o passo da orquestração envia as reivindicações para a parte que depende com um token emitido por um emitente de reclamações.</li></ul> |
-| ContentDefinitionReferenceId | Não | O identificador da [definição](contentdefinitions.md) de conteúdo associado a este passo de orquestração. Normalmente, o identificador de referência de definição de conteúdo é definido no perfil técnico autoafirmado. Mas, há alguns casos em que o Azure AD B2C precisa de mostrar algo sem perfil técnico. Existem dois exemplos - se o tipo de passo `ClaimsProviderSelection` `CombinedSignInAndSignUp`de orquestração é um dos seguintes: ou, O Azure AD B2C precisa de mostrar a seleção do fornecedor de identidade sem ter um perfil técnico. |
-| CpimIssuerTechnicalProfileReferenceId | Não | O tipo de passo `SendClaims`de orquestração é. Este imóvel define o identificador de perfil técnico do prestador de sinistros que emite o símbolo para a parte que depende.  Se ausente, não é criado nenhum símbolo do partido. |
+| `Type` | Sim | O tipo de passo de orquestração. Valores possíveis: <ul><li>**ClaimsProviderSelection** - Indica que o passo da orquestração apresenta vários fornecedores de sinistros ao utilizador para selecionar um.</li><li>**CombinedSignInAndSignUp** - Indica que o passo da orquestração apresenta uma página combinada de inscrição de prestador social e de inscrição de conta local.</li><li>**ClaimsExchange** - Indica que o passo da orquestra troca reclamações com um prestador de sinistros.</li><li>**GetClaims** - Especifica que o passo da orquestração deve processar os dados de reclamação `InputClaims` enviados para o Azure AD B2C a partir da parte que depende através da sua configuração.</li><li>**SendClaims** - Indica que o passo da orquestração envia as reivindicações para a parte que depende com um token emitido por um emitente de reclamações.</li></ul> |
+| ContentDefinitionReferenceId | No | O identificador da [definição](contentdefinitions.md) de conteúdo associado a este passo de orquestração. Normalmente, o identificador de referência de definição de conteúdo é definido no perfil técnico autoafirmado. Mas, há alguns casos em que o Azure AD B2C precisa de mostrar algo sem perfil técnico. Existem dois exemplos - se o tipo de passo `ClaimsProviderSelection` `CombinedSignInAndSignUp`de orquestração é um dos seguintes: ou, O Azure AD B2C precisa de mostrar a seleção do fornecedor de identidade sem ter um perfil técnico. |
+| CpimIssuerTechnicalProfileReferenceId | No | O tipo de passo `SendClaims`de orquestração é. Este imóvel define o identificador de perfil técnico do prestador de sinistros que emite o símbolo para a parte que depende.  Se ausente, não é criado nenhum símbolo do partido. |
 
 
 O elemento **OrchestrationStep** pode conter os seguintes elementos:
@@ -172,14 +172,14 @@ O elemento **ClaimsProviderSelections** contém os seguintes atributos:
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| Opção de exibição| Não | Controla o comportamento de um caso em que está disponível uma única seleção de fornecedores de sinistros. Valores `DoNotShowSingleProvider` possíveis: (predefinido) , o utilizador é redirecionado imediatamente para o fornecedor de identidade federado. Ou `ShowSingleProvider` Azure AD B2C apresenta a página de entrada com a seleção de fornecedor de identidade única. Para utilizar este atributo, a `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.0.0` versão de [definição](page-layout.md) de conteúdo deve ser e acima.|
+| Opção de exibição| No | Controla o comportamento de um caso em que está disponível uma única seleção de fornecedores de sinistros. Valores `DoNotShowSingleProvider` possíveis: (predefinido) , o utilizador é redirecionado imediatamente para o fornecedor de identidade federado. Ou `ShowSingleProvider` Azure AD B2C apresenta a página de entrada com a seleção de fornecedor de identidade única. Para utilizar este atributo, a `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.0.0` versão de [definição](page-layout.md) de conteúdo deve ser e acima.|
 
 O elemento **ClaimsProviderSelection** contém os seguintes atributos:
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| TargetClaimsExchangeid | Não | O identificador da troca de sinistros, que é executada na próxima etapa de orquestração da seleção do prestador de sinistros. Este atributo ou o atributo ValidaçãoClaimsExchangeId deve ser especificado, mas não ambos. |
-| ValidaçõesClaimsExchangeid | Não | O identificador da troca de sinistros, que é executada na atual etapa de orquestração para validar a seleção do prestador de sinistros. Este atributo ou o atributo TargetClaimsExchangeId devem ser especificados, mas não ambos. |
+| TargetClaimsExchangeid | No | O identificador da troca de sinistros, que é executada na próxima etapa de orquestração da seleção do prestador de sinistros. Este atributo ou o atributo ValidaçãoClaimsExchangeId deve ser especificado, mas não ambos. |
+| ValidaçõesClaimsExchangeid | No | O identificador da troca de sinistros, que é executada na atual etapa de orquestração para validar a seleção do prestador de sinistros. Este atributo ou o atributo TargetClaimsExchangeId devem ser especificados, mas não ambos. |
 
 ### <a name="claimsproviderselection-example"></a>Exemplo de Seleção ClaimsProvider
 

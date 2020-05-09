@@ -1,10 +1,10 @@
 ---
 title: Controlos de Acesso à Rede
-description: Visão geral dos controlos de acesso à rede para a Base de Dados Azure SQL e o Data Warehouse para gerir o acesso e configurar uma única ou poolada base de dados.
+description: Visão geral dos controlos de acesso à rede para a Base de Dados Azure SQL e para a Azure Synapse Analytics para gerir o acesso e configurar uma única ou pooled database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-titleSuffix: Azure SQL Database and SQL Data Warehouse
+titleSuffix: Azure SQL Database and Azure Synapse Analytics
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,17 +12,17 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 8b4ee679b21d904f997f727f5f26275c86acc9c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fdeb8ee3fbb01ea007205e02eb247925fb3baea1
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414418"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629580"
 ---
-# <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Controlos de acesso à rede Azure SQL e Data Warehouse
+# <a name="azure-sql-database-and-azure-synapse-analytics-network-access-controls"></a>Azure SQL Database e Azure Synapse Analytics controlos de acesso à rede
 
 > [!NOTE]
-> Este artigo aplica-se ao servidor Azure SQL e tanto às bases de dados SQL como ao SQL Data Warehouse que são criados no servidor Azure SQL. Para simplificar, a Base de Dados SQL é utilizada para referenciar a Base de Dados SQL e o SQL Data Warehouse.
+> Este artigo aplica-se ao servidor Azure SQL e tanto às bases de dados SQL como à Azure Synapse Analytics que são criadas no servidor Azure SQL. Para a simplicidade, a Base de Dados SQL é usada quando se refere tanto à Base de Dados SQL como ao Azure Synapse Analytics.
 
 > [!IMPORTANT]
 > Este artigo *não* se aplica à instância gerida pela Base de **Dados Azure SQL**. para obter mais informações sobre a configuração de rede, consulte [a ligação a uma Instância Gerida](sql-database-managed-instance-connect-app.md) .
@@ -56,7 +56,7 @@ Também pode alterar esta definição através do painel de firewall depois de o
 
 Quando definido para **ON** Azure SQL Server permite comunicações de todos os recursos dentro do limite Azure, que podem ou não fazer parte da sua subscrição.
 
-Em muitos casos, a definição **de ON** é mais permissiva do que a maioria dos clientes quer. Podem querer definir esta definição para **OFF** e substituí-la por regras de firewall IP mais restritivas ou regras de firewall da Rede Virtual. Fazê-lo afeta as seguintes funcionalidades que funcionam em VMs em Azure que não fazem parte do seu VNet e, portanto, ligam-se à Base de Dados Sql através de um endereço IP Azure.
+Em muitos casos, a definição **de ON** é mais permissiva do que a maioria dos clientes quer. Podem querer definir esta definição para **OFF** e substituí-la por regras de firewall IP mais restritivas ou regras de firewall da Rede Virtual. Fazê-lo afeta as seguintes funcionalidades que funcionam em VMs em Azure que não fazem parte do seu VNet e, portanto, ligam-se à Base de Dados SQL através de um endereço IP Azure.
 
 ### <a name="import-export-service"></a>Serviço de Exportação de Importação
 O Serviço de Exportação de Importação não funciona quando **o acesso aos serviços Azure** está definido para **off**. No entanto, pode contornar o problema [executando manualmente sqlpackage.exe a partir de um VM Azure ou realizando a exportação](https://docs.microsoft.com/azure/sql-database/import-export-from-vm) diretamente no seu código utilizando a API DACFx.
@@ -65,7 +65,7 @@ O Serviço de Exportação de Importação não funciona quando **o acesso aos s
 Para utilizar a funcionalidade de sincronização de dados com **permitir o acesso aos serviços Azure** definidos para **OFF,** é necessário criar entradas individuais de regras de firewall para [adicionar endereços IP](sql-database-server-level-firewall-rule.md) a partir da etiqueta de serviço **Sql** para a região que acolhe a base de dados **Hub.**
 Adicione estas regras de firewall ao nível do servidor aos servidores lógicos que hospedam bases de dados **hub** e **membros** (que podem estar em diferentes regiões)
 
-Utilize o seguinte script PowerShell para gerar os endereços IP correspondentes à etiqueta de serviço Sql para a região dos EUA Ocidentais
+Utilize o seguinte script PowerShell para gerar os endereços IP correspondentes à etiqueta de serviço SQL para a região dos EUA Ocidentais
 ```powershell
 PS C:\>  $serviceTags = Get-AzNetworkServiceTag -Location eastus2
 PS C:\>  $sql = $serviceTags.Values | Where-Object { $_.Name -eq "Sql.WestUS" }
@@ -81,7 +81,7 @@ PS C:\> $sql.Properties.AddressPrefixes
 ```
 
 > [!TIP]
-> Get-AzNetworkServiceTag devolve a gama global de etiqueta de serviço Sql, apesar de especificar o parâmetro de localização. Certifique-se de filtrar para a região que acolhe a base de dados hub utilizada pelo seu grupo de sincronização
+> Get-AzNetworkServiceTag devolve a gama global de etiqueta de serviço SQL, apesar de especificar o parâmetro de localização. Certifique-se de filtrar para a região que acolhe a base de dados hub utilizada pelo seu grupo de sincronização
 
 Note que a saída do script PowerShell está na notação de Encaminhamento Inter-Domínio Sem Classe (CIDR) e esta precisa de ser convertida para um formato de endereço IP inicial e final usando [Get-IPrangeStartEnd.ps1](https://gallery.technet.microsoft.com/scriptcenter/Start-and-End-IP-addresses-bcccc3a9) como este
 ```powershell

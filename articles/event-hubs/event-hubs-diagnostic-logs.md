@@ -16,12 +16,12 @@ ms.workload: data-services
 ms.custom: seodec18
 ms.date: 04/28/2020
 ms.author: shvija
-ms.openlocfilehash: 3010ee7b996c9d3e96082edeb9447c960da321bd
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 0fb5da965a9b13667b8a128e83a5a4cd2c2b28d7
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509795"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691846"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurar registos de diagnósticos para um hub de eventos do Azure
 
@@ -30,8 +30,8 @@ Pode ver dois tipos de registos para hubs de eventos azure:
 * **[Registos de atividade](../azure-monitor/platform/platform-logs-overview.md)**: Estes registos têm informações sobre operações feitas num trabalho. Os registos estão sempre ativados. Pode ver entradas de registo de atividade selecionando **registo de atividade** no painel esquerdo para o seu espaço de nome do centro de eventos no portal Azure. Por exemplo: "Criar ou atualizar o espaço de nomes", "Criar ou atualizar o Centro de Eventos".
 
     ![Log de atividade para um espaço de nome de Hubs de Eventos](./media/event-hubs-diagnostic-logs/activity-log.png)
-* **[Registos de diagnóstico:](../azure-monitor/platform/platform-logs-overview.md)** Pode configurar registos de diagnóstico para uma visão mais rica de tudo o que acontece com um trabalho. Os registos de diagnóstico cobrem atividades a partir do momento em que o trabalho é criado até que o trabalho seja eliminado, incluindo atualizações e atividades que ocorrem durante o trabalho em execução.
-
+* **[Registos de diagnóstico](../azure-monitor/platform/platform-logs-overview.md)**: Os registos de diagnóstico fornecem informações mais ricas sobre operações e ações que são conduzidas contra o seu espaço de nome utilizando a API, ou através de clientes de gestão no idioma SDK. 
+    
     A secção seguinte mostra-lhe como ativar registos de diagnóstico para um espaço de nome de Event Hubs.
 
 ## <a name="enable-diagnostic-logs"></a>Ativar registos de diagnóstico
@@ -55,34 +55,36 @@ Os registos de diagnóstico são desativados por defeito. Para ativar os registo
 
 O Event Hubs captura registos de diagnóstico para as seguintes categorias:
 
-- **Registos de arquivo**: registos relacionados com arquivos de Centros de Eventos, especificamente, registos relacionados com erros de arquivo.
-- **Registos Operacionais**: informações sobre o que está a acontecer durante as operações do Event Hubs, especificamente, o tipo de operação, incluindo a criação do hub de eventos, os recursos utilizados e o estado da operação.
-- **Registos de escala automática**: informações sobre operações de autoscalcificação feitas num espaço de nome event Hubs. 
-- **Registos coordenadores da Kafka** - informações sobre operações de coordenador de Kafka relacionadas com Centros de Eventos. 
-- **Registos de utilizadores de Kafka**: informações sobre operações de utilizador kafka relacionadas com Centros de Eventos. 
-- **Evento Hubs virtual network (VNet) evento**de conexão : informações sobre eventos de ligação virtual de rede De Event Hubs. 
-- **Registos de utilizadores-chave geridos pelo cliente:** informações sobre operações relacionadas com a chave gerida pelo cliente. 
+| Categoria | Descrição | 
+| -------- | ----------- | 
+| Registos de Arquivo | Captura informações sobre operações de captura de [Hubs](event-hubs-capture-overview.md) de Eventos, especificamente, registos relacionados com erros de captura. |
+| Registos Operacionais | Capture todas as operações de gestão que são realizadas no espaço de nome do Azure Event Hubs. As operações de dados não são capturadas, devido ao elevado volume de operações de dados que são realizadas nos Hubs de Eventos Do Azure. |
+| Registos de escala automática | Captura operações de auto-inflação feitas num espaço de nome do Event Hubs. |
+| Registos coordenadores de Kafka | Captura operações de coordenador de Kafka relacionadas com Centros de Eventos. |
+| Registos de erros do utilizador kafka | Captura informações sobre apis kafka chamadas em Centros de Eventos. |
+| Evento Hubs evento de conexão virtual rede (VNet) | Captura informações sobre endereços IP e redes virtuais que enviam tráfego para Centros de Eventos. |
+| Registos de utilizadores-chave geridos pelo cliente | Captura operações relacionadas com a chave gerida pelo cliente. |
 
 
-    Todos os registos são armazenados no formato JavaScript Object Notation (JSON). Cada entrada tem campos de cordas que utilizam o formato descrito nas seguintes secções.
+Todos os registos são armazenados no formato JavaScript Object Notation (JSON). Cada entrada tem campos de cordas que utilizam o formato descrito nas seguintes secções.
 
 ## <a name="archive-logs-schema"></a>Esquema de registos de arquivo
 
 As cordas JSON de registo de arquivo incluem elementos listados na tabela seguinte:
 
-Nome | Descrição
+Name | Descrição
 ------- | -------
-Nome de tarefa | Descrição da tarefa que falhou.
-Atividadeid | Identificação interna, usada para rastrear.
-trackingId | Identificação interna, usada para rastrear.
-resourceId | ID de recurso do Gestor de Recursos Azure.
-eventoHub | Nome completo do centro de eventos (inclui nome de espaço de nome).
-partiçãoId | Partição do Centro de Eventos a ser escrita.
-arquivoStep | ArchiveFlushWriter
-startTime | Hora de início do fracasso.
-falhas | O número de vezes que a falha ocorreu.
-duraçãoInSeconds | Duração do fracasso.
-message | Mensagem de erro.
+Nome de tarefa | Descrição da tarefa que falhou
+Atividadeid | ID interno, usado para rastrear
+trackingId | ID interno, usado para rastrear
+resourceId | ID de recurso do Gestor de Recursos Azure
+eventoHub | Nome completo do centro de eventos (inclui nome do espaço de nome)
+partiçãoId | Partição do Hub de Eventos sendo escrita para
+arquivoStep | valores possíveis: ArchiveFlushWriter, DestinationInit
+startTime | Hora de início do insucesso
+falhas | Número de vezes que ocorreu a falha
+duraçãoInSeconds | Duração da avaria
+message | Mensagem de erro
 categoria | ArquivoS
 
 O seguinte código é um exemplo de uma cadeia JSON de registo de arquivo:
@@ -90,10 +92,10 @@ O seguinte código é um exemplo de uma cadeia JSON de registo de arquivo:
 ```json
 {
    "TaskName": "EventHubArchiveUserError",
-   "ActivityId": "21b89a0b-8095-471a-9db8-d151d74ecf26",
-   "trackingId": "21b89a0b-8095-471a-9db8-d151d74ecf26_B7",
-   "resourceId": "/SUBSCRIPTIONS/854D368F-1828-428F-8F3C-F2AFFA9B2F7D/RESOURCEGROUPS/DEFAULT-EVENTHUB-CENTRALUS/PROVIDERS/MICROSOFT.EVENTHUB/NAMESPACES/FBETTATI-OPERA-EVENTHUB",
-   "eventHub": "fbettati-opera-eventhub:eventhub:eh123~32766",
+   "ActivityId": "000000000-0000-0000-0000-0000000000000",
+   "trackingId": "0000000-0000-0000-0000-00000000000000000",
+   "resourceId": "/SUBSCRIPTIONS/000000000-0000-0000-0000-0000000000000/RESOURCEGROUPS/<Resource Group Name>/PROVIDERS/MICROSOFT.EVENTHUB/NAMESPACES/<Event Hubs Namespace Name>",
+   "eventHub": "<Event Hub full name>",
    "partitionId": "1",
    "archiveStep": "ArchiveFlushWriter",
    "startTime": "9/22/2016 5:11:21 AM",
@@ -108,29 +110,29 @@ O seguinte código é um exemplo de uma cadeia JSON de registo de arquivo:
 
 As cordas JSON de registo operacional incluem elementos listados na tabela seguinte:
 
-Nome | Descrição
+Name | Descrição
 ------- | -------
-Atividadeid | Identificação interna, usada para rastrear o propósito.
-EventName | nome da operação.  
-resourceId | ID de recurso do Gestor de Recursos Azure.
-SubscriptionId | ID de assinatura.
-String de Tempo de Evento | Hora da operação.
-Propriedades de Eventos | Propriedades de operação.
-Estado | Estado de operação.
-Autor da chamada | Chamada de operação (portal Azure ou cliente de gestão).
-categoria | Registos Operacionais
+Atividadeid | ID interno, usado para fins de rastreamento |
+EventName | Nome da operação |
+resourceId | ID de recurso do Gestor de Recursos Azure |
+SubscriptionId | ID da subscrição |
+String de Tempo de Evento | Tempo de operação |
+Propriedades de Eventos | Propriedades de operação |
+Estado | Estado da operação |
+Autor da chamada | Chamada de operação (portal Azure ou cliente de gestão) |
+Categoria | Registos Operacionais |
 
 O seguinte código é um exemplo de uma cadeia JSON de registo operacional:
 
 ```json
 Example:
 {
-   "ActivityId": "6aa994ac-b56e-4292-8448-0767a5657cc7",
+   "ActivityId": "00000000-0000-0000-0000-00000000000000",
    "EventName": "Create EventHub",
-   "resourceId": "/SUBSCRIPTIONS/1A2109E3-9DA0-455B-B937-E35E36C1163C/RESOURCEGROUPS/DEFAULT-SERVICEBUS-CENTRALUS/PROVIDERS/MICROSOFT.EVENTHUB/NAMESPACES/SHOEBOXEHNS-CY4001",
-   "SubscriptionId": "1a2109e3-9da0-455b-b937-e35e36c1163c",
+   "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-0000000000000/RESOURCEGROUPS/<Resource Group Name>/PROVIDERS/MICROSOFT.EVENTHUB/NAMESPACES/<Event Hubs namespace name>",
+   "SubscriptionId": "000000000-0000-0000-0000-000000000000",
    "EventTimeString": "9/28/2016 8:40:06 PM +00:00",
-   "EventProperties": "{\"SubscriptionId\":\"1a2109e3-9da0-455b-b937-e35e36c1163c\",\"Namespace\":\"shoeboxehns-cy4001\",\"Via\":\"https://shoeboxehns-cy4001.servicebus.windows.net/f8096791adb448579ee83d30e006a13e/?api-version=2016-07\",\"TrackingId\":\"5ee74c9e-72b5-4e98-97c4-08a62e56e221_G1\"}",
+   "EventProperties": "{\"SubscriptionId\":\"0000000000-0000-0000-0000-000000000000\",\"Namespace\":\"<Namespace Name>\",\"Via\":\"https://<Namespace Name>.servicebus.windows.net/f8096791adb448579ee83d30e006a13e/?api-version=2016-07\",\"TrackingId\":\"5ee74c9e-72b5-4e98-97c4-08a62e56e221_G1\"}",
    "Status": "Succeeded",
    "Caller": "ServiceBus Client",
    "category": "OperationalLogs"
@@ -140,66 +142,96 @@ Example:
 ## <a name="autoscale-logs-schema"></a>Esquema de logs de escala automática
 O log de escala automática JSON inclui elementos listados na tabela seguinte:
 
-| Nome | Descrição |
+| Name | Descrição |
 | ---- | ----------- | 
-| trackingId | ID interno, que é usado para fins de rastreio |
-| resourceId | ID interno, que contém ID de subscrição azure e nome de espaço de nome |
-| message | Mensagem informativa, que fornece detalhes sobre a ação de auto-inflação. A mensagem contém o valor anterior e atual da unidade de entrada para um determinado espaço de nome e o que desencadeou a insuflação do TU. |
+| TrackingId | ID interno, que é usado para fins de rastreio |
+| ResourceId | ID de recurso do Gestor de Recursos Azure. |
+| Mensagem | Mensagem informativa, que fornece detalhes sobre a ação de auto-inflação. A mensagem contém o valor anterior e atual da unidade de entrada para um determinado espaço de nome e o que desencadeou a insuflação do TU. |
 
 ## <a name="kafka-coordinator-logs-schema"></a>Kafka coordenador logs schema
 O log do coordenador kafka JSON inclui elementos listados na tabela seguinte:
 
-| Nome | Descrição |
+| Name | Descrição |
 | ---- | ----------- | 
-| requestId | solicitar ID, que é usado para fins de rastreio |
-| resourceId | ID interno, que contém ID de subscrição azure e nome de espaço de nome |
-| operationName | Nome da operação que é feita durante a coordenação do grupo |
-| clientId | ID de Cliente |
-| nomespaceName | Nome do espaço de nomes | 
-| subscriptionId | ID de subscrição azure |
-| message | Mensagem informativa, que fornece detalhes sobre as ações efetuadas durante a coordenação do grupo de consumidores. |
+| Requestid | Solicitar ID, que é usado para fins de rastreio |
+| ResourceId | ID de recurso do Gestor de Recursos Azure |
+| Operação | Nome da operação que é feita durante a coordenação do grupo |
+| ClientId | ID de Cliente |
+| Nome do espaço de nome | Nome do espaço de nomes | 
+| SubscriptionId | ID de subscrição azure |
+| Mensagem | Mensagem informativa ou de aviso, que fornece detalhes sobre as ações feitas durante a coordenação do grupo. |
+
+### <a name="example"></a>Exemplo
+
+```json
+{
+    "RequestId": "FE01001A89E30B020000000304620E2A_KafkaExampleConsumer#0",
+    "Operation": "Join.Start",
+    "ClientId": "KafkaExampleConsumer#0",
+    "Message": "Start join group for new member namespace-name:c:$default:I:KafkaExampleConsumer#0-cc40856f7f3c4607915a571efe994e82, current group size: 0, API version: 2, session timeout: 10000ms, rebalance timeout: 300000ms.",
+    "SubscriptionId": "0000000-0000-0000-0000-000000000000",
+    "NamespaceName": "namespace-name",
+    "ResourceId": "/subscriptions/0000000-0000-0000-0000-000000000000/resourcegroups/testrg/providers/microsoft.eventhub/namespaces/namespace-name",
+    "Category": "KafkaCoordinatorLogs"
+}
+```
 
 ## <a name="kafka-user-error-logs-schema"></a>Erro do utilizador kafka regista esquema
 O registo de erros do utilizador kafka JSON inclui elementos listados na tabela seguinte:
 
-| Nome | Descrição |
+| Name | Descrição |
 | ---- | ----------- |
-| trackingId | identificação de rastreio, que é usado para fins de rastreio. |
-| nomespaceName | Nome do espaço de nomes |
-| eventhub | Nome do hub de eventos |
-| partiçãoId | ID de Partição |
-| groupId | ID do Grupo |
+| TrackingId | Identificação de rastreio, que é usada para fins de rastreio. |
+| Nome do espaço de nome | Nome do espaço de nomes |
+| Eventhub | Nome do hub de eventos |
+| Partida | ID de Partição |
+| GroupId | ID do Grupo |
 | ClientId | ID de Cliente |
-| resourceId | ID interno, que contém ID de subscrição azure e nome de espaço de nome |
-| message | Mensagem informativa, que fornece detalhes sobre um erro |
+| ResourceId | ID de recurso do Gestor de Recursos Azure. |
+| Mensagem | Mensagem informativa, que fornece detalhes sobre um erro |
 
 ## <a name="event-hubs-virtual-network-connection-event-schema"></a>Event Hubs virtual network connection event schema
 
 Evento Hubs virtual rede (VNet) evento de conexão JSON inclui elementos listados na tabela seguinte:
 
-| Nome | Descrição |
+| Name | Descrição |
 | ---  | ----------- | 
-| subscriptionId | ID de subscrição azure |
-| nomespaceName | Nome do espaço de nomes |
-| ipAddress | Endereço IP de um cliente que liga ao serviço Event Hubs |
-| action | Ação feita pelo serviço Event Hubs ao avaliar pedidos de ligação. As ações suportadas são **AcceptConnection** e **RejectConnection**. |
-| reason | Fornece uma razão pela qual a ação foi feita |
-| count | Número de ocorrências para a determinada ação |
-| resourceId | ID de recursos internos, que contém ID de subscrição e nome de espaço de nome. |
+| SubscriptionId | ID de subscrição azure |
+| Nome do espaço de nome | Nome do espaço de nomes |
+| IPAddress | Endereço IP de um cliente que liga ao serviço Event Hubs |
+| Ação | Ação feita pelo serviço Event Hubs ao avaliar pedidos de ligação. As ações apoiadas são **a Aceitação de Ligação** e **Ligação De Negação**. |
+| Razão | Fornece uma razão pela qual a ação foi feita |
+| Contagem | Número de ocorrências para a determinada ação |
+| ResourceId | ID de recurso do Gestor de Recursos Azure. |
+
+### <a name="example"></a>Exemplo
+
+```json
+{
+    "SubscriptionId": "0000000-0000-0000-0000-000000000000",
+    "NamespaceName": "namespace-name",
+    "IPAddress": "1.2.3.4",
+    "Action": "Deny Connection",
+    "Reason": "IPAddress doesn't belong to a subnet with Service Endpoint enabled.",
+    "Count": "65",
+    "ResourceId": "/subscriptions/0000000-0000-0000-0000-000000000000/resourcegroups/testrg/providers/microsoft.eventhub/namespaces/namespace-name",
+    "Category": "EventHubVNetConnectionEvent"
+}
+```
 
 ## <a name="customer-managed-key-user-logs"></a>Registos de utilizadores-chave geridos pelo cliente
 O registo de utilizador-chave gerido pelo cliente JSON inclui elementos listados na tabela seguinte:
 
-| Nome | Descrição |
+| Name | Descrição |
 | ---- | ----------- | 
-| categoria | Tipo de categoria para uma mensagem. É um dos seguintes valores: **erro** e **informação** |
-| resourceId | ID de recursos internos, que inclui ID de subscrição azure e nome do espaço de nome |
-| keyVault | Nome do recurso Key Vault |
-| key | Nome da chave do cofre. |
-| versão | Versão da chave key vault |
-| operação | O nome de uma operação feita para servir pedidos |
-| code | Código de estado |
-| message | Mensagem, que fornece detalhes sobre um erro ou mensagem informativa |
+| Categoria | Tipo de categoria para uma mensagem. É um dos seguintes valores: **erro** e **informação** |
+| ResourceId | ID de recursos internos, que inclui ID de subscrição azure e nome do espaço de nome |
+| KeyVault | Nome do recurso Key Vault |
+| Chave | Nome da chave do cofre. |
+| Versão | Versão da chave key vault |
+| Operação | O nome de uma operação feita para servir pedidos |
+| Código | Código de estado |
+| Mensagem | Mensagem, que fornece detalhes sobre um erro ou mensagem informativa |
 
 
 

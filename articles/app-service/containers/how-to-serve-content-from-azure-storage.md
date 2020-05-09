@@ -5,12 +5,12 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 01/02/2020
 ms.author: msangapu
-ms.openlocfilehash: 79a4e423f7a2b6570234c958ac833cdf5c6a75e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9a5a38ea32d927f50fb9ddbebe3e1c3533e6fcc0
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79297922"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82625328"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Sirva conteúdo do Azure Storage no Serviço de Aplicações em Linux
 
@@ -45,7 +45,7 @@ Este guia mostra como anexar o Azure Storage ao Serviço de Aplicações no Linu
 
 Depois de ter criado a sua conta De armazenamento, partilha de [ficheiros e diretório,](#prerequisites)agora pode configurar a sua aplicação com o Armazenamento Azure.
 
-Para montar uma conta de armazenamento num diretório na [`az webapp config storage-account add`](https://docs.microsoft.com/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) sua aplicação App Service, utiliza o comando. O Tipo de Armazenamento pode ser AzureBlob ou AzureFiles. O AzureFiles é utilizado neste exemplo.
+Para montar uma conta de armazenamento num diretório na [`az webapp config storage-account add`](https://docs.microsoft.com/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) sua aplicação App Service, utiliza o comando. O Tipo de Armazenamento pode ser AzureBlob ou AzureFiles. O AzureFiles é utilizado neste exemplo. A definição do caminho de montagem corresponde à pasta que gostaria de montar a partir do Armazenamento Azure. Defini-lo para '/' monta todo o Armazenamento Azure.
 
 
 > [!CAUTION]

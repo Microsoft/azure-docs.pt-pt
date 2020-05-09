@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c2e3219cebcc5e989059c02fec86ba242e1c31cc
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: b8f6691eab7da42c1f82952b3a20df95ab28d97b
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82853870"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891593"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planeamento e implementação de Máquinas Virtuais Azure para SAP NetWeaver
 
@@ -487,7 +487,7 @@ Como modelo de preços, você tem várias opções de preços diferentes que lis
 
 O preço de cada uma das diferentes ofertas com diferentes ofertas de serviço em torno de sistemas operativos e diferentes regiões está disponível no site [Linux Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) e [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). Para obter detalhes e flexibilidade de um ano e três anos de instâncias reservadas, consulte estes artigos:
 
-- [O que é o Azure Reservations?](https://docs.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations)
+- [O que são as Reservas do Azure?](https://docs.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations)
 - [Flexibilidade de tamanho da máquina virtual com o Reserved VM Instances](https://docs.microsoft.com/azure/virtual-machines/windows/reserved-vm-instance-size-flexibility)
 - [Como o desconto de reserva do Azure é aplicado a máquinas virtuais](https://docs.microsoft.com/azure/cost-management-billing/manage/understand-vm-reservation-charges) 
 
@@ -1240,7 +1240,7 @@ A experiência das implementações da SAP nos últimos dois anos ensinou-nos al
 >
 > * [Configure Software RAID em Linux][virtual-machines-linux-configure-raid]
 > * [Configure LVM em um Linux VM em Azure][virtual-machines-linux-configure-lvm]
-> * [Segredos de Armazenamento Azure e otimizações de I/O linux](https://blogs.msdn.com/b/igorpag/archive/2014/10/23/azure-storage-secrets-and-linux-i-o-optimizations.aspx)
+> * [Segredos de Armazenamento Azure e otimizações de I/O linux](https://docs.microsoft.com/archive/blogs/igorpag/azure-storage-secrets-and-linux-io-optimizations)
 >
 >
 

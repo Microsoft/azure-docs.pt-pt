@@ -1,31 +1,21 @@
 ---
 title: Adicione ferramentas de avaliação em Azure Migrate
 description: Saiba como adicionar ferramentas de avaliação no Azure Migrate.
-author: rayne-wiselman
-ms.service: azure-migrate
-ms.topic: article
-ms.manager: carmonm
-ms.date: 11/19/2019
-ms.author: raynew
-ms.openlocfilehash: 64af78abd8f82b41d4a03fbb56c96e3038cef5a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.date: 04/26/2020
+ms.openlocfilehash: 7e7d7cf26cab30cd7449e4643fdfb59faece47f2
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74185919"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901039"
 ---
 # <a name="add-assessment-tools"></a>Adicionar ferramentas de avaliação
 
-Este artigo descreve como adicionar ferramentas de avaliação em [Azure Migrate](migrate-overview.md).
+Este artigo descreve como adicionar ferramentas de avaliação em [Azure Migrate](migrate-overview.md). 
 
-A Azure Migrate fornece um centro de ferramentas para avaliação e migração para Azure. Inclui ferramentas Azure Migrate, bem como outras ferramentas e ofertas independentes de fornecedores de software (ISV).
-
-Se quiser adicionar uma ferramenta de avaliação e ainda não tiver um projeto Azure Migrate, siga este [artigo.](how-to-add-tool-first-time.md)
-
-## <a name="select-a-tool"></a>Selecione uma ferramenta
-
-Se escolher uma ferramenta não-Azure Migrate para avaliação, comece por obter uma licença ou se inscreva para um teste gratuito, de acordo com a política de ferramentas. As ferramentas têm uma opção para se conectar em Azure Migrate. Siga as instruções e documentação, para ligar a ferramenta ao Azure Migrate. [Saiba mais](migrate-services-overview.md) sobre ferramentas.
-
+- Se quiser adicionar uma ferramenta de avaliação e ainda não tiver um projeto Azure Migrate, siga este [artigo](how-to-add-tool-first-time.md).-
+- Se adicionou uma ferramenta ISV, ou Movere, para avaliação, [siga os passos,](prepare-isv-movere.md)para se preparar para trabalhar com a ferramenta.
 
 ## <a name="select-an-assessment-scenario"></a>Selecione um cenário de avaliação
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: cf9fa48019ab88190175131b27f4a40e29eb5ed0
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 0db91f3c661ebd3087a4389f4112a7214c992227
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801727"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82925954"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Resolver problemas do Balanceador de Carga do Azure
 <p class="alert is-flex is-primary"><span class="has-padding-left-medium has-padding-top-extra-small"><a class="button is-primary" href="https://azurevirtualsupportagent.services.microsoft.com?content=fb23185b-6c56-d9f1-7ce1-758c978e08e1" target='_blank'>Comece a</a></span>resolver o seu problema rapidamente usando o<span class="has-padding-small">nosso agente virtual para executar <b>diagnósticos automatizados.</b> </span> Declaração <sub>de Privacidade</sub> <span class="has-padding-small"> <a href="https://privacy.microsoft.com/privacystatement" target='_blank'> <div align="right"></div></a></span></p>
@@ -132,11 +132,15 @@ Se um Balancer de carga interno estiver configurado dentro de um VNet, e um dos 
 ### <a name="cause--the-backend-port-cannot-be-modified-for-a-load-balancing-rule-thats-used-by-a-health-probe-for-load-balancer-referenced-by-vm-scale-set"></a>Causa : A porta de backend não pode ser modificada para uma regra de equilíbrio de carga utilizada por uma sonda de saúde para equilibrador de carga referenciada por Conjunto de Balança VM.
 **Resolução** Para alterar a porta, pode remover a sonda de saúde atualizando o Conjunto de Escala VM, atualizar a porta e, em seguida, configurar novamente a sonda de saúde.
 
+## <a name="symptom-small-traffic-is-still-going-through-load-balancer-after-removing-vms-from-backend-pool-of-the-load-balancer"></a>Sintoma: O pequeno tráfego ainda está a passar pelo equilibrista de carga depois de remover VMs da piscina de backend do equilibrador de carga. 
+### <a name="cause--vms-removed-from-backend-pool-should-no-longer-receive-traffic-the-small-amount-of-network-traffic-could-be-related-to-storage-dns-and-other-functions-within-azure"></a>Causa: VMs removidos da piscina de backend não devem mais receber tráfego. A pequena quantidade de tráfego de rede pode estar relacionada com armazenamento, DNS e outras funções dentro do Azure. 
+Para verificar, pode conduzir um rastreio de rede. O FQDN utilizado para as suas contas de armazenamento blob está listado dentro das propriedades de cada conta de armazenamento.  A partir de uma máquina virtual dentro da sua subscrição Azure, pode realizar um nslookup para determinar o IP Azure atribuído a essa conta de armazenamento.
+
 ## <a name="additional-network-captures"></a>Capturas adicionais de rede
 Se decidir abrir um caso de suporte, recolha as seguintes informações para uma resolução mais rápida. Escolha um VM de backend único para efetuar os seguintes testes:
 - Utilize a PSPde saca de um dos VMs traseiros dentro da VNet para testar a resposta da sonda port (exemplo: psping 10.0.0.4:3389) e resultados recorde. 
 - Se não for recebida nenhuma resposta nestes testes de ping, faça um traço netsh simultâneo no VM de backend e no VM de teste VNet enquanto executa o PsPing e pare o traço netsh. 
-  
+ 
 ## <a name="next-steps"></a>Passos seguintes
 
 Se os passos anteriores não resolverem a questão, abra um bilhete de [apoio](https://azure.microsoft.com/support/options/).

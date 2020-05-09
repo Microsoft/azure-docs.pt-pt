@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 4cf260620d4e907fdb9190a052155fa22f1c7985
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fc08916967b4d64667065373cf2d0828a05069d0
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80398333"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890947"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Aplicações multi-inquilinos com ferramentas de base de dados elásticas e segurança ao nível da linha
 
@@ -341,7 +341,7 @@ GO
 ### <a name="maintenance"></a>Manutenção
 
 - **Adicionar novos fragmentos**: Execute o script T-SQL para ativar o RLS em quaisquer novos fragmentos, caso contrário não são filtradas consultas nestes fragmentos.
-- **Adicionar novas tabelas**: Adicione um filtro e bloqueie a política de segurança em todos os fragmentos sempre que for criada uma nova tabela. Caso contrário, as consultas na nova mesa não são filtradas. Esta adição pode ser automatizada utilizando um gatilho DDL, conforme descrito na Aplicação de [Segurança de Nível de Linha automaticamente para mesas recém-criadas (blog)](https://blogs.msdn.com/b/sqlsecurity/archive/20../../apply-row-level-security-automatically-to-newly-created-tables.aspx).
+- **Adicionar novas tabelas**: Adicione um filtro e bloqueie a política de segurança em todos os fragmentos sempre que for criada uma nova tabela. Caso contrário, as consultas na nova mesa não são filtradas. Esta adição pode ser automatizada utilizando um gatilho DDL, conforme descrito na Aplicação de [Segurança de Nível de Linha automaticamente para mesas recém-criadas (blog)](https://techcommunity.microsoft.com/t5/SQL-Server/Apply-Row-Level-Security-automatically-to-newly-created-tables/ba-p/384393).
 
 ## <a name="summary"></a>Resumo
 

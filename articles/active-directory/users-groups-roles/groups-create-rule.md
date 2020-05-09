@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2ed7f27e2145f666f38eec5ddc6c985a4d32138
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1c685fa231bc1f40a78aae0d4fa89569ec146eea
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79266380"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582906"
 ---
 # <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Criar ou atualizar um grupo dinâmico no Diretório Ativo do Azure
 
@@ -46,7 +46,7 @@ Por exemplo, sintaxe, propriedades suportadas, operadores e valores para uma reg
 
 ## <a name="to-create-a-group-membership-rule"></a>Para criar uma regra de associação de grupo
 
-1. Inscreva-se no [centro de administração da Azure AD](https://aad.portal.azure.com) com uma conta que se encontra no administrador global, administrador intune ou papel de administrador de utilizador no inquilino.
+1. Inscreva-se no [centro de administração da Azure AD](https://aad.portal.azure.com) com uma conta que está no administrador global, administrador intune ou papel de administrador de utilizador na organização Azure AD.
 1. Procure e selecione **Grupos**.
 1. **Selecione Todos os grupos**e selecione **Novo grupo**.
 
@@ -66,7 +66,7 @@ Se a regra que inseriu não for válida, uma explicação do porquê da regra n�
 
 ## <a name="to-update-an-existing-rule"></a>Para atualizar uma regra existente
 
-1. Inscreva-se no [centro de administração da Azure AD](https://aad.portal.azure.com) com uma conta que está no administrador global, administrador do Grupo, administrador intune ou papel de administrador de utilizador no inquilino.
+1. Inscreva-se no [centro de administração da Azure AD](https://aad.portal.azure.com) com uma conta que está no administrador global, administrador do Grupo, administrador intune ou papel de administrador de utilizador na organização Azure AD.
 1. Selecione **Grupos** > **Todos os grupos**.
 1. Selecione um grupo para abrir o seu perfil.
 1. Na página de perfil do grupo, selecione regras de **adesão dinâmicas.** O construtor de regras suporta até cinco expressões. Para adicionar mais de cinco expressões, deve utilizar a caixa de texto.
@@ -102,7 +102,7 @@ As seguintes mensagens de estado podem ser mostradas para **a Adesão última** 
 - **Em curso**: As atualizações estão atualmente em curso.
 - **Desconhecido**: O último tempo de atualização não pode ser recuperado. O grupo pode ser novo.
 
-Se ocorrer um erro durante o processamento da regra de adesão para um grupo específico, é apresentado um alerta no topo da **página de visão geral** do grupo. Se não forem processadas atualizações dinâmicas de adesão para todos os grupos dentro do arrendatário por mais de 24 horas, é apresentado um alerta no topo de **Todos os grupos**.
+Se ocorrer um erro durante o processamento da regra de adesão para um grupo específico, é apresentado um alerta no topo da **página de visão geral** do grupo. Se não forem processadas atualizações dinâmicas de adesão para todos os grupos da organização por mais de 24 horas, é apresentado um alerta no topo de **Todos os grupos**.
 
 ![processamento alertas de mensagem de erro](./media/groups-create-rule/processing-error.png)
 
