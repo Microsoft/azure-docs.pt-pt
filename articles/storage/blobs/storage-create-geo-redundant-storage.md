@@ -1,30 +1,30 @@
 ---
 title: Tutorial - Construa uma aplicação altamente disponível com armazenamento Blob
 titleSuffix: Azure Storage
-description: Utilize armazenamento geo-redundante de acesso de leitura para disponibilizar os dados da sua aplicação.
+description: Utilize o armazenamento de geozona-zona redundante (RA-GZRS) de acesso de leitura para tornar os dados da sua aplicação altamente disponíveis.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: tutorial
-ms.date: 02/10/2020
+ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 27f90edf84fd51e5c13bc082cfaba50e26c54780
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 19812ad8e8b81984bb7a314345d5fd53f917d239
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81606016"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856128"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Tutorial: Construir uma aplicação altamente disponível com armazenamento Blob
 
 Este tutorial é a primeira parte de uma série. Nele, aprende-se a disponibilizar os dados da sua aplicação em Azure.
 
-Quando tiver concluído este tutorial, terá uma aplicação de consola que carrega e recupera uma bolha de uma conta de armazenamento [geo-redundante](../common/storage-redundancy.md) de acesso de leitura (RA-GRS).
+Quando tiver concluído este tutorial, terá uma aplicação de consola que carrega e recupera uma bolha de uma conta de armazenamento [de geozona-redundante](../common/storage-redundancy.md) (RA-GZRS) de acesso a leitura.
 
-O RA-GRS trabalha replicando transações de uma região primária para uma região secundária. Este processo de replicação garante que os dados na região secundária acabam por ser consistentes. A aplicação utiliza o padrão [de Disjuntor](/azure/architecture/patterns/circuit-breaker) para determinar a que ponto final se ligar, alternando automaticamente entre pontos finais à medida que são simuladas falhas e recuperações.
+A georedundância no Armazenamento Azure replica as transações assincronicamente de uma região primária para uma região secundária que fica a centenas de quilómetros de distância. Este processo de replicação garante que os dados na região secundária acabam por ser consistentes. A aplicação da consola utiliza o padrão de [disjuntor](/azure/architecture/patterns/circuit-breaker) para determinar a que ponto final se ligar, alternando automaticamente entre pontos finais à medida que são simuladas falhas e recuperações.
 
 Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -64,25 +64,24 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 Uma conta de armazenamento fornece um espaço de nome único para armazenar e aceder aos objetos de dados do Seu Armazenamento Azure.
 
-Siga estes passos para criar uma conta de armazenamento georredundante com acesso de leitura:
+Siga estes passos para criar uma conta de armazenamento geozona-redundante (RA-GZRS) de acesso de leitura:
 
-1. Selecione o botão **Criar um recurso**, no canto superior esquerdo do portal do Azure.
-2. Selecione **Armazenamento** a partir da **página Nova.**
-3. Selecione **conta de armazenamento - blob, file, table, fila** em **Destaque**.
+1. Selecione o botão **Criar um botão de recurso** no portal Azure.
+2. Selecione **conta de Armazenamento - blob, file, table, fila** a partir da página **Nova.**
 4. Preencha o formulário da conta de armazenamento com as seguintes informações, conforme mostrado na imagem abaixo e selecione **Criar**:
 
-   | Definição       | Valor sugerido | Descrição |
+   | Definição       | Valor da amostra | Descrição |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Nome** | mystorageaccount | Um valor exclusivo para a conta de armazenamento |
-   | **Modelo de implantação** | Resource Manager  | O Resource Manager contém as funcionalidades mais recentes.|
-   | **Tipo de conta** | StorageV2 | Para obter detalhes sobre os tipos de contas, veja [Tipos de contas de armazenamento](../common/storage-introduction.md#types-of-storage-accounts) |
-   | **Desempenho** | Standard | O desempenho standard é suficiente para este cenário de exemplo. |
-   | **Replicação**| Armazenamento georredundante com acesso de leitura (RA-GRS) | É necessário para o exemplo funcionar. |
-   |**Subscrição** | A sua subscrição |Para obter detalhes sobre as suas subscrições, veja [Subscriptions](https://account.azure.com/Subscriptions) (Subscrições). |
-   |**Grupo de Recursos** | myResourceGroup |Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming) (Atribuição de nomes de regras e restrições). |
-   |**Localização** | E.U.A. Leste | Escolher uma localização. |
+   | **Subscrição** | *A minha assinatura* | Para obter detalhes sobre as suas subscrições, veja [Subscriptions](https://account.azure.com/Subscriptions) (Subscrições). |
+   | **Grupo de Recursos** | *myResourceGroup* | Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming) (Atribuição de nomes de regras e restrições). |
+   | **Nome** | *conta de armazenamento* | Um nome único para a sua conta de armazenamento. |
+   | **Localização** | *E.U.A. Leste* | Escolher uma localização. |
+   | **Desempenho** | *Standard* | O desempenho padrão é uma boa opção para o cenário de exemplo. |
+   | **Tipo de conta** | *StorageV2* | Recomenda-se a utilização de uma conta de armazenamento v2 de uso geral. Para obter mais informações sobre tipos de contas de armazenamento Do Azure, consulte a [visão geral da conta de armazenamento](../common/storage-account-overview.md). |
+   | **Replicação**| *Armazenamento geozona-redundante de acesso de leitura (RA-GZRS)* | A região primária é redundante em zona e é replicada para uma região secundária, com acesso lido à região secundária habilitada. |
+   | **Escalão de acesso**| *Frequente* | Utilize o nível quente para obter dados frequentemente acedidos. |
 
-![criar conta de armazenamento](media/storage-create-geo-redundant-storage/createragrsstracct.png)
+    ![criar conta de armazenamento](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 
 ## <a name="download-the-sample"></a>Transferir o exemplo
 
@@ -173,7 +172,7 @@ Instale as dependências necessárias. Para isso, abra um pedido de comando, nav
 
 No Estúdio Visual, prima **F5** ou selecione **Começar** a depurar a aplicação. O estúdio visual restaura automaticamente os pacotes NuGet em falta se configurado, visite [Instalar e reinstalar pacotes com restauro](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview) de pacotes para saber mais.
 
-É iniciada uma janela de consola e a aplicação começa a ser executada. A aplicação carrega a imagem **HelloWorld.png** da solução para a conta de armazenamento. A aplicação verifica para garantir que a imagem foi replicada para o ponto final de RA-GRS secundário. Em seguida, começa a transferir a imagem até 999 vezes. Cada leitura é representada por um **P** ou um **S**. Onde **P** representa o ponto final primário e **S** representa o ponto final secundário.
+É iniciada uma janela de consola e a aplicação começa a ser executada. A aplicação carrega a imagem **HelloWorld.png** da solução para a conta de armazenamento. A aplicação verifica para garantir que a imagem se replicou ao ponto final secundário ra-GZRS. Em seguida, começa a transferir a imagem até 999 vezes. Cada leitura é representada por um **P** ou um **S**. Onde **P** representa o ponto final primário e **S** representa o ponto final secundário.
 
 ![Aplicação de consola em execução](media/storage-create-geo-redundant-storage/figure3.png)
 
@@ -181,7 +180,7 @@ No código de exemplo, a tarefa `RunCircuitBreakerAsync` no ficheiro `Program.cs
 
 # <a name="python"></a>[Python](#tab/python)
 
-Para executar a aplicação num terminal ou numa linha de comandos, aceda ao diretório **circuitbreaker.py** e introduza `python circuitbreaker.py`. A aplicação carrega a imagem **HelloWorld.png** da solução para a conta de armazenamento. A aplicação verifica para garantir que a imagem foi replicada para o ponto final de RA-GRS secundário. Em seguida, começa a transferir a imagem até 999 vezes. Cada leitura é representada por um **P** ou um **S**. Onde **P** representa o ponto final primário e **S** representa o ponto final secundário.
+Para executar a aplicação num terminal ou numa linha de comandos, aceda ao diretório **circuitbreaker.py** e introduza `python circuitbreaker.py`. A aplicação carrega a imagem **HelloWorld.png** da solução para a conta de armazenamento. A aplicação verifica para garantir que a imagem se replicou ao ponto final secundário ra-GZRS. Em seguida, começa a transferir a imagem até 999 vezes. Cada leitura é representada por um **P** ou um **S**. Onde **P** representa o ponto final primário e **S** representa o ponto final secundário.
 
 ![Aplicação de consola em execução](media/storage-create-geo-redundant-storage/figure3.png)
 
@@ -343,9 +342,9 @@ const pipeline = StorageURL.newPipeline(sharedKeyCredential, {
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Na primeira parte da série, aprendeu a disponibilizar uma aplicação altamente disponível com contas de armazenamento RA-GRS.
+Na primeira parte da série, aprendeu a disponibilizar uma aplicação altamente disponível com contas de armazenamento RA-GZRS.
 
-Avance para a parte dois da série para saber como simular uma falha e forçar a aplicação a utilizar o ponto final RA-GRS secundário.
+Avance para a segunda parte da série para aprender a simular uma falha e forçar a sua aplicação a usar o ponto final secundário RA-GZRS.
 
 > [!div class="nextstepaction"]
-> [Simular uma falha na leitura da região primária](storage-simulate-failure-ragrs-account-app.md)
+> [Simular uma falha na leitura da região primária](simulate-primary-region-failure.md)

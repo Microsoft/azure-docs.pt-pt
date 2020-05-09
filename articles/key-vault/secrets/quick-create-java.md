@@ -9,7 +9,7 @@ ms.subservice: secrets
 ms.topic: quickstart
 ms.openlocfilehash: a3e6901d41cc14ab3ea27f7c8cd9bbc4c98608a6
 ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/07/2020
 ms.locfileid: "82901339"

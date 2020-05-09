@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: thweiss
-ms.openlocfilehash: fa62495a7b51c9a06a91102299378c15e811eae0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: af68d733dfb0e0d1c257c8db03656112eec7381b
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74872116"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871002"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Defina chaves únicas para um recipiente Azure Cosmos
 
@@ -39,7 +39,9 @@ Este artigo apresenta as diferentes formas de definir [chaves únicas](unique-ke
 
 Para criar um recipiente com chaves únicas veja, [Crie um recipiente Azure Cosmos com chave única e TTL](manage-with-powershell.md#create-container-unique-key-ttl)
 
-## <a name="use-the-net-sdk-v2"></a>Utilize o .NET SDK V2
+## <a name="use-the-net-sdk"></a>Utilizar o .NET SDK
+
+# <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
 Ao criar um novo recipiente utilizando o [.NET SDK v2,](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)um `UniqueKeyPolicy` objeto pode ser utilizado para definir constrangimentos de chave únicos.
 
@@ -59,7 +61,7 @@ client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("database"), n
 });
 ```
 
-## <a name="use-the-net-sdk-v3"></a>Utilize o .NET SDK V3
+# <a name="net-sdk-v3"></a>[.NET SDK V3](#tab/dotnetv3)
 
 Ao criar um novo recipiente utilizando o [.NET SDK v3,](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)utilize a Fluente API do SDK para declarar chaves únicas de forma concisa e legível.
 
@@ -75,6 +77,7 @@ await client.GetDatabase("database").DefineContainer(name: "container", partitio
     .Attach()
     .CreateIfNotExistsAsync();
 ```
+---
 
 ## <a name="use-the-java-sdk"></a>Use o Java SDK
 

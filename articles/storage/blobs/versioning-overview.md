@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 64e0de153aa33bac17c2bed75b211ddca1bbd28c
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
+ms.openlocfilehash: 77af321b74a47306a7202c1fddf6e81edc0ee02a
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82884400"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926073"
 ---
 # <a name="blob-versioning-preview"></a>Versão blob (pré-visualização)
 
@@ -227,6 +227,9 @@ Para se registar na PowerShell, ligue para o comando [Get-AzProviderFeature.](/p
 ```powershell
 Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
     -FeatureName Versioning
+    
+# Refresh the Azure Storage provider namespace
+Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 ```
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
@@ -251,9 +254,6 @@ Para verificar o estado do seu registo com a PowerShell, ligue para o comando [G
 ```powershell
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
     -FeatureName Versioning
-
-# Refresh the Azure Storage provider namespace
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 ```
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
@@ -315,6 +315,6 @@ No cenário 4, a bolha base foi completamente atualizada e não contém nenhum d
 
 ## <a name="see-also"></a>Consulte também
 
-- [Ativar a versão blob](versioning-enable.md)
+- [Ativar a criação de versões de blobs](versioning-enable.md)
 - [Criando uma imagem de uma bolha](/rest/api/storageservices/creating-a-snapshot-of-a-blob)
 - [Eliminação suave para Blobs de Armazenamento Azure](storage-blob-soft-delete.md)

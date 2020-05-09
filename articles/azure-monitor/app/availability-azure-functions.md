@@ -2,15 +2,15 @@
 title: Criar e executar testes de disponibilidade personalizados utilizando funções azure
 description: Este doc cobrirá como criar uma Função Azure com TrackAvailability() que será executada periodicamente de acordo com a configuração dada na função TimerTrigger. Os resultados deste teste serão enviados para o seu recurso Application Insights, onde poderá consultar e alertar sobre os dados dos resultados da disponibilidade. Testes personalizados permitirão escrever testes de disponibilidade mais complexos do que é possível usando o portal UI, monitorizar uma aplicação dentro do seu Azure VNET, alterar o endereço de ponto final ou criar um teste de disponibilidade se não estiver disponível na sua região.
 ms.topic: conceptual
-author: morgangrobin
-ms.author: mogrobin
-ms.date: 11/22/2019
-ms.openlocfilehash: 476d66c51c10a5fcfb3cb0319c47b3338d28812c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+author: mrbullwinkle
+ms.author: mbullwin
+ms.date: 05/04/2020
+ms.openlocfilehash: 81040adf6cfbb8820ec7f306c7d614830e3a2613
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77665804"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791119"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Criar e executar testes de disponibilidade personalizados utilizando funções azure
 
@@ -160,12 +160,10 @@ public async static Task RunAvailbiltyTestAsync(ILogger log)
 Para se certificar de que está tudo a funcionar, pode olhar para o gráfico no separador De Disponibilidade do seu recurso Application Insights.
 
 > [!NOTE]
-> Se implementou a sua própria lógica de negócio no runAvailabilityTest.csx, então verá resultados bem sucedidos como nas imagens abaixo, se não o fez, então verá resultados falhados.
+> Se implementou a sua própria lógica de negócio no runAvailabilityTest.csx, então verá resultados bem sucedidos como nas imagens abaixo, se não o fez, então verá resultados falhados. Os testes `TrackAvailability()` criados com serão apresentados com **CUSTOM** ao lado do nome do teste.
 
 >[!div class="mx-imgBorder"]
->![Separador de disponibilidade com resultados bem sucedidos](media/availability-azure-functions/availtab.png)
-
-Quando configurar o seu teste utilizando funções Azure, notará que, ao contrário de utilizar o **teste Add** no separador Disponibilidade, o nome do seu teste não aparecerá e não poderá interagir com ele. Os resultados são visualizados mas obtém-se uma visão sumária em vez da mesma vista detalhada que obtém quando cria um teste de disponibilidade através do portal.
+>![Separador de disponibilidade com resultados bem sucedidos](media/availability-azure-functions/availability-custom.png)
 
 Para ver os detalhes da transação de ponta a ponta, selecione **Successful** ou **Failed** under drill e, em seguida, selecione uma amostra. Também pode chegar aos detalhes da transação de ponta a ponta selecionando um ponto de dados no gráfico.
 
