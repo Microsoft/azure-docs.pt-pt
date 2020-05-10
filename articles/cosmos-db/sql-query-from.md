@@ -4,22 +4,22 @@ description: Conheça a sintaxe SQL e, por exemplo, a cláusula FROM para o Azur
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 05/08/2020
 ms.author: tisande
-ms.openlocfilehash: 3939594064b63c567720378b9d316acca64d3266
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e4bbb27a2f49027ed5a456ad824f54b9c92a899c
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77587690"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005864"
 ---
 # <a name="from-clause-in-azure-cosmos-db"></a>Da cláusula em Azure Cosmos DB
 
 A cláusula`FROM <from_specification>`FROM ( ) é opcional, a menos que a fonte seja filtrada ou projetada posteriormente na consulta. Uma consulta `SELECT * FROM Families` como enumera sobre `Families` todo o recipiente. Também pode utilizar o identificador especial ROOT para o recipiente em vez de utilizar o nome do recipiente.
 
-A cláusula FROM aplica as seguintes regras por consulta:
+A `FROM` cláusula aplica as seguintes regras por consulta:
 
-* O recipiente pode ser pseudónimo, `SELECT f.id FROM Families AS f` como `SELECT f.id FROM Families f`ou simplesmente . Aqui `f` está o `Families`pseudónimo para. As é uma palavra-chave opcional para [alias](sql-query-aliasing.md) o identificador.  
+* O recipiente pode ser pseudónimo, `SELECT f.id FROM Families AS f` como `SELECT f.id FROM Families f`ou simplesmente . Aqui `f` está o `Families`pseudónimo para. As é uma palavra-chave opcional para [alias](sql-query-working-with-json.md#aliasing) o identificador.  
 
 * Uma vez pseudónimo, o nome original não pode ser ligado. Por exemplo, `SELECT Families.id FROM Families f` é sintáticamente inválido `Families` porque o identificador foi pseudónimo e não pode mais ser resolvido.  
 
@@ -30,15 +30,15 @@ A cláusula FROM aplica as seguintes regras por consulta:
 ```sql  
 FROM <from_specification>  
   
-<from_specification> ::=   
+<from_specification> ::=
         <from_source> {[ JOIN <from_source>][,...n]}  
   
-<from_source> ::=   
+<from_source> ::=
           <container_expression> [[AS] input_alias]  
         | input_alias IN <container_expression>  
   
-<container_expression> ::=   
-        ROOT   
+<container_expression> ::=
+        ROOT
      | container_name  
      | input_alias  
      | <container_expression> '.' property_name  
@@ -51,9 +51,9 @@ FROM <from_specification>
   
   Especifica uma fonte de dados, com ou sem pseudónimo. Se o pseudónimo não for especificado, será `<container_expression>` inferido da utilização das seguintes regras:  
   
-  -  Se a expressão for uma container_name, então container_name serão usadas como pseudónimo.  
+-  Se a expressão for uma container_name, então container_name serão usadas como pseudónimo.  
   
-  -  Se a `<container_expression>`expressão for , então property_name, então property_name será usada como pseudónimo. Se a expressão for uma container_name, então container_name serão usadas como pseudónimo.  
+-  Se a `<container_expression>`expressão for , então property_name, então property_name será usada como pseudónimo. Se a expressão for uma container_name, então container_name serão usadas como pseudónimo.  
   
 - COMO`input_alias`  
   
@@ -99,9 +99,9 @@ Se uma expressão de contentor aceder a propriedades ou elementos de matriz e es
   
 Uma expressão de contentor pode ser de contentorou ou com um documento:  
   
--   Uma expressão é de alcance de contentores, se a `container_name`fonte subjacente da expressão do recipiente for RAIZ ou . Tal expressão representa um conjunto de documentos recuperados diretamente do contentor, e não depende do processamento de outras expressões de contentores.  
+- Uma expressão é de alcance de contentores, se a `container_name`fonte subjacente da expressão do recipiente for RAIZ ou . Tal expressão representa um conjunto de documentos recuperados diretamente do contentor, e não depende do processamento de outras expressões de contentores.  
   
--   Uma expressão é com um documento, se a `input_alias` fonte subjacente da expressão do recipiente for introduzida mais cedo na consulta. Tal expressão representa um conjunto de documentos obtidos através da avaliação da expressão do contentor no âmbito de cada documento pertencente ao conjunto associado ao recipiente aliado.  O conjunto resultante será uma união de conjuntos obtidos avaliando a expressão do contentor para cada um dos documentos no conjunto subjacente. 
+- Uma expressão é com um documento, se a `input_alias` fonte subjacente da expressão do recipiente for introduzida mais cedo na consulta. Tal expressão representa um conjunto de documentos obtidos através da avaliação da expressão do contentor no âmbito de cada documento pertencente ao conjunto associado ao recipiente aliado. O conjunto resultante será uma união de conjuntos obtidos avaliando a expressão do contentor para cada um dos documentos no conjunto subjacente.
 
 ## <a name="examples"></a>Exemplos
 

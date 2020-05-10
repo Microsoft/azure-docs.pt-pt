@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 04/30/2020
-ms.openlocfilehash: e1ebc0257082ecfacc708352ba0a68e38e10717f
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.date: 05/12/2020
+ms.openlocfilehash: 56bf1898eb00d74fe92934ca8cd7d9d2848c2f1f
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82607797"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005901"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guia de referência para a utilização de funções em expressões para aplicações lógicas azure e automatização de potência
 
@@ -29,9 +29,6 @@ Por exemplo, pode calcular valores utilizando funções matemáticas, como a fun
 ||||
 
 Para encontrar funções [com base no seu propósito geral,](#ordered-by-purpose)reveja as seguintes tabelas. Ou, para informação detalhada sobre cada função, consulte a [lista alfabética.](#alphabetical-list)
-
-> [!NOTE]
-> Na sintaxe para definições de parâmetros, um ponto de interrogação (?) que aparece após um parâmetro significa que o parâmetro é opcional. Por exemplo, consulte [getFutureTime()](#getFutureTime).
 
 ## <a name="functions-in-expressions"></a>Funções em expressões
 
@@ -51,8 +48,7 @@ Aqui estão outras formas gerais de usar funções em expressões:
 | 1. Obtenha o resultado da *funçãoNome*. </br>2. Dado que o resultado é um objeto com *propriedade name,* obtenha o valor desse imóvel. | \@<*"nome de função*> *(item* <>).<*propertyName*>" |
 |||
 
-Por exemplo, `concat()` a função pode tomar dois ou mais valores de cadeia como parâmetros. Esta função combina essas cordas numa corda.
-Pode passar em cordas literais, por exemplo, "Sophia" e "Owen" para que consiga uma corda combinada, "SophiaOwen":
+Por exemplo, `concat()` a função pode tomar dois ou mais valores de cadeia como parâmetros. Esta função combina essas cordas numa corda. Pode passar em cordas literais, por exemplo, "Sophia" e "Owen" para que consiga uma corda combinada, "SophiaOwen":
 
 ```json
 "customerName": "@concat('Sophia', 'Owen')"
@@ -66,7 +62,13 @@ Ou pode obter valores de cordas a partir de parâmetros. Este exemplo `parameter
 
 De qualquer forma, ambos os exemplos atribuem o resultado à `customerName` propriedade.
 
-Aqui estão as funções disponíveis ordenadas pelo seu propósito geral, ou pode navegar nas funções com base na [ordem alfabética](#alphabetical-list).
+Aqui estão algumas outras notas sobre funções em expressões:
+
+* Os parâmetros de função são avaliados da esquerda para a direita.
+
+* Na sintaxe para definições de parâmetros, um ponto de interrogação (?) que aparece após um parâmetro significa que o parâmetro é opcional. Por exemplo, consulte [getFutureTime()](#getFutureTime).
+
+As seguintes secções organizam funções com base no seu propósito geral, ou pode navegar nestas funções por [ordem alfabética](#alphabetical-list).
 
 <a name="ordered-by-purpose"></a>
 <a name="string-functions"></a>
@@ -347,7 +349,7 @@ action().outputs.body.<property>
 
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*propriedade*> | No | String | O nome para o imóvel do objeto de ação cujo valor deseja: **nome,** **início,** **tempo final,** **inputs,** **saídas,** **estado,** **código,** **trackingId**e **clienteTrackingId**. No portal Azure, pode encontrar estas propriedades revendo detalhes específicos do histórico de execução. Para mais informações, consulte [REST API - Workflow Run Actions](https://docs.microsoft.com/rest/api/logic/workflowrunactions/get). |
+| <*propriedade*> | Não | String | O nome para o imóvel do objeto de ação cujo valor deseja: **nome,** **início,** **tempo final,** **inputs,** **saídas,** **estado,** **código,** **trackingId**e **clienteTrackingId**. No portal Azure, pode encontrar estas propriedades revendo detalhes específicos do histórico de execução. Para mais informações, consulte [REST API - Workflow Run Actions](https://docs.microsoft.com/rest/api/logic/workflowrunactions/get). |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -485,7 +487,7 @@ actions('<actionName>').outputs.body.<property>
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*nome de ação*> | Sim | String | O nome do objeto de ação cuja saída quer  |
-| <*propriedade*> | No | String | O nome para o imóvel do objeto de ação cujo valor deseja: **nome,** **início,** **tempo final,** **inputs,** **saídas,** **estado,** **código,** **trackingId**e **clienteTrackingId**. No portal Azure, pode encontrar estas propriedades revendo detalhes específicos do histórico de execução. Para mais informações, consulte [REST API - Workflow Run Actions](https://docs.microsoft.com/rest/api/logic/workflowrunactions/get). |
+| <*propriedade*> | Não | String | O nome para o imóvel do objeto de ação cujo valor deseja: **nome,** **início,** **tempo final,** **inputs,** **saídas,** **estado,** **código,** **trackingId**e **clienteTrackingId**. No portal Azure, pode encontrar estas propriedades revendo detalhes específicos do histórico de execução. Para mais informações, consulte [REST API - Workflow Run Actions](https://docs.microsoft.com/rest/api/logic/workflowrunactions/get). |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -547,7 +549,7 @@ addDays('<timestamp>', <days>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*carimbo de tempo*> | Sim | String | A corda que contém o carimbo de tempo |
 | <*dias*> | Sim | Número inteiro | O número positivo ou negativo de dias a adicionar |
-| <*formato*> | No | String | Ou um [único especificador](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) de formato ou um padrão de [formato personalizado.](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) O formato predefinido para a marca de tempo é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), que cumpre com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações do fuso horário. |
+| <*formato*> | Não | String | Ou um [único especificador](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) de formato ou um padrão de [formato personalizado.](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) O formato predefinido para a marca de tempo é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), que cumpre com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações do fuso horário. |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -589,7 +591,7 @@ addHours('<timestamp>', <hours>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*carimbo de tempo*> | Sim | String | A corda que contém o carimbo de tempo |
 | <*horas*> | Sim | Número inteiro | O número positivo ou negativo de horas a adicionar |
-| <*formato*> | No | String | Ou um [único especificador](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) de formato ou um padrão de [formato personalizado.](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) O formato predefinido para a marca de tempo é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), que cumpre com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações do fuso horário. |
+| <*formato*> | Não | String | Ou um [único especificador](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) de formato ou um padrão de [formato personalizado.](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) O formato predefinido para a marca de tempo é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), que cumpre com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações do fuso horário. |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -631,7 +633,7 @@ addMinutes('<timestamp>', <minutes>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*carimbo de tempo*> | Sim | String | A corda que contém o carimbo de tempo |
 | <*minutos*> | Sim | Número inteiro | O número positivo ou negativo de minutos a adicionar |
-| <*formato*> | No | String | Ou um [único especificador](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) de formato ou um padrão de [formato personalizado.](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) O formato predefinido para a marca de tempo é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), que cumpre com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações do fuso horário. |
+| <*formato*> | Não | String | Ou um [único especificador](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) de formato ou um padrão de [formato personalizado.](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) O formato predefinido para a marca de tempo é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), que cumpre com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações do fuso horário. |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -772,7 +774,7 @@ addSeconds('<timestamp>', <seconds>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*carimbo de tempo*> | Sim | String | A corda que contém o carimbo de tempo |
 | <*segundos*> | Sim | Número inteiro | O número positivo ou negativo de segundos a adicionar |
-| <*formato*> | No | String | Ou um [único especificador](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) de formato ou um padrão de [formato personalizado.](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) O formato predefinido para a marca de tempo é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), que cumpre com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações do fuso horário. |
+| <*formato*> | Não | String | Ou um [único especificador](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) de formato ou um padrão de [formato personalizado.](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) O formato predefinido para a marca de tempo é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), que cumpre com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações do fuso horário. |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -816,7 +818,7 @@ addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | <*carimbo de tempo*> | Sim | String | A corda que contém o carimbo de tempo |
 | <*intervalo*> | Sim | Número inteiro | O número de unidades de tempo especificadas para adicionar |
 | <*timeUnit*> | Sim | String | A unidade de tempo para usar com *intervalo*: "Segundo", "Minuto", "Hora", "Dia", "Semana", "Mês", "Ano" |
-| <*formato*> | No | String | Ou um [único especificador](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) de formato ou um padrão de [formato personalizado.](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) O formato predefinido para a marca de tempo é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), que cumpre com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações do fuso horário. |
+| <*formato*> | Não | String | Ou um [único especificador](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) de formato ou um padrão de [formato personalizado.](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) O formato predefinido para a marca de tempo é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), que cumpre com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações do fuso horário. |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -1269,7 +1271,7 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*carimbo de tempo*> | Sim | String | A corda que contém o carimbo de tempo |
 | <*destinoTimeZone*> | Sim | String | O nome do fuso horário alvo. Para obter nomes de fusos horários, consulte os valores do Índice do [Fuso Horário](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)do Microsoft, mas poderá ter de remover qualquer pontuação do nome do fuso horário. |
-| <*formato*> | No | String | Ou um [único especificador](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) de formato ou um padrão de [formato personalizado.](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) O formato predefinido para a marca de tempo é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), que cumpre com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações do fuso horário. |
+| <*formato*> | Não | String | Ou um [único especificador](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) de formato ou um padrão de [formato personalizado.](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) O formato predefinido para a marca de tempo é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), que cumpre com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações do fuso horário. |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -1312,7 +1314,7 @@ convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<fo
 | <*carimbo de tempo*> | Sim | String | A corda que contém o carimbo de tempo |
 | <*fonteTimeZone*> | Sim | String | O nome do fuso horário de origem. Para obter nomes de fusos horários, consulte os valores do Índice do [Fuso Horário](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)do Microsoft, mas poderá ter de remover qualquer pontuação do nome do fuso horário. |
 | <*destinoTimeZone*> | Sim | String | O nome do fuso horário alvo. Para obter nomes de fusos horários, consulte os valores do Índice do [Fuso Horário](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)do Microsoft, mas poderá ter de remover qualquer pontuação do nome do fuso horário. |
-| <*formato*> | No | String | Ou um [único especificador](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) de formato ou um padrão de [formato personalizado.](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) O formato predefinido para a marca de tempo é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), que cumpre com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações do fuso horário. |
+| <*formato*> | Não | String | Ou um [único especificador](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) de formato ou um padrão de [formato personalizado.](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) O formato predefinido para a marca de tempo é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), que cumpre com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações do fuso horário. |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -1354,7 +1356,7 @@ convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*carimbo de tempo*> | Sim | String | A corda que contém o carimbo de tempo |
 | <*fonteTimeZone*> | Sim | String | O nome do fuso horário de origem. Para obter nomes de fusos horários, consulte os valores do Índice do [Fuso Horário](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)do Microsoft, mas poderá ter de remover qualquer pontuação do nome do fuso horário. |
-| <*formato*> | No | String | Ou um [único especificador](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) de formato ou um padrão de [formato personalizado.](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) O formato predefinido para a marca de tempo é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), que cumpre com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações do fuso horário. |
+| <*formato*> | Não | String | Ou um [único especificador](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) de formato ou um padrão de [formato personalizado.](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) O formato predefinido para a marca de tempo é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), que cumpre com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações do fuso horário. |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -1933,7 +1935,7 @@ formatDateTime('<timestamp>', '<format>'?)
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*carimbo de tempo*> | Sim | String | A corda que contém o carimbo de tempo |
-| <*formato*> | No | String | Ou um [único especificador](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) de formato ou um padrão de [formato personalizado.](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) O formato predefinido para a marca de tempo é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), que cumpre com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações do fuso horário. |
+| <*formato*> | Não | String | Ou um [único especificador](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) de formato ou um padrão de [formato personalizado.](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) O formato predefinido para a marca de tempo é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), que cumpre com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações do fuso horário. |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -2028,7 +2030,7 @@ formatNumber(<number>, <format>, <locale>?)
 | --------- | -------- | ---- | ----------- |
 | <*número*> | Sim | Inteiro ou Duplo | O valor que quer formatar. |
 | <*formato*> | Sim | String | Uma cadeia de formato composto que especifica o formato que pretende utilizar. Para as cordas de formato numérico suportadas, consulte as `number.ToString(<format>, <locale>)`cordas de [formato numérico Standard,](https://docs.microsoft.com/dotnet/standard/base-types/standard-numeric-format-strings)que são suportadas por . |
-| <*local*> | No | String | O local a usar como `number.ToString(<format>, <locale>)`apoiado por . Se não especificado, o `en-us`valor predefinido é . |
+| <*local*> | Não | String | O local a usar como `number.ToString(<format>, <locale>)`apoiado por . Se não especificado, o `en-us`valor predefinido é . |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -2082,7 +2084,7 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 | --------- | -------- | ---- | ----------- |
 | <*intervalo*> | Sim | Número inteiro | O número de unidades de tempo especificadas para adicionar |
 | <*timeUnit*> | Sim | String | A unidade de tempo para usar com *intervalo*: "Segundo", "Minuto", "Hora", "Dia", "Semana", "Mês", "Ano" |
-| <*formato*> | No | String | Ou um [único especificador](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) de formato ou um padrão de [formato personalizado.](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) O formato predefinido para a marca de tempo é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), que cumpre com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações do fuso horário. |
+| <*formato*> | Não | String | Ou um [único especificador](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) de formato ou um padrão de [formato personalizado.](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) O formato predefinido para a marca de tempo é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), que cumpre com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações do fuso horário. |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -2126,7 +2128,7 @@ getPastTime(<interval>, <timeUnit>, <format>?)
 | --------- | -------- | ---- | ----------- |
 | <*intervalo*> | Sim | Número inteiro | O número de unidades de tempo especificadas para subtrair |
 | <*timeUnit*> | Sim | String | A unidade de tempo para usar com *intervalo*: "Segundo", "Minuto", "Hora", "Dia", "Semana", "Mês", "Ano" |
-| <*formato*> | No | String | Ou um [único especificador](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) de formato ou um padrão de [formato personalizado.](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) O formato predefinido para a marca de tempo é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), que cumpre com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações do fuso horário. |
+| <*formato*> | Não | String | Ou um [único especificador](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) de formato ou um padrão de [formato personalizado.](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) O formato predefinido para a marca de tempo é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), que cumpre com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações do fuso horário. |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -2248,7 +2250,7 @@ guid('<format>')
 
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*formato*> | No | String | Um [único especificador](https://msdn.microsoft.com/library/97af8hh4) de formato para o GUID devolvido. Por padrão, o formato é "D", mas pode utilizar "N", "D", "B", "P" ou "X". |
+| <*formato*> | Não | String | Um [único especificador](https://msdn.microsoft.com/library/97af8hh4) de formato para o GUID devolvido. Por padrão, o formato é "D", mas pode utilizar "N", "D", "B", "P" ou "X". |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -2270,8 +2272,7 @@ E devolve este resultado:`"(c2ecc88d-88c8-4096-912c-d6f2e2b138ce)"`
 
 ### <a name="if"></a>if
 
-Verifique se uma expressão é verdadeira ou falsa.
-Com base no resultado, devolva um valor especificado.
+Verifique se uma expressão é verdadeira ou falsa. Com base no resultado, devolva um valor especificado. Os parâmetros são avaliados da esquerda para a direita.
 
 ```
 if(<expression>, <valueIfTrue>, <valueIfFalse>)
@@ -3674,7 +3675,7 @@ startOfDay('<timestamp>', '<format>'?)
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*carimbo de tempo*> | Sim | String | A corda que contém o carimbo de tempo |
-| <*formato*> | No | String | Ou um [único especificador](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) de formato ou um padrão de [formato personalizado.](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) O formato predefinido para a marca de tempo é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), que cumpre com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações do fuso horário. |
+| <*formato*> | Não | String | Ou um [único especificador](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) de formato ou um padrão de [formato personalizado.](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) O formato predefinido para a marca de tempo é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), que cumpre com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações do fuso horário. |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -3705,7 +3706,7 @@ startOfHour('<timestamp>', '<format>'?)
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*carimbo de tempo*> | Sim | String | A corda que contém o carimbo de tempo |
-| <*formato*> | No | String | Ou um [único especificador](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) de formato ou um padrão de [formato personalizado.](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) O formato predefinido para a marca de tempo é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), que cumpre com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações do fuso horário. |
+| <*formato*> | Não | String | Ou um [único especificador](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) de formato ou um padrão de [formato personalizado.](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) O formato predefinido para a marca de tempo é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), que cumpre com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações do fuso horário. |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -3736,7 +3737,7 @@ startOfMonth('<timestamp>', '<format>'?)
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*carimbo de tempo*> | Sim | String | A corda que contém o carimbo de tempo |
-| <*formato*> | No | String | Ou um [único especificador](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) de formato ou um padrão de [formato personalizado.](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) O formato predefinido para a marca de tempo é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), que cumpre com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações do fuso horário. |
+| <*formato*> | Não | String | Ou um [único especificador](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) de formato ou um padrão de [formato personalizado.](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) O formato predefinido para a marca de tempo é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), que cumpre com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações do fuso horário. |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -3917,7 +3918,7 @@ subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | <*carimbo de tempo*> | Sim | String | A corda que contém o carimbo de tempo |
 | <*intervalo*> | Sim | Número inteiro | O número de unidades de tempo especificadas para subtrair |
 | <*timeUnit*> | Sim | String | A unidade de tempo para usar com *intervalo*: "Segundo", "Minuto", "Hora", "Dia", "Semana", "Mês", "Ano" |
-| <*formato*> | No | String | Ou um [único especificador](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) de formato ou um padrão de [formato personalizado.](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) O formato predefinido para a marca de tempo é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), que cumpre com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações do fuso horário. |
+| <*formato*> | Não | String | Ou um [único especificador](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) de formato ou um padrão de [formato personalizado.](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) O formato predefinido para a marca de tempo é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), que cumpre com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações do fuso horário. |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -4553,7 +4554,7 @@ Opcionalmente, pode especificar um formato diferente com o *formato* <> parâmet
 
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*formato*> | No | String | Ou um [único especificador](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) de formato ou um padrão de [formato personalizado.](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) O formato predefinido para a marca de tempo é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), que cumpre com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações do fuso horário. |
+| <*formato*> | Não | String | Ou um [único especificador](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) de formato ou um padrão de [formato personalizado.](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) O formato predefinido para a marca de tempo é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), que cumpre com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações do fuso horário. |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -4626,7 +4627,7 @@ workflow().<property>
 
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*propriedade*> | No | String | O nome da propriedade workflow cujo valor você quer <p>Um objeto de fluxo de trabalho tem estas propriedades: **nome,** **tipo,** **id,** **localização,** e **execução.** O valor da propriedade **executada** é também um objeto que tem estas propriedades: **nome,** **tipo,** e **id**. |
+| <*propriedade*> | Não | String | O nome da propriedade workflow cujo valor você quer <p>Um objeto de fluxo de trabalho tem estas propriedades: **nome,** **tipo,** **id,** **localização,** e **execução.** O valor da propriedade **executada** é também um objeto que tem estas propriedades: **nome,** **tipo,** e **id**. |
 |||||
 
 *Exemplo*

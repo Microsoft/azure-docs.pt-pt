@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: a5820856f7d4c51e41162f01a9687304cb223088
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: fa815d9fb653ee61d647023f7867549aa8d655aa
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791923"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005789"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Mapeamentos e transformações de campo usando indexadores de pesquisa cognitiva Azure
 
@@ -36,7 +36,7 @@ Um mapeamento de campo é composto por três partes:
 
 1. A `sourceFieldName`, que representa um campo na sua fonte de dados. Esta propriedade é necessária.
 2. Um `targetFieldName`opcional, que representa um campo no seu índice de pesquisa. Se omitida, é utilizado o mesmo nome que na fonte de dados.
-3. Um `mappingFunction`opcional, que pode transformar os seus dados usando uma de várias funções predefinidas. A lista completa de funções está [abaixo](#mappingFunctions).
+3. Um `mappingFunction`opcional, que pode transformar os seus dados usando uma de várias funções predefinidas. Isto pode ser aplicado tanto em mapeamentos de campo de entrada como de saída. A lista completa de funções está [abaixo](#mappingFunctions).
 
 Os mapeamentos de `fieldMappings` campo são adicionados à matriz da definição do indexador.
 

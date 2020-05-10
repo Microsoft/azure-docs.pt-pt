@@ -3,15 +3,15 @@ title: Criar APIs web & APIs REST para aplicações lógicas azure
 description: Crie APIs web & APIs REST para ligar para as suas APIs, serviços ou sistemas para integrações de sistemas em Aplicações Lógicas Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, jehollan, logicappspm
-ms.topic: article
+ms.reviewer: jonfan, logicappspm
+ms.topic: conceptual
 ms.date: 05/26/2017
-ms.openlocfilehash: bb6c99ea12e5b53631d42a04b36b7bfef2337e42
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d892dc75d4e745912ceaf444b56494a2e0ed2a19
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79270540"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005256"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Crie APIs personalizados que pode ligar de Aplicações Lógicas Azure
 
@@ -136,11 +136,13 @@ Para este padrão, coloque dois pontos `subscribe` finais no seu controlador: e`
 
 ![Padrão de ação webhook](./media/logic-apps-create-api-app/custom-api-webhook-action-pattern.png)
 
-> [!NOTE]
-> Atualmente, o Logic App Designer não suporta descobrir pontos finais webhook através da Swagger. Assim, para este padrão, você tem que adicionar uma ação [ **Webhook** ](../connectors/connectors-native-webhook.md) e especificar o URL, cabeçalhos e corpo para o seu pedido. Consulte também [ações e gatilhos de Fluxo de Trabalho.](logic-apps-workflow-actions-triggers.md#apiconnection-webhook-action) Para passar o URL de backback, pode utilizar a `@listCallbackUrl()` função de fluxo de trabalho em qualquer um dos campos anteriores, se necessário.
+Atualmente, o Logic App Designer não suporta descobrir pontos finais webhook através da Swagger. Assim, para este padrão, você tem que adicionar uma ação [ **Webhook** ](../connectors/connectors-native-webhook.md) e especificar o URL, cabeçalhos e corpo para o seu pedido. Consulte também [ações e gatilhos de Fluxo de Trabalho.](logic-apps-workflow-actions-triggers.md#apiconnection-webhook-action) Para um padrão de webhook, reveja esta amostra de [gatilho webhook no GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
 
-> [!TIP]
-> Para um padrão de webhook, reveja esta amostra de [gatilho webhook no GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
+Aqui estão outras dicas e notas:
+
+* Para passar o URL de backback, pode utilizar a `@listCallbackUrl()` função de fluxo de trabalho em qualquer um dos campos anteriores, se necessário.
+
+* Se possuir tanto a aplicação lógica como o serviço subscrito, não precisa de ligar para o `unsubscribe` ponto final depois de o URL de callback ser chamado. Caso contrário, o tempo de execução das Aplicações Lógicas precisa de ligar para o `unsubscribe` ponto final para sinalizar que não são esperadas mais chamadas e permitir a limpeza de recursos no lado do servidor.
 
 <a name="triggers"></a>
 
@@ -198,13 +200,15 @@ Os gatilhos do Webhook agem muito como as ações de [webhook](#webhook-actions)
 
 ![Padrão de gatilho webhook](./media/logic-apps-create-api-app/custom-api-webhook-trigger-pattern.png)
 
-> [!NOTE]
-> Atualmente, o Logic App Designer não suporta descobrir pontos finais webhook através da Swagger. Assim, para este padrão, você tem que adicionar um gatilho [ **Webhook** ](../connectors/connectors-native-webhook.md) e especificar o URL, cabeçalhos e corpo para o seu pedido. Consulte também o [gatilho HTTPWebhook](logic-apps-workflow-actions-triggers.md#httpwebhook-trigger). Para passar o URL de backback, pode utilizar a `@listCallbackUrl()` função de fluxo de trabalho em qualquer um dos campos anteriores, se necessário.
->
-> Para evitar o processamento dos mesmos dados várias vezes, o gatilho deve limpar dados que já foram lidos e passados para a aplicação lógica.
+Atualmente, o Logic App Designer não suporta descobrir pontos finais webhook através da Swagger. Assim, para este padrão, você tem que adicionar um gatilho [ **Webhook** ](../connectors/connectors-native-webhook.md) e especificar o URL, cabeçalhos e corpo para o seu pedido. Consulte também o [gatilho HTTPWebhook](logic-apps-workflow-actions-triggers.md#httpwebhook-trigger). Para um padrão de webhook, reveja esta amostra do controlador de [gatilho webhook no GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
 
-> [!TIP]
-> Para um padrão de webhook, reveja esta amostra do controlador de [gatilho webhook no GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
+Aqui estão outras dicas e notas:
+
+* Para passar o URL de backback, pode utilizar a `@listCallbackUrl()` função de fluxo de trabalho em qualquer um dos campos anteriores, se necessário.
+
+* Para evitar o processamento dos mesmos dados várias vezes, o gatilho deve limpar dados que já foram lidos e passados para a aplicação lógica.
+
+* Se possuir tanto a aplicação lógica como o serviço subscrito, não precisa de ligar para o `unsubscribe` ponto final depois de o URL de callback ser chamado. Caso contrário, o tempo de execução das Aplicações Lógicas precisa de ligar para o `unsubscribe` ponto final para sinalizar que não são esperadas mais chamadas e permitir a limpeza de recursos no lado do servidor.
 
 ## <a name="improve-security-for-calls-to-your-apis-from-logic-apps"></a>Melhorar a segurança das chamadas para as suas APIs de aplicações lógicas
 

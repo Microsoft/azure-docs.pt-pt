@@ -12,12 +12,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 4587909ad6fca6cdf21d54d11d89f797bbb29833
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 380b61df8a774e69454577d201cebf1c495b4f74
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80335841"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83004750"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurar um nome de domínio personalizado
 
@@ -71,12 +71,12 @@ Para realizar os passos descritos neste artigo, deve ter:
     > Os nomes de domínio `*.contoso.com` wildcard, por exemplo, são suportados em todos os níveis, exceto no nível de consumo.
 
     > [!TIP]
-    > Recomendamos a utilização do Cofre de Chaves Azure para gerir certificados e defini-los para autorotate.
+    > Recomendamos a utilização do [Cofre de Chaves Azure para gerir certificados](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates) e defini-los para renovar automaticamente.
     > Se utilizar o Cofre de Chaves Azure para gerir o certificado de domínio personalizado TLS/SSL, certifique-se de que o certificado está inserido no Cofre chave [como _certificado_](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate), e não como _segredo_.
     >
     > Para obter um certificado TLS/SSL, a API Management deve ter a lista e obter permissões de segredos no Cofre de Chaves Azure contendo o certificado. Ao utilizar o portal Azure, todos os passos de configuração necessários serão concluídos automaticamente. Ao utilizar ferramentas de linha de comando ou API de gestão, estas permissões devem ser concedidas manualmente. Isto é feito em dois passos. Em primeiro lugar, utilize a página de identidades geridas na sua instância de Gestão API para se certificar de que a Identidade Gerida está ativada e tomar nota do id principal mostrado nessa página. Segundo, dê uma lista de permissões e obtenha permissões de segredos para esta identificação principal no Cofre chave Azure contendo o certificado.
     >
-    > Se o certificado estiver definido para autorotate, a API Management irá recolher automaticamente a versão mais recente sem qualquer tempo de inatividade no serviço (se o seu nível de Gestão API tiver SLA - ou seja, em todos os níveis, exceto o nível de Desenvolvimento).
+    > Se o certificado estiver definido para renovar automaticamente, a API Management irá recolher automaticamente a versão mais recente sem qualquer tempo de inatividade no serviço (se o seu nível de Gestão API tiver SLA - ou seja, em todos os níveis, exceto o nível de Desenvolvimento).
 
 1. Clique em Aplicar.
 

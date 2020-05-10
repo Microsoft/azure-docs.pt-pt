@@ -7,19 +7,19 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: errobin
-ms.openlocfilehash: 3648bb102d539156067cdc259c1cf9b6e73d6a49
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
+ms.openlocfilehash: 3be8ce241817b3b2fa03976eebe3147c1dc9c877
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82884491"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005143"
 ---
 # <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 ## <a name="what-types-of-load-balancer-exist"></a>Que tipos de Balancer de Carga existem?
-Os equilibradores de carga internos que equilibram o tráfego dentro de um VNET e equilibram os equilibradores de carga externos que equilibram o tráfego de e para um ponto final ligado à Internet. Para mais informações, consulte [Tiposhttps://docs.microsoft.com/azure/load-balancer/concepts-limitations#load-balancer-types)de Equilíbrio de Carga] . 
+Os equilibradores de carga internos que equilibram o tráfego dentro de um VNET e equilibram os equilibradores de carga externos que equilibram o tráfego de e para um ponto final ligado à Internet. Para mais informações, consulte Os Tipos de [Equilíbrio de Carga](components.md#frontend-ip-configurations). 
 
-Para ambos os tipos, o Azure oferece um SKU básico e um SKU padrão que têm diferentes capacidades funcionais, de desempenho, segurança e de rastreio de saúde. Estas diferenças são explicadas no nossohttps://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus) [SKU Compare] ( artigo.
+Para ambos os tipos, o Azure oferece um SKU básico e um SKU padrão que têm diferentes capacidades funcionais, de desempenho, segurança e de rastreio de saúde. Estas diferenças são explicadas no nosso artigo de [Comparação SKU.](skus.md)
 
  ## <a name="how-can-i-upgrade-from-a-basic-to-a-standard-load-balancer"></a>Como posso atualizar de um Basic para um Balancer de Carga Padrão?
 Consulte a [atualização do](upgrade-basic-standard.md) artigo Basic to Standard para obter um script automatizado e orientação sobre a atualização de um SKU de Equilíbrio de Carga.

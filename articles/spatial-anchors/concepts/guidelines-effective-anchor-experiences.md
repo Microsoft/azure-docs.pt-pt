@@ -8,20 +8,24 @@ ms.author: mattwoj
 ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 9a24da8d76f401f534eccf33312fbf0c2bee9f5d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1877934cb604d140d7700c2e537d6dc187b63cc4
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74270527"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005528"
 ---
 # <a name="create-an-effective-anchor-experience-by-using-azure-spatial-anchors"></a>Criar uma experiência de âncora eficaz usando âncoras espaciais Azure
 
-Este artigo fornece diretrizes e considerações para ajudá-lo a criar e localizar âncoras eficazmente usando âncoras espaciais.
+Este artigo fornece diretrizes e considerações para ajudá-lo a criar e localizar âncoras eficazmente usando âncoras espaciais Azure.
+
+## <a name="anchor-improvement-over-time"></a>Melhoria da âncora ao longo do tempo
+
+Com âncoras espaciais Azure, cada vez que localiza âncoras, tentamos melhorar a qualidade das futuras operações de localização. Fazemos isso utilizando os dados ambientais recolhidos para aumentar a informação visual sobre as âncoras que procuramos. Este processo passa por baixo do capot e é uma otimização offline gerida pelo serviço Azure Spatial Anchors para otimizar para o seu ambiente. Os dados adicionais recolhidos durante cada operação constroem uma compreensão mais forte do ambiente. Isto melhora a qualidade e permite localizar melhor as âncoras através da mudança de ambiente, da passagem do tempo e dos utilizadores que olham para âncoras de diferentes ângulos e perspetivas.
 
 ## <a name="good-anchors"></a>Boas âncoras
 
-As Âncoras Espaciais ajudam-no a criar boas âncoras. É importante investir tempo na educação ou orientação dos utilizadores na sua experiência de utilizador (UX) para criar boas âncoras. Ao investir na criação de boas âncoras à frente, ajuda os utilizadores finais a encontrar âncoras de forma fiável:
+Embora a Azure Spatial Anchors tente melhorar a qualidade das âncoras ao longo do tempo, também é importante investir tempo na educação ou orientação dos utilizadores na sua experiência de utilizador (UX) para criar boas âncoras. Ao investir na criação de boas âncoras à frente, ajuda os utilizadores finais a encontrar âncoras de forma fiável:
 
 - Através de diferentes dispositivos.
 - Em vários momentos.
@@ -100,7 +104,7 @@ Os sistemas de rastreio visual dependem das características visuais num ambient
 
 Siga as diretrizes gerais nesta secção para construir um UX que incentive uma digitalização útil do ambiente.
 
-Primeiro, se o utilizador não localizar uma âncora dentro de alguns segundos, a aplicação deve incentivar os utilizadores a mover em movimento o dispositivo para capturar mais perspetivas. A aplicação também pode incentivar os utilizadores a moverem-se pelo ambiente para procurarem a âncora de mais perspetivas. Quanto mais perspetivas de recurso o dispositivo vê, melhor.
+Primeiro, se o utilizador não localizar uma âncora dentro de alguns segundos, a aplicação deve incentivar os utilizadores a mover em movimento o dispositivo para capturar mais perspetivas. A aplicação também pode incentivar os utilizadores a moverem-se pelo ambiente para procurarem a âncora de mais perspetivas. Quanto mais perspetivas de recurso o dispositivo vir, melhor, pois aumentará a probabilidade de uma âncora estar localizada, e também recolherá mais dados ambientais que serão utilizados para melhorar a qualidade da âncora.
 
 Para cenários-alvo, peça ao utilizador que se mova em torno do alvo para vê-lo de diferentes perspetivas. Por outras palavras, peça ao utilizador que capture o alvo de novas perspetivas até que a âncora esteja localizada.
 

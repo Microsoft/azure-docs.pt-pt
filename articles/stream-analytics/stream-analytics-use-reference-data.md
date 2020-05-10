@@ -7,16 +7,27 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/8/2019
-ms.openlocfilehash: b3808524706b13761dd8eccffa301c602d08f481
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b98e89d98295a7cefbc4c0c0906f5c4e10c11280
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267290"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83006156"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Utilização de dados de referência para procuras no Stream Analytics
 
 Os dados de referência (também conhecidos como mesa de lookup) são um conjunto de dados finito que está estático ou muda lentamente na natureza, usado para realizar uma procura ou para aumentar os seus fluxos de dados. Por exemplo, num cenário ioT, você poderia armazenar metadados sobre sensores (que não mudam frequentemente) em dados de referência e juntá-lo com fluxos de dados IoT em tempo real. O Azure Stream Analytics carrega dados de referência na memória para obter um processamento de fluxo de latência baixa. Para utilizar os dados de referência no seu trabalho de Análise de Fluxo de Fluxo, geralmente utilizará um Encontro de Dados de [Referência](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) na sua consulta. 
+
+## <a name="example"></a>Exemplo  
+ Se um veículo comercial estiver registado na Companhia de Portagem, pode passar pela portagem sem ser parado para inspeção. Utilizaremos uma mesa de procura de matrícula de veículos comerciais para identificar todos os veículos comerciais com matrícula caducada.  
+  
+```SQL  
+SELECT I1.EntryTime, I1.LicensePlate, I1.TollId, R.RegistrationId  
+FROM Input1 I1 TIMESTAMP BY EntryTime  
+JOIN Registration R  
+ON I1.LicensePlate = R.LicensePlate  
+WHERE R.Expired = '1'
+```  
 
 Stream Analytics suporta o armazenamento azure Blob e a Base de Dados Azure SQL como camada de armazenamento para dados de referência. Também pode transformar e/ou copiar dados de referência para o armazenamento blob da Azure Data Factory para utilizar [qualquer número de lojas de dados baseadas em nuvem e no local.](../data-factory/copy-activity-overview.md)
 
@@ -34,7 +45,7 @@ Para configurar os seus dados de referência, primeiro é necessário criar uma 
 |Conta de Armazenamento   | O nome da conta de armazenamento onde estão as suas bolhas. Se estiver na mesma subscrição que o seu Stream Analytics Job, pode selecioná-lo a partir da queda.   |
 |Chave da conta de armazenamento   | A chave secreta associada à conta de armazenamento. Isto é automaticamente povoado se a conta de armazenamento estiver na mesma subscrição que o seu trabalho stream analytics.   |
 |Recipiente de armazenamento   | Os contentores fornecem um agrupamento lógico para bolhas armazenadas no serviço Microsoft Azure Blob. Quando enviar uma bolha para o serviço Blob, deve especificar um recipiente para essa bolha.   |
-|Padrão do Caminho   | O caminho utilizado para localizar as suas bolhas dentro do recipiente especificado. Dentro do caminho, pode optar por especificar uma ou mais instâncias das seguintes 2 variáveis:<BR>{date}, {time}<BR>Exemplo 1: produtos/{date}/{time}/product-list.csv<BR>Exemplo 2: produtos/{date}/product-list.csv<BR>Exemplo 3: lista de produtos.csv<BR><br> Se a bolha não existir no caminho especificado, o trabalho de Stream Analytics aguarda indefinidamente que a bolha fique disponível.   |
+|Padrão do Caminho   | Esta é uma propriedade necessária que é usada para localizar as suas bolhas dentro do recipiente especificado. Dentro do caminho, pode optar por especificar uma ou mais instâncias das seguintes 2 variáveis:<BR>{date}, {time}<BR>Exemplo 1: produtos/{date}/{time}/product-list.csv<BR>Exemplo 2: produtos/{date}/product-list.csv<BR>Exemplo 3: lista de produtos.csv<BR><br> Se a bolha não existir no caminho especificado, o trabalho de Stream Analytics aguarda indefinidamente que a bolha fique disponível.   |
 |Formato de data [opcional]   | Se tiver usado {date} dentro do Padrão de Percurso que especificou, então pode selecionar o formato de data no qual as suas bolhas são organizadas a partir da queda dos formatos suportados.<BR>Exemplo: YYYY/MM/DD, MM/DD/YYYY, etc.   |
 |Formato de Tempo [opcional]   | Se tiver usado {time} dentro do Padrão do Caminho que especificou, então pode selecionar o formato de tempo em que as suas bolhas são organizadas a partir da queda dos formatos suportados.<BR>Exemplo: HH, HH/mm ou HH-mm.  |
 |Formato de Serialização de Eventos   | Para garantir que as suas consultas funcionam da forma que espera, o Stream Analytics precisa de saber qual o formato de serialização que está a usar para os fluxos de dados que chegam. Para dados de referência, os formatos suportados são CSV e JSON.  |
@@ -110,7 +121,24 @@ O Stream Analytics suporta dados de referência com o **tamanho máximo de 300 M
 
 O aumento do número de Unidades de Streaming de um trabalho para além de 6 não aumenta a dimensão máxima suportada dos dados de referência.
 
-O suporte à compressão não está disponível para dados de referência. 
+O suporte à compressão não está disponível para dados de referência.
+
+## <a name="joining-multiple-reference-datasets-in-a-job"></a>Juntando vários conjuntos de dados de referência num trabalho
+Pode juntar apenas uma entrada de fluxo com uma entrada de dados de referência num único passo da sua consulta. No entanto, pode juntar vários conjuntos de dados de referência, desfazendo a sua consulta em vários passos. Apresentamos um exemplo abaixo.
+
+```SQL  
+With Step1 as (
+    --JOIN input stream with reference data to get 'Desc'
+    SELECT streamInput.*, refData1.Desc as Desc
+    FROM    streamInput
+    JOIN    refData1 ON refData1.key = streamInput.key 
+)
+--Now Join Step1 with second reference data
+SELECT *
+INTO    output 
+FROM    Step1
+JOIN    refData2 ON refData2.Desc = Step1.Desc 
+``` 
 
 ## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]

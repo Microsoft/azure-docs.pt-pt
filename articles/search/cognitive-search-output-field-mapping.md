@@ -8,18 +8,21 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f0537af684632a08a39e3e681900d62238365073
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fc1f1b5f7015efc604d461a5e292184398cba44f
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74280974"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005495"
 ---
 # <a name="how-to-map-ai-enriched-fields-to-a-searchable-index"></a>Como mapear campos enriquecidos de IA para um índice pesquisável
 
 Neste artigo, aprende-se a mapear campos de entrada enriquecidos para campos de saída num índice pesquisável. Depois de [definir um skillset,](cognitive-search-defining-skillset.md)deve mapear os campos de saída de qualquer habilidade que contribua diretamente com valores para um determinado campo no seu índice de pesquisa. 
 
 Os mapeamentos do campo de saída são necessários para mover conteúdo de documentos enriquecidos para o índice.  O documento enriquecido é realmente uma árvore de informação, e mesmo que exista suporte para tipos complexos no índice, por vezes pode querer transformar a informação da árvore enriquecida num tipo mais simples (por exemplo, uma variedade de cordas). Os mapeamentos de campo de saída permitem-lhe realizar transformações de forma de dados achatando informações.
+
+> [!NOTE]
+> Recentemente, possibilitamos a funcionalidade de funções de mapeamento em mapeamentos de campo de saída. Para mais detalhes sobre funções de mapeamento, consulte funções de [mapeamento](https://docs.microsoft.com/azure/search/search-indexer-field-mappings#field-mapping-functions) de campo
 
 ## <a name="use-outputfieldmappings"></a>Utilizar os outputFieldMappings
 Para mapear campos, adicione `outputFieldMappings` à sua definição de indexante como mostrado abaixo:
@@ -50,7 +53,10 @@ O corpo do pedido é estruturado da seguinte forma:
     "outputFieldMappings": [
         {
             "sourceFieldName": "/document/content/organizations/*/description",
-            "targetFieldName": "descriptions"
+            "targetFieldName": "descriptions",
+            "mappingFunction": {
+                "name": "base64Decode"
+            }
         },
         {
             "sourceFieldName": "/document/content/organizations",

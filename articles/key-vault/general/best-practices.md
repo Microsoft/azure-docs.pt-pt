@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: cf8d461485cefd37b9508031f5cce7ae0a070ef5
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.openlocfilehash: 2a81d28998c531339a1b719e37e4b90004157edf
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82653203"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005851"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Boas práticas para usar o Cofre chave
 
@@ -35,7 +35,7 @@ A nossa recomendação é utilizar um cofre por aplicação por ambiente (Desenv
 
 ## <a name="backup"></a>Cópia de segurança
 
-Certifique-se de que leva as costas regulares do seu [cofre](https://blogs.technet.microsoft.com/kv/2018/07/20/announcing-backup-and-restore-of-keys-secrets-and-certificates/) em atualização/eliminação/criação de objetos dentro de um Cofre.
+Certifique-se de que leva as costas regulares do seu cofre em atualização/eliminação/criação de objetos dentro de um Cofre.
 
 ## <a name="turn-on-logging"></a>Ligar a exploração madeireira
 

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 88e58fbf6acc15b71fd135184cf8806a793140f3
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 7ce011a34aed39429884dc03285a0848776ac008
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983215"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83006074"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Proteja o seu espaço de trabalho Synapse (pré-visualização)
 
@@ -89,7 +89,7 @@ O espaço de trabalho Synapse precisa de acesso ao STG1 e ao CNT1 para que possa
 - Abra o portal do Azure
 - Localizar STG1
 - Navegar para CNT1
-- Certifique-se de que o MSI (Identidade de Serviço Gerido) para a WS1 é atribuído ao papel de Colaborador de **Dados da Blob Azure** na CNT1
+- Certifique-se de que o MSI (Identidade de Serviço Gerido) para a WS1 é atribuído à função de Contribuinte de **Dados blob** de armazenamento na CNT1
   - Se não o vir atribuído, atribua-o.
   - O MSI tem o mesmo nome que o espaço de trabalho. Neste caso, seria &quot;wS1&quot;.
 

@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: f2fd8f4b7d03be8822c3ec12e2be589054942ce3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 13c85dff40e266287d893d9e45b32a66a33f027e
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74270608"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83006019"
 ---
 # <a name="anchor-relationships-and-way-finding-in-azure-spatial-anchors"></a>Relações de âncora e descoberta de caminhos em Âncoras Espaciais Azure
 
@@ -73,7 +73,7 @@ Pode continuar este procedimento para mais âncoras e mais sessões ao longo do 
 
 ### <a name="verify-anchor-connections"></a>Verificar ligações de âncora
 
-A aplicação pode verificar se duas âncoras estão ligadas através da emissão de uma consulta para âncoras próximas. Quando o resultado da consulta contém a âncora-alvo, a ligação da âncora é verificada. Se as âncoras não estiverem ligadas, a aplicação pode tentar conectá-las novamente.
+A aplicação pode verificar se duas âncoras estão ligadas através da emissão `NearAnchorCriteria` de `CloudSpatialAnchorWatcher`uma consulta para âncoras próximas, o que você faz colocando o em a . Quando o resultado da consulta contém a âncora-alvo, a ligação da âncora é verificada. Se as âncoras não estiverem ligadas, a aplicação pode tentar conectá-las novamente.
 
 Aqui estão algumas razões pelas quais as âncoras podem não conseguir ligar:
 

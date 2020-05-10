@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/24/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: cde644b821b8c9233c9a79c2c5e9fe8478850a65
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 827a2d6dc8a3622c17cdbcdfb179a3ea0f434f6f
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82997669"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83006477"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>O utilizador precisa de ter hub e falou com dispositivos SD-WAN/VPN para utilizar o Azure Virtual WAN?
 
@@ -190,8 +190,8 @@ A produção total de VPN de um hub é de até 20 Gbps com base na unidade de es
 Navegue para o gateway VPN dentro de um hub no portal e clique na unidade de escala para alterá-la para a configuração apropriada.
 
 ### <a name="does-virtual-wan-allow-the-on-premises-device-to-utilize-multiple-isps-in-parallel-or-is-it-always-a-single-vpn-tunnel"></a>O Virtual WAN permite que o dispositivo no local utilize vários ISPs em paralelo, ou é sempre um único túnel VPN?
+As soluções de dispositivos no local podem aplicar políticas de tráfego para orientar o tráfego através de vários túneis para O Azure.
 
-Uma ligação que entra num WAN VPN virtual é sempre um túnel ativo (para resiliência dentro do mesmo hub/região) usando um link disponível no ramo. Esta ligação pode ser uma ligação ISP na sucursal no local. Virtual WAN 'VPNSite' fornece a capacidade de adicionar informações de link ao site. Se tiver vários ISPs na sucursal e cada um dos ISPs fornecer um link, essa informação pode ser configurada na informação do site VPN em Azure. No entanto, gerir a falha através dos ISPs na sucursal é completamente uma operação de encaminhamento centrada em ramificações.
 
 ### <a name="what-is-global-transit-architecture"></a>O que é a arquitetura global de trânsito?
 

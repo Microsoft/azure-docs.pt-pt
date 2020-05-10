@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 357687a80325554c7dbb28eae6e42d946bb012dc
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: c264006d51f8f0f9ee2a56e994a0dc52d24bd7a8
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614866"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83006043"
 ---
 # <a name="connect-with-the-web-client"></a>Ligar com o cliente web
 
@@ -40,6 +40,9 @@ Embora qualquer navegador com capacidade html5 funcione, suportamos oficialmente
 ## <a name="access-remote-resources-feed"></a>Aceder a recursos remotos feed
 
 Num browser, navegue para o [cliente web do Windows Virtual Desktop](https://rdweb.wvd.microsoft.com/webclient) e inscreva-se na sua conta de utilizador.
+
+>[!NOTE]
+>Se estiver a utilizar o lançamento do Windows Virtual Desktop Spring 2020, utilize a ligação do cliente web [neste artigo](../connect-web.md) para se conectar aos seus recursos.
 
 >[!NOTE]
 >Se já assinou com uma conta de Diretório Ativo Azure diferente daquela que pretende utilizar para o Windows Virtual Desktop, deve assinar ou utilizar uma janela de navegador privada.

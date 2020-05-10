@@ -10,17 +10,18 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d0ada9c1e6b45b1be17b15b67f67fc64fc266203
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d1d93bcd84fd9460e658b221089a4b24d46b0429
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81430880"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005822"
 ---
 # <a name="common-parameters-and-headers"></a>Parâmetros e cabeçalhos comuns
 
 As seguintes informações são comuns a todas as operações que poderá fazer relacionadas com os recursos do Key Vault:
 
+- O `Host` cabeçalho HTTP deve estar sempre presente e deve especificar o nome de anfitrião do cofre. Exemplo: `Host: contoso.vault.azure.net`. Note que a maioria `Host` das tecnologias de cliente povoam o cabeçalho do URI. Por exemplo, `GET https://contoso.vault.azure.net/secrets/mysecret{...}` definirá o `Host` como `contoso.vault.azure.net`. Isto significa que se aceder ao Key `GET https://10.0.0.23/secrets/mysecret{...}`Vault usando `Host` um endereço IP cru como, o valor `Host` automático do cabeçalho estará errado e terá de garantir manualmente que o cabeçalho contém o nome de anfitrião do cofre.
 - Substitua-a `{api-version}` pela versão api no URI.
 - Substitua `{subscription-id}` pelo seu identificador de subscrição no URI
 - Substitua-o `{resource-group-name}` pelo grupo de recursos. Para mais informações, consulte a Utilização de Grupos de Recursos para gerir os seus recursos Azure.
