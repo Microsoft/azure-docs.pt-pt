@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/22/2017
 ms.author: robinsh
-ms.openlocfilehash: a6bd8a766f3205358a65ef2fd0816643e4261cab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b1550254e969e96fbc83c4c344189d414a8fa8d3
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "68414358"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995510"
 ---
 # <a name="use-ip-filters"></a>Utilizar filtros de IP
 
@@ -66,7 +66,7 @@ Para editar uma regra existente, selecione os dados que pretende alterar, faça 
 > A rejeição de endereços IP pode impedir que outros Serviços Azure (como o Azure Stream Analytics, o Azure Virtual Machines ou o Device Explorer no portal) interajam com o hub IoT.
 
 > [!WARNING]
-> Se utilizar o Azure Stream Analytics (ASA) para ler mensagens de um hub IoT com filtragem IP ativada, utilize o nome e o ponto final compatíveis com o Event Hub na cadeia de ligação ASA.
+> Se utilizar o Azure Stream Analytics (ASA) para ler mensagens de um hub IoT com filtragem IP ativada, utilize o nome e o ponto final compatíveis com o evento do seu hub IoT para adicionar manualmente uma entrada de fluxo de Hubs de [Eventos](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-inputs#stream-data-from-event-hubs) na ASA.
 
 ## <a name="delete-an-ip-filter-rule"></a>Eliminar uma regra de filtro IP
 

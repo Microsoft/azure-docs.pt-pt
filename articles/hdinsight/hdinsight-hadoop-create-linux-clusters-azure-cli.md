@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/03/2020
-ms.openlocfilehash: b9d935e72c67b78484337e39e0897d4962340636
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5cab7f962a829ab8609325e8bb1b35498568726c
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77199046"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82994188"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Criar clusters HDInsight utilizando o Azure CLI
 
@@ -49,7 +49,7 @@ Azure CLI. Se ainda não instalou o Azure CLI, consulte [Instalar o Azure CLI](h
     |`--workernode-count`| O número de nós operários no agrupamento. Este artigo usa `clusterSizeInNodes` a variável `--workernode-count`à medida que o valor passou para . |
     |`--version`| A versão do cluster HDInsight. Este artigo usa `clusterVersion` a variável `--version`à medida que o valor passou para . Ver também: [Versões HDInsight suportadas](./hdinsight-component-versioning.md#supported-hdinsight-versions).|
     |`--type`| Tipo de cluster HDInsight, como: hadoop, interactivehive, hbase, kafka, tempestade, faísca, rserver, mlservices.  Este artigo usa `clusterType` a variável `--type`à medida que o valor passou para . Ver também: [Tipos de cluster e configuração](./hdinsight-hadoop-provision-linux-clusters.md#cluster-type).|
-    |`--component-version`|As versões de vários componentes Hadoop, em versões separadas pelo espaço em formato 'component=version'. Este artigo usa `componentVersion` a variável `--component-version`à medida que o valor passou para . Ver também: [Componentes Hadoop](./hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions).|
+    |`--component-version`|As versões de vários componentes Hadoop, em versões separadas pelo espaço em formato 'component=version'. Este artigo usa `componentVersion` a variável `--component-version`à medida que o valor passou para . Ver também: [Componentes Hadoop](./hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions).|
 
     Substitua, `CLUSTERNAME` `RESOURCEGROUPNAME` `LOCATION` `STORAGEACCOUNTNAME`, `PASSWORD` e com os valores desejados. Alterar valores para as outras variáveis como desejado. Em seguida, introduza os comandos CLI.
 
