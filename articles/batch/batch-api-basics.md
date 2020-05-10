@@ -4,12 +4,12 @@ description: Conheça as funcionalidades do serviço Batch e das respetivas APIs
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 590ce6d6804c25ea9a3c1104f8fea2ea00c66356
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: c983588bd3d135729541bf6bf51e5dc9d979ca84
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509198"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82994269"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desenvolver soluções de computação paralelas em grande escala com o Batch
 
@@ -29,7 +29,7 @@ O fluxo de trabalho detalhado que se segue é típico de quase todos os serviço
 1. Carregue os **ficheiros de dados** que quer processar para uma conta do [Armazenamento do Azure][azure_storage]. O Batch inclui suporte incorporado para aceder ao Armazenamento de Blobs do Azure e as suas tarefas podem transferir estes ficheiros para [nós de computação](#compute-node) quando são executadas.
 2. Carregue os **ficheiros de aplicação** que as aplicações vão executar. Estes ficheiros podem ser binários ou scripts e as respetivas dependências e são executados pelas tarefas dos seus trabalhos. As tarefas podem transferir estes ficheiros a partir da sua conta de Armazenamento ou pode utilizar a funcionalidade de [pacotes de aplicações](#application-packages) do Batch na gestão e implementação de aplicações.
 3. Crie uma [piscina](#pool) de nóscomputa. Quando cria um conjunto, especifica o número de nós de computação do mesmo e o tamanho e o sistema operativo desses nós. Quando cada tarefa dos seus trabalhos é executada, é atribuída a um dos nós do conjunto.
-4. Crie um [trabalho](#job). Os trabalhos gerem uma coleção de tarefas. Cada trabalho é associado a um conjunto específico no qual as tarefas desses trabalhos vão ser executadas.
+4. Criar um [emprego.](#job) Os trabalhos gerem uma coleção de tarefas. Cada trabalho é associado a um conjunto específico no qual as tarefas desses trabalhos vão ser executadas.
 5. Adicione [tarefas](#task) ao trabalho. Cada tarefa executa a aplicação ou script que carregou para processar os ficheiros de dados que transfere a partir da sua conta de Armazenamento. À medida que cada tarefa é concluída, pode carregar o respetivo resultado para o Armazenamento do Azure.
 6. Monitorize o progresso do trabalho e obtenha o resultado da tarefa no Armazenamento do Azure.
 
@@ -67,7 +67,7 @@ Pode executar várias cargas de trabalho do Batch numa única conta do Batch ou 
 
 [!INCLUDE [batch-account-mode-include](../../includes/batch-account-mode-include.md)]
 
-## <a name="azure-storage-account"></a>conta de Armazenamento do Azure
+## <a name="azure-storage-account"></a>Conta de armazenamento do Azure
 
 A maioria das soluções do Batch utilizam o Armazenamento do Azure para armazenar ficheiros de recursos e ficheiros de saída. Por exemplo, as suas tarefas do Batch (incluindo tarefas standard, tarefas de início, tarefas de preparação de trabalhos e tarefas de lançamento de trabalhos), normalmente, especificam os ficheiros de recursos que residem numa contas de armazenamento.
 
@@ -429,7 +429,7 @@ Uma fórmula de dimensionamento pode basear-se nas métricas seguintes:
 * **Métricas de recurso**: baseadas na utilização da CPU, da largura de banda, da memória e no número de nós.
 * **Métricas de tarefas**: baseadas no estado da tarefa, como *Ativa* (em fila), *Em Execução* ou *Concluída*.
 
-Quando o dimensionamento automático diminuir o número de nós de computação de um conjunto, tem de pensar como vai processar as tarefas que estão a ser executadas no momento da operação de diminuição. Para acomodar isto, o Batch fornece uma opção de [*deatribuição*](https://docs.microsoft.com/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) de nó que pode incluir nas suas fórmulas. Por exemplo, pode especificar que as tarefas em execução são paradas imediatamente e recolocadas em fila para execução noutro nó ou que podem ser concluídas antes de o nó ser removido do conjunto. Note que a definição da `taskcompletion` `retaineddata` opção de deatribuição do nó como ou impedirá as operações de redimensionamento do pool até que todas as tarefas estejam concluídas, ou todos os períodos de rentenção de tarefas tenham expirado, respectivamente.
+Quando o dimensionamento automático diminuir o número de nós de computação de um conjunto, tem de pensar como vai processar as tarefas que estão a ser executadas no momento da operação de diminuição. Para acomodar isto, o Batch fornece uma opção de [*deatribuição*](https://docs.microsoft.com/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) de nó que pode incluir nas suas fórmulas. Por exemplo, pode especificar que as tarefas em execução são paradas imediatamente e recolocadas em fila para execução noutro nó ou que podem ser concluídas antes de o nó ser removido do conjunto. Note que a definição da `taskcompletion` `retaineddata` opção de deatribuição do nó como ou impedirá as operações de redimensionamento do pool até que todas as tarefas estejam concluídas, ou todos os períodos de retenção de tarefas tenham expirado, respectivamente.
 
 Para obter mais informações sobre o dimensionamento automático de uma aplicação, consulte [Dimensionar automaticamente nós de computação num conjunto do Azure Batch](batch-automatic-scaling.md).
 
@@ -586,4 +586,4 @@ Em situações onde algumas das suas tarefas estejam a falhar, a aplicação cli
 [rest_offline]: https://msdn.microsoft.com/library/azure/mt637904.aspx
 [rest_online]: https://msdn.microsoft.com/library/azure/mt637907.aspx
 
-[vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
+[vm_marketplace]: https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images&page=1

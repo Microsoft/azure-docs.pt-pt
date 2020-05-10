@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 05/07/2020
 ms.author: juliako
-ms.openlocfilehash: 94ce5e45a9a43e81020096ddc0a67429b286d9b1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f614bd7f00587c5bdc0e7bc3e4ec737985da328b
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76705637"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996988"
 ---
 # <a name="media-services-v3-with-widevine-license-template-overview"></a>Media Services v3 com visão geral do modelo de licença Widevine
 
@@ -60,7 +60,7 @@ Um pedido de licença widevine é formatado como uma mensagem JSON.
 
 ## <a name="json-message"></a>Mensagem JSON
 
-| Nome | Valor | Descrição |
+| Name | Valor | Descrição |
 | --- | --- | --- |
 | payload |Fio codificado Base64 |O pedido de licença enviado por um cliente. |
 | content_id |Fio codificado Base64 |Identificador usado para obter a chave ID e chave de conteúdo para cada content_key_specs.track_type. |
@@ -78,7 +78,7 @@ Se existir uma política pré-existente, não é necessário especificar nenhum 
 
 Cada content_key_specs valor deve ser especificado para todas as faixas, independentemente da opção use_policy_overrides_exclusively. 
 
-| Nome | Valor | Descrição |
+| Name | Valor | Descrição |
 | --- | --- | --- |
 | content_key_specs. track_type |string |Um nome tipo de pista. Se content_key_specs especificado no pedido de licença, certifique-se de especificar explicitamente todos os tipos de faixas. Não o fazer resulta em não ter reprodução nos últimos 10 segundos. |
 | content_key_specs  <br/> security_level |uint32 |Define os requisitos de robustez do cliente para a reprodução. <br/> - É necessária criptografia de caixa branca baseada em software. <br/> - São necessárias criptografia de software e um descodificador obfuscado. <br/> - As operações de material-chave e criptografia devem ser realizadas num ambiente de execução fidedigno apoiado em hardware. <br/> - A criptografia e a descodificação de conteúdos devem ser realizadas num ambiente de execução fidedigno apoiado em hardware.  <br/> - A criptografia, a descodificação e todo o manuseamento dos meios de comunicação (comprimidos e descomprimidos) devem ser manuseados num ambiente de execução fidedigno apoiado em hardware. |
@@ -87,7 +87,7 @@ Cada content_key_specs valor deve ser especificado para todas as faixas, indepen
 | content_key_specs.key_id |Binário de cordas codificado base64, 16 bytes |Identificador único para a chave. |
 
 ## <a name="policy-overrides"></a>Sobreposições políticas
-| Nome | Valor | Descrição |
+| Name | Valor | Descrição |
 | --- | --- | --- |
 | policy_overrides&#46;can_play |Boolean, verdadeiro ou falso |Indica que a reprodução do conteúdo é permitida. A predefinição é falso. |
 | policy_overrides&#46;can_persist |Boolean, verdadeiro ou falso |Indica que a licença pode ser persistiu no armazenamento não volátil para uso offline. A predefinição é falso. |
@@ -102,7 +102,7 @@ Cada content_key_specs valor deve ser especificado para todas as faixas, indepen
 | policy_overrides renew_with_usage&#46; |Boolean, verdadeiro ou falso |Indica que a licença é enviada para renovação quando o uso começa. Este campo só é usado se can_renew for verdade. |
 
 ## <a name="session-initialization"></a>Inicialização da sessão
-| Nome | Valor | Descrição |
+| Name | Valor | Descrição |
 | --- | --- | --- |
 | provider_session_token |Fio codificado Base64 |Esta sessão é retransmitida na licença e existe em renovações subsequentes. O símbolo da sessão não persiste para além das sessões. |
 | provider_client_token |Fio codificado Base64 |Ficha do cliente para enviar de volta na resposta da licença. Se o pedido de licença contiver um símbolo do cliente, este valor é ignorado. O símbolo do cliente persiste para além das sessões de licença. |
@@ -132,32 +132,124 @@ ContentKeyPolicyWidevineConfiguration objContentKeyPolicyWidevineConfiguration =
 O exemplo que se segue mostra um exemplo de definições de classes que mapeiam para o esquema Widevine JSON. Pode instantaneamente as aulas antes de as serializar para a corda JSON.  
 
 ```csharp
+/// <summary>
+/// Widevine PolicyOverrides class.
+/// </summary>
 public class PolicyOverrides
 {
+    /// <summary>
+    /// Gets or sets a value indicating whether playback of the content is allowed. Default is false.
+    /// </summary>
+    [JsonProperty("can_play")]
     public bool CanPlay { get; set; }
+
+    /// <summary>
+    /// Gets or sets a value indicating whether the license might be persisted to nonvolatile storage for offline use. Default is false.
+    /// </summary>
+    [JsonProperty("can_persist")]
     public bool CanPersist { get; set; }
+
+    /// <summary>
+    /// Gets or sets a value indicating whether renewal of this license is allowed. If true, the duration of the license can be extended by heartbeat. Default is false.
+    /// </summary>
+    [JsonProperty("can_renew")]
     public bool CanRenew { get; set; }
-    public int RentalDurationSeconds { get; set; }    //Indicates the time window while playback is permitted. A value of 0 indicates that there is no limit to the duration. Default is 0.
-    public int PlaybackDurationSeconds { get; set; }  //The viewing window of time after playback starts within the license duration. A value of 0 indicates that there is no limit to the duration. Default is 0.
-    public int LicenseDurationSeconds { get; set; }   //Indicates the time window for this specific license. A value of 0 indicates that there is no limit to the duration. Default is 0.
+
+    /// <summary>
+    /// Gets or sets the time window while playback is permitted. A value of 0 indicates that there is no limit to the duration. Default is 0.
+    /// </summary>
+    [JsonProperty("rental_duration_seconds")]
+    public int RentalDurationSeconds { get; set; }
+
+    /// <summary>
+    /// Gets or sets the viewing window of time after playback starts within the license duration. A value of 0 indicates that there is no limit to the duration. Default is 0.
+    /// </summary>
+    [JsonProperty("playback_duration_seconds")]
+    public int PlaybackDurationSeconds { get; set; }
+
+    /// <summary>
+    /// Gets or sets the time window for this specific license. A value of 0 indicates that there is no limit to the duration. Default is 0.
+    /// </summary>
+    [JsonProperty("license_duration_seconds")]
+    public int LicenseDurationSeconds { get; set; }
 }
 
+/// <summary>
+/// Widevine ContentKeySpec class.
+/// </summary>
 public class ContentKeySpec
 {
+    /// <summary>
+    /// Gets or sets track type.
+    /// If content_key_specs is specified in the license request, make sure to specify all track types explicitly.
+    /// Failure to do so results in failure to play back past 10 seconds.
+    /// </summary>
+    [JsonProperty("track_type")]
     public string TrackType { get; set; }
+
+    /// <summary>
+    /// Gets or sets client robustness requirements for playback.
+    /// Software-based white-box cryptography is required.
+    /// Software cryptography and an obfuscated decoder are required.
+    /// The key material and cryptography operations must be performed within a hardware-backed trusted execution environment.
+    /// The cryptography and decoding of content must be performed within a hardware-backed trusted execution environment.
+    /// The cryptography, decoding, and all handling of the media (compressed and uncompressed) must be handled within a hardware-backed trusted execution environment.
+    /// </summary>
+    [JsonProperty("security_level")]
     public int SecurityLevel { get; set; }
+
+    /// <summary>
+    /// Gets or sets the OutputProtection.
+    /// </summary>
+    [JsonProperty("required_output_protection")]
     public OutputProtection RequiredOutputProtection { get; set; }
 }
 
+/// <summary>
+/// OutputProtection Widevine class.
+/// </summary>
 public class OutputProtection
 {
+    /// <summary>
+    /// Gets or sets HDCP protection.
+    /// Supported values : HDCP_NONE, HDCP_V1, HDCP_V2
+    /// </summary>
+    [JsonProperty("hdcp")]
     public string HDCP { get; set; }
+
+    /// <summary>
+    /// Gets or sets CGMS.
+    /// </summary>
+    [JsonProperty("cgms_flags")]
+    public string CgmsFlags { get; set; }
 }
 
+/// <summary>
+/// Widevine template.
+/// </summary>
 public class WidevineTemplate
 {
+    /// <summary>
+    /// Gets or sets the allowed track types.
+    /// SD_ONLY or SD_HD.
+    /// Controls which content keys are included in a license.
+    /// </summary>
+    [JsonProperty("allowed_track_types")]
     public string AllowedTrackTypes { get; set; }
+
+    /// <summary>
+    /// Gets or sets a finer-grained control on which content keys to return.
+    /// For more information, see the section "Content key specs."
+    /// Only one of the allowed_track_types and content_key_specs values can be specified.
+    /// </summary>
+    [JsonProperty("content_key_specs")]
     public ContentKeySpec[] ContentKeySpecs { get; set; }
+
+    /// <summary>
+    /// Gets or sets policy settings for the license.
+    /// In the event this asset has a predefined policy, these specified values are used.
+    /// </summary>
+    [JsonProperty("policy_overrides")]
     public PolicyOverrides PolicyOverrides { get; set; }
 }
 ```

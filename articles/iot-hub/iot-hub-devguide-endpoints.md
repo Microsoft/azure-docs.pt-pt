@@ -11,12 +11,12 @@ ms.date: 06/10/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 53660ad93ab2218d546ae6f363873c4d66872e2b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9554713e50e7a2ead2e25f274428ad0ecba4934d
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81730315"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996944"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referência - Pontos finais do Hub IoT
 
@@ -54,9 +54,9 @@ A lista seguinte descreve os pontos finais:
 
   * *Receba pedidos de método direto*. Um dispositivo utiliza este ponto final para ouvir os pedidos do [método direto.](iot-hub-devguide-direct-methods.md)
 
-    Estes pontos finais são expostos utilizando os protocolos [MQTT v3.1.1,](https://mqtt.org/)HTTPS 1.1 e [AMQP 1.0.](https://www.amqp.org/) A AMQP também está disponível através [da WebSockets](https://tools.ietf.org/html/rfc6455) na porta 443.
+    Estes pontos finais são expostos utilizando os protocolos [MQTT v3.1.1,](https://mqtt.org/)HTTPS 1.1 e [AMQP 1.0.](https://www.amqp.org/) AMQP e MQTT também estão disponíveis através de [WebSockets](https://tools.ietf.org/html/rfc6455) na porta 443.
 
-* **Pontos finais de serviço**. Cada hub IoT expõe um conjunto de pontos finais para a sua solução na parte de trás para comunicar com os seus dispositivos. Com uma exceção, estes pontos finais só são expostos usando o protocolo [AMQP.](https://www.amqp.org/) O ponto final da invocação do método é exposto sobre o protocolo HTTPS.
+* **Pontos finais de serviço**. Cada hub IoT expõe um conjunto de pontos finais para a sua solução na parte de trás para comunicar com os seus dispositivos. Com uma exceção, estes pontos finais só são expostos usando os protocolos [AMQP](https://www.amqp.org/) e AMQP sobre os protocolos WebSockets. O ponto final de invocação do método direto é exposto sobre o protocolo HTTPS.
   
   * *Receba mensagens de dispositivo-nuvem*. Este ponto final é compatível com hubs de [eventos Azure.](https://azure.microsoft.com/documentation/services/event-hubs/) Um serviço de back-end pode usá-lo para ler as [mensagens de dispositivo-para-nuvem](iot-hub-devguide-messages-d2c.md) enviadas pelos seus dispositivos. Você pode criar pontos finais personalizados no seu hub IoT além deste ponto final incorporado.
   

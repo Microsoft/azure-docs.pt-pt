@@ -1,16 +1,14 @@
 ---
 title: Tempors e lembretes de atores fiáveis
 description: Introdução a tempors e lembretes para atores fiáveis de tecido de serviço, incluindo orientação sobre quando usar cada um.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.author: vturecek
-ms.openlocfilehash: 02d6220b31ee9c991e8450759bf46759af6177a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 67dc5d9706c2176b2fe70d2540be00d0af79fd80
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75639620"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996360"
 ---
 # <a name="actor-timers-and-reminders"></a>Tempors de ator e lembretes
 Os atores podem agendar trabalhos periódicos sobre si mesmos, registando os temporizadores ou lembretes. Este artigo mostra como usar tempors e lembretes e explica as diferenças entre eles.
@@ -122,12 +120,17 @@ O próximo período do temporizador começa após a chamada completar a execuç�
 
 O tempo de execução dos Atores poupa as alterações feitas ao Diretor de Estado do ator quando a chamada terminar. Se ocorrer um erro na salvação do estado, esse objeto ator será desativado e uma nova instância será ativada.
 
+Ao contrário [dos lembretes,](#actor-reminders)os tempos não podem ser atualizados. Se `RegisterTimer` for chamado de novo, será registado um novo temporizador.
+
 Todos os tempoizadores são parados quando o ator é desativado como parte da recolha de lixo. Nenhuma chamada temporizador é invocada depois disso. Além disso, o tempo de execução dos Atores não retém qualquer informação sobre os tempos que estavam a decorrer antes da desativação. Cabe ao ator registar quaisquer temporizadores de que necessite quando for reativado no futuro. Para mais informações, consulte a secção sobre a recolha de lixo do [ator.](service-fabric-reliable-actors-lifecycle.md)
 
 ## <a name="actor-reminders"></a>Lembretes de ator
-Lembretes são um mecanismo para desencadear chamadas persistentes num ator em momentos determinados. A sua funcionalidade é semelhante aos temporizadores. Mas, ao contrário dos temporizadores, os lembretes são desencadeados em todas as circunstâncias até que o ator os desregisse explicitamente ou o ator seja explicitamente apagado. Especificamente, os lembretes são desencadeados através de desativações e falhas de ator porque o tempo de execução dos Atores persiste informações sobre os lembretes do ator usando o provedor do estado do ator. Por favor, note que a fiabilidade dos lembretes está ligada às garantias de fiabilidade do Estado fornecidas pelo provedor do Estado ator. Isto significa que para os atores cuja persistência estatal está definida para Nenhum, os lembretes não dispararão após uma falha. 
+Lembretes são um mecanismo para desencadear chamadas persistentes num ator em momentos determinados. A sua funcionalidade é semelhante aos temporizadores. Mas, ao contrário dos temporizadores, os lembretes são desencadeados em todas as circunstâncias até que o ator os desregisse explicitamente ou o ator seja explicitamente apagado. Especificamente, os lembretes são desencadeados através de desativações e falhas de ator porque o tempo de execução dos Atores persiste informações sobre os lembretes do ator usando o provedor do estado do ator. Também ao contrário dos temporizadores, os lembretes`RegisterReminderAsync`existentes podem ser atualizados chamando novamente o método de registo ( ) usando novamente o mesmo *nome de lembrete*.
 
-Para registar um lembrete, `RegisterReminderAsync` um ator chama o método fornecido na classe base, como mostra o seguinte exemplo:
+> [!NOTE]
+> A fiabilidade dos lembretes está ligada às garantias de fiabilidade do Estado fornecidas pelo provedor do Estado ator. Isto significa que, para os atores cuja persistência estatal está definida para *Nenhum,* os lembretes não dispararão após uma falha.
+
+Para registar um lembrete, [`RegisterReminderAsync`](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors.runtime.actorbase.registerreminderasync?view=azure-dotnet#remarks) um ator chama o método fornecido na classe base, como mostra o seguinte exemplo:
 
 ```csharp
 protected override async Task OnActivateAsync()

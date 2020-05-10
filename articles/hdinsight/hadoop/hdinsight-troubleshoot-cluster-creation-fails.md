@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 04/14/2020
-ms.openlocfilehash: 3af7515995a305f41fb9b9f85deb9107de51c622
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 14b449590f6ffc5e735faa26baadfcc4e526450c
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81453494"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996401"
 ---
 # <a name="troubleshoot-cluster-creation-failures-with-azure-hdinsight"></a>Falhas na criação de cluster saturadas com azure HDInsight
 
@@ -68,7 +68,7 @@ Certifique-se de que não existem [fechaduras na sua rede virtual e grupo de rec
 
 ## <a name="unsupported-component-versions"></a>Versões componentes não suportadas
 
-Certifique-se de que está a utilizar uma [versão suportada do Azure HDInsight](../hdinsight-component-versioning.md) e quaisquer [componentes Apache Hadoop](../hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions) na sua solução.  
+Certifique-se de que está a utilizar uma [versão suportada do Azure HDInsight](../hdinsight-component-versioning.md) e quaisquer [componentes Apache Hadoop](../hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions) na sua solução.  
 
 ## <a name="storage-account-name-restrictions"></a>Restrições de nome da conta de armazenamento
 

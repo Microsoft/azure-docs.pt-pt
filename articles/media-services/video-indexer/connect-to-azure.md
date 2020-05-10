@@ -8,20 +8,22 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 04/22/2020
+ms.date: 05/08/2020
 ms.author: juliako
-ms.openlocfilehash: 89360f062f0198a6b0c857395b4956caa1109e82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2093132abaa7aed06113b1856c85ac54fd7ae60d
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82097192"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995703"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Criar uma conta indexante de vídeo ligada ao Azure
 
 Ao criar uma conta de Indexer de Vídeo, pode escolher uma conta de teste gratuita (onde obtém um certo número de minutos de indexação gratuitos) ou uma opção paga (onde não está limitado pela quota). Com um teste gratuito, o Video Indexer fornece até 600 minutos de indexação gratuita aos utilizadores do site e até 2400 minutos de indexação gratuita aos utilizadores de API. Com a opção paga, cria uma conta De Indexer de Vídeo que está ligada à sua subscrição Azure e a uma conta Azure Media Services. Paga-se por minutos indexados, bem como os encargos relacionados com a conta mediática.
 
 Este artigo mostra como criar uma conta de Indexer de Vídeo que esteja ligada a uma subscrição do Azure e a uma conta Azure Media Services. O tópico fornece passos para a ligação ao Azure utilizando o fluxo automático (padrão). Também mostra como se conectar a Azure manualmente (avançado).
+
+Se estiver a passar de um *ensaio* para uma conta de Indexer de Vídeo *paga,* pode optar por copiar todos os vídeos e personalizar o modelo para a nova conta, conforme discutido na Importação do [seu conteúdo a partir da conta experimental](#import-your-content-from-the-trial-account).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

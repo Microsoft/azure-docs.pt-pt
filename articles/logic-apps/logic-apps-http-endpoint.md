@@ -6,12 +6,12 @@ ms.workload: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 05/06/2020
-ms.openlocfilehash: 734ddcacf46804db8d9aac091b0a9ac0ca512e18
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: aa3733b1231b92f30f5fd36dab64794129e62b07
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983805"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995344"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Aplicativos de call, trigger ou nest logic usando pontos finais HTTPS em Aplicações Lógicas Azure
 
@@ -140,17 +140,19 @@ Por defeito, o gatilho do Pedido espera um pedido de CORREIO. Pode especificar u
 
    ![Selecione o método de pedido esperado pelo gatilho](./media/logic-apps-http-endpoint/select-method-request-trigger.png)
 
-## <a name="accept-parameters-in-endpoint-url"></a>Aceitar parâmetros em URL de ponto final
+<a name="endpoint-url-parameters"></a>
 
-Quando pretende que o seu URL de ponto final aceite valores de parâmetros através do URL do ponto final, tem estas opções:
+## <a name="pass-parameters-through-endpoint-url"></a>Passar parâmetros através de URL de ponto final
+
+Quando pretende aceitar valores de parâmetros através do URL do ponto final, tem estas opções:
 
 * [Aceite valores através](#get-parameters) de parâmetros GET ou URL.
 
-  Estes valores são passados como pares de valor de nome ao enviar o pedido para o URL do ponto final. Para esta opção, tem de utilizar o método GET no gatilho 'Pedido'. Numa ação posterior, pode obter os valores do parâmetro `triggerOutputs()` como saídas de gatilho utilizando a função numa expressão.
+  Estes valores são passados como pares de valor de nome no URL do ponto final. Para esta opção, tem de utilizar o método GET no gatilho 'Pedido'. Numa ação posterior, pode obter os valores do parâmetro `triggerOutputs()` como saídas de gatilho utilizando a função numa expressão.
 
 * [Aceite valores através de um caminho relativo](#relative-path) para parâmetros no gatilho Do seu Pedido.
 
-  Estes valores são passados ao enviar o pedido para o URL do ponto final. Também precisa selecionar explicitamente [o método](#select-method) que o gatilho espera. Numa ação posterior, pode obter os valores do parâmetro como saídas de gatilho, referenciando essas saídas diretamente.
+  Estes valores são passados por um caminho relativo no URL do ponto final. Também precisa selecionar explicitamente [o método](#select-method) que o gatilho espera. Numa ação posterior, pode obter os valores do parâmetro como saídas de gatilho, referenciando essas saídas diretamente.
 
 <a name="get-parameters"></a>
 

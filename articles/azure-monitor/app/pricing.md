@@ -4,14 +4,14 @@ description: Gerir volumes de telemetria e monitorizar os custos em Insights de 
 ms.topic: conceptual
 author: DaleKoetke
 ms.author: dalek
-ms.date: 11/27/2019
+ms.date: 5/7/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 0225484de06ae4e595f1dcbcdd520f4e0e4d53f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6c597ea559e7337c9c84914d168f1055e0631886
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81405378"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995542"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gerir a utilização e os custos do Application Insights
 
@@ -62,7 +62,7 @@ E. Detete a tampa diária do volume de dados.
 
 Para investigar mais profundamente o uso dos seus Insights de Aplicação, abra a página **Métricas,** adicione a métrica denominada "Volume de ponto de dados", e, em seguida, selecione a opção de *divisão Apply* para dividir os dados por "Tipo de item de telemetria".
 
-As despesas com insights de aplicação são adicionadas à sua conta Azure. Pode ver detalhes da sua conta Azure na secção **de Faturação** do portal Azure, ou no portal de [faturação Azure](https://account.windowsazure.com/Subscriptions).
+As despesas com insights de aplicação são adicionadas à sua conta Azure. Pode ver detalhes da sua conta Azure na secção **Cost Management + Billing** do portal Azure, ou no portal de [faturação Azure](https://account.windowsazure.com/Subscriptions).  [Veja abaixo](https://docs.microsoft.com/azure/azure-monitor/app/pricing#viewing-application-insights-usage-on-your-azure-bill) os detalhes sobre a utilização deste para Insights de Aplicação. 
 
 ![No menu esquerdo, selecione Faturação](./media/pricing/02-billing.png)
 
@@ -129,7 +129,7 @@ dependencies
 
 ## <a name="viewing-application-insights-usage-on-your-azure-bill"></a>Visualização de insights de aplicação na sua conta Azure
 
-O Azure fornece uma grande quantidade de funcionalidades úteis no hub [Azure Cost Management + Billing.](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json) Por exemplo, a funcionalidade "Análise de Custos" permite-lhe visualizar os seus gastos com recursos Azure. A adição de um filtro por tipo de recurso (ao microsoft.insights/componentes para Insights de Aplicação) permitirá acompanhar os seus gastos.
+O Azure fornece uma grande quantidade de funcionalidades úteis no hub [Azure Cost Management + Billing.](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json) Por exemplo, a funcionalidade "Análise de Custos" permite-lhe visualizar os seus gastos com recursos Azure. A adição de um filtro por tipo de recurso (ao microsoft.insights/componentes para Insights de Aplicação) permitirá acompanhar os seus gastos. Em seguida, para "Group by" selecione "Categoria Meter" ou "Meter".  Para os recursos da Application Insights nos planos de preços atuais, a maioria do uso aparecerá como Log Analytics para a categoria Meter, uma vez que existe um único backend de registos para todos os componentes do Monitor Azure. 
 
 Mais compreensão do seu uso pode ser obtida [baixando o seu uso a partir do portal Azure](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal).
 Na folha de cálculo descarregada, pode ver o uso por recurso Azure por dia. Nesta folha de cálculo do Excel, a utilização a partir dos recursos da aplicação Insights pode ser encontrada através da filtragem da coluna "Categoria Meter" para mostrar "Application Insights" e "Log Analytics", e depois adicionar um filtro na coluna "Id de instância" que é "contém microsoft.insights/componentes".  A maioria da utilização de Insights de Aplicação é reportada em metros com a categoria de medidor de Log Analytics, uma vez que existe um único backend de registos para todos os componentes do Monitor Azure.  Apenas os recursos da Application Insights em níveis de preços antigos e testes web em várias etapas são relatados com uma categoria de Medidor de Insights de Aplicação.  A utilização é mostrada na coluna "Quantidade Consumida" e a unidade para cada entrada é mostrada na coluna "Unidade de Medida".  Mais detalhes estão disponíveis para ajudá-lo a [entender a sua conta Microsoft Azure](https://docs.microsoft.com/azure/billing/billing-understand-your-bill).
@@ -212,7 +212,7 @@ Em cada registo `itemCount` retido, indica o número de registos originais que r
 
 ## <a name="change-the-data-retention-period"></a>Change the data retention period (Alterar o período de retenção de dados)
 
-A retenção padrão dos recursos da Application Insights é de 90 dias. Diferentes períodos de retenção podem ser selecionados para cada recurso Desinformação de Aplicação. O conjunto completo de períodos de retenção disponíveis é de 30, 60, 90, 120, 180, 270, 365, 550 ou 730 dias.
+A retenção padrão dos recursos da Application Insights é de 90 dias. Diferentes períodos de retenção podem ser selecionados para cada recurso Desinformação de Aplicação. O conjunto completo de períodos de retenção disponíveis é de 30, 60, 90, 120, 180, 270, 365, 550 ou 730 dias. [Saiba mais](https://azure.microsoft.com/pricing/details/monitor/) sobre os preços para uma maior retenção de dados. 
 
 Para alterar a retenção, a partir do seu recurso Application Insights, vá à página **de Utilização e Custos Estimados** e selecione a opção de retenção de **dados:**
 

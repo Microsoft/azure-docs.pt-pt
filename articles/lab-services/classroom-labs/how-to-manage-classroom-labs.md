@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: spelluru
-ms.openlocfilehash: ed1c2f14ca5a791743a95cc50e5af0c29c74fefe
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 126a6f2f26d8eaaf6ea1a85f029e56bc8f4432f3
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983317"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996767"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Gerir laboratórios de salas de aula em Serviços de Laboratório Azure 
 Este artigo descreve como criar e apagar um laboratório de sala de aula. Também mostra como ver todos os laboratórios numa conta de laboratório. 
@@ -104,14 +104,15 @@ Para configurar um laboratório de sala de aula numa conta do laboratório, tem 
 | Pequeno | 2 | 3,5 GB | Este tamanho é mais adequado para linha de comando, abertura do navegador web, servidores web de tráfego baixo, bases de dados pequenas a médias. |
 | Médio | 4 | 7 GB | Este tamanho é mais adequado para bases de dados relacionais, caches na memória e análise | 
 | Médio (virtualização aninhada) | 4 | 16 GB | Este tamanho é mais adequado para bases de dados relacionais, caches na memória e análise. Este tamanho também suporta a virtualização aninhada. <p>Este tamanho pode ser usado em cenários onde cada aluno precisa de vários VMs. Os professores podem usar a virtualização aninhada para configurar algumas máquinas virtuais aninhadas de pequena dimensão dentro da máquina virtual. </p> |
-| Pequena GPU (Computação) | 6 | 56 GB | Este tamanho é mais adequado para aplicações intensivas de computação e de rede intensiva, como inteligência artificial e aplicações de aprendizagem profunda. | 
+| Pequena GPU (Computação) | 6 | 56 GB | <p>Este tamanho é mais adequado para aplicações intensivas de computação e de rede intensiva, como inteligência artificial e aplicações de aprendizagem profunda.</p><p>A Azure Lab Services instala e configura automaticamente os controladores GPU necessários para si quando cria um laboratório com imagens de GPU. </p> | 
 | Pequena GPU (Visualização) | 6 | 56 GB | Este tamanho é mais adequado para visualização remota, streaming, gaming, codificação usando quadros como OpenGL e DirectX. | 
 | Grande | 8 | 16 GB | Este tamanho é mais adequado para aplicações que precisam de CPUs mais rápido, melhor desempenho do disco local, grandes bases de dados, grandes caches de memória. |
 | Grande (virtualização aninhada) | 8 | 32 GB | Este tamanho é mais adequado para aplicações que precisam de CPUs mais rápido, melhor desempenho do disco local, grandes bases de dados, grandes caches de memória. Este tamanho também suporta a virtualização aninhada. |  
 | Média GPU (Visualização) | 12 | 112 GB | Este tamanho é mais adequado para visualização remota, streaming, gaming, codificação usando quadros como OpenGL e DirectX. | 
 
 > [!NOTE]
-> A Azure Lab Services instala e configura automaticamente os controladores GPU necessários para si quando cria um laboratório com imagens de GPU.  
+> Pode não ver alguns destes tamanhos vm na lista ao criar um laboratório de sala de aula. A lista é povoada com base na capacidade atual da localização do laboratório. Se o criador da conta de laboratório permitir que os criadores de [laboratório escolham um local para o laboratório,](allow-lab-creator-pick-lab-location.md)pode tentar escolher um local diferente para o laboratório e ver se o tamanho do VM está disponível. 
+
 
 ## <a name="view-all-classroom-labs"></a>Ver todos os laboratórios de sala de aula
 1. Navegue para [o portal Azure Lab Services.](https://labs.azure.com)

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 687579825c652888112ff8ddff7401b3305e3a8e
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: cd89314b0d847909bf4196361e471b71ebb9b6e9
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871191"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995496"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Gerir livros de corridas na Automação Azure
 
@@ -228,7 +228,7 @@ Start-AzAutomationRunbook `
 Para usar um script personalizado:
 
 1. Criar uma conta de Automação e obter uma [função de Contribuinte.](automation-role-based-access-control.md)
-2. Ligue a conta ao espaço de [trabalho Azure.](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection.md)
+2. Ligue a conta ao espaço de [trabalho Azure.](../security-center/security-center-enable-data-collection.md)
 3. Ativar [o Trabalhador do Livro híbrido,](automation-hybrid-runbook-worker.md) [gestão de atualizações,](automation-update-management.md)ou outra funcionalidade de Automação. 
 4. Se numa máquina linux, precisas de altas permissões. Faça login para [desativar as verificações de assinatura](automation-linux-hrw-install.md#turn-off-signature-validation).
 

@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 05/07/2020
 ms.author: willzhan
 ms.reviewer: dwgeo
-ms.openlocfilehash: 1644c00aea8eefa78550c8d0238dbedab0378492
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 618803e8e94f96a63e0c39c27b40a933acac7cb4
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74968703"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995517"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>Offline FairPlay Streaming for iOS (Transmissão Offline do FairPlay para iOS) 
 
@@ -211,7 +211,7 @@ As seguintes perguntas frequentemente colocadas fornecem assistência com resolu
 - **O que significa o último parâmetro no seguinte API para o modo offline FPS?**
 `Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(objX509Certificate2, pfxPassword, pfxPasswordId, askId, iv, RentalAndLeaseKeyType.PersistentUnlimited, 0x9999);`
 
-    Para obter a documentação para este API, consulte [FairPlayConfiguration.CreateSerializedFairOptionOptionConfiguration Method](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.FairPlay.FairPlayconfiguration.createserializedFairPlayoptionconfiguration?view=azure-dotnet). O parâmetro representa a duração do aluguer offline, com hora como unidade.
+    Para obter a documentação para este API, consulte [FairPlayConfiguration.CreateSerializedFairOptionOptionConfiguration Method](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.FairPlay.FairPlayconfiguration.createserializedFairPlayoptionconfiguration?view=azure-dotnet). O parâmetro representa a duração do aluguer offline, com o segundo como unidade.
 - **Qual é a estrutura de ficheiros descarregado/offline nos dispositivos iOS?** A estrutura de ficheiros descarregada num dispositivo iOS parece ser a seguinte imagem. As `_keys` lojas de pastas descarregaram licenças fps, com um ficheiro de loja para cada anfitrião do serviço de licença. A `.movpkg` pasta armazena conteúdo sonoro e vídeo. A primeira pasta com um nome que termina com um traço seguido de um numérico contém conteúdo de vídeo. O valor numérico é a largura de PeakBand das representações em vídeo. A segunda pasta com um nome que termina com um traço seguido de 0 contém conteúdo áudio. A terceira pasta denominada "Data" contém a lista de reprodução principal do conteúdo do FPS. Finalmente, boot.xml fornece uma descrição completa do conteúdo da `.movpkg` pasta. 
 
 ![Estrutura de ficheiros de amostra seleções iOS da FairPlay offline](media/media-services-protect-hls-with-offline-FairPlay/media-services-offline-FairPlay-file-structure.png)

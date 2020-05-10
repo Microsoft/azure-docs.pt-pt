@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 1f9c8d449fb060d5b1a5f810f9e387057eac3252
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: a4082ddfd8c092a6f9223a0894f21bc734b6efb6
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927977"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82997021"
 ---
 # <a name="troubleshoot-linux-update-agent-issues"></a>Problemas problemas com problemas de problemas com problemas de problemas com problemas de agente de atualização linux
 
@@ -82,14 +82,14 @@ Esta verificação determina se o agente está reportando a vários espaços de 
 
 ### <a name="hybrid-runbook-worker"></a>Função de Trabalho de Runbook Híbrida
 
-Esta verificação verifica se o agente Log Analytics para linux tem o pacote Hybrid Runbook Worker. Este pacote é necessário para que a Atualização funcione.
+Esta verificação verifica se o agente Log Analytics para linux tem o pacote Hybrid Runbook Worker. Este pacote é necessário para que a Atualização funcione. Para saber mais, veja [que o agente de Log Analytics para o Linux não está a funcionar.](hybrid-runbook-worker.md#oms-agent-not-running)
+
+Update Management descarrega pacotes Híbridos Runbook Worker a partir do ponto final de operações. Portanto, se o Trabalhador do Livro híbrido não estiver em execução e o ponto final das [operações](#operations-endpoint) falhar, a atualização pode falhar.
 
 ### <a name="hybrid-runbook-worker-status"></a>Estatuto de Trabalhador de Runbook Híbrido
 
-Esta verificação certifica-se de que o Trabalhador do Livro Híbrido está a funcionar na máquina. Os seguintes processos devem estar presentes se o Trabalhador do Livro híbrido estiver a funcionar corretamente. Para saber mais, consulte [Troubleshooting the Log Analytics Agent for Linux](hybrid-runbook-worker.md#oms-agent-not-running).
+Esta verificação certifica-se de que o Trabalhador do Livro Híbrido está a funcionar na máquina. Os processos no exemplo abaixo devem estar presentes se o Trabalhador do Livro Híbrido estiver a funcionar corretamente.
 
-> [!NOTE]
-> Se o Trabalhador do Livro Híbrido não estiver em execução e o ponto final das operações falhar, a atualização pode falhar. Update Management descarrega os pacotes de trabalhadores híbridos do ponto final de operações.
 
 ```bash
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
@@ -107,13 +107,13 @@ Este cheque garante que a máquina tem acesso à internet.
 
 Esta verificação determina se o Trabalhador do Livro Híbrido consegue comunicar corretamente com a Automação Azure no espaço de trabalho log Analytics.
 
-As configurações de proxy e firewall devem permitir que o agente Hybrid Runbook Worker comunique com o ponto final de registo. Para abrir uma lista de endereços e portos, consulte o [planeamento da rede para trabalhadores híbridos.](../automation-hybrid-runbook-worker.md#network-planning)
+As configurações de proxy e firewall devem permitir que o agente Hybrid Runbook Worker comunique com o ponto final de registo. Para que uma lista de endereços e portas seja aberta, consulte [o planeamento da rede.](../automation-hybrid-runbook-worker.md#network-planning)
 
 ### <a name="operations-endpoint"></a>Ponto final de operações
 
-Esta verificação determina se o agente pode comunicar corretamente com o Serviço de Dados de Funcionato de Trabalho.
+Esta verificação determina se o agente Log Analytics pode comunicar corretamente com o Serviço de Dados do Funcionador de Emprego.
 
-As configurações de proxy e firewall devem permitir que o agente Hybrid Runbook Worker se comunique com o Serviço de Dados do Tempo de Execução de Emprego. Para abrir uma lista de endereços e portos, consulte o [planeamento da rede para trabalhadores híbridos.](../automation-hybrid-runbook-worker.md#network-planning)
+As configurações de proxy e firewall devem permitir que o agente Hybrid Runbook Worker se comunique com o Serviço de Dados do Tempo de Execução de Emprego. Para que uma lista de endereços e portas seja aberta, consulte [o planeamento da rede.](../automation-hybrid-runbook-worker.md#network-planning)
 
 ### <a name="log-analytics-endpoint-1"></a>Log Analytics endpoint 1
 

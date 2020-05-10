@@ -6,18 +6,15 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/06/2020
-ms.openlocfilehash: 7e85175cbee53bd5984a38a587a90b98eaf8dcad
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.date: 05/08/2020
+ms.openlocfilehash: 626dc5a7d1cd52182e68eb0d217b2ac4c653330e
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791906"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82994359"
 ---
 # <a name="create-a-consulting-service-offer"></a>Criar uma oferta de serviço de consultoria
-
-> [!IMPORTANT]
-> Estamos a mover a gestão das suas ofertas de serviço de consultoria do Cloud Partner Portal para partner Center. Até que as suas ofertas sejam migradas, siga as instruções na oferta de serviço de [consultoria Azure e Dynamics 365](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) para o Cloud Partner Portal para gerir as suas ofertas.
 
 Este artigo descreve como publicar uma oferta de serviço de consultoria para o [Microsoft AppSource](https://appsource.microsoft.com/) ou [para o Azure Marketplace](https://azuremarketplace.microsoft.com/). Ofertas de serviço de consultoria de listas baseadas no Microsoft [Dynamics 365](https://dynamics.microsoft.com/) e na Power Platform no AppSource. O serviço List Consulting oferece com base no Microsoft Azure no Azure Marketplace. Antes de começar, [Crie uma conta de marketplace comercial no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) se ainda não o fez. Certifique-se de que a sua conta está inscrita no programa de marketplace comercial.
 
@@ -99,10 +96,10 @@ Esta página permite definir o produto primário que o seu serviço de consultor
     - **Prova de conceito**: Uma implementação de âmbito limitado para determinar se uma solução satisfaz os requisitos do cliente.
     - **Workshop**: Um compromisso interativo realizado nas instalações de um cliente. Pode envolver formação, briefings, avaliações ou demonstrações construídas sobre os dados ou ambiente do cliente.
 
-1. Se selecionar um produto primário do **Azure,** selecione até três Áreas de **Solução**. Estes facilitam aos clientes do Azure Marketplace encontrar a sua oferta. Se não escolheu o Azure, esquece este passo.
-2. Se selecionou um produto primário _que não_ o Azure, selecione até três **produtos aplicáveis.** Estes facilitam aos clientes do AppSource encontrar a sua oferta. Para mais detalhes, consulte as Diretrizes de Listagem de Serviços de [Consultoria microsoft AppSource](https://go.microsoft.com/fwlink/?LinkId=828734&amp;clcid=0x409) (PDF).
-3. Selecione até seis **Indústrias** a que a sua oferta se aplica. Isto facilitará aos clientes encontrar a sua oferta.
-4. Adicione até três **Competências** que a sua empresa ganhou para exibir na sua listagem de oferta de serviço de consultoria. É necessária pelo menos uma competência, com exceção dos Deputados especialistas do Azure e dos Deputados de Networking Azure.
+3. Se selecionar um produto primário do **Azure,** selecione até três Áreas de **Solução**. Estes facilitam aos clientes do Azure Marketplace encontrar a sua oferta. Se não escolheu o Azure, esquece este passo.
+4. Se selecionou um produto primário _que não_ o Azure, selecione até três **produtos aplicáveis.** Estes facilitam aos clientes do AppSource encontrar a sua oferta. Para mais detalhes, consulte as Diretrizes de Listagem de Serviços de [Consultoria microsoft AppSource](https://go.microsoft.com/fwlink/?LinkId=828734&amp;clcid=0x409) (PDF).
+5. Selecione até seis **Indústrias** a que a sua oferta se aplica. Isto facilitará aos clientes encontrar a sua oferta.
+6. Adicione até três **Competências** que a sua empresa ganhou para exibir na sua listagem de oferta de serviço de consultoria. É necessária pelo menos uma competência, com exceção dos Deputados especialistas do Azure e dos Deputados de Networking Azure.
 
 Selecione **guardar rascunho** antes de continuar.
 

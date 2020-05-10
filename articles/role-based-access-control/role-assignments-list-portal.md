@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a4c02369f44255dfa472202215496378d41f8c6c
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: HT
+ms.openlocfilehash: 04a13b2b3b8cd6e696f0ac6601b5f23b9d6cb24d
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735730"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996648"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>Lista de atribuições de funções azure usando o portal Azure
 
@@ -32,7 +32,9 @@ ms.locfileid: "82735730"
 
 A forma mais fácil de ver as funções atribuídas a um utilizador ou grupo numa subscrição é utilizar o painel de **recursos Azure.**
 
-1. No portal Azure, clique em **Todos os serviços** e, em seguida, selecione **Utilizadores** ou **Grupos**.
+1. No portal Azure, selecione **Todos os serviços** do menu portal Azure.
+
+1. Selecione **Diretório Ativo Azure** e, em seguida, selecione **Utilizadores** ou **Grupos**.
 
 1. Clique no utilizador ou grupo que deseja listar as atribuições de funções para.
 
@@ -128,7 +130,7 @@ Para listar o acesso a um utilizador, grupo, diretor de serviço ou identidade g
 
 ## <a name="list-number-of-role-assignments"></a>Número de lista de atribuições de funções
 
-Pode ter até **2000** atribuições em cada subscrição. Para ajudá-lo a acompanhar este limite, o separador de **atribuições de Role** inclui um gráfico que lista o número de atribuições de funções para a subscrição atual.
+Pode ter até **2000** atribuições em cada subscrição. Este limite inclui atribuições de funções na subscrição, grupo de recursos e âmbitos de recursos. Para ajudá-lo a acompanhar este limite, o separador de **atribuições de Role** inclui um gráfico que lista o número de atribuições de funções para a subscrição atual.
 
 ![Controlo de acesso - Gráfico de atribuição de funções](./media/role-assignments-list-portal/access-control-role-assignments-chart.png)
 
