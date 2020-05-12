@@ -3,14 +3,14 @@ title: Executar manualmente uma função Azure não ativada por HTTP
 description: Utilize um pedido http para executar uma função azure não-HTTP desencadeada
 author: craigshoemaker
 ms.topic: article
-ms.date: 12/12/2018
+ms.date: 04/23/2020
 ms.author: cshoe
-ms.openlocfilehash: 6571482d738549d2708fd8ab23eaf8c9f6fb1f70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fd7b0be967c7a0bbc605c51408448917b5222d36
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80892364"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121794"
 ---
 # <a name="manually-run-a-non-http-triggered-function"></a>Executar manualmente uma função não acionada por HTTP
 
@@ -33,15 +33,21 @@ Para executar uma função não ativada pelo HTTP, precisa de uma forma de envia
 Você usa este local de pedido no Carteiro juntamente com a chave principal da função no pedido ao Azure para executar a função.
 
 > [!NOTE]
-> Quando se corre localmente, a chave principal da função não é necessária. Pode ligar diretamente para a `x-functions-key` [função](#call-the-function) omitindo o cabeçalho.
+> Quando se corre localmente, a chave principal da função não é necessária. Pode ligar diretamente [para a função](#call-the-function) omitindo o `x-functions-key` cabeçalho.
 
 ## <a name="get-the-functions-master-key"></a>Obtenha a chave principal da função
 
-Navegue para a sua função no portal Azure e clique em **Gerir** e encontrar a secção Chaves do **Anfitrião.** Clique no botão **Copiar** na linha *_master* para copiar a chave principal para a sua área de redação.
+1. Navegue para a sua função no portal Azure e selecione **Teclas de função**. Em seguida, selecione a tecla de função que pretende copiar. 
 
-![Chave principal de cópia do ecrã de Gestão de Funções](./media/functions-manually-run-non-http/azure-portal-functions-master-key.png)
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key.png" alt-text="Localize a chave principal para copiar." border="true":::
 
-Depois de copiar a chave principal, clique no nome da função para voltar à janela de ficheiros de código. Em seguida, clique no separador **Logs.** Verá mensagens da função registada aqui quando executar manualmente a função do Carteiro.
+1. Na secção **de teclas Editar,** copie o valor-chave para a sua área de sobredina e, em seguida, selecione **OK**.
+
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-copy.png" alt-text="Copie a chave principal para a pasta." border="true":::
+
+1. Depois de copiar a tecla *_master,* selecione **Código + Teste**, e, em seguida, selecione **Registos**. Verá mensagens da função registada aqui quando executar manualmente a função do Carteiro.
+
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-function-log.png" alt-text="Veja os registos para ver os resultados dos testes da chave principal." border="true":::
 
 > [!CAUTION]  
 > Devido às permissões elevadas na sua aplicação de funções concedidas pela chave principal, não deve partilhar esta chave com terceiros ou distribuí-la numa aplicação.
@@ -51,27 +57,27 @@ Depois de copiar a chave principal, clique no nome da função para voltar à ja
 Abra o Carteiro e siga estes passos:
 
 1. Insira o local de **pedido na caixa de texto URL**.
-2. Certifique-se de que o método HTTP está definido para **POST**.
-3. **Clique** no separador **Cabeçalhos.**
-4. Introduza a **chave x-funções** como a primeira **chave** e colhe a chave principal (a partir da área de reparação) na caixa de **valor.**
-5. Introduza o **Tipo de Conteúdo** como segunda **chave** e introduza **a** **aplicação/json** como valor .
+1. Certifique-se de que o método HTTP está definido para **POST**.
+1. Selecione o separador **Cabeçalhos.**
+1. Digite a **tecla x como** primeira chave e colhe a chave principal (da área de reparação) como o valor.
+1. Digite o **Tipo de Conteúdo** como segunda chave e tipo **aplicação/json** como o valor.
 
-    ![Definições de cabeçalhos do carteiro](./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png)
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png" alt-text="Definições de cabeçalhos do carteiro." border="true":::
 
-6. **Clique** no separador **Body.**
-7. Introduza **{"entrada": "teste" }** como o corpo para o pedido.
+1. Selecione o separador **Corpo.**
+1. Digite **{ "entrada": "teste" }** como o corpo para o pedido.
 
-    ![Definições do corpo do carteiro](./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png)
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png" alt-text="Definições do corpo do carteiro." border="true":::
 
-8. Clique em **Enviar**.
+1. Selecione **Enviar**.
+        
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png" alt-text="Envie um pedido com o Carteiro." border="true":::
 
-    ![Envio de um pedido com carteiro](./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png)
+    O carteiro reporta então um estatuto de **202 Aceite.**
 
-O carteiro reporta então um estatuto de **202 Aceite.**
+1. Em seguida, volte à sua função no portal Azure. Reveja os registos e verá mensagens provenientes da chamada manual para a função.
 
-Em seguida, volte à sua função no portal Azure. Localize a janela *Registos* e verá mensagens provenientes da chamada manual para a função.
-
-![Resultados do registo de funções da chamada manual](./media/functions-manually-run-non-http/azure-portal-function-log.png)
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-logs.png" alt-text="Veja os registos para ver os resultados dos testes da chave principal." border="true":::
 
 ## <a name="next-steps"></a>Passos seguintes
 
