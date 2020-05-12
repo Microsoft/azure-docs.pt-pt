@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5e725df5c875f23d82da1fda19bcdf28db548fc8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3a8839609856bda5304712405ec57accb4afb095
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81428566"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201684"
 ---
 # <a name="connect-to-synapse-sql-with-visual-studio-and-ssdt"></a>Ligue-se ao Synapse SQL com O Estúdio Visual e SSDT
 > [!div class="op_single_selector"]
@@ -28,9 +28,8 @@ ms.locfileid: "81428566"
 
 Use o Visual Studio para consultar a piscina SQL utilizando o Azure Synapse Analytics. Este método utiliza a extensão SQL Server Data Tools (SSDT) no Visual Studio 2019. 
 
-### <a name="supported-tools-for-sql-on-demand-preview"></a>Ferramentas suportadas para sQL a pedido (pré-visualização)
-
-O estúdio visual não é atualmente suportado para sQL on-demand (pré-visualização). No entanto, o Azure Data Studi (pré-visualização)o é uma ferramenta totalmente suportada. O SQL Server Management Studio é parcialmente suportado a partir da versão 18.4 e tem funcionalidades limitadas, tais como ligação e consulta.
+> [!NOTE]
+> A SQL on-demand (pré-visualização) não é suportada pelo SSDT.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para utilizar este tutorial, é necessário ter os seguintes componentes:
@@ -41,7 +40,7 @@ Para utilizar este tutorial, é necessário ter os seguintes componentes:
 
 ## <a name="1-connect-to-sql-pool"></a>1. Ligar à piscina SQL
 1. Open Visual Studio 2019.
-2. Abra o Explorador de Objetos do Servidor SQL. Para isso, selecione **Ver** > Explorador de**Objetos do Servidor SQL**.
+2. Abra o Explorador de Objetos do Servidor SQL. Para isso, selecione **Ver**Explorador de  >  **Objetos do Servidor SQL**.
    
     ![SQL Server Object Explorer](./media/get-started-visual-studio/open-ssdt.png)
 3. Clique no ícone **Adicionar SQL Server**.

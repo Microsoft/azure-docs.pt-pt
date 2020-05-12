@@ -1,17 +1,20 @@
 ---
 title: Controlos de segurança para conjuntos de escala de máquinas virtuais azure
 description: Uma lista de controlos de segurança para avaliar conjuntos de escala de máquinas virtuais Azure
-ms.service: virtual-machine-scale-sets
-author: msmbaldwin
+author: mimckitt
+ms.author: mimckitt
 ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: security
 ms.date: 09/05/2019
-ms.author: mbaldwin
-ms.openlocfilehash: 4007f4adeee065fe32492d3bd16f3a06d24e7d96
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: jushiman
+ms.custom: mimckitt
+ms.openlocfilehash: 030e2c23d68a3fbbc96dd7591583cb27b650d011
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77190612"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200001"
 ---
 # <a name="security-controls-for-azure-virtual-machine-scale-sets"></a>Controlos de segurança para conjuntos de escala de máquinas virtuais azure
 

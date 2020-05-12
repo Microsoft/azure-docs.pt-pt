@@ -2,17 +2,19 @@
 title: Crie um conjunto de escala que utilize VMs De Mancha Azure
 description: Aprenda a criar conjuntos de escala de máquinas virtuais Azure que usam VMs spot para economizar em custos.
 author: cynthn
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.topic: article
-ms.date: 03/25/2020
 ms.author: cynthn
-ms.openlocfilehash: a7bd22032a554c83a2ea2323ffdb3ae52dfe4faf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.service: virtual-machine-scale-sets
+ms.subservice: spot
+ms.date: 03/25/2020
+ms.reviewer: jagaveer
+ms.custom: jagaveer
+ms.openlocfilehash: 59de7a8decef807b548ff4b85f06fc1115ce110b
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80545942"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125048"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>VMs de Spot Azure para conjuntos de escala de máquinas virtuais 
 
@@ -26,7 +28,7 @@ A quantidade de capacidade disponível pode variar em função do tamanho, regi�
 Os preços dos casos spot são variáveis, com base na região e no SKU. Para mais informações, consulte os preços para [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/) e [Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/). 
 
 
-Com preços variáveis, você tem opção de definir um preço máximo, em dólares americanos (USD), usando até 5 lugares decimais. Por exemplo, `0.98765`o valor seria um preço máximo de $0.98765 USD por hora. Se fixar o preço `-1`máximo para ser, a instância não será despejada com base no preço. O preço por exemplo será o preço atual para o Spot ou o preço de uma instância padrão, o que sempre é menor, desde que haja capacidade e quota disponíveis.
+Com preços variáveis, você tem opção de definir um preço máximo, em dólares americanos (USD), usando até 5 lugares decimais. Por exemplo, o valor `0.98765` seria um preço máximo de $0.98765 USD por hora. Se fixar o preço máximo para `-1` ser, a instância não será despejada com base no preço. O preço por exemplo será o preço atual para o Spot ou o preço de uma instância padrão, o que sempre é menor, desde que haja capacidade e quota disponíveis.
 
 ## <a name="eviction-policy"></a>Política de despejo
 
@@ -49,12 +51,12 @@ Para implantar VMs spot em conjuntos de escala, pode definir a nova bandeira *Pr
 
 ## <a name="portal"></a>Portal
 
-O processo de criação de um conjunto de escala que utiliza VMs spot é o mesmo que detalhado no [artigo de início.](quick-create-portal.md) Quando estiver a implantar um conjunto de escala, pode optar por ![definir a bandeira do Spot e a política de despejo: Criar uma escala com VMs de mancha](media/virtual-machine-scale-sets-use-spot/vmss-spot-portal-max-price.png)
+O processo de criação de um conjunto de escala que utiliza VMs spot é o mesmo que detalhado no [artigo de início.](quick-create-portal.md) Quando estiver a implantar um conjunto de escala, pode optar por definir a bandeira do Spot e a política de despejo: ![ Criar uma escala com VMs de mancha](media/virtual-machine-scale-sets-use-spot/vmss-spot-portal-max-price.png)
 
 
 ## <a name="azure-cli"></a>CLI do Azure
 
-O processo de criação de um conjunto de escala com VMs spot é o mesmo que detalhado no [artigo de início.](quick-create-cli.md) Basta adicionar o "-Ponto Prioritário", `--max-price`e adicionar . Neste exemplo, usamos `-1` `--max-price` para que a instância não seja despejada com base no preço.
+O processo de criação de um conjunto de escala com VMs spot é o mesmo que detalhado no [artigo de início.](quick-create-cli.md) Basta adicionar o "-Ponto Prioritário", e adicionar `--max-price` . Neste exemplo, usamos `-1` para que a instância não seja `--max-price` despejada com base no preço.
 
 ```azurecli
 az vmss create \
@@ -71,7 +73,7 @@ az vmss create \
 ## <a name="powershell"></a>PowerShell
 
 O processo de criação de um conjunto de escala com VMs spot é o mesmo que detalhado no [artigo de início.](quick-create-powershell.md)
-Basta adicionar 'Ponto Prioritário', `-max-price` e fornecer um ao [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig).
+Basta adicionar 'Ponto Prioritário', e fornecer um `-max-price` ao [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig).
 
 ```powershell
 $vmssConfig = New-AzVmssConfig `
@@ -87,7 +89,7 @@ $vmssConfig = New-AzVmssConfig `
 
 O processo para criar um conjunto de escala que utiliza VMs spot é o mesmo que detalhado no artigo de início para [Linux](quick-create-template-linux.md) ou [Windows](quick-create-template-windows.md). 
 
-Para implementações de`"apiVersion": "2019-03-01"` modelos spot, utilize ou mais tarde. Adicione `priority`as `evictionPolicy` `billingProfile` propriedades e `"virtualMachineProfile":` propriedades à secção do seu modelo: 
+Para implementações de modelos spot, utilize `"apiVersion": "2019-03-01"` ou mais tarde. Adicione as `priority` propriedades e propriedades à secção do seu `evictionPolicy` `billingProfile` `"virtualMachineProfile":` modelo: 
 
 ```json
                 "priority": "Spot",
@@ -97,7 +99,7 @@ Para implementações de`"apiVersion": "2019-03-01"` modelos spot, utilize ou ma
                 }
 ```
 
-Para eliminar a ocorrência depois de ter `evictionPolicy` sido `Delete`despejada, mude o parâmetro para .
+Para eliminar a ocorrência depois de ter sido despejada, mude o `evictionPolicy` parâmetro para `Delete` .
 
 ## <a name="faq"></a>FAQ
 
@@ -123,12 +125,12 @@ Para eliminar a ocorrência depois de ter `evictionPolicy` sido `Delete`despejad
 
 **Q:** Posso converter conjuntos de escala existentes em conjuntos de escala spot?
 
-**A:** Não, a `Spot` colocação da bandeira só é apoiada no momento da criação.
+**A:** Não, a colocação da bandeira só é apoiada no momento da `Spot` criação.
 
 
-**Q:** Se eu `low` estava a usar para conjuntos de baixa `Spot` prioridade, preciso de começar a usar?
+**Q:** Se eu estava a usar `low` para conjuntos de baixa prioridade, preciso de começar a `Spot` usar?
 
-**A:** Por enquanto, ambos `low` e `Spot` vão funcionar, mas `Spot`deve começar a transitar para a utilização.
+**A:** Por enquanto, ambos `low` e `Spot` vão funcionar, mas deve começar a transitar para a utilização. `Spot`
 
 
 **Q:** Posso criar um conjunto de escala sem VMs regulares e VMs spot?
@@ -164,7 +166,7 @@ Para eliminar a ocorrência depois de ter `evictionPolicy` sido `Delete`despejad
 
 **Q:** Onde posso fazer perguntas?
 
-**A:** Pode publicar e marcar `azure-spot` a sua pergunta no [Q&A](https://docs.microsoft.com/answers/topics/azure-spot.html). 
+**A:** Pode publicar e marcar a sua pergunta `azure-spot` no Q&[A](https://docs.microsoft.com/answers/topics/azure-spot.html). 
 
 ## <a name="next-steps"></a>Passos seguintes
 

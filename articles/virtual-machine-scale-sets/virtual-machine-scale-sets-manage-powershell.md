@@ -2,18 +2,19 @@
 title: Gerir conjuntos de escala de máquina virtual com PowerShell Azure
 description: Cmdlets De PowerShell De Potência De Potência Azul Comuns para gerir conjuntos de escala de máquina virtual, tais como como iniciar e parar uma instância, ou alterar a capacidade definida de escala.
 author: ju-shim
-tags: azure-resource-manager
-ms.assetid: d35fa77a-de96-4ccd-a332-eb181d1f4273
-ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
-ms.date: 05/29/2018
 ms.author: jushiman
-ms.openlocfilehash: 5794fb40b49a575c12f6855292c41014fabf3b8c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.service: virtual-machine-scale-sets
+ms.subservice: management
+ms.date: 05/29/2018
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 68b5aa21f861009dd78f48428fa0ffdc5b5ae3a3
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81011604"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124875"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Gerir um conjunto de escala de máquina virtual com O PowerShell Azure
 
@@ -38,7 +39,7 @@ Para ver uma lista de vm num conjunto de escala, utilize [Get-AzVmssVM](/powersh
 Get-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
 ```
 
-Para ver informações adicionais sobre uma `-InstanceId` instância vm específica, adicione o parâmetro ao [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm) e especifique uma instância para visualizar. O exemplo seguinte vê informações sobre a instância *VM 0* no conjunto de escala sem nome *myScaleSet* e o grupo de recursos *myResourceGroup.* Insira os seus próprios nomes da seguinte forma:
+Para ver informações adicionais sobre uma instância vm específica, adicione o `-InstanceId` parâmetro ao [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm) e especifique uma instância para visualizar. O exemplo seguinte vê informações sobre a instância *VM 0* no conjunto de escala sem nome *myScaleSet* e o grupo de recursos *myResourceGroup.* Insira os seus próprios nomes da seguinte forma:
 
 ```powershell
 Get-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
@@ -48,7 +49,7 @@ Get-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -
 ## <a name="change-the-capacity-of-a-scale-set"></a>Alterar a capacidade de um conjunto de dimensionamento
 Os comandos anteriores mostraram informações sobre o seu conjunto de escala e os casos vm. Para aumentar ou diminuir o número de ocorrências no conjunto de escala, pode alterar a capacidade. O conjunto de escala cria ou remove automaticamente o número necessário de VMs, em seguida, configura os VMs para receber o tráfego de aplicações.
 
-Primeiro, crie um objeto conjunto de escala com [Get-AzVmss,](/powershell/module/az.compute/get-azvmss)em seguida, especifique um novo valor para `sku.capacity`. Para aplicar a alteração de capacidade, utilize [a Actualização-AzVmss](/powershell/module/az.compute/update-azvmss). O exemplo seguinte atualiza o *myScaleSet* no grupo de recursos *myResourceGroup* para uma capacidade de *5* instâncias. Forneça os seus próprios valores da seguinte forma:
+Primeiro, crie um objeto conjunto de escala com [Get-AzVmss,](/powershell/module/az.compute/get-azvmss)em seguida, especifique um novo valor para `sku.capacity` . Para aplicar a alteração de capacidade, utilize [a Actualização-AzVmss](/powershell/module/az.compute/update-azvmss). O exemplo seguinte atualiza o *myScaleSet* no grupo de recursos *myResourceGroup* para uma capacidade de *5* instâncias. Forneça os seus próprios valores da seguinte forma:
 
 ```powershell
 # Get current scale set

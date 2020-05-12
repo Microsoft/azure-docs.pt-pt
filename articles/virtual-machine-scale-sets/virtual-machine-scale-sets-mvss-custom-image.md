@@ -1,19 +1,20 @@
 ---
 title: Referência a uma imagem personalizada em um modelo de conjunto de escala Azure
 description: Saiba como adicionar uma imagem personalizada a um modelo de conjunto de escala de máquina virtual Azure existente
-author: mimckitt
-tags: azure-resource-manager
-ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
+author: cynthn
+ms.author: cynthn
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
+ms.subservice: imaging
 ms.date: 04/26/2018
-ms.author: mimckitt
-ms.openlocfilehash: 3965090239949b5e1116ceebe427728e49ffafe4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: akjosh
+ms.custom: akjosh
+ms.openlocfilehash: 5ed9ee79dde73e738417031b928a675ea913179c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81273703"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124912"
 ---
 # <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>Adicionar uma imagem personalizada a um modelo de conjunto de dimensionamento do Azure
 
@@ -24,9 +25,9 @@ Num [artigo anterior,](virtual-machine-scale-sets-mvss-start.md) tínhamos criad
 
 ### <a name="creating-a-managed-disk-image"></a>Criar uma imagem de disco gerida
 
-Se já tem uma imagem de disco gerida `Microsoft.Compute/images`sob medida (um recurso de tipo), então pode saltar esta secção.
+Se já tem uma imagem de disco gerida sob medida (um recurso de `Microsoft.Compute/images` tipo), então pode saltar esta secção.
 
-Em primeiro `sourceImageVhdUri` lugar, adicione um parâmetro, que é o URI à bolha generalizada no Armazenamento Azure que contém a imagem personalizada para implantar.
+Em primeiro lugar, adicione um `sourceImageVhdUri` parâmetro, que é o URI à bolha generalizada no Armazenamento Azure que contém a imagem personalizada para implantar.
 
 
 ```diff
@@ -44,7 +45,7 @@ Em primeiro `sourceImageVhdUri` lugar, adicione um parâmetro, que é o URI à b
    "variables": {},
 ```
 
-Em seguida, adicione `Microsoft.Compute/images`um recurso de tipo , que é a imagem `sourceImageVhdUri`de disco gerida com base na bolha generalizada localizada na URI . Esta imagem deve estar na mesma região que o conjunto de escala que a utiliza. Nas propriedades da imagem, especifique o tipo DE Os, a localização da bolha (a partir do `sourceImageVhdUri` parâmetro) e o tipo de conta de armazenamento:
+Em seguida, adicione um recurso de tipo `Microsoft.Compute/images` , que é a imagem de disco gerida com base na bolha generalizada localizada na URI `sourceImageVhdUri` . Esta imagem deve estar na mesma região que o conjunto de escala que a utiliza. Nas propriedades da imagem, especifique o tipo DE Os, a localização da bolha (a partir do parâmetro) e o tipo de conta de `sourceImageVhdUri` armazenamento:
 
 ```diff
    "resources": [
@@ -71,7 +72,7 @@ Em seguida, adicione `Microsoft.Compute/images`um recurso de tipo , que é a ima
 
 ```
 
-No recurso de conjunto `dependsOn` de escala, adicione uma cláusula que se refere à imagem personalizada para se certificar de que a imagem é criada antes que o conjunto de escala tente ser implantado a partir dessa imagem:
+No recurso de conjunto de escala, adicione uma cláusula que se refere à imagem personalizada para se certificar de que a imagem é criada antes que o conjunto de `dependsOn` escala tente ser implantado a partir dessa imagem:
 
 ```diff
        "location": "[resourceGroup().location]",
@@ -88,7 +89,7 @@ No recurso de conjunto `dependsOn` de escala, adicione uma cláusula que se refe
 
 ### <a name="changing-scale-set-properties-to-use-the-managed-disk-image"></a>Alterar propriedades definidas de escala para usar a imagem de disco gerida
 
-No `imageReference` conjunto `storageProfile`de escala , em vez de especificar a editora, oferecer, sku `id` e `Microsoft.Compute/images` versão de uma imagem de plataforma, especificar o do recurso:
+No `imageReference` conjunto de escala `storageProfile` , em vez de especificar a editora, oferecer, sku e versão de uma imagem de plataforma, especificar o do `id` `Microsoft.Compute/images` recurso:
 
 ```json
          "virtualMachineProfile": {
@@ -100,7 +101,7 @@ No `imageReference` conjunto `storageProfile`de escala , em vez de especificar a
            "osProfile": {
 ```
 
-Neste exemplo, utilize `resourceId` a função para obter o ID de recurso da imagem criada no mesmo modelo. Se criou previamente a imagem gerida do disco, deve fornecer a identificação dessa imagem. Esta identificação deve ser `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`do formulário: .
+Neste exemplo, utilize a `resourceId` função para obter o ID de recurso da imagem criada no mesmo modelo. Se criou previamente a imagem gerida do disco, deve fornecer a identificação dessa imagem. Esta identificação deve ser do formulário: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>` .
 
 
 ## <a name="next-steps"></a>Passos Seguintes

@@ -2,28 +2,29 @@
 title: Saiba sobre modelos de conjunto de escala de máquina virtual
 description: Aprenda a criar um modelo de conjunto de escala básica para conjuntos de escala de máquinas virtuais Azure através de vários passos simples.
 author: mimckitt
-tags: azure-resource-manager
-ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
-ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
-ms.date: 04/26/2019
 ms.author: mimckitt
-ms.openlocfilehash: 9c6a30a5f08b33adfa515973962236516f34fbf3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: template
+ms.date: 04/26/2019
+ms.reviewer: jushiman
+ms.custom: mimckitt
+ms.openlocfilehash: af2f000b9f9a7bf64898c46b3126cf180802b445
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81273397"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198129"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Saiba sobre modelos de conjunto de escala de máquina virtual
 Os [modelos do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview#template-deployment-process) são uma ótima maneira de implementar grupos de recursos relacionados. Esta série tutorial mostra como criar um modelo de conjunto de escala básica e como modificar este modelo para se adequar a vários cenários. Todos os exemplos vêm deste [repositório GitHub.](https://github.com/gatneil/mvss)
 
-Este modelo destina-se a ser simples. Para obter exemplos mais completos de modelos de conjunto de escala, consulte o [repositório Azure Quickstart Templates GitHub](https://github.com/Azure/azure-quickstart-templates) e procure por pastas que contenham a cadeia `vmss`.
+Este modelo destina-se a ser simples. Para obter exemplos mais completos de modelos de conjunto de escala, consulte o [repositório Azure Quickstart Templates GitHub](https://github.com/Azure/azure-quickstart-templates) e procure por pastas que contenham a cadeia `vmss` .
 
 Se já está familiarizado com a criação de modelos, pode saltar para a secção "Próximos passos" para ver como modificar este modelo.
 
 ## <a name="define-schema-and-contentversion"></a>Definir $schema e conteúdoVersão
-Primeiro, `$schema` defina e `contentVersion` no modelo. O `$schema` elemento define a versão da linguagem do modelo e é usado para realçar a sintaxe do Estúdio Visual e funcionalidades de validação semelhantes. O `contentVersion` elemento não é utilizado pelo Azure. Em vez disso, ajuda-o a acompanhar a versão do modelo.
+Primeiro, defina `$schema` e `contentVersion` no modelo. O elemento define a versão da linguagem do modelo e é usado para realçar a `$schema` sintaxe do Estúdio Visual e funcionalidades de validação semelhantes. O `contentVersion` elemento não é utilizado pelo Azure. Em vez disso, ajuda-o a acompanhar a versão do modelo.
 
 ```json
 {
@@ -32,7 +33,7 @@ Primeiro, `$schema` defina e `contentVersion` no modelo. O `$schema` elemento de
 ```
 
 ## <a name="define-parameters"></a>Definir parâmetros
-Em seguida, defina `adminUsername` `adminPassword`dois parâmetros, e . Os parâmetros são valores que especifica no momento da implantação. O `adminUsername` parâmetro é `string` simplesmente um `adminPassword` tipo, mas por `securestring`ser um segredo, dá-lhe tipo. Mais tarde, estes parâmetros são passados para a configuração do conjunto de escala.
+Em seguida, defina dois parâmetros, `adminUsername` e `adminPassword` . Os parâmetros são valores que especifica no momento da implantação. O `adminUsername` parâmetro é simplesmente um `string` tipo, mas por ser um `adminPassword` segredo, dá-lhe `securestring` tipo. Mais tarde, estes parâmetros são passados para a configuração do conjunto de escala.
 
 ```json
   "parameters": {
@@ -52,13 +53,13 @@ Os modelos do Gestor de Recursos também permitem definir variáveis a serem usa
 ```
 
 ## <a name="define-resources"></a>Definir recursos
-Em seguida, a secção de recursos do modelo. Aqui, define o que realmente quer implementar. Ao `parameters` `variables` contrário e (que são `resources` objetos JSON), é uma lista JSON de objetos JSON.
+Em seguida, a secção de recursos do modelo. Aqui, define o que realmente quer implementar. Ao contrário `parameters` e `variables` (que são objetos JSON), `resources` é uma lista JSON de objetos JSON.
 
 ```json
    "resources": [
 ```
 
-Todos os `type` `name`recursos `apiVersion`requerem, e `location` propriedades. O primeiro recurso deste exemplo tem o tipo `myVnet` [Microsoft.Network/virtualNetwork,](/azure/templates/microsoft.network/virtualnetworks)nome e apiVersion `2018-11-01`. (Para encontrar a mais recente versão API para um tipo de recurso, consulte a referência do modelo do Gestor de [Recursos Azure](/azure/templates/).)
+Todos os recursos `type` `name` requerem, e `apiVersion` `location` propriedades. O primeiro recurso deste exemplo tem o tipo [Microsoft.Network/virtualNetwork,](/azure/templates/microsoft.network/virtualnetworks)nome `myVnet` e apiVersion `2018-11-01` . (Para encontrar a mais recente versão API para um tipo de recurso, consulte a referência do modelo do Gestor de [Recursos Azure](/azure/templates/).)
 
 ```json
      {
@@ -68,14 +69,14 @@ Todos os `type` `name`recursos `apiVersion`requerem, e `location` propriedades. 
 ```
 
 ## <a name="specify-location"></a>Especificar a localização
-Para especificar a localização da rede virtual, utilize uma [função](../azure-resource-manager/templates/template-functions.md)de modelo de Gestor de Recursos . Esta função deve ser fechada em aspas `"[<template-function>]"`e suportes quadrados como este: . Neste caso, utilize `resourceGroup` a função. Não tem argumentos e devolve um objeto JSON com metadados sobre o grupo de recursos para o que esta implementação está a ser implementada. O grupo de recursos é definido pelo utilizador no momento da implantação. Este valor é então indexado `.location` neste objeto JSON com para obter a localização do objeto JSON.
+Para especificar a localização da rede virtual, utilize uma [função](../azure-resource-manager/templates/template-functions.md)de modelo de Gestor de Recursos . Esta função deve ser fechada em aspas e suportes quadrados como este: `"[<template-function>]"` . Neste caso, utilize a `resourceGroup` função. Não tem argumentos e devolve um objeto JSON com metadados sobre o grupo de recursos para o que esta implementação está a ser implementada. O grupo de recursos é definido pelo utilizador no momento da implantação. Este valor é então indexado neste objeto JSON com `.location` para obter a localização do objeto JSON.
 
 ```json
        "location": "[resourceGroup().location]",
 ```
 
 ## <a name="specify-virtual-network-properties"></a>Especificar propriedades de rede virtual
-Cada recurso do Gestor `properties` de Recursos tem a sua própria secção para configurações específicas do recurso. Neste caso, especifique que a rede virtual deve `10.0.0.0/16`ter uma sub-rede utilizando a gama de endereços IP privado . Um conjunto de escala está sempre contido numa sub-rede. Não pode abranger subredes.
+Cada recurso do Gestor de Recursos tem a sua própria `properties` secção para configurações específicas do recurso. Neste caso, especifique que a rede virtual deve ter uma sub-rede utilizando a gama de endereços IP privado `10.0.0.0/16` . Um conjunto de escala está sempre contido numa sub-rede. Não pode abranger subredes.
 
 ```json
        "properties": {
@@ -97,9 +98,9 @@ Cada recurso do Gestor `properties` de Recursos tem a sua própria secção para
 ```
 
 ## <a name="add-dependson-list"></a>Adicionar lista depende
-Além das propriedades `type` `name` `apiVersion`necessárias, `location` e propriedades, cada `dependsOn` recurso pode ter uma lista opcional de cordas. Esta lista especifica quais os outros recursos desta implantação devem terminar antes de implantar este recurso.
+Além das propriedades `type` necessárias, `name` e `apiVersion` `location` propriedades, cada recurso pode ter uma lista opcional `dependsOn` de cordas. Esta lista especifica quais os outros recursos desta implantação devem terminar antes de implantar este recurso.
 
-Neste caso, há apenas um elemento na lista, a rede virtual do exemplo anterior. Especifica esta dependência porque o conjunto de escala precisa que a rede exista antes de criar quaisquer VMs. Desta forma, o conjunto de escala pode dar a estes VMs endereços IP privados da gama de endereços IP previamente especificadas nas propriedades da rede. O formato de cada corda na `<type>/<name>`lista depende é . Utilize o `type` `name` mesmo e usado anteriormente na definição de recursos de rede virtual.
+Neste caso, há apenas um elemento na lista, a rede virtual do exemplo anterior. Especifica esta dependência porque o conjunto de escala precisa que a rede exista antes de criar quaisquer VMs. Desta forma, o conjunto de escala pode dar a estes VMs endereços IP privados da gama de endereços IP previamente especificadas nas propriedades da rede. O formato de cada corda na lista depende é `<type>/<name>` . Utilize o mesmo `type` e usado anteriormente na definição de recursos de `name` rede virtual.
 
 ```json
      {
@@ -124,7 +125,7 @@ O conjunto de escala precisa de saber qual o tamanho do VM para criar ("nome sku
 ```
 
 ### <a name="choose-type-of-updates"></a>Escolha o tipo de atualizações
-O conjunto de escala também precisa de saber como lidar com as atualizações no conjunto de escala. Atualmente, existem três `Manual` `Rolling` opções, e. `Automatic` Para obter mais informações sobre as diferenças entre os dois, consulte a documentação sobre como atualizar um conjunto de [escalas](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
+O conjunto de escala também precisa de saber como lidar com as atualizações no conjunto de escala. Atualmente, existem três `Manual` opções, `Rolling` `Automatic` e. Para obter mais informações sobre as diferenças entre os dois, consulte a documentação sobre como atualizar um conjunto de [escalas](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
 
 ```json
        "properties": {
@@ -149,9 +150,9 @@ O conjunto de escala precisa de saber que sistema operativo colocar nos VMs. Aqu
 ```
 
 ### <a name="specify-computernameprefix"></a>Especificar computerNamePrefix
-O conjunto de escala implanta vários VMs. Em vez de especificar cada `computerNamePrefix`nome VM, especifique . O conjunto de escala afixa um índice ao prefixo para cada VM, pelo que os nomes vm têm o formulário `<computerNamePrefix>_<auto-generated-index>`.
+O conjunto de escala implanta vários VMs. Em vez de especificar cada nome VM, especifique `computerNamePrefix` . O conjunto de escala afixa um índice ao prefixo para cada VM, pelo que os nomes vm têm o formulário `<computerNamePrefix>_<auto-generated-index>` .
 
-No seguinte corte, utilize os parâmetros de antes para definir o nome de utilizador e a palavra-passe do administrador para todos os VMs no conjunto de escala. Este processo `parameters` utiliza a função do modelo. Esta função leva numa cadeia que especifica a que parâmetro se referir e produz o valor para esse parâmetro.
+No seguinte corte, utilize os parâmetros de antes para definir o nome de utilizador e a palavra-passe do administrador para todos os VMs no conjunto de escala. Este processo utiliza a função do `parameters` modelo. Esta função leva numa cadeia que especifica a que parâmetro se referir e produz o valor para esse parâmetro.
 
 ```json
            "osProfile": {
@@ -164,9 +165,9 @@ No seguinte corte, utilize os parâmetros de antes para definir o nome de utiliz
 ### <a name="specify-vm-network-configuration"></a>Especificar a configuração da rede VM
 Por fim, especifique a configuração da rede para os VMs no conjunto de escala. Neste caso, basta especificar a identificação da subnet criada anteriormente. Isto indica a escala definida para colocar as interfaces de rede nesta sub-rede.
 
-Pode obter a identificação da rede virtual que `resourceId` contém a sub-rede utilizando a função do modelo. Esta função tem o tipo e o nome de um recurso e devolve o identificador totalmente qualificado desse recurso. Este ID tem o formulário:`/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/<resourceProviderNamespace>/<resourceType>/<resourceName>`
+Pode obter a identificação da rede virtual que contém a sub-rede utilizando a `resourceId` função do modelo. Esta função tem o tipo e o nome de um recurso e devolve o identificador totalmente qualificado desse recurso. Este ID tem o formulário:`/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/<resourceProviderNamespace>/<resourceType>/<resourceName>`
 
-No entanto, o identificador da rede virtual não é suficiente. Forneça a sub-rede específica em que os VMs definidos em escala devem estar. Para isso, concatena `/subnets/mySubnet` à identificação da rede virtual. O resultado é a identificação totalmente qualificada da sub-rede. Faça esta concatenação `concat` com a função, que leva uma série de cordas e devolve a sua concatenação.
+No entanto, o identificador da rede virtual não é suficiente. Forneça a sub-rede específica em que os VMs definidos em escala devem estar. Para isso, concatena `/subnets/mySubnet` à identificação da rede virtual. O resultado é a identificação totalmente qualificada da sub-rede. Faça esta concatenação com a `concat` função, que leva uma série de cordas e devolve a sua concatenação.
 
 ```json
            "networkProfile": {

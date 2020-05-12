@@ -1,19 +1,20 @@
 ---
 title: Referência a uma rede virtual existente em um modelo de conjunto de escala Azure
 description: Saiba como adicionar uma rede virtual a um modelo de conjunto de escala de máquina virtual Azure existente
-author: mimckitt
-tags: azure-resource-manager
-ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
+ms.subservice: networking
 ms.date: 04/26/2019
-ms.author: mimckitt
-ms.openlocfilehash: 83328a31dad8009c28e146c81b24d6d9244f88a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: fab6e6742fa43e1e38ee661b67896ae4aa11b3ed
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81273669"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124827"
 ---
 # <a name="add-reference-to-an-existing-virtual-network-in-an-azure-scale-set-template"></a>Adicione referência a uma rede virtual existente num modelo de conjunto de escala Azure
 
@@ -23,9 +24,9 @@ Este artigo mostra como modificar o [modelo de conjunto](virtual-machine-scale-s
 
 Num [artigo anterior,](virtual-machine-scale-sets-mvss-start.md) tínhamos criado um modelo básico de conjunto de escala. Vamos agora usar esse modelo anterior e modificá-lo para criar um modelo que implemente uma escala definida numa rede virtual existente. 
 
-Primeiro, adicione `subnetId` um parâmetro. Esta cadeia é passada para a configuração do conjunto de escala, permitindo que o conjunto de escala identifique a sub-rede pré-criada para implantar máquinas virtuais. Esta corda deve ser da forma:`/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>`
+Primeiro, adicione um `subnetId` parâmetro. Esta cadeia é passada para a configuração do conjunto de escala, permitindo que o conjunto de escala identifique a sub-rede pré-criada para implantar máquinas virtuais. Esta corda deve ser da forma:`/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>`
 
-Por exemplo, para implantar a escala definida numa `myvnet`rede `mysubnet`virtual existente `myrg`com `00000000-0000-0000-0000-000000000000`nome, subnet, grupo `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet`de recursos, e subscrição, o subnetId seria: .
+Por exemplo, para implantar a escala definida numa rede virtual existente com `myvnet` nome, `mysubnet` subnet, grupo de `myrg` recursos, e `00000000-0000-0000-0000-000000000000` subscrição, o subnetId seria: `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet` .
 
 ```diff
      },
@@ -38,7 +39,7 @@ Por exemplo, para implantar a escala definida numa `myvnet`rede `mysubnet`virtua
    },
 ```
 
-Em seguida, elimine o `resources` recurso de rede virtual da matriz, uma vez que utiliza uma rede virtual existente e não precisa de implementar uma nova.
+Em seguida, elimine o recurso de rede virtual da `resources` matriz, uma vez que utiliza uma rede virtual existente e não precisa de implementar uma nova.
 
 ```diff
    "variables": {},
@@ -82,7 +83,7 @@ A rede virtual já existe antes de o modelo ser implementado, pelo que não há 
          "capacity": 2
 ```
 
-Por fim, `subnetId` passe no parâmetro definido pelo `resourceId` utilizador (em vez de utilizar para obter o ID de uma vnet na mesma implementação, que é o que o modelo de conjunto de escala viável básico faz).
+Por fim, passe no `subnetId` parâmetro definido pelo utilizador (em vez de utilizar para obter o ID de uma `resourceId` vnet na mesma implementação, que é o que o modelo de conjunto de escala viável básico faz).
 
 ```diff
                        "name": "myIpConfig",

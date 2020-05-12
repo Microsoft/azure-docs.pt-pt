@@ -3,19 +3,19 @@ title: Problemas com imagens partilhadas em Azure
 description: Aprenda a resolver problemas com galerias de imagem partilhadas em conjuntos de escala de máquinas virtuais Azure.
 documentationcenter: virtual-machine-scale-sets
 author: axayjo
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
-ms.workload: infrastructure
-ms.date: 04/25/2019
 ms.author: akjosh
+ms.topic: troubleshooting
+ms.service: virtual-machine-scale-sets
+ms.subservice: imaging
+ms.date: 04/25/2019
 ms.reviewer: cynthn
-ms.openlocfilehash: 86ad6a6e5ec8f4eef045c270b5f0704d48d8a6ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: akjosh
+ms.openlocfilehash: 47dd50848a4a2f811103e655880c0b00e1ed1452
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76276240"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125035"
 ---
 # <a name="troubleshoot-shared-image-galleries"></a>Galerias de imagem partilhadas de troubleshoot
 

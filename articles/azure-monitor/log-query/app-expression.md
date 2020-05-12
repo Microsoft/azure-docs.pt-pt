@@ -5,19 +5,20 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/25/2019
-ms.openlocfilehash: 5502df1cd119c0f63c65945d73431a17282ebc0c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/09/2019
+ms.openlocfilehash: 5d31c829487400f8eb239c0b837e53eecafeb900
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77670264"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201110"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>app() expressão na consulta do Monitor Azure
 
-A `app` expressão é usada numa consulta do Azure Monitor para recuperar dados de uma aplicação específica do Application Insights no mesmo grupo de recursos, outro grupo de recursos ou outra subscrição. Isto é útil para incluir dados de aplicação numa consulta de registo do Monitor Azure e para consultar dados em várias aplicações numa consulta de Insights de Aplicação.
+A expressão é usada numa consulta do Azure Monitor para recuperar dados de uma aplicação específica do Application Insights no mesmo grupo de recursos, outro grupo de `app` recursos ou outra subscrição. Isto é útil para incluir dados de aplicação numa consulta de registo do Monitor Azure e para consultar dados em várias aplicações numa consulta de Insights de Aplicação.
 
-
+> [!IMPORTANT]
+> A expressão da aplicação() não é utilizada se estiver a utilizar um recurso de [Insights de aplicação baseado no espaço de trabalho,](../app/create-workspace-resource.md) uma vez que os dados de registo são armazenados num espaço de trabalho do Log Analytics. Utilize a expressão de registo para escrever uma consulta que inclua aplicação em vários espaços de trabalho. Para várias aplicações no mesmo espaço de trabalho, não precisa de uma consulta de espaço de trabalho transversal.
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -30,7 +31,7 @@ A `app` expressão é usada numa consulta do Azure Monitor para recuperar dados 
 
 | Identificador | Descrição | Exemplo
 |:---|:---|:---|
-| Nome do Recurso | Nome legível humano da app (aka "nome componente") | app ("fabrikamapp") |
+| Nome do Recurso | Nome legível humano da app (Também conhecido como "nome componente") | app ("fabrikamapp") |
 | Nome Qualificado | Nome completo da aplicação no formulário: "subscriçãoName/resourceGroup/componentName" | app ('AI-Protótipo/Fabrikam/fabrikamapp') |
 | ID | GUIA da app | app ("988ba129-363e-4415-8fe7-8cbab5447518") |
 | ID de recursos azure | Identificador para o recurso Azure |app ("/subscrições/7293b69-db12-44fc-9a66-9c2005c3051d/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp") |

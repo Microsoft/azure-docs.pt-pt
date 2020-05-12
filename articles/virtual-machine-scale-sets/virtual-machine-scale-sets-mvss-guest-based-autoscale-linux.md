@@ -1,18 +1,20 @@
 ---
 title: Use a escala automática Azure com métricas de hóspedes num modelo de conjunto de escala Linux
 description: Aprenda a escalar automaticamente usando métricas de hóspedes num modelo de conjunto de escala de máquina virtual Linux
-author: mimckitt
-tags: azure-resource-manager
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
+ms.subservice: autoscale
 ms.date: 04/26/2019
-ms.author: mimckitt
-ms.openlocfilehash: 8021b7b8feb6dc06fb2e48bc4e825200a1baad33
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: avverma
+ms.custom: avverma
+ms.openlocfilehash: aa004cc3ad6c02937ae3c3c8bdb1d5ebd225f434
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81273652"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124810"
 ---
 # <a name="autoscale-using-guest-metrics-in-a-linux-scale-set-template"></a>Escala automática usando métricas de hóspedes em um modelo de conjunto de escala Linux
 
@@ -24,7 +26,7 @@ As métricas do hospedeiro não requerem configuração adicional porque são re
 
 Num [artigo anterior,](virtual-machine-scale-sets-mvss-start.md) tínhamos criado um modelo básico de conjunto de escala. Vamos agora usar esse modelo anterior e modificá-lo para criar um modelo que implementa um conjunto de escala Linux com escala automática baseada em métrica seletiva.
 
-Primeiro, adicione parâmetros para `storageAccountName` e `storageAccountSasToken`. O agente de diagnóstico armazena dados métricos numa [tabela](../cosmos-db/table-storage-how-to-use-dotnet.md) nesta conta de armazenamento. A partir da versão 3.0 do Agente de Diagnósticos Linux, a utilização de uma chave de acesso ao armazenamento já não é suportada. Em vez disso, use um [Token SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Primeiro, adicione parâmetros para `storageAccountName` e `storageAccountSasToken` . O agente de diagnóstico armazena dados métricos numa [tabela](../cosmos-db/table-storage-how-to-use-dotnet.md) nesta conta de armazenamento. A partir da versão 3.0 do Agente de Diagnósticos Linux, a utilização de uma chave de acesso ao armazenamento já não é suportada. Em vez disso, use um [Token SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 ```diff
      },
@@ -103,7 +105,7 @@ Em seguida, modifique a balança definida `extensionProfile` para incluir a exte
        }
 ```
 
-Finalmente, adicione `autoscaleSettings` um recurso para configurar a escala automática com base nestas métricas. Este recurso `dependsOn` tem uma cláusula que faz referência à escala definida para garantir que o conjunto de escala existe antes de tentar autodimensioná-lo automaticamente. Se escolher uma métrica diferente para escalar automaticamente, utilizará a `counterSpecifier` configuração da extensão de diagnóstico como a `metricName` configuração de escala automática. Para obter mais informações sobre a configuração da escala automática, consulte as [melhores práticas](../azure-monitor/platform/autoscale-best-practices.md) de escala automática e a documentação de referência da [API do Monitor Azure.](/rest/api/monitor/autoscalesettings)
+Finalmente, adicione um `autoscaleSettings` recurso para configurar a escala automática com base nestas métricas. Este recurso tem uma cláusula que faz referência à escala definida para garantir que o conjunto de escala existe antes de `dependsOn` tentar autodimensioná-lo automaticamente. Se escolher uma métrica diferente para escalar automaticamente, utilizará a `counterSpecifier` configuração da extensão de diagnóstico como a `metricName` configuração de escala automática. Para obter mais informações sobre a configuração da escala automática, consulte as [melhores práticas](../azure-monitor/platform/autoscale-best-practices.md) de escala automática e a documentação de referência da [API do Monitor Azure.](/rest/api/monitor/autoscalesettings)
 
 ```diff
 +    },

@@ -1,18 +1,20 @@
 ---
 title: Saiba mais sobre modos de orquestração para conjuntos de escala de máquinas virtuais em Azure
 description: Saiba mais sobre os modos de orquestração para conjuntos de escala de máquinas virtuais em Azure.
-author: shandilvarun
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
+author: mimckitt
+ms.author: mimckitt
 ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: management
 ms.date: 10/23/2019
-ms.author: vashan
-ms.openlocfilehash: 4a0be30f181921461ad0bacea6f18ce439d22353
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: jushiman
+ms.custom: mimckitt
+ms.openlocfilehash: cbe080b4c2b6e73ae15fd186589bd43535bfc13d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76279052"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198393"
 ---
 # <a name="orchestration-mode-preview"></a>Modo de orquestração (pré-visualização)
 
@@ -39,7 +41,7 @@ Os conjuntos de escala de máquinavirtual suportam 2 modos de orquestração dis
 
 |                             | "OrchestrationMode": "VM" (VirtualMachine) | "modo de orquestração": "ScaleSetVM" (VirtualMachineScaleSetVM) |
 |-----------------------------|--------------------------------------------|--------------------------------------------------------------|
-| Modelo de configuração VM      | Nenhuma                                       | Necessário |
+| Modelo de configuração VM      | Nenhum                                       | Necessário |
 | Adicionar novo VM ao conjunto de escala  | Os VMs são explicitamente adicionados à escala definida quando o VM é criado. | Os VMs são implicitamente criados e adicionados à escala definida com base no modelo de configuração VM, contagem de instâncias e regras de autoscalcificação | |
 | Eliminar VM                   | Os VMs têm de ser eliminados individualmente, o conjunto de escala não será eliminado se tiver quaisquer VMs nele. | Os VMs podem ser eliminados individualmente, eliminando o conjunto de escala eliminará todas as instâncias vM.  |
 | VMs anexados/desapegos           | Não suportado                              | Não suportado |

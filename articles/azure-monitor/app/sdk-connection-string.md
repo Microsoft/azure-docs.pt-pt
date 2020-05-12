@@ -6,12 +6,12 @@ author: timothymothra
 ms.author: tilee
 ms.date: 01/17/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 25eda0ae2b0d873fe9850e5b886489a5f2590e69
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92c4ccf7246c4e763cbf92aee3c48398d79e0ecc
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80410618"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125711"
 ---
 # <a name="connection-strings"></a>Cadeias de ligação
 
@@ -25,7 +25,7 @@ Os pares de valor-chave fornecem uma maneira fácil para os utilizadores definir
 > Não recomendamos a definição da tecla de fio de ligação e de instrumentação. No caso de um utilizador definir ambos, o que for definido por último terá precedência. 
 
 
-## <a name="scenario-overview"></a>Descrição geral do cenário 
+## <a name="scenario-overview"></a>Scenario overview (Descrição geral do cenário) 
 
 Cenários do cliente onde visualizamos isto tendo mais impacto:
 
@@ -64,10 +64,10 @@ A cadeia de ligação consiste numa lista de definições representadas como par
 - `EndpointSuffix`(ex: applicationinsights.azure.cn) A definição do sufixo de ponto final instruirá o SDK a que a nuvem Azure se liga. O SDK reunirá o resto do ponto final para serviços individuais.
 - Pontos Finais Explícitos.
   Qualquer serviço pode ser explicitamente ultrapassado na cadeia de ligação.
-   - `IngestionEndpoint`(ex:https://dc.applicationinsights.azure.com)
-   - `LiveEndpoint`(ex:https://live.applicationinsights.azure.com)
-   - `ProfilerEndpoint`(ex:https://profiler.applicationinsights.azure.com)
-   - `SnapshotEndpoint`(ex:https://snapshot.applicationinsights.azure.com)
+   - `IngestionEndpoint`(ex) `https://dc.applicationinsights.azure.com`
+   - `LiveEndpoint`(ex) `https://live.applicationinsights.azure.com`
+   - `ProfilerEndpoint`(ex) `https://profiler.applicationinsights.azure.com`
+   - `SnapshotEndpoint`(ex) `https://snapshot.applicationinsights.azure.com`
 
 #### <a name="endpoint-schema"></a>Esquema de endpoint
 
@@ -106,10 +106,10 @@ Neste exemplo, apenas foi definida a chave de instrumentação.
 - Regime de autorização não passa por "ikey" 
 - Chave de Instrumentação: 00000000-0000-0000-0000-0000-000000000000000000
 - Os URIs de serviço regional baseiam-se nos incumprimentos do [SDK](https://github.com/microsoft/ApplicationInsights-dotnet/blob/e50d569cebf485e72e98f4a08a0bc0e30cdf42bc/BASE/src/Microsoft.ApplicationInsights/Extensibility/Implementation/Endpoints/Constants.cs#L6) e ligar-se-ão ao azure global público:
-   - Ingestão:https://dc.services.visualstudio.com/
-   - Métricas ao vivo:https://rt.services.visualstudio.com/
-   - Perfilador:https://agent.azureserviceprofiler.net/
-   - Debugger:https://agent.azureserviceprofiler.net/  
+   - Ingestão:`https://dc.services.visualstudio.com/`
+   - Métricas ao vivo:`https://rt.services.visualstudio.com/`
+   - Perfilador:`https://agent.azureserviceprofiler.net/`
+   - Debugger:`https://agent.azureserviceprofiler.net/`
 
 
 
@@ -122,10 +122,10 @@ Neste exemplo, esta cadeia de ligação especifica o sufixo de ponto final e o S
 - Regime de autorização não passa por "ikey" 
 - Chave de Instrumentação: 00000000-0000-0000-0000-0000-000000000000000000
 - As URIs de serviço regional baseiam-se no sufixo final fornecido: 
-   - Ingestão:https://dc.ai.contoso.com
-   - Métricas ao vivo:https://live.ai.contoso.com
-   - Perfilador:https://profiler.ai.contoso.com 
-   - Debugger:https://snapshot.ai.contoso.com   
+   - Ingestão:`https://dc.ai.contoso.com`
+   - Métricas ao vivo:`https://live.ai.contoso.com`
+   - Perfilador:`https://profiler.ai.contoso.com`
+   - Debugger:`https://snapshot.ai.contoso.com`  
 
 
 
@@ -138,10 +138,10 @@ Neste exemplo, esta cadeia de ligação especifica sobreposições explícitas p
 - Regime de autorização não passa por "ikey" 
 - Chave de Instrumentação: 00000000-0000-0000-0000-0000-000000000000000000
 - Os URIs de serviço regional baseiam-se nos valores explícitos de sobreposição: 
-   - Ingestão: https:\//custom.com:111/
-   - Métricas ao vivo: https:\//custom.com:222/
-   - Profiler: https:\//custom.com:333/ 
-   - Debugger: https:\//custom.com:444/   
+   - Ingestão:`https://custom.com:111/`
+   - Métricas ao vivo:`https://custom.com:222/`
+   - Perfilador:`https://custom.com:333/`
+   - Debugger:`https://custom.com:444/`  
 
 
 ## <a name="how-to-set-a-connection-string"></a>Como definir uma cadeia de ligação

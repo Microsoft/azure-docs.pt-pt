@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4abae94ded92aca075fcb41a7cd42491e92d41d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2ccaf662488203e346065cfee082018128f37d95
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77591545"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201671"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Prepare a infraestrutura Azure para uma alta disponibilidade do SAP utilizando um cluster de falhas do Windows e partilha de ficheiros para instâncias SAP ASCS/SCS
 
@@ -228,7 +228,7 @@ Antes de iniciar a instalação, reveja o seguinte artigo:
 
 **Quadro 1**: Aglomerado ASCS/SCS
 
-| SAP \<SID> | Número de instância SAP ASCS/SCS |
+| SAP \< SID> | Número de instância SAP ASCS/SCS |
 | --- | --- |
 | PR1 | 00 |
 
@@ -348,7 +348,7 @@ Depois de instalar com sucesso o cluster do Windows Scale-Out File Server, adapt
 
 - SameSubNetDelay = 2000
 - SameSubNetThreshold = 15
-- RoutHistoryLength = 30
+- RouteHistoryLength = 30
 
 Estas configurações foram testadas com os clientes, e oferecem um bom compromisso. São suficientemente resistentes, mas também proporcionam falhas suficientemente rápidas em condições reais de erro ou falha vm.
 

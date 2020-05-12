@@ -3,13 +3,13 @@ title: Utilize a biblioteca De Gestão de Lotes .NET para gerir os recursos da c
 description: Criar, eliminar e modificar os recursos da conta do Lote Azure com a biblioteca Batch Management .NET.
 ms.topic: article
 ms.date: 04/24/2017
-ms.custom: seodec18
-ms.openlocfilehash: 69e3eb04352feff11ee50acab11328adb7900539
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: seodec18, has-adal-ref
+ms.openlocfilehash: 3cb44b89cacd9e597766ca8df3e4826dfabdb2bd
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115997"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201640"
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>Gerir contas e quotas de Lote com a biblioteca de clientes da Batch Management para .NET
 
@@ -34,7 +34,7 @@ Pode reduzir as despesas de manutenção nas suas aplicações do Lote Azure uti
 ## <a name="create-and-delete-batch-accounts"></a>Criar e eliminar contas do Lote
 Como mencionado, uma das principais características da API de Gestão de Lotes é criar e apagar contas de Lote numa região do Azure. Para tal, utilize [o BatchManagementClient.Account.CreateAsync][net_create] e [DeleteAsync,][net_delete]ou os seus homólogos sincronizados.
 
-O seguinte código snippet cria uma conta, obtém a conta recém-criada a partir do serviço Batch e, em seguida, elimina-a. Neste corte e nos outros neste `batchManagementClient` artigo, é uma instância totalmente inicializada de [BatchManagementClient][net_mgmt_client].
+O seguinte código snippet cria uma conta, obtém a conta recém-criada a partir do serviço Batch e, em seguida, elimina-a. Neste corte e nos outros neste artigo, `batchManagementClient` é uma instância totalmente inicializada de [BatchManagementClient][net_mgmt_client].
 
 ```csharp
 // Create a new Batch account
@@ -116,7 +116,7 @@ Console.WriteLine("You can create {0} accounts in the {1} region.", quotaRespons
 No corte acima, `creds` é um exemplo de [TokenCloudCredentials][azure_tokencreds]. Para ver um exemplo de criação deste objeto, consulte a amostra de código [DeGestão][acct_mgmt_sample] de Contas no GitHub.
 
 ### <a name="check-a-batch-account-for-compute-resource-quotas"></a>Verifique uma conta de Lote para quotas de recursos computacionais
-Antes de aumentar os recursos computacionais na sua solução Batch, pode verificar para garantir que os recursos que pretende alocar não excederão as quotas da conta. No código abaixo, imprimimos as informações de quota `mybatchaccount`para a conta Batch chamada . Na sua própria aplicação, poderá utilizar essas informações para determinar se a conta pode lidar com os recursos adicionais a criar.
+Antes de aumentar os recursos computacionais na sua solução Batch, pode verificar para garantir que os recursos que pretende alocar não excederão as quotas da conta. No código abaixo, imprimimos as informações de quota para a conta Batch chamada `mybatchaccount` . Na sua própria aplicação, poderá utilizar essas informações para determinar se a conta pode lidar com os recursos adicionais a criar.
 
 ```csharp
 // First obtain the Batch account

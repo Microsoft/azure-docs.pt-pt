@@ -1,21 +1,21 @@
 ---
-title: Monitor Azure Cosmos DB com Monitor Azure para Cosmos DB (pré-visualização)] Microsoft Docs
+title: Monitor Azure Cosmos DB com Monitor Azure para Cosmos DB Microsoft Docs
 description: Este artigo descreve a funcionalidade Azure Monitor for Cosmos DB que proporciona aos proprietários da Cosmos DB uma compreensão rápida dos problemas de desempenho e utilização com as suas contas CosmosDB.
 ms.subservice: ''
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 10/27/2019
-ms.openlocfilehash: 9a900a2f2e950fe9b9846ebcc047d7c344284948
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/11/2020
+ms.openlocfilehash: 68b1b8c92b5119da400b0ada0fe792c855dd1f33
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78250681"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195404"
 ---
-# <a name="explore-azure-monitor-for-azure-cosmos-db-preview"></a>Explore o Monitor Azure para O Azure Cosmos DB (pré-visualização)
+# <a name="explore-azure-monitor-for-azure-cosmos-db"></a>Explore o Monitor Azure para o Azure Cosmos DB
 
-O Azure Monitor para o Azure Cosmos DB (pré-visualização) proporciona uma visão do desempenho global, falhas, capacidade e saúde operacional de todos os seus recursos Azure Cosmos DB numa experiência interativa unificada. Este artigo irá ajudá-lo a entender os benefícios desta nova experiência de monitorização, e como pode modificar e adaptar a experiência de acordo com as necessidades únicas da sua organização.   
+O Azure Monitor para o Azure Cosmos DB proporciona uma visão do desempenho global, falhas, capacidade e saúde operacional de todos os seus recursos Azure Cosmos DB numa experiência interativa unificada. Este artigo irá ajudá-lo a entender os benefícios desta nova experiência de monitorização, e como pode modificar e adaptar a experiência de acordo com as necessidades únicas da sua organização.   
 
 ## <a name="introduction"></a>Introdução
 
@@ -44,7 +44,7 @@ Para ver a utilização e desempenho das suas contas de armazenamento em todas a
 
     ![Caixa de pesquisa com a palavra "Monitor" e uma queda que diz Serviços "Monitor" com uma imagem de estilo velocímetro](./media/cosmosdb-insights-overview/search-monitor.png)
 
-3. Selecione **Cosmos DB (pré-visualização)**.
+3. Selecione **Cosmos DB**.
 
     ![Screenshot do livro de visão geral cosmos DB](./media/cosmosdb-insights-overview/cosmos-db.png)
 
@@ -92,7 +92,7 @@ Tal como acontece com o livro de visão geral, a seleção da queda ao lado de u
 
 Selecione **Operações** no topo da página e abre a parte de **Operações** do modelo do livro. Dá-lhe a capacidade de ver os seus pedidos desfeitos pelo tipo de pedidos feitos. 
 
-Assim, no exemplo abaixo `eastus-billingint` vê-se que está predominantemente a receber pedidos de leitura, mas com um pequeno número de upsert e criar pedidos. Enquanto `westeurope-billingint` que a leitura é apenas do ponto de vista do pedido, pelo menos nas últimas quatro horas o livro é atualmente alargado através do seu parâmetro de intervalo de tempo.
+Assim, no exemplo abaixo vê-se que `eastus-billingint` está predominantemente a receber pedidos de leitura, mas com um pequeno número de upsert e criar pedidos. Enquanto que `westeurope-billingint` a leitura é apenas do ponto de vista do pedido, pelo menos nas últimas quatro horas o livro é atualmente alargado através do seu parâmetro de intervalo de tempo.
 
 ![Livro de operações](./media/cosmosdb-insights-overview/operation.png) 
 
@@ -110,9 +110,9 @@ Para expandir ou colapsar todas as vistas de drop-down no livro, selecione o íc
 
 ![Expandir ícone de livro](./media/cosmosdb-insights-overview/expand.png)
 
-## <a name="customize-azure-monitor-for-azure-cosmos-db-preview"></a>Personalize o Monitor Azure para O Azure Cosmos DB (pré-visualização)
+## <a name="customize-azure-monitor-for-azure-cosmos-db"></a>Personalize o Monitor Azure para o Azure Cosmos DB
 
-Uma vez que esta experiência é construída em cima dos modelos de livro do Azure Monitor, você tem a capacidade de **personalizar** > **editar** e **guardar** uma cópia da sua versão modificada em um livro personalizado. 
+Uma vez que esta experiência é construída em cima dos modelos de livro do Azure Monitor, você tem a capacidade de **personalizar**  >  **editar** e **guardar** uma cópia da sua versão modificada em um livro personalizado. 
 
 ![Personalizar bar](./media/cosmosdb-insights-overview/customize.png)
 
