@@ -39,8 +39,6 @@
               href: sql-api-java-get-started.md
             - name: Java assíncrono
               href: sql-api-async-java-get-started.md
-            - name: Exemplo de Java assíncrono com feed de alterações
-              href: create-sql-api-java-changefeed.md
             - name: Node.js
               href: sql-api-nodejs-get-started.md
         - name: Criar uma aplicação Web
@@ -168,15 +166,15 @@
             - name: LIMITE DE DESLOCAMENTO
               displayName: offset limit
               href: sql-query-offset-limit.md
+        - name: Trabalhar com JSON
+          displayName: 'alias, JSON, projection'
+          href: sql-query-working-with-json.md
         - name: Subconsulta
           displayName: 'subquery, exists'
           href: sql-query-subquery.md
         - name: Associações
           displayName: join
           href: sql-query-join.md
-        - name: Aliasing
-          displayName: 'alias, aliasing'
-          href: sql-query-aliasing.md
         - name: Matrizes e objetos
           displayName: 'object and array creation, object and array'
           href: sql-query-object-array.md
@@ -494,6 +492,8 @@
         - name: Acionar Funções do Azure
           displayName: change feed
           href: change-feed-functions.md
+        - name: Modelo Pull do feed de alterações
+          href: change-feed-pull-model.md
     - name: Análise distribuída globalmente e IA
       items:
         - name: Casos de utilização de análise
@@ -665,6 +665,8 @@
               href: create-mongodb-xamarin.md
             - name: Golang
               href: create-mongodb-golang.md
+            - name: Ir
+              href: create-mongodb-go.md
         - name: Tutoriais
           items:
             - name: 1 - Criar e gerir dados
@@ -996,6 +998,10 @@
               href: troubleshoot-java-async-sdk.md
         - name: Resolver problemas do .NET SDK
           href: troubleshoot-dot-net-sdk.md
+    - name: Migrar para SDKs mais recentes
+      items:
+        - name: Migrar para o SDK Java V4
+          href: migrate-java-v4-sdk.md
     - name: Feed de Alterações
       items:
         - name: Registos de acionador do Azure Cosmos DB
@@ -1012,6 +1018,8 @@
           href: how-to-use-change-feed-estimator.md
         - name: Migrar da biblioteca do processador do feed de alterações
           href: how-to-migrate-from-change-feed-library.md
+        - name: Criar uma aplicação SQL em Java com o Feed de Alterações
+          href: create-sql-api-java-changefeed.md
     - name: Análise incorporada com o Apache Spark
       items:
         - name: Conector do Spark para o Azure Databricks

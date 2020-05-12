@@ -7,15 +7,15 @@ metadata:
   ms.service: marketplace
   ms.subservice: partnercenter-marketplace-publisher
   ms.topic: landing-page
-  author: MaggiePucciEvans
-  ms.author: evansma
+  author: marleva
+  ms.author: maevan
   ms.date: 04/02/2020
-  ms.openlocfilehash: 26e42d557449706b640115732fb695842f106dff
-  ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+  ms.openlocfilehash: 330dd34e19189dbcd641549f1cd42bf5c5cbaacb
+  ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 05/04/2020
-  ms.locfileid: "82778435"
+  ms.lasthandoff: 05/08/2020
+  ms.locfileid: "82983895"
 landingContent:
 - title: Trabalhar no marketplace comercial
   linkLists:
@@ -35,8 +35,8 @@ landingContent:
   linkLists:
   - linkListType: overview
     links:
-    - text: Guia de publicação de ofertas de aplicações SaaS
-      url: ./marketplace-saas-applications-technical-publishing-guide.md
+    - text: Criar uma nova oferta SaaS
+      url: ./partner-center-portal/create-new-saas-offer.md
     - text: Melhores práticas de marketing
       url: ./gtm-marketing-best-practices.md
     - text: Fornecedores de soluções cloud
