@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 01/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ca59305b22fcf1e81ef518612910731cb6edea5d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4db072cf881c936db6721845e7823082388515b0
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77617095"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117126"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Como instalar e configurar o SAP HANA (Grandes Instâncias) no Azure
 
@@ -35,7 +35,7 @@ Valide o seguinte antes de iniciar a instalação HANA:
 - [Unidade(s) HLI(s)](#validate-the-hana-large-instance-units)
 - [Configuração do sistema operativo](#operating-system)
 - [Configuração da rede](#networking)
-- [Configuração do armazenamento](#storage)
+- [Configuração de armazenamento](#storage)
 
 
 ## <a name="validate-the-hana-large-instance-units"></a>Validar as unidades de grandes instâncias HANA
@@ -90,7 +90,7 @@ Consulte a [biblioteca de recursos/documentos brancos](https://www.suse.com/prod
 Segue-se um SAP adicional e útil em ligações relacionadas com o SUSE:
 
 - [SAP HANA no site SUSE Linux](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+SUSE)
-- [Boas práticas para SAP: Replicação em fila – SAP NetWeaver na SUSE Linux Enterprise 12](https://www.suse.com/docrepcontent/container.jsp?containerId=9113)
+- [Boas práticas para SAP: Replicação em fila – SAP NetWeaver na SUSE Linux Enterprise 12](https://www.suse.com/media/guide/SLES4SAP-NetWeaver-ha-guide-EnqRepl-12_color_en.pdf)
 - [ClamSAP – Proteção contra vírus SLES para SAP](https://scn.sap.com/community/linux/blog/2014/04/14/clamsap--suse-linux-enterprise-server-integrates-virus-protection-for-sap) (incluindo SLES 12 para aplicações SAP)
 
 Seguem-se as notas de suporte SAP aplicáveis à implementação do SAP HANA no SLES 12:
@@ -117,7 +117,7 @@ Seguem-se as notas de suporte SAP aplicáveis à implementação do SAP HANA na 
 
 ### <a name="time-synchronization"></a>Sincronização de hora
 
-As aplicações SAP que são construídas sobre a arquitetura SAP NetWeaver são sensíveis às diferenças de tempo para os vários componentes que compõem o sistema SAP. As lixeiras curtas SAP ABAP\_com\_\_o título de erro de ZDATE LARGE TIME DIFF são provavelmente familiares. Isso porque estas pequenas lixeiras aparecem quando o tempo do sistema de diferentes servidores ou VMs está a afastar-se demasiado.
+As aplicações SAP que são construídas sobre a arquitetura SAP NetWeaver são sensíveis às diferenças de tempo para os vários componentes que compõem o sistema SAP. As lixeiras curtas SAP ABAP com o título de erro de ZDATE \_ LARGE TIME DIFF são \_ \_ provavelmente familiares. Isso porque estas pequenas lixeiras aparecem quando o tempo do sistema de diferentes servidores ou VMs está a afastar-se demasiado.
 
 Para o SAP HANA on Azure (Grandes Instâncias), a sincronização temporal que é feita em Azure não se aplica às unidades computadas nos selos de Grande Instância. Esta sincronização não é aplicável para executar aplicações SAP em VMs azure nativos, porque Azure garante que o tempo de um sistema é corretamente sincronizado. 
 
@@ -136,7 +136,7 @@ Para obter mais informações sobre os detalhes da Ethernet para a sua arquitetu
 
 ## <a name="storage"></a>Armazenamento
 
-O layout de armazenamento para SAP HANA on Azure (Grandes Instâncias) `service management` é configurado pela SAP HANA on Azure através de diretrizes recomendadas pela SAP. Estas diretrizes estão documentadas no livro branco de [armazenamento SAP HANA.](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) 
+O layout de armazenamento para SAP HANA on Azure (Grandes Instâncias) é configurado pela SAP HANA on Azure através de `service management` diretrizes recomendadas pela SAP. Estas diretrizes estão documentadas no livro branco de [armazenamento SAP HANA.](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) 
 
 Os tamanhos ásperos dos diferentes volumes com as diferentes SKUs de grandes instâncias HANA estão documentados na [visão geral e arquitetura sap HANA (Grandes Instâncias) em Azure.](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -144,8 +144,8 @@ As convenções de nomeação dos volumes de armazenagem estão enumeradas no qu
 
 | Utilização de armazenamento | Nome do monte | Nome de volume | 
 | --- | --- | ---|
-| Dados hana | /hana/data/SID/mnt0000\<m> | IP de armazenamento:/hana_data_SID_mnt00001_tenant_vol |
-| Diário hana | /hana/log/SID/mnt0000\<m> | IP de armazenamento:/hana_log_SID_mnt00001_tenant_vol |
+| Dados hana | /hana/data/SID/mnt0000 \< m> | IP de armazenamento:/hana_data_SID_mnt00001_tenant_vol |
+| Diário hana | /hana/log/SID/mnt0000 \< m> | IP de armazenamento:/hana_log_SID_mnt00001_tenant_vol |
 | Backup de log HANA | /hana/log/backups | IP de armazenamento:/hana_log_backups_SID_mnt00001_tenant_vol |
 | HANA compartilhado | /hana/shared/SID | IP de armazenamento:/hana_shared_SID_mnt00001_tenant_vol/partilhado |
 | usr/seiva | /usr/sap/SID | IP de armazenamento:/hana_shared_SID_mnt00001_tenant_vol/usr_sap |
@@ -164,7 +164,7 @@ O volume HANA/log/backup não deve ser o volume para cópias de dados. É dimens
 
 Além do armazenamento que é fornecido, pode adquirir capacidade de armazenamento adicional em incrementos de 1-TB. Este armazenamento adicional pode ser adicionado como novos volumes a uma grande instância HANA.
 
-Durante o embarque com o SAP HANA no Azure, `service management`o cliente especifica um ID de utilizador (UID) e id de grupo (GID) para o utilizador sidadm e grupo sapsys (por exemplo: 1000.500). Durante a instalação do sistema SAP HANA, deve utilizar os mesmos valores. Como pretende implementar várias instâncias HANA numa unidade, obtém vários conjuntos de volumes (um conjunto para cada instância). Como resultado, no momento de implantação é necessário definir:
+Durante o embarque com o SAP HANA no `service management` Azure, o cliente especifica um ID de utilizador (UID) e id de grupo (GID) para o utilizador sidadm e grupo sapsys (por exemplo: 1000.500). Durante a instalação do sistema SAP HANA, deve utilizar os mesmos valores. Como pretende implementar várias instâncias HANA numa unidade, obtém vários conjuntos de volumes (um conjunto para cada instância). Como resultado, no momento de implantação é necessário definir:
 
 - O SID das diferentes instâncias HANA (sidadm é derivado dele).
 - Os tamanhos de memória dos diferentes casos hana. O tamanho da memória por exemplo define o tamanho dos volumes em cada conjunto de volume individual.

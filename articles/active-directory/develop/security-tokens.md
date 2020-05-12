@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/06/2020
+ms.date: 05/11/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 1161575104efe8cfc797f84c109a12116f723cad
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: def198a15710d0aff4a943300eedc338a7772e46
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82926583"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115800"
 ---
 # <a name="security-tokens"></a>Fichas de segurança
 
@@ -31,7 +31,7 @@ Os tokens de acesso são válidos apenas por um curto período de tempo, pelo qu
 **As fichas de identificação** são enviadas para a aplicação do cliente como parte de um fluxo [OpenID Connect.](v2-protocols-oidc.md) Podem ser enviados juntamente ou em vez de um sinal de acesso, e são utilizados pelo cliente para autenticar o utilizador. Para saber mais sobre como a plataforma de identidade da Microsoft emite fichas de identificação, consulte [fichas de identificação](id-tokens.md).
 
 > [!NOTE]
-> Este artigo discute fichas de segurança para os protocolos OAuth2 e OpenID Connect. Muitas aplicações empresariais usam o SAML para autenticar os utilizadores. Consulte a referência simbólica [Azure AD SAML](reference-saml-tokens.md) para obter informações sobre as afirmações da SAML.
+> Este artigo discute fichas de segurança usadas pelos protocolos OAuth2 e OpenID Connect. Muitas aplicações empresariais usam o SAML para autenticar os utilizadores. Consulte a referência simbólica [Azure AD SAML](reference-saml-tokens.md) para obter informações sobre as afirmações da SAML.
 
 ## <a name="validating-security-tokens"></a>Validação de fichas de segurança
 
@@ -42,11 +42,11 @@ Os tokens só são válidos por um período limitado de tempo. Normalmente, o ST
 * Um sinal de acesso para aceder à aplicação ou recurso protegido, e
 * Um token refrescante usado para refrescar o token de acesso quando o token de acesso está perto de expirar.
 
-As fichas de acesso são passadas para uma `Authorization` API web como o símbolo do portador no cabeçalho. Uma aplicação pode fornecer um token de atualização para o STS, e se o acesso do utilizador à aplicação não foi revogado, receberá de volta um novo token de acesso e um novo token de atualização. É assim que o cenário de alguém deixar a empresa é tratado. Quando o STS receber o token de atualização, não emitirá outro sinal de acesso válido se o utilizador deixar de ser autorizado.
+As fichas de acesso são passadas para uma API web como o símbolo do portador no `Authorization` cabeçalho. Uma aplicação pode fornecer um token de atualização para o STS, e se o acesso do utilizador à aplicação não foi revogado, receberá de volta um novo token de acesso e um novo token de atualização. É assim que o cenário de alguém deixar a empresa é tratado. Quando o STS receber o token de atualização, não emitirá outro sinal de acesso válido se o utilizador deixar de ser autorizado.
 
 ## <a name="json-web-tokens-jwts-and-claims"></a>JSON Web Tokens (JWTs) e reclamações
 
-A plataforma de identidade da Microsoft implementa tokens de segurança como **JSON Web Tokens (JWTs)** que contêm **reclamações**.
+A plataforma de identidade da Microsoft implementa tokens de segurança como **JSON Web Tokens (JWTs)** que contêm **reclamações**. Uma vez que os JWTs são usados como fichas de segurança, esta forma de autenticação é por vezes chamada **de autenticação JWT**.
 
 Uma [reclamação](developer-glossary.md#claim) fornece afirmações sobre uma entidade, como uma aplicação de cliente ou proprietário de [recursos,](developer-glossary.md#resource-owner)a outra entidade, como um servidor de recursos. Uma reclamação também pode ser referida como uma reclamação JWT ou jSON Web Token.
 
@@ -82,7 +82,7 @@ Dependendo da forma como o seu cliente é construído, pode utilizar um (ou vár
 |[Fluxo em-nome-de](v2-oauth2-on-behalf-of-flow.md) | ficha de acesso| x| x| x| |
 |[Credenciais de cliente](v2-oauth2-client-creds-grant-flow.md) | | | x (apenas app)| | |
 
-Os tokens emitidos através do modo implícito têm uma limitação de `response_mode` comprimento `query` `fragment`devido a ser passado de volta para o navegador através do URL (onde está ou ).  Alguns navegadores têm um limite no tamanho do URL que pode ser colocado na barra do navegador e falhar quando é muito longo.  Assim, estas fichas não `groups` `wids` têm nem reclamam.
+Os tokens emitidos através do modo implícito têm uma limitação de comprimento devido a ser passado de volta para o navegador através do URL (onde `response_mode` está `query` ou `fragment` ).  Alguns navegadores têm um limite no tamanho do URL que pode ser colocado na barra do navegador e falhar quando é muito longo.  Assim, estas fichas não têm `groups` nem `wids` reclamam.
 
 ## <a name="next-steps"></a>Passos seguintes
 

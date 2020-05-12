@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 05/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b2b2bc8dd4e60348553228b8b418df252a8c426a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e023e9c8c4c6f0021eabccad8783c27eba98d0d5
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78186255"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83116531"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Tutorial: Personalize a interface das experiências do utilizador no Diretório Ativo Azure B2C
 
@@ -63,8 +63,8 @@ Embora possa armazenar os seus ficheiros de muitas formas, para este tutorial, g
  O código Azure AD B2C num browser utiliza uma abordagem moderna e padrão para carregar conteúdo personalizado a partir de um URL que especifica num fluxo de utilizador. A partilha de recursos de origem cruzada (CORS) permite que recursos restritos numa página web sejam solicitados a partir de outros domínios.
 
 1. No menu, selecione **CORS**.
-2. Para **origens permitidas,** entre . `https://your-tenant-name.b2clogin.com` Substitua `your-tenant-name` pelo nome do seu inquilino Azure AD B2C. Por exemplo, `https://fabrikam.b2clogin.com`. Precisa usar todas as letras minúsculas ao introduzir o nome do seu inquilino.
-3. Para **métodos permitidos,** selecione `GET`,`PUT`e `OPTIONS`.
+2. Para **origens permitidas,** entre `https://your-tenant-name.b2clogin.com` . Substitua `your-tenant-name` pelo nome do seu inquilino Azure AD B2C. Por exemplo, `https://fabrikam.b2clogin.com`. Precisa usar todas as letras minúsculas ao introduzir o nome do seu inquilino.
+3. Para **métodos permitidos,** selecione `GET` , e `PUT` `OPTIONS` .
 4. Para **cabeçalhos permitidos,** introduza um asterisco (*).
 5. Para **cabeçalhos expostos,** introduza um asterisco (*).
 6. Para **a idade máxima,** insira 200.
@@ -75,9 +75,9 @@ Embora possa armazenar os seus ficheiros de muitas formas, para este tutorial, g
 
 ### <a name="create-the-customization-files"></a>Criar os ficheiros de personalização
 
-Para personalizar o UI da experiência de inscrição, começa por criar um simples ficheiro HTML e CSS. Pode configurar o seu HTML da forma que **div** quiser, mas deve `api`ter um elemento de mergulho com um identificador de . Por exemplo, `<div id="api"></div>`. O Azure AD B2C injeta elementos no `api` recipiente quando a página é apresentada.
+Para personalizar o UI da experiência de inscrição, começa por criar um simples ficheiro HTML e CSS. Pode configurar o seu HTML da forma que quiser, mas deve ter um elemento de **mergulho** com um identificador de `api` . Por exemplo, `<div id="api"></div>`. O Azure AD B2C injeta elementos no `api` recipiente quando a página é apresentada.
 
-1. Numa pasta local, crie o seguinte ficheiro `your-storage-account` e certifique-se de `your-container` que muda para o nome da conta de armazenamento e para o nome do recipiente que criou. Por exemplo, `https://store1.blob.core.windows.net/b2c/style.css`.
+1. Numa pasta local, crie o seguinte ficheiro e certifique-se de que muda `your-storage-account` para o nome da conta de armazenamento e para o nome do recipiente que `your-container` criou. Por exemplo, `https://store1.blob.core.windows.net/b2c/style.css`.
 
     ```html
     <!DOCTYPE html>
@@ -166,4 +166,4 @@ Neste artigo, aprendeu a:
 > * Teste o UI personalizado
 
 > [!div class="nextstepaction"]
-> [Personalização linguística no Diretório Ativo Azure B2C](user-flow-language-customization.md)
+> [Personalize o UI no Diretório Ativo Azure B2C](customize-ui-overview.md)

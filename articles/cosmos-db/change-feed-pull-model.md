@@ -1,19 +1,19 @@
 ---
-title: Alterar modelo de puxar por feed
+title: Modelo Pull do feed de alterações
 description: Saiba como usar o modelo de pull de feed de mudança Azure Cosmos DB para ler o feed de mudança e as diferenças entre o modelo pull e o Processador change feed
 author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 05/10/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 2854e3d92462ced3958afd1cf1e7e99d7e9892f6
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 0e6e243ceb73ca2a1180e59ba6c6b4095ed6069a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82984684"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83116718"
 ---
 # <a name="change-feed-pull-model-in-azure-cosmos-db"></a>Alterar modelo de puxar por feed em Azure Cosmos DB
 
@@ -24,23 +24,23 @@ Com o modelo de pull de feed de mudança, você pode consumir o feed de mudança
 
 ## <a name="consuming-an-entire-containers-changes"></a>Consumir as alterações de um recipiente inteiro
 
-Pode criar `FeedIterator` um para processar o feed de mudança utilizando o modelo pull. Quando inicialmente cria `FeedIterator`um, pode `StartTime` especificar `ChangeFeedRequestOptions`um opcional dentro do . Quando não especificado, será `StartTime` a hora atual.
+Pode criar um para processar o feed de `FeedIterator` mudança utilizando o modelo pull. Quando inicialmente cria `FeedIterator` um, pode especificar um opcional `StartTime` dentro do `ChangeFeedRequestOptions` . Quando não especificado, será `StartTime` a hora atual.
 
-O `FeedIterator` vem em dois sabores. Além dos exemplos abaixo que devolvem objetos de `Stream` entidade, também pode obter a resposta com suporte. Os streams permitem-lhe ler dados sem os desserializar primeiro, poupando nos recursos dos clientes.
+O `FeedIterator` vem em dois sabores. Além dos exemplos abaixo que devolvem objetos de entidade, também pode obter a resposta com `Stream` suporte. Os streams permitem-lhe ler dados sem os desserializar primeiro, poupando nos recursos dos clientes.
 
-Aqui está um exemplo para `FeedIterator` obter um que devolve `User` objetos de entidade, neste caso um objeto:
+Aqui está um exemplo para obter um `FeedIterator` que devolve objetos de entidade, neste caso um `User` objeto:
 
 ```csharp
 FeedIterator<User> iteratorWithPOCOS = container.GetChangeFeedIterator<User>();
 ```
 
-Aqui está um exemplo para `FeedIterator` obter `Stream`um que devolve um:
+Aqui está um exemplo para obter um `FeedIterator` que devolve `Stream` um:
 
 ```csharp
 FeedIterator iteratorWithStreams = container.GetChangeFeedStreamIterator();
 ```
 
-Utilizando `FeedIterator`um , pode facilmente processar a alimentação de mudança de um recipiente inteiro ao seu próprio ritmo. Segue-se um exemplo:
+Utilizando um `FeedIterator` , pode facilmente processar a alimentação de mudança de um recipiente inteiro ao seu próprio ritmo. Segue-se um exemplo:
 
 ```csharp
 FeedIterator<User> iteratorForTheEntireContainer= container.GetChangeFeedIterator(new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
@@ -58,7 +58,7 @@ while (iteratorForTheEntireContainer.HasMoreResults)
 
 ## <a name="consuming-a-partition-keys-changes"></a>Consumir as alterações da chave de partição
 
-Em alguns casos, só pode querer processar as alterações específicas da chave de partição. Você pode `FeedIterator` obter um para uma chave de partição específica e processar as alterações da mesma forma que você pode para um recipiente inteiro:
+Em alguns casos, só pode querer processar as alterações específicas da chave de partição. Você pode obter um `FeedIterator` para uma chave de partição específica e processar as alterações da mesma forma que você pode para um recipiente inteiro:
 
 ```csharp
 FeedIterator<User> iteratorForThePartitionKey = container.GetChangeFeedIterator(new PartitionKey("myPartitionKeyValueToRead"), new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
@@ -76,7 +76,7 @@ while (iteratorForThePartitionKey.HasMoreResults)
 
 ## <a name="using-feedrange-for-parallelization"></a>Utilização do FeedRange para paratetização
 
-No [processador de feed de mudança,](change-feed-processor.md)o trabalho é automaticamente distribuído por vários consumidores. No modelo de puxar por alterações, pode utilizar o `FeedRange` modelo para paralelor o processamento do feed de alteração. A `FeedRange` representa uma gama de valores-chave de divisória.
+No [processador de feed de mudança,](change-feed-processor.md)o trabalho é automaticamente distribuído por vários consumidores. No modelo de puxar por alterações, pode utilizar o modelo `FeedRange` para paralelor o processamento do feed de alteração. A `FeedRange` representa uma gama de valores-chave de divisória.
 
 Aqui está um exemplo que mostra como obter uma lista de gamas para o seu recipiente:
 
@@ -84,14 +84,14 @@ Aqui está um exemplo que mostra como obter uma lista de gamas para o seu recipi
 IReadOnlyList<FeedRange> ranges = await container.GetFeedRangesAsync();
 ```
 
-Quando obtiver a lista de FeedRanges para o `FeedRange` seu recipiente, obtém um por [partição física](partition-data.md#physical-partitions).
+Quando obtiver a lista de FeedRanges para o seu recipiente, obtém um `FeedRange` por [partição física](partition-data.md#physical-partitions).
 
-Utilizando `FeedRange`um, pode então criar um `FeedIterator` para parallelizar o processamento do feed de mudança em várias máquinas ou fios. Ao contrário do exemplo anterior que `FeedIterator` mostrou como obter um `FeedRange` único para todo o recipiente, pode utilizar o para obter vários FeedIterators que podem processar a alimentação de mudança em paralelo.
+Utilizando `FeedRange` um, pode então criar um `FeedIterator` para parallelizar o processamento do feed de mudança em várias máquinas ou fios. Ao contrário do exemplo anterior que mostrou como obter um único `FeedIterator` para todo o recipiente, pode utilizar o `FeedRange` para obter vários FeedIterators que podem processar a alimentação de mudança em paralelo.
 
 No caso de pretender utilizar feedRanges, é necessário ter um processo de orquestração que obtenha FeedRanges e os distribua para essas máquinas. Esta distribuição pode ser:
 
-* Usando `FeedRange.ToJsonString` e distribuindo este valor de cadeia. Os consumidores podem usar este valor com`FeedRange.FromJsonString`
-* Se a distribuição estiver em `FeedRange` processo, passe a referência do objeto.
+* Usando e distribuindo este valor de `FeedRange.ToJsonString` cadeia. Os consumidores podem usar este valor com`FeedRange.FromJsonString`
+* Se a distribuição estiver em processo, passe a referência do `FeedRange` objeto.
 
 Aqui está uma amostra que mostra como ler desde o início do alimento de mudança do recipiente usando duas hipotéticas máquinas separadas que estão lendo em paralelo:
 
@@ -127,7 +127,7 @@ while (iteratorB.HasMoreResults)
 
 ## <a name="saving-continuation-tokens"></a>Fichas de continuação de poupança
 
-Pode salvar a sua `FeedIterator` posição criando um símbolo de continuação. Um símbolo de continuação é um valor de cadeia que mantém o registo das últimas alterações processadas do seu FeedIterator. Isto permite `FeedIterator` que o retomar neste momento mais tarde. O seguinte código será lido através da alimentação de mudança desde a criação do contentor. Depois de não existirem mais alterações, persistirá um sinal de continuação para que o consumo de alimentos para animais possa ser retomado mais tarde.
+Pode salvar a sua posição criando um símbolo de `FeedIterator` continuação. Um símbolo de continuação é um valor de cadeia que mantém o registo das últimas alterações processadas do seu FeedIterator. Isto permite que o `FeedIterator` retomar neste momento mais tarde. O seguinte código será lido através da alimentação de mudança desde a criação do contentor. Depois de não existirem mais alterações, persistirá um sinal de continuação para que o consumo de alimentos para animais possa ser retomado mais tarde.
 
 ```csharp
 FeedIterator<User> iterator = container.GetChangeFeedIterator<User>(ranges[0], new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
@@ -137,9 +137,9 @@ string continuation = null;
 while (iterator.HasMoreResults)
 {
    FeedResponse<User> users = await iterator.ReadNextAsync();
-   continuation = orders.ContinuationToken;
+   continuation = users.ContinuationToken;
 
-   foreach (User user in Users)
+   foreach (User user in users)
     {
         Console.WriteLine($"Detected change for user with id {user.id}");
     }

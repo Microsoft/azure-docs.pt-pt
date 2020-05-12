@@ -1,17 +1,20 @@
 ---
 title: Encriptação de disco azure e escala de máquina virtual Azure define sequenciação de extensão
 description: Este artigo fornece instruções sobre a ativação da encriptação do disco Microsoft Azure para VMs Linux IaaS.
-author: msmbaldwin
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
-ms.author: mbaldwin
+ms.subservice: disks
 ms.date: 10/10/2019
-ms.openlocfilehash: aa638b86b0788b8c274f9dcb3c04c1fc385b4ae1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 1c93359486379ecfc8bf6df1f29978ba369f551a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76279020"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117262"
 ---
 # <a name="use-azure-disk-encryption-with-virtual-machine-scale-set-extension-sequencing"></a>Utilize encriptação de disco azure com sequência de extensão de extensão de conjunto de máquina virtual
 
@@ -26,7 +29,7 @@ Em qualquer dos `provisionAfterExtensions` casos, a propriedade designa qual ext
 
 ## <a name="sample-azure-templates"></a>Modelos de amostra Azure
 
-Se desejar que a Encriptação do Disco Azure `provisionAfterExtensions` seja aplicada após outra extensão, coloque a propriedade no bloco de extensão AzureDiskEncryption. 
+Se desejar que a Encriptação do Disco Azure seja aplicada após outra extensão, coloque a propriedade no bloco de `provisionAfterExtensions` extensão AzureDiskEncryption. 
 
 Aqui está um exemplo usando "CustomScriptExtension", um script Powershell que inicializa e forma um disco Windows, seguido de "AzureDiskEncryption":
 
@@ -84,7 +87,7 @@ Aqui está um exemplo usando "CustomScriptExtension", um script Powershell que i
 }
 ```
 
-Se desejar que a Encriptação do Disco Azure `provisionAfterExtensions` seja aplicada antes de outra extensão, coloque a propriedade no bloco da extensão a seguir.
+Se desejar que a Encriptação do Disco Azure seja aplicada antes de outra extensão, coloque a `provisionAfterExtensions` propriedade no bloco da extensão a seguir.
 
 Aqui está um exemplo usando "AzureDiskEncryption" seguido por "VMDiagnosticsSettings", uma extensão que fornece capacidades de monitorização e diagnóstico num Azure VM baseado no Windows:
 
@@ -157,7 +160,7 @@ Para um modelo mais aprofundado, consulte:
 
 ## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre a sequenciação de extensões: [Fornecimento de extensão de sequência em conjuntos de escala](virtual-machine-scale-sets-extension-sequencing.md)de máquinavirtual .
-- Saiba mais `provisionAfterExtensions` sobre a propriedade: [Microsoft.Compute virtualMachineScaleSets/extensions template reference](/azure/templates/microsoft.compute/2018-10-01/virtualmachinescalesets/extensions).
+- Saiba mais sobre a `provisionAfterExtensions` propriedade: [Microsoft.Compute virtualMachineScaleSets/extensions template reference](/azure/templates/microsoft.compute/2018-10-01/virtualmachinescalesets/extensions).
 - [Encriptação de disco azure para conjuntos de escala de máquina virtual](disk-encryption-overview.md)
 - [Criptografe um conjunto de escala de máquina virtual usando o Azure CLI](disk-encryption-cli.md)
 - [Criptografe um conjunto de escala de máquina virtual usando o Azure PowerShell](disk-encryption-powershell.md)

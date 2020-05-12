@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 28e76a93e309112d965c49f25be232ced789ad66
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 012cdc53099bf156e50fe766b04c3176d415db1c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983198"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117398"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Anfitriões de sessão de escala usando a Automação Azure
 
@@ -23,6 +23,10 @@ ms.locfileid: "82983198"
 Pode reduzir o custo total de implementação do Windows Virtual Desktop, dimensionando as suas máquinas virtuais (VMs). Isto significa desligar e fazer o acordo de sessão de vMs durante as horas de utilização fora do pico, em seguida, ligá-los e realocá-los durante as horas de ponta.
 
 Neste artigo, você vai aprender sobre a ferramenta de escala construída com Azure Automation e Azure Logic Apps que escalará automaticamente as máquinas virtuais de sessão no seu ambiente de ambiente de trabalho virtual Windows. Para aprender a utilizar a ferramenta de dimensionamento, salte para os [Pré-requisitos](#prerequisites).
+
+## <a name="report-issues"></a>Comunicar problemas
+
+Os relatórios de emissão da ferramenta de escala geminação estão atualmente a ser tratados no GitHub em vez do Microsoft Support. Se encontrar algum problema com a ferramenta de escala, pode denunciá-los abrindo um problema GitHub com a menção "4a-WVD-scaling-logicapps" na [página RDS GitHub](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4a-WVD-scaling-logicapps).
 
 ## <a name="how-the-scaling-tool-works"></a>Como funciona a ferramenta de dimensionamento
 
@@ -43,7 +47,7 @@ Durante o tempo de utilização máxima, o trabalho verifica o número atual de 
 
 Durante o tempo de utilização fora do pico, o trabalho determina quais os VMs hospedeiros da sessão devem desligar-se com base no parâmetro *NúmeroDeRDSH mínimo.* O trabalho definirá os VMs hospedeiros da sessão para drenar o modo de drenagem para evitar que novas sessões se liguem aos anfitriões. Se definir o parâmetro *LimitSecondsToForceLogOffUser* para um valor positivo não nulo, o trabalho notificará qualquer pessoa atualmente assinada nos utilizadores para salvar o seu trabalho, aguardar o tempo configurado e, em seguida, forçar os utilizadores a assinar. Uma vez assinadas todas as sessões de utilizador da sessão de vm anfitrião, o trabalho encerrará o VM.
 
-Se definir o parâmetro *LimitSecondsToForceLogOffUser* para zero, o trabalho permitirá a definição de configuração da sessão em políticas específicas do grupo para lidar com a assinatura de sessões de utilizador. Para ver estas políticas de grupo, vá a políticas de **configuração** > de computador**Terminal Server** > **Modelos** > **Administrativos Modelos** > de Terminal de**Serviços** > Windows**Terminal** > Prazo de**sessão**de servidores . Se houver sessões ativas numa vm anfitriã de sessão, o trabalho deixará a vm anfitriã da sessão em funcionamento. Se não houver sessões ativas, o trabalho encerrará a vm anfitriã da sessão.
+Se definir o parâmetro *LimitSecondsToForceLogOffUser* para zero, o trabalho permitirá a definição de configuração da sessão em políticas específicas do grupo para lidar com a assinatura de sessões de utilizador. Para ver estas políticas de grupo, vá a políticas de **configuração**de computador  >  **Policies**  >  **Modelos Administrativos**  >  **Modelos de Terminal de Serviços Windows**Terminal Prazo  >  **Terminal Services**  >  **Terminal Server**  >  **de sessão**de servidores . Se houver sessões ativas numa vm anfitriã de sessão, o trabalho deixará a vm anfitriã da sessão em funcionamento. Se não houver sessões ativas, o trabalho encerrará a vm anfitriã da sessão.
 
 O trabalho funciona periodicamente com base num intervalo de recorrência. Pode alterar este intervalo com base no tamanho do seu ambiente de trabalho virtual do Windows, mas lembre-se que iniciar e desligar máquinas virtuais pode demorar algum tempo, por isso lembre-se de ter em conta o atraso. Recomendamos que o intervalo de recorrência a cada 15 minutos.
 
@@ -258,6 +262,3 @@ Navegue para o livro de execução (o nome predefinido é WVDAutoScaleRunbook) n
 
 ![Uma imagem da janela de saída para a ferramenta de escala.](../media/tool-output.png)
 
-## <a name="report-issues"></a>Comunicar problemas
-
-Se encontrar algum problema com a ferramenta de escala, pode denunciá-los na [página RDS GitHub](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4a-WVD-scaling-logicapps).

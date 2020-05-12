@@ -11,20 +11,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/24/2020
+ms.date: 05/08/2020
 ms.author: spelluru
-ms.openlocfilehash: c611ecdb5a2534f7368e533e3e19e6e3f96de57f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 294a270107033590e340db49b85e8a67acbbb701
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78190454"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83116871"
 ---
 # <a name="use-a-shared-image-gallery-in-azure-lab-services"></a>Use uma galeria de imagens partilhada nos Serviços de Laboratório Azure
-Este artigo mostra como professores/administrador de laboratório podem guardar uma imagem de máquina virtual modelo para que seja reutilizada por outros. Estas imagens são guardadas numa galeria de [imagens partilhada selada](../../virtual-machines/windows/shared-image-galleries.md)em Azure. Como primeiro passo, o administrador do laboratório anexa uma galeria de imagens partilhadas existente à conta do laboratório. Uma vez anexada a galeria de imagens partilhadas, os laboratórios criados na conta de laboratório podem guardar imagens para a galeria de imagens partilhada. Outros professores podem selecionar esta imagem a partir da galeria de imagens partilhadas para criar um modelo para as suas aulas. 
+Este artigo mostra como professores/administrador de laboratório podem guardar uma imagem de máquina virtual modelo para uma galeria de [imagens partilhada](../../virtual-machines/windows/shared-image-galleries.md) para que possa ser usada por outros para criar laboratórios. 
 
-> [!NOTE]
-> Atualmente, a Azure Lab Services apoia a criação de VMs de modelo baseados apenas em imagens **VM generalizadas** (imagens não especializadas) numa galeria de imagens partilhadas. 
+## <a name="scenarios"></a>Cenários
+Aqui estão os dois cenários suportados por esta funcionalidade: 
+
+- Um administrador de uma conta de laboratório anexa uma galeria de imagens partilhada à conta do laboratório, e envia uma imagem para a galeria de imagens partilhada fora do contexto de um laboratório. Então, os criadores de laboratório podem usar essa imagem da galeria de imagens partilhadas para criar laboratórios. 
+- Um administrador de uma conta de laboratório anexa uma galeria de imagens partilhada à conta do laboratório. Um criador de laboratório (instrutor) guarda a imagem personalizada do seu laboratório para a galeria de imagens partilhadas. Em seguida, outros criadores de laboratório podem selecionar esta imagem a partir da galeria de imagens partilhadas para criar um modelo para os seus laboratórios. 
+
+    Quando uma imagem é guardada numa galeria de imagens partilhada, a Azure Lab Services replica a imagem guardada para outras regiões disponíveis na mesma [geografia.](https://azure.microsoft.com/global-infrastructure/geographies/) Garante que a imagem está disponível para laboratórios criados noutras regiões na mesma geografia. Guardar imagens para uma galeria de imagens partilhadas incorre num custo adicional, que inclui o custo para todas as imagens replicadas. Este custo é separado do custo de utilização dos Serviços De Laboratório Azure. Para obter mais informações sobre os preços da Galeria de Imagem Partilhada, consulte [a Galeria de Imagem Partilhada – Faturação]( https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#billing).
+
+    > [!NOTE]
+    > A Azure Lab Services apoia a criação de VMs de modelo baseados em imagens **generalizadas** e **especializadas** numa galeria de imagens partilhadas. 
+
 
 ## <a name="prerequisites"></a>Pré-requisitos
 - Crie uma galeria de imagens partilhada utilizando o [Azure PowerShell](../../virtual-machines/windows/shared-images.md) ou [o Azure CLI](../../virtual-machines/linux/shared-images.md).
@@ -47,7 +56,12 @@ Depois de anexar uma galeria de imagens partilhadas, um administrador de uma con
 
     ![Exportação concluída](../media/how-to-use-shared-image-gallery/exporting-image-completed.png)
 
-Também pode enviar uma imagem para a galeria de imagens partilhada fora do contexto de um laboratório. Para mais informações, consulte a visão geral da galeria de [imagens partilhadas.](../../virtual-machines/windows/shared-images.md) 
+    > [!NOTE]
+    > Depois de guardar a imagem para a galeria de imagens partilhadas, pode usar essa imagem a partir da galeria ao criar outro laboratório. 
+    > 
+    > Também pode enviar uma imagem para a galeria de imagens partilhada fora do contexto de um laboratório. Para mais informações, consulte a visão geral da galeria de [imagens partilhadas.](../../virtual-machines/windows/shared-images.md) 
+
+    
 
 ## <a name="use-an-image-from-the-shared-image-gallery"></a>Use uma imagem da galeria de imagens partilhadas
 Um professor/professor pode escolher uma imagem personalizada disponível na galeria de imagens partilhadas para o modelo durante a criação de um novo laboratório.

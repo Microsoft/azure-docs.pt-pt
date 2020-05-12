@@ -15,12 +15,12 @@ ms.date: 03/02/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 21caec50bf9c20ec60194976b1bfbf16e4815914
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1874a2f2cf96aaa905616bddcc6cb83c60c1d279
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81261045"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115613"
 ---
 # <a name="centralize-application-management-with-azure-ad"></a>Centralizar a gestão de aplicações com a Azure AD
 
@@ -53,7 +53,7 @@ A maioria das aplicações exige que um utilizador seja aprovisionado na aplica�
 
 |Funcionalidade  |Descrição|Recomendação |
 |---------|---------|---------|
-|Provisionamento SCIM|[A SCIM](https://aka.ms/SICMOverview) é uma excelente prática da indústria para automatizar o fornecimento de utilizadores. Qualquer aplicação compatível com o SCIM pode ser integrada com a Azure AD. Criar, atualizar e eliminar automaticamente as contas de utilizador sem ter de manter ficheiros CSV, scripts personalizados ou soluções on-prem.|Confira a crescente lista de aplicações [pré-integradas](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) na galeria de aplicações Azure AD|
+|Provisionamento SCIM|[A SCIM](https://aka.ms/SCIMOverview) é uma excelente prática da indústria para automatizar o fornecimento de utilizadores. Qualquer aplicação compatível com o SCIM pode ser integrada com a Azure AD. Criar, atualizar e eliminar automaticamente as contas de utilizador sem ter de manter ficheiros CSV, scripts personalizados ou soluções on-prem.|Confira a crescente lista de aplicações [pré-integradas](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) na galeria de aplicações Azure AD|
 |Microsoft Graph|Aproveite a respiração e profundidade dos dados que a Azure AD tem para enriquecer a sua aplicação com os dados de que necessita.|Aproveite o gráfico da [Microsoft](https://developer.microsoft.com/graph/) para obter dados de todo o ecossistema da Microsoft. |
 
 

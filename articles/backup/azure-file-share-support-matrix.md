@@ -3,12 +3,12 @@ title: Matriz de suporte para cópia de segurança de partilha de ficheiros Azur
 description: Fornece um resumo das definições de suporte e limitações ao apoiar as ações de ficheiros Azure.
 ms.topic: conceptual
 ms.date: 5/07/2020
-ms.openlocfilehash: 4da17bb591e94a0eaf26f95210a3e841ad17973b
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: HT
+ms.openlocfilehash: 38e8cdba4913a56b4dc6b4398a99db9e9f93be51
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890712"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83116735"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Matriz de suporte para backup de partilha de ficheiros Azure
 
@@ -18,9 +18,11 @@ Pode utilizar o [serviço de backup Azure](https://docs.microsoft.com/azure/back
 
 A cópia de segurança para as ações de ficheiros Azure está disponível no seguinte GEOS:
 
-| Regiões de Ga | Regiões apoiadas (como parte da pré-visualização) mas ainda não ga                                                      |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Austrália Sudeste (ASE), Canadá Central (CNC), West Central US (WCUS), West US 2 (WUS 2), Índia Sul (INS), North Central US (NCUS), Japão Leste (JPE), Brasil Sul (BRS), Sudeste Asiático (SEA)),Suíça West (SZW), UAE Central (UAC), Noruega Leste (NWE), Índia Oeste (INW), Austrália Central (ACL), Korea Central (KRC), Japão West (JPW), África do Sul Norte (SAN), UK West (UKW) , Coreia do Sul (KRS), Alemanha Norte (GN), Noruega Oeste (NWW), África do Sul Oeste (SAW), Suíça Norte (SZN), Alemanha West Central (GWC), UAE North (UAN), France Central (FRC), Índia Central (INC), Canadá Leste (CNE), Leste Asiático (EA), Austrália Leste (AE), Centro dos EUA (CUS), Oeste DOS EUA (WUS)                                                  |  Leste dos EUA (EUS), Leste dos EUA 2 (EUS2), Norte da Europa (NE), Centro-Sul dos EUA (SCUS), Reino Unido Sul (Reino Unido), Europa Ocidental (WE), EUA Gov Arizona (UGA), EUA Gov Texas (UGT), EUA Gov Virginia (UGV)           |
+**Regiões de AG:**<br>
+Austrália Sudeste (ASE), Canadá Central (CNC), West Central US (WCUS), West US 2 (WUS 2), Índia Sul (INS), North Central US (NCUS), Japão Leste (JPE), Brasil Sul (BRS), Sudeste Asiático (SEA)),Suíça West (SZW), UAE Central (UAC), Noruega Leste (NWE), Índia Oeste (INW), Austrália Central (ACL), Korea Central (KRC), Japão West (JPW), África do Sul Norte (SAN), UK West (UKW) , Coreia do Sul (KRS), Alemanha Norte (GN), Noruega Oeste (NWW), África do Sul Oeste (SAW), Suíça Norte (SZN), Alemanha West Central (GWC), UAE North (UAN), France Central (FRC), Índia Central (INC), Canadá Leste (CNE)), Leste asiático (EA), Austrália Leste (AE), Centro dos EUA (CUS), Oeste DOS EUA (WUS), EUA Gov Arizona (UGA), EUA Gov Texas (UGT), EUA Gov Virginia (UGV), US Dod Central (UDC), US Dod East (UDE)
+
+**Regiões apoiadas (como parte da pré-visualização) mas ainda não ga:**<br>
+LESTE DOS EUA (EUS), Leste dos EUA 2 (EUS2), Norte da Europa (NE), Centro-Sul dos EUA (SCUS), Reino Unido Sul (Reino Unido), Europa Ocidental (WE)
 
 ## <a name="supported-storage-accounts"></a>Contas de armazenamento do Azure
 

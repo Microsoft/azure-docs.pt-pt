@@ -3,16 +3,16 @@ title: Manuseie mensagens grandes usando o chunking
 description: Aprenda a lidar com grandes tamanhos de mensagens usando chunking em tarefas automatizadas e fluxos de trabalho que cria com Apps Lógicas Azure
 services: logic-apps
 ms.suite: integration
-author: shae-hurst
-ms.author: shhurst
+author: DavidCBerry13
+ms.author: daberry
 ms.topic: article
 ms.date: 12/03/2019
-ms.openlocfilehash: 81e7c12b04c1ebd9691c11d76f387f7d42490180
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 54828dded5196c86946d99a9cd8cec7a42533661
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75456563"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117568"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Manuseie mensagens grandes com chunking em Aplicativos Azure Logic
 
@@ -41,7 +41,7 @@ Os serviços que comunicam com apps lógicas podem ter os seus próprios limites
 Para conectores que suportam a chunking, o protocolo de chunking subjacente é invisível para os utilizadores finais. No entanto, nem todos os conectores suportam a chunking, pelo que estes conectores geram erros de tempo de execução quando as mensagens de entrada excedem os limites de tamanho dos conectores.
 
 > [!NOTE]
-> Para ações que usam chunking, você não pode passar o `@triggerBody()?['Content']` corpo do gatilho ou usar expressões como nessas ações. Em vez disso, para conteúdo de ficheiros de texto ou JSON, pode tentar utilizar a ação [ **Compor** ](../logic-apps/logic-apps-perform-data-operations.md#compose-action) ou [criar uma variável](../logic-apps/logic-apps-create-variables-store-values.md) para lidar com esse conteúdo. Se o corpo do gatilho contiver outros tipos de conteúdo, tais como ficheiros de mídia, terá de executar outras etapas para lidar com esse conteúdo.
+> Para ações que usam chunking, você não pode passar o corpo do gatilho ou usar expressões como `@triggerBody()?['Content']` nessas ações. Em vez disso, para conteúdo de ficheiros de texto ou JSON, pode tentar utilizar a ação [ **Compor** ](../logic-apps/logic-apps-perform-data-operations.md#compose-action) ou [criar uma variável](../logic-apps/logic-apps-create-variables-store-values.md) para lidar com esse conteúdo. Se o corpo do gatilho contiver outros tipos de conteúdo, tais como ficheiros de mídia, terá de executar outras etapas para lidar com esse conteúdo.
 
 <a name="set-up-chunking"></a>
 
@@ -51,7 +51,7 @@ Em cenários genéricos de HTTP, pode dividir grandes transferências de conteú
 
 Se um ponto final tiver ativado a chunking para downloads ou uploads, as ações DO HTTP na sua aplicação lógica automaticamente embalaram grandes mensagens. Caso contrário, tem de configurar suporte de chunking no ponto final. Se não possuir ou controlar o ponto final ou o conector, pode não ter a opção de configurar a chunking.
 
-Além disso, se uma ação HTTP já não permitir a chunking, `runTimeConfiguration` você também deve configurar pedaços na propriedade da ação. Pode definir esta propriedade dentro da ação, quer diretamente no editor de visualização de código, como descrito mais tarde, ou no Logic Apps Designer como descrito aqui:
+Além disso, se uma ação HTTP já não permitir a chunking, você também deve configurar pedaços na propriedade da `runTimeConfiguration` ação. Pode definir esta propriedade dentro da ação, quer diretamente no editor de visualização de código, como descrito mais tarde, ou no Logic Apps Designer como descrito aqui:
 
 1. No canto superior direito da ação HTTP, escolha o botão de elipse **(...**), e, em seguida, escolha **Definições**.
 
@@ -69,23 +69,23 @@ Além disso, se uma ação HTTP já não permitir a chunking, `runTimeConfigurat
 
 Muitos pontos finais enviam automaticamente grandes mensagens em pedaços quando descarregados através de um pedido HTTP GET. Para descarregar mensagens chunked de um ponto final sobre HTTP, o ponto final deve suportar pedidos de conteúdo parcial, ou *downloads em pedaços*. Quando a sua aplicação lógica envia um pedido HTTP GET para um ponto final para descarregar conteúdo, e o ponto final responde com um código de estado "206", a resposta contém conteúdo em pedaços. As Aplicações Lógicas não conseguem controlar se um ponto final suporta pedidos parciais. No entanto, quando a sua aplicação lógica obtém a primeira resposta "206", a sua aplicação lógica envia automaticamente vários pedidos para descarregar todos os conteúdos.
 
-Para verificar se um ponto final pode suportar conteúdo parcial, envie um pedido HEAD. Este pedido ajuda-o a determinar `Accept-Ranges` se a resposta contém o cabeçalho. Desta forma, se o ponto final suportar downloads em pedaços mas *suggest* não enviar conteúdo `Range` em pedaços, pode sugerir esta opção definindo o cabeçalho no seu pedido HTTP GET. 
+Para verificar se um ponto final pode suportar conteúdo parcial, envie um pedido HEAD. Este pedido ajuda-o a determinar se a resposta contém o `Accept-Ranges` cabeçalho. Desta forma, se o ponto final suportar downloads em pedaços mas não enviar conteúdo em pedaços, pode *sugerir* esta opção definindo o `Range` cabeçalho no seu pedido HTTP GET. 
 
 Estes passos descrevem o processo detalhado que as Apps Lógicas usam para descarregar conteúdo em pedaços de um ponto final para a sua aplicação lógica:
 
 1. A sua aplicação lógica envia um pedido HTTP GET para o ponto final.
 
-   O cabeçalho de pedido `Range` pode incluir opcionalmente um campo que descreve uma gama de bytes para solicitar pedaços de conteúdo.
+   O cabeçalho de pedido pode incluir opcionalmente um `Range` campo que descreve uma gama de bytes para solicitar pedaços de conteúdo.
 
 2. O ponto final responde com o código de estado "206" e um corpo de mensagem HTTP.
 
-    Os detalhes sobre o conteúdo neste pedaço `Content-Range` aparecem no cabeçalho da resposta, incluindo informações que ajudam as Aplicações Lógicas a determinar o início e o fim para o pedaço, além do tamanho total de todo o conteúdo antes de partir.
+    Os detalhes sobre o conteúdo neste pedaço aparecem no cabeçalho da `Content-Range` resposta, incluindo informações que ajudam as Aplicações Lógicas a determinar o início e o fim para o pedaço, além do tamanho total de todo o conteúdo antes de partir.
 
 3. A sua aplicação lógica envia automaticamente pedidos de acompanhamento HTTP GET.
 
     A sua aplicação lógica envia pedidos get de seguimento até que todo o conteúdo seja recuperado.
 
-Por exemplo, esta definição de ação mostra `Range` um pedido HTTP GET que define o cabeçalho. O cabeçalho *sugere* que o ponto final deve responder com conteúdo retaliado:
+Por exemplo, esta definição de ação mostra um pedido HTTP GET que define o `Range` cabeçalho. O cabeçalho *sugere* que o ponto final deve responder com conteúdo retaliado:
 
 ```json
 "getAction": {
@@ -107,7 +107,7 @@ O pedido GET define o cabeçalho "Range" para "bytes=0-1023", que é o intervalo
 
 ## <a name="upload-content-in-chunks"></a>Carregar conteúdo em pedaços
 
-Para fazer o upload de conteúdo de uma ação HTTP, a ação `runtimeConfiguration` deve ter permitido o suporte de chunking através da propriedade da ação. Esta definição permite que a ação inicie o protocolo de chunking. A sua aplicação lógica pode então enviar uma mensagem post ou PUT inicial para o ponto final do alvo. Após o ponto final responder com um tamanho de pedaço sugerido, a sua aplicação lógica segue enviando pedidos HTTP PATCH que contêm os pedaços de conteúdo.
+Para fazer o upload de conteúdo de uma ação HTTP, a ação deve ter permitido o suporte de chunking através da propriedade da `runtimeConfiguration` ação. Esta definição permite que a ação inicie o protocolo de chunking. A sua aplicação lógica pode então enviar uma mensagem post ou PUT inicial para o ponto final do alvo. Após o ponto final responder com um tamanho de pedaço sugerido, a sua aplicação lógica segue enviando pedidos HTTP PATCH que contêm os pedaços de conteúdo.
 
 Estes passos descrevem o processo detalhado que as Apps Lógicas usam para carregar conteúdo em pedaços da sua aplicação lógica para um ponto final:
 
@@ -148,7 +148,7 @@ Estes passos descrevem o processo detalhado que as Apps Lógicas usam para carre
    | **x-ms-chunk-size** | Número inteiro | Não | O tamanho sugerido em bytes |
    ||||
 
-Por exemplo, esta definição de ação mostra um pedido HTTP POST para carregar conteúdo em pedaços para um ponto final. No imóvel `runTimeConfiguration` da ação, `contentTransfer` o `transferMode` `chunked`imóvel define-se para:
+Por exemplo, esta definição de ação mostra um pedido HTTP POST para carregar conteúdo em pedaços para um ponto final. No imóvel da `runTimeConfiguration` ação, o `contentTransfer` imóvel `transferMode` define-se `chunked` para:
 
 ```json
 "postAction": {

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: tisande
-ms.openlocfilehash: a8f32ad69d32844305c1cc785afc9f1df3c102b8
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: d0b11cdb0cf2719b576b7a4c4f3fa534ae09dfa8
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83006355"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117024"
 ---
 # <a name="working-with-json-in-azure-cosmos-db"></a>Trabalhar com a JSON em Azure Cosmos DB
 
@@ -19,7 +19,7 @@ Na API SQL (Core) da Azure Cosmos DB, os itens são armazenados como JSON. O sis
 
 Vamos resumir alguns aspetos importantes de trabalhar com a JSON:
 
-- Os objetos JSON `{` começam sempre com `}` uma cinta esquerda e terminam com uma cinta direita
+- Os objetos JSON começam sempre com uma `{` cinta esquerda e terminam com uma cinta `}` direita
 - Você pode ter propriedades JSON [aninhadas](#nested-properties) dentro umas das outras
 - Os valores de propriedade da JSON podem ser matrizes
 - Os nomes de propriedade da JSON são sensíveis ao caso
@@ -45,9 +45,9 @@ Aqui está um documento com a aninhada JSON:
 }
 ```
 
-Neste caso, `state`as `country`propriedades `city` e propriedades estão `address` todas aninhadas dentro da propriedade.
+Neste caso, as propriedades e propriedades `state` `country` `city` estão todas aninhadas dentro da `address` propriedade.
 
-O exemplo seguinte projeta duas `f.address.state` `f.address.city`propriedades aninhadas: e .
+O exemplo seguinte projeta duas propriedades aninhadas: `f.address.state` e `f.address.city` .
 
 ```sql
     SELECT f.address.state, f.address.city
@@ -141,9 +141,9 @@ WHERE EXISTS(
 
 ## <a name="reserved-keywords-and-special-characters-in-json"></a>Palavras-chave reservadas e caracteres especiais em JSON
 
-Pode aceder a propriedades utilizando `[]`o operador de propriedade citado. Por `SELECT c.grade` exemplo, `SELECT c["grade"]` e são equivalentes. Esta sintaxe é útil para escapar de uma propriedade que contém espaços, caracteres especiais, ou tem o mesmo nome que uma palavra-chave SQL ou palavra reservada.
+Pode aceder a propriedades utilizando o operador de propriedade `[]` citado. Por exemplo, `SELECT c.grade` e `SELECT c["grade"]` são equivalentes. Esta sintaxe é útil para escapar de uma propriedade que contém espaços, caracteres especiais, ou tem o mesmo nome que uma palavra-chave SQL ou palavra reservada.
 
-Por exemplo, aqui está um documento `order` com `price($)` uma propriedade nomeada e uma propriedade que contém caracteres especiais:
+Por exemplo, aqui está um documento com uma propriedade nomeada `order` e uma propriedade que contém caracteres `price($)` especiais:
 
 ```json
 {
@@ -160,7 +160,7 @@ Por exemplo, aqui está um documento `order` com `price($)` uma propriedade nome
 }
 ```
 
-Se executar uma consulta que `order` inclua a propriedade ou `price($)` propriedade, receberá um erro de sintaxe.
+Se executar uma consulta que inclua a `order` propriedade ou `price($)` propriedade, receberá um erro de sintaxe.
 
 ```sql
 SELECT * FROM c where c.order.orderid = "12345"
@@ -208,7 +208,7 @@ Os resultados são:
     }]
 ```
 
-No exemplo anterior, `SELECT` a cláusula precisa de criar um objeto JSON, e uma vez que `$1`a amostra não fornece nenhuma chave, a cláusula utiliza o nome variável de argumento implícito . A seguinte consulta devolve duas variáveis implícitas de argumentos: `$1` e `$2`.
+No exemplo anterior, a `SELECT` cláusula precisa de criar um objeto JSON, e uma vez que a amostra não fornece nenhuma chave, a cláusula utiliza o nome variável de argumento implícito `$1` . A seguinte consulta devolve duas variáveis implícitas de argumentos: `$1` e `$2` .
 
 ```sql
     SELECT { "state": f.address.state, "city": f.address.city },
@@ -237,7 +237,7 @@ Pode explicitamente alias valores em consultas. Se uma consulta tiver duas propr
 
 ### <a name="examples"></a>Exemplos
 
-A `AS` palavra-chave utilizada para aliasing é opcional, como mostra o `NameInfo`seguinte exemplo ao projetar o segundo valor como:
+A `AS` palavra-chave utilizada para aliasing é opcional, como mostra o seguinte exemplo ao projetar o segundo valor `NameInfo` como:
 
 ```sql
     SELECT
@@ -270,7 +270,7 @@ Segue-se um exemplo:
 ```sql
     SELECT
            {"JSON expression with a space": { "state": f.address.state, "city": f.address.city }},
-           { "JSON expression with a special character": { "name": f.id }}
+           {"JSON expression with a special character!": { "name": f.id }}
     FROM Families f
     WHERE f.id = "AndersenFamily"
 ```

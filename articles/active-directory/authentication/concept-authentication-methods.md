@@ -1,64 +1,201 @@
 ---
-title: Métodos de autenticação - Diretório Ativo Azure
-description: Métodos de autenticação disponíveis em Azure AD para MFA e SSPR
+title: Métodos e funcionalidades de autenticação - Diretório Ativo Azure
+description: Conheça os diferentes métodos de autenticação e funcionalidades disponíveis no Azure Ative Directory para ajudar a melhorar e garantir eventos de entrada
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/09/2020
+ms.date: 05/08/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a82c69575e82a7cf397955f08c3f114e449ba6b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: contperfq4
+ms.openlocfilehash: 3947bf0dcad598bf52a742c790a2f99538d6facb
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78968778"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83116425"
 ---
-# <a name="what-are-authentication-methods"></a>O que são métodos de autenticação?
+# <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Que métodos de autenticação e verificação estão disponíveis no Diretório Ativo do Azure?
 
-Como administrador, escolhendo métodos de autenticação para autenticação multi-factor Azure e reset de senha de autosserviço (SSPR), recomenda-se que exija que os utilizadores registem vários métodos de autenticação. Quando um método de autenticação não está disponível para um utilizador, pode optar por autenticar com outro método.
+Como parte da experiência de entrada para contas no Azure Ative Directory (Azure AD), existem diferentes formas de um utilizador se autenticar. Um nome de utilizador e uma palavra-passe é a forma mais comum de um utilizador fornecer credenciais. Com funcionalidades modernas de autenticação e segurança em Azure AD, essa senha básica pode ser complementada ou substituída por métodos adicionais de autenticação.
 
-Os administradores podem definir na política quais os métodos de autenticação disponíveis para os utilizadores de SSPR e MFA. Alguns métodos de autenticação podem não estar disponíveis para todas as funcionalidades. Para obter mais informações sobre a configuração das suas políticas, consulte os artigos Como lançar com sucesso o reset de [senha de autosserviço](howto-sspr-deployment.md) e [planejando uma autenticação multi-factor Azure baseada na nuvem](howto-mfa-getstarted.md)
+Um utilizador em AD Azure pode optar por autenticar utilizando um dos seguintes métodos de autenticação:
 
-A Microsoft recomenda vivamente que os administradores permitam aos utilizadores selecionar mais do que o número mínimo exigido de métodos de autenticação caso não tenham acesso a um.
+* Nome de utilizador tradicional e senha
+* Microsoft Autenticador App sem palavras-passe
+* Ficha de hardware do JURAMENTO ou chave de segurança FIDO2
+* SMS sem senha sem palavras-de-passe
 
-|Método de autenticação|Utilização|
-| --- | --- |
-| Palavra-passe | MFA e SSPR |
-| Perguntas de segurança | SSPR apenas |
-| Endereço de e-mail | SSPR apenas |
-| Aplicação Microsoft Authenticator | MFA e SSPR |
-| Ficha de hardware do JURAMENTO | Pré-visualização pública para MFA e SSPR |
-| SMS | MFA e SSPR |
-| Chamada de voz | MFA e SSPR |
-| Palavras-passe da aplicação | MFA apenas em certos casos |
+Muitas contas em AD Azure estão ativadas para reset de senha de autosserviço (SSPR) ou Autenticação Multi-Factor Azure. Estas funcionalidades incluem métodos de verificação adicionais, tais como um telefonema ou questões de segurança. Recomenda-se que exija que os utilizadores registem vários métodos de verificação. Quando um método não está disponível para um utilizador, pode optar por autenticar com outro método.
+
+A tabela que se segue descreve quais os métodos de autenticação ou verificação disponíveis para os diferentes cenários:
+
+| Método | Utilização no início do sessão | Utilização durante a verificação |
+| --- | --- | --- |
+| [Palavra-passe](#password) | Sim | MFA e SSPR |
+| [Aplicação Microsoft Authenticator](#microsoft-authenticator-app) | Sim (pré-visualização) | MFA e SSPR |
+| [Teclas de segurança FIDO2 (pré-visualização)](#fido2-security-keys) | Sim | Só de MFA |
+| [Fichas de hardware DO JURAMENTO (pré-visualização)](#oath-hardware-tokens) | Sim | SSPR e MFA |
+| [SMS](#phone-options) | Sim (pré-visualização) | MFA e SSPR |
+| [Chamada de voz](#phone-options) | Não | MFA e SSPR |
+| [Questões de segurança](#security-questions) | Não | SSPR-only |
+| [Endereço de correio eletrónico](#email-address) | Não | SSPR-only |
+| [Palavras-passe da aplicação](#app-passwords) | Não | MFA apenas em certos casos |
+
+Este artigo descreve estes diferentes métodos de autenticação e verificação disponíveis em Azure AD e quaisquer limitações ou restrições específicas.
 
 ![Métodos de autenticação em uso no ecrã de início de sessão](media/concept-authentication-methods/overview-login.png)
 
-|     |
-| --- |
-| Fichas de hardware do OATH para MFA e SSPR são funcionalidades de pré-visualização pública do Diretório Ativo Azure. Para mais informações sobre pré-visualizações, consulte [Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) do Microsoft Azure|
-|     |
-
 ## <a name="password"></a>Palavra-passe
 
-A sua senha De AD Azure é considerada um método de autenticação. É o único método que **não pode ser desativado.**
+Uma senha azure AD é frequentemente um dos métodos primários de autenticação. Não é possível desativar o método de autenticação da palavra-passe.
+
+Mesmo que utilize um método de autenticação como o [sms de entrada quando](howto-authentication-sms-signin.md) o utilizador não usa a sua palavra-passe para assinar, uma palavra-passe permanece como um método de autenticação disponível.
+
+## <a name="microsoft-authenticator-app"></a>Aplicação Microsoft Authenticator
+
+A aplicação Authenticator fornece um nível adicional de segurança para o seu trabalho ou conta escolar Azure AD ou a sua conta Microsoft e está disponível para [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594)e [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6). Com a aplicação Microsoft Authenticator, os utilizadores podem autenticar de forma sem palavras-passe durante o início de sessão, ou como uma opção de verificação adicional durante o reset de palavras-passe de self-service (SSPR) ou eventos de autenticação multi-factor Azure.
+
+Os utilizadores podem receber uma notificação através da aplicação móvel para que eles aprovem ou neguem, ou utilizem a aplicação Authenticator para gerar um código de verificação DOPR que possa ser introduzido numa interface de entrada. Se ativar um código de notificação e verificação, os utilizadores que registam a aplicação Autenticador podem utilizar qualquer um dos métodos para verificar a sua identidade.
+
+Para utilizar a aplicação Authenticator num pedido de início de sessão em vez de uma combinação de nome de utilizador e palavra-passe, consulte Ativar o [acesso sem palavras-passe com a aplicação Microsoft Authenticator (pré-visualização)](howto-authentication-passwordless-phone.md).
+
+> [!NOTE]
+> Os utilizadores não têm a opção de registar a sua aplicação móvel quando permitem o SSPR. Em vez disso, os utilizadores podem registar a sua aplicação móvel no registo combinado de informações de [https://aka.ms/mfasetup](https://aka.ms/mfasetup) segurança em [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo) .
+
+### <a name="notification-through-mobile-app"></a>Notificação através de aplicação móvel
+
+A aplicação Authenticator pode ajudar a prevenir o acesso não autorizado a contas e a parar transações fraudulentas, empurrando uma notificação para o seu smartphone ou tablet. Os utilizadores visualizam a notificação e, se for legítimo, selecione **Verificar**. Caso contrário, podem selecionar **Deny**.
+
+![Screenshot de exemplo web browser solicitação para notificação de app Autenticador para completar processo de iniciar sessão](media/tutorial-enable-azure-mfa/azure-multi-factor-authentication-browser-prompt.png)
+
+> [!NOTE]
+> Se a sua organização tem pessoal a trabalhar ou a viajar para a China, a Notificação através do método de *aplicação móvel* em dispositivos Android não funciona nesse país. Devem ser disponibilizados métodos de autenticação alternativos para esses utilizadores.
+
+### <a name="verification-code-from-mobile-app"></a>Código de verificação da aplicação móvel
+
+A aplicação Authenticator pode ser usada como um símbolo de software para gerar um código de verificação DOPR. Depois de introduzir o seu nome de utilizador e palavra-passe, introduza o código fornecido pela aplicação Autenticador na interface de entrada. O código de verificação proporciona uma segunda forma de autenticação.
+
+Os utilizadores podem ter uma combinação de até cinco tokens de hardware DO JURAMENTO ou aplicações autenticadoras, como a aplicação Microsoft Authenticator, configurada para utilização a qualquer momento.
+
+> [!WARNING]
+> Para garantir o mais alto nível de segurança para o reset da palavra-passe self-service quando só é necessário um método para redefinir, um código de verificação é a única opção disponível para os utilizadores.
+>
+> Quando são necessários dois métodos, os utilizadores podem redefinir usando um código de notificação ou de verificação, para além de quaisquer outros métodos habilitados.
+
+## <a name="fido2-security-keys"></a>Chaves de segurança FIDO2
+
+A Aliança FIDO (Fast IDentity Online) ajuda a promover padrões de autenticação aberta e a reduzir o utilizador de senhas como forma de autenticação. Fido2 é o mais recente padrão que incorpora a norma de autenticação web (WebAuthn).
+
+Para utilizar as teclas de segurança FIDO2 num pedido de entrada em vez de uma combinação de nome de utilizador e palavra-passe, consulte Ativar o sinal de entrada da chave de [segurança FIDO2 sem palavras-passe (pré-visualização)](howto-authentication-passwordless-security-key.md).
+
+Os utilizadores podem registar-se e, em seguida, selecionar uma chave de segurança FIDO2 na interface de entrada como principal meio de autenticação. Estas teclas de segurança FIDO2 são normalmente dispositivos USB, mas também podem usar Bluetooth ou NFC. Com um dispositivo de hardware que trata da autenticação, a segurança de uma conta é aumentada, uma vez que não há senha que possa ser exposta ou adivinhada.
+
+As chaves de segurança FIDO2 em Azure AD estão atualmente em pré-visualização. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+## <a name="oath-hardware-tokens"></a>Tokens de hardware de OATH
+
+O OATH é um padrão aberto que especifica como os códigos de senha única (OTP) são gerados. A Azure AD suporta a utilização de tokens SHA-1 DE JURAMENTO-TOTP da variedade de 30 segundos ou 60 segundos. Os clientes podem comprar estes tokens ao fornecedor à sua escolha.
+
+As teclas secretas estão limitadas a 128 caracteres, que podem não ser compatíveis com todas as fichas. A chave secreta só pode conter os caracteres *a-z* ou *A-Z* e os dígitos *1-7*, e deve ser codificado na *Base32*.
+
+Os tokens de hardware do OATH em Azure AD estão atualmente em pré-visualização. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+![Upload de fichas DE JURAMENTO para a janela de fichas do Juramento mfa](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
+
+Uma vez adquiridas fichas, devem ser carregadas num formato de ficheiro separado de vírem (CSV), incluindo a UPN, número de série, chave secreta, intervalo de tempo, fabricante e modelo, como mostra o seguinte exemplo:
+
+```csv
+upn,serial number,secret key,time interval,manufacturer,model
+Helga@contoso.com,1234567,1234567abcdef1234567abcdef,60,Contoso,HardwareKey
+```
+
+> [!NOTE]
+> Certifique-se de que inclui a linha do cabeçalho no seu ficheiro CSV.
+
+Uma vez devidamente formatado como ficheiro CSV, um administrador pode então iniciar sessão no portal Azure, navegar para as fichas do Juramento de Segurança **do Diretório Ativo Azure,**  >  **Security**  >  **MFA**  >  **OATH tokens**e carregar o ficheiro CSV resultante.
+
+Dependendo do tamanho do ficheiro CSV, pode levar alguns minutos para processar. Selecione o botão **Refresh** para obter o estado atual. Se houver algum erro no ficheiro, pode descarregar um ficheiro CSV que lista quaisquer erros para que possa resolver. Os nomes de campo no ficheiro CSV descarregado são diferentes da versão carregada.
+
+Uma vez resolvidos quaisquer erros, o administrador pode então ativar cada tecla selecionando **ativar** o símbolo e entrando no OTP apresentado no token.
+
+Os utilizadores podem ter uma combinação de até cinco tokens de hardware DO JURAMENTO ou aplicações autenticadoras, como a aplicação Microsoft Authenticator, configurada para utilização a qualquer momento.
+
+## <a name="phone-options"></a>Opções de telefone
+
+Para autenticação direta utilizando mensagem de texto, pode [configurar e ativar os utilizadores para autenticação baseada em SMS (pré-visualização)](howto-authentication-sms-signin.md). A inscrição baseada em SMS é ótima para os trabalhadores da linha da frente. Com o sms de entrada, os utilizadores não precisam de saber um nome de utilizador e uma senha para aceder a aplicações e serviços. Em vez disso, o utilizador introduz o seu número de telemóvel registado, recebe uma mensagem de texto com um código de verificação e introduz-a na interface de entrada.
+
+Os utilizadores também podem verificar-se usando um telemóvel ou telefone de escritório como forma secundária de autenticação usada durante a autenticação de multi-factors Do Azure ou reset de senha de autosserviço (SSPR).
+
+Para funcionar corretamente, os números de telefone devem estar no formato *+CountryCode PhoneNumber*, por exemplo, *+1 4251234567*.
+
+> [!NOTE]
+> Tem de haver um espaço entre o código do país e o número de telefone.
+>
+> O reset da palavra-passe não suporta extensões de telefone. Mesmo no formato *+1 4251234567X12345,* as extensões são removidas antes da chamada ser colocada.
+
+### <a name="mobile-phone-verification"></a>Verificação do telemóvel
+
+Para autenticação de multi-factores Azure ou SSPR, os utilizadores podem optar por receber uma mensagem de texto com um código de verificação para introduzir na interface de entrada ou receber uma chamada telefónica com uma solicitação para introduzir o seu código pin definido.
+
+Se os utilizadores não querem que o seu número de telemóvel seja visível no diretório, mas que o queiram utilizar para redefinir palavras-passe, os administradores não devem preencher o número de telefone no diretório. Em vez disso, os utilizadores devem preencher o seu atributo do Telefone de **Autenticação** através do registo combinado de informações de segurança em [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo) . Os administradores podem ver esta informação no perfil do utilizador, mas não é publicada em outro lugar.
+
+![Screenshot do portal Azure que mostra métodos de autenticação com um número de telefone povoado](media/concept-authentication-methods/user-authentication-methods.png)
+
+A Microsoft não garante a entrega rápida de SMS ou de autenticação rápida azure multi-factor com base em voz pelo mesmo número. No interesse dos nossos utilizadores, podemos adicionar ou remover códigos curtos a qualquer momento, à medida que fazemos ajustes de rotas para melhorar a entrega de SMS. A Microsoft não suporta códigos curtos para países/regiões além dos Estados Unidos e Canadá.
+
+#### <a name="text-message-verification"></a>Verificação de mensagem de texto
+
+Com verificação de mensagens de texto durante a Autenticação Multi-Factor SSPR ou Azure, um SMS é enviado para o número de telemóvel contendo um código de verificação. Para completar o processo de entrada, o código de verificação fornecido é introduzido na interface de entrada.
+
+#### <a name="phone-call-verification"></a>Verificação de chamadas telefónicas
+
+Com verificação de chamada telefónica durante a Autenticação SSPR ou Azure Multi-Factor, é feita uma chamada de voz automatizada para o número de telefone registado pelo utilizador. Para completar o processo de entrada, o utilizador é solicitado a introduzir o seu número de pino seguido de # no seu teclado.
+
+### <a name="office-phone-verification"></a>Verificação telefónica de escritório
+
+O atributo do telefone do escritório é gerido pelo administrador da AD Azure e não pode ser registado por um próprio utilizador.
+
+Com verificação de chamada telefónica durante a Autenticação SSPR ou Azure Multi-Factor, é feita uma chamada de voz automatizada para o número de telefone registado pelo utilizador. Para completar o processo de entrada, o utilizador é solicitado a introduzir o seu número de pino seguido de # no seu teclado.
+
+### <a name="troubleshooting-phone-options"></a>Troubleshooting phone options (Resolução de problemas das opções de telefone)
+
+Se tiver problemas com a autenticação do telefone para a AD Azure, reveja as seguintes etapas de resolução de problemas:
+
+* Id de chamada bloqueada num único dispositivo.
+   * Reveja os números bloqueados configurados no dispositivo.
+* Número de telefone errado ou código de país incorreto, ou confusão entre o número de telefone pessoal versus número de telefone de trabalho.
+   * Problemas entrem no objeto do utilizador e métodos de autenticação configurados. Certifique-se de que os números de telefone corretos estão registados.
+* PIN errado introduzido.
+   * Confirme que o utilizador utilizou o PIN correto como registado para a sua conta.
+* Chamada reencaminhada para correio de voz.
+   * Certifique-se de que o utilizador tem o telemóvel ligado e que o serviço está disponível na sua área ou utilize um método alternativo.
+* O utilizador está bloqueado
+   * Tenha um administrador da AD Azure desbloqueie o utilizador no portal Azure.
+* O SMS não está inscrito no dispositivo.
+   * Tenha o utilizador a alterar métodos ou a ativar SMS no dispositivo.
+* Fornecedores de telecomunicações defeituosos, tais como nenhuma entrada de telefone detetada, problemas de tons DTMF em falta, id de chamada bloqueada em vários dispositivos, ou SMS bloqueados em vários dispositivos.
+   * A Microsoft utiliza vários fornecedores de telecomunicações para encaminhar chamadas telefónicas e mensagens SMS para autenticação. Se vir algum dos problemas acima referidos, tente utilizar o método pelo menos cinco vezes dentro de 5 minutos e tenha as informações do utilizador disponíveis quando contactar o suporte da Microsoft.
 
 ## <a name="security-questions"></a>Perguntas de segurança
 
-As questões de segurança só estão disponíveis **na palavra-passe do autosserviço Azure AD reset** para contas não administradoras.
+As questões de segurança não são usadas como método de autenticação durante um evento de inscrição. Em vez disso, as questões de segurança podem ser usadas durante o processo de reset de palavra-passe de autosserviço (SSPR) para confirmar quem você é. As contas do administrador não podem usar questões de segurança como método de verificação com o SSPR.
 
-Se utilizar questões de segurança, recomendamos usá-las em conjunto com outro método. As questões de segurança podem ser menos seguras do que outros métodos, porque algumas pessoas podem saber as respostas às perguntas de outro utilizador.
+Quando os utilizadores se registam para o SSPR, são solicitados a escolher os métodos de autenticação a utilizar. Se optarem por usar questões de segurança, escolhem de um conjunto de perguntas para solicitar e, em seguida, fornecem as suas próprias respostas.
+
+![Screenshot do portal Azure que mostra métodos de autenticação e opções para questões de segurança](media/concept-authentication-methods/security-questions-authentication-method.png)
 
 > [!NOTE]
-> As questões de segurança são armazenadas de forma privada e segura num objeto de utilizador no diretório e só podem ser respondidas pelos utilizadores durante o registo. Não há forma de um administrador ler ou modificar as perguntas ou respostas de um utilizador.
->
+> As questões de segurança são armazenadas de forma privada e segura num objeto de utilizador no diretório e só podem ser respondidas pelos utilizadores durante o registo. Não há como um administrador ler ou modificar as perguntas ou respostas de um utilizador.
+
+As questões de segurança podem ser menos seguras do que outros métodos, porque algumas pessoas podem saber as respostas às perguntas de outro utilizador. Se utilizar questões de segurança com sSPR, é aconselhável usá-las em conjunto com outro método. Um utilizador pode ser solicitado a utilizar a Aplicação autenticadora da Microsoft ou a autenticação do telefone para verificar a sua identidade durante o processo SSPR, e escolher questões de segurança apenas se não tiver o seu telemóvel ou dispositivo registado com eles.
 
 ### <a name="predefined-questions"></a>Questões predefinidas
+
+As seguintes questões de segurança predefinidas estão disponíveis para utilização como método de verificação com sSPR. Todas estas questões de segurança são traduzidas e localizadas em todo o conjunto de idiomas do Office 365 com base no local do navegador do utilizador:
 
 * Em que cidade conheceu o seu primeiro cônjuge/parceiro?
 * Em que cidade os seus pais conheceram?
@@ -96,15 +233,15 @@ Se utilizar questões de segurança, recomendamos usá-las em conjunto com outro
 * Quando erajovem, o que queria ser quando crescesse?
 * Quem é a pessoa mais famosa que já conheceu?
 
-Todas as questões de segurança predefinidas são traduzidas e localizadas em todo o conjunto de idiomas do Office 365 com base no local do navegador do utilizador.
-
 ### <a name="custom-security-questions"></a>Questões de segurança personalizadas
 
-Questões de segurança personalizadas não estão localizadas. Todas as perguntas personalizadas são apresentadas no mesmo idioma que são introduzidas na interface administrativa do utilizador, mesmo que o navegador local do utilizador seja diferente. Se precisa de perguntas localizadas, deve usar as perguntas predefinidas.
+Para uma flexibilidade adicional, pode definir as suas próprias questões de segurança personalizadas. O comprimento máximo de uma questão de segurança personalizada é de 200 caracteres.
 
-O comprimento máximo de uma questão de segurança personalizada é de 200 caracteres.
+As questões de segurança personalizadas não são localizadas automaticamente, como com as questões de segurança padrão. Todas as perguntas personalizadas são apresentadas no mesmo idioma que são introduzidas na interface administrativa do utilizador, mesmo que o navegador local do utilizador seja diferente. Se precisa de perguntas localizadas, deve usar as perguntas predefinidas.
 
 ### <a name="security-question-requirements"></a>Requisitos de questões de segurança
+
+Para questões de segurança padrão e personalizadas, aplicam-se os seguintes requisitos e limitações:
 
 * O limite mínimo de caracteres da resposta é de três caracteres.
 * O limite máximo de caracteres de resposta é de 40 caracteres.
@@ -115,154 +252,39 @@ O comprimento máximo de uma questão de segurança personalizada é de 200 cara
 
 ## <a name="email-address"></a>Endereço de e-mail
 
-O endereço de e-mail só está disponível no reset de **palavra-passe autosserviço Azure AD**.
+Um endereço de e-mail não pode ser usado como um método de autenticação direta. O endereço de e-mail só está disponível como opção de verificação para redefinição da palavra-passe self-service (SSPR). Quando o endereço de e-mail é selecionado durante o SSPR, é enviado um e-mail ao utilizador para completar o processo de autenticação/verificação.
 
-A Microsoft recomenda o uso de uma conta de e-mail que não exigiria o acesso da senha azure AD do utilizador.
+Durante o registo para sSPR, um utilizador fornece o endereço de e-mail para usar. Recomenda-se que utilizem uma conta de e-mail diferente da sua conta corporativa para garantir que podem aceder-lhe durante o SSPR.
 
-## <a name="microsoft-authenticator-app"></a>Aplicação Microsoft Authenticator
+## <a name="app-passwords"></a>Palavras-passe da aplicação
 
-A aplicação Microsoft Authenticator fornece um nível adicional de segurança para o seu trabalho ou conta escolar azure ou para a sua conta Microsoft.
+Algumas aplicações antigas e não-navegadoras não entendem pausas ou pausas no processo de autenticação. Se um utilizador estiver habilitado para a autenticação de vários fatores e tentar utilizar uma destas aplicações mais antigas e não-navegadoras, normalmente não conseguem autenticar com sucesso. Uma palavra-passe de aplicação permite que os utilizadores continuem a autenticar com sucesso com aplicações mais antigas e não-navegadoras sem interrupção.
 
-A aplicação Microsoft Authenticator está disponível para [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) e [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6).
+Por padrão, os utilizadores não podem criar senhas de aplicação. Caso necessite de permitir que os utilizadores criem palavras-passe de aplicações, selecione os **utilizadores do Permitir em configurar palavras-passe para iniciar sessão em aplicações não navegadoras** de acordo com as *definições* do Serviço para as propriedades de Autenticação Multi-Factor do utilizador.
 
-> [!NOTE]
-> Os utilizadores não terão a opção de registar a sua aplicação móvel ao registarem-se para redefinir a palavra-passe de self-service. Em vez disso, os [https://aka.ms/mfasetup](https://aka.ms/mfasetup) utilizadores podem registar a [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo)sua aplicação móvel na pré-visualização do registo de informações de segurança em .
->
+![Screenshot do portal Azure que mostra as definições de serviço para autenticação de vários fatores para permitir ao utilizador de palavras-passe de aplicações](media/concept-authentication-methods/app-password-authentication-method.png)
 
-### <a name="notification-through-mobile-app"></a>Notificação através de aplicação móvel
+Se impor a autenticação multi-factor Azure utilizando políticas de Acesso Condicional e não através de MFA por utilizador, não pode criar palavras-passe de aplicação. Aplicações modernas que utilizam políticas de Acesso Condicional para controlar o acesso não precisam de senhas de aplicação.
 
-A aplicação Microsoft Authenticator pode ajudar a prevenir o acesso não autorizado a contas e a parar transações fraudulentas, empurrando uma notificação para o seu smartphone ou tablet. Os utilizadores visualizam a notificação e, se for legítimo, selecione Verificar. Caso contrário, podem selecionar O Deny.
+Se a sua organização for federada para um único sign-on (SSO) com AD Azure e utilizar a Autenticação Multi-Factor Azure, aplicam-se as seguintes considerações:
 
-> [!WARNING]
-> Para redefinir a palavra-passe de autosserviço quando só é necessário um método para redefinir, o código de verificação é a única opção disponível para os utilizadores **garantirem o mais alto nível de segurança**.
->
-> Quando são necessários dois métodos, os utilizadores poderão redefinir usando o código de verificação **de** notificação OU de **notificação,** para além de quaisquer outros métodos habilitados.
->
-
-Se permitir a utilização de notificações através de aplicações móveis e código de verificação a partir de aplicações móveis, os utilizadores que registam a aplicação Microsoft Authenticator utilizando uma notificação podem utilizar a notificação e o código para verificar a sua identidade.
-
-> [!NOTE]
-> Se a sua organização tem pessoal a trabalhar ou a viajar para a China, a **Notificação através** do método de aplicação móvel em **dispositivos Android** não funciona nesse país. Devem ser disponibilizados métodos alternativos para esses utilizadores.
-
-### <a name="verification-code-from-mobile-app"></a>Código de verificação da aplicação móvel
-
-A aplicação Microsoft Authenticator ou outras aplicações de terceiros podem ser usadas como um símbolo de software para gerar um código de verificação DOPR. Depois de introduzir o seu nome de utilizador e palavra-passe, introduza o código fornecido pela aplicação no ecrã de entrada. O código de verificação proporciona uma segunda forma de autenticação.
-
-> [!WARNING]
-> Para redefinir a palavra-passe self-service quando só é necessário um método para redefinir o código de verificação é a única opção disponível para os utilizadores **garantirem o mais alto nível de segurança**.
->
-
-Os utilizadores podem ter uma combinação de até cinco tokens de hardware DO JURAMENTO ou aplicações autenticadoras, como a aplicação Microsoft Authenticator configurada para utilização a qualquer momento.
-
-## <a name="oath-hardware-tokens-public-preview"></a>Fichas de hardware DO JURAMENTO (pré-visualização pública)
-
-O OATH é um padrão aberto que especifica como os códigos de senha única (OTP) são gerados. A Azure AD apoiará a utilização de tokens SHA-1 DE JURAMENTO-TOTP da variedade de 30 segundos ou 60 segundos. Os clientes podem adquirir estes tokens do fornecedor à sua escolha. As teclas secretas estão limitadas a 128 caracteres, que podem não ser compatíveis com todas as fichas. A chave secreta só pode conter os caracteres *a-z* ou *A-Z* e os dígitos *1-7*, e deve ser codificado na Base32.
-
-![Upload de fichas DE JURAMENTO para a lâmina de fichas do Juramento MFA](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
-
-Os tokens de hardware do OATH são suportados como parte de uma pré-visualização pública. Para mais informações sobre pré-visualizações, consulte [Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) do Microsoft Azure
-
-Uma vez adquiridas fichas, devem ser carregadas num formato de ficheiro separado de vírem (CSV), incluindo a UPN, número de série, chave secreta, intervalo de tempo, fabricante e modelo, como mostra o seguinte exemplo:
-
-```csv
-upn,serial number,secret key,time interval,manufacturer,model
-Helga@contoso.com,1234567,1234567abcdef1234567abcdef,60,Contoso,HardwareKey
-```
-
-> [!NOTE]
-> Certifique-se de que inclui a linha do cabeçalho no seu ficheiro CSV.
-
-Uma vez devidamente formatado como ficheiro CSV, um administrador pode então iniciar sessão no portal Azure, navegar para as**fichas**do**Juramento** > de**Segurança** > do >  **Diretório Ativo Azure,** e carregar o ficheiro CSV resultante.
-
-Dependendo do tamanho do ficheiro CSV, pode levar alguns minutos para processar. Clique no botão **Refresh** para obter o estado atual. Se houver algum erro no ficheiro, terá a opção de descarregar um ficheiro CSV que enumera quaisquer erros para que possa resolver. Os nomes de campo no ficheiro CSV descarregado são diferentes da versão carregada.
-
-Uma vez resolvidos quaisquer erros, o administrador pode então ativar cada tecla clicando em **Ativar** o token e introduzindo o OTP apresentado no token.
-
-Os utilizadores podem ter uma combinação de até cinco tokens de hardware DO JURAMENTO ou aplicações autenticadoras, como a aplicação Microsoft Authenticator configurada para utilização a qualquer momento.
-
-## <a name="phone-options"></a>Opções de telefone
-
-### <a name="mobile-phone"></a>Número de telemóvel
-
-Estão disponíveis duas opções para utilizadores com telemóveis.
-
-Se os utilizadores não quiserem que o seu número de telemóvel seja visível no diretório, mas ainda assim querem usá-lo para redefinir palavras-passe, os administradores não devem povoá-lo no diretório. Os utilizadores devem preencher o seu atributo **do Telefone de Autenticação** através do portal de registo de [redefinição de palavra-passe](https://aka.ms/ssprsetup). Os administradores podem ver esta informação no perfil do utilizador, mas não é publicada em outro lugar.
-
-Para funcionar corretamente, os números de telefone devem estar no formato *+CountryCode PhoneNumber*, por exemplo, +1 4255551234.
-
-> [!NOTE]
-> Tem de haver um espaço entre o código do país e o número de telefone.
->
-> O reset da palavra-passe não suporta extensões de telefone. Mesmo no formato +1 4255551234X12345, as extensões são removidas antes da chamada ser colocada.
-
-A Microsoft não garante a entrega rápida de SMS ou Multi-Factor de Autenticação com base em Voz pelo mesmo número. No interesse dos nossos utilizadores, a Microsoft pode adicionar ou remover códigos Curtos a qualquer momento, à medida que fazemos ajustes de rotas para melhorar a entrega de SMS. A Microsoft não suporta códigos curtos para países/regiões além dos Estados Unidos e Canadá.
-
-#### <a name="text-message"></a>Mensagem de texto
-
-Um SMS é enviado para o número de telemóvel contendo um código de verificação. Introduza o código de verificação fornecido na interface de entrada para continuar.
-
-#### <a name="phone-call"></a>Chamada telefónica
-
-Uma chamada de voz automatizada é feita para o número de telefone que fornece. Atender a chamada e pressionar # no teclado do telefone para autenticar
-
-> [!IMPORTANT]
-> A partir de março de 2019, as opções de chamada telefónica não estarão disponíveis para os utilizadores de MFA e SSPR em inquilinos ads atos gratuitos/experimentais. As mensagens SMS não são afetadas por esta mudança. A chamada telefónica continuará disponível para os utilizadores em inquilinos da AD Azure pagos. Esta mudança só afeta os inquilinos azure free/trial.
-
-### <a name="office-phone"></a>Telefone do escritório
-
-Uma chamada de voz automatizada é feita para o número de telefone que fornece. Responda à chamada e pressione # no teclado do telefone para autenticar.
-
-Para funcionar corretamente, os números de telefone devem estar no formato *+CountryCode PhoneNumber*, por exemplo, +1 4255551234.
-
-O atributo do telefone do escritório é gerido pelo seu administrador.
-
-> [!IMPORTANT]
-> A partir de março de 2019, as opções de chamada telefónica não estarão disponíveis para os utilizadores de MFA e SSPR em inquilinos ads atos gratuitos/experimentais. As mensagens SMS não são afetadas por esta mudança. A chamada telefónica continuará disponível para os utilizadores em inquilinos da AD Azure pagos. Esta mudança só afeta os inquilinos azure free/trial.
-
-> [!NOTE]
-> Tem de haver um espaço entre o código do país e o número de telefone.
->
-> O reset da palavra-passe não suporta extensões de telefone. Mesmo no formato +1 4255551234X12345, as extensões são removidas antes da chamada ser colocada.
-
-### <a name="troubleshooting-phone-options"></a>Troubleshooting phone options (Resolução de problemas das opções de telefone)
-
-Problemas comuns relacionados com métodos de autenticação utilizando um número de telefone:
-
-* ID de chamada bloqueada num único dispositivo
-   * Dispositivo de resolução de problemas
-* Número de telefone errado, código de país incorreto, número de telefone doméstico versus número de telefone de trabalho
-   * Problemas de resolução de objetos de utilizador e métodos de autenticação configurados. Certifique-se de que os números de telefone corretos estão registados.
-* PIN errado introduzido
-   * Confirme que o utilizador utilizou o PIN correto registado no Servidor Azure MFA.
-* Chamada reencaminhada para correio de voz
-   * Certifique-se de que o utilizador tem telefone ligado e que o serviço está disponível na sua área ou utilize método alternativo.
-* O utilizador está bloqueado
-   * Mande o administrador desbloquear o utilizador no portal Azure.
-* SMS não é subscrito no dispositivo
-   * Tenha o utilizador a alterar métodos ou a ativar SMS no dispositivo.
-* Fornecedores de telecomunicações defeituosos (Nenhuma entrada de telefone detetada, problemas de tons DTMF em falta, id de chamada bloqueada em vários dispositivos, ou SMS bloqueado em vários dispositivos)
-   * A Microsoft utiliza vários fornecedores de telecomunicações para encaminhar chamadas telefónicas e mensagens SMS para autenticação. Se estiver a ver algum dos problemas acima referidos, o utilizador tem uma tentativa de utilização do método pelo menos 5 vezes dentro de 5 minutos e tem as informações do utilizador disponíveis quando contactar o suporte da Microsoft.
-
-## <a name="app-passwords"></a>Palavras-passe para aplicações
-
-Algumas aplicações não-navegador não suportam a autenticação de vários fatores, se um utilizador tiver sido ativado para autenticação multifactor e tentar usar aplicações não-navegadoras, não conseguem autenticar. Uma palavra-passe de aplicação permite que os utilizadores continuem a autenticar
-
-Se impor a autenticação multi-factor através de políticas de acesso condicional e não através de MFA por utilizador, não pode criar senhas de aplicação. As aplicações que utilizam as políticas de Acesso Condicional para controlar o acesso não necessitam de senhas de aplicação.
-
-Se a sua organização for federada para SSO com AD Azure e você vai usar O MFA Azure, então esteja ciente dos seguintes detalhes:
-
-* A palavra-passe da aplicação é verificada pela Azure AD e, portanto, contorna a federação. A Federação só é utilizada na configuração de senhas de aplicação. Para utilizadores federados (SSO), as palavras-passe são armazenadas no ID organizacional. Se o utilizador deixar a empresa, essa informação tem de fluir para id organizacional utilizando o DirSync. A desativação/eliminação da conta pode demorar até três horas a sincronizar, o que atrasa a desativação/eliminação de senhas de aplicação em AD Azure.
-* As definições de Controlo de Acesso de Cliente no local não são honradas pela Palavra-passe de Aplicação.
-* Não existe nenhuma capacidade de autenticação/auditoria de autenticação no local para senhas de aplicação.
-* Certos desenhos arquitetónicos avançados podem exigir a utilização de uma combinação de nomede utilizador organizacional e palavras-passe e palavras-passe de aplicações quando se utiliza uma verificação em duas etapas com os clientes, dependendo do local onde autenticam. Para clientes que autenticam contra uma infraestrutura no local, utilizaria um nome de utilizador organizacional e uma palavra-passe. Para clientes que autenticam contra o Azure AD, utilizaria a palavra-passe da aplicação.
-* Por padrão, os utilizadores não podem criar senhas de aplicação. Caso seja necessário permitir que os utilizadores criem palavras-passe de apps, selecione os **utilizadores do Permitir em configurar palavras-passe para iniciar sessão na opção de aplicações não-navegadoras** nas definições do serviço.
+* A palavra-passe da aplicação é verificada pela Azure AD, pelo que contorna a federação. A Federação só é utilizada na configuração de senhas de aplicação. Para utilizadores federados (SSO), as palavras-passe são armazenadas no ID organizacional. Se o utilizador deixar a empresa, essa informação tem de fluir para id organizacional utilizando o DirSync. Os eventos de desativação de conta ou de supressão podem demorar até três horas a sincronizar, o que atrasa a desativação/eliminação de palavras-passe de aplicações em AD Azure.
+* As definições de Controlo de Acesso ao Cliente no local não são honradas por palavras-passe de aplicações.
+* Não existe nenhuma capacidade de autenticação ou auditoria no local para senhas de aplicação.
+* Certos desenhos arquitetónicos avançados podem exigir a utilização de uma combinação de nome de utilizador organizacional e palavras-passe e palavras-passe de aplicações quando utilizara autenticação multifactor, dependendo do local onde autenticam.
+    * Para clientes que autenticam contra uma infraestrutura no local, utilizaria um nome de utilizador organizacional e uma palavra-passe.
+    * Para clientes que autenticam contra o Azure AD, utilizaria a palavra-passe da aplicação.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Ativar o reset da palavra-passe de autosserviço para a sua organização](quickstart-sspr.md)
+Para começar, consulte o tutorial para reset de [senha de autosserviço (SSPR)][tutorial-sspr] e [autenticação de multi-factores Azure][tutorial-azure-mfa].
 
-[Ativar a autenticação multi-factor Azure para a sua organização](howto-mfa-getstarted.md)
+Para saber mais sobre os conceitos SSPR, veja como funciona o reset de [palavra-passe autosserviço da Azure AD][concept-sspr].
 
-[Permitir o registo combinado no seu inquilino](howto-registration-mfa-sspr-combined.md)
+Para saber mais sobre os conceitos de MFA, veja como funciona a [autenticação multi-factor Azure.][concept-mfa]
 
-[Documentação do método de autenticação do utilizador final](https://aka.ms/securityinfoguide)
+<!-- INTERNAL LINKS -->
+[tutorial-sspr]: tutorial-enable-sspr.md
+[tutorial-azure-mfa]: tutorial-enable-azure-mfa.md
+[concept-sspr]: concept-sspr-howitworks.md
+[concept-mfa]: concept-mfa-howitworks.md

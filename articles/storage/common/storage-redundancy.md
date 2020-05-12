@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 05/11/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: d37e790b8a77a48cb5ef53292712164dcdcf459b
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 65d898112396755bb2518cade0ac94c21bc52685
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872008"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117721"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância de armazenamento azure
 
@@ -102,7 +102,7 @@ O armazenamento geo-zona-redundante (GZRS) combina a elevada disponibilidade pro
 
 Com uma conta de armazenamento GZRS, pode continuar a ler e escrever dados se uma zona de disponibilidade ficar indisponível ou não for recuperável. Além disso, os seus dados também são duráveis no caso de uma paragem regional completa ou de um desastre em que a região primária não é recuperável. A GZRS foi concebida para fornecer pelo menos 99.9999999999999999999999999% (16 9's) durabilidade de objetos durante um determinado ano.
 
-Apenas as contas de armazenamento v2 de uso geral suportam GZRS e RA-GZRS. Para obter mais informações sobre os tipos de conta de armazenamento, consulte a visão geral da conta de [armazenamento do Azure.](storage-account-overview.md) Bolhas de bloco de suporte GZRS e RA-GZRS, bolhas de página (com exceção dos discos VHD), ficheiros, tabelas e filas. GZRS e RA-GZRS estão disponíveis em todas as regiões do Azure.
+Apenas as contas de armazenamento v2 de uso geral suportam GZRS e RA-GZRS. Para obter mais informações sobre os tipos de conta de armazenamento, consulte a visão geral da conta de [armazenamento do Azure.](storage-account-overview.md) Bolhas de bloco de suporte GZRS e RA-GZRS, bolhas de página (com exceção dos discos VHD), ficheiros, tabelas e filas.
 
 As GZRS e ra-GZRS são apoiadas nas seguintes regiões:
 
@@ -126,7 +126,7 @@ O armazenamento geo-redundante (com GRS ou GZRS) replica os seus dados para outr
 
 Se a sua conta de armazenamento estiver configurada para ler o acesso à região secundária, então pode projetar as suas aplicações para mudar perfeitamente para dados de leitura da região secundária se a região primária ficar indisponível por qualquer motivo. A região secundária está sempre disponível para acesso à leitura, para que possa testar a sua aplicação para se certificar de que será lida a partir do secundário em caso de paragem. Para obter mais informações sobre como projetar as suas aplicações para alta disponibilidade, consulte [Use geo-redundância para conceber aplicações altamente disponíveis.](geo-redundant-design.md)
 
-Ao ler o acesso ao secundário está ativado, os seus dados podem ser lidos a partir do ponto final secundário, bem como a partir do ponto final primário para a sua conta de armazenamento. O ponto final secundário afixa o sufixo *– secundário* ao nome da conta. Por exemplo, se o seu principal ponto `myaccount.blob.core.windows.net`final para o armazenamento `myaccount-secondary.blob.core.windows.net`blob é , então o ponto final secundário é . As chaves de acesso à conta para a sua conta de armazenamento são as mesmas para os pontos finais primários e secundários.
+Ao ler o acesso ao secundário está ativado, os seus dados podem ser lidos a partir do ponto final secundário, bem como a partir do ponto final primário para a sua conta de armazenamento. O ponto final secundário afixa o sufixo *– secundário* ao nome da conta. Por exemplo, se o seu principal ponto final para o armazenamento blob é `myaccount.blob.core.windows.net` , então o ponto final secundário é `myaccount-secondary.blob.core.windows.net` . As chaves de acesso à conta para a sua conta de armazenamento são as mesmas para os pontos finais primários e secundários.
 
 ### <a name="check-the-last-sync-time-property"></a>Consulte a propriedade Last Sync Time
 
@@ -143,7 +143,7 @@ O quadro seguinte mostra o quão duradouros e disponíveis os seus dados estão 
 | Cenário                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | Gzrs/RA-Gzrs                              |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
 | Um nó dentro de um centro de dados torna-se indisponível                                                                 | Sim                             | Sim                              | Sim                                  | Sim                                  |
-| Um centro de dados inteiro (zonal ou não zonal) fica indisponível                                           | No                              | Sim                              | Sim                                  | Sim                                  |
+| Um centro de dados inteiro (zonal ou não zonal) fica indisponível                                           | Não                              | Sim                              | Sim                                  | Sim                                  |
 | Ocorre uma paralisação em toda a região                                                                                     | Não                              | Não                               | Sim                                  | Sim                                  |
 | Leia o acesso aos dados na região secundária se a região primária ficar indisponível | Não                              | Não                               | Sim (com RA-GRS)                                   | Sim (com RA-GZRS)                                 |
 | Por cento de durabilidade de objetos ao longo de um dado ano<sup>1</sup>                                          | pelo menos 99.999999999% (11 9's) | pelo menos 99.99999999999% (12 9's) | pelo menos 99.9999999999999999999 % (16 9's) | pelo menos 99.9999999999999999999 % (16 9's) |

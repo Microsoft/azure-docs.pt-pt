@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: babanisa
-ms.openlocfilehash: 2c34a9e1463c49ab1822d1de6bf33e81f19cf003
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 7c363fd4e55fdd6fe04a099ac833a256bbfd2eb2
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629597"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83116973"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Receber eventos para um ponto final HTTP
 
@@ -28,11 +28,11 @@ Precisa de uma aplicação de função com uma função ativada http.
 
 ## <a name="add-dependencies"></a>Adicionar dependências
 
-Se estiver a desenvolver-se em .NET, adicione uma `Microsoft.Azure.EventGrid` [dependência](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies) à sua função para o pacote [NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventGrid). Os exemplos deste artigo requerem a versão 1.4.0 ou mais tarde.
+Se estiver a desenvolver-se em .NET, [adicione uma dependência](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies) à sua função para o pacote `Microsoft.Azure.EventGrid` [NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventGrid). Os exemplos deste artigo requerem a versão 1.4.0 ou mais tarde.
 
-Os SDKs para outros idiomas estão disponíveis através da referência [Publish SDKs.](./sdk-overview.md#data-plane-sdks) Estes pacotes têm os modelos `EventGridEvent`para `StorageBlobCreatedEventData`tipos `EventHubCaptureFileCreatedEventData`de eventos nativos, tais como, e .
+Os SDKs para outros idiomas estão disponíveis através da referência [Publish SDKs.](./sdk-overview.md#data-plane-sdks) Estes pacotes têm os modelos para tipos de eventos nativos, tais `EventGridEvent` `StorageBlobCreatedEventData` como, e `EventHubCaptureFileCreatedEventData` .
 
-Clique no link "Ver Ficheiros" na sua Função Azure (direita a maioria do painel no portal de funções Azure), e crie um ficheiro chamado project.json. Adicione o seguinte `project.json` conteúdo ao ficheiro e guarde-o:
+Clique no link "Ver Ficheiros" na sua Função Azure (direita a maioria do painel no portal de funções Azure), e crie um ficheiro chamado project.json. Adicione o seguinte conteúdo ao `project.json` ficheiro e guarde-o:
 
  ```json
 {
@@ -50,9 +50,9 @@ Clique no link "Ver Ficheiros" na sua Função Azure (direita a maioria do paine
 
 ## <a name="endpoint-validation"></a>Validação de ponto final
 
-A primeira coisa que queres `Microsoft.EventGrid.SubscriptionValidationEvent` fazer é lidar com os acontecimentos. Sempre que alguém subscreve um evento, a Event Grid envia `validationCode` um evento de validação para o ponto final com um na carga útil de dados. O ponto final é necessário para ecoar isto de volta no corpo de resposta para provar que [o ponto final é válido e propriedade de si](webhook-event-delivery.md). Se estiver a utilizar um Gatilho de Grelha de [Eventos](../azure-functions/functions-bindings-event-grid.md) em vez de uma Função ativada pelo WebHook, a validação do ponto final é manipulada para si. Se utilizar um serviço de API de terceiros (como [zapier](https://zapier.com) ou [IFTTT),](https://ifttt.com/)poderá não conseguir fazer eco programático do código de validação. Para esses serviços, pode validar manualmente a subscrição utilizando um URL de validação enviado no evento de validação de subscrição. Copie esse `validationUrl` URL na propriedade e envie um pedido GET através de um cliente REST ou do seu navegador web.
+A primeira coisa que queres fazer é lidar com `Microsoft.EventGrid.SubscriptionValidationEvent` os acontecimentos. Sempre que alguém subscreve um evento, a Event Grid envia um evento de validação para o ponto final com um `validationCode` na carga útil de dados. O ponto final é necessário para ecoar isto de volta no corpo de resposta para provar que [o ponto final é válido e propriedade de si](webhook-event-delivery.md). Se estiver a utilizar um Gatilho de Grelha de [Eventos](../azure-functions/functions-bindings-event-grid.md) em vez de uma Função ativada pelo WebHook, a validação do ponto final é manipulada para si. Se utilizar um serviço de API de terceiros (como [zapier](https://zapier.com/home) ou [IFTTT),](https://ifttt.com/)poderá não conseguir fazer eco programático do código de validação. Para esses serviços, pode validar manualmente a subscrição utilizando um URL de validação enviado no evento de validação de subscrição. Copie esse URL na propriedade e envie um pedido GET através de `validationUrl` um cliente REST ou do seu navegador web.
 
-Em C#, `DeserializeEventGridEvents()` a função desserializa os eventos da Grelha de Eventos. Desserializa os dados do evento no tipo apropriado, como StorageBlobCreatedEventData. Use `Microsoft.Azure.EventGrid.EventTypes` a classe para obter tipos e nomes de eventos suportados.
+Em C#, a `DeserializeEventGridEvents()` função desserializa os eventos da Grelha de Eventos. Desserializa os dados do evento no tipo apropriado, como StorageBlobCreatedEventData. Use a `Microsoft.Azure.EventGrid.EventTypes` classe para obter tipos e nomes de eventos suportados.
 
 Para ecoar programáticamente o código de validação, utilize o seguinte código. Pode encontrar amostras relacionadas no exemplo do Consumidor da [Rede de Eventos.](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/tree/master/EventGridConsumer)
 
@@ -134,13 +134,13 @@ Teste a função de resposta à validação colando o evento da amostra no campo
 }]
 ```
 
-Quando clicar em Executar, a saída deve `{"ValidationResponse":"512d38b6-c7b8-40c8-89fe-f46f9e9622b6"}` ser de 200 OK e no corpo:
+Quando clicar em Executar, a saída deve ser de 200 OK e `{"ValidationResponse":"512d38b6-c7b8-40c8-89fe-f46f9e9622b6"}` no corpo:
 
 ![resposta de validação](./media/receive-events/validation-response.png)
 
 ## <a name="handle-blob-storage-events"></a>Lidar com eventos de armazenamento blob
 
-Agora, vamos estender a função para manusear: `Microsoft.Storage.BlobCreated`
+Agora, vamos estender a função para `Microsoft.Storage.BlobCreated` manusear:
 
 ```cs
 using System.Net;
@@ -255,9 +255,9 @@ Também pode testar através da criação de uma conta de armazenamento Blob ou 
 
 Finalmente, vamos prolongar a função mais uma vez para que também possa lidar com eventos personalizados. 
 
-Em C#, o SDK suporta mapear um nome do tipo de evento para o tipo de dados do evento. Use `AddOrUpdateCustomEventMapping()` a função para mapear o evento personalizado.
+Em C#, o SDK suporta mapear um nome do tipo de evento para o tipo de dados do evento. Use a `AddOrUpdateCustomEventMapping()` função para mapear o evento personalizado.
 
-Adicione um cheque `Contoso.Items.ItemReceived`para o seu evento. O seu código final deve parecer:
+Adicione um cheque para o seu `Contoso.Items.ItemReceived` evento. O seu código final deve parecer:
 
 ```cs
 using System.Net;
