@@ -7,12 +7,12 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 2c21a8770209871be4d871a08e6355e4ca7ed169
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1a928726665a743cb874a2f8a51ee63fcf64d9ad
+ms.sourcegitcommit: 801a551e047e933e5e844ea4e735d044d170d99a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82204326"
+ms.lasthandoff: 05/11/2020
+ms.locfileid: "83007530"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Marque imagens em um projeto de rotulagem
 
@@ -65,11 +65,13 @@ Depois de submeter etiquetas para os dados disponíveis, o Azure atualiza a pág
 
 ### <a name="assisted-machine-learning"></a>Aprendizagem automática assistida 
 
-Os algoritmos de aprendizagem automática podem ser desencadeados durante uma tarefa de classificação multi-classe ou multi-etiqueta. Se estes algoritmos estiverem ativados no seu projeto, poderá ver o seguinte:
+Os algoritmos de aprendizagem automática podem ser desencadeados. Se estes algoritmos estiverem ativados no seu projeto, poderá ver o seguinte:
 
 * Depois de alguma quantidade de imagens terem sido rotulados, poderá ver **tarefas agrupadas** na parte superior do ecrã ao lado do nome do projeto.  Isto significa que as imagens são agrunadas para apresentar imagens semelhantes na mesma página.  Em caso afirmativo, mude para uma das múltiplas vistas de imagem para tirar partido do agrupamento.  
 
 * Num ponto posterior, poderá ver **tarefas pré-rotuladas** ao lado do nome do projeto.  As imagens aparecerão então com um rótulo sugerido que provém de um modelo de classificação de machine learning. Nenhum modelo de aprendizagem automática tem 100% de precisão. Embora utilizemos apenas imagens para as quais o modelo está confiante, estas imagens podem ainda ser incorretamente pré-rotuladas.  Quando vir estas etiquetas, corrija as etiquetas erradas antes de enviar a página.  
+
+* Para os modelos de deteção de objetos, pode ver caixas de delimitação e etiquetas já presentes.  Corrija os que estiverem incorretos antes de submeter a página.
 
 Especialmente no início de um projeto de rotulagem, o modelo de aprendizagem automática só pode ser preciso o suficiente para pré-rotular um pequeno subconjunto de imagens. Uma vez rotulados estas imagens, o projeto de rotulagem voltará à rotulagem manual para recolher mais dados para a próxima ronda de formação de modelos. Com o tempo, o modelo tornar-se-á mais confiante sobre uma maior proporção de imagens, resultando em tarefas mais pré-rotuladas mais tarde no projeto.
 

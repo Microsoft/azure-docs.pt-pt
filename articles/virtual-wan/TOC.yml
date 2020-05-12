@@ -10,6 +10,8 @@
           href: migrate-from-hub-spoke-topology.md
         - name: Arquitetura de rede de trânsito global
           href: virtual-wan-global-transit-network-architecture.md
+        - name: Arquitetura de conectividade SD-WAN
+          href: sd-wan-connectivity-architecture.md
         - name: Interligação com a China
           href: interconnect-china.md
 - name: Tutoriais

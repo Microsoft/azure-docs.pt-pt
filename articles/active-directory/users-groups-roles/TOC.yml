@@ -68,7 +68,7 @@
           href: /azure/active-directory/b2b/use-dynamic-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Gerir o seu diretório
       items:
-        - name: Administrar o seu diretório
+        - name: Organizações do Azure AD
           href: /azure/active-directory/fundamentals/active-directory-administer?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: Gerir nomes de domínio
           href: domains-manage.md
@@ -84,7 +84,7 @@
           href: /azure/active-directory/connect/active-directory-aadconnect?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Gerir grupos
       items:
-        - name: Gerir o acesso com grupos do Azure AD
+        - name: Gerir o acesso com grupos
           href: /azure/active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: Criar um grupo (portal do Azure)
           href: /azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
@@ -134,6 +134,8 @@
           href: groups-assign-sensitivity-labels.md
     - name: Atribuir licenças
       items:
+        - name: Atribuir licenças a utilizadores
+          href: /azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: Atribuir licenças a um grupo
           href: licensing-groups-assign.md
         - name: Resolver problemas de licenças de grupo
