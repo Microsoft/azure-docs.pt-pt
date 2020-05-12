@@ -10,7 +10,7 @@ ms.author: normesta
 ms.reviewer: jamesbak
 ms.openlocfilehash: e80d1a05765d224dc4682c6f64faccc8c81f8ebd
 ms.sourcegitcommit: 801a551e047e933e5e844ea4e735d044d170d99a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/11/2020
 ms.locfileid: "83007479"
