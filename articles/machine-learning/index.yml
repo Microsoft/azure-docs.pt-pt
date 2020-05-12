@@ -12,12 +12,12 @@ metadata:
   author: j-martens
   ms.author: jmartens
   ms.date: 04/30/2020
-  ms.openlocfilehash: b1df2d4420e25027a545b8a708cda31cf0ff152f
-  ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+  ms.openlocfilehash: d1e93ac4efb366f09b425be74be6eb8aeda9a713
+  ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 05/01/2020
-  ms.locfileid: "82690951"
+  ms.lasthandoff: 05/10/2020
+  ms.locfileid: "83005960"
 landingContent:
 - title: Introdução ao machine learning
   linkLists:
@@ -67,6 +67,8 @@ landingContent:
     links:
     - text: Configurar o ambiente
       url: how-to-configure-environment.md
+    - text: Interpretar e explicar modelos
+      url: how-to-machine-learning-interpretability.md
     - text: Aprendizagem profunda vs ML
       url: concept-deep-learning-vs-machine-learning.md
     - text: Preparar com o Scikit-learn
@@ -79,7 +81,7 @@ landingContent:
       url: how-to-train-keras.md
     - text: O que são pipelines de ML?
       url: concept-ml-pipelines.md
-- title: Implementar e gerir modelos
+- title: Implementar e gerir modelos (MLOps)
   linkLists:
   - linkListType: how-to-guide
     links:

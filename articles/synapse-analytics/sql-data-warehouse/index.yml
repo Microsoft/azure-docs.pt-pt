@@ -12,12 +12,12 @@ metadata:
   author: julieMSFT
   ms.author: jrasnick
   ms.date: 04/15/2020
-  ms.openlocfilehash: a2abb47c7f4f0f4ada47f923b1c1a722ef568841
-  ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+  ms.openlocfilehash: 23dfa368ae94cada2cd2150fb05a7a294b190860
+  ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 05/05/2020
-  ms.locfileid: "82793113"
+  ms.lasthandoff: 05/09/2020
+  ms.locfileid: "82996858"
 landingContent:
 - title: Acerca do Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse)
   linkLists:
@@ -57,6 +57,8 @@ landingContent:
     links:
     - text: Ingestão de dados rápida com a declaração COPY
       url: quickstart-bulk-load-copy-tsql.md
+    - text: Exemplos de instrução COPY
+      url: quickstart-bulk-load-copy-tsql-examples.md
   - linkListType: concept
     links:
     - text: Conceber uma estratégia de carregamento de dados

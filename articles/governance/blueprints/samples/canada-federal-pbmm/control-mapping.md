@@ -1,14 +1,14 @@
 ---
 title: Controlos de amostras de plantas PBMM Federais do Canadá
 description: Mapeamento de controlo das amostras de plantas pBMM federais do Canadá. Cada controlo é mapeado para uma ou mais Políticas Azure que ajudam na avaliação.
-ms.date: 09/04/2019
+ms.date: 05/08/2020
 ms.topic: sample
-ms.openlocfilehash: 943ca6849f9a55ce45b609a06cfcbb9b96b691c2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8fc5b2f369dbe174fb4d5ea8160d592e9aaef3af
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74545258"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005719"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>Mapeamento de controlo da amostra de planta pBMM federal do Canadá
 
@@ -57,8 +57,8 @@ Ter apenas um proprietário de assinatura Azure não permite o despedimento admi
 
 - Um máximo de 3 proprietários deve ser designado para a sua subscrição
 - Deve haver mais de um proprietário atribuído à sua subscrição
-- Audite VMs windows em que o grupo administradores contém qualquer um dos membros especificados
-- Audite VMs windows em que o grupo administradores não contém todos os membros especificados
+- Mostrar resultados de auditoria de VMs do Windows em que o grupo administradores contém qualquer um dos membros especificados
+- Mostrar os resultados da auditoria dos VMs do Windows nos quais o grupo administradores não contém todos os membros especificados
 - Implementar requisitos para auditar VMs do Windows em que o grupo administradores contém qualquer um dos membros especificados
 - Implementar requisitos para auditar VMs do Windows em que o grupo Administradores não contenha todos os membros especificados
 
@@ -68,8 +68,8 @@ O Azure implementa [o controlo de acesso baseado em funções](../../../../role-
 
 - Um máximo de 3 proprietários deve ser designado para a sua subscrição
 - Deve haver mais de um proprietário atribuído à sua subscrição
-- Audite VMs windows em que o grupo administradores contém qualquer um dos membros especificados
-- Audite VMs windows em que o grupo administradores não contém todos os membros especificados
+- Mostrar resultados de auditoria de VMs do Windows em que o grupo administradores contém qualquer um dos membros especificados
+- Mostrar os resultados da auditoria dos VMs do Windows nos quais o grupo administradores não contém todos os membros especificados
 - Implementar requisitos para auditar VMs do Windows em que o grupo administradores contém qualquer um dos membros especificados
 - Implementar requisitos para auditar VMs do Windows em que o grupo Administradores não contenha todos os membros especificados
 
@@ -85,7 +85,7 @@ A capacidade de descoberta e classificação de dados avançados para a Base de 
 
 Esta planta ajuda-o a monitorizar e controlar o acesso remoto, atribuindo definições de [Política Azure](../../../policy/overview.md) para monitorizar que a depuração remota para aplicação do Serviço de Aplicações Azure está desligada. O projeto também atribui definições de política que auditam máquinas virtuais Linux que permitem ligações remotas a partir de contas sem senhas. Além disso, o projeto atribui uma definição de Política Azure que o ajuda a monitorizar o acesso ilimitado a contas de armazenamento. Monitorizar estes indicadores pode ajudá-lo a garantir que os métodos de acesso remoto satisfaçam a sua política de segurança.
 
-- \[Pré-visualização\]: Audite VMs Linux que permitem ligações remotas a partir de contas sem senhas
+- \[Pré-visualização\]: Mostrar resultados de auditoria de VMs Linux que permitem ligações remotas a partir de contas sem senhas
 - \[Pré-visualização\]: Implementar requisitos para auditar VMs Linux que permitem ligações remotas a partir de contas sem senhas
 - Auditoria sem restrições ao acesso da rede às contas de armazenamento
 - Depuração remota deve ser desligada para App API
@@ -107,7 +107,7 @@ Os dados de registo recolhidos pelo Azure Monitor são armazenados num espaço d
 Esta planta atribui definições de [Política Azure](../../../policy/overview.md) que monitorizam as configurações de auditoria e registo de eventos. Monitorizar estas configurações pode fornecer um indicador de uma falha ou configuração errada do sistema de auditoria e ajudá-lo a tomar medidas corretivas.
 
 - Definição de diagnóstico de auditoria
-- Audite as definições de auditoria ao nível do servidor SQL
+- A auditoria no servidor SQL deve ser ativada
 - A segurança avançada dos dados deve ser ativada nas suas instâncias geridas
 - A segurança avançada de dados deve ser ativada nos seus servidores SQL
 
@@ -131,7 +131,7 @@ Este plano ajuda-o a garantir que os eventos do sistema são registados atribuin
 - \[Pré-visualização\]: Implementar o Agente de Análise de Registo para VMs Linux
 - \[Pré-visualização\]: Implementar o agente de análise de registo para VMs do Windows
 - Definição de diagnóstico de auditoria
-- Audite as definições de auditoria ao nível do servidor SQL
+- A auditoria no servidor SQL deve ser ativada
 - A segurança avançada dos dados deve ser ativada nas suas instâncias geridas
 - A segurança avançada de dados deve ser ativada nos seus servidores SQL
 - Implementar segurança avançada de dados em servidores SQL
@@ -167,8 +167,8 @@ Este plano ajuda-o a restringir e controlar o acesso privilegiado através da at
 
 Esta planta atribui definições [de Política Azure](../../../policy/overview.md) que auditam máquinas virtuais Linux que permitem ligações remotas a partir de contas sem senhas e/ou têm permissões incorretas definidas no ficheiro passwd. Esta planta também atribui definições de política que auditam a configuração do tipo de encriptação de palavra-passe para máquinas virtuais windows. Monitorizar estes indicadores ajuda-o a garantir que os autenticadores do sistema cumprem a política de identificação e autenticação da sua organização.
 
-- \[Pré-visualização\]: Audite VMs Linux que não tenham as permissões de ficheiro sinuosas definidas para 0644
-- \[Pré-visualização\]: Audite VMs Linux que tenham contas sem senhas
+- \[Pré-visualização\]: Mostrar resultados de auditoria de VMs Linux que não têm as permissões de ficheiro sinuosas definidas para 0644
+- \[Pré-visualização\]: Mostrar resultados de auditoria de VMs Linux que têm contas sem senhas
 - \[Pré-visualização\]: Implementar requisitos para auditar VMs Linux que não tenham as permissões de ficheiro sinuosas definidas para 0644
 - \[Pré-visualização\]: Implementar requisitos para auditar VMs Linux que tenham contas sem senhas
 
@@ -176,11 +176,11 @@ Esta planta atribui definições [de Política Azure](../../../policy/overview.m
 
 Este plano ajuda-o a impor senhas fortes atribuindo definições de [Política Azure](../../../policy/overview.md) que auditam máquinas virtuais do Windows que não impõem a força mínima e outros requisitos de senha. A consciencialização das máquinas virtuais em violação da política de força da palavra-passe ajuda-o a tomar medidas corretivas para garantir que as palavras-passe de todas as contas de utilizadores de máquinas virtuais cumpram a política de passwords da sua organização.
 
-- \[Pré-visualização\]: Auditar VMs do Windows que permitem a reutilização das 24 senhas anteriores
-- \[Pré-visualização\]: Auditar VMs do Windows que não tenham uma idade máxima de senha de 70 dias
-- \[Pré-visualização\]: Auditar VMs windows que não tenham uma idade mínima de senha de 1 dia
-- \[Pré-visualização\]: Audite VMs windows que não tenham a definição de complexidade da palavra-passe ativada
-- \[Pré-visualização\]: Auditar VMs do Windows que não restringem o comprimento mínimo da palavra-passe a 14 caracteres
+- \[Pré-visualização\]: Mostrar resultados de auditoria de VMs do Windows que permitem a reutilização das 24 senhas anteriores
+- \[Pré-visualização\]: Mostrar resultados de auditoria de VMs do Windows que não têm uma idade máxima de senha de 70 dias
+- \[Pré-visualização\]: Mostrar resultados de auditoria de VMs do Windows que não têm uma idade mínima de senha de 1 dia
+- \[Pré-visualização\]: Mostrar resultados de auditoria de VMs do Windows que não tenham a definição de complexidade da palavra-passe ativada
+- \[Pré-visualização\]: Mostrar resultados de auditoria de VMs do Windows que não restringem o comprimento mínimo da palavra-passe a 14 caracteres
 - \[Pré-visualização\]: Implementar requisitos para auditar VMs do Windows que permitam a reutilização das 24 senhas anteriores
 - \[Pré-visualização\]: Implementar requisitos para auditar VMs do Windows que não tenham uma idade máxima de senha de 70 dias
 - \[Pré-visualização\]: Implementar requisitos para auditar VMs do Windows que não tenham uma idade mínima de senha de 1 dia
@@ -217,10 +217,9 @@ O nível padrão de negação de serviço distribuído da Azure (DDoS) fornece f
 Este plano ajuda-o a gerir e controlar o limite do sistema atribuindo uma definição [de Política Azure](../../../policy/overview.md) que monitoriza as recomendações de endurecimento do grupo de segurança de rede no Azure Security Center. O Azure Security Center analisa os padrões de tráfego da Internet que enfrentam máquinas virtuais e fornece recomendações de regras do grupo de segurança da rede para reduzir a superfície de ataque potencial.
 Além disso, este projeto também atribui definições de políticas que monitorizam pontos finais, aplicações e contas de armazenamento desprotegidas. Pontos finais e aplicações que não estejam protegidas por uma firewall, e contas de armazenamento com acesso sem restrições podem permitir o acesso não intencional a informações contidas no sistema de informação.
 
-- As regras do Grupo de Segurança da Rede para as máquinas virtuais viradas para a Internet devem ser endurecidas
+- Recomendações adapttivas de endurecimento da rede devem ser aplicadas na Internet viradas para máquinas virtuais
 - O acesso através da Internet virado para o ponto final deve ser restringido
 - Auditoria sem restrições ao acesso da rede às contas de armazenamento
-- As regras do NSGs para aplicações web em IaaS devem ser endurecidas
 
 ## <a name="sc-7-3-boundary-protection--access-points"></a>SC-7 (3) Proteção de Fronteiras [ Pontos de Acesso
 
@@ -239,7 +238,7 @@ O acesso à máquina virtual just-in-time (JIT) bloqueia o tráfego de entrada p
 Esta planta ajuda-o a proteger a confidencialidade e integridade das informações transmitidas, atribuindo definições de [Política Azure](../../../policy/overview.md) que o ajudam a monitorizar o mecanismo criptográfico implementado para protocolos de comunicações. Garantir que as comunicações estão devidamente encriptadas pode ajudá-lo a satisfazer os requisitos da sua organização ou proteger informações contra divulgação e modificação não autorizadas.
 
 - A Aplicação API só deve ser acessível em HTTPS
-- Audite servidores web do Windows que não estão a usar protocolos de comunicação seguros
+- Mostre resultados de auditoria de servidores web do Windows que não estão a usar protocolos de comunicação seguros
 - Implementar requisitos para auditar servidores web do Windows que não estão a usar protocolos de comunicação seguros
 - App de funções só deve ser acessível através de HTTPS
 - Apenas ligações seguras ao seu Redis Cache devem ser ativadas

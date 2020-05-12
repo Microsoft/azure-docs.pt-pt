@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/25/2019
-ms.openlocfilehash: 3e72a2f6754ad8e9c5bcfabe7eeee299468fa8f3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a4ba4d69b560307e52c277f5c695bbba718cd1d3
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73691635"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005834"
 ---
 # <a name="use-powershell-to-create-an-azure-sql-database-managed-instance"></a>Use powerShell para criar uma instância gerida pela Base de Dados Azure SQL
 
@@ -43,7 +43,7 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 ## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza os seguintes comandos. Cada comando na tabela liga à documentação específica do comando.
+Este script usa alguns dos seguintes comandos. Para obter mais informações sobre os comandos usados e outros na tabela abaixo, clique nos links para comandar documentação específica.
 
 | Comando | Notas |
 |---|---|

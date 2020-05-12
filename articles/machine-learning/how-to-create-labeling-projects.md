@@ -7,12 +7,12 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 6c553580bc3f2c9cb1aac321bea3c86b04b2ba56
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6a2dd84ec091a2e862dd788a740585827b5cbde1
+ms.sourcegitcommit: 801a551e047e933e5e844ea4e735d044d170d99a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231225"
+ms.lasthandoff: 05/11/2020
+ms.locfileid: "83007537"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Criar um projeto de rotulagem de dados e rótulos de exportação 
 
@@ -138,8 +138,6 @@ Para as caixas de delimitação, questões importantes incluem:
 
 A página de **rotulagem assistida ML** permite-lhe acionar modelos automáticos de aprendizagem automática para acelerar a tarefa de rotulagem. No início do seu projeto de rotulagem, as imagens são baralhadas numa ordem aleatória para reduzir o preconceito potencial. No entanto, quaisquer preconceitos presentes no conjunto de dados refletir-se-ão no modelo treinado. Por exemplo, se 80% das suas imagens forem de uma única classe, então aproximadamente 80% dos dados utilizados para treinar o modelo serão dessa classe. Esta formação não inclui a aprendizagem ativa.
 
-Esta funcionalidade está disponível para tarefas de classificação de imagem (multi-classe ou multi-etiquetas).  
-
 *Selecione Ativar a rotulagem assistida ML* e especificar um GPU para permitir a rotulagem assistida, que consiste em duas fases:
 * Clustering
 * Pré-rotulagem
@@ -150,13 +148,15 @@ Uma vez que as etiquetas finais ainda dependem da entrada do rotulador, esta tec
 
 ### <a name="clustering"></a>Clustering
 
-Após a apresentação de um certo número de rótulos, o modelo de machine learning começa a agrupar imagens semelhantes.  Estas imagens semelhantes são apresentadas aos rotuladores no mesmo ecrã para acelerar a marcação manual. O agrupamento é especialmente útil quando o rotulador está a visualizar uma grelha de 4, 6 ou 9 imagens. 
+Após a apresentação de um certo número de rótulos, o modelo de aprendizagem automática para classificação de imagem começa a agrupar imagens semelhantes.  Estas imagens semelhantes são apresentadas aos rotuladores no mesmo ecrã para acelerar a marcação manual. O agrupamento é especialmente útil quando o rotulador está a visualizar uma grelha de 4, 6 ou 9 imagens. 
 
 Uma vez treinado um modelo de aprendizagem automática nos seus dados manualmente rotulados, o modelo é truncado até à sua última camada totalmente conectada. As imagens não rotuladas são então transmitidas através do modelo truncado num processo vulgarmente conhecido como "incorporação" ou "caracterização". Isto incorpora cada imagem num espaço de alta dimensão definido por esta camada de modelo. As imagens que são vizinhos mais próximos do espaço são usadas para agrupar tarefas. 
 
+A fase de agrupamento não aparece para os modelos de deteção de objetos.
+
 ### <a name="prelabeling"></a>Pré-rotulagem
 
-Depois de serem submetidas mais etiquetas de imagem, um modelo de classificação é usado para prever etiquetas de imagem.  O rotulador vê agora páginas que contêm etiquetas previstas já presentes em cada imagem.  A tarefa é então rever estes rótulos e corrigir quaisquer imagens mal rotuladas antes de submeter a página.  
+Depois de serem submetidas etiquetas de imagem suficientes, um modelo de classificação é usado para prever etiquetas de imagem. Ou um modelo de deteção de objetos é usado para prever caixas de delimitação. O rotulador vê agora páginas que contêm etiquetas previstas já presentes em cada imagem. Para deteção de objetos, também são mostradas caixas previstas. A tarefa é então rever estas previsões e corrigir quaisquer imagens mal rotuladas antes de submeter a página.  
 
 Uma vez treinado um modelo de aprendizagem automática nos seus dados manualmente rotulados, o modelo é avaliado num conjunto de testes de imagens com etiquetamanual para determinar a sua precisão em diferentes limiares de confiança. Este processo de avaliação é utilizado para determinar um limiar de confiança acima do qual o modelo é suficientemente preciso para apresentar pré-etiquetas. O modelo é então avaliado com dados não rotulados. Imagens com previsões mais confiantes do que este limiar são usadas para pré-rotulagem.
 
