@@ -1,14 +1,14 @@
 ---
 title: OFICIAL do Reino Unido & controlos de amostras de plantas do NHS do Reino Unido
 description: Mapeamento de controlo das amostras de plantas do NHS oficial do Reino Unido e do Reino Unido. Cada controlo é mapeado para uma ou mais Políticas Azure que ajudam na avaliação.
-ms.date: 12/04/2019
+ms.date: 05/08/2020
 ms.topic: sample
-ms.openlocfilehash: 5bef590013a9ef06b791e58dc6c82e74dffe1a17
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 88f9606df5c3dcbca6ade05be918e3500a6ba64c
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74851371"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005602"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Mapeamento de controlo das amostras de plantas do NHS oficial do Reino Unido e do Reino Unido
 
@@ -27,9 +27,6 @@ O plano ajuda-o a garantir que a transferência de informação com os serviços
 - A transferência segura para contas de armazenamento deve ser ativada
 - Mostre resultados de auditoria de servidores web do Windows que não estão a usar protocolos de comunicação seguros
 - Implemente pré-requisitos para auditar servidores web do Windows que não estão a usar protocolos de comunicação seguros
-- A versão TLS mais recente deve ser utilizada na sua app API
-- A versão TLS mais recente deve ser utilizada na sua Web App
-- A versão TLS mais recente deve ser usada na sua App de Funções
 
 ## <a name="23-data-at-rest-protection"></a>2.3 Dados na proteção do descanso
 
@@ -129,8 +126,8 @@ Este plano também ajuda a controlar o acesso aos recursos do Azure, atribuindo 
 
 - \[Pré-visualização\]: Implementar requisitos para auditar VMs Linux que tenham contas sem senhas
 - \[Pré-visualização\]: Implementar requisitos para auditar VMs Linux que permitem ligações remotas a partir de contas sem senhas
-- \[Pré-visualização\]: Audite VMs Linux que tenham contas sem senhas
-- \[Pré-visualização\]: Audite VMs Linux que permitem ligações remotas a partir de contas sem senhas
+- \[Pré-visualização\]: Mostrar resultados de auditoria de VMs Linux que têm contas sem senhas
+- \[Pré-visualização\]: Mostrar resultados de auditoria de VMs Linux que permitem ligações remotas a partir de contas sem senhas
 - As contas de armazenamento devem ser migradas para novos recursos do Gestor de Recursos do Azure
 - Máquinas virtuais devem ser migradas para novos recursos do Gestor de Recursos Do Azure
 - VMs de auditoria que não usam discos geridos
@@ -141,12 +138,10 @@ Além de utilizar mais de 25 políticas para uma gestão adequada e segura do ut
 
 - Auditoria sem restrições ao acesso da rede às contas de armazenamento
 - Os controlos adaptáveis de aplicação devem ser ativados em máquinas virtuais
-- As regras do NSGs para aplicações web em IaaS devem ser endurecidas
 - O acesso através da Internet virado para o ponto final deve ser restringido
-- As regras do Grupo de Segurança da Rede para as máquinas virtuais viradas para a Internet devem ser endurecidas
+- Recomendações adapttivas de endurecimento da rede devem ser aplicadas na Internet viradas para máquinas virtuais
 - A solução de proteção do ponto final deve ser instalada em conjuntos de escala de máquinavirtual
 - O controlo de acesso à rede Just-In-Time deve ser aplicado em máquinas virtuais
-- Auditoria sem restrições ao acesso da rede às contas de armazenamento
 - Depuração remota deve ser desligada para app de função
 - Depuração remota deve ser desligada para aplicação web
 - Depuração remota deve ser desligada para App API
@@ -179,13 +174,13 @@ Este projeto atribui igualmente definições de Política Azure para contas de a
 
 Esta planta também atribui uma definição de Política Azure que audita permissões de ficheiros de senha SléLlo VM para alertar se são definidas incorretamente. Este design permite-lhe tomar medidas corretivas para garantir que os autenticadores não sejam comprometidos.
 
-- \[Pré-visualização\]: Audit Linux VM /etc/passwd file permissions estão definidos para 0644
+- \[Pré-visualização\]: Mostrar resultados de auditoria de VMs Linux que não têm as permissões de ficheiro sinuosas definidas para 0644
 
 ## <a name="13-audit-information-for-users"></a>13 Informações de Auditoria para Utilizadores
 
 Este plano ajuda-o a garantir que os eventos do sistema são registados atribuindo definições de [Política Azure](../../../policy/overview.md) que auditam definições de registo nos recursos do Azure. Uma política atribuída também audita se as máquinas virtuais não estiverem a enviar registos para um espaço de trabalho específico de análise de registos.
 
-- A auditoria deve ser ativada em definições avançadas de segurança de dados no Servidor SQL
+- A segurança avançada de dados deve ser ativada nos seus servidores SQL
 - Definição de diagnóstico de auditoria
 - \[Pré-visualização\]: Implementar o Agente de Análise de Registo para VMs Linux
 - \[Pré-visualização\]: Implementar o agente de análise de registo para VMs do Windows

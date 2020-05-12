@@ -127,6 +127,8 @@
               items:
                 - name: Avaliação de vulnerabilidades
                   href: sql-vulnerability-assessment.md
+                - name: Regras de avaliação de vulnerabilidades
+                  href: sql-database-vulnerability-assessment-rules.md
                 - name: Armazenar análises de VA atrás de firewalls e VNets
                   href: sql-database-vulnerability-assessment-storage.md
             - name: Proteção Avançada Contra Ameaças

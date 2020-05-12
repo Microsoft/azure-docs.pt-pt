@@ -74,6 +74,8 @@
           href: alerts-schemas.md
         - name: Gerir alertas de segurança
           href: security-center-managing-and-responding-alerts.md
+        - name: Regras de supressão de alertas de segurança
+          href: alerts-suppression-rules.md
         - name: Gerir incidentes de segurança
           href: security-center-incident.md
         - name: Correlação de Alertas Inteligentes da Cloud (incidentes)

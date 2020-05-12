@@ -130,6 +130,8 @@
       href: reference-powershell-module.md
 - name: Recursos
   items:
+    - name: Blogue do Azure Lab Services
+      href: 'https://aka.ms/azlabs-blog'
     - name: Atualizações do Azure
       href: 'https://azure.microsoft.com/updates/?product=lab-services'
     - name: Preços
