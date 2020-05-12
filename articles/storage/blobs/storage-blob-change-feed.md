@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: b712148b9e619cbf5c6886bf0510b4015183d018
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
+ms.openlocfilehash: 4287bd766d73d7fae42aec54950ad5a3f09b5ba3
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82883346"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120424"
 ---
 # <a name="change-feed-support-in-azure-blob-storage-preview"></a>Alterar suporte para alimentação em Armazenamento de Blob Azure (Pré-visualização)
 
@@ -36,6 +36,8 @@ Alterar o suporte para feed é adequado para cenários que processam dados basea
   - Construa soluções para backup, espelho ou estado de objeto de replicação na sua conta para gestão ou conformidade de desastres.
 
   - Construa gasodutos de aplicação conectados que reagem para alterar eventos ou agendar execuções com base em objetos criados ou alterados.
+  
+O feed de alteração é uma característica [pré-requisito](point-in-time-restore-overview.md)para a restauração pontual para as bolhas de bloco .
 
 > [!NOTE]
 > A alimentação por alterações fornece um modelo de registo durável e ordenado das alterações que ocorrem a uma bolha. As alterações são escritas e disponibilizadas no seu registo de alimentação de alterações dentro de uma ordem de alguns minutos da alteração. Se a sua aplicação tiver de reagir a eventos muito mais rapidamente do que este, considere utilizar eventos de [armazenamento blob.](storage-blob-event-overview.md) [Blob Storage Events](storage-blob-event-overview.md) fornece eventos únicos em tempo real que permitem às suas Funções Ou aplicações Azure reagir rapidamente a alterações que ocorrem a uma bolha. 
@@ -55,7 +57,7 @@ Aqui estão algumas coisas a ter em mente quando ativar a mudança.
 - Apenas as contas de armazenamento GPv2 e Blob podem ativar o feed de alteração. As contas Premium BlockBlobStorage e as contas hierárquicas ativadas pelo espaço de nome não são suportadas atualmente. As contas de armazenamento GPv1 não são suportadas, mas podem ser atualizadas para GPv2 sem tempo de inatividade, consulte upgrade para uma conta de [armazenamento GPv2](../common/storage-account-upgrade.md) para obter mais informações.
 
 > [!IMPORTANT]
-> A mudança de alimentos está em pré-visualização pública, e está disponível nas regiões **centro-oeste** e **oeste2.** Consulte a secção [de condições](#conditions) deste artigo. Para se inscrever na pré-visualização, consulte a secção [de subscrição](#register) deste artigo. Tem de registar a sua subscrição antes de poder ativar a alteração do feed nas suas contas de armazenamento.
+> O feed de mudança está em pré-visualização pública, e está disponível nas regiões **do Oeste Dos EUA**, Oeste dos EUA **2**, **France Central**, France **South**, **Canadá Central**e **Canadá Leste.** Consulte a secção [de condições](#conditions) deste artigo. Para se inscrever na pré-visualização, consulte a secção [de subscrição](#register) deste artigo. Tem de registar a sua subscrição antes de poder ativar a alteração do feed nas suas contas de armazenamento.
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -154,7 +156,7 @@ Consulte os registos de alimentação de alteração de [processos no Armazename
 
 O feed de mudança é um registo de alterações que são organizadas em *segmentos* **de hora a hora,** mas anexadas e atualizadas a cada poucos minutos. Estes segmentos só são criados quando há eventos de mudança de bolha que ocorrem naquela hora. Isto permite ao seu cliente consumir alterações que ocorram dentro de intervalos de tempo específicos sem ter que pesquisar através de todo o registo. Para saber mais, consulte as [Especificações.](#specifications)
 
-Um segmento horária disponível do feed de mudança é descrito num ficheiro manifesto que especifica os caminhos para os ficheiros de alimentação de alteração para esse segmento. A listagem `$blobchangefeed/idx/segments/` do diretório virtual mostra estes segmentos encomendados pelo tempo. O percurso do segmento descreve o início da gama horária que o segmento representa. Pode utilizar essa lista para filtrar os segmentos de registos que lhe interessam.
+Um segmento horária disponível do feed de mudança é descrito num ficheiro manifesto que especifica os caminhos para os ficheiros de alimentação de alteração para esse segmento. A listagem do `$blobchangefeed/idx/segments/` diretório virtual mostra estes segmentos encomendados pelo tempo. O percurso do segmento descreve o início da gama horária que o segmento representa. Pode utilizar essa lista para filtrar os segmentos de registos que lhe interessam.
 
 ```text
 Name                                                                    Blob Type    Blob Tier      Length  Content Type    
@@ -168,7 +170,7 @@ $blobchangefeed/idx/segments/2019/02/23/0110/meta.json                  BlockBlo
 > [!NOTE]
 > O `$blobchangefeed/idx/segments/1601/01/01/0000/meta.json` é automaticamente criado quando ativa o feed de alteração. Pode ignorar com segurança este ficheiro. É um ficheiro de inicialização sempre vazio. 
 
-O ficheiro`meta.json`manifesto do segmento mostra o caminho dos ficheiros de feed de alteração para esse segmento na `chunkFilePaths` propriedade. Aqui está um exemplo de um ficheiro manifesto de segmento.
+O ficheiro manifesto do segmento `meta.json` mostra o caminho dos ficheiros de feed de alteração para esse segmento na `chunkFilePaths` propriedade. Aqui está um exemplo de um ficheiro manifesto de segmento.
 
 ```json
 {
@@ -199,7 +201,7 @@ O ficheiro`meta.json`manifesto do segmento mostra o caminho dos ficheiros de fee
 ```
 
 > [!NOTE]
-> O `$blobchangefeed` recipiente só aparece depois de ter ativado a funcionalidade de alimentação de alterações na sua conta. Terá de esperar alguns minutos depois de ativar a alimentação antes de poder listar as bolhas no recipiente. 
+> O recipiente só aparece depois de ter ativado a funcionalidade de alimentação de `$blobchangefeed` alterações na sua conta. Terá de esperar alguns minutos depois de ativar a alimentação antes de poder listar as bolhas no recipiente. 
 
 <a id="log-files"></a>
 
@@ -207,7 +209,13 @@ O ficheiro`meta.json`manifesto do segmento mostra o caminho dos ficheiros de fee
 
 Os ficheiros de transmissão de alteração contêm uma série de registos de eventos de alteração. Cada registo de eventos de alteração corresponde a uma alteração a uma bolha individual. Os registos são serializados e escritos no ficheiro utilizando a especificação do formato [Apache Avro.](https://avro.apache.org/docs/1.8.2/spec.html) Os registos podem ser lidos utilizando a especificação do formato de ficheiro Avro. Existem várias bibliotecas disponíveis para processar ficheiros nesse formato.
 
-Os ficheiros de alimentação de alteração são armazenados no `$blobchangefeed/log/` diretório virtual como bolhas de [apêndice](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs). O primeiro ficheiro de alimentação `00000` de alteração em `00000.avro`cada caminho terá no nome do ficheiro (por exemplo). O nome de cada ficheiro de registo subsequente adicionado a `00001.avro`esse caminho irá aumentar em 1 (por exemplo: ).
+Os ficheiros de alimentação de alteração são armazenados no `$blobchangefeed/log/` diretório virtual como [bolhas de apêndice](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs). O primeiro ficheiro de alimentação de alteração em cada caminho terá `00000` no nome do ficheiro (por `00000.avro` exemplo). O nome de cada ficheiro de registo subsequente adicionado a esse caminho irá aumentar em 1 (por exemplo: `00001.avro` ).
+
+Os seguintes tipos de eventos são capturados nos registos de feed Change:
+- BlobCriado
+- BlobDeleted
+- BlobPropertiesAtualizado
+- BlobSnapshotCriado
 
 Aqui está um exemplo de alteração do registo de eventos do ficheiro de feed de mudança convertido para Json.
 
@@ -238,7 +246,7 @@ Aqui está um exemplo de alteração do registo de eventos do ficheiro de feed d
 }
 ```
 
-Para obter uma descrição de cada propriedade, consulte o esquema do [evento Azure Event Grid para armazenamento de blob](https://docs.microsoft.com/azure/event-grid/event-schema-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#event-properties).
+Para obter uma descrição de cada propriedade, consulte o esquema do [evento Azure Event Grid para armazenamento de blob](https://docs.microsoft.com/azure/event-grid/event-schema-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#event-properties). Os eventos BlobPropertiesUpdated e BlobSnapshotCreated são atualmente exclusivos para o feed Change e ainda não suportados para Eventos de Armazenamento Blob.
 
 > [!NOTE]
 > Os ficheiros de feed de alteração para um segmento não aparecem imediatamente após a criação de um segmento. A duração do atraso encontra-se dentro do intervalo normal de publicação da latência do alimento de mudança, que se encontra a poucos minutos da alteração.
@@ -255,15 +263,15 @@ Para obter uma descrição de cada propriedade, consulte o esquema do [evento Az
 
 - Alterar os registos de eventos são serializados no ficheiro de registo utilizando a especificação do formato [Apache Avro 1.8.2.](https://avro.apache.org/docs/1.8.2/spec.html)
 
-- Altere os `eventType` registos de `Control` eventos onde os registos internos do sistema estão a não refletir uma alteração nos objetos da sua conta. Podeignorar com segurança esses registos.
+- Altere os registos de eventos onde os registos internos do sistema estão a não `eventType` refletir uma alteração nos `Control` objetos da sua conta. Podeignorar com segurança esses registos.
 
 - Os valores no saco de `storageDiagnonstics` propriedade são apenas para uso interno e não foram concebidos para uso pela sua aplicação. As suas aplicações não devem ter uma dependência contratual desse saque. Pode ignorar com segurança essas propriedades.
 
 - O tempo representado pelo segmento é **aproximado** com limites de 15 minutos. Assim, para garantir o consumo de todos os registos num prazo determinado, consumir o segmento anterior e próximo consecutivo.
 
-- Cada segmento pode ter `chunkFilePaths` um número diferente de devido à divisão interna do fluxo de registo para gerir a entrada de publicação. Os ficheiros `chunkFilePath` de registo em cada um deles são garantidos que contêm bolhas mutuamente exclusivas, e podem ser consumidos e processados em paralelo sem violar a ordem de modificações por bolha durante a iteração.
+- Cada segmento pode ter um número diferente de `chunkFilePaths` devido à divisão interna do fluxo de registo para gerir a entrada de publicação. Os ficheiros de registo em cada um `chunkFilePath` deles são garantidos que contêm bolhas mutuamente exclusivas, e podem ser consumidos e processados em paralelo sem violar a ordem de modificações por bolha durante a iteração.
 
-- Os Segmentos começam `Publishing` em estado. Uma vez concluída a despesa dos registos para `Finalized`o segmento, será . Os ficheiros de registo em qualquer `LastConsumable` segmento datado após a data da propriedade no `$blobchangefeed/meta/Segments.json` ficheiro, não devem ser consumidos pela sua aplicação. Aqui está um exemplo `LastConsumable`da `$blobchangefeed/meta/Segments.json` propriedade em um arquivo:
+- Os Segmentos começam em `Publishing` estado. Uma vez concluída a despesa dos registos para o segmento, será `Finalized` . Os ficheiros de registo em qualquer segmento datado após a data da `LastConsumable` propriedade no `$blobchangefeed/meta/Segments.json` ficheiro, não devem ser consumidos pela sua aplicação. Aqui está um exemplo da `LastConsumable` propriedade em um `$blobchangefeed/meta/Segments.json` arquivo:
 
 ```json
 {
@@ -310,13 +318,13 @@ az provider register --namespace 'Microsoft.Storage'
 ## <a name="conditions-and-known-issues-preview"></a>Condições e questões conhecidas (Pré-visualização)
 
 Esta secção descreve questões e condições conhecidas na atual pré-visualização pública do feed de mudança. 
-- Para pré-visualização, primeiro deve [registar a sua subscrição](#register) antes de poder ativar o feed de alteração para a sua conta de armazenamento nas regiões centro-oeste ou westus2. 
-- O feed de alteração captura apenas criar, atualizar, eliminar e copiar operações. As atualizações de metadados não são atualmente captadas na pré-visualização.
+- Para pré-visualização, você deve primeiro [registar a sua subscrição](#register) antes de poder ativar o feed de mudança para a sua conta de armazenamento nas regiões do Oeste Dos EUA, West US 2, France Central, France South, Canadá Central e Canadá East. 
+- O feed de alteração captura apenas criar, atualizar, eliminar e copiar operações. As alterações na propriedade blob e metadados também são capturadas. No entanto, a propriedade do nível de acesso não está atualmente capturada. 
 - Alterar os registos de eventos para qualquer alteração pode aparecer mais de uma vez no seu feed de mudança.
-- Ainda não é possível gerir a vida útil da alteração dos ficheiros de registo de feed, definindo a política de retenção baseada no tempo e não pode eliminar as bolhas 
+- Ainda não é possível gerir a vida útil da alteração dos ficheiros de registo de feed, definindo neles a política de retenção baseada no tempo e não é possível eliminar as bolhas.
 - A `url` propriedade do ficheiro de registo está atualmente sempre vazia.
-- A `LastConsumable` propriedade do ficheiro segments.json não enumera o primeiro segmento que o feed de alteração finaliza. Esta questão só ocorre após a finalção do primeiro segmento. Todos os segmentos subsequentes após a `LastConsumable` primeira hora são capturados com precisão na propriedade.
-- Atualmente não pode ver o recipiente **$blobchangefeed** quando liga para a ListContainers API e o recipiente não aparece no portal Azure ou no Storage Explorer
+- A `LastConsumable` propriedade do ficheiro segments.json não enumera o primeiro segmento que o feed de alteração finaliza. Esta questão só ocorre após a finalção do primeiro segmento. Todos os segmentos subsequentes após a primeira hora são capturados com precisão na `LastConsumable` propriedade.
+- Atualmente não consegue ver **o** $blobchangefeed contentor quando liga para a ListContainers API e o recipiente não aparece no portal Azure ou no Storage Explorer. Pode ver o conteúdo ligando diretamente para a API do ListBlobs no $blobchangefeed contentor.
 - As contas de armazenamento que tenham iniciado anteriormente uma falha de [conta](../common/storage-disaster-recovery-guidance.md) podem ter problemas com o ficheiro de registo não aparecer. Quaisquer falhas futuras de conta também podem ter impacto no ficheiro de registo durante a pré-visualização.
 
 ## <a name="faq"></a>FAQ

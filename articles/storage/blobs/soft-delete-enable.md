@@ -1,24 +1,30 @@
 ---
-title: Ativar a eliminação suave para bolhas
+title: Ativar e gerir a eliminação suave para bolhas
 titleSuffix: Azure Storage
 description: Ative a eliminação suave de objetos blob para recuperar mais facilmente os seus dados quando estes forem erroneamente modificados ou eliminados.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/02/2020
+ms.date: 05/11/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 26a16d0eeb81c12faede1c00bdf5a0d724f7a6c6
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
+ms.openlocfilehash: bbefa2a5d40d047d8885e4a0db8239d79a24feae
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82884686"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120118"
 ---
-# <a name="enable-soft-delete-for-blobs"></a>Ativar a eliminação suave para bolhas
+# <a name="enable-and-manage-soft-delete-for-blobs"></a>Ativar e gerir a eliminação suave para bolhas
 
-Os seguintes passos mostram como começar com soft delete.
+A eliminação suave protege os dados blob de serem acidentalmente ou erroneamente modificados ou eliminados. Quando o soft delete está ativado para uma conta de armazenamento, bolhas, versões blob (pré-visualização) e instantâneos nessa conta de armazenamento podem ser recuperados após a sua eliminação, num período de retenção que especifica.
+
+Se houver a possibilidade de os seus dados poderem ser acidentalmente modificados ou eliminados por uma aplicação ou outro utilizador de uma conta de armazenamento, a Microsoft recomenda que se vire a eliminar suavemente.
+
+Este artigo mostra como começar com soft delete.
+
+## <a name="enable-soft-delete"></a>Ativar a eliminação recuperável
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -71,6 +77,7 @@ Set-AzContext -Subscription "<subscription-name>"
 $MatchingAccounts = Get-AzStorageAccount | where-object{$_.StorageAccountName -match "<matching-regex>"}
 $MatchingAccounts | Enable-AzStorageDeleteRetentionPolicy -RetentionDays 7
 ```
+
 Pode verificar se a eliminação suave foi ativada utilizando o seguinte comando:
 
 ```powershell
@@ -174,3 +181,7 @@ blockBlob.StartCopy(copySource);
 
 ---
 
+## <a name="next-steps"></a>Passos seguintes
+
+- [Eliminação suave para armazenamento Blob](soft-delete-overview.md)
+- [Versão blob (pré-visualização)](versioning-overview.md)

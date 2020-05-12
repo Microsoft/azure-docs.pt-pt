@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 05/01/2020
 ms.author: normesta
 ms.subservice: logs
-ms.openlocfilehash: ba268e623a2858c2863ffc86eacfe25284a1e37a
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 7ba66441a87e3e02483ae27400f9900d2d052af4
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82722963"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83118163"
 ---
 # <a name="azure-storage-monitoring-data-reference"></a>Referência de dados de monitorização de armazenamento azure
 
@@ -131,18 +131,18 @@ A tabela seguinte lista as propriedades dos registos de recursos de armazenament
 |:--- |:---|
 |**tempo** | O tempo universal coordenado (UTC) quando o pedido foi recebido por armazenamento. Por exemplo: `2018/11/08 21:09:36.6900118`.|
 |**recursosId** | A identificação do recurso da conta de armazenamento. Por exemplo: `/subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/`<br>`myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/storageAccounts/blobServices/default`|
-|**categoria** | A categoria da operação solicitada. Por `StorageRead`exemplo: `StorageWrite`, `StorageDelete`ou .|
+|**categoria** | A categoria da operação solicitada. Por exemplo: `StorageRead` , `StorageWrite` ou `StorageDelete` .|
 |**operaçãoNome** | O tipo de operação REST que foi realizada. <br> Para obter uma lista completa de operações, consulte o tópico de [Operações e Mensagens](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)de Estado do Storage Analytics. |
 |**operationVersion** | A versão do serviço de armazenamento que foi especificada quando o pedido foi feito. Isto equivale ao valor do cabeçalho da **versão x-ms.** Por exemplo: `2017-04-17`.|
 |**schemaVersion** | A versão do esquema do registo. Por exemplo: `1.0`.|
-|**estadoCódigo** | O código de estado HTTP para o pedido. Se o pedido for interrompido, este `Unknown`valor pode ser definido para . <br> Por exemplo: `206` |
-|**estadoTexto** | O estado da operação solicitada.  Para obter uma lista completa de mensagens de estado, consulte o tópico de [Operações registadas em Análise de Armazenamento e Mensagens de Estado](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). Na versão 2017-04-17 e, `ClientOtherError` mais tarde, a mensagem de estado não é usada. Em vez disso, este campo contém um código de erro. Por exemplo: `SASSuccess`  |
+|**estadoCódigo** | O código de estado HTTP para o pedido. Se o pedido for interrompido, este valor pode ser definido para `Unknown` . <br> Por exemplo: `206` |
+|**estadoTexto** | O estado da operação solicitada.  Para obter uma lista completa de mensagens de estado, consulte o tópico de [Operações registadas em Análise de Armazenamento e Mensagens de Estado](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). Na versão 2017-04-17 e, mais tarde, a mensagem de estado `ClientOtherError` não é usada. Em vez disso, este campo contém um código de erro. Por exemplo: `SASSuccess`  |
 |**durationMs** | O tempo total, expresso em milissegundos, para realizar a operação solicitada. Isto inclui o tempo para ler o pedido de entrada e para enviar a resposta ao solicitador. Por exemplo: `12`.|
 |**callerIpAddress** | O endereço IP do solicitador, incluindo o número da porta. Por exemplo: `192.100.0.102:4362`. |
 |**coralaid** | O ID que é usado para correlacionar troncos entre recursos. Por exemplo: `b99ba45e-a01e-0042-4ea6-772bbb000000`. |
 |**localização** | A localização da conta de armazenamento. Por exemplo: `North Europe`. |
-|**protocolo**|O protocolo que é usado na operação. Por `HTTP`exemplo: `HTTPS` `SMB`, , ou`NFS`|
-| **uri** | Identificador de recursos uniformes que é solicitado. Por exemplo: http://myaccountname.blob.core.windows.net/cont1/blobname?timeout=10. |
+|**protocolo**|O protocolo que é usado na operação. Por exemplo: `HTTP` `HTTPS` , , `SMB` ou`NFS`|
+| **uri** | Identificador de recursos uniformes que é solicitado. Por exemplo: `http://myaccountname.blob.core.windows.net/cont1/blobname?timeout=10`. |
 
 ### <a name="fields-that-describe-how-the-operation-was-authenticated"></a>Campos que descrevem como a operação foi autenticada
 
@@ -177,7 +177,7 @@ A tabela seguinte lista as propriedades dos registos de recursos de armazenament
 
 | Propriedade | Descrição |
 |:--- |:---|
-|**identidade / tipo** | O tipo de autenticação que foi usado para fazer o pedido. Por `OAuth`exemplo: `SAS Key` `Account Key`, , ou`Anonymous` |
+|**identidade / tipo** | O tipo de autenticação que foi usado para fazer o pedido. Por exemplo: `OAuth` `SAS Key` , , `Account Key` ou`Anonymous` |
 |**identidade / tokenHash**|Este campo é reservado apenas para uso interno. |
 |**autorização / ação** | A ação que está atribuída ao pedido. Por exemplo: `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |
 |**autorização / roleAssignmentId** | A identificação da atribuição de papéis. Por exemplo: `4e2521b7-13be-4363-aeda-111111111111`.|
@@ -239,8 +239,8 @@ A tabela seguinte lista as propriedades dos registos de recursos de armazenament
 |**clientRequestId** | O valor do cabeçalho **x-ms-cliente-request-id** do pedido. Por exemplo: `360b66a6-ad4f-4c4a-84a4-0ad7cb44f7a6`. |
 |**etag** | O identificador ETag para o objeto devolvido, em aspas. Por exemplo: `0x8D101F7E4B662C4`.  |
 |**servidorLatencyMs** | O tempo total expresso em milissegundos para realizar a operação solicitada. Este valor não inclui latência da rede (o tempo para ler o pedido de entrada e enviar a resposta ao solicitador). Por exemplo: `22`. |
-|**serviçoType** | O serviço associado a este pedido. Por `blob`exemplo: `table` `files`, `queue`, ou . |
-|**operaçãoCount** | O número de cada operação registada que está envolvida no pedido. Esta contagem começa com `0`um índice de . Alguns pedidos requerem mais do que uma operação, como um pedido para copiar uma bolha. A maioria dos pedidos realiza apenas uma operação. Por exemplo: `1`. |
+|**serviçoType** | O serviço associado a este pedido. Por exemplo: `blob` `table` , , ou `files` `queue` . |
+|**operaçãoCount** | O número de cada operação registada que está envolvida no pedido. Esta contagem começa com um índice de `0` . Alguns pedidos requerem mais do que uma operação, como um pedido para copiar uma bolha. A maioria dos pedidos realiza apenas uma operação. Por exemplo: `1`. |
 |**solicitarHeaderSize** | A dimensão do cabeçalho de pedido expresso em bytes. Por exemplo: `578`. <br>Se um pedido não for bem sucedido, este valor pode estar vazio. |
 |**requestBodySize** | A dimensão dos pacotes de pedidos, expressos em bytes, que são lidos pelo serviço de armazenamento. <br> Por exemplo: `0`. <br>Se um pedido não for bem sucedido, este valor pode estar vazio.  |
 |**respostaHeaderSize** | O tamanho do cabeçalho de resposta expresso em bytes. Por exemplo: `216`. <br>Se um pedido não for bem sucedido, este valor pode estar vazio.  |

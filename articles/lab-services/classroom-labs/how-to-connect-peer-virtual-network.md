@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: spelluru
-ms.openlocfilehash: 9e53b6bdb041bfac5a82ed607b75b25ab0513f57
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d8f2c747a4bc0ab2119c92e61188e3c57f2b212
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188009"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83118367"
 ---
 # <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Conecte a rede do seu laboratório com uma rede virtual de pares nos Serviços de Laboratório Azure
 
@@ -48,7 +48,7 @@ Durante a criação de uma nova [conta de laboratório,](tutorial-setup-lab-acco
 
 Existe também uma opção para fornecer **gama de endereços** para máquinas virtuais para os laboratórios.  A propriedade **de gama De endereço** só se aplica se a rede virtual **Peer** estiver ativada para o laboratório.  Se o intervalo de endereços for fornecido, todas as máquinas virtuais dos laboratórios sob a conta de laboratório serão criadas nessa gama de endereços. O intervalo de endereços deve ser da notação CIDR (por exemplo, 10.20.0.0.20) e não se sobrepor a quaisquer gamas de endereços existentes.  Ao fornecer um intervalo de endereços, é importante pensar no número de laboratórios que serão *criados* e fornecer uma gama de endereços para acomodar isso. Os Serviços de Laboratório assumem um máximo de 512 máquinas virtuais por laboratório.  Por exemplo, uma gama ip com '/23' pode criar apenas um laboratório.  Uma gama com um '/21' permitirá a criação de quatro laboratórios.
 
-Se a **gama 'Endereço'** não for especificada, os Serviços lab-americanos utilizarão a gama de endereços predefinido que lhe foi dada pelo Azure ao criar a rede virtual a ser espreitada com a sua rede virtual.  O alcance é frequentemente algo como 10.x.0.0/16.  Isto pode levar à sobreposição do intervalo ip, por isso certifique-se de especificar e endereços nas definições do laboratório ou verificar a gama de endereços da sua rede virtual que está a ser espartada.
+Se a **gama 'Endereço'** não for especificada, os Serviços lab-americanos utilizarão a gama de endereços predefinido que lhe foi dada pelo Azure ao criar a rede virtual a ser espreitada com a sua rede virtual.  O alcance é frequentemente algo como 10.x.0.0/16.  Isto pode levar à sobreposição do intervalo ip, por isso certifique-se de especificar um intervalo de endereços nas definições do laboratório ou verificar a gama de endereços da sua rede virtual que está a ser espartada.
 
 ## <a name="configure-after-the-lab-is-created"></a>Configurar depois que o laboratório é criado
 

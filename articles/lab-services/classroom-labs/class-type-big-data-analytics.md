@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/15/2020
 ms.author: nicolela
-ms.openlocfilehash: c499b7a0f1cd16bf57fef21742b01bda71249916
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3035b9debdd46c1a8ba246882312e28d1a2087e4
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81538781"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83118435"
 ---
 # <a name="set-up-a-lab-to-big-data-analytics-using-docker-deployment-of-hortonworks-data-platform"></a>Criar um laboratório para análise de big data usando a implementação do Docker da Plataforma de Dados HortonWorks
 
@@ -102,7 +102,7 @@ Nesta secção, irá implementar a Caixa de Areia HDP e, em seguida, também ace
 1. Assim que os recipientes Docker para a Sandbox HDP forem implantados e em funcionamento, pode aceder ao ambiente lançando o seu navegador e seguindo as instruções da Cloudera para abrir a Página de [Boas-Vindas da Sandbox](https://www.cloudera.com/tutorials/learning-the-ropes-of-the-hdp-sandbox.html#welcome-page) e lançar o Painel de Instrumentos HDP.
 
     > [!NOTE] 
-    > Estas instruções pressupõem que você mapeou primeiro o endereço IP local do ambiente de caixa de areia para o sandbox-hdp.hortonworks.com no ficheiro anfitrião no seu modelo VM.  Se **não** fizer este mapeamento, pode aceder à página de [http://localhost:8080](http://localhost:8080)Boas-vindas da Sandbox navegando até .
+    > Estas instruções pressupõem que você mapeou primeiro o endereço IP local do ambiente de caixa de areia para o sandbox-hdp.hortonworks.com no ficheiro anfitrião no seu modelo VM.  Se **não** fizer este mapeamento, pode aceder à página de Boas-vindas da Sandbox navegando até `http://localhost:8080` .
 
 ### <a name="automatically-start-docker-containers-when-students-log-in"></a>Inicie automaticamente os recipientes do Docker quando os alunos iniciarem login
 

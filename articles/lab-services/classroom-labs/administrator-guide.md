@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2019
+ms.date: 05/08/2020
 ms.author: spelluru
-ms.openlocfilehash: 307ca08e733417efc9496415a09a0898fe10393e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: af69b9105d55749267e6c54a6584566b499b4097
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183471"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83118469"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Serviços Azure Lab - Guia de administrador
 Os administradores de Tecnologias de Informação (TI) que gerem os recursos em nuvem de uma universidade são normalmente responsáveis pela criação da conta de laboratório para a sua escola. Uma vez criada uma conta de laboratório, administradores ou educadores criam laboratórios de sala de aula que estão contidos na conta do laboratório. Este artigo fornece uma visão geral de alto nível dos recursos azure envolvidos e a orientação para a sua criação.
@@ -124,10 +124,10 @@ Para logicamente agrupar imagens partilhadas, você tem algumas opções:
 
 | Tipo de recurso | Função | Padrão sugerido | Exemplos |
 | ------------- | ---- | ----------------- | -------- | 
-| Grupo de recursos | Contém uma ou mais contas de laboratório e uma ou mais galerias de imagem partilhadas | \<organização ambiente\>-\<\>de nome curto -rg<ul><li>**Nome curto** da organização identifica o nome da organização que o grupo de recursos apoia</li><li>**Ambiente** identifica o ambiente para o recurso, como o Piloto ou a Produção</li><li>**Rg** significa o tipo de recursos: grupo de recursos.</li></ul> | contosouniversitylabs-rg<br/>contosouniversitylabs-pilot-rg<br/>contosouniversitylabs-prod-rg |
-| Conta de laboratório | Contém um ou mais laboratórios | \<organização ambiente\>-\<\>de nome curto -la<ul><li>**Nome curto** da organização identifica o nome da organização que o grupo de recursos apoia</li><li>**Ambiente** identifica o ambiente para o recurso, como o Piloto ou a Produção</li><li>**La** significa o tipo de recurso: conta de laboratório.</li></ul> | contosouniversitylabs-la<br/>mathdeptlabs-la<br/>sciencedeptlabs-pilot-la<br/>sciencedeptlabs-prod-la |
-| Laboratório de sala de aula | Contém um ou mais VMs |\<identificador\>-\<de\>-\<tempo de nome de classe\><ul><li>**O nome** da classe identifica o nome da classe que o laboratório suporta.</li><li>**O prazo** identifica o prazo em que a classe é oferecida.</li>**O identificador** de educação identifica o educador que é dono do laboratório.</li></ul> | CS1234-fall2019-johndoe<br/>CS1234-primavera2019-johndoe |
-| Galeria de imagens partilhadas | Contém uma ou mais versões de imagem VM | \<galeria de\>nome curto organização | Galeria contosouniversitylabs |
+| Grupo de recursos | Contém uma ou mais contas de laboratório e uma ou mais galerias de imagem partilhadas | \<organização ambiente de nome curto \> - \< \> -rg<ul><li>**Nome curto** da organização identifica o nome da organização que o grupo de recursos apoia</li><li>**Ambiente** identifica o ambiente para o recurso, como o Piloto ou a Produção</li><li>**Rg** significa o tipo de recursos: grupo de recursos.</li></ul> | contosouniversitylabs-rg<br/>contosouniversitylabs-pilot-rg<br/>contosouniversitylabs-prod-rg |
+| Conta de laboratório | Contém um ou mais laboratórios | \<organização ambiente de nome curto \> - \< \> -la<ul><li>**Nome curto** da organização identifica o nome da organização que o grupo de recursos apoia</li><li>**Ambiente** identifica o ambiente para o recurso, como o Piloto ou a Produção</li><li>**La** significa o tipo de recurso: conta de laboratório.</li></ul> | contosouniversitylabs-la<br/>mathdeptlabs-la<br/>sciencedeptlabs-pilot-la<br/>sciencedeptlabs-prod-la |
+| Laboratório de sala de aula | Contém um ou mais VMs |\<\> - \< \> - identificador de tempo de \< nome de classe\><ul><li>**O nome** da classe identifica o nome da classe que o laboratório suporta.</li><li>**O prazo** identifica o prazo em que a classe é oferecida.</li>**O identificador** de educação identifica o educador que é dono do laboratório.</li></ul> | CS1234-fall2019-johndoe<br/>CS1234-primavera2019-johndoe |
+| Galeria de imagens partilhadas | Contém uma ou mais versões de imagem VM | \<galeria de nome curto organização \> | Galeria contosouniversitylabs |
 
 Para obter mais informações sobre a nomeação de outros recursos Do Iae, consulte [as convenções de nomeação para os recursos do Azure.](/azure/architecture/best-practices/naming-conventions)
 

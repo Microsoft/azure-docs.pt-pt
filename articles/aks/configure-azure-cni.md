@@ -4,12 +4,12 @@ description: Saiba como configurar a rede Azure CNI (avançada) no Serviço Azur
 services: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.openlocfilehash: 17778c367eb731a7e41f5017c3ae630dc152454e
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 592376c1ff1686429d71496099f55c5009e07f20
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207501"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120934"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configure Rede Azure CNI no Serviço Azure Kubernetes (AKS)
 
@@ -22,7 +22,7 @@ Este artigo mostra-lhe como usar a rede *Azure CNI* para criar e usar uma subnet
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * A rede virtual para o cluster AKS deve permitir a conectividade de acesso à Internet.
-* Os clusters AKS `169.254.0.0/16` `172.30.0.0/16`não `172.31.0.0/16`podem `192.0.2.0/24` utilizar, ou para a gama de endereços de serviço Kubernetes.
+* Os clusters AKS não podem utilizar, ou para a gama de endereços de `169.254.0.0/16` `172.30.0.0/16` serviço `172.31.0.0/16` `192.0.2.0/24` Kubernetes.
 * O principal de serviço utilizado pelo cluster AKS deve ter pelo menos permissões de Colaborador de [Rede](../role-based-access-control/built-in-roles.md#network-contributor) na subrede dentro da sua rede virtual. Se desejar definir uma [função personalizada](../role-based-access-control/custom-roles.md) em vez de utilizar a função de Colaborador de Rede incorporada, são necessárias as seguintes permissões:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
@@ -38,10 +38,10 @@ Os endereços IP para as cápsulas e os nós do cluster são atribuídos a parti
 > [!IMPORTANT]
 > O número de endereços IP necessários deve incluir considerações para operações de atualização e escalação. Se definir o intervalo de endereçoIP para suportar apenas um número fixo de nós, não pode atualizar ou escalar o seu cluster.
 >
-> - Ao **atualizar** o seu cluster AKS, um novo nó é implantado no cluster. Os serviços e cargas de trabalho começam a funcionar no novo nó, e um nó mais antigo é removido do cluster. Este processo de atualização de rolamento requer um mínimo de um bloco adicional de endereços IP para estar disponível. Sua contagem de `n + 1`nó é então.
+> - Ao **atualizar** o seu cluster AKS, um novo nó é implantado no cluster. Os serviços e cargas de trabalho começam a funcionar no novo nó, e um nó mais antigo é removido do cluster. Este processo de atualização de rolamento requer um mínimo de um bloco adicional de endereços IP para estar disponível. Sua contagem de nó é `n + 1` então.
 >   - Esta consideração é particularmente importante quando utiliza piscinas de nós do Windows Server. Os nós do Windows Server no AKS não aplicam automaticamente as Atualizações do Windows, em vez disso, realiza uma atualização na piscina do nó. Esta atualização implementa novos nós com os mais recentes patches de imagem e segurança do nó base do Window Server 2019. Para obter mais informações sobre a atualização de um conjunto de nós do Windows Server, consulte [a atualização de um conjunto][nodepool-upgrade]de nós em AKS .
 >
-> - Quando **escalaum** aglomerado AKS, um novo nó é implantado no cluster. Os serviços e as cargas de trabalho começam a funcionar no novo nó. O seu intervalo de endereçoIP tem de ter em consideração a forma como pretende aumentar o número de nós e pods que o seu cluster pode suportar. Deve também ser incluído um nó adicional para operações de atualização. Sua contagem de `n + number-of-additional-scaled-nodes-you-anticipate + 1`nó é então.
+> - Quando **escalaum** aglomerado AKS, um novo nó é implantado no cluster. Os serviços e as cargas de trabalho começam a funcionar no novo nó. O seu intervalo de endereçoIP tem de ter em consideração a forma como pretende aumentar o número de nós e pods que o seu cluster pode suportar. Deve também ser incluído um nó adicional para operações de atualização. Sua contagem de nó é `n + number-of-additional-scaled-nodes-you-anticipate + 1` então.
 
 Se espera que os seus nós executem o número máximo de cápsulas e destrua e desloque regularmente as cápsulas, também deverá ter em conta alguns endereços IP adicionais por nó. Estes endereços IP adicionais têm em conta que pode levar alguns segundos para que um serviço seja eliminado e o endereço IP lançado para um novo serviço a ser implantado e adquirir o endereço.
 
@@ -50,7 +50,7 @@ O plano de endereçoIP para um cluster AKS consiste numa rede virtual, pelo meno
 | Gama de endereços / recurso Azure | Limites e dimensionamento |
 | --------- | ------------- |
 | Rede virtual | A rede virtual Azure pode ser tão grande como /8, mas está limitada a 65.536 endereços IP configurados. |
-| Subrede | Deve ser grande o suficiente para acomodar os nós, as cápsulas e todos os recursos kubernetes e azure que podem ser aprovisionados no seu cluster. Por exemplo, se implementar um Equilíbrio de Carga Azure interno, os seus IPs frontais são atribuídos a partir da subnet cluster, e não de IPs públicos. O tamanho da subrede também deve ter em conta as operações de atualização ou as necessidades futuras de escala.<p />Para calcular o tamanho *mínimo* da sub-rede, incluindo um nó adicional para operações de atualização:`(number of nodes + 1) + ((number of nodes + 1) * maximum pods per node that you configure)`<p/>Exemplo para um aglomerado de `(51) + (51  * 30 (default)) = 1,581` 50 nós: (/21 ou maior)<p/>Exemplo para um cluster de 50 nós que também inclui disposições `(61) + (61 * 30 (default)) = 1,891` para escalar mais 10 nós: (/21 ou maior)<p>Se não especificar um número máximo de cápsulas por nó quando criar o seu cluster, o número máximo de cápsulas por nó está definido para *30*. O número mínimo de endereços IP necessários baseia-se nesse valor. Se calcular os requisitos mínimos de endereço IP num valor máximo diferente, consulte [como configurar o número máximo de cápsulas por nó](#configure-maximum---new-clusters) para definir este valor quando implementar o seu cluster. |
+| Subrede | Deve ser grande o suficiente para acomodar os nós, as cápsulas e todos os recursos kubernetes e azure que podem ser aprovisionados no seu cluster. Por exemplo, se implementar um Equilíbrio de Carga Azure interno, os seus IPs frontais são atribuídos a partir da subnet cluster, e não de IPs públicos. O tamanho da subrede também deve ter em conta as operações de atualização ou as necessidades futuras de escala.<p />Para calcular o tamanho *mínimo* da sub-rede, incluindo um nó adicional para operações de atualização:`(number of nodes + 1) + ((number of nodes + 1) * maximum pods per node that you configure)`<p/>Exemplo para um aglomerado de 50 nós: `(51) + (51  * 30 (default)) = 1,581` (/21 ou maior)<p/>Exemplo para um cluster de 50 nós que também inclui disposições para escalar mais 10 nós: `(61) + (61 * 30 (default)) = 1,891` (/21 ou maior)<p>Se não especificar um número máximo de cápsulas por nó quando criar o seu cluster, o número máximo de cápsulas por nó está definido para *30*. O número mínimo de endereços IP necessários baseia-se nesse valor. Se calcular os requisitos mínimos de endereço IP num valor máximo diferente, consulte [como configurar o número máximo de cápsulas por nó](#configure-maximum---new-clusters) para definir este valor quando implementar o seu cluster. |
 | Intervalo de endereços do serviço Kubernetes | Esta gama não deve ser utilizada por nenhum elemento de rede ligado ou ligado a esta rede virtual. O endereço de serviço CIDR deve ser inferior a /12. Pode reutilizar esta gama em diferentes clusters AKS. |
 | Endereço IP do serviço DNS do Kubernetes | Endereço IP dentro da gama de endereços de serviço Kubernetes que será usado pela descoberta do serviço de cluster (kube-dns). Não utilize o primeiro endereço IP na sua gama de endereços, como .1. O primeiro endereço na sua gama de subnetés é utilizado para o *endereço kubernetes.default.svc.cluster.local.* |
 | Endereço de bridge do Docker | O endereço de rede de bridge do Docker representa o endereço de rede de bridge*docker0* predefinido presente em todas as instalações do Docker. Embora a ponte *Docker0* não seja utilizada por aglomerados AKS ou pelas próprias cápsulas, deve definir este endereço para continuar a apoiar cenários como *a construção* de dockers dentro do cluster AKS. É necessário selecionar um CIDR para o endereço da rede de pontes Docker, porque caso contrário, o Docker escolherá automaticamente uma sub-rede que possa entrar em conflito com outros CIDRs. Deve escolher um espaço de endereço que não colida com o resto dos CIDRs nas suas redes, incluindo o CIDR de serviço do cluster e o CIDR do grupo. Incumprimento de 172.17.0.1/16. Pode reutilizar esta gama em diferentes clusters AKS. |
@@ -67,7 +67,9 @@ O número máximo de cápsulas por nó num aglomerado AKS é de 250. O número m
 
 ### <a name="configure-maximum---new-clusters"></a>Configurar máximo - novos clusters
 
-É capaz de configurar o número máximo de cápsulas por nó *apenas no tempo*de implantação do cluster . Se implantar com o Azure CLI ou com um modelo de Gestor de Recursos, pode definir as cápsulas máximas por valor de nó até 250.
+Você é capaz de configurar o número máximo de cápsulas por nó no tempo de implantação do cluster ou à medida que adiciona novas piscinas de nós. Se implantar com o Azure CLI ou com um modelo de Gestor de Recursos, pode definir as cápsulas máximas por valor de nó até 250.
+
+Se não especificar maxPods ao criar novos conjuntos de nós, receberá um valor padrão de 30 para o Azure CNI.
 
 É aplicado um valor mínimo para cápsulas máximas por nó para garantir espaço para as cápsulas do sistema críticas à saúde do cluster. O valor mínimo que pode ser definido para cápsulas máximas por nó é de 10 se e apenas se a configuração de cada piscina de nó tiver espaço para um mínimo de 30 cápsulas. Por exemplo, a fixação das cápsulas máximas por nó no mínimo de 10 requer que cada piscina individual de nó tenha um mínimo de 3 nós. Este requisito aplica-se também a cada novo conjunto de nós criado, pelo que se 10 for definido como cápsulas máximas por nó cada piscina de nó adicionado deve ter pelo menos 3 nós.
 
@@ -79,13 +81,13 @@ O número máximo de cápsulas por nó num aglomerado AKS é de 250. O número m
 > [!NOTE]
 > O valor mínimo na tabela acima é estritamente aplicado pelo serviço AKS. Não é possível definir um valor maxPods inferior ao mínimo demonstrado, pois fazê-lo pode impedir que o cluster arranque.
 
-* **Azure CLI**: `--max-pods` Especifique o argumento quando implementar um cluster com as [aks az criar][az-aks-create] comando. O valor máximo é de 250.
-* **Modelo de Gestor** `maxPods` de Recursos : Especifique a propriedade no objeto [ManagedClusterAgentPoolProfile] quando implementar um cluster com um modelo de Gestor de Recursos. O valor máximo é de 250.
+* **Azure CLI**: Especifique o `--max-pods` argumento quando implementar um cluster com as [aks az criar][az-aks-create] comando. O valor máximo é de 250.
+* **Modelo de Gestor de Recursos**: Especifique a propriedade no objeto `maxPods` [ManagedClusterAgentPoolProfile] quando implementar um cluster com um modelo de Gestor de Recursos. O valor máximo é de 250.
 * **Portal Azure:** Não é possível alterar o número máximo de cápsulas por nó quando se implanta um cluster com o portal Azure. Os clusters de rede Azure CNI estão limitados a 30 cápsulas por nó quando se implanta utilizando o portal Azure.
 
 ### <a name="configure-maximum---existing-clusters"></a>Configurar máximo - aglomerados existentes
 
-Não se pode alterar as cápsulas máximas por nó num aglomerado AKS existente. Só é possível ajustar o número quando inicialmente implanta o cluster.
+A definição de maxPod por nó pode ser definida quando criar uma nova piscina de nó. Se precisar de aumentar a definição de maxPod por nó num cluster existente, adicione uma nova piscina de nó com a nova contagem de maxPod desejada. Depois de migrar as suas cápsulas para a nova piscina, elimine a piscina mais antiga. Para eliminar qualquer piscina mais antiga num cluster, certifique-se de que está a definir modos de piscina de nó, tal como definido sintetizador estoiros no [sistema de piscina de conjunto de[piscinas de dados]de dados de piscinas.
 
 ## <a name="deployment-parameters"></a>Parâmetros de implantação
 
@@ -100,7 +102,7 @@ Gama de endereços de **serviço Kubernetes**: Este é o conjunto de IPs virtuai
 * Não deve estar dentro da gama de endereços IP da rede virtual do seu cluster
 * Não deve sobrepor-se a quaisquer outras redes virtuais com as quais os pares da rede virtual cluster
 * Não deve sobrepor-se a quaisquer IPs no local
-* Não deve estar dentro `169.254.0.0/16` `172.30.0.0/16`dos `172.31.0.0/16`intervalos, ou`192.0.2.0/24`
+* Não deve estar dentro dos `169.254.0.0/16` `172.30.0.0/16` intervalos, `172.31.0.0/16` ou`192.0.2.0/24`
 
 Embora seja tecnicamente possível especificar um intervalo de endereços de serviço dentro da mesma rede virtual que o seu cluster, não é recomendado fazê-lo. Um comportamento imprevisível pode resultar se forem utilizadas gamas IP sobrepostas. Para mais informações, consulte a secção [DE PERGUNTAS FREQUENTES](#frequently-asked-questions) deste artigo. Para obter mais informações sobre os serviços da Kubernetes, consulte [os Serviços][services] na documentação kubernetes.
 
@@ -123,7 +125,7 @@ $ az network vnet subnet list \
 /subscriptions/<guid>/resourceGroups/myVnet/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/default
 ```
 
-Use o [az aks][az-aks-create] `--network-plugin azure` criar comando com o argumento para criar um cluster com networking avançado. Atualize `--vnet-subnet-id` o valor com o ID da sub-rede recolhido na etapa anterior:
+Use o [az aks criar][az-aks-create] comando com o `--network-plugin azure` argumento para criar um cluster com networking avançado. Atualize o `--vnet-subnet-id` valor com o ID da sub-rede recolhido na etapa anterior:
 
 ```azurecli-interactive
 az aks create \
@@ -212,3 +214,4 @@ Os clusters Kubernetes criados com o motor AKS suportam os plugins [kubenet][kub
 [network-policy]: use-network-policies.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [network-comparisons]: concepts-network.md#compare-network-models
+[sistema-node-piscinas]: use-system-pools.md

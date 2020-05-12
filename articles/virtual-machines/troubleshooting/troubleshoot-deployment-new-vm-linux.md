@@ -3,7 +3,7 @@ title: Implantação de Linux VM de troubleshoot Microsoft Docs
 description: Problemas de implementação do Gestor de Recursos de Troubleshoot quando cria uma nova máquina virtual Linux em Azure
 services: virtual-machines-linux, azure-resource-manager
 documentationcenter: ''
-author: JiangChen79
+author: DavidCBerry13
 manager: gwallace
 editor: ''
 tags: top-support-issue, azure-resource-manager
@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 09/09/2016
-ms.author: cjiang
-ms.openlocfilehash: 98c3a6b14230e30ccbb103be741595696a20c236
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: daberry
+ms.openlocfilehash: f85389d8fc2269b346df22854bb7ddce08844a88
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75981407"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83118231"
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Problemas de implementação do Gestor de Recursos de Troubleshoot com a criação de uma nova máquina virtual Linux em Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -74,7 +74,7 @@ Este erro surge em situações em que o novo pedido vm é fixado a um cluster qu
 * Tente novamente o pedido utilizando um tamanho VM menor.
 * Se o tamanho do VM solicitado não puder ser alterado:
   * Pare todos os VMs no conjunto de disponibilidade.
-    Clique em **Grupos** > de Recursos*o seu grupo* > de recursos**Recursos O** > *seu conjunto* > de disponibilidade**máquinas** > virtuais para**parar**a*máquina* > virtual .
+    Clique em **Grupos de Recursos**  >  *o seu grupo de recursos*  >  **Recursos O**  >  *seu conjunto de disponibilidade*  >  **máquinas virtuais**para parar a máquina  >  *virtual*  >  **Stop**.
   * Depois de todos os VMs pararem, crie o novo VM no tamanho desejado.
   * Inicie primeiro o novo VM e, em seguida, selecione cada um dos VMs parados e clique em **Iniciar**.
 

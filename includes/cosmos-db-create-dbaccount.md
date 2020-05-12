@@ -8,24 +8,18 @@ ms.service: cosmos-db
 ms.topic: include
 ms.date: 04/10/2020
 ms.custom: include file
-ms.openlocfilehash: 4c6e45eaa816499c7e5969e302a036368bea0937
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2559b7d81a6f60b633d023a35081b54e1204268a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81421816"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120198"
 ---
-1. Aceda ao [portal do Azure](https://portal.azure.com/) para criar um conta do Azure Cosmos DB. Na sua página inicial escolha **Criar um recurso** do painel de **serviços Azure.**
+1. A partir do menu do portal Azure ou da **página Inicial,** selecione **Criar um recurso**.
 
-   ![Criar um recurso](./media/cosmos-db-create-dbaccount/azure-cosmos-db-create-resource-1.png)
+1. Na **página Nova,** procure e selecione **Azure Cosmos DB**.
 
-1. Procure e selecione **Azure Cosmos DB**.
-
-   ![Os recursos do portal Azure caem](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-updated-1.png)
-
-1. Selecione **Criar**.
-
-   ![Criar recurso DB Azure Cosmos](./media/cosmos-db-create-dbaccount/azure-cosmos-db-create-account-1.png)
+1. Na página **Azure Cosmos DB,** selecione **Create**.
 
 1. Na página **Criar Conta do Azure Cosmos DB**, introduza as definições básicas da nova conta do Azure Cosmos DB. 
 

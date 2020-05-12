@@ -10,12 +10,12 @@ ms.service: lab-services
 ms.topic: article
 ms.date: 11/21/2019
 ms.author: enewman
-ms.openlocfilehash: c1aaf588f61b329fa3b838b8a92f3e287897315b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7ed2a506fc4446f78685c6cd6ae9dec2b65e1743
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80521177"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83119302"
 ---
 # <a name="guide-to-setting-up-a-windows-template-machine-in-azure-lab-services"></a>Guia para configurar uma máquina de modelo do Windows em Serviços de Laboratório Azure
 
@@ -32,7 +32,7 @@ Para proteger os dados dos estudantes de se perderem se uma máquina virtual for
 
 Para descarregar e instalar manualmente o OneDrive, consulte as páginas de descarregamento do [OneDrive](https://onedrive.live.com/about/download/) ou [OneDrive para o Negócio.](https://onedrive.live.com/about/business/)
 
-Também pode utilizar o seguinte script PowerShell.  Irá automaticamente descarregar e instalar a versão mais recente do OneDrive.  Assim que o cliente OneDrive estiver instalado, execute o instalador.  No nosso exemplo, `/allUsers` utilizamos o interruptor para instalar o OneDrive para todos os utilizadores da máquina. Também usamos `/silent` o interruptor para instalar silenciosamente o OneDrive.
+Também pode utilizar o seguinte script PowerShell.  Irá automaticamente descarregar e instalar a versão mais recente do OneDrive.  Assim que o cliente OneDrive estiver instalado, execute o instalador.  No nosso exemplo, utilizamos o interruptor para instalar o `/allUsers` OneDrive para todos os utilizadores da máquina. Também usamos o interruptor para instalar silenciosamente o `/silent` OneDrive.
 
 ```powershell
 Write-Host "Downloading OneDrive Client..."
@@ -136,7 +136,7 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive\DiskSpaceChec
 Se a sua máquina de modelo precisar de Office, recomendamos a instalação do Office através da Ferramenta de Implantação de [Escritórios (ODT)](https://www.microsoft.com/download/details.aspx?id=49117 ). Você precisará criar um ficheiro de configuração reutilizável usando o Serviço de Configuração de [Clientes Office 365](https://config.office.com/) para escolher qual arquitetura, quais as funcionalidades que você precisará do Office, e quantas vezes atualiza.
 
 1. Vá ao Serviço de Configuração de [Clientes do Office 365](https://config.office.com/) e descarregue o seu próprio ficheiro de configuração.
-2. Descarregue [a ferramenta de implantação](https://www.microsoft.com/download/details.aspx?id=49117)do escritório .  O ficheiro descarregado `setup.exe`será.
+2. Descarregue [a ferramenta de implantação](https://www.microsoft.com/download/details.aspx?id=49117)do escritório .  O ficheiro descarregado `setup.exe` será.
 3. Corra `setup.exe /download configuration.xml` para descarregar componentes do Office.
 4. Corra `setup.exe /configure configuration.xml` para instalar componentes do Office.
 
@@ -211,11 +211,11 @@ Se precisar de idiomas adicionais instalados na máquina virtual, pode adicioná
 2. Pesquisar por "pacote de idiomas"
 3. Escolha o idioma para instalar
 
-Se já estiver ligado ao modelo VM, utilize o [atalho "Instalar o pacote de idiomas"](ms-settings:regionlanguage?activationSource=SMC-IA-4027670) para aceder diretamente à página de definições apropriada.
+Se já estiver ligado ao modelo VM, utilize o atalho "Instalar o pacote de idiomas" `ms-settings:regionlanguage?activationSource=SMC-IA-4027670` () para aceder diretamente à página de definições apropriada.
 
 ## <a name="remove-unneeded-built-in-apps"></a>Remover aplicações incorporadas desnecessárias
 
-O Windows 10 vem com muitas aplicações incorporadas que podem não ser necessárias para a sua classe em particular. Para simplificar a imagem da máquina para os alunos, é melhor desinstalar algumas aplicações da sua máquina de modelos.  Para ver uma lista de aplicações instaladas, utilize o cmdlet PowerShell. `Get-AppxPackage`  O exemplo abaixo mostra todas as aplicações instaladas que podem ser removidas.
+O Windows 10 vem com muitas aplicações incorporadas que podem não ser necessárias para a sua classe em particular. Para simplificar a imagem da máquina para os alunos, é melhor desinstalar algumas aplicações da sua máquina de modelos.  Para ver uma lista de aplicações instaladas, utilize o `Get-AppxPackage` cmdlet PowerShell.  O exemplo abaixo mostra todas as aplicações instaladas que podem ser removidas.
 
 ```powershell
 Get-AppxPackage | Where {$_.NonRemovable -eq $false} | select Name
