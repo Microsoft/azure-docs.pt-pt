@@ -9,12 +9,13 @@ ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: d3ee211298598d78f423d88fd4df1c58ed4bfa29
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 0cda75469edaa183ed6553a431b9ad13b611db7d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79268486"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201076"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Adquirir um símbolo da Azure AD para autorizar pedidos de um pedido de cliente
 
@@ -178,7 +179,7 @@ Authorization: Bearer eyJ0eXAiOnJKV1...Xd6j
 
 Em seguida, adicione um método que solicita um token da AD Azure em nome do utilizador. Este método define o âmbito para o qual as permissões devem ser concedidas. Para obter mais informações sobre permissões e âmbitos, consulte [Permissões e consentimento no ponto final da plataforma de identidade da Microsoft](../../active-directory/develop/v2-permissions-and-consent.md).
 
-Utilize o ID de recurso para construir o âmbito para obter o símbolo. O exemplo constrói o âmbito utilizando o ID do `user_impersonation` recurso juntamente com o âmbito incorporado, o que indica que o símbolo está a ser solicitado em nome do utilizador.
+Utilize o ID de recurso para construir o âmbito para obter o símbolo. O exemplo constrói o âmbito utilizando o ID do recurso juntamente com o `user_impersonation` âmbito incorporado, o que indica que o símbolo está a ser solicitado em nome do utilizador.
 
 Tenha em mente que poderá ser necessário apresentar ao utilizador uma interface que permita ao utilizador consentir em solicitar o seu nome. Quando o consentimento é necessário, o exemplo captura a **MsalUiRequiredException** e chama outro método para facilitar o pedido de consentimento:
 
@@ -202,7 +203,7 @@ public async Task<IActionResult> Blob()
 }
 ```
 
-O consentimento é o processo de um utilizador que concede autorização a uma aplicação de acesso a recursos protegidos em seu nome. A plataforma de identidade Microsoft 2.0 suporta o consentimento incremental, o que significa que um diretor de segurança pode solicitar um conjunto mínimo de permissões inicialmente e adicionar permissões ao longo do tempo, conforme necessário. Quando o seu código solicitar um sinal de acesso, especifique o âmbito `scope` de permissões de que a sua aplicação necessita a qualquer momento do parâmetro. Para obter mais informações sobre o consentimento incremental, consulte a secção intitulada **Incremental e consentimento dinâmico** em Porquê atualizar para a plataforma de identidade da Microsoft [(v2.0)?](../../active-directory/azuread-dev/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent)
+O consentimento é o processo de um utilizador que concede autorização a uma aplicação de acesso a recursos protegidos em seu nome. A plataforma de identidade Microsoft 2.0 suporta o consentimento incremental, o que significa que um diretor de segurança pode solicitar um conjunto mínimo de permissões inicialmente e adicionar permissões ao longo do tempo, conforme necessário. Quando o seu código solicitar um sinal de acesso, especifique o âmbito de permissões de que a sua aplicação necessita a qualquer momento do `scope` parâmetro. Para obter mais informações sobre o consentimento incremental, consulte a secção intitulada **Incremental e consentimento dinâmico** em Porquê atualizar para a plataforma de identidade da Microsoft [(v2.0)?](../../active-directory/azuread-dev/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent)
 
 O seguinte método constrói as propriedades de autenticação para solicitar o consentimento incremental:
 

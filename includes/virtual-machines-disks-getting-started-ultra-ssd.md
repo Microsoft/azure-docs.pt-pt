@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/08/2020
+ms.date: 05/11/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: dfb094bc9f84e7129a3e1c733a054c5f6cd96372
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 10b3a6bb9592c955d16b070ae412374b8a1f4444
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81008650"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196936"
 ---
 Os discos ultra azure oferecem alta entrada, iOPS elevados e armazenamento consistente de disco de baixa latência para máquinas virtuais Azure IaaS (VMs). Esta nova oferta proporciona um desempenho topo de linha nos mesmos níveis de disponibilidade que as nossas ofertas de discos existentes. Um dos principais benefícios dos discos ultra é a capacidade de alterar dinamicamente o desempenho do SSD juntamente com as suas cargas de trabalho sem a necessidade de reiniciar os seus VMs. Os discos Ultra são indicados para cargas de trabalho com utilização intensa de dados, como o SAP HANA, base de dados de escalão superior e cargas de trabalho com bastantes transações.
 
@@ -51,7 +51,7 @@ A resposta será semelhante à forma abaixo, onde X é a zona a utilizar para im
 
 Preservar o valor **das Zonas,** representa a sua zona de disponibilidade e vai precisar dela para implantar um disco Ultra.
 
-|ResourceType  |Nome  |Localização  |Zonas  |Restrição  |Capacidade  |Valor  |
+|ResourceType  |Name  |Localização  |Zonas  |Restrição  |Capacidade  |Valor  |
 |---------|---------|---------|---------|---------|---------|---------|
 |discos     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 
@@ -62,7 +62,7 @@ Agora que sabe para que zona se implantar, siga os passos de implementação des
 
 ### <a name="vms-with-no-redundancy-options"></a>VMs sem opções de despedimento
 
-Os discos ultra implantados nos EUA Ocidentais devem ser implantados sem opções de despedimento, por enquanto. No entanto, nem todos os tamanhos do disco que suportam discos ultra podem estar nesta região. Para determinar quais nos eua ocidentais suportam discos ultra, pode utilizar qualquer um dos seguintes códigos. Certifique-se de `vmSize` `subscription` substituir primeiro os valores e os valores:
+Os discos ultra implantados nos EUA Ocidentais devem ser implantados sem opções de despedimento, por enquanto. No entanto, nem todos os tamanhos do disco que suportam discos ultra podem estar nesta região. Para determinar quais nos eua ocidentais suportam discos ultra, pode utilizar qualquer um dos seguintes códigos. Certifique-se de substituir primeiro os `vmSize` valores e os `subscription` valores:
 
 ```azurecli
 $subscription = "<yourSubID>"
@@ -79,7 +79,7 @@ $vmSize = "Standard_E64s_v3"
 (Get-AzComputeResourceSku | where {$_.Locations.Contains($region) -and ($_.Name -eq $vmSize) })[0].Capabilities
 ```
 
-A resposta será semelhante à `UltraSSDAvailable   True` seguinte forma, indicando se o tamanho vm suporta discos ultra nesta região.
+A resposta será semelhante à seguinte forma, `UltraSSDAvailable   True` indicando se o tamanho vm suporta discos ultra nesta região.
 
 ```
 Name                                         Value
@@ -115,7 +115,7 @@ Primeiro, determine o tamanho vm para implantar. Para obter uma lista de tamanho
 
 Se quiser criar um VM com vários discos ultra, consulte a amostra [Criar um VM com vários discos ultra.](https://aka.ms/ultradiskArmTemplate)
 
-Se pretender utilizar o seu próprio modelo, certifique-se de `2018-06-01` que a **apiVersão** para `Microsoft.Compute/virtualMachines` e `Microsoft.Compute/Disks` está definida como (ou mais tarde).
+Se pretender utilizar o seu próprio modelo, certifique-se de que a **apiVersão** para `Microsoft.Compute/virtualMachines` e está definida como `Microsoft.Compute/Disks` `2018-06-01` (ou mais tarde).
 
 Desloque o sku do disco para **UltraSSD_LRS,** em seguida, definir a capacidade do disco, IOPS, zona de disponibilidade e entrada em MBps para criar um disco ultra.
 
