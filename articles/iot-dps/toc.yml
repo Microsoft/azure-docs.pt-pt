@@ -15,7 +15,7 @@
           href: quick-setup-auto-provision-cli.md
         - name: Modelo do Azure RM
           href: quick-setup-auto-provision-rm.md
-    - name: Aprovisionar um único dispositivo simulado
+    - name: Aprovisionar um dispositivo individual
       items:
         - name: Atestado de chave simétrica
           items:

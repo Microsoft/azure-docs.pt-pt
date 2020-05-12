@@ -426,13 +426,31 @@
           items:
             - name: FAQ dos assistentes de voz
               href: faq-voice-assistants.md
+    - name: Assistentes de voz no Windows
+      items:
+        - name: Descrição geral dos assistentes de voz no Windows
+          href: windows-voice-assistants-overview.md
+        - name: Guias de procedimentos
+          items:
+            - name: Começar a desenvolver o seu assistente com o Windows
+              href: how-to-windows-voice-assistants-get-started.md
+            - name: Ativar a ativação por voz
+              href: windows-voice-assistants-implementation-guide.md
+        - name: Recursos
+          items:
+            - name: Requisitos e orientações de privacidade
+              href: windows-voice-assistants-automatic-enablement-guidelines.md
+            - name: Melhores práticas para as experiências de assistente
+              href: windows-voice-assistants-best-practices.md
+            - name: Exemplos e perguntas frequentes
+              href: windows-voice-assistants-faq.md
     - name: Palavra-chave personalizada
       items:
         - name: Descrição geral de palavra-chave personalizada
           href: custom-keyword-overview.md
         - name: Diretrizes de nomenclatura de palavras-chave personalizadas
           href: speech-devices-sdk-kws-guidelines.md
-        - name: Deteção de palavras-chave personalizadas
+        - name: Reconhecimento de palavras-chave personalizadas
           href: speech-devices-sdk-create-kws.md
 - name: Alojamento
   items:

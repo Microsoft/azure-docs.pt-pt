@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 563e2da8eba228636b05db2112739fdead4a4aa3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 046e438304991c4af7ea4a208e51b7a695a5bf23
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76844892"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83004475"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Perguntas frequentes sobre âncoras espaciais Azure
 
@@ -49,6 +49,10 @@ Para mais informações, consulte a visão geral das [Âncoras Espaciais Azure](
 
 **A:** As âncoras são isoladas pela conta Azure. Apenas as aplicações às quais concede acesso à sua conta poderão aceder a âncoras dentro da conta.
 
+**P: Como é que as Âncoras Espaciais Azure armazenam dados?**
+
+**A:** Todos os dados são armazenados encriptados com uma chave de encriptação de dados gerida pela Microsoft.
+
 **P: Que informações sobre um ambiente são transmitidas e armazenadas no serviço quando se utilizam âncoras espaciais Azure? As imagens do ambiente são transmitidas e armazenadas?**
 
 **R**: Ao criar ou localizar âncoras, as imagens do ambiente são processadas no dispositivo num formato derivado. Este formato derivado é transmitido e armazenado no serviço.
@@ -59,7 +63,6 @@ A Azure Spatial Anchors adere aos Termos do Contrato de [Serviço Azure](https:/
 
 ![Um ambiente e a sua nuvem](./media/sparse-point-cloud.png)
 de ponto escasso derivada*Figura 1: Um ambiente e a sua nuvem de ponto escassa derivada*
-
 
 **P: Existe uma maneira de enviar informações de diagnóstico para a Microsoft?**
 
