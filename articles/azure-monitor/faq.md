@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/26/2020
-ms.openlocfilehash: 728c8605dca183d8eb733b5e674868592d920d03
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.date: 05/11/2020
+ms.openlocfilehash: 471ccddd31fd6c9f332bdaa8ea76b7bda25ac191
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82732041"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117789"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Monitor Azure frequentemente questionado
 
@@ -196,11 +196,15 @@ O View Designer só está disponível para utilizadores atribuídos com permiss�
 * [Diagnósticos azure](platform/diagnostics-extension-to-application-insights.md)
 * [Aplicação Web Java](app/java-troubleshoot.md)
 
-*Não recebo dados do meu servidor.*
+*Não recebo dados do meu servidor:*
 
 * [Definir exceções à firewall](app/ip-addresses.md)
 * [Configurar um servidor ASP.NET](app/monitor-performance-live-website-now.md)
 * [Configurar um servidor Java](app/java-agent.md)
+
+*Quantas Informações de Aplicação devo implementar?:*
+
+* [Como conceber a sua implementação de Insights de Aplicação: Um contra muitos recursos de Insights de Aplicação?](app/separate-resources.md)
 
 ### <a name="can-i-use-application-insights-with-"></a>Posso usar os Insights de Aplicação com...?
 
@@ -247,15 +251,15 @@ Os detalhes dependem do tipo de projeto. Para uma aplicação web:
 * Insere itens em:
   * Web.config
   * pacotes.config
-* (Apenas novos projetos - se [adicionar informações de aplicação a um projeto existente][start], tem de o fazer manualmente.) Insere os snippets no código do cliente e do servidor para inicializá-los com o ID de recurso de Recursos De Insights de Aplicação. Por exemplo, numa aplicação MVC, o código é inserido\_na página principal Views/Shared/ Layout.cshtml
+* (Apenas novos projetos - se [adicionar informações de aplicação a um projeto existente][start], tem de o fazer manualmente.) Insere os snippets no código do cliente e do servidor para inicializá-los com o ID de recurso de Recursos De Insights de Aplicação. Por exemplo, numa aplicação MVC, o código é inserido na página principal Views/Shared/ \_ Layout.cshtml
 
 ### <a name="how-do-i-upgrade-from-older-sdk-versions"></a>Como faço upgrade a partir de versões SDK mais antigas?
 Consulte as notas de [lançamento](app/release-notes.md) do SDK adequadas ao seu tipo de aplicação.
 
 ### <a name="how-can-i-change-which-azure-resource-my-project-sends-data-to"></a><a name="update"></a>Como posso alterar o recurso azure para o qual o meu projeto envia dados?
-No Solution Explorer, `ApplicationInsights.config` clique à direita e escolha **Insights de Aplicação de Atualização**. Pode enviar os dados para um recurso existente ou novo no Azure. O assistente de atualização altera a chave de instrumentação em ApplicationInsights.config, que determina onde o Servidor SDK envia os seus dados. A menos que desmarque "Update all", também mudará a tecla onde aparece nas suas páginas web.
+No Solution Explorer, clique à direita `ApplicationInsights.config` e escolha Insights de **Aplicação de Atualização**. Pode enviar os dados para um recurso existente ou novo no Azure. O assistente de atualização altera a chave de instrumentação em ApplicationInsights.config, que determina onde o Servidor SDK envia os seus dados. A menos que desmarque "Update all", também mudará a tecla onde aparece nas suas páginas web.
 
-### <a name="can-i-use-providersmicrosoftinsights-componentsapiversions0-in-my-azure-resource-manager-deployments"></a>Posso usar `providers('Microsoft.Insights', 'components').apiVersions[0]` nas minhas implementações do Gestor de Recursos Azure?
+### <a name="can-i-use-providersmicrosoftinsights-componentsapiversions0-in-my-azure-resource-manager-deployments"></a>Posso usar nas minhas implementações do Gestor de `providers('Microsoft.Insights', 'components').apiVersions[0]` Recursos Azure?
 
 Não recomendamos a utilização deste método de povoação da versão API. A versão mais recente pode representar lançamentos de pré-visualização que podem conter alterações de rutura. Mesmo com lançamentos não pré-visualizados mais recentes, as versões API nem sempre são compatíveis com os modelos existentes, ou em alguns casos a versão API pode não estar disponível para todas as subscrições.
 
@@ -305,11 +309,11 @@ Saiba mais sobre [ASP.NET](app/api-filtering-sampling.md) ou [Java.](app/java-fi
 Procuramos o endereço IP (IPv4 ou IPv6) do cliente web usando [geoLite2](https://dev.maxmind.com/geoip/geoip2/geolite2/).
 
 * Telemetria do navegador: Recolhemos o endereço IP do remetente.
-* Telemetria do servidor: O módulo Application Insights recolhe o endereço IP do cliente. Não é recolhido `X-Forwarded-For` se estiver definido.
+* Telemetria do servidor: O módulo Application Insights recolhe o endereço IP do cliente. Não é recolhido se `X-Forwarded-For` estiver definido.
 * Para saber mais sobre como os dados de endereço IP e geolocalização são recolhidos em Insights de Aplicação consulte este [artigo](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection).
 
 
-Pode configurar `ClientIpHeaderTelemetryInitializer` o endereço IP para tirar o endereço IP de um cabeçalho diferente. Em alguns sistemas, por exemplo, é movido por um proxy, um equilibrista de carga ou CDN para `X-Originating-IP`. [Saiba mais](https://apmtips.com/blog/2016/07/05/client-ip-address/).
+Pode configurar o `ClientIpHeaderTelemetryInitializer` endereço IP para tirar o endereço IP de um cabeçalho diferente. Em alguns sistemas, por exemplo, é movido por um proxy, um equilibrista de carga ou CDN para `X-Originating-IP` . [Saiba mais](https://apmtips.com/blog/2016/07/05/client-ip-address/).
 
 Pode [utilizar o Power BI](app/export-power-bi.md ) para exibir a sua telemetria de pedidos num mapa.
 
@@ -378,7 +382,7 @@ Utilize um único recurso para todos os componentes ou funções num único sist
 
 [A amostragem](app/sampling.md) reduz o número de artigos de telemetria (pedidos, eventos personalizados, e assim por diante) que são realmente enviados da sua app para o portal. Em Search, vê-se o número de itens realmente recebidos. Em gráficos métricos que exibem uma contagem de eventos, você vê o número de eventos originais que ocorreram. 
 
-Cada item que é `itemCount` transmitido transporta uma propriedade que mostra quantos eventos originais que o item representa. Para observar a amostragem em funcionamento, pode executar esta consulta no Analytics:
+Cada item que é transmitido transporta uma `itemCount` propriedade que mostra quantos eventos originais que o item representa. Para observar a amostragem em funcionamento, pode executar esta consulta no Analytics:
 
 ```
     requests | summarize original_events = sum(itemCount), transmitted_events = count()
@@ -436,7 +440,7 @@ Permita que o seu servidor web envie telemetria para os nossos pontos finais.
 
 Encaminhe o tráfego do seu servidor para um portal na sua intranet, sobrepor pontos finais na sua configuração. Se estas propriedades "Endpoint" não estiverem presentes no seu config, estas classes usarão os valores predefinidos abaixo indicados no exemplo ApplicationInsights.config. 
 
-O seu portal deve direcionar o tráfego para o endereço base do nosso ponto final. Na sua configuração, substitua os valores predefinidos por `http://<your.gateway.address>/<relative path>`.
+O seu portal deve direcionar o tráfego para o endereço base do nosso ponto final. Na sua configuração, substitua os valores predefinidos por `http://<your.gateway.address>/<relative path>` .
 
 
 ##### <a name="example-applicationinsightsconfig-with-default-endpoints"></a>Exemplo ApplicationInsights.config com pontos finais predefinidos:
@@ -515,7 +519,7 @@ Estes são processos não contentorizados que funcionam no seu nó.
 
 Como calculamos isto?
 
-**Outros Processos** = *Utilização total do* - Uso do CAdvisor*a partir de processo contentorizado*
+**Outros Processos**  =  *Utilização total do CAdvisor*  -  *Utilização do processo contentorizado*
 
 Os **outros processos** incluem:
 
@@ -537,7 +541,7 @@ Para a versão do agente ciprod12042019 e mais tarde, por padrão, estas duas pr
 
 Junte-se a outras tabelas para incluir estes valores de propriedade nos resultados.
 
-Modifique as suas consultas para incluir ```ContainerInventory``` propriedades de Image e ImageTag da tabela, juntando-se à propriedade ContainerID. Pode incluir a propriedade Name (como apareceu ```ContainerLog``` anteriormente na tabela) do campo ContaineName da tabela KubepodInventory, juntando-se à propriedade ContainerID. Esta é a opção recomendada.
+Modifique as suas consultas para incluir propriedades de Image e ImageTag da ```ContainerInventory``` tabela, juntando-se à propriedade ContainerID. Pode incluir a propriedade Name (como apareceu anteriormente na ```ContainerLog``` tabela) do campo ContaineName da tabela KubepodInventory, juntando-se à propriedade ContainerID. Esta é a opção recomendada.
 
 O exemplo seguinte é uma amostra detalhada que explica como obter estes valores de campo com juntas.
 
@@ -628,7 +632,7 @@ Para uma análise detalhada do problema, reveja a seguinte [ligação GitHub](ht
 
 ### <a name="how-do-i-resolve-azure-ad-errors-when-i-enable-live-logs"></a>Como posso resolver os erros da AD Azure quando ativo registos ao vivo? 
 
-Pode ver o seguinte erro: O url de **resposta especificado no pedido não corresponde aos\>urls de resposta configurados para a aplicação: '<id da aplicação '.** A solução para resolvê-lo pode ser encontrada no artigo Como ver os dados dos contentores em tempo real com o [Monitor Azure para contentores.](insights/container-insights-livedata-setup.md#configure-ad-integrated-authentication) 
+Pode ver o seguinte erro: O url de **resposta especificado no pedido não corresponde aos urls de resposta configurados para a aplicação: '<id da aplicação \> '.** A solução para resolvê-lo pode ser encontrada no artigo Como ver os dados dos contentores em tempo real com o [Monitor Azure para contentores.](insights/container-insights-livedata-setup.md#configure-ad-integrated-authentication) 
 
 ### <a name="why-cant-i-upgrade-cluster-after-onboarding"></a>Por que não posso atualizar o cluster depois de embarcar?
 

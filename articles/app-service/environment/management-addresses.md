@@ -4,15 +4,15 @@ description: Encontre os endereços de gestão utilizados para controlar um Ambi
 author: ccompy
 ms.assetid: a7738a24-89ef-43d3-bff1-77f43d5a3952
 ms.topic: article
-ms.date: 11/13/2019
+ms.date: 05/10/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 7d7f97552e8faadee1af928a9ce4e1eea2df476e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8fc77c05878af9278906e061f67479ddafa6a47c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74687117"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83118027"
 ---
 # <a name="app-service-environment-management-addresses"></a>Endereços de gestão do ambiente do serviço de aplicações
 
@@ -26,12 +26,12 @@ Os endereços a seguir indicados podem ser configurados numa tabela de rotas par
 
 | Região | Endereços |
 |--------|-----------|
-| Todas as regiões públicas | 13.64.115.203, 13.66.140.0, 13.67.8.128, 13.69.64.128, 13.69.227.128, 13.70.73.128, 13.71.170.64, 13.71.194.129, 13.75.34.192, 13.75.127.117, 13.77.50.128, 13.78.109.0, 13.89.171.0, 13.94.141.115, 13.94.143.126, 13.94.149.179, 20.36.106.128, 20.36.114.64, 23.100.226.236, 23.102.135.246, 23.102.188.65, 40.69.106.128, 40.70.146.128, 40.71.13.64, 40.74.100.64, 40.78.194.128, 40.79.130.64, 40.79.178.128, 40.83.120.64, 40.83.121.56, 40.83.125.161, 40.90.240.166, 40.91.126.196, 40.112.242.192, 40.119.4.111, 40.124.47.188, 51.140.146.64, 51.140.210.128, 52.151.25.45, 52.162.80.89, 52.162.106.192, 52.165.152.214, 52.165.153.122, 52.165.154.193, 52.165.158.140, 52.174.22.21, 52.178.177.147, 52.178.184.149, 52.178.190.65, 52.178.195.197, 52.187.56.50, 52.187.59.251, 52.187.63.19, 52.187.63.37, 52.224.105.172, 52.225.177.153, 52.231.18.64, 52.231.146.128, 65.52.14.230, 65.52.172.237, 65.52.193.203, 70.37.57.58, 70.37.89.222, 104.43.242.137, 104.44.129.141, 104.44.129.243, 104.44.129.255, 104.44.134.255, 104.208.54.11, 104.211.81.64, 104.211.146.128, 104.214.49.0, 157.55.176.93, 157.55.208.185, 191.233.203.64, 191.236.154.88 |
-| Governo Microsoft Azure | 23.97.29.209, 13.72.53.37, 13.72.180.105, 23.97.0.17, 23.97.16.184 |
+| Todas as regiões públicas | 13.66.140.0, 13.67.8.128, 13.69.64.128, 13.69.227.128, 13.70.73.128, 13.71.170.64, 13.71.194.129, 13.75.34.192, 13.75.127.117, 13.77.50.128, 13.78.109.0, 13.89.171.0, 13.94.141.115, 13.94.143.126, 13.94.149.179, 20.36.106.128, 20.36.114.64, 23.102.135.246, 23.102.188.65, 40.69.106.128, 40.70.146.128, 40.71.13.64, 40.74.100.64, 40.78.194.128, 40.79.130.64, 40.79.178.128, 40.83.120.64, 40.83.121.56, 40.83.125.161, 40.112.242.192, 51.140.146.64, 51.140.210.128, 52.151.25.45, 52.162.106.192, 52.165.152.214, 52.165.153.122, 52.165.154.193, 52.165.158.140, 52.174.22.21, 52.178.177.147, 52.178.184.149, 52.178.190.65, 52.178.195.197, 52.187.56.50, 52.187.59.251, 52.187.63.19, 52.187.63.37, 52.224.105.172, 52.225.177.153, 52.231.18.64, 52.231.146.128, 65.52.172.237, 70.37.57.58, 104.44.129.141, 104.44.129.243, 104.44.129.255, 104.44.134.255, 104.208.54.11, 104.211.81.64, 104.211.146.128, 157.55.208.185, 191.233.203.64, 191.236.154.88 |
+| Governo Microsoft Azure | 23.97.29.209, 13.72.53.37, 13.72.180.105 |
 
 ## <a name="configuring-a-network-security-group"></a>Configurar um Grupo de Segurança de Rede
 
-Com os Grupos de Segurança da Rede, não precisa de se preocupar com os endereços individuais ou manter a sua própria configuração. Existe uma etiqueta de serviço IP chamada AppServiceManagement que é mantida atualizada com todos os endereços. Para utilizar esta etiqueta de serviço IP no seu NSG, vá ao portal, abra o UI dos Grupos de Segurança da Rede e selecione regras de segurança de entrada. Se tiver uma regra pré-existente para o tráfego de gestão de entrada, edite-a. Se este NSG não foi criado com a sua ASE, ou se é tudo novo, então selecione **Adicionar**. Sob a queda da Fonte, selecione **Etiqueta de Serviço**.  Sob a etiqueta de serviço Fonte, selecione **AppServiceManagement**. Delineie as \*gamas de porta de origem para , Destino para **Qualquer**, Destino da porta varia para **454-455**, Protocolo para **TCP,** e Ação a **Permitir**. Se estás a fazer a regra, então tens de definir a Prioridade. 
+Com os Grupos de Segurança da Rede, não precisa de se preocupar com os endereços individuais ou manter a sua própria configuração. Existe uma etiqueta de serviço IP chamada AppServiceManagement que é mantida atualizada com todos os endereços. Para utilizar esta etiqueta de serviço IP no seu NSG, vá ao portal, abra o UI dos Grupos de Segurança da Rede e selecione regras de segurança de entrada. Se tiver uma regra pré-existente para o tráfego de gestão de entrada, edite-a. Se este NSG não foi criado com a sua ASE, ou se é tudo novo, então selecione **Adicionar**. Sob a queda da Fonte, selecione **Etiqueta de Serviço**.  Sob a etiqueta de serviço Fonte, selecione **AppServiceManagement**. Delineie as gamas de porta de origem para \* , Destino para **Qualquer**, Destino da porta varia para **454-455**, Protocolo para **TCP,** e Ação a **Permitir**. Se estás a fazer a regra, então tens de definir a Prioridade. 
 
 ![criando um NSG com a etiqueta de serviço][1]
 
@@ -42,7 +42,7 @@ Os endereços de gestão podem ser colocados numa tabela de rotas com um próxim
     $rg = "resource group name"
     $rt = "route table name"
     $location = "azure location"
-    $managementAddresses = "13.64.115.203", "13.66.140.0", "13.67.8.128", "13.69.64.128", "13.69.227.128", "13.70.73.128", "13.71.170.64", "13.71.194.129", "13.75.34.192", "13.75.127.117", "13.77.50.128", "13.78.109.0", "13.89.171.0", "13.94.141.115", "13.94.143.126", "13.94.149.179", "20.36.106.128", "20.36.114.64", "23.100.226.236", "23.102.135.246", "23.102.188.65", "40.69.106.128", "40.70.146.128", "40.71.13.64", "40.74.100.64", "40.78.194.128", "40.79.130.64", "40.79.178.128", "40.83.120.64", "40.83.121.56", "40.83.125.161", "40.90.240.166", "40.91.126.196", "40.112.242.192", "40.119.4.111", "40.124.47.188", "51.140.146.64", "51.140.210.128", "52.151.25.45", "52.162.80.89", "52.162.106.192", "52.165.152.214", "52.165.153.122", "52.165.154.193", "52.165.158.140", "52.174.22.21", "52.178.177.147", "52.178.184.149", "52.178.190.65", "52.178.195.197", "52.187.56.50", "52.187.59.251", "52.187.63.19", "52.187.63.37", "52.224.105.172", "52.225.177.153", "52.231.18.64", "52.231.146.128", "65.52.14.230", "65.52.172.237", "65.52.193.203", "70.37.57.58", "70.37.89.222", "104.43.242.137", "104.44.129.141", "104.44.129.243", "104.44.129.255", "104.44.134.255", "104.208.54.11", "104.211.81.64", "104.211.146.128", "104.214.49.0", "157.55.176.93", "157.55.208.185", "191.233.203.64", "191.236.154.88"
+    $managementAddresses = "13.66.140.0", "13.67.8.128", "13.69.64.128", "13.69.227.128", "13.70.73.128", "13.71.170.64", "13.71.194.129", "13.75.34.192", "13.75.127.117", "13.77.50.128", "13.78.109.0", "13.89.171.0", "13.94.141.115", "13.94.143.126", "13.94.149.179", "20.36.106.128", "20.36.114.64", "23.102.135.246", "23.102.188.65", "40.69.106.128", "40.70.146.128", "40.71.13.64", "40.74.100.64", "40.78.194.128", "40.79.130.64", "40.79.178.128", "40.83.120.64", "40.83.121.56", "40.83.125.161", "40.112.242.192", "51.140.146.64", "51.140.210.128", "52.151.25.45", "52.162.106.192", "52.165.152.214", "52.165.153.122", "52.165.154.193", "52.165.158.140", "52.174.22.21", "52.178.177.147", "52.178.184.149", "52.178.190.65", "52.178.195.197", "52.187.56.50", "52.187.59.251", "52.187.63.19", "52.187.63.37", "52.224.105.172", "52.225.177.153", "52.231.18.64", "52.231.146.128", "65.52.172.237", "70.37.57.58", "104.44.129.141", "104.44.129.243", "104.44.129.255", "104.44.134.255", "104.208.54.11", "104.211.81.64", "104.211.146.128", "157.55.208.185", "191.233.203.64", "191.236.154.88"
 
     az network route-table create --name $rt --resource-group $rg --location $location
     foreach ($ip in $managementAddresses) {
