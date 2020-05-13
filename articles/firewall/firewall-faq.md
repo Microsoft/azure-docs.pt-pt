@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 04/10/2020
+ms.date: 05/11/2020
 ms.author: victorh
-ms.openlocfilehash: ea94e452b463fffc1800e09fa1302abacdf015cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cb065f10664f46578f84e59501d75d510ccb3c6a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81383061"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201589"
 ---
 # <a name="azure-firewall-faq"></a>Azure Firewall FAQ
 
@@ -129,7 +129,7 @@ O Azure Firewall não snaT quando o endereço IP de destino é uma gama ip priva
 
 ## <a name="is-forced-tunnelingchaining-to-a-network-virtual-appliance-supported"></a>O túnel/acorrentamento forçado a um Aparelho Virtual da Rede é suportado?
 
-O túnel forçado é apoiado. Para mais informações, consulte O Túnel forçado do [Azure Firewall (pré-visualização)](forced-tunneling.md). 
+O túnel forçado é apoiado. Para mais informações, consulte [o Azure Firewall forçado a fazer túneis.](forced-tunneling.md) 
 
 O Azure Firewall deve ter conectividade direta com a Internet. Se o seu AzureFirewallSubnet aprender uma rota padrão para a sua rede no local via BGP, deve sobrepor-se a esta com um UDR 0.0.0.0/0 com o valor **NextHopType** definido como **Internet** para manter a conectividade direta da Internet.
 

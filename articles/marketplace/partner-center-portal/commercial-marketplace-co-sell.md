@@ -6,13 +6,13 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 03/31/2020
-ms.openlocfilehash: e73ba110128f6d4f0bea008840b06572d7aee140
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/12/2020
+ms.openlocfilehash: c8265f641afb4164f26b8b2663b9f904f95b2b67
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80517930"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201441"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Opção de venda conjunta no Centro de Parceiros
 
@@ -22,11 +22,11 @@ A opção de co-venda no Partner Center está atualmente disponível para alguns
 
 | **Tipo de Oferta** | **Página de co-venda disponível no Partner Center** |
 |    -----------------------    |    -----------------------------  |
-| Software como Serviço (SaaS) |     Disponibilidade geral abril 2020      |
+| Software como Serviço (SaaS) |      Já disponível      |
 | Dinâmica 365 para envolvimento com clientes & PowerApps      |     Já disponível      |
 | Dynamics 365 for Operations     |     Já disponível       |
-| Dynamics 365 Business Central      |  Disponibilidade geral abril 2020     |
-| Aplicação do Azure     |     Disponibilidade geral abril 2020     |
+| Dynamics 365 Business Central      |   Já disponível     |
+| Aplicação do Azure     |      Já disponível     |
 | Máquina Virtual do Azure      |     A ser anunciado       |
 | Contentor Azure     |     A ser anunciado       |
 | Serviço de Consultoria      |     A ser anunciado       |
