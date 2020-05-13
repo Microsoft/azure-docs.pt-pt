@@ -12,12 +12,13 @@ ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92496fa572c5c1cae4588f82ac61c18de3024045
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 4b5836ffe721aa3e329651c3709ce64344363728
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76512832"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197859"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planear uma implementação de início de sessão único
 
@@ -236,11 +237,11 @@ Utilize sempre o papel com o menor número de permissões disponíveis para real
 
 | Persona| Funções | Função Azure AD (se necessário) |
 |--------|-------|-----------------------------|
-| Administração de secretária de ajuda | Suporte de nível 1 | Nenhuma |
+| Administração de secretária de ajuda | Suporte de nível 1 | Nenhum |
 | Administrador de identidade | Configure e depuraquando problemas impactam Azure AD | Administrador global |
-| Administrador de candidatura | Atestado de utilizador na aplicação, configuração em utilizadores com permissões | Nenhuma |
+| Administrador de candidatura | Atestado de utilizador na aplicação, configuração em utilizadores com permissões | Nenhum |
 | Administradores de infraestruturas | Cert dono de capotamento | Administrador global |
-| Empresário/stakeholder | Atestado de utilizador na aplicação, configuração em utilizadores com permissões | Nenhuma |
+| Empresário/stakeholder | Atestado de utilizador na aplicação, configuração em utilizadores com permissões | Nenhum |
 
 Recomendamos a utilização de [Gestão de Identidade Privilegiada](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) (PIM) para gerir as suas funções para fornecer auditoria, controlo e revisão de acesso adicionais aos utilizadores com permissões de diretório.
 

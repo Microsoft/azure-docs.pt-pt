@@ -4,17 +4,17 @@ description: Ligue-se em privado a uma Aplicação Web usando o Ponto Final Priv
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 03/18/2020
+ms.date: 05/12/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4d139cfa50afa94621066995314737fac70bbafe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6a95c021153a458a4e3f804e64724b73ea1f1937
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80756274"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198824"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Utilização de pontos finais privados para aplicação web azure (pré-visualização)
 
@@ -28,7 +28,7 @@ Utilizar o Private Endpoint para a sua Web App permite-lhe:
 - Proteja a sua Aplicação Web configurando o Ponto Final Privado, eliminando a exposição pública.
 - Ligue-se de forma segura à Web App a partir de redes no local que se ligam à VNet utilizando um peering privado VPN ou ExpressRoute.
 
-Se precisa apenas de uma ligação segura entre o vNet e a sua Aplicação Web, um Ponto final de serviço é a solução mais simples. Se também precisa de chegar à aplicação web a partir do local através de um portal Azure, um VNet regionalmente com um par ou um VNet globalmente peered, Private Endpoint é a solução.  
+Se precisa apenas de uma ligação segura entre o vNet e a sua Aplicação Web, um Ponto final de serviço é a solução mais simples. Se também precisa de chegar à aplicação web a partir do local através de um portal Azure, um VNet regionalmente peered, ou um VNet globalmente peered, Private Endpoint é a solução.  
 
 Para mais informações, consulte [Pontos Finais de Serviço][serviceendpoint].
 
@@ -63,13 +63,21 @@ Nos registos web HTTP da sua Web App, encontrará o IP de origem do cliente. Ist
 ## <a name="dns"></a>DNS
 
 Como esta funcionalidade está em pré-visualização, não alteramos a entrada de DNS durante a pré-visualização. Você precisa gerir a entrada de DNS no seu servidor Privado DNS ou na zona privada Azure DNS.
-Se precisar de usar um nome DNS personalizado, tem de adicionar o nome personalizado na sua Web App. Durante a pré-visualização, o nome personalizado deve ser validado como qualquer nome personalizado, utilizando a resolução pública de DNS. Consulte [a validação personalizada do DNS][dnsvalidation] para obter mais informações.
+Se precisar de usar um nome DNS personalizado, tem de adicionar o nome personalizado na sua Web App. Durante a pré-visualização, o nome personalizado deve ser validado como qualquer nome personalizado, utilizando a resolução pública de DNS. Para mais informações, consulte [a validação personalizada de DNS.][dnsvalidation]
+
+Se precisar de utilizar a consola Kudu, ou API Kudu REST (implantação com agentes auto-hospedados do Azure DevOps, por exemplo), precisa de criar dois registos na sua zona privada Azure DNS ou no seu servidor DNS personalizado. 
+- Yourwebappname.azurewebsites.net PrivateEndpointIP 
+- Yourwebappname.scm.azurewebsites.net PrivateEndpointIP 
 
 ## <a name="pricing"></a>Preços
 
 Para obter detalhes sobre preços, consulte o preço do [Link Privado Azure][pricing].
 
 ## <a name="limitations"></a>Limitações
+
+Quando utilizar a Função Azure em Plano Premium Elástico com Ponto Final Privado, para executar ou executar a função no portal Azure Web, tem de ter acesso direto à rede ou receberá um erro HTTP 403. Por outras palavras, o seu navegador deve ser capaz de chegar ao Ponto Final Privado para executar a função a partir do portal Azure Web. 
+
+Durante a pré-visualização apenas a ranhura de produção é exposta atrás do Private Endpoint, outras ranhuras são acessíveis apenas por Public Endpoint.
 
 Estamos a melhorar regularmente a funcionalidade Private Link e o Private Endpoint, consulte [este artigo][pllimitations] para obter informações atualizadas sobre limitações.
 

@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6d897bb983eb06baa4f1573f1f875eea8bb8afc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ac743a82405524efc16e16be015b61b9390bd05d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79263377"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199490"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>Autenticação de código de acesso único por e-mail (pré-visualização)
 
@@ -31,7 +31,7 @@ Este artigo descreve como ativar A autenticação de código de acesso ao email 
 Esta funcionalidade encontra-se atualmente disponível para pré-visualização (ver [Opting na pré-visualização](#opting-in-to-the-preview) abaixo). Após a pré-visualização, esta funcionalidade será ativada por defeito para todos os inquilinos.
 
 > [!NOTE]
-> Os utilizadores de código de acesso único devem inscrever-se utilizando `https://myapps.microsoft.com/?tenantid=<tenant id>` `https://portal.azure.com/<tenant id>`um link que inclua o `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com`contexto do arrendatário (por exemplo, ou, no caso de um domínio verificado, ). As ligações diretas às aplicações e recursos também funcionam desde que incluam o contexto do arrendatário. Os utilizadores convidados não podem atualmente assinar usando pontos finais que não têm contexto de inquilino. Por exemplo, `https://myapps.microsoft.com` `https://portal.azure.com`a utilização, ou o ponto final comum das equipas resultará num erro. 
+> Os utilizadores de código de acesso único devem inscrever-se utilizando um link que inclua o contexto do arrendatário (por exemplo, `https://myapps.microsoft.com/?tenantid=<tenant id>` `https://portal.azure.com/<tenant id>` ou, no caso de um domínio verificado, `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com` ). As ligações diretas às aplicações e recursos também funcionam desde que incluam o contexto do arrendatário. Os utilizadores convidados não podem atualmente assinar usando pontos finais que não têm contexto de inquilino. Por exemplo, a `https://myapps.microsoft.com` utilização, ou o ponto final `https://portal.azure.com` comum das equipas resultará num erro. 
 
 ## <a name="user-experience-for-one-time-passcode-guest-users"></a>Experiência do utilizador para utilizadores de código de acesso único
 Com a autenticação de código de acesso único, o utilizador pode resgatar o seu convite clicando num link direto ou utilizando o e-mail de convite. Em qualquer dos casos, uma mensagem no navegador indica que um código será enviado para o endereço de e-mail do utilizador convidado. O utilizador convidado seleciona **Enviar código:**
@@ -52,11 +52,11 @@ O utilizador convidado está agora autenticado e pode ver o recurso partilhado o
 Quando um utilizador hóspede resgatar um convite ou utilizar um link para um recurso que tenha sido partilhado com eles, receberá uma senha única se:
 - Não têm uma conta Azure AD 
 - Não têm uma conta Microsoft 
-- O inquilino convidativo não criou @gmail.com @googlemail.com a federação do Google para e os utilizadores 
+- O inquilino convidativo não criou a federação do Google para @gmail.com e @googlemail.com os utilizadores 
 
 No momento do convite, não há indícios de que o utilizador que está a convidar utilize a autenticação de código de acesso único. Mas quando o utilizador convidado entrar, a autenticação de senha única será o método de recuo se não forem utilizados outros métodos de autenticação. 
 
-Pode ver utilizadores convidados que autenticam com códigos de acesso únicos no portal Azure, indo para > **relações organizacionais** **de diretório** > ativo Azure**Utilizadores de outras organizações.**
+Pode ver utilizadores convidados que autenticam com códigos de acesso únicos no portal Azure, indo para utilizadores de **Diretório Ativo Azure**  >  **Users**.
 
 ![Screenshot mostrando um utilizador de senha única com valor fonte de OTP](media/one-time-passcode/otp-users.png)
 
@@ -64,7 +64,7 @@ Pode ver utilizadores convidados que autenticam com códigos de acesso únicos n
 > Quando um utilizador resgatar uma senha única e, mais tarde, obter uma conta MSA, Azure AD, ou outra conta federada, continuará a ser autenticada usando uma senha única. Se pretender atualizar o seu método de autenticação, pode eliminar a sua conta de utilizador convidado e reconvidá-las.
 
 ### <a name="example"></a>Exemplo
-O alexdoe@gmail.com utilizador convidado é convidado para a Fabrikam, que não tem a federação do Google criada. Alex não tem uma conta microsoft. Receberão uma senha única para autenticação.
+O utilizador convidado alexdoe@gmail.com é convidado para a Fabrikam, que não tem a federação do Google criada. Alex não tem uma conta microsoft. Receberão uma senha única para autenticação.
 
 ## <a name="opting-in-to-the-preview"></a>Optando pela pré-visualização 
 Pode levar alguns minutos para que a ação de opt-in faça efeito. Depois disso, apenas os utilizadores recém-convidados que reúnam as condições acima referidas utilizarão a autenticação de senha única. Os utilizadores convidados que anteriormente resgataram um convite continuarão a utilizar o mesmo método de autenticação.
@@ -72,8 +72,7 @@ Pode levar alguns minutos para que a ação de opt-in faça efeito. Depois disso
 ### <a name="to-opt-in-using-the-azure-ad-portal"></a>Para optar pela utilização do portal Azure AD
 1.  Inscreva-se no [portal Azure](https://portal.azure.com/) como administrador global da Azure AD.
 2.  No painel de navegação, selecione **Azure Ative Directory**.
-3.  Under **Manage**, selecione **Organizational Relationships**.
-4.  Selecione **Definições**.
+3.  Selecione Definições de **Relacionamentoorganizacional**  >  **Settings** (ou selecione **identidades externas**Definições de  >  **colaboração externa).**
 5.  Em **Enable Email One-Time Passcode para hóspedes (Pré-visualização)**, selecione **Sim**.
  
 ### <a name="to-opt-in-using-powershell"></a>Para optar pela utilização do PowerShell
@@ -139,8 +138,7 @@ Pode levar alguns minutos para que a ação de opt-out faça efeito. Se desligar
 ### <a name="to-turn-off-the-preview-using-the-azure-ad-portal"></a>Para desligar a pré-visualização usando o portal Azure AD
 1.  Inscreva-se no [portal Azure](https://portal.azure.com/) como administrador global da Azure AD.
 2.  No painel de navegação, selecione **Azure Ative Directory**.
-3.  Under **Manage**, selecione **Organizational Relationships**.
-4.  Selecione **Definições**.
+3.  Selecione Definições de **Relacionamentoorganizacional**  >  **Settings** (ou selecione **identidades externas**Definições de  >  **colaboração externa).**
 5.  Em **'Ativar código de acesso de uma vez para hóspedes' (Pré-visualização) ,** selecione **No**.
 
 ### <a name="to-turn-off-the-preview-using-powershell"></a>Para desligar a pré-visualização usando o PowerShell

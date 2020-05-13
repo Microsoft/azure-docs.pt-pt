@@ -12,12 +12,13 @@ ms.date: 04/23/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08f142a270cae525571ae414602a89b2538c17d0
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.custom: has-adal-ref
+ms.openlocfilehash: bc3c572aeb72328bc4708d27052756623ccd7701
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82981991"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200964"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: histórico de versões
 A equipa azure Ative Directory (Azure AD) atualiza regularmente o Azure AD Connect com novas funcionalidades e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -87,9 +88,9 @@ Esta construção de hotfix corrige um problema com a build 1.5.18.0 se tiver a 
 > Se clonou a regra de sincronização **In from AD - Group Join** e não clonou a regra de sincronização In da **AD - Grupo Comum** e planeia atualizar, complete os seguintes passos como parte da atualização:
 > 1. Durante a atualização, desfaça a opção Iniciar o processo de **sincronização quando a configuração estiver concluída**.
 > 2. Editar a regra de sincronização de agregação clonada e adicionar as duas transformações seguintes:
->     - Definir fluxo `objectGUID` `sourceAnchorBinary`direto para .
->     - Definir fluxo `ConvertToBase64([objectGUID])` `sourceAnchor`de expressão para .     
-> 3. Ativar o `Set-ADSyncScheduler -SyncCycleEnabled $true`programador utilizando .
+>     - Definir fluxo direto `objectGUID` para `sourceAnchorBinary` .
+>     - Definir fluxo de expressão `ConvertToBase64([objectGUID])` para `sourceAnchor` .     
+> 3. Ativar o programador utilizando `Set-ADSyncScheduler -SyncCycleEnabled $true` .
 
 
 
@@ -209,7 +210,7 @@ Corrigimos um bug na utilidade de compressão de erros de sincronização que n�
 >[!IMPORTANT]
 >Existe um problema conhecido com a atualização do Azure AD Connect de uma versão anterior para 1.3.21.0 onde o portal O365 não reflete a versão atualizada, apesar de o Azure AD Connect ter atualizado com sucesso.
 >
-> Para resolver isto, é necessário importar o módulo`Set-ADSyncDirSyncConfiguration` **AdSync** e, em seguida, executar o cmdlet PowerShell no servidor Azure AD Connect.  Pode utilizar os seguintes passos:
+> Para resolver isto, é necessário importar o módulo **AdSync** e, em seguida, executar o `Set-ADSyncDirSyncConfiguration` cmdlet PowerShell no servidor Azure AD Connect.  Pode utilizar os seguintes passos:
 >
 >1. Abra a PowerShell em modo administator.
 >2. Execute `Import-Module "ADSync"`.
@@ -772,7 +773,7 @@ Estado: 23 de julho de 2017
   * Ativou a funcionalidade de reutilização do utilizador.
   
   >[!NOTE]
-  >A expansão do âmbito da funcionalidade de atualização automática afeta os clientes com a azure AD Connect construir 1.1.105.0 e depois. Se não quiser que o seu servidor Azure AD Connect seja automaticamente atualizado, tem de executar `Set-ADSyncAutoUpgrade -AutoUpgradeState disabled`o seguinte cmdlet no seu servidor Azure AD Connect: . Para mais informações sobre a ativação/desativação da atualização automática, consulte o artigo [Azure AD Connect: Upgrade automático](how-to-connect-install-automatic-upgrade.md).
+  >A expansão do âmbito da funcionalidade de atualização automática afeta os clientes com a azure AD Connect construir 1.1.105.0 e depois. Se não quiser que o seu servidor Azure AD Connect seja automaticamente atualizado, tem de executar o seguinte cmdlet no seu servidor Azure AD Connect: `Set-ADSyncAutoUpgrade -AutoUpgradeState disabled` . Para mais informações sobre a ativação/desativação da atualização automática, consulte o artigo [Azure AD Connect: Upgrade automático](how-to-connect-install-automatic-upgrade.md).
 
 ## <a name="115580"></a>1.1.558.0
 Estado: Não será libertado. As alterações nesta construção estão incluídas na versão 1.1.561.0.
@@ -800,7 +801,7 @@ Estado: Não será libertado. As alterações nesta construção estão incluíd
   * Ativou a funcionalidade de reutilização do utilizador.
   
   >[!NOTE]
-  >A expansão do âmbito da funcionalidade de atualização automática afeta os clientes com a azure AD Connect construir 1.1.105.0 e depois. Se não quiser que o seu servidor Azure AD Connect seja automaticamente atualizado, tem de executar `Set-ADSyncAutoUpgrade -AutoUpgradeState disabled`o seguinte cmdlet no seu servidor Azure AD Connect: . Para mais informações sobre a ativação/desativação da atualização automática, consulte o artigo [Azure AD Connect: Upgrade automático](how-to-connect-install-automatic-upgrade.md).
+  >A expansão do âmbito da funcionalidade de atualização automática afeta os clientes com a azure AD Connect construir 1.1.105.0 e depois. Se não quiser que o seu servidor Azure AD Connect seja automaticamente atualizado, tem de executar o seguinte cmdlet no seu servidor Azure AD Connect: `Set-ADSyncAutoUpgrade -AutoUpgradeState disabled` . Para mais informações sobre a ativação/desativação da atualização automática, consulte o artigo [Azure AD Connect: Upgrade automático](how-to-connect-install-automatic-upgrade.md).
 
 ## <a name="115570"></a>1.1.557.0
 Estado: julho 2017
@@ -940,12 +941,12 @@ CBool(
 #### <a name="issues-fixed"></a>Questões corrigidas
 
 * A seguir aos URLs estão os novos pontos finais da WS-Federation introduzidos pela Azure AD para melhorar a resiliência contra a interrupção da autenticação e serão adicionados à configuração de confiança do partido AD FS no local:
-  * https:\//ests.login.microsoftonline.com/login.srf
-  * https:\//stamp2.login.microsoftonline.com/login.srf
+  * https: \/ /ests.login.microsoftonline.com/login.srf
+  * https: \/ /stamp2.login.microsoftonline.com/login.srf
   * https://ccs.login.microsoftonline.com/login.srf
   * https://ccs-sdf.login.microsoftonline.com/login.srf
   
-* Corrigiu um problema que fez com que a AD FS gerasse um valor de reclamação incorreto para o Emitente. O problema ocorre se existirem múltiplos domínios verificados no inquilino da AD Azure e o sufixo de domínio do atributo do userPrincipalName utilizado para gerar a alegação Deemite é de pelo menos 3 níveis de profundidade (por exemplo, johndoe@us.contoso.com). A questão é resolvida atualizando o regex utilizado pelas regras de reclamação.
+* Corrigiu um problema que fez com que a AD FS gerasse um valor de reclamação incorreto para o Emitente. O problema ocorre se existirem múltiplos domínios verificados no inquilino da AD Azure e o sufixo de domínio do atributo do userPrincipalName utilizado para gerar a alegação Deemite é de pelo menos 3 níveis de profundidade (por exemplo, johndoe@us.contoso.com ). A questão é resolvida atualizando o regex utilizado pelas regras de reclamação.
 
 #### <a name="new-features-and-improvements"></a>Novas funcionalidades e melhorias
 * Anteriormente, a funcionalidade de Gestão de Certificados ADFS fornecida pelo Azure AD Connect só pode ser utilizada com explorações ADFS geridas através do Azure AD Connect. Agora, pode utilizar a funcionalidade com quintas ADFS que não são geridas utilizando o Azure AD Connect.
@@ -1155,7 +1156,7 @@ Lançado: agosto de 2016
 **Questões fixas:**
 
 * As alterações ao intervalo de sincronização só se realizam depois de concluído o próximo ciclo de sincronização.
-* O assistente Azure AD Connect não aceita uma conta Azure\_AD cujo nome de utilizador começa com um sublinhado ( ).
+* O assistente Azure AD Connect não aceita uma conta Azure AD cujo nome de utilizador começa com um sublinhado \_ ( ).
 * O assistente Azure AD Connect não autentica a conta Azure AD se a palavra-passe da conta contiver demasiados caracteres especiais. Mensagem de erro "Incapaz de validar credenciais. Ocorreu um erro inesperado." é devolvido.
 * Desinstalar o servidor de encenação desativa a sincronização de passwords no inquilino da AD Azure e faz com que a sincronização da palavra-passe falhe com o servidor ativo.
 * A sincronização da palavra-passe falha em casos incomuns quando não há hash de senha armazenada no utilizador.
@@ -1230,8 +1231,8 @@ Lançado: fevereiro de 2016
 
 * [Funcionalidade de atualização automática](how-to-connect-install-automatic-upgrade.md) para clientes de definições express.
 * Suporte para a administração global utilizando a Autenticação de Multi-Factors Azure e a Gestão de Identidade Privilegiada no assistente de instalação.
-  * Tem de permitir que o seu https://secure.aadcdn.microsoftonline-p.com representante também permita que o tráfego se utilizar a Autenticação Multi-Factor.
-  * Tem de https://secure.aadcdn.microsoftonline-p.com adicionar à sua lista de sites fidedignos para a autenticação multi-factor para funcionar corretamente.
+  * Tem de permitir que o seu representante também permita que o tráfego se utilizar a https://secure.aadcdn.microsoftonline-p.com Autenticação Multi-Factor.
+  * Tem de adicionar à sua lista de https://secure.aadcdn.microsoftonline-p.com sites fidedignos para a autenticação multi-factor para funcionar corretamente.
 * Deixe alterar o método de entrada do utilizador após a instalação inicial.
 * Deixe [a filtragem de Domínio e U](how-to-connect-install-custom.md#domain-and-ou-filtering) no assistente de instalação. Isto também permite a ligação a florestas onde nem todos os domínios estão disponíveis.
 * [O programador](how-to-connect-sync-feature-scheduler.md) está integrado no motor de sincronização.

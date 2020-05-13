@@ -2,18 +2,19 @@
 title: FAQ dos conjuntos de dimensionamento de máquinas virtuais do Azure
 description: Obtenha respostas às perguntas mais frequentes sobre conjuntos de escala de máquinas virtuais em Azure.
 author: mimckitt
-tags: azure-resource-manager
-ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
-ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
-ms.date: 05/24/2019
 ms.author: mimckitt
-ms.openlocfilehash: 0a5fcb3bb1ebf48eaa9cdce70800a4239c5fae03
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: faq
+ms.date: 05/24/2019
+ms.reviewer: jushiman
+ms.custom: mimckitt
+ms.openlocfilehash: a3074fdd10ef960a1c0b58b973d57da14d888af4
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611403"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200165"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>FAQ dos conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -225,15 +226,15 @@ Você pode fornecer chaves públicas SSH em texto simples quando criar um VM Lin
 
 nome do elemento linuxConfiguration | Necessário | Tipo | Descrição
 --- | --- | --- | ---
-ssh | No | Coleção | Especifica a configuração da chave SSH para um Sistema Operativo Linux
+ssh | Não | Coleção | Especifica a configuração da chave SSH para um Sistema Operativo Linux
 path | Sim | String | Especifica o caminho do ficheiro Linux onde devem ser localizadas as chaves ou certificadoS SSH
 keyData | Sim | String | Especifica uma chave pública SSH codificada com base64
 
 Por exemplo, consulte o modelo de [arranque rápido GitHub de 101-vm-sshkey](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
-### <a name="when-i-run-update-azvmss-after-adding-more-than-one-certificate-from-the-same-key-vault-i-see-the-following-message"></a>Quando corro `Update-AzVmss` depois de adicionar mais de um certificado do mesmo cofre, vejo a seguinte mensagem:
+### <a name="when-i-run-update-azvmss-after-adding-more-than-one-certificate-from-the-same-key-vault-i-see-the-following-message"></a>Quando corro depois de `Update-AzVmss` adicionar mais de um certificado do mesmo cofre, vejo a seguinte mensagem:
 
->Update-AzVmss: List secret contém instâncias repetidas de /subscrições/\<my-subscrição-id>/recursosGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev, o que é proibido.
+>Update-AzVmss: List secret contém instâncias repetidas de /subscrições/ \< my-subscrição-id>/recursosGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev, o que é proibido.
 
 Isto pode acontecer se tentar readicionar o mesmo cofre em vez de usar um novo certificado de cofre para o cofre de origem existente. O `Add-AzVmssSecret` comando não funciona corretamente se estiver a adicionar segredos adicionais.
 
@@ -251,7 +252,7 @@ Os novos VMs não terão o certificado antigo. No entanto, os VMs que possuam o 
 
 ### <a name="can-i-push-certificates-to-the-virtual-machine-scale-set-without-providing-the-password-when-the-certificate-is-in-the-secret-store"></a>Posso colocar certificados na escala virtual da máquina definida sem fornecer a senha, quando o certificado está na loja secreta?
 
-Não é preciso codificar palavras-passe em scripts. Pode recuperar dinamicamente palavras-passe com as permissões que utiliza para executar o script de implementação. Se tiver um script que mova um certificado do cofre `get certificate` da loja secreta, o comando da loja secreta também produz a palavra-passe do ficheiro .pfx.
+Não é preciso codificar palavras-passe em scripts. Pode recuperar dinamicamente palavras-passe com as permissões que utiliza para executar o script de implementação. Se tiver um script que mova um certificado do cofre da loja secreta, o comando da loja secreta `get certificate` também produz a palavra-passe do ficheiro .pfx.
 
 ### <a name="how-does-the-secrets-property-of-virtualmachineprofileosprofile-for-a-virtual-machine-scale-set-work-why-do-i-need-the-sourcevault-value-when-i-have-to-specify-the-absolute-uri-for-a-certificate-by-using-the-certificateurl-property"></a>Como funciona a propriedade Secrets de virtualMachineProfile.osProfile para um conjunto de escala de máquina virtual? Por que preciso do valor sourceVault quando tenho que especificar o URI absoluto para um certificado usando a propriedade certificateUrl?
 
@@ -287,9 +288,9 @@ Se reimagem de um VM, os certificados são eliminados. A reimagem elimina todo o
 
 ### <a name="what-happens-if-you-delete-a-certificate-from-the-key-vault"></a>O que acontece se apagar um certificado do cofre?
 
-Se o segredo for apagado do cofre `stop deallocate` das chaves, e correres para todos os teus VMs e depois recomeças, encontras um fracasso. A falha ocorre porque o CRP precisa de recuperar os segredos do cofre, mas não pode. Neste cenário, pode eliminar os certificados do modelo de conjunto de máquinas virtuais.
+Se o segredo for apagado do cofre das chaves, e `stop deallocate` correres para todos os teus VMs e depois recomeças, encontras um fracasso. A falha ocorre porque o CRP precisa de recuperar os segredos do cofre, mas não pode. Neste cenário, pode eliminar os certificados do modelo de conjunto de máquinas virtuais.
 
-A componente CRP não persiste nos segredos dos clientes. Se correr `stop deallocate` para todos os VMs no conjunto de escala de máquina virtual, a cache é eliminada. Neste cenário, segredos são recuperados do cofre chave.
+A componente CRP não persiste nos segredos dos clientes. Se correr para todos os VMs no conjunto de escala de `stop deallocate` máquina virtual, a cache é eliminada. Neste cenário, segredos são recuperados do cofre chave.
 
 Não se encontra este problema ao escalonar porque há uma cópia em cache do segredo em Azure Service Fabric (no modelo de inquilino de tecido único).
 
@@ -301,7 +302,7 @@ Se criar um VM e, em seguida, atualizar o seu segredo no cofre da chave, o novo 
 
 ### <a name="my-team-works-with-several-certificates-that-are-distributed-to-us-as-cer-public-keys-what-is-the-recommended-approach-for-deploying-these-certificates-to-a-virtual-machine-scale-set"></a>A minha equipa trabalha com vários certificados que nos são distribuídos como chaves públicas.cer. Qual é a abordagem recomendada para a implementação destes certificados num conjunto de escala de máquina virtual?
 
-Para implementar as teclas públicas .cer para um conjunto de escala de máquina virtual, pode gerar um ficheiro .pfx que contém apenas ficheiros .cer. Para isso, `X509ContentType = Pfx`use. Por exemplo, carregue o ficheiro .cer como um objeto x509Certificate2 em C# ou PowerShell e, em seguida, ligue para o método.
+Para implementar as teclas públicas .cer para um conjunto de escala de máquina virtual, pode gerar um ficheiro .pfx que contém apenas ficheiros .cer. Para isso, `X509ContentType = Pfx` use. Por exemplo, carregue o ficheiro .cer como um objeto x509Certificate2 em C# ou PowerShell e, em seguida, ligue para o método.
 
 Para mais informações, consulte [X509Certificate.Export Method (X509ContentType, String)](https://msdn.microsoft.com/library/24ww6yzk(v=vs.110.aspx)).
 
@@ -359,7 +360,7 @@ $vmss=Remove-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "extensionName"
 Update-AzVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName" -VirtualMacineScaleSet $vmss
 ```
 
-Pode encontrar o valor `$vmss`do nome de extensão em .
+Pode encontrar o valor do nome de extensão em `$vmss` .
 
 ### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-azure-monitor-logs"></a>Existe um exemplo de modelo de modelo de escala de máquina virtual que se integra com registos do Monitor Azure?
 
@@ -638,7 +639,7 @@ Para atualizar a sua escala de máquina virtual definida para uma nova imagem e 
 
 ### <a name="can-i-use-the-reimage-operation-to-reset-a-vm-without-changing-the-image-that-is-i-want-reset-a-vm-to-factory-settings-rather-than-to-a-new-image"></a>Posso usar a operação de reimagem para repor um VM sem alterar a imagem? (Isto é, quero repor um VM em configurações de fábrica em vez de uma nova imagem.)
 
-Sim, pode utilizar a operação de reimagem para repor um VM sem alterar a imagem. No entanto, se a sua escala `version = latest`de máquina virtual definir referências a uma `reimage`imagem de plataforma com , o seu VM pode atualizar para uma imagem de OS posterior quando ligar .
+Sim, pode utilizar a operação de reimagem para repor um VM sem alterar a imagem. No entanto, se a sua escala de máquina virtual definir referências a uma imagem de plataforma com `version = latest` , o seu VM pode atualizar para uma imagem de OS posterior quando ligar `reimage` .
 
 ### <a name="is-it-possible-to-integrate-scale-sets-with-azure-monitor-logs"></a>É possível integrar conjuntos de escala com registos do Monitor Azure?
 
@@ -683,13 +684,13 @@ Quando um novo VM é criado, a propriedade InstanceView do VM mostra os detalhes
 
 ### <a name="how-do-i-get-property-information-for-each-vm-without-making-multiple-calls-for-example-how-would-i-get-the-fault-domain-for-each-of-the-100-vms-in-my-virtual-machine-scale-set"></a>Como posso obter informações de propriedade para cada VM sem fazer várias chamadas? Por exemplo, como obteria o domínio de falha para cada um dos 100 VMs no meu conjunto de máquinas virtuais?
 
-Para obter informações sobre propriedades para cada VM sem fazer várias chamadas, pode ligar `ListVMInstanceViews` fazendo uma API `GET` REST sobre o seguinte recurso URI:
+Para obter informações sobre propriedades para cada VM sem fazer várias chamadas, pode ligar `ListVMInstanceViews` fazendo uma API REST `GET` sobre o seguinte recurso URI:
 
-/subscrições/<subscription_id>/recursosGroups/<resource_group_name>/providers/Microsoft.Compute/virtualMachineScaleSets/<scaleset_name>/virtualMachines?$expand=instânciaVer&$select=instânciaVer
+/subscrições/<subscription_id>/recursosGroups/<resource_group_name>/providers/Microsoft.Compute/virtualMachineScaleSets/<scaleset_name>/virtualMachines?$expand=exemploVer&$select=instânciaVer
 
 ### <a name="can-i-pass-different-extension-arguments-to-different-vms-in-a-virtual-machine-scale-set"></a>Posso passar diferentes argumentos de extensão para diferentes VMs num conjunto de escala de máquina virtual?
 
-Não, não pode passar diferentes argumentos de extensão para diferentes VMs num conjunto de escala de máquina virtual. No entanto, as extensões podem atuar com base nas propriedades únicas do VM em que estão a funcionar, como no nome da máquina. As extensões também podem consultar http://169.254.169.254 metadados de instância para obter mais informações sobre o VM.
+Não, não pode passar diferentes argumentos de extensão para diferentes VMs num conjunto de escala de máquina virtual. No entanto, as extensões podem atuar com base nas propriedades únicas do VM em que estão a funcionar, como no nome da máquina. As extensões também podem consultar metadados de instância http://169.254.169.254 para obter mais informações sobre o VM.
 
 ### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>Porque é que existem lacunas entre os nomes das máquinas vm da minha escala virtual e os IDs VM? Por exemplo: 0, 1, 3...
 
@@ -699,12 +700,12 @@ Você pode definir esta propriedade como **falsa.** Para pequenos conjuntos de e
 
 ### <a name="what-is-the-difference-between-deleting-a-vm-in-a-virtual-machine-scale-set-and-deallocating-the-vm-when-should-i-choose-one-over-the-other"></a>Qual é a diferença entre apagar um VM num conjunto de máquinas virtuais e fazer a localização do VM? Quando devo escolher um em vez do outro?
 
-A principal diferença entre eliminar um VM num conjunto de escala de `deallocate` máquina virtual e fazer a localização do VM é que não apaga os discos rígidos virtuais (VHDs). Existem custos de `stop deallocate`armazenamento associados ao funcionamento . Pode usar uma ou outra por uma das seguintes razões:
+A principal diferença entre eliminar um VM num conjunto de escala de máquina virtual e fazer a localização do VM é que `deallocate` não apaga os discos rígidos virtuais (VHDs). Existem custos de armazenamento associados ao funcionamento `stop deallocate` . Pode usar uma ou outra por uma das seguintes razões:
 
 - Queres parar de pagar os custos da computação, mas queres manter o estado do disco dos VMs.
 - Você quer iniciar um conjunto de VMs mais rapidamente do que você poderia escalar um conjunto de escala de máquina virtual.
   - Relacionado com este cenário, pode ter criado o seu próprio motor de escala automática e querer uma escala de ponta a ponta mais rápida.
-- Tem um conjunto de escala de máquina virtual que é distribuído de forma desigual em domínios de falha ou domínios de atualização. Isto pode ser porque você apagou seletivamente VMs, ou porque os VMs foram eliminados após o excesso de provisionamento. A `stop deallocate` execução seguida no `start` conjunto de escala de máquina virtual distribui uniformemente os VMs através de domínios de falha ou domínios de atualização.
+- Tem um conjunto de escala de máquina virtual que é distribuído de forma desigual em domínios de falha ou domínios de atualização. Isto pode ser porque você apagou seletivamente VMs, ou porque os VMs foram eliminados após o excesso de provisionamento. A execução seguida no conjunto de escala de `stop deallocate` `start` máquina virtual distribui uniformemente os VMs através de domínios de falha ou domínios de atualização.
 
 ### <a name="how-do-i-take-a-snapshot-of-a-virtual-machine-scale-set-instance"></a>Como posso tirar uma foto de uma instância de escala de máquina virtual?
 Crie um instantâneo a partir de um conjunto de escala de máquina virtual.

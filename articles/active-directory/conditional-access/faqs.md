@@ -11,12 +11,13 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6842338bd27e4bea3436f0b249380ab773d60de6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: f2df8140d2eb791e83af5ae47b947d614ac2b899
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77368083"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199408"
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>FaQs de acesso condicional do Diretório Ativo Azure
 

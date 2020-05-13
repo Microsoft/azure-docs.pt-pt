@@ -11,12 +11,13 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc1be4637d56d7205d50ebfc6f7d1d5d22e62edf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 9dce9e2f63afc50e367d650f93f293b974d912e9
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617665"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199558"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrar a infraestrutura NPS existente com o Multi-Factor Authentication do Azure
 
@@ -72,19 +73,19 @@ Ao instalar a extensão, precisa da identificação do diretório e credenciais 
 
 ![Encontre o seu ID de Diretório em propriedades de Diretório Ativo Azure](./media/howto-mfa-nps-extension/properties-directory-id.png)
 
-### <a name="network-requirements"></a>Requisitos da rede
+### <a name="network-requirements"></a>Requisitos de rede
 
 O servidor NPS precisa de ser capaz de comunicar com os seguintes URLs sobre as portas 80 e 443.
 
-- https:\//adnotifications.windowsazure.com
+- https: \/ /adnotifications.windowsazure.com
 - https:\//login.microsoftonline.com
-- https:\//credentials.azure.com
+- https: \/ /credentials.azure.com
 
 Além disso, a conectividade com os seguintes URLs é necessária para completar a [configuração do adaptador utilizando o script PowerShell fornecido](#run-the-powershell-script)
 
 - https:\//login.microsoftonline.com
-- https:\//provisioningapi.microsoftonline.com
-- https:\//aadcdn.msauth.net
+- https: \/ /provisioningapi.microsoftonline.com
+- https: \/ /aadcdn.msauth.net
 
 ## <a name="prepare-your-environment"></a>Preparar o ambiente
 
@@ -110,7 +111,7 @@ Dependendo da solução VPN que utilizar, os passos para configurar a sua polít
 Este passo pode já estar completo no seu inquilino, mas é bom verificar duas vezes que o Azure AD Connect sincronizou as suas bases de dados recentemente.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) como administrador.
-2. Selecione **Azure Ative Directory** > **Azure AD Connect**
+2. Selecione **Azure Ative Directory**  >  **Azure AD Connect**
 3. Verifique se o seu estado de sincronização está **ativado** e que a sua última sincronização foi há menos de uma hora.
 
 Se precisar de iniciar uma nova ronda de sincronização, nós, as instruções em [Azure AD Connect sync: Scheduler](../hybrid/how-to-connect-sync-feature-scheduler.md#start-the-scheduler).
@@ -200,7 +201,7 @@ Repita estes passos em quaisquer servidores NPS adicionais que pretenda configur
 Se o seu certificado de computador anterior tiver expirado e tiver sido gerado um novo certificado, deverá eliminar quaisquer certificados caducados. Ter certificados expirados pode causar problemas com o início da extensão nps.
 
 > [!NOTE]
-> Se utilizar os seus próprios certificados em vez de gerar certificados com o script PowerShell, certifique-se de que se alinham com a convenção de nomeação nPS. O nome do assunto deve ser **CN=\<\>TenantID,OU=Microsoft NPS Extension**. 
+> Se utilizar os seus próprios certificados em vez de gerar certificados com o script PowerShell, certifique-se de que se alinham com a convenção de nomeação nPS. O nome do assunto deve ser **CN= \< \> TenantID,OU=Microsoft NPS Extension**. 
 
 ### <a name="microsoft-azure-government-additional-steps"></a>Passos adicionais do Governo da Microsoft Azure
 
@@ -223,9 +224,9 @@ Para os clientes que utilizam a nuvem do Governo Azure, são necessários os seg
 
 Com a libertação 1.0.1.32 da extensão NPS, a leitura de vários certificados é agora suportada. Esta capacidade ajudará a facilitar as atualizações de certificados de rolamento antes da sua expiração. Se a sua organização estiver a executar uma versão anterior da extensão NPS, deverá atualizar para a versão 1.0.1.32 ou superior.
 
-Os certificados `AzureMfaNpsExtnConfigSetup.ps1` criados pelo script são válidos por 2 anos. As organizações de TI devem monitorizar os certificados para expiração. Os certificados para a extensão NPS são colocados na loja de certificados de computador local em personal e são emitidos para o ID do inquilino fornecido ao script.
+Os certificados criados pelo `AzureMfaNpsExtnConfigSetup.ps1` script são válidos por 2 anos. As organizações de TI devem monitorizar os certificados para expiração. Os certificados para a extensão NPS são colocados na loja de certificados de computador local em personal e são emitidos para o ID do inquilino fornecido ao script.
 
-Quando um certificado se aproxima da data de validade, deve ser criado um novo certificado para o substituir.  Este processo é realizado `AzureMfaNpsExtnConfigSetup.ps1` executando novamente o e mantendo o mesmo ID inquilino quando solicitado. Este processo deve ser repetido em cada servidor NPS no seu ambiente.
+Quando um certificado se aproxima da data de validade, deve ser criado um novo certificado para o substituir.  Este processo é realizado executando novamente o e `AzureMfaNpsExtnConfigSetup.ps1` mantendo o mesmo ID inquilino quando solicitado. Este processo deve ser repetido em cada servidor NPS no seu ambiente.
 
 ## <a name="configure-your-nps-extension"></a>Configure a sua extensão NPS
 
@@ -267,7 +268,7 @@ O seguinte script está disponível para executar passos básicos de verificaç�
 
 ### <a name="how-do-i-verify-that-the-client-cert-is-installed-as-expected"></a>Como posso verificar se o cliente cert está instalado como esperado?
 
-Procure o certificado auto-assinado criado pelo instalador na loja cert, e verifique se a chave privada tem permissões concedidas ao serviço de **rede**do utilizador . O cert tem um nome de **cNC \<tenantid\>, OU = Microsoft NPS Extension**
+Procure o certificado auto-assinado criado pelo instalador na loja cert, e verifique se a chave privada tem permissões concedidas ao serviço de **rede**do utilizador . O cert tem um nome de ** \< cNC tenantid \> , OU = Microsoft NPS Extension**
 
 Os certificados auto-assinados gerados pelo script *AzureMfaNpsExtnConfigSetup.ps1* também têm uma validade vitalícia de dois anos. Ao verificar se o certificado está instalado, deve também verificar se o certificado não expirou.
 

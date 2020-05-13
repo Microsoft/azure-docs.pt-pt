@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 474d2e0c31eed852ba96780ca996eca632bd5842
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 12d87c12b84130d404eaf203fd6013f6924020f5
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82926991"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199441"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Federação direta com AD FS e fornecedores de terceiros para utilizadores convidados (pré-visualização)
 |     |
@@ -28,7 +28,7 @@ ms.locfileid: "82926991"
 Este artigo descreve como criar uma federação direta com outra organização para a colaboração B2B. Pode criar uma federação direta com qualquer organização cujo fornecedor de identidade (IDP) apoie o protocolo SAML 2.0 ou WS-Fed.
 Quando cria uma federação direta com o IDP de um parceiro, os novos utilizadores convidados desse domínio podem usar a sua própria conta organizacional gerida pelo IDP para se inscrever em seu inquilino Azure AD e começar a colaborar consigo. Não há necessidade de o utilizador convidado criar uma conta Azure AD separada.
 > [!NOTE]
-> Os utilizadores convidados da federação direta devem assinar através `https://myapps.microsoft.com/?tenantid=<tenant id>` de `https://portal.azure.com/<tenant id>`um link que inclua o `https://myapps.microsoft.com/\<verified domain>.onmicrosoft.com`contexto do inquilino (por exemplo, ou, no caso de um domínio verificado, ). As ligações diretas às aplicações e recursos também funcionam desde que incluam o contexto do arrendatário. Os utilizadores da federação direta não podem assinar usando pontos finais comuns que não têm contexto de inquilino. Por exemplo, `https://myapps.microsoft.com` `https://portal.azure.com`a `https://teams.microsoft.com` utilização, ou resultará num erro.
+> Os utilizadores convidados da federação direta devem assinar através de um link que inclua o contexto do inquilino (por exemplo, `https://myapps.microsoft.com/?tenantid=<tenant id>` `https://portal.azure.com/<tenant id>` ou, no caso de um domínio verificado, `https://myapps.microsoft.com/\<verified domain>.onmicrosoft.com` ). As ligações diretas às aplicações e recursos também funcionam desde que incluam o contexto do arrendatário. Os utilizadores da federação direta não podem assinar usando pontos finais comuns que não têm contexto de inquilino. Por exemplo, a `https://myapps.microsoft.com` utilização, `https://portal.azure.com` ou `https://teams.microsoft.com` resultará num erro.
  
 ## <a name="when-is-a-guest-user-authenticated-with-direct-federation"></a>Quando é que um utilizador convidado é autenticado com a federação direta?
 Depois de configurar a federação direta com uma organização, quaisquer novos utilizadores convidados que convidar serão autenticados usando a federação direta. É importante notar que a criação da federação direta não altera o método de autenticação para os utilizadores convidados que já resgataram um convite de si. Eis alguns exemplos:
@@ -61,7 +61,7 @@ A federação direta só é permitida para políticas em que o domínio do URL d
 -   federation.exostar.com
 -   federation.exostartest.com
 
-Por exemplo, ao criar uma federação direta `https://fabrikam.com/adfs` para **fabrikam.com,** o URL de autenticação passará na validação. Um hospedeiro no mesmo domínio também `https://sts.fabrikam.com/adfs`passará, por exemplo. No entanto, `https://fabrikamconglomerate.com/adfs` o `https://fabrikam.com.uk/adfs` URL de autenticação ou para o mesmo domínio não passará.
+Por exemplo, ao criar uma federação direta para **fabrikam.com,** o URL de autenticação `https://fabrikam.com/adfs` passará na validação. Um hospedeiro no mesmo domínio também passará, por `https://sts.fabrikam.com/adfs` exemplo. No entanto, o URL de autenticação `https://fabrikamconglomerate.com/adfs` ou para o mesmo domínio não `https://fabrikam.com.uk/adfs` passará.
 
 ### <a name="signing-certificate-renewal"></a>Renovação de certificado de assinatura
 Se especificar o URL dos metadados nas definições do fornecedor de identidade, o Azure AD renovará automaticamente o certificado de assinatura quando expirar. No entanto, se o certificado for rodado por qualquer motivo antes do tempo de validade, ou se não fornecer um URL de metadados, o Azure AD não poderá renová-lo. Neste caso, terá de atualizar manualmente o certificado de assinatura.
@@ -146,8 +146,8 @@ Em seguida, você vai configurar a federação com o fornecedor de identidade co
 ### <a name="to-configure-direct-federation-in-the-azure-ad-portal"></a>Para configurar a federação direta no portal Azure AD
 
 1. Vá ao [portal Azure.](https://portal.azure.com/) No painel esquerdo, selecione **Azure Active Directory**. 
-2. **Selecione Relações Organizacionais**.
-3. Selecione **fornecedores de identidade**, e, em seguida, selecione **New SAML/WS-Fed IdP**.
+2. **Selecione Relações Organizacionais**  >  **Todos os fornecedores de identidade** (ou **identidades externas**  >  **Todos os fornecedores de identidade).**
+3. Selecione , e, em seguida, selecione **New SAML/WS-Fed IdP**.
 
     ![Screenshot mostrando botão para adicionar um novo IdP SAML ou WS-Fed](media/direct-federation/new-saml-wsfed-idp.png)
 
@@ -174,7 +174,7 @@ Em seguida, você vai configurar a federação com o fornecedor de identidade co
    Connect-AzureAD
    ```
 1. No momento de início de sessão, inscreva-se na conta gerida do Administrador Global. 
-2. Executar os seguintes comandos, substituindo os valores do ficheiro de metadados da federação. Para a AD FS Server e Okta, o ficheiro da `https://sts.totheclouddemo.com/federationmetadata/2007-06/federationmetadata.xml`federação é federationmetadata.xml, por exemplo: . 
+2. Executar os seguintes comandos, substituindo os valores do ficheiro de metadados da federação. Para a AD FS Server e Okta, o ficheiro da federação é federationmetadata.xml, por exemplo: `https://sts.totheclouddemo.com/federationmetadata/2007-06/federationmetadata.xml` . 
 
    ```powershell
    $federationSettings = New-Object Microsoft.Open.AzureAD.Model.DomainFederationSettings
@@ -194,8 +194,8 @@ Agora teste a sua configuração da federação direta convidando um novo utiliz
 ## <a name="how-do-i-edit-a-direct-federation-relationship"></a>Como edito uma relação direta com a federação?
 
 1. Vá ao [portal Azure.](https://portal.azure.com/) No painel esquerdo, selecione **Azure Active Directory**. 
-2. **Selecione Relações Organizacionais**.
-3. Selecionar **fornecedores de identidade**
+2. **Selecione Relações Organizacionais** (ou **Identidades Externas).**
+3. Selecione **Todos os fornecedores de identidade**
 4. Sob os fornecedores de **identidade SAML/WS-Fed,** selecione o fornecedor.
 5. No painel de detalhes do fornecedor de identidade, atualize os valores.
 6. Selecione **Guardar**.
@@ -205,8 +205,8 @@ Agora teste a sua configuração da federação direta convidando um novo utiliz
 Pode remover a sua configuração da federação direta. Se o fizer, os utilizadores convidados da federação direta que já resgataram os seus convites não poderão inscrever-se. Mas pode dar-lhes acesso aos seus recursos novamente, apagando-os do diretório e reconvidando-os. Remover a federação direta com um fornecedor de identidade no portal Azure AD:
 
 1. Vá ao [portal Azure.](https://portal.azure.com/) No painel esquerdo, selecione **Azure Active Directory**. 
-2. **Selecione Relações Organizacionais**.
-3. Selecione **fornecedores de identidade**.
+2. **Selecione Relações Organizacionais** (ou **Identidades Externas).**
+3. Selecione **Todos os fornecedores de identidade**.
 4. Selecione o fornecedor de identidade e, em seguida, selecione **Eliminar**. 
 5. Selecione **Sim** para confirmar a eliminação. 
 

@@ -4,19 +4,19 @@ description: Saiba como ligar-se à Base de Dados SQL, à instância gerida e à
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: azure-synapse
+ms.custom: azure-synapse, has-adal-ref
 ms.devlang: ''
 ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 03/27/2020
-ms.openlocfilehash: 0e244ea185011bbb7d9f0facad399bb9b577bbc2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 60a1b0deda75c1fc30a9e3b8255106d2809856ee
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80419851"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198597"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Configure e gerea autenticação de Diretório Ativo Azure com SQL
 
@@ -26,7 +26,7 @@ Este artigo mostra-lhe como criar e povoar a AD Azure, e depois utilizar o Azure
 > Este artigo aplica-se ao servidor Azure SQL, e tanto à Base de Dados SQL como ao Azure Synapse. Para a simplicidade, a Base de Dados SQL é utilizada quando se refere tanto à Base de Dados SQL como ao Synapse Azure.
 
 > [!IMPORTANT]  
-> A ligação ao SQL Server em execução num VM Azure não é suportada utilizando uma conta de Diretório Ativo Azure. Utilize uma conta de diretório ativo de domínio.
+> A ligação ao SQL Server em execução num VM Azure não é suportada utilizando uma conta de Diretório Ativo Azure. Em alternativa, utilize um domínio de conta do Active Directory.
 
 ## <a name="azure-ad-authentication-methods"></a>Métodos de autenticação Azure AD
 
@@ -187,8 +187,8 @@ Como uma melhor prática para os administradores atuais da AD Azure para o MI cr
 
 ### <a name="known-issues-with-the-azure-ad-login-ga-for-mi"></a>Questões conhecidas com o login da AD Azure para MI
 
-- Se existe um login Azure AD na base de dados principal `CREATE LOGIN [myaadaccount] FROM EXTERNAL PROVIDER`para O MI, criada com o comando T-SQL, não pode ser configurada como administrador ad-ad azure para MI. Sentirá um erro definindo o login como um administrador Azure AD utilizando o portal Azure, PowerShell ou comandos CLI para criar o login Azure AD.
-  - O login deve ser introduzido na `DROP LOGIN [myaadaccount]`base de dados principal utilizando o comando, antes de a conta poder ser criada como administrador ad.ida e statal.
+- Se existe um login Azure AD na base de dados principal para O MI, criada com o comando T-SQL, `CREATE LOGIN [myaadaccount] FROM EXTERNAL PROVIDER` não pode ser configurada como administrador ad-ad azure para MI. Sentirá um erro definindo o login como um administrador Azure AD utilizando o portal Azure, PowerShell ou comandos CLI para criar o login Azure AD.
+  - O login deve ser introduzido na base de dados principal utilizando o comando, antes de `DROP LOGIN [myaadaccount]` a conta poder ser criada como administrador ad.ida e statal.
   - Criar a conta de administração da Azure AD no portal Azure após o `DROP LOGIN` sucesso. 
   - Se não conseguir configurar a conta de administração da AD Azure, verifique na base de dados principal da instância gerida o login. Utilize o seguinte comando:`SELECT * FROM sys.server_principals`
   - A criação de um administrador Azure AD para O MI criará automaticamente um login na base de dados principal para esta conta. A remoção do administrador Azure AD retirará automaticamente o login da base de dados principal.
@@ -311,16 +311,16 @@ Os Cmdlets utilizados para fornecer e gerir a administração da Azure AD para a
 
 Utilize o comando PowerShell get-help para ver mais informações para cada um destes comandos. Por exemplo, `get-help Set-AzSqlServerActiveDirectoryAdministrator`.
 
-As seguintes disposições de script um grupo de `40b79501-b343-44ed-9ce7-da4c8cc7353f`administrador da AD Azure chamado **DBA_Group** (ID de objeto ) para o servidor **demo_server** num grupo de recursos chamado **Grupo-23:**
+As seguintes disposições de script um grupo de administrador da AD Azure chamado **DBA_Group** (ID do objeto ) para o servidor demo_server num grupo de `40b79501-b343-44ed-9ce7-da4c8cc7353f` recursos chamado **Grupo-23:** **demo_server**
 
 ```powershell
 Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server" -DisplayName "DBA_Group"
 ```
 
-O parâmetro de entrada **DisplayName** aceita o nome de exibição Azure AD ou o Nome Principal do Utilizador. Por ``DisplayName="John Smith"`` exemplo, ``DisplayName="johns@contoso.com"``e . Para os grupos Azure AD apenas o nome de exibição Azure AD é suportado.
+O parâmetro de entrada **DisplayName** aceita o nome de exibição Azure AD ou o Nome Principal do Utilizador. Por exemplo, ``DisplayName="John Smith"`` e ``DisplayName="johns@contoso.com"`` . Para os grupos Azure AD apenas o nome de exibição Azure AD é suportado.
 
 > [!NOTE]
-> O comando ```Set-AzSqlServerActiveDirectoryAdministrator``` Azure PowerShell não o impede de fornecer administradores da Azure AD para utilizadores não suportados. Um utilizador não suportado pode ser provisionado, mas não pode ligar-se a uma base de dados.
+> O comando Azure PowerShell ```Set-AzSqlServerActiveDirectoryAdministrator``` não o impede de fornecer administradores da Azure AD para utilizadores não suportados. Um utilizador não suportado pode ser provisionado, mas não pode ligar-se a uma base de dados.
 
 O exemplo que se segue utiliza o **ObjectID**opcional:
 
@@ -366,7 +366,7 @@ Para obter mais informações sobre comandos CLI, consulte [o servidor az sql](/
 
 Em todas as máquinas de clientes, a partir das quais as suas aplicações ou utilizadores se ligam à Base de Dados Azure SQL ou ao Azure Synapse utilizando identidades Azure AD, deve instalar o seguinte software:
 
-- .NET Quadro 4.6 [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx)ou posterior de .
+- .NET Quadro 4.6 ou posterior [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx) de .
 - Biblioteca de Autenticação de Diretório Ativo Azure para Servidor SQL *(ADAL. DLL*). Abaixo estão os links de descarregamento para instalar o mais recente ssms, ODBC e o controlador OLE DB que contém o *ADAL. Biblioteca DLL.*
     1. [Estúdio de Gestão de Servidores SQL](/sql/ssms/download-sql-server-management-studio-ssms)
     1. [Condutor ODBC 17 para Servidor SQL](https://www.microsoft.com/download/details.aspx?id=56567)
@@ -390,7 +390,7 @@ A autenticação do Diretório Ativo do Azure exige que os utilizadores de bases
 > Os utilizadores de bases de dados (com exceção dos administradores) não podem ser criados através do portal Azure. As funções RBAC não são propagadas ao SQL Server, SQL Database ou Azure Synapse. As funções Azure RBAC são utilizadas para a gestão dos Recursos Azure e não se aplicam às permissões de base de dados. Por exemplo, a função De Contribuinte do **Servidor SQL** não concede acesso à ligação à Base de Dados SQL ou ao Synapse Azure. A autorização de acesso deve ser concedida diretamente na base de dados utilizando declarações transact-SQL.
 
 > [!WARNING]
-> Personagens especiais como `:` cólon `&` ou ampersand quando incluídos como nomes de utilizador nas declarações de LOGIN e CREATE USER do T-SQL não são suportados.
+> Personagens especiais como cólon `:` ou ampersand `&` quando incluídos como nomes de utilizador nas declarações de LOGIN e CREATE USER do T-SQL não são suportados.
 
 Para criar um utilizador de base de dados baseado em AD Azure (com a lém do administrador do servidor que detém a base de dados), ligue-se à base de dados com uma identidade Azure AD, como utilizador com pelo menos a permissão **ALTER ANY USER.** Em seguida, utilize a seguinte sintaxe Transact-SQL:
 
@@ -471,7 +471,7 @@ Utilize este método para autenticar o SQL DB ou MI com utilizadores de identida
 
 1. Inicie o Estúdio de Gestão ou ferramentas de dados e na caixa de diálogo **Connect to Server** (ou Connect to Database **Engine),** na caixa **de autenticação,** selecione **Azure Ative Directory - Password**.
 
-2. Na caixa de nome sinuoso, digite o nome de utilizador do Diretório Ativo Azure no nome **User name** **\@** de utilizador do formato domain.com . Os nomes dos utilizadores devem ser uma conta do Azure Ative Directory ou uma conta de um domínio gerido ou federado com o Diretório Ativo Azure.
+2. Na caixa de nome sinuoso, digite o nome de utilizador do Diretório Ativo Azure no nome de utilizador do formato ** \@ domain.com**. **User name** Os nomes dos utilizadores devem ser uma conta do Azure Ative Directory ou uma conta de um domínio gerido ou federado com o Diretório Ativo Azure.
 
 3. Na caixa **Password,** digite a sua palavra-passe de utilizador para a conta De Diretório Ativo Azure ou para a conta de domínio gerida/federada.
 
@@ -498,7 +498,7 @@ Para utilizar a autenticação integrada do Windows, o Diretório Ativo do seu d
 
 A sua aplicação ao cliente (ou um serviço) que ligue à base de dados deve estar a funcionar numa máquina unida ao domínio sob as credenciais de domínio de um utilizador.
 
-Para se ligar a uma base de dados utilizando a autenticação integrada e uma identidade Azure AD, a palavra-chave de autenticação na cadeia de ligação à base de dados deve ser definida para `Active Directory Integrated`. A seguinte amostra de código C# utiliza ADO .NET.
+Para se ligar a uma base de dados utilizando a autenticação integrada e uma identidade Azure AD, a palavra-chave de autenticação na cadeia de ligação à base de dados deve ser definida para `Active Directory Integrated` . A seguinte amostra de código C# utiliza ADO .NET.
 
 ```csharp
 string ConnectionString = @"Data Source=n9lxnyuzhv.database.windows.net; Authentication=Active Directory Integrated; Initial Catalog=testdb;";
@@ -506,11 +506,11 @@ SqlConnection conn = new SqlConnection(ConnectionString);
 conn.Open();
 ```
 
-A palavra-chave `Integrated Security=True` de corda de ligação não é suportada para a ligação à Base de Dados Azure SQL. Ao efetuar uma ligação ODBC, terá de remover espaços e definir a Autenticação para 'ActiveDirectoryIntegrated'.
+A palavra-chave de corda de ligação `Integrated Security=True` não é suportada para a ligação à Base de Dados Azure SQL. Ao efetuar uma ligação ODBC, terá de remover espaços e definir a Autenticação para 'ActiveDirectoryIntegrated'.
 
 ### <a name="active-directory-password-authentication"></a>Autenticação de senha de diretório ativo
 
-Para se ligar a uma base de dados utilizando contas de utilizadores de identidade apenas com a Nuvem Azure, ou a quem utiliza identidades híbridas Azure AD, a palavra-chave de autenticação deve ser definida para `Active Directory Password`. A cadeia de ligação deve conter palavras e valores id/uID do utilizador e palavras-chave/palavras-chave/PWD. A seguinte amostra de código C# utiliza ADO .NET.
+Para se ligar a uma base de dados utilizando contas de utilizadores de identidade apenas com a Nuvem Azure, ou a quem utiliza identidades híbridas Azure AD, a palavra-chave de autenticação deve ser definida para `Active Directory Password` . A cadeia de ligação deve conter palavras e valores id/uID do utilizador e palavras-chave/palavras-chave/PWD. A seguinte amostra de código C# utiliza ADO .NET.
 
 ```csharp
 string ConnectionString =
@@ -546,7 +546,7 @@ Para mais informações, consulte [o SQL Server Security Blog](https://blogs.msd
 As seguintes declarações, liguem-se utilizando a versão 13.1 de sqlcmd, que está disponível no [Centro de Descarregamento](https://www.microsoft.com/download/details.aspx?id=53591).
 
 > [!NOTE]
-> `sqlcmd`com `-G` o comando não funciona com identidades do sistema, e requer um login principal do utilizador.
+> `sqlcmd`com o comando não funciona com identidades do `-G` sistema, e requer um login principal do utilizador.
 
 ```cmd
 sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -G  

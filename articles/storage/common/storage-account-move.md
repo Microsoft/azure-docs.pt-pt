@@ -6,15 +6,15 @@ author: normesta
 ms.service: storage
 ms.subservice: common
 ms.topic: article
-ms.date: 09/27/2019
+ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: c8578c518ac45bea147790028c2904c7ce36fffb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 34f1c96d8336447b6ca2a4f55fefa9a061c38fa2
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81459037"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198494"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Mova uma conta de Armazenamento Azure para outra região
 
@@ -55,7 +55,7 @@ Para exportar um modelo utilizando o portal Azure:
 
 2. **Selecione Todos os recursos** e, em seguida, selecione a sua conta de armazenamento.
 
-3. Selecione > Modelo**de exportação**de **definições** > .
+3. Selecione > **modelo**de  >  **exportação**de definições .
 
 4. Escolha **o download** na lâmina do modelo de **exportação.**
 
@@ -115,7 +115,7 @@ Para implementar o modelo utilizando o portal Azure:
 
 6. Selecione **ficheiro Load**, e siga as instruções para carregar o ficheiro **template.json** que descarregou na última secção.
 
-7. No ficheiro **template.json,** nomeie a conta de armazenamento alvo definindo o valor predefinido do nome da conta de armazenamento. Este exemplo define o valor predefinido `mytargetaccount`do nome da conta de armazenamento para .
+7. No ficheiro **template.json,** nomeie a conta de armazenamento alvo definindo o valor predefinido do nome da conta de armazenamento. Este exemplo define o valor predefinido do nome da conta de armazenamento para `mytargetaccount` .
     
     ```json
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -137,13 +137,13 @@ Para implementar o modelo utilizando o portal Azure:
          "location": "centralus"
          }]          
     ```
-    Para obter códigos de localização da região, consulte [localizações azure](https://azure.microsoft.com/global-infrastructure/locations/).  O código para uma região é o nome da região sem espaços,**central** **dos EUA** = central.
+    Para obter códigos de localização da região, consulte [localizações azure](https://azure.microsoft.com/global-infrastructure/locations/).  O código para uma região é o nome da região sem espaços, **central dos EUA**  =  **centralus**central.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Para implementar o modelo utilizando o PowerShell:
 
-1. No ficheiro **template.json,** nomeie a conta de armazenamento alvo definindo o valor predefinido do nome da conta de armazenamento. Este exemplo define o valor predefinido `mytargetaccount`do nome da conta de armazenamento para .
+1. No ficheiro **template.json,** nomeie a conta de armazenamento alvo definindo o valor predefinido do nome da conta de armazenamento. Este exemplo define o valor predefinido do nome da conta de armazenamento para `mytargetaccount` .
     
     ```json
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -156,7 +156,7 @@ Para implementar o modelo utilizando o PowerShell:
     },
     ``` 
 
-2. Editar a propriedade de **localização** no ficheiro **template.json** para a região alvo. Este exemplo define a `eastus`região-alvo para .
+2. Editar a propriedade de **localização** no ficheiro **template.json** para a região alvo. Este exemplo define a região-alvo para `eastus` .
 
     ```json
     "resources": [{
@@ -232,25 +232,10 @@ A tabela seguinte lista estas funcionalidades juntamente com orientações para 
 
 ### <a name="move-data-to-the-new-storage-account"></a>Mova os dados para a nova conta de armazenamento
 
-Aqui estão algumas maneiras de mover os seus dados.
+O AzCopy é a ferramenta preferida para mover os seus dados. Está otimizado para o desempenho.  Uma das formas de ser mais rápido, é que os dados são copiados diretamente entre servidores de armazenamento, para que o AzCopy não utilize a largura de banda da rede do seu computador. Utilize o AzCopy na linha de comando ou como parte de um script personalizado. Ver [Começar com AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-:heavy_check_mark: **Explorador de Armazenamento Azure**
+Também pode utilizar a Azure Data Factory para transferir os seus dados. Fornece uma interface de utilizador intuitiva. Para utilizar a Azure Data Factory, consulte qualquer uma destas ligações:. 
 
-  É fácil de usar e é adequado para pequenos conjuntos de dados. Pode copiar contentores e arquivar ações e, em seguida, colar na conta-alvo.
-
-  Ver Explorador de [Armazenamento Azure;](https://azure.microsoft.com/features/storage-explorer/)
-
-:heavy_check_mark: **AzCopy**
-
-  Esta é a abordagem preferida. Está otimizado para o desempenho.  Uma das formas de ser mais rápido, é que os dados são copiados diretamente entre servidores de armazenamento, para que o AzCopy não utilize a largura de banda da rede do seu computador. Utilize o AzCopy na linha de comando ou como parte de um script personalizado.
-
-  Ver [Começar com AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-
-:heavy_check_mark: Fábrica de **Dados Azure** 
-
-  Utilize esta ferramenta apenas se precisar de funcionalidades que não são suportadas no lançamento atual do AzCopy. Por exemplo, no lançamento atual do AzCopy, não é possível copiar bolhas entre contas que têm um espaço de nome hierárquico. Também o AzCopy não preserva as listas de controlo de acesso de ficheiros ou os selos de tempo de ficheiro (por exemplo: criar e modificar selos de tempo). 
-
-  Consulte estes links:
   - [Copiar dados de ou para o armazenamento da Blob Azure utilizando a Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
   - [Copiar dados de ou para o Azure Data Lake Storage Gen2 utilizando a Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
   - [Copiar dados de ou para o armazenamento de ficheiros Azure utilizando a Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-file-storage)

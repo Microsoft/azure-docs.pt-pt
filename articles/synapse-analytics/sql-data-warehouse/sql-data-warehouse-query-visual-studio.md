@@ -11,17 +11,17 @@ ms.date: 08/15/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 174ee07e389e598fed6ed8487e60303fbce81f77
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 444cb2c8378ad873beb61116c5c4387ad3c59761
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416035"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200347"
 ---
 # <a name="connect-to-azure-synapse-analytics-with-visual-studio-and-ssdt"></a>Ligue-se à Azure Synapse Analytics com O Estúdio Visual e SSDT
 > [!div class="op_single_selector"]
+> * [Azure Data Studio](../sql/get-started-azure-data-studio.md)
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
-> * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](../sql/get-started-connect-sqlcmd.md) 
 > * [SSMS](sql-data-warehouse-query-ssms.md)
@@ -39,7 +39,7 @@ Para utilizar este tutorial, precisa do seguinte:
 
 ## <a name="1-connect-to-your-sql-pool"></a>1. Ligue-se à sua piscina SQL
 1. Open Visual Studio 2019.
-2. Abra o Explorador de Objetos do Servidor SQL selecionando **o 'Ver** > **Explorador de Objetos do Servidor SQL**'.
+2. Abra o Explorador de Objetos do Servidor SQL selecionando **o 'Ver**  >  **Explorador de Objetos do Servidor SQL**'.
    
     ![SQL Server Object Explorer](./media/sql-data-warehouse-query-visual-studio/open-ssdt.png)
 3. Clique no ícone **Adicionar SQL Server**.
@@ -69,7 +69,7 @@ Agora que foi estabelecida uma ligação à base de dados, vamos escrever uma co
     ```sql
     SELECT COUNT(*) FROM dbo.FactInternetSales;
     ```
-4. Executar a consulta clicando na seta verde `CTRL` + `SHIFT` +ou utilizar o seguinte atalho: `E`.
+4. Executar a consulta clicando na seta verde ou utilizar o seguinte atalho: `CTRL` + `SHIFT` + `E` .
    
     ![Executar consulta](./media/sql-data-warehouse-query-visual-studio/run-query.png)
 5. Veja os resultados da consulta. Neste exemplo, a tabela FactInternetSales tem 60398 linhas.

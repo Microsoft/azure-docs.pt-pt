@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: yegu
-ms.openlocfilehash: 809fbe85a9783777d5dbef86357bd5a386bd6f81
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: efb9e8b8abdcb442e2c5c4d8bfd1b2e1e60865ce
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81261249"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197856"
 ---
 # <a name="remove-tls-10-and-11-from-use-with-azure-cache-for-redis"></a>Remova TLS 1.0 e 1.1 da utilização com Azure Cache for Redis
 
@@ -19,7 +19,7 @@ Há um impulso em toda a indústria para o uso exclusivo da versão 1.2 (TLS) de
 
 Como parte deste esforço, vamos fazer as seguintes alterações ao Azure Cache para redis:
 
-* **Fase 1:** Vamos configurar a versão TLS mínima padrão para ser 1.2 para casos de cache recém-criados. (Isto costumava ser TLS 1.0.) As instâncias de cache existentes não serão atualizadas neste momento. Poderá alterar a [versão TLS mínima](cache-configure.md#access-ports) para 1.0 ou 1.1 para retrocompatibilidade, se necessário. Esta alteração pode ser feita através do portal Azure ou de outras APIs de gestão.
+* **Fase 1:** Configuraremos a versão TLS mínima padrão para ser 1.2 para casos de cache recém-criados (anteriormente TLS 1.0).  As instâncias de cache existentes não serão atualizadas neste momento. Poderá alterar a [versão TLS mínima](cache-configure.md#access-ports) para 1.0 ou 1.1 para retrocompatibilidade, se necessário. Esta alteração pode ser feita através do portal Azure ou de outras APIs de gestão.
 * **Fase 2:** Vamos parar de suportar as versões TLS 1.0 e 1.1. Após esta alteração, a sua aplicação será obrigada a utilizar TLS 1.2 ou mais tarde para comunicar com a sua cache.
 
 Além disso, como parte desta mudança, vamos remover o suporte para suites cítropeçares mais antigas e inseguras.  As nossas suítes cypher suportadas serão restritas ao seguinte quando a cache estiver configurada com uma versão TLS mínima de 1.2.
@@ -33,7 +33,7 @@ As datas em que estas alterações entrem em vigor são:
 
 | Nuvem               | Data de início da fase 1 | Data de início da fase 2      |
 |---------------------|--------------------|-------------------------|
-| Azure (global)      |  13 de janeiro de 2020  | 11 de maio de 2020 (estendido) |
+| Azure (global)      |  13 de janeiro de 2020  | 11 de maio de 2020            |
 | Azure Government    |  13 de março de 2020    | 11 de maio de 2020            |
 | Azure Alemanha       |  13 de março de 2020    | 11 de maio de 2020            |
 | Azure China         |  13 de março de 2020    | 11 de maio de 2020            |
@@ -50,7 +50,7 @@ A maioria das aplicações usa bibliotecas de clientes Redis para lidar com a co
 
 Os clientes Redis .NET utilizam a versão TLS mais antiga por defeito no .NET Framework 4.5.2 ou anterior, e utilizam a versão TLS mais recente no .NET Framework 4.6 ou posterior. Se estiver a utilizar uma versão mais antiga do .NET Framework, pode ativar manualmente o TLS 1.2:
 
-* **StackExchange.Redis:** Definir `ssl=true` `sslprotocols=tls12` e na corda de ligação.
+* **StackExchange.Redis:** Definir `ssl=true` e na corda de `sslprotocols=tls12` ligação.
 * **ServiceStack.Redis:** Siga as instruções [serviceStack.Redis](https://github.com/ServiceStack/ServiceStack.Redis#servicestackredis-ssl-support) e requer ServiceStack.Redis v5.6 no mínimo.
 
 ### <a name="net-core"></a>.NET Core

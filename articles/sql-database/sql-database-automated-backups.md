@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 12/13/2019
-ms.openlocfilehash: 9ac6927df63d51830a58773e32ad0968920c0867
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7cbe0015eeb9b46cd72496a220ce7f7d094cb61d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80061768"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198564"
 ---
 # <a name="automated-backups"></a>Cópias de segurança automatizadas
 
@@ -61,6 +61,8 @@ Pode experimentar algumas destas operações utilizando os seguintes exemplos:
 A Base de Dados SQL suporta o self-service para restauro pontual (PITR) criando automaticamente cópias de segurança completas, backups diferenciais e backups de registo de transações. As cópias de dados completas são criadas semanalmente, e as cópias de segurança diferenciais são geralmente criadas a cada 12 horas. As cópias de segurança do registo de transações são geralmente criadas a cada 5 a 10 minutos. A frequência das cópias de segurança do registo de transações baseia-se no tamanho do cálculo e na quantidade de atividade da base de dados. 
 
 O primeiro backup completo é agendado imediatamente após a criação de uma base de dados. Esta cópia de segurança geralmente completa dentro de 30 minutos, mas pode demorar mais tempo quando a base de dados é grande. Por exemplo, a cópia inicial de cópia de segurança pode demorar mais tempo numa base de dados restaurada ou numa cópia da base de dados. Depois da primeira cópia de segurança completa, todas as restantes cópias de segurança serão agendadas automaticamente e geridas silenciosamente em segundo plano. O prazo exato de todas as cópias de segurança de base de dados é determinado pelo serviço de Base de Dados SQL, pois este equilibra a carga de trabalho global do sistema. Não pode alterar ou desativar tarefas de cópia de segurança.
+
+### <a name="default-backup-retention-period"></a>Período de retenção de backup padrão
 
 As cópias de segurança DA PITR estão protegidas com armazenamento geo-redundante. Para obter mais informações, veja [Redundância do Armazenamento do Microsoft Azure](../storage/common/storage-redundancy.md).
 
@@ -156,7 +158,7 @@ Se a sua base de dados estiver encriptada com TDE, as cópias de segurança são
 
 Numa base de dados Azure SQL testa automaticamente a restauração de bases de dados automatizadas de bases de dados colocadas em servidores lógicos e piscinas de bases de dados elásticas. (Este teste não está disponível em instância gerida.) Após a restauração do ponto-a-dia, as bases de dados também recebem controlos de integridade do DBCC CHECKDB.
 
-A instância gerida requer `CHECKSUM` cópia de segurança inicial `RESTORE` automática com bases de dados restauradas com o comando nativo ou com o Serviço de Migração de Dados Azure após a migração.
+A instância gerida requer cópia de segurança inicial automática com bases de dados restauradas com o comando nativo ou com o Serviço de Migração de `CHECKSUM` Dados `RESTORE` Azure após a migração.
 
 Quaisquer problemas encontrados durante a verificação de integridade resultarão num alerta para a equipa de engenharia. Para mais informações, consulte a Integridade dos Dados na Base de [Dados Azure SQL](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/).
 

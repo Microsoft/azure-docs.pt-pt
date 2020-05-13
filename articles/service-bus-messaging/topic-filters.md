@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: spelluru
-ms.openlocfilehash: fb6092b7ccb3d1a4214f8d26119d9dc50b0ed317
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6e780268d4b8c1a512ce82b1ca10a2f6b7b894b7
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81482053"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125762"
 ---
 # <a name="topic-filters-and-actions"></a>Filtros de tópico e ações
 
@@ -29,7 +29,7 @@ O Ônibus de serviço suporta três condições de filtro:
 
 -   *Filtros booleanos* - O **TrueFilter** e **o FalseFilter** ou fazem com que todas as mensagens que chegam **(verdadeiras)** ou nenhuma das mensagens que chegam **(falsas**) sejam selecionadas para a subscrição.
 
--   *Filtros SQL* - Um **SqlFilter** contém uma expressão condicional semelhante a SQL que é avaliada no corretor contra as propriedades e propriedades do sistema definidas pelo utilizador das mensagens que chegam. Todas as propriedades do `sys.` sistema devem ser pré-fixadas na expressão condicional. O [subconjunto em língua SQL para](service-bus-messaging-sql-filter.md) os ensaios de condições de filtro para a existência de propriedades`EXISTS`( valores nulos ),`IS NULL` `LIKE`valores lógicoS NÃO/AND/OR, operadores relacionais, aritmética numérica simples e padrão de texto simples que corresponda a .
+-   *Filtros SQL* - Um **SqlFilter** contém uma expressão condicional semelhante a SQL que é avaliada no corretor contra as propriedades e propriedades do sistema definidas pelo utilizador das mensagens que chegam. Todas as propriedades do sistema devem ser pré-fixadas `sys.` na expressão condicional. O [subconjunto em língua SQL para](service-bus-messaging-sql-filter.md) os ensaios de condições de filtro para a existência de propriedades ( `EXISTS` valores nulos `IS NULL` ), valores lógicoS NÃO/AND/OR, operadores relacionais, aritmética numérica simples e padrão de texto simples que corresponda a `LIKE` .
 
 -   *Filtros* de Correlação - Um **CorrelationFilter** contém um conjunto de condições que são correspondidas a uma ou mais propriedades do utilizador e do sistema de uma mensagem que chega. Um uso comum é combinar com a propriedade **CorrelationId,** mas a aplicação também pode optar por combinar com as seguintes propriedades:
 
@@ -48,7 +48,7 @@ Todos os filtros avaliam as propriedades da mensagem. Os filtros não conseguem 
 
 Regras complexas de filtro requerem capacidade de processamento. Em particular, a utilização de regras de filtro SQL causa uma menor entrada de mensagem global no nível de subscrição, tópico e espaço de nome. Sempre que possível, as aplicações devem escolher filtros de correlação em vez de filtros semelhantes ao SQL porque são muito mais eficientes no processamento e têm menos impacto na entrada.
 
-## <a name="actions"></a>Ações
+## <a name="actions"></a>Actions (Ações)
 
 Com as condições do filtro SQL, pode definir uma ação que pode anotar a mensagem adicionando, removendo ou substituindo propriedades e seus valores. A ação [usa uma expressão semelhante a SQL](service-bus-messaging-sql-filter.md) que se inclina vagamente sobre a sintaxe de declaração de atualização SQL. A ação é feita na mensagem depois de ter sido correspondida e antes de a mensagem ser selecionada para a subscrição. As alterações às propriedades da mensagem são privadas da mensagem copiada na subscrição.
 
@@ -71,8 +71,6 @@ Consulte as seguintes amostras:
 
 - [.NET - Envio básico e receber tutorial com filtros](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/BasicSendReceiveTutorialwithFilters/BasicSendReceiveTutorialWithFilters)
 - [.NET - Filtros tópicos](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TopicFilters)
-- [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/samples/javascript/advanced/topicFilters.js)
-- [Escrever script](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/samples/typescript/src/advanced/topicFilters.ts)
 - [Modelo de Gestor de Recursos Azure](https://docs.microsoft.com/azure/templates/microsoft.servicebus/2017-04-01/namespaces/topics/subscriptions/rules)
 
 

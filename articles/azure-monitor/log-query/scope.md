@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/25/2019
-ms.openlocfilehash: 897eff62fcbab5996b6b9493bd825ae412aa4c3e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/01/2020
+ms.openlocfilehash: 2840e5b8ff16d44f76aaafcf68264c65e4401ff7
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79249597"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199016"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Âmbito de consulta de log e intervalo de tempo no Azure Monitor Log Analytics
 Quando executa uma consulta de [log](log-query-overview.md) no [Log Analytics no portal Azure,](get-started-portal.md)o conjunto de dados avaliados pela consulta depende do âmbito e do intervalo de tempo que seleciona. Este artigo descreve o alcance e o intervalo de tempo e como pode definir cada um dependendo dos seus requisitos. Também descreve o comportamento de diferentes tipos de âmbitos.
@@ -25,6 +25,9 @@ O âmbito é sempre exibido na parte superior esquerda da janela Log Analytics. 
 ![Âmbito](media/scope/scope.png)
 
 O âmbito é determinado pelo método que utiliza para iniciar o Log Analytics e, em alguns casos, pode alterar o âmbito clicando nele. A tabela seguinte enumera os diferentes tipos de âmbito utilizados e diferentes detalhes para cada um.
+
+> [!IMPORTANT]
+> Se estiver a utilizar o APM 2.1, as aplicações De Sininsights de Aplicação são armazenadas num espaço de trabalho de Log Analytics com todos os outros dados de registo, e o âmbito de Insights de Aplicação não está disponível. Se selecionar **Registos** do menu Insights de Aplicação, então funciona da mesma forma que o âmbito de **recursos do Other Azure,** e apenas os dados que a aplicação nas tabelas de Insights de Aplicação estão disponíveis.
 
 | Âmbito de consulta | Registos de âmbito | Como selecionar | Alteração do Âmbito |
 |:---|:---|:---|:---|

@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: b5ff9ab8e2fcc1bb3b72f56348a1c86dc173bafc
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.custom: has-adal-ref
+ms.openlocfilehash: 7ddc8c3016487ce56bc1a54d74aa94064cef24e4
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203867"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198869"
 ---
 # <a name="security-frame-session-management"></a>Quadro de segurança: Gestão de sessões
 | Produto/Serviço | Artigo |
@@ -178,7 +179,7 @@ A definição é executada mesmo que http seja utilizado para aceder à aplicaç
 | **Tecnologias Aplicáveis** | Formulários Web, MVC5 |
 | **Atributos**              | AmbienteTipo - OnPrem |
 | **Referências**              | N/D  |
-| **Passos** | Quando a aplicação web é a Parte De Fiação, e o IDP é servidor ADFS, o atributo seguro do `system.identityModel.services` token FedAuth pode ser configurado através da definição requerida SSL to True na secção web.config:|
+| **Passos** | Quando a aplicação web é a Parte De Fiação, e o IDP é servidor ADFS, o atributo seguro do token FedAuth pode ser configurado através da definição requerida SSL to True na `system.identityModel.services` secção web.config:|
 
 ### <a name="example"></a>Exemplo
 ```csharp
@@ -272,7 +273,7 @@ A configuração seguinte mostra a configuração correta:
 | **Tecnologias Aplicáveis** | MVC5, MVC6 |
 | **Atributos**              | N/D  |
 | **Referências**              | [Prevenção xSRF/CSRF em ASP.NET MVC e páginas Web](https://www.asp.net/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) |
-| **Passos** | Formulários Anti-CSRF e ASP.NET `AntiForgeryToken` MVC - Utilize o método de ajuda em pontos de vista; colocar `Html.AntiForgeryToken()` um na forma, por exemplo,|
+| **Passos** | Formulários Anti-CSRF e ASP.NET MVC - Utilize o método de `AntiForgeryToken` ajuda em Pontos de Vista; coloque um `Html.AntiForgeryToken()` na forma, por exemplo,|
 
 ### <a name="example"></a>Exemplo
 ```csharp
@@ -301,7 +302,7 @@ public ViewResult SubmitUpdate()
 ```
 Filtro de autorização que verifica que:
 * O pedido de entrada tem um cookie chamado __RequestVerificationToken
-* O pedido de `Request.Form` entrada tem uma entrada chamada __RequestVerificationToken
+* O pedido de entrada tem uma `Request.Form` entrada chamada __RequestVerificationToken
 * Estes cookies e `Request.Form` valores coincidem Assumindo que está tudo bem, o pedido passa normalmente. Mas se não, então uma falha de autorização com a mensagem "Um token anti-falsificação exigido não foi fornecido ou foi inválido". 
 
 ### <a name="example"></a>Exemplo
@@ -545,7 +546,7 @@ public ViewResult SubmitUpdate()
 ```
 Filtro de autorização que verifica que:
 * O pedido de entrada tem um cookie chamado __RequestVerificationToken
-* O pedido de `Request.Form` entrada tem uma entrada chamada __RequestVerificationToken
+* O pedido de entrada tem uma `Request.Form` entrada chamada __RequestVerificationToken
 * Estes cookies e `Request.Form` valores coincidem Assumindo que está tudo bem, o pedido passa normalmente. Mas se não, então uma falha de autorização com a mensagem "Um token anti-falsificação exigido não foi fornecido ou foi inválido".
 
 | Título                   | Detalhes      |
@@ -558,7 +559,7 @@ Filtro de autorização que verifica que:
 | **Passos** | Se a Web API for protegida utilizando o OAuth 2.0, então espera que um portador token no cabeçalho de pedido de autorização e conceda acesso ao pedido apenas se o token for válido. Ao contrário da autenticação baseada em cookies, os navegadores não ligam os tokens do portador aos pedidos. O cliente que solicita deve anexar explicitamente o token do portador no cabeçalho do pedido. Portanto, para ASP.NET APIs web protegidos usando OAuth 2.0, os tokens do portador são considerados como uma defesa contra ataques CSRF. Por favor, note que se a parte mVC da aplicação usar formulários de autenticação (ou seja, usar cookies), os tokens anti-falsificação têm de ser utilizados pela aplicação web do MVC. |
 
 ### <a name="example"></a>Exemplo
-A Web API tem de ser informada para confiar apenas em tokens ao portador e não em cookies. Pode ser feito pela seguinte `WebApiConfig.Register` configuração no método:
+A Web API tem de ser informada para confiar apenas em tokens ao portador e não em cookies. Pode ser feito pela seguinte configuração no `WebApiConfig.Register` método:
 
 ```csharp
 config.SuppressDefaultHostAuthentication();

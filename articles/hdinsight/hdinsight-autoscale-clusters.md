@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: f41a15fb52698eaa17d6f76b991cbd31a56ba14f
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 8354be28203f1d466df6a22159fef87c9ae6f803
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82731978"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199744"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Escala automaticamente os clusters Azure HDInsight
 
@@ -22,6 +22,11 @@ A função de autoescala gratuita do Azure HDInsight pode aumentar ou diminuir a
 ## <a name="how-it-works"></a>Como funciona
 
 A função De escala automática utiliza dois tipos de condições para desencadear eventos de escala: limiares para várias métricas de desempenho do cluster (chamada *escala baseada em carga)* e gatilhos baseados no tempo (chamada *escala baseada no horário).* A escala baseada em carga altera o número de nós no seu cluster, dentro de uma gama que definiu, para garantir uma utilização ótima do CPU e minimizar o custo de funcionamento. A escala baseada na programação altera o número de nós no seu cluster com base em operações que associa a datas e horários específicos.
+
+O vídeo que se segue fornece uma visão geral dos desafios que a Autoscale resolve e como pode ajudá-lo a controlar os custos com o HDInsight.
+
+
+> [!VIDEO https://www.youtube.com/embed/UlZcDGGFlZ0?WT.mc_id=dataexposed-c9-niner]
 
 ### <a name="choosing-load-based-or-schedule-based-scaling"></a>Escolha a escala baseada em carga ou em horário
 
@@ -128,7 +133,7 @@ Para obter mais informações sobre a criação de clusterS HDInsight utilizando
 
 #### <a name="load-based-autoscaling"></a>Autoscalcificação baseada em carga
 
-Pode criar um cluster HDInsight com autoscalcificação baseado em carga `autoscale` num modelo `computeProfile`  >  `workernode` de Gestor `minInstanceCount` de Recursos Azure, adicionando um nó à secção com as propriedades e `maxInstanceCount` como mostrado no snippet json abaixo.
+Pode criar um cluster HDInsight com autoscalcificação baseado em carga num modelo de Gestor de Recursos Azure, adicionando um `autoscale` nó à secção com as propriedades e como mostrado no `computeProfile`  >  `workernode` `minInstanceCount` `maxInstanceCount` snippet json abaixo.
 
 ```json
 {
@@ -156,7 +161,7 @@ Pode criar um cluster HDInsight com autoscalcificação baseado em carga `autosc
 
 #### <a name="schedule-based-autoscaling"></a>Autoscalcificação baseada em horários
 
-Pode criar um cluster HDInsight com um modelo de Gestor de Recursos `autoscale` Azure baseado `computeProfile`  >  `workernode` em horários, adicionando um nó à secção. O `autoscale` nó contém `recurrence` um `timezone` que `schedule` tem um e que descreve quando a mudança vai ocorrer.
+Pode criar um cluster HDInsight com um modelo de Gestor de Recursos Azure baseado em horários, adicionando um `autoscale` nó à `computeProfile`  >  `workernode` secção. O `autoscale` nó contém um que tem um e que descreve quando a mudança vai `recurrence` `timezone` `schedule` ocorrer.
 
 ```json
 {
@@ -202,7 +207,7 @@ Para ativar ou desativar a escala automática num cluster de funcionamento utili
 https://management.azure.com/subscriptions/{subscription Id}/resourceGroups/{resourceGroup Name}/providers/Microsoft.HDInsight/clusters/{CLUSTERNAME}/roles/workernode/autoscale?api-version=2018-06-01-preview
 ```
 
-Utilize os parâmetros adequados na carga útil do pedido. A carga útil json abaixo poderia ser usada para ativar a escala automática. Utilize a `{autoscale: null}` carga útil para desativar a escala automática.
+Utilize os parâmetros adequados na carga útil do pedido. A carga útil json abaixo poderia ser usada para ativar a escala automática. Utilize a carga `{autoscale: null}` útil para desativar a escala automática.
 
 ```json
 { autoscale: { capacity: { minInstanceCount: 3, maxInstanceCount: 2 } } }

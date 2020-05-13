@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/27/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: 79b8ed6d2ccb167501c280feaede3361cb2a88f1
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: b181316ac2c6998676a17589fff246cf88ff50c2
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82609617"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123807"
 ---
 # <a name="regions-that-support-availability-zones-in-azure"></a>Regiões que apoiam zonas de disponibilidade em Azure
 
@@ -47,7 +47,7 @@ Os serviços disponíveis em cada região, juntamente com o próximo roteiro par
 | Azure Data Explorer                   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;        | &#10003;       |                |
 | SQL Database                    | &#10003;   | &#10003;     | &#10003;  | &#10003; (Pré-visualização) | &#10003;       | &#10003; (Pré-visualização)     | &#10003; | &#10003;    | &#10003;       | &#10003;       |&#10003;        |
 | Cache do Azure para Redis           | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    |  &#10003;       | &#10003;       |                |
-| Azure Cosmos DB      | &#10003;   |  &#10003;  |  &#10003; | &#10003; |       | &#10003;    | &#10003; |  &#10003;   |     &#10003;       | &#10003;    | &#10003;    |
+| Azure Cosmos DB      | &#10003;   |  &#10003;  |  &#10003; | &#10003; |  &#10003;  | &#10003;    | &#10003; |  &#10003;   |     &#10003;       | &#10003;    | &#10003;    |
 | **Análise**                       |            |              |           |           |                |              |          |             |            |                |                |
 | Hubs de Eventos                      | &#10003;   |   &#10003; | &#10003;  | &#10003;  | &#10003; | &#10003; | &#10003; | &#10003; | &#10003; | &#10003;       |                |
 | **Integração**                     |            |              |           |           |                |              |          |             |            |                |                |

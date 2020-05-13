@@ -3,19 +3,19 @@ title: Considerações de design para conjuntos de escala de máquinas virtuais 
 description: Conheça as considerações de design para os seus Conjuntos de Escala de Máquinas Virtuais Azure. Compare as funcionalidades de conjuntos de escala com as funcionalidades VM.
 keywords: máquina virtual linux,conjuntos de escala de máquina virtual
 author: mimckitt
-tags: azure-resource-manager
-ms.assetid: c27c6a59-a0ab-4117-a01b-42b049464ca1
-ms.service: virtual-machine-scale-sets
-ms.tgt_pltfrm: vm-linux
-ms.topic: conceptual
-ms.date: 06/01/2017
 ms.author: mimckitt
-ms.openlocfilehash: 20f6cb08781c7c6aca7a4022e75a7be8640ef18a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: management
+ms.date: 06/01/2017
+ms.reviewer: jushiman
+ms.custom: mimckitt
+ms.openlocfilehash: 0676a7d31d141e0c264119a54b77ec29a527374b
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81273771"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200204"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Considerações de design para conjuntos de escala
 Este artigo discute considerações de design para conjuntos de escala de máquina virtual. Para obter informações sobre o que são os conjuntos de escala de máquina virtual, consulte a visão geral dos [conjuntos](virtual-machine-scale-sets-overview.md)de escala de máquina virtual .
@@ -56,7 +56,7 @@ Um conjunto de escala que não é definido com discos geridos azure baseia-se em
 ## <a name="overprovisioning"></a>Excesso de oferta
 Os conjuntos de escala atualmente não estão em incumprimento para VMs "overprovisioning". Com o excesso de provisionamento ligado, o conjunto de escala realmente gira mais VMs do que pediu, em seguida, elimina os VMextra extra uma vez que o número solicitado de VMs são aprovisionados com sucesso. O excesso de oferta melhora as taxas de sucesso e reduz o tempo de implantação. Não está cobrado pelos VMextra extras, e eles não contam para os seus limites de quota.
 
-Embora o excesso de oferta melhore as taxas de sucesso, pode causar comportamentos confusos para uma aplicação que não foi concebida para lidar com VMs extras que aparecem e depois desaparecem. Para desligar o excesso de fornecimento, certifique-se `"overprovision": "false"`de que tem a seguinte corda no seu modelo: . Mais detalhes podem ser encontrados na [documentação da Scale set REST API](/rest/api/virtualmachinescalesets/create-or-update-a-set).
+Embora o excesso de oferta melhore as taxas de sucesso, pode causar comportamentos confusos para uma aplicação que não foi concebida para lidar com VMs extras que aparecem e depois desaparecem. Para desligar o excesso de fornecimento, certifique-se de que tem a seguinte corda no seu modelo: `"overprovision": "false"` . Mais detalhes podem ser encontrados na [documentação da Scale set REST API](/rest/api/virtualmachinescalesets/create-or-update-a-set).
 
 Se o seu conjunto de escala utilizar o armazenamento gerido pelo utilizador, e desativar o excesso de oferta, pode ter mais de 20 VMs por conta de armazenamento, mas não é aconselhável ultrapassar os 40 por razões de desempenho da OI. 
 

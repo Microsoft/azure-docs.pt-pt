@@ -8,16 +8,20 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: 63114bdf60c1feb2b6cb1092ef78397efdc5b666
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: 1bcc13db3f503c80fda71a2104d0ff8d99e67df6
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81865762"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198001"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Instale controladores GPU AMD em VMs da série N executando Windows
 
-Para tirar partido das capacidades de GPU dos novos VMs da série Azure NVv4 que executam o Windows, os controladores GPU da AMD devem ser instalados. A extensão do condutor da AMD estará disponível nas próximas semanas. Este artigo fornece sistemas operativos suportados, controladores e passos de instalação e verificação manuais.
+Para tirar partido das capacidades de GPU dos novos VMs da série Azure NVv4 que executam o Windows, os controladores GPU da AMD devem ser instalados. A extensão do [condutor DA GPU da AMD](../extensions/hpccompute-amd-gpu-windows.md) instala condutores de GPU AMD num VM da série NVv4. Instale ou gerea extensão utilizando o portal Azure ou ferramentas como os modelos Azure PowerShell ou Azure Resource Manager. Consulte a documentação de extensão do condutor da GPU da [AMD](../extensions/hpccompute-amd-gpu-windows.md) para sistemas operativos suportados e etapas de implementação.
+
+Se optar por instalar manualmente os controladores GPU da AMD, este artigo fornece sistemas operativos, controladores e etapas de instalação e verificação suportados.
+
+Apenas os condutores de GPU publicados pela Microsoft são suportados em VMs NVv4. Não instale controladores GPU de qualquer outra fonte.
 
 Para especificações básicas, capacidades de armazenamento e detalhes do disco, consulte os [tamanhos de VM do Windows GPU](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

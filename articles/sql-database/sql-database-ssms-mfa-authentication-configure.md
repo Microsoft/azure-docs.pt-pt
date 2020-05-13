@@ -4,19 +4,19 @@ description: Saiba como utilizar a autenticação multi-fatorizada com SSMS para
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: ''
+ms.custom: has-adal-ref
 ms.devlang: ''
 ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/27/2019
-ms.openlocfilehash: 38d8eba5dd451c8e8709ce4d43aba107e5346bfc
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: e551ac54414cb3114a7d0905b1b2e59b0d16580a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82627369"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198549"
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>Configure a autenticação de vários fatores para o Estúdio de Gestão de Servidores SQL e a AD Azure
 
@@ -38,7 +38,7 @@ Os seguintes passos mostram como ligar-se à Base de Dados SQL ou ao SAzure Syna
 
 1. Para ligar utilizando a Autenticação Universal, na caixa de diálogo **Connect to Server,** selecione **Ative Directory - Universal com suporte MFA**. (Se vir autenticação universal do **Diretório Ativo,** não está na versão mais recente do SSMS.)  
    ![1mfa-universal-connect][1]  
-2. Complete a caixa de **nomes do Utilizador** com `user_name@domain.com`as credenciais de Diretório Ativo Azure, no formato .  
+2. Complete a caixa de **nomes do Utilizador** com as credenciais de Diretório Ativo Azure, no formato `user_name@domain.com` .  
    ![1mfa-universal-connect-user](./media/sql-database-ssms-mfa-auth/1mfa-universal-connect-user.png)   
 3. Se estiver a ligar-se como utilizador convidado, já não precisa de completar o nome de domínio AD ou o campo de IDENTIFICAÇÃO do inquilino para os utilizadores convidados, uma vez que o SSMS 18.x ou posteriormente o reconhece automaticamente. Para mais informações, consulte a [Autenticação Universal com base de dados SQL e Synapse Azure (suporte SSMS para MFA)](sql-database-ssms-mfa-authentication.md).
    ![mfa-no-inquilino-ssms](./media/sql-database-ssms-mfa-auth/mfa-no-tenant-ssms.png)
@@ -46,7 +46,7 @@ Os seguintes passos mostram como ligar-se à Base de Dados SQL ou ao SAzure Syna
    No entanto, se estiver a ligar-se como utilizador convidado utilizando SSMS 17.x ou mais antigo, deve clicar em **Opções**, e na caixa de diálogo **Connection Property,** e completar o nome de **domínio AD ou** caixa de identificação do inquilino.
    ![mfa-inquilino-ssms](./media/sql-database-ssms-mfa-auth/mfa-tenant-ssms.png)
 
-4. Como de costume para a Base de Dados SQL e para o Azure Synapse, tem de clicar em **Opções** e especificar a base de dados na caixa de diálogo **Opções.** (Se o utilizador conectado for um utilizador joe@outlook.comconvidado (ou seja), deve verificar a caixa e adicionar o nome atual de domínio AD ou ID do inquilino como parte das Opções. Ver Autenticação Universal com Base de [Dados SQL e Synapse Azure (suporte SSMS para MFA)](sql-database-ssms-mfa-authentication.md). Em seguida, clique em **Connect** (Ligar).  
+4. Como de costume para a Base de Dados SQL e para o Azure Synapse, tem de clicar em **Opções** e especificar a base de dados na caixa de diálogo **Opções.** (Se o utilizador conectado for um utilizador convidado (ou seja), deve verificar a caixa e adicionar o nome atual de joe@outlook.com domínio AD ou ID do inquilino como parte das Opções. Ver Autenticação Universal com Base de [Dados SQL e Synapse Azure (suporte SSMS para MFA)](sql-database-ssms-mfa-authentication.md). Em seguida, clique em **Connect** (Ligar).  
 5. Quando aparecer a caixa de diálogo da **sua conta,** forneça a conta e a palavra-passe da sua identidade de Diretório Ativo Azure. Não é necessária nenhuma palavra-passe se um utilizador fizer parte de um domínio federado com AD Azure.  
    ![2mfa-sign-in][2]  
 

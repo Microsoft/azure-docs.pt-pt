@@ -8,16 +8,16 @@ ms.service: virtual-wan
 ms.topic: article
 ms.date: 05/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: 15e44b9c048f167935fe8660228581e5bac0f43d
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 34b2282421b9c95ad99ad040cb11847a30d3b52c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83006264"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199986"
 ---
 # <a name="sd-wan-connectivity-architecture-with-azure-virtual-wan"></a>Arquitetura de conectividade SD-WAN com Bluee Virtual WAN
 
-O Azure Virtual WAN é um serviço de networking que reúne muitos serviços de conectividade e segurança na nuvem com uma única interface operacional. Estes serviços incluem sucursal (via VPN site-to-site), utilizador remoto (VPN ponto-a-site), conectividade privada (ExpressRoute) bem como conectividade transitiva intra-nuvem para vnets, VPN e ExpressRoute interconectividade, Routing, Firewall Azure e encriptação para conectividade privada.
+O Azure Virtual WAN é um serviço de networking que reúne muitos serviços de conectividade e segurança na nuvem com uma única interface operacional. Estes serviços incluem sucursal (via VPN site-to-site), utilizador remoto (VPN ponto-a-site), conectividade privada (ExpressRoute), conectividade transitiva intra-nuvem para vnets, VPN e ExpressRoute interconectividade, encaminhamento, Firewall Azure e encriptação para conectividade privada.
 
 Embora o Próprio Bluee Virtual WAN seja um Wan definido por software (SD-WAN), também foi concebido para permitir uma interligação perfeita com as tecnologias e serviços SD-WAN baseados em instalações. Muitos desses serviços são oferecidos pelo nosso ecossistema [virtual WAN](virtual-wan-locations-partners.md) e pelos parceiros de Serviços Geridos em Rede Azure [(MSPs)](../networking/networking-partners-msp.md). As empresas que estão a transformar o seu WAN privado em SD-WAN têm opções ao interligar o seu SD-WAN privado com o Azure Virtual WAN. As empresas podem escolher entre estas opções:
 
@@ -39,7 +39,7 @@ O CPE SD-WAN continua a ser o local onde a otimização do tráfego, bem como a 
 
 Neste modelo, alguma otimização de tráfego proprietária do fornecedor com base nas características de tráfego em tempo real pode não ser suportada porque a conectividade com o WAN virtual é sobre iPsec e o IPsec VPN é terminado no gateway Virtual WAN VPN. Por exemplo, a seleção dinâmica de caminhos no cpe da sucursal é viável devido ao dispositivo de ramificação que troca várias informações de pacotes de rede com outro nó SD-WAN, identificando assim a melhor ligação para usar para vários tráfegos priorizados dinamicamente no ramo. Esta funcionalidade pode ser útil em áreas onde é necessária a otimização da última milha (filial do Microsoft POP mais próximo).
 
-Com o Virtual WAN, os utilizadores podem obter a Azure Path Selection, que é a seleção de caminhos baseado seleções baseadas em políticas em várias ligações ISP desde o CPE do ramo até aos gateways VVpN virtual WAN. O WAN virtual permite a configuração de múltiplas ligações (caminhos) para o mesmo CPE da filial SD-WAN, cada link terminando em diferentes interfaces IP públicas do CPE SD-WAN. Os fornecedores sD-WAN podem aproveitar esta funcionalidade para selecionar o caminho mais ideal para o Azure, com base em políticas de tráfego específicas para estes caminhos.
+Com o Virtual WAN, os utilizadores podem obter a Azure Path Selection, que é a seleção de caminhos baseado seleções baseadas em políticas em várias ligações ISP desde o CPE do ramo até aos gateways VVpN virtual WAN. O WAN virtual permite a configuração de múltiplas ligações (caminhos) a partir do mesmo CPE de filial SD-WAN; cada ligação representa uma ligação de túnel duplo de um IP público único do CPE SD-WAN a duas instâncias diferentes de gateway VPN Blue WAN Azure. Os fornecedores SD-WAN podem implementar o caminho mais ideal para o Azure, com base nas políticas de tráfego definidas pelo seu motor de política nas ligações CPE.
 
 ## <a name="indirect-interconnect-model"></a><a name="indirect"></a>Modelo interligação indireta
 

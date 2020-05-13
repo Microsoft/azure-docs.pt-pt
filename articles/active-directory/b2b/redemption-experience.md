@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7917b63b86e4d103061a902f74c368dfd6c123b
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 2bbfd0027f9de93ee939815853f5141044404c53
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160750"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199496"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Redenção do convite de colaboração Azure Ative Directory B2B
 
@@ -41,10 +41,10 @@ Quando adiciona um utilizador convidado ao seu diretório [utilizando o portal A
 Como alternativa ao e-mail de convite, pode dar a um hóspede um link direto para a sua app ou portal. Primeiro, é necessário adicionar o utilizador convidado ao seu diretório através do [portal Azure](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-add-guest-users-portal) ou [PowerShell](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-invite-powershell). Em seguida, pode utilizar qualquer uma das [formas personalizáveis de implementar aplicações para os utilizadores](https://docs.microsoft.com/azure/active-directory/manage-apps/end-user-experiences), incluindo links de sessão direta. Quando um hóspede usa um link direto em vez do e-mail de convite, eles ainda serão guiados através da experiência de consentimento pela primeira vez.
 
 > [!IMPORTANT]
-> O link direto deve ser específico do inquilino. Por outras palavras, deve incluir uma identificação do inquilino ou domínio verificado para que o hóspede possa ser autenticado no seu inquilino, onde está localizada a aplicação partilhada. Um URL https://myapps.microsoft.com comum como não vai funcionar para um hóspede porque vai redirecionar para o seu inquilino para autenticação. Aqui estão alguns exemplos de ligações diretas com o contexto do inquilino:
- > - Painel de https://myapps.microsoft.com/?tenantid=&ltacesso a aplicativos: .id inquilino&gt; 
- > - Painel de acesso a apps https://myapps.microsoft.com/&ltpara um domínio verificado: ;domínio verificado&gt;
- > - Portal Azure: https://portal.azure.com/&lt&gt;
+> O link direto deve ser específico do inquilino. Por outras palavras, deve incluir uma identificação do inquilino ou domínio verificado para que o hóspede possa ser autenticado no seu inquilino, onde está localizada a aplicação partilhada. Um URL comum como https://myapps.microsoft.com não vai funcionar para um hóspede porque vai redirecionar para o seu inquilino para autenticação. Aqui estão alguns exemplos de ligações diretas com o contexto do inquilino:
+ > - Painel de acesso a aplicativos: https://myapps.microsoft.com/?tenantid=&lt .id inquilino&gt; 
+ > - Painel de acesso a apps para um domínio verificado: https://myapps.microsoft.com/&lt ;domínio verificado&gt;
+ > - Portal https://portal.azure.com/&lt Azure:&gt;
  > - Aplicativo individual: ver como usar um [link de acesso direto](../manage-apps/end-user-experiences.md#direct-sign-on-links)
 
 Há alguns casos em que o e-mail de convite é recomendado por um link direto. Se estes casos especiais forem importantes para a sua organização, recomendamos que convide os utilizadores usando métodos que ainda enviam o e-mail de convite:
@@ -99,7 +99,7 @@ Quando um hóspede entra para aceder a recursos numa organização parceira pela
 
    ![Screenshot mostrando novos termos de uso](media/redemption-experience/terms-of-use-accept.png) 
 
-   Pode configurar [os termos de utilização](../governance/active-directory-tou.md) em **Gerir** >  > **relações organizacionais****Termos de utilização**.
+   Pode configurar [termos de utilização](../governance/active-directory-tou.md) em **relações organizacionais** (ou **identidades externas)**> **Termos de utilização**.
 
 3. Salvo especificação em contrário, o hóspede é redirecionado para o painel de acesso apps, que lista as aplicações a que o hóspede pode aceder.
 

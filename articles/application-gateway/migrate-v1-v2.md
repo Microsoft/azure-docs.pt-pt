@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: victorh
-ms.openlocfilehash: 2a6165cf2739482805d712ddffb5c6a9f5ebabf8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 57a49f9e1473f33eceba14591815415338aeecf4
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81312038"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198801"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Portal de aplicações Migrate Azure e Firewall de aplicação web de v1 para v2
 
@@ -25,7 +25,7 @@ Há duas fases numa migração:
 
 Este artigo abrange a migração de configuração. A migração do tráfego do cliente varia consoante o seu ambiente específico. No entanto, [são fornecidas](#migrate-client-traffic)algumas recomendações gerais de alto nível.
 
-## <a name="migration-overview"></a>Descrição geral da migração
+## <a name="migration-overview"></a>Descrição geral da Migração
 
 Está disponível um script Azure PowerShell que faz o seguinte:
 
@@ -50,18 +50,18 @@ Descarregue o script de migração da [Galeria PowerShell.](https://www.powershe
 
 Existem duas opções para si, dependendo da configuração e preferências locais do ambiente PowerShell:
 
-* Se não tiver os módulos Azure Az instalados ou não se importar de desinstalar os módulos `Install-Script` Azure Az, a melhor opção é usar a opção de executar o script.
+* Se não tiver os módulos Azure Az instalados ou não se importar de desinstalar os módulos Azure Az, a melhor opção é usar a `Install-Script` opção de executar o script.
 * Se precisa de manter os módulos Azure Az, a sua melhor aposta é baixar o script e executá-lo diretamente.
 
-Para determinar se tem os módulos Azure `Get-InstalledModule -Name az`Az instalados, corra . Se não vir nenhum módulo Az instalado, então `Install-Script` pode utilizar o método.
+Para determinar se tem os módulos Azure Az instalados, corra `Get-InstalledModule -Name az` . Se não vir nenhum módulo Az instalado, então pode utilizar o `Install-Script` método.
 
 ### <a name="install-using-the-install-script-method"></a>Instalar utilizando o método Instalação-Script
 
 Para utilizar esta opção, não deve ter os módulos Azure Az instalados no seu computador. Se estiverem instalados, o comando seguinte apresenta um erro. Pode desinstalar os módulos Azure Az ou utilizar a outra opção para descarregar o script manualmente e executá-lo.
   
-Executar o script com o seguinte comando:
+Execute o script com o seguinte comando para obter a versão mais recente:
 
-`Install-Script -Name AzureAppGWMigration`
+`Install-Script -Name AzureAppGWMigration -Force`
 
 Este comando também instala os módulos Az necessários.  
 
@@ -162,7 +162,7 @@ Aqui estão alguns cenários em que o seu portal de aplicação atual (Standard)
 
   * Se utilizar endereços IP públicos no seu gateway de aplicação, pode fazer uma migração granular controlada utilizando um perfil do Traffic Manager para encaminhar gradualmente o tráfego (método de encaminhamento de tráfego ponderado) para o novo gateway v2.
 
-    Pode fazê-lo adicionando as etiquetas DNS dos gateways de aplicação v1 e v2 ao [perfil do](../traffic-manager/traffic-manager-routing-methods.md#weighted-traffic-routing-method) `www.contoso.com`Gestor de Tráfego , e cnameing o seu registo DNS personalizado (por exemplo), ao domínio do Gestor de Tráfego (por exemplo, contoso.trafficmanager.net).
+    Pode fazê-lo adicionando as etiquetas DNS dos gateways de aplicação v1 e v2 ao [perfil do Gestor](../traffic-manager/traffic-manager-routing-methods.md#weighted-traffic-routing-method)de Tráfego , e cnameing o seu registo DNS personalizado (por exemplo), ao domínio do Gestor de Tráfego `www.contoso.com` (por exemplo, contoso.trafficmanager.net).
   * Ou, pode atualizar o seu registo dNS de domínio personalizado para apontar para a etiqueta DNS do novo gateway de aplicação v2. Dependendo do TTL configurado no seu registo DNS, pode demorar algum tempo para que todo o tráfego do seu cliente migrasse para o seu novo gateway V2.
 * **Os seus clientes ligam-se ao endereço IP frontend do seu portal de aplicações.**
 
@@ -196,7 +196,7 @@ Não. Atualmente, o script não suporta certificados no KeyVault. No entanto, is
 
 ### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>Tive alguns problemas com o uso deste guião. Como posso conseguir ajuda?
   
-Pode enviar um appgwmigrationsup@microsoft.come-mail para, abrir um caso de suporte com o Suporte Azure, ou fazer os dois.
+Pode contactar o Suporte Azure no âmbito do tema "Configuração e Configuração/Migrar para V2 SKU". Saiba mais sobre o [suporte do Azure aqui.](https://azure.microsoft.com/support/options/)
 
 ## <a name="next-steps"></a>Passos seguintes
 

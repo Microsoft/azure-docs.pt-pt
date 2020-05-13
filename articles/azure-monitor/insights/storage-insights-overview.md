@@ -1,25 +1,25 @@
 ---
-title: Monitor Azure Storage serviços com Monitor Azure para Armazenamento (pré-visualização)] Microsoft Docs
+title: Monitor Azure Storage serviços com Monitor Azure para Armazenamento / Microsoft Docs
 description: Este artigo descreve a funcionalidade Azure Monitor for Storage que fornece aos administradores de armazenamento uma compreensão rápida dos problemas de desempenho e utilização com as suas contas de Armazenamento Azure.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/15/2019
-ms.openlocfilehash: 497ea5a27a56ed5f8192b694fac1c52c8bf57ca6
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.date: 05/11/2020
+ms.openlocfilehash: b0fd0343e7a072c0da0a5af0fa2d39eb2284cb06
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691115"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199959"
 ---
-# <a name="monitoring-your-storage-service-with-azure-monitor-for-storage-preview"></a>Monitorização do seu serviço de armazenamento com o Monitor Azure para armazenamento (pré-visualização)
+# <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Monitorização do seu serviço de armazenamento com o Monitor Azure para Armazenamento
 
-O Azure Monitor para armazenamento (pré-visualização) fornece uma monitorização abrangente das suas contas de Armazenamento Azure, proporcionando uma visão unificada do desempenho, capacidade e disponibilidade dos seus serviços de Armazenamento Azure. Você pode observar a capacidade de armazenamento, e o desempenho de duas maneiras, ver diretamente a partir de uma conta de armazenamento ou vista do Monitor Azure para ver através de grupos de contas de armazenamento. 
+O Azure Monitor for Storage fornece uma monitorização abrangente das suas contas de Armazenamento Azure, proporcionando uma visão unificada do desempenho, capacidade e disponibilidade dos seus serviços de Armazenamento Azure. Você pode observar a capacidade de armazenamento, e o desempenho de duas maneiras, ver diretamente a partir de uma conta de armazenamento ou vista do Monitor Azure para ver através de grupos de contas de armazenamento. 
 
-Este artigo irá ajudá-lo a compreender a experiência que o Azure Monitor para armazenamento (pré-visualização) oferece para obter conhecimentos acionáveis sobre a saúde e desempenho das contas de Armazenamento em escala, com capacidade para se concentrar em hotspots e diagnosticar problemas de latência, estrangulamento e disponibilidade.
+Este artigo irá ajudá-lo a compreender a experiência que o Azure Monitor for Storage oferece para obter conhecimentos acionáveis sobre a saúde e desempenho das contas de Armazenamento em escala, com capacidade para se concentrar em hotspots e diagnosticar problemas de latência, estrangulamento e disponibilidade.
 
-## <a name="introduction-to-azure-monitor-for-storage-preview"></a>Introdução ao Monitor Azure para Armazenamento (pré-visualização)
+## <a name="introduction-to-azure-monitor-for-storage"></a>Introdução ao Monitor Azure para Armazenamento
 
 Antes de mergulhar na experiência, deve entender como apresenta e visualiza a informação. Quer selecione a funcionalidade de Armazenamento diretamente a partir de uma conta de armazenamento ou do Monitor Azure, o Azure Monitor para armazenamento apresenta uma experiência consistente. 
 
@@ -48,7 +48,7 @@ Para ver a utilização e disponibilidade das suas contas de armazenamento em to
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. Selecione **Monitor** a partir do painel da mão esquerda no portal Azure, e sob a secção **Insights,** selecione Contas de **Armazenamento (pré-visualização)**.
+2. Selecione **Monitor** a partir do painel da esquerda no portal Azure, e sob a secção **Insights,** selecione Contas de **Armazenamento**.
 
     ![Vista de contas de armazenamento múltiplas](./media/storage-insights-overview/multiple-storage-accounts-view-01.png)
 
@@ -92,7 +92,7 @@ Para aceder ao Monitor Azure para VMs diretamente de uma conta de armazenamento:
 
 1. No portal Azure, selecione contas de Armazenamento.
 
-2. Na lista, escolha uma conta de armazenamento. Na secção de Monitorização, escolha Insights (pré-visualização).
+2. Na lista, escolha uma conta de armazenamento. Na secção de Monitorização, escolha Insights.
 
     ![Página de visão geral da conta de armazenamento selecionada](./media/storage-insights-overview/storage-account-direct-overview-01.png)
 
@@ -138,7 +138,7 @@ A conta multi-subscrição e armazenamento **De overview** ou **capacidade** de 
 
 ![Exemplo de resultados da grelha do livro de exportação](./media/storage-insights-overview/workbook-export-example.png)
 
-## <a name="customize-azure-monitor-for-storage-preview"></a>Personalize o Monitor Azure para Armazenamento (pré-visualização)
+## <a name="customize-azure-monitor-for-storage"></a>Personalize o Monitor Azure para Armazenamento
 
 Esta secção destaca cenários comuns para editar o livro de trabalho para personalizar em apoio às suas necessidades de análise de dados:
 
@@ -155,7 +155,7 @@ As personalizações são guardadas num livro personalizado para evitar a sobrep
 
 Pode configurar a conta multi-subscrição e armazenamento **De** visão geral ou de trabalho de **capacidade** para uma determinada subscrição ou conta de armazenamento em cada execução, executar os seguintes passos.
 
-1. Selecione **Monitor** a partir do portal e, em seguida, selecione Contas de **Armazenamento (pré-visualização)** do painel da esquerda.
+1. Selecione **Monitor** a partir do portal e, em seguida, selecione Contas de **Armazenamento** a partir do painel da esquerda.
 
 2. No livro **de** resumo, a partir da barra de comando selecione **Editar**.
 
@@ -176,7 +176,7 @@ No nosso exemplo, estamos a trabalhar com o livro de trabalho de capacidade de c
 
 Pode efetuar as mesmas alterações contra qualquer uma das falhas pré-construídas, **Desempenho,** **Disponibilidade**e Livros **de Capacidade.** **Failures**
 
-1. Selecione **Monitor** a partir do portal e, em seguida, selecione Contas de **Armazenamento (pré-visualização)** do painel da esquerda.
+1. Selecione **Monitor** a partir do portal e, em seguida, selecione Contas de **Armazenamento** a partir do painel da esquerda.
 
 2. Selecione **Capacidade** para mudar para o livro de capacidade e a partir da barra de comando, selecione **Editar** a partir da barra de comando.
 
@@ -210,7 +210,7 @@ Neste exemplo, estamos a trabalhar com o livro de trabalho da capacidade da cont
 
 1. Selecione contas de **Armazenamento** a partir do portal e, em seguida, selecione uma conta de armazenamento da lista.
 
-2. Selecione **Insights (pré-visualização)** a partir do painel da mão esquerda.
+2. Selecione **Insights** a partir do painel da mão esquerda.
 
 3. No livro, selecione **Disponibilidade** para mudar para o livro de trabalho de disponibilidade e, em seguida, selecione **Editar** a partir da barra de comando. 
 
@@ -228,11 +228,11 @@ Neste exemplo, estamos a trabalhar com o livro de trabalho da capacidade da cont
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-Esta secção irá ajudá-lo no diagnóstico e resolução de problemas de algumas das questões comuns que poderá encontrar ao utilizar o Monitor Azure para Armazenamento (pré-visualização). Utilize a lista abaixo para localizar as informações relevantes para o seu problema específico.
+Esta secção irá ajudá-lo no diagnóstico e resolução de problemas de algumas das questões comuns que poderá encontrar ao utilizar o Monitor Azure para Armazenamento. Utilize a lista abaixo para localizar as informações relevantes para o seu problema específico.
 
 ### <a name="resolving-performance-capacity-or-availability-issues"></a>Resolução de problemas de desempenho, capacidade ou disponibilidade
 
-Para ajudar a resolver problemas com quaisquer problemas relacionados com o armazenamento que identifique com o Azure Monitor para armazenamento (pré-visualização), consulte a orientação de resolução de [problemas](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#troubleshooting-guidance)do Armazenamento Azure .  
+Para ajudar a resolver problemas com quaisquer problemas relacionados com o armazenamento que identificar com o Azure Monitor para armazenamento, consulte a orientação de resolução de [problemas](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#troubleshooting-guidance)do Armazenamento Azure .  
 
 ### <a name="why-can-i-only-see-200-storage-accounts"></a>Por que só posso ver 200 contas de armazenamento?
 
@@ -311,8 +311,8 @@ O título do livro ou passo do livro que está preso a um painel de instrumentos
 
 Para alterar o nome de um passo no livro guardado, selecione editar sob o degrau e, em seguida, selecione a engrenagem na parte inferior das definições.
 
-![Selecione editar na parte inferior de um](./media/storage-insights-overview/fqa-edit.png)
-![passo de livro para abrir as definições Em definições, selecione a engrenagem na parte inferior, para poder alterar o nome do passo](./media/storage-insights-overview/fqa-change-name.png)
+![Selecione editar na parte inferior de um passo de livro para abrir as ](./media/storage-insights-overview/fqa-edit.png)
+ ![ definições Em definições, selecione a engrenagem na parte inferior, para poder alterar o nome do passo](./media/storage-insights-overview/fqa-change-name.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: memildin
-ms.openlocfilehash: 056b9bdd46520790f3ffbd9aca56ad8555e23a3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b1edb0791e80a8503e5ecba3154d7b421206272c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189825"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198623"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Data collection in Azure Security Center (Recolha de dados no Centro de Segurança do Azure)
 O Security Center recolhe dados das suas máquinas virtuais Azure (VMs), conjuntos de escala de máquinas virtuais, contentores IaaS e computadores não-Azure (incluindo no local) para monitorizar vulnerabilidades e ameaças de segurança. Os dados são recolhidos através do agente Log Analytics, que lê várias configurações relacionadas com a segurança e registos de eventos da máquina e copia os dados para o seu espaço de trabalho para análise. Exemplos desses dados são: tipo e versão do sistema operativo, registos do sistema operativo (registos de eventos do Windows), processos de execução, nome da máquina, endereços IP e registos registados no utilizador. O agente Log Analytics também copia ficheiros de despejo de crash para o seu espaço de trabalho.
@@ -72,7 +72,7 @@ Para selecionar um espaço de trabalho criado pelo Security Center:
 
 1. Clique em **Guardar**.<br>
     O Security Center cria um novo grupo de recursos e um espaço de trabalho padrão nessa geolocalização, e liga o agente a esse espaço de trabalho. A convenção de nomeação para o grupo de trabalho e recursos é:<br>
-   **Espaço de trabalho: DefaultWorkspace-[subscrição-ID]-[geo]<br> Grupo de recursos: DefaultResourceGroup-[geo]**
+   **Espaço de trabalho: DefaultWorkspace-[subscrição-ID]-[geo] <br> Grupo de recursos: DefaultResourceGroup-[geo]**
 
    Se uma subscrição contiver VMs de múltiplas geolocalizações, então o Security Center cria vários espaços de trabalho. São criados vários espaços de trabalho para manter as regras de privacidade dos dados.
 1. O Security Center ativará automaticamente uma solução de Centro de Segurança no espaço de trabalho de acordo com o nível de preços definido para a subscrição. 
@@ -126,7 +126,7 @@ Para selecionar um espaço de trabalho existente no Log Analytics:
     a.  No menu principal do Security Center, **selecione definições de preços &**.
      
     b.  Selecione o espaço de trabalho desejado no qual pretende ligar o agente.
-        ![Selecione][7] espaço de trabalho c. Desloque o nível de preços.
+        ![Selecione espaço de trabalho ][7] c. Desloque o nível de preços.
         ![Selecionar nível de preços][9]
    
    >[!NOTE]
@@ -223,9 +223,8 @@ Pode desligar o fornecimento automático de recursos a qualquer momento, desliga
 
 Quando o fornecimento automático é desativado (desligado), a secção de configuração do espaço de trabalho por defeito não é visualizada.
 
-Se desligar a provisão automática depois de ter sido previamente ligada:
--   Os agentes não serão aprovisionados em novos VMs.
--   O Centro de Segurança deixa de recolher dados do espaço de trabalho padrão.
+Se desligar a prestação automática depois de ter sido previamente sobre os agentes, não será provisionado em novos VMs.
+
  
 > [!NOTE]
 >  A desativação automática não remove o agente Log Analytics dos VMs Azure onde o agente foi provisionado. Para obter informações sobre a remoção da extensão OMS, consulte [como remover as extensões OMS instaladas pelo Security Center](faq-data-collection-agents.md#remove-oms).

@@ -1,19 +1,20 @@
 ---
 title: Criptografe discos para conjuntos de escala Azure com Azure CLI
 description: Aprenda a usar o Azure PowerShell para encriptar instâncias VM e discos anexados num conjunto de escala de máquina virtual do Windows
-author: msmbaldwin
-manager: rkarlin
-tags: azure-resource-manager
+author: ju-shim
+ms.author: jushiman
+ms.topic: tutorial
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
+ms.subservice: disks
 ms.date: 10/15/2019
-ms.author: mbaldwin
-ms.openlocfilehash: 557d5c023acbc7987d58c9e78bfe11e25f314879
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: fd8b88e55f487032f76aa379018f09c144842d60
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76279081"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200302"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli"></a>Criptografe os OS e discos de dados anexados numa escala de máquina virtual com o AZURE CLI
 

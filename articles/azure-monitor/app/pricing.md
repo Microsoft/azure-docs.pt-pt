@@ -6,12 +6,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 5/7/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6c597ea559e7337c9c84914d168f1055e0631886
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: b99c1c9348f8442233eeee8fd4442736c78ee4e4
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82995542"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199046"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gerir a utilização e os custos do Application Insights
 
@@ -29,6 +29,10 @@ O preço para [Azure Application Insights][start] é um modelo **Pay-As-You-Go**
 [Testes web em várias etapas](../../azure-monitor/app/availability-multistep.md) incorrem numa carga adicional. Os testes web em várias etapas são testes web que realizam uma sequência de ações. Não há nenhuma acusação separada para *testes de ping* de uma única página. A telemetria dos testes de ping e dos testes em várias etapas é carregada da mesma forma que outras telemetrias da sua aplicação.
 
 A opção Insights de Aplicação para [permitir alertar sobre dimensões métricas personalizadas](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) também pode gerar em custos adicionais, pois isso pode resultar na criação de métricas adicionais de pré-agregação. [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics) sobre métricas baseadas em log e pré-agregados em Insights de Aplicação e sobre [preços](https://azure.microsoft.com/pricing/details/monitor/) para métricas personalizadas do Azure Monitor.
+
+### <a name="workspace-based-application-insights"></a>Insights de aplicação baseados no espaço de trabalho
+
+Para os recursos da Application Insights que enviam os seus dados para um espaço de trabalho de Log Analytics, chamados recursos de [Insights de Aplicação baseados no espaço de trabalho,](create-workspace-resource.md)a faturação para ingestão e retenção de dados é feita pelo espaço de trabalho onde estão localizados os dados do Application Insights. Isto permite que os clientes aproveitem todas as opções do modelo de [preços](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#pricing-model) Log Analytics que inclui Reservas de Capacidade, além do Pay-As-You-Go. O Log Analytics também tem mais opções para a retenção de dados, incluindo [a retenção por tipo de dados](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#retention-by-data-type). Aplicação Insights tipos de dados no espaço de trabalho recebem 90 dias de retenção sem encargos. O uso de testes web e o alerta de alerta sobre dimensões métricas personalizadas ainda são relatados através de Application Insights. Saiba como rastrear os custos de ingestão e retenção de dados no Log Analytics utilizando o [Uso e custos estimados,](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs) [Azure Cost Management + Billing](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#viewing-log-analytics-usage-on-your-azure-bill) e [Log Analytics consultas](#data-volume-for-workspace-based-application-insights-resources). 
 
 ## <a name="estimating-the-costs-to-manage-your-application"></a>Estimando os custos para gerir a sua aplicação
 
@@ -75,11 +79,11 @@ Para saber mais sobre os seus volumes de dados, selecionando **Métricas** para 
 
 ### <a name="queries-to-understand-data-volume-details"></a>Consultas para compreender detalhes do volume de dados
 
-Existem duas abordagens para investigar volumes de dados para Insights de Aplicação. O primeiro utiliza informação `systemEvents` agregada na `_BilledSize` tabela, e o segundo utiliza o imóvel, que está disponível em cada evento ingerido.
+Existem duas abordagens para investigar volumes de dados para Insights de Aplicação. O primeiro utiliza informação agregada na `systemEvents` tabela, e o segundo utiliza o `_BilledSize` imóvel, que está disponível em cada evento ingerido. `systemEvents`não terá informações sobre o tamanho dos dados para [informações sobre aplicações baseadas no espaço de trabalho.](#data-volume-for-workspace-based-application-insights-resources)
 
 #### <a name="using-aggregated-data-volume-information"></a>Utilização de informações agregadas sobre volume de dados
 
-Por exemplo, pode `systemEvents` utilizar a tabela para ver o volume de dados ingerido nas últimas 24 horas com a consulta:
+Por exemplo, pode utilizar a tabela para ver o volume de `systemEvents` dados ingerido nas últimas 24 horas com a consulta:
 
 ```kusto
 systemEvents
@@ -116,15 +120,56 @@ systemEvents
 
 #### <a name="using-data-size-per-event-information"></a>Utilização do tamanho dos dados por informação do evento
 
-Para saber mais detalhes sobre a origem dos seus `_BilledSize` volumes de dados, pode utilizar a propriedade que está presente em cada evento ingerido.
+Para saber mais detalhes sobre a origem dos seus volumes de dados, pode utilizar a `_BilledSize` propriedade que está presente em cada evento ingerido.
 
-Por exemplo, para ver quais as operações que geram mais volume `_BilledSize` de dados nos últimos 30 dias, podemos resumir para todos os eventos de dependência:
+Por exemplo, para ver quais as operações que geram mais volume de dados nos últimos 30 dias, podemos resumir `_BilledSize` para todos os eventos de dependência:
 
 ```kusto
 dependencies
 | where timestamp >= startofday(ago(30d))
 | summarize sum(_BilledSize) by operation_Name
 | render barchart  
+```
+
+#### <a name="data-volume-for-workspace-based-application-insights-resources"></a>Volume de dados para recursos de Insights de Aplicação baseados no espaço de trabalho
+
+Para olhar para as tendências de volume de dados de todos os recursos de [Aplicação Insights baseados no espaço de trabalho](create-workspace-resource.md) num espaço de trabalho durante a última semana, vá ao espaço de trabalho do Log Analytics e faça a consulta:
+
+```kusto
+union (AppAvailabilityResults),
+      (AppBrowserTimings),
+      (AppDependencies),
+      (AppExceptions),
+      (AppEvents),
+      (AppMetrics),
+      (AppPageViews),
+      (AppPerformanceCounters),
+      (AppRequests),
+      (AppSystemEvents),
+      (AppTraces)
+| where TimeGenerated >= startofday(ago(7d) and TimeGenerated < startofday(now())
+| summarize sum(_BilledSize) by _ResourceId, bin(TimeGenerated, 1d)
+| render areachart
+```
+
+Para consultar as tendências do volume de dados por tipo para um recurso específico baseado no espaço de trabalho, o recurso de insights de aplicação baseado no espaço de trabalho, no uso do espaço de trabalho Log Analytics:
+
+```kusto
+union (AppAvailabilityResults),
+      (AppBrowserTimings),
+      (AppDependencies),
+      (AppExceptions),
+      (AppEvents),
+      (AppMetrics),
+      (AppPageViews),
+      (AppPerformanceCounters),
+      (AppRequests),
+      (AppSystemEvents),
+      (AppTraces)
+| where TimeGenerated >= startofday(ago(7d) and TimeGenerated < startofday(now())
+| where _ResourceId contains "<myAppInsightsResourceName>"
+| summarize sum(_BilledSize) by Type, bin(TimeGenerated, 1d)
+| render areachart
 ```
 
 ## <a name="viewing-application-insights-usage-on-your-azure-bill"></a>Visualização de insights de aplicação na sua conta Azure
@@ -174,7 +219,7 @@ Para alterar a tampa diária, na secção **Configure** do seu recurso Applicati
 
 ![Ajuste a tampa diária de volume de telemetria](./media/pricing/pricing-003.png)
 
-Para [alterar a tampa diária via Azure Resource Manager,](../../azure-monitor/app/powershell.md)a propriedade a mudar é a `dailyQuota`.  Via Azure Resource Manager também `dailyQuotaResetTime` pode definir a `warningThreshold`tampa diária.
+Para [alterar a tampa diária via Azure Resource Manager,](../../azure-monitor/app/powershell.md)a propriedade a mudar é a `dailyQuota` .  Via Azure Resource Manager também pode definir a `dailyQuotaResetTime` tampa `warningThreshold` diária.
 
 ### <a name="create-alerts-for-the-daily-cap"></a>Criar alertas para o Daily Cap
 
@@ -208,7 +253,7 @@ Para descobrir a taxa de amostragem real, não importa onde tenha sido aplicada,
     | summarize 100/avg(itemCount) by bin(timestamp, 1h)
     | render areachart
 
-Em cada registo `itemCount` retido, indica o número de registos originais que representa. É igual a 1 + o número de registos anteriores descartados.
+Em cada registo retido, `itemCount` indica o número de registos originais que representa. É igual a 1 + o número de registos anteriores descartados.
 
 ## <a name="change-the-data-retention-period"></a>Change the data retention period (Alterar o período de retenção de dados)
 
@@ -220,7 +265,7 @@ Para alterar a retenção, a partir do seu recurso Application Insights, vá à 
 
 Quando a retenção é reduzida, há um período de carência de vários dias antes de os dados mais antigos forem removidos.
 
-A retenção também pode ser [definida programaticamente usando powerShell](powershell.md#set-the-data-retention) usando o `retentionInDays` parâmetro. Se definir a retenção de dados para 30 dias, pode `immediatePurgeDataOn30Days` desencadear uma purga imediata de dados mais antigos utilizando o parâmetro, o que pode ser útil para cenários relacionados com a conformidade. Esta funcionalidade de purga só é exposta através do Azure Resource Manager e deve ser utilizada com extremo cuidado. O tempo de reset diário para a tampa do volume de `dailyQuotaResetTime` dados pode ser configurado utilizando o Gestor de Recursos Azure para definir o parâmetro.
+A retenção também pode ser [definida programaticamente usando powerShell](powershell.md#set-the-data-retention) usando o `retentionInDays` parâmetro. Se definir a retenção de dados para 30 dias, pode desencadear uma purga imediata de dados mais antigos utilizando o parâmetro, o `immediatePurgeDataOn30Days` que pode ser útil para cenários relacionados com a conformidade. Esta funcionalidade de purga só é exposta através do Azure Resource Manager e deve ser utilizada com extremo cuidado. O tempo de reset diário para a tampa do volume de dados pode ser configurado utilizando o Gestor de Recursos Azure para definir o `dailyQuotaResetTime` parâmetro.
 
 ## <a name="data-transfer-charges-using-application-insights"></a>Encargos de transferência de dados usando Insights de Aplicação
 

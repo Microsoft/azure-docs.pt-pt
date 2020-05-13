@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: aebb590d93b3fb26151f15c176a2941845cdd50c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e6feca8cc87eadb2be5f43cafaa82195a18c3c75
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75426506"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200386"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Utilize dados de referência de uma base de dados SQL para um trabalho de Azure Stream Analytics
 
@@ -61,7 +61,7 @@ Utilize os seguintes passos para adicionar a Base de Dados Azure SQL como fonte 
 1. [Instale as ferramentas Stream Analytics para Estúdio Visual](stream-analytics-tools-for-visual-studio-install.md). As seguintes versões do Estúdio Visual são suportadas:
 
    * Visual Studio 2015
-   * Visual Studio 2019
+   * Visual Studio 2019
 
 2. Familiarize-se com as [ferramentas Stream Analytics para o Estúdio Visual](stream-analytics-quick-create-vs.md) quickstart.
 
@@ -101,7 +101,7 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
 2. Clique duas vezes **em Entrada.json** no Explorador de **Soluções**.
 
-3. Preencha a configuração de entrada de **análise de fluxo.** Escolha o nome da base de dados, nome do servidor, tipo de atualização e taxa de atualização. Especifique a `DD:HH:MM`taxa de atualização no formato .
+3. Preencha a configuração de entrada de **análise de fluxo.** Escolha o nome da base de dados, nome do servidor, tipo de atualização e taxa de atualização. Especifique a taxa de atualização no formato `DD:HH:MM` .
 
    ![Configuração de entrada stream Analytics no Estúdio Visual](./media/sql-reference-data/stream-analytics-vs-input-config.png)
 
@@ -147,7 +147,7 @@ Ao utilizar a consulta delta, recomenda-se a utilização da consulta delta, rec
    ```
 2. Autor da consulta instantânea. 
 
-   Utilize ** \@** o parâmetro snapshotTime para instruir o tempo de execução do Stream Analytics para obter o conjunto de dados de referência da tabela temporal da base de dados SQL válido no momento do sistema. Se não fornecer este parâmetro, arrisca-se a obter um conjunto de dados de referência de base impreciso devido a distorções do relógio. Um exemplo de consulta instantânea completa é mostrado abaixo:
+   Utilize o parâmetro ** \@ snapshotTime** para instruir o tempo de execução do Stream Analytics para obter o conjunto de dados de referência da tabela temporal da base de dados SQL válido no momento do sistema. Se não fornecer este parâmetro, arrisca-se a obter um conjunto de dados de referência de base impreciso devido a distorções do relógio. Um exemplo de consulta instantânea completa é mostrado abaixo:
    ```SQL
       SELECT DeviceId, GroupDeviceId, [Description]
       FROM dbo.DeviceTemporal
@@ -156,16 +156,16 @@ Ao utilizar a consulta delta, recomenda-se a utilização da consulta delta, rec
  
 2. Autor da consulta delta. 
    
-   Esta consulta recupera todas as linhas da sua base de dados SQL que foram inseridas ou eliminadas dentro de um tempo de início, ** \@deltaStartTime**, e um tempo ** \@final deltaEndTime**. A consulta delta deve devolver as mesmas colunas que a consulta instantânea, bem como a **_operação_** da coluna . Esta coluna define se a linha é inserida ou eliminada entre ** \@deltaStartTime** e ** \@deltaEndTime**. As linhas resultantes são sinalizadas como **1** se os registos foram inseridos, ou **2** se eliminados. 
+   Esta consulta recupera todas as linhas da sua base de dados SQL que foram inseridas ou eliminadas dentro de um tempo de início, ** \@ deltaStartTime**, e um tempo final ** \@ deltaEndTime**. A consulta delta deve devolver as mesmas colunas que a consulta instantânea, bem como a **_operação_** da coluna . Esta coluna define se a linha é inserida ou eliminada entre ** \@ deltaStartTime** e ** \@ deltaEndTime**. As linhas resultantes são sinalizadas como **1** se os registos foram inseridos, ou **2** se eliminados. A consulta também deve adicionar marca de **água** do lado do SQL Server para garantir que todas as atualizações no período delta são capturadas adequadamente. A utilização de uma consulta delta sem **marca de água** pode resultar num conjunto de dados de referência incorreto.  
 
    Para registos que foram atualizados, a tabela temporal faz contabilidade capturando uma operação de inserção e eliminação. O tempo de execução do Stream Analytics aplicará então os resultados da consulta delta ao instantâneo anterior para manter os dados de referência atualizados. Um exemplo de consulta delta é mostrado abaixo:
 
    ```SQL
-      SELECT DeviceId, GroupDeviceId, Description, 1 as _operation_
+      SELECT DeviceId, GroupDeviceId, Description, ValidFrom as watermark 1 as _operation_
       FROM dbo.DeviceTemporal
       WHERE ValidFrom BETWEEN @deltaStartTime AND @deltaEndTime   -- records inserted
       UNION
-      SELECT DeviceId, GroupDeviceId, Description, 2 as _operation_
+      SELECT DeviceId, GroupDeviceId, Description, ValidTo as watermark 2 as _operation_
       FROM dbo.DeviceHistory   -- table we created in step 1
       WHERE ValidTo BETWEEN @deltaStartTime AND @deltaEndTime     -- record deleted
    ```

@@ -5,15 +5,18 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/05/2019
-ms.openlocfilehash: 4740034bd970f42833125fa43bfdf72f710ac147
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/01/2020
+ms.openlocfilehash: 83c33e6935de7c9ed9f1b2c9f97aa18dd6b10f01
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79249610"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199913"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Realizar consultas de registo de recursos cruzados no Monitor Azure  
+
+> [!IMPORTANT]
+> Se estiver a utilizar uma telemetria de recursos de recursos de [aplicação baseada no espaço de trabalho,](../app/create-workspace-resource.md) a telemetria de recursos de Insights de Aplicação é armazenada num espaço de trabalho de Log Analytics com todos os outros dados de registo. Utilize a expressão de registo para escrever uma consulta que inclua aplicação em vários espaços de trabalho. Para várias aplicações no mesmo espaço de trabalho, não precisa de uma consulta de espaço de trabalho transversal.
 
 Anteriormente com o Monitor Azure, só era possível analisar dados de dentro do espaço de trabalho atual, e limitava a sua capacidade de consulta em vários espaços de trabalho definidos na sua subscrição.  Além disso, só foi possível pesquisar artigos de telemetria recolhidos a partir da sua aplicação baseada na Web com insights de aplicação diretamente em Application Insights ou no Visual Studio. Isto também o tornou um desafio para analisar de forma nativa os dados operacionais e de aplicação em conjunto.
 

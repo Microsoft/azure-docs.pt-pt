@@ -13,20 +13,18 @@ ms.workload: identity
 ms.date: 05/04/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1be7ceb9b0560b87d0917fdb57b2c21e0b050db9
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 3d8851004c5d976961d96ca7d9f315780765fcde
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82839101"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199569"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operações de fornecedor de recursos do Gestor de Recursos Azure
 
-Este artigo lista as operações disponíveis para cada fornecedor de recursos do Azure Resource Manager. Estas operações podem ser utilizadas em [funções personalizadas](custom-roles.md) do Azure para fornecer controlo de acesso granular aos recursos em Azure. As cordas de funcionamento `{Company}.{ProviderName}/{resourceType}/{action}`têm o seguinte formato: . Para obter uma lista de como os espaços de nome do fornecedor de recursos mapeiam os serviços Do Azure, consulte o fornecedor de [recursos match para o serviço](../azure-resource-manager/management/azure-services-resource-providers.md).
+Este artigo lista as operações disponíveis para cada fornecedor de recursos do Azure Resource Manager. Estas operações podem ser utilizadas em [funções personalizadas](custom-roles.md) do Azure para fornecer controlo de acesso granular aos recursos em Azure. As cordas de funcionamento têm o seguinte formato: `{Company}.{ProviderName}/{resourceType}/{action}` . Para obter uma lista de como os espaços de nome do fornecedor de recursos mapeiam os serviços Do Azure, consulte o fornecedor de [recursos match para o serviço](../azure-resource-manager/management/azure-services-resource-providers.md).
 
 As operações de fornecedor de recursos estão sempre a evoluir. Para obter as mais recentes operações, utilize a lista de operações [do Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) ou [do fornecedor az](/cli/azure/provider/operation#az-provider-operation-list).
-
-[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="microsoftaad"></a>Microsoft.AAD
 
@@ -2137,7 +2135,7 @@ Serviço Azure: [Serviços Cognitivos](../cognitive-services/index.yml)
 > | DataAction | Microsoft.CognitiveServices/accounts/SpellCheck/spellcheck/action | Obtenha resultado de uma consulta de verificação ortográfica através do GET ou DO POST. |
 > |  | **contas/TextAnalytics** |  |
 > | DataAction | Microsoft.CognitiveServices/accounts/TextAnalytics/languages/action | A API devolve a linguagem detetada e uma pontuação numérica entre 0 e 1. Pontuações próximas de 1 indicam 100% de certeza de que a linguagem identificada é verdadeira. Um total de 120 línguas são apoiadas. |
-> | DataAction | Microsoft.CognitiveServices/accounts/TextAnalytics/entities/action | A API devolve uma lista de entidades conhecidas \"\"e \"\" entidades nomeadas em geral (\"Pessoa,\"Localização, Organização, etc. ) num determinado documento. |
+> | DataAction | Microsoft.CognitiveServices/accounts/TextAnalytics/entities/action | A API devolve uma lista de entidades conhecidas e entidades nomeadas em geral ( \" \" Pessoa, \" \" Localização, \" \" Organização, etc. ) num determinado documento. |
 > | DataAction | Microsoft.CognitiveServices/accounts/TextAnalytics/keyphrases/action | A API devolve uma lista de cordas que denotam os principais pontos de conversa no texto de entrada. |
 > | DataAction | Microsoft.CognitiveServices/accounts/TextAnalytics/sentiment/action | A API devolve uma pontuação numérica entre 0 e 1.<br>Scores close to 1 indicate positive sentiment, while scores close to 0 indicate negative sentiment.<br>Uma pontuação de 0,5 indica a falta de sentimento (por exemplo.<br>uma declaração de facto). |
 > |  | **contas/VideoSearch** |  |
@@ -5383,7 +5381,7 @@ Serviço Azure: [Azure Data Explorer](/azure/data-explorer/)
 > | Ação | Microsoft.Kusto/localizações/resultados de operação/leitura | Lê recursos de operações |
 > |  | **Operações** |  |
 > | Ação | Microsoft.Kusto/Operations/read | Lê recursos de operações |
-> |  | **SKU** |  |
+> |  | **SKUs** |  |
 > | Ação | Microsoft.Kusto/SKUs/read | Lê um recurso SKU. |
 
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices

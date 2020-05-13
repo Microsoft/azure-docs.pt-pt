@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf2ca3bde0cfee97adee8bb875df1522e95b1f53
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 752df34c263563cdb970cadb59f92f2811af378e
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79263507"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199515"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Adicione utilizadores de colaboração azure Ative Directory B2B no portal Azure
 
@@ -42,9 +42,6 @@ Para adicionar utilizadores de colaboração B2B ao diretório, siga estes passo
 
    ![Mostra onde o novo utilizador convidado está na UI](./media/add-users-administrator/new-guest-user-in-all-users.png) 
  
-   > [!NOTE]
-   > A nova opção **de utilizador convidado** também está disponível na página de **relações organizacionais.** No **Diretório Ativo Azure,** sob **a Gestão,** selecione **relações organizacionais.**
-
 5. Na página **de utilizador Nova,** selecione **Convidar o utilizador** e, em seguida, adicionar as informações do utilizador convidado. 
 
     > [!NOTE]
@@ -85,7 +82,7 @@ Para adicionar utilizadores de colaboração B2B a uma aplicação, siga estes p
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) como administrador do Azure Active Directory.
 2. Procure e selecione **Azure Ative Directory** a partir de qualquer página.
-3. Em **'Gerir**' selecione **aplicações** > Enterprise**Todas as aplicações**.
+3. Em **'Gerir**' selecione **aplicações Enterprise**  >  **Todas as aplicações**.
 4. Selecione a aplicação à qual pretende adicionar utilizadores convidados.
 5. No painel de instrumentos da aplicação, selecione **Total Users** para abrir o painel de Utilizadores **e grupos.**
 

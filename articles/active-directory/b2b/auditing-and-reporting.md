@@ -5,25 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 12/14/2018
+ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74d2473d37dcf0d435ab61763e72a64111845956
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 67b543bd46b195a0944959f3f462a2bdc7d150ba
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74273299"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199464"
 ---
 # <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>Auditoria e comunicação de um utilizador de colaboração B2B
 Com os utilizadores convidados, tem capacidades de auditoria semelhantes às dos utilizadores membros. 
 
 ## <a name="access-reviews"></a>Revisões de acesso
-Pode utilizar avaliações de acesso para verificar periodicamente se os utilizadores ainda precisam de acesso aos seus recursos. A funcionalidade **de avaliações** de acesso está disponível no **Diretório Ativo Azure** no âmbito **da Manage** > **Organizational Relationships**. (Também pode pesquisar "avaliações de acesso" de **todos os serviços** do portal Azure.) Para aprender a usar as avaliações de acesso, consulte Gerir o acesso dos [hóspedes com avaliações de acesso a AD Azure](../governance/manage-guest-access-with-access-reviews.md).
+Pode utilizar avaliações de acesso para verificar periodicamente se os utilizadores ainda precisam de acesso aos seus recursos. A funcionalidade **de avaliações** de acesso está disponível no **Diretório Ativo do Azure** no âmbito de avaliações de acesso a **relacionamentos organizacionais**(ou avaliações de acesso a  >  **Access reviews** **identidades externas).**  >  **Access reviews** Pode ainda pesquisar "avaliações de acesso" de **todos os serviços** do portal Azure. Para aprender a usar as avaliações de acesso, consulte Gerir o acesso dos [hóspedes com avaliações de acesso a AD Azure](../governance/manage-guest-access-with-access-reviews.md).
 
 ## <a name="audit-logs"></a>Registos de auditoria
 
