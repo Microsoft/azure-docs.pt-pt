@@ -200,6 +200,8 @@
           href: web-sites-monitor.md
         - name: Ativar registos
           href: troubleshoot-diagnostic-logs.md
+        - name: Obter eventos de recursos
+          href: get-resource-events.md
     - name: Gerir aplicação
       items:
         - name: Gerir o plano de alojamento

@@ -315,6 +315,8 @@
           href: search-security-overview.md
         - name: Criar um ponto final privado
           href: service-create-private-endpoint.md
+        - name: Configurar uma firewall do IP
+          href: service-configure-firewall.md
         - name: Gestão da chave do serviço
           href: search-security-api-keys.md
         - name: Acesso administrativo baseado em funções

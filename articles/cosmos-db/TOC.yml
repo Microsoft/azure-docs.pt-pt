@@ -1018,7 +1018,7 @@
           href: how-to-use-change-feed-estimator.md
         - name: Migrar da biblioteca do processador do feed de alterações
           href: how-to-migrate-from-change-feed-library.md
-        - name: Criar uma aplicação SQL em Java com o Feed de Alterações
+        - name: Feed de alterações - Exemplo de Java assíncrono
           href: create-sql-api-java-changefeed.md
     - name: Análise incorporada com o Apache Spark
       items:
@@ -1080,6 +1080,8 @@
               href: monitor-server-side-latency.md
             - name: Monitorizar a utilização da unidade de pedido
               href: monitor-request-unit-usage.md
+            - name: Monitorizar a utilização da unidade de pedido normalizada
+              href: monitor-normalized-request-units.md
         - name: Utilizar registos do Azure Monitor
           items:
             - name: Monitorizar com registos de diagnósticos

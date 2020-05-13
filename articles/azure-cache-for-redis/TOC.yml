@@ -7,18 +7,26 @@
 - name: Guias de Início Rápido
   expanded: true
   items:
-    - name: Aplicação ASP.NET
-      href: cache-web-app-howto.md
-    - name: Aplicação .NET Core
-      href: cache-dotnet-core-quickstart.md
-    - name: Aplicação .NET
-      href: cache-dotnet-how-to-use-azure-redis-cache.md
-    - name: Aplicação Java
-      href: cache-java-get-started.md
-    - name: Aplicação Node.js
-      href: cache-nodejs-get-started.md
-    - name: Aplicação Python
-      href: cache-python-get-started.md
+    - name: Criar uma cache
+      items:
+        - name: 'Escalões Básico, Standard e Premium'
+          href: quickstart-create-redis.md
+        - name: Escalões Enterprise
+          href: quickstart-create-redis-enterprise.md
+    - name: Utilizar uma cache
+      items:
+        - name: Aplicação ASP.NET
+          href: cache-web-app-howto.md
+        - name: Aplicação .NET Core
+          href: cache-dotnet-core-quickstart.md
+        - name: Aplicação .NET
+          href: cache-dotnet-how-to-use-azure-redis-cache.md
+        - name: Aplicação Java
+          href: cache-java-get-started.md
+        - name: Aplicação Node.js
+          href: cache-nodejs-get-started.md
+        - name: Aplicação Python
+          href: cache-python-get-started.md
 - name: Tutoriais
   items:
     - name: Utilize a colocação em cache com leaderboards

@@ -22,6 +22,8 @@
   items:
     - name: Conceitos dos Laboratórios de Sala de Aula
       href: classroom-labs-concepts.md
+    - name: Fundamentos da arquitetura dos Laboratórios de Sala de Aula
+      href: classroom-labs-fundamentals.md
     - name: Cenários
       items:
         - name: Utilizar laboratórios para guiar as aulas
@@ -136,7 +138,7 @@
       href: 'https://azure.microsoft.com/updates/?product=lab-services'
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/lab-services/'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/azure-lab-services'
+    - name: Fórum da Tech Community
+      href: 'https://techcommunity.microsoft.com/t5/azure-lab-services/bd-p/AzureLabServices'
     - name: Perguntas mais frequentes
       href: classroom-labs-faq.md

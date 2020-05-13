@@ -212,6 +212,8 @@
     - name: Resolução de problemas
       items:
         - name: Guia de resolução de problemas
+          href: troubleshooting-guide.md
+        - name: Exceções de .NET
           href: event-hubs-messaging-exceptions.md
         - name: Exceções do Resource Manager
           href: resource-manager-exceptions.md

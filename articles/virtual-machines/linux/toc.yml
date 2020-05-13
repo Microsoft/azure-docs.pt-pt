@@ -303,6 +303,113 @@
           href: ../windows/migration-classic-resource-manager-community-tools.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: FAQ
           href: migration-classic-resource-manager-faq.md
+    - name: Utilizar Imagens
+      displayName: 'SIG, AMI, image'
+      items:
+        - name: Galerias de Imagens Partilhadas
+          items:
+            - name: CLI
+              items:
+                - name: Criar uma galeria
+                  href: ../shared-images-cli.md
+                - name: Criar uma imagem
+                  items:
+                    - name: A partir de uma VM
+                      href: ../image-version-vm-cli.md
+                    - name: Migrar de uma imagem gerida
+                      href: ../image-version-managed-image-cli.md
+                    - name: Copiar de outra galeria
+                      href: ../image-version-another-gallery-cli.md
+                - name: Criar uma VM
+                  items:
+                    - name: Generalizada
+                      href: ../vm-generalized-image-version-cli.md
+                - name: Atualizar recursos de imagem
+                  href: ../update-image-resources-cli.md
+                - name: Registo de aplicações para partilha
+                  href: share-images-across-tenants.md
+            - name: PowerShell
+              items:
+                - name: Criar uma galeria
+                  href: ../shared-images-powershell.md
+                - name: Criar uma versão de imagem
+                  items:
+                    - name: A partir de uma VM
+                      href: ../image-version-vm-powershell.md
+                    - name: Migrar de uma imagem gerida
+                      href: ../image-version-managed-image-powershell.md
+                    - name: Copiar de outra galeria
+                      href: ../image-version-another-gallery-powershell.md
+                - name: Criar uma VM
+                  items:
+                    - name: Generalizada
+                      href: ../vm-generalized-image-version-powershell.md
+                    - name: Especializada
+                      href: ../vm-specialized-image-version-powershell.md
+                - name: Atualizar recursos de imagem
+                  href: ../update-image-resources-powershell.md
+            - name: Portal
+              items:
+                - name: 'Criar uma galeria, imagem e VM'
+                  href: shared-images-portal.md
+            - name: Modelos do Resource Manager
+              items:
+                - name: Criar um Shared Image Gallery
+                  href: 'https://azure.microsoft.com/resources/templates/101-sig-create/'
+                - name: Criar uma Definição de Imagem num Shared Image Gallery
+                  href: 'https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/'
+                - name: Criar uma Versão de Imagem num Shared Image Gallery
+                  href: 'https://azure.microsoft.com/resources/templates/101-sig-image-version-create/'
+                - name: Criar uma VM a partir de uma Versão de Imagem
+                  href: 'https://azure.microsoft.com/resources/templates/101-vm-from-sig/'
+            - name: Resolver problemas de imagens partilhadas
+              href: troubleshooting-shared-images.md
+            - name: Utilizar chaves geridas pelo cliente
+              displayName: 'SSE, CMK, encrypt'
+              href: ../image-version-encryption.md
+        - name: Construtor de imagens (pré-visualização)
+          items:
+            - name: Descrição geral
+              href: image-builder-overview.md
+            - name: Utilizar a CLI do Azure
+              href: image-builder.md
+            - name: Referência do modelo do Resource Manager
+              href: image-builder-json.md
+              displayName: 'ARM,Resource Manager'
+            - name: Criar para galerias de imagens
+              href: image-builder-gallery.md
+            - name: Atualizar uma imagem existente
+              href: image-builder-gallery-update-image-version.md
+            - name: Resolução de problemas
+              href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
+        - name: Localizar e utilizar imagens
+          href: cli-ps-findimage.md
+        - name: Criar uma imagem personalizada
+          items:
+            - name: Passos genéricos
+              href: create-upload-generic.md
+            - name: Ubuntu
+              href: create-upload-ubuntu.md
+            - name: CentOS
+              href: create-upload-centos.md
+            - name: Red Hat
+              href: redhat-create-upload-vhd.md
+            - name: Debian
+              href: debian-create-upload-vhd.md
+            - name: SUSE
+              href: suse-create-upload-vhd.md
+            - name: Oracle Linux
+              href: oracle-create-upload-vhd.md
+            - name: OpenBSD
+              href: create-upload-openbsd.md
+            - name: FreeBSD
+              href: freebsd-intro-on-azure.md
+        - name: Captura de VM para imagem
+          href: capture-image.md
+        - name: Criar imagem com o Packer
+          href: build-image-with-packer.md
+        - name: Transferir o disco existente
+          href: download-vhd.md
     - name: Proteger VMs
       items:
         - name: Recomendações
@@ -461,110 +568,6 @@
           href: ../../azure-monitor/platform/alerts-metric.md
         - name: Criar alertas de registos
           href: ../../azure-monitor/platform/alerts-log.md
-    - name: Utilizar Imagens
-      displayName: 'SIG, AMI, image'
-      items:
-        - name: Galerias de Imagens Partilhadas
-          items:
-            - name: CLI
-              items:
-                - name: Criar uma galeria
-                  href: ../shared-images-cli.md
-                - name: Criar uma imagem
-                  items:
-                    - name: A partir de uma VM
-                      href: ../image-version-vm-cli.md
-                    - name: Migrar de uma imagem gerida
-                      href: ../image-version-managed-image-cli.md
-                    - name: Copiar de outra galeria
-                      href: ../image-version-another-gallery-cli.md
-                - name: Criar uma VM
-                  items:
-                    - name: Generalizada
-                      href: ../vm-generalized-image-version-cli.md
-                - name: Atualizar recursos de imagem
-                  href: ../update-image-resources-cli.md
-                - name: Registo de aplicações para partilha
-                  href: share-images-across-tenants.md
-            - name: PowerShell
-              items:
-                - name: Criar uma galeria
-                  href: ../shared-images-powershell.md
-                - name: Criar uma versão de imagem
-                  items:
-                    - name: A partir de uma VM
-                      href: ../image-version-vm-powershell.md
-                    - name: Migrar de uma imagem gerida
-                      href: ../image-version-managed-image-powershell.md
-                    - name: Copiar de outra galeria
-                      href: ../image-version-another-gallery-powershell.md
-                - name: Criar uma VM
-                  items:
-                    - name: Generalizada
-                      href: ../vm-generalized-image-version-powershell.md
-                    - name: Especializada
-                      href: ../vm-specialized-image-version-powershell.md
-                - name: Atualizar recursos de imagem
-                  href: ../update-image-resources-powershell.md
-            - name: Portal
-              items:
-                - name: 'Criar uma galeria, imagem e VM'
-                  href: shared-images-portal.md
-            - name: Modelos do Resource Manager
-              items:
-                - name: Criar um Shared Image Gallery
-                  href: 'https://azure.microsoft.com/resources/templates/101-sig-create/'
-                - name: Criar uma Definição de Imagem num Shared Image Gallery
-                  href: 'https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/'
-                - name: Criar uma Versão de Imagem num Shared Image Gallery
-                  href: 'https://azure.microsoft.com/resources/templates/101-sig-image-version-create/'
-                - name: Criar uma VM a partir de uma Versão de Imagem
-                  href: 'https://azure.microsoft.com/resources/templates/101-vm-from-sig/'
-            - name: Resolver problemas de imagens partilhadas
-              href: troubleshooting-shared-images.md
-        - name: Construtor de imagens (pré-visualização)
-          items:
-            - name: Descrição geral
-              href: image-builder-overview.md
-            - name: Utilizar a CLI do Azure
-              href: image-builder.md
-            - name: Referência do modelo do Resource Manager
-              href: image-builder-json.md
-              displayName: 'ARM,Resource Manager'
-            - name: Criar para galerias de imagens
-              href: image-builder-gallery.md
-            - name: Atualizar uma imagem existente
-              href: image-builder-gallery-update-image-version.md
-            - name: Resolução de problemas
-              href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
-        - name: Localizar e utilizar imagens
-          href: cli-ps-findimage.md
-        - name: Criar uma imagem personalizada
-          items:
-            - name: Passos genéricos
-              href: create-upload-generic.md
-            - name: Ubuntu
-              href: create-upload-ubuntu.md
-            - name: CentOS
-              href: create-upload-centos.md
-            - name: Red Hat
-              href: redhat-create-upload-vhd.md
-            - name: Debian
-              href: debian-create-upload-vhd.md
-            - name: SUSE
-              href: suse-create-upload-vhd.md
-            - name: Oracle Linux
-              href: oracle-create-upload-vhd.md
-            - name: OpenBSD
-              href: create-upload-openbsd.md
-            - name: FreeBSD
-              href: freebsd-intro-on-azure.md
-        - name: Captura de VM para imagem
-          href: capture-image.md
-        - name: Criar imagem com o Packer
-          href: build-image-with-packer.md
-        - name: Transferir o disco existente
-          href: download-vhd.md
     - name: Disponibilidade e dimensionamento
       items:
         - name: Dimensionamento Automático

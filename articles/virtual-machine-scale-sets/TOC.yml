@@ -234,6 +234,11 @@
                       href: instance-generalized-image-version-cli.md
                 - name: Atualizar recursos de imagem
                   href: ../virtual-machines/update-image-resources-cli.md
+            - name: Resolver problemas de imagens partilhadas
+              href: ../virtual-machines/troubleshooting-shared-images.md
+            - name: Utilizar chaves geridas pelo cliente
+              displayName: 'SSE, CMK, encrypt'
+              href: ../virtual-machines/image-version-encryption.md
     - name: Criar um modelo
       items:
         - name: Saiba mais sobre modelos de conjunto de dimensionamento

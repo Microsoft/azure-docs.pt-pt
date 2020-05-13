@@ -557,6 +557,20 @@
       items:
         - name: Notas de versão do SDK de dispositivos de Voz
           href: devices-sdk-release-notes.md
+- name: Ferramentas
+  items:
+    - name: SPX
+      items:
+        - name: O que é o SPX?
+          href: spx-overview.md
+        - name: Noções básicas do SPX
+          href: spx-basics.md
+    - name: Speech Studio
+      items:
+        - name: O que é o Speech Studio?
+          href: 'https://speech.microsoft.com'
+        - name: Criar uma aplicação de Comandos Personalizados com o Speech Studio
+          href: quickstart-custom-speech-commands-create-new.md
 - name: Migração
   items:
     - name: Da Voz do Bing

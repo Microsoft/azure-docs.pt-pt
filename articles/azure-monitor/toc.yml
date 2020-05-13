@@ -239,9 +239,11 @@
             - name: Funções do Azure
               displayname: 'functions, monitor functions, automation'
               href: ../azure-functions/functions-monitoring.md
-            - name: Aplicações do Kubernetes
-              displayname: 'aks, microservice, istio, service mesh, application monitoring, monitor kubernetes, monitor aks'
-              href: app/kubernetes.md
+            - name: Azure Kubernetes Service
+              items:
+                - name: Kubernetes (Preterido)
+                  displayname: 'aks, microservice, istio, service mesh, application monitoring, monitor kubernetes, monitor aks'
+                  href: app/kubernetes.md
             - name: Autónomo - qualquer ambiente
               items:
                 - name: Java (pré-visualização)
@@ -272,8 +274,10 @@
                       href: app/monitor-performance-live-website-now.md
                 - name: Java
                   href: app/java-on-premises.md
-        - name: Criar um recurso
+        - name: Criar um recurso (clássico)
           href: app/create-new-resource.md
+        - name: Criar um recurso (baseado na área de trabalho)
+          href: app/create-workspace-resource.md
         - name: Dashboard de aplicações
           displayname: 'dashboard, Application Insights dashboard'
           href: app/overview-dashboard.md
@@ -282,7 +286,7 @@
           href: app/app-map.md
         - name: Diagnóstico da transação
           href: app/transaction-diagnostics.md
-          displayname: 'e2e, end-to-end, component, dependency, cross-compoent transaction, operation ID, dependencies'
+          displayname: 'e2e, end-to-end, component, dependency, cross-component transaction, operation ID, dependencies'
         - name: Disponibilidade
           items:
             - name: Testes de URL
@@ -526,8 +530,12 @@
               href: platform/resource-logs-blob-format.md
         - name: Transmitir dados para os Hubs de Eventos
           href: platform/stream-monitoring-data-event-hubs.md
+        - name: Monitorizar o Key Vault
+          href: insights/key-vaults-insights-overview.md
         - name: Alterar análise
           href: app/change-analysis.md
+        - name: Cache do Azure para Redis (pré-visualização)
+          href: insights/redis-cache-insights-overview.md
     - name: Monitorizar VMs e SO convidado
       items:
         - name: Monitorizar máquinas virtuais do Azure
@@ -1204,6 +1212,8 @@
               href: app/data-model-context.md
             - name: Integração com as Funções do Azure
               href: app/azure-functions-supported-features.md
+            - name: Esquema baseado na área de trabalho
+              href: app/apm-tables.md
     - name: Métricas
       items:
         - name: Métricas suportadas

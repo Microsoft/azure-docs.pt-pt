@@ -13,12 +13,12 @@ metadata:
   ms.topic: hub-page
   ms.date: 03/24/2020
   ms.author: trbye
-  ms.openlocfilehash: d1eb706e7156d2444d995904b0a0fecc0a76f4e5
-  ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+  ms.openlocfilehash: c065f3d12f98be85f45ed6233593d9ccab1cefa1
+  ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 05/10/2020
-  ms.locfileid: "83005140"
+  ms.lasthandoff: 05/12/2020
+  ms.locfileid: "83201658"
 highlightedContent:
   items:
   - title: O que é o serviço de Voz?
@@ -119,6 +119,17 @@ conceptualContent:
     footerLink:
       text: Ver mais
       url: index-voice-assistants.yml
+  - title: Ferramentas
+    links:
+    - itemType: overview
+      text: Sobre o SPX - utilizar o serviço de Voz sem código
+      url: spx-overview.md
+    - itemType: how-to-guide
+      text: Noções básicas do SPX
+      url: spx-basics.md
+    - itemType: overview
+      text: Sobre o Speech Studio - personalização do serviço de Voz sem código
+      url: https://speech.microsoft.com
   - title: Alojamento
     links:
     - itemType: how-to-guide
