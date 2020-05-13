@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/31/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e1cf3905a34fdced878526cfcc55e6dd0a1a369f
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: e87b6ee4739818e25ee069986e299f8205d44a2a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82595342"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83343308"
 ---
 Este artigo responde a algumas perguntas frequentes sobre discos Azure Managed Disks e Discos SSD Azure Premium.
 
@@ -178,7 +178,7 @@ Apenas SSDs premium que sejam P15 ou discos partilhados de maior suporte.
 
 **Se eu tiver um SSD premium existente, posso ativar discos partilhados nele?**
 
-Todos os discos geridos criados com a versão API 2019-07-01 ou superior podem permitir discos partilhados. Para isso, é necessário desmontar o disco de todos os VMs a que está ligado. Em seguida, `maxShares` editar a propriedade no disco.
+Todos os discos geridos criados com a versão API 2019-07-01 ou superior podem permitir discos partilhados. Para isso, é necessário desmontar o disco de todos os VMs a que está ligado. Em seguida, editar a `maxShares` propriedade no disco.
 
 **Se já não quero usar um disco em modo partilhado, como o desativo?**
 
@@ -257,32 +257,6 @@ Todas as regiões azure suportam agora discos Standard SSD.
 **O Azure Backup está disponível quando utilizar SSDs Standard?**
 Sim, o Azure Backup já está disponível.
 
-**Como crio discos Standard SSD?**
-Pode criar discos Standard SSD utilizando modelos de Gestor de Recursos Azure, SDK, PowerShell ou CLI. Abaixo estão os parâmetros necessários no modelo de Gestor de Recursos para criar discos SSD standard:
-
-* *apiVersão* para Microsoft.Compute deve `2018-04-01` ser definido como (ou mais tarde)
-* Especificar *managedDisk.storageAccountType* como`StandardSSD_LRS`
-
-O exemplo seguinte mostra as *propriedades.storageProfile.osDisk* para um VM que utiliza discos SSD padrão:
-
-```json
-"osDisk": {
-    "osType": "Windows",
-    "name": "myOsDisk",
-    "caching": "ReadWrite",
-    "createOption": "FromImage",
-    "managedDisk": {
-        "storageAccountType": "StandardSSD_LRS"
-    }
-}
-```
-
-Para obter um exemplo completo de como criar um disco SSD padrão com um modelo, consulte [Criar um VM a partir de uma imagem do Windows com discos de dados SSD padrão](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/).
-
-**Posso converter os meus discos existentes em SSD padrão?**
-Sim, pode. Consulte o armazenamento de discos geridos pela [Convert Azure de série para premium, e vice-versa](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage) para as diretrizes gerais para a conversão de Discos Geridos. E, use o seguinte valor para atualizar o tipo de disco para O SSD Padrão.
--StandardSSD_LRS de tipo de conta
-
 **Qual é o benefício de usar discos Standard SSD em vez de HDD?**
 Os discos SSD padrão proporcionam melhor latência, consistência, disponibilidade e fiabilidade em comparação com os discos HDD. As cargas de trabalho de aplicação funcionam muito mais suavemente no SSD Padrão por causa disso. Nota: Os discos Premium SSD são a solução recomendada para a maioria das cargas de trabalho de produção intensivas da OI.
 
@@ -332,9 +306,9 @@ Sim
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>Encriptação de serviço de discos geridos e armazenamento
 
-**A encriptação do serviço de armazenamento Azure está ativada por padrão quando crio um disco gerido?**
+**A encriptação do lado do Servidor está ativada por padrão quando crio um disco gerido?**
 
-Sim.
+Sim. Os Discos geridos são encriptados com encriptação do lado do servidor com chaves geridas pela plataforma. 
 
 **O volume de arranque é encriptado por padrão num disco gerido?**
 
@@ -342,30 +316,27 @@ Sim. Por predefinição, todos os discos geridos são encriptados, incluindo o d
 
 **Quem gere as chaves de encriptação?**
 
-A Microsoft gere as chaves de encriptação.
+As chaves geridas pela plataforma são geridas pela Microsoft. Também pode usar e gerir as suas próprias chaves armazenadas no Cofre de Chaves Azure. 
 
-**Posso desativar a encriptação do serviço de armazenamento para os meus discos geridos?**
+**Posso desativar a encriptação do lado do Servidor para os meus discos geridos?**
 
 Não.
 
-**A encriptação do serviço de armazenamento só está disponível em regiões específicas?**
+**A encriptação do lado do servidor só está disponível em regiões específicas?**
 
-Não. Está disponível em todas as regiões onde os Discos Geridos estão disponíveis. Os Discos Geridos estão disponíveis em todas as regiões públicas e na Alemanha. No entanto, também está disponível na China, apenas para chaves geridas pela Microsoft, e não para as chaves geridas pelo cliente.
+Não. A Encriptação do lado do servidor com as chaves geridas pela plataforma e pelo cliente está disponível em todas as regiões onde os Discos Geridos estão disponíveis. 
 
-**Como posso descobrir se o meu disco gerido está encriptado?**
+**A recuperação do site Azure suporta a encriptação do lado do servidor com a chave gerida pelo cliente para cenários de recuperação de desastres Azure e Azure para Azure?**
 
-Pode descobrir a hora em que um disco gerido foi criado a partir do portal Azure, do Azure CLI e do PowerShell. Se a hora for depois de 9 de junho de 2017, então o seu disco está encriptado.
+Sim. 
 
-**Como posso encriptar os meus discos existentes que foram criados antes de 10 de junho de 2017?**
+**Posso fazer backup de Discos geridos encriptados com encriptação do lado do servidor com chave gerida pelo cliente utilizando o serviço de backup Azure?**
 
-A partir de 10 de junho de 2017, novos dados escritos aos discos geridos existentes são automaticamente encriptados. Também estamos a planear encriptar os dados existentes, e a encriptação vai acontecer de forma assíncrona em segundo plano. Se tiver de encriptar os dados existentes agora, crie uma cópia do seu disco. Novos discos serão encriptados.
-
-* [Copiar discos geridos utilizando o Azure CLI](../articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
-* [Copiar discos geridos utilizando powerShell](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
+Sim.
 
 **As imagens e imagens geridas são encriptadas?**
 
-Sim. Todos os instantâneos e imagens geridos criados após 9 de junho de 2017, são automaticamente encriptados. 
+Sim. Todas as imagens e imagens geridas são automaticamente encriptadas. 
 
 **Posso converter VMs com discos não geridos que estão localizados em contas de armazenamento que são ou foram previamente encriptados para discos geridos?**
 

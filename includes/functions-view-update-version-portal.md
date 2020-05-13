@@ -8,25 +8,23 @@ ms.topic: include
 ms.date: 11/26/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: d06bda1826964b019edb156375885c7f389ca6ec
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: aa9a715fdafc143a116458691965087b016dec1f
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "67184908"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83343359"
 ---
 Utilize o seguinte procedimento para visualizar e atualizar a versão runtime atualmente utilizada por uma aplicação de função.
 
 1. No [portal Azure,](https://portal.azure.com)navegue para a sua aplicação de funções.
 
-1. Em **funções configuradas,** escolha as definições da **aplicação Função**.
+1. Em **Definições,** escolha **Configuração**. No separador **função** de definições de tempo de funcionamento, localize a **versão Runtime**. Note a versão específica do tempo de execução. No exemplo abaixo, a versão está definida para `~3` .
 
-    ![Selecione as definições de aplicativo de função](./media/functions-view-update-version-portal/add-update-app-setting.png)
-
-1. No separador de definições da **aplicação Fun,** localize a **versão Runtime**. Note a versão específica do tempo de execução e a versão principal solicitada. No exemplo abaixo, a versão `~2`está definida para .
-
-   ![Selecione as definições de aplicativo de função](./media/functions-view-update-version-portal/function-app-view-version.png)
+    :::image type="content" source="./media/functions-view-update-version-portal/functions-view-runtime-version.png" alt-text="Veja a versão runtime." border="true":::
 
 1. Para fixar a sua aplicação de função na versão 1.x runtime, escolha **~1** na **versão Runtime**. Este interruptor é desativado quando tiver funções na sua aplicação.
 
 1. Quando alterar a versão 'tempo de execução', volte ao separador **Overview** e escolha **reiniciar** a aplicação.  A aplicação de funções reinicia a execução na versão 1.x e os modelos da versão 1.x são usados quando cria funções.
+
+    :::image type="content" source="./media/functions-view-update-version-portal/functions-restart-function-app.png" alt-text="Reinicie a sua aplicação de funções." border="true":::
