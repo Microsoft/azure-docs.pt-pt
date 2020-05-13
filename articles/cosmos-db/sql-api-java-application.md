@@ -1,19 +1,19 @@
 ---
-title: 'Tutorial: Tutorial de desenvolvimento de aplicações de Java usando Azure Cosmos DB'
+title: 'Tutorial: Construa uma aplicação web Java utilizando o Azure Cosmos DB e a SQL API'
 description: 'Tutorial: Este tutorial de aplicação web Java mostra-lhe como usar o Azure Cosmos DB e a API SQL para armazenar e aceder a dados de uma aplicação Java hospedada nos Websites Azure.'
-author: tknandu
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 11/05/2019
-ms.author: ramkris
-ms.openlocfilehash: 2e38aeba198f875961024f8c25c7fb0123479f87
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.author: anfeldma
+ms.openlocfilehash: fc8fb0e3c9ad35957291376691d5ed2c0484192a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80985274"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120199"
 ---
 # <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Tutorial: Construa uma aplicação web Java utilizando o Azure Cosmos DB e a SQL API
 
@@ -50,7 +50,7 @@ Antes de começar este tutorial de desenvolvimento de aplicação, tem de ter o 
 * [IDE Eclipse para Programadores de Java EE.](https://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
 * [Um site do Azure com um tempo de execução em ambiente Java (por exemplo, Tomcat ou Jetty) ativado.](../app-service/app-service-web-get-started-java.md)
 
-Se estiver a instalar estas ferramentas pela primeira vez, coreservlets.com fornece instruções do processo de instalação na secção Início Rápido do respetivo artigo [Tutorial: Instalar TomCat7 e utilizá-lo com o Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html).
+Se estiver a instalar estas ferramentas pela primeira vez, coreservlets.com fornece um walk-through do processo de instalação na secção de arranque rápido do seu [Tutorial: Instalar o TomCat7 e usá-lo com](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) artigo eclipse.
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a><a id="CreateDB"></a>Passo 1: Criar uma conta do Azure Cosmos DB
 Comecemos por criar uma conta do Azure Cosmos DB. Se já tiver uma conta ou se estiver a utilizar o Emulador do Azure Cosmos DB para este tutorial, pode avançar para o [Passo 2: Criar a aplicação Java JSP](#CreateJSP).
@@ -98,7 +98,7 @@ Para tal, terá de converter o seu projeto em projeto maven, realizando os segui
      
    ![Instalar o SDK da Aplicação de SQL Java](./media/sql-api-java-application/image13.png)
      
-   * Ou adicione a dependência XML para Id do Grupo e Id do Artefacto diretamente no pom.xml através de um editor de texto:
+   * Ou adicione a dependência XML para ID de grupo e identificação de artefacto diretamente ao pom.xml através de um editor de texto:
         ```xml
         <dependency>
             <groupId>com.microsoft.azure</groupId>
@@ -250,7 +250,7 @@ Para tal, terá de converter o seu projeto em projeto maven, realizando os segui
    
             return gson.fromJson(todoItemDocument.toString(), TodoItem.class);
         }
-5. Tal como as bases de dados e coleções da Azure Cosmos, os documentos também são referenciados por auto-ligações. A seguinte função do programa auxiliar permite-nos obter documentos por outro atributo (por exemplo, "id") em vez de auto-ligação:
+5. Tal como as bases de dados e coleções da Azure Cosmos, os documentos também são referenciados por auto-ligações. A função de ajudante que se segue permite-nos recuperar documentos por outro atributo (por exemplo, "ID") em vez de auto-ligação:
    
         private Document getDocumentById(String id) {
             // Retrieve the document using the DocumentClient.
@@ -265,7 +265,7 @@ Para tal, terá de converter o seu projeto em projeto maven, realizando os segui
                 return null;
             }
         }
-6. Podemos utilizar o método de programa auxiliar no passo 5 para obter um documento TodoItem JSON por id e, em seguida, anular a serialização para um POJO:
+6. Podemos usar o método do ajudante no passo 5 para recuperar um documento TodoItem JSON por ID e, em seguida, desserializá-lo para um POJO:
    
         @Override
         public TodoItem readTodoItem(String id) {

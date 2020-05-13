@@ -8,21 +8,21 @@ ms.topic: tutorial
 ms.date: 03/06/2020
 ms.author: mhopkins
 ms.reviewer: dineshm
-ms.openlocfilehash: e2ee959fb6fc7e8454919c71cfa20e2bb9055dfb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3c475787eafde4ba847b292df57e4b0d18cfe5d0
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81393853"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196041"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>Tutorial: Enviar dados de imagem na nuvem com armazenamento azure
 
 Este tutorial é a primeira parte de uma série. Neste tutorial, você aprenderá a implementar uma aplicação web que usa a biblioteca de clientes de armazenamento Azure Blob para fazer upload de imagens para uma conta de armazenamento. Quando terminar, terá uma aplicação web que armazena e exibe imagens do armazenamento do Azure.
 
-# <a name="net-v12-sdk"></a>[\.NET v12 SDK](#tab/dotnet)
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 ![App de resizer de imagem em .NET](media/storage-upload-process-images/figure2.png)
 
-# <a name="nodejs-v10-sdk"></a>[Node.js v10 SDK](#tab/nodejsv10)
+# <a name="nodejs-v10"></a>[Node.js v10](#tab/nodejsv10)
 ![Aplicativo de resizer de imagem no Node.js V10](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 ---
@@ -62,7 +62,7 @@ A amostra envia imagens para um recipiente de bolhas numa conta de armazenamento
 > [!IMPORTANT]
 > Na parte 2 do tutorial, você usa azure Event Grid com armazenamento Blob. Certifique-se de criar a sua conta de armazenamento numa região do Azure que suporta a Grelha de Eventos. Para obter uma lista de regiões apoiadas, consulte [os produtos Azure por região.](https://azure.microsoft.com/global-infrastructure/services/?products=event-grid&regions=all)
 
-No comando seguinte, substitua o seu nome globalmente único para `<blob_storage_account>` a conta de armazenamento Blob onde vê o espaço reservado.
+No comando seguinte, substitua o seu nome globalmente único para a conta de armazenamento Blob onde vê o `<blob_storage_account>` espaço reservado.
 
 ```azurecli-interactive
 blobStorageAccount="<blob_storage_account>"
@@ -77,7 +77,7 @@ A aplicação utiliza dois contentores na conta de armazenamento de Blobs. Os re
 
 Obtenha a chave da conta de armazenamento com o comando [az storage account keys list](/cli/azure/storage/account/keys). Em seguida, utilize esta chave para criar dois recipientes com o recipiente de [armazenamento az criar](/cli/azure/storage/container) comando.
 
-O acesso público do contentor `off`de *imagens* está definido para . O acesso público do contentor das `container` *miniaturas* está definido para . A `container` definição de acesso público permite que os utilizadores que visitam a página web vejam as miniaturas.
+O acesso público do contentor de *imagens* está definido para `off` . O acesso público do contentor das *miniaturas* está definido para `container` . A definição de `container` acesso público permite que os utilizadores que visitam a página web vejam as miniaturas.
 
 ```azurecli-interactive
 blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
@@ -121,7 +121,7 @@ az webapp create --name $webapp --resource-group myResourceGroup --plan myAppSer
 
 ## <a name="deploy-the-sample-app-from-the-github-repository"></a>Implementar a aplicação de exemplo a partir do repositório do GitHub
 
-# <a name="net-v12-sdk"></a>[\.NET v12 SDK](#tab/dotnet)
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
 O Serviço de Aplicações suporta várias formas de implementar conteúdo numa aplicação Web. Neste tutorial, vai implementar a aplicação Web a partir de um [repositório de exemplo do GitHub público](https://github.com/Azure-Samples/storage-blob-upload-from-webapp). Configure a implementação do GitHub para a aplicação Web com o comando [az webapp deployment source config](/cli/azure/webapp/deployment/source).
 
@@ -133,7 +133,7 @@ az webapp deployment source config --name $webapp --resource-group myResourceGro
   --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
 ```
 
-# <a name="nodejs-v10-sdk"></a>[Node.js v10 SDK](#tab/nodejsv10)
+# <a name="nodejs-v10"></a>[Node.js v10](#tab/nodejsv10)
 O Serviço de Aplicações suporta várias formas de implementar conteúdo numa aplicação Web. Neste tutorial, vai implementar a aplicação Web a partir de um [repositório de exemplo do GitHub público](https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node-v10). Configure a implementação do GitHub para a aplicação Web com o comando [az webapp deployment source config](/cli/azure/webapp/deployment/source).
 
 ```azurecli-interactive
@@ -146,7 +146,7 @@ az webapp deployment source config --name $webapp --resource-group myResourceGro
 
 ## <a name="configure-web-app-settings"></a>Configurar as definições da aplicação Web
 
-# <a name="net-v12-sdk"></a>[\.NET v12 SDK](#tab/dotnet)
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
 A aplicação web da amostra utiliza as APIs de [Armazenamento Azure para .NET](/dotnet/api/overview/azure/storage) para fazer upload de imagens. As credenciais de conta de armazenamento estão definidas nas definições da aplicação para a aplicação web. Adicione as definições da aplicação à aplicação implementada com o comando de definição de definições de definição de definições de definição de definições de definição de definição de definições de configurações de config da [az webapp.](/cli/azure/webapp/config/appsettings)
 
@@ -158,7 +158,7 @@ az webapp config appsettings set --name $webapp --resource-group myResourceGroup
     AzureStorageConfig__AccountKey=$blobStorageAccountKey
 ```
 
-# <a name="nodejs-v10-sdk"></a>[Node.js v10 SDK](#tab/nodejsv10)
+# <a name="nodejs-v10"></a>[Node.js v10](#tab/nodejsv10)
 
 A aplicação Web de exemplo utiliza a [Biblioteca de Cliente de Armazenamento do Azure](https://github.com/Azure/azure-storage-js) para pedir tokens de acesso, os quais são utilizados para carregar imagens. As credenciais de conta de armazenamento utilizadas pelo SDK de armazenamento estão definidas nas definições da aplicação para a aplicação web. Adicione as definições da aplicação à aplicação implementada com o comando de definição de definições de definição de definições de definição de definições de definição de definição de definições de configurações de config da [az webapp.](/cli/azure/webapp/config/appsettings)
 
@@ -176,13 +176,13 @@ Depois de implementar e configurar a aplicação web, pode testar a funcionalida
 
 Para testar a aplicação Web, navegue para o URL da aplicação publicada. O URL predefinido da aplicação Web é `https://<web_app>.azurewebsites.net`.
 
-# <a name="net-v12-sdk"></a>[\.NET v12 SDK](#tab/dotnet)
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
 Selecione a região de **fotos do Upload** para especificar e fazer upload de um ficheiro, ou arraste um ficheiro para a região. A imagem desaparece se for carregada com êxito. A secção **Miniaturas Geradas** permanecerá vazia até a testarmos mais tarde neste tópico.
 
 ![Upload Fotos em .NET](media/storage-upload-process-images/figure1.png)
 
-No código da `UploadFileToStorage` amostra, a tarefa no ficheiro *Storagehelper.cs* é utilizada para carregar as imagens para o recipiente de *imagens* dentro da conta de armazenamento utilizando o método [UploadAsync.](/dotnet/api/azure.storage.blobs.blobclient.uploadasync) O exemplo de código seguinte contém a tarefa `UploadFileToStorage`.
+No código da amostra, a `UploadFileToStorage` tarefa no ficheiro *Storagehelper.cs* é utilizada para carregar as imagens para o recipiente de *imagens* dentro da conta de armazenamento utilizando o método [UploadAsync.](/dotnet/api/azure.storage.blobs.blobclient.uploadasync) O exemplo de código seguinte contém a tarefa `UploadFileToStorage`.
 
 ```csharp
 public static async Task<bool> UploadFileToStorage(Stream fileStream, string fileName,
@@ -218,7 +218,7 @@ As classes e métodos seguintes são utilizados na tarefa anterior:
 | [ArmazenamentoSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) | [ArmazenamentoSharedKeyCredential (String, String) construor](/dotnet/api/azure.storage.storagesharedkeycredential.-ctor) |
 | [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) | [UploadAsync](/dotnet/api/azure.storage.blobs.blobclient.uploadasync) |
 
-# <a name="nodejs-v10-sdk"></a>[Node.js v10 SDK](#tab/nodejsv10)
+# <a name="nodejs-v10"></a>[Node.js v10](#tab/nodejsv10)
 
 Selecione **Escolha O Ficheiro** para selecionar um ficheiro e, em seguida, clique em Enviar **imagem**. A secção **Miniaturas Geradas** permanecerá vazia até a testarmos mais tarde neste tópico. 
 
@@ -304,7 +304,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com). No menu à esquer
 
 Verifique se a imagem é apresentada no contentor.
 
-![Lista de imagens do Portal Azure](media/storage-upload-process-images/figure13.png)
+![Lista de portais Azure do contentor de imagens](media/storage-upload-process-images/figure13.png)
 
 ## <a name="test-thumbnail-viewing"></a>Testar a visualização de miniaturas
 
@@ -316,10 +316,10 @@ Escolha um ficheiro com o apanhador de ficheiros e selecione **Upload**.
 
 Navegue novamente para a aplicação para verificar se a imagem carregada no contentor de **miniaturas** está visível.
 
-# <a name="net-v12-sdk"></a>[\.NET v12 SDK](#tab/dotnet)
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 ![.NET aplicativo de resizer de imagem com nova imagem exibida](media/storage-upload-process-images/figure2.png)
 
-# <a name="nodejs-v10-sdk"></a>[Node.js v10 SDK](#tab/nodejsv10)
+# <a name="nodejs-v10"></a>[Node.js v10](#tab/nodejsv10)
 ![App de resizer de imagem Node.js V10 com nova imagem exibida](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 ---

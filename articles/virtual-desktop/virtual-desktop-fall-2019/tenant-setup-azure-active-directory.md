@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 94128c69f227ceff51968354048ec6610e3d7c4c
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 8b08e8e4d6623277d1935fc85e302e8ce3c88eea
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614404"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124402"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>Tutorial: Criar um inquilino no Windows Virtual Desktop
 
@@ -57,7 +57,7 @@ Para conceder as permissões de serviço:
    >https://login.microsoftonline.com/{tenant}/adminconsent?client_id=5a0aa725-4958-4b0c-80a9-34562e23f3b7&redirect_uri=https%3A%2F%2Frdweb.wvd.microsoft.com%2FRDWeb%2FConsentCallback
    >```
 
-2. Inscreva-se na página de consentimento do Windows Virtual Desktop com uma conta de administrador global. Por exemplo, se estivesse com a organização Contoso, a sua conta poderia ser admin@contoso.com ou admin@contoso.onmicrosoft.com.
+2. Inscreva-se na página de consentimento do Windows Virtual Desktop com uma conta de administrador global. Por exemplo, se estivesse com a organização Contoso, a sua conta poderia ser admin@contoso.com ou admin@contoso.onmicrosoft.com .
 3. Selecione **Aceitar**.
 4. Espere um minuto para que o Azure AD possa registar o consentimento.
 5. Abra um navegador e inicie o fluxo de consentimento do administrador para a [aplicação de cliente](https://login.microsoftonline.com/common/adminconsent?client_id=fa4345a4-a730-4230-84a8-7d9651b86739&redirect_uri=https%3A%2F%2Frdweb.wvd.microsoft.com%2FRDWeb%2FConsentCallback)do Windows Virtual Desktop .
@@ -87,7 +87,7 @@ Atribuir a função de candidatura do TenantCreator:
    ![Uma imagem dos utilizadores e grupos atribuídos para gerir a aplicação da empresa "Windows Virtual Desktop". A imagem mostra apenas uma missão, que é para "Acesso Padrão".](../media/tenant-default-access.png)
 4. Selecione **Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** no separador **Adicionar Assignment.**
 5. Procure uma conta de utilizador que crie o seu inquilino do Windows Virtual Desktop. Para a simplicidade, esta pode ser a conta de administrador global.
-   - Se estiver a utilizar um contosoadmin@live.com Fornecedor contosoadmin@outlook.comde Identidade da Microsoft como ou , poderá não conseguir iniciar sessão no Windows Virtual Desktop. Recomendamos a utilização de admin@contoso.com admin@contoso.onmicrosoft.com uma conta específica de domínio, como ou em vez disso.
+   - Se estiver a utilizar um Fornecedor de Identidade da Microsoft como contosoadmin@live.com ou , poderá não conseguir iniciar contosoadmin@outlook.com sessão no Windows Virtual Desktop. Recomendamos a utilização de uma conta específica de domínio, como admin@contoso.com ou admin@contoso.onmicrosoft.com em vez disso.
 
    ![Uma imagem de selecionar um utilizador para adicionar como "TenantCreator".](../media/tenant-assign-user.png)
    > [!NOTE]
@@ -145,13 +145,15 @@ Substitua os valores divididos por valores relevantes para a sua organização e
 New-RdsTenant -Name Contoso -AadTenantId 00000000-1111-2222-3333-444444444444 -AzureSubscriptionId 55555555-6666-7777-8888-999999999999
 ```
 
-É uma boa ideia atribuir acesso administrativo a um segundo utilizador no caso de se encontrar trancado fora da sua conta, ou sair de férias e precisar de alguém para agir como administrador do inquilino na sua ausência. Para atribuir acesso administrativo a um segundo utilizador, execute o seguinte cmdlet com `<TenantName>` e `<Upn>` substituído pelo nome do seu inquilino e pela UPN do segundo utilizador.
+É uma boa ideia atribuir acesso administrativo a um segundo utilizador no caso de se encontrar trancado fora da sua conta, ou sair de férias e precisar de alguém para agir como administrador do inquilino na sua ausência. Para atribuir acesso administrativo a um segundo utilizador, execute o seguinte cmdlet com e substituído pelo nome do `<TenantName>` seu inquilino e pela `<Upn>` UPN do segundo utilizador.
 
 ```powershell
 New-RdsRoleAssignment -TenantName <TenantName> -SignInName <Upn> -RoleDefinitionName "RDS Owner"
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
+
+Para uma passagem mais aprofundada, confira o nosso caminho de [aprendizagem do Windows Virtual Desktop](https://docs.microsoft.com/learn/paths/m365-wvd/).
 
 Depois de criar o seu inquilino, terá de criar um diretor de serviço no Azure Ative Directory e atribuir-lhe um papel no Windows Virtual Desktop. O diretor de serviço permitir-lhe-á implementar com sucesso a oferta do Windows Virtual Desktop Azure Marketplace para criar um pool de anfitriões. Para saber mais sobre as piscinas de anfitriões, continue ao tutorial para criar uma piscina de anfitriões no Windows Virtual Desktop.
 

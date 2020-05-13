@@ -4,21 +4,21 @@ description: Crie uma função que se integra no Azure Logic Apps e nos Serviço
 author: craigshoemaker
 ms.assetid: 60495cc5-1638-4bf0-8174-52786d227734
 ms.topic: tutorial
-ms.date: 11/06/2018
+ms.date: 04/27/2020
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: f6698bcc8125cd00dcb1cd6c86a8d69153242b35
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: aa4087f3eafcd217eedc707697d093155b13b9e6
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190304"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83116426"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Criar uma função que se integra no Azure Logic Apps
 
 As Funções do Azure integram-se com o Azure Logic Apps no Estruturador de Aplicações Lógicas. Esta integração permite-lhe utilizar o poder de computação das Funções em orquestrações com outros serviços do Azure e de terceiros. 
 
-Este tutorial mostra-lhe como utilizar as Funções com o Logic Apps e os Serviços Cognitivos no Azure para executar sentimentos de análise de publicações do Twitter. Uma função acionada por HTTP categoria os tweets como verdes, amarelos ou vermelhos, com base na classificação do sentimento. É enviado um e-mail quando é detetado um sentimento negativo. 
+Este tutorial mostra-lhe como usar funções azure com aplicações lógicas e serviços cognitivos no Azure para executar análise de sentimento a partir de publicações do Twitter. Uma função de gatilho HTTP categoriza os tweets como verde, amarelo ou vermelho com base na pontuação do sentimento. É enviado um e-mail quando é detetado um sentimento negativo. 
 
 ![imagem dos dois primeiros passos da aplicação no Estruturador de Aplicações Lógicas](media/functions-twitter-email/00-logic-app-overview.png)
 
@@ -51,7 +51,7 @@ As APIs dos Serviços Cognitivos estão disponíveis no Azure como recursos indi
 
 2. Clique em **Criar um recurso** no canto superior esquerdo do portal Azure.
 
-3. Clique em Análise de**Texto** **AI + Machine Learning** > . Em seguida, utilize as definições conforme especificado na tabela para criar o recurso.
+3. Clique em Análise de Texto **AI + Machine Learning**  >  **Text Analytics**. Em seguida, utilize as definições conforme especificado na tabela para criar o recurso.
 
     ![Página Criar recurso dos Serviços Cognitivos](media/functions-twitter-email/01-create-text-analytics.png)
 
@@ -64,7 +64,7 @@ As APIs dos Serviços Cognitivos estão disponíveis no Azure como recursos indi
 
 4. Clique em **Criar** para criar o recurso. 
 
-5. Clique em **Descrição geral** e copie o valor de **Ponto final** para um editor de texto. Este valor serve para criar uma ligação para a API dos Serviços Cognitivos.
+5. Clique em **visão geral** e copie o valor do **Endpoint** para um editor de texto. Este valor serve para criar uma ligação para a API dos Serviços Cognitivos.
 
     ![Definições dos Serviços Cognitivos](media/functions-twitter-email/02-cognitive-services.png)
 
@@ -74,21 +74,21 @@ As APIs dos Serviços Cognitivos estão disponíveis no Azure como recursos indi
 
 ## <a name="create-the-function-app"></a>Criar a aplicação de funções
 
-As Funções proporcionam uma excelente forma de descarregar tarefas de processamento num fluxo de trabalho de aplicação lógica. Este tutorial utiliza uma função acionada por HTTP para processar as classificações de sentimentos de tweets dos Serviço Cognitivos e devolver um valor de categoria.  
+A Azure Functions fornece uma ótima maneira de descarregar tarefas de processamento num fluxo de trabalho de aplicações lógicas. Este tutorial usa uma função de gatilho HTTP para processar pontuações de sentimento de tweet dos Serviços Cognitivos e devolver um valor de categoria.  
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-## <a name="create-an-http-triggered-function"></a>Criar uma função acionada por HTTP  
+## <a name="create-an-http-trigger-function"></a>Criar uma função de gatilho HTTP  
 
-1. Expanda a sua **+** aplicação de função e clique no botão ao lado das **Funções**. Se esta for a primeira função na sua aplicação de funções, selecione **No portal**.
+1. A partir do menu esquerdo da janela **Funções,** selecione **Funções**e, em seguida, selecione **Adicionar** a partir do menu superior.
 
-    ![Início rápido das funções no portal do Azure](media/functions-twitter-email/05-function-app-create-portal.png)
+2. A partir da janela **New Function,** selecione **http trigger**.
 
-2. Em seguida, selecione **Webhook + API** e clique em **Criar**. 
+    ![Escolha função de gatilho HTTP](./media/functions-twitter-email/06-function-http-trigger.png)
 
-    ![Escolher o acionador HTTP](./media/functions-twitter-email/06-function-webhook.png)
+3. A partir da página **New Function,** selecione **Criar Função**.
 
-3. Substitua o conteúdo do ficheiro `run.csx` pelo código seguinte e clique em **Guardar**:
+4. Na sua nova função de gatilho HTTP, selecione **Código + Teste** a partir do menu esquerdo, substitua o conteúdo do ficheiro com o seguinte código `run.csx` e, em seguida, selecione **Guardar:**
 
     ```csharp
     #r "Newtonsoft.Json"
@@ -123,11 +123,12 @@ As Funções proporcionam uma excelente forma de descarregar tarefas de processa
             : new BadRequestObjectResult("Please pass a value on the query string or in the request body");
     }
     ```
+
     Este código de função devolve uma categoria de cor com base na classificação de sentimento recebida no pedido. 
 
-4. Para testar a função, clique em **Testar** na extrema direita `0.2` para expandir o separador Teste. Digite um valor para o **corpo de Pedido,** e, em seguida, clique em **Executar**. É devolvido o valor **RED** no corpo da resposta. 
+5. Para testar a função, selecione **Teste** a partir do menu superior. No separador **De entrada,** introduza um valor no `0.2` **Corpo**e, em seguida, selecione **Executar**. Um valor de **RED** é devolvido no conteúdo de **resposta HTTP** no separador **Saída.** 
 
-    ![Testar a função no portal do Azure](./media/functions-twitter-email/07-function-test.png)
+    :::image type="content" source="./media/functions-twitter-email/07-function-test.png" alt-text="Definir as definições de procuração":::
 
 Agora, tem uma função que categoriza classificações de sentimentos. Em seguida, vai criar uma aplicação lógica que integra a sua função com o Twitter e a API dos Serviços Cognitivos. 
 
@@ -135,7 +136,7 @@ Agora, tem uma função que categoriza classificações de sentimentos. Em segui
 
 1. No portal Azure, clique no botão **Criar um botão de recurso** encontrado no canto superior esquerdo do portal Azure.
 
-2. Clique na**aplicação** **Lógica Web** > .
+2. Clique **Web**na  >  **aplicação**Lógica Web .
  
 3. Em seguida, escreva um valor para **Nome**, como `TweetSentiment`, e utilize as definições conforme especificado na tabela.
 
@@ -187,7 +188,7 @@ A sua aplicação está agora ligada ao Twitter. Em seguida, vai ligar à análi
 
     ![Novo passo e Adicionar uma ação](media/functions-twitter-email/12-connection-settings.png)
 
-4. Em seguida, introduza o **Texto do Tweet** na caixa de texto e clique em **Novo Passo**.
+4. Em seguida, introduza o **texto do Tweet** na caixa de texto e, em seguida, clique em New **Step**.
 
     ![Defina o texto a analisar](media/functions-twitter-email/13-analyze-tweet-text.png)
 
@@ -195,7 +196,7 @@ Agora que a deteção de sentimentos está configurada, pode adicionar uma liga�
 
 ## <a name="connect-sentiment-output-to-your-function"></a>Ligar a saída do sentimento à função
 
-1. No Designer de Aplicações Lógicas, clique em **Novo passo** > **Adicione uma ação,** filtre nas **funções do Azure** e clique **Em Escolher uma função Azure**.
+1. No Designer de Aplicações Lógicas, clique em **Novo passo**  >  **Adicione uma ação,** filtre nas **funções do Azure** e clique **Em Escolher uma função Azure**.
 
     ![Detetar Sentimento](media/functions-twitter-email/14-azure-functions.png)
   
@@ -215,9 +216,9 @@ Agora, a função é acionada quando é enviada uma classificação de sentiment
 
 ## <a name="add-email-notifications"></a>Adicionar notificações por e-mail
 
-A última parte do fluxo de trabalho é acionar um e-mail quando o sentimento é classificado como _RED_. Este tópico utiliza um conector do Outlook.com. Pode seguir passos semelhantes para utilizar um conector do Gmail ou do Outlook do Office 365.   
+A última parte do fluxo de trabalho é acionar um e-mail quando o sentimento é classificado como _RED_. Este artigo usa um conector Outlook.com. Pode seguir passos semelhantes para utilizar um conector do Gmail ou do Outlook do Office 365.   
 
-1. No Designer de Aplicações Lógicas, clique em **Novo passo** > **Adicione uma condição**. 
+1. No Designer de Aplicações Lógicas, clique em **Novo passo**  >  **Adicione uma condição**. 
 
     ![Adicione uma condição à aplicação lógica.](media/functions-twitter-email/18-add-condition.png)
 
@@ -277,7 +278,7 @@ Agora que o fluxo de trabalho está concluído, pode ativar a aplicação lógic
     > [!IMPORTANT]
     > Depois de concluir este tutorial, deve desativar a aplicação lógica. Ao desativar a aplicação, evita ser cobrado por execuções e esgotar as transações na sua API dos Serviços Cognitivos.
 
-Acabou de ver como é fácil integrar Funções num fluxo de trabalho das Aplicações Lógicas.
+Agora já viu como é fácil integrar funções num fluxo de trabalho de Aplicações Lógicas.
 
 ## <a name="disable-the-logic-app"></a>Desativar a aplicação lógica
 

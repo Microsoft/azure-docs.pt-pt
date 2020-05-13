@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3195be3486aaafa91a22b6f6e9cb4fd5f4fe6de2
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: d9effbe29917c774279b6e9d203f44d5ad5c72e2
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930000"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121053"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Tutorial: Criar uma piscina de acolhimento com o portal Azure
 
 >[!IMPORTANT]
->Este conteúdo aplica-se à atualização da primavera de 2020 com os objetos de ambiente de trabalho virtual do Gestor de Recursos Do Azure Windows. Se estiver a utilizar o lançamento do Windows Virtual Desktop Fall 2019 sem objetos do Gestor de Recursos Azure, consulte [este artigo](./virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md).
+>Este conteúdo aplica-se à atualização da primavera de 2020 com os objetos de ambiente de trabalho virtual do Gestor de Recursos Do Azure Windows. Se estiver a utilizar o lançamento do Windows Virtual Desktop Fall 2019 sem objetos do Gestor de Recursos Azure, consulte [este artigo](./virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md). Quaisquer artigos que crie com o Windows Vritual Desktop Fall 2019 não podem ser geridos com o portal Azure.
 >
 > A atualização Do Windows Virtual Desktop Spring 2020 encontra-se atualmente em pré-visualização pública. Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não recomendamos usá-la para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. 
 > Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
@@ -105,7 +105,7 @@ Para configurar a sua máquina virtual dentro do processo de configuração do p
     >[!NOTE]
     >O processo de configuração pode criar até 400 VMs enquanto configura o seu pool de hospedeiro, e cada processo de configuração VM cria quatro objetos no seu grupo de recursos. Uma vez que os proces de criação não verificam a sua quota de subscrição, certifique-se de que o número de VMs que introduz está dentro dos limites de VM e API Azure para o seu grupo de recursos e subscrição. Pode adicionar mais VMs depois de terminar de criar a sua piscina de anfitriões.
 
-5. Depois disso, forneça um **prefixo de nome** para nomear as máquinas virtuais que o processo de configuração cria. O sufixo `-` será com números a partir de 0.
+5. Depois disso, forneça um **prefixo de nome** para nomear as máquinas virtuais que o processo de configuração cria. O sufixo será `-` com números a partir de 0.
 
 6. Em seguida, escolha a imagem que precisa de ser usada para criar a máquina virtual. Pode escolher **galeria** ou **Blob de Armazenamento.**
 

@@ -2,26 +2,26 @@
 title: Tutorial - Use uma imagem VM personalizada em um conjunto de escala com Azure PowerShell
 description: Saiba como utilizar o Azure PowerShell para criar uma imagem de VM personalizada que pode utilizar para implementar um conjunto de dimensionamento de máquinas virtuais
 author: cynthn
-tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.subservice: imaging
 ms.topic: tutorial
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 4b072991a86922fe2b4ba5be93b4c96841dc24af
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.custom: akjosh
+ms.openlocfilehash: 3f99b68de4bce37e7ba9ce6656cf401209e73105
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792773"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200928"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-azure-powershell"></a>Tutorial: Criar e utilizar uma imagem personalizada para conjuntos de dimensionamento de máquinas virtuais com o Azure PowerShell
 
 Quando cria um conjunto de dimensionamento, tem de especificar uma imagem a ser utilizada quando as instâncias de VM são implementadas. Para reduzir o número de tarefas após as instâncias de VM serem implementadas, pode utilizar uma imagem de VM personalizada. Esta imagem de VM personalizada inclui instalações ou configurações de aplicações obrigatórias. Quaisquer instâncias de VM criadas no conjunto de dimensionamento utilizam a imagem de VM personalizada e estão prontas para apresentar o seu tráfego de aplicações. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Criar uma Galeria de Imagem Partilhada
+> * Criar um Shared Image Gallery
 > * Criar uma definição de imagem
 > * Criar uma versão de imagem
 > * Criar um conjunto de escala a partir de uma imagem 
@@ -39,12 +39,12 @@ Para concluir o exemplo neste tutorial, tem de ter uma máquina virtual existent
 
 O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. 
 
-Para abrir o Cloud Shell, basta selecionar **Experimente** no canto superior direito de um bloco de código. Também pode lançar cloud Shell em um [https://shell.azure.com/powershell](https://shell.azure.com/powershell)separado separado browser, indo para . Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
+Para abrir o Cloud Shell, basta selecionar **Experimente** no canto superior direito de um bloco de código. Também pode lançar cloud Shell em um separado separado browser, indo para [https://shell.azure.com/powershell](https://shell.azure.com/powershell) . Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
 
 
 ## <a name="get-the-vm"></a>Obter o VM
 
-Pode ver uma lista de VMs que estão disponíveis num grupo de recursos usando [o Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). Assim que souber o nome VM e `Get-AzVM` que grupo de recursos, pode voltar a usar para obter o objeto VM e armazená-lo numa variável para usar mais tarde. Este exemplo obtém um VM chamado *fonteVM* do grupo de recursos "myResourceGroup" e atribui-o à variável *$vm*. 
+Pode ver uma lista de VMs que estão disponíveis num grupo de recursos usando [o Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). Assim que souber o nome VM e que grupo de recursos, pode voltar a usar `Get-AzVM` para obter o objeto VM e armazená-lo numa variável para usar mais tarde. Este exemplo obtém um VM chamado *fonteVM* do grupo de recursos "myResourceGroup" e atribui-o à variável *$vm*. 
 
 ```azurepowershell-interactive
 $sourceVM = Get-AzVM `
@@ -106,7 +106,7 @@ Os caracteres permitidos para a versão de imagem são números e períodos. Os 
 
 Neste exemplo, a versão de imagem é *de 1.0.0* e é replicada tanto para centros de dados dos *EUA Orientais* como *para o Centro Sul dos EUA.* Ao escolher as regiões-alvo para replicação, é necessário incluir a região *de origem* como alvo de replicação.
 
-Para criar uma versão de imagem `$vm.Id.ToString()` a `-Source`partir do VM, utilize para o .
+Para criar uma versão de imagem a partir do VM, utilize `$vm.Id.ToString()` para `-Source` o .
 
 ```azurepowershell-interactive
 $region1 = @{Name='South Central US';ReplicaCount=1}
@@ -228,7 +228,7 @@ A criação e configuração de todas as VMs e recursos do conjunto de dimension
 
 ## <a name="share-the-gallery"></a>Partilhar a galeria
 
-Recomendamos que partilhe o acesso ao nível da galeria de imagens. Utilize um endereço de e-mail e o cmdlet [Get-AzADUser](/powershell/module/az.resources/get-azaduser) para obter o ID do objeto para o utilizador, em seguida, use [New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment) para dar-lhes acesso à galeria. Substitua o alinne_montes@contoso.com e-mail de exemplo, neste exemplo, com a sua própria informação.
+Recomendamos que partilhe o acesso ao nível da galeria de imagens. Utilize um endereço de e-mail e o cmdlet [Get-AzADUser](/powershell/module/az.resources/get-azaduser) para obter o ID do objeto para o utilizador, em seguida, use [New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment) para dar-lhes acesso à galeria. Substitua o e-mail de exemplo, alinne_montes@contoso.com neste exemplo, com a sua própria informação.
 
 ```azurepowershell-interactive
 # Get the object ID for the user
@@ -262,7 +262,7 @@ A Azure também oferece um serviço, construído em Packer, [Azure VM Image Buil
 Neste tutorial, aprendeu a criar e utilizar uma imagem de VM personalizada nos seus conjuntos de dimensionamento com o Azure PowerShell:
 
 > [!div class="checklist"]
-> * Criar uma Galeria de Imagem Partilhada
+> * Criar um Shared Image Gallery
 > * Criar uma definição de imagem
 > * Criar uma versão de imagem
 > * Criar um conjunto de escala a partir de uma imagem 
