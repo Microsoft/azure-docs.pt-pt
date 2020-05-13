@@ -1,20 +1,20 @@
 ---
 title: Lidar com eventos de mapas [ Microsoft Azure Maps
 description: Neste artigo, você aprenderá a fazer um mapa Web SDK interativo com eventos de mapas usando o Web SDK do Microsoft Azure Maps.
-author: jinzh-azureiot
-ms.author: jinzh
+author: Philmea
+ms.author: philmea
 ms.date: 09/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: b97371d1b63ad4abfe1635e426df1449ab5f3f14
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92108873d4a91c845f4a1f2685cf50942513510e
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79534903"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124011"
 ---
 # <a name="interact-with-the-map"></a>Interaja com o mapa
 
@@ -26,7 +26,7 @@ Jogue com o mapa abaixo e veja os eventos correspondentes do rato realçados à 
 
 <br/>
 
-<iframe height='600' scrolling='no' title='Interagindo com o mapa – eventos de rato' src='//codepen.io/azuremaps/embed/bLZEWd/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Veja a Caneta <a href='https://codepen.io/azuremaps/pen/bLZEWd/'>Interagir com o mapa – eventos</a> de rato por Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
+<iframe height='600' scrolling='no' title='Interagindo com o mapa – eventos de rato' src='//codepen.io/azuremaps/embed/bLZEWd/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Veja a Caneta <a href='https://codepen.io/azuremaps/pen/bLZEWd/'>Interagir com o mapa – eventos</a> de rato por Azure Maps ( ) em <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="interact-with-map-layers"></a>Interaja com camadas de mapa
@@ -35,7 +35,7 @@ O código seguinte destaca o evento disparado enquanto interage com a Camada de 
 
 <br/>
 
-<iframe height='600' scrolling='no' title='Interagindo com o mapa – Eventos de Camadas' src='//codepen.io/azuremaps/embed/bQRRPE/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Veja a Caneta <a href='https://codepen.io/azuremaps/pen/bQRRPE/'>Interagindo com o mapa – Eventos de Camadas</a> por Azure Maps ()<a href='https://codepen.io/azuremaps'>@azuremaps</a>em <a href='https://codepen.io'>CodePen</a>.
+<iframe height='600' scrolling='no' title='Interagindo com o mapa – Eventos de Camadas' src='//codepen.io/azuremaps/embed/bQRRPE/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Veja a Caneta <a href='https://codepen.io/azuremaps/pen/bQRRPE/'>Interagindo com o mapa – Eventos de Camadas</a> por Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="interact-with-html-marker"></a>Interaja com o marcador HTML
@@ -44,7 +44,7 @@ O código seguinte adiciona eventos de mapas Javascript a um marcador HTML. Tamb
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Interagindo com o mapa - Eventos de marcador HTML' src='//codepen.io/azuremaps/embed/VVzKJY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Veja a Caneta <a href='https://codepen.io/azuremaps/pen/VVzKJY/'>Interagindo com o mapa - EVENTOS DE Marcador HTML</a> por Azure Maps ()<a href='https://codepen.io/azuremaps'>@azuremaps</a>em <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Interagindo com o mapa - Eventos de marcador HTML' src='//codepen.io/azuremaps/embed/VVzKJY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Veja a Caneta <a href='https://codepen.io/azuremaps/pen/VVzKJY/'>Interagindo com o mapa - EVENTOS DE Marcador HTML</a> por Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 A tabela seguinte lista todos os eventos de classe de mapas suportados.
@@ -57,9 +57,9 @@ A tabela seguinte lista todos os eventos de classe de mapas suportados.
 | `close`             | Disparado quando o pop-up é fechado manualmente ou programaticamente.|
 | `contextmenu`       | Disparado quando o botão certo do rato é clicado.|
 | `data`              | Disparado quando qualquer mapa de dados carrega ou muda. |
-| `dataadded`         | Disparado quando as formas `DataSource`são adicionadas ao .|
-| `dataremoved`       | Disparado quando as formas `DataSource`são removidas do .|
-| `datasourceupdated` | Disparado quando `DataSource` o objeto é atualizado.|
+| `dataadded`         | Disparado quando as formas são adicionadas ao `DataSource` .|
+| `dataremoved`       | Disparado quando as formas são removidas do `DataSource` .|
+| `datasourceupdated` | Disparado quando o `DataSource` objeto é atualizado.|
 | `dblclick`          | Disparado quando um dispositivo de pontaé clicado duas vezes no mesmo ponto do mapa.|
 | `drag`              | Disparado repetidamente durante uma interação "arrastar para pan" no mapa, popup ou marcador HTML.|
 | `dragend`           | Disparado quando uma interação "arrastar para a panela" termina no mapa, popup ou marcador HTML.|
@@ -87,15 +87,15 @@ A tabela seguinte lista todos os eventos de classe de mapas suportados.
 | `pitchend`          | Disparado imediatamente após o pitch (inclinação) do mapa termina a mudança como resultado de uma interação ou métodos do utilizador.|
 | `pitchstart`        | Disparado sempre que o tom do mapa (inclinação) inicia uma mudança como resultado de uma interação ou métodos do utilizador.|
 | `ready`             | Disparado quando os recursos mínimos necessários são carregados antes que o mapa esteja pronto para ser interagido programáticamente com.|
-| `render`            | <p>Disparado sempre que o mapa é desenhado para o ecrã, como resultado de:<ul><li>Uma mudança na posição do mapa, zoom, pitch ou rolamento.</li><li>Uma mudança no estilo do mapa.</li><li>Uma mudança `DataSource` para uma fonte.</li><li>O carregamento de um azulejo vetorial, arquivo GeoJSON, glifo ou sprite.</li></ul></p>|
+| `render`            | <p>Disparado sempre que o mapa é desenhado para o ecrã, como resultado de:<ul><li>Uma mudança na posição do mapa, zoom, pitch ou rolamento.</li><li>Uma mudança no estilo do mapa.</li><li>Uma mudança para uma `DataSource` fonte.</li><li>O carregamento de um azulejo vetorial, arquivo GeoJSON, glifo ou sprite.</li></ul></p>|
 | `resize`            | Disparado imediatamente após o mapa ter sido redimensionado.|
 | `rotate`            | Disparado repetidamente durante uma interação "arrastar para rodar".|
 | `rotateend`         | Disparado quando termina uma interação "arrastar para rodar".|
 | `rotatestart`       | Disparado quando começa uma interação "arrastar para rodar".|
 | `shapechanged`      | Disparado quando uma propriedade de objeto de forma é alterada.|
 | `sourcedata`        | Disparado quando uma das fontes do mapa carrega ou muda, incluindo se um azulejo pertencente a uma fonte carrega ou muda. |
-| `sourceadded`       | Disparado quando `DataSource` `VectorTileSource` a ou é adicionado ao mapa.|
-| `sourceremoved`     | Disparado quando `DataSource` `VectorTileSource` a ou é removido do mapa.|
+| `sourceadded`       | Disparado quando a `DataSource` ou é adicionado ao `VectorTileSource` mapa.|
+| `sourceremoved`     | Disparado quando `DataSource` a ou é removido do `VectorTileSource` mapa.|
 | `styledata`         | Disparado quando o estilo do mapa carrega ou muda.|
 | `styleimagemissing` | Disparado quando uma camada tenta carregar uma imagem do sprite de imagem que não existe |
 | `tokenacquired`     | Disparado quando um sinal de acesso AAD é obtido.|

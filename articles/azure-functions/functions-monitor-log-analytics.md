@@ -3,14 +3,14 @@ title: Monitorização de funções azure com registos de monitores Azure
 description: Aprenda a utilizar registos de monitores Azure com funções Azure para monitorizar as execuções de funções.
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 04/15/2020
 ms.author: cshoe
-ms.openlocfilehash: 13c72a1cf8a0dd4a1124e51b9ceee04ae04bf261
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4b21912de95ccba1d97d187922bfada4d9dc2c56
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77649879"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121653"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-logs"></a>Monitorização de funções azure com registos de monitores Azure
 
@@ -25,17 +25,23 @@ O Azure Monitor utiliza uma versão da [linguagem de consulta Kusto](/azure/kust
 
 ## <a name="setting-up"></a>Configuração
 
-Na secção **de Monitorização,** selecione **definições** de diagnóstico e, em seguida, clique em **adicionar definição de diagnóstico**.
+1. A partir da secção **de Monitorização** da sua aplicação de funções no [portal Azure,](https://portal.azure.com)selecione **definições**de diagnóstico e, em seguida, **selecione Adicionar definição**de diagnóstico .
 
-![Adicione uma definição de diagnóstico](media/functions-monitor-log-analytics/diagnostic-settings-add.png)
+   :::image type="content" source="media/functions-monitor-log-analytics/diagnostic-settings-add.png" alt-text="Selecione definições de diagnóstico":::
 
-Na página de **definições** de Diagnóstico, escolha **Enviar para Registar Analytics**e, em seguida, selecione o seu espaço de trabalho Log Analytics. Em **registo** escolha **FunctionAppLogs**, esta tabela contém os registos desejados.
+1. Na página de definições de **Diagnóstico,** em **detalhes de categoria** e **registo,** escolha O Funcionamento dos **AppLogs**.
 
-![Adicione uma definição de diagnóstico](media/functions-monitor-log-analytics/choose-table.png)
+   A tabela **FunctionAppLogs** contém os registos desejados.
+
+1. Em **detalhes do Destino,** escolha **Enviar para Registar Analytics**.e, em seguida, selecione o seu espaço de trabalho **Log Analytics**. 
+
+1. Introduza um nome de **definições de diagnóstico**e, em seguida, selecione **Guardar**.
+
+   :::image type="content" source="media/functions-monitor-log-analytics/choose-table.png" alt-text="Adicione uma definição de diagnóstico":::
 
 ## <a name="user-generated-logs"></a>Registos gerados pelo utilizador
 
-Para gerar registos personalizados, pode utilizar a declaração de registo específica dependendo da sua língua, aqui estão os snippets de código de amostra:
+Para gerar registos personalizados, utilize a declaração de registo específica da sua língua. Aqui estão os fragmentos de código de amostra:
 
 
 # <a name="c"></a>[C #](#tab/csharp)
@@ -72,11 +78,19 @@ logging.info('My app logs here.')
 
 ## <a name="querying-the-logs"></a>Consultando os troncos
 
-Para consultar os registos gerados, aceda ao espaço de trabalho do Log Analytics que configuraste para enviar os registos de função e clicar em **Registos**.
+Para consultar os registos gerados:
+ 
+1. A partir da sua aplicação de funções, selecione **definições de diagnóstico**. 
 
-![Janela de consulta no espaço de trabalho de LA](media/functions-monitor-log-analytics/querying.png)
+1. A partir da lista de definições de **Diagnóstico,** selecione o espaço de trabalho do Log Analytics para o que configurapara enviar os registos de função. 
 
-As Funções Azure escrevem todos os registos na tabela **FunctionAppLogs,** aqui estão algumas consultas de amostra.
+1. A partir da página do **espaço de trabalho Log Analytics,** selecione **Registos**.
+
+   As Funções Azure escrevem todos os registos na tabela **FunctionAppLogs** em **LogManagement**. 
+
+   :::image type="content" source="media/functions-monitor-log-analytics/querying.png" alt-text="Janela de consulta no espaço de trabalho log Analytics":::
+
+Aqui estão algumas consultas de amostra:
 
 ### <a name="all-logs"></a>Todos os registos
 
@@ -87,7 +101,7 @@ FunctionAppLogs
 
 ```
 
-### <a name="a-specific-function-logs"></a>Um registo de função específico
+### <a name="specific-function-logs"></a>Registos de funções específicos
 
 ```
 
@@ -108,6 +122,6 @@ FunctionAppLogs
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Rever a visão geral das [Funções Azure](functions-overview.md)
-- Saiba mais sobre [os registos do Monitor Azure](../azure-monitor/platform/data-platform-logs.md)
+- Reveja a visão geral das [Funções Azure.](functions-overview.md)
+- Saiba mais sobre [os registos do Monitor Azure](../azure-monitor/platform/data-platform-logs.md).
 - Saiba mais sobre a [linguagem de consulta.](../azure-monitor/log-query/get-started-queries.md)

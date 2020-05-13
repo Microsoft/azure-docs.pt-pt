@@ -13,12 +13,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/21/2020
 tags: azure-synapse
-ms.openlocfilehash: f05b4d4fec99aaa2fb79da46e2167d883d1f15ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 27989687934719be5f1d18b85d3ead92f28b3f60
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81766958"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123858"
 ---
 # <a name="data-discovery--classification-for-azure-sql-database-and-azure-synapse-analytics"></a>Data Discovery & Classificação para Base de Dados Azure SQL e Azure Synapse Analytics
 
@@ -113,7 +113,7 @@ Depois de definida a política em toda a organização, pode continuar a classif
 
 ## <a name="audit-access-to-sensitive-data"></a><a id="audit-sensitive-data"></a>Acesso de auditoria a dados sensíveis
 
-Um aspeto importante do paradigma da proteção da informação é a capacidade de monitorizar o acesso a dados sensíveis. A auditoria da Base de [Dados Azure SQL](sql-database-auditing.md) foi melhorada `data_sensitivity_information`para incluir um novo campo no registo de auditoria chamado . Este campo regista as classificações de sensibilidade (etiquetas) dos dados que foram devolvidos por uma consulta. Segue-se um exemplo:
+Um aspeto importante do paradigma da proteção da informação é a capacidade de monitorizar o acesso a dados sensíveis. A auditoria da Base de [Dados Azure SQL](sql-database-auditing.md) foi melhorada para incluir um novo campo no registo de auditoria chamado `data_sensitivity_information` . Este campo regista as classificações de sensibilidade (etiquetas) dos dados que foram devolvidos por uma consulta. Segue-se um exemplo:
 
 ![Registo de auditoria](./media/sql-data-discovery-and-classification/11_data_classification_audit_log.png)
 
@@ -152,18 +152,6 @@ Para obter informações sobre a utilização do T-SQL para classificações, co
 - Para remover a classificação de uma ou mais colunas: [CLASSIFICAÇÃO DE SENSIBILIDADE DE QUEDA](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
 - Para ver todas as classificações na base de dados: [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
-### <a name="use-the-rest-api"></a>Use a API do descanso
-
-Pode utilizar a API REST para gerir programáticamente classificações e recomendações. A API rest publicada apoia as seguintes operações:
-
-- [Criar ou atualizar:](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate)Cria ou atualiza o rótulo de sensibilidade da coluna especificada.
-- [Eliminar](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete): Elimina a etiqueta de sensibilidade da coluna especificada.
-- [Recomendação de desativação](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/disablerecommendation): Desativa recomendações de sensibilidade na coluna especificada.
-- [Recomendação ativa :](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/enablerecommendation)Permite recomendações de sensibilidade na coluna especificada. (As recomendações são ativadas por padrão em todas as colunas.)
-- [Obter](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get): Obtém o rótulo de sensibilidade da coluna especificada.
-- [Lista Corrente por Base de Dados](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase): Obtém os rótulos de sensibilidade atuais da base de dados especificada.
-- [Lista Recomendada por Base](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase)de Dados : Obtém os rótulos de sensibilidade recomendados da base de dados especificada.
-
 ### <a name="use-powershell-cmdlets"></a>Utilizar cmdlets do PowerShell
 Pode utilizar o PowerShell para gerir classificações e recomendações para a Base de Dados Azure SQL e instâncias geridas.
 
@@ -185,6 +173,17 @@ Pode utilizar o PowerShell para gerir classificações e recomendações para a 
 - [Recomendação de sensibilidade à base de dados Enable-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/enable-azsqlinstancedatabasesensitivityrecommendation)
 - [Recomendação de sensibilidade acasos](https://docs.microsoft.com/powershell/module/az.sql/disable-azsqlinstancedatabasesensitivityrecommendation)
 
+### <a name="use-the-rest-api"></a>Use a API do descanso
+
+Pode utilizar a API REST para gerir programáticamente classificações e recomendações. A API rest publicada apoia as seguintes operações:
+
+- [Criar ou atualizar:](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate)Cria ou atualiza o rótulo de sensibilidade da coluna especificada.
+- [Eliminar](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete): Elimina a etiqueta de sensibilidade da coluna especificada.
+- [Recomendação de desativação](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/disablerecommendation): Desativa recomendações de sensibilidade na coluna especificada.
+- [Recomendação ativa :](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/enablerecommendation)Permite recomendações de sensibilidade na coluna especificada. (As recomendações são ativadas por padrão em todas as colunas.)
+- [Obter](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get): Obtém o rótulo de sensibilidade da coluna especificada.
+- [Lista Corrente por Base de Dados](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase): Obtém os rótulos de sensibilidade atuais da base de dados especificada.
+- [Lista Recomendada por Base](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase)de Dados : Obtém os rótulos de sensibilidade recomendados da base de dados especificada.
 
 ## <a name="next-steps"></a><a id="next-steps"></a>Passos seguintes
 

@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: jehollan
-ms.openlocfilehash: 2c06fdba8f60243acf4e0fabd23df8b832c210db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5c050eb38e47ce2ab9d11e5c92eb7bdd3ac8e572
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78301680"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121699"
 ---
 # <a name="azure-functions-on-kubernetes-with-keda"></a>Funções Azure em Kubernetes com KEDA
 
@@ -28,11 +28,11 @@ Para executar funções no seu cluster Kubernetes, tem de instalar o componente 
 
 ### <a name="installing-with-helm"></a>Instalação com Leme
 
-Existem várias formas de instalar keda em qualquer cluster Kubernetes, incluindo Helm.  As opções de implementação estão documentadas no site da [KEDA](https://keda.sh/deploy/).
+Existem várias formas de instalar keda em qualquer cluster Kubernetes, incluindo Helm.  As opções de implementação estão documentadas no site da [KEDA](https://keda.sh/docs/deploy/).
 
 ## <a name="deploying-a-function-app-to-kubernetes"></a>Implementação de uma aplicação de função para kubernetes
 
-Pode implementar qualquer aplicação de função para um cluster Kubernetes que executa a KEDA.  Uma vez que as suas funções funcionam `Dockerfile`num contentor do Docker, o seu projeto precisa de um .  Se ainda não tiver um, pode adicionar um Dockerfile executando o seguinte comando na raiz do seu projeto Funções:
+Pode implementar qualquer aplicação de função para um cluster Kubernetes que executa a KEDA.  Uma vez que as suas funções funcionam num contentor do Docker, o seu projeto precisa de `Dockerfile` um .  Se ainda não tiver um, pode adicionar um Dockerfile executando o seguinte comando na raiz do seu projeto Funções:
 
 ```cli
 func init --docker-only
@@ -41,23 +41,23 @@ func init --docker-only
 Para construir uma imagem e implementar as suas funções para Kubernetes, execute o seguinte comando:
 
 > [!NOTE]
-> As Ferramentas Core alavancarão o DOCKER CLI para construir e publicar a imagem. Certifique-se de que já instalou o `docker login`estivador e está ligado à sua conta com .
+> As Ferramentas Core alavancarão o DOCKER CLI para construir e publicar a imagem. Certifique-se de que já instalou o estivador e está ligado à sua conta com `docker login` .
 
 ```cli
 func kubernetes deploy --name <name-of-function-deployment> --registry <container-registry-username>
 ```
 
-> Substitua-o `<name-of-function-deployment>` pelo nome da sua aplicação de funções.
+> `<name-of-function-deployment>`Substitua-o pelo nome da sua aplicação de funções.
 
-Isto cria um recurso `Deployment` Kubernetes, um `ScaledObject` recurso, e `Secrets`, `local.settings.json` que inclui variáveis ambientais importadas do seu arquivo.
+Isto cria um recurso Kubernetes, `Deployment` um `ScaledObject` recurso, e `Secrets` , que inclui variáveis ambientais importadas do seu `local.settings.json` arquivo.
 
 ### <a name="deploying-a-function-app-from-a-private-registry"></a>Implementação de uma aplicação de função a partir de um registo privado
 
-O fluxo acima funciona também para os registos privados.  Se estiver a retirar a sua imagem de `--pull-secret` contentor de um registo privado, inclua a bandeira `func kubernetes deploy`que faz referência ao segredo kubernetes que mantém as credenciais de registo privado ao executar .
+O fluxo acima funciona também para os registos privados.  Se estiver a retirar a sua imagem de contentor de um registo privado, inclua a `--pull-secret` bandeira que faz referência ao segredo kubernetes que mantém as credenciais de registo privado ao executar `func kubernetes deploy` .
 
 ## <a name="removing-a-function-app-from-kubernetes"></a>Remover uma aplicação de função da Kubernetes
 
-Após a implantação, pode remover uma `Deployment` `ScaledObject`função `Secrets` removendo o associado, um criado.
+Após a implantação, pode remover uma função removendo o `Deployment` `ScaledObject` associado, um `Secrets` criado.
 
 ```cli
 kubectl delete deploy <name-of-function-deployment>

@@ -2,17 +2,19 @@
 title: Exemplo Proteção para casos de conjunto de máquinas virtuais Azure
 description: Aprenda a proteger as instâncias de conjunto de máquinas virtuais Azure de operações de escala e de escala.
 author: avirishuv
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
-ms.date: 02/26/2020
 ms.author: avverma
-ms.openlocfilehash: 021faad28fb575c4ffeb4d895ad451d8cd82b1a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: availability
+ms.date: 02/26/2020
+ms.reviewer: jushiman
+ms.custom: avverma
+ms.openlocfilehash: 8c4944da8ffcaa75e6448483918a29809c32830b
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254121"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124062"
 ---
 # <a name="instance-protection-for-azure-virtual-machine-scale-set-instances"></a>Exemplo Proteção para casos de conjunto de máquinas virtuais Azure
 

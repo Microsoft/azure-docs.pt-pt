@@ -3,14 +3,14 @@ title: Configurar as definições da aplicação de funções em Azure
 description: Saiba como configurar as definições da aplicação de funções Azure.
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
-ms.date: 08/14/2019
+ms.date: 04/13/2020
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 662a04dbcc39f3fa95b0098eb8fe556b18b3495b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 057c030b060343d5bc6f85c38d61feee0b01dfde
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79276949"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83122307"
 ---
 # <a name="manage-your-function-app"></a>Gerir a sua aplicação de funções 
 
@@ -27,15 +27,17 @@ Este artigo descreve como configurar e gerir as suas aplicações de função.
 
 ## <a name="get-started-in-the-azure-portal"></a>Começar a utilizar o portal do Azure
 
-Para começar, vá ao [portal Azure] e inscreva-se na sua conta Azure. Na barra de pesquisa na parte superior do portal, escreva o nome da sua aplicação de função e selecione-a na lista. Depois de selecionar a sua aplicação de funções, consulte a seguinte página:
+1. Para começar, vá ao [portal Azure] e inscreva-se na sua conta Azure. Na barra de pesquisa na parte superior do portal, introduza o nome da sua aplicação de funções e selecione-a na lista. 
 
-![Visão geral da aplicação de funções no portal Azure](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
+2. Em **Definições** no painel esquerdo, **selecione Configuração**.
+
+    :::image type="content" source="./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png" alt-text="Visão geral da aplicação de funções no portal Azure":::
 
 Pode navegar para tudo o que precisa para gerir a sua aplicação de funções a partir da página de visão geral, em particular as **[definições](#settings)** de Aplicação e **[funcionalidades da Plataforma](#platform-features)**.
 
 ## <a name="application-settings"></a><a name="settings"></a>Definições da aplicação
 
-O separador Definições de **Aplicação** mantém as definições utilizadas pela sua aplicação de função. Estas definições são armazenadas encriptadas e deve selecionar **valores do Show** para ver os valores no portal. Também pode aceder às definições de aplicações utilizando o Azure CLI.
+O separador **de definições da Aplicação** mantém as definições utilizadas pela sua aplicação de função. Estas definições são armazenadas encriptadas e deve selecionar **valores do Show** para ver os valores no portal. Também pode aceder às definições de aplicações utilizando o Azure CLI.
 
 ### <a name="portal"></a>Portal
 
@@ -52,7 +54,7 @@ az functionapp config appsettings list --name <FUNCTION_APP_NAME> \
 --resource-group <RESOURCE_GROUP_NAME>
 ```
 
-O [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) comando adiciona ou atualiza uma definição de aplicação. O exemplo seguinte cria uma `CUSTOM_FUNCTION_APP_SETTING` definição com `12345`uma chave nomeada e um valor de:
+O comando adiciona ou atualiza uma definição de [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) aplicação. O exemplo seguinte cria uma definição com uma chave nomeada `CUSTOM_FUNCTION_APP_SETTING` e um valor `12345` de:
 
 
 ```azurecli-interactive
@@ -69,9 +71,7 @@ Quando desenvolve uma aplicação de função localmente, deve manter cópias lo
 
 ## <a name="platform-features"></a>Funcionalidades da plataforma
 
-![A plataforma de funcionalidades de funções funcionalidades do separador.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-features-tab.png)
-
-As aplicações de função são executadas e são mantidas, pela plataforma Azure App Service. Como tal, as aplicações de funções têm acesso à maioria das funcionalidades da plataforma de hospedagem web principal do Azure. O separador **de funcionalidades** da Plataforma é onde acede às muitas funcionalidades da plataforma App Service que pode utilizar nas suas aplicações de função. 
+As aplicações de função funcionam e são mantidas pela plataforma Azure App Service. Como tal, as aplicações de funções têm acesso à maioria das funcionalidades da plataforma de hospedagem web principal do Azure. O painel esquerdo é onde você acede às muitas funcionalidades da plataforma App Service que você pode usar nas suas aplicações de função. 
 
 > [!NOTE]
 > Nem todas as funcionalidades do Serviço de Aplicações estão disponíveis quando uma aplicação de função funciona no plano de hospedagem do Consumo.
@@ -124,9 +124,9 @@ Quando configura a lista de **origens permitidas** para a sua aplicação de fun
 
 ![Configure lista cors da aplicação de função](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-cors.png)
 
-Quando o`*`wildcard () é usado, todos os outros domínios são ignorados. 
+Quando o wildcard `*` () é usado, todos os outros domínios são ignorados. 
 
-Utilize [`az functionapp cors add`](/cli/azure/functionapp/cors#az-functionapp-cors-add) o comando para adicionar um domínio à lista de origens permitidas. O exemplo que se segue acrescenta o domínio contoso.com:
+Utilize o [`az functionapp cors add`](/cli/azure/functionapp/cors#az-functionapp-cors-add) comando para adicionar um domínio à lista de origens permitidas. O exemplo que se segue acrescenta o domínio contoso.com:
 
 ```azurecli-interactive
 az functionapp cors add --name <FUNCTION_APP_NAME> \
@@ -134,7 +134,7 @@ az functionapp cors add --name <FUNCTION_APP_NAME> \
 --allowed-origins https://contoso.com
 ```
 
-Utilize [`az functionapp cors show`](/cli/azure/functionapp/cors#az-functionapp-cors-show) o comando para listar as origens permitidas.
+Utilize o [`az functionapp cors show`](/cli/azure/functionapp/cors#az-functionapp-cors-show) comando para listar as origens permitidas.
 
 ### <a name="authentication"></a><a name="auth"></a>Autenticação
 

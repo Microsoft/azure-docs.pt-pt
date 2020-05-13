@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: fa28e07c28c36c03ab9e85d8436e3f1a2b36ad1c
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 7e4bc74a51e3d6b19957bdd12512e18fa594c811
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993966"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123841"
 ---
 # <a name="blob-versioning-preview"></a>Versão blob (pré-visualização)
 
@@ -167,7 +167,7 @@ O diagrama que se segue mostra o que acontece quando se tira uma foto de uma bol
 Pode autorizar o acesso a versões blob utilizando uma das seguintes abordagens:
 
 - Utilizando o controlo de acesso baseado em funções (RBAC) para conceder permissões a um diretor de segurança do Azure Ative Directory (Azure AD). A Microsoft recomenda a utilização de AD Azure para uma segurança superior e facilidade de utilização. Para obter mais informações sobre a utilização de Azure AD com operações blob, consulte [Autorizar o acesso a blobs e filas utilizando o Diretório Ativo Azure](../common/storage-auth-aad.md).
-- Utilizando uma assinatura de acesso partilhado (SAS) para delegar o acesso às versões blob. Especifique a versão `bv`ID para o tipo de recurso assinado, representando uma versão blob, para criar um símbolo SAS para operações numa versão específica. Para obter mais informações sobre assinaturas de acesso partilhado, consulte Grant acesso limitado aos recursos de [Armazenamento Azure utilizando assinaturas de acesso partilhado (SAS)](../common/storage-sas-overview.md).
+- Utilizando uma assinatura de acesso partilhado (SAS) para delegar o acesso às versões blob. Especifique a versão ID para o tipo de recurso `bv` assinado, representando uma versão blob, para criar um símbolo SAS para operações numa versão específica. Para obter mais informações sobre assinaturas de acesso partilhado, consulte Grant acesso limitado aos recursos de [Armazenamento Azure utilizando assinaturas de acesso partilhado (SAS)](../common/storage-sas-overview.md).
 - Utilizando as chaves de acesso à conta para autorizar operações contra versões blob com Chave Partilhada. Para mais informações, consulte [Autorizar com chave partilhada](/rest/api/storageservices/authorize-with-shared-key).
 
 A versão blob foi concebida para proteger os seus dados de eliminação acidental ou maliciosa. Para melhorar a proteção, a apagar uma versão blob requer permissões especiais. As seguintes secções descrevem as permissões necessárias para eliminar uma versão blob.
@@ -183,7 +183,7 @@ A tabela que se segue mostra quais as ações do RBAC que suportam a apagar uma 
 
 ### <a name="shared-access-signature-sas-parameters"></a>Parâmetros de assinatura de acesso partilhado (SAS)
 
-O recurso assinado para uma `bv`versão blob é . Para mais informações, consulte [Criar um serviço SAS](/rest/api/storageservices/create-service-sas) ou [Criar uma delegação de utilizadores SAS](/rest/api/storageservices/create-user-delegation-sas).
+O recurso assinado para uma versão blob é `bv` . Para mais informações, consulte [Criar um serviço SAS](/rest/api/storageservices/create-service-sas) ou [Criar uma delegação de utilizadores SAS](/rest/api/storageservices/create-user-delegation-sas).
 
 A tabela seguinte mostra a permissão necessária num SAS para eliminar uma versão blob.
 
@@ -224,9 +224,10 @@ Para se inscrever na pré-visualização de versão blob, utilize o PowerShell o
 Para se registar na PowerShell, ligue para o comando [Get-AzProviderFeature.](/powershell/module/az.resources/get-azproviderfeature)
 
 ```powershell
+# Register for blob versioning (preview)
 Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
     -FeatureName Versioning
-    
+
 # Refresh the Azure Storage provider namespace
 Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 ```
@@ -308,7 +309,7 @@ No cenário 3, a bolha foi atualizada, mas a versão não. O bloco 3 foi substit
 
 #### <a name="scenario-4"></a>Cenário 4
 
-No cenário 4, a bolha base foi completamente atualizada e não contém nenhum dos seus blocos originais. Como resultado, a conta é cobrada &mdash; pelos oito blocos únicos quatro na bolha base, e quatro na versão anterior. Este cenário pode ocorrer se estiver a escrever para uma bolha com a operação Put Blob, porque substitui todo o conteúdo da bolha base.
+No cenário 4, a bolha base foi completamente atualizada e não contém nenhum dos seus blocos originais. Como resultado, a conta é cobrada pelos oito blocos únicos &mdash; quatro na bolha base, e quatro na versão anterior. Este cenário pode ocorrer se estiver a escrever para uma bolha com a operação Put Blob, porque substitui todo o conteúdo da bolha base.
 
 ![Recursos de Armazenamento Azure](./media/versioning-overview/versions-billing-scenario-4.png)
 

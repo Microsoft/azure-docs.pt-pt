@@ -3,14 +3,14 @@ title: Ranhuras de implantação de funções azure
 description: Aprenda a criar e utilizar ranhuras de implantação com funções Azure
 author: craigshoemaker
 ms.topic: reference
-ms.date: 08/12/2019
+ms.date: 04/15/2020
 ms.author: cshoe
-ms.openlocfilehash: 0e8c93ea6d5c2b525ccbea2af900f100afcc3d93
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7cfbd533921ba4d1757e7415a3bb8f70aeb71251
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75769222"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83122600"
 ---
 # <a name="azure-functions-deployment-slots"></a>Ranhuras de implantação de funções azure
 
@@ -19,7 +19,7 @@ As ranhuras de implementação das Funções Azure permitem que a sua aplicaçã
 Os seguintes refletem a forma como as funções são afetadas pela troca de faixas horárias:
 
 - A reorientação do tráfego é perfeita; nenhum pedido é retirado por causa de uma troca.
-- Se uma função estiver em execução durante uma troca, a execução continua e os gatilhos subsequentes são encaminhados para a instância de aplicação trocada.
+- Se uma função estiver em execução durante uma troca, a execução continua e os próximos gatilhos são encaminhados para a instância de aplicação trocada.
 
 > [!NOTE]
 > Não estão atualmente disponíveis slots para o plano de consumo linux.
@@ -45,15 +45,15 @@ Durante uma troca, uma ranhura é considerada a fonte e a outra o alvo. A ranhur
 
 1. **Atualização de encaminhamento:** Se todas as instâncias na ranhura de origem forem aquecidas com sucesso, as duas ranhuras completam a permuta trocando as regras de encaminhamento. Após este passo, a ranhura-alvo (por exemplo, a ranhura de produção) tem a app que já foi aquecida na ranhura de origem.
 
-1. **Operação de repetição:** Agora que a ranhura de origem tem a aplicação de pré-permuta anteriormente na ranhura-alvo, execute a mesma operação aplicando todas as definições e reiniciando as instâncias para a ranhura de origem.
+1. **Operação de repetição:** Agora que a ranhura de origem tem a aplicação de pré-permuta anteriormente na ranhura-alvo, completa a mesma operação aplicando todas as definições e reiniciando as instâncias para a ranhura de origem.
 
 Tenha em consideração os seguintes pontos:
 
-- Em qualquer ponto da operação de permuta, a inicialização das aplicações trocadas ocorre na ranhura de origem. A ranhura-alvo permanece on-line enquanto a ranhura de origem está a ser preparada, quer a permuta tenha sucesso ou falhe.
+- Em qualquer ponto da operação de permuta, a inicialização das aplicações trocadas ocorre na ranhura de origem. A ranhura-alvo permanece on-line enquanto a ranhura de origem está preparada, quer a permuta tenha sucesso ou falhe.
 
 - Para trocar uma ranhura de preparação com a ranhura de produção, certifique-se de que a ranhura de produção é *sempre* a ranhura-alvo. Desta forma, a operação de swap não afeta a sua aplicação de produção.
 
-- As definições relacionadas com fontes de eventos e encadernações devem ser configuradas como definições de [ranhurade implementação](#manage-settings) *antes de iniciar uma troca*. A marcação como "pegajosa" antes do tempo garante que os eventos e saídas são direcionados para a instância adequada.
+- As definições relacionadas com fontes de eventos e encadernações devem ser configuradas como definições de ranhura de [implantação](#manage-settings) *antes de iniciar uma troca*. A marcação como "pegajosa" antes do tempo garante que os eventos e saídas são direcionados para a instância adequada.
 
 ## <a name="manage-settings"></a>Gerir definições
 
@@ -61,21 +61,27 @@ Tenha em consideração os seguintes pontos:
 
 ### <a name="create-a-deployment-setting"></a>Criar uma definição de implementação
 
-Pode marcar as definições como uma definição de implementação que o torna "pegajoso". Uma definição pegajosa não se troca com a instância da aplicação.
+Pode marcar as definições como uma definição de implantação, o que o torna "pegajoso". Uma definição pegajosa não troca com a instância da aplicação.
 
-Se criar uma definição de implementação numa ranhura, certifique-se de criar a mesma definição com um valor único em qualquer outra ranhura envolvida numa troca. Desta forma, embora o valor de uma definição não mude, os nomes de definição permanecem consistentes entre as ranhuras. Esta consistência de nome garante que o seu código não tenta aceder a uma definição definida numa ranhura, mas não noutra.
+Se criar uma definição de implementação numa ranhura, certifique-se de criar a mesma definição com um valor único em qualquer outra ranhura que esteja envolvida numa troca. Desta forma, embora o valor de uma definição não mude, os nomes de definição permanecem consistentes entre as ranhuras. Esta consistência de nome garante que o seu código não tenta aceder a uma definição definida numa ranhura, mas não noutra.
 
 Utilize os seguintes passos para criar uma definição de implantação:
 
-- Navegue para *Slots* na aplicação de função
-- Clique no nome da ranhura
-- Nas *funcionalidades da plataforma > Configurações Gerais,* clique na **Configuração**
-- Clique no nome de definição que pretende manter com a ranhura atual
-- Clique na caixa de verificação de definição de **ranhuras de implementação**
-- Clique **OK**
-- Uma vez que a definição da lâmina desapareça, clique **em Guardar** para manter as alterações
+1. Navegue para **as ranhuras de implementação** na aplicação de função e, em seguida, selecione o nome da ranhura.
 
-![Definição de ranhura de implantação](./media/functions-deployment-slots/azure-functions-deployment-slots-deployment-setting.png)
+    :::image type="content" source="./media/functions-deployment-slots/functions-navigate-slots.png" alt-text="Encontre vagas no portal Azure." border="true":::
+
+1. **Selecione Configuração**e, em seguida, selecione o nome de definição que pretende ficar com a ranhura atual.
+
+    :::image type="content" source="./media/functions-deployment-slots/functions-configure-deployment-slot.png" alt-text="Configure a definição de aplicação para uma ranhura no portal Azure." border="true":::
+
+1. Selecione **a definição**de ranhura de implantação e, em seguida, selecione **OK**.
+
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-setting.png" alt-text="Configure a definição de ranhura de implantação." border="true":::
+
+1. Uma vez que a secção de regulação desapareça, selecione **Guardar** para manter as alterações
+
+    :::image type="content" source="./media/functions-deployment-slots/functions-save-deployment-slot-setting.png" alt-text="Guarde a definição de ranhura de implantação." border="true":::
 
 ## <a name="deployment"></a>Implementação
 
@@ -92,22 +98,28 @@ Todas as faixas horárias são dimensionadas para o mesmo número de trabalhador
 
 Pode adicionar uma ranhura através do [CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create) ou através do portal. Os seguintes passos demonstram como criar uma nova ranhura no portal:
 
-1. Navegue para a sua aplicação de função e clique no **sinal de mais** ao lado de *Slots*.
+1. Navegue para a sua aplicação de funções.
 
-    ![Adicionar ranhura de implantação de funções Azure](./media/functions-deployment-slots/azure-functions-deployment-slots-add.png)
+1. Selecione ranhuras de **implantação,** e, em seguida, selecione **+ Adicionar ranhura**.
 
-1. Introduza um nome na caixa de texto e prima o botão **Criar.**
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add.png" alt-text="Adicione o slot de implantação das Funções Azure." border="true":::
 
-    ![Slot de implantação de funções azure de nome](./media/functions-deployment-slots/azure-functions-deployment-slots-add-name.png)
+1. Digite o nome da ranhura e selecione **Adicionar**.
+
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add-name.png" alt-text="Nomeie a ranhura de implantação das Funções Azure." border="true":::
 
 ## <a name="swap-slots"></a>Trocar vagas
 
 Pode trocar slots através do [CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap) ou através do portal. Os seguintes passos demonstram como trocar faixas horárias no portal:
 
-1. Navegue para a aplicação de funções
-1. Clique no nome da ranhura de origem que pretende trocar
-1. A partir do separador *'Visão Geral',* clique na ranhura de implementação do botão ![ **Swap** Azure](./media/functions-deployment-slots/azure-functions-deployment-slots-swap.png)
-1. Verifique as definições de configuração para o seu swap e clique em swap de funções de **swap** ![azure](./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png)
+1. Navegue para a aplicação de funções.
+1. Selecione ranhuras de **implantação,** e, em seguida, selecione **Swap**.
+
+    :::image type="content" source="./media/functions-deployment-slots/functions-swap-deployment-slot.png" alt-text="Troque a ranhura de implantação." border="true":::
+
+1. Verifique as definições de configuração para o seu swap e selecione **Swap**
+    
+    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png" alt-text="Troque a ranhura de implantação." border="true":::
 
 A operação pode demorar um momento enquanto a operação de troca está a ser executada.
 
@@ -119,11 +131,21 @@ Se uma troca resultar num erro ou se simplesmente quiser "desfazer" uma troca, p
 
 Pode remover uma ranhura através do [CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-delete) ou através do portal. Os seguintes passos demonstram como remover uma ranhura no portal:
 
-1. Navegue para a visão geral da aplicação de funções
+1. Navegue para **as ranhuras de implementação** na aplicação de função e, em seguida, selecione o nome da ranhura.
 
-1. Clique no botão **Eliminar**
+    :::image type="content" source="./media/functions-deployment-slots/functions-navigate-slots.png" alt-text="Encontre vagas no portal Azure." border="true":::
 
-    ![Adicionar ranhura de implantação de funções Azure](./media/functions-deployment-slots/azure-functions-deployment-slots-delete.png)
+1. Selecione **Eliminar**.
+
+    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot.png" alt-text="Elimine a ranhura de implantação no portal Azure." border="true":::
+
+1. Digite o nome da ranhura de implantação que pretende eliminar e, em seguida, **selecione Eliminar**.
+
+    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot-details.png" alt-text="Elimine a ranhura de implantação no portal Azure." border="true":::
+
+1. Feche o painel de confirmação de exclusão.
+
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-deleted.png" alt-text="Ranhura de implantação eliminar confirmação." border="true":::
 
 ## <a name="automate-slot-management"></a>Gestão de slot automatizada
 
@@ -137,34 +159,31 @@ Utilizando o [Azure CLI,](https://docs.microsoft.com/cli/azure/functionapp/deplo
 
 ## <a name="change-app-service-plan"></a>Alterar plano de serviço de aplicações
 
-Com uma aplicação de função que está a ser realizada ao abrigo de um plano de Serviço de Aplicações, tem a opção de alterar o plano de Serviço de Aplicações subjacente para uma ranhura.
+Com uma aplicação de função que está a ser realizada ao abrigo de um plano de Serviço de Aplicações, pode alterar o plano de Serviço de Aplicações subjacente para uma vaga.
 
 > [!NOTE]
 > Não pode alterar o plano de serviço de aplicações de uma ranhura no âmbito do plano de consumo.
 
 Utilize os seguintes passos para alterar o plano de serviço de aplicações de uma ranhura:
 
-1. Navegue para uma ranhura
+1. Navegue para **as ranhuras de implementação** na aplicação de função e, em seguida, selecione o nome da ranhura.
 
-1. Nas *funcionalidades da plataforma,* clique em **todas as definições**
+    :::image type="content" source="./media/functions-deployment-slots/functions-navigate-slots.png" alt-text="Encontre vagas no portal Azure." border="true":::
 
-    ![Alterar plano de serviço de aplicativos](./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-settings.png)
+1. No **plano do Serviço de Aplicações,** selecione plano de serviço de **aplicações de mudança**.
 
-1. Clique no plano de serviço de **aplicações**
+1. Selecione o plano para o quais pretende atualizar ou crie um novo plano.
 
-1. Selecione um novo plano de Serviço de Aplicações ou crie um novo plano
+    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-apply.png" alt-text="Altere o plano de Serviço de Aplicações no portal Azure." border="true":::
 
-1. Clique **OK**
-
-    ![Alterar plano de serviço de aplicativos](./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-select.png)
-
+1. Selecione **OK**.
 
 ## <a name="limitations"></a>Limitações
 
 As ranhuras de implantação das Funções Azure têm as seguintes limitações:
 
 - O número de vagas disponíveis para uma aplicação depende do plano. O plano de consumo só é permitido uma vaga de implantação. Estão disponíveis slots adicionais para aplicações que executam o plano de Serviço de Aplicações.
-- Trocar uma ranhura repõe as teclas `AzureWebJobsSecretStorageType` para apps `files`que tenham uma definição de aplicação igual a .
+- Trocar uma ranhura repõe as teclas para apps que tenham uma `AzureWebJobsSecretStorageType` definição de aplicação igual a `files` .
 - Não estão disponíveis slots para o plano de consumo linux.
 
 ## <a name="support-levels"></a>Níveis de apoio

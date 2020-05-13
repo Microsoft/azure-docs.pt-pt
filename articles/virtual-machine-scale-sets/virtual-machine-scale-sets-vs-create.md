@@ -1,21 +1,20 @@
 ---
 title: Implementar conjunto de escala de máquina virtual usando o estúdio visual
 description: Implementar conjuntos de escala de máquina virtual usando o estúdio visual e um modelo de gestor de recursos
-ms.custom: vs-azure, H1Hack27Feb2017
-ms.workload: azure-vs
-author: mimckitt
-tags: azure-resource-manager
-ms.assetid: ed0786b8-34b2-49a8-85b5-2a628128ead6
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
+ms.subservice: visual-studio
 ms.date: 09/09/2019
-ms.author: mimckitt
-ms.openlocfilehash: adc91d5f4f79be8a85dfed7d10a882493f6427b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 826dc1858984508e54e160675dd10f6dfad88af8
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81273346"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124368"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Como criar um conjunto de escala de máquina virtual com estúdio visual
 
@@ -65,7 +64,7 @@ O equilibrador de carga permite-lhe ligar-se às instâncias da máquina virtual
 
 Implemente o modelo de Gestor de Recursos Azure para criar o recurso conjunto de escala de máquina virtual:
 
-1. No **Solution Explorer,** clique no projeto e escolha **implementar** > **Novo**.
+1. No **Solution Explorer,** clique no projeto e escolha **implementar**  >  **Novo**.
 
     ![Implementar o seu projeto](media/virtual-machine-scale-sets-vs-create/deploy-new-project.png)
 
@@ -85,7 +84,7 @@ Implemente o modelo de Gestor de Recursos Azure para criar o recurso conjunto de
 
 ## <a name="explore-your-virtual-machine-scale-set"></a>Explore o seu conjunto de escala de máquina virtual<a name="exploring-your-virtual-machine-scale-set"></a>
 
-Selecione **Ver** > **Cloud Explorer** para ver o novo conjunto de escala de máquina virtual. Utilize **a tualização tudo,** se necessário.
+Selecione **Ver**Cloud Explorer para ver o novo conjunto de escala de  >  **Cloud Explorer** máquina virtual. Utilize **a tualização tudo,** se necessário.
 
 ![Cloud Explorer](media/virtual-machine-scale-sets-vs-create/cloud-explorer.png)
 

@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: ba9a2aca73dbdb8de298b68670fd6ab16f810a4d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4d41ece86240a20afea06bff3469b5c02c6e46ff
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79275779"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121202"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Aplicativos de serviço de aplicações Azure ao vivo com Insights de Aplicação
 
@@ -21,7 +21,7 @@ Pode executar o Profiler em ASP.NET e ASP.NET aplicações Core que estão a fun
 Para ativar o Profiler para uma aplicação, siga as instruções abaixo. Se estiver a executar um tipo diferente de serviço Azure, aqui estão as instruções para ativar o Profiler noutras plataformas suportadas:
 * [Serviços em Nuvem](../../azure-monitor/app/profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Aplicações de tecido de serviço](../../azure-monitor/app/profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
-* [Virtual Machines](../../azure-monitor/app/profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Máquinas Virtuais](../../azure-monitor/app/profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 O Perfil insights de aplicação é pré-instalado como parte do tempo de execução dos Serviços de Aplicações. Os passos abaixo mostrar-lhe-ão como o ativar para o seu Serviço de Aplicações. Siga estes passos mesmo que tenha incluído o App Insights SDK na sua aplicação no momento da construção.
 
@@ -58,8 +58,8 @@ Se quiser ativar o perfil para outras nuvens, pode utilizar as definições da a
 
 |Definição da Aplicação    | Valores do Governo dos EUA| Nuvem da China |   
 |---------------|---------------------|-------------|
-|ApplicationInsightsProfilerEndpoint         | https://agent.serviceprofiler.azure.us    | https://profiler.applicationinsights.azure.cn |
-|ApplicationInsightsEndpoint | https://dc.applicationinsights.us | https://dc.applicationinsights.azure.cn |
+|ApplicationInsightsProfilerEndpoint         | `https://agent.serviceprofiler.azure.us`    | `https://profiler.applicationinsights.azure.cn` |
+|ApplicationInsightsEndpoint | `https://dc.applicationinsights.us` | `https://dc.applicationinsights.azure.cn` |
 
 ## <a name="disable-profiler"></a>Perfilde desativação
 

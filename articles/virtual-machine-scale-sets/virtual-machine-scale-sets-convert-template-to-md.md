@@ -2,23 +2,24 @@
 title: Converter um modelo de conjunto de dimensionamento para utilizar um disco gerido
 description: Converta um modelo de conjunto de conjunto de máquinas virtual do Gestor de Recursos Azure para um modelo de conjunto de escala de disco gerido.
 keywords: conjuntos de dimensionamento de máquinas virtuais
-author: mimckitt
-tags: azure-resource-manager
-ms.assetid: bc8c377a-8c3f-45b8-8b2d-acc2d6d0b1e8
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
+ms.subservice: disks
 ms.date: 5/18/2017
-ms.author: mimckitt
-ms.openlocfilehash: 79fafa8344312294f6df107b88c9b7c571af1969
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 85f8694a017c8de94d987c244994a24ad0929441
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81270660"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124895"
 ---
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>Converter um modelo de conjunto de escala para um modelo de conjunto de escala de disco gerido
 
-Os clientes com um modelo de Gestor de Recursos para criar um conjunto de escala que não utilize o disco gerido podem querer modificá-lo para utilizar o disco gerido. Este artigo mostra como usar discos geridos, usando como exemplo um pedido de pull dos [Modelos De Arranque Rápido Azure](https://github.com/Azure/azure-quickstart-templates), um repo orientado pela comunidade para modelos de Gestor de Recursos de amostra. O pedido de puxão [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998)completo pode ser visto aqui: , e as partes relevantes do difusão estão abaixo, juntamente com explicações:
+Os clientes com um modelo de Gestor de Recursos para criar um conjunto de escala que não utilize o disco gerido podem querer modificá-lo para utilizar o disco gerido. Este artigo mostra como usar discos geridos, usando como exemplo um pedido de pull dos [Modelos De Arranque Rápido Azure](https://github.com/Azure/azure-quickstart-templates), um repo orientado pela comunidade para modelos de Gestor de Recursos de amostra. O pedido de puxão completo pode ser visto aqui: [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998) , e as partes relevantes do difusão estão abaixo, juntamente com explicações:
 
 ## <a name="making-the-os-disks-managed"></a>Fazer os discos de OS geridos
 
@@ -131,7 +132,7 @@ Com as alterações acima, o conjunto de escala utiliza discos geridos para o di
 ]
 ```
 
-Se especificar `n` os discos desta matriz, cada VM no conjunto de escala recebe `n` discos de dados. Note, no entanto, que estes discos de dados são dispositivos brutos. Não estão formatados. Cabe ao cliente anexar, dividir e formatar os discos antes de os utilizar. Opcionalmente, também pode `"managedDisk": { "storageAccountType": "Premium_LRS" }` especificar em cada objeto de disco de dados especificar que deve ser um disco de dados premium. Apenas Os VMs com um 's' maiúsculo ou minúsculo no SKu VM podem utilizar discos premium.
+Se especificar `n` os discos desta matriz, cada VM no conjunto de escala recebe discos de `n` dados. Note, no entanto, que estes discos de dados são dispositivos brutos. Não estão formatados. Cabe ao cliente anexar, dividir e formatar os discos antes de os utilizar. Opcionalmente, também pode especificar em cada objeto de disco de dados especificar que deve ser um disco de `"managedDisk": { "storageAccountType": "Premium_LRS" }` dados premium. Apenas Os VMs com um 's' maiúsculo ou minúsculo no SKu VM podem utilizar discos premium.
 
 Para saber mais sobre a utilização de discos de dados com conjuntos de escala, consulte [este artigo](./virtual-machine-scale-sets-attached-disks.md).
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/27/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 12fb94bb4f98bde5c70343f18762cefe1ab120f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d1b00aa8a5e7aea05950bcb86add8ea85e5a5edd
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75371343"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120951"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Armazenamento premium Azure: design para alto desempenho
 [!INCLUDE [virtual-machines-common-premium-storage-introduction](../../../includes/virtual-machines-common-premium-storage-introduction.md)]
@@ -35,4 +35,4 @@ Saiba mais sobre os tipos de disco disponíveis: [Selecione um tipo](disks-types
 Para utilizadores do SQL Server, leia artigos sobre as melhores práticas de desempenho para o Servidor SQL:
 
 * [Melhores práticas de desempenho para o Servidor SQL em Máquinas Virtuais Azure](sql/virtual-machines-windows-sql-performance.md)
-* [Armazenamento Azure Premium proporciona maior desempenho para O Servidor SQL em Azure VM](https://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)
+* [Armazenamento Azure Premium proporciona maior desempenho para O Servidor SQL em Azure VM](https://cloudblogs.microsoft.com/sqlserver/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm/)

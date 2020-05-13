@@ -2,20 +2,20 @@
 title: Acesso seguro a um cofre chave - Cofre chave Azure / Microsoft Docs
 description: Gerencie permissões de acesso para cofre de chaves Azure, chaves e segredos. Cobre o modelo de autenticação e autorização para o Cofre chave e como proteger o cofre da chave.
 services: key-vault
-author: amitbapat
-manager: rkarlin
+author: ShaneBala-keyvault
+manager: ravijan
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 01/07/2019
-ms.author: ambapat
-ms.openlocfilehash: 0ae1b26bb2e01d388f3f91d94134bb9723a5a305
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/11/2020
+ms.author: sudbalas
+ms.openlocfilehash: 6a838455bfda47dee55e8726e5eab071d2dfe4f7
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81432024"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121155"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Acesso seguro a um cofre chave
 
@@ -52,7 +52,7 @@ As aplicações acedem aos aviões através de pontos finais. Os controlos de ac
 
 A tabela que se segue mostra os pontos finais para os planos de gestão e dados.
 
-| Avião&nbsp;de acesso | Pontos finais de acesso | Operações | Mecanismo&nbsp;de controlo de acesso |
+| Avião de acesso &nbsp; | Pontos finais de acesso | Operações | &nbsp;Mecanismo de controlo de acesso |
 | --- | --- | --- | --- |
 | Plano de gestão | **Global:**<br> management.azure.com:443<br><br> **Azure China 21Vianet:**<br> management.chinacloudapi.cn:443<br><br> **Governo dos EUA:**<br> management.usgovcloudapi.net:443<br><br> **Azure Alemanha:**<br> management.microsoftazure.de:443 | Criar, ler, atualizar e eliminar cofres chave<br><br>Definir políticas de acesso ao cofre chave<br><br>Definir etiquetas de cofre de chave | Gestor de Recursos Azure RBAC |
 | Plano de dados | **Global:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure China 21Vianet:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Governo dos EUA:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Alemanha:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 | Chaves: desencriptar, encriptar,<br> desembrulhar, embrulhar, verificar, assinar,<br> obter, lista, atualizar, criar,<br> importar, eliminar, backup, restaurar<br><br> Segredos: obter, listar, definir, excluir | Política de acesso ao cofre chave |
@@ -61,7 +61,7 @@ A tabela que se segue mostra os pontos finais para os planos de gestão e dados.
 
 No plano de gestão, utiliza o RBAC (Controlo de Acesso Baseado em Funções) para autorizar as operações que um chamador pode executar. No modelo RBAC, cada subscrição do Azure tem uma instância de Azure AD. Concede acesso a utilizadores, grupos e aplicações deste diretório. É concedido acesso para gerir recursos na subscrição azure que utilizam o modelo de implementação do Gestor de Recursos Azure. Para conceder acesso, utilize o [portal Azure,](https://portal.azure.com/)o [Azure CLI,](/cli/azure/install-azure-cli?view=azure-cli-latest) [o Azure PowerShell](/powershell/azureps-cmdlets-docs)ou o Gestor de [Recursos Azure REST APIs](https://msdn.microsoft.com/library/azure/dn906885.aspx).
 
-Cria-se um cofre chave num grupo de recursos e gere-se o acesso utilizando o Azure AD. Você concede aos utilizadores ou grupos a capacidade de gerir os cofres chave em um grupo de recursos. Concede o acesso a um nível específico de âmbito, atribuindo funções rBAC adequadas. Para conceder acesso a um utilizador para gerir cofres `key vault Contributor` chave, atribui uma função predefinida ao utilizador num âmbito específico. Os seguintes níveis de âmbito podem ser atribuídos a uma função RBAC:
+Cria-se um cofre chave num grupo de recursos e gere-se o acesso utilizando o Azure AD. Você concede aos utilizadores ou grupos a capacidade de gerir os cofres chave em um grupo de recursos. Concede o acesso a um nível específico de âmbito, atribuindo funções rBAC adequadas. Para conceder acesso a um utilizador para gerir cofres chave, atribui uma função predefinida `key vault Contributor` ao utilizador num âmbito específico. Os seguintes níveis de âmbito podem ser atribuídos a uma função RBAC:
 
 - **Subscrição**: Uma função RBAC atribuída ao nível de subscrição aplica-se a todos os grupos e recursos de recursos dentro dessa subscrição.
 - **Grupo de recursos**: Uma função RBAC atribuída ao nível do grupo de recursos aplica-se a todos os recursos desse grupo de recursos.
@@ -70,13 +70,13 @@ Cria-se um cofre chave num grupo de recursos e gere-se o acesso utilizando o Azu
 Há vários papéis predefinidos. Se um papel predefinido não se adequa às suas necessidades, pode definir o seu próprio papel. Para mais informações, consulte [As funções RBAC: Incorporadas.](../../role-based-access-control/built-in-roles.md)
 
 > [!IMPORTANT]
-> Se um `Contributor` utilizador tiver permissões para um avião de gestão de cofres chave, o utilizador pode conceder-se acesso ao plano de dados definindo uma política de acesso ao Cofre chave. Devias controlar bem `Contributor` quem tem acesso aos teus cofres chave. Certifique-se de que apenas pessoas autorizadas podem aceder e gerir os seus cofres chave, chaves, segredos e certificados.
+> Se um utilizador tiver permissões para um avião de gestão de `Contributor` cofres chave, o utilizador pode conceder-se acesso ao plano de dados definindo uma política de acesso ao Cofre chave. Devias controlar bem quem tem `Contributor` acesso aos teus cofres chave. Certifique-se de que apenas pessoas autorizadas podem aceder e gerir os seus cofres chave, chaves, segredos e certificados.
 >
 
 <a id="data-plane-access-control"></a>
 ## <a name="data-plane-and-access-policies"></a>Políticas de plano de dados e de acesso
 
-Concede-se acesso a planos de dados, definindo as políticas de acesso ao Cofre chave para um cofre chave. Para definir estas políticas de acesso, um `Contributor` utilizador, grupo ou aplicação deve ter permissões para o plano de gestão para esse cofre chave.
+Concede-se acesso a planos de dados, definindo as políticas de acesso ao Cofre chave para um cofre chave. Para definir estas políticas de acesso, um utilizador, grupo ou aplicação deve ter `Contributor` permissões para o plano de gestão para esse cofre chave.
 
 Concede a um utilizador, grupo ou aplicação acesso para executar operações específicas para chaves ou segredos num cofre chave. O Cofre Chave suporta até 1.024 entradas de política de acesso para um cofre chave. Para conceder acesso de avião de dados a vários utilizadores, crie um grupo de segurança Azure AD e adicione utilizadores a esse grupo.
 
@@ -127,15 +127,15 @@ A tabela seguinte resume as permissões de acesso para as nossas funções e apl
 | Função | Permissões do plano de gestão | Permissões do plano de dados |
 | --- | --- | --- |
 | Equipa de segurança | Contribuinte chave do cofre | Chaves: criar cópia de segurança, criar, eliminar, obter, importar, listar, restaurar<br>Segredos: todas as operações |
-| Desenvolvedores&nbsp;e operadores | Autorização de implantação do cofre chave<br><br> **Nota:** Esta permissão permite que os VMs implantados apanhem segredos de um cofre chave. | Nenhuma |
-| Auditores | Nenhuma | Chaves: listar<br>Segredos: listar<br><br> **Nota:** Esta permissão permite que os auditores inspecionem atributos (tags, datas de ativação, datas de validade) para chaves e segredos não emitidos nos registos. |
-| Aplicação | Nenhuma | Chaves: assinar<br>Segredos: obter |
+| Desenvolvedores e &nbsp; operadores | Autorização de implantação do cofre chave<br><br> **Nota:** Esta permissão permite que os VMs implantados apanhem segredos de um cofre chave. | Nenhum |
+| Auditores | Nenhum | Chaves: listar<br>Segredos: listar<br><br> **Nota:** Esta permissão permite que os auditores inspecionem atributos (tags, datas de ativação, datas de validade) para chaves e segredos não emitidos nos registos. |
+| Aplicação | Nenhum | Chaves: assinar<br>Segredos: obter |
 
-As três funções de equipa precisam de acesso a outros recursos, juntamente com permissões do Cofre Chave. Para implementar VMs (ou a funcionalidade de Aplicações Web `Contributor` do Azure App Service), os desenvolvedores e operadores precisam de acesso a esses tipos de recursos. Os auditores precisam de ler o acesso à conta de armazenamento onde os registos do Cofre chave estão armazenados.
+As três funções de equipa precisam de acesso a outros recursos, juntamente com permissões do Cofre Chave. Para implementar VMs (ou a funcionalidade de Aplicações Web do Azure App Service), os desenvolvedores e operadores precisam de acesso a esses tipos de `Contributor` recursos. Os auditores precisam de ler o acesso à conta de armazenamento onde os registos do Cofre chave estão armazenados.
 
 Para obter mais informações sobre como implementar certificados, chaves de acesso e segredos programáticamente, consulte estes recursos:
 - Saiba como [implementar certificados para VMs a partir de um cofre de chaves gerido pelo cliente](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/) (post de blog).
-- Descarregue as amostras do cliente do [Cofre chave Azure.](https://www.microsoft.com/download/details.aspx?id=45343) Este conteúdo ilustra como usar um certificado de bootstrap para autenticar a Azure AD para aceder a um cofre chave.
+- Veja as amostras do cliente do [Cofre de Chaves Azure.](https://docs.microsoft.com/samples/browse/?term=Key%20Vault) Este conteúdo ilustra como usar um certificado de bootstrap para autenticar a Azure AD para aceder a um cofre chave.
 
 Pode conceder a maioria das permissões de acesso utilizando o portal Azure. Para conceder permissões granulares, pode utilizar o Azure PowerShell ou o Azure CLI.
 
@@ -145,7 +145,7 @@ Os cortes PowerShell nesta secção são construídos com as seguintes suposiç�
 - Os registos key vault são armazenados na conta de armazenamento de **contosolog.**
 - O cofre chave **ContosoKeyVault** e a conta de armazenamento de **armazenamento de contosolog** estão na mesma localização Azure.
 
-O administrador de subscrição atribui as `key vault Contributor` funções e e funções `User Access Administrator` à equipa de segurança. Estas funções permitem à equipa de segurança gerir o acesso a outros recursos e cofres chave, ambos no grupo de recursos **ContosoAppRG.**
+O administrador de subscrição atribui as `key vault Contributor` funções e e `User Access Administrator` funções à equipa de segurança. Estas funções permitem à equipa de segurança gerir o acesso a outros recursos e cofres chave, ambos no grupo de recursos **ContosoAppRG.**
 
 ```powershell
 New-AzRoleAssignment -ObjectId (Get-AzADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "key vault Contributor" -ResourceGroupName ContosoAppRG
@@ -184,7 +184,7 @@ Set-AzKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzADGroup -
 
 As nossas funções personalizadas definidas são atribuídas apenas à subscrição onde o grupo de recursos **ContosoAppRG** é criado. Para utilizar uma função personalizada para outros projetos noutras subscrições, adicione outras subscrições ao âmbito para o papel.
 
-Para a nossa equipa de DevOps, `deploy/action` a atribuição de funções personalizadas para a permissão do cofre chave é consultada ao grupo de recursos. Apenas vMs criados no grupo de recursos **ContosoAppRG** têm acesso aos segredos (TLS/SSL e certificados de bootstrap). VMs criados em outros grupos de recursos por um membro da DevOps não podem aceder a estes segredos, mesmo que o VM tenha os URIs secretos.
+Para a nossa equipa de DevOps, a atribuição de funções personalizadas para a permissão do cofre chave `deploy/action` é consultada ao grupo de recursos. Apenas vMs criados no grupo de recursos **ContosoAppRG** têm acesso aos segredos (TLS/SSL e certificados de bootstrap). VMs criados em outros grupos de recursos por um membro da DevOps não podem aceder a estes segredos, mesmo que o VM tenha os URIs secretos.
 
 O nosso exemplo descreve um cenário simples. Cenários da vida real podem ser mais complexos. Pode ajustar permissões no seu cofre com base nas suas necessidades. Assumimos que a equipa de segurança fornece as referências secretas e chave (URIs e impressões digitais), que são usadas pelo pessoal da DevOps nas suas aplicações. Os desenvolvedores e operadores não requerem acesso a planos de dados. Concentrámo-nos em como proteger o cofre da chave. Considere o mesmo quando protege [os seus VMs,](https://azure.microsoft.com/services/virtual-machines/security/) [contas de armazenamento](../../storage/blobs/security-recommendations.md)e outros recursos Azure.
 

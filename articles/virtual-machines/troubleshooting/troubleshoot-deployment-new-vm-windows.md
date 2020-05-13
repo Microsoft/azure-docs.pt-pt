@@ -3,7 +3,7 @@ title: Implantação de Windows VM em Azure Microsoft Docs
 description: Problemas de implementação do Gestor de Recursos de Resolução de Problemas quando cria uma nova máquina virtual do Windows no Azure
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
-author: JiangChen79
+author: DavidCBerry13
 manager: gwallace
 editor: ''
 tags: top-support-issue, azure-resource-manager
@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 06/15/2018
-ms.author: cjiang
+ms.author: daberry
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0bc363b87a9f5b2f013c0bae75a07d79a3a7a830
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78db1ba0eaff0dce83ed13e9f20c3c5a5b96bf9c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75981396"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120968"
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Problemas de implementação de problemas ao criar um novo Windows VM em Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -75,7 +75,7 @@ Este erro surge em situações em que o novo pedido vm é fixado a um cluster qu
 * Tente novamente o pedido utilizando um tamanho VM menor.
 * Se o tamanho do VM solicitado não puder ser alterado:
   * Pare todos os VMs no conjunto de disponibilidade.
-    Clique em **Grupos** > de Recursos*o seu grupo* > de recursos**Recursos O** > *seu conjunto* > de disponibilidade**máquinas** > virtuais para**parar**a*máquina* > virtual .
+    Clique em **Grupos de Recursos**  >  *o seu grupo de recursos*  >  **Recursos O**  >  *seu conjunto de disponibilidade*  >  **máquinas virtuais**para parar a máquina  >  *virtual*  >  **Stop**.
   * Depois de todos os VMs pararem, crie o novo VM no tamanho desejado.
   * Inicie primeiro o novo VM e, em seguida, selecione cada um dos VMs parados e clique em **Iniciar**.
 

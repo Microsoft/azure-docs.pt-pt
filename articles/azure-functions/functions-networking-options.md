@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 6637627d48df8f9b6126debc215aac9bceb76f6b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ce1a214d39f958af36931192aad4561459ca0573
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80419561"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121355"
 ---
 # <a name="azure-functions-networking-options"></a>Opções de rede das Funções do Azure
 
@@ -31,7 +31,7 @@ Você pode hospedar aplicativos de função de várias maneiras:
 |                |[Plano de consumo](functions-scale.md#consumption-plan)|[Plano Premium](functions-scale.md#premium-plan)|[Plano de serviço de aplicações](functions-scale.md#app-service-plan)|[Ambiente do Serviço de Aplicações](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
 |[Restrições IP de entrada e acesso ao site privado](#inbound-ip-restrictions)|✅Sim|✅Sim|✅Sim|✅Sim|
-|[Integração de rede virtual](#virtual-network-integration)|❌Não|✅Sim (Regional)|✅Sim (Regional e Gateway)|✅Sim|
+|[Integração da rede virtual](#virtual-network-integration)|❌Não|✅Sim (Regional)|✅Sim (Regional e Gateway)|✅Sim|
 |[Gatilhos de rede virtuais (não HTTP)](#virtual-network-triggers-non-http)|❌Não| ✅Sim |✅Sim|✅Sim|
 |[Ligações híbridas](#hybrid-connections) (apenas janelas)|❌Não|✅Sim|✅Sim|✅Sim|
 |[Restrições ip de saída](#outbound-ip-restrictions)|❌Não| ✅Sim|✅Sim|✅Sim|
@@ -50,7 +50,7 @@ Para saber mais, consulte [as restrições estáticas](../app-service/app-servic
 O acesso ao site privado refere-se a tornar a sua aplicação acessível apenas a partir de uma rede privada, como uma rede virtual Azure.
 
 * O acesso ao site privado está disponível nos planos [Premium](./functions-premium-plan.md), [Consumption](functions-scale.md#consumption-plan)e [App Service](functions-scale.md#app-service-plan) quando os pontos finais do serviço estão configurados.
-    * Os pontos finais do serviço podem ser configurados numa base por app em **funções de Plataforma de** > **Configuração** > de**Configuração De Regra**de > **Adição**de Restrições de Acesso Configurados . As redes virtuais podem agora ser selecionadas como um tipo de regra.
+    * Os pontos finais do serviço podem ser configurados numa base por app em **funções de Plataforma de**  >  **Configuração de**  >  **Configuração De Regra**de Adição de Restrições de Acesso  >  **Add Rule**Configurados . As redes virtuais podem agora ser selecionadas como um tipo de regra.
     * Para mais informações, consulte [pontos finais](../virtual-network/virtual-network-service-endpoints-overview.md)do serviço de rede Virtual .
     * Tenha em mente que, com pontos finais de serviço, a sua função ainda tem acesso total à internet, mesmo com a integração virtual da rede configurada.
 * O acesso ao site privado também está disponível dentro de um App Service Environment que está configurado com um equilibrista de carga interna (ILB). Para mais informações, consulte [Criar e utilizar um equilibrador de carga interno com um Ambiente de Serviço de Aplicações](../app-service/environment/create-ilb-ase.md).
@@ -102,9 +102,9 @@ Atualmente, pode utilizar funções de gatilho não HTTP a partir de uma rede vi
 
 ### <a name="premium-plan-with-virtual-network-triggers"></a>Plano premium com gatilhos de rede virtual
 
-Quando executa um plano Premium, pode ligar funções de gatilho não HTTP a serviços que funcionam dentro de uma rede virtual. Para isso, tem de ativar o suporte de disparo de rede virtual para a sua aplicação de função. A definição de suporte ao gatilho da **rede Virtual** encontra-se no portal [Azure](https://portal.azure.com) sob as definições da **aplicação Function**.
+Quando executa um plano Premium, pode ligar funções de gatilho não HTTP a serviços que funcionam dentro de uma rede virtual. Para isso, tem de ativar o suporte de disparo de rede virtual para a sua aplicação de função. A definição de suporte do gatilho da **rede virtual** encontra-se no portal [Azure](https://portal.azure.com) sob as definições de tempo de funcionamento da Função de **Configuração**  >  **Function runtime settings**.
 
-![Toggle rede virtual](media/functions-networking-options/virtual-network-trigger-toggle.png)
+:::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
 
 Também pode ativar os gatilhos de rede virtuais utilizando o seguinte comando Azure CLI:
 
@@ -146,7 +146,7 @@ Para saber mais, consulte a documentação do Serviço de [Aplicações para Lig
 
 As restrições ip de saída estão disponíveis num plano Premium, plano de serviço de aplicações ou ambiente de serviço de aplicações. Pode configurar restrições de saída para a rede virtual onde o seu Ambiente de Serviço de Aplicações está implantado.
 
-Quando integra uma aplicação de função num plano Premium ou num plano de Serviço de Aplicações com uma rede virtual, a aplicação ainda pode fazer chamadas de saída para a internet por padrão. Ao adicionar a `WEBSITE_VNET_ROUTE_ALL=1`definição de aplicação, força que todo o tráfego de saída seja enviado para a sua rede virtual, onde as regras do grupo de segurança da rede podem ser usadas para restringir o tráfego.
+Quando integra uma aplicação de função num plano Premium ou num plano de Serviço de Aplicações com uma rede virtual, a aplicação ainda pode fazer chamadas de saída para a internet por padrão. Ao adicionar a definição de aplicação, força que todo o tráfego de saída seja enviado para a sua rede virtual, onde as regras do grupo de segurança da `WEBSITE_VNET_ROUTE_ALL=1` rede podem ser usadas para restringir o tráfego.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 

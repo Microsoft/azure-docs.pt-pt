@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 04/30/2020
+ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: cada61f8fa1dfd163062ce22527f41e65291b3f8
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 1e4428fecdbb5d664111adc591812a5122bf2eda
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82607253"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125119"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configuração da máquina virtual do anfitrião da sessão
 
@@ -87,7 +87,7 @@ A forma recomendada de fornecer VMs é usar o modelo de criação do portal Azur
 
 Siga estas instruções para confirmar que os componentes estão instalados e para verificar se existem mensagens de erro.
 
-1. Confirme que os dois componentes são instalados verificando os**programas e funcionalidades**dos Programas e**Funcionalidades** >  **do Painel** > de Controlo . Se o **Windows Virtual Desktop Agent** e o Windows Virtual Desktop Agent Boot **Loader** não estiverem visíveis, não estão instalados no VM.
+1. Confirme que os dois componentes são instalados verificando os programas e funcionalidades **dos Programas**e  >  **Programs**  >  **Funcionalidades**do Painel de Controlo . Se o **Windows Virtual Desktop Agent** e o Windows Virtual Desktop Agent Boot **Loader** não estiverem visíveis, não estão instalados no VM.
 2. Abra o Explorador de **Ficheiros** e navegue para **C:\Windows\Temp\ScriptLog.log**. Se o ficheiro estiver em falta, indica que o DSC PowerShell que instalou os dois componentes não foi capaz de ser executado no contexto de segurança fornecido.
 3. Se o ficheiro **C:\Windows\Temp\ScriptLog.log** estiver presente, abra-o e verifique se existem mensagens de erro.
 
@@ -234,7 +234,7 @@ O VM utilizado para executar a reparação deve estar na mesma sub-rede e domín
 Siga estas instruções para executar a reparação a partir da mesma subnete e domínio:
 
 1. Ligue-se ao Protocolo de Ambiente de Trabalho Remoto (RDP) padrão ao VM a partir do local onde será aplicada a correção.
-2. Baixar PsExec https://docs.microsoft.com/sysinternals/downloads/psexeca partir de .
+2. Baixar PsExec a partir de https://docs.microsoft.com/sysinternals/downloads/psexec .
 3. Desaperte o ficheiro descarregado.
 4. Inicie o pedido de comando como administrador local.
 5. Navegue para pasta onde o PsExec foi desapertado.
@@ -310,7 +310,7 @@ Se vir alguma destas mensagens, isto significa que a imagem não tem as mais rec
 
 ### <a name="disable-the-remote-desktop-licensing-mode-group-policy-setting"></a>Desative a definição de política do modo de licenciamento do ambiente de trabalho remoto
 
-Verifique a definição da política do grupo abrindo o Editor de Política do Grupo no VM e navegando para **modelos administrativos** > **Windows Components** > Os componentes do Windows**Remote Desktop Services** > **Remote Desktop Session Hosting** > set the Remote Desktop**Licensing** > **Mode**. Se a definição de política do grupo estiver **ativada,** altere-a para **Desativada**. Se já está desativado, então deixe como está.
+Verifique a definição da política do grupo abrindo o **Administrative Templates**Editor de Política do Grupo no VM e navegando para  >  **modelos administrativos Os componentes do Windows**Remote Desktop Services Remote  >  **Desktop**Session  >  **Hosting**set the Remote Desktop  >  **Licensing**  >  **Licensing Mode**. Se a definição de política do grupo estiver **ativada,** altere-a para **Desativada**. Se já está desativado, então deixe como está.
 
 >[!NOTE]
 >Se definir a política de grupo através do seu domínio, desative esta definição em políticas que visam estes VMs multissessões do Windows 10 Enterprise.
@@ -335,6 +335,12 @@ Se o seu número de versão diz "1809", instale [a atualização KB451607 .](htt
 ### <a name="version-1903"></a>Versão 1903
 
 Reutilizar o sistema operativo anfitrião com a versão mais recente do Windows 10, imagem da versão 1903 da Galeria Azure.
+
+## <a name="we-couldnt-connect-to-the-remote-pc-because-of-a-security-error"></a>Não conseguimos ligar-nos ao PC remoto por causa de um erro de segurança.
+
+Se os seus utilizadores virem um erro que diz: "Não conseguimos ligar-nos ao PC remoto devido a um erro de segurança. Se isso continuar a acontecer, peça ajuda ao seu administrador ou suporte técnico", validaas quaisquer políticas existentes que alterem as permissões padrão do PDR. Uma das políticas que pode causar a sua atenção neste erro é "Permitir iniciar sessão através da política de segurança dos Serviços de Secretária Remoto".
+
+Para saber mais sobre esta política, consulte Iniciar sessão através dos [Serviços de Ambiente](/windows/security/threat-protection/security-policy-settings/allow-log-on-through-remote-desktop-services)de Trabalho Remoto .
 
 ## <a name="next-steps"></a>Passos seguintes
 

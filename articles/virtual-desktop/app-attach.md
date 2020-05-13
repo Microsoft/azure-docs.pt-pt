@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 12/14/2019
+ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ec69a9906eabb4ce56f79b1b88c2b5f2440f84b1
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 94ec85ae658ca6012cd1f1594b431d12bb73013d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612474"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121070"
 ---
 # <a name="set-up-msix-app-attach"></a>Configurar a anexação da aplicação MSIX
 
@@ -41,7 +41,7 @@ Primeiro, precisa de obter a imagem de OS que utilizará para a aplicação MSIX
      >[!NOTE]
      >Deve ser membro do programa Insider do Windows para aceder ao portal Insider do Windows. Para saber mais sobre o programa Windows Insider, consulte a [documentação do Windows Insider](/windows-insider/at-home/).
 
-2. Desloque-se até à secção **de edição Select** e selecione **Windows 10 Insider Preview Enterprise (FAST) – Build 19035** ou mais tarde.
+2. Desloque-se até à secção **de edição Select** e selecione **Windows 10 Insider Preview Enterprise (FAST) – Build 19041** ou mais tarde.
 
 3. Selecione **Confirmar,** então selecione o idioma que deseja utilizar e, em seguida, selecione **Confirmar** novamente.
     
@@ -73,6 +73,14 @@ rem Disable Windows Update:
 
 sc config wuauserv start=disabled
 ```
+
+Depois de ter desativado as atualizações automáticas, tem de ativar o Hyper-V porque estará a utilizar o comando Mound-VHD para encenar e desmontar-VHD para desencenar. 
+
+```powershell
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-All
+```
+>[!NOTE]
+>Esta alteração exigirá que reinicie a máquina virtual.
 
 Em seguida, prepare o VM VHD para Azure e carregue o disco VHD resultante para O Azure. Para saber mais, consulte [Preparar e personalizar uma imagem VHD mestre](set-up-customize-master-image.md).
 
@@ -211,7 +219,7 @@ Antes de atualizar os scripts PowerShell, certifique-se de que tem o volume GUID
 
 5.  Abra um pedido de comando e entre em **mountvol**. Este comando apresentará uma lista de volumes e seus GUIDs. Copie o GUID do volume onde a letra de unidade corresponde à unidade a que montou o seu VHD no passo 2.
 
-    Por exemplo, neste exemplo, a saída para o comando mountvol, se montou o seu VHD para conduzir C, vai querer copiar o valor acima: `C:\`
+    Por exemplo, neste exemplo, a saída para o comando mountvol, se montou o seu VHD para conduzir C, vai querer copiar o valor `C:\` acima:
 
     ```cmd
     Possible values for VolumeName along with current mount points are:
@@ -257,7 +265,7 @@ Antes de atualizar os scripts PowerShell, certifique-se de que tem o volume GUID
 
     {
 
-    Mount-Diskimage -ImagePath $vhdSrc -NoDriveLetter -Access ReadOnly
+    Mount-VHD -Path $vhdSrc -NoDriveLetter -ReadOnly
 
     Write-Host ("Mounting of " + $vhdSrc + " was completed!") -BackgroundColor Green
 

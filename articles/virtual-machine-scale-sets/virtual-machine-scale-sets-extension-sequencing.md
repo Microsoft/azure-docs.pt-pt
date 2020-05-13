@@ -1,18 +1,20 @@
 ---
 title: Utilize a sequenciação de extensão com conjuntos de escala de máquinas virtuais Azure
 description: Aprenda a sequenciar o fornecimento de extensões ao implementar várias extensões em conjuntos de escala de máquinas virtuais.
-author: mimckitt
-tags: azure-resource-manager
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
+ms.subservice: extensions
 ms.date: 01/30/2019
-ms.author: mimckitt
-ms.openlocfilehash: 737040699dd62d722b9a9ad4d8915ccb270c2d06
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 3271041b9f4db100cd05588129c7d714d4478f10
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81273754"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121036"
 ---
 # <a name="sequence-extension-provisioning-in-virtual-machine-scale-sets"></a>Fornecimento de extensão de sequência em conjuntos de escala de máquina virtual
 As extensões de máquinas virtuais Azure fornecem capacidades como configuração e gestão pós-implantação, monitorização, segurança e muito mais. As implementações de produção normalmente usam uma combinação de múltiplas extensões configuradas para os casos vm para obter resultados desejados.
@@ -166,7 +168,7 @@ PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/
 }
 ```
 
-Se o ExtensionC foi definido mais cedo no modelo de conjunto de escala `PATCH` e agora quer adicionar as suas dependências, pode executar um para editar as propriedades da extensão já implantada.
+Se o ExtensionC foi definido mais cedo no modelo de conjunto de escala e agora quer adicionar as suas dependências, pode executar um `PATCH` para editar as propriedades da extensão já implantada.
 
 ```
 PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/extensions/ExtensionC?api-version=2018-10-01`
@@ -186,7 +188,7 @@ Alterações às instâncias definidas de escala existentes são aplicadas na pr
 ### <a name="azure-powershell"></a>Azure PowerShell
 Utilize o cmdlet [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) para adicionar a extensão de saúde da aplicação à definição do modelo de conjunto de escala. A sequenciação da extensão requer a utilização de Az PowerShell 1.2.0 ou superior.
 
-O exemplo seguinte adiciona a `extensionProfile` extensão de Saúde da [Aplicação](virtual-machine-scale-sets-health-extension.md) ao modelo de conjunto de escala de um conjunto de escala baseado no Windows. A extensão de saúde de aplicação será aprovisionada após o fornecimento da [extensão do script personalizado,](../virtual-machines/extensions/custom-script-windows.md)já definida no conjunto de escala.
+O exemplo seguinte adiciona a [extensão](virtual-machine-scale-sets-health-extension.md) de Saúde da Aplicação ao `extensionProfile` modelo de conjunto de escala de um conjunto de escala baseado no Windows. A extensão de saúde de aplicação será aprovisionada após o fornecimento da [extensão do script personalizado,](../virtual-machines/extensions/custom-script-windows.md)já definida no conjunto de escala.
 
 ```azurepowershell-interactive
 # Define the scale set variables

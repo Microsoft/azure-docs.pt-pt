@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: f4c9fab3caf1089b97265d93db7d945604a59fd3
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 9ba151aa1ddc7f4b14d5f4ec7f1990e2fd760602
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82723015"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121240"
 ---
 # <a name="utilize-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Utilize tags do Índice Blob (Pré-visualização) para gerir e encontrar dados sobre o armazenamento do Blob Azure
 
@@ -32,7 +32,7 @@ Para saber mais sobre o Índice Blob, consulte [Gerir e encontrar dados sobre o 
 # <a name="net"></a>[.NET](#tab/net)
 Como o Blob Index está em pré-visualização pública, o pacote de armazenamento .NET é lançado no feed NuGet de pré-visualização. Esta biblioteca está sujeita a mudanças entre agora e quando se torna oficial. 
 
-1. No Estúdio Visual, `https://azuresdkartifacts.blob.core.windows.net/azure-sdk-for-net/index.json` adicione o URL às suas fontes de pacote NuGet. 
+1. No Estúdio Visual, adicione o URL às suas fontes de `https://azuresdkartifacts.blob.core.windows.net/azure-sdk-for-net/index.json` pacote NuGet. 
 
    Para saber como, consulte [fontes de pacote.](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#package-sources)
 
@@ -182,7 +182,7 @@ static async Task BlobIndexTagsExample()
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Dentro do portal Azure, o filtro de etiquetas `@container` do Índice Blob aplica automaticamente o parâmetro para examinar o seu recipiente selecionado. Se desejar filtrar e encontrar dados marcados em toda a sua conta de armazenamento, utilize os nossos API, SDKs ou ferramentas REST.
+Dentro do portal Azure, o filtro de etiquetas do Índice Blob aplica automaticamente o `@container` parâmetro para examinar o seu recipiente selecionado. Se desejar filtrar e encontrar dados marcados em toda a sua conta de armazenamento, utilize os nossos API, SDKs ou ferramentas REST.
 
 1. No [portal Azure,](https://portal.azure.com/)selecione a sua conta de armazenamento. 
 
@@ -204,6 +204,7 @@ static async Task FindBlobsByTagsExample()
       BlobContainerClient container1 = serviceClient.GetBlobContainerClient("mycontainer");
       BlobContainerClient container2 = serviceClient.GetBlobContainerClient("mycontainer2");
 
+      // Blob Index queries and selection
       String singleEqualityQuery = @"""Archive"" = 'false'";
       String andQuery = @"""Archive"" = 'false' AND ""Priority"" = '01'";
       String rangeQuery = @"""Date"" >= '2020-04-20' AND ""Date"" <= '2020-04-30'";
@@ -254,9 +255,9 @@ static async Task FindBlobsByTagsExample()
           Console.WriteLine("Find Blob by Tags query: " + queryToUse + Environment.NewLine);
 
           List<FilterBlobItem> blobs = new List<FilterBlobItem>();
-          foreach (Page<FilterBlobItem> page in serviceClient.FindBlobsByTags(queryToUse).AsPages())
+          await foreach (FilterBlobItem filterBlobItem in serviceClient.FindBlobsByTagsAsync(queryToUse))
           {
-              blobs.AddRange(page.Values);
+              blobs.Add(filterBlobItem);
           }
 
           foreach (var filteredBlob in blobs)
@@ -284,9 +285,9 @@ static async Task FindBlobsByTagsExample()
 
 3. Selecione *Adicionar regra* e, em seguida, preencher os campos de formulário de conjunto de ação
 
-4. Selecione o conjunto de filtros para adicionar ![filtro opcional para a correspondência de prefixo e a correspondência do Índice blob Adicione filtros de etiqueta seletiva para gestão do ciclo de vida](media/storage-blob-index-concepts/blob-index-match-lifecycle-filter-set.png)
+4. Selecione o conjunto de filtros para adicionar filtro opcional para a correspondência de prefixo e a correspondência do Índice blob Adicione filtros de ![ etiqueta seletiva para gestão do ciclo de vida](media/storage-blob-index-concepts/blob-index-match-lifecycle-filter-set.png)
 
-5. Selecione **Review +** adicione ![para rever as definições de regra Regra de gestão do ciclo de vida com o exemplo do filtro de etiquetas de índice blob](media/storage-blob-index-concepts/blob-index-lifecycle-management-example.png)
+5. Selecione **Review + adicione** para rever as definições de regra Regra de gestão do ciclo de vida com o exemplo do filtro de ![ etiquetas de índice blob](media/storage-blob-index-concepts/blob-index-lifecycle-management-example.png)
 
 6. Selecione **Adicionar** para aplicar a nova regra à política de gestão do ciclo de vida
 

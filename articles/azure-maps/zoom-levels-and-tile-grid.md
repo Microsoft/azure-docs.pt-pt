@@ -1,19 +1,19 @@
 ---
 title: Níveis de zoom e grelha de azulejos / Microsoft Azure Maps
 description: Neste artigo, você aprenderá sobre os níveis de zoom e grelha de azulejos no Microsoft Azure Maps.
-author: jinzh-azureiot
-ms.author: jinzh
+author: Philmea
+ms.author: philmea
 ms.date: 01/22/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: d58c9f6940dceefdc25211f4540b34522aec935d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b7dde6e1a77cebd1e88cc574d99e781ab55f0934
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79530296"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123909"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Níveis de zoom e grelha de mosaico
 
@@ -140,12 +140,12 @@ Aqui está a grelha de zoom para o nível de zoom 1:
 
 ## <a name="quadkey-indices"></a>Índices quadkey
 
-Algumas plataformas de `quadkey` mapeamento usam uma convenção de nomeação de indexação `quadtree` que `quadkeys` combina as coordenadas ZY de azulejos numa corda de uma dimensão chamada teclas ou para abreviar. Cada `quadkey` um identifica um único azulejo a um determinado nível de detalhe, e pode ser usado como uma chave nos índices comuns de base de dados B-tree. Os SDKs Azure Maps apoiam a sobreposição `quadkey` de camadas de azulejos que usam a convenção de nomeação, para além de outras convenções de nomeação, conforme documentado no documento adicionar uma camada de [azulejos.](map-add-tile-layer.md)
+Algumas plataformas de mapeamento usam uma convenção de `quadkey` nomeação de indexação que combina as coordenadas ZY de azulejos numa corda de uma dimensão chamada `quadtree` teclas ou `quadkeys` para abreviar. Cada `quadkey` um identifica um único azulejo a um determinado nível de detalhe, e pode ser usado como uma chave nos índices comuns de base de dados B-tree. Os SDKs Azure Maps apoiam a sobreposição de camadas de azulejos que usam a convenção de `quadkey` nomeação, para além de outras convenções de nomeação, conforme documentado no documento adicionar uma camada de [azulejos.](map-add-tile-layer.md)
 
 > [!NOTE]
 > A `quadkeys` convenção de nomeação só funciona para níveis de zoom de um ou superior. O nível de zoom de suporte do Azure Maps SDK 0, que é um único azulejo de mapa para todo o mundo. 
 
-Para converter as coordenadas `quadkey`de azulejos em a , as partes das coordenadas Y e X são intercaladas, e o resultado é interpretado como um número base-4 (com zeros principais mantidos) e convertido em uma corda. Por exemplo, dadas as coordenadas de azulejos XY `quadkey` de (3, 5) no nível 3, a é determinada da seguinte forma:
+Para converter as coordenadas de azulejos em a `quadkey` , as partes das coordenadas Y e X são intercaladas, e o resultado é interpretado como um número base-4 (com zeros principais mantidos) e convertido em uma corda. Por exemplo, dadas as coordenadas de azulejos XY de (3, 5) no nível 3, a `quadkey` é determinada da seguinte forma:
 
 ```
 tileX = 3 = 011 (base 2)
@@ -155,13 +155,13 @@ tileY = 5 = 1012 (base 2)
 quadkey = 100111 (base 2) = 213 (base 4) = "213"
 ```
 
-`Qquadkeys`têm várias propriedades interessantes. Em primeiro lugar, `quadkey` o comprimento de a (o número de dígitos) é igual ao nível de zoom do azulejo correspondente. Em segundo `quadkey` lugar, o de `quadkey` qualquer azulejo começa com o do azulejo-mãe (o azulejo contendo no nível anterior). Como mostra o exemplo abaixo, o azulejo 2 é o pai dos azulejos 20 a 23:
+`Qquadkeys`têm várias propriedades interessantes. Em primeiro lugar, o comprimento de a `quadkey` (o número de dígitos) é igual ao nível de zoom do azulejo correspondente. Em segundo lugar, o `quadkey` de qualquer azulejo começa com o do `quadkey` azulejo-mãe (o azulejo contendo no nível anterior). Como mostra o exemplo abaixo, o azulejo 2 é o pai dos azulejos 20 a 23:
 
 <center>
 
 ![Pirâmide de azulejo quadkey](media/zoom-levels-and-tile-grid/quadkey-tile-pyramid.png)</center>
 
-Finalmente, `quadkeys` forneça uma chave de índice unidimensional que geralmente preserva a proximidade dos azulejos no espaço XY. Por outras palavras, dois azulejos que `quadkeys` têm coordenadas XY próximas geralmente têm que estão relativamente próximos um do outro. Isto é importante para otimizar o desempenho da base de dados, porque os azulejos vizinhos são frequentemente solicitados em grupos, e é desejável manter esses azulejos nos mesmos blocos de disco, de forma a minimizar o número de leituras de discos.
+Finalmente, `quadkeys` forneça uma chave de índice unidimensional que geralmente preserva a proximidade dos azulejos no espaço XY. Por outras palavras, dois azulejos que têm coordenadas XY próximas geralmente têm `quadkeys` que estão relativamente próximos um do outro. Isto é importante para otimizar o desempenho da base de dados, porque os azulejos vizinhos são frequentemente solicitados em grupos, e é desejável manter esses azulejos nos mesmos blocos de disco, de forma a minimizar o número de leituras de discos.
 
 ## <a name="tile-math-source-code"></a>Código fonte de matemática de azulejos
 

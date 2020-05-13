@@ -12,12 +12,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: juliako
-ms.openlocfilehash: 8a9c1ba8e6316ea79941fbec1fbd339893afdb35
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d78390aac51ea6fa70e1285b15dcc7ade74434ee
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131213"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124589"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notas de lançamento do Indexer de Vídeo dos Serviços De Mídia Azure
 
@@ -34,9 +34,9 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 
 ### <a name="new-widget-parameters-capabilities"></a>Novas capacidades de parâmetros de widget
 
-O widget **Insights** inclui `language` novos `control`parâmetros: e .
+O widget **Insights** inclui novos parâmetros: `language` e `control` .
 
-O widget **Player** `locale` tem um novo parâmetro. Ambos `locale` `language` e parâmetros controlam a linguagem do jogador.
+O widget **Player** tem um novo `locale` parâmetro. Ambos `locale` e `language` parâmetros controlam a linguagem do jogador.
 
 Para mais informações, consulte a secção de tipos de [widget.](video-indexer-embed-widgets.md#widget-types) 
 
@@ -53,19 +53,19 @@ Uma nova pele de jogador lançada com design atualizado.
     * [Obter-Contas-Autorização](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Accounts-Authorization)
     * [Obter-Contas-Com-Token](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Accounts-With-Token)
  
-    O objeto conta `Url` tem um campo que aponta para a localização do website do Indexante de [Vídeo.](https://www.videoindexer.ai/)
+    O objeto conta tem um `Url` campo que aponta para a localização do website do Indexante de [Vídeo.](https://www.videoindexer.ai/)
 Para contas pagas, o `Url` campo está atualmente a apontar para um URL interno em vez do site público.
 Nas próximas semanas vamos alterá-lo e devolver o URL do site do [Indexer](https://www.videoindexer.ai/) de Vídeo para todas as contas (julgamento e pago).
 
     Não utilize os URLs internos, deve utilizar as [APIs públicas do Indexer](https://api-portal.videoindexer.ai/)de Vídeo .
-* Se estiver a incorporar URLs de Indexer de Vídeo nas suas aplicações e os URLs não estiverem a apontar para o website `https://wus2.videoindexer.ai`do [Indexer](https://www.videoindexer.ai/) de Vídeo ou para o ponto final da [API do Indexer](https://api.videoindexer.ai) de Vídeo, mas sim para um ponto final regional (por exemplo), regenerar os URLs.
+* Se estiver a incorporar URLs de Indexer de Vídeo nas suas aplicações e os URLs não estiverem a apontar para o [website do Indexer](https://www.videoindexer.ai/) de Vídeo ou para o ponto final da API do Indexer de Vídeo ( `https://api.videoindexer.ai` ), mas sim para um ponto final regional (por `https://wus2.videoindexer.ai` exemplo), regenerar os URLs.
 
    Pode fazê-lo por qualquer um dos dois:
 
     * Substituição do URL por um URL que aponta para as APIs de widget do Índice de Vídeo (por exemplo, o [widget insights)](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Insights-Widget)
     * Utilizando o website do Indexer de Vídeo para gerar um novo URL incorporado:
          
-         Pressione **Reproduzir** para chegar à página do seu vídeo - > clique no ** &lt; / &gt; ** botão Incorporado - > copiar o URL na sua aplicação:
+         Pressione **Reproduzir** para chegar à página do seu vídeo - > clique no botão ** &lt; / &gt; Incorporado** - > copiar o URL na sua aplicação:
    
     Os URLs regionais não são apoiados e serão bloqueados nas próximas semanas.
 
@@ -73,7 +73,7 @@ Nas próximas semanas vamos alterá-lo e devolver o URL do site do [Indexer](htt
  
 ### <a name="custom-language-support-for-additional-languages"></a>Suporte de linguagem personalizada para idiomas adicionais
 
-O Indexer de vídeo suporta `ar-SY` `en-UK`agora `en-AU` modelos de linguagem personalizada para, e (apenas API).
+O Indexer de vídeo suporta agora modelos de linguagem personalizada `ar-SY` para, `en-UK` e `en-AU` (apenas API).
  
 ### <a name="delete-account-timeframe-action-update"></a>Eliminar a atualização de ação do prazo da conta
 
@@ -127,7 +127,7 @@ O código de estado 409 será agora devolvido das APIs do [Re-Index Video](https
  
 * Suporte de modelos de idioma personalizado coreano
 
-    O indexador de vídeo agora`ko-KR`suporta modelos de linguagem personalizada em coreano ( ) tanto na API como no portal. 
+    O indexador de vídeo agora suporta modelos de linguagem personalizada em coreano ( `ko-KR` ) tanto na API como no portal. 
 * Novas línguas apoiadas para o discurso-a-texto (STT)
 
     ApIs indexador de vídeo agora suportaM STT em Levantine árabe (ar-SY), dialeto inglês do Reino Unido (en-GB) e dialeto australiano inglês (en-UA).

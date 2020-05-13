@@ -3,7 +3,7 @@ title: Falhas na atribuição de Azure VM Microsoft Docs
 description: Falhas de atribuição de problemas quando cria, reinicia ou redimensiona um VM em Azure
 services: virtual-machines
 documentationcenter: ''
-author: JiangChen79
+author: DavidCBerry13
 manager: felixwu
 editor: ''
 tags: top-support-issue,azure-resource-manager,azure-service-management
@@ -11,13 +11,13 @@ ms.assetid: 1ef41144-6dd6-4a56-b180-9d8b3d05eae7
 ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 04/13/2018
-ms.author: cjiang
-ms.openlocfilehash: b4750ad9fdfa214aa4d7b6a0355c319e7eb1d9c3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: daberry
+ms.openlocfilehash: fdbf07fa51adf8151e80d230734ebe53d36b5390
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77484405"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124793"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Resolver problemas de falhas de alocação ao criar, reiniciar ou redimensionar VMs no Azure
 
@@ -25,11 +25,11 @@ Quando cria uma máquina virtual (VM), reiniciar os VMs (deallocated) ou redimen
 
 **Código de erro**: Alocação Falhada ou ZonalAllocationFailed
 
-**Error message**: "A locação falhou. Não dispomos de capacidade suficiente para a dimensão vm solicitada nesta região. Leia mais sobre a melhoria da\/probabilidade de sucesso na atribuição em https: /aka.ms/allocation-guidance"
+**Error message**: "A locação falhou. Não dispomos de capacidade suficiente para a dimensão vm solicitada nesta região. Leia mais sobre a melhoria da probabilidade de sucesso na atribuição em https: \/ /aka.ms/allocation-guidance"
 
 Este artigo explica as causas de algumas das falhas comuns de atribuição e sugere possíveis soluções.
 
-Se o seu problema azure não for abordado neste artigo, visite os [fóruns do Azure sobre mSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). Pode publicar o seu problema nestes @AzureSupport fóruns ou no Twitter. Além disso, pode apresentar um pedido de suporte Azure selecionando suporte para obter suporte no site de [suporte do Azure.](https://azure.microsoft.com/support/options/)
+Se o seu problema azure não for abordado neste artigo, visite os [fóruns do Azure sobre mSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). Pode publicar o seu problema nestes fóruns ou @AzureSupport no Twitter. Além disso, pode apresentar um pedido de suporte Azure selecionando suporte para obter suporte no site de [suporte do Azure.](https://azure.microsoft.com/support/options/)
 
 Até que o seu tipo de VM preferido esteja disponível na sua região preferida, aconselhamos os clientes que se deparam com problemas de implementação a considerar em que a orientação na tabela seguinte é uma suposição temporária. 
 

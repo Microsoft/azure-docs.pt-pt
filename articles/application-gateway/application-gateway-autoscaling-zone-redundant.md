@@ -7,12 +7,13 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: victorh
-ms.openlocfilehash: 28a909c3b4011b55fb3fb67d9d64ab57a310cb86
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 74af3d14512018abc216b288a27dc54ed806d8c9
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207265"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125235"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Gateway de Aplicação com dimensionamento automático e redundância entre zonas v2 
 
@@ -132,8 +133,16 @@ Preço total = $267,84 + $85,71 = $353,55
 
 O Gateway de aplicações e o WAF podem ser configurados para escalar em dois modos:
 
-- **Autoscalcificação** - Com autoscalcificação ativada, o Gateway de aplicação e a escala WAF v2 SKUs para cima ou para baixo com base nos requisitos de tráfego da aplicação. Este modo oferece uma melhor elasticidade à sua aplicação e elimina a necessidade de adivinhar o tamanho do gateway da aplicação ou a contagem de instâncias. Este modo também permite economizar custos não exigindo que a porta de entrada corra no pico da capacidade prevista para a carga máxima de tráfego prevista. Deve especificar uma contagem mínima e opcionalmente máxima de instância. A capacidade mínima garante que o Gateway de Aplicação e o V2 WAF não fiquem abaixo da contagem mínima de instânciaespecificada, mesmo na ausência de tráfego. Cada instância conta como 10 Unidades de Capacidade reservadas adicionais. Zero significa nenhuma capacidade reservada e é puramente autoscalcificante na natureza. Por favor, note que zero instâncias mínimas adicionais ainda garantem uma elevada disponibilidade do serviço que está sempre incluído com preço fixo. Também pode especificar opcionalmente uma contagem máxima de instância, que garante que o Gateway da Aplicação não escala para além do número especificado de instâncias. Continuará a ser cobrado pela quantidade de tráfego servido pelo Gateway. As contagens de exemplo podem variar de 0 a 125. O valor predefinido para a contagem máxima por exemplo é de 20 se não especificado.
+- **Autoscalcificação** - Com autoscalcificação ativada, o Gateway de aplicação e a escala WAF v2 SKUs para cima ou para baixo com base nos requisitos de tráfego da aplicação. Este modo oferece uma melhor elasticidade à sua aplicação e elimina a necessidade de adivinhar o tamanho do gateway da aplicação ou a contagem de instâncias. Este modo também permite economizar custos não exigindo que a porta de entrada corra no pico da capacidade prevista para a carga máxima de tráfego prevista. Deve especificar uma contagem mínima e opcionalmente máxima de instância. A capacidade mínima garante que o Gateway de Aplicação e o V2 WAF não fiquem abaixo da contagem mínima de instânciaespecificada, mesmo na ausência de tráfego. Cada instância é aproximadamente equivalente a 10 unidades de capacidade reservadas adicionais. Zero significa nenhuma capacidade reservada e é puramente autoscalcificante na natureza. Também pode especificar opcionalmente uma contagem máxima de instância, que garante que o Gateway da Aplicação não escala para além do número especificado de instâncias. Só será cobrado pela quantidade de tráfego servido pelo Gateway. As contagens de exemplo podem variar de 0 a 125. O valor predefinido para a contagem máxima por exemplo é de 20 se não especificado.
 - **Manual** - Pode, em alternativa, escolher o modo Manual onde o gateway não escala automaticamente. Neste modo, se houver mais tráfego do que o que o Application Gateway ou o WAF podem suportar, pode resultar em perda de tráfego. Com o modo manual, especificar a contagem de instâncias é obrigatório. A contagem de instâncias pode variar de 1 a 125 casos.
+
+## <a name="autoscaling-and-high-availability"></a>Autoscalcificação e Alta Disponibilidade
+
+Os Gateways de Aplicação Azure são sempre implantados de forma altamente disponível. O serviço é feito de múltiplas instâncias que são criadas como configuradas (se a autoscalcificação for desativada) ou exigida pela carga de aplicação (se a autoscalcificação estiver ativada). Note que do ponto de vista do utilizador não tem necessariamente visibilidade nas instâncias individuais, mas apenas no serviço Application Gateway como um todo. Se um determinado caso tiver um problema e deixar de funcionar, o Portal de Aplicação Azure criará de forma transparente uma nova instância.
+
+Por favor, note que mesmo que configure a autoscalcificação com zero instâncias mínimas o serviço ainda estará altamente disponível, o que está sempre incluído com o preço fixo.
+
+No entanto, a criação de uma nova instância pode demorar algum tempo (cerca de seis ou sete minutos). Assim, se não quiser lidar com este tempo de inatividade, pode configurar uma contagem mínima de 2 instâncias, idealmente com suporte da Zona de Disponibilidade. Desta forma terá pelo menos duas instâncias dentro do seu Portal de Aplicação Azure em circunstâncias normais, por isso, se um deles tiver um problema, o outro tentará lidar com o tráfego, durante o tempo em que uma nova instância está sendo criada. Note que uma instância de Gateway de aplicação Azure pode suportar cerca de 10 Unidades de Capacidade, por isso, dependendo do tráfego que normalmente tem, poderá querer configurar a definição de autoscalcificação de instância mínima para um valor superior a 2.
 
 ## <a name="feature-comparison-between-v1-sku-and-v2-sku"></a>Comparação de características entre v1 SKU e v2 SKU
 

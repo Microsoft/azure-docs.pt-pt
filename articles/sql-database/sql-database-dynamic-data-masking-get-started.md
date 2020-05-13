@@ -13,12 +13,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 02/06/2020
 tags: azure-synpase
-ms.openlocfilehash: e5b281d59245d8fbd32b18f4ac5fe577fc7ff309
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2759644c68d65e76de222a0ac74f1d4900caddc0
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78192919"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121257"
 ---
 # <a name="dynamic-data-masking-for-azure-sql-database-and-azure-synapse-analytics"></a>Máscara de dados dinâmicos para Base de Dados Azure SQL e Azure Synapse Analytics
 
@@ -44,9 +44,9 @@ A máscara de dados dinâmicos pode ser configurada pelas funções de administr
 
 | Função de mascaramento | Lógica de mascaramento |
 | --- | --- |
-| **Padrão** |**Máscara completa de acordo com os tipos de dados dos campos designados**<br/><br/>• Utilize XXXX ou menos Xs se o tamanho do campo for inferior a 4 caracteres para tipos de dados de cordas (nchar, ntext, nvarchar).<br/>• Utilize um valor zero para tipos de dados numéricos (bigint, bit, decimal, int, money, numeric, smallint, smallmoney, tinyint, float, real).<br/>• Utilize 01-01-1900 para tipos de dados de data/hora (data, data2, data, data, dataoffset, hora pequena, hora).<br/>• Para a variante SQL, é utilizado o valor predefinido do tipo atual.<br/>• Para xml, o documento \<mascarado/> é utilizado.<br/>• Utilize um valor vazio para tipos de dados especiais (tabela de carimbos de tempo, hierárquica, GUID, binário, imagem, tipos espaciais varbinary). |
+| **Predefinição** |**Máscara completa de acordo com os tipos de dados dos campos designados**<br/><br/>• Utilize XXXX ou menos Xs se o tamanho do campo for inferior a 4 caracteres para tipos de dados de cordas (nchar, ntext, nvarchar).<br/>• Utilize um valor zero para tipos de dados numéricos (bigint, bit, decimal, int, money, numeric, smallint, smallmoney, tinyint, float, real).<br/>• Utilize 01-01-1900 para tipos de dados de data/hora (data, data2, data, data, dataoffset, hora pequena, hora).<br/>• Para a variante SQL, é utilizado o valor predefinido do tipo atual.<br/>• Para xml, o documento \< mascarado/> é utilizado.<br/>• Utilize um valor vazio para tipos de dados especiais (tabela de carimbos de tempo, hierárquica, GUID, binário, imagem, tipos espaciais varbinary). |
 | **Cartão de crédito** |Método de **mascaramento, que expõe os últimos quatro dígitos dos campos designados** e adiciona uma cadeia constante como prefixo na forma de um cartão de crédito.<br/><br/>XXXX-XXXX-XXXX-1234 |
-| **E-mail** |Método de **mascaramento, que expõe a primeira letra e substitui o domínio por XXX.com** usando um prefixo de corda constante sob a forma de um endereço de e-mail.<br/><br/>aXX@XXXX.com |
+| **Email** |Método de **mascaramento, que expõe a primeira letra e substitui o domínio por XXX.com** usando um prefixo de corda constante sob a forma de um endereço de e-mail.<br/><br/>aXX@XXXX.com |
 | **Número aleatório** |**Método de mascaramento, que gera um número aleatório** de acordo com os limites selecionados e tipos de dados reais. Se os limites designados forem iguais, então a função de mascaramento é um número constante.<br/><br/>![Painel de navegação](./media/sql-database-dynamic-data-masking-get-started/1_DDM_Random_number.png) |
 | **Texto personalizado** |**Método de mascaramento, que expõe o primeiro e último caracteres** e adiciona uma corda de enchimento personalizada no meio. Se a cadeia original for mais curta do que o prefixo e o sufixo expostos, apenas a corda de enchimento é utilizada. <br/>prefixo[enchimento]sufixo<br/><br/>![Painel de navegação](./media/sql-database-dynamic-data-masking-get-started/2_DDM_Custom_text.png) |
 
@@ -58,8 +58,28 @@ O motor de recomendações do DDM, sinaliza certos campos da sua base de dados c
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-powershell-cmdlets"></a>Configurar a máscara de dados dinâmicos para a sua base de dados utilizando cmdlets PowerShell
 
-Consulte [os Cmdlets de Base de Dados Azure SQL](https://docs.microsoft.com/powershell/module/az.sql).
+### <a name="data-masking-policy"></a>Política de Mascaramento de Dados
+
+- [Get-AzSqlDatabaseDataMaskingPolicy](https://docs.microsoft.com/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingPolicy)
+- [Set-AzSqlDatabaseDataMaskingPolicy](https://docs.microsoft.com/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingPolicy)
+
+### <a name="data-masking-rules"></a>Regras de mascaramento de dados
+
+- [Get-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingRule)
+- [New-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/New-AzSqlDatabaseDataMaskingRule)
+- [Remover-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/Remove-AzSqlDatabaseDataMaskingRule)
+- [Set-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingRule)
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-rest-api"></a>Configurar a máscara de dados dinâmicos para a sua base de dados utilizando a API REST
 
-Consulte operações para base de [dados Azure SQL](https://docs.microsoft.com/rest/api/sql/).
+Pode utilizar a API REST para gerir programáticamente a política e as regras de máscara de dados. A API rest publicada apoia as seguintes operações:
+
+### <a name="data-masking-policies"></a>Políticas de Máscara de Dados
+
+- [Criar ou atualizar:](https://docs.microsoft.com/rest/api/sql/datamaskingpolicies/createorupdate)Cria ou atualiza o rótulo de sensibilidade da coluna especificada.
+- [Obter:](https://docs.microsoft.com/rest/api/sql/datamaskingpolicies/get)Obtém uma política de máscara de dados na base de dados. 
+
+### <a name="data-masking-rules"></a>Regras de mascaramento de dados
+
+- [Criar ou atualizar](https://docs.microsoft.com/rest/api/sql/datamaskingrules/createorupdate): Cria ou atualiza uma regra de máscara de dados de base de dados.
+- [Lista por Base](https://docs.microsoft.com/rest/api/sql/datamaskingrules/listbydatabase)de Dados : Obtém uma lista das regras de máscara de dados da base de dados.

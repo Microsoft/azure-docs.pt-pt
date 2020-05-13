@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: dsindona
-ms.openlocfilehash: cee28c65b97d4ac163f78b746dc7be9ee210843c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e65f2041cdb2e25341bfd63783c70ec09c1216b5
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80280359"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124708"
 ---
 # <a name="lead-management-instructions-for-table-storage"></a>Instruções de gestão de chumbo para armazenamento de mesa
 
@@ -98,7 +98,7 @@ No próximo conjunto de passos, ligue-se à sua mesa de armazenamento e configur
 
    - **Consulta do filtro**: Quando selecionar este campo, o ícone do **tempo Get passado** é exibido numa janela pop-up. Selecione **tempo passado** para usar este valor como carimbo de tempo para filtrar a consulta. Ou, pode colar a seguinte função no campo:
    
-      `CreatedTime Timestamp gt datetime'@{body('Get_past_time')}'` 
+      `CreatedTime Timestamp gt '@{body('Get_past_time')}'` 
 
      ![Configurar a função de consulta de filtro](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-filterquery.png)
 
@@ -133,7 +133,7 @@ No próximo conjunto de passos, ligue-se à sua mesa de armazenamento e configur
 
       - **Para**: um endereço de e-mail para todos os que receberão a notificação.
       - **Assunto**: um assunto para o e-mail. Por exemplo: *Novas pistas!*
-      - **Corpo**: o texto que pretende incluir em cada e-mail (opcional). Colá-lo `body('Get_entities')?['value']` também em função de inserir informações de chumbo.
+      - **Corpo**: o texto que pretende incluir em cada e-mail (opcional). Colá-lo também `body('Get_entities')?['value']` em função de inserir informações de chumbo.
 
         >[!NOTE] 
         >Pode inserir pontos de dados estáticos ou dinâmicos adicionais no corpo do e-mail.

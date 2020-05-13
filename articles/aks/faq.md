@@ -3,12 +3,12 @@ title: Perguntas frequentes para o Serviço Azure Kubernetes (AKS)
 description: Encontre respostas a algumas das perguntas comuns sobre o Serviço Azure Kubernetes (AKS).
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 112060e72f36bfe5d11a997fc4161e26c36259ff
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 5ba776424462b3a8b586b1f90e83f409770e5597
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854253"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123824"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Perguntas mais frequentes acerca do Azure Kubernetes Service (AKS)
 
@@ -127,6 +127,8 @@ O suporte do Windows Server para piscina de nó inclui algumas limitações que 
 
 ## <a name="does-aks-offer-a-service-level-agreement"></a>A AKS oferece um acordo de nível de serviço?
 
+A AKS fornece a capacidade de alcançar uma disponibilidade de 99,95% para o servidor API com [Uptime SLA][uptime-sla.md].
+
 Num acordo de nível de serviço (SLA), o prestador aceita reembolsar o cliente pelo custo do serviço se o nível de serviço publicado não for cumprido. Uma vez que a AKS é gratuita, não há custos disponíveis para reembolsar, pelo que a AKS não tem SLA formal. No entanto, a AKS procura manter a disponibilidade de pelo menos 99,5% para o servidor Kubernetes API.
 
 É importante reconhecer a distinção entre a disponibilidade de serviço AKS que se refere ao tempo de uptime do plano de controlo Kubernetes e a disponibilidade da sua carga de trabalho específica que está a funcionar em Máquinas Virtuais Azure. Embora o plano de controlo possa não estar disponível se o plano de controlo não estiver pronto, as cargas de trabalho do seu cluster em funcionamento em VMs Azure ainda podem funcionar. Dado que os VMs Azure são recursos pagos, são apoiados por um SLA financeiro. Leia [aqui para mais detalhes](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) sobre o Azure VM SLA e como aumentar essa disponibilidade com [funcionalidades][availability-zones]como Zonas de Disponibilidade .
@@ -143,7 +145,7 @@ O `az aks update-credentials` comando pode ser usado para mover um aglomerado AK
 
 Atualmente, o movimento de clusters entre subscrições não é suportado.
 
-## <a name="can-i-move-my-aks-clusters-from-the-current-azure-subscription-to-another"></a>Posso mover os meus clusters AKS da subscrição azul atual para outra? 
+## <a name="can-i-move-my-aks-clusters-from-the-current-azure-subscription-to-another"></a>Posso mover os meus clusters AKS da atual subscrição azure para outra? 
 
 A movimentação do seu cluster AKS e os seus recursos associados entre as subscrições do Azure não são suportados.
 
@@ -173,7 +175,7 @@ Por favor, confirme que o seu diretor de serviço não expirou.  Consulte: [Dire
 
 ## <a name="can-i-use-the-virtual-machine-scale-set-apis-to-scale-manually"></a>Posso usar a escala virtual de apis para escalar manualmente?
 
-Não, as operações de escala utilizando as APIs de escala de máquina virtual não são suportadas. Utilize as APIs`az aks scale`AKS ().
+Não, as operações de escala utilizando as APIs de escala de máquina virtual não são suportadas. Utilize as APIs AKS `az aks scale` ().
 
 ## <a name="can-i-use-virtual-machine-scale-sets-to-manually-scale-to-0-nodes"></a>Posso usar conjuntos de escala de máquinas virtuais para escalar manualmente até 0 nós?
 
@@ -209,6 +211,7 @@ Nenhuma AKS é um serviço gerido, e a manipulação dos recursos iaaS não é a
 [bcdr-bestpractices]: ./operator-best-practices-multi-region.md#plan-for-multiregion-deployment
 [availability-zones]: ./availability-zones.md
 [az-regions]: ../availability-zones/az-region.md
+[uptime-sla] ./uptime-sla.mdd
 
 <!-- LINKS - external -->
 [aks-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

@@ -1,23 +1,23 @@
 ---
 title: Escala automática de resolução de problemas com conjuntos de escala de máquina virtual
 description: Escala automática de sessão de problemas com conjuntos de escala de máquina virtual. Compreender os problemas típicos encontrados e como resolvê-los.
-author: mimckitt
-tags: azure-resource-manager
-ms.assetid: c7d87b72-ee24-4e52-9377-a42f337f76fa
+author: avirishuv
+ms.author: avverma
+ms.topic: troubleshooting
 ms.service: virtual-machine-scale-sets
-ms.tgt_pltfrm: windows
-ms.topic: conceptual
+ms.subservice: autoscale
 ms.date: 11/16/2017
-ms.author: mimckitt
-ms.openlocfilehash: 4bc5e66f5b0759bdb5fe34276369161200bd5442
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviwer: jushiman
+ms.custom: avverma
+ms.openlocfilehash: 2ef50704d96cc51881594c778d1a4b109a1eae82
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81273380"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125150"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Resolver problemas de dimensionamento automático em Conjuntos de Dimensionamento de Máquinas Virtuais
-**Problema** – criou uma infraestrutura de autoscalcificação no Azure Resource Manager utilizando conjuntos de escala https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale de máquinas virtuais – por exemplo, ao implementar um modelo como este: – tem as suas regras de escala definidas e funciona muito bem, exceto por mais carga que coloque nos VMs, não faz escala automática.
+**Problema** – criou uma infraestrutura de autoscalcificação no Azure Resource Manager utilizando conjuntos de escala de máquinas virtuais – por exemplo, ao implementar um modelo como este: – tem as suas regras de https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale escala definidas e funciona muito bem, exceto por mais carga que coloque nos VMs, não faz escala automática.
 
 ## <a name="troubleshooting-steps"></a>Passos de resolução de problemas
 Algumas coisas a considerar incluem:
@@ -40,13 +40,13 @@ Algumas coisas a considerar incluem:
     É fácil cometer erros, por isso comece com um modelo como o acima que está provado funcionar, e faça pequenas mudanças incrementais. 
 * Pode entrar ou sair manualmente?
   
-    Tente recolocar o recurso conjunto de conjunto de máquinas virtuais com uma definição de "capacidade" diferente para alterar manualmente o número de VMs. Um modelo de https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing exemplo está aqui: – você pode precisar editar o modelo para se certificar de que tem o mesmo tamanho da máquina que o seu Conjunto de Escala saem. Se conseguir alterar manualmente o número de VMs, então sabe que o problema está isolado à escala automática.
+    Tente recolocar o recurso conjunto de conjunto de máquinas virtuais com uma definição de "capacidade" diferente para alterar manualmente o número de VMs. Um modelo de exemplo está aqui: – você pode precisar editar o modelo para se certificar de que tem o mesmo tamanho da máquina que o seu Conjunto de https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing Escala saem. Se conseguir alterar manualmente o número de VMs, então sabe que o problema está isolado à escala automática.
 * Verifique os recursos Microsoft.Compute/virtualMachineScaleSet e Microsoft.Insights no [Azure Resource Explorer](https://resources.azure.com/)
   
     O Azure Resource Explorer é uma ferramenta indispensável de resolução de problemas que lhe mostra o estado dos seus recursos do Gestor de Recursos Azure. Clique na sua subscrição e veja o Grupo de Recursos que está a resolver problemas. Sob o fornecedor de recursos Compute, olhe para o conjunto de escala de máquina virtual que criou e verifique a Vista de Instância, que mostra o estado de uma implementação. Além disso, verifique a visão de exemplo dos VMs no conjunto de escala de máquina virtual. Em seguida, entre no fornecedor de recursos Microsoft.Insights e verifique se as regras de escala automática parecem certas.
 * A extensão de diagnóstico está a funcionar e a emitir dados de desempenho?
   
-    **Atualização:** A escala automática Azure foi melhorada para utilizar um gasoduto de métricas baseado no hospedeiro, que já não requer uma extensão de diagnóstico para ser instalado. Os próximos parágrafos já não se aplicam se criar uma aplicação autoscalcificante utilizando o novo pipeline. Um exemplo de modelos Azure que foram convertidos para https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscaleutilizar o gasoduto hospedeiro está disponível aqui: . 
+    **Atualização:** A escala automática Azure foi melhorada para utilizar um gasoduto de métricas baseado no hospedeiro, que já não requer uma extensão de diagnóstico para ser instalado. Os próximos parágrafos já não se aplicam se criar uma aplicação autoscalcificante utilizando o novo pipeline. Um exemplo de modelos Azure que foram convertidos para utilizar o gasoduto hospedeiro está disponível aqui: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale . 
   
     A utilização de métricas baseadas em hospedeiros para escala automática é melhor para as seguintes razões:
   

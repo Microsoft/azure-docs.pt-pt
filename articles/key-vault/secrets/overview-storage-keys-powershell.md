@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
-ms.openlocfilehash: f8c526148e37ba1b716aafd32dcc3f242358f1eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 454420d9b2f4e3cf834490da79f3571691f25bc1
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81427786"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121138"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Gerir as chaves da conta de armazenamento com key vault e Azure PowerShell
 
@@ -75,7 +75,7 @@ Set-AzContext -SubscriptionId <subscriptionId>
 
 ### <a name="set-variables"></a>Definir variáveis
 
-Em primeiro lugar, detete as variáveis a utilizar pelos cmdlets PowerShell nos seguintes passos. Certifique-se de <YourResourceGroupName> <YourStorageAccountName>atualizar <YourKeyVaultName> o , e os `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` espaços reservados, e definir $keyVaultSpAppId para (conforme especificado no ID de [aplicação principal](#service-principal-application-id)do Serviço , acima).
+Em primeiro lugar, detete as variáveis a utilizar pelos cmdlets PowerShell nos seguintes passos. Certifique-se de atualizar o <YourResourceGroupName> , e os espaços <YourStorageAccountName> <YourKeyVaultName> reservados, e definir $keyVaultSpAppId `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` para (conforme especificado no ID de [aplicação principal](#service-principal-application-id)do Serviço , acima).
 
 Também usaremos os cmdlets Azure PowerShell [Get-AzContext](/powershell/module/az.accounts/get-azcontext?view=azps-2.6.0) e [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount?view=azps-2.6.0) para obter o seu ID de utilizador e o contexto da sua conta de armazenamento Azure.
 
@@ -84,14 +84,18 @@ $resourceGroupName = <YourResourceGroupName>
 $storageAccountName = <YourStorageAccountName>
 $keyVaultName = <YourKeyVaultName>
 $keyVaultSpAppId = "cfa8b339-82a2-471a-a3c9-0fc0be7a4093"
-$storageAccountKey = "key1"
+$storageAccountKey = "key1" #(key1 or key2 are allowed)
 
 # Get your User Id
 $userId = (Get-AzContext).Account.Id
 
 # Get a reference to your Azure storage account
 $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName
+
 ```
+>[!Note]
+> Para a Conta de Armazenamento Clássico utilize "primário" e "secundário" para $storageAccountKey <br>
+> Utilize 'Get-AzResource -Name "ClassicStorageAccountName" -ResourceGroupName $resourceGroupName' em vez de 'Get-AzStorageAccount' para A Conta de Armazenamento Clássico
 
 ### <a name="give-key-vault-access-to-your-storage-account"></a>Dê acesso ao Cofre chave à sua conta de armazenamento
 
@@ -160,7 +164,7 @@ Tags                :
 
 ### <a name="enable-key-regeneration"></a>Permitir a regeneração da chave
 
-Se pretender que o Key Vault regenerar periodicamente as chaves da sua conta de armazenamento, pode utilizar o cmdlet Azure PowerShell [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) para definir um período de regeneração. Neste exemplo, estabelecemos um período de regeneração de três dias. Após três dias, o Key Vault regenerará o 'key2' e trocará a tecla ativa de 'key2' para 'key1'.
+Se pretender que o Key Vault regenerar periodicamente as chaves da sua conta de armazenamento, pode utilizar o cmdlet Azure PowerShell [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) para definir um período de regeneração. Neste exemplo, estabelecemos um período de regeneração de três dias. Após três dias, o Key Vault regenerará 'key2' e trocará a tecla ativa de 'key2' para 'key1' (substitua-a por 'primário' e 'secundário' para Contas clássicas de Armazenamento).
 
 ```azurepowershell-interactive
 $regenPeriod = [System.Timespan]::FromDays(3)
@@ -192,12 +196,12 @@ Os comandos desta secção completam as seguintes ações:
 
 - Definir uma definição de assinatura de acesso partilhado de conta. 
 - Crie um símbolo de assinatura de acesso partilhado de conta para os serviços Blob, File, Table e Queue. O símbolo é criado para tipos de recursos Serviço, Contentor e Objeto. O símbolo é criado com todas as permissões, em https, e com as datas de início e fim especificadas.
-- Delineie uma definição de assinatura de acesso compartilhado de armazenamento no cofre. A definição tem o modelo URI do símbolo de assinatura de acesso partilhado que foi criado. A definição tem o `account` tipo de assinatura de acesso partilhado e é válida para os dias N.
+- Delineie uma definição de assinatura de acesso compartilhado de armazenamento no cofre. A definição tem o modelo URI do símbolo de assinatura de acesso partilhado que foi criado. A definição tem o tipo de assinatura de acesso partilhado `account` e é válida para os dias N.
 - Verifique se a assinatura de acesso partilhado foi guardada no seu cofre como segredo.
 - 
 ### <a name="set-variables"></a>Definir variáveis
 
-Em primeiro lugar, detete as variáveis a utilizar pelos cmdlets PowerShell nos seguintes passos. Certifique-se de <YourStorageAccountName> <YourKeyVaultName> atualizar os espaços e os espaços reservados.
+Em primeiro lugar, detete as variáveis a utilizar pelos cmdlets PowerShell nos seguintes passos. Certifique-se de atualizar os <YourStorageAccountName> espaços e os espaços <YourKeyVaultName> reservados.
 
 Também usaremos os cmdlets Azure PowerShell [New-AzStorageContext](/powershell/module/az.storage/new-azstoragecontext?view=azps-2.6.0) para obter o contexto da sua conta de armazenamento Azure.
 
@@ -205,7 +209,7 @@ Também usaremos os cmdlets Azure PowerShell [New-AzStorageContext](/powershell/
 $storageAccountName = <YourStorageAccountName>
 $keyVaultName = <YourKeyVaultName>
 
-$storageContext = New-AzStorageContext -StorageAccountName $storageAccountName -Protocol Https -StorageAccountKey Key1
+$storageContext = New-AzStorageContext -StorageAccountName $storageAccountName -Protocol Https -StorageAccountKey Key1 #(or "Primary" for Classic Storage Account)
 ```
 
 ### <a name="create-a-shared-access-signature-token"></a>Criar um símbolo de assinatura de acesso partilhado
@@ -226,7 +230,7 @@ O valor da $sasToken será semelhante a este.
 
 ### <a name="generate-a-shared-access-signature-definition"></a>Gerar uma definição de assinatura de acesso partilhado
 
-Utilize o Conjunto Azure PowerShell [Set-AzKeyVaultManagedStorageSasDefinition](/powershell/module/az.keyvault/set-azkeyvaultmanagedstoragesasdefinition?view=azps-2.6.0) cmdlet para criar uma definição de assinatura de acesso partilhado.  Pode fornecer o nome da `-Name` sua escolha ao parâmetro.
+Utilize o Conjunto Azure PowerShell [Set-AzKeyVaultManagedStorageSasDefinition](/powershell/module/az.keyvault/set-azkeyvaultmanagedstoragesasdefinition?view=azps-2.6.0) cmdlet para criar uma definição de assinatura de acesso partilhado.  Pode fornecer o nome da sua escolha ao `-Name` parâmetro.
 
 ```azurepowershell-interactive
 Set-AzKeyVaultManagedStorageSasDefinition -AccountName $storageAccountName -VaultName $keyVaultName -Name <YourSASDefinitionName> -TemplateUri $sasToken -SasType 'account' -ValidityPeriod ([System.Timespan]::FromDays(30))

@@ -5,13 +5,13 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
-ms.date: 04/20/2020
-ms.openlocfilehash: 250fd242e76f64002a6e55e7caf616ac201b593b
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.date: 05/11/2020
+ms.openlocfilehash: 4d0d56dc4d6e7fa7765439e7387d67bb80a6ec9f
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692247"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124640"
 ---
 # <a name="known-issues"></a>Problemas Conhecidos #
 
@@ -41,6 +41,7 @@ O lançamento atual tem as seguintes questões conhecidas:
 
 - Os anúncios podem ter problemas sendo inseridos (a pedido ou ao vivo) quando um bloqueador de anúncios é instalado no navegador
 - Os dispositivos móveis podem ter problemas em reproduzir anúncios.
+- Os anúncios MP4 Midroll não são atualmente suportados pelo Azure Media Player.
 
 ## <a name="azurehtml5js"></a>AzureHtml5JS ##
 
@@ -62,7 +63,7 @@ O lançamento atual tem as seguintes questões conhecidas:
 
 - Características em falta
 - Falhas tecnológicas e http (como 404 intervalos de rede), o jogador demorará mais tempo a recuperar do que outras tecnologias.
-- Safari e Firefox na reprodução de Mac com `"http://` `https://` Silverlight requer explicitamente definir ou para a fonte.
+- Safari e Firefox na reprodução de Mac com Silverlight requer explicitamente definir `"http://` ou `https://` para a fonte.
 - Se faltar uma API para esta tecnologia, geralmente devolverá o nulo.
 - Se o utilizador tiver o Flash instalado mas não autorizar a carregá-lo no site, pode ocorrer uma rotação infinita. Isto porque o leitor pensa que o plugin está instalado e disponível e acha que o plugin está a executar o conteúdo. O código JavaScript foi enviado, mas as definições do navegador bloquearam a execução do plugin até que o utilizador aceite o pedido para permitir o plugin. Isto pode ocorrer em todos os navegadores.  
 

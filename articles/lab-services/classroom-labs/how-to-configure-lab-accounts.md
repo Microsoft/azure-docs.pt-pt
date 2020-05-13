@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2020
 ms.author: spelluru
-ms.openlocfilehash: fa9dba62b3b58687ec6a2bfc29e8722f7016b679
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 14f66701d3a375807829493f866dcb91b131f2e5
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79284307"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121087"
 ---
 # <a name="configure-lab-accounts-in-azure-lab-services"></a>Configure contas de laboratório em Serviços de Laboratório Azure 
 Nos Serviços de Laboratório Azure, uma conta de laboratório é um recipiente para tipos de laboratório geridos, como laboratórios de sala de aula. Um administrador cria uma conta de laboratório com os Serviços de Laboratório Azure e dá acesso aos donos de laboratório que podem criar laboratórios na conta. 
@@ -38,6 +38,9 @@ Aqui estão algumas restrições ao especificar o intervalo de endereços que de
 
 1. Na página **da Conta lab,** selecione **as definições** de Laboratórios no menu esquerdo.
 2. Para o campo **de intervalo de endereços,** especifique o intervalo de endereços para VMs que serão criados em laboratório. A gama de endereços deve constar da notação de encaminhamento inter-domínio sem classe (CIDR) (exemplo: 10.20.0.0/23). Máquinas virtuais no laboratório serão criadas nesta gama de endereços.
+
+    > [!NOTE]
+    > A propriedade de gama De endereço só se aplica se a rede virtual Peer estiver ativada para o laboratório. 
 3. Selecione **Guardar** na barra de ferramentas. 
 
     ![Configure gama de endereços](../media/how-to-manage-lab-accounts/labs-configuration-page-address-range.png)

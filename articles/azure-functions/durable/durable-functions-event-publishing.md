@@ -2,13 +2,13 @@
 title: Funções Duráveis publicação na Grelha de Eventos Azure (pré-visualização)
 description: Saiba como configurar a publicação automática da Rede de Eventos Azure para Funções Duráveis.
 ms.topic: conceptual
-ms.date: 03/14/2019
-ms.openlocfilehash: 671f7bd5221a936ea9dad0f0cece895bdbe9512f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/25/2020
+ms.openlocfilehash: c0106f3754e0cdcbf1f295fbe3f1b5def8dc3ca1
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535490"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124293"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Funções Duráveis publicação na Grelha de Eventos Azure (pré-visualização)
 
@@ -30,7 +30,7 @@ Seguem-se alguns cenários em que esta funcionalidade é útil:
 
 ## <a name="create-a-custom-event-grid-topic"></a>Crie um tópico personalizado da Grelha de Eventos
 
-Crie um tópico de Grelha de Eventos para o envio de eventos a partir de Funções Duráveis. As seguintes instruções mostram como criar um tópico utilizando o Azure CLI. Também pode fazê-lo utilizando o [PowerShell](../../event-grid/custom-event-quickstart-powershell.md) ou [utilizando o portal Azure](../../event-grid/custom-event-quickstart-portal.md).
+Crie um tópico de Grelha de Eventos para o envio de eventos a partir de Funções Duráveis. As seguintes instruções mostram como criar um tópico utilizando o Azure CLI. Também pode criar o tópico utilizando o [PowerShell](../../event-grid/custom-event-quickstart-powershell.md) ou [utilizando o portal Azure](../../event-grid/custom-event-quickstart-portal.md).
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -66,11 +66,11 @@ Agora pode enviar eventos para o tema.
 
 ## <a name="configure-event-grid-publishing"></a>Configure a publicação da Rede de Eventos
 
-No seu projeto DeFunções `host.json` Duráveis, encontre o ficheiro.
+No seu projeto DeFunções Duráveis, encontre o `host.json` ficheiro.
 
 ### <a name="durable-functions-1x"></a>Funções Duráveis 1.x
 
-Adicione `eventGridTopicEndpoint` `eventGridKeySettingName` e `durableTask` em uma propriedade.
+Adicione `eventGridTopicEndpoint` e em uma `eventGridKeySettingName` `durableTask` propriedade.
 
 ```json
 {
@@ -83,7 +83,7 @@ Adicione `eventGridTopicEndpoint` `eventGridKeySettingName` e `durableTask` em u
 
 ### <a name="durable-functions-2x"></a>Funções Duráveis 2.x
 
-Adicione `notifications` uma secção `durableTask` à propriedade do `<topic_name>` ficheiro, substituindo pelo nome que escolheu. Se `durableTask` as `extensions` propriedades ou propriedades não existirem, crie-as como este exemplo:
+Adicione uma `notifications` secção à propriedade do `durableTask` ficheiro, substituindo `<topic_name>` pelo nome que escolheu. Se as `durableTask` propriedades ou propriedades não `extensions` existirem, crie-as como este exemplo:
 
 ```json
 {
@@ -101,9 +101,9 @@ Adicione `notifications` uma secção `durableTask` à propriedade do `<topic_na
 }
 ```
 
-As possíveis propriedades de configuração da Grelha de Eventos Azure podem ser encontradas na [documentação host.json](../functions-host-json.md#durabletask). Depois de configurar o ficheiro, a `host.json` sua aplicação de função envia eventos de ciclo de vida para o tópico da Grelha de Eventos. Isto funciona quando executa a sua aplicação de funções tanto localmente como em Azure.
+As possíveis propriedades de configuração da Grelha de Eventos Azure podem ser encontradas na [documentação host.json](../functions-host-json.md#durabletask). Depois de configurar o ficheiro, a sua aplicação de função envia eventos de ciclo de vida para o tópico da Grelha de `host.json` Eventos. Esta ação começa quando executa a sua app de funções tanto localmente como em Azure.
 
-Defina a definição da aplicação `local.settings.json`para a chave de tópicos na App de Funções e . O JSON seguinte é `local.settings.json` uma amostra da depuração local. Substitua-a `<topic_key>` com a tecla de tópico.  
+Defina a definição da aplicação para a chave de tópicos na App de Funções e `local.settings.json` . O JSON seguinte é uma amostra da `local.settings.json` depuração local. `<topic_key>`Substitua-a com a tecla de tópico.  
 
 ```json
 {
@@ -116,9 +116,9 @@ Defina a definição da aplicação `local.settings.json`para a chave de tópico
 }
 ```
 
-Se estiver a utilizar o [Emulador](../../storage/common/storage-use-emulator.md) de Armazenamento (apenas windows), certifique-se de que está a funcionar. É uma boa ideia dirigir `AzureStorageEmulator.exe clear all` o comando antes de executar.
+Se estiver a utilizar o [Emulador](../../storage/common/storage-use-emulator.md) de Armazenamento (apenas windows), certifique-se de que está a funcionar. É uma boa ideia dirigir o comando antes de `AzureStorageEmulator.exe clear all` executar.
 
-Se estiver a utilizar uma conta de `UseDevelopmentStorage=true` `local.settings.json` Armazenamento Azure existente, substitua-a com a sua cadeia de ligação.
+Se estiver a utilizar uma conta de Armazenamento Azure existente, substitua-a com a sua cadeia de `UseDevelopmentStorage=true` `local.settings.json` ligação.
 
 ## <a name="create-functions-that-listen-for-events"></a>Criar funções que ouçam eventos
 
@@ -126,52 +126,65 @@ Utilizando o portal Azure, crie outra aplicação de função para ouvir os even
 
 ### <a name="create-an-event-grid-trigger-function"></a>Criar uma função de gatilho da Grelha de Eventos
 
-Crie uma função para receber os eventos de ciclo de vida. Selecione **Função Personalizada**.
+1. Na sua aplicação de funções, selecione **Funções,** e depois selecione **+ Adicionar** 
 
-![Selecione uma função personalizada.](./media/durable-functions-event-publishing/functions-portal.png)
+   :::image type="content" source="./media/durable-functions-event-publishing/function-add-function.png" alt-text="Adicione uma função no portal Azure." border="true":::
 
-Escolha o Gatilho da Grelha de Eventos e selecione um idioma.
+1. Procure a **Grelha de Eventos**e, em seguida, selecione o modelo de gatilho da Grelha de **Eventos Azure.** 
 
-![Selecione o Gatilho da Grelha de Eventos.](./media/durable-functions-event-publishing/eventgrid-trigger.png)
+    :::image type="content" source="./media/durable-functions-event-publishing/function-select-event-grid-trigger.png" alt-text="Selecione o modelo de gatilho da grelha de eventos no portal Azure." border="true":::
 
-Introduza o nome da função e, em seguida, selecione `Create`.
+1. Nomeie o novo gatilho e, em seguida, selecione **Criar Função**.
 
-![Crie o Gatilho da Grelha de Eventos.](./media/durable-functions-event-publishing/eventgrid-trigger-creation.png)
+    :::image type="content" source="./media/durable-functions-event-publishing/function-name-event-grid-trigger.png" alt-text="Nomeie o gatilho da grelha do evento no portal Azure." border="true":::
 
-É criada uma função com o seguinte código:
 
-# <a name="c-script"></a>[C# Script](#tab/csharp-script)
+    É criada uma função com o seguinte código:
 
-```csharp
-#r "Newtonsoft.Json"
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using Microsoft.Extensions.Logging;
+    # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-public static void Run(JObject eventGridEvent, ILogger log)
-{
-    log.LogInformation(eventGridEvent.ToString(Formatting.Indented));
-}
-```
+    ```csharp
+    #r "Newtonsoft.Json"
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Linq;
+    using Microsoft.Extensions.Logging;
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+    public static void Run(JObject eventGridEvent, ILogger log)
+    {
+        log.LogInformation(eventGridEvent.ToString(Formatting.Indented));
+    }
+    ```
 
-```javascript
-module.exports = async function(context, eventGridEvent) {
-    context.log(typeof eventGridEvent);
-    context.log(eventGridEvent);
-}
-```
+   # <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+   ```javascript
+   module.exports = async function(context, eventGridEvent) {
+       context.log(typeof eventGridEvent);
+       context.log(eventGridEvent);
+   }
+   ```
 
 ---
 
-Selecione `Add Event Grid Subscription`. Esta operação adiciona uma subscrição da Grelha de Eventos para o tópico da Grelha de Eventos que criou. Para mais informações, consulte [Conceitos em Grelha de Eventos Azure](https://docs.microsoft.com/azure/event-grid/concepts)
+### <a name="add-an-event-grid-subscription"></a>Adicione uma subscrição da Grelha de Eventos
 
-![Selecione a ligação de gatilho da grelha de eventos.](./media/durable-functions-event-publishing/eventgrid-trigger-link.png)
+Agora pode adicionar uma subscrição de Event Grid para o tópico da Grelha de Eventos que criou. Para mais informações, consulte [Concepts in Azure Event Grid](https://docs.microsoft.com/azure/event-grid/concepts).
 
-Selecione `Event Grid Topics` para **Tópico .** Selecione o grupo de recursos que criou para o tópico da Grelha de Eventos. Em seguida, selecione a instância do tópico da Grelha de Eventos. Prima. `Create`
+1. Na sua nova função, selecione **Integração** e, em seguida, selecione **Event Grid Trigger (eventGridEvent)**. 
 
-![Crie uma subscrição do Event Grid.](./media/durable-functions-event-publishing/eventsubscription.png)
+    :::image type="content" source="./media/durable-functions-event-publishing/eventgrid-trigger-link.png" alt-text="Selecione a ligação de gatilho da grelha de eventos." border="true":::
+
+1. **Selecione Criar descrição da grelha**de eventos .
+
+    :::image type="content" source="./media/durable-functions-event-publishing/create-event-grid-subscription.png" alt-text="Crie a subscrição da Grelha de Eventos." border="true":::
+
+1. Nomeie a subscrição do seu evento e selecione o tipo de tópicos da Grelha de **Eventos.** 
+
+1. Selecione uma subscrição. Em seguida, selecione o grupo de recursos e o recurso que criou para o tópico da Grelha de Eventos. 
+
+1. Selecione **Criar**.
+
+    :::image type="content" source="./media/durable-functions-event-publishing/event-grid-subscription-details.png" alt-text="Crie uma subscrição da Grelha de Eventos." border="true":::
 
 Agora estápronto para receber eventos de ciclo de vida.
 
@@ -224,7 +237,7 @@ No projeto Funções Duráveis que configuraste anteriormente, começa a depurar
 A lista que se segue explica o esquema de eventos de ciclo de vida:
 
 * **`id`**: Identificador único para o evento Event Grid.
-* **`subject`**: Caminho para o assunto do evento. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}`será, `Running` `Completed`e `Failed` `Terminated`.  
+* **`subject`**: Caminho para o assunto do evento. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}`será, `Running` `Completed` `Failed` e `Terminated` .  
 * **`data`**: Funções Duráveis Parâmetros específicos.
   * **`hubName`**: [Nome TaskHub.](durable-functions-task-hubs.md)
   * **`functionName`**: Nome de função orquestrador.

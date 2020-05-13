@@ -2,17 +2,19 @@
 title: Gerir conjuntos de escala de máquina virtual com o CLI Azure
 description: O ClI Comum Azure ordena gerir conjuntos de escala de máquinavirtual, tais como como iniciar e parar uma instância, ou alterar a capacidade definida pela escala.
 author: ju-shim
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
-ms.date: 05/29/2018
 ms.author: jushiman
-ms.openlocfilehash: ad07a237dd40d836705b332c6c10356720901481
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.service: virtual-machine-scale-sets
+ms.subservice: management
+ms.date: 05/29/2018
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 2742b0b73d4143159fd1ed1338988b01a2171041
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81011587"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124334"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Gerir um conjunto de máquinas virtuais com o Azure CLI
 Ao longo do ciclo de vida dos conjuntos de dimensionamento de máquinas virtuais, poderá ter de executar uma ou mais tarefas de gestão. Além disso, pode querer criar scripts que automatizam várias tarefas do ciclo de vida. Este artigo detalha alguns dos comandos comuns do Azure CLI que lhe permitem executar estas tarefas.
@@ -38,7 +40,7 @@ az vmss list-instances \
     --output table
 ```
 
-Para ver informações adicionais sobre uma `--instance-id` instância de VM específica, adicione o parâmetro à [az vmss get-instance-view](/cli/azure/vmss) e especifique uma instância para visualizar. O exemplo seguinte vê informações sobre a instância *VM 0* no conjunto de escala sem nome *myScaleSet* e o grupo de recursos *myResourceGroup.* Insira os seus próprios nomes da seguinte forma:
+Para ver informações adicionais sobre uma instância de VM específica, adicione o `--instance-id` parâmetro à [az vmss get-instance-view](/cli/azure/vmss) e especifique uma instância para visualizar. O exemplo seguinte vê informações sobre a instância *VM 0* no conjunto de escala sem nome *myScaleSet* e o grupo de recursos *myResourceGroup.* Insira os seus próprios nomes da seguinte forma:
 
 ```azurecli
 az vmss get-instance-view \

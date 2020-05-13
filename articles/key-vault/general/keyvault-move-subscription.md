@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: 4046d4ec5f62ffc4fab50e8c5a4a08fad326aa04
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 450aa58d4ad9cbb721e621ec3db8b4ca7e914aa1
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82796957"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121189"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Mover um Cofre chave Azure para outra subscrição
 
@@ -83,6 +83,9 @@ $vault.Properties.AccessPolicies = @()                                     # Acc
                                                                            # applications/users/rights so that it does not need to be                             # done after this whole activity. Here we are not setting 
                                                                            # any access policies. 
 Set-AzResource -ResourceId $vaultResourceId -Properties $vault.Properties  # Modifies the key vault's properties.
+
+Clear-AzContext                                                            #Clear the context from PowerShell
+Connect-AzAccount                                                          #Log in again to confirm you have the correct tenant id
 ````
 
 ```azurecli

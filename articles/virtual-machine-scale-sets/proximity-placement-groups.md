@@ -1,19 +1,20 @@
 ---
 title: Pré-visualização de grupos de colocação de proximidade para conjuntos de escala de máquinas virtuais
 description: Aprenda a criar e utilizar grupos de colocação de proximidade para conjuntos de escala de máquinas virtuais windows em Azure.
-author: cynthn
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
+ms.subservice: availability
 ms.date: 07/01/2019
-ms.author: cynthn
-ms.openlocfilehash: 4fa2949e2a7e1b99ac26caa35f967e9dc9cf359a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 18cb1ae3e549995d7b4732025906329bc609f360
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76273624"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124351"
 ---
 # <a name="preview-creating-and-using-proximity-placement-groups-using-powershell"></a>Pré-visualização: Criar e utilizar grupos de colocação de proximidade usando powerShell
 
@@ -54,7 +55,7 @@ Get-AzProximityPlacementGroup
 
 ## <a name="create-a-scale-set"></a>Criar um conjunto de dimensionamento
 
-Crie uma escala no grupo `-ProximityPlacementGroup $ppg.Id` de colocação de proximidade usando para se referir ao ID do grupo de colocação de proximidade quando você usar [New-AzVMSS](https://docs.microsoft.com/powershell/module/az.compute/new-azvmss) para criar o conjunto de escala.
+Crie uma escala no grupo de colocação de proximidade usando para se referir ao ID do grupo de colocação de `-ProximityPlacementGroup $ppg.Id` proximidade quando você usar [New-AzVMSS](https://docs.microsoft.com/powershell/module/az.compute/new-azvmss) para criar o conjunto de escala.
 
 ```azurepowershell-interactive
 $scalesetName = "myVM"

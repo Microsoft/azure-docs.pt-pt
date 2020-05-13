@@ -1,19 +1,20 @@
 ---
 title: Modificar um conjunto de escala de máquina virtual Azure
 description: Saiba como modificar e atualizar uma escala de máquina virtual Azure com as APIs REST, Azure PowerShell e Azure CLI
-author: mimckitt
-tags: azure-resource-manager
-ms.assetid: e229664e-ee4e-4f12-9d2e-a4f456989e5d
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
+ms.subservice: management
 ms.date: 03/10/2020
-ms.author: mimckitt
-ms.openlocfilehash: af5998a4207521d49ea4fd7956256aa6c880e6e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 9498babd9605c46d752c5fe1eb1b077f6d911351
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79476829"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121019"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificar um conjunto de dimensionamento de máquinas virtuais
 
@@ -156,7 +157,7 @@ $ az vmss show --resource-group myResourceGroup --name myScaleSet
 }
 ```
 
-Estas propriedades descrevem a configuração de uma instância VM dentro de um conjunto de escala, não a configuração da escala definida como um todo. Por exemplo, o modelo `overprovision` de conjunto de escala tem como propriedade, enquanto o modelo para uma instância VM dentro de um conjunto de escala não. Esta diferença deve-se ao facto de o excesso de oferta ser um imóvel para a escala definida como um todo, e não os casos individuais de VM no conjunto de escala (para mais informações sobre o excesso de oferta, consulte [considerações de design para conjuntos](virtual-machine-scale-sets-design-overview.md#overprovisioning)de escala).
+Estas propriedades descrevem a configuração de uma instância VM dentro de um conjunto de escala, não a configuração da escala definida como um todo. Por exemplo, o modelo de conjunto de escala tem `overprovision` como propriedade, enquanto o modelo para uma instância VM dentro de um conjunto de escala não. Esta diferença deve-se ao facto de o excesso de oferta ser um imóvel para a escala definida como um todo, e não os casos individuais de VM no conjunto de escala (para mais informações sobre o excesso de oferta, consulte [considerações de design para conjuntos](virtual-machine-scale-sets-design-overview.md#overprovisioning)de escala).
 
 
 ### <a name="the-scale-set-vm-instance-view"></a>A visão de instância vm definida em escala
@@ -272,11 +273,11 @@ Para atualizar uma propriedade global de conjunto de escala, você deve atualiza
         az vmss update --remove {propertyPath} {indexToRemove}
         ```
 
-    - Se tiver implantado previamente a `az vmss create` balança definida com `az vmss create` o comando, pode executar novamente o comando para atualizar o conjunto de escala. Certifique-se de que `az vmss create` todas as propriedades do comando são as mesmas de antes, exceto as propriedades que pretende modificar.
+    - Se tiver implantado previamente a balança definida com o `az vmss create` comando, pode executar novamente o `az vmss create` comando para atualizar o conjunto de escala. Certifique-se de que todas as propriedades do `az vmss create` comando são as mesmas de antes, exceto as propriedades que pretende modificar.
 
 - Também pode utilizar [resources.azure.com](https://resources.azure.com) ou os [SDKs Azure](https://azure.microsoft.com/downloads/).
 
-Uma vez atualizado o modelo de conjunto de escala, a nova configuração aplica-se a quaisquer novos VMs criados no conjunto de escala. No entanto, os modelos para os VMexistentes no conjunto de escala sem vencimento devem ainda ser atualizados com o mais recente modelo global de conjuntos de escala. No modelo para cada VM encontra-se uma propriedade booleana chamada `latestModelApplied` que indica se o VM`true` está ou não atualizado com o mais recente modelo global de conjuntos de escala ( significa que o VM está atualizado com o modelo mais recente).
+Uma vez atualizado o modelo de conjunto de escala, a nova configuração aplica-se a quaisquer novos VMs criados no conjunto de escala. No entanto, os modelos para os VMexistentes no conjunto de escala sem vencimento devem ainda ser atualizados com o mais recente modelo global de conjuntos de escala. No modelo para cada VM encontra-se uma propriedade booleana chamada `latestModelApplied` que indica se o VM está ou não atualizado com o mais recente modelo global de conjuntos de escala ( significa que o `true` VM está atualizado com o modelo mais recente).
 
 
 ## <a name="how-to-bring-vms-up-to-date-with-the-latest-scale-set-model"></a>Como trazer os VMs atualizados com o mais recente modelo de conjunto de escala

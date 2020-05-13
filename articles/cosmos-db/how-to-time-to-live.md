@@ -1,17 +1,17 @@
 ---
 title: Configure e gerencie o Tempo para Viver em Azure Cosmos DB
 description: Aprenda a configurar e gerir o tempo para viver num recipiente e num item em Azure Cosmos DB
-author: markjbrown
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: anfeldma
-ms.openlocfilehash: 3019e9f78a51a991d5c6e96655f5dbae1f224620
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 11f5615d44cef4b6717dc9fe2004a64cf2f800ba
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82869878"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124130"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configure o tempo para viver em Azure Cosmos DB
 
@@ -113,7 +113,7 @@ container = database.createContainerIfNotExists(containerProperties, 400).block(
 
 ## <a name="set-time-to-live-on-a-container-using-sdk"></a>Detete tempo para viver num recipiente usando SDK
 
-Para definir a hora de viver num recipiente, é necessário fornecer um número positivo não nulo que indique o período de tempo em segundos. Com base no valor configurado do TTL, todos os itens do recipiente `_ts` após o último carimbo de tempo modificado do item são eliminados.
+Para definir a hora de viver num recipiente, é necessário fornecer um número positivo não nulo que indique o período de tempo em segundos. Com base no valor configurado do TTL, todos os itens do recipiente após o último carimbo de tempo modificado do item `_ts` são eliminados.
 
 ### <a name="net-sdk"></a><a id="dotnet-enable-withexpiry"></a>.NET SDK
 
@@ -195,7 +195,7 @@ async function createcontainerWithTTL(db: Database, containerDefinition: Contain
 
 Além de definir um tempo padrão para viver num recipiente, pode definir uma hora de viver para um item. A definição do tempo de vida ao nível do item sobrepor-se-á ao TTL padrão do item nesse recipiente.
 
-* Para definir o TTL num item, é necessário fornecer um número positivo não nulo, o que indica que o período, `_ts`em segundos, expirará o item após o último carimbo de tempo modificado do artigo .
+* Para definir o TTL num item, é necessário fornecer um número positivo não nulo, o que indica que o período, em segundos, expirará o item após o último carimbo de tempo modificado do artigo `_ts` .
 
 * Se o item não tiver um campo TTL, então, por padrão, o conjunto TTL no recipiente aplicar-se-á ao item.
 
@@ -218,7 +218,7 @@ Utilize os seguintes passos para dar tempo a viver num item:
    * Selecione **On (sem predefinição)** ou selecione **On** e detete um valor TTL. 
    * Clique em **Guardar** para guardar as alterações.
 
-5. Em seguida, navegue para o item para o `ttl` qual pretende definir o tempo para viver, adicione a propriedade e selecione **Update**. 
+5. Em seguida, navegue para o item para o qual pretende definir o tempo para viver, adicione a `ttl` propriedade e selecione **Update**. 
 
    ```json
    {
@@ -347,7 +347,7 @@ SalesOrder salesOrder = new SalesOrder(
 
 ## <a name="reset-time-to-live"></a>Redefinir o tempo para viver
 
-Pode redefinir o tempo para viver num item executando uma operação de escrita ou atualização no item. A operação de escrita `_ts` ou atualização definirá o tempo atual, e o TTL para que o item expire recomeçará. Se desejar alterar o TTL de um item, pode atualizar o campo assim que atualizar qualquer outro campo.
+Pode redefinir o tempo para viver num item executando uma operação de escrita ou atualização no item. A operação de escrita ou atualização definirá o `_ts` tempo atual, e o TTL para que o item expire recomeçará. Se desejar alterar o TTL de um item, pode atualizar o campo assim que atualizar qualquer outro campo.
 
 ### <a name="net-sdk"></a><a id="dotnet-extend-ttl-item"></a>.NET SDK
 
@@ -496,7 +496,7 @@ container.getItem("SO05", new PartitionKey("CO18009186470")).read()
 
 ## <a name="disable-time-to-live"></a>Desativar o tempo para viver
 
-Para desativar o tempo para viver num recipiente e impedir que `DefaultTimeToLive` o processo de fundo verifique se há artigos caducados, a propriedade do recipiente deve ser eliminada. A apagar esta propriedade é diferente de defini-la para -1. Quando o definir para -1, novos itens adicionados ao recipiente viverão para sempre, no entanto pode anular este valor em itens específicos no recipiente. Quando retirar a propriedade TTL do recipiente os itens nunca expirarão, mesmo que existam que tenham ultrapassado explicitamente o valor tTL padrão anterior.
+Para desativar o tempo para viver num recipiente e impedir que o processo de fundo verifique se há artigos caducados, a `DefaultTimeToLive` propriedade do recipiente deve ser eliminada. A apagar esta propriedade é diferente de defini-la para -1. Quando o definir para -1, novos itens adicionados ao recipiente viverão para sempre, no entanto pode anular este valor em itens específicos no recipiente. Quando retirar a propriedade TTL do recipiente os itens nunca expirarão, mesmo que existam que tenham ultrapassado explicitamente o valor tTL padrão anterior.
 
 ### <a name="net-sdk"></a><a id="dotnet-disable-ttl"></a>.NET SDK
 
