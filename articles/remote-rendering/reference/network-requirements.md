@@ -1,18 +1,18 @@
 ---
-title: Requisitos da rede
+title: Requisitos de rede
 description: Requisitos de rede e melhores práticas de rede para uma experiência ideal
 author: florianborn71
 ms.author: flborn
 ms.date: 02/13/2020
 ms.topic: reference
-ms.openlocfilehash: 9bb8818d2bb91c14eafc272774e0b633c51e58e1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fe684d15e2ce9b8d302db4eb6bd31dd1416abf21
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617885"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196533"
 ---
-# <a name="network-requirements"></a>Requisitos da rede
+# <a name="network-requirements"></a>Requisitos de rede
 
 Uma ligação estável e de baixa latência a um centro de dados Azure é fundamental para uma boa experiência de utilizador em Renderização Remota Azure. As más condições de rede podem resultar em ligações largas, hologramas instáveis, nervosos ou 'saltando', e um atraso notável ao atualizar o gráfico de cena do lado do servidor.
 
@@ -20,7 +20,7 @@ Uma ligação estável e de baixa latência a um centro de dados Azure é fundam
 
 Os requisitos exatos da rede dependem do seu caso de utilização específico, como o número e a frequência de modificações no gráfico de cena remota, bem como a complexidade da vista renderizada, mas existem uma série de diretrizes para garantir que a sua experiência seja o melhor possível:
 
-* A sua conectividade na Internet precisa de suportar pelo menos 50 Mbps a **jusante** e **10 Mbps** a montante de forma consistente para uma única sessão de utilizador da Renderização Remota Azure, assumindo que não existe tráfego concorrente na rede. Recomendamos tarifas mais altas para melhores experiências. Com mais utilizadores na mesma rede, estes requisitos escalam-se correspondentemente.
+* A sua conectividade na Internet precisa de suportar pelo menos 40 Mbps a **jusante** e **5 Mbps** a montante de forma consistente para uma única sessão de utilizador da Renderização Remota Azure, assumindo que não existe tráfego concorrente na rede. Recomendamos tarifas mais altas para melhores experiências. Com mais utilizadores na mesma rede, estes requisitos escalam-se correspondentemente.
 * A utilização da **banda Wi-Fi de 5 GHz** geralmente produzirá melhores resultados do que a banda Wi-Fi de 2,4 GHz, embora ambos devam funcionar.
 * Se existirem outras redes Wi-Fi nas proximidades, evite utilizar canais Wi-Fi utilizados por estas outras redes. Pode utilizar ferramentas de digitalização de rede como o [WifiInfoView](https://www.nirsoft.net/utils/wifi_information_view.html) para verificar se os canais que a sua rede Wi-Fi utiliza, estão isentos de tráfego concorrente.
 * **Evite estritamente utilizar repetidores Wi-Fi** ou reencaminhamento de linha lan-over-powerline.

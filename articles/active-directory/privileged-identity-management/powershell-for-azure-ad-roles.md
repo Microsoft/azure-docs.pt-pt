@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/28/2020
+ms.date: 05/11/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99a6c0153105627e272d05af5514a030577431f7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c42c0dd3848ec913f991e4b07612669c5a25c9f1
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82233997"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197274"
 ---
 # <a name="powershell-for-azure-ad-roles-in-privileged-identity-management"></a>PowerShell para funções de AD Azure na Gestão de Identidade Privilegiada
 
@@ -45,12 +45,12 @@ Este artigo contém instruções para a utilização de cmdlets powerShell de Di
         $AzureAdCred = Get-Credential  
         Connect-AzureAD -Credential $AzureAdCred
 
-1. Encontre o ID do inquilino para a sua organização Azure AD indo para **o Azure Ative Directory** > **Directy** > **Id**. Na secção cmdlets, utilize este ID sempre que necessário fornecer o recursoId.
+1. Encontre o ID do inquilino para a sua organização Azure AD indo para **o Azure Ative**  >  **Properties**  >  **Directory Directy Id**. Na secção cmdlets, utilize este ID sempre que necessário fornecer o recursoId.
 
     ![Encontre o ID da organização nas propriedades para a organização Azure AD](./media/powershell-for-azure-ad-roles/tenant-id-for-Azure-ad-org.png)
 
 > [!Note]
-> As seguintes secções são exemplos simples que podem ajudá-lo a funcionar. Pode encontrar documentação mais detalhada sobre as https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_managementseguintes cmdlets em . No entanto, terá de substituir "azureResources" no parâmetro do fornecedor ID por "aadRoles". Você também precisa lembrar-se de usar o ID da organização para a sua organização Azure AD como o parâmetro de recursos Id.
+> As seguintes secções são exemplos simples que podem ajudá-lo a funcionar. Pode encontrar documentação mais detalhada sobre as seguintes cmdlets https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management em . No entanto, terá de substituir "azureResources" no parâmetro do fornecedor ID por "aadRoles". Você também precisa lembrar-se de usar o ID da organização para a sua organização Azure AD como o parâmetro de recursos Id.
 
 ## <a name="retrieving-role-definitions"></a>Recuperação de definições de papéis
 
@@ -122,11 +122,10 @@ Há quatro objetos principais na configuração. Apenas três destes objetos sã
 
 [![](media/powershell-for-azure-ad-roles/get-update-role-settings-result.png "Get and update role settings")](media/powershell-for-azure-ad-roles/get-update-role-settings-result.png#lightbox)
 
-Para atualizar a definição de funções, terá primeiro de definir um objeto de definição da seguinte forma:
+Para atualizar a definição de funções, deve obter o objeto de definição existente para uma determinada função e efazer alterações no mesmo:
 
-    $setting = New-Object Microsoft.Open.MSGraph.Model.AzureADMSPrivilegedRuleSetting 
-    $setting.RuleIdentifier = "JustificationRule"
-    $setting.Setting = "{'required':false}"
+    $setting = Get-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Filter "roleDefinitionId eq 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'"
+    $setting.UserMemberSetting.justificationRule = '{"required":false}'
 
 Em seguida, pode ir em frente e aplicar a definição a um dos objetos para um papel particular, como mostrado abaixo. O ID aqui é a definição de funções ID que pode ser recuperado a partir do resultado das definições de funções da lista cmdlet.
 

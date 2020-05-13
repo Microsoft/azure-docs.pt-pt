@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 99a9e68a2e0c39364cc5105f230b00ffb90d867d
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 76a5e12eee7a325a73b3c17dba6c775b6984b89a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82888801"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195911"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>Utilize o Log Analytics para a funcionalidade de diagnóstico
 
@@ -124,9 +124,9 @@ Os eventos de diagnóstico são enviados para o Log Analytics quando concluídos
 
 Log Analytics apenas reporta nestes estados intermédios para atividades de conexão:
 
-- Iniciado
-- Ligada
-- Concluído
+- Iniciado: quando um utilizador seleciona e se conecta a uma aplicação ou desktop no cliente Remote Desktop.
+- Ligado: quando o utilizador se conecta com sucesso ao VM onde a aplicação ou o ambiente de trabalho estão hospedados.
+- Concluído: quando o utilizador ou servidor desliga a sessão a atividade ocorreu.
 
 ## <a name="example-queries"></a>Consultas de exemplo
 

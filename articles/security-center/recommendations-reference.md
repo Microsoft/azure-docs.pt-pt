@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2020
 ms.author: memildin
-ms.openlocfilehash: a6ea53e098a002e902d6ee6632f08dd7f2b63ca5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7e5cb997bee271a1bf1c795598d0ddfda3373264
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80811655"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197145"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Recomendações de segurança - um guia de referência
 
@@ -40,7 +40,7 @@ A sua Pontuação Segura baseia-se no número de recomendações do Centro de Se
 |**App de funções só deve ser acessível através de HTTPS**|Ativar o acesso "apenas HTTPS" para aplicações de função. A utilização do HTTPS garante a autenticação do servidor/serviço e protege os dados em trânsito de ataques de escutas de camadas de rede.<br>(Política relacionada: App de funções só deve ser acessível através de HTTPS)|Médio|**S**|Function app|
 |**As máquinas virtuais viradas para a Internet devem ser protegidas com grupos de segurança da rede**|Ative os Grupos de Segurança da Rede para controlar o acesso à rede das suas máquinas virtuais.<br>(Política conexa: as máquinas virtuais viradas para a Internet devem ser protegidas com grupos de segurança da rede)|Alto/ Médio|N|Máquina virtual|
 |**O reencaminhamento ip na sua máquina virtual deve ser desativado**|Desative o encaminhamento IP. Quando o encaminhamento ip é ativado no NIC de uma máquina virtual, a máquina pode receber tráfego endereçado a outros destinos. O reencaminhamento ip raramente é necessário (por exemplo, quando se utiliza o VM como um aparelho virtual de rede), pelo que este deve ser revisto pela equipa de segurança da rede.<br>(Política relacionada: [Pré-visualização]: O reencaminhamento ip da sua máquina virtual deve ser desativado)|Médio|N|Máquina virtual|
-|**O controlo de acesso à rede just-in-time deve ser aplicado em máquinas virtuais**|Aplicar o controlo de acesso da máquina virtual (VM) just-in-time (VIt) para bloquear permanentemente o acesso a portas selecionadas e permitir que os utilizadores autorizados as abram, via JIT, por um período limitado de tempo.<br>(Política conexa: O controlo de acesso à rede Just-In-Time deve ser aplicado em máquinas virtuais)|Alta|N|Máquina virtual|
+|**As portas de gestão de máquinas virtuais devem ser protegidas com controlo de acesso à rede just-in-time**|Aplicar o controlo de acesso da máquina virtual (VM) just-in-time (VIt) para bloquear permanentemente o acesso a portas selecionadas e permitir que os utilizadores autorizados as abram, via JIT, por um período limitado de tempo.<br>(Política conexa: Os portos de gestão de máquinas virtuais devem ser protegidos com controlo de acesso à rede just-in-time)|Alta|N|Máquina virtual|
 |**As portas de gestão devem ser fechadas nas suas máquinas virtuais**|Endureça o grupo de segurança da rede das suas máquinas virtuais para restringir o acesso a portas de gestão.<br>(Política relacionada: As portas de gestão devem ser fechadas nas suas máquinas virtuais)|Alta|N|Máquina virtual|
 |**A transferência segura para contas de armazenamento deve ser ativada**|Ativar transferência segura para contas de armazenamento. A transferência segura é uma opção que obriga a sua conta de armazenamento a aceitar pedidos apenas de ligações seguras (HTTPS). A utilização do HTTPS garante a autenticação entre o servidor e o serviço e protege os dados em trânsito de ataques de camadas de rede, tais como o homem no meio, escutas e sequestro de sessão.<br>(Política relacionada: Transferência segura para contas de armazenamento deve ser ativada)|Alta|**S**|Conta de armazenamento|
 |**As subredes devem ser associadas a um Grupo de Segurança da Rede**|Permitir que os grupos de segurança da rede controlem o acesso à rede de recursos implantados nas suas subredes.<br>(Política relacionada: As subredes devem ser associadas a um Grupo de Segurança da Rede.<br>Esta política é desativada por defeito)|Alto/ Médio|N|Subrede|

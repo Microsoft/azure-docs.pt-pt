@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 71426d131cdd46b176c387a31e3dc2ca66ae3761
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: d0a1826dafd1e6ce6202dc4f29417a1ce100e54f
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871155"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195241"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-importexport-service"></a>Utilize chaves geridas pelo cliente no Cofre chave Azure para serviço de importação/exportação
 
@@ -99,9 +99,10 @@ Se receber algum erro relacionado com a chave gerida pelo cliente, utilize a seg
 
 | Código de erro     |Detalhes     | Recuperável?    |
 |----------------|------------|-----------------|
-| CmkErrorAccessRevogad | Aplicou uma chave gerida pelo cliente, mas o acesso chave é atualmente revogado. Para mais informações, consulte como [ativar o acesso à chave](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy).                                                      | Sim, verifique se: <ol><li>O cofre ainda tem o MSI na política de acesso.</li><li>A política de acesso fornece permissões para obter, embrulhar, desembrulhar.</li><li>Se o cofre da chave estiver num vNet atrás da firewall, verifique se o **Allow Microsoft Trust Services** está ativado.</li></ol>                                                                                            |
-| CmkErrorKeyDisabled      | Aplicou uma chave gerida pelo cliente, mas a chave está desativada. Para mais informações, consulte como [ativar a tecla](https://docs.microsoft.com/rest/api/keyvault/vaults/createorupdate).                                                                             | Sim, permitindo a versão chave     |
-| CmkErrorKeyNotFound      | Aplicou uma chave gerida pelo cliente, mas não encontra o cofre associado à chave.<br>Se apagou o cofre da chave, não pode recuperar a chave gerida pelo cliente.  Se você emigrou o cofre chave para outro inquilino, veja [Change um cofre chave id inquilino após um movimento de assinatura](https://docs.microsoft.com/azure/key-vault/key-vault-subscription-move-fix). |   Se apagar o cofre da chave:<ol><li>Sim, se estiver na duração da proteção da purga, utilizando os passos em [Recuperar um cofre chave](https://docs.microsoft.com/azure/key-vault/general/soft-delete-powershell#recovering-a-key-vault).</li><li>Não, se for além da duração da proteção da purga.</li></ol><br>Caso contrário, se o cofre principal foi submetido a uma migração de inquilinos, sim, pode ser recuperado usando um dos degraus abaixo: <ol><li>Reverta o cofre de volta para o velho inquilino.</li><li>Definir `Identity = None` e, em seguida, repor o valor para `Identity = SystemAssigned`. Isto elimina e recria a identidade uma vez criada a nova identidade. `Get`Ativar, `Wrap`e `Unwrap` permissões para a nova identidade na política de acesso do cofre chave.</li></ol>|
+| CmkErrorAccessRevogad | O acesso à chave gerida pelo cliente é revogado.                                                       | Sim, verifique se: <ol><li>O cofre ainda tem o MSI na política de acesso.</li><li>A política de acesso tem permissões Get, Wrap e Desembrulhar ativadas.</li><li>Se o cofre da chave estiver num VNet atrás da firewall, verifique se o **Allow Microsoft Trust Services** está ativado.</li><li>Verifique se o MSI do recurso de trabalho foi reposto para utilização de `None` APIs.<br>Se sim, então recue o valor para `Identity = SystemAssigned` . Isto recria a identidade para o recurso de emprego.<br>Uma vez criada a nova identidade, enable `Get` `Wrap` , e `Unwrap` permissões para a nova identidade na política de acesso do cofre chave</li></ol>                                                                                            |
+| CmkErrorKeyDisabled      | A chave gerida pelo cliente está desativada.                                         | Sim, permitindo a versão chave     |
+| CmkErrorKeyNotFound      | Não é possível encontrar a chave gerida pelo cliente. | Sim, se a chave tiver sido eliminada, mas ainda estiver dentro da duração da purga, utilizando a remoção da chave do [cofre Undo Key](https://docs.microsoft.com/powershell/module/az.keyvault/undo-azkeyvaultkeyremoval).<br>Caso contrário, <ol><li>Sim, se o cliente tiver a chave apoiada e restaurá-la.</li><li>Não, caso contrário.</li></ol>
+| CmkErrorVaultNotFound |Não consigo encontrar o cofre chave da chave gerida pelo cliente. |   Se o cofre da chave tiver sido apagado:<ol><li>Sim, se estiver na duração da proteção da purga, utilizando os passos em [Recuperar um cofre chave](https://docs.microsoft.com/azure/key-vault/general/soft-delete-powershell#recovering-a-key-vault).</li><li>Não, se for além da duração da proteção da purga.</li></ol><br>Caso contrário, se o cofre foi migrado para outro inquilino, sim, pode ser recuperado usando um dos degraus abaixo:<ol><li>Reverta o cofre de volta para o velho inquilino.</li><li>Definir `Identity = None` e, em seguida, repor o valor para `Identity = SystemAssigned` . Isto elimina e recria a identidade uma vez criada a nova identidade. Ativar, `Get` `Wrap` e `Unwrap` permissões para a nova identidade na política de acesso do cofre chave.</li></ol>|
 
 ## <a name="next-steps"></a>Passos seguintes
 

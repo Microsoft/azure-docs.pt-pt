@@ -1,20 +1,20 @@
 ---
 title: Criar um conjunto de escala Azure que utiliza zonas de disponibilidade
 description: Saiba como criar conjuntos de escala de máquinas virtuais Azure que utilizam Zonas de Disponibilidade para maior redundância contra interrupções
-author: ju-shim
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm
+author: mimckitt
+ms.author: mimckitt
 ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: availability
 ms.date: 08/08/2018
-ms.author: jushiman
-ms.openlocfilehash: a23164215376bee291c07d49c88bd9e916d710bf
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.reviewer: jushiman
+ms.custom: mimckitt
+ms.openlocfilehash: daa469bef999f33feb44983e3b5a7073b4df655e
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207841"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197359"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Criar um conjunto de escala de máquina virtual que utiliza Zonas de Disponibilidade
 
@@ -39,7 +39,7 @@ Ao implementar um conjunto de escala, também tem a opção de implantar com um 
 
 ### <a name="zone-balancing"></a>Equilíbrio de zona
 
-Finalmente, para conjuntos de escala implantados em várias zonas, você também tem a opção de escolher "o melhor equilíbrio de zona de esforço" ou "equilíbrio de zona rígida". Um conjunto de escala é considerado "equilibrado" se cada\\zona tiver o mesmo número de VMs ou + - 1 VM em todas as outras zonas para o conjunto de escala. Por exemplo:
+Finalmente, para conjuntos de escala implantados em várias zonas, você também tem a opção de escolher "o melhor equilíbrio de zona de esforço" ou "equilíbrio de zona rígida". Um conjunto de escala é considerado "equilibrado" se cada zona tiver o mesmo número de VMs ou + \\ - 1 VM em todas as outras zonas para o conjunto de escala. Por exemplo:
 
 - Uma escala definida com 2 VMs na zona 1, 3 VMs na zona 2 e 3 VMs na zona 3 é considerada equilibrada. Há apenas uma zona com uma contagem de VM diferente e é apenas menos 1 do que as outras zonas. 
 - Uma escala definida com 1 VM na zona 1, 3 VMs na zona 2 e 3 VMs na zona 3 é considerada desequilibrada. A Zona 1 tem menos 2 VMs do que as zonas 2 e 3.
@@ -75,7 +75,7 @@ Os recursos de escala definidos e de apoio, como o equilibrador de carga Azure e
 
 O processo de criação de um conjunto de escala que utiliza uma Zona de Disponibilidade é o mesmo que detalhado no [artigo de início.](quick-create-cli.md) Para utilizar as Zonas de Disponibilidade, tem de criar a sua escala definida numa região azure apoiada.
 
-Adicione `--zones` o parâmetro ao [az vmss criar](/cli/azure/vmss) comando e especificar qual a zona a utilizar (como zona *1,* *2*, ou *3*). O exemplo seguinte cria um conjunto de escala de zona única chamado *myScaleSet* na zona *1:*
+Adicione o `--zones` parâmetro ao [az vmss criar](/cli/azure/vmss) comando e especificar qual a zona a utilizar (como zona *1,* *2*, ou *3*). O exemplo seguinte cria um conjunto de escala de zona única chamado *myScaleSet* na zona *1:*
 
 ```azurecli
 az vmss create \
@@ -111,7 +111,7 @@ Leva alguns minutos para criar e configurar todos os recursos definidos de escal
 
 ## <a name="use-azure-powershell"></a>Utilizar o Azure PowerShell
 
-Para utilizar as Zonas de Disponibilidade, tem de criar a sua escala definida numa região azure apoiada. Adicione `-Zone` o parâmetro ao comando [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) e especifique qual a zona a utilizar (como zona *1,* *2*, ou *3*).
+Para utilizar as Zonas de Disponibilidade, tem de criar a sua escala definida numa região azure apoiada. Adicione o `-Zone` parâmetro ao comando [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) e especifique qual a zona a utilizar (como zona *1,* *2*, ou *3*).
 
 O exemplo seguinte cria um conjunto de escala de zona única chamado *myScaleSet* na zona 1 *do Leste DOS EUA* *2*. Os recursos de rede do Azure para a rede virtual, o endereço IP público e o balanceador de carga são criados automaticamente. Quando solicitado, forneça as suas próprias credenciais administrativas pretendidas para as instâncias de VM no conjunto de dimensionamento:
 
@@ -147,7 +147,7 @@ New-AzVmss `
 
 ## <a name="use-azure-resource-manager-templates"></a>Use Azure Resource Manager templates (Utilizar modelos do Azure Resource Manager)
 
-O processo para criar um conjunto de escala que utiliza uma Zona de Disponibilidade é o mesmo que detalhado no artigo de início para [Linux](quick-create-template-linux.md) ou [Windows](quick-create-template-windows.md). Para utilizar as Zonas de Disponibilidade, tem de criar a sua escala definida numa região azure apoiada. Adicione `zones` a propriedade ao tipo de recurso *Microsoft.Compute/virtualMachineScaleSets* no seu modelo e especifique qual a zona a utilizar (como zona *1,* *2*, ou *3*).
+O processo para criar um conjunto de escala que utiliza uma Zona de Disponibilidade é o mesmo que detalhado no artigo de início para [Linux](quick-create-template-linux.md) ou [Windows](quick-create-template-windows.md). Para utilizar as Zonas de Disponibilidade, tem de criar a sua escala definida numa região azure apoiada. Adicione a propriedade ao tipo de `zones` recurso *Microsoft.Compute/virtualMachineScaleSets* no seu modelo e especifique qual a zona a utilizar (como zona *1,* *2*, ou *3*).
 
 O exemplo seguinte cria um conjunto de escala de zona única Linux chamado *myScaleSet* na zona *1* *do Leste DOS 2* :
 
@@ -193,7 +193,7 @@ Para um exemplo completo de um conjunto de escala de uma zona única e recursos 
 
 ### <a name="zone-redundant-scale-set"></a>Conjunto de escala redundante de zona
 
-Para criar um conjunto de escala seletiva, especifique vários valores na `zones` propriedade para o tipo de recurso *Microsoft.Compute/virtualMachineScaleSets.* O exemplo seguinte cria um conjunto de escala redundante chamado *myScaleSet* em 2 zonas leste dos EUA *1,2,3*: *East US 2*
+Para criar um conjunto de escala seletiva, especifique vários valores na propriedade para o tipo de `zones` recurso *Microsoft.Compute/virtualMachineScaleSets.* O exemplo seguinte cria um conjunto de escala redundante chamado *myScaleSet* em 2 zonas leste dos EUA *1,2,3*: *East US 2*
 
 ```json
 {

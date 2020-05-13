@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 04/27/2020
+ms.date: 05/11/2020
 ms.author: apimpm
-ms.openlocfilehash: cf65cd757655b496ceb87fa1ff8121ac6209d869
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 93f66f3c030b9845b58083a992e1e1f11aa37f9c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203204"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196991"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como utilizar a Gestão de API do Azure com redes virtuais
 As Redes Virtuais (VNETs) do Azure permitem-lhe colocar quaisquer recursos do Azure numa rede encaminhável sem Internet para a qual controla o acesso. Estas redes podem então ser ligadas às suas redes no local utilizando várias tecnologias VPN. Para saber mais sobre as Redes Virtuais Azure comece com a informação aqui: [Visão geral da rede virtual Azure](../virtual-network/virtual-networks-overview.md).
@@ -108,7 +108,7 @@ Segue-se uma lista de problemas comuns de configuração que podem ocorrer ao im
 
 <a name="required-ports"> </a> Quando uma instância de serviço de Gestão API é alojada num VNET, as portas da tabela seguinte são utilizadas.
 
-| Fonte / Porta de Destino(s) | Direção          | Protocolo de transporte |   [Etiquetas de serviço](../virtual-network/security-overview.md#service-tags) <br> Fonte / Destino   | Finalidade\*( )                                                 | Tipo de Rede Virtual |
+| Fonte / Porta de Destino(s) | Direção          | Protocolo de transporte |   [Etiquetas de serviço](../virtual-network/security-overview.md#service-tags) <br> Fonte / Destino   | Finalidade ( \* )                                                 | Tipo de Rede Virtual |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | * / [80], 443                  | Entrada            | TCP                | INTERNET / VIRTUAL_NETWORK            | Comunicação do cliente à API Management                      | Externo             |
 | * / 3443                     | Entrada            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Ponto final de gestão para portal Azure e PowerShell         | Externa & Interna  |
@@ -136,22 +136,22 @@ Segue-se uma lista de problemas comuns de configuração que podem ocorrer ao im
 
     | Ambiente Azure | Pontos Finais                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | Azure Público      | <ul><li>gcs.prod.monitoring.core.windows.net(**novo)**</li><li>prod.warmpath.msftcloudes.com a**ser depreciado**</li><li>shoebox2.metrics.microsoftmetrics.com**new**</li><li>shoebox2.metrics.nsatc.net a**ser depreciado**</li><li>prod3.metrics.microsoftmetrics.com(**novo)**</li><li>prod3.metrics.nsatc.net a**ser depreciado**</li><li>prod3-black.prod3.metrics.microsoftmetrics.com**new**</li><li>prod3-black.prod3.metrics.nsatc.net a**ser depreciado**</li><li>prod3-red.prod3.metrics.microsoftmetrics.com(**novo)**</li><li>prod3-red.prod3.metrics.nsatc.net a**ser depreciado**</li><li>prod.warm.ingestion.msftcloudes.com</li><li>`azure region`warm.ingestion.msftcloudes.com onde `East US 2` está eastus2.warm.ingestion.msftcloudes.com</li></ul> |
-    | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.microsoftmetrics.com**new**</li><li>shoebox2.metrics.nsatc.net a**ser depreciado**</li><li>prod3.metrics.microsoftmetrics.com(**novo)**</li><li>prod3.metrics.nsatc.net a**ser depreciado**</li><li>prod5.prod.microsoftmetrics.com</li></ul>                                                                                                                                                                                                                                                |
-    | Azure China 21Vianet     | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.microsoftmetrics.com**new**</li><li>shoebox2.metrics.nsatc.net a**ser depreciado**</li><li>prod3.metrics.microsoftmetrics.com(**novo)**</li><li>prod3.metrics.nsatc.net a**ser depreciado**</li><li>prod5.prod.microsoftmetrics.com</li></ul>                                                                                                                                                                                                                                                |
+    | Azure Público      | <ul><li>gcs.prod.monitoring.core.windows.net(**novo)**</li><li>prod.warmpath.msftcloudes.com a**ser depreciado**</li><li>shoebox2.metrics.microsoftmetrics.com**new**</li><li>shoebox2.metrics.nsatc.net a**ser depreciado**</li><li>prod3.metrics.microsoftmetrics.com(**novo)**</li><li>prod3.metrics.nsatc.net a**ser depreciado**</li><li>prod3-black.prod.metrics.microsoftmetrics.com(**novo)**</li><li>prod3-black.prod3.metrics.nsatc.net a**ser depreciado**</li><li>prod3-red.prod.metrics.microsoftmetrics.com(**novo)**</li><li>prod3-red.prod3.metrics.nsatc.net a**ser depreciado**</li><li>gcs.prod.warm.ingestion.monitoring.azure.com</li></ul> |
+    | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.microsoftmetrics.com**new**</li><li>shoebox2.metrics.nsatc.net a**ser depreciado**</li><li>prod3.metrics.microsoftmetrics.com(**novo)**</li><li>prod3.metrics.nsatc.net a**ser depreciado**</li><li>prod5.prod.microsoftmetrics.com</li><li>prod5-black.prod.metrics.microsoftmetrics.com</li><li>prod5-red.prod.metrics.microsoftmetrics.com</li><li>gcs.prod.warm.ingestion.monitoring.azure.us</li></ul>                                                                                                                                                                                                                                                |
+    | Azure China 21Vianet     | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.microsoftmetrics.com**new**</li><li>shoebox2.metrics.nsatc.net a**ser depreciado**</li><li>prod3.metrics.microsoftmetrics.com(**novo)**</li><li>prod3.metrics.nsatc.net a**ser depreciado**</li><li>prod5.prod.microsoftmetrics.com</li><li>prod5-black.prod.metrics.microsoftmetrics.com</li><li>prod5-red.prod.metrics.microsoftmetrics.com</li><li>gcs.prod.warm.ingestion.monitoring.azure.cn</li></ul>                                                                                                                                                                                                                                                |
 
   >[!IMPORTANT]
   > A mudança de clusters acima com a zona dns **.nsatc.net** para **.microsoftmetrics.com** é principalmente uma Mudança dNS. O endereço IP do cluster não se alterará.
 
 + **Etiquetas**de serviço regionais : As regras do NSG que permitem a conectividade de saída com etiquetas de serviço de armazenamento, SQL e Event Hubs podem utilizar as versões regionais das etiquetas correspondentes à região que contém a instância de Gestão API (por exemplo, Storage.WestUS para uma instância de Gestão de API na região dos EUA Ocidental). Em destacamentos multi-regiões, o NSG em cada região deve permitir o tráfego das etiquetas de serviço para aquela região e para a região primária.
 
-+ **Relé SMTP**: Conectividade da rede de saída para o `smtpi-co1.msn.com`Relé SMTP, que se resolve sob o hospedeiro , `smtpi-ch1.msn.com`, `smtpi-db3.msn.com` `smtpi-sin.msn.com``ies.global.microsoft.com`
++ **Relé SMTP**: Conectividade da rede de saída para o Relé SMTP, que se resolve sob o hospedeiro `smtpi-co1.msn.com` `smtpi-ch1.msn.com` , `smtpi-db3.msn.com` , `smtpi-sin.msn.com``ies.global.microsoft.com`
 
-+ **Portal de desenvolvimento CAPTCHA**: Conectividade de rede de saída para o `client.hip.live.com` CAPTCHA do portal de desenvolvimento, que se resolve sob os anfitriões e `partner.hip.live.com`.
++ **Portal de desenvolvimento CAPTCHA**: Conectividade de rede de saída para o CAPTCHA do portal de desenvolvimento, que se resolve sob os anfitriões `client.hip.live.com` e `partner.hip.live.com` .
 
-+ **Portal Azure Diagnósticos**: Para permitir o fluxo de registos de diagnóstico do portal Azure ao `dc.services.visualstudio.com` utilizar a extensão de Gestão API a partir de dentro de uma Rede Virtual, é necessário o acesso de saída à porta 443. Isto ajuda a resolver problemas que poderá enfrentar ao utilizar a extensão.
++ **Portal Azure Diagnósticos**: Para permitir o fluxo de registos de diagnóstico do portal Azure ao utilizar a extensão de Gestão API a partir de dentro de uma Rede Virtual, é necessário o acesso de saída à `dc.services.visualstudio.com` porta 443. Isto ajuda a resolver problemas que poderá enfrentar ao utilizar a extensão.
 
-+ **Azure Load Balancer**: Permitir o `AZURE_LOAD_BALANCER` pedido de entrada `Developer` da Etiqueta de Serviço não é um requisito para o SKU, uma vez que apenas implantamos uma unidade de Compute por trás. Mas a entrada de [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) torna-se crítica `Premium`ao escalar para sKU mais alto como , como falha da sonda de saúde do Load Balancer, falha uma implementação.
++ **Azure Load Balancer**: Permitir o pedido de entrada da Etiqueta de Serviço `AZURE_LOAD_BALANCER` não é um requisito para o SKU, uma vez que `Developer` apenas implantamos uma unidade de Compute por trás. Mas a entrada de [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) torna-se crítica ao escalar para sKU mais alto como `Premium` , como falha da sonda de saúde do Load Balancer, falha uma implementação.
 
 + Forçar o tráfego de **túneis para a firewall no local Utilizando a Rota Expressa ou o Aparelho Virtual**da Rede : Uma configuração comum do cliente é definir a sua própria rota padrão (0.0.0.0/0) que obriga todo o tráfego da subnet delegada da API Management a fluir através de uma firewall no local ou para um aparelho virtual da Rede. Este fluxo de tráfego invariavelmente quebra a conectividade com a Azure API Management porque o tráfego de saída está bloqueado no local, ou NAT'd a um conjunto irreconhecível de endereços que já não funcionam com vários pontos finais Azure. A solução requer que faça algumas coisas:
 

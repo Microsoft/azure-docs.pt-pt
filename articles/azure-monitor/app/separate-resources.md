@@ -1,18 +1,18 @@
 ---
-title: Separando a telemetria em Insights de Aplicação Azure
+title: Como conceber a sua implementação de Insights de Aplicação - Um vs muitos recursos?
 description: Telemetria direta para diferentes recursos para o desenvolvimento, teste e selos de produção.
 ms.topic: conceptual
-ms.date: 04/29/2020
-ms.openlocfilehash: 92a1bb6cb0bb73ac67d38eeba5bd3cdafacf8b56
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.date: 05/11/2020
+ms.openlocfilehash: 6df6622cbba251c221533c3307dc194f08e871fb
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562156"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125694"
 ---
-# <a name="separating-telemetry-from-development-test-and-production"></a>Separando a telemetria do desenvolvimento, teste e produção
+# <a name="how-many-application-insights-resources-should-i-deploy"></a>Quantos recursos de Aplicação Insights devo implementar
 
-Quando está a desenvolver a próxima versão de uma aplicação web, não pretende misturar a telemetria [Application Insights](../../azure-monitor/app/app-insights-overview.md) da nova versão e a versão já lançada. Para evitar confusões, envie a telemetria de diferentes fases de desenvolvimento para separar os recursos da Application Insights, com chaves de instrumentação separadas (ikeys). Para facilitar a alteração da chave de instrumentação à medida que uma versão se move de um estágio para outro, pode ser útil definir a chave em código em vez de no ficheiro de configuração. 
+Quando está a desenvolver a próxima versão de uma aplicação web, não pretende misturar a telemetria [Application Insights](../../azure-monitor/app/app-insights-overview.md) da nova versão e a versão já lançada. Para evitar confusões, envie a telemetria de diferentes fases de desenvolvimento para separar os recursos da Application Insights, com chaves de instrumentação separadas (ikeys). Para facilitar a alteração da chave de instrumentação à medida que uma versão se move de um estágio para outro, pode ser útil definir a chave em código em vez de no ficheiro de configuração.
 
 (Se o seu sistema for um Serviço azure cloud, há [outro método de configuração de ikeys separados](../../azure-monitor/app/cloudservices.md).)
 
@@ -22,7 +22,7 @@ Quando configura a monitorização de Application Insights para a sua aplicaçã
 
 Cada recurso Application Insights vem com métricas que estão disponíveis fora da caixa. Se componentes completamente separados reportarem ao mesmo recurso Application Insights, estas métricas podem não fazer sentido para o dashboard/alerta.
 
-### <a name="use-a-single-application-insights-resource"></a>Utilize um único recurso de Insights de Aplicação
+### <a name="when-to-use-a-single-application-insights-resource"></a>Quando utilizar um único recurso de Insights de Aplicação
 
 -   Para componentes de aplicação que são implantados em conjunto. Normalmente desenvolvido por uma única equipa, gerida pelo mesmo conjunto de utilizadores DevOps/ITOps.
 -   Se fizer sentido agregar indicadores-chave de desempenho (KPIIs) tais como durações de resposta, taxas de falha no dashboard, etc., em todos eles por padrão (pode optar por segmentar por nome de papel na experiência Metrics Explorer).
@@ -45,7 +45,7 @@ Para facilitar a alteração da tecla à medida que o código se move entre as f
 
 Desloque a chave num método de inicialização, como global.aspx.cs num serviço ASP.NET:
 
-*C#*
+*C #*
 
     protected void Application_Start()
     {
@@ -93,7 +93,7 @@ Existem vários métodos diferentes para definir a propriedade versão de aplica
 
     `telemetryClient.Context.Component.Version = typeof(MyProject.MyClass).Assembly.GetName().Version;`
 * Envolva essa linha num inicializador de [telemetria](../../azure-monitor/app/api-custom-events-metrics.md#defaults) para garantir que todas as instâncias do TelemettryClient sejam definidas de forma consistente.
-* [ASP.NET] Desloque `BuildInfo.config`a versão em . O módulo web irá captar a versão do nó BuildLabel. Inclua este ficheiro no seu projeto e lembre-se de definir a propriedade Copy Always no Solution Explorer.
+* [ASP.NET] Desloque a versão `BuildInfo.config` em . O módulo web irá captar a versão do nó BuildLabel. Inclua este ficheiro no seu projeto e lembre-se de definir a propriedade Copy Always no Solution Explorer.
 
     ```XML
 
@@ -108,7 +108,7 @@ Existem vários métodos diferentes para definir a propriedade versão de aplica
     </DeploymentEvent>
 
     ```
-* [ASP.NET] Gere buildInfo.config automaticamente na MSBuild. Para isso, adicione algumas `.csproj` linhas ao seu ficheiro:
+* [ASP.NET] Gere buildInfo.config automaticamente na MSBuild. Para isso, adicione algumas linhas ao seu `.csproj` ficheiro:
 
     ```XML
 
@@ -121,10 +121,10 @@ Existem vários métodos diferentes para definir a propriedade versão de aplica
 
     A etiqueta de construção contém um espaço reservado (AutoGen_...) quando se constrói com o Visual Studio. Mas quando construído com MSBuild, é povoado com o número de versão correta.
 
-    Para permitir que o MSBuild gere `1.0.*` números de versão, defina a versão como em AssemblyReference.cs
+    Para permitir que o MSBuild gere números de versão, defina a versão como `1.0.*` em AssemblyReference.cs
 
 ## <a name="version-and-release-tracking"></a>Versão e controlo de versão
-Para controlar a versão da aplicação, certifique-se de que `buildinfo.config` é gerado pelo processo do Microsoft Build Engine. No `.csproj` seu ficheiro, adicione:  
+Para controlar a versão da aplicação, certifique-se de que `buildinfo.config` é gerado pelo processo do Microsoft Build Engine. No seu `.csproj` ficheiro, adicione:  
 
 ```XML
 

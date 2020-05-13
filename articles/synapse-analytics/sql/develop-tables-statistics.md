@@ -11,12 +11,12 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 5196c85ca1d68028893caee55035c6c455b37d64
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d89baa069543c0571d42807f8034e6008eaddbc8
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81676943"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197575"
 ---
 # <a name="statistics-in-synapse-sql"></a>Estatísticas em Synapse SQL
 
@@ -34,7 +34,7 @@ Por exemplo, se o optimizador estimar que a data em que a sua consulta está a s
 
 ### <a name="automatic-creation-of-statistics"></a>Criação automática de estatísticas
 
-O pool SQL irá analisar as consultas de entrada dos `ON`utilizadores para estatísticas em falta quando a base de dados AUTO_CREATE_STATISTICS opção é definida para .  Se faltarem estatísticas, o optimizador de consultas cria estatísticas sobre colunas individuais na condição de consulta predicada ou de adesão. Esta função é usada para melhorar as estimativas de cardinalidade para o plano de consulta.
+O pool SQL irá analisar as consultas de entrada dos utilizadores para estatísticas em falta quando a base de dados AUTO_CREATE_STATISTICS opção está definida para `ON` .  Se faltarem estatísticas, o optimizador de consultas cria estatísticas sobre colunas individuais na condição de consulta predicada ou de adesão. Esta função é usada para melhorar as estimativas de cardinalidade para o plano de consulta.
 
 > [!IMPORTANT]
 > A criação automática de estatísticas é atualmente ligada por defeito.
@@ -72,7 +72,7 @@ Para evitar uma degradação mensurável do desempenho, deve certificar-se de qu
 > [!NOTE]
 > A criação de estatísticas é registada em [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) num contexto de utilizador diferente.
 
-Quando forem criadas estatísticas automáticas, assumirão o formulário: _WA_Sys_<id de coluna de 8 dígitos em Hex>_<id de tabela de 8 dígitos em Hex>. Pode ver estatísticas já criadas executando o comando [SHOW_STATISTICS DBCC:](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
+Quando forem criadas estatísticas automáticas, assumirão o formulário: _WA_Sys<_ id de coluna de 8 dígitos em Hex>_<id de tabela de 8 dígitos em Hex>. Pode ver estatísticas já criadas executando o comando [SHOW_STATISTICS DBCC:](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 ```sql
 DBCC SHOW_STATISTICS (<table_name>, <target>)
@@ -239,7 +239,7 @@ Para criar um objeto estatístico multi-colunas, use os exemplos anteriores, mas
 > [!NOTE]
 > O histograma, que é utilizado para estimar o número de linhas no resultado da consulta, só está disponível para a primeira coluna listada na definição de objetos estatísticos.
 
-Neste exemplo, o histograma está na *categoria de produto\_*. As estatísticas transversais são calculadas na categoria do *produto\_* e *\_no produto sub_category:*
+Neste exemplo, o histograma está na * \_ categoria de produto*. As estatísticas transversais são calculadas na * \_ categoria* do produto e no * \_ sub_category do produto:*
 
 ```sql
 CREATE STATISTICS stats_2cols
@@ -248,7 +248,7 @@ CREATE STATISTICS stats_2cols
     WITH SAMPLE = 50 PERCENT;
 ```
 
-Uma vez que existe uma correlação entre a categoria do *\_produto* e a *subcategoria\_\_* do produto, um objeto estatístico multi-colunapode ser útil se estas colunas forem acedidas ao mesmo tempo.
+Uma vez que existe uma correlação entre a * \_ categoria* do produto e a * \_ \_ subcategoria*do produto, um objeto estatístico multi-colunapode ser útil se estas colunas forem acedidas ao mesmo tempo.
 
 #### <a name="create-statistics-on-all-columns-in-a-table"></a>Criar estatísticas sobre todas as colunas numa tabela
 
@@ -423,7 +423,7 @@ A declaração de estatísticas atualizada é fácil de utilizar. Lembre-se apen
 > [!NOTE]
 > Ao atualizar todas as estatísticas numa tabela, o pool SQL faz uma digitalização para provar a tabela para cada objeto estatístico. Se a tabela for grande e tiver muitas colunas e muitas estatísticas, poderá ser mais eficiente atualizar as estatísticas individuais com base nas necessidades.
 
-Para uma implementação de um `UPDATE STATISTICS` procedimento, consulte [tabelas temporárias.](develop-tables-temporary.md) O método de execução é `CREATE STATISTICS` ligeiramente diferente do procedimento anterior, mas o resultado é o mesmo.
+Para uma implementação de um `UPDATE STATISTICS` procedimento, consulte [tabelas temporárias.](develop-tables-temporary.md) O método de execução é ligeiramente diferente do `CREATE STATISTICS` procedimento anterior, mas o resultado é o mesmo.
 Para a sintaxe completa, consulte [estatísticas de atualização.](/sql/t-sql/statements/update-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 ### <a name="statistics-metadata"></a>Metadados estatísticos
@@ -519,7 +519,7 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
 
 #### <a name="show-one-or-more-parts-of-dbcc-show_statistics"></a>Mostrar uma ou mais partes de SHOW_STATISTICS dBCC()
 
-Se estiver apenas interessado em visualizar `WITH` peças específicas, use a cláusula e especifique quais as partes que pretende ver:
+Se estiver apenas interessado em visualizar peças específicas, use a `WITH` cláusula e especifique quais as partes que pretende ver:
 
 ```sql
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
@@ -611,6 +611,8 @@ Os exemplos que se seguem mostram como usar várias opções para criar estatís
 
 > [!NOTE]
 > Só pode criar estatísticas de uma coluna única neste momento.
+>
+> O procedimento sp_create_file_statistics será renomeado para sp_create_openrowset_statistics. O papel do servidor público tem a permissão DE OPERAÇÕES A GRANEL concedida enquanto a função de base de dados pública tem permissões EXECUTE em sp_create_file_statistics e sp_drop_file_statistics. Isto pode ser alterado no futuro.
 
 O seguinte procedimento armazenado é utilizado para criar estatísticas:
 
@@ -695,6 +697,9 @@ Para atualizar as estatísticas, é preciso deixar cair e criar estatísticas. O
 ```sql
 sys.sp_drop_file_statistics [ @stmt = ] N'statement_text'
 ```
+
+> [!NOTE]
+> O procedimento sp_drop_file_statistics será renomeado para sp_drop_openrowset_statistics. O papel do servidor público tem a permissão DE OPERAÇÕES A GRANEL concedida enquanto a função de base de dados pública tem permissões EXECUTE em sp_create_file_statistics e sp_drop_file_statistics. Isto pode ser alterado no futuro.
 
 Argumentos: [ @stmt = ] N'statement_text' - Especifica a mesma declaração transact-SQL utilizada quando as estatísticas foram criadas.
 

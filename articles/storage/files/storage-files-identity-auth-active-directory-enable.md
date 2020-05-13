@@ -7,16 +7,16 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: rogarana
-ms.openlocfilehash: 6309219b31c22f1f1d090cc9de9931609e3423f7
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: febb796a47b9f5e78906d513c115b62b35c7c7d5
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792990"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196508"
 ---
 # <a name="enable-on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Ativar no local a autenticação de Serviços de Domínio ativo de diretório ativo sobre SMB para ações de ficheiros Azure
 
-[O Azure Files](storage-files-introduction.md) suporta a autenticação baseada na identidade através do Bloco de Mensagens do Servidor (SMB) através de dois tipos de Serviços de Domínio: Serviços de Domínio de Diretório Ativo Azure (Azure AD DS) e no local Serviços de Domínio de Diretório Ativo (AD DS) (pré-visualização). Este artigo centra-se no suporte recém-introduzido (pré-visualização) de alavancagem do Ative Directory Domain Service para autenticação em ações de ficheiros Azure. Se estiver interessado em permitir a autenticação azure AD DS (GA) para ações de ficheiros Azure, consulte [o nosso artigo sobre o assunto](storage-files-identity-auth-active-directory-domain-service-enable.md).
+[Ficheiros](storage-files-introduction.md)   Azure suporta a autenticação baseada na identidade sobre o Bloco de Mensagens de Servidor (SMB) através de dois tipos de Serviços de Domínio: Serviços de Domínio ativo azure (Azure AD DS) e no local Ative Directory Domain Services (AD DS) (pré-visualização). Este artigo centra-se no suporte recém-introduzido (pré-visualização) de alavancagem do Ative Directory Domain Service para autenticação em ações de ficheiros Azure. Se estiver interessado em permitir a autenticação azure AD DS (GA) para ações de ficheiros Azure, consulte [o nosso artigo sobre o assunto](storage-files-identity-auth-active-directory-domain-service-enable.md).
 
 > [!NOTE]
 > As ações de ficheiros Azure apenas suportam a autenticação contra um serviço de domínio, quer o Azure Ative Directory Domain Service (Azure AD DS) quer os Serviços de Domínio ativo do Diretório Ativo (AD DS). 
@@ -141,13 +141,13 @@ Select-AzSubscription -SubscriptionId $SubscriptionId
 
 # Register the target storage account with your active directory environment under the target OU (for example: specify the OU with Name as "UserAccounts" or DistinguishedName as "OU=UserAccounts,DC=CONTOSO,DC=COM"). 
 # You can use to this PowerShell cmdlet: Get-ADOrganizationalUnit to find the Name and DistinguishedName of your target OU. If you are using the OU Name, specify it with -OrganizationalUnitName as shown below. If you are using the OU DistinguishedName, you can set it with -OrganizationalUnitDistinguishedName. You can choose to provide one of the two names to specify the target OU.
-# You can choose to create the identity that represents the storage account as either a Service Logon Account or Computer Account, depends on the AD permission you have and preference. 
+# You can choose to create the identity that represents the storage account as either a Service Logon Account or Computer Account (default parameter value), depends on the AD permission you have and preference. 
 # You can run Get-Help Join-AzStorageAccountForAuth to find more details on this cmdlet.
 
 Join-AzStorageAccountForAuth `
         -ResourceGroupName $ResourceGroupName `
         -Name $StorageAccountName `
-        -DomainAccountType "<ComputerAccount|ServiceLogonAccount>" ` # Default set to "ComputerAccount" if this parameter is not provided
+        -DomainAccountType "<ComputerAccount|ServiceLogonAccount>" `
         -OrganizationalUnitName "<ou-name-here>" #You can also use -OrganizationalUnitDistinguishedName "<ou-distinguishedname-here>" instead. If you don't provide the OU name as an input parameter, the AD identity that represents the storage account will be created under the root directory.
 
 #You can run the Debug-AzStorageAccountAuth cmdlet to conduct a set of basic checks on your AD configuration with the logged on AD user. This cmdlet is supported on AzFilesHybrid v0.1.2+ version. For more details on the checks performed in this cmdlet, go to Azure Files FAQ.
@@ -155,10 +155,10 @@ Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGrou
 
 ```
 
-A seguinte descrição resume todas `Join-AzStorageAccountForAuth` as ações realizadas quando o cmdlet é executado. Pode executar estes passos manualmente, se preferir não utilizar o comando:
+A seguinte descrição resume todas as ações realizadas quando o `Join-AzStorageAccountForAuth` cmdlet é executado. Pode executar estes passos manualmente, se preferir não utilizar o comando:
 
 > [!NOTE]
-> Se já executou `Join-AzStorageAccountForAuth` o script acima com sucesso, vá para a secção seguinte "1.3 Confirme que a funcionalidade está ativada". Não precisa de realizar as operações abaixo novamente.
+> Se já executou o `Join-AzStorageAccountForAuth` script acima com sucesso, vá para a secção seguinte "1.3 Confirme que a funcionalidade está ativada". Não precisa de realizar as operações abaixo novamente.
 
 #### <a name="a-checking-environment"></a>a. Ambiente de verificação
 
@@ -166,7 +166,7 @@ Primeiro, o guião verifica o seu ambiente. Especificamente, verifica se o [Ativ
 
 #### <a name="b-creating-an-identity-representing-the-storage-account-in-your-ad-manually"></a>b. Criar uma identidade que represente a conta de armazenamento no seu AD manualmente
 
-Para criar esta conta manualmente, crie uma nova `New-AzStorageAccountKey -KeyName kerb1`chave Kerberos para a sua conta de armazenamento utilizando . Em seguida, use a tecla Kerberos como senha para a sua conta. Esta chave só é utilizada durante a configuração e não pode ser utilizada para qualquer controlo ou operações de plano de dados contra a conta de armazenamento.
+Para criar esta conta manualmente, crie uma nova chave Kerberos para a sua conta de armazenamento utilizando `New-AzStorageAccountKey -KeyName kerb1` . Em seguida, use a tecla Kerberos como senha para a sua conta. Esta chave só é utilizada durante a configuração e não pode ser utilizada para qualquer controlo ou operações de plano de dados contra a conta de armazenamento.
 
 Assim que tiver essa chave, crie uma conta de serviço ou de computador sob a sua OU. Utilize a seguinte especificação: SPN: "cifs/your-storage-account-name-here.file.windows.net" Palavra-passe: Tecla Kerberos para a sua conta de armazenamento.
 
@@ -220,7 +220,7 @@ Agora permitiu a autenticação AD DS através de SMB e atribuiu uma função pe
 
 Se registou a identidade/conta AD DS que representa a sua conta de armazenamento num OU que aplique o tempo de validade da palavra-passe, deve rodar a palavra-passe antes da idade máxima da senha. A não atualização da palavra-passe da conta AD DS resultará em falhas de autenticação no acesso a ações de ficheiros do Azure.  
 
-Para desencadear a rotação da `Update-AzStorageAccountADObjectPassword` palavra-passe, pode executar o comando a partir do módulo AzFilesHybrid. O cmdlet executa ações semelhantes à rotação da chave da conta de armazenamento. Obtém a segunda chave Kerberos da conta de armazenamento e usa-a para atualizar a palavra-passe da conta registada em DS AD. Em seguida, regenera a chave kerberos alvo da conta de armazenamento e atualiza a palavra-passe da conta registada em DS AD. Você deve executar este cmdlet em um ambiente adenádino no local DS.
+Para desencadear a rotação da palavra-passe, pode executar o `Update-AzStorageAccountADObjectPassword` comando a partir do módulo AzFilesHybrid. O cmdlet executa ações semelhantes à rotação da chave da conta de armazenamento. Obtém a segunda chave Kerberos da conta de armazenamento e usa-a para atualizar a palavra-passe da conta registada em DS AD. Em seguida, regenera a chave kerberos alvo da conta de armazenamento e atualiza a palavra-passe da conta registada em DS AD. Você deve executar este cmdlet em um ambiente adenádino no local DS.
 
 ```PowerShell
 # Update the password of the AD DS account registered for the storage account

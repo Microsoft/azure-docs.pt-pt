@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 54501e7e00ba8a28dd7cb421232b9a9587604338
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.openlocfilehash: 6741c034351099f544c20749eb7c7a39e7932181
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82653140"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195137"
 ---
 # <a name="set-up-the-powershell-module-for-windows-virtual-desktop"></a>Configurar o módulo PowerShell para o Windows Virtual Desktop
 
@@ -46,7 +46,7 @@ Em seguida, corra o seguinte cmdlet para ligar ao Azure:
 Connect-AzAccount
 ```
 
-Iniciar sessão na sua conta Azure requer um código gerado quando executa o cmdlet Connect. Para iniciar sessão, vá para <https://microsoft.com/devicelogin>, insira o código e, em seguida, inscreva-se usando as suas credenciais de administrador Azure.
+Iniciar sessão na sua conta Azure requer um código gerado quando executa o cmdlet Connect. Para iniciar sessão, vá para <https://microsoft.com/devicelogin> , insira o código e, em seguida, inscreva-se usando as suas credenciais de administrador Azure.
 
 ```powershell
 Account SubscriptionName TenantId Environment
@@ -63,7 +63,7 @@ Isto irá inscrevê-lo diretamente na subscrição que é padrão para as suas c
 Se quiser alterar a subscrição predefinida depois de ter assinado o contrato, execute este cmdlet:
 
 ```powershell
-Select-AzureSubscription -SubscriptionName <preferredsubscriptionname>
+Select-AzSubscription -SubscriptionName <preferredsubscriptionname>
 ```
 
 Quando seleciona uma nova subscrição para utilizar, não precisa de especificar o ID da subscrição em cmdlets que executa depois. Por exemplo, o seguinte cmdlet recupera um anfitrião de sessão específico sem precisar do ID de subscrição:

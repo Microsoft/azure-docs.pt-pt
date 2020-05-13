@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
-ms.openlocfilehash: 1af0161edb0f833cdd14d8157e6edd9644e21467
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aeee7558aeeb0c1a3de291abc66578d7d955d842
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82100282"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196188"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>SQL Server instância migração para A Base de Dados Azure SQL gerida
 
@@ -43,9 +43,7 @@ A um nível elevado, o processo de migração da base de dados parece:
 
 Em primeiro lugar, determine se a instância gerida é compatível com os requisitos da base de dados da sua aplicação. A opção de implementação de instânciagerida foi concebida para fornecer migração fácil para a maioria das aplicações existentes que usam o SQL Server no local ou em máquinas virtuais. No entanto, pode, por vezes, necessitar de funcionalidades ou capacidades que ainda não são suportadas e o custo de implementação de uma suticultura é demasiado elevado.
 
-Utilize o Assistente de [Migração de Dados (DMA)](https://docs.microsoft.com/sql/dma/dma-overview) para detetar potenciais problemas de compatibilidade que impactam a funcionalidade da base de dados na Base de Dados Azure SQL. O DMA ainda não suporta a ocorrência gerida como destino de migração, mas recomenda-se a avaliação contra a Base de Dados Azure SQL e a revisão cuidadosa da lista de problemas de paridade e compatibilidade reportados com a documentação do produto. Consulte as funcionalidades da Base de [Dados Azure SQL](sql-database-features.md) para verificar se existem alguns problemas de bloqueio reportados que não bloqueadores em instância gerida, porque a maioria dos problemas de bloqueio que impedem uma migração para a Base de Dados Azure SQL foram removidos com instância gerida. Por exemplo, funcionalidades como consultas de base de dados cruzadas, transações de bases de dados cruzadas dentro da mesma instância, servidor ligado a outras fontes SQL, CLR, tabelas temporárias globais, vistas de nível de exemplo, Corretor de Serviços e similares estão disponíveis em casos geridos.
-
-Se houver alguns problemas de bloqueio relatados que não são removidos com a opção de implementação de instância gerida, poderá ter de considerar uma opção alternativa, como o [SQL Server em máquinas virtuais Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Eis alguns exemplos:
+Utilize o Assistente de [Migração de Dados (DMA)](https://docs.microsoft.com/sql/dma/dma-overview) para detetar potenciais problemas de compatibilidade que impactam a funcionalidade da base de dados na Base de Dados Azure SQL. Se houver alguns problemas de bloqueio relatados, poderá ter de considerar uma opção alternativa, como o [SQL Server em máquinas virtuais Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Eis alguns exemplos:
 
 - Se necessitar de acesso direto ao sistema operativo ou sistema de ficheiros, por exemplo, para instalar agentes de terceiros ou personalizados na mesma máquina virtual com o SQL Server.
 - Se tiver uma dependência estrita de funcionalidades que ainda não são suportadas, tais como FileStream /FileTable, PolyBase e transações de instâncias cruzadas.
@@ -53,6 +51,7 @@ Se houver alguns problemas de bloqueio relatados que não são removidos com a o
 - Se os seus requisitos de computação forem muito mais baixos que as ofertas de instância gerida (um vCore, por exemplo) e a consolidação da base de dados não são uma opção aceitável.
 
 Se tiver resolvido todos os bloqueadores de migração identificados e continuar a migração para A Instância Gerida, note que algumas das alterações podem afetar o desempenho da sua carga de trabalho:
+
 - O modelo de recuperação completa obrigatório e o calendário regular de backup automatizado podem ter impacto no desempenho das suas ações de carga de trabalho ou manutenção/ETL se tiver usado periodicamente um modelo simples/a granel ou parar backups a pedido.
 - Configurações diferentes de nível de servidor ou base de dados, tais como trace flags ou níveis de compatibilidade
 - Novas funcionalidades que está a usar, tais como encriptação de base de dados transparente (TDE) ou grupos de falha automática podem afetar o uso de CPU e IO.
@@ -181,7 +180,7 @@ Faça a alteração dos parâmetros ou dos níveis de serviço de upgrade para c
 A Managed Instance fornece um monte de ferramentas avançadas para monitorização e resolução de problemas, e você deve usá-las para monitorizar o desempenho na sua instância. Alguns dos parâmetros que a sua necessidade de monitorizar são:
 - A utilização do CPU na instância para determinar o número de vCores que você provisionou é a combinação certa para a sua carga de trabalho.
 - A esperança de vida de página na sua Instância Gerida para determinar [se precisa de memória adicional](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Do-you-need-more-memory-on-Azure-SQL-Managed-Instance/ba-p/563444).
-- Espere estatísticas `INSTANCE_LOG_GOVERNOR` `PAGEIOLATCH` como ou que dirão que tem problemas de IO de armazenamento, especialmente no nível De Propósito Geral, onde poderá ser necessário pré-atribuir ficheiros para obter um melhor desempenho io.
+- Espere estatísticas como ou que dirão que tem problemas de IO de `INSTANCE_LOG_GOVERNOR` `PAGEIOLATCH` armazenamento, especialmente no nível De Propósito Geral, onde poderá ser necessário pré-atribuir ficheiros para obter um melhor desempenho io.
 
 ## <a name="leverage-advanced-paas-features"></a>Alavancar funcionalidades avançadas do PaaS
 

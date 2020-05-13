@@ -7,12 +7,12 @@ ms.date: 05/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: e20271e381f2e7023dca3c3382c9f329a5149a62
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: f4e0bbd546b770b9e81bb9142cdd97e3927db7bd
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872579"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195949"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development-and-testing-preview"></a>Utilize o emulador Azurite para desenvolvimento e teste de armazenamento azure local (pré-visualização)
 
@@ -97,7 +97,7 @@ docker run -p 10000:10000 -p 10001:10001 \
 
 **Especifique a localização do espaço de trabalho:**
 
-No exemplo seguinte, `-v c:/azurite:/data` o parâmetro especifica *c:/azurite* como o Azurite persistiu na localização dos dados. O diretório, *c:/azurite,* deve ser criado antes de executar o comando Docker.
+No exemplo seguinte, o `-v c:/azurite:/data` parâmetro especifica *c:/azurite* como o Azurite persistiu na localização dos dados. O diretório, *c:/azurite,* deve ser criado antes de executar o comando Docker.
 
 ```console
 docker run -p 10000:10000 -p 10001:10001 \
@@ -142,7 +142,7 @@ Para começar imediatamente com a linha de comando, crie um diretório chamado *
 azurite --silent --location c:\azurite --debug c:\azurite\debug.log
 ```
 
-Este comando diz à Azurite para armazenar todos os dados num determinado diretório, *c:\azurite*. Se `--location` a opção for omitida, utilizará o atual diretório de trabalho.
+Este comando diz à Azurite para armazenar todos os dados num determinado diretório, *c:\azurite*. Se a `--location` opção for omitida, utilizará o atual diretório de trabalho.
 
 ## <a name="command-line-options"></a>Opções da linha de comandos
 
@@ -150,7 +150,7 @@ Esta secção detalha os interruptores da linha de comando disponíveis ao lanç
 
 ### <a name="help"></a>Ajuda
 
-**Opcional** - Obtenha ajuda na `-h` linha `--help` de comando utilizando o interruptor ou o interruptor.
+**Opcional** - Obtenha ajuda na linha de comando utilizando o `-h` interruptor ou o `--help` interruptor.
 
 ```console
 azurite -h
@@ -159,7 +159,7 @@ azurite --help
 
 ### <a name="blob-listening-host"></a>Hospedeiro de escuta blob
 
-**Opcional** - Por padrão, o Azurite ouvirá 127.0.0.1 como servidor local. Utilize `--blobHost` o interruptor para definir o endereço às suas necessidades.
+**Opcional** - Por padrão, o Azurite ouvirá 127.0.0.1 como servidor local. Utilize o `--blobHost` interruptor para definir o endereço às suas necessidades.
 
 Aceite pedidos apenas na máquina local:
 
@@ -178,7 +178,7 @@ azurite --blobHost 0.0.0.0
 
 ### <a name="blob-listening-port-configuration"></a>Configuração da porta de escuta Blob
 
-**Opcional** - Por padrão, a Azurite irá ouvir o serviço Blob na porta 10000. Utilize `--blobPort` o interruptor para especificar a porta de audição de que necessita.
+**Opcional** - Por padrão, a Azurite irá ouvir o serviço Blob na porta 10000. Utilize o interruptor para especificar a porta de `--blobPort` audição de que necessita.
 
 > [!NOTE]
 > Depois de utilizar uma porta personalizada, é necessário atualizar a cadeia de ligação ou a configuração correspondente nas suas ferramentas de Armazenamento Azure ou SDKs.
@@ -199,7 +199,7 @@ A porta em uso é exibida durante a startup Azurite.
 
 ### <a name="queue-listening-host"></a>Anfitrião de escuta de fila
 
-**Opcional** - Por padrão, o Azurite ouvirá 127.0.0.1 como servidor local. Utilize `--queueHost` o interruptor para definir o endereço às suas necessidades.
+**Opcional** - Por padrão, o Azurite ouvirá 127.0.0.1 como servidor local. Utilize o `--queueHost` interruptor para definir o endereço às suas necessidades.
 
 Aceite pedidos apenas na máquina local:
 
@@ -218,7 +218,7 @@ azurite --queueHost 0.0.0.0
 
 ### <a name="queue-listening-port-configuration"></a>Configuração da porta de escuta da fila
 
-**Opcional** - Por padrão, a Azurite irá ouvir o serviço de fila na porta 10001. Utilize `--queuePort` o interruptor para especificar a porta de audição de que necessita.
+**Opcional** - Por padrão, a Azurite irá ouvir o serviço de fila na porta 10001. Utilize o interruptor para especificar a porta de `--queuePort` audição de que necessita.
 
 > [!NOTE]
 > Depois de utilizar uma porta personalizada, é necessário atualizar a cadeia de ligação ou a configuração correspondente nas suas ferramentas de Armazenamento Azure ou SDKs.
@@ -239,7 +239,7 @@ A porta em uso é exibida durante a startup Azurite.
 
 ### <a name="workspace-path"></a>Caminho do espaço de trabalho
 
-**Opcional** - Azurite armazena dados no disco local durante a execução. Utilize `-l` o `--location` ou o interruptor para especificar um caminho como local do espaço de trabalho. Por predefinição, o diretório de trabalho do processo atual será utilizado. Reparem na minúscula 'l'.
+**Opcional** - Azurite armazena dados no disco local durante a execução. Utilize o `-l` ou o interruptor para especificar um caminho como local do espaço de `--location` trabalho. Por predefinição, o diretório de trabalho do processo atual será utilizado. Reparem na minúscula 'l'.
 
 ```console
 azurite -l c:\azurite
@@ -248,7 +248,7 @@ azurite --location c:\azurite
 
 ### <a name="access-log"></a>Registo de acesso
 
-**Opcional** - Por padrão, o registo de acesso é apresentado na janela da consola. Desative o visualização do `-s` `--silent` registo de acesso utilizando o ou o interruptor.
+**Opcional** - Por padrão, o registo de acesso é apresentado na janela da consola. Desative o visualização do registo de acesso utilizando o `-s` ou `--silent` o interruptor.
 
 ```console
 azurite -s
@@ -256,7 +256,7 @@ azurite --silent
 ```
 ### <a name="debug-log"></a>Registo de depuração
 
-**Opcional** - O registo de depuração inclui informações detalhadas sobre cada pedido e rastreio de pilha de exceção. Ative o registo de depuração fornecendo `-d` um `--debug` caminho de ficheiro local válido para o interruptor ou comutado.
+**Opcional** - O registo de depuração inclui informações detalhadas sobre cada pedido e rastreio de pilha de exceção. Ative o registo de depuração fornecendo um caminho de ficheiro local válido para o `-d` interruptor ou `--debug` comutado.
 
 ```console
 azurite -d path/debug.log
@@ -265,7 +265,7 @@ azurite --debug path/debug.log
 
 ### <a name="loose-mode"></a>Modo solto
 
-**Opcional** - Por padrão, a Azurite aplica um modo rigoroso para bloquear cabeçalhos e parâmetros de pedido não suportados. Desative o `-L` modo `--loose` rígido utilizando o ou o interruptor. Reparem no "L" maiúsculo.
+**Opcional** - Por padrão, a Azurite aplica um modo rigoroso para bloquear cabeçalhos e parâmetros de pedido não suportados. Desative o modo rígido utilizando o `-L` ou `--loose` o interruptor. Reparem no "L" maiúsculo.
 
 ```console
 azurite -L
@@ -273,7 +273,7 @@ azurite --loose
 ```
 ### <a name="version"></a>Versão
 
-**Opcional** - Visualizar o número da versão `-v` `--version` Azurite instalado utilizando o interruptor ou o interruptor.
+**Opcional** - Visualizar o número da versão Azurite instalado utilizando o `-v` interruptor ou o `--version` interruptor.
 
 ```console
 azurite -v
@@ -282,15 +282,15 @@ azurite --version
 
 ### <a name="certificate-configuration-https"></a>Configuração do certificado (HTTPS)
 
-**Opcional** - Por padrão, a Azurite utiliza o protocolo HTTP. Ative o modo HTTPS fornecendo um caminho para um ficheiro de certificado de Correio Melhorado pela `--cert` Privacidade (.pem) ou Personal Information Exchange [(.pfx)](https://docs.microsoft.com/windows-hardware/drivers/install/personal-information-exchange---pfx--files) para o interruptor.
+**Opcional** - Por padrão, a Azurite utiliza o protocolo HTTP. Ative o modo HTTPS fornecendo um caminho para um ficheiro de certificado de Correio Melhorado pela Privacidade (.pem) ou [Personal Information Exchange (.pfx)](https://docs.microsoft.com/windows-hardware/drivers/install/personal-information-exchange---pfx--files) para o `--cert` interruptor.
 
-Quando `--cert` for fornecido um ficheiro PEM, `--key` deve fornecer um interruptor correspondente.
+Quando `--cert` for fornecido um ficheiro PEM, deve fornecer um interruptor `--key` correspondente.
 
 ```console
 azurite --cert path/server.pem --key path/key.pem
 ```
 
-Quando `--cert` for fornecido um ficheiro PFX, `--pwd` deve fornecer um interruptor correspondente.
+Quando `--cert` for fornecido um ficheiro PFX, deve fornecer um interruptor `--pwd` correspondente.
 
 ```console
 azurite --cert path/server.pfx --pwd pfxpassword
@@ -300,22 +300,22 @@ Para obter informações detalhadas sobre a criação de ficheiros PEM e PFX, co
 
 ### <a name="oauth-configuration"></a>Configuração OAuth
 
-**Opcional** - Ativar a autenticação OAuth `--oauth` para o Azurite utilizando o interruptor.
+**Opcional** - Ativar a autenticação OAuth para o Azurite utilizando o `--oauth` interruptor.
 
 ```console
 azurite --oauth basic --cert path/server.pem --key path/key.pem
 ```
 
 > [!NOTE]
-> O AAuth requer um ponto final HTTPS. Certifique-se de que https `--cert` está ativado fornecendo o interruptor juntamente com o `--oauth` interruptor.
+> O AAuth requer um ponto final HTTPS. Certifique-se de que https está ativado fornecendo `--cert` o interruptor juntamente com o `--oauth` interruptor.
 
-A Azurite suporta a autenticação `basic` básica especificando o parâmetro para o `--oauth` interruptor. Azurite fará a autenticação básica, como validar o token do portador, verificar o emitente, o público e a caducidade. Azurite não verifica a assinatura ou permissões simbólicas.
+A Azurite suporta a autenticação básica especificando o `basic` parâmetro para o `--oauth` interruptor. Azurite fará a autenticação básica, como validar o token do portador, verificar o emitente, o público e a caducidade. Azurite não verifica a assinatura ou permissões simbólicas.
 
 ## <a name="authorization-for-tools-and-sdks"></a>Autorização para ferramentas e SDKs
 
 Ligue-se à Azurite a partir de SDKs ou ferramentas de armazenamento Azure, como [o Azure Storage Explorer,](https://azure.microsoft.com/features/storage-explorer/)utilizando qualquer estratégia de autenticação. É necessária autenticação. A Azurite apoia a autorização com a OAuth, Shared Key e assinaturas de acesso partilhada (SAS). Azurite também apoia o acesso anónimo a contentores públicos.
 
-Se estiver a utilizar os SDKs Azure, `--oauth basic and --cert --key/--pwd` inicie o Azurite com as opções.
+Se estiver a utilizar os SDKs Azure, inicie o Azurite com as `--oauth basic and --cert --key/--pwd` opções.
 
 ### <a name="well-known-storage-account-and-key"></a>Conta de armazenamento bem conhecida e chave
 
@@ -326,7 +326,7 @@ Azurite aceita a mesma conta conhecida e chave usada pelo legado emulador de arm
 
 ### <a name="custom-storage-accounts-and-keys"></a>Contas e chaves de armazenamento personalizados
 
-A Azurite suporta nomes e chaves `AZURITE_ACCOUNTS` de conta de `account1:key1[:key2];account2:key1[:key2];...`armazenamento personalizado, definindo a variável ambiental no seguinte formato: .
+A Azurite suporta nomes e chaves de conta de armazenamento personalizado, definindo a `AZURITE_ACCOUNTS` variável ambiental no seguinte formato: `account1:key1[:key2];account2:key1[:key2];...` .
 
 Por exemplo, utilize uma conta de armazenamento personalizada que tenha uma chave:
 
@@ -351,7 +351,7 @@ export AZURITE_ACCOUNTS="account1:key1:key2;account2:key1:key2"
 A Azurite atualiza os nomes e chaves de conta personalizadas da variável ambiental a cada minuto por padrão. Com esta funcionalidade, pode rodar dinamicamente a chave da conta ou adicionar novas contas de armazenamento sem reiniciar o Azurite.
 
 > [!NOTE]
-> A `devstoreaccount1` conta de armazenamento predefinida é desativada quando define contas de armazenamento personalizadas.
+> A conta de armazenamento predefinida `devstoreaccount1` é desativada quando define contas de armazenamento personalizadas.
 
 ### <a name="connection-strings"></a>Cadeias de ligação
 
@@ -393,7 +393,7 @@ Para utilizar apenas o serviço de fila, a cadeia de ligação HTTPS é:
 
 `DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;QueueEndpoint=https://127.0.0.1:10001/devstoreaccount1;`
 
-Se tiver `dotnet dev-certs` gerado o seu certificado auto-assinado, utilize a seguinte cadeia de ligação.
+Se tiver gerado `dotnet dev-certs` o seu certificado auto-assinado, utilize a seguinte cadeia de ligação.
 
 `DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=https://localhost:10000/devstoreaccount1;QueueEndpoint=https://localhost:10001/devstoreaccount1;`
 
@@ -461,20 +461,22 @@ Pode utilizar o Storage Explorer para ver os dados armazenados em Azurite.
 
 No Storage Explorer, ligue-se ao Azurite seguindo estes passos:
 
- 1. **Selecione Adicionar um** ícone de conta
+ 1. Selecione o ícone **'Gerir contas'**
+ 1. **Selecione Adicionar uma conta**
  1. Selecione **Anexar a um emulador local**
  1. Selecione **Next**
+ 1. Editar o campo de **nome display** para um nome à sua escolha
  1. Selecione **Next** novamente
  1. Selecione **Ligar**
 
 #### <a name="connect-to-azurite-using-https"></a>Ligue-se a Azurite usando HTTPS
 
-Por padrão, o Storage Explorer não abrirá um ponto final HTTPS que utilize um certificado auto-assinado. Se estiver a executar a Azurite com HTTPS, é provável que esteja a usar um certificado auto-assinado. No Storage Explorer, importar certificados SSL através do diálogo de certificados de importação de**certificados**  -> **SSL** **de edição.** -> 
+Por padrão, o Storage Explorer não abrirá um ponto final HTTPS que utilize um certificado auto-assinado. Se estiver a executar a Azurite com HTTPS, é provável que esteja a usar um certificado auto-assinado. No Storage Explorer, importar certificados **Edit**SSL através do diálogo de certificados de importação  ->  **de certificados SSL**de edição.  ->  **Import Certificates**
 
 ##### <a name="import-certificate-to-storage-explorer"></a>Certificado de Importação para Explorador de Armazenamento
 
 1. Encontre o certificado na sua máquina local.
-1. No Storage Explorer, vá à **Edição** -> certificados de importação de -> **certificados** **SSL**e importe o seu certificado.
+1. No Storage Explorer, vá à **Edição**certificados de importação de  ->  **certificados SSL**  ->  **Import Certificates** e importe o seu certificado.
 
 Se não importar um certificado, terá um erro:
 

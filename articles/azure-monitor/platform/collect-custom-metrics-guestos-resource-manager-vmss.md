@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: fe550bb4f5e63761bb645c9904816048584b1bca
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 9a7aa512c636f700cf9c6d990814d9367007c942
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82733265"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125779"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Envie métricas de SO para a loja métrica Do Monitor Azure utilizando um modelo de Gestor de Recursos Azure para um conjunto de escala de máquina virtual windows
 
@@ -238,8 +238,8 @@ Guarde e feche os dois ficheiros.
 Para implementar o modelo de Gestor de Recursos, utilize o Azure PowerShell:  
 
 1. Inicie o PowerShell. 
-1. Inscreva-se no `Login-AzAccount`Azure usando .
-1. Obtenha a sua lista `Get-AzSubscription`de subscrições utilizando .
+1. Inscreva-se no Azure usando `Login-AzAccount` .
+1. Obtenha a sua lista de subscrições utilizando `Get-AzSubscription` .
 1. Detete a subscrição que irá criar, ou atualize a máquina virtual: 
 
    ```powershell
@@ -252,7 +252,7 @@ Para implementar o modelo de Gestor de Recursos, utilize o Azure PowerShell:
    ```
 
    > [!NOTE]  
-   > Lembre-se de usar uma região azure que está ativada para métricas personalizadas. Lembre-se de usar uma [região azure que está ativada para métricas personalizadas](https://github.com/MicrosoftDocs/azure-docs-pr/blob/master/articles/azure-monitor/platform/metrics-custom-overview.md#supported-regions).
+   > Lembre-se de usar uma região azure que está ativada para métricas personalizadas. Lembre-se de usar uma [região azure que está ativada para métricas personalizadas](./metrics-custom-overview.md#supported-regions).
  
 1. Executar os seguintes comandos para implantar o VM:  
 
@@ -285,7 +285,7 @@ Para implementar o modelo de Gestor de Recursos, utilize o Azure PowerShell:
 
 1. No menu de lançamento dos espaços de nome, **selecione azure.vm.windows.guest**. 
 
-1. No menu de entrega de métricas, selecione **Memory\%Committed Bytes in Use**.  
+1. No menu de entrega de métricas, selecione ** \% Memory Committed Bytes in Use**.  
 
 Em seguida, também pode optar por utilizar as dimensões desta métrica para a traçar para um Determinado VM ou para traçar cada VM no conjunto de escala. 
 

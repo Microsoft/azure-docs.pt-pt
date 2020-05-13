@@ -1,21 +1,21 @@
 ---
 title: Crie uma amostra de aplicação de aplicação De ponta a ponta Azure Cosmos DB Java SDK v4 utilizando o Change Feed
-description: Este guia de como guiar percorre-o através de uma simples aplicação Java SQL API que insere documentos num recipiente Azure Cosmos DB, mantendo uma vista materializada do recipiente utilizando o Change Feed.
-author: anfeldma
+description: Este guia percorre-o através de uma simples aplicação Java SQL API que insere documentos num recipiente Azure Cosmos DB, mantendo uma vista materializada do recipiente utilizando o Change Feed.
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: anfeldma
-ms.openlocfilehash: 9e28eb4f766677ebbd5cfcc5f61fe54e53a45523
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 5e8656e891d250547174aa3deb27a94eebaa0ba3
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996513"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125677"
 ---
-# <a name="how-to-create-a-java-application-that-uses-azure-cosmos-db-sql-api-and-change-feed-processor"></a>Como criar uma aplicação Java que utiliza o Processador De Alimentação API e Change Feed do Azure Cosmos DB SQL
+# <a name="how-to-create-a-java-application-that-uses-azure-cosmos-db-sql-api-and-change-feed-processor"></a>Como criar uma aplicação Java que utiliza a API SQL Do Azure Cosmos DB e alterar processador de feed
 
 > [!IMPORTANT]  
 > Para mais informações sobre as dicas de desempenho do Azure Cosmos DB Java SDK v4, consulte as notas de lançamento do Azure Cosmos DB Java SDK v4, do [repositório Maven,](https://mvnrepository.com/artifact/com.azure/azure-cosmos)das dicas de [desempenho](performance-tips-java-sdk-v4-sql.md)do Azure Cosmos DB Java SDK v4 e do guia de resolução de [problemas](troubleshoot-java-sdk-v4-sql.md)Azure Cosmos DB Java SDK v4.
@@ -33,11 +33,11 @@ Este guia de como guiar percorre-o através de uma simples aplicação Java que 
 
 ## <a name="background"></a>Segundo plano
 
-O Azure Cosmos DB Change Feed fornece uma interface orientada para eventos para desencadear ações em resposta à inserção de documentos. Isto tem muitos usos. Por exemplo, em aplicações que são lidas e escrevem pesadas, um uso principal do Change Feed é criar uma **visão materializada** em tempo real de um contentor, uma vez que está a ingerir documentos. O recipiente de visualização materializado terá os mesmos dados, mas dividido para leituras eficientes, tornando a aplicação tanto lida como escrita eficiente.
+O feed de mudança de DB Azure Cosmos fornece uma interface orientada para eventos para desencadear ações em resposta à inserção de documentos. Isto tem muitos usos. Por exemplo, em aplicações que são lidas e escrevem pesadas, um uso principal do feed de mudança é criar uma **visão materializada** em tempo real de um recipiente, uma vez que está a ingerir documentos. O recipiente de visualização materializado terá os mesmos dados, mas dividido para leituras eficientes, tornando a aplicação tanto lida como escrita eficiente.
 
-O trabalho de gestão de eventos change feed é em grande parte tratado pela biblioteca do Processador Change Feed incorporado no SDK. Esta biblioteca é poderosa o suficiente para distribuir eventos change feed entre vários trabalhadores, se isso for desejado. Tudo o que tem que fazer é fornecer à biblioteca Change Feed uma chamada.
+O trabalho de gestão de eventos de feed de mudança é em grande parte tratado pela biblioteca de processadores de feed de mudança incorporada no SDK. Esta biblioteca é poderosa o suficiente para distribuir eventos de alimentação de mudança entre vários trabalhadores, se isso for desejado. Tudo o que tem que fazer é fornecer à biblioteca de mudanças uma chamada.
 
-Este exemplo simples demonstra a biblioteca do Processador Change Feed com um único trabalhador a criar e apagar documentos de uma visão materializada.
+Este exemplo simples demonstra alterar a biblioteca de processadores de feed com um único trabalhador a criar e apagar documentos de uma visão materializada.
 
 ## <a name="setup"></a>Configuração
 
@@ -73,9 +73,9 @@ mvn clean package
 
     em seguida, volte ao portal Azure Data Explorer no seu navegador. Verá uma base de dados **MerceariaStoreDatabase** foi adicionada com três recipientes vazios: 
 
-    * **InventárioRecipiente** - O registo de inventário para a nossa ```id``` mercearia, dividido em item que é um UUID.
+    * **InventárioRecipiente** - O registo de inventário para a nossa mercearia, dividido em item ```id``` que é um UUID.
     * **InventárioRecipiente-pktype** - Uma vista materializada do registo de inventário, otimizada para consultas sobre item```type```
-    * **InventárioDe-arrendamentos -** Um recipiente de arrendamento é sempre necessário para o Change Feed; os arrendamentos acompanham o progresso da app na leitura do Change Feed.
+    * **InventárioOs-arrendamentos -** Um recipiente de arrendamento é sempre necessário para a alimentação de mudanças; os arrendamentos acompanham o progresso da app na leitura do feed de mudança.
 
 
     ![Recipientes vazios](media/create-sql-api-java-changefeed/cosmos_account_resources_lease_empty.JPG)
@@ -87,7 +87,7 @@ mvn clean package
     Press enter to start creating the materialized view...
     ```
 
-    Pressione a entrada. Agora, o seguinte bloco de código executará e rubricará o processador Change Feed noutra linha: 
+    Pressione a entrada. Agora, o seguinte bloco de código executará e rubricará o processador de alimentação de alteração noutra linha: 
 
     ### <a name="java-sdk-v4-maven-comazureazure-cosmos-async-api"></a><a id="java4-connection-policy-async"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
 
@@ -100,16 +100,16 @@ mvn clean package
         })
         .subscribe();
 
-    while (!isProcessorRunning.get()); //Wait for Change Feed processor start
+    while (!isProcessorRunning.get()); //Wait for change feed processor start
     ```
 
     ```"SampleHost_1"```é o nome do processador Change Feed. ```changeFeedProcessorInstance.start()```é o que realmente inicia o processador Change Feed.
 
-    Volte ao portal Azure Data Explorer no seu navegador. No recipiente de **aluguer de contentores de inventário,** clique **em itens** para ver o seu conteúdo. Verá que o Processador change feed tem povoado o recipiente de ```SampleHost_1``` aluguer, ou seja, o processador atribuiu ao trabalhador um contrato de arrendamento em algumas divisórias do **InventoryContainer**.
+    Volte ao portal Azure Data Explorer no seu navegador. No recipiente de **aluguer de contentores de inventário,** clique **em itens** para ver o seu conteúdo. Verá que o Processador change feed tem povoado o recipiente de aluguer, ou seja, o processador atribuiu ao trabalhador um contrato de ```SampleHost_1``` arrendamento em algumas divisórias do **InventoryContainer**.
 
     ![Concessões](media/create-sql-api-java-changefeed/cosmos_leases.JPG)
 
-1. Pressione a entrada novamente no terminal. Isto irá desencadear 10 documentos a serem inseridos no **InventoryContainer**. Cada inserção de documento aparece no Feed de Alteração como JSON; o seguinte código de chamada trata destes eventos espelhando os documentos JSON numa vista materializada:
+1. Pressione a entrada novamente no terminal. Isto irá desencadear 10 documentos a serem inseridos no **InventoryContainer**. Cada inserção de documento aparece no feed de alteração como JSON; o seguinte código de chamada trata destes eventos espelhando os documentos JSON numa vista materializada:
 
     ### <a name="java-sdk-v4-maven-comazureazure-cosmos-async-api"></a><a id="java4-connection-policy-async"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
 
@@ -138,19 +138,19 @@ mvn clean package
     }
     ```
 
-1. Deixe o código funcionar 5-10sec. Em seguida, volte ao portal Azure Data Explorer e navegue até ao **InventoryContainer > itens**. Deve ver que os itens estão a ser inseridos no recipiente de inventário; note a chave```id```de partição ().
+1. Deixe o código funcionar 5-10sec. Em seguida, volte ao portal Azure Data Explorer e navegue até ao **InventoryContainer > itens**. Deve ver que os itens estão a ser inseridos no recipiente de inventário; note a chave de partição ```id``` ().
 
     ![Recipiente de alimentação](media/create-sql-api-java-changefeed/cosmos_items.JPG)
 
-1. Agora, no Data Explorer navegue para **itens > de > de inventárioRecipiente.** Esta é a vista materializada - os itens neste recipiente espelho **InventárioContainer** porque foram inseridos programáticamente pela Change Feed. Note a tecla```type```de partição (). Assim, esta vista materializada é otimizada ```type```para consultas de filtragem , o que ```id```seria ineficiente no **InventoryContainer** porque é dividido em .
+1. Agora, no Data Explorer navegue para **itens > de > de inventárioRecipiente.** Esta é a vista materializada - os itens neste recipiente espelho **InventárioContentor** porque foram inseridos programáticamente por change feed. Note a tecla de partição ```type``` (). Assim, esta vista materializada é otimizada para consultas de filtragem ```type``` , o que seria ineficiente no **InventoryContainer** porque é dividido em ```id``` .
 
     ![Vista materializada](media/create-sql-api-java-changefeed/cosmos_materializedview2.JPG)
 
-1. Vamos apagar um documento tanto do **InventoryContainer** como do **InventoryContainer-pktype** usando apenas uma ```upsertItem()``` chamada. Primeiro, dê uma olhada no portal Azure Data Explorer. Eliminaremos o documento ```/type == "plums"```para o qual; está cercado em vermelho abaixo
+1. Vamos apagar um documento tanto do **InventoryContainer** como do **InventoryContainer-pktype** usando apenas uma ```upsertItem()``` chamada. Primeiro, dê uma olhada no portal Azure Data Explorer. Vamos apagar o documento para o ```/type == "plums"``` qual; está cercado em vermelho abaixo
 
     ![Vista materializada](media/create-sql-api-java-changefeed/cosmos_materializedview-emph-todelete.JPG)
 
-    Introduza novamente a ```deleteDocument()``` inserção para chamar a função no código de exemplo. Esta função, mostrada abaixo, faz upserts ```/ttl == 5```uma nova versão do documento com , que define o documento Time-To-Live (TTL) a 5sec. 
+    Introduza novamente a inserção para chamar a função ```deleteDocument()``` no código de exemplo. Esta função, mostrada abaixo, faz upserts uma nova versão do documento com , que define o ```/ttl == 5``` documento Time-To-Live (TTL) a 5sec. 
     
     ### <a name="java-sdk-v4-maven-comazureazure-cosmos-async-api"></a><a id="java4-connection-policy-async"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
 
@@ -181,10 +181,10 @@ mvn clean package
     }    
     ```
 
-    O Change ```feedPollDelay``` Feed está definido para 100ms; portanto, change Feed responde a esta atualização ```updateInventoryTypeMaterializedView()``` quase instantaneamente e chamadas mostradas acima. Esta última chamada de função irá aumentar o novo documento com TTL de 5sec em **InventoryContainer-pktype**.
+    O feed de mudança ```feedPollDelay``` está definido para 100ms; portanto, alterar o feed responde a esta atualização quase instantaneamente e chamadas ```updateInventoryTypeMaterializedView()``` mostradas acima. Esta última chamada de função irá aumentar o novo documento com TTL de 5sec em **InventoryContainer-pktype**.
 
     O efeito é que, após cerca de 5 segundos, o documento expirará e será eliminado de ambos os recipientes.
 
-    Este procedimento é necessário porque o Change Feed apenas emite eventos sobre inserção ou atualização de itens, e não sobre a eliminação do item.
+    Este procedimento é necessário porque a alteração do feed apenas emite eventos sobre inserção ou atualização de itens, e não sobre a eliminação do item.
 
 1. Pressione a indigitar mais uma vez para fechar o programa e limpar os seus recursos.

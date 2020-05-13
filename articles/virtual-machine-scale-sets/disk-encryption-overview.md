@@ -1,18 +1,20 @@
 ---
 title: Ativar encriptação de disco azure para conjuntos de escala de máquina virtual
 description: Este artigo fornece instruções sobre a ativação da encriptação do disco Microsoft Azure para conjuntos de escala de máquina virtual
-author: msmbaldwin
-ms.service: virtual-machine-scale-sets
+author: mimckitt
+ms.author: mimckitt
 ms.topic: conceptual
-ms.author: mbaldwin
+ms.service: virtual-machine-scale-sets
+ms.subservice: disks
 ms.date: 10/10/2019
-ms.custom: seodec18
-ms.openlocfilehash: 36eb83d99af299260ebbbd74fe56d69921ba389b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: jushiman
+ms.custom: mimckitt
+ms.openlocfilehash: 6b9805d66149a18216a200bc89a79b3e06106c9d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76278976"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195115"
 ---
 # <a name="azure-disk-encryption-for-virtual-machine-scale-sets"></a>Encriptação de disco azure para conjuntos de escala de máquina virtual
 

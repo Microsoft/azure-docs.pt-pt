@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/05/2020
+ms.date: 05/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bb1dba32ed2e913268a9fc37f37ab8cec360c5de
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: eab9db77dee5420ddc5baa9f71bde98fc46ca3f6
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858434"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196851"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Use o Azure para hospedar e executar cenários de carga de trabalho SAP
 
@@ -111,6 +111,7 @@ Para obter informações sobre a integração dos serviços Azure nos componente
 
 ## <a name="change-log"></a>Alterar Log
 
+- 05/11/2020: Alteração [da elevada disponibilidade de SAP HANA em VMs Azure em SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability) para definir a adesão dos recursos a 0 para o recurso netcat, uma vez que isso leva a uma falha mais simplificada 
 - 05/05/2020: Alterações no planeamento e implementação de [Máquinas Virtuais Azure para a SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) para expressar que as implementações da Gen2 estão disponíveis para a família Mv1 VM
 - 04/24/2020: Alterações na [escala SAP HANA com nó de standby em VMs Azure com ANF em SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse), em [escala SAP HANA com nó de standby em VMs Azure com ANF em RHE L](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel), Alta disponibilidade para [SAP NetWeaver em VMs Azure em SLES com ANF](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) e [alta disponibilidade para SAP NetWeaver em VMs Azure em RHEL com ANF](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files) para adicionar esclarecimentos de que os endereços IP para volumes ANF são automaticamente atribuídos
 - 04/22/2020: Alteração da [alta disponibilidade de SAP HANA em VMs Azure em SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability) para remover meta atributo `is-managed` das instruções, uma vez que entra em conflito com a colocação do cluster dentro ou fora do modo de manutenção
@@ -170,16 +171,5 @@ Para obter informações sobre a integração dos serviços Azure nos componente
 - 11/08/2019: Alterações na [alta disponibilidade do SAP HANA em VMs Azure no SUSE Linux Enterprise Server](sap-hana-high-availability.md), Configurar a replicação do sistema [SAP HANA em máquinas virtuais Azure (VMs)](sap-hana-high-availability-rhel.md), [Máquinas Virtuais Azure alta disponibilidade para SAP NetWeaver no SUSE Linux Enterprise Server para aplicações SAP](high-availability-guide-suse.md), [Máquinas Virtuais Azure alta disponibilidade para SAP NetWeaver em SUSE Linux Server com SUSE Ficheiros NetApp,](high-availability-guide-suse-netapp-files.md) [Máquinas Virtuais Azure alta disponibilidade para SAP NetWeaver no Red Hat Enterprise Linux](high-availability-guide-rhel.md), [Máquinas Virtuais Azure alta disponibilidade para SAP NetWeaver em Red Hat Enterprise Linux com Ficheiros Azure NetApp,](high-availability-guide-rhel-netapp-files.md) [Alta disponibilidade para NFS em VMs Azure no SUSE Linux Enterprise Server,](high-availability-guide-suse-nfs.md) [GlusterFS em VMs Azure em Red Hat Enterprise Linux para SAP NetWeaver para](high-availability-guide-rhel-glusterfs.md) recomendar o carregador de fios Azure  
 - 11/08/2019: Alterações na lista de verificação de [planeamento e implementação](sap-deployment-checklist.md) de carga sap para clarificar recomendação de encriptação  
 - 11/04/2019: Alterações na configuração do [Pacemaker no SUSE Linux Enterprise Server em Azure](high-availability-guide-suse-pacemaker.md) para criar o cluster diretamente com configuração unicast  
-- 10/29/2019: Lançamento da [conectividade de ponto final público para máquinas virtuais utilizando o Equilíbrio de Carga Padrão Azure em cenários de alta disponibilidade do SAP](high-availability-guide-standard-load-balancer-outbound-connections.md)
-- 10/25/2019: Alterações nas configurações de armazenamento de [máquinas virtuais SAP HANA Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) e [escala SAP HANA com nó de standby em VMs Azure com Ficheiros Azure NetApp no SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse) para clarificar o protocolo NFS para /hana/volume partilhado
-- 10/22/2019: Alteração da [alta disponibilidade para SAP NetWeaver em VMs Azure em SUSE Linux Enterprise Server para aplicações SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse), [Alta disponibilidade para SAP NetWeaver em VMs Azure no SUSE Linux Enterprise Server com Ficheiros Azure NetApp para aplicações SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files), [Alta disponibilidade para NFS em Azure VMs no SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs), [configurando pacemaker no SUSE Linux Enterprise Server em Azure,](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) [Alta disponibilidade de IBM Db2 LUW em VMs Azure no SUSE Linux Enterprise Server com Pacemaker](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms-guide-ha-ibm), e alta disponibilidade de [SAP HANA em VMs Azure no SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability) para deteção de equilíbrio de carga Azure
-- Altera a secção ANF e a secção de cabeçalho nas configurações de [armazenamento de máquinas virtuais SAP HANA Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
-- 10/21/2019: Lançamento da [escala SAP HANA com nó de standby em VMs Azure com Ficheiros Azure NetApp em SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse)
-- 10/16/2019: Fixar ligações partidas em [Backup e restaurar](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-backup-restore)
-- 10/16/2019: Alterar o sistema mínimo recomendado de SLES 12 SP3 para SLES 12 SP4 em [alta disponibilidade de IBM Db2 LUW em VMs Azure no SUSE Linux Enterprise Server com Pacemaker](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms-guide-ha-ibm)
-- 10/11/2019: Alterações às configurações de armazenamento de discos Ultra e introdução de ANF nas configurações de [armazenamento de máquinas virtuais SAP HANA Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
-- 10/01/2019: Alteração dos gráficos dos grupos de colocação de proximidade do [Azure para uma latência ótima da rede com aplicações SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) para obter mais clareza
-- 10/01/2019: Alteração das [configurações e operações de infraestruturas SAP HANA no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations) para corrigir declarações em torno da quota nfs altamente disponível para /hana/shared. 
-
 
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 04/02/2020
 ms.author: curtand
 ms.reviewer: kexia
-ms.openlocfilehash: 3df79fb1e103ddfaafeb348641e675cd250f5858
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 555ba9a55a135bd38dcc46e1ff7a3d751083d47e
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81271697"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196420"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>Problemas comuns com verificação de dois fatores e sua conta de trabalho ou escola
 
@@ -32,7 +32,7 @@ Existem alguns problemas comuns de verificação de dois fatores que parecem aco
 >[!Important]
 >Se for administrador, pode encontrar mais informações sobre como configurar e gerir o seu ambiente Azure AD na [documentação da AD Azure](https://docs.microsoft.com/azure/active-directory).
 >
->Este conteúdo destina-se também apenas a ser utilizado com o seu trabalho ou alain@contoso.comconta escolar, que é a conta que lhe é prestada pela sua organização (por exemplo). Se tiver problemas com a verificação de dois fatores e a sua conta pessoal danielle@outlook.comda Microsoft, que é uma conta que configura para si (por exemplo, por exemplo), consulte [a verificação de dois fatores para a sua conta Microsoft](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
+>Este conteúdo destina-se também apenas a ser utilizado com o seu trabalho ou conta escolar, que é a conta que lhe é prestada pela sua organização (por alain@contoso.com exemplo). Se tiver problemas com a verificação de dois fatores e a sua conta pessoal da Microsoft, que é uma conta que configura para si (por exemplo, danielle@outlook.com por exemplo), consulte [a verificação de dois fatores para a sua conta Microsoft](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
 
 ## <a name="i-dont-have-my-mobile-device-with-me"></a>Não tenho o meu dispositivo móvel comigo.
 
@@ -99,9 +99,9 @@ As palavras-passe da aplicação substituem a sua senha normal por aplicações 
 
 ## <a name="i-cant-turn-two-factor-verification-off"></a>Não posso desligar a verificação de dois fatores.
 
-Se estiver a usar a verificação de dois fatores alain@contoso.comcom o seu trabalho ou conta escolar (por exemplo), o mais provável significa que a sua organização decidiu que deve usar esta funcionalidade de segurança adicional. Como a sua organização decidiu que deve usar esta funcionalidade, não há como desligá-la individualmente. Se, no entanto, estiver a utilizar a verificação de dois fatores com uma conta pessoal, como, alain@outlook.comtem a capacidade de ligar e desligar a funcionalidade. Para obter instruções sobre como controlar a verificação de dois fatores para as suas contas pessoais, consulte [a verificação de dois fatores ligado ou desligado para](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off)a sua conta Microsoft .
+Se estiver a usar a verificação de dois fatores com o seu trabalho ou conta escolar (por exemplo), o mais provável significa que a alain@contoso.com sua organização decidiu que deve usar esta funcionalidade de segurança adicional. Como a sua organização decidiu que deve usar esta funcionalidade, não há como desligá-la individualmente. Se, no entanto, estiver a utilizar a verificação de dois fatores com uma conta pessoal, como, tem a capacidade de alain@outlook.com ligar e desligar a funcionalidade. Para obter instruções sobre como controlar a verificação de dois fatores para as suas contas pessoais, consulte [a verificação de dois fatores ligado ou desligado para](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off)a sua conta Microsoft .
 
-Se não conseguir desativar a verificação de dois fatores, também pode ser devido aos incumprimentos de segurança que foram aplicados ao nível da organização. Para mais informações sobre falhas de segurança, veja o que é segurança [defulta?](../fundamentals/concept-fundamentals-security-defaults.md)
+Se não conseguir desativar a verificação de dois fatores, também pode ser devido aos incumprimentos de segurança que foram aplicados ao nível da organização. Para obter mais informações sobre falhas de segurança, consulte [o que são falhas de segurança?](../fundamentals/concept-fundamentals-security-defaults.md)
 
 ## <a name="i-didnt-find-an-answer-to-my-problem"></a>Não encontrei uma resposta para o meu problema.
 

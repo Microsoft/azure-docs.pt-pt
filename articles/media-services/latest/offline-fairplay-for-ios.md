@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 41893c2460ecb2d17e3893f867bc460105d57bbd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0e65bf39db00f1277635d600da87346f19a881a6
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80887219"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197173"
 ---
 # <a name="offline-fairplay-streaming-for-ios-with-media-services-v3"></a>Offline FairPlay Streaming para iOS com Media Services v3
 
@@ -59,7 +59,7 @@ Antes de implementar o DRM offline para FairPlay num dispositivo iOS 10+:
 
     - O FPS Server SDK, que contém o Módulo de Segurança Chave (KSM), amostras de clientes, uma especificação e um conjunto de vetores de teste.
     - O Pacote de Implementação fps, que contém a especificação de função D, juntamente com instruções sobre como gerar o Certificado FPS, a chave privada específica do cliente e a chave secreta da aplicação. A Apple emite o Pacote de Implementação fps apenas a fornecedores de conteúdos licenciados.
-* Clone. https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git 
+* https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.gitClone. 
 
     Terá de modificar o código em [Encrypt com DRM utilizando .NET](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/EncryptWithDRM) para adicionar configurações fairPlay.  
 
@@ -87,7 +87,7 @@ options.Add(
 
 ## <a name="enable-offline-mode"></a>Ativar o modo offline
 
-Para ativar o modo offline, crie uma Política de Streaming personalizada e use o seu nome ao criar um StreamingLocator em [CreateStreamingLocatorAsync](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L563).
+Para ativar o modo offline, crie uma Política de Streaming personalizada e use o seu nome ao criar um StreamingLocator em [CreateStreamingLocatorAsync](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L561).
  
 ```csharp
 CommonEncryptionCbcs objStreamingPolicyInput= new CommonEncryptionCbcs()
@@ -96,23 +96,24 @@ CommonEncryptionCbcs objStreamingPolicyInput= new CommonEncryptionCbcs()
     {
         FairPlay = new StreamingPolicyFairPlayConfiguration()
         {
-            AllowPersistentLicense = true  //this enables offline mode
+            AllowPersistentLicense = true // This enables offline mode
         }
     },
     EnabledProtocols = new EnabledProtocols()
     {
         Hls = true,
-        Dash = true //Even though DASH under CBCS is not supported for either CSF or CMAF, HLS-CMAF-CBCS uses DASH-CBCS fragments in its HLS playlist
+        Dash = true // Even though DASH under CBCS is not supported for either CSF or CMAF, HLS-CMAF-CBCS uses DASH-CBCS fragments in its HLS playlist
     },
 
     ContentKeys = new StreamingPolicyContentKeys()
     {
-        //Default key must be specified if keyToTrackMappings is present
+        // Default key must be specified if keyToTrackMappings is present
         DefaultKey = new DefaultKey()
         {
             Label = "CBCS_DefaultKeyLabel"
         }
     }
+}
 
 ```
 
@@ -166,7 +167,7 @@ No HLSCatalog\Shared\Managers\ContentKeyDelegate.swift, implemente o método `re
     return ckcData
 ```
 
-No HLSCatalog\Shared\Managers\ContentKeyDelegate.swift, implemente o método `requestApplicationCertificate()`. Esta implementação depende se você incorpora o certificado (apenas chave pública) com o dispositivo ou hospedar o certificado na web. A seguinte implementação utiliza o certificado de candidatura alojado utilizado nas amostras de ensaio. Deixe que "certUrl" seja uma variável que contenha o URL do certificado de candidatura.
+No HLSCatalog\Shared\Managers\ContentKeyDelegate.swift, implemente o método `requestApplicationCertificate()` . Esta implementação depende se você incorpora o certificado (apenas chave pública) com o dispositivo ou hospedar o certificado na web. A seguinte implementação utiliza o certificado de candidatura alojado utilizado nas amostras de ensaio. Deixe que "certUrl" seja uma variável que contenha o URL do certificado de candidatura.
 
 ```swift
 func requestApplicationCertificate() throws -> Data {

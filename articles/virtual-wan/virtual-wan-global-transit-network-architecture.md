@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: article
 ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 19eaaa1ac442a04799bfa8d8d495b9c7dd393e5a
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 72a96e04d308dbb2774d5b8f8aa909ab81bebee3
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82928283"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195666"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Arquitetura global da rede de trânsito e WAN Virtual
 
@@ -145,10 +145,10 @@ O trânsito seguro VNet-to-VNet permite que os VNets se conectem entre si atrav�
 
 ### <a name="vnet-to-internet-or-third-party-security-service-i"></a>VNet-to-Internet ou Serviço de Segurança de terceiros (i)
 
-O vnet-to-Internet ou o trânsito seguro de terceiros permite que os VNets se conectem à internet ou a serviços de segurança de terceiros suportados através do Firewall Azure no centro virtual WAN.
+O VNet-to-Internet permite que os VNets se conectem à internet através do Azure Firewall no centro virtual WAN. O tráfego para a internet através de serviços de segurança de terceiros suportados não flui através do Firewall Azure. Pode configurar o caminho Vnet-to-Internet através de um serviço de segurança de terceiros suportado utilizando o Azure Firewall Manager.  
 
 ### <a name="branch-to-internet-or-third-party-security-service-j"></a>Serviço de Segurança Sucursal para internet ou serviço de segurança de terceiros (j)
-O trânsito seguro de sucursais para internet ou de terceiros permite que as agências se conectem à internet ou a serviços de segurança de terceiros apoiados através do Azure Firewall no centro virtual WAN.
+O Branch-to-Internet permite que os ramos se conectem à internet através do Azure Firewall no centro virtual WAN. O tráfego para a internet através de serviços de segurança de terceiros suportados não flui através do Firewall Azure. Pode configurar o caminho Branch-to-Internet através de um serviço de segurança de terceiros suportado utilizando o Azure Firewall Manager. 
 
 ### <a name="how-do-i-enable-default-route-00000-in-a-secured-virtual-hub"></a>Como posso ativar a rota padrão (0.0.0.0/0) num Centro Virtual Seguro
 

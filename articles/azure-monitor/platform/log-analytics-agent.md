@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: 658543dc96f23fc86ea50f64d7a3265ba64150e7
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 0a29ee1536c7c808fe7d15c0abe26f27042bc962
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982212"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196253"
 ---
 # <a name="log-analytics-agent-overview"></a>Visão geral do agente de Log Analytics
 O agente Azure Log Analytics foi desenvolvido para uma gestão abrangente através de máquinas virtuais em qualquer nuvem, máquinas no local, e as monitorizadas pelo [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/). Os agentes Windows e Linux enviam dados recolhidos de diferentes fontes para o seu espaço de trabalho Log Analytics no Monitor Azure, bem como quaisquer registos ou métricas únicos, conforme definido numa solução de monitorização. O agente Log Analytics também suporta insights e outros serviços no Azure Monitor, tais como [O Monitor Azure para VMs,](../insights/vminsights-enable-overview.md) [Azure Security Center](/azure/security-center/)e [Azure Automation.](../../automation/automation-intro.md)
@@ -115,11 +115,11 @@ Começando com versões lançadas após agosto de 2018, estamos a fazer as segui
 >Se estiver a utilizar um distro ou versão que não seja suportado atualmente e não se alinha com o nosso modelo de suporte, recomendamos que desista deste repo, reconhecendo que o suporte da Microsoft não irá fornecer assistência com versões de agente bifurcado.
 
 * Amazon Linux 2017.09 (x64)
-* CentOS Linux 6 (x86/x64) e 7 (x64)  
-* Oracle Linux 6 e 7 (x86/x64) 
-* Red Hat Enterprise Linux Server 6 (x86/x64) e 7 (x64)
-* Debian GNU/Linux 8 e 9 (x86/x64)
-* Ubuntu 14.04 LTS (x86/x64), 16.04 LTS (x86/x64) e 18.04 LTS (x64)
+* CentOS Linux 6 (x64) e 7 (x64)  
+* Oracle Linux 6 e 7 (x64) 
+* Red Hat Enterprise Linux Server 6 (x64), 7 (x64) e 8 (x64)
+* Debian GNU/Linux 8 e 9 (x64)
+* Ubuntu 14.04 LTS (x86/x64), 16.04 LTS (x64) e 18.04 LTS (x64)
 * SUSE Linux Enterprise Server 12 (x64) e 15 (x64)
 
 >[!NOTE]
@@ -159,7 +159,7 @@ O agente windows começará a usar exclusivamente a assinatura SHA-2 no dia 17 d
 4. Recomendado configurar o agente para [utilizar TLS 1.2](agent-windows.md#configure-agent-to-use-tls-12). 
 
 
-## <a name="network-requirements"></a>Requisitos da rede
+## <a name="network-requirements"></a>Requisitos de rede
 O agente do Linux e do Windows comunica a saída para o serviço Azure Monitor através da porta TCP 443, e se a máquina se ligar através de uma firewall ou servidor proxy para comunicar através da Internet, reveja os requisitos abaixo para entender a configuração de rede necessária. Se as suas políticas de segurança de TI não permitirem que os computadores da rede se conectem à Internet, pode configurar um [gateway Log Analytics](gateway.md) e, em seguida, configurar o agente para ligar através da porta de entrada para os registos do Monitor Azure. O agente pode então receber informações de configuração e enviar dados recolhidos dependendo das regras de recolha de dados e soluções de monitorização que tenha ativado no seu espaço de trabalho.
 
 ![Diagrama de comunicação do agente de log Analytics](./media/log-analytics-agent/log-analytics-agent-01.png)
@@ -201,7 +201,7 @@ Para o agente Linux, o servidor proxy é especificado durante a instalação ou 
 Por exemplo: `https://user01:password@proxy01.contoso.com:30443`
 
 > [!NOTE]
-> Se utilizar caracteres especiais\@como " " na sua palavra-passe, recebe um erro de ligação proxy porque o valor é analisado incorretamente.  Para resolver este problema, codifique a palavra-passe no URL utilizando uma ferramenta como [urlDecode](https://www.urldecoder.org/).  
+> Se utilizar caracteres especiais como " \@ " na sua palavra-passe, recebe um erro de ligação proxy porque o valor é analisado incorretamente.  Para resolver este problema, codifique a palavra-passe no URL utilizando uma ferramenta como [urlDecode](https://www.urldecoder.org/).  
 
 
 

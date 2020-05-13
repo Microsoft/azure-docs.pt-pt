@@ -11,12 +11,13 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55ce0233fdefb8360376e94c0baafabe4c62ced7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 1799f676e8971726832cc50598e119f029bc331d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81309199"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196396"
 ---
 # <a name="blocking-legacy-authentication"></a>Bloquear a autenticação do legado
  
@@ -31,10 +32,10 @@ Hoje, a maioria de todas as tentativas comprometedoras de inscrição vêm da au
 
 Antes de poder bloquear a autenticação do legado no seu diretório, tem de perceber primeiro se os seus utilizadores têm aplicações que utilizam a autenticação do legado e como isso afeta o seu diretório geral. Os registos de entrada de AD Azure podem ser usados para entender se está a usar a autenticação do legado.
 
-1. Navegue para o > **portal Azure** **Ative Directory** > **Sign-ins**.
-1. Adicione a coluna da **Aplicação cliente** se não for mostrada clicando na App do **Cliente**das **Colunas** >.
-1. Filter by **Client App**  > verificar todas as opções de Clientes de **Autenticação Legado apresentadas.**
-1. Filtrar por **Status** > **Success**. 
+1. Navegue para o **portal**   >  **Azure Ative Directory**   >  **Sign-ins**.
+1. Adicione a coluna da **Aplicação cliente** se não for mostrada clicando na App do Cliente das **Colunas**   >  **Client App**.
+1. Filtrar por **Aplicação cliente**> verificar todas as opções de Clientes de   **Autenticação Legado apresentadas.**
+1. Filtrar **Status**por  >  **Status Success**. 
 1. Aumente a sua gama de datas, se necessário, utilizando o filtro **Date.**
 
 A filtragem só lhe mostrará tentativas de inscrição bem sucedidas que foram feitas pelos protocolos de autenticação do legado selecionados. Clicar em cada tentativa de inscrição individual irá mostrar-lhe detalhes adicionais. A coluna da Aplicação do Cliente ou o campo de Aplicações do Cliente sob o separador Informação Básica após a seleção de uma linha de dados individuais indicarão qual o protocolo de autenticação legado utilizado. Estes registos indicarão quais os utilizadores que ainda dependem da autenticação do legado e quais as aplicações que estão a utilizar protocolos legados para fazer pedidos de autenticação. Para os utilizadores que não aparecem nestes registos e que se confirme que não estão a utilizar a autenticação do legado, implementem uma política de Acesso Condicional ou permitam a política de Base: bloquear a autenticação do legado apenas para estes utilizadores.
@@ -49,8 +50,8 @@ Esta secção dá uma visão geral passo a passo sobre como atualizar o seu ambi
 
 O primeiro passo para permitir a autenticação moderna é garantir que o seu diretório suporta a autenticação moderna. A autenticação moderna é ativada por padrão para diretórios criados em ou depois de 1 de agosto de 2017. Se o seu diretório foi criado antes desta data, terá de ativar manualmente a autenticação moderna para o seu diretório utilizando os seguintes passos:
 
-1. Verifique se o seu diretório já suporta `Get-CsOAuthConfiguration` a autenticação moderna, funcionando a partir do [Módulo Skype para Business Online PowerShell](https://docs.microsoft.com/office365/enterprise/powershell/manage-skype-for-business-online-with-office-365-powershell).
-1. Se o seu `OAuthServers` comando devolver uma propriedade vazia, então a Autenticação Moderna é desativada. Atualize a definição para `Set-CsOAuthConfiguration`permitir a autenticação moderna utilizando . Se `OAuthServers` a sua propriedade contiver uma entrada, está pronto para ir.
+1. Verifique se o seu diretório já suporta a autenticação moderna, funcionando  `Get-CsOAuthConfiguration`   a partir do Módulo Skype para Business [Online PowerShell](https://docs.microsoft.com/office365/enterprise/powershell/manage-skype-for-business-online-with-office-365-powershell).
+1. Se o seu comando devolver uma  `OAuthServers`   propriedade vazia, então a Autenticação Moderna é desativada. Atualize a definição para permitir a autenticação moderna utilizando  `Set-CsOAuthConfiguration` . Se a sua  `OAuthServers`   propriedade contiver uma entrada, está pronto para ir.
 
 Certifique-se de completar este passo antes de avançar. É fundamental que as configurações do seu diretório sejam alteradas primeiro porque ditam qual o protocolo que será usado por todos os clientes do Office. Mesmo que esteja a utilizar clientes do Office que suportam a autenticação moderna, eles não usarão protocolos antigos se a autenticação moderna for desativada no seu diretório.
 
@@ -58,7 +59,7 @@ Certifique-se de completar este passo antes de avançar. É fundamental que as c
 
 Uma vez que tenha ativado a autenticação moderna no seu diretório, pode começar a atualizar aplicações permitindo a autenticação moderna para clientes do Office. O Office 2016 ou posteriormente os clientes apoiam a autenticação moderna por defeito. Não são necessários passos extras.
 
-Se estiver a utilizar clientes windows do Office 2013 ou mais velhos, recomendamos a atualização para o Office 2016 ou mais tarde. Mesmo depois de completar o passo anterior de permitir a autenticação moderna no seu diretório, as aplicações mais antigas do Office continuarão a utilizar protocolos de autenticação legado. Se estiver a utilizar clientes do Office 2013 e não conseguir fazer o upgrade imediato para o Office 2016 ou mais tarde, siga os passos no seguinte artigo para permitir a autenticação moderna para o [Office 2013 em dispositivos Windows](https://docs.microsoft.com/office365/admin/security-and-compliance/enable-modern-authentication). Para ajudar a proteger a sua conta enquanto utiliza a autenticação do legado, recomendamos a utilização de senhas fortes em todo o seu diretório. Consulte a proteção de [senhas azure AD](../authentication/concept-password-ban-bad.md)para proibir senhas fracas em todo o seu diretório.
+Se estiver a utilizar clientes windows do Office 2013 ou mais velhos, recomendamos a atualização para o Office 2016 ou mais tarde. Mesmo depois de completar o passo anterior de permitir a autenticação moderna no seu diretório, as aplicações mais antigas do Office continuarão a utilizar protocolos de autenticação legado. Se estiver a utilizar clientes do Office 2013 e não conseguir fazer o upgrade imediato para o Office 2016 ou mais tarde, siga os passos no seguinte artigo para permitir a autenticação moderna para o [Office 2013 em dispositivos Windows](https://docs.microsoft.com/office365/admin/security-and-compliance/enable-modern-authentication). Para ajudar a proteger a sua conta enquanto utiliza a autenticação do legado, recomendamos a utilização de senhas fortes em todo o seu diretório. Consulte a proteção de [senhas azure AD](../authentication/concept-password-ban-bad.md)   para proibir senhas fracas em todo o seu diretório.
 
 O Office 2010 não suporta a autenticação moderna. Terá de atualizar qualquer utilizador com o Office 2010 para uma versão mais recente do Office. Recomendamos a atualização para o Office 2016 ou mais tarde, uma vez que bloqueia a autenticação do legado por defeito.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 9667d82551e169dcc4a4bfd3ac79b15390f58aa0
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: ae20a0372c5808cc2265a4fae63b79ef2bb71605
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82609226"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125507"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Elevada disponibilidade com o Azure Cosmos DB
 
@@ -82,27 +82,7 @@ A redundância da zona é uma *capacidade suplementar* para a funcionalidade [de
 
 Ao configurar os escritos multi-regiões para a sua conta Azure Cosmos, pode optar por redundância de zona sem custos adicionais. Caso contrário, consulte a nota abaixo relativa ao preço do apoio ao despedimento da zona. Você pode permitir a redundância de zona em uma região existente da sua conta Azure Cosmos, removendo a região e adicionando-a de volta com a área de redundância ativada.
 
-Esta funcionalidade está disponível nas seguintes regiões do Azure:
-
-- Sul do Reino Unido
-
-- Ásia Sudeste
-
-- E.U.A. Leste
-
-- E.U.A. Leste 2
-
-- E.U.A. Central
-
-- Europa ocidental
-
-- E.U.A.Oeste 2
-
-- Leste da Austrália
-
-- Leste do Japão
-
-- Europa do Norte
+Esta funcionalidade está disponível em: *Reino Unido Sul, Sudeste Asiático, Leste dos EUA, Leste dos EUA 2, América Central, Europa Ocidental, Oeste DOS EUA 2, Austrália Leste, Japão Leste, Norte da Europa, Regiões Centrais da França.*
 
 > [!NOTE]
 > Permitir zonas de disponibilidade para uma única região a conta Azure Cosmos resultará em encargos equivalentes a adicionar uma região adicional à sua conta. Para mais detalhes sobre os preços, consulte a página de [preços](https://azure.microsoft.com/pricing/details/cosmos-db/) e o [custo multi-região nos artigos da Azure Cosmos DB.](optimize-cost-regions.md)
@@ -125,7 +105,7 @@ O quadro seguinte resume a elevada capacidade de disponibilidade de várias conf
 > [!NOTE]
 > Para permitir o suporte da Zona de Disponibilidade para uma conta multi-região azure Cosmos, a conta deve ter escritos multi-master habilitados.
 
-Você pode permitir o despedimento de zona ao adicionar uma região a contas novas ou existentes do Azure Cosmos. Para permitir a redundância da zona na sua `isZoneRedundant` conta `true` Azure Cosmos, deverá definir a bandeira para uma localização específica. Você pode colocar esta bandeira dentro da propriedade de locais. Por exemplo, o seguinte corte powerShell permite o despedimento de zonas para a região do "Sudeste Asiático":
+Você pode permitir o despedimento de zona ao adicionar uma região a contas novas ou existentes do Azure Cosmos. Para permitir a redundância da zona na sua conta Azure Cosmos, deverá definir a `isZoneRedundant` bandeira para uma localização `true` específica. Você pode colocar esta bandeira dentro da propriedade de locais. Por exemplo, o seguinte corte powerShell permite o despedimento de zonas para a região do "Sudeste Asiático":
 
 ```powershell
 $locations = @(
