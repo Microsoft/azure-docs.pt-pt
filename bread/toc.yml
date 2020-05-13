@@ -605,7 +605,7 @@
         - name: Mensagens do Service Bus
           tocHref: /azure/service-bus-messaging/
           topicHref: /azure/service-bus-messaging/
-        - name: Reencaminhamento do Service Bus
+        - name: Reencaminhamento do Azure
           tocHref: /azure/service-bus-relay/
           topicHref: /azure/service-bus-relay/
     - name: Migrar

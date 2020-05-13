@@ -227,8 +227,6 @@
           href: how-to-configure-cloud-metrics-logs.md
         - name: Configurar métricas e registos locais para o gateway autoalojado
           href: how-to-configure-local-metrics-logs.md
-        - name: Registar pedidos com o Azure Application Insights
-          href: api-management-howto-app-insights.md
         - name: Configurar a DR através de cópia de segurança/restauro
           href: api-management-howto-disaster-recovery-backup-restore.md
         - name: Gerir contas de utilizador

@@ -227,6 +227,8 @@
       href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Conformidade
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+    - name: Encriptação
+      href: qna-maker-encryption-of-data-at-rest.md
     - name: Mapa do Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Preços e limites

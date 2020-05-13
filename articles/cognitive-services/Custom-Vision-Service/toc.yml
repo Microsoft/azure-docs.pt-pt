@@ -89,5 +89,7 @@
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: Conformidade
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+    - name: Encriptação
+      href: custom-vision-encryption-of-data-at-rest.md
     - name: Notas de Versão
       href: release-notes.md

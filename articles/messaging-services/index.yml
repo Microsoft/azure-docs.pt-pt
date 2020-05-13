@@ -11,12 +11,12 @@ metadata:
   author: spelluru
   ms.author: spelluru
   ms.date: 03/15/2020
-  ms.openlocfilehash: 65a4312d01d6f3652ebc37ee0276c912178d4ccd
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: f70bdf831d5b65aab9d6d01f88122d1a0fdd9957
+  ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "79472259"
+  ms.lasthandoff: 05/12/2020
+  ms.locfileid: "83200406"
 highlightedContent:
   items:
   - title: Escolher entre serviços de mensagens do Azure
@@ -33,7 +33,7 @@ highlightedContent:
     url: ../service-bus-messaging/service-bus-messaging-overview.md
   - title: O que é o Reencaminhamento?
     itemType: overview
-    url: ../service-bus-relay/relay-what-is-it.md
+    url: ../azure-relay/relay-what-is-it.md
 conceptualContent:
   items:
   - title: Encaminhar eventos
@@ -160,12 +160,12 @@ conceptualContent:
       text: Ver mais
   - title: Ligações híbridas
     links:
-    - url: ../service-bus-relay/relay-hybrid-connections-dotnet-get-started.md
+    - url: ../azure-relay/relay-hybrid-connections-dotnet-get-started.md
       itemType: tutorial
       text: Introdução aos Websockets das Ligações Híbridas do Azure Relay em .NET
-    - url: ../service-bus-relay/relay-hybrid-connections-http-requests-dotnet-get-started.md
+    - url: ../azure-relay/relay-hybrid-connections-http-requests-dotnet-get-started.md
       itemType: tutorial
       text: Introdução aos pedidos HTTP das Ligações Híbridas do Azure Relay em .NET
     footerLink:
-      url: ../service-bus-relay/index.yml
+      url: ../azure-relay/index.yml
       text: Ver mais

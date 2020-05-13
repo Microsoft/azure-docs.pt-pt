@@ -8,14 +8,14 @@ metadata:
   ms.topic: landing-page
   author: ju-shim
   ms.author: jushiman
-  manager: gwallace
+  ms.reviewer: mimckitt
   ms.date: 03/16/2020
-  ms.openlocfilehash: 046d3d87a06c817044f7b07386bdfc03f65b1afb
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: d5cb11bfc45a3d5fa91b242143b025e11c25b3d2
+  ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "80123387"
+  ms.lasthandoff: 05/12/2020
+  ms.locfileid: "83197554"
 landingContent:
 - title: Sobre os conjuntos de dimensionamento de máquinas virtuais
   linkLists:
