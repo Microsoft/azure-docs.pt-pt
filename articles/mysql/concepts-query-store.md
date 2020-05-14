@@ -5,17 +5,17 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: d138c2fb8ed667d5b3c961c9f567264fa40edaee
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 5/12/2020
+ms.openlocfilehash: b47ab44c5a5f8faad85b60032a6781475235a170
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79537045"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402243"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>Monitor Azure Database para desempenho mySQL com A Loja de Consulta
 
-**Aplica-se a:** Base de Dados Azure para MySQL 5.7
+**Aplica-se a:** Base de Dados Azure para MySQL 5.7, 8.0
 
 A funcionalidade Da Loja de Consultas na Base de Dados Azure para MySQL fornece uma forma de acompanhar o desempenho da consulta ao longo do tempo. A Consulta Store simplifica a resolução de problemas de desempenho, ajudando-o rapidamente a encontrar as consultas de corrida mais longas e intensivas de recursos. A Consulta Store captura automaticamente um histórico de consultas e estatísticas de tempo de execução, e mantém-nas para a sua revisão. Separa os dados por janelas de tempo para que possa ver padrões de utilização da base de dados. Os dados para todos os utilizadores, bases de dados e consultas são armazenados na base de dados de schema **mysql** na base de dados Azure para a instância MySQL.
 
@@ -87,7 +87,7 @@ Quando a Consulta Store está ativada, guarda dados em janelas de agregação de
 
 As seguintes opções estão disponíveis para configurar os parâmetros da Consulta Store.
 
-| **Parâmetro** | **Descrição** | **Padrão** | **Alcance** |
+| **Parâmetro** | **Descrição** | **Predefinição** | **Alcance** |
 |---|---|---|---|
 | query_store_capture_mode | Rode a função de loja de consulta ON/OFF com base no valor. Nota: Se performance_schema estiver DESLIGADO, ligar query_store_capture_mode ligará performance_schema e um subconjunto de instrumentos de esquema de desempenho necessários para esta funcionalidade. | TUDO | NENHUM, TODOS. |
 | query_store_capture_interval | O intervalo de captura da loja de consultas em minutos. Permite especificar o intervalo em que as métricas de consulta são agregadas | 15 | 5 - 60 |
@@ -96,7 +96,7 @@ As seguintes opções estão disponíveis para configurar os parâmetros da Cons
 
 As seguintes opções aplicam-se especificamente às estatísticas de espera.
 
-| **Parâmetro** | **Descrição** | **Padrão** | **Alcance** |
+| **Parâmetro** | **Descrição** | **Predefinição** | **Alcance** |
 |---|---|---|---|
 | query_store_wait_sampling_capture_mode | Permite ligar /OFF as estatísticas de espera. | NENHUM | NENHUM, TODOS. |
 | query_store_wait_sampling_frequency | Altera a frequência da amostragem de espera em segundos. 5 a 300 segundos. | 30 | 5-300 |
@@ -104,7 +104,7 @@ As seguintes opções aplicam-se especificamente às estatísticas de espera.
 > [!NOTE]
 > Atualmente **query_store_capture_mode** substitui esta configuração, o que significa que tanto **query_store_capture_mode** como **query_store_wait_sampling_capture_mode** têm de ser habilitados a TODAS para que as estatísticas de espera funcionem. Se **query_store_capture_mode** for desligado, as estatísticas de espera também são desligadas, uma vez que as estatísticas de espera utilizam o performance_schema habilitado, e o query_text capturado pela loja de consultas.
 
-Utilize o [portal](howto-server-parameters.md) Azure ou [o Azure CLI](howto-configure-server-parameters-using-cli.md) para obter ou definir um valor diferente para um parâmetro.
+Utilize o [portal Azure](howto-server-parameters.md)   ou o [Azure CLI](howto-configure-server-parameters-using-cli.md)   para obter ou definir um valor diferente para um parâmetro.
 
 ## <a name="views-and-functions"></a>Vistas e funções
 
@@ -171,10 +171,10 @@ Esta vista devolve dados de eventos de espera na Loja de Consultas. Há uma linh
 
 ## <a name="limitations-and-known-issues"></a>Limitações e problemas conhecidos
 
-- Se um servidor MySQL `default_transaction_read_only` tiver o parâmetro ligado, a Consulta Store não pode capturar dados.
-- A funcionalidade da Consulta Store pode ser interrompida se\>encontrar longas consultas Unicode ( = 6000 bytes).
+- Se um servidor MySQL tiver o parâmetro ligado, a `default_transaction_read_only` Consulta Store não pode capturar dados.
+- A funcionalidade da Consulta Store pode ser interrompida se encontrar longas consultas Unicode ( \> = 6000 bytes).
 - O período de retenção das estatísticas de espera é de 24 horas.
-- As estatísticas de espera usam amostra para capturar uma fração de eventos. A frequência pode ser modificada `query_store_wait_sampling_frequency`utilizando o parâmetro .
+- As estatísticas de espera usam amostra para capturar uma fração de eventos. A frequência pode ser modificada utilizando o parâmetro `query_store_wait_sampling_frequency` .
 
 ## <a name="next-steps"></a>Passos seguintes
 

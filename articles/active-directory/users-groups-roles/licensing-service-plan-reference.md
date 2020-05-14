@@ -16,12 +16,12 @@ ms.author: kakern
 ms.reviewer: kakern
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c0b7070502059eee7f87e82812e06095e56d578
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: bf34f808e2c59e32990a83c817b98ee899e769ac
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582666"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402235"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>Nomes de produtos e identificadores de plano de serviço para licenciamento
 
@@ -38,7 +38,8 @@ Ao gerir licenças no [portal Azure](https://portal.azure.com/#blade/Microsoft_A
 
 | Nome do produto | ID de corda | GUID | Planos de serviço incluídos | Planos de serviço incluídos (nomes amigáveis) |
 | --- | --- | --- |--- | --- |
-| CONFERÊNCIA DE ÁUDIO | MCOMEETADV | 0c266dff-15dd-4b49-8397-2bb16070ed52 |MCOMEETADV (3e26ee1f-8a5f-4d52-aee2-b81ce45c8f40) | CONFERÊNCIA ÁUDIO (3e26ee1f-8a5f-4d52-aee2-b81ce45c8f40) |
+| APP CONNECT IW | SPZA_IW |  8f0c5670-4e56-4892-b06d-91c085d7004f | SPZA (0bfc98ed-1dbc-4a97-b246-701754e48b17)<br/>EXCHANGE_S_FOUNDATION (113feb6c-3fe4-4440-bddc-54d774bf0318) | APP CONNECT (0bfc98ed-1dbc-4a97-b246-701754e48b17)<br/>FUNDAÇÃO DE INTERCÂMBIO (113feb6c-3fe4-4440-bddc-54d774bf0318) |
+| CONFERÊNCIA DE ÁUDIO | MCOMEETADV | 0c266dff-15dd-4b49-8397-2bb16070ed52 | MCOMEETADV (3e26ee1f-8a5f-4d52-aee2-b81ce45c8f40) | CONFERÊNCIA ÁUDIO (3e26ee1f-8a5f-4d52-aee2-b81ce45c8f40) |
 | DIRETÓRIO ATIVO AZURE BASIC  | AAD_BASIC | 2b9c8e7c-319c-43a2-a2a0-48c5c6161de7  | AAD_BASIC (c4da7f8a-5ee2-4c99-a7e1-87d2df57f6fe) | MICROSOFT AZURE ATIVE DIRECTORY BASIC (c4da7f8a-5ee2-4c99-a7e1-87d2df57f6fe) |
 | Diretório ATIVO AZURE PREMIUM P1 | AAD_PREMIUM   | 078d2b04-f1bd-4111-bbd4-b4b1b354cef4  | AAD_PREMIUM (41781fb2-bc02-4b7c-bd55-b576c07bb09d)<br/>ADALLOM_S_DISCOVERY (932ad362-64a8-4783-9106-97849a1a30b9)<br/>MFA_PREMIUM (8a256a2b-b617-496d-b51b-e76466e8db0) | AZURE ATIVE DIRECTORY PREMIUM P1 (41781fb2-bc02-4b7c-bd55-b576c07bb09d)<br/>AUTENTICAÇÃO MULTIFACTOR MICROSOFT AZURE (8a256a2b-b617-496d-b51b-e76466e88db0)<br/>NUVEM APP SEGURANÇA DESCOBERTA (932ad362-64a8-4783-9106-97849a1a30b9) |
 | Diretório ATIVO AZURE PREMIUM P2 | AAD_PREMIUM_P2    | 84a661c4-e949-4bd2-a560-ed7766fcaf2b  | AAD_PREMIUM (41781fb2-bc02-4b7c-bd55-b576c07bb09d)<br/>AAD_PREMIUM_P2 (eec0eb4f-6444-4f95-aba0-50c24d67f998)<br/>ADALLOM_S_DISCOVERY (932ad362-64a8-4783-9106-97849a1a30b9)<br/>MFA_PREMIUM (8a256a2b-b617-496d-b51b-e76466e8db0) | AZURE ATIVE DIRECTORY PREMIUM P1 (41781fb2-bc02-4b7c-bd55-b576c07bb09d)<br/>AUTENTICAÇÃO MULTIFACTOR MICROSOFT AZURE (8a256a2b-b617-496d-b51b-e76466e88db0)<br/>NUVEM APP SEGURANÇA DESCOBERTA (932ad362-64a8-4783-9106-97849a1a30b9)<br/>AZURE ATIVE DIRECTORY PREMIUM P2 (eec0eb4f-6444-4f95-aba0-50c24d67f998) |
@@ -130,7 +131,7 @@ Ao gerir licenças no [portal Azure](https://portal.azure.com/#blade/Microsoft_A
 
 ## <a name="service-plans-that-cannot-be-assigned-at-the-same-time"></a>Planos de serviço que não podem ser atribuídos ao mesmo tempo
 
-Alguns produtos contêm planos de serviço que não podem ser atribuídos ao mesmo utilizador ao mesmo tempo. Por exemplo, se tiver o *Office 365 E1* e *o Office 365 E3* na sua organização Azure AD, e tentar atribuir ambas as licenças ao mesmo utilizador, a operação falha. Isto porque o produto E3 contém os seguintes planos de serviço que entram em conflito com os seus homólogos Da E1:
+Alguns produtos contêm planos de serviço que não podem ser atribuídos ao mesmo utilizador ao mesmo tempo. Por exemplo, se tiver o *Office 365 E1* e o *Office 365 E3* no seu inquilino, e tentar atribuir ambas as licenças ao mesmo utilizador, a operação falha. Isto porque o produto E3 contém os seguintes planos de serviço que entram em conflito com os seus homólogos Da E1:
 
 -   O SharePoint Online (Plano 2) entra em conflito com o SharePoint Online (Plano 1).
 -   Troca online (Plano 2) entra em conflito com o Exchange Online (Plano 1).

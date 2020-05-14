@@ -1,14 +1,14 @@
 ---
 title: Experiências de gestão entre inquilinos
 description: A gestão de recursos delegados da Azure permite uma experiência de gestão de inquilinos cruzados.
-ms.date: 04/24/2020
+ms.date: 05/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 51cd464da417bfd1d6d4ff52e2a2595a7ce77fe6
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: ad8fc7452a704a4a030e7a6eb45a5ba397912ef1
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82201708"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402367"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gestão entre inquilinos
 
@@ -38,7 +38,7 @@ O [Cmdlet](https://docs.microsoft.com/powershell/module/Az.Accounts/Get-AzSubscr
 Da mesma forma, comandos Azure CLI, como a lista de [contas az,](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list) mostram os atributos **homeTenantId** e **geridosByTenants.**
 
 > [!TIP]
-> Se não vir estes valores ao utilizar o Azure CLI, tente limpar a cache executando `az account clear` seguido por `az login --identity`.
+> Se não vir estes valores ao utilizar o Azure CLI, tente limpar a cache `az account clear` executando seguido por `az login --identity` .
 
 Também fornecemos APIs específicos para executar tarefas de gestão de recursos delegados azure. Para mais informações, consulte a secção **referência.**
 
@@ -113,6 +113,7 @@ A maioria das tarefas e serviços podem ser realizados em recursos delegados atr
 
 - Gerir os recursos da Azure Sentinel [nos inquilinos](../../sentinel/multiple-tenants-service-providers.md) dos clientes
 - [Acompanhe os ataques e veja alertas de segurança em vários inquilinos de clientes](https://techcommunity.microsoft.com/t5/azure-sentinel/using-azure-lighthouse-and-azure-sentinel-to-monitor-across/ba-p/1043899)
+- [Veja incidentes](../../sentinel/multiple-workspace-view.md) em vários espaços de trabalho da Sentinel a espalhar-se pelos inquilinos do cliente
 
 [Saúde do Serviço Azure:](../../service-health/index.yml)
 
@@ -138,7 +139,7 @@ Pedidos de apoio:
 ## <a name="current-limitations"></a>Limitações atuais
 Com todos os cenários, esteja ciente das seguintes limitações atuais:
 
-- Os pedidos realizados pelo Gestor de Recursos Azure podem ser realizados utilizando a gestão de recursos delegados do Azure. A operação URIs para estes `https://management.azure.com`pedidos começa com . No entanto, os pedidos que são tratados por uma instância de um tipo de recurso (como o acesso a segredos keyVault ou o acesso a dados de armazenamento) não são suportados com a gestão de recursos delegados do Azure. A operação URIs para estes pedidos normalmente começa com um endereço `https://myaccount.blob.core.windows.net` `https://mykeyvault.vault.azure.net/`único para a sua instância, como ou . Estes últimos também são normalmente operações de dados em vez de operações de gestão. 
+- Os pedidos realizados pelo Gestor de Recursos Azure podem ser realizados utilizando a gestão de recursos delegados do Azure. A operação URIs para estes pedidos começa com `https://management.azure.com` . No entanto, os pedidos que são tratados por uma instância de um tipo de recurso (como o acesso a segredos keyVault ou o acesso a dados de armazenamento) não são suportados com a gestão de recursos delegados do Azure. A operação URIs para estes pedidos normalmente começa com um endereço único para a sua instância, como `https://myaccount.blob.core.windows.net` ou `https://mykeyvault.vault.azure.net/` . Estes últimos também são normalmente operações de dados em vez de operações de gestão. 
 - As atribuições de funções devem utilizar [funções](../../role-based-access-control/built-in-roles.md)de controlo de acesso baseado seleções em funções (RBAC). Todas as funções incorporadas são atualmente suportadas com a gestão de recursos delegados da Azure, exceto para owner ou quaisquer funções incorporadas com permissão [DataActions.](../../role-based-access-control/role-definitions.md#dataactions) A função de Administrador de Acesso ao Utilizador é suportada apenas para uso limitado na atribuição de [funções a identidades geridas](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  As funções personalizadas e as [funções clássicas](../../role-based-access-control/classic-administrators.md) de administrador de subscrição não são suportadas.
 - Enquanto pode embarcar subscrições que utilizam o Azure Databricks, os utilizadores do inquilino gerente não podem lançar espaços de trabalho Azure Databricks numa subscrição delegada neste momento.
 - Embora possa participar em subscrições e grupos de recursos para a gestão de recursos delegados do Azure que tenham fechaduras de recursos, esses bloqueios não impedirão que as ações sejam realizadas pelos utilizadores no inquilino gestor. [Negar atribuições](../../role-based-access-control/deny-assignments.md) que protejam recursos geridos pelo sistema, como os criados pela Azure geriu aplicações ou plantas Azure (atribuições de negação atribuídas pelo sistema), impedir que os utilizadores do inquilino gerente agissem com esses recursos; no entanto, neste momento os utilizadores do inquilino do cliente não podem criar as suas próprias atribuições de negação (atribuições de negação atribuídas pelo utilizador).

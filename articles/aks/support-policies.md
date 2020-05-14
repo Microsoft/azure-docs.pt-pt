@@ -6,12 +6,12 @@ author: jnoller
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: jenoller
-ms.openlocfilehash: a5d90106a85a61cbf499c4c08130392b922a45f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c4146dd4988be93475dc4d2d0dade06b8738ad83
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77593585"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402464"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Políticas de apoio ao Serviço Azure Kubernetes
 
@@ -38,11 +38,6 @@ A Microsoft gere e monitoriza os seguintes componentes através do painel de con
 Aks não é uma solução de cluster completamente gerida. Alguns componentes, como os nós dos trabalhadores, têm *responsabilidade partilhada,* onde os utilizadores devem ajudar a manter o cluster AKS. A entrada do utilizador é necessária, por exemplo, para aplicar um patch de segurança do sistema operativo do nó do trabalhador (OS).
 
 Os serviços são *geridos* no sentido em que a Microsoft e a equipa AKS implementam, operam e são responsáveis pela disponibilidade e funcionalidade do serviço. Os clientes não podem alterar estes componentes geridos. A Microsoft limita a personalização para garantir uma experiência consistente e escalável do utilizador. Para obter uma solução totalmente personalizável, consulte [o AkS Engine](https://github.com/Azure/aks-engine).
-
-> [!NOTE]
-> Os nódosos de trabalhadores da AKS aparecem no portal Azure como recursos regulares do Azure IaaS. Mas estas máquinas virtuais são implantadas num grupo de\\recursos Azure personalizado (pré-fixado com MC *). É possível mudar os nódosos dos trabalhadores da AKS. Por exemplo, pode utilizar a Secure Shell (SSH) para alterar os nós dos trabalhadores aks da forma como muda as máquinas virtuais normais (não pode, no entanto, alterar a imagem base do OS, e as alterações podem não persistir através de uma atualização ou reboot), e pode anexar outros recursos Azure aos nós de trabalhadorES AKS. Mas quando se faz alterações na gestão da banda e na *personalização,* o cluster AKS pode tornar-se insuportável. Evite alterar os nódosos dos trabalhadores a menos que o Microsoft Support o direcione para fazer alterações.
-
-A emissão de operações não apoiadas, tal como definida acima, como a desafetação da banda de todos os nós de agente, torna o cluster desapoiado. A AKS reserva-se o direito de arquivar aviões de controlo que tenham sido configurados fora das diretrizes de suporte por períodos prolongados iguais e superiores a 30 dias. O AKS mantém cópias de segurança de metadados de cluster etc e pode facilmente realocar o cluster. Esta redistribuição pode ser iniciada por qualquer operação PUT que recoloque o cluster em suporte, como uma atualização ou escala para nós de agente ativo.
 
 ## <a name="shared-responsibility"></a>Responsabilidade partilhada
 
@@ -104,8 +99,22 @@ A Microsoft não reinicia automaticamente os nódosos dos trabalhadores para apl
 
 Os clientes são responsáveis pela execução das atualizações da Kubernetes. Podem executar atualizações através do painel de controlo Azure ou do Azure CLI. Isto aplica-se a atualizações que contenham melhorias de segurança ou funcionalidade sintetizam kubernetes.
 
+#### <a name="user-customization-of-worker-nodes"></a>Personalização do utilizador dos nódosos dos trabalhadores
 > [!NOTE]
-> Como o AKS é um *serviço gerido*, os seus objetivos finais incluem a remoção da responsabilidade por patches, atualizações e recolha de registos para tornar a gestão do serviço mais completa e prática. À medida que a capacidade do serviço para a gestão de ponta a ponta aumenta, futuras libertações podem omitir algumas funções (por exemplo, reinicialização do nó e remendos automáticos).
+> Os nódosos de trabalhadores da AKS aparecem no portal Azure como recursos regulares do Azure IaaS. Mas estas máquinas virtuais são implantadas num grupo de recursos Azure personalizado (pré-fixado com MC \\ *). É possível aumentar os nódosos dos trabalhadores da AKS a partir das suas configurações base. Por exemplo, pode utilizar secure Shell (SSH) para mudar os nós de trabalhador AKS da forma como muda as máquinas virtuais normais. Não pode, no entanto, alterar a imagem de Base OS. Quaisquer alterações personalizadas podem não persistir através de uma atualização, escala, atualização ou reinicialização. **No entanto,** fazer alterações *fora da banda e fora do âmbito da AkS API* leva a que o cluster AKS se torne desapoiado. Evite alterar os nódosos dos trabalhadores a menos que o Microsoft Support o direcione para fazer alterações.
+
+A emissão de operações não apoiadas, tal como definida acima, como a desafetação da banda de todos os nós de agente, torna o cluster desapoiado. A AKS reserva-se o direito de arquivar aviões de controlo que tenham sido configurados fora das diretrizes de suporte por períodos prolongados iguais e superiores a 30 dias. O AKS mantém cópias de segurança de metadados de cluster etc e pode facilmente realocar o cluster. Esta redistribuição pode ser iniciada por qualquer operação PUT que recoloque o cluster em suporte, como uma atualização ou escala para nós de agente ativo.
+
+A AKS gere o ciclo de vida e as operações dos nódos os trabalhadores em nome dos clientes - a modificação dos recursos iaaS associados aos nódosos dos trabalhadores não é **suportada**. Um exemplo de uma operação não suportada é personalizar um conjunto de escala VM de piscina de nó, alterando manualmente as configurações no VMSS através do portal VMSS ou DaPI VMSS.
+ 
+Para configurações ou pacotes específicos de carga de trabalho, o AKS recomenda a utilização de [conjuntos kubernetes daemonsets](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/).
+
+A utilização de damas e contentores privilegiados da Kubernetes permite aos clientes sintonizar/modificar ou instalar software de terceiros em nós de trabalhadores de cluster. Exemplos de tais personalizações incluem adicionar software de digitalização de segurança personalizado ou atualizar definições de sisctl.
+
+Embora este seja um caminho recomendado se os requisitos acima se aplicarem, a engenharia e suporte AKS não podem ajudar na resolução de problemas ou no diagnóstico de modificações quebradas/não funcionais ou aquelas que tornam o nó indisponível devido a um daemonset implantado pelo cliente.
+
+> [!NOTE]
+> A AKS como *serviço gerido* tem objetivos finais como remover a responsabilidade por patches, atualizações e recolha de registos para tornar a gestão do serviço mais completa e prática. À medida que a capacidade do serviço para a gestão de ponta a ponta aumenta, futuras libertações podem omitir algumas funções (por exemplo, reinicialização do nó e remendos automáticos).
 
 ### <a name="security-issues-and-patching"></a>Questões de segurança e remendos
 

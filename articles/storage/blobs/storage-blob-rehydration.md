@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: 82ea4ad23e3207f5641ade196f69595cd1e7b323
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1265d018997f9540e14e83ab15a44e78f4f86fb1
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81684060"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402668"
 ---
 # <a name="rehydrate-blob-data-from-the-archive-tier"></a>Rehidratar os dados blob do nível de arquivo
 
@@ -34,6 +34,9 @@ Enquanto uma bolha está no nível de acesso ao arquivo, é considerada offline 
 Se não quiser reidratar a sua bolha de arquivo, pode optar por fazer uma operação [Copy Blob.](https://docs.microsoft.com/rest/api/storageservices/copy-blob) A sua bolha original permanecerá inalterada no arquivo enquanto uma nova bolha é criada no nível quente ou fresco online para que você trabalhe. Na operação Copy Blob, também pode definir a propriedade prioritária *x-ms-rehidratada* opcional para Standard ou High para especificar a prioridade a que pretende que a sua cópia blob seja criada.
 
 Copiar uma bolha do arquivo pode levar horas a concluir dependendo da prioridade de reidratação selecionada. Nos bastidores, a operação **Copy Blob** lê a sua bolha de fonte de arquivo para criar uma nova bolha online no nível de destino selecionado. A nova bolha pode ser visível quando lista bolhas, mas os dados não estão disponíveis até que a leitura da bolha de arquivo de origem esteja completa e os dados sejam escritos para a nova bolha de destino online. A nova bolha é como uma cópia independente e qualquer modificação ou eliminação não afeta a bolha de arquivo de origem.
+
+> [!IMPORTANT]
+> Não elimine a bolha de origem até que a cópia esteja concluída com sucesso no destino. Se a bolha de origem for eliminada, a bolha de destino pode não completar a cópia e ficará vazia. Pode verificar o *estado da cópia x-ms* para determinar o estado da operação de cópia.
 
 As bolhas de arquivo só podem ser copiadas para níveis de destino on-line dentro da mesma conta de armazenamento. Não é suportada a cópia de uma bolha de arquivo para outra bolha de arquivo. A tabela que se segue indica as capacidades do CopyBlob.
 
@@ -74,8 +77,8 @@ As bolhas no nível de arquivo devem ser armazenadas durante um período mínimo
 
 1. Selecione **Guardar** na parte inferior.
 
-![Alterar o](media/storage-tiers/blob-access-tier.png)
-![nível da conta de armazenamento Verifique o estado do rehidratado](media/storage-tiers/rehydrate-status.png)
+![Alterar o nível da conta de armazenamento Verifique o estado do ](media/storage-tiers/blob-access-tier.png)
+ ![ rehidratado](media/storage-tiers/rehydrate-status.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 O seguinte script PowerShell pode ser usado para alterar o nível de blob de uma bolha de arquivo. A `$rgName` variável deve ser inicializada com o nome do seu grupo de recursos. A `$accountName` variável deve ser inicializada com o nome da sua conta de armazenamento. A `$containerName` variável deve ser inicializada com o nome do recipiente. A `$blobName` variável deve ser inicializada com o seu nome blob. 

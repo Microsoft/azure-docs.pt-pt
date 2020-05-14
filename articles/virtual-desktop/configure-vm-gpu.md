@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: aae3f8b1cfe224f0a948eb16bd6ee5120b19dde1
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 99393ed518df590140f79933623a9f7ec96edc85
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612083"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402280"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configure a aceleração da unidade de processamento de gráficos (GPU) para o Windows Virtual Desktop
 
@@ -55,7 +55,7 @@ Por padrão, aplicações e desktops em configurações multi-sessões são rend
 
 1. Ligue-se ao ambiente de trabalho do VM utilizando uma conta com privilégios de administrador local.
 2. Abra o menu Iniciar e escreva "gpedit.msc" para abrir o Editor de Política do Grupo.
-3. Navigate the tree to **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Remote Session Environment**.
+3. Navigate the tree to **Computer Configuration**  >  **Administrative Templates**  >  **Windows Components**  >  **Remote Desktop Services**  >  **Remote Desktop Session Host**  >  **Remote Session Environment**.
 4. Selecione política **Utilize o adaptador de gráficos padrão de hardware para todas as sessões** de Serviços de Ambiente de Trabalho Remoto e detetete tea política para **ativar** a renderização de GPU na sessão remota.
 
 ## <a name="configure-gpu-accelerated-frame-encoding"></a>Configure codificação de quadros acelerados por GPU
@@ -88,7 +88,7 @@ Para verificar se as aplicações estão a utilizar a GPU para renderização, e
 Para verificar se o Ambiente de Trabalho Remoto está a utilizar codificação acelerada por GPU:
 
 1. Ligue-se ao ambiente de trabalho do VM utilizando o cliente Windows Virtual Desktop.
-2. Lance o Espectador de Eventos e navegue para o seguinte nó: **Aplicações e serviços Logs** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreCDV** > **Operacional**
+2. Lance o Espectador de Eventos e navegue para o seguinte nó: **Aplicações e serviços Logs**  >  **Microsoft**  >  **Windows**  >  **RemoteDesktopServices-RdpCoreCDV**  >  **Operacional**
 3. Para determinar se é utilizada codificação acelerada por GPU, procure o ID 170 do evento. Se vir "Codificador de hardware AVC ativado: 1" então a codificação de GPU é utilizada.
 4. Para determinar se o modo AVC 444 é utilizado, procure o ID 162 do evento. Se vir "AVC Disponível: 1 Perfil Inicial: 2048" então é utilizado O Vc 444.
 
@@ -96,5 +96,5 @@ Para verificar se o Ambiente de Trabalho Remoto está a utilizar codificação a
 
 Estas instruções devem fazê-lo funcionar com aceleração de GPU em um anfitrião de sessão (um VM). Algumas considerações adicionais para permitir a aceleração da GPU através de uma piscina de hospedeiro maior:
 
-* Considere utilizar uma [extensão VM](/azure/virtual-machines/extensions/overview) para simplificar a instalação do condutor e atualizações em vários VMs. Utilize a extensão do [condutor GPU da NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows) para VMs com GPUs NVIDIA e utilize a extensão do condutor GPU DA AMD (em breve) para VMs com GPUs AMD.
+* Considere utilizar uma [extensão VM](/azure/virtual-machines/extensions/overview) para simplificar a instalação do condutor e atualizações em vários VMs. Utilize a extensão do [condutor GPU da NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows) para VMs com GPUs NVIDIA e utilize a extensão do [condutor GPU da AMD](/azure/virtual-machines/extensions/hpccompute-amd-gpu-windows) para VMs com GPUs AMD.
 * Considere usar a Política do Grupo De Diretório Ativo para simplificar a configuração da política de grupo em vários VMs. Para obter informações sobre a implementação da Política de Grupo no domínio do Diretório Ativo, consulte [Trabalhar com Objetos de Política de Grupo](https://go.microsoft.com/fwlink/p/?LinkId=620889).

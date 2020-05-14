@@ -7,20 +7,23 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: a9266f20d276b0b8d315cc83cd96fc235c79e773
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: ff6722fbc825ff736a9870618984bbe2c735acfa
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198962"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402430"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Encriptação do lado do servidor dos discos geridos pelo Azure
 
-Os discos geridos pelo Azure encriptam automaticamente os seus dados por padrão quando os persistem na nuvem. A encriptação do lado do servidor protege os seus dados e ajuda-o a cumprir os seus compromissos de segurança organizacional e conformidade. Os dados em discos geridos pelo Azure são encriptados de forma transparente utilizando [encriptação AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)de 256 bits , uma das cifras de blocos mais fortes disponíveis, e é compatível com O FIPS 140-2.   
+Os discos geridos pelo Azure encriptam automaticamente os seus dados por padrão quando os persistem na nuvem. A encriptação do lado do servidor (SSE) protege os seus dados e ajuda-o a cumprir os seus compromissos de segurança organizacional e conformidade. 
 
-A encriptação não afeta o desempenho dos discos geridos. Não há custos adicionais para a encriptação.
+Os dados em discos geridos pelo Azure são encriptados de forma transparente utilizando [encriptação AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)de 256 bits , uma das cifras de blocos mais fortes disponíveis, e é compatível com O FIPS 140-2. Para obter mais informações sobre os módulos criptográficos subjacentes aos discos geridos pelo Azure, consulte [Cryptography API: Next Generation](https://docs.microsoft.com/windows/desktop/seccng/cng-portal)
 
-Para obter mais informações sobre os módulos criptográficos subjacentes aos discos geridos pelo Azure, consulte [Cryptography API: Next Generation](https://docs.microsoft.com/windows/desktop/seccng/cng-portal)
+A encriptação não afeta o desempenho dos discos geridos e não existe um custo adicional para a encriptação. 
+
+> [!NOTE]
+> Os discos temporários não são geridos discos e não são encriptados pela SSE; para obter mais informações sobre discos temporários, consulte a visão geral dos [discos geridos: funções de disco](managed-disks-overview.md#disk-roles).
 
 ## <a name="about-encryption-key-management"></a>Sobre a gestão da chave de encriptação
 
@@ -233,7 +236,7 @@ az disk show -g yourResourceGroupName -n yourDiskName --query [encryption.type] 
 
 ## <a name="server-side-encryption-versus-azure-disk-encryption"></a>Encriptação do lado do servidor versus encriptação do disco Azure
 
-[A encriptação do disco Azure para máquinas virtuais e conjuntos](../../security/fundamentals/azure-disk-encryption-vms-vmss.md) de escala de máquinas virtuais aproveita a funcionalidade [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) do Windows e a funcionalidade [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) do Linux para encriptar discos geridos com chaves geridas pelo cliente dentro do VM convidado.  A encriptação do lado do servidor com as chaves geridas pelo cliente melhora no ADE, permitindo-lhe utilizar quaisquer tipos e imagens de SO para os seus VMs encriptando dados no serviço de Armazenamento.
+[A encriptação do disco Azure para máquinas virtuais e conjuntos](../../security/fundamentals/azure-disk-encryption-vms-vmss.md) de escala de máquinas virtuais aproveita a funcionalidade [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) do Linux para encriptar discos geridos com chaves geridas pelo cliente dentro do VM convidado.  A encriptação do lado do servidor com as chaves geridas pelo cliente melhora no ADE, permitindo-lhe utilizar quaisquer tipos e imagens de SO para os seus VMs encriptando dados no serviço de Armazenamento.
 
 ## <a name="next-steps"></a>Passos seguintes
 

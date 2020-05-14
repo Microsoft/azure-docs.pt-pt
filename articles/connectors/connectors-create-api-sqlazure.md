@@ -3,16 +3,16 @@ title: Ligue-se ao SQL Server ou à Base de Dados Azure SQL
 description: Automatizar tarefas para bases de dados SQL nas instalações ou na nuvem utilizando aplicações lógicas azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam; logicappspm
+ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 11/08/2019
+ms.date: 05/12/2020
 tags: connectors
-ms.openlocfilehash: 93b63d332f00c31a352c11e483fc3ce5cb45a922
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c32e17aaf83c233ad77bbbf607c30cc526253352
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74789205"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402586"
 ---
 # <a name="automate-workflows-for-sql-server-or-azure-sql-database-by-using-azure-logic-apps"></a>Automatizar fluxos de trabalho para o SQL Server ou para a Base de Dados Azure SQL utilizando aplicações da Lógica Azure
 
@@ -86,7 +86,7 @@ Nas Aplicações Lógicas Azure, uma [ação](../logic-apps/logic-apps-overview.
 
    ![Adicione um novo passo à sua aplicação lógica](./media/connectors-create-api-sqlazure/select-new-step-logic-app.png)
 
-   Para adicionar uma ação entre os passos existentes, mova o rato sobre a seta de ligação. Selecione o**+** sinal de mais ( ) que aparece e, em seguida, selecione **Adicionar uma ação**.
+   Para adicionar uma ação entre os passos existentes, mova o rato sobre a seta de ligação. Selecione o sinal de mais ( **+** ) que aparece e, em seguida, selecione **Adicionar uma ação**.
 
 1. Em **'Escolha uma ação**' na caixa de pesquisa' introduza o "servidor sql" como filtro. Na lista de ações, selecione a ação SQL que deseja.
 
@@ -129,6 +129,20 @@ Nas Aplicações Lógicas Azure, uma [ação](../logic-apps/logic-apps-overview.
   * [SQL Paginação para transferência de dados a granel com Aplicações Lógicas](https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx)
 
   * [Selecione - CLÁUSULA DE ENCOMENDA POR](https://docs.microsoft.com/sql/t-sql/queries/select-order-by-clause-transact-sql)
+
+### <a name="handle-dynamic-bulk-data"></a>Lidar com dados dinâmicos a granel
+
+Por vezes, quando se faz uma chamada para um procedimento armazenado no conector SQL Server, a saída devolvida é dinâmica. Neste cenário, siga estes passos:
+
+1. Open **Logic Apps Designer**.
+1. Execute um teste da sua aplicação lógica para ver o formato de saída. Copie a sua saída de amostra.
+1. No designer, no âmbito da ação onde chama o procedimento armazenado, selecione **Novo passo**.
+1. Em **'Escolha uma ação',** procure e selecione a ação [**Parse JSON.**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action)
+1. Na ação **Parse JSON,** selecione Utilize a carga útil da **amostra para gerar esquema**.
+1. No Enter ou pasta uma janela de **carga útil JSON,** cola a saída da amostra e, em seguida, selecione **Done**.
+1. Se tiver um erro que as Aplicações Lógicas não possam gerar um esquema, verifique se a sintaxe da sua amostra está corretamente formatada. Se ainda não conseguir gerar o esquema, introduza manualmente um na caixa **Deschema.**
+1. Na barra de ferramentas de design, selecione **Guardar**.
+1. Para aceder às propriedades de conteúdo jSON, utilize as fichas de dados que aparecem na lista de conteúdos dinâmicos sob a ação [ **Parse JSON** ](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action).
 
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 

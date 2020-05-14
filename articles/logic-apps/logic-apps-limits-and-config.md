@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 807949d7ed0c68edd44fba95109f118e97c59b5a
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: 1dfb1b43eadebbfc7128c5a2451668be8a99329f
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901251"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402542"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para o Azure Logic Apps
 
@@ -33,7 +33,7 @@ Aqui estão os limites para uma definição de aplicação lógica única:
 | Variáveis por fluxo de trabalho | 250 | |
 | Caracteres por expressão | 8,192 | |
 | Tamanho máximo para`trackedProperties` | 16.000 caracteres |
-| Nome `action` para ou`trigger` | 80 caracteres | |
+| Nome para `action` ou`trigger` | 80 caracteres | |
 | Comprimento de`description` | 256 caracteres | |
 | Máximo`parameters` | 50 | |
 | Máximo`outputs` | 10 | |
@@ -143,7 +143,7 @@ Algumas operações de conector fazem chamadas assíncronas ou ouvem pedidos de 
 
 | Name | Limite de multi-inquilinos | Limite de ambiente de serviço de integração | Notas |
 |------|--------------------|---------------------------------------|-------|
-| Pedido de saída | 120 Segundos <br>(2 minutos) | 240 segundos <br>(4 minutos) | Exemplos de pedidos de saída incluem chamadas feitas por gatilhos HTTP. <p><p>**Sugestão**: Para operações de funcionamento mais longas, utilize um padrão de [sondagem assíncrono](../logic-apps/logic-apps-create-api-app.md#async-pattern) ou um [loop até ao fim](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). |
+| Pedido de saída | 120 Segundos <br>(2 minutos) | 240 segundos <br>(4 minutos) | Exemplos de pedidos de saída incluem chamadas feitas por gatilhos HTTP. <p><p>**Sugestão**: Para operações de funcionamento mais longas, utilize um padrão de [sondagem assíncrono](../logic-apps/logic-apps-create-api-app.md#async-pattern) ou um [loop até ao fim](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). Para contornar os limites de tempo quando chama outra aplicação lógica que tem um [ponto final calivel,](logic-apps-http-endpoint.md)pode utilizar a ação in-in Azure Logic Apps, que pode encontrar no conector em **Butin.** |
 | Pedido de entrada | 120 Segundos <br>(2 minutos) | 240 segundos <br>(4 minutos) | Exemplos de pedidos de entrada incluem chamadas recebidas por gatilhos de pedido e gatilhos de webhook. <p><p>**Nota**: Para que o chamador original obtenha a resposta, todos os passos na resposta devem terminar dentro do limite, a menos que chame outra aplicação lógica como um fluxo de trabalho aninhado. Para mais informações, consulte [call, trigger ou nest logic apps](../logic-apps/logic-apps-http-endpoint.md). |
 |||||
 
@@ -161,7 +161,7 @@ Algumas operações de conector fazem chamadas assíncronas ou ouvem pedidos de 
 
 | Name | Notas |
 |------|-------|
-| Limite de avaliação da expressão | 131 072 carateres | `@base64()` `@string()` As `@concat()`expressões não podem ser maiores do que este limite. |
+| Limite de avaliação da expressão | 131 072 carateres | As `@concat()` `@base64()` `@string()` expressões não podem ser maiores do que este limite. |
 | Limite de caracteres URL de pedido | 16.384 caracteres |
 |||
 

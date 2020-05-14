@@ -1,19 +1,19 @@
 ---
 title: Adicione pesquisa completa de texto ao Armazenamento De Blob Azure
 titleSuffix: Azure Cognitive Search
-description: Extrair conteúdo e adicionar estrutura às bolhas Azure ao construir um índice completo de pesquisa de texto em earca cognitiva azure.
+description: Extrair conteúdo e adicionar estrutura às bolhas Azure ao construir um índice completo de pesquisa de texto em pesquisa cognitiva Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: af7d04bd74ada296b9f0e0f7c149c2a781cec579
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 83308f42fb1f2ea3408b5c1a63d88d21a8e7830a
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73496466"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402087"
 ---
 # <a name="add-full-text-search-to-azure-blob-data-using-azure-cognitive-search"></a>Adicione pesquisa completa de texto aos dados de blob Azure usando pesquisa cognitiva Azure
 
@@ -58,6 +58,11 @@ Ao executar um indexador Blob sobre um recipiente, pode extrair texto e metadado
 ### <a name="indexing-blob-metadata"></a>Indexação de metadados blob
 
 Um cenário comum que facilita a triagem através de bolhas de qualquer tipo de conteúdo é indexar tanto os metadados personalizados como as propriedades do sistema para cada bolha. Desta forma, a informação para todas as bolhas é indexada independentemente do tipo de documento, armazenada num índice no seu serviço de pesquisa. Usando o seu novo índice, pode então proceder a classificar, filtrar e encarar todos os conteúdos de armazenamento blob.
+
+> [!NOTE]
+> As etiquetas do Índice Blob são indexadas de forma nativa pelo serviço de armazenamento Blob e expostas para consulta. Se os atributos chave/valor das suas bolhas necessitarem de capacidades de indexação e filtragem, as etiquetas do Índice Blob devem ser alavancadas em vez de metadados.
+>
+> Para saber mais sobre o Blob Index, consulte [Gerir e encontrar dados sobre o Armazenamento de Blob Azure com índice blob](../storage/blobs/storage-manage-find-blobs.md).
 
 ### <a name="indexing-json-blobs"></a>Bolhas JSON indexantes
 Os indexadores podem ser configurados para extrair conteúdo estruturado encontrado em bolhas que contenham JSON. Um indexante pode ler bolhas JSON e analisar o conteúdo estruturado nos campos apropriados de um documento de pesquisa. Os indexadores também podem tomar bolhas que contenham uma variedade de objetos JSON e mapear cada elemento para um documento de pesquisa separado. Pode definir um modo de análise para afetar o tipo de objeto JSON criado pelo indexante.

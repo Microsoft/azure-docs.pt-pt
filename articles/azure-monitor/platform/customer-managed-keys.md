@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 05/07/2020
-ms.openlocfilehash: 2838051d8e75ffbe3b7ecc9fbc655f24b57199e4
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 05/13/2020
+ms.openlocfilehash: 71a28d4a0b69b117039f998891e082740e4269a2
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198689"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402563"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chave gerida pelo cliente do Azure Monitor 
 
@@ -21,30 +21,29 @@ Recomendamos que reveja [as limitações e constrangimentos](#limitations-and-co
 
 ## <a name="disclaimers"></a>Exclusões de Responsabilidade
 
-- A capacidade cmk é entregue num cluster dedicado log analytics, que é um cluster físico e uma loja de dados que é adequada para clientes que enviam 1TB por dia ou mais
-
-- O modelo de preços cmk não está disponível atualmente e não está coberto neste artigo. Espera-se um modelo de preços para o cluster Log Analytics dedicado no segundo trimestre do ano civil (CY) 2020 e aplicar-se-á a quaisquer implementações cmk existentes.
+A capacidade cmk é entregue em clusters dedicados de Log Analytics. O modelo de preços dos [clusters Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters) utiliza Reservas de Capacidade a partir de um nível de 1000 GB/dia.
 
 ## <a name="customer-managed-key-cmk-overview"></a>Visão geral da chave gerida pelo cliente (CMK)
 
-[A encriptação no Rest](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest) é um requisito comum de privacidade e segurança nas organizações. Pode permitir que o Azure gere completamente a Encriptação no Rest, enquanto tem várias opções para gerir de perto as chaves de encriptação ou encriptação.
+A encriptação na Rest é um requisito comum de https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest) privacidade e segurança nas organizações. Pode permitir que o Azure gere completamente a Encriptação no Rest, enquanto tem várias opções para gerir de perto as chaves de encriptação ou encriptação.
 
-O armazenamento do Azure Monitor garante que todos os dados encriptados em repouso utilizem chaves geridas pelo Azure enquanto armazenados no Armazenamento Azure. O Azure Monitor também fornece uma opção de encriptação de dados utilizando a sua própria chave que está armazenada no seu [Cofre de Chaves Azure,](https://docs.microsoft.com/azure/key-vault/key-vault-overview)que é acedido usando a autenticação [de identidade gerida](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) atribuída pelo sistema. Esta chave pode ser protegida por [software ou hardware-HSM](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
-O uso de encriptação do Monitor Azure é idêntico ao funcionamento da [encriptação do Azure Storage.](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#about-azure-storage-encryption)
+O Monitor Azure garante que todos os dados são encriptados em repouso utilizando chaves geridas pelo Azure. O Azure Monitor também fornece uma opção de encriptação de dados utilizando a sua própria chave que é armazenada no seu [Cofre de Chave Azure](https://docs.microsoft.com/azure/key-vault/key-vault-overview) e acessada pelo Armazenamento utilizando a autenticação [de identidade gerida](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)atribuída pelo   sistema. Esta chave pode ser protegida por [software ou hardware-HSM](https://docs.microsoft.com/azure/key-vault/key-vault-overview). 
+
+A utilização da encriptação do Azure Monitor é idêntica à forma como a [encriptação do Armazenamento Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#about-azure-storage-encryption)   funciona.
+
+Os dados ingeridos nos últimos 14 dias também são mantidos em cache quente (apoiado por SSD) para uma operação eficiente do motor de consulta. Estes dados permanecem encriptados com as teclas da Microsoft, independentemente da configuração CMK, mas o seu controlo sobre os dados sSD adere à [revogação da chave](#cmk-kek-revocation). Estamos a trabalhar para que os dados do SSD sejam encriptados com a CMK no segundo semestre de 2020.
 
 A frequência a que o Azure Monitor Storage acede ao Cofre chave para operações de embrulho e desembrulhar é entre 6 a 60 segundos.O Armazenamento do Monitor Azure respeita sempre as alterações nas permissões-chave no prazo de uma hora.
 
-Os dados ingeridos nos últimos 14 dias também são mantidos em cache quente (apoiado por SSD) para uma operação eficiente do motor de consulta. Estes dados permanecem encriptados com as teclas da Microsoft, independentemente da configuração cmk, mas o seu controlo sobre os dados do SSD adere a uma [revogação chave](#cmk-kek-revocation) e é inacessível. Estamos a trabalhar para que os dados do SSD sejam encriptados com a CMK no segundo semestre de 2020.
-
 ## <a name="how-cmk-works-in-azure-monitor"></a>Como a CMK funciona no Monitor Azure
 
-O Azure Monitor aproveita a identidade gerida atribuída ao sistema para dar acesso ao seu Cofre chave Azure.A identidade gerida atribuída pelo sistema só pode ser associada a um único recurso Azure. A identidade do cluster log analytics dedicado é suportada ao nível do cluster e isto dita que a capacidade cmk é entregue em cluster dedicado log Analytics. Para suportar a CMK em vários espaços de trabalho, um novo recurso do *Cluster* Log Analytics funciona como uma ligação de identidade intermédia entre o seu Cofre chave e os seus espaços de trabalho Log Analytics. Este conceito mantém a identidade entre o cluster dedicado log analytics e o recurso Log Analytics *Cluster,* enquanto os dados dos espaços de trabalho associados estão protegidos com a chave Key Vault. O armazenamento dedicado do cluster Log Analytics utiliza a identidade gerida que \' está associada ao recurso *Cluster* para autenticar e aceder ao seu Cofre chave Azure via Diretório Ativo Azure.
+O Azure Monitor aproveita a identidade gerida atribuída ao sistema para dar acesso ao seu Cofre chave Azure.A identidade gerida atribuída pelo sistema só pode ser associada a um único recurso Azure. A identidade do cluster Log Analytics é suportada ao nível do cluster e isto dita que a capacidade cmk é entregue num cluster dedicado log analytics. Para suportar a CMK em vários espaços de trabalho, um novo recurso log Analytics *Cluster* funciona como uma ligação de identidade intermédia entre o seu Cofre chave e os seus espaços de trabalho Log Analytics, que mantém a identidade entre o cluster Log Analytics e o seu Cofre chave. O armazenamento do cluster Log Analytics utiliza a identidade gerida que \' está associada ao recurso *Cluster* para autenticar e aceder ao seu Cofre chave Azure via Diretório Ativo Azure.
 
 ![Visão geral da CMK](media/customer-managed-keys/cmk-overview-8bit.png)
-1.    Cofre chave do cliente.
-2.    Recurso do *Cluster* log analytics do cliente tendo gerido a identidade com permissões para Key Vault – A identidade é suportada ao nível de cluster dedicado log Analytics.
-3.    Cluster de Log Analytics dedicado.
-4.    Espaços de trabalho do cliente associados ao recurso *Cluster* para encriptação CMK.
+1.    Cofre de Chaves
+2.    Log Analytics *Cluster* recurso tendo gerido identidade com permissões para Key Vault -- A identidade é propagada para o armazenamento dedicado de log analytics
+3.    Cluster de Log Analytics dedicado
+4.    Espaços de trabalho associados ao recurso *Cluster* para encriptação CMK
 
 ## <a name="encryption-keys-operation"></a>Operação de chaves de encriptação
 
@@ -56,7 +55,7 @@ Existem 3 tipos de chaves envolvidas na encriptação de dados de armazenamento:
 
 Aplicam-se as seguintes regras:
 
-- As contas de armazenamento de cluster slog Analytics dedicadas geram uma chave de encriptação única para cada conta de Armazenamento, que é conhecida como AEK.
+- As contas de armazenamento de cluster Log Analytics geram uma chave de encriptação única para cada conta de Armazenamento, que é conhecida como AEK.
 
 - O AEK é usado para derivar DEKs, que são as chaves que são usadas para encriptar cada bloco de dados escritos em disco.
 
@@ -68,7 +67,7 @@ Aplicam-se as seguintes regras:
 
 ## <a name="cmk-provisioning-procedure"></a>Procedimento de provisionamento cmk
 
-1. Lista de subscrição -- Para garantir que temos a capacidade necessária na sua região para o cluster dedicado log analytics, precisamos verificar e whitelist a sua subscrição previamente
+1. Lista de subscrição -- Para garantir que temos a capacidade necessária na sua região para fornecer um cluster Log Analytics, precisamos verificar e whitelist a sua subscrição previamente
 2. Criação de cofre de chaves Azure e chave de armazenamento
 3. Criação de um recurso *cluster*
 5. Concedendo permissões ao seu Cofre chave
@@ -207,7 +206,7 @@ A identidade é atribuída ao recurso *cluster* no momento da criação.
 
 200 OK e cabeçalho.
 
-Embora leve o fornecimento do cluster dedicado log analytics um tempo para ser concluído, você pode verificar o estado de provisionamento de duas maneiras:
+Embora o fornecimento do cluster Log Analytics dere por algum tempo para ser concluído, pode verificar o estado de provisionamento de duas formas:
 
 1. Copie o valor URL da Operação Azure-Async a partir da resposta e siga a verificação do [estado de funcionamento assíncrono](#asynchronous-operations-and-status-check).
 2. Envie um pedido GET sobre o recurso *Cluster* e veja o valor do Estado de *provisionamento.* É *ProvisioningAccount* durante o provisionamento e *bem sucedido* quando concluído.
@@ -351,7 +350,7 @@ Uma resposta ao pedido get sobre o recurso *Cluster* deve ser assim quando a atu
 - No recurso *Cluster:* Microsoft.OperationalInsights/clusters/write
 
 > [!IMPORTANT]
-> Este passo só deve ser realizado após a conclusão do fornecimento dedicado do cluster Log Analytics. Se associar espaços de trabalho e ingerir dados antes do fornecimento, os dados ingeridos serão retirados e não serão recuperáveis.
+> Este passo só deve ser realizado após a conclusão do fornecimento do cluster Log Analytics. Se associar espaços de trabalho e ingerir dados antes do fornecimento, os dados ingeridos serão retirados e não serão recuperáveis.
 
 **Associar um espaço de trabalho**
 
@@ -416,7 +415,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 
 ## <a name="cmk-kek-revocation"></a>Revogação da CMK (KEK)
 
-Pode revogar o acesso aos dados desativando a sua chave ou apagando a política de acesso ao recurso *cluster* no seu Cofre chave. O armazenamento dedicado do cluster Log Analytics respeitará sempre as alterações nas permissões-chave dentro de uma hora ou mais cedo, e o Armazenamento ficará indisponível. Quaisquer dados ingeridos para espaços de trabalho associados ao seu recurso *Cluster* são retirados e as consultas falharão. Os dados anteriormente ingeridos permanecem inacessíveis no armazenamento, uma vez que enquanto o seu recurso *Cluster* e os seus espaços de trabalho não são eliminados. Os dados inacessíveis são regidos pela política de retenção de dados e serão purgados quando a retenção for alcançada. 
+Pode revogar o acesso aos dados desativando a sua chave ou apagando a política de acesso ao recurso *cluster* no seu Cofre chave. O armazenamento do cluster Log Analytics respeitará sempre as alterações nas permissões-chave dentro de uma hora ou mais cedo e o Armazenamento ficará indisponível. Quaisquer novos dados ingeridos para espaços de trabalho associados ao seu recurso *Cluster*   são retirados e não serão recuperáveis, os dados são inacessíveis e as consultas a estes espaços de trabalho falham. Os dados anteriormente ingeridos permanecem armazenados desde que o seu recurso *Cluster* e os seus espaços de trabalho não sejam eliminados. Os dados inacessíveis são regidos pela política de retenção de dados e serão purgados quando a retenção for alcançada. 
 
 Os dados ingeridos nos últimos 14 dias também são mantidos em cache quente (apoiado por SSD) para uma operação eficiente do motor de consulta. Isto é eliminado na operação de revogação da chave e torna-se inacessível também.
 
@@ -424,19 +423,19 @@ O armazenamento periodicamente vota o seu Cofre Chave para tentar desembrulhar a
 
 ## <a name="cmk-kek-rotation"></a>Rotação CMK (KEK)
 
-A rotação da CMK requer uma atualização explícita para o recurso *Cluster* com a nova versão chave no Cofre chave Azure. Siga as instruções na etapa "Update *Cluster* resource with Key identifier details". Se não atualizar os novos dados de identificador de chaves no recurso *Cluster,* o armazenamento dedicado do cluster Log Analytics continuará a utilizar a sua chave anterior.
+A rotação da CMK requer uma atualização explícita para o recurso *Cluster* com a nova versão chave no Cofre chave Azure. Siga as instruções na etapa "Update *Cluster* resource with Key identifier details". Se não atualizar os novos dados de identificação da chave no recurso *Cluster,* o armazenamento do cluster Log Analytics continuará a utilizar a sua chave anterior para encriptação. Se desativar ou eliminar a sua antiga chave antes de atualizar a nova chave no recurso *Cluster,* entrará em estado de [revogação chave.](#cmk-kek-revocation)
 
 Todos os seus dados permanecem acessíveis após a operação de rotação da chave, incluindo dados ingeridos antes da rotação e depois dele, uma vez que os dados sempre encriptados com chave de encriptação de conta (AEK) enquanto o AEK está agora a ser encriptado com a sua nova versão chave de encriptação (KEK) no Key Vault.
 
 ## <a name="limitations-and-constraints"></a>Limitações e constrangimentos
 
-- O CMK é suportado no cluster Log Analytics dedicado adequado para clientes que enviam 1TB por dia ou mais.
+- A CMK é suportada no cluster Log Analytics dedicado e adequada para clientes que enviam 1TB por dia ou mais.
 
 - O número máximo de recursos *cluster* por região e subscrição é 2
 
 - Pode associar um espaço de trabalho ao seu recurso *Cluster* e, em seguida, desassociá-lo quando a CMK para os seus dados já não for necessária ou qualquer outra razão. O número de associação de espaço de trabalho que pode realizar num espaço de trabalho num período de 30 dias é limitado a 2
 
-- A associação workspace ao recurso *Cluster* só deve ser transportada depois de ter verificado que o fornecimento dedicado de clusterlog Analytics foi concluído. Os dados enviados para o seu espaço de trabalho antes da conclusão serão retirados e não serão recuperáveis.
+- A associação workspace ao recurso *Cluster* só deve ser transportada depois de ter verificado que o fornecimento de cluster Log Analytics foi concluído. Os dados enviados para o seu espaço de trabalho antes da conclusão serão retirados e não serão recuperáveis.
 
 - A encriptação CMK aplica-se aos dados recentemente ingeridos após a configuração cmk. Os dados que foram ingeridos antes da configuração cmk, permanecem encriptados com a chave da Microsoft. Pode consultar os dados ingeridos antes e depois da configuração cmk sem problemas.
 
@@ -537,9 +536,9 @@ Todos os seus dados permanecem acessíveis após a operação de rotação da ch
   }
   ``` 
 
-- **Espaço de trabalho desassociado**
+- **Desvincular espaço de trabalho**
 
-  Precisa de permissões de 'escrever' no espaço de trabalho e no recurso *Cluster* para realizar esta operação. Pode desassociar um espaço de trabalho a partir do seu recurso *Cluster* a qualquer momento. Novos dados ingeridos após a operação de desassociação é armazenado no armazenamento de Log Analytics e encriptado com a chave microsoft. Pode consultar os dados que foram ingeridos no seu espaço de trabalho antes e depois da desassociação perfeitamente, desde que o recurso *Cluster* seja aprovisionado e configurado com a chave chave de cofre válida.
+  Precisa de permissões de 'escrever' no espaço de trabalho e no recurso *Cluster* para realizar esta operação. Pode desassociar um espaço de trabalho do seu recurso *Cluster* a qualquer momento. Novos dados ingeridos após a operação de desassociação é armazenado no armazenamento de Log Analytics e encriptado com a chave microsoft. Pode consultar os dados que foram ingeridos no seu espaço de trabalho antes e depois da desassociação perfeitamente, desde que o recurso *Cluster* seja aprovisionado e configurado com a chave chave de cofre válida.
 
   Este pedido do Gestor de Recursos é uma operação assíncrona.
 
@@ -554,12 +553,12 @@ Todos os seus dados permanecem acessíveis após a operação de rotação da ch
   Dados ingeridos após a operação de desassociação ser armazenado no armazenamento de Log Analytics, isto pode levar 90 minutos para ser concluído. Pode verificar o estado de desassociação do espaço de trabalho de duas formas:
 
   1. Copie o valor URL da Operação Azure-Async a partir da resposta e siga a verificação do [estado de funcionamento assíncrono](#asynchronous-operations-and-status-check).
-  2. Envie um [Workspaces – Obtenha](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) pedido e observe a resposta, o espaço de trabalho desassociado não terá o *clusterResourceId* em *funcionalidades*.
+  2. Envie um [Workspaces – Obtenha](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) pedido e observe a resposta, o espaço de trabalho dissociado não terá o *clusterResourceId* em *funcionalidades*.
 
 
 - **Eliminar o seu recurso *Cluster***
 
-  Precisa de permissões de 'escrever' no recurso *Cluster* para realizar esta operação. É realizada uma operação de eliminação suave para permitir a recuperação do seu recurso *Cluster,* incluindo os seus dados no prazo de 14 dias, se a eliminação foi acidental ou intencional. O nome do recurso *Cluster* permanece reservado durante o período de eliminação suave e não pode criar um novo cluster com esse nome. Após o período de eliminação suave, o nome do recurso *Cluster* é lançado, o seu recurso *cluster* e os seus dados são permanentemente eliminados e não são recuperáveis. Qualquer espaço de trabalho associado é desassociado do recurso *Cluster* na eliminação da operação. Novos dados ingeridos são armazenados no armazenamento do Log Analytics e encriptados com a chave da Microsoft. A operação desassociada dos espaços de trabalho é assíncrona e pode demorar até 90 minutos para ser concluída.
+  Precisa de permissões de 'escrever' no recurso *Cluster* para realizar esta operação. É realizada uma operação de eliminação suave para permitir a recuperação do seu recurso *Cluster,* incluindo os seus dados no prazo de 14 dias, se a eliminação foi acidental ou intencional. O nome do recurso *Cluster* permanece reservado durante o período de eliminação suave e não pode criar um novo cluster com esse nome. Após o período de eliminação suave, o nome do recurso *Cluster* é lançado, o seu recurso *cluster* e os seus dados são permanentemente eliminados e não são recuperáveis. Qualquer espaço de trabalho associado é dissociado do recurso *Cluster* na eliminação da operação. Novos dados ingeridos são armazenados no armazenamento do Log Analytics e encriptados com a chave da Microsoft. A operação desassociada dos espaços de trabalho é assíncrona e pode demorar até 90 minutos para ser concluída.
 
   ```rst
   DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
@@ -572,7 +571,7 @@ Todos os seus dados permanecem acessíveis após a operação de rotação da ch
 
 - **Recupere o seu recurso *Cluster* e os seus dados** 
   
-  Um recurso *cluster* que foi eliminado nos últimos 14 dias encontra-se em estado de eliminação suave e pode ser recuperado com os seus dados. Uma vez que todos os espaços de trabalho foram desassociados do recurso *Cluster* sobre a eliminação, você precisa reassociar seus espaços de trabalho após a recuperação para encriptação CMK. A operação de recuperação é executada manualmente pelo grupo do produto atualmente. Utilize o seu canal Microsoft para pedidos de recuperação.
+  Um recurso *cluster* que foi eliminado nos últimos 14 dias encontra-se em estado de eliminação suave e pode ser recuperado com os seus dados. Uma vez que todos os espaços de trabalho foram dissociados do recurso *Cluster* com a eliminação de recursos *cluster,* você precisa reassociar seus espaços de trabalho após a recuperação para encriptação CMK. A operação de recuperação é executada manualmente pelo grupo do produto atualmente. Utilize o seu canal Microsoft para pedidos de recuperação.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 - Comportamento com disponibilidade de cofre chave
