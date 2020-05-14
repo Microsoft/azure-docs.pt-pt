@@ -9,18 +9,18 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 43f361fbaf4ab0462af0a720d7711f219134a165
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 9cb90ba81f6399d7b0e238d673c2d956911bd004
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692176"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201035"
 ---
 # <a name="quickstart-using-sql-on-demand"></a>Quickstart: Utilização a pedido do SQL
 
-Synapse SQL on-demand (pré-visualização) é um serviço de consulta sem servidor que lhe permite executar consultas SQL em ficheiros colocados no Armazenamento Azure. Neste arranque rápido, você vai aprender a consultar vários tipos de ficheiros usando sQL on-demand.
+Synapse SQL on-demand (pré-visualização) é um serviço de consulta sem servidor que lhe permite executar consultas SQL em ficheiros colocados no Armazenamento Azure. Neste arranque rápido, você vai aprender a consultar vários tipos de ficheiros usando sQL on-demand. Os formatos suportados estão listados no [OPENROWSET](sql/develop-openrowset.md).
 
-Os seguintes tipos de ficheiros são suportados: JSON, CSV, Apache Parquet
+Este quickstart mostra consulta: CSV, Apache Parquet e ficheiros JSON.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -184,7 +184,7 @@ WHERE
 > [!IMPORTANT]
 > Estamos a ler todo o ficheiro JSON como uma única linha/coluna. Assim, FIELDTERMINATOR, FIELDQUOTE e ROWTERMINATOR estão definidos para 0x0b porque não esperamos encontrá-lo no ficheiro.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Está agora pronto para continuar com os seguintes artigos:
 

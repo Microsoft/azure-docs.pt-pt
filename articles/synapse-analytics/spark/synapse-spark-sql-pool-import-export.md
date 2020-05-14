@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: prgomata
 ms.reviewer: euang
-ms.openlocfilehash: f92c05476c9e85690fdeacade5463a43d0a4af42
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f562c195e90f2356568530b9b618ae9e6610fa56
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81424294"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201466"
 ---
 # <a name="introduction"></a>Introdução
 
@@ -24,7 +24,7 @@ O Conector Spark SQL Analytics foi concebido para transferir dados eficientement
 
 A transferência de dados entre piscinas Spark e Piscinas SQL pode ser feita usando JDBC. No entanto, tendo em conta dois sistemas distribuídos, como as piscinas Spark e SQL, a JDBC tende a ser um estrangulamento com a transferência de dados em série.
 
-O Spark pools para SQL Analytics Connector é uma implementação de fonte de dados para Apache Spark. Utiliza o Azure Data Lake Storage Gen 2, e a Polybase em piscinas SQL para transferir dados eficientemente entre o cluster Spark e a instância SQL Analytics.
+Os pools Spark para o SQL Analytics Connector são uma implementação de fonte de dados para a Apache Spark. Utiliza o Azure Data Lake Storage Gen 2, e a Polybase em piscinas SQL para transferir dados eficientemente entre o cluster Spark e a instância SQL Analytics.
 
 ![Arquitetura do Conector](./media/synapse-spark-sqlpool-import-export/arch1.png)
 
@@ -55,7 +55,7 @@ EXEC sp_addrolemember 'db_exporter', 'Mary';
 
 ## <a name="usage"></a>Utilização
 
-As declarações de importação não precisam de ser fornecidas, são pré-importadas para a experiência do caderno.
+As declarações de importação não são necessárias, são pré-importadas para a experiência do caderno.
 
 ### <a name="transferring-data-to-or-from-a-sql-pool-in-the-logical-server-dw-instance-attached-with-the-workspace"></a>Transferência de dados para ou para um pool SQL no Servidor Lógico (DW Instance) ligado ao espaço de trabalho
 
@@ -161,9 +161,36 @@ val scala_df = spark.sqlContext.sql ("select * from pysparkdftemptable")
 
 pysparkdftemptable.write.sqlanalytics("sqlpool.dbo.PySparkTable", Constants.INTERNAL)
 ```
+
 Da mesma forma, no cenário de leitura, leia os dados usando Scala e escreva-os numa tabela temporária, e use spark SQL em PySpark para consultar a tabela temporária em um quadro de dados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="allowing-other-users-to-use-the-dw-connector-in-your-workspace"></a>Permitir que outros utilizadores utilizem o Conector DW no seu espaço de trabalho
 
-- [Criar uma piscina SQL]([Create a new Apache Spark pool for an Azure Synapse Analytics workspace](../../synapse-analytics/quickstart-create-apache-spark-pool.md))
+Para alterar permissões em falta para outros, é necessário ser o Proprietário de Dados blob de armazenamento na conta de armazenamento ADLS Gen2 ligada ao espaço de trabalho. Certifique-se de que o utilizador tem acesso ao espaço de trabalho e permissões para executar cadernos.
+
+### <a name="option-1"></a>Opção 1
+
+- Faça do utilizador um Colaborador/Proprietário de Dados Blob de Armazenamento
+
+### <a name="option-2"></a>Opção 2
+
+- Especifique os seguintes ACLs na estrutura da pasta:
+
+| Pasta | / | sinapse | áreas de trabalho  | <workspacename> | faíscas | <sparkpoolname>  | sparkpoolinstances  |
+|--|--|--|--|--|--|--|--|
+| Permissões de acesso |--X |--X |--X |--X |--X |--X |-WX |
+| Permissões por predefinição |---|---|---|---|---|---|---|
+
+- Você deve ser capaz de ACL todas as pastas de "sinapse" e para baixo do portal Azure. Para ACL a pasta raiz "/", siga as instruções abaixo.
+
+- Ligue-se à conta de armazenamento ligada ao espaço de trabalho do Storage Explorer utilizando a AAD
+- Selecione a sua Conta e forneça o URL e o sistema de ficheiros Padrão ADLS Gen2 para o espaço de trabalho
+- Assim que puder ver a conta de armazenamento listada, clique no espaço de trabalho de listagem e selecione "Gerir o Acesso"
+- Adicione o Utilizador à /pasta com "Executar" Permissão de acesso. Selecione "Ok"
+
+**Certifique-se de que não seleciona "Padrão" se não pretender**
+
+## <a name="next-steps"></a>Próximos passos
+
+- [Criar uma piscina SQL)](../../synapse-analytics/quickstart-create-apache-spark-pool.md)
 - [Crie uma nova piscina Apache Spark para um espaço de trabalho Azure Synapse Analytics](../../synapse-analytics/quickstart-create-apache-spark-pool.md) 

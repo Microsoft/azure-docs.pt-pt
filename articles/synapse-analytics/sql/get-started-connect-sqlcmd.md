@@ -9,17 +9,16 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7ccb30cdd77e511572147a0b0f7287f931a45df2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 260c88142d93b8b79782b219f902c63a16b9218b
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82186843"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196992"
 ---
 # <a name="connect-to-synapse-sql-with-sqlcmd"></a>Ligue-se ao Synapse SQL com sqlcmd
 
 > [!div class="op_single_selector"]
->
 > * [Estúdio de Dados Azure (pré-visualização)](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
 > * [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
@@ -37,7 +36,7 @@ Para começar com [sqlcmd,](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analyti
 
 Para utilizar a autenticação do servidor SQL, é necessário adicionar o nome de utilizador e os parâmetros de senha:
 
-* **Utilizador (-U):** Utilizador do servidor `<`no formulário Utilizador`>`
+* **Utilizador (-U):** Utilizador do servidor no formulário `<` Utilizador`>`
 * **Palavra-passe (-P):** Senha associada ao utilizador
 
 A sua cadeia de ligação pode parecer o seguinte exemplo:
@@ -119,6 +118,6 @@ sqlcmd -S partyeunrt.database.windows.net -d demo -U Enter_Your_Username_Here -P
 "SELECT COUNT(*) FROM  OPENROWSET(BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=20*/*.parquet', FORMAT='PARQUET')" | sqlcmd -S partyeunrt.database.windows.net -d demo -U Enter_Your_Username_Here -P 'Enter_Your_Password_Here' -I > ./tables.out
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre opções sqlcmd, consulte a [documentação sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).

@@ -2,20 +2,19 @@
 title: Quickstart - Criar uma escala de máquina virtual definida no portal Azure
 description: Inicie-se com as suas implementações aprendendo a criar rapidamente uma escala virtual de máquinas do portal Azure.
 author: ju-shim
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm
-ms.topic: quickstart
-ms.custom: mvc, H1Hack27Feb2017
-ms.date: 10/23/2019
 ms.author: jushiman
-ms.openlocfilehash: 5855c53a73ac94985f34f229fbe5ab77067ef17d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.topic: quickstart
+ms.service: virtual-machine-scale-sets
+ms.subservice: ''
+ms.date: 10/23/2019
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 582bf5c6424b9dc13b354a92e75b3a7ee2cdca6f
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81680427"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197650"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Início Rápido: Criar um conjunto de dimensionamento de máquinas virtuais no Portal do Azure
 
@@ -40,7 +39,7 @@ Em primeiro lugar, crie um Balancer de Carga Padrão público utilizando o porta
     | ---| ---|
     | Subscrição  | Selecione a sua subscrição.    |    
     | Grupo de recursos | Selecione **Criar novo** e digitar *myVMSSResourceGroup* na caixa de texto.|
-    | Nome           | *myLoadBalancer*         |
+    | Name           | *myLoadBalancer*         |
     | Região         | Selecione **East US**.       |
     | Tipo          | Selecione **Public**.       |
     | SKU           | Selecione **Standard**.       |
@@ -82,7 +81,7 @@ Pode implementar um conjunto de dimensionamento com uma imagem do Windows Server
 Quando já não for necessário, elimine o grupo de recursos, o conjunto de dimensionamento, a conta do Batch e todos os recursos relacionados. Para isso, selecione o grupo de recursos para o conjunto de escala e, em seguida, **selecione Eliminar**.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste início rápido, criou um conjunto de dimensionamento básico no Portal do Azure. Para obter mais informações, avance para o tutorial para saber como criar e gerir conjuntos de dimensionamento de máquinas virtuais do Azure.
 
 > [!div class="nextstepaction"]

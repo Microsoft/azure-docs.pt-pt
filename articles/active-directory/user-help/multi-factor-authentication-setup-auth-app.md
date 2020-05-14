@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 08/12/2019
 ms.author: curtand
-ms.openlocfilehash: 6ab1f7c97173021cc112a5f117469abd74ac954d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ea6f78d0d0856bb6a758a3168b6b86a1c962962b
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77062579"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201013"
 ---
 # <a name="set-up-an-authenticator-app-as-your-two-factor-verification-method"></a>Configurar uma aplicação de autenticador como o seu método de verificação de dois fatores
 
@@ -29,7 +29,7 @@ Pode configurar uma aplicação autenticadora para enviar uma notificação para
 
 ## <a name="set-up-the-microsoft-authenticator-app-to-send-notifications"></a>Configurar a aplicação Microsoft Authenticator para enviar notificações
 
-1. Na página adicional de verificação de **segurança,** selecione **aplicação Móvel** a partir do Passo **1: Como devemos contactá-lo** área.
+1. Na página adicional de verificação de [segurança,](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1)selecione **aplicação Móvel** a partir do Passo **1: Como devemos contactá-lo** área.
 
 2. Selecione **Receber notificações para verificação** a partir da área de **aplicação móvel** e, em seguida, selecione **Configurar**.
 
@@ -109,7 +109,7 @@ Pode configurar uma aplicação autenticadora para enviar uma notificação para
 
 9. Selecione **Done** (Concluído).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de configurar o seu método de verificação de dois fatores, pode adicionar métodos adicionais, gerir as suas definições e palavras-passe de aplicação, iniciar sessão ou obter ajuda com alguns problemas comuns relacionados com a verificação de dois fatores.
 

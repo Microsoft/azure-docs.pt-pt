@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 0f5323193706fdd00739be6c71a4fe12cfedf21b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4c6a151bdd3b437c6a01a949096604b3963489bd
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81424539"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195151"
 ---
 # <a name="create-and-use-views-in-sql-on-demand-preview-using-azure-synapse-analytics"></a>Crie e use vistas em SQL on-demand (pré-visualização) usando Azure Synapse Analytics
 
@@ -22,17 +22,14 @@ Nesta secção, você aprenderá a criar e usar vistas para embrulhar consultas 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O seu primeiro passo é rever os artigos abaixo e certificar-se de que cumpriu os pré-requisitos para criar e utilizar pontos de vista on-demand da SQL:
-
-- [Configuração pela primeira vez](query-data-storage.md#first-time-setup)
-- [Pré-requisitos](query-data-storage.md#prerequisites)
+O seu primeiro passo é criar uma base de dados onde a vista será criada e inicializar os objetos necessários para autenticar no armazenamento do Azure executando script de [configuração](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) nessa base de dados. Todas as consultas neste artigo serão executadas na sua base de dados de amostras.
 
 ## <a name="create-a-view"></a>Criar uma vista
 
 Pode criar vistas da mesma forma que cria vistas regulares do SQL Server. A consulta abaixo cria uma visão que lê o ficheiro *population.csv.*
 
 > [!NOTE]
-> Mude a primeira linha da consulta, ou seja, [mydbname], então está a usar a base de dados que criou. Se não criou uma base de dados, por favor leia a [configuração pela primeira vez](query-data-storage.md#first-time-setup).
+> Mude a primeira linha da consulta, ou seja, [mydbname], então está a usar a base de dados que criou.
 
 ```sql
 USE [mydbname];
@@ -57,6 +54,19 @@ WITH (
 ) AS [r];
 ```
 
+A visão neste exemplo utiliza `OPENROWSET` a função que usa o caminho absoluto para os ficheiros subjacentes. Se tiver `EXTERNAL DATA SOURCE` um URL raiz do seu armazenamento, pode usar com e relativo caminho de `OPENROWSET` `DATA_SOURCE` ficheiro:
+
+```
+CREATE VIEW TaxiView
+AS SELECT *, nyc.filepath(1) AS [year], nyc.filepath(2) AS [month]
+FROM
+    OPENROWSET(
+        BULK 'parquet/taxi/year=*/month=*/*.parquet',
+        DATA_SOURCE = 'sqlondemandstorage',
+        FORMAT='PARQUET'
+    ) AS nyc
+```
+
 ## <a name="use-a-view"></a>Use uma vista
 
 Pode utilizar visualizações nas suas consultas da mesma forma que utiliza vistas em consultas do SQL Server.
@@ -64,7 +74,7 @@ Pode utilizar visualizações nas suas consultas da mesma forma que utiliza vist
 A seguinte consulta demonstra usando a visão *population_csv* que criamos na [Create a view](#create-a-view). Devolve nomes de países com a sua população em 2019 por ordem descendente.
 
 > [!NOTE]
-> Mude a primeira linha da consulta, ou seja, [mydbname], então está a usar a base de dados que criou. Se não criou uma base de dados, por favor leia a [configuração pela primeira vez](query-data-storage.md#first-time-setup).
+> Mude a primeira linha da consulta, ou seja, [mydbname], então está a usar a base de dados que criou.
 
 ```sql
 USE [mydbname];
@@ -79,6 +89,6 @@ ORDER BY
     [population] DESC;
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter informações sobre como consultar diferentes tipos de ficheiros, consulte o [ficheiro CSV único](query-single-csv-file.md)da [Consulta, ficheiros Query Parquet](query-parquet-files.md)e artigos de [ficheiros Consulta JSON.](query-json-files.md)

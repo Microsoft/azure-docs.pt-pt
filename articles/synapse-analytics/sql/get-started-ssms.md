@@ -9,14 +9,15 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 704da86fd1d816dbf5d6cd9cf67dfee53fce2622
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a25049aee620a1cf14eeb51adfb75f6577defc2a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81423741"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197073"
 ---
 # <a name="connect-to-synapse-sql-with-sql-server-management-studio-ssms"></a>Ligue-se ao Synapse SQL com o SQL Server Management Studio (SSMS)
+
 > [!div class="op_single_selector"]
 > * [Azure Data Studio](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
@@ -30,8 +31,11 @@ Pode utilizar o [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-ser
 
 ### <a name="supported-tools-for-sql-on-demand-preview"></a>Ferramentas suportadas para sQL a pedido (pré-visualização)
 
-O SSMS é parcialmente suportado a partir da versão 18.5 com funcionalidades limitadas, tais como ligação e consulta. [O Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) está totalmente suportado.
+[O Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) é totalmente suportado a partir da versão 1.18.0. O SSMS é parcialmente suportado a partir da versão 18.5, pode usá-lo apenas para ligar e consultar.
 
+> [!NOTE]
+> Se o login AAD tiver ligação aberta por mais de 1 hora no momento da execução da consulta, qualquer consulta que dependa de AAD falhará. Isto inclui o armazenamento de consulta usando o pass-through AAD e declarações que interagem com a AAD (como CRIAR FORNECEDOR EXTERNO). Isto afeta todas as ferramentas que mantém a ligação aberta, como em editor de consulta em SSMS e ADS. As ferramentas que abrem uma nova ligação para executar consultas não são afetadas, como o Estúdio Synapse.
+> Pode reiniciar o SSMS ou ligar e desligar no ADS para mitigar este problema. .
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, certifique-se de que tem os seguintes pré-requisitos:  
@@ -94,7 +98,7 @@ Agora que foi estabelecida uma ligação à base de dados, pode consultar os dad
     ```sql
     SELECT COUNT(*) FROM dbo.FactInternetSales;
     ```
-4. Execute a consulta. Para isso, `Execute` clique ou utilize o `F5`seguinte atalho: .
+4. Execute a consulta. Para isso, clique `Execute` ou utilize o seguinte atalho: `F5` .
    
     ![Executar consulta](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/execute-query.png)
 5. Veja os resultados da consulta. Neste exemplo, a tabela FactInternetSales tem 60398 linhas.
@@ -114,14 +118,14 @@ Agora que estabeleceu uma ligação à base de dados, pode consultar os dados.
     ```sql
     SELECT COUNT(*) FROM demo.dbo.usPopulationView
     ```
-4. Execute a consulta. Para isso, `Execute` clique ou utilize o `F5`seguinte atalho: .
+4. Execute a consulta. Para isso, clique `Execute` ou utilize o seguinte atalho: `F5` .
    
     ![Executar consulta](./media/get-started-ssms/execute-query.png)
 5. Veja os resultados da consulta. Neste exemplo, a vista usPopulationView tem 3664512 linhas.
    
     ![Resultados da consulta](./media/get-started-ssms/results.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Agora que pode ligar e consultar, tente [visualizar os dados com O Power BI](get-started-power-bi-professional.md).
 
 Para configurar o seu ambiente para autenticação de Diretório Ativo Azure, consulte [Authenticate to Synapse SQL](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).

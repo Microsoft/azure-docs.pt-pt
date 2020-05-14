@@ -4,20 +4,20 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 01/12/2020
 ms.author: glenga
-ms.openlocfilehash: 2d95055e79356b9e0fe9c4c0e64f5935619204b3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2eb8b988d7d65b444fe41ecb21dddfab4ff4cfa1
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81112894"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125855"
 ---
-1. No Visual Studio Code, prima F1 para abrir a paleta de comando. Na paleta de comando, `Azure Functions: Open in portal`procure e selecione .
+1. No Visual Studio Code, prima F1 para abrir a paleta de comando. Na paleta de comando, procure e selecione `Azure Functions: Open in portal` .
 
 1. Escolha a sua aplicação de função e prima Enter. A página da aplicação de funções abre no portal Azure.
 
-1. No separador **Visão Geral,** selecione o link nomeado sob o **grupo Recurso**.
+1. No separador **Visão Geral,** selecione o link nomeado ao lado do **grupo Recurso**.
 
-    ![Selecione o grupo de recursos a eliminar na página da aplicação de função.](./media/functions-cleanup-resources-vs-code/functions-app-delete-resource-group.png)
+   :::image type="content" source="./media/functions-cleanup-resources-vs-code/functions-app-delete-resource-group.png" alt-text="Selecione o grupo de recursos a eliminar na página da aplicação de função.":::
 
 1. Na página **Grupo de recursos**, reveja a lista dos recursos incluídos e certifique-se de que são aqueles que pretende eliminar.
  

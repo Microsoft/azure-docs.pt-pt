@@ -2,18 +2,19 @@
 title: Quickstart - Crie um conjunto de máquinas virtuais com a Azure PowerShell
 description: Inicie-se com as suas implementações aprendendo a criar rapidamente uma escala de máquina virtual com o Azure PowerShell.
 author: ju-shim
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.topic: quickstart
-ms.custom: mvc
-ms.date: 11/08/2018
 ms.author: jushiman
-ms.openlocfilehash: ab5efc84ed88ef5ef245bfead2cc709405dc79ea
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.topic: quickstart
+ms.service: virtual-machine-scale-sets
+ms.subservice: powershell
+ms.date: 11/08/2018
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 6d23a8c06048eec50f947b16b61fe818907720dc
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81008612"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201422"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-with-azure-powershell"></a>Início Rápido - Criar um conjunto de dimensionamento de máquinas virtuais com o Azure PowerShell
 
@@ -152,7 +153,7 @@ Remove-AzResourceGroup -Name "myResourceGroup" -Force -AsJob
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste início rápido, criou um conjunto de dimensionamento básico e utilizou a Extensão de Script Personalizado para instalar um servidor Web de IIS básico nas instâncias de VM. Para obter mais informações, avance para o tutorial para saber como criar e gerir conjuntos de dimensionamento de máquinas virtuais do Azure.
 
 > [!div class="nextstepaction"]

@@ -3,19 +3,19 @@ title: Migrar os seus dados faciais através de subscrições - Face
 titleSuffix: Azure Cognitive Services
 description: Este guia mostra-lhe como migrar os dados do seu rosto armazenadode de uma subscrição Face para outra.
 services: cognitive-services
-author: lewlu
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.author: lewlu
-ms.openlocfilehash: e5ca51da7322e4eab4ea364ec5da086a1068fa9a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.author: nitinme
+ms.openlocfilehash: fd0e7079b3b70a6a6b8166cc7fc7518070e7153d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76169817"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120815"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Migrar os seus dados faciais para uma subscrição face diferente
 
@@ -62,7 +62,7 @@ Preencha os valores-chave de subscrição e urLs de ponto final para as suas ass
 
 ## <a name="prepare-a-persongroup-for-migration"></a>Preparar um PersonGroup para a migração
 
-Precisa da identificação do PersonGroup na sua subscrição de origem para o migrar para a subscrição do alvo. Utilize as [Extensões persongroupOperations.ListAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperationsextensions.listasync?view=azure-dotnet) para recuperar uma lista dos seus objetos PersonGroup. Em seguida, obtenha a propriedade [PersonGroup.PersonGroupId.](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.persongroup.persongroupid?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_Face_Models_PersonGroup_PersonGroupId) Este processo parece diferente com base nos objetos do PersonGroup que tem. Neste guia, o ID pessoa de `personGroupId`origem é armazenado em .
+Precisa da identificação do PersonGroup na sua subscrição de origem para o migrar para a subscrição do alvo. Utilize as [Extensões persongroupOperations.ListAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperationsextensions.listasync?view=azure-dotnet) para recuperar uma lista dos seus objetos PersonGroup. Em seguida, obtenha a propriedade [PersonGroup.PersonGroupId.](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.persongroup.persongroupid?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_Face_Models_PersonGroup_PersonGroupId) Este processo parece diferente com base nos objetos do PersonGroup que tem. Neste guia, o ID pessoa de origem é armazenado em `personGroupId` .
 
 > [!NOTE]
 > O [código da amostra](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample) cria e treina um novo PersonGroup para migrar. Na maioria dos casos, já deve ter um PersonGroup para usar.
@@ -85,14 +85,14 @@ var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
 
 ## <a name="retrieve-the-snapshot-id"></a>Recuperar o ID instantâneo
 
-O método usado para tirar fotografias é assíncrono, por isso deve esperar pela sua conclusão. As operações instantâneas não podem ser canceladas. Neste código, `WaitForOperation` o método monitoriza a chamada assíncrona. Verifica o estado a cada 100 ms. Depois de terminar a operação, recupere um `OperationLocation` ID de operação analisando o campo. 
+O método usado para tirar fotografias é assíncrono, por isso deve esperar pela sua conclusão. As operações instantâneas não podem ser canceladas. Neste código, o `WaitForOperation` método monitoriza a chamada assíncrona. Verifica o estado a cada 100 ms. Depois de terminar a operação, recupere um ID de operação analisando o `OperationLocation` campo. 
 
 ```csharp
 var takeOperationId = Guid.Parse(takeSnapshotResult.OperationLocation.Split('/')[2]);
 var operationStatus = await WaitForOperation(FaceClientEastAsia, takeOperationId);
 ```
 
-Um `OperationLocation` valor típico é assim:
+Um valor típico `OperationLocation` é assim:
 
 ```csharp
 "/operations/a63a3bdd-a1db-4d05-87b8-dbad6850062a"
@@ -127,13 +127,13 @@ private static async Task<OperationStatus> WaitForOperation(IFaceClient client, 
 }
 ```
 
-Depois do estado `Succeeded`de funcionamento mostrar , `ResourceLocation` obtenha o ID instantâneo analisando o campo da instância Destantes Do Estado de Funcionamento.
+Depois do estado de funcionamento mostrar `Succeeded` , obtenha o ID instantâneo analisando o campo da instância `ResourceLocation` Destantes Do Estado de Funcionamento.
 
 ```csharp
 var snapshotId = Guid.Parse(operationStatus.ResourceLocation.Split('/')[2]);
 ```
 
-Um `resourceLocation` valor típico é assim:
+Um valor típico `resourceLocation` é assim:
 
 ```csharp
 "/snapshots/e58b3f08-1e8b-4165-81df-aa9858f233dc"
@@ -152,7 +152,7 @@ var applySnapshotResult = await FaceClientWestUS.Snapshot.ApplyAsync(snapshotId,
 > [!NOTE]
 > Um objeto Snapshot é válido por apenas 48 horas. Tire apenas uma foto se pretender usá-lo para migração de dados logo a seguir.
 
-Um pedido de aplicação de instantâneo devolve outro ID de operação. Para obter este ID, `OperationLocation` analise o campo da instância de aplicação de aplicação de voltaSnapshotResult. 
+Um pedido de aplicação de instantâneo devolve outro ID de operação. Para obter este ID, analise o `OperationLocation` campo da instância de aplicação de aplicação de voltaSnapshotResult. 
 
 ```csharp
 var applyOperationId = Guid.Parse(applySnapshotResult.OperationLocation.Split('/')[2]);
@@ -228,7 +228,7 @@ Depois de terminar os dados do rosto migratórios, elimine manualmente o objeto 
 await FaceClientEastAsia.Snapshot.DeleteAsync(snapshotId);
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Em seguida, consulte a documentação de referência da API relevante, explore uma aplicação de amostra que utilize a funcionalidade Snapshot ou siga um guia de como começar a utilizar as outras operações da API aqui mencionadas:
 

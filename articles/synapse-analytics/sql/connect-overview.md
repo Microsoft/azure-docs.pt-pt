@@ -9,25 +9,28 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9748b0354ce09752296fb7d736e09af716f19351
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f09f9a503348efc51fb50c283e7fe856869e0dd5
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81424609"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198507"
 ---
 # <a name="connect-to-synapse-sql"></a>Ligue-se ao Synapse SQL
 Fique ligado à capacidade SYnapse SQL em Azure Synapse Analytics.
 
 ## <a name="supported-tools-for-sql-on-demand-preview"></a>Ferramentas suportadas para sQL a pedido (pré-visualização)
 
-A ferramenta totalmente suportada é o Azure Data Studio (pré-visualização).
+[O Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) é totalmente suportado a partir da versão 1.18.0. O SSMS é parcialmente suportado a partir da versão 18.5, pode usá-lo apenas para ligar e consultar.
 
-O SQL Server Management Studio é suportado parcialmente a partir da versão 18.4. Existem funcionalidades limitadas, tais como a ligação e consulta.
+> [!NOTE]
+> Se um login AAD tiver uma ligação aberta por mais de 1 hora no momento da execução da consulta, qualquer consulta que dependa de AAD falhará. Isto inclui o armazenamento de consulta usando o pass-through AAD e declarações que interagem com a AAD (como CRIAR FORNECEDOR EXTERNO). Isto afeta todas as ferramentas que mantêm as ligações abertas, como em editor de consulta em SSMS e ADS. As ferramentas que abrem novas ligações para executar uma consulta, como o Estúdio Synapse, não são afetadas.
+
+> Pode reiniciar o SSMS ou ligar e desligar no ADS para mitigar este problema. 
 
 ## <a name="find-your-server-name"></a>Encontrar o nome do servidor
 
-O nome do servidor para SQL Pool no seguinte exemplo é: showdemoweu.sql.azuresynapse.net.
+O nome do servidor para piscina SQL no seguinte exemplo é: showdemoweu.sql.azuresynapse.net.
 O nome do servidor para SQL on-demand no seguinte exemplo é: showdemoweu-ondemand.sql.azuresynapse.net.
 
 Descubra o nome de servidor completamente qualificado:
@@ -90,5 +93,5 @@ Synapse SQL padroniza algumas configurações durante a ligação e criação de
 
 Para executar consultas a pedido da **SQL,** as ferramentas recomendadas são [o Azure Data Studio](get-started-azure-data-studio.md) e o Azure Synapse Studio.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para ligar e consultar com o Visual Studio, veja [Query with Visual Studio (Consulta com o Visual Studio)](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Para saber mais sobre opções de autenticação, consulte [Autenticação para Synapse SQL](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).

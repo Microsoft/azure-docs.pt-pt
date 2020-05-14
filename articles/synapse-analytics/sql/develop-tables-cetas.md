@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 71bc20680467d270436e28190bb49db5b9313ca0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3bf7ff668584a78fea6e2d787e96f36a20f12e37
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81424028"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197633"
 ---
 # <a name="cetas-with-synapse-sql"></a>CETAS com Synapse SQL
 
@@ -70,13 +70,16 @@ FILE_FORMAT = *external_file_format_name*
 
 Especifica o nome do objeto de formato de ficheiro externo que contém o formato para o ficheiro de dados externo. Para criar um formato de ficheiro externo, utilize o [FORMATO DE FICHEIRO EXTERNO (Transact-SQL)](develop-tables-external-tables.md#create-external-file-format). Atualmente, apenas são suportados formatos de ficheiros externos com FORMAT='PARQUET'.
 
-COM *<>common_table_expression*
+COM *<common_table_expression>*
 
 Especifica um conjunto de resultados nomeado temporário, conhecido como expressão de mesa comum (CTE). Para mais informações, consulte [WITH common_table_expression (Transact-SQL)](/sql/t-sql/queries/with-common-table-expression-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
-SELECIONe <> select_criteria
+SELECIONE <select_criteria>
 
 Povoa a nova tabela com os resultados de uma declaração SELECT. *select_criteria* é o corpo da declaração SELECT que determina quais os dados a copiar para a nova tabela. Para obter informações sobre as declarações SELECT, consulte [SELECT (Transact-SQL)](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+
+> [!NOTE]
+> A cláusula ORDER BY em SELECT parte do CETAS não é suportada.
 
 ## <a name="permissions"></a>Permissões
 
@@ -139,7 +142,7 @@ O CETAS pode ser utilizado para armazenar conjuntos de resultados com os seguint
 - varbinary
 - char
 - varchar
-- date
+- data
 - hora
 - datetime2
 - decimal
@@ -165,6 +168,6 @@ Os seguintes tipos de dados não podem ser utilizados em parte SELECT do CETAS:
 - dinheiro pequeno
 - uniqueidentifier
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Pode experimentar as [mesas spark.](develop-storage-files-spark-tables.md)

@@ -2,18 +2,19 @@
 title: Conjuntos de escala de máquina seleção azul
 description: Saiba mais informações sobre os conjuntos de dimensionamento de máquinas virtuais e como dimensionar automaticamente as suas aplicações
 author: mimckitt
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.topic: overview
-ms.custom: mvc
-ms.date: 09/26/2019
 ms.author: mimckitt
-ms.openlocfilehash: 03e3c7b5c0696069729d3067faad8ceb91fc611f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.topic: overview
+ms.service: virtual-machine-scale-sets
+ms.subservice: ''
+ms.date: 09/26/2019
+ms.reviewer: jushiman
+ms.custom: mimckitt
+ms.openlocfilehash: 986a2722515ac49aad9e655d1dcef06f5ce2e3dc
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81272547"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198419"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>O que são os conjuntos de dimensionamento de máquinas virtuais?
 Os conjuntos de dimensionamento de máquinas virtuais do Azure permitem-lhe criar e gerir um grupo de VMs idênticas, com balanceamento de carga. O número de instâncias de VM pode aumentar ou diminuir automaticamente como resposta à procura ou a uma agenda definida. Os conjuntos de dimensionamento dão elevada disponibilidade às suas aplicações e permitem, de forma central, gerir, configurar e atualizar um grande número de VMs. Com os conjuntos de dimensionamento de máquinas virtuais, pode criar serviços em larga escala para áreas como computação, macrodados e cargas de trabalho de contentores.
@@ -60,7 +61,7 @@ Utilize o [Monitor Azure para VMs,](../azure-monitor/insights/vminsights-overvie
 
 Ative a monitorização da [aplicação](../azure-monitor/app/azure-vm-vmss-apps.md) de conjunto de escala de máquina virtual com Insights de Aplicação para recolher informações detalhadas sobre a sua aplicação, incluindo visualizações de páginas, pedidos de aplicação e exceções. Verifique ainda a disponibilidade da sua aplicação configurando um [teste de disponibilidade](../azure-monitor/app/monitor-web-app-availability.md) para simular o tráfego do utilizador.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para começar, crie o seu primeiro conjunto de dimensionamento de máquinas virtuais no portal do Azure.
 
 > [!div class="nextstepaction"]

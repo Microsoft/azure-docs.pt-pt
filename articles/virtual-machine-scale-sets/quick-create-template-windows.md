@@ -2,18 +2,19 @@
 title: Quickstart - Crie um conjunto de máquinas virtuais windows com um modelo Azure
 description: Saiba como criar rapidamente um dimensionamento de máquinas virtuais Windows com um modelo do Azure Resource Manager que implementa uma aplicação de exemplo e configura regras de dimensionamento automático
 author: ju-shim
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.topic: quickstart
-ms.custom: mvc,subject-armqs
-ms.date: 03/27/2020
 ms.author: jushiman
-ms.openlocfilehash: 030479a02b33a92c3917ba112d99c9bcef4f7f32
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.topic: quickstart
+ms.service: virtual-machine-scale-sets
+ms.subservice: windows
+ms.date: 03/27/2020
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 8bf75dc08a033c254152cb6e5b6f3af6389d8380
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81010448"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198209"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-scale-set-with-an-azure-template"></a>Início Rápido: criar um conjunto de dimensionamento de máquinas virtuais Windows com um modelo do Azure
 
@@ -52,7 +53,7 @@ A parte realçada é a definição de recurso definido pela escala. Para criar u
 | Propriedade                     | Descrição da propriedade                                  | Valor de modelo de exemplo                    |
 |------------------------------|----------------------------------------------------------|-------------------------------------------|
 | tipo                         | Tipo de recurso do Azure a criar                            | Microsoft.Compute/virtualMachineScaleSets |
-| nome                         | O nome do conjunto de dimensionamento                                       | myScaleSet                                |
+| name                         | O nome do conjunto de dimensionamento                                       | myScaleSet                                |
 | localização                     | A localização para criar o conjunto de dimensionamento                     | E.U.A. Leste                                   |
 | sku.name                     | O tamanho da VM para cada instância do conjunto de dimensionamento                  | Standard_A1                               |
 | sku.capacity                 | O número de instâncias de VM a criar inicialmente           | 2                                         |
@@ -112,7 +113,7 @@ Para ver o conjunto de dimensionamento em ação, aceda à aplicação Web de ex
 Get-AzPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-Introduza o endereço IP público do equilibrador de carga num navegador web no formato *http:\//publicIpAddress/MyApp*. O balanceador de carga distribui o tráfego para uma das suas instâncias de VM, conforme mostra o exemplo seguinte:
+Introduza o endereço IP público do equilibrador de carga num navegador web no formato *http: \/ /publicIpAddress/MyApp*. O balanceador de carga distribui o tráfego para uma das suas instâncias de VM, conforme mostra o exemplo seguinte:
 
 ![Site do IIS em execução](./media/virtual-machine-scale-sets-create-powershell/running-iis-site.png)
 
@@ -124,7 +125,7 @@ Quando já não for necessário, pode utilizar o [Remove-AzResourceGroup](/power
 Remove-AzResourceGroup -Name "myResourceGroup" -Force -AsJob
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste início rápido, criou um conjunto de dimensionamento Windows com um modelo do Azure e utilizou a extensão de PowerShell DSC para instalar uma aplicação ASP.NET básica nas instâncias da VM. Para obter mais informações, avance para o tutorial para saber como criar e gerir conjuntos de dimensionamento de máquinas virtuais do Azure.
 

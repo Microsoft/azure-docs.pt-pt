@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 05/06/2020
+ms.date: 05/11/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 9d5fc95c5845b9a75666860ce8900676972a16bc
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: 928e0cec1cad5d6fe8b70b728cd86a41577ce797
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864101"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195349"
 ---
 # <a name="what-is-azure-firewall"></a>O que é o Azure Firewall?
 
@@ -94,6 +94,10 @@ Isto permite os seguintes cenários:
 
 Todos os eventos estão integrados com o Monitor Azure, permitindo-lhe arquivar registos numa conta de armazenamento, transmitir eventos para o seu Hub de Eventos ou enviá-los para registos do Monitor Azure.
 
+## <a name="forced-tunneling"></a>Túnel forçado
+
+Pode configurar o Azure Firewall para encaminhar todo o tráfego ligado à Internet para um próximo salto designado em vez de ir diretamente para a Internet. Por exemplo, pode ter uma firewall de borda no local ou outro aparelho virtual de rede (NVA) para processar o tráfego da rede antes de ser passado para a Internet. Para mais informações, consulte [o Azure Firewall forçado a fazer túneis.](forced-tunneling.md)
+
 ## <a name="certifications"></a>Certificações
 
 O Azure Firewall é a Indústria de Cartões de Pagamento (PCI), os Controlos da Organização de Serviços (SOC), a Organização Internacional para a Normalização (ISO) e o ICSA Labs em conformidade. Para mais informações, consulte as certificações de [conformidade da Firewall Azure.](compliance-certifications.md)
@@ -125,7 +129,7 @@ As regras de filtragem de rede para protocolos não TCP/UDP (por exemplo, ICMP) 
 |As regras do NAT com portos entre 64000 e 65535 não são apoiadas|O Azure Firewall permite qualquer porta na gama 1-65535 nas regras de rede e aplicação, no entanto as regras na NAT apenas suportam portas na gama 1-63999.|Esta é uma limitação atual.
 |As atualizações de configuração podem demorar, em média, cinco minutos.|Uma atualização de configuração de Firewall Azure pode demorar entre 3 a 5 minutos, em média, e as atualizações paralelas não são suportadas.|Uma correção está a ser investigada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Tutorial: Implementar e configurar o Azure Firewall com o portal do Azure](tutorial-firewall-deploy-portal.md)
 - [Implementar o Azure Firewall através de um modelo](deploy-template.md)

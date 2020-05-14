@@ -8,12 +8,13 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8e8f17f54f52aef6f552b7c211aa8f0e498b94df
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: has-adal-ref
+ms.openlocfilehash: a1f6548a83736cfb0e519559fd22e16d4527ae0b
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81424924"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197664"
 ---
 # <a name="using-multi-factor-aad-authentication-with-synapse-sql-ssms-support-for-mfa"></a>Utilização da autenticação AAD multifactor com Synapse SQL (suporte SSMS para MFA)
 
@@ -56,7 +57,7 @@ Os utilizadores convidados incluem utilizadores convidados de outros Anúncios A
 
 Todos estes utilizadores que pretendam ser autenticados utilizando a Autenticação Universal devem introduzir o seu nome de domínio Azure AD ou identificação do inquilino. Este parâmetro representa o atual nome de domínio/id de domínio Azure AD com o qual o Servidor Azure está ligado. 
 
-Por exemplo, se o Azure Server estiver `contosotest.onmicrosoft.com` associado `joe@contosodev.onmicrosoft.com` ao domínio Azure AD onde o `contosodev.onmicrosoft.com`utilizador está hospedado como utilizador importado `contosotest.onmicrosoft.com`do domínio AD Azure, o nome de domínio necessário para autenticar este utilizador é . 
+Por exemplo, se o Azure Server estiver associado ao domínio Azure AD `contosotest.onmicrosoft.com` onde o utilizador está hospedado como utilizador `joe@contosodev.onmicrosoft.com` importado do domínio AD `contosodev.onmicrosoft.com` Azure, o nome de domínio necessário para autenticar este utilizador é `contosotest.onmicrosoft.com` . 
 
 Quando o utilizador é um utilizador nativo do Azure AD ligado ao Azure Server, e não é uma conta MSA, não é necessário qualquer nome de domínio ou ID de inquilino. 
 
@@ -71,15 +72,15 @@ Se estiver a executar SSMS 18.x ou mais tarde, o nome de domínio ad ou id do in
    ![mfa-inquilino-ssms](./media/mfa-authentication/mfa-no-tenant-ssms.png)
 
 ### <a name="azure-ad-business-to-business-support"></a>Negócio da Azure AD para apoio às empresas   
-Os utilizadores da Azure AD suportados para cenários Azure AD B2B como utilizadores convidados (ver [What is Azure B2B collaboration](../../active-directory/b2b/what-is-b2b.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) can connect to Synapse SQL only `CREATE USER` as members of a group created in current Azure AD and maped manually using the Transact-SQL statement in a given database. 
+Os utilizadores da Azure AD suportados para cenários Azure AD B2B como utilizadores convidados (ver [What is Azure B2B collaboration](../../active-directory/b2b/what-is-b2b.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) can connect to Synapse SQL only as members of a group created in current Azure AD and maped manually using the Transact-SQL statement in a given `CREATE USER` database. 
 
-Por exemplo, `steve@gmail.com` se for convidado para `contosotest` a AD Azure `contosotest.onmicrosoft.com`(com o domínio Azure `usergroup` Ad), um grupo Azure `steve@gmail.com` AD, como deve ser criado no Azure AD que contém o membro. Em seguida, este grupo deve ser criado para uma base de dados específica (isto é, MyDatabase) por administração Azure `CREATE USER [usergroup] FROM EXTERNAL PROVIDER` AD SQL ou Azure AD DBO executando uma declaração transact-SQL. 
+Por exemplo, se `steve@gmail.com` for convidado para a AD Azure `contosotest` (com o domínio Azure Ad), `contosotest.onmicrosoft.com` um grupo Azure AD, como `usergroup` deve ser criado no Azure AD que contém o `steve@gmail.com` membro. Em seguida, este grupo deve ser criado para uma base de dados específica (isto é, MyDatabase) por administração Azure AD SQL ou Azure AD DBO executando uma declaração transact-SQL. `CREATE USER [usergroup] FROM EXTERNAL PROVIDER` 
 
-Após a criação do utilizador `steve@gmail.com` da base `MyDatabase` de dados, o utilizador `Active Directory – Universal with MFA support`pode iniciar sessão na utilização da opção de autenticação SSMS . 
+Após a criação do utilizador da base de dados, o utilizador `steve@gmail.com` pode iniciar sessão na `MyDatabase` utilização da opção de autenticação SSMS `Active Directory – Universal with MFA support` . 
 
 O grupo de utilizadores, por padrão, tem apenas a permissão de ligação e qualquer acesso adicional a dados que tenha de ser concedido da forma normal. 
 
-Note que `steve@gmail.com` o utilizador como utilizador convidado deve verificar `contosotest.onmicrosoft.com` a caixa e adicionar o nome de domínio AD na caixa de diálogo SSMS **Connection Property.** O nome de **domínio AD ou** opção de ID do inquilino só é suportado para o Universal com opções de ligação MFA, caso contrário está acinzentado.
+Note que o utilizador `steve@gmail.com` como utilizador convidado deve verificar a caixa e adicionar o nome de domínio AD na caixa de diálogo `contosotest.onmicrosoft.com` SSMS **Connection Property.** O nome de **domínio AD ou** opção de ID do inquilino só é suportado para o Universal com opções de ligação MFA, caso contrário está acinzentado.
 
 ## <a name="universal-authentication-limitations-for-synapse-sql"></a>Limitações de autenticação universal para Synapse SQL
 
@@ -91,6 +92,6 @@ Note que `steve@gmail.com` o utilizador como utilizador convidado deve verificar
 - Não existem requisitos adicionais de software para a Autenticação Universal do Diretório Ativo, exceto que deve utilizar uma versão suportada do SSMS.  
 - The Active Directory Authentication Library (ADAL) version for Universal authentication was updated to its latest ADAL.dll 3.13.9 available released version. Consulte a Biblioteca de Autenticação do [Diretório Ativo 3.14.1](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para mais informações, consulte o [Connect to Synapse SQL com](get-started-ssms.md) o artigo do SQL Server Management Studio. 
 

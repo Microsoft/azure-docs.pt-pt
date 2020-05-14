@@ -2,18 +2,19 @@
 title: Quickstart - Crie um conjunto de escala de máquina virtual Linux com um modelo de Gestor de Recursos Azure
 description: Saiba como criar rapidamente um dimensionamento de máquinas virtuais Linux com um modelo do Azure Resource Manager que implementa uma aplicação de exemplo e configura regras de dimensionamento automático
 author: ju-shim
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.topic: quickstart
-ms.custom: mvc,subject-armqs
-ms.date: 03/27/2020
 ms.author: jushiman
-ms.openlocfilehash: 4c0bac943be996c02436824334bd79a270f9a2e2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.topic: quickstart
+ms.service: virtual-machine-scale-sets
+ms.subservice: linux
+ms.date: 03/27/2020
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: f51bfa012c62e7acdd0aa2cd16279ec68702a72c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81010465"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117335"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-azure-resource-manager-template"></a>Quickstart: Crie um conjunto de escala de máquina virtual Linux com um modelo de Gestor de Recursos Azure
 
@@ -52,7 +53,7 @@ A parte realçada é a definição de recurso definido pela escala. Para criar u
 | Propriedade                     | Descrição da propriedade                                  | Valor de modelo de exemplo                    |
 |------------------------------|----------------------------------------------------------|-------------------------------------------|
 | tipo                         | Tipo de recurso do Azure a criar                            | Microsoft.Compute/virtualMachineScaleSets |
-| nome                         | O nome do conjunto de dimensionamento                                       | myScaleSet                                |
+| name                         | O nome do conjunto de dimensionamento                                       | myScaleSet                                |
 | localização                     | A localização para criar o conjunto de dimensionamento                     | E.U.A. Leste                                   |
 | sku.name                     | O tamanho da VM para cada instância do conjunto de dimensionamento                  | Standard_A1                               |
 | sku.capacity                 | O número de instâncias de VM a criar inicialmente           | 2                                         |
@@ -76,7 +77,7 @@ Para testar o conjunto de dimensionamento, instale uma aplicação Web básica. 
 
 O modelo utiliza a extensão personalizada do script para instalar [o Bottle,](https://bottlepy.org/docs/dev/)uma estrutura web Python e um simples servidor HTTP.
 
-Dois scripts são definidos em **fileUris** - *installserver.sh*, e *workserver.py*. Estes ficheiros são descarregados do GitHub, e depois *o comandoToExecute* executa `bash installserver.sh` para instalar e configurar a aplicação.
+Dois scripts são definidos em **fileUris**  -  *installserver.sh*, e *workserver.py*. Estes ficheiros são descarregados do GitHub, e depois *o comandoToExecute* `bash installserver.sh` executa para instalar e configurar a aplicação.
 
 ### <a name="deploy-the-template"></a>Implementar o modelo
 
@@ -108,7 +109,7 @@ az network public-ip list \
     --query [*].ipAddress -o tsv
 ```
 
-Introduza o endereço IP público do equilibrador de carga num navegador web no formato *\/http: /publicIpAddress:9000/do_work*. O balanceador de carga distribui o tráfego para uma das suas instâncias de VM, conforme mostra o exemplo seguinte:
+Introduza o endereço IP público do equilibrador de carga num navegador web no formato *http: \/ /publicIpAddress:9000/do_work*. O balanceador de carga distribui o tráfego para uma das suas instâncias de VM, conforme mostra o exemplo seguinte:
 
 ![Página Web predefinida no NGINX](media/virtual-machine-scale-sets-create-template/running-python-app.png)
 
@@ -120,7 +121,7 @@ Quando já não for necessário, pode utilizar [az group delete](/cli/azure/grou
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste início rápido, criou um conjunto de dimensionamento Linux com um modelo do Azure e utilizou a Extensão de Script Personalizado para instalar um servidor Web de Python básico nas instâncias da VM. Para obter mais informações, avance para o tutorial para saber como criar e gerir conjuntos de dimensionamento de máquinas virtuais do Azure.
 

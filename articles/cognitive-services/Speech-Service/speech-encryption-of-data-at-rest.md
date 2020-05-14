@@ -7,14 +7,14 @@ manager: venkyv
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 05/11/2020
 ms.author: egeaney
-ms.openlocfilehash: 3ccc9820f38a8c32d0b390663eb6b4430b42e8f0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c2e52fbab8d984f7442d8a336e90e9f22c0bf061
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79372361"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198658"
 ---
 # <a name="speech-service-encryption-of-data-at-rest"></a>Encriptação do serviço de fala de dados em repouso
 
@@ -42,15 +42,12 @@ Para solicitar acesso para trazer o seu próprio armazenamento, preencha e envie
 > [!IMPORTANT]
 > Se desativar as identidades geridas atribuídas, o acesso à conta de armazenamento será removido. Isto fará com que as partes do serviço da Fala que exigem o acesso à conta de armazenamento deixem de funcionar.  
 
-## <a name="regional-availability"></a>Disponibilidade regional
+O serviço de Fala não suporta atualmente o Bloqueio do Cliente. No entanto, os dados do cliente podem ser armazenados utilizando BYOS, permitindo-lhe obter controlos de dados semelhantes ao Bloqueio do [Cliente](../../security/fundamentals/customer-lockbox-overview.md). Tenha em mente que os dados do serviço da Fala permanecem e são processados na região onde o recurso Speech foi criado. Isto aplica-se a quaisquer dados em repouso e dados em trânsito. Ao utilizar funcionalidades de personalização, como Discurso Personalizado e Voz Personalizada, todos os dados do cliente são transferidos, armazenados e processados na mesma região onde residem os seus recursos de serviço BYOS (se utilizados) e de serviço de Fala.
 
-A BYOS está atualmente disponível nestas regiões:
+> [!IMPORTANT]
+> A Microsoft **não** utiliza dados dos clientes para melhorar os seus modelos De Discurso. Além disso, se o registo de pontos finais for desativado e não forem utilizadas personalizações, então não são armazenados dados do cliente. 
 
-* E.U.A. Centro-Sul
-* E.U.A.Oeste 2
-* E.U.A. Leste
-
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Serviço de fala - traga o seu próprio formulário de pedido de armazenamento (BYOS)](https://aka.ms/cogsvc-cmk)
 * [O que são identidades geridas.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)

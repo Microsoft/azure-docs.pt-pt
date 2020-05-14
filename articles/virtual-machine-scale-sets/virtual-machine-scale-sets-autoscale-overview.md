@@ -1,21 +1,20 @@
 ---
 title: Descrição geral do dimensionamento automático com o conjunto de dimensionamento de máquinas virtuais do Azure
 description: Saiba mais sobre as diferentes formas de escalar automaticamente um conjunto de escala de máquina virtual Azure baseado no desempenho ou num horário fixo
-author: ju-shim
-tags: azure-resource-manager
-ms.assetid: d29a3385-179e-4331-a315-daa7ea5701df
+author: avirishuv
+ms.author: avverma
+ms.topic: overview
 ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.topic: conceptual
+ms.subservice: autoscale
 ms.date: 05/29/2018
-ms.author: jushiman
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b3af40de107fd9273ec50425c58afc9772ea426
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: jushiman
+ms.custom: avverma
+ms.openlocfilehash: 90777b8303f2d31168e489c8e2a7ca3a779a11e6
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81010346"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124963"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Descrição geral do dimensionamento automático com o conjunto de dimensionamento de máquinas virtuais do Azure
 Um conjunto de escala de máquina virtual Azure pode aumentar ou diminuir automaticamente o número de casos vm que executam a sua aplicação. Este comportamento automatizado e elástico reduz a sobrecarga de gestão para monitorizar e otimizar o desempenho da sua aplicação. Cria regras que definem o desempenho aceitável para uma experiência positiva do cliente. Quando esses limiares definidos são cumpridos, as regras de escala automática tomam medidas para ajustar a capacidade do seu conjunto de escala. Também pode agendar eventos para aumentar ou diminuir automaticamente a capacidade da sua escala definida em horários fixos. Este artigo fornece uma visão geral das métricas de desempenho disponíveis e quais as ações que a escala automática pode realizar.
@@ -129,7 +128,7 @@ Os seguintes exemplos são cenários que podem beneficiar a utilização de regr
 - Quando há um evento de marketing, promoção ou venda de férias, você pode automaticamente escalar o número de casos vm antes da procura antecipada do cliente. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Pode criar regras de escala automática que utilizam métricas baseadas em hospedeiros com uma das seguintes ferramentas:
 
 - [Azure PowerShell](tutorial-autoscale-powershell.md)

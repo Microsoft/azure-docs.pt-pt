@@ -2,19 +2,19 @@
 title: Quickstart - Crie um conjunto de escala de máquina virtual com O CLI Azure
 description: Inicie-se com as suas implementações aprendendo a criar rapidamente um conjunto de máquinas virtuais com o Azure CLI.
 author: ju-shim
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.devlang: azurecli
-ms.topic: quickstart
-ms.custom: mvc
-ms.date: 03/27/2018
 ms.author: jushiman
-ms.openlocfilehash: 392af4d96efc9b60cedc8488dc1cebbfd68a92c5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.topic: quickstart
+ms.service: virtual-machine-scale-sets
+ms.subservice: cli
+ms.date: 03/27/2018
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: af69b4d80ef6f7216bdf13a7e7314e8b0616f376
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81011332"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197722"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-with-the-azure-cli"></a>Início Rápido - Criar um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure
 Um conjunto de dimensionamento de máquinas virtuais permite implementar e gerir um conjunto de máquinas virtuais idênticas e de dimensionamento automático. Pode dimensionar o número de VMs no conjunto de dimensionamento manualmente ou definir regras para dimensionar automaticamente com base na utilização de recursos como CPU, exigência de memória ou tráfego de rede. Em seguida, um balanceador de carga do Azure distribui o tráfego pelas instâncias de VM no conjunto de dimensionamento. Neste início rápido, vai criar um conjunto de dimensionamento de máquinas virtuais e implementar um exemplo de aplicação com a CLI do Azure.
@@ -104,7 +104,7 @@ az group delete --name myResourceGroup --yes --no-wait
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste início rápido, criou um conjunto de dimensionamento básico e utilizou a Extensão de Script Personalizado para instalar um servidor Web de NGINX básico nas instâncias de VM. Para obter mais informações, avance para o tutorial para saber como criar e gerir conjuntos de dimensionamento de máquinas virtuais do Azure.
 
 > [!div class="nextstepaction"]

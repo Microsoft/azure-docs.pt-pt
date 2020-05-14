@@ -3,13 +3,13 @@ author: erhopf
 ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 07/23/2019
-ms.openlocfilehash: 8754504655cdd08c9bf9f89311cb6c5d1057f0e6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/11/2020
+ms.openlocfilehash: ddc61a0d0cb5a630282a9ba0589cef6fda29c4b5
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78262374"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83343468"
 ---
 ## <a name="authenticate-with-azure-active-directory"></a>Autenticar com o Azure Active Directory
 
@@ -101,3 +101,19 @@ Nesta amostra, é utilizada uma palavra-passe para autenticar o diretor de servi
    ```
 
 Em alternativa, o diretor de serviço pode ser autenticado com um certificado. Além do diretor de serviço, o diretor de serviço também é suportado por ter permissões delegadas através de outra aplicação AAD. Neste caso, em vez de senhas ou certificados, os utilizadores seriam solicitados para autenticação de dois fatores ao adquirirem token.
+
+## <a name="authorize-access-to-managed-identities"></a>Autorizar acesso a identidades geridas
+ 
+Os Serviços Cognitivos apoiam a autenticação azure Ative Directory (Azure AD) com [identidades geridas para os recursos Azure.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) Identidades geridas para recursos Azure podem autorizar o acesso aos recursos dos Serviços Cognitivos usando credenciais de AD Azure de aplicações em execução em máquinas virtuais Azure (VMs), aplicações de função, conjuntos de escala de máquinas virtuais e outros serviços. Ao utilizar identidades geridas para recursos Azure juntamente com a autenticação da AD Azure, pode evitar armazenar credenciais com as suas aplicações que funcionam na nuvem.  
+
+### <a name="enable-managed-identities-on-a-vm"></a>Ativar identidades geridas num VM
+
+Antes de poder utilizar identidades geridas para os recursos do Azure para autorizar o acesso aos recursos dos Serviços Cognitivos a partir do seu VM, deve ativar identidades geridas para recursos Azure no VM. Para aprender a permitir identidades geridas para os Recursos Azure, consulte:
+
+- [Portal do Azure](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
+- [Azure PowerShell](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm)
+- [CLI do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm)
+- [Modelo de Gestor de Recursos Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm)
+- [Bibliotecas de clientes do Gestor de Recursos Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm)
+
+Para obter mais informações sobre identidades geridas, consulte [identidades geridas para os recursos Do Azure.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)

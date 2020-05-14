@@ -12,12 +12,13 @@ ms.date: 05/31/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7047dfd0f02ffe95dcacfdf4ddc014047a338513
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: has-adal-ref
+ms.openlocfilehash: d38cf25bb3b7622a0d444e4a71a4d62aafc053b6
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79481199"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196455"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Utilização de Procuração de Aplicação AD Azure para publicar aplicações no local para utilizadores remotos
 
@@ -203,7 +204,7 @@ As organizações devem começar hoje a aproveitar-se da App Proxy para aproveit
 * Atualizações automáticas para garantir que tem os mais recentes patches de segurança
 * Novas funcionalidades à medida que são lançadas; o mais recente apoio para a SAML única inscrição e gestão mais granular de cookies de aplicação
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter informações sobre planeamento, operação e gestão de procuração de aplicação ad ad azure, consulte [Plan a Azure Application Proxy implementação](application-proxy-deployment-plan.md).
 * Para agendar uma demonstração ao vivo ou obter um teste gratuito de 90 dias para avaliação, consulte [Começar com A Mobilidade Empresarial + Segurança](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-trial).
