@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: 0988c8154c63bb408493edf3243078e625c80d53
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 96108053e6b68a71532d1cf25f8a352b3e0e5ca7
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79371227"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83202079"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Configure Redes virtuais dos Serviços Cognitivos Azure
 
@@ -55,7 +55,7 @@ O apoio à rede virtual para serviços cognitivos listados abaixo está limitado
 
 O suporte de rede virtual para serviços cognitivos listados abaixo está limitado às regiões *central dos EUA EUA,* *Centro-Sul dos EUA*, Leste dos *EUA,* *Oeste DOS 2*, *Global*e NORTE *Gov Virginia* Azure.
 > [!div class="checklist"]
-> * [Texto do Tradutor](./translator/index.yml)
+> * [Texto do Tradutor](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#virtual-network-support)
 
 ## <a name="service-tags"></a>Etiquetas de Serviço
 Além de apoiar pontos finais de serviço de rede virtual para os serviços acima, a Cognitive Services também suporta uma etiqueta de serviço para configuração de regras de rede de saída. Os seguintes serviços estão incluídos na etiqueta de serviço CognitiveServicesManagement.
@@ -339,12 +339,12 @@ Pode gerir as regras de rede virtual para os recursos dos Serviços Cognitivos a
 
 Pode configurar os recursos dos Serviços Cognitivos para permitir o acesso a partir de gamas específicas de endereços IP da Internet pública. Esta configuração permite o acesso a serviços específicos e redes no local, bloqueando efetivamente o tráfego geral da Internet.
 
-Fornecer gamas de endereços de internet `16.17.18.0/24` permitidas utilizando [notação CIDR](https://tools.ietf.org/html/rfc4632) no formulário ou como endereços IP individuais como `16.17.18.19`.
+Fornecer gamas de endereços de internet permitidas utilizando [notação CIDR](https://tools.ietf.org/html/rfc4632) no formulário `16.17.18.0/24` ou como endereços IP individuais como `16.17.18.19` .
 
    > [!Tip]
    > Não são suportadas gamas de endereços pequenas utilizando tamanhos de prefixo "/31" ou "/32". Estas gamas devem ser configuradas utilizando regras individuais de endereço IP.
 
-As regras da rede IP só são permitidas para endereços IP da **internet pública.** As gamas de endereços IP reservadas para redes privadas (tal como definidas no [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) não são permitidas nas regras ip. As redes privadas incluem `172.16.*`  -  `172.31.*`endereços que começam com, `192.168.*` `10.*`e .
+As regras da rede IP só são permitidas para endereços IP da **internet pública.** As gamas de endereços IP reservadas para redes privadas (tal como definidas no [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) não são permitidas nas regras ip. As redes privadas incluem endereços que começam `10.*` `172.16.*`  -  `172.31.*` com, e `192.168.*` .
 
    > [!NOTE]
    > As regras da rede IP não têm qualquer efeito sobre os pedidos originários da mesma região do Azure que o recurso dos Serviços Cognitivos. Utilize regras de [rede virtuais](#grant-access-from-a-virtual-network) para permitir pedidos na mesma região.
@@ -369,11 +369,11 @@ Pode gerir as regras da rede IP para recursos de Serviços Cognitivos através d
 
 1. Verifique se selecionou para permitir o acesso a partir de **redes Selecionadas**.
 
-1. Para garantir o acesso a uma gama IP da Internet, introduza o endereço IP ou a gama de endereços (em [formato CIDR)](https://tools.ietf.org/html/rfc4632)no âmbito do Alcance do**Endereço** **firewall** > . São aceites apenas endereços públicos válidos (não reservados).
+1. Para garantir o acesso a uma gama IP da Internet, introduza o endereço IP ou a gama de endereços (em [formato CIDR)](https://tools.ietf.org/html/rfc4632)no âmbito do Alcance do Endereço **firewall**  >  **Address Range**. São aceites apenas endereços públicos válidos (não reservados).
 
    ![Adicionar gama IP](media/vnet/virtual-network-add-ip-range.png)
 
-1. Para remover uma regra de rede <span class="docon docon-delete x-hidden-focus"></span> IP, selecione o ícone do caixote do lixo ao lado do intervalo de endereços.
+1. Para remover uma regra de rede IP, selecione o ícone do caixote do lixo <span class="docon docon-delete x-hidden-focus"></span> ao lado do intervalo de endereços.
 
    ![Eliminar gama IP](media/vnet/virtual-network-delete-ip-range.png)
 
@@ -485,7 +485,7 @@ Pode gerir as regras da rede IP para recursos de Serviços Cognitivos através d
 > [!IMPORTANT]
 > Certifique-se de [que estabelece a regra padrão](#change-the-default-network-access-rule) para **negar**, ou as regras da rede não têm qualquer efeito.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Explore os vários [Serviços Cognitivos Azure](welcome.md)
 * Saiba mais sobre [os pontos finais do serviço](../virtual-network/virtual-network-service-endpoints-overview.md) de rede virtual Azure

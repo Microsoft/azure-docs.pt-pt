@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: hasshah
-ms.openlocfilehash: dd5748cf8afe19a49e5ea406aea9b558432eeaf3
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 0a6df626f9567b51a8371c17004b454f9c5b4597
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82802183"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83202035"
 ---
 # <a name="what-is-a-keyword"></a>O que é uma palavra-chave?
 
@@ -31,26 +31,15 @@ Com as funcionalidades de personalização, desempenho e integração da Custom 
 | Verificação de palavras-chave | Quando há alta confiança na palavra-chave que está a ser detetada localmente, o áudio é enviado para a nuvem para mais verificação de que um utilizador disse a palavra-chave. A verificação das palavras-chave fornece uma camada adicional de segurança reduzindo o impacto de uma deteção local incorreta e protegendo a privacidade do utilizador.
 | Assistente de voz & integração do SDK do Discurso | As palavras-chave geradas a partir da palavra-chave personalizada no Estúdio de Discurso podem ser facilmente integradas dentro do seu dispositivo ou aplicação através do Speech SDK. Basta apontar o SDK para o modelo de palavra-chave fornecido pelo Speech Studio e o seu produto será ativado por voz, apoiado pela verificação de palavras-chave. Pode completar as experiências de voz do seu produto construindo o seu próprio assistente de [voz.](voice-assistants.md)
 
-## <a name="sample-code"></a>Código de exemplo
+## <a name="get-started-with-custom-keywords"></a>Começar com palavras-chave personalizadas
 
-O código de amostra para a integração de um modelo de palavra-chave está disponível no GitHub. Estas amostras cobrem a aplicação do cliente para integrar a sua palavra-chave em várias línguas de programação populares.
+* Tutorial: Como [criar uma palavra-chave personalizada usando](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) o Speech Studio
+* Tutorial: Como [ativar o seu produto com o SDK da Fala, utilizando C#](tutorial-voice-enable-your-bot-speech-sdk.md)
+* Quickstart: [Reconheça palavras-chave com o SDK de Discurso, na Plataforma Universal Windows usando C#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp/keyword-recognizer)
+* Quickstart: [Reconheça palavras-chave com o SDK de Discurso, no Android usando Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/keyword-recognizer)
 
-* [Tutorial: Ativar a voz do seu produto com o Speech SDK, C #](tutorial-voice-enable-your-bot-speech-sdk.md)
-* [Amostras de assistente de voz (SDK)](https://aka.ms/csspeech/samples)
-
-## <a name="tutorial"></a>Tutorial
-
-* Como [criar uma palavra-chave personalizada usando](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws)o Speech Studio .
-* Como [ativar o seu produto por voz utilizando o SDK do Discurso](tutorial-voice-enable-your-bot-speech-sdk.md).
-
-## <a name="reference-docs"></a>Doutorados de referência
-
-* [Diretrizes de nomeação de palavras-chave personalizadas](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-kws-guidelines)
-* [API de Voz](speech-sdk-reference.md)
-
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Obtenha uma chave de subscrição do serviço Speech gratuitamente](get-started.md)
-* [Criar uma palavra-chave personalizada](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws)
 * [Obtenha o SDK do Discurso](speech-sdk.md)
 * [Saiba mais sobre assistentes de voz](voice-assistants.md)

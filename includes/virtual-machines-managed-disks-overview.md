@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 0eaac5aac94c536fda58d7d004a54df51219f7cd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c37c5a125bce23f8f2a813b5df4516323c2a2c12
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82147784"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83343451"
 ---
 ## <a name="benefits-of-managed-disks"></a>Benefícios dos discos geridos
 
@@ -55,11 +55,14 @@ Os discos geridos oferecem dois tipos diferentes de encriptação. A primeira é
 
 ### <a name="server-side-encryption"></a>Encriptação do lado do servidor
 
-A [encriptação do lado do Servidor Azure](../articles/virtual-machines/windows/disk-encryption.md) fornece encriptação em repouso e salvaguarda os seus dados para atender aos seus compromissos de segurança organizacional e conformidade. A encriptação do lado do servidor é ativada por padrão para todos os discos, instantâneos e imagens geridos em todas as regiões onde os discos geridos estão disponíveis. Pode permitir que o Azure gere as suas chaves para si, estas são chaves geridas pela plataforma, ou pode gerir as chaves por si mesmo, estas são chaves geridas pelo cliente. Visite a página FAQ de [Discos Geridos](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) para mais detalhes.
+A [encriptação do lado do Servidor Azure](../articles/virtual-machines/windows/disk-encryption.md) fornece encriptação em repouso e salvaguarda os seus dados para atender aos seus compromissos de segurança organizacional e conformidade. A encriptação do lado do servidor é ativada por padrão para todos os discos, instantâneos e imagens geridos, em todas as regiões onde estão disponíveis discos geridos. (Os discos temporários, por outro lado, não são encriptados pela Encriptação do Serviço de Armazenamento; ver [Funções de Disco: discos temporários](#temporary-disk)).
+
+Pode permitir que o Azure gere as suas chaves para si, estas são chaves geridas pela plataforma, ou pode gerir as chaves por si mesmo, estas são chaves geridas pelo cliente. Visite a página FAQ de [Discos Geridos](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) para mais detalhes.
+
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
-A encriptação do disco Azure permite-lhe encriptar os discos OS e Data utilizados por uma Máquina Virtual IaaS. Esta encriptação inclui discos geridos. Para o Windows, as unidades são encriptadas utilizando a tecnologia de encriptação BitLocker padrão da indústria. Para o Linux, os discos são encriptados utilizando a tecnologia DM-Crypt. O processo de encriptação é integrado no Azure Key Vault para lhe permitir controlar e gerir as chaves de encriptação dos discos. Para mais informações, consulte a [Encriptação do Disco Azure para VMs IaaS](../articles/security/azure-security-disk-encryption-overview.md).
+A encriptação do disco Azure permite-lhe encriptar os discos OS e Data utilizados por uma Máquina Virtual IaaS. Esta encriptação inclui discos geridos. Para o Windows, as unidades são encriptadas utilizando a tecnologia de encriptação BitLocker padrão da indústria. Para o Linux, os discos são encriptados utilizando a tecnologia DM-Crypt. O processo de encriptação é integrado no Azure Key Vault para lhe permitir controlar e gerir as chaves de encriptação dos discos. Para mais informações, consulte a [Encriptação do Disco Azure para VMs Linux](../articles/virtual-machines/linux/disk-encryption-overview.md) ou [encriptação de disco azure para VMs do Windows](../articles/virtual-machines/windows/disk-encryption-overview.md).
 
 ## <a name="disk-roles"></a>Funções de discos
 
@@ -79,7 +82,9 @@ Este disco tem uma capacidade máxima de 2.048 GiB.
 
 ### <a name="temporary-disk"></a>Disco temporário
 
-Cada VM contém um disco temporário, que não é um disco gerido. O disco temporário fornece armazenamento de curto prazo para aplicações e processos e destina-se apenas a armazenar dados como ficheiros de página ou de troca. Os dados do disco temporário podem perder-se durante um evento de [manutenção](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) ou quando [reimplanta um VM](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json). Nos VMs Azure Linux, o disco temporário é /dev/sdb por padrão e nos VMs do Windows o disco temporário é D: por padrão. Durante um reboot padrão bem sucedido do VM, os dados do disco temporário persistirão.
+Cada VM contém um disco temporário, que não é um disco gerido. O disco temporário fornece armazenamento de curto prazo para aplicações e processos e destina-se apenas a armazenar dados como ficheiros de página ou de troca. Os dados do disco temporário podem perder-se durante um evento de [manutenção](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) ou quando [reimplanta um VM](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json). Durante um reboot padrão bem sucedido do VM, os dados do disco temporário persistirão.  
+
+Nos VMs Azure Linux, o disco temporário é tipicamente /dev/sdb e nos VMs do Windows o disco temporário é D: por padrão. O disco temporário não é encriptado pela Encriptação lateral do servidor (ver [Encriptação](#encryption)).
 
 ## <a name="managed-disk-snapshots"></a>Instantâneos de disco geridos
 
@@ -125,7 +130,7 @@ O Azure utiliza um canal de rede prioritário para o tráfego de discos, o que o
 
 Consulte o nosso design para artigo de [alto desempenho,](../articles/virtual-machines/windows/premium-storage-performance.md) para aprender as melhores práticas para otimizar as configurações vM + Disk para que possa alcançar o seu desempenho desejado
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se quiser que um vídeo entre em mais detalhes nos discos geridos, confira: [Better Azure VM Resiliency with Managed Disks](https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency).
 
