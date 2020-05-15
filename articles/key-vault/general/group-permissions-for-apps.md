@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: abb61afab3391f9a53ada4881cb186aa9fae3187
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 49c1a29547195ad8557550ba1bc0cb80fae40ad8
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005919"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402635"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>Forneça a autenticação do Cofre chave com uma política de controlo de acesso
 
@@ -60,13 +60,13 @@ O objectid para aplicações corresponde ao seu diretor de serviço associado. P
 
 Existem duas formas de obter um objectId para uma aplicação.  A primeira é registar a sua candidatura no Azure Ative Directory. Para tal, siga os passos no quickstart [Registe uma aplicação com a plataforma de identidade Microsoft](../../active-directory/develop/quickstart-register-app.md). Quando o registo estiver concluído, o objectid será listado como o "Id de aplicação (cliente) ".
 
-A segunda é criar um diretor de serviço numa janela terminal. Com o Azure CLI, utilize o comando [az ad sp create-for-rbac,](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) e forneça um&lt;nome de princípio de serviço&gt;único à bandeira -n no formato "http:// meu nome único de princípio de serviço".
+A segunda é criar um diretor de serviço numa janela terminal. Com o Azure CLI, utilize o comando [az ad sp create-for-rbac,](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) e forneça um nome de princípio de serviço único à bandeira -n no formato "http:// &lt; meu-único-princípio de &gt; serviço".
 
 ```azurecli-interactive
 az ad sp create-for-rbac -n "http://<my-unique-service-principle-name"
 ```
 
-O objectid será listado na `clientID`saída como .
+O objectid será listado na saída como `clientID` .
 
 Com a Azure PowerShell, utilize o cmdlet [New-AzADServicePrincipal.](/powershell/module/Az.Resources/New-AzADServicePrincipal?view=azps-2.7.0)
 
@@ -75,13 +75,13 @@ Com a Azure PowerShell, utilize o cmdlet [New-AzADServicePrincipal.](/powershell
 New-AzADServicePrincipal -DisplayName <my-unique-service-principle-name>
 ```
 
-O objectid será listado na `Id` saída `ApplicationId`como (não ).
+O objectid será listado na saída como `Id` (não `ApplicationId` ).
 
 #### <a name="azure-ad-groups"></a>Grupos AD Azure
 
 Pode adicionar várias aplicações e utilizadores a um grupo Azure AD e, em seguida, dar ao grupo acesso ao seu cofre chave.  Para mais detalhes, consulte a Criação e adição de membros a uma secção de [grupo Azure AD,](#creating-and-adding-members-to-an-azure-ad-group) abaixo.
 
-Para encontrar o objectid de um grupo Azure AD com o Azure CLI, utilize o comando da [lista de grupos az ad.](/cli/azure/ad/group?view=azure-cli-latest#az-ad-group-list) Devido ao grande número de grupos que podem estar na sua `--display-name` organização, você também deve fornecer uma cadeia de pesquisa para o parâmetro.
+Para encontrar o objectid de um grupo Azure AD com o Azure CLI, utilize o comando da [lista de grupos az ad.](/cli/azure/ad/group?view=azure-cli-latest#az-ad-group-list) Devido ao grande número de grupos que podem estar na sua organização, você também deve fornecer uma cadeia de pesquisa para o `--display-name` parâmetro.
 
 ```azurecli-interactive
 az ad group list --display-name <search-string>
@@ -94,13 +94,13 @@ O objectid será devolvido no JSON:
     "odata.type": "Microsoft.DirectoryServices.Group",
 ```
 
-Para encontrar o objectid de um grupo Azure AD com a Azure PowerShell, utilize o cmdlet [Get-AzADGroup.](/powershell/module/az.resources/get-azadgroup?view=azps-2.7.0) Devido ao grande número de grupos que podem estar na sua organização, `-SearchString` provavelmente também desejará fornecer uma cadeia de pesquisa ao parâmetro.
+Para encontrar o objectid de um grupo Azure AD com a Azure PowerShell, utilize o cmdlet [Get-AzADGroup.](/powershell/module/az.resources/get-azadgroup?view=azps-2.7.0) Devido ao grande número de grupos que podem estar na sua organização, provavelmente também desejará fornecer uma cadeia de pesquisa ao `-SearchString` parâmetro.
 
 ```azurepowershell-interactive
 Get-AzADGroup -SearchString <search-string>
 ```
 
-Na saída, o objectid `Id`é listado como:
+Na saída, o objectid é listado `Id` como:
 
 ```console
 ...
@@ -109,13 +109,13 @@ Id                    : 1cef38c4-388c-45a9-b5ae-3d88375e166a
 ```
 
 > [!WARNING]
-> Os Grupos de Anúncios Azure não apoiam identidades geridas. Apenas os diretores de serviço e utilizador são suportados.
+> Os Grupos AD Azure com Identidades Geridas requerem até 8horas para refrescar o token e tornar-se eficazes.
 
 #### <a name="users"></a>Utilizadores
 
 Também pode adicionar um utilizador individual à política de controlo de acesso de um cofre chave. **Não recomendamos isto.** Em vez disso, encorajamo-lo a adicionar utilizadores a um grupo De AD Azure e a adicionar o grupo sobre as políticas.
 
-Se, no entanto, desejar encontrar um utilizador com o Azure CLI, utilize o `--id` comando de show de utilizadores [az az,](/cli/azure/ad/user?view=azure-cli-latest#az-ad-user-show) passando o endereço de e-mail dos utilizadores para o parâmetro.
+Se, no entanto, desejar encontrar um utilizador com o Azure CLI, utilize o comando de [show de utilizadores az az,](/cli/azure/ad/user?view=azure-cli-latest#az-ad-user-show) passando o endereço de e-mail dos utilizadores para o `--id` parâmetro.
 
 
 ```azurecli-interactive
@@ -137,7 +137,7 @@ Para encontrar um utilizador com o Azure PowerShell, utilize o cmdlet [Get-AzADU
  Get-AzAdUser -UserPrincipalName <email-address-of-user>
 ```
 
-O objectid do utilizador será devolvido `Id`na saída como .
+O objectid do utilizador será devolvido na saída como `Id` .
 
 ```console
 ...
@@ -189,7 +189,7 @@ Em qualquer dos casos, tome nota nos grupos recém-criados GroupId, uma vez que 
 
 ### <a name="find-the-objectids-of-your-applications-and-users"></a>Encontre os objetoIds das suas aplicações e utilizadores
 
-Pode encontrar os objectIds das suas aplicações utilizando o Azure CLI com o `--show-mine` comando da [lista az ad,](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-list) com o parâmetro.
+Pode encontrar os objectIds das suas aplicações utilizando o Azure CLI com o comando da [lista az ad,](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-list) com o `--show-mine` parâmetro.
 
 ```azurecli-interactive
 az ad sp list --show-mine

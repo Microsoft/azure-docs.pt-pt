@@ -15,135 +15,138 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3babda69c50da02f1b32d1f0d6879833681405db
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 17c68a95530f345d1ec0ed077681ec4cd6eb3775
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82984336"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402445"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-trelica"></a>Tutorial: Azure Ative Diretório integração individual (SSO) com trelica
 
-Neste tutorial, você vai aprender a integrar Trelica com O Diretório Ativo Azure (Azure AD). Quando integrar a Trelica com a AD Azure, pode:
+Neste tutorial, aprende-se a integrar a Trelica com o Azure Ative Directory (Azure AD).
+
+Com esta integração, pode:
 
 * Controlo em Azure AD que tem acesso a Trelica.
 * Permita que os seus utilizadores sejam automaticamente inscritos na Trelica com as suas contas Azure AD.
-* Gerencie as suas contas num local central - o portal Azure.
+* Gerencie as suas contas num local central: o portal Azure.
 
-Para saber mais sobre a integração de apps SaaS com a Azure AD, consulte [o que é o acesso à aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Para saber mais sobre software como uma integração de aplicações de serviço (SaaS) com a Azure AD, consulte [o que é o acesso à aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, precisa dos seguintes itens:
 
 * Uma subscrição da AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
-* A assinatura ativada por trelica (SSO) permitiu a subscrição.
+* Uma assinatura Trelica com um único sinal (SSO) ativado.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, configura e testa o Azure AD SSO num ambiente de teste.
 
-
-* Trelica suporta **IDP** iniciado SSO
-* Trelica suporta o fornecimento de utilizadores **justo no tempo**
-* Assim que configurar a Trelica, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se a partir do Acesso Condicional. [Saiba como impor o controlo](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app)da sessão com o Microsoft Cloud App Security .
+* A Trelica suporta o SSO iniciado pelo IDP.
+* A Trelica suporta o fornecimento de utilizadores just-in-time.
+* Depois de configurar a Trelica, pode impor o controlo da sessão. Este controlo protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o acesso condicional. [Saiba como impor o controlo](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app)da sessão com o Microsoft Cloud App Security .
 
 ## <a name="adding-trelica-from-the-gallery"></a>Adicionando Trelica da galeria
 
 Para configurar a integração da Trelica em Azure AD, precisa adicionar Trelica da galeria à sua lista de aplicações geridas do SaaS.
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
-1. No painel de navegação à esquerda, selecione o serviço **de Diretório Ativo Azure.**
-1. Navegue para **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
-1. Para adicionar nova aplicação, selecione **Nova aplicação**.
-1. No Add da secção **galeria,** digite **Trelica** na caixa de pesquisa.
-1. Selecione **Trelica** a partir do painel de resultados e, em seguida, adicione a aplicação. Espere alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
+1. Inscreva-se no [portal Azure](https://portal.azure.com) utilizando uma conta de trabalho ou de escola, ou uma conta pessoal da Microsoft.
+1. No painel de navegação mais à esquerda, selecione o serviço **de Diretório Ativo Azure.**
+1. Vá a **Aplicações Empresariais**e, em seguida, selecione **Todas as Aplicações**.
+1. Para adicionar uma nova aplicação, selecione **Nova aplicação**.
+1. No Add da secção **da galeria,** introduza **trelica** na caixa de pesquisa.
+1. Selecione **Trelica** a partir dos resultados da pesquisa e, em seguida, adicione a aplicação. Espere alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-trelica"></a>Configure e teste Azure AD único sign-on para Trelica
 
-Configure e teste Azure AD SSO com Trelica utilizando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado em Trelica.
+Configure e teste Azure AD SSO com Trelica utilizando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, deve estabelecer uma relação ligada entre um utilizador da AD Azure e o utilizador relacionado em Trelica.
 
 Para configurar e testar o Azure AD SSO com trelica, complete os seguintes blocos de construção:
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-    1. **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** - para testar o único sign-on da Azure AD com b.Simon.
-    1. Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de AD Azure.
-1. **[Configure trelica SSO](#configure-trelica-sso)** - para configurar as definições de inscrição únicas no lado da aplicação.
-    1. **[Crie um utilizador de teste Trelica](#create-trelica-test-user)** - para ter uma contraparte de B.Simon em Trelica que esteja ligada à representação da AD Azure do utilizador.
-1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
+1. **[Configure O SSO AD Azure](#configure-azure-ad-sso)** para permitir que os seus utilizadores utilizem esta funcionalidade.
+    1. **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** para testar o único sinal de Azure AD com B.Simon.
+    1. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** para permitir que b.Simon utilize um único sinal de AD Azure.
+1. **[Configure o SSO trelica](#configure-trelica-sso)** para configurar as definições de inscrição únicas no lado da aplicação.
+    1. **[Crie um utilizador de teste Trelica](#create-a-trelica-test-user)** para ter uma contraparte de B.Simon em Trelica. Esta contrapartida está ligada à representação da AD Azure do utilizador.
+1. **[Teste sSO](#test-sso)** para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-Siga estes passos para permitir o Azure AD SSO no portal Azure.
+Siga estes passos para permitir o Azure AD SSO no portal Azure:
 
-1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **Trelica,** encontre a secção **Gerir** e selecione **um único sinal.**
+1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **trelica,** vá para a secção **Gerir.** Selecione **um único sinal .**
 1. Na página **de método de inscrição, selecione** **SAML**.
-1. No **set single sign-on com** a página SAML, clique no ícone de edição/caneta para **configuração Básica sAML** para editar as definições.
+1. No **set single sign-on com** a página SAML, clique no ícone do lápis para **configuração Básica do SAML** para editar as definições.
 
-   ![Editar Configuração Básica do SAML](common/edit-urls.png)
+   ![Configurar um único sign-on com a página SAML, com o ícone do lápis para configuração Básica sAML em destaque](common/edit-urls.png)
 
-1. Na configuração de um único sessão com a página **SAML,** introduza os valores para os seguintes campos:
+1. No **set up Single Sign-on com** a página SAML, introduza os seguintes valores:
 
-    a. Na caixa de texto **identificador,** digite um URL:`https://app.trelica.com`
+    1. Na caixa **identificador,** introduza o URL **https://app.trelica.com** .
 
-    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://app.trelica.com/Id/Saml2/<CUSTOM_IDENTIFIER>/Acs`
+    1. Na caixa **DEURL resposta,** introduza um URL com o padrão `https://app.trelica.com/Id/Saml2/<CUSTOM_IDENTIFIER>/Acs` .
 
     > [!NOTE]
-    > O valor url de resposta não é real. Atualize este valor com o URL de Resposta real. Contacte a equipa de apoio ao [Cliente da Trelica](mailto:support@trelica.com) para obter este valor. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
+    > O valor url de **resposta** não é real. Atualize este valor com o URL de resposta real. Contacte a equipa de apoio ao [Cliente Trelica](mailto:support@trelica.com) para obter este valor. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
 
-1. No **set single sign-on com** a página SAML, na secção Certificado de **Assinatura SAML,** clique no botão de cópia para copiar o Url de **Metadados da Federação** da Aplicação e guarde-o no seu computador.
+1. No **set set Single Sign-on com** a página SAML, vá à secção de Certificado de **Assinatura SAML.** À direita do Url de Metadados da Federação de **Aplicações,** selecione o botão de cópia para copiar o URL. Guarde o URL no seu computador.
 
-    ![O link de descarregamento do Certificado](common/copy-metadataurl.png)
+    ![A secção de Certificado de Assinatura SAML, com o botão de cópia realçado ao lado do Url de Metadados da Federação de Aplicações](common/copy-metadataurl.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
 
-Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B.Simon.
+Nesta secção, cria-se um utilizador de teste chamado B.Simon no portal Azure.
 
-1. A partir do painel esquerdo no portal Azure, **selecione Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
-1. Selecione **Novo utilizador** na parte superior do ecrã.
+1. No painel mais à esquerda do portal Azure, selecione **Utilizadores de Diretório Ativo Azure**  >  **Users**  >  **Todos os utilizadores**.
+1. Na parte superior do ecrã, selecione **Novo utilizador**.
 1. Nas propriedades do **Utilizador,** siga estes passos:
-   1. No campo **Nome**, introduza `B.Simon`.  
-   1. No campo de nome username@companydomain.extensiondo **Utilizador,** introduza o . Por exemplo, `B.Simon@contoso.com`.
-   1. Selecione a caixa de verificação de **palavra-passe do Show** e, em seguida, escreva o valor que está apresentado na caixa **password.**
-   1. Clique em **Criar**.
+   1. No campo **Nome,** insira **B.Simon.**
+   1. No campo de **nome do Utilizador,** introduza o domínio da_empresa_ **B.Simon@****.** _extensão_. Por exemplo, B.Simon@contoso.com.
+   1. Selecione a caixa de verificação de **palavra-passe do Show** e, em seguida, escreva o valor que está mostrado na caixa **password.**
+   1. Selecione **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
 
-Nesta secção, permitirá que b.Simon use o único sign-on Azure, concedendo acesso à Trelica.
+Nesta secção, permite que b.Simon utilize um único sign-on Azure, concedendo acesso à Trelica.
 
-1. No portal Azure, selecione **Aplicações Empresariais,** e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações Empresariais**  >  **Todas as aplicações**.
 1. Na lista de aplicações, selecione **Trelica**.
-1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
+1. Na página geral da aplicação, vá à secção **Gerir** e selecione **Utilizadores e grupos**.
 
-   ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
+   ![A secção Gerir, com Utilizadores e grupos em destaque](common/users-groups-blade.png)
 
-1. Selecione **Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Atribuição adicionar'.**
+1. Selecione **Adicionar utilizador**. Na caixa de diálogo **Adicionar Atribuição,** selecione **Utilizadores e grupos**.
 
-    ![Ligação Adicionar Utilizador](common/add-assign-user.png)
+   ![A janela utilizadores e grupos, com adicionar utilizador em destaque](common/add-assign-user.png)
 
-1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-1. Se estiver à espera de algum valor de papel na afirmação do SAML, no diálogo **Select Role,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-1. No diálogo **Adicionar Atribuição,** clique no botão **Atribuir.**
+1. Na caixa de diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de utilizadores. Em seguida, escolha o botão **Select** na parte inferior do ecrã.
+1. Se esperar algum valor de papel na afirmação do SAML, na caixa de diálogo **Select Role,** selecione a função adequada para o utilizador da lista. Em seguida, escolha o botão **Select** na parte inferior do ecrã.
+1. Na caixa de diálogo **Adicionar Atribuição,** selecione **Atribuir**.
 
 ## <a name="configure-trelica-sso"></a>Configure Trelica SSO
 
-Para configurar um único sinal no lado da **Trelica,** precisa enviar o Url de **Metadados da Federação de Aplicações** para a equipa de [suporte da Trelica](mailto:support@trelica.com). Eles definiram esta definição para ter a ligação SAML SSO corretamente definida em ambos os lados.
+Para configurar um único sinal no lado **trelica,** envie o valor de url de url de metadados da Federação de **Aplicações** copiado para a equipa de [suporte Trelica](mailto:support@trelica.com). Configuram esta definição para ter a ligação SAML SSO corretamente definida em ambos os lados.
 
-### <a name="create-trelica-test-user"></a>Criar o utilizador de teste Trelica
+### <a name="create-a-trelica-test-user"></a>Criar um utilizador de teste Trelica
 
-Nesta secção, um utilizador chamado Britta Simon é criado em Trelica. A Trelica suporta o fornecimento de utilizadores just-in-time, que é ativado por padrão. Não há nenhum item de ação para si nesta secção. Se um utilizador já não existir na Trelica, um novo é criado após a autenticação.
+Nesta secção, cria-se um utilizador chamado B.Simon em Trelica.
 
-## <a name="test-sso"></a>Teste SSO 
+A Trelica suporta o fornecimento de utilizadores just-in-time, que é ativado por padrão. Não há ação para tomar nesta secção. Se um utilizador já não existir na Trelica, um novo é criado após a autenticação.
 
-Nesta secção, testa a configuração de um único sinal do Azure AD utilizando o Painel de Acesso.
+## <a name="test-sso"></a>Teste SSO
 
-Quando clicar no azulejo Trelica no Painel de Acesso, deve ser automaticamente inscrito na Trelica para a qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
+Nesta secção, testa a configuração de um único sinal de Acesso AD Azure utilizando o portal My Apps.
+
+Ao selecionar o azulejo Trelica no portal My Apps, é automaticamente inscrito na Trelica para a qual configura o SSO. Para mais informações sobre o portal My Apps, consulte [introdução ao portal My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Tutoriais para integrar aplicações SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e a inscrição única com o Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

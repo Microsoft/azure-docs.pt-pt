@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 11/05/2019
+ms.date: 05/12/2020
 ms.author: anfeldma
-ms.openlocfilehash: fc8fb0e3c9ad35957291376691d5ed2c0484192a
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 0b4e25bd0c24b51975682b83df608581dea083bd
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83120199"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402502"
 ---
 # <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Tutorial: Construa uma aplicação web Java utilizando o Azure Cosmos DB e a SQL API
 
@@ -21,7 +21,7 @@ ms.locfileid: "83120199"
 > * [.NET](sql-api-dotnet-application.md)
 > * [Java](sql-api-java-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
-> * [Python](sql-api-python-application.md)
+> * [Pitão](sql-api-python-application.md)
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
@@ -36,10 +36,10 @@ Este tutorial de aplicação Java mostra-lhe como criar uma aplicação de gest�
 
 > [!TIP]
 > Este tutorial do desenvolvimento de aplicações parte do princípio que tem experiência na utilização do Java. Se estiver familiarizado com o Java ou com as [ferramentas dos pré-requisitos](#Prerequisites), recomendamos-lhe transferir todo o projeto [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) a partir do GitHub e criá-lo utilizando [as instruções no final deste artigo](#GetProject). Assim que o tiver criado, pode rever o artigo para obter conhecimentos aprofundados sobre o código no contexto do projeto.  
-> 
-> 
+>
 
 ## <a name="prerequisites-for-this-java-web-application-tutorial"></a><a id="Prerequisites"></a>Pré-requisitos para este tutorial de aplicação Web de Java
+
 Antes de começar este tutorial de desenvolvimento de aplicação, tem de ter o seguinte:
 
 * Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
@@ -52,36 +52,48 @@ Antes de começar este tutorial de desenvolvimento de aplicação, tem de ter o 
 
 Se estiver a instalar estas ferramentas pela primeira vez, coreservlets.com fornece um walk-through do processo de instalação na secção de arranque rápido do seu [Tutorial: Instalar o TomCat7 e usá-lo com](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) artigo eclipse.
 
-## <a name="step-1-create-an-azure-cosmos-db-account"></a><a id="CreateDB"></a>Passo 1: Criar uma conta do Azure Cosmos DB
+## <a name="create-an-azure-cosmos-db-account"></a><a id="CreateDB"></a>Criar uma conta Azure Cosmos DB
+
 Comecemos por criar uma conta do Azure Cosmos DB. Se já tiver uma conta ou se estiver a utilizar o Emulador do Azure Cosmos DB para este tutorial, pode avançar para o [Passo 2: Criar a aplicação Java JSP](#CreateJSP).
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 [!INCLUDE [keys](../../includes/cosmos-db-keys.md)]
 
-## <a name="step-2-create-the-java-jsp-application"></a><a id="CreateJSP"></a>Passo 2: criar a aplicação de Java JSP
+## <a name="create-the-java-jsp-application"></a><a id="CreateJSP"></a>Criar a aplicação Java JSP
+
 Para criar a aplicação JSP:
 
 1. Primeiro, vamos começar por criar um projeto Java. Abra o Eclipse e clique em **Ficheiro**, **Novo**, e, em seguida, clique em **Dynamic Web Project**. Se não vir o **Dynamic Web Project** listado como um projeto disponível, faça o seguinte: clique em **File,** clique em **Novo,** clique em **Projeto**Web..., clique no **Web,** clique no **Dynamic Web Project**e clique em **Next**.
    
     ![Desenvolvimento de aplicações de Java JSP](./media/sql-api-java-application/image10.png)
-2. Introduza um nome de projeto na caixa **Nome do projeto** e no menu pendente **Tempo de execução de destino**, em opção, selecione um valor (por ex. Apache Tomcat v7.0) e, em seguida, clique em **Concluir**. Selecionar um tempo de execução de destino permite-lhe executar o seu projeto localmente através do Eclipse.
-3. No Eclipse, na vista do Explorador de Projeto, expanda o seu projeto. Com o botão direito, faça um clique em **WebContent**, clique em **Novo**, e, em seguida, clique em **Ficheiro JSP**.
-4. Na caixa de diálogo **Novo ficheiro JSP**, atribua o nome **index.jsp** ao ficheiro. Mantenha a pasta principal **WebContent**, como apresentado na seguinte ilustração e, em seguida, clique em **Seguinte**.
+
+1. Introduza um nome de projeto na caixa **Nome do projeto** e no menu pendente **Tempo de execução de destino**, em opção, selecione um valor (por ex. Apache Tomcat v7.0) e, em seguida, clique em **Concluir**. Selecionar um tempo de execução de destino permite-lhe executar o seu projeto localmente através do Eclipse.
+
+1. No Eclipse, na vista do Explorador de Projeto, expanda o seu projeto. Com o botão direito, faça um clique em **WebContent**, clique em **Novo**, e, em seguida, clique em **Ficheiro JSP**.
+
+1. Na caixa de diálogo **Novo ficheiro JSP**, atribua o nome **index.jsp** ao ficheiro. Mantenha a pasta principal **WebContent**, como apresentado na seguinte ilustração e, em seguida, clique em **Seguinte**.
    
     ![Criar um novo ficheiro JSP - Tutorial de aplicações Web de Java](./media/sql-api-java-application/image11.png)
-5. Na caixa de diálogo **Selecionar modelo de JSP**, no âmbito deste tutorial, selecione **Novo ficheiro JSP (html)**, e, em seguida, clique em **Concluir**.
-6. Quando abrir o ficheiro index.jsp no Eclipse, adicione o texto a apresentar **Olá, Mundo!** dentro do elemento `<body>` existente. O conteúdo `<body>` atualizado deverá ser semelhante ao seguinte código:
-   
-        <body>
-            <% out.println("Hello World!"); %>
-        </body>
-7. Guarde o ficheiro index.jsp.
-8. Se definir um tempo de execução de destino no passo 2, pode clicar em **Projeto** e, em seguida, em **Executar** para executar localmente a sua aplicação de JSP:
-   
-    ![Olá, Mundo – Tutorial de Aplicações Java](./media/sql-api-java-application/image12.png)
 
-## <a name="step-3-install-the-sql-java-sdk"></a><a id="InstallSDK"></a>Passo 3: instalar o SDK de SQL Java
+1. Na caixa de diálogo **Selecionar modelo de JSP**, no âmbito deste tutorial, selecione **Novo ficheiro JSP (html)**, e, em seguida, clique em **Concluir**.
+
+1. Quando abrir o ficheiro index.jsp no Eclipse, adicione o texto a apresentar **Olá, Mundo!** dentro do elemento `<body>` existente. O conteúdo `<body>` atualizado deverá ser semelhante ao seguinte código:
+
+   ```html
+   <body>
+     <% out.println("Hello World!"); %>
+   </body>
+   ```
+
+1. Guarde o ficheiro index.jsp.
+
+1. Se definir um tempo de execução de destino no passo 2, pode clicar em **Projeto** e, em seguida, em **Executar** para executar localmente a sua aplicação de JSP:
+
+  ![Olá, Mundo – Tutorial de Aplicações Java](./media/sql-api-java-application/image12.png)
+
+## <a name="install-the-sql-java-sdk"></a><a id="InstallSDK"></a>Instale o SQL Java SDK
+
 A forma mais fácil para obter o SDK do SQL Java e as respetivas dependências é através do [Apache Maven](https://maven.apache.org/).
 
 Para tal, terá de converter o seu projeto em projeto maven, realizando os seguintes passos:
@@ -109,7 +121,8 @@ Para tal, terá de converter o seu projeto em projeto maven, realizando os segui
 6. Clique em **OK** e o Maven irá instalar o SDK de SQL Java.
 7. Guarde o ficheiro pom.xml.
 
-## <a name="step-4-using-the-azure-cosmos-db-service-in-a-java-application"></a><a id="UseService"></a>Passo 4: utilizar o serviço do Azure Cosmos DB numa aplicação de Java
+## <a name="using-the-azure-cosmos-db-service-in-a-java-application"></a><a id="UseService"></a>Utilização do serviço Azure Cosmos DB numa aplicação Java
+
 1. Em primeiro lugar, definamos o objeto TodoItem em TodoItem.java:
    
         @Data
@@ -343,7 +356,7 @@ Para tal, terá de converter o seu projeto em projeto maven, realizando os segui
             return true;
         }
 
-## <a name="step-5-wiring-the-rest-of-the-of-java-application-development-project-together"></a><a id="Wire"></a>Passo 5: fazer a ligação do restante projeto de desenvolvimento de aplicações de Java
+## <a name="wiring-the-rest-of-the-of-java-application-development-project-together"></a><a id="Wire"></a>Ligar o resto do projeto de desenvolvimento de aplicações java em conjunto
 Agora que concluímos a parte divertida - apenas falta criar uma interface de utilizador rápida e associá-la ao nosso DAO.
 
 1. Em primeiro lugar, comecemos por criar um controlador para chamar o nosso DAO:
@@ -715,7 +728,7 @@ Agora que concluímos a parte divertida - apenas falta criar uma interface de ut
 5. Fantástico! Agora, só falta testar a aplicação. Execute localmente a aplicação e adicione alguns itens Todo ao indicar o nome e a categoria do item. De seguida, clique em **Adicionar Tarefa**.
 6. Assim que o item for apresentado, pode atualizar se estiver concluído desativar a caixa de verificação e ao clicar em **Atualizar Tarefas**.
 
-## <a name="step-6-deploy-your-java-application-to-azure-web-sites"></a><a id="Deploy"></a>Passo 6: implementar a sua aplicação Java nos Sites do Azure
+## <a name="deploy-your-java-application-to-azure-web-sites"></a><a id="Deploy"></a>Implemente a sua aplicação Java para Web Sites Azure
 Os Sites do Azure tornam a implementação de aplicações Java tão simples como a exportação da sua aplicação com um ficheiro WAR e ao carregá-lo através do controlo de código fonte (por exemplo, Git) ou FTP.
 
 1. Para exportar a sua aplicação como um ficheiro WAR, clique com o botão direito do rato no seu projeto em **Explorador de Projeto**, clique em **Exportar**, e, em seguida, clique em **Ficheiro WAR**.
@@ -755,3 +768,4 @@ Todos os exemplos deste tutorial estão incluídos no projeto [todo](https://git
 21. Num browser, navegue para `http://localhost:8080/azure-documentdb-java-sample/` e comece a adicionar à sua lista de tarefas. Tenha em atenção que se tiver alterado os valores de porta predefinidos, altere 8080 para o valor que selecionou.
 22. Para implementar o seu projeto num site azure, consulte o [Passo 6. Implemente a sua aplicação para Web Sites Do Azure](#Deploy).
 
+## <a name="next-steps"></a>Passos seguintes

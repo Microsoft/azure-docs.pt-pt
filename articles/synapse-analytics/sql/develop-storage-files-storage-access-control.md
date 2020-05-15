@@ -9,41 +9,33 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 6ebf23720d1d323b66671c6770ab2121c9091920
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 7d73b3a1a7c3b2ab290d85d88aa24108d9e7a605
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83197691"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83401975"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Acesso à conta de armazenamento de controlo para SQL a pedido (pré-visualização)
 
 Uma consulta a pedido da SQL lê ficheiros diretamente do Armazenamento Azure. As permissões para aceder aos ficheiros do armazenamento do Azure são controladas a dois níveis:
 - **Nível de armazenamento** - O utilizador deve ter permissão para aceder a ficheiros de armazenamento subjacentes. O seu administrador de armazenamento deve permitir que o diretor da AD Azure leia/escreva ficheiros ou gere a chave SAS que será usada para aceder ao armazenamento.
-- **Nível de serviço SQL** - O utilizador deve ter `ADMINISTER BULK ADMIN` permissão para executar `OPENROWSET` e também permissão para usar credenciais que serão usadas para aceder ao armazenamento.
+- **Nível de serviço SQL** - O utilizador deve ter `SELECT` permissão para ler dados de [tabela ou](develop-tables-external-tables.md) permissão externa `ADMINISTER BULK ADMIN` para executar e também `OPENROWSET` permissão para usar credenciais que serão usadas para aceder ao armazenamento.
 
 Este artigo descreve os tipos de credenciais que pode utilizar e como a procura credencial é decretada para os utilizadores de AD SQL e Azure.
 
 ## <a name="supported-storage-authorization-types"></a>Tipos de autorização de armazenamento suportados
 
-Um utilizador que tenha iniciado um sessão num recurso SQL a pedido deve ser autorizado a aceder e consultar os ficheiros no Armazenamento Azure. São apoiados três tipos de autorização:
+Um utilizador que tenha iniciado um sessão num recurso SQL a pedido deve ser autorizado a aceder e consultar os ficheiros no Armazenamento Azure se os ficheiros não estiverem disponíveis ao público. São apoiados três tipos de autorização:
 
-- [Assinatura de acesso partilhado](#shared-access-signature)
-- [Identidade Gerida](#managed-identity)
-- [Identidade do Utilizador](#user-identity)
+- [Identidade do Utilizador](?tabs=user-identity)
+- [Assinatura de acesso partilhado](?tabs=shared-access-signature)
+- [Identidade Gerida](?tabs=managed-identity)
 
 > [!NOTE]
 > [A passagem da AD Azure](#force-azure-ad-pass-through) é o comportamento padrão quando se cria um espaço de trabalho. Se o utilizar, não precisa de criar credenciais para cada conta de armazenamento acedida através de logins Azure AD. Pode [desativar este comportamento.](#disable-forcing-azure-ad-pass-through)
 
-Na tabela abaixo pode encontrar os tipos de autorização disponíveis:
-
-| Tipo de autorização                    | *Utilizador SQL*    | *Utilizador da AD Azure*     |
-| ------------------------------------- | ------------- | -----------    |
-| [SAS](#shared-access-signature)       | Suportado     | Suportado      |
-| [Identidade Gerida](#managed-identity) | Não suportado | Suportado      |
-| [Identidade do Utilizador](#user-identity)       | Não suportado | Suportado      |
-
-### <a name="shared-access-signature"></a>Assinatura de acesso partilhado
+### <a name="shared-access-signature"></a>[Assinatura de acesso partilhado](#tab/shared-access-signature)
 
 A assinatura de **acesso partilhado (SAS)** proporciona acesso delegado aos recursos numa conta de armazenamento. Com a SAS, um cliente pode conceder aos clientes acesso aos recursos numa conta de armazenamento sem partilhar chaves de conta. A SAS dá-lhe controlo granular sobre o tipo de acesso que concede a clientes que tenham um Intervalo de Validade, incluindo intervalo de validade, permissões concedidas, intervalo de endereçoip aceitável e o protocolo aceitável (https/http).
 
@@ -53,6 +45,8 @@ Você pode obter um token SAS navegando para o portal Azure -> Conta de Armazena
 > Quando uma token SAS é gerada, inclui um ponto de interrogação ('?') no início do símbolo. Para utilizar o símbolo no SQL a pedido, deve remover o ponto de interrogação ('?') ao criar uma credencial. Por exemplo:
 >
 > Ficha sas: ?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSMANd0ef9BrIPBNJ3VYEIq78%3D
+
+É necessário criar credenciais com um espaço de dados ou com um espaço de serviço para permitir o acesso utilizando token SAS.
 
 ### <a name="user-identity"></a>Identidade do Utilizador
 
@@ -103,36 +97,21 @@ Se quiser voltar a enactivar, consulte a secção de passagem da [Azure AD.](#fo
 
 Antes de aceder aos dados, o administrador de Armazenamento Azure deve conceder permissões à Identidade Gerida para aceder aos dados. A concessão de permissões à Identidade Gerida é feita da mesma forma que a concessão de permissão a qualquer outro utilizador da AD Azure.
 
-## <a name="credentials"></a>Credenciais
+### <a name="anonymous-access"></a>Acesso anónimo
 
-Para consultar um ficheiro localizado no Armazenamento Azure, o seu ponto final sQL on-demand precisa de uma credencial que contenha as informações de autenticação. São utilizados dois tipos de credenciais:
-- O CREDENTIAL ao nível do servidor é utilizado para consultas ad-hoc executadas utilizando `OPENROWSET` a função. O nome credencial deve coincidir com o URL de armazenamento.
-- BASE DE DADOS SCOPED CREDENTIAL é utilizado para tabelas externas. Referências externas à tabela `DATA SOURCE` com a credencial que deve ser utilizada para aceder ao armazenamento.
+Pode aceder a ficheiros publicamente disponíveis colocados em contas de armazenamento do Azure que [permitem o acesso anónimo](/azure/storage/blobs/storage-manage-access-to-resources.md).
 
-Uma credencial é adicionada executando [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). Terá de fornecer um argumento de nome credentário. Deve coincidir com qualquer uma das partes do caminho ou todo o caminho para os dados em Armazenamento (ver abaixo).
+---
 
-> [!NOTE]
-> O argumento do FORNECEDOR CRIPTOGRÁFICO não é suportado.
+### <a name="supported-authorization-types-for-databases-users"></a>Tipos de autorização suportados para utilizadores de bases de dados
 
-Para todos os tipos de autorização suportados, as credenciais podem apontar para uma conta ou um recipiente.
+Na tabela abaixo pode encontrar os tipos de autorização disponíveis:
 
-O nome CREDENTIAL ao nível do servidor deve coincidir com o caminho completo da conta de armazenamento (e opcionalmente recipiente) no seguinte formato:`<prefix>://<storage_account_path>/<storage_path>`
-
-| Fonte de Dados Externos       | Prefixo | Caminho da conta de armazenamento                                |
-| -------------------------- | ------ | --------------------------------------------------- |
-| Armazenamento de Blobs do Azure         | https  | <storage_account>.blob.core.windows.net             |
-| Armazenamento do Azure Data Lake Ger1 | https  | <storage_account>.azuredatalakestore.net/webhdfs/v1 |
-| Armazenamento do Azure Data Lake Ger2 | https  | <storage_account>.dfs.core.windows.net              |
-
-
-> [!NOTE]
-> Existe um CREDENTIAL especial de nível de servidor que força a `UserIdentity` [passagem da AD Azure](#force-azure-ad-pass-through).
-
-Opcionalmente, para permitir que um utilizador crie ou deixe cair uma credencial, a administração pode CONCEDER/NEGAR ALTERAR qualquer permissão CREDENTIAL a um utilizador:
-
-```sql
-GRANT ALTER ANY CREDENTIAL TO [user_name];
-```
+| Tipo de autorização                    | *Utilizador SQL*    | *Utilizador da AD Azure*     |
+| ------------------------------------- | ------------- | -----------    |
+| [Identidade do Utilizador](?tabs=user-identity#supported-storage-authorization-types)       | Não suportado | Suportado      |
+| [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)       | Suportado     | Suportado      |
+| [Identidade Gerida](?tabs=managed-identity#supported-storage-authorization-types) | Não suportado | Suportado      |
 
 ### <a name="supported-storages-and-authorization-types"></a>Armazenamentos e tipos de autorização suportados
 
@@ -144,10 +123,23 @@ Pode utilizar as seguintes combinações de tipos de autorização e armazenamen
 | *Identidade Gerida* | Suportado      | Suportado        | Suportado     |
 | *Identidade do Utilizador*    | Suportado      | Suportado        | Suportado     |
 
+## <a name="credentials"></a>Credenciais
+
+Para consultar um ficheiro localizado no Armazenamento Azure, o seu ponto final sQL on-demand precisa de uma credencial que contenha as informações de autenticação. São utilizados dois tipos de credenciais:
+- O CREDENTIAL ao nível do servidor é utilizado para consultas ad-hoc executadas utilizando `OPENROWSET` a função. O nome credencial deve coincidir com o URL de armazenamento.
+- BASE DE DADOS SCOPED CREDENTIAL é utilizado para tabelas externas. Referências externas à tabela `DATA SOURCE` com a credencial que deve ser utilizada para aceder ao armazenamento.
+
+Para permitir que um utilizador crie ou deixe cair uma credencial, a administração pode conceder/NEGAR ALTERAR qualquer permissão credential a um utilizador:
+
+```sql
+GRANT ALTER ANY CREDENTIAL TO [user_name];
+```
+
+Os utilizadores de bases de dados que acedam ao armazenamento externo devem ter permissão para utilizar credenciais.
 
 ### <a name="grant-permissions-to-use-credential"></a>Conceder permissões para usar credenciais
 
-Para utilizar a credencial, o utilizador deve ter permissão de REFERÊNCIAs numa credencial específica. Para conceder uma permissão de referências sobre um storage_credential para um specific_user, execute:
+Para utilizar a credencial, o utilizador deve ter `REFERENCES` permissão numa credencial específica. Para conceder uma `REFERENCES` permissão on a storage_credential para um specific_user, execute:
 
 ```sql
 GRANT REFERENCES ON CREDENTIAL::[storage_credential] TO [specific_user];
@@ -159,15 +151,29 @@ Para garantir uma experiência de passagem de AD Azure suave, todos os utilizado
 GRANT REFERENCES ON CREDENTIAL::[UserIdentity] TO [public];
 ```
 
-### <a name="examples"></a>Exemplos
+## <a name="server-scoped-credential"></a>Credencial com mira de servidor
 
-Dependendo do tipo de [autorização,](#supported-storage-authorization-types)pode criar credenciais utilizando a sintaxe T-SQL abaixo.
-- As credenciais de aplicação do servidor são utilizadas quando as chamadas de login SQL `OPENROWSET` funcionam sem ler ficheiros em alguma conta de `DATA_SOURCE` armazenamento. O nome da credencial com mira do servidor **deve** coincidir com o URL do armazenamento Azure.
-- As credenciais com um aplicativo de base de dados são usadas quando quaisquer chamadas principais `OPENROWSET` funcionam `DATA_SOURCE` ou selecionam dados de tabelaexterna que não acedem a ficheiros públicos. A credencial de base de dados não precisa de corresponder ao nome da conta de armazenamento porque será explicitamente utilizada na FONTE DE DADOS que define a localização do armazenamento.
+As credenciais de aplicação do servidor são utilizadas quando as chamadas de login SQL `OPENROWSET` funcionam sem ler ficheiros em alguma conta de `DATA_SOURCE` armazenamento. O nome da credencial com mira do servidor **deve** coincidir com o URL do armazenamento Azure. Uma credencial é adicionada executando [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). Terá de fornecer um argumento de nome credentário. Deve coincidir com qualquer uma das partes do caminho ou todo o caminho para os dados em Armazenamento (ver abaixo).
 
-**Credencial com mira de servidor com assinatura de acesso partilhado para armazenamento blob**
+> [!NOTE]
+> O argumento do FORNECEDOR CRIPTOGRÁFICO não é suportado.
 
-O seguinte script cria uma credencial de nível de servidor que pode ser usada para aceder a qualquer ficheiro no armazenamento Azure usando token SAS. Crie esta credencial para permitir que o principal Da SQL execute `OPENROWSET` a função de ler ficheiros protegidos com a chave SAS no armazenamento Azure que corresponda a URL em nome credencial.
+O nome CREDENTIAL ao nível do servidor deve coincidir com o caminho completo da conta de armazenamento (e opcionalmente recipiente) no seguinte formato: `<prefix>://<storage_account_path>/<storage_path>` . Os caminhos da conta de armazenamento são descritos no quadro seguinte:
+
+| Fonte de Dados Externos       | Prefixo | Caminho da conta de armazenamento                                |
+| -------------------------- | ------ | --------------------------------------------------- |
+| Armazenamento de Blobs do Azure         | https  | <storage_account>.blob.core.windows.net             |
+| Armazenamento do Azure Data Lake Ger1 | https  | <storage_account>.azuredatalakestore.net/webhdfs/v1 |
+| Armazenamento do Azure Data Lake Ger2 | https  | <storage_account>.dfs.core.windows.net              |
+
+> [!NOTE]
+> Existe um CREDENTIAL especial de nível de servidor que força a `UserIdentity` [passagem da AD Azure](?tabs=user-identity#force-azure-ad-pass-through).
+
+As credenciais com o servidor permitem o acesso ao armazenamento Do Azure utilizando os seguintes tipos de autenticação:
+
+### <a name="shared-access-signature"></a>Assinatura de acesso partilhado
+
+O seguinte script cria uma credencial de nível de servidor que pode ser usada por `OPENROWSET` função para aceder a qualquer ficheiro no armazenamento Azure usando token SAS. Crie esta credencial para permitir que o principal Da SQL execute `OPENROWSET` a função de ler ficheiros protegidos com a chave SAS no armazenamento Azure que corresponda a URL em nome credencial.
 
 Troque <nome da *minha conta de armazenamento*> com o seu nome real de conta de armazenamento e <nome de contentor de conta *mystorage*> com o nome real do recipiente:
 
@@ -178,9 +184,27 @@ WITH IDENTITY='SHARED ACCESS SIGNATURE'
 GO
 ```
 
-**Credencial com mira de servidor que permite o acesso ao armazenamento público**
+### <a name="user-identity"></a>Identidade do Utilizador
 
-O seguinte script cria uma credencial de nível de servidor que pode ser usada para aceder a qualquer ficheiro no armazenamento Azure disponível ao público. Crie esta credencial para permitir que o principal Da SQL que executa `OPENROWSET` a função de ler ficheiros publicamente disponíveis no armazenamento do Azure que corresponda a URL em nome credencial.
+O seguinte script cria uma credencial ao nível do servidor que permite ao utilizador personificar usando a identidade Azure AD.
+
+```sql
+CREATE CREDENTIAL [UserIdentity]
+WITH IDENTITY = 'User Identity';
+```
+
+### <a name="managed-identity"></a>Identidade Gerida
+
+O seguinte script cria uma credencial de nível de servidor que pode ser usada por `OPENROWSET` função para aceder a qualquer ficheiro no armazenamento Azure usando a identidade gerida pelo espaço de trabalho.
+
+```sql
+CREATE CREDENTIAL [https://<mystorageaccountname>.blob.core.windows.net/<mystorageaccountcontainername>]
+WITH IDENTITY='Managed Identity'
+```
+
+### <a name="public-access"></a>Acesso público
+
+O seguinte script cria uma credencial de nível de servidor que pode ser usada por `OPENROWSET` função para aceder a qualquer ficheiro no armazenamento Azure disponível ao público. Crie esta credencial para permitir que o principal Da SQL que executa `OPENROWSET` a função de ler ficheiros publicamente disponíveis no armazenamento do Azure que corresponda a URL em nome credencial.
 
 Você precisaria de ter Exchange <*mystorage accountname*> com o seu nome de conta de armazenamento real, e <nome de *contentor de conta de armazenamento>* com o nome real do recipiente:
 
@@ -190,8 +214,15 @@ WITH IDENTITY='SHARED ACCESS SIGNATURE'
 , SECRET = '';
 GO
 ```
+---
 
-**Credencial com margem de dados com token SAS**
+## <a name="database-scoped-credential"></a>Credencial com âmbito de base de dados
+
+As credenciais com um aplicativo de base de dados são usadas quando quaisquer chamadas principais `OPENROWSET` funcionam `DATA_SOURCE` ou selecionam dados de [tabelaexterna](develop-tables-external-tables.md) que não acedem a ficheiros públicos. A credencial de base de dados não precisa de corresponder ao nome da conta de armazenamento porque será explicitamente utilizada na FONTE DE DADOS que define a localização do armazenamento.
+
+As credenciais com um espaço de dados permitem o acesso ao armazenamento do Azure utilizando os seguintes tipos de autenticação:
+
+### <a name="shared-access-signature"></a>Assinatura de acesso partilhado
 
 O seguinte script cria uma credencial que é usada para aceder a ficheiros no armazenamento usando token SAS especificado na credencial.
 
@@ -201,9 +232,9 @@ WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'sv=2018-03-28&ss=bfqt&srt=s
 GO
 ```
 
-**Credencial com código de base de dados com identidade AD Azure**
+### <a name="azure-ad-identity"></a>Identidade Azure AD
 
-O seguinte script cria uma credencial que é usada por tabelas e funções externas que utilizam fonte de dados com credencial para aceder a ficheiros de armazenamento usando a `OPENROWSET` sua própria identidade Azure AD.
+O seguinte script cria uma credencial com um espaço de base de dados que é usada por [tabela externa](develop-tables-external-tables.md) e funções que utilizam fonte de dados com credencial para aceder a ficheiros de armazenamento usando a sua própria `OPENROWSET` identidade Azure AD.
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL [AzureAD]
@@ -211,9 +242,9 @@ WITH IDENTITY = 'User Identity';
 GO
 ```
 
-**Credencial com código de base de dados com identidade gerida**
+### <a name="managed-identity"></a>Identidade Gerida
 
-O seguinte script cria uma credencial que pode ser usada para personificar o utilizador atual da AD Azure como Identidade Gerida de serviço. 
+O seguinte script cria uma credencial com um espaço de base de dados que pode ser usada para personificar o utilizador atual da AD Azure como Identidade Gerida de serviço. 
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL [SynapseIdentity]
@@ -223,7 +254,92 @@ GO
 
 A credencial de base de dados não precisa de corresponder ao nome da conta de armazenamento porque será explicitamente utilizada na FONTE DE DADOS que define a localização do armazenamento.
 
-## <a name="next-steps"></a>Próximos passos
+### <a name="public-access"></a>[Acesso público](#tab/public-access)
+
+A credencial de base de dados não é necessária para permitir o acesso a ficheiros disponíveis ao público. Criar fonte de [dados sem credenciais de](develop-tables-external-tables.md?tabs=sql-ondemand#example-for-create-external-data-source) base de dados para aceder a ficheiros publicamente disponíveis no armazenamento do Azure.
+
+---
+
+As credenciais de aplicação da base de dados são utilizadas em fontes de dados externas para especificar qual o método de autenticação que será utilizado para aceder a este armazenamento:
+
+```sql
+CREATE EXTERNAL DATA SOURCE mysample
+WITH (    LOCATION   = 'https://*******.blob.core.windows.net/samples',
+          CREDENTIAL = <name of database scoped credential> 
+)
+```
+
+## <a name="examples"></a>Exemplos
+
+**Acesso a fonte de dados publicamente disponível**
+
+Utilize o seguinte script para criar uma tabela que aceda à fonte de dados publicamente disponível.
+
+```sql
+CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] WITH ( FORMAT_TYPE = PARQUET)
+GO
+CREATE EXTERNAL DATA SOURCE publicData
+WITH (    LOCATION   = 'https://****.blob.core.windows.net/public-access' )
+GO
+
+CREATE EXTERNAL TABLE dbo.userPublicData ( [id] int, [first_name] varchar(8000), [last_name] varchar(8000) )
+WITH ( LOCATION = 'parquet/user-data/*.parquet', DATA_SOURCE = [publicData], FILE_FORMAT = [SynapseParquetFormat] )
+```
+
+O utilizador da base de dados pode ler o conteúdo dos ficheiros a partir da fonte de dados utilizando a tabela externa ou a função [OPENROWSET](develop-openrowset.md) que faz referência à fonte de dados:
+
+```sql
+SELECT TOP 10 * FROM dbo.userPublicData;
+GO
+SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet', DATA_SOURCE = [mysample], FORMAT=PARQUET) as rows;
+GO
+```
+
+**Aceder à fonte de dados utilizando credenciais**
+
+Modifique o seguinte script para criar uma tabela externa que aceda ao armazenamento Azure utilizando token SAS, identidade Azure AD do utilizador ou identidade gerida do espaço de trabalho.
+
+```sql
+-- Create master key in databases with some password (one-off per database)
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'Y*********0'
+GO
+
+-- Create databases scoped credential that use User Identity, Managed Identity, or SAS. User needs to create only database-scoped credentials that should be used to access data source:
+
+CREATE DATABASE SCOPED CREDENTIAL MyIdentity WITH IDENTITY = 'User Identity'
+GO
+CREATE DATABASE SCOPED CREDENTIAL WorkspaceIdentity WITH IDENTITY = 'Managed Identity'
+GO
+CREATE DATABASE SCOPED CREDENTIAL SasCredential WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'sv=2019-10-1********ZVsTOL0ltEGhf54N8KhDCRfLRI%3D'
+
+-- Create data source that one of the credentials above, external file format, and external tables that reference this data source and file format:
+
+CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] WITH ( FORMAT_TYPE = PARQUET)
+GO
+
+CREATE EXTERNAL DATA SOURCE mysample
+WITH (    LOCATION   = 'https://*******.blob.core.windows.net/samples'
+-- Uncomment one of these options depending on authentication method that you want to use to access data source:
+--,CREDENTIAL = MyIdentity 
+--,CREDENTIAL = WorkspaceIdentity 
+--,CREDENTIAL = SasCredential 
+)
+
+CREATE EXTERNAL TABLE dbo.userData ( [id] int, [first_name] varchar(8000), [last_name] varchar(8000) )
+WITH ( LOCATION = 'parquet/user-data/*.parquet', DATA_SOURCE = [mysample], FILE_FORMAT = [SynapseParquetFormat] )
+
+```
+
+O utilizador da base de dados pode ler o conteúdo dos ficheiros a partir da fonte de dados utilizando [a tabela externa](develop-tables-external-tables.md) ou a função [OPENROWSET](develop-openrowset.md) que faz referência à fonte de dados:
+
+```sql
+SELECT TOP 10 * FROM dbo.userdata;
+GO
+SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet', DATA_SOURCE = [mysample], FORMAT=PARQUET) as rows;
+GO
+```
+
+## <a name="next-steps"></a>Passos seguintes
 
 Os artigos listados abaixo irão ajudá-lo a aprender como consulta diferentes tipos de pastas, tipos de ficheiros e criar e usar vistas:
 

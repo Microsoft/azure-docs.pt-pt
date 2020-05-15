@@ -7,12 +7,12 @@ ms.service: cache
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/12/2020
-ms.openlocfilehash: f3eee85c600d40b3997a0e6dff6a9b218242feb4
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 3df6cb1afe8a6249eadbbd3f61619e66be2d2478
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83204719"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402498"
 ---
 # <a name="quickstart-create-an-enterprise-tier-cache-preview"></a>Quickstart: Criar uma cache de nível Enterprise (pré-visualização)
 
@@ -20,7 +20,7 @@ A Azure Cache para os níveis da Redis Enterprise fornece a [Redis Enterprise](h
 * Enterprise, que usa memória volátil (DRAM) numa máquina virtual para armazenar dados
 * Enterprise SSD, que utiliza memória volátil e não volátil (NVMe) para armazenar dados.
 
-Não há nenhum custo para se juntar à pré-estreia. Registe-se no [Azure Marketplace,](https://aka.ms/redispreviewsignup/) se estiver interessado. Temos um número muito limitado de lugares de participantes e não podemos garantir que será aceite na pré-visualização.
+Não há nenhum custo para se juntar à pré-estreia. Registe-se através do [Azure Marketplace](https://aka.ms/redispreviewsignup/) **Contacte-me** se estiver interessado. Temos um número muito limitado de lugares de participantes e não podemos garantir que será aceite na pré-visualização.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -80,7 +80,7 @@ Vai precisar de uma assinatura Azure antes de começar. Se não tiver uma, crie 
    > Algum tempo depois da criação da cache de nível Enterprise, receberá um e-mail **de Ação exigido** do Azure Marketplace para configurar o *Azure Cache para Redis, Enterprise Tiers*. Esta ação não é necessária. Pode ignorar com segurança esse e-mail.
    >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, aprendeste a criar uma instância de nível Empresarial de Azure Cache para redis.
 
