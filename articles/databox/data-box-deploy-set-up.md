@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: e892a8bfa3b4b0bb53d7a943e475d4e2a8228add
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 850144e4835b43e219fa059bbc1c92bb3ef412f4
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76514141"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200506"
 ---
 ::: zone target="docs"
 
@@ -24,7 +24,7 @@ ms.locfileid: "76514141"
 
 ::: zone target="chromeless"
 
-# <a name="cable-and-connect-to-your-device"></a>Instalar os cabos e ligar ao dispositivo
+## <a name="cable-and-connect-to-your-device"></a>Instalar os cabos e ligar ao dispositivo
 
 ::: zone-end
 

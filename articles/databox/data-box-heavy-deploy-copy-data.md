@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 475e628901a96334976dbdbbaa8b362197ec3bc3
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e855bb669d86db246d57709607f62e77385e8c42
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79214212"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199167"
 ---
 ::: zone target = "docs"
 
@@ -24,7 +24,7 @@ ms.locfileid: "79214212"
 
 ::: zone target = "chromeless"
 
-# <a name="copy-data-to-azure-data-box-heavy"></a>Copiar dados para o Azure Data Box Heavy
+## <a name="copy-data-to-azure-data-box-heavy"></a>Copiar dados para o Azure Data Box Heavy
 
 ::: zone-end
 

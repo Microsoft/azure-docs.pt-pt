@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/20/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: d116ba81b0c8940687663c17a4ed403e86dd6c22
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 03fe40cea5891e87f42f0d6a50eedee80a68f25e
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79214399"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200527"
 ---
 ::: zone target="docs"
 
@@ -24,7 +24,7 @@ ms.locfileid: "79214399"
 
 ::: zone target="chromeless"
 
-# <a name="return-data-box-and-verify-data-upload-to-azure"></a>Devolver o Data Box e verificar os dados carregados para o Azure
+## <a name="return-data-box-and-verify-data-upload-to-azure"></a>Devolver o Data Box e verificar os dados carregados para o Azure
 
 ::: zone-end
 
