@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 3/9/2020
-ms.openlocfilehash: 4c265665be26dcc6868ea9a303b0c12c52dfe05b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/08/2020
+ms.openlocfilehash: 7391fbccaf7983a070d80da64a2908333280420b
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80878311"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83609006"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Funcionalidades de pré-visualização do Azure Stream Analytics
 
@@ -21,6 +21,15 @@ Este artigo resume todas as funcionalidades atualmente em pré-visualização pa
 ## <a name="public-previews"></a>Pré-visualizações públicas
 
 As seguintes características estão em pré-visualização pública. Você pode aproveitar estas características hoje, mas não usá-las no seu ambiente de produção.
+
+### <a name="authenticate-to-sql-database-output-with-managed-identities"></a>Autenticar a saída da Base de Dados SQL com identidades geridas
+
+O Azure Stream Analytics suporta a [autenticação de identidade gerida](../active-directory/managed-identities-azure-resources/overview.md) para os sinks de saída da Base de Dados Azure SQL. Identidades geridas eliminam as limitações dos métodos de autenticação baseados no utilizador, como a necessidade de reautenticar devido a alterações de palavra-passe ou expirações de token do utilizador que ocorrem a cada 90 dias. Quando remove a necessidade de autenticar manualmente, as suas implementações stream Analytics podem ser totalmente automatizadas.
+
+### <a name="output-to-azure-synapse-analytics"></a>Saída para Azure Synapse Analytics
+
+Os trabalhos da Azure Stream Analytics podem chegar a uma mesa de bilhar SQL no [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) e podem processar taxas de produção até 200MB/seg. Isto suporta as necessidades de análise em tempo real mais exigentes e de processamento de dados em vias quentes para cargas de trabalho, tais como relatórios e dashboards.  
+
 
 ### <a name="online-scaling"></a>Escala ção online
 
