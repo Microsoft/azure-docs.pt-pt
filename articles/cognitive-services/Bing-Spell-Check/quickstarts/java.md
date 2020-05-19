@@ -10,22 +10,22 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 12/16/2019
 ms.author: aahi
-ms.openlocfilehash: 43c528a1e9e46a67e895679b1a0fd04fef8900a7
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 491481156f026e9887244064297d0790a965158e
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75382964"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735118"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-java"></a>Quickstart: Verifique a ortografia com o Bing Spell Check REST API e Java
 
-Use este quickstart para fazer a sua primeira chamada para a API de Verificação de Feitiços de Bing. Este simples pedido java envia um pedido à API e devolve uma lista de correções sugeridas. Embora esta aplicação esteja escrita em Java, a API é um serviço web RESTful compatível com a maioria dos idiomas de programação. O código fonte desta aplicação está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingSpellCheckv7.java).
+Use este quickstart para fazer a sua primeira chamada para a API de Verificação de Feitiços de Bing. Este simples pedido java envia um pedido à API e devolve uma lista de correções sugeridas. Embora esta aplicação esteja escrita em Java, a API é um serviço web RESTful compatível com a maioria dos idiomas de programação. O código fonte desta aplicação está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingSpellCheck.java).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * O Kit de Desenvolvimento java (JDK) 7 ou mais tarde.
 
-* Importar o [gson-2.8.5.jar](https://libraries.io/maven/com.google.code.gson%3Agson) ou a versão [Gson](https://github.com/google/gson) mais atual. Para a execução `.jar` da linha de comando, adicione a pasta Java à sua pasta Java com a classe principal.
+* Importar o [gson-2.8.5.jar](https://libraries.io/maven/com.google.code.gson%3Agson) ou a versão [Gson](https://github.com/google/gson) mais atual. Para a execução da linha de comando, adicione a `.jar` pasta Java à sua pasta Java com a classe principal.
 
 [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
@@ -55,7 +55,7 @@ Use este quickstart para fazer a sua primeira chamada para a API de Verificaçã
 
 ## <a name="create-and-send-an-api-request"></a>Criar e enviar um pedido de API
 
-1. Criar uma `check()` função chamada para criar e enviar o pedido de API. Dentro dele, siga estes passos. Crie uma corda para os parâmetros de pedido. anexar `?mkt=` o parâmetro à sua cadeia `&mode=` de mercado e o parâmetro para o seu modo de verificação ortográfica.  
+1. Criar uma função chamada `check()` para criar e enviar o pedido de API. Dentro dele, siga estes passos. Crie uma corda para os parâmetros de pedido. anexar o parâmetro à sua cadeia de `?mkt=` mercado e o parâmetro para o seu modo de `&mode=` verificação ortográfica.  
 
    ```java
    public static void check () throws Exception {
@@ -71,7 +71,7 @@ Use este quickstart para fazer a sua primeira chamada para a API de Verificaçã
     HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
     ```
 
-3. Abra uma ligação com o URL. Detete o `POST`método de pedido para . Adicione os parâmetros do seu pedido. Certifique-se de adicionar a `Ocp-Apim-Subscription-Key` sua chave de subscrição ao cabeçalho.
+3. Abra uma ligação com o URL. Detete o método de pedido para `POST` . Adicione os parâmetros do seu pedido. Certifique-se de adicionar a sua chave de subscrição ao `Ocp-Apim-Subscription-Key` cabeçalho.
 
     ```java
     connection.setRequestMethod("POST");
@@ -80,7 +80,7 @@ Use este quickstart para fazer a sua primeira chamada para a API de Verificaçã
     connection.setDoOutput(true);
     ```
 
-4. Crie `DataOutputStream` um novo objeto e envie o pedido para a API.
+4. Crie um novo `DataOutputStream` objeto e envie o pedido para a API.
 
     ```java
         DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
@@ -103,7 +103,7 @@ Use este quickstart para fazer a sua primeira chamada para a API de Verificaçã
     }
     ```
 
-1. Crie `BufferedReader` um e leia a resposta da API. Imprima-o para a consola.
+1. Crie um `BufferedReader` e leia a resposta da API. Imprima-o para a consola.
     
     ```java
     BufferedReader in = new BufferedReader(

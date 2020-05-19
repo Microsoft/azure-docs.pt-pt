@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 03/31/2020
+ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 6287b9b8e6129fd62a896e5ac1fcca29febbf01a
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: af3620770a4b608e162368c2432575d36e11e19f
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80478537"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83118904"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-python"></a>Quickstart: Procure imagens usando a API e Python de Pesquisa de Imagem Bing
 
-Utilize este quickstart para começar a enviar pedidos de pesquisa para a API de Pesquisa de Imagem Bing. Esta aplicação Python envia uma consulta de pesquisa para a API, e exibe o URL da primeira imagem nos resultados. Embora esta aplicação esteja escrita em Python, a API é um serviço web RESTful compatível com a maioria dos idiomas de programação.
+Use este quickstart para aprender a enviar pedidos de pesquisa para a API de Pesquisa de Imagem Bing. Esta aplicação Python envia uma consulta de pesquisa para a API, e exibe o URL da primeira imagem nos resultados. Embora esta aplicação esteja escrita em Python, a API é um serviço web RESTful compatível com a maioria dos idiomas de programação.
 
-Pode executar este exemplo como um bloco de notas do Jupyter no [MyBinder](https://mybinder.org), ao clicar no destaque de lançamento do Binder:
+Para executar este exemplo como um caderno Jupyter no [MyBinder,](https://mybinder.org)selecione o crachá de lançamento Binder:
 
 [![Aglutinante](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingImageSearchAPI.ipynb)
 
@@ -40,7 +40,7 @@ O código fonte deste exemplo está disponível [no GitHub](https://github.com/A
 
 ## <a name="create-and-initialize-the-application"></a>Criar e inicializar a aplicação
 
-1. Crie um novo ficheiro Python no seu IDE ou editor favorito e importe os seguintes módulos. Crie uma variável para a sua chave de subscrição, ponto final de pesquisa e termo de pesquisa. `search_url`pode ser o ponto final global abaixo, ou o ponto final personalizado do [subdomínio](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
+1. Crie um novo ficheiro Python no seu IDE ou editor favorito e importe os seguintes módulos. Crie uma variável para a sua chave de subscrição, ponto final de pesquisa e termo de pesquisa. Para `search_url` , pode utilizar o ponto final global no seguinte código, ou utilizar o ponto final de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
 
     ```python
     import requests
@@ -53,7 +53,7 @@ O código fonte deste exemplo está disponível [no GitHub](https://github.com/A
     search_term = "puppies"
     ```
 
-2. Adicione a sua `Ocp-Apim-Subscription-Key` chave de subscrição ao cabeçalho criando um dicionário e adicionando a chave como um valor. 
+2. Adicione a sua chave de subscrição ao `Ocp-Apim-Subscription-Key` cabeçalho criando um dicionário e adicionando a chave como um valor. 
 
     ```python
     headers = {"Ocp-Apim-Subscription-Key" : subscription_key}
@@ -61,13 +61,13 @@ O código fonte deste exemplo está disponível [no GitHub](https://github.com/A
 
 ## <a name="create-and-send-a-search-request"></a>Criar e enviar um pedido de pesquisa
 
-1. Crie um dicionário para os parâmetros do pedido de pesquisa. Adicione o seu `q` termo de pesquisa ao parâmetro. Utilize "público" `license` para o parâmetro procurar imagens no domínio público. Utilize "photo" `imageType` para procurar apenas fotografias.
+1. Crie um dicionário para os parâmetros do pedido de pesquisa. Adicione o seu termo de pesquisa ao `q` parâmetro. Defina o `license` parâmetro `public` para procurar imagens no domínio público. Desloque-o `imageType` `photo` para procurar apenas por fotos.
 
     ```python
     params  = {"q": search_term, "license": "public", "imageType": "photo"}
     ```
 
-2. Use `requests` a biblioteca para ligar para a API de Pesquisa de Imagem bing. Adicione o seu cabeçalho e parâmetros ao pedido e devolva a resposta como um objeto JSON. Obtenha os URLs para várias imagens de miniaturas do campo da `thumbnailUrl` resposta.
+2. Use a biblioteca para ligar para a API de `requests` Pesquisa de Imagem bing. Adicione o seu cabeçalho e parâmetros ao pedido e devolva a resposta como um objeto JSON. Obtenha os URLs para várias imagens de miniaturas do campo da `thumbnailUrl` resposta.
 
     ```python
     response = requests.get(search_url, headers=headers, params=params)
@@ -78,9 +78,9 @@ O código fonte deste exemplo está disponível [no GitHub](https://github.com/A
 
 ## <a name="view-the-response"></a>Ver a resposta
 
-1. Crie uma nova figura com quatro colunas e quatro linhas usando a biblioteca matplotlib. 
+1. Crie uma nova figura com quatro colunas e quatro linhas utilizando a biblioteca matplotlib. 
 
-2. Iterar através das linhas e colunas da figura, e `Image.open()` usar o método da biblioteca PIL para adicionar uma miniatura de imagem a cada espaço. 
+2. Iterar através das linhas e colunas da figura, e usar o método da biblioteca PIL `Image.open()` para adicionar uma miniatura de imagem a cada espaço. 
 
 3. Use `plt.show()` para desenhar a figura e exibir as imagens.
 
@@ -151,7 +151,7 @@ As respostas da API de Pesquisa de Imagens do Bing são devolvidas como JSON. Es
 > [Bing Image Search single-page app tutorial](../tutorial-bing-image-search-single-page-app.md) (Tutorial de aplicação de página única da Pesquisa de Imagens do Bing)
 
 * [O que é a API de Pesquisa de Imagens do Bing?](../overview.md)  
-* [Detalhes de preços](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) para as APIs de Pesquisa bing. 
-* [Obter uma chave de acesso aos Serviços Cognitivos gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
-* [Documentação de Serviços Cognitivos Azure](https://docs.microsoft.com/azure/cognitive-services)
-* [Bing Image Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) (Referência da API de Pesquisa de Imagens do Bing)
+* [Detalhes de preços para as APIs](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)de Pesquisa bing . 
+* [Obtenha uma chave de acesso gratuita aos Serviços Cognitivos.](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api) 
+* [Documentação dos Serviços Cognitivos Azure.](https://docs.microsoft.com/azure/cognitive-services)
+* [Referência da API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)de Pesquisa de Imagem bing .

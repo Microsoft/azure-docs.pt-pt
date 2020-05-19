@@ -101,7 +101,7 @@ Isto pode ser configurado da seguinte forma:
  
     ![Criar horários](./media/analysis-services-refresh-azure-automation/14.png)
 
-2. Clique em **Agenda** > **Criar um novo horário**e, em seguida, preencher os detalhes.
+2. Clique em **Agenda**  >  **Criar um novo horário**e, em seguida, preencher os detalhes.
 
     ![Configurar horários](./media/analysis-services-refresh-azure-automation/15.png)
 
@@ -147,7 +147,7 @@ O **corpo** é um documento JSON que deve conter as seguintes propriedades:
 |Propriedade  |Valor  |
 |---------|---------|
 |**AnáliseServiçosBase de Dados**     |O nome da base de dados dos Serviços de Análise Azure <br/> Exemplo: AdventureWorksDB         |
-|**Serviços de AnáliseServidor**     |O nome do servidor dos Serviços de Análise Azure. <br/> Exemplo: https:\//westus.asazure.windows.net/servers/myserver/models/AdventureWorks/         |
+|**Serviços de AnáliseServidor**     |O nome do servidor dos Serviços de Análise Azure. <br/> Exemplo: https: \/ /westus.asazure.windows.net/servers/myserver/models/AdventureWorks/         |
 |**Tipo de atualização de base de dados**     |O tipo de refrescamento para executar. <br/> Exemplo: Cheio         |
 
 Exemplo corpo JSON:
@@ -175,7 +175,7 @@ Uma Máquina Virtual Azure com um endereço IP público estático pode ser usada
 >
 >Para saber mais sobre a configuração dos Trabalhadores Híbridos da Automação Azure, consulte a [instalação hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md#hybrid-runbook-worker-installation).
 
-Uma vez configurado um Trabalhador Híbrido, crie um Webhook conforme descrito na secção [Consumir com Fábrica](#consume-with-data-factory)de Dados .  A única diferença aqui é selecionar a opção **Executar no** > **Trabalhador Híbrido** ao configurar o Webhook.
+Uma vez configurado um Trabalhador Híbrido, crie um Webhook conforme descrito na secção [Consumir com Fábrica](#consume-with-data-factory)de Dados .  A única diferença aqui é selecionar a opção **Executar no**  >  **Trabalhador Híbrido** ao configurar o Webhook.
 
 Exemplo webhook usando Trabalhador Híbrido:
 

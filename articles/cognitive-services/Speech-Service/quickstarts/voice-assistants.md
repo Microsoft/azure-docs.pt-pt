@@ -10,13 +10,13 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 02/10/2020
 ms.author: travisw
-zone_pivot_groups: programming-languages-set-fourteen
-ms.openlocfilehash: 4e0cf7a977e0369e6bae4a44fcb22563226a3501
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+zone_pivot_groups: programming-languages-set-fifteen
+ms.openlocfilehash: be5ee988484f8e1f3e4ed6826e9bfabf2a63b47f
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80241207"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82979120"
 ---
 # <a name="quickstart-create-a-custom-voice-assistant"></a>Quickstart: Criar um assistente de voz personalizado
 
@@ -30,6 +30,11 @@ ms.locfileid: "80241207"
 ::: zone pivot="programming-language-java"
 [!INCLUDE [Header](../includes/quickstarts/voice-assistants/java/header.md)]
 [!INCLUDE [java](../includes/quickstarts/voice-assistants/java/java.md)]
+::: zone-end
+
+::: zone pivot="programming-language-go"
+[!INCLUDE [Header](../includes/quickstarts/voice-assistants/go/header.md)]
+[!INCLUDE [go](../includes/quickstarts/voice-assistants/go/go.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-more"

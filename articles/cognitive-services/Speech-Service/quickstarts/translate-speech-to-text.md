@@ -10,13 +10,13 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 02/10/2020
 ms.author: trbye
-zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 438a19978ffa1fb2046383d229dc189f97f8b691
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+zone_pivot_groups: programming-languages-set-two-with-js
+ms.openlocfilehash: b61970d40c3f5062440dd705cc9dcbf327da1ea1
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81400192"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82978849"
 ---
 # <a name="quickstart-translate-speech-to-text"></a>Quickstart: Traduzir discurso-a-texto
 
@@ -42,6 +42,12 @@ ms.locfileid: "81400192"
 [!INCLUDE [Header](../includes/quickstarts/translate-stt/header.md)]
 [!INCLUDE [Header](../includes/quickstarts/translate-stt/python/header.md)]
 [!INCLUDE [python](../includes/quickstarts/translate-stt/python/python.md)]
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [Header](../includes/quickstarts/translate-stt/header.md)]
+[!INCLUDE [Header](../includes/quickstarts/translate-stt/javascript/header.md)]
+[!INCLUDE [javascript](../includes/quickstarts/translate-stt/javascript/javascript.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-more"

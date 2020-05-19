@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: 582e298bb291a66a6ec6b7300dffaa0fc18af4e0
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 94ee870771cd0f0c372602648e5a81e99cbd5537
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80238927"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929537"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-python"></a>Quickstart: Sugestione consultas de pesquisa com o Bing Autosuggest REST API e Python
 
-Use este quickstart para começar a fazer chamadas para a API Bing Autosuggest e obter a resposta JSON. Esta simples aplicação Python envia uma consulta de pesquisa parcial para a API, e devolve sugestões para pesquisas. Embora esta aplicação esteja escrita em Python, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código fonte para esta amostra está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingAutosuggestv7.py)
+Acompanhe este quickstart para aprender a fazer chamadas para a API Bing Autosuggest e leia a resposta jSON. Esta simples aplicação Python envia uma consulta de pesquisa parcial para a API, e devolve sugestões para pesquisas. Embora esta aplicação esteja escrita em Python, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código fonte para esta amostra está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingAutosuggestv7.py)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -35,7 +35,7 @@ Use este quickstart para começar a fazer chamadas para a API Bing Autosuggest e
     import http.client, urllib.parse, json
     ```
 
-2. Crie variáveis para o seu anfitrião e caminho da API, código de [mercado,](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)e uma consulta de pesquisa parcial. Pode utilizar o ponto final global abaixo, ou o ponto final personalizado do [subdomínio](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
+2. Crie variáveis para o seu anfitrião e caminho da API, código de [mercado](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)e consulta de pesquisa parcial. Utilize o ponto final global no seguinte código ou utilize o ponto final de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) apresentado no portal Azure para o seu recurso.
 
     ```python
     subscriptionKey = 'enter key here'
@@ -45,7 +45,7 @@ Use este quickstart para começar a fazer chamadas para a API Bing Autosuggest e
     query = 'sail'
     ```
 
-3. Crie uma cadeia de parâmetros, `?mkt=` alinhando o seu código de `&q=` mercado no parâmetro e acedendo a sua consulta ao parâmetro.
+3. Crie uma cadeia de parâmetros, alinhando o seu código de mercado no `mkt=` parâmetro e acedendo a sua consulta ao `q=` parâmetro.
 
     ```python
     params = '?mkt=' + mkt + '&q=' + query
@@ -53,13 +53,13 @@ Use este quickstart para começar a fazer chamadas para a API Bing Autosuggest e
 
 ## <a name="create-and-send-an-api-request"></a>Criar e enviar um pedido de API
 
-1. Adicione a sua `Ocp-Apim-Subscription-Key` chave de subscrição a um cabeçalho.
+1. Adicione a sua chave de subscrição a um `Ocp-Apim-Subscription-Key` cabeçalho.
     
     ```python
     headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
     ```
 
-2. Ligue-se à `HTTPSConnection()`API utilizando `GET` , e envie o pedido contendo os parâmetros do seu pedido.
+2. Ligue-se à API utilizando `HTTPSConnection()` , e envie o pedido contendo os `GET` parâmetros do seu pedido.
     
     ```python
     conn = http.client.HTTPSConnection(host)
@@ -148,7 +148,7 @@ Use este quickstart para começar a fazer chamadas para a API Bing Autosuggest e
 > [!div class="nextstepaction"]
 > [Criar uma aplicação web de página única](../tutorials/autosuggest.md)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - [O que é a Sugestão Automática do Bing?](../get-suggested-search-terms.md)
 - [Referência da API de Sugestão Automática do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)

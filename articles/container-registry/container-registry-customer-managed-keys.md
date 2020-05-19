@@ -51,7 +51,7 @@ az identity create \
   --name <managed-identity-name> 
 ```
 
-Na saída do comando, tome nota dos seguintes valores: `id` e `principalId`. Precisa destes valores em etapas posteriores para configurar o acesso ao registo ao cofre chave.
+Na saída do comando, tome nota dos seguintes valores: `id` e `principalId` . Precisa destes valores em etapas posteriores para configurar o acesso ao registo ao cofre chave.
 
 ```JSON
 {
@@ -111,7 +111,7 @@ az keyvault key create \
   --vault-name <key-vault-name>
 ```
 
-Na saída de comando, tome nota `kid`da identificação da chave, . Usa este ID no próximo passo:
+Na saída de comando, tome nota da identificação da chave, `kid` . Usa este ID no próximo passo:
 
 ```JSON
 [...]
@@ -200,7 +200,7 @@ Ao criar um cofre chave para uma chave gerida pelo cliente, no separador **Basic
 Configure uma política para o cofre chave para que a identidade possa acessá-la.
 
 1. Navegue para o seu cofre chave.
-1. Selecione **Definições** > **As políticas de acesso > +Adicionar Política de Acesso**.
+1. Selecione **Definições**  >  **As políticas de acesso > +Adicionar Política de Acesso**.
 1. Selecione **permissões chave**, e selecione **Obter,** **desembrulhar a chave**e embrulhar a **tecla**.
 1. **Selecione o principal e** selecione o nome de recurso da sua identidade gerida atribuída pelo utilizador.  
 1. **Selecione Adicionar**e, em seguida, selecione **Guardar**.
@@ -210,14 +210,14 @@ Configure uma política para o cofre chave para que a identidade possa acessá-l
 ### <a name="create-key"></a>Criar chave
 
 1. Navegue para o seu cofre chave.
-1. Selecione **Definições** > **.**
+1. Selecione **Settings**  >  **Definições .**
 1. Selecione **+Generate/Import** e introduza um nome único para a chave.
 1. Aceite os valores predefinidos restantes e selecione **Criar**.
 1. Após a criação, selecione a tecla e tome nota da versão chave atual.
 
 ### <a name="create-azure-container-registry"></a>Criar um registo de contentor do Azure
 
-1. Selecione **Criar um** > registo de**contentores** > **Container Registry**de recursos .
+1. Selecione **Criar um**registo de  >  **Containers**  >  **contentores**de recursos .
 1. No separador **Basics,** selecione ou crie um grupo de recursos e introduza um nome de registo. No **SKU,** selecione **Premium**.
 1. No **separador Encriptação,** na **tecla gerida pelo Cliente,** selecione **Ativado**.
 1. Em **Identidade,** selecione a identidade gerida que criou.
@@ -234,7 +234,7 @@ Para ver o estado de encriptação do seu registo no portal, navegue para o seu 
 
 Também pode usar um modelo de Gestor de Recursos para criar um registo e ativar a encriptação com uma chave gerida pelo cliente. 
 
-O modelo seguinte cria um novo registo de contentores e uma identidade gerida atribuída pelo utilizador. Copie o seguinte conteúdo para um novo ficheiro `CMKtemplate.json`e guarde-o utilizando um nome de ficheiro como .
+O modelo seguinte cria um novo registo de contentores e uma identidade gerida atribuída pelo utilizador. Copie o seguinte conteúdo para um novo ficheiro e guarde-o utilizando um nome de ficheiro como `CMKtemplate.json` .
 
 ```JSON
 {
@@ -418,7 +418,7 @@ Utilize as definições de **encriptação** do registo para atualizar a versão
 Por exemplo, para gerar e configurar uma nova versão chave:
 
 1. No portal, navegue para o seu registo. 
-1. Em **Definições,** selecione chave**de alteração**de **encriptação** > .
+1. Em **Definições,** selecione chave de alteração **de encriptação**  >  **Change key**.
 1. **Selecione a chave Selecione**
     
     ![Chave rotativa no portal Azure](./media/container-registry-customer-managed-keys/rotate-key.png)
@@ -448,14 +448,14 @@ Pode configurar a identidade gerida atribuída pelo sistema de um registo para a
 Para permitir a identidade atribuída ao sistema do registo no portal:
 
 1. No portal, navegue para o seu registo. 
-1. Selecione **Definições** >  **Identidade**.
+1. Selecione **Settings**  >   **Definições Identidade**.
 1. No **sistema atribuído,** coloque **o Estado** **ligado**. Selecione **Guardar**.
 1. Copie a **identificação** do objeto da identidade.
 
 Para conceder o acesso de identidade ao seu cofre chave:
 
 1. Navegue para o seu cofre chave.
-1. Selecione **Definições** > **As políticas de acesso > +Adicionar Política de Acesso**.
+1. Selecione **Definições**  >  **As políticas de acesso > +Adicionar Política de Acesso**.
 1. Selecione **permissões chave**, e selecione **Obter,** **desembrulhar a chave**e embrulhar a **tecla**.
 1. **Selecione** o principal e procure o ID do objeto da sua identidade gerida atribuída pelo sistema ou o nome do seu registo.  
 1. **Selecione Adicionar**e, em seguida, selecione **Guardar**.
@@ -463,7 +463,7 @@ Para conceder o acesso de identidade ao seu cofre chave:
 Para atualizar as definições de encriptação do registo para utilizar a identidade:
 
 1. No portal, navegue para o seu registo. 
-1. Em **Definições,** selecione chave**de alteração**de **encriptação** > .
+1. Em **Definições,** selecione chave de alteração **de encriptação**  >  **Change key**.
 1. No **Identidade,** selecione **Sistema atribuído**e selecione **Guardar**.
 
 ### <a name="key-vault-firewall"></a>Firewall do cofre da chave

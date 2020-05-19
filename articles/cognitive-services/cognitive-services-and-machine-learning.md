@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: diberry
-ms.openlocfilehash: cde505e4c95de9b9693a0e9d260d7fa84f3e905b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ec997c802f83b0d1eea54c0710b0ebc4684397fe
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75531484"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83584625"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Serviços Cognitivos e aprendizagem automática
 
@@ -96,20 +96,20 @@ Os seguintes dados categorizam cada serviço pelo tipo de dados que permite ou e
 |[Imagem Digitalizada](./Computer-vision/Home.md)|x|||
 |[Content Moderator](./Content-Moderator/overview.md)|x||x|
 |[Visão Personalizada](./Custom-Vision-Service/home.md)||x||
-|[Rostos](./Face/Overview.md)|x|x||
+|[Face](./Face/Overview.md)|x|x||
 |[Reconhecedor de Formato](./form-recognizer/overview.md)||x||
 |[Leitura Avançada](./immersive-reader/overview.md)|x|||
 |[Reconhecedor de Tinta Digital](./Ink-recognizer/overview.md)|x|x||
 |[Compreensão de Idiomas (LUIS)](./LUIS/what-is-luis.md)||x||
 |[Personalizador](./personalizer/what-is-personalizer.md)|x*|x*|x|
-|[QnA Maker](./QnAMaker/Overview/overview.md)||x||
+|[Criador de FAQ](./QnAMaker/Overview/overview.md)||x||
 |[Reconhecedor de Altifalantes](./speaker-recognition/home.md)||x||
 |[Texto-a-fala da fala (TTS)](speech-service/text-to-speech.md)|x|x||
 |[Discurso-a-texto (STT)](speech-service/speech-to-text.md)|x|x||
 |[Tradução de Voz](speech-service/speech-translation.md)|x|||
 |[Análise de Texto](./text-analytics/overview.md)|x|||
-|[Texto do Tradutor](./translator/translator-info-overview.md)|x|||
-|[Texto tradutor - tradutor personalizado](./translator/custom-translator/overview.md)||x||
+|[Tradutor](./translator/translator-info-overview.md)|x|||
+|[Tradutor - tradutor personalizado](./translator/custom-translator/overview.md)||x||
 
 *O Personalizer apenas necessita de dados de formação recolhidos pelo serviço (como opera em tempo real) para avaliar a sua política e dados. O personalizer não necessita de grandes conjuntos históricos de dados para treino frontal ou de lote. 
 
@@ -131,7 +131,7 @@ Serviços Cognitivos que fornecem modelos exportados para outras ferramentas de 
 |--|--|
 |[Visão Personalizada](./custom-vision-service/home.md)|[Exportação](./Custom-Vision-Service/export-model-python.md) para Tensorflow para Android, CoreML para iOS11, ONNX para Windows ML|
 
-## <a name="learn-more"></a>Saiba mais
+## <a name="learn-more"></a>Saber mais
 
 * [Guia de Arquitetura - Quais são os produtos de machine learning na Microsoft?](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
 * [Machine learning - Introdução à aprendizagem profunda vs. machine learning](../machine-learning/concept-deep-learning-vs-machine-learning.md)

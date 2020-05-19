@@ -8,29 +8,29 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: 6c60516a87dbdc51e19bac5ee9b30f2f1a8b0254
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: cf74d686a9156d6ccff1753a4f53abb5ecc6b7df
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80239025"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929694"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-c"></a>Quickstart: Sugestione consultas de pesquisa com o Bing Autosuggest REST API e C #
 
-Use este quickstart para começar a fazer chamadas para a API Bing Autosuggest e obter a resposta JSON. Esta simples aplicação C# envia uma consulta de pesquisa parcial para a API, e devolve sugestões para pesquisas. Apesar de esta aplicação estar escrita em C#, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código fonte desta amostra está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingAutosuggestv7.cs).
+Acompanhe este quickstart para aprender a fazer chamadas para a API Bing Autosuggest e leia a resposta jSON. Esta simples aplicação C# envia uma consulta de pesquisa parcial para a API, e devolve sugestões para pesquisas. Apesar de esta aplicação estar escrita em C#, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código fonte desta amostra está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingAutosuggestv7.cs).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Qualquer edição do [Visual Studio 2017 ou mais tarde.](https://www.visualstudio.com/downloads/)
-* Se estiver a utilizar o Linux/MacOS, esta aplicação pode ser executada com o [Mono](https://www.mono-project.com/).
+* Se estiver a utilizar o Linux/MacOS, esta aplicação pode ser executada utilizando [o Mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
 
 ## <a name="create-a-visual-search-solution"></a>Criar uma solução de pesquisa visual
 
-1. Crie uma nova solução de consola no Estúdio Visual. Em seguida, adicione os seguintes espaços de nomes ao ficheiro de código principal.
+1. Crie uma nova solução de consola no Estúdio Visual. Em seguida, adicione os seguintes espaços de nome no ficheiro de código principal.
 
     ```csharp
     using System;
@@ -40,7 +40,7 @@ Use este quickstart para começar a fazer chamadas para a API Bing Autosuggest e
     using System.Text;
     ```
 
-2. Numa nova classe, crie variáveis para o seu anfitrião e caminho da API, código de [mercado,](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)e uma consulta de pesquisa parcial. Pode utilizar o ponto final global abaixo, ou o ponto final personalizado do [subdomínio](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
+2. Numa nova classe, crie variáveis para o seu anfitrião e caminho da API, código de [mercado,](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)e uma consulta de pesquisa parcial. Utilize o ponto final global no seguinte código ou utilize o ponto final de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) apresentado no portal Azure para o seu recurso.
 
     ```csharp
     static string host = "https://api.cognitive.microsoft.com";
@@ -54,7 +54,7 @@ Use este quickstart para começar a fazer chamadas para a API Bing Autosuggest e
 
 ## <a name="create-and-send-an-api-request"></a>Criar e enviar um pedido de API
 
-1. Criar uma `Autosuggest()` função chamada para enviar um pedido à API. Crie `HttpClient()`uma nova e adicione `Ocp-Apim-Subscription-Key` a sua chave de subscrição ao cabeçalho.
+1. Criar uma função chamada `Autosuggest()` para enviar um pedido à API. Crie uma nova `HttpClient()` e adicione a sua chave de subscrição ao `Ocp-Apim-Subscription-Key` cabeçalho.
 
     ```csharp
     async static void Autosuggest()
@@ -65,7 +65,7 @@ Use este quickstart para começar a fazer chamadas para a API Bing Autosuggest e
     }
     ```
 
-2. Na mesma função acima, crie um pedido URI combinando o seu hospedeiro e caminho da API. Ameo o `?mkt=` seu mercado ao parâmetro e `&query=` à sua consulta ao parâmetro. Certifique-se de codificar a sua consulta. 
+2. Na mesma função acima, crie um pedido URI combinando o seu hospedeiro e caminho da API. Ameo o seu mercado ao `mkt=` parâmetro e à sua consulta ao `query=` parâmetro. Certifique-se de codificar a sua consulta. 
 
     ```csharp
     string uri = host + path + "?mkt=" + market + "&query=" + System.Net.WebUtility.UrlEncode (query);
@@ -80,7 +80,7 @@ Use este quickstart para começar a fazer chamadas para a API Bing Autosuggest e
     Console.WriteLine(contentString);
     ```
 
-4. No método principal do seu `Autosuggest()`programa, ligue.
+4. No método principal do seu programa, `Autosuggest()` ligue.
 
     ```csharp
     static void Main(string[] args)
@@ -163,7 +163,7 @@ Use este quickstart para começar a fazer chamadas para a API Bing Autosuggest e
 > [!div class="nextstepaction"]
 > [Tutorial da Sugestão Automática do Bing](../tutorials/autosuggest.md)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - [O que é a Sugestão Automática do Bing?](../get-suggested-search-terms.md)
 - [Referência da API de Sugestão Automática do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)

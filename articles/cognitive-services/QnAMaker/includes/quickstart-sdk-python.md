@@ -3,12 +3,12 @@ title: 'Quickstart: Biblioteca de clientes QnA Maker para Python'
 description: Este quickstart mostra como começar com a biblioteca de clientes QnA Maker para Python.
 ms.topic: include
 ms.date: 04/27/2020
-ms.openlocfilehash: ccd046ad8e511517abd9f45072781e736f0e79b9
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 8a180096e21203dd45d806ceca14794c985d664a
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204040"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82876008"
 ---
 Utilize a biblioteca de clientes QnA Maker para:
 
@@ -19,7 +19,7 @@ Utilize a biblioteca de clientes QnA Maker para:
 * Aguarde a tarefa de longo prazo
 * Eliminar base de conhecimento
 
-[Documentação de referência](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker?view=azure-python) | [Biblioteca Código](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-knowledge-qnamaker) | fonte[Pacote (pipi)](https://pypi.org/project/azure-cognitiveservices-knowledge-qnamaker/) | [Amostras de Python](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/blob/master/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py)
+[Documentação de](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker?view=azure-python)  |  referência Código fonte [da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-knowledge-qnamaker)  |  [Pacote (pipi)](https://pypi.org/project/azure-cognitiveservices-knowledge-qnamaker/)  |  [Amostras de python](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/blob/master/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py)
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
@@ -29,7 +29,7 @@ Utilize a biblioteca de clientes QnA Maker para:
 * [Python 3.x](https://www.python.org/)
 * Assim que tiver a sua subscrição Azure, crie um [recurso QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) no portal Azure para obter a sua chave de autor e ponto final. Depois de ser implantado, selecione **Ir para o recurso**.
     * Necessitará da chave e do ponto final do recurso que cria para ligar a sua aplicação à API do Fabricante qnA. Vaicolar a chave e o ponto final no código abaixo no arranque rápido.
-    * Você pode usar o nível de preços gratuitos (`F0`) para experimentar o serviço, e fazer upgrade mais tarde para um nível pago para produção.
+    * Você pode usar o nível de preços gratuitos ( `F0` ) para experimentar o serviço, e fazer upgrade mais tarde para um nível pago para produção.
 
 ## <a name="setting-up"></a>Configuração
 
@@ -37,7 +37,7 @@ Utilize a biblioteca de clientes QnA Maker para:
 
 Os Serviços Cognitivos Azure são representados por recursos Azure que subscreve. Crie um recurso para o Fabricante QnA utilizando o [portal Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou [o Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) na sua máquina local.
 
-Depois de obter uma chave do seu recurso, `QNAMAKER_KEY` [crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para o recurso, nomeado e `QNAMAKER_HOST`. Utilize os valores chave e ponto final encontrados no portal Azure.
+Depois de obter uma chave do seu recurso, [crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para o recurso, nomeado `QNAMAKER_KEY` e `QNAMAKER_HOST` . Utilize os valores chave e ponto final encontrados no portal Azure.
 
 ### <a name="install-the-python-library-for-qna-maker"></a>Instale a biblioteca python para O Criador de QnA
 
@@ -53,7 +53,7 @@ Crie um objeto [CognitiveServicesCredenciais](https://docs.microsoft.com/python/
 
 Assim que o cliente for criado, utilize a [base de Conhecimento](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.authoring.operations.knowledgebase_operations?view=azure-python) para criar, gerir e publicar a sua base de conhecimento.
 
-Para operações imediatas, um método geralmente devolve um estado indicativo do objeto JSON. Para operações de longo prazo, a resposta é o ID de operação. Ligue para o [cliente. Operações.getMétodo DeDetalhes](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.authoring.models.operationstatetype?view=azure-python) com o ID de operação para determinar o [estado do pedido](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.operationstatetype?view=azure-python).
+Para operações imediatas, um método geralmente devolve um estado indicativo do objeto JSON. Para operações de longo prazo, a resposta é o ID de operação. Ligue para o [cliente. Operações.getMétodo DeDetalhes](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.authoring.models.operationstatetype?view=azure-python) com o ID de operação para determinar o [estado do pedido](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.authoring.models.operationstatetype?view=azure-python).
 
 
 ## <a name="code-examples"></a>Exemplos de código
@@ -78,13 +78,13 @@ Crie variáveis para o ponto final e chave azure do seu recurso. Se criou a vari
 |Variável de ambiente|variável|Exemplo|
 |--|--|--|
 |`QNAMAKER_KEY`|`subscription_key`|A chave é uma cadeia de caracteres de 32 caracteres e está disponível no portal Azure, no recurso QnA Maker, na página Quickstart. Isto não é o mesmo que a chave final da previsão.|
-|`QNAMAKER_HOST`|`host`| O seu ponto final de `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`autoria, no formato de, inclui o seu nome de **recurso.** Este não é o mesmo URL usado para consultar o ponto final da previsão.|
+|`QNAMAKER_HOST`|`host`| O seu ponto final de autoria, no formato de, inclui o seu nome de `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com` **recurso.** Este não é o mesmo URL usado para consultar o ponto final da previsão.|
 
 [!code-python[Azure resource variables](~/samples-qnamaker-python/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py?name=resourcekeys)]
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
-Em seguida, crie um objeto CognitiveServicesCredenciacom a sua chave e use-o com o seu ponto final para criar um objeto [QnAMakerClient.](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.qnamakerclient?view=azure-python)
+Em seguida, crie um objeto CognitiveServicesCredenciacom a sua chave e use-o com o seu ponto final para criar um objeto [QnAMakerClient.](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.authoring.qnamakerclient?view=azure-python)
 
 
 [!code-python[Authorization to resource key](~/samples-qnamaker-python/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py?name=authorization)]
@@ -103,7 +103,7 @@ Ligue para o método [de criação](https://docs.microsoft.com/python/api/azure-
 
 [!code-python[Create a knowledge base](~/samples-qnamaker-python/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py?name=createkb&highlight=15)]
 
-Certifique-se de [`_monitor_operation`](#get-status-of-an-operation) que a função, referenciada no código acima, para criar com sucesso uma base de conhecimento.
+Certifique-se de que a [`_monitor_operation`](#get-status-of-an-operation) função, referenciada no código acima, para criar com sucesso uma base de conhecimento.
 
 ## <a name="update-a-knowledge-base"></a>Atualizar uma base de dados de conhecimento
 
@@ -111,7 +111,7 @@ Pode atualizar uma base de conhecimentos, passando o ID da base de conhecimentos
 
 [!code-python[Update a knowledge base](~/samples-qnamaker-python/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py?name=updatekb&highlight=2)]
 
-Certifique-se de [`_monitor_operation`](#get-status-of-an-operation) que a função, referenciada no código acima, para atualizar com sucesso uma base de conhecimento.
+Certifique-se de que a [`_monitor_operation`](#get-status-of-an-operation) função, referenciada no código acima, para atualizar com sucesso uma base de conhecimento.
 
 ## <a name="publish-a-knowledge-base"></a>Publicar uma base de dados de conhecimento
 
@@ -141,7 +141,7 @@ A chamada _setTimeout_ no seguinte bloco de código é usada para simular códig
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Execute a `python knowledgebase_quickstart.py` aplicação com o comando do seu diretório de candidatura.
+Execute a aplicação com `python knowledgebase_quickstart.py` o comando do seu diretório de candidatura.
 
 Todos os códigos deste artigo estão [disponíveis](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/blob/master/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py) e podem ser executados como um único ficheiro.
 

@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
-ms.author: trbye
-zone_pivot_groups: programming-languages-set-three
-ms.openlocfilehash: 67ade64cdb3b2da6f78f77beb4d0cdc993715c9a
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.author: dapine
+zone_pivot_groups: programming-languages-speech-services-one-nomore
+ms.openlocfilehash: f5ab2202dde1bfa830f5952dd5c6e77e2fb7fd41
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81400866"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82980179"
 ---
 # <a name="quickstart-setup-development-environment"></a>Quickstart: Ambiente de desenvolvimento de configuração
 
@@ -85,4 +85,26 @@ ms.locfileid: "81400866"
 
 [!INCLUDE [python](../includes/quickstarts/platform/python.md)]
 
+::: zone-end
+
+::: zone pivot="programming-language-go"
+
+[!INCLUDE [go-linux](../includes/quickstarts/platform/go-linux.md)]
+
+* * *
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+**Escolha o seu ambiente alvo**
+
+#### <a name="browser-based"></a>[Baseado no navegador](#tab/browser)
+
+[!INCLUDE [browser](../includes/quickstarts/platform/javascript-browser.md)]
+
+#### <a name="nodejs"></a>[NodeJS](#tab/nodejs)
+
+[!INCLUDE [node](../includes/quickstarts/platform/javascript-node.md)]
+
+* * *
 ::: zone-end

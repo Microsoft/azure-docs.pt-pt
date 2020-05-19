@@ -8,19 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: b3f279ea50e9923e63f7d6090f4dbaca939eb16c
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: d1c2da10270747aa09ecbcfdc537df567b4cdfc9
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80238974"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929660"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-java"></a>Quickstart: Sugestione consultas de pesquisa com o Bing Autosuggest REST API e Java
 
-
-Use este quickstart para começar a fazer chamadas para a API Bing Autosuggest e obter a resposta JSON. Esta simples aplicação Java envia uma consulta de pesquisa parcial à API, e devolve sugestões para pesquisas. Embora esta aplicação seja escrita em Java, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código fonte para esta amostra está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingAutosuggestv7.java)
+Acompanhe este quickstart para aprender a fazer chamadas para a API Bing Autosuggest e leia a resposta jSON. Esta simples aplicação Java envia uma consulta de pesquisa parcial à API, e devolve sugestões para pesquisas. Embora esta aplicação seja escrita em Java, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código fonte para esta amostra está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingAutosuggestv7.java)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -44,7 +43,7 @@ Use este quickstart para começar a fazer chamadas para a API Bing Autosuggest e
     import com.google.gson.JsonParser;
     ```
 
-2. Crie variáveis para a sua chave de subscrição, o anfitrião e caminho da API, o seu código de [mercado](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)e uma consulta de pesquisa. Pode utilizar o ponto final global abaixo, ou o ponto final personalizado do [subdomínio](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
+2. Crie variáveis para a sua chave de subscrição, o anfitrião e caminho da API, o seu código de [mercado](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)e uma consulta de pesquisa. Utilize o ponto final global abaixo ou utilize o ponto final de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
     
     ```java
     static String subscriptionKey = "enter key here";
@@ -57,7 +56,7 @@ Use este quickstart para começar a fazer chamadas para a API Bing Autosuggest e
 
 ## <a name="format-the-response"></a>Formatar a resposta
 
-Crie um `prettify()` método nomeado para formatar a resposta devolvida da API bing video. Use a biblioteca Gson `JsonParser` para pegar numa corda JSON e convertê-la num objeto. Em `GsonBuilder()` seguida, use e `toJson()` crie a corda formatada.
+Crie um método nomeado `prettify()` para formatar a resposta devolvida da API bing video. Use a biblioteca Gson `JsonParser` para pegar numa corda JSON e convertê-la num objeto. Em seguida, use `GsonBuilder()` e `toJson()` crie a corda formatada.
 
 ```java
 // pretty-printer for JSON; uses GSON parser to parse and re-serialize
@@ -71,9 +70,9 @@ public static String prettify(String json_text) {
 
 ## <a name="construct-and-send-the-search-request"></a>Construir e enviar o pedido de pesquisa
 
-1. Crie um `get_suggestions()` novo método nomeado e execute os seguintes passos:
+1. Crie um novo método nomeado `get_suggestions()` e execute os seguintes passos:
 
-   1. construa o URL para o seu pedido, combinando o seu anfitrião, caminho e codificando a sua consulta de pesquisa. Certifique-se de que codifica a consulta antes de a gastar. Crie uma cadeia de parâmetros para a sua `mkt=` consulta, alinhando o `q=` código de mercado ao parâmetro e a sua consulta ao parâmetro.
+   1. Construa o URL para o seu pedido, combinando o seu anfitrião, caminho e codificando a sua consulta de pesquisa. Certifique-se de que codifica a consulta antes de a gastar. Crie uma cadeia de parâmetros para a sua consulta, alinhando o código de mercado ao parâmetro e a `mkt=` sua consulta ao `q=` parâmetro.
     
       ```java
   
@@ -84,7 +83,7 @@ public static String prettify(String json_text) {
       }
       ```
     
-   2. Crie um novo URL para o pedido com o hospedeiro, caminho e parâmetros da API acima. 
+   2. Crie um novo URL para o pedido com o anfitrião, caminho e parâmetros da API que criou no passo anterior. 
     
        ```java
        //...
@@ -92,7 +91,7 @@ public static String prettify(String json_text) {
        //...
        ```
     
-   3. Crie `HttpsURLConnection` um objeto `openConnection()` e use para criar uma ligação. Detete o `GET`método de pedido para, e adicione a sua chave de subscrição ao `Ocp-Apim-Subscription-Key` cabeçalho.
+   3. Crie um `HttpsURLConnection` objeto e use para criar uma `openConnection()` ligação. Detete o método de pedido `GET` para, e adicione a sua chave de subscrição ao `Ocp-Apim-Subscription-Key` cabeçalho.
 
       ```java
        //...
@@ -103,7 +102,7 @@ public static String prettify(String json_text) {
        //...
       ```
 
-   4. Leia na resposta da `StringBuilder`API a . Depois da resposta ter sido `InputStreamReader` capturada, feche o fluxo e devolva a resposta.
+   4. Guarde a resposta da API em `StringBuilder` . Depois da resposta ter sido capturada, feche o `InputStreamReader` fluxo e devolva a resposta.
 
        ```java
        //...
@@ -119,7 +118,7 @@ public static String prettify(String json_text) {
        return response.toString();
        ```
 
-2. Na função principal da `get_suggestions()`sua aplicação, `prettify()`ligue e imprima a resposta usando .
+2. Na função principal da sua aplicação, ligue `get_suggestions()` e imprima a resposta utilizando `prettify()` .
     
     ```java
     public static void main(String[] args) {

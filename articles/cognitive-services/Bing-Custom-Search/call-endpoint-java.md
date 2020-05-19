@@ -8,32 +8,32 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: 02c86e5a4c1a04b98ebba73653980e8e5e00f645
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 7c9f713d50e31557999c9127cd219bfe9b3a8c82
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80238881"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199864"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-java"></a>Quickstart: Ligue para o seu ponto final de pesquisa personalizada bing usando Java
 
-Utilize este quickstart para começar a solicitar resultados de pesquisa da sua instância de Pesquisa Personalizada Bing. Enquanto esta aplicação está escrita em Java, o Bing Custom Search API é um serviço web RESTful compatível com a maioria dos idiomas de programação. O código fonte desta amostra está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingCustomSearchv7.java).
+Utilize este quickstart para aprender a solicitar resultados de pesquisa a partir da sua instância de Pesquisa Personalizada Bing. Embora esta aplicação esteja escrita em Java, o Bing Custom Search API é um serviço web RESTful compatível com a maioria dos idiomas de programação. O código fonte desta amostra está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingCustomSearchv7.java).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma instância de pesquisa personalizada bing. Consulte [Quickstart: Crie a sua primeira instância](quick-start.md) de Pesquisa Personalizada Bing para mais informações.
+- Uma instância de pesquisa personalizada bing. Para mais informações, consulte [Quickstart: Crie a sua primeira instância](quick-start.md)de pesquisa personalizada bing .
 
-- O mais recente Kit de [Desenvolvimento java](https://www.oracle.com/technetwork/java/javase/downloads/index.html)  
+- O mais recente Kit de [Desenvolvimento java.](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
-- A [Biblioteca de Gson](https://github.com/google/gson)
+- A [biblioteca Gson.](https://github.com/google/gson)
 
 [!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
 ## <a name="create-and-initialize-the-application"></a>Criar e inicializar a aplicação
 
-1. Crie um novo projeto Java no seu IDE ou editor favorito e importe as seguintes bibliotecas.
+1. Crie um novo projeto Java no seu IDE ou editor favorito, e importe as seguintes bibliotecas:
 
     ```java
     import java.io.InputStream;
@@ -50,7 +50,7 @@ Utilize este quickstart para começar a solicitar resultados de pesquisa da sua 
     import com.google.gson.JsonParser;
     ```
 
-2. Crie uma `CustomSrchJava`classe chamada e crie variáveis para a sua chave de subscrição, ponto final de pesquisa personalizado e id de configuração personalizada da sua instância de pesquisa. Pode utilizar o ponto final global abaixo, ou o ponto final personalizado do [subdomínio](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
+2. Crie uma classe chamada `CustomSrchJava` , e, em seguida, crie variáveis para a sua chave de subscrição, ponto final de pesquisa personalizado e ID de configuração personalizada da instância de pesquisa. Pode utilizar o ponto final global no seguinte código ou utilizar o ponto final de [subdomínio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
     ```java
     public class CustomSrchJava {
         static String host = "https://api.cognitive.microsoft.com";
@@ -61,7 +61,7 @@ Utilize este quickstart para começar a solicitar resultados de pesquisa da sua 
     ...
     ```
 
-3. Crie outra `SearchResults` classe com o nome para conter a resposta da sua instância de Pesquisa Personalizada Bing.
+3. Crie outra classe com o nome `SearchResults` para conter a resposta da sua instância de Pesquisa Personalizada Bing.
 
     ```csharp
     class SearchResults{
@@ -74,7 +74,7 @@ Utilize este quickstart para começar a solicitar resultados de pesquisa da sua 
     }
     ```
 
-4. Crie uma `prettify()` função nomeada para formatar a resposta JSON a partir da API de Pesquisa Personalizada bing.
+4. Crie uma função nomeada `prettify()` para formatar a resposta JSON a partir da API de Pesquisa Personalizada bing.
 
     ```java
         // pretty-printer for JSON; uses GSON parser to parse and re-serialize
@@ -88,7 +88,7 @@ Utilize este quickstart para começar a solicitar resultados de pesquisa da sua 
 
 ## <a name="send-and-receive-a-search-request"></a>Enviar e receber um pedido de pesquisa 
 
-1. Crie uma `SearchWeb()` função nomeada que `SearchResults` envie um pedido e deredere um objeto. Crie o url de pedido combinando o seu ID de Configuração Personalizada, consulta e informações de ponto final. Adicione a sua `Ocp-Apim-Subscription-Key` chave de subscrição ao cabeçalho.
+1. Crie uma função nomeada `SearchWeb()` que envie um pedido e deredere um `SearchResults` objeto. Crie o url de pedido combinando o seu ID de configuração personalizado, consulta e informações de ponto final. Adicione a sua chave de subscrição ao `Ocp-Apim-Subscription-Key` cabeçalho.
 
     ```java
     public class CustomSrchJava {
@@ -101,7 +101,7 @@ Utilize este quickstart para começar a solicitar resultados de pesquisa da sua 
     ...
     ```
 
-2. Crie um fluxo e guarde `SearchResults` a resposta JSON num objeto.
+2. Crie um fluxo e guarde a resposta JSON num `SearchResults` objeto.
 
     ```java
     public class CustomSrchJava {
@@ -120,7 +120,7 @@ Utilize este quickstart para começar a solicitar resultados de pesquisa da sua 
         }
     ```
 
-3. No método principal da sua `SearchWeb()` aplicação, ligue com o seu termo de pesquisa, 
+3. Imprima a resposta jSON.
 
     ```java
     System.out.println("\nJSON Response:\n");

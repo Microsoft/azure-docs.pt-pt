@@ -6,48 +6,43 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/06/2020
+ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: b352e785673d7c4ed3a9b346758ef0d1fa68b36d
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 25b45f2731e94fc6a7a4bedd9c8d44b10125c273
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80887544"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82975040"
 ---
 Começa com a biblioteca de clientes Bing Autosuggest para a Go. Siga estes passos para instalar a biblioteca e experimente os nossos exemplos para tarefas básicas. 
 
 Use a biblioteca de clientes Bing Autosuggest para ir buscar sugestões de pesquisa com base em cordas de consulta parcial.
 
-[Documentação de referência](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/autosuggest) | [Código fonte](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/textanalytics) | código da biblioteca[Código de amostra](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/BingAutoSuggest/BingAutoSuggestQuickstart.go)
+[Documentação de](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/autosuggest)  |  referência Código fonte [da biblioteca](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/textanalytics)  |  [Código da amostra](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/BingAutoSuggest/BingAutoSuggestQuickstart.go)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição Azure - [crie uma gratuitamente](https://azure.microsoft.com/free/)
-* A versão mais recente de [Go](https://golang.org/dl/)
-
-## <a name="setting-up"></a>Configuração
-
-### <a name="create-an-azure-resource"></a>Criar um recurso Azure 
+* Uma subscrição do Azure. Se ainda não tem uma subscrição Azure, [pode criar uma gratuitamente.](https://azure.microsoft.com/free/)
+* A versão mais recente de [Go](https://golang.org/dl/).
 
 Comece a usar a biblioteca de clientes Bing Autosuggest criando um recurso Azure. Escolha o tipo de recurso abaixo que é o certo para si:
 
 [!INCLUDE [cognitive-services-bing-autosuggest-signup-requirements](~/includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
 
-### <a name="create-an-environment-variable"></a>Criar uma variável ambiental
+## <a name="create-environment-variables"></a>Criar variáveis de ambiente
 
 >[!NOTE]
 > Os pontos finais dos recursos não experimentais criados após 1 de julho de 2019 utilizam o formato de subdomínio personalizado mostrado abaixo. Para mais informações e uma lista completa de pontos finais regionais, consulte [nomes de subdomínio personalizado para Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
 
 Utilizando a sua chave e ponto final a partir do recurso que criou, crie duas variáveis ambientais para autenticação:
 <!-- replace the below variable names with the names expected in the code sample.-->
-* `AUTOSUGGEST_SUBSCRIPTION_KEY`- A chave de recursos para autenticar os seus pedidos.
-* `AUTOSUGGEST_ENDPOINT`- O ponto final do recurso para o envio de pedidos de API. Vai ficar assim: 
-  * `https://<your-custom-subdomain>.api.cognitive.microsoft.com` 
+* `AUTOSUGGEST_SUBSCRIPTION_KEY`: A chave de recursos para autenticar os seus pedidos.
+* `AUTOSUGGEST_ENDPOINT`: O ponto final do recurso para o envio de pedidos de API. Deve ser assim:`https://<your-custom-subdomain>.api.cognitive.microsoft.com` 
 
 Utilize as instruções para o seu sistema operativo.
 <!-- replace the below endpoint and key examples -->
-#### <a name="windows"></a>[Windows](#tab/windows)
+### <a name="windows"></a>[Windows](#tab/windows)
 
 ```console
 setx BING_AUTOSUGGEST_SUBSCRIPTION_KEY <replace-with-your-autosuggest-api-key>
@@ -56,7 +51,7 @@ setx BING_AUTOSUGGEST_ENDPOINT <replace-with-your-autosuggest-api-endpoint>
 
 Depois de adicionar a variável ambiente, reinicie a janela da consola.
 
-#### <a name="linux"></a>[Linux](#tab/linux)
+### <a name="linux"></a>[Linux](#tab/linux)
 
 ```bash
 export AUTOSUGGEST_SUBSCRIPTION_KEY=<replace-with-your-autosuggest-api-key>
@@ -65,9 +60,9 @@ export AUTOSUGGEST_ENDPOINT=<replace-with-your-autosuggest-api-endpoint>
 
 Depois de adicionar a variável de ambiente, execute `source ~/.bashrc` a partir da janela da consola para que as alterações entrem em vigor.
 
-#### <a name="macos"></a>[macOS](#tab/unix)
+### <a name="macos"></a>[macOS](#tab/unix)
 
-Edite `.bash_profile`a sua , e adicione a variável ambiental:
+Edite a sua `.bash_profile` , e adicione a variável ambiental:
 
 ```bash
 export AUTOSUGGEST_SUBSCRIPTION_KEY=<replace-with-your-autosuggest-api-key>
@@ -77,25 +72,25 @@ export AUTOSUGGEST_ENDPOINT=<replace-with-your-autosuggest-api-endpoint>
 Depois de adicionar a variável de ambiente, execute `source .bash_profile` a partir da janela da consola para que as alterações entrem em vigor.
 ***
 
-### <a name="create-a-new-go-project"></a>Criar um novo projeto Go
+## <a name="create-a-new-go-project"></a>Criar um novo projeto Go
 
 Numa janela de consola (cmd, PowerShell, Terminal, Bash), crie um novo espaço de trabalho para o seu projeto Go e navegue até ele. O seu espaço de trabalho conterá três pastas: 
 
-* **sRC** - Este diretório contém código fonte e pacotes. Quaisquer pacotes instalados com o `go get` comando residem aqui.
-* **pkg** - Este diretório contém os objetos de pacote Go compilados. Todos estes ficheiros têm uma `.a` extensão.
-* **bin** - Este diretório contém os ficheiros executáveis `go install`binários que são criados quando executa .
+* **sRC**: Este diretório contém código fonte e pacotes. Quaisquer pacotes instalados com o `go get` comando residem aqui.
+* **pkg**: Este diretório contém os objetos de pacote Go compilados. Todos estes ficheiros têm uma `.a` extensão.
+* **bin**: Este diretório contém os ficheiros executáveis binários que são criados quando executa `go install` .
 
 > [!TIP]
-> Saiba mais sobre a estrutura de um espaço de [trabalho Go.](https://golang.org/doc/code.html#Workspaces) Este guia inclui `$GOPATH` informações para a definição e `$GOROOT`.
+> Saiba mais sobre a estrutura de um espaço de [trabalho Go.](https://golang.org/doc/code.html#Workspaces) Este guia inclui informações para a definição `$GOPATH` e `$GOROOT` .
 
-Vamos criar um espaço `my-app` de trabalho chamado e `src`os `pkg`sub `bin`diretórios necessários para, e:
+Vamos criar um espaço de trabalho chamado `my-app` e os sub diretórios necessários `src` `pkg` para, `bin` e:
 
 ```
 $ mkdir -p my-app/{src, bin, pkg}  
 $ cd my-app
 ```
 
-### <a name="install-the-client-library-for-go"></a>Instale a biblioteca de clientes para Go
+## <a name="install-the-client-library-for-go"></a>Instale a biblioteca de clientes para Go
 
 Agora, vamos instalar a biblioteca de clientes para go: 
 
@@ -109,16 +104,16 @@ ou se utilizar o dep, dentro da sua corrida de repo:
 $ dep ensure -add <library-location-or-url>
 ```
 
-### <a name="create-your-go-application"></a>Crie a sua aplicação Go
+## <a name="create-your-go-application"></a>Crie a sua aplicação Go
 
-Em seguida, vamos criar `src/sample-app.go`um ficheiro chamado:
+Em seguida, vamos criar um ficheiro `src/sample-app.go` chamado:
 
 ```bash
 $ cd src
 $ touch sample-app.go
 ```
 
-Abra `sample-app.go` e adicione o nome do pacote e importe as seguintes bibliotecas:
+Abra, `sample-app.go` adicione o nome do pacote e, em seguida, importe as seguintes bibliotecas:
 
 ```Go
 package main
@@ -133,7 +128,7 @@ import (
 )
 ```
 
-Criar uma `main`função chamada . Em seguida, crie variáveis ambientais para a sua chave Bing Autosuggest e ponto final.
+Criar uma função chamada `main` . Em seguida, crie variáveis ambientais para a sua chave Bing Autosuggest e ponto final:
 
 ```go
 func main() {
@@ -157,10 +152,10 @@ Estas amostras de código mostram-lhe como completar tarefas básicas usando a b
 * [Autenticar o cliente](#authenticate-the-client)
 * [Enviar um pedido de API](#send-an-api-request)
 
-## <a name="authenticate-the-client"></a>Autenticar o cliente
+### <a name="authenticate-the-client"></a>Autenticar o cliente
 
 > [!NOTE] 
-> Este quickstart assume que [criou uma variável ambiental](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para `BING_AUTOSUGGEST_SUBSCRIPTION_KEY`a sua chave bing `BING_AUTOSUGGEST_ENDPOINT`autosuggest, chamada , e uma para o seu ponto final chamado .
+> Este quickstart assume que [criou uma variável ambiental](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a sua chave bing autosuggest, chamada , e uma para o seu ponto final chamado `BING_AUTOSUGGEST_SUBSCRIPTION_KEY` `BING_AUTOSUGGEST_ENDPOINT` .
 
 Na `main()` função, instantaneamente um cliente com o seu ponto final e chave. 
 
@@ -174,7 +169,7 @@ client.Authorizer = autorest.NewCognitiveServicesAuthorizer(subscription_key)
 client.Endpoint = endpoint
 ```
 
-## <a name="send-an-api-request"></a>Enviar um pedido de API
+### <a name="send-an-api-request"></a>Enviar um pedido de API
 
 No mesmo método, utilize o método [AutoSuggestMethodAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.autosuggestclientextensions.autosuggestmethodasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Search_AutoSuggest_AutoSuggestClientExtensions_AutoSuggestMethodAsync_Microsoft_Azure_CognitiveServices_Search_AutoSuggest_IAutoSuggestClient_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_Collections_Generic_IList_System_String__System_Threading_CancellationToken_) do cliente para enviar uma consulta ao Bing. Em seguida, iterar sobre a resposta [sugestões,](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.models.suggestions?view=azure-dotnet) e imprimir a primeira sugestão.
 
@@ -204,7 +199,7 @@ if len(groups) > 0 {
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Execute a sua `go run [arguments]` aplicação Go com o comando do seu diretório de candidatura.
+Execute a sua aplicação Go com o `go run [arguments]` comando do seu diretório de candidatura.
 
 ```Go
 go run sample-app.go
@@ -214,15 +209,15 @@ go run sample-app.go
 
 Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos associados ao mesmo.
 
-* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [CLI do Azure](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+* [Elimine um grupo de recursos no portal Azure.](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Eliminar um grupo de recursos no Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Tutorial da Sugestão Automática do Bing](../../tutorials/autosuggest.md)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - [O que é a Sugestão Automática do Bing?](../../get-suggested-search-terms.md)
 - [Referência da API de Sugestão Automática do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)

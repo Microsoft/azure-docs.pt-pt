@@ -1,5 +1,5 @@
 ---
-title: Relatório do Quadro de Tradução Colaborativa (CTF) - API de texto de tradutor
+title: Relatório do Quadro de Tradução Colaborativa (CTF) - Tradutor
 titleSuffix: Azure Cognitive Services
 description: Como utilizar o relatório do Quadro de Tradução Colaborativa (CTF).
 services: cognitive-services
@@ -10,19 +10,19 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: swmachan
-ms.openlocfilehash: 0c099584642de1939df5e1e7d9785006e8d25235
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 1bf6fefbe7d2ea3fccc393f4445fceec44ed4117
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82732347"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83584676"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Como utilizar os relatórios do Collaborative Translation Framework (CTF)
 
 > [!NOTE]
-> Este método está premeditado. Não está disponível em V3.0 da API de Texto tradutor.
+> Este método está premeditado. Não está disponível em V3.0 da Tradutora.
 > 
-> O Quadro de Traduções Colaborativas (CTF), anteriormente disponível para V2.0 da API de Texto tradutor, foi depreciado a partir de 1 de fevereiro de 2018. As funções AddTranslation e AddTranslationArray permitem que os utilizadores permitam correções através do Quadro de Tradução Colaborativa. Depois de 31 de janeiro de 2018, estas duas funções não aceitaram novas candidaturas de frases, e os utilizadores receberam uma mensagem de erro. Estas funções foram retiradas e não serão substituídas.
+> O Quadro de Traduções Colaborativas (CTF), anteriormente disponível para V2.0 de Tradutor, foi depreciado a partir de 1 de fevereiro de 2018. As funções AddTranslation e AddTranslationArray permitem que os utilizadores permitam correções através do Quadro de Tradução Colaborativa. Depois de 31 de janeiro de 2018, estas duas funções não aceitaram novas candidaturas de frases, e os utilizadores receberam uma mensagem de erro. Estas funções foram retiradas e não serão substituídas.
 
 O Quadro Colaborativo de Tradução (CTF) Reporting API devolve estatísticas e conteúdos reais na loja CTF. Esta API é diferente do método GetTranslations() porque:
 * Devolve o conteúdo traduzido e a sua contagem total apenas a partir da sua conta (appId ou conta Azure Marketplace).
@@ -30,11 +30,10 @@ O Quadro Colaborativo de Tradução (CTF) Reporting API devolve estatísticas e 
 * Não devolve a tradução automática (tradução automática).
 
 ## <a name="endpoint"></a>Ponto Final
-O ponto final da API de relatório supor ctf éhttps://api.microsofttranslator.com/v2/beta/ctfreporting.svc
-
+O ponto final da API de reporte ctf é https://api.microsofttranslator.com/v2/beta/ctfreporting.svc .
 
 ## <a name="methods"></a>Métodos
-| Nome |    Descrição|
+| Name | Descrição|
 |:---|:---|
 | Método GetUserTranslationCounts | Obtenha contagens das traduções que são criadas pelo utilizador. |
 | Método getUserTranslations | Recupera as traduções que são criadas pelo utilizador. |
@@ -108,14 +107,14 @@ O conjunto de resultados contém um conjunto do **UserTranslationCount**. Cada U
 | Exceção | Mensagem | Condições |
 |:---|:---|:---|
 | ArgumentOutoutRangeexception | O parâmetro '**maxDateUtc**' deve ser maior ou igual a '**minDateUtc**'.| O valor do parâmetro **maxDateUtc** é inferior ao valor do parâmetro **minDateUtc**.|
-| Tradução ApiException | Ip está acima da quota.| <ul><li>O limite para o número de pedidos por minuto é atingido.</li><li>O tamanho do pedido permanece limitado a 10000 caracteres.</li><li>Uma quota de hora e diária limitam o número de caracteres que a Microsoft Tradutor API irá aceitar.</li></ul>|
+| Tradução ApiException | Ip está acima da quota.| <ul><li>O limite para o número de pedidos por minuto é atingido.</li><li>O tamanho do pedido permanece limitado a 10000 caracteres.</li><li>Uma hora e uma quota diária limitam o número de caracteres que o Tradutor aceitará.</li></ul>|
 | Tradução ApiException | O AppId está acima da quota.| O ID da aplicação excedeu a quota horária ou diária.|
 
 > [!NOTE]
 > A quota ajustar-se-á para garantir a equidade entre todos os utilizadores do serviço.
 
 **Ver exemplos de código no GitHib**
-* [C #](https://github.com/MicrosoftTranslator/CustomTranslator-API-CSharp)
+* [C#](https://github.com/MicrosoftTranslator/CustomTranslator-API-CSharp)
 * [PHP](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-PHP)
 
 ## <a name="getusertranslations-method"></a>Método GetUserTranslations
@@ -181,12 +180,12 @@ O conjunto de resultados contém um conjunto da **Tradução**do Utilizador . Ca
 | Exceção | Mensagem | Condições |
 |:---|:---|:---|
 | ArgumentOutoutRangeexception | O parâmetro '**maxDateUtc**' deve ser maior ou igual a '**minDateUtc**'.| O valor do parâmetro **maxDateUtc** é inferior ao valor do parâmetro **minDateUtc**.|
-| Tradução ApiException | Ip está acima da quota.| <ul><li>O limite para o número de pedidos por minuto é atingido.</li><li>O tamanho do pedido permanece limitado a 10000 caracteres.</li><li>Uma quota de hora e diária limitam o número de caracteres que a Microsoft Tradutor API irá aceitar.</li></ul>|
+| Tradução ApiException | Ip está acima da quota.| <ul><li>O limite para o número de pedidos por minuto é atingido.</li><li>O tamanho do pedido permanece limitado a 10000 caracteres.</li><li>Uma hora e uma quota diária limitam o número de caracteres que o Tradutor aceitará.</li></ul>|
 | Tradução ApiException | O AppId está acima da quota.| O ID da aplicação excedeu a quota horária ou diária.|
 
 > [!NOTE]
 > A quota ajustar-se-á para garantir a equidade entre todos os utilizadores do serviço.
 
 **Ver exemplos de código no GitHib**
-* [C #](https://github.com/MicrosoftTranslator/CustomTranslator-API-CSharp)
+* [C#](https://github.com/MicrosoftTranslator/CustomTranslator-API-CSharp)
 * [PHP](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-PHP)

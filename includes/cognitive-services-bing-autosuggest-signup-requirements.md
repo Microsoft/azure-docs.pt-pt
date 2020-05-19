@@ -3,27 +3,27 @@ author: aahill
 ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 12/11/2019
-ms.openlocfilehash: a678603d19b8da9ace8b519e19fc8ef2673621fe
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 05/06/2020
+ms.openlocfilehash: 01dabff80f0c7e46e183a05a000251797d490e32
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75384728"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929536"
 ---
 ## <a name="create-an-azure-resource"></a>Criar um recurso Azure
 
-Comece a utilizar a API Bing Autosuggest criando um dos recursos Azure abaixo.
+Comece a utilizar a API Bing Autosuggest criando um dos seguintes recursos Azure.
 
-* [Criar um recurso experimental:](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)
-    * Não é necessária nenhuma subscrição azure.
-    * Válido por sete dias, de graça. Após a inscrição, uma chave de ensaio e ponto final estará disponível no site do [Azure.](https://azure.microsoft.com/try/cognitive-services/my-apis/)
+### <a name="trial-resource"></a>[Recurso experimental](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)
+   * Não é necessária nenhuma subscrição azure.
+   * Válido por sete dias, de graça. Depois de se inscrever, uma chave de teste e ponto final estão disponíveis no site do [Azure.](https://azure.microsoft.com/try/cognitive-services/my-apis/)
 
-* [Crie um recurso Bing Autosuggest:](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7)
-    * Disponível através do portal Azure até eliminar o recurso.
-    * Utilize o nível de preços gratuitos para experimentar o serviço e atualize mais tarde para um nível pago para produção.
-    * Bing Autosuggest também é oferecido em camadas pagas do [recurso Bing Search v7](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7).
+### <a name="bing-autosuggest-resource"></a>[Recurso Bing Autosuggest](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7)
+   * Disponível através do portal Azure até eliminar o recurso.
+   * Utilize o nível de preços gratuitos para experimentar o serviço e atualize mais tarde para um nível pago para produção.
+   * Bing Autosuggest também é oferecido em camadas pagas do [recurso Bing Search v7](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7).
 
-* [Criar um recurso multi-serviço:](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne)
-    * Disponível através do portal Azure até eliminar o recurso.  
-    * Use a mesma chave e ponto final para as suas aplicações, através de vários Serviços Cognitivos.
+### <a name="multi-service-resource"></a>[Recurso multi-serviço](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne)
+   * Disponível através do portal Azure até eliminar o recurso.  
+   * Use a mesma chave e ponto final para as suas aplicações, através de vários Serviços Cognitivos.

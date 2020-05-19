@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: eac1f53d35f8175da814dba6172edc12f9e1a063
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: e9b990f7e79fe0d70a213db5739153fe1e558f3c
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80238930"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930204"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-ruby"></a>Quickstart: Sugestione consultas de pesquisa com o Bing Autosuggest REST API e Ruby
 
-Use este quickstart para começar a fazer chamadas para a API Bing Autosuggest e obter a resposta JSON. Esta simples aplicação Ruby envia uma consulta de pesquisa parcial para a API, e devolve sugestões para pesquisas. Embora esta aplicação seja escrita em Ruby, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
+Acompanhe este quickstart para aprender a fazer chamadas para a API Bing Autosuggest e leia a resposta jSON. Esta simples aplicação Ruby envia uma consulta de pesquisa parcial para a API, e devolve sugestões para pesquisas. Embora esta aplicação seja escrita em Ruby, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -38,7 +38,7 @@ Use este quickstart para começar a fazer chamadas para a API Bing Autosuggest e
     require 'json'
     ```
 
-2. Crie variáveis para o seu anfitrião e caminho da API, código de [mercado,](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)consulta de pesquisa parcial. Pode utilizar o ponto final global abaixo, ou o ponto final personalizado do [subdomínio](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
+2. Crie variáveis para o seu anfitrião e caminho da API, código de [mercado](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)e consulta de pesquisa parcial. Utilize o ponto final global no seguinte código ou utilize o ponto final de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) apresentado no portal Azure para o seu recurso.
 
     ```ruby
     subscriptionKey = 'enter your key here'
@@ -48,7 +48,7 @@ Use este quickstart para começar a fazer chamadas para a API Bing Autosuggest e
     query = 'sail'
     ```
 
-3. Crie uma cadeia de parâmetros, `?mkt=` alinhando o seu código de `&q=` mercado no parâmetro e acedendo a sua consulta ao parâmetro. Em seguida, construa o seu pedido URI combinando o hospedeiro, caminho e a cadeia de parâmetros.
+3. Crie uma cadeia de parâmetros, alinhando o seu código de mercado no `mkt=` parâmetro e acedendo a sua consulta ao `q=` parâmetro. Em seguida, construa o seu pedido URI combinando o hospedeiro, caminho e a cadeia de parâmetros.
 
     ```ruby
     params = '?mkt=' + mkt + '&q=' + query
@@ -57,7 +57,7 @@ Use este quickstart para começar a fazer chamadas para a API Bing Autosuggest e
 
 ## <a name="create-and-send-an-api-request"></a>Criar e enviar um pedido de API
 
-1. Crie um pedido com o seu URI `Ocp-Apim-Subscription-Key` e adicione a sua chave de subscrição ao cabeçalho.
+1. Crie um pedido com o seu URI e adicione a sua chave de subscrição ao `Ocp-Apim-Subscription-Key` cabeçalho.
     
     ```ruby
     request = Net::HTTP::Get.new(uri)
@@ -151,7 +151,7 @@ Use este quickstart para começar a fazer chamadas para a API Bing Autosuggest e
 > [!div class="nextstepaction"]
 > [Criar uma aplicação web de página única](../tutorials/autosuggest.md)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - [O que é a Sugestão Automática do Bing?](../get-suggested-search-terms.md)
 - [Referência da API de Sugestão Automática do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)

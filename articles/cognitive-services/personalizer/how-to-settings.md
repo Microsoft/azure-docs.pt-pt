@@ -2,13 +2,13 @@
 title: Configurar o Personalizador
 description: A configuração do serviço inclui como o serviço trata recompensas, quantas vezes o serviço explora, quantas vezes o modelo é retreinado e quanto dados são armazenados.
 ms.topic: conceptual
-ms.date: 02/19/2020
-ms.openlocfilehash: ac31a9f907defeb44dbd4748a4395d3aec34d30c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 04/29/2020
+ms.openlocfilehash: 8df851c70650f3d59efc4c7507ce4b1c8a00fbe3
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219359"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83584659"
 ---
 # <a name="configure-personalizer-learning-loop"></a>Configure ciclo de aprendizagem personalizador
 
@@ -18,6 +18,23 @@ Configure o ciclo de aprendizagem na página **de Configuração,** no portal Az
 
 <a name="configure-service-settings-in-the-azure-portal"></a>
 <a name="configure-reward-settings-for-the-feedback-loop-based-on-use-case"></a>
+
+## <a name="planning-configuration-changes"></a>Alterações de configuração de planeamento
+
+Como algumas alterações de configuração [redefiniro o seu modelo,](#settings-that-include-resetting-the-model)deve planear as alterações de configuração.
+
+Se planeia utilizar o [modo Aprendiz,](concept-apprentice-mode.md)certifique-se de rever a configuração do Personalizer antes de mudar para o modo Apprentice.
+
+<a name="clear-data-for-your-learning-loop"></a>
+
+## <a name="settings-that-include-resetting-the-model"></a>Definições que incluem redefinir o modelo
+
+As seguintes ações desencadeiam uma reconversão do modelo utilizando dados disponíveis até aos últimos 2 dias.
+
+* Recompensa
+* Exploração
+
+Para [limpar](how-to-manage-model.md) todos os seus dados, utilize a página de definições de **Modelo e aprendizagem.**
 
 ## <a name="configure-rewards-for-the-feedback-loop"></a>Configure recompensas para o ciclo de feedback
 
@@ -66,16 +83,7 @@ Depois de alterar este valor, certifique-se de selecionar **Guardar**.
 
 Depois de alterar este valor, certifique-se de selecionar **Guardar**.
 
-<a name="clear-data-for-your-learning-loop"></a>
 
-## <a name="settings-that-include-resetting-the-model"></a>Definições que incluem redefinir o modelo
-
-As seguintes ações incluem uma reconversão imediata do modelo com os últimos 2 dias de dados.
-
-* Recompensa
-* Exploração
-
-Para [limpar](how-to-manage-model.md) todos os seus dados, utilize a página **Model e learning **
 
 ## <a name="next-steps"></a>Passos seguintes
 

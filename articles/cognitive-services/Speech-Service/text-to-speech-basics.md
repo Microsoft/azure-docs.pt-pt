@@ -10,13 +10,13 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: trbye
-zone_pivot_groups: programming-languages-set-sixteen
-ms.openlocfilehash: 74f762dd0004bf72b703d0f611a16762b1ff028d
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+zone_pivot_groups: programming-languages-set-two-with-js
+ms.openlocfilehash: b44c1d722e6acbcf3fbe8f1ac6e05b15c2a0676b
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81399578"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125524"
 ---
 # <a name="learn-the-basics-of-speech-synthesis"></a>Aprenda o básico da síntese da fala
 

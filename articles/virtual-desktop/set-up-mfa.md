@@ -39,13 +39,13 @@ Eis o que precisa de começar:
 Esta secção irá mostrar-lhe como criar uma política de Acesso Condicional que requer a autenticação de vários fatores ao ligar-se ao Windows Virtual Desktop.
 
 1. Inscreva-se no **portal Azure** como administrador global, administrador de segurança ou administrador de Acesso Condicional.
-2. Navegue até ao**Acesso Condicional**de**Segurança** >  **do Diretório** > Ativo do Azure.
+2. Navegue até ao Acesso Condicional de Segurança **do Diretório Ativo do Azure.**  >  **Security**  >  **Conditional Access**
 3. Selecione **Nova política.**
 4. Dê um nome à sua apólice. Recomendamos que as organizações criem um padrão significativo para os nomes das suas políticas.
 5. Em **Atribuições**, selecione **Utilizadores e grupos**.
-   - Em **Incluir**, **selecione Utilizadores e grupos Selecione** > utilizadores**e grupos** > Escolha o grupo criado na fase de pré-requisitos.
+   - Em **Incluir**, **selecione Utilizadores e grupos Selecionados**  >  **Utilizadores e grupos** > Escolha o grupo criado na fase de pré-requisitos.
    - Selecione **Done** (Concluído).
-6. Em **aplicativos ou ações** > cloud**Inclua**, **selecione selecione aplicações**.
+6. Em **aplicativos ou ações cloud**  >  **Inclua**, **selecione selecione aplicações**.
    - Escolha **o Windows Virtual Desktop** (App ID 9cdead84-a844-4324-93f2-b2e6bb768d07), depois **Selecione**, e depois **Feito**.
    
      ![Uma imagem das aplicações da Cloud ou página de ações. As aplicações Windows Virtual Desktop e Windows Virtual Desktop Client estão em destaque a vermelho.](media/cloud-apps-enterprise.png)
@@ -53,8 +53,8 @@ Esta secção irá mostrar-lhe como criar uma política de Acesso Condicional qu
      >[!NOTE]
      >Para encontrar o ID da app que pretende selecionar, vá às **Aplicações empresariais** e selecione **Aplicações** microsoft a partir do menu de entrega do tipo de aplicação.
 
-7. Sob **controlos** > de**acesso,** selecione **acesso ao grant**, exija a **autenticação de vários fatores,** e depois **selecione**.
-8. Sob **controlos** > de acesso**Sessão**, selecione **frequência de início de acesso,** detete o valor para **1** e a unidade para **Horas**, e, em seguida, selecione **Selecione**.
+7. Sob **controlos**de  >  **acesso,** selecione **acesso ao grant**, exija a **autenticação de vários fatores,** e depois **selecione**.
+8. Sob **controlos de acesso**  >  **Sessão**, selecione frequência de início de **acesso,** detete o valor para **1** e a unidade para **Horas**, e, em seguida, selecione **Selecione**.
 9. Confirme as suas definições e ajuste **a política de ativação** para **On**.
 10. Selecione **Criar** para ativar a sua política.
 

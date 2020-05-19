@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 02/10/2020
-ms.author: trbye
-zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: b302180257ec6624ebd6144a7680755a2856899e
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.author: dapine
+zone_pivot_groups: programming-languages-set-two-with-js
+ms.openlocfilehash: 2f604a5094da88196d2149571b700ea6172ed5ac
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81400909"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82980407"
 ---
 # <a name="quickstart-recognize-speech-stored-in-blob-storage"></a>Quickstart: Reconhecer discurso armazenado no armazenamento de blob
 
@@ -42,6 +42,12 @@ ms.locfileid: "81400909"
 [!INCLUDE [Header](../includes/quickstarts/from-blob/header.md)]
 [!INCLUDE [Header](../includes/quickstarts/from-blob/python/header.md)]
 [!INCLUDE [python](../includes/quickstarts/from-blob/python/python.md)]
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [Header](../includes/quickstarts/from-blob/header.md)]
+[!INCLUDE [Header](../includes/quickstarts/from-blob/javascript/header.md)]
+[!INCLUDE [python](../includes/quickstarts/from-blob/javascript/javascript.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-more"

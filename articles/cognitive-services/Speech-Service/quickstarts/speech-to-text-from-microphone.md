@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 02/10/2020
-ms.author: trbye
-zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 63188a0b464ad81bef2bf439763cb2f6b477ab1d
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.author: dapine
+zone_pivot_groups: programming-languages-set-two-with-js-go
+ms.openlocfilehash: 104d06db483eaad4e8aeb327077a6168e47c8f32
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115436"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82979608"
 ---
 # <a name="quickstart-recognize-speech-from-a-microphone"></a>Quickstart: Reconhecer o discurso a partir de um microfone
 
@@ -59,6 +59,26 @@ ms.locfileid: "82115436"
 [!INCLUDE [Python Header](../includes/quickstarts/from-microphone/python/header.md)]
 
 [!INCLUDE [python](../includes/quickstarts/from-microphone/python/python.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-go"
+
+[!INCLUDE [Header](../includes/quickstarts/from-microphone/header.md)]
+
+[!INCLUDE [Go Header](../includes/quickstarts/from-microphone/go/header.md)]
+
+[!INCLUDE [go](../includes/quickstarts/from-microphone/go/go.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+[!INCLUDE [Header](../includes/quickstarts/from-microphone/header.md)]
+
+[!INCLUDE [JavaScript Header](../includes/quickstarts/from-microphone/javascript/header.md)]
+
+[!INCLUDE [javascript](../includes/quickstarts/from-microphone/javascript/javascript.md)]
 
 ::: zone-end
 

@@ -9,18 +9,18 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 6330a77f5971348c3f63fdaa7602ebba9ddf45ec
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: ac4cacd8233935362ed155dab22a66459ed9126d
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82186344"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691343"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Treine um modelo de reconhecimento de formulário com etiquetas utilizando a ferramenta de rotulagem da amostra
 
 Neste arranque rápido, utilizará a API do Reconhecimento de Formulários REST com a ferramenta de rotulagem de amostras para treinar um modelo personalizado com dados manualmente rotulados. Consulte o Comboio com a secção de [etiquetas](../overview.md#train-with-labels) da visão geral para saber mais sobre esta funcionalidade.
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -37,7 +37,7 @@ Para completar este arranque rápido, deve ter:
 Vais usar o motor Docker para executar a ferramenta de rotulagem de amostras. Siga estes passos para montar o recipiente Docker. Para um manual de noções básicas do Docker e do contentor, veja a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).
 
 > [!TIP]
-> A Ferramenta de Rotulagem de Formulários OCR também está disponível como um projeto de código aberto no GitHub. A ferramenta é uma aplicação web construída com react + Redux, e está escrita no TypeScript. Para saber mais ou contribuir, consulte a Ferramenta de Rotulagem de [Formulários OCR](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application).
+> A Ferramenta de Rotulagem de Formulários OCR também está disponível como um projeto de código aberto no GitHub. A ferramenta é uma aplicação web TypeScript construída utilizando O Reagir + Redux. Para saber mais ou contribuir, consulte o repo da Ferramenta de Rotulagem de [Formulários OCR.](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application) Para experimentar a ferramenta online, vá ao site da [FOTT.](https://fott.azurewebsites.net/)   
 
 1. Primeiro, instale o Docker num computador de acolhimento. Este guia irá mostrar-lhe como usar o computador local como hospedeiro. Se quiser utilizar um serviço de hospedagem DoEs tacada em Azure, consulte a [ferramenta de rotulagem](../deploy-label-tool.md) de amostra como orientar. 
 
@@ -52,11 +52,11 @@ Vais usar o motor Docker para executar a ferramenta de rotulagem de amostras. Si
    * [macOS](https://docs.docker.com/docker-for-mac/)
    * [Linux](https://docs.docker.com/install/)
 
-1. Obtenha o recipiente da ferramenta `docker pull` de rotulagem da amostra com o comando.
+1. Obtenha o recipiente da ferramenta de rotulagem da amostra com o `docker pull` comando.
     ```
     docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool
     ```
-1. Agora estápronto para correr o `docker run`contentor com.
+1. Agora estápronto para correr o contentor `docker run` com.
     ```
     docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool eula=accept
     ```
@@ -75,7 +75,7 @@ Primeiro, certifique-se de que todos os documentos de treino são do mesmo forma
 Ative o CORS na sua conta de armazenamento. Selecione a sua conta de armazenamento no portal Azure e clique no separador **CORS** no painel esquerdo. Na linha de fundo, preencha os seguintes valores. Em seguida, clique em **Guardar** na parte superior.
 
 * Origens permitidas = * 
-* Métodos \[permitidos = selecionar todos\]
+* Métodos permitidos = \[ selecionar todos\]
 * Cabeçalhos permitidos = *
 * Cabeçalhos expostos = * 
 * Idade máxima = 200
@@ -95,7 +95,7 @@ Preencha os campos com os seguintes valores:
 
 * Nome do **mostrador** - O nome do display de ligação.
 * **Descrição** - Descrição do seu projeto.
-* **URL SAS** - O URL de assinatura de acesso partilhado (SAS) do seu recipiente de armazenamento Azure Blob. Para recuperar o URL SAS, abra o Microsoft Azure Storage Explorer, clique no seu recipiente e selecione Obter assinatura de **acesso partilhado**. Detete o tempo de validade para algum tempo depois de ter usado o serviço. Certifique-se de que as permissões **de Leitura,** **Escrita,** **Apagar**e **Lista** são verificadas e clique em **Criar**. Em seguida, copie o valor na secção **URL.** Deve ter a `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`forma: .
+* **URL SAS** - O URL de assinatura de acesso partilhado (SAS) do seu recipiente de armazenamento Azure Blob. Para recuperar o URL SAS, abra o Microsoft Azure Storage Explorer, clique no seu recipiente e selecione Obter assinatura de **acesso partilhado**. Detete o tempo de validade para algum tempo depois de ter usado o serviço. Certifique-se de que as permissões **de Leitura,** **Escrita,** **Apagar**e **Lista** são verificadas e clique em **Criar**. Em seguida, copie o valor na secção **URL.** Deve ter a forma: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` .
 
 ![Definições de ligação da ferramenta de rotulagem da amostra](../media/label-tool/connections.png)
 
@@ -141,7 +141,7 @@ Em seguida, irá criar tags (etiquetas) e aplicá-las nos elementos de texto que
     > * Cada etiqueta só pode ser aplicada uma vez por página. Se um valor aparecer várias vezes na mesma forma, crie etiquetas diferentes para cada instância. Por exemplo: "fatura nº 1", "fatura# 2" e assim por diante.
     > * As etiquetas não podem estender-se por páginas.
     > * Valores de etiqueta à medida que aparecem no formulário; não tente dividir um valor em duas partes com duas etiquetas diferentes. Por exemplo, um campo de endereços deve ser rotulado com uma única etiqueta, mesmo que se estem por várias linhas.
-    > * Não inclua chaves nos seus&mdash;campos marcados apenas os valores.
+    > * Não inclua chaves nos seus campos marcados &mdash; apenas os valores.
     > * Os dados da tabela devem ser detetados automaticamente e estarão disponíveis no ficheiro JSON de saída final. No entanto, se o modelo não detetar todos os dados da sua tabela, também pode marcar manualmente estes campos. Marque cada célula na mesa com um rótulo diferente. Se os seus formulários tiverem tabelas com um número variado de linhas, certifique-se de que marca pelo menos um formulário com a maior tabela possível.
 
 ![Janela principal do editor da ferramenta de rotulagem de amostra](../media/label-tool/main-editor.png)
@@ -157,11 +157,11 @@ Opcionalmente, pode definir o tipo de dados esperado para cada etiqueta. Abra o 
 
 Os seguintes tipos de valor e variações são atualmente suportados:
 * `string`
-    * padrão, `no-whitespaces`,`alphanumeric`
+    * padrão, `no-whitespaces` ,`alphanumeric`
 * `number`
     * padrão,`currency`
 * `date` 
-    * padrão, `dmy` `mdy`,`ymd`
+    * padrão, `dmy` `mdy` ,`ymd`
 * `time`
 * `integer`
 

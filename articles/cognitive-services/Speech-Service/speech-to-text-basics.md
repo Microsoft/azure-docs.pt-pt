@@ -10,13 +10,13 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: trbye
-zone_pivot_groups: programming-languages-set-sixteen
-ms.openlocfilehash: bdf8db4a7c946a50698d35aada5950ded671afb7
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+zone_pivot_groups: programming-languages-set-two-with-js
+ms.openlocfilehash: b2971f010610116d90171cfc6fadb7b9f91ab132
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81399774"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115409"
 ---
 # <a name="learn-the-basics-of-speech-recognition"></a>Conheça os fundamentos do reconhecimento da fala
 

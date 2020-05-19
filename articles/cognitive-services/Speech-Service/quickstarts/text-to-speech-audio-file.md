@@ -10,13 +10,13 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 02/10/2020
 ms.author: trbye
-zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: b02b43b0f10e1a120ac7e2e3e763aa1e918075b1
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+zone_pivot_groups: programming-languages-set-two-with-js
+ms.openlocfilehash: a4ebbad15ce7fa8de29bb088fe99879e06ef6367
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81400304"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82979200"
 ---
 # <a name="quickstart-synthesize-speech-into-an-audio-file"></a>Quickstart: Sintetizar o discurso num ficheiro áudio
 
@@ -42,6 +42,12 @@ ms.locfileid: "81400304"
 [!INCLUDE [Header](../includes/quickstarts/tts-audio-file/header.md)]
 [!INCLUDE [Header](../includes/quickstarts/tts-audio-file/python/header.md)]
 [!INCLUDE [python](../includes/quickstarts/tts-audio-file/python/python.md)]
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [Header](../includes/quickstarts/tts-audio-file/header.md)]
+[!INCLUDE [Header](../includes/quickstarts/tts-audio-file/javascript/header.md)]
+[!INCLUDE [javascript](../includes/quickstarts/tts-audio-file/javascript/javascript.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-more"

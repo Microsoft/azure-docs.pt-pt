@@ -2,13 +2,13 @@
 title: 'Quickstart: Implemente uma app com o portal LUIS'
 description: Este quickstart mostra como implementar uma aplicação criando um recurso final de previsão, atribuindo o recurso, formação e publicação da app.
 ms.topic: quickstart
-ms.date: 04/06/2020
-ms.openlocfilehash: aaf86766c2357c5382b78cd4a35fd4b159e5c0f3
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 05/06/2020
+ms.openlocfilehash: 9b22f1eda822b5354f0b434a04c2ea03e4c0ff2a
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80756298"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585099"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Quickstart: Implementar uma aplicação no portal LUIS
 
@@ -30,7 +30,7 @@ Neste arranque rápido, aprende-se a implementar uma aplicação. Cria um recurs
 
 Sempre que cria um novo recurso de autor ou previsão de consulta para o LUIS, tem de atribuir o recurso à app LUIS. Depois de atribuído, não precisará de fazer este passo de novo, a menos que crie um novo recurso. Poderá criar um novo recurso para expandir as regiões da sua app ou para suportar um maior número de consultas de previsão.
 
-1. Inscreva-se no [portal DE pré-visualização](https://preview.luis.ai) luis e escolha a aplicação **myEnglishApp** na lista de aplicações.
+1. Inscreva-se no [portal LUIS](https://www.luis.ai) e escolha a aplicação **myEnglishApp** na lista de aplicações.
 
 1. Selecione **Gerir** no menu superior direito e, em seguida, selecione **Recursos Azure**.
 
@@ -44,10 +44,10 @@ Sempre que cria um novo recurso de autor ou previsão de consulta para o LUIS, t
 
 1. Complete os mesmos passos para adicionar a chave de autor à sua aplicação.
 
-1. Encontre a nova linha na tabela para o novo recurso de previsão e copie o URL do ponto final. É corretamente construído para fazer `HTTP GET` um pedido ao ponto final da API LUIS para uma previsão.
+1. Encontre a nova linha na tabela para o novo recurso de previsão e copie o URL do ponto final. É corretamente construído para fazer um `HTTP GET` pedido ao ponto final da API LUIS para uma previsão.
 
 > [!TIP]
-> Se pretender utilizar o Ative learning para melhorar a sua aplicação LUIS, selecione **parâmetros** de consulta de alteração e selecione **Registos Save**. Esta ação altera o URL `log=true` de exemplo adicionando o parâmetro de corda de consulta. Copie e use o URL de consulta de exemplo alterado ao fazer consultas de previsão para o ponto final do tempo de execução.
+> Se pretender utilizar o Ative learning para melhorar a sua aplicação LUIS, selecione **parâmetros** de consulta de alteração e selecione **Registos Save**. Esta ação altera o URL de exemplo adicionando o parâmetro de corda de `log=true` consulta. Copie e use o URL de consulta de exemplo alterado ao fazer consultas de previsão para o ponto final do tempo de execução.
 
 ## <a name="train-the-app"></a>Preparar a aplicação
 
@@ -59,7 +59,7 @@ Sempre que cria um novo recurso de autor ou previsão de consulta para o LUIS, t
 
 ## <a name="prediction-endpoint-request"></a>Pedido de ponto final de previsão
 
-No portal de `query=` pré-visualização, no final do URL é onde a expressão do utilizador está anexada ao pedido GET. Depois `query=`da , introduza a mesma expressão de utilizador utilizada no final do quickstart anterior:
+No portal, `query=` no final do URL é onde a expressão do utilizador está anexada ao pedido GET. Depois da `query=` , introduza a mesma expressão de utilizador utilizada no final do quickstart anterior:
 
 ```Is there a form named hrf-234098```
 

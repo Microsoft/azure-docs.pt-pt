@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.topic: include
 ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: a09b79992f669c296fe0a674179fde5f38e8fc8a
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
-ms.translationtype: HT
+ms.openlocfilehash: 4a96f0e887bb04aea6d451e08bd5d26d1cc6edca
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82149383"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82587882"
 ---
 Começa com a biblioteca de clientes do Face para o Go. Siga estes passos para instalar a biblioteca e experimente os nossos exemplos para tarefas básicas. O serviço Face fornece-lhe acesso a algoritmos avançados para detetar e reconhecer rostos humanos em imagens.
 
@@ -26,7 +26,7 @@ Utilize a biblioteca de clientes do serviço Face para ir:
 * [Identifique um rosto](#identify-a-face)
 * [Tire uma foto para a migração de dados](#take-a-snapshot-for-data-migration)
 
-[Documentação de referência](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face) | [Biblioteca Código](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face) | fonte[SDK download](https://github.com/Azure/azure-sdk-for-go)
+[Documentação de](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face)  |  referência Código fonte [da biblioteca](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face)  |  [Download sDK](https://github.com/Azure/azure-sdk-for-go)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -81,7 +81,7 @@ Depois de adicionar a variável de ambiente, execute `source ~/.bashrc` a partir
 
 #### <a name="macos"></a>[macOS](#tab/unix)
 
-Edite `.bash_profile`a sua , e adicione a variável ambiental:
+Edite a sua `.bash_profile` , e adicione a variável ambiental:
 
 ```bash
 export FACE_SUBSCRIPTION_KEY=<replace-with-your-product-name-key>
@@ -93,7 +93,7 @@ Depois de adicionar a variável de ambiente, execute `source .bash_profile` a pa
 
 ### <a name="create-a-go-project-directory"></a>Criar um diretório de projeto Go
 
-Numa janela de consola (cmd, PowerShell, Terminal, Bash), crie `my-app`um novo espaço de trabalho para o seu projeto Go, nomeado, e navegue até ele.
+Numa janela de consola (cmd, PowerShell, Terminal, Bash), crie um novo espaço de trabalho para o seu projeto Go, `my-app` nomeado, e navegue até ele.
 
 ```
 mkdir -p my-app/{src, bin, pkg}  
@@ -104,17 +104,17 @@ O seu espaço de trabalho conterá três pastas:
 
 * **sRC** - Este diretório conterá código fonte e pacotes. Quaisquer pacotes instalados com o `go get` comando estarão nesta pasta.
 * **pkg** - Este diretório conterá os objetos de pacote Go compilados. Todos estes ficheiros têm uma `.a` extensão.
-* **bin** - Este diretório conterá os ficheiros binários `go install`executáveis que são criados quando executa .
+* **bin** - Este diretório conterá os ficheiros binários executáveis que são criados quando executa `go install` .
 
 > [!TIP]
-> Para saber mais sobre a estrutura de um espaço de trabalho Go, consulte a [documentação linguística Go](https://golang.org/doc/code.html#Workspaces). Este guia inclui `$GOPATH` informações para a definição e `$GOROOT`.
+> Para saber mais sobre a estrutura de um espaço de trabalho Go, consulte a [documentação linguística Go](https://golang.org/doc/code.html#Workspaces). Este guia inclui informações para a definição `$GOPATH` e `$GOROOT` .
 
 ### <a name="install-the-client-library-for-go"></a>Instale a biblioteca de clientes para Go
 
 Em seguida, instale a biblioteca de clientes para Go:
 
 ```bash
-go get -u https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face
+go get -u github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face
 ```
 
 ou se utilizar o dep, dentro da sua corrida de repo:
@@ -125,7 +125,7 @@ dep ensure -add https://github.com/Azure/azure-sdk-for-go/tree/master/services/c
 
 ### <a name="create-a-go-application"></a>Criar uma aplicação Go
 
-Em seguida, crie um ficheiro `sample-app.go`no diretório **src** chamado:
+Em seguida, crie um ficheiro no diretório **src** `sample-app.go` chamado:
 
 ```bash
 cd src
@@ -142,7 +142,7 @@ Em seguida, começará a adicionar código para realizar diferentes operações 
 
 As seguintes aulas e interfaces lidam com algumas das principais características do serviço Face ir à biblioteca do cliente.
 
-|Nome|Descrição|
+|Name|Descrição|
 |---|---|
 |[BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#BaseClient) | Esta classe representa a sua autorização para usar o serviço Face, e você precisa dele para todas as funcionalidades Face. Você instantaneamente com a sua informação de subscrição, e você usa-o para produzir casos de outras classes. |
 |[Cliente](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client)|Esta classe lida com as tarefas básicas de deteção e reconhecimento que você pode fazer com rostos humanos. |
@@ -166,7 +166,7 @@ Estas amostras de código mostram-lhe como completar tarefas básicas utilizando
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
 > [!NOTE] 
-> Este quickstart assume que [criou variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a `FACE_SUBSCRIPTION_KEY` sua `FACE_ENDPOINT` chave Face e ponto final, nomeado e respectivamente.
+> Este quickstart assume que [criou variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a sua chave Face e ponto final, nomeado `FACE_SUBSCRIPTION_KEY` e `FACE_ENDPOINT` respectivamente.
 
 Crie uma função **principal** e adicione-lhe o seguinte código para instantaneamente um cliente com o seu ponto final e chave. Cria um objeto **[CognitiveServicesAuthorizer](https://godoc.org/github.com/Azure/go-autorest/autorest#CognitiveServicesAuthorizer)** com a sua chave e usa-o com o seu ponto final para criar um objeto **[Cliente.](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client)** Este código também instantaneamente um objeto de contexto, que é necessário para a criação de objetos de cliente. Também define um local remoto onde algumas das imagens da amostra neste arranque rápido são encontradas.
 
@@ -214,9 +214,9 @@ O código que se segue imprime os detalhes da partida para a consola.
 
 ## <a name="create-and-train-a-person-group"></a>Criar e treinar um grupo de pessoas
 
-Para ultrapassar este cenário, é necessário guardar as seguintes imagens https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/imagespara o diretório raiz do seu projeto: .
+Para ultrapassar este cenário, é necessário guardar as seguintes imagens para o diretório raiz do seu projeto: https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images .
 
-Este grupo de imagens contém três conjuntos de imagens de rosto único que correspondem a três pessoas diferentes. O código definirá três objetos pessoas do **PersonGroup** e os associará a ficheiros de imagem que começam com `woman` `man`, e `child`.
+Este grupo de imagens contém três conjuntos de imagens de rosto único que correspondem a três pessoas diferentes. O código definirá três objetos **pessoas** do PersonGroup e os associará a ficheiros de imagem que começam com `woman` , e `man` `child` .
 
 ### <a name="create-persongroup"></a>Criar persongroup
 
@@ -251,7 +251,7 @@ O código seguinte pega numa imagem com múltiplas faces e procura encontrar a i
 
 ### <a name="get-a-test-image"></a>Obtenha uma imagem de teste
 
-O código seguinte está na raiz do seu projeto para um teste de _imagem-imagem-pessoa-grupo.jpg_ e carrega-o na memória do programa. Pode encontrar esta imagem no mesmo repo que as imagens utilizadas no [Create e treinar um grupo de pessoas:](#create-and-train-a-person-group) https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
+O código seguinte está na raiz do seu projeto para um teste de _imagem-imagem-pessoa-grupo.jpg_ e carrega-o na memória do programa. Pode encontrar esta imagem no mesmo repo que as imagens utilizadas no [Create e treinar um grupo de pessoas:](#create-and-train-a-person-group) https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images .
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_id_source_get)]
 
@@ -347,7 +347,7 @@ Uma vez concluídas estas etapas, pode aceder às construções de dados faciais
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Execute a sua `go run [arguments]` aplicação Go com o comando do seu diretório de candidatura.
+Execute a sua aplicação Go com o `go run [arguments]` comando do seu diretório de candidatura.
 
 ```bash
 go run sample-app.go
