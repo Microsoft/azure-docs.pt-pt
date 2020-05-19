@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2020
 ms.author: spelluru
-ms.openlocfilehash: ce79674462f82e05cc07e9e470cb82ff8e47f672
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: aef5cd13742c0265851f5ba2918d557b4e1026d0
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83118486"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592649"
 ---
 # <a name="attach-or-detach-a-shared-image-gallery-in-azure-lab-services"></a>Anexar ou separar uma galeria de imagens partilhadas nos Serviços de Laboratório Azure
 Este artigo mostra-lhe como anexar ou separar uma galeria de imagens partilhadas a uma conta de laboratório. 
@@ -83,7 +83,7 @@ O seguinte procedimento mostra-lhe como anexar uma galeria de imagens partilhada
     
     Neste exemplo, ainda não há imagens na galeria de imagens partilhadas.
 
-    A identidade da Azure Lab Services é adicionada como um contribuinte para a galeria de imagens partilhadas que está anexada ao laboratório. Permite que os professores/administração de TI guardem imagens de máquinas virtuais para a galeria de imagens partilhadas. Todos os laboratórios criados nesta conta de laboratório têm acesso à galeria de imagens partilhadas anexada. 
+    A identidade da Azure Lab Services é adicionada como um contribuinte para a galeria de imagens partilhadas que está anexada ao laboratório. Permite aos educadores/administradores de TI guardar imagens de máquinas virtuais para a galeria de imagens partilhadas. Todos os laboratórios criados nesta conta de laboratório têm acesso à galeria de imagens partilhadas anexada. 
 
     Todas as imagens na galeria de imagens partilhadas anexadas são ativadas por defeito. Pode ativar ou desativar as imagens selecionadas selecionando-as na lista e utilizando o botão **de imagens selecionadas enable** ou **Desativar imagens selecionadas.** 
 

@@ -2,19 +2,17 @@
 title: App de teste no portal LUIS
 description: Use a Compreensão da Linguagem (LUIS) para trabalhar continuamente na sua aplicação para refiná-la e melhorar a sua compreensão linguística.
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.openlocfilehash: ba7e23a72cd308dd4393bf9a581571e2bc9f5fa0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/07/2020
+ms.openlocfilehash: cb4559e6d3582a337cbc32ef986bec5db5940ef9
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219821"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591867"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Teste a sua app LUIS no portal LUIS
 
 [Testar](luis-concept-test.md) uma aplicação é um processo iterativo. Depois de treinar a sua app LUIS, teste-a com declarações de amostra para ver se as intenções e entidades são reconhecidas corretamente. Se não forem, faça atualizações para a app LUIS, treine e teste novamente.
-
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 <!-- anchors for H2 name changes -->
 <a name="train-your-app"></a>
@@ -24,13 +22,16 @@ ms.locfileid: "79219821"
 
 ## <a name="train-before-testing"></a>Treinar antes dos testes
 
-Para testar a versão mais recente da aplicação ativa, selecione **Train** a partir do menu superior, antes de testar.
+1. Inscreva-se no [portal LUIS](https://www.luis.ai)e selecione o seu recurso **De Subscrição** e **Autoria** para ver as aplicações atribuídas a esse recurso de autoria.
+1. Abra a sua aplicação selecionando o seu nome na página **My Apps.**
+1. Para testar a versão mais recente da aplicação ativa, selecione **Train** a partir do menu superior, antes de testar.
 
 ## <a name="test-an-utterance"></a>Teste uma expressão
 
 A expressão do teste não deve ser exatamente a mesma que qualquer exemplo pronuncia na aplicação. A expressão do teste deve incluir escolha de palavras, comprimento de frase e utilização da entidade que espera para um utilizador.
 
-1. Aceda à sua aplicação selecionando o seu nome na página **My Apps.**
+1. Inscreva-se no [portal LUIS](https://www.luis.ai)e selecione o seu recurso **De Subscrição** e **Autoria** para ver as aplicações atribuídas a esse recurso de autoria.
+1. Abra a sua aplicação selecionando o seu nome na página **My Apps.**
 
 1. Para aceder ao painel de diapositivos do **Teste,** selecione **Test** no painel superior da sua aplicação.
 

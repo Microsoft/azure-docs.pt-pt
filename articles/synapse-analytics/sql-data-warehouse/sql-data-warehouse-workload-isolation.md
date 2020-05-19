@@ -11,20 +11,20 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 5d81dc1f4da6e952061496fa348d0f8e87b00b81
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c30429653c024c669d273c45d12236afa8cdbb83
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80742967"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591510"
 ---
-# <a name="azure-synapse-analytics-workload-group-isolation-preview"></a>Azure Synapse Analytics isolamento do grupo de trabalho (Pré-visualização)
+# <a name="azure-synapse-analytics-workload-group-isolation"></a>Azure Synapse Analytics o isolamento do grupo de trabalho
 
 Este artigo explica como os grupos de carga de trabalho podem ser usados para configurar o isolamento da carga de trabalho, conter recursos e aplicar regras de tempo de execução de consulta.
 
 ## <a name="workload-groups"></a>Grupos de carga de trabalho
 
-Os grupos de carga de trabalho são recipientes para um conjunto de pedidos e são a base para a forma como a gestão da carga de trabalho, incluindo o isolamento da carga de trabalho, é configurada num sistema.  Os grupos de carga de trabalho são criados utilizando a sintaxe [create workload GROUP.](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  Uma configuração simples de gestão da carga de trabalho pode gerir cargas de dados e consultas de utilizador.  Por exemplo, um `wgDataLoads` grupo de carga de trabalho nomeado definirá aspetos de carga de trabalho para os dados que estão a ser carregados no sistema. Além disso, `wgUserQueries` um grupo de carga de trabalho nomeado definirá aspetos de carga de trabalho para os utilizadores que executam consultas para ler dados do sistema.
+Os grupos de carga de trabalho são recipientes para um conjunto de pedidos e são a base para a forma como a gestão da carga de trabalho, incluindo o isolamento da carga de trabalho, é configurada num sistema.  Os grupos de carga de trabalho são criados utilizando a sintaxe [create workload GROUP.](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  Uma configuração simples de gestão da carga de trabalho pode gerir cargas de dados e consultas de utilizador.  Por exemplo, um grupo de carga de trabalho nomeado `wgDataLoads` definirá aspetos de carga de trabalho para os dados que estão a ser carregados no sistema. Além disso, um grupo de carga de trabalho nomeado `wgUserQueries` definirá aspetos de carga de trabalho para os utilizadores que executam consultas para ler dados do sistema.
 
 As seguintes secções irão destacar como os grupos de carga de trabalho fornecem a capacidade de definir isolamento, contenção, solicitar definição de recursos e aderir às regras de execução.
 
@@ -32,9 +32,9 @@ As seguintes secções irão destacar como os grupos de carga de trabalho fornec
 
 O isolamento da carga de trabalho significa que os recursos são reservados, exclusivamente, para um grupo de carga de trabalho.  O isolamento da carga de trabalho é alcançado configurando o parâmetro MIN_PERCENTAGE_RESOURCE para maior do que zero na sintaxe create [workload GROUP.](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  Para cargas de trabalho contínuas de execução que precisam aderir a SLAs apertados, o isolamento garante que os recursos estão sempre disponíveis para o grupo de carga de trabalho.
 
-Configurar o isolamento da carga de trabalho define implicitamente um nível garantido de conmoeda. Por exemplo, um grupo `MIN_PERCENTAGE_RESOURCE` de carga de `REQUEST_MIN_RESOURCE_GRANT_PERCENT` trabalho com um conjunto de 30% e definido para 2% é garantido 15 conmoeda.  O nível de moeda é garantido porque 15-2% de slots de recursos são `REQUEST_*MAX*_RESOURCE_GRANT_PERCENT` reservados no grupo de carga de trabalho em todos os momentos (independentemente de como está configurado).  Se `REQUEST_MAX_RESOURCE_GRANT_PERCENT` for `REQUEST_MIN_RESOURCE_GRANT_PERCENT` maior `CAP_PERCENTAGE_RESOURCE` do `MIN_PERCENTAGE_RESOURCE` que e for maior do que os recursos adicionais são adicionados por pedido.  Se `REQUEST_MAX_RESOURCE_GRANT_PERCENT` `REQUEST_MIN_RESOURCE_GRANT_PERCENT` e forem iguais e `CAP_PERCENTAGE_RESOURCE` forem maiores do que, `MIN_PERCENTAGE_RESOURCE`é possível uma moeda adicional.  Considere o método abaixo para determinar a moeda garantida:
+Configurar o isolamento da carga de trabalho define implicitamente um nível garantido de conmoeda. Por exemplo, um grupo de carga de trabalho com um `MIN_PERCENTAGE_RESOURCE` conjunto de 30% e `REQUEST_MIN_RESOURCE_GRANT_PERCENT` definido para 2% é garantido 15 conmoeda.  O nível de moeda é garantido porque 15-2% de slots de recursos são reservados no grupo de carga de trabalho em todos os momentos (independentemente de como `REQUEST_*MAX*_RESOURCE_GRANT_PERCENT` está configurado).  Se `REQUEST_MAX_RESOURCE_GRANT_PERCENT` for maior do que e for maior do que os recursos `REQUEST_MIN_RESOURCE_GRANT_PERCENT` `CAP_PERCENTAGE_RESOURCE` `MIN_PERCENTAGE_RESOURCE` adicionais são adicionados por pedido.  Se `REQUEST_MAX_RESOURCE_GRANT_PERCENT` e `REQUEST_MIN_RESOURCE_GRANT_PERCENT` forem iguais e `CAP_PERCENTAGE_RESOURCE` forem maiores do `MIN_PERCENTAGE_RESOURCE` que, é possível uma moeda adicional.  Considere o método abaixo para determinar a moeda garantida:
 
-[Concurrency Garantida]`MIN_PERCENTAGE_RESOURCE`= [`REQUEST_MIN_RESOURCE_GRANT_PERCENT`[ ]
+[Concurrency Garantida] = [ `MIN_PERCENTAGE_RESOURCE` [ `REQUEST_MIN_RESOURCE_GRANT_PERCENT` ]
 
 > [!NOTE]
 > Existem valores mínimos de nível de serviço viáveis para min_percentage_resource.  Para mais informações, consulte [Valores Efetivos](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#effective-values) para mais informações.
@@ -54,7 +54,7 @@ A contenção da carga de trabalho refere-se à limitação da quantidade de rec
 
 Configurar a contenção da carga de trabalho define implicitamente um nível máximo de conmoeda.  Com um CAP_PERCENTAGE_RESOURCE fixado para 60% e um REQUEST_MIN_RESOURCE_GRANT_PERCENT definido para 1%, até um nível de 60-concurrency é permitido para o grupo de carga de trabalho.  Considere o método abaixo indicado para determinar a moeda máxima:
 
-[Max Concurrency]`CAP_PERCENTAGE_RESOURCE`= [`REQUEST_MIN_RESOURCE_GRANT_PERCENT`] / [ ]
+[Max Concurrency] = [ `CAP_PERCENTAGE_RESOURCE` ] / `REQUEST_MIN_RESOURCE_GRANT_PERCENT` [ ]
 
 > [!NOTE]
 > Os CAP_PERCENTAGE_RESOURCE efetivos de um grupo de carga de trabalho não chegarão a 100% quando forem criados grupos de carga de trabalho com MIN_PERCENTAGE_RESOURCE a um nível superior a zero.  Consulte [sys.dm_workload_management_workload_groups_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para valores eficazes do tempo de funcionano.
@@ -75,13 +75,13 @@ Configurar REQUEST_MAX_RESOURCE_GRANT_PERCENT a um valor superior ao REQUEST_MIN
 
 ## <a name="execution-rules"></a>Regras de Execução
 
-Em sistemas de reporte ad-hoc, os clientes podem executar acidentalmente consultas em fuga que impactam severamente a produtividade de outros.  Os administradores do sistema são forçados a passar o tempo a matar consultas em fuga para libertar recursos do sistema.  Os grupos de carga de trabalho oferecem a capacidade de configurar uma regra de tempo limite de execução de consulta para cancelar consultas que excederam o valor especificado.  A regra é configurada `QUERY_EXECUTION_TIMEOUT_SEC` através da definição do parâmetro na sintaxe create [workload GROUP.](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+Em sistemas de reporte ad-hoc, os clientes podem executar acidentalmente consultas em fuga que impactam severamente a produtividade de outros.  Os administradores do sistema são forçados a passar o tempo a matar consultas em fuga para libertar recursos do sistema.  Os grupos de carga de trabalho oferecem a capacidade de configurar uma regra de tempo limite de execução de consulta para cancelar consultas que excederam o valor especificado.  A regra é configurada através da definição do `QUERY_EXECUTION_TIMEOUT_SEC` parâmetro na sintaxe create [workload GROUP.](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 ## <a name="shared-pool-resources"></a>Recursos de piscina compartilhados
 
 Os recursos partilhados da piscina são os recursos não configurados para o isolamento.  Grupos de carga de trabalho com um MIN_PERCENTAGE_RESOURCE definido para zero recursos de alavancagem na piscina partilhada para executar pedidos.  Os grupos de trabalho com CAP_PERCENTAGE_RESOURCE maiores do que MIN_PERCENTAGE_RESOURCE também utilizaram recursos partilhados.  A quantidade de recursos disponíveis na piscina partilhada é calculada da seguinte forma.
 
-[Piscina Partilhada] = 100 - `MIN_PERCENTAGE_RESOURCE` [soma de todos os grupos de carga de trabalho]
+[Piscina Partilhada] = 100 - [soma de todos os grupos de `MIN_PERCENTAGE_RESOURCE` carga de trabalho]
 
 O acesso aos recursos na piscina partilhada é atribuído numa base [de importância.](sql-data-warehouse-workload-importance.md)  Os pedidos com o mesmo nível de importância terão acesso a recursos de piscina partilhados numa base inicial/primeira.
 

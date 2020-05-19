@@ -1,6 +1,6 @@
 ---
 title: Ligue-se a uma rede de pares nos Serviços de Laboratório Azure [ Microsoft Docs
-description: Aprenda a ligar a sua rede de laboratório a outra rede como par. Por exemplo, ligue a sua rede de escolas/universidades no local com a rede virtual do Lab em Azure.
+description: Aprenda a ligar a sua rede de laboratório a outra rede como par. Por exemplo, ligue a sua organização/rede universitária no local com a rede virtual do Lab em Azure.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2020
+ms.date: 05/15/2020
 ms.author: spelluru
-ms.openlocfilehash: 8d8f2c747a4bc0ab2119c92e61188e3c57f2b212
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 556a32a111149fe5ade3b11fee9c732c935de289
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83118367"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592020"
 ---
 # <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Conecte a rede do seu laboratório com uma rede virtual de pares nos Serviços de Laboratório Azure
 
@@ -46,11 +46,16 @@ Durante a criação de uma nova [conta de laboratório,](tutorial-setup-lab-acco
 
 ### <a name="address-range"></a>Intervalo de endereços
 
-Existe também uma opção para fornecer **gama de endereços** para máquinas virtuais para os laboratórios.  A propriedade **de gama De endereço** só se aplica se a rede virtual **Peer** estiver ativada para o laboratório.  Se o intervalo de endereços for fornecido, todas as máquinas virtuais dos laboratórios sob a conta de laboratório serão criadas nessa gama de endereços. O intervalo de endereços deve ser da notação CIDR (por exemplo, 10.20.0.0.20) e não se sobrepor a quaisquer gamas de endereços existentes.  Ao fornecer um intervalo de endereços, é importante pensar no número de laboratórios que serão *criados* e fornecer uma gama de endereços para acomodar isso. Os Serviços de Laboratório assumem um máximo de 512 máquinas virtuais por laboratório.  Por exemplo, uma gama ip com '/23' pode criar apenas um laboratório.  Uma gama com um '/21' permitirá a criação de quatro laboratórios.
+Existe também uma opção para fornecer **gama de endereços** para máquinas virtuais para os laboratórios.  A propriedade de **endereços** só se aplica se uma **rede virtual de pares** estiver ativada para o laboratório. Se o intervalo de endereços for fornecido, todas as máquinas virtuais dos laboratórios sob a conta de laboratório serão criadas nessa gama de endereços. O intervalo de endereços deve estar na notação CIDR (por exemplo, 10.20.0.0.20) e não se sobrepor a quaisquer gamas de endereços existentes.  Ao fornecer um intervalo de endereços, é importante pensar no número de laboratórios que serão *criados* e fornecer uma gama de endereços para acomodar isso. Os Serviços de Laboratório assumem um máximo de 512 máquinas virtuais por laboratório.  Por exemplo, uma gama ip com '/23' pode criar apenas um laboratório.  Uma gama com um '/21' permitirá a criação de quatro laboratórios.
 
 Se a **gama 'Endereço'** não for especificada, os Serviços lab-americanos utilizarão a gama de endereços predefinido que lhe foi dada pelo Azure ao criar a rede virtual a ser espreitada com a sua rede virtual.  O alcance é frequentemente algo como 10.x.0.0/16.  Isto pode levar à sobreposição do intervalo ip, por isso certifique-se de especificar um intervalo de endereços nas definições do laboratório ou verificar a gama de endereços da sua rede virtual que está a ser espartada.
 
-## <a name="configure-after-the-lab-is-created"></a>Configurar depois que o laboratório é criado
+> [!NOTE]
+> A criação de laboratório pode falhar se a conta de laboratório for espreitada para uma rede virtual, mas tem uma gama de endereços IP demasiado estreita. Pode ficar sem espaço no campo de endereços se houver muitos laboratórios na conta de laboratório (cada laboratório usa 512 endereços). 
+> 
+> Se a criação do laboratório falhar, contacte o proprietário/administrador da sua conta de laboratório e solicite que o intervalo de endereços seja aumentado. O administrador pode aumentar a gama de endereços utilizando os passos mencionados na gama de endereços Especificar uma gama de [endereços para VMs numa](#specify-an-address-range-for-vms-in-the-lab-account) secção de conta de laboratório. 
+
+## <a name="configure-after-the-lab-account-is-created"></a>Configurar depois da conta de laboratório ser criada
 
 A mesma propriedade pode ser ativada a partir do separador de **configuração labs** da página **Lab Account** se não tiver configurado uma rede de pares no momento da criação de conta de laboratório. A alteração feita a esta definição aplica-se apenas aos laboratórios que são criados após a mudança. Como pode ver na imagem, pode ativar ou desativar a **rede virtual peer** para laboratórios na conta de laboratório.
 
@@ -60,6 +65,21 @@ Ao selecionar uma rede virtual para o campo de **rede virtual Peer,** o criador 
 
 > [!IMPORTANT]
 > A definição de rede virtual peered aplica-se apenas a laboratórios que são criados após a mudança, e não aos laboratórios existentes.
+
+
+## <a name="specify-an-address-range-for-vms-in-the-lab-account"></a>Especifique um intervalo de endereços para VMs na conta de laboratório
+O procedimento seguinte tem medidas para especificar um intervalo de endereços para VMs no laboratório. Se atualizar a gama que especificou anteriormente, a gama de endereços modificada aplica-se apenas aos VMs que são criados após a alteração. 
+
+Aqui estão algumas restrições ao especificar o intervalo de endereços que deve ter em mente. 
+
+- O prefixo deve ser menor ou igual a 23. 
+- Se uma rede virtual for espreitada para a conta de laboratório, o intervalo de endereços fornecido não pode sobrepor-se ao intervalo de endereços da rede virtual peered.
+
+1. Na página **da Conta lab,** selecione **as definições** de Laboratórios no menu esquerdo.
+2. Para o campo **de intervalo de endereços,** especifique o intervalo de endereços para VMs que serão criados em laboratório. A gama de endereços deve constar da notação de encaminhamento inter-domínio sem classe (CIDR) (exemplo: 10.20.0.0/23). Máquinas virtuais no laboratório serão criadas nesta gama de endereços.
+3. Selecione **Guardar** na barra de ferramentas. 
+
+    ![Configure gama de endereços](../media/how-to-manage-lab-accounts/labs-configuration-page-address-range.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

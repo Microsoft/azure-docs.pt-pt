@@ -2,13 +2,13 @@
 title: Boas declarações de exemplo - LUIS
 description: As expressões são os elementos introduzidos pelo utilizador que a sua aplicação tem de interpretar. Colete frases que pensa que os utilizadores vão entrar. Inclua expressões que significam a mesma coisa, mas são construídas de forma diferente no comprimento da palavra e na colocação de palavras.
 ms.topic: conceptual
-ms.date: 04/14/2020
-ms.openlocfilehash: d851082a4ec4a003619826eeffd4f4b856a67824
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/04/2020
+ms.openlocfilehash: 184038ff2758fbe7c5834682c82c082ef6661234
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81382278"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592870"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Compreenda quais são as boas declarações para a sua app LUIS
 
@@ -68,11 +68,27 @@ A LUIS constrói modelos eficazes com expressões que são cuidadosamente seleci
 
 ## <a name="utterance-normalization"></a>Normalização da expressão
 
-A normalização da expressão é o processo de ignorar os efeitos da pontuação e dos diacríticos durante o treino e a previsão. Utilize [as definições](luis-reference-application-settings.md) de aplicação para controlar como a normalização da expressão afeta as previsões de expressão.
+A normalização da expressão é o processo de ignorar os efeitos de tipos de texto, como pontuação e diacríticos, durante o treino e a previsão.
 
-## <a name="utterance-normalization-for-diacritics-and-punctuation"></a>Normalização da expressão para diacríticos e pontuação
+As definições de normalização da expressão são desligadas por defeito. Estas definições incluem:
 
-A normalização da expressão é definida quando cria ou importa a app porque é uma definição no ficheiro JSON da aplicação. As definições de normalização da expressão são desligadas por defeito.
+* Formas de palavra
+* Diacritics
+* Pontuação
+
+Se ligar uma regulação de normalização, as pontuações no painel de **teste,** nos testes de lote e nas consultas de ponto final mudarão para todas as expressões para essa regulação de normalização.
+
+Quando se clona uma versão no portal LUIS, as definições da versão continuam para a nova versão clonada.
+
+Delineie as definições da versão através do portal LUIS, na secção **Gerir,** na página definições de **aplicações** ou na API de [Definições](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings)de Versão atualizada . Saiba mais sobre estas mudanças de normalização na [Referência](luis-reference-application-settings.md).
+
+### <a name="word-forms"></a>Formas de palavra
+
+Normalizar **formas** de palavraignora as diferenças de palavras que se expandem para além da raiz. Por exemplo, as palavras `run` , e a mudança com base no `running` `runs` verbo tenso.
+
+<a name="utterance-normalization-for-diacritics-and-punctuation"></a>
+
+### <a name="diacritics"></a>Diacritics
 
 Os críticos de diasão são marcas ou sinais dentro do texto, tais como:
 
@@ -80,24 +96,8 @@ Os críticos de diasão são marcas ou sinais dentro do texto, tais como:
 İ ı Ş Ğ ş ğ ö ü
 ```
 
-Se a sua aplicação ligar a normalização, as pontuações no painel de **teste,** nos testes de lote e nas consultas de ponto final mudarão para todas as expressões utilizando diacritics ou pontuação.
-
-Ligue a normalização da expressão para diacríticos ou pontuação no `settings` ficheiro da aplicação LUIS JSON no parâmetro.
-
-```JSON
-"settings": [
-    {"name": "NormalizePunctuation", "value": "true"},
-    {"name": "NormalizeDiacritics", "value": "true"}
-]
-```
-
-Normalizar **a pontuação** significa que antes que os seus modelos sejam treinados e antes que as suas consultas de ponto final sejam previstas, a pontuação será removida das expressões.
-
-Normalizar **os diacríticos** substitui os personagens por diacritics em expressões por caracteres regulares. Por `Je parle français` exemplo: `Je parle francais`torna-se .
-
-A normalização não significa que não verá pontuação e diacríticos no seu exemplo de palavras ou respostas de previsão, apenas que serão ignoradas durante o treino e a previsão.
-
 ### <a name="punctuation-marks"></a>Marcas de pontuação
+Normalizar **a pontuação** significa que antes que os seus modelos sejam treinados e antes que as suas consultas de ponto final sejam previstas, a pontuação será removida das expressões.
 
 Pontuação é um símbolo separado em LUIS. Uma expressão que contém um período no final contra uma expressão que não contenha um período no final são duas expressões separadas e pode obter duas previsões diferentes.
 
@@ -109,12 +109,14 @@ Se a pontuação não tiver um significado específico na sua aplicação de cli
 
 ### <a name="ignoring-words-and-punctuation"></a>Ignorando palavras e pontuação
 
-Se quiser ignorar palavras específicas ou pontuação em padrões, use um [padrão](luis-concept-patterns.md#pattern-syntax) com `[]`a sintaxe _ignore_ os suportes quadrados, .
+Se quiser ignorar palavras específicas ou pontuação em padrões, use um [padrão](luis-concept-patterns.md#pattern-syntax) com a sintaxe _ignore_ os suportes quadrados, `[]` .
 
-## <a name="training-utterances"></a>Proclamações de treino
+<a name="training-utterances"></a>
+
+## <a name="training-with-all-utterances"></a>Treino com todas as expressões
 
 A formação é geralmente não determinista: a previsão de expressão pode variar ligeiramente entre versões ou aplicações.
-Pode remover o treino não determinístico atualizando as `UseAllTrainingData` [definições](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) da versão API com o nome/par de valor para utilizar todos os dados de treino.
+Pode remover o treino não determinístico atualizando as [definições](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) da versão API com o nome/par de valor para utilizar todos os dados de `UseAllTrainingData` treino.
 
 ## <a name="testing-utterances"></a>Declarações de teste
 
@@ -132,14 +134,14 @@ Reveja [as melhores práticas](luis-concept-best-practices.md) e aplique-as como
 
 Se a palavra escolha ou arranjo de palavras for a mesma, mas não significa a mesma coisa, não a rotule com a entidade.
 
-As seguintes declarações, `fair` a palavra é uma homografia. É escrito o mesmo, mas tem um significado diferente:
+As seguintes declarações, a palavra `fair` é uma homografia. É escrito o mesmo, mas tem um significado diferente:
 
 |Expressão|
 |--|
 |Que tipo de feiras municipais estão a acontecer na área de Seattle este verão?|
 |A classificação atual para a feira de revisão de Seattle?|
 
-Se quiser que uma entidade do evento encontre `fair` todos os dados do evento, rotule a palavra na primeira expressão, mas não na segunda.
+Se quiser que uma entidade do evento encontre todos os dados do evento, rotule a palavra `fair` na primeira expressão, mas não na segunda.
 
 
 ## <a name="next-steps"></a>Passos seguintes

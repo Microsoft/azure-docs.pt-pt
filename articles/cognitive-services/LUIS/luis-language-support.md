@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: 82efa70b30e829cfedd0b1fa7a21fd06949aa6d5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e859ac18276d10960a5a8488a6051252d90e0fcd
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80744141"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591051"
 ---
 # <a name="language-and-region-support-for-luis"></a>Apoio à língua e à região para o LUIS
 
@@ -24,13 +24,13 @@ O LUIS tem uma variedade de funcionalidades dentro do serviço. Nem todas as car
 
 ## <a name="multi-language-luis-apps"></a>Aplicativos LUIS multilingidiomas
 
-Se precisa de uma aplicação de cliente LUIS multilingues, como um chatbot, tem algumas opções. Se o LUIS apoiar todas as línguas, desenvolve uma aplicação LUIS para cada idioma. Cada aplicação LUIS tem um ID de aplicação único e registo de ponto final. Se precisar de fornecer compreensão linguística para uma linguagem que o LUIS não suporta, pode utilizar a [API](../Translator/translator-info-overview.md) do Microsoft Tradutor para traduzir a expressão numa linguagem suportada, submeter a expressão ao ponto final do LUIS e receber as pontuações resultantes.
+Se precisa de uma aplicação de cliente LUIS multilingues, como um chatbot, tem algumas opções. Se o LUIS apoiar todas as línguas, desenvolve uma aplicação LUIS para cada idioma. Cada aplicação LUIS tem um ID de aplicação único e registo de ponto final. Se precisar de fornecer compreensão linguística para uma língua que o LUIS não suporta, pode utilizar o [serviço Tradutor](../Translator/translator-info-overview.md) para traduzir a expressão numa linguagem apoiada, submeter a expressão ao ponto final do LUIS e receber as pontuações resultantes.
 
 ## <a name="languages-supported"></a>Idiomas suportados
 
 LUIS entende as expressões nas seguintes línguas:
 
-| Idioma |Região  |  Domínio pré-construído | Entidade pré-construída | Recomendações de lista de frases | **[Análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentimento e<br>Palavras-chave)|
+| Linguagem |Região  |  Domínio pré-construído | Entidade pré-construída | Recomendações de lista de frases | **[Análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentimento e<br>Palavras-chave)|
 |--|--|:--:|:--:|:--:|:--:|
 | Inglês Americano |`en-US` | ✔ | ✔  |✔|✔|
 | Árabe (pré-visualização - árabe moderno padrão) |`ar-AR`|-|-|-|-|
@@ -74,7 +74,7 @@ Consulte [as línguas apoiadas](../speech-service/speech-to-text.md) pela fala p
 Consulte bing spell check [idiomas suportados](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages) para obter uma lista de idiomas e estatuto suportados.
 
 ## <a name="rare-or-foreign-words-in-an-application"></a>Palavras raras ou estrangeiras numa aplicação
-Na `en-us` cultura, LUIS aprende a distinguir a maioria das palavras inglesas, incluindo a gíria. Na `zh-cn` cultura, LUIS aprende a distinguir a maioria dos caracteres chineses. Se usar uma palavra `en-us` rara `zh-cn`ou personagem em , e vir que LUIS parece incapaz de distinguir essa palavra ou personagem, pode adicionar essa palavra ou personagem a uma [característica de lista de frases](luis-how-to-add-features.md). Por exemplo, palavras fora da cultura da aplicação -- isto é, palavras estrangeiras - devem ser adicionadas a uma característica da lista de frases.
+Na `en-us` cultura, LUIS aprende a distinguir a maioria das palavras inglesas, incluindo a gíria. Na `zh-cn` cultura, LUIS aprende a distinguir a maioria dos caracteres chineses. Se usar uma palavra rara `en-us` ou personagem em , e vir que LUIS parece incapaz de distinguir essa palavra ou `zh-cn` personagem, pode adicionar essa palavra ou personagem a uma [característica de lista de frases](luis-how-to-add-features.md). Por exemplo, palavras fora da cultura da aplicação -- isto é, palavras estrangeiras - devem ser adicionadas a uma característica da lista de frases.
 
 <!--This phrase list should be marked non-interchangeable, to indicate that the set of rare words forms a class that LUIS should learn to recognize, but they are not synonyms or interchangeable with each other.-->
 
@@ -84,7 +84,7 @@ As línguas híbridas combinam palavras de duas culturas como o inglês e o chin
 ## <a name="tokenization"></a>Tokenização
 Para realizar machine learning, LUIS quebra uma expressão em [tokens baseados](luis-glossary.md#token) na cultura.
 
-|Idioma|  cada espaço ou caráter especial | nível de caráter|palavras compostas
+|Linguagem|  cada espaço ou caráter especial | nível de caráter|palavras compostas
 |--|:--:|:--:|:--:|
 |Árabe|✔|||
 |Chinês||✔||
@@ -113,10 +113,10 @@ As seguintes culturas têm versões personalizadas de tokenizer:
 
 |Cultura|Versão|Objetivo|
 |--|--|--|
-|Alemão<br>`de-de`|1.0.0|Tokeniza palavras dividindo-as usando um tokenizer baseado em machine learning que tenta quebrar palavras compostas nos seus componentes únicos.<br>Se um utilizador `Ich fahre einen krankenwagen` entrar como uma expressão, `Ich fahre einen kranken wagen`é virado para . Permitindo a `kranken` marcação e `wagen` de forma independente como diferentes entidades.|
-|Alemão<br>`de-de`|1.0.2|Tokeniza palavras dividindo-as em espaços.<br> Se um utilizador `Ich fahre einen krankenwagen` entrar como uma expressão, continua a ser um único símbolo. Assim, `krankenwagen` é marcado como uma entidade única. |
-|Neerlandês<br>`de-de`|1.0.0|Tokeniza palavras dividindo-as usando um tokenizer baseado em machine learning que tenta quebrar palavras compostas nos seus componentes únicos.<br>Se um utilizador `Ik ga naar de kleuterschool` entrar como uma expressão, `Ik ga naar de kleuter school`é virado para . Permitindo a `kleuter` marcação e `school` de forma independente como diferentes entidades.|
-|Neerlandês<br>`de-de`|1.0.1|Tokeniza palavras dividindo-as em espaços.<br> Se um utilizador `Ik ga naar de kleuterschool` entrar como uma expressão, continua a ser um único símbolo. Assim, `kleuterschool` é marcado como uma entidade única. |
+|Alemão<br>`de-de`|1.0.0|Tokeniza palavras dividindo-as usando um tokenizer baseado em machine learning que tenta quebrar palavras compostas nos seus componentes únicos.<br>Se um utilizador entrar `Ich fahre einen krankenwagen` como uma expressão, é virado para `Ich fahre einen kranken wagen` . Permitindo a marcação `kranken` e de forma independente como `wagen` diferentes entidades.|
+|Alemão<br>`de-de`|1.0.2|Tokeniza palavras dividindo-as em espaços.<br> Se um utilizador entrar `Ich fahre einen krankenwagen` como uma expressão, continua a ser um único símbolo. Assim, `krankenwagen` é marcado como uma entidade única. |
+|Neerlandês<br>`de-de`|1.0.0|Tokeniza palavras dividindo-as usando um tokenizer baseado em machine learning que tenta quebrar palavras compostas nos seus componentes únicos.<br>Se um utilizador entrar `Ik ga naar de kleuterschool` como uma expressão, é virado para `Ik ga naar de kleuter school` . Permitindo a marcação `kleuter` e de forma independente como `school` diferentes entidades.|
+|Neerlandês<br>`de-de`|1.0.1|Tokeniza palavras dividindo-as em espaços.<br> Se um utilizador entrar `Ik ga naar de kleuterschool` como uma expressão, continua a ser um único símbolo. Assim, `kleuterschool` é marcado como uma entidade única. |
 
 
 ### <a name="migrating-between-tokenizer-versions"></a>Migrar entre versões de tokenizer

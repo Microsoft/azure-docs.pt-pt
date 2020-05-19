@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: d103b22338672f031fa4f91349a8376f86b703c8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 50c6d3ff6e1e8b979b3544c423a15ae8e1e42f6f
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81530980"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592156"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Apoio linguístico natural para serviços cognitivos azure
 
@@ -25,7 +25,7 @@ Estes Serviços Cognitivos são agnósticos linguísticos e não têm limitaçõ
 
 * [Detetor de Anomalias (Pré-visualização)](./anomaly-detector/index.yml)
 * [Visão Personalizada](./Custom-Vision-Service/index.yml)
-* [Rostos](./face/index.yml)
+* [Face](./face/index.yml)
 * [Personalizador](./personalizer/index.yml)
 
 ## <a name="vision"></a>Visão
@@ -35,13 +35,13 @@ Estes Serviços Cognitivos são agnósticos linguísticos e não têm limitaçõ
 * [Reconhecedor de Tinta Digital (Pré-visualização)](./ink-recognizer/language-support.md)
 * [Indexador de Vídeos](https://docs.microsoft.com/azure/media-services/video-indexer/language-identification-model#guidelines-and-limitations)
 
-## <a name="language"></a>Idioma
+## <a name="language"></a>Linguagem
 
 * [Leitura Avançada (Pré-visualização)](./immersive-reader/language-support.md)
 * [Compreensão de Idiomas (LUIS)](./luis/luis-supported-languages.md)
-* [QnA Maker](./qnamaker/overview/languages-supported.md)
+* [Criador de FAQ](./qnamaker/overview/languages-supported.md)
 * [Análise de Texto](./text-analytics/text-analytics-supported-languages.md)
-* [Texto do Tradutor](./translator/languages.md)
+* [Tradutor](./translator/languages.md)
 
 ## <a name="speech"></a>Voz
 
@@ -49,21 +49,21 @@ Estes Serviços Cognitivos são agnósticos linguísticos e não têm limitaçõ
 * [Serviço de Discurso:Texto-a-Discurso](./speech-service/supported-languages.md#text-to-speech)
 * [Serviço de Discurso: Tradução da Fala](./speech-service/supported-languages.md#speech-translation)
 
-## <a name="search"></a>Pesquisa
+## <a name="search"></a>Pesquisar
 
 * [Pesquisa Personalizada do Bing](./bing-custom-search/supported-countries-markets.md)
 * [Pesquisa de Imagens do Bing](./bing-image-search/supported-countries-markets.md)
-* [Pesquisa do Bing Notícias](./bing-news-search/supported-countries-markets.md)
+* [Pesquisa de Notícias do Bing](./bing-news-search/supported-countries-markets.md)
 * [Sugestão Automática do Bing](./Bing-Autosuggest/bing-autosuggest-supported-languages.md)
-* [Verificação Ortográfica do Bing](./bing-spell-check/bing-spell-check-supported-languages.md)
+* [Verificação de Ortografia do Bing](./bing-spell-check/bing-spell-check-supported-languages.md)
 * [Pesquisa Visual do Bing](./bing-visual-search/supported-countries-markets.md)
-* [Pesquisa Web do Bing](./bing-web-search/supported-countries-markets.md)
+* [Pesquisa na Web do Bing](./bing-web-search/supported-countries-markets.md)
 
 ## <a name="decision"></a>Decisão
 
 * [Content Moderator](./content-moderator/text-moderation-api-languages.md)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [O que são os Serviços Cognitivos?](welcome.md)
 * [Criar uma conta](cognitive-services-apis-create-account.md)

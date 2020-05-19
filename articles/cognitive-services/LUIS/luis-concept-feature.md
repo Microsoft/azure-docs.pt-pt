@@ -1,90 +1,147 @@
 ---
 title: Características - LUIS
-titleSuffix: Azure Cognitive Services
 description: Adicione funcionalidades a um modelo de idioma para fornecer dicas sobre como reconhecer a entrada que pretende rotular ou classificar.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/03/2019
-ms.author: diberry
-ms.openlocfilehash: 5b8257e24cf52d01be8065d97db17fd685aa316d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 04/23/2020
+ms.openlocfilehash: 906876e39eb7ff31c2e6b954d1514d8afc50bf3a
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81531903"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591901"
 ---
-# <a name="machine-learned-features"></a>Características aprendidas por máquinas
+# <a name="machine-learning-ml-features"></a>Características de aprendizagem automática (ML)
 
-No machine learning, uma _característica_ é um traço distintivo ou atributo de dados que o seu sistema observa & aprende através. Na Compreensão da Linguagem (LUIS), uma funcionalidade descreve e explica o que é significativo sobre as suas intenções e entidades.
+No machine learning, uma **característica**   é um traço distintivo ou atributo de dados que o seu sistema observa.
 
-No [portal DE pré-visualização LUIS,](https://preview.luis.ai)as funcionalidades são _descritores_ porque são usadas para _descrever_ a intenção ou entidade.
+As funcionalidades de machine learning dão pistas importantes para o LUIS procurar coisas que distingam um conceito. São indícios de que o LUIS pode usar, mas não regras rígidas.  Estas dicas são utilizadas em conjunto com as etiquetas para encontrar os dados.
 
-## <a name="features-_descriptors_-in-language-understanding"></a>Características _(descritores)_ na compreensão da linguagem
+ O LUIS apoia ambas as listas de frases e utiliza outras entidades como características:
+* Recurso da lista de frases
+* Modelo (intenção ou entidade) como recurso
 
-As funcionalidades, também conhecidas como descritores, descrevem pistas para ajudar a Compreensão da Linguagem a identificar as expressões do exemplo. As funcionalidades incluem:
+As funcionalidades devem ser consideradas uma parte necessária do seu design de esquema.
 
-* Lista de frases como recurso a intenções ou entidades
-* Entidades como características de intenções ou entidades
+## <a name="a-phrase-list-for-a-particular-concept"></a>Uma lista de frases para um conceito particular
 
-As funcionalidades devem ser consideradas como uma parte necessária do seu esquema para a decomposição do modelo.
+Uma lista de frases é uma lista de palavras ou frases que encapsula um conceito particular.
 
-## <a name="what-is-a-phrase-list"></a>O que é uma lista de frases
+Ao adicionar uma lista de frases, pode definir a funcionalidade como:
+* **[Global.](#global-features)** Uma funcionalidade global aplica-se a toda a aplicação.
 
-Uma lista de frases é uma lista de palavras, frases, números ou outros caracteres que ajudam a identificar o conceito que está a tentar identificar. A lista é insensível a casos.
+### <a name="when-to-use-a-phrase-list"></a>Quando usar uma lista de frases
 
-## <a name="when-to-use-a-phrase-list"></a>Quando usar uma lista de frases
-
-Com uma lista de frases, a LUIS considera o contexto e generaliza para identificar itens semelhantes, mas não uma correspondência exata de texto. Se precisar da sua aplicação LUIS para poder generalizar e identificar novos itens, utilize uma lista de frases.
-
-Quando pretende reconhecer novos casos, como um programador de reuniões que deve reconhecer os nomes de novos contactos, ou uma app de inventário que deve reconhecer novos produtos, comece por uma entidade aprendida por máquinas. Em seguida, crie uma lista de frases que ajude LUIS a encontrar palavras com significado semelhante. Esta lista de frases guia luis a reconhecer exemplos adicionando significado adicional ao valor dessas palavras.
-
-As listas de frases são como vocabulário específico do domínio que ajudam a melhorar a qualidade de compreensão tanto das intenções como das entidades.
-
-## <a name="considerations-when-using-a-phrase-list"></a>Considerações ao usar uma lista de frases
-
-Uma lista de frases é aplicada, por padrão, a todos os modelos da aplicação. Isto funcionará para listas de frases que possam cruzar todas as intenções e entidades. Para a descomposição, deve aplicar uma lista de frases apenas aos modelos a que é relevante.
-
-Se criar uma lista de frases (criada globalmente por padrão), depois aplice-a como descritor (recurso) a um modelo específico, é removida dos outros modelos. Esta remoção acrescenta relevância à lista de frases para o modelo a que é aplicada, ajudando a melhorar a precisão que proporciona no modelo.
-
-A `enabledForAllModels` bandeira controla este âmbito de modelo na API.
-
-<a name="how-to-use-phrase-lists"></a>
+Quando precisar da sua app LUIS para poder generalizar e identificar novos itens para o conceito, utilize uma lista de frases. As listas de frases são como vocabulário específico do domínio que ajudam a melhorar a qualidade de compreensão tanto das intenções como das entidades.
 
 ### <a name="how-to-use-a-phrase-list"></a>Como usar uma lista de frases
 
-[Crie uma lista de frases](luis-how-to-add-features.md) quando a sua intenção ou entidade tem palavras ou frases importantes tais como:
+Com uma lista de frases, a LUIS considera o contexto e generaliza para identificar itens semelhantes, mas não uma correspondência exata de texto.
 
-* termos da indústria
-* gíria
-* abreviaturas
-* linguagem específica da empresa
-* linguagem que é de outra língua, mas frequentemente usado na sua app
-* palavras-chave e frases nas suas declarações exemplo
+Passos para usar uma lista de frases:
+* Comece com uma entidade aprendida por máquinas
+    * Adicionar expressões de exemplo
+    * Etiqueta com uma entidade aprendida por máquinas
+* Adicione uma lista de frases
+    * Adicione palavras com significado semelhante - **não** adicione todas as palavras ou frases possíveis. Em vez disso, adicione algumas palavras ou frases de cada vez, em seguida, retree e publique.
+    * Reveja e adicione palavras sugeridas
 
-**Não** adicione todas as palavras ou frases possíveis. Em vez disso, adicione algumas palavras ou frases de cada vez, em seguida, retree e publique. À medida que a lista cresce ao longo do tempo, poderá descobrir que alguns termos têm muitas formas (sinónimos). Quebre isto para outra lista.
+### <a name="a-typical-scenario-for-a-phrase-list"></a>Um cenário típico para uma lista de frases
 
+Um cenário típico para uma lista de frases é impulsionar palavras relacionadas com uma ideia específica.
+
+Um exemplo de palavras que podem precisar de uma lista de frases para aumentar o seu significado são termos médicos. Os termos podem ter um significado físico, químico, terapêutico ou abstrato específico. Luis não saberá que os termos são importantes para o seu domínio sujeito sem uma lista de frases.
+
+Se quiser extrair os termos médicos:
+* Primeiro crie declarações de exemplo e rotule termos médicos dentro dessas expressões.
+* Em seguida, crie uma lista de frases com exemplos dos termos dentro do domínio sujeito. Esta lista de frases deve incluir o termo real que rotulou e outros termos que descrevem o mesmo conceito.
+* Adicione a lista de frases à entidade ou subentidade que extrai o conceito utilizado na lista de frases. O cenário mais comum é um componente (criança) de uma entidade aprendida por máquinas. Se a lista de frases deve ser aplicada em todas as intenções ou entidades, marque a lista de frases como uma lista de frases globais. A `enabledForAllModels` bandeira controla este âmbito de modelo na API.
+
+<a name="how-to-use-phrase-lists"></a>
+<a name="how-to-use-a-phrase-lists"></a>
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
 
-## <a name="when-to-use-an-entity-as-a-feature"></a>Quando usar uma entidade como recurso
+## <a name="a-model-as-a-feature-helps-another-model"></a>Um modelo como recurso ajuda outro modelo
 
-Uma entidade pode ser adicionada como uma funcionalidade a nível de intenção ou entidade.
+Pode adicionar um modelo (intenção ou entidade) como uma funcionalidade a outro modelo (intenção ou entidade). Ao adicionar uma intenção ou entidade existente como recurso, a sua adição de um conceito bem definido com exemplos rotulados.
 
-### <a name="entity-as-a-feature-to-an-intent"></a>Entidade como característica de uma intenção
+Ao adicionar um modelo como funcionalidade, pode definir a funcionalidade como:
+* **[Obrigatório](#required-features)**. Uma característica necessária tem de ser encontrada para que o modelo seja devolvido do ponto final da previsão.
+* **[Global.](#global-features)** Uma funcionalidade global aplica-se a toda a aplicação.
 
-Adicione uma entidade como descritor (recurso) a uma intenção quando a deteção dessa entidade é significativa para a intenção.
+### <a name="when-to-use-an-entity-as-a-feature-to-an-intent"></a>Quando usar uma entidade como recurso a uma intenção
 
-Por exemplo, se a intenção é reservar um voo e a entidade for informação de bilhetes (como o número de lugares, origem e destino), então encontrar a entidade de informação do bilhete deve adicionar peso à previsão da intenção do voo do livro.
+Adicione uma entidade como uma característica a uma intenção quando a deteção dessa entidade é significativa para a intenção.
 
-### <a name="entity-as-a-feature-to-another-entity"></a>Entidade como recurso a outra entidade
+Por exemplo, se a intenção é reservar um voo, e a entidade é informação de `BookFlight` bilhetes (como o número de lugares, origem e destino), então encontrar a entidade de informação do bilhete deve adicionar um peso significativo à previsão da `BookFlight` intenção.
+
+### <a name="when-to-use-an-entity-as-a-feature-to-another-entity"></a>Quando usar uma entidade como recurso para outra entidade
 
 Uma entidade (A) deve ser adicionada como uma característica a outra entidade (B) quando a deteção dessa entidade (A) for significativa para a previsão da entidade (B).
 
-Por exemplo, se a entidade de endereço de rua (A) for detetada, então encontrar o endereço de rua (A) adiciona peso à previsão para a entidade de endereço de envio (B).
+Por exemplo, se a entidade de endereços de envio contivesse uma subentidade de endereço de rua, então encontrar a subentidade de endereço de rua adiciona um peso significativo à previsão para a entidade de endereço de envio.
+
+* Endereço de envio (entidade aprendida por máquinas)
+    * Número de rua (subentidade)
+    * Endereço de rua (subentidade)
+    * Cidade (subentidade)
+    * Estado ou Província (subentidade)
+    * País (subentidade)
+    * Código postal (subentidade)
+
+## <a name="required-features"></a>Funcionalidades necessárias
+
+Uma característica necessária tem de ser encontrada para que o modelo seja devolvido do ponto final da previsão. Utilize uma funcionalidade necessária quando souber que os seus dados de entrada devem corresponder à funcionalidade.
+
+**Uma função necessária utiliza uma entidade não-automática aprendida:**
+* Entidade de expressão regular
+* Entidade de lista
+* Entidade pré-construída
+
+Quais são as boas características para marcar como necessário? Se estiver confiante de que o seu modelo será encontrado nos dados, detete a funcionalidade conforme necessário. Uma característica necessária não devolve nada, se não for encontrada.
+
+Continuando com o exemplo do endereço de envio:
+* Endereço de envio (entidade aprendida por máquinas)
+    * Número de rua (subentidade)
+    * Endereço de rua (subentidade)
+    * Nome de rua (subentidade)
+    * Cidade (subentidade)
+    * Estado ou Província (subentidade)
+    * País (subentidade)
+    * Código postal (subentidade)
+
+### <a name="required-feature-using-prebuilt-entities"></a>Recurso necessário usando entidades pré-construídas
+
+A cidade, o estado e o país são geralmente um conjunto fechado de listas, o que significa que não mudam muito com o tempo. Estas entidades podem ter as características recomendadas relevantes e essas funcionalidades podem ser marcadas conforme necessário. Isto significa que todo o endereço de envio não é devolvido é que as entidades com funcionalidades necessárias não são encontradas.
+
+E se a cidade, o estado ou o país estiverem na proclamação, mas num local ou numa gíria que o LUIS não espera? Se pretender fornecer algum processamento pós-processamento para ajudar a resolver a entidade, devido a uma pontuação de confiança baixa da LUIS, não marque a funcionalidade conforme necessário.
+
+Outro exemplo de uma característica necessária para o endereço de envio é fazer do número de rua um número [pré-construído](luis-reference-prebuilt-entities.md) necessário. Isto permite que um utilizador introduza "1 Microsoft Way" ou "One Microsoft Way". Ambos decidirão para uma série de "1" para a subentidade número de rua.
+
+### <a name="required-feature-using-list-entities"></a>Recurso necessário usando entidades de lista
+
+Uma [entidade da lista](reference-entity-list.md) é usada como uma lista de nomes canónicos juntamente com os seus sinónimos. Como característica necessária, se a expressão não incluir o nome canónico ou um sinónimo, então a entidade não é devolvida como parte do ponto final da previsão.
+
+Continuando com o exemplo do endereço de envio, suponha que a sua empresa apenas naves para um conjunto limitado de países. Pode criar uma entidade de lista que inclui várias formas de o seu cliente fazer referência ao país. Se o LUIS não encontrar uma correspondência exata dentro do texto da expressão, então a entidade (que tem a característica necessária da entidade da lista) não é devolvida na previsão.
+
+|Nome canónico|Sinónimos|
+|--|--|
+|Estados Unidos da América|U.S.<br>E.U.A.<br>EUA<br>EUA<br>0|
+
+A aplicação do cliente, como um chat bot pode fazer uma pergunta de seguimento, para que o cliente entenda que a seleção do país é limitada e _necessária._
+
+### <a name="required-feature-using-regular-expression-entities"></a>Recurso necessário usando entidades de expressão regular
+
+Uma [entidade de expressão regular](reference-entity-regular-expression.md) usada como uma funcionalidade necessária fornece capacidades ricas de correspondência de texto.
+
+Continuando com o endereço de envio, você pode criar uma expressão regular que captura regras de sintaxe dos códigos postais do país.
+
+## <a name="global-features"></a>Características globais
+
+Embora o uso mais comum seja aplicar uma funcionalidade a um modelo específico, pode configurar a funcionalidade como uma **funcionalidade global** para aplicá-la a toda a sua aplicação.
+
+O uso mais comum para uma funcionalidade global é adicionar um vocabulário adicional, como palavras de outra língua, à app. Se os seus clientes usarem uma língua primária, mas esperam poder usar outra língua dentro da mesma expressão, pode adicionar uma funcionalidade que inclui palavras da língua secundária.
+
+Como o utilizador esperava utilizar o segundo idioma em qualquer intenção ou entidade, deve ser adicionado numa lista de frases com a lista de frases configurada como uma característica global.
 
 ## <a name="best-practices"></a>Melhores práticas
 Aprenda [as melhores práticas.](luis-concept-best-practices.md)

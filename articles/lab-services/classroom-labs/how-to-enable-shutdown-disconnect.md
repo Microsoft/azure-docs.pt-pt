@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2019
+ms.date: 05/15/2020
 ms.author: spelluru
-ms.openlocfilehash: 68a27a325a0ef02c6eeea9867a21ba0e24ab5321
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b0c7f5daa6bcd9ab5cb8f4d7b1a513a15cd1c708
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77117129"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591714"
 ---
 # <a name="enable-automatic-shutdown-of-vms-on-disconnect"></a>Ativar o encerramento automático de VMs na desconexão
 Este artigo mostra-lhe como pode ativar ou desativar o encerramento automático de VMs de laboratório **do Windows 10** (modelo ou aluno) depois de uma ligação remota de ambiente de trabalho ser desligada. Também pode especificar quanto tempo os VMs devem esperar que o utilizador se reconecte antes de desligar automaticamente.
 
-Um administrador de conta de laboratório pode configurar este cenário para a conta de laboratório em que cria laboratórios. Para obter mais informações, consulte o [encerramento automático de VMs em desconexão para uma conta](how-to-configure-lab-accounts.md#automatic-shutdown-of-vms-on-disconnect)de laboratório . Como dono de laboratório, pode supor o cenário quando se cria um laboratório ou depois de o laboratório ser criado. 
+Um administrador de conta de laboratório pode configurar este cenário para a conta de laboratório em que cria laboratórios. Para obter mais informações, consulte o [encerramento automático de VMs em desconexão para uma conta](how-to-configure-lab-accounts.md)de laboratório . Como dono de laboratório, pode supor o cenário quando se cria um laboratório ou depois de o laboratório ser criado. 
 
 ## <a name="configure-when-creating-a-lab"></a>Configure ao criar um laboratório
 Na página 3 do assistente de criação de laboratório, pode ativar ou desativar esta funcionalidade e também especificar quanto tempo o VM deve esperar que o utilizador se reconecte antes de desligar automaticamente. 

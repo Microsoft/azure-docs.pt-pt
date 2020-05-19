@@ -9,12 +9,12 @@ ms.author: larryfr
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: c75c41012928b7bffb61a00a73f314e4c372b154
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 593ca5d63245ed664b5f63373d1d651129055544
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792348"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592394"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Modelos de trem com aprendizagem automática azure
 
@@ -25,8 +25,8 @@ O Azure Machine Learning fornece várias formas de treinar os seus modelos, desd
     | Método de formação | Descrição |
     | ----- | ----- |
     | [Configuração de execução](#run-configuration) | Uma **forma genérica de treinar modelos** é usar um roteiro de treino e executar a configuração. A configuração de execução fornece as informações necessárias para configurar o ambiente de treino usado para treinar o seu modelo. Você pode pegar uma configuração de execução, seu script de treino, e um alvo de computação (o ambiente de treino) e executar um trabalho de treino. |
-    | [Aprendizagem automática automatizada](#automated-machine-learning) | O machine learning automatizado permite-lhe **treinar modelos sem uma ciência de dados extensiva ou conhecimento de programação.** Para pessoas com um fundo de ciência de dados e programação, fornece uma forma de poupar tempo e recursos automatizando a seleção de algoritmos e a finação de hiperparâmetros. Não é preciso preocupar-se em definir uma configuração de execução ao utilizar aprendizagem automática de máquinas. |
-    | [Estimadores](#estimators) | As classes de estimativa **tornam mais fácil formar modelos com base em estruturas populares de aprendizagem automática.** Existem classes de estimadores para **scikit-learn**, **PyTorch,** **TensorFlow**e **Chainer**. Há também um estimador genérico que pode ser usado com quadros que ainda não têm uma classe estimada dedicada. Não tem que se preocupar em definir uma configuração de execução ao usar estimadores. |
+    | [Aprendizagem automática de máquinas](#automated-machine-learning) | O machine learning automatizado permite-lhe **treinar modelos sem uma ciência de dados extensiva ou conhecimento de programação.** Para pessoas com um fundo de ciência de dados e programação, fornece uma forma de poupar tempo e recursos automatizando a seleção de algoritmos e a finação de hiperparâmetros. Não é preciso preocupar-se em definir uma configuração de execução ao utilizar aprendizagem automática de máquinas. |
+    | [Estimadores](#estimators) | As classes de estimativa **tornam mais fácil formar modelos com base em estruturas populares de aprendizagem automática.** Existem classes de estimadores para **scikit-learn**, **PyTorch,** **TensorFlow,** **Chainer,** e **Ray RLlib**. Há também um estimador genérico que pode ser usado com quadros que ainda não têm uma classe estimada dedicada. Não tem que se preocupar em definir uma configuração de execução ao usar estimadores. |
     | [Gasoduto de aprendizagem automática](#machine-learning-pipeline) | Os gasodutos não são um método de treino diferente, mas uma **forma de definir um fluxo de trabalho utilizando passos modulares e reutilizáveis,** que podem incluir a formação como parte do fluxo de trabalho. Os gasodutos de aprendizagem automática suportam a utilização de machine learning automatizado, estimadores e configuração de execução para treinar modelos. Uma vez que os gasodutos não se centram especificamente na formação, as razões da utilização de um gasoduto são mais variadas do que os outros métodos de formação. Geralmente, pode usar um oleoduto quando:<br>* Pretende **agendar processos sem supervisão,** tais como trabalhos de formação de longa duração ou preparação de dados.<br>* Utilize **vários passos** que são coordenados através de recursos computacionais heterogéneos e locais de armazenamento.<br>* Utilize o gasoduto como **modelo reutilizável** para cenários específicos, tais como reconversão ou pontuação de lotes.<br>* **Rastrear e verver fontes de dados, inputs e saídas** para o seu fluxo de trabalho.<br>* O seu fluxo de trabalho é **implementado por diferentes equipas que trabalham em passos específicos de forma independente**. Os passos podem então ser unidos num oleoduto para implementar o fluxo de trabalho. |
 
 + [Azure Machine Learning SDK para Python](#r-sdk): O SDK usa o pacote reticulado para se ligar ao Python SDK da Azure Machine Learning. Isto permite-lhe aceder a objetos e métodos fundamentais implementados no SDK Python a partir de qualquer ambiente R.
@@ -73,7 +73,7 @@ Defina as iterações, as definições do hiperparâmetro, a caracterização e 
 
 ### <a name="estimators"></a>Estimadores
 
-Os estimadores facilitam a formação de modelos utilizando estruturas populares de ML. Se estiver a usar **scikit-learn**, **PyTorch,** **TensorFlow**ou **Chainer,** deve considerar a utilização de um estimador para treino. Há também um estimador genérico que pode ser usado com quadros que ainda não têm uma classe estimada dedicada. Não tem que se preocupar em definir uma configuração de execução ao usar estimadores.
+Os estimadores facilitam a formação de modelos utilizando estruturas populares de ML. Se estiver a usar **scikit-learn**, **PyTorch,** **TensorFlow,** **Chainer**ou **Ray RLlib,** deve considerar usar um estimador para treinar. Há também um estimador genérico que pode ser usado com quadros que ainda não têm uma classe estimada dedicada. Não tem que se preocupar em definir uma configuração de execução ao usar estimadores.
 
 * [O que são estimadores?](concept-azure-machine-learning-architecture.md#estimators)
 * [Tutorial: Modelos de classificação de imagem de treinam com dados MNIST e scikit-learn usando Azure Machine Learning](tutorial-train-models-with-aml.md)
@@ -95,7 +95,7 @@ Os gasodutos de aprendizagem automática podem utilizar os métodos de formaçã
 
 O R SDK permite-lhe utilizar a linguagem R com aprendizagem automática azure. O SDK usa o pacote reticulado para se ligar ao Python SDK da Azure Machine Learning. Isto permite-lhe aceder a objetos e métodos fundamentais implementados no SDK Python a partir de qualquer ambiente R.
 
-Para obter mais informações, veja os artigos seguintes:
+Para obter mais informações, veja os seguintes artigos:
 
 * [Tutorial: Criar um modelo de regressão logística](tutorial-1st-r-experiment.md)
 * [Azure Machine Learning SDK para referência R](https://azure.github.io/azureml-sdk-for-r/index.html)

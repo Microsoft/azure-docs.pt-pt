@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: aahi
-ms.openlocfilehash: 75a456c4a297b0465c34b8e0af2e87056ad565b3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 305242e13dab23b6a003c5d864073372a052601a
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77560903"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83593176"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Migrar da API do Discurso tradutor para o serviço de discurso
 
@@ -37,7 +37,7 @@ Utilize este artigo para migrar as suas aplicações da API do Discurso do Tradu
 | Múltiplas línguas traduzidas num único pedido | :heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | SDKs disponíveis                                    | :heavy_minus_sign:                                              | :heavy_check_mark:                 | Consulte a [documentação](index.yml) do serviço de Fala para Os DSDs disponíveis.                                                                                                                                                    |
 | Ligações WebSockets                            | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
-| API de línguas                                     | :heavy_check_mark:                                              | :heavy_minus_sign:                 | O serviço da Fala suporta a mesma gama de idiomas descritas no artigo de referência de [línguas API tradutoras.](../translator-speech/languages-reference.md) |
+| API de línguas                                     | :heavy_check_mark:                                              | :heavy_minus_sign:                 | O serviço da Fala suporta a mesma gama de idiomas descritas no artigo de referência de [línguas tradutoras.](../translator-speech/languages-reference.md) |
 | Filtro de Profanação e Marcador                       | :heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | . WAV/PCM como entrada                                 | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | Outros tipos de ficheiros como entrada                         | :heavy_minus_sign:                                              | :heavy_minus_sign:                 |                                                                                                                                                                                                                                                                                    |
@@ -55,7 +55,7 @@ Se você ou sua organização tiver aplicações em desenvolvimento ou produçã
 
 * Se a sua aplicação utilizar ligações de longa duração e não puder utilizar os SDKs disponíveis, pode utilizar uma ligação WebSockets. Gerencie o limite de tempo limite de 10 minutos reconectando-se nos momentos apropriados.
 
-* Se a sua aplicação utilizar a API de Texto tradutor e a API de Discurso tradutor para ativar modelos de tradução personalizadas, pode adicionar IDs de categoria diretamente utilizando o serviço de Fala.
+* Se a sua aplicação utilizar o serviço tradutor e a API de Discurso tradutor para ativar modelos de tradução personalizadas, pode adicionar IDs de categoria diretamente utilizando o serviço de Fala.
 
 * Ao contrário da API do Discurso tradutor, o serviço de Fala pode completar traduções em várias línguas num único pedido.
 
@@ -64,7 +64,7 @@ Se você ou sua organização tiver aplicações em desenvolvimento ou produçã
 * [Experimente o serviço de fala gratuitamente](get-started.md)
 * [Quickstart: Reconheça o discurso numa aplicação da UWP usando o Speech SDK](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [O que é o serviço da Fala](overview.md)
 * [Discurso e documentação do SDK da fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-qsg)

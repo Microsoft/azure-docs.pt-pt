@@ -1,7 +1,7 @@
 ---
-title: Método de deteção de texto de tradutor API
+title: Método de Deteção de Tradutor
 titleSuffix: Azure Cognitive Services
-description: Identifique a linguagem de um pedaço de texto com o método de deteção de texto sonoro do tradutor de serviços cognitivos Azure API Detect.
+description: Identifique a linguagem de um pedaço de texto com o método deteção de tradutor de serviços cognitivos Azure.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,20 +10,20 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: 370f3b14c12fc05f181d6497b7069bbf1cf3c9cc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: adfd91a3f82a83f6bb5e076247f1539029d5a04e
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73837304"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592292"
 ---
-# <a name="translator-text-api-30-detect"></a>Texto tradutor API 3.0: Detetar
+# <a name="translator-30-detect"></a>Tradutor 3.0: Detetar
 
 Identifica a linguagem de um pedaço de texto.
 
 ## <a name="request-url"></a>URL do Pedido
 
-Envie `POST` um pedido para:
+Envie um `POST` pedido para:
 
 ```HTTP
 https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
@@ -38,7 +38,7 @@ Os parâmetros de pedido transmitidos na corda de consulta são:
   <th>Descrição</th>
   <tr>
     <td>api-version</td>
-    <td>*Parâmetro necessário*.<br/>Versão da API solicitada pelo cliente. O valor `3.0`deve ser.</td>
+    <td>*Parâmetro necessário*.<br/>Versão da API solicitada pelo cliente. O valor deve `3.0` ser.</td>
   </tr>
 </table> 
 
@@ -53,7 +53,7 @@ Os cabeçalhos de pedido incluem:
   </tr>
   <tr>
     <td>Content-Type</td>
-    <td>*Cabeçalho de pedido exigido*.<br/>Especifica o tipo de conteúdo da carga útil. Os valores `application/json`possíveis são: .</td>
+    <td>*Cabeçalho de pedido exigido*.<br/>Especifica o tipo de conteúdo da carga útil. Os valores possíveis são: `application/json` .</td>
   </tr>
   <tr>
     <td>Comprimento do conteúdo</td>
@@ -61,13 +61,13 @@ Os cabeçalhos de pedido incluem:
   </tr>
   <tr>
     <td>X-ClientTraceid</td>
-    <td>*Opcional.*<br/>Um GUID gerado pelo cliente para identificar exclusivamente o pedido. Note que pode omitir este cabeçalho se incluir o id de traço `ClientTraceId`na corda de consulta usando um parâmetro de consulta chamado .</td>
+    <td>*Opcional.*<br/>Um GUID gerado pelo cliente para identificar exclusivamente o pedido. Note que pode omitir este cabeçalho se incluir o id de traço na corda de consulta usando um parâmetro de consulta chamado `ClientTraceId` .</td>
   </tr>
 </table> 
 
 ## <a name="request-body"></a>Corpo do pedido
 
-O corpo do pedido é uma matriz JSON. Cada elemento matriz é um objeto JSON com uma propriedade de cordas chamada `Text`. A deteção de idiomas `Text` é aplicada ao valor do imóvel. Um corpo de pedido de amostra é assim:
+O corpo do pedido é uma matriz JSON. Cada elemento matriz é um objeto JSON com uma propriedade de cordas chamada `Text` . A deteção de idiomas é aplicada ao valor do `Text` imóvel. Um corpo de pedido de amostra é assim:
 
 ```json
 [
@@ -93,7 +93,7 @@ Uma resposta bem sucedida é um array JSON com um resultado para cada corda na m
 
   * `isTransliterationSupported`: Um valor booleano que é verdade se a língua detetada for uma das línguas suportadas para a transliteração.
   
-  * `alternatives`: Uma série de outras línguas possíveis. Cada elemento da matriz é outro objeto `language`com `score` `isTranslationSupported` as `isTransliterationSupported`mesmas propriedades acima listadas: , e .
+  * `alternatives`: Uma série de outras línguas possíveis. Cada elemento da matriz é outro objeto com as mesmas propriedades acima listadas: `language` `score` , e `isTranslationSupported` `isTransliterationSupported` .
 
 Um exemplo de resposta JSON é:
 
@@ -142,7 +142,7 @@ Seguem-se os possíveis códigos de estado http que um pedido devolve.
   <th>Descrição</th>
   <tr>
     <td>200</td>
-    <td>Êxito.</td>
+    <td>Com êxito.</td>
   </tr>
   <tr>
     <td>400</td>
@@ -162,15 +162,15 @@ Seguem-se os possíveis códigos de estado http que um pedido devolve.
   </tr>
   <tr>
     <td>500</td>
-    <td>Ocorreu um erro inesperado. Se o erro persistir, informe-o com: data e hora `X-RequestId`da falha, solicite `X-ClientTraceId`o identificador do cabeçalho de resposta e identificador do cliente do cabeçalho do pedido .</td>
+    <td>Ocorreu um erro inesperado. Se o erro persistir, informe-o com: data e hora da falha, solicite o identificador do cabeçalho de resposta `X-RequestId` e identificador do cliente do cabeçalho do pedido `X-ClientTraceId` .</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>Servidor temporariamente indisponível. Tente o pedido. Se o erro persistir, informe-o com: data e hora `X-RequestId`da falha, solicite `X-ClientTraceId`o identificador do cabeçalho de resposta e identificador do cliente do cabeçalho do pedido .</td>
+    <td>Servidor temporariamente indisponível. Tente o pedido. Se o erro persistir, informe-o com: data e hora da falha, solicite o identificador do cabeçalho de resposta `X-RequestId` e identificador do cliente do cabeçalho do pedido `X-ClientTraceId` .</td>
   </tr>
 </table> 
 
-Se ocorrer um erro, o pedido também devolverá uma resposta de erro da JSON. O código de erro é um número de 6 dígitos que combina o código de estado HTTP de 3 dígitos seguido de um número de 3 dígitos para categorizar ainda mais o erro. Códigos de erro comuns podem ser encontrados na página de referência da API do [texto do tradutor v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
+Se ocorrer um erro, o pedido também devolverá uma resposta de erro da JSON. O código de erro é um número de 6 dígitos que combina o código de estado HTTP de 3 dígitos seguido de um número de 3 dígitos para categorizar ainda mais o erro. Códigos de erro comuns podem ser encontrados na página de referência do [tradutor v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
 ## <a name="examples"></a>Exemplos
 

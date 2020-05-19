@@ -2,16 +2,16 @@
 title: Perguntas frequentes (FAQ) - LUIS
 description: Este artigo contém respostas a perguntas frequentes sobre compreensão da linguagem (LUIS).
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 05/06/2020
 ms.author: diberry
-ms.openlocfilehash: 3c7e191ab64d30ddb64f1c3ff4e31b9c20c87b5c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3a30dd1c55d1ee4314e5a9a2f14ffe832994c467
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82101115"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592853"
 ---
-# <a name="language-understanding-frequently-asked-questions-faq"></a>Compreensão da linguagem Perguntas Frequentes (FAQ)
+# <a name="language-understanding-frequently-asked-questions-faq"></a>Perguntas Frequentes (FAQ) do Language Understanding 
 
 Este artigo contém respostas a perguntas frequentes sobre compreensão da linguagem (LUIS).
 
@@ -66,7 +66,7 @@ Para transferir uma app LUIS para uma subscrição azure diferente, exportar a a
 
 ### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>Uma entidade pré-construída é marcada num exemplo em vez da minha entidade personalizada. Como posso resolver isto?
 
-No portal LUIS, pode rotular texto para a entidade exata que está interessado em extrair. Se o portal LUIS não mostrar a previsão correta da entidade, poderá ter de adicionar mais expressões e rotular a entidade dentro do texto ou adicionar um descritor (como uma funcionalidade).
+No portal LUIS, pode rotular texto para a entidade exata que está interessado em extrair. Se o portal LUIS não mostrar a previsão correta da entidade, poderá ter de adicionar mais expressões e rotular a entidade dentro do texto ou adicionar uma funcionalidade.
 
 ### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>Tentei importar uma aplicação ou ficheiro de versão, mas tenho um erro, o que aconteceu?
 
@@ -189,7 +189,7 @@ Ver [Comboio com todos os dados](luis-how-to-train.md#train-with-all-data).
 ## <a name="app-publishing"></a>Publicação de aplicativos
 
 ### <a name="what-is-the-tenant-id-in-the-add-a-key-to-your-app-window"></a>Qual é a identificação do inquilino na janela "Adicione uma chave à sua aplicação"?
-Em Azure, um inquilino representa o cliente ou organização que está associado a um serviço. Encontre o seu ID de inquilino no portal Azure na caixa de ID do **Diretório** selecionando propriedades de**gestão** > de **diretórios** > ativos azure **.**
+Em Azure, um inquilino representa o cliente ou organização que está associado a um serviço. Encontre o seu ID de inquilino no portal Azure na caixa de ID do **Diretório** selecionando propriedades de gestão de **diretórios ativos azure**  >  **Manage**  >  **Properties**.
 
 ![ID do inquilino no portal Azure](./media/luis-manage-keys/luis-assign-key-tenant-id.png)
 
@@ -226,7 +226,7 @@ As chaves de autoria estão disponíveis no portal LUIS após [a migração para
 Por predefinição, a sua aplicação LUIS regista declarações dos utilizadores. Para descarregar um registo de expressões que os utilizadores enviam para a sua aplicação LUIS, vá a **My Apps**e selecione a aplicação. Na barra de ferramentas contextual, selecione **Registos de Ponto final de Exportação**. O registo é formatado como um ficheiro de valor separado de vírina (CSV).
 
 ### <a name="how-can-i-disable-the-logging-of-utterances"></a>Como posso desativar o registo de expressões?
-Pode desativar o registo de declarações do utilizador definindo `log=false` no URL endpoint que a sua aplicação de cliente utiliza para consulta LUIS. No entanto, desligar o registo desativa a capacidade da sua app LUIS de sugerir expressões ou melhorar o desempenho baseado na [aprendizagem ativa.](luis-concept-review-endpoint-utterances.md#what-is-active-learning) Se definir `log=false` por motivos de privacidade de dados, não pode descarregar um registo dessas declarações de utilizador da LUIS ou usar essas expressões para melhorar a sua aplicação.
+Pode desativar o registo de declarações do utilizador definindo no URL endpoint que a `log=false` sua aplicação de cliente utiliza para consulta LUIS. No entanto, desligar o registo desativa a capacidade da sua app LUIS de sugerir expressões ou melhorar o desempenho baseado na [aprendizagem ativa.](luis-concept-review-endpoint-utterances.md#what-is-active-learning) Se definir `log=false` por motivos de privacidade de dados, não pode descarregar um registo dessas declarações de utilizador da LUIS ou usar essas expressões para melhorar a sua aplicação.
 
 A exploração madeireira é o único armazenamento de expressões.
 
@@ -271,7 +271,7 @@ Passe a mesma expressão para LUIS a partir do ponto final do [LUIS.](luis-get-s
 
 #### <a name="resolve-issue-in-azure-bot-service"></a>Resolver problema no Serviço Bot Azure
 
-Se estiver a utilizar o Serviço Bot Azure e o `Sorry, my bot code is having an issue`problema é que o Teste no Chat **web** retorna, verifique os seus registos:
+Se estiver a utilizar o Serviço Bot Azure e o problema é que o **Teste no Chat web** retorna, verifique os seus `Sorry, my bot code is having an issue` registos:
 
 1. No portal Azure, para o seu bot, a partir da secção de **gestão bot,** selecione **Build**.
 1. Abra o editor de código online.

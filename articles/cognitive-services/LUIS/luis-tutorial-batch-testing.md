@@ -2,13 +2,13 @@
 title: 'Tutorial: Testes em lote para encontrar problemas - LUIS'
 description: Este tutorial demonstra como usar testes de lote para validar a qualidade da sua aplicação Language Understanding (LUIS).
 ms.topic: tutorial
-ms.date: 03/02/2020
-ms.openlocfilehash: c276f0b52f83937fbe3b6fd9e0b7c1a66f665095
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 05/07/2020
+ms.openlocfilehash: c823cbd854c28ab356dd9968e6f8f1a12b6421be
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78250487"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592598"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>Tutorial: Conjuntos de dados de teste de lote
 
@@ -24,7 +24,7 @@ Requisitos para o teste do lote:
 
 Ao utilizar uma aplicação diferente deste tutorial, *não* utilize as declarações de exemplo já adicionadas à sua aplicação.
 
-**Neste tutorial, ficará a saber como:**
+**Neste tutorial, vai aprender a:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -37,11 +37,13 @@ Ao utilizar uma aplicação diferente deste tutorial, *não* utilize as declara�
 
 ## <a name="import-example-app"></a>App de exemplo de importação
 
-Importar uma app que requer `1 pepperoni pizza on thin crust`uma encomenda de pizza como .
+Importar uma app que requer uma encomenda de pizza como `1 pepperoni pizza on thin crust` .
 
 1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/pizza-with-machine-learned-entity.json?raw=true).
 
-1. Utilize o [portal DE pré-visualização LUIS,](https://preview.luis.ai/)importe `Pizza app`o JSON numa nova aplicação, nomeie a app .
+1. Inscreva-se no [portal LUIS](https://www.luis.ai)e selecione o seu recurso **De Subscrição** e **Autoria** para ver as aplicações atribuídas a esse recurso de autoria.
+1. Importe o JSON numa nova app, nomeie a app `Pizza app` .
+
 
 1. Selecione **Comboio** no canto superior direito da navegação para treinar a aplicação.
 
@@ -55,7 +57,7 @@ Pode separar os testes por intenção e/ou entidade ou ter todos os testes (até
 
 O exemplo JSON inclui uma expressão com uma entidade rotulada para ilustrar como é um ficheiro de teste. Nos seus próprios testes, deve ter muitas declarações com a intenção correta e entidade aprendida com máquinas rotuladas.
 
-1. Crie `pizza-with-machine-learned-entity-test.json` num editor de texto ou [descarregue-o.](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/batch-tests/pizza-with-machine-learned-entity-test.json?raw=true)
+1. Crie num editor de `pizza-with-machine-learned-entity-test.json` texto ou [descarregue-o.](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/batch-tests/pizza-with-machine-learned-entity-test.json?raw=true)
 
 2. No ficheiro de lote formado pela JSON, adicione uma expressão com a **Intenção** que pretende prevista no teste.
 
@@ -72,9 +74,9 @@ O exemplo JSON inclui uma expressão com uma entidade rotulada para ilustrar com
     > [!div class="mx-imgBorder"]
     > ![Screenshot da app LUIS com conjunto de dados de importação em destaque](./media/luis-tutorial-batch-testing/import-dataset-button.png)
 
-4. Escolha a localização `pizza-with-machine-learned-entity-test.json` do ficheiro do ficheiro.
+4. Escolha a localização do ficheiro do `pizza-with-machine-learned-entity-test.json` ficheiro.
 
-5. Nomeie `pizza test` o conjunto de dados e selecione **Done**.
+5. Nomeie o conjunto de dados `pizza test` e selecione **Done**.
 
     > [!div class="mx-imgBorder"]
     > ![Selecione ficheiro](./media/luis-tutorial-batch-testing/import-dataset-modal.png)

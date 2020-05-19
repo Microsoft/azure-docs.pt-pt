@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: a1a33404982b16e458e97aaf9959ff5dd52d1cce
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 86678365d1510199247e8a1aaa48ec844d07de32
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198888"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592938"
 ---
 # <a name="best-practices-for-sql-on-demand-preview-in-azure-synapse-analytics"></a>Boas práticas para SQL on-demand (pré-visualização) em Azure Synapse Analytics
 
@@ -86,7 +86,7 @@ EXEC sp_describe_first_result_set N'
 
 Aqui está o conjunto de resultados.
 
-|is_hidden|column_ordinal|nome|system_type_name|max_length|
+|is_hidden|column_ordinal|name|system_type_name|max_length|
 |----------------|---------------------|----------|--------------------|-------------------||
 |0|1|vendor_id|varchar(8000)|8000|
 |0|2|pickup_datetime|data2(7)|8|
@@ -119,7 +119,7 @@ Para mais informações, verifique o nome de [ficheiros](develop-storage-files-o
 > Lance sempre o resultado das funções de filepath e fileinfo para tipos de dados adequados. Se utilizar tipos de dados de caracteres, certifique-se de que o comprimento adequado é utilizado.
 
 > [!NOTE]
-> As funções utilizadas para a eliminação da partição, o arquivo e o fileinfo, não são atualmente suportadas para tabelas externas diferentes das criadas automaticamente para cada tabela criada em Synapse Spark.
+> As funções utilizadas para a eliminação da partição, o filepath e o fileinfo, não são atualmente suportadas para tabelas externas diferentes das criadas automaticamente para cada tabela criada em Apache Spark para Azure Synapse Analytics.
 
 Se os seus dados armazenados não forem divididos, considere dividi-los para que possa usar estas funções para otimizar consultas direcionadas a esses ficheiros. Ao [consultar tabelas de Faíscas divididas](develop-storage-files-spark-tables.md) a pedido da SQL, a consulta irá automaticamente direcionar apenas os ficheiros necessários.
 

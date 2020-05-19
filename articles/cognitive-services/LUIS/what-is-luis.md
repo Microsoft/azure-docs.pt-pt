@@ -2,13 +2,13 @@
 title: O que é o Language Understanding (LUIS)?
 description: O Language Understanding (LUIS) é um serviço de API baseado na cloud que aplica inteligência de machine learning personalizada aos textos conversacionais de idioma natural do utilizador, para prever o sentido geral e extrair informações relevantes e detalhadas.
 ms.topic: overview
-ms.date: 02/23/2020
-ms.openlocfilehash: 98fb936422f8e23e728efea19fa2cd75d90fac57
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 05/05/2020
+ms.openlocfilehash: d09aaabeec1d22132843ba98472e1cd89ba95815
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80053356"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592819"
 ---
 # <a name="what-is-language-understanding-luis"></a>O que é o Language Understanding (LUIS)?
 
@@ -32,7 +32,7 @@ Quando a aplicação LUIS for publicada, uma aplicação cliente envia expressõ
 |Passo|Ação|
 |:--|:--|
 |1|A aplicação cliente envia a _expressão_ do utilizador (o texto nas palavras do utilizador), "I want to call my HR rep" (“Quero ligar ao meu representante de RH”) ao ponto final do LUIS como um pedido HTTP.|
-|2|O LUIS permite-lhe criar os seus modelos de idioma personalizados para adicionar inteligência à sua aplicação. Os modelos de linguagem aprendidos pela máquina pegam no texto de entrada não estruturado `HRContact`do utilizador e devolvem uma resposta formada pela JSON, com uma intenção máxima, . A resposta mínima do ponto final do JSON contém a expressão da consulta e a intenção com a melhor classificação. Também pode extrair dados como a entidade _tipo de contacto._|
+|2|O LUIS permite-lhe criar os seus modelos de idioma personalizados para adicionar inteligência à sua aplicação. Os modelos de linguagem aprendidos pela máquina pegam no texto de entrada não estruturado do utilizador e devolvem uma resposta formada pela JSON, com uma intenção máxima, `HRContact` . A resposta mínima do ponto final do JSON contém a expressão da consulta e a intenção com a melhor classificação. Também pode extrair dados como a entidade _tipo de contacto._|
 |3|A aplicação cliente utiliza a resposta JSON para tomar decisões quanto à forma como satisfaz os pedidos do utilizador. Estas decisões podem incluir a árvore de decisão no código-quadro do bot e chamadas para outros serviços. |
 
 A aplicação LUIS proporciona inteligência para que a aplicação cliente possa tomar decisões informadas. O LUIS não fornece essas decisões.
@@ -55,9 +55,9 @@ O modelo do LUIS começa com categorias de intenções do utilizador, denominada
 
 |Exemplo de expressão do utilizador|Intenção|Dados extraídos|
 |-----------|-----------|-----------|
-|`Book a flight to __Seattle__?`|ReservarBilhete|Seattle|
-|`When does your store __open__?`|HoráriodaLojaeLocalização|abre|
-|`Schedule a meeting at __1pm__ with __Bob__ in Distribution`|AgendarReunião|13:00, João|
+|`Book a flight to Seattle?`|ReservarBilhete|Seattle|
+|`When does your store open?`|HoráriodaLojaeLocalização|abre|
+|`Schedule a meeting at 1pm with Bob in Distribution`|AgendarReunião|13:00, João|
 
 ## <a name="query-prediction-endpoint"></a>Ponto final de predição da consulta
 

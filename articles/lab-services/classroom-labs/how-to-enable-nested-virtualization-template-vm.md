@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2019
 ms.author: spelluru
-ms.openlocfilehash: 3c954c4689281838ea8c61c932cdcc3b74bac442
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b7831e554fcca20134d5cf8608481ff0c82eb8a0
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82184678"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592003"
 ---
 # <a name="enable-nested-virtualization-on-a-template-virtual-machine-in-azure-lab-services"></a>Ativar a virtualização aninhada em uma máquina virtual modelo em Serviços de Laboratório Azure
 
-Atualmente, o Azure Lab Services permite-lhe configurar uma máquina virtual modelo num laboratório e disponibilizar uma única cópia a cada um dos seus utilizadores. Se você é um professor ensinando aulas de networking, segurança ou TI, você pode precisar fornecer a cada um dos seus alunos um ambiente em que várias máquinas virtuais podem falar entre si sobre uma rede.
+Atualmente, o Azure Lab Services permite-lhe configurar uma máquina virtual modelo num laboratório e disponibilizar uma única cópia a cada um dos seus utilizadores. Se você é um educador ensinando aulas de networking, segurança ou TI, você pode precisar fornecer a cada um dos seus alunos um ambiente em que várias máquinas virtuais podem falar entre si sobre uma rede.
 
 A virtualização aninhada permite criar um ambiente multi-VM dentro da máquina virtual modelo de um laboratório. A publicação do modelo fornecerá a cada utilizador do laboratório uma máquina virtual configurada com vários VMs dentro dele.  Este artigo abrange como configurar a virtualização aninhada numa máquina de modelos em Serviços de Laboratório Azure.
 

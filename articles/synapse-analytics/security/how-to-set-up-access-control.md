@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7ce011a34aed39429884dc03285a0848776ac008
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: d02cd12552b3664dd7acaae0142fc939ee57f5f6
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83006074"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591986"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Proteja o seu espaço de trabalho Synapse (pré-visualização)
 
@@ -28,7 +28,7 @@ Para garantir um espaço de trabalho Synapse (pré-visualização), seguirá um 
 - Papéis sinapse – estes papéis são exclusivos da Synapse e não são baseados em papéis de Azure. Há três destes papéis:
   - Administração do espaço de trabalho sinapse
   - Administração Synapse SQL
-  - Administração Synapse Spark
+  - Apache Spark para administração azure synapse Analytics
 - Controlo de acesso a dados em Azure Data Lake Storage Gen 2 (ADLSGEN2).
 - Controlo de acesso para bases de dados Synapse SQL e Spark
 
@@ -48,11 +48,11 @@ Este documento utiliza nomes padrão para simplificar as instruções. Substitua
 
 Crie e povoetrês grupos de segurança para o seu espaço de trabalho:
 
-- **WS1\_WSAdmins** – para utilizadores que precisam de controlo total sobre o espaço de trabalho
-- **WS1\_SparkAdmins** – para os utilizadores que precisam de controlo total sobre os aspetos spark do espaço de trabalho
-- **WS1\_SQLAdmins** – para utilizadores que precisam de controlo total sobre os aspetos SQL do espaço de trabalho
-- Adicione **WS1\_WSAdmins** à **WS1\_SQLAdmins**
-- Adicione **WS1\_WSAdmins** à **WS1\_SparkAdmins**
+- **WS1 \_ WSAdmins** – para utilizadores que precisam de controlo total sobre o espaço de trabalho
+- **WS1 \_ SparkAdmins** – para os utilizadores que precisam de controlo total sobre os aspetos spark do espaço de trabalho
+- **WS1 \_ SQLAdmins** – para utilizadores que precisam de controlo total sobre os aspetos SQL do espaço de trabalho
+- Adicione ** \_ WS1 WSAdmins** à **WS1 \_ SQLAdmins**
+- Adicione ** \_ WS1 WSAdmins** à **WS1 \_ SparkAdmins**
 
 ## <a name="step-2-prepare-your-data-lake-storage-gen2-account"></a>PASSO 2: Prepare a sua conta Gen2 de Armazenamento de Lago de Dados
 
@@ -65,9 +65,9 @@ Identifique esta informação sobre o seu armazenamento:
 
 - Utilizando o portal Azure, atribua aos grupos de segurança as seguintes funções na CNT1
 
-  - Atribuir **WS1\_WSAdmins** à função de Contribuinte de **Dados blob** de armazenamento
-  - Atribuir **A WS1\_SparkAdmins** à função de Contribuinte de **Dados blob** de armazenamento
-  - Atribuir **WS1\_SQLAdmins** à função de Contribuinte de **Dados blob de armazenamento**
+  - Atribuir ** \_ WS1 WSAdmins** à função de Contribuinte de **Dados blob** de armazenamento
+  - Atribuir **A WS1 \_ SparkAdmins** à função de Contribuinte de **Dados blob** de armazenamento
+  - Atribuir ** \_ WS1 SQLAdmins** à função de Contribuinte de **Dados blob de armazenamento**
 
 ## <a name="step-3-create-and-configure-your-synapse-workspace"></a>PASSO 3: Crie e configure o seu espaço de trabalho sinapse
 
@@ -77,10 +77,10 @@ No portal Azure, crie um espaço de trabalho sinapse:
 - Escolha STG1 para a conta de Armazenamento
 - Escolha CNT1 para o recipiente que está a ser utilizado como "sistema de ficheiros".
 - Open WS1 no Estúdio Synapse
-- Selecione **Manage Access** > **Control** atribua os grupos de segurança às seguintes funções Synapse.
-  - Atribuir **wS1\_WSAdmins** aos administradores do espaço de trabalho sinapse
-  - Atribuir **wS1\_SparkAdmins** aos administradores da Synapse Spark
-  - Atribuir **wS1\_SQLAdmins** a administradores Synapse SQL
+- Selecione **Manage**  >  **Access Control** atribua os grupos de segurança às seguintes funções Synapse.
+  - Atribuir ** \_ wS1 WSAdmins** aos administradores do espaço de trabalho sinapse
+  - Atribuir **wS1 \_ SparkAdmins** aos administradores da Synapse Spark
+  - Atribuir **wS1 \_ SQLAdmins** a administradores Synapse SQL
 
 ## <a name="step-4-configuring-data-lake-storage-gen2-for-use-by-synapse-workspace"></a>PASSO 4: Configurar data lake storage Gen2 para uso por espaço de trabalho Synapse
 
@@ -91,14 +91,14 @@ O espaço de trabalho Synapse precisa de acesso ao STG1 e ao CNT1 para que possa
 - Navegar para CNT1
 - Certifique-se de que o MSI (Identidade de Serviço Gerido) para a WS1 é atribuído à função de Contribuinte de **Dados blob** de armazenamento na CNT1
   - Se não o vir atribuído, atribua-o.
-  - O MSI tem o mesmo nome que o espaço de trabalho. Neste caso, seria &quot;wS1&quot;.
+  - O MSI tem o mesmo nome que o espaço de trabalho. Neste caso, seria &quot; wS1 &quot; .
 
 ## <a name="step-5-configure-admin-access-for-sql-pools"></a>PASSO 5: Configure acesso administrativo para piscinas SQL
 
 - Abra o portal do Azure
 - Navegar para wS1
 - Em **Definições,** clique em **administração de Diretório Ativo SQL**
-- Clique **em Configurar** administrador\_e escolha WS1 SQLAdmins
+- Clique **em Configurar** administrador e escolha \_ WS1 SQLAdmins
 
 ## <a name="step-6-maintaining-access-control"></a>PASSO 6: Manutenção do controlo de acesso
 
@@ -119,7 +119,7 @@ Os utilizadores de cada função precisam de completar os seguintes passos:
 | 3 | Criar uma piscina de faíscas | SIM [1] | SIM [1] | NO  |
 | 4 | Lê o arquivo de parquet com um Caderno | SIM | SIM | NO |
 | 5 | Crie um oleoduto a partir do Caderno e desencadeie o oleoduto para funcionar agora | SIM | NO | NO |
-| 6 | Crie um SQL Pool e execute &quot;um script SQL como SELECT 1&quot; | SIM [1] | NO | SIM[1] |
+| 6 | Crie um SQL Pool e execute um script SQL como &quot; SELECT 1&quot; | SIM [1] | NO | SIM[1] |
 
 > [!NOTE]
 > [1] Para criar piscinas SQL ou Spark, o utilizador deve ter pelo menos uma função de Contribuinte no espaço de trabalho Synapse.

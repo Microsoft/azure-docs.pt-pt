@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2020
 ms.author: spelluru
-ms.openlocfilehash: cb645b5adfcd937758a950eaf596bc60e4d55f3f
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 11cb0d995537b8979c3727bf508045c6e31fc208
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83115154"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592615"
 ---
 # <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Laboratórios de sala de aula em Serviços de Laboratório Azure — Perguntas frequentes (FAQ)
 Obtenha respostas para algumas das perguntas mais comuns sobre laboratórios de salas de aula em Serviços de Laboratório Azure. 
@@ -28,8 +28,8 @@ Obtenha respostas para algumas das perguntas mais comuns sobre laboratórios de 
 ### <a name="is-the-quota-per-user-or-per-week-or-per-entire-duration-of-the-lab"></a>A quota por utilizador ou por semana ou por toda a duração do laboratório? 
 A quota que definiu para um laboratório é para cada aluno durante toda a duração do laboratório. E o [tempo de funcionamento programado dos VMs](how-to-create-schedules.md) não conta com a quota atribuída a um utilizador. A quota é para o tempo fora do horário horário que um aluno gasta em VMs.  Para obter mais informações sobre quotas, consulte [As quotas definidas para os utilizadores.](how-to-configure-student-usage.md#set-quotas-for-users)
 
-### <a name="if-professor-turns-on-a-student-vm-does-that-affect-the-student-quota"></a>Se o professor se virar contra um estudante VM, isso afeta a quota do aluno? 
-Não. Não é assim. Quando o professor se volta contra o VM do aluno, não afeta a quota atribuída ao aluno. 
+### <a name="if-educator-turns-on-a-student-vm-does-that-affect-the-student-quota"></a>Se a educadora se virar contra um Estudante VM, isso afeta a quota do aluno? 
+Não. Não é assim. Quando a educadora liga o VM do aluno, não afeta a quota atribuída ao aluno. 
 
 ## <a name="schedules"></a>Agendas
 

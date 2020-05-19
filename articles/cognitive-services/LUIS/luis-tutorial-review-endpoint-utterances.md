@@ -4,12 +4,12 @@ description: Neste tutorial, melhore as previsões da aplicação verificando ou
 services: cognitive-services
 ms.topic: tutorial
 ms.date: 04/01/2020
-ms.openlocfilehash: 307c18d3326cb1a64b884463a571985a015834ed
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 32d43b36910c8fbfd60463f4062b6a00b9272fdb
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80548731"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592581"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Tutorial: Corrigir previsões inseguras através da revisão das declarações de pontofinal
 Neste tutorial, melhore as previsões da aplicação verificando ou corrigindo as declarações, recebidas através do ponto final luis HTTPS, de que o LUIS não tem a certeza. Você deve rever as declarações de ponto final como uma parte regular da sua manutenção agendada do LUIS.
@@ -22,7 +22,7 @@ Este processo de revisão permite que a LUIS aprenda o domínio da sua aplicaç�
 
 Ao rever as expressões de ponto final, está a validar ou corrigir a intenção prevista da expressão.
 
-**Neste tutorial, ficará a saber como:**
+**Neste tutorial, vai aprender a:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -33,11 +33,11 @@ Ao rever as expressões de ponto final, está a validar ou corrigir a intenção
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="import-example-app"></a>App de exemplo de importação
+## <a name="download-json-file-for-app"></a>Descarregue o ficheiro JSON para aplicação
 
-Utilize os seguintes passos para importar uma aplicação.
+Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json?raw=true).
 
-1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json?raw=true).
+## <a name="import-json-file-for-app"></a>Importar ficheiro JSON para app
 
 [!INCLUDE [Import app steps](includes/import-app-steps.md)]
 
@@ -80,9 +80,9 @@ Reveja as declarações finais para uma intenção corretamente alinhada. Embora
     > [!div class="mx-imgBorder"]
     > ![Captura de ecrã do botão para Rever expressões de ponto final na navegação à esquerda](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)
 
-    Esta expressão, `I'm looking for a job with Natural Language Processing`não está na intenção correta.
+    Esta `I'm looking for a job with Natural Language Processing` expressão, não está na intenção correta.
 
-1.  Para alinhar esta expressão, na linha de expressão, selecione a **intenção alinhada** correta de `GetJobInformation`. Adicione a expressão alterada à aplicação selecionando a marca de verificação.
+1.  Para alinhar esta expressão, na linha de expressão, selecione a **intenção alinhada** correta de `GetJobInformation` . Adicione a expressão alterada à aplicação selecionando a marca de verificação.
 
     > [!div class="mx-imgBorder"]
     > ![Captura de ecrã do botão para Rever expressões de ponto final na navegação à esquerda](./media/luis-tutorial-review-endpoint-utterances/select-correct-aligned-intent-for-endpoint-utterance.png)
@@ -101,7 +101,7 @@ Para verificar as declarações corretamente alinhadas do exemplo, melhorou a pr
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Vá até ao fim do URL na _YOUR_QUERY_HERE_ barra `Are there any natural language processing jobs in my department right now?`de endereços e substitua YOUR_QUERY_HERE por .
+1. Vá até ao fim do URL na barra de endereços e substitua _YOUR_QUERY_HERE_ por `Are there any natural language processing jobs in my department right now?` .
 
    ```json
     {

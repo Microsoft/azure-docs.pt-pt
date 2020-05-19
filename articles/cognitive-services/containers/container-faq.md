@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: faae149cc6cfe9140f7e6908f5eb92d3031ef6d8
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 0e4f9da3aec42df42cc43f73fdeefa7087de6db5
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690826"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592190"
 ---
 # <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Os contentores dos Serviços Cognitivos Azure fazem frequentemente perguntas (FAQ)
 
@@ -22,16 +22,7 @@ ms.locfileid: "82690826"
 
 **P: O que está disponível?**
 
-**R:** O suporte de [contentores nos Serviços Cognitivos Azure](../cognitive-services-container-support.md) permite que os desenvolvedores utilizem as mesmas APIs inteligentes que estão disponíveis no Azure, mas com os [benefícios](../cognitive-services-container-support.md#features-and-benefits) da contentorização. O suporte do contentor está atualmente disponível em pré-visualização para um subconjunto de Serviços Cognitivos Azure, incluindo partes de:
-
-> [!div class="checklist"]
-> * [Detetor de Anomalias][ad-containers]
-> * [Imagem Digitalizada][cv-containers]
-> * [Rostos][fa-containers]
-> * [Reconhecedor de Formato][fr-containers]
-> * [Compreensão de Idiomas (LUIS)][lu-containers]
-> * [API de Serviço de Voz][sp-containers]
-> * [Análise de Texto][ta-containers]
+**A:** Os recipientes dos Serviços Cognitivos Azure permitem aos desenvolvedores utilizar as mesmas APIs inteligentes que estão disponíveis em Azure, mas com os [benefícios](../cognitive-services-container-support.md#features-and-benefits) da contentorização. Alguns contentores estão disponíveis como [pré-visualização fechada,](../cognitive-services-gating-process.md)o que pode exigir uma aplicação de acesso. Outros recipientes estão disponíveis ao público como pré-visualização ungida, ou estão geralmente disponíveis. Pode encontrar uma lista completa de contentores e a sua disponibilidade no suporte do Contentor no artigo dos [Serviços Cognitivos Azure.](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services) 
 
 **P: Existe alguma diferença entre a nuvem dos Serviços Cognitivos e os contentores?**
 
@@ -62,7 +53,7 @@ Infelizmente, os contentores dos Serviços Cognitivos *não* são apoiados de fo
 
 **P: Como os contentores são atualizados para a versão mais recente?**
 
-**A:** Os clientes podem escolher quando atualizar os recipientes que implementaram. Os contentores serão marcados com `latest` [etiquetas padrão do Docker,](https://docs.docker.com/engine/reference/commandline/tag/) como para indicar a versão mais recente. Encorajamos os clientes a puxarem a versão mais recente dos contentores à medida que são lançados, checkout [Azure Container Registry webhooks](../../container-registry/container-registry-webhook.md) para obter detalhes sobre como ser notificado quando uma imagem é atualizada.
+**A:** Os clientes podem escolher quando atualizar os recipientes que implementaram. Os contentores serão marcados com [etiquetas padrão do Docker,](https://docs.docker.com/engine/reference/commandline/tag/) como `latest` para indicar a versão mais recente. Encorajamos os clientes a puxarem a versão mais recente dos contentores à medida que são lançados, checkout [Azure Container Registry webhooks](../../container-registry/container-registry-webhook.md) para obter detalhes sobre como ser notificado quando uma imagem é atualizada.
  
 **P: Que versões serão suportadas?**
 
@@ -80,7 +71,7 @@ Infelizmente, os contentores dos Serviços Cognitivos *não* são apoiados de fo
 
 **P: Estes recipientes são compatíveis com o OpenShift?** 
 
-Não testamos contentores com OpenShift, mas geralmente, os recipientes dos Serviços Cognitivos devem funcionar em qualquer plataforma que suporte imagens do Docker. Se estiver a utilizar o OpenShift, recomendamos que os recipientes estejam a executar os recipientes como `root-user`.
+Não testamos contentores com OpenShift, mas geralmente, os recipientes dos Serviços Cognitivos devem funcionar em qualquer plataforma que suporte imagens do Docker. Se estiver a utilizar o OpenShift, recomendamos que os recipientes estejam a executar os recipientes como `root-user` .
 
 **P: Como fornecer feedback do produto e recomendações de recurso?**
 
@@ -113,7 +104,7 @@ Explore as seguintes etiquetas para potenciais perguntas e respostas que se alin
 
 * [Detetor de Anomalias][ad-containers-billing]
 * [Imagem Digitalizada][cv-containers-billing]
-* [Rostos][fa-containers-billing]
+* [Face][fa-containers-billing]
 * [Reconhecedor de Formato][fr-containers-billing]
 * [Compreensão de Idiomas (LUIS)][lu-containers-billing]
 * [API de Serviço de Voz][sp-containers-billing]
@@ -140,7 +131,7 @@ Explore as seguintes etiquetas para potenciais perguntas e respostas que se alin
 
 * [Detetor de Anomalias][ad-containers-recommendations]
 * [Imagem Digitalizada][cv-containers-recommendations]
-* [Rostos][fa-containers-recommendations]
+* [Face][fa-containers-recommendations]
 * [Reconhecedor de Formato][fr-containers-recommendations]
 * [Compreensão de Idiomas (LUIS)][lu-containers-recommendations]
 * [API de Serviço de Voz][sp-containers-recommendations]

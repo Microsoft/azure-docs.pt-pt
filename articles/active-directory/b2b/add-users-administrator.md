@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 05/19/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 752df34c263563cdb970cadb59f92f2811af378e
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: ee246180beb7e8eab9cf12b4df05d7a2dab4d752
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199515"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591306"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Adicione utilizadores de colaboração azure Ative Directory B2B no portal Azure
 
@@ -68,7 +68,7 @@ Se precisar de adicionar manualmente utilizadores de colaboração B2B a um grup
 3. Under **Manage**, selecione **Groups**.
 4. Selecione um grupo (ou clique em **Novo grupo** para criar um novo). É uma boa ideia incluir na descrição do grupo que o grupo contém utilizadores convidados B2B.
 5. Selecione **Membros**. 
-6. Efetue uma das seguintes ações:
+6. Faça um dos seguintes:
    - Se o utilizador convidado já existir no diretório, procure o utilizador B2B. Selecione o utilizador e, em seguida, clique em **Selecionar** para adicionar o utilizador ao grupo.
    - Se o utilizador convidado ainda não existir no diretório, convide-os para o grupo digitando o seu endereço de e-mail na caixa de pesquisa, digitando uma mensagem pessoal opcional e clicando em **Select**. O convite sai automaticamente para o utilizador convidado.
      
@@ -90,7 +90,7 @@ Para adicionar utilizadores de colaboração B2B a uma aplicação, siga estes p
 
 6. Selecione **Adicionar utilizador**.
 7. Em **função da atribuição de adicionar,** selecione **User and groups**.
-8. Efetue uma das seguintes ações:
+8. Faça um dos seguintes:
    - Se o utilizador convidado já existir no diretório, procure o utilizador B2B. Selecione o utilizador, clique em **Selecionar**, e, em seguida, clique em **Atribuir** para adicionar o utilizador à aplicação.
    - Se o utilizador convidado ainda não existir no diretório, sob o **membro Select ou convidar um utilizador externo,** escreva o endereço de e-mail do utilizador. Na caixa de mensagens, digite uma mensagem pessoal opcional. Por baixo da caixa de mensagens, clique **em Convidar**.
            

@@ -12,12 +12,12 @@ metadata:
   author: j-martens
   ms.author: jmartens
   ms.date: 04/30/2020
-  ms.openlocfilehash: d1e93ac4efb366f09b425be74be6eb8aeda9a713
-  ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+  ms.openlocfilehash: 57a16ca35699f11c55e12c494a4cbb93bac8a334
+  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 05/10/2020
-  ms.locfileid: "83005960"
+  ms.lasthandoff: 05/19/2020
+  ms.locfileid: "83593006"
 landingContent:
 - title: Introdução ao machine learning
   linkLists:
@@ -79,6 +79,8 @@ landingContent:
       url: how-to-train-pytorch.md
     - text: Preparar com o Keras
       url: how-to-train-keras.md
+    - text: Aprendizagem por reforço
+      url: how-to-use-reinforcement-learning.md
     - text: O que são pipelines de ML?
       url: concept-ml-pipelines.md
 - title: Implementar e gerir modelos (MLOps)

@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2019
+ms.date: 05/15/2020
 ms.author: spelluru
-ms.openlocfilehash: 0dab5f3dcdfb6ddabbd94960dcf8a8bf2bce98af
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 1167846c399430bd2db2eaa3114628ebb63ce639
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890778"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592326"
 ---
 # <a name="set-up-a-lab-focused-on-deep-learning-in-natural-language-processing-using-azure-lab-services"></a>Criar um laboratório focado na aprendizagem profunda no processamento de linguagem natural usando serviços de laboratório azure
 Este artigo mostra-lhe como criar um laboratório focado na aprendizagem profunda no processamento de linguagem natural (NLP) usando os Serviços de Laboratório Azure. O processamento de linguagem natural (NLP) é uma forma de inteligência artificial (IA) que permite computadores com capacidades de tradução, reconhecimento de fala e outras capacidades de compreensão linguística.  
@@ -26,7 +26,7 @@ Este artigo mostra-lhe como criar um laboratório focado na aprendizagem profund
 Os alunos que têm uma aula de NLP recebem uma máquina virtual Linux (VM) para aprender a aplicar algoritmos de rede neural para desenvolver modelos de aprendizagem profunda que são usados para analisar a linguagem humana escrita. 
 
 ## <a name="lab-configuration"></a>Configuração do laboratório
-Para montar este laboratório, precisa de uma assinatura Azure para começar. Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. Uma vez que tenha uma subscrição Azure, pode criar uma nova conta de laboratório nos Serviços de Laboratório Azure ou usar uma conta de laboratório existente. Consulte o seguinte tutorial para criar uma nova conta de laboratório: [Tutorial para Configurar uma Conta lab.](tutorial-setup-lab-account.md)
+Para montar este laboratório, precisa de uma assinatura Azure para começar. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. Uma vez que tenha uma subscrição Azure, pode criar uma nova conta de laboratório nos Serviços de Laboratório Azure ou usar uma conta de laboratório existente. Consulte o seguinte tutorial para criar uma nova conta de laboratório: [Tutorial para Configurar uma Conta lab.](tutorial-setup-lab-account.md)
  
 Depois de criar a conta de laboratório, ative as seguintes definições na conta de laboratório: 
 
@@ -40,7 +40,7 @@ Siga [este tutorial](tutorial-setup-classroom-lab.md) para criar um novo laborat
 | ------------ | ------------------ |
 | Tamanho da máquina virtual (VM) | Pequena GPU (Computa). Este tamanho é mais adequado para aplicações intensivas de computação e de rede intensiva, como Inteligência Artificial e Deep Learning. |
 | Imagem VM | [Máquina Virtual de Ciência de Dados para Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). Esta imagem fornece quadros e ferramentas de aprendizagem profunda para a aprendizagem automática e a ciência dos dados. Para ver a lista completa de ferramentas instaladas nesta imagem, consulte o seguinte artigo: [O que está incluído no DSVM?](../../machine-learning/data-science-virtual-machine/overview.md#whats-included-on-the-dsvm) |
-| Ativar a ligação remota de ambiente de trabalho | <p>Permitir esta definição permitirá que professores e alunos se conectem às suas Máquinas Virtuais (VM) utilizando o Remote Desktop (RDP).</p><p>**Importante**: Permitir esta definição só abre a porta **RDP** nas máquinas Linux. Se o RDP já estiver instalado e configurado na imagem da máquina virtual, pode ligar-se a VMs via RDP sem seguir quaisquer passos adicionais. <p>Se a imagem VM não tiver RDP instalada e configurada, precisa de ligar à máquina Linux utilizando sSH pela primeira vez e instalar pacotes RDP e GUI para que possa ligar-se à máquina Linux utilizando RDP mais tarde. Para mais informações, consulte Instalar e configurar o [Ambiente de Trabalho Remoto para ligar a um Linux VM em Azure](../../virtual-machines/linux/use-remote-desktop.md). Depois, publica a imagem para que os alunos possam fazer RDP nos VMs do aluno Linux.  |
+| Ativar a ligação remota de ambiente de trabalho | <p>Permitir esta definição permitirá que educadores e alunos se conectem às suas Máquinas Virtuais (VM) utilizando o Remote Desktop (RDP).</p><p>**Importante**: Permitir esta definição só abre a porta **RDP** nas máquinas Linux. Se o RDP já estiver instalado e configurado na imagem da máquina virtual, pode ligar-se a VMs via RDP sem seguir quaisquer passos adicionais. <p>Se a imagem VM não tiver RDP instalada e configurada, precisa de ligar à máquina Linux utilizando sSH pela primeira vez e instalar pacotes RDP e GUI para que possa ligar-se à máquina Linux utilizando RDP mais tarde. Para mais informações, consulte Instalar e configurar o [Ambiente de Trabalho Remoto para ligar a um Linux VM em Azure](../../virtual-machines/linux/use-remote-desktop.md). Depois, publica a imagem para que os alunos possam fazer RDP nos VMs do aluno Linux.  |
 
 A Máquina Virtual de Ciência de Dados para a imagem de Linux fornece os quadros e ferramentas de aprendizagem profunda necessários para este tipo de classe. Como resultado, após a criação da máquina de modelo, não precisa personalizá-la ainda mais. Pode ser publicado para os alunos usarem. Selecione o botão **Publicar** na página do modelo para publicar o modelo no laboratório.  
 

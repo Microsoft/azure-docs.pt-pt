@@ -1,5 +1,5 @@
 ---
-title: Suporte da versão Synapse Spark
+title: Apache Spark para suporte à versão Azure Synapse Analytics
 description: Versões suportadas de Spark, Scala, Python
 services: synapse-analytics
 author: euangMS
@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 77f7ed5787a723b54fef38d12812b825e2c08813
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 77b838db2f39b0de1e209715432697f1f006029c
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81429242"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591578"
 ---
 # <a name="supported-language-and-runtime-versions-for-apache-spark-and-dependent-components"></a>Idiomas suportados e versões de tempo de execução para Apache Spark e componentes dependentes  
 
@@ -42,11 +42,11 @@ Apache Spark em Azure Synapse inclui .NET Core 3.0
 
 ## <a name="net-support-for-apache-spark"></a>Suporte .NET para Apache Spark
 
-Azure Synapse inclui suporte .NET para Apache Spark 0.5.0
+Azure Synapse inclui suporte .NET para Apache Spark 0.11.0
 
 ## <a name="delta-lake"></a>Delta Lake
 
-Synapse Analytics inclui suporte para Delta Lake 0.5.0
+Synapse Analytics inclui suporte para Delta Lake 0.6.0
 
 ## <a name="python-version"></a>Versão de Python
 

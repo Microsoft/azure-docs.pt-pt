@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: egeaney
-ms.openlocfilehash: 44bb223dbc944be1b8769aa2572f1b88b916528b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 82b294cbda6e9d4b4cfa5ec560d802c8e5c6c51c
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79372240"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590898"
 ---
 # <a name="translator-encryption-of-data-at-rest"></a>Encriptação de dados de tradutor em repouso
 
@@ -41,7 +41,7 @@ Existe também uma opção para gerir a sua subscrição com as suas próprias c
 
 Siga estes passos para ativar as chaves geridas pelo cliente para o Tradutor:
 
-1. Crie o seu novo texto de tradutor regional ou recurso regional de Serviços Cognitivos. Isto não funcionará com um recurso global.
+1. Crie o seu novo recurso de Tradutor Regional ou Serviços Cognitivos Regionais. Isto não funcionará com um recurso global.
 2. Identidade Gerida Ativada no portal Azure e adicione informações chave geridas pelo cliente.
 3. Crie um novo espaço de trabalho em Tradutor Personalizado e associe esta informação de subscrição.
 

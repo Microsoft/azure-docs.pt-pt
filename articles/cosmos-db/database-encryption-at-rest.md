@@ -5,20 +5,20 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 05/19/2020
 ms.custom: seodec18
-ms.openlocfilehash: db20388b5277e000ffe7055e9840742d6af7788e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 541c6f4a6c728844524af794f5e2063f4e352cce
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062591"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592139"
 ---
 # <a name="data-encryption-in-azure-cosmos-db"></a>Encriptação de dados no Azure Cosmos DB 
 
 A encriptação em repouso é uma frase que geralmente se refere à encriptação de dados em dispositivos de armazenamento não voláteis, tais como unidades de estado sólido (SSDs) e discos rígidos (HDDs). Cosmos DB armazena as suas bases de dados primárias em SSDs. Os seus anexos e backups de mídia são armazenados no armazenamento Azure Blob, que é geralmente apoiado por HDDs. Com a libertação de encriptação em repouso para cosmos DB, todas as suas bases de dados, anexos de mídia e backups estão encriptados. Os seus dados estão agora encriptados em trânsito (sobre a rede) e em repouso (armazenamento não volátil), dando-lhe encriptação de ponta a ponta.
 
-Como serviço PaaS, cosmos DB é muito fácil de usar. Como todos os dados dos utilizadores armazenados no Cosmos DB estão encriptados em repouso e em transporte, não é necessário tomar qualquer medida. Outra forma de colocar isto é que a encriptação em repouso é "on" por padrão. Não há controlos para desligá-lo ou ligar. A Azure Cosmos DB utiliza encriptação AES-256 em todas as regiões onde a conta está em execução. Fornecemos esta funcionalidade enquanto continuamos a cumprir a nossa [disponibilidade e desempenho SLAs.](https://azure.microsoft.com/support/legal/sla/cosmos-db)
+Como serviço PaaS, o Azure Cosmos DB é muito fácil de usar. Como todos os dados dos utilizadores armazenados no Azure Cosmos DB estão encriptados em repouso e em transporte, não é necessário tomar qualquer medida. Outra forma de colocar isto é que a encriptação em repouso é "on" por padrão. Não há controlos para desligá-lo ou ligar. A Azure Cosmos DB utiliza encriptação AES-256 em todas as regiões onde a conta está em execução. Fornecemos esta funcionalidade enquanto continuamos a cumprir a nossa [disponibilidade e desempenho SLAs.](https://azure.microsoft.com/support/legal/sla/cosmos-db) Os dados armazenados na sua conta Azure Cosmos são automaticamente e sem problemas encriptados com chaves geridas pela Microsoft (chaves geridas pelo serviço). Opcionalmente, pode optar por adicionar uma segunda camada de encriptação com as suas próprias chaves, conforme descrito no artigo de [chaves gerido pelo cliente.](how-to-setup-cmk.md)
 
 ## <a name="implementation-of-encryption-at-rest-for-azure-cosmos-db"></a>Implementação da encriptação em repouso para o Azure Cosmos DB
 
@@ -34,7 +34,7 @@ O fluxo básico de um pedido de utilizador é o seguinte:
 - Tanto o documento JSON como os dados do índice são escritos para garantir o armazenamento.
 - Periodicamente, os dados são lidos a partir do armazenamento seguro e apoiados na Loja Blob Encriptada Azure.
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 ### <a name="q-how-much-more-does-azure-storage-cost-if-storage-service-encryption-is-enabled"></a>P: Quanto mais o Armazenamento Azure custa se a encriptação do serviço de armazenamento estiver ativada?
 R: Não há custo adicional.
@@ -59,5 +59,6 @@ R: O emulador é uma ferramenta autónoma de dev/teste e não utiliza os princip
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para uma visão geral da segurança da Cosmos DB e as últimas melhorias, consulte a [segurança da base de dados Azure Cosmos.](database-security.md)
-Para obter mais informações sobre as certificações da Microsoft, consulte o [Azure Trust Center](https://azure.microsoft.com/support/trust-center/).
+* Pode optar por adicionar uma segunda camada de encriptação com as suas próprias chaves, para saber mais, ver o artigo de [chaves gerido pelo cliente.](how-to-setup-cmk.md)
+* Para uma visão geral da segurança da Cosmos DB e as últimas melhorias, consulte a [segurança da base de dados Azure Cosmos.](database-security.md)
+* Para obter mais informações sobre as certificações da Microsoft, consulte o [Azure Trust Center](https://azure.microsoft.com/support/trust-center/).

@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Crie um caderno Apache Spark'
+title: 'Quickstart: Crie um Apache Spark para o notebook Azure Synapse Analytics'
 description: Este quickstart mostra como usar as ferramentas web para criar uma piscina Apache Spark (pré-visualização) em Azure Synapse Analytics, e executar uma consulta Spark SQL.
 services: synapse-analytics
 author: euangMS
@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.subservice: ''
 ms.topic: quickstart
 ms.date: 04/15/2020
-ms.openlocfilehash: 47235ca0e420e0de9f6c4beb070e0b75b72e7549
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 9e8a539421a76b6f94f10d559ad0086c9d87abf4
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82786673"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592955"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-preview-in-azure-synapse-analytics-using-web-tools"></a>Quickstart: Crie uma piscina Apache Spark (pré-visualização) no Azure Synapse Analytics usando ferramentas web
 
@@ -49,7 +49,7 @@ Um caderno é um ambiente interativo que suporta várias linguagens de programa�
 4. Na janela **Propriedades,** forneça um nome para o caderno.
 5. Na barra de ferramentas, clique **em Publicar**.
 6. Se houver apenas uma piscina Apache Spark no seu espaço de trabalho, então é selecionada por padrão. Utilize a gota para selecionar a piscina de Apache Spark correta se nenhuma for selecionada.
-7. Clique em **Adicionar código**. A linguagem `Pyspark`padrão é . Você vai usar uma mistura de Pyspark e Spark SQL, então a escolha padrão é boa.
+7. Clique em **Adicionar código**. A linguagem padrão é `Pyspark` . Você vai usar uma mistura de Pyspark e Spark SQL, então a escolha padrão é boa.
 8. Em seguida, cria-se um simples objeto Spark DataFrame para manipular. Neste caso, cria-se a partir do código. Há três linhas e três colunas:
 
    ```python
@@ -79,7 +79,7 @@ Um caderno é um ambiente interativo que suporta várias linguagens de programa�
      demo_df.write.parquet('abfss://<<TheNameOfAStorageAccountFileSystem>>@<<TheNameOfAStorageAccount>>.dfs.core.windows.net/demodata/demo_df', mode='overwrite')
     ```
 
-    Se utilizar o explorador de armazenamento, é possível ver o impacto das duas formas diferentes de escrever um ficheiro usado acima. Quando nenhum sistema de ficheiros é especificado, `default>user>trusted-service-user>demo_df`então a predefinição é utilizada, neste caso . Os dados são guardados na localização do sistema de ficheiros especificado.
+    Se utilizar o explorador de armazenamento, é possível ver o impacto das duas formas diferentes de escrever um ficheiro usado acima. Quando nenhum sistema de ficheiros é especificado, então a predefinição é utilizada, neste caso `default>user>trusted-service-user>demo_df` . Os dados são guardados na localização do sistema de ficheiros especificado.
 
     Note nos formatos "csv" e "parquet", escreva operações um diretório é criado com muitos ficheiros divididos.
 
@@ -98,7 +98,7 @@ A Linguagem de Consulta Estruturada (SQL) é a linguagem mais comum e amplamente
    SHOW TABLES
    ```
 
-   Quando utiliza um Notebook com a sua piscina De faísca Synapse Azure, obtém-se um predefinição `sqlContext` que pode utilizar para executar consultas utilizando o Spark SQL. `%%sql`diz ao caderno para `sqlContext` usar o predefinido para executar a consulta. A consulta recupera as 10 melhores filas de uma tabela de sistemas que vem com todas as piscinas Azure Synapse Apache Spark por padrão.
+   Quando utiliza um Notebook com a sua piscina De faísca Synapse Azure, obtém-se um predefinição `sqlContext` que pode utilizar para executar consultas utilizando o Spark SQL. `%%sql`diz ao caderno para usar o predefinido `sqlContext` para executar a consulta. A consulta recupera as 10 melhores filas de uma tabela de sistemas que vem com todas as piscinas Azure Synapse Apache Spark por padrão.
 
 2. Execute outra consulta para ver os dados no `demo_df`.
 

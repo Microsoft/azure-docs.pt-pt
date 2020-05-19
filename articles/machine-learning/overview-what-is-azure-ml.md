@@ -8,12 +8,12 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
-ms.openlocfilehash: b8dbbb2810277bef20cb3b9b47a63deeea3e0ff9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b97bae252b25c9ae2891506f08fc4955f84c1eb6
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79241613"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83593023"
 ---
 # <a name="what-is-azure-machine-learning"></a>O que é o Azure Machine Learning?
 
@@ -23,7 +23,7 @@ O Azure Machine Learning pode ser usado para qualquer tipo de aprendizagem autom
 
 Comece a treinar na sua máquina local e depois escale para a nuvem. 
 
-O serviço também opera com ferramentas populares de código aberto, tais como PyTorch, TensorFlow e scikit-learn.
+O serviço também opera com ferramentas populares de deep learning e reforço de código aberto, tais como PyTorch, TensorFlow, scikit-learn e Ray RLlib. 
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/player]
 
@@ -48,9 +48,11 @@ O Azure Machine Learning fornece todas as ferramentas que os desenvolvedores e c
 
 + [Extensão do Visual Studio Code](tutorial-setup-vscode-extension.md)
 
-+ [ClI de aprendizagem automática](reference-azure-machine-learning-cli.md)
++ [CLI de Aprendizagem automática](reference-azure-machine-learning-cli.md)
 
 + Quadros de código aberto como PyTorch, TensorFlow e scikit-learn e muito mais
+
++ [Aprendizagem de reforço](how-to-use-reinforcement-learning.md) com Ray RLlib
 
 Pode até utilizar [o MLflow para rastrear métricas e implementar modelos](how-to-use-mlflow.md) ou Kubeflow para construir gasodutos de fluxo de [trabalho de ponta a ponta.](https://www.kubeflow.org/docs/azure/)
 

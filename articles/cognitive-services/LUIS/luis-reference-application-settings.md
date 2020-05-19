@@ -2,34 +2,29 @@
 title: Definições de candidatura - LUIS
 description: As definições de aplicações para aplicações de compreensão linguística dos Serviços Cognitivos Azure estão armazenadas na aplicação e portal.
 ms.topic: reference
-ms.date: 04/14/2020
-ms.openlocfilehash: 9e17736cd6ff5074a6eab76a6cf5bdb8acedc185
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/04/2020
+ms.openlocfilehash: 7b545e0959a43520b7d643ef8c0658a1e1a3b295
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81382206"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590995"
 ---
-# <a name="application-settings"></a>Definições da aplicação
+# <a name="app-and-version-settings"></a>Definições de aplicativos e versão
 
-Estas definições de aplicação são armazenadas na aplicação [exportada](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) e [atualizadas](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) com as APIs rest. Alterar as definições da versão da aplicação repõe o estado de treino da aplicação para destreinado.
+Estas configurações são armazenadas na app [exportada](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) e atualizadas com as APIs rest ou portal LUIS.
 
-Aprenda [conceitos](luis-concept-utterance.md#utterance-normalization-for-diacritics-and-punctuation) de diacríticos e pontuação.
+Alterar as definições da versão da aplicação repõe o estado de treino da aplicação para destreinado.
 
-|Definição|Valor predefinido|Notas|
-|--|--|--|
-|Normalizar Punctuação|Verdadeiro|Remove a pontuação.|
-|Normalizar Os críticos da Diadia|Verdadeiro|Remove os diacritics.|
+[!INCLUDE [App and version settings](includes/app-version-settings.md)]
+
+
+A referência de texto e os exemplos incluem:
+
+* [Pontuação](#punctuation-normalization)
+* [Diacritics](#diacritics-normalization)
 
 ## <a name="diacritics-normalization"></a>Normalização dos diacríticos
-
-Ligue a normalização da expressão para os diacríticos `settings` do seu ficheiro de aplicação LUIS JSON no parâmetro.
-
-```JSON
-"settings": [
-    {"name": "NormalizeDiacritics", "value": "true"}
-]
-```
 
 As seguintes declarações mostram como a normalização dos diacritics tem impacto nas expressões:
 
@@ -40,7 +35,7 @@ As seguintes declarações mostram como a normalização dos diacritics tem impa
 
 ### <a name="language-support-for-diacritics"></a>Suporte linguístico para diacríticos
 
-#### <a name="brazilian-portuguese-pt-br-diacritics"></a>Diacríticos portugueses `pt-br` brasileiros
+#### <a name="brazilian-portuguese-pt-br-diacritics"></a>`pt-br`Diacríticos portugueses brasileiros
 
 |Diacritics definido para falso|Diacritics definido para verdade|
 |-|-|
@@ -58,7 +53,7 @@ As seguintes declarações mostram como a normalização dos diacritics tem impa
 |`ú`|`u`|
 |||
 
-#### <a name="dutch-nl-nl-diacritics"></a>Diacríticos holandeses `nl-nl`
+#### <a name="dutch-nl-nl-diacritics"></a>`nl-nl`Diacríticos holandeses
 
 |Diacritics definido para falso|Diacritics definido para verdade|
 |-|-|
@@ -75,7 +70,7 @@ As seguintes declarações mostram como a normalização dos diacritics tem impa
 |`ü`|`u`|
 |||
 
-#### <a name="french-fr--diacritics"></a>Diacríticos franceses `fr-`
+#### <a name="french-fr--diacritics"></a>`fr-`Diacríticos franceses
 
 Isto inclui subculturas francesas e canadianas.
 
@@ -96,7 +91,7 @@ Isto inclui subculturas francesas e canadianas.
 |`ü`|`u`|
 |`ÿ`|`y`|
 
-#### <a name="german-de-de-diacritics"></a>Diacríticos alemães `de-de`
+#### <a name="german-de-de-diacritics"></a>`de-de`Diacríticos alemães
 
 |Diacritics definido para falso|Diacritics definido para verdade|
 |--|--|
@@ -104,7 +99,7 @@ Isto inclui subculturas francesas e canadianas.
 |`ö`|`o`|
 |`ü`|`u`|
 
-#### <a name="italian-it-it-diacritics"></a>Diacríticos italianos `it-it`
+#### <a name="italian-it-it-diacritics"></a>`it-it`Diacríticos italianos
 
 |Diacritics definido para falso|Diacritics definido para verdade|
 |--|--|
@@ -119,7 +114,7 @@ Isto inclui subculturas francesas e canadianas.
 |`ù`|`u`|
 |`ú`|`u`|
 
-#### <a name="spanish-es--diacritics"></a>Diacríticos espanhóis `es-`
+#### <a name="spanish-es--diacritics"></a>`es-`Diacríticos espanhóis
 
 Isto inclui tanto o espanhol como o mexicano canadiano.
 
@@ -133,16 +128,7 @@ Isto inclui tanto o espanhol como o mexicano canadiano.
 |`ü`|`u`|
 |`ñ`|`u`|
 
-
 ## <a name="punctuation-normalization"></a>Normalização da pontuação
-
-Ligue a normalização da expressão para pontuação no ficheiro da `settings` aplicação LUIS JSON no parâmetro.
-
-```JSON
-"settings": [
-    {"name": "NormalizePunctuation", "value": "true"}
-]
-```
 
 As seguintes declarações mostram como a pontuação impacta as expressões:
 
@@ -153,7 +139,7 @@ As seguintes declarações mostram como a pontuação impacta as expressões:
 
 ### <a name="punctuation-removed"></a>Pontuação removida
 
-A pontuação a seguir `NormalizePunctuation` é removida com a verdadeira.
+A pontuação a seguir é removida com `NormalizePunctuation` a verdadeira.
 
 |Pontuação|
 |--|

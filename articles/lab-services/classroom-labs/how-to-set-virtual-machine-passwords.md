@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: 0ff464936025a20cb6925adc7ef6eb44c2fe1f0e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8479c00ed2129d5726421f576e1fffdb4506fb4b
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78933821"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592479"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>Configurar e gerir o conjunto de máquinas virtuais 
 Este artigo mostra-lhe como fazer as seguintes tarefas:
@@ -30,7 +30,7 @@ Este artigo mostra-lhe como fazer as seguintes tarefas:
 ## <a name="update-the-lab-capacity"></a>Atualizar a capacidade do laboratório
 Para aumentar ou diminuir a capacidade do laboratório (número de máquinas virtuais num laboratório), faça os seguintes passos:
 
-1. Na página de piscina de **máquinas virtuais,** selecione **capacidade do &lt;Laboratório: máquinas numéis&gt; **.
+1. Na página de piscina de **máquinas virtuais,** selecione **capacidade do Laboratório: &lt; &gt; máquinas numéis**.
 2. Insira o novo **número de VMs** que quer no laboratório. Este número deve ser maior ou igual ao número de utilizadores registados no laboratório. 
 3. Em seguida, selecione **Guardar**. 
 
@@ -74,14 +74,14 @@ Na caixa de diálogo da **máquina virtual reset,** selecione **Reset**.
 
 
 ## <a name="set-password-for-vms"></a>Definir palavra-passe para VMs
-Um dono de laboratório (professor) pode definir/redefinir a palavra-passe para VMs no momento da criação do laboratório (assistente de criação de laboratório) ou depois de criar o laboratório na página **Modelo.** 
+Um dono de laboratório (educador) pode definir/redefinir a palavra-passe para VMs no momento da criação do laboratório (assistente de criação de laboratório) ou depois de criar o laboratório na página **Modelo.** 
 
 ### <a name="set-password-at-the-time-of-lab-creation"></a>Definir senha no momento da criação de laboratório
-Um dono de laboratório (professor) pode definir uma senha para VMs no laboratório na página de **credenciais** de máquina virtual do assistente de criação de laboratório.
+Um dono de laboratório (educador) pode definir uma senha para VMs no laboratório na página de **credenciais** de máquina virtual do assistente de criação de laboratório.
 
 ![Nova janela de laboratório](../media/tutorial-setup-classroom-lab/virtual-machine-credentials.png)
 
-Ao ativar/desativar a **mesma palavra-passe para todas as máquinas virtuais** nesta página, um professor pode optar por utilizar a mesma palavra-passe para todos os VMs do laboratório ou permitir que os alunos desloquem palavras-passe para os seus VMs. Por predefinição, esta definição está ativada para todas as imagens do sistema operativo Windows e Linux, exceto ubuntu. Quando esta definição for desativada, os alunos serão solicitados a definir uma palavra-passe quando tentarem ligar-se ao VM pela primeira vez. 
+Ao ativar/desativar a **mesma palavra-passe para todas as máquinas virtuais** nesta página, um educador pode optar por utilizar a mesma palavra-passe para todos os VMs do laboratório ou permitir que os alunos desloquem palavras-passe para os seus VMs. Por predefinição, esta definição está ativada para todas as imagens do sistema operativo Windows e Linux, exceto ubuntu. Quando esta definição for desativada, os alunos serão solicitados a definir uma palavra-passe quando tentarem ligar-se ao VM pela primeira vez. 
 
 ### <a name="reset-password-later"></a>Redefinir a palavra-passe mais tarde
 
@@ -91,7 +91,7 @@ Ao ativar/desativar a **mesma palavra-passe para todas as máquinas virtuais** n
     ![Definir caixa de diálogo de palavra-passe](../media/how-to-set-virtual-machine-passwords/set-password.png)
 
 ## <a name="connect-to-student-vms"></a>Ligar-se a VMs estudantis
-O criador do laboratório (instrutor/professor) pode ligar-se a um VM do aluno se forem satisfeitas as seguintes condições: 
+O criador do laboratório (educador) pode ligar-se a um VM do aluno se forem satisfeitas as seguintes condições: 
 
 - A **mesma palavra-passe use para todas as máquinas virtuais** foi selecionada ao criar o laboratório
 - O VM está a funcionar. 
@@ -101,7 +101,7 @@ O criador do laboratório (instrutor/professor) pode ligar-se a um VM do aluno s
 ![Ligue-se ao botão VM do aluno](../media/how-to-set-virtual-machine-passwords/connect-student-vm.png)
 
 > [!NOTE]
-> Quando o professor inicia o VM e se liga a ele, a quota do aluno não é afetada. 
+> Quando a educadora inicia o VM e se liga a ele, a quota do aluno não é afetada. 
 
 ## <a name="export-list-of-virtual-machines-to-a-csv-file"></a>Lista de exportação de máquinas virtuais para um ficheiro CSV
 

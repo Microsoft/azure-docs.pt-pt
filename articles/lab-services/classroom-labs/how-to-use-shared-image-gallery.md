@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2020
+ms.date: 05/15/2020
 ms.author: spelluru
-ms.openlocfilehash: 294a270107033590e340db49b85e8a67acbbb701
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 8253b784a427ceb3842b6b4d585c52a2c30e0c4d
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83116871"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592428"
 ---
 # <a name="use-a-shared-image-gallery-in-azure-lab-services"></a>Use uma galeria de imagens partilhada nos Serviços de Laboratório Azure
-Este artigo mostra como professores/administrador de laboratório podem guardar uma imagem de máquina virtual modelo para uma galeria de [imagens partilhada](../../virtual-machines/windows/shared-image-galleries.md) para que possa ser usada por outros para criar laboratórios. 
+Este artigo mostra como educadores/administradores de laboratório podem guardar uma imagem de máquina virtual modelo para uma galeria de [imagens partilhada](../../virtual-machines/windows/shared-image-galleries.md) para que possa ser usada por outros para criar laboratórios. 
 
 ## <a name="scenarios"></a>Cenários
 Aqui estão os dois cenários suportados por esta funcionalidade: 
@@ -41,7 +41,7 @@ Aqui estão os dois cenários suportados por esta funcionalidade:
 
 
 ## <a name="save-an-image-to-the-shared-image-gallery"></a>Guarde uma imagem para a galeria de imagens partilhadas
-Depois de anexar uma galeria de imagens partilhadas, um administrador de uma conta de laboratório ou um professor pode guardar uma imagem para a galeria de imagens partilhada para que possa ser reutilizada por outros professores. 
+Depois de anexar uma galeria de imagens partilhadas, um administrador de uma conta de laboratório ou um educador pode guardar uma imagem para a galeria de imagens partilhadapara que possa ser reutilizada por outros educadores. 
 
 1. Na página **Modelo** para o laboratório, selecione **Export to Shared Image Gallery** na barra de ferramentas.
 
@@ -64,7 +64,7 @@ Depois de anexar uma galeria de imagens partilhadas, um administrador de uma con
     
 
 ## <a name="use-an-image-from-the-shared-image-gallery"></a>Use uma imagem da galeria de imagens partilhadas
-Um professor/professor pode escolher uma imagem personalizada disponível na galeria de imagens partilhadas para o modelo durante a criação de um novo laboratório.
+Um educador pode escolher uma imagem personalizada disponível na galeria de imagens partilhadas para o modelo durante a criação de um novo laboratório.
 
 ![Use imagem de máquina virtual da galeria](../media/how-to-use-shared-image-gallery/use-shared-image.png)
 

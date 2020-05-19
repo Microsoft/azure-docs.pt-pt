@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/29/2020
+ms.date: 05/05/2020
 ms.author: aahi
-ms.openlocfilehash: efca7eceae74416945c568268edfe0b13a21861a
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: dc11d9d7dfa7ededa19e11c9e1bc38e1eaaec93f
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856423"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591030"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Instalar e executar recipientes de serviço de fala (Pré-visualização)
 
@@ -33,7 +33,7 @@ Os recipientes de fala permitem aos clientes construir uma arquitetura de aplica
 | Conversão de texto em voz | Converte o texto em discurso de som natural com entrada de texto simples ou linguagem de marcação de síntese da fala (SSML). | 1.3.0 |
 | Texto-a-fala personalizado | Utilizando um modelo personalizado do [portal Voz Personalizada,](https://aka.ms/custom-voice-portal)converte texto em discurso de som natural com entrada de texto simples ou linguagem de marcação de síntese da fala (SSML). | 1.3.0 |
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -42,12 +42,12 @@ Os seguintes pré-requisitos antes de utilizar os recipientes da Fala:
 | Necessário | Objetivo |
 |--|--|
 | Motor do Docker | Precisa do Motor Docker instalado num [computador de acolhimento.](#the-host-computer) O Docker oferece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/) e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para um manual de noções básicas do Docker e do contentor, veja a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os recipientes se conectem e enviem dados de faturação para o Azure. <br><br> **No Windows,** o Docker também deve ser configurado para suportar os recipientes Linux.<br><br> |
-| Familiaridade com Docker | Você deve ter uma compreensão básica dos conceitos docker, como registos, repositórios, `docker` contentores e imagens de contentores, bem como conhecimento de comandos básicos. |
+| Familiaridade com Docker | Você deve ter uma compreensão básica dos conceitos docker, como registos, repositórios, contentores e imagens de contentores, bem como conhecimento de `docker` comandos básicos. |
 | Recurso da fala | Para utilizar estes recipientes, deve ter:<br><br>Um recurso Azure _Speech_ para obter a chave API associada e o ponto final URI. Ambos os valores estão disponíveis nas páginas de Visão Geral do **Discurso** do portal Azure e de Keys. Ambos são obrigados a ligar o contentor.<br><br>**{API_KEY}**: Uma das duas teclas de recursos disponíveis na página **Keys**<br><br>**{ENDPOINT_URI}**: O ponto final fornecido na página **'Visão Geral'** |
 
 ## <a name="request-access-to-the-container-registry"></a>Solicitar acesso ao registo de contentores
 
-Preencha e submeta o formulário de pedido de pedidos de pedidos de portadores de [serviços cognitivos](https://aka.ms/speechcontainerspreview/) para solicitar o acesso ao recipiente. 
+Preencha e submeta os recipientes dos [Serviços Cognitivos a solicitar](https://aka.ms/cognitivegate) o formulário de pedido para solicitar o acesso ao recipiente.
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 
@@ -101,7 +101,7 @@ O quadro seguinte descreve a alocação mínima e recomendada de recursos para c
 
 * Cada núcleo deve ter pelo menos 2,6 gigahertz (GHz) ou mais rápido.
 
-O núcleo e `--cpus` a `--memory` memória correspondem às definições e definições, que são usadas como parte do `docker run` comando.
+O núcleo e a memória correspondem às `--cpus` definições e `--memory` definições, que são usadas como parte do `docker run` comando.
 
 > [!NOTE]
 > O mínimo e recomendado baseiam-se nos limites do Docker, *não* nos recursos da máquina hospedeira. Por exemplo, os recipientes de fala a texto mapeiam partes *recommended* de um grande modelo de linguagem, e recomenda-se que todo o ficheiro se encaixe na memória, que é um adicional de 4-6 GB. Além disso, a primeira execução de qualquer um dos recipientes pode demorar mais tempo, uma vez que os modelos estão a ser colocados na memória.
@@ -155,7 +155,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-t
 
 #### <a name="speech-to-text-locales"></a>Locais do discurso ao texto
 
-Todas as etiquetas, com exceção `latest` das que estão no seguinte formato e são sensíveis aos casos:
+Todas as etiquetas, com exceção das que `latest` estão no seguinte formato e são sensíveis aos casos:
 
 ```
 <major>.<minor>.<patch>-<platform>-<locale>-<prerelease>
@@ -193,11 +193,11 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 ```
 
 > [!IMPORTANT]
-> A `latest` etiqueta puxa o `jessarus` local e a `en-US` voz. Para locais adicionais consulte [locais de texto a fala](#text-to-speech-locales).
+> A `latest` etiqueta puxa o local e a `en-US` `jessarus` voz. Para locais adicionais consulte [locais de texto a fala](#text-to-speech-locales).
 
 #### <a name="text-to-speech-locales"></a>Locais de texto para discurso
 
-Todas as etiquetas, com exceção `latest` das que estão no seguinte formato e são sensíveis aos casos:
+Todas as etiquetas, com exceção das que `latest` estão no seguinte formato e são sensíveis aos casos:
 
 ```
 <major>.<minor>.<patch>-<platform>-<locale>-<voice>-<prerelease>
@@ -212,7 +212,7 @@ A seguinte etiqueta é um exemplo do formato:
 Para todos os locais apoiados e vozes correspondentes do recipiente **texto-a-fala,** consulte as etiquetas de [imagem texto-a-fala](../containers/container-image-tags.md#text-to-speech).
 
 > [!IMPORTANT]
-> Ao construir um *Texto-a-fala padrão* HTTP POST, a mensagem de marcação `voice` da síntese `name` da [fala (SSML)](speech-synthesis-markup.md) requer um elemento com um atributo. O valor é o local e a voz correspondentes do contentor, também conhecido como ["nome curto".](language-support.md#standard-voices) Por exemplo, `latest` a etiqueta teria `en-US-JessaRUS`um nome de voz de .
+> Ao construir um *Texto-a-fala padrão* HTTP POST, a mensagem de marcação da síntese da [fala (SSML)](speech-synthesis-markup.md) requer um `voice` elemento com um `name` atributo. O valor é o local e a voz correspondentes do contentor, também conhecido como ["nome curto".](language-support.md#standard-voices) Por exemplo, a `latest` etiqueta teria um nome de voz de `en-US-JessaRUS` .
 
 # <a name="custom-text-to-speech"></a>[Texto-a-fala personalizado](#tab/ctts)
 
@@ -233,12 +233,12 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-custom-text
 
 Uma vez que o recipiente esteja no [computador de acolhimento,](#the-host-computer)utilize o seguinte processo para trabalhar com o recipiente.
 
-1. [Executar o recipiente,](#run-the-container-with-docker-run)com as definições de faturação necessárias. Mais [exemplos](speech-container-configuration.md#example-docker-run-commands) `docker run` do comando estão disponíveis.
+1. [Executar o recipiente,](#run-the-container-with-docker-run)com as definições de faturação necessárias. Mais [exemplos](speech-container-configuration.md#example-docker-run-commands) do `docker run` comando estão disponíveis.
 1. [Consulta do ponto final da previsão do recipiente](#query-the-containers-prediction-endpoint).
 
 ## <a name="run-the-container-with-docker-run"></a>Executar o recipiente com`docker run`
 
-Use o comando de execução de [estivador](https://docs.docker.com/engine/reference/commandline/run/) para executar o recipiente. Consulte a recolha de [parâmetros necessários](#gathering-required-parameters) `{Endpoint_URI}` para `{API_Key}` obter os valores e valores necessários. [Exemplos](speech-container-configuration.md#example-docker-run-commands) adicionais `docker run` do comando também estão disponíveis.
+Use o comando de execução de [estivador](https://docs.docker.com/engine/reference/commandline/run/) para executar o recipiente. Consulte a recolha de [parâmetros necessários](#gathering-required-parameters) para obter os `{Endpoint_URI}` valores e `{API_Key}` valores necessários. [Exemplos](speech-container-configuration.md#example-docker-run-commands) adicionais do comando também `docker run` estão disponíveis.
 
 # <a name="speech-to-text"></a>[Conversão de voz em texto](#tab/stt)
 
@@ -302,12 +302,12 @@ O **ID** modelo de fala personalizado é necessário para executar o recipiente.
 
 ![Página de formação de discurso personalizado](media/custom-speech/custom-speech-model-training.png)
 
-Obtenha o **ID** modelo para usar `ModelId` como argumento `docker run` para o parâmetro do comando.
+Obtenha o **ID** modelo para usar como argumento para o `ModelId` parâmetro do `docker run` comando.
 <br>
 
 ![Detalhes do modelo de discurso personalizado](media/custom-speech/custom-speech-model-details.png)
 
-O quadro seguinte representa `docker run` os vários parâmetros e as respetivas descrições:
+O quadro seguinte representa os vários `docker run` parâmetros e as respetivas descrições:
 
 | Parâmetro | Descrição |
 |---------|---------|
@@ -334,8 +334,8 @@ Este comando:
 * Atribui 4 núcleos cpu e 4 gigabytes (GB) de memória.
 * Carrega o modelo *discurso-texto personalizado* a partir do suporte de entrada de volume, por exemplo *C:\CustomSpeech*.
 * Expõe a porta TCP 5000 e atribui um pseudo-TTY para o recipiente.
-* Descarrega o modelo `ModelId` dado (se não for encontrado no suporte de volume).
-* Se o modelo personalizado foi previamente descarregado, o é `ModelId` ignorado.
+* Descarrega o modelo dado `ModelId` (se não for encontrado no suporte de volume).
+* Se o modelo personalizado foi previamente descarregado, o `ModelId` é ignorado.
 * Remove automaticamente o recipiente após a sua saída. A imagem do recipiente ainda está disponível no computador hospedeiro.
 
 # <a name="text-to-speech"></a>[Conversão de texto em voz](#tab/tts)
@@ -364,12 +364,12 @@ O recipiente *de texto-a-fala personalizado baseia-se* num modelo de voz persona
 
 ![Página personalizada de treinamento de voz](media/custom-voice/custom-voice-model-training.png)
 
-Obtenha o **ID** modelo para usar `ModelId` como argumento para o parâmetro do comando de execução do estivador.
+Obtenha o **ID** modelo para usar como argumento para o `ModelId` parâmetro do comando de execução do estivador.
 <br>
 
 ![Detalhes do modelo de voz personalizado](media/custom-voice/custom-voice-model-details.png)
 
-O quadro seguinte representa `docker run` os vários parâmetros e as respetivas descrições:
+O quadro seguinte representa os vários `docker run` parâmetros e as respetivas descrições:
 
 | Parâmetro | Descrição |
 |---------|---------|
@@ -396,14 +396,14 @@ Este comando:
 * Atribui 2 núcleos cpu e um gigabyte (GB) de memória.
 * Carrega o modelo *de texto-a-fala personalizado* a partir do suporte de entrada de volume, por exemplo *C:\CustomVoice*.
 * Expõe a porta TCP 5000 e atribui um pseudo-TTY para o recipiente.
-* Descarrega o modelo `ModelId` dado (se não for encontrado no suporte de volume).
-* Se o modelo personalizado foi previamente descarregado, o é `ModelId` ignorado.
+* Descarrega o modelo dado `ModelId` (se não for encontrado no suporte de volume).
+* Se o modelo personalizado foi previamente descarregado, o `ModelId` é ignorado.
 * Remove automaticamente o recipiente após a sua saída. A imagem do recipiente ainda está disponível no computador hospedeiro.
 
 ***
 
 > [!IMPORTANT]
-> A `Eula` `Billing`, `ApiKey` e as opções devem ser especificadas para executar o recipiente; caso contrário, o contentor não vai começar.  Para mais informações, consulte [billing.](#billing)
+> O `Eula` `Billing` , e as `ApiKey` opções devem ser especificadas para executar o recipiente; caso contrário, o recipiente não arranca.  Para mais informações, consulte [billing.](#billing)
 
 ## <a name="query-the-containers-prediction-endpoint"></a>Consulta do ponto final da previsão do recipiente
 
@@ -425,7 +425,7 @@ Se forneceu as suas credenciais de API de Análise de Texto [ao recipiente,](#an
 
 # <a name="simple-format"></a>[Formato simples](#tab/simple-format)
 
-Para configurar o cliente Da fala `"Sentiment"` para usar `Simple.Extensions`um formato simples, adicione como valor para . Se quiser escolher uma versão específica do `'latest'` modelo `speechcontext-phraseDetection.sentimentAnalysis.modelversion` Text Analytics, substitua-a na configuração da propriedade.
+Para configurar o cliente Da fala para usar um formato simples, adicione `"Sentiment"` como valor para `Simple.Extensions` . Se quiser escolher uma versão específica do modelo Text Analytics, `'latest'` substitua-a na configuração da `speechcontext-phraseDetection.sentimentAnalysis.modelversion` propriedade.
 
 ```python
 speech_config.set_service_property(
@@ -459,7 +459,7 @@ speech_config.set_service_property(
 
 # <a name="detailed-format"></a>[Formato detalhado](#tab/detailed-format)
 
-Para configurar o cliente da Fala `"Sentiment"` para usar `Detailed.Extensions`um `Detailed.Options`formato detalhado, adicione como valor para, ou ambos. Se quiser escolher uma versão específica do `'latest'` modelo `speechcontext-phraseDetection.sentimentAnalysis.modelversion` Text Analytics, substitua-a na configuração da propriedade.
+Para configurar o cliente da Fala para usar um formato detalhado, adicione `"Sentiment"` como valor `Detailed.Extensions` `Detailed.Options` para, ou ambos. Se quiser escolher uma versão específica do modelo Text Analytics, `'latest'` substitua-a na configuração da `speechcontext-phraseDetection.sentimentAnalysis.modelversion` propriedade.
 
 ```python
 speech_config.set_service_property(
@@ -479,7 +479,7 @@ speech_config.set_service_property(
 )
 ```
 
-`Detailed.Extensions`fornece o resultado do sentimento na camada raiz da resposta. `Detailed.Options`fornece o resultado `NBest` em camada da resposta. Podem ser usados separadamente ou em conjunto.
+`Detailed.Extensions`fornece o resultado do sentimento na camada raiz da resposta. `Detailed.Options`fornece o resultado em `NBest` camada da resposta. Podem ser usados separadamente ou em conjunto.
 
 ```json
 {
@@ -524,7 +524,7 @@ speech_config.set_service_property(
 
 ---
 
-Se quiser desativar completamente `false` a `sentimentanalysis.enabled`análise de sentimentos, adicione um valor a .
+Se quiser desativar completamente a análise de sentimentos, adicione um `false` valor a `sentimentanalysis.enabled` .
 
 ```python
 speech_config.set_service_property(

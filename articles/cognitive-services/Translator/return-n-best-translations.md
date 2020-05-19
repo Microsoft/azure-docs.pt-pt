@@ -1,7 +1,7 @@
 ---
-title: Devolver N-Best Traduções - Texto tradutor
+title: Devolver N-Best Traduções - Tradutor
 titleSuffix: Azure Cognitive Services
-description: Devolver as melhores traduções do N-Best utilizando a API de Texto tradutor.
+description: Devolver as melhores traduções do N-Best utilizando o Tradutor.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: swmachan
 ROBOTS: NOINDEX
-ms.openlocfilehash: eff25877165ac365e0af77651147fcdd1eebe294
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1fe370070aa97befb418d27def32725bf0a148b3
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73837248"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592683"
 ---
 # <a name="how-to-return-n-best-translations"></a>Como devolver as melhores traduções da N-Best
 
 > [!NOTE]
-> Este método está premeditado. Não está disponível em V3.0 da API de Texto tradutor.
+> Este método está premeditado. Não está disponível em V3.0 do Tradutor.
 
-Os métodos GetTranslations() e GetTranslationsArray() da Microsoft Tradutor API incluem uma bandeira booleanopcional opcional "Inclua MultipleMTAlternatives".
+Os métodos GetTranslations() e GetTranslationsArray do Tradutor incluem uma bandeira booleana opcional "Inclua MultipleMTAlternatives".
 O método regressará às alternativas maxTranslations onde o delta é fornecido a partir da lista N-Best do motor tradutor.
 
 A assinatura é:

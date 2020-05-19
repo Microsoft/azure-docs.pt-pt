@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/10/2020
 ms.author: spelluru
-ms.openlocfilehash: 166ec4db2a2891d25a1e80526f8c1bd9770f9eef
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b3a9c95233c2016dc35f4fcade3e2634e121d252
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77592225"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591782"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Configurar um laboratório de sala de aula 
 Neste tutorial, vai configurar um laboratório de sala de aula com máquinas virtuais que serão utilizadas pelos alunos na sala de aula.  
@@ -37,9 +37,9 @@ Neste tutorial, criaste um laboratório com máquinas virtuais para a tua turma.
 
 Aqui está o fluxo de trabalho típico ao utilizar os Serviços de Laboratório Azure:
 
-1. Um criador de conta de laboratório adiciona outros utilizadores ao papel de **Criador de Laboratório.** Por exemplo, o criador/administrador da conta de laboratório adiciona professores ao papel de Criador de **Laboratório** para que possam criar laboratórios para as suas aulas. 
-2. Depois, os professores criam laboratórios com VMs para as suas aulas e enviam links de inscrição aos alunos da turma. 
-3. Os alunos usam o link de inscrição que recebem dos professores para se inscreverem no laboratório. Uma vez registados, podem usar VMs nos laboratórios para fazer o trabalho de classe e trabalho em casa. 
+1. Um criador de conta de laboratório adiciona outros utilizadores ao papel de **Criador de Laboratório.** Por exemplo, o criador/administrador da conta de laboratório adiciona educadores ao papel de Criador de **Laboratório** para que possam criar laboratórios para as suas aulas. 
+2. Depois, os educadores criam laboratórios com VMs para as suas aulas e enviam links de inscrição aos alunos da turma. 
+3. Os alunos usam o link de inscrição que recebem dos educadores para se inscreverem no laboratório. Uma vez registados, podem usar VMs nos laboratórios para fazer o trabalho de classe e trabalho em casa. 
 
 ## <a name="create-a-classroom-lab"></a>Criar um laboratório de sala de aula
 Neste passo, cria-se um laboratório para a sua turma em Azure. 
@@ -151,7 +151,7 @@ Crie um evento programado para o laboratório para que os VMs no laboratório se
 1. No convite Enviar por página de **e-mail,** introduza uma mensagem opcional e, em seguida, selecione **Enviar**. O e-mail inclui automaticamente o link de registo. Pode obter este link de registo **selecionando... (elipse)** na barra de ferramentas e **no link de registo.** 
 
     ![Enviar link de registo por e-mail](../media/tutorial-setup-classroom-lab/send-email.png)
-4. Vê o estado do **convite** na lista de **Utilizadores.** O estado deve alterar-se para **enviar** e, em seguida, para **enviar a &lt;data&gt;**. 
+4. Vê o estado do **convite** na lista de **Utilizadores.** O estado deve alterar-se para **enviar** e, em seguida, para **enviar a &lt; &gt; data**. 
 
     Para obter mais informações sobre a adição de alunos a uma aula e a gestão do seu uso do laboratório, consulte [como configurar o uso](how-to-configure-student-usage.md)do aluno.
 

@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: overview
-ms.openlocfilehash: d84a0190e13d7bb7664e8792e0047338fe4bf5e2
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 04f90292b74593dece5f7e54268907e184fd084c
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75982694"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592768"
 ---
 # <a name="what-is-custom-translator"></a>O que é o Tradutor Personalizado?
 
@@ -34,7 +34,7 @@ O Custom Tradutor fornece diferentes funcionalidades para construir um sistema d
 |[Construa sistemas que conheçam a sua terminologia de negócio](what-are-parallel-documents.md)     |  Personalize e construa sistemas de tradução utilizando documentos paralelos, que compreendam as terminologias utilizadas no seu próprio negócio e indústria.       |
 |[Use um dicionário para construir os seus modelos](what-is-dictionary.md)     |   Se não tiver um conjunto de dados de treino, pode treinar um modelo apenas com dados do dicionário.       |
 |[Colaborar com os outros](how-to-manage-settings.md#share-your-workspace)     |   Colabore com a sua equipa partilhando o seu trabalho com pessoas diferentes.     |
-|[Aceda ao seu modelo de tradução personalizada](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl)     |  O seu modelo de tradução personalizado pode ser acedido a qualquer momento pelas suas aplicações/programas existentes através do Microsoft Tradutor Text API V3.       |
+|[Aceda ao seu modelo de tradução personalizada](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl)     |  O seu modelo de tradução personalizado pode ser acedido a qualquer momento pelas suas aplicações/programas existentes através do Tradutor V3.       |
 
 ## <a name="get-better-translations"></a>Obtenha melhores traduções
 
@@ -54,11 +54,11 @@ Utilizando o portal tradutor [personalizado](https://portal.customtranslator.azu
 
 [O Tradutor Personalizado](https://portal.customtranslator.azure.ai) também pode ser acedido programáticamente através de uma [API dedicada](https://custom-api.cognitive.microsofttranslator.com/swagger/) (atualmente em pré-visualização). A API permite que os utilizadores gerem a criação ou atualização da formação regularmente através da sua própria app ou serviço web.
 
-O custo de utilização de um modelo personalizado para traduzir conteúdo baseia-se no nível de preços da API de Texto tradutor do utilizador. Consulte a página web de preços da [API](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/) do Tradutor de Serviços Cognitivos para obter detalhes do nível de preços.
+O custo de utilização de um modelo personalizado para traduzir conteúdo baseia-se no nível de preços do Tradutor do utilizador. Consulte a [página](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/) de preços do Tradutor de Serviços Cognitivos para obter detalhes do nível de preços.
 
 ## <a name="securely-translate-anytime-anywhere-on-all-your-apps-and-services"></a>Traduza de forma segura a qualquer momento, em qualquer lugar em todas as suas aplicações e serviços
 
-Os sistemas personalizados podem ser perfeitamente acedidos e integrados em qualquer produto ou fluxo de trabalho empresarial, e em qualquer dispositivo, através da API de Texto do Tradutor da Microsoft através da tecnologia PADRÃO REST.
+Os sistemas personalizados podem ser perfeitamente acedidos e integrados em qualquer produto ou fluxo de trabalho empresarial, e em qualquer dispositivo, através do Tradutor através da tecnologia PADRÃO REST.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12d87c12b84130d404eaf203fd6013f6924020f5
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 299b0a677e7ca7bea9481d94ecf98c993af0a6ed
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199441"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591221"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Federação direta com AD FS e fornecedores de terceiros para utilizadores convidados (pré-visualização)
 |     |
@@ -72,9 +72,9 @@ Atualmente, um máximo de 1.000 relações da federação é apoiado. Este limit
 ### <a name="limit-on-multiple-domains"></a>Limite em vários domínios
 Atualmente não apoiamos a federação direta com vários domínios do mesmo inquilino.
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
 ### <a name="can-i-set-up-direct-federation-with-a-domain-for-which-an-unmanaged-email-verified-tenant-exists"></a>Posso criar uma federação direta com um domínio para o qual existe um inquilino não gerido (verificado por e-mail) ? 
-Sim. Se o domínio não tiver sido verificado e o inquilino não tiver sido submetido a uma aquisição de [administração,](../users-groups-roles/domains-admin-takeover.md)pode criar uma federação direta com esse domínio. Os inquilinos não geridos ou verificados por e-mail são criados quando um utilizador resgata um convite B2B ou realiza uma inscrição de self-service para a Azure AD usando um domínio que não existe atualmente. Pode criar uma federação direta com estes domínios. Se tentar configurar uma federação direta com um domínio verificado pelo DNS, seja no portal Azure ou via PowerShell, verá um erro.
+Yes. Se o domínio não tiver sido verificado e o inquilino não tiver sido submetido a uma aquisição de [administração,](../users-groups-roles/domains-admin-takeover.md)pode criar uma federação direta com esse domínio. Os inquilinos não geridos ou verificados por e-mail são criados quando um utilizador resgata um convite B2B ou realiza uma inscrição de self-service para a Azure AD usando um domínio que não existe atualmente. Pode criar uma federação direta com estes domínios. Se tentar configurar uma federação direta com um domínio verificado pelo DNS, seja no portal Azure ou via PowerShell, verá um erro.
 ### <a name="if-direct-federation-and-email-one-time-passcode-authentication-are-both-enabled-which-method-takes-precedence"></a>Se a autenticação direta da federação e do e-mail de uma só vez estiverem ativadas, qual o método que tem precedência?
 Quando a federação direta é estabelecida com uma organização parceira, tem precedência sobre a autenticação de código de senha de e-mail para novos utilizadores convidados dessa organização. Se um utilizador convidado redimir um convite utilizando a autenticação de senha única antes de configurar a federação direta, continuará a utilizar a autenticação de senha única. 
 ### <a name="does-direct-federation-address-sign-in-issues-due-to-a-partially-synced-tenancy"></a>A federação direta aborda os problemas de inscrição devido a um arrendamento parcialmente sincronizado?
@@ -146,7 +146,7 @@ Em seguida, você vai configurar a federação com o fornecedor de identidade co
 ### <a name="to-configure-direct-federation-in-the-azure-ad-portal"></a>Para configurar a federação direta no portal Azure AD
 
 1. Vá ao [portal Azure.](https://portal.azure.com/) No painel esquerdo, selecione **Azure Active Directory**. 
-2. **Selecione Relações Organizacionais**  >  **Todos os fornecedores de identidade** (ou **identidades externas**  >  **Todos os fornecedores de identidade).**
+2. Selecione **Identidades Externas**  >  **Todos os fornecedores de identidade**.
 3. Selecione , e, em seguida, selecione **New SAML/WS-Fed IdP**.
 
     ![Screenshot mostrando botão para adicionar um novo IdP SAML ou WS-Fed](media/direct-federation/new-saml-wsfed-idp.png)
@@ -194,7 +194,7 @@ Agora teste a sua configuração da federação direta convidando um novo utiliz
 ## <a name="how-do-i-edit-a-direct-federation-relationship"></a>Como edito uma relação direta com a federação?
 
 1. Vá ao [portal Azure.](https://portal.azure.com/) No painel esquerdo, selecione **Azure Active Directory**. 
-2. **Selecione Relações Organizacionais** (ou **Identidades Externas).**
+2. Selecione **Identidades Externas**.
 3. Selecione **Todos os fornecedores de identidade**
 4. Sob os fornecedores de **identidade SAML/WS-Fed,** selecione o fornecedor.
 5. No painel de detalhes do fornecedor de identidade, atualize os valores.
@@ -205,7 +205,7 @@ Agora teste a sua configuração da federação direta convidando um novo utiliz
 Pode remover a sua configuração da federação direta. Se o fizer, os utilizadores convidados da federação direta que já resgataram os seus convites não poderão inscrever-se. Mas pode dar-lhes acesso aos seus recursos novamente, apagando-os do diretório e reconvidando-os. Remover a federação direta com um fornecedor de identidade no portal Azure AD:
 
 1. Vá ao [portal Azure.](https://portal.azure.com/) No painel esquerdo, selecione **Azure Active Directory**. 
-2. **Selecione Relações Organizacionais** (ou **Identidades Externas).**
+2. Selecione **Identidades Externas**.
 3. Selecione **Todos os fornecedores de identidade**.
 4. Selecione o fornecedor de identidade e, em seguida, selecione **Eliminar**. 
 5. Selecione **Sim** para confirmar a eliminação. 

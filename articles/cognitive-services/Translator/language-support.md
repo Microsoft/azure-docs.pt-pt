@@ -1,7 +1,7 @@
 ---
-title: Suporte linguístico - API de Texto tradutor
+title: Apoio linguístico - Tradutor
 titleSuffix: Azure Cognitive Services
-description: A API de texto tradutor suporta os seguintes idiomas para a tradução de texto a texto utilizando tradução da máquina neural (NMT).
+description: O Tradutor de Serviços Cognitivos suporta as seguintes línguas para tradução de texto a texto utilizando tradução da máquina neural (NMT).
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,37 +10,37 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 0ecde5acb7dc57ed9e5802c1589d5813a9206643
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 15c11a5b94b80a96c520696c45f3eec5c48b7b48
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81684836"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592734"
 ---
-# <a name="language-and-region-support-for-the-translator-text-api"></a>Apoio à língua e à região para a API de Texto tradutor
+# <a name="language-and-region-support-for-translator"></a>Apoio à língua e à região para tradutor
 
-A API de Texto tradutor suporta as seguintes línguas para a tradução de texto para texto. A Tradução da Máquina Neural (NMT) é o novo padrão para traduções automáticas de alta qualidade alimentadas por IA e está disponível como padrão utilizando v3 da API de texto tradutor quando um sistema neural está disponível.
+O Tradutor suporta as seguintes línguas para a tradução de texto para texto. A Tradução da Máquina Neural (NMT) é o novo padrão para traduções automáticas de alta qualidade alimentadas por IA e está disponível como padrão utilizando V3 de Tradutor quando um sistema neural está disponível.
 
 [Saiba mais sobre como funciona a tradução automática](https://www.microsoft.com/translator/mt.aspx)
 
 ## <a name="translation"></a>Tradução
 
-**V2 Tradutor API**
+**Tradutor V2**
 
 > [!NOTE]
 > A V2 foi depreciada a 30 de abril de 2018. Por favor, emigre as suas aplicações para v3 de forma a tirar partido das novas funcionalidades disponíveis exclusivamente em V3.
 
 * Apenas estatístico: Não existe nenhum sistema neural disponível para esta língua.
-* Neural disponível: Um sistema neural está disponível. Utilize o `category=generalnn` parâmetro para aceder ao sistema neural.
-* Padrão neural: Neural é o sistema de tradução padrão. Utilize o `category=smt` parâmetro para aceder ao sistema estatístico para utilização com o Microsoft Tradutor Hub.
+* Neural disponível: Um sistema neural está disponível. Utilize o parâmetro `category=generalnn` para aceder ao sistema neural.
+* Padrão neural: Neural é o sistema de tradução padrão. Utilize o parâmetro `category=smt` para aceder ao sistema estatístico para utilização com o Microsoft Tradutor Hub.
 * Apenas neural: Apenas a tradução neural está disponível.
 
-**V3 Tradutor API** A API tradutora V3 é neural por padrão e os sistemas estatísticos só estão disponíveis quando não existe nenhum sistema neural.
+**Tradutor V3** O Tradutor V3 é neural por defeito e os sistemas estatísticos só estão disponíveis quando não existe nenhum sistema neural.
 
 > [!NOTE]
 > Atualmente, um subconjunto das línguas neurais está disponível no Tradutor Personalizado e estamos gradualmente adicionando outros. [Ver idiomas atualmente disponíveis em Tradutor Personalizado.](#customization)
 
-|Idioma|  Código do idioma|  V3 API|
+|Linguagem|  Código do idioma|  V3 API|
 |:-----|:-----:|:-----|
 |Afrikaans| `af`|   Neural|
 |Árabe|    `ar`    |   Neural|
@@ -116,13 +116,13 @@ A API de Texto tradutor suporta as seguintes línguas para a tradução de texto
 |Maia yucateca|  `yua`   |   Estatística|
 
 > [!NOTE]
-> O `pt` código linguístico será indefinido para `pt-br`, Português (Brasil).
+> O código `pt` linguístico será indefinido para `pt-br` , Português (Brasil).
 
 ## <a name="transliteration"></a>Transliteração
 
 O método transliterado suporta as seguintes línguas. No "To/From", "<-->" indica que a língua pode ser transliterada de ou para qualquer um dos scripts listados. O "-->" indica que a língua só pode ser transliterada de um guião para outro.
 
-| Idioma    | Código do idioma | Script | Para/De | Script|
+| Linguagem    | Código do idioma | Script | Para/De | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Árabe | `ar` | Árabe`Arab` | <--> | Latim`Latn` |
 |Rio Bangla  | `bn` | Bengalês`Beng` | <--> | Latim`Latn` |
@@ -149,7 +149,7 @@ O método transliterado suporta as seguintes línguas. No "To/From", "<-->" indi
 
 O dicionário suporta as seguintes línguas de ou para inglês utilizando os métodos De supérão e Exemplos.
 
-| Idioma    | Código do idioma |
+| Linguagem    | Código do idioma |
 |:----------- |:-------------:|
 | Afrikaans      | `af`          |
 | Árabe       | `ar`          |
@@ -204,12 +204,12 @@ O dicionário suporta as seguintes línguas de ou para inglês utilizando os mé
 
 ## <a name="detect"></a>Detetar
 
-A API do Texto tradutor deteta todas as línguas disponíveis para tradução e transliteração.
+Tradutor deteta todas as línguas disponíveis para tradução e transliteração.
 
 
-## <a name="access-the-translator-text-api-language-list-programmatically"></a>Aceda à lista de línguas DaPI de Texto tradutor programática
+## <a name="access-the-translator-language-list-programmatically"></a>Aceda à lista de línguas tradutora programáticamente
 
-Pode obter uma lista de idiomas suportados para o Texto tradutor API v3.0 utilizando o método Idiomas. Pode ver a lista por recurso, código de idioma, bem como o nome de língua em inglês ou qualquer outro idioma suportado. Esta lista é automaticamente atualizada pelo serviço Microsoft Tradutor à medida que novos idiomas são disponibilizados.
+Pode obter uma lista de idiomas suportados para tradutor v3.0 utilizando o método Idiomas. Pode ver a lista por recurso, código de idioma, bem como o nome de língua em inglês ou qualquer outro idioma suportado. Esta lista é automaticamente atualizada pelo serviço Microsoft Tradutor à medida que novos idiomas são disponibilizados.
 
 [Ver documentação de referência da operação Idiomas](reference/v3-0-languages.md)
 
@@ -217,7 +217,7 @@ Pode obter uma lista de idiomas suportados para o Texto tradutor API v3.0 utiliz
 
 Os seguintes idiomas estão disponíveis para personalização de ou para inglês usando [tradutor personalizado](https://aka.ms/CustomTranslator).
 
-| Idioma    | Código do idioma |
+| Linguagem    | Código do idioma |
 |:----------- |:-------------:|
 | Árabe       | `ar`          |
 | Rio Bangla      | `bn`          |
@@ -269,6 +269,6 @@ Os seguintes idiomas estão disponíveis para personalização de ou para inglê
 
 ## <a name="access-the-list-on-the-microsoft-translator-website"></a>Aceda à lista no site do Microsoft Tradutor
 
-Para uma rápida olhada nos idiomas, o site do Microsoft Tradutor mostra todos os idiomas suportados pelas APIs de Texto e Fala do Tradutor. Esta lista não inclui informações específicas do desenvolvedor, tais como códigos de idiomas.
+Para uma rápida olhada nos idiomas, o site do Microsoft Tradutor mostra todos os idiomas suportados pelos APIs de Tradução e Fala. Esta lista não inclui informações específicas do desenvolvedor, tais como códigos de idiomas.
 
 [Ver a lista de línguas](https://www.microsoft.com/translator/languages.aspx)

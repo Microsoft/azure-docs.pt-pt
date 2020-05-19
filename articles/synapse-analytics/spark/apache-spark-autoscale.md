@@ -8,22 +8,22 @@ services: synapse-analytics
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: a2f907384326aa887c12c293feb8c988f42bbaf1
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: be7ac79b9429d2fc72c3b6bc2b6d92666b089dfb
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83210517"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591969"
 ---
 # <a name="automatically-scale-azure-synapse-analytics-apache-spark-pools"></a>Escala automaticamente piscinas de Faíscas Apache Synapse Anapse Anapse
 
-A função autoescala da piscina Azure Synapse Spark escala automaticamente escala o número de nós em uma instância de cluster para cima e para baixo. Durante a criação de uma nova piscina Azure Synapse Spark, um número mínimo e máximo de nós pode ser definido quando a Escala Automática é selecionada. A escala automática monitoriza então os requisitos de recursos da carga e escala o número de nós para cima ou para baixo. Não há nenhuma taxa adicional para esta funcionalidade.
+A funcionalidade De Escala Automática da Piscina De Synapse Azure Synapse aescala automaticamente o número de nós numa instância de cluster para cima e para baixo. Durante a criação de uma nova Apache Spark para a piscina Azure Synapse Analytics, um número mínimo e máximo de nós pode ser definido quando a Escala Automática é selecionada. A escala automática monitoriza então os requisitos de recursos da carga e escala o número de nós para cima ou para baixo. Não há nenhuma taxa adicional para esta funcionalidade.
 
 ## <a name="metrics-monitoring"></a>Monitorização de métricas
 
 A escala automática monitoriza continuamente a instância Spark e recolhe as seguintes métricas:
 
-|Métrica|Descrição|
+|Metric|Descrição|
 |---|---|
 |CpU total pendente|O número total de núcleos necessários para iniciar a execução de todos os nós pendentes.|
 |Total de Memória Pendente|A memória total (em MB) necessária para iniciar a execução de todos os nós pendentes.|

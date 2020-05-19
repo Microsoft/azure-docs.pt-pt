@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: c2152b872c82c224c786e56db0318c9df994ac25
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 2a64f42c8672972939bb2870ba40876e5cc8d855
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801591"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591952"
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>Resolução de problemas: Falhou em apagar uma rede virtual no Azure
-<p class="alert is-flex is-primary"><span class="has-padding-left-medium has-padding-top-extra-small"><a class="button is-primary" href="https://azurevirtualsupportagent.services.microsoft.com?content=a13a0908-28e0-f9f7-c6c7-301fcd187560" target='_blank'>Comece a</a></span>resolver o seu problema rapidamente usando o<span class="has-padding-small">nosso agente virtual para executar <b>diagnósticos automatizados.</b> </span> Declaração <sub>de Privacidade</sub> <span class="has-padding-small"> <a href="https://privacy.microsoft.com/privacystatement" target='_blank'> <div align="right"></div></a></span></p>
-Pode receber erros quando tentar eliminar uma rede virtual no Microsoft Azure. Este artigo fornece medidas de resolução de problemas para ajudá-lo a resolver este problema. 
+
+Pode receber erros quando tentar eliminar uma rede virtual no Microsoft Azure. Este artigo fornece medidas de resolução de problemas para ajudá-lo a resolver este problema.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 

@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f69069b0c62f1e96c16441e99fbadac45728743
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: cf872991adbf1361a482f6618e57304e33ec1261
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199436"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591289"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Ativar a colaboração externa B2B e gerir quem pode convidar os hóspedes
 
@@ -37,7 +37,7 @@ Por predefinição, todos os utilizadores, incluindo os hóspedes, podem convida
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) como administrador de inquilinos.
 2. Selecione **Azure Active Directory**.
-3. Selecione Definições de **Relacionamentoorganizacional**  >  **Settings** (ou selecione **identidades externas**Definições de  >  **colaboração externa).**
+3. Selecione **Identidades Externas**Definições de  >  **colaboração externas**.
 6. Na página de definições de **colaboração Externa,** escolha as políticas que pretende ativar.
 
    ![Definições de colaboração externa](./media/delegate-invitations/control-who-to-invite.png)

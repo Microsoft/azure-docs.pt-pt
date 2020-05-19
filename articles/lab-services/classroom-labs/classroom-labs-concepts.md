@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2020
+ms.date: 05/15/2020
 ms.author: spelluru
-ms.openlocfilehash: a34af2ef779a41c19d4bfb831360948af1a66724
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 548cacfb76aba9093a59a5c87525d038558bf353
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83115052"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592632"
 ---
 # <a name="classroom-labs-concepts"></a>Conceitos dos Laboratórios de Sala de Aula
 
@@ -26,13 +26,13 @@ A lista seguinte contém conceitos e definições chave lab Services:
 
 ## <a name="quota"></a>Quota
 
-A quota é o limite de tempo (em horas) que um professor pode definir para um aluno usar um VM de laboratório. Pode ser definido para 0, ou um número específico de horas. Se a quota estiver definida para 0, um aluno só pode utilizar a máquina virtual quando um horário está em execução ou quando um professor liga manualmente a máquina virtual para o aluno.  
+A quota é o limite de tempo (em horas) que um educador pode definir para um aluno usar um VM de laboratório. Pode ser definido para 0, ou um número específico de horas. Se a quota estiver definida para 0, um aluno só pode utilizar a máquina virtual quando um horário está em execução ou quando um educador liga manualmente a máquina virtual para o aluno.  
 
-As horas de quota são contadas quando o aluno começa o laboratório vM em si.  Se um professor iniciar manualmente o VM do laboratório para um aluno, as horas de quota não são usadas para esse aluno.
+As horas de quota são contadas quando o aluno começa o laboratório vM em si.  Se um educador iniciar manualmente o VM de laboratório para um aluno, as horas de quota não são usadas para esse aluno.
 
 ## <a name="schedules"></a>Agendas
 
-Os horários são as faixas horárias que um professor pode criar para a aula para que os VMs dos alunos estejam disponíveis para a hora das aulas.  Os horários podem ser únicos ou recorrentes.  As horas de quota não são usadas quando um horário está a decorrer.
+Os horários são as faixas horárias que um educador pode criar para a aula para que os VMs dos alunos estejam disponíveis para a hora das aulas.  Os horários podem ser únicos ou recorrentes.  As horas de quota não são usadas quando um horário está a decorrer.
 
 Existem três tipos de horários: Standard, Start only e Stop only.
 
@@ -56,7 +56,7 @@ Tipicamente, um administrador de TI dos recursos cloud da organização, que det
 - Gere e configura políticas em todos os laboratórios.
 - Dá permissões a pessoas na organização para criarem um laboratório na conta de laboratório.
 
-### <a name="professor"></a>Professor
+### <a name="educator"></a>Educador
 
 Normalmente, os utilizadores como um professor ou um formador online criam laboratórios de sala de aula numa conta de laboratório. Um educador realiza as seguintes tarefas:
 

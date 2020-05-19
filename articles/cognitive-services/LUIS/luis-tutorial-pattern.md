@@ -2,19 +2,19 @@
 title: 'Tutorial: Padrões - LUIS'
 description: Use padrões para aumentar a intenção e a previsão da entidade, ao mesmo tempo que fornece menos declarações de exemplo neste tutorial. O padrão é fornecido como um exemplo de expressão de modelo, que inclui sintaxe para identificar entidades e texto ignorável.
 ms.topic: tutorial
-ms.date: 04/14/2020
-ms.openlocfilehash: 826334fafd04a6357f529b1dc07408ff1c15ce5c
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 05/07/2020
+ms.openlocfilehash: c9bbd521d49d669e8ebd18b29bda9f2add8f7739
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81380773"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592921"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats-to-improve-predictions"></a>Tutorial: Adicione formatos de expressão de modelo comum para melhorar as previsões
 
 Neste tutorial, use padrões para aumentar a intenção e a previsão da entidade, o que lhe permite fornecer menos declarações de exemplo. O padrão é uma expressão de modelo atribuída a uma intenção, que contém sintaxe para identificar entidades e texto ignorável.
 
-**Neste tutorial, ficará a saber como:**
+**Neste tutorial, vai aprender a:**
 
 > [!div class="checklist"]
 > * Criar um padrão
@@ -41,9 +41,10 @@ Utilize os passos seguintes:
 
 1.  Descarregue e guarde o [ficheiro JSON](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json?raw=true)da aplicação .
 
-1. Importe o JSON numa nova aplicação para o [portal DE PRÉ-visualização LUIS.](https://preview.luis.ai) Na página **My Apps,** selecione **+ Nova aplicação para conversação**e, em seguida, selecione **Import as JSON**. Selecione o ficheiro que descarregou no passo anterior.
+1. Inscreva-se no [portal LUIS](https://www.luis.ai)e selecione o seu recurso **De Subscrição** e **Autoria** para ver as aplicações atribuídas a esse recurso de autoria.
+1. Importe o JSON numa nova app para o [portal LUIS.](https://www.luis.ai) Na página **My Apps,** selecione **+ Nova aplicação para conversação**e, em seguida, selecione **Import as JSON**. Selecione o ficheiro que descarregou no passo anterior.
 
-1. A partir da secção **Gerir,** no separador **Versões,** selecione a versão ativa e, em seguida, selecione **Clone**. Diga o nome `patterns`da versão clonada. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. Como o nome da versão é utilizado como parte da rota de URL, o nome não pode conter carateres que não sejam válidos num URL.
+1. A partir da secção **Gerir,** no separador **Versões,** selecione a versão ativa e, em seguida, selecione **Clone**. Diga o nome da versão `patterns` clonada. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. Como o nome da versão é utilizado como parte da rota de URL, o nome não pode conter carateres que não sejam válidos num URL.
 
 ## <a name="create-new-intents-and-their-utterances"></a>Criar novas intenções e as respetivas expressões
 
@@ -99,7 +100,7 @@ As duas intenções encontram os relatórios diretos do gerente ou do gerente, c
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Vá até ao fim do URL na _YOUR_QUERY_HERE_ barra `Who is the boss of Jill Jones?`de endereços e substitua YOUR_QUERY_HERE por: .
+1. Vá até ao fim do URL na barra de endereços e substitua _YOUR_QUERY_HERE_ por: `Who is the boss of Jill Jones?` .
 
     ```json
     {
@@ -214,7 +215,7 @@ Alguns exemplos de expressões de modelo para esta intenção incluem:
 |`Who does {Employee} report to[?]`|intercambiável`{Employee}`<br>ignorar`[?]`|
 |`Who reports to {Employee}[?]`|intercambiável`{Employee}`<br>ignorar`[?]`|
 
-A sintaxe `{Employee}` marca a localização da entidade na expressão de modelo, bem como de que entidade se trata. A sintaxe `[?]`opcional, marca palavras ou [pontuação](luis-reference-application-settings.md#punctuation-normalization) que é opcional. O LUIS faz corresponder a expressão, ignorando o texto opcional dentro dos parênteses retos.
+A sintaxe `{Employee}` marca a localização da entidade na expressão de modelo, bem como de que entidade se trata. A sintaxe opcional, `[?]` marca palavras ou [pontuação](luis-reference-application-settings.md#punctuation-normalization) que é opcional. O LUIS faz corresponder a expressão, ignorando o texto opcional dentro dos parênteses retos.
 
 Embora a sintaxe pareça uma expressão regular, não é uma expressão regular. Apenas é suportada a sintaxe das chavetas, `{}`, e dos parênteses retos, `[]`. Podem ser aninhadas até dois níveis.
 
@@ -365,7 +366,7 @@ As expressões de exemplo são:
 |OrgChart-Manager|`Who will be Jill Jones manager in a month?`|
 |OrgChart-Manager|`Who will be Jill Jones manager on March 3?`|
 
-Cada um destes exemplos utiliza um tempo verbal, `was`, `is`, `will be`, bem como uma data, `March 3`, `now` e `in a month`, que o LUIS precisa de prever corretamente. Note que os dois últimos exemplos da `in` tabela `on`utilizam quase o mesmo texto, exceto para e .
+Cada um destes exemplos utiliza um tempo verbal, `was`, `is`, `will be`, bem como uma data, `March 3`, `now` e `in a month`, que o LUIS precisa de prever corretamente. Note que os dois últimos exemplos da tabela utilizam quase o mesmo texto, exceto `in` para e `on` .
 
 Declarações de modelo de exemplo que permitem esta informação opcional:
 
@@ -378,7 +379,7 @@ Declarações de modelo de exemplo que permitem esta informação opcional:
 A utilização da sintaxe opcional dos parênteses retos, `[]`, faz com que este texto opcional seja fácil de adicionar à expressão de modelo e possa ser aninhado até ao segundo nível, `[[]]`, e incluir entidades ou texto.
 
 
-**Pergunta: Por que `w` todas as letras, a primeira letra em cada expressão de modelo, minúscula? Não deveriam ser opcionalmente superiores ou inferiores?** A expressão submetida para o ponto final de consulta, pela aplicação cliente, é convertida em minúsculas. A expressão do modelo pode estar em maiúsculas ou minúsculas e a expressão do ponto final também. A comparação é feita sempre após a conversão em minúsculas.
+**Pergunta: Por que todas as `w` letras, a primeira letra em cada expressão de modelo, minúscula? Não deveriam ser opcionalmente superiores ou inferiores?** A expressão submetida para o ponto final de consulta, pela aplicação cliente, é convertida em minúsculas. A expressão do modelo pode estar em maiúsculas ou minúsculas e a expressão do ponto final também. A comparação é feita sempre após a conversão em minúsculas.
 
 **Pergunta: Porque é que o número pré-criado não faz parte da expressão do modelo se 3 de março é previsto como número `3` e como data `March 3`?** A expressão do modelo está a utilizar contextualmente uma data, quer literalmente como em `March 3` ou de forma abstrata como `in a month`. Uma data pode conter um número, mas um número pode não ser necessariamente visto como uma data. Utilize sempre a entidade que melhor representa o tipo que quer que seja devolvido nos resultados JSON da predição.
 
@@ -422,9 +423,9 @@ Esta utilização de padrões fornecidos:
 
 ### <a name="use-the-or-operator-and-groups"></a>Utilize o operador e grupos de OR
 
-Várias das proclamações anteriores do modelo são muito próximas. Utilize a sintaxe do **grupo** `()` e **do OR** `|` para reduzir as expressões do modelo.
+Várias das proclamações anteriores do modelo são muito próximas. Utilize a sintaxe do **grupo** `()` e do **OR** para reduzir `|` as expressões do modelo.
 
-Os seguintes 2 padrões podem combinar-se num único padrão usando o grupo `()` e a sintaxe DE. `|`
+Os seguintes 2 padrões podem combinar-se num único padrão usando o grupo e a `()` `|` sintaxe DE.
 
 |Intenção|Expressões de exemplo com texto opcional e entidades pré-criadas|
 |--|--|
@@ -435,9 +436,9 @@ A nova expressão do modelo será:
 
 `who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`.
 
-Isto usa um **grupo** em torno do `in` verbo necessário e opcional e `on` com um **ou** tubo entre eles.
+Isto usa um **grupo** em torno do verbo necessário e opcional `in` e com um `on` **ou** tubo entre eles.
 
-1. Na página **Padrões,** selecione o filtro **OrgChart-Manager.** Reduza a lista `manager`procurando por.
+1. Na página **Padrões,** selecione o filtro **OrgChart-Manager.** Reduza a lista procurando `manager` por.
 
 1. Mantenha uma versão da expressão do modelo (para editar no próximo passo) e elimine as outras variações.
 
@@ -464,37 +465,11 @@ Ao utilizar mais sintaxe de padrão, reduz o número de declarações de modelo 
 
 ### <a name="use-the-utterance-beginning-and-ending-anchors"></a>Use as âncoras de início e final de expressão
 
-A sintaxe padrão fornece sintaxe de âncora de `^`início e fim de um cuidador, . As âncoras de expressão inicial e final podem ser usadas em conjunto para visar uma expressão muito específica e possivelmente literal ou usadas separadamente para visar as intenções.
+A sintaxe padrão fornece sintaxe de âncora de início e fim de um cuidador, `^` . As âncoras de expressão inicial e final podem ser usadas em conjunto para visar uma expressão muito específica e possivelmente literal ou usadas separadamente para visar as intenções.
 
 ## <a name="using-patternany-entity"></a>Usando O Padrão.qualquer entidade
 
-A entidade pattern.any permite localizar dados de forma livre em que o texto da entidade dificulta distinguir o final da entidade do resto da expressão.
-
-Esta aplicação de Recursos Humanos ajuda os colaboradores a encontrar formulários de empresa.
-
-|Expressão|
-|--|
-|Onde está **HRF-123456**?|
-|Quem é o autor de **HRF-123234**?|
-|**HRF-456098** está publicado em francês?|
-
-No entanto, cada formulário tem um nome formatado, utilizado na tabela anterior, bem como um nome amigável, como `Request relocation from employee new to the company 2018 version 5`.
-
-As expressões na forma amigável têm o seguinte aspeto:
-
-|Expressão|
-|--|
-|Onde está **Pedir transferência do colaborador que é novo na empresa 2018 versão 5**?|
-|Quem é o autor de **Pedir transferência do colaborador que é novo na empresa 2018 versão 5**?|
-|**Pedir transferência do colaborador que é novo na empresa 2018 versão 5** está publicado em francês?|
-
-O comprimento variado inclui palavras que podem confundir o LUIS sobre onde termina a entidade. Utilizar uma entidade Pattern.any num padrão permite especificar o início e o final do nome do formulário, para que o LUIS extraia corretamente o nome do formulário.
-
-|Exemplo de expressão de modelo|
-|--|
-|Onde está {FormName}[?]|
-|Quem é o autor de {FormName}[?]|
-|{FormName} está publicado em francês[?]|
+[!INCLUDE [Pattern.any entity - concepts](./includes/pattern-any-entity.md)]
 
 ### <a name="add-example-utterances-with-patternany"></a>Adicione pronunciações de exemplo com Padrão.qualquer
 
@@ -518,7 +493,7 @@ A entidade Pattern.any extrai entidades de comprimento variável. Só funciona n
 
 1. Selecione **Entidades** no painel de navegação esquerdo.
 
-1. Selecione **+ Criar,** introduza o nome, `FormName`e selecione **Pattern.qualquer como** o tipo. Selecione **Criar**.
+1. Selecione **+ Criar,** introduza o `FormName` nome, e selecione **Pattern.qualquer como** o tipo. Selecione **Criar**.
 
 ### <a name="add-a-pattern-that-uses-the-patternany"></a>Adicionar um padrão que utiliza o Pattern.any
 
