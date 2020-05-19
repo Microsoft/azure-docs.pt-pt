@@ -1,25 +1,25 @@
 ---
 title: Como configurar um recipiente para API do Detetor de Anomalias
 titleSuffix: Azure Cognitive Services
-description: O ambiente de funcionação do recipiente API do detetor de anomalias é configurado utilizando os argumentos de `docker run` comando. Este recipiente tem várias configurações necessárias, juntamente com algumas configurações opcionais.
+description: O ambiente de funcionação do recipiente API do detetor de anomalias é configurado utilizando os `docker run` argumentos de comando. Este recipiente tem várias configurações necessárias, juntamente com algumas configurações opcionais.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 05/07/2020
 ms.author: aahi
-ms.openlocfilehash: 569499002c5e047d7030575342790e9a074b9404
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 29e790959e941abc133f95297dc09c951152a503
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80875185"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83593312"
 ---
 # <a name="configure-anomaly-detector-containers"></a>Configurar contentores do Detetor de Anomalias
 
-O ambiente de funcionação do recipiente `docker run` do detetor de **anomalias** é configurado utilizando os argumentos de comando. Este recipiente tem várias configurações necessárias, juntamente com algumas configurações opcionais. Vários [exemplos](#example-docker-run-commands) do comando estão disponíveis. As definições específicas do recipiente são as definições de faturação. 
+O ambiente de funcionação do recipiente do detetor de **anomalias** é configurado utilizando os `docker run` argumentos de comando. Este recipiente tem várias configurações necessárias, juntamente com algumas configurações opcionais. Vários [exemplos](#example-docker-run-commands) do comando estão disponíveis. As definições específicas do recipiente são as definições de faturação. 
 
 ## <a name="configuration-settings"></a>Definições de configuração
 
@@ -37,11 +37,11 @@ Este recipiente tem as seguintes definições de configuração:
 |Não|[Montes](#mount-settings)|Leia e escreva dados do computador de acolhimento para o contentor e do contentor de volta para o computador anfitrião.|
 
 > [!IMPORTANT]
-> As [`ApiKey`](#apikey-configuration-setting) [`Billing`](#billing-configuration-setting)definições [`Eula`](#eula-setting) e as configurações são utilizadas em conjunto, e deve fornecer valores válidos para todos os três; caso contrário, o seu recipiente não arranca. Para obter mais informações sobre a utilização destas definições de configuração para instantaneamente um recipiente, consulte [a Faturação](anomaly-detector-container-howto.md#billing).
+> As definições e as [`ApiKey`](#apikey-configuration-setting) [`Billing`](#billing-configuration-setting) [`Eula`](#eula-setting) configurações são utilizadas em conjunto, e você deve fornecer valores válidos para todos os três; caso contrário, o seu recipiente não arranca. Para obter mais informações sobre a utilização destas definições de configuração para instantaneamente um recipiente, consulte [a Faturação](anomaly-detector-container-howto.md#billing).
 
 ## <a name="apikey-configuration-setting"></a>Definição de configuração ApiKey
 
-A `ApiKey` definição especifica a chave de recursos Azure utilizada para rastrear as informações de faturação do recipiente. Deve especificar um valor para o ApiKey e o valor deve ser uma [`Billing`](#billing-configuration-setting) chave válida para o recurso do Detetor de _Anomalias_ especificado para a definição de configuração.
+A `ApiKey` definição especifica a chave de recursos Azure utilizada para rastrear as informações de faturação do recipiente. Deve especificar um valor para o ApiKey e o valor deve ser uma chave válida para o recurso do Detetor de _Anomalias_ especificado para a definição de [`Billing`](#billing-configuration-setting) configuração.
 
 Esta definição pode ser encontrada no seguinte local:
 
@@ -59,7 +59,7 @@ Esta definição pode ser encontrada no seguinte local:
 
 * Portal Azure: Visão geral **do Detetor de Anomalias,** rotulada`Endpoint`
 
-|Necessário| Nome | Tipo de dados | Descrição |
+|Necessário| Name | Tipo de dados | Descrição |
 |--|------|-----------|-------------|
 |Sim| `Billing` | String | Ponto final de faturação URI. Para obter mais informações sobre a obtenção do URI de faturação, consulte a [recolha de parâmetros necessários](anomaly-detector-container-howto.md#gathering-required-parameters). Para mais informações e uma lista completa de pontos finais regionais, consulte [nomes de subdomínio personalizado para Serviços Cognitivos](../cognitive-services-custom-subdomains.md). |
 
@@ -82,35 +82,35 @@ Esta definição pode ser encontrada no seguinte local:
 
 ## <a name="mount-settings"></a>Configurações do monte
 
-Utilize suportes de ligação para ler e escrever dados de e para o recipiente. Pode especificar um suporte de entrada ou `--mount` montagem de saída especificando a opção no comando de execução do [estivador.](https://docs.docker.com/engine/reference/commandline/run/)
+Utilize suportes de ligação para ler e escrever dados de e para o recipiente. Pode especificar um suporte de entrada ou montagem de saída especificando a `--mount` opção no comando de execução do [estivador.](https://docs.docker.com/engine/reference/commandline/run/)
 
 Os recipientes do Detetor de Anomalias não utilizam suportes de entrada ou saída para armazenar dados de treino ou de serviço. 
 
 A sintaxe exata da localização do suporte do hospedeiro varia consoante o sistema operativo do hospedeiro. Além disso, a localização do suporte do [computador hospedeiro](anomaly-detector-container-howto.md#the-host-computer)pode não estar acessível devido a um conflito entre permissões utilizadas pela conta de serviço Docker e as permissões de localização do suporte do hospedeiro. 
 
-|Opcional| Nome | Tipo de dados | Descrição |
+|Opcional| Name | Tipo de dados | Descrição |
 |-------|------|-----------|-------------|
 |Não permitido| `Input` | String | Os recipientes do Detetor de Anomalias não usam isto.|
 |Opcional| `Output` | String | O alvo do suporte de saída. O valor predefinido é `/output`. Esta é a localização dos registos. Isto inclui troncos de contentores. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Comandos de execução de estivadores exemplo 
 
-Os exemplos seguintes utilizam as definições `docker run` de configuração para ilustrar como escrever e utilizar comandos.  Uma vez em funcionamento, o recipiente continua a funcionar até o [parar.](anomaly-detector-container-howto.md#stop-the-container)
+Os exemplos seguintes utilizam as definições de configuração para ilustrar como escrever e utilizar `docker run` comandos.  Uma vez em funcionamento, o recipiente continua a funcionar até o [parar.](anomaly-detector-container-howto.md#stop-the-container)
 
-* **Personagem de continuação da linha**: Os comandos `\`do Docker nas seguintes secções usam o corte traseiro, como um personagem de continuação de linha para uma concha de batida. Substitua ou remova isto com base nos requisitos do sistema operativo do hospedeiro. Por exemplo, o carácter de continuação `^`da linha para janelas é um cuidado, . Substitua o corte traseiro pelo cuidado. 
+* **Personagem de continuação da linha**: Os comandos do Docker nas seguintes secções usam o corte traseiro, como um personagem de continuação de `\` linha para uma concha de batida. Substitua ou remova isto com base nos requisitos do sistema operativo do hospedeiro. Por exemplo, o carácter de continuação da linha para janelas é um cuidado, `^` . Substitua o corte traseiro pelo cuidado. 
 * **Ordem de argumentação**: Não altere a ordem dos argumentos a menos que esteja muito familiarizado com os contentores do Docker.
 
-Substitua o valor `{}`nos suportes, com os seus próprios valores:
+Substitua o valor nos suportes, `{}` com os seus próprios valores:
 
 | Marcador de posição | Valor | Formato ou exemplo |
 |-------------|-------|---|
-| **{API_KEY}** | A chave final `Anomaly Detector` do recurso na `Anomaly Detector` página Azure Keys. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
-| **{ENDPOINT_URI}** | O valor final da faturação está `Anomaly Detector` disponível na página de visão geral do Azure.| Consulte a [recolha de parâmetros necessários](anomaly-detector-container-howto.md#gathering-required-parameters) para exemplos explícitos. |
+| **{API_KEY}** | A chave final do `Anomaly Detector` recurso na página Azure `Anomaly Detector` Keys. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{ENDPOINT_URI}** | O valor final da faturação está disponível na página de visão geral do `Anomaly Detector` Azure.| Consulte a [recolha de parâmetros necessários](anomaly-detector-container-howto.md#gathering-required-parameters) para exemplos explícitos. |
 
 [!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
-> A `Eula` `Billing`, `ApiKey` e as opções devem ser especificadas para executar o recipiente; caso contrário, o contentor não vai começar.  Para mais informações, consulte [billing.](anomaly-detector-container-howto.md#billing)
+> O `Eula` `Billing` , e as `ApiKey` opções devem ser especificadas para executar o recipiente; caso contrário, o recipiente não arranca.  Para mais informações, consulte [billing.](anomaly-detector-container-howto.md#billing)
 > O valor ApiKey é a **chave** da página de teclas de recurso do detetor de anomalias Azure. 
 
 ## <a name="anomaly-detector-container-docker-examples"></a>Dados do contentor do detetor de anomalias Exemplos do Docker
@@ -121,7 +121,7 @@ Os seguintes exemplos do Docker são para o contentor do Detetor de Anomalias.
 
   ```Docker
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-  containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector \
+  mcr.microsoft.com/azure-cognitive-services/anomaly-detector \
   Eula=accept \
   Billing={ENDPOINT_URI} \
   ApiKey={API_KEY} 
@@ -131,7 +131,7 @@ Os seguintes exemplos do Docker são para o contentor do Detetor de Anomalias.
 
   ```Docker
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-  containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector \
+  mcr.microsoft.com/azure-cognitive-services/anomaly-detector \
   Eula=accept \
   Billing={ENDPOINT_URI} ApiKey={API_KEY} \
   Logging:Console:LogLevel:Default=Information

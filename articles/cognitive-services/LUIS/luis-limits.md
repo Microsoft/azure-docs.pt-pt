@@ -2,13 +2,13 @@
 title: Limites - LUIS
 description: Este artigo contém os limites conhecidos da compreensão da linguagem dos serviços cognitivos azure (LUIS). O LUIS tem várias áreas de limites. O limite de modelo controla as intenções, entidades e funcionalidades no LUIS. Limites de quota com base no tipo-chave. A combinação de teclado controla o website da LUIS.
 ms.topic: reference
-ms.date: 04/02/2020
-ms.openlocfilehash: 0a734091ad2c9812f079d77c97c22872717aa7c9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/06/2020
+ms.openlocfilehash: 71f6126cbf9615d7f808f098202f29094a913982
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82103594"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83593244"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>Limites para o seu modelo LUIS e chaves
 O LUIS tem várias áreas limite. O primeiro é o limite de [modelo,](#model-limits)que controla as intenções, entidades e características no LUIS. A segunda área é [os limites](#key-limits) de quota com base no tipo-chave. Uma terceira área de limites é a [combinação](#keyboard-controls) de teclado para controlar o site da LUIS. Uma quarta área é a [região mundial mapeando](luis-reference-regions.md) entre o site de autor luis e as APIs [endpoint](luis-glossary.md#endpoint) LUIS.
@@ -28,8 +28,8 @@ Se a sua aplicação exceder os limites do modelo LUIS, considere utilizar uma a
 | Entidades externas | sem limites |
 | [Intenções][intents]|500 por aplicação: 499 intenções personalizadas, e a intenção de _nenhuma_ intencional.<br>A aplicação [baseada em despachos](https://aka.ms/dispatch-tool) tem 500 fontes de expedição correspondentes.|
 | [Listar entidades](./luis-concept-entity-types.md) | Pai: 50 anos, criança: 20.000 itens. O nome canónico é *padrão de caracteres max. Os valores do sinónimo não têm restrição de comprimento. |
-| [Entidades aprendidas por máquinas + funções:](./luis-concept-entity-types.md)<br> composto,<br>simples,<br>papel da entidade|Um limite de 100 entidades-mãe ou 330 entidades, o que limita o utilizador primeiro. Um papel conta como entidade para efeitos deste limite. Um exemplo é um compósito com uma entidade simples, que tem 2 funções é: 1 composto + 1 simples + 2 funções = 4 das 330 entidades.<br>Os subcomponentes podem ser aninhados até 5 níveis.|
-|Modelo como recurso| Número máximo de modelos que podem ser usados como descritor (recurso) para um modelo específico para ser 10 modelos. O número máximo de listas de frases utilizadas como descritor (recurso) para um modelo específico ser de 10 listas de frases.|
+| [Entidades aprendidas por máquinas + funções:](./luis-concept-entity-types.md)<br> composto,<br>simples,<br>papel da entidade|Um limite de 100 entidades-mãe ou 330 entidades, o que limita o utilizador primeiro. Um papel conta como entidade para efeitos deste limite. Um exemplo é um compósito com uma entidade simples, que tem 2 funções é: 1 composto + 1 simples + 2 funções = 4 das 330 entidades.<br>As subentidades podem ser aninhadas até 5 níveis.|
+|Modelo como recurso| Número máximo de modelos que podem ser usados como uma característica para um modelo específico para ser 10 modelos. O número máximo de listas de frases utilizadas como recurso para um modelo específico ser de 10 listas de frases.|
 | [Pré-visualização - Entidades de lista dinâmica](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2 listas de ~1k por pedido de ponto final de previsão de consulta|
 | [Padrões](luis-concept-patterns.md)|500 padrões por aplicação.<br>O comprimento máximo do padrão é de 400 caracteres.<br>3 Padrão.quaisquer entidades por padrão<br>Máximo de 2 textos opcionais aninhados em padrão|
 | [Padrão.qualquer](./luis-concept-entity-types.md)|100 por aplicação, 3 padrão.quaisquer entidades por padrão |
@@ -40,7 +40,7 @@ Se a sua aplicação exceder os limites do modelo LUIS, considere utilizar uma a
 | [Expressão][utterances] | 500 caracteres|
 | [Expressões][utterances] | 15.000 por aplicação - não há limite para o número de expressões por intenção|
 | [Versões](luis-concept-version.md)| 100 versões por aplicação |
-| [Nome da versão][luis-how-to-manage-versions] | 10 caracteres restritos ao período alfanumérico e ao período (.) |
+| [Nome da versão][luis-how-to-manage-versions] | 128 caracteres |
 
 *O maxilar de caracteres padrão é de 50 caracteres.
 
@@ -48,18 +48,14 @@ Se a sua aplicação exceder os limites do modelo LUIS, considere utilizar uma a
 
 ## <a name="name-uniqueness"></a>Nome singularidade
 
-Use as seguintes regras de singularidade de nomeação.
+Os nomes dos objetos devem ser únicos quando comparados com outros objetos do mesmo nível.
 
-O seguinte deve ser único dentro de uma aplicação LUIS:
-
-* nome da versão
-* intenção
-* entidade
-* funções
-
-O seguinte deve ser único dentro do âmbito aplicado:
-
-* lista de frases
+|Objetos|Restrições|
+|--|--|
+|Intenção, entidade|Todos os nomes de intenção e entidadedevem ser únicos numa versão de uma aplicação.|
+|Componentes da entidade ML|Todos os componentes de entidades aprendidas por máquinas (entidades infantis) devem ser únicos, dentro dessa entidade para componentes ao mesmo nível.|
+|Funcionalidades | Todas as funcionalidades nomeadas, como listas de frases, devem ser únicas dentro de uma versão de uma aplicação.|
+|Funções de entidade|Todas as funções numa entidade ou componente de entidade devem ser únicas quando estiverem ao mesmo nível de entidade (pai, filho, neto, etc.).|
 
 ## <a name="object-naming"></a>Nomeação de objeto
 
@@ -78,7 +74,7 @@ Language Understand tem recursos separados, um tipo para autoria, e um tipo para
 
 ### <a name="authoring-resource-limits"></a>Limites de recursos de autoria
 
-Use o `LUIS.Authoring` _tipo,_ ao filtrar recursos no portal Azure. LUIS limita 500 aplicações por recurso de autoria Azure.
+Use _kind_o `LUIS.Authoring` tipo, ao filtrar recursos no portal Azure. LUIS limita 500 aplicações por recurso de autoria Azure.
 
 |Recurso de autoria|TPS de autoria|
 |--|--|
@@ -91,7 +87,7 @@ Use o `LUIS.Authoring` _tipo,_ ao filtrar recursos no portal Azure. LUIS limita 
 
 ### <a name="query-prediction-resource-limits"></a>Limites de recursos de previsão de consulta
 
-Use o `LUIS` _tipo,_ ao filtrar recursos no portal Azure. O recurso final de previsão de consulta LUIS, utilizado no tempo de execução, só é válido para consultas de ponto final.
+Use _kind_o `LUIS` tipo, ao filtrar recursos no portal Azure. O recurso final de previsão de consulta LUIS, utilizado no tempo de execução, só é válido para consultas de ponto final.
 
 |Recurso de previsão de consulta|TPS de consulta|
 |--|--|
