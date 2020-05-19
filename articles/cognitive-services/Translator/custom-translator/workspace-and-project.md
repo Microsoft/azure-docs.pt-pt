@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: d2f7903fa85c645357e46a753d1cb043e0893254
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a67e199af1ee6e68f00dbde9a0a43d02e4c7d638
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219436"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588671"
 ---
 # <a name="what-is-a-custom-translator-workspace"></a>O que é um espaço de trabalho de Tradutor Personalizado?
 
@@ -39,9 +39,9 @@ No mesmo espaço de trabalho, pode criar projetos para o mesmo par de idiomas em
 
 O Custom Tradutor permite-lhe atribuir uma etiqueta de projeto ao seu projeto. O rótulo do projeto distingue entre vários projetos com o mesmo par de línguas e categoria. Como uma boa prática, evite utilizar etiquetas de projeto a menos que seja necessário.
 
-A etiqueta do projeto é utilizada como parte da categoriaID. Se o rótulo do projeto for deixado por definir ou for definido de forma idêntica entre projetos, então os projetos com a mesma categoria e *diferentes* pares de idiomas partilharão a mesma categoria ID. Esta abordagem é vantajosa porque permite que você ou o seu cliente alternam entre idiomas ao utilizar a API tradutora de texto sem se preocupar com um ID de categoria único em cada projeto.
+A etiqueta do projeto é utilizada como parte da categoriaID. Se o rótulo do projeto for deixado por definir ou for definido de forma idêntica entre projetos, então os projetos com a mesma categoria e *diferentes* pares de idiomas partilharão a mesma categoria ID. Esta abordagem é vantajosa porque permite que você ou o seu cliente alternam entre idiomas ao utilizar o Tradutor sem se preocupar com um Id de categoria único em cada projeto.
 
-Por exemplo, se quisesse permitir traduções no domínio tecnológico do inglês para o francês e do\> francês para o inglês, criaria dois projetos: um para inglês - francês, e outro para francês -\> inglês. Especificaria a mesma categoria (Tecnologia) para ambos e deixaria o rótulo do projeto em branco. O CategoryID para ambos os projetos corresponderia, para que eu pudesse consultar a API para traduções em inglês e francês sem ter de modificar o meu Id de categoria.
+Por exemplo, se quisesse permitir traduções no domínio tecnológico do inglês para o francês e do francês para o inglês, criaria dois projetos: um para inglês - \> francês, e outro para francês - \> inglês. Especificaria a mesma categoria (Tecnologia) para ambos e deixaria o rótulo do projeto em branco. O CategoryID para ambos os projetos corresponderia, para que eu pudesse consultar a API para traduções em inglês e francês sem ter de modificar o meu Id de categoria.
 
 Se é um fornecedor de serviços linguísticos e quer servir vários clientes com diferentes modelos que mantêm a mesma categoria e par de idiomas, então usar um rótulo de projeto para diferenciar os clientes seria uma decisão sábia.
 

@@ -2,13 +2,13 @@
 title: Tipo de entidade de lista - LUIS
 description: As entidades da lista representam um conjunto fixo e fechado de palavras relacionadas juntamente com os seus sinónimos. A LUIS não descobre valores adicionais para entidades de lista. Utilize a função Recomendar para ver sugestões de novas palavras com base na lista atual.
 ms.topic: reference
-ms.date: 03/12/2020
-ms.openlocfilehash: 273fabae38f6682cfaaffcdcc19e62adc41b7a47
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 04/14/2020
+ms.openlocfilehash: 339fb832ef4af069b6f040c5264426002189f93f
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82097579"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588892"
 ---
 # <a name="list-entity"></a>Entidade de lista
 
@@ -52,7 +52,7 @@ Uma entidade da lista não é aprendida com máquinas. É uma correspondência e
 
 ## <a name="example-json-response"></a>Exemplo resposta JSON
 
-Suponha que a `Cities`app tem uma lista, nomeada , permitindo variações de nomes da cidade, incluindo cidade do aeroporto (Sea-tac), código do aeroporto (SEA), código postal postal postal (98101) e código de área telefónica (206).
+Suponha que a app tem uma lista, nomeada `Cities` , permitindo variações de nomes da cidade, incluindo cidade do aeroporto (Sea-tac), código do aeroporto (SEA), código postal postal postal (98101) e código de área telefónica (206).
 
 |Listar item|Sinónimos de artigo|
 |---|---|
@@ -61,7 +61,7 @@ Suponha que a `Cities`app tem uma lista, nomeada , permitindo variações de nom
 
 `book 2 tickets to paris`
 
-Na expressão anterior, a `paris` palavra é mapeada para o `Cities` item de Paris como parte da entidade da lista. A entidade da lista corresponde tanto ao nome normalizado do artigo como aos sinónimos de artigo.
+Na expressão anterior, a palavra `paris` é mapeada para o item de Paris como parte da `Cities` entidade da lista. A entidade da lista corresponde tanto ao nome normalizado do artigo como aos sinónimos de artigo.
 
 #### <a name="v2-prediction-endpoint-response"></a>[Resposta final de previsão V2](#tab/V2)
 
@@ -84,7 +84,7 @@ Na expressão anterior, a `paris` palavra é mapeada para o `Cities` item de Par
 #### <a name="v3-prediction-endpoint-response"></a>[Resposta final de previsão V3](#tab/V3)
 
 
-Este é o JSON se `verbose=false` estiver definido na corda de consulta:
+Este é o JSON se estiver definido na corda de `verbose=false` consulta:
 
 ```json
 "entities": {
@@ -96,7 +96,7 @@ Este é o JSON se `verbose=false` estiver definido na corda de consulta:
 }
 ```
 
-Este é o JSON se `verbose=true` estiver definido na corda de consulta:
+Este é o JSON se estiver definido na corda de `verbose=true` consulta:
 
 ```json
 "entities": {
@@ -132,4 +132,7 @@ Este é o JSON se `verbose=true` estiver definido na corda de consulta:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste [tutorial,](tutorial-list-entity.md)aprenda a usar uma **entidade da lista** para extrair correspondências exatas de texto de uma lista de itens conhecidos.
+Saiba mais sobre as entidades:
+
+* [Conceitos](luis-concept-entity-types.md)
+* [Como criar](luis-how-to-add-entities.md)

@@ -6,21 +6,21 @@ author: diberry
 manager: nitinme
 ms.custom: include file
 ms.service: cognitive-services
-ms.date: 02/14/2020
+ms.date: 05/06/2020
 ms.subservice: language-understanding
 ms.topic: include
 ms.author: diberry
-ms.openlocfilehash: 5b1b361778de145a5e32a07bb0164ff2293d9a1a
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 2a98e2a97a9154d9e256a4662bb292896c6d1e77
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77279712"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588799"
 ---
-Na secção **Gerir** (menu superior direito), na página **Dos Recursos Azure** (menu esquerdo), copie o URL de **Consulta de Exemplo** e, em seguida, cole num novo separador de navegador.
+Na secção **Gerir** (menu superior-direito), na página **Dos Recursos Azure** (menu esquerdo), copie o URL de **Consulta de Exemplo** e, em seguida, cole num novo separador de navegador.
 
-O URL de ponto final parece o seguinte formato, com o id da sua própria aplicação e chave de ponto final substituindo APP-ID e KEY-ID:
+O URL de ponto final parece o seguinte formato, com o seu próprio subdomínio personalizado, ID de aplicação e chave de ponto final substituindo APP-ID, e KEY-ID:
 
 ```console
-https://westus.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/APP-ID/slots/production/predict?subscription-key=KEY-ID&verbose=true&show-all-intents=true&log=true&query=YOUR_QUERY_HERE
+https://YOUR-CUSTOM-SUBDMAIN.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/APP-ID/slots/production/predict?subscription-key=KEY-ID&verbose=true&show-all-intents=true&log=true&query=YOUR_QUERY_HERE
 ```

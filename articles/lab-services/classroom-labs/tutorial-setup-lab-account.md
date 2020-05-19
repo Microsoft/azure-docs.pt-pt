@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/10/2020
+ms.date: 05/15/2020
 ms.author: spelluru
-ms.openlocfilehash: dba6a4c07691f3d7ec88d8b889e68d6ac7116f07
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1823d9df8824c9a0bf1ee30a9900ca118625fd9e
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79239449"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589436"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services"></a>Tutorial: Configurar uma conta de laboratório com o Azure Lab Services
 No Azure Lab Services, a conta de laboratório serve como a conta central em que são geridos os laboratórios na organização. Na conta de laboratório, conceda permissões para outros utilizadores criarem laboratórios e definir políticas aplicáveis a todos os laboratórios na conta de laboratório. Neste tutorial, aprenda a criar uma conta de laboratório. 
@@ -30,13 +30,13 @@ Neste tutorial, irá realizar as seguintes ações:
 > * Criar uma conta de laboratório
 > * Adicionar um utilizador à função de Criador do Laboratório
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="create-a-lab-account"></a>Criar uma conta de laboratório
 Os passos seguintes mostram como utilizar o portal do Azure para criar uma conta de laboratório com o Azure Lab Services. 
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Selecione **Todos os Serviços** no menu esquerdo. Selecione **DevOps** de **categorias**. Em seguida, selecione **Serviços de Laboratório**. Se selecionar estrela`*`( ) ao lado dos Serviços de **Laboratório,** é adicionado à secção **FAVORITES** no menu esquerdo. A partir da próxima vez, selecione **Serviços** de Laboratório sob **OS FAVORITOS**.
+2. Selecione **Todos os Serviços** no menu esquerdo. Selecione **DevOps** de **categorias**. Em seguida, selecione **Serviços de Laboratório**. Se selecionar estrela ( ) ao lado dos Serviços de `*` **Laboratório,** é adicionado à secção **FAVORITES** no menu esquerdo. A partir da próxima vez, selecione **Serviços** de Laboratório sob **OS FAVORITOS**.
 
     ![Todos os Serviços -> Serviços laboratoriais](../media/tutorial-setup-lab-account/select-lab-accounts-service.png)
 3. Na página **lab Services,** selecione **Adicionar** na barra de ferramentas ou selecione Criar o botão de **conta de laboratório** na página. 
@@ -75,7 +75,7 @@ Para configurar um laboratório de sala de aula numa conta de laboratório, o ut
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste tutorial, criou uma conta de laboratório. Para aprender como criar um laboratório de sala de aula como professor, avançar para o próximo tutorial:
+Neste tutorial, criou uma conta de laboratório. Para aprender como criar um laboratório de sala de aula como educador, avance para o próximo tutorial:
 
 > [!div class="nextstepaction"]
 > [Configurar um laboratório de sala de aula](tutorial-setup-classroom-lab.md)

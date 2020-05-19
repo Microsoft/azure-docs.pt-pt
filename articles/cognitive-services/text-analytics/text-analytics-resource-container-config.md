@@ -11,27 +11,27 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: f062fb2f3a653bc1b2845b92e373fdb67ba583d8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f6a1bc652125990a7daf3414895f34b95c544912
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80878690"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590559"
 ---
 # <a name="configure-text-analytics-docker-containers"></a>Configure Recipientes de estivador de análise de texto
 
-O Text Analytics fornece a cada recipiente uma estrutura de configuração comum, para que possa configurar e gerir facilmente o armazenamento, a extração e a telemetria e as definições de segurança dos seus contentores.
+O Text Analytics fornece a cada recipiente uma estrutura de configuração comum, para que possa configurar e gerir facilmente o armazenamento, a extração e a telemetria e as definições de segurança dos seus contentores. Vários comandos de execução de [estivadores](how-tos/text-analytics-how-to-install-containers.md#run-the-container-with-docker-run) também estão disponíveis.
 
 ## <a name="configuration-settings"></a>Definições de configuração
 
 [!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
 > [!IMPORTANT]
-> As [`ApiKey`](#apikey-configuration-setting) [`Billing`](#billing-configuration-setting)definições [`Eula`](#eula-setting) e as configurações são utilizadas em conjunto, e deve fornecer valores válidos para todos os três; caso contrário, o seu recipiente não arranca. Para obter mais informações sobre a utilização destas definições de configuração para instantaneamente um recipiente, consulte [a Faturação](how-tos/text-analytics-how-to-install-containers.md#billing).
+> As definições e as [`ApiKey`](#apikey-configuration-setting) [`Billing`](#billing-configuration-setting) [`Eula`](#eula-setting) configurações são utilizadas em conjunto, e você deve fornecer valores válidos para todos os três; caso contrário, o seu recipiente não arranca. Para obter mais informações sobre a utilização destas definições de configuração para instantaneamente um recipiente, consulte [a Faturação](how-tos/text-analytics-how-to-install-containers.md#billing).
 
 ## <a name="apikey-configuration-setting"></a>Definição de configuração ApiKey
 
-A `ApiKey` definição especifica a chave de recursos Azure utilizada para rastrear as informações de faturação do recipiente. Deve especificar um valor para o ApiKey e o valor deve ser uma [`Billing`](#billing-configuration-setting) chave válida para o recurso Text _Analytics_ especificado para a definição de configuração.
+A `ApiKey` definição especifica a chave de recursos Azure utilizada para rastrear as informações de faturação do recipiente. Deve especificar um valor para o ApiKey e o valor deve ser uma chave válida para o recurso _Text Analytics_ especificado para a definição de [`Billing`](#billing-configuration-setting) configuração.
 
 Esta definição pode ser encontrada no seguinte local:
 
@@ -49,7 +49,7 @@ Esta definição pode ser encontrada no seguinte local:
 
 * Portal Azure: Visão geral **do Text Analytics,** rotulada`Endpoint`
 
-|Necessário| Nome | Tipo de dados | Descrição |
+|Necessário| Name | Tipo de dados | Descrição |
 |--|------|-----------|-------------|
 |Sim| `Billing` | String | Ponto final de faturação URI. Para obter mais informações sobre a obtenção do URI de faturação, consulte a [recolha de parâmetros necessários](how-tos/text-analytics-how-to-install-containers.md#gathering-required-parameters). Para mais informações e uma lista completa de pontos finais regionais, consulte [nomes de subdomínio personalizado para Serviços Cognitivos](../cognitive-services-custom-subdomains.md). |
 
@@ -71,48 +71,16 @@ Esta definição pode ser encontrada no seguinte local:
 
 ## <a name="mount-settings"></a>Configurações do monte
 
-Utilize suportes de ligação para ler e escrever dados de e para o recipiente. Pode especificar um suporte de entrada ou `--mount` montagem de saída especificando a opção no comando de execução do [estivador.](https://docs.docker.com/engine/reference/commandline/run/)
+Utilize suportes de ligação para ler e escrever dados de e para o recipiente. Pode especificar um suporte de entrada ou montagem de saída especificando a `--mount` opção no comando de execução do [estivador.](https://docs.docker.com/engine/reference/commandline/run/)
 
 Os recipientes Text Analytics não utilizam suportes de entrada ou saída para armazenar dados de formação ou de serviço. 
 
 A sintaxe exata da localização do suporte do hospedeiro varia consoante o sistema operativo do hospedeiro. Além disso, a localização do suporte do [computador hospedeiro](how-tos/text-analytics-how-to-install-containers.md#the-host-computer)pode não estar acessível devido a um conflito entre permissões utilizadas pela conta de serviço do estivador e as permissões de localização do suporte do hospedeiro. 
 
-|Opcional| Nome | Tipo de dados | Descrição |
+|Opcional| Name | Tipo de dados | Descrição |
 |-------|------|-----------|-------------|
 |Não permitido| `Input` | String | Os recipientes de Análise de Texto não usam isto.|
 |Opcional| `Output` | String | O alvo do suporte de saída. O valor predefinido é `/output`. Esta é a localização dos registos. Isto inclui troncos de contentores. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
-
-## <a name="example-docker-run-commands"></a>Comandos de execução de estivadores exemplo 
-
-Os exemplos seguintes utilizam as definições `docker run` de configuração para ilustrar como escrever e utilizar comandos.  Uma vez em funcionamento, o recipiente continua a funcionar até o [parar.](how-tos/text-analytics-how-to-install-containers.md#stop-the-container)
-
-* **Carácter de continuação da linha**: Os comandos do `\`estivador nas seguintes secções utilizam a barra traseira, como um carácter de continuação da linha. Substitua ou remova isto com base nos requisitos do sistema operativo do hospedeiro. 
-* **Ordem de argumentação**: Não altere a ordem dos argumentos a menos que esteja muito familiarizado com os recipientes de estivadores.
-
-Substitua {_argument_name_} com os seus próprios valores:
-
-| Marcador de posição | Valor | Formato ou exemplo |
-|-------------|-------|---|
-| **{API_KEY}** | A chave final `Text Analytics` do recurso disponível `Text Analytics` na página Azure Keys. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
-| **{ENDPOINT_URI}** | O valor final da faturação está `Text Analytics` disponível na página de visão geral do Azure.| Consulte a [recolha de parâmetros necessários](how-tos/text-analytics-how-to-install-containers.md#gathering-required-parameters) para exemplos explícitos. |
-
-> [!IMPORTANT]
-> A `Eula` `Billing`, `ApiKey` e as opções devem ser especificadas para executar o recipiente; caso contrário, o contentor não vai começar.  Para mais informações, consulte [billing.](how-tos/text-analytics-how-to-install-containers.md#billing)
-> O valor ApiKey **Key** é a `Text Analytics` chave da página de teclas Azure Resource. 
-
-#### <a name="key-phrase-extraction"></a>[Extração de Expressões-Chave](#tab/keyphrase)
-
-[!INCLUDE [key-phrase-extraction-docker-examples](includes/key-phrase-extraction-docker-examples.md)]
-
-#### <a name="language-detection"></a>[Deteção de Idioma](#tab/language)
-
-[!INCLUDE [language-detection-docker-examples](includes/language-detection-docker-examples.md)]
-
-#### <a name="sentiment-analysis"></a>[Análise de Sentimentos](#tab/sentiment)
-
-[!INCLUDE [sentiment-analysis-docker-examples](includes/sentiment-analysis-docker-examples.md)]
-
-***
 
 ## <a name="next-steps"></a>Passos seguintes
 

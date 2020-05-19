@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 05/07/2020
 ms.author: aahi
-ms.openlocfilehash: fa25d27e99a9516d461a84dde184e2a6412baa0b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 40906c97dc088687bbd960fecc91921a3eb888a6
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80875058"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589980"
 ---
 # <a name="install-and-run-anomaly-detector-containers-preview"></a>Instalar e executar recipientes do Detetor de Anomalias (Pré-visualização)
 
@@ -28,7 +28,7 @@ O Detetor de Anomalias tem a seguinte funcionalidade de funcionalidade do recipi
 Para obter informações detalhadas sobre as APIs, consulte:
 * [Saiba mais sobre o serviço API do Detetor de Anomalias](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -37,18 +37,10 @@ Deve cumprir os seguintes pré-requisitos antes de utilizar os recipientes do De
 |Necessário|Objetivo|
 |--|--|
 |Motor do Docker| Precisa do Motor Docker instalado num [computador de acolhimento.](#the-host-computer) O Docker oferece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/) e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para um manual de noções básicas do Docker e do contentor, veja a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os recipientes se conectem e enviem dados de faturação para o Azure. <br><br> **No Windows,** o Docker também deve ser configurado para suportar os recipientes Linux.<br><br>|
-|Familiaridade com Docker | Você deve ter uma compreensão básica dos conceitos docker, como registos, repositórios, `docker` contentores e imagens de contentores, bem como conhecimento de comandos básicos.| 
+|Familiaridade com Docker | Você deve ter uma compreensão básica dos conceitos docker, como registos, repositórios, contentores e imagens de contentores, bem como conhecimento de `docker` comandos básicos.| 
 |Recurso do Detetor de Anomalias |Para utilizar estes recipientes, deve ter:<br><br>Um recurso do Detetor de _Anomalias_ Azure para obter a chave API associada e o ponto final URI. Ambos os valores estão disponíveis nas páginas de Visão Geral e Teclas do detetor de **anomalias** do portal Azure e são necessários para iniciar o recipiente.<br><br>**{API_KEY}**: Uma das duas teclas de recursos disponíveis na página **Keys**<br><br>**{ENDPOINT_URI}**: O ponto final fornecido na página **'Visão Geral'**|
 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
-
-## <a name="request-access-to-the-container-registry"></a>Solicitar acesso ao registo de contentores
-
-Primeiro deve completar e submeter o formulário de pedido de pedido de detetor de [anomalias](https://aka.ms/adcontainer) para solicitar o acesso ao recipiente.
-
-[!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
-
-[!INCLUDE [Authenticate to the container registry](../../../includes/cognitive-services-containers-access-registry.md)]
 
 ## <a name="the-host-computer"></a>O computador anfitrião
 
@@ -67,15 +59,15 @@ A tabela que se segue descreve os núcleos e memória cpu mínimos e recomendado
 
 Cada núcleo deve ter pelo menos 2,6 gigahertz (GHz) ou mais rápido.
 
-O núcleo e `--cpus` a `--memory` memória correspondem às definições e definições, que são usadas como parte do `docker run` comando.
+O núcleo e a memória correspondem às `--cpus` definições e `--memory` definições, que são usadas como parte do `docker run` comando.
 
 ## <a name="get-the-container-image-with-docker-pull"></a>Obtenha a imagem do recipiente com`docker pull`
 
-Utilize [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) o comando para descarregar uma imagem de contentor.
+Utilize o comando para descarregar uma imagem de [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) contentor.
 
 | Contentor | Repositório |
 |-----------|------------|
-| cognitivo-serviços-anomaly-detector | `containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector:latest` |
+| cognitivo-serviços-anomaly-detector | `mcr.microsoft.com/azure-cognitive-services/anomaly-detector:latest` |
 
 <!--
 For a full description of available tags, such as `latest` used in the preceding command, see [anomaly-detector](https://go.microsoft.com/fwlink/?linkid=2083827&clcid=0x409) on Docker Hub.
@@ -85,25 +77,25 @@ For a full description of available tags, such as `latest` used in the preceding
 ### <a name="docker-pull-for-the-anomaly-detector-container"></a>Docker puxar para o recipiente do Detetor de Anomalias
 
 ```Docker
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector:latest
+docker pull mcr.microsoft.com/azure-cognitive-services/anomaly-detector:latest
 ```
 
 ## <a name="how-to-use-the-container"></a>Como utilizar o recipiente
 
 Uma vez que o recipiente esteja no [computador de acolhimento,](#the-host-computer)utilize o seguinte processo para trabalhar com o recipiente.
 
-1. [Executar o recipiente,](#run-the-container-with-docker-run)com as definições de faturação necessárias. Mais [exemplos](anomaly-detector-container-configuration.md#example-docker-run-commands) `docker run` do comando estão disponíveis.
+1. [Executar o recipiente,](#run-the-container-with-docker-run)com as definições de faturação necessárias. Mais [exemplos](anomaly-detector-container-configuration.md#example-docker-run-commands) do `docker run` comando estão disponíveis.
 1. [Consulta do ponto final da previsão do recipiente](#query-the-containers-prediction-endpoint).
 
 ## <a name="run-the-container-with-docker-run"></a>Executar o recipiente com`docker run`
 
-Use o comando de execução de [estivador](https://docs.docker.com/engine/reference/commandline/run/) para executar o recipiente. Consulte a recolha de [parâmetros necessários](#gathering-required-parameters) `{ENDPOINT_URI}` para `{API_KEY}` obter os valores e valores necessários.
+Use o comando de execução de [estivador](https://docs.docker.com/engine/reference/commandline/run/) para executar o recipiente. Consulte a recolha de [parâmetros necessários](#gathering-required-parameters) para obter os `{ENDPOINT_URI}` valores e `{API_KEY}` valores necessários.
 
 [Exemplos](anomaly-detector-container-configuration.md#example-docker-run-commands) do `docker run` comando estão disponíveis.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector:latest \
+mcr.microsoft.com/azure-cognitive-services/anomaly-detector:latest \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -117,13 +109,13 @@ Este comando:
 * Remove automaticamente o recipiente após a sua saída. A imagem do recipiente ainda está disponível no computador hospedeiro. 
 
 > [!IMPORTANT]
-> A `Eula` `Billing`, `ApiKey` e as opções devem ser especificadas para executar o recipiente; caso contrário, o contentor não vai começar.  Para mais informações, consulte [billing.](#billing)
+> O `Eula` `Billing` , e as `ApiKey` opções devem ser especificadas para executar o recipiente; caso contrário, o recipiente não arranca.  Para mais informações, consulte [billing.](#billing)
 
 ### <a name="running-multiple-containers-on-the-same-host"></a>Executar vários recipientes no mesmo hospedeiro
 
 Se pretender executar vários contentores com portas expostas, certifique-se de que executa cada recipiente com uma porta diferente. Por exemplo, executar o primeiro recipiente no porto 5000 e o segundo contentor no porto 5001.
 
-Substitua `<container-registry>` `<container-name>` o e os valores dos recipientes utilizados. Estes não têm de ser o mesmo recipiente. Pode ter o recipiente do Detetor de Anomalias e o recipiente LUIS a funcionar juntos no HOSPEDEIRO ou pode ter vários recipientes do Detetor de Anomalias em funcionamento. 
+Substitua `<container-registry>` o e os `<container-name>` valores dos recipientes utilizados. Estes não têm de ser o mesmo recipiente. Pode ter o recipiente do Detetor de Anomalias e o recipiente LUIS a funcionar juntos no HOSPEDEIRO ou pode ter vários recipientes do Detetor de Anomalias em funcionamento. 
 
 Gereno primeiro recipiente no porto 5000. 
 
@@ -152,7 +144,7 @@ Cada recipiente subsequente deve estar numa porta diferente.
 
 O recipiente fornece APIs finais de previsão de consulta baseadas em REST. 
 
-Utilize o http://localhost:5000hospedeiro, para apis de contentor.
+Utilize o http://localhost:5000 hospedeiro, para apis de contentor.
 
 <!--  ## Validate container is running -->
 

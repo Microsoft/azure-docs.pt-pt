@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: dapine
-ms.openlocfilehash: 00e966dbee6c1993256a94d734bcc6261aea00af
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0bf4750d5db5961ff8c572c3aa52cc06faf697c1
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81258437"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590541"
 ---
 # <a name="azure-cognitive-services-support-and-feedback-options"></a>Opções de suporte e feedback dos Serviços Cognitivos Azure
 
@@ -33,13 +33,13 @@ Explore a gama de opções de [suporte azure e escolha o plano](https://azure.mi
 * [Portal do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [Portal azure para o governo dos Estados Unidos](https://portal.azure.us)
 
-### <a name="search"></a>Pesquisa
+### <a name="search"></a>Pesquisar
 
 <div class='icon is-large'>
     <img alt='Search' src='https://docs.microsoft.com/media/common/i_search.svg'>
 </div>
 
-Para obter resultados mais rápidos, realize uma pesquisa em sites relevantes como [Stack Overflow,](https://stackoverflow.com/) [Microsoft docs](https://docs.microsoft.com/azure/cognitive-services/)ou amostras de [código GitHub](https://github.com/azure-samples). Utilize `site:` a notação de consulta no seu motor de [pesquisa favorito,](https://bing.com)por exemplo:
+Para obter resultados mais rápidos, realize uma pesquisa em sites relevantes como [Stack Overflow,](https://stackoverflow.com/) [Microsoft docs](https://docs.microsoft.com/azure/cognitive-services/)ou amostras de [código GitHub](https://github.com/azure-samples). Utilize a notação de consulta no seu motor de `site:` [pesquisa favorito,](https://bing.com)por exemplo:
 
 ```
 {search keywords} site:stackoverflow.com
@@ -79,12 +79,12 @@ Manter-se informado sobre funcionalidades num novo lançamento ou novidades no b
 As notas de lançamento dos Serviços Cognitivos são atualizadas à medida que são disponibilizadas novas versões. As notas contêm informações sobre novas funcionalidades, melhorias e correções de bugs.
 
  - [Visão Personalizada](custom-vision-service/release-notes.md)
- - [Rostos](face/releasenotes.md)
+ - [Face](face/releasenotes.md)
  - [Compreensão de Idiomas (LUIS)](LUIS/whats-new.md)
  - [Serviços de Fala](speech-service/releasenotes.md)
  - [Serviços de Fala SDK](speech-service/devices-sdk-release-notes.md)
  - [Análise de Texto](text-analytics/whats-new.md)
- - [Indexador de Vídeos](../media-services/video-indexer/release-notes.md)
+ - [Video Indexer](../media-services/video-indexer/release-notes.md)
 
 ### <a name="azure-blog"></a>Blogue do Azure
 
@@ -128,12 +128,12 @@ Para solicitar novas funcionalidades, publique-as no UserVoice. Partilhe as suas
 | Reconhecedor de Tinta Digital                | https://cognitive.uservoice.com/forums/921559-ink-recognizer |
 | Compreensão de Idiomas (LUIS) | https://cognitive.uservoice.com/forums/551524-luis |
 | Personalizador                  | https://cognitive.uservoice.com/forums/921562-personalizer |
-| QnA Maker                     | https://cognitive.uservoice.com/forums/578689-qna-maker |
+| Criador de FAQ                     | https://cognitive.uservoice.com/forums/578689-qna-maker |
 | Serviços de Voz               | https://cognitive.uservoice.com/forums/912208-speech-service |
 | Discurso Personalizado                 | https://cognitive.uservoice.com/forums/555934-custom-speech-service |
 | Análise de Texto                | https://cognitive.uservoice.com/forums/555922-text-analytics |
-| Texto do Tradutor               | https://cognitive.uservoice.com/forums/558796-translator |
-| Indexador de Vídeos                 | https://cognitive.uservoice.com/forums/598144-video-indexer |
+| Tradutor               | https://cognitive.uservoice.com/forums/558796-translator |
+| Video Indexer                 | https://cognitive.uservoice.com/forums/598144-video-indexer |
 
 ## <a name="report-bugs"></a>Reportar insetos
 

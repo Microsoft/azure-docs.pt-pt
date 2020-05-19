@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: c829579f3ad9922c8c621b6dbfa966b69a2497d1
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 5d0a9771e5b999028996676ea72f8def3c5d63cf
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690801"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589861"
 ---
 # <a name="recognize-printed-and-handwritten-text"></a>Reconhecer texto impresso e manuscrito
 
@@ -26,10 +26,9 @@ A Computer Vision fornece uma série de serviços que detetam e extraem texto im
 
 A API read deteta conteúdo de texto numa imagem utilizando os nossos modelos de reconhecimento mais recentes e converte o texto identificado num fluxo de caracteres legível por máquina. É otimizado para imagens pesadas de texto (como documentos que foram digitalizados digitalmente) e para imagens com muito ruído visual. Determinará qual o modelo de reconhecimento a utilizar para cada linha de texto, suportando imagens com texto impresso e manuscrito. A API de leitura executa assincronicamente porque documentos maiores podem demorar vários minutos a devolver um resultado.
 
-A operação Read mantém os agrupamentos originais de linhas de palavras reconhecidas na sua saída. Cada linha vem com coordenadas de caixa de limitadores, e cada palavra dentro da linha também tem as suas próprias coordenadas. Se uma palavra foi reconhecida com pouca confiança, essa informação também é transmitida. Consulte os pontos de [referência DaPi v2.0](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) ou leia os docs de referência da [API v3.0](https://go.microsoft.com/fwlink/?linkid=2118322) para saber mais.
+A operação Read mantém os agrupamentos originais de linhas de palavras reconhecidas na sua saída. Cada linha vem com coordenadas de caixa de limitadores, e cada palavra dentro da linha também tem as suas próprias coordenadas. Se uma palavra foi reconhecida com pouca confiança, essa informação também é transmitida. Consulte os pontos de [referência DaPi v2.0](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) ou leia os [docs de referência da API v3.0](https://aka.ms/computer-vision-v3-ref) para saber mais.
 
-> [!NOTE]
-> Esta funcionalidade só está disponível para texto inglês e espanhol (v3.0 preview).
+A operação Read pode reconhecer texto em inglês, espanhol, alemão, francês, italiano, português e holandês.
 
 ### <a name="image-requirements"></a>Requisitos de imagem
 

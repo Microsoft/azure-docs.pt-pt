@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/02/2020
 ms.author: pankopon
-ms.openlocfilehash: dc09d517d95b5a3f2a88504a14f1451d1de5ffc9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ba531164e024f96d3bdd23912f3f6e90275edda4
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80639165"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589742"
 ---
 # <a name="configure-rhelcentos-7-for-speech-sdk"></a>Configure RHEL/CentOS 7 para SDK de Fala
 
@@ -45,7 +45,7 @@ ldconfig -p | grep libstdc++
 
 A saída em baunilha RHEL/CentOS 7 (x64) é:
 
-```
+```bash
 libstdc++.so.6 (libc6,x86-64) => /lib64/libstdc++.so.6
 ```
 
@@ -57,7 +57,7 @@ strings /lib64/libstdc++.so.6 | egrep "GLIBCXX_|CXXABI_"
 
 A saída deve ser:
 
-```
+```bash
 ...
 GLIBCXX_3.4.19
 ...
@@ -72,7 +72,11 @@ O SDK do Discurso requer **CXXABI_1.3.9** e **GLIBCXX_3.4.21**. Pode encontrar e
 
 ## <a name="example"></a>Exemplo
 
-Este é um comando de amostra que ilustra como configurar RHEL/CentOS 7 x64 para desenvolvimento (C++, C#, Java, Python) com o Discurso SDK 1.10.0 ou mais tarde:
+Este é um conjunto de comando de amostra que ilustra como configurar RHEL/CentOS 7 x64 para desenvolvimento (C++, C#, Java, Python) com o Speech SDK 1.10.0 ou mais tarde:
+
+### <a name="1-general-setup"></a>1. Configuração geral
+
+Primeiro instale todas as dependências gerais:
 
 ```bash
 # Only run ONE of the following two commands
@@ -86,16 +90,53 @@ sudo yum update -y
 sudo yum groupinstall -y "Development tools"
 sudo yum install -y alsa-lib dotnet-sdk-2.1 java-1.8.0-openjdk-devel openssl python3
 sudo yum install -y gstreamer1 gstreamer1-plugins-base gstreamer1-plugins-good gstreamer1-plugins-bad-free gstreamer1-plugins-ugly-free
+```
 
-# Build GCC 5.4.0 and runtimes and install them under /usr/local
+### <a name="2-cc-compiler-and-runtime-libraries"></a>2. Compilador C/C++ e bibliotecas de tempo de execução
+
+Instale as embalagens pré-requisitos com este comando:
+
+```bash
 sudo yum install -y gmp-devel mpfr-devel libmpc-devel
+```
+
+> [!NOTE]
+> O pacote libmpc-devel foi depreciado na atualização RHEL 7.8. Se a saída do comando anterior incluir uma mensagem
+>
+> ```bash
+> No package libmpc-devel available.
+> ```
+>
+> em seguida, os ficheiros necessários devem ser instalados a partir de fontes originais. Execute os seguintes comandos:
+>
+> ```bash
+> curl https://ftp.gnu.org/gnu/mpc/mpc-1.1.0.tar.gz -O
+> tar zxf mpc-1.1.0.tar.gz
+> mkdir mpc-1.1.0-build && cd mpc-1.1.0-build
+> ../mpc-1.1.0/configure --prefix=/usr/local --libdir=/usr/local/lib64
+> make -j$(nproc)
+> sudo make install-strip
+> ```
+
+Próxima atualização do compilador e bibliotecas de tempo de execução:
+
+```bash
+# Build GCC 5.4.0 and runtimes and install them under /usr/local
 curl https://ftp.gnu.org/gnu/gcc/gcc-5.4.0/gcc-5.4.0.tar.bz2 -O
 tar jxf gcc-5.4.0.tar.bz2
 mkdir gcc-5.4.0-build && cd gcc-5.4.0-build
 ../gcc-5.4.0/configure --enable-languages=c,c++ --disable-bootstrap --disable-multilib --prefix=/usr/local
 make -j$(nproc)
 sudo make install-strip
+```
 
+Se o compilador e bibliotecas atualizados precisarem de ser implantados em várias máquinas, pode simplesmente copiá-las de baixo `/usr/local` para outras máquinas. Se apenas forem necessárias as bibliotecas em tempo de execução, os ficheiros `/usr/local/lib64` serão suficientes.
+
+### <a name="3-environment-settings"></a>3. Configurações ambientais
+
+Executar os seguintes comandos para completar a configuração:
+
+```bash
 # Set SSL cert file location
 # (this is required for any development/testing with Speech SDK)
 export SSL_CERT_FILE=/etc/pki/tls/certs/ca-bundle.crt

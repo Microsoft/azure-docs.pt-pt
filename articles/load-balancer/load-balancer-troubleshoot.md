@@ -13,15 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: 3959dd115e340a3407c4f30a22ff4b6b51dab4e7
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 26a4ae7d1a2ef253c0cb62f6bb53f83152676595
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005780"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590269"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Resolver problemas do Balanceador de Carga do Azure
-<p class="alert is-flex is-primary"><span class="has-padding-left-medium has-padding-top-extra-small"><a class="button is-primary" href="https://azurevirtualsupportagent.services.microsoft.com?content=fb23185b-6c56-d9f1-7ce1-758c978e08e1" target='_blank'>Comece a</a></span>resolver o seu problema rapidamente usando o<span class="has-padding-small">nosso agente virtual para executar <b>diagnósticos automatizados.</b> </span> Declaração <sub>de Privacidade</sub> <span class="has-padding-small"> <a href="https://privacy.microsoft.com/privacystatement" target='_blank'> <div align="right"></div></a></span></p>
 
 Esta página fornece informações de resolução de problemas para questões básicas e standard comuns do Equilíbrio de Carga Azure. Para mais informações sobre o Standard Load Balancer, consulte a visão geral do [Balancer de Carga Padrão](load-balancer-standard-diagnostics.md).
 
@@ -98,7 +97,7 @@ Se um VM não responder ao tráfego de dados, pode ser porque ou a porta-alvo n�
 **Validação e resolução**
 
 1. Faça login no VM traseiro. 
-2. Abra um pedido de comando e execute o seguinte comando  para validar que há uma aplicação de escuta na porta de dados: netstat -a 
+2. Abra um pedido de comando e execute o seguinte comando para validar que há uma aplicação de escuta na porta de dados:   netstat -a 
 3. Se a porta não estiver listada com o Estado "LISTENING", configure a porta de escuta adequada 
 4. Se a porta estiver marcada como Escuta, verifique a aplicação-alvo naquela porta para obter eventuais problemas.
 

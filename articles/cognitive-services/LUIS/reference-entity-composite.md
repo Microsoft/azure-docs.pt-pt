@@ -8,22 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 09/29/2019
+ms.date: 04/14/2020
 ms.author: diberry
-ms.openlocfilehash: a5a1ad467074ee0aa55d14d50ae153ac68304e6f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bac37e91933d16f36f2d8917760968122a4f5619
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "71695156"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588909"
 ---
-# <a name="composite-entity"></a>Entidade composta 
+# <a name="composite-entity"></a>Entidade composta
 
-Uma entidade composta é constituída por outras entidades, como entidades pré-construídas, expressão simples, regular e entidades de lista. As entidades separadas formam uma entidade inteira. 
+Uma entidade composta é constituída por outras entidades, como entidades pré-construídas, expressão simples, regular e entidades de lista. As entidades separadas formam uma entidade inteira.
+
+> [!CAUTION]
+> Esta entidade está **depreciada.** Por favor, emigra para a [entidade aprendida](reference-entity-machine-learned-entity.md)pela máquina.
 
 **Esta entidade é um bom ajuste quando os dados:**
 
-* Estão relacionados um com o outro. 
+* Estão relacionados um com o outro.
 * Estão relacionados entre si no contexto da expressão.
 * Use uma variedade de tipos de entidades.
 * Precisa de ser agrupado e processado pela aplicação do cliente como uma unidade de informação.
@@ -33,17 +36,17 @@ Uma entidade composta é constituída por outras entidades, como entidades pré-
 
 ## <a name="example-json"></a>Exemplo JSON
 
-Considere uma entidade composta `number` `Location::ToLocation` de pré-construído e com a seguinte expressão:
+Considere uma entidade composta de pré-construído `number` e com a seguinte `Location::ToLocation` expressão:
 
 `book 2 tickets to cairo`
 
-Note `2`que, o `cairo`número, e o ToLocation têm palavras entre eles que não fazem parte de nenhuma das entidades. O sublinhado verde, usado numa expressão rotulada no site da [LUIS,](luis-reference-regions.md) indica uma entidade composta.
+Note `2` que, o número, e `cairo` o ToLocation têm palavras entre eles que não fazem parte de nenhuma das entidades. O sublinhado verde, usado numa expressão rotulada no site da [LUIS,](luis-reference-regions.md) indica uma entidade composta.
 
 ![Entidade Composta](./media/luis-concept-data-extraction/composite-entity.png)
 
 #### <a name="v2-prediction-endpoint-response"></a>[Resposta final de previsão V2](#tab/V2)
 
-As entidades compostas `compositeEntities` são devolvidas numa matriz e `entities` todas as entidades dentro do composto também são devolvidas na matriz:
+As entidades compostas são devolvidas numa `compositeEntities` matriz e todas as entidades dentro do composto também são devolvidas na `entities` matriz:
 
 ```JSON
   "entities": [
@@ -87,11 +90,11 @@ As entidades compostas `compositeEntities` são devolvidas numa matriz e `entiti
       ]
     }
   ]
-```    
+```
 
 #### <a name="v3-prediction-endpoint-response"></a>[Resposta final de previsão V3](#tab/V3)
 
-Este é o JSON se `verbose=false` estiver definido na corda de consulta:
+Este é o JSON se estiver definido na corda de `verbose=false` consulta:
 
 ```json
 "entities": {
@@ -108,7 +111,7 @@ Este é o JSON se `verbose=false` estiver definido na corda de consulta:
 }
 ```
 
-Este é o JSON se `verbose=true` estiver definido na corda de consulta:
+Este é o JSON se estiver definido na corda de `verbose=true` consulta:
 
 ```json
 "entities": {
@@ -169,7 +172,7 @@ Este é o JSON se `verbose=true` estiver definido na corda de consulta:
 }
 ```
 
-* * * 
+* * *
 
 
 |Objeto de dados|Nome da entidade|Valor|
@@ -179,4 +182,7 @@ Este é o JSON se `verbose=true` estiver definido na corda de consulta:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste [tutorial,](luis-tutorial-composite-entity.md)adicione uma **entidade composta** para agregar dados extraídos de vários tipos numa única entidade contendo. Ao agregar os dados, a aplicação do cliente pode facilmente extrair dados relacionados em diferentes tipos de dados.
+Saiba mais sobre as entidades:
+
+* [Conceitos](luis-concept-entity-types.md)
+* [Como criar](luis-how-to-add-entities.md)

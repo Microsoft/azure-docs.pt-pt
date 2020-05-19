@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: 96108053e6b68a71532d1cf25f8a352b3e0e5ca7
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 885f92bfb7a49fb90f68d3d5c5a2a93e5880afbc
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83202079"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588348"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Configure Redes virtuais dos Serviços Cognitivos Azure
 
@@ -46,16 +46,16 @@ O apoio à rede virtual para serviços cognitivos listados abaixo está limitado
 > * [Imagem Digitalizada](./computer-vision/index.yml)
 > * [Content Moderator](./content-moderator/index.yml)
 > * [Visão Personalizada](./custom-vision-service/index.yml)
-> * [Rostos](./face/index.yml)
+> * [Face](./face/index.yml)
 > * [Reconhecedor de Formato](./form-recognizer/index.yml)
 > * [LUIS](./luis/index.yml)
 > * [Personalizador](./personalizer/index.yml)
 > * [Análise de Texto](./text-analytics/index.yml)
-> * [QnA Maker](./qnamaker/index.yml)
+> * [Criador de FAQ](./qnamaker/index.yml)
 
 O suporte de rede virtual para serviços cognitivos listados abaixo está limitado às regiões *central dos EUA EUA,* *Centro-Sul dos EUA*, Leste dos *EUA,* *Oeste DOS 2*, *Global*e NORTE *Gov Virginia* Azure.
 > [!div class="checklist"]
-> * [Texto do Tradutor](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#virtual-network-support)
+> * [Tradução de Texto](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#virtual-network-support)
 
 ## <a name="service-tags"></a>Etiquetas de Serviço
 Além de apoiar pontos finais de serviço de rede virtual para os serviços acima, a Cognitive Services também suporta uma etiqueta de serviço para configuração de regras de rede de saída. Os seguintes serviços estão incluídos na etiqueta de serviço CognitiveServicesManagement.
@@ -64,13 +64,13 @@ Além de apoiar pontos finais de serviço de rede virtual para os serviços acim
 > * [Imagem Digitalizada](./computer-vision/index.yml)
 > * [Content Moderator](./content-moderator/index.yml)
 > * [Visão Personalizada](./custom-vision-service/index.yml)
-> * [Rostos](./face/index.yml)
+> * [Face](./face/index.yml)
 > * [Reconhecedor de Formato](./form-recognizer/index.yml)
 > * [LUIS](./luis/index.yml)
 > * [Personalizador](./personalizer/index.yml)
 > * [Análise de Texto](./text-analytics/index.yml)
-> * [QnA Maker](./qnamaker/index.yml)
-> * [Texto do Tradutor](./translator/index.yml)
+> * [Criador de FAQ](./qnamaker/index.yml)
+> * [Tradutor](./translator/index.yml)
 > * [Serviço de Voz](./speech-service/index.yml)
 
 ## <a name="change-the-default-network-access-rule"></a>Change the default network access rule (Alterar a regra de acesso de rede predefinida)
@@ -335,7 +335,7 @@ Pode gerir as regras de rede virtual para os recursos dos Serviços Cognitivos a
 > [!IMPORTANT]
 > Certifique-se de [que estabelece a regra padrão](#change-the-default-network-access-rule) para **negar**, ou as regras da rede não têm qualquer efeito.
 
-## <a name="grant-access-from-an-internet-ip-range"></a>Conceder acesso a partir de uma gama IP da Internet
+## <a name="grant-access-from-an-internet-ip-range"></a>Conceder acesso a partir de um intervalo de IP da Internet
 
 Pode configurar os recursos dos Serviços Cognitivos para permitir o acesso a partir de gamas específicas de endereços IP da Internet pública. Esta configuração permite o acesso a serviços específicos e redes no local, bloqueando efetivamente o tráfego geral da Internet.
 
@@ -485,7 +485,7 @@ Pode gerir as regras da rede IP para recursos de Serviços Cognitivos através d
 > [!IMPORTANT]
 > Certifique-se de [que estabelece a regra padrão](#change-the-default-network-access-rule) para **negar**, ou as regras da rede não têm qualquer efeito.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Explore os vários [Serviços Cognitivos Azure](welcome.md)
 * Saiba mais sobre [os pontos finais do serviço](../virtual-network/virtual-network-service-endpoints-overview.md) de rede virtual Azure

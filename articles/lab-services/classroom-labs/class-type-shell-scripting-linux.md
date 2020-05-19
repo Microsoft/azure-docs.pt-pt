@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 1199bca9e2ab7c85ccf5c90879fe5141a55a7bb5
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 66b325eb1d268fdd5b1052a0da84c603186edf65
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83115069"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589504"
 ---
 # <a name="set-up-a-lab-to-teach-shell-scripting-on-linux"></a>Criar um laboratório para ensinar o script de concha sintetmente em Linux
 Este artigo mostra-te como criar um laboratório para ensinar guiões de conchas no Linux. O scripting é uma parte útil da administração do sistema que permite aos administradores evitar tarefas repetitivas. Neste cenário de amostragem, a classe abrange scripts tradicionais de bash e scripts melhorados. Scripts melhorados são scripts que combinam comandos de bash e Ruby. Esta abordagem permite que ruby passe dados ao redor e esmaga comandos para interagir com a concha. 
@@ -26,7 +26,7 @@ Este artigo mostra-te como criar um laboratório para ensinar guiões de conchas
 Os alunos que têm estas aulas de scripting recebem uma máquina virtual Linux para aprender o básico do Linux, e também se familiarizarem com o script da concha da bash. A máquina virtual Linux vem com acesso remoto ao ambiente de trabalho ativado e com editores de texto [gedit](https://help.gnome.org/users/gedit/stable/) e [Visual Studio Code](https://code.visualstudio.com/) instalados.
 
 ## <a name="lab-configuration"></a>Configuração do laboratório
-Para montar este laboratório, precisa de uma assinatura Azure para começar. Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. Uma vez que tenha uma subscrição Azure, pode criar uma nova conta de laboratório nos Serviços de Laboratório Azure ou usar uma conta de laboratório existente. Consulte o seguinte tutorial para criar uma nova conta de laboratório: [Tutorial para Configurar uma Conta lab.](tutorial-setup-lab-account.md)
+Para montar este laboratório, precisa de uma assinatura Azure para começar. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. Uma vez que tenha uma subscrição Azure, pode criar uma nova conta de laboratório nos Serviços de Laboratório Azure ou usar uma conta de laboratório existente. Consulte o seguinte tutorial para criar uma nova conta de laboratório: [Tutorial para Configurar uma Conta lab.](tutorial-setup-lab-account.md)
 
 Depois de criar a conta de laboratório, ative as seguintes definições na conta de laboratório: 
 
@@ -40,7 +40,7 @@ Siga [este tutorial](tutorial-setup-classroom-lab.md) para criar um novo laborat
 | ------------ | ------------------ |
 | Tamanho da máquina virtual (VM) | Pequeno  |
 | Imagem VM | Ubuntu Server 18.04 LTS |
-| Ativar a ligação remota de ambiente de trabalho | Ativar. <p>Permitir esta definição permitirá que professores e alunos se conectem aos seus VMs utilizando o ambiente de trabalho remoto (RDP). Para mais informações, consulte [Enable remote desktop para máquinas virtuais Linux num laboratório em Serviços de Laboratório Azure](how-to-enable-remote-desktop-linux.md#connect-to-the-template-vm). </p>|
+| Ativar a ligação remota de ambiente de trabalho | Ativar. <p>Permitir esta definição permitirá que educadores e alunos se conectem aos seus VMs utilizando o ambiente de trabalho remoto (RDP). Para mais informações, consulte [Enable remote desktop para máquinas virtuais Linux num laboratório em Serviços de Laboratório Azure](how-to-enable-remote-desktop-linux.md#connect-to-the-template-vm). </p>|
 
 
 ## <a name="install-desktop-and-xrdp"></a>Instale desktop e xrdp

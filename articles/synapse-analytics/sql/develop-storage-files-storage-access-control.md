@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 7d73b3a1a7c3b2ab290d85d88aa24108d9e7a605
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: 2d5d508afe81975cbeda448b497a098e8a3bbcf3
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83401975"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589283"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Acesso à conta de armazenamento de controlo para SQL a pedido (pré-visualização)
 
@@ -28,8 +28,8 @@ Este artigo descreve os tipos de credenciais que pode utilizar e como a procura 
 
 Um utilizador que tenha iniciado um sessão num recurso SQL a pedido deve ser autorizado a aceder e consultar os ficheiros no Armazenamento Azure se os ficheiros não estiverem disponíveis ao público. São apoiados três tipos de autorização:
 
-- [Identidade do Utilizador](?tabs=user-identity)
 - [Assinatura de acesso partilhado](?tabs=shared-access-signature)
+- [Identidade do Utilizador](?tabs=user-identity)
 - [Identidade Gerida](?tabs=managed-identity)
 
 > [!NOTE]
@@ -48,7 +48,7 @@ Você pode obter um token SAS navegando para o portal Azure -> Conta de Armazena
 
 É necessário criar credenciais com um espaço de dados ou com um espaço de serviço para permitir o acesso utilizando token SAS.
 
-### <a name="user-identity"></a>Identidade do Utilizador
+### <a name="user-identity"></a>[Identidade do Utilizador](#tab/user-identity)
 
 **Identidade do Utilizador**, também conhecido como "pass-through", é um tipo de autorização em que a identidade do utilizador da AD Azure que acedeu à SQL a pedido é utilizada para autorizar o acesso de dados. Antes de aceder aos dados, o administrador de Armazenamento Azure deve conceder permissões ao utilizador da AD Azure. Como indicado na tabela acima, não é suportado para o tipo de utilizador SQL.
 
@@ -91,13 +91,13 @@ DROP CREDENTIAL [UserIdentity];
 
 Se quiser voltar a enactivar, consulte a secção de passagem da [Azure AD.](#force-azure-ad-pass-through)
 
-### <a name="managed-identity"></a>Identidade Gerida
+### <a name="managed-identity"></a>[Identidade Gerida](#tab/managed-identity)
 
 **A Identidade Gerida** também é conhecida como MSI. É uma característica do Azure Ative Directory (Azure AD) que fornece serviços Azure para a SQL on-demand. Além disso, implementa uma identidade gerida automaticamente em Azure AD. Esta identidade pode ser utilizada para autorizar o pedido de acesso de dados no Armazenamento Azure.
 
 Antes de aceder aos dados, o administrador de Armazenamento Azure deve conceder permissões à Identidade Gerida para aceder aos dados. A concessão de permissões à Identidade Gerida é feita da mesma forma que a concessão de permissão a qualquer outro utilizador da AD Azure.
 
-### <a name="anonymous-access"></a>Acesso anónimo
+### <a name="anonymous-access"></a>[Acesso anónimo](#tab/public-access)
 
 Pode aceder a ficheiros publicamente disponíveis colocados em contas de armazenamento do Azure que [permitem o acesso anónimo](/azure/storage/blobs/storage-manage-access-to-resources.md).
 
@@ -117,7 +117,7 @@ Na tabela abaixo pode encontrar os tipos de autorização disponíveis:
 
 Pode utilizar as seguintes combinações de tipos de autorização e armazenamento azure:
 
-|                     | Blob Storage   | ADLS Gen1        | ADLS Gen2     |
+|                     | Armazenamento de Blobs   | ADLS Gen1        | ADLS Gen2     |
 | ------------------- | ------------   | --------------   | -----------   |
 | *SAS*               | Suportado      | Não apoiado   | Suportado     |
 | *Identidade Gerida* | Suportado      | Suportado        | Suportado     |
@@ -171,7 +171,7 @@ O nome CREDENTIAL ao nível do servidor deve coincidir com o caminho completo da
 
 As credenciais com o servidor permitem o acesso ao armazenamento Do Azure utilizando os seguintes tipos de autenticação:
 
-### <a name="shared-access-signature"></a>Assinatura de acesso partilhado
+### <a name="shared-access-signature"></a>[Assinatura de acesso partilhado](#tab/shared-access-signature)
 
 O seguinte script cria uma credencial de nível de servidor que pode ser usada por `OPENROWSET` função para aceder a qualquer ficheiro no armazenamento Azure usando token SAS. Crie esta credencial para permitir que o principal Da SQL execute `OPENROWSET` a função de ler ficheiros protegidos com a chave SAS no armazenamento Azure que corresponda a URL em nome credencial.
 
@@ -184,7 +184,7 @@ WITH IDENTITY='SHARED ACCESS SIGNATURE'
 GO
 ```
 
-### <a name="user-identity"></a>Identidade do Utilizador
+### <a name="user-identity"></a>[Identidade do Utilizador](#tab/user-identity)
 
 O seguinte script cria uma credencial ao nível do servidor que permite ao utilizador personificar usando a identidade Azure AD.
 
@@ -193,7 +193,7 @@ CREATE CREDENTIAL [UserIdentity]
 WITH IDENTITY = 'User Identity';
 ```
 
-### <a name="managed-identity"></a>Identidade Gerida
+### <a name="managed-identity"></a>[Identidade Gerida](#tab/managed-identity)
 
 O seguinte script cria uma credencial de nível de servidor que pode ser usada por `OPENROWSET` função para aceder a qualquer ficheiro no armazenamento Azure usando a identidade gerida pelo espaço de trabalho.
 
@@ -202,7 +202,7 @@ CREATE CREDENTIAL [https://<mystorageaccountname>.blob.core.windows.net/<mystora
 WITH IDENTITY='Managed Identity'
 ```
 
-### <a name="public-access"></a>Acesso público
+### <a name="public-access"></a>[Acesso público](#tab/public-access)
 
 O seguinte script cria uma credencial de nível de servidor que pode ser usada por `OPENROWSET` função para aceder a qualquer ficheiro no armazenamento Azure disponível ao público. Crie esta credencial para permitir que o principal Da SQL que executa `OPENROWSET` a função de ler ficheiros publicamente disponíveis no armazenamento do Azure que corresponda a URL em nome credencial.
 
@@ -222,7 +222,7 @@ As credenciais com um aplicativo de base de dados são usadas quando quaisquer c
 
 As credenciais com um espaço de dados permitem o acesso ao armazenamento do Azure utilizando os seguintes tipos de autenticação:
 
-### <a name="shared-access-signature"></a>Assinatura de acesso partilhado
+### <a name="shared-access-signature"></a>[Assinatura de acesso partilhado](#tab/shared-access-signature)
 
 O seguinte script cria uma credencial que é usada para aceder a ficheiros no armazenamento usando token SAS especificado na credencial.
 
@@ -232,7 +232,7 @@ WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'sv=2018-03-28&ss=bfqt&srt=s
 GO
 ```
 
-### <a name="azure-ad-identity"></a>Identidade Azure AD
+### <a name="azure-ad-identity"></a>[Identidade Azure AD](#tab/user-identity)
 
 O seguinte script cria uma credencial com um espaço de base de dados que é usada por [tabela externa](develop-tables-external-tables.md) e funções que utilizam fonte de dados com credencial para aceder a ficheiros de armazenamento usando a sua própria `OPENROWSET` identidade Azure AD.
 
@@ -242,7 +242,7 @@ WITH IDENTITY = 'User Identity';
 GO
 ```
 
-### <a name="managed-identity"></a>Identidade Gerida
+### <a name="managed-identity"></a>[Identidade Gerida](#tab/managed-identity)
 
 O seguinte script cria uma credencial com um espaço de base de dados que pode ser usada para personificar o utilizador atual da AD Azure como Identidade Gerida de serviço. 
 

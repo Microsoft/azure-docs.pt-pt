@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: erhopf
-ms.openlocfilehash: 108e5ebfa34db711af4ff33cbf4fbba897b8947d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c7dd916b27cd8005162c09f7e6a090293e336719
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73647680"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590643"
 ---
 # <a name="custom-subdomain-names-for-cognitive-services"></a>Nomes personalizados de subdomínio para Serviços Cognitivos
 
@@ -47,11 +47,11 @@ A informação da região está disponível na lâmina **de visão geral** para 
 
 ## <a name="are-custom-subdomain-names-regional"></a>Os nomes de subdomínio personalizado saem regionais?
 
-Sim. Usar um nome de subdomínio personalizado não altera nenhum dos aspetos regionais do seu recurso de Serviços Cognitivos.
+Yes. Usar um nome de subdomínio personalizado não altera nenhum dos aspetos regionais do seu recurso de Serviços Cognitivos.
 
 ## <a name="what-are-the-requirements-for-a-custom-subdomain-name"></a>Quais são os requisitos para um nome de subdomínio personalizado?
 
-Um nome de subdomínio personalizado é exclusivo do seu recurso. O nome só pode incluir caracteres `-` alfanuméricos e o personagem; deve ter entre 2 e 64 caracteres de `-`comprimento e não pode terminar com um .
+Um nome de subdomínio personalizado é exclusivo do seu recurso. O nome só pode incluir caracteres alfanuméricos e o `-` personagem; deve ter entre 2 e 64 caracteres de comprimento e não pode terminar com `-` um .
 
 ## <a name="can-i-change-a-custom-domain-name"></a>Posso mudar um nome de domínio personalizado?
 
@@ -63,14 +63,14 @@ Cada nome de subdomínio personalizado é único, por isso, para reutilizar um n
 
 ## <a name="is-there-a-list-of-regional-endpoints"></a>Existe uma lista de pontos finais regionais?
 
-Sim. Esta é uma lista de pontos finais regionais que você pode usar com recursos dos Serviços Cognitivos Azure.
+Yes. Esta é uma lista de pontos finais regionais que você pode usar com recursos dos Serviços Cognitivos Azure.
 
 > [!NOTE]
-> A API de Texto tradutor e as APIs de pesquisa de Bing usam pontos finais globais.
+> O serviço de Tradutor e as APIs de Pesquisa bing usam pontos finais globais.
 
 | Tipo endpoint | Região | Ponto Final |
 |---------------|--------|----------|
-| Público | Global (Texto tradutor & Bing) | `https://api.cognitive.microsoft.com` |
+| Público | Global (Tradutor & Bing) | `https://api.cognitive.microsoft.com` |
 | | Leste da Austrália | `https://australiaeast.api.cognitive.microsoft.com` |
 | | Sul do Brasil | `https://brazilsouth.api.cognitive.microsoft.com` |
 | | Canadá Central | `https://canadacentral.api.cognitive.microsoft.com` |
@@ -96,7 +96,7 @@ Sim. Esta é uma lista de pontos finais regionais que você pode usar com recurs
 | China | China Leste 2 | `https://chinaeast2.api.cognitive.azure.cn` |
 | | Norte da China | `https://chinanorth.api.cognitive.azure.cn` |
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [O que são os Serviços Cognitivos?](Welcome.md)
 * [Autenticação](authentication.md)

@@ -1,6 +1,6 @@
 ---
 title: Aceder a um laboratório de sala de aula no Azure Lab Services | Microsoft Docs
-description: Neste tutorial, vai aceder a máquinas virtuais num laboratório de sala de aula configurado por um professor.
+description: Neste tutorial, você acede a máquinas virtuais em um laboratório de sala de aula que é criado por um educador.
 services: devtest-lab, lab-services, virtual-machines
 documentationcenter: na
 author: spelluru
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/10/2020
+ms.date: 05/15/2020
 ms.author: spelluru
-ms.openlocfilehash: 936cd9d7a7adb4a99f8437a70e9c6de4d1331d67
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: d2d40c007a06bad09748b14394da46c50c80dc19
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83116659"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589453"
 ---
 # <a name="tutorial-access-a-classroom-lab-in-azure-lab-services"></a>Tutorial: Aceder a um laboratório de sala de aula no Azure Lab Services
 Neste tutorial, como estudante vai ligar-se a uma máquina virtual (VM) num laboratório de sala de aula. 
@@ -33,7 +33,7 @@ Neste tutorial, irá realizar as seguintes ações:
 
 ## <a name="register-to-the-lab"></a>Registe-se no laboratório
 
-1. Navegue para o **URL de registo** que recebeu do professor/educador. Não precisa de usar o URL de registo depois de completar o registo. Em vez disso, utilize o URL: [https://labs.azure.com](https://labs.azure.com) . O Internet Explorer 11 ainda não tem suporte. 
+1. Navegue para o URL de **inscrição** que recebeu da educadora. Não precisa de usar o URL de registo depois de completar o registo. Em vez disso, utilize o URL: [https://labs.azure.com](https://labs.azure.com) . O Internet Explorer 11 ainda não tem suporte. 
 
     ![Registe-se no laboratório](../media/tutorial-connect-vm-in-classroom-lab/register-lab.png)
 1. Inicie sessão no serviço com a sua conta escolar para concluir o registo. 
@@ -68,11 +68,11 @@ Neste tutorial, irá realizar as seguintes ações:
 
     ![Ligar à VM](../media/tutorial-connect-vm-in-classroom-lab/connect-vm.png)
 2. Faça um dos seguintes passos: 
-    1. Para máquinas virtuais **Windows,** guarde o ficheiro **RDP** para o disco rígido. Abra o ficheiro RDP para ligar à máquina virtual. Utilize o nome de **utilizador** e **a palavra-passe** que obtém do seu educador/professor para iniciar sessão na máquina. 
+    1. Para máquinas virtuais **Windows,** guarde o ficheiro **RDP** para o disco rígido. Abra o ficheiro RDP para ligar à máquina virtual. Utilize o nome de **utilizador** e **a palavra-passe** que obtém do seu educador para iniciar sessão na máquina. 
     3. Para máquinas virtuais **Linux,** pode utilizar **SSH** ou **RDP** (se estiver ativado) para se ligar a elas. Para mais informações, consulte [Ativar a ligação remota para as máquinas Linux](how-to-enable-remote-desktop-linux.md). 
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste tutorial, acedeu a um laboratório de sala de aulas através da ligação de registo que recebeu do seu professor/educador.
+Neste tutorial, acedeu a um laboratório de sala de aula usando o link de registo que obtém do seu educador.
 
 Como dono de laboratório, quer ver quem se registou no seu laboratório e rastrear o uso de VMs. Avançar para o próximo tutorial para aprender a rastrear o uso do laboratório:
 

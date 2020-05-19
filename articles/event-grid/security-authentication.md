@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: babanisa
-ms.openlocfilehash: 528c3613549ee49009f99d45e5bd9c2cf1745d78
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 71d47c83586f7e5e31b148714e2804686422326a
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82779999"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588263"
 ---
 # <a name="authenticating-access-to-azure-event-grid-resources"></a>Autenticação de acesso aos recursos da Rede de Eventos Azure
 Este artigo fornece informações sobre os seguintes cenários:  
@@ -28,19 +28,25 @@ Inclui o valor de autenticação no cabeçalho HTTP. Para sas, utilize **aeg-sas
 
 ### <a name="key-authentication"></a>Autenticação chave
 
-A autenticação-chave é a forma mais simples de autenticação. Utilize o formato:`aeg-sas-key: <your key>`
+A autenticação-chave é a forma mais simples de autenticação. Utilize o formato: `aeg-sas-key: <your key>` no cabeçalho da mensagem.
 
 Por exemplo, passa-se uma chave com:
 
 ```
-aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==
+aeg-sas-key: XXXXXXXX53249XX8XXXXX0GXXX/nDT4hgdEj9DpBeRr38arnnm5OFg==
+```
+
+Também pode especificar `aeg-sas-key` como parâmetro de consulta. 
+
+```
+https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events?api-version=2019-06-01&&aeg-sas-key=XXXXXXXX53249XX8XXXXX0GXXX/nDT4hgdEj9DpBeRr38arnnm5OFg==
 ```
 
 ### <a name="sas-tokens"></a>Tokens SAS
 
-As fichas SAS para A Grelha de Eventos incluem o recurso, um tempo de validade e uma assinatura. O formato do token `r={resource}&e={expiration}&s={signature}`SAS é: .
+As fichas SAS para A Grelha de Eventos incluem o recurso, um tempo de validade e uma assinatura. O formato do token SAS é: `r={resource}&e={expiration}&s={signature}` .
 
-O recurso é o caminho para o tópico da grelha de eventos para o qual está a enviar eventos. Por exemplo, um caminho `https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events?api-version=2019-06-01`de recursos válido é: . Para ver todas as versões API suportadas, consulte os tipos de [recursos Microsoft.EventGrid](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/allversions). 
+O recurso é o caminho para o tópico da grelha de eventos para o qual está a enviar eventos. Por exemplo, um caminho de recursos válido é: `https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events?api-version=2019-06-01` . Para ver todas as versões API suportadas, consulte os tipos de [recursos Microsoft.EventGrid](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/allversions). 
 
 Gera-se a assinatura a partir de uma chave.
 
