@@ -1,21 +1,14 @@
 ---
 title: Tipo de entidade de expressão regular - LUIS
-titleSuffix: Azure Cognitive Services
 description: Uma expressão regular é melhor para texto de expressão crua. Ignora o caso e ignora a variante cultural.  A correspondência de expressão regular é aplicada após alterações de verificação ortográfica ao nível do carácter, e não no nível do símbolo.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 09/29/2019
-ms.author: diberry
-ms.openlocfilehash: b9da76a80183f353a74d43e667bf6c9219eb6c05
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 04/14/2020
+ms.openlocfilehash: 90260fca10fc087225f6b1286e9fa2dd6d17c836
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74841222"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585611"
 ---
 # <a name="regular-expression-entity"></a>Entidade de expressão regular
 
@@ -32,13 +25,13 @@ Uma expressão regular é melhor para texto de expressão crua. Ignora o caso e 
 
 ## <a name="usage-considerations"></a>Considerações de utilização
 
-Expressões regulares podem corresponder mais do que espera. Um exemplo disso é a correspondência `one` `two`de palavras numéricas como e . Um exemplo é o seguinte regex, que combina com o número `one` juntamente com outros números:
+Expressões regulares podem corresponder mais do que espera. Um exemplo disso é a correspondência de palavras numéricas como `one` e `two` . Um exemplo é o seguinte regex, que combina com o número `one` juntamente com outros números:
 
 ```javascript
 (plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*
 ```
 
-Esta expressão regex também combina com quaisquer `phone`palavras que terminam com estes números, tais como . Para corrigir problemas como este, certifique-se de que os fósforos regex têm em conta os limites das palavras. O regex para utilizar limites de palavras para este exemplo é utilizado no seguinte regex:
+Esta expressão regex também combina com quaisquer palavras que terminam com estes números, tais como `phone` . Para corrigir problemas como este, certifique-se de que os fósforos regex têm em conta os limites das palavras. O regex para utilizar limites de palavras para este exemplo é utilizado no seguinte regex:
 
 ```javascript
 \b(plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*\b
@@ -46,7 +39,7 @@ Esta expressão regex também combina com quaisquer `phone`palavras que terminam
 
 ### <a name="example-json"></a>Exemplo JSON
 
-Ao `kb[0-9]{6}`utilizar, como definição de entidade de expressão regular, a seguinte resposta JSON é um exemplo de expressão com as entidades de expressão regular devolvidas para a consulta:
+Ao `kb[0-9]{6}` utilizar, como definição de entidade de expressão regular, a seguinte resposta JSON é um exemplo de expressão com as entidades de expressão regular devolvidas para a consulta:
 
 `When was kb123456 published?`:
 
@@ -67,7 +60,7 @@ Ao `kb[0-9]{6}`utilizar, como definição de entidade de expressão regular, a s
 #### <a name="v3-prediction-endpoint-response"></a>[Resposta final de previsão V3](#tab/V3)
 
 
-Este é o JSON se `verbose=false` estiver definido na corda de consulta:
+Este é o JSON se estiver definido na corda de `verbose=false` consulta:
 
 ```json
 "entities": {
@@ -77,7 +70,7 @@ Este é o JSON se `verbose=false` estiver definido na corda de consulta:
 }
 ```
 
-Este é o JSON se `verbose=true` estiver definido na corda de consulta:
+Este é o JSON se estiver definido na corda de `verbose=true` consulta:
 
 ```json
 "entities": {
@@ -106,4 +99,7 @@ Este é o JSON se `verbose=true` estiver definido na corda de consulta:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste [tutorial,](tutorial-regex-entity.md)crie uma app para extrair dados consistentemente formatados de uma expressão utilizando a entidade **De Expressão Regular.**
+Saiba mais sobre as entidades:
+
+* [Conceitos](luis-concept-entity-types.md)
+* [Como criar](luis-how-to-add-entities.md)

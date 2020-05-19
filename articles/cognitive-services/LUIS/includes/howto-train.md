@@ -10,18 +10,15 @@ ms.date: 02/14/2020
 ms.subservice: language-understanding
 ms.topic: include
 ms.author: diberry
-ms.openlocfilehash: 636669ee4284d218d5ac2c6e2e7cdb37b00b3a5b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 59d78f60081367b7f5544229b7749d71b7a1dd2f
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77279660"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585100"
 ---
-1. No lado direito superior do site do LUIS, selecione o botão **Train** (Preparar).
+1. No lado superior direito do site da LUIS, selecione o botão **Train.**
 
     ![Botão de preparação](../media/train-button-preview.png)
 
-2. O treino fica completo quando se vê o estado a confirmar o sucesso.
-
-    > [!Tip]
-    > **As notificações** estão disponíveis na navegação de extrema-direita e incluem um histórico.
+1. O treino fica completo quando o indicador de estado no botão **Comboio** é verde.

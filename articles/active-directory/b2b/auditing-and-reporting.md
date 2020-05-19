@@ -12,18 +12,18 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67b543bd46b195a0944959f3f462a2bdc7d150ba
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: b2f1478391eccaabcc4dbcd150b54376494d3f56
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199464"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587532"
 ---
 # <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>Auditoria e comunicação de um utilizador de colaboração B2B
 Com os utilizadores convidados, tem capacidades de auditoria semelhantes às dos utilizadores membros. 
 
 ## <a name="access-reviews"></a>Revisões de acesso
-Pode utilizar avaliações de acesso para verificar periodicamente se os utilizadores ainda precisam de acesso aos seus recursos. A funcionalidade **de avaliações** de acesso está disponível no **Diretório Ativo do Azure** no âmbito de avaliações de acesso a **relacionamentos organizacionais**(ou avaliações de acesso a  >  **Access reviews** **identidades externas).**  >  **Access reviews** Pode ainda pesquisar "avaliações de acesso" de **todos os serviços** do portal Azure. Para aprender a usar as avaliações de acesso, consulte Gerir o acesso dos [hóspedes com avaliações de acesso a AD Azure](../governance/manage-guest-access-with-access-reviews.md).
+Pode utilizar avaliações de acesso para verificar periodicamente se os utilizadores ainda precisam de acesso aos seus recursos. A funcionalidade **de avaliações** de acesso está disponível no **Diretório Ativo do Azure** ao abrigo das avaliações de acesso a **identidades externas.**  >  **Access reviews** Pode ainda pesquisar "avaliações de acesso" de **todos os serviços** do portal Azure. Para aprender a usar as avaliações de acesso, consulte Gerir o acesso dos [hóspedes com avaliações de acesso a AD Azure](../governance/manage-guest-access-with-access-reviews.md).
 
 ## <a name="audit-logs"></a>Registos de auditoria
 

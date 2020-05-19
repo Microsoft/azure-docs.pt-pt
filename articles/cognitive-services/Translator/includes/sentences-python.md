@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 9c7385d3457f3f5dbed2633c20445bb9ef0b1638
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: a3e32dba557041fe90d1b7321b06daa6ea4e1235
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "69906810"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586759"
 ---
 [!INCLUDE [Prerequisites](prerequisites-python.md)]
 
@@ -27,11 +27,11 @@ import os, requests, uuid, json
 > [!NOTE]
 > Se ainda não utilizou estes módulos, terá de instalá-los antes de executar o seu programa. Para instalar estes pacotes, execute: `pip install requests uuid`.
 
-O primeiro comentário indica ao interpretador Python para utilizar a codificação UTF-8. Em seguida, os módulos exigidos são importados para ler a chave de subscrição a partir de uma variável de ambiente, construir o pedido de http, criar um identificador exclusivo e processar a resposta JSON devolvida pela API de Texto do Microsoft Translator.
+O primeiro comentário indica ao interpretador Python para utilizar a codificação UTF-8. Em seguida, os módulos necessários são importados para ler a sua chave de subscrição a partir de uma variável ambiental, construir o pedido de http, criar um identificador único, e lidar com a resposta JSON devolvida pelo Tradutor.
 
 ## <a name="set-the-subscription-key-endpoint-and-path"></a>Desdefinir a chave de subscrição, ponto final e caminho
 
-Esta amostra tentará ler a chave de subscrição de `TRANSLATOR_TEXT_KEY` texto `TRANSLATOR_TEXT_ENDPOINT`tradutor e ponto final das variáveis ambientais: e . Se não está familiarizado com variáveis ambientais, pode definir `subscription_key` e `endpoint` como cordas e comentar as declarações condicionais.
+Esta amostra tentará ler a chave de subscrição do Tradutor e o ponto final das variáveis ambientais: `TRANSLATOR_TEXT_KEY` e `TRANSLATOR_TEXT_ENDPOINT` . Se não está familiarizado com variáveis ambientais, pode definir `subscription_key` e como cordas e comentar as `endpoint` declarações condicionais.
 
 Copie este código para o seu projeto:
 
@@ -47,12 +47,12 @@ if not endpoint_var_name in os.environ:
 endpoint = os.environ[endpoint_var_name]
 ```
 
-O ponto final global do `endpoint`Texto tradutor é definido como o . `path` define a rota `breaksentence` e identifica que queremos utilizar a versão 3 da API.
+O ponto final global do Tradutor é definido como `endpoint` o . `path` define a rota `breaksentence` e identifica que queremos utilizar a versão 3 da API.
 
 Os `params` neste exemplo são utilizados para definir o idioma do texto fornecido. Os `params` não são necessários para a rota `breaksentence`. Se forem deixados de fora do pedido, a API irá tentar detetar o idioma do texto fornecido e fornecer estas informações juntamente com uma pontuação de confiança na resposta.
 
 >[!NOTE]
-> Para obter mais informações sobre pontos finais, rotas e parâmetros de pedido, veja [API de Texto do Microsoft Translator 3.0: idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
+> Para mais informações sobre pontos finais, rotas e parâmetros de pedido, consulte [Tradutor 3.0: Idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
 
 ```python
 path = '/breaksentence?api-version=3.0'
@@ -74,7 +74,7 @@ headers = {
 }
 ```
 
-Se estiver a utilizar uma subscrição multi-serviço `Ocp-Apim-Subscription-Region` de Serviços Cognitivos, também deve incluir os parâmetros do seu pedido. [Saiba mais sobre autenticação com a subscrição de vários serviços.](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)
+Se estiver a utilizar uma subscrição multi-serviço de Serviços Cognitivos, também deve incluir os `Ocp-Apim-Subscription-Region` parâmetros do seu pedido. [Saiba mais sobre autenticação com a subscrição de vários serviços.](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)
 
 ## <a name="create-a-request-to-determine-sentence-length"></a>Criar um pedido para determinar o comprimento da frase
 
@@ -105,7 +105,7 @@ print(json.dumps(response, sort_keys=True, indent=4,
 
 ## <a name="put-it-all-together"></a>Juntar tudo
 
-Já está. Utilizámos um programa simples que irá chamar a API de Texto do Microsoft Translator e devolver uma resposta JSON. Agora, é altura de executar o seu programa:
+É isso, juntaste um programa simples que ligará ao Tradutor e devolverá uma resposta da JSON. Agora, é altura de executar o seu programa:
 
 ```console
 python sentence-length.py
@@ -133,7 +133,7 @@ Se codificou a chave de subscrição no seu programa, certifique-se de que remov
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Veja a referência da API para entender tudo o que pode fazer com a API de Texto tradutor.
+Veja a referência da API para entender tudo o que pode fazer com o Tradutor.
 
 > [!div class="nextstepaction"]
 > [Referência da API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

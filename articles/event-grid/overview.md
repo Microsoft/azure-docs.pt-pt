@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 02/20/2020
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: b6f987eb283edea7f2d8e6b207b5b4e5b14f9120
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7a323bd9b9c605363963d5a25d1746727e379553
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81393190"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587600"
 ---
 # <a name="what-is-azure-event-grid"></a>O que é o Azure Event Grid?
 
@@ -35,10 +35,10 @@ Esta imagem mostra como a Rede de Eventos conecta fontes e manipuladores, e não
 Atualmente, os seguintes serviços do Azure suportam o envio de eventos para o Event Grid:
 
 - [Configuração da Aplicação Azure](event-schema-app-configuration.md)
-- [Armazenamento Azure Blob](event-schema-blob-storage.md)
+- [Armazenamento de Blobs do Azure](event-schema-blob-storage.md)
 - [Registo de Contentores do Azure](event-schema-container-registry.md)
 - [Azure Event Hubs](event-schema-event-hubs.md)
-- [Azure IoT Hub](event-schema-iot-hub.md)
+- [Hub IoT do Azure](event-schema-iot-hub.md)
 - [Azure Key Vault](event-schema-key-vault.md)
 - [Azure Machine Learning](event-schema-machine-learning.md)
 - [Azure Maps](event-schema-azure-maps.md)
@@ -52,15 +52,15 @@ Atualmente, os seguintes serviços do Azure suportam o envio de eventos para o E
 
 Para obter detalhes completos sobre as capacidades de cada processador, bem como artigos relacionados, veja [processadores de eventos](event-handlers.md). Atualmente, os seguintes serviços do Azure suportam o processamento de eventos no Event Grid: 
 
-* [Automatização do Azure](event-handlers.md#azure-automation)
-* [Funções do Azure](event-handlers.md#azure-functions)
-* [Hubs de Eventos](event-handlers.md#event-hubs)
-* [Conexões Híbridas](event-handlers.md#hybrid-connections)
-* [Aplicações Lógicas](event-handlers.md#logic-apps)
+* [Automatização do Azure](handler-webhooks.md#azure-automation)
+* [Funções do Azure](handler-functions.md)
+* [Hubs de Eventos](handler-event-hubs.md)
+* [Conexões Híbridas de Retransmissão](handler-relay-hybrid-connections.md)
+* [Logic Apps](handler-webhooks.md#logic-apps)
 * [Power Automate (anteriormente conhecido como Microsoft Flow)](https://preview.flow.microsoft.com/connectors/shared_azureeventgrid/azure-event-grid/)
-* [Service Bus](event-handlers.md#service-bus)
-* [Armazenamento de filas](event-handlers.md#queue-storage)
-* [WebHooks](event-handlers.md#webhooks)
+* [Service Bus](handler-service-bus.md)
+* [Armazenamento de Filas](handler-storage-queues.md)
+* [WebHooks](handler-webhooks.md)
 
 ## <a name="concepts"></a>Conceitos
 

@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac743a82405524efc16e16be015b61b9390bd05d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 520f42956a1e096893935b6b7844d67060958829
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199490"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585929"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>Autenticação de código de acesso único por e-mail (pré-visualização)
 
@@ -72,7 +72,7 @@ Pode levar alguns minutos para que a ação de opt-in faça efeito. Depois disso
 ### <a name="to-opt-in-using-the-azure-ad-portal"></a>Para optar pela utilização do portal Azure AD
 1.  Inscreva-se no [portal Azure](https://portal.azure.com/) como administrador global da Azure AD.
 2.  No painel de navegação, selecione **Azure Ative Directory**.
-3.  Selecione Definições de **Relacionamentoorganizacional**  >  **Settings** (ou selecione **identidades externas**Definições de  >  **colaboração externa).**
+3.  Selecione **Identidades Externas**Definições de  >  **colaboração externas**.
 5.  Em **Enable Email One-Time Passcode para hóspedes (Pré-visualização)**, selecione **Sim**.
  
 ### <a name="to-opt-in-using-powershell"></a>Para optar pela utilização do PowerShell
@@ -138,7 +138,7 @@ Pode levar alguns minutos para que a ação de opt-out faça efeito. Se desligar
 ### <a name="to-turn-off-the-preview-using-the-azure-ad-portal"></a>Para desligar a pré-visualização usando o portal Azure AD
 1.  Inscreva-se no [portal Azure](https://portal.azure.com/) como administrador global da Azure AD.
 2.  No painel de navegação, selecione **Azure Ative Directory**.
-3.  Selecione Definições de **Relacionamentoorganizacional**  >  **Settings** (ou selecione **identidades externas**Definições de  >  **colaboração externa).**
+3.  Selecione **Identidades Externas**Definições de  >  **colaboração externas**.
 5.  Em **'Ativar código de acesso de uma vez para hóspedes' (Pré-visualização) ,** selecione **No**.
 
 ### <a name="to-turn-off-the-preview-using-powershell"></a>Para desligar a pré-visualização usando o PowerShell

@@ -9,19 +9,19 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 2fa90a8099778bf37ce8534e968a2b1b4345c2d8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5705e5f29bc851d615f91d902fd505a69b5cfd12
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75446773"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587007"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Espaço de trabalho migrate Hub e projetos para tradutor personalizado
 
 Pode migrar facilmente o espaço de trabalho do [Microsoft Tradutor Hub](https://hub.microsofttranslator.com/) e projetos para tradutor personalizado. A migração é iniciada a partir do Microsoft Hub selecionando um espaço de trabalho ou projeto, selecionando um espaço de trabalho em Tradutor Personalizado e, em seguida, selecionando os treinos que pretende transferir. Após o início da migração, as definições de formação selecionadas serão transferidas com todos os documentos relevantes. Os modelos implantados são treinados e podem ser autoimplantados após a conclusão.
 
 Estas ações são realizadas durante a migração:
-* Todos os documentos e definições de projeto terão os seus nomes transferidos com a adição de "hub_" pré-fixado seleções ao nome. Os dados de teste e afinação gerados automaticamente serão nomeados hub_systemtune_\<> modelídico ou hub_systemtest_\<> modelóide.
+* Todos os documentos e definições de projeto terão os seus nomes transferidos com a adição de "hub_" pré-fixado seleções ao nome. Os dados de teste e afinação gerados automaticamente serão nomeados hub_systemtune_ \<> modelídico ou \< hub_systemtest_> modelóide.
 * Quaisquer formações que estivessem no estado de implantação quando a migração ocorre serão automaticamente treinadas usando os documentos da formação do Hub. Este treino não será cobrado à sua subscrição. Se a implementação automática for selecionada para a migração, o modelo treinado será implantado após a conclusão. Serão aplicadas taxas regulares de hospedagem.
 * Quaisquer formações migradas que não estivessem no estado destacado serão colocadas no projeto de estado migrado. Neste estado, terá a opção de treinar um modelo com a definição migrada, mas serão aplicados encargos de formação regulares.
 * Em qualquer momento, a pontuação BLEU migrada do treino do Hub pode ser encontrada na página TrainingDetails do modelo na rubrica "Bleu score in MT Hub".
@@ -141,9 +141,9 @@ Esta tabela compara as funcionalidades entre o Microsoft Tradutor Hub e o Custom
 
 ## <a name="new-languages"></a>Novas línguas
 
-Se você é uma comunidade ou organização trabalhando na criação [custommt@microsoft.com](mailto:custommt@microsoft.com) de um novo sistema linguístico para o Microsoft Tradutor, procure mais informações.
+Se você é uma comunidade ou organização trabalhando na criação de um novo sistema linguístico para o Microsoft Tradutor, procure [custommt@microsoft.com](mailto:custommt@microsoft.com) mais informações.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Treine um modelo.](how-to-train-model.md)
-- Comece a utilizar o seu modelo de tradução personalizada implementado através do [Microsoft Tradutor Text API V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- Comece a utilizar o seu modelo de tradução personalizada implementado via [Tradutor V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).

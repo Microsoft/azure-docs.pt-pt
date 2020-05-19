@@ -15,15 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: 20580edb84a8c983c2342e6a5904c75a0986a3d7
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 9685c1739a00788a974c200ddabb8cc975696b62
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801574"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587736"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>Resolver problemas de peering de rede virtual
-<p class="alert is-flex is-primary"><span class="has-padding-left-medium has-padding-top-extra-small"><a class="button is-primary" href="https://azurevirtualsupportagent.services.microsoft.com?content=457b3ba7-7ac5-93be-981c-677553ad39dd" target='_blank'>Comece a</a></span>resolver o seu problema rapidamente usando o<span class="has-padding-small">nosso agente virtual para executar <b>diagnósticos automatizados.</b> </span> Declaração <sub>de Privacidade</sub> <span class="has-padding-small"> <a href="https://privacy.microsoft.com/privacystatement" target='_blank'> <div align="right"></div></a></span></p>
 
 Este guia de resolução de problemas fornece passos para ajudá-lo a resolver a maioria dos problemas de observação de [rede virtuais.](virtual-network-peering-overview.md)
 
@@ -96,14 +95,14 @@ Para obter ajuda na resolução de problemas da configuração e encaminhamento 
 
 O trânsito sobre o epeering global da rede virtual é agora apoiado. A conectividade não funciona sobre a rede virtual global que procura os seguintes recursos:
 
-* VMs por trás do Basic ILB SKU
+* VMs protegidas pelo SKU do ILB Básico
 * Cache redis (usa Basic ILB SKU)
 * Gateway de aplicação (utiliza Basic ILB SKU)
 * Conjuntos de escala (utiliza SKU Básico ILB)
-* Clusters de tecido de serviço (utiliza Basic ILB SKU)
+* Clusters do Service Fabric (utilizam o SKU do ILB Básico)
 * SQL Server Always On (usa Basic ILB SKU)
 * Ambiente de Serviço de Aplicativos (usa Basic ILB SKU)
-* Gestão API (utiliza Basic ILB SKU)
+* Gestão de API (utiliza o SKU do ILB Básico)
 * Azure AD DS (usa Basic ILB SKU)
 
 Para saber mais sobre os requisitos e restrições globais de peering, consulte o [peering da rede virtual.](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints)
@@ -136,14 +135,14 @@ Para resolver esta questão:
    > [!Note]
    > Não é possível ligar-se aos seguintes tipos de recursos sobre o peering global da rede virtual (redes virtuais em diferentes regiões):
    >
-   > * VMs por trás do Basic ILB SKU
+   > * VMs protegidas pelo SKU do ILB Básico
    > * Cache redis (usa Basic ILB SKU)
    > * Gateway de aplicação (utiliza Basic ILB SKU)
    > * Conjuntos de escala (utiliza SKU Básico ILB)
-   > * Clusters de tecido de serviço (utiliza Basic ILB SKU)
+   > * Clusters do Service Fabric (utilizam o SKU do ILB Básico)
    > * SQL Server Always On (usa Basic ILB SKU)
    > * Ambiente de Serviço de Aplicativos (usa Basic ILB SKU)
-   > * Gestão API (utiliza Basic ILB SKU)
+   > * Gestão de API (utiliza o SKU do ILB Básico)
    > * Azure AD DS (usa Basic ILB SKU)
 
 Para obter mais informações, consulte os [requisitos e constrangimentos](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints) do peering global.
@@ -161,7 +160,7 @@ A sua rede utiliza um gateway NVA ou VPN de terceiros?
 Para resolver problemas de conectividade que afetam um portal de porta de entrada de NVA ou VPN de terceiros, consulte os seguintes artigos:
 
 * [Atirador de problemas nVA](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-nva)
-* [Cadeia de serviços](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#service-chaining)
+* [Encadeamento de serviços](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#service-chaining)
 
 ### <a name="my-network-does-not-use-a-third-party-nva-or-vpn-gateway"></a>A minha rede não utiliza um gateway NVA ou VPN de terceiros
 
@@ -197,14 +196,14 @@ Para mais informações, consulte a corrente de [serviço](https://docs.microsof
 
 O trânsito sobre o epeering global da rede virtual é agora apoiado. A conectividade não funciona sobre a rede virtual global que procura os seguintes recursos:
 
-* VMs por trás do Basic ILB SKU
+* VMs protegidas pelo SKU do ILB Básico
 * Cache redis (usa Basic ILB SKU)
 * Gateway de aplicação (utiliza Basic ILB SKU)
 * Conjuntos de escala (utiliza SKU Básico ILB)
-* Clusters de tecido de serviço (utiliza Basic ILB SKU)
+* Clusters do Service Fabric (utilizam o SKU do ILB Básico)
 * SQL Server Always On (usa Basic ILB SKU)
 * Ambiente de Serviço de Aplicativos (usa Basic ILB SKU)
-* Gestão API (utiliza Basic ILB SKU)
+* Gestão de API (utiliza o SKU do ILB Básico)
 * Azure AD DS (usa Basic ILB SKU)
 
 Para mais informações, consulte os [requisitos e constrangimentos](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints) do peering global e [diferentes topologias VPN](https://blogs.msdn.microsoft.com/igorpag/2016/02/11/hubspoke-daisy-chain-and-full-mesh-vnet-topologies-in-azure-arm-v2/).
@@ -217,14 +216,14 @@ Para resolver esta questão:
 1. Na aplicação web, selecione **networking**, e, em seguida, selecione **VNet Integration**.
 1. Verifique se consegue ver a rede virtual remota. Introduza manualmente o espaço de endereços de rede virtual remota **(Sync Network** e **Add Routes).**
 
-Para obter mais informações, veja os artigos seguintes:
+Para obter mais informações, veja os seguintes artigos:
 
 * [Integre a sua app com uma rede virtual Azure](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)
 * [Acerca do encaminhamento VPN de Ponto a Site](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-point-to-site-routing)
 
 ## <a name="troubleshoot-a-virtual-network-peering-configuration-error-message"></a>Resolução de problemas uma mensagem de erro de configuração de rede virtual 
 
-### <a name="current-tenant-tenant-id-isnt-authorized-to-access-linked-subscription"></a>O `<TENANT ID>` inquilino atual não está autorizado a aceder à subscrição ligada
+### <a name="current-tenant-tenant-id-isnt-authorized-to-access-linked-subscription"></a>O inquilino atual `<TENANT ID>` não está autorizado a aceder à subscrição ligada
 
 Para resolver esta questão, consulte [Create peering - Azure CLI](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions#cli).
 
@@ -238,12 +237,12 @@ Para resolver este problema, configure a rede virtual de observação sob **os T
 
 ### <a name="the-remote-virtual-network-lacks-a-gateway"></a>A rede virtual remota carece de um portal
 
-Este problema ocorre quando você observa redes virtuais de diferentes inquilinos e mais tarde quer configurar `Use Remote Gateways`. Uma limitação do portal Azure é que não pode validar a presença de uma rede virtual de gateway na rede virtual de outro inquilino.
+Este problema ocorre quando você observa redes virtuais de diferentes inquilinos e mais tarde quer configurar `Use Remote Gateways` . Uma limitação do portal Azure é que não pode validar a presença de uma rede virtual de gateway na rede virtual de outro inquilino.
 
 Há duas formas de resolver a questão:
 
- * Elimine os pares e `Use Remote Gateways` ative a opção quando criar um novo epeering.
- * Utilize powerShell ou CLI, em vez do `Use Remote Gateways`portal Azure, para ativar .
+ * Elimine os pares e ative a `Use Remote Gateways` opção quando criar um novo epeering.
+ * Utilize powerShell ou CLI, em vez do portal Azure, para ativar `Use Remote Gateways` .
 
 ## <a name="next-steps"></a>Passos seguintes
 

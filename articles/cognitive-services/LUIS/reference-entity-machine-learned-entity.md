@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 12/30/2019
+ms.date: 04/30/2020
 ms.author: diberry
-ms.openlocfilehash: aac4ba3ec63d425cac782f5db65bba923d24ed71
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5f663379939f24d16fb63e8e5b002fe088a2d9f8
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75552003"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585594"
 ---
 # <a name="machine-learned-entity"></a>Entidade de aprendizagem automática
 
@@ -38,13 +38,13 @@ Entre as expressões de exemplo incluem-se:
 
 #### <a name="v3-prediction-endpoint-response"></a>[Resposta final de previsão V3](#tab/V3)
 
-Como uma entidade aprendida por máquinas pode ter muitos subcomponentes com constrangimentos e descritores, este é apenas um exemplo. Deve ser considerado um guia para o que a sua entidade irá devolver.
+Como uma entidade aprendida por máquinas pode ter muitas subentidades com características necessárias, este é apenas um exemplo. Deve ser considerado um guia para o que a sua entidade irá devolver.
 
 Considere a consulta:
 
 `deliver 1 large cheese pizza on thin crust and 2 medium pepperoni pizzas on deep dish crust`
 
-Este é o JSON se `verbose=false` estiver definido na corda de consulta:
+Este é o JSON se estiver definido na corda de `verbose=false` consulta:
 
 ```json
 "entities": {
@@ -102,7 +102,7 @@ Este é o JSON se `verbose=false` estiver definido na corda de consulta:
 
 ```
 
-Este é o JSON se `verbose=true` estiver definido na corda de consulta:
+Este é o JSON se estiver definido na corda de `verbose=true` consulta:
 
 ```json
 "entities": {

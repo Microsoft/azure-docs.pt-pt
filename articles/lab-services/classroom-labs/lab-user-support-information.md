@@ -1,22 +1,22 @@
 ---
 title: Azure Lab Services - ver informações de suporte (utilizador de laboratório)
-description: Este artigo explica como um utilizador ou instrutor de laboratório pode ver informações de suporte que pode usar para obter ajuda.
+description: Este artigo explica como um utilizador de laboratório ou educador pode ver informações de suporte que pode usar para obter ajuda.
 author: spelluru
 ms.author: spelluru
 ms.date: 02/14/2020
 ms.topic: how-to
 ms.service: lab-services
-ms.openlocfilehash: bd92d53e09774183edadff0f949820f8feec6180
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 45cfc327f8534336ba2d9fb404a50e9bd530dccb
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80109254"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585560"
 ---
 # <a name="view-support-information-lab-user-in-azure-lab-services"></a>Ver informações de suporte (utilizador de laboratório em Serviços de Laboratório Azure)
 Este artigo explica como você (como utilizador de laboratório) pode ver as seguintes informações de suporte:
 
-- do IdP
+- URL
 - Email
 - Telefone
 - Instruções adicionais

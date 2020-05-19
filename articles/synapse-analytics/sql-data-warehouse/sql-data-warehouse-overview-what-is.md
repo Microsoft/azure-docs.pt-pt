@@ -10,19 +10,18 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 27e6c7beb8c88a29b90b30e0c77e35e493f2480a
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 5c6580d4fe7431c942ec4886b9dafc6148635b18
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690911"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585373"
 ---
 # <a name="what-is-azure-synapse-analytics-formerly-sql-dw"></a>O que é Azure Synapse Analytics (anteriormente SQL DW)?
 
 > [!NOTE] 
-> Experimente as mais recentes funcionalidades azure synapse, tais como espaços de trabalho, Spark, SQL a pedido, e a experiência integrada do Estúdio Synapse, [solicitando acesso ao Azure Synapse (pré-visualização](https://aka.ms/synapsepreview)dos espaços de trabalho) . 
->
 >Explore a [documentação Azure Synapse (pré-visualização](../overview-what-is.md)dos espaços de trabalho) .
+>
 
 Azure Synapse é um serviço de análise que reúne o armazenamento de dados da empresa e a análise de Big Data. Dá-lhe a liberdade de consultar dados nos seus termos, através de recursos a pedido ou aprovisionados sem servidor, em escala. A Azure Synapse reúne estes dois mundos com uma experiência unificada para ingerir, preparar, gerir e servir dados para as necessidades imediatas de BI e machine learning.
 
@@ -30,12 +29,10 @@ Azure Synapse tem quatro componentes:
 
 - Synapse SQL: Análise completa baseada em T-SQL – Geralmente Disponível
   - Piscina SQL (pagamento por DWU provisionado)
-  - SQL on-demand (pagamento por TB processado) – (Pré-visualização)
-- Faísca: Faísca Apache profundamente integrada (Pré-visualização)
-- Gasodutos Synapse: Integração de dados híbridos (Pré-visualização)
-- Estúdio: Experiência unificada do utilizador.  (Pré-visualização)
-
-
+  - SQL on-demand (pagamento por TB processado) (pré-visualização)
+- Faísca: Apache Spark profundamente integrado (pré-visualização)
+- Gasodutos Synapse: Integração de dados híbridos (pré-visualização)
+- Estúdio: Experiência unificada do utilizador. (pré-visualização)
 
 ## <a name="synapse-sql-pool-in-azure-synapse"></a>Piscina SQL synapse em Azure Synapse
 

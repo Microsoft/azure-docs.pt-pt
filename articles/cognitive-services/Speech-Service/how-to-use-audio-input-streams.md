@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: fmegen
-ms.openlocfilehash: 3039276a49e7bb41660d114e78ca047a3f77f279
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 23a426bf8cc3f30516fff0a672d7118a49666433
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74109947"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83584931"
 ---
 # <a name="about-the-speech-sdk-audio-input-stream-api"></a>Sobre o fluxo de entrada áudio SDK speech SDK API
 
@@ -25,20 +25,20 @@ São necessários os seguintes passos quando utilizar fluxos de entrada áudio:
 
 - Identifique o formato do fluxo de áudio. O formato deve ser apoiado pelo SDK da Fala e pelo serviço de Discurso. Atualmente, apenas é suportada a seguinte configuração:
 
-  Amostras de áudio em formato PCM, um canal, 16000 amostras por segundo, 32000 bytes por segundo, dois blocos alinhados (16 bits incluindo estofo para uma amostra), 16 bits por amostra.
+  Amostras de áudio em formato PCM, um canal, 16 bits por amostra, 8000 ou 16000 amostras por segundo (16000 ou 32000 bytes por segundo), dois blocos alinhados (16 bits incluindo enchimento para uma amostra).
 
   O código correspondente no SDK para criar o formato áudio é assim:
 
   ```csharp
   byte channels = 1;
   byte bitsPerSample = 16;
-  int samplesPerSecond = 16000;
+  int samplesPerSecond = 16000; // or 8000
   var audioFormat = AudioStreamFormat.GetWaveFormatPCM(samplesPerSecond, bitsPerSample, channels);
   ```
 
 - Certifique-se de que o seu código pode fornecer os dados áudio RAW de acordo com estas especificações. Se os seus dados de fonte de áudio não corresponderem aos formatos suportados, o áudio deve ser transcodificado para o formato necessário.
 
-- Crie a sua própria classe `PullAudioInputStreamCallback`de fluxo de entrada de áudio derivada de . Implementar `Read()` os `Close()` e membros. A assinatura exata da função é dependente da linguagem, mas o código será semelhante a esta amostra de código:
+- Crie a sua própria classe de fluxo de entrada de áudio derivada de `PullAudioInputStreamCallback` . Implementar os `Read()` e `Close()` membros. A assinatura exata da função é dependente da linguagem, mas o código será semelhante a esta amostra de código:
 
   ```csharp
    public class ContosoAudioStream : PullAudioInputStreamCallback {

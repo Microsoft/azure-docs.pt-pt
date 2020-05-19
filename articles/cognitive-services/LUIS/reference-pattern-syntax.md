@@ -4,21 +4,21 @@ description: Criar entidades para extrair dados-chave de declarações de utiliz
 ms.topic: reference
 ms.date: 04/14/2020
 ms.author: diberry
-ms.openlocfilehash: cc24667f43dfedc032f52c40fc5f8fe5c80bad70
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1665f1ef8a868b011e9e4de8562aeda9edef5ce2
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81382149"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585577"
 ---
 # <a name="pattern-syntax"></a>Sintaxe de padrão
 
 Sintaxe padrão é um modelo para uma expressão. O modelo deve conter palavras e entidades que pretende combinar, bem como palavras e [pontuação](luis-reference-application-settings.md#punctuation-normalization) que pretende ignorar. **Não** é uma expressão regular.
 
 > [!CAUTION]
-> Os padrões apenas incluem pais de entidades aprendidas por máquinas, não subcomponentes.
+> Os padrões apenas incluem pais de entidades aprendidas por máquinas, não subentidades.
 
-As entidades em padrões estão rodeadas por suportes encaracolados, `{}`. Os padrões podem incluir entidades e entidades com funções. [Padrão.qualquer](luis-concept-entity-types.md#patternany-entity) é uma entidade usada apenas em padrões.
+As entidades em padrões estão rodeadas por suportes encaracolados, `{}` . Os padrões podem incluir entidades e entidades com funções. [Padrão.qualquer](luis-concept-entity-types.md#patternany-entity) é uma entidade usada apenas em padrões.
 
 A sintaxe de padrão suporta a seguinte sintaxe:
 
@@ -69,14 +69,14 @@ Uma combinação de **agrupamento** com sintaxe **ou ing** tem um limite de 2 ba
 |Não|(teste1 &#x7c; teste2 &#x7c; teste3 &#x7c; (test4 &#x7c; test5 ) ) ) ) |
 
 ## <a name="syntax-to-add-an-entity-to-a-pattern-template"></a>Sintaxe para adicionar uma entidade a um modelo de padrão
-Para adicionar uma entidade ao modelo de padrão, rodeie `Who does {Employee} manage?`o nome da entidade com aparelhos encaracolados, tais como .
+Para adicionar uma entidade ao modelo de padrão, rodeie o nome da entidade com aparelhos encaracolados, tais como `Who does {Employee} manage?` .
 
 |Padrão com entidade|
 |--|
 |`Who does {Employee} manage?`|
 
 ## <a name="syntax-to-add-an-entity-and-role-to-a-pattern-template"></a>Sintaxe para adicionar uma entidade e papel a um modelo de padrão
-Um papel de entidade `{entity:role}` é denotado como com o nome da entidade seguido por um cólon, em seguida, o nome do papel. Para adicionar uma entidade com um papel no modelo de padrão, rodeie `Book a ticket from {Location:Origin} to {Location:Destination}`o nome da entidade e o nome do papel com aparelhos encaracolados, tais como .
+Um papel de entidade é denotado como `{entity:role}` com o nome da entidade seguido por um cólon, em seguida, o nome do papel. Para adicionar uma entidade com um papel no modelo de padrão, rodeie o nome da entidade e o nome do papel com aparelhos encaracolados, tais como `Book a ticket from {Location:Origin} to {Location:Destination}` .
 
 |Padrão com funções de entidade|
 |--|
@@ -85,7 +85,7 @@ Um papel de entidade `{entity:role}` é denotado como com o nome da entidade seg
 ## <a name="syntax-to-add-a-patternany-to-pattern-template"></a>Sintaxe para adicionar um padrão.qualquer ao modelo de padrão
 O Padrão.qualquer entidade permite adicionar uma entidade de comprimento variado ao padrão. Desde que o modelo de padrão seja seguido, o padrão.qualquer pode ter qualquer comprimento.
 
-Para adicionar um **Padrão.qualquer** entidade no modelo de padrão, rodeie o `How much does {Booktitle} cost and what format is it available in?`Padrão.qualquer entidade com os aparelhos encaracolados, tais como .
+Para adicionar um **Padrão.qualquer** entidade no modelo de padrão, rodeie o Padrão.qualquer entidade com os aparelhos encaracolados, tais como `How much does {Booktitle} cost and what format is it available in?` .
 
 |Padrão com Padrão.qualquer entidade|
 |--|
@@ -106,7 +106,7 @@ criar uma [Lista Explícita](https://westus.dev.cognitive.microsoft.com/docs/ser
 * O seu padrão contém um [Padrão.qualquer](luis-concept-entity-types.md#patternany-entity)
 * E essa sintaxe de padrão permite a possibilidade de uma extração incorreta de entidade com base na expressão.
 
-Por exemplo, suponha que tem um `[]`padrão que contém sintaxe opcional, e sintaxe de entidade, `{}`combinado de forma a extrair dados incorretamente.
+Por exemplo, suponha que tem um padrão que contém sintaxe opcional, `[]` e sintaxe de entidade, `{}` combinado de forma a extrair dados incorretamente.
 
 Considere o padrão '[encontre] e-mail sobre {subject} [de {person}]'.
 
@@ -117,19 +117,19 @@ Nas seguintes declarações, o **sujeito** e a entidade **pessoa** são extraíd
 |e-mail sobre cães de Chris|sujeito=cães<br>pessoa=Chris|✔|
 |e-mail sobre o homem de La Mancha|sujeito=o homem<br>pessoa=La Mancha|X|
 
-Na tabela anterior, o sujeito `the man from La Mancha` deve ser (um título de livro) mas como o sujeito inclui a palavra `from`opcional, o título está incorretamente previsto.
+Na tabela anterior, o sujeito deve ser (um título de `the man from La Mancha` livro) mas como o sujeito inclui a palavra `from` opcional, o título está incorretamente previsto.
 
-Para corrigir esta exceção `the man from la mancha` ao padrão, adicione como uma correspondência explícita de lista para a entidade {subject} utilizando a [API de autoria para lista explícita](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8).
+Para corrigir esta exceção ao padrão, adicione `the man from la mancha` como uma correspondência explícita de lista para a entidade {subject} utilizando a [API de autoria para lista explícita](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8).
 
 ## <a name="syntax-to-mark-optional-text-in-a-template-utterance"></a>Sintaxe para marcar texto opcional em uma expressão de modelo
-Marque o texto opcional na expressão utilizando a `[]`sintaxe de suporte quadrado de expressão regular, . O texto opcional pode nidificar suportes quadrados até dois suportes.
+Marque o texto opcional na expressão utilizando a sintaxe de suporte quadrado de expressão regular, `[]` . O texto opcional pode nidificar suportes quadrados até dois suportes.
 
 |Padrão com texto opcional|Significado|
 |--|--|
 |`[find] email about {subject} [from {person}]`|`find`e `from {person}` são opcionais|
 |"Pode ajudar-me[?]|A marca de pontuação é opcional|
 
-As marcas de`?`pontuação `.`devem `!`ser ignoradas e é necessário ignorá-las utilizando a sintaxe de suporte quadrado em padrões.
+As marcas de pontuação devem `?` `!` ser `.` ignoradas e é necessário ignorá-las utilizando a sintaxe de suporte quadrado em padrões.
 
 ## <a name="next-steps"></a>Passos seguintes
 

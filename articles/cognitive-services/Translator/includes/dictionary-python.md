@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 6c72cd270e634ca0aebff7c17d5663241428e182
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: d52c4ba9bc4fdb5a696b43aa2b8358992182c553
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "69907090"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587050"
 ---
 [!INCLUDE [Prerequisites](prerequisites-python.md)]
 
@@ -17,7 +17,7 @@ ms.locfileid: "69907090"
 
 ## <a name="create-a-project-and-import-required-modules"></a>Criar um projeto e importar os módulos exigidos
 
-Crie um novo projeto Python utilizando o seu IDE ou editor favorito, ou crie uma nova pasta no seu ambiente de trabalho. Copie este fragmento de código no seu `dictionary-lookup.py`projeto/pasta num ficheiro denominado .
+Crie um novo projeto Python utilizando o seu IDE ou editor favorito, ou crie uma nova pasta no seu ambiente de trabalho. Copie este fragmento de código no seu projeto/pasta num ficheiro denominado `dictionary-lookup.py` .
 
 ```python
 # -*- coding: utf-8 -*-
@@ -27,11 +27,11 @@ import os, requests, uuid, json
 > [!NOTE]
 > Se ainda não utilizou estes módulos, terá de instalá-los antes de executar o seu programa. Para instalar estes pacotes, execute: `pip install requests uuid`.
 
-O primeiro comentário indica ao interpretador Python para utilizar a codificação UTF-8. Em seguida, os módulos exigidos são importados para ler a chave de subscrição a partir de uma variável de ambiente, construir o pedido de http, criar um identificador exclusivo e processar a resposta JSON devolvida pela API de Texto do Microsoft Translator.
+O primeiro comentário indica ao interpretador Python para utilizar a codificação UTF-8. Em seguida, os módulos necessários são importados para ler a sua chave de subscrição a partir de uma variável ambiental, construir o pedido de http, criar um identificador único, e lidar com a resposta JSON devolvida pelo Tradutor.
 
 ## <a name="set-the-subscription-key-endpoint-and-path"></a>Desdefinir a chave de subscrição, ponto final e caminho
 
-Esta amostra tentará ler a chave de subscrição de `TRANSLATOR_TEXT_KEY` texto `TRANSLATOR_TEXT_ENDPOINT`tradutor e ponto final das variáveis ambientais: e . Se não está familiarizado com variáveis ambientais, pode definir `subscription_key` e `endpoint` como cordas e comentar as declarações condicionais.
+Esta amostra tentará ler a chave de subscrição do Tradutor e o ponto final das variáveis ambientais: `TRANSLATOR_TEXT_KEY` e `TRANSLATOR_TEXT_ENDPOINT` . Se não está familiarizado com variáveis ambientais, pode definir `subscription_key` e como cordas e comentar as `endpoint` declarações condicionais.
 
 Copie este código para o seu projeto:
 
@@ -47,12 +47,12 @@ if not endpoint_var_name in os.environ:
 endpoint = os.environ[endpoint_var_name]
 ```
 
-O ponto final global do `endpoint`Texto tradutor é definido como o . `path` define a rota `dictionary/lookup` e identifica que queremos utilizar a versão 3 da API.
+O ponto final global do Tradutor é definido como `endpoint` o . `path` define a rota `dictionary/lookup` e identifica que queremos utilizar a versão 3 da API.
 
 São utilizados `params` para definir a origem e os idiomas de saída. Neste exemplo, utilizamos o inglês e espanhol: `en` e `es`.
 
 >[!NOTE]
-> Para obter mais informações sobre pontos finais, rotas e parâmetros de pedido, veja [API de Texto do Microsoft Translator 3.0: Pesquisa no Dicionário](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
+> Para mais informações sobre pontos finais, rotas e parâmetros de pedido, consulte [Tradutor 3.0: Dictionary Lookup](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
 
 ```python
 path = '/dictionary/lookup?api-version=3.0'
@@ -74,7 +74,7 @@ headers = {
 }
 ```
 
-Se estiver a utilizar uma subscrição multi-serviço `Ocp-Apim-Subscription-Region` de Serviços Cognitivos, também deve incluir os parâmetros do seu pedido. [Saiba mais sobre autenticação com a subscrição de vários serviços.](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)
+Se estiver a utilizar uma subscrição multi-serviço de Serviços Cognitivos, também deve incluir os `Ocp-Apim-Subscription-Region` parâmetros do seu pedido. [Saiba mais sobre autenticação com a subscrição de vários serviços.](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)
 
 ## <a name="create-a-request-to-find-alternate-translations"></a>Criar um pedido para encontrar traduções alternativas
 
@@ -105,7 +105,7 @@ print(json.dumps(response, sort_keys=True, indent=4,
 
 ## <a name="put-it-all-together"></a>Juntar tudo
 
-Já está. Utilizámos um programa simples que irá chamar a API de Texto do Microsoft Translator e devolver uma resposta JSON. Agora, é altura de executar o seu programa:
+É isso, juntaste um programa simples que ligará ao Tradutor e devolverá uma resposta da JSON. Agora, é altura de executar o seu programa:
 
 ```console
 python alt-translations.py
@@ -147,7 +147,7 @@ Se codificou a chave de subscrição no seu programa, certifique-se de que remov
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Veja a referência da API para entender tudo o que pode fazer com a API de Texto tradutor.
+Veja a referência da API para entender tudo o que pode fazer com o Tradutor.
 
 > [!div class="nextstepaction"]
 > [Referência da API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

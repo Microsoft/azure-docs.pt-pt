@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 04255fb6fdf83e7249fad01c75425943b580393c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 599514f6e7b97208194fc4c1660712f4d5e0c4cb
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80742863"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585356"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-synapse-sql-pool"></a>Orientação para conceber tabelas distribuídas na piscina SQL synapse
 
@@ -92,11 +92,11 @@ WITH
 ;
 ```
 
-Escolher uma coluna de distribuição é uma decisão importante de design, uma vez que os valores desta coluna determinam como as linhas são distribuídas. A melhor escolha depende de vários fatores, e geralmente envolve compensações. No entanto, se não escolher a melhor coluna da primeira vez, pode utilizar a [TABELA CREATE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para recriar a tabela com uma coluna de distribuição diferente.
+Os dados armazenados na coluna de distribuição podem ser atualizados. As atualizações aos dados da coluna de distribuição podem resultar numa operação de baralhar dados.
 
-### <a name="choose-a-distribution-column-that-does-not-require-updates"></a>Escolha uma coluna de distribuição que não requeira atualizações
+Escolher uma coluna de distribuição é uma decisão importante de design, uma vez que os valores desta coluna determinam como as linhas são distribuídas. A melhor escolha depende de vários fatores, e geralmente envolve compensações. Uma vez escolhida uma coluna de distribuição, não pode mudá-la.  
 
-Não é possível atualizar uma coluna de distribuição a não ser que apague a linha e insira uma nova linha com os valores atualizados. Portanto, selecione uma coluna com valores estáticos.
+Se não escolheu a melhor coluna da primeira vez, pode utilizar a [TABELA CREATE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para recriar a tabela com uma coluna de distribuição diferente.
 
 ### <a name="choose-a-distribution-column-with-data-that-distributes-evenly"></a>Escolha uma coluna de distribuição com dados que distribuam uniformemente
 
@@ -117,8 +117,8 @@ Para obter as consultas de resultados corretos, as consultas podem mover dados d
 
 Para minimizar o movimento de dados, selecione uma coluna de distribuição que:
 
-- É usado `JOIN` `GROUP BY`em, `OVER`, `HAVING` `DISTINCT`e cláusulas. Quando duas grandes tabelas de fatos têm juntas frequentes, o desempenho da consulta melhora quando distribui ambas as tabelas numa das colunas de adesão.  Quando uma mesa não for utilizada em juntas, considere distribuir a tabela `GROUP BY` numa coluna que esteja frequentemente na cláusula.
-- Não *not* é `WHERE` usado em cláusulas. Isto poderia limitar a consulta para não funcionar em todas as distribuições.
+- É usado `JOIN` em, `GROUP BY` , e `DISTINCT` `OVER` `HAVING` cláusulas. Quando duas grandes tabelas de fatos têm juntas frequentes, o desempenho da consulta melhora quando distribui ambas as tabelas numa das colunas de adesão.  Quando uma mesa não for utilizada em juntas, considere distribuir a tabela numa coluna que esteja frequentemente na `GROUP BY` cláusula.
+- Não *not* é usado em `WHERE` cláusulas. Isto poderia limitar a consulta para não funcionar em todas as distribuições.
 - *Não* é uma coluna de data. Onde as cláusulas filtram frequentemente por data.  Quando isto acontece, todo o processamento pode funcionar em apenas algumas distribuições.
 
 ### <a name="what-to-do-when-none-of-the-columns-are-a-good-distribution-column"></a>O que fazer quando nenhuma das colunas é uma boa coluna de distribuição
@@ -169,7 +169,7 @@ Para evitar o movimento de dados durante uma adesão:
 - As tabelas envolvidas na adesão devem ser distribuídas hash numa **das** colunas participantes na adesão.
 - Os tipos de dados das colunas de adesão devem coincidir entre ambas as tabelas.
 - As colunas devem ser unidas a um operador igual.
-- O tipo de adesão pode não ser um `CROSS JOIN`.
+- O tipo de adesão pode não ser `CROSS JOIN` um .
 
 Para ver se as consultas estão experimentando o movimento de dados, você pode olhar para o plano de consulta.  
 

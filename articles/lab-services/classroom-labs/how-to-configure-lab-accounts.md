@@ -1,6 +1,6 @@
 ---
-title: Configure contas de laboratório nos Serviços de Laboratório Azure [ Microsoft Docs
-description: Este artigo descreve como criar uma conta de laboratório, ver todas as contas de laboratório ou apagar uma conta de laboratório nos Serviços de Laboratório Azure.
+title: Configurar encerramento automático de VMs nos Serviços de Laboratório Azure
+description: Este artigo descreve como configurar o encerramento automático de VMs na conta de laboratório.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -11,55 +11,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2020
+ms.date: 05/15/2020
 ms.author: spelluru
-ms.openlocfilehash: 14f66701d3a375807829493f866dcb91b131f2e5
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: afe74e5c3aec2519ec22eee9573ae7b47c1c73f8
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83121087"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588212"
 ---
-# <a name="configure-lab-accounts-in-azure-lab-services"></a>Configure contas de laboratório em Serviços de Laboratório Azure 
-Nos Serviços de Laboratório Azure, uma conta de laboratório é um recipiente para tipos de laboratório geridos, como laboratórios de sala de aula. Um administrador cria uma conta de laboratório com os Serviços de Laboratório Azure e dá acesso aos donos de laboratório que podem criar laboratórios na conta. 
+# <a name="configure-automatic-shutdown-of-vms-on-disconnect-setting-for-a-lab-account"></a>Configure o encerramento automático de VMs na definição de desconexão para uma conta de laboratório
+Pode ativar ou desativar o encerramento automático de VMs de laboratório do Windows (modelo ou aluno) depois de uma ligação remota de ambiente de trabalho ser desligada. Também pode especificar quanto tempo os Serviços lab devem esperar que o utilizador se reconecte antes de desligar automaticamente.
 
-Este artigo mostra como executar as seguintes tarefas: 
-
-- Especifique um intervalo de endereços para VMs no laboratório
-- Configure o encerramento automático de VMs na desconexão
-
-## <a name="specify-an-address-range-for-vms-in-the-lab"></a>Especifique um intervalo de endereços para VMs no laboratório
-O procedimento seguinte tem medidas para especificar um intervalo de endereços para VMs no laboratório. Se atualizar a gama que especificou anteriormente, a gama de endereços modificada aplica-se apenas aos VMs que são criados após a alteração. 
-
-Aqui estão algumas restrições ao especificar o intervalo de endereços que deve ter em mente. 
-
-- O prefixo deve ser menor ou igual a 23. 
-- Se uma rede virtual for espreitada para a conta de laboratório, o intervalo de endereços fornecido não pode sobrepor-se ao intervalo de endereços da rede virtual peered.
+## <a name="enable-automatic-shutdown"></a>Ativar o encerramento automático
 
 1. Na página **da Conta lab,** selecione **as definições** de Laboratórios no menu esquerdo.
-2. Para o campo **de intervalo de endereços,** especifique o intervalo de endereços para VMs que serão criados em laboratório. A gama de endereços deve constar da notação de encaminhamento inter-domínio sem classe (CIDR) (exemplo: 10.20.0.0/23). Máquinas virtuais no laboratório serão criadas nesta gama de endereços.
+2. Selecione as **máquinas virtuais desativadas automaticamente quando os utilizadores desligarem** a opção.
+3. Especifique quanto tempo os Serviços lab devem esperar que o utilizador se reconecte antes de desligar automaticamente os VMs.
 
-    > [!NOTE]
-    > A propriedade de gama De endereço só se aplica se a rede virtual Peer estiver ativada para o laboratório. 
-3. Selecione **Guardar** na barra de ferramentas. 
+    ![Definição automática de paragem na conta de laboratório](../media/how-to-configure-lab-accounts/automatic-shutdown-vm-disconnect.png)
 
-    ![Configure gama de endereços](../media/how-to-manage-lab-accounts/labs-configuration-page-address-range.png)
+    Esta definição aplica-se a todos os laboratórios criados na conta do laboratório. Um criador de laboratório (educador) pode sobrepor-se a este cenário ao nível do laboratório. A alteração desta configuração na conta do laboratório só afetará os laboratórios que são criados após a mudança.
 
-
-## <a name="automatic-shutdown-of-vms-on-disconnect"></a>Paragem automática de VMs na desconexão
-Pode ativar ou desativar o encerramento automático de VMs de laboratório do Windows (modelo ou aluno) depois de uma ligação remota de ambiente de trabalho ser desligada. Também pode especificar quanto tempo os VMs devem esperar que o utilizador se reconecte antes de desligar automaticamente.
-
-![Definição automática de paragem na conta de laboratório](../media/how-to-configure-lab-accounts/automatic-shutdown-vm-disconnect.png)
-
-Esta definição aplica-se a todos os laboratórios criados na conta do laboratório. Um dono de laboratório pode anular este cenário ao nível do laboratório. A alteração desta configuração na conta do laboratório só afetará os laboratórios que são criados após a mudança.
-
-Para saber como um dono de laboratório pode configurar este cenário a nível de laboratório, consulte [este artigo](how-to-enable-shutdown-disconnect.md)
+    Para desativar esta definição, desverifique a caixa de verificação das **máquinas virtuais de paragem automática quando os utilizadores desligam** a opção nesta página. 
 
 ## <a name="next-steps"></a>Passos seguintes
-Consulte os seguintes artigos:
-
-- [Permitir que o criador do laboratório escolha a localização do laboratório](allow-lab-creator-pick-lab-location.md)
-- [Ligue a rede do seu laboratório com uma rede virtual de pares](how-to-connect-peer-virtual-network.md)
-- [Anexar uma galeria de imagens partilhadas a um laboratório](how-to-attach-detach-shared-image-gallery.md)
-- [Adicione um utilizador como proprietário de laboratório](how-to-add-user-lab-owner.md)
-- [Ver configurações de firewall para um laboratório](how-to-configure-firewall-settings.md)
+Para saber como um dono de laboratório pode configurar ou anular este cenário a nível de laboratório, consulte [este artigo](how-to-enable-shutdown-disconnect.md)

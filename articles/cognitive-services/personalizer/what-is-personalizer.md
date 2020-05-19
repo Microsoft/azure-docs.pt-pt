@@ -3,12 +3,12 @@ title: O que é o Personalizador?
 description: Personalizer é um serviço de API baseado na nuvem que lhe permite escolher a melhor experiência para mostrar aos seus utilizadores, aprendendo com o seu comportamento em tempo real.
 ms.topic: overview
 ms.date: 04/20/2020
-ms.openlocfilehash: 3ae425479d764c0a6bf6c63bdd54a964c48af8b6
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: cf046ada21c4920ea9e3853668a5928b2ca9f33a
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81687265"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586223"
 ---
 # <a name="what-is-personalizer"></a>O que é o Personalizador?
 
@@ -70,17 +70,24 @@ Uma vez que a Personalizer utiliza informação coletiva em quase tempo real par
 ## <a name="how-to-design-and-implement-personalizer-for-your-client-application"></a>Como conceber e implementar o Personalizer para a sua aplicação de cliente
 
 1. [Design](concepts-features.md) e plano para conteúdos, **_ações_** e **_contexto._** Determine o algoritmo de recompensa para a pontuação da **_recompensa._**
-1. Cada [Recurso Personalizer](how-to-settings.md) que cria é considerado 1 Learning Loop. O loop receberá as chamadas Rank e Reward para esse conteúdo ou experiência do utilizador.
-1. Adicione personalizer ao seu website ou sistema de conteúdo:
+1. Cada [Recurso Personalizer](how-to-settings.md) que cria é considerado um Ciclo de Aprendizagem. O loop receberá as chamadas Rank e Reward para esse conteúdo ou experiência do utilizador.
+
+    |Tipo de recurso| Objetivo|
+    |--|--|
+    |[Modo aprendiz](concept-apprentice-mode.md)`E0`|Treine o modelo Personalizer sem afetar a sua aplicação existente e, em seguida, implemente para o comportamento de aprendizagem online para um ambiente de produção|
+    |Padrão,`S0`|Comportamento de aprendizagem on-line em um ambiente de produção|
+    |Livre,`F0`| Experimente o comportamento de aprendizagem online num ambiente não produtivo|
+
+1. Adicione personalizer à sua aplicação, site ou sistema:
     1. Adicione uma chamada **de Rank** ao Personalizer na sua aplicação, website ou sistema para determinar o melhor item de _conteúdo_ único antes de o conteúdo ser mostrado ao utilizador.
     1. Exiba o melhor item de _conteúdo_ único, que é o ID de ação de _recompensa_devolvido, ao utilizador.
-    1. Aplique _algoritmo_ suplicou informações recolhidas sobre como o utilizador se comportou, para determinar a pontuação da **recompensa,** tais como:
+    1. Aplique a _lógica do negócio_ à informação recolhida sobre como o utilizador se comportou, para determinar a pontuação da **recompensa,** tais como:
 
-        |Comportamento|Pontuação de recompensa calculada|
-        |--|--|
-        |Utilizador selecionado melhor, único item de _conteúdo_ (ID de ação de recompensa)|**1**|
-        |Utilizador selecionado outros conteúdos|**0**|
-        |O utilizador fez uma pausa, percorrendo indecisamente, antes de selecionar o melhor item de _conteúdo_ único (Id de ação de recompensa)|**0,5**|
+    |Comportamento|Pontuação de recompensa calculada|
+    |--|--|
+    |Utilizador selecionado melhor, único item de _conteúdo_ (ID de ação de recompensa)|**1**|
+    |Utilizador selecionado outros conteúdos|**0**|
+    |O utilizador fez uma pausa, percorrendo indecisamente, antes de selecionar o melhor item de _conteúdo_ único (Id de ação de recompensa)|**0,5**|
 
     1. Adicione uma chamada **de recompensa** enviando uma pontuação de recompensa entre 0 e 1
         * Imediatamente após mostrar o seu conteúdo
@@ -94,6 +101,6 @@ Uma vez que a Personalizer utiliza informação coletiva em quase tempo real par
 * [O que é a Aprendizagem de Reforço?](concepts-reinforcement-learning.md)
 * [Conheça as funcionalidades e ações para o pedido de Rank](concepts-features.md)
 * [Saiba determinar a pontuação para o pedido de Recompensa](concept-rewards.md)
-* [Guias de Início Rápido](sdk-learning-loop.md)
+* [Inícios rápidos](sdk-learning-loop.md)
 * [Tutorial](tutorial-use-azure-notebook-generate-loop-data.md)
 * [Use a demonstração interativa](https://personalizationdemo.azurewebsites.net/)

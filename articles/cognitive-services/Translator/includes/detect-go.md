@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: d75c925ef55163ce06b2ceff585e230d95b38c77
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 7f3824ba4683c5ade4ac5bb84b853caf72e1073b
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71837532"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587185"
 ---
 [!INCLUDE [Prerequisites](prerequisites-go.md)]
 
@@ -35,7 +35,7 @@ import (
 
 ## <a name="create-the-main-function"></a>Criar a função principal
 
-Esta amostra tentará ler a chave de subscrição de `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` texto `TRANSLATOR_TEXT_ENDPOINT`tradutor e ponto final destas variáveis ambientais: e . Se não está familiarizado com variáveis ambientais, pode definir `subscriptionKey` e `endpoint` como cordas e comentar as declarações condicionais.
+Esta amostra tentará ler a chave de subscrição do Tradutor e o ponto final destas variáveis ambientais: `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` e `TRANSLATOR_TEXT_ENDPOINT` . Se não está familiarizado com variáveis ambientais, pode definir `subscriptionKey` e como cordas e comentar as `endpoint` declarações condicionais.
 
 Copie este código para o seu projeto:
 
@@ -67,7 +67,7 @@ func main() {
 
 ## <a name="create-a-function-to-detect-the-text-language"></a>Criar uma função para detetar a linguagem de texto
 
-Vamos criar uma função para detetar a linguagem de texto. Esta função terá um único argumento, a sua chave de subscrição de Texto tradutor.
+Vamos criar uma função para detetar a linguagem de texto. Esta função terá um único argumento, a sua chave de subscrição tradutor.
 
 ```go
 func detect(subscriptionKey string, uri string) {
@@ -78,9 +78,9 @@ func detect(subscriptionKey string, uri string) {
 }
 ```
 
-Em seguida, vamos construir a URL. O URL é `Parse()` construído `Query()` usando os e métodos.
+Em seguida, vamos construir a URL. O URL é construído usando os `Parse()` `Query()` e métodos.
 
-Copie este `detect` código na função.
+Copie este código na `detect` função.
 
 ```go
 // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
@@ -90,11 +90,11 @@ u.RawQuery = q.Encode()
 ```
 
 >[!NOTE]
-> Para obter mais informações sobre pontos finais, rotas e parâmetros de pedido, veja [API de Texto do Microsoft Translator 3.0: detetar](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect).
+> Para mais informações sobre pontos finais, rotas e parâmetros de pedido, consulte [Tradutor 3.0: Detete](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect).
 
 ## <a name="create-a-struct-for-your-request-body"></a>Crie uma estrutura para o seu corpo de pedido
 
-Em seguida, crie uma estrutura anónima para o corpo `json.Marshal()`de pedido e codifique-a como JSON com . Adicione este código `detect` à função.
+Em seguida, crie uma estrutura anónima para o corpo de pedido e codifique-a como JSON com `json.Marshal()` . Adicione este código à `detect` função.
 
 ```go
 // Create an anonymous struct for your request body and encode it to JSON
@@ -108,7 +108,7 @@ b, _ := json.Marshal(body)
 
 ## <a name="build-the-request"></a>Criar o pedido
 
-Agora que codificou o órgão de pedido como JSON, pode construir o seu pedido de CORREIO e ligar para a API de Texto tradutor.
+Agora que codificou o corpo de pedidos como JSON, pode construir o seu pedido de correio, e ligar para o Tradutor.
 
 ```go
 // Build the HTTP POST request
@@ -120,18 +120,18 @@ if err != nil {
 req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
 req.Header.Add("Content-Type", "application/json")
 
-// Call the Translator Text API
+// Call the Translator
 res, err := http.DefaultClient.Do(req)
 if err != nil {
     log.Fatal(err)
 }
 ```
 
-Se estiver a utilizar uma subscrição multi-serviço `Ocp-Apim-Subscription-Region` de Serviços Cognitivos, também deve incluir os parâmetros do seu pedido. [Saiba mais sobre autenticação com a subscrição de vários serviços.](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)
+Se estiver a utilizar uma subscrição multi-serviço de Serviços Cognitivos, também deve incluir os `Ocp-Apim-Subscription-Region` parâmetros do seu pedido. [Saiba mais sobre autenticação com a subscrição de vários serviços.](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)
 
 ## <a name="handle-and-print-the-response"></a>Manuseie e imprima a resposta
 
-Adicione este código `detect` à função para descodificar a resposta JSON e, em seguida, forte e imprima o resultado.
+Adicione este código à `detect` função para descodificar a resposta JSON e, em seguida, forte e imprima o resultado.
 
 ```go
 // Decode the JSON response
@@ -146,7 +146,7 @@ fmt.Printf("%s\n", prettyJSON)
 
 ## <a name="put-it-all-together"></a>Juntar tudo
 
-Já está. Utilizámos um programa simples que irá chamar a API de Texto do Microsoft Translator e devolver uma resposta JSON. Agora, é altura de executar o seu programa:
+É isso, juntaste um programa simples que ligará ao Tradutor e devolverá uma resposta da JSON. Agora, é altura de executar o seu programa:
 
 ```console
 go run detect-language.go
@@ -189,7 +189,7 @@ Depois de executar a amostra, deve ver o seguinte impresso no terminal:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Veja a referência da API para entender tudo o que pode fazer com a API de Texto tradutor.
+Veja a referência da API para entender tudo o que pode fazer com o Tradutor.
 
 > [!div class="nextstepaction"]
 > [Referência da API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: quickstart
-ms.openlocfilehash: a22ae3b4b11a4eac7da147cf3ad896bbad435448
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: c86a387e66cce914f9d0b92793893b0cba08e7bc
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80370212"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587103"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Quickstart: Construir, implementar e usar um modelo personalizado para tradução
 
@@ -24,23 +24,23 @@ Este artigo fornece instruções passo a passo para construir um sistema de trad
 
 1. Para utilizar o Portal tradutor [personalizado,](https://portal.customtranslator.azure.ai) necessitará de uma [conta Microsoft](https://signup.live.com) ou [conta Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (conta de organização hospedada no Azure) para iniciar sessão.
 
-2. Uma subscrição da API de Texto tradutor através do portal Azure. Você precisará da chave de subscrição de API de texto tradutor para associar com o seu espaço de trabalho em Tradutor Personalizado. Veja [como se inscrever na API](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup)de Texto tradutor .
+2. Uma subscrição ao Tradutor através do portal Azure. Você precisará da chave de subscrição tradutor para se associar ao seu espaço de trabalho em Tradutor Personalizado. Veja [como se inscrever no Tradutor.](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup)
 
 3. Quando tiver ambos os acima, inscreva-se no portal [Tradutor Personalizado](https://portal.customtranslator.azure.ai) para criar espaços de trabalho, projetos, carregar ficheiros e criar/implementar modelos.
 
 ## <a name="create-a-workspace"></a>Criar uma área de trabalho
 
-Se for utilizador pela primeira vez, será-lhe pedido que concorde com os Termos de Serviço, que crie um espaço de trabalho e associe o seu espaço de trabalho à subscrição da Microsoft Tradutor Text API.
+Se for utilizador pela primeira vez, será-lhe pedido que concorde com os Termos de Serviço, que crie um espaço de trabalho e associe o seu espaço de trabalho à subscrição do Tradutor.
 
-![Criar espaço](media/quickstart/terms-of-service.png)
-![de](media/quickstart/create-workspace-1.png)
-![trabalho Criar](media/quickstart/create-workspace-2.png)
-![espaço](media/quickstart/create-workspace-3.png)
-![de trabalho](media/quickstart/create-workspace-4.png)
-![Criar espaço de trabalho Criar espaço de trabalho Criar espaço de trabalho Criar espaço de](media/quickstart/create-workspace-5.png)
-![trabalho Criar espaço de trabalho](media/quickstart/create-workspace-6.png)
+![Criar espaço de trabalho ](media/quickstart/terms-of-service.png)
+ ![ Criar espaço de trabalho Criar ](media/quickstart/create-workspace-1.png)
+ ![ espaço de trabalho ](media/quickstart/create-workspace-2.png)
+ ![ Criar espaço de trabalho Criar ](media/quickstart/create-workspace-3.png)
+ ![ espaço de trabalho Criar ](media/quickstart/create-workspace-4.png)
+ ![ espaço de trabalho Criar espaço ](media/quickstart/create-workspace-5.png)
+ ![ de trabalho](media/quickstart/create-workspace-6.png)
 
-Nas visitas subsequentes ao portal Tradutor Personalizado, navegue para a página Definições onde pode gerir o seu espaço de trabalho, criar mais espaços de trabalho, associar a sua chave de subscrição de Texto De Texto Do Microsoft tradutor com os seus espaços de trabalho, adicionar coproprietários e alterar uma chave de subscrição.
+Nas visitas subsequentes ao portal Tradutor Personalizado, navegue para a página Definições onde pode gerir o seu espaço de trabalho, criar mais espaços de trabalho, associar a sua chave de subscrição do Tradutor aos seus espaços de trabalho, adicionar coproprietários e alterar uma chave de subscrição.
 
 ## <a name="create-a-project"></a>Criar um projeto
 
@@ -83,7 +83,7 @@ Quando estiver pronto para implementar o seu modelo treinado, clique no botão "
 
 ## <a name="use-a-deployed-model"></a>Use um modelo implantado
 
-Os modelos implantados podem ser acedidos através do Microsoft Tradutor [Text API V3 especificando o CategoryID](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl). Mais informações sobre a API de Texto tradutor podem ser encontradas na página web da [API Reference.](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
+Os modelos implantados podem ser acedidos através do Microsoft Tradutor [Text API V3 especificando o CategoryID](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl). Mais informações sobre o Tradutor podem ser encontradas na página web da [API Reference.](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
 
 ## <a name="next-steps"></a>Passos seguintes
 

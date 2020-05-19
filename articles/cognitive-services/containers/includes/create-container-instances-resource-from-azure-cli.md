@@ -9,22 +9,22 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: e3542b976921aa45794d62cad9517984c8348ce3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9d1b72eff3ffac37d2d10cd74c345eac8289b651
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80875140"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585691"
 ---
 ## <a name="create-an-azure-container-instance-resource-from-the-azure-cli"></a>Criar um recurso de instância de contentor estoque Azure do Azure CLI
 
-O YAML abaixo define o recurso Azure Container Instance. Copie e cole o conteúdo num `my-aci.yaml` novo ficheiro, nomeado e substitua os valores comentados pelos seus. Consulte o [formato][template-format] do modelo para yAML válido. Consulte os [repositórios e imagens][repositories-and-images] do recipiente para os nomes de imagem disponíveis e o seu repositório correspondente. Para obter mais informações sobre a referência YAML para instâncias de contentores, consulte a [referência YAML: Instâncias de contentores Azure][aci-yaml-ref].
+O YAML abaixo define o recurso Azure Container Instance. Copie e cole o conteúdo num novo ficheiro, nomeado `my-aci.yaml` e substitua os valores comentados pelos seus. Consulte o [formato][template-format] do modelo para yAML válido. Consulte os [repositórios e imagens][repositories-and-images] do recipiente para os nomes de imagem disponíveis e o seu repositório correspondente. Para obter mais informações sobre a referência YAML para instâncias de contentores, consulte a [referência YAML: Instâncias de contentores Azure][aci-yaml-ref].
 
 ```YAML
 apiVersion: 2018-10-01
 location: # < Valid location >
 name: # < Container Group name >
-imageRegistryCredentials: # This is required when pulling a non-public image
+imageRegistryCredentials: # This is only required if you are pulling a non-public image that requires authentication to access.
   - server: containerpreview.azurecr.io
     username: # < The username for the preview container registry >
     password: # < The password for the preview container registry >
@@ -66,13 +66,13 @@ type: Microsoft.ContainerInstance/containerGroups
 > [!NOTE]
 > Nem todos os locais têm a mesma disponibilidade de CPU e Memória. Consulte a tabela de [localização e recursos][location-to-resource] para a listagem de recursos disponíveis para contentores por localização e SISTEMA.
 
-Vamos confiar no ficheiro YAML que [`az container create`][azure-container-create] criámos para o comando. A partir do Azure `az container create` CLI, `<resource-group>` execute o comando substituindo o seu. Adicionalmente, para assegurar valores dentro de uma implementação YAML, consulte [valores seguros][secure-values].
+Vamos confiar no ficheiro YAML que criámos para o [`az container create`][azure-container-create] comando. A partir do Azure CLI, execute o `az container create` comando substituindo o `<resource-group>` seu. Adicionalmente, para assegurar valores dentro de uma implementação YAML, consulte [valores seguros][secure-values].
 
 ```azurecli
 az container create -g <resource-group> -f my-aci.yaml
 ```
 
-A saída do `Running...` comando é válida, depois de algum dia a saída muda para uma cadeia JSON que representa o recurso ACI recém-criado. A imagem do recipiente é mais do que provável que não esteja disponível por um tempo, mas o recurso está agora implantado.
+A saída do comando é válida, depois de `Running...` algum dia a saída muda para uma cadeia JSON que representa o recurso ACI recém-criado. A imagem do recipiente é mais do que provável que não esteja disponível por um tempo, mas o recurso está agora implantado.
 
 > [!TIP]
 > Preste muita atenção aos locais de pré-visualização pública do Serviço Cognitivo Azure, uma vez que o YAML terá de ser ajustado em conformidade para corresponder à localização.

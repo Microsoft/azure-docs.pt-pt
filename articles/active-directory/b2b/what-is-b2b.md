@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 02/12/2020
+ms.date: 05/19/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 167c7f7aa3dbf967575c0ee8905821fb9d3f77ce
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0effb6bb6e3d3f80775a3cee1ad8a63013a78805
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80050724"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585839"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>O que é o acesso do utilizador convidado na colaboração B2B do Azure Active Directory?
 
@@ -88,6 +88,19 @@ Integre os seus parceiros externos de forma personalizada de acordo com as neces
 
 - Utilize a [gestão de direitos da Azure AD](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) para configurar políticas que [gerem o acesso a utilizadores externos](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users#how-access-works-for-external-users).
 - Utilize o convite de [colaboração B2B APIs](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) para personalizar as suas experiências de embarque.
+
+## <a name="integrate-with-identity-providers"></a>Integrar com fornecedores de identidade
+
+A Azure AD suporta fornecedores de identidade externos como facebook, contas Microsoft, Google ou fornecedores de identidade empresarial. Pode configurar a federação com fornecedores de identidade para que os seus utilizadores externos possam iniciar sessão com as suas contas sociais ou empresariais existentes em vez de criar uma nova conta apenas para a sua aplicação. Saiba mais sobre fornecedores de identidade para identidades externas.
+
+![Screenshot mostrando a página de fornecedores de identidade](media/what-is-b2b/identity-providers.png)
+
+
+## <a name="create-a-self-service-sign-up-user-flow-preview"></a>Criar um fluxo de utilizador de inscrição de autosserviço (Pré-visualização)
+
+Com um fluxo de utilizador de inscrição de autosserviço, pode criar uma experiência de inscrição para utilizadores externos que pretendam aceder às suas apps. Como parte do fluxo de inscrição, pode fornecer opções para diferentes fornecedores de identidade social ou empresarial e recolher informações sobre o utilizador. Saiba mais sobre a inscrição de self-service e como configurar.
+
+![Screenshot mostrando a página de fluxos do utilizador](media/what-is-b2b/self-service-sign-up-user-flow-overview.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

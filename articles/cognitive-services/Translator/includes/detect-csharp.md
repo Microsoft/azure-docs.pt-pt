@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 0c263ed1f18ceaa2db976632ea31b9fe1eb47a93
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 513de6d990884f9abf2378ea208ec1dbe556d397
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "69907212"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587184"
 ---
 [!INCLUDE [Prerequisites](prerequisites-csharp.md)]
 
@@ -24,7 +24,7 @@ dotnet new console -o detect-sample
 cd detect-sample
 ```
 
-O primeiro comando faz duas coisas. Cria uma nova aplicação de consola .NET, e cria um diretório chamado `detect-sample`. O segundo comando muda para o diretório para o seu projeto.
+O primeiro comando faz duas coisas. Cria uma nova aplicação de consola .NET, e cria um diretório chamado `detect-sample` . O segundo comando muda para o diretório para o seu projeto.
 
 Em seguida, terá de instalar Json.Net. A partir do diretório do seu projeto, corra:
 
@@ -34,9 +34,9 @@ dotnet add package Newtonsoft.Json --version 11.0.2
 
 ## <a name="select-the-c-language-version"></a>Selecione a versão em língua C#
 
-Este quickstart requer C# 7.1 ou mais tarde. Existem algumas formas de alterar a versão C# para o seu projeto. Neste guia, vamos mostrar-lhe como `detect-sample.csproj` ajustar o ficheiro. Para todas as opções disponíveis, tais como alterar o idioma no Estúdio Visual, consulte [Selecione a versão em língua C#](https://docs.microsoft.com/dotnet/csharp/language-reference/configure-language-version).
+Este quickstart requer C# 7.1 ou mais tarde. Existem algumas formas de alterar a versão C# para o seu projeto. Neste guia, vamos mostrar-lhe como ajustar o `detect-sample.csproj` ficheiro. Para todas as opções disponíveis, tais como alterar o idioma no Estúdio Visual, consulte [Selecione a versão em língua C#](https://docs.microsoft.com/dotnet/csharp/language-reference/configure-language-version).
 
-Abra o seu `detect-sample.csproj`projeto e abra. Certifique-se `LangVersion` de que está definido para 7.1 ou mais tarde. Se não houver um grupo imobiliário para a versão linguística, adicione estas linhas:
+Abra o seu projeto e `detect-sample.csproj` abra. Certifique-se de que `LangVersion` está definido para 7.1 ou mais tarde. Se não houver um grupo imobiliário para a versão linguística, adicione estas linhas:
 
 ```xml
 <PropertyGroup>
@@ -46,7 +46,7 @@ Abra o seu `detect-sample.csproj`projeto e abra. Certifique-se `LangVersion` de 
 
 ## <a name="add-required-namespaces-to-your-project"></a>Adicione espaços de nome sinuosos necessários ao seu projeto
 
-O `dotnet new console` comando que dirigiu anteriormente `Program.cs`criou um projeto, incluindo. Este ficheiro é onde vai colocar o seu código de inscrição. Abra `Program.cs`e substitua os existentes usando declarações. Estas declarações garantem que tem acesso a todos os tipos necessários para construir e executar a aplicação de amostras.
+O `dotnet new console` comando que dirigiu anteriormente criou um projeto, incluindo. `Program.cs` Este ficheiro é onde vai colocar o seu código de inscrição. Abra `Program.cs` e substitua os existentes usando declarações. Estas declarações garantem que tem acesso a todos os tipos necessários para construir e executar a aplicação de amostras.
 
 ```csharp
 using System;
@@ -59,11 +59,11 @@ using Newtonsoft.Json;
 
 ## <a name="create-classes-for-the-json-response"></a>Criar aulas para a resposta json
 
-Em seguida, vamos criar uma classe que é usada ao desserializar a resposta JSON devolvida pela API de Texto tradutor.
+Em seguida, vamos criar uma classe que é usada quando desserializar a resposta JSON devolvida pelo Tradutor.
 
 ```csharp
 /// <summary>
-/// The C# classes that represents the JSON returned by the Translator Text API.
+/// The C# classes that represents the JSON returned by the Translator.
 /// </summary>
 public class DetectResult
 {
@@ -84,7 +84,7 @@ public class AltTranslations
 
 ## <a name="get-subscription-information-from-environment-variables"></a>Obtenha informações de subscrição de variáveis ambientais
 
-Adicione as seguintes `Program` linhas à aula. Estas linhas lêem a sua chave de subscrição e ponto final a partir de variáveis ambientais, e lança um erro se você encontrar algum problema.
+Adicione as seguintes linhas à `Program` aula. Estas linhas lêem a sua chave de subscrição e ponto final a partir de variáveis ambientais, e lança um erro se você encontrar algum problema.
 
 ```csharp
 private const string key_var = "TRANSLATOR_TEXT_SUBSCRIPTION_KEY";
@@ -109,7 +109,7 @@ static Program()
 
 ## <a name="create-a-function-to-detect-the-source-texts-language"></a>Criar uma função para detetar a linguagem do texto de origem
 
-Na `Program` aula, crie `DetectTextRequest()`uma função chamada . Esta classe encapsula o código usado para chamar o recurso Detect e imprime o resultado para consolar.
+Na `Program` aula, crie uma função chamada `DetectTextRequest()` . Esta classe encapsula o código usado para chamar o recurso Detect e imprime o resultado para consolar.
 
 ```csharp
 static public async Task DetectTextRequest(string subscriptionKey, string endpoint, string route, string inputText)
@@ -132,7 +132,7 @@ var requestBody = JsonConvert.SerializeObject(body);
 
 ## <a name="instantiate-the-client-and-make-a-request"></a>Instantie o cliente e faça um pedido
 
-Estas linhas instantaneamente `HttpClient` `HttpRequestMessage`o e o:
+Estas linhas instantaneamente o `HttpClient` e `HttpRequestMessage` o:
 
 ```csharp
 using (var client = new HttpClient())
@@ -144,7 +144,7 @@ using (var request = new HttpRequestMessage())
 
 ## <a name="construct-the-request-and-print-the-response"></a>Construir o pedido e imprimir a resposta
 
-Dentro `HttpRequestMessage` do seu vai:
+Dentro do `HttpRequestMessage` seu vai:
 
 * Declarar o método HTTP
 * Construa o pedido URI
@@ -153,7 +153,7 @@ Dentro `HttpRequestMessage` do seu vai:
 * Faça um pedido assíncrono
 * Imprimir a resposta
 
-Adicione este código `HttpRequestMessage`ao :
+Adicione este código ao `HttpRequestMessage` :
 
 ```csharp
 // Build the request.
@@ -187,11 +187,11 @@ foreach (DetectResult o in deserializedOutput)
 }
 ```
 
-Se estiver a utilizar uma subscrição multi-serviço `Ocp-Apim-Subscription-Region` de Serviços Cognitivos, também deve incluir os parâmetros do seu pedido. [Saiba mais sobre autenticação com a subscrição de vários serviços.](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)
+Se estiver a utilizar uma subscrição multi-serviço de Serviços Cognitivos, também deve incluir os `Ocp-Apim-Subscription-Region` parâmetros do seu pedido. [Saiba mais sobre autenticação com a subscrição de vários serviços.](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)
 
 ## <a name="put-it-all-together"></a>Juntar tudo
 
-O último passo `DetectTextRequest()` é `Main` chamar a função. Localize-o `static void Main(string[] args)` e substitua-o por este código:
+O último passo é chamar `DetectTextRequest()` a `Main` função. `static void Main(string[] args)`Localize-o e substitua-o por este código:
 
 ```csharp
 static async Task Main(string[] args)
@@ -270,7 +270,7 @@ Certifique-se de remover quaisquer informações confidenciais do código fonte 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Veja a referência da API para entender tudo o que pode fazer com a API de Texto tradutor.
+Veja a referência da API para entender tudo o que pode fazer com o Tradutor.
 
 > [!div class="nextstepaction"]
 > [Referência da API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

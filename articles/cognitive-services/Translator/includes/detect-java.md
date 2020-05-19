@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 9ce4b25d26c0294cf7618b5851c0956af7687ee7
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 4c10cbec8e22a383ed303b169551999a805f4db6
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71837553"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587186"
 ---
 [!INCLUDE [Prerequisites](prerequisites-java.md)]
 
@@ -24,7 +24,7 @@ mkdir detect-sample
 cd detect-sample
 ```
 
-A seguir, vais rubricar um projeto Gradle. Este comando criará ficheiros de construção essenciais para gradle, o mais importante, o `build.gradle.kts`, que é usado no tempo de execução para criar e configurar a sua aplicação. Execute este comando a partir do seu diretório de trabalho:
+A seguir, vais rubricar um projeto Gradle. Este comando criará ficheiros de construção essenciais para gradle, o mais importante, o , que é usado no tempo de `build.gradle.kts` execução para criar e configurar a sua aplicação. Execute este comando a partir do seu diretório de trabalho:
 
 ```console
 gradle init --type basic
@@ -34,7 +34,7 @@ Quando for solicitado a escolher um **DSL,** selecione **Kotlin**.
 
 ## <a name="configure-the-build-file"></a>Configure o ficheiro de construção
 
-Localize-o `build.gradle.kts` e abra-o com o seu IDE favorito ou editor de texto. Em seguida, copiar nesta configuração de construção:
+`build.gradle.kts`Localize-o e abra-o com o seu IDE favorito ou editor de texto. Em seguida, copiar nesta configuração de construção:
 
 ```
 plugins {
@@ -63,7 +63,7 @@ Vamos criar uma pasta para a sua aplicação de amostras. Do seu diretório de t
 mkdir -p src/main/java
 ```
 
-Em seguida, nesta pasta, `Detect.java`crie um ficheiro chamado .
+Em seguida, nesta pasta, crie um ficheiro chamado `Detect.java` .
 
 ## <a name="import-required-libraries"></a>Importação de bibliotecas necessárias
 
@@ -88,7 +88,7 @@ public class Detect {
 }
 ```
 
-Adicione estas linhas `Detect` à classe. Você vai notar que a chave de subscrição e o ponto final estão sendo lidos a partir de variáveis ambientais:
+Adicione estas linhas à `Detect` classe. Você vai notar que a chave de subscrição e o ponto final estão sendo lidos a partir de variáveis ambientais:
 
 ```java
 private static String subscriptionKey = System.getenv("TRANSLATOR_TEXT_SUBSCRIPTION_KEY");
@@ -96,11 +96,11 @@ private static String endpoint = System.getenv("TRANSLATOR_TEXT_ENDPOINT");
 String url = endpoint + "/detect?api-version=3.0";
 ```
 
-Se estiver a utilizar uma subscrição multi-serviço `Ocp-Apim-Subscription-Region` de Serviços Cognitivos, também deve incluir os parâmetros do seu pedido. [Saiba mais sobre autenticação com a subscrição de vários serviços.](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)
+Se estiver a utilizar uma subscrição multi-serviço de Serviços Cognitivos, também deve incluir os `Ocp-Apim-Subscription-Region` parâmetros do seu pedido. [Saiba mais sobre autenticação com a subscrição de vários serviços.](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)
 
 ## <a name="create-a-client-and-build-a-request"></a>Criar um cliente e construir um pedido
 
-Adicione esta linha `Detect` à classe `OkHttpClient`para instantaneamente:
+Adicione esta linha à `Detect` classe para instantaneamente: `OkHttpClient`
 
 ```java
 // Instantiates the OkHttpClient.
@@ -126,7 +126,7 @@ public String Post() throws IOException {
 
 ## <a name="create-a-function-to-parse-the-response"></a>Criar uma função para analisar a resposta
 
-Esta função simples analisa e prettifica a resposta JSON do serviço De Texto tradutor.
+Esta função simples analisa e prettifia a resposta JSON do serviço Tradutor.
 
 ```java
 // This function prettifies the json response.
@@ -202,7 +202,7 @@ Depois de executar a amostra, deve ver o seguinte impresso no terminal:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Veja a referência da API para entender tudo o que pode fazer com a API de Texto tradutor.
+Veja a referência da API para entender tudo o que pode fazer com o Tradutor.
 
 > [!div class="nextstepaction"]
 > [Referência da API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2bbfd0027f9de93ee939815853f5141044404c53
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: a0e3a2ddda4529cee584f5eabf6677af940d2bdd
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199496"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585900"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Redenção do convite de colaboração Azure Ative Directory B2B
 
@@ -99,7 +99,7 @@ Quando um hóspede entra para aceder a recursos numa organização parceira pela
 
    ![Screenshot mostrando novos termos de uso](media/redemption-experience/terms-of-use-accept.png) 
 
-   Pode configurar [termos de utilização](../governance/active-directory-tou.md) em **relações organizacionais** (ou **identidades externas)**> **Termos de utilização**.
+   Pode configurar [termos de utilização](../governance/active-directory-tou.md) em **identidades externas**  >  **Termos de utilização**.
 
 3. Salvo especificação em contrário, o hóspede é redirecionado para o painel de acesso apps, que lista as aplicações a que o hóspede pode aceder.
 

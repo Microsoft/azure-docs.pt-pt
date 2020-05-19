@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: b646f1994c83dba18b246dc3738729058ce6922d
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 1802a8d68030dbc882b4687cae28668f5a1e7a29
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "69907118"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587049"
 ---
 [!INCLUDE [Prerequisites](prerequisites-go.md)]
 
@@ -17,7 +17,7 @@ ms.locfileid: "69907118"
 
 ## <a name="create-a-project-and-import-required-modules"></a>Criar um projeto e importar os módulos exigidos
 
-Crie um novo projeto Go utilizando o seu IDE/editor favorito ou nova pasta no seu ambiente de trabalho. Em seguida, copie este fragmento de código `dictionaryLookup.go`no seu projeto/pasta num ficheiro chamado .
+Crie um novo projeto Go utilizando o seu IDE/editor favorito ou nova pasta no seu ambiente de trabalho. Em seguida, copie este fragmento de código no seu projeto/pasta num ficheiro chamado `dictionaryLookup.go` .
 
 ```go
 package main
@@ -35,7 +35,7 @@ import (
 
 ## <a name="create-the-main-function"></a>Criar a função principal
 
-Esta amostra tentará ler a chave de subscrição de `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` texto `TRANSLATOR_TEXT_ENDPOINT`tradutor e ponto final destas variáveis ambientais: e . Se não está familiarizado com variáveis ambientais, pode definir `subscriptionKey` e `endpoint` como cordas e comentar as declarações condicionais.
+Esta amostra tentará ler a chave de subscrição do Tradutor e o ponto final destas variáveis ambientais: `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` e `TRANSLATOR_TEXT_ENDPOINT` . Se não está familiarizado com variáveis ambientais, pode definir `subscriptionKey` e como cordas e comentar as `endpoint` declarações condicionais.
 
 Copie este código para o seu projeto:
 
@@ -67,7 +67,7 @@ func main() {
 
 ## <a name="create-a-function-to-get-alternate-translations"></a>Criar uma função para obter traduções alternativas
 
-Vamos criar uma função para obter traduções alternativas. Esta função terá um único argumento, a sua chave de subscrição de Texto tradutor.
+Vamos criar uma função para obter traduções alternativas. Esta função terá um único argumento, a sua chave de subscrição tradutor.
 
 ```go
 func dictionaryLookup(subscriptionKey string, uri string) {
@@ -78,9 +78,9 @@ func dictionaryLookup(subscriptionKey string, uri string) {
 }
 ```
 
-Em seguida, vamos construir a URL. O URL é `Parse()` construído `Query()` usando os e métodos. Vai notar que os parâmetros `Add()` são adicionados com o método. Nesta amostra, estamos a traduzir do inglês para o espanhol.
+Em seguida, vamos construir a URL. O URL é construído usando os `Parse()` `Query()` e métodos. Vai notar que os parâmetros são adicionados com o `Add()` método. Nesta amostra, estamos a traduzir do inglês para o espanhol.
 
-Copie este `altTranslations` código na função.
+Copie este código na `altTranslations` função.
 
 ```go
 // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
@@ -92,11 +92,11 @@ u.RawQuery = q.Encode()
 ```
 
 >[!NOTE]
-> Para obter mais informações sobre pontos finais, rotas e parâmetros de pedido, veja [API de Texto do Microsoft Translator 3.0: Pesquisa no Dicionário](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
+> Para mais informações sobre pontos finais, rotas e parâmetros de pedido, consulte [Tradutor 3.0: Dictionary Lookup](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
 
 ## <a name="create-a-struct-for-your-request-body"></a>Crie uma estrutura para o seu corpo de pedido
 
-Em seguida, crie uma estrutura anónima para o corpo `json.Marshal()`de pedido e codifique-a como JSON com . Adicione este código `altTranslations` à função.
+Em seguida, crie uma estrutura anónima para o corpo de pedido e codifique-a como JSON com `json.Marshal()` . Adicione este código à `altTranslations` função.
 
 ```go
 // Create an anonymous struct for your request body and encode it to JSON
@@ -110,7 +110,7 @@ b, _ := json.Marshal(body)
 
 ## <a name="build-the-request"></a>Criar o pedido
 
-Agora que codificou o órgão de pedido como JSON, pode construir o seu pedido de CORREIO e ligar para a API de Texto tradutor.
+Agora que codificou o corpo de pedidos como JSON, pode construir o seu pedido de correio, e ligar para o Tradutor.
 
 ```go
 // Build the HTTP POST request
@@ -122,18 +122,18 @@ if err != nil {
 req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
 req.Header.Add("Content-Type", "application/json")
 
-// Call the Translator Text API
+// Call the Translator
 res, err := http.DefaultClient.Do(req)
 if err != nil {
     log.Fatal(err)
 }
 ```
 
-Se estiver a utilizar uma subscrição multi-serviço `Ocp-Apim-Subscription-Region` de Serviços Cognitivos, também deve incluir os parâmetros do seu pedido. [Saiba mais sobre autenticação com a subscrição de vários serviços.](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)
+Se estiver a utilizar uma subscrição multi-serviço de Serviços Cognitivos, também deve incluir os `Ocp-Apim-Subscription-Region` parâmetros do seu pedido. [Saiba mais sobre autenticação com a subscrição de vários serviços.](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)
 
 ## <a name="handle-and-print-the-response"></a>Manuseie e imprima a resposta
 
-Adicione este código `altTranslations` à função para descodificar a resposta JSON e, em seguida, forte e imprima o resultado.
+Adicione este código à `altTranslations` função para descodificar a resposta JSON e, em seguida, forte e imprima o resultado.
 
 ```go
 // Decode the JSON response
@@ -148,7 +148,7 @@ fmt.Printf("%s\n", prettyJSON)
 
 ## <a name="put-it-all-together"></a>Juntar tudo
 
-Já está. Utilizámos um programa simples que irá chamar a API de Texto do Microsoft Translator e devolver uma resposta JSON. Agora, é altura de executar o seu programa:
+É isso, juntaste um programa simples que ligará ao Tradutor e devolverá uma resposta da JSON. Agora, é altura de executar o seu programa:
 
 ```console
 go run dictionaryLookup.go
@@ -219,7 +219,7 @@ Se quiser comparar o seu código com o nosso, o exemplo completo está disponív
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Veja a referência da API para entender tudo o que pode fazer com a API de Texto tradutor.
+Veja a referência da API para entender tudo o que pode fazer com o Tradutor.
 
 > [!div class="nextstepaction"]
 > [Referência da API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

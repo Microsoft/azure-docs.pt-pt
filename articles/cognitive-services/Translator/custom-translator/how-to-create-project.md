@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 5b3a6f2e903d8178554b7a076ae1277633569353
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e01f3ddde96903716cf1fcff0426791ff3a90e07
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73836573"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587668"
 ---
 # <a name="create-a-project"></a>Criar um projeto
 
@@ -52,7 +52,7 @@ A página de aterragem do Tradutor Personalizado mostra os primeiros 10 projetos
 
 Depois de selecionar um projeto, verá o seguinte na página do projeto:
 
-- CategoriaID: Um ID de categoria é criado através da concatenação do WorkspaceID, do rótulo do projeto e do código de categoria. Utiliza o Id de categoria com a API tradutorde texto para obter traduções personalizadas.
+- CategoriaID: Um ID de categoria é criado através da concatenação do WorkspaceID, do rótulo do projeto e do código de categoria. Utiliza o CategoryID com o Tradutor de Texto para obter traduções personalizadas.
 
 - Botão de trem: Utilize este botão para iniciar um [treino de um modelo](how-to-train-model.md).
 

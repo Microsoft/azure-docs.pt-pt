@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: spelluru
-ms.openlocfilehash: 126a6f2f26d8eaaf6ea1a85f029e56bc8f4432f3
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 7a60f761e4ee575e3196bb1ccd3baa42f27221f8
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996767"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588178"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Gerir laboratórios de salas de aula em Serviços de Laboratório Azure 
 Este artigo descreve como criar e apagar um laboratório de sala de aula. Também mostra como ver todos os laboratórios numa conta de laboratório. 
@@ -54,14 +54,14 @@ Para configurar um laboratório de sala de aula numa conta do laboratório, tem 
         > Registe o nome de utilizador e a palavra-passe. Estas não serão apresentadas novamente.
     3. Desative Utilize a **mesma palavra-passe para todas as máquinas virtuais** se quiser que os alunos desempenem as suas próprias palavras-passe. Este passo é **opcional.** 
 
-        Um professor pode optar por usar a mesma palavra-passe para todos os VMs do laboratório, ou permitir que os alunos desembotem senhas para os seus VMs. Por predefinição, esta definição está ativada para todas as imagens Windows e Linux, com exceção do Ubuntu. Ao selecionar **Ubuntu** VM, esta definição é desativada, pelo que os alunos serão solicitados a definir uma palavra-passe quando iniciarem o seu início.  
+        Um educador pode optar por usar a mesma palavra-passe para todos os VMs do laboratório, ou permitir que os alunos desembotem senhas para os seus VMs. Por predefinição, esta definição está ativada para todas as imagens Windows e Linux, com exceção do Ubuntu. Ao selecionar **Ubuntu** VM, esta definição é desativada, pelo que os alunos serão solicitados a definir uma palavra-passe quando iniciarem o seu início.  
 
         ![Nova janela de laboratório](../media/tutorial-setup-classroom-lab/virtual-machine-credentials.png)
     4. Em seguida, selecione **Next** na página de credenciais de **máquina virtual.** 
 5. Na página de políticas do **Laboratório,** faça os seguintes passos:
     1. Introduza o número de horas atribuídos a cada utilizador **(quota para cada utilizador**) fora da hora programada para o laboratório. 
     2. Para a opção **de encerramento automático de máquinas virtuais,** especifique se pretende que o VM seja desligado automaticamente quando o utilizador se desligar. Também pode especificar quanto tempo o VM deve esperar que o utilizador se reconecte antes de desligar automaticamente. Para obter mais informações, consulte [Ativar o encerramento automático de VMs na desconexão](how-to-enable-shutdown-disconnect.md).
-    3. Em seguida, selecione **Terminar**. 
+    3. Em seguida, selecione **Finish** (Concluir). 
 
         ![Quota para cada utilizador](../media/tutorial-setup-classroom-lab/quota-for-each-user.png)
     
@@ -103,7 +103,7 @@ Para configurar um laboratório de sala de aula numa conta do laboratório, tem 
 | ---- | ----- | --- | ----------- | 
 | Pequeno | 2 | 3,5 GB | Este tamanho é mais adequado para linha de comando, abertura do navegador web, servidores web de tráfego baixo, bases de dados pequenas a médias. |
 | Médio | 4 | 7 GB | Este tamanho é mais adequado para bases de dados relacionais, caches na memória e análise | 
-| Médio (virtualização aninhada) | 4 | 16 GB | Este tamanho é mais adequado para bases de dados relacionais, caches na memória e análise. Este tamanho também suporta a virtualização aninhada. <p>Este tamanho pode ser usado em cenários onde cada aluno precisa de vários VMs. Os professores podem usar a virtualização aninhada para configurar algumas máquinas virtuais aninhadas de pequena dimensão dentro da máquina virtual. </p> |
+| Médio (virtualização aninhada) | 4 | 16 GB | Este tamanho é mais adequado para bases de dados relacionais, caches na memória e análise. Este tamanho também suporta a virtualização aninhada. <p>Este tamanho pode ser usado em cenários onde cada aluno precisa de vários VMs. Os educadores podem usar a virtualização aninhada para configurar algumas máquinas virtuais aninhadas de pequena dimensão dentro da máquina virtual. </p> |
 | Pequena GPU (Computação) | 6 | 56 GB | <p>Este tamanho é mais adequado para aplicações intensivas de computação e de rede intensiva, como inteligência artificial e aplicações de aprendizagem profunda.</p><p>A Azure Lab Services instala e configura automaticamente os controladores GPU necessários para si quando cria um laboratório com imagens de GPU. </p> | 
 | Pequena GPU (Visualização) | 6 | 56 GB | Este tamanho é mais adequado para visualização remota, streaming, gaming, codificação usando quadros como OpenGL e DirectX. | 
 | Grande | 8 | 16 GB | Este tamanho é mais adequado para aplicações que precisam de CPUs mais rápido, melhor desempenho do disco local, grandes bases de dados, grandes caches de memória. |

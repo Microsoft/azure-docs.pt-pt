@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: f90ada6b6cd1760b3b779010625f252533fa611d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fe2c0eed2d476d01dffd22a61dd431140f26c475
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219513"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587251"
 ---
 # <a name="how-to-manage-settings"></a>Como gerir as definições
 
@@ -29,11 +29,11 @@ Para aceder à página de definições:
 
 ## <a name="associating-microsoft-translator-subscription"></a>Associar a subscrição do Tradutor da Microsoft
 
-É necessário ter uma chave de subscrição da Microsoft Tradutor Text API associada ao seu espaço de trabalho para treinar ou implementar modelos.
+Você precisa ter uma chave de assinatura tradutor associada com seu espaço de trabalho para treinar ou implementar modelos.
 
 Se não tiver uma subscrição, siga os passos abaixo:
 
-1. Subscreva a API de Texto do Tradutor da Microsoft. Este artigo mostra como subscrever a API de Texto do Tradutor da Microsoft.
+1. Inscreva-se no Tradutor. Este artigo mostra como subscrever o Tradutor.
 2. Note a chave para a subscrição do seu tradutor. Qualquer uma das Key1 ou Key2 são aceitáveis.
 3. Navegue de volta ao portal tradutor personalizado.
 

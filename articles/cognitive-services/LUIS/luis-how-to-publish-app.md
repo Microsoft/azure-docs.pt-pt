@@ -9,24 +9,23 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 05/07/2020
 ms.author: diberry
-ms.openlocfilehash: c91a3ca73d70dd5fd2848bed0f43f14a817087d7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b342c4319064bd00681c914585e541ab0bc3e17e
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80053442"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585662"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Publique a sua app ativa e treinada para um ponto final de encenação ou produção
 
-Quando terminar de construir, treinar e testar a sua aplicação ATIVE LUIS, disponibilize-a à sua aplicação de cliente publicando-a no ponto final. 
-
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
+Quando terminar de construir, treinar e testar a sua aplicação ATIVE LUIS, disponibilize-a à sua aplicação de cliente publicando-a no ponto final.
 
 ## <a name="publishing"></a>Publicar
-
-1. Para publicar no ponto final, **selecione Publicar** no painel superior, direito. 
+1. Inscreva-se no [portal LUIS](https://www.luis.ai)e selecione o seu recurso **De Subscrição** e **Autoria** para ver as aplicações atribuídas a esse recurso de autoria.
+1. Abra a sua aplicação selecionando o seu nome na página **My Apps.**
+1. Para publicar no ponto final, **selecione Publicar** no painel superior, direito.
 
     ![Publique botão em cima, barra de navegação direita](./media/luis-how-to-publish-app/publish-top-nav-bar.png)
 
@@ -36,21 +35,21 @@ Quando terminar de construir, treinar e testar a sua aplicação ATIVE LUIS, dis
 
 ### <a name="publishing-slots"></a>Slots de publicação
 
-Selecione a ranhura correta quando a janela pop-up aparecer: 
+Selecione a ranhura correta quando a janela pop-up aparecer:
 
 * Teste
-* Produção 
+* Produção
 
-Ao utilizar ambas as ranhuras de publicação, isto permite-lhe ter duas versões diferentes da sua aplicação disponíveis nos pontos finais publicados ou a mesma versão em dois pontos finais diferentes. 
+Ao utilizar ambas as ranhuras de publicação, isto permite-lhe ter duas versões diferentes da sua aplicação disponíveis nos pontos finais publicados ou a mesma versão em dois pontos finais diferentes.
 
 ### <a name="publishing-regions"></a>Regiões editoriais
 
-A aplicação é publicada em todas as regiões associadas aos recursos finais de previsão do LUIS adicionados no portal LUIS a partir da página **Gerir** -> **[Recursos Azure.](luis-how-to-azure-subscription.md#assign-a-resource-to-an-app)** 
+A aplicação é publicada em todas as regiões associadas aos recursos finais de previsão do LUIS adicionados no portal LUIS a partir da página **Gerir**  ->  **[Recursos Azure.](luis-how-to-azure-subscription.md#assign-a-resource-to-an-app)**
 
 Por exemplo, para uma aplicação criada na [www.luis.ai](https://www.luis.ai), se criar um recurso LUIS em duas regiões, **westus** e **eastus**- e adicioná-las à app como recursos, a app é publicada em ambas as regiões. Para mais informações sobre as regiões do LUIS, consulte [Regiões.](luis-reference-regions.md)
 
 > [!TIP]
-> Existem 3 regiões autorais. Deve ser autor na região a que pretende publicar. Se precisa de publicar em todas as regiões, precisa de gerir o seu processo de autoria e o modelo treinado resultante em todas as 3 regiões autorais. 
+> Existem 3 regiões autorais. Deve ser autor na região a que pretende publicar. Se precisa de publicar em todas as regiões, precisa de gerir o seu processo de autoria e o modelo treinado resultante em todas as 3 regiões autorais.
 
 
 ## <a name="configuring-publish-settings"></a>Configurar as definições de publicação
@@ -59,25 +58,25 @@ Depois de selecionar a ranhura, configure as definições de publicação para:
 
 * Análise de sentimentos
 * Correção ortográfica - ponto final de previsão v2 apenas
-* Preparação do discurso 
+* Preparação do discurso
 
-Depois de publicar, estas definições estão disponíveis para revisão a partir da página de **definições** da secção **Gerir.** Pode alterar as definições com cada publicação. Se cancelar uma publicação, as alterações que efizemos durante a publicação também são canceladas. 
+Depois de publicar, estas definições estão disponíveis para revisão a partir da página de **definições** da secção **Gerir.** Pode alterar as definições com cada publicação. Se cancelar uma publicação, as alterações que efizemos durante a publicação também são canceladas.
 
 ### <a name="when-your-app-is-published"></a>Quando a sua aplicação é publicada
 
-Quando a sua aplicação é publicada com sucesso, uma notificação de sucesso aparece no topo do navegador. A notificação também inclui um link para os pontos finais. 
+Quando a sua aplicação é publicada com sucesso, uma notificação de sucesso aparece no topo do navegador. A notificação também inclui um link para os pontos finais.
 
-Se precisar do URL do ponto final, selecione o link. Também pode chegar aos URLs de ponto final selecionando **Gerir** no menu superior e, em seguida, selecione **Os Recursos Azure** no menu esquerdo. 
+Se precisar do URL do ponto final, selecione o link. Também pode chegar aos URLs de ponto final selecionando **Gerir** no menu superior e, em seguida, selecione **Os Recursos Azure** no menu esquerdo.
 
 ## <a name="sentiment-analysis"></a>Análise de sentimentos
 
 <a name="enable-sentiment-analysis"></a>
 
-A análise de sentimento permite que a LUIS se integre com o [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) para fornecer sentimento e análise de frases-chave. 
+A análise de sentimento permite que a LUIS se integre com o [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) para fornecer sentimento e análise de frases-chave.
 
-Não tem de fornecer uma chave Text Analytics e não existe qualquer taxa de faturação para este serviço na sua conta Azure. 
+Não tem de fornecer uma chave Text Analytics e não existe qualquer taxa de faturação para este serviço na sua conta Azure.
 
-Os dados de sentimento são uma pontuação entre 1 e 0 indicando o sentimento positivo (mais próximo de 1) ou negativo (mais próximo de 0) dos dados. O rótulo `positive`de `neutral`sentimento `negative` de , e é por cultura apoiada. Atualmente, apenas o inglês suporta rótulos de sentimento. 
+Os dados de sentimento são uma pontuação entre 1 e 0 indicando o sentimento positivo (mais próximo de 1) ou negativo (mais próximo de 0) dos dados. O rótulo de sentimento de `positive` , e é por cultura `neutral` `negative` apoiada. Atualmente, apenas o inglês suporta rótulos de sentimento.
 
 Para mais informações sobre a resposta do ponto final da JSON com análise de sentimento, consulte [a análise](luis-concept-data-extraction.md#sentiment-analysis) do sentimento
 

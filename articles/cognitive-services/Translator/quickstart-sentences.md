@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Obtenha comprimentos de frase - Tradutor Texto API'
+title: 'Quickstart: Obtenha comprimentos de frase - Tradutor'
 titleSuffix: Azure Cognitive Services
-description: Neste arranque rápido, aprenderá a determinar o comprimento da frase usando a API de Texto tradutor.
+description: Neste início rápido, aprenderá como determinar o comprimento da frase usando o Tradutor.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,18 +11,18 @@ ms.topic: quickstart
 ms.date: 02/10/2020
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: b2569859a039739f2804a180be44e621421f0cd2
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: ca468993798c02c02380eeac7f68e4d3504ec1d8
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77525122"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586764"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length"></a>Quickstart: Utilize a API de texto de tradutor para determinar o comprimento da frase
+# <a name="quickstart-use-the-translator-to-determine-sentence-length"></a>Quickstart: Use o Tradutor para determinar o comprimento da frase
 
-Neste arranque rápido, aprenderá a determinar o comprimento das frases usando a API de Texto tradutor.
+Neste início rápido, aprenderá como determinar a duração das frases usando o Tradutor.
 
-Este início rápido requer uma [conta dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com um recurso de Tradução de Texto. Se não tiver uma conta, pode utilizar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/) para obter uma chave de subscrição.
+Este quickstart requer uma [conta de Serviços Cognitivos Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com recurso tradutor. Se não tiver uma conta, pode utilizar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/) para obter uma chave de subscrição.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# quickstart](includes/sentences-csharp.md)]
@@ -44,7 +44,7 @@ Este início rápido requer uma [conta dos Serviços Cognitivos do Azure](https:
 [!INCLUDE [Python quickstart](includes/sentences-python.md)]
 ::: zone-end
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [Traduzir texto](quickstart-translate.md)
 * [Transliterar texto](quickstart-transliterate.md)

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2019
 ms.author: spelluru
-ms.openlocfilehash: 0f45af2730b05998fc82212c63778c89bb16b6ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8ccad0698ea6560dd183cacc71f5f3a644e8220c
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73585080"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588110"
 ---
 # <a name="use-remote-desktop-for-linux-virtual-machines-in-a-classroom-lab-of-azure-lab-services"></a>Utilize o ambiente de trabalho remoto para máquinas virtuais Linux em um laboratório de sala de aula de Serviços de Laboratório Azure
 Este artigo mostra como os alunos podem ligar-se a uma máquina virtual Linux (VM) num laboratório utilizando RDP/SSH. 
@@ -29,9 +29,9 @@ Um instrutor precisa de ativar a funcionalidade de ligação remota de ambiente 
 > Ativar a **ligação remota** de ambiente de trabalho apenas abre a porta **RDP** nas máquinas Linux. Um instrutor pode ligar-se à máquina Linux utilizando o SSH pela primeira vez e instalar pacotes RDP e GUI para que possa ligar-se à máquina Linux utilizando RDP mais tarde. 
 
 ## <a name="connect-to-the-student-vm"></a>Ligue-se ao estudante VM
-Os alunos podem ser RDP nos seus VMs Linux depois do proprietário do laboratório (professor/professor) **publicar** o modelo VM com pacotes RDP e GUI instalados na máquina. Eis os passos: 
+Os alunos podem fazer RDP nos seus VMs Linux depois de o dono do laboratório (educador) **publicar** o modelo VM com pacotes RDP e GUI instalados na máquina. Eis os passos: 
 
-1. Quando um aluno entra diretamente no`https://labs.azure.com`portal labs ( ou`https://labs.azure.com/register/<registrationCode>`através de uma ligação de registo), é apresentado um azulejo para cada laboratório a que o aluno tem acesso. 
+1. Quando um aluno entra diretamente no portal labs ( ou através de uma ligação de `https://labs.azure.com` registo), é apresentado um azulejo para cada laboratório a que o aluno tem `https://labs.azure.com/register/<registrationCode>` acesso. 
 2. No azulejo, altere o botão para iniciar o VM se estiver em estado de paragem. 
 3. Selecione **Ligar**. Você vê duas opções para ligar ao VM: **SSH** e **Ambiente de Trabalho Remoto**.
 

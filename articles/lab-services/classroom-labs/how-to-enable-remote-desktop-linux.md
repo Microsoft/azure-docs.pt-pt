@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: spelluru
-ms.openlocfilehash: dfd16d0977504e598492225238d29c83fcb7a028
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: a40575340fc5b1c202be6b001807085954439f03
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82598067"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588161"
 ---
 # <a name="enable-remote-desktop-for-linux-virtual-machines-in-a-lab-in-azure-lab-services"></a>Ativar o ambiente de trabalho remoto para máquinas virtuais Linux em um laboratório em Serviços de Laboratório Azure
 Este artigo mostra-lhe como fazer as seguintes tarefas:
 
 - Ativar o ambiente de trabalho remoto para Linux VM
-- Como o professor pode ligar-se ao modelo VM através da Ligação remota de ambiente de trabalho (RDP).
+- Como um educador pode ligar-se ao modelo VM através da Ligação remota de ambiente de trabalho (RDP).
 
 ## <a name="enable-remote-desktop-for-linux-vm"></a>Ativar o ambiente de trabalho remoto para Linux VM
-Durante a criação do laboratório, os professores podem permitir **a ligação remota de ambiente** de trabalho para imagens **linux.** A opção **Enable Remote Desktop Connection** é mostrada quando uma imagem Linux é selecionada para o modelo. Quando esta opção está ativada, os professores podem ligar-se ao modelo VM e vMs dos alunos via RDP (Ambiente de Trabalho Remoto). 
+Durante a criação de laboratório, os educadores podem permitir **a ligação remota de ambiente** de trabalho para imagens **linux.** A opção **Enable Remote Desktop Connection** é mostrada quando uma imagem Linux é selecionada para o modelo. Quando esta opção está ativada, os educadores podem ligar-se ao modelo VM e aos VMs dos estudantes via RDP (Ambiente de Trabalho Remoto). 
 
 ![Ativar a ligação remota para o ambiente de trabalho para uma imagem linux](../media/how-to-enable-remote-desktop-linux/enable-rdp-option.png)
 
@@ -49,7 +49,7 @@ Atualmente, a ligação remota de ambiente de trabalho é suportada para os segu
 - Ubuntu Server 16.04 LTS
 
 ## <a name="connect-to-the-template-vm"></a>Ligar à VM do modelo 
-Os professores devem ligar-se ao modelo VM usando primeiro o SSH e instalar pacotes RDP e GUI nele. Em seguida, os professores podem usar RDP para ligar ao modelo VM: 
+Os educadores devem ligar-se ao modelo VM usando primeiro o SSH e instalar pacotes RDP e GUI nele. Em seguida, os educadores podem usar RDP para ligar ao modelo VM: 
 
 1. Se vir o **modelo Personalizar** na barra de ferramentas, selecione-o. Em seguida, selecione **Continuar** na caixa de diálogo do **modelo Personalizar.** Esta ação inicia o modelo VM.  
 

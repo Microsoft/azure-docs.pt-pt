@@ -4,14 +4,14 @@ description: Utilize modelos do Gestor de Recursos Azure para criar e configurar
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 05/08/2020
 ms.author: mjbrown
-ms.openlocfilehash: 501065875cafc035d491e606c016f3ad4dbfc5d4
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: a98aee61c3a330344b5b7fa0a5f7f53a65e5ecdb
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791634"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586155"
 ---
 # <a name="azure-resource-manager-templates-for-azure-cosmos-db"></a>Azure Resource Manager templates for Azure Cosmos DB (Modelos do Azure Resource Manager para o Azure Cosmos DB)
 
@@ -22,6 +22,7 @@ As seguintes tabelas incluem links para modelos de Gestor de Recursos Azure para
 |**Modelo**|**Descrição**|
 |---|---|
 |[Criar uma conta Azure Cosmos, base de dados, recipiente com entrada em escala automática](manage-sql-with-resource-manager.md#create-autoscale) | Este modelo cria uma conta Core (SQL) API em duas regiões, uma base de dados e um recipiente com entrada em escala automática. |
+|[Criar uma conta Azure Cosmos, base de dados, recipiente com loja analítica](manage-sql-with-resource-manager.md#create-analytical-store) | Este modelo cria uma conta API Core (SQL) numa região com um recipiente configurado com TTL analítico habilitado e opção de utilização manual ou de entrada de escala automática. |
 |[Criar uma conta Azure Cosmos, base de dados, recipiente com entrada padrão (manual)](manage-sql-with-resource-manager.md#create-manual) | Este modelo cria uma conta Core (SQL) API em duas regiões, uma base de dados e um recipiente com entrada padrão. |
 |[Criar uma conta Azure Cosmos, base de dados e contentor com um procedimento armazenado, gatilho e UDF](manage-sql-with-resource-manager.md#create-sproc) | Este modelo cria uma conta Core (SQL) API em duas regiões com um procedimento armazenado, gatilho e UDF para um recipiente. |
 |[Criar um ponto final privado para uma conta azure cosmos existente](how-to-configure-private-endpoints.md#create-a-private-endpoint-by-using-a-resource-manager-template) |  Este modelo cria um ponto final privado para uma conta API Azure Cosmos Core (SQL) existente numa rede virtual existente. |

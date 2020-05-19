@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial - Azure Synapse Analytics: Definição de trabalho de faísca para Synapse'
-description: Tutorial - Use o Azure Synapse Analytics para criar definições de trabalho spark, e submeta-as a uma piscina de faíscas synapse.
+title: 'Tutorial - Apache Spark para Azure Synapse Analytics: Definição de trabalho de Apache Spark para Synapse'
+description: Tutorial - Use o Azure Synapse Analytics para criar definições de trabalho spark, e submeta-as a uma Apache Spark para piscina Azure Synapse Analytics.
 author: hrasheed-msft
 ms.author: jejiang
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: d5443a2db6f4fecbd84ef51166f44c3a6e920aee
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5fc9dffaa73d195c842381b6682a00e9834c0fe7
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81422971"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587940"
 ---
 # <a name="tutorial-use-azure-synapse-analytics-to-create-apache-spark-job-definitions-for-synapse-spark-pools"></a>Tutorial: Use Azure Synapse Analytics para criar definições de trabalho apache Spark para piscinas de faíscas synapse
 
@@ -22,7 +22,7 @@ Este tutorial demonstra como usar o Azure Synapse Analytics para criar definiç�
 * Desenvolva e submeta uma definição de trabalho spark em uma piscina Synapse Spark.
 * Consulte os detalhes do trabalho após a submissão.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 >
@@ -47,7 +47,7 @@ Antes de submeter uma definição de trabalho spark, você precisa ser o Proprie
 
     ![A caixa de diálogo de submissão de faíscas](./media/apache-spark-job-definitions/create-new-filesystem.png)
 
-3. Abra, `sparkjob`clique no Controlo de **Acesso (IAM)** e, em seguida, clique em **Adicionar** e selecione Adicionar a atribuição de **funções**.
+3. Abra, clique no Controlo de `sparkjob` **Acesso (IAM)** e, em seguida, clique em **Adicionar** e selecione Adicionar a atribuição de **funções**.
 
     ![Clique no botão de submeter para submeter a definição de trabalho de faísca](./media/apache-spark-job-definitions/add-role-assignment-01.png)
 

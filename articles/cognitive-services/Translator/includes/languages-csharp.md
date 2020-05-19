@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: a7715577936b0e95392f2d561e4b492b20c9dbf5
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 4dbf9dddd46e38ae9b8cec3288bdacccb1ef1c78
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "69906953"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586898"
 ---
 [!INCLUDE [Prerequisites](prerequisites-csharp.md)]
 
@@ -24,7 +24,7 @@ dotnet new console -o languages-sample
 cd languages-sample
 ```
 
-O primeiro comando faz duas coisas. Cria uma nova aplicação de consola .NET, e cria um diretório chamado `languages-sample`. O segundo comando muda para o diretório para o seu projeto.
+O primeiro comando faz duas coisas. Cria uma nova aplicação de consola .NET, e cria um diretório chamado `languages-sample` . O segundo comando muda para o diretório para o seu projeto.
 
 Em seguida, terá de instalar Json.Net. A partir do diretório do seu projeto, corra:
 
@@ -34,7 +34,7 @@ dotnet add package Newtonsoft.Json --version 11.0.2
 
 ## <a name="add-required-namespaces-to-your-project"></a>Adicione espaços de nome sinuosos necessários ao seu projeto
 
-O `dotnet new console` comando que dirigiu anteriormente `Program.cs`criou um projeto, incluindo. Este ficheiro é onde vai colocar o seu código de inscrição. Abra `Program.cs`e substitua os existentes usando declarações. Estas declarações garantem que tem acesso a todos os tipos necessários para construir e executar a aplicação de amostras.
+O `dotnet new console` comando que dirigiu anteriormente criou um projeto, incluindo. `Program.cs` Este ficheiro é onde vai colocar o seu código de inscrição. Abra `Program.cs` e substitua os existentes usando declarações. Estas declarações garantem que tem acesso a todos os tipos necessários para construir e executar a aplicação de amostras.
 
 ```csharp
 using System;
@@ -45,7 +45,7 @@ using Newtonsoft.Json;
 
 ## <a name="get-endpoint-information-from-an-environment-variable"></a>Obtenha informações sobre ponto final de uma variável ambiental
 
-Adicione as seguintes `Program` linhas à aula. Estas linhas lêem a sua chave de subscrição e ponto final a partir de variáveis ambientais, e lança um erro se você encontrar algum problema.
+Adicione as seguintes linhas à `Program` aula. Estas linhas lêem a sua chave de subscrição e ponto final a partir de variáveis ambientais, e lança um erro se você encontrar algum problema.
 
 ```csharp
 private const string endpoint_var = "TRANSLATOR_TEXT_ENDPOINT";
@@ -62,7 +62,7 @@ static Program()
 
 ## <a name="create-a-function-to-get-a-list-of-languages"></a>Criar uma função para obter uma lista de idiomas
 
-Na `Program` aula, crie `GetLanguages`uma função chamada . Esta classe encapsula o código usado para chamar o recurso Idiomas e imprime o resultado para consolar.
+Na `Program` aula, crie uma função chamada `GetLanguages` . Esta classe encapsula o código usado para chamar o recurso Idiomas e imprime o resultado para consolar.
 
 ```csharp
 static void GetLanguages()
@@ -76,7 +76,7 @@ static void GetLanguages()
 
 ## <a name="set-the-route"></a>Definir a rota
 
-Adicione estas linhas `GetLanguages` à função.
+Adicione estas linhas à `GetLanguages` função.
 
 ```csharp
 string route = "/languages?api-version=3.0";
@@ -84,7 +84,7 @@ string route = "/languages?api-version=3.0";
 
 ## <a name="instantiate-the-client-and-make-a-request"></a>Instantie o cliente e faça um pedido
 
-Estas linhas instantaneamente `HttpClient` `HttpRequestMessage`o e o:
+Estas linhas instantaneamente o `HttpClient` e `HttpRequestMessage` o:
 
 ```csharp
 using (var client = new HttpClient())
@@ -96,7 +96,7 @@ using (var request = new HttpRequestMessage())
 
 ## <a name="construct-the-request-and-print-the-response"></a>Construir o pedido e imprimir a resposta
 
-Dentro `HttpRequestMessage` do seu vai:
+Dentro do `HttpRequestMessage` seu vai:
 
 * Declarar o método HTTP
 * Construa o pedido URI
@@ -104,7 +104,7 @@ Dentro `HttpRequestMessage` do seu vai:
 * Faça um pedido assíncrono
 * Imprimir a resposta
 
-Adicione este código `HttpRequestMessage`ao :
+Adicione este código ao `HttpRequestMessage` :
 
 ```csharp
 // Set the method to GET
@@ -119,7 +119,7 @@ Console.WriteLine(PrettyPrint(jsonResponse));
 Console.WriteLine("Press any key to continue.");
 ```
 
-Se estiver a utilizar uma subscrição multi-serviço `Ocp-Apim-Subscription-Region` de Serviços Cognitivos, também deve incluir os parâmetros do seu pedido. [Saiba mais sobre autenticação com a subscrição de vários serviços.](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)
+Se estiver a utilizar uma subscrição multi-serviço de Serviços Cognitivos, também deve incluir os `Ocp-Apim-Subscription-Region` parâmetros do seu pedido. [Saiba mais sobre autenticação com a subscrição de vários serviços.](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)
 
 Para imprimir a resposta com "Pretty Print" (formatação para a resposta), adicione esta função à sua classe Program:
 
@@ -132,7 +132,7 @@ static string PrettyPrint(string s)
 
 ## <a name="put-it-all-together"></a>Juntar tudo
 
-O último passo `GetLanguages()` é `Main` chamar a função. Localize `static void Main(string[] args)` e adicione estas linhas:
+O último passo é chamar `GetLanguages()` a `Main` função. Localize `static void Main(string[] args)` e adicione estas linhas:
 
 ```csharp
 GetLanguages();
@@ -241,7 +241,7 @@ Certifique-se de remover quaisquer informações confidenciais do código fonte 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Veja a referência da API para entender tudo o que pode fazer com a API de Texto tradutor.
+Veja a referência da API para entender tudo o que pode fazer com o Tradutor.
 
 > [!div class="nextstepaction"]
 > [Referência da API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
