@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 60a5d50b511fc9db02daa9b7e74eedfe40eeb7a5
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: c03a7b89fee188d8a22cfb8ddcd73920ce43f43a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/18/2020
-ms.locfileid: "82609906"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649151"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configure o seu app service ou app Funções Azure para usar login Azure AD
 
@@ -125,9 +125,34 @@ Pode registar clientes nativos para permitir a autenticação na Web API's hospe
 1. Após a criação do registo da aplicação, copie o valor do ID da **Aplicação (cliente).**
 1. Selecione **permissões API**  >  **Adicione uma permissão**  >  **As minhas APIs**.
 1. Selecione o registo de aplicações que criou anteriormente para a sua aplicação App Service. Se não vir o registo da aplicação, certifique-se de que adicionou o âmbito **de user_impersonation** em [Criar uma inscrição de aplicação no Azure AD para](#register)a sua app App Service .
-1. Selecione **user_impersonation**e, em seguida, selecione **Adicionar permissões**.
+1. Sob **permissões delegadas,** selecione **user_impersonation**, e, em seguida, selecione **Adicionar permissões**.
 
 Já configurou uma aplicação de cliente nativo que pode aceder à sua aplicação de Serviço de Aplicações em nome de um utilizador.
+
+## <a name="configure-a-daemon-client-application-for-service-to-service-calls"></a>Configure uma aplicação de cliente daemon para chamadas de serviço a serviço
+
+A sua aplicação pode adquirir um símbolo para chamar uma API Web hospedada na sua app De Serviço ou Função de Aplicação (não em nome de um utilizador). Este cenário é útil para aplicações daemon não interativas que executam tarefas sem um registo registado no utilizador. Usa a bolsa padrão de [credenciais](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md) de clientes OAuth 2.0.
+
+1. No [portal Azure,]selecione Registos de Aplicações **de Diretório Ativo**  >  **App registrations**  >  **Novo registo.**
+1. Na página do Registo de **uma aplicação,** insira um **Nome** para o registo da sua aplicação daemon.
+1. Para uma aplicação daemon, você não precisa de um Uri Redirecion para que possa manter isso vazio.
+1. Selecione **Criar**.
+1. Após a criação do registo da aplicação, copie o valor do ID da **Aplicação (cliente).**
+1. Selecione **Certificados & segredos**  >  **Novo segredo do cliente**  >  **Adicionar**. Copie o valor secreto do cliente mostrado na página. Não voltará a ser mostrado.
+
+Pode agora [solicitar um sinal de acesso utilizando o ID do cliente e o segredo](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#first-case-access-token-request-with-a-shared-secret) do cliente, definindo o parâmetro para o ID DE `resource` **Aplicação URI** da aplicação alvo. O token de acesso resultante pode então ser apresentado à app-alvo utilizando o cabeçalho de autorização padrão [OAuth 2.0](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#use-the-access-token-to-access-the-secured-resource), e a Autenticação/Autorização do Serviço de Aplicações validará e utilizará o símbolo como de costume para indicar agora que o chamador (uma aplicação neste caso, não um utilizador) é autenticado.
+
+Atualmente, isto permite que _qualquer_ aplicação de cliente no seu inquilino Azure AD solicite um token de acesso e autenticar a app alvo. Se também pretende impor _autorização_ para permitir apenas determinadas aplicações de clientes, deve realizar alguma configuração adicional.
+
+1. [Defina uma Função de Aplicação](../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md) no manifesto do registo da aplicação que representa o Serviço de Aplicações ou app 'Função' que pretende proteger.
+1. No registo da aplicação que representa o cliente que precisa de ser autorizado, selecione **permissões API**  >  **Adicione uma permissão**  >  **As minhas APIs**.
+1. Selecione o registo da aplicação que criou anteriormente. Se não vir o registo da aplicação, certifique-se de que [adicionou uma Função de Aplicação](../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md).
+1. Sob **permissões de Aplicação,** selecione a Função app que criou anteriormente e, em seguida, selecione **Adicionar permissões**.
+1. Certifique-se de clicar no **consentimento do administrador da Grant** para autorizar o pedido do cliente para solicitar a permissão.
+1. À semelhança do cenário anterior (antes de serem adicionadas quaisquer funções), pode agora [solicitar um sinal](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#first-case-access-token-request-with-a-shared-secret) de acesso para o mesmo alvo , e o sinal de acesso incluirá uma `resource` reclamação contendo as Funções de `roles` Aplicação que foram autorizadas para a aplicação do cliente.
+1. Dentro do código de aplicação target App Service ou Função, pode agora validar que as funções esperadas estão presentes no token (isto não é executado por Autenticação/Autorização do Serviço de Aplicação). Para mais informações, consulte [as reclamações dos utilizadores](app-service-authentication-how-to.md#access-user-claims)do Access.
+
+Já configurou uma aplicação de cliente daemon que pode aceder à sua aplicação App Service usando a sua própria identidade.
 
 ## <a name="next-steps"></a><a name="related-content"> </a>Passos seguintes
 

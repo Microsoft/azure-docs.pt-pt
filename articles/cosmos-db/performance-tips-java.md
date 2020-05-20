@@ -5,14 +5,14 @@ author: anfeldma-ms
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 9475fce054356606c09947721019a264143a716b
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 998155c2505277170518a62af4ae2481e217a1df
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982518"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650106"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-sync-java-sdk-v2"></a>Dicas de desempenho para Azure Cosmos DB Sync Java SDK v2
 
@@ -24,7 +24,7 @@ ms.locfileid: "82982518"
 > 
 
 > [!IMPORTANT]  
-> Este *não* é o mais recente Java SDK para Azure Cosmos DB! Considere utilizar o Azure Cosmos DB Java SDK v4 para o seu projeto. Para fazer upgrade, siga as instruções no guia [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) e no guia [Reator vs RxJava.](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) 
+> Este *não* é o mais recente Java SDK para Azure Cosmos DB! Você deve atualizar o seu projeto para [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md) e, em seguida, ler o guia de dicas de [desempenho](performance-tips-java-sdk-v4-sql.md)Do Azure Cosmos DB Java SDK v4 . Siga as instruções no guia [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) e no guia [Reator vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) para atualizar. 
 > 
 > Estas dicas de desempenho são apenas para Azure Cosmos DB Sync Java SDK v2. Por favor, veja as notas de [lançamento](sql-api-sdk-java.md) do Azure Cosmos DB Sync Java SDK v2 e o [repositório Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb) para obter mais informações.
 >
@@ -89,11 +89,11 @@ Então, se estás a perguntar"Como posso melhorar o meu desempenho na base de da
 
     Azure Cosmos DB Sync Java SDK versão 1.9.0 e acima suportam consultas paralelas, que lhe permitem consultar uma coleção dividida em paralelo. Para obter mais informações, consulte amostras de [código relacionadas](https://github.com/Azure/azure-documentdb-java/tree/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples) com o trabalho com os SDKs. Consultas paralelas são concebidas para melhorar a latência de consultas e a entrada sobre a sua congénere em série.
 
-    (a) ***Ajuste de\: afinaçãoMaxDegreeOfParallelism*** Consultas paralelas funcionam consultando várias divisórias paralelamente. No entanto, os dados de uma coleção individual de divisórias são recolhidos em série no que diz respeito à consulta. Assim, use [o conjuntoMaxDegreeOfParallelism](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedoptions.setmaxdegreeofparallelism) para definir o número de divisórias que têm a máxima chance de alcançar a consulta mais performante, desde que todas as outras condições do sistema permaneçam as mesmas. Se não souber o número de divisórias, pode utilizar o conjuntoMaxDegreeOfParallelismo para definir um número elevado, e o sistema escolhe o mínimo (número de divisórias, entrada fornecida pelo utilizador) como o grau máximo de paralelismo. 
+    (a) ***Ajuste de \: afinaçãoMaxDegreeOfParallelism*** Consultas paralelas funcionam consultando várias divisórias paralelamente. No entanto, os dados de uma coleção individual de divisórias são recolhidos em série no que diz respeito à consulta. Assim, use [o conjuntoMaxDegreeOfParallelism](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedoptions.setmaxdegreeofparallelism) para definir o número de divisórias que têm a máxima chance de alcançar a consulta mais performante, desde que todas as outras condições do sistema permaneçam as mesmas. Se não souber o número de divisórias, pode utilizar o conjuntoMaxDegreeOfParallelismo para definir um número elevado, e o sistema escolhe o mínimo (número de divisórias, entrada fornecida pelo utilizador) como o grau máximo de paralelismo. 
 
     É importante notar que as consultas paralelas produzem os melhores benefícios se os dados forem distribuídos uniformemente por todas as divisórias no que diz respeito à consulta. Se a coleção dividida for dividida de modo a que a toda ou a maioria dos dados devolvidos por uma consulta se concentrem em algumas divisórias (uma partição no pior dos casos), então o desempenho da consulta seria engarrafado por essas divisórias.
 
-    (b) ***Ajuste de\: afinaçãoMaxBufferedItemCount*** Consulta paralela foi projetada para antecipar resultados enquanto o lote atual de resultados está sendo processado pelo cliente. A pré-busca ajuda na melhoria geral da latência de uma consulta. setMaxBufferedItemCount limita o número de resultados pré-rebuscados. Ao definir o [conjuntoMaxBufferedItemCount](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedoptions.setmaxbuffereditemcount) para o número esperado de resultados devolvidos (ou um número superior), isto permite que a consulta receba o máximo benefício da pré-busca.
+    (b) ***Ajuste de \: afinaçãoMaxBufferedItemCount*** Consulta paralela foi projetada para antecipar resultados enquanto o lote atual de resultados está sendo processado pelo cliente. A pré-busca ajuda na melhoria geral da latência de uma consulta. setMaxBufferedItemCount limita o número de resultados pré-rebuscados. Ao definir o [conjuntoMaxBufferedItemCount](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedoptions.setmaxbuffereditemcount) para o número esperado de resultados devolvidos (ou um número superior), isto permite que a consulta receba o máximo benefício da pré-busca.
 
     A pré-busca funciona da mesma forma, independentemente do MaxDegreeOfParallelismo, e há um único tampão para os dados de todas as divisórias.  
 
@@ -107,7 +107,7 @@ Então, se estás a perguntar"Como posso melhorar o meu desempenho na base de da
 
 7. **Utilizar endereçobaseado em nome**
 
-    Utilize endereços baseados em nomes, onde as ligações têm o formato `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId`, em vez de SelfLinks (self),\_que têm o formato `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>` para evitar recuperar Os ResourceIds de todos os recursos utilizados para construir o link. Além disso, à medida que estes recursos são recriados (possivelmente com o mesmo nome), os caches podem não ajudar.
+    Utilize endereços baseados em nomes, onde as ligações têm o formato `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId` , em vez de SelfLinks \_ (self), que têm o formato `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>` para evitar recuperar Os ResourceIds de todos os recursos utilizados para construir o link. Além disso, à medida que estes recursos são recriados (possivelmente com o mesmo nome), os caches podem não ajudar.
 
    <a id="tune-page-size"></a>
 8. **Sintonize o tamanho da página para consultas/feeds de leitura para um melhor desempenho**
@@ -150,7 +150,7 @@ Então, se estás a perguntar"Como posso melhorar o meu desempenho na base de da
 
     A complexidade de uma consulta tem impacto na quantidade de unidades de pedido que são consumidas para uma operação. O número de predicados, a natureza dos predicados, o número de UDFs e a dimensão dos dados de origem todos influenciam o custo das operações de consulta.
 
-    Para medir o sobretempo de qualquer operação (criar, atualizar ou eliminar), inspecione o cabeçalho [x-ms-request-charge](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) (ou a propriedade equivalente requestCharge em [RecursosResponse\<T>](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.resourceresponse) ou [FeedResponse\<T>](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedresponse) para medir o número de unidades de pedido consumidas por estas operações.
+    Para medir o sobretempo de qualquer operação (criar, atualizar ou eliminar), inspecione o cabeçalho [x-ms-request-charge](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) (ou a propriedade equivalente requestCharge em [ResourceResponse \< T>](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.resourceresponse) ou [FeedResponse T \<>](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedresponse) para medir o número de unidades de pedido consumidas por estas operações.
 
 
     ### <a name="sync-java-sdk-v2-maven-commicrosoftazureazure-documentdb"></a><a id="syncjava2-requestcharge"></a>Sync Java SDK V2 (Maven com.microsoft.azure::azure-documentdb)

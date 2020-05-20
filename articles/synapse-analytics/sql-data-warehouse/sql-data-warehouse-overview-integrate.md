@@ -11,29 +11,29 @@ ms.date: 04/17/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 2f6e091b6e0285bea5fef9e4d0be40faec936c6b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 469fdf19f8c5fa511070f2d809d06829578c2131
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80633131"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653724"
 ---
-# <a name="integrate-other-services-with-a-sql-analytics-data-warehouse"></a>Integrar outros serviços com um armazém de dados SQL Analytics
+# <a name="integrate-other-services-with-a-synapse-sql-pool-data-warehouse"></a>Integrar outros serviços com uma piscina SYnapse SQL (armazém de dados)
 
-A capacidade SQL Analytics dentro do Azure Synapse Analytics permite aos utilizadores integrarem-se com muitos dos outros serviços em Azure. Utilizando o SQL Analytics, pode criar um armazém de dados através do seu recurso SQL Pool, que pode então utilizar vários serviços adicionais, alguns dos quais incluem:
+A capacidade de piscina SQL dentro do Azure Synapse Analytics permite aos utilizadores integrarem-se com muitos dos outros serviços em Azure. Utilizando o Synapse SQL, pode criar um armazém de dados através do seu recurso de piscina SQL, que pode então utilizar vários serviços adicionais, alguns dos quais incluem:
 
 * Power BI
 * Azure Data Factory
 * Azure Machine Learning
 * Azure Stream Analytics
 
-Para obter mais informações sobre os serviços de integração em todo o Azure, reveja o artigo parceiros de [integração.](sql-data-warehouse-partner-data-integration.md)
+Para obter mais informações sobre serviços de integração em todo o Azure, reveja o artigo parceiros de [integração.](sql-data-warehouse-partner-data-integration.md)
 
 ## <a name="power-bi"></a>Power BI
 
-A integração do Power BI permite combinar o poder computacional de um armazém de dados com o relatório dinâmico e visualização do Power BI. A integração do Power BI inclui atualmente:
+A integração do Power BI permite combinar o poder computacional de um armazém de dados com o relatório dinâmico e visualização do Power BI. Atualmente, a integração do Power BI inclui:
 
-* **Ligação Direta**: Uma ligação mais avançada com pushdown lógico contra um armazém de dados aprovisionado com piscina SQL. Pushdown fornece uma análise mais rápida em uma escala maior.
+* **Ligação Direta**: Uma ligação mais avançada com pushdown lógico contra um armazém de dados aprovisionado com piscina SQL. A propagação fornece uma análise mais rápida numa escala maior.
 * **Aberto em Power BI**: O botão 'Open in Power BI' passa informações de instância para Power BI para uma forma simplificada de se ligar.
 
 Para mais informações, consulte [Integrar com power bi](sql-data-warehouse-get-started-visualize-with-power-bi.md), ou a [documentação Power BI](https://powerbi.microsoft.com/blog/exploring-azure-sql-data-warehouse-with-power-bi/).

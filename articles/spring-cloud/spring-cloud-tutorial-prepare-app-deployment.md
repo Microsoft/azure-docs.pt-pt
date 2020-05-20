@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: brendm
-ms.openlocfilehash: 16cee333d52765755b732c4de4dd8a6e092a130d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0b630c746932696d51455653a6e6db8869f04863
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81731169"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657138"
 ---
 # <a name="prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Prepare uma aplicação java spring para implantação em Azure Spring Cloud
 
@@ -129,11 +129,24 @@ Para a versão 2.2 da Spring Boot adicione a seguinte dependência ao ficheiro P
 </dependency>
 ```
 
-## <a name="other-required-dependencies"></a>Outras dependências necessárias
+## <a name="other-recommended-dependencies-to-enable-azure-spring-cloud-features"></a>Outras dependências recomendadas para permitir funcionalidades da Nuvem de primavera Azure
 
-Para ativar as características incorporadas da Nuvem de primavera Azure, a sua aplicação deve incluir as seguintes dependências. Esta inclusão garante que a sua aplicação se coneja corretamente com cada componente.
+Para permitir as funcionalidades incorporadas da Nuvem de primavera Azure desde o registo de serviços até ao rastreio distribuído, também precisa de incluir as seguintes dependências na sua aplicação. Pode deixar cair algumas destas dependências se não precisar de funcionalidades correspondentes para as aplicações específicas.
 
-### <a name="enablediscoveryclient-annotation"></a>Anotação EnableDiscoveryClient
+### <a name="service-registry"></a>Registo de Serviços
+
+Para utilizar o serviço de registo de serviços azure gerido, inclua a `spring-cloud-starter-netflix-eureka-client` dependência do ficheiro pom.xml, como mostrado aqui:
+
+```xml
+    <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+    </dependency>
+```
+
+O ponto final do servidor de Registo de Serviços é automaticamente injetado como variáveis ambientais com a sua aplicação. As aplicações podem registar-se no servidor do Registo de Serviços e descobrir outros microserviços dependentes.
+
+#### <a name="enablediscoveryclient-annotation"></a>Anotação EnableDiscoveryClient
 
 Adicione a seguinte anotação ao código fonte da aplicação.
 ```java
@@ -159,22 +172,9 @@ public class GatewayApplication {
 }
 ```
 
-### <a name="service-registry-dependency"></a>Dependência do Registo de Serviços
+### <a name="distributed-configuration"></a>Configuração distribuída
 
-Para utilizar o serviço de registo de `spring-cloud-starter-netflix-eureka-client` serviços azure gerido, inclua a dependência do ficheiro pom.xml, como mostrado aqui:
-
-```xml
-    <dependency>
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-    </dependency>
-```
-
-O ponto final do servidor de Registo de Serviços é automaticamente injetado como variáveis ambientais com a sua aplicação. As aplicações podem registar-se no servidor do Registo de Serviços e descobrir outros microserviços dependentes.
-
-### <a name="distributed-configuration-dependency"></a>Dependência de Configuração Distribuída
-
-Para ativar a Configuração `spring-cloud-config-client` Distribuída, inclua a seguinte dependência na secção de dependências do seu ficheiro pom.xml:
+Para ativar a Configuração Distribuída, inclua a seguinte `spring-cloud-config-client` dependência na secção de dependências do seu ficheiro pom.xml:
 
 ```xml
 <dependency>
@@ -186,9 +186,9 @@ Para ativar a Configuração `spring-cloud-config-client` Distribuída, inclua a
 > [!WARNING]
 > Não especifique `spring.cloud.config.enabled=false` na configuração da sua saque. Caso contrário, a sua aplicação deixa de funcionar com o Config Server.
 
-### <a name="metrics-dependency"></a>Dependência de métricas
+### <a name="metrics"></a>Métricas
 
-Inclua `spring-boot-starter-actuator` a dependência na secção de dependências do seu ficheiro pom.xml, como mostrado aqui:
+Inclua a `spring-boot-starter-actuator` dependência na secção de dependências do seu ficheiro pom.xml, como mostrado aqui:
 
 ```xml
 <dependency>
@@ -199,9 +199,9 @@ Inclua `spring-boot-starter-actuator` a dependência na secção de dependência
 
  As métricas são periodicamente retiradas dos pontos finais JMX. Pode visualizar as métricas utilizando o portal Azure.
 
-### <a name="distributed-tracing-dependency"></a>Dependência de rastreio distribuído
+### <a name="distributed-tracing"></a>Rastreio distribuído
 
-Inclua `spring-cloud-starter-sleuth` as `spring-cloud-starter-zipkin` seguintes dependências na secção de dependências do seu ficheiro pom.xml:
+Inclua as `spring-cloud-starter-sleuth` `spring-cloud-starter-zipkin` seguintes dependências na secção de dependências do seu ficheiro pom.xml:
 
 ```xml
 <dependency>
@@ -216,7 +216,7 @@ Inclua `spring-cloud-starter-sleuth` as `spring-cloud-starter-zipkin` seguintes 
 
  Também precisa de permitir que um exemplo de Insights de Aplicação Azure funcione com a sua instância de serviço Azure Spring Cloud. Leia o [tutorial sobre rastreiodistribuído](spring-cloud-tutorial-distributed-tracing.md) para aprender a usar insights de aplicação com nuvem de primavera azure.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 * [Analisar registos e métricas de aplicações](https://docs.microsoft.com/azure/spring-cloud/diagnostic-services)
 * [Configurar o Servidor de Configuração](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-config-server)
 * [Use rastreio distribuído com nuvem de primavera azure](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-distributed-tracing)

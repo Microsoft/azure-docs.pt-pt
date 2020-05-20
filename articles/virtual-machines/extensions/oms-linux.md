@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: akjosh
-ms.openlocfilehash: 9ddac229fc38a91a8b97b24dc2807080b2295758
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 34dbde25106dbb82fb9548ad53f368230f2c728c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250559"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654407"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Log Analytics virtual machine extension for Linux (Extensão de máquina virtual do Log Analytics para Linux)
 
@@ -43,6 +43,7 @@ A tabela seguinte fornece um mapeamento da versão da extensão VM log Analytics
 
 | Versão de extensão VM Log Analytics Linux | Versão de pacote de pacote de agente de análise de log analytics | 
 |--------------------------------|--------------------------|
+| 1.13.9 | 1.13.3-3 |
 | 1.12.25 | [1.12.15-0](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.12.15-0) |
 | 1.11.15 | [1.11.0-9](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.11.0-9) |
 | 1.10.0 | [1.10.0-1](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.10.0-1) |
@@ -86,7 +87,7 @@ O Seguinte JSON mostra o esquema para a extensão do Agente de Análise de Log. 
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.7",
+    "typeHandlerVersion": "1.13",
     "autoUpgradeMinorVersion": true,
     "settings": {
       "workspaceId": "myWorkspaceId"
@@ -99,11 +100,11 @@ O Seguinte JSON mostra o esquema para a extensão do Agente de Análise de Log. 
 ```
 
 >[!NOTE]
->O esquema acima pressupõe que será colocado no nível raiz do modelo. Se colocá-lo dentro do recurso virtual `type` da `name` máquina no modelo, as propriedades e propriedades devem ser alteradas, como descrito [mais abaixo](#template-deployment).
+>O esquema acima pressupõe que será colocado no nível raiz do modelo. Se colocá-lo dentro do recurso virtual da máquina no modelo, as propriedades e propriedades `type` `name` devem ser alteradas, como descrito [mais abaixo](#template-deployment).
 
 ### <a name="property-values"></a>Valores patrimoniais
 
-| Nome | Valor / Exemplo |
+| Name | Valor / Exemplo |
 | ---- | ---- |
 | apiVersion | 2018-06-01 |
 | publicador | Microsoft.EnterpriseCloud.Monitoring |
@@ -119,7 +120,7 @@ As extensões VM azure podem ser implantadas com modelos de Gestor de Recursos A
 
 A configuração JSON para uma extensão virtual da máquina pode ser aninhada dentro do recurso virtual da máquina, ou colocada no nível raiz ou superior de um modelo JSON do Gestor de Recursos. A colocação da configuração JSON afeta o valor do nome e do tipo de recursos. Para mais informações, consulte o nome e o [tipo de definição para os recursos infantis.](../../azure-resource-manager/templates/child-resource-name-type.md) 
 
-O exemplo que se segue pressupõe que a extensão VM está aninhada dentro do recurso virtual da máquina. Ao nidificar o recurso de extensão, `"resources": []` o JSON é colocado no objeto da máquina virtual.
+O exemplo que se segue pressupõe que a extensão VM está aninhada dentro do recurso virtual da máquina. Ao nidificar o recurso de extensão, o JSON é colocado no `"resources": []` objeto da máquina virtual.
 
 ```json
 {

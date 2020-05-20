@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 284cf3792b85ce38b190290111aa70a51084d4f6
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 1d312417017676d0b0bc53e3e16e229e45f1aa17
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614853"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659426"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Criar um conjunto de anfitriões com o PowerShell
 
@@ -66,7 +66,7 @@ Pode criar uma máquina virtual de várias maneiras:
 
 - [Criar uma máquina virtual a partir de uma imagem da Galeria Azure](../../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
 - [Criar uma máquina virtual a partir de uma imagem gerida](../../virtual-machines/windows/create-vm-generalized-managed.md)
-- [Criar uma máquina virtual a partir de uma imagem não gerida](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image.md)
+- [Criar uma máquina virtual a partir de uma imagem não gerida](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
 
 >[!NOTE]
 >Se estiver a implementar uma máquina virtual utilizando o Windows 7 como o sistema operativo anfitrião, o processo de criação e implementação será um pouco diferente. Para mais detalhes, consulte [A implementação de uma máquina virtual do Windows 7 no Windows Virtual Desktop](deploy-windows-7-virtual-machine.md).

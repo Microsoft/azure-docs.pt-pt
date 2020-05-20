@@ -6,16 +6,16 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
-ms.date: 01/10/2020
-ms.openlocfilehash: f39b595adf249b7412cb9b6b48f86b6fbd2c5e1d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 05/14/2020
+ms.openlocfilehash: 87077eacd607acf4efbd660a1926daf15db7f7e5
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76263409"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653570"
 ---
-# <a name="run-apache-sqoop-jobs-by-using-azure-powershell-for-apache-hadoop-in-hdinsight"></a>Executar empregos Apache Sqoop usando Azure PowerShell para Apache Hadoop em HDInsight
+# <a name="run-apache-sqoop-jobs-with-azure-powershell-in-hdinsight"></a>Executar empregos Apache Sqoop com Azure PowerShell no HDInsight
 
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
@@ -33,7 +33,7 @@ Saiba como utilizar o Azure PowerShell para executar empregos Apache Sqoop no Az
 
 Da Colmeia ao Servidor SQL.
 
-Este exemplo exporta dados `hivesampletable` da `mobiledata` tabela Da Colmeia para a tabela na Base de Dados SQL. Desloque os valores para as variáveis abaixo e, em seguida, execute o comando.
+Este exemplo exporta dados da tabela Da Colmeia para a tabela na Base de `hivesampletable` `mobiledata` Dados SQL. Desloque os valores para as variáveis abaixo e, em seguida, execute o comando.
 
 ```powershell
 $hdinsightClusterName = ""
@@ -92,11 +92,11 @@ New-AzHDInsightSqoopJobDefinition `
         -DisplayOutputType StandardOutput
     ```
 
-Se receber a mensagem `The specified blob does not exist.`de erro, tente novamente após alguns minutos.
+Se receber a mensagem de erro, `The specified blob does not exist.` tente novamente após alguns minutos.
 
 ## <a name="sqoop-import"></a>Importação de Sqoop
 
-Do Servidor SQL ao Armazenamento Azure. Este exemplo importa dados `mobiledata` da tabela na Base `wasb:///tutorials/usesqoop/importeddata` de Dados SQL, para o diretório no HDInsight. Os campos dos dados são separados por um caracteres de separador, e as linhas são terminadas por um personagem de linha nova. Este exemplo pressupõe que tenha completado o exemplo anterior.
+Do Servidor SQL ao Armazenamento Azure. Este exemplo importa dados da tabela na Base de `mobiledata` Dados SQL, para o `wasb:///tutorials/usesqoop/importeddata` diretório no HDInsight. Os campos dos dados são separados por um caracteres de separador, e as linhas são terminadas por um personagem de linha nova. Este exemplo pressupõe que tenha completado o exemplo anterior.
 
 ```powershell
 $sqoopCommand = "import --connect $connectionString --table mobiledata --target-dir wasb:///tutorials/usesqoop/importeddata --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1"
@@ -126,9 +126,9 @@ Get-AzHDInsightJobOutput `
 
 ## <a name="additional-sqoop-export-example"></a>Exemplo adicional de exportação de Sqoop
 
-Este é um exemplo robusto `/tutorials/usesqoop/data/sample.log` que exporta dados da conta de armazenamento `log4jlogs` padrão, e depois importa-os para uma tabela chamada numa base de dados do SQL Server. Este exemplo não depende dos exemplos anteriores.
+Este é um exemplo robusto que exporta dados da conta de `/tutorials/usesqoop/data/sample.log` armazenamento padrão, e depois importa-os para uma tabela chamada numa base de `log4jlogs` dados do SQL Server. Este exemplo não depende dos exemplos anteriores.
 
-O seguinte script PowerShell pré-processa o ficheiro fonte e exporta-o `log4jlogs`para uma Base de Dados Azure SQL para a mesa . Substitua, `CLUSTERNAME` `CLUSTERPASSWORD` `SQLPASSWORD` e com os valores utilizados a partir do pré-requisito.
+O seguinte script PowerShell pré-processa o ficheiro fonte e exporta-o para uma Base de Dados Azure SQL para a mesa `log4jlogs` . `CLUSTERNAME`Substitua, e com os `CLUSTERPASSWORD` `SQLPASSWORD` valores utilizados a partir do pré-requisito.
 
 ```powershell
 <#------ BEGIN USER INPUT ------#>
@@ -273,7 +273,7 @@ HDInsight baseado em Linux apresenta as seguintes limitações:
 
 * Exportação a granel: O conector Sqoop que é usado para exportar dados para o Microsoft SQL Server ou Azure SQL Database não suporta atualmente inserções a granel.
 
-* Loteamento: Ao `-batch` utilizar o interruptor quando executa as inserções, o Sqoop executa várias inserções em vez de emlotar as operações de inserção.
+* Loteamento: Ao utilizar o `-batch` interruptor quando executa as inserções, o Sqoop executa várias inserções em vez de emlotar as operações de inserção.
 
 ## <a name="next-steps"></a>Passos seguintes
 

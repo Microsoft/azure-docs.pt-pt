@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/11/2020
+ms.date: 05/15/2020
 ms.author: memildin
-ms.openlocfilehash: bfe1e5d6a0c4171a262b36387f02be356fb1d72d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: f71bffd1db023ece19071bb8f71ec49a855e828b
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83210899"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654659"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Quais as novidades no Centro de Segurança Azure?
 
@@ -31,6 +31,36 @@ Esta página é atualizada regularmente, por isso revisite-a com frequência. Se
 
 
 ## <a name="may-2020"></a>Maio de 2020
+
+
+### <a name="alert-suppression-rules-preview"></a>Regras de supressão de alerta (pré-visualização)
+
+Esta nova funcionalidade (atualmente em pré-visualização) ajuda a reduzir a fadiga do alerta. Utilize regras para ocultar automaticamente alertas que são conhecidos por serem inócuos ou relacionados com atividades normais na sua organização. Isto permite-lhe concentrar-se nas ameaças mais relevantes. 
+
+Os alertas que correspondam às suas regras de supressão ativadas continuarão a ser gerados, mas o seu estado será descartado. Pode ver o estado no portal Azure ou no que tiver acesso aos seus alertas de segurança do Security Center.
+
+As regras de supressão definem os critérios para os quais os alertas devem ser automaticamente rejeitados. Normalmente, usaria uma regra de supressão para:
+
+- suprimir alertas que identificou como falsos positivos
+
+- suprimir alertas que estão sendo desencadeados demasiadas vezes para ser útil
+
+[Saiba mais sobre a supressão de alertas da proteção contra ameaças do Azure Security Center.](alerts-suppression-rules.md)
+
+
+### <a name="virtual-machine-vulnerability-assessment-is-now-generally-available"></a>A avaliação da vulnerabilidade virtual da máquina está agora geralmente disponível
+
+O nível padrão do Security Center agora inclui uma avaliação de vulnerabilidade incorporada para máquinas virtuais sem qualquer taxa adicional. Esta extensão é alimentada pela Qualys, mas reporta as suas descobertas diretamente ao Centro de Segurança. Não precisas de uma licença qualys ou mesmo de uma conta qualys- tudo é manuseado sem problemas dentro do Centro de Segurança.
+
+A nova solução pode digitalizar continuamente as suas máquinas virtuais para encontrar vulnerabilidades e apresentar as descobertas no Centro de Segurança. 
+
+Para implementar a solução, utilize a nova recomendação de segurança:
+
+"Permitir a solução de avaliação de vulnerabilidade incorporada em máquinas virtuais (alimentada por Qualys)"
+
+[Saiba mais](built-in-vulnerability-assessment.md).
+
+
 
 ### <a name="changes-to-just-in-time-jit-virtual-machine-vm-access"></a>Alterações no acesso à máquina virtual (VM) just-in-time (VM)
 
@@ -67,22 +97,40 @@ Os controlos de segurança - e este alternância - fazem parte da nova experiên
 Saiba mais sobre os controlos de segurança na [pontuação segura melhorada (pré-visualização) no Centro de Segurança Azure](secure-score-security-controls.md).
 
 
-### <a name="account-security-recommendations-moved-to-security-best-practices-security-control"></a>Recomendações de segurança da conta transferidas para o controlo de segurança das "boas práticas de segurança"
+### <a name="expanded-security-control-implement-security-best-practices"></a>Controlo de segurança alargado "Implementar as melhores práticas de segurança" 
 
-Um dos controlos de segurança introduzidos com a pontuação segura reforçada é "As melhores práticas de segurança". Quando uma recomendação está neste controlo, não afeta a pontuação segura. 
+Um dos controlos de segurança introduzidos com a pontuação segura reforçada é "Implementar as melhores práticas de segurança". Quando uma recomendação está neste controlo, não afeta a pontuação segura. 
 
 Com esta atualização, três recomendações saíram dos controlos em que foram inicialmente colocadas, e para este controlo das melhores práticas. Demos este passo porque determinámos que o risco destas três recomendações é menor do que se pensava inicialmente.
 
-As recomendações são:
+Além disso, foram introduzidas e acrescentadas a este controlo duas novas recomendações.
 
-- O MFA deve ser ativado em contas com permissões de leitura na sua subscrição (originalmente no controlo "Enable MFA")
-- As contas externas com permissões de leitura devem ser removidas da sua subscrição (originalmente no controlo "Gerir o acesso e as permissões")
-- Um máximo de 3 proprietários deve ser designado para a sua subscrição (originalmente no controlo "Gerir o acesso e as permissões")
+As três recomendações que se moviam são:
+
+- **O MFA deve ser ativado em contas com permissões de leitura na sua subscrição** (originalmente no controlo "Enable MFA")
+- **As contas externas com permissões de leitura devem ser removidas da sua subscrição** (originalmente no controlo "Gerir o acesso e as permissões")
+- **Um máximo de 3 proprietários deve ser designado para a sua subscrição** (originalmente no controlo "Gerir o acesso e as permissões")
+
+As duas novas recomendações adicionadas ao controlo são:
+
+- **[Pré-visualização]** O agente de configuração do hóspede deve ser instalado - A configuração de hóspedes da [política azure](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration) fornece visibilidade dentro de máquinas virtuais para configurações de servidor e aplicação (apenas windows).
+
+- **[Pré-visualização]** O guarda de exploração do Windows deve ser ativado - o Windows Defender Exploit Guard aproveita o agente de configuração de hóspedes da política Azure. A Exploit Guard tem quatro componentes que são projetados para bloquear dispositivos contra uma grande variedade de vetores de ataque e comportamentos de bloqueio comumente usados em ataques de malware, permitindo às empresas equilibrar os seus requisitos de risco de segurança e produtividade (apenas windows).
+
+Saiba mais sobre o Windows Defender Exploit Guard em [Create e implemente uma política de Exploit Guard](https://docs.microsoft.com/mem/configmgr/protect/deploy-use/create-deploy-exploit-guard-policy).
 
 Saiba mais sobre os controlos de segurança na [pontuação segura melhorada (pré-visualização) no Centro de Segurança Azure](secure-score-security-controls.md).
 
 
-### <a name="custom-policies-with-custom-metadata-generally-available"></a>Políticas personalizadas com metadados personalizados geralmente disponíveis
+
+
+
+
+
+
+
+
+### <a name="custom-policies-with-custom-metadata-are-now-generally-available"></a>As políticas personalizadas com metadados personalizados estão agora geralmente disponíveis
 
 As políticas personalizadas fazem agora parte da experiência de recomendações do Security Center, pontuação segura e o dashboard de normas de conformidade regulamentar. Esta funcionalidade está agora geralmente disponível e permite-lhe alargar a cobertura de avaliação de segurança da sua organização no Security Center. 
 
@@ -95,7 +143,7 @@ Saiba mais sobre o reforço das [suas recomendações personalizadas com informa
 
 ## <a name="april-2020"></a>Abril de 2020
 
-### <a name="dynamic-compliance-packages-now-generally-available"></a>Pacotes dinâmicos de conformidade agora disponíveis
+### <a name="dynamic-compliance-packages-are-now-generally-available"></a>Pacotes dinâmicos de conformidade estão agora geralmente disponíveis
 
 O painel de conformidade regulamentar do Azure Security Center inclui agora **pacotes dinâmicos** de conformidade (agora geralmente disponíveis) para acompanhar normas adicionais da indústria e regulamentares.
 
@@ -197,7 +245,7 @@ Estas recomendações deixarão de figurar na lista de recomendações do Centro
 
 ## <a name="february-2020"></a>Fevereiro de 2020
 
-### <a name="fileless-attack-detection-for-linux-is-now-in-preview"></a>Deteção de ataque sem ficheiros para linux está agora em pré-visualização
+### <a name="fileless-attack-detection-for-linux-preview"></a>Deteção de ataque sem ficheiros para Linux (pré-visualização)
 
 À medida que os atacantes aumentam empregam métodos mais furtivos para evitar a deteção, o Azure Security Center está a alargar a deteção de ataques sem ficheiros para o Linux, além do Windows. Os ataques sem ficheiroexploram vulnerabilidades de software, injetam cargas maliciosas em processos benignos do sistema e escondem-se na memória. Estas técnicas:
 
@@ -209,7 +257,7 @@ Para combater esta ameaça, o Azure Security Center divulgou a deteção de ataq
 
 ## <a name="january-2020"></a>Janeiro de 2020
 
-### <a name="enhanced-secure-score"></a>Pontuação segura melhorada
+### <a name="enhanced-secure-score-preview"></a>Pontuação segura melhorada (pré-visualização)
 
 Uma versão melhorada da funcionalidade de pontuação segura do Azure Security Center está agora disponível na pré-visualização. Nesta versão, várias recomendações são agrunadas em Controlos de Segurança que melhor refletem as suas superfícies de ataque vulneráveis (por exemplo, restringir o acesso a portas de gestão).
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 02/11/2020
 ms.author: mansha
 author: manishmsfte
-ms.openlocfilehash: 9713d963978e34ad874dc032676a6e1f14e4657c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 248860ad6963fcd04526f0d94e52d6a6181463c5
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77210947"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657353"
 ---
 # <a name="migrate-from-couchbase-to-azure-cosmos-db-sql-api"></a>Migrar da CouchBase para a Azure Cosmos DB SQL API
 
@@ -186,7 +186,7 @@ Consultas N1QL é a maneira de definir consultas na Base de Sofá.
 
 |Consulta N1QL | Consulta Azure CosmosDB|
 |-------------------|-------------------|
-|SELECT`TravelDocument`META(.id AS `TravelDocument`id, `TravelDocument` `_type` .* FROM WHERE = "com.xx.xx.xx.xx.xxx.xxx.xxxx" e país = 'Índia' e ANY m em Vistos SATISFIES m.type == 'Multi-Entry' e m.Country IN ['Índia', Butão'] ORDEM BY ` Validity` DESC LIMIT 25 OFFSET 0   | SELECT c.id,c FROM c JOIN m in c.country='India' WHERE c._type = " com.xx.xx.xx.xx.xxx.xxx.xxxx" e c.country = 'Índia' e m.type = 'Multi-Entry' e m.Country IN ('Índia', 'Butão') ORDER BY c.Validade DESC OFFSET 0 LIMIT 25 |
+|SELECT `TravelDocument` META(.id AS id, `TravelDocument` .* FROM `TravelDocument` WHERE = `_type` "com.xx.xx.xx.xx.xxx.xxx.xxxx" e país = 'Índia' e ANY m em Vistos SATISFIES m.type == 'Multi-Entry' e m.Country IN ['Índia', Butão'] ORDEM BY ` Validity` DESC LIMIT 25 OFFSET 0   | SELECT c.id,c FROM c JOIN m in c.country='India' WHERE c._type = " com.xx.xx.xx.xx.xxx.xxx.xxxx" e c.country = 'Índia' e m.type = 'Multi-Entry' e m.Country IN ('Índia', 'Butão') ORDER BY c.Validade DESC OFFSET 0 LIMIT 25 |
 
 Pode notar as seguintes alterações nas suas consultas N1QL:
 
@@ -211,7 +211,7 @@ Utilize o SDK Async Java com os seguintes passos:
    </dependency>
    ```
 
-1. Crie um objeto de ligação para `ConnectionBuilder` o Azure Cosmos DB utilizando o método como mostrado no exemplo seguinte. Certifique-se de que coloca esta declaração no feijão de modo a que o seguinte código seja executado apenas uma vez:
+1. Crie um objeto de ligação para o Azure Cosmos DB utilizando o `ConnectionBuilder` método como mostrado no exemplo seguinte. Certifique-se de que coloca esta declaração no feijão de modo a que o seguinte código seja executado apenas uma vez:
 
    ```java
    ConnectionPolicy cp=new ConnectionPolicy();
@@ -314,49 +314,33 @@ Este é um tipo simples de carga de trabalho em que você pode realizar procuras
     
    ```json
    {
-       "indexingMode": "consistent",
-       "includedPaths": 
-       [
-           {
-            "path": "/*",
-            "indexes": 
-             [
-                {
-                  "kind": "Range",
-                  "dataType": "Number"
-                },
-                {
-                  "kind": "Range",
-                  "dataType": "String"
-                },
-                {
-                   "kind": "Spatial",
-                   "dataType": "Point"
-                }
-             ]
-          }
-       ],
-       "excludedPaths": 
-       [
-         {
-             "path": "/path/to/single/excluded/property/?"
-         },
-         {
-             "path": "/path/to/root/of/multiple/excluded/properties/*"
-         }
-      ]
-   }
+    "indexingMode": "consistent",
+    "automatic": true,
+    "includedPaths": [
+        {
+            "path": "/*"
+        }
+    ],
+    "excludedPaths": [
+        {
+            "path": "/\"_etag\"/?"
+        }
+    ]
+    }
    ````
 
    Substitua a política de indexação acima pela seguinte política:
 
    ```json
    {
-       "indexingMode": "none"
-   }
+    "indexingMode": "none",
+    "automatic": false,
+    "includedPaths": [],
+    "excludedPaths": []
+    }
    ```
 
-1. Utilize o seguinte fragmento de código para criar o objeto de ligação. Objeto de ligação @Bean (a ser colocado ou estática):
+1. Utilize o seguinte fragmento de código para criar o objeto de ligação. Objeto de ligação (a ser colocado @Bean ou estática):
 
    ```java
    ConnectionPolicy cp=new ConnectionPolicy();

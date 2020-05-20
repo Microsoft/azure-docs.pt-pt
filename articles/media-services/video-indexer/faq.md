@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 05/12/2020
 ms.author: juliako
-ms.openlocfilehash: dc57978dd881532cab59150dec921df9ffa958c3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bb57af37308badcd3123af3348178aaac061f376
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81767212"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652176"
 ---
 # <a name="video-indexer-frequently-asked-questions"></a>Indexer de vídeo frequentemente fez perguntas
 
@@ -88,7 +88,7 @@ Pode ver quais as regiões azure Video Indexer estão disponíveis na página da
 
 ### <a name="can-i-customize-video-indexer-models-for-my-specific-use-case"></a>Posso personalizar os modelos do Indexer de Vídeo para o meu caso de uso específico? 
 
-Sim. No Indexer de Vídeo pode personalizar alguns dos modelos disponíveis para melhor se adaptar às suas necessidades. 
+Yes. No Indexer de Vídeo pode personalizar alguns dos modelos disponíveis para melhor se adaptar às suas necessidades. 
 
 Por exemplo, o nosso modelo Pessoa suporta 1.000.000 rostos fora da caixa de reconhecimento de celebridades, mas também pode treiná-lo para reconhecer outras faces que não estão nessa base de dados. 
 
@@ -96,9 +96,13 @@ Para mais detalhes, consulte artigos sobre personalizar modelos [pessoa,](custom
 
 ###  <a name="can-i-edit-the-videos-in-my-library"></a>Posso editar os vídeos na minha biblioteca?
 
-Sim. Prima o botão de vídeo de **edição** a partir do ecrã da biblioteca ou o botão **de editor aberto** do ecrã do leitor para chegar ao separador **Projetos.** Pode criar um novo projeto e adicionar mais vídeos da sua biblioteca para editá-los juntos, uma vez que esteja feito, pode rendero seu vídeo e download. 
+Yes. Prima o botão de vídeo de **edição** a partir do ecrã da biblioteca ou o botão **de editor aberto** do ecrã do leitor para chegar ao separador **Projetos.** Pode criar um novo projeto e adicionar mais vídeos da sua biblioteca para editá-los juntos, uma vez que esteja feito, pode rendero seu vídeo e download. 
 
 Se quiser obter informações sobre o seu novo vídeo, indexe-o com o Indexer de Vídeo e aparecerá na sua biblioteca com as suas ideias.
+
+### <a name="can-i-index-multiple-audio-streams-or-channels"></a>Posso indexar vários fluxos de áudio ou canais?
+
+Se houver vários fluxos de áudio, o Indexer de Vídeo leva o primeiro que encontra e processa apenas este fluxo. Em qualquer processo do Indexer de vídeo de fluxo de áudio, pega nos diferentes canais (se presentes) e processa-os juntos como mono. Para manipulação de fluxos/canais, pode utilizar comandos ffmpeg no ficheiro antes de indexá-lo.
 
 ### <a name="what-is-the-sla-for-video-indexer"></a>O que é o SLA para Indexer de Vídeo?
 
@@ -213,4 +217,4 @@ Sim, o Video Indexer oferece um teste gratuito que oferece serviço completo e f
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Descrição Geral](video-indexer-overview.md)
+[Descrição geral](video-indexer-overview.md)

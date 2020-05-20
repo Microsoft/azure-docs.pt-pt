@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: f948d813ddb4d493b455a4922818e38ac3fd6eaa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c1a9f3e76622523dde03cc2a639cce33227dff5f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81259175"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649213"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Como guardar e configurar a sua configuração do serviço de Gestão de API com Git
 
@@ -31,7 +31,7 @@ O diagrama seguinte mostra uma visão geral das diferentes formas de configurar 
 
 ![Configuração Git][api-management-git-configure]
 
-Quando efetua alterações no seu serviço utilizando o portal Azure, os cmdlets PowerShell `https://{name}.management.azure-api.net` ou a API REST, está a gerir a base de dados de configuração do seu serviço utilizando o ponto final, como mostra o lado direito do diagrama. O lado esquerdo do diagrama ilustra como pode gerir a configuração do seu serviço `https://{name}.scm.azure-api.net`utilizando o repositório Git e Git para o seu serviço localizado em .
+Quando efetua alterações no seu serviço utilizando o portal Azure, os cmdlets PowerShell ou a API REST, está a gerir a base de dados de configuração do seu serviço utilizando o `https://{name}.management.azure-api.net` ponto final, como mostra o lado direito do diagrama. O lado esquerdo do diagrama ilustra como pode gerir a configuração do seu serviço utilizando o repositório Git e Git para o seu serviço localizado em `https://{name}.scm.azure-api.net` .
 
 Os seguintes passos fornecem uma visão geral da gestão da sua instância de serviço de Gestão API utilizando git.
 
@@ -90,7 +90,7 @@ git clone https://{name}.scm.azure-api.net/
 
 Forneça o nome de utilizador e a palavra-passe quando solicitado.
 
-Se receber algum erro, tente `git clone` modificar o seu comando para incluir o nome de utilizador e a palavra-passe, como mostra o seguinte exemplo.
+Se receber algum erro, tente modificar o seu `git clone` comando para incluir o nome de utilizador e a palavra-passe, como mostra o seguinte exemplo.
 
 ```
 git clone https://username:password@{name}.scm.azure-api.net/
@@ -118,7 +118,7 @@ Se fizer alterações na sua instância de serviço de Gestão API no portal Azu
 git pull
 ```
 
-Antes `git pull` de correr, certifique-se de que está na pasta para o seu repositório local. Se acabou de completar `git clone` o comando, então tem de mudar o diretório para o seu repo, executando um comando como o seguinte.
+Antes de `git pull` correr, certifique-se de que está na pasta para o seu repositório local. Se acabou de completar o `git clone` comando, então tem de mudar o diretório para o seu repo, executando um comando como o seguinte.
 
 ```
 cd {name}.scm.azure-api.net/
@@ -174,12 +174,12 @@ Estes ficheiros podem ser criados, eliminados, editados e geridos no seu sistema
 >
 > * [Utilizadores](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/user)
 > * [Subscrições](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/subscription)
-> * [Valores Nomeados](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/property)
+> * Valores Nomeados
 > * Entidades do portal de desenvolvimento que não os estilos
 >
 
 ### <a name="root-api-management-folder"></a>Pasta de gestão de api-raiz
-A `api-management` pasta-raiz `configuration.json` contém um ficheiro que contém informações de alto nível sobre a instância de serviço no seguinte formato.
+A `api-management` pasta-raiz contém um `configuration.json` ficheiro que contém informações de alto nível sobre a instância de serviço no seguinte formato.
 
 ```json
 {
@@ -198,7 +198,7 @@ A `api-management` pasta-raiz `configuration.json` contém um ficheiro que cont�
 }
 ```
 
-As quatro primeiras `UserRegistrationTerms` `UserRegistrationTermsEnabled`definições `UserRegistrationTermsConsentRequired`(,`RegistrationEnabled`, e ) mapeiam as seguintes definições no separador **Identidades** na secção **de Segurança.**
+As quatro primeiras definições `RegistrationEnabled` `UserRegistrationTerms` (, `UserRegistrationTermsEnabled` , e ) `UserRegistrationTermsConsentRequired` mapeiam as seguintes definições no separador **Identidades** na secção **de Segurança.**
 
 | Definição de identidade | Mapas para |
 | --- | --- |
@@ -208,7 +208,7 @@ As quatro primeiras `UserRegistrationTerms` `UserRegistrationTermsEnabled`defini
 | Registo do UtilizadorTermosConsentimentoExigido |**Exigir** caixa de verificação de consentimento |
 | RequerUserSigninEnabled |**Redirecione utilizadores anónimos para iniciar sessão na caixa de** verificação de página |
 
-As próximas`DelegationEnabled`quatro `DelegationUrl` `DelegatedSubscriptionEnabled`definições `DelegationValidationKey`(, , e ) mapeiam as seguintes definições no separador **delegação** na secção **de Segurança.**
+As próximas quatro definições `DelegationEnabled` `DelegationUrl` (, `DelegatedSubscriptionEnabled` , e ) `DelegationValidationKey` mapeiam as seguintes definições no separador **delegação** na secção **de Segurança.**
 
 | Definição de delegação | Mapas para |
 | --- | --- |
@@ -217,40 +217,40 @@ As próximas`DelegationEnabled`quatro `DelegationUrl` `DelegatedSubscriptionEnab
 | Subscrição Delegada |Caixa de **verificação de subscrição de produto delegado** |
 | Chave de Validação de Delegações |Caixa de texto **chave de validação de delegados** |
 
-A definição `$ref-policy`final, os mapas para as declarações de política global arquivam a instância de serviço.
+A definição `$ref-policy` final, os mapas para as declarações de política global arquivam a instância de serviço.
 
 ### <a name="apis-folder"></a>pasta apis
 A `apis` pasta contém uma pasta para cada API na instância de serviço, que contém os seguintes itens.
 
-* `apis\<api name>\configuration.json`- esta é a configuração da API e contém informações sobre o URL do serviço de backend e as operações. Esta é a mesma informação que seria devolvida se chamasse `application/json` [saquear uma API específica](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/apis/get) com `export=true` em formato.
-* `apis\<api name>\api.description.html`- esta é a descrição da API e corresponde ao `description` imóvel da entidade [API.](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table.entityproperty)
-* `apis\<api name>\operations\`- esta `<operation name>.description.html` pasta contém ficheiros que mapeiam as operações na API. Cada ficheiro contém a descrição de uma única operação `description` na API, que mapeia a propriedade da [entidade operacional](https://docs.microsoft.com/rest/api/visualstudio/operations/list#operationproperties) na API REST.
+* `apis\<api name>\configuration.json`- esta é a configuração da API e contém informações sobre o URL do serviço de backend e as operações. Esta é a mesma informação que seria devolvida se chamasse [saquear uma API específica](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/apis/get) `export=true` com em `application/json` formato.
+* `apis\<api name>\api.description.html`- esta é a descrição da API e corresponde ao `description` imóvel da [entidade API.](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table.entityproperty)
+* `apis\<api name>\operations\`- esta pasta contém `<operation name>.description.html` ficheiros que mapeiam as operações na API. Cada ficheiro contém a descrição de uma única operação na API, que `description` mapeia a propriedade da [entidade operacional](https://docs.microsoft.com/rest/api/visualstudio/operations/list#operationproperties) na API REST.
 
 ### <a name="groups-folder"></a>pasta grupos
 A `groups` pasta contém uma pasta para cada grupo definida na instância de serviço.
 
 * `groups\<group name>\configuration.json`- esta é a configuração para o grupo. Esta é a mesma informação que seria devolvida se chamasse o Get a uma operação específica do [grupo.](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/group/get)
-* `groups\<group name>\description.html`- esta é a descrição do `description` grupo e corresponde à propriedade da entidade do [grupo.](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity)
+* `groups\<group name>\description.html`- esta é a descrição do grupo e corresponde à `description` propriedade da entidade do [grupo.](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity)
 
 ### <a name="policies-folder"></a>pasta políticas
 A `policies` pasta contém as declarações políticas para a sua instância de serviço.
 
 * `policies\global.xml`- contém políticas definidas no âmbito global para a sua instância de serviço.
 * `policies\apis\<api name>\`- se tiver alguma política definida no âmbito da API, estão contidas nesta pasta.
-* `policies\apis\<api name>\<operation name>\`pasta - se tiver alguma política definida no âmbito de `<operation name>.xml` funcionamento, elas estão contidas nesta pasta em ficheiros que mapeiam as declarações políticas de cada operação.
-* `policies\products\`- se tiver alguma política definida no âmbito do produto, `<product name>.xml` estão contidas nesta pasta, que contém ficheiros que mapeiam as declarações políticas de cada produto.
+* `policies\apis\<api name>\<operation name>\`pasta - se tiver alguma política definida no âmbito de funcionamento, elas estão contidas nesta pasta em `<operation name>.xml` ficheiros que mapeiam as declarações políticas de cada operação.
+* `policies\products\`- se tiver alguma política definida no âmbito do produto, estão contidas nesta pasta, que contém `<product name>.xml` ficheiros que mapeiam as declarações políticas de cada produto.
 
 ### <a name="portalstyles-folder"></a>pasta portalStyles
 A `portalStyles` pasta contém configuração e folhas de estilo para personalizações do portal do desenvolvedor para a instância de serviço.
 
 * `portalStyles\configuration.json`- contém os nomes das folhas de estilo utilizadas pelo portal de desenvolvimento
-* `portalStyles\<style name>.css`- `<style name>.css` cada ficheiro contém estilos`Preview.css` `Production.css` para o portal do desenvolvedor (e por padrão).
+* `portalStyles\<style name>.css`- cada `<style name>.css` ficheiro contém estilos para o portal do desenvolvedor `Preview.css` (e por `Production.css` padrão).
 
 ### <a name="products-folder"></a>pasta de produtos
 A `products` pasta contém uma pasta para cada produto definida na instância de serviço.
 
 * `products\<product name>\configuration.json`- esta é a configuração do produto. Esta é a mesma informação que seria devolvida se chamasse o Get a uma operação específica do [produto.](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/product/get)
-* `products\<product name>\product.description.html`- esta é a descrição do `description` produto e corresponde à propriedade da entidade do [produto](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) na API REST.
+* `products\<product name>\product.description.html`- esta é a descrição do produto e corresponde à `description` propriedade da entidade do [produto](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) na API REST.
 
 ### <a name="templates"></a>modelos
 A `templates` pasta contém configuração para os modelos de [e-mail](api-management-howto-configure-notifications.md) da instância de serviço.

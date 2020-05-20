@@ -3,12 +3,12 @@ title: Visão geral dos recursos de segurança
 description: Conheça as capacidades de segurança no Azure Backup que o ajudam a proteger os seus dados de backup e a atender às necessidades de segurança do seu negócio.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 688573b571c6ce4473f06d4c194795a38a33244b
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: 178518f9f04a789f3cb634797cab650e24864337
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82743644"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653799"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Visão geral das funcionalidades de segurança no Azure Backup
 
@@ -40,8 +40,7 @@ A cópia de segurança dos VMs Azure requer movimento de dados do disco da sua m
 
 Agora pode utilizar [pontos finais privados](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) para fazer o backback dos seus dados de forma segura a partir de servidores dentro de uma rede virtual para o seu cofre de Serviços de Recuperação. O ponto final privado utiliza um IP do espaço de endereço VNET para o seu cofre, pelo que não precisa de expor as suas redes virtuais a quaisquer IPs públicos. Os Pontos Finais Privados podem ser utilizados para fazer backup e restaurar as bases de dados SQL e SAP HANA que funcionam dentro dos seus VMs Azure. Também pode ser usado para os seus servidores no local utilizando o agente MARS.
 
->[!NOTE]
-> Esta funcionalidade encontra-se atualmente em disponibilidade limitada. Preencha [este inquérito](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapUQk5EQ1QxRzVOWDNDS1Y1Q0xLTkdLQ0U0RC4u) e [envie-nos um e-mail](mailto:azbackupnetsec@microsoft.com) se estiver interessado em utilizar pontos finais privados para backup azure. A capacidade de utilizar esta funcionalidade está sujeita à aprovação do serviço de backup Azure.
+Leia mais sobre pontos finais privados para Azure Backup [aqui](https://docs.microsoft.com/azure/backup/private-endpoints).
 
 ## <a name="encryption-of-data-in-transit-and-at-rest"></a>Encriptação de dados em trânsito e em repouso
 

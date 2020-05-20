@@ -9,14 +9,14 @@ editor: spelluru
 ms.service: service-bus
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2019
+ms.date: 05/14/2020
 ms.author: aschhab
-ms.openlocfilehash: 9601689bbce9566b52664058911e9c45647152d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fdd3540248c5210e2f6fc47f439641c007a793d8
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116823"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647816"
 ---
 # <a name="configure-ip-firewall-rules-for-azure-service-bus"></a>Configure regras de firewall IP para ônibus de serviço Azure
 Por predefinição, os espaços de nome service Bus são acessíveis a partir da internet desde que o pedido venha com autenticação e autorização válidas. Com firewall IP, pode restringi-lo ainda mais a apenas um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (Classless Inter-Domain Routing).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
@@ -54,6 +54,9 @@ Esta secção mostra-lhe como usar o portal Azure para criar regras de firewall 
     1. Selecione Adicionar a opção de **endereço IP do seu cliente** para dar ao seu cliente atual IP o acesso ao espaço de nome. 
     2. Para o intervalo de **endereços,** introduza um endereço IPv4 específico ou um conjunto de endereços IPv4 na notação CIDR. 
     3. Especifique se pretende **permitir que serviços microsoft fidedignos contornem esta firewall**. 
+
+        > [!WARNING]
+        > Se escolher a opção de **redes Selecionadas** e não especificar um endereço IP ou intervalo de endereços, o serviço permitirá o tráfego de todas as redes. 
 
         ![Firewall - Todas as redes selecionadas](./media/service-bus-ip-filtering/firewall-selected-networks-trusted-access-disabled.png)
 3. Selecione **Guardar** na barra de ferramentas para guardar as definições. Aguarde alguns minutos para que a confirmação apareça nas notificações do portal.

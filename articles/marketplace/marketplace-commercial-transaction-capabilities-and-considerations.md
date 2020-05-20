@@ -1,5 +1,5 @@
 ---
-title: Capacidades transatas de mercado comercial
+title: Capacidades de transação de mercado comercial da Microsoft
 description: Este artigo descreve as considerações de preços, faturação, faturação e pagamento para a opção transata do mercado comercial.
 author: dsindona
 ms.service: marketplace
@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 4aeae69dd50e8c233a1903f6f2c7bd7795b8d7b9
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: ce1c134c1940abecd7ecc6329b48802e02e74dc9
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857213"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657905"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Capacidades transatas de mercado comercial
 

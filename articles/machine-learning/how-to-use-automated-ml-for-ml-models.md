@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 03/10/2020
-ms.openlocfilehash: 0d6fa02578814c4c5d034be05cbc63093d70603b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 841d518c02dbc76a172890f6019d78d048f4e8bb
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81257237"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653844"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Criar, rever e implementar modelos automatizados de aprendizagem automática com o Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -35,7 +35,7 @@ Para uma experiência baseada em código Python, [configure as suas experiência
 
 ## <a name="get-started"></a>Introdução
 
-1. Inscreva-se na Aprendizagem https://ml.azure.comautomática azure em . 
+1. Inscreva-se na Aprendizagem automática azure em https://ml.azure.com . 
 
 1. Selecione a sua subscrição e espaço de trabalho. 
 
@@ -70,7 +70,7 @@ Caso contrário, verá uma lista das suas recentes experiências automatizadas d
         ----|----
         Formato de ficheiro| Define o layout e o tipo de dados armazenados num ficheiro.
         Delimitador| Um ou mais caracteres para especificar a fronteira entre regiões separadas e independentes em texto simples ou outros fluxos de dados.
-        Codificação| Identifica o pouco que a tabela de esquemas de caracteres usar para ler o seu conjunto de dados.
+        Encoding| Identifica o pouco que a tabela de esquemas de caracteres usar para ler o seu conjunto de dados.
         Cabeçalhos de coluna| Indica como os cabeçalhos do conjunto de dados, se houver, serão tratados.
         Linhas de salto | Indica quantas, se houver, são ignoradas linhas no conjunto de dados.
     
@@ -159,14 +159,14 @@ Kurtose| A medida de quão fortemente seguidos os dados desta coluna é comparad
 
 ## <a name="advanced-featurization-options"></a>Opções avançadas de caracterização
 
-O machine learning automatizado oferece pré-processamento e guarda-costas de dados automaticamente, para ajudá-lo a identificar e gerir potenciais problemas com os seus dados. 
+O machine learning automatizado oferece [pré-processamento](concept-manage-ml-pitfalls.md#prevent-over-fitting)e guarda-costas de dados automaticamente, para ajudá-lo a identificar e gerir potenciais problemas com os seus dados, como dados de ajuste excessivo e desequilibrados . 
 
 ### <a name="preprocessing"></a>Pré-processamento
 
 > [!NOTE]
 > Se planeia exportar os seus modelos auto ML criados para um [modelo ONNX](concept-onnx.md), apenas as opções de funcionalidade indicadas com um * são suportadas no formato ONNX. Saiba mais sobre [a conversão de modelos para ONNX](concept-automated-ml.md#use-with-onnx). 
 
-|Etapas&nbsp;de pré-processamento| Descrição |
+|Etapas de pré-processamento &nbsp;| Descrição |
 | ------------- | ------------- |
 |Largar alta cardealidade ou sem características de variação* |Retire-as de conjuntos de formação e validação, incluindo características com todos os valores em falta, o mesmo valor em todas as linhas ou com cardeal extremamente elevado (por exemplo, hashes, IDs ou GUIDs).|
 |Impute valores em falta* |Para características numéricas, impute com valores médios na coluna.<br/><br/>Para características categóricas, impute com valor mais frequente.|
@@ -182,7 +182,7 @@ O machine learning automatizado oferece pré-processamento e guarda-costas de da
 
 Os guarda-costas de dados são aplicados quando a funcionalidade automática está ativada ou a validação é definida para auto. Os guarda-costas ajudam-no a identificar potenciais problemas com os seus dados (por exemplo, valores em falta, desequilíbrio de classe) e ajudam a tomar medidas corretivas para melhorar os resultados. 
 
-Os utilizadores podem rever os guardrails de dados no estúdio dentro do ```show_output=True``` separador **De guarda-dados** de uma execução automática de ML ou definindo ao submeter uma experiência utilizando o Python SDK. 
+Os utilizadores podem rever os guardrails de dados no estúdio dentro do separador **De guarda-dados** de uma execução automática de ML ou ```show_output=True``` definindo ao submeter uma experiência utilizando o Python SDK. 
 
 #### <a name="data-guardrail-states"></a>Estados da Guarda de Dados
 
@@ -199,7 +199,7 @@ Alertado| Foi detetada uma questão de dados que não podia ser corrigida. Encor
 
 A tabela seguinte descreve os guarda-costas de dados atualmente suportados, e os estados associados que os utilizadores podem encontrar ao submeter a sua experiência.
 
-Guarda-costas|Estado|Condição&nbsp;&nbsp;para o gatilho
+Guarda-costas|Estado|Condição &nbsp; para &nbsp; o gatilho
 ---|---|---
 Falta de valores de características imputação |**Passado** <br><br><br> **Concluído**| Não foram detetados valores de funcionalidade sem falta nos seus dados de treino. Saiba mais sobre a [falta de imputação de valor.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> Os valores de funcionalidade em falta foram detetados nos seus dados de treino e imputados.
 Manipulação de recurso de alta cardinalidade |**Passado** <br><br><br> **Concluído**| Os seus contributos foram analisados, e não foram detetados grandes características de cardinalidade. Saiba mais sobre a deteção de recurso de [alta cardinalidade.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> Características de alta cardeal foram detetadas nas suas inputs e foram tratadas.

@@ -5,16 +5,16 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: a40c64910260a2d63a529d25e1089fb618fcec1b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b82d415d5e0cf18250123f3483e196aa040285dd
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81113496"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656812"
 ---
 # <a name="troubleshoot"></a>Resolução de problemas
 
-Este artigo fornece soluções para questões comuns da Azure FarmBeats. Para obter ajuda adicional, contacte o farmbeatssupport@microsoft.comnosso Fórum de [Suporte](https://social.msdn.microsoft.com/Forums/home?forum=ProjectFarmBeats) ou envie-nos um e-mail para .
+Este artigo fornece soluções para questões comuns da Azure FarmBeats. Para obter ajuda adicional, contacte o nosso Fórum de [Suporte](https://social.msdn.microsoft.com/Forums/home?forum=ProjectFarmBeats) ou envie-nos um e-mail para farmbeatssupport@microsoft.com .
 
 > [!NOTE]
   > Se instalou FarmBeats durante o mês de abril e os seus trabalhos estão a falhar com uma mensagem de erro vazia, a sua instalação pode não ter sido atribuída qualquer quota de lote para priorizar o apoio a organizações críticas de saúde e segurança. Consulte [aqui](https://azure.microsoft.com/blog/update-2-on-microsoft-cloud-services-continuity/) mais informações. Terá de solicitar que os VMs sejam alocados à conta do Lote para executar em sucesso os postos de trabalho.
@@ -88,11 +88,11 @@ Para entender como descarregar registos, aceda à secção ["Recolher registos m
       "sensordata": [
         {
           "timestamp": "< timestamp in ISO 8601 format >",
-          "<sensor measure name (as defined in the Sensor Model)>":"<value>"
+          "<sensor measure name (as defined in the Sensor Model)>":<value>
         },
         {
           "timestamp": "<timestamp in ISO 8601 format>",
-          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
         }
       ]
     }
@@ -105,12 +105,12 @@ Para entender como descarregar registos, aceda à secção ["Recolher registos m
 **Ação corretiva**
 
 1. Em Datahub Swagger, vá à API partner.
-2. Selecione **Tente** > **Try it out** > **executar**.
+2. Selecione **Tente**  >  **Try it out**  >  **executar**.
 
 > [!NOTE]
 > A identificação do parceiro de sensores que te interessa.
 
-3. Volte para a API partner e selecione **Get/ID\<>**.
+3. Volte para a API partner e selecione ** \< Get/ID>**.
 4. Especifique o ID do parceiro a partir do passo 3 e, em seguida, selecione **Executar**.
 
    A resposta DaPI deve ter a cadeia de ligação Do Event Hubs.
@@ -133,7 +133,7 @@ Enquanto está a apagar um dispositivo, pode encontrar um dos seguintes cenário
 
 1. Elimine os sensores associados ao dispositivo através do Acelerador.  
 2. Se quiser associar os sensores a um dispositivo diferente, peça ao seu parceiro do dispositivo para fazer o mesmo.  
-3. Elimine o dispositivo `DELETE API` utilizando uma chamada e coloque o parâmetro de força *como verdadeiro*.  
+3. Elimine o dispositivo utilizando uma `DELETE API` chamada e coloque o parâmetro de força como *verdadeiro*.  
 
 **Mensagem**: "O dispositivo é referenciado em dispositivos como ParentDeviceId: Existem um ou mais dispositivos que estão associados a este dispositivo como dispositivos infantis. Apague-os e, em seguida, apague este dispositivo."  
 
@@ -205,7 +205,7 @@ Se já lhe foi concedido acesso e enfrentando este erro, tente novamente refresc
 
     1. Inicie sessão no [portal do Azure](https://portal.azure.com).
     2. Na caixa **de pesquisa,** procure o grupo de recursos FarmBeats Datahub.
-    3. Selecione armazenamento da conta de armazenamento***** > **contentores** > **ficheiros de** > preparação**to_vm** > **config.ini**
+    3. Selecione armazenamento da conta de armazenamento***** > **contentores-ficheiros**  >  **de preparação**  >  **to_vm**  >  **config.ini**
     4. **Selecione Editar**
     5. Atualize o nome de utilizador na secção sentinel_account
 
@@ -250,7 +250,7 @@ Este problema pode ocorrer se alguma atividade de manutenção estiver sendo fei
 
 ### <a name="sentinel-maximum-number-of-connections-reached"></a>Sentinela: Número máximo de ligações alcançadas
 
-**Mensagem de falha de emprego**: "Número máximo de\<dois fluxos simultâneos alcançados pelo 'username>'."
+**Mensagem de falha de emprego**: "Número máximo de dois fluxos simultâneos alcançados pelo \< 'username>'."
 
 **Significa:** Se um trabalho falhar porque o número máximo de ligações foi atingido, a mesma conta Sentinel está a ser utilizada em múltiplos postos de trabalho.
 
@@ -261,7 +261,7 @@ Este problema pode ocorrer se alguma atividade de manutenção estiver sendo fei
 
 ### <a name="sentinel-server-refused-connection"></a>Servidor Sentinel: Ligação recusada
 
-**Mensagem de falha de emprego** http://172.30.175.69:8983/solr/dhus: "O servidor recusou a ligação a: ."
+**Mensagem de falha de emprego**: "O servidor recusou a ligação a: http://172.30.175.69:8983/solr/dhus ."
 
 **Ação corretiva**: Este problema pode ocorrer se alguma atividade de manutenção estiver a ser feita no servidor Sentinel.
 
@@ -287,9 +287,9 @@ Este problema pode ocorrer se alguma atividade de manutenção estiver sendo fei
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Na caixa **de pesquisa,** procure o grupo de recursos FarmBeats Datahub.
-3. No painel do **Grupo de Recursos,** procure a conta de armazenamento de *datahublogs.\* * Por exemplo, *datahublogsmvxmq*.  
+3. No painel do **Grupo de Recursos,** procure a conta de armazenamento de *datahublogs. \* * Por exemplo, *datahublogsmvxmq*.  
 4. Na coluna **Nome,** selecione a conta de armazenamento para visualizar o painel de **instrumentos da Conta de Armazenamento.**
-5. No painel **datahubblogs,\* ** selecione **Open in Explorer** para ver a aplicação Open **Azure Storage Explorer.**
+5. No painel **datahubblogs, \* ** selecione **Open in Explorer** para ver a aplicação Open **Azure Storage Explorer.**
 6. No painel esquerdo, selecione **Blob Containers**, e, em seguida, selecione **registos de trabalho** para registos da Azure Data Factory ou **registos de aplicações** para registos do Serviço de Aplicações.
 7. Selecione **Baixar** e transferir os registos para uma pasta local na sua máquina.
 
@@ -299,9 +299,9 @@ Este problema pode ocorrer se alguma atividade de manutenção estiver sendo fei
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Na caixa **de pesquisa,** procure o grupo de recursos do Acelerador FarmBeats.
-3. No painel do **Grupo de Recursos,** procure a conta de *armazenamento.\* * Por exemplo, *storagedop4k\**.
+3. No painel do **Grupo de Recursos,** procure a conta de *armazenamento. \* * Por exemplo, *storagedop4k \* *.
 4. Selecione a conta de armazenamento na coluna **Nome** para visualizar o painel de **instrumentos da Conta de Armazenamento.**
-5. No painel de **armazenamento,\* ** selecione **Open in Explorer** para abrir a aplicação Azure Storage Explorer.
+5. No painel de **armazenamento, \* ** selecione **Open in Explorer** para abrir a aplicação Azure Storage Explorer.
 6. No painel esquerdo, selecione **Blob Containers**, e, em seguida, selecione **registos de trabalho** para registos da Azure Data Factory ou **registos de aplicações** para registos do Serviço de Aplicações.
 7. Selecione **Baixar** e transferir os registos para uma pasta local na sua máquina.
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: victorh
-ms.openlocfilehash: c5a53167c6a4ca6c886b858a1608eaa173185bd8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e1afc389508eb75313d046b759bcc9c03a50daad
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80335848"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648401"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Visão geral da monitorização da saúde gateway aplicação
 
@@ -47,7 +47,7 @@ Seguem-se critérios correspondentes:
 - **Correspondência** do código de resposta HTTP - Critério de correspondência da sonda para aceitar código de resposta de http especificado pelo utilizador ou intervalos de código de resposta. São apoiados códigos de estado de resposta separados por vírpostas individuais ou uma série de códigos de estado.
 - **CORRESPONDÊNCIA DO corpo** de resposta HTTP - Critério de correspondência da sonda que olha para o corpo de resposta HTTP e combina com uma corda especificada pelo utilizador. A partida apenas procura a presença de cordas especificadas pelo utilizador no corpo de resposta e não é uma correspondência de expressão regular completa.
 
-Os critérios de correspondência `New-AzApplicationGatewayProbeHealthResponseMatch` podem ser especificados utilizando o cmdlet.
+Os critérios de correspondência podem ser especificados utilizando o `New-AzApplicationGatewayProbeHealthResponseMatch` cmdlet.
 
 Por exemplo:
 
@@ -55,7 +55,7 @@ Por exemplo:
 $match = New-AzApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
 $match = New-AzApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
 ```
-Uma vez especificados os critérios de correspondência, pode `-Match` ser ligado à configuração da sonda utilizando um parâmetro no PowerShell.
+Uma vez especificados os critérios de correspondência, pode ser ligado à configuração da sonda utilizando um `-Match` parâmetro no PowerShell.
 
 ### <a name="default-health-probe-settings"></a>Definições de sonda de saúde padrão
 
@@ -64,12 +64,12 @@ Uma vez especificados os critérios de correspondência, pode `-Match` ser ligad
 | URL da sonda |http://127.0.0.1:\<port\>/ |Caminho de URL |
 | Intervalo |30 |O tempo em segundos para esperar antes da próxima sonda de saúde ser enviada.|
 | Limite de Tempo Excedido |30 |A quantidade de tempo em segundos o gateway da aplicação aguarda uma resposta da sonda antes de marcar a sonda como insalubre. Se uma sonda voltar como saudável, o backend correspondente é imediatamente marcado como saudável.|
-| Limiar com funcionamento incorreto |3 |Governa quantas sondas enviar para o caso de haver uma falha da sonda de saúde normal. Estas sondas de saúde adicionais são enviadas em rápida sucessão para determinar a saúde do backend rapidamente e não esperar pelo intervalo da sonda. Este behaivor é apenas v1 SKU. No caso do V2 SKU, as sondas de saúde aguardam o intervalo. O servidor de back-end é marcado para baixo após a contagem de falhas de sonda consecutiva atingir o limiar insalubre. |
+| Limiar com funcionamento incorreto |3 |Governa quantas sondas enviar para o caso de haver uma falha da sonda de saúde normal. Estas sondas de saúde adicionais são enviadas em rápida sucessão para determinar a saúde do backend rapidamente e não esperar pelo intervalo da sonda. Este comportamento é apenas v1 SKU. No caso do V2 SKU, as sondas de saúde aguardam o intervalo. O servidor de back-end é marcado para baixo após a contagem de falhas de sonda consecutiva atingir o limiar insalubre. |
 
 > [!NOTE]
 > A porta é a mesma porta que as definições http-end.
 
-A sonda padrão olha\/apenas em http: /127.0.0.1:\<porta\> para determinar o estado de saúde. Se precisar de configurar a sonda de saúde para ir a um URL personalizado ou modificar quaisquer outras definições, deve utilizar sondas personalizadas.
+A sonda padrão olha apenas em http: \/ /127.0.0.1: porta para determinar o estado de \< \> saúde. Se precisar de configurar a sonda de saúde para ir a um URL personalizado ou modificar quaisquer outras definições, deve utilizar sondas personalizadas. Para mais informações sobre as sondas HTTP, consulte a [visão geral da rescisão de TLS e termine com o TLS com o Gateway](ssl-overview.md#for-probe-traffic)de Aplicação .
 
 ### <a name="probe-intervals"></a>Intervalos de sonda
 
@@ -87,7 +87,7 @@ A tabela seguinte fornece definições para as propriedades de uma sonda de saú
 
 | Propriedade da sonda | Descrição |
 | --- | --- |
-| Nome |Nome da sonda. Este nome é utilizado para se referir à sonda nas definições http back-end. |
+| Name |Nome da sonda. Este nome é utilizado para se referir à sonda nas definições http back-end. |
 | Protocolo |O protocolo costumava enviar a sonda. A sonda utiliza o protocolo definido nas definições de HTTP de back-end |
 | Anfitrião |Nome anfitrião para enviar a sonda. Aplicável apenas quando vários sites estiverem configurados no Gateway da Aplicação, utilize de outra forma '127.0.0.1'. Este valor é diferente do nome de anfitrião vm. |
 | Caminho |Caminho relativo da sonda. O caminho válido começa a partir de '/'. |
@@ -97,7 +97,7 @@ A tabela seguinte fornece definições para as propriedades de uma sonda de saú
 
 > [!IMPORTANT]
 > Se o Gateway da Aplicação estiver configurado para um único site, por padrão, o nome anfitrião deve ser especificado como '127.0.0.1', salvo configuração em contrário em sonda personalizada.
-> Para referência, uma sonda \<\>personalizada\<\>é\<\>\<enviada\>para o protocolo :// anfitrião : caminho portuário . A porta utilizada será a mesma porta definida nas definições http-end.
+> Para referência, uma sonda personalizada é enviada para \< o protocolo \> :// \< anfitrião : caminho \> \< \> \< portuário \> . A porta utilizada será a mesma porta definida nas definições http-end.
 
 ## <a name="nsg-considerations"></a>Considerações de NSG
 

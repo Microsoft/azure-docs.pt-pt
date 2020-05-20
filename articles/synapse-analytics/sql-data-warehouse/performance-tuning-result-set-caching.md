@@ -11,16 +11,16 @@ ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
-ms.openlocfilehash: eadbe13269ce1259b4560af117f5b15b3b294151
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ee513c141c1690b769363d813c252fe021cf33e6
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81730591"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656493"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Otimização do desempenho com a colocação em cache dos resultados
 
-Quando o conjunto de resultados está ativado, o SQL Analytics automaticamente caches a consulta resulta na base de dados do utilizador para uso repetitivo.  Isto permite que execuções subsequentes de consulta obtenha resultados diretamente da cache persistida para que a recomputação não seja necessária.   O conjunto de resultados reduz o desempenho da consulta e reduz o uso de recursos computacionais.  Além disso, as consultas utilizando o conjunto de resultados em cache não utilizam faixas de conmoedação e, portanto, não contam com os limites de moeda existentes. Por razões de segurança, os utilizadores só podem aceder aos resultados em cache se tiverem as mesmas permissões de acesso a dados que os utilizadores que criam os resultados em cache.  
+Quando o conjunto de resultados está ativado, o Synapse SQL automaticamente caches a consulta resulta na base de dados do utilizador para uso repetitivo.  Isto permite que execuções subsequentes de consulta obtenha resultados diretamente da cache persistida para que a recomputação não seja necessária.   O conjunto de resultados reduz o desempenho da consulta e reduz o uso de recursos computacionais.  Além disso, as consultas utilizando o conjunto de resultados em cache não utilizam faixas de conmoedação e, portanto, não contam com os limites de moeda existentes. Por razões de segurança, os utilizadores só podem aceder aos resultados em cache se tiverem as mesmas permissões de acesso a dados que os utilizadores que criam os resultados em cache.  
 
 ## <a name="key-commands"></a>Comandos-chave
 
@@ -83,7 +83,7 @@ WHERE request_id = <'Your_Query_Request_ID'>
 
 O tamanho máximo da cache do conjunto de resultados é de 1 TB por base de dados.  Os resultados em cache são automaticamente invalidados quando os dados de consulta subjacentes mudam.  
 
-O despejo em cache é gerido pela SQL Analytics automaticamente seguindo este horário:
+O despejo em cache é gerido pela Synapse SQL automaticamente seguindo este horário:
 
 - A cada 48 horas se o conjunto de resultados não tiver sido utilizado ou tiver sido invalidado.
 - Quando o conjunto de resultados se aproxima do tamanho máximo.

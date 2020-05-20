@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 74a4c13197863d0d41e183826cafd64976b44431
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 7f1352205f3c2821a50bd39358d960ca71134a95
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792586"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657441"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Cenários do Azure Disk Encryption em VMs do Linux
 
@@ -198,7 +198,7 @@ A tabela seguinte lista os parâmetros do modelo do Gestor de Recursos para VMs 
 | Parâmetro | Descrição |
 | --- | --- |
 | vmName | Nome do VM para executar a operação de encriptação. |
-| keyVaultName | Nome do cofre chave para o que a chave de encriptação deve ser enviada. Pode obtê-lo utilizando `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` o cmdlet ou `az keyvault list --resource-group "MyKeyVaultResourceGroupName"`o comando Azure CLI .|
+| keyVaultName | Nome do cofre chave para o que a chave de encriptação deve ser enviada. Pode obtê-lo utilizando o cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` ou o comando Azure CLI `az keyvault list --resource-group "MyKeyVaultResourceGroupName"` .|
 | keyVaultResourceGroup | Nome do grupo de recursos que contém o cofre chave. |
 |  keyEncryptionKeyURL | URL da chave de encriptação que é usada para encriptar a chave de encriptação. Este parâmetro é opcional se selecionar **nokek** na lista de drop-down UseExistingKek. Se selecionar **kek** na lista de drop-down UseExistingKek, deve introduzir o valor _keyEncryptionKeyURL._ |
 | volumeType | Tipo de volume em que a operação de encriptação é realizada. Os valores válidos são _OS,_ _Dados,_ e _Tudo._ 
@@ -218,7 +218,7 @@ O parâmetro **EncryptFormatAll** reduz o tempo para os discos de dados do Linux
  >Se estiver a configurar este parâmetro ao atualizar as definições de encriptação, pode levar a um reboot antes da encriptação real. Neste caso, também vai querer remover o disco que não quer formatado do ficheiro fstab. Da mesma forma, deve adicionar a partição que pretende encriptar formatado no ficheiro fstab antes de dar início à operação de encriptação. 
 
 ### <a name="encryptformatall-criteria"></a>EncryptFormatTodos os critérios
-O parâmetro vai embora todas as divisórias e as criptografa desde que cumpram **todos os** critérios abaixo: 
+O parâmetro vai embora todas as divisórias e as criptografa desde que cumpram **todos os** critérios abaixo:
 - Não é uma partição raiz/OS/bota
 - Não está já encriptado
 - Não é um volume BEK
@@ -258,36 +258,50 @@ Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGName -VMName $vmName -Di
 ### <a name="use-the-encryptformatall-parameter-with-logical-volume-manager-lvm"></a>Utilize o parâmetro EncryptFormatAll com Gestor de Volume Lógico (LVM) 
 Recomendamos uma configuração LVM-on-cripta. Para todos os exemplos seguintes, substitua o caminho do dispositivo e os pontos de montagem por qualquer que seja o seu caso de utilização. Esta configuração pode ser feita da seguinte forma:
 
-- Adicione os discos de dados que irão compor o VM.
-- Formato, monte e adicione estes discos ao ficheiro fstab.
+1.  Adicione os discos de dados que irão compor o VM.
 
-    1. Escolha um padrão de partição, crie uma divisória que se estende por toda a unidade e, em seguida, forforte a divisória. Usamos symlinks gerados pelo Azure aqui. A utilização de symlinks evita problemas relacionados com a mudança de nomes do dispositivo. Para mais informações, consulte o artigo Problemas de Nomes de Dispositivos de Resolução de [Problemas.](troubleshoot-device-names-problems.md)
-    
-         ```azurepowershell-interactive
-         parted /dev/disk/azure/scsi1/lun0 mklabel gpt
-         parted -a opt /dev/disk/azure/scsi1/lun0 mkpart primary ext4 0% 100%
-         
-         mkfs -t ext4 /dev/disk/azure/scsi1/lun0-part1
-         ```
-    
-    1. Monte os discos.
-         
-         `mount /dev/disk/azure/scsi1/lun0-part1 /mnt/mountpoint`
-    
-    1. Adicione a fstab.
-         
-        `echo "/dev/disk/azure/scsi1/lun0-part1 /mnt/mountpoint ext4 defaults,nofail 0 2" >> /etc/fstab`
-    
-    1. Executar o Set-AzVMDiskCryptonExtension Extension PowerShell cmdlet com -EncryptFormatAll para encriptar estes discos.
+1. Formato, monte e adicione estes discos ao ficheiro fstab.
 
-       ```azurepowershell-interactive
-       $KeyVault = Get-AzKeyVault -VaultName "MySecureVault" -ResourceGroupName "MySecureGroup"
-           
-       Set-AzVMDiskEncryptionExtension -ResourceGroupName "MySecureGroup" -VMName "MySecureVM" -DiskEncryptionKeyVaultUrl $KeyVault.VaultUri  -DiskEncryptionKeyVaultId $KeyVault.ResourceId -EncryptFormatAll -SkipVmBackup -VolumeType Data
-       ```
+1. Escolha um padrão de partição, crie uma divisória que se estende por toda a unidade e, em seguida, forforte a divisória. Usamos symlinks gerados pelo Azure aqui. A utilização de symlinks evita problemas relacionados com a mudança de nomes do dispositivo. Para mais informações, consulte o artigo Problemas de Nomes de Dispositivos de Resolução de [Problemas.](troubleshoot-device-names-problems.md)
+    
+    ```bash
+    parted /dev/disk/azure/scsi1/lun0 mklabel gpt
+    parted -a opt /dev/disk/azure/scsi1/lun0 mkpart primary ext4 0% 100%
+    
+    mkfs -t ext4 /dev/disk/azure/scsi1/lun0-part1
+    ```
 
-    1. Instale lvm em cima destes discos novos. Note que as unidades encriptadas são desbloqueadas depois de o VM ter terminado o arranque. Assim, a montagem do LVM também terá de ser posteriormente adiada.
+1. Monte os discos:
 
+    ```bash
+    mount /dev/disk/azure/scsi1/lun0-part1 /mnt/mountpoint
+    ````
+    
+    Adicione ao ficheiro fstab:
+
+    ```bash
+    echo "/dev/disk/azure/scsi1/lun0-part1 /mnt/mountpoint ext4 defaults,nofail 0 2" >> /etc/fstab
+    ```
+    
+1. Executar o Conjunto Azure PowerShell [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension?view=azps-3.8.0) cmdlet com -EncryptFormatAll para encriptar estes discos.
+
+    ```azurepowershell-interactive
+    $KeyVault = Get-AzKeyVault -VaultName "MySecureVault" -ResourceGroupName "MySecureGroup"
+    
+    Set-AzVMDiskEncryptionExtension -ResourceGroupName "MySecureGroup" -VMName "MySecureVM" -DiskEncryptionKeyVaultUrl $KeyVault.VaultUri -DiskEncryptionKeyVaultId $KeyVault.ResourceId -EncryptFormatAll -SkipVmBackup -VolumeType Data
+    ```
+
+    Se desejar utilizar uma chave de encriptação (KEK), passe o URI do seu KEK e o ResourceID do seu cofre chave para os parâmetros -KeyEncryptionKeyUrl e -KeyEncryptionKeyVaultId, respectivamente:
+
+    ```azurepowershell-interactive
+    $KeyVault = Get-AzKeyVault -VaultName "MySecureVault" -ResourceGroupName "MySecureGroup"
+    $KEKKeyVault = Get-AzKeyVault -VaultName "MyKEKVault" -ResourceGroupName "MySecureGroup"
+    $KEK = Get-AzKeyVaultKey -VaultName "myKEKVault" -KeyName "myKEKName"
+    
+    Set-AzVMDiskEncryptionExtension -ResourceGroupName "MySecureGroup" -VMName "MySecureVM" -DiskEncryptionKeyVaultUrl $KeyVault.VaultUri -DiskEncryptionKeyVaultId $KeyVault.ResourceId -EncryptFormatAll -SkipVmBackup -VolumeType Data -KeyEncryptionKeyUrl $$KEK.id -KeyEncryptionKeyVaultId $KEKKeyVault.ResourceId
+    ```
+
+1. Instale lvm em cima destes discos novos. Note que as unidades encriptadas são desbloqueadas depois de o VM ter terminado o arranque. Assim, a montagem do LVM também terá de ser posteriormente adiada.
 
 ## <a name="new-vms-created-from-customer-encrypted-vhd-and-encryption-keys"></a>Novos VMs criados a partir de Chaves VHD encriptadas pelo cliente e encriptação
 Neste cenário, pode ativar a encriptação utilizando cmdlets PowerShell ou comandos CLI. 

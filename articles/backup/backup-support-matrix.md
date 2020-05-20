@@ -3,12 +3,12 @@ title: Matriz de suporte do Azure Backup
 description: Fornece um resumo das definições de suporte e limitações para o serviço de backup Azure.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: cc817c1833c4c9aedcbc5fa111de694fab715c43
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: faf7abf23d196b389531803c519368b5d474aeb3
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801268"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659393"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de suporte para Backup Azure
 
@@ -56,7 +56,7 @@ Aqui está o que é suportado se quiser apoiar as máquinas no local:
 
 **Limite** | **Detalhes**
 --- | ---
-**Discos de dados Azure VM** | Limite de 16 <br> Para se inscrever para a pré-visualização limitada de VMs com mais de 16 discos (até 32 discos), escreva-nos emAskAzureBackupTeam@microsoft.com
+**Discos de dados Azure VM** | Consulte a matriz de [suporte para backup Azure VM](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-storage-support).
 **Tamanho do disco de dados Azure VM** | O tamanho do disco individual pode ser até 32 TB e um máximo de 256 TB combinado para todos os discos de um VM.
 
 ### <a name="azure-vm-backup-options"></a>Opções de backup Azure VM
@@ -151,10 +151,10 @@ O Azure Backup adicionou a funcionalidade Cross Region Restore para reforçar a 
 
 | Tipo de Gestão de Backup | Suportado                                                    | Regiões Apoiadas |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| VM do Azure               | Sim.   Suportado para VMs e VMs encriptados com discos inferiores a 4 TB | Todas as regiões públicas de Azure.  |
-| Mars Agent/Nas instalações | No                                                           | N/D               |
-| SQL /SAP HANA          | No                                                           | N/D               |
-| AFS                    | No                                                           | N/D               |
+| VM do Azure               | Yes.   Suportado para VMs e VMs encriptados com discos inferiores a 4 TB | Todas as regiões públicas de Azure.  |
+| Mars Agent/Nas instalações | Não                                                           | N/D               |
+| SQL /SAP HANA          | Não                                                           | N/D               |
+| AFS                    | Não                                                           | N/D               |
 
 ## <a name="next-steps"></a>Passos seguintes
 

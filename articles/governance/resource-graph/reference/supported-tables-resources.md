@@ -1,14 +1,14 @@
 ---
 title: Tipos de recursos do Gestor de Recursos Suportados
 description: Forneça uma lista dos tipos de recursos do Gestor de Recursos suportados pelo Azure Resource Graph e change History.
-ms.date: 04/29/2020
+ms.date: 05/16/2020
 ms.topic: reference
-ms.openlocfilehash: 0ab079bcd1e7e8558d754a413068ca9f0ae276c6
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 61b4865f695fbee7bd425429fde03bc7161043db
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594258"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655864"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Tabela de gráficos de recursos azure e referência do tipo de recurso
 
@@ -23,6 +23,10 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 ## <a name="alertsmanagementresources"></a>alertasgerecursos
 
 - microsoft.alertas gestão/alertas
+
+## <a name="healthresources"></a>recursos de saúde
+
+- microsoft.resourcehealth/events
 
 ## <a name="maintenanceresources"></a>recursos de manutenção
 
@@ -67,6 +71,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - microsoft.automation/automationaccounts/configurações
 - microsoft.automation/automationaccounts/runbooks
 - microsoft.autonomoussystems/workspaces
+- microsoft.avs/privateclouds
 - microsoft.azconfig/lojas de configuração
 - microsoft.azureactivedirectory/b2cdirecties
 - microsoft.azuredata/datacontrollers
@@ -74,6 +79,8 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - microsoft.azuredata/postgresinstances
 - microsoft.azuredata/sqlbigdataclusters
 - microsoft.azuredata/sqlinstances
+- microsoft.azuredata/sqlmanagedinstances
+- microsoft.azuredata/sqlserverinstances
 - microsoft.azuredata/sqlserverregistrations
 - microsoft.azurestack/registrations
 - microsoft.azurestackhci/clusters
@@ -92,6 +99,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - microsoft.blockchain/watchers
 - microsoft.botservice/botservices
 - microsoft.cache/redis
+- microsoft.cache/redisenterprise
 - microsoft.cdn/cdnwebapplicationfirewallpolicies
 - microsoft.cdn/perfis
 - microsoft.cdn/perfis/pontos finais
@@ -126,8 +134,10 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - microsoft.compute/sharedvmimages/versões
 - microsoft.compute/snapshots
 - microsoft.compute/sshpublickeys
+- microsoft.compute/swiftlets
 - microsoft.compute/virtualmachines
 - microsoft.compute/virtualmachines/extensões
+- microsoft.compute/virtualmachines/runcommands
 - microsoft.compute/virtualmachinescalesets
 - microsoft.containerinstance/containergroups
 - microsoft.containerregistry/registros
@@ -213,6 +223,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - microsoft.hydra/componentes
 - microsoft.hydra/networkscopes
 - microsoft.importexport/jobs
+- microsoft.industrydatalifecycle/derivados
 - microsoft.insights/actiongroups
 - microsoft.insights/activitylogalerts
 - microsoft.insights/alertrules
@@ -362,6 +373,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - microsoft.resourcegraph/consultas
 - microsoft.resources/deploymentscripts
 - microsoft.resources/templatespecs
+- microsoft.resources/templatespecs/versões
 - microsoft.saas/applications
 - microsoft.scheduler/jobcollections
 - microsoft.search/searchservices
@@ -377,6 +389,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - microsoft.servicefabricmesh/networks
 - microsoft.servicefabricmesh/secrets
 - microsoft.servicefabricmesh/volumes
+- microsoft.serviceshub/conectores
 - microsoft.signalrservice/signalr
 - microsoft.solutions/appliancedefinições
 - microsoft.solutions/appliances

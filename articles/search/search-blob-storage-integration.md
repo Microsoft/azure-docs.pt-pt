@@ -1,19 +1,19 @@
 ---
 title: Adicione pesquisa completa de texto ao Armazenamento De Blob Azure
 titleSuffix: Azure Cognitive Search
-description: Extrair conteúdo e adicionar estrutura às bolhas Azure ao construir um índice completo de pesquisa de texto em pesquisa cognitiva Azure.
+description: Extrair conteúdo e adicionar estrutura às bolhas Azure ao construir um índice completo de pesquisa de texto em Pesquisa Cognitiva Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 83308f42fb1f2ea3408b5c1a63d88d21a8e7830a
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: fd405513f8bdef09e6d3ab996fc2c04bd397db13
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402087"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659435"
 ---
 # <a name="add-full-text-search-to-azure-blob-data-using-azure-cognitive-search"></a>Adicione pesquisa completa de texto aos dados de blob Azure usando pesquisa cognitiva Azure
 

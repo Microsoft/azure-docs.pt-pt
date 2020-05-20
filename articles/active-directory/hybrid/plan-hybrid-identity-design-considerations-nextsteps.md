@@ -16,12 +16,12 @@ ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 378aa35ff4b43f5a268ac3dcd9530783ada6921e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9f834924a564f92fe7050a1236701701af7f5229
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76512968"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647262"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations--next-steps"></a>Azure Ative Directory considerações de design de identidade híbrida- próximos passos
 Agora que já definiu os seus requisitos e analisou todas as opções para a solução de gestão de dispositivos móveis, está pronto para dar os passos seguintes e implementar a infraestrutura de suporte adequada a si e à sua organização.
@@ -37,10 +37,10 @@ O planeamento conceptual e procedimental, a implementação e os conteúdos de a
 A monitorização dos seguintes recursos fornece frequentemente as últimas novidades e atualizações sobre as soluções de gestão de dispositivos móveis:
 
 * [Blog de Mobilidade Empresarial da Microsoft](https://cloudblogs.microsoft.com/ENTERPRISEMOBILITY/)
-* [Microsoft no blog Cloud](https://blogs.technet.com/b/in_the_cloud/)
-* [Blog Microsoft Intune](https://blogs.technet.com/b/microsoftintune/)
+* [Microsoft no blog Cloud](https://cloudblogs.microsoft.com/)
+* [Blog Microsoft Intune](https://techcommunity.microsoft.com/t5/intune-customer-success/welcome-to-the-new-intune-customer-success-blog/ba-p/281367)
 * [Blog do Microsoft Endpoint Configuration Manager](https://techcommunity.microsoft.com/t5/Configuration-Manager-Blog/bg-p/ConfigurationManagerBlog)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 [Visão geral das considerações de conceção](plan-hybrid-identity-design-considerations-overview.md)
 

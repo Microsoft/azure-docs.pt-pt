@@ -4,12 +4,12 @@ description: Neste tutorial, você aprende a implantar um grupo de contentores c
 ms.topic: article
 ms.date: 04/03/2019
 ms.custom: mvc
-ms.openlocfilehash: d2b4e20520cad28c5d62118f6c9d10fcc43ac89e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b08a974cbbdc9e4bdf1594672f82748bfabe88b4
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74533628"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653525"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-resource-manager-template"></a>Tutorial: Implementar um grupo multi-contentor usando um modelo de Gestor de Recursos
 
@@ -37,7 +37,7 @@ Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.mi
 
 ## <a name="configure-a-template"></a>Configurar um modelo
 
-Comece por copiar o seguinte JSON `azuredeploy.json`num novo ficheiro chamado . Em Azure Cloud Shell, pode utilizar o Código do Estúdio Visual para criar o ficheiro no seu diretório de trabalho:
+Comece por copiar o seguinte JSON num novo ficheiro chamado `azuredeploy.json` . Em Azure Cloud Shell, pode utilizar o Código do Estúdio Visual para criar o ficheiro no seu diretório de trabalho:
 
 ```
 code azuredeploy.json
@@ -111,11 +111,11 @@ Este modelo de Gestor de Recursos define um grupo de contentores com dois conten
           "ports": [
             {
               "protocol": "tcp",
-              "port": "80"
+              "port": 80
             },
             {
                 "protocol": "tcp",
-                "port": "8080"
+                "port": 8080
             }
           ]
         }
@@ -167,7 +167,7 @@ Para ver o estado da implantação, utilize o seguinte comando de demonstração
 az container show --resource-group myResourceGroup --name myContainerGroup --output table
 ```
 
-Se quiser ver a aplicação em execução, navegue para o seu endereço IP no seu browser. Por exemplo, o `52.168.26.124` IP está neste exemplo de saída:
+Se quiser ver a aplicação em execução, navegue para o seu endereço IP no seu browser. Por exemplo, o IP está `52.168.26.124` neste exemplo de saída:
 
 ```bash
 Name              ResourceGroup    Status    Image                                                                                               IP:ports              Network    CPU/Memory       OsType    Location
@@ -177,7 +177,7 @@ myContainerGroup  danlep0318r      Running   mcr.microsoft.com/azuredocs/aci-tut
 
 ## <a name="view-container-logs"></a>Ver registos de contentor
 
-Ver a saída de registo de um recipiente utilizando o comando de troncos de [recipiente az.][az-container-logs] O `--container-name` argumento especifica o recipiente a partir do qual puxar troncos. Neste exemplo, `aci-tutorial-app` o recipiente é especificado.
+Ver a saída de registo de um recipiente utilizando o comando de troncos de [recipiente az.][az-container-logs] O `--container-name` argumento especifica o recipiente a partir do qual puxar troncos. Neste exemplo, o `aci-tutorial-app` recipiente é especificado.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
@@ -192,7 +192,7 @@ listening on port 80
 ::1 - - [21/Mar/2019:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
-Para ver os troncos do recipiente do sidecar, `aci-tutorial-sidecar` faça um comando semelhante especificando o recipiente.
+Para ver os troncos do recipiente do sidecar, faça um comando semelhante especificando o `aci-tutorial-sidecar` recipiente.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
@@ -218,7 +218,7 @@ Date: Thu, 21 Mar 2019 20:36:41 GMT
 Connection: keep-alive
 ```
 
-Como pode ver, o sidecar está periodicamente a fazer um pedido http para a aplicação web principal através da rede local do grupo para garantir que está em funcionamento. Este exemplo do sidecar poderia ser expandido para desencadear um `200 OK`alerta se recebesse um código de resposta HTTP diferente de .
+Como pode ver, o sidecar está periodicamente a fazer um pedido http para a aplicação web principal através da rede local do grupo para garantir que está em funcionamento. Este exemplo do sidecar poderia ser expandido para desencadear um alerta se recebesse um código de resposta HTTP diferente de `200 OK` .
 
 ## <a name="next-steps"></a>Passos seguintes
 

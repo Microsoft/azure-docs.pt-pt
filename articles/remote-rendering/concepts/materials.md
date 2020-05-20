@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8551e17ddd71e76aca0c85b9768f564ae0e5f049
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1a45dc39f5a0795684aba278391e04f6af3f7b55
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80681847"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659679"
 ---
 # <a name="materials"></a>Materiais
 
@@ -35,9 +35,13 @@ A renderização remota Azure tem dois tipos de material distintos:
 
 Quando modifica um material diretamente no recurso de malha, esta alteração afeta todos os casos dessa malha. No entanto, a alteração do componente de malha só afeta essa instância de malha. Qual o método mais apropriado depende do comportamento desejado, mas modificar um MeshComponent é a abordagem mais comum.
 
+## <a name="material-de-duplication"></a>Desduplicação de material
+
+Durante a conversão, vários materiais com as mesmas propriedades e texturas são automaticamente desduplicados num único material. Pode desativar esta funcionalidade nas definições de [conversão,](../how-tos/conversion/configure-model-conversion.md)mas recomendamos deixá-la ativa da melhor forma.
+
 ## <a name="material-classes"></a>Aulas de material
 
-Todos os materiais fornecidos pela API derivam da classe `Material`base. O seu tipo pode `Material.MaterialSubType` ser consultado através ou lançando-os diretamente:
+Todos os materiais fornecidos pela API derivam da classe `Material` base. O seu tipo pode ser consultado através `Material.MaterialSubType` ou lançando-os diretamente:
 
 ``` cs
 void SetMaterialColorToGreen(Material material)

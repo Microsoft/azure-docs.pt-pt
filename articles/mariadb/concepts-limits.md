@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 4/1/2020
-ms.openlocfilehash: 18f227c1888e0565eebb640fa61ced56dc994865
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d4450689f6865c19436e437e09a3aa9f286c6e21
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80632329"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653131"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Limitações na Base de Dados Azure para MariaDB
 As seguintes secções descrevem capacidade, suporte do motor de armazenamento, suporte privilegiado, suporte à declaração de manipulação de dados e limites funcionais no serviço de base de dados.
@@ -22,7 +22,7 @@ Os valores mínimos e máximos de vários parâmetros populares do servidor são
 
 ### <a name="max_connections"></a>max_connections
 
-|**Nível de Preços**|**vCore(s)**|**Default value** (Valor predefinido)|**Valor do min**|**Valor máximo**|
+|**Nível de Preços**|**vCore(s)**|**Valor por defeito**|**Valor do min**|**Valor máximo**|
 |---|---|---|---|---|
 |Básico|1|50|10|50|
 |Básico|2|100|10|100|
@@ -48,11 +48,11 @@ A criação de novas ligações de clientes ao MariaDB leva tempo e uma vez esta
 
 ### <a name="query_cache_size"></a>query_cache_size
 
-A cache de consulta é desligada por defeito. Para ativar a cache de `query_cache_type` consulta, configure o parâmetro. 
+A cache de consulta é desligada por defeito. Para ativar a cache de consulta, configure o `query_cache_type` parâmetro. 
 
 Reveja a [documentação mariaDB](https://mariadb.com/kb/en/server-system-variables/#query_cache_size) para saber mais sobre este parâmetro.
 
-|**Nível de Preços**|**vCore(s)**|**Default value** (Valor predefinido)|**Valor do min**|**Valor máximo**|
+|**Nível de Preços**|**vCore(s)**|**Valor por defeito**|**Valor do min**|**Valor máximo**|
 |---|---|---|---|---|
 |Básico|1|Não configurável no nível básico|N/D|N/D|
 |Básico|2|Não configurável no nível básico|N/D|N/D|
@@ -72,7 +72,7 @@ Reveja a [documentação mariaDB](https://mariadb.com/kb/en/server-system-variab
 
 Reveja a [documentação mariaDB](https://mariadb.com/kb/en/server-system-variables/#sort_buffer_size) para saber mais sobre este parâmetro.
 
-|**Nível de Preços**|**vCore(s)**|**Default value** (Valor predefinido)|**Valor do min**|**Valor máximo**|
+|**Nível de Preços**|**vCore(s)**|**Valor por defeito**|**Valor do min**|**Valor máximo**|
 |---|---|---|---|---|
 |Básico|1|Não configurável no nível básico|N/D|N/D|
 |Básico|2|Não configurável no nível básico|N/D|N/D|
@@ -92,7 +92,7 @@ Reveja a [documentação mariaDB](https://mariadb.com/kb/en/server-system-variab
 
 Reveja a [documentação mariaDB](https://mariadb.com/kb/en/server-system-variables/#join_buffer_size) para saber mais sobre este parâmetro.
 
-|**Nível de Preços**|**vCore(s)**|**Default value** (Valor predefinido)|**Valor do min**|**Valor máximo**|
+|**Nível de Preços**|**vCore(s)**|**Valor por defeito**|**Valor do min**|**Valor máximo**|
 |---|---|---|---|---|
 |Básico|1|Não configurável no nível básico|N/D|N/D|
 |Básico|2|Não configurável no nível básico|N/D|N/D|
@@ -112,7 +112,7 @@ Reveja a [documentação mariaDB](https://mariadb.com/kb/en/server-system-variab
 
 Reveja a [documentação mariaDB](https://mariadb.com/kb/en/server-system-variables/#max_heap_table_size) para saber mais sobre este parâmetro.
 
-|**Nível de Preços**|**vCore(s)**|**Default value** (Valor predefinido)|**Valor do min**|**Valor máximo**|
+|**Nível de Preços**|**vCore(s)**|**Valor por defeito**|**Valor do min**|**Valor máximo**|
 |---|---|---|---|---|
 |Básico|1|Não configurável no nível básico|N/D|N/D|
 |Básico|2|Não configurável no nível básico|N/D|N/D|
@@ -132,7 +132,7 @@ Reveja a [documentação mariaDB](https://mariadb.com/kb/en/server-system-variab
 
 Reveja a [documentação mariaDB](https://mariadb.com/kb/en/server-system-variables/#tmp_table_size) para saber mais sobre este parâmetro.
 
-|**Nível de Preços**|**vCore(s)**|**Default value** (Valor predefinido)|**Valor do min**|**Valor máximo**|
+|**Nível de Preços**|**vCore(s)**|**Valor por defeito**|**Valor do min**|**Valor máximo**|
 |---|---|---|---|---|
 |Básico|1|Não configurável no nível básico|N/D|N/D|
 |Básico|2|Não configurável no nível básico|N/D|N/D|
@@ -150,7 +150,13 @@ Reveja a [documentação mariaDB](https://mariadb.com/kb/en/server-system-variab
 
 ### <a name="time_zone"></a>time_zone
 
-As tabelas de fuso horário `mysql.az_load_timezone` podem ser povoadas ligando para o procedimento armazenado a partir de uma ferramenta como a linha de comando MySQL ou a bancada de trabalho MySQL. Consulte os artigos do [portal Azure](howto-server-parameters.md#working-with-the-time-zone-parameter) ou [do Azure CLI](howto-configure-server-parameters-cli.md#working-with-the-time-zone-parameter) para saber como ligar para o procedimento armazenado e definir os fusos horários globais ou de nível de sessão.
+As tabelas de fuso horário podem ser povoadas ligando para o procedimento armazenado a partir de uma ferramenta como a linha de `mysql.az_load_timezone` comando MySQL ou a bancada de trabalho MySQL. Consulte os artigos do [portal Azure](howto-server-parameters.md#working-with-the-time-zone-parameter) ou [do Azure CLI](howto-configure-server-parameters-cli.md#working-with-the-time-zone-parameter) para saber como ligar para o procedimento armazenado e definir os fusos horários globais ou de nível de sessão.
+
+### <a name="innodb_file_per_table"></a>innodb_file_per_table
+
+MariaDB armazena a tabela InnoDB em diferentes espaços de mesa com base na configuração que forneceu durante a criação da tabela. O espaço de mesa do [sistema](https://mariadb.com/kb/en/innodb-system-tablespaces/) é a área de armazenamento do dicionário de dados InnoDB. Um [espaço de mesa de arquivo](https://mariadb.com/kb/en/innodb-file-per-table-tablespaces/) por mesa contém dados e índices para uma única tabela InnoDB, e é armazenado no sistema de ficheiros no seu próprio ficheiro de dados. Este comportamento é controlado pelo parâmetro do `innodb_file_per_table` servidor. A definição `innodb_file_per_table` para fazer com que o `OFF` InnoDB crie tabelas no espaço de mesa do sistema. Caso contrário, o InnoDB cria tabelas em espaços de mesa de arquivo por mesa.
+
+A Base de Dados Azure para MariaDB suporta na maior, **1 TB,** num único ficheiro de dados. Se o tamanho da sua base de dados for superior a 1 TB, deverá criar a tabela em [innodb_file_per_table](https://mariadb.com/kb/en/innodb-system-variables/#innodb_file_per_table) espaço de mesa. Se tiver um único tamanho de mesa maior do que 1 TB, deve utilizar a mesa de partição.
 
 ## <a name="storage-engine-support"></a>Suporte do motor de armazenamento
 
@@ -168,12 +174,12 @@ As tabelas de fuso horário `mysql.az_load_timezone` podem ser povoadas ligando 
 ### <a name="unsupported"></a>Não suportado
 - Função DBA: Muitos parâmetros e definições do servidor podem inadvertidamente degradar o desempenho do servidor ou anular as propriedades acid do DBMS. Como tal, para manter a integridade do serviço e sLA a nível do produto, este serviço não expõe o papel de DBA. A conta de utilizador predefinida, que é construída quando uma nova instância de base de dados é criada, permite que esse utilizador execute a maioria das declarações de DDL e DML na instância de base de dados gerida.
 - Super privilégio: Igualmente [super privilégio](https://mariadb.com/kb/en/library/grant/#global-privileges) também é restrito.
-- DEFINER: Requer super privilégios para criar e é restrito. Se importar dados utilizando uma `CREATE DEFINER` cópia de segurança, retire `--skip-definer` os comandos manualmente ou utilizando o comando ao executar um mysqldump.
+- DEFINER: Requer super privilégios para criar e é restrito. Se importar dados utilizando uma cópia de segurança, retire os `CREATE DEFINER` comandos manualmente ou utilizando o `--skip-definer` comando ao executar um mysqldump.
 
 ## <a name="data-manipulation-statement-support"></a>Suporte à declaração de manipulação de dados
 
 ### <a name="supported"></a>Suportado
-- `LOAD DATA INFILE`é suportado, `[LOCAL]` mas o parâmetro deve ser especificado e direcionado para um caminho unc (armazenamento Azure montado através de SMB).
+- `LOAD DATA INFILE`é suportado, mas o `[LOCAL]` parâmetro deve ser especificado e direcionado para um caminho unc (armazenamento Azure montado através de SMB).
 
 ### <a name="unsupported"></a>Não suportado
 - `SELECT ... INTO OUTFILE`
@@ -201,7 +207,7 @@ As tabelas de fuso horário `mysql.az_load_timezone` podem ser povoadas ligando 
 - Consulte [os níveis](concepts-pricing-tiers.md) de preços para os limites de tamanho de armazenamento por nível de preços.
 
 ## <a name="current-known-issues"></a>Questões conhecidas atuais
-- A instância do servidor MariaDB apresenta a versão do servidor incorreta após a ligação ser estabelecida. Para obter a versão correta do `select version();` motor da instância do servidor, utilize o comando.
+- A instância do servidor MariaDB apresenta a versão do servidor incorreta após a ligação ser estabelecida. Para obter a versão correta do motor da instância do servidor, utilize o `select version();` comando.
 
 ## <a name="next-steps"></a>Passos seguintes
 - [O que está disponível em cada nível de serviço](concepts-pricing-tiers.md)

@@ -4,14 +4,14 @@ description: Saiba como configurar o Azure Private Link para aceder a uma conta 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 05/14/2020
 ms.author: thweiss
-ms.openlocfilehash: 4b49d2aa61587d0156755bdd5c47b3eeb90090a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6ba85961ac4ec9b1b439de18a1d6da0cec4ead4f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81270694"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652569"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Configure Link Privado Azure para uma conta Azure Cosmos
 
@@ -22,9 +22,6 @@ O Private Link permite que os utilizadores acedam a uma conta Azure Cosmos a par
 Pode ligar-se a uma conta Azure Cosmos configurada com private link utilizando o método de aprovação automática ou manual. Para saber mais, consulte a secção de fluxo de trabalho de [aprovação](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow) da documentação private link. 
 
 Este artigo descreve os passos para criar um ponto final privado. Assume que está a usar o método de aprovação automática.
-
-> [!NOTE]
-> O suporte de ponto final privado está atualmente disponível apenas para o modo de ligação gateway. Para o modo direto, está disponível como uma função de pré-visualização.
 
 ## <a name="create-a-private-endpoint-by-using-the-azure-portal"></a>Criar um ponto final privado utilizando o portal Azure
 
@@ -44,7 +41,7 @@ Utilize os seguintes passos para criar um ponto final privado para uma conta Azu
     | Subscrição | Selecione a sua subscrição. |
     | Grupo de recursos | Selecione um grupo de recursos.|
     | **Detalhes da instância** |  |
-    | Nome | Insira qualquer nome para o seu ponto final privado. Se este nome for tomado, crie um único. |
+    | Name | Insira qualquer nome para o seu ponto final privado. Se este nome for tomado, crie um único. |
     |Região| Selecione a região onde pretende implementar private link. Crie o ponto final privado no mesmo local onde existe a sua rede virtual.|
     |||
 1. Selecione **Seguinte: Recurso**.
@@ -401,14 +398,14 @@ $deploymentOutput = New-AzResourceGroupDeployment -Name "PrivateCosmosDbEndpoint
 $deploymentOutput
 ```
 
-No script PowerShell, `GroupId` a variável pode conter apenas um valor. Este valor é o tipo API da conta. Os valores `Sql` `MongoDB`permitidos são: , , `Cassandra` `Gremlin`e `Table`. Alguns tipos de conta Azure Cosmos são acessíveis através de múltiplas APIs. Por exemplo:
+No script PowerShell, a `GroupId` variável pode conter apenas um valor. Este valor é o tipo API da conta. Os valores permitidos são: `Sql` `MongoDB` , , e `Cassandra` `Gremlin` `Table` . Alguns tipos de conta Azure Cosmos são acessíveis através de múltiplas APIs. Por exemplo:
 
 * Uma conta API Gremlin pode ser acedida a partir de contas API Gremlin e SQL.
 * Uma conta API tabela pode ser acedida a partir de contas De Mesa e SQL API.
 
-Para essas contas, deve criar um ponto final privado para cada tipo de API. O tipo API correspondente é `GroupId` especificado na matriz.
+Para essas contas, deve criar um ponto final privado para cada tipo de API. O tipo API correspondente é especificado na `GroupId` matriz.
 
-Depois do modelo ser implementado com sucesso, pode ver uma saída semelhante à que a imagem a seguir mostra. O `provisioningState` valor `Succeeded` é se os pontos finais privados forem corretamente configurados.
+Depois do modelo ser implementado com sucesso, pode ver uma saída semelhante à que a imagem a seguir mostra. O `provisioningState` valor é se os `Succeeded` pontos finais privados forem corretamente configurados.
 
 ![Saída de implementação para o modelo de Gestor de Recursos](./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png)
 
@@ -611,7 +608,7 @@ foreach ($ipconfig in $networkInterface.properties.ipConfigurations) {
 
 ## <a name="configure-custom-dns"></a>Configurar DNS personalizado
 
-Deve usar uma zona privada de DNS dentro da subnet onde criou o ponto final privado. Configure os pontos finais de modo a que cada endereço IP privado seja mapeado para uma entrada dNS. (Consulte `fqdns` a propriedade na resposta mostrada anteriormente.)
+Deve usar uma zona privada de DNS dentro da subnet onde criou o ponto final privado. Configure os pontos finais de modo a que cada endereço IP privado seja mapeado para uma entrada dNS. (Consulte a `fqdns` propriedade na resposta mostrada anteriormente.)
 
 Quando estiver a criar o ponto final privado, pode integrá-lo com uma zona privada de DNS em Azure. Se optar por utilizar uma zona DNS personalizada, tem de configurá-la para adicionar registos DNS para todos os endereços IP privados reservados para o ponto final privado.
 
@@ -627,7 +624,7 @@ As seguintes situações e resultados são possíveis quando utiliza o Private L
 
 ## <a name="blocking-public-network-access-during-account-creation"></a>Bloquear o acesso à rede pública durante a criação de contas
 
-Tal como descrito na secção anterior, e a menos que tenham sido definidas regras específicas de firewall, adicionar um ponto final privado torna a sua conta Azure Cosmos acessível apenas através de pontos finais privados. Isto significa que a conta Azure Cosmos poderia ser alcançada a partir do tráfego público após a sua criação e antes de um ponto final privado ser adicionado. Para garantir que o acesso à rede pública é desativado `publicNetworkAccess` mesmo `Disabled` antes da criação de pontos finais privados, pode definir a bandeira durante a criação de contas. Consulte este modelo de Gestor de [Recursos Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-private-endpoint/) para um exemplo que mostra como usar esta bandeira.
+Tal como descrito na secção anterior, e a menos que tenham sido definidas regras específicas de firewall, adicionar um ponto final privado torna a sua conta Azure Cosmos acessível apenas através de pontos finais privados. Isto significa que a conta Azure Cosmos poderia ser alcançada a partir do tráfego público após a sua criação e antes de um ponto final privado ser adicionado. Para garantir que o acesso à rede pública é desativado mesmo antes da criação de pontos finais privados, pode definir a bandeira durante a criação de `publicNetworkAccess` `Disabled` contas. Consulte este modelo de Gestor de [Recursos Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-private-endpoint/) para um exemplo que mostra como usar esta bandeira.
 
 ## <a name="update-a-private-endpoint-when-you-add-or-remove-a-region"></a>Atualize um ponto final privado quando adicionar ou remover uma região
 
@@ -643,21 +640,17 @@ Pode utilizar os mesmos passos quando remover uma região. Depois de remover a r
 
 As seguintes limitações aplicam-se quando se está a usar o Private Link com uma conta Azure Cosmos:
 
-* Quando estiver a utilizar o Private Link com uma conta Azure Cosmos utilizando uma ligação de modo direto, só pode utilizar o protocolo TCP. O protocolo HTTP ainda não é suportado.
+* Quando estiver a utilizar o Private Link com uma conta Azure Cosmos utilizando uma ligação de modo direto, só pode utilizar o protocolo TCP. O protocolo HTTP não é atualmente suportado.
 
-* O suporte de ponto final privado está atualmente disponível apenas para o modo de ligação gateway. Para o modo direto, está disponível como uma função de pré-visualização.
+* Quando está a utilizar a API do Azure Cosmos DB para contas MongoDB, um ponto final privado é suportado para contas apenas na versão do servidor 3.6 (isto é, contas usando o ponto final no `*.mongo.cosmos.azure.com` formato). O Private Link não é suportado para contas na versão 3.2 do servidor (isto é, contas que utilizam o ponto final no `*.documents.azure.com` formato). Para utilizar o Private Link, deve migrar contas antigas para a nova versão.
 
-* Quando está a utilizar a API do Azure Cosmos DB para contas MongoDB, um ponto final privado é suportado para contas apenas `*.mongo.cosmos.azure.com`na versão do servidor 3.6 (isto é, contas usando o ponto final no formato). O Private Link não é suportado para contas na versão 3.2 do servidor `*.documents.azure.com`(isto é, contas que utilizam o ponto final no formato). Para utilizar o Private Link, deve migrar contas antigas para a nova versão.
-
-* Quando você está usando a API do Azure Cosmos DB para contas MongoDB que têm Private Link, você não pode usar ferramentas como Robo 3T, Studio 3T e Mongoose. O ponto final só pode ter `appName=<account name>` suporte de ligação privada se o parâmetro for especificado. Um exemplo é `replicaSet=globaldb&appName=mydbaccountname`. Como estas ferramentas não passam o nome da aplicação na cadeia de ligação ao serviço, não pode utilizar o Private Link. Mas ainda pode aceder a estas contas utilizando controladores SDK com a versão 3.6.
+* Quando estiver a utilizar uma API do Azure Cosmos DB para a conta MongoDB que tem Private Link, algumas ferramentas ou bibliotecas podem não funcionar, uma vez que retiram automaticamente o `appName` parâmetro da cadeia de ligação. Este parâmetro é necessário para ligar à conta sobre um ponto final privado. Algumas ferramentas, como o Visual Studio Code, não removem este parâmetro da cadeia de ligação e são, portanto, compatíveis.
 
 * Não pode mover ou eliminar uma rede virtual se contiver Private Link.
 
-* Não se pode apagar uma conta Azure Cosmos se estiver ligada a um ponto final privado.
-
 * Não se pode falhar uma conta azure cosmos para uma região que não está mapeada para todos os pontos finais privados anexados à conta.
 
-* Um administrador de rede deve ser concedido pelo menos a permissão "*/PrivateEndpointConnectionsApproval" no âmbito da conta Azure Cosmos para criar pontos finais privados automaticamente aprovados.
+* Um administrador de rede deve ser autorizado, pelo `Microsoft.DocumentDB/databaseAccounts/PrivateEndpointConnectionsApproval/action` menos, no âmbito da conta Azure Cosmos a criar pontos finais privados automaticamente aprovados.
 
 ### <a name="limitations-to-private-dns-zone-integration"></a>Limitações à integração privada da zona DNS
 

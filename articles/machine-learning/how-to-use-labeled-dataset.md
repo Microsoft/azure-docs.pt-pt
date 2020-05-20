@@ -5,14 +5,14 @@ description: Aprenda a exportar rótulos de dados dos seus projetos de rotulagem
 author: nibaccam
 ms.author: nibaccam
 ms.service: machine-learning
-ms.topic: how-to
-ms.date: 01/21/2020
-ms.openlocfilehash: 5138109de3f80d405ce95b605714b511480563f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: conceptual
+ms.date: 05/14/2020
+ms.openlocfilehash: 657b1dbb169d80a3e5563dd1a4fa52eac2278aae
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76549492"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655758"
 ---
 # <a name="create-and-explore-azure-machine-learning-dataset-with-labels"></a>Crie e explore o conjunto de dados azure machine learning com rótulos
 
@@ -50,7 +50,7 @@ Carregue os seus conjuntos de dados rotulados num dataframe pandas ou conjunto d
 
 ### <a name="pandas-dataframe"></a>Quadro de dados pandas
 
-Pode carregar conjuntos de dados rotulados num [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) quadro de `azureml-contrib-dataset` dados pandas com o método da classe. Instale a classe com o seguinte comando de concha: 
+Pode carregar conjuntos de dados rotulados num quadro de dados pandas com o [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) método da `azureml-contrib-dataset` classe. Instale a classe com o seguinte comando de concha: 
 
 ```shell
 pip install azureml-contrib-dataset
@@ -78,7 +78,7 @@ imgplot = plt.imshow(img)
 
 ### <a name="torchvision-datasets"></a>Conjuntos de dados da Torchvision
 
-Pode carregar conjuntos de dados rotulados no conjunto de dados `azureml-contrib-dataset` torchvision com o método [to_torchvision()](https://docs.microsoft.com/python/api/azureml-contrib-dataset/azureml.contrib.dataset.tabulardataset?view=azure-ml-py#to-torchvision--) também da classe. Para utilizar este método, é necessário instalar [o PyTorch.](https://pytorch.org/) 
+Pode carregar conjuntos de dados rotulados no conjunto de dados torchvision com o método [to_torchvision()](https://docs.microsoft.com/python/api/azureml-contrib-dataset/azureml.contrib.dataset.tabulardataset?view=azure-ml-py#to-torchvision--) também da `azureml-contrib-dataset` classe. Para utilizar este método, é necessário instalar [o PyTorch.](https://pytorch.org/) 
 
 ```python
 from torchvision.transforms import functional as F

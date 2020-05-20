@@ -11,12 +11,12 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: d89baa069543c0571d42807f8034e6008eaddbc8
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 1bc5f5f5ffe44cbefe5a131aa041e5afc2e8257f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83197575"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659242"
 ---
 # <a name="statistics-in-synapse-sql"></a>Estatísticas em Synapse SQL
 
@@ -30,11 +30,13 @@ Quanto mais o recurso de piscina SQL souber sobre os seus dados, mais rápido po
 
 O optimizador de consulta de piscina SQL é um otimizador baseado em custos. Compara o custo de vários planos de consulta, e depois escolhe o plano com o menor custo. Na maioria dos casos, escolhe o plano que executará o mais rápido.
 
-Por exemplo, se o optimizador estimar que a data em que a sua consulta está a ser filtrada, irá devolver uma linha, escolherá um plano. Se estimar que a data selecionada devolverá 1 milhão de linhas, devolverá um plano diferente.
+Por exemplo, se o optimizador estimar que a data em que a sua consulta está a ser filtrada devolverá uma linha, escolherá um plano. Se estimar que a data selecionada devolverá 1 milhão de linhas, devolverá um plano diferente.
 
 ### <a name="automatic-creation-of-statistics"></a>Criação automática de estatísticas
 
-O pool SQL irá analisar as consultas de entrada dos utilizadores para estatísticas em falta quando a base de dados AUTO_CREATE_STATISTICS opção está definida para `ON` .  Se faltarem estatísticas, o optimizador de consultas cria estatísticas sobre colunas individuais na condição de consulta predicada ou de adesão. Esta função é usada para melhorar as estimativas de cardinalidade para o plano de consulta.
+O pool SQL irá analisar as consultas de entrada dos utilizadores para estatísticas em falta quando a base de dados AUTO_CREATE_STATISTICS opção está definida para `ON` .  Se faltarem estatísticas, o optimizador de consultas cria estatísticas sobre colunas individuais na condição de consulta predicada ou de adesão. 
+
+Esta função é usada para melhorar as estimativas de cardinalidade para o plano de consulta.
 
 > [!IMPORTANT]
 > A criação automática de estatísticas é atualmente ligada por defeito.
@@ -101,7 +103,9 @@ Uma das primeiras perguntas a fazer quando se está a resolver uma consulta **é
 
 Esta pergunta não é uma que possa ser respondida pela idade dos dados. Um objeto estatístico atualizado pode ser antigo se não houver alterações materiais nos dados subjacentes. Quando o número de linhas mudou substancialmente, ou uma mudança material na distribuição de valores para uma coluna ocorre, *então* é hora de atualizar as estatísticas.
 
-Não existe uma visão dinâmica de gestão disponível para determinar se os dados dentro da tabela mudaram desde a última vez que as estatísticas foram atualizadas. Conhecer a idade das suas estatísticas pode fornecer-lhe parte do quadro. Pode utilizar a seguinte consulta para determinar a última vez que as suas estatísticas foram atualizadas em cada tabela.
+Não existe uma visão dinâmica de gestão disponível para determinar se os dados dentro da tabela mudaram desde a última vez que as estatísticas foram atualizadas. Conhecer a idade das suas estatísticas pode fornecer-lhe parte do quadro. 
+
+Pode utilizar a seguinte consulta para determinar a última vez que as suas estatísticas foram atualizadas em cada tabela.
 
 > [!NOTE]
 > Se houver uma alteração material na distribuição de valores para uma coluna, deve atualizar as estatísticas independentemente da última vez que foram atualizadas.
@@ -137,9 +141,11 @@ WHERE
 
 As estatísticas de uma coluna de género numa tabela de clientes podem nunca precisar de ser atualizadas. Assumindo que a distribuição é constante entre os clientes, adicionar novas linhas à variação da tabela não vai alterar a distribuição de dados.
 
-Mas, se o seu armazém de dados contém apenas um sexo e uma nova exigência resulta em múltiplos sexos, então precisa atualizar estatísticas sobre a coluna de género. Para mais informações, reveja o artigo [Estatísticas.](/sql/relational-databases/statistics/statistics)
+Mas, se o seu armazém de dados contém apenas um sexo e uma nova exigência resulta em múltiplos sexos, então precisa atualizar estatísticas sobre a coluna de género. 
 
-### <a name="implementing-statistics-management"></a>Implementação da gestão estatística
+Para mais informações, reveja o artigo [Estatísticas.](/sql/relational-databases/statistics/statistics)
+
+### <a name="implement-statistics-management"></a>Implementar gestão estatística
 
 Muitas vezes é uma boa ideia alargar o seu processo de carregamento de dados para garantir que as estatísticas são atualizadas no final da carga. A carga de dados é quando as tabelas mudam mais frequentemente o seu tamanho, distribuição de valores, ou ambos. Como tal, o processo de carga é um local lógico para implementar alguns processos de gestão.
 
@@ -275,6 +281,7 @@ CREATE STATISTICS stats_col3 on dbo.table3 (col3);
 #### <a name="use-a-stored-procedure-to-create-statistics-on-all-columns-in-a-database"></a>Utilize um procedimento armazenado para criar estatísticas sobre todas as colunas numa base de dados
 
 A piscina SQL não tem um procedimento armazenado pelo sistema equivalente a sp_create_stats no Servidor SQL. Este procedimento armazenado cria um único objeto de estatísticas de colunas em todas as colunas da base de dados que ainda não tem estatísticas.
+
 O exemplo seguinte irá ajudá-lo a começar com o design da sua base de dados. Sinta-se à vontade para adaptá-lo às suas necessidades:
 
 ```sql
@@ -418,7 +425,9 @@ Por exemplo:
 UPDATE STATISTICS dbo.table1;
 ```
 
-A declaração de estatísticas atualizada é fácil de utilizar. Lembre-se apenas que atualiza *todas as* estatísticas em cima da mesa, o que motiva mais trabalho do que o necessário. Se o desempenho não for um problema, este método é a forma mais fácil e completa de garantir que as estatísticas estão atualizadas.
+A declaração de estatísticas atualizada é fácil de utilizar. Lembre-se apenas que atualiza *todas as* estatísticas em cima da mesa, o que motiva mais trabalho do que o necessário. 
+
+Se o desempenho não for um problema, este método é a forma mais fácil e completa de garantir que as estatísticas estão atualizadas.
 
 > [!NOTE]
 > Ao atualizar todas as estatísticas numa tabela, o pool SQL faz uma digitalização para provar a tabela para cada objeto estatístico. Se a tabela for grande e tiver muitas colunas e muitas estatísticas, poderá ser mais eficiente atualizar as estatísticas individuais com base nas necessidades.
@@ -501,7 +510,9 @@ O DBCC SHOW_STATISTICS() mostra os dados guardados dentro de um objeto estatíst
 - Vetor de densidade
 - Histograma
 
-O cabeçalho são os metadados sobre as estatísticas. O histograma exibe a distribuição de valores na primeira coluna-chave do objeto estatístico. O vetor de densidade mede a correlação entre colunas. O pool SQL calcula estimativas de cardinalidade com qualquer um dos dados do objeto estatístico.
+O cabeçalho são os metadados sobre as estatísticas. O histograma exibe a distribuição de valores na primeira coluna-chave do objeto estatístico. 
+
+O vetor de densidade mede a correlação entre colunas. O pool SQL calcula estimativas de cardinalidade com qualquer um dos dados do objeto estatístico.
 
 #### <a name="show-header-density-and-histogram"></a>Mostrar cabeçalho, densidade e histograma
 
@@ -555,7 +566,11 @@ As estatísticas são criadas por coluna específica para um conjunto de dados e
 
 ### <a name="why-use-statistics"></a>Por que usar estatísticas
 
-Quanto mais SQL on-demand (pré-visualização) souber sobre os seus dados, mais rápido poderá executar consultas contra ele. Recolher estatísticas sobre os seus dados é uma das coisas mais importantes que pode fazer para otimizar as suas consultas. O optimizador de consulta on-demand SQL é um otimizador baseado em custos. Compara o custo de vários planos de consulta, e depois escolhe o plano com o menor custo. Na maioria dos casos, escolhe o plano que executará o mais rápido. Por exemplo, se o optimizador estimar que a data em que a sua consulta está a ser filtrada, irá devolver uma linha, escolherá um plano. Se estimar que a data selecionada devolverá 1 milhão de linhas, devolverá um plano diferente.
+Quanto mais SQL on-demand (pré-visualização) souber sobre os seus dados, mais rápido poderá executar consultas contra ele. Recolher estatísticas sobre os seus dados é uma das coisas mais importantes que pode fazer para otimizar as suas consultas. 
+
+O optimizador de consulta on-demand SQL é um otimizador baseado em custos. Compara o custo de vários planos de consulta, e depois escolhe o plano com o menor custo. Na maioria dos casos, escolhe o plano que executará o mais rápido. 
+
+Por exemplo, se o optimizador estimar que a data em que a sua consulta está a ser filtrada, irá devolver uma linha, escolherá um plano. Se estimar que a data selecionada devolverá 1 milhão de linhas, devolverá um plano diferente.
 
 ### <a name="automatic-creation-of-statistics"></a>Criação automática de estatísticas
 
@@ -570,9 +585,11 @@ A criação automática de estatísticas é feita de forma sincronizada para que
 
 ### <a name="manual-creation-of-statistics"></a>Criação manual de estatísticas
 
-SQL on-demand permite-lhe criar estatísticas manualmente. Para os ficheiros CSV, tem de criar estatísticas manualmente porque a criação automática de estatísticas não é ativada para ficheiros CSV. Consulte os exemplos abaixo para obter instruções sobre como criar manualmente estatísticas.
+SQL on-demand permite-lhe criar estatísticas manualmente. Para os ficheiros CSV, tem de criar estatísticas manualmente porque a criação automática de estatísticas não é ativada para ficheiros CSV. 
 
-### <a name="updating-statistics"></a>Atualização de estatísticas
+Consulte os seguintes exemplos para obter instruções sobre como criar manualmente estatísticas.
+
+### <a name="update-statistics"></a>Estatísticas de atualização
 
 Alterações aos dados nos ficheiros, aeliminar e adicionar ficheiros resultam em alterações na distribuição de dados e desatualizados. Nesse caso, as estatísticas têm de ser atualizadas.
 
@@ -592,7 +609,7 @@ Quando o número de linhas mudou substancialmente, ou há uma mudança material 
 > [!NOTE]
 > Se houver uma alteração material na distribuição de valores para uma coluna, deve atualizar as estatísticas independentemente da última vez que foram atualizadas.
 
-### <a name="implementing-statistics-management"></a>Implementação da gestão estatística
+### <a name="implement-statistics-management"></a>Implementar gestão estatística
 
 Pode querer alargar o seu pipeline de dados para garantir que as estatísticas são atualizadas quando os dados são significativamente alterados através da adição, eliminação ou alteração de ficheiros.
 

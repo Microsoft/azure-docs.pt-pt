@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/8/2019
 ms.author: victorh
-ms.openlocfilehash: 481cbda1d35f7d630dabca00fd01677f542447c2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 57f2ce1fb8bf6415387eac5c760dadeb04e65648
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81312503"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648430"
 ---
 # <a name="configure-end-to-end-tls-by-using-application-gateway-with-powershell"></a>Configure fim para fim do TLS utilizando o Gateway da Aplicação com powerShell
 
@@ -167,7 +167,9 @@ Todos os itens de configuração são definidos antes de criar o gateway da apli
    > [!NOTE]
    > A sonda predefinida obtém a chave pública a partir da ligação *padrão* do TLS no endereço IP do back-end e compara o valor de chave pública que recebe com o valor-chave público que fornece aqui. 
    > 
-   > Se estiver a utilizar cabeçalhos de anfitrião e indicações de nome de servidor (SNI) na parte de trás, a chave pública recuperada pode não ser o local pretendido para o qual o tráfego flui. Em caso de dúvida, https://127.0.0.1/ visite os servidores de back-end para confirmar qual o certificado utilizado para a ligação *padrão* do TLS. Utilize a chave pública desse pedido nesta secção. Se estiver a utilizar cabeçalhos de anfitrião e SNI em encadernações https://127.0.0.1/ HTTPS e não receber uma resposta e certificado de um pedido manual de navegador para os servidores de back-end, tem de configurar uma ligação TLS padrão nos mesmos. Se não o fizer, as sondas falham e a parte de trás não está na lista branca.
+   > Se estiver a utilizar cabeçalhos de anfitrião e indicações de nome de servidor (SNI) na parte de trás, a chave pública recuperada pode não ser o local pretendido para o qual o tráfego flui. Em caso de dúvida, visite https://127.0.0.1/ os servidores de back-end para confirmar qual o certificado utilizado para a ligação *padrão* do TLS. Utilize a chave pública desse pedido nesta secção. Se estiver a utilizar cabeçalhos de anfitrião e SNI em encadernações HTTPS e não receber uma resposta e certificado de um pedido manual de navegador para https://127.0.0.1/ os servidores de back-end, tem de configurar uma ligação TLS padrão nos mesmos. Se não o fizer, as sondas falham e a parte de trás não está na lista branca.
+   
+   Para mais informações sobre o SNI no Gateway de Aplicação, consulte a [visão geral da rescisão do TLS e termine com o TLS com o Gateway](ssl-overview.md)de Aplicação .
 
    ```powershell
    $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'allowlistcert1' -CertificateFile C:\cert.cer
@@ -200,7 +202,7 @@ Todos os itens de configuração são definidos antes de criar o gateway da apli
    $rule = New-AzApplicationGatewayRequestRoutingRule -Name 'rule01' -RuleType basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
    ```
 
-10. Configure o tamanho da instância do gateway de aplicação. Os tamanhos disponíveis são **Standard\_Small,** **\_Standard Medium**e Standard **\_Large.**  Para a capacidade, os valores disponíveis são **de 1** a **10**.
+10. Configure o tamanho da instância do gateway de aplicação. Os tamanhos disponíveis são ** \_ Standard Small,** **Standard \_ Medium**e **Standard \_ Large.**  Para a capacidade, os valores disponíveis são **de 1** a **10**.
 
     ```powershell
     $sku = New-AzApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
@@ -217,7 +219,7 @@ Todos os itens de configuração são definidos antes de criar o gateway da apli
     - **TLSV1_1**
     - **TLSV1_2**
     
-    O exemplo seguinte define a versão do protocolo mínimo para **TLSv1_2** e permite **\_tLS ECDHE\_ECDSA\_COM AES\_\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_COM\_AES\_256\_GCM\_SHA384**, e **TLS\_RSA\_apenas com\_AES\_128\_GCM\_SHA256.**
+    O exemplo seguinte define a versão do protocolo mínimo para **TLSv1_2** e permite **tLS \_ ECDHE \_ ECDSA \_ COM \_ AES \_ 128 \_ GCM \_ SHA256**, **TLS \_ ECDHE \_ ECDSA \_ COM \_ AES \_ 256 \_ GCM \_ SHA384**, e **TLS \_ RSA \_ apenas com \_ AES \_ 128 \_ GCM \_ SHA256.**
 
     ```powershell
     $SSLPolicy = New-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -PolicyType Custom
@@ -310,7 +312,7 @@ Os passos anteriores levaram-no através da criação de uma aplicação com TLS
    $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
    ```
 
-2. Defina uma política de TLS. No exemplo seguinte, **TLSv1.0** e **TLSv1.1** são desativados e as suites de cifra **TLS\_\_ECDHE ECDSA\_COM\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_COM\_AES\_256\_GCM\_SHA384**, e **TLS\_RSA\_COM\_AES\_128\_GCM\_SHA256** são os únicos permitidos.
+2. Defina uma política de TLS. No exemplo seguinte, **TLSv1.0** e **TLSv1.1** são desativados e as suites de cifra **TLS \_ ECDHE \_ ECDSA \_ COM \_ AES \_ 128 \_ GCM \_ SHA256**, **TLS \_ ECDHE \_ ECDSA \_ COM \_ AES \_ 256 \_ GCM \_ SHA384**, e **TLS \_ RSA \_ COM \_ AES \_ 128 \_ GCM \_ SHA256** são os únicos permitidos.
 
    ```powershell
    Set-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -PolicyType Custom -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -ApplicationGateway $gw

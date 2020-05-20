@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2017
 ms.author: subsarma
-ms.openlocfilehash: c2ef842fd62ef060f06536d66387c3facd0627b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 79efe3cef82a166ca6b56dea5cb07f15a5325083
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60640383"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650318"
 ---
 # <a name="use-dynamic-dns-to-register-hostnames-in-your-own-dns-server"></a>Utilizar o DNS dinâmico para registar nomes de anfitrião no seu próprio servidor DNS
 
@@ -33,9 +33,9 @@ Os clientes windows não unidos pelo domínio tentam atualizações DDNS não se
 Os clientes windows unidos pelo domínio registam os seus endereços IP com o controlador de domínio utilizando DDNS seguros. O processo de união de domínio define o sufixo principal do DNS no cliente e cria e mantém a relação de confiança.
 
 ## <a name="linux-clients"></a>Clientes Linux
-Os clientes linux geralmente não se registam com o servidor DNS no arranque, assumem que o servidor DHCP o faz. Os servidores DHCP da Azure não têm as credenciais para registar registos no seu servidor DNS. Pode utilizar uma `nsupdate`ferramenta chamada , que está incluída no pacote Bind, para enviar atualizações de DDNS. Como o protocolo DDNS é normalizado, pode utilizar `nsupdate` mesmo quando não estiver a utilizar o Bind no servidor DNS.
+Os clientes linux geralmente não se registam com o servidor DNS no arranque, assumem que o servidor DHCP o faz. Os servidores DHCP da Azure não têm as credenciais para registar registos no seu servidor DNS. Pode utilizar uma ferramenta chamada `nsupdate` , que está incluída no pacote Bind, para enviar atualizações de DDNS. Como o protocolo DDNS é normalizado, pode utilizar `nsupdate` mesmo quando não estiver a utilizar o Bind no servidor DNS.
 
-Pode utilizar os ganchos fornecidos pelo cliente DHCP para criar e manter a entrada do nome de anfitrião no servidor DNS. Durante o ciclo DHCP, o cliente executa os scripts em */etc/dhcp/dhclient-exit-hooks.d/*. Pode utilizar os ganchos para registar `nsupdate`o novo endereço IP utilizando . Por exemplo:
+Pode utilizar os ganchos fornecidos pelo cliente DHCP para criar e manter a entrada do nome de anfitrião no servidor DNS. Durante o ciclo DHCP, o cliente executa os scripts em */etc/dhcp/dhclient-exit-hooks.d/*. Pode utilizar os ganchos para registar o novo endereço IP utilizando `nsupdate` . Por exemplo:
 
 ```bash
 #!/bin/sh
@@ -61,11 +61,11 @@ then
 fi
 ```
 
-Também pode utilizar `nsupdate` o comando para executar atualizações DDNS seguras. Por exemplo, quando se está a utilizar um servidor Bind DNS, [gera-se](http://linux.yyz.us/nsupdate/)um par de chaves público-privado . O servidor DNS está [configurado](http://linux.yyz.us/dns/ddns-server.html) com a parte pública da chave, para que possa verificar a assinatura no pedido. Para fornecer o par `nsupdate`de `-k` chaves para, use a opção, para que o pedido de atualização DDNS seja assinado.
+Também pode utilizar o `nsupdate` comando para executar atualizações DDNS seguras. Por exemplo, quando se está a utilizar um servidor Bind DNS, é gerado um par de chaves público-privado `http://linux.yyz.us/nsupdate/` (). O servidor DNS está configurado ( `http://linux.yyz.us/dns/ddns-server.html` ) com a parte pública da chave, para que possa verificar a assinatura no pedido. Para fornecer o par de chaves `nsupdate` para, use a `-k` opção, para que o pedido de atualização DDNS seja assinado.
 
-Quando estiver a utilizar um servidor DNS do Windows, `-g` pode utilizar `nsupdate`a autenticação Kerberos com o `nsupdate`parâmetro dentro , mas não está disponível na versão Windows de . Para usar Kerberos, use `kinit` para carregar as credenciais. Por exemplo, pode carregar credenciais a `nsupdate -g` partir de um [ficheiro keytab](https://www.itadmintools.com/2011/07/creating-kerberos-keytab-files.html)), em seguida, recolhe as credenciais, a partir da cache.
+Quando estiver a utilizar um servidor DNS do Windows, pode utilizar a autenticação Kerberos com o `-g` parâmetro dentro , mas não está `nsupdate` disponível na versão Windows de `nsupdate` . Para usar Kerberos, use `kinit` para carregar as credenciais. Por exemplo, pode carregar credenciais a partir de um [ficheiro keytab](https://www.itadmintools.com/2011/07/creating-kerberos-keytab-files.html)), em seguida, `nsupdate -g` recolhe as credenciais, a partir da cache.
 
-Se necessário, pode adicionar um sufixo de pesquisa DNS aos seus VMs. O sufixo DNS é especificado no ficheiro */etc/resolve.conf.* A maioria dos distros Linux gere automaticamente o conteúdo deste ficheiro, por isso normalmente não pode editá-lo. No entanto, pode anular o sufixo utilizando o `supersede` comando do cliente DHCP. Para sobrepor o sufixo, adicione a seguinte linha ao ficheiro */etc/dhcp/dhclient.conf:*
+Se necessário, pode adicionar um sufixo de pesquisa DNS aos seus VMs. O sufixo DNS é especificado no ficheiro */etc/resolve.conf.* A maioria dos distros Linux gere automaticamente o conteúdo deste ficheiro, por isso normalmente não pode editá-lo. No entanto, pode anular o sufixo utilizando o comando do cliente `supersede` DHCP. Para sobrepor o sufixo, adicione a seguinte linha ao ficheiro */etc/dhcp/dhclient.conf:*
 
 ```
 supersede domain-name <required-dns-suffix>;

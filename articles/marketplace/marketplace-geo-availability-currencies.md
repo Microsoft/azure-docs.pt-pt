@@ -1,18 +1,18 @@
 ---
-title: Disponibilidade geográfica e apoio cambial para o mercado comercial Mercado Azure
-description: Disponibilidade geográfica no mercado comercial
+title: Disponibilidade geográfica e suporte cambial para o mercado comercial da Microsoft
+description: A disponibilidade geográfica e o apoio cambial às transações no mercado comercial
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/29/2020
 ms.author: dsindona
-ms.openlocfilehash: 83906e6270ed41c2ea8f489c5a5312d32a565a29
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 16d41879321c7cbaa4f38bcba83d83d39f30ee13
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81687592"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657868"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Disponibilidade geográfica e apoio cambial para o mercado comercial
 
@@ -31,7 +31,7 @@ As ofertas de marketplace comercial podem ser adquiridas em 141 geografias, tal 
 | Áustria                             | AT        | EUR          |
 | Azerbaijão                          | AZ        | USD          |
 | Barém                             | BH        | USD          |
-| Bangladeche                          | BD        | USD          |
+| Bangladesh                          | BD        | USD          |
 | Barbados                            | BB        | USD          |
 | Bielorrússia                             | BY        | USD          |
 | Bélgica                             | BE        | EUR          |
@@ -53,14 +53,14 @@ As ofertas de marketplace comercial podem ser adquiridas em 141 geografias, tal 
 | Costa Rica                          | CR        | USD          |
 | Costa do Marfim (Côte d’Ivoire)                       | CI        | USD          |
 | Croácia                             | HR        | EUR          |
-| Curaçau                             | CW        | USD          |
+| Curaçao                             | CW        | USD          |
 | Chipre                              | CY        | EUR          |
 | República Checa                      | CZ        | EUR          |
 | Dinamarca                             | DK        | DKK          |
 | República Dominicana                  | DO        | USD          |
 | Equador                             | EC        | USD          |
 | Egito                               | EG        | USD          |
-| El Salvador                         | SV        | USD          |
+| Salvador                         | SV        | USD          |
 | Estónia                             | EE        | EUR          |
 | Etiópia                            | ET        | USD          |
 | Ilhas Faroé                       | FO        | DKK          |
@@ -73,7 +73,7 @@ As ofertas de marketplace comercial podem ser adquiridas em 141 geografias, tal 
 | Grécia                              | GR        | EUR          |
 | Guatemala                           | GT        | USD          |
 | Honduras                            | HN        | USD          |
-| RAE de Hong Kong                       | HK        | USD          |
+| R.A.E. de Hong Kong                       | HK        | USD          |
 | Hungria                             | HU        | EUR          |
 | Islândia                             | IS        | EUR          |
 | Índia                               | IN        | INR          |
@@ -88,19 +88,19 @@ As ofertas de marketplace comercial podem ser adquiridas em 141 geografias, tal 
 | Cazaquistão                          | KZ        | USD          |
 | Quénia                               | KE        | USD          |
 | Coreia (Sul)                       | KR        | KRW          |
-| Kuwait                              | KW        | USD          |
+| Koweit                              | KW        | USD          |
 | Quirguistão                          | KG        | USD          |
 | Letónia                              | LV        | EUR          |
 | Líbano                             | LB        | USD          |
 | Líbia                               | LY        | USD          |
-| Liechtenstein                       | LI        | EUR          |
+| Listenstaine                       | LI        | EUR          |
 | Lituânia                           | LT        | EUR          |
 | Luxemburgo                          | LU        | EUR          |
 | RAE de Macau                           | MO        | USD          |
 | Macedónia do Norte                     | MK        | USD          |
 | Malásia                            | MY        | USD          |
 | Malta                               | MT        | EUR          |
-| Maurícia                           | MU        | USD          |
+| Maurícias                           | MU        | USD          |
 | México                              | MX        | USD          |
 | Moldávia                             | MD        | USD          |
 | Mónaco                              | MC        | EUR          |
@@ -137,7 +137,7 @@ As ofertas de marketplace comercial podem ser adquiridas em 141 geografias, tal 
 | Eslovénia                            | SI        | EUR          |
 | África do Sul                        | ZA        | USD          |
 | Espanha                               | ES        | EUR          |
-| Sri Lanka                           | LK        | USD          |
+| Sri Lanca                           | LK        | USD          |
 | Suécia                              | SE        | SEK          |
 | Suíça                         | CH        | CHF          |
 | Taiwan                              | TW        | TWD          |
@@ -154,9 +154,9 @@ As ofertas de marketplace comercial podem ser adquiridas em 141 geografias, tal 
 | Ucrânia                             | UA        | USD          |
 | Emirados Árabes Unidos                | AE        | USD          |
 | Reino Unido                      | GB        | GBP          |
-| Estados Unidos                       | EUA        | USD          |
+| Estados Unidos da América                       | EUA        | USD          |
 | Uruguai                             | UY        | USD          |
-| Uzbequistão                          | UZ        | USD          |
+| Usbequistão                          | UZ        | USD          |
 | Venezuela                           | VE        | USD          |
 | Vietname                             | VN        | USD          |
 | Iémen                               | Ye        | USD          |

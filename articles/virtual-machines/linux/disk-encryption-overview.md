@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: f75e5c856e05cc5ce53598849a7cb11ed059827a
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 5c227c6ab24d6b71445354d1b17d238e80bf6313
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82838863"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655858"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Encriptação de disco azure para VMs Linux 
 
@@ -38,7 +38,7 @@ Os VMs Linux estão disponíveis numa [gama de tamanhos.](sizes.md) A Encriptaç
 
 | Máquina virtual | Requisito mínimo de memória |
 |--|--|
-| VMs Linux quando apenas encriptam volumes de dados| 2GB |
+| VMs Linux quando apenas encriptam volumes de dados| 2 GB |
 | VMs Linux ao encriptar tanto os volumes de dados como os volumes de OS, e onde a utilização do sistema de ficheiros raiz (/) é de 4GB ou menos | 8 GB |
 | VMs Linux ao encriptar tanto os volumes de dados como os volumes de OS, e onde a utilização do sistema de ficheiros raiz (/) é superior a 4GB | O uso do sistema de ficheiros radicular * 2. Por exemplo, um uso de 16 GB de sistema de ficheiros radicular requer pelo menos 32GB de RAM |
 
@@ -56,7 +56,7 @@ A encriptação do disco Azure é suportada num subconjunto das [distribuições
 
 As distribuições de servidores Linux que não são endossadas pelo Azure não suportam encriptação do disco Azure; dos que são endossados, apenas as seguintes distribuições e versões suportam encriptação do Disco Azure:
 
-| Publicador | Oferta | SKU | URN | Tipo de volume suportado para encriptação |
+| Publisher | Oferta | SKU | URN | Tipo de volume suportado para encriptação |
 | --- | --- |--- | --- |
 | Canónico | Ubuntu | 18.04-LTS | Canonical:UbuntuServer:18.04-LTS:mais recente | SEm e disco de dados |
 | Canónico | Ubuntu 18.04 | 18.04-DIÁRIO-LTS | Canonical:UbuntuServer:18.04-DAILY-LTS:mais recente | SEm e disco de dados |
@@ -96,20 +96,30 @@ As distribuições de servidores Linux que não são endossadas pelo Azure não 
 
 A encriptação do disco azure requer que os módulos dm-cripto e vfat estejam presentes no sistema. Remover ou desativar a vfat da imagem predefinida impedirá o sistema de ler o volume da chave e obter a chave necessária para desbloquear os discos em reboots subsequentes. Os passos de endurecimento do sistema que removem o módulo vfat do sistema não são compatíveis com a Encriptação do Disco Azure. 
 
-Antes de permitir a encriptação, os discos de dados a encriptar devem ser corretamente listados em /etc/fstab. Utilize um nome de dispositivo de bloco persistente para esta entrada, uma vez que os nomes do dispositivo no formato "/dev/sdX" não podem ser invocados para serem associados ao mesmo disco através de reboots, particularmente após a aplicação da encriptação. Para mais detalhes sobre este comportamento, consulte: [Troubleshoot Linux VM nome de nome do dispositivo](troubleshoot-device-names-problems.md)
+Antes de permitir a encriptação, os discos de dados a encriptar devem ser corretamente listados em /etc/fstab. Utilize a opção "nofail" ao criar entradas e escolha um nome de dispositivo de bloco persistente (como os nomes do dispositivo no formato "/dev/sdX" não podem estar associados ao mesmo disco através de reboots, particularmente após encriptação; para mais detalhes sobre este comportamento, consulte: Alterações no nome do [dispositivo Desmancha de Linux).](troubleshoot-device-names-problems.md)
 
 Certifique-se de que as definições /etc/fstab estão corretamente configuradas para montagem. Para configurar estas definições, executar o suporte - um comando ou reiniciar o VM e desencadear a montagem dessa forma. Uma vez concluído, verifique a saída do comando de lsblk para verificar se a unidade ainda está montada. 
+
 - Se o ficheiro /etc/fstab não montar corretamente a unidade antes de ativar a encriptação, a Encriptação do Disco Azure não será capaz de montá-la corretamente.
 - O processo de encriptação do disco Azure irá mover a informação de montagem para fora de /etc/fstab e para o seu próprio ficheiro de configuração como parte do processo de encriptação. Não se assuste ao ver a entrada em falta de /etc/fstab após a encriptação da unidade de dados estar concluída.
 - Antes de iniciar a encriptação, certifique-se de parar todos os serviços e processos que possam estar a escrever para discos de dados montados e desativá-los, para que não reiniciem automaticamente após um reboot. Estes poderiam manter os ficheiros abertos nestas divisórias, impedindo que o procedimento de encriptação os remontasse, causando falhas na encriptação. 
 - Após o reboot, levará tempo para que o processo de encriptação do disco Azure monte os discos recentemente encriptados. Não estarão imediatamente disponíveis depois de um reboot. O processo precisa de tempo para iniciar, desbloquear e, em seguida, montar as unidades encriptadas antes de estar disponível para outros processos de acesso. Este processo pode demorar mais de um minuto após o reboot dependendo das características do sistema.
 
-Um exemplo de comandos que podem ser usados para montar os discos de dados e criar as entradas necessárias /etc/fstab podem ser encontrados no script CLI de encriptação do [disco Azure](https://github.com/ejarvi/ade-cli-getting-started) (linhas 244-248) e na encriptação do disco [Azure pré-requisitos do script PowerShell](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts). 
+Aqui está um exemplo dos comandos utilizados para montar os discos de dados e criar as entradas necessárias /etc/fstab:
 
+```bash
+UUID0="$(blkid -s UUID -o value /dev/disk/azure/scsi1/lun0)"
+UUID1="$(blkid -s UUID -o value /dev/disk/azure/scsi1/lun1)"
+mkdir /data0
+mkdir /data1
+echo "UUID=$UUID0 /data0 ext4 defaults,nofail 0 0" >>/etc/fstab
+echo "UUID=$UUID1 /data1 ext4 defaults,nofail 0 0" >>/etc/fstab
+mount -a
+```
 ## <a name="networking-requirements"></a>Requisitos de networking
 
 Para ativar a funcionalidade de encriptação do disco Azure, os VMs Linux devem satisfazer os seguintes requisitos de configuração do ponto final da rede:
-  - Para obter um símbolo para ligar ao seu cofre chave, o VM Linux deve ser \[\]capaz de ligar a um ponto final do Diretório Ativo Azure, login.microsoftonline.com .
+  - Para obter um símbolo para ligar ao seu cofre chave, o VM Linux deve ser capaz de ligar a um ponto final do Diretório Ativo Azure, \[ login.microsoftonline.com \] .
   - Para escrever as chaves de encriptação do seu cofre de chaves, o VM Linux deve ser capaz de ligar ao ponto final do cofre chave.
   - O Linux VM deve ser capaz de ligar a um ponto final de armazenamento Azure que acolhe o repositório de extensão Azure e uma conta de armazenamento Azure que acolhe os ficheiros VHD.
   -  Se a sua política de segurança limitar o acesso dos VMs Azure à Internet, pode resolver o URI anterior e configurar uma regra específica para permitir a conectividade de saída aos IPs. Para mais informações, consulte [o Cofre chave Azure atrás de uma firewall](../../key-vault/general/access-behind-firewall.md).  

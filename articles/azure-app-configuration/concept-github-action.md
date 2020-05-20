@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.date: 02/20/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 602ccddf97938022df3c5903b573608558fe5d35
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9cb1149073247b7f5fc3e74a1aef6f96388c7135
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80585484"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648110"
 ---
 # <a name="sync-your-github-repository-to-app-configuration"></a>Sincronize o seu repositório GitHub para configuração de aplicações
 
@@ -20,7 +20,7 @@ As equipas que pretendam continuar a utilizar as suas práticas de controlo de f
 &nbsp;&nbsp;&nbsp;&nbsp;• Atualizar a configuração sem recolocar toda a sua aplicação <br>
 &nbsp;&nbsp;&nbsp;&nbsp;• Integração com serviços como o Azure App Service e as Funções. 
 
-Um [fluxo de trabalho](https://help.github.com/articles/about-github-actions#workflow) gitHub Actions define um processo automatizado num repositório GitHub. A Ação de Sincronização de Configuração de *Aplicações Azure* aciona atualizações para uma instância de configuração de aplicações quando são feitas alterações no repositório de origem. Utiliza um ficheiro YAML (.yml) `/.github/workflows/` encontrado no caminho do seu repositório para definir os passos e parâmetros. Pode ativar atualizações de configuração ao premir, rever ou ramificar ficheiros de configuração de aplicações, tal como faz com o código da aplicação.
+Um [fluxo de trabalho](https://help.github.com/articles/about-github-actions#workflow) gitHub Actions define um processo automatizado num repositório GitHub. A Ação de Sincronização de Configuração de *Aplicações Azure* aciona atualizações para uma instância de configuração de aplicações quando são feitas alterações no repositório de origem. Utiliza um ficheiro YAML (.yml) encontrado no `/.github/workflows/` caminho do seu repositório para definir os passos e parâmetros. Pode ativar atualizações de configuração ao premir, rever ou ramificar ficheiros de configuração de aplicações, tal como faz com o código da aplicação.
 
 A [documentação](https://help.github.com/actions/automating-your-workflow-with-github-actions/configuring-a-workflow) gitHub proporciona uma visão aprofundada dos fluxos e ações de trabalho do GitHub. 
 
@@ -33,9 +33,9 @@ Para começar a utilizar esta ação GitHub, vá ao seu repositório e selecione
 > ![Selecione a sincronização de configuração da aplicação Action](media/app-configuration-sync-action.png)
 
 ## <a name="sync-configuration-files-after-a-push"></a>Sync ficheiros de configuração após um impulso
-Esta ação sincroniza ficheiros de configuração de `appsettings.json`aplicações do Azure quando uma alteração é empurrada para . Quando um desenvolvedor empurra `appsettings.json`uma mudança para , a ação de Configuração de Aplicações atualiza a instância de configuração da aplicação com os novos valores.
+Esta ação sincroniza ficheiros de configuração de aplicações do Azure quando uma alteração é empurrada para `appsettings.json` . Quando um desenvolvedor empurra uma mudança para , a ação de `appsettings.json` Configuração de Aplicações atualiza a instância de configuração da aplicação com os novos valores.
 
-A primeira secção deste fluxo de trabalho especifica que `appsettings.json` a ação dispara *sobre* um *impulso* que contenha ao ramo *principal.* A segunda secção enumera os postos de trabalho executados assim que a ação for desencadeada. A ação verifica os ficheiros relevantes e atualiza a instância de Configuração da Aplicação utilizando a cadeia de ligação armazenada como segredo no repositório.  Para obter mais informações sobre o uso de segredos no GitHub, consulte o [artigo do GitHub](https://help.github.com/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets) sobre a criação e utilização de segredos encriptados.
+A primeira secção deste fluxo de trabalho especifica que a ação dispara *sobre* um *impulso* que contenha `appsettings.json` ao ramo *principal.* A segunda secção enumera os postos de trabalho executados assim que a ação for desencadeada. A ação verifica os ficheiros relevantes e atualiza a instância de Configuração da Aplicação utilizando a cadeia de ligação armazenada como segredo no repositório.  Para obter mais informações sobre o uso de segredos no GitHub, consulte o [artigo do GitHub](https://help.github.com/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets) sobre a criação e utilização de segredos encriptados.
 
 ```json
 on: 
@@ -61,10 +61,123 @@ jobs:
           separator: ':' 
 ```
 
-## <a name="use-a-dynamic-label-on-sync"></a>Use um rótulo dinâmico na sincronização
-A ação anterior atualiza a `appsettings.json` instância de Configuração da Aplicação sempre que for atualizada. Esta ação insere um rótulo dinâmico em cada sincronização, garantindo que cada sincronia pode ser identificada de forma única e permitindo que alterações de código sejam mapeadas para alterações de config.
+## <a name="use-strict-sync"></a>Use sincronização rigorosa
+Por predefinição, a ação gitHub não permite o modo rigoroso, o que significa que o sync apenas adicionará valores-chave do ficheiro de configuração à instância de configuração da aplicação (nenhum par de valor-chave será eliminado). Ativar o modo rigoroso significa que os pares de valor-chave que não estão no ficheiro de configuração são eliminados da instância de Configuração da Aplicação, de modo a que corresponda ao ficheiro de configuração. Se estiver a sincronizar de várias fontes ou a utilizar o Cofre de Chaves Azure com configuração de aplicações, deverá utilizar diferentes prefixos ou etiquetas com sincronização rigorosa para evitar eliminar as definições de configuração de outros ficheiros (ver amostras abaixo). 
 
-A primeira secção deste fluxo de trabalho especifica que `appsettings.json` a ação dispara *sobre* um *impulso* que contenha ao ramo *principal.* A segunda secção executa um trabalho que cria uma etiqueta única para a atualização de config com base no hash de compromisso. O trabalho atualiza então a instância de Configuração da Aplicação com os novos valores e a etiqueta única para esta atualização.
+```json
+on: 
+  push: 
+    branches: 
+      - 'master' 
+    paths: 
+      - 'appsettings.json' 
+ 
+jobs: 
+  syncconfig: 
+    runs-on: ubuntu-latest 
+    steps: 
+      # checkout done so that files in the repo can be read by the sync 
+      - uses: actions/checkout@v1 
+      - uses: azure/appconfiguration-sync@v1 
+        with: 
+          configurationFile: 'appsettings.json' 
+          format: 'json' 
+          # Replace <ConnectionString> with the name of the secret in your 
+          # repository 
+          connectionString: ${{ secrets.<ConnectionString> }}  
+          separator: ':' 
+          label: 'Label' 
+          prefix: 'Prefix:' 
+          strict: true 
+```
+## <a name="sync-multiple-files-in-one-action"></a>Sincronizar vários ficheiros numa só ação 
+
+Se a sua configuração estiver em vários ficheiros, pode utilizar o padrão abaixo para desencadear uma sincronização quando qualquer um dos ficheiros for modificado. Este padrão usa a biblioteca globhttps://www.npmjs.com/package/glob 
+
+```json
+on:
+  push:
+    branches:
+      - 'master'
+    paths:
+      - 'appsettings.json'
+      - 'appsettings2.json'
+
+jobs:
+  syncconfig:
+    runs-on: ubuntu-latest
+    steps:
+      # checkout done so that files in the repo can be read by the sync
+      - uses: actions/checkout@v1
+      - uses: azure/appconfiguration-sync@v1
+        with:
+          configurationFile: '{appsettings.json,appsettings2.json}'
+          format: 'json'
+          # Replace <ConnectionString> with the name of the secret in your repository
+          connectionString: ${{ secrets.<ConnectionString> }}
+          separator: ':'
+```
+
+## <a name="sync-by-prefix-or-label"></a>Sincronizar por prefixo ou etiqueta
+Especificar prefixos ou etiquetas na sua ação de sincronização sincronizará apenas esse conjunto específico. Isto é importante para a utilização de sincronização rigorosa com vários ficheiros. Dependendo da configuração, um prefixo ou uma etiqueta podem ser associados a cada ficheiro e, em seguida, cada prefixo ou etiqueta pode ser sincronizado separadamente para que nada seja substituído. Normalmente, os prefixos são usados para diferentes aplicações ou serviços e etiquetas são usadas para diferentes ambientes. 
+
+Sincronizar por prefixo: 
+
+```json
+on:
+  push:
+    branches:
+      - 'master'
+    paths:
+      - 'appsettings.json'
+
+jobs:
+  syncconfig:
+    runs-on: ubuntu-latest
+    steps:
+      # checkout done so that files in the repo can be read by the sync
+      - uses: actions/checkout@v1
+      - uses: azure/appconfiguration-sync@v1
+        with:
+          configurationFile: 'appsettings.json'
+          format: 'json'
+          # Replace <ConnectionString> with the name of the secret in your repository
+          connectionString: ${{ secrets.<ConnectionString> }}
+          separator: ':'
+          prefix: 'Prefix::'
+```
+
+Sincronizar por rótulo: 
+
+```json
+on:
+  push:
+    branches:
+      - 'master'
+    paths:
+      - 'appsettings.json'
+
+jobs:
+  syncconfig:
+    runs-on: ubuntu-latest
+    steps:
+      # checkout done so that files in the repo can be read by the sync
+      - uses: actions/checkout@v1
+      - uses: azure/appconfiguration-sync@v1
+        with:
+          configurationFile: 'appsettings.json'
+          format: 'json'
+          # Replace <ConnectionString> with the name of the secret in your repository
+          connectionString: ${{ secrets.<ConnectionString> }}
+          separator: ':'
+          label: 'Label'
+
+```
+
+## <a name="use-a-dynamic-label-on-sync"></a>Use um rótulo dinâmico na sincronização
+A seguinte ação insere um rótulo dinâmico em cada sincronização, garantindo que cada sincronia pode ser identificada de forma única e permitindo que alterações de código sejam mapeadas para alterações de config.
+
+A primeira secção deste fluxo de trabalho especifica que a ação dispara *sobre* um *impulso* que contenha `appsettings.json` ao ramo *principal.* A segunda secção executa um trabalho que cria uma etiqueta única para a atualização de config com base no hash de compromisso. O trabalho atualiza então a instância de Configuração da Aplicação com os novos valores e a etiqueta única para esta atualização.
 
 ```json
 on: 
@@ -95,36 +208,45 @@ jobs:
           label: ${{ steps.determine_label.outputs.LABEL }} 
 ```
 
-## <a name="use-strict-sync"></a>Use sincronização rigorosa
-Quando o modo rígido está ativado, o sync garante que a instância de configuração da aplicação corresponde exatamente ao ficheiro de configuração para o prefixo e etiqueta dada. Os pares de valor-chave com o mesmo prefixo e etiqueta que não estão no ficheiro de configuração são eliminados. 
- 
-Se o modo rígido não estiver ativado, o sync apenas definirá os valores-chave do ficheiro de configuração. Nenhum par de valor-chave será eliminado. 
+## <a name="use-azure-key-vault-with-github-action"></a>Use cofre de chave azure com ação GitHub
+Os desenvolvedores que usam o Cofre de Chaves Azure com appConfiguration devem usar dois ficheiros separados, tipicamente um appsettings.json e um secretreferences.json. As referências secretas.json conterão a url do segredo do cofre chave.
+
+{ "mySecret": "{ \" \" uri: \" https://myKeyVault.vault.azure.net/secrets/mySecret "}" }
+
+A GitHub Action pode então ser configurada para fazer uma sincronização rigorosa nas definições de aplicações.json, seguida de uma sincronização não rigorosa em referências secretas.json. A amostra seguinte irá desencadear uma sincronização quando qualquer um dos ficheiros for atualizado:
 
 ```json
-on: 
-  push: 
-    branches: 
-      - 'master' 
-    paths: 
-      - 'appsettings.json' 
- 
-jobs: 
-  syncconfig: 
-    runs-on: ubuntu-latest 
-    steps: 
-      # checkout done so that files in the repo can be read by the sync 
-      - uses: actions/checkout@v1 
-      - uses: azure/appconfiguration-sync@v1 
-        with: 
-          configurationFile: 'appsettings.json' 
-          format: 'json' 
-          # Replace <ConnectionString> with the name of the secret in your 
-          # repository 
-          connectionString: ${{ secrets.<ConnectionString> }}  
-          separator: ':' 
-          label: 'Label' 
-          prefix: 'Prefix:' 
-          strict: true 
+on:
+  push:
+    branches:
+      - 'master'
+    paths:
+      - 'appsettings.json'
+      - 'secretreferences.json'
+
+jobs:
+  syncconfig:
+    runs-on: ubuntu-latest
+    steps:
+      # checkout done so that files in the repo can be read by the sync
+      - uses: actions/checkout@v1
+      - uses: azure/appconfiguration-sync@v1
+        with:
+          configurationFile: 'appsettings.json'
+          format: 'json'
+          # Replace <ConnectionString> with the name of the secret in your repository
+          connectionString: ${{ secrets.<ConnectionString> }}
+          separator: ':'
+          strict: true
+      - uses: azure/appconfiguration-sync@v1
+        with:
+          configurationFile: 'secretreferences.json'
+          format: 'json'
+          # Replace <ConnectionString> with the name of the secret in your repository
+          connectionString: ${{ secrets.<ConnectionString> }}
+          separator: ':'
+          contentType: 'application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8'
+
 ```
 
 ## <a name="use-max-depth-to-limit-github-action"></a>Use a profundidade máxima para limitar a Ação GitHub
@@ -191,7 +313,7 @@ Os parâmetros de entrada especificam os dados utilizados pela ação durante o 
 | conexãoString | Sim | Fio de ligação para a instância de configuração da aplicação. A cadeia de ligação deve ser armazenada como um segredo no repositório GitHub, e apenas o nome secreto deve ser usado no fluxo de trabalho. |
 | separador | Sim | Separador utilizado ao aplainar o ficheiro de configuração para pares de valor-chave.  Valores válidos são: . , ; : - _ __ / |
 | prefixo | Não | Prefixo a ser adicionado ao início das teclas. |
-| label | Não | Etiqueta utilizada ao definir pares de valor-chave. Se não especificado, é utilizada uma etiqueta nula. |
+| etiqueta | Não | Etiqueta utilizada ao definir pares de valor-chave. Se não especificado, é utilizada uma etiqueta nula. |
 | rígido | Não | Um valor booleano que determina se o modo rígido está ativado. O valor predefinido é false. |
 | profundidade | Não | Profundidade máxima para aplainar o ficheiro de configuração.  Profundidade deve ser um número positivo.  O padrão não terá profundidade máxima. |
 | etiquetas | Não | Especifica a etiqueta definida nos pares de valor-chave.  O formato esperado é uma forma stringizada de um objeto JSON da seguinte forma: { [propertyName: string]: string; } Cada valor de nome de propriedade torna-se uma etiqueta. |

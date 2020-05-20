@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 570e84b3a545736aad6983c7f0d8c0f0296ca589
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d073bc82b3a9e42e443caa5d3e7855fd4eb5b98b
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81431816"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658909"
 ---
 # <a name="azure-synapse-sql-architecture"></a>Arquitetura Azure Synapse SQL 
 
@@ -47,7 +47,7 @@ Com armazenamento e computação dissociados, ao utilizar o SQL Synapse pode ben
 * Colocar a capacidade de computação em pausa, mantendo os dados intactos, pelo que só paga pelo armazenamento.
 * Retomar a capacidade de computação durante as horas de funcionamento.
 
-## <a name="azure-storage"></a>Storage do Azure
+## <a name="azure-storage"></a>Armazenamento do Azure
 
 Synapse SQL aproveita o Armazenamento Azure para manter os dados dos seus utilizadores seguros. Uma vez que os seus dados são armazenados e geridos pelo Azure Storage, existe uma taxa separada para o seu consumo de armazenamento. 
 
@@ -117,4 +117,4 @@ O diagrama abaixo mostra uma tabela replicada que é cached na primeira distribu
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que sabe um pouco sobre o Synapse SQL, aprenda a criar rapidamente [um pool SQL](../quickstart-create-sql-pool.md) e [carregue dados](../sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) de amostra (./sql-data-warehouse-load-sample-databases.md). Ou começa a [usar sQL a pedido](../quickstart-sql-on-demand.md). Se não estiver familiarizado com o Azure, poderá achar útil o [Glossário do Azure](../../azure-glossary-cloud-terminology.md) quando se deparar com terminologia nova. 
+Agora que sabe um pouco sobre o Synapse SQL, aprenda a criar rapidamente [um pool SQL](../quickstart-create-sql-pool-portal.md) e [carregue dados](../sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) de amostra (./sql-data-warehouse-load-sample-databases.md). Ou começa a [usar sQL a pedido](../quickstart-sql-on-demand.md). Se não estiver familiarizado com o Azure, poderá achar útil o [Glossário do Azure](../../azure-glossary-cloud-terminology.md) quando se deparar com terminologia nova. 

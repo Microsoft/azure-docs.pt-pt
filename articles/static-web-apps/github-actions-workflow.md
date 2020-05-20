@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: chnwamba
-ms.openlocfilehash: c7180be2afa541f743d7bd81627b93f34d9bb4eb
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 44472eb697a4d191d4ed99b7879654fcca61383b
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597843"
+ms.locfileid: "83655199"
 ---
 # <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>GitHub Actions fluxos de trabalho para pré-visualização de aplicações web estáticas azure
 
@@ -150,7 +150,7 @@ A implantação liga sempre antes de `npm install` qualquer comando personalizad
 
 | Comando            | Descrição |
 |---------------------|-------------|
-| `app_build_command` | Define um comando personalizado a executar durante a implementação da aplicação de conteúdo estático.<br><br>Por exemplo, configurar uma construção de produção para uma aplicação Angular entrar `ng build -prod` . Se ficar em branco, o fluxo de trabalho tenta executar os `npm run build` comandos ou `npm run build:Azure` comandos.  |
+| `app_build_command` | Define um comando personalizado a executar durante a implementação da aplicação de conteúdo estático.<br><br>Por exemplo, configurar uma construção de produção para uma aplicação Angular entrar `ng build --prod` . Se ficar em branco, o fluxo de trabalho tenta executar os `npm run build` comandos ou `npm run build:Azure` comandos.  |
 | `api_build_command` | Define um comando personalizado a executar durante a implementação da aplicação API funções Azure. |
 
 ## <a name="route-file-location"></a>Localização de ficheiros de rota

@@ -2,20 +2,20 @@
 title: Monitor Kubernetes cluster health with Azure Monitor for containers [ Microsoft Docs
 description: Este artigo descreve como pode ver e analisar a saúde dos seus clusters AKS e não-AKS com o Monitor Azure para contentores.
 ms.topic: conceptual
-ms.date: 12/01/2019
-ms.openlocfilehash: f50ef13efca78bbb5285b99759b8111dc1915ad0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/18/2020
+ms.openlocfilehash: 94fdb6388134eae326ed5a8e46fbd3d13f8da2d5
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76843995"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649574"
 ---
 # <a name="understand-kubernetes-cluster-health-with-azure-monitor-for-containers"></a>Compreender a saúde do cluster Kubernetes com o Monitor Azure para contentores
 
 Com o Monitor Azure para contentores, monitoriza e reporta o estado de saúde dos componentes de infraestrutura geridos e todos os nós em funcionamento em qualquer cluster Kubernetes apoiado pelo Azure Monitor para contentores. Esta experiência [estende-se](container-insights-analyze.md#multi-cluster-view-from-azure-monitor)para além do estado de saúde do cluster calculado e reportado na visão de vários clusters, onde agora pode entender se um ou mais nós no cluster estão limitados de recursos, ou um nó ou pod está indisponível que pode afetar uma aplicação de execução no cluster com base em métricas curadas.
 
 >[!NOTE]
->A funcionalidade de Saúde está em pré-visualização pública neste momento.
+>A funcionalidade Saúde vai transitar para uma pré-estreia privada no final de junho de 2020. Para mais informações, reveja o seguinte anúncio de [atualizações do Azure.](https://azure.microsoft.com/updates/ci-health-limited-preview/)
 >
 
 Para obter informações sobre como ativar o Monitor Azure para contentores, consulte o [Monitor De Bordo Azure para obter recipientes](container-insights-onboard.md).
@@ -23,7 +23,7 @@ Para obter informações sobre como ativar o Monitor Azure para contentores, con
 >[!NOTE]
 >Para suportar os clusters aks engine, verifique se satisfaz o seguinte:
 >- Está a utilizar a versão mais recente do [cliente HELM.](https://helm.sh/docs/using_helm/)
->- A versão do agente contentorizado é *microsoft/oms:ciprod11012019*. Para atualizar o agente, consulte o [agente de atualização no cluster Kubernetes](container-insights-manage-agent.md#upgrade-agent-on-monitored-kubernetes-cluster).
+>- A versão do agente contentorizado é *microsoft/oms:ciprod11012019*. Para atualizar o agente, consulte o [agente de atualização no cluster Kubernetes](container-insights-manage-agent.md#how-to-upgrade-the-azure-monitor-for-containers-agent).
 >
 
 ## <a name="overview"></a>Descrição geral

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 220e73536a892e798139ca54913e09e097c22432
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c08adca17948aceb54b937526dacebbaa13a0530
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82191945"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655195"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Utilizar o armazenamento do Azure com clusters do Azure HDInsight
 
@@ -65,7 +65,7 @@ Existem várias formas de aceder aos ficheiros no Armazenamento de Data Lake a p
 
 ### <a name="data-access-examples"></a>Exemplos de acesso a dados
 
-Exemplos são baseados numa [ligação ssh](./hdinsight-hadoop-linux-use-ssh-unix.md) ao nó da cabeça do cluster. Os exemplos utilizam os três esquemas URI. Substituir `CONTAINERNAME` `STORAGEACCOUNT` e com os valores relevantes
+Exemplos são baseados numa [ligação ssh](./hdinsight-hadoop-linux-use-ssh-unix.md) ao nó da cabeça do cluster. Os exemplos utilizam os três esquemas URI. Substituir `CONTAINERNAME` e com os `STORAGEACCOUNT` valores relevantes
 
 #### <a name="a-few-hdfs-commands"></a>Alguns comandos hdfs
 
@@ -104,7 +104,7 @@ Exemplos são baseados numa [ligação ssh](./hdinsight-hadoop-linux-use-ssh-uni
 
 #### <a name="creating-a-hive-table"></a>Criando uma mesa de colmeia
 
-Três localizações de ficheiros são mostradas para fins ilustrativos. Para a execução real, `LOCATION` utilize apenas uma das entradas.
+Três localizações de ficheiros são mostradas para fins ilustrativos. Para a execução real, utilize apenas uma das `LOCATION` entradas.
 
 ```hql
 DROP TABLE myTable;
@@ -138,11 +138,11 @@ A Microsoft fornece as seguintes ferramentas para trabalhar com o Armazenamento 
 
 * Para identificar o caminho completo para a loja predefinida configurada, navegue para:
 
-    **HDFS** > **Configs** `fs.defaultFS` e introduza na caixa de entrada do filtro.
+    **HDFS**  >  **Configs** e introduza na caixa de `fs.defaultFS` entrada do filtro.
 
 * Para verificar se a loja wasb está configurada como armazenamento secundário, navegue para:
 
-    **HDFS** > **Configs** `blob.core.windows.net` e introduza na caixa de entrada do filtro.
+    **HDFS**  >  **Configs** e introduza na caixa de `blob.core.windows.net` entrada do filtro.
 
 Para obter o caminho utilizando ambari REST API, consulte [O armazenamento predefinido](./hdinsight-hadoop-manage-ambari-rest-api.md#get-the-default-storage).
 
@@ -158,7 +158,7 @@ O contentor de blobs predefinido armazena informações específicas do cluster,
 
 ## <a name="use-additional-storage-accounts"></a>Utilizar contas de armazenamento adicionais
 
-Ao criar um cluster do HDInsight, especifica a conta de armazenamento do Azure que quer associar ao mesmo. Além disso, pode adicionar contas de armazenamento adicionais a partir da mesma subscrição Azure ou diferentes subscrições azure durante o processo de criação. Ou depois de um aglomerado ter sido criado. Para obter instruções sobre como adicionar mais contas do Storage, consulte [Create HDInsight clusters (Criar clusters do HDInsight)](hdinsight-hadoop-provision-linux-clusters.md).
+Ao criar um cluster do HDInsight, especifica a conta de armazenamento do Azure que quer associar ao mesmo. Além disso, pode adicionar contas de armazenamento adicionais a partir da mesma subscrição Azure ou diferentes subscrições azure durante o processo de criação ou após a criação de um cluster. Para obter instruções sobre como adicionar mais contas do Storage, consulte [Create HDInsight clusters (Criar clusters do HDInsight)](hdinsight-hadoop-provision-linux-clusters.md).
 
 > [!WARNING]  
 > Não é suportado utilizar uma conta de armazenamento adicional numa localização diferente do cluster do HDInsight.

@@ -10,12 +10,12 @@ ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: afcadd55e87579b25f03176fa3227024863b90fb
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 02f7d7e2735717a7a6e7a56273551197c16b77aa
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858518"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659243"
 ---
 # <a name="check-the-last-sync-time-property-for-a-storage-account"></a>Verifique a propriedade Do Último Tempo sincronizado para obter uma conta de armazenamento
 
@@ -40,7 +40,7 @@ Pode utilizar o PowerShell ou o Azure CLI para recuperar o valor da propriedade 
 Para obter o último tempo de sincronização para a conta de armazenamento com powerShell, instale uma versão do módulo Az.Storage que suporta obter estatísticas de georeplicação. Por exemplo:
 
 ```powershell
-Install-Module Az.Storage –Repository PSGallery -RequiredVersion ??? –AllowPrerelease –AllowClobber –Force
+Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.14.0 –AllowClobber –Force
 ```
 
 Em seguida, verifique a propriedade **GeoReplicationStats.LastSyncTime** da conta de armazenamento. Lembre-se de substituir os valores do espaço reservado por valores próprios:
@@ -53,7 +53,7 @@ $lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para obter o último tempo de sincronização para a conta de armazenamento com o Azure CLI, verifique a propriedade **geoReplicationStats.lastSyncTime** da conta de armazenamento. Utilize `--expand` o parâmetro para devolver valores para as propriedades aninhadas em **geoReplicationStats**. Lembre-se de substituir os valores do espaço reservado por valores próprios:
+Para obter o último tempo de sincronização para a conta de armazenamento com o Azure CLI, verifique a propriedade **geoReplicationStats.lastSyncTime** da conta de armazenamento. Utilize o `--expand` parâmetro para devolver valores para as propriedades aninhadas em **geoReplicationStats**. Lembre-se de substituir os valores do espaço reservado por valores próprios:
 
 ```azurecli-interactive
 $lastSyncTime=$(az storage account show \
@@ -66,7 +66,7 @@ $lastSyncTime=$(az storage account show \
 
 ---
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - [Redundância de armazenamento azure](storage-redundancy.md)
 - [Alterar a opção de despedimento para uma conta de armazenamento](redundancy-migration.md)

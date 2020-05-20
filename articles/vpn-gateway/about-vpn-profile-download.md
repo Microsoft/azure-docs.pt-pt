@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 03/17/2020
+ms.date: 05/13/2020
 ms.author: cherylmc
-ms.openlocfilehash: b78d32dbb7b4e0d9a3b13ff741e6e38c12be0e62
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4526611fa8b80a7b97ee7317f5e285c50f05b0de
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79528511"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650642"
 ---
 # <a name="about-p2s-vpn-client-profiles"></a>Sobre os perfis de clientes P2S VPN
 
@@ -20,7 +20,7 @@ O ficheiro de perfil descarregado contém informações necessárias para config
 
 [!INCLUDE [client profiles](../../includes/vpn-gateway-vwan-vpn-profile-download.md)]
 
-* A **pasta OpenVPN** contém o perfil *ovpn* que precisa de ser modificado para incluir a chave e o certificado. Para mais informações, consulte [os clientes Configure OpenVPN para Azure VPN Gateway](vpn-gateway-howto-openvpn-clients.md#windows). Esta pasta não estará presente no ficheiro zip se a autenticação da AD Azure for selecionada no gateway VPN. Em vez disso, o azurevpnconfig.xml estará na pasta AzureVPN.
+* A **pasta OpenVPN** contém o perfil *ovpn* que precisa de ser modificado para incluir a chave e o certificado. Para mais informações, consulte [os clientes Configure OpenVPN para Azure VPN Gateway](vpn-gateway-howto-openvpn-clients.md#windows). Se a autenticação Azure AD for selecionada no gateway VPN, esta pasta não está presente no ficheiro zip. Em vez disso, navegue para a pasta AzureVPN e localize azurevpnconfig.xml.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56f240a5191dd483f89889f3ffe13b1819ca1e53
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5dbfca54227895de53b984dcf5c7a1f8c5fbf51d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78399319"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647410"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Começar com o Diretório Ativo Azure reportando API
 
@@ -47,7 +47,7 @@ Para obter instruções detalhadas, consulte os [pré-requisitos para aceder ao 
 
 ## <a name="api-endpoints"></a>Pontos Finais da API 
 
-O ponto final da Microsoft Graph `https://graph.microsoft.com/beta/auditLogs/directoryAudits` API para registos de auditoria é `https://graph.microsoft.com/beta/auditLogs/signIns`e o ponto final da Microsoft Graph API para iniciar sessão é . Para mais informações, consulte a referência da [API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) de auditoria e a [referência de api.](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signIn)
+O ponto final da Microsoft Graph API para registos de auditoria é `https://graph.microsoft.com/v1.0/auditLogs/directoryAudits` e o ponto final da Microsoft Graph API para iniciar sessão é `https://graph.microsoft.com/v1.0/auditLogs/signIns` . Para mais informações, consulte a referência da [API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/directoryaudit) de auditoria e a [referência de api.](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/signIn)
 
 Além disso, pode utilizar a API de deteção de risco de [Proteção de Identidade](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) para obter acesso programático a deteções de segurança usando o Microsoft Graph. Para mais informações, consulte [Start start with Azure Ative Directory Identity Protection and Microsoft Graph](../identity-protection/graph-get-started.md). 
   
@@ -55,7 +55,7 @@ Além disso, pode utilizar a API de deteção de risco de [Proteção de Identid
 
 Pode utilizar o explorador do [Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) para verificar os seus dados de sessão e auditoria da API. Certifique-se de que insere na sua conta utilizando ambos os botões de início de sessão no Graph Explorer UI e desemace **o AuditLog.Read.All** and **Directy.Read.Todas as** permissões para o seu inquilino, conforme mostrado.   
 
-![Graph Explorer](./media/concept-reporting-api/graph-explorer.png)
+![Explorador de Gráficos](./media/concept-reporting-api/graph-explorer.png)
 
 ![Modificar permissões UI](./media/concept-reporting-api/modify-permissions.png)
 

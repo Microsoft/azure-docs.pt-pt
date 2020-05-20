@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 2b62ee971c2cff84f60bad1be4304631513fed22
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9384b974463c963cc130e7ca0d4a9ee815a92e53
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82186327"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647718"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Compreender a fatura do Azure Cosmos DB
 
@@ -208,8 +208,8 @@ Com o nível gratuito Azure Cosmos DB, você receberá os primeiros 400 RU/s e 5
 - Agora, suponhamos na mesma conta, adicionamos outra base de dados ou contentor com 1000 RU/s e 10 GB de armazenamento.
 - A sua conta irá agora mostrar uma taxa para os 1000 RU/s e 10 GB de armazenamento. 
 
-### <a name="billing-example---container-or-database-with-autoscale-throughput"></a>Exemplo de faturação - recipiente ou base de dados com entrada em escala automática
-- Vamos supor, numa conta de nível livre, que criamos uma base de dados ou um recipiente com escala automática ativada, com um máximo ru/s de 4000 RU/s. Este recurso escalará automaticamente entre 400 RU/s - 4000 RU/s. 
+### <a name="billing-example---container-with-autoscale-throughput"></a>Exemplo de faturação - recipiente com entrada em escala automática
+- Vamos supor, numa conta de nível livre, que criamos um recipiente com escala automática ativada, com um máximo de RU/s de 4000 RU/s. Este recurso escalará automaticamente entre 400 RU/s - 4000 RU/s. 
 - Suponha que na hora 1 a hora 10, o recurso está no mínimo de 400 RU/s. Durante a hora 11, o recurso escala até 1000 RU/s e depois volta para baixo para 400 RU/s dentro de uma hora.
 - Nas horas 1 a 10, será cobrado $0 por entrada, já que os 400 RU/s foram cobertos por nível livre. 
 - Na hora 11, você será cobrado para um eficaz 1000 RU/s - 400 RU/s = 600 RU/s, já que este é o RU/s mais alto da hora. Esta será de 6 unidades de 100 RU/s por hora, por isso o custo total de produção da hora será de 6 unidades * $0,012 = $0,072. 

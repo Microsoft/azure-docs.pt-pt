@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/03/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: affdbfba125b7e9b3f3fe250a56af30e9efe816e
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.date: 04/03/2020
+ms.openlocfilehash: 9b5771197c3e2de109af1a3b3475ab28fcbd6453
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611011"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647753"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>Interaja com os clusters Apache Kafka em Azure HDInsight usando um proxy REST
 
@@ -23,7 +23,7 @@ Kafka REST Proxy permite-lhe interagir com o seu cluster Kafka através de um RE
 
 Para operações apoiadas pela Kafka REST API, consulte [HDInsight Kafka REST Proxy API Reference](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy).
 
-## <a name="background"></a>Segundo plano
+## <a name="background"></a>Fundo
 
 ![Projeto de procuração kafka REST](./media/rest-proxy/rest-proxy-architecture.png)
 
@@ -56,6 +56,8 @@ Para pedidos de ponto final de procuração REST, os pedidos de cliente devem ob
 
 ## <a name="create-a-kafka-cluster-with-rest-proxy-enabled"></a>Criar um cluster Kafka com proxy REST habilitado
 
+Os passos abaixo utilizam o portal Azure. Por exemplo, utilizando o Azure CLI, consulte [Create Apache Kafka REST proxy cluster utilizando o Azure CLI](tutorial-cli-rest-proxy.md).
+
 1. Durante o fluxo de trabalho de criação de cluster Kafka, no separador **de rede Security + networking,** verifique a opção proxy Enable Kafka **REST.**
 
      ![Ativar o proxy Kafka REST e selecionar grupo de segurança](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest.png)
@@ -75,7 +77,7 @@ Para pedidos de ponto final de procuração REST, os pedidos de cliente devem ob
 Pode usar o código python abaixo para interagir com o proxy REST no seu cluster Kafka. Para utilizar a amostra de código, siga estes passos:
 
 1. Guarde o código da amostra numa máquina com python instalada.
-1. Instale dependências de pitão necessárias executando `pip3 install msal`.
+1. Instale dependências de pitão necessárias executando `pip3 install msal` .
 1. Modifique a secção de **códigoConfigure estas propriedades** e atualize as seguintes propriedades para o seu ambiente:
 
     |Propriedade |Descrição |
@@ -92,7 +94,7 @@ Este código faz a seguinte ação:
 1. Vai buscar um símbolo da OAuth da Azure AD.
 1. Mostra como fazer um pedido ao representante do KAFKA REST.
 
-Para obter fichas OAuth em python, consulte a [aula python AuthenticationContext](https://docs.microsoft.com/python/api/adal/adal.authentication_context.authenticationcontext?view=azure-python). Pode ver-se `topics` um atraso enquanto não forem criados ou apagados através do representante do KAFKA REST. Este atraso deve-se à atualização da cache.
+Para obter fichas OAuth em python, consulte a [aula python AuthenticationContext](https://docs.microsoft.com/python/api/adal/adal.authentication_context.authenticationcontext?view=azure-python). Pode ver-se um atraso enquanto `topics` não forem criados ou apagados através do representante do KAFKA REST. Este atraso deve-se à atualização da cache.
 
 ```python
 #Required python packages
@@ -139,7 +141,7 @@ response = requests.get(request_url, headers={'Authorization': accessToken})
 print(response.content)
 ```
 
-Encontre abaixo outra amostra sobre como obter um símbolo de Azure para proxy REST usando um comando de caracóis. **Reparem que `scope=https://hib.azurehdinsight.net/.default` precisamos do especificado enquanto recebemos um símbolo.**
+Encontre abaixo outra amostra sobre como obter um símbolo de Azure para proxy REST usando um comando de caracóis. **Reparem que precisamos do `scope=https://hib.azurehdinsight.net/.default` especificado enquanto recebemos um símbolo.**
 
 ```cmd
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=<clientid>&client_secret=<clientsecret>&grant_type=client_credentials&scope=https://hib.azurehdinsight.net/.default' 'https://login.microsoftonline.com/<tenantid>/oauth2/v2.0/token'

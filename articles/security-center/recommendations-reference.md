@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2020
 ms.author: memildin
-ms.openlocfilehash: 7e5cb997bee271a1bf1c795598d0ddfda3373264
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: f48a54f2f220d83720d4a3233e2fb97a9efa64ff
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83197145"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654683"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Recomendações de segurança - um guia de referência
 
@@ -64,9 +64,9 @@ A sua Pontuação Segura baseia-se no número de recomendações do Centro de Se
 
 |Recomendação|Descrição & política relacionada|Gravidade|Correção rápida ativada? ([Saiba mais)](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#recommendations-with-quick-fix-remediation)|Tipo de recurso|
 |----|----|----|----|----|
-|**Aplicação Web só deve ser acessível em HTTPS**|Limite o acesso de Aplicações Web apenas a HTTPS.<br>(Política relacionada: )|Médio|N|Serviço de aplicativos|
-|**App de funções só deve ser acessível através de HTTPS**|Limite o acesso das Aplicações de Funções apenas a HTTPS.<br>(Política relacionada: )|Médio|N|Serviço de aplicativos|
-|**A Aplicação API só deve ser acessível em HTTPS**|Limite o acesso de Apps API apenas a HTTPS.<br>(Política relacionada: )|Médio|N|Serviço de aplicativos|
+|**Aplicação Web só deve ser acessível em HTTPS**|Ativar o acesso "https only" para aplicações web. A utilização do HTTPS garante a autenticação do servidor/serviço e protege os dados em trânsito de ataques de escutas de camadas de rede.<br>(Política relacionada: Aplicação Web só deve ser acessível em HTTPS)|Médio|**S**|Serviço de aplicativos|
+|**App de funções só deve ser acessível através de HTTPS**|Ativar o acesso "apenas HTTPS" para aplicações de função. A utilização do HTTPS garante a autenticação do servidor/serviço e protege os dados em trânsito de ataques de escutas de camadas de rede.<br>(Política relacionada: App de funções só deve ser acessível através de HTTPS)|Médio|**S**|Serviço de aplicativos|
+|**A Aplicação API só deve ser acessível em HTTPS**|Limite o acesso de Apps API apenas a HTTPS.<br>(Política relacionada: A app API só deve ser acessível em HTTPS)|Médio|N|Serviço de aplicativos|
 |**Depuração remota deve ser desligada para aplicações web**|Desligue a depuração para aplicações web se já não precisar de usá-lo. A depuração remota requer a abertura de portas de entrada numa Web App.<br>(Política relacionada: Depuração remota deve ser desligada para aplicação web)|Baixa|**S**|Serviço de aplicativos|
 |**Depuração remota deve ser desligada para app de função**|Desligue a depuração para a App função se já não precisar de a utilizar. A depuração remota requer que as portas de entrada sejam abertas numa App de Funções.<br>(Política relacionada: Depuração remota deve ser desligada para App de Funções)|Baixa|**S**|Serviço de aplicativos|
 |**Depuração remota deve ser desligada para App API**|Desligue a depuração da App API se já não precisar de a utilizar. A depuração remota requer a abertura de portas de entrada numa App API.<br>(Política relacionada: Depuração remota deve ser desligada para app API)|Baixa|**S**|Serviço de aplicativos|
@@ -165,7 +165,7 @@ A sua Pontuação Segura baseia-se no número de recomendações do Centro de Se
 |**As contas depreciadas devem ser removidas da sua subscrição**|Remova contas depreciadas das suas subscrições para permitir o acesso apenas aos utilizadores atuais.<br>(Política relacionada: Contas depreciadas devem ser removidas da sua subscrição)|Alta|N|Subscrição|
 |**Deve haver mais de um proprietário atribuído à sua subscrição**|Designe mais do que um proprietário de subscrição para ter o despedimento de administrador.<br>(Política relacionada: Deve haver mais de um proprietário atribuído à sua subscrição)|Alta|N|Subscrição|
 |**Um máximo de 3 proprietários deve ser designado para a sua subscrição**|Designe menos de três proprietários de subscrições para reduzir o potencial de violação por um proprietário comprometido.<br>(Política relacionada: Um máximo de 3 proprietários deve ser designado para a sua subscrição)|Alta|N|Subscrição|
-|**Os registos de diagnóstico no Cofre-Chave devem ser ativados**|Ative os registos e retenha-os até um ano. Isto permite-lhe recriar trilhas de atividade para fins de investigação quando ocorre um incidente de segurança ou a sua rede está comprometida.<br>(Política relacionada: Os registos de diagnóstico no Cofre-Chave devem ser ativados)|Baixa|**S**|Cofre de Chaves|
+|**Os registos de diagnóstico no Cofre-Chave devem ser ativados**|Ative os registos e retenha-os até um ano. Isto permite-lhe recriar trilhas de atividade para fins de investigação quando ocorre um incidente de segurança ou a sua rede está comprometida.<br>(Política relacionada: Os registos de diagnóstico no Cofre-Chave devem ser ativados)|Baixa|**S**|Key Vault|
 ||||||
 
 

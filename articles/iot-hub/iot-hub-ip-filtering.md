@@ -5,14 +5,14 @@ author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/22/2017
+ms.date: 05/12/2020
 ms.author: robinsh
-ms.openlocfilehash: b1550254e969e96fbc83c4c344189d414a8fa8d3
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 74ee9506d7b21e5f0654c8a46976b4d5c63b5197
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82995510"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649369"
 ---
 # <a name="use-ip-filters"></a>Utilizar filtros de IP
 
@@ -28,9 +28,12 @@ Existem dois casos de utilização específicos quando é útil bloquear os pont
 
 ## <a name="how-filter-rules-are-applied"></a>Como as regras do filtro são aplicadas
 
-As regras do filtro IP são aplicadas ao nível do serviço IoT Hub. Por isso, as regras do filtro IP aplicam-se a todas as ligações de dispositivos e aplicações back-end utilizando qualquer protocolo suportado.
+As regras do filtro IP são aplicadas ao nível do serviço IoT Hub. Por isso, as regras do filtro IP aplicam-se a todas as ligações de dispositivos e aplicações back-end utilizando qualquer protocolo suportado. No entanto, os clientes que lêem diretamente a partir do ponto final compatível do [Event Hub incorporado](iot-hub-devguide-messages-read-builtin.md) (não através da cadeia de ligação IoT Hub) não estão ligados às regras do filtro IP. 
 
-Qualquer tentativa de ligação de um endereço IP que corresponda a uma regra de IP rejeitada no seu hub IoT recebe um código e descrição de estado não autorizados 401. A mensagem de resposta não menciona a regra do PI.
+Qualquer tentativa de ligação de um endereço IP que corresponda a uma regra de IP rejeitada no seu hub IoT recebe um código e descrição de estado não autorizados 401. A mensagem de resposta não menciona a regra do PI. A rejeição de endereços IP pode impedir que outros serviços Do Azure, como o Azure Stream Analytics, o Azure Virtual Machines, ou o Device Explorer no portal Azure interajam com o hub IoT.
+
+> [!NOTE]
+> Se tiver de utilizar o Azure Stream Analytics (ASA) para ler mensagens de um hub IoT com filtro IP ativado, utilize o nome e o ponto final compatíveis com o evento do seu hub IoT para adicionar manualmente uma entrada de fluxo de Hubs de [Eventos](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-event-hubs) na ASA.
 
 ## <a name="default-setting"></a>Definição predefinida
 
@@ -62,12 +65,6 @@ A opção **Adicionar** é desativada quando atingir o máximo de 10 regras de f
 
 Para editar uma regra existente, selecione os dados que pretende alterar, faça a alteração e, em seguida, selecione **Guardar** para salvar a sua edição.
 
-> [!NOTE]
-> A rejeição de endereços IP pode impedir que outros Serviços Azure (como o Azure Stream Analytics, o Azure Virtual Machines ou o Device Explorer no portal) interajam com o hub IoT.
-
-> [!WARNING]
-> Se utilizar o Azure Stream Analytics (ASA) para ler mensagens de um hub IoT com filtragem IP ativada, utilize o nome e o ponto final compatíveis com o evento do seu hub IoT para adicionar manualmente uma entrada de fluxo de Hubs de [Eventos](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-inputs#stream-data-from-event-hubs) na ASA.
-
 ## <a name="delete-an-ip-filter-rule"></a>Eliminar uma regra de filtro IP
 
 Para eliminar uma regra do filtro IP, selecione o ícone do caixote do lixo nessa linha e, em seguida, selecione **Guardar**. A regra é removida e a mudança é salva.
@@ -84,7 +81,7 @@ Para recuperar os filtros IP atuais do seu Hub IoT, corra:
 az resource show -n <iothubName> -g <resourceGroupName> --resource-type Microsoft.Devices/IotHubs
 ```
 
-Isto devolverá um objeto JSON onde os filtros `properties.ipFilterRules` IP existentes estão listados na chave:
+Isto devolverá um objeto JSON onde os filtros IP existentes estão listados na `properties.ipFilterRules` chave:
 
 ```json
 {
@@ -120,7 +117,7 @@ Para remover um filtro IP existente no seu Hub IoT, corra:
 az resource update -n <iothubName> -g <resourceGroupName> --resource-type Microsoft.Devices/IotHubs --add properties.ipFilterRules <ipFilterIndexToRemove>
 ```
 
-Note `<ipFilterIndexToRemove>` que deve corresponder à encomenda de filtros IP `properties.ipFilterRules`no seu IoT Hub's .
+Note que `<ipFilterIndexToRemove>` deve corresponder à encomenda de filtros IP no seu IoT `properties.ipFilterRules` Hub's .
 
 ## <a name="retrieve-and-update-ip-filters-using-azure-powershell"></a>Recuperar e atualizar filtros IP utilizando o Azure PowerShell
 

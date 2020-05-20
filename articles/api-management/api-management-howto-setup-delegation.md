@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: apimpm
-ms.openlocfilehash: c28872e6cffa973f01b3f5a87c423d9dd93a2aa5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7dfb863da9f06cfc0c81944aa4037933cdd650ad
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81259107"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649194"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Como delegar o registo do utilizador e a subscrição do produto
 
@@ -48,7 +48,7 @@ Agora tem de criar o ponto final da **delegação.** Tem de realizar uma série 
 
 1. Receba um pedido no seguinte formulário:
    
-   > *http:\//www.yourwebsite.com/apimdelegation?operation=SignIn&devoluçãoUrl={URL da página fonte}&sal={string}&sig={string}*
+   > *http: \/ /www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL da página fonte}&sal={string}&sig={string}*
    > 
    > 
    
@@ -74,7 +74,7 @@ Agora tem de criar o ponto final da **delegação.** Tem de realizar uma série 
    * [solicitar um sinal único (SSO) ficha] através da API Management REST API
    * anexar um parâmetro de consulta de retornoUrl ao URL SSO que recebeu da chamada API acima:
      
-     > Por exemplohttps://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
+     > Por exemplo`https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url` 
      > 
      > 
    * redirecionar o utilizador para o URL acima produzido
@@ -105,7 +105,7 @@ Em seguida, assegurar que o ponto final da delegação faça as seguintes açõe
 
 1. Receba um pedido no seguinte formulário:
    
-   > *http:\//www.yourwebsite.com/apimdelegation?operation={operation}&productId={product to subscribe to}&userId={user making request}&salt={string}&sig={string}*
+   > *http: \/ /www.yourwebsite.com/apimdelegation?operation={operation}&productId={product to subscribe to}&userId={user making request}&salt={string}&sig={string}*
    >
    
     Parâmetros de consulta para o caso da subscrição do produto:

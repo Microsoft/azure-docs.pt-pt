@@ -5,14 +5,14 @@ author: anfeldma-ms
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 1a3ec22b9d1375f1c438d24791389284c1d4ee84
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 461602aee6d88f8d8f829fcf89e3433a8185e34d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982552"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658937"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-async-java-sdk-v2"></a>Dicas de desempenho para Azure Cosmos DB Async Java SDK v2
 
@@ -24,7 +24,7 @@ ms.locfileid: "82982552"
 > 
 
 > [!IMPORTANT]  
-> Este *não* é o mais recente Java SDK para Azure Cosmos DB! Considere utilizar o Azure Cosmos DB Java SDK v4 para o seu projeto. Para fazer upgrade, siga as instruções no guia [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) e no guia [Reator vs RxJava.](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) 
+> Este *não* é o mais recente Java SDK para Azure Cosmos DB! Você deve atualizar o seu projeto para [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md) e, em seguida, ler o guia de dicas de [desempenho](performance-tips-java-sdk-v4-sql.md)Do Azure Cosmos DB Java SDK v4 . Siga as instruções no guia [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) e no guia [Reator vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) para atualizar. 
 > 
 > As dicas de desempenho neste artigo são apenas para Azure Cosmos DB Async Java SDK v2. Consulte as notas de [lançamento](sql-api-sdk-async-java.md)do Azure Cosmos DB Async Java SDK v2 , [repositório Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)e o guia de resolução de [problemas](troubleshoot-java-async-sdk.md) Azure Cosmos DB Async Java SDK v2 para obter mais informações.
 >
@@ -154,7 +154,7 @@ Então, se estás a perguntar"Como posso melhorar o meu desempenho na base de da
 
 * **Utilizar endereçobaseado em nome**
 
-    Utilize endereços baseados em nomes, onde as ligações têm o formato `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId`, em vez de SelfLinks (self),\_que têm o formato `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>` para evitar recuperar Os ResourceIds de todos os recursos utilizados para construir o link. Além disso, à medida que estes recursos são recriados (possivelmente com o mesmo nome), caching-los pode não ajudar.
+    Utilize endereços baseados em nomes, onde as ligações têm o formato `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId` , em vez de SelfLinks \_ (self), que têm o formato `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>` para evitar recuperar Os ResourceIds de todos os recursos utilizados para construir o link. Além disso, à medida que estes recursos são recriados (possivelmente com o mesmo nome), caching-los pode não ajudar.
 
    <a id="tune-page-size"></a>
 
@@ -209,13 +209,13 @@ Então, se estás a perguntar"Como posso melhorar o meu desempenho na base de da
       });
     ```
 
-    Com base no tipo de trabalho que deve utilizar o agendador RxJava existente para o seu trabalho. Leia [``Schedulers``](http://reactivex.io/RxJava/1.x/javadoc/rx/schedulers/Schedulers.html)aqui.
+    Com base no tipo de trabalho que deve utilizar o agendador RxJava existente para o seu trabalho. Leia [``Schedulers``](http://reactivex.io/RxJava/1.x/javadoc/rx/schedulers/Schedulers.html) aqui.
 
     Para mais informações, consulte a [página GitHub](https://github.com/Azure/azure-cosmosdb-java) para Azure Cosmos DB Async Java SDK v2.
 
 * **Desativar a exploração madeireira da rede**
 
-    O registo da biblioteca netty é falador e precisa de ser desligado (suprimir o sinal na configuração pode não ser suficiente) para evitar custos adicionais de CPU. Se não estiver em modo de depuração, desative completamente a exploração madeireira da Netty. Por isso, se estiver a utilizar o log4j ``org.apache.log4j.Category.callAppenders()`` para remover os custos adicionais de CPU incorridos a partir de netty adicione a seguinte linha à sua base de código:
+    O registo da biblioteca netty é falador e precisa de ser desligado (suprimir o sinal na configuração pode não ser suficiente) para evitar custos adicionais de CPU. Se não estiver em modo de depuração, desative completamente a exploração madeireira da Netty. Por isso, se estiver a utilizar o log4j para remover os custos adicionais de CPU incorridos a ``org.apache.log4j.Category.callAppenders()`` partir de netty adicione a seguinte linha à sua base de código:
 
     ```java
     org.apache.log4j.Logger.getLogger("io.netty").setLevel(org.apache.log4j.Level.OFF);
@@ -296,7 +296,7 @@ Para outras plataformas (Chapéu Vermelho, Windows, Mac, etc.) consulte estas in
 
     A complexidade de uma consulta tem impacto na quantidade de unidades de pedido que são consumidas para uma operação. O número de predicados, a natureza dos predicados, o número de UDFs e a dimensão dos dados de origem todos influenciam o custo das operações de consulta.
 
-    Para medir o sobretempo de qualquer operação (criar, atualizar ou eliminar), inspecione o cabeçalho [x-ms-request-charge](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) para medir o número de unidades de pedido consumidas por estas operações. Também pode olhar para a propriedade equivalente\<RequestCharge em\<RecursosResponse T> ou FeedResponse T>.
+    Para medir o sobretempo de qualquer operação (criar, atualizar ou eliminar), inspecione o cabeçalho [x-ms-request-charge](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) para medir o número de unidades de pedido consumidas por estas operações. Também pode olhar para a propriedade equivalente RequestCharge em RecursosResponse \< T> ou FeedResponse T \<>.
 
     ### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-requestcharge"></a>Async Java SDK V2 (Maven com.microsoft.azure::azure-cosmosdb)
 

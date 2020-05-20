@@ -4,13 +4,13 @@ description: Conheça os passos necessários para permitir os novos recursos bas
 author: mrbullwinkle
 ms.author: mbullwin
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 65c2220bd3e9ea93e562b256e84796aed9046d00
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 05/18/2020
+ms.openlocfilehash: e66ae6aa0b9b7e309fbd6fcc3699cb873a266bbe
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83211411"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647891"
 ---
 # <a name="workspace-based-application-insights-resources-preview"></a>Recursos de Insights de Aplicação baseados no espaço de trabalho (pré-visualização)
 
@@ -40,9 +40,7 @@ Clicar no texto de link azul irá levá-lo ao espaço de trabalho associado log 
 
 ## <a name="copy-the-connection-string"></a>Copiar a cadeia de ligação
 
-A [cadeia de ligação]() identifica o recurso com o que pretende associar os seus dados de telemetria. Também permite modificar os pontos finais que o seu recurso utilizará como destino para a sua telemetria. Terá de copiar a cadeia de ligação e adicioná-la ao código da sua aplicação ou a uma variável ambiental.
-
-![Clique e copie a chave de instrumentação](./media/create-new-resource/instrumentation-key.png)
+A [cadeia de ligação](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) identifica o recurso com o que pretende associar os seus dados de telemetria. Também permite modificar os pontos finais que o seu recurso utilizará como destino para a sua telemetria. Terá de copiar a cadeia de ligação e adicioná-la ao código da sua aplicação ou a uma variável ambiental.
 
 ## <a name="monitoring-configuration"></a>Configuração de monitorização
 
@@ -61,7 +59,7 @@ Para documentação detalhada sobre a criação de um SDK de insights de aplica�
 - [Java](https://docs.microsoft.com/azure/azure-monitor/app/java-get-started?tabs=maven)
 - [JavaScript](https://docs.microsoft.com/azure/azure-monitor/app/javascript)
 - [Node.js](https://docs.microsoft.com/azure/azure-monitor/app/nodejs)
-- [Python](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python)
+- [Pitão](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python)
 
 ### <a name="codeless-monitoring-and-visual-studio-resource-creation"></a>Monitorização sem código e criação de recursos do Estúdio Visual
 
@@ -192,6 +190,10 @@ O `New-AzApplicationInsights` comando PowerShell não suporta atualmente a cria�
 Uma vez criado um recurso de Insights de Aplicação baseado no espaço de trabalho, pode modificar o espaço de trabalho associado do Log Analytics Workspace.
 
 A partir do painel de recursos Da Aplicação Insights, **selecione Properties**  >  **Change Workspace**Log Analytics  >  **Workspaces**
+
+## <a name="export-telemetry"></a>Telemetria de exportação
+
+A funcionalidade de exportação contínua do legado não é suportada para recursos baseados no espaço de trabalho. Em vez disso, selecione **definições**de diagnóstico  >  **adicione definição** de diagnóstico dentro do seu recurso Application Insights. Pode selecionar todas as tabelas, ou um subconjunto de tabelas para arquivar numa conta de armazenamento, ou para transmitir para um Hub de Eventos Azure.
 
 ## <a name="next-steps"></a>Passos seguintes
 

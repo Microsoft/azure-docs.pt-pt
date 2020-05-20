@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: 4b693ef1eaf7c8dd1f2fd95116c24392ee9a9454
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: 164ce87df77d81a7d36d4448f5d8da8287ed0a01
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402581"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656710"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Encriptação do lado do servidor dos discos geridos pelo Azure
 
@@ -93,9 +93,6 @@ Por enquanto, as chaves geridas pelo cliente têm as seguintes restrições:
 1. Crie uma instância de Cofre chave Azure e chave de encriptação.
 
     Ao criar a instância Key Vault, deve ativar a proteção de eliminação suave e purga. A eliminação suave garante que o Cofre-Chave detém uma chave eliminada durante um determinado período de retenção (padrão de 90 dias). A proteção da purga garante que uma chave eliminada não pode ser eliminada permanentemente até que o período de retenção caduque. Estas definições protegem-no de perder dados devido à eliminação acidental. Estas definições são obrigatórias quando se utiliza um Cofre chave para encriptar discos geridos.
-
-    > [!IMPORTANT]
-    > Não case camelo na região, se o fizer poderá ter problemas ao atribuir discos adicionais ao recurso no portal Azure.
     
     ```powershell
     $ResourceGroupName="yourResourceGroupName"
@@ -123,12 +120,8 @@ Por enquanto, as chaves geridas pelo cliente têm as seguintes restrições:
         > [!NOTE]
         > Pode levar alguns minutos para o Azure criar a identidade do seu DiskEncryptionSetSet no seu Diretório Ativo Azure. Se tiver um erro como "Não encontrar o objeto de Diretório Ativo" ao executar o seguinte comando, aguarde alguns minutos e tente novamente.
         
-        ```powershell
-        $identity = Get-AzADServicePrincipal -DisplayName myDiskEncryptionSet1  
-         
+        ```powershell  
         Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ObjectId $des.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
-         
-        New-AzRoleAssignment -ResourceName $keyVaultName -ResourceGroupName $ResourceGroupName -ResourceType "Microsoft.KeyVault/vaults" -ObjectId $des.Identity.PrincipalId -RoleDefinitionName "Reader" 
         ```
 
 #### <a name="create-a-vm-using-a-marketplace-image-encrypting-the-os-and-data-disks-with-customer-managed-keys"></a>Crie um VM utilizando uma imagem do Marketplace, encriptando o OS e os discos de dados com chaves geridas pelo cliente

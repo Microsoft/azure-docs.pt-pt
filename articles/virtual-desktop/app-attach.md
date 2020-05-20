@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 94ec85ae658ca6012cd1f1594b431d12bb73013d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 3f54c296575b256339f4c22708c06e3579720e00
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83121070"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647795"
 ---
 # <a name="set-up-msix-app-attach"></a>Configurar a anexação da aplicação MSIX
 
@@ -460,4 +460,4 @@ catch [Exception]
 
 Esta funcionalidade não é suportada atualmente, mas pode fazer perguntas à comunidade no [Windows Virtual Desktop TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
 
-Também pode deixar feedback para o Windows Virtual Desktop no centro de feedback do [Windows Virtual Desktop](https://aka.ms/MRSFeedbackHub), ou deixar feedback para a aplicação MSIX e ferramenta de embalagem na [aplicação MSIX anexar o centro](https://aka.ms/msixappattachfeedback) de feedback e o centro de feedback da ferramenta de embalagem [MSIX](https://aka.ms/msixtoolfeedback).
+Também pode deixar feedback para o Windows Virtual Desktop no centro de [feedback do Windows Virtual Desktop](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).

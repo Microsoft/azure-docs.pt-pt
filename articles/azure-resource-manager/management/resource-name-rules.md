@@ -3,12 +3,12 @@ title: Restrições de nomeação de recursos
 description: Mostra as regras e restrições para nomear recursos Azure.
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: fab1ab2bb779b3826c852e49da7970030d34594d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7ab012c5363de643c4cb5de8777de56fad5a9711
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82086390"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653715"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Regras de nomenclatura e restrições para recursos do Azure
 
@@ -81,9 +81,9 @@ Nas tabelas a seguir, o termo alfanumérico refere-se a:
 > | Entidade | Âmbito | Comprimento | Carateres Válidos |
 > | --- | --- | --- | --- |
 > | fechaduras | âmbito da atribuição | 1-90 | Alfanuméricos, períodos, sublinhados, hífenes e parênteses.<br><br>Não pode terminar no período. |
-> | atribuições políticas | âmbito da atribuição | 1-128 nome de exibição<br><br>Nome de recurso 1-260 | O nome do visor pode conter quaisquer caracteres.<br><br>O nome do `%` recurso não pode incluir e não pode terminar com período ou espaço. |
-> | definições políticas | âmbito de definição | 1-128 nome de exibição<br><br>Nome de recurso 1-260 | O nome do visor pode conter quaisquer caracteres.<br><br>O nome do `%` recurso não pode incluir e não pode terminar com período ou espaço. |
-> | definições políticasSetDefinições | âmbito de definição | 1-128 nome de exibição<br><br>Nome de recurso 1-260 | O nome do visor pode conter quaisquer caracteres.<br><br>O nome do `%` recurso não pode incluir e não pode terminar com período ou espaço.  |
+> | atribuições políticas | âmbito da atribuição | 1-128 nome de exibição<br><br>Nome de recurso 1-260 | O nome do visor pode conter quaisquer caracteres.<br><br>O nome do recurso não pode incluir `%` e não pode terminar com período ou espaço. |
+> | definições políticas | âmbito de definição | 1-128 nome de exibição<br><br>Nome de recurso 1-260 | O nome do visor pode conter quaisquer caracteres.<br><br>O nome do recurso não pode incluir `%` e não pode terminar com período ou espaço. |
+> | definições políticasSetDefinições | âmbito de definição | 1-128 nome de exibição<br><br>Nome de recurso 1-260 | O nome do visor pode conter quaisquer caracteres.<br><br>O nome do recurso não pode incluir `%` e não pode terminar com período ou espaço.  |
 
 ## <a name="microsoftautomation"></a>Microsoft.Automação
 
@@ -346,7 +346,7 @@ Nas tabelas a seguir, o termo alfanumérico refere-se a:
 > [!div class="mx-tableFixed"]
 > | Entidade | Âmbito | Comprimento | Carateres Válidos |
 > | --- | --- | --- | --- |
-> | bases de dadosContas | global | 3-31 | Letras minúsculas, números e hífenes.<br><br>Comece com a letra ou número minúsculo. |
+> | bases de dadosContas | global | 3-44 | Letras minúsculas, números e hífenes.<br><br>Comece com a letra ou número minúsculo. |
 
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
 
@@ -630,7 +630,7 @@ Nas tabelas a seguir, o termo alfanumérico refere-se a:
 > | --- | --- | --- | --- |
 > | casos geridos | global | 1-63 | Letras minúsculas, números e hífenes.<br><br>Não pode começar ou terminar com hífen. |
 > | servidores | global | 1-63 | Letras minúsculas, números e hífenes.<br><br>Não pode começar ou terminar com hífen. |
-> | servidores / administradores | servidor |  | Deve `ActiveDirectory`ser. |
+> | servidores / administradores | servidor |  | Deve `ActiveDirectory` ser. |
 > | servidores / bases de dados | servidor | 1-128 | Não pode usar:<br>`<>*%&:\/?`<br><br>Não pode terminar com período ou espaço. |
 > | servidores / bases de dados / syncGroups | base de dados | 1-150 | Alfanuméricos, hífenes e sublinhados. |
 > | servidores / elásticosPools | servidor | 1-128 | Não pode usar:<br>`<>*%&:\/?`<br><br>Não pode terminar com período ou espaço. |
@@ -643,11 +643,11 @@ Nas tabelas a seguir, o termo alfanumérico refere-se a:
 > | Entidade | Âmbito | Comprimento | Carateres Válidos |
 > | --- | --- | --- | --- |
 > | armazenamentoContas | global | 3-24 | Letras minúsculas e números. |
-> | armazenamentoContas / blobServices | conta de armazenamento |  | Deve `default`ser. |
+> | armazenamentoContas / blobServices | conta de armazenamento |  | Deve `default` ser. |
 > | armazenamentoContas / blobServices / contentores | conta de armazenamento | 3-63 | Letras minúsculas, números e hífenes.<br><br>Comece com a letra ou número minúsculo. Não se pode usar hífenes consecutivos. |
-> | armazenamentoContas / ficheirosServiços | conta de armazenamento |  | Deve `default`ser. |
+> | armazenamentoContas / ficheirosServiços | conta de armazenamento |  | Deve `default` ser. |
 > | armazenamentoContas / ficheirosServiços / ações | conta de armazenamento | 3-63 | Letras minúsculas, números e hífenes.<br><br>Não pode começar ou terminar com hífen. Não se pode usar hífenes consecutivos. |
-> | armazenamentoContas / gestãoPolíticas | conta de armazenamento |  | Deve `default`ser. |
+> | armazenamentoContas / gestãoPolíticas | conta de armazenamento |  | Deve `default` ser. |
 > | blob | contentor | 1-1024 | Quaisquer caracteres URL, sensíveis a casos |
 > | fila | conta de armazenamento | 3-63 | Letras minúsculas, números e hífenes.<br><br>Não pode começar ou terminar com hífen. Não se pode usar hífenes consecutivos. |
 > | tabela | conta de armazenamento | 3-63 | Alfanumérico.<br><br>Comece com a carta. |

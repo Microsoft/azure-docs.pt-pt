@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 8989acc6d21a3c53be9d97c74ed7fbf03ba54819
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 46d00df4970a7268c9856de6d7c090f2deffc7ea
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76773673"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654533"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Começar com a entrega de conteúdo a pedido usando o REST  
 
@@ -89,11 +89,11 @@ Nos Serviços de Multimédia, os ficheiros digitais são carregados para um elem
 
 Um dos valores que tem de fornecer ao criar um ativo são as opções de criação de ativos. A propriedade **Options** é um valor de enumeração que descreve as opções de encriptação com as que um Ativo pode ser criado. Um valor válido é um dos valores da lista abaixo, e não uma combinação de valores desta lista:
 
-* **Nenhum** = **0** - Não é utilizada encriptação. Ao utilizar esta opção, o seu conteúdo não está protegido em trânsito ou em repouso no armazenamento.
+* **Nenhuma.**  =  **0** - Não é utilizada encriptação. Ao utilizar esta opção, o seu conteúdo não está protegido em trânsito ou em repouso no armazenamento.
     Se planear distribuir um MP4 utilizando uma transferência progressiva, utilize esta opção.
-* **ArmazenamentoEncriptado** = **1** - Encripta o seu conteúdo claro localmente usando encriptação de bitS AES-256 e, em seguida, envia-o para o Armazenamento Azure onde é armazenado encriptado em repouso. Os elementos protegidos com Encriptação do Storage são desencriptados automaticamente e colocados num sistema de ficheiros encriptados antes da codificação, sendo opcionalmente encriptados novamente antes de serem carregados novamente como um novo elemento de saída. O principal caso de utilização da Encriptação do Storage ocorre quando pretende proteger os seus ficheiros de multimédia de entrada de alta qualidade inativos no disco com uma encriptação forte.
-* **CommonEncryptionProtected** = **2** - Utilize esta opção se estiver a carregar conteúdo que já foi encriptado e protegido com encriptação comum ou DRM PlayReady (por exemplo, Streaming Suave protegido com DRM PlayReady).
-* **EnvelopeEncryptionProtected** = **4** – Utilize esta opção se estiver a carregar HLS encriptado com AES. Os ficheiros devem ter sido codificados e encriptados pelo Transform Manager.
+* **ArmazenamentoEncriptado**  =  **1** - Encripta o seu conteúdo claro localmente utilizando encriptação de bits AES-256 e, em seguida, envia-o para o Armazenamento Azure onde é armazenado encriptado em repouso. Os elementos protegidos com Encriptação do Storage são desencriptados automaticamente e colocados num sistema de ficheiros encriptados antes da codificação, sendo opcionalmente encriptados novamente antes de serem carregados novamente como um novo elemento de saída. O principal caso de utilização da Encriptação do Storage ocorre quando pretende proteger os seus ficheiros de multimédia de entrada de alta qualidade inativos no disco com uma encriptação forte.
+* **Encriptação comumProtegida**  =  **2** - Utilize esta opção se estiver a carregar conteúdo que já foi encriptado e protegido com encriptação comum ou DRM PlayReady (por exemplo, Smooth Streaming protegido com DrM PlayReady).
+* **EnvelopeEncryptionProtegido**  =  **4** - Utilize esta opção se estiver a carregar HLS encriptado com AES. Os ficheiros devem ter sido codificados e encriptados pelo Transform Manager.
 
 ### <a name="create-an-asset"></a>Criar um ativo
 Um ativo é um recipiente para vários tipos ou conjuntos de objetos em Media Services, incluindo vídeo, áudio, imagens, coleções de miniaturas, faixas de texto e ficheiros de legendas fechados. Na Rest API, a criação de um Ativo requer o envio de pedido de CORREIO para os Serviços de Media e a colocação de qualquer informação de propriedade sobre o seu ativo no organismo de pedido.
@@ -561,7 +561,7 @@ Se for bem sucedido, devolve-se a seguinte resposta:
 Há algumas coisas importantes a notar em qualquer pedido de emprego:
 
 * As propriedades do TaskBody DEVEM utilizar o XML literal para definir o número de ativos de entrada ou de saída utilizados pela Tarefa. O artigo task contém a Definição De Schema XML para o XML.
-* Na definição TaskBody, cada `<inputAsset>` `<outputAsset>` valor interior para e deve ser definido como JobInputAsset(valor) ou JobOutputAsset (valor).
+* Na definição TaskBody, cada valor interior para `<inputAsset>` e deve ser definido como `<outputAsset>` JobInputAsset(valor) ou JobOutputAsset (valor).
 * Uma tarefa pode ter vários ativos de produção. Um JobOutputAsset(x) só pode ser usado uma vez como uma saída de uma tarefa num trabalho.
 * Pode especificar JobInputAsset ou JobOutputAsset como um ativo de entrada de uma tarefa.
 * As tarefas não devem formar um ciclo.
@@ -817,7 +817,7 @@ A propriedade **"Caminho** Devolvido" contém o URL SAS.
 Assim que tiver o conjunto AccessPolicy e Locator, pode descarregar ficheiros utilizando as APIs REST REST de Armazenamento Azure.  
 
 > [!NOTE]
-> Tem de adicionar o nome de ficheiro do ficheiro que pretende transferir para o valor **Do** Caminho do Localizador recebido na secção anterior. Por exemplo, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
+> Tem de adicionar o nome de ficheiro do ficheiro que pretende transferir para o valor **Do** Caminho do Localizador recebido na secção anterior. Por exemplo, `https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4` ? . . .
 
 Para obter mais informações sobre o trabalho com as bolhas de armazenamento Azure, consulte [Blob Service REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 

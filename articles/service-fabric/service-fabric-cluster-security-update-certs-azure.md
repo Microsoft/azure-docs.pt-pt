@@ -3,17 +3,17 @@ title: Gerir certificados num cluster Azure Service Fabric
 description: Descreve como adicionar novos certificados, certificado de capotamento e remover certificado de ou para um cluster de Tecido de Serviço.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: a3c92e1b39261af32085e4d9b6cb2462d5c0eb64
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 43e9c95e0fb8484f7b24c5a0c409d3aa6a68eabc
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75458362"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658384"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Adicionar ou remover certificados para um cluster do Service Fabric no Azure
 Recomenda-se que se familiarize com a forma como o Service Fabric utiliza certificados X.509 e esteja familiarizado com os [cenários](service-fabric-cluster-security.md)de segurança do Cluster . Deve entender o que é um certificado de cluster e para que é usado, antes de avançar mais.
 
-O comportamento de carga de certificado padrão da Azure Service Fabrics SDK é implantar e utilizar o certificado definido com data de validade mais longe no futuro; independentemente da sua definição de configuração primária ou secundária. Voltar ao comportamento clássico é uma ação avançada não recomendada e requer a definição do valor do `Fabric.Code` parâmetro de definição "UseSecondaryIfNewer" para falso dentro da sua configuração.
+O comportamento de carga de certificado padrão da Azure Service Fabrics SDK é implantar e utilizar o certificado definido com data de validade mais longe no futuro; independentemente da sua definição de configuração primária ou secundária. Voltar ao comportamento clássico é uma ação avançada não recomendada e requer a definição do valor do parâmetro de definição "UseSecondaryIfNewer" para falso dentro da sua `Fabric.Code` configuração.
 
 O tecido de serviço permite especificar dois certificados de cluster, um primário e um secundário, quando configura a segurança do certificado durante a criação do cluster, além dos certificados de cliente. Consulte a [criação](service-fabric-cluster-creation-via-portal.md) de um cluster azul via portal ou a criação de um cluster [azure via Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) para obter detalhes sobre a sua configuração no momento de criar. Se especificar apenas um certificado de cluster no momento de criar, então este é usado como o certificado primário. Após a criação do cluster, pode adicionar um novo certificado como secundário.
 
@@ -35,9 +35,7 @@ Para remover um certificado de segurança de cluster não utilizado, navegue par
 
 Se a sua intenção é remover o certificado que está marcado como primário, então terá de implementar um certificado secundário com uma data de validade ainda mais para o futuro do que o certificado primário, permitindo o comportamento de capotamento automático; eliminar o certificado primário após a conclusão da capotação automática.
 
-## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>Adicione um certificado secundário usando powershell do Gestor de Recursos
-> [!TIP]
-> Existe agora uma forma melhor e mais fácil de adicionar um certificado secundário utilizando o cmdlet [Add-AzServiceFabricClusterCertificate.](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) Não precisa seguir o resto dos passos nesta secção.  Além disso, não precisa do modelo originalmente utilizado para criar e implantar o cluster quando utilizar o cmdlet [Add-AzServiceClusterCluster.](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate)
+## <a name="add-a-secondary-certificate-using-azure-resource-manager"></a>Adicione um certificado secundário usando o Gestor de Recursos Azure
 
 Estes passos assumem que você está familiarizado com o funcionamento do Gestor de Recursos e implementou pelo menos um cluster de Tecido de Serviço usando um modelo de Gestor de Recursos, e tem o modelo que você usou para configurar o cluster à mão. Também se assume que se sente confortável usando jSON.
 

@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/18/2020
+ms.date: 05/19/2020
 ms.author: spelluru
-ms.openlocfilehash: e00b6dd5af1cb489aee9e8b4c9f3337eb02e4b14
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5c2ea38dfa799239adde158506e1359fb84adcc4
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80878107"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650529"
 ---
 # <a name="classroom-lab-setup-guide"></a>Guia de configuração de laboratório de sala de aula
 
@@ -127,7 +127,12 @@ Depois de entender os requisitos para o laboratório da sua turma, está pronto 
    - [Ativar encerramento automático ao desligar](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-shutdown-disconnect)
 
         > [!NOTE]
-        > Horários, quotas e paragem automática não se aplicam ao modelo VM. Como resultado, deve certificar-se de que desliga o modelo VM quando não está a ser utilizado. Caso contrário, continua a incorrer em custos. Além disso, por padrão, quando se cria um laboratório, o modelo VM é automaticamente iniciado. Certifique-se de que termina imediatamente a instalação do laboratório e desligue o modelo VM.
+        > Os horários e quotas não se aplicam ao modelo VM, mas as definições de paragem automática aplicam-se. 
+        > 
+        > Quando se cria um laboratório, o modelo VM é criado, mas não começou. Pode ligá-lo, ligá-lo e instalar qualquer software pré-requisito para o laboratório e depois publicá-lo. Quando publica o modelo VM, é automaticamente desligado para si se ainda não o tiver feito. 
+        > 
+        > Os VMs do modelo incorrem em **custos** durante a execução, por isso certifique-se de que o modelo VM é desligado quando não precisa que esteja em execução. 
+
 
 1. **Usa o painel de instrumentos.** Para obter instruções, consulte [a utilização do painel de instrumentos do laboratório](https://docs.microsoft.com/azure/lab-services/classroom-labs/use-dashboard).
 

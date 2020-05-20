@@ -4,12 +4,12 @@ description: Introdução rápida aos cmdlets do Azure PowerShell que pode utili
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: b768fac7fa6fe0f4821a4fbaf5fa11414b10f81d
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 8777edbc99550b2fb1f14df00936de57801b0aab
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82995324"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657310"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Gerir os recursos do Batch com os cmdlets do PowerShell
 
@@ -247,9 +247,10 @@ $appPackageReference.ApplicationId = "MyBatchApplication"
 $appPackageReference.Version = "1.0"
 ```
 
-Em seguida, crie o conjunto e especifique o objeto de referência do pacote como argumento para a opção `ApplicationPackageReferences`:
+Agora crie a configuração e a piscina. Este exemplo utiliza o parâmetro **CloudServiceConfiguration** com um `PSCloudServiceConfiguration` objeto tipo `$configuration` inicializado, que define a FAMÍLIA **OS** `6` para 'Windows Server 2019' e **OSVersion** para `*` . Especifique o objeto de referência do pacote como argumento para a `ApplicationPackageReferences` opção:
 
 ```powershell
+$configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSCloudServiceConfiguration" -ArgumentList @(6,"*")  # 6 = OSFamily 'Windows Server 2019'
 New-AzBatchPool -Id "PoolWithAppPackage" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -BatchContext $context -ApplicationPackageReferences $appPackageReference
 ```
 

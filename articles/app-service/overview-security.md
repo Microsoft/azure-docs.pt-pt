@@ -5,33 +5,24 @@ keywords: Serviço de aplicações azure, web app, aplicação móvel, app api, 
 ms.topic: article
 ms.date: 08/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 8a098b1924bf7c2866f6afd7452b8dd3b93f3109
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0a4d3518c3325eff2b3c3db111babb9e784d5e31
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535660"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649049"
 ---
 # <a name="security-in-azure-app-service"></a>Segurança no Serviço de Aplicações Azure
 
 Este artigo mostra-lhe como [o Azure App Service](overview.md) ajuda a proteger a sua aplicação web, aplicação móvel no final, app API e app de [funções](/azure/azure-functions/). Também mostra como pode proteger ainda mais a sua aplicação com as funcionalidades do Serviço de Aplicações incorporadas.
 
-Os componentes da plataforma do App Service, incluindo VMs Azure, armazenamento, conexões de rede, quadros web, funcionalidades de gestão e integração, são ativamente protegidos e endurecidos. O Serviço de Aplicações passa por controlos de conformidade vigorosos numa base contínua para garantir que:
-
-- Os recursos da sua aplicação estão [protegidos](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) dos recursos Azure dos outros clientes.
-- [As instâncias vM e o software de tempo de execução são regularmente atualizados](overview-patch-os-runtime.md) para resolver vulnerabilidades recentemente descobertas. 
-- A comunicação de segredos (como cordas de ligação) entre a sua app e outros recursos Azure (como a Base de [Dados SQL)](https://azure.microsoft.com/services/sql-database/)permanece dentro do Azure e não ultrapassa quaisquer limites de rede. Os segredos são sempre encriptados quando armazenados.
-- Toda a comunicação sobre as funcionalidades de conectividade do Serviço app, como [a ligação híbrida,](app-service-hybrid-connections.md)está encriptada. 
-- As ligações com ferramentas de gestão remota como Azure PowerShell, Azure CLI, Azure SDKs, REST APIs, estão todas encriptadas.
-- A gestão de ameaças 24 horas protege a infraestrutura e plataforma contra malware, distribuição de negação de serviço (DDoS), man-in-the-middle (MITM) e outras ameaças.
-
-Para obter mais informações sobre infraestruturas e segurança na plataforma em Azure, consulte [o Azure Trust Center.](https://azure.microsoft.com/overview/trusted-cloud/)
+[!INCLUDE [app-service-security-intro](../../includes/app-service-security-intro.md)]
 
 As seguintes secções mostram-lhe como proteger ainda mais a sua aplicação de Serviço de Aplicações contra ameaças.
 
 ## <a name="https-and-certificates"></a>HTTPS e Certificados
 
-O Serviço de Aplicações permite-lhe proteger as suas aplicações com [HTTPS](https://wikipedia.org/wiki/HTTPS). Quando a sua aplicação é\<criada, o seu nome de domínio padrão (app_name>.azurewebsites.net) já está acessível através do HTTPS. Se [configurar um domínio personalizado para a sua aplicação,](app-service-web-tutorial-custom-domain.md)também deve [alterá-lo com um certificado TLS/SSL](configure-ssl-bindings.md) para que os navegadores de clientes possam fazer ligações HTTPS seguras ao seu domínio personalizado. Existem vários tipos de certificados suportados pelo App Service:
+O Serviço de Aplicações permite-lhe proteger as suas aplicações com [HTTPS](https://wikipedia.org/wiki/HTTPS). Quando a sua aplicação é criada, o seu nome de domínio padrão \< (app_name>.azurewebsites.net) já está acessível através do HTTPS. Se [configurar um domínio personalizado para a sua aplicação,](app-service-web-tutorial-custom-domain.md)também deve [alterá-lo com um certificado TLS/SSL](configure-ssl-bindings.md) para que os navegadores de clientes possam fazer ligações HTTPS seguras ao seu domínio personalizado. Existem vários tipos de certificados suportados pelo App Service:
 
 - Certificado gerido pelo serviço de aplicações gratuito
 - Certificado de serviço de aplicações
@@ -52,7 +43,7 @@ O Serviço de Aplicações suporta ftp e FTPS para a implementação dos seus fi
 
 Por padrão, a sua aplicação App Service aceita pedidos de todos os endereços IP da internet, mas pode limitar esse acesso a um pequeno subconjunto de endereços IP. O Serviço de Aplicações no Windows permite definir uma lista de endereços IP que podem aceder à sua aplicação. A lista permitida pode incluir endereços IP individuais ou uma série de endereços IP definidos por uma máscara de sub-rede. Para mais informações, consulte [as restrições de IP estáticas do Serviço de Aplicação Azure.](app-service-ip-restrictions.md)
 
-Para o Serviço de Aplicações no Windows, também pode restringir os endereços IP de forma dinâmica configurando o _web.config_. Para mais informações, consulte [Dynamic IP Security \<dynamicIpSecurity>](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/).
+Para o Serviço de Aplicações no Windows, também pode restringir os endereços IP de forma dinâmica configurando o _web.config_. Para mais informações, consulte [Dynamic IP Security \< dynamicIpSecurity>](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/).
 
 ## <a name="client-authentication-and-authorization"></a>Autenticação e autorização do cliente
 

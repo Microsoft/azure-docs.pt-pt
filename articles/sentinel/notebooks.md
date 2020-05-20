@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 11/25/2019
-ms.openlocfilehash: 84b72a71ed2de910bce44b0c3f3309782f096680
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bf63d5c8cb46fd791508af40dcefd7b39d4ba9de
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77581842"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652022"
 ---
 # <a name="use-jupyter-notebooks-to-hunt-for-security-threats"></a>Use cadernos Jupyter para caçar ameaças à segurança
 
@@ -60,7 +60,7 @@ Você pode executar um caderno diretamente de Azure Sentinel, ou clonar todos os
 
 ## <a name="run-a-notebook-from-azure-sentinel"></a>Executar um caderno de Azure Sentinel
  
-1. Do portal Azure, navegue até**aos Cadernos**de**Gestão** > de Ameaças Do >  **Sentinela,** onde pode ver cadernos que o Azure Sentinel fornece. 
+1. Do portal Azure, navegue até aos Cadernos de Gestão de Ameaças **Do Sentinela,**  >  **Threat management**  >  **Notebooks**onde pode ver cadernos que o Azure Sentinel fornece. 
 
 2. Selecione cadernos individuais para ler as suas descrições, tipos de dados necessários e fontes de dados. Por exemplo:
     
@@ -73,7 +73,7 @@ Você pode executar um caderno diretamente de Azure Sentinel, ou clonar todos os
 
 Este procedimento cria um projeto de Cadernos Azure para si, que contém os cadernos Azure Sentinel. Em seguida, pode executar os cadernos como está, ou fazer alterações neles e, em seguida, executá-los.
 
-1. A partir do portal Azure, navegue até**aos Cadernos** de**Gestão** > de Ameaças De **Sentinela** > e, em seguida, selecione **Cadernos Clone** da barra de comando:
+1. A partir do portal Azure, navegue até aos Cadernos de Gestão de Ameaças **De Sentinela e,** em  >  **Threat management**  >  **Notebooks** seguida, selecione **Cadernos Clone** da barra de comando:
   
     > [!div class="mx-imgBorder"]
     >![Opção Cadernos Clone](./media/notebooks/sentinel-azure-clone-notebooks.png)
@@ -115,17 +115,17 @@ Cada caderno acompanha-o através dos degraus para realizar uma caça ou investi
 
 3. Selecione um caderno para o abrir.
     
-    A primeira vez que abrir um caderno, pode ser solicitado a selecionar uma versão kernel. Se não for solicitado, pode selecionar a versão kernel do **kernel** >  **Change kernel**e, em seguida, selecionar uma versão que seja pelo menos 3.6. A versão kernel selecionada é exibida na parte superior direita da janela do caderno:
+    A primeira vez que abrir um caderno, pode ser solicitado a selecionar uma versão kernel. Se não for solicitado, pode selecionar a versão **Kernel**kernel do  >   **kernel Change kernel**e, em seguida, selecionar uma versão que seja pelo menos 3.6. A versão kernel selecionada é exibida na parte superior direita da janela do caderno:
     
    ![caderno selecionado](./media/notebooks/sentinel-select-kernel.png)
 
-4. Antes de fazer qualquer alteração ao caderno que descarregou, é uma boa ideia fazer uma cópia do caderno original e trabalhar na cópia. Para isso, selecione **File** > **Fazer uma Cópia**. Trabalhar em cópias permite-lhe atualizar com segurança para futuras versões de cadernos sem sobrepor nenhum dos seus dados.
+4. Antes de fazer qualquer alteração ao caderno que descarregou, é uma boa ideia fazer uma cópia do caderno original e trabalhar na cópia. Para isso, selecione **File**  >  **Fazer uma Cópia**. Trabalhar em cópias permite-lhe atualizar com segurança para futuras versões de cadernos sem sobrepor nenhum dos seus dados.
     
     Está agora pronto para executar ou editar o caderno selecionado.
 
 Recomendações:
 
-- Para uma rápida introdução aos dados de consulta no Azure Sentinel, veja o caderno [GetStarted](https://github.com/Azure/Azure-Sentinel/blob/master/Notebooks/Get%20Started.ipynb) na pasta principal dos **Cadernos.** 
+- Para uma rápida introdução aos dados de consulta no Azure Sentinel, veja o caderno [GetStarted](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/345cf9f7c8f6137f5af4593a3f9d7568acd6cbc2/DeprecatedNotebooks/Get%20Started.ipynb) na pasta principal dos **Cadernos.** 
 
 - Encontrará cadernos de amostra adicionais na subpasta **Sample-Notebooks.** Estes cadernos de amostraforam guardados com dados, de modo que é mais fácil ver a saída pretendida. Recomendamos visualizar estes cadernos no [nbviewer](https://nbviewer.jupyter.org/). 
 

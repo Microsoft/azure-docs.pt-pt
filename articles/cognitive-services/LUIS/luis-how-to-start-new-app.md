@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 05/18/2020
 ms.author: diberry
-ms.openlocfilehash: fc9f44739cd57eb46179ff17eba1d4f73d968799
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 3b9466bf52b3650216408a8f0906f3208dfae42d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585628"
+ms.locfileid: "83653896"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Criar uma nova app LUIS no portal LUIS
 Existem algumas formas de criar uma app LUIS. Pode criar uma aplicação LUIS no portal LUIS, ou através da AUTORA DA [LUIS.](developer-reference-resource.md)
@@ -45,10 +45,10 @@ Pode criar uma nova aplicação com as APIs de autoria de várias maneiras:
 
 ## <a name="create-new-app-in-luis"></a>Criar nova app no LUIS
 
-1. Na página **Minhas Apps,** selecione a sua subscrição e autor de recursos **então + Criar**. Se estiver a usar a chave de teste gratuita, aprenda a criar um recurso de [autoria.](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal)
+1. Na página **minhas apps,** selecione a sua **Subscrição**e **o recurso de autor** **então + Criar**. Se estiver a usar a chave de teste gratuita, aprenda a criar um recurso de [autoria.](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal)
 
-    ![Lista de aplicações LUIS](./media/create-app-in-portal.png)
-
+> [!div class="mx-imgBorder"]
+> ![Lista de aplicações LUIS](./media/create-app-in-portal.png)
 
 1. Na caixa de diálogo, introduza o nome da sua aplicação, como `Pizza Tutorial` .
 
@@ -64,7 +64,7 @@ Pode criar uma nova aplicação com as APIs de autoria de várias maneiras:
     > [!div class="mx-imgBorder"]
     > ![Lista de intenções com nenhuma intenção criada sem pronunciamentos de exemplo.](media/pizza-tutorial-new-app-empty-intent-list.png)
 
-## <a name="other-actions-available"></a>Outras ações disponíveis
+## <a name="other-actions-available-on-my-apps-page"></a>Outras ações disponíveis na página my Apps
 
 A barra de ferramentas de contexto fornece outras ações:
 

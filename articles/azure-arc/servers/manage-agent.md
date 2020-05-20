@@ -6,14 +6,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 04/29/2020
+ms.date: 05/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: 685c56c7ef270acb416d4b76c6aceb8553e9a07f
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 965e59f9c51cc41d4e5a8e8931b5c2f62c260599
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82581703"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648100"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Gestão e manutenção do agente máquina conectada
 
@@ -28,11 +28,19 @@ O agente Azure Connected Machine para Windows e Linux pode ser atualizado para a
 | Windows | Manualmente<br> Windows Update |
 | Ubuntu | [Apto](https://help.ubuntu.com/lts/serverguide/apt.html) |
 | SUSE Linux Enterprise Server | [zigpper](https://en.opensuse.org/SDB:Zypper_usage_11.3) |
-| RedHat Enterprise, Amazon, CentOS Linux | [yum](https://wiki.centos.org/PackageManagement/Yum) | 
+| RedHat Enterprise, Amazon, CentOS Linux | [yum](https://wiki.centos.org/PackageManagement/Yum) |
 
 ### <a name="windows-agent"></a>Agente do Windows
 
-Para atualizar o agente numa máquina do Windows para a versão mais recente, o agente está disponível a partir do Microsoft Update e pode ser implementado utilizando o processo de gestão de atualizações de software existente. Também pode ser executado manualmente a partir do Comando Solicitativo, a partir de `AzureConnectedMachine.msi`um script ou outra solução de automatização, ou do assistente ui executando . 
+O pacote de atualização para o agente Máquina Conectada para Windows está disponível a partir de:
+
+* Microsoft Update
+
+* [Catálogo de atualizações da Microsoft](https://www.catalog.update.microsoft.com/Home.aspx)
+
+* Pacote de [instalação do Windows Agent Windows](https://aka.ms/AzureConnectedMachineAgent) do Microsoft Download Center.
+
+O agente pode ser atualizado seguindo uma variedade de métodos para suportar o seu processo de gestão de atualizações de software. Fora da obtenção do Microsoft Update, pode descarregar e executar manualmente a partir do Comando Solicitativo, a partir de um script ou de outra solução de automação, ou do assistente ui executando `AzureConnectedMachine.msi` .
 
 > [!NOTE]
 > * Para atualizar o agente, tem de ter permissões do *Administrador.*
@@ -52,7 +60,7 @@ O Assistente de Configuração descobre se existe uma versão anterior e, em seg
 
 1. Inscreva-se no computador com uma conta que tenha direitos administrativos.
 
-2. Para atualizar o agente silenciosamente e criar `C:\Support\Logs` um ficheiro de registo de configuração na pasta, execute o seguinte comando.
+2. Para atualizar o agente silenciosamente e criar um ficheiro de registo de configuração na `C:\Support\Logs` pasta, execute o seguinte comando.
 
     ```dos
     msiexec.exe /i AzureConnectedMachineAgent.msi /qn /l*v "C:\Support\Logs\Azcmagentupgradesetup.log"
@@ -60,7 +68,9 @@ O Assistente de Configuração descobre se existe uma versão anterior e, em seg
 
 ### <a name="linux-agent"></a>Agente Linux
 
-Para atualizar o agente numa máquina Linux para a versão mais recente, envolve dois comandos. Um comando para atualizar o índice de pacotelocal com a lista dos pacotes mais recentes disponíveis dos repositórios, e um comando para atualizar o pacote local. 
+Para atualizar o agente numa máquina Linux para a versão mais recente, envolve dois comandos. Um comando para atualizar o índice de pacotelocal com a lista dos pacotes mais recentes disponíveis dos repositórios, e um comando para atualizar o pacote local.
+
+Pode descarregar o pacote de agente mais recente do [repositório](https://packages.microsoft.com/)de pacotes da Microsoft .
 
 > [!NOTE]
 > Para atualizar o agente, deve ter permissões de acesso *à raiz* ou com uma conta que tenha direitos elevados usando o Sudo.
@@ -79,7 +89,7 @@ Para atualizar o agente numa máquina Linux para a versão mais recente, envolve
     apt upgrade
     ```
 
-As ações do comando [apto,](https://help.ubuntu.com/lts/serverguide/apt.html) tais como a instalação `/var/log/dpkg.log` e remoção de pacotes, são registadas no ficheiro de registo.
+As ações do comando [apto,](https://help.ubuntu.com/lts/serverguide/apt.html) tais como a instalação e remoção de pacotes, são registadas no ficheiro de `/var/log/dpkg.log` registo.
 
 #### <a name="upgrade-red-hatcentosamazon-linux"></a>Upgrade Red Hat/CentOS/Amazon Linux
 
@@ -95,7 +105,7 @@ As ações do comando [apto,](https://help.ubuntu.com/lts/serverguide/apt.html) 
     yum update
     ```
 
-As ações do comando [yum,](https://access.redhat.com/articles/yum-cheat-sheet) tais como a instalação `/var/log/yum.log` e remoção de pacotes, são registadas no ficheiro de registo. 
+As ações do comando [yum,](https://access.redhat.com/articles/yum-cheat-sheet) tais como a instalação e remoção de pacotes, são registadas no ficheiro de `/var/log/yum.log` registo. 
 
 #### <a name="upgrade-suse-linux-enterprise"></a>Upgrade SUSE Linux Enterprise
 
@@ -111,7 +121,7 @@ As ações do comando [yum,](https://access.redhat.com/articles/yum-cheat-sheet)
     zypper update
     ```
 
-As ações do comando [zypper,](https://en.opensuse.org/Portal:Zypper) tais como a instalação `/var/log/zypper.log` e remoção de pacotes, são registadas no ficheiro de registo. 
+As ações do comando [zypper,](https://en.opensuse.org/Portal:Zypper) tais como a instalação e remoção de pacotes, são registadas no ficheiro de `/var/log/zypper.log` registo. 
 
 ## <a name="about-the-azcmagent-tool"></a>Sobre a ferramenta Azcmagent
 
@@ -127,7 +137,7 @@ A ferramenta Azcmagent (Azcmagent.exe) é utilizada para configurar o Arco Azure
 
 * **-h ou --ajuda** - Mostra parâmetros de linha de comando disponíveis
 
-    Por exemplo, para ver ajuda detalhada para `azcmagent reconnect -h`o parâmetro **de religação,** escreva . 
+    Por exemplo, para ver ajuda detalhada para o parâmetro **de religação,** escreva `azcmagent reconnect -h` . 
 
 * **-v ou -verbosa** - Ativar a exploração madeireira verbosa
 
@@ -135,7 +145,7 @@ Pode executar um **Connect**, **Disconnect**, e **Reconectar** manualmente duran
 
 ### <a name="connect"></a>Ligar
 
-Este parâmetro especifica um recurso no Gestor de Recursos Azure que representa a máquina é criado em Azure. O recurso está no grupo de subscrição e recursos especificado, e os dados `--location` sobre a máquina são armazenados na região de Azure especificado pela definição. O nome de recurso predefinido é o nome de anfitrião desta máquina, se não especificado.
+Este parâmetro especifica um recurso no Gestor de Recursos Azure que representa a máquina é criado em Azure. O recurso está no grupo de subscrição e recursos especificado, e os dados sobre a máquina são armazenados na região de Azure especificado pela `--location` definição. O nome de recurso predefinido é o nome de anfitrião desta máquina, se não especificado.
 
 Um certificado correspondente à identidade atribuída pelo sistema da máquina é então descarregado e armazenado localmente. Uma vez concluído este passo, o Serviço de Metadados de Máquinas Conectadas Azure e o Agente de Configuração do Hóspede começam a sincronizar com o Azure Arc para servidores (pré-visualização).
 
@@ -153,7 +163,7 @@ Para se conectar com as suas credenciais elevadas (interativas), execute o segui
 
 ### <a name="disconnect"></a>Desligar
 
-Este parâmetro especifica que um recurso no Gestor de Recursos Azure que representa a máquina é eliminado em Azure. Não elimina o agente da máquina, isto deve ser feito como um passo separado. Depois de a máquina estar desligada, se pretender reregistrá-la com o `azcmagent connect` Azure Arc para servidores (pré-visualização), utilize para que seja criado um novo recurso para o mesmo em Azure.
+Este parâmetro especifica que um recurso no Gestor de Recursos Azure que representa a máquina é eliminado em Azure. Não elimina o agente da máquina, isto deve ser feito como um passo separado. Depois de a máquina estar desligada, se pretender reregistrá-la com o Azure Arc para servidores (pré-visualização), utilize para `azcmagent connect` que seja criado um novo recurso para o mesmo em Azure.
 
 Para desligar utilizando um diretor de serviço, execute o seguinte comando:
 
@@ -171,7 +181,7 @@ Para se desligar com as suas credenciais elevadas (interativas), execute o segui
 
 Este parâmetro reconecta a máquina já registada ou conectada com o Azure Arc para servidores (pré-visualização). Isto pode ser necessário se a máquina tiver sido desligada, pelo menos 45 dias, para que o seu certificado expire. Este parâmetro utiliza as opções de autenticação fornecidas para recuperar novas credenciais correspondentes ao recurso Do Gestor de Recursos Azure que representa esta máquina.
 
-Este comando requer privilégios mais elevados do que a função de embarque da [Máquina Conectada Azure.](overview.md#required-permissions)
+Este comando requer privilégios mais elevados do que a função de embarque da [Máquina Conectada Azure.](agent-overview.md#required-permissions)
 
 Para voltar a ligar utilizando um diretor de serviço, execute o seguinte comando:
 
@@ -206,11 +216,11 @@ Ambos os métodos seguintes removem o agente, mas não removem a pasta *C:\Progr
 
 #### <a name="uninstall-from-the-command-line"></a>Desinstalar a partir da linha de comando
 
-Para desinstalar o agente manualmente a partir do Pedido de Comando ou utilizar um método automatizado, como um script, pode utilizar o seguinte exemplo. Primeiro é necessário recuperar o código do produto, que é um GUID que é o principal identificador do pacote de aplicação, do sistema operativo. A desinstalação é realizada utilizando a linha de `msiexec /x {Product Code}`comando Msiexec.exe - .
-    
+Para desinstalar o agente manualmente a partir do Pedido de Comando ou utilizar um método automatizado, como um script, pode utilizar o seguinte exemplo. Primeiro é necessário recuperar o código do produto, que é um GUID que é o principal identificador do pacote de aplicação, do sistema operativo. A desinstalação é realizada utilizando a linha de comando Msiexec.exe - `msiexec /x {Product Code}` .
+
 1. Abra o Editor de Registo.
 
-2. Sob a `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall`chave de registo, procure e copie o código do produto GUID.
+2. Sob a chave de `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall` registo, procure e copie o código do produto GUID.
 
 3. Em seguida, pode desinstalar o agente utilizando a Msiexec utilizando os seguintes exemplos:
 

@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: ce1a214d39f958af36931192aad4561459ca0573
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: a2c57ca6a1f7eb50c277543e9fbe27a13f839bac
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83121355"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648819"
 ---
 # <a name="azure-functions-networking-options"></a>Opções de rede das Funções do Azure
 
@@ -31,7 +31,7 @@ Você pode hospedar aplicativos de função de várias maneiras:
 |                |[Plano de consumo](functions-scale.md#consumption-plan)|[Plano Premium](functions-scale.md#premium-plan)|[Plano de serviço de aplicações](functions-scale.md#app-service-plan)|[Ambiente do Serviço de Aplicações](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
 |[Restrições IP de entrada e acesso ao site privado](#inbound-ip-restrictions)|✅Sim|✅Sim|✅Sim|✅Sim|
-|[Integração da rede virtual](#virtual-network-integration)|❌Não|✅Sim (Regional)|✅Sim (Regional e Gateway)|✅Sim|
+|[Integração de rede virtual](#virtual-network-integration)|❌Não|✅Sim (Regional)|✅Sim (Regional e Gateway)|✅Sim|
 |[Gatilhos de rede virtuais (não HTTP)](#virtual-network-triggers-non-http)|❌Não| ✅Sim |✅Sim|✅Sim|
 |[Ligações híbridas](#hybrid-connections) (apenas janelas)|❌Não|✅Sim|✅Sim|✅Sim|
 |[Restrições ip de saída](#outbound-ip-restrictions)|❌Não| ✅Sim|✅Sim|✅Sim|
@@ -47,15 +47,7 @@ Para saber mais, consulte [as restrições estáticas](../app-service/app-servic
 
 ## <a name="private-site-access"></a>O acesso a sites privados
 
-O acesso ao site privado refere-se a tornar a sua aplicação acessível apenas a partir de uma rede privada, como uma rede virtual Azure.
-
-* O acesso ao site privado está disponível nos planos [Premium](./functions-premium-plan.md), [Consumption](functions-scale.md#consumption-plan)e [App Service](functions-scale.md#app-service-plan) quando os pontos finais do serviço estão configurados.
-    * Os pontos finais do serviço podem ser configurados numa base por app em **funções de Plataforma de**  >  **Configuração de**  >  **Configuração De Regra**de Adição de Restrições de Acesso  >  **Add Rule**Configurados . As redes virtuais podem agora ser selecionadas como um tipo de regra.
-    * Para mais informações, consulte [pontos finais](../virtual-network/virtual-network-service-endpoints-overview.md)do serviço de rede Virtual .
-    * Tenha em mente que, com pontos finais de serviço, a sua função ainda tem acesso total à internet, mesmo com a integração virtual da rede configurada.
-* O acesso ao site privado também está disponível dentro de um App Service Environment que está configurado com um equilibrista de carga interna (ILB). Para mais informações, consulte [Criar e utilizar um equilibrador de carga interno com um Ambiente de Serviço de Aplicações](../app-service/environment/create-ilb-ase.md).
-
-Para saber como configurar o acesso ao site privado, consulte o acesso privado ao [site do Azure Functions](functions-create-private-site-access.md).
+[!INCLUDE [functions-private-site-access](../../includes/functions-private-site-access.md)]
 
 ## <a name="virtual-network-integration"></a>Integração da rede virtual
 

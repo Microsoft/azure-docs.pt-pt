@@ -11,19 +11,19 @@ ms.date: 04/08/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: f26aafc771998ea73d1a4f97f0e960a94f6775c3
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 193b1d5ff37eace127c8d5473b102842f4fa2a8c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82626722"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654500"
 ---
-# <a name="load-data-from-azure-data-lake-storage-for-sql-analytics"></a>Dados de carga do Armazenamento de Lagos De Dados Azure para SQL Analytics
+# <a name="load-data-from-azure-data-lake-storage-for-synapse-sql"></a>Dados de carga do Armazenamento do Lago De Dados Azure para Synapse SQL
 
 Este guia descreve como usar tabelas externas da PolyBase para carregar dados do Armazenamento do Lago De Dados Azure. Embora possa fazer consultas adhoc em dados armazenados no Data Lake Storage, recomendamos a importação dos dados para um melhor desempenho.
 
 > [!NOTE]  
-> Uma alternativa ao carregamento é a [declaração copy](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) atualmente em pré-visualização pública.  A declaração copy fornece a maior flexibilidade. Para fornecer feedback sobre a declaração copy, envie sqldwcopypreview@service.microsoft.comum e-mail para a seguinte lista de distribuição: .
+> Uma alternativa ao carregamento é a [declaração copy](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) atualmente em pré-visualização pública.  A declaração copy fornece a maior flexibilidade. Para fornecer feedback sobre a declaração copy, envie um e-mail para a seguinte lista de distribuição: sqldwcopypreview@service.microsoft.com .
 >
 > [!div class="checklist"]
 >
@@ -218,7 +218,7 @@ ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD;
 
 É melhor criar estatísticas de coluna única imediatamente após uma carga. Há algumas opções para as estatísticas. Por exemplo, se criarmos estatísticas de uma coluna única em todas as colunas, pode levar muito tempo a reconstruir todas as estatísticas. Se sabe que certas colunas não vão estar em predicados de consulta, pode ignorar a criação de estatísticas nessas colunas.
 
-Se decidir criar estatísticas de coluna única em cada coluna de cada tabela, pode utilizar a amostra `prc_sqldw_create_stats` de código de procedimento armazenada no artigo de [estatística.](sql-data-warehouse-tables-statistics.md)
+Se decidir criar estatísticas de coluna única em cada coluna de cada tabela, pode utilizar a amostra de código de procedimento armazenada `prc_sqldw_create_stats` no artigo [de estatística.](sql-data-warehouse-tables-statistics.md)
 
 O exemplo que se segue é um bom ponto de partida para a criação de estatísticas. Cria estatísticas de uma coluna única sobre cada coluna na tabela de dimensões e em cada coluna de junção nas tabelas de factos. Pode sempre adicionar estatísticas únicas ou multi-colunas a outras colunas de tabelas de factos mais tarde.
 

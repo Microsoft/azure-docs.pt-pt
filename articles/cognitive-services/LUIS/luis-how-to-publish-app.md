@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: b342c4319064bd00681c914585e541ab0bc3e17e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 954562f3f88276b5aef7dbd4e2237d180a4c2e40
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585662"
+ms.locfileid: "83653941"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Publique a sua app ativa e treinada para um ponto final de encenação ou produção
 
@@ -57,7 +57,7 @@ Por exemplo, para uma aplicação criada na [www.luis.ai](https://www.luis.ai), 
 Depois de selecionar a ranhura, configure as definições de publicação para:
 
 * Análise de sentimentos
-* Correção ortográfica - ponto final de previsão v2 apenas
+* [Correção ortográfica](luis-tutorial-bing-spellcheck.md) - ponto final de previsão v2 apenas
 * Preparação do discurso
 
 Depois de publicar, estas definições estão disponíveis para revisão a partir da página de **definições** da secção **Gerir.** Pode alterar as definições com cada publicação. Se cancelar uma publicação, as alterações que efizemos durante a publicação também são canceladas.
@@ -78,7 +78,7 @@ Não tem de fornecer uma chave Text Analytics e não existe qualquer taxa de fat
 
 Os dados de sentimento são uma pontuação entre 1 e 0 indicando o sentimento positivo (mais próximo de 1) ou negativo (mais próximo de 0) dos dados. O rótulo de sentimento de `positive` , e é por cultura `neutral` `negative` apoiada. Atualmente, apenas o inglês suporta rótulos de sentimento.
 
-Para mais informações sobre a resposta do ponto final da JSON com análise de sentimento, consulte [a análise](luis-concept-data-extraction.md#sentiment-analysis) do sentimento
+Para mais informações sobre a resposta do ponto final da JSON com análise de sentimento, consulte [a análise](luis-reference-prebuilt-sentiment.md) do sentimento
 
 ## <a name="spelling-correction"></a>Correção ortográfica
 

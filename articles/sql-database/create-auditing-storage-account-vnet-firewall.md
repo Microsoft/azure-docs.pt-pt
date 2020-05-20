@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 03/19/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 4f26fa00f78b8564e08b6352d4da31640b13f47f
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: 556b9c2861461ffdfc63f5607cca2157226e15bb
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402680"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658296"
 ---
 # <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>Escreva auditoria a uma conta de armazenamento atrás da VNet e firewall
 
@@ -23,7 +23,7 @@ A auditoria da [Azure SQL Database](sql-database-technical-overview.md) e [da Az
 
 Este artigo explica duas formas de configurar o Azure SQL Server e a conta de armazenamento Azure para esta opção. O primeiro usa o portal Azure, o segundo usa REST.
 
-### <a name="background"></a>Segundo plano
+### <a name="background"></a>Fundo
 
 [A Rede Virtual Azure (VNet)](../virtual-network/virtual-networks-overview.md) é o bloco de construção fundamental da sua rede privada em Azure. A VNet permite que muitos tipos de recursos Azure, como as Máquinas Virtuais Azure (VM), se comuniquem de forma segura entre si, a internet e as redes no local. O VNet é semelhante a uma rede tradicional no seu próprio centro de dados, mas traz consigo benefícios adicionais da infraestrutura Azure, como escala, disponibilidade e isolamento.
 
@@ -137,6 +137,11 @@ Para configurar a Auditoria SQL para escrever eventos numa conta de armazenament
      }
    }
    ```
+
+## <a name="using-azure-powershell"></a>Utilizar o Azure PowerShell
+
+- [Criar ou atualizar política de auditoria da base de dados (Set-AzSqlDatabaseAudit)](/powershell/module/az.sql/set-azsqldatabaseaudit)
+- [Criar ou atualizar a política de auditoria do servidor (Set-AzSqlServerAudit)](/powershell/module/az.sql/set-azsqlserveraudit)
 
 ## <a name="next-steps"></a>Passos seguintes
 

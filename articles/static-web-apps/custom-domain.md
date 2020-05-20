@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.openlocfilehash: 10d3e3674aef901ad35dfb6d0b9fd13715aace55
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 8425c2c1f653d874d24053a12d511c64a3b9ee9d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597612"
+ms.locfileid: "83655235"
 ---
 # <a name="setup-a-custom-domain-in-azure-static-web-apps-preview"></a>Configurar um domínio personalizado na pré-visualização de aplicações web estáticas do Azure
 
@@ -80,7 +80,7 @@ Um registo CNAME mapeia um domínio para outro. Pode utilizar um registo CNAME p
 
 1. Clique no botão **Validar.**
 
-Agora que o domínio personalizado está configurado, pode levar várias horas para o fornecedor de DNS propagar que muda em todo o mundo. Pode verificar o estado da propagação [indo](https://dnspropagation.net)para dnspropagation.net . Introduza o seu domínio personalizado de domínio, incluindo o `www` CNAME , do drop-down e selecione **Iniciar**.
+Agora que o domínio personalizado está configurado, pode levar várias horas para o fornecedor de DNS propagar que muda em todo o mundo. Pode verificar o estado da propagação [indo](https://dnspropagation.net)para dnspropagation.net . Introduza o seu domínio personalizado, incluindo o `www` CNAME , selecione o **"Drop-down"** e selecione Iniciar .
 
 Se as alterações do DNS tiverem povoado, o website devolve o URL gerado automaticamente pela sua Aplicação Web Estática (por exemplo, _random-name-123456789c.azurestaticapps.net_).
 
@@ -92,7 +92,7 @@ Embora o suporte ao domínio raiz não esteja disponível durante a pré-visuali
 
 ## <a name="map-a-wildcard-domain"></a>Mapear um domínio com caráteres universais
 
-Às vezes, queremos que todo o tráfego enviado para um subdomínio se encaminhe para outro domínio. Um exemplo comum é mapear todo o tráfego de subdomínio para `www.example.com` . Desta forma, mesmo que alguém otype `ww.example.com` em vez de , o pedido é enviado para `www.example.com` `www.example.com` .
+Às vezes, queremos que todo o tráfego enviado para um subdomínio se encaminhe para outro domínio. Um exemplo comum é mapear todo o tráfego de subdomínio para `www.example.com` . Desta forma, mesmo que alguém otype `w.example.com` em vez de , o pedido é enviado para `www.example.com` `www.example.com` .
 
 ### <a name="configure-dns-provider"></a>Configure provedor de DNS
 

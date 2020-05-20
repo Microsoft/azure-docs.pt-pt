@@ -6,21 +6,16 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/22/2019
-ms.openlocfilehash: 0403edadd491609c2c88d5b5ac6980d97163f8d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1fa34deaa12400a164602d38b6b2d349a64850c6
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79299010"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652248"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Utilize o Diretório Ativo Azure para autenticação com o MySQL
 
 Este artigo irá acompanhá-lo através dos passos como configurar o acesso ao Diretório Ativo Azure com a Base de Dados Azure para o MySQL, e como se conectar usando um token Azure AD.
-
-> [!IMPORTANT]
-> A autenticação Azure AD para a Base de Dados Azure para MySQL está atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-> Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 
 ## <a name="setting-the-azure-ad-admin-user"></a>Definição do utilizador azure AD Admin
 
@@ -73,7 +68,7 @@ Este comando lançará uma janela de navegador para a página de autenticação 
 
 > [!NOTE]
 > Também pode utilizar a Azure Cloud Shell para realizar estes passos.
-> Tenha em atenção que ao recuperar o token de acesso azure AD `az login` na Casca de Nuvem Azure terá de ligar e iniciar sessão (na janela separada com um código). Depois do sinal `get-access-token` no comando funcionará como esperado.
+> Tenha em atenção que ao recuperar o token de acesso azure AD na Casca de Nuvem Azure terá de ligar `az login` e iniciar sessão (na janela separada com um código). Depois do sinal no `get-access-token` comando funcionará como esperado.
 
 ### <a name="step-2-retrieve-azure-ad-access-token"></a>Passo 2: Ficha de acesso a AD Da Recuperação Azure
 
@@ -136,9 +131,9 @@ Agora está autenticado no seu servidor MySQL utilizando a autenticação Azure 
 
 Para adicionar um utilizador Azure AD à sua base de dados Azure para base de dados MySQL, execute os seguintes passos após a ligação (ver secção posterior sobre como ligar):
 
-1. Em primeiro lugar, certifique-se de que o utilizador `<user>@yourtenant.onmicrosoft.com` da AD Azure é um utilizador válido no inquilino Da Azure AD.
+1. Em primeiro lugar, certifique-se de que o utilizador da AD Azure `<user>@yourtenant.onmicrosoft.com` é um utilizador válido no inquilino Da Azure AD.
 2. Inscreva-se na sua Base de Dados Azure para a instância MySQL como utilizador do Anúncio AD Azure.
-3. Crie `<user>@yourtenant.onmicrosoft.com` o utilizador na Base de Dados Azure para o MySQL.
+3. Crie o utilizador na Base de `<user>@yourtenant.onmicrosoft.com` Dados Azure para o MySQL.
 
 **Exemplo:**
 
@@ -201,7 +196,7 @@ A maioria dos condutores são suportados, no entanto certifique-se de usar as de
   * DBD::mysql: Suportado
   * Net::MySQL: Não suportado
 * Ir
-  * go-sql-driver: Suportado, `?tls=true&allowCleartextPasswords=true` adicione à cadeia de ligação
+  * go-sql-driver: Suportado, adicione `?tls=true&allowCleartextPasswords=true` à cadeia de ligação
 
 ## <a name="next-steps"></a>Passos seguintes
 

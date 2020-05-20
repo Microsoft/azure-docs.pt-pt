@@ -5,16 +5,16 @@ services: logic-apps
 ms.suite: integration
 author: ChristopherHouser
 ms.author: chrishou
-ms.reviewer: valthom, logicappspm
+ms.reviewer: valthom, estfan, logicappspm
 ms.topic: article
-ms.date: 03/31/2020
+ms.date: 05/14/2020
 tags: connectors
-ms.openlocfilehash: 737c5b90b216156ca08346f4a64fd0b421ad6c19
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 17143257fcb6b9c71bb56e1f4c4958dce503c234
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80410275"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652462"
 ---
 # <a name="connect-to-an-ibm-mq-server-from-azure-logic-apps"></a>Ligue-se a um servidor IBM MQ a partir de Aplicações Lógicas Azure
 
@@ -33,6 +33,7 @@ Aqui estão as versões MQ ibm WebSphere mQ oficialmente suportadas:
   * MQ 7.5
   * MQ 8.0
   * MQ 9.0
+  * MQ 9.1
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -88,10 +89,10 @@ Quando a sua aplicação lógica tenta ligar-se ao seu servidor MQ no local, pod
 
   1. No computador onde está a funcionar o serviço de gateway de dados no local, abra o menu inicial, encontre e selecione **Gerir os certificados de utilizador**.
 
-  1. Depois da ferramenta do Gestor de Certificação do Windows abrir, vá à pasta **Certificates - Local Computer** >  **Trusted Root Certification Authorities** e instale o certificado.
+  1. Depois da ferramenta do Gestor de Certificação do Windows abrir, vá à pasta **Certificates - Local Computer**  >   **Trusted Root Certification Authorities** e instale o certificado.
 
      > [!IMPORTANT]
-     > Certifique-se de que instala certificado nos **Certificados - Loja** > das Autoridades de Certificação de**Raiz fidedignas** de computador local.
+     > Certifique-se de que instala certificado nos **Certificados - Loja**das Autoridades de Certificação de  >  **Raiz fidedignas** de computador local.
 
 * O servidor MQ requer que defina a especificação de cifra que pretende utilizar para ligações SSL. No entanto, o SsLStream em .NET não permite especificar a encomenda das especificações de cifra. Para contornar esta limitação, pode alterar a configuração do servidor MQ para corresponder à primeira especificação de cifra na suite que o conector envia na negociação ssl.
 
@@ -101,7 +102,7 @@ Quando a sua aplicação lógica tenta ligar-se ao seu servidor MQ no local, pod
 
 1. Na sua aplicação lógica, sob o gatilho ou outra ação, selecione **Novo passo**.
 
-1. Na caixa de `mq`pesquisa, introduza , e selecione a ação de **mensagem Browse.**
+1. Na caixa de pesquisa, introduza `mq` , e selecione a ação de **mensagem Browse.**
 
    ![Selecione ação "Navegar na mensagem"](media/connectors-create-api-mq/browse-message.png)
 

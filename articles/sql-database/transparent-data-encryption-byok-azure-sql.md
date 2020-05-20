@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: fe85fed9268e1a4248ef373d577c89e58c01eba5
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 7c9cdf6ee671083420ae8d8fad393110353b8e1a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792042"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657030"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Encriptação de dados transparente sql Azure com chave gerida pelo cliente
 
@@ -159,11 +159,11 @@ Para restaurar uma cópia de segurança encriptada com um protetor TDE do Key Va
 > [!IMPORTANT]
 > A qualquer momento não pode haver mais do que um conjunto de protetor TDE para um servidor. É a chave marcada com "Faça da chave o protetor TDE padrão" na lâmina do portal Azure. No entanto, várias teclas adicionais podem ser ligadas a um servidor sem as marcar como protetora TDE. Estas teclas não são utilizadas para proteger o DEK, mas podem ser utilizadas durante a restauração a partir de uma cópia de segurança, se o ficheiro de reserva for encriptado com a chave com a impressão digital correspondente.
 
-Se a chave necessária para restaurar uma cópia de segurança já não estiver disponível para o `<Servername>` servidor-alvo, a seguinte mensagem de \<erro é \<devolvida na tentativa de restauro: "O servidor-alvo não tem acesso a todos os URIs AKV criados entre a Timestamp #1> e a Timestamp #2>. Por favor, retente a operação depois de restaurar todos os URIs AKV."
+Se a chave necessária para restaurar uma cópia de segurança já não estiver disponível para o servidor-alvo, a seguinte mensagem de erro é devolvida na tentativa de restauro: "O servidor-alvo `<Servername>` não tem acesso a todos os URIs AKV criados entre a marca de tempo #1> e a \< \< timestamp #2>. Por favor, retente a operação depois de restaurar todos os URIs AKV."
 
 Para mitigar, execute o [get-AzSqlServerKeyKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) cmdlet para o servidor lógico De base de dados SQL alvo ou [Get-AzSqlInstanceKeyVaultKey](/powershell/module/az.sql/get-azsqlinstancekeyvaultkey) para a instância gerida pelo alvo para devolver a lista de chaves disponíveis e identificar as que faltam. Para garantir que todas as cópias de segurança podem ser restauradas, certifique-se de que o servidor-alvo para a restauração tem acesso a todas as teclas necessárias. Estas chaves não precisam de ser marcadas como protetora tde.
 
-Para saber mais sobre a recuperação de cópias de segurança para a Base de Dados SQL, consulte Recuperar uma base de [dados Azure SQL](sql-database-recovery-using-backups.md). Para saber mais sobre a recuperação de backup para o SQL Pool, consulte [Recuperar um SQL Pool](../synapse-analytics/sql-data-warehouse/backup-and-restore.md). Para a cópia de segurança/restauro nativo do SQL Server com instância gerida, consulte [Quickstart: Restaurar uma base de dados para uma instância gerida](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore)
+Para saber mais sobre a recuperação de cópias de segurança para a Base de Dados SQL, consulte Recuperar uma base de [dados Azure SQL](sql-database-recovery-using-backups.md). Para saber mais sobre a recuperação de backup para piscina SQL, consulte [Recuperar uma piscina SQL](../synapse-analytics/sql-data-warehouse/backup-and-restore.md). Para a cópia de segurança/restauro nativo do SQL Server com instância gerida, consulte [Quickstart: Restaurar uma base de dados para uma instância gerida](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore)
 
 Consideração adicional para ficheiros de registo: Os ficheiros de registo apoiados permanecem encriptados com o protetor TDE original, mesmo que tenha sido rodado e a base de dados esteja agora a utilizar um novo protetor TDE.  No momento de restauro, ambas as chaves serão necessárias para restaurar a base de dados.  Se o ficheiro de registo estiver a utilizar um protetor TDE armazenado no Cofre de Chaves Azure, esta chave será necessária no momento de reestabelecimento, mesmo que a base de dados tenha sido alterada para utilizar o TDE gerido pelo serviço entretanto.
 

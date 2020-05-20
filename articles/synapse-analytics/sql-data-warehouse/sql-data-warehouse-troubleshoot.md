@@ -1,6 +1,6 @@
 ---
-title: Resolução de problemas
-description: Resolução de problemas Azure Synapse Analytics.
+title: Resolução de problemas Synapse SQL
+description: Resolução de problemas Synapse SQL em Azure Synapse Analytics.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 02/04/2019
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 973d2339db1e55f2cca45025f2d678e5126f4317
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 618ef7329d28dc8006a338d8326d790a6a9d3554
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80743662"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650455"
 ---
-# <a name="troubleshooting-sql-analytics-in-azure-synapse"></a>Resolução de problemas sQL Analytics em Azure Synapse
+# <a name="troubleshooting-synapse-sql-in-azure-synapse-analytics"></a>Resolução de problemas Synapse SQL em Azure Synapse Analytics
 
-Este artigo enumera uma pergunta comum de resolução de problemas.
+Este artigo lista problemas comuns de resolução de problemas em Synapse SQL.
 
 ## <a name="connecting"></a>Ligação
 
@@ -36,7 +36,7 @@ Este artigo enumera uma pergunta comum de resolução de problemas.
 
 | Problema                                                        | Resolução                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| O explorador de objetos do Estúdio Visual está a faltar aos utilizadores da AD Azure           | Este é um problema conhecido.  Como uma suposição, veja os utilizadores em [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Consulte [a Autenticação para Azure Synapse](sql-data-warehouse-authentication.md) para saber mais sobre a utilização do Diretório Ativo Azure com piscina SQL Synapse. |
+| O explorador de objetos do Estúdio Visual está a faltar aos utilizadores da AD Azure           | Trata-se de um problema conhecido.  Como uma suposição, veja os utilizadores em [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Consulte [a Autenticação para Azure Synapse](sql-data-warehouse-authentication.md) para saber mais sobre a utilização do Diretório Ativo Azure com piscina SQL Synapse. |
 | A escrita manual, utilizando o assistente de scripts, ou a ligação via SSMS é lenta, não responde ou produz erros | Certifique-se de que os utilizadores foram criados na base de dados principal. Nas opções de script, certifique-se também de que a edição do motor está definida como "Microsoft Azure SQL Data Warehouse Edition" e o tipo de motor é "Microsoft Azure SQL Database". |
 | Gerar scripts falha no SSMS                               | Gerar um guião para piscina Synapse SQL falha se a opção "Gerar script para objetos dependentes" for definida para "True". Como uma suposição, os utilizadores devem ir manualmente a **Tools -> Options ->SQL Server Object Explorer -> Gerar script para opções dependentes e definir para falsos** |
 
@@ -81,5 +81,5 @@ Para mais ajuda na procura de solução para o seu problema, aqui estão outros 
 * [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 * [Criar pedido de suporte](sql-data-warehouse-get-started-create-support-ticket.md)
 * [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)
-* [Fórum do Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw)
+* [Fórum de Transbordo de Pilhas](https://stackoverflow.com/questions/tagged/azure-sqldw)
 * [Twitter](https://twitter.com/hashtag/SQLDW)

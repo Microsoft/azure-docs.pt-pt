@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 1f5ff48f4d5a658a1bbb4e6b9fb4b3f0f3fb190f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a530a6f656f37657a198af85d93d5404ac88d0e1
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81602695"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83651021"
 ---
 # <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Migrar cargas de trabalho com redes ampliadas de Camada 2
 
@@ -108,15 +108,15 @@ Para mais informações, consulte [redes privadas virtuais](https://docs.vmware.
 
 Os seguintes passos mostram como obter o ID lógico-router do router lógico Tier0 DR, por exemplo, para os serviços IPsec e L2VPN. O ID do router lógico é necessário mais tarde ao implementar o L2VPN.
 
-1. Inscreva-se no NSX-T `https://*nsx-t-manager-ip-address*` Manager e selecione A visão**geral**do Fornecedor de**Routers** > de**Rede-LR** >  **Networking** > . Para **o modo de alta disponibilidade,** selecione **Active-Standby**. Esta ação abre uma janela pop-up que mostra o Edge VM no qual o router Tier0 está atualmente ativo.
+1. Inscreva-se no NSX-T Manager `https://*nsx-t-manager-ip-address*` e selecione A visão geral do Fornecedor de Routers de **Networking**  >  **Routers**  >  **Rede-LR**  >  **Overview**. Para **o modo de alta disponibilidade,** selecione **Active-Standby**. Esta ação abre uma janela pop-up que mostra o Edge VM no qual o router Tier0 está atualmente ativo.
 
     ![Selecione standby ativo](media/l2vpn-fetch01.png)
 
-2. Selecione**bordas**de**nó de** >  **tecido** > . Tome nota do endereço IP de gestão do VM edge ativo (Edge VM1) identificado no passo anterior.
+2. Selecione **Fabric**  >  **bordas**de nó de tecido  >  **Edges**. Tome nota do endereço IP de gestão do VM edge ativo (Edge VM1) identificado no passo anterior.
 
     ![IP de gestão de nota](media/l2vpn-fetch02.png)
 
-3. Abra uma sessão de SSH para o endereço IP de gestão do Edge VM. Execute ```get logical-router``` o comando com o nome de **utilizador** e a palavra-passe **CloudSimple 123!**
+3. Abra uma sessão de SSH para o endereço IP de gestão do Edge VM. Execute o comando com o nome de utilizador e a ```get logical-router``` palavra-passe **CloudSimple 123!** **admin**
 
     ![obter saída de router lógico](media/l2vpn-fetch03.png)
 
@@ -130,14 +130,14 @@ Os seguintes passos mostram como obter o ID lógico-router do router lógico Tie
 
     ![Prenda o interruptor de boneco](media/l2vpn-fetch05.png)
 
-7. Volte `get logical-router` a executar o comando na sessão SSH do Edge VM. O UUID do router lógico "DR-Provider-LR" é apresentado. Tome nota do UUID, que é necessário ao configurar o L2VPN.
+7. Volte a executar o `get logical-router` comando na sessão SSH do Edge VM. O UUID do router lógico "DR-Provider-LR" é apresentado. Tome nota do UUID, que é necessário ao configurar o L2VPN.
 
     ![obter saída de router lógico](media/l2vpn-fetch06.png)
 
 ## <a name="fetch-the-logical-switch-id-needed-for-l2vpn"></a>Pegue o ID de comutação lógica necessário para l2VPN
 
-1. Inscreva-se no [NSX-T Manager](https://nsx-t-manager-ip-address).
-2. Selecione**interruptores**  >  **de** > **comutação** > de rede** \><\Visão****geral**do interruptor > lógico .
+1. Inscreva-se no NSX-T Manager `https://nsx-t-manager-ip-address` ().
+2. Selecione interruptores **de**  >  **comutação**de rede  >  **Switches**  >  **<\Visão \> **geral do interruptor lógico  >  **Overview**.
 3. Tome nota do UUID do interruptor lógico de alongamento, que é necessário ao configurar o L2VPN.
 
     ![obter saída de router lógico](media/l2vpn-fetch-switch01.png)
@@ -154,20 +154,20 @@ Para estabelecer uma VPN baseada na rota IPsec entre o router NSX-T Tier0 e o cl
 
 ### <a name="advertise-the-loopback-interface-ip-to-the-underlay-network"></a>Anuncie a interface de loopback IP para a rede de underlay
 
-1. Crie uma rota nula para a rede de interface sinuosa. Inscreva-se no NSX-T Manager e selecione **Rotas** > **Estáticas** > **Routers** > de**Encaminhamento** > de > **Rede-LR**.**Routing** Clique em **Adicionar**. Para **rede,** introduza o endereço IP da interface de backback. Para **o próximo lúpulo,** clique em **Adicionar**, especifique 'Nulo' para o próximo lúpulo e mantenha o padrão de 1 para A Distância de Administrador.
+1. Crie uma rota nula para a rede de interface sinuosa. Inscreva-se no NSX-T Manager e selecione **Rotas**  >  **Routing**  >  **Routers**  >  Estáticas de Encaminhamento de**Rede-LR**  >  **Routing**  >  **Static Routes**. Clique em **Adicionar**. Para **rede,** introduza o endereço IP da interface de backback. Para **o próximo lúpulo,** clique em **Adicionar**, especifique 'Nulo' para o próximo lúpulo e mantenha o padrão de 1 para A Distância de Administrador.
 
     ![Adicionar rota estática](media/l2vpn-routing-security01.png)
 
-2. Crie uma lista de prefixos IP. Inscreva-se no NSX-T Manager e selecione **Listas** > de**Prefixo IP**de Encaminhamento de Rede de**Routers** > de**Encaminhamento** > de Rede **-** > Listas de Prefixo IP**de Encaminhamento** > de Rede . Clique em **Adicionar**. Insira um nome para identificar a lista. Para **prefixos,** clique em **Adicionar** duas vezes. Na primeira linha, insira '0.0.0.0/0' para **a Rede** e 'Negar' para **a Ação**. Na segunda linha, selecione **Qualquer** para **Rede** e **Autorização** de **Ação**.
+2. Crie uma lista de prefixos IP. Inscreva-se no NSX-T Manager e selecione **Listas**de Prefixo IP de Encaminhamento de Rede de  >  **Routing**  >  **Routers**de Encaminhamento de Rede - Listas de Prefixo IP  >  **Provider-LR**  >  **de Encaminhamento**de Rede  >  **IP Prefix Lists**. Clique em **Adicionar**. Insira um nome para identificar a lista. Para **prefixos,** clique em **Adicionar** duas vezes. Na primeira linha, insira '0.0.0.0/0' para **a Rede** e 'Negar' para **a Ação**. Na segunda linha, selecione **Qualquer** para **Rede** e **Autorização** de **Ação**.
 3. Fixe a lista de prefixoip a ambos os vizinhos do BGP (TOR). A fixação da lista de prefixos IP ao vizinho BGP impede que a rota padrão seja publicitada em BGP para os interruptores TOR. No entanto, qualquer outra rota que inclua a rota nula irá anunciar o endereço IP da interface de loopback para os comutadores TOR.
 
     ![Criar lista de prefixoip](media/l2vpn-routing-security02.png)
 
-4. Inscreva-se no NSX-T Manager e selecione **Networking** >  >  > **Routers****Provider-LR** > **Routing** > **BGP** > **Neighbors**.**Routing** Selecione o primeiro vizinho. Clique em **Editar** > **Famílias de Endereços**. Para a família IPv4, edite a coluna **out Filter** e selecione a lista de prefixoIP que criou. Clique em **Guardar**. Repita este passo para o segundo vizinho.
+4. Inscreva-se no NSX-T Manager e selecione **Networking**  >  **Routing**  >  **Routers**  >  **Provider-LR**  >  **Routing**  >  **BGP**  >  **Neighbors**. Selecione o primeiro vizinho. Clique em **Editar**  >  **Famílias de Endereços**. Para a família IPv4, edite a coluna **out Filter** e selecione a lista de prefixoIP que criou. Clique em **Guardar**. Repita este passo para o segundo vizinho.
 
-    ![Anexar lista de](media/l2vpn-routing-security03.png) ![prefixo IP 1 Anexar lista de prefixo IP 2](media/l2vpn-routing-security04.png)
+    ![Anexar lista de prefixo IP 1 ](media/l2vpn-routing-security03.png) ![ Anexar lista de prefixo IP 2](media/l2vpn-routing-security04.png)
 
-5. Redistribua a rota estática nula em BGP. Para anunciar a rota da interface de loopback para a subposição, deve redistribuir a rota estática nula em BGP. Inscreva-se no NSX-T Manager e selecione **Networking** >  >  > **Routers****Provider-LR** > **Route** > **Redistribution** > **Neighbors**.**Routing** Selecione **Route_Redistribution fornecedor-LR** e clique em **Editar**. Selecione a caixa de verificação **estática** e clique em **Guardar**.
+5. Redistribua a rota estática nula em BGP. Para anunciar a rota da interface de loopback para a subposição, deve redistribuir a rota estática nula em BGP. Inscreva-se no NSX-T Manager e selecione **Networking**  >  **Routing**  >  **Routers**  >  **Provider-LR**  >  **Routing**  >  **Route Redistribution**  >  **Neighbors**. Selecione **Route_Redistribution fornecedor-LR** e clique em **Editar**. Selecione a caixa de verificação **estática** e clique em **Guardar**.
 
     ![Redistribuir rota estática nula em BGP](media/l2vpn-routing-security05.png)
 
@@ -195,7 +195,7 @@ Logical-Port ID :
 Peer Code :
 ```
 
-Para todas as chamadas API seguintes, substitua o endereço IP com o seu endereço IP do Gestor NSX-T. Pode executar todas estas chamadas API do cliente `curl` POSTMAN ou utilizando comandos.
+Para todas as chamadas API seguintes, substitua o endereço IP com o seu endereço IP do Gestor NSX-T. Pode executar todas estas chamadas API do cliente POSTMAN ou utilizando `curl` comandos.
 
 ### <a name="enable-the-ipsec-vpn-service-on-the-logical-router"></a>Ativar o serviço VPN IPSec no router lógico
 
@@ -430,7 +430,7 @@ Antes de ser implementado, verifique se as suas regras de firewall no local perm
 
 2. Vá para a pasta com todos os ficheiros extraídos. Selecione todos os vmdks (NSX-l2t-cliente-large.mf e NSX-l2t-client-large-large.ovf para tamanho grande do aparelho ou NSX-l2t-client-Xlarge.mf e NSX-l2t-client-Xlarge.ovf para tamanho extra grande do aparelho). Clique em **Seguinte**.
 
-    ![Selecione modelo](media/l2vpn-deploy-client02.png) ![Selecione modelo](media/l2vpn-deploy-client03.png)
+    ![Selecione ](media/l2vpn-deploy-client02.png) ![ modelo Selecione modelo](media/l2vpn-deploy-client03.png)
 
 3. Introduza um nome para o cliente autónomo NSX-T e clique em **Next**.
 
@@ -460,8 +460,8 @@ Antes de ser implementado, verifique se as suas regras de firewall no local perm
     * **Comprimento prefixo**. Introduza o comprimento prefixo da ligação vLAN/sub-rede.
     * **Palavra-passe do utilizador cli/ativa/raiz**. Detete a palavra-passe para administração /ativar /conta raiz.
 
-      ![Personalizar](media/l2vpn-deploy-client08.png)
-      ![modelo personalizar modelo - mais](media/l2vpn-deploy-client09.png)
+      ![Personalizar ](media/l2vpn-deploy-client08.png)
+       ![ modelo personalizar modelo - mais](media/l2vpn-deploy-client09.png)
 
 7. Reveja as definições e clique em **Terminar**.
 

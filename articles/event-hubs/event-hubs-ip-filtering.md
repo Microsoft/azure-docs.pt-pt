@@ -11,12 +11,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/20/2019
 ms.author: spelluru
-ms.openlocfilehash: 18212726f0ab921a05a3b640a32754c62958d047
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2d67ad70ccdf4ce1f88401806700f38bd1d3c11d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81393131"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655879"
 ---
 # <a name="configure-ip-firewall-rules-for-an-azure-event-hubs-namespace"></a>Configure regras de firewall IP para um espaço de nome do Azure Event Hubs
 Por predefinição, os espaços de nome do Event Hubs são acessíveis a partir da internet desde que o pedido venha com autenticação e autorização válidas. Com firewall IP, pode restringi-lo ainda mais a apenas um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (Classless Inter-Domain Routing).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
@@ -54,6 +54,9 @@ Esta secção mostra-lhe como usar o portal Azure para criar regras de firewall 
     1. Selecione Adicionar a opção de **endereço IP do seu cliente** para dar ao seu cliente atual IP o acesso ao espaço de nome. 
     2. Para o intervalo de **endereços,** introduza um endereço IPv4 específico ou um conjunto de endereços IPv4 na notação CIDR. 
     3. Especifique se pretende **permitir que serviços microsoft fidedignos contornem esta firewall**. 
+
+        > [!WARNING]
+        > Se escolher a opção de **redes Selecionadas** e não especificar um endereço IP ou intervalo de endereços, o serviço permitirá o tráfego de todas as redes. 
 
         ![Firewall - Todas as redes selecionadas](./media/event-hubs-firewall/firewall-selected-networks-trusted-access-disabled.png)
 3. Selecione **Guardar** na barra de ferramentas para guardar as definições. Aguarde alguns minutos para que a confirmação apareça nas notificações do portal.

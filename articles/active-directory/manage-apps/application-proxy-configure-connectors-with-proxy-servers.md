@@ -12,12 +12,12 @@ ms.date: 04/07/2020
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0aafb971ca1ce812a68045f7d0c0c2ab7f532133
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 28915967dc7697c08b2bbd7118f7e2377418045d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80877393"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647255"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Trabalhar com servidores proxy existentes no local
 
@@ -111,13 +111,13 @@ Há quatro aspetos a ter em conta no proxy de saída:
 
 Permitir o acesso aos seguintes URLs:
 
-| do IdP | Como é usado |
+| URL | Como é usado |
 | --- | --- |
 | \*.msappproxy.net<br>\*.servicebus.windows.net | Comunicação entre o conector e o serviço de nuvem application Proxy |
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | O conector utiliza estes URLs para verificar certificados |
-| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>*.microsoftonline.com<br>*.microsoftonline-p.com<br>*.msauth.net<br>*.msauthimages.net<br>*.msecnd.net<br>*.msftauth.net<br>*.msftauthimages.net<br>*.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctdl.windowsupdate.com:80 | O conector utiliza estes URLs durante o processo de registo. |
+| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>*.microsoftonline.com. <br> * microsoftonline-p.com<br>*.msauth.net. <br> * msauthimages.net<br>*.msecnd.net. <br> * msftauth.net<br>*.msftauthimages.net. <br> * phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctdl.windowsupdate.com:80 | O conector utiliza estes URLs durante o processo de registo. |
 
-Se a sua firewall ou proxy lhe permitir configurar listas \*de \*DNS, pode permitir ligações a .msappproxy.net e .servicebus.windows.net. Caso contrário, tem de permitir o acesso às gamas IP do [Azure DataCenter](https://www.microsoft.com/download/details.aspx?id=41653). As gamas IP são atualizadas todas as semanas.
+Se a sua firewall ou proxy lhe permitir configurar listas de DNS, pode permitir ligações a \* .msappproxy.net e \* .servicebus.windows.net. Caso contrário, tem de permitir o acesso às gamas IP do [Azure DataCenter](https://www.microsoft.com/download/details.aspx?id=41653). As gamas IP são atualizadas todas as semanas.
 
 Se não conseguir permitir a conectividade por parte da FQDN e precisar de especificar intervalos IP, utilize estas opções:
 
@@ -144,12 +144,12 @@ A utilização de um representante avançado para a comunicação para a aplica�
 Para o permitir, siga os próximos passos:
 
 ### <a name="step-1-add-the-required-registry-value-to-the-server"></a>Passo 1: Adicione o valor de registo necessário ao servidor
-1. Para permitir a utilização do proxy predefinido, `UseDefaultProxyForBackendRequests = 1` adicione o seguinte valor de registo (DWORD) à chave de registo de configuração do Conector localizada em "HKEY_LOCAL_MACHINE\Software\Microsoft\Microsoft AAD App Proxy Conector".
+1. Para permitir a utilização do proxy predefinido, adicione o seguinte valor de registo (DWORD) à chave de registo de `UseDefaultProxyForBackendRequests = 1` configuração do Conector localizada em "HKEY_LOCAL_MACHINE\Software\Microsoft\Microsoft AAD App Proxy Conector".
 
 ### <a name="step-2-configure-the-proxy-server-manually-using-netsh-command"></a>Passo 2: Configure manualmente o servidor proxy utilizando o comando netsh
 1.  Ativar a política de grupo Faça as definições de procuração por máquina. Isto encontra-se em: Configuração do computador\Policies\Modelos Administrativos\Componentes do Windows\Internet Explorer. Isto tem de ser definido em vez de ter esta política definida por utilizador.
 2.  Executar `gpupdate /force` no servidor ou reiniciar o servidor para garantir que utiliza as definições de política do grupo atualizados.
-3.  Lance um pedido de comando elevado `control inetcpl.cpl`com direitos de administração e entre .
+3.  Lance um pedido de comando elevado com direitos de administração e entre `control inetcpl.cpl` .
 4.  Configure as definições de procuração necessárias. 
 
 Estas definições fazem com que o conector utilize o mesmo proxy dianteiro para a comunicação ao Azure e à aplicação backend. Se o conector à comunicação Azure não necessitar de procuração para a frente ou de um proxy avançado diferente, pode configurar isto com a modificação do ficheiro ApplicationProxyConnectorService.exe.config, conforme descrito nas secções Bypass proxies de saída ou utilizar o servidor proxy de saída.
@@ -162,7 +162,7 @@ Agora deviaver todo o tráfego a fluir pela procuração. Se tiver problemas, as
 
 A melhor maneira de identificar e resolver problemas de conectividade do conector é obter uma captura de rede enquanto inicia o serviço de conector. Aqui ficam algumas dicas rápidas sobre a captura e filtragem de vestígios de rede.
 
-Pode utilizar a ferramenta de monitorização à sua escolha. Para efeitos deste artigo, utilizámos o Microsoft Message Analyzer. Pode [descarregá-lo a partir da Microsoft.](https://www.microsoft.com/download/details.aspx?id=44226)
+Pode utilizar a ferramenta de monitorização à sua escolha. Para efeitos deste artigo, utilizámos o Microsoft Message Analyzer.
 
 Os exemplos seguintes são específicos do Analisador de Mensagens, mas os princípios podem ser aplicados a qualquer ferramenta de análise.
 
@@ -195,7 +195,7 @@ Se espera que o conector efetua ligações diretas aos serviços Azure, as respo
 
 Se configurar o tráfego de conector Proxy de Aplicação para passar pelos servidores proxy, pretende procurar ligações https falhadas ao seu representante.
 
-Para filtrar a captura da rede `(https.Request or https.Response) and tcp.port==8080` para estas tentativas de ligação, introduza no filtro Message Analyzer, substituindo 8080 pela sua porta de serviço proxy. Selecione **Aplicar** para ver os resultados do filtro.
+Para filtrar a captura da rede para estas tentativas de ligação, introduza `(https.Request or https.Response) and tcp.port==8080` no filtro Message Analyzer, substituindo 8080 pela sua porta de serviço proxy. Selecione **Aplicar** para ver os resultados do filtro.
 
 O filtro anterior mostra apenas os pedidos e respostas hTTPs de/para a porta proxy. Está à procura dos pedidos connect que mostram comunicação com o servidor proxy. Após o sucesso, obtém-se uma resposta HTTP OK (200).
 

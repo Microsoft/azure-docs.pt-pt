@@ -3,12 +3,12 @@ title: Problemas sap HANA bases de dados erros de backup
 description: Descreve como resolver erros comuns que podem ocorrer quando utiliza o Azure Backup para fazer backup nas bases de dados do SAP HANA.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: 6520f106011b632da2725f456aeb278c7748ddc9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 01514847dcd38842d70c4caef2e38df9df3f620a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79459315"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652076"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Backup de resolução de problemas das bases de dados da SAP HANA no Azure
 
@@ -82,6 +82,13 @@ Consulte os [pré-requisitos](tutorial-backup-sap-hana-db.md#prerequisites) e [o
 | ------------------ | ------------------------------------------------------------ |
 | **Possíveis causas**    | Os parâmetros de apoio são incorretamente especificados para a cópia de segurança do Azure |
 | **Ação recomendada** | Verifique se estão definidos os seguintes parâmetros (backint):<br/>\*[catalog_backup_using_backint:verdade]<br/>\*[enable_accumulated_catalog_backup:falso]<br/>\*[parallel_data_backup_backint_channels:1]<br/>\*[log_backup_timeout_s:900)]<br/>\*[backint_response_timeout:7200]<br/>Se estiverem presentes parâmetros baseados em backint no HOST, retire-os. Se os parâmetros não estiverem presentes ao nível do HOST, mas tiverem sido modificados manualmente a nível da base de dados, reverta-os para os valores apropriados descritos anteriormente. Ou executar [a proteção stop e reter dados](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#stop-protection-for-an-sap-hana-database) de backup do portal Azure e, em seguida, selecionar a cópia de segurança do **Currículo**. |
+
+### <a name="usererrorincompatiblesrctargetsystemsforrestore"></a>UserErrorIncompatívelSrcTargetSystemsForRestore
+
+|Mensagem de Erro  |Os sistemas de origem e alvo para restauro são incompatíveis  |
+|---------|---------|
+|Possíveis causas   | Os sistemas de origem e alvo selecionados para restauro são incompatíveis        |
+|Ação recomendada   |   Certifique-se de que o seu cenário de restauro não está na seguinte lista de possíveis restauros incompatíveis: <br><br>   **Caso 1:** SystemDB não pode ser renomeado durante a restauração.  <br><br> **Caso 2:** Fonte - SDC e alvo - MDC : A base de dados de origem não pode ser restaurada como SYSTEMDB ou tenant DB no alvo. <br><br> **Caso 3:** Fonte - MDC e alvo - SDC : A base de dados de origem (SYSTEMDB ou inquilino DB) não pode ser restaurada ao alvo. <br><br>  Para mais informações, consulte a nota 1642148 na plataforma de lançamento de [suporte SAP](https://launchpad.support.sap.com). |
 
 ## <a name="restore-checks"></a>Restaurar os controlos
 

@@ -8,14 +8,14 @@ ms.service: service-bus-relay
 ms.devlang: na
 ms.custom: seodec18
 ms.topic: article
-ms.date: 05/07/2020
+ms.date: 05/13/2020
 ms.author: spelluru
-ms.openlocfilehash: e2a9e89ca8c3b77b09a58a45959f1acda1457b56
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 88eb7acf1e72084a83d6d8631c0ea5d740988640
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83211057"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653462"
 ---
 # <a name="configure-ip-firewall-for-an-azure-relay-namespace"></a>Configure firewall IP para um espaço de nome de Retransmissão Azure
 Por predefinição, os espaços de nome retransmissão são acessíveis a partir da internet desde que o pedido venha com autenticação e autorização válidas. Com firewall IP, pode restringi-lo ainda mais a apenas um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (Classless Inter-Domain Routing).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
@@ -137,4 +137,3 @@ Para conhecer outras funcionalidades relacionadas com a segurança da rede, cons
 <!-- Links -->
 
 [express-route]:  /azure/expressroute/expressroute-faqs#supported-services
-[lnk-deploy]:: 

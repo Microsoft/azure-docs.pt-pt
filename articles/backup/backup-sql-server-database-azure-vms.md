@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a apoiar as bases de dados do SQL Server em m
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 887f15deed74330cf132e0574d166c074d2c7cad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9becb574594672c1cf91e610b4c13f91c91aa14f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81685717"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659524"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Fazer cópias de segurança de bases de dados do SQL Server em VMs do Azure
 
@@ -50,6 +50,16 @@ Estabelecer conectividade utilizando uma das seguintes opções:
 #### <a name="allow-the-azure-datacenter-ip-ranges"></a>Permitir as gamas IP do datacenter Azure
 
 Esta opção permite que as [gamas IP](https://www.microsoft.com/download/details.aspx?id=41653) no ficheiro descarregado. Para aceder a um grupo de segurança de rede (NSG), utilize o cmdlet Set-AzureNetworkSecurityRule. Se a sua lista de destinatários seguros incluir apenas IPs específicos da região, também terá de atualizar a lista de destinatários seguros da etiqueta de serviço Azure Ative Directory (Azure AD) para permitir a autenticação.
+
+Alternativamente, também pode permitir o acesso às seguintes FQDNs para estabelecer a conectividade necessária:
+
+* `*.<datacentercode>.backup.windowsazure.com`<br>
+(Consulte os códigos do data center [aqui)](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx)
+
+* `login.windows.net`
+* `*.blob.core.windows.net`
+* `*.queue.core.windows.net`
+
 
 #### <a name="allow-access-using-nsg-tags"></a>Permitir o acesso utilizando tags NSG
 
@@ -119,7 +129,7 @@ O aliasing está disponível para caracteres não suportados, mas recomendamos e
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
-## <a name="discover-sql-server-databases"></a>Descubra as bases de dados do Servidor SQL
+## <a name="discover-sql-server-databases"></a>Descobrir bases de dados do SQL Server
 
 Como descobrir bases de dados em execução num VM:
 
@@ -135,7 +145,7 @@ Como descobrir bases de dados em execução num VM:
 
     ![Selecione SQL Server em Azure VM para a cópia de segurança](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
 
-5. Em **Backup Goal** > **Discover DBs em VMs**, selecione **Start Discovery** para procurar VMs desprotegidos na subscrição. Esta pesquisa pode demorar algum tempo, dependendo do número de VMs desprotegidos na subscrição.
+5. Em **Backup Goal**Discover  >  **DBs em VMs**, selecione Start **Discovery** para procurar VMs desprotegidos na subscrição. Esta pesquisa pode demorar algum tempo, dependendo do número de VMs desprotegidos na subscrição.
 
    * VMs desprotegidos devem aparecer na lista após descoberta, listadas pelo nome e pelo grupo de recursos.
    * Se um VM não está listado como espera, veja se já está num cofre.
@@ -162,7 +172,7 @@ Como descobrir bases de dados em execução num VM:
 
 ## <a name="configure-backup"></a>Configurar a cópia de segurança  
 
-1. No Passo de **Objetivo** > de Backup**2: Configurar a cópia de segurança,** selecione **Configurar cópia de segurança**.
+1. No Passo de **Objetivo de Backup**  >  **2: Configurar a cópia de segurança,** selecione **Configurar cópia de segurança**.
 
    ![Selecione Configurar cópia de segurança](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
 
@@ -214,7 +224,7 @@ Uma política de reserva define quando os backups são tomados e quanto tempo s�
 
 Para criar uma política de backup:
 
-1. No cofre, selecione **Políticas** > de Backup**Adicionar**.
+1. No cofre, selecione **Políticas de Backup**  >  **Adicionar**.
 2. Em **Adicionar**, selecione **SQL Server em VM Azure** para definir o tipo de política.
 
    ![Escolha um tipo de política para a nova política de backup](./media/backup-azure-sql-database/policy-type-details.png)
@@ -242,8 +252,8 @@ Para criar uma política de backup:
 6. No menu de **política Full Backup,** selecione **OK** para aceitar as definições.
 7. Para adicionar uma política de backup diferencial, selecione **Backup Diferencial**.
 
-   ![Definições de](./media/backup-azure-sql-database/retention-range-interval.png)
-   ![intervalo de intervalo de retenção Abrir o menu de política de backup diferencial](./media/backup-azure-sql-database/backup-policy-menu-choices.png)
+   ![Definições de intervalo de intervalo de retenção Abrir o menu de política de ](./media/backup-azure-sql-database/retention-range-interval.png)
+    ![ backup diferencial](./media/backup-azure-sql-database/backup-policy-menu-choices.png)
 
 8. Na **política de backup diferencial,** selecione **Ativar** para abrir os controlos de frequência e retenção.
 

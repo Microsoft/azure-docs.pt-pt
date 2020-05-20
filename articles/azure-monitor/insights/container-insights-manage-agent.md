@@ -2,13 +2,13 @@
 title: Como gerir o Monitor Azure para agente de contentores [ Microsoft Docs
 description: Este artigo descreve a gestão das tarefas de manutenção mais comuns com o agente de Log Analytics contentorizado utilizado pelo Azure Monitor para contentores.
 ms.topic: conceptual
-ms.date: 01/24/2020
-ms.openlocfilehash: 1a1f8d690979a846dbf5041999180221752acc0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/12/2020
+ms.openlocfilehash: ce014d27c6acc473c4a435dfed4757fb0884f4fe
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79275324"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652204"
 ---
 # <a name="how-to-manage-the-azure-monitor-for-containers-agent"></a>Como gerir o Monitor Azure para agente de contentores
 
@@ -16,13 +16,13 @@ O Monitor Azure para contentores utiliza uma versão contentorizada do agente Lo
 
 ## <a name="how-to-upgrade-the-azure-monitor-for-containers-agent"></a>Como atualizar o Monitor Azure para agente de contentores
 
-O Monitor Azure para contentores utiliza uma versão contentorizada do agente Log Analytics para o Linux. Quando uma nova versão do agente é lançada, o agente é automaticamente atualizado nos seus clusters Kubernetes geridos hospedados no Azure Kubernetes Service (AKS) e Azure Red Hat OpenShift. Para um [cluster híbrido kubernetes,](container-insights-hybrid-setup.md) o agente não é gerido e precisa de atualizar manualmente o agente.
+O Monitor Azure para contentores utiliza uma versão contentorizada do agente Log Analytics para o Linux. Quando uma nova versão do agente é lançada, o agente é automaticamente atualizado nos seus clusters Kubernetes geridos hospedados no Azure Kubernetes Service (AKS) e na versão 3.x do Azure Red Hat OpenShift. Para um [cluster híbrido kubernetes](container-insights-hybrid-setup.md) e versão 4.x do Chapéu Vermelho Azure, o agente não é gerido e precisa de atualizar manualmente o agente.
 
-Se a atualização do agente falhar num cluster hospedado no AKS, este artigo também descreve o processo para atualizar manualmente o agente. Para acompanhar as versões lançadas, consulte os [anúncios](https://github.com/microsoft/docker-provider/tree/ci_feature_prod)de lançamento do agente .
+Se a atualização do agente falhar num cluster hospedado na versão 3.x do AKS ou do Chapéu Vermelho Azure, este artigo também descreve o processo para atualizar manualmente o agente. Para acompanhar as versões lançadas, consulte os [anúncios](https://github.com/microsoft/docker-provider/tree/ci_feature_prod)de lançamento do agente .
 
-### <a name="upgrade-agent-on-monitored-kubernetes-cluster"></a>Agente de upgrade no cluster Kubernetes monitorizado
+### <a name="upgrade-agent-on-aks-cluster"></a>Agente de upgrade no cluster AKS
 
-O processo de atualização do agente em clusters, com além do Azure Red Hat OpenShift, consiste em dois passos para a frente. O primeiro passo é desativar a monitorização com o Monitor Azure para os contentores que utilizem o Azure CLI. Siga os passos descritos no artigo de [monitorização de desativação.](container-insights-optout.md?#azure-cli) A utilização do Azure CLI permite-nos remover o agente dos nós do cluster sem afetar a solução e os dados correspondentes que são armazenados no espaço de trabalho. 
+O processo de atualização do agente nos clusters AKS consiste em dois passos para a frente. O primeiro passo é desativar a monitorização com o Monitor Azure para os contentores que utilizem o Azure CLI. Siga os passos descritos no artigo de [monitorização de desativação.](container-insights-optout.md?#azure-cli) A utilização do Azure CLI permite-nos remover o agente dos nós do cluster sem afetar a solução e os dados correspondentes que são armazenados no espaço de trabalho. 
 
 >[!NOTE]
 >Enquanto está a realizar esta atividade de manutenção, os nós do cluster não estão a reencaminhar dados recolhidos, e as visualizações de desempenho não mostrarão dados entre o momento em que remove o agente e instala a nova versão. 
@@ -53,9 +53,15 @@ O estado deve assemelhar-se ao seguinte exemplo, em que o valor para *omi* e *om
     omsagent 1.6.0-163
     docker-cimprov 1.0.0.31
 
-## <a name="upgrade-agent-on-hybrid-kubernetes-cluster"></a>Agente de upgrade no cluster Kubernetes híbrido
+### <a name="upgrade-agent-on-hybrid-kubernetes-cluster"></a>Agente de upgrade no cluster Kubernetes híbrido
 
-O processo de atualização do agente num cluster Kubernetes hospedado no local, aks engine on Azure e Azure Stack pode ser concluído executando o seguinte comando:
+Execute os seguintes passos para atualizar o agente num cluster Kubernetes em execução:
+
+* Aglomerados Kubernetes autogeridos hospedados em Azure usando o AKS Engine.
+* Aglomerados Kubernetes autogeridos hospedados em Azure Stack ou no local usando o AKS Engine.
+* Red Hat OpenShift versão 4.x.
+
+Se o espaço de trabalho do Log Analytics estiver no Azure comercial, execute o seguinte comando:
 
 ```
 $ helm upgrade --name myrelease-1 \
@@ -76,6 +82,19 @@ $ helm upgrade --name myrelease-1 \
 --set omsagent.domain=opinsights.azure.us,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
 ```
 
+### <a name="upgrade-agent-on-azure-red-hat-openshift-v4"></a>Agente de upgrade no Azure Red Hat OpenShift v4
+
+Execute os seguintes passos para atualizar o agente num cluster Kubernetes em execução na versão 4.x do Azure Red Hat OpenShift 4.x. 
+
+>[!NOTE]
+>A versão 4.x do Azure Red Hat OpenShift apenas suporta correr na nuvem comercial azure.
+>
+
+```
+$ helm upgrade --name myrelease-1 \
+--set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterId=<azureAroV4ResourceId> incubator/azuremonitor-containers
+```
+
 ## <a name="how-to-disable-environment-variable-collection-on-a-container"></a>Como desativar a recolha de variáveis ambientais num recipiente
 
 O Monitor Azure para contentores recolhe variáveis ambientais dos contentores que correm numa vagem e apresenta-as no painel de propriedades do contentor selecionado na vista dos **contentores.** Pode controlar este comportamento desativando a recolha de um recipiente específico, quer durante a implantação do cluster Kubernetes, quer após a definição da variável ambiental *AZMON_COLLECT_ENV*. Esta funcionalidade está disponível na versão do agente – ciprod11292018 e superior.  
@@ -87,7 +106,7 @@ Para desativar a recolha de variáveis ambientais num recipiente novo ou existen
   value: "False"  
 ```  
 
-Executar o seguinte comando para aplicar a alteração em clusters Kubernetes que não o Azure Red Hat OpenShift): `kubectl apply -f  <path to yaml file>`. Para editar o ConfigMap e aplicar esta alteração para os clusters OpenShift do Chapéu Vermelho Azure, execute o comando:
+Executar o seguinte comando para aplicar a alteração em clusters Kubernetes que não o Azure Red Hat OpenShift): `kubectl apply -f  <path to yaml file>` . Para editar o ConfigMap e aplicar esta alteração para os clusters OpenShift do Chapéu Vermelho Azure, execute o comando:
 
 ``` bash
 oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging
@@ -97,7 +116,7 @@ Isto abre o seu editor de texto predefinido. Depois de definir a variável, guar
 
 Para verificar se a mudança de configuração entrou em vigor, selecione um recipiente na vista dos **contentores** no Monitor Azure para contentores e no painel de propriedades, expandir **variáveis ambientais.**  A secção deve mostrar apenas a variável criada anteriormente - **AZMON_COLLECT_ENV=FALSE**. Para todos os outros recipientes, a secção Variáveis Ambientais deve enumerar todas as variáveis ambientais descobertas.
 
-Para reativar a descoberta das variáveis ambientais, aplique o mesmo processo mais cedo `kubectl` e altere o valor de **Falso** para **Verdadeiro**, e depois reexecutar o comando para atualizar o recipiente.  
+Para reativar a descoberta das variáveis ambientais, aplique o mesmo processo mais cedo e altere o valor de **Falso** para **Verdadeiro**, e depois reexecutar o `kubectl` comando para atualizar o recipiente.  
 
 ```  
 - name: AZMON_COLLECT_ENV  

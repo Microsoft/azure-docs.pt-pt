@@ -4,16 +4,16 @@ description: Saiba quais os sistemas operativos que podem executar o daemon Azur
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 03/06/2020
+ms.date: 05/12/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 42c0a5d0c590f8c395c2afe366a00fcb9c83ce46
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ec143fbca94c5423ca67e09fa2932e55c06f418e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79536943"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652767"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Sistemas suportados Azure IoT Edge
 
@@ -105,7 +105,7 @@ Os componentes IoT Edge podem ser instalados ou atualizados individualmente, e s
 
 | Libertar   | Daemon de segurança  | Hub de borda<br>Agente de borda | Libiotismo | Rio Moby  |
 | --------- | ---------------- | ---------------------- | --------- | ----- |
-| **1.0.9** | 1.0.9            | 1.0.9                  | 1.0.9     |       |
+| **1.0.9** | 1.0.9.1<br>1.0.9            | 1.0.9.1<br>1.0.9                  | 1.0.9.1<br>1.0.9     |       |
 | **1.0.8** | 1.0.8            | 1.0.8.5<br>1.0.8.4<br>1.0.8.3<br>1.0.8.2<br>1.0.8.1<br>1.0.8 | 1.0.8 | 3.0.6 |
 | **1.0.7** | 1.0.7.1<br>1.0.7 | 1.0.7.1<br>1.0.7       | 1.0.7.1<br>1.0.7 | 3.0.5<br>3.0.4 (ARMv7hl, CentOS) |
 | **1.0.6** | 1.0.6.1<br>1.0.6 | 1.0.6.1<br>1.0.6       | 1.0.6.1<br>1.0.6 |  |
@@ -119,7 +119,7 @@ O IoT Edge utiliza o Microsoft.Azure.Device.Client SDK. Para mais informações,
 * **IoT Edge 1.0.6**: Cliente SDK 1.17.1
 * **IoT Edge 1.0.5:** Cliente SDK 1.17.1
 
-## <a name="virtual-machines"></a>Virtual Machines
+## <a name="virtual-machines"></a>Máquinas Virtuais
 
 O Azure IoT Edge pode ser executado em máquinas virtuais. Usar uma máquina virtual como um dispositivo IoT Edge é comum quando os clientes querem aumentar a infraestrutura existente com inteligência de ponta. A família do hospedeiro VM OS deve corresponder à família do oss o si convidado usado dentro do recipiente de um módulo. Este requisito é o mesmo que quando o Azure IoT Edge é executado diretamente num dispositivo. O Azure IoT Edge é agnóstico da tecnologia de virtualização subjacente e trabalha em VMs alimentados por plataformas como Hyper-V e vSphere.
 

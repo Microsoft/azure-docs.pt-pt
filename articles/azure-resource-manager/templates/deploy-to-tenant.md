@@ -3,12 +3,12 @@ title: Desloque recursos para o inquilino
 description: Descreve como implementar recursos no âmbito do inquilino num modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: 8a3748c0948238b588a01f7d91780693a2c5bf3a
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: d72b4a63e564732a9a4baaf8b8cd94d0f165e12a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930068"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653332"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Criar recursos ao nível dos inquilinos
 
@@ -19,7 +19,7 @@ ms.locfileid: "82930068"
 Pode implementar os seguintes tipos de recursos ao nível do arrendatário:
 
 * [implementações](/azure/templates/microsoft.resources/deployments) - para modelos aninhados que se desdobram em grupos de gestão ou subscrições.
-* grupos de gestão
+* [grupos de gestão](/azure/templates/microsoft.management/managementgroups)
 * [políticasAtribuis](/azure/templates/microsoft.authorization/policyassignments)
 * [definições políticas](/azure/templates/microsoft.authorization/policydefinitions)
 * [definições políticasSetDefinições](/azure/templates/microsoft.authorization/policysetdefinitions)
@@ -44,7 +44,7 @@ https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json
 
 ## <a name="required-access"></a>Acesso obrigatório
 
-O principal desdobramento do modelo deve ter permissões para criar recursos no âmbito do arrendatário. O principal deve ter permissão`Microsoft.Resources/deployments/*`para executar as ações de implantação e para criar os recursos definidos no modelo. Por exemplo, para criar um grupo de gestão, o diretor deve ter autorização do Contribuinte no âmbito do arrendatário. Para criar atribuições de funções, o diretor deve ter permissão do Proprietário.
+O principal desdobramento do modelo deve ter permissões para criar recursos no âmbito do arrendatário. O principal deve ter permissão para executar as ações de implantação `Microsoft.Resources/deployments/*` e para criar os recursos definidos no modelo. Por exemplo, para criar um grupo de gestão, o diretor deve ter autorização do Contribuinte no âmbito do arrendatário. Para criar atribuições de funções, o diretor deve ter permissão do Proprietário.
 
 O Administrador Global do Diretório Ativo Azure não tem automaticamente permissão para atribuir funções. Para permitir a implantação do modelo no âmbito do arrendatário, o Administrador Global deve fazer os seguintes passos:
 
@@ -92,7 +92,7 @@ Para implementações de nível de inquilino, você deve fornecer um local para 
 
 Pode fornecer um nome para a implementação ou utilizar o nome de implementação predefinido. O nome padrão é o nome do ficheiro do modelo. Por exemplo, a implementação de um modelo chamado **azuredeploy.json** cria um nome de implantação padrão de **azuredeploy**.
 
-Para cada nome de implantação, a localização é imutável. Não se pode criar uma implantação num local quando existe uma implantação existente com o mesmo nome num local diferente. Se obtê-lo o código `InvalidDeploymentLocation`de erro, utilize um nome diferente ou o mesmo local que a implementação anterior para esse nome.
+Para cada nome de implantação, a localização é imutável. Não se pode criar uma implantação num local quando existe uma implantação existente com o mesmo nome num local diferente. Se obtê-lo o código de `InvalidDeploymentLocation` erro, utilize um nome diferente ou o mesmo local que a implementação anterior para esse nome.
 
 ## <a name="use-template-functions"></a>Funções de modelo de utilização
 

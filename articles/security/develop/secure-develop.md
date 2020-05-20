@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 03f5b0124f95465c4a5da5043364a2f5816dae62
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a36ac44fa861b902bfcc370472a2a87e036e5de6
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81685754"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655009"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Desenvolver aplicações seguras no Azure
 Neste artigo apresentamos atividades e controlos de segurança a considerar quando desenvolve aplicações para a nuvem. Questões e conceitos de segurança a considerar durante as fases de implementação e verificação do Ciclo de Vida de Desenvolvimento de Segurança da Microsoft [(SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) são abordados. O objetivo é ajudá-lo a definir atividades e serviços Azure que você pode usar para desenvolver uma aplicação mais segura.
@@ -97,7 +97,7 @@ Se a aplicação tiver de gerar automaticamente palavras-passe, certifique-se de
 
 ### <a name="validate-file-uploads"></a>Validar uploads de ficheiros
 
-Se a sua aplicação permitir uploads de [ficheiros,](https://www.owasp.org/index.php/Unrestricted_File_Upload)considere as precauções que pode tomar para esta atividade de risco. O primeiro passo em muitos ataques é colocar algum código malicioso num sistema que está a ser atacado. Usar um upload de ficheiro ajuda o intruso a conseguir isto. OOWASP oferece soluções para validar um ficheiro para garantir que o ficheiro que está a carregar é seguro.
+Se a sua aplicação permitir uploads de [ficheiros,](https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload)considere as precauções que pode tomar para esta atividade de risco. O primeiro passo em muitos ataques é colocar algum código malicioso num sistema que está a ser atacado. Usar um upload de ficheiro ajuda o intruso a conseguir isto. OOWASP oferece soluções para validar um ficheiro para garantir que o ficheiro que está a carregar é seguro.
 
 A proteção antimalware ajuda a identificar e remover vírus, spyware e outros softwares maliciosos. Pode instalar o [Microsoft Antimalware](../fundamentals/antimalware.md) ou a solução de proteção de pontofinal do parceiro Microsoft ([Trend Micro,](https://www.trendmicro.com/azure/) [Broadcom,](https://www.broadcom.com/products) [McAfee,](https://www.mcafee.com/us/products.aspx) [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)e [Endpoint Protection](https://docs.microsoft.com/configmgr/protect/deploy-use/endpoint-protection)).
 

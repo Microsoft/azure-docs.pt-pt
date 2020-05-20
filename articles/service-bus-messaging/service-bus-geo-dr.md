@@ -7,14 +7,14 @@ manager: timlt
 editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 04/29/2020
 ms.author: aschhab
-ms.openlocfilehash: 49748006baf779e6aea4322068ca3bd07a03a0a3
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: a5a1e7a7ef73825b4b13d2f36c1c8554fdc2a9b6
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209405"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647849"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Recuperação geo-desastre do azure service bus
 
@@ -146,6 +146,43 @@ Só pode ativar Zonas de Disponibilidade em novos espaços de nome, utilizando o
 
 ![3][]
 
+## <a name="private-endpoints"></a>Pontos finais privados
+Esta secção fornece considerações adicionais ao utilizar a recuperação geo-desastre com espaços de nome que utilizam pontos finais privados. Para aprender sobre a utilização de pontos finais privados com o Service Bus em geral, consulte [Integrate Azure Service Bus com Ligação Privada Azure](private-link-service.md).
+
+### <a name="new-pairings"></a>Novos pares
+Se tentar criar um emparelhamento entre um espaço de nome primário com um ponto final privado e um espaço de nome secundário sem um ponto final privado, o emparelhamento falhará. O emparelhamento só terá sucesso se os espaços de nomes primários e secundários tiverem pontos finais privados. Recomendamos que utilize as mesmas configurações nos espaços de nomes primários e secundários e em redes virtuais nas quais são criados pontos finais privados. 
+
+> [!NOTE]
+> Quando se tenta emparelhar o espaço de nome primário com um ponto final privado e o espaço de nome secundário, o processo de validação verifica apenas se existe um ponto final privado no espaço de nome secundário. Não verifica se o ponto final funciona ou funcionará após o fracasso. É da sua responsabilidade garantir que o espaço de nome secundário com ponto final privado funcionará como esperado após o fracasso.
+>
+> Para testar que as configurações de ponto final privado são as mesmas, envie um pedido de [filas get](/rest/api/servicebus/queues/get) para o espaço de nome secundário de fora da rede virtual e verifique se recebe uma mensagem de erro do serviço.
+
+### <a name="existing-pairings"></a>Pares existentes
+Se o emparelhamento entre o espaço de nomes primário e secundário já existir, a criação de pontos finais privados no espaço de nome primário falhará. Para resolver, crie primeiro um ponto final privado no espaço de nome secundário e, em seguida, crie um para o espaço de nome principal.
+
+> [!NOTE]
+> Embora permitam-se apenas acesso a leitura ao espaço de nome secundário, são permitidas atualizações às configurações de pontofinal privado. 
+
+### <a name="recommended-configuration"></a>Configuração recomendada
+Ao criar uma configuração de recuperação de desastres para a sua aplicação e ônibus de serviço, você deve criar pontos finais privados para espaços de nome sinuoso de serviço primário e secundário contra redes virtuais que hospedam instâncias primárias e secundárias da sua aplicação.
+
+Digamos que tem duas redes virtuais: VNET-1, VNET-2 e estes espaços primários e segundonomes: ServiceBus-Namespace1-Primary, ServiceBus-Namespace2-Secondary. Tem de fazer os seguintes passos: 
+
+- No ServiceBus-Namespace1-Primary, crie dois pontos finais privados que utilizam subredes de VNET-1 e VNET-2
+- No ServiceBus-Namespace2-Secondary, crie dois pontos finais privados que usam as mesmas subredes de VNET-1 e VNET-2 
+
+![Pontos finais privados e redes virtuais](./media/service-bus-geo-dr/private-endpoints-virtual-networks.png)
+
+
+A vantagem desta abordagem é que o failover pode acontecer na camada de aplicação independente do espaço de nome service Bus. Pondere os seguintes cenários: 
+
+**Falha na aplicação:** Aqui, a aplicação não existirá no VNET-1, mas passará para VNET-2. Como ambos os pontos finais privados estão configurados tanto em VNET-1 como VNET-2 para espaços de nome primário e secundário, a aplicação funcionará apenas. 
+
+Falha no **espaço do ônibus de serviço**: Aqui novamente, uma vez que ambos os pontos finais privados estão configurados em ambas as redes virtuais para espaços de nomes primários e secundários, a aplicação funcionará apenas. 
+
+> [!NOTE]
+> Para obter orientações sobre a recuperação geo-desastre de uma rede virtual, consulte [Rede Virtual - Continuidade de Negócios](../virtual-network/virtual-network-disaster-recovery-guidance.md).
+
 ## <a name="next-steps"></a>Passos seguintes
 
 - Consulte aqui a referência da Recuperação Geo-desastre [REST API](/rest/api/servicebus/disasterrecoveryconfigs).
@@ -155,7 +192,7 @@ Só pode ativar Zonas de Disponibilidade em novos espaços de nome, utilizando o
 Para saber mais sobre as mensagens de ônibus de serviço, consulte os seguintes artigos:
 
 * [Filas, tópicos e subscrições do Service Bus](service-bus-queues-topics-subscriptions.md)
-* [Começar com as filas de ônibus de serviço](service-bus-dotnet-get-started-with-queues.md)
+* [Introdução às filas do Service Bus](service-bus-dotnet-get-started-with-queues.md)
 * [Como utilizar os tópicos e as subscrições do Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 * [API de descanso](/rest/api/servicebus/) 
 

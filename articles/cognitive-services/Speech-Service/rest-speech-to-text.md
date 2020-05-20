@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/23/2020
+ms.date: 05/13/2020
 ms.author: yinhew
-ms.openlocfilehash: 2f102199c14ba9611a83e3ed3b31ebcd189624d6
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 555ae9e48f538c1100bab8b35ce61742baa88451
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82978625"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659829"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST de conversão de voz em texto
 
@@ -38,12 +38,12 @@ O ponto final para a Rest API tem este formato:
 https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1
 ```
 
-Substitua-o `<REGION_IDENTIFIER>` pelo identificador que corresponde à região da sua subscrição a partir desta tabela:
+`<REGION_IDENTIFIER>`Substitua-o pelo identificador que corresponde à região da sua subscrição a partir desta tabela:
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
 
 > [!NOTE]
-> O parâmetro de idioma deve ser anexado ao URL para evitar receber um erro de 4xx HTTP. Por exemplo, a língua definida para o inglês `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US`americano usando o ponto final dos EUA Ocidental é: .
+> O parâmetro de idioma deve ser anexado ao URL para evitar receber um erro de 4xx HTTP. Por exemplo, a língua definida para o inglês americano usando o ponto final dos EUA Ocidental é: `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US` .
 
 ## <a name="query-parameters"></a>Parâmetros de consulta
 
@@ -52,10 +52,9 @@ Estes parâmetros podem ser incluídos na cadeia de consulta do pedido REST.
 | Parâmetro | Descrição | Obrigatório / Opcional |
 |-----------|-------------|---------------------|
 | `language` | Identifica a língua falada que está a ser reconhecida. Ver [línguas apoiadas.](language-support.md#speech-to-text) | Necessário |
-| `format` | Especifica o formato de resultados. Os valores aceites são `simple` e. `detailed` Os resultados `DisplayText` `Offset`simples `Duration`incluem, `RecognitionStatus`e . As respostas detalhadas incluem quatro representações diferentes do texto de exibição. A predefinição é `simple`. | Opcional |
-| `profanity` | Especifica como lidar com a profanação nos resultados de reconhecimento. Os valores aceites são `masked`, que substitui `removed`a profanação por asteriscos, `raw`que remove toda a profanação do resultado, ou , que inclui a profanação no resultado. A predefinição é `masked`. | Opcional |
-| `pronunciationScoreParams` | Especifica os parâmetros para a apresentação de pontuações de pronúncia nos resultados do reconhecimento, que avaliam a qualidade da pronúncia da entrada da fala, com indicadores de precisão, fluência, completude, etc. Este parâmetro é um json codificado base64 contendo múltiplos parâmetros detalhados. Consulte os parâmetros de [avaliação da pronúncia](#pronunciation-assessment-parameters) para como construir este parâmetro. | Opcional |
-| `cid` | Ao utilizar o [portal Custom Speech](how-to-custom-speech.md) para criar modelos personalizados, pode utilizar modelos personalizados através do id **endpoint** encontrado na página **de Implementação.** Utilize o **ID endpoint** como `cid` argumento para o parâmetro de corda de consulta. | Opcional |
+| `format` | Especifica o formato de resultados. Os valores aceites são `simple` `detailed` e. Os resultados simples `RecognitionStatus` `DisplayText` incluem, e `Offset` `Duration` . As respostas detalhadas incluem quatro representações diferentes do texto de exibição. A predefinição é `simple`. | Opcional |
+| `profanity` | Especifica como lidar com a profanação nos resultados de reconhecimento. Os valores aceites são , que substitui a `masked` profanação por asteriscos, `removed` que remove toda a profanação do resultado, ou `raw` , que inclui a profanação no resultado. A predefinição é `masked`. | Opcional |
+| `cid` | Ao utilizar o [portal Custom Speech](how-to-custom-speech.md) para criar modelos personalizados, pode utilizar modelos personalizados através do id **endpoint** encontrado na página **de Implementação.** Utilize o **ID endpoint** como argumento para o parâmetro de corda de `cid` consulta. | Opcional |
 
 ## <a name="request-headers"></a>Cabeçalhos do pedido
 
@@ -63,16 +62,17 @@ Esta tabela lista seletiva e cabeçalhos opcionais para pedidos de discurso a te
 
 |Cabeçalho| Descrição | Obrigatório / Opcional |
 |------|-------------|---------------------|
-| `Ocp-Apim-Subscription-Key` | A sua chave de subscrição do serviço Speech. | Ou este `Authorization` cabeçalho ou é necessário. |
-| `Authorization` | Um símbolo de autorização precedido pela palavra `Bearer`. Para obter mais informações, veja [Autenticação](#authentication). | Ou este `Ocp-Apim-Subscription-Key` cabeçalho ou é necessário. |
-| `Content-type` | Descreve o formato e o codec dos dados áudio fornecidos. Os valores aceites são `audio/wav; codecs=audio/pcm; samplerate=16000` e. `audio/ogg; codecs=opus` | Necessário |
+| `Ocp-Apim-Subscription-Key` | A sua chave de subscrição do serviço Speech. | Ou este cabeçalho ou `Authorization` é necessário. |
+| `Authorization` | Um símbolo de autorização precedido pela palavra `Bearer` . Para obter mais informações, veja [Autenticação](#authentication). | Ou este cabeçalho ou `Ocp-Apim-Subscription-Key` é necessário. |
+| `Pronunciation-Assessment` | Especifica os parâmetros para a apresentação de pontuações de pronúncia nos resultados do reconhecimento, que avaliam a qualidade da pronúncia da entrada da fala, com indicadores de precisão, fluência, completude, etc. Este parâmetro é um json codificado base64 contendo múltiplos parâmetros detalhados. Consulte os parâmetros de [avaliação da pronúncia](#pronunciation-assessment-parameters) para como construir este cabeçalho. | Opcional |
+| `Content-type` | Descreve o formato e o codec dos dados áudio fornecidos. Os valores aceites são `audio/wav; codecs=audio/pcm; samplerate=16000` `audio/ogg; codecs=opus` e. | Necessário |
 | `Transfer-Encoding` | Especifica que os dados áudio em pedaços estão a ser enviados, em vez de um único ficheiro. Utilize este cabeçalho apenas se os dados áudio de bits de dados. | Opcional |
-| `Expect` | Se utilizar transferência saqueada, envie `Expect: 100-continue`. O serviço de Fala reconhece o pedido inicial e aguarda dados adicionais.| Necessário se enviar dados de áudio em pedaços. |
-| `Accept` | Se fornecido, deve `application/json`ser. O serviço de Fala fornece resultados na JSON. Alguns quadros de pedidos fornecem um valor padrão incompatível. É uma boa prática `Accept`incluir sempre. | Opcional, mas recomendado. |
+| `Expect` | Se utilizar transferência saqueada, envie `Expect: 100-continue` . O serviço de Fala reconhece o pedido inicial e aguarda dados adicionais.| Necessário se enviar dados de áudio em pedaços. |
+| `Accept` | Se fornecido, deve `application/json` ser. O serviço de Fala fornece resultados na JSON. Alguns quadros de pedidos fornecem um valor padrão incompatível. É uma boa prática incluir `Accept` sempre. | Opcional, mas recomendado. |
 
 ## <a name="audio-formats"></a>Formatos áudio
 
-O áudio é enviado no `POST` corpo do pedido HTTP. Deve estar num dos formatos desta tabela:
+O áudio é enviado no corpo do `POST` pedido HTTP. Deve estar num dos formatos desta tabela:
 
 | Formato | Codec | Taxa bit | Taxa de amostragem  |
 |--------|-------|----------|--------------|
@@ -89,10 +89,10 @@ Esta tabela lista seletiva e parâmetros opcionais para avaliação da pronúnci
 | Parâmetro | Descrição | Obrigatório / Opcional |
 |-----------|-------------|---------------------|
 | Texto de referência | O texto que a pronúncia será avaliado. | Necessário |
-| Sistema de Classificação | O sistema de pontos para a calibração da pontuação. Os valores aceites são `FivePoint` e. `HundredMark` A predefinição é `FivePoint`. | Opcional |
-| Granularidade | A granularidade de avaliação. Os valores aceites são `Phoneme`, que mostram a pontuação no nível completo de texto, palavra e fonema, `Word`que mostra a pontuação no nível completo de texto e palavra, `FullText`que mostra a pontuação apenas no nível de texto completo. A predefinição é `Phoneme`. | Opcional |
-| Dimensão | Define os critérios de saída. Os valores aceites são `Basic`, `Comprehensive` o que mostra apenas a pontuação de precisão, mostra pontuações em mais dimensões (por exemplo, pontuação de fluência e pontuação de completude no nível de texto completo, tipo de erro no nível de palavra). Verifique [os parâmetros de Resposta](#response-parameters) para ver definições de diferentes dimensões de pontuação e tipos de erro de palavras. A predefinição é `Basic`. | Opcional |
-| EnableMiscue | Permite o cálculo errado. Com isto ativado, as palavras pronunciadas serão comparadas ao texto de referência, e serão marcadas com omissão/inserção com base na comparação. Os valores aceites são `False` e. `True` A predefinição é `False`. | Opcional |
+| Sistema de Classificação | O sistema de pontos para a calibração da pontuação. Os valores aceites são `FivePoint` `HundredMark` e. A predefinição é `FivePoint`. | Opcional |
+| Granularidade | A granularidade de avaliação. Os valores aceites são `Phoneme` , que mostram a pontuação no nível completo de texto, palavra e fonema, `Word` que mostra a pontuação no nível completo de texto e palavra, `FullText` que mostra a pontuação apenas no nível de texto completo. A predefinição é `Phoneme`. | Opcional |
+| Dimensão | Define os critérios de saída. Os valores aceites são `Basic` , o que mostra apenas a pontuação de precisão, `Comprehensive` mostra pontuações em mais dimensões (por exemplo, pontuação de fluência e pontuação de completude no nível de texto completo, tipo de erro no nível de palavra). Verifique [os parâmetros de Resposta](#response-parameters) para ver definições de diferentes dimensões de pontuação e tipos de erro de palavras. A predefinição é `Basic`. | Opcional |
+| EnableMiscue | Permite o cálculo errado. Com isto ativado, as palavras pronunciadas serão comparadas ao texto de referência, e serão marcadas com omissão/inserção com base na comparação. Os valores aceites são `False` `True` e. A predefinição é `False`. | Opcional |
 | CenárioId | Um GUID indicando um sistema de pontos personalizado. | Opcional |
 
 Abaixo está um exemplo JSON contendo os parâmetros de avaliação da pronúncia:
@@ -106,13 +106,16 @@ Abaixo está um exemplo JSON contendo os parâmetros de avaliação da pronúnci
 }
 ```
 
-O seguinte código de amostra mostra como construir os parâmetros de avaliação da pronúncia no parâmetro de consulta URL:
+O seguinte código de amostra mostra como construir os parâmetros de avaliação da pronúncia no `Pronunciation-Assessment` cabeçalho:
 
 ```csharp
-var pronunciationScoreParamsJson = $"{{\"ReferenceText\":\"Good morning.\",\"GradingSystem\":\"HundredMark\",\"Granularity\":\"FullText\",\"Dimension\":\"Comprehensive\"}}";
-var pronunciationScoreParamsBytes = Encoding.UTF8.GetBytes(pronunciationScoreParamsJson);
-var pronunciationScoreParams = Convert.ToBase64String(pronunciationScoreParamsBytes);
+var pronAssessmentParamsJson = $"{{\"ReferenceText\":\"Good morning.\",\"GradingSystem\":\"HundredMark\",\"Granularity\":\"FullText\",\"Dimension\":\"Comprehensive\"}}";
+var pronAssessmentParamsBytes = Encoding.UTF8.GetBytes(pronAssessmentParamsJson);
+var pronAssessmentHeader = Convert.ToBase64String(pronAssessmentParamsBytes);
 ```
+
+>[!NOTE]
+>A funcionalidade de avaliação da pronúncia está atualmente disponível apenas nas `westus` `eastasia` regiões e regiões. E esta funcionalidade está atualmente disponível apenas em `en-US` linguagem.
 
 ## <a name="sample-request"></a>Pedido de amostra
 
@@ -126,6 +129,12 @@ Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
 Host: westus.stt.speech.microsoft.com
 Transfer-Encoding: chunked
 Expect: 100-continue
+```
+
+Para permitir a avaliação da pronúncia, pode adicionar abaixo o cabeçalho. Consulte os parâmetros de [avaliação da pronúncia](#pronunciation-assessment-parameters) para como construir este cabeçalho.
+
+```HTTP
+Pronunciation-Assessment: eyJSZWZlcm...
 ```
 
 ## <a name="http-status-codes"></a>Códigos de estado HTTP
@@ -142,9 +151,9 @@ O código de estado HTTP para cada resposta indica sucesso ou erros comuns.
 
 ## <a name="chunked-transfer"></a>Transferência em pedaços
 
-A transferência`Transfer-Encoding: chunked`em pedaços () pode ajudar a reduzir a latência do reconhecimento. Permite que o serviço de Fala comece a processar o ficheiro áudio enquanto é transmitido. A API REST não fornece resultados parciais ou intercalares.
+A transferência em pedaços () pode ajudar a reduzir a `Transfer-Encoding: chunked` latência do reconhecimento. Permite que o serviço de Fala comece a processar o ficheiro áudio enquanto é transmitido. A API REST não fornece resultados parciais ou intercalares.
 
-Esta amostra de código mostra como enviar áudio em pedaços. Apenas o primeiro pedaço deve conter o cabeçalho do ficheiro áudio. `request`é `HttpWebRequest` um objeto ligado ao ponto final de REST apropriado. `audioFile`é o caminho para um ficheiro áudio no disco.
+Esta amostra de código mostra como enviar áudio em pedaços. Apenas o primeiro pedaço deve conter o cabeçalho do ficheiro áudio. `request`é um `HttpWebRequest` objeto ligado ao ponto final de REST apropriado. `audioFile`é o caminho para um ficheiro áudio no disco.
 
 ```csharp
 var request = (HttpWebRequest)HttpWebRequest.Create(requestUri);
@@ -191,19 +200,19 @@ O `RecognitionStatus` campo pode conter estes valores:
 
 | Estado | Descrição |
 |--------|-------------|
-| `Success` | O reconhecimento foi `DisplayText` bem sucedido e o campo está presente. |
+| `Success` | O reconhecimento foi bem sucedido e o `DisplayText` campo está presente. |
 | `NoMatch` | A fala foi detetada no fluxo de áudio, mas não foram correspondidas palavras da linguagem-alvo. Normalmente significa que a linguagem de reconhecimento é uma linguagem diferente daquela que o utilizador está a falar. |
 | `InitialSilenceTimeout` | O início da corrente de áudio continha apenas silêncio, e o serviço cronometrava à espera da fala. |
 | `BabbleTimeout` | O início da corrente de áudio continha apenas ruído, e o serviço cronometrava à espera de discurso. |
 | `Error` | O serviço de reconhecimento deparou-se com um erro interno e não pôde continuar. Tente de novo, se possível. |
 
 > [!NOTE]
-> Se o áudio for composto apenas `profanity` por profanação, e `remove`se o parâmetro de consulta estiver definido, o serviço não devolve um resultado de fala.
+> Se o áudio for composto apenas por profanação, e se o parâmetro de `profanity` consulta estiver `remove` definido, o serviço não devolve um resultado de fala.
 
 O `detailed` formato inclui formas adicionais de resultados reconhecidos.
-Ao utilizar `detailed` o `DisplayText` formato, é fornecido quanto `Display` a cada resultado na `NBest` lista.
+Ao utilizar o `detailed` formato, `DisplayText` é fornecido quanto a cada resultado na `Display` `NBest` lista.
 
-O objeto `NBest` na lista pode incluir:
+O objeto na `NBest` lista pode incluir:
 
 | Parâmetro | Descrição |
 |-----------|-------------|
@@ -211,16 +220,16 @@ O objeto `NBest` na lista pode incluir:
 | `Lexical` | A forma lexical do texto reconhecido: as palavras reais reconhecidas. |
 | `ITN` | A forma inversa-por texto normalizada ("canónica") do texto reconhecido, com números de telefone, números, abreviaturas ("doctor smith" a "dr smith"), e outras transformações aplicadas. |
 | `MaskedITN` | A forma ITN com máscara profana aplicada, se solicitado. |
-| `Display` | A forma de exibição do texto reconhecido, com pontuação e capitalização adicionadas. Este parâmetro é o `DisplayText` mesmo que fornecido `simple`quando o formato está definido para . |
+| `Display` | A forma de exibição do texto reconhecido, com pontuação e capitalização adicionadas. Este parâmetro é o mesmo `DisplayText` que fornecido quando o formato está definido para `simple` . |
 | `AccuracyScore` | A pontuação indicando a precisão da pronúncia do discurso. |
 | `FluencyScore` | A pontuação indicando a fluência do discurso. |
 | `CompletenessScore` | A pontuação indicando a ptidão do discurso dado calculando a relação de palavras pronunciadas para toda a entrada. |
-| `PronScore` | A pontuação geral indicando a qualidade da pronúncia do discurso. Isto é `AccuracyScore`calculado `FluencyScore` `CompletenessScore` a partir de, e com peso. |
-| `ErrorType` | Este valor indica se uma palavra é omitida, `ReferenceText`inserida ou mal pronunciada, em comparação com . Os valores `None` possíveis são (não significando nenhum erro nesta palavra), `Omission` `Insertion` e `Mispronunciation`. |
+| `PronScore` | A pontuação geral indicando a qualidade da pronúncia do discurso. Isto é calculado a partir `AccuracyScore` de, `FluencyScore` e com `CompletenessScore` peso. |
+| `ErrorType` | Este valor indica se uma palavra é omitida, inserida ou mal pronunciada, em comparação com `ReferenceText` . Os valores possíveis são `None` (não significando nenhum erro nesta palavra), `Omission` `Insertion` e `Mispronunciation` . |
 
 ## <a name="sample-responses"></a>Respostas da amostra
 
-Uma resposta `simple` típica para reconhecimento:
+Uma resposta típica para `simple` reconhecimento:
 
 ```json
 {
@@ -231,7 +240,7 @@ Uma resposta `simple` típica para reconhecimento:
 }
 ```
 
-Uma resposta `detailed` típica para reconhecimento:
+Uma resposta típica para `detailed` reconhecimento:
 
 ```json
 {

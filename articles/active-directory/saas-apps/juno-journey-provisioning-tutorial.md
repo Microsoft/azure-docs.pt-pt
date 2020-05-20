@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2020
 ms.author: Zhchia
-ms.openlocfilehash: 08de07a52d1e43dea91e6684d33027d8bcad61fc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 41a6cc3a4fd604c4272783f528ed3d37372044fb
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641852"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647736"
 ---
 # <a name="tutorial-configure-juno-journey-for-automatic-user-provisioning"></a>Tutorial: Configure Juno Journey para fornecimento automático de utilizadores
 
@@ -40,7 +40,7 @@ O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-req
 
 * [Um inquilino da AD Azure](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
 * Uma conta de utilizador em Azure AD com [permissão](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) para configurar o provisionamento (por exemplo, Administrador de Aplicação, Administrador de Aplicação na Nuvem, Proprietário de Aplicações ou Administrador Global). 
-*  Um [inquilino juno Journey.](https://www.junojourney.com/getstartedwithjuno)
+*  Um [inquilino juno Journey.](https://www.junojourney.com/blank)
 *  Uma conta de utilizador em Juno Journey com permissões de administrador.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Passo 1. Planeie a sua implantação de provisionamento
@@ -50,7 +50,7 @@ O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-req
 
 ## <a name="step-2-configure-juno-journey-to-support-provisioning-with-azure-ad"></a>Passo 2. Configure Juno Journey para apoiar o provisionamento com a Azure AD
 
-1. Para **O Token Secreto** e o **Inquilina URL** contacte a equipa de apoio juno Journey em support@the-juno.com. Este valor será inscrito nos campos de URL **do Token** Secreto e do **Inquilino,** respectivamente, no separador de provisionamento da sua aplicação Juno Journey no portal Azure. 
+1. Para **O Token Secreto** e o **Inquilina URL** contacte a equipa de apoio juno Journey em support@the-juno.com . Este valor será inscrito nos campos de URL **do Token** Secreto e do **Inquilino,** respectivamente, no separador de provisionamento da sua aplicação Juno Journey no portal Azure. 
 
 ## <a name="step-3-add-juno-journey-from-the-azure-ad-application-gallery"></a>Passo 3. Adicione Juno Journey da galeria de aplicações da AD Azure
 

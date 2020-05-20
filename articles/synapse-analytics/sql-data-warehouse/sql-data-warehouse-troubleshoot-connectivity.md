@@ -11,46 +11,46 @@ ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: d69c8dd28b946df3fff500c31c7cdefa4767c0c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b4fbfb65a609742105056fa7fb849f84579245cb
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81408128"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650495"
 ---
-# <a name="troubleshooting-connectivity-issues"></a>Troubleshooting connectivity issues (Resolver problemas de conectividade)
+# <a name="troubleshooting-connectivity-issues-in-synapse-sql-pool"></a>Problemas de conectividade na piscina SYnapse SQL
 
-Este artigo lista técnicas comuns de resolução de problemas em torno da ligação à sua base de dados SQL Analytics.
+Este artigo lista técnicas comuns de resolução de problemas em torno da ligação à sua base de dados de piscinaS SQL.
 
 ## <a name="check-service-availability"></a>Verifique a disponibilidade do serviço
 
-Verifique se o serviço está disponível. No portal Azure, vá à piscina Synapse SQL que está a tentar ligar. No painel TOC esquerdo, clique em **Diagnosticar e resolver problemas**.
+Verifique se o serviço está disponível. No portal Azure, vá à piscina SQL que está a tentar ligar. No painel TOC esquerdo, clique em **Diagnosticar e resolver problemas**.
 
 ![Selecione saúde de recursos](./media/sql-data-warehouse-troubleshoot-connectivity/diagnostics-link.png)
 
-O estado da sua piscina SYnapse SQL será mostrado aqui. Se o serviço não estiver **disponível,** verifique mais passos.
+O estado da sua piscina SQL será mostrado aqui. Se o serviço não estiver **disponível,** verifique mais passos.
 
 ![Serviço Disponível](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health.png)
 
-Se a sua saúde de Recursos mostrar que a sua instância de piscina Synapse SQL está pausada ou escalonada, siga a orientação para retomar a sua instância.
+Se a sua saúde de Recursos mostrar que a sua instância de piscina SQL está pausada ou escalonada, siga a orientação para retomar a sua instância.
 
-![Serviço Pausado](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png) Informações adicionais sobre saúde de recursos podem ser encontradas aqui.
+![Serviço Pausado ](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png) Informações adicionais sobre saúde de recursos podem ser encontradas aqui.
 
 ## <a name="check-for-paused-or-scaling-operation"></a>Verificar operação de dimensionamento ou em pausa
 
-Verifique o portal para ver se a sua instância de piscina Synapse SQL está pausada ou escalonada.
+Verifique o portal para ver se a sua instância de piscina SQL está pausada ou escalonada.
 
 ![Serviço Pausado](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
 
-Se verificar que o seu serviço está pausado ou escalonado, verifique se não é durante o seu horário de manutenção. No portal para a sua *visão*geral da piscina Synapse SQL, você verá o horário de manutenção eleito.
+Se verificar que o seu serviço está pausado ou escalonado, verifique se não é durante o seu horário de manutenção. No portal para a sua *visão geral*da piscina SQL, você verá o horário de manutenção eleito.
 
 ![Horário de manutenção de visão geral](./media/sql-data-warehouse-troubleshoot-connectivity/overview-maintance-schedule.png)
 
-Caso contrário, consulte o seu administrador de TI para verificar se esta manutenção não é um evento agendado. Para retomar a instância SQL Analytics, siga [estes passos](pause-and-resume-compute-portal.md).
+Caso contrário, consulte o seu administrador de TI para verificar se esta manutenção não é um evento agendado. Para retomar a instância da piscina SQL, siga [estes passos.](pause-and-resume-compute-portal.md)
 
 ## <a name="check-your-firewall-settings"></a>Verificar as definições de firewall
 
-A base de dados SQL Analytics comunica através da porta 1433.Se estiver a tentar ligar a partir de uma rede empresarial, o tráfego de saída através da porta 1433 poderá não ser permitido pela firewall da rede. Se assim for, não poderá ligar ao servidor da Base de Dados SQL do Azure, a menos que o departamento de TI abra a porta 1433. Informações adicionais sobre configurações de firewall podem ser encontradas [aqui](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules).
+A base de dados de piscinaS SQL comunica sobre a porta 1433.Se estiver a tentar ligar a partir de uma rede empresarial, o tráfego de saída através da porta 1433 poderá não ser permitido pela firewall da rede. Se assim for, não poderá ligar ao servidor da Base de Dados SQL do Azure, a menos que o departamento de TI abra a porta 1433. Informações adicionais sobre configurações de firewall podem ser encontradas [aqui](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules).
 
 ## <a name="check-your-vnetservice-endpoint-settings"></a>Verificar as definições de Ponto Final de Serviço/VNet
 
@@ -60,7 +60,7 @@ Se estiver a receber erros 40914 e 40615, consulte [a descrição do erro e](../
 
 ### <a name="software"></a>Software
 
-Verifique se está a utilizar as mais recentes ferramentas para se ligar à sua piscina SYnapse SQL:
+Verifique se está a utilizar as mais recentes ferramentas para se ligar à sua piscina SQL:
 
 - SSMS
 - Azure Data Studio
@@ -105,7 +105,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 ## <a name="intermittent-connection-issues"></a>Problemas de ligação intermitentes
 
-Verifique se o servidor está sobrecarregado com um grande número de pedidos em fila. Você pode precisar de escalar o seu pool SQL Synapse para obter recursos adicionais.
+Verifique se o servidor está sobrecarregado com um grande número de pedidos em fila. Você pode precisar de escalar o seu pool SQL para obter recursos adicionais.
 
 ## <a name="common-error-messages"></a>Mensagens de erro comuns
 

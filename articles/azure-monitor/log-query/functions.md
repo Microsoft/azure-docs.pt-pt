@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/15/2018
-ms.openlocfilehash: 7d94e53abbe8f4d2953729aa2363c3906ce94f74
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/18/2018
+ms.openlocfilehash: 5fb9e48a6d6a0b95b61478a7877e9b46dd8963e9
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77670224"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649391"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>Utilização de funções em consultas de registo do Monitor Azure
 
@@ -23,13 +23,10 @@ Crie uma função com log analytics no portal Azure clicando em **Guardar** e, e
 
 | Definição | Descrição |
 |:---|:---|
-| Nome           | Mostrar o nome da consulta no explorador de **consulta**. |
+| Name           | Mostrar o nome da consulta no explorador de **consulta**. |
 | Guardar como        | Função |
 | Pseudónimos de Função | Nome curto para utilizar a função em outras consultas. Pode não conter espaços e deve ser único. |
 | Categoria       | Uma categoria para organizar consultas e funções guardadas no **explorador de Consulta.** |
-
-> [!NOTE]
-> Uma função no Monitor Azure não pode conter outra função.
 
 
 

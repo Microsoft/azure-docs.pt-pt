@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f17d04d94546f31c5613fa9944c7399ea7db10ae
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 061805896203615d7673a006059080e9c4246863
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83006052"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657218"
 ---
 # <a name="connect-with-the-web-client"></a>Ligar com o cliente web
 
@@ -42,10 +42,10 @@ Embora qualquer navegador com capacidade html5 funcione, suportamos oficialmente
 
 ## <a name="access-remote-resources-feed"></a>Aceder a recursos remotos feed
 
-Num browser, navegue para o [cliente web do Windows Virtual Desktop](https://rdweb.wvd.microsoft.com/arm/webclient) e inscreva-se na sua conta de utilizador.
+Num browser, navegue para a versão integrada do Gestor de Recursos Do Web do Windows Virtual Desktop <https://rdweb.wvd.microsoft.com/arm/webclient> e inscreva-se na sua conta de utilizador.
 
 >[!NOTE]
->Se estiver a utilizar o lançamento do Windows Virtual Desktop Fall 2019, utilize a ligação do cliente web [neste artigo](./virtual-desktop-fall-2019/connect-web-2019.md) para se conectar aos seus recursos.
+>Se estiver a utilizar o lançamento do Windows Virtual Desktop Fall 2019 sem integração do Gestor de Recursos Azure, ligue-se aos seus <https://rdweb.wvd.microsoft.com/webclient> recursos.
 
 >[!NOTE]
 >Se já assinou com uma conta de Diretório Ativo Azure diferente daquela que pretende utilizar para o Windows Virtual Desktop, deve assinar ou utilizar uma janela de navegador privada.

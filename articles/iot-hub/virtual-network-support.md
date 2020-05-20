@@ -5,14 +5,14 @@ services: iot-hub
 author: jlian
 ms.service: iot-fundamentals
 ms.topic: conceptual
-ms.date: 04/28/2020
+ms.date: 05/12/2020
 ms.author: jlian
-ms.openlocfilehash: c0d01ae6507864373a79282476846d6f96adf83b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 61d24ac9f99a7c7b2b4d9ca6f3fd7b0a338341b8
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231446"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652374"
 ---
 # <a name="iot-hub-support-for-virtual-networks"></a>Suporte do IoT Hub para redes virtuais
 
@@ -46,10 +46,7 @@ Este artigo descreve como alcançar estes objetivos usando [pontos finais privad
 
 ## <a name="ingress-connectivity-to-iot-hub-using-private-endpoints"></a>Conectividade ingressa ao IoT Hub usando pontos finais privados
 
-Um ponto final privado é um endereço IP privado atribuído dentro de um VNET propriedade do cliente através do qual um recurso Azure é acessível. Ao ter um ponto final privado para o seu hub IoT, poderá permitir que os serviços que operam dentro do seu VNET cheguem ao IoT Hub sem exigir que o tráfego seja enviado para o ponto final público do IoT Hub. Da mesma forma, os dispositivos que operam no seu local podem utilizar a [Rede Privada Virtual (VPN)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) ou o [ExpressRoute](https://azure.microsoft.com/services/expressroute/) Private Peering para obter conectividade com o seu VNET em Azure e, posteriormente, para o seu Hub IoT (através do seu ponto final privado). Como resultado, os clientes que desejem restringir a conectividade aos pontos finais públicos do seu hub IoT (ou possivelmente bloqueá-lo completamente) podem atingir este objetivo usando as regras de [firewall Do IoT Hub,](./iot-hub-ip-filtering.md) mantendo a conectividade com o seu Hub usando o ponto final privado.
-
-> [!NOTE]
-> O principal foco desta configuração é para dispositivos dentro de uma rede no local. Esta configuração não é aconselhada para dispositivos implantados numa rede de grande área.
+Um ponto final privado é um endereço IP privado atribuído dentro de um VNET propriedade do cliente através do qual um recurso Azure é acessível. Ao ter um ponto final privado para o seu hub IoT, poderá permitir que os serviços que operam dentro do seu VNET cheguem ao IoT Hub sem exigir que o tráfego seja enviado para o ponto final público do IoT Hub. Da mesma forma, os dispositivos que operam no seu local podem utilizar a [Rede Privada Virtual (VPN)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) ou o [ExpressRoute](https://azure.microsoft.com/services/expressroute/) Private Peering para obter conectividade com o seu VNET em Azure e, posteriormente, para o seu Hub IoT (através do seu ponto final privado). Como resultado, os clientes que desejem restringir a conectividade aos pontos finais públicos do seu hub IoT (ou possivelmente bloqueá-lo completamente) podem atingir este objetivo utilizando o [filtro IP IoT Hub](./iot-hub-ip-filtering.md) e configurando o [encaminhamento para não enviar quaisquer dados para o ponto final incorporado](#built-in-event-hub-compatible-endpoint-doesnt-support-access-over-private-endpoint). Esta abordagem mantém a conectividade com o seu Hub utilizando o ponto final privado para dispositivos. O principal foco desta configuração é para dispositivos dentro de uma rede no local. Esta configuração não é aconselhada para dispositivos implantados numa rede de grande área.
 
 ![Ponto final do IoT Hub](./media/virtual-network-support/virtual-network-ingress.png)
 
@@ -95,8 +92,19 @@ Para criar um ponto final privado, siga estes passos:
 
 6. Clique em **Seguinte: Tags,** e opcionalmente forneça quaisquer etiquetas para o seu recurso.
 
-7. Clique em **Rever + crie** para criar o seu recurso de ponto final privado.
+7. Clique em **Rever + crie** para criar o seu recurso de ligação privada.
 
+### <a name="built-in-event-hub-compatible-endpoint-doesnt-support-access-over-private-endpoint"></a>O endpoint compatível com o Event Hub incorporado não suporta o acesso sobre o ponto final privado
+
+O ponto final compatível com o [Event Hub incorporado](iot-hub-devguide-messages-read-builtin.md) não suporta o acesso sobre o ponto final privado. Quando configurado, o ponto final privado de um hub IoT é apenas para conectividade de ingresso. Consumir dados do Event Hub integrado só pode ser feito através da internet pública. 
+
+O [filtro IP](iot-hub-ip-filtering.md) do IoT Hub também não controla o acesso público ao ponto final incorporado. Para bloquear completamente o acesso da rede pública ao seu hub IoT, deve: 
+
+1. Configure acesso de ponto final privado para IoT Hub
+1. Desligue o acesso à rede pública utilizando filtro IP para bloquear todos os IP
+1. Desligue o ponto final do Event Hub [incorporado, configurando o encaminhamento para não enviar dados para ele](iot-hub-devguide-messages-d2c.md)
+1. Desligue a rota de [recuo](iot-hub-devguide-messages-d2c.md#fallback-route)
+1. Configure a saída para outros recursos do Azure utilizando [serviços fidedignos do Azure](#egress-connectivity-from-iot-hub-to-other-azure-resources)
 
 ### <a name="pricing-private-endpoints"></a>Preços (pontos finais privados)
 
@@ -196,7 +204,7 @@ Uma identidade de serviço gerida pode ser atribuída ao seu hub no tempo de for
 }
 ```
 
-Depois de substituir os `name`valores pelo seu recurso, `location` `SKU.name` e `SKU.tier`pode utilizar o Azure CLI para implantar o recurso num grupo de recursos existente utilizando:
+Depois de substituir os valores pelo seu `name` `location` recurso, `SKU.name` e pode utilizar `SKU.tier` o Azure CLI para implantar o recurso num grupo de recursos existente utilizando:
 
 ```azurecli-interactive
 az deployment group create --name <deployment-name> --resource-group <resource-group-name> --template-file <template-file.json>
@@ -297,7 +305,7 @@ Esta funcionalidade requer conectividade do IoT Hub para a conta de armazenament
 
 3. Navegue para as **Firewalls e redes virtuais** na sua conta de armazenamento e permita o acesso a partir da opção de **redes selecionadas.** De acordo com a lista **de Exceções,** verifique a caixa para **permitir que os serviços fidedignos da Microsoft acedam a esta conta de armazenamento**. Clique no botão **Guardar**.
 
-Pode agora utilizar os API's Do API's Azure IoT REST para [criar postos](https://docs.microsoft.com/rest/api/iothub/service/jobclient/getimportexportjobs) de trabalho de importação para informações sobre a utilização da funcionalidade de importação/exportação a granel. Tenha em anote que `storageAuthenticationType="identityBased"` terá de fornecer `inputBlobContainerUri="https://..."` `outputBlobContainerUri="https://..."` o corpo e utilização do seu pedido e como url's de entrada e saída da sua conta de armazenamento, respectivamente.
+Pode agora utilizar os API's Do API's Azure IoT REST para [criar postos](https://docs.microsoft.com/rest/api/iothub/service/jobclient/getimportexportjobs) de trabalho de importação para informações sobre a utilização da funcionalidade de importação/exportação a granel. Tenha em anote que terá de fornecer o corpo e utilização do `storageAuthenticationType="identityBased"` seu pedido e como `inputBlobContainerUri="https://..."` `outputBlobContainerUri="https://..."` url's de entrada e saída da sua conta de armazenamento, respectivamente.
 
 
 O Azure IoT Hub SDK também suporta esta funcionalidade no gestor de registo do cliente de serviço. O seguinte código de snippet mostra como iniciar um trabalho de importação ou exportação na utilização do C# SDK.
@@ -319,9 +327,9 @@ await registryManager.ExportDevicesAsync(
 
 Para utilizar esta versão limitada da região dos SDKs Azure IoT com suporte de rede virtual para C#, Java e Node.js:
 
-1. Crie uma `EnableStorageIdentity` variável ambiental `1`nomeada e detetete o seu valor para .
+1. Crie uma variável ambiental nomeada `EnableStorageIdentity` e detetete o seu valor para `1` .
 
-2. Baixe o SDK: [Java](https://aka.ms/vnetjavasdk) | [C#](https://aka.ms/vnetcsharpsdk) | [Node.js](https://aka.ms/vnetnodesdk)
+2. Baixe o SDK: [Java](https://aka.ms/vnetjavasdk)  |  [C#](https://aka.ms/vnetcsharpsdk)  |  [Node.js](https://aka.ms/vnetnodesdk)
  
 Para Python, descarregue a nossa versão limitada do GitHub.
 

@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
-ms.date: 05/24/2018
-ms.openlocfilehash: 0773492c3042a6f8c906aa6ba1bc3c76ea8c0d8f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/12/2020
+ms.openlocfilehash: c09d8d9fd2ef22aeaf791ae44d877a87033318cc
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81870598"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655912"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Ligue os produtos/serviços ITSM com o Conector de Gestão de Serviços de TI
 Este artigo fornece informações sobre como configurar a ligação entre o seu produto/serviço ITSM e o Conector de Gestão de Serviços de TI (ITSMC) no Log Analytics para gerir centralmente os seus itens de trabalho. Para mais informações sobre o ITSMC, consulte [a visão geral](../../azure-monitor/platform/itsmc-overview.md).
@@ -88,7 +88,7 @@ Para ligar o Gestor de Serviços no local com o ITSMC em Azure, a Microsoft crio
 Para configurar a aplicação ITSM Web para o seu Gestor de Serviços, faça o seguinte:
 
 - **Implementar a aplicação Web** – Implementar a aplicação Web, definir as propriedades e autenticar com a AD Azure. Pode implementar a aplicação web utilizando o [script automatizado](../../azure-monitor/platform/itsmc-service-manager-script.md) que a Microsoft lhe forneceu.
-- **Configure a ligação híbrida** - [Configure esta ligação](#configure-the-hybrid-connection)manualmente.
+- **Configure a ligação**  -  híbrida [Configure esta ligação](#configure-the-hybrid-connection)manualmente.
 
 #### <a name="deploy-the-web-app"></a>Implementar a aplicação web
 Utilize o [script](../../azure-monitor/platform/itsmc-service-manager-script.md) automatizado para implementar a aplicação Web, definir as propriedades e autenticar com a AD Azure.
@@ -108,8 +108,8 @@ Guarde os valores, use-os quando criar uma ligação com o ITSMC.
 
 **Verifique a instalação da aplicação Web**
 
-1. Vá ao **portal** > Azure**Recursos.**
-2. Selecione a aplicação Web, clique em**Definições de Definições**de **Definições** > .
+1. Vá ao **portal Azure**  >  **Recursos.**
+2. Selecione a **Settings**aplicação Web, clique em  >  **Definições de Definições**de Definições .
 3. Confirme as informações sobre a instância do Gestor de Serviços que forneceu no momento da implementação da aplicação através do script.
 
 ### <a name="configure-the-hybrid-connection"></a>Configure a ligação híbrida
@@ -117,7 +117,7 @@ Guarde os valores, use-os quando criar uma ligação com o ITSMC.
 Utilize o seguinte procedimento para configurar a ligação híbrida que liga a instância do Gestor de Assistência ao ITSMC em Azure.
 
 1. Encontre a aplicação Web do Gestor de Serviços, no âmbito do **Azure Resources.**
-2. Clique em **Definições** > **de Rede**.
+2. Clique **Settings**em  >  **Definições de Rede**.
 3. Em **conexões híbridas,** clique **em configurar os seus pontos finais de ligação híbrido**.
 
     ![Ligação híbrida em rede](media/itsmc-connections/itsmc-hybrid-connection-networking-and-end-points.png)
@@ -201,8 +201,10 @@ Certifique-se de que os seguintes pré-requisitos são cumpridos:
 > Na atualização do clique final.
 > 2) **Recomendamos que estabeleça um procedimento interno para garantir que a ligação permaneça viva:** De acordo com o Refresh Token Lifespan para refrescar o símbolo. Certifique-se de que executa as seguintes operações antes do tempo de validade esperado (alguns dias antes do tempo de vida do Token Refresh expirar recomendamos):
 >
->>  1) [Complete um processo de sincronização manual para a configuração do conector ITSM](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-resync-servicenow)
- >> 2) Revogue o antigo símbolo de atualização, uma vez que não é recomendado manter as chaves antigas por razões de segurança. No ServiceNow procura por System OAuth do que selecione Manage Tokens. Escolha o símbolo antigo da lista de acordo com o nome OAuth e a data de validade. Clique no Revogar o Acesso e do que em Revogar.
+> 1. [Complete um processo de sincronização manual para a configuração do conector ITSM](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-resync-servicenow)
+> 2. Revogue o antigo símbolo de atualização, uma vez que não é recomendado manter as chaves antigas por razões de segurança. No ServiceNow procura por System OAuth do que selecione Manage Tokens. Escolha o símbolo antigo da lista de acordo com o nome OAuth e a data de validade.
+> ![Definição oAuth do sistema SNOW](media/itsmc-connections/snow-system-oauth.png)
+> 3. Clique no Revogar o Acesso e do que em Revogar.
 
 - Instale a aplicação de utilizador para integração do Microsoft Log Analytics (aplicação ServiceNow). [Saiba mais](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
 - Criar a função de utilizador de integração para a aplicação do utilizador instalada. Informação sobre como criar o papel do utilizador de integração está [aqui.](#create-integration-user-role-in-servicenow-app)
@@ -398,8 +400,8 @@ Saiba mais: Crie itens de [trabalho ITSM a partir de alertas Azure](../../azure-
 Para gerar o ID/chave do cliente para Cherwell, utilize o seguinte procedimento:
 
 1. Faça login na sua instância cherwell como administrador.
-2. Clique em **Segurança Editar** > **as definições do cliente REST API**.
-3. Selecione Criar novo segredo de > **cliente.** **Create new client**
+2. Clique em **Segurança Editar**  >  **as definições do cliente REST API**.
+3. Selecione **Criar novo**segredo de  >  **cliente.**
 
     ![Id do utilizador cherwell](media/itsmc-connections/itsmc-cherwell-client-id.png)
 

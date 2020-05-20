@@ -2,13 +2,13 @@
 title: App de teste no portal LUIS
 description: Use a Compreensão da Linguagem (LUIS) para trabalhar continuamente na sua aplicação para refiná-la e melhorar a sua compreensão linguística.
 ms.topic: conceptual
-ms.date: 05/07/2020
-ms.openlocfilehash: cb4559e6d3582a337cbc32ef986bec5db5940ef9
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/17/2020
+ms.openlocfilehash: 3608bb17b6d1ea8c9095fa54324993a9e40355b6
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591867"
+ms.locfileid: "83653885"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Teste a sua app LUIS no portal LUIS
 
@@ -44,7 +44,7 @@ A expressão do teste não deve ser exatamente a mesma que qualquer exemplo pron
 
     ![Testes interativos identificam a intenção errada](./media/luis-how-to-interactive-test/test-weather-1.png)
 
-## <a name="inspect-score"></a>Inspecionar pontuação
+## <a name="inspect-the-prediction"></a>Inspecione a previsão
 
 Inspecione os detalhes do resultado do teste no painel **de inspeção.**
 
@@ -52,23 +52,21 @@ Inspecione os detalhes do resultado do teste no painel **de inspeção.**
 
     ![Selecione Inspecione o botão para ver mais detalhes sobre os resultados dos testes](./media/luis-how-to-interactive-test/inspect.png)
 
-1. O painel de **inspeção** aparece. O painel inclui a intenção de pontuação superior, bem como quaisquer entidades identificadas. O painel mostra o resultado da expressão selecionada.
+1. O painel de **inspeção** aparece. O painel inclui a intenção de pontuação superior, bem como quaisquer entidades identificadas. O painel mostra a previsão da expressão selecionada.
 
-    ![O painel inclui a intenção de pontuação superior, bem como quaisquer entidades identificadas. O painel mostra o resultado da expressão selecionada.](./media/luis-how-to-interactive-test/inspect-panel.png)
+## <a name="add-to-example-utterances"></a>Adicione a declarações de exemplo
 
-## <a name="correct-top-scoring-intent"></a>Correto a intenção de pontuação superior
+A partir do painel de inspeção, pode adicionar a expressão do teste a uma intenção selecionando **Adicionar a declarações exemplo .**
 
-1. Se a intenção de pontuação superior estiver incorreta, selecione o botão **Editar.**
+## <a name="disable-required-features"></a>Desativar as funcionalidades necessárias
 
-1.  Na lista de entregas, selecione a intenção correta para a expressão.
+Selecione este alternância para ver qual seria a previsão se a funcionalidade da entidade não fosse necessária.
 
-    ![Selecione a intenção correta](./media/luis-how-to-interactive-test/intent-select.png)
+Este alternância ajuda-o a determinar se a aplicação treinada está a prever corretamente as suas entidades com base nas funcionalidades necessárias. A aplicação treinada pode prever mal uma entidade aprendida com base na rotulagem incorreta de declarações de exemplo ou na funcionalidade necessária não corresponde ao texto.
 
 ## <a name="view-sentiment-results"></a>Ver resultados de sentimento
 
 Se a **análise do Sentimento** estiver configurada na página **[Publicar,](luis-how-to-publish-app.md#enable-sentiment-analysis)** os resultados dos testes incluem o sentimento encontrado na expressão.
-
-![Imagem de painel de teste com análise de sentimento](./media/luis-how-to-interactive-test/sentiment.png)
 
 ## <a name="correct-matched-patterns-intent"></a>Corretamente a intenção do padrão combinado
 

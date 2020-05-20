@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: joelpell
-ms.openlocfilehash: cd15df2a7074463789bcf4a2d4de3c41bd012bbb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3a093303efe63a051e8e2ff9824a35228e44e1aa
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82100554"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652611"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-virtual-machines"></a>Otimizar o desempenho nas máquinas virtuais da série Lsv2
 
@@ -21,7 +21,7 @@ As máquinas virtuais da série Lsv2 suportam uma variedade de cargas de trabalh
 
 O design das Máquinas Virtuais da série Lsv2 (VMs) maximiza o processador AMD EPYC™ 7551 para proporcionar o melhor desempenho entre o processador, memória, dispositivos NVMe e VMs. Além de maximizar o desempenho do hardware, os VMs da série Lsv2 são projetados para trabalhar com as necessidades dos sistemas operativos Windows e Linux para um melhor desempenho com o hardware e o software.
 
-A afinação do software e hardware resultou na versão otimizada do [Windows Server 2019 Datacenter,](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview)lançado no início de dezembro de 2018 para o Azure Marketplace, que suporta o máximo desempenho nos dispositivos NVMe em VMs da série Lsv2.
+A afinação do software e hardware resultou na versão otimizada do [Windows Server 2019 Datacenter,](https://www.microsoft.com/cloud-platform/windows-server-pricing)lançado no início de dezembro de 2018 para o Azure Marketplace, que suporta o máximo desempenho nos dispositivos NVMe em VMs da série Lsv2.
 
 Este artigo fornece dicas e sugestões para garantir que as suas cargas de trabalho e aplicações atinjam o máximo desempenho projetado para os VMs. As informações nesta página serão continuamente atualizadas à medida que mais imagens otimizadas de Lsv2 forem adicionadas ao Azure Marketplace.
 
@@ -77,7 +77,7 @@ Os cenários que apagam de forma segura os dados para proteger o cliente incluem
 
 Para saber mais sobre as opções de backup de dados no armazenamento local, consulte Backup e recuperação de [desastres para discos Azure IaaS](backup-and-disaster-recovery-for-azure-iaas-disks.md).
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 * **Como posso começar a implantar VMs da série Lsv2?**  
    Tal como qualquer outro VM, utilize o [Portal,](quick-create-portal.md) [o Azure CLI](quick-create-cli.md)ou o [PowerShell](quick-create-powershell.md) para criar um VM.

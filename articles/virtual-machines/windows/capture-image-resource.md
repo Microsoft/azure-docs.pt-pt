@@ -8,18 +8,19 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 258bddec85e4ab182ff0b07c49cdc93f92264f95
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: legacy
+ms.openlocfilehash: 1b72be91ee11ef7003e225fe830a59ea42310ac6
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82084469"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656678"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Create a managed image of a generalized VM in Azure (Criar uma imagem gerida de uma VM generalizada no Azure)
 
 Pode ser criado um recurso de imagem gerida a partir de uma máquina virtual (VM) generalizada que é armazenada como um disco gerido ou um disco não gerido numa conta de armazenamento. A imagem pode ser utilizada para criar múltiplas VMs. Para obter informações sobre como as imagens geridas são faturadas, consulte [os preços dos Discos Geridos](https://azure.microsoft.com/pricing/details/managed-disks/). 
 
- 
+Uma imagem gerida suporta até 20 implementações simultâneas. Tentar criar mais de 20 VMs simultaneamente, a partir da mesma imagem gerida, pode resultar em prazos de fornecimento devido às limitações de desempenho de armazenamento de um único VHD. Para criar mais de 20 VMs em simultâneo, utilize uma imagem de Galerias de [Imagem Partilhada](shared-image-galleries.md) configurada com 1 réplica para cada 20 implementações vm simultâneas.
 
 ## <a name="generalize-the-windows-vm-using-sysprep"></a>Generalizar a VM do Windows com o Sysprep
 
@@ -38,7 +39,7 @@ Para generalizar o seu VM windows, siga estes passos:
 
 1. Inscreva-se no seu VM windows.
    
-2. Abra uma janela de comando como administrador. Mude o diretório para %windir%\system32\sysprep, e depois executar `sysprep.exe`.
+2. Abra uma janela de comando como administrador. Mude o diretório para %windir%\system32\sysprep, e depois executar `sysprep.exe` .
    
 3. Na caixa de diálogo da ferramenta de preparação do **sistema,** selecione **Enter System Out-of-Box Experience (OOBE)** e selecione a caixa de verificação **Generalize.**
    
@@ -53,14 +54,14 @@ Para generalizar o seu VM windows, siga estes passos:
 > [!TIP]
 > **Opcional** Utilize o [DISM](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-optimize-image-command-line-options) para otimizar a sua imagem e reduzir o primeiro tempo de arranque do VM.
 >
-> Para otimizar a sua imagem, monte o seu VHD clicando duas vezes `/optimize-image` nele no explorador do Windows e, em seguida, execute o DISM com o parâmetro.
+> Para otimizar a sua imagem, monte o seu VHD clicando duas vezes nele no explorador do Windows e, em seguida, execute o DISM com o `/optimize-image` parâmetro.
 >
 > ```cmd
 > DISM /image:D:\ /optimize-image /boot
 > ```
 > Onde D: é o caminho do VHD montado.
 >
-> Correr `DISM /optimize-image` deve ser a última modificação que faz no seu VHD. Se fizer alterações no seu VHD antes da implantação, terá de voltar a correr. `DISM /optimize-image`
+> Correr `DISM /optimize-image` deve ser a última modificação que faz no seu VHD. Se fizer alterações no seu VHD antes da implantação, terá de voltar a `DISM /optimize-image` correr.
 
 ## <a name="create-a-managed-image-in-the-portal"></a>Criar uma imagem gerida no portal 
 
@@ -92,11 +93,11 @@ Após a criação da imagem, pode encontrá-la como recurso **Image** na lista d
 
 A criação de uma imagem diretamente do VM garante que a imagem inclui todos os discos associados ao VM, incluindo o disco OS e quaisquer discos de dados. Este exemplo mostra como criar uma imagem gerida a partir de um VM que utiliza discos geridos.
 
-Antes de começar, certifique-se de que tem a versão mais recente do módulo PowerShell Azure. Para encontrar a `Get-Module -ListAvailable Az` versão, corra no PowerShell. Se precisar de fazer o upgrade, consulte [Instalar o PowerShell Azure no Windows com o PowerShellGet](/powershell/azure/install-az-ps). Se estiver a executar a `Connect-AzAccount` PowerShell localmente, corra para criar uma ligação com o Azure.
+Antes de começar, certifique-se de que tem a versão mais recente do módulo PowerShell Azure. Para encontrar a versão, corra `Get-Module -ListAvailable Az` no PowerShell. Se precisar de fazer o upgrade, consulte [Instalar o PowerShell Azure no Windows com o PowerShellGet](/powershell/azure/install-az-ps). Se estiver a executar a PowerShell localmente, corra `Connect-AzAccount` para criar uma ligação com o Azure.
 
 
 > [!NOTE]
-> Se quiser armazenar a sua imagem em armazenamento redundante, precisa criá-la numa região `-ZoneResilient` que suporte zonas de`New-AzImageConfig` [disponibilidade](../../availability-zones/az-overview.md) e inclua o parâmetro na configuração da imagem (comando).
+> Se quiser armazenar a sua imagem em armazenamento redundante, precisa criá-la numa região que suporte [zonas](../../availability-zones/az-overview.md) de disponibilidade e inclua o `-ZoneResilient` parâmetro na configuração da imagem `New-AzImageConfig` (comando).
 
 Para criar uma imagem VM, siga estes passos:
 
@@ -212,7 +213,7 @@ Pode criar uma imagem gerida a partir de uma imagem de um VM generalizado seguin
 
 ## <a name="create-an-image-from-a-vm-that-uses-a-storage-account"></a>Criar uma imagem de um VM que usa uma conta de armazenamento
 
-Para criar uma imagem gerida a partir de um VM que não utilize discos geridos, precisa do URI do VHD osS na conta de armazenamento, no seguinte formato: https://*mystorageaccount*.blob.core.windows.net//*vhdcontainer vhdfilename.vhd .**vhdcontainer* Neste exemplo, o VHD *encontra-se*na minha conta de armazenamento, num recipiente chamado *vhdcontainer,* e o nome de ficheiro VHD é *vhdfilename.vhd*.
+Para criar uma imagem gerida a partir de um VM que não utilize discos geridos, precisa do URI do VHD osso na conta de armazenamento, no seguinte formato: https://*mystorageaccount*.blob.core.windows.net/*vhdcontainer* / *vhdfilename.vhd .* Neste exemplo, o VHD *encontra-se*na minha conta de armazenamento, num recipiente chamado *vhdcontainer,* e o nome de ficheiro VHD é *vhdfilename.vhd*.
 
 
 1.  Criar algumas variáveis.

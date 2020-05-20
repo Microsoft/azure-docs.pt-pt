@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 05/13/2020
-ms.openlocfilehash: 71a28d4a0b69b117039f998891e082740e4269a2
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: aec093d829964c770f59ec7bd328fabdd56e6e86
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402563"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654840"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chave gerida pelo cliente do Azure Monitor 
 
@@ -21,7 +21,7 @@ Recomendamos que reveja [as limitações e constrangimentos](#limitations-and-co
 
 ## <a name="disclaimers"></a>Exclusões de Responsabilidade
 
-A capacidade cmk é entregue em clusters dedicados de Log Analytics. O modelo de preços dos [clusters Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters) utiliza Reservas de Capacidade a partir de um nível de 1000 GB/dia.
+A capacidade cmk é entregue em clusters dedicados de Log Analytics. Para verificar se temos a capacidade necessária na sua região, exigimos que a sua subscrição seja previamente listada como uma lista branca. Utilize o seu contacto da Microsoft para obter a sua subscrição listada como uma lista branca.
 
 ## <a name="customer-managed-key-cmk-overview"></a>Visão geral da chave gerida pelo cliente (CMK)
 
@@ -30,6 +30,8 @@ A encriptação na Rest é um requisito comum de https://docs.microsoft.com/azur
 O Monitor Azure garante que todos os dados são encriptados em repouso utilizando chaves geridas pelo Azure. O Azure Monitor também fornece uma opção de encriptação de dados utilizando a sua própria chave que é armazenada no seu [Cofre de Chave Azure](https://docs.microsoft.com/azure/key-vault/key-vault-overview) e acessada pelo Armazenamento utilizando a autenticação [de identidade gerida](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)atribuída pelo   sistema. Esta chave pode ser protegida por [software ou hardware-HSM](https://docs.microsoft.com/azure/key-vault/key-vault-overview). 
 
 A utilização da encriptação do Azure Monitor é idêntica à forma como a [encriptação do Armazenamento Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#about-azure-storage-encryption)   funciona.
+
+A capacidade cmk é entregue em clusters dedicados de Log Analytics. O modelo de preços dos [clusters Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters) utiliza Reservas de Capacidade a partir de um nível de 1000 GB/dia.
 
 Os dados ingeridos nos últimos 14 dias também são mantidos em cache quente (apoiado por SSD) para uma operação eficiente do motor de consulta. Estes dados permanecem encriptados com as teclas da Microsoft, independentemente da configuração CMK, mas o seu controlo sobre os dados sSD adere à [revogação da chave](#cmk-kek-revocation). Estamos a trabalhar para que os dados do SSD sejam encriptados com a CMK no segundo semestre de 2020.
 
@@ -40,7 +42,7 @@ A frequência a que o Azure Monitor Storage acede ao Cofre chave para operaçõe
 O Azure Monitor aproveita a identidade gerida atribuída ao sistema para dar acesso ao seu Cofre chave Azure.A identidade gerida atribuída pelo sistema só pode ser associada a um único recurso Azure. A identidade do cluster Log Analytics é suportada ao nível do cluster e isto dita que a capacidade cmk é entregue num cluster dedicado log analytics. Para suportar a CMK em vários espaços de trabalho, um novo recurso log Analytics *Cluster* funciona como uma ligação de identidade intermédia entre o seu Cofre chave e os seus espaços de trabalho Log Analytics, que mantém a identidade entre o cluster Log Analytics e o seu Cofre chave. O armazenamento do cluster Log Analytics utiliza a identidade gerida que \' está associada ao recurso *Cluster* para autenticar e aceder ao seu Cofre chave Azure via Diretório Ativo Azure.
 
 ![Visão geral da CMK](media/customer-managed-keys/cmk-overview-8bit.png)
-1.    Cofre de Chaves
+1.    Key Vault
 2.    Log Analytics *Cluster* recurso tendo gerido identidade com permissões para Key Vault -- A identidade é propagada para o armazenamento dedicado de log analytics
 3.    Cluster de Log Analytics dedicado
 4.    Espaços de trabalho associados ao recurso *Cluster* para encriptação CMK
@@ -67,7 +69,7 @@ Aplicam-se as seguintes regras:
 
 ## <a name="cmk-provisioning-procedure"></a>Procedimento de provisionamento cmk
 
-1. Lista de subscrição -- Para garantir que temos a capacidade necessária na sua região para fornecer um cluster Log Analytics, precisamos verificar e whitelist a sua subscrição previamente
+1. Lista de subscrição -- A capacidade cmk é entregue em clusters dedicados de Log Analytics. Para verificar se temos a capacidade necessária na sua região, exigimos que a sua subscrição seja previamente listada como uma lista branca. Use o seu contacto da Microsoft para obter a sua subscrição whitelist
 2. Criação de cofre de chaves Azure e chave de armazenamento
 3. Criação de um recurso *cluster*
 5. Concedendo permissões ao seu Cofre chave
@@ -161,7 +163,7 @@ Crie ou utilize um Cofre de Chave Azure que já tem de gerar, ou importar uma ch
 ![Eliminar e purgar suavemente as definições de proteção](media/customer-managed-keys/soft-purge-protection.png)
 
 Estas definições estão disponíveis via CLI e PowerShell:
-- [Eliminação suave](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
+- [Eliminação de Forma Recuperável](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
 - [Purgar proteção](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete#purge-protection) contra a eliminação da força do segredo/cofre mesmo após apagar suavemente
 
 ### <a name="create-cluster-resource"></a>Criar recurso *cluster*
@@ -270,7 +272,7 @@ Para atualizar o recurso *cluster* com os detalhes do *identificador Key* Vault 
 
 Atualize o recurso *cluster* KeyVaultProperties com detalhes do identificador de chaves.
 
-**Atualizar**
+**Atualização**
 
 Este pedido do Gestor de Recursos é uma operação assíncrona ao atualizar os detalhes do identificador chave, enquanto é sincronizado ao atualizar o valor da capacidade.
 
@@ -595,5 +597,5 @@ Todos os seus dados permanecem acessíveis após a operação de rotação da ch
 
 - Se atualizar a sua versão chave no Key Vault e não atualizar os novos dados de identificação de chaves no recurso *Cluster,* o cluster Log Analytics continuará a utilizar a sua chave anterior e os seus dados tornar-se-ão inacessíveis. Atualize novos detalhes de identificador chave no recurso *Cluster* para retomar a ingestão de dados e capacidade de consulta de dados.
 
-- Para suporte e ajuda relacionada com a chave gerida pelo cliente, utilize os seus contactos na Microsoft.
+- Para suporte e ajuda relacionada com a chave gerida pelo cliente, utilize o seu contacto da Microsoft para nos contactar.
 

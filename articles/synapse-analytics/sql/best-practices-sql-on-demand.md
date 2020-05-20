@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 86678365d1510199247e8a1aaa48ec844d07de32
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 07ceb8eebed5657f87417dc24281008dd0863851
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592938"
+ms.locfileid: "83650402"
 ---
 # <a name="best-practices-for-sql-on-demand-preview-in-azure-synapse-analytics"></a>Boas práticas para SQL on-demand (pré-visualização) em Azure Synapse Analytics
 
@@ -56,7 +56,7 @@ Pode utilizar wildcards no seu caminho para [consultar vários ficheiros e pasta
 
 ## <a name="use-appropriate-data-types"></a>Utilizar tipos de dados adequados
 
-Os tipos de dados utilizados na sua consulta afetam o desempenho. Pode obter um melhor desempenho se: 
+Os tipos de dados que utiliza no desempenho do impacto da consulta. Pode obter um melhor desempenho se: 
 
 - Utilize o menor tamanho de dados que acomodará o maior valor possível.
   - Se o comprimento máximo do valor do caracteres for de 30 caracteres, utilize o tipo de comprimento 30 do tipo de dados de caracteres.
@@ -64,11 +64,11 @@ Os tipos de dados utilizados na sua consulta afetam o desempenho. Pode obter um 
   - Se o valor máximo da coluna de inteiro for de 500, utilize o menor tipo de dados que pode acomodar este valor. Pode encontrar [gamas](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=sql-server-ver15)de dados inteiros aqui .
 - Se possível, use varchar e char em vez de nvarchar e nchar.
 - Utilize tipos de dados baseados em inteiros, se possível. Ordenar, juntar e grupo por operações são realizados mais rapidamente em inteiros do que em dados de caracteres.
-- Se estiver a utilizar inferência de esquema, verifique o [tipo de dados inferidos](#check-inferred-data-types).
+- Se estiver a utilizar inferência de esquema, verifique o tipo de [dados inferidos](#check-inferred-data-types).
 
 ## <a name="check-inferred-data-types"></a>Verificar tipos de dados inferidos
 
-[A inferência do schema](query-parquet-files.md#automatic-schema-inference) ajuda-o a escrever rapidamente consultas e a explorar dados sem saber esquema de ficheiros. Este conforto vem em detrimento de tipos de dados inferidos serem maiores do que realmente são. Acontece quando não há informação suficiente nos ficheiros de origem para garantir que o tipo de dados adequado é utilizado. Por exemplo, os ficheiros Parquet não contêm metadados sobre o comprimento máximo da coluna de caracteres e a SQL a pedido infere-a como varchar (8000). 
+[A inferência do schema](query-parquet-files.md#automatic-schema-inference) ajuda-o a escrever rapidamente consultas e a explorar dados sem saber esquema de ficheiros. Este conforto vem à custa de tipos de dados inferidos serem maiores do que realmente são. Acontece quando não há informação suficiente nos ficheiros de origem para garantir que o tipo de dados apropriado é usado. Por exemplo, os ficheiros Parquet não contêm metadados sobre o comprimento máximo da coluna de caracteres e o SQL a pedido infere-o como varchar (8000). 
 
 Pode verificar os tipos de dados resultantes da sua consulta utilizando [sp_describe_first_results_set](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-describe-first-result-set-transact-sql?view=sql-server-ver15).
 
@@ -143,4 +143,4 @@ Se precisar de um melhor desempenho, experimente as credenciais SAS para aceder 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Reveja o artigo de resolução de [problemas](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para questões e soluções comuns. Se você está trabalhando com piscina SQL em vez de SQL on-demand, por favor veja as [melhores práticas para](best-practices-sql-pool.md) o artigo de piscina SQL para orientação específica.
+Reveja o artigo de resolução de [problemas](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para questões e soluções comuns. Se você está trabalhando com piscina SQL em vez de SQL on-demand, consulte as [melhores práticas para](best-practices-sql-pool.md) o artigo de piscina SQL para orientação específica.

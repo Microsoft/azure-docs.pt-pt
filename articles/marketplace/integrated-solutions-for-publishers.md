@@ -1,22 +1,22 @@
 ---
-title: Soluções integradas - Azure Marketplace
-description: Soluções integradas no Azure Marketplace e microsoft AppSource
+title: Publicar uma solução integrada - mercado comercial da Microsoft
+description: Aprenda os requisitos e passos para a publicação de soluções integradas para o Microsoft AppSource e O Azure Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: 835aa0192dc37032a76bf3863dc1a4ac0109bb22
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: f0a3ea3aebeb9c96d7ccfba9c883ae208d93a44e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160567"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657983"
 ---
 # <a name="publish-an-integrated-solution"></a>Publicar uma solução integrada
 
-Numa única oferta agregada, uma solução integrada combina tecnologias de soluções de pontos de fornecedores de software com a implementação e suporte de um parceiro de serviços. O parceiro de serviços lista a oferta no Microsoft AppSource ou No Azure Marketplace como um serviço de [consultoria.](./consulting-services.md)
+Este artigo explica o processo global e os requisitos para a publicação de uma solução integrada para o mercado comercial. Numa única oferta agregada, uma solução integrada combina tecnologias de soluções de pontos de fornecedores de software com a implementação e suporte de um parceiro de serviços. O parceiro de serviços lista a oferta no Microsoft AppSource ou No Azure Marketplace como um serviço de [consultoria.](./consulting-services.md)
 
 As soluções integradas visam responder a uma necessidade ou cenário específico do cliente. Os fornecedores começam por compreender o desafio da indústria ou os pontos de dor. Em seguida, integram duas ou mais tecnologias de melhor raça para criar uma experiência de implantação unificada e repetível para os clientes. Os fornecedores fazem com que os clientes se aedriem rapidamente. Oferecem um único ponto de contacto com o cliente, proporcionando uma personalização relevante, consultoria e suporte à solução. O resultado é uma solução integrada, incluindo tecnologia e serviços.
 
@@ -48,11 +48,11 @@ Para uma visão geral do programa Soluções Integradas, veja o [vídeo de visã
 * A solução deve incluir pelo menos duas organizações parceiras, reunindo IP e serviços para uma solução e experiência completas do cliente.
 * O parceiro IP deve ser construído em Azure, Dynamics 365 ou Power Platform.
 * O IP da solução integrada tem de ser diferenciado do simples IP do fornecedor de software e das ofertas básicas de prestadores de serviços.
-* Todos os parceiros partilham o objetivo de criar uma oferta repetível que pode ser listada e eventualmente transacionada através do Microsoft AppSource, Azure Marketplace ou ambos.
+* Todos os parceiros partilham o objetivo de criar uma oferta repetível que pode ser listada e eventualmente transacionada através do Microsoft AppSource, Azure Marketplace, ou ambos.
 
 ## <a name="submit-a-nomination"></a>Submeter uma nomeação
 
-Os parceiros que queiram participar no programa devem identificar outros parceiros com quem queiram trabalhar. Devem completar o formulário de nomeação de [Soluções Integradas.](https://assetsprod.microsoft.com/mpn/integrated-solutions-partner-nomination.docx) A equipa do programa Soluções Integradas analisa a nomeação e segue no prazo de 10 dias úteis. A equipa dá aprovação e próximos passos.
+Os parceiros que queiram participar no programa devem identificar outros parceiros com quem queiram trabalhar. Devem completar o formulário de nomeação de [soluções integradas.](https://assetsprod.microsoft.com/mpn/integrated-solutions-partner-nomination.docx) A equipa do programa Soluções Integradas analisa a nomeação e segue no prazo de 10 dias úteis. A equipa dá aprovação e próximos passos.
 
 ## <a name="develop-an-integrated-solution"></a>Desenvolver uma solução integrada
 
@@ -65,7 +65,7 @@ Depois da sua nomeação ser aprovada, utilize os recursos do programa ligados p
     * Clientes-alvo
     * Proposta de valor
     * Preços
-    * Licenciamento
+    * Licensing
     * Termos e condições
     * Abordagem de apoio
     * Atividades de marketing

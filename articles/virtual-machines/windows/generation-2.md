@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: bf690ad3ad38632834a92c4a743b1cb584beaf65
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 9c16cd4143bc07bf5f3b1d00b890dc54bd5ea318
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82838829"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659872"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Apoio à geração 2 VMs em Azure
 
@@ -80,7 +80,7 @@ A Tualmente, o Azure não suporta algumas das funcionalidades que o Hyper-V supo
 
 | Funcionalidade | Geração 1 | Geração 2 |
 |---------|--------------|--------------|
-| Bota             | PCAT                      | UEFI                               |
+| Arranque             | PCAT                      | UEFI                               |
 | Controladores de disco | IDE                       | SCSI                               |
 | Tamanhos de VM         | Todos os tamanhos VM | Apenas VMs que suportam armazenamento premium |
 
@@ -122,16 +122,10 @@ Abaixo estão os passos para criar uma geração 2 (Gen2) VM no portal Azure.
 
 Também pode usar o PowerShell para criar um VM, referindo-se diretamente à geração 1 ou geração 2 SKU.
 
-Por exemplo, utilize o seguinte cmdlet PowerShell para obter `WindowsServer` uma lista das SKUs na oferta.
+Por exemplo, utilize o seguinte cmdlet PowerShell para obter uma lista das SKUs na `WindowsServer` oferta.
 
 ```powershell
 Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsServer -Offer WindowsServer
-```
-
-Em alternativa, pode utilizar o Azure CLI para ver quaisquer imagens de geração 2 disponíveis, listadas pela **Publisher**.
-
-```azurecli
-az vm image list --publisher Canonical --sku gen2 --output table --all
 ```
 
 Se estiver a criar um VM com o Windows Server 2012 como O, então irá selecionar a geração 1 (BIOS) ou a geração 2 (UEFI) VM SKU, que se parece com isto:
@@ -143,6 +137,14 @@ Se estiver a criar um VM com o Windows Server 2012 como O, então irá seleciona
 
 Consulte a secção [Funcionalidades e capacidades](#features-and-capabilities) para obter uma lista atual de imagens do Marketplace suportadas.
 
+#### <a name="azure-cli"></a>CLI do Azure
+
+Em alternativa, pode utilizar o Azure CLI para ver quaisquer imagens de geração 2 disponíveis, listadas pela **Publisher**.
+
+```azurecli
+az vm image list --publisher Canonical --sku gen2 --output table --all
+```
+
 ### <a name="managed-image-or-managed-disk"></a>Imagem gerida ou disco gerido
 
 Pode criar uma geração 2 VM a partir de uma imagem gerida ou disco gerido da mesma forma que criaria uma Geração 1 VM.
@@ -151,10 +153,10 @@ Pode criar uma geração 2 VM a partir de uma imagem gerida ou disco gerido da m
 
 Também pode criar VMs de geração 2 utilizando conjuntos de escala de máquinas virtuais. No Azure CLI, utilize conjuntos de escala Azure para criar vMs de geração 2.
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 * **Os VMs de geração 2 estão disponíveis em todas as regiões do Azure?**  
-    Sim. Mas nem todas as [dimensões vm da geração 2](#generation-2-vm-sizes) estão disponíveis em todas as regiões. A disponibilidade da geração 2 VM depende da disponibilidade do tamanho VM.
+    Yes. Mas nem todas as [dimensões vm da geração 2](#generation-2-vm-sizes) estão disponíveis em todas as regiões. A disponibilidade da geração 2 VM depende da disponibilidade do tamanho VM.
 
 * **Existe uma diferença de preço entre a geração 1 e a geração 2 VMs?**  
    Não.
@@ -188,13 +190,13 @@ Também pode criar VMs de geração 2 utilizando conjuntos de escala de máquina
   Pode ver um aviso para discos de SO maiores do que 2 TB. O aviso não se aplica aos VMs da geração 2. No entanto, não são recomendados tamanhos de disco osso superiores a 4 *TB.*
 
 * **Os VMs da geração 2 suportam o networking acelerado?**  
-    Sim. Para mais informações, consulte [Criar um VM com networking acelerado](../../virtual-network/create-vm-accelerated-networking-cli.md).
+    Yes. Para mais informações, consulte [Criar um VM com networking acelerado](../../virtual-network/create-vm-accelerated-networking-cli.md).
 
 * **O VHDX é suportado na geração 2?**  
     Não, geração 2 VMs suportam apenas VHD.
 
 * **Os VMs da geração 2 suportam o Armazenamento de Discos Ultra Azure?**  
-    Sim.
+    Yes.
 
 * **Posso migrar um VM da geração 1 para a geração 2?**  
     Não, não podes mudar a geração de um VM depois de o criares. Se precisar de alternar entre gerações VM, crie um novo VM de uma geração diferente.

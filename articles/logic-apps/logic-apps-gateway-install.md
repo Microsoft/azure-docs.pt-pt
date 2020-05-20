@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
-ms.date: 12/05/2019
-ms.openlocfilehash: f2f8b9f207993c49201d03d3d1fed3c5800e8780
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/15/2020
+ms.openlocfilehash: 6624cd0ff70ab359f4af36ca2f1f107d8f0b5fd9
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80673823"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659269"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalar o gateway de dados local para Azure Logic Apps
 
@@ -37,10 +37,10 @@ Este artigo mostra como descarregar, instalar e configurar a sua porta de dados 
     > [!NOTE]
     > Só pode ligar uma instalação de gateway e um recurso azure gateway entre si. Não é possível ligar a mesma instalação de gateway a várias contas Azure ou recursos de gateway Azure. No entanto, uma conta Azure pode ligar-se a múltiplas instalações de gateway e recursos de gateway Azure. Num gatilho ou ação no local, pode selecionar entre as suas várias subscrições Azure e, em seguida, selecionar um recurso de gateway associado.
 
-  * Você precisa assinar com uma conta de trabalho ou escola, também conhecida `username@contoso.com`como uma conta de *organização,* que parece . Não pode utilizar contas Azure B2B (hóspede) ou contas @hotmail.com pessoais da Microsoft, tais como ou @outlook.com.
+  * Você precisa assinar com uma conta de trabalho ou escola, também conhecida como uma conta de *organização,* que parece `username@contoso.com` . Não pode utilizar contas Azure B2B (hóspede) ou contas pessoais da Microsoft, tais como @hotmail.com ou @outlook.com .
 
     > [!TIP]
-    > Se se inscreveu para uma oferta do Office 365 e não forneceu `username@domain.onmicrosoft.com`o seu endereço de e-mail de trabalho, o seu endereço pode parecer . A sua conta está armazenada dentro de um inquilino num Azure Ative Directory (Azure AD). Na maioria dos casos, o Nome Principal do Utilizador (UPN) para a sua conta Azure AD é o mesmo que o seu endereço de e-mail.
+    > Se se inscreveu para uma oferta do Office 365 e não forneceu o seu endereço de e-mail de trabalho, o seu endereço pode parecer `username@domain.onmicrosoft.com` . A sua conta está armazenada dentro de um inquilino num Azure Ative Directory (Azure AD). Na maioria dos casos, o Nome Principal do Utilizador (UPN) para a sua conta Azure AD é o mesmo que o seu endereço de e-mail.
     >
     > Para utilizar uma [subscrição Visual Studio Standard](https://visualstudio.microsoft.com/vs/pricing/) que esteja ligada a uma conta Microsoft, crie primeiro [um inquilino em Azure AD](../active-directory/develop/quickstart-create-new-tenant.md) ou use o diretório padrão. Adicione um utilizador com uma palavra-passe ao diretório e, em seguida, dê a esse utilizador acesso à sua subscrição Azure. Em seguida, pode iniciar sessão durante a instalação do gateway com este nome de utilizador e senha.
 
@@ -68,13 +68,15 @@ Este artigo mostra como descarregar, instalar e configurar a sua porta de dados 
     > [!TIP]
     > Para minimizar a latência, pode instalar o portal o mais próximo possível da sua fonte de dados, ou no mesmo computador, assumindo que tem permissões.
 
-  * Instale a porta de entrada num computador que esteja numa rede com fios, ligada à internet, sempre ligada, e não durma. Caso contrário, o portal não pode funcionar, e o desempenho pode sofrer por uma rede sem fios.
+  * Instale a porta de entrada num computador local que esteja numa rede com fios, ligada à internet, sempre ligada, e não durma. Caso contrário, o portal não pode funcionar, e o desempenho pode sofrer por uma rede sem fios.
 
   * Se pretender utilizar a autenticação do Windows, certifique-se de que instala o portal num computador que seja membro do mesmo ambiente de Diretório Ativo que as suas fontes de dados.
 
   * A região que seleciona para a instalação do gateway é a mesma localização que deve selecionar quando mais tarde criar o recurso De gateway Azure para a sua aplicação lógica. Por predefinição, esta região é a mesma localização que o seu inquilino Azure AD que gere a sua conta Azure. No entanto, pode alterar a localização durante a instalação do portal.
 
-  * Se estiver a atualizar a instalação do gateway para a versão mais recente, desinstale primeiro o seu portal atual para uma experiência mais limpa.
+  * Se estiver a atualizar a instalação do gateway, desinstale primeiro o seu portal atual para uma experiência mais limpa.
+
+    Como uma boa prática, certifique-se de que está a usar uma versão suportada. A Microsoft lança uma nova atualização para a gateway de dados no local todos os meses, e atualmente suporta apenas as últimas seis versões para o portal de dados no local. Se tiver problemas com a versão que está a usar, experimente [atualizar para a versão mais recente,](https://aka.ms/on-premises-data-gateway-installer) uma vez que o seu problema poderá ser resolvido na versão mais recente.
 
   * O gateway tem dois modos: modo padrão e modo pessoal, que se aplica apenas ao Power BI. Não pode ter mais do que um portal a funcionar no mesmo modo no mesmo computador.
 
@@ -96,7 +98,7 @@ Este artigo mostra como descarregar, instalar e configurar a sua porta de dados 
 
    A instalação do gateway pode ligar-se a apenas uma conta Azure.
 
-1. Selecione **Registar uma nova porta de entrada neste computador** > **Seguinte**. Este passo regista a instalação do gateway com o serviço de [nuvem](#gateway-cloud-service)gateway .
+1. Selecione **Registar uma nova porta de entrada neste computador**  >  **Seguinte**. Este passo regista a instalação do gateway com o serviço de [nuvem](#gateway-cloud-service)gateway .
 
    ![Registe a porta de entrada no computador local](./media/logic-apps-gateway-install/register-gateway-local-computer.png)
 
@@ -162,15 +164,15 @@ Depois de configurar o seu gateway principal, quando for instalar outro portal, 
 
 Se tiver de alterar a localização do seu portal, desloque a instalação do gateway para um novo computador, recupere um gateway danificado ou tome posse de um gateway existente, precisa da chave de recuperação fornecida durante a instalação do gateway.
 
-1. Executar o instalador de porta de entrada no computador que tenha o gateway existente. Se não tiver o mais recente instalador de gateways, [descarregue a versão mais recente do gateway](https://aka.ms/on-premises-data-gateway-installer).
+> [!NOTE]
+> Antes de restaurar o portal no computador que tem a instalação original do gateway, tem primeiro de desinstalar o portal desse computador. Esta ação desliga o portal original.
+> Se remover ou eliminar um cluster de gateway para qualquer serviço na nuvem, não pode restaurar esse cluster.
 
-   > [!NOTE]
-   > Antes de restaurar o portal no computador que tem a instalação original do gateway, tem primeiro de desinstalar o portal desse computador. Esta ação desliga o portal original.
-   > Se remover ou eliminar um cluster de gateway para qualquer serviço na nuvem, não pode restaurar esse cluster.
+1. Executar o instalador de porta de entrada no computador que tenha o gateway existente.
 
 1. Depois de o instalador abrir, inscreva-se na mesma conta Azure que foi usada para instalar o portal.
 
-1. **Selecione Migrar, restaurar ou adquirir um gateway** > existente**seguinte,** por exemplo:
+1. **Selecione Migrar, restaurar ou adquirir um gateway existente**  >  **seguinte,** por exemplo:
 
    ![Selecione "Migrar, restaurar ou adquirir uma porta de entrada existente"](./media/logic-apps-gateway-install/migrate-recover-take-over-gateway.png)
 
@@ -190,7 +192,7 @@ Para obter visibilidade em todos os gateways de dados no local de um inquilino d
 
 ## <a name="restart-gateway"></a>Reiniciar o gateway
 
-Por predefinição, a instalação de gateway no seu computador local funciona como uma conta de serviço Windows chamada "Serviço de gateway de dados no local". No entanto, a `NT SERVICE\PBIEgwService` instalação do gateway utiliza o nome para as suas credenciais de conta "Log on As" e tem permissões "Log on as a service".
+Por predefinição, a instalação de gateway no seu computador local funciona como uma conta de serviço Windows chamada "Serviço de gateway de dados no local". No entanto, a instalação do gateway utiliza o nome para as suas credenciais de `NT SERVICE\PBIEgwService` conta "Log on As" e tem permissões "Log on as a service".
 
 > [!NOTE]
 > A sua conta de serviço Windows difere da conta utilizada para a ligação a fontes de dados no local e da conta Azure que utiliza quando faz o insessão nos serviços na nuvem.
@@ -236,7 +238,7 @@ Os serviços de nuvem da Microsoft utilizam o [Azure AD](../active-directory/fun
 
 ### <a name="what-is-my-upn"></a>Qual é a minha UPN?
 
-Se não és um administrador de domínio, podes não conhecer a tua UPN. Para encontrar a UPN para `whoami /upn` a sua conta, dirija o comando da sua estação de trabalho. Embora o resultado pareça um endereço de e-mail, o resultado é a UPN para a sua conta de domínio local.
+Se não és um administrador de domínio, podes não conhecer a tua UPN. Para encontrar a UPN para a sua conta, dirija o `whoami /upn` comando da sua estação de trabalho. Embora o resultado pareça um endereço de e-mail, o resultado é a UPN para a sua conta de domínio local.
 
 ### <a name="synchronize-an-on-premises-active-directory-with-azure-ad"></a>Sincronizar uma conta do Active Directory no local com o Azure AD
 
@@ -259,9 +261,7 @@ Aqui estão as formas de combinar as suas contas de Diretório Ativo no local co
 
 ## <a name="faq-and-troubleshooting"></a>FAQ e resolução de problemas
 
-Para obter mais informações, veja estes tópicos:
-
-* [FAQ sobre o gateway de dados no local](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem-faq)
+* [FAQ do gateway de dados no local](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem-faq)
 * [Resolução de problemas na porta de dados no local](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot)
 * [Monitorizar e otimizar o desempenho de gateways](https://docs.microsoft.com/data-integration/gateway/service-gateway-performance)
 

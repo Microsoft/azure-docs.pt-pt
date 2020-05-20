@@ -1,24 +1,24 @@
 ---
-title: Fornecedores de soluções cloud [ Mercado Azure
-description: As editoras podem agora vender as suas ofertas através do canal parceiro Microsoft Cloud Solution Provider (CSP).
+title: Cloud Solution Provider - Mercado comercial da Microsoft
+description: Saiba como vender as suas ofertas através do canal parceiro do programa Microsoft Cloud Solution Provider (CSP) no mercado comercial.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: b962610c585df288a9cb3297ed8e09c8abc5ac0a
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: d7f14728f5acbcb76d3109d76b6de3c691e35543
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160652"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658102"
 ---
-# <a name="cloud-solution-providers"></a>Fornecedores de Soluções Cloud
+# <a name="cloud-solution-provider-program"></a>Programa cloud solution provider
 
-As ofertas de software podem chegar a milhões de clientes qualificados da Microsoft servidos por parceiros no programa Cloud Solution Provider (CSP), além da disponibilidade pública de ofertas através das lojas web da [Microsoft.](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace)
+Este artigo explica como configurar a sua oferta para estar disponível para o programa Cloud Solution Provider (CSP). Além de publicar as suas ofertas através de [web storefronts de marketplace comercial,](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace)também pode vender através do programa CSP para chegar a milhões de clientes qualificados da Microsoft que o programa serve.
 
-Os editores configuram ofertas de disponibilidade no programa CSP numa base de opt-in, para uma nova oferta ou uma oferta existente, permitindo aos parceiros vender os seus produtos e criar soluções agregadas para os clientes.
+Pode configurar ofertas novas ou existentes para disponibilidade no programa CSP numa base de opt-in, o que permite aos parceiros cSP vender os seus produtos e criar soluções agregadas para os clientes.
 
 Os editores são responsáveis por fornecer suporte de break-fix aos clientes finais e por fornecer um mecanismo para os parceiros no programa CSP e/ou clientes para contactá-lo para obter suporte. É uma boa prática fornecer aos parceiros no programa CSP a documentação do utilizador, a formação e notificações de saúde/interrupção de serviço (conforme aplicável) para que os parceiros do programa CSP estejam equipados para lidar com pedidos de suporte de nível 1 dos clientes.  
 

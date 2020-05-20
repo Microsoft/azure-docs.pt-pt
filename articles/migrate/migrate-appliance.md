@@ -3,12 +3,12 @@ title: Aplicação do Azure Migrate
 description: Fornece uma visão geral do aparelho Azure Migrate utilizado na avaliação e migração do servidor.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 439f6d9c80a0b93f071d30d580facc4604cabbac
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: bd5686b30b07c0f7fb8961f8d1f71035cb2688a4
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780339"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656423"
 ---
 # <a name="azure-migrate-appliance"></a>Aplicação do Azure Migrate
 
@@ -47,7 +47,7 @@ A tabela que se segue resume os requisitos do aparelho Azure Migrate para vMware
 **Implantação apoiada** | Implemente como VMware VM utilizando o modelo OVA.<br/><br/> Implemente como VMware VM ou máquina física utilizando o script de instalação PowerShell.
 **Apoio ao projeto** |  Um aparelho pode ser associado a um único projeto. <br/> Qualquer número de aparelhos pode ser associado a um único projeto.<br/> 
 **Limites de descoberta** | Um aparelho pode descobrir até 10.000 VMware VMware num servidor vCenter.<br/> Um aparelho pode ligar-se a um único servidor vCenter.
-**Modelo DE OVA** | Baixar a partir https://aka.ms/migrate/appliance/vmwaredo portal ou de .<br/><br/> O tamanho do download é de 11,2 GB.<br/><br/> O modelo de aparelho descarregado vem com uma licença de avaliação do Windows Server 2016, que é válida por 180 dias. Se o período de avaliação estiver perto de expirar, recomendamos que descarregue e implante um novo aparelho, ou que ative a licença do sistema operativo do VM do aparelho.
+**Modelo DE OVA** | Baixar a partir do portal ou de https://aka.ms/migrate/appliance/vmware .<br/><br/> O tamanho do download é de 11,2 GB.<br/><br/> O modelo de aparelho descarregado vem com uma licença de avaliação do Windows Server 2016, que é válida por 180 dias. Se o período de avaliação estiver perto de expirar, recomendamos que descarregue e implante um novo aparelho, ou que ative a licença do sistema operativo do VM do aparelho.
 **Script do PowerShell** | Download [de](https://go.microsoft.com/fwlink/?linkid=2105112)script .<br/><br/> 
 **Software/hardware** |  O aparelho deve funcionar na máquina com o Windows Server 2016, 32-GB RAM, 8 vCPUs, cerca de 80 GB de armazenamento de disco e um interruptor virtual externo.<br/> O aparelho necessita de acesso à Internet, quer diretamente quer através de um representante.<br/><br/> Se executar o aparelho num VMware VM, necessita de recursos suficientes no VCenter Server para alocar um VM que satisfaça os requisitos.<br/><br/> Se executar o aparelho numa máquina física, certifique-se de que está a executar o Windows Server 2016 e cumpre os requisitos de hardware. 
 **Requisitos vMware** | Se implantar o aparelho como VMware VM, este deve ser implantado num hospedeiro ESXi que executa a versão 5.5 ou posterior.<br/><br/> vCenter Server executando 5.5, 6.0, 6.5 ou 6.7.
@@ -67,7 +67,7 @@ A tabela que se segue resume os requisitos do aparelho Azure Migrate para vMware
 **Implantação apoiada** | Desdobre como Hyper-V VM utilizando um modelo VHD.<br/><br/> Desloque-se como um VM hiper-V ou uma máquina física utilizando um script de instalação PowerShell.
 **Apoio ao projeto** |  Um aparelho pode ser associado a um único projeto. <br/> Qualquer número de aparelhos pode ser associado a um único projeto.<br/> 
 **Limites de descoberta** | Um aparelho pode descobrir até 5000 VMs Hiper-V.<br/> Um aparelho pode ligar até 300 hospedeiros Hyper-V.
-**Modelo VHD** | Pasta com fecho, incluindo VHD. Baixar a partir https://aka.ms/migrate/appliance/hypervdo portal ou de .<br/><br/> O tamanho do download é de 10 GB.<br/><br/> O modelo de aparelho descarregado vem com uma licença de avaliação do Windows Server 2016, que é válida por 180 dias. Se o período de avaliação estiver perto de expirar, recomendamos que descarregue e implante um novo aparelho, ou que ative a licença do sistema operativo do VM do aparelho.
+**Modelo VHD** | Pasta com fecho, incluindo VHD. Baixar a partir do portal ou de https://aka.ms/migrate/appliance/hyperv .<br/><br/> O tamanho do download é de 10 GB.<br/><br/> O modelo de aparelho descarregado vem com uma licença de avaliação do Windows Server 2016, que é válida por 180 dias. Se o período de avaliação estiver perto de expirar, recomendamos que descarregue e implante um novo aparelho, ou que ative a licença do sistema operativo do VM do aparelho.
 **Script do PowerShell** | Download [de](https://go.microsoft.com/fwlink/?linkid=2105112)script .<br/><br/> 
 **Software/hardware***   |  O aparelho deve funcionar na máquina com o Windows Server 2016, 32-GB RAM, 8 vCPUs, cerca de 80 GB de armazenamento de disco e um interruptor virtual externo.<br/> O aparelho necessita de um endereço IP estático ou dinâmico e necessita de acesso à Internet, quer diretamente quer através de um representante.<br/><br/> Se executar o aparelho como um VM Hiper-V, precisa de recursos suficientes no hospedeiro Hyper-V para alocar RAM de 16 GB, 8 vCPUs, cerca de 80 GB de espaço de armazenamento e um interruptor externo para o VM do aparelho.<br/><br/> Se executar o aparelho numa máquina física, certifique-se de que está a executar o Windows Server 2016 e cumpre os requisitos de hardware. 
 **Requisitos de hiper-V** | Se colocar o aparelho com o modelo VHD, o vM do aparelho fornecido pela Azure Migrate é a versão 5.0 do Hyper-V VM.<br/><br/> O hospedeiro Hyper-V deve estar a executar o Windows Server 2012 R2 ou mais tarde. 
@@ -222,7 +222,7 @@ Porta remota | netstat
 Endereço IP remoto | netstat
 Estado de ligação TCP | netstat
 ID de Processo | netstat
-Não. de conexões ativas | netstat
+Número de ligações ativas | netstat
 
 #### <a name="process-data"></a>Processar dados
 Aqui estão os dados do processo que o aparelho recolhe de cada VM habilitado para análise de dependência sem agente. Estes dados são enviados para o Azure.
@@ -244,7 +244,7 @@ Endereço IP local | netstat
 Porta remota | netstat 
 Endereço IP remoto | netstat 
 Estado de ligação TCP | netstat 
-Não. de conexões ativas | netstat
+Número de ligações ativas | netstat
 ID de Processo  | netstat 
 Nome do processo | ps
 Argumentos de processo | ps
@@ -339,18 +339,18 @@ Aqui está a lista completa dos metadados do servidor Linux que o aparelho recol
 --- | --- 
 FQDN | gato /proc/sys/kernel/hostname, nome de anfitrião -f
 Contagem do núcleo do processador |  /proc/cpuinfo \| awk '/^processador/{print $3}' \| wc -l
-Memória atribuída | gato /proc/meminfo \| grep \| MemTotal awk '{printf "%.0f", $2/1024}'
-Número de série bios | Lshw \| grep "serial:" \| head \| -n1 awk '{print $2}' <br/> /usr/sbin/dmidecode -t \| 1 grep \| 'Serial' awk '{ $1="" ; $2="; print}'
+Memória atribuída | gato /proc/meminfo \| grep MemTotal \| awk '{printf "%.0f", $2/1024}'
+Número de série bios | Lshw \| grep "serial:" \| head -n1 \| awk '{print $2}' <br/> /usr/sbin/dmidecode -t 1 \| grep 'Serial' \| awk '{ $1="" ; $2="; print}'
 BIOS GUID | gato /sys/class/dmi/id/product_uuid
-Tipo de arranque | [ -d /sys/firmware/efi ] && \| \| eco EFI echo BIOS
+Tipo de arranque | [ -d /sys/firmware/efi ] && eco EFI \| \| echo BIOS
 Nome/versão osso | Acedemos a estes ficheiros para a versão e nome sinuosos:<br/><br/> /etc/os-release<br/> /usr/lib/os-release <br/> /etc/lançamento da empresa <br/> /etc/redhat-release<br/> /etc/oráculo-libertação<br/>  /etc/Libertação suSE<br/>  /etc/lsb-release  <br/> /etc/debian_version
 Arquitetura osso | Uname -m
 Contagem de discos | fdisk -l \| egrep 'Disk.*bytes' \| awk '{print $2}' \| cut -f1 -d ':'
 Disco de arranque | df /boot \| sed -n 2p \| awk '{print $1}'
 Tamanho do disco | fdisk -l \| egrep 'Disk.*bytes' \| egrep $disk: \| awk '{print $5}'
-Lista NIC | ip -o -4 \| addr mostrar awk '{print $2}'
-Endereço IP NIC | ip addr \| mostrar $nic grep inet \| awk \| '{print $2}' cut -f1-d "/" 
-Endereço NIC MAC | ip addr \| mostrar $nic ether \| grep awk '{print $2}'
+Lista NIC | ip -o -4 addr mostrar \| awk '{print $2}'
+Endereço IP NIC | ip addr show $nic \| grep inet \| awk '{print $2}' \| cut -f1-d "/" 
+Endereço NIC MAC | ip addr mostrar $nic \| ether grep \| awk '{print $2}'
 
 ### <a name="windows-performance-data"></a>Dados de desempenho do Windows
 
@@ -373,7 +373,7 @@ Aqui estão os dados de desempenho do servidor Linux que o aparelho recolhe e en
 **Dados** | **Linux** 
 --- | --- 
 Utilização da CPU | gato /proc/stat/| grep 'cpu' /proc/stat
-Uso da memória | grep free \| \| Mem awk '{print $3/$2 * 100.0}'
+Uso da memória | grep free \| Mem \| awk '{print $3/$2 * 100.0}'
 Contagem nic | Lshw -classe \| rede grep eth[0-60] \| wc -l
 Dados recebidos por NIC | gato /sys/class/net/eth$nic/statistics/rx_bytes
 Dados transmitidos por NIC | gato /sys/class/net/eth$nic/statistics/tx_bytes
@@ -410,7 +410,7 @@ Para eliminar a chave de registo:
 Para ligar a partir do Gestor de Configuração do Aparelho, após a descoberta estar completa:
 
 1. Na máquina do aparelho, abra o Gestor de Configuração do Aparelho.
-2. Nos **serviços de eletrodomésticos** > A**atualização automática dos componentes do Azure Migrate é desligada,** clique para ligar a atualização automática.
+2. Nos **serviços de eletrodomésticos**A  >  **atualização automática dos componentes do Azure Migrate é desligada,** clique para ligar a atualização automática.
 
     ![Ativar atualizações automáticas](./media/migrate-appliance/turn-on.png)
 
@@ -419,7 +419,7 @@ Para ligar a partir do Gestor de Configuração do Aparelho, após a descoberta 
 Pode verificar a versão dos serviços de eletrodomésticos utilizando qualquer um destes métodos:
 
 - No Gestor de Configuração do Aparelho, após a descoberta estar concluída.
-- Na máquina do aparelho, nos**Programas e Características**do **Painel** > de Controlo .
+- Na máquina do aparelho, nos **Control Panel**  >  **Programas e Características**do Painel de Controlo .
 
 Para verificar o Gestor de Configuração do Aparelho:
 
@@ -430,7 +430,7 @@ Para verificar o Gestor de Configuração do Aparelho:
 
 Para verificar no Painel de Controlo:
 
-1. No aparelho, clique em**Programas e Funcionalidades** do**Painel** > de Controlo **de Início** > 
+1. No aparelho, clique em **Programas**e  >  **Control Panel**  >  **Funcionalidades** do Painel de Controlo de Início
 2. Verifique as versões dos serviços de eletrodomésticos na lista.
 
     ![Ver versão no Painel de Controlo](./media/migrate-appliance/programs-features.png)
@@ -443,16 +443,16 @@ Se estiver a executar uma versão mais antiga para qualquer um dos componentes, 
 2.  Depois de descarregar, abra o ficheiro LatestComponents.json no Bloco de Notas.
 3. Encontre a versão de serviço mais recente no ficheiro e o link de descarregamento para o mesmo. Por exemplo:
 
-    "Nome": "ASRMigrationWebApp", "DownloadLink": " "https://download.microsoft.com/download/f/3/4/f34b2eb9-cc8d-4978-9ffb-17321ad9b7ed/MicrosoftAzureApplianceConfigurationManager.msiversão": "6.0.211.2", "Md5Hash": "e00a742acc35e78a64a6a81e75469b84"
+    "Nome": "ASRMigrationWebApp", "DownloadLink": " https://download.microsoft.com/download/f/3/4/f34b2eb9-cc8d-4978-9ffb-17321ad9b7ed/MicrosoftAzureApplianceConfigurationManager.msi " versão": "6.0.211.2", "Md5Hash": "e00a742acc35e78a64a6a81e75469b84"
 
 4.  Descarregue a versão mais recente de um serviço desatualizado, utilizando o link de descarregamento no ficheiro.
 5. Depois de descarregar, faça o seguinte comando numa janela de comando de administrador, para verificar a integridade do MSI descarregado.
 
-    ``` C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm] ```Por exemplo:\>C: CertUtil -HashFile C:\Utilizadores\public\downloads\MicrosoftAzureApplianceConfigurationManager.MSI MD5
+    ``` C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm] ```Por exemplo: C: \> CertUtil -HashFile C:\Utilizadores\public\downloads\MicrosoftAzureApplianceConfigurationManager.MSI MD5
 
 5. Verifique se a saída de comando corresponde à entrada do valor hash para o serviço no ficheiro (por exemplo, o valor hash MD5 acima).
 6. Agora, execute o MSI para instalar o serviço. É uma instalação silenciosa, e a janela de instalação fecha depois de ser feita.
-7. Após a instalação estar concluída, verifique a versão do serviço em**Programas e Funcionalidades**do **painel** > de controlo . A versão de serviço deve agora ser atualizada para as mais recentes mostradas no ficheiro json.
+7. Após a instalação estar concluída, **Control panel**verifique a versão do serviço em  >  **Programas e Funcionalidades**do painel de controlo . A versão de serviço deve agora ser atualizada para as mais recentes mostradas no ficheiro json.
 
 
 

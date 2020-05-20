@@ -6,15 +6,15 @@ author: normesta
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 05/18/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: 79a87f02c8730e0b2110e7475de721f11beda568
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: bbae67a4861d67526eb1cf4eb2bfb5d131f8e57b
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83120611"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649758"
 ---
 # <a name="use-azure-cli-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Utilize o Azure CLI para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2
 
@@ -27,18 +27,18 @@ Este artigo mostra-lhe como usar a Interface de [Linha de Comando Azure (CLI)](h
 > [!div class="checklist"]
 > * Uma subscrição do Azure. Consulte [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 > * Uma conta de armazenamento que tem espaço de nome hierárquico (HNS) ativado. Siga [estas](data-lake-storage-quickstart-create-account.md) instruções para criar uma.
-> * Versão Azure CLI `2.5.1` ou superior.
+> * Versão Azure CLI `2.6.0` ou superior.
 
 ## <a name="ensure-that-you-have-the-correct-version-of-azure-cli-installed"></a>Certifique-se de que tem a versão correta do Azure CLI instalada
 
 1. Abra a [Shell Azure Cloud](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest), ou se [instalou](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) o Azure CLI localmente, abra uma aplicação de consola de comando como o Windows PowerShell.
 
-2. Verifique se a versão do Azure CLI que foi instalada é `2.5.1` ou superior utilizando o seguinte comando.
+2. Verifique se a versão do Azure CLI que foi instalada é `2.6.0` ou superior utilizando o seguinte comando.
 
    ```azurecli
     az --version
    ```
-   Se a sua versão do Azure CLI for inferior `2.5.1` à , então instale uma versão posterior. Ver [Instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+   Se a sua versão do Azure CLI for inferior `2.6.0` à , então instale uma versão posterior. Ver [Instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="connect-to-the-account"></a>Ligar à conta
 
@@ -308,7 +308,7 @@ Este exemplo altera o proprietário de um ficheiro.
 az storage fs access set --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [Gen1 para mapeamento Gen2](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2)
 * [Enviar comentários](https://github.com/Azure/azure-cli-extensions/issues)

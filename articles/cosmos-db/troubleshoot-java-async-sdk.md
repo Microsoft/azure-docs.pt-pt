@@ -3,18 +3,18 @@ title: Diagnosticar e resolver problemas Azure Cosmos DB Async Java SDK v2
 description: Utilize funcionalidades como a exploração madeireira do lado do cliente e outras ferramentas de terceiros para identificar, diagnosticar e resolver problemas com problemas da Azure Cosmos DB em Async Java SDK v2.
 author: anfeldma-ms
 ms.service: cosmos-db
-ms.date: 05/08/2020
+ms.date: 05/11/2020
 ms.author: anfeldma
 ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 04fa8d65ffb822fcd37f6da1bf3074a4e6a1d088
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 10ad2fa3eb03254894c51fff66389ec3a8da4c38
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982620"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83651885"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-azure-cosmos-db-async-java-sdk-v2-with-sql-api-accounts"></a>Problemas de resolução de problemas quando se utiliza o Azure Cosmos DB Async Java SDK v2 com contas SQL API
 
@@ -25,7 +25,7 @@ ms.locfileid: "82982620"
 > 
 
 > [!IMPORTANT]
-> Este *não* é o mais recente Java SDK para Azure Cosmos DB! Considere utilizar o Azure Cosmos DB Java SDK v4 para o seu projeto. Siga as instruções no guia [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) e no guia [Reator vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) para atualizar. 
+> Este *não* é o mais recente Java SDK para Azure Cosmos DB! Você deve atualizar o seu projeto para [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md) e, em seguida, ler o guia de resolução de [problemas](troubleshoot-java-sdk-v4-sql.md)Azure Cosmos DB Java SDK v4 . Siga as instruções no guia [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) e no guia [Reator vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) para atualizar. 
 >
 > Este artigo abrange apenas a resolução de problemas para a Azure Cosmos DB Async Java SDK v2. Consulte as notas de [lançamento](sql-api-sdk-async-java.md)do Azure Cosmos DB Async Java SDK v2, [repositório maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) e dicas de [desempenho](performance-tips-async-java.md) para obter mais informações.
 >
@@ -83,14 +83,14 @@ Siga também o limite de [ligação numa máquina](#connection-limit-on-host)de 
 
 #### <a name="http-proxy"></a>Procuração HTTP
 
-Se utilizar um representante http, certifique-se de que pode suportar o `ConnectionPolicy`número de ligações configuradas no SDK .
+Se utilizar um representante http, certifique-se de que pode suportar o número de ligações configuradas no SDK `ConnectionPolicy` .
 Caso contrário, enfrentas problemas de ligação.
 
 #### <a name="invalid-coding-pattern-blocking-netty-io-thread"></a>Padrão de codificação inválido: Bloqueio do fio Netty IO
 
 O SDK usa a biblioteca [Netty](https://netty.io/) IO para comunicar com o Azure Cosmos DB. O SDK tem APIs de Async e utiliza APIs IO não bloqueadores de Netty. O trabalho iO do SDK é realizado em fios IO Netty. O número de fios IO Netty está configurado para ser o mesmo que o número de núcleos de CPU da máquina de aplicações. 
 
-Os fios Netty IO destinam-se a ser utilizados apenas para trabalhos de Netty IO que não bloqueiam. O SDK devolve o resultado da invocação da API num dos fios Netty IO ao código da aplicação. Se a aplicação realizar uma operação duradoura depois de receber resultados na linha Netty, o SDK pode não ter fios IO suficientes para realizar o seu trabalho interno de IO. Tal codificação de aplicações pode resultar em `io.netty.handler.timeout.ReadTimeoutException` baixa entrada, alta latência e falhas. A sutique é mudar a linha quando se sabe que a operação leva tempo.
+Os fios Netty IO destinam-se a ser utilizados apenas para trabalhos de Netty IO que não bloqueiam. O SDK devolve o resultado da invocação da API num dos fios Netty IO ao código da aplicação. Se a aplicação realizar uma operação duradoura depois de receber resultados na linha Netty, o SDK pode não ter fios IO suficientes para realizar o seu trabalho interno de IO. Tal codificação de aplicações pode resultar em baixa entrada, alta latência e `io.netty.handler.timeout.ReadTimeoutException` falhas. A sutique é mudar a linha quando se sabe que a operação leva tempo.
 
 Por exemplo, dê uma olhada no seguinte código snippet. Pode realizar um trabalho duradouro que leva mais do que alguns milissegundos no fio Netty. Se assim for, pode eventualmente entrar num estado em que nenhum fio Netty IO está presente para processar o trabalho da IO. Como resultado, obtém-se uma falha de ReadTimeoutException.
 
@@ -156,7 +156,7 @@ A sutição é alterar o fio em que executa o trabalho que leva tempo. Defina um
 ExecutorService ex  = Executors.newFixedThreadPool(30);
 Scheduler customScheduler = rx.schedulers.Schedulers.from(ex);
 ```
-Você pode precisar de fazer um trabalho que leva tempo, por exemplo, trabalho computacionalmente pesado ou bloqueio de IO. Neste caso, mude a linha para `customScheduler` um trabalhador `.observeOn(customScheduler)` fornecido pelo seu utilizando a API.
+Você pode precisar de fazer um trabalho que leva tempo, por exemplo, trabalho computacionalmente pesado ou bloqueio de IO. Neste caso, mude a linha para um trabalhador fornecido pelo seu `customScheduler` utilizando a `.observeOn(customScheduler)` API.
 
 ### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-applycustomscheduler"></a>Async Java SDK V2 (Maven com.microsoft.azure::azure-cosmosdb)
 
@@ -170,7 +170,7 @@ createObservable
             // ...
         );
 ```
-Ao `observeOn(customScheduler)`utilizar, liberte o fio Netty IO e mude para o seu próprio fio personalizado fornecido pelo programador personalizado. Esta modificação resolve o problema. Não vai mais `io.netty.handler.timeout.ReadTimeoutException` ter um fracasso.
+Ao `observeOn(customScheduler)` utilizar, liberte o fio Netty IO e mude para o seu próprio fio personalizado fornecido pelo programador personalizado. Esta modificação resolve o problema. Não vai mais ter um `io.netty.handler.timeout.ReadTimeoutException` fracasso.
 
 ### <a name="connection-pool-exhausted-issue"></a>Problema esgotado do pool de conexão
 
@@ -258,7 +258,7 @@ log4j.appender.A1.layout.ConversionPattern=%d %5X{pid} [%t] %-5p %c - %m%n
 Para mais informações, consulte o manual de [registo sfl4j](https://www.slf4j.org/manual.html).
 
 ## <a name="os-network-statistics"></a><a name="netstats"></a>Estatísticas da rede de osso
-Executar o comando netstat para ter uma noção de `ESTABLISHED` `CLOSE_WAIT`quantas ligações existem em estados como e .
+Executar o comando netstat para ter uma noção de quantas ligações existem em estados como `ESTABLISHED` e `CLOSE_WAIT` .
 
 Em Linux, podes executar o seguinte comando.
 ```bash
@@ -266,9 +266,9 @@ netstat -nap
 ```
 Filtre o resultado apenas para ligações ao ponto final do Azure Cosmos DB.
 
-O número de ligações ao ponto final do `ESTABLISHED` Azure Cosmos DB no estado não pode ser maior do que o tamanho da piscina de ligação configurada.
+O número de ligações ao ponto final do Azure Cosmos DB no estado não pode ser maior do que o tamanho da piscina de `ESTABLISHED` ligação configurada.
 
-Muitas ligações ao ponto final do Azure `CLOSE_WAIT` Cosmos DB podem estar no estado. Pode haver mais de 1.000. Um número tão alto indica que as ligações são estabelecidas e demolidas rapidamente. Esta situação pode causar problemas. Para mais informações, consulte a secção Common [questões e suposições.]
+Muitas ligações ao ponto final do Azure Cosmos DB podem estar no `CLOSE_WAIT` estado. Pode haver mais de 1.000. Um número tão alto indica que as ligações são estabelecidas e demolidas rapidamente. Esta situação pode causar problemas. Para mais informações, consulte a secção Common [questões e suposições.]
 
  <!--Anchors-->
 [Problemas comuns e soluções]: #common-issues-workarounds

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: b020cbd15ba17609b7a476ccda9b1e814405341e
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: d594f3cf556fe311e0b7400a23fd61d0336fe5f1
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858790"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83651128"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Perguntas mais frequentes sobre a migração do Armazenamento do Azure
 
@@ -263,11 +263,11 @@ Para dar a outras pessoas acesso aos recursos de armazenamento:
 
 -   Se aceder ao AzCopy a partir da linha de comando sinuosa Microsoft Azure Storage, **escreva AzCopy**. A linha de comando está instalada ao lado da AzCopy.
 
--   Se instalou a versão de 32 bits, está localizada aqui: **%ProgramFiles (x86)%\\Microsoft SDKs\\Azure\\AzCopy**.
+-   Se instalou a versão de 32 bits, está localizada aqui: **%ProgramFiles (x86)% \\ Microsoft SDKs \\ Azure \\ AzCopy**.
 
--   Se instalou a versão de 64 bits, está localizada aqui: **%ProgramFiles%\\Microsoft\\SDKs Azure\\AzCopy**.
+-   Se instalou a versão de 64 bits, está localizada aqui: **%ProgramFiles% \\ Microsoft SDKs \\ Azure \\ AzCopy**.
 
-**Como uso um domínio personalizado HTTPS com a minha conta de armazenamento? Por exemplo, como faço com\/que "https: /mystorageaccountname.blob.core.windows.net/images/image.gif" apareça como "https:\//www.contoso.com/images/image.gif"?**
+**Como uso um domínio personalizado HTTPS com a minha conta de armazenamento? Por exemplo, como faço com que "https: \/ /mystorageaccountname.blob.core.windows.net/images/image.gif" apareça como "https: \/ /www.contoso.com/images/image.gif"?**
 
 TLS/SSL não é atualmente suportado em contas de armazenamento com domínios personalizados.
 Mas pode utilizar domínios personalizados não HTTPS. Para mais informações, consulte [Configure um nome](../blobs/storage-custom-domain-name.md)de domínio personalizado para o seu ponto final de armazenamento Blob .
@@ -290,7 +290,7 @@ O armazenamento geo-redundante de acesso de leitura é necessário para aceder a
 
     - **AzCopy**: Apêndice **-secundário** ao nome da conta de armazenamento no URL para aceder ao ponto final secundário. Por exemplo:  
 
-      https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
+      `https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd`
 
     - **Ficha SAS:** Utilize um token SAS para aceder a dados a partir do ponto final. Para mais informações, consulte [A utilização de assinaturas de acesso partilhado](storage-sas-overview.md).
 

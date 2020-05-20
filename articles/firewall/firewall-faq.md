@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 05/18/2020
 ms.author: victorh
-ms.openlocfilehash: cb065f10664f46578f84e59501d75d510ccb3c6a
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: d1ec04a0c16feb6d404018ff9538b9572e1d71c2
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201589"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649604"
 ---
 # <a name="azure-firewall-faq"></a>Azure Firewall FAQ
 
@@ -121,7 +121,7 @@ Sim, você pode usar o Azure Firewall numa rede virtual hub para direcionar e fi
 
 ## <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network-or-peered-virtual-networks"></a>O Azure Firewall pode avançar e filtrar o tráfego de rede entre subredes na mesma rede virtual ou redes virtuais?
 
-Sim. No entanto, configurar os UDRs para redirecionar o tráfego entre subredes no mesmo VNET requer atenção adicional. Ao utilizar a gama de endereços VNET como prefixo-alvo para o UDR é suficiente, isto também faz todo o tráfego de uma máquina para outra na mesma sub-rede através da instância De firewall Azure. Para evitar isto, inclua uma rota para a sub-rede na UDR com um próximo tipo de **VNET**de lúpulo . Gerir estas rotas pode ser complicado e propenso a erros. O método recomendado para segmentação interna da rede é usar grupos de segurança de rede, que não requerem UDRs.
+Yes. No entanto, configurar os UDRs para redirecionar o tráfego entre subredes no mesmo VNET requer atenção adicional. Ao utilizar a gama de endereços VNET como prefixo-alvo para o UDR é suficiente, isto também faz todo o tráfego de uma máquina para outra na mesma sub-rede através da instância De firewall Azure. Para evitar isto, inclua uma rota para a sub-rede na UDR com um próximo tipo de **VNET**de lúpulo . Gerir estas rotas pode ser complicado e propenso a erros. O método recomendado para segmentação interna da rede é usar grupos de segurança de rede, que não requerem UDRs.
 
 ## <a name="does-azure-firewall-outbound-snat-between-private-networks"></a>O Azure Firewall sai do SNAT entre redes privadas?
 
@@ -129,7 +129,7 @@ O Azure Firewall não snaT quando o endereço IP de destino é uma gama ip priva
 
 ## <a name="is-forced-tunnelingchaining-to-a-network-virtual-appliance-supported"></a>O túnel/acorrentamento forçado a um Aparelho Virtual da Rede é suportado?
 
-O túnel forçado é apoiado. Para mais informações, consulte [o Azure Firewall forçado a fazer túneis.](forced-tunneling.md) 
+O túnel forçado é suportado quando se cria uma nova firewall. Não se pode configurar uma firewall existente para túneis forçados. Para mais informações, consulte [o Azure Firewall forçado a fazer túneis.](forced-tunneling.md) 
 
 O Azure Firewall deve ter conectividade direta com a Internet. Se o seu AzureFirewallSubnet aprender uma rota padrão para a sua rede no local via BGP, deve sobrepor-se a esta com um UDR 0.0.0.0/0 com o valor **NextHopType** definido como **Internet** para manter a conectividade direta da Internet.
 
@@ -137,7 +137,7 @@ Se a sua configuração necessitar de túneis forçados para uma rede no local e
 
 ## <a name="are-there-any-firewall-resource-group-restrictions"></a>Existem restrições ao grupo de recursos de firewall?
 
-Sim. A firewall, a VNet e o endereço IP público devem estar todos no mesmo grupo de recursos.
+Yes. A firewall, a VNet e o endereço IP público devem estar todos no mesmo grupo de recursos.
 
 ## <a name="when-configuring-dnat-for-inbound-internet-network-traffic-do-i-also-need-to-configure-a-corresponding-network-rule-to-allow-that-traffic"></a>Ao configurar o DNAT para o tráfego de rede de internet de entrada, também preciso de configurar uma regra de rede correspondente para permitir esse tráfego?
 
@@ -160,7 +160,7 @@ Para qualquer manutenção planeada, a lógica de drenagem de ligação atualiza
 
 ## <a name="is-there-a-character-limit-for-a-firewall-name"></a>Existe um limite de carácter para um nome de firewall?
 
-Sim. Há um limite de 50 caracteres para um nome de firewall.
+Yes. Há um limite de 50 caracteres para um nome de firewall.
 
 ## <a name="why-does-azure-firewall-need-a-26-subnet-size"></a>Porque é que o Azure Firewall precisa de uma sub-rede /26?
 
@@ -210,4 +210,4 @@ Um ping tCP não está realmente ligado ao alvo FQDN. Isto acontece porque o pro
 
 ## <a name="are-there-limits-for-the-number-of-ip-addresses-supported-by-ip-groups"></a>Existem limites para o número de endereços IP suportados por grupos IP?
 
-Sim. Para mais informações, consulte [limites de subscrição e serviço do Azure, quotas e constrangimentos](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits)
+Yes. Para mais informações, consulte [limites de subscrição e serviço do Azure, quotas e constrangimentos](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/10/2019
-ms.openlocfilehash: 57c474c8391168702154b71e0c454253ab921dc1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 06c8949be681d13b9dc7d5c433197dd9371aeef8
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77667232"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83651852"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Optimize your Active Directory environment with the Active Directory Health Check solution in Azure Monitor (Otimizar o ambiente do Active Directory com a solução Verificação de Estado de Funcionamento do Active Directory no Azure Monitor)
 
@@ -36,8 +36,8 @@ Depois de ter adicionado a solução e de concluído um cheque, são mostradas i
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * A solução Ative Directory Health Check requer uma versão suportada do .NET Framework 4.6.2 ou superior instalado em cada computador que tenha o agente Log Analytics para windows (também designado por Agente de Monitorização da Microsoft (MMA)) instalado.  O agente é utilizado pelo System Center 2016 - Diretor de Operações, Diretor de Operações 2012 R2 e Monitor Azure.
-* A solução suporta controladores de domínio que executam o Windows Server 2008 e 2008 R2, o Windows Server 2012 e o 2012 R2 e o Windows Server 2016.
-* Um espaço de trabalho log Analytics para adicionar a solução Ative Directory Health Check do mercado Azure no portal Azure. Não é necessária uma configuração adicional.
+* A solução suporta controladores de domínio que executam o Windows Server 2008 e 2008 R2, o Windows Server 2012 e o 2012 R2, o Windows Server 2016 e o Windows Server 2019.
+* Um espaço de trabalho de Log Analytics para adicionar a solução Ative Directory Health Check do Azure Marketplace no portal Azure. Não é necessária uma configuração adicional.
 
   > [!NOTE]
   > Depois de ter adicionado a solução, o ficheiro AdvisorAssessment.exe é adicionado aos servidores com agentes. Os dados de configuração são lidos e depois enviados para o Monitor Azure na nuvem para processamento. A lógica é aplicada aos dados recebidos e o serviço cloud regista os dados.

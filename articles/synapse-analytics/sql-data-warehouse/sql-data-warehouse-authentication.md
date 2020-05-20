@@ -12,16 +12,16 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-synapse
-ms.openlocfilehash: ed8dd902ac490b4e6a0f172029bf3ffa1d44acee
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 86cd3d2f7675ca5111c29be278c9433ec7f66945
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81251848"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653042"
 ---
 # <a name="authenticate-to-azure-synapse-analytics"></a>Autenticar a Azure Synapse Analytics
 
-Saiba como autenticar o SQL Analytics em Azure Synapse utilizando a autenticação Azure Ative Directory (AAD) ou SQL Server.
+Aprenda a autenticar a Synapse SQL em Azure Synapse utilizando o Diretório Ativo Azure (AAD) ou a autenticação do Servidor SQL.
 
 Para se ligar a uma piscina SQL, deve passar em credenciais de segurança para fins de autenticação. Ao estabelecer uma ligação, determinadas definições de ligação são configuradas como parte do estabelecimento da sua sessão de consulta.  
 
@@ -80,7 +80,7 @@ Atualmente, os utilizadores do Diretório Ativo Azure não são mostrados no SSD
 
 ### <a name="find-the-details"></a>Encontre os detalhes
 
-* Os passos para configurar e utilizar a autenticação do Diretório Ativo Azure são quase idênticos para a Base de Dados Azure SQL e sQL Analytics em Azure Synapse. Siga os passos detalhados no tópico De Ligação à Base de [Dados SQL ou ao SQL Pool utilizando a autenticação de diretório ativo Azure](../../sql-database/sql-database-aad-authentication.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+* Os passos para configurar e utilizar a autenticação do Diretório Ativo Azure são quase idênticos para a Base de Dados Azure SQL e Synapse SQL em Azure Synapse. Siga os passos detalhados no tópico De Ligação à Base de [Dados SQL ou ao SQL Pool utilizando a autenticação de diretório ativo Azure](../../sql-database/sql-database-aad-authentication.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 * Crie funções de base de dados personalizadas e adicione os utilizadores às funções. Em seguida, conceda permissões granulares para os papéis. Para mais informações, consulte [Iniciar-se com permissões](/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)de motor de base de dados .
 
 ## <a name="next-steps"></a>Passos seguintes

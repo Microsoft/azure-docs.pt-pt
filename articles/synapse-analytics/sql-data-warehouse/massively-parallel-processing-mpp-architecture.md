@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: d204477818ce2733d9f6d1e3dcc7455018456bcb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d57f02b9aff56c83aa1c12bd441df2863f6d6fa7
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80884837"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658494"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Arquitetura Azure Synapse Analytics (ex-SQL DW)
 
@@ -23,7 +23,7 @@ O Azure Synapse é um serviço de análise ilimitado que junta o armazenamento d
 
  Azure Synapse tem quatro componentes:
 
-- SQL Analytics: Análise completa baseada em T-SQL
+- Synapse SQL: Análise completa baseada em T-SQL
 
   - Piscina SQL (pagamento por DWU provisionado) – Geralmente Disponível
   - SQL on-demand (pagamento por TB processado) – (Pré-visualização)
@@ -39,7 +39,7 @@ O Azure Synapse é um serviço de análise ilimitado que junta o armazenamento d
 
 ![Arquitetura SQL do Synapse](./media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
-A SQL Analytics usa uma arquitetura baseada no nó. As aplicações ligam e emitem comandos T-SQL a um nó de Controlo, que é o ponto único de entrada para o SQL Analytics. O nó de Controlo funciona com o motor MPP, que otimiza as consultas para processamento paralelo, e depois passa as operações para os nós da Compute para fazer o seu trabalho em paralelo.
+Synapse SQL usa uma arquitetura baseada no nó. As aplicações ligam e emitem comandos T-SQL a um nó de controlo, que é o ponto único de entrada para synapse SQL. O nó de Controlo funciona com o motor MPP, que otimiza as consultas para processamento paralelo, e depois passa as operações para os nós da Compute para fazer o seu trabalho em paralelo.
 
 Os nós de computação armazenam todos os dados de utilizador no Armazenamento do Microsoft Azure e executam as consultas paralelas. O Serviço de Movimento de Dados (DMS – Data Movement Service) é um serviço interno ao nível do sistema que move os dados em todos os nós, conforme necessário, para executar consultas em paralelo e devolver resultados precisos.
 
@@ -50,7 +50,7 @@ Com armazenamento e computação dissociados, ao utilizar a piscina SQL Synapse 
 - Colocar a capacidade de computação em pausa, mantendo os dados intactos, pelo que só paga pelo armazenamento.
 - Retomar a capacidade de computação durante as horas de funcionamento.
 
-### <a name="azure-storage"></a>Storage do Azure
+### <a name="azure-storage"></a>Armazenamento do Azure
 
 Synapse SQL aproveita o Armazenamento Azure para manter os dados dos seus utilizadores seguros.  Uma vez que os seus dados são armazenados e geridos pelo Azure Storage, existe uma taxa separada para o seu consumo de armazenamento. Os dados são **distribuídos** para otimizar o desempenho do sistema. Pode escolher qual o padrão mais grave a utilizar para distribuir os dados quando definir a tabela. Estes padrões de sharding são suportados:
 
@@ -74,7 +74,7 @@ O Serviço de Movimento de Dados (DMS) é a tecnologia de transporte de dados qu
 
 ## <a name="distributions"></a>Distribuição
 
-As distribuições são as unidades básicas de armazenamento e processamento de consultas paralelas que são executadas em dados distribuídos. Quando o SQL Analytics executa uma consulta, o trabalho é dividido em 60 consultas menores que correm em paralelo.
+As distribuições são as unidades básicas de armazenamento e processamento de consultas paralelas que são executadas em dados distribuídos. Quando o Synapse SQL executa uma consulta, a obra é dividida em 60 consultas menores que correm em paralelo.
 
 Cada uma das 60 consultas menores é de uma das distribuições de dados. Cada nó Compute gere uma ou mais das 60 distribuições. Um pool SQL com recursos de computação máximo tem uma distribuição por nó computacional. Um pool SQL com recursos mínimos de computação tem todas as distribuições em um nó de cálculo.  
 
@@ -120,5 +120,5 @@ Agora que sabe um pouco sobre o Azure Synapse, aprenda a criar rapidamente [um p
 - [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 - [Criar pedido de suporte](sql-data-warehouse-get-started-create-support-ticket.md)
 - [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureSQLDataWarehouse)
-- [Fórum do Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw)
+- [Fórum de Transbordo de Pilhas](https://stackoverflow.com/questions/tagged/azure-sqldw)
 - [Twitter](https://twitter.com/hashtag/SQLDW)

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: osamaz
-ms.openlocfilehash: 3603bc45b920dc62eb8bf6f2eb8557f98e21638e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6aa66ddc52665c22310fb58977fd516eea4e806a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82024817"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83651985"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>Amostras de configuração do router para configurar e gerir o encaminhamento
 Esta página fornece amostras de configuração de interface e encaminhamento para routers da série Cisco IOS-XE e Juniper MX quando estiver a trabalhar com o Azure ExpressRoute.
@@ -175,8 +175,8 @@ Configure o seu router para anunciar prefixos selecionados para a Microsoft util
         policy-statement <Policy_Name> {
             term 1 {
                 from protocol OSPF;
-        route-filter 
-    <Prefix_to_be_advertised/Subnet_Mask> exact;
+                route-filter; 
+                <Prefix_to_be_advertised/Subnet_Mask> exact;
                 then {
                     accept;
                 }
@@ -186,7 +186,7 @@ Configure o seu router para anunciar prefixos selecionados para a Microsoft util
     protocols {
         bgp { 
             group <Group_Name> { 
-                export <Policy_Name>
+                export <Policy_Name>;
                 peer-as 12076;              
                 neighbor <IP#2_used_by_Azure>;
             }                               
@@ -205,7 +205,7 @@ Pode utilizar mapas de rotas e listas de prefixos para filtrar prefixos propagad
         policy-statement <MS_Prefixes_Inbound> {
             term 1 {
                 from {
-                prefix-list MS_Prefixes;
+                    prefix-list MS_Prefixes;
                 }
                 then {
                     accept;
@@ -216,8 +216,8 @@ Pode utilizar mapas de rotas e listas de prefixos para filtrar prefixos propagad
     protocols {
         bgp { 
             group <Group_Name> { 
-                export <Policy_Name>
-                import <MS_Prefixes_Inbound>
+                export <Policy_Name>;
+                import <MS_Prefixes_Inbound>;
                 peer-as 12076;              
                 neighbor <IP#2_used_by_Azure>;
             }                               
@@ -240,6 +240,26 @@ Configure o BFD apenas no âmbito da secção bGP do protocolo.
         }                                   
     }
 
+### <a name="configure-macsec"></a>Configure MACSec
+Para a configuração MACSec, a Chave da Associação de Conectividade (CAK) e o Nome chave da Associação de Conectividade (CKN) devem coincidir com valores configurados através de comandos PowerShell.
+
+    security {
+        macsec {
+            connectivity-association <Connectivity_Association_Name> {
+                cipher-suite gcm-aes-xpn-128;
+                security-mode static-cak;
+                pre-shared-key {
+                    ckn <Connectivity_Association_Key_Name>;
+                    cak <Connectivity_Association_Key>; ## SECRET-DATA
+                }
+            }
+            interfaces {
+                <Interface_Number> {
+                    connectivity-association <Connectivity_Association_Name>;
+                }
+            }
+        }
+    }
 
 ## <a name="next-steps"></a>Passos seguintes
 Veja [FAQ do ExpressRoute](expressroute-faqs.md) para obter mais detalhes.

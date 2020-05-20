@@ -1,7 +1,7 @@
 ---
 title: Desencadear eventos em fluxos de trabalho ml
 titleSuffix: Azure Machine Learning
-description: Saiba como desencadear aplicações, processos ou fluxos de trabalho ci/CD baseados em eventos de Aprendizagem automática azure para simplificar o seu ciclo de vida ML.
+description: Configurar aplicações, processos ou fluxos de trabalho de aprendizagem automática ci/CD em Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,14 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 03/11/2020
-ms.openlocfilehash: 236cc46bb6f9e5ed95e4a49068ac41ae77a736f5
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 79bea443ea576ba0c17c1a8150c305d7cd2320ff
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982875"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655793"
 ---
-# <a name="trigger-event-driven-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Desencadear aplicações, processos ou fluxos de trabalho ci/CD baseados em eventos de aprendizagem automática azure (pré-visualização)
+# <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Aplicações, processos ou fluxos de trabalho CI/CD baseados em eventos de Aprendizagem Automática Azure (Pré-visualização)
 
 Neste artigo, aprende-se a configurar aplicações, processos ou fluxos de trabalho ci/CD baseados em eventos de Aprendizagem automática do Azure, tais como e-mails de notificação de falha ou pipeline ML, quando certas condições são detetadas pela [Azure Event Grid.](https://docs.microsoft.com/azure/event-grid/) 
 
@@ -241,7 +241,7 @@ Agora, o gasoduto da fábrica de dados é acionado quando ocorre deriva. Veja de
 
 Um objeto modelo de Aprendizagem automática Azure contém parâmetros que pode girar implementações em nome, versão, etiqueta e propriedade do modelo. O evento de registo do modelo pode desencadear um ponto final e pode utilizar uma Função Azure para implementar um modelo baseado no valor desses parâmetros.
 
-Por exemplo, consulte [https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid](https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid) o repositório e siga os passos no ficheiro **readme.**
+Por exemplo, consulte o [https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid](https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid) repositório e siga os passos no ficheiro **readme.**
 
 ## <a name="next-steps"></a>Passos seguintes
 

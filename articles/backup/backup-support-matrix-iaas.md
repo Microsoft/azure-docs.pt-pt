@@ -3,12 +3,12 @@ title: Matriz de suporte da cópia de segurança de uma VM do Azure
 description: Fornece um resumo das definições de suporte e limitações ao apoiar os VMs Azure com o serviço de backup Azure.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: b7201972811c5b9cc8187b671c9e688236667860
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 8ac2896b0b3b8c87ff993eddcebb063a66add1fa
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199871"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659400"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte da cópia de segurança de uma VM do Azure
 
@@ -112,7 +112,7 @@ Pontos de recuperação no disco DPM/MABS | 64 para servidores de ficheiros e 44
 
 ## <a name="support-for-file-level-restore"></a>Suporte para restauro ao nível de ficheiros
 
-**Restauro** | **Suportado**
+**Restauro** | **Apoiado**
 --- | ---
 Restaurar ficheiros através de sistemas operativos | Pode restaurar ficheiros em qualquer máquina que tenha o mesmo (ou compatível) SISTEMA que o VM suportado. Consulte a [tabela Os Compatível](backup-azure-restore-files-from-vm.md#system-requirements).
 Restaurar ficheiros de VMs encriptados | Não suportado.
@@ -125,7 +125,7 @@ Restaurar ficheiros com definições especiais de rede | Restaurar não suportad
 
 A tabela seguinte resume o suporte para backup durante as tarefas de gestão vm, tais como adicionar ou substituir discos VM.
 
-**Restauro** | **Suportado**
+**Restauro** | **Apoiado**
 --- | ---
 Restaurar através da subscrição/região/zona. | Não suportado.
 Restaurar a um VM existente | Utilize a opção de substituição do disco.
@@ -163,7 +163,7 @@ Tamanho do disco de dados | O tamanho do disco individual pode ser até 32 TB e 
 Tipo de armazenamento | HDD padrão, SSD padrão, SSD premium.
 Managed disks | Suportado.
 Discos encriptados | Suportado.<br/><br/> Os VMs Azure ativados com encriptação de disco Azure podem ser apoiados (com ou sem a aplicação Azure AD).<br/><br/> VMs encriptados não podem ser recuperados ao nível de ficheiro/pasta. Tens de recuperar todo o VM.<br/><br/> Pode ativar a encriptação em VMs que já estão protegidos pelo Azure Backup.
-Discos com acelerador de escrita ativado | Não suportado.<br/><br/> A cópia de segurança Azure exclui automaticamente os Discos com acelerador de escrita ativado durante a cópia de segurança. Uma vez que não estão apoiados, não poderá restaurar estes discos a partir de Pontos de Recuperação do VM.
+Discos com acelerador de escrita ativado | Não suportado.<br/><br/> A cópia de segurança Azure exclui automaticamente os discos com o Acelerador de Escrita (WA) ativado durante a cópia de segurança. Uma vez que não estão apoiados, não poderá restaurar estes discos a partir de Pontos de Recuperação do VM. <br><br> **Nota importante:** As máquinas virtuais com discos WA precisam de conectividade de internet para uma cópia de segurança bem sucedida (mesmo que esses discos estejam excluídos da cópia de segurança.)
 Back up & Restaurar VMs/discos duplicados | O Azure Backup não suporta a duplicação. Para mais informações, consulte este [artigo](https://docs.microsoft.com/azure/backup/backup-support-matrix#disk-deduplication-support) <br/> <br/>  - O Azure Backup não desfaz a duplicação de VMs no cofre dos Serviços de Recuperação <br/> <br/>  - Se houver VMs em estado de desduplicação durante a restauração, os ficheiros não podem ser restaurados, uma vez que o cofre não compreende o formato. No entanto, poderá realizar com sucesso a restauração completa do VM.
 Adicione o disco ao VM protegido | Suportado.
 Redimensionar o disco em VM protegido | Suportado.
@@ -236,7 +236,7 @@ VMs do Azure | ND | ND
 VMs no local/Azure com DPM | ![Sim][green] | ![Sim][green]
 VMs no local/Azure com MABS | ![Sim][green] | ![Sim][green]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Back up VMs Azure](backup-azure-arm-vms-prepare.md).
 - [Faça o backup das máquinas do Windows diretamente,](tutorial-backup-windows-server-to-azure.md)sem um servidor de reserva.

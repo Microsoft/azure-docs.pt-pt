@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6212e74ecbf8327d3939138de2e92868f29b0f1a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b6aaed8d56bb254e5a6385c770f97b5238a5747b
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77058448"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647436"
 ---
 # <a name="tutorial-configure-cornerstone-ondemand-for-automatic-user-provisioning"></a>Tutorial: Configure Cornerstone OnDemand para fornecimento automático de utilizadores
 
@@ -39,7 +39,7 @@ O cenário delineado neste tutorial pressupõe que tem:
 * Uma conta de utilizador na Cornerstone OnDemand com permissões de administração.
 
 > [!NOTE]
-> A integração de fornecimento de Anúncios Azure baseia-se no [serviço web Cornerstone OnDemand.](https://help.csod.com/help/csod_0/Content/Resources/Documents/WebServices/CSOD_-_Summary_of_Web_Services_v20151106.pdf) Este serviço está disponível para as equipas Dana Angular OnDemand.
+> A integração de fornecimento de Anúncios Azure baseia-se no [serviço web Cornerstone OnDemand.](https://www.cornerstoneondemand.com/) Este serviço está disponível para as equipas Dana Angular OnDemand.
 
 ## <a name="add-cornerstone-ondemand-from-the-azure-marketplace"></a>Adicione a Cornerstone OnDemand do Azure Marketplace
 
@@ -81,7 +81,7 @@ Esta secção guia-o através dos passos para configurar o serviço de provision
 
 Para configurar o fornecimento automático de utilizadores para a Cornerstone OnDemand em Azure AD, siga estes passos.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **aplicações** > Enterprise**Todas as aplicações** > **Cornerstone OnDemand**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **aplicações Enterprise**  >  **Todas as aplicações**  >  **Cornerstone OnDemand**.
 
     ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
 
@@ -103,7 +103,7 @@ Para configurar o fornecimento automático de utilizadores para a Cornerstone On
 
     * Na caixa **de palavra-passe do Administrador,** preencha a palavra-passe correspondente ao nome de utilizador do administrador.
 
-    * Na caixa **de Domínio,** preencha o URL do serviço web do inquilino Cornerstone OnDemand. Por exemplo, o serviço `https://ws-[corpname].csod.com/feed30/clientdataservice.asmx`está localizado em, `https://ws-contoso.csod.com/feed30/clientdataservice.asmx`e para Contoso o domínio é . Para obter mais informações sobre como recuperar o URL do serviço web, consulte [este pdf](https://help.csod.com/help/csod_0/Content/Resources/Documents/WebServices/CSOD_Web_Services_-_User-OU_Technical_Specification_v20160222.pdf).
+    * Na caixa **de Domínio,** preencha o URL do serviço web do inquilino Cornerstone OnDemand. Por exemplo, o serviço está localizado `https://ws-[corpname].csod.com/feed30/clientdataservice.asmx` em, e para Contoso o domínio é `https://ws-contoso.csod.com/feed30/clientdataservice.asmx` . Para obter mais informações sobre como recuperar o URL do serviço web, consulte [este pdf](https://help.csod.com/help/csod_0/Content/Resources/Documents/WebServices/CSOD_Web_Services_-_User-OU_Technical_Specification_v20160222.pdf).
 
 6. Depois de preencher as caixas mostradas no Passo 5, selecione **Test Connection** para se certificar de que o Azure AD pode ligar-se à Cornerstone OnDemand. Se a ligação falhar, certifique-se de que a sua conta Cornerstone OnDemand tem permissões de administração e tente novamente.
 

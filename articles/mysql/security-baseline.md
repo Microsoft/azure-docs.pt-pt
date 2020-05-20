@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 1b9a1771ad498fa3fb9b8294adb8a6556a00863a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 02050745e7c8a9aa05d3f2de63a4bc5f1ebf8318
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190423"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654786"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mysql"></a>Linha de base de segurança azure para base de dados azure para MySQL
 
@@ -573,7 +573,7 @@ Compreender a proteção de dados dos clientes em Azure:https://docs.microsoft.c
 
 **Orientação**: A Base de Dados Azure para o serviço MySQL utiliza o módulo criptográfico validado FIPS 140-2 para encriptação de armazenamento de dados em repouso. Os dados, incluindo cópias de segurança, são encriptados no disco, com exceção dos ficheiros temporários criados durante a execução de consultas. O serviço utiliza a cifra AES de 256 bits incluída na encriptação de armazenamento Azure, e as chaves são geridas pelo sistema. A encriptação de armazenamento está sempre ativada e não pode ser desativada.
 
-A encriptação de dados com chaves geridas pelo cliente para a Base de Dados Azure para mySQL permite-lhe trazer a sua própria chave (BYOK) para a proteção de dados em repouso. Neste momento, deve solicitar o acesso à utilização desta capacidade. Para isso, contacte:
+A encriptação de dados com chaves geridas pelo cliente da Base de Dados do Azure para MySQL permite-lhe trazer a sua própria chave (BYOK) para a proteção de dados inativos. Neste momento, deve solicitar o acesso à utilização desta capacidade. Para isso, contacte:
 
 AskAzureDBforMySQL@service.microsoft.com
 
@@ -902,7 +902,7 @@ Como fornecer a autenticação do Cofre Chave com uma identidade gerida:https://
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7.12: Gerir as identidades de forma segura e automática
 
-**Orientação**: Base de dados Azure para a instância MySQL suporta a autenticação do Diretório Ativo Azure (em pré-visualização) para aceder a bases de dados.  Ao criar a Base de Dados Azure para a instância MySQL, fornece credenciais para um utilizador administrador. Este administrador pode ser utilizado para criar utilizadores adicionais de base de dados.  
+**Orientação**: A Base de Dados Azure para a instância MySQL suporta a autenticação do Diretório Ativo Azure para aceder às bases de dados.  Ao criar a Base de Dados Azure para a instância MySQL, fornece credenciais para um utilizador administrador. Este administrador pode ser utilizado para criar utilizadores adicionais de base de dados.  
 
 Para máquinas virtuais Azure ou aplicações web em execução no Serviço de Aplicações Azure que estão a ser utilizados para aceder à sua Base de Dados Azure para instâncias MySQL, utilize a Identidade de Serviço Gerida em conjunto com o Azure Key Vault para armazenar e recuperar credenciais para a Base de Dados Azure para a instância MySQL. Certifique-se de que o Soft Delete do cofre de chaves está ativado.
 

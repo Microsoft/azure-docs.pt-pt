@@ -3,12 +3,12 @@ title: Melhorar a base de conhecimento - QnA Maker
 description: Melhore a qualidade da sua base de conhecimento com aprendizagem ativa. Reveja, aceite ou rejeite, adicione sem remover ou alterar as questões existentes.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 7fafc23eaf21099ebb974da226d07c351fa19699
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2e074716e4342a8748de4fb4e217548f1cb731f6
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80756724"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650769"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Aceitar a aprendizagem ativa sugerida questões na base de conhecimentos
 
@@ -31,7 +31,7 @@ Para ver perguntas sugeridas, deve [ativar a aprendizagem ativa](use-active-lear
 
     [![Utilize o Filtro por sugestões para visualizar apenas as alternativas de perguntas sugeridas pela aprendizagem ativa.](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
 
-1. Cada par qnA sugere as novas alternativas `✔` de pergunta com `x` uma marca de verificação, para aceitar a pergunta ou um para rejeitar as sugestões. Selecione a marca de verificação para adicionar a pergunta.
+1. Cada par qnA sugere as novas alternativas de pergunta com uma marca de verificação, `✔` para aceitar a pergunta ou um para rejeitar as `x` sugestões. Selecione a marca de verificação para adicionar a pergunta.
 
     [![Selecione ou rejeite as alternativas de perguntas sugeridas pela aprendizagem ativa selecionando a marca de verificação verde ou a marca de eliminação vermelha.](../media/improve-knowledge-base/accept-active-learning-suggestions-small.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
 
@@ -50,7 +50,7 @@ Para ver perguntas sugeridas, deve [ativar a aprendizagem ativa](use-active-lear
 
 Um bot ou outra aplicação de cliente deve utilizar o seguinte fluxo arquitetónico para utilizar a aprendizagem ativa:
 
-* Bot [obtém a resposta da base de conhecimento](#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers) `top` com a GenerateAnswer API, usando a propriedade para obter uma série de respostas.
+* Bot [obtém a resposta da base de conhecimento](#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers) com a GenerateAnswer API, usando a propriedade para obter uma série de `top` respostas.
 * Bot determina feedback explícito:
     * Utilizando a sua própria [lógica de negócio personalizada,](#use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user)filtre pontuações baixas.
     * No bot ou na aplicação do cliente, exiba a lista de possíveis respostas ao utilizador e obtenha a resposta selecionada do utilizador.
@@ -59,7 +59,7 @@ Um bot ou outra aplicação de cliente deve utilizar o seguinte fluxo arquitetó
 
 ### <a name="use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers"></a>Use a propriedade superior no pedido GenerateAnswer para obter várias respostas correspondentes
 
-Ao submeter uma pergunta ao QnA Maker `top` para uma resposta, a propriedade do corpo JSON define o número de respostas a devolver.
+Ao submeter uma pergunta ao QnA Maker para uma resposta, a `top` propriedade do corpo JSON define o número de respostas a devolver.
 
 ```json
 {
@@ -71,7 +71,7 @@ Ao submeter uma pergunta ao QnA Maker `top` para uma resposta, a propriedade do 
 
 ### <a name="use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user"></a>Use a propriedade de pontuação juntamente com a lógica do negócio para obter a lista de respostas para mostrar o utilizador
 
-Quando a aplicação do cliente (como um chat bot) recebe a resposta, as 3 principais questões são devolvidas. Use `score` a propriedade para analisar a proximidade entre pontuações. Esta gama de proximidade é determinada pela sua própria lógica de negócio.
+Quando a aplicação do cliente (como um chat bot) recebe a resposta, as 3 principais questões são devolvidas. Use a `score` propriedade para analisar a proximidade entre pontuações. Esta gama de proximidade é determinada pela sua própria lógica de negócio.
 
 ```json
 {
@@ -127,10 +127,10 @@ Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
 ```
 
-|HTTP solicitar propriedade|Nome|Tipo|Objetivo|
+|HTTP solicitar propriedade|Name|Tipo|Objetivo|
 |--|--|--|--|
 |Parâmetro de rota URL|ID base de conhecimento|string|O GUID para a sua base de conhecimento.|
-|Subdomínio personalizado|Nome de recurso QnAMaker|string|O nome do recurso é usado como subdomínio personalizado para o seu Fabricante QnA. Isto está disponível na página Definições depois de publicar a base de conhecimentos. Está listado como `host`.|
+|Subdomínio personalizado|Nome de recurso QnAMaker|string|O nome do recurso é usado como subdomínio personalizado para o seu Fabricante QnA. Isto está disponível na página Definições depois de publicar a base de conhecimentos. Está listado como `host` .|
 |Cabeçalho|Content-Type|string|O tipo de mídia do corpo enviado para a API. O valor predefinido é:`application/json`|
 |Cabeçalho|Autorização|string|A sua chave de ponto final (EndpointKey xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx).|
 |Corpo pós|Objeto JSON|JSON|O feedback de treino|
@@ -162,7 +162,7 @@ Uma resposta bem sucedida devolve um estatuto de 204 e nenhum corpo de resposta 
 
 ### <a name="batch-many-feedback-records-into-a-single-call"></a>Emlota muitos registos de feedback numa única chamada
 
-Na aplicação do lado do cliente, como um bot, pode armazenar os dados e, `feedbackRecords` em seguida, enviar muitos registos num único corpo JSON na matriz.
+Na aplicação do lado do cliente, como um bot, pode armazenar os dados e, em seguida, enviar muitos registos num único corpo JSON na `feedbackRecords` matriz.
 
 Um exemplo do corpo jSON parece:
 
@@ -309,9 +309,9 @@ async callTrain(stepContext){
 
 ## <a name="active-learning-is-saved-in-the-exported-knowledge-base"></a>A aprendizagem ativa é salva na base de conhecimentos exportados
 
-Quando a sua aplicação tem uma aprendizagem `SuggestedQuestions` ativa ativa ativa, e exporta a app, a coluna no ficheiro TSV retém os dados de aprendizagem ativa.
+Quando a sua aplicação tem uma aprendizagem ativa ativa ativa, e exporta a app, `SuggestedQuestions` a coluna no ficheiro TSV retém os dados de aprendizagem ativa.
 
-A `SuggestedQuestions` coluna é um objeto JSON `autosuggested`de informação de `usersuggested` feedback implícito, e explícito. Um exemplo deste objeto JSON para uma única `help` questão submetida pelo utilizador é:
+A `SuggestedQuestions` coluna é um objeto JSON de informação de feedback implícito, e `autosuggested` `usersuggested` explícito. Um exemplo deste objeto JSON para uma única questão submetida pelo utilizador `help` é:
 
 ```JSON
 [
@@ -329,11 +329,6 @@ A `SuggestedQuestions` coluna é um objeto JSON `autosuggested`de informação d
     }
 ]
 ```
-
-Também pode utilizar as alterações de descarregamento API para rever estas alterações, utilizando REST ou qualquer um dos SDKs baseados em idiomas:
-* [API REST](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc)
-* [SDK .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.alterationsextensions.getasync?view=azure-dotnet)
-
 
 Ao reimportar esta aplicação, a aprendizagem ativa continua a recolher informações e a recomendar sugestões para a sua base de conhecimentos.
 

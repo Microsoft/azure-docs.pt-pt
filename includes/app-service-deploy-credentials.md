@@ -1,0 +1,16 @@
+---
+author: cephalin
+ms.service: app-service
+ms.topic: include
+ms.date: 04/20/2020
+ms.author: cephalin
+ms.openlocfilehash: c3fa57dd162fbbfbf0d46f73bffc78f279ef2968
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649117"
+---
+* **Credenciais ao nível do utilizador:** um conjunto de credenciais para toda a conta Azure. Pode ser usado para implementar no App Service para qualquer aplicação, em qualquer subscrição, que a conta Azure tenha permissão para aceder. É o conjunto padrão que é surgido no portal GUI (como a **visão geral** e **propriedades** da página de [recursos](../articles/azure-resource-manager/management/manage-resources-portal.md#manage-resources)da app). Quando um utilizador tem acesso à aplicação através de permissões de Controlo de Acesso Baseados em Funções (RBAC) ou de coadmino, esse utilizador pode utilizar as suas próprias credenciais de nível de utilizador até que o acesso seja revogado. Não partilhe estas credenciais com outros utilizadores do Azure.
+
+* **Credenciais de nível de aplicações**: um conjunto de credenciais para cada aplicação. Pode ser usado para implantar apenas nessa aplicação. As credenciais para cada aplicação são geradas automaticamente na criação de apps. Não podem ser configurados manualmente, mas podem ser reiniciados a qualquer momento. Para que um utilizador tenha acesso a credenciais de nível de aplicações através de RBAC, esse utilizador deve ser contribuinte ou superior na aplicação (incluindo a função incorporada do Colaborador do Website). Os leitores não estão autorizados a publicar, e não podem aceder a essas credenciais.

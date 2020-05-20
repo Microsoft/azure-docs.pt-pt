@@ -7,12 +7,12 @@ ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
-ms.openlocfilehash: 89c93d83631884cab1143a520fea01246f1b5e89
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 65e8818e19ac5ad20bb87fd8eb27a4c36c2839cf
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871816"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656666"
 ---
 # <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>Pré-visualização: Crie uma imagem do Windows e distribua-a para uma Galeria de Imagem Partilhada 
 
@@ -20,7 +20,7 @@ Este artigo é para lhe mostrar como pode usar o Azure Image Builder, e o Azure 
 
 Vamos usar um modelo .json para configurar a imagem. O ficheiro .json que estamos a usar está aqui: [armTemplateWinSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/armTemplateWinSIG.json). Vamos descarregar e editar uma versão local do modelo, por isso este artigo é escrito usando a sessão local powerShell.
 
-Para distribuir a imagem para uma Galeria de Imagem Partilhada, `distribute` o modelo utiliza a [SharedImage](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#distribute-sharedimage) como o valor para a secção do modelo.
+Para distribuir a imagem para uma Galeria de Imagem Partilhada, o modelo utiliza a [SharedImage](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#distribute-sharedimage) como o valor para a `distribute` secção do modelo.
 
 O Azure Image Builder executa automaticamente sysprep para generalizar a imagem, este é um comando de sysprep genérico, que você pode [substituir](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#vms-created-from-aib-images-do-not-create-successfully) se necessário. 
 
@@ -43,9 +43,9 @@ Verifique o estado do registo da funcionalidade.
 Get-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
 ```
 
-Espere `RegistrationState` até `Registered` passar para o próximo passo.
+Espere até `RegistrationState` passar para o próximo `Registered` passo.
 
-Verifique as inscrições do seu fornecedor. Certifique-se `Registered`de que cada devolução de cada retorna.
+Verifique as inscrições do seu fornecedor. Certifique-se de que cada devolução de cada `Registered` retorna.
 
 ```powershell
 Get-AzResourceProvider -ProviderNamespace Microsoft.VirtualMachineImages | Format-table -Property ResourceTypes,RegistrationState
@@ -54,7 +54,7 @@ Get-AzResourceProvider -ProviderNamespace Microsoft.Compute | Format-table -Prop
 Get-AzResourceProvider -ProviderNamespace Microsoft.KeyVault | Format-table -Property ResourceTypes,RegistrationState
 ```
 
-Se não regressarem, `Registered`utilize o seguinte para registar os prestadores:
+Se não `Registered` regressarem, utilize o seguinte para registar os prestadores:
 
 ```powershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.VirtualMachineImages
@@ -65,7 +65,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.KeyVault
 
 ## <a name="create-variables"></a>Criar variáveis
 
-Vamos usar algumas peças de informação repetidamente, por isso vamos criar algumas variáveis para armazenar essa informação. Substitua os valores pelas `username` `vmpassword`variáveis, como e, com a sua própria informação.
+Vamos usar algumas peças de informação repetidamente, por isso vamos criar algumas variáveis para armazenar essa informação. Substitua os valores pelas variáveis, como e, com a `username` `vmpassword` sua própria informação.
 
 ```powershell
 # Get existing context
@@ -104,16 +104,16 @@ O Image Builder utilizará a [identidade de utilizador](https://docs.microsoft.c
 # setup role def names, these need to be unique
 $timeInt=$(get-date -UFormat "%s")
 $imageRoleDefName="Azure Image Builder Image Def"+$timeInt
-$idenityName="aibIdentity"+$timeInt
+$identityName="aibIdentity"+$timeInt
 
 ## Add AZ PS module to support AzUserAssignedIdentity
 Install-Module -Name Az.ManagedServiceIdentity
 
 # create identity
-New-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $idenityName
+New-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName
 
-$idenityNameResourceId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $idenityName).Id
-$idenityNamePrincipalId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $idenityName).PrincipalId
+$identityNameResourceId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName).Id
+$identityNamePrincipalId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName).PrincipalId
 ```
 
 
@@ -136,7 +136,7 @@ Invoke-WebRequest -Uri $aibRoleImageCreationUrl -OutFile $aibRoleImageCreationPa
 New-AzRoleDefinition -InputFile  ./aibRoleImageCreation.json
 
 # grant role definition to image builder service principal
-New-AzRoleAssignment -ObjectId $idenityNamePrincipalId -RoleDefinitionName $imageRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
+New-AzRoleAssignment -ObjectId $identityNamePrincipalId -RoleDefinitionName $imageRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
 
 ### NOTE: If you see this error: 'New-AzRoleDefinition: Role definition limit exceeded. No more role definitions can be created.' See this article to resolve:
 https://docs.microsoft.com/azure/role-based-access-control/troubleshooting
@@ -207,7 +207,7 @@ Invoke-WebRequest `
    -replace '<region1>',$location | Set-Content -Path $templateFilePath
 (Get-Content -path $templateFilePath -Raw ) `
    -replace '<region2>',$replRegion2 | Set-Content -Path $templateFilePath
-((Get-Content -path $templateFilePath -Raw) -replace '<imgBuilderId>',$idenityNameResourceId) | Set-Content -Path $templateFilePath
+((Get-Content -path $templateFilePath -Raw) -replace '<imgBuilderId>',$identityNameResourceId) | Set-Content -Path $templateFilePath
 ```
 
 
@@ -295,7 +295,7 @@ Crie uma ligação Remote Desktop ao VM utilizando o nome de utilizador e a pala
 dir c:\
 ```
 
-Devia ver um diretório chamado `buildActions` que foi criado durante a personalização da imagem.
+Devia ver um diretório chamado que foi criado durante a personalização da `buildActions` imagem.
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
@@ -321,19 +321,19 @@ Remove-AzResource -ResourceId $resTemplateId.ResourceId -Force
 Eliminar a atribuição de papéis
 
 ```powerShell
-Remove-AzRoleAssignment -ObjectId $idenityNamePrincipalId -RoleDefinitionName $imageRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
+Remove-AzRoleAssignment -ObjectId $identityNamePrincipalId -RoleDefinitionName $imageRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
 ```
 
 remover definições
 
 ```powerShell
-Remove-AzRoleDefinition -Name "$idenityNamePrincipalId" -Force -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
+Remove-AzRoleDefinition -Name "$identityNamePrincipalId" -Force -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
 ```
 
 excluir identidade
 
 ```powerShell
-Remove-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $idenityName -Force
+Remove-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName -Force
 ```
 
 eliminar o grupo de recursos.

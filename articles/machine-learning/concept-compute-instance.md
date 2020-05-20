@@ -1,5 +1,5 @@
 ---
-title: O que é um exemplo de computação de aprendizagem automática Azure?
+title: O que é uma instância de computação do Azure Machine Learning?
 titleSuffix: Azure Machine Learning
 description: Conheça o caso do computacional Azure Machine Learning, uma estação de trabalho totalmente gerida em nuvem.
 services: machine-learning
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/13/2019
-ms.openlocfilehash: 280851b2fea0b8100a7d0f8ec8105109a41c8c83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7afbfcc7830374c07850d1f634eb5e29fb459597
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79283930"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654908"
 ---
-# <a name="what-is-an-azure-machine-learning-compute-instance"></a>O que é um exemplo de computação de aprendizagem automática Azure?
+# <a name="what-is-an-azure-machine-learning-compute-instance"></a>O que é uma instância de computação do Azure Machine Learning?
 
 Um exemplo de computação de Machine Learning Azure (pré-visualização) é uma estação de trabalho totalmente gerida em nuvem para cientistas de dados. 
 
@@ -35,7 +35,7 @@ Um exemplo de computação é uma estação de trabalho totalmente gerida em nuv
 |----|----|
 |Produtividade|Os cientistas de dados podem construir e implementar modelos usando cadernos integrados e as seguintes ferramentas no seu navegador web:<br/>- Jupyter<br/>- JupyterLab<br/>- RStudio|
 |Gerido & seguro|Reduza a sua pegada de segurança e adicione o cumprimento dos requisitos de segurança da empresa. As instâncias computadas fornecem políticas de gestão robustas e configurações seguras de networking tais como:<br/><br/>- Fornecimento automático a partir de modelos de Gestor de Recursos ou SDK de Aprendizagem automática Azure<br/>- [Controlo de acesso baseado em funções (RBAC)](/azure/role-based-access-control/overview)<br/>- [Suporte de rede virtual](how-to-enable-virtual-network.md#compute-instance)<br/>- Política sSH para permitir/desativar o acesso ao SSH|
-|Reconfigurado&nbsp;&nbsp;ou ML|Poupe tempo em tarefas de configuração com pacotes ML pré-configurados e atualizados, quadros de aprendizagem profunda, condutores de GPU.|
+|Reconfigurado &nbsp; ou &nbsp; ML|Poupe tempo em tarefas de configuração com pacotes ML pré-configurados e atualizados, quadros de aprendizagem profunda, condutores de GPU.|
 |Totalmente personalizável|Um amplo suporte para tipos de VM Azure, incluindo GPUs e uma personalização de baixo nível, como a instalação de pacotes e condutores, torna os cenários avançados uma brisa. |
 
 ## <a name="tools-and-environments"></a><a name="contents"></a>Ferramentas e ambientes
@@ -51,7 +51,6 @@ Estas ferramentas e ambientes são instalados na instância computacional:
 |Biblioteca Intel MPI||
 |CLI do Azure ||
 |Amostras de aprendizagem automática azure ||
-|Motor EDAT de aprendizagem automática azure ||
 |Docker||
 |Nginx||
 |NCCL 2.0 ||
@@ -61,16 +60,15 @@ Estas ferramentas e ambientes são instalados na instância computacional:
 |----|:----:|
 |RStudio Server Open Source Edition||
 |Núcleo R||
-|SDK de aprendizagem automática azure para R|[azuremlsdk](https://azure.github.io/azureml-sdk-for-r/reference/index.html)</br>Exemplos de SDK|
+|SDK de aprendizagem automática azure para R|[azuremlsdk](https://azure.github.io/azureml-sdk-for-r/reference/index.html)</br>SDK samples (Amostras do SDK)|
 
 |**Ferramentas PYTHON** & ambientes|Detalhes|
 |----|----|
 |Anaconda Python||
 |Jupyter e extensões||
 |Jupyterlab e extensões||
-|Visual Studio Code ||
 [SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)</br>da PyPI|`azureml-sdk[notebooks,contrib,automl,explain]`</br>`azureml-contrib-datadrift`</br>`azureml-telemetry`</br>`azureml-tensorboard`</br>`azureml-contrib-opendatasets`</br>`azureml-opendatasets`</br>`azureml-contrib-reinforcementlearning`</br>`azureml-mlflow`</br>`azureml-contrib-interpret` |
-|Outros pacotes PyPI|`jupytext`</br>`jupyterlab-git`</br>`tensorboard`</br>`nbconvert`</br>`notebook`</br>`Pillow`|
+|Outros pacotes PyPI|`jupytext`</br>`tensorboard`</br>`nbconvert`</br>`notebook`</br>`Pillow`|
 |Pacotes de condomínio|`cython`</br>`numpy`</br>`ipykernel`</br>`scikit-learn`</br>`matplotlib`</br>`tqdm`</br>`joblib`</br>`nodejs`</br>`nb_conda_kernels`|
 |Pacotes de aprendizagem profunda|`PyTorch`</br>`TensorFlow`</br>`Keras`</br>`Horovod`</br>`MLFlow`</br>`pandas-ml`</br>`scrapbook`|
 |Pacotes ONNX|`keras2onnx`</br>`onnx`</br>`onnxconverter-common`</br>`skl2onnx`</br>`onnxmltools`|
@@ -104,7 +102,7 @@ Os ficheiros na partilha de ficheiros são acessíveis a partir de todos os caso
 
 Também pode clonar as mais recentes amostras de Machine Learning Azure para a sua pasta sob o diretório de ficheiros do utilizador na partilha de ficheiros do espaço de trabalho.
 
-Escrever pequenos ficheiros pode ser mais lento nas unidades de rede do que escrever para o próprio VM.  Se estiver a escrever muitos ficheiros pequenos, tente utilizar um diretório `/tmp` diretamente na instância computacional, como um diretório. Por favor, note que estes ficheiros não serão acessíveis a partir de outros casos de computação no espaço de trabalho.
+Escrever pequenos ficheiros pode ser mais lento nas unidades de rede do que escrever para o próprio VM.  Se estiver a escrever muitos ficheiros pequenos, tente utilizar um diretório diretamente na instância computacional, como um `/tmp` diretório. Por favor, note que estes ficheiros não serão acessíveis a partir de outros casos de computação no espaço de trabalho.
 
 ## <a name="managing-a-compute-instance"></a>Gerir um caso de cálculo
 

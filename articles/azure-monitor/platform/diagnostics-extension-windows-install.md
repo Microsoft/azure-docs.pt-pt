@@ -7,43 +7,68 @@ ms.subservice: diagnostic-extension
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren
-ms.openlocfilehash: dd18fd484ac456f0c38cd6d9b73a2395a08ad5d0
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
+ms.openlocfilehash: a964a28b728a2b1741fb555f47fe6e329bc9902a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82883112"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655665"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>Instalar e configurar extensão de diagnóstico do Windows Azure (WAD)
-A extensão de diagnóstico do Azure é um agente no Azure Monitor que recolhe dados de monitorização do sistema operativo convidado e cargas de trabalho de máquinas virtuais Azure e outros recursos computacionais. Este artigo fornece detalhes sobre a instalação e configuração da extensão de diagnóstico do Windows e uma descrição de como os dados são armazenados na conta de Armazenamento Azure.
+[A extensão](diagnostics-extension-overview.md) de diagnóstico do Azure é um agente no Azure Monitor que recolhe dados de monitorização do sistema operativo convidado e cargas de trabalho de máquinas virtuais Azure e outros recursos computacionais. Este artigo fornece detalhes sobre a instalação e configuração da extensão de diagnóstico do Windows e uma descrição de como os dados são armazenados na conta de Armazenamento Azure.
 
 A extensão de diagnóstico é implementada como uma [extensão virtual](../../virtual-machines/extensions/overview.md) da máquina em Azure, por isso suporta as mesmas opções de instalação usando modelos de Gestor de Recursos, PowerShell e CLI. Consulte [extensões e funcionalidades da máquina Virtual para](../../virtual-machines/extensions/features-windows.md) obter detalhes sobre a instalação e manutenção de extensões de máquinas virtuais.
+
+## <a name="overview"></a>Descrição geral
+Quando configurar a extensão de diagnóstico do Windows Azure, deve especificar uma conta de armazenamento onde todos os dados especificados serão enviados. Pode opcionalmente adicionar um para mais *afundados* de dados para enviar os dados para diferentes locais.
+
+- Pia Azure Monitor - Envie os dados de desempenho dos hóspedes para as Métricas do Monitor Azure.
+- Afundatório de hub de eventos - Envie os dados de desempenho dos hóspedes e de registo para os centros de eventos do Azure para a frente fora do Azure. Esta pia não pode ser configurada no portal Azure.
+
 
 ## <a name="install-with-azure-portal"></a>Instalar com portal Azure
 Pode instalar e configurar a extensão de diagnóstico numa máquina virtual individual no portal Azure, que lhe fornece uma interface em oposição a trabalhar diretamente com a configuração. Quando ativa a extensão de diagnóstico, utilizará automaticamente uma configuração predefinida com os contadores e eventos de desempenho mais comuns. Pode modificar esta configuração predefinida de acordo com os seus requisitos específicos.
 
 > [!NOTE]
-> Existem definições de extensão de diagnóstico que não pode configurar usando o portal Azure, incluindo o envio de dados para o Azure Event Hubs. Deve utilizar um dos outros métodos de configuração para estas definições.
+> Os seguintes descrevem as definições mais comuns para a extensão de diagnóstico. Para mais detalhes sobre todas as opções de configuração, consulte o esquema de [extensão](diagnostics-extension-schema-windows.md)de diagnóstico do Windows .
 
 1. Abra o menu para uma máquina virtual no portal Azure.
+
 2. Clique nas **definições de diagnóstico** na secção **de monitorização** do menu VM.
+
 3. Clique em **ativar a monitorização ao nível do hóspede** se a extensão de diagnóstico ainda não estiver ativada.
-4. Será criada uma nova conta de Armazenamento Azure para o VM com o nome baseado no nome do grupo de recursos para o VM. Pode anexar o VM a outra conta de armazenamento selecionando o separador **Agente.**
 
-![Definições de diagnóstico](media/diagnostics-extension-windows-install/diagnostic-settings.png)
+   ![Ativar monitorização](media/diagnostics-extension-windows-install/enable-monitoring.png)
 
+4. Será criada uma nova conta de Armazenamento Azure para o VM com o nome baseado no nome do grupo de recursos para o VM, e será selecionado um conjunto padrão de contadores e registos de desempenho dos hóspedes.
 
-Pode modificar a configuração predefinida uma vez ativada a extensão de diagnóstico. A tabela seguinte descreve as opções que pode modificar nos diferentes separadores. Algumas opções têm um comando **Personalizado** que lhe permite especificar configuração mais detalhada; consulte o esquema de extensão de diagnóstico do Windows para obter detalhes sobre [diferentes](diagnostics-extension-schema-windows.md) definições.
+   ![Definições de diagnóstico](media/diagnostics-extension-windows-install/diagnostic-settings.png)
 
-| Tecla de Tabulação | Descrição |
-|:---|:---|
-| Descrição geral | Apresenta a configuração atual com ligações aos outros separadores. |
-| Contadores de desempenho | Selecione os contadores de desempenho para recolher e a taxa de amostra para cada um.  |
-| Registos | Selecione os dados de registo para recolher. Isto inclui registos do Windows Event, registos IIS, registos de aplicações .NET e eventos ETW.  |
-| Informações de falha de sistema | Ativar o depósito de colisão para diferentes processos. |
-| Pias | Ativar os sumidouros de dados para enviar dados para destinos além do Armazenamento Azure.<br>Azure Monitor - Envia dados de desempenho para as Métricas do Monitor Azure.<br>Informações sobre aplicações - Envie dados para uma aplicação De insights de aplicação. |
-| Agente | Modificar a seguinte configuração para o agente:<br>- Mude a conta de armazenamento.<br>- Especificar o disco local máximo utilizado para o agente.<br>- Configure os registos para a saúde do próprio agente.|
+5. No separador de **contadores performance,** selecione as métricas de hóspedes que gostaria de recolher desta máquina virtual. Utilize a definição **Personalizada** para uma seleção mais avançada.
 
+   ![Contadores de desempenho](media/diagnostics-extension-windows-install/performance-counters.png)
+
+6. No separador **Logs,** selecione os registos para recolher a partir da máquina virtual. Os registos podem ser enviados para centros de armazenamento ou eventos, mas não para o Monitor Azure. Utilize o [agente Log Analytics](log-analytics-agent.md) para recolher registos de hóspedes no Monitor Azure.
+
+   ![Registos](media/diagnostics-extension-windows-install/logs.png)
+
+7. No separador **de despejos crash,** especifique quaisquer processos para recolher depósitos de memória após um acidente. Os dados serão escritos na conta de armazenamento para a definição de diagnóstico, e pode especificar opcionalmente um recipiente de bolha.
+
+   ![Informações de falha de sistema](media/diagnostics-extension-windows-install/crash-dumps.png)
+
+8. No **separador Sinks,** especifique se deve enviar os dados para outros locais que não o armazenamento do Azure. Se selecionar **o Monitor Azure,** os dados de desempenho dos hóspedes serão enviados para as Métricas do Monitor Do Azure. Não é possível configurar os centros de eventos utilizando o portal Azure.
+
+   ![Pias](media/diagnostics-extension-windows-install/sinks.png)
+   
+   Se não tiver ativado uma Identidade Atribuída ao Sistema configurada para a sua máquina virtual, poderá ver o aviso abaixo quando guardar uma configuração com a pia do Monitor Azure. Clique no banner para ativar a identidade atribuída ao sistema.
+   
+   ![Entidade gerida](media/diagnostics-extension-windows-install/managed-entity.png)
+
+9. No **Agente,** pode alterar a conta de armazenamento, definir a quota do disco e especificar se deve recolher registos de infraestruturas de diagnóstico.  
+
+   ![Agente](media/diagnostics-extension-windows-install/agent.png)
+
+10. Clique em **Guardar** para salvar a configuração. 
 
 > [!NOTE]
 > Embora a configuração para a extensão de diagnóstico possa ser formatada em JSON ou XML, qualquer configuração feita no portal Azure será sempre armazenada como JSON. Se utilizar o XML com outro método de configuração e, em seguida, alterar a sua configuração com o portal Azure, as definições serão alteradas para JSON.
@@ -73,6 +98,7 @@ As definições protegidas são definidas no [elemento PrivateConfig](diagnostic
     "storageAccountEndPoint": "https://mystorageaccount.blob.core.windows.net"
 }
 ```
+
 As configurações públicas são definidas no [elemento público](diagnostics-extension-schema-windows.md#publicconfig-element) do esquema de configuração. Segue-se um exemplo mínimo de um ficheiro de definições públicas que permite a recolha de registos de infraestruturas de diagnóstico, um único contador de desempenho e um único registo de eventos. Consulte a [configuração exemplo](diagnostics-extension-schema-windows.md#publicconfig-element) para obter detalhes completos das definições públicas.
 
 ```JSON
@@ -183,5 +209,5 @@ Várias ferramentas estão disponíveis para visualizar os dados depois de trans
 * O [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) é uma aplicação autónoma que lhe permite trabalhar facilmente com dados do Armazenamento Azure no Windows, OSX e Linux.
 * O [Azure Management Studio](https://www.cerebrata.com/products/azure-management-studio/introduction) inclui o Azure Diagnostics Manager que lhe permite visualizar, descarregar e gerir os dados de diagnóstico recolhidos pelas aplicações em execução no Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - Consulte [os dados do Windows Azure](diagnostics-extension-stream-event-hubs.md) para obter detalhes sobre o reencaminhamento de dados de monitorização para os Hubs de Eventos Do Azure.

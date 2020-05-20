@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/09/2020
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 8df639eea757c374554fa19e57c43cef79308e98
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1dba3a6f3ebd7b6675e6d0d90d98a45625ad04ee
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79255148"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656905"
 ---
 # <a name="design-scalable-and-performant-tables"></a>Criar tabelas escaláveis e de desempenho
 
@@ -132,7 +132,7 @@ O nome da conta, o nome da tabela e a **PartitionKey** identificam em conjunto a
 
 No serviço mesa, um nó individual presta serviços uma ou mais divisórias completas, e as escalas de serviço através de divisórias dinamicamente equilibradas em nós. Se um nó estiver sob carga, o serviço de mesa pode *dividir* a gama de divisórias servida saem por esse nó em diferentes nós; quando o tráfego diminui, o serviço pode *fundir* as divisórias desde nós silenciosos de volta a um único nó.  
 
-Para obter mais informações sobre os detalhes internos do serviço Table e, em particular, como o serviço gere as divisórias, consulte o papel [Microsoft Azure Storage: A Highly Available Cloud Storage Service com Forte Consistência](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
+Para obter mais informações sobre os detalhes internos do serviço Table e, em particular, como o serviço gere as divisórias, consulte o papel [Microsoft Azure Storage: A Highly Available Cloud Storage Service com Forte Consistência](https://docs.microsoft.com/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency).  
 
 ## <a name="entity-group-transactions"></a>Transações do Grupo entidade
 No serviço de Mesa, as Transações do Grupo entidade (EGTs) são o único mecanismo incorporado para a realização de atualizações atómicas em várias entidades. Por vezes, os EGTs também são referidos como transações de *lote.* Os EGTs só podem operar em entidades armazenadas na mesma divisória (ou seja, partilhar a mesma chave de partição numa determinada tabela). Assim, sempre que necessitar de comportamento transacional atómico em várias entidades, deve garantir que essas entidades estão na mesma divisão. Esta é muitas vezes uma razão para manter vários tipos de entidades na mesma tabela (e partição) e não usar várias tabelas para diferentes tipos de entidades. Um único EGT pode operar no máximo 100 entidades.  Se submeter múltiplos EGTs simultâneos para processamento, é importante garantir que esses EGTs não operam em entidades que são comuns em todos os EGTs; caso contrário, o processamento pode ser adiado.

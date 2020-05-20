@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/06/2019
 ms.author: trbye
-ms.openlocfilehash: 50dd7ddb636658ec6d29c2669d02320c73167fde
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1b837797bf0baf025d350cec1918cf4a5b639416
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81399700"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650607"
 ---
 ## <a name="reference-docs"></a>Doutorados de referência
 
@@ -43,5 +43,6 @@ O [SDK](../speech-devices-sdk.md) de Dispositivos de Fala é um superconjunto do
 Para referências de várias APIs do serviço de fala, consulte a listagem abaixo:
 
 - [REST API: Discurso-a-texto](../rest-speech-to-text.md)
+- [REST API: Avaliação da pronúncia](../rest-speech-to-text.md#pronunciation-assessment-parameters)
 - [REST API: Texto-a-falar](../rest-text-to-speech.md)
 - <a href="https://cris.ai/swagger/ui/index" target="_blank" rel="noopener">REST API: Transcrição e personalização do lote<span class="docon docon-navigate-external x-hidden-focus"></span></a>

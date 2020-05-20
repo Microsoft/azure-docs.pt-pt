@@ -1,39 +1,35 @@
 ---
 title: Gere recomendações usando Apache Mahout no Azure HDInsight
-description: Aprenda a usar a biblioteca de machine learning Apache Mahout para gerar recomendações de filmes com HDInsight (Hadoop).
+description: Aprenda a usar a biblioteca de machine learning Apache Mahout para gerar recomendações de filmes com o HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
-ms.date: 01/03/2020
-ms.openlocfilehash: 33110e9f1d45fcd11e5f4cad1b589ab929a9472d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 05/14/2020
+ms.openlocfilehash: ab4c2984bbaef84684432c660baadc78f3ef8e16
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75767641"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656325"
 ---
-# <a name="generate-movie-recommendations-using-apache-mahout-with-apache-hadoop-in-hdinsight-ssh"></a>Gere as recomendações do filme usando Apache Mahout com Apache Hadoop em HDInsight (SSH)
-
-[!INCLUDE [mahout-selector](../../../includes/hdinsight-selector-mahout.md)]
+# <a name="generate-recommendations-using-apache-mahout-in-azure-hdinsight"></a>Gere recomendações usando Apache Mahout no Azure HDInsight
 
 Aprenda a usar a biblioteca de machine learning [Apache Mahout](https://mahout.apache.org) com o Azure HDInsight para gerar recomendações de filmes.
 
 Mahout é uma biblioteca de [machine learning](https://en.wikipedia.org/wiki/Machine_learning) para Apache Hadoop. Mahout contém algoritmos para processar dados, tais como filtragem, classificação e agrupamento. Neste artigo, você usa um motor de recomendação para gerar recomendações de filmes que são baseados em filmes que os seus amigos viram.
 
+Para obter mais informações sobre a versão de Mahout no HDInsight, consulte [as versões HDInsight e os componentes Apache Hadoop](../hdinsight-component-versioning.md).
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Um aglomerado Apache Hadoop no HDInsight. Ver [Começar com HDInsight no Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
-## <a name="apache-mahout-versioning"></a>Versão Apache Mahout
-
-Para obter mais informações sobre a versão de Mahout no HDInsight, consulte [as versões HDInsight e os componentes Apache Hadoop](../hdinsight-component-versioning.md).
-
 ## <a name="understanding-recommendations"></a>Compreender recomendações
 
-Uma das funções que é fornecida por Mahout é um motor de recomendação. Este motor aceita dados no `userID` `itemId`formato `prefValue` de , e (a preferência pelo item). Mahout pode então realizar análises de coocorrência para determinar: *os utilizadores que têm preferência por um item também têm preferência por estes outros itens*. Mahout determina então os utilizadores com preferências similares, que podem ser usadas para fazer recomendações.
+Uma das funções que é fornecida por Mahout é um motor de recomendação. Este motor aceita dados no formato de `userID` `itemId` , e `prefValue` (a preferência pelo item). Mahout pode então realizar análises de coocorrência para determinar: *os utilizadores que têm preferência por um item também têm preferência por estes outros itens*. Mahout determina então os utilizadores com preferências similares, que podem ser usadas para fazer recomendações.
 
 O seguinte fluxo de trabalho é um exemplo simplificado que utiliza dados de filmes:
 
@@ -45,11 +41,11 @@ O seguinte fluxo de trabalho é um exemplo simplificado que utiliza dados de fil
 
 ### <a name="understanding-the-data"></a>Compreender os dados
 
-Convenientemente, a [GroupLens Research](https://grouplens.org/datasets/movielens/) fornece dados de classificação para filmes num formato compatível com Mahout. Estes dados estão disponíveis no armazenamento `/HdiSamples/HdiSamples/MahoutMovieData`predefinido do seu cluster em .
+Convenientemente, a [GroupLens Research](https://grouplens.org/datasets/movielens/) fornece dados de classificação para filmes num formato compatível com Mahout. Estes dados estão disponíveis no armazenamento predefinido do seu cluster em `/HdiSamples/HdiSamples/MahoutMovieData` .
 
-Há dois ficheiros, `moviedb.txt` e. `user-ratings.txt` O `user-ratings.txt` ficheiro é utilizado durante a análise. O `moviedb.txt` utilizador é utilizado para fornecer informações de texto fáceis de utilizar ao visualizar os resultados.
+Há dois `moviedb.txt` ficheiros, `user-ratings.txt` e. O `user-ratings.txt` ficheiro é utilizado durante a análise. O `moviedb.txt` utilizador é utilizado para fornecer informações de texto fáceis de utilizar ao visualizar os resultados.
 
-Os `user-ratings.txt` dados contidos têm `userID`uma `movieID` `userRating`estrutura `timestamp`de, , e , que indica o quão altamente cada utilizador classificou um filme. Aqui está um exemplo dos dados:
+Os dados contidos `user-ratings.txt` têm uma estrutura `userID` `movieID` de, , e , que `userRating` indica o `timestamp` quão altamente cada utilizador classificou um filme. Aqui está um exemplo dos dados:
 
     196    242    3    881250949
     186    302    3    891717742
@@ -91,7 +87,7 @@ Os `user-ratings.txt` dados contidos têm `userID`uma `movieID` `userRating`estr
     4    [690:5.0,12:5.0,234:5.0,275:5.0,121:5.0,255:5.0,237:5.0,895:5.0,282:5.0,117:5.0]
     ```
 
-    A primeira coluna `userID`é a . Os valores contidos em «[» `movieId``recommendationScore`e "]" são: .
+    A primeira coluna é a `userID` . Os valores contidos em «[» e "]" `movieId` são: `recommendationScore` .
 
 2. Pode utilizar a saída, juntamente com o moviedb.txt, para fornecer mais informações sobre as recomendações. Em primeiro lugar, copie os ficheiros localmente utilizando os seguintes comandos:
 
@@ -194,7 +190,7 @@ Os `user-ratings.txt` dados contidos têm `userID`uma `movieID` `userRating`estr
 
 ## <a name="delete-temporary-data"></a>Eliminar dados temporários
 
-Os empregos de Mahout não removem dados temporários que são criados durante o processamento do trabalho. O `--tempDir` parâmetro é especificado no trabalho de exemplo para isolar os ficheiros temporários num caminho específico para facilitar a supressão. Para remover os ficheiros temporários, utilize o seguinte comando:
+Os empregos de Mahout não removem dados temporários que são criados durante o processamento do trabalho. O parâmetro é especificado no trabalho de `--tempDir` exemplo para isolar os ficheiros temporários num caminho específico para facilitar a supressão. Para remover os ficheiros temporários, utilize o seguinte comando:
 
 ```bash
 hdfs dfs -rm -f -r /temp/mahouttemp

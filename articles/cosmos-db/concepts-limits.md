@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: e4d578596471153e4fc0e37d3ca093685326ecc7
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 0e45e832def4073f22a160b95447afb1b10ef77a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791770"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657381"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas de serviço Azure Cosmos DB
 
@@ -30,17 +30,18 @@ Depois de criar uma conta Azure Cosmos sob a sua subscrição, pode gerir dados 
 | Número máximo de chaves de partição distintas (lógicas) | Ilimitado |
 | Armazenamento máximo por recipiente | Ilimitado |
 | Armazenamento máximo por base de dados | Ilimitado |
-| Tamanho máximo do anexo por Conta (função de anexo está a ser amortizado) | 2GB |
+| Tamanho máximo do anexo por Conta (função de anexo está a ser amortizado) | 2 GB |
 | RUs mínimos exigidos por 1 GB | 10 RU/s |
 
 > [!NOTE]
 > Para aprender sobre as melhores práticas para gerir cargas de trabalho que possuam chaves de partição que requerem limites mais elevados para armazenamento ou entrada, consulte Criar uma chave de [partição sintética](synthetic-partition-keys.md).
 >
 
-Um recipiente Cosmos (ou base de dados de entrada partilhada) deve ter uma entrada mínima de 400 RUs. À medida que o recipiente cresce, o rendimento mínimo suportado também depende dos seguintes fatores:
+Um recipiente Cosmos (ou base de dados de entrada partilhada) deve ter uma entrada mínima de 400 RU/s. À medida que o recipiente cresce, o rendimento mínimo suportado também depende dos seguintes fatores:
 
-* A entrada mínima que pode fixar num recipiente depende da potência máxima já disponibilizada no recipiente. Por exemplo, se a sua entrada fosse aumentada para 10000 RUs, então a menor entrada possível seria 1000 RUs
-* A entrada mínima numa base de dados de entrada partilhada também depende do número total de contentores que já criou numa base de dados de produção partilhada, medida em 100 RUs por recipiente. Por exemplo, se criou cinco contentores dentro de uma base de dados de entrada partilhada, então a entrada deve ser de pelo menos 500 RUs
+* A entrada máxima já aprovisionada no recipiente. Por exemplo, se a sua entrada fosse aumentada para 50.000 RU/s, então a menor entrada possível seria 500 RU/s
+* O armazenamento atual em GB no recipiente. Por exemplo, se o seu recipiente tiver 100 GB de armazenamento, então a menor entrada possível seria 1000 RU/s
+* A entrada mínima numa base de dados de entradas partilhadas também depende do número total de contentores que já criou numa base de dados de entradas partilhadas, medida a 100 RU/s por recipiente. Por exemplo, se criou cinco contentores dentro de uma base de dados de entrada partilhada, então a entrada deve ser de pelo menos 500 RU/s
 
 A entrada corrente e mínima de um recipiente ou de uma base de dados pode ser recuperada a partir do portal Azure ou dos SDKs. Para mais informações, consulte a [entrada de provisões em contentores e bases](set-throughput.md)de dados . 
 
@@ -104,7 +105,7 @@ Dependendo da API que você usa, um item Azure Cosmos pode representar um docume
 | --- | --- |
 | Tamanho máximo de um item | 2 MB (comprimento UTF-8 da representação JSON) |
 | Comprimento máximo do valor-chave da divisória | Bytes de 2048 |
-| Comprimento máximo do valor da identificação | 1023 bytes |
+| Comprimento máximo do valor de identificação | 1023 bytes |
 | Número máximo de imóveis por item | Sem limite prático |
 | Profundidade máxima de nidificação | Sem limite prático |
 | Comprimento máximo do nome da propriedade | Sem limite prático |
@@ -112,7 +113,7 @@ Dependendo da API que você usa, um item Azure Cosmos pode representar um docume
 | Comprimento máximo do valor da propriedade de cordas | Sem limite prático |
 | Comprimento máximo do valor da propriedade numérica | IEEE754 dupla precisão 64-bit |
 
-Não existem restrições às cargas de artigos como o número de propriedades e a profundidade de nidificação, com exceção das restrições de comprimento na chave de divisória e valores id, e na restrição de tamanho global de 2 MB. Pode ter de configurar a política de indexação de contentores com estruturas de itens grandes ou complexas para reduzir o consumo de RU. Consulte artigos de [Modelação em Cosmos DB](how-to-model-partition-example.md) para um exemplo real, e padrões para gerir itens grandes.
+Não existem restrições às cargas de artigos como o número de propriedades e a profundidade de nidificação, com exceção das restrições de comprimento na chave de divisória e nos valores de ID, e na restrição de tamanho global de 2 MB. Pode ter de configurar a política de indexação de contentores com estruturas de itens grandes ou complexas para reduzir o consumo de RU. Consulte artigos de [Modelação em Cosmos DB](how-to-model-partition-example.md) para um exemplo real, e padrões para gerir itens grandes.
 
 ## <a name="per-request-limits"></a>Limites por pedido
 
@@ -140,7 +141,16 @@ Cosmos DB apoia a execução de gatilhos durante os escritos. O serviço suporta
 
 ## <a name="limits-for-autoscale-provisioned-throughput"></a>Limites para a produção de escala automática aprovisionada
 
-Consulte o artigo [de escala automática](provision-throughput-autoscale.md#autoscale-limits) para os limites de produção e armazenamento com escala automática.
+Consulte o artigo de [escala automática](provision-throughput-autoscale.md#autoscale-limits) e [faQ](autoscale-faq.md#lowering-the-max-rus) para obter uma explicação mais detalhada dos limites de produção e armazenamento com escala automática.
+
+| Recurso | Limite predefinido |
+| --- | --- |
+| Ru/s máximo o sistema pode escalar para |  `Tmax`, o max RU/s de escala automática definido pelo utilizador|
+| Ru/s mínimo o sistema pode escalar para | `0.1 * Tmax`|
+| Ru/s atual o sistema é dimensionado para  |  `0.1*Tmax <= T <= Tmax`, com base na utilização|
+| Ru/s faturados mínimos por hora| `0.1 * Tmax` <br></br>A faturação é feita por hora, onde você é cobrado para o ru/s mais alto que o sistema escalado na hora, ou `0.1*Tmax` , o que for maior. |
+| Max RU/s de escala automática mínima para um recipiente  |  `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100)`arredondado para 1000 RU/s mais próximo |
+| Max RU/s de escala automática mínima para uma base de dados  |  `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100,  4000 + (MAX(Container count - 25, 0) * 1000))`, arredondado para 1000 RU/s mais próximo. <br></br>Note que se a sua base de dados tiver mais de 25 contentores, o sistema aumenta o max RU/s de escala automática mínima por 1000 RU/s por recipiente adicional. Por exemplo, se tiver 30 contentores, o máximo ru/s de escala automática mais baixo que pode definir é 9000 RU/s (escalas entre 900 - 9000 RU/s).
 
 ## <a name="sql-query-limits"></a>Limites de consulta SQL
 
@@ -183,11 +193,11 @@ A tabela seguinte enumera os limites para o [teste Try Azure Cosmos DB para test
 | Recipientes máximos por subscrição (API MongoDB) | 3 |
 | Potência máxima por recipiente | 5000 |
 | O máximo de entrada por base de dados de entrada partilhada | 20 000 |
-| Armazenamento total máximo por conta | 10 GB |
+| Armazenamento total máximo por conta | 10 GB |
 
 A Try Cosmos DB apoia a distribuição global apenas nas regiões centro dos EUA, Norte da Europa e Sudeste Asiático. Os bilhetes de apoio Azure não podem ser criados para as contas Do Try Azure Cosmos DB. No entanto, é prestado apoio aos assinantes com planos de apoio existentes.
 
-## <a name="free-tier-account-limits"></a>Limites de conta de nível livre
+## <a name="free-tier-account-limits"></a>Limites da conta de escalão gratuito
 A tabela seguinte enumera os limites para [as contas de nível livre Azure Cosmos DB.](optimize-dev-test.md#azure-cosmos-db-free-tier)
 
 | Recurso | Limite predefinido |

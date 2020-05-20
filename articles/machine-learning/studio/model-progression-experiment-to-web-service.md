@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: e6a8fe7771776a92b3c28a188bc352e3bb105313
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1618e64eba32e857ccd0ba4b5a7a656f1d954bf8
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79217925"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659922"
 ---
 # <a name="how-a-machine-learning-studio-classic-model-progresses-from-an-experiment-to-a-web-service"></a>Como um modelo de Machine Learning Studio (clássico) progride de uma experiência para um serviço Web
 
@@ -34,7 +34,7 @@ Uma vez satisfeito com a sua experiência, pode implementá-lo como um ***servi�
 Neste artigo, damos uma visão geral da mecânica de como o seu modelo de Machine Learning evolui de uma experiência de desenvolvimento para um serviço Web operacionalizado.
 
 > [!NOTE]
-> Existem outras formas de desenvolver e implementar modelos de machine learning, mas este artigo está focado na forma como utiliza o Machine Learning Studio (clássico). Por exemplo, para ler uma descrição de como criar um serviço Web clássico preditivo com R, consulte o post de blog [Build & implementar aplicações web preditivas utilizando o estúdio RStudio e Azure Machine Learning.](https://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx)
+> Existem outras formas de desenvolver e implementar modelos de machine learning, mas este artigo está focado na forma como utiliza o Machine Learning Studio (clássico). Por exemplo, para ler uma descrição de como criar um serviço Web clássico preditivo com R, consulte o post de blog [Build & implementar aplicações web preditivas utilizando o estúdio RStudio e Azure Machine Learning.](https://docs.microsoft.com/archive/blogs/machinelearning/build-deploy-predictive-web-apps-using-rstudio-and-azure-ml)
 >
 >
 

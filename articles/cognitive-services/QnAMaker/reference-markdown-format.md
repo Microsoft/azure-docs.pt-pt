@@ -2,19 +2,25 @@
 title: Formato Markdown - QnA Maker
 description: Segue-se a lista de formatos de marcação que pode utilizar no texto de resposta do QnA Maker.
 ms.topic: reference
-ms.date: 01/09/2020
-ms.openlocfilehash: 3fb7d73afdfd5ab7f1fb56a685b21538b97c8ea4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 03/19/2020
+ms.openlocfilehash: 38532783c38263b3f1364e30125414958eab1394
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77045398"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652765"
 ---
 # <a name="markdown-format-supported-in-qna-maker-answer-text"></a>Formato de markdown suportado no texto de resposta qnA Maker
 
 As lojas QnA Maker respondem texto como marcação. Há muitos sabores de marcação. Para se certificar de que o texto de resposta é devolvido e apresentado corretamente, utilize esta referência.
 
 Utilize o tutorial **[CommonMark](https://commonmark.org/help/tutorial/index.html)** para validar o seu Markdown. O tutorial tem uma funcionalidade **Experimente** para validação rápida de cópia/pasta.
+
+## <a name="when-to-use-rich-text-editing-versus-markdown"></a>Quando utilizar a edição de texto rico versus marcação
+
+[A edição de](How-To/edit-knowledge-base.md#add-an-editorial-qna-set) respostas de texto rico permite-lhe, como autor, utilizar uma barra de ferramentas para selecionar e formatar rapidamente texto.
+
+O markdown é uma ferramenta melhor quando é necessário regenerar automaticamente o conteúdo para criar bases de conhecimento para serem importadas como parte de um oleoduto CI/CD ou para testes de [lote](Quickstarts/batch-testing.md).
 
 ## <a name="supported-markdown-format"></a>Formato de marcação suportado
 
@@ -35,7 +41,7 @@ Uma nova linha entre duas frases.|`\n\n`|`How can I create a bot with \n\n QnA M
 |Símbolos de marcação de fuga|`\*text\*`|`How do I create a bot with \*QnA Maker\*?`|![formato para URL itálico](./media/qnamaker-concepts-datasources/format-escape-markdown-symbols.png)|
 |Lista ordenada|`\n 1. item1 \n 1. item2`|`This is an ordered list: \n 1. List item 1 \n 1. List item 2`<br>O exemplo anterior utiliza a numeração automática incorporada na marcação.<br>`This is an ordered list: \n 1. List item 1 \n 2. List item 2`<br>O exemplo anterior utiliza numeração explícita.|![formato para lista ordenada](./media/qnamaker-concepts-datasources/format-ordered-list.png)|
 |Lista não ordenada|`\n * item1 \n * item2`<br>ou<br>`\n - item1 \n - item2`|`This is an unordered list: \n * List item 1 \n * List item 2`|![formato para lista não ordenada](./media/qnamaker-concepts-datasources/format-unordered-list.png)|
-|Listas aninhadas|`\n * Parent1 \n\t * Child1 \n\t * Child2 \n * Parent2`<br><br>`\n * Parent1 \n\t 1. Child1 \n\t * Child2 \n 1. Parent2`<br><br>Pode sintethar listas ordenadas e desordenadas juntas. O separador, `\t`indica o nível de entalhe do elemento da criança.|`This is an unordered list: \n * List item 1 \n\t * Child1 \n\t * Child2 \n * List item 2`<br><br>`This is an ordered nested list: \n 1. Parent1 \n\t 1. Child1 \n\t 1. Child2 \n 1. Parent2`|![formato para lista não ordenada aninhada](./media/qnamaker-concepts-datasources/format-nested-unordered-list.png)<br>![formato para lista ordenada aninhada](./media/qnamaker-concepts-datasources/format-nested-ordered-list.png)|
+|Listas aninhadas|`\n * Parent1 \n\t * Child1 \n\t * Child2 \n * Parent2`<br><br>`\n * Parent1 \n\t 1. Child1 \n\t * Child2 \n 1. Parent2`<br><br>Pode sintethar listas ordenadas e desordenadas juntas. O `\t` separador, indica o nível de entalhe do elemento da criança.|`This is an unordered list: \n * List item 1 \n\t * Child1 \n\t * Child2 \n * List item 2`<br><br>`This is an ordered nested list: \n 1. Parent1 \n\t 1. Child1 \n\t 1. Child2 \n 1. Parent2`|![formato para lista não ordenada aninhada](./media/qnamaker-concepts-datasources/format-nested-unordered-list.png)<br>![formato para lista ordenada aninhada](./media/qnamaker-concepts-datasources/format-nested-ordered-list.png)|
 
 *O Fabricante QnA não processa a imagem de forma alguma. É o papel da aplicação do cliente para renderizar a imagem.
 
@@ -43,10 +49,10 @@ Se pretender adicionar conteúdo utilizando APIs de base de conhecimento atualiz
 
 | Preservar HTML  | Representação no pedido da API  | Representação em KB |
 |-----------|---------|-------------------------|
-| Sim | \&Lt;br\&gt; | &lt;br&gt; |
-| Sim | \&Lt;h3\&gt;cabeçalho\&lt;/h3\&gt; | &lt;h3&gt;&lt;cabeçalho /h3&gt; |
+| Sim | \&Lt;br \& gt; | &lt;br&gt; |
+| Sim | \&Lt;h3 \& gt;cabeçalho \& lt;/h3 \& gt; | &lt;h3 &gt; cabeçalho &lt; /h3&gt; |
 
-Adicionalmente, o CR LF (\r\n) é convertido para \n no KB. LF (\n) é mantido como está. Se quiser escapar a qualquer sequência de fuga como um \t ou\\\\\n, pode usar backslash, por exemplo: 'r\\\\n' e 't'\\\\
+Adicionalmente, o CR LF (\r\n) é convertido para \n no KB. LF (\n) é mantido como está. Se quiser escapar a qualquer sequência de fuga como um \t ou \n, pode usar backslash, por exemplo: \\ \\ 'r \\ \\ n' e \\ \\ 't'
 
 ## <a name="next-steps"></a>Passos seguintes
 

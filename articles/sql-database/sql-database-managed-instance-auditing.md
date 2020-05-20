@@ -13,12 +13,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 03/27/2020
-ms.openlocfilehash: 405ac27fad3c24d3064f11476f452ad00abb9b02
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7656944af16db650ec1fea36f0bdefc81b99922e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80387772"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654621"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Introdução à auditoria da instância gerida da Base de Dados SQL do Azure
 
@@ -37,7 +37,7 @@ A secção seguinte descreve a configuração da auditoria na sua instância ger
    1. Navegue até ao Armazém Azure onde pretende armazenar os seus registos de auditoria.
 
       > [!IMPORTANT]
-      > Utilize uma conta de armazenamento na mesma região que a instância gerida para evitar leituras/escritos transversais.
+      > Utilize uma conta de armazenamento na mesma região que a instância gerida para evitar leituras/escritos transversais. Se a sua conta de armazenamento estiver por trás de uma Rede Virtual ou de uma Firewall, consulte o [acesso do Grant a partir de uma rede virtual](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-a-virtual-network).
 
    1. Na conta de armazenamento, vá ao **Overview e** clique em **Blobs**.
 
@@ -205,7 +205,7 @@ Os registos de auditoria de uma instância gerida podem ser enviados para regist
 
 Existem vários métodos que pode usar para ver registos de auditoria blob.
 
-- Utilize a `sys.fn_get_audit_file` função do sistema (T-SQL) para devolver os dados de registo de auditoria em formato tabular. Para obter mais informações sobre a utilização desta função, consulte a [documentação sys.fn_get_audit_file](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
+- Utilize a função do sistema `sys.fn_get_audit_file` (T-SQL) para devolver os dados de registo de auditoria em formato tabular. Para obter mais informações sobre a utilização desta função, consulte a [documentação sys.fn_get_audit_file](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
 - Pode explorar registos de auditoria utilizando uma ferramenta como o [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). No armazenamento do Azure, os registos de auditoria são guardados como uma coleção de ficheiros blob dentro de um recipiente que foi definido para armazenar os registos de auditoria. Para mais detalhes sobre a hierarquia da pasta de armazenamento, nomeação de convenções e formato de registo, consulte a Referência do Formato de Registo de [Auditoria Blob](https://go.microsoft.com/fwlink/?linkid=829599).
 
@@ -217,7 +217,7 @@ Para consumir dados de registos de auditoria do Event Hub, terá de configurar u
 
 ### <a name="consume-and-analyze-logs-stored-in-azure-monitor-logs"></a>Consumir e Analisar registos armazenados em registos do Monitor Azure
 
-Se os registos de auditoria forem escritos aos registos do Monitor Do Azure, estão disponíveis no espaço de trabalho do Log Analytics, onde pode executar pesquisas avançadas nos dados da auditoria. Como ponto de partida, navegue para o espaço de trabalho do Log Analytics e `search "SQLSecurityAuditEvents"` em secção *geral* clique em *Logs* e introduza uma consulta simples, como: para visualizar os registos de auditoria.  
+Se os registos de auditoria forem escritos aos registos do Monitor Do Azure, estão disponíveis no espaço de trabalho do Log Analytics, onde pode executar pesquisas avançadas nos dados da auditoria. Como ponto de partida, navegue para o espaço de trabalho do Log Analytics e em secção *geral* clique em *Logs* e introduza uma consulta simples, como: `search "SQLSecurityAuditEvents"` para visualizar os registos de auditoria.  
 
 Os registos do Azure Monitor dão-lhe insights operacionais em tempo real utilizando instrumentos de pesquisa integrados e personalizados para analisar facilmente milhões de registos em todas as suas cargas de trabalho e servidores. Para obter informações adicionais úteis sobre o idioma de pesquisa de registos do Monitor Azure e comandos, consulte a referência de pesquisa de [registos do Monitor Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
 
@@ -227,16 +227,16 @@ Os registos do Azure Monitor dão-lhe insights operacionais em tempo real utiliz
 
 As principais diferenças entre a auditoria em bases de dados em Bases de Dados Azure SQL e bases de dados no Servidor SQL são:
 
-- Com a opção de implementação de instância gerida na Base de `.xel` Dados Azure SQL, a auditoria funciona ao nível do servidor e armazena ficheiros de registo no armazenamento do Azure Blob.
+- Com a opção de implementação de instância gerida na Base de Dados Azure SQL, a auditoria funciona ao nível do servidor e armazena ficheiros de `.xel` registo no armazenamento do Azure Blob.
 - No SQL Server no local / máquinas virtuais, a auditoria funciona ao nível do servidor, mas armazena eventos em registos de eventos de sistema sinuoso/windows.
 
 A auditoria do XEvent em instância gerida suporta os alvos de armazenamento da Blob Azure. Os registos de ficheiros e janelas não são **suportados**.
 
 As principais diferenças na `CREATE AUDIT` sintaxe para a auditoria ao armazenamento da Blob Azure são:
 
-- É fornecida uma `TO URL` nova sintaxe e permite-lhe especificar URL do `.xel` recipiente de armazenamento de blob Azure onde os ficheiros são colocados.
-- É fornecida uma `TO EXTERNAL MONITOR` nova sintaxe para permitir os alvos de registos do Even Hub e do Azure Monitor.
-- A sintaxe `TO FILE` não é **suportada** porque a Base de Dados SQL não pode aceder a partilhas de ficheiros windows.
+- É fornecida uma nova sintaxe `TO URL` e permite-lhe especificar URL do recipiente de armazenamento de blob Azure onde os `.xel` ficheiros são colocados.
+- É fornecida uma nova sintaxe para permitir os alvos de `TO EXTERNAL MONITOR` registos do Even Hub e do Azure Monitor.
+- A sintaxe não é suportada porque a Base de `TO FILE` Dados SQL **not supported** não pode aceder a partilhas de ficheiros windows.
 - A opção de encerramento não é **suportada.**
 - `queue_delay`de 0 não é **suportado**.
 

@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 56d8ab81fcf9200fec2cfb4a741724b8f79db820
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5f10b987fa8783084b14774b9bce5e857f3c59c4
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81408033"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650475"
 ---
 # <a name="temporary-tables-in-synapse-sql-pool"></a>Mesas temporárias na piscina Synapse SQL
 Este artigo contém orientações essenciais para a utilização de tabelas temporárias e destaca os princípios das tabelas temporárias de nível de sessão. 
@@ -29,7 +29,7 @@ As tabelas temporárias só são visíveis para a sessão em que foram criadas e
 
 As tabelas temporárias oferecem um benefício de desempenho porque os seus resultados são escritos para armazenamento local e não remoto.
 
-As tabelas temporárias são úteis no processamento de dados, especialmente durante a transformação em que os resultados intermédios são transitórios. Com o SQL Analytics, existem mesas temporárias ao nível da sessão.  Só são visíveis para a sessão em que foram criados. Como tal, são automaticamente retirados quando a sessão se inicia. 
+As tabelas temporárias são úteis no processamento de dados, especialmente durante a transformação em que os resultados intermédios são transitórios. Com piscina SQL, mesas temporárias existem ao nível da sessão.  Só são visíveis para a sessão em que foram criados. Como tal, são automaticamente retirados quando a sessão se inicia. 
 
 ## <a name="temporary-tables-in-sql-pool"></a>Mesas temporárias na piscina SQL
 
@@ -37,7 +37,7 @@ No recurso de piscina SQL, as tabelas temporárias oferecem um benefício de des
 
 ### <a name="create-a-temporary-table"></a>Criar uma tabela temporária
 
-As tabelas temporárias são criadas `#`prefixando o seu nome de mesa com a .  Por exemplo:
+As tabelas temporárias são criadas prefixando o seu nome de mesa com `#` a .  Por exemplo:
 
 ```sql
 CREATE TABLE #stats_ddl
@@ -57,7 +57,7 @@ WITH
 )
 ```
 
-As tabelas temporárias `CTAS` também podem ser criadas com uma utilização exatamente da mesma abordagem:
+As tabelas temporárias também podem ser criadas com uma `CTAS` utilização exatamente da mesma abordagem:
 
 ```sql
 CREATE TABLE #stats_ddl
@@ -105,7 +105,7 @@ GROUP BY
 ## <a name="dropping-temporary-tables"></a>Largando mesas temporárias
 Quando uma nova sessão é criada, não devem existir tabelas temporárias.  
 
-Se está a chamar o mesmo procedimento armazenado, o que cria um `CREATE TABLE` temporário com o mesmo nome, `DROP` para garantir que as suas declarações são bem sucedidas, um simples cheque pré-existência com um pode ser usado como no seguinte exemplo:
+Se está a chamar o mesmo procedimento armazenado, o que cria um temporário com o mesmo nome, para garantir que as suas `CREATE TABLE` declarações são bem sucedidas, um simples cheque pré-existência com um `DROP` pode ser usado como no seguinte exemplo:
 
 ```sql
 IF OBJECT_ID('tempdb..#stats_ddl') IS NOT NULL
@@ -114,7 +114,7 @@ BEGIN
 END
 ```
 
-Para codificar a consistência, é uma boa prática usar este padrão tanto para mesas como para mesas temporárias.  Também é uma boa ideia `DROP TABLE` usar para remover mesas temporárias quando terminar com elas no seu código.  
+Para codificar a consistência, é uma boa prática usar este padrão tanto para mesas como para mesas temporárias.  Também é uma boa ideia usar `DROP TABLE` para remover mesas temporárias quando terminar com elas no seu código.  
 
 No desenvolvimento de procedimentos armazenados, é comum ver os comandos de entrega agrupados no final de um procedimento para garantir que estes objetos são limpos.
 
@@ -203,7 +203,7 @@ Nesta fase, a única ação que ocorreu é a criação de um procedimento armaze
 
 Este procedimento armazenado deixa cair uma #stats_ddl existente para garantir que não falha se funcionar mais de uma vez dentro de uma sessão.  
 
-No entanto, `DROP TABLE` uma vez que não existe no final do procedimento armazenado, quando o procedimento armazenado termina, deixa a mesa criada para que possa ser lida fora do procedimento armazenado.  
+No entanto, uma vez que não existe `DROP TABLE` no final do procedimento armazenado, quando o procedimento armazenado termina, deixa a mesa criada para que possa ser lida fora do procedimento armazenado.  
 
 Na piscina SQL, ao contrário de outras bases de dados do SQL Server, é possível usar a tabela temporária fora do procedimento que a criou.  Mesas temporárias de piscina SQL podem ser usadas **em qualquer lugar** dentro da sessão. Esta funcionalidade pode levar a um código mais modular e manejável como no seguinte exemplo:
 
@@ -233,5 +233,5 @@ Além disso, não se podem criar vistas em mesas temporárias.  As tabelas tempo
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre o desenvolvimento de tabelas, consulte as tabelas de design utilizando o artigo de [recursos da SQL Analytics.](sql-data-warehouse-tables-overview.md)
+Para saber mais sobre o desenvolvimento de tabelas, consulte as tabelas de design utilizando o artigo de [recursos Synapse SQL.](sql-data-warehouse-tables-overview.md)
 

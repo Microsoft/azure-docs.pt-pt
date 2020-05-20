@@ -11,19 +11,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2020
+ms.date: 05/19/2020
 ms.author: spelluru
-ms.openlocfilehash: fcf31fcc266358911612c25e0b73a0a9de696b1d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 57005bc18d1eda42043236086ebbac69e54cc505
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77539037"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655781"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>Criar e gerir um modelo de sala de aula em Serviços de Laboratório Azure
 Um modelo num laboratório é a imagem de máquina virtual de base da qual todas as máquinas virtuais dos utilizadores são criadas. Configure a máquina virtual do modelo para que seja configurado com exatamente o que pretende fornecer aos utilizadores do laboratório. Pode fornecer um nome e descrição do modelo que os utilizadores do laboratório vão ver. Em seguida, publica o modelo para disponibilizar casos do modelo VM aos utilizadores do laboratório. Ao publicar um modelo, o Azure Lab Services cria VMs no laboratório através do modelo. O número de VMs criadas neste processo é igual ao número máximo de utilizadores permitidos no laboratório, o que pode configurar na política de utilização do laboratório. Todas as máquinas virtuais têm a mesma configuração do modelo.
 
 Este artigo descreve como criar e gerir uma máquina virtual modelo em um laboratório de sala de aula de Serviços de Laboratório Azure. 
+
+> [!NOTE]
+> Quando se cria um laboratório, o modelo VM é criado, mas não começou. Pode ligá-lo, ligá-lo e instalar qualquer software pré-requisito para o laboratório e depois publicá-lo. Quando publica o modelo VM, é automaticamente desligado para si se ainda não o tiver feito. 
+> 
+> Os VMs do modelo incorrem em **custos** durante a execução, por isso certifique-se de que o modelo VM é desligado quando não precisa que esteja em execução. 
+
 
 ## <a name="set-or-update-template-title-and-description"></a>Definir ou atualizar título e descrição do modelo
 Utilize os seguintes passos para definir o título e a descrição pela primeira vez e atualizá-los mais tarde. 

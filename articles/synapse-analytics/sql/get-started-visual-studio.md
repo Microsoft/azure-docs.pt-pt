@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3a8839609856bda5304712405ec57accb4afb095
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: c8b66e42c5719203eb0f195a5b61e81da8b187e7
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201684"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658165"
 ---
 # <a name="connect-to-synapse-sql-with-visual-studio-and-ssdt"></a>Ligue-se ao Synapse SQL com O Estúdio Visual e SSDT
 > [!div class="op_single_selector"]
@@ -36,11 +36,11 @@ Para utilizar este tutorial, é necessário ter os seguintes componentes:
 
 * Uma piscina SQL existente. Se não tiver uma, consulte [Criar uma piscina SQL](../sql-data-warehouse/create-data-warehouse-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para completar este pré-requisito.
 * SSDT para Visual Studio. Se tem o Estúdio Visual, provavelmente já tem este componente. Para obter instruções e opções de instalação, veja [Installing Visual Studio and SSDT](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (Instalar o Visual Studio e o SSDT).
-* O nome de servidor SQL completamente qualificado. Para encontrar isto, consulte [Connect to SQL pool](connect-overview.md).
+* O nome de servidor SQL completamente qualificado. Para encontrar este nome de servidor, consulte [Connect to SQL pool](connect-overview.md).
 
 ## <a name="1-connect-to-sql-pool"></a>1. Ligar à piscina SQL
 1. Open Visual Studio 2019.
-2. Abra o Explorador de Objetos do Servidor SQL. Para isso, selecione **Ver**Explorador de  >  **Objetos do Servidor SQL**.
+2. Abra o Explorador de Objetos do Servidor SQL selecionando **o 'Ver**  >  **Explorador de Objetos servidor SQL**'.
    
     ![SQL Server Object Explorer](./media/get-started-visual-studio/open-ssdt.png)
 3. Clique no ícone **Adicionar SQL Server**.
@@ -70,7 +70,7 @@ Agora que foi estabelecida uma ligação à sua base de dados, escreva uma consu
     ```sql
     SELECT COUNT(*) FROM dbo.FactInternetSales;
     ```
-4. Execute a consulta. Para tal, clique na seta verde ou utilize o atalho seguinte: `CTRL`+`SHIFT`+`E`.
+4. Executar a consulta clicando na seta verde ou utilizar o seguinte atalho: `CTRL` + `SHIFT` + `E` .
    
     ![Executar consulta](./media/get-started-visual-studio/run-query.png)
 5. Veja os resultados da consulta. Neste exemplo, a tabela FactInternetSales tem 60398 linhas.

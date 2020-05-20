@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: aa59a37f3a4413c92a483746ed4a08c363ab8457
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: de3f553fd001b06d56663f63402da2489f35877d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82796528"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649166"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>Linha de base de segurança Azure para Gestão de API
 
@@ -526,7 +526,7 @@ Configure a política de validação jWT para os pedidos de API que chegam para 
 
 Crie definições de diagnóstico para contas de utilizadores da AD Azure e envie os registos de auditoria e os registos de log-in para um espaço de trabalho do Log Analytics. Configure os alertas desejados dentro do Log Analytics. Além disso, pode embarcar no espaço de trabalho do Log Analytics para o Azure Sentinel ou um SIEM de terceiros.
 
-Configure a monitorização avançada com `log-to-eventhub` a API Management utilizando a política, capture quaisquer informações adicionais de contexto necessárias para análise de segurança, e envie para O Azure Sentinel ou SIEM de terceiros.
+Configure a monitorização avançada com a API Management utilizando a `log-to-eventhub` política, capture quaisquer informações adicionais de contexto necessárias para análise de segurança, e envie para O Azure Sentinel ou SIEM de terceiros.
 
 * [Como autorizar contas de desenvolvimento utilizando o Diretório Ativo Azure na Gestão da API Azure](https://docs.microsoft.com/azure/api-management/api-management-howto-aad)
 
@@ -1070,9 +1070,9 @@ O backup de serviço e restauro de funcionalidades da API Management fornecem os
 
 * [Como implementar a recuperação após desastre através do serviço de cópia de segurança e restauro na Gestão de API do Azure](https://docs.microsoft.com/azure/api-management/api-management-howto-disaster-recovery-backup-restore#calling-the-backup-and-restore-operations)
 
-* [Como chamar a operação de backup da API Management](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/apimanagementservice/backup)
+* [Como chamar a operação de backup da API Management](/rest/api/apimanagement/2019-12-01/apimanagementservice/backup)
 
-* [Como chamar a Operação de Restauro de Gestão aPi](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/apimanagementservice/restore)
+* [Como chamar a Operação de Restauro de Gestão aPi](/rest/api/apimanagement/2019-12-01/apimanagementservice/restore)
 
 **Monitorização**do Azure Security Center : Não aplicável
 

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 4/3/2020
-ms.openlocfilehash: 6a1d2f6079280002c868702a6547c8fd359a7c21
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 5/13/2020
+ms.openlocfilehash: 7c74829955085b3aa25043b25101fdaab10d7e6d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81310131"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659588"
 ---
 # <a name="azure-sql-database-serverless"></a>Base de dados Azure SQL sem servidor
 
@@ -45,7 +45,7 @@ Para mais detalhes de custos, consulte [Billing](sql-database-serverless.md#bill
 
 ## <a name="scenarios"></a>Cenários
 
-Serverless é o desempenho de preço otimizado para bases de dados individuais com padrões de utilização intermitentes e imprevisíveis que podem suportar algum atraso no aquecimento da computação após períodos de utilização inativo. Em contrapartida, o nível de cálculo provisionado é o desempenho do preço otimizado para bases de dados individuais ou múltiplas bases de dados em piscinas elásticas com uma utilização média mais elevada que não pode permitir qualquer atraso no aquecimento da computação.
+O escalão Sem servidor está otimizado para uma relação preço/desempenho das bases de dados individuais com padrões de utilização imprevisíveis ou intermitentes que se podem permitir ter algum atraso no aquecimento da computação após períodos de inatividade. Em contrapartida, o escalão de computação aprovisionada está otimizado para uma relação preço/desempenho das bases de dados individuais ou das bases de dados múltiplas em conjuntos elásticos com uma utilização acima da média que não se podem permitir ter nenhum tipo de atraso no aquecimento da computação.
 
 ### <a name="scenarios-well-suited-for-serverless-compute"></a>Cenários bem adaptados para computação sem servidor
 
@@ -132,6 +132,7 @@ O pressuposto automático é desencadeado se alguma das seguintes condições fo
 |Auditoria|A ver os registos de auditoria.<br>Atualizar ou visualizar a política de auditoria.|
 |Máscara de dados|Adicionar, modificar, apagar ou ver regras de mascaramento de dados|
 |Encriptação de Dados Transparente|Ver estado ou estado de encriptação de dados transparentes|
+|Avaliação de vulnerabilidades|Ad hoc scans e exames periódicos se ativados|
 |Consulta (performance) loja de dados|Modificação ou visualização das definições de loja de consulta|
 |Auto-sintonia|Aplicação e verificação de recomendações de afinação automática, tais como a indexação automática|
 |Cópia da base de dados|Criar base de dados como cópia.<br>Exportar para um ficheiro BACPAC.|
@@ -256,11 +257,11 @@ Uma base de dados sem servidores pode ser transferida para um nível de computa�
 
 ### <a name="use-powershell"></a>Utilizar o PowerShell
 
-A modificação dos vCores máximos ou mínimos e atraso de pausa automática é realizada utilizando `MaxVcore` `MinVcore`o `AutoPauseDelayInMinutes` comando [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) em PowerShell utilizando os argumentos e argumentos.
+A modificação dos vCores máximos ou mínimos e atraso de pausa automática é realizada utilizando o comando [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) em PowerShell utilizando os `MaxVcore` argumentos e `MinVcore` `AutoPauseDelayInMinutes` argumentos.
 
 ### <a name="use-azure-cli"></a>Utilizar a CLI do Azure
 
-A modificação dos vCores máximos ou mínimos, e atraso de pausa automática, é realizada `capacity`utilizando `min-capacity`o `auto-pause-delay` comando de [atualização az sql db](/cli/azure/sql/db#az-sql-db-update) em Azure CLI utilizando os argumentos e argumentos.
+A modificação dos vCores máximos ou mínimos, e atraso de pausa automática, é realizada utilizando o comando de [atualização az sql db](/cli/azure/sql/db#az-sql-db-update) em Azure CLI utilizando os `capacity` argumentos e `min-capacity` `auto-pause-delay` argumentos.
 
 
 ## <a name="monitoring"></a>Monitorização
@@ -281,7 +282,7 @@ O conjunto de recursos do utilizador é o limite de gestão mais interior de rec
 
 As métricas para monitorizar a utilização de recursos do pacote de aplicações e o conjunto de utilizadores de uma base de dados sem servidorestão listadas na tabela seguinte:
 
-|Entidade|Métrica|Descrição|Unidades|
+|Entidade|Metric|Descrição|Unidades|
 |---|---|---|---|
 |Pacote de aplicações|app_cpu_percent|Percentagem de vCores utilizados pela app em relação a vCores max permitidos para a aplicação.|Percentagem|
 |Pacote de aplicações|app_cpu_billed|A quantidade de cálculo faturado para a app durante o período de reporte. O valor pago durante este período é o produto desta métrica e o preço unitário vCore. <br><br>Os valores desta métrica são determinados por agregação ao longo do tempo o máximo de CPU utilizado e memória usada a cada segundo. Se o montante utilizado for inferior ao montante mínimo previsto pelos min vCores e pela memória min, então o montante mínimo previsto é faturado.Para comparar cpU com memória para efeitos de faturação, a memória é normalizada em unidades de vCores, rescalando a quantidade de memória em GB por 3 GB por vCore.|vCore segundos|

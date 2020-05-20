@@ -1,5 +1,5 @@
 ---
-title: Notas de Versão
+title: Release Notes (Notas de Lançamento)
 description: Conheça as novas funcionalidades e melhorias no serviço de base de dados Azure SQL e na documentação da Base de Dados Azure SQL
 services: sql-database
 author: stevestein
@@ -7,14 +7,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 05/13/2020
 ms.author: sstein
-ms.openlocfilehash: 2d89320b4e5237017b51d19495c60c03ce6288f7
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 3e5069c779cee0700bff6b2236f3cd36547fd623
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82838489"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659614"
 ---
 # <a name="sql-database-release-notes"></a>Notas de lançamento da Base de Dados SQL
 
@@ -78,7 +78,8 @@ As seguintes funcionalidades estão ativadas no modelo de implementação de ins
 
 |Problema  |Data descoberta  |Estado  |Data resolvida  |
 |---------|---------|---------|---------|
-|[Agente torna-se insensível ao modificar, desativar ou permitir empregos existentes](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|maio de 2020|Atenuado automaticamente| |
+|[Restaurar a cópia de segurança manual sem a CHECKSUM pode falhar](#restoring-manual-backup-without-checksum-might-fail)|Maio de 2020|Tem Sem-teto| |
+|[Agente torna-se insensível ao modificar, desativar ou permitir empregos existentes](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|Maio de 2020|Atenuado automaticamente| |
 |[Permissões em grupo de recursos não aplicadas à Instância Gerida](#permissions-on-resource-group-not-applied-to-managed-instance)|Fev 2020|Tem Sem-teto| |
 |[Limitação da falha manual via portal para grupos de failover](#limitation-of-manual-failover-via-portal-for-failover-groups)|Jan 2020|Tem Sem-teto| |
 |[As funções do Agente SQL precisam de permissões de EXECUÇÃ explícitas para logins não-sysadmin](#in-memory-oltp-memory-limits-are-not-applied)|Dez 2019|Tem Sem-teto| |
@@ -103,6 +104,12 @@ As seguintes funcionalidades estão ativadas no modelo de implementação de ins
 |A restauração da base de dados ponto-a-tempo do nível Business Critical para o nível de Propósito Geral não terá sucesso se a base de dados de origem contiver objetos OLTP na memória.| |Resolvido|Out 2019|
 |Recurso de correio de base de dados com servidores de correio externos (não-Azure) utilizando ligação segura| |Resolvido|Out 2019|
 |Bases de dados contidas não suportadas em instância gerida| |Resolvido|Ago 2019|
+
+### <a name="restoring-manual-backup-without-checksum-might-fail"></a>Restaurar a cópia de segurança manual sem a CHECKSUM pode falhar
+
+Em certas circunstâncias, a cópia manual de bases de dados que foi feita em instância gerida sem a CHECKSUM pode não ser restaurada. Neste caso, tente restaurar o backup até ser bem sucedido.
+
+**Seleção**: Pegue cópias de segurança manuais de bases de dados em caso de gestão com a CHECKUM ativada.
 
 ### <a name="agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs"></a>Agente torna-se insensível ao modificar, desativar ou permitir empregos existentes
 
@@ -148,13 +155,13 @@ O nível de serviço Business Critical não aplicará corretamente [limites máx
 
 ### <a name="wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty"></a>Erro errado devolvido ao tentar remover um ficheiro que não está vazio
 
-SQL Server/Managed Instance [não permite que o utilizador deixe cair um ficheiro que não está vazio](/sql/relational-databases/databases/delete-data-or-log-files-from-a-database#Prerequisites). Se tentar remover um ficheiro de `ALTER DATABASE REMOVE FILE` dados não `Msg 5042 – The file '<file_name>' cannot be removed because it is not empty` vazio utilizando a declaração, o erro não será devolvido imediatamente. A Instância Gerida continuará a tentar retirar o ficheiro e a `Internal server error`operação falhará após 30min com .
+SQL Server/Managed Instance [não permite que o utilizador deixe cair um ficheiro que não está vazio](/sql/relational-databases/databases/delete-data-or-log-files-from-a-database#Prerequisites). Se tentar remover um ficheiro de dados não vazio utilizando `ALTER DATABASE REMOVE FILE` a declaração, o erro `Msg 5042 – The file '<file_name>' cannot be removed because it is not empty` não será devolvido imediatamente. A Instância Gerida continuará a tentar retirar o ficheiro e a operação falhará após 30min com `Internal server error` .
 
-**Seleção**: Retire o `DBCC SHRINKFILE (N'<file_name>', EMPTYFILE)` conteúdo do ficheiro utilizando o comando. Se este for o único ficheiro no grupo de ficheiros, terá de eliminar os dados da tabela ou partição associada a este grupo de ficheiros antes de encolher o ficheiro e, opcionalmente, carregar esses dados noutra tabela/partição.
+**Seleção**: Retire o conteúdo do ficheiro utilizando `DBCC SHRINKFILE (N'<file_name>', EMPTYFILE)` o comando. Se este for o único ficheiro no grupo de ficheiros, terá de eliminar os dados da tabela ou partição associada a este grupo de ficheiros antes de encolher o ficheiro e, opcionalmente, carregar esses dados noutra tabela/partição.
 
 ### <a name="change-service-tier-and-create-instance-operations-are-blocked-by-ongoing-database-restore"></a>Alterar nível de serviço e criar operações de instância são bloqueadas por restauro de base de dados em curso
 
-A `RESTORE` declaração em curso, o processo de migração do Serviço de Migração de Dados e a restauração do tempo incorporado bloquearão a atualização do nível de serviço ou a redimensionação da instância existente e criarão novas instâncias até que o processo de restabelecimento termine. O processo de restauro bloqueará estas operações nas instâncias geridas e piscinas de exemplo na mesma subnet onde o processo de restauro está em execução. Os casos, por exemplo, as piscinas não são afetados. Criar ou alterar as operações de nível de serviço não falhará ou o tempo de tempo - procederão assim que o processo de restauro estiver concluído ou cancelado.
+A declaração em curso, o processo de migração do Serviço de Migração de Dados e a restauração do tempo incorporado bloquearão a atualização do nível de `RESTORE` serviço ou a redimensionação da instância existente e criarão novas instâncias até que o processo de restabelecimento termine. O processo de restauro bloqueará estas operações nas instâncias geridas e piscinas de exemplo na mesma subnet onde o processo de restauro está em execução. Os casos, por exemplo, as piscinas não são afetados. Criar ou alterar as operações de nível de serviço não falhará ou o tempo de tempo - procederão assim que o processo de restauro estiver concluído ou cancelado.
 
 **Supor:** Aguarde até que o processo de restauro termine ou cancele o processo de restauro se a criação ou atualização da operação de nível de serviço tiver maior prioridade.
 
@@ -162,19 +169,19 @@ A `RESTORE` declaração em curso, o processo de migração do Serviço de Migra
 
 [A](/sql/relational-databases/resource-governor/resource-governor) funcionalidade Do Governador de Recursos que lhe permite limitar os recursos atribuídos à carga horária do utilizador pode classificar incorretamente alguma carga de trabalho do utilizador após a falha ou alteração do nível de serviço iniciado pelo utilizador (por exemplo, a alteração do tamanho máximo vCore ou do tamanho de armazenamento de instâncias max).
 
-**Supor** `ALTER RESOURCE GOVERNOR RECONFIGURE` : Execute periodicamente ou como parte do Trabalho do Agente SQL que executa a tarefa SQL quando a instância começa se estiver a utilizar [o Governor de Recursos](/sql/relational-databases/resource-governor/resource-governor).
+**Supor :** Execute `ALTER RESOURCE GOVERNOR RECONFIGURE` periodicamente ou como parte do Trabalho do Agente SQL que executa a tarefa SQL quando a instância começa se estiver a utilizar [o Governor de Recursos](/sql/relational-databases/resource-governor/resource-governor).
 
 ### <a name="cross-database-service-broker-dialogs-must-be-re-initialized-after-service-tier-upgrade"></a>Os diálogos do Corretor de Serviços cross-database devem ser reinicializados após a atualização do nível de serviço
 
-Os diálogos do Corretor de Serviços cross-database deixarão de entregar as mensagens aos serviços noutras bases de dados após a alteração da operação de nível de serviço. As mensagens não se **perdem** e podem ser encontradas na fila do remetente. Qualquer alteração do vCores ou tamanho de armazenamento `service_broke_guid` de instâncias em Instância Gerida, fará com que o valor na visão de bases de [dados sys.bases](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) de dados seja alterado para todas as bases de dados. Qualquer `DIALOG` criado usando a declaração DO [DIALOG BEGIN](/sql/t-sql/statements/begin-dialog-conversation-transact-sql) que referencia corretores de serviços em outra base de dados deixará de entregar mensagens ao serviço alvo.
+Os diálogos do Corretor de Serviços cross-database deixarão de entregar as mensagens aos serviços noutras bases de dados após a alteração da operação de nível de serviço. As mensagens não se **perdem** e podem ser encontradas na fila do remetente. Qualquer alteração do vCores ou tamanho de armazenamento de instâncias em Instância Gerida, fará com que o valor na visão de bases de `service_broke_guid` [dados sys.bases](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) de dados seja alterado para todas as bases de dados. Qualquer criado usando a declaração DO `DIALOG` [DIALOG BEGIN](/sql/t-sql/statements/begin-dialog-conversation-transact-sql) que referencia corretores de serviços em outra base de dados deixará de entregar mensagens ao serviço alvo.
 
 **Supor:** Pare qualquer atividade que utilize conversas de diálogo de serviço seleção de serviços antes de atualizar o nível de serviço e reinicializá-las depois. Se restam mensagens que não sejam entregues após a alteração do nível de serviço, leia as mensagens da fila de origem e reenvie-as para a fila do alvo.
 
 ### <a name="impersonification-of-azure-ad-login-types-is-not-supported"></a>A ipersonificação dos tipos de login Azure AD não é suportada
 
-Não é `EXECUTE AS USER` suportada a utilização ou `EXECUTE AS LOGIN` dos seguintes diretores da AAD:
--    Utilizadores de AAD aliased. Neste caso, `15517`devolve-se o seguinte erro.
-- Logins aAD e utilizadores com base em aplicações aAD ou diretores de serviço. Neste caso, `15517` são devolvidos `15406`os seguintes erros e .
+Não é suportada a utilização `EXECUTE AS USER` ou `EXECUTE AS LOGIN` dos seguintes diretores da AAD:
+-    Utilizadores de AAD aliased. Neste caso, devolve-se o seguinte `15517` erro.
+- Logins aAD e utilizadores com base em aplicações aAD ou diretores de serviço. Neste caso, são devolvidos os seguintes erros `15517` e `15406` .
 
 ### <a name="query-parameter-not-supported-in-sp_send_db_mail"></a>@queryparâmetro não suportado em sp_send_db_mail
 
@@ -190,17 +197,17 @@ As Ferramentas de Dados do Servidor SQL não suportam totalmente os logins e uti
 
 ### <a name="temporary-database-is-used-during-restore-operation"></a>Base de dados temporária é utilizada durante o funcionamento do RESTAURO
 
-Quando uma base de dados está a restaurar em Caso Gerido, o serviço de restauro criará primeiro uma base de dados vazia com o nome pretendido para atribuir o nome na instância. Após algum tempo, esta base de dados será retirada e a restauração da base de dados real será iniciada. A base de dados que está em *estado de Restauração* terá um valor GUID aleatório em vez de nome. O nome temporário será alterado para o `RESTORE` nome desejado especificado em comunicado assim que o processo de restauro estiver concluído. Na fase inicial, o utilizador pode aceder à base de dados vazia e até criar tabelas ou carregar dados nesta base de dados. Esta base de dados temporária será retirada quando o serviço de restauro começar a segunda fase.
+Quando uma base de dados está a restaurar em Caso Gerido, o serviço de restauro criará primeiro uma base de dados vazia com o nome pretendido para atribuir o nome na instância. Após algum tempo, esta base de dados será retirada e a restauração da base de dados real será iniciada. A base de dados que está em *estado de Restauração* terá um valor GUID aleatório em vez de nome. O nome temporário será alterado para o nome desejado especificado em comunicado assim que o processo de `RESTORE` restauro estiver concluído. Na fase inicial, o utilizador pode aceder à base de dados vazia e até criar tabelas ou carregar dados nesta base de dados. Esta base de dados temporária será retirada quando o serviço de restauro começar a segunda fase.
 
 **Seleção**: Não aceda à base de dados que está a restaurar até ver que a restauração está concluída.
 
 ### <a name="tempdb-structure-and-content-is-re-created"></a>Estrutura e conteúdo TEMPDB é recriado
 
-A `tempdb` base de dados é sempre dividida em 12 ficheiros de dados e a estrutura do ficheiro não pode ser alterada. O tamanho máximo por ficheiro não pode ser alterado `tempdb`e não é possível adicionar novos ficheiros a . `Tempdb`é sempre recriada como base de dados vazia quando a instância `tempdb` começa ou falha, e quaisquer alterações introduzidas não serão preservadas.
+A `tempdb` base de dados é sempre dividida em 12 ficheiros de dados e a estrutura do ficheiro não pode ser alterada. O tamanho máximo por ficheiro não pode ser alterado e não é possível adicionar novos ficheiros `tempdb` a . `Tempdb`é sempre recriada como base de dados vazia quando a instância começa ou falha, e quaisquer alterações introduzidas `tempdb` não serão preservadas.
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Exceder espaço de armazenamento com pequenos ficheiros de base de dados
 
-`CREATE DATABASE`, `ALTER DATABASE ADD FILE`e `RESTORE DATABASE` as declarações podem falhar porque a instância pode atingir o limite de armazenamento azure.
+`CREATE DATABASE`, `ALTER DATABASE ADD FILE` e as declarações podem falhar porque a instância pode atingir o limite de armazenamento `RESTORE DATABASE` azure.
 
 Cada instância gerida pelo General Purpose tem até 35 TB de armazenamento reservado para o espaço Disco Premium Azure. Cada ficheiro de base de dados é colocado num disco físico separado. Os tamanhos do disco podem ser de 128 GB, 256 GB, 512 GB, 1 TB ou 4 TB. O espaço não utilizado no disco não é carregado, mas a soma total dos tamanhos do Disco Premium Azure não pode exceder 35 TB. Em alguns casos, um caso gerido que não precisa de 8 TB no total pode exceder o limite de 35 TB Azure no tamanho do armazenamento devido à fragmentação interna.
 

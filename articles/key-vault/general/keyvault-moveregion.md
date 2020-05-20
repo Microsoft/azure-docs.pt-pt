@@ -1,6 +1,6 @@
 ---
-title: Cofre chave Azure movendo um cofre para outra região Microsoft Docs
-description: Orientação sobre mover um cofre chave para outra região.
+title: Mova um cofre chave para outra região - Azure Key Vault [ Azure Key Vault ] Microsoft Docs
+description: Este artigo oferece orientação sobre a mudança de um cofre chave para uma região diferente.
 services: key-vault
 author: ShaneBala-keyvault
 manager: ravijan
@@ -11,43 +11,38 @@ ms.topic: conceptual
 ms.date: 04/24/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another region.
-ms.openlocfilehash: e65a723ac9daafdc09896a50e197034104408df2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4f9f43b3d0aa0af8696300933c08c140951e5e52
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82254151"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83651220"
 ---
-# <a name="moving-an-azure-key-vault-across-regions"></a>Movendo um cofre de chaves azure através de regiões
+# <a name="move-an-azure-key-vault-across-regions"></a>Mova um cofre chave Azure através das regiões
 
-## <a name="overview"></a>Descrição geral
+O Cofre Chave Azure não suporta uma operação de movimento de recursos que permite mover um cofre chave de uma região para outra. Este artigo abrange sobras para organizações que têm uma necessidade de mover um cofre chave para outra região. Cada opção de suver tem limitações. É fundamental compreender as implicações destas sobras antes de tentar aplicá-las num ambiente de produção.
 
-O Cofre Chave não suporta uma operação de movimento de recursos que permite mover um cofre chave para outra região. Este artigo cobrirá sobras se tiver um negócio necessário para mover um cofre chave para outra região. Cada opção tem limitações e é fundamental compreender as implicações destas salções antes de as tentar num ambiente de produção.
+Para mover um cofre chave para outra região, você cria um cofre chave nessa outra região e, em seguida, copia manualmente cada segredo individual do seu cofre chave existente para o novo cofre chave. Pode fazê-lo utilizando qualquer uma das duas opções seguintes.
 
-Se precisar de mover um cofre chave para outra região, a solução é criar um novo cofre chave na região desejada e copiar manualmente cada segredo individual do seu cofre chave existente para o novo cofre chave. Esta operação pode ser feita em qualquer uma das seguintes formas listadas abaixo.
+## <a name="design-considerations"></a>Considerações de conceção
 
-## <a name="design-considerations"></a>Considerações sobre Design
+Antes de começar, tenha em mente os seguintes conceitos:
 
-* Os nomes do cofre são globalmente únicos. Não poderá reutilizar o mesmo nome do cofre.
+* Os nomes do cofre são globalmente únicos. Não pode reutilizar o nome do cofre.
+* Tem de reconfigurar as suas políticas de acesso e configurações de configuração de rede no novo cofre de chaves.
+* É necessário reconfigurar a proteção de eliminação suave e purgar a proteção no novo cofre chave.
+* A operação de backup e restauro não preservará as definições de rotação automática. Pode ser necessário reconfigurar as definições.
 
-* Terá de reconfigurar as políticas de acesso e configurações de configuração da rede no novo cofre chave.
+## <a name="option-1-use-the-key-vault-backup-and-restore-commands"></a>Opção 1: Utilize a cópia de segurança do cofre chave e restaure os comandos
 
-* Terá de reconfigurar a proteção de eliminação suave e purgar a proteção no novo cofre chave.
+Pode fazer backup de cada segredo individual, chave e certificado no seu cofre usando o comando de reserva. Os teus segredos são descarregados como uma bolha encriptada. Pode então restaurar a bolha no seu novo cofre chave. Para obter uma lista de comandos, consulte os [comandos do Cofre chave Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-6.13.0#key_vault).
 
-* O funcionamento de back up e restauro não preservará as definições de rotação automática que poderá necessitar para reconfigurar estas definições.
+A utilização dos comandos de backup e restauro tem duas limitações:
 
-## <a name="option-1---use-the-key-vault-backup-and-restore-commands"></a>Opção 1 - Utilize a cópia de segurança do cofre chave e restaure os comandos
+* Não se pode apoiar um cofre chave numa geografia e restaurá-lo noutra geografia. Para mais informações, consulte [geografias azure.](https://azure.microsoft.com/global-infrastructure/geographies/)
 
-Pode suster cada segredo individual, chave e certificado no seu cofre usando o comando de reserva. Os seus segredos serão descarregados como uma bolha encriptada. Pode então restaurar a bolha no seu novo cofre chave. Os comandos estão documentados no link abaixo.
+* O comando de reserva apoia todas as versões de cada segredo. Se tiver um segredo com um grande número de versões anteriores (mais de 10), o tamanho do pedido pode exceder o máximo permitido e a operação pode falhar.
 
-[Comandos do cofre de chaves Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-6.13.0#key_vault)
+## <a name="option-2-manually-download-and-upload-the-key-vault-secrets"></a>Opção 2: Descarregue manualmente e carregue os segredos do cofre chave
 
-### <a name="limitations"></a>Limitações
-
-* Não se pode apoiar um cofre chave numa geografia e restaurá-lo noutra geografia. Saiba mais sobre geografias Azure. [Ligação](https://azure.microsoft.com/global-infrastructure/geographies/)
-
-* O comando de reserva apoia todas as versões de cada segredo. Se tiver um segredo com um grande número de versões anteriores (superiora a 10) existe a possibilidade de o pedido exceder o tamanho máximo permitido do pedido e a operação poder falhar.
-
-## <a name="option-2---manually-download-and-upload-secrets"></a>Opção 2 - Transferir manualmente e carregar segredos
-
-Certos tipos secretos podem ser descarregados manualmente. Por exemplo, pode baixar certificados como ficheiro .pfx. Esta opção elimina as restrições geográficas para alguns tipos secretos, como certificados. Pode enviar os ficheiros .pfx para qualquer cofre chave em qualquer região. O seu segredo será descarregado num formato protegido sem palavra-passe. Será responsável por assegurar os seus segredos assim que saírem do Cofre chave enquanto a mudança é executada.
+Pode descarregar manualmente certos tipos secretos. Por exemplo, pode descarregar certificados como um ficheiro PFX. Esta opção elimina as restrições geográficas para alguns tipos secretos, tais como certificados. Pode enviar os ficheiros PFX para qualquer cofre chave em qualquer região. Os segredos são descarregados num formato protegido sem palavra-passe. É responsável por assegurar os seus segredos durante a mudança.

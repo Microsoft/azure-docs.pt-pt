@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: c0cf8a91ee1dbdd70f1b911dba24fb69ee7bc0e3
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: 429a342fcc5dd69e1ae8d0be5611e908e216b2d1
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744397"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659685"
 ---
 # <a name="what-is-azure-private-endpoint"></a>O que é Azure Private Endpoint?
 
@@ -35,7 +35,9 @@ O Ponto Final Privado do Azure é uma interface de rede que o liga a um serviço
 Aqui estão alguns detalhes chave sobre pontos finais privados: 
 - O ponto final privado permite a conectividade entre os consumidores do mesmo VNet, VNets regionalmente peered, VNets globalmente e em instalações usando [VPN](https://azure.microsoft.com/services/vpn-gateway/) ou [Rota Expresso](https://azure.microsoft.com/services/expressroute/) e serviços alimentados por Private Link.
  
-- Ao criar um ponto final privado, é também criada uma interface de rede apenas para leitura para o ciclo de vida do recurso. A interface é atribuída a um endereço IP privado da subnet que mapeia para o recurso de ligação privada.
+- As ligações de rede só podem ser iniciadas por clientes que se ligam ao ponto final privado, os prestadores de serviços não têm qualquer configuração de encaminhamento para iniciar ligações aos consumidores de serviços. As ligações só podem ser estabelecidos numa única direção.
+
+- Ao criar um ponto final privado, é também criada uma interface de rede apenas para leitura para o ciclo de vida do recurso. A interface é atribuída dinamicamente endereços IP privados da subnet que mapeia para o recurso de ligação privada. o valor do endereço IP privado permanece inalterado para todo o ciclo de vida do ponto final privado.
  
 - O ponto final privado deve ser implantado na mesma região que a rede virtual. 
  
@@ -55,7 +57,7 @@ Um recurso de ligação privada é o alvo de destino de um determinado ponto fin
 |**Serviço de Link Privado** (Seu próprio serviço)   |  Microsoft.Network/privateLinkServices       | vazio |
 |**Base de Dados SQL do Azure** | Microsoft.Sql/servidores    |  Sql Server (sqlServer)        |
 |**Azure Synapse Analytics** | Microsoft.Sql/servidores    |  Sql Server (sqlServer)        | 
-|**Storage do Azure**  | Microsoft.Storage/storageAccounts    |  Blob (bolha, blob_secondary)<BR> Tabela (mesa, table_secondary)<BR> Fila (fila, queue_secondary)<BR> Arquivo (arquivo, file_secondary)<BR> Web (web, web_secondary)        |
+|**Armazenamento do Azure**  | Microsoft.Storage/storageAccounts    |  Blob (bolha, blob_secondary)<BR> Tabela (mesa, table_secondary)<BR> Fila (fila, queue_secondary)<BR> Arquivo (arquivo, file_secondary)<BR> Web (web, web_secondary)        |
 |**Azure Data Lake Storage Gen2** (Armazenamento do Azure Data Lake Gen2)  | Microsoft.Storage/storageAccounts    |  Blob (bolha, blob_secondary)<BR> Data Lake File System Gen2 (dfs, dfs_secondary)       |
 |**Azure Cosmos DB** | Microsoft.AzureCosmosDB/databaseAccounts    | Sql, MongoDB, Cassandra, Gremlin, Mesa|
 |**Base de Dados Azure para PostgreSQL -Servidor único** | Microsoft.DBforPostgreSQL/servidores    | postgresqlServer |
@@ -83,7 +85,7 @@ Pode bloquear completamente as suas cargas de trabalho desde o acesso a pontos f
  
 ## <a name="access-to-a-private-link-resource-using-approval-workflow"></a>Acesso a um recurso de ligação privada utilizando fluxo de trabalho de aprovação 
 Pode ligar-se a um recurso de ligação privada utilizando os seguintes métodos de aprovação de ligação:
-- **Aprovado automaticamente** quando possui ou tem permissão no recurso de ligação privada específico. A permissão necessária baseia-se no tipo de recurso de ligação privada no seguinte formato: Microsoft. \<Fornecedor>/<resource_type>/privateEndpointConnectionApproval/action
+- **Aprovado automaticamente** quando possui ou tem permissão no recurso de ligação privada específico. A permissão necessária baseia-se no tipo de recurso de ligação privada no seguinte formato: Microsoft. \< Fornecedor>/<resource_type>/privateEndpointConnectionApproval/action
 - **Pedido manual** quando não tiver a permissão necessária e gostaria de solicitar acesso. Será iniciado um fluxo de trabalho de aprovação. O ponto final privado e a subsequente ligação do ponto final privado serão criados num estado “Pendente”. O proprietário do recurso de ligação privada é responsável por aprovar a ligação. Depois de aprovado, o ponto final privado está habilitado a enviar tráfego normalmente, como mostra o seguinte diagrama de fluxo de trabalho de aprovação.  
 
 ![aprovação de fluxo de trabalho](media/private-endpoint-overview/private-link-paas-workflow.png)

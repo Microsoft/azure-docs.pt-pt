@@ -8,19 +8,19 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: f75e5a28f7ec56750432e74ee48ba68491a5e481
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1110f76a792a7e3955d5fd32e01ac1566d467151
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81310290"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659048"
 ---
 # <a name="configure-the-application-dashboard"></a>Configure o painel de aplicações
 
-O **Dashboard** é a página que carrega quando os utilizadores que têm acesso à aplicação navegam para o URL da aplicação. Se criou a sua aplicação a partir de um dos Modelos de **Aplicação,** a sua aplicação terá um dashboard pré-definido para iniciar. Se criou a sua aplicação a partir do modelo de **aplicação** Legacy, o seu dashboard ficará em branco para começar.
+O **Dashboard** é a página que carrega quando os utilizadores que têm acesso à aplicação navegam para o URL da aplicação. Se criou a sua aplicação a partir de um dos Modelos de **Aplicação,** a sua aplicação terá um dashboard pré-definido para iniciar. Se criou a sua aplicação a partir de um modelo de **aplicação personalizado,** o seu dashboard mostrará algumas dicas para começar.
 
 > [!NOTE]
-> Os utilizadores podem [criar vários dashboards](howto-create-personal-dashboards.md) para além do dashboard de aplicação predefinido. Estes dashboards podem ser pessoais apenas para o utilizador, ou partilhados em todos os utilizadores da aplicação. 
+> Os utilizadores podem [criar vários dashboards](howto-create-personal-dashboards.md) para além do dashboard de aplicação predefinido. Estes dashboards podem ser pessoais apenas para o utilizador, ou partilhados em todos os utilizadores da aplicação.  
 
 ## <a name="add-tiles"></a>Adicionar mosaico
 
@@ -35,22 +35,23 @@ Selecionar **Editar** abre o painel da biblioteca do painel de instrumentos. A b
 > ![Biblioteca do painel de instrumentos](media/howto-add-tiles-to-your-dashboard/dashboard-library.png)
 
 Por exemplo, pode adicionar um azulejo **telemetria** para a temperatura atual do dispositivo. Para tal:
-1. Selecione um **modelo de dispositivo**
-1. Selecione uma Instância de **Dispositivo** para o dispositivo que pretende ver num azulejo do painel de instrumentos. Em seguida, você verá uma lista das propriedades do dispositivo que pode ser usada no azulejo.
-1. Para criar o azulejo no painel de instrumentos, clique em **Temperatura** e arraste-o para a área do painel de instrumentos. Também pode clicar na caixa de verificação ao lado da **Temperatura** e clicar em **Combine**. A imagem seguinte mostra selecionando um modelo de dispositivo e instância de dispositivo, criando um azulejo de telemetria de temperatura no painel de instrumentos.
+
+1. Selecione um modelo de **dispositivo**
+1. Selecione um dispositivo a partir de **Dispositivos** para o dispositivo que pretende ver num azulejo do painel de instrumentos. Em seguida, você verá uma lista das propriedades do dispositivo que pode ser usada no azulejo.
+1. Para criar o azulejo no painel de instrumentos, clique em **Temperatura** e arraste-o para a área do painel de instrumentos. Também pode clicar na caixa de verificação ao lado da **Temperatura** e clicar em **adicionar azulejos**. A imagem seguinte mostra selecionando um modelo de dispositivo e instância de dispositivo, criando um azulejo de telemetria de temperatura no painel de instrumentos.
 1. Selecione **Guardar** na parte superior esquerda para guardar o azulejo para o tablier.
 
 > [!div class="mx-imgBorder"]
 > ![Formulário "Configure Detalhes do Dispositivo" com detalhes para configurações e propriedades](media/howto-add-tiles-to-your-dashboard/device-details.png)
 
-Agora, quando um operador vê o painel de aplicação predefinido, vê o novo azulejo com a **Temperatura** do dispositivo. Cada azulejo tem um gráfico pré-selecionado, gráfico, etc. que será exibido quando o azulejo for criado. No entanto, os utilizadores podem optar por editar e alterar esta visualização. 
+Agora, quando um operador vê o painel de aplicação predefinido, vê o novo azulejo com a **Temperatura** do dispositivo. Cada azulejo tem um gráfico pré-selecionado, gráfico, etc. que será exibido quando o azulejo for criado. No entanto, os utilizadores podem optar por editar e alterar esta visualização.  
 
 > [!div class="mx-imgBorder"]
 > ![Separador "Dashboard" com definições e propriedades visualizadas para o azulejo](media/howto-add-tiles-to-your-dashboard/settings-and-properties.png)
 
 ## <a name="edit-tiles"></a>Editar azulejos
 
-Para editar um azulejo no painel de instrumentos, clique primeiro **Editar** na parte superior esquerda da página, que abrirá o modo de edição para o painel de instrumentos e todos os seus azulejos. 
+Para editar um azulejo no painel de instrumentos, clique primeiro **Editar** na parte superior esquerda da página, que abrirá o modo de edição para o painel de instrumentos e todos os seus azulejos.  
 
 > [!div class="mx-imgBorder"]
 > ![Ecrã do painel de instrumentos com modo de edição ativado para um azulejo selecionado](media/howto-add-tiles-to-your-dashboard/edit-mode.png)
@@ -68,7 +69,7 @@ Também pode alterar a visualização do gráfico clicando no ícone **Régua** 
 ## <a name="tile-types"></a>Tipos de azulejos
 
 A tabela seguinte resume a utilização de azulejos em Azure IoT Central:
- 
+
 | Mosaico | Dashboard | Descrição
 | ----------- | ------- | ------- |
 | Conteúdo | Instrumentos de aplicação e conjunto de dispositivos |Os azulejos suportados por marcação são azulejos clicáveis que exibem texto de cabeça e descrição. Também pode utilizar este azulejo como um azulejo de ligação para permitir que um utilizador navegue para um URL relacionado com a sua aplicação.|
@@ -76,13 +77,26 @@ A tabela seguinte resume a utilização de azulejos em Azure IoT Central:
 | Etiqueta | Dashboards de aplicação |Os azulejos de etiqueta exibem texto personalizado num painel de instrumentos. Pode escolher o tamanho do texto. Utilize um azulejo de etiqueta para adicionar informações relevantes ao painel de instrumentos tais descrições, detalhes de contacto ou ajuda.|
 | Mapa | Instrumentos de aplicação e dispositivo |Os azulejos do mapa exibem a localização de um dispositivo num mapa. Também pode exibir até 100 pontos do histórico de localização de um dispositivo. Por exemplo, pode ser apresentada uma rota de exibição de onde um dispositivo esteve na última semana.|
 | Gráfico de linha | Instrumentos de aplicação e dispositivo |Os azulejos da linha apresentam um gráfico de medição agregada para um dispositivo durante um período de tempo. Por exemplo, pode apresentar um gráfico de linha que mostre a temperatura média e a pressão de um dispositivo durante a última hora.|
-| gráfico de barras | Instrumentos de aplicação e dispositivo |Os azulejos da tabela de barras apresentam um gráfico de medições agregadas para um dispositivo durante um período de tempo. Por exemplo, pode apresentar um gráfico de barras que mostre a temperatura média e a pressão de um dispositivo durante a última hora.|
+| Gráfico de barras | Instrumentos de aplicação e dispositivo |Os azulejos da tabela de barras apresentam um gráfico de medições agregadas para um dispositivo durante um período de tempo. Por exemplo, pode apresentar um gráfico de barras que mostre a temperatura média e a pressão de um dispositivo durante a última hora.|
 | Gráfico de torta | Instrumentos de aplicação e conjunto de dispositivos |Os azulejos da carta de tarte apresentam um gráfico de medições agregadas para um dispositivo durante um período de tempo.|
-| Mapa Térmico | Instrumentos de aplicação e conjunto de dispositivos |Os azulejos do Mapa de Calor exibem informações sobre o conjunto do dispositivo, representados como cores.|
+| Mapa Térmico | Instrumentos de aplicação e conjunto de dispositivos |Os azulejos do Mapa de Calor exibem informações sobre o dispositivo, representadas como cores.|
 | História do Evento | Instrumentos de aplicação e dispositivo |Os azulejos do Event History exibem os eventos para um dispositivo durante um período de tempo. Por exemplo, pode usá-lo para mostrar todas as alterações de temperatura de um dispositivo durante a última hora.|
 | História do Estado | Instrumentos de aplicação e dispositivo |Os azulejos do estado apresentam os valores de medição por um período de tempo. Por exemplo, pode usá-lo para mostrar os valores de temperatura de um dispositivo durante a última hora.|
 | KPI | Instrumentos de aplicação e dispositivo | Os azulejos KPI apresentam uma telemetria agregada ou medição de eventos por um período de tempo. Por exemplo, pode usá-lo para mostrar a temperatura máxima alcançada para um dispositivo durante a última hora.|
-| Último Valor Conhecido | Instrumentos de aplicação e dispositivo |Os últimos azulejos de valor conhecidos apresentam o valor mais recente para uma medição de telemetria ou estado. Por exemplo, pode utilizar este azulejo para apresentar as medições mais recentes de temperatura, pressão e humidade para um dispositivo.|
+| Último Valor Conhecido | Instrumentos de aplicação e dispositivo |Os últimos azulejos de valor conhecidos apresentam o valor mais recente para uma medição de telemetria ou estado. Por exemplo, pode utilizar este azulejo para apresentar as medições mais recentes de temperatura, pressão e humidade para um dispositivo. |
+| Propriedade | Instrumentos de aplicação e dispositivo | Os azulejos da propriedade exibem o valor atual para propriedades e propriedades em nuvem de um dispositivo. Por exemplo, pode utilizar este azulejo para exibir propriedades do dispositivo, como a versão do fabricante ou do firmware para um dispositivo. |
+
+### <a name="customizing-visualizations"></a>Personalização de visualizações
+
+Para gráficos de linhas, gráficos de barras e gráficos de tartes, você pode personalizar as cores exibidas por diferentes telemetrias na sua tabela. Para isso, selecione o ícone do paladar ao lado da telemetria que pretende personalizar e escolha uma cor.
+
+> [!div class="mx-imgBorder"]
+> ![Dropdown para configurações de exibição de cores de telemetria](media/howto-add-tiles-to-your-dashboard/color-customization.png)
+
+Para telemetrias ou propriedades do tipo string, pode escolher como pretende visualizar o texto. Por exemplo, se o seu dispositivo enviar um URL como telemetria de cordas, pode visualizar esse URL como um link clicável. Se o URL referenciar uma imagem, pode rendera a imagem num último valor conhecido ou azulejo de propriedade. Pode alterar a forma como a telemetria de cordas é exibida selecionando o equipamento ao lado do nome da telemetria. Desta forma, pode mostrar o texto como texto, link ou imagem.
+
+> [!div class="mx-imgBorder"]
+> ![Dropdown para definições de visualização de cordas](media/howto-add-tiles-to-your-dashboard/string-viz-customization.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

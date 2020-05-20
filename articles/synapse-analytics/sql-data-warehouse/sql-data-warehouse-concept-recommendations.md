@@ -11,18 +11,18 @@ ms.date: 04/30/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 546945d70554adbb28f19a3153faa67495e55f04
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 17b8ce04cb5029d1bea11344617bf65718ca579c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82607759"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653022"
 ---
 # <a name="synapse-sql-recommendations"></a>Recomendações Synapse SQL
 
 Este artigo descreve as recomendações synapse SQL servidas através do Azure Advisor.  
 
-A SQL Analytics fornece recomendações para garantir que a carga de trabalho do seu armazém de dados seja consistentemente otimizada para o desempenho. As recomendações estão fortemente integradas com o [Azure Advisor](../../advisor/advisor-performance-recommendations.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) para lhe proporcionar as melhores práticas diretamente dentro do [portal Azure.](https://aka.ms/Azureadvisor) A SQL Analytics recolhe recomendações de telemetria e superfícies para a sua carga de trabalho ativa numa cadência diária. Os cenários de recomendação apoiados são descritos abaixo juntamente com a forma de aplicar as ações recomendadas.
+A Synapse SQL fornece recomendações para garantir que a carga de trabalho do seu armazém de dados seja consistentemente otimizada para o desempenho. As recomendações estão fortemente integradas com o [Azure Advisor](../../advisor/advisor-performance-recommendations.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) para lhe proporcionar as melhores práticas diretamente dentro do [portal Azure.](https://aka.ms/Azureadvisor) A Synapse SQL recolhe recomendações de telemetria e superfícies para a sua carga de trabalho ativa numa cadência diária. Os cenários de recomendação apoiados são descritos abaixo juntamente com a forma de aplicar as ações recomendadas.
 
 Pode [consultar as suas recomendações](https://aka.ms/Azureadvisor) hoje! 
 

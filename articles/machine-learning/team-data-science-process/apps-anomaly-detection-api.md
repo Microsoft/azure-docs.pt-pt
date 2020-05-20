@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
-ms.openlocfilehash: a09094cf0d1bd3c2e299e968d7de8410dcd9c3cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 269cadc50d55c4b986c55f489cecd7fa17922ba8
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76721885"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656555"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>API de deteção de anomalias de aprendizagem automática
 
@@ -24,7 +24,7 @@ ms.locfileid: "76721885"
 > Este artigo está em manutenção. Encorajamo-lo a usar o [serviço API](https://azure.microsoft.com/services/cognitive-services/anomaly-detector/) do Detetor de Anomalias alimentado por uma galeria de algoritmos de Machine Learning no âmbito dos Serviços Cognitivos Azure para detetar anomalias de métricas de negócios, operacionais e IoT.
 
 ## <a name="overview"></a>Descrição geral
-[A API de Deteção de Anomalias](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2) é um exemplo construído com o Azure Machine Learning que deteta anomalias em dados de séries temporais com valores numéricos que são uniformemente espaçados no tempo.
+[A API de Deteção de Anomalias](https://gallery.azure.ai/MachineLearningAPI/Anomaly-Detection-2) é um exemplo construído com o Azure Machine Learning que deteta anomalias em dados de séries temporais com valores numéricos que são uniformemente espaçados no tempo.
 
 Esta API pode detetar os seguintes tipos de padrões anómalos nos dados da série temporal:
 
@@ -39,29 +39,29 @@ A oferta de Deteção de Anomalias vem com ferramentas úteis para começar.
 * A [aplicação web](https://anomalydetection-aml.azurewebsites.net/) ajuda-o a avaliar e visualizar os resultados de APIs de deteção de anomalias nos seus dados.
 
 > [!NOTE]
-> Experimente a **solução IT Anomaly Insights** powered by [this API](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2)
+> Experimente a **solução IT Anomaly Insights** powered by [this API](https://gallery.azure.ai/MachineLearningAPI/Anomaly-Detection-2)
 >
 <!-- This Solution is no longer available
 > To get this end to end solution deployed to your Azure subscription <a href="https://gallery.cortanaintelligence.com/Solution/Anomaly-Detection-Pre-Configured-Solution-1" target="_blank">**Start here >**</a>
 -->
 
 ## <a name="api-deployment"></a>Implantação da API
-Para utilizar a API, deve implantá-la para a sua subscrição Azure, onde será hospedado como um serviço web Azure Machine Learning.  Pode fazê-lo a partir da [Galeria Azure AI.](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2)  Isto irá implantar dois Serviços Web Azure Machine Learning Studio (clássicos) para a sua subscrição Azure - um para deteção de anomalias com deteção de sazonalidade, e outro sem deteção de sazonalidade.  Uma vez concluída a implementação, poderá gerir as suas APIs a partir da página de serviços web Do [Azure Machine Learning Studio (clássico).](https://services.azureml.net/webservices/)  A partir desta página, poderá encontrar os seus locais de ponta, chaves API, bem como código de amostra para ligar para a API.  Estão disponíveis instruções mais detalhadas [aqui.](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice)
+Para utilizar a API, deve implantá-la para a sua subscrição Azure, onde será hospedado como um serviço web Azure Machine Learning.  Pode fazê-lo a partir da [Galeria Azure AI.](https://gallery.azure.ai/MachineLearningAPI/Anomaly-Detection-2)  Isto irá implantar dois Serviços Web Azure Machine Learning Studio (clássicos) para a sua subscrição Azure - um para deteção de anomalias com deteção de sazonalidade, e outro sem deteção de sazonalidade.  Uma vez concluída a implementação, poderá gerir as suas APIs a partir da página de serviços web Do [Azure Machine Learning Studio (clássico).](https://services.azureml.net/webservices/)  A partir desta página, poderá encontrar os seus locais de ponta, chaves API, bem como código de amostra para ligar para a API.  Estão disponíveis instruções mais detalhadas [aqui.](/azure/machine-learning/studio/manage-new-webservice)
 
 ## <a name="scaling-the-api"></a>Dimensionamento da API
 Por predefinição, a sua implementação terá um plano gratuito de faturação Dev/Test que inclui 1.000 transações/mês e 2 horas/mês de computação.  Pode fazer upgrade para outro plano de acordo com as suas necessidades.  Os detalhes sobre os preços dos diferentes planos estão disponíveis [aqui](https://azure.microsoft.com/pricing/details/machine-learning/) no âmbito do "Preço da Web API de produção".
 
 ## <a name="managing-aml-plans"></a>Gestão de Planos AML
-Pode gerir o seu plano de faturação [aqui.](https://services.azureml.net/plans/)  O nome do plano será baseado no nome do grupo de recursos que escolheu ao implementar a API, além de uma cadeia que é única na sua subscrição.  Instruções sobre como atualizar o seu plano estão disponíveis [aqui](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice) no âmbito da secção "Gerir planos de faturação".
+Pode gerir o seu plano de faturação [aqui.](https://services.azureml.net/plans/)  O nome do plano será baseado no nome do grupo de recursos que escolheu ao implementar a API, além de uma cadeia que é única na sua subscrição.  Instruções sobre como atualizar o seu plano estão disponíveis [aqui](/azure/machine-learning/studio/manage-new-webservice) no âmbito da secção "Gerir planos de faturação".
 
 ## <a name="api-definition"></a>Definição API
 O serviço web fornece um API baseado em REST sobre HTTPS que pode ser consumido de diferentes maneiras, incluindo uma aplicação web ou móvel, R, Python, Excel, etc.  Envia os dados da sua série de tempo para este serviço através de uma chamada REST API, e executa uma combinação dos três tipos de anomalias descritos abaixo.
 
 ## <a name="calling-the-api"></a>Chamando a API
-Para ligar para a API, terá de saber a localização do ponto final e a chave API.  Estes dois requisitos, juntamente com o código de amostra para chamar a API, estão disponíveis na página de serviços web Do [Azure Machine Learning Studio (clássico).](https://services.azureml.net/webservices/)  Navegue para a API desejada e, em seguida, clique no separador "Consumir" para os encontrar.  Pode chamar a API como Uma API swagger (isto `format=swagger`é, com o parâmetro URL) ou `format` como uma API não-Swagger (isto é, sem o parâmetro URL).  O código da amostra usa o formato Swagger.  Abaixo está um pedido de exemplo e resposta em formato não-Swagger.  Estes exemplos são para o ponto final da sazonalidade.  O ponto final da não sazonalidade é semelhante.
+Para ligar para a API, terá de saber a localização do ponto final e a chave API.  Estes dois requisitos, juntamente com o código de amostra para chamar a API, estão disponíveis na página de serviços web Do [Azure Machine Learning Studio (clássico).](https://services.azureml.net/webservices/)  Navegue para a API desejada e, em seguida, clique no separador "Consumir" para os encontrar.  Pode chamar a API como Uma API swagger (isto é, com o parâmetro `format=swagger` URL) ou como uma API não-Swagger (isto é, sem o `format` parâmetro URL).  O código da amostra usa o formato Swagger.  Abaixo está um pedido de exemplo e resposta em formato não-Swagger.  Estes exemplos são para o ponto final da sazonalidade.  O ponto final da não sazonalidade é semelhante.
 
 ### <a name="sample-request-body"></a>Corpo de Pedido de Amostra
-O pedido contém `Inputs` dois `GlobalParameters`objetos: e .  No pedido de exemplo abaixo, alguns parâmetros são enviados explicitamente enquanto outros não são (rolar para baixo para uma lista completa de parâmetros para cada ponto final).  Os parâmetros que não são enviados explicitamente no pedido utilizarão os valores predefinidos abaixo indicados.
+O pedido contém dois objetos: `Inputs` e `GlobalParameters` .  No pedido de exemplo abaixo, alguns parâmetros são enviados explicitamente enquanto outros não são (rolar para baixo para uma lista completa de parâmetros para cada ponto final).  Os parâmetros que não são enviados explicitamente no pedido utilizarão os valores predefinidos abaixo indicados.
 
     {
                 "Inputs": {
@@ -83,7 +83,7 @@ O pedido contém `Inputs` dois `GlobalParameters`objetos: e .  No pedido de exem
     }
 
 ### <a name="sample-response"></a>Resposta de Amostra
-Para ver o `ColumnNames` campo, deve `details=true` incluir como parâmetro URL no seu pedido.  Veja as tabelas abaixo para obter o significado por trás de cada um destes campos.
+Para ver o `ColumnNames` campo, deve incluir `details=true` como parâmetro URL no seu pedido.  Veja as tabelas abaixo para obter o significado por trás de cada um destes campos.
 
     {
         "Results": {
@@ -125,8 +125,8 @@ Informações mais detalhadas sobre estes parâmetros de entrada estão listadas
 | --- | --- | --- | --- | --- | --- |
 | detetores.janela de histórico |História (em # de pontos de dados) usado para a computação de pontuação de anomalias |500 |número inteiro |10-2000 |Dependente de séries de tempo |
 | detetores.spikesdips | Se para detetar apenas picos, apenas mergulhos, ou ambos |Ambos |enumerado |Ambos, Spikes, Dips |Ambos |
-| bileveldetector.sensibilidade |Sensibilidade para o detetor de mudança de nível bidirecional. |3,25 |double |Nenhuma |3.25-5 (Valores menores significam mais sensíveis) |
-| trenddetector.sensibilidade |Sensibilidade para detetor de tendências positivo. |3,25 |double |Nenhuma |3.25-5 (Valores menores significam mais sensíveis) |
+| bileveldetector.sensibilidade |Sensibilidade para o detetor de mudança de nível bidirecional. |3,25 |double |Nenhum |3.25-5 (Valores menores significam mais sensíveis) |
+| trenddetector.sensibilidade |Sensibilidade para detetor de tendências positivo. |3,25 |double |Nenhum |3.25-5 (Valores menores significam mais sensíveis) |
 | tspikedetector.sensibilidade |Sensibilidade para detetor de TSpike |3 |número inteiro |1-10 |3-5 (Valores menores significam mais sensíveis) |
 | zspikedetector.sensibilidade |Sensibilidade para detetor zspike |3 |número inteiro |1-10 |3-5 (Valores menores significam mais sensíveis) |
 | pós-processo.tailRows |Número dos últimos pontos de dados a manter nos resultados da produção |0 |número inteiro |0 (manter todos os pontos de dados) ou especificar número de pontos a manter nos resultados |N/D |
@@ -164,9 +164,9 @@ Informações mais detalhadas sobre estes parâmetros de entrada estão listadas
 | pré-processo.substituirMissing |Valores usados para imputar dados em falta |lkv (último valor conhecido) |enumerado |zero, lkv, média |N/D |
 | detetores.janela de histórico |História (em # de pontos de dados) usado para a computação de pontuação de anomalias |500 |número inteiro |10-2000 |Dependente de séries de tempo |
 | detetores.spikesdips | Se para detetar apenas picos, apenas mergulhos, ou ambos |Ambos |enumerado |Ambos, Spikes, Dips |Ambos |
-| bileveldetector.sensibilidade |Sensibilidade para o detetor de mudança de nível bidirecional. |3,25 |double |Nenhuma |3.25-5 (Valores menores significam mais sensíveis) |
-| postrenddetector.sensibilidade |Sensibilidade para detetor de tendências positivo. |3,25 |double |Nenhuma |3.25-5 (Valores menores significam mais sensíveis) |
-| negtrenddetector.sensibilidade |Sensibilidade para detetor de tendências negativo. |3,25 |double |Nenhuma |3.25-5 (Valores menores significam mais sensíveis) |
+| bileveldetector.sensibilidade |Sensibilidade para o detetor de mudança de nível bidirecional. |3,25 |double |Nenhum |3.25-5 (Valores menores significam mais sensíveis) |
+| postrenddetector.sensibilidade |Sensibilidade para detetor de tendências positivo. |3,25 |double |Nenhum |3.25-5 (Valores menores significam mais sensíveis) |
+| negtrenddetector.sensibilidade |Sensibilidade para detetor de tendências negativo. |3,25 |double |Nenhum |3.25-5 (Valores menores significam mais sensíveis) |
 | tspikedetector.sensibilidade |Sensibilidade para detetor de TSpike |3 |número inteiro |1-10 |3-5 (Valores menores significam mais sensíveis) |
 | zspikedetector.sensibilidade |Sensibilidade para detetor zspike |3 |número inteiro |1-10 |3-5 (Valores menores significam mais sensíveis) |
 | sazonalidade.habilitar |Se a análise da sazonalidade deve ser realizada |true |boolean |TRUE, false |Dependente de séries de tempo |

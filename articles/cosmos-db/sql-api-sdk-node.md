@@ -1,19 +1,19 @@
 ---
 title: 'Azure Cosmos DB: SQL Node.js API, SDK & recursos'
 description: Saiba tudo sobre o SQL Node.js API e SDK, incluindo datas de lançamento, datas de reforma e alterações efetuadas entre cada versão do Azure Cosmos DB Node.js SDK.
-author: deborahc
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: reference
-ms.date: 09/24/2018
-ms.author: dech
-ms.openlocfilehash: 03f79535b3a62fbb4d0309ae86a142bd842cc308
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/11/2020
+ms.author: anfeldma
+ms.openlocfilehash: 645565b0033324d6edc36a73fb59fa5a5d8689ee
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80982893"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650735"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK para SQL API: Notas de lançamento e recursos
 > [!div class="op_single_selector"]
@@ -21,9 +21,10 @@ ms.locfileid: "80982893"
 > * [.NET Change Feed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
-> * [Java assíncrono](sql-api-sdk-async-java.md)
-> * [Java](sql-api-sdk-java.md)
-> * [Python](sql-api-sdk-python.md)
+> * [Java SDK v4](sql-api-sdk-java-v4.md)
+> * [SDK v2 Java assíncrono](sql-api-sdk-async-java.md)
+> * [SDK v2 Java síncrono](sql-api-sdk-java.md)
+> * [Pitão](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Fornecedor de Recursos REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
@@ -164,7 +165,7 @@ database.containers.create({ id: 'my-container', throughput: 10000 })
 ```
 
 ##### <a name="azurecosmos-sign"></a>@azure/cosmos-sign
-A geração de token foi @azure/cosmos-signdividida numa nova biblioteca. Qualquer pessoa que ligue diretamente para a API Cosmos REST pode @azure/cosmosusar isto para assinar cabeçalhos usando o mesmo código que chamamos dentro .
+A geração de token foi dividida numa nova @azure/cosmos-sign biblioteca. Qualquer pessoa que ligue diretamente para a API Cosmos REST pode usar isto para assinar cabeçalhos usando o mesmo código que chamamos dentro @azure/cosmos .
 
 ##### <a name="uuid-for-generated-ids"></a>UUID para IDs gerados
 v2 tinha código personalizado para gerar iDs de artigo. Mudamos para o conhecido e mantido uuid da biblioteca comunitária.
@@ -247,7 +248,7 @@ Nem sempre as mudanças mais visíveis, mas ajudam a nossa equipa a enviar melho
 * Ativar a instalação diretamente a partir do GitHub (#194)
 
 ### <a name=""></a><a name="2.0.5"/>2.0.5</a>
-* Adiciona interface para o tipo de agente do nó. Os utilizadores de typescript @types/node já não têm de instalar como dependência
+* Adiciona interface para o tipo de agente do nó. Os utilizadores de typescript já não têm de instalar @types/node como dependência
 * Os locais preferidos são agora devidamente honrados
 * Melhorias na documentação do desenvolvedor contribuindo
 * Várias correções de tipografia
@@ -359,7 +360,7 @@ Nem sempre as mudanças mais visíveis, mas ajudam a nossa equipa a enviar melho
 * Correções estão [#100](https://github.com/Azure/azure-documentdb-node/issues/100) - Agente HTTPS dedicado: Evite modificar o agente global para fins de Azure Cosmos DB. Use um agente dedicado para todos os pedidos da Lib.
 
 ### <a name=""></a><a name="1.5.3"/>1.5.3</a>
-* Correções em [ité#81](https://github.com/Azure/azure-documentdb-node/issues/81) - Lidar adequadamente com traços em ids dos meios de comunicação.
+* Problemas [de correção #81](https://github.com/Azure/azure-documentdb-node/issues/81) - Lidar adequadamente com traços em iDs dos meios de comunicação.
 
 ### <a name=""></a><a name="1.5.2"/>1.5.2</a>
 * Correções [emitem #95](https://github.com/Azure/azure-documentdb-node/issues/95) - Aviso de fuga de informação do ouvinte eventEmitter.
@@ -386,7 +387,7 @@ Nem sempre as mudanças mais visíveis, mas ajudam a nossa equipa a enviar melho
 
 ### <a name=""></a><a name="1.2.0"/>1.2.0</a>
 * Suporte adicional para índice GeoSpatial.
-* Valida a propriedade id para todos os recursos. IDs for resources não pode conter ?, /, #, &#47;&#47;, caracteres ou terminar com um espaço.
+* Valida a propriedade de ID para todos os recursos. IDs for resources não pode conter ?, /, #, &#47;&#47;, caracteres ou terminar com um espaço.
 * Adiciona novo cabeçalho "progresso de transformação de índice" à Resposta de Recursos.
 
 ### <a name=""></a><a name="1.1.0"/>1.1.0</a>
@@ -477,6 +478,6 @@ Qualquer pedido à Cosmos DB utilizando um SDK reformado será rejeitado pelo se
 ## <a name="faq"></a>FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 Para saber mais sobre cosmos DB, consulte a página de serviço [do Microsoft Azure Cosmos DB.](https://azure.microsoft.com/services/cosmos-db/)
 

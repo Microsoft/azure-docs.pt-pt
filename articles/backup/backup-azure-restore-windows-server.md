@@ -1,17 +1,17 @@
 ---
-title: Restaurar os dados em Azure para um servidor Windows
+title: Restaurar ficheiros para o Windows Server utilizando o agente MARS
 description: Neste artigo, aprenda a restaurar os dados armazenados em Azure a um servidor Windows ou computador Windows com o Agente dos Serviços de Recuperação do Microsoft Azure (MARS).
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: 0494ce8016ff8b09265dd7ced8dc0926fd0c1a43
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 446ebf563a09131b715b2e08033a7a0278a1fd95
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82186809"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652101"
 ---
-# <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>Restaurar ficheiros no Windows utilizando o modelo de implementação do Gestor de Recursos Azure
+# <a name="restore-files-to-windows-server-using-the-mars-agent"></a>Restaurar ficheiros para o Windows Server utilizando o agente MARS
 
 Este artigo explica como restaurar os dados de um cofre de reserva. Para restaurar os dados, utiliza o assistente de dados de recuperação no Agente microsoft Azure Recovery Services (MARS). Pode:
 
@@ -40,11 +40,11 @@ Se tiver apagado acidentalmente um ficheiro e pretender restaurá-lo para a mesm
 
     ![Screenshot de Backup Azure, com Dados de Recuperação em destaque](./media/backup-azure-restore-windows-server/recover.png)
 
-3. Na página **Getting Started,** para restaurar os dados no mesmo servidor ou computador, selecione **Este servidor (`<server name>`)** > **Seguinte**.
+3. Na página **Getting Started,** para restaurar os dados no mesmo servidor ou computador, selecione **Este servidor ( `<server name>` )**  >  **Seguinte**.
 
     ![Screenshot do assistente de dados de recuperação começando a página](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
 
-4. Na página Do Modo de **Recuperação Select,** escolha **ficheiros e pastas** > individuais **A seguir**.
+4. Na página Do Modo de **Recuperação Select,** escolha **ficheiros e pastas individuais** > **A seguir**.
 
     ![Screenshot do assistente de dados de recuperação selecione página de modo de recuperação](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
    > [!IMPORTANT]
@@ -114,7 +114,7 @@ Estes passos incluem a seguinte terminologia:
 
     ![Screenshot do assistente de dados de recuperação selecione página do servidor de backup](./media/backup-azure-restore-windows-server/alternatemachine_selectmachine_instantrestore.png)
 
-7. Na página **Do Modo de Recuperação Selecione,** selecione **ficheiros e pastas** > individuais**A seguir**.
+7. Na página **Do Modo de Recuperação Selecione,** selecione **ficheiros e pastas individuais**  >  **A seguir**.
 
     ![Screenshot do assistente de dados de recuperação selecione página de modo de recuperação](./media/backup-azure-restore-windows-server/alternatemachine_selectrecoverymode_instantrestore.png)
 

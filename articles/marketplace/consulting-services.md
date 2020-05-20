@@ -1,29 +1,28 @@
 ---
-title: Serviços de consultoria Microsoft AppSource e Azure Marketplace
+title: Serviços de consultoria no mercado comercial da Microsoft
 description: Este artigo descreve os critérios de elegibilidade e os requisitos de publicação de novas ofertas de serviços de consultoria no Microsoft AppSource e no Azure Marketplace.
-services: Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: dsindona
-ms.openlocfilehash: e5f22a681a9a5cbed4eceea2f70faa1cb21c07bc
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: fc0a82617346f60b90de34b379b4a0a114faf804
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82994842"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658080"
 ---
-# <a name="consulting-services-for-microsoft-appsource-and-azure-marketplace"></a>Serviços de consultoria para microsoft AppSource e Azure Marketplace
+# <a name="consulting-service-offers"></a>Ofertas de serviço de consultoria
 
-Os serviços de consultoria Microsoft AppSource e Azure Marketplace dão aos parceiros integradores de sistema da Microsoft o benefício de conectar os seus clientes com serviços que suportam e alargar a sua utilização do Azure. Estes serviços de consultoria ajudam os clientes a avaliar, avaliar e implementar as soluções de negócio que advam os seus objetivos e objetivos de negócio.  
+Este artigo explica os critérios e requisitos de elegibilidade para a publicação de novas ofertas de serviços de consultoria no mercado comercial. As ofertas de serviços de consultoria dão aos parceiros integradores de sistema da Microsoft o benefício de ligar os seus clientes a serviços que suportem e alargar a sua utilização do Azure. Estes serviços de consultoria ajudam os clientes a avaliar, avaliar e implementar as soluções de negócio que advam os seus objetivos e objetivos de negócio.  
 
 As ofertas de serviçode consultoria são compromissos específicos do cliente. Os editores têm a opção de determinar o tipo de listagem, âmbito, duração e estrutura de preços (preço fixo ou gratuito). As ofertas têm uma agenda definida para entregas ao cliente. Os leads são recebidos através de uma notificação nos sistemas CRM dos parceiros, e os parceiros visam responder aos clientes dentro de 48 horas.
 
 ## <a name="compare-consulting-services"></a>Comparar serviços de consultoria
 
-As montras do mercado estão alinhadas com o público e os produtos em nuvem para ajudar os clientes a encontrar o que precisam. Cada montra tem opções de publicação especializadas para ajudá-lo a maximizar o seu investimento em publicação. A tabela que se segue resume estas opções:
+As montras de marketplace comercial, Microsoft AppSource e Azure Marketplace, estão alinhadas com o público e produtos na nuvem para ajudar os clientes a encontrar o que precisam. Cada montra tem opções de publicação especializadas para ajudá-lo a maximizar o seu investimento em publicação. A tabela que se segue resume estas opções:
 
 |         |Azure Marketplace  |Microsoft AppSource |
 |---------|---------|---------|
@@ -31,7 +30,7 @@ As montras do mercado estão alinhadas com o público e os produtos em nuvem par
 |Relevância da solução      |Aplicativos técnicos construídos para ou construídos em Azure|Aplicativos empresariais que utilizam ou alargam a Dynamics 365, Power BI, Office 365, Azure (aplicações terminadas adicionais ou adicionais)|
 |Opções de publicação      |Contacte-me, Trial, Transact ou Serviços para o Azure|Contacte-me, Trial ou Serviços para A Dinâmica 365 e Power BI|
 |Experiência no produto      |Portal do Azure|Dinâmica 365, Office 365, Aplicações de clientes do Office| 
-|Outros      |Publicação no local via Azure Stack, serviços de consultoria para o Azure, serviços geridos para o Azure|Serviços de consultoria para A Dinâmica 365 e Power BI|
+|Outro      |Publicação no local via Azure Stack, serviços de consultoria para o Azure, serviços geridos para o Azure|Serviços de consultoria para A Dinâmica 365 e Power BI|
 ||
 
 As ofertas de serviços de consultoria baseadas na Dynamics 365, Power Apps e Power BI são elegíveis para serem listadas no AppSource. Para mais informações, descarregue os serviços de [consultoria microsoft AppSource listando o](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409) ficheiro PDF das diretrizes.
@@ -88,21 +87,13 @@ Os parceiros integradores de sistema podem apresentar ofertas de serviços de co
 | Finlândia  | França | Alemanha  | Índia   |
 | Itália    | Japão  |  México  |  Países Baixos  |
 |  Nova Zelândia  |  Noruega  |  Polónia  | África do Sul |
-|  Espanha  | Suécia  | Suíça  |  Estados Unidos  |
+|  Espanha  | Suécia  | Suíça  |  Estados Unidos da América  |
 | Reino Unido  |
 ||
 
 ## <a name="register-for-consulting-services-in-the-commercial-marketplace"></a>Registo de serviços de consultoria no mercado comercial
 
 Comece por [registar as](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) informações da sua empresa no mercado. Para obter uma lista completa de requisitos de registo, consulte [Tornar-se um editor no mercado](https://docs.microsoft.com/azure/marketplace/become-publisher). 
-
-<!---
-**What to expect after registration**
-The Onboarding Team will reach out in 1 to 3 business days with a welcome email, which will include your Cloud Partner Portal sign-in information. [Cloud Partner Portal](https://cloudpartner.azure.com) is the offer listing portal where publishers submit listing information and submissions.
-
->[!Note]
->Partners need to register only once to become a publisher. After you become a publisher and receive your welcome email and Partner Center sign-in information, you don't need to re-register to publish different listing types.
---->
 
 ## <a name="prepare-your-publishing-artifacts"></a>Prepare os seus artefactos editoriais
 Antes de se registar, pode começar a recolher e preparar o conteúdo que ajudará a sua listagem a articular o valor do seu serviço e solução para o seu cliente-alvo. 
@@ -181,12 +172,12 @@ Depois de a equipa de revisão de conteúdos analisar as descrições da sua ofe
 Dentro do Partner Center, pode adicionar formatação à sua listagem utilizando [o Markdown](/contribute/markdown-reference), uma linguagem de design leve que ajuda a adicionar polimento à sua listagem.
 
 Aqui estão algumas dicas de Markdown:
-* Para a formatação *itálica,* adicione\*um asterisco ( sem espaço, no início e no \*fim de uma palavra ou série de palavras (por exemplo, digite o conteúdo* para formatar uma palavra como *conteúdo).* Forforte o seu *Resumo da Oferta* em itálico.
+* Para a formatação *itálica,* adicione um asterisco \* ( sem espaço, no início e no fim de uma palavra ou série de palavras (por exemplo, digite \* o conteúdo* para formatar uma palavra como *conteúdo).* Forforte o seu *Resumo da Oferta* em itálico.
 * Insira uma rutura de linha após um cólon (:) para introduzir uma lista com balas ou numeradas.
-* Para criar uma lista com balas,\*digite um asterisco ( ), seguido de \*um espaço, para cada item com balas (por exemplo, [espaço]Primeira palavra de conteúdo).
-* Para criar títulos, digite um\#ou mais sinais de libra ( ), seguido de um espaço (por exemplo, ###[space]Agenda/Deliverables).
+* Para criar uma lista com balas, digite um asterisco ( \* ), seguido de um espaço, para cada item com balas (por exemplo, \* [espaço]Primeira palavra de conteúdo).
+* Para criar títulos, digite um ou mais sinais de libra ( ), seguido de \# um espaço (por exemplo, ###[space]Agenda/Deliverables).
 * Adicione uma rutura de linha após cada direção.
-* Para uma formatação **arrojada,** adicione\*\*um asterisco duplo ( sem espaço, no início e \* \*no\* \* fim de uma palavra ou série de palavras (por exemplo, digite o conteúdo para formatar uma palavra como **conteúdo).**
+* Para uma formatação **arrojada,** adicione um asterisco duplo ( \* \* sem espaço, no início e no fim de uma palavra ou série de palavras (por exemplo, digite \* \* o conteúdo para \* \* formatar uma palavra como **conteúdo).**
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -3,12 +3,12 @@ title: Considerações de armazenamento para funções azure
 description: Conheça os requisitos de armazenamento das Funções Azure e sobre encriptar dados armazenados.
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: 48ff2dedd997cccb76b13acdadc895504f656ea3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 324516240d09a5443908cbffec514e4caba2b604
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80984168"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648790"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Considerações de armazenamento para funções azure
 
@@ -17,7 +17,7 @@ As Funções Azure requerem uma conta de Armazenamento Azure quando cria uma ins
 
 |Serviço de armazenamento  | Utilização de funções  |
 |---------|---------|
-| [Armazenamento de Blobs do Azure](../storage/blobs/storage-blobs-introduction.md)     | Mantenha as ligações de estado e chaves de função.  <br/>Também utilizado por centros de [tarefas em Funções Duráveis.](durable/durable-functions-task-hubs.md) |
+| [Armazenamento Azure Blob](../storage/blobs/storage-blobs-introduction.md)     | Mantenha as ligações de estado e chaves de função.  <br/>Também utilizado por centros de [tarefas em Funções Duráveis.](durable/durable-functions-task-hubs.md) |
 | [Ficheiros do Azure](../storage/files/storage-files-introduction.md)  | Partilha de ficheiros utilizada para armazenar e executar o código da aplicação de funções num Plano de [Consumo](functions-scale.md#consumption-plan). |
 | [Armazenamento de fila azure](../storage/queues/storage-queues-introduction.md)     | Utilizado por centros de [tarefas em Funções Duráveis.](durable/durable-functions-task-hubs.md)   |
 | [Armazenamento de mesa azure](../storage/tables/table-storage-overview.md)  |  Utilizado por centros de [tarefas em Funções Duráveis.](durable/durable-functions-task-hubs.md)       |
@@ -53,21 +53,19 @@ A cadeia de ligação à conta de armazenamento deve ser atualizada quando regen
 
 ## <a name="storage-data-encryption"></a>Encriptação de dados de armazenamento
 
-O Azure Storage encripta todos os dados numa conta de armazenamento em repouso. Para mais informações, consulte [a encriptação do Armazenamento Azure para obter dados em repouso](../storage/common/storage-service-encryption.md).
-
-Por padrão, os dados são encriptados com chaves geridas pela Microsoft. Para um controlo adicional sobre as chaves de encriptação, pode fornecer chaves geridas pelo cliente para usar para encriptação de dados blob e ficheiros. Estas chaves devem estar presentes no Cofre de Chaves Azure para que as funções possam aceder à conta de armazenamento. Para saber mais, consulte as [chaves geridas pelo cliente Configure com o Cofre de Chaves Azure utilizando o portal Azure](../storage/common/storage-encryption-keys-portal.md).  
+[!INCLUDE [functions-storage-encryption](../../includes/functions-storage-encryption.md)]
 
 ## <a name="mount-file-shares-linux"></a>Monte ações de ficheiro (Linux)
 
-Pode montar as ações existentes do Azure Files para as suas aplicações de função Linux. Ao montar uma parte na sua aplicação de função Linux, pode aproveitar os modelos de aprendizagem automática existentes ou outros dados nas suas funções. Pode utilizar [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-add) o comando para montar uma parte existente na sua aplicação de função Linux. 
+Pode montar as ações existentes do Azure Files para as suas aplicações de função Linux. Ao montar uma parte na sua aplicação de função Linux, pode aproveitar os modelos de aprendizagem automática existentes ou outros dados nas suas funções. Pode utilizar o [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-add) comando para montar uma parte existente na sua aplicação de função Linux. 
 
-Neste comando, `share-name` é o nome da partilha dos `custom-id` Ficheiros Azure existentes, e pode ser qualquer cadeia que defina exclusivamente a parte quando montada na aplicação de funções. Além `mount-path` disso, é o caminho a partir do qual a partilha é acedida na sua aplicação de funções. `mount-path`deve estar no `/dir-name`formato , e `/home`não pode começar com .
+Neste comando, é o nome da partilha dos `share-name` Ficheiros Azure existentes, e `custom-id` pode ser qualquer cadeia que defina exclusivamente a parte quando montada na aplicação de funções. Além disso, `mount-path` é o caminho a partir do qual a partilha é acedida na sua aplicação de funções. `mount-path`deve estar no formato `/dir-name` , e não pode começar com `/home` .
 
 Para um exemplo completo, consulte os scripts em [Create a Python function app e monte uma partilha de Ficheiros Azure](scripts/functions-cli-mount-files-storage-linux.md). 
 
-Atualmente, apenas um `storage-type` de é `AzureFiles` apoiado. Só pode montar cinco ações numa determinada aplicação de função. A montagem de uma parte de ficheiro pode aumentar o tempo de início frio em pelo menos 200-300 ms, ou ainda mais quando a conta de armazenamento estiver numa região diferente.
+Atualmente, apenas um `storage-type` de `AzureFiles` é apoiado. Só pode montar cinco ações numa determinada aplicação de função. A montagem de uma parte de ficheiro pode aumentar o tempo de início frio em pelo menos 200-300 ms, ou ainda mais quando a conta de armazenamento estiver numa região diferente.
 
-A parte montada está disponível para `mount-path` o seu código de função no especificado. Por exemplo, `mount-path` `/path/to/mount`quando estiver, pode aceder ao directório-alvo por APIs do sistema de ficheiros, como no exemplo python seguinte:
+A parte montada está disponível para o seu código de função no `mount-path` especificado. Por exemplo, quando `mount-path` `/path/to/mount` estiver, pode aceder ao directório-alvo por APIs do sistema de ficheiros, como no exemplo python seguinte:
 
 ```python
 import os

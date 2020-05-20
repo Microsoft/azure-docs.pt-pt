@@ -6,24 +6,21 @@ ms.topic: article
 ms.date: 04/14/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: 875d2bbebdfa95c6d180979399d876eb2afc01b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3c9cc96af42c6cfb83b43e3a0c56f16bdb917025
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81392531"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649109"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Como utilizar identidades geridas para o Serviço de Aplicações e Funções Azure
 
+Este tópico mostra como criar uma identidade gerida para aplicações do App Service e Funções Azure e como usá-lo para aceder a outros recursos. 
+
 > [!Important] 
-> As identidades geridas para o Serviço de Aplicações e funções azure não se comportarão como esperado se a sua aplicação for migrada para subscrições/inquilinos. A aplicação terá de obter uma nova identidade, o que pode ser feito desativando e reativando a funcionalidade. Veja [a remoção de uma identidade](#remove) abaixo. Os recursos a jusante também terão de ter políticas de acesso atualizadas para utilizar a nova identidade.
+> As identidades geridas para o App Service e as Funções Azure não se comportarão como esperado se a sua aplicação for migrada para subscrições/inquilinos. A aplicação precisa de obter uma nova identidade, o que é feito desativando e reativando a funcionalidade. Veja [a remoção de uma identidade](#remove) abaixo. Os recursos a jusante também precisam de ter políticas de acesso atualizadas para utilizar a nova identidade.
 
-Este tópico mostra como criar uma identidade gerida para aplicações do App Service e Funções Azure e como usá-lo para aceder a outros recursos. Uma identidade gerida do Azure Ative Directory (Azure AD) permite que a sua aplicação aceda facilmente a outros recursos protegidos por AD Azure, como o Azure Key Vault. A identidade é gerida pela plataforma Azure e não o obriga a fornecer ou rodar quaisquer segredos. Para saber mais sobre identidades geridas em Azure AD, consulte [identidades geridas para recursos Azure](../active-directory/managed-identities-azure-resources/overview.md).
-
-A sua aplicação pode ser concedida a dois tipos de identidades:
-
-- Uma **identidade atribuída** ao sistema está ligada à sua aplicação e é eliminada se a sua aplicação for eliminada. Uma aplicação só pode ter uma identidade atribuída ao sistema.
-- Uma **identidade atribuída ao utilizador** é um recurso Azure autónomo que pode ser atribuído à sua aplicação. Uma aplicação pode ter várias identidades atribuídas ao utilizador.
+[!INCLUDE [app-service-managed-identities](../../includes/app-service-managed-identities.md)]
 
 ## <a name="add-a-system-assigned-identity"></a>Adicione uma identidade atribuída ao sistema
 
@@ -67,7 +64,7 @@ Os seguintes passos irão acompanhá-lo através da criação de uma aplicação
     az webapp create --name myApp --resource-group myResourceGroup --plan myPlan
     ```
 
-3. Executar `identity assign` o comando para criar a identidade para esta aplicação:
+3. Executar o `identity assign` comando para criar a identidade para esta aplicação:
 
     ```azurecli-interactive
     az webapp identity assign --name myApp --resource-group myResourceGroup
@@ -79,7 +76,7 @@ Os seguintes passos irão acompanhá-lo através da criação de uma aplicação
 
 Os seguintes passos irão acompanhá-lo através da criação de uma aplicação web e atribuindo-lhe uma identidade usando o Azure PowerShell:
 
-1. Se necessário, instale o Azure PowerShell utilizando as instruções encontradas `Login-AzAccount` no [guia Azure PowerShell](/powershell/azure/overview)e, em seguida, corra para criar uma ligação com o Azure.
+1. Se necessário, instale o Azure PowerShell utilizando as instruções encontradas no [guia Azure PowerShell](/powershell/azure/overview)e, em seguida, corra `Login-AzAccount` para criar uma ligação com o Azure.
 
 2. Crie uma aplicação web utilizando o Azure PowerShell. Para mais exemplos de como utilizar o Azure PowerShell com o Serviço de Aplicações, consulte [as amostras do PowerShell do Serviço de Aplicações:](../app-service/samples-powershell.md)
 
@@ -94,7 +91,7 @@ Os seguintes passos irão acompanhá-lo através da criação de uma aplicação
     New-AzWebApp -Name $webappname -Location $location -AppServicePlan $webappname -ResourceGroupName myResourceGroup
     ```
 
-3. Executar `Set-AzWebApp -AssignIdentity` o comando para criar a identidade para esta aplicação:
+3. Executar o `Set-AzWebApp -AssignIdentity` comando para criar a identidade para esta aplicação:
 
     ```azurepowershell-interactive
     Set-AzWebApp -AssignIdentity $true -Name $webappname -ResourceGroupName myResourceGroup 
@@ -104,7 +101,7 @@ Os seguintes passos irão acompanhá-lo através da criação de uma aplicação
 
 Um modelo de Gestor de Recursos Azure pode ser usado para automatizar a implantação dos seus recursos Azure. Para saber mais sobre a implementação para o Serviço e Funções de Aplicações, consulte a [automatização](../app-service/deploy-complex-application-predictably.md) da implantação de recursos no Serviço de Aplicações e automatizando a implantação de [recursos em Funções Azure](../azure-functions/functions-infrastructure-as-code.md).
 
-Qualquer recurso `Microsoft.Web/sites` de tipo pode ser criado com uma identidade, incluindo a seguinte propriedade na definição de recurso:
+Qualquer recurso de tipo `Microsoft.Web/sites` pode ser criado com uma identidade, incluindo a seguinte propriedade na definição de recurso:
 
 ```json
 "identity": {
@@ -113,7 +110,7 @@ Qualquer recurso `Microsoft.Web/sites` de tipo pode ser criado com uma identidad
 ```
 
 > [!NOTE]
-> Uma aplicação pode ter identidades atribuídas ao sistema e atribuídas ao utilizador ao mesmo tempo. Neste caso, `type` a propriedade seria`SystemAssigned,UserAssigned`
+> Uma aplicação pode ter identidades atribuídas ao sistema e atribuídas ao utilizador ao mesmo tempo. Neste caso, a `type` propriedade seria`SystemAssigned,UserAssigned`
 
 Adicionar o tipo designado pelo sistema diz ao Azure para criar e gerir a identidade para a sua aplicação.
 
@@ -179,7 +176,7 @@ Primeiro, terá de criar um recurso de identidade atribuído ao utilizador.
 
 Um modelo de Gestor de Recursos Azure pode ser usado para automatizar a implantação dos seus recursos Azure. Para saber mais sobre a implementação para o Serviço e Funções de Aplicações, consulte a [automatização](../app-service/deploy-complex-application-predictably.md) da implantação de recursos no Serviço de Aplicações e automatizando a implantação de [recursos em Funções Azure](../azure-functions/functions-infrastructure-as-code.md).
 
-Qualquer recurso `Microsoft.Web/sites` de tipo pode ser criado com uma identidade, incluindo o seguinte bloco na definição de recursos, substituindo `<RESOURCEID>` pela identificação do recurso da identidade desejada:
+Qualquer recurso de tipo `Microsoft.Web/sites` pode ser criado com uma identidade, incluindo o seguinte bloco na definição de recursos, substituindo pela `<RESOURCEID>` identificação do recurso da identidade desejada:
 
 ```json
 "identity": {
@@ -191,7 +188,7 @@ Qualquer recurso `Microsoft.Web/sites` de tipo pode ser criado com uma identidad
 ```
 
 > [!NOTE]
-> Uma aplicação pode ter identidades atribuídas ao sistema e atribuídas ao utilizador ao mesmo tempo. Neste caso, `type` a propriedade seria`SystemAssigned,UserAssigned`
+> Uma aplicação pode ter identidades atribuídas ao sistema e atribuídas ao utilizador ao mesmo tempo. Neste caso, a `type` propriedade seria`SystemAssigned,UserAssigned`
 
 A adição do tipo designado pelo utilizador diz ao Azure para utilizar a identidade atribuída ao utilizador especificada para a sua aplicação.
 
@@ -259,14 +256,14 @@ Uma aplicação com uma identidade gerida tem duas variáveis ambientais definid
 
 O **IDENTITY_ENDPOINT** é um URL local a partir do qual a sua aplicação pode solicitar fichas. Para obter um símbolo para um recurso, faça um pedido HTTP GET para este ponto final, incluindo os seguintes parâmetros:
 
-> | Nome do parâmetro    | Entrada     | Descrição                                                                                                                                                                                                                                                                                                                                |
+> | Nome do parâmetro    | Em     | Descrição                                                                                                                                                                                                                                                                                                                                |
 > |-------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | recurso          | Consulta  | O recurso Azure AD URI do recurso para o qual deve ser obtido um símbolo. Este pode ser um dos [serviços Azure que suportam a autenticação Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) ou qualquer outro recurso URI.    |
 > | api-version       | Consulta  | A versão da API simbólica a ser utilizada. Por favor, use "2019-08-01" ou mais tarde.                                                                                                                                                                                                                                                                 |
 > | Cabeçalho de X-IDENTIDADE | Cabeçalho | O valor da variável ambiente IDENTITY_HEADER. Este cabeçalho é usado para ajudar a mitigar os ataques de falsificação de pedido do lado do servidor (SSRF).                                                                                                                                                                                                    |
-> | client_id         | Consulta  | (Opcional) A identificação do cliente da identidade atribuída ao utilizador a utilizar. Não pode ser utilizado `principal_id`num `mi_res_id`pedido `object_id`que inclua, ou . Se todos os`client_id`parâmetros de `mi_res_id`IDENTIFICAÇÃO forem `principal_id` `object_id`omitidos, a identidade atribuída ao sistema é utilizada.                                             |
-> | principal_id      | Consulta  | (Opcional) A identificação principal da identidade atribuída ao utilizador a utilizar. `object_id`é um pseudónimo que pode ser usado em vez disso. Não pode ser utilizado num pedido que inclua client_id, mi_res_id ou object_id. Se todos os`client_id`parâmetros de `mi_res_id`IDENTIFICAÇÃO forem `principal_id` `object_id`omitidos, a identidade atribuída ao sistema é utilizada. |
-> | mi_res_id         | Consulta  | (Opcional) A identificação de recurso Azure da identidade atribuída ao utilizador a utilizar. Não pode ser utilizado `principal_id`num `client_id`pedido `object_id`que inclua, ou . Se todos os`client_id`parâmetros de `mi_res_id`IDENTIFICAÇÃO forem `principal_id` `object_id`omitidos, a identidade atribuída ao sistema é utilizada.                                      |
+> | client_id         | Consulta  | (Opcional) A identificação do cliente da identidade atribuída ao utilizador a utilizar. Não pode ser utilizado num pedido que `principal_id` `mi_res_id` inclua, ou `object_id` . Se todos os parâmetros de IDENTIFICAÇÃO `client_id` `principal_id` `object_id` `mi_res_id` forem omitidos, a identidade atribuída ao sistema é utilizada.                                             |
+> | principal_id      | Consulta  | (Opcional) A identificação principal da identidade atribuída ao utilizador a utilizar. `object_id`é um pseudónimo que pode ser usado em vez disso. Não pode ser utilizado num pedido que inclua client_id, mi_res_id ou object_id. Se todos os parâmetros de IDENTIFICAÇÃO `client_id` `principal_id` `object_id` `mi_res_id` forem omitidos, a identidade atribuída ao sistema é utilizada. |
+> | mi_res_id         | Consulta  | (Opcional) A identificação de recurso Azure da identidade atribuída ao utilizador a utilizar. Não pode ser utilizado num pedido que `principal_id` `client_id` inclua, ou `object_id` . Se todos os parâmetros de IDENTIFICAÇÃO `client_id` `principal_id` `object_id` `mi_res_id` forem omitidos, a identidade atribuída ao sistema é utilizada.                                      |
 
 > [!IMPORTANT]
 > Se estiver a tentar obter fichas para identidades atribuídas ao utilizador, deve incluir uma das propriedades opcionais. Caso contrário, o serviço simbólico tentará obter um símbolo para uma identidade atribuída ao sistema, que pode ou não existir.
@@ -279,13 +276,13 @@ Uma resposta bem sucedida de 200 OK inclui um corpo JSON com as seguintes propri
 > | client_id     | A identificação do cliente da identidade que foi usada.                                                                                                                                                                                                       |
 > | expires_on    | O tempo de espera quando o sinal de acesso expira. A data é representada como o número de segundos de "1970-01-01T0:0:0Z UTC" (corresponde à reivindicação do `exp` token).                                                                                |
 > | not_before    | O tempo de espera quando o token de acesso entra em vigor, e pode ser aceite. A data é representada como o número de segundos de "1970-01-01T0:0:0Z UTC" (corresponde à reivindicação do `nbf` token).                                                      |
-> | recurso      | O recurso para o sinal de acesso `resource` foi solicitado, que corresponde ao parâmetro de corda de consulta do pedido.                                                                                                                               |
+> | recurso      | O recurso para o sinal de acesso foi solicitado, que corresponde ao `resource` parâmetro de corda de consulta do pedido.                                                                                                                               |
 > | token_type    | Indica o valor do tipo simbólico. O único tipo que a Azure AD suporta é o FBearer. Para obter mais informações sobre fichas ao portador, consulte o Quadro de [Autorização OAuth 2.0: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 
 Esta resposta é a mesma que a resposta para o pedido de acesso ao serviço da [AD Azure.](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response)
 
 > [!NOTE]
-> Uma versão mais antiga deste protocolo, utilizando a versão API "2017-09-01", utilizou o `secret` cabeçalho em vez de `X-IDENTITY-HEADER` e só aceitou a `clientid` propriedade para a designada pelo utilizador. Também devolveu `expires_on` o formato timestamp. MSI_ENDPOINT pode ser usado como pseudónimo para IDENTITY_ENDPOINT, e MSI_SECRET pode ser usado como pseudónimo para IDENTITY_HEADER.
+> Uma versão mais antiga deste protocolo, utilizando a versão API "2017-09-01", utilizou o `secret` cabeçalho em vez de `X-IDENTITY-HEADER` e só aceitou a `clientid` propriedade para a designada pelo utilizador. Também devolveu o `expires_on` formato timestamp. MSI_ENDPOINT pode ser usado como pseudónimo para IDENTITY_ENDPOINT, e MSI_SECRET pode ser usado como pseudónimo para IDENTITY_HEADER.
 
 ### <a name="rest-protocol-examples"></a>Exemplos de protocolo REST
 
@@ -346,7 +343,7 @@ const getToken = function(resource, cb) {
 }
 ```
 
-# <a name="python"></a>[Python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
 ```python
 import os
@@ -400,7 +397,7 @@ Para saber mais sobre microsoft.Azure.Services.AppAuthentication e as operaçõe
 
 Para aplicações e funções java, a forma mais simples de trabalhar com uma identidade gerida é através do [Azure SDK para Java.](https://github.com/Azure/azure-sdk-for-java) Esta secção mostra-lhe como começar com a biblioteca no seu código.
 
-1. Adicione uma referência à [biblioteca Azure SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure). Para os projetos Maven, você pode `dependencies` adicionar este corte à secção do arquivo POM do projeto:
+1. Adicione uma referência à [biblioteca Azure SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure). Para os projetos Maven, você pode adicionar este corte à `dependencies` secção do arquivo POM do projeto:
 
     ```xml
     <dependency>
@@ -410,7 +407,7 @@ Para aplicações e funções java, a forma mais simples de trabalhar com uma id
     </dependency>
     ```
 
-2. Utilize `AppServiceMSICredentials` o objeto para autenticação. Este exemplo mostra como este mecanismo pode ser usado para trabalhar com o Cofre chave Azure:
+2. Utilize o `AppServiceMSICredentials` objeto para autenticação. Este exemplo mostra como este mecanismo pode ser usado para trabalhar com o Cofre chave Azure:
 
     ```java
     import com.microsoft.azure.AzureEnvironment;

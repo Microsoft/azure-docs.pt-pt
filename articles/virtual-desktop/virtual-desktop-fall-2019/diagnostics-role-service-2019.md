@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 05/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e529144198d0c635e74955e98d47dd46ac4fb733
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 5d4fb87ae5edd4919923e66336760aadf23d1888
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82615152"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657244"
 ---
 # <a name="identify-and-diagnose-issues"></a>Identificar e diagnosticar problemas
 
@@ -36,7 +36,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 
 ## <a name="diagnose-issues-with-powershell"></a>Diagnosticar problemas com a PowerShell
 
-O Windows Virtual Desktop Diagnostics utiliza apenas um cmdlet PowerShell, mas contém muitos parâmetros opcionais para ajudar a reduzir e isolar problemas. As seguintes secções listam as cmdlets que pode correr para diagnosticar problemas. A maioria dos filtros pode ser aplicada em conjunto. Os valores enumerados `<tenantName>`nos parênteses, tais como, devem ser substituídos com os valores aplicáveis à sua situação.
+O Windows Virtual Desktop Diagnostics utiliza apenas um cmdlet PowerShell, mas contém muitos parâmetros opcionais para ajudar a reduzir e isolar problemas. As seguintes secções listam as cmdlets que pode correr para diagnosticar problemas. A maioria dos filtros pode ser aplicada em conjunto. Os valores enumerados nos parênteses, tais `<tenantName>` como, devem ser substituídos com os valores aplicáveis à sua situação.
 
 >[!IMPORTANT]
 >A função de diagnóstico destina-se a resolução de problemas de um único utilizador. Todas as consultas que utilizem o PowerShell devem incluir os parâmetros *-UserName* ou *-ActivityID.* Para monitorizar as capacidades, utilize o Log Analytics. Consulte [o Use Log Analytics para](diagnostics-log-analytics-2019.md) obter mais informações sobre como enviar dados de diagnóstico para o seu espaço de trabalho. 
@@ -139,6 +139,7 @@ A tabela que se segue enumera erros comuns que os seus administradores podem enc
 
 |Código numérico|Código de erro|Solução sugerida|
 |---|---|---|
+|1322|ConexãoFalhadaNoMappingOfSIDinAD|O utilizador não é membro do Azure Ative Directory. Siga as instruções no [Ative Directory Administrative Center](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center) para adicioná-las.|
 |3|Acesso não autorizado|O utilizador que tentou executar o cmdlet administrativo PowerShell ou não tem permissões para o fazer ou enevoou o seu nome de utilizador.|
 |1000|InquilinoNão Encontrado|O nome do inquilino que inscreveu não corresponde a nenhum inquilino existente. Reveja o nome do inquilino para os typos e tente de novo.|
 |1006|TenantCanBeRemovedHasSessionHostPools|Não se pode excluir um inquilino desde que contenha objetos. Apague primeiro as piscinas de anfitriões da sessão e tente novamente.|
@@ -160,6 +161,7 @@ A tabela que se segue enumera erros comuns que os seus administradores podem enc
 
 |Código numérico|Código de erro|Solução sugerida|
 |---|---|---|
+|-2147467259|ConexãoFalhadaErroNoTalMember|O utilizador não é membro do Azure Ative Directory. Siga as instruções no [Ative Directory Administrative Center](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center) para adicioná-las.|
 |-2147467259|ConexãoFalhadaFalha da relação fidedigna|O anfitrião da sessão não está corretamente acompanhado ao Diretório Ativo.|
 |-2146233088|ConexãoFalhadaUserHasValidSessionButRdshIsUnhealthy|As ligações falharam porque o anfitrião da sessão não está disponível. Verifique a saúde do anfitrião da sessão.|
 |-2146233088|ConexãoFalhada Falhado ClientDisconnect|Se vir este erro com frequência, certifique-se de que o computador do utilizador está ligado à rede.|

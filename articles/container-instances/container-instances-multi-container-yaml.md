@@ -3,12 +3,12 @@ title: Tutorial - Implementar grupo multi-contentores - YAML
 description: Neste tutorial, aprende-se a implantar um grupo de contentores com vários contentores em Instâncias de Contentores Azure utilizando um ficheiro YAML com o Azure CLI.
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: cce98ec56ee1d84c087150ba486b9482515b46f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c029a9c605548b828c96fa741e12a43930ec4b01
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74533595"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653499"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>Tutorial: Implementar um grupo multi-contentor usando um ficheiro YAML
 
@@ -73,14 +73,14 @@ properties:
     type: Public
     ports:
     - protocol: tcp
-      port: '80'
+      port: 80
     - protocol: tcp
-      port: '8080'
+      port: 8080
 tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Para utilizar um registo de imagem `imageRegistryCredentials` de contentor privado, adicione a propriedade ao grupo de contentores, com valores modificados para o seu ambiente:
+Para utilizar um registo de imagem de contentor privado, adicione a `imageRegistryCredentials` propriedade ao grupo de contentores, com valores modificados para o seu ambiente:
 
 ```YAML
   imageRegistryCredentials:
@@ -113,7 +113,7 @@ Para ver o estado da implantação, utilize o seguinte comando de demonstração
 az container show --resource-group myResourceGroup --name myContainerGroup --output table
 ```
 
-Se quiser ver a aplicação em execução, navegue para o seu endereço IP no seu browser. Por exemplo, o `52.168.26.124` IP está neste exemplo de saída:
+Se quiser ver a aplicação em execução, navegue para o seu endereço IP no seu browser. Por exemplo, o IP está `52.168.26.124` neste exemplo de saída:
 
 ```bash
 Name              ResourceGroup    Status    Image                                                                                               IP:ports              Network    CPU/Memory       OsType    Location
@@ -123,7 +123,7 @@ myContainerGroup  danlep0318r      Running   mcr.microsoft.com/azuredocs/aci-tut
 
 ## <a name="view-container-logs"></a>Ver registos de contentor
 
-Ver a saída de registo de um recipiente utilizando o comando de troncos de [recipiente az.][az-container-logs] O `--container-name` argumento especifica o recipiente a partir do qual puxar troncos. Neste exemplo, `aci-tutorial-app` o recipiente é especificado.
+Ver a saída de registo de um recipiente utilizando o comando de troncos de [recipiente az.][az-container-logs] O `--container-name` argumento especifica o recipiente a partir do qual puxar troncos. Neste exemplo, o `aci-tutorial-app` recipiente é especificado.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
@@ -138,7 +138,7 @@ listening on port 80
 ::1 - - [21/Mar/2019:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
-Para ver os troncos do recipiente do sidecar, `aci-tutorial-sidecar` faça um comando semelhante especificando o recipiente.
+Para ver os troncos do recipiente do sidecar, faça um comando semelhante especificando o `aci-tutorial-sidecar` recipiente.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
@@ -164,7 +164,7 @@ Date: Thu, 21 Mar 2019 20:36:41 GMT
 Connection: keep-alive
 ```
 
-Como pode ver, o sidecar está periodicamente a fazer um pedido http para a aplicação web principal através da rede local do grupo para garantir que está em funcionamento. Este exemplo do sidecar poderia ser expandido para desencadear um `200 OK`alerta se recebesse um código de resposta HTTP diferente de .
+Como pode ver, o sidecar está periodicamente a fazer um pedido http para a aplicação web principal através da rede local do grupo para garantir que está em funcionamento. Este exemplo do sidecar poderia ser expandido para desencadear um alerta se recebesse um código de resposta HTTP diferente de `200 OK` .
 
 ## <a name="next-steps"></a>Passos seguintes
 

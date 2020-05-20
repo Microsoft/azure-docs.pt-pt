@@ -2,17 +2,20 @@
 title: Implementar recursos para a subscrição
 description: Descreve como criar um grupo de recursos num modelo de Gestor de Recursos Azure. Mostra também como utilizar recursos no âmbito de subscrição do Azure.
 ms.topic: conceptual
-ms.date: 05/07/2020
-ms.openlocfilehash: a48bc2fd4efb383b42fd0889df079c9a6f700dda
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.date: 05/18/2020
+ms.openlocfilehash: 4f8bcbfc6467969c9d8ca8b1511e6e8ffff94b14
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929065"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653354"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Criar grupos e recursos de recursos ao nível da subscrição
 
-Para simplificar a gestão dos recursos na sua subscrição Azure, pode definir e atribuir [políticas](../../governance/policy/overview.md) ou [controlos de acesso baseados em papéis](../../role-based-access-control/overview.md) em toda a subscrição. Com modelos de nível de subscrição, aplica-se declarativamente políticas e atribui funções na subscrição. Também pode criar grupos de recursos e implantar recursos.
+Para simplificar a gestão de recursos, pode implementar recursos ao nível da sua subscrição Azure. Por exemplo, pode implementar [políticas](../../governance/policy/overview.md) e [controlos de acesso baseados em papéis](../../role-based-access-control/overview.md) na sua subscrição, e esses recursos são aplicados em toda a sua subscrição. Também pode criar grupos de recursos e implantar recursos para esses grupos de recursos.
+
+> [!NOTE]
+> Pode implantar-se em 800 diferentes grupos de recursos numa implementação de nível de subscrição.
 
 Para implementar modelos ao nível da subscrição, utilize o Azure CLI, PowerShell ou REST API. O portal Azure não suporta a implantação no nível de subscrição.
 
@@ -86,7 +89,7 @@ Para implementações de nível de subscrição, deve fornecer um local para a i
 
 Pode fornecer um nome para a implementação ou utilizar o nome de implementação predefinido. O nome padrão é o nome do ficheiro do modelo. Por exemplo, a implementação de um modelo chamado **azuredeploy.json** cria um nome de implantação padrão de **azuredeploy**.
 
-Para cada nome de implantação, a localização é imutável. Não se pode criar uma implantação num local quando existe uma implantação existente com o mesmo nome num local diferente. Se obtê-lo o código `InvalidDeploymentLocation`de erro, utilize um nome diferente ou o mesmo local que a implementação anterior para esse nome.
+Para cada nome de implantação, a localização é imutável. Não se pode criar uma implantação num local quando existe uma implantação existente com o mesmo nome num local diferente. Se obtê-lo o código de `InvalidDeploymentLocation` erro, utilize um nome diferente ou o mesmo local que a implementação anterior para esse nome.
 
 ## <a name="use-template-functions"></a>Funções de modelo de utilização
 
@@ -130,7 +133,7 @@ O seguinte modelo cria um grupo de recursos vazios.
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2019-10-01",
       "name": "[parameters('rgName')]",
       "location": "[parameters('rgLocation')]",
       "properties": {}
@@ -161,7 +164,7 @@ Utilize o [elemento de cópia](copy-resources.md) com grupos de recursos para cr
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2019-10-01",
       "location": "[parameters('rgLocation')]",
       "name": "[concat(parameters('rgNamePrefix'), copyIndex())]",
       "copy": {
@@ -179,7 +182,7 @@ Para obter informações sobre a iteração de recursos, consulte [Implementar m
 
 ## <a name="resource-group-and-resources"></a>Grupo de recursos e recursos
 
-Para criar o grupo de recursos e implementar recursos para ele, use um modelo aninhado. O modelo aninhado define os recursos para implantar para o grupo de recursos. Desloque o modelo aninhado como dependente do grupo de recursos para garantir que o grupo de recursos existe antes de implantar os recursos.
+Para criar o grupo de recursos e implementar recursos para ele, use um modelo aninhado. O modelo aninhado define os recursos para implantar para o grupo de recursos. Desloque o modelo aninhado como dependente do grupo de recursos para garantir que o grupo de recursos existe antes de implantar os recursos. Pode implantar até 800 grupos de recursos.
 
 O exemplo seguinte cria um grupo de recursos e implementa uma conta de armazenamento para o grupo de recursos.
 
@@ -205,14 +208,14 @@ O exemplo seguinte cria um grupo de recursos e implementa uma conta de armazenam
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2019-10-01",
       "location": "[parameters('rgLocation')]",
       "name": "[parameters('rgName')]",
       "properties": {}
     },
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2019-10-01",
       "name": "storageDeployment",
       "resourceGroup": "[parameters('rgName')]",
       "dependsOn": [
@@ -228,7 +231,7 @@ O exemplo seguinte cria um grupo de recursos e implementa uma conta de armazenam
           "resources": [
             {
               "type": "Microsoft.Storage/storageAccounts",
-              "apiVersion": "2017-10-01",
+              "apiVersion": "2019-06-01",
               "name": "[variables('storageName')]",
               "location": "[parameters('rgLocation')]",
               "sku": {

@@ -8,28 +8,28 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 05/19/2020
 ms.author: trbye
-zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: fefbe793fa4a6b90ba9bf8d468d42dcbd315759c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+zone_pivot_groups: programming-languages-set-nineteen
+ms.openlocfilehash: 311c85e254711a219ac93424b77f35c2662008b7
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81402205"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658444"
 ---
 # <a name="automatic-language-detection-for-speech-to-text"></a>Deteção automática de linguagem para fala a texto
 
 A deteção automática de idiomas é usada para determinar a correspondência mais provável para o áudio passado para o SDK da fala quando comparada com uma lista de idiomas fornecidos. O valor devolvido pela deteção automática de idiomas é então utilizado para selecionar o modelo de linguagem para a fala ao texto, proporcionando-lhe uma transcrição mais precisa. Para ver quais línguas estão disponíveis, consulte [o suporte da Linguagem.](language-support.md)
 
-Neste artigo, você aprenderá a `AutoDetectSourceLanguageConfig` usar `SpeechRecognizer` para construir um objeto e recuperar a linguagem detetada.
+Neste artigo, você aprenderá a usar `AutoDetectSourceLanguageConfig` para construir um objeto e recuperar a linguagem `SpeechRecognizer` detetada.
 
 > [!IMPORTANT]
-> Esta funcionalidade só está disponível para o Speech SDK para C#, C++, Java e Python.
+> Esta funcionalidade só está disponível para o Speech SDK com C#, C++, Java, Python e Objective-C.
 
 ## <a name="automatic-language-detection-with-the-speech-sdk"></a>Deteção automática de linguagem com o SDK da Fala
 
-A deteção automática de linguagens tem atualmente um limite de serviços de dois idiomas por deteção. Tenha em mente esta `AudoDetectSourceLanguageConfig` limitação ao construir o seu objeto. Nas amostras abaixo, criará `AutoDetectSourceLanguageConfig`um , em `SpeechRecognizer`seguida, usá-lo para construir um .
+A deteção automática de linguagens tem atualmente um limite de serviços de dois idiomas por deteção. Tenha em mente esta limitação ao construir o seu `AudoDetectSourceLanguageConfig` objeto. Nas amostras abaixo, criará um `AutoDetectSourceLanguageConfig` , em seguida, usá-lo para construir um `SpeechRecognizer` .
 
 > [!TIP]
 > Também pode especificar um modelo personalizado para usar ao executar o discurso por texto. Para mais informações, consulte [Utilize um modelo personalizado para deteção automática de idiomas.](#use-a-custom-model-for-automatic-language-detection)
@@ -118,11 +118,28 @@ detected_language = auto_detect_source_language_result.language
 
 ::: zone-end
 
+::: zone pivot="programming-language-objectivec"
+
+```Objective-C
+NSArray *languages = @[@"zh-CN", @"de-DE"];
+SPXAutoDetectSourceLanguageConfiguration* autoDetectSourceLanguageConfig = \
+        [[SPXAutoDetectSourceLanguageConfiguration alloc]init:languages];
+SPXSpeechRecognizer* speechRecognizer = \
+        [[SPXSpeechRecognizer alloc] initWithSpeechConfiguration:speechConfig
+                           autoDetectSourceLanguageConfiguration:autoDetectSourceLanguageConfig
+                                              audioConfiguration:audioConfig];
+SPXSpeechRecognitionResult *result = [speechRecognizer recognizeOnce];
+SPXAutoDetectSourceLanguageResult *languageDetectionResult = [[SPXAutoDetectSourceLanguageResult alloc] init:result];
+NSString *detectedLanguage = [languageDetectionResult language];
+```
+
+::: zone-end
+
 ## <a name="use-a-custom-model-for-automatic-language-detection"></a>Use um modelo personalizado para deteção automática de idiomas
 
 Além da deteção de idiomas utilizando modelos de serviço da Fala, pode especificar um modelo personalizado para um reconhecimento melhorado. Se um modelo personalizado não for fornecido, o serviço utilizará o modelo de idioma predefinido.
 
-Os cortes abaixo ilustram como especificar um modelo personalizado na sua chamada para o serviço de Fala. Se a linguagem `en-US`detetada for, então o modelo predefinido é utilizado. Se a linguagem `fr-FR`detetada for, então o ponto final para o modelo personalizado é utilizado:
+Os cortes abaixo ilustram como especificar um modelo personalizado na sua chamada para o serviço de Fala. Se a linguagem detetada `en-US` for, então o modelo predefinido é utilizado. Se a linguagem detetada `fr-FR` for, então o ponto final para o modelo personalizado é utilizado:
 
 ::: zone pivot="programming-language-csharp"
 
@@ -178,6 +195,20 @@ AutoDetectSourceLanguageConfig autoDetectSourceLanguageConfig =
  fr_language_config = speechsdk.languageconfig.SourceLanguageConfig("fr-FR", "The Endpoint Id for custom model of fr-FR")
  auto_detect_source_language_config = speechsdk.languageconfig.AutoDetectSourceLanguageConfig(
         sourceLanguageConfigs=[en_language_config, fr_language_config])
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-objectivec"
+
+```Objective-C
+SPXSourceLanguageConfiguration* enLanguageConfig = [[SPXSourceLanguageConfiguration alloc]init:@"en-US"];
+SPXSourceLanguageConfiguration* frLanguageConfig = \
+        [[SPXSourceLanguageConfiguration alloc]initWithLanguage:@"fr-FR"
+                                                     endpointId:@"The Endpoint Id for custom model of fr-FR"];
+NSArray *languageConfigs = @[enLanguageConfig, frLanguageConfig];
+SPXAutoDetectSourceLanguageConfiguration* autoDetectSourceLanguageConfig = \
+        [[SPXAutoDetectSourceLanguageConfiguration alloc]initWithSourceLanguageConfigurations:languageConfigs];
 ```
 
 ::: zone-end

@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/08/2020
-ms.openlocfilehash: 2e4e554bb6564adb8c6722533e127a758e5a9c24
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/25/2020
+ms.openlocfilehash: efa4ec42396a51cbbc93a53e5892177bad0d87fb
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81415404"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649665"
 ---
 # <a name="copy-and-transform-data-in-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Copiar e transformar dados no Azure Data Lake Storage Gen2 utilizando a Azure Data Factory
 
@@ -77,7 +77,7 @@ Para utilizar a autenticação da chave da conta de armazenamento, são suportad
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo deve ser definida para **AzureBlobFS**. |Sim |
-| url | Ponto final para Data Lake Storage `https://<accountname>.dfs.core.windows.net`Gen2 com o padrão de . | Sim |
+| url | Ponto final para Data Lake Storage Gen2 com o padrão de `https://<accountname>.dfs.core.windows.net` . | Sim |
 | contaChave | Chave de conta para Data Lake Storage Gen2. Marque este campo como um SecureString para o armazenar de forma segura na Data Factory, ou [refira um segredo armazenado no Cofre de Chaves Azure](store-credentials-in-key-vault.md). |Sim |
 | connectVia | O tempo de [integração](concepts-integration-runtime.md) a ser utilizado para se ligar à loja de dados. Pode utilizar o tempo de execução da integração Azure ou um tempo de execução de integração auto-hospedado se a sua loja de dados estiver numa rede privada. Se esta propriedade não for especificada, o tempo de execução de integração do Azure padrão é usado. |Não |
 
@@ -112,7 +112,7 @@ Para utilizar a autenticação principal do serviço, siga estes passos.
 
 1. Registe uma entidade de candidatura no Azure Ative Directory (Azure AD) seguindo as etapas em Registar a sua candidatura junto de [um inquilino da Azure AD](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant). Tome nota dos seguintes valores, que utiliza para definir o serviço vinculado:
 
-    - ID da aplicação
+    - ID da Aplicação
     - Chave de aplicação
     - ID do inquilino
 
@@ -129,9 +129,9 @@ Estas propriedades são suportadas para o serviço ligado:
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo deve ser definida para **AzureBlobFS**. |Sim |
-| url | Ponto final para Data Lake Storage `https://<accountname>.dfs.core.windows.net`Gen2 com o padrão de . | Sim |
+| url | Ponto final para Data Lake Storage Gen2 com o padrão de `https://<accountname>.dfs.core.windows.net` . | Sim |
 | serviçoPrincipalId | Especifique a identificação do cliente do pedido. | Sim |
-| serviçoPrincipalKey | Especifique a chave da aplicação. Marque este `SecureString` campo como um para armazená-lo de forma segura na Data Factory. Ou pode [fazer referência a um segredo armazenado no Cofre de Chaves Azure.](store-credentials-in-key-vault.md) | Sim |
+| serviçoPrincipalKey | Especifique a chave da aplicação. Marque este campo como um `SecureString` para armazená-lo de forma segura na Data Factory. Ou pode [fazer referência a um segredo armazenado no Cofre de Chaves Azure.](store-credentials-in-key-vault.md) | Sim |
 | inquilino | Especifique as informações do arrendatário (nome de domínio ou ID do inquilino) sob a qual reside a sua candidatura. Recupere-o pairando sobre o rato no canto superior direito do portal Azure. | Sim |
 | connectVia | O tempo de [integração](concepts-integration-runtime.md) a ser utilizado para se ligar à loja de dados. Pode utilizar o tempo de execução da integração Azure ou um tempo de execução de integração auto-hospedado se a sua loja de dados estiver numa rede privada. Se não for especificado, o tempo de execução de integração do Azure padrão é utilizado. |Não |
 
@@ -183,7 +183,7 @@ Estas propriedades são suportadas para o serviço ligado:
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo deve ser definida para **AzureBlobFS**. |Sim |
-| url | Ponto final para Data Lake Storage `https://<accountname>.dfs.core.windows.net`Gen2 com o padrão de . | Sim |
+| url | Ponto final para Data Lake Storage Gen2 com o padrão de `https://<accountname>.dfs.core.windows.net` . | Sim |
 | connectVia | O tempo de [integração](concepts-integration-runtime.md) a ser utilizado para se ligar à loja de dados. Pode utilizar o tempo de execução da integração Azure ou um tempo de execução de integração auto-hospedado se a sua loja de dados estiver numa rede privada. Se não for especificado, o tempo de execução de integração do Azure padrão é utilizado. |Não |
 
 **Exemplo:**
@@ -210,11 +210,11 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-As seguintes propriedades são suportadas para `location` Data Lake Storage Gen2 em definições no conjunto de dados baseado em formato:
+As seguintes propriedades são suportadas para Data Lake Storage Gen2 em `location` definições no conjunto de dados baseado em formato:
 
 | Propriedade   | Descrição                                                  | Necessário |
 | ---------- | ------------------------------------------------------------ | -------- |
-| tipo       | A propriedade `location` do tipo no conjunto de dados deve ser definida para **A Localização AzureBlobFS .** | Sim      |
+| tipo       | A propriedade do tipo `location` no conjunto de dados deve ser definida para A Localização **AzureBlobFS .** | Sim      |
 | sistema de ficheiros | O nome do sistema de ficheiros Data Lake Storage Gen2.                              | Não       |
 | folderPath | O caminho para uma pasta sob o sistema de ficheiros dado. Se pretender utilizar um wildcard para filtrar pastas, ignore esta definição e especifique-a nas definições de origem de atividade. | Não       |
 | fileName   | O nome do ficheiro sob o ficheiro dadoSystem + pastaPath. Se pretender utilizar um wildcard para filtrar ficheiros, ignore esta definição e especifique-a nas definições de origem de atividade. | Não       |
@@ -254,15 +254,25 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-As seguintes propriedades são suportadas para `storeSettings` Data Lake Storage Gen2 em definições na fonte de cópia baseada em formato:
+Tem várias opções para copiar dados da ADLS Gen2:
+
+- Cópia do caminho determinado especificado no conjunto de dados.
+- Filtro wildcard contra o caminho da pasta ou o nome do ficheiro, ver `wildcardFolderPath` e `wildcardFileName` .
+- Copiar os ficheiros definidos num determinado ficheiro de texto como conjunto de ficheiros, ver `fileListPath` .
+
+As seguintes propriedades são suportadas para Data Lake Storage Gen2 em `storeSettings` definições na fonte de cópia baseada em formato:
 
 | Propriedade                 | Descrição                                                  | Necessário                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| tipo                     | A propriedade `storeSettings` do tipo em baixo deve ser definida para **AzureBlobFSReadSettings**. | Sim                                           |
-| recursivo                | Indica se os dados são lidos recursivamente a partir das subpastas ou apenas a partir da pasta especificada. Quando o recursivo é definido como verdadeiro e a pia é uma loja baseada em ficheiros, uma pasta vazia ou subpasta não é copiada ou criada na pia. Os valores permitidos são **verdadeiros** (predefinidos) e **falsos**. | Não                                            |
-| wildcardFolderPath       | O caminho da pasta com caracteres wildcard sob o sistema de ficheiros dado configurado no conjunto de dados para filtrar as pastas de origem. <br>Os wildcards `*` permitidos são (corresponde `?` a zero ou mais caracteres) e (corresponde a zero ou personagem único). Utilize `^` para escapar se o seu nome real de pasta tiver um wildcard ou este char de fuga no seu interior. <br>Consulte mais exemplos em exemplos de [pastas e filtros de ficheiros](#folder-and-file-filter-examples). | Não                                            |
-| nome wildcardFile         | O nome do ficheiro com caracteres wildcard no sistema de ficheiros dado + pastaPath/wildcardFolderPath para filtrar ficheiros de origem. <br>Os wildcards `*` permitidos são (corresponde `?` a zero ou mais caracteres) e (corresponde a zero ou personagem único). Utilize `^` para escapar se o seu nome real de pasta tiver um wildcard ou este char de fuga no seu interior. Consulte mais exemplos em exemplos de [pastas e filtros de ficheiros](#folder-and-file-filter-examples). | Sim, `fileName` se não for especificado no conjunto de dados |
-| alteradoDatetimeStart    | Filtro de ficheiros com base no atributo Last Modificado. Os ficheiros são selecionados se o seu `modifiedDatetimeStart` último `modifiedDatetimeEnd`tempo modificado estiver dentro do intervalo de tempo entre e . O tempo é aplicado ao fuso horário UTC no formato "2018-12-01T05:00:00:00Z". <br> As propriedades podem ser NU, o que significa que nenhum filtro de atributo de ficheiro é aplicado ao conjunto de dados. Quando `modifiedDatetimeStart` tem um valor `modifiedDatetimeEnd` de data mas é NULO, significa que os ficheiros cujo último atributo modificado é superior ou igual ao valor da data são selecionados. Quando `modifiedDatetimeEnd` tem um valor `modifiedDatetimeStart` de data mas é NULO, significa que os ficheiros cujo último atributo modificado é inferior ao valor da data são selecionados. | Não                                            |
+| tipo                     | A propriedade do tipo em baixo `storeSettings` deve ser definida para **AzureBlobFSReadSettings**. | Sim                                           |
+| ***Localize os ficheiros para copiar:*** |  |  |
+| OPÇÃO 1: caminho estático<br> | Cópia do sistema de ficheiros ou da trajetória de ficheiros ou pasta/ficheiro especificada no conjunto de dados. Se pretender copiar todos os ficheiros de um sistema/pasta de ficheiros, especifique adicionalmente `wildcardFileName` como `*` . |  |
+| OPÇÃO 2: wildcard<br>- wildcardFolderPath | O caminho da pasta com caracteres wildcard sob o sistema de ficheiros dado configurado no conjunto de dados para filtrar as pastas de origem. <br>Os wildcards permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou personagem único); use `^` para escapar se o seu nome real de pasta tiver wildcard ou este char de fuga no seu interior. <br>Consulte mais exemplos em exemplos de [pastas e filtros de ficheiros](#folder-and-file-filter-examples). | Não                                            |
+| OPÇÃO 2: wildcard<br>- wildcardFileName | O nome do ficheiro com caracteres wildcard no sistema de ficheiros dado + pastaPath/wildcardFolderPath para filtrar ficheiros de origem. <br>Os wildcards permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou personagem único); use `^` para escapar se o seu nome real de pasta tiver wildcard ou este char de fuga no seu interior.  Consulte mais exemplos em exemplos de [pastas e filtros de ficheiros](#folder-and-file-filter-examples). | Sim |
+| OPÇÃO 3: uma lista de ficheiros<br>- fileListPath | Indica copiar um determinado conjunto de ficheiros. Aponte para um ficheiro de texto que inclua uma lista de ficheiros que pretende copiar, um ficheiro por linha que é o caminho relativo para o caminho configurado no conjunto de dados.<br/>Ao utilizar esta opção, não especifique o nome do ficheiro no conjunto de dados. Veja mais exemplos nos [exemplos da lista de ficheiros](#file-list-examples). |Não |
+| ***Configurações adicionais:*** |  | |
+| recursivo | Indica se os dados são lidos recursivamente a partir das subpastas ou apenas a partir da pasta especificada. Note que quando se recursivo é definido como verdadeiro e a pia é uma loja baseada em ficheiros, uma pasta vazia ou subpasta não é copiada ou criada na pia. <br>Os valores permitidos são **verdadeiros** (predefinidos) e **falsos**.<br>Esta propriedade não se aplica quando configura `fileListPath` . |Não |
+| alteradoDatetimeStart    | Filtro de ficheiros com base no atributo: Última Modificação. <br>Os ficheiros serão selecionados se o seu último tempo modificado estiver dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd` . O tempo é aplicado ao fuso horário UTC no formato "2018-12-01T05:00:00:00Z". <br> As propriedades podem ser NU, o que significa que nenhum filtro de atributo de ficheiro será aplicado ao conjunto de dados.  Quando tem o valor da `modifiedDatetimeStart` data mas `modifiedDatetimeEnd` é NULO, significa que os ficheiros cujo último atributo modificado é maior ou igual ao valor da data serão selecionados.  Quando tem o valor da `modifiedDatetimeEnd` data mas `modifiedDatetimeStart` é NULO, significa que os ficheiros cujo último atributo modificado é inferior ao valor da data serão selecionados.<br/>Esta propriedade não se aplica quando configura `fileListPath` . | Não                                            |
 | alteradoDatetimeEnd      | O mesmo que acima.                                               | Não                                            |
 | maxConcurrentConnections | O número de ligações para ligar simultaneamente ao armazém. Especifique apenas quando pretende limitar a ligação simultânea à loja de dados. | Não                                            |
 
@@ -311,11 +321,11 @@ As seguintes propriedades são suportadas para `storeSettings` Data Lake Storage
 
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-As seguintes propriedades são suportadas para `storeSettings` Data Lake Storage Gen2 em configurações em sumidouro de cópia baseado em formato:
+As seguintes propriedades são suportadas para Data Lake Storage Gen2 em `storeSettings` configurações em sumidouro de cópia baseado em formato:
 
 | Propriedade                 | Descrição                                                  | Necessário |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| tipo                     | A propriedade `storeSettings` do tipo em baixo deve ser definida para **AzureBlobFSWriteSettings**. | Sim      |
+| tipo                     | A propriedade do tipo em baixo `storeSettings` deve ser definida para **AzureBlobFSWriteSettings**. | Sim      |
 | copiarComportamento             | Define o comportamento da cópia quando a fonte é ficheiros de uma loja de dados baseada em ficheiros.<br/><br/>Os valores permitidos são:<br/><b>- PreserveHierarchy (predefinição)</b>: Preserva a hierarquia dos ficheiros na pasta-alvo. O caminho relativo do ficheiro fonte para a pasta fonte é idêntico ao caminho relativo do ficheiro-alvo para a pasta-alvo.<br/><b>- Hierarquia flattena</b>: Todos os ficheiros da pasta fonte estão no primeiro nível da pasta-alvo. Os ficheiros-alvo têm nomes autogerados. <br/><b>- MergeFiles</b>: Funde todos os ficheiros da pasta de origem para um ficheiro. Se o nome do ficheiro for especificado, o nome do ficheiro fundido é o nome especificado. Caso contrário, é um nome de ficheiro autogerado. | Não       |
 | blockSizeInMB | Especifique o tamanho do bloco em MB usado para escrever dados para ADLS Gen2. Saiba mais [sobre block blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs). <br/>O valor permitido é **entre 4 e 100 MB.** <br/>Por predefinição, a ADF determina automaticamente o tamanho do bloco com base no tipo e dados da loja de origem. Para cópias não binárias em ADLS Gen2, o tamanho do bloco predefinido é de 100 MB de modo a encaixar no máximo dados de 4,95 TB. Pode não ser ideal quando os seus dados não são grandes, especialmente quando utiliza o Tempo de Funcionamento de Integração Auto-hospedado com uma rede deficiente, resultando num tempo de funcionamento ou problema de desempenho. Pode especificar explicitamente um tamanho de bloco, enquanto garantir que o blockSizeInMB*50000 é grande o suficiente para armazenar os dados, caso contrário a execução da atividade de cópia falhará. | Não |
 | maxConcurrentConnections | O número de ligações para ligar à loja de dados simultaneamente. Especifique apenas quando pretende limitar a ligação simultânea à loja de dados. | Não       |
@@ -365,6 +375,17 @@ Esta secção descreve o comportamento resultante do caminho da pasta e nome de 
 | `Folder*` | (Vazio, utilização por defeito) | true | Pasta<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;**Arquivo2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File4.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>Outra pastaB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
 | `Folder*` | `*.csv` | false | Pasta<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5.csv<br/>Outra pastaB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
 | `Folder*` | `*.csv` | true | Pasta<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>Outra pastaB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
+
+### <a name="file-list-examples"></a>Exemplos de lista de ficheiros
+
+Esta secção descreve o comportamento resultante da utilização do caminho da lista de ficheiros na fonte de atividade da cópia.
+
+Assumindo que tem a seguinte estrutura de pasta de origem e que pretende copiar os ficheiros em negrito:
+
+| Estrutura de origem da amostra                                      | Conteúdo em FileListToCopy.txt                             | Configuração ADF                                            |
+| ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------ |
+| sistema de ficheiros<br/>&nbsp;&nbsp;&nbsp;&nbsp;Pasta<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Metadados<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subpasta1/File3.csv<br>Subpasta1/File5.csv | **No conjunto de dados:**<br>- Sistema de ficheiros:`filesystem`<br>- Caminho das pastas:`FolderA`<br><br>**Na fonte de atividade de cópia:**<br>- Caminho da lista de ficheiros:`filesystem/Metadata/FileListToCopy.txt` <br><br>O caminho da lista de ficheiros aponta para um ficheiro de texto na mesma loja de dados que inclui uma lista de ficheiros que pretende copiar, um ficheiro por linha com o caminho relativo para o caminho configurado no conjunto de dados. |
+
 
 ### <a name="some-recursive-and-copybehavior-examples"></a>Alguns exemplos recursivos e copyBehavior
 
@@ -416,7 +437,7 @@ Exemplos wildcard:
 * ```/data/sales/*/*/*.csv```Obtém ficheiros csv dois níveis em /data/vendas
 * ```/data/sales/2004/*/12/[XY]1?.csv```Obtém todos os ficheiros CSV em 2004 em dezembro, começando com X ou Y pré-fixados por um número de dois dígitos
 
-**Caminho raiz da partilha:** Se tiver pastas divididas na fonte ```key=value``` de ficheiros com um formato (por exemplo, ano=2019), então pode atribuir o nível superior dessa árvore de pasta de divisória a um nome de coluna no fluxo de dados de fluxo de dados de dados.
+**Caminho raiz da partilha:** Se tiver pastas divididas na fonte de ficheiros com um ```key=value``` formato (por exemplo, ano=2019), então pode atribuir o nível superior dessa árvore de pasta de divisória a um nome de coluna no fluxo de dados de fluxo de dados de dados.
 
 Em primeiro lugar, detete um wildcard para incluir todos os caminhos que são as pastas divididas mais os ficheiros de folhas que pretende ler.
 
@@ -492,10 +513,10 @@ Para saber detalhes sobre as propriedades, consulte a [atividade de Eliminar](de
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade do tipo do conjunto de dados deve ser definida para **AzureBlobFSFile**. |Sim |
-| folderPath | Caminho para a pasta em Data Lake Storage Gen2. Se não especificado, aponta para a raiz. <br/><br/>O filtro Wildcard é suportado. Os wildcards `*` permitidos são (corresponde `?` a zero ou mais caracteres) e (corresponde a zero ou personagem único). Utilize `^` para escapar se o seu nome real de pasta tiver um wildcard ou se este carvão de fuga estiver dentro. <br/><br/>Exemplos: sistema de ficheiros/pasta/. Consulte mais exemplos em exemplos de [pastas e filtros de ficheiros](#folder-and-file-filter-examples). |Não |
-| fileName | Nome ou filtro wildcard para os ficheiros sob o "folderPath" especificado. Se não especificar um valor para esta propriedade, o conjunto de dados aponta para todos os ficheiros da pasta. <br/><br/>Para o filtro, os `*` wildcards permitidos são `?` (corresponde a zero ou mais caracteres) e (corresponde a zero ou personagem único).<br/>- Exemplo 1:`"fileName": "*.csv"`<br/>- Exemplo 2:`"fileName": "???20180427.txt"`<br/>Use `^` para escapar se o seu nome de arquivo real tiver um wildcard ou este char de fuga está dentro.<br/><br/>Quando o nome do ficheiro não é especificado para um conjunto de dados de saída e preservar a **hierarquia** não é especificada no sumidouro de atividade, a atividade de cópia gera automaticamente o nome do ficheiro com o seguinte padrão: "*Dados.. atividade executar ID GUID]. [GUID se AHierarquia Achatada]. [formato se configurado]. [compressão se configurado]*", por exemplo, "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz". Se copiar de uma fonte tabular usando um nome de mesa em vez de uma consulta, o padrão de nome é "*[nome de mesa].[ formato]. [compressão se configurado]*", por exemplo, "MyTable.csv". |Não |
-| alteradoDatetimeStart | Filtro de ficheiros com base no atributo Last Modificado. Os ficheiros são selecionados se o seu `modifiedDatetimeStart` último `modifiedDatetimeEnd`tempo modificado estiver dentro do intervalo de tempo entre e . O tempo é aplicado ao fuso horário UTC no formato "2018-12-01T05:00:00:00Z". <br/><br/> O desempenho global do movimento de dados é afetado, permitindo esta definição quando pretende fazer filtro de ficheiros com enormes quantidades de ficheiros. <br/><br/> As propriedades podem ser NU, o que significa que nenhum filtro de atributo de ficheiro é aplicado ao conjunto de dados. Quando `modifiedDatetimeStart` tem um valor `modifiedDatetimeEnd` de data mas é NULO, significa que os ficheiros cujo último atributo modificado é maior ou igual ao valor da data são selecionados. Quando `modifiedDatetimeEnd` tem um valor `modifiedDatetimeStart` de data mas é NULO, significa que os ficheiros cujo último atributo modificado é inferior ao valor da data são selecionados.| Não |
-| alteradoDatetimeEnd | Filtro de ficheiros com base no atributo Last Modificado. Os ficheiros são selecionados se o seu `modifiedDatetimeStart` último `modifiedDatetimeEnd`tempo modificado estiver dentro do intervalo de tempo entre e . O tempo é aplicado ao fuso horário UTC no formato "2018-12-01T05:00:00:00Z". <br/><br/> O desempenho global do movimento de dados é afetado, permitindo esta definição quando pretende fazer filtro de ficheiros com enormes quantidades de ficheiros. <br/><br/> As propriedades podem ser NU, o que significa que nenhum filtro de atributo de ficheiro é aplicado ao conjunto de dados. Quando `modifiedDatetimeStart` tem um valor `modifiedDatetimeEnd` de data mas é NULO, significa que os ficheiros cujo último atributo modificado é maior ou igual ao valor da data são selecionados. Quando `modifiedDatetimeEnd` tem um valor `modifiedDatetimeStart` de data mas é NULO, significa que os ficheiros cujo último atributo modificado é inferior ao valor da data são selecionados.| Não |
+| folderPath | Caminho para a pasta em Data Lake Storage Gen2. Se não especificado, aponta para a raiz. <br/><br/>O filtro Wildcard é suportado. Os wildcards permitidos são `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou personagem único). Utilize `^` para escapar se o seu nome real de pasta tiver um wildcard ou se este carvão de fuga estiver dentro. <br/><br/>Exemplos: sistema de ficheiros/pasta/. Consulte mais exemplos em exemplos de [pastas e filtros de ficheiros](#folder-and-file-filter-examples). |Não |
+| fileName | Nome ou filtro wildcard para os ficheiros sob o "folderPath" especificado. Se não especificar um valor para esta propriedade, o conjunto de dados aponta para todos os ficheiros da pasta. <br/><br/>Para o filtro, os wildcards permitidos são `*` (corresponde a zero ou mais caracteres) e (corresponde a `?` zero ou personagem único).<br/>- Exemplo 1:`"fileName": "*.csv"`<br/>- Exemplo 2:`"fileName": "???20180427.txt"`<br/>Use para escapar se o seu nome de `^` arquivo real tiver um wildcard ou este char de fuga está dentro.<br/><br/>Quando o nome do ficheiro não é especificado para um conjunto de dados de saída e preservar a **hierarquia** não é especificada no sumidouro de atividade, a atividade de cópia gera automaticamente o nome do ficheiro com o seguinte padrão: "*Dados.. atividade executar ID GUID]. [GUID se AHierarquia Achatada]. [formato se configurado]. [compressão se configurado]*", por exemplo, "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz". Se copiar de uma fonte tabular usando um nome de mesa em vez de uma consulta, o padrão de nome é "*[nome de mesa].[ formato]. [compressão se configurado]*", por exemplo, "MyTable.csv". |Não |
+| alteradoDatetimeStart | Filtro de ficheiros com base no atributo Last Modificado. Os ficheiros são selecionados se o seu último tempo modificado estiver dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd` . O tempo é aplicado ao fuso horário UTC no formato "2018-12-01T05:00:00:00Z". <br/><br/> O desempenho global do movimento de dados é afetado, permitindo esta definição quando pretende fazer filtro de ficheiros com enormes quantidades de ficheiros. <br/><br/> As propriedades podem ser NU, o que significa que nenhum filtro de atributo de ficheiro é aplicado ao conjunto de dados. Quando tem um valor de `modifiedDatetimeStart` data mas `modifiedDatetimeEnd` é NULO, significa que os ficheiros cujo último atributo modificado é maior ou igual ao valor da data são selecionados. Quando tem um valor de `modifiedDatetimeEnd` data mas `modifiedDatetimeStart` é NULO, significa que os ficheiros cujo último atributo modificado é inferior ao valor da data são selecionados.| Não |
+| alteradoDatetimeEnd | Filtro de ficheiros com base no atributo Last Modificado. Os ficheiros são selecionados se o seu último tempo modificado estiver dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd` . O tempo é aplicado ao fuso horário UTC no formato "2018-12-01T05:00:00:00Z". <br/><br/> O desempenho global do movimento de dados é afetado, permitindo esta definição quando pretende fazer filtro de ficheiros com enormes quantidades de ficheiros. <br/><br/> As propriedades podem ser NU, o que significa que nenhum filtro de atributo de ficheiro é aplicado ao conjunto de dados. Quando tem um valor de `modifiedDatetimeStart` data mas `modifiedDatetimeEnd` é NULO, significa que os ficheiros cujo último atributo modificado é maior ou igual ao valor da data são selecionados. Quando tem um valor de `modifiedDatetimeEnd` data mas `modifiedDatetimeStart` é NULO, significa que os ficheiros cujo último atributo modificado é inferior ao valor da data são selecionados.| Não |
 | formato | Se pretender copiar ficheiros como está entre lojas baseadas em ficheiros (cópia binária), ignore a secção de formato nas definições de conjunto de dados de entrada e saída.<br/><br/>Se pretender analisar ou gerar ficheiros com um formato específico, são suportados os seguintes tipos de formato de ficheiro: **TextFormat,** **JsonFormat,** **AvroFormat,** **OrcFormat**e **ParquetFormat**. Desloque a propriedade **tipo** em **formato** a um destes valores. Para mais informações, consulte as secções de [formato Texto,](supported-file-formats-and-compression-codecs-legacy.md#text-format) [Formato JSON,](supported-file-formats-and-compression-codecs-legacy.md#json-format) [formato Avro,](supported-file-formats-and-compression-codecs-legacy.md#avro-format) [formato ORC](supported-file-formats-and-compression-codecs-legacy.md#orc-format)e [formato Parquet.](supported-file-formats-and-compression-codecs-legacy.md#parquet-format) |Não (apenas para cenário de cópia binária) |
 | compressão | Especifique o tipo e o nível de compressão para os dados. Para mais informações, consulte [formatos de ficheiros suportados e codecs](supported-file-formats-and-compression-codecs-legacy.md#compression-support)de compressão .<br/>Os tipos suportados são **GZip,** **Deflate,** **BZip2**e **ZipDeflate**.<br/>Os níveis suportados são **Ideais** e **Mais Rápidos.** |Não |
 

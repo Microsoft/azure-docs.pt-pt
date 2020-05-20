@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 70ad69c1a34f656347b0cf53b28a1c35ac6ad043
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: a8699b3942fe3a4b23f1d72036b7364cdab36f8e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83598242"
+ms.locfileid: "83651972"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-from-an-azure-stream-analytics-job-preview"></a>Utilize identidades geridas para aceder à Base de Dados Azure SQL a partir de um trabalho de Azure Stream Analytics (Pré-visualização)
 
@@ -56,13 +56,17 @@ Depois de criar uma identidade gerida, selecione um administrador de Diretório 
 
    ![Página de administração de Diretório Ativo](./media/sql-db-output-managed-identity/active-directory-admin-page.png)
  
-1. Na página de administração do Diretório Ativo, procure um utilizador ou grupo para ser administrador do Servidor SQL e clique em **Select**.  
+1. Na página de administração do Diretório Ativo, procure um utilizador ou grupo para ser administrador do Servidor SQL e clique em **Select**.
 
    ![Adicionar administrador de Diretório Ativo](./media/sql-db-output-managed-identity/add-admin.png)
 
-1. Selecione **Guardar** na página de administração do **Diretório Ativo.** O processo de mudança de administrador demora alguns minutos.  
+   A página de administração do Diretório Ativo mostra todos os membros e grupos do seu Diretório Ativo. Os utilizadores ou grupos que estão acinzentados não podem ser selecionados porque não são suportados como administradores da AD Azure. Consulte a lista de administradores suportados na secção de **Funcionalidades e Limitações ad-azure**   da [utilização azure ative de autenticação para autenticação com Base de Dados SQL ou Synapse Azure](../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations). O controlo de acesso baseado em funções (RBAC) aplica-se apenas ao portal e não é propagado ao Servidor SQL. Além disso, o utilizador ou grupo selecionado é o utilizador que poderá criar o Utilizador de **Base de Dados Contido** na próxima secção.
 
-## <a name="create-a-database-user"></a>Criar um utilizador de base de dados
+1. Selecione **Guardar** na página de administração do **Diretório Ativo.** O processo de mudança de administrador demora alguns minutos.
+
+   Quando configura o administrador Da D Azure, o novo nome de administrador (utilizador ou grupo) não pode estar presente na base de dados virtual como utilizador de autenticação SQL Server. Se presente, a configuração de administração da AD Azure falhará e reverterá a sua criação, indicando que já existe um administrador (nome). Uma vez que o utilizador de autenticação Do Servidor SQL não faz parte do Azure AD, qualquer esforço para se ligar ao servidor utilizando a autenticação AD Azure, uma vez que esse utilizador falha. 
+
+## <a name="create-a-contained-database-user"></a>Criar um utilizador de base de dados contido
 
 Em seguida, cria um utilizador de base de dados contido na sua Base de Dados SQL que está mapeado para a identidade do Diretório Ativo Azure. O utilizador de base de dados contido não tem um login para a base de dados principal, mas mapeia uma identidade no diretório que está associada à base de dados. A identidade do Diretório Ativo Azure pode ser uma conta de utilizador individual ou um grupo. Neste caso, pretende criar um utilizador de base de dados contido para o seu trabalho no Stream Analytics. 
 
@@ -92,15 +96,27 @@ Em seguida, cria um utilizador de base de dados contido na sua Base de Dados SQL
    CREATE USER [ASA_JOB_NAME] FROM EXTERNAL PROVIDER; 
    ```
 
+1. Para que o Diretório Ativo Azure da Microsoft verifique se o trabalho do Stream Analytics tem acesso à Base de Dados SQL, precisamos de dar permissão ao Azure Ative Directory para comunicar com a base de dados. Para isso, aceda novamente à página "Firewalls e rede virtual" no Portal Do Azure e permita que "permita que os serviços e recursos do Azure acedam a este servidor". 
+
+   ![Firewall e rede virtual](./media/sql-db-output-managed-identity/allow-access.png)
+
 ## <a name="grant-stream-analytics-job-permissions"></a>Permissões de emprego de Grant Stream Analytics
 
-O trabalho stream analytics tem permissão da Identidade Gerida para **ligar** ao seu recurso De base de dados SQL. Muito provavelmente, seria eficiente permitir que o trabalho de Stream Analytics executasse comandos como **SELECT**. Pode conceder essas permissões ao trabalho do Stream Analytics utilizando o Estúdio de Gestão de Servidores SQL. Para mais informações, consulte a referência [GRANT (Transact-SQL).](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql?view=sql-server-ver15)
+Uma vez criado um utilizador de base de dados contido e dado acesso aos serviços Azure no portal, conforme descrito na secção anterior, o seu trabalho stream Analytics tem permissão da Identidade Gerida para **ligar** ao seu recurso de base de dados SQL através de identidade gerida. Recomendamos que conceda as permissões SELECT e INSERT para o trabalho de Stream Analytics, uma vez que estas serão necessárias mais tarde no fluxo de trabalho stream Analytics. A permissão **SELECT** permite que o trabalho teste a sua ligação à tabela na Base de Dados SQL. A permissão **INSERT** permite testar consultas de stream analytics de ponta a ponta uma vez configurado uma entrada e a saída de Base de Dados SQL. Pode conceder essas permissões ao trabalho do Stream Analytics utilizando o Estúdio de Gestão de Servidores SQL. Para mais informações, consulte a referência [GRANT (Transact-SQL).](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql?view=sql-server-ver15)
+
+Para apenas conceder permissão a uma determinada tabela ou objeto na base de dados, utilize a seguinte sintaxe T-SQL e faça a consulta. 
+
+```sql
+GRANT SELECT, INSERT ON OBJECT::TABLE_NAME TO ASA_JOB_NAME; 
+```
 
 Em alternativa, pode clicar corretamente na sua base de dados SQL no Estúdio de Gestão de Servidores SQL e selecionar **Propriedades > Permissões**. A partir do menu de permissões, pode ver o trabalho de Stream Analytics que adicionou anteriormente, e pode conceder ou negar manualmente permissões como entender.
 
 ## <a name="create-an-azure-sql-database-output"></a>Criar uma saída de base de dados Azure SQL
 
 Agora que a sua identidade gerida está configurada, está pronto para adicionar a Base de Dados Azure SQL como saída ao seu trabalho de Stream Analytics.
+
+Certifique-se de que criou uma tabela na sua Base de Dados SQL com o esquema de saída apropriado. O nome desta tabela é uma das propriedades necessárias que tem de ser preenchida quando adiciona a saída da Base de Dados SQL ao trabalho stream analytics. Além disso, certifique-se de que o trabalho tem permissões **SELECT** e **INSERT** para testar a ligação e executar consultas stream analytics. Consulte a secção de [permissões](#grant-stream-analytics-job-permissions) de trabalho grant Stream Analytics se ainda não o fez. 
 
 1. Volte ao seu trabalho de Stream Analytics e navegue para a página **Outputs** no âmbito da **Job Topology**. 
 

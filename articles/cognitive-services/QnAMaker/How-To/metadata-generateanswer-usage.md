@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: diberry
-ms.openlocfilehash: 9beb6dbbba1c5855b8bfa97fc02f50aa59225d78
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8785484efec119f15ef53feefbd6e94181cd159a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80474848"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659556"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Obtenha uma resposta com a API GenerateAnswer e metadados
 
@@ -64,7 +64,7 @@ Ligue para a GenerateAnswer com um pedido HTTP POST. Para obter um código de am
 O pedido post utiliza:
 
 * Parâmetros [URI necessários](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#uri-parameters)
-* Propriedade de cabeçalho necessária, `Authorization`para segurança
+* Propriedade de cabeçalho necessária, `Authorization` para segurança
 * Propriedades [corporais necessárias.](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto)
 
 O URL GenerateAnswer tem o seguinte formato:
@@ -73,7 +73,7 @@ O URL GenerateAnswer tem o seguinte formato:
 https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 ```
 
-Lembre-se de definir `Authorization` a propriedade do `EndpointKey` cabeçalho HTTP com um valor da corda com um espaço de trailing e, em seguida, a chave de ponto final encontrada na página **Definições.**
+Lembre-se de definir a propriedade do cabeçalho HTTP `Authorization` com um valor da corda com um espaço de `EndpointKey` trailing e, em seguida, a chave de ponto final encontrada na página **Definições.**
 
 Um exemplo do corpo jSON parece:
 
@@ -168,7 +168,7 @@ A JSON anterior solicitou apenas respostas que estão a 30% ou acima da pontuaç
 
 ## <a name="use-metadata-to-filter-answers-by-custom-metadata-tags"></a>Utilize metadados para filtrar respostas através de etiquetas de metadados personalizados
 
-Adicionar metadados permite filtrar as respostas através destas etiquetas de metadados. Adicione a coluna de metadados do menu **'Ver Opções'.** Adicione metadados à sua base de **+** conhecimentos selecionando o ícone dos metadados para adicionar um par de metadados. Este par consiste numa chave e num valor.
+Adicionar metadados permite filtrar as respostas através destas etiquetas de metadados. Adicione a coluna de metadados do menu **'Ver Opções'.** Adicione metadados à sua base de conhecimentos selecionando o ícone dos metadados para adicionar um par de **+** metadados. Este par consiste numa chave e num valor.
 
 ![Screenshot da adição de metadados](../media/qnamaker-how-to-metadata-usage/add-metadata.png)
 
@@ -226,9 +226,9 @@ A resposta ao GenerateAnswer contém as informações correspondentes dos metada
 
 ## <a name="match-questions-only-by-text"></a>Apenas perguntas de jogo, por texto
 
-Por padrão, o QnA Maker procura através de perguntas e respostas. Se quiser pesquisar apenas através de perguntas, `RankerType=QuestionOnly` para gerar uma resposta, utilize o corpo post do pedido GenerateAnswer.
+Por padrão, o QnA Maker procura através de perguntas e respostas. Se quiser pesquisar apenas através de perguntas, para gerar uma resposta, utilize o `RankerType=QuestionOnly` corpo post do pedido GenerateAnswer.
 
-Pode pesquisar através do kb `isTest=false`publicado, utilizando , `isTest=true`ou no kb de teste utilizando .
+Pode pesquisar através do kb publicado, utilizando , ou no kb de `isTest=false` teste utilizando `isTest=true` .
 
 ```json
 {
@@ -256,4 +256,4 @@ Pode pesquisar através do kb `isTest=false`publicado, utilizando , `isTest=true
 A página **Publicar** também fornece informações para [gerar uma resposta](../Quickstarts/get-answer-from-knowledge-base-using-url-tool.md) com o Carteiro ou cURL.
 
 > [!div class="nextstepaction"]
-> [Criar um bot base de conhecimento](../tutorials/integrate-qnamaker-luis.md)
+> [Obter análises da base de dados de conhecimento](../how-to/get-analytics-knowledge-base.md)

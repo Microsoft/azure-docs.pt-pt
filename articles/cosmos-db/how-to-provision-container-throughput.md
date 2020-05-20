@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: mjbrown
-ms.openlocfilehash: 4249f1e9f2bf9fcb235644bb211065db460c936e
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 0e7a2e9e5feb848971c4858415510f98a7bdaf78
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82869909"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655343"
 ---
-# <a name="provision-throughput-on-an-azure-cosmos-container"></a>Provisão de entrada num recipiente Azure Cosmos
+# <a name="provision-standard-manual-throughput-on-an-azure-cosmos-container"></a>Entrada padrão de fornecimento (manual) num contentor Azure Cosmos
 
-Este artigo explica como fornecer a entrada num recipiente (coleção, gráfico ou tabela) em Azure Cosmos DB. Pode fornecer a entrada num único recipiente, ou [fornecer entrada numa base](how-to-provision-database-throughput.md) de dados e partilhá-la entre os contentores dentro da base de dados. Pode fornecer entrada num recipiente utilizando o portal Azure, O CLI Azure ou o Azure Cosmos DB SDKs.
+Este artigo explica como fornecer uma entrada padrão (manual) num recipiente (recolha, gráfico ou tabela) em Azure Cosmos DB. Pode fornecer a entrada num único recipiente, ou [fornecer entrada numa base](how-to-provision-database-throughput.md) de dados e partilhá-la entre os contentores dentro da base de dados. Pode fornecer entrada num recipiente utilizando o portal Azure, O CLI Azure ou o Azure Cosmos DB SDKs.
 
 ## <a name="azure-portal"></a>Portal do Azure
 
@@ -27,7 +27,7 @@ Este artigo explica como fornecer a entrada num recipiente (coleção, gráfico 
 
    * Indique se está a criar uma nova base de dados ou a utilizar uma existente.
    * Introduza um ID de recipiente (ou tabela ou gráfico).
-   * Introduza um valor chave `/userid`de partição (por exemplo, ).
+   * Introduza um valor chave de partição (por exemplo, `/userid` ).
    * Introduza uma entrada que pretende fornecer (por exemplo, 1000 RUs).
    * Selecione **OK**.
 
@@ -38,10 +38,10 @@ Este artigo explica como fornecer a entrada num recipiente (coleção, gráfico 
 Para criar um recipiente com entrada dedicada ver,
 
 * [Criar um contentor com a CLI do Azure](manage-with-cli.md#create-a-container)
-* [Criar um recipiente usando powershell](manage-with-powershell.md#create-container)
+* [Criar um recipiente usando powerShell](manage-with-powershell.md#create-container)
 
 > [!Note]
-> Se estiver a fornecer a entrada num recipiente numa conta Azure Cosmos configurada com o Azure `/myShardKey` Cosmos DB API para MongoDB, utilize para o caminho-chave da partição. Se estiver a fornecer a entrada num recipiente numa conta Azure Cosmos `/myPrimaryKey` configurada com API Cassandra, utilize para o caminho-chave da partilha.
+> Se estiver a fornecer a entrada num recipiente numa conta Azure Cosmos configurada com o Azure Cosmos DB API para MongoDB, utilize `/myShardKey` para o caminho-chave da partição. Se estiver a fornecer a entrada num recipiente numa conta Azure Cosmos configurada com API Cassandra, utilize `/myPrimaryKey` para o caminho-chave da partilha.
 
 ## <a name="net-sdk"></a>SDK .NET
 
@@ -123,5 +123,6 @@ session.Execute("ALTER TABLE myKeySpace.myTable WITH cosmosdb_provisioned_throug
 
 Consulte os seguintes artigos para conhecer o fornecimento de entrada em Azure Cosmos DB:
 
-* [Como fornecer a entrada numa base de dados](how-to-provision-database-throughput.md)
+* [Como fornecer a entrada padrão (manual) numa base de dados](how-to-provision-database-throughput.md)
+* [Como fornecer a produção de escala automática numa base de dados](how-to-provision-autoscale-throughput.md)
 * [Unidades de pedido e débito no Azure Cosmos DB](request-units.md)

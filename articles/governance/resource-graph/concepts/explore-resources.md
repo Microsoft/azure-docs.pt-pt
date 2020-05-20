@@ -1,14 +1,14 @@
 ---
 title: Explorar os seus recursos do Azure
 description: Aprenda a usar a linguagem de consulta do Graph de Recursos para explorar os seus recursos e descobrir como estão conectados.
-ms.date: 10/18/2019
+ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0c191915b8c558d80ffef554ef758a35157e035c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 33bf457a57f7e62b9c99471bcb7676f62046f61d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76156986"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654497"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Explorar os seus recursos do Azure com o Resource Graph
 
@@ -37,7 +37,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachi
 ```
 
 > [!NOTE]
-> O cmdlet `Search-AzGraph` Azure PowerShell devolve um **PSCustomObject** por padrão. Para que a saída seja igual à que é `ConvertTo-Json` devolvida pelo Azure CLI, o cmdlet é utilizado. O valor predefinido para **profundidade** é _de 2_. A definição para _100_ deve converter todos os níveis devolvidos.
+> O cmdlet Azure PowerShell `Search-AzGraph` devolve um **PSCustomObject** por padrão. Para que a saída seja igual à que é devolvida pelo Azure CLI, o `ConvertTo-Json` cmdlet é utilizado. O valor predefinido para **profundidade** é _de 2_. A definição para _100_ deve converter todos os níveis devolvidos.
 
 Os resultados da JSON são estruturados de forma semelhante ao seguinte exemplo:
 
@@ -305,7 +305,7 @@ az graph query -q="Resources | where type =~ 'Microsoft.Network/publicIPAddresse
 Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Network/publicIPAddresses' | where id in ('$($ips.publicIp -join "','")') | project ip = tostring(properties['ipAddress']) | where isnotempty(ip) | distinct ip"
 ```
 
-Para ver como realizar estes passos numa `join` única consulta com o operador, consulte as [máquinas virtuais da Lista com](../samples/advanced.md#join-vmpip) a sua interface de rede e amostra ip pública.
+Para ver como realizar estes passos numa única consulta com o operador, consulte as máquinas virtuais da Lista com a sua interface de `join` rede e amostra ip [pública.](../samples/advanced.md#join-vmpip)
 
 ## <a name="next-steps"></a>Passos seguintes
 

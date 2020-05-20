@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: e50dd636c1bd9403d5eca2157e4e46772418f92c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 2f4751440d719a542d39f8d8e83260c8cb628de0
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592904"
+ms.locfileid: "83659285"
 ---
 # <a name="language-understanding-luis-container-limitations"></a>Limitações dos contentores de compreensão linguística (LUIS)
 
@@ -35,7 +35,7 @@ Pode utilizar uma aplicação LUIS se **não incluir** nenhuma das seguintes dep
 
 Configurações de aplicativos não suportados|Detalhes|
 |--|--|
-|Culturas de contentores não suportadas| Holandês ( `nl-NL` )<br>Japonês ( `ja-JP` )<br>O alemão só é apoiado com o [tokenizer 1.0.2.](luis-language-support.md#custom-tokenizer-versions)|
+|Culturas de contentores não suportadas| As línguas holandesas `nl-NL` () japonesas e alemãs são `ja-JP` `de-DE` apoiadas apenas com o [tokenizer 1.0.2](luis-language-support.md#custom-tokenizer-versions).|
 |Entidades não apoiadas para todas as culturas|Entidade pré-construída [KeyPhrase](luis-reference-prebuilt-keyphrase.md) para todas as culturas|
 |Entidades não apoiadas para a cultura inglesa ( `en-US` )|[GeografiaV2](luis-reference-prebuilt-geographyV2.md) entidades pré-construídas|
 |Preparação do discurso|As dependências externas não são suportadas no recipiente.|
@@ -46,7 +46,7 @@ Configurações de aplicativos não suportados|Detalhes|
 
 Os recipientes LUIS suportam um subconjunto das [línguas suportadas](luis-language-support.md#languages-supported) pelo PRÓPRIO LUIS. Os recipientes LUIS são capazes de compreender as expressões nas seguintes línguas:
 
-| Linguagem | Região | Domínio pré-construído | Entidade pré-construída | Recomendações de lista de frases | **[Análise de texto](../text-analytics/language-support.md)<br>(Sentimento e<br>Palavras-chave)|
+| Idioma | Região | Domínio pré-construído | Entidade pré-construída | Recomendações de lista de frases | **[Análise de texto](../text-analytics/language-support.md)<br>(Sentimento e<br>Palavras-chave)|
 |--|--|:--:|:--:|:--:|:--:|
 | Inglês Americano | `en-US` | ✔️ | ✔️ | ✔️ | ✔️ |
 | *[Chinês](#chinese-support-notes) |`zh-CN` | ✔️ | ✔️ | ✔️ | ❌ |

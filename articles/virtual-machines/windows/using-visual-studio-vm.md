@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: cathys
 keywords: estúdio visual
-ms.openlocfilehash: 8dc0fa53423a4b181ab50cd4c1552115de175c89
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 134f0202b4b18e96b9f089460f4235c6b5c0fe4d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133678"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652668"
 ---
 # <a name="visual-studio-images-on-azure"></a>Imagens do Estúdio Visual no Azure
 Usar o Visual Studio numa máquina virtual Azure (VM) reconfigurada é uma maneira rápida e fácil de passar do nada para um ambiente de desenvolvimento em alta e funcionamento. Imagens do sistema com diferentes configurações do Estúdio Visual estão disponíveis no [Azure Marketplace.](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images%3Bmicrosoft%3Bwindows&page=1&subcategories=application-infrastructure)
@@ -31,10 +31,10 @@ As imagens das mais recentes versões principais, Visual Studio 2019, Visual Stu
 | Versão de lançamento                                                                                                                                                | Edições              | Versão do Produto   |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------:|:-----------------:|
 | [Estúdio Visual 2019: Mais recente (Versão 16.5)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019latest?tab=Overview) | Enterprise, Comunidade | Versão 16.5.4    |
-| [Estúdio Visual 2019: RTW](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019?tab=Overview)                         | Enterprise | Versão 16.0.13    |
-| [Estúdio Visual 2017: Mais recente (Versão 15.9)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)           | Enterprise, Comunidade | Versão 15.9.22   |
-| [Estúdio Visual 2017: RTW](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)                             | Enterprise, Comunidade | Versão 15.0.28  |
-| [Estúdio Visual 2015: Última (Atualização 3)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)               | Enterprise, Comunidade | Versão 14.0.25431.01 |
+| Estúdio Visual 2019: RTW                         | Grandes Empresas | Versão 16.0.13    |
+| Estúdio Visual 2017: Mais recente (Versão 15.9)           | Enterprise, Comunidade | Versão 15.9.22   |
+| Estúdio Visual 2017: RTW                             | Enterprise, Comunidade | Versão 15.0.28  |
+| Estúdio Visual 2015: Última (Atualização 3)               | Enterprise, Comunidade | Versão 14.0.25431.01 |
 
 > [!NOTE]
 > De acordo com a política de manutenção da Microsoft, a versão originalmente lançada (RTW) do Visual Studio 2015 expirou para ser servida. Visual Studio 2015 Update 3 é a única versão restante oferecida para a linha de produtos Visual Studio 2015.
@@ -92,7 +92,7 @@ Para mais informações, consulte [O Estúdio Visual](/visualstudio/ide/signing-
 
 O espectro de ambientes de desenvolvimento é enorme, e há um custo real associado à construção de ambientes mais complexos. Independentemente da configuração do seu ambiente, pode guardar ou capturar o seu VM configurado como uma "imagem base" para uso futuro ou para outros membros da sua equipa. Depois, ao iniciar um novo VM, você o provisão da imagem base em vez da imagem azure Marketplace.
 
-Um resumo rápido: Utilize a ferramenta de preparação do sistema (Sysprep) e desligue o VM em execução e, em seguida, capture *(Figura 1)* o VM como uma imagem através da UI no portal Azure. O Azure `.vhd` guarda o ficheiro que contém a imagem na conta de armazenamento à sua escolha. A nova imagem aparece então como um recurso image na lista de recursos da sua subscrição.
+Um resumo rápido: Utilize a ferramenta de preparação do sistema (Sysprep) e desligue o VM em execução e, em seguida, capture *(Figura 1)* o VM como uma imagem através da UI no portal Azure. O Azure guarda o `.vhd` ficheiro que contém a imagem na conta de armazenamento à sua escolha. A nova imagem aparece então como um recurso image na lista de recursos da sua subscrição.
 
 <img src="media/using-visual-studio-vm/capture-vm.png" alt="Capture an image through the Azure portal UI" style="border:3px solid Silver; display: block; margin: auto;"><center>*(Figura 1) Capture uma imagem através do portal Azure UI.*</center>
 

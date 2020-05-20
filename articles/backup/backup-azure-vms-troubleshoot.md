@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a resolver erros encontrados com backup e res
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: dd199bc0245ab1daa090f88b1e92216c714042ee
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: 68310f504e94e50be9fbd4ce49055a4b318ab5d5
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864450"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659499"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Falhas de backup em máquinas virtuais Azure
 
@@ -27,7 +27,7 @@ Esta secção cobre a falha de funcionamento de backup da máquina Azure Virtual
   * Para garantir que não existem problemas de extensão instantânea, [desinstale as extensões para forçar a recarga e, em seguida, tente novamente a cópia de segurança](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout).
 * Verifique se o VM tem conectividade com a Internet.
   * Certifique-se de que outro serviço de reserva não está a funcionar.
-* A `Services.msc`partir de , certifique-se de que o serviço **de Agente Convidado Windows Azure** está em **execução**. Se o serviço **de Agente Convidado Windows Azure** estiver em falta, instale-o a partir de [VMs Azure back up num cofre de Serviços de Recuperação](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent).
+* A partir `Services.msc` de , certifique-se de que o serviço de Agente Convidado Windows **Azure** está **em execução**. Se o serviço **de Agente Convidado Windows Azure** estiver em falta, instale-o a partir de [VMs Azure back up num cofre de Serviços de Recuperação](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent).
 * O **registo do Evento** pode apresentar falhas de backup provenientes de outros produtos de backup, por exemplo, cópiade cópia de segurança do Windows Server, e não são devidos à cópia de segurança do Azure. Utilize os seguintes passos para determinar se o problema está com a Cópia de Segurança Azure:
   * Se houver algum erro com uma **cópia** de segurança de entrada na fonte ou mensagem do evento, verifique se as cópias de segurança VM Do Azure IaaS foram bem sucedidas e se foi criado um Ponto de Restauro com o tipo de instantâneo pretendido.
   * Se o Azure Backup está a funcionar, então o problema é provável que com outra solução de backup.
@@ -93,7 +93,7 @@ A operação 'Backup' falhou devido a um problema com a aplicação do **sistema
 Código de erro: ExtensionFailedVssWriterInBadState <br/>
 Mensagem de erro: A operação instantânea falhou porque os escritores do VSS estavam em mau estado.
 
-Reinicie os escritores da VSS que estão em mau estado. A partir de um ```vssadmin list writers```pedido de comando elevado, corra. A produção contém todos os escritores vss e o seu estado. Para cada escritor da VSS com um estado que não é **[1] Estável,** para reiniciar o escritor VSS, executar os seguintes comandos a partir de um pedido de comando elevado:
+Reinicie os escritores da VSS que estão em mau estado. A partir de um pedido de comando elevado, ```vssadmin list writers``` corra. A produção contém todos os escritores vss e o seu estado. Para cada escritor da VSS com um estado que não é **[1] Estável,** para reiniciar o escritor VSS, executar os seguintes comandos a partir de um pedido de comando elevado:
 
 * ```net stop serviceName```
 * ```net start serviceName```
@@ -134,7 +134,7 @@ Se vir permissões no diretório **MachineKeys** diferentes das predefinições,
 2. Elimine todos os certificados sempre que **emitido seja** o modelo de implantação clássico ou gerador de **certificados CRP Windows Azure:**
 
    * [Abram certificados numa consola de computador local.](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in)
-   * Nos**Certificados** **Pessoais,** > elimine todos os certificados sempre que **emitido** seja o modelo de implementação clássico ou gerador de **certificados CRP Windows Azure**.
+   * Nos **Personal**  >  **Certificados**Pessoais, elimine todos os certificados sempre que **emitido** seja o modelo de implementação clássico ou gerador de **certificados CRP Windows Azure**.
 3. Desencadeie um trabalho de apoio vm.
 
 ## <a name="extensionstuckindeletionstate---extension-state-is-not-supportive-to-backup-operation"></a>ExtensionStuckInDeletionState - Estado de extensão não apoia a operação de backup
@@ -145,7 +145,7 @@ Mensagem de erro: Estado de extensão não apoia operação de backup
 A operação de backup falhou devido ao estado inconsistente de extensão de backup. Para resolver este problema, siga estes passos:
 
 * Certifique-se de que o Agente Convidado está instalado e a responder
-* A partir do portal Azure, vá à **Máquina** > Virtual Todas as**Extensões** de**Definições** > 
+* A partir do portal Azure, vá à **Máquina Virtual**Todas  >  **as**  >  **Extensões** de Definições
 * Selecione a extensão de cópia de segurança VmSnapshot ou VmSnapshotLinux e clique em **Desinstalar**
 * Depois de apagar a extensão de reserva, tente novamente a operação de backup
 * A operação de cópia de segurança subsequente irá instalar a nova extensão no estado pretendido
@@ -197,7 +197,7 @@ Desta forma, garante-es que os instantâneos são criados através do anfitrião
 | **Código de erro**: VmNotInDesejávelState <br/> **Mensagem de erro**: O VM não está num estado que permite cópias de segurança. |<ul><li>Se o VM estiver num estado transitório entre **Correr** e **desligar,** espere que o Estado mude. Então desencadeie o trabalho de reserva. <li> Se o VM for um VM Linux e utilizar o módulo kernel Linux reforçado pela segurança, exclua o caminho do Agente Azure Linux **/var/lib/waagent** da política de segurança e certifique-se de que a extensão de backup está instalada.  |
 | O Agente VM não está presente na máquina virtual: <br>Instale qualquer pré-requisito e o Agente VM. Em seguida, reiniciar a operação. |Leia mais sobre a instalação do [Agente VM e como validar a instalação](#vm-agent)do Agente VM . |
 | **Código de erro**: ExtensionSnapshotFailedNoSecureNetwork <br/> **Mensagem de erro**: A operação instantânea falhou devido à falha na criação de um canal de comunicação de rede seguro. | <ol><li> Abra o Editor de Registo executando **regedit.exe** em modo elevado. <li> Identifique todas as versões do .NET Framework presentes no seu sistema. Estão presentes sob a hierarquia da chave de registo **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**. <li> Para cada .NET Quadro presente na chave de registo, adicione a seguinte chave: <br> **SchUseStrongCrypto"=dword:0000000001**. </ol>|
-| **Código de erro**: Falha de instalação do RevvcRedist <br/> **Mensagem de erro**: A operação instantânea falhou devido à falha na instalação visual C++ Redistribuável para o Visual Studio 2012. | Navegue para C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion e instale vcredist2013_x64.<br/>Certifique-se de que o valor chave do registo que permite a instalação do serviço está definido para o valor correto. Ou seja, detete **o** valor inicial em **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** para **3** e não **4**. <br><br>Se ainda tiver problemas com a instalação, reinicie o serviço de instalação executando **mSIEXEC/UNREGISTER** seguido de **MSIEXEC/REGISTER** a partir de um pedido de comando elevado.  |
+| **Código de erro**: Falha de instalação do RevvcRedist <br/> **Mensagem de erro**: A operação instantânea falhou devido à falha na instalação visual C++ Redistribuável para o Visual Studio 2012. | <li> Navegue `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion` e instale vcredist2013_x64.<br/>Certifique-se de que o valor chave do registo que permite a instalação do serviço está definido para o valor correto. Ou seja, detete **o** valor inicial em **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** para **3** e não **4**. <br><br>Se ainda tiver problemas com a instalação, reinicie o serviço de instalação executando **mSIEXEC/UNREGISTER** seguido de **MSIEXEC/REGISTER** a partir de um pedido de comando elevado. <br><br><li> Verifique o registo do evento para verificar se está a notar problemas relacionados com o acesso. Por exemplo: *Produto: Microsoft Visual C++ 2013 x64 Tempo mínimo de execução - 12.0.21005 -- Erro 1401.Não conseguiu criar a chave: Software\Classes.  Erro do sistema 5.  Verifique se tem acesso suficiente a essa chave ou contacte o seu pessoal* de apoio. <br><br> Certifique-se de que o administrador ou a conta de utilizador tem permissões suficientes para atualizar a chave de registo **HKEY_LOCAL_MACHINE\SOFTWARE\Classes**. Forneça permissões suficientes e reinicie o Agente Convidado do Windows Azure.<br><br> <li> Se tiver produtos antivírus no lugar, certifique-se de que têm as regras de exclusão adequadas para permitir a instalação.    |
 | **Código de erro**: UserErrorRequestDisallowedByPolicy <BR> **Mensagem de erro**: Uma política inválida está configurada no VM que está a impedir o funcionamento do Snapshot. | Se tiver uma Política Azure que [regule as etiquetas no seu ambiente,](https://docs.microsoft.com/azure/governance/policy/tutorials/govern-tags)considere alterar a política de um [efeito Deny](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deny) para um [efeito Modificar,](https://docs.microsoft.com/azure/governance/policy/concepts/effects#modify)ou crie o grupo de recursos manualmente de acordo com o esquema de [nomeação exigido pela Azure Backup](https://docs.microsoft.com/azure/backup/backup-during-vm-creation#azure-backup-resource-group-for-virtual-machines).
 
 ## <a name="jobs"></a>Tarefas

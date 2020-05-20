@@ -8,13 +8,12 @@ ms.author: pmorgan
 ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.custom: has-adal-ref
-ms.openlocfilehash: c2800dc361eb274eeef706556e09731da079ccab
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 9a3b326f97246ffac386ad43cfa08ce413eea899
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611760"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653368"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autenticação e autorização às Âncoras Espaciais Azure
 
@@ -46,7 +45,7 @@ São disponibilizadas duas chaves, ambas simultaneamente válidas para acesso à
 
 O SDK tem suporte incorporado para autenticação com chaves de conta; basta definir a propriedade AccountKey no seu objeto cloudSession.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 this.cloudSession.Configuration.AccountKey = @"MyAccountKey";
@@ -99,7 +98,7 @@ Para aplicações dirigidas aos utilizadores do Azure Ative Directory, a abordag
     1.  Registe a sua candidatura em Azure AD como **aplicação nativa.** Como parte do registo, terá de determinar se a sua candidatura deve ou não ser multi-arrendatária e fornecer os URLs redirecionados permitidos para a sua aplicação.
         1.  Mude para o separador de **permissões API**
         2.  Selecione **Adicionar uma permissão**
-            1.  Selecione **Fornecedor de Recursos** de Realidade Mista sob **APIs a minha organização usa** o separador
+            1.  Selecione **Microsoft Mixed Reality** em **APIs a minha organização usa** o separador
             2.  Selecione **permissões delegadas**
             3.  Verifique a caixa para misturar **realidade.signin** sob **realidade mista**
             4.  Selecione **Adicionar permissões**
@@ -112,16 +111,16 @@ Para aplicações dirigidas aos utilizadores do Azure Ative Directory, a abordag
             2.  No campo **Select,** introduza o nome do(s) utilizador(s), grupo ou aplicação a que pretende atribuir acesso.
             3.  Prima **Guardar**.
 2. No seu código:
-    1.  Certifique-se de utilizar o ID da **aplicação** e **redirecionar Uri** da sua própria aplicação Azure AD como o ID do **cliente** e os parâmetros **RedirectUri** na ADAL
+    1.  Certifique-se de utilizar o ID da **aplicação** e **redirecionar Uri** da sua própria aplicação Azure AD como o ID do **cliente** e os parâmetros **RedirectUri** em MSAL
     2.  Detete a informação do inquilino:
         1.  Se a sua candidatura apoiar **apenas a minha organização,** substitua este valor pelo seu nome de **Id de Inquilino** ou **Inquilino** (por exemplo, contoso.microsoft.com)
         2.  Se a sua aplicação apoiar **Contas em qualquer diretório organizacional,** substitua este valor por **Organizações**
         3.  Se a sua aplicação apoiar **todos os utilizadores da conta microsoft,** substitua este valor por **Common**
-    3.  No seu pedido simbólico, desloque o **recurso** para "https://sts.mixedreality.azure.com". Este "recurso" indicará à Azure AD que a sua aplicação está a solicitar um sinal para o serviço Deâncoras Espaciais Azure.
+    3.  No seu pedido simbólico, estabeleça o **âmbito** para https://sts.mixedreality.azure.com//.default " ". Este âmbito indicará à Azure AD que a sua aplicação está a solicitar um sinal para o Serviço de Token de Segurança de Realidade Mista (STS).
 
 Com isso, a sua aplicação deverá poder obter a partir da MSAL um token Azure AD; pode definir o token Azure AD como a **autenticaçãoToken** no seu objeto config de sessão em nuvem.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 this.cloudSession.Configuration.AuthenticationToken = @"MyAuthenticationToken";
@@ -185,16 +184,16 @@ O token de acesso Azure AD é recuperado utilizando a [biblioteca MSAL](../../ac
         2.  No campo **selecionado,** insira o nome das aplicações que criou e a que pretende atribuir acesso. Se pretender que os utilizadores da sua aplicação tenham diferentes funções em relação à conta Spatial Anchors, deverá registar várias aplicações em AD Azure e atribuir a cada uma uma função separada. Em seguida, implemente a sua lógica de autorização para usar o papel certo para os seus utilizadores.
     3.  Prima **Guardar**.
 2.  No seu código (nota: pode utilizar a amostra de serviço incluída no GitHub):
-    1.  Certifique-se de utilizar o ID da aplicação, o segredo da aplicação e redirecionar Uri da sua própria aplicação Azure AD como id do cliente, secret, e redirectUri parâmetros em ADAL
-    2.  Defina o ID do inquilino para o seu próprio Id de inquilino AAAzure ADD no parâmetro de autoridade em ADAL
-    3.  No seu pedido simbólico, desloque o **recurso** para "https://sts.mixedreality.azure.com
+    1.  Certifique-se de utilizar o ID da aplicação, o segredo da aplicação e redirecionar Uri da sua própria aplicação Azure AD como id do cliente, secret, e redirectUri parâmetros em MSAL
+    2.  Defina a identificação do inquilino para o seu próprio Id de inquilino Azure ADD no parâmetro de autoridade em MSAL.
+    3.  No seu pedido simbólico, detete o **âmbito** para https://sts.mixedreality.azure.com//.default "
 
 Com isso, o seu serviço de backend pode recuperar um símbolo da AD Azure. Pode então trocá-lo por um sinal de MR que voltará ao cliente. A utilização de um token Azure AD para recuperar um token MR é feita através de uma chamada REST. Aqui está uma chamada de amostra:
 
 ```
-GET https://mrc-auth-prod.trafficmanager.net/Accounts/35d830cb-f062-4062-9792-d6316039df56/token HTTP/1.1
+GET https://sts.mixedreality.azure.com/Accounts/35d830cb-f062-4062-9792-d6316039df56/token HTTP/1.1
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1Ni<truncated>FL8Hq5aaOqZQnJr1koaQ
-Host: mrc-auth-prod.trafficmanager.net
+Host: sts.mixedreality.azure.com
 Connection: Keep-Alive
 
 HTTP/1.1 200 OK
@@ -206,13 +205,13 @@ MS-CV: 05JLqWeKFkWpbdY944yl7A.0
 {"AccessToken":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjI2MzYyMTk5ZTI2NjQxOGU4ZjE3MThlM2IyMThjZTIxIiwidHlwIjoiSldUIn0.eyJqdGkiOiJmMGFiNWIyMy0wMmUxLTQ1MTQtOWEzNC0xNzkzMTA1NTc4NzAiLCJjYWkiOiIzNWQ4MzBjYi1mMDYyLTQwNjItOTc5Mi1kNjMxNjAzOWRmNTYiLCJ0aWQiOiIwMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAiLCJhaWQiOiIzNWQ4MzBjYi1mMDYyLTQwNjItOTc5Mi1kNjMxNjAzOWRmNTYiLCJhYW8iOi0xLCJhcHIiOiJlYXN0dXMyIiwicmlkIjoiL3N1YnNjcmlwdGlvbnMvNzIzOTdlN2EtNzA4NC00ODJhLTg3MzktNjM5Y2RmNTMxNTI0L3Jlc291cmNlR3JvdXBzL3NhbXBsZV9yZXNvdXJjZV9ncm91cC9wcm92aWRlcnMvTWljcm9zb2Z0Lk1peGVkUmVhbGl0eS9TcGF0aWFsQW5jaG9yc0FjY291bnRzL2RlbW9fYWNjb3VudCIsIm5iZiI6MTU0NDU0NzkwMywiZXhwIjoxNTQ0NjM0MzAzLCJpYXQiOjE1NDQ1NDc5MDMsImlzcyI6Imh0dHBzOi8vbXJjLWF1dGgtcHJvZC50cmFmZmljbWFuYWdlci5uZXQvIiwiYXVkIjoiaHR0cHM6Ly9tcmMtYW5jaG9yLXByb2QudHJhZmZpY21hbmFnZXIubmV0LyJ9.BFdyCX9UJj0i4W3OudmNUiuaGgVrlPasNM-5VqXdNAExD8acFJnHdvSf6uLiVvPiQwY1atYyPbOnLYhEbIcxNX-YAfZ-xyxCKYb3g_dbxU2w8nX3zDz_X3XqLL8Uha-rkapKbnNgxq4GjM-EBMCill2Svluf9crDmO-SmJbxqIaWzLmlUufQMWg_r8JG7RLseK6ntUDRyDgkF4ex515l2RWqQx7cw874raKgUO4qlx0cpBAB8cRtGHC-3fA7rZPM7UQQpm-BC3suXqRgROTzrKqfn_g-qTW4jAKBIXYG7iDefV2rGMRgem06YH_bDnpkgUa1UgJRRTckkBuLkO2FvA"}
 ```
 
-Quando o cabeçalho de autorização for formatado da seguinte forma:`Bearer <accoundId>:<accountKey>`
+Quando o cabeçalho de autorização for formatado da seguinte forma:`Bearer <Azure_AD_token>`
 
 E a resposta contém o símbolo do MR em texto simples.
 
 O sinal do Sr. é devolvido ao cliente. A sua aplicação de cliente pode então defini-la como o seu símbolo de acesso na config da sessão de nuvem.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 this.cloudSession.Configuration.AccessToken = @"MyAccessToken";

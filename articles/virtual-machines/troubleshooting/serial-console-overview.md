@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 779bb88d15ea6c52f4399f17223b89916e22653d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2b901c0d77b5bd550e7e98434cf1cba2a61e6bdb
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267017"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656479"
 ---
 # <a name="azure-serial-console"></a>Consola em série Azure
 
@@ -66,6 +66,10 @@ A Consola série está disponível para conjuntos de escala de máquinavirtual, 
   1. A partir da secção Suporte + resolução de **problemas,** selecione **consola série**. Um novo painel com a consola em série abre e inicia a ligação.
 
      ![Conjunto de escala de máquina virtual Linux](./media/virtual-machines-serial-console/vmss-start-console.gif)
+
+
+### <a name="tls-12-in-serial-console"></a>TLS 1.2 em Consola em Série
+A Consola série utiliza TLS 1.2 de ponta a ponta para garantir toda a comunicação dentro do serviço. A Consola Série tem uma dependência de uma conta de armazenamento de diagnóstico de arranque gerida pelo utilizador, e o TLS 1.2 deve ser configurado separadamente para a conta de armazenamento. As instruções para o fazer estão localizadas [aqui.](https://docs.microsoft.com/azure/storage/common/storage-security-tls)
 
 ## <a name="advanced-uses-for-serial-console"></a>Utilizações avançadas para consola em série
 Além do acesso à consola ao seu VM, também pode utilizar a Consola Em Série Azure para o seguinte:

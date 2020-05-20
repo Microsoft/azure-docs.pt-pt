@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: surmb
-ms.openlocfilehash: a16120194b1b8015466005f42336828c2b4ace6c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c51d79d55f77468030100fa10973e2a31148ceae
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80983845"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648439"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Problemas de resolução de problemas de saúde rebatem problemas de saúde no Application Gateway
 ==================================================
@@ -81,13 +81,13 @@ Depois de receber um estado de servidor de backend não saudável para todos os 
 A mensagem exibida na coluna **Details** fornece informações mais detalhadas sobre o assunto, e com base nesses, pode começar a resolver problemas com o problema.
 
 > [!NOTE]
-> O pedido de sonda predefinido \<\>é enviado no formato do\<protocolo\>://127.0.0.1: porta /. Por exemplo, http://127.0.0.1:80 para uma sonda http na porta 80. Apenas códigos de estado HTTP de 200 a 399 são considerados saudáveis. O protocolo e a porta de destino são herdados das definições http. Se quiser que o Application Gateway sondar um protocolo, nome ou caminho diferente e reconhecer um código de estado diferente como Saudável, configure uma sonda personalizada e associe-a às definições http.
+> O pedido de sonda predefinido é enviado no formato do \< protocolo \> ://127.0.0.1: \< porta \> /. Por exemplo, http://127.0.0.1:80 para uma sonda http na porta 80. Apenas códigos de estado HTTP de 200 a 399 são considerados saudáveis. O protocolo e a porta de destino são herdados das definições http. Se quiser que o Application Gateway sondar um protocolo, nome ou caminho diferente e reconhecer um código de estado diferente como Saudável, configure uma sonda personalizada e associe-a às definições http.
 
 <a name="error-messages"></a>Mensagens de erro
 ------------------------
 #### <a name="backend-server-timeout"></a>Tempo de tempo de tempo do servidor backend
 
-**Mensagem:** O tempo tomado pelo backend\'para responder à sonda de saúde do gateway de aplicação é mais do que o limite de tempo limite na configuração da sonda.
+**Mensagem:** O tempo tomado pelo backend para responder à sonda de saúde do gateway de aplicação \' é mais do que o limite de tempo limite na configuração da sonda.
 
 **Causa:** Depois de o Application Gateway enviar um pedido de sonda HTTP(S) para o servidor backend, aguarda uma resposta do servidor backend por um período configurado. Se o servidor backend não responder dentro do período configurado (o valor de tempo de tempo), é marcado como Insalubre até que volte a responder dentro do período de tempo configurado.
 
@@ -155,7 +155,7 @@ Verifique também se algum NSG/UDR/Firewall está a bloquear o acesso ao Ip e à
     ```
 1.  Se não encontrar problemas com NSG ou UDR, verifique o seu servidor de backend para obter problemas relacionados com aplicações que estão a impedir os clientes de estabelecer uma sessão de TCP nas portas configuradas. Algumas coisas para verificar:
 
-    a.  Abra um pedido de comando\> (Win+R - cmd), introduza, `netstat`e selecione Enter.
+    a.  Abra um pedido de comando (Win+R - \> cmd), `netstat` introduza, e selecione Enter.
 
     b.  Verifique se o servidor está a ouvir a porta configurada. Por exemplo:
     ```
@@ -168,15 +168,15 @@ Verifique também se algum NSG/UDR/Firewall está a bloquear o acesso ao Ip e à
 
 #### <a name="http-status-code-mismatch"></a>Desajuste do código de estado HTTP
 
-**Mensagem:** O código de\'estado da resposta HTTP do backend não corresponde à definição da sonda. Esperado:{HTTPStatusCode0} Recebido:{HTTPStatusCode1}.
+**Mensagem:** O código de estado da resposta HTTP do backend \' não corresponde à definição da sonda. Esperado:{HTTPStatusCode0} Recebido:{HTTPStatusCode1}.
 
-**Causa:** Depois de a ligação TCP ter sido estabelecida e de ser feito um aperto de mão TLS (se o TLS estiver ativado), o Application Gateway enviará a sonda como um pedido HTTP GET para o servidor backend. Como descrito anteriormente, a sonda \<\>padrão será para o protocolo ://127.0.0.1:\<porta\>/, e considera os códigos de estado de resposta na raiva 200 a 399 como Saudável. Se o servidor devolver qualquer outro código de estado, será marcado como Insalubre com esta mensagem.
+**Causa:** Depois de a ligação TCP ter sido estabelecida e de ser feito um aperto de mão TLS (se o TLS estiver ativado), o Application Gateway enviará a sonda como um pedido HTTP GET para o servidor backend. Como descrito anteriormente, a sonda padrão será para \< o protocolo \> ://127.0.0.1: porta /, e considera os códigos de estado de \< resposta na raiva \> 200 a 399 como Saudável. Se o servidor devolver qualquer outro código de estado, será marcado como Insalubre com esta mensagem.
 
 **Solução:** Dependendo do código de resposta do servidor de backend, pode tomar os seguintes passos. Alguns dos códigos de estatuto comuns estão listados aqui:
 
 | **Erro** | **Ações** |
 | --- | --- |
-| Desajuste do código de estado da sonda: Recebido 401 | Verifique se o servidor backend necessita de autenticação. Aplicação As sondas Gateway não podem passar credenciais para autenticação neste momento. Ou \"permite http\" 401 numa correspondência de código de estado da sonda ou sonda para um caminho onde o servidor não requer autenticação. | |
+| Desajuste do código de estado da sonda: Recebido 401 | Verifique se o servidor backend necessita de autenticação. Aplicação As sondas Gateway não podem passar credenciais para autenticação neste momento. Ou permite http 401 numa correspondência de código de estado da \" sonda ou sonda para um caminho onde o servidor não requer \" autenticação. | |
 | Desajuste do código de estado da sonda: Recebido 403 | Acesso proibido. Verifique se o acesso ao caminho é permitido no servidor de backend. | |
 | Desajuste do código de estado da sonda: Recebido 404 | Página não encontrada. Verifique se o caminho do nome do anfitrião está acessível no servidor backend. Mude o nome ou parâmetro do caminho para um valor acessível. | |
 | Desajuste do código de estado da sonda: Recebido 405 | Os pedidos de sonda para application Gateway utilizam o método HTTP GET. Verifique se o seu servidor permite este método. | |
@@ -189,7 +189,7 @@ Para criar uma sonda personalizada, siga [estes passos.](https://docs.microsoft.
 
 #### <a name="http-response-body-mismatch"></a>Desfasamento do corpo de resposta HTTP
 
-**Mensagem:** O corpo da\'resposta HTTP do backend não corresponde à configuração da sonda. O corpo de resposta recebido não contém {string}.
+**Mensagem:** O corpo da resposta HTTP do backend \' não corresponde à configuração da sonda. O corpo de resposta recebido não contém {string}.
 
 **Causa:** Ao criar uma sonda personalizada, tem a opção de marcar um servidor de backend como Saudável, combinando uma corda do corpo de resposta. Por exemplo, pode configurar o Application Gateway para aceitar "não autorizado" como uma corda para combinar. Se a resposta do servidor de backend para o pedido de sonda contiver a corda **não autorizada,** será marcada como Saudável. Caso contrário, será marcado como Insalubre com esta mensagem.
 
@@ -202,6 +202,10 @@ Para criar uma sonda personalizada, siga [estes passos.](https://docs.microsoft.
 1.  Se não coincidirem, altere a configuração da sonda de modo a que tenha o valor de corda correto para aceitar.
 
 Saiba mais sobre a [correspondência da sonda Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#probe-matching).
+
+>[!NOTE]
+> Para todas as mensagens de erro relacionadas com tLS, para saber mais sobre o comportamento do SNI e diferenças entre o V1 e v2 SKU, consulte a página de visão geral do [TLS.](ssl-overview.md)
+
 
 #### <a name="backend-server-certificate-invalid-ca"></a>Certificado de servidor backend inválido CA
 
@@ -218,7 +222,7 @@ Para que seja de confiança um certificado TLS/SSL, esse certificado do servidor
 
 1.  Introduza `certmgr.msc` e selecione Entrar. Também pode pesquisar o Gestor de Certificados no menu **Iniciar.**
 
-1.  Localize o certificado, `\Certificates - Current User\\Personal\\Certificates\`normalmente dentro, e abra-o.
+1.  Localize o certificado, normalmente `\Certificates - Current User\\Personal\\Certificates\` dentro, e abra-o.
 
 1.  Selecione o certificado raiz e, em seguida, selecione **'Ver Certificado**'.
 
@@ -280,7 +284,7 @@ Se a saída não mostrar que a cadeia completa do certificado seja devolvida, ex
 
 **Mensagem:** O Nome Comum (CN) do certificado de backend não corresponde ao cabeçalho hospedeiro da sonda.
 
-**Causa:** O Gateway de aplicação verifica se o nome do anfitrião especificado nas definições de HTTP de backend corresponde ao do NC apresentado pelo certificado TLS/SSL do servidor de backend. Isto é Standard_v2 e WAF_v2 comportamento SKU. A indicação de nome de servidor (SNI) do Standard e WAF SKU é definida como fQDN no endereço de piscina de backend.
+**Causa:** O Gateway de aplicação verifica se o nome do anfitrião especificado nas definições de HTTP de backend corresponde ao do NC apresentado pelo certificado TLS/SSL do servidor de backend. Este é Standard_v2 e WAF_v2 comportamento SKU (V2). A indicação de nome do servidor Standard e WAF SKU (v1) é definida como fQDN no endereço de piscina de backend. Para obter mais informações sobre o comportamento do SNI e as diferenças entre v1 e v2 SKU, consulte [a visão geral da rescisão de TLS e termine com tLS final com Application Gateway](ssl-overview.md).
 
 No V2 SKU, se houver uma sonda padrão (nenhuma sonda personalizada foi configurada e associada), o SNI será definido a partir do nome do anfitrião mencionado nas definições HTTP. Ou, se "Escolher o nome do anfitrião do endereço backend" é mencionado nas definições http, onde a piscina de endereços de backend contém um FQDN válido, esta definição será aplicada.
 
@@ -302,7 +306,7 @@ Para Windows:
 
 1.  Introduza **certmgr.msc** e selecione Enter. Também pode pesquisar o Gestor de Certificados no menu **Iniciar.**
 
-1.  Localize o certificado `\Certificates - Current User\\Personal\\Certificates`(normalmente dentro) e abra o certificado.
+1.  Localize o certificado (normalmente `\Certificates - Current User\\Personal\\Certificates` dentro) e abra o certificado.
 
 1.  No separador **Detalhes,** verifique o **assunto**do certificado .
 
@@ -319,7 +323,7 @@ Para linux usando OpenSSL:
 
 #### <a name="backend-certificate-is-invalid"></a>O certificado backend é inválido
 
-**Mensagem:** O certificado de backend é inválido. A data atual \"não\" está \"dentro\" do intervalo Válido e Válido até à data no certificado.
+**Mensagem:** O certificado de backend é inválido. A data atual não está dentro do \" intervalo Válido e Válido até à data no \" \" \" certificado.
 
 **Causa:** Cada certificado vem com um intervalo de validade, e a ligação HTTPS não será segura a menos que o certificado TLS/SSL do servidor seja válido. Os dados atuais devem estar dentro **do válido** e **válido ao** alcance. Caso contrário, o certificado é considerado inválido, e isso criará um problema de segurança no qual o Application Gateway marca o servidor backend como Insalubre.
 

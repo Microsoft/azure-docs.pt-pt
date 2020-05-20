@@ -1,22 +1,22 @@
 ---
 title: FaQ, editora de mercado comercial da Microsoft
-description: Obtenha respostas a perguntas comumente feitas sobre o Azure Marketplace e o Microsoft AppSource.
+description: Obtenha respostas a perguntas comuns sobre o Azure Marketplace e o Microsoft AppSource.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: dsindona
-ms.openlocfilehash: be9a9d6b93068adc6d09db9b9ac23de9abd6a69f
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 7e4ec8a5772f0fbc1c0e67ba07a172daeac9b91b
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005161"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657898"
 ---
-# <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Perguntas comuns sobre o mercado comercial da Microsoft
+# <a name="common-questions-about-microsoft-commercial-marketplace"></a>Perguntas comuns sobre o mercado comercial da Microsoft
 
-Este artigo responde a perguntas comumente feitas sobre o mercado comercial da Microsoft.
+Este artigo responde a perguntas comumente feitas sobre o mercado comercial.
 
 ## <a name="general"></a>Geral
 
@@ -308,7 +308,7 @@ Para receber reembolsos, os clientes podem cancelar subscrições dentro de um p
 
 Aqui estão alguns recursos para começar:
 
-- [Introdução ao mercado comercial da Microsoft](https://docs.microsoft.com/learn/commercial-marketplace/intro-commercial-marketplace/intro-commercial-marketplace/)
+- [Introdução ao mercado comercial da Microsoft](/azure/marketplace/marketplace-publishers-guide)
 - [Hub de parceiro de mercado comercial da Microsoft](https://partner.microsoft.com/asset/collection/commercial-marketplace#/)
 - [Bem-vindo ao marketplace comercial](https://docs.microsoft.com/azure/marketplace/)
 

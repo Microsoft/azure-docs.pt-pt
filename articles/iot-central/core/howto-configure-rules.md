@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: f6e85ba5aafaad973d28f799a251b6f3aae548e3
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: c4d0639831d2f6f60a719637c5158fba5caf6f43
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871935"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659345"
 ---
 # <a name="configure-rules"></a>Configurar regras
 
@@ -31,7 +31,7 @@ Utilize a secção de dispositivos-alvo para selecionar em que tipo de dispositi
 
 As condições são as regras que desencadeiam. Atualmente, quando se adicionam múltiplas condições a uma regra, são logicamente e juntas. Por outras palavras, devem ser reunidas todas as condições para que a regra avalie como verdadeira.  
 
-Na seguinte imagem, as condições verificam quando&deg; a temperatura é superior a 70 F e a humidade é inferior a 10. Quando ambas as declarações são verdadeiras, a regra avalia a verdade e desencadeia uma ação.
+Na seguinte imagem, as condições verificam quando a temperatura é superior a 70 &deg; F e a humidade é inferior a 10. Quando ambas as declarações são verdadeiras, a regra avalia a verdade e desencadeia uma ação.
 
 ![Condições](media/howto-configure-rules/conditions.png)
 
@@ -53,7 +53,4 @@ Uma restrição aplica-se às regras que são aplicadas aos módulos IoT Edge. A
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que aprendeu a configurar uma regra na sua aplicação Azure IoT Central, pode:
-
-> [!div class="nextstepaction"]
-> [Analise os seus dados em voo](howto-create-analytics.md)
+Agora que aprendeu a configurar uma regra na sua aplicação Azure IoT Central, pode aprender a [configurar regras avançadas](howto-configure-rules-advanced.md) usando aplicações power automate ou Azure Logic.

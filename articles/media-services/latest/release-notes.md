@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 05/28/2020
 ms.author: juliako
-ms.openlocfilehash: b4849b4fbfdbaece46f5669f4c242e864b1ca533
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e072bcb0edc741b7843f470f14c3c37153338efb
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81769757"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647632"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de lançamento da Azure Media Services v3
 
@@ -35,6 +35,10 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 > Pode utilizar o [portal Azure](https://portal.azure.com/) para gerir o V3 [Live Events,](live-events-outputs-concept.md)ver v3 [Assets,](assets-concept.md)obter informações sobre o acesso a APIs. Para todas as outras tarefas de gestão (por exemplo, Transforms and Jobs), utilize o [REST API,](https://aka.ms/ams-v3-rest-ref) [CLI,](https://aka.ms/ams-v3-cli-ref)ou um dos [SDKs](media-services-apis-overview.md#sdks)suportados .
 
 Para mais informações, consulte [a orientação da Migração para a mudança dos Serviços de Media v2 para v3](migrate-from-v2-to-v3.md#known-issues).
+
+## <a name="may-2020"></a>Maio de 2020
+
+A Azure Media Services está agora geralmente disponível nas seguintes regiões: "Alemanha Norte", "Alemanha West Central", "Suíça Norte" e "Suíça Oeste". Os clientes podem implementar serviços de media para estas regiões usando o portal Azure.
 
 ## <a name="april-2020"></a>Abril de 2020
 
@@ -250,25 +254,25 @@ O módulo CLI 2.0 já se encontra disponível para [o Azure Media Services v3 GA
 #### <a name="job-commands"></a>Comandos de trabalho
 
 - ```--correlation-data```e ```--label``` argumentos adicionados
-- ```--output-asset-names```renomeado ```--output-assets```para . Agora aceita uma lista de ativos separados pelo espaço no formato 'assetName=label'. Um ativo sem rótulo pode ser enviado assim: 'assetName='.
+- ```--output-asset-names```renomeado para ```--output-assets``` . Agora aceita uma lista de ativos separados pelo espaço no formato 'assetName=label'. Um ativo sem rótulo pode ser enviado assim: 'assetName='.
 
 #### <a name="streaming-locator-commands"></a>Comandos localizadores de streaming
 
-- ```az ams streaming locator```comando base ```az ams streaming-locator```substituído por .
+- ```az ams streaming locator```comando base substituído por ```az ams streaming-locator``` .
 - ```--streaming-locator-id```e ```--alternative-media-id support``` argumentos adicionados.
 - ```--content-keys argument```argumento atualizado.
-- ```--content-policy-name```renomeado ```--content-key-policy-name```para .
+- ```--content-policy-name```renomeado para ```--content-key-policy-name``` .
 
 #### <a name="streaming-policy-commands"></a>Comandos de Política de Streaming
 
-- ```az ams streaming policy```comando base ```az ams streaming-policy```substituído por .
-- Suporte de parâmetros ```az ams streaming-policy create``` de encriptação adicionado.
+- ```az ams streaming policy```comando base substituído por ```az ams streaming-policy``` .
+- Suporte de parâmetros de encriptação ```az ams streaming-policy create``` adicionado.
 
 #### <a name="transform-commands"></a>Transformar comandos
 
-- ```--preset-names```argumento substituído ```--preset```por . Agora só pode definir 1 saída/predefinição de cada vez ```az ams transform output add```(para adicionar mais tem que correr). Além disso, pode definir standardEncoderPreset personalizado passando o caminho para o seu JSON personalizado.
+- ```--preset-names```argumento substituído por ```--preset``` . Agora só pode definir 1 saída/predefinição de cada vez (para adicionar mais tem ```az ams transform output add``` que correr). Além disso, pode definir standardEncoderPreset personalizado passando o caminho para o seu JSON personalizado.
 - ```az ams transform output remove```pode ser realizado passando o índice de saída para remover.
-- ```--relative-priority, --on-error, --audio-language and --insights-to-extract```argumentos adicionados ```az ams transform create``` ```az ams transform output add``` e comandos.
+- ```--relative-priority, --on-error, --audio-language and --insights-to-extract```argumentos ```az ams transform create``` adicionados e ```az ams transform output add``` comandos.
 
 ## <a name="october-2018---ga"></a>Outubro 2018 - GA
 
@@ -366,6 +370,6 @@ Confira o artigo da [comunidade Azure Media Services](media-services-community.m
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Descrição Geral](media-services-overview.md)
+- [Descrição geral](media-services-overview.md)
 - [Atualizações de documentação de Media Services v3](docs-release-notes.md)
 - [Notas de lançamento v2 dos Media Services](../previous/media-services-release-notes.md)

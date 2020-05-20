@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: egeaney
-ms.openlocfilehash: bd64321a6a7afbac61a63365c77a75120f837e83
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 99c21ece202f8d9867045d506574dd7718bd455e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79372097"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653658"
 ---
 # <a name="qna-maker-encryption-of-data-at-rest"></a>QnA Maker encriptação de dados em repouso
 
@@ -37,7 +37,7 @@ O serviço QnA Maker utiliza CMK do serviço De Pesquisa Azure. Siga estes passo
 
    ![Ver definições de encriptação](../media/cognitive-services-encryption/qna-encryption-1.png)
 
-2. Quando cria um recurso QnA Maker, está automaticamente associado a uma instância de Pesquisa Azure. Isto não pode ser utilizado com CMK. Para utilizar a CMK, terá de associar a sua recém-criada instância de Pesquisa Azure que foi criada no passo 1. Especificamente, terá de atualizar `AzureSearchAdminKey` `AzureSearchName` o e no seu recurso QnA Maker.
+2. Quando cria um recurso QnA Maker, está automaticamente associado a uma instância de Pesquisa Azure. Isto não pode ser utilizado com CMK. Para utilizar a CMK, terá de associar a sua recém-criada instância de Pesquisa Azure que foi criada no passo 1. Especificamente, terá de atualizar o `AzureSearchAdminKey` e no seu recurso `AzureSearchName` QnA Maker.
 
    ![Ver definições de encriptação](../media/cognitive-services-encryption/qna-encryption-2.png)
 
@@ -52,6 +52,11 @@ O serviço QnA Maker utiliza CMK do serviço De Pesquisa Azure. Siga estes passo
 ## <a name="regional-availability"></a>Disponibilidade regional
 
 As chaves geridas pelo cliente estão disponíveis em todas as regiões de Pesquisa Azure.
+
+## <a name="encryption-of-data-in-transit"></a>Encriptação de dados em trânsito
+
+O portal QnA Maker funciona no navegador do utilizador. Cada ação desencadeia uma chamada direta para a respetiva API do serviço cognitivo. Assim, a QnA Maker está em conformidade com os dados em trânsito.
+No entanto, como o serviço de portal QnA Maker está hospedado no Oeste-EUA, ainda não é ideal para clientes não americanos. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

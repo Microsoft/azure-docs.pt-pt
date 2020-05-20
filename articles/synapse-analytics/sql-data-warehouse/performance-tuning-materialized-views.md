@@ -10,18 +10,16 @@ ms.subservice: ''
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 6a3235d5edc5249bbbdc2e79dac8575ad26fd5e1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e5973ed505a43ca56a0f11e3603e05eeed0952fd
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417032"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657763"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Otimização do desempenho com vistas materializadas
 
 As vistas materializadas na piscina SYnapse SQL fornecem um método de baixa manutenção para consultas analíticas complexas para obter um desempenho rápido sem qualquer alteração de consulta. Este artigo discute a orientação geral sobre a utilização de pontos de vista materializados.
-
-As vistas materializadas na piscina SQL fornecem um método de baixa manutenção para consultas analíticas complexas para obter um desempenho rápido sem qualquer alteração de consulta. Este artigo discute a orientação geral sobre a utilização de pontos de vista materializados.
 
 ## <a name="materialized-views-vs-standard-views"></a>Vistas materializadas vs. vistas padrão
 
@@ -93,7 +91,7 @@ Aqui está a orientação geral sobre a utilização de pontos de vista material
 
 Antes de começar a criar vistas materializadas, é importante ter uma compreensão profunda da sua carga de trabalho em termos de padrões de consulta, importância, frequência e o tamanho dos dados resultantes.  
 
-Os utilizadores podem executar explicações WITH_RECOMMENDATIONS <SQL_statement> para as vistas materializadas recomendadas pelo optimizador de consultas.  Uma vez que estas recomendações são específicas da consulta, uma visão materializada que beneficia uma única consulta pode não ser o ideal para outras consultas na mesma carga de trabalho.  
+Os utilizadores podem executar WITH_RECOMMENDATIONS <SQL_statement> EXPLICA para as vistas materializadas recomendadas pelo optimizador de consultas.  Uma vez que estas recomendações são específicas da consulta, uma visão materializada que beneficia uma única consulta pode não ser o ideal para outras consultas na mesma carga de trabalho.  
 
 Avalie estas recomendações com as suas necessidades de carga de trabalho em mente.  As vistas ideais materializadas são aquelas que beneficiam o desempenho da carga de trabalho.  
 

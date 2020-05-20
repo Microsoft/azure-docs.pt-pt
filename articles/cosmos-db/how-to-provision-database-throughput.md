@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: 0ba86d6955805fc97743a1a51aa586b179d82235
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: cc89c0052097ba9250370334386943ec4107140c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82869865"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655319"
 ---
-# <a name="provision-throughput-on-a-database-in-azure-cosmos-db"></a>Provisão para uma base de dados em Azure Cosmos DB
+# <a name="provision-standard-manual-throughput-on-a-database-in-azure-cosmos-db"></a>Entrada padrão de provisão (manual) numa base de dados em Azure Cosmos DB
 
-Este artigo explica como fornecer o resultado numa base de dados em Azure Cosmos DB. Pode aprovisionar débito para um único [contentor](how-to-provision-container-throughput.md) ou para uma base de dados e partilhá-la entre os contentores na mesma. Para saber quando utilizar o nível de contentore e a entrada de nível de base de dados, consulte os [casos de utilização para o fornecimento](set-throughput.md) de entrada em contentores e bases de dados. Pode fornecer a entrada de nível de base de dados utilizando o portal Azure ou o Azure Cosmos DB SDKs.
+Este artigo explica como fornecer um passe padrão (manual) numa base de dados em Azure Cosmos DB. Pode aprovisionar débito para um único [contentor](how-to-provision-container-throughput.md) ou para uma base de dados e partilhá-la entre os contentores na mesma. Para saber quando utilizar o nível de contentore e a entrada de nível de base de dados, consulte os [casos de utilização para o fornecimento](set-throughput.md) de entrada em contentores e bases de dados. Pode fornecer a entrada de nível de base de dados utilizando o portal Azure ou o Azure Cosmos DB SDKs.
 
 ## <a name="provision-throughput-using-azure-portal"></a>Aprovisionar débito com o portal do Azure
 
@@ -39,7 +39,7 @@ Este artigo explica como fornecer o resultado numa base de dados em Azure Cosmos
 Para criar uma base de dados com a ver de entrada partilhada,
 
 * [Criar uma base de dados usando o Azure CLI](manage-with-cli.md#create-a-database-with-shared-throughput)
-* [Criar uma base de dados usando powershell](manage-with-powershell.md#create-db-ru)
+* [Criar uma base de dados usando o PowerShell](manage-with-powershell.md#create-db-ru)
 
 ## <a name="provision-throughput-using-net-sdk"></a>Aprovisionar débito com o SDK do .NET
 
@@ -84,5 +84,6 @@ Consulte os seguintes artigos para conhecer sobre a provisão disponibilizada em
 
 * [Dimensionamento global de débito aprovisionado](scaling-throughput.md)
 * [Aprovisionar débito em contentores e bases de dados](set-throughput.md)
-* [Como aprovisionar o débito para um contentor](how-to-provision-container-throughput.md)
+* [Como fornecer a entrada padrão (manual) para um recipiente](how-to-provision-container-throughput.md)
+* [Como fornecer a produção de escala automática para um recipiente](how-to-provision-autoscale-throughput.md)
 * [Unidades de pedido e débito no Azure Cosmos DB](request-units.md)

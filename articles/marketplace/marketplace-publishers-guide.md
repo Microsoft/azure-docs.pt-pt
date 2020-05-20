@@ -1,22 +1,22 @@
 ---
-title: Guia de publicação de mercado comercial
-description: Uma visão geral do mercado comercial para editores de aplicações e serviços.
+title: Guia de publicação do mercado comercial da Microsoft
+description: Uma visão geral do mercado comercial para parceiros da Microsoft que querem publicar ofertas para microsoft AppSource e Azure Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/12/2020
 ms.author: dsindona
-ms.openlocfilehash: c41a24ecb3e12618ac8cfcdfb756a33114f0f8a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 03921a5bf5635ee001f78ca67e4ac24839bd03c5
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81261997"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657849"
 ---
 # <a name="commercial-marketplace-publishing-guide"></a>Guia de publicação de mercado comercial
 
-O guia editorial do Marketplace foi concebido para ajudar editores novos e existentes a aprender a usar montras no [Azure Marketplace](https://azuremarketplace.microsoft.com) e [microsoft AppSource](https://appsource.microsoft.com) para crescer o seu negócio em parceria com a Microsoft, listando aplicações e serviços.
+Este guia editorial destina-se a ajudar editores novos e existentes a aprender em parceria com a Microsoft aplicações e serviços nas lojas de marketplace comercial, [Azure Marketplace](https://azuremarketplace.microsoft.com) e [Microsoft AppSource,](https://appsource.microsoft.com)para aumentar o seu negócio em parceria com a Microsoft.
 
 >[!Note]
 >O Marketplace aqui refere-se tanto ao Azure Marketplace como ao AppSource.  Consulte [one marketplace, duas montras](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace) para mais informações.
@@ -30,7 +30,7 @@ Este guia aborda os seguintes tópicos:
 
 Este guia contém informações técnicas e empresariais sobre os passos que precisa de tomar antes de listar as suas aplicações e serviços. Utilize a tabela de conteúdos para ir a diferentes secções do guia e para ir diretamente a tópicos-chave.
 
-Para perguntas sobre o Azure Marketplace e appSource, envie-nos uma mensagem no âmbito do **"Problem Type** > **Marketplace Onboarding".** A nossa equipa de onboarding da Editora marketplace ficará feliz em ajudar! 
+Para perguntas sobre o Azure Marketplace e appSource, envie-nos uma mensagem no âmbito do **"Problem Type**  >  **Marketplace Onboarding".** A nossa equipa de onboarding da Editora marketplace ficará feliz em ajudar! 
 
 ## <a name="benefits-of-participating-in-the-marketplace"></a>Benefícios da participação no Mercado 
 

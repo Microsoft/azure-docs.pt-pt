@@ -4,12 +4,12 @@ description: Saiba como obter eventos de recursos através de Registos de Ativid
 ms.topic: article
 ms.date: 04/24/2020
 ms.author: msangapu
-ms.openlocfilehash: 1fd283f95823a67319dc467a3a1d6251193182da
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 7075e3eacc85198e22a9aa0e53f67a22416b2678
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124742"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649067"
 ---
 # <a name="get-resource-events-in-azure-app-service"></a>Obtenha eventos de recursos no Serviço de Aplicações Azure
 
@@ -41,29 +41,7 @@ Embora os registos de Atividade sejam baseados no utilizador, existe uma nova in
 
 Em alternativa, pode utilizar o Event Grid com o Logic Apps para processar dados em qualquer local sem ter de escrever código. O Event Grid liga as origens de dados e os processadores de eventos. Por exemplo, utilize o Event Grid para acionar instantaneamente uma função sem servidor para executar imagens de análises sempre que é adicionada uma fotografia nova a um contentor de armazenamento de blobs.
 
-### <a name="supported-event-types"></a>Tipos de eventos suportados
-| Tipo de Evento |Descrição|
-| -----------| ------------- |
-| Microsoft.web/sites | (Webapp) |
-| BackupOperationCompleted |Backup da webapp concluída com sucesso|
-| BackupOperationFailed | A cópia de segurança da webapp falhou|
-| RestauroOperação Iniciada |Restaurar a partir de backup começou|
-| Restaurar Operação Concluída |Restaurar a partir de backup concluído com sucesso|
-| Restaurar Operação Falhada |Restaurar de backup falhado|
-| SlotSwapStarted |A troca de slot já começou|
-| SlotSwapCompleted |Troca de slot concluída com sucesso|
-| SlotSwapFailed |Troca de ranhuras falhou|
-| SlotswapWithPreviewIniciado |Slot swap com pré-visualização já começou|
-| SlotswapWithPreviewcancelado |Troca de slot com pré-visualização falhada|
-| AppAtualizado | |
-| Reiniciado | A webapp foi reiniciada |
-| Parada | O webapp foi parado |
-| Alterações de App | As definições de aplicativos no webapp foram alteradas |
-| - | - |
-| Microsoft.web/serverfarms | (Plano de Serviço de Aplicações) |
-| AspUpdated | O plano de serviço de aplicações foi atualizado. O objeto do evento contém detalhes sobre as propriedades que foram alteradas. |
-| Aumentar/reduzir verticalmente | O plano de serviço de aplicações escalado para cima ou para baixo. O objeto do evento contém a contagem de casos.|
-
+[Veja as propriedades e o esquema para eventos de serviço de aplicações azure.](https://docs.microsoft.com/azure/event-grid/event-schema-app-service)
 
 ## <a name="next-steps"></a><a name="nextsteps"></a>Próximos passos
 * [Registos de consulta com monitor Azure](../azure-monitor/log-query/log-query-overview.md)

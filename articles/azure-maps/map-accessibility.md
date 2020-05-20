@@ -8,12 +8,12 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 manager: cpendleton
-ms.openlocfilehash: 5fa9e159fa0ac76ce8c585936059fb7f3151c7c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 23f52e48c6a435678a01569d25e0072d9c8a3e28
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79473324"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648572"
 ---
 # <a name="building-an-accessible-application"></a>Construção de uma aplicação acessível
 
@@ -28,6 +28,7 @@ O Azure Maps Web SDK vem pré-construído com muitas funcionalidades de acessibi
 - Verime as descrições do leitor quando o mapa se move e quando o utilizador se concentra num controlo ou pop-up.
 - Rato, toque e suporte ao teclado.
 - Suporte de contraste de cor acessível no estilo do roteiro.
+- Suporte de alto contraste.
 
 Detalhes completos de conformidade de acessibilidade para todos os produtos da Microsoft podem ser encontrados [aqui](https://cloudblogs.microsoft.com/industry-blog/government/2018/09/11/accessibility-conformance-reports/). Procure "Azure Maps web" para encontrar o documento especificamente para o Azure Maps Web SDK. 
 
@@ -41,10 +42,10 @@ Existem várias maneiras diferentes em que o mapa pode ser zoomed, panned, rodad
 - Usando um rato, percorra a roda para ampliar o mapa.
 - Utilizando um ecrã tátil, toque no mapa com dois dedos e belisque-o para ampliar ou espalhar os dedos para ampliar.
 - Utilizando um ecrã tátil, toque duas vezes no mapa para ampliar num só nível.
-- Com o mapa focado, utilize`+`o sinal Plus`=`( ) ou igual a igual para ampliar num só nível.
-- Com o mapa focado, use o sinal`-`De Sem, Hyphen ( ou Sublinhado )`_`para ampliar um nível.
+- Com o mapa focado, utilize o sinal Plus ( ) ou igual a igual para `+` `=` ampliar num só nível.
+- Com o mapa focado, use o sinal De Sem, Hyphen ( `-` ou Sublinhado `_` ) para ampliar um nível.
 - Utilizando o controlo de zoom com um separador de rato, toque ou teclado/introduza teclas.
-- Pressione e `Shift` segure o botão e pressione o botão do rato esquerdo para baixo no mapa e arraste para desenhar uma área para ampliar o mapa.
+- Pressione e segure o `Shift` botão e pressione o botão do rato esquerdo para baixo no mapa e arraste para desenhar uma área para ampliar o mapa.
 
 **Pan o mapa**
 
@@ -76,7 +77,7 @@ Nem todos os desenvolvedores querem que todos os estilos de mapas possíveis est
 - O controlo do mapa não monitoriza o modo de contraste elevado do dispositivo. Se o modo de dispositivo mudar, o mapa não. Assim, o utilizador terá de recarregar o mapa refrescando a página.
 - Quando for detetado um contraste elevado, o estilo do mapa mudará automaticamente para um contraste elevado, e todos os controlos incorporados usarão um estilo de alto contraste. Por exemplo, zoomControl, PitchControl, CompassControl, StyleControl e outros controlos incorporados, usarão um estilo de alto contraste.
 - Há dois tipos de alto contraste, luz e escuro. Se o tipo de alto contraste pode ser detetado pelos controlos do mapa, então o comportamento do mapa irá ajustar-se em conformidade. Se for leve, o grayscale_light estilo mapa será carregado. Se o tipo não puder ser detetado ou estiver escuro, o estilo high_contrast_dark será carregado.
-- Se criar controlos personalizados, é útil saber se os controlos incorporados estão usando um estilo de alto contraste. Os desenvolvedores podem adicionar uma classe css no div de contentores do mapa para verificar. As classes css que `high-contrast-dark` seriam `high-contrast-light`adicionadas são e . Para verificar a utilização do JavaScript, utilize:
+- Se criar controlos personalizados, é útil saber se os controlos incorporados estão usando um estilo de alto contraste. Os desenvolvedores podem adicionar uma classe css no div de contentores do mapa para verificar. As classes css que seriam adicionadas são `high-contrast-dark` e `high-contrast-light` . Para verificar a utilização do JavaScript, utilize:
 
 ```javascript
 map.getMapContainer().classList.contains("high-contrast-dark")
@@ -105,15 +106,15 @@ O mapa tem uma série de atalhos de teclado incorporados que facilitam a utiliza
 | `Shift`+ seta para baixo | Diminuir o tom do mapa em 10 graus |
 | `Shift`+ seta direita | Rode o mapa 15 graus no sentido horário |
 | `Shift`+ seta esquerda | Rode o mapa 15 graus no sentido contrário ao dos ponteiros do relógio |
-| Sinal mais`+`() ou <sup>*</sup>`=`sinal igual ( ) | Ampliar |
-| Menos sinal, Hífen (),`-`ou <sup>*</sup>Sublinhado (`_`) | Reduzir | 
+| Sinal mais `+` () ou <sup>*</sup> sinal igual ( `=` ) | Ampliar |
+| Menos sinal, Hífen `-` (), ou <sup>*</sup> Sublinhado ( `_` ) | Reduzir | 
 | `Shift`+ arrasto de rato no mapa para desenhar área | Zoom para a área |
 
 <sup>*</sup>Estes atalhos principais geralmente partilham a mesma chave num teclado. Estes atalhos foram adicionados para melhorar a experiência do utilizador. Também não importa se o utilizador usa a chave de turno ou não para estes atalhos.
 
 ## <a name="screen-reader-support"></a>Suporte do Leitor de Ecrã
 
-Os utilizadores podem navegar no mapa usando o teclado. Se um leitor de ecrã estiver a funcionar, o mapa notificará o utilizador das alterações ao seu estado. Por exemplo, os utilizadores são notificados das alterações do mapa quando o mapa é panned ou zoomed. Por padrão, o mapa fornece descrições simplificadas que excluem o nível de zoom e as coordenadas do centro do mapa. O utilizador pode alternar o nível de detalhe `Ctrl`  +  `Shift`  + destas descrições utilizando o atalho `D`do teclado .
+Os utilizadores podem navegar no mapa usando o teclado. Se um leitor de ecrã estiver a funcionar, o mapa notificará o utilizador das alterações ao seu estado. Por exemplo, os utilizadores são notificados das alterações do mapa quando o mapa é panned ou zoomed. Por padrão, o mapa fornece descrições simplificadas que excluem o nível de zoom e as coordenadas do centro do mapa. O utilizador pode alternar o nível de detalhe destas descrições utilizando o atalho do teclado `Ctrl`  +  `Shift`  +  `D` .
 
 Qualquer informação adicional que seja colocada no mapa base deve ter informações texuais correspondentes para os utilizadores de leitores de ecrã. Certifique-se de adicionar aplicações de [Internet ricas acessíveis (ARIA),](https://www.w3.org/WAI/standards-guidelines/aria/)alt e atributos de título, sempre que apropriado. 
 
@@ -125,7 +126,7 @@ O exemplo seguinte carrega pontos de interesse no mapa usando uma camada de sím
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Faça uma aplicação acessível' src='//codepen.io/azuremaps/embed/ZoVyZQ/?height=504&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Ver a caneta <a href='https://codepen.io/azuremaps/pen/ZoVyZQ/'>Faça uma aplicação acessível</a> pelo Azure Maps ()<a href='https://codepen.io/azuremaps'>@azuremaps</a>no <a href='https://codepen.io'>CodePen</a>. </iframe>
+<iframe height='500' scrolling='no' title='Faça uma aplicação acessível' src='//codepen.io/azuremaps/embed/ZoVyZQ/?height=504&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Ver a caneta <a href='https://codepen.io/azuremaps/pen/ZoVyZQ/'>Faça uma aplicação acessível</a> pelo Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>. </iframe>
 
 <br/>
 

@@ -6,14 +6,14 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/10/2020
+ms.date: 05/12/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 0e6e243ceb73ca2a1180e59ba6c6b4095ed6069a
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 082689dba5fdfa8505f2293223e76f2164b0df14
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83116718"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655286"
 ---
 # <a name="change-feed-pull-model-in-azure-cosmos-db"></a>Alterar modelo de puxar por feed em Azure Cosmos DB
 
@@ -40,10 +40,10 @@ Aqui está um exemplo para obter um `FeedIterator` que devolve `Stream` um:
 FeedIterator iteratorWithStreams = container.GetChangeFeedStreamIterator();
 ```
 
-Utilizando um `FeedIterator` , pode facilmente processar a alimentação de mudança de um recipiente inteiro ao seu próprio ritmo. Segue-se um exemplo:
+Utilizando um `FeedIterator` , pode facilmente processar a alimentação de mudança de um recipiente inteiro ao seu próprio ritmo. Eis um exemplo:
 
 ```csharp
-FeedIterator<User> iteratorForTheEntireContainer= container.GetChangeFeedIterator(new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
+FeedIterator<User> iteratorForTheEntireContainer= container.GetChangeFeedIterator<User>(new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
 
 while (iteratorForTheEntireContainer.HasMoreResults)
 {
@@ -61,7 +61,7 @@ while (iteratorForTheEntireContainer.HasMoreResults)
 Em alguns casos, só pode querer processar as alterações específicas da chave de partição. Você pode obter um `FeedIterator` para uma chave de partição específica e processar as alterações da mesma forma que você pode para um recipiente inteiro:
 
 ```csharp
-FeedIterator<User> iteratorForThePartitionKey = container.GetChangeFeedIterator(new PartitionKey("myPartitionKeyValueToRead"), new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
+FeedIterator<User> iteratorForThePartitionKey = container.GetChangeFeedIterator<User>(new PartitionKey("myPartitionKeyValueToRead"), new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
 
 while (iteratorForThePartitionKey.HasMoreResults)
 {
@@ -98,7 +98,7 @@ Aqui está uma amostra que mostra como ler desde o início do alimento de mudan�
 Máquina 1:
 
 ```csharp
-FeedIterator<User> iteratorA = container.GetChangeFeedIterator<Person>(ranges[0], new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
+FeedIterator<User> iteratorA = container.GetChangeFeedIterator<User>(ranges[0], new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
 while (iteratorA.HasMoreResults)
 {
    FeedResponse<User> users = await iteratorA.ReadNextAsync();
@@ -149,6 +149,8 @@ while (iterator.HasMoreResults)
 FeedIterator<User> iteratorThatResumesFromLastPoint = container.GetChangeFeedIterator<User>(continuation);
 ```
 
+Enquanto o contentor cosmos ainda existir, o sinal de continuação de um alimentador nunca expira.
+
 ## <a name="comparing-with-change-feed-processor"></a>Comparar com o processador de feed de mudança
 
 Muitos cenários podem processar o feed de mudança usando o processador de feed de [mudança](change-feed-processor.md) ou o modelo pull. As fichas de continuação do modelo pull e o recipiente de aluguer do processador de reprodução de alterações são ambos "marcadores" para o último item processado (ou lote de itens) no feed de mudança.
@@ -156,9 +158,9 @@ No entanto, não pode converter fichas de continuação num contentor de aluguer
 
 Deve considerar a utilização do modelo de puxar nestes cenários:
 
-- Você quer fazer uma leitura única dos dados existentes no feed de mudança
-- Você só quer ler alterações de uma determinada chave de partição
-- Você não quer um modelo push e quer consumir o feed de mudança ao seu próprio ritmo
+- Alterações de leitura de uma determinada chave de partição
+- Controlar o ritmo a que o seu cliente recebe alterações para processamento
+- Fazer uma leitura única dos dados existentes no feed de mudança (por exemplo, para fazer uma migração de dados)
 
 Aqui estão algumas diferenças fundamentais entre o processador de feed de mudança e o modelo pull:
 
@@ -169,7 +171,7 @@ Aqui estão algumas diferenças fundamentais entre o processador de feed de muda
 | Sondagens para futuras mudanças | Verifica automaticamente as alterações baseadas no utilizador especificado`WithPollInterval` | Manual |
 | Alterações de processo de todo o recipiente | Sim, e automaticamente paralelizado através de vários fios/máquina consumindo do mesmo recipiente| Sim, e manualmente paralelizado usando FeedTokens |
 | Alterações de processo a partir de apenas uma chave de partição | Não suportado | Sim|
-| Nível de apoio | Disponível em Geral | Pré-visualização |
+| Nível de apoio | Disponível em Geral | Pré-visualizar |
 
 ## <a name="next-steps"></a>Passos seguintes
 

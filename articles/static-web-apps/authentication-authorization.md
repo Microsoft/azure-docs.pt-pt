@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: cb6b99351a5cb995d87b482b7e707a3913fd86f2
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 1ac1df402c25c0f6e5f07ce8d9631c01c0fa504c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597626"
+ms.locfileid: "83655261"
 ---
 # <a name="authentication-and-authorization-for-azure-static-web-apps-preview"></a>Autenticação e autorização para pré-visualização de aplicações web estáticas do Azure
 
@@ -118,7 +118,7 @@ https://identity.azurestaticapps.net/.auth/purge/<AUTHENTICATION_PROVIDER_NAME>
 Para evitar que a plataforma forneça esta informação sobre futuros pedidos a aplicações individuais, submeta um pedido ao seguinte URL:
 
 ```url
-https://<WEB_APP_DOMAIN_NAME>/identity/.auth/purge/<AUTHENTICATION_PROVIDER_NAME>
+https://<WEB_APP_DOMAIN_NAME>/.auth/purge/<AUTHENTICATION_PROVIDER_NAME>
 ```
 
 ## <a name="system-folder"></a>Pasta do sistema
@@ -154,6 +154,11 @@ Pode utilizar uma regra de [rota](routes.md) para mapear um fornecedor predefini
 }
 ```
 
+### <a name="post-login-redirect"></a>Redirecionamento de login de posta
+
+Se pretender que um utilizador regresse a uma página específica após o login, forneça um URL no parâmetro de `post_login_redirect_uri` corda de consulta.
+
+
 ## <a name="logout"></a>Terminar sessão
 
 A `/.auth/logout` rota regista os utilizadores a partir do site. Pode adicionar um link à navegação do seu site para permitir que o utilizador faça login como mostrado no exemplo seguinte.
@@ -170,6 +175,10 @@ Você pode usar uma regra de [rota](routes.md) para mapear uma rota amigável co
   "serve": "/.auth/logout"
 }
 ```
+
+### <a name="post-logout-redirect"></a>Redirecionamento de registo de posta
+
+Se pretender que um utilizador regresse a uma página específica após o início do início, forneça um URL no parâmetro de `post_logout_redirect_uri` corda de consulta.
 
 ## <a name="block-an-authorization-provider"></a>Bloquear um provedor de autorização
 

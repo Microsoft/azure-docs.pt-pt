@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/11/2020
-ms.openlocfilehash: 471ccddd31fd6c9f332bdaa8ea76b7bda25ac191
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 05/15/2020
+ms.openlocfilehash: df3e107b111161284c697aa8f619eed96443a893
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83117789"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83651838"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Monitor Azure frequentemente questionado
 
@@ -96,6 +96,11 @@ Muitos fornecedores de recursos estão automaticamente registados, mas pode ser 
 
 ### <a name="why-am-i-am-getting-no-access-error-message-when-opening-log-analytics-from-a-vm"></a>Porque é que não estou a receber nenhuma mensagem de erro de acesso ao abrir o Log Analytics a partir de um VM? 
 Para ver os Registos VM, é necessário ter permissão de leitura para os espaços de trabalho que armazenam os registos VM. Nestes casos, o seu administrador deve conceder-lhe permissões em Azure.
+
+## <a name="metrics"></a>Métricas
+
+### <a name="why-are-metrics-from-the-guest-os-of-my-azure-virtual-machine-not-showing-up-in-metrics-explorer"></a>Porque é que as métricas do os so do meu dispositivo virtual Azure não aparecem no explorador de Métricas?
+[As métricas da plataforma](insights/monitor-azure-resource.md#monitoring-data) são recolhidas automaticamente para os recursos do Azure. Deve realizar alguma configuração para recolher métricas do osso convidado de uma máquina virtual. Para um VM windows, instale a extensão de diagnóstico e configure o lavatório do Monitor Azure conforme descrito na extensão de [diagnóstico do Windows Azure (WAD)](platform/diagnostics-extension-windows-install.md). Para o Linux, instale o agente Telegraf conforme descrito na [Collect métricas personalizadas para um VM Linux com o agente InfluxData Telegraf](platform/collect-custom-metrics-linux-telegraf.md).
 
 ## <a name="alerts"></a>Alertas
 
@@ -508,6 +513,10 @@ A maioria dos dados da Application Insights tem uma latência inferior a 5 minut
 ## <a name="azure-monitor-for-containers"></a>Azure Monitor para contentores
 
 Este FaQ da Microsoft é uma lista de perguntas comumente feitas sobre o Monitor Azure para contentores. Se tiver alguma dúvida adicional sobre a solução, vá ao fórum de [discussão](https://feedback.azure.com/forums/34192--general-feedback) e publique as suas perguntas. Quando uma pergunta é frequentemente feita, adicionamo-la a este artigo para que possa ser encontrado de forma rápida e fácil.
+
+### <a name="health-feature-is-in-private-preview"></a>A funcionalidade de saúde está na pré-visualização privada
+
+Estamos a planear fazer uma série de alterações para adicionar funcionalidade e endereçar o seu feedback. A funcionalidade Health vai transitar para uma pré-estreia privada no final de junho de 2020, e para análise adicional de informações o anúncio de atualizações do [Azure](https://azure.microsoft.com/updates/ci-health-limited-preview/)seguinte.
 
 ### <a name="what-does-other-processes-represent-under-the-node-view"></a>O que representam *outros processos* sob a visão do Nó?
 

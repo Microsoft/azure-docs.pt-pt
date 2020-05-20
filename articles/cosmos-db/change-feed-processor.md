@@ -6,14 +6,14 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 05/13/2020
 ms.reviewer: sngun
-ms.openlocfilehash: aa9b090627b6f27a54b67c361b45b6f99e3a6338
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 584fc48aad6a64f8df54088e6dbfd990e8e112e8
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982382"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655313"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Processador do feed de alterações no Azure Cosmos DB
 
@@ -39,7 +39,7 @@ Para entender ainda como estes quatro elementos do processador de feed de mudan�
 
 ## <a name="implementing-the-change-feed-processor"></a>Implementação do processador de feed de mudança
 
-O ponto de entrada é sempre o `Container` recipiente `GetChangeFeedProcessorBuilder`monitorizado, a partir de um caso a que se chama:
+O ponto de entrada é sempre o recipiente monitorizado, a partir de um `Container` caso a que se `GetChangeFeedProcessorBuilder` chama:
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=DefineProcessor)]
 
@@ -50,16 +50,16 @@ Um exemplo de um delegado seria:
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=Delegate)]
 
-Finalmente, define um nome para `WithInstanceName` esta instância do processador com `WithLeaseContainer`e qual é o recipiente para manter o estado de arrendamento com .
+Finalmente, define um nome para esta instância do processador com e qual é o recipiente para manter o estado de `WithInstanceName` arrendamento com `WithLeaseContainer` .
 
-A `Build` chamada irá dar-lhe a instância `StartAsync`do processador que pode começar por ligar .
+A chamada `Build` irá dar-lhe a instância do processador que pode começar por ligar `StartAsync` .
 
 ## <a name="processing-life-cycle"></a>Processamento do ciclo de vida
 
 O ciclo de vida normal de um hospedeiro é:
 
 1. Leia o feed de mudança.
-1. Se não houver alterações, durma durante um período `WithPollInterval` de tempo predefinido (personalizável com o Construtor) e vá para #1.
+1. Se não houver alterações, durma durante um período de tempo predefinido (personalizável `WithPollInterval` no Construtor) e vá para #1.
 1. Se houver alterações, envie-as ao **delegado.**
 1. Quando o delegado terminar de processar as alterações **com sucesso,** atualize a loja de arrendamento com o mais recente ponto processado no tempo e vá para #1.
 
@@ -71,15 +71,21 @@ Para evitar que o seu processador de feed de mudança fique "preso" continuament
 
 Além disso, pode utilizar o estimador de alimentação de [alterações](how-to-use-change-feed-estimator.md) para monitorizar o progresso das instâncias do seu processador de feed de mudança à medida que lêem o feed de mudança. Além de monitorizar se o processador de feed de mudança ficar "preso" continuamente a tentar o mesmo lote de alterações, também pode entender se o seu processador de feed de mudança está atrasado devido a recursos disponíveis como CPU, memória e largura de banda da rede.
 
+## <a name="deployment-unit"></a>Unidade de implantação
+
+Uma única unidade de implementação do processador de feed de mudança consiste em uma ou mais instâncias com a mesma `processorName` configuração de contentor de aluguer. Pode ter muitas unidades de implantação onde cada uma tem um fluxo de negócio diferente para as alterações e cada unidade de implantação composta por um ou mais casos. 
+
+Por exemplo, pode ter uma unidade de implantação que aciona uma API externa sempre que houver uma alteração no seu recipiente. Outra unidade de implantação pode mover dados, em tempo real, cada vez que há uma mudança. Quando uma mudança ocorrer no seu recipiente monitorizado, todas as suas unidades de implantação serão notificadas.
+
 ## <a name="dynamic-scaling"></a>Dimensionamento dinâmico
 
-Como mencionado durante a introdução, o processador de feed de mudança pode distribuir a computação em várias instâncias automaticamente. Pode implementar várias instâncias da sua aplicação utilizando o processador de feed de mudança e tirar partido dela, os únicos requisitos-chave são:
+Como mencionado anteriormente, dentro de uma unidade de implantação pode ter um ou mais casos. Para tirar partido da distribuição de cálculo dentro da unidade de implantação, os únicos requisitos-chave são:
 
 1. Todas as instâncias devem ter a mesma configuração de contentor de aluguer.
-1. Todos os casos devem ter o mesmo nome de fluxo de trabalho.
-1. Cada instância precisa de ter`WithInstanceName`um nome de instância diferente ( ).
+1. Todos os casos devem ter o `processorName` mesmo.
+1. Cada instância precisa de ter um nome de instância diferente `WithInstanceName` ( ).
 
-Se estas três condições se aplicarem, o processador de feed de mudança irá, usando um algoritmo de distribuição igual, distribuir todos os arrendamentos no contentor de aluguer em todas as instâncias de execução e paralelamente a computação. Um contrato de arrendamento só pode ser propriedade de um caso num dado momento, pelo que o número máximo de casos equivale ao número de locações.
+Se estas três condições se aplicarem, o processador de feed de mudança irá, usando um algoritmo de distribuição igual, distribuir todos os arrendamentos no contentor de aluguer em todas as instâncias de execução dessa unidade de implantação e paralelizar a computação. Um contrato de arrendamento só pode ser propriedade de um caso num dado momento, pelo que o número máximo de casos equivale ao número de locações.
 
 O número de casos pode crescer e diminuir, e o processador de feed de mudança irá ajustar dinamicamente a carga redistribuindo em conformidade.
 
@@ -100,7 +106,7 @@ Além disso, o processador de alimentos para alterações pode ajustar-se dinami
 Pode agora proceder a mais informações sobre o processador de feed de mudança nos seguintes artigos:
 
 * [Visão geral do feed de mudança](change-feed.md)
-* [Alterar modelo de puxar por feed](change-feed-pull-model.md)
+* [Modelo Pull do feed de alterações](change-feed-pull-model.md)
 * [Como migrar da biblioteca de processadores de feed de mudança](how-to-migrate-from-change-feed-library.md)
 * [Utilizar o calculador do feed de alterações](how-to-use-change-feed-estimator.md)
 * [Hora de início do processador do feed de alterações](how-to-configure-change-feed-start-time.md)
