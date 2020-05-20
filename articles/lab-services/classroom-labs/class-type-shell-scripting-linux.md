@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 66b325eb1d268fdd5b1052a0da84c603186edf65
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: bbe0a0b7f22df20c8ce3d734738132b5056a36e4
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589504"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697088"
 ---
 # <a name="set-up-a-lab-to-teach-shell-scripting-on-linux"></a>Criar um laboratório para ensinar o script de concha sintetmente em Linux
 Este artigo mostra-te como criar um laboratório para ensinar guiões de conchas no Linux. O scripting é uma parte útil da administração do sistema que permite aos administradores evitar tarefas repetitivas. Neste cenário de amostragem, a classe abrange scripts tradicionais de bash e scripts melhorados. Scripts melhorados são scripts que combinam comandos de bash e Ruby. Esta abordagem permite que ruby passe dados ao redor e esmaga comandos para interagir com a concha. 
@@ -39,12 +39,11 @@ Siga [este tutorial](tutorial-setup-classroom-lab.md) para criar um novo laborat
 | Configurações de laboratório | Valor/instruções | 
 | ------------ | ------------------ |
 | Tamanho da máquina virtual (VM) | Pequeno  |
-| Imagem VM | Ubuntu Server 18.04 LTS |
-| Ativar a ligação remota de ambiente de trabalho | Ativar. <p>Permitir esta definição permitirá que educadores e alunos se conectem aos seus VMs utilizando o ambiente de trabalho remoto (RDP). Para mais informações, consulte [Enable remote desktop para máquinas virtuais Linux num laboratório em Serviços de Laboratório Azure](how-to-enable-remote-desktop-linux.md#connect-to-the-template-vm). </p>|
+| Imagem VM | Ubuntu Server 18.04 LTS|
+| Ativar a ligação remota de ambiente de trabalho | Ativar. <p>Permitir esta definição permitirá que professores e alunos se conectem aos seus VMs utilizando o ambiente de trabalho remoto (RDP). Para mais informações, consulte [Enable remote desktop para máquinas virtuais Linux num laboratório em Serviços de Laboratório Azure](how-to-enable-remote-desktop-linux.md). </p>|
 
-
-## <a name="install-desktop-and-xrdp"></a>Instale desktop e xrdp
-A imagem Ubuntu Server 18.04 LTS não tem um servidor de ambiente de trabalho remoto instalado por padrão. Siga as instruções no Ambiente de [Trabalho Remoto de Instalação e configure para ligar a um Artigo do Linux VM em Azure](../../virtual-machines/linux/use-remote-desktop.md) para instalar as embalagens necessárias na máquina do modelo para se ligar através de um protocolo de ambiente de trabalho remoto.
+## <a name="install-desktop-and-rdp"></a>Instale desktop e RDP
+A imagem Ubuntu Server 18.04 LTS não tem o servidor de ambiente de trabalho remoto RDP instalado por padrão. Siga as instruções no Ambiente de [Trabalho Remoto de Instalação e configure para ligar a um Artigo do Linux VM em Azure](../../virtual-machines/linux/use-remote-desktop.md) para instalar as embalagens necessárias na máquina do modelo para se ligar através do protocolo de ambiente de trabalho remoto (RDP).
 
 ## <a name="install-ruby"></a>Instalar o Ruby
 Ruby é uma linguagem dinâmica de código aberto que pode ser combinada com scripts de bash. Esta secção mostra como usar `apt-get` para instalar a versão mais recente da [Ruby.](https://www.ruby-lang.org/)

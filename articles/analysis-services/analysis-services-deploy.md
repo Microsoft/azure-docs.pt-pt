@@ -4,15 +4,15 @@ description: Aprenda a implementar um modelo tabular num servidor de Serviços d
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 71b3b7815d2a4b0b4de3afdca9db93156f505445
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: d6b737985bc19aa09b26bb0d4a65696a364a903a
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73572887"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697603"
 ---
 # <a name="deploy-a-model-from-visual-studio"></a>Implementar um modelo do Visual Studio
 
@@ -27,7 +27,7 @@ Para começar, precisa do seguinte:
 * **Gateway local** - se uma ou mais origens de dados se encontrarem no local da rede da sua organização, é necessário instalar um [gateway de dados no local](analysis-services-gateway.md). O gateway é necessário para que o servidor na nuvem se ligue às suas origens de dados no local para processar e atualizar os dados no modelo.
 
 > [!TIP]
-> Antes de implementar, certifique-se de que pode processar os dados nas tabelas. No Estúdio Visual, clique em Processo**de Processo** >  **de Modelo** > **All**. Se o processamento falhar, a implementação não é efetuada com êxito.
+> Antes de implementar, certifique-se de que pode processar os dados nas tabelas. No Estúdio Visual, clique em Processo de **Processo de Modelo**  >  **Process**  >  **All**. Se o processamento falhar, a implementação não é efetuada com êxito.
 > 
 > 
 
@@ -39,7 +39,7 @@ No **portal do Azure** > servidor > **Descrição geral** > **Nome do servidor**
 
 ## <a name="to-deploy-from-visual-studio"></a>Para implantar a partir do Estúdio Visual
 
-1. No Visual Studio > **Solution Explorer,** clique à direita no projeto > **Properties**. Em seguida, no**Servidor** de **Implementação** > colar o nome do servidor.   
+1. No Visual Studio > **Solution Explorer,** clique à direita no projeto > **Properties**. Em seguida, no Servidor de **Implementação**  >  **Server** colar o nome do servidor.   
    
     ![Colar o nome do servidor na propriedade de implementação do servidor](./media/analysis-services-deploy/aas-deploy-deployment-server-property.png)
 2. Em **Explorador de Soluções**, clique com o botão direito do rato em **Propriedades** e, em seguida, clique em **Implementar**. Ser-lhe-á pedido que inicie sessão no Azure.
@@ -55,11 +55,15 @@ E é tudo o que é preciso!
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-Se a implementação falhar ao implementar metadados, é provável que o Visual Studio não consiga ligar-se ao seu servidor. Verifique se é possível estabelecer ligação ao seu servidor com o SSMS. Em seguida, verifique se a propriedade de implementação do servidor é a correta para o projeto.
+Se a implementação falhar ao implementar metadados, é provável que o Visual Studio não consiga ligar-se ao seu servidor. Certifique-se de que pode ligar-se ao seu servidor utilizando o Estúdio de Gestão de Servidores SQL (SSMS). Em seguida, verifique se a propriedade de implementação do servidor é a correta para o projeto.
 
 Se a implementação falhar numa tabela, provavelmente não foi possível estabelecer ligação entre o servidor e a origem de dados. Se a sua origem de dados se encontra na rede da sua organização, certifique-se de que instala um [gateway de dados no local](analysis-services-gateway.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que tem o modelo de tabela implementado no seu servidor, está pronto para se estabelecer ligação com o mesmo. Pode [ligar-se a ele com o SQL Server Management Studio (SSMS)](analysis-services-manage.md) para o gerir. E pode [ligá-lo através de uma ferramenta de cliente](analysis-services-connect.md) como o Power BI, o Power BI Desktop ou o Excel e começar a criar relatórios.
+Agora que tem o modelo de tabela implementado no seu servidor, está pronto para se estabelecer ligação com o mesmo. Pode [ligar-se a ele com o SQL Server Management Studio (SSMS)](analysis-services-manage.md) para o gerir. E pode [ligá-lo através de uma ferramenta de cliente](analysis-services-connect.md) como o Power BI, o Power BI Desktop ou o Excel e começar a criar relatórios.   
+
+Para aprender sobre métodos avançados de implementação, consulte a implementação da solução de [modelo Tabular.](https://docs.microsoft.com/analysis-services/deployment/tabular-model-solution-deployment?view=azure-analysis-services-current)
+
+
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/26/2020
 ms.author: damendo
-ms.openlocfilehash: 104311904b99cadbbc8c0267a98f2709443608ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7b7580843bc5ad90ebc394c41e81f4d16f51ccb1
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80891463"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701762"
 ---
 # <a name="configure-nsg-flow-logs-from-an-azure-resource-manager-template"></a>Configure os registos de fluxo nsg de um modelo de Gestor de Recursos Azure
 
@@ -27,7 +27,7 @@ ms.locfileid: "80891463"
 > - [Portal do Azure](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [CLI do Azure](network-watcher-nsg-flow-logging-cli.md)
-> - [REST API](network-watcher-nsg-flow-logging-rest.md)
+> - [API REST](network-watcher-nsg-flow-logging-rest.md)
 > - [Azure Resource Manager](network-watcher-nsg-flow-logging-azure-resource-manager.md)
 
 
@@ -76,7 +76,7 @@ Para criar um recurso Microsoft.Network/NetworkWatchers/flowLogs, adicione o JSO
 
 Se estiver a utilizar modelos do Gestor de Recursos Azure pela primeira vez, pode aprender mais sobre eles usando os links abaixo.
 
-* [Implementar recursos com modelos do Resource Manager e do Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell#deploy-local-template)
+* [Implementar recursos com modelos do Resource Manager e o Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell#deploy-local-template)
 * [Tutorial: Crie e implante o seu primeiro modelo de Gestor de Recursos Azure](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-powershell)
 
 
@@ -110,7 +110,7 @@ Abaixo estão dois exemplos de modelos completos para configurar registos de flu
 ```
 
 > [!NOTE]
-> * O nome do recurso tem o formato "Recursos Parent>/Recurso Infantil". Aqui, o recurso-mãe é a instância<RegionName>regional do Observador da Rede (Formato: NetworkWatcher_ . Exemplo: NetworkWatcher_centraluseuap)
+> * O nome do recurso tem o formato "Pai Resource_Child recurso". Aqui, o recurso-mãe é a instância regional do Observador da Rede (Formato: NetworkWatcher_RegionName. Exemplo: NetworkWatcher_centraluseuap)
 > * targetResourceId é o ID de recurso do NSG alvo
 > * armazenamentoId é o iD de recursos da conta de armazenamento de destino
 
@@ -156,13 +156,18 @@ Abaixo estão dois exemplos de modelos completos para configurar registos de flu
 ## <a name="deploying-your-azure-resource-manager-template"></a>Implementando o seu modelo de Gestor de Recursos Azure
 
 Este tutorial assume que você tem um grupo de Recursos existente e um NSG que você pode ativar o flow loging on.
-Pode guardar qualquer um dos modelos `azuredeploy.json`de exemplo acima localmente como . Atualize os valores da propriedade de modo a que apontem recursos válidos na sua subscrição.
+Pode guardar qualquer um dos modelos de exemplo acima localmente como `azuredeploy.json` . Atualize os valores da propriedade de modo a que apontem recursos válidos na sua subscrição.
 
 Para implementar o modelo, execute o seguinte comando no PowerShell.
 ```azurepowershell
+$context = Get-AzSubscription -SubscriptionId 56acfbd6-vc72-43e9-831f-bcdb6f2c5505
+Set-AzContext $context
 New-AzResourceGroupDeployment -Name EnableFlowLog -ResourceGroupName NetworkWatcherRG `
     -TemplateFile "C:\MyTemplates\azuredeploy.json"
 ```
+
+> [!NOTE]
+> Os comandos acima estão a implantar um recurso para o grupo de recursos NetworkWatcherRG e não para o grupo de recursos que contém o NSG
 
 
 ## <a name="verifying-your-deployment"></a>Verificar a sua implantação

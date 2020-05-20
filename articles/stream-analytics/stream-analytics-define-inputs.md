@@ -7,20 +7,20 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/17/2020
-ms.openlocfilehash: 388f43fec9242f6a4b448483d9486aa4413d2612
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 52f333a8e39dfd8f68666e6438a7d40414b6f958
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254472"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701427"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Transmita dados como entrada no Stream Analytics
 
 O Stream Analytics tem integração de primeira classe com fluxos de dados azure como inputs de três tipos de recursos:
 
 - [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
-- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) 
-- [Armazenamento de Blobs do Azure](https://azure.microsoft.com/services/storage/blobs/) 
+- [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/) 
+- [Armazenamento Azure Blob](https://azure.microsoft.com/services/storage/blobs/) 
 
 Estes recursos de entrada podem viver na mesma subscrição do Azure que o seu trabalho stream analytics ou uma subscrição diferente.
 
@@ -30,7 +30,7 @@ Stream Analytics suporta compressão em todas as fontes de entrada de fluxo de d
 
 ## <a name="create-edit-or-test-inputs"></a>Criar, editar ou testar inputs
 
-Pode utilizar o [portal Azure,](stream-analytics-quick-create-portal.md) [Visual Studio](stream-analytics-quick-create-vs.md)e Visual [Studio Code](quick-create-vs-code.md) para adicionar e visualizar ou editar as inputs existentes no seu trabalho de streaming. Também pode testar ligações de entrada e consultas de [teste](stream-analytics-manage-job.md#test-your-query) a partir de dados de amostras do portal Azure, [Estúdio Visual](stream-analytics-vs-tools-local-run.md)e Código de Estúdio [Visual](visual-studio-code-local-run.md). Quando escreve uma consulta, lista a entrada na cláusula FROM. Pode obter a lista de inputs disponíveis a partir da página **Consulta** no portal. Se desejar utilizar várias inputs, pode `JOIN` `SELECT` ou escrever múltiplas consultas.
+Pode utilizar o [portal Azure,](stream-analytics-quick-create-portal.md) [Visual Studio](stream-analytics-quick-create-vs.md)e Visual [Studio Code](quick-create-vs-code.md) para adicionar e visualizar ou editar as inputs existentes no seu trabalho de streaming. Também pode testar ligações de entrada e consultas de [teste](stream-analytics-manage-job.md#test-your-query) a partir de dados de amostras do portal Azure, [Estúdio Visual](stream-analytics-vs-tools-local-run.md)e Código de Estúdio [Visual](visual-studio-code-local-run.md). Quando escreve uma consulta, lista a entrada na cláusula FROM. Pode obter a lista de inputs disponíveis a partir da página **Consulta** no portal. Se desejar utilizar várias inputs, pode `JOIN` ou escrever múltiplas `SELECT` consultas.
 
 
 ## <a name="stream-data-from-event-hubs"></a>Transmitir dados a partir dos Hubs de Eventos
@@ -57,7 +57,7 @@ A tabela a seguir explica cada imóvel na nova página de **entrada** no portal 
 | **Grupo de consumidores do Event Hub** (recomendado) | É altamente recomendado utilizar um grupo de consumidores distinto para cada trabalho da Stream Analytics. Esta cadeia identifica o grupo de consumidores para usar para ingerir dados do centro do evento. Se nenhum grupo de consumidores for especificado, o trabalho da Stream Analytics utiliza o grupo de consumidores $Default.  |
 | **Chave de partição** | Se a sua entrada for dividida por uma propriedade, pode adicionar o nome desta propriedade. As chaves de partição são opcionais e são usadas para melhorar o desempenho da sua consulta se incluir uma cláusula DE PARTIÇÃO BY ou GROUP BY nesta propriedade. |
 | **Formato de serialização de eventos** | O formato de serialização (JSON, CSV, Avro ou [Outros (Protobuf, XML, proprietário...)](custom-deserializer.md)) do fluxo de dados que está a chegar.  Certifique-se de que o formato JSON se alinha com a especificação e não inclui o líder 0 para números decimais. |
-| **Codificação** | O UTF-8 é atualmente o único formato de codificação suportado. |
+| **Encoding** | O UTF-8 é atualmente o único formato de codificação suportado. |
 | **Tipo de compressão de eventos** | O tipo de compressão utilizado para ler o fluxo de dados que chegava, como nenhum (padrão), GZip ou Deflate. |
 
 Quando os seus dados provêm de uma entrada de fluxo de Event Hub, você tem acesso aos seguintes campos de metadados na sua consulta Stream Analytics:
@@ -86,7 +86,7 @@ FROM Input
 
 O Azure IoT Hub é um evento de subscrição de subscrição de publicações altamente escalável otimizado para cenários IoT.
 
-O carimbo de tempo padrão dos eventos provenientes de um Hub IoT em Stream Analytics `EventEnqueuedUtcTime`é o carimbo temporal que o evento chegou ao IoT Hub, que é . Para processar os dados como um fluxo utilizando uma marca de tempo na carga útil do evento, deve utilizar a palavra-chave [TIMESTAMP BY.](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics)
+O carimbo de tempo padrão dos eventos provenientes de um Hub IoT em Stream Analytics é o carimbo temporal que o evento chegou ao IoT Hub, que é `EventEnqueuedUtcTime` . Para processar os dados como um fluxo utilizando uma marca de tempo na carga útil do evento, deve utilizar a palavra-chave [TIMESTAMP BY.](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics)
 
 ### <a name="iot-hub-consumer-groups"></a>Grupos de consumidores DoIOT Hub
 
@@ -107,7 +107,7 @@ A tabela seguinte explica cada imóvel na nova página de **entrada** no portal 
 | **Grupo de consumidores** | É altamente recomendável que utilize um grupo de consumidores diferente para cada trabalho da Stream Analytics. O grupo de consumidores está habituado a ingerir dados do IoT Hub. O Stream Analytics utiliza o grupo de consumidores $Default, a menos que especifique o contrário.  |
 | **Chave de partição** | Se a sua entrada for dividida por uma propriedade, pode adicionar o nome desta propriedade. As chaves de partição são opcionais e são usadas para melhorar o desempenho da sua consulta se incluir uma cláusula DE PARTIÇÃO BY ou GROUP BY nesta propriedade. |
 | **Formato de serialização de eventos** | O formato de serialização (JSON, CSV, Avro ou [Outros (Protobuf, XML, proprietário...)](custom-deserializer.md)) do fluxo de dados que está a chegar.  Certifique-se de que o formato JSON se alinha com a especificação e não inclui o líder 0 para números decimais. |
-| **Codificação** | O UTF-8 é atualmente o único formato de codificação suportado. |
+| **Encoding** | O UTF-8 é atualmente o único formato de codificação suportado. |
 | **Tipo de compressão de eventos** | O tipo de compressão utilizado para ler o fluxo de dados que chegava, como nenhum (padrão), GZip ou Deflate. |
 
 
@@ -130,11 +130,11 @@ Para cenários com grandes quantidades de dados não estruturados para armazenar
 
 O processamento de registoé um cenário comumente utilizado para usar inputs de armazenamento Blob com Stream Analytics. Neste cenário, os ficheiros de dados de telemetria foram capturados a partir de um sistema e precisam de ser analisados e processados para extrair dados significativos.
 
-O carimbo de tempo padrão dos eventos de armazenamento blob no Stream Analytics `BlobLastModifiedUtcTime`é o carimbo temporal que a bolha foi modificada pela última vez, ou seja. Se uma bolha for enviada para uma conta de armazenamento às 13:00, e o trabalho do Azure Stream Analytics começar a usar a opção *Agora* às 13:01, a bolha não será captada à medida que o seu tempo modificado cai fora do período de execução do trabalho.
+O carimbo de tempo padrão dos eventos de armazenamento blob no Stream Analytics é o carimbo temporal que a bolha foi modificada pela última vez, ou `BlobLastModifiedUtcTime` seja. Se uma bolha for enviada para uma conta de armazenamento às 13:00, e o trabalho do Azure Stream Analytics começar a usar a opção *Agora* às 13:01, a bolha não será captada à medida que o seu tempo modificado cai fora do período de execução do trabalho.
 
 Se uma bolha for enviada para um contentor de conta de armazenamento às 13:00, e o trabalho do Azure Stream Analytics for iniciado a usar o *Costume às* 13:00 ou mais cedo, a bolha será recolhida à medida que o seu tempo modificado cai dentro do período de execução do trabalho.
 
-Se um trabalho de Azure Stream Analytics for iniciado a ser usado *Agora* às 13:00, e uma bolha for enviada para o contentor da conta de armazenamento às 13:01, o Azure Stream Analytics irá recolher a bolha.
+Se um trabalho de Azure Stream Analytics for iniciado a ser usado *Agora* às 13:00, e uma bolha for enviada para o contentor da conta de armazenamento às 13:01, o Azure Stream Analytics irá recolher a bolha. A marca de tempo atribuída a cada bolha baseia-se apenas em `BlobLastModifiedTime` . A pasta em que a bolha se encontra não tem qualquer relação com o carimbo de tempo atribuído. Por exemplo, se houver uma bolha *2019/10-01/00/b1.txt* com um `BlobLastModifiedTime` de 2019-11-11, então o carimbo de tempo atribuído a esta bolha é 2019-11-11.
 
 Para processar os dados como um fluxo utilizando uma marca de tempo na carga útil do evento, deve utilizar a palavra-chave [TIMESTAMP BY.](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) Um trabalho da Stream Analytics retira dados da entrada de armazenamento do Azure Blob a cada segundo se o ficheiro blob estiver disponível. Se o ficheiro blob não estiver disponível, existe um recuo exponencial com um atraso máximo de 90 segundos.
 
@@ -143,7 +143,7 @@ As inputs formatadas cSV requerem uma linha de cabeçalho para definir campos pa
 > [!NOTE]
 > O Stream Analytics não suporta a adição de conteúdo a um ficheiro blob existente. O Stream Analytics verá cada ficheiro apenas uma vez, e quaisquer alterações que ocorram no ficheiro após a leitura dos dados não são processadas. A melhor prática é carregar todos os dados para um ficheiro blob de uma só vez e, em seguida, adicionar eventos adicionais mais recentes a um ficheiro blob diferente.
 
-Carregar um grande número de bolhas ao mesmo tempo pode fazer com que o Stream Analytics ignore a leitura de algumas bolhas em casos raros. Recomenda-se o upload de bolhas com pelo menos 2 segundos de diferença para o armazenamento blob. Se esta opção não for viável, pode utilizar os Centros de Eventos para transmitir grandes volumes de eventos. 
+Em cenários em que muitas bolhas são continuamente adicionadas e o Stream Analytics está a processar as bolhas à medida que são adicionadas, é possível que algumas bolhas sejam ignoradas em casos raros devido à granularidade do `BlobLastModifiedTime` . Pode mitigar isto carregando bolhas com pelo menos dois segundos de diferença. Se esta opção não for viável, pode utilizar os Centros de Eventos para transmitir grandes volumes de eventos.
 
 ### <a name="configure-blob-storage-as-a-stream-input"></a>Configure o armazenamento blob como uma entrada de fluxo 
 
@@ -156,12 +156,12 @@ A tabela seguinte explica cada imóvel na nova página de **entrada** no portal 
 | **Conta de armazenamento** | O nome da conta de armazenamento onde estão localizados os ficheiros blob. |
 | **Chave da conta de armazenamento** | A chave secreta associada à conta de armazenamento. Esta opção é automaticamente povoada, a menos que selecione a opção de fornecer manualmente as definições de armazenamento Blob. |
 | **Contentor** | O recipiente para a entrada blob. Os contentores fornecem um agrupamento lógico para bolhas armazenadas no serviço Microsoft Azure Blob. Quando enviar uma bolha para o serviço de armazenamento Azure Blob, deve especificar um recipiente para essa bolha. Pode escolher ou utilizar o recipiente **existente** ou **criar um novo** recipiente para ter um novo recipiente criado.|
-| **Padrão de caminho** (opcional) | O caminho de ficheiro utilizado para localizar as bolhas dentro do recipiente especificado. Se quiser ler bolhas da raiz do recipiente, não detete um padrão de caminho. Dentro do caminho, pode especificar uma ou mais instâncias `{date}` `{time}`das seguintes três variáveis: , ou`{partition}`<br/><br/>Exemplo 1:`cluster1/logs/{date}/{time}/{partition}`<br/><br/>Exemplo 2:`cluster1/logs/{date}`<br/><br/>O `*` personagem não é um valor permitido para o prefixo do caminho. Só são <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">permitidos caracteres de blob Azure válidos.</a> Não inclua nomes de contentores ou nomes de ficheiros. |
-| **Formato de data** (opcional) | Se utilizar a variável data no caminho, o formato de data em que os ficheiros são organizados. Exemplo: `YYYY/MM/DD` |
-| **Formato de tempo** (opcional) |  Se utilizar a variável de tempo no caminho, o formato de tempo em que os ficheiros são organizados. Atualmente, o único `HH` valor suportado é por horas. |
+| **Padrão de caminho** (opcional) | O caminho de ficheiro utilizado para localizar as bolhas dentro do recipiente especificado. Se quiser ler bolhas da raiz do recipiente, não detete um padrão de caminho. Dentro do caminho, pode especificar uma ou mais instâncias das seguintes três variáveis: `{date}` , `{time}` ou`{partition}`<br/><br/>Exemplo 1:`cluster1/logs/{date}/{time}/{partition}`<br/><br/>Exemplo 2:`cluster1/logs/{date}`<br/><br/>O `*` personagem não é um valor permitido para o prefixo do caminho. Só são <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">permitidos caracteres de blob Azure válidos.</a> Não inclua nomes de contentores ou nomes de ficheiros. |
+| **Formato de data** (opcional) | Se utilizar a variável data no caminho, o formato de data em que os ficheiros são organizados. Exemplo: `YYYY/MM/DD` <br/><br/> Quando a entrada blob tem `{date}` ou `{time}` no seu caminho, as pastas são analisadas na ordem temporal ascendente.|
+| **Formato de tempo** (opcional) |  Se utilizar a variável de tempo no caminho, o formato de tempo em que os ficheiros são organizados. Atualmente, o único valor suportado é `HH` por horas. |
 | **Chave de partição** | Se a sua entrada for dividida por uma propriedade, pode adicionar o nome desta propriedade. As chaves de partição são opcionais e são usadas para melhorar o desempenho da sua consulta se incluir uma cláusula DE PARTIÇÃO BY ou GROUP BY nesta propriedade. |
 | **Formato de serialização de eventos** | O formato de serialização (JSON, CSV, Avro ou [Outros (Protobuf, XML, proprietário...)](custom-deserializer.md)) do fluxo de dados que está a chegar.  Certifique-se de que o formato JSON se alinha com a especificação e não inclui o líder 0 para números decimais. |
-| **Codificação** | Para CSV e JSON, o UTF-8 é atualmente o único formato de codificação suportado. |
+| **Encoding** | Para CSV e JSON, o UTF-8 é atualmente o único formato de codificação suportado. |
 | **Compressão** | O tipo de compressão utilizado para ler o fluxo de dados que chegava, como nenhum (padrão), GZip ou Deflate. |
 
 Quando os seus dados provêm de uma fonte de armazenamento Blob, você tem acesso aos seguintes campos de metadados na sua consulta Stream Analytics:

@@ -7,14 +7,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 148b80a6843168b11e4feb3558f6bf08eaeb3ace
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0c5bfb6632a22a890ac2387f06464c18be7dd714
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81261266"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83699055"
 ---
-# <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Painel de encomendas em análise de marketplace comercial
+# <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Dashboard de encomendas na análise do mercado comercial
 
 Este artigo fornece informações sobre o **dashboard encomendas** no Partner Center. Este dashboard exibe informações sobre as suas encomendas num formato gráfico e descarregável.
 
@@ -104,6 +104,7 @@ A tabela de detalhes da Ordem apresenta uma lista numerada das 1000 encomendas d
 - Os dados podem ser extraídos para um ficheiro TSV se a contagem dos registos for inferior a 1000.
 - Se os registos forem superiores a 1000, os dados exportados serão colocados assincronicamente numa página de downloads durante os próximos 30 dias.
 - Os filtros podem ser aplicados na **tabela de detalhes** da Encomenda para mostrar apenas os dados que lhe interessam. Os dados podem ser filtrados pelo Country, do tipo de licença Azure, do tipo de licença marketplace, do tipo de oferta, do estado da Encomenda, dos trilhos gratuitos, do ID de subscrição do Marketplace, do ID do cliente e do nome da Empresa.
+- Uma vez que as ofertas saaS adquiridas através do Azure Marketplace ou appSource não requerem uma subscrição azure, o ID de subscrição do Marketplace aparecerá como 0000000000-0000-00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000na na secção de dados de **encomendas detalhadas.**
 
 #### <a name="orders-page-filters"></a>Encomendas Filtros de página
 

@@ -6,14 +6,14 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 05/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 082689dba5fdfa8505f2293223e76f2164b0df14
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c47016d0b82a4e4ed084f5d82394d91fd2b46be1
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655286"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697723"
 ---
 # <a name="change-feed-pull-model-in-azure-cosmos-db"></a>Alterar modelo de puxar por feed em Azure Cosmos DB
 
@@ -43,7 +43,7 @@ FeedIterator iteratorWithStreams = container.GetChangeFeedStreamIterator();
 Utilizando um `FeedIterator` , pode facilmente processar a alimentação de mudança de um recipiente inteiro ao seu próprio ritmo. Eis um exemplo:
 
 ```csharp
-FeedIterator<User> iteratorForTheEntireContainer= container.GetChangeFeedIterator<User>(new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
+FeedIterator<User> iteratorForTheEntireContainer= container.GetChangeFeedIterator<User>();
 
 while (iteratorForTheEntireContainer.HasMoreResults)
 {
@@ -58,10 +58,10 @@ while (iteratorForTheEntireContainer.HasMoreResults)
 
 ## <a name="consuming-a-partition-keys-changes"></a>Consumir as alterações da chave de partição
 
-Em alguns casos, só pode querer processar as alterações específicas da chave de partição. Você pode obter um `FeedIterator` para uma chave de partição específica e processar as alterações da mesma forma que você pode para um recipiente inteiro:
+Em alguns casos, só pode querer processar as alterações específicas da chave de partição. Você pode obter um `FeedIterator` para uma chave de partição específica e processar as alterações da mesma forma que você pode para um recipiente inteiro.
 
 ```csharp
-FeedIterator<User> iteratorForThePartitionKey = container.GetChangeFeedIterator<User>(new PartitionKey("myPartitionKeyValueToRead"), new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
+FeedIterator<User> iteratorForThePartitionKey = container.GetChangeFeedIterator<User>(new PartitionKey("myPartitionKeyValueToRead"));
 
 while (iteratorForThePartitionKey.HasMoreResults)
 {

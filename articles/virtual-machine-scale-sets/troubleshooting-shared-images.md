@@ -10,12 +10,12 @@ ms.subservice: imaging
 ms.date: 04/25/2019
 ms.reviewer: cynthn
 ms.custom: akjosh
-ms.openlocfilehash: 47dd50848a4a2f811103e655880c0b00e1ed1452
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: dd79d923689a95f0c9a25efcb1377db253247baf
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125035"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700855"
 ---
 # <a name="troubleshoot-shared-image-galleries"></a>Galerias de imagem partilhadas de troubleshoot
 

@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: d54506b94f076f0a3d967f88bd4e2960a1ca6396
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ef7824640dcd2b9dbae1d27f385e5334ba9875ff
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75530906"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83699236"
 ---
 # <a name="troubleshoot-data-loss-in-azure-cache-for-redis"></a>Resolver problemas de perda de dados da Cache do Azure para Redis
 
@@ -36,7 +36,7 @@ Se descobrir que as chaves desapareceram da sua cache, verifique as seguintes ca
 
 ### <a name="key-expiration"></a>Expiração da chave
 
-O Azure Cache para Redis remove automaticamente uma chave se a chave for atribuída uma saída e esse período tiver passado. Para obter mais informações sobre a expiração da chave Redis, consulte a documentação do comando [EXPIRE.](https://redis.io/commands/expire) Os valores de tempo-out também podem ser definidos utilizando os comandos [SET,](https://redis.io/commands/set) [SETEX,](https://redis.io/commands/setex) [GETSET](https://redis.io/commands/getset)e outros ** \*comandos STORE.**
+O Azure Cache para Redis remove automaticamente uma chave se a chave for atribuída uma saída e esse período tiver passado. Para obter mais informações sobre a expiração da chave Redis, consulte a documentação do comando [EXPIRE.](https://redis.io/commands/expire) Os valores de tempo-out também podem ser definidos utilizando os comandos [SET,](https://redis.io/commands/set) [SETEX,](https://redis.io/commands/setex) [GETSET](https://redis.io/commands/getset)e outros ** \* comandos STORE.**
 
 Para obter estatísticas sobre quantas chaves expiraram, use o comando [INFO.](https://redis.io/commands/info) A `Stats` secção mostra o número total de chaves expiradas. A `Keyspace` secção fornece mais informações sobre o número de chaves com intervalos e o valor médio do tempo de descanso.
 
@@ -68,7 +68,7 @@ Você também pode olhar para as métricas de diagnóstico para a sua cache, par
 
 ### <a name="key-deletion"></a>Eliminação da chave
 
-Os clientes redis podem emitir o comando [DEL](https://redis.io/commands/del) ou [HDEL](https://redis.io/commands/hdel) para remover explicitamente as chaves do Azure Cache para redis. Pode rastrear o número de operações de eliminação utilizando o comando [INFO.](https://redis.io/commands/info) Se os comandos **DEL** ou **HDEL** tiverem sido `Commandstats` chamados, serão listados na secção.
+Os clientes redis podem emitir o comando [DEL](https://redis.io/commands/del) ou [HDEL](https://redis.io/commands/hdel) para remover explicitamente as chaves do Azure Cache para redis. Pode rastrear o número de operações de eliminação utilizando o comando [INFO.](https://redis.io/commands/info) Se os comandos **DEL** ou **HDEL** tiverem sido chamados, serão listados na `Commandstats` secção.
 
 ```
 # Commandstats
@@ -80,7 +80,7 @@ cmdstat_hdel:calls=1,usec=47,usec_per_call=47.00
 
 ### <a name="async-replication"></a>Replicação asincronizada
 
-Qualquer cache azure para redis no nível Standard ou Premium é configurado com um nó principal e pelo menos uma réplica. Os dados são copiados do mestre para uma réplica assíncrona usando um processo de fundo. O site [redis.io](https://redis.io/topics/replication) descreve como a replicação de dados da Redis funciona em geral. Para cenários em que os clientes escrevem frequentemente à Redis, a perda parcial de dados pode ocorrer porque esta replicação é garantidamente instantânea. Por exemplo, se o mestre cair *depois* de um cliente escrever uma chave para ele, mas *antes* que o processo de fundo tenha a oportunidade de enviar essa chave para a réplica, a chave perde-se quando a réplica assume o cargo de novo mestre.
+Qualquer cache azure para redis no nível Standard ou Premium é configurado com um nó principal e pelo menos uma réplica. Os dados são copiados do mestre para uma réplica assíncrona usando um processo de fundo. O site [redis.io](https://redis.io/topics/replication) descreve como a replicação de dados da Redis funciona em geral. Para cenários em que os clientes escrevem frequentemente à Redis, a perda parcial de dados pode ocorrer porque esta replicação não é garantida para ser instantânea. Por exemplo, se o mestre cair *depois* de um cliente escrever uma chave para ele, mas *antes* que o processo de fundo tenha a oportunidade de enviar essa chave para a réplica, a chave perde-se quando a réplica assume o cargo de novo mestre.
 
 ## <a name="major-or-complete-loss-of-keys"></a>Perda de chaves maior ou completa
 

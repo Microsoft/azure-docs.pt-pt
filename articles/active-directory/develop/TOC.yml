@@ -433,6 +433,8 @@
           href: supported-accounts-validation.md
         - name: Aplicações de inquilino único e multi-inquilino
           href: single-and-multi-tenant-apps.md
+        - name: Verificação do publicador (pré-visualização)
+          href: publisher-verification-overview.md
     - name: Permissões e consentimento
       displayName: Scopes
       items:
@@ -503,6 +505,12 @@
           href: howto-configure-publisher-domain.md
         - name: Configurar os Termos do Serviço e a Declaração de Privacidade
           href: howto-add-terms-of-service-privacy-statement.md
+        - name: Configurar verificação do editor para a sua aplicação
+          items:
+            - name: Marcar a sua aplicação como verificada pelo publicador (pré-visualização)
+              href: mark-app-as-publisher-verified.md
+            - name: Resolver problemas da verificação do publicador (pré-visualização)
+              href: troubleshoot-publisher-verification.md
     - name: Trabalhar com a Biblioteca de Autenticação da Microsoft
       displayName: MSAL
       items:

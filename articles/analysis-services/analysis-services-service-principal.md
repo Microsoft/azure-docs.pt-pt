@@ -4,15 +4,15 @@ description: Aprenda a criar um principal de serviço para automatizar tarefas a
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: dc163de9a7fb46d62f4bc2983e040e68bbf9231c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1ea9b978cce22ae6d99cbce5b4b85558f2a47b59
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79266146"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83699072"
 ---
 # <a name="automation-with-service-principals"></a>Automatização com principais de serviço
 
@@ -50,7 +50,7 @@ O aplicativo principal de serviço e a palavra-passe ou certificado podem ser ut
 
 #### <a name="using-azanalysisservices-module"></a><a name="azmodule" />Utilizando o módulo Az.AnalysisServices
 
-Ao utilizar um diretor de serviço para operações de `Connect-AzAccount` gestão de recursos com o módulo [Az.AnalysisServices,](/powershell/module/az.analysisservices) utilize cmdlet. 
+Ao utilizar um diretor de serviço para operações de gestão de recursos com o módulo [Az.AnalysisServices,](/powershell/module/az.analysisservices) utilize `Connect-AzAccount` cmdlet. 
 
 No exemplo seguinte, o appID e uma palavra-passe são utilizados para realizar operações de plano de controlo para sincronização a réplicas apenas de leitura e escala para cima/para fora:
 
@@ -92,9 +92,9 @@ Invoke-ProcessTable -Server "asazure://westcentralus.asazure.windows.net/myserve
 
 ### <a name="amo-and-adomd"></a>AMO e ADOMD 
 
-Ao conectar-se com aplicações de clientes e aplicações web, bibliotecas de [clientes AMO e ADOMD](analysis-services-data-providers.md) versão 15.0.2 e `app:AppID` pacotes `cert:thumbprint`instalados mais altos dos principais de suporte do NuGet nas cadeias de ligação utilizando a seguinte sintaxe: e palavra-passe ou . 
+Ao conectar-se com aplicações de clientes e aplicações web, bibliotecas de [clientes AMO e ADOMD](analysis-services-data-providers.md) versão 15.0.2 e pacotes instalados mais altos dos principais de suporte do NuGet nas cadeias de ligação utilizando a seguinte sintaxe: `app:AppID` e palavra-passe ou `cert:thumbprint` . 
 
-No exemplo seguinte, `appID` `password` e a são utilizados para executar uma operação de atualização de base de dados modelo:
+No exemplo seguinte, e a são utilizados para executar uma operação de atualização de base de `appID` `password` dados modelo:
 
 ```csharp
 string appId = "xxx";
@@ -110,4 +110,5 @@ db.Model.SaveChanges();
 
 ## <a name="next-steps"></a>Passos seguintes
 [Inscreva-se na Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps)   
-[Adicione um principal de serviço à função de administrador do servidor](analysis-services-addservprinc-admins.md)   
+[Adicione um principal de serviço à função de administrador do servidor](analysis-services-addservprinc-admins.md)  
+[Automatizar o espaço de trabalho power bi premium e tarefas de conjunto de dados com os principais de serviço](https://docs.microsoft.com/power-bi/admin/service-premium-service-principal) 

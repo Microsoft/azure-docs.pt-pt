@@ -1,31 +1,28 @@
 ---
 title: Criar uma oferta de contentores Azure - Azure Marketplace
-description: Este artigo explica como criar e publicar uma oferta de contentores para o Azure Marketplace.
+description: Aprenda a criar e publicar uma oferta de contentores para o Azure Marketplace.
 author: mingshen
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/07/2020
-ms.openlocfilehash: f2a3b6355fdaa8cd90525fac9d29324270dfad02
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.date: 05/19/2020
+ms.openlocfilehash: 75baddbefc2babf73fee18cafe07177a3f0fb6f2
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791940"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701027"
 ---
 # <a name="create-an-azure-container-offer"></a>Criar uma oferta de contentores Azure
-
-> [!IMPORTANT]
-> Estamos a mover a gestão das suas ofertas de contentores Azure do Cloud Partner Portal para partner Center. Até que as suas ofertas sejam migradas, siga as instruções em [Recipientes](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-containers-offer) para o Portal do Parceiro cloud para gerir as suas ofertas.
 
 Este artigo descreve como criar e publicar uma oferta de contentores para o Azure Marketplace. Antes de começar, [Crie uma conta de Marketplace Comercial no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) se ainda não o fez. Certifique-se de que a sua conta está inscrita no programa de marketplace comercial.
 
 ## <a name="create-a-new-offer"></a>Criar uma nova oferta
 
 1. Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/home).
-2. No menu de navegação à esquerda, selecione **Commercial Marketplace** > **Overview**.
-3. Na página 'Visão Geral', selecione **+ Novo recipiente** > **Azure.**
+2. No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **Overview**.
+3. Na página 'Visão Geral', selecione **+ Novo recipiente**  >  **Azure.**
 
     ![Ilustra o menu de navegação à esquerda.](./media/new-offer-azure-container.png)
 
@@ -37,7 +34,7 @@ Este artigo descreve como criar e publicar uma oferta de contentores para o Azur
 Introduza um **ID de oferta**. Este é um identificador único para cada oferta na sua conta.
 
 - Este ID é visível para os clientes no endereço web para a oferta de mercado e modelos do Gestor de Recursos Azure, se aplicável.
-- Utilize apenas letras minúsculas e números. Pode incluir hífenes e sublinhados, mas sem espaços, e está limitado a 50 caracteres. Por exemplo, se introduzir o **test-offer-1,** `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`o endereço web da oferta será .
+- Utilize apenas letras minúsculas e números. Pode incluir hífenes e sublinhados, mas sem espaços, e está limitado a 50 caracteres. Por exemplo, se introduzir o **test-offer-1,** o endereço web da oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
 - O ID da Oferta não pode ser alterado depois de selecionar **Criar**.
 
 Insira um **pseudónimo da Oferta.** Este é o nome usado para a oferta no Partner Center.
@@ -68,12 +65,12 @@ Ao publicar a sua oferta no mercado comercial com o Partner Center, pode ligá-l
 
 1. **Selecione um destino principal onde deseja que enviemos pistas de cliente**. Partner Center suporta os seguintes sistemas CRM:
 
-- [Dinâmica 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) para envolvimento com o cliente
-- [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
-- [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
+   - [Dinâmica 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) para envolvimento com o cliente
+   - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
+   - [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
 
-> [!NOTE]
-> Se o seu sistema CRM não estiver listado acima, utilize [o Azure Table](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) ou [o Https Endpoint](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) para armazenar os dados de chumbo do cliente e, em seguida, exporte os dados para o seu sistema CRM.
+   > [!NOTE]
+   > Se o seu sistema CRM não estiver listado acima, utilize [o Azure Table](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) ou [o Https Endpoint](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) para armazenar os dados de chumbo do cliente e, em seguida, exporte os dados para o seu sistema CRM.
 
 2. Ligue a sua oferta ao destino principal ao publicar no Partner Center.
 3. Confirme que a ligação ao destino principal está configurada corretamente. Depois de publicá-lo no Partner Center, validamos a ligação e enviaremos-lhe um teste. Enquanto faz a pré-visualização da oferta antes de ser transmitida ao vivo, também pode testar a sua ligação de chumbo tentando adquirir a oferta no ambiente de pré-visualização.
@@ -149,40 +146,11 @@ Uma descrição mais detalhada da sua oferta. Isto pode ter até 256 caracteres 
 
 ### <a name="description"></a>Descrição
 
-Forneça uma descrição mais longa da sua oferta, até 3.000 caracteres. Isto é apresentado aos clientes na visão geral da listagem do mercado.
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-Inclua um ou mais dos seguintes na sua descrição:
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-- O valor e os benefícios-chave que a sua oferta proporciona
-- Categoria ou associações industriais, ou ambos
-- Oportunidades de compra na aplicação
-- Quaisquer divulgações necessárias
-
-Aqui ficam algumas dicas para escrever a sua descrição:
-
-- Descreva claramente o valor da sua oferta nas primeiras frases da sua descrição. Incluir os seguintes itens:
-  - Descrição da oferta.
-  - O tipo de utilizador que beneficia da oferta
-  - As necessidades do cliente ou emite os endereços da oferta.
-- Lembre-se que as primeiras frases podem ser exibidas nos resultados da pesquisa.
-- Não confie em funcionalidades e funcionalidades para vender o seu produto. Em vez disso, concentre-se no valor que a sua oferta proporciona.
-- Tente utilizar vocabulário específico da indústria ou formulação baseada em benefícios.
-
-Para tornar a sua **descrição** mais envolvente, use o rico editor de texto, para formatar a sua descrição. com numeração, balas, arrojado, itálico e travessos para tornar a sua descrição mais legível.
-
-:::image type="content" source="media/text-editor2.png" alt-text="Ilustra o rico editor de texto." border="false" :::
-
-- Utilize esta entrega para aplicar um estilo de parágrafo ao texto.
-
-    :::image type="content" source="media/text-editor3.png" alt-text="Ilustra o controlo do estilo de texto no rico editor de texto." border="false":::
-
-- Utilize estes ícones para aplicar numeração ou balas por texto.
-
-     :::image type="content" source="media/text-editor4.png" alt-text="Ilustra os controlos da lista de números e balas no rico editor de texto." border="false":::
-
-- Utilize estes ícones para adicionar ou remover o entalhe de ou para o texto.
-
-    :::image type="content" source="media/text-editor5.png" alt-text="Ilustra os controlos de entalhes no rico editor de texto." border="false":::
+[!INCLUDE [Long description-3](./includes/long-description-3.md)]
 
 #### <a name="privacy-policy-link"></a>Ligação política de privacidade
 
@@ -216,7 +184,7 @@ Para saber mais sobre a criação de anúncios de oferta, consulte [oferta de li
 Forneça logotipos e imagens para usar com a sua oferta. Todas as imagens devem estar em formato PNG. Imagens desfocadas serão rejeitadas.
 
 >[!Note]
->Se tiver algum problema de envio de ficheiros, https://upload.xboxlive.com certifique-se de que a sua rede local não bloqueia o serviço utilizado pelo Partner Center.
+>Se tiver algum problema de envio de ficheiros, certifique-se de que a sua rede local não bloqueia o https://upload.xboxlive.com serviço utilizado pelo Partner Center.
 
 #### <a name="store-logos"></a>Logotipos de loja
 
@@ -257,7 +225,7 @@ Isto mostra resultados de pesquisa no portal Azure:
 
 :::image type="content" source="media/azure-create-container-offer-images/azure-create-9-search-results-portal.png" alt-text="Ilustra os resultados da pesquisa no portal Azure.":::
 
-## <a name="preview"></a>Pré-visualização
+## <a name="preview"></a>Pré-visualizar
 
 No separador Preview, pode escolher um Público de **Pré-visualização** limitado para validar a sua oferta antes de publicá-la ao vivo.
 
@@ -390,11 +358,11 @@ Nome de utilizador administrativo para o Registo de **Contentores Azure** – Fo
 
  :::image type="content" source="media/azure-create-container-offer-images/azure-create-12-update-container-registry-edit.png" alt-text="Ilustra a caixa de diálogo de registo de recipientes Update.":::
 
-**Palavra-passe para o Registo de Contentores Azure** – Forneça a palavra-passe para o nome de utilizador do administrador que está associado ao Registo de Contentores Azure e tem a sua imagem de contentor. O nome de utilizador e a palavra-passe são necessários para garantir que a sua empresa tem acesso ao registo. Pode obter a palavra-passe do portal Azure indo para**As Chaves** de Acesso ao Registo > de **Contentores**ou com o Azure CLI utilizando o comando do [show](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show).
+**Palavra-passe para o Registo de Contentores Azure** – Forneça a palavra-passe para o nome de utilizador do administrador que está associado ao Registo de Contentores Azure e tem a sua imagem de contentor. O nome de utilizador e a palavra-passe são necessários para garantir que a sua empresa tem acesso ao registo. Pode obter a palavra-passe do portal Azure indo para As Chaves de Acesso ao Registo de **Contentores**  >  **Access Keys** ou com o Azure CLI utilizando o comando do [show](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show).
 
 :::image type="content" source="media/azure-create-container-offer-images/azure-create-13-access-keys.png" alt-text="Ilustra o menu Chave de Acesso.":::
 
-**Nome do repositório no registo do contentor azure**. Forneça o nome do repositório do Registo de Contentores Azure que tem a sua imagem. Inclua o nome do repositório quando empurrar a imagem para o registo. Você pode encontrar o nome do repositório indo para a página de > **Repositórios** do Registo de [Contentores.](https://azure.microsoft.com/services/container-registry/) Para mais informações, consulte [os repositórios](https://docs.microsoft.com/azure/container-registry/container-registry-repositories)de registo de contentores no portal Azure .
+**Nome do repositório no registo do contentor azure**. Forneça o nome do repositório do Registo de Contentores Azure que tem a sua imagem. Inclua o nome do repositório quando empurrar a imagem para o registo. Você pode encontrar o nome do repositório indo para a página de [Container Registry](https://azure.microsoft.com/services/container-registry/)  >  **Repositórios** do Registo de Contentores. Para mais informações, consulte [os repositórios](https://docs.microsoft.com/azure/container-registry/container-registry-repositories)de registo de contentores no portal Azure .
 
 > [!NOTE]
 > Depois do nome estar definido, não pode ser alterado. Use um nome único para cada oferta na sua conta.
@@ -407,7 +375,7 @@ Os clientes devem poder receber automaticamente atualizações do Mercado Azure 
 
 Este campo deve incluir uma etiqueta **mais recente** que aponte para a versão mais recente da sua imagem em todas as plataformas suportadas. Deve também incluir uma etiqueta de versão (por exemplo, começando pelo xx.xx.xx.xx, onde xx é um número). Os clientes devem usar [etiquetas de manifesto](https://github.com/estesp/manifest-tool) para direcionar várias plataformas. Todas as etiquetas referenciadas por uma etiqueta de manifesto também devem ser adicionadas para que possamos carregá-las.
 
-Todas as etiquetas de manifesto (exceto a **-** etiqueta mais recente) devem começar com X.Y ou X.Y.Z- onde X, Y e Z são inteiros. Por exemplo, se uma etiqueta **mais recente** aponta para 1.0.1-linux-x64, 1.0.1-linux-arm32 e 1.0.1-windows-arm32, estas seis tags precisam de ser adicionadas a este campo. Para mais detalhes, consulte [Prepare os seus ativos técnicos do Recipiente Azure.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-technical-assets)
+Todas as etiquetas de manifesto (exceto a etiqueta mais recente) devem começar com X.Y **-** ou X.Y.Z- onde X, Y e Z são inteiros. Por exemplo, se uma etiqueta **mais recente** aponta para 1.0.1-linux-x64, 1.0.1-linux-arm32 e 1.0.1-windows-arm32, estas seis tags precisam de ser adicionadas a este campo. Para mais detalhes, consulte [Prepare os seus ativos técnicos do Recipiente Azure.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-technical-assets)
 
 > [!NOTE]
 > Lembre-se de adicionar uma etiqueta de teste à sua imagem para que possa identificar a imagem durante os testes.

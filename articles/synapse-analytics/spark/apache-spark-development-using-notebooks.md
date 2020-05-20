@@ -6,15 +6,15 @@ author: ruixinxu
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 05/01/2020
 ms.author: ruxu
 ms.reviewer: ''
-ms.openlocfilehash: 506339cefa90fb17bedfc946f70cb4d7d8047cf2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 21e3ba8cbf60cbbdc6480719016fc48db4fe390c
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81430230"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83702109"
 ---
 # <a name="create-develop-and-maintain-azure-synapse-studio-preview-notebooks"></a>Criar, desenvolver e manter os cadernos azure Synapse Studio (pré-visualização)
 
@@ -55,12 +55,12 @@ Existem várias formas de adicionar uma nova célula ao seu caderno.
 
 ### <a name="set-a-primary-language"></a>Definir uma língua primária
 
-Os cadernos do Estúdio Azure Synapse suportam quatro línguas de faísca:
+Os cadernos do Estúdio Azure Synapse suportam quatro línguas Apache Spark:
 
-* pyspark (python)
-* faísca (Scala)
-* sparkSQL
-* Spark.NET (C#)
+* pySpark (Python)
+* Faísca (Scala)
+* Sparksql
+* .NET para Apache Spark (C#)
 
 Pode definir a língua primária para novas células adicionadas da lista de dropdown na barra de comando superior.
 
@@ -75,15 +75,15 @@ Pode utilizar várias línguas num caderno especificando o comando mágico da li
 |%%pyspark| Python | Execute uma consulta **python** contra o Contexto de Faíscas.  |
 |%%faísca| Scala | Execute uma consulta **de Scala** contra o Contexto de Faíscas.  |  
 |%%sql| Sparksql | Execute uma consulta **SparkSQL** contra o Contexto de Faíscas.  |
-|%%csharp | Spark.NET C # | Execute uma consulta **Spark.NET C#** contra o Contexto de Faíscas. |
+|%%csharp | .NET para Faísca C # | Execute uma **consulta .NET para Spark C#** contra o Contexto de Faísca. |
 
-A imagem que se segue é um exemplo de como pode escrever uma consulta pySpark usando o comando mágico **%%pyspark** ou uma consulta SparkSQL com o comando mágico **%%sql** em um caderno **Spark(Scala).** Note que a língua primária para o caderno está definida para Scala.
+A imagem que se segue é um exemplo de como pode escrever uma consulta pySpark usando o comando mágico **%%pyspark** ou uma consulta SparkSQL com o comando mágico **%%sql** em um caderno **Spark(Scala).** Note que a língua primária para o caderno está definida para pySpark.
 
    ![sinapse-faísca-magias](./media/apache-spark-development-using-notebooks/synapse-spark-magics.png)
 
 ### <a name="use-temp-tables-to-reference-data-across-languages"></a>Utilize tabelas temporárias para dados de referência em todos os idiomas
 
-Não é possível fazer referência a dados ou variáveis diretamente em diferentes idiomas num caderno do Estúdio Synapse. Em Spark, uma tabela temporária pode ser referenciada através de línguas. Aqui está um exemplo de `Scala` como `PySpark` ler `SparkSQL` um DataFrame e usar uma tabela de temperatura spark como uma suver.
+Não é possível fazer referência a dados ou variáveis diretamente em diferentes idiomas num caderno do Estúdio Synapse. Em Spark, uma tabela temporária pode ser referenciada através de línguas. Aqui está um exemplo de como ler um `Scala` DataFrame `PySpark` e usar uma tabela de temperatura spark como uma `SparkSQL` suver.
 
 1. Na Célula 1, leia um DataFrame do conector de piscina SQL utilizando o Scala e crie uma tabela temporária.
 
@@ -113,12 +113,12 @@ Os cadernos do Estúdio Azure Synapse estão integrados com o editor do Mónaco 
 
 As funcionalidades IntelliSense estão em diferentes níveis de maturidade para diferentes idiomas. Use a tabela abaixo para ver o que é suportado.
 
-|Linguagens| Destaque da sintaxe | Marcador de erro de sintaxe  | Conclusão do Código sintaxe | Conclusão de Código Variável| Conclusão do código de função do sistema| Conclusão do código de função do utilizador| Avanço Inteligente | Dobragem de código|
+|Idiomas| Destaque da sintaxe | Marcador de erro de sintaxe  | Conclusão do Código sintaxe | Conclusão de Código Variável| Conclusão do código de função do sistema| Conclusão do código de função do utilizador| Avanço Inteligente | Dobragem de código|
 |--|--|--|--|--|--|--|--|--|
 |PySpark (Python)|Sim|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
 |Faísca (Scala)|Sim|Sim|Sim|Sim|-|-|-|Sim|
 |Sparksql|Sim|Sim|-|-|-|-|-|-|
-|Spark.NET (C#)|Sim|-|-|-|-|-|-|-|
+|.NET para Faísca (C#)|Sim|-|-|-|-|-|-|-|
 
 ### <a name="format-text-cell-with-toolbar-buttons"></a>Célula de texto de formato com botões de barra de ferramentas
 
@@ -267,7 +267,7 @@ Pode aceder diretamente aos dados na conta de armazenamento primário. Não há 
 
 Uma vista de resultados tabular é fornecida com a opção de criar um gráfico de barras, gráfico de linha, gráfico de tortas, gráfico de dispersão e gráfico de área. Pode visualizar os seus dados sem ter de escrever código. Os gráficos podem ser personalizados nas **Opções de Gráficos.** 
 
-A saída de comandos mágicos **%%sql** aparece na vista da tabela renderizada por padrão. Pode ligar para **o display(`<DataFrame name>`)** em Spark DataFrames ou Resilient Distributed Datasets (RDD) para produzir a vista de mesa renderizada.
+A saída de comandos mágicos **%%sql** aparece na vista da tabela renderizada por padrão. Pode ligar para **o display( `<DataFrame name>` )** em Spark DataFrames ou Resilient Distributed Datasets (RDD) para produzir a vista de mesa renderizada.
 
    ![builtin-charts](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png)
 
@@ -339,11 +339,11 @@ Magias celulares disponíveis: [%%time,](https://ipython.readthedocs.io/en/stabl
 
 Semelhantes aos Cadernos Jupyter, os cadernos do Estúdio Azure Synapse têm uma interface de utilizador modal. O teclado faz coisas diferentes dependendo do modo em que a célula do portátil está. Os portáteis do Estúdio Synapse suportam os dois modos seguintes para uma determinada célula de código: modo de comando e modo de edição.
 
-1. Uma célula está em modo de comando quando não há um cursor de texto que o levou a escrever. Quando uma célula está no modo Comando, pode editar o caderno como um todo, mas não escrever em células individuais. Introduza o `ESC` modo de comando premindo ou utilizando o rato para clicar fora da área de editor de uma célula.
+1. Uma célula está em modo de comando quando não há um cursor de texto que o levou a escrever. Quando uma célula está no modo Comando, pode editar o caderno como um todo, mas não escrever em células individuais. Introduza o modo de comando premindo `ESC` ou utilizando o rato para clicar fora da área de editor de uma célula.
 
    ![modo comando](./media/apache-spark-development-using-notebooks/synapse-command-mode2.png)
 
-2. O modo de edição é indicado por um cursor de texto que o leva a escrever na área do editor. Quando uma célula está em modo de edição, não se pode escrever na célula. Introduza o `Enter` modo de edição premindo ou utilizando o rato para clicar na área do editor de uma célula.
+2. O modo de edição é indicado por um cursor de texto que o leva a escrever na área do editor. Quando uma célula está em modo de edição, não se pode escrever na célula. Introduza o modo de edição premindo `Enter` ou utilizando o rato para clicar na área do editor de uma célula.
    
    ![modo-de-edição](./media/apache-spark-development-using-notebooks/synapse-edit-mode2.png)
 
@@ -390,5 +390,8 @@ Utilizando os seguintes atalhos de teclas, pode navegar e executar código mais 
 
 ## <a name="next-steps"></a>Passos seguintes
 
+- [Quickstart: Crie uma piscina Apache Spark (pré-visualização) no Azure Synapse Analytics usando ferramentas web](../quickstart-apache-spark-notebook.md)
+- [O que é Apache Spark em Azure Synapse Analytics](apache-spark-overview.md)
+- [Use .NET para Apache Spark com Azure Synapse Analytics](spark-dotnet.md)
 - [.NET para documentação Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)

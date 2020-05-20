@@ -3,18 +3,18 @@ title: Use a Powershell para definir alertas em Insights de Aplicação / Micros
 description: Automatizar a configuração de Insights de Aplicação para obter e-mails sobre alterações métricas.
 ms.topic: conceptual
 ms.date: 10/31/2016
-ms.openlocfilehash: c19cb43d08b44b55c786e750e64a83e6f0c67381
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f35658b08eff7574448e3c72b103178b66acbbe0
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77669850"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701826"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Utilizar o PowerShell para definir alertas no Application Insights
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Pode automatizar a configuração de [alertas](../../azure-monitor/app/alerts.md) em Insights de [Aplicação](../../azure-monitor/app/app-insights-overview.md).
+Pode automatizar a configuração de [alertas](../../azure-monitor/platform/alerts-log.md) em Insights de [Aplicação](../../azure-monitor/app/app-insights-overview.md).
 
 Além disso, pode [configurar webhooks para automatizar a sua resposta a um alerta](../../azure-monitor/platform/alerts-webhooks.md).
 
@@ -126,7 +126,7 @@ As métricas são enviadas por diferentes módulos de telemetria:
 ## <a name="webhooks"></a>Webhooks
 Pode [automatizar a sua resposta a um alerta.](../../azure-monitor/platform/alerts-webhooks.md) O Azure irá ligar para um endereço web à sua escolha quando um alerta for levantado.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 * [Script para configurar Insights de Aplicação](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically)
 * [Criar Insights de aplicação e recursos de teste web a partir de modelos](powershell.md)
 * [Automatizar acoplamento do Microsoft Azure Diagnostics para obter insights de aplicação](powershell-azure-diagnostics.md)

@@ -1,28 +1,30 @@
 ### YamlMime:Landing
-title: Documentação do Azure Active Directory B2B
-summary: Saiba como utilizar a colaboração de empresa para empresa (B2B) do Azure AD para partilhar em segurança as aplicações e serviços da sua empresa com utilizadores convidados e parceiros externos de qualquer organização, e manter o controlo sobre os seus próprios dados empresariais.
+title: Documentação sobre Identidades Externas
+summary: Identidades Externas é um conjunto de capacidades que permite às organizações proteger e gerir qualquer utilizador externo, incluindo clientes e parceiros. Com base na colaboração B2B, as Identidades Externas trazem capacidades adicionais para interagir e conectar-se com utilizadores fora da sua organização.
 metadata:
-  title: Documentação da Gestão de Aplicações
-  description: Saiba como utilizar a colaboração de empresa para empresa (B2B) do Azure AD para partilhar em segurança as aplicações e serviços da sua empresa com utilizadores convidados e parceiros externos de qualquer organização, e manter o controlo sobre os seus próprios dados empresariais.
+  title: Documentação sobre Identidades Externas
+  description: Identidades Externas é um conjunto de capacidades que permite às organizações proteger e gerir qualquer utilizador externo, incluindo clientes e parceiros. Com base na colaboração B2B, as Identidades Externas trazem capacidades adicionais para interagir e conectar-se com utilizadores fora da sua organização.
   ms.service: active-directory
   ms.subservice: B2B
   ms.workload: identity
   ms.topic: landing-page
-  ms.date: 08/27/2019
+  ms.date: 05/19/2020
   author: msmimart
   ms.author: mimart
   manager: celested
-  ms.openlocfilehash: 2c0f418249d470c1454474012fb25e6670630108
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 3a26561b7789446aff70c9fb9e08d523d05d8d64
+  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "74272688"
+  ms.lasthandoff: 05/19/2020
+  ms.locfileid: "83587481"
 landingContent:
-- title: Sobre a colaboração B2B
+- title: Sobre as Identidades Externas
   linkLists:
   - linkListType: overview
     links:
+    - text: Comparar soluções de Identidades Externas
+      url: compare-with-b2c.md
     - text: O que é o acesso do utilizador convidado B2B?
       url: what-is-b2b.md
 - title: Convidar utilizadores convidados B2B

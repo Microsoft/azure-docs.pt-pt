@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: ed2638cfe4ab7e849e428729ccd17ffdeb6314af
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 858dfa8282a06feab877bcea65de47b8455133dc
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82086356"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697303"
 ---
 # <a name="development-best-practices-for-synapse-sql"></a>As melhores práticas de desenvolvimento para synapse SQL
 Este artigo descreve orientações e boas práticas à medida que desenvolve a sua solução de armazém de dados. 
@@ -154,7 +154,7 @@ Consequentemente, conseguirá um melhor desempenho. Para mais informações, ver
 
 Se os seus dados no armazenamento não forem divididos, considere dividi-los para que possa utilizar estas funções para otimizar consultas direcionadas a esses ficheiros.
 
-Ao [consultar tabelas de Faíscas divididas](develop-storage-files-spark-tables.md) a pedido da SQL, a consulta irá automaticamente direcionar apenas os ficheiros necessários.
+Ao [consultar a Apache Spark dividida para tabelas externas Azure Synapse](develop-storage-files-spark-tables.md) a partir da SQL a pedido, a consulta irá automaticamente direcionar apenas os ficheiros necessários.
 
 ### <a name="use-cetas-to-enhance-query-performance-and-joins"></a>Use o CETAS para melhorar o desempenho da consulta e junta-se
 

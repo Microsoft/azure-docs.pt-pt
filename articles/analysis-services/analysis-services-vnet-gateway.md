@@ -4,15 +4,15 @@ description: Saiba como configurar um servidor de Serviços de Análise Azure pa
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 384f4c2ee3021678c530aa5c98eaf4dbfd661e95
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 7622b6b5855850a0150f43863fa117828e23d4bd
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73572267"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698864"
 ---
 # <a name="use-gateway-for-data-sources-on-an-azure-virtual-network-vnet"></a>Utilize o portal para fontes de dados numa Rede Virtual Azure (VNet)
 
@@ -29,13 +29,13 @@ As fontes de dados geridas pela Base de Dados Azure SQL executam as fontes de da
 
 ## <a name="configure-alwaysusegateway-property"></a>Configure propriedade AlwaysUseGateway
 
-1. No SSMS > servidor > **Propriedades Gerais,** > **General**selecione **Propriedades Avançadas (Todas)**.
+1. Em SSMS > servidor > **Propriedades**  >  **Gerais,** selecione **Propriedades Avançadas (Todas)** De Série .
 2. No **ASPaaS\AlwaysUseGateway,** selecione **true**.
 
     ![Use sempre a propriedade gateway](media/analysis-services-vnet-gateway/aas-ssms-always-property.png)
 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 [Ligação a fontes de dados no local](analysis-services-gateway.md)   
 [Instalar e configurar um portal de dados no local](analysis-services-gateway-install.md)   
 [Rede Virtual Azure (VNET)](../virtual-network/virtual-networks-overview.md)   

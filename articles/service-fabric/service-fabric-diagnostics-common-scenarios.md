@@ -3,12 +3,12 @@ title: Tecido de serviço azure diagnosticar cenários comuns
 description: Saiba mais sobre a resolução de problemas de cenários comuns de monitorização e diagnóstico dentro das aplicações azure service fabric.
 ms.topic: article
 ms.date: 02/25/2019
-ms.openlocfilehash: 3c7f027bad71d48db5fba002f778f23db8225fa5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bc17f00dc46c6e995d18621353c8f10cacf7759c
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76906945"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697679"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Diagnosticar cenários comuns com tecido de serviço
 
@@ -45,7 +45,7 @@ As soluções deste artigo utilizarão as seguintes ferramentas. Recomendamos qu
 1. No mesmo recurso Application Insights, pode filtrar "pedidos" em vez de exceções e ver todos os pedidos feitos
 2. Se estiver a utilizar o SDK de Aplicação de Tecido de Serviço, pode ver uma representação visual dos seus serviços ligados uns aos outros, e o número de pedidos bem sucedidos e falhados. No clique à esquerda "Mapa de aplicações"
 
-    ![Mapa da aplicação AI App Blade](media/service-fabric-diagnostics-common-scenarios/app-map-blade.png) ![Ai](media/service-fabric-diagnostics-common-scenarios/app-map-new.png)
+    ![Mapa da aplicação AI App Blade ](media/service-fabric-diagnostics-common-scenarios/app-map-blade.png) ![ Ai](media/service-fabric-diagnostics-common-scenarios/app-map-new.png)
 
     Para mais informações sobre o mapa de aplicações, visite a documentação do Mapa de [Aplicações](../azure-monitor/app/app-map.md)
 
@@ -133,7 +133,7 @@ Consulte estes links para ver a lista completa de contadores de desempenho em [S
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Procure erros de ativação do pacote de código comum](./service-fabric-diagnostics-code-package-errors.md)
-* [Configurar alertas em IA](../azure-monitor/app/alerts.md) para serem notificados sobre alterações no desempenho ou utilização
+* [Configurar alertas em IA](/azure/azure-monitor/platform/alerts-log) para serem notificados sobre alterações no desempenho ou utilização
 * [Smart Detection in Application Insights](../azure-monitor/app/proactive-diagnostics.md) realiza uma análise proativa da telemetria que está a ser enviada para a IA para o alertar para potenciais problemas de desempenho
 * Saiba mais sobre os registos do Monitor Azure [alertando](../log-analytics/log-analytics-alerts.md) para ajuda na deteção e diagnóstico.
 * Para os clusters no local, os registos do Monitor Azure oferecem uma porta de entrada (HTTP Forward Proxy) que pode ser usada para enviar dados para registos do Monitor Azure. Leia mais sobre isso em [Computadores de Ligação sem acesso à Internet aos registos do Monitor Azure utilizando o gateway Log Analytics](../azure-monitor/platform/gateway.md)

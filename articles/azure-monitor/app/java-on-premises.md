@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: MS-jgol
 ms.author: jgol
 ms.date: 04/16/2020
-ms.openlocfilehash: ea604a4e0f11db7146e6e3c11b47d5687abf571e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aadc9c7bfaa9ad6338015f5dd085b5ab865673f2
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81733651"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697203"
 ---
 # <a name="java-codeless-application-monitoring-on-premises---azure-monitor-application-insights---public-preview"></a>Monitorização de aplicações sem código Java no local - Azure Monitor Application Insights - pré-visualização pública
 
@@ -18,7 +18,7 @@ A monitorização da aplicação sem código Java tem tudo a ver com simplicidad
 
 ## <a name="overview"></a>Descrição geral
 
-Uma vez ativado, o agente Java recolherá automaticamente uma multiplicidade de pedidos, dependências, registos e métricas das bibliotecas e quadros mais utilizados.
+Uma vez ativado, o agente Java recolherá automaticamente uma multiplicidade de pedidos, dependências, registos e métricas das bibliotecas e estruturas mais utilizadas.
 
 Siga [as instruções detalhadas](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) para todos os ambientes, incluindo no local.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 0a890139f9d7a955a5c96262d6e5b8f275e61d0d
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: a5dbdc4baea0973797427672c9171b4bf841086f
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83675930"
+ms.locfileid: "83701384"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Perguntas mais frequentes sobre as diferentes APIs no Azure Cosmos DB
 
@@ -93,7 +93,7 @@ As seguintes condições aplicam-se às subscrições do Try Azure Cosmos DB:
 * A replicação global está disponível nas [seguintes regiões de Azure](https://azure.microsoft.com/regions/): Centro dos EUA, Norte da Europa e Sudeste Asiático
 * Potência máxima de 5 K RU/s quando aprovisionada ao nível do contentor.
 * Entrada máxima de 20 K RU/s quando aprovisionada ao nível da base de dados.
-* As inscrições expiram após 30 dias, podendo ser estendidas para um máximo de 31 dias no total.
+* As inscrições expiram após 30 dias, podendo ser estendidas para um máximo de 31 dias no total. Após a expiração, as informações contidas são eliminadas.
 * Os bilhetes de apoio Azure não podem ser criados para contas Try Azure Cosmos DB; no entanto, é prestado apoio aos assinantes com planos de apoio existentes.
 
 ## <a name="set-up-azure-cosmos-db"></a>Configurar O Azure Cosmos DB

@@ -1,5 +1,5 @@
 ---
-title: Utilize a identidade de serviço gerida para transmitir eventos Assinaturas Da Grelha de Eventos Azure
+title: Entrega de eventos com identidade de serviço gerida
 description: Este artigo descreve como ativar a identidade de serviço gerida para um tópico de grelha de eventos Azure. Use-o para encaminhar eventos para destinos apoiados.
 services: event-grid
 author: spelluru
@@ -7,14 +7,14 @@ ms.service: event-grid
 ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: spelluru
-ms.openlocfilehash: 0e1f46c0bd7ce22cae77db1a524336445fd3f795
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 4d96f28b98cccada2ac5c77589acc6df1430bb02
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83691027"
+ms.locfileid: "83700650"
 ---
-# <a name="enable-and-use-managed-service-identity-for-an-event-grid-topic-or-domain"></a>Ativar e utilizar identidade de serviço gerida para um tópico ou domínio da grelha de eventos 
+# <a name="event-delivery-with-managed-identity"></a>Entrega de eventos com identidade gerida
 Este artigo descreve como ativar a [identidade de serviço gerida](../active-directory/managed-identities-azure-resources/overview.md) para um tópico ou domínio da grelha de eventos. Use-o para encaminhar eventos para destinos suportados, como filas de ônibus de serviço e tópicos, centros de eventos e contas de armazenamento.
 
 Aqui estão os passos que são abordados em detalhe neste artigo:

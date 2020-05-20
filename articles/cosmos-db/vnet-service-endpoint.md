@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: c1c5bdd1d210a1933699cad52dbf123b50048e01
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d264ead87e7fa638830bf25fdb07983b164334b7
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80421319"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698661"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>Aceder ao Azure Cosmos DB a partir de redes virtuais (VNet)
 
@@ -20,9 +20,13 @@ Pode configurar a conta Azure Cosmos para permitir o acesso apenas a partir de u
 
 Por predefinição, uma conta Azure Cosmos é acessível a partir de qualquer fonte se o pedido for acompanhado por um sinal de autorização válido. Quando adicionar uma ou mais subredes dentro de VNets, apenas os pedidos originários dessas subredes receberão uma resposta válida. Os pedidos provenientes de qualquer outra fonte receberão uma resposta 403 (Proibida). 
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 Aqui ficam algumas perguntas frequentes sobre a configuração do acesso a partir de redes virtuais:
+
+### <a name="are-notebooks-and-mongo-shell-currently-compatible-with-virtual-network-enabled-accounts"></a>Os Cadernos e a Mongo Shell são atualmente compatíveis com contas ativadas pela Rede Virtual?
+
+Neste momento, a integração da [concha de Mongo no Cosmos DB Data Explorer](https://devblogs.microsoft.com/cosmosdb/preview-native-mongo-shell/) e no serviço [Jupyter Notebooks](https://docs.microsoft.com/azure/cosmos-db/cosmosdb-jupyter-notebooks) não são suportadas com acesso VNET. Isto encontra-se atualmente em desenvolvimento ativo.
 
 ### <a name="can-i-specify-both-virtual-network-service-endpoint-and-ip-access-control-policy-on-an-azure-cosmos-account"></a>Posso especificar tanto a política de controlo do serviço de rede virtual como a política de controlo de acesso IP numa conta Azure Cosmos? 
 
@@ -44,7 +48,7 @@ Uma vez que o ponto final de serviço para o Azure Cosmos DB é ativado numa sub
 
 Depois de adicionar os pontos finais do serviço VNet a uma conta Azure Cosmos, para efazer quaisquer alterações nas definições da conta, precisa de ter acesso à `Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action` ação para todos os VNETs configurados na sua conta Azure Cosmos. Esta permissão é necessária porque o processo de autorização valida o acesso a recursos (como base de dados e recursos de rede virtual) antes de avaliar quaisquer propriedades.
  
-A autorização valida a permissão para a ação de recursos VNet mesmo que o utilizador não especifique os AcLs VNET utilizando o Azure CLI. Atualmente, o plano de controlo da conta Azure Cosmos suporta a definição do estado completo da conta Azure Cosmos. Um dos parâmetros para as `virtualNetworkRules`chamadas do avião de controlo é. Se este parâmetro não for especificado, o Azure CLI faz `virtualNetworkRules` uma chamada de base de dados para obter a recuperação do valor e utiliza este valor na chamada de atualização.
+A autorização valida a permissão para a ação de recursos VNet mesmo que o utilizador não especifique os AcLs VNET utilizando o Azure CLI. Atualmente, o plano de controlo da conta Azure Cosmos suporta a definição do estado completo da conta Azure Cosmos. Um dos parâmetros para as chamadas do avião de controlo `virtualNetworkRules` é. Se este parâmetro não for especificado, o Azure CLI faz uma chamada de base de dados para obter a recuperação do valor e utiliza este valor na chamada de `virtualNetworkRules` atualização.
 
 ### <a name="do-the-peered-virtual-networks-also-have-access-to-azure-cosmos-account"></a>As redes virtuais também têm acesso à conta Azure Cosmos? 
 Apenas a rede virtual e as suas subredes adicionadas à conta Azure Cosmos têm acesso. Os seus VNets peered não podem aceder à conta até que as subredes dentro das redes virtuais peered sejam adicionadas à conta.

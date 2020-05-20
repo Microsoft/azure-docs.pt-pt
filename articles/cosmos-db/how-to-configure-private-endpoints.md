@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/14/2020
 ms.author: thweiss
-ms.openlocfilehash: 6ba85961ac4ec9b1b439de18a1d6da0cec4ead4f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 2c4044fded2d14b8c6a1d92f367de9588b7b2ca3
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652569"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697880"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Configure Link Privado Azure para uma conta Azure Cosmos
 
@@ -646,11 +646,9 @@ As seguintes limitações aplicam-se quando se está a usar o Private Link com u
 
 * Quando estiver a utilizar uma API do Azure Cosmos DB para a conta MongoDB que tem Private Link, algumas ferramentas ou bibliotecas podem não funcionar, uma vez que retiram automaticamente o `appName` parâmetro da cadeia de ligação. Este parâmetro é necessário para ligar à conta sobre um ponto final privado. Algumas ferramentas, como o Visual Studio Code, não removem este parâmetro da cadeia de ligação e são, portanto, compatíveis.
 
-* Não pode mover ou eliminar uma rede virtual se contiver Private Link.
-
-* Não se pode falhar uma conta azure cosmos para uma região que não está mapeada para todos os pontos finais privados anexados à conta.
-
 * Um administrador de rede deve ser autorizado, pelo `Microsoft.DocumentDB/databaseAccounts/PrivateEndpointConnectionsApproval/action` menos, no âmbito da conta Azure Cosmos a criar pontos finais privados automaticamente aprovados.
+
+* O modo direto não é atualmente suportado nas regiões azure da China.
 
 ### <a name="limitations-to-private-dns-zone-integration"></a>Limitações à integração privada da zona DNS
 

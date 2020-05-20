@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 3c09a95309e001def306698bbba4f6d0a1a2804d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2ea7fb97b6c97a797ce99878762333833965549d
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79255538"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698643"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>Utilize o DistCp para copiar dados entre as Bolhas de Armazenamento de Azure e o Azure Data Lake Storage Gen2
 
@@ -23,11 +23,11 @@ A DistCp fornece uma variedade de parâmetros de linha de comando e encorajamo-l
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Uma subscrição Azure.** Consulte [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Uma conta de armazenamento azure existente sem capacidades de Armazenamento de Data Lake Gen2 (espaço hierárquico) habilitado**.
-* **Uma conta de armazenamento azure com recurso Data Lake Storage Gen2 ativada**. Para obter instruções sobre como criar uma, consulte Criar uma conta de armazenamento de armazenamento [de lago de dados Azure Gen2](data-lake-storage-quickstart-create-account.md)
-* Um sistema de **ficheiros** que foi criado na conta de armazenamento com espaço de nome hierárquico habilitado.
-* **Cluster Azure HDInsight** com acesso a uma conta de armazenamento com Data Lake Storage Gen2 ativado. Consulte a utilização do Armazenamento de [Lagos Azure Data Gen2 com clusters Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Certifique-se de que ativa o Ambiente de Trabalho Remoto para o cluster.
+* Uma subscrição do Azure. Consulte [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Uma conta de armazenamento azure existente sem capacidades de Armazenamento de Data Lake Gen2 (espaço hierárquico) habilitado.
+* Uma conta de Armazenamento Azure com capacidades de Armazenamento de Data Lake Gen2 (espaço hierárquico) habilitado. Para obter instruções sobre como criar uma, consulte [Criar uma conta de Armazenamento Azure](../common/storage-account-create.md)
+* Um recipiente que foi criado na conta de armazenamento com espaço de nome hierárquico habilitado.
+* Um cluster Azure HDInsight com acesso a uma conta de armazenamento com a funcionalidade hierárquica de espaço de nome ativado. Consulte a utilização do Armazenamento de [Lagos Azure Data Gen2 com clusters Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Certifique-se de que ativa o Ambiente de Trabalho Remoto para o cluster.
 
 ## <a name="use-distcp-from-an-hdinsight-linux-cluster"></a>Utilize distCp de um cluster HDInsight Linux
 
@@ -37,25 +37,25 @@ Um cluster HDInsight vem com o utilitário DistCp, que pode ser usado para copia
 
 2. Verifique se pode aceder à sua conta V2 de propósito geral existente (sem espaço de nome hierárquico ativado).
 
-        hdfs dfs –ls wasbs://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/
+        hdfs dfs –ls wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/
 
-    A saída deve fornecer uma lista de conteúdos no recipiente.
+   A saída deve fornecer uma lista de conteúdos no recipiente.
 
 3. Da mesma forma, verifique se pode aceder à conta de armazenamento com espaço de nome hierárquico habilitado a partir do cluster. Execute o seguinte comando:
 
-        hdfs dfs -ls abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/
+        hdfs dfs -ls abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/
 
-    A saída deve fornecer uma lista de ficheiros/pastas na conta data lake armazenamento.
+    A saída deve fornecer uma lista de ficheiros/pastas na conta de armazenamento data Lake.
 
 4. Utilize o DistCp para copiar dados do WASB para uma conta de Armazenamento de Data Lake.
 
-        hadoop distcp wasbs://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/example/data/gutenberg abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/myfolder
+        hadoop distcp wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/example/data/gutenberg abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/myfolder
 
     O comando copia o conteúdo da **pasta /exemplo/data/gutenberg/** no armazenamento blob para **/myfolder** na conta data Lake Storage.
 
 5. Da mesma forma, utilize o DistCp para copiar dados da conta de Armazenamento de Data Lake para blob Storage (WASB).
 
-        hadoop distcp abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/myfolder wasbs://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/example/data/gutenberg
+        hadoop distcp abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/myfolder wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/example/data/gutenberg
 
     O comando copia o conteúdo de **/myfolder** na conta Data Lake Store para **/exemplo/dados/gutenberg/** pasta em WASB.
 
@@ -65,7 +65,7 @@ Como a granularidade mais baixa da DistCp é um único ficheiro, definir o núme
 
 **Exemplo**
 
-    hadoop distcp -m 100 wasbs://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/example/data/gutenberg abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/myfolder
+    hadoop distcp -m 100 wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/example/data/gutenberg abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/myfolder
 
 ### <a name="how-do-i-determine-the-number-of-mappers-to-use"></a>Como determino o número de mappers a usar?
 

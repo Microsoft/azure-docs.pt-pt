@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: 0e45e832def4073f22a160b95447afb1b10ef77a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 7ef7a55c81441077d2217ccfc41a2a9c9578eefe
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657381"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697562"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas de serviço Azure Cosmos DB
 
@@ -188,7 +188,7 @@ A tabela seguinte enumera os limites para o [teste Try Azure Cosmos DB para test
 
 | Recurso | Limite predefinido |
 | --- | --- |
-| Duração do ensaio | 30 dias (pode ser renovado várias vezes) |
+| Duração do ensaio | 30 dias (um novo julgamento pode ser solicitado após expiração) <br> Após a expiração, as informações armazenadas são eliminadas. |
 | Recipientes máximos por subscrição (SQL, Gremlin, Tabela API) | 1 |
 | Recipientes máximos por subscrição (API MongoDB) | 3 |
 | Potência máxima por recipiente | 5000 |

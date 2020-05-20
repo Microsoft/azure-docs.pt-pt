@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 838b759f6b175b478dcd9b0559784975b5d24f70
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: f1b6b9ffb53972aa81d6dd1150640b8db9dd7be9
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593342"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698571"
 ---
 # <a name="install-and-run-read-containers-preview"></a>Instalar e executar Ler recipientes (Pré-visualização)
 
@@ -37,6 +37,8 @@ Deve cumprir os seguintes pré-requisitos antes de utilizar os recipientes:
 |Recurso de Visão Computacional |Para utilizar o recipiente, deve ter:<br><br>Um recurso Azure **Computer Vision** e a chave API associada ao ponto final URI. Ambos os valores estão disponíveis nas páginas Overview e Keys para o recurso e são necessários para iniciar o recipiente.<br><br>**{API_KEY}**: Uma das duas teclas de recursos disponíveis na página **Keys**<br><br>**{ENDPOINT_URI}**: O ponto final fornecido na página **'Visão Geral'**|
 
 ## <a name="request-access-to-the-private-container-registry"></a>Solicitar acesso ao registo de contentores privados
+
+Preencha e submeta o formulário de [pedido](https://aka.ms/VisionContainersPreview) para solicitar o acesso ao recipiente. 
 
 [!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
 

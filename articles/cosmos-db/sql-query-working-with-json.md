@@ -4,14 +4,14 @@ description: Aprenda sobre a consulta e aceda às propriedades da JSON aninhada 
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 05/19/2020
 ms.author: tisande
-ms.openlocfilehash: d0b11cdb0cf2719b576b7a4c4f3fa534ae09dfa8
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: a569b0122f9122b141b64ded21dbd9be1d766a41
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83117024"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83699118"
 ---
 # <a name="working-with-json-in-azure-cosmos-db"></a>Trabalhar com a JSON em Azure Cosmos DB
 
@@ -148,13 +148,11 @@ Por exemplo, aqui está um documento com uma propriedade nomeada `order` e uma p
 ```json
 {
   "id": "AndersenFamily",
-  "order": [
-     {
+  "order": {
          "orderId": "12345",
          "productId": "A17849",
          "price($)": 59.33
-     }
-  ],
+   },
   "creationDate": 1431620472,
   "isRegistered": true
 }
@@ -265,7 +263,7 @@ Os resultados são:
 
 Não pode usar o pseudónimo para projetar um valor como nome de propriedade com um espaço, caráter especial ou palavra reservada. Se quisesse alterar a projeção de um valor para, por exemplo, ter um nome de propriedade com um espaço, poderia usar uma [expressão JSON](#json-expressions).
 
-Segue-se um exemplo:
+Eis um exemplo:
 
 ```sql
     SELECT

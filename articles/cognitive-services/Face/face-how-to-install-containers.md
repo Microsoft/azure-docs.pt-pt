@@ -11,18 +11,18 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 74465bddb57c14af4d02c1d3bfdc46f3ac25bef3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bd1449501cdc9483621a5408a3a4926afe90212f
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80878549"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83702144"
 ---
 # <a name="install-and-run-face-containers-preview"></a>Instalar e executar recipientes face (Pré-visualização)
 
 O Azure Cognitive Services Face fornece um recipiente linux padronizado para o Docker que deteta rostos humanos em imagens. Também identifica atributos, que incluem marcos faciais como narizes e olhos, sexo, idade e outras características faciais previstas para máquinas. Além da deteção, o Face pode verificar se duas faces na mesma imagem ou imagens diferentes são as mesmas usando uma pontuação de confiança. O rosto também pode comparar rostos com uma base de dados para ver se um rosto semelhante ou idêntico já existe. Também pode organizar rostos semelhantes em grupos usando traços visuais partilhados.
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -31,12 +31,14 @@ Deve cumprir os seguintes pré-requisitos antes de utilizar os recipientes de se
 |Necessário|Objetivo|
 |--|--|
 |Motor do Docker| O Motor Docker deve ser instalado num [computador de acolhimento](#the-host-computer). O Docker oferece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/) e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para um manual de noções básicas do Docker e do contentor, veja a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os recipientes se conectem e enviem dados de faturação para o Azure. <br><br> No Windows, o Docker também deve ser configurado para suportar os recipientes Linux.<br><br>|
-|Familiaridade com Docker | Você precisa de uma compreensão básica dos conceitos docker, tais como registos, repositórios, contentores e imagens de contentores. Também precisa de `docker` conhecimento de comandos básicos.| 
+|Familiaridade com Docker | Você precisa de uma compreensão básica dos conceitos docker, tais como registos, repositórios, contentores e imagens de contentores. Também precisa de conhecimento de `docker` comandos básicos.| 
 |Recurso facial |Para utilizar o recipiente, deve ter:<br><br>Um recurso Azure **Face** e a chave API associada e o ponto final URI. Ambos os valores estão disponíveis nas páginas **Overview** e **Keys** para o recurso. São obrigados a ligar o contentor.<br><br>**{API_KEY}**: Uma das duas teclas de recursos disponíveis na página **Keys**<br><br>**{ENDPOINT_URI}**: O ponto final fornecido na página **'Visão Geral'**
 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
 ## <a name="request-access-to-the-private-container-registry"></a>Solicitar acesso ao registo de contentores privados
+
+Preencha e submeta o formulário de [pedido](https://aka.ms/VisionContainersPreview) para solicitar o acesso ao recipiente. 
 
 [!INCLUDE [Request access to private container registry](../../../includes/cognitive-services-containers-request-access.md)]
 
@@ -55,7 +57,7 @@ A tabela seguinte descreve os núcleos e memória cpu mínimos e recomendados pa
 * Cada núcleo deve ter pelo menos 2,6 GHz ou mais rápido.
 * Transações por segundo (TPS).
 
-O núcleo e `--cpus` a `--memory` memória correspondem às definições e definições, que são usadas como parte do `docker run` comando.
+O núcleo e a memória correspondem às `--cpus` definições e `--memory` definições, que são usadas como parte do `docker run` comando.
 
 ## <a name="get-the-container-image-with-docker-pull"></a>Obtenha a imagem do recipiente com puxar o estivador
 
@@ -77,12 +79,12 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-face:latest
 
 Depois de o recipiente estar no [computador de acolhimento,](#the-host-computer)utilize o seguinte processo para trabalhar com o recipiente.
 
-1. [Executar o recipiente](#run-the-container-with-docker-run) com as definições de faturação necessárias. Mais [exemplos](./face-resource-container-config.md#example-docker-run-commands) `docker run` do comando estão disponíveis. 
+1. [Executar o recipiente](#run-the-container-with-docker-run) com as definições de faturação necessárias. Mais [exemplos](./face-resource-container-config.md#example-docker-run-commands) do `docker run` comando estão disponíveis. 
 1. [Consulta do ponto final da previsão do recipiente](#query-the-containers-prediction-endpoint). 
 
 ## <a name="run-the-container-with-docker-run"></a>Corra o recipiente com estivador run
 
-Use o comando de execução de [estivador](https://docs.docker.com/engine/reference/commandline/run/) para executar o recipiente. Consulte a recolha de [parâmetros necessários](#gathering-required-parameters) `{ENDPOINT_URI}` para `{API_KEY}` obter os valores e valores necessários.
+Use o comando de execução de [estivador](https://docs.docker.com/engine/reference/commandline/run/) para executar o recipiente. Consulte a recolha de [parâmetros necessários](#gathering-required-parameters) para obter os `{ENDPOINT_URI}` valores e `{API_KEY}` valores necessários.
 
 [Exemplos](face-resource-container-config.md#example-docker-run-commands) do `docker run` comando estão disponíveis.
 
@@ -101,10 +103,10 @@ Este comando:
 * Expõe a porta TCP 5000 e atribui um pseudo TTY para o recipiente.
 * Remove automaticamente o recipiente após a sua saída. A imagem do recipiente ainda está disponível no computador hospedeiro. 
 
-Mais [exemplos](./face-resource-container-config.md#example-docker-run-commands) `docker run` do comando estão disponíveis. 
+Mais [exemplos](./face-resource-container-config.md#example-docker-run-commands) do `docker run` comando estão disponíveis. 
 
 > [!IMPORTANT]
-> `Billing` `ApiKey` E `Eula`as opções devem ser especificadas para executar o recipiente ou o recipiente não arranca. Para mais informações, consulte [billing.](#billing)
+> E `Eula` `Billing` as `ApiKey` opções devem ser especificadas para executar o recipiente ou o recipiente não arranca. Para mais informações, consulte [billing.](#billing)
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
@@ -113,7 +115,7 @@ Mais [exemplos](./face-resource-container-config.md#example-docker-run-commands)
 
 O recipiente fornece APIs finais de previsão de consulta baseadas em REST. 
 
-Utilize o `http://localhost:5000`hospedeiro, para apis de contentor.
+Utilize o `http://localhost:5000` hospedeiro, para apis de contentor.
 
 
 <!--  ## Validate container is running -->
