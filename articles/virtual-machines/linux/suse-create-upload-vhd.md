@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: guybo
-ms.openlocfilehash: 5bf26fa096058f5a73d5527c0c6adb1649c9884f
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: cf50ee847bd1542a3e024cb88cf7bbc8bc283f91
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857313"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83643433"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Prepare a SLES or openSUSE virtual machine for Azure (Preparar uma máquina virtual SLES ou openSUSE para o Azure)
 
@@ -28,7 +28,7 @@ Este artigo pressupõe que já instalou um sistema operativo SUSE ou abriu o sis
 * Todos os VHDs em Azure devem ter um tamanho virtual alinhado a 1MB. Ao converter de um disco cru para VHD, deve certificar-se de que o tamanho do disco bruto é um múltiplo de 1MB antes da conversão. Consulte as Notas de [Instalação do Linux](create-upload-generic.md#general-linux-installation-notes) para obter mais informações.
 
 ## <a name="use-suse-studio"></a>Use estúdio SUSE
-[O Estúdio SUSE](http://www.susestudio.com) pode facilmente criar e gerir as suas SLES e abrir imagens SUSE para Azure e Hyper-V. Esta é a abordagem recomendada para personalizar as suas próprias SLES e abrir imagens SUSE.
+[O Estúdio SUSE](https://studioexpress.opensuse.org/) pode facilmente criar e gerir as suas SLES e abrir imagens SUSE para Azure e Hyper-V. Esta é a abordagem recomendada para personalizar as suas próprias SLES e abrir imagens SUSE.
 
 Como alternativa à construção do seu próprio VHD, a SUSE também publica imagens BYOS (Bring Your Own Subscription) para SLES no [VMDepot](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/04/using-and-contributing-vms-to-vm-depot.pdf).
 
@@ -72,7 +72,7 @@ Como alternativa à construção do seu próprio VHD, a SUSE também publica ima
     
         # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
         # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
-11. Recomenda-se editar o ficheiro "/etc/sysconfig/network/dhcp" `DHCLIENT_SET_HOSTNAME` e alterar o parâmetro para o seguinte:
+11. Recomenda-se editar o ficheiro "/etc/sysconfig/network/dhcp" e alterar o `DHCLIENT_SET_HOSTNAME` parâmetro para o seguinte:
     
      DHCLIENT_SET_HOSTNAME="não"
 12. Em "/etc/sudoers", comentar ou remover as seguintes linhas se existirem:
@@ -98,7 +98,7 @@ Como alternativa à construção do seu próprio VHD, a SUSE também publica ima
 ## <a name="prepare-opensuse-131"></a>Prepare abrir SUSE 13.1+
 1. No painel central do Hyper-V Manager, selecione a máquina virtual.
 2. Clique **em Ligar** para abrir a janela para a máquina virtual.
-3. Na concha, executar o`zypper lr`comando ' ' ' Se este comando devolver a saída semelhante à seguinte, então os repositórios são configurados como esperado - não são necessários ajustes (note que os números da versão podem variar):
+3. Na concha, executar o comando `zypper lr` ' ' ' Se este comando devolver a saída semelhante à seguinte, então os repositórios são configurados como esperado - não são necessários ajustes (note que os números da versão podem variar):
    
         # | Alias                 | Name                  | Enabled | Refresh
         --+-----------------------+-----------------------+---------+--------
@@ -112,7 +112,7 @@ Como alternativa à construção do seu próprio VHD, a SUSE também publica ima
         # sudo zypper ar -f https://download.opensuse.org/distribution/13.1/repo/oss openSUSE_13.1_OSS
         # sudo zypper ar -f http://download.opensuse.org/update/13.1 openSUSE_13.1_Updates
    
-    Em seguida, pode verificar se os repositórios foram adicionados executando novamente o comando`zypper lr`. No caso de um dos repositórios de atualização relevante não estiver ativado, ative-o com o seguinte comando:
+    Em seguida, pode verificar se os repositórios foram adicionados executando novamente o comando `zypper lr` . No caso de um dos repositórios de atualização relevante não estiver ativado, ative-o com o seguinte comando:
    
         # sudo zypper mr -e [NUMBER OF REPOSITORY]
 4. Atualize o núcleo para a versão mais recente disponível:
@@ -132,7 +132,7 @@ Como alternativa à construção do seu próprio VHD, a SUSE também publica ima
    Isto garantirá que todas as mensagens de consola são enviadas para a primeira porta em série, que pode ajudar o suporte do Azure com problemas de depuração. Além disso, retire os seguintes parâmetros da linha de arranque do núcleo se existirem:
    
      libata.atapi_enabled=0 reserva=0x1f0,0x8
-7. Recomenda-se editar o ficheiro "/etc/sysconfig/network/dhcp" `DHCLIENT_SET_HOSTNAME` e alterar o parâmetro para o seguinte:
+7. Recomenda-se editar o ficheiro "/etc/sysconfig/network/dhcp" e alterar o `DHCLIENT_SET_HOSTNAME` parâmetro para o seguinte:
    
      DHCLIENT_SET_HOSTNAME="não"
 8. **Importante:** Em "/etc/sudoers", comentar ou remover as seguintes linhas se existirem:

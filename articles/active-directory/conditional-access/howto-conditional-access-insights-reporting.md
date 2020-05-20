@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4113328a5de02c36b7285c837bd5314d11e526b
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 0c4feeca1cbe7eb88aace811829e4d9c2db5f38e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690419"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83641594"
 ---
 # <a name="conditional-access-insights-and-reporting"></a>Insights e relatórios de acesso condicional
 
@@ -36,9 +36,6 @@ As seguintes funções podem aceder a insights e relatórios:
 
 Os utilizadores também precisam de uma das seguintes funções do espaço de trabalho Log Analytics:  
 
-- Leitor 
-- Leitor de monitorização 
-- Leitor de Log Analytics 
 - Contribuinte  
 - Proprietário 
 
@@ -54,7 +51,7 @@ Se não tiver integrado os registos da AD Azure com registos do Monitor Azure, t
 Para aceder aos insights e relatórios:  
 
 1. Inicie sessão no **portal do Azure**.
-1. Navegue até **azure Ative Directy** > **Security** > **Conditional Access** > **Insights e reporte.**
+1. Navegue até **azure Ative Directy**  >  **Security**  >  **Conditional Access**Insights e  >  **reporte.**
 
 ### <a name="get-started-select-parameters"></a>Começar: Selecione parâmetros 
 
@@ -112,11 +109,11 @@ Quando o volume de inscrições exceder a capacidade de consulta do Log Analytic
 
 ### <a name="can-i-save-my-parameter-selections"></a>Posso salvar as minhas seleções de parâmetros?  
 
-Pode guardar as suas seleções de parâmetros no topo do livro, indo para **o Azure Ative Directory** > **Workbooks** > **Diretório Sintetizador**Insights de Acesso Condicional insights e reportagens . Aqui encontrará o modelo do livro, onde pode editar o livro de trabalho e guardar uma cópia para o seu espaço de trabalho, incluindo as seleções de parâmetros, em **Meus relatórios** ou **relatórios partilhados.** 
+Pode guardar as suas seleções de parâmetros no topo do livro, indo para **o Azure Ative Directory**  >  **Workbooks**  >  **Diretório Sintetizador**Insights de Acesso Condicional insights e reportagens . Aqui encontrará o modelo do livro, onde pode editar o livro de trabalho e guardar uma cópia para o seu espaço de trabalho, incluindo as seleções de parâmetros, em **Meus relatórios** ou **relatórios partilhados.** 
 
 ### <a name="can-i-edit-and-customize-the-workbook-with-additional-queries"></a>Posso editar e personalizar o livro com consultas adicionais? 
 
-Pode editar e personalizar o livro de trabalho indo para os**Livros** > de Acesso Condicional do **Diretório** > Ativo Azure**e reportando**. Aqui encontrará o modelo do livro, onde pode editar o livro de trabalho e guardar uma cópia para o seu espaço de trabalho, incluindo as seleções de parâmetros, em **Meus relatórios** ou **relatórios partilhados.** Para começar a editar as consultas, clique em **Editar** no topo do livro.  
+Pode editar e personalizar o livro de trabalho indo para os Livros de Acesso Condicional do **Diretório Ativo Azure**  >  **Workbooks**  >  **e reportando**. Aqui encontrará o modelo do livro, onde pode editar o livro de trabalho e guardar uma cópia para o seu espaço de trabalho, incluindo as seleções de parâmetros, em **Meus relatórios** ou **relatórios partilhados.** Para começar a editar as consultas, clique em **Editar** no topo do livro.  
  
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/31/2020
+ms.date: 05/13/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 957aa77e18ea8f910f258d1dc59de0d093b0eab6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 83e657114f4e51775fb73267322a48e362f57b1c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80476650"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83641701"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Como: Bloquear a autenticação legado à Azure AD com acesso condicional   
 
@@ -82,9 +82,9 @@ Para obter mais informações sobre estes protocolos e serviços de autenticaç�
 
 Antes de poder bloquear a autenticação do legado no seu diretório, tem de perceber primeiro se os seus utilizadores têm aplicações que utilizam a autenticação do legado e como isso afeta o seu diretório geral. Os registos de entrada de AD Azure podem ser usados para entender se está a usar a autenticação do legado.
 
-1. Navegue para o **portal** > **Azure Ative Directory** > **Sign-ins**.
-1. Adicione a coluna da Aplicação cliente se não for mostrada clicando na App do**Cliente**das **Colunas** > .
-1. **Adicione filtros** > **Aplicação cliente** > selecione todos os protocolos de autenticação legado, e clique em **Aplicar**.
+1. Navegue para o **portal**  >  **Azure Ative Directory**  >  **Sign-ins**.
+1. Adicione a coluna da Aplicação cliente se não for mostrada clicando na App do Cliente das **Colunas**  >  **Client App**.
+1. **Adicionar filtros**  >  **A Aplicação do Cliente** > selecione todos os protocolos de autenticação legados e clique em **Aplicar**.
 
 A filtragem só lhe mostrará tentativas de inscrição que foram feitas por protocolos de autenticação legados. Clicar em cada tentativa de inscrição individual irá mostrar-lhe detalhes adicionais. O campo **de aplicações do cliente** ao abrigo do separador **Informação Básica** indicará qual o protocolo de autenticação legado utilizado.
 
@@ -154,3 +154,4 @@ Se bloquear a autenticação do legado utilizando a condição **de Outros clien
 - [Determine o impacto utilizando o modo apenas de relatório de acesso condicional](howto-conditional-access-report-only.md)
 - Se ainda não está familiarizado com a configuração das políticas de Acesso Condicional, consulte [o MFA para aplicações específicas com acesso condicional de diretório ativo Azure,](app-based-mfa.md) por exemplo.
 - Para mais informações sobre o suporte moderno à autenticação, consulte como funciona a autenticação moderna para as [aplicações de clientes do Office 2013 e do Office 2016](/office365/enterprise/modern-auth-for-office-2013-and-2016) 
+- [Como configurar um dispositivo ou aplicação multifunções para enviar e-mail utilizando o Office 365 e o Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-office-3)

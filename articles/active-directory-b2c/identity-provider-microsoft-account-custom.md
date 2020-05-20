@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/19/2020
+ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b7d8fbddc86c0d05d7b0d4ce46cb06c5fc92a2cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 56c25ce417a17024843de1b9b16f57740de1e9fc
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78188125"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83636968"
 ---
 # <a name="set-up-sign-in-with-a-microsoft-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar o início de sessão com uma conta Microsoft utilizando políticas personalizadas no Diretório Ativo Do Azure B2C
 
@@ -27,7 +27,7 @@ Este artigo mostra-lhe como ativar o início de sessão para utilizadores a part
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Complete os passos em [Get started com políticas personalizadas no Azure Ative Directory B2C](custom-policy-get-started.md).
-- Se ainda não tem uma conta Microsoft, [https://www.live.com/](https://www.live.com/)crie uma em ...
+- Se ainda não tem uma conta Microsoft, crie uma em [https://www.live.com/](https://www.live.com/) ...
 
 ## <a name="register-an-application"></a>Registar uma aplicação
 
@@ -38,8 +38,8 @@ Para ativar o início de sessão para utilizadores com uma conta Microsoft, é n
 1. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione registos de **Aplicações**.
 1. Selecione **Novo registo**.
 1. Insira um **Nome** para a sua candidatura. Por exemplo, *MSAapp1*.
-1. No âmbito dos tipos de **conta suportados,** selecione **Contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)**.
-1. Em **Redirecione o URI (opcional)**, selecione **Web** e introduza `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` na caixa de texto. Substitua `your-tenant-name` pelo nome de inquilino Azure AD B2C.
+1. No âmbito dos tipos de **conta suportados,** selecione **Contas em qualquer diretório organizacional (Qualquer diretório AD Azure - Multitenant) e contas pessoais da Microsoft (por exemplo, Skype, Xbox)**.
+1. Em **Redirecione o URI (opcional)**, selecione **Web** e introduza `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/oauth2/authresp` na caixa de texto. Substitua `<tenant-name>` pelo nome de inquilino Azure AD B2C.
 1. Selecione **Registar**
 1. Grave o ID de **Aplicação (cliente)** mostrado na página de visão geral da aplicação. Precisa disto quando configurar o fornecedor de sinistros numa secção posterior.
 1. Selecione **Certificados & segredos**
@@ -49,7 +49,7 @@ Para ativar o início de sessão para utilizadores com uma conta Microsoft, é n
 
 ## <a name="configuring-optional-claims"></a>Configurar reclamações opcionais
 
-Se quiser obter `family_name` as `given_name` reclamações e reclamações da Azure AD, pode configurar reclamações opcionais para a sua aplicação no portal Azure UI ou manifesto de aplicação. Para mais informações, consulte [Como fornecer reclamações opcionais à sua aplicação Azure AD](../active-directory/develop/active-directory-optional-claims.md).
+Se quiser obter as `family_name` `given_name` reclamações e reclamações da Azure AD, pode configurar reclamações opcionais para a sua aplicação no portal Azure UI ou manifesto de aplicação. Para mais informações, consulte [Como fornecer reclamações opcionais à sua aplicação Azure AD](../active-directory/develop/active-directory-optional-claims.md).
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). Procure e selecione **Azure Active Directory**.
 1. A partir da secção **Gerir,** selecione registos de **Aplicações**.
@@ -69,10 +69,10 @@ Agora que criou a aplicação no seu inquilino DaD Azure, precisa de guardar o s
 1. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
 1. Na página 'Visão Geral', selecione Quadro de **Experiência de Identidade**.
 1. Selecione **Teclas de política** e, em seguida, selecione **Adicionar**.
-1. Para **Opções,** escolha. `Manual`
+1. Para **Opções,** `Manual` escolha.
 1. Introduza um **nome** para a chave política. Por exemplo, `MSASecret`. O prefixo `B2C_1A_` é adicionado automaticamente ao nome da sua chave.
 1. Em **Segredo,** insira o segredo do cliente que gravou na secção anterior.
-1. Para **a utilização da chave,** selecione `Signature`.
+1. Para **a utilização da chave,** selecione `Signature` .
 1. Clique em **Criar**.
 
 ## <a name="add-a-claims-provider"></a>Adicione um fornecedor de sinistros
@@ -148,7 +148,7 @@ Se não houver erros no portal, continue para a secção seguinte.
 Neste momento, criou o fornecedor de identidade, mas ainda não está disponível em nenhum dos ecrãs de inscrição ou inscrição. Para disponibilizá-lo, crie uma duplicação de uma viagem de utilizador modelo existente, em seguida, modifique-a de modo a que também tenha o fornecedor de identidade da conta microsoft.
 
 1. Abra o ficheiro *TrustFrameworkBase.xml* a partir do pacote de arranque.
-1. Encontre e copie todo o conteúdo `Id="SignUpOrSignIn"`do elemento **UserJourney** que inclui .
+1. Encontre e copie todo o conteúdo do elemento **UserJourney** que inclui `Id="SignUpOrSignIn"` .
 1. Abra as *Extensões TrustFramework.xml* e encontre o elemento **UserJourneys.** Se o elemento não existir, adicione um.
 1. Colhe todo o conteúdo do elemento **UserJourney** que copiou em criança do elemento **UserJourneys.**
 1. Mude o nome da identificação da viagem do utilizador. Por exemplo, `SignUpSignInMSA`.
@@ -157,8 +157,8 @@ Neste momento, criou o fornecedor de identidade, mas ainda não está disponíve
 
 O elemento **ClaimsProviderSelection** é análogo a um botão de fornecedor de identidade num ecrã de inscrição ou de inscrição. Se adicionar um elemento **ClaimsProviderSelection** para uma conta Microsoft, é apresentado um novo botão quando um utilizador aterra na página.
 
-1. No ficheiro *TrustFrameworkExtensions.xml,* encontre o elemento `Order="1"` **OrchestrationStep** que inclui na viagem de utilizador que criou.
-1. Em **ClaimsProviderSelects,** adicione o seguinte elemento. Definir o valor do **TargetClaimsExchangeId** para `MicrosoftAccountExchange`um valor adequado, por exemplo:
+1. No ficheiro *TrustFrameworkExtensions.xml,* encontre o elemento **OrchestrationStep** que inclui `Order="1"` na viagem de utilizador que criou.
+1. Em **ClaimsProviderSelects,** adicione o seguinte elemento. Definir o valor do **TargetClaimsExchangeId** para um valor adequado, por `MicrosoftAccountExchange` exemplo:
 
     ```XML
     <ClaimsProviderSelection TargetClaimsExchangeId="MicrosoftAccountExchange" />
@@ -175,7 +175,7 @@ Agora que tens um botão no lugar, tens de ligá-lo a uma ação. A ação, nest
     <ClaimsExchange Id="MicrosoftAccountExchange" TechnicalProfileReferenceId="MSA-OIDC" />
     ```
 
-    Atualize o valor do **TechnicalProfileReferenceId** para corresponder ao `Id` valor no elemento **TechnicalProfile** do fornecedor de sinistros que adicionou anteriormente. Por exemplo, `MSA-OIDC`.
+    Atualize o valor do **TechnicalProfileReferenceId** para corresponder ao valor `Id` no elemento **TechnicalProfile** do fornecedor de sinistros que adicionou anteriormente. Por exemplo, `MSA-OIDC`.
 
 1. Guarde o ficheiro *TrustFrameworkExtensions.xml* e carregue-o novamente para verificação.
 
@@ -197,7 +197,7 @@ Atualize o ficheiro da parte de fiação (RP) que inicia a viagem de utilizador 
 1. Certifique-se de que a aplicação Azure AD B2C que criou na secção anterior (ou completando os pré-requisitos, por exemplo *webapp1* ou *testapp1*) é selecionada no campo de **aplicação Select** e, em seguida, testá-la clicando agora em **Executar**.
 1. Selecione o botão **Conta Microsoft** e inscreva-se.
 
-    Se a operação de entrada for bem sucedida, `jwt.ms` é redirecionado para o qual exibe o Token Descodificado, semelhante a:
+    Se a operação de entrada for bem sucedida, é redirecionado para `jwt.ms` o qual exibe o Token Descodificado, semelhante a:
 
     ```json
     {
@@ -208,7 +208,7 @@ Atualize o ficheiro da parte de fiação (RP) que inicia a viagem de utilizador 
       "exp": 1562365200,
       "nbf": 1562361600,
       "ver": "1.0",
-      "iss": "https://your-b2c-tenant.b2clogin.com/10000000-0000-0000-0000-000000000000/v2.0/",
+      "iss": "https://<tenant-name>.b2clogin.com/10000000-0000-0000-0000-000000000000/v2.0/",
       "sub": "20000000-0000-0000-0000-000000000000",
       "aud": "30000000-0000-0000-0000-000000000000",
       "acr": "b2c_1a_signupsigninmsa",

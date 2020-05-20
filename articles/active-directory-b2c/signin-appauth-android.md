@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 31ad373b1544fc601a9c37e05e324a9c1dfb3f73
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e3a38b9a02894eafd3ef6df657680d2e2a58a7e7
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78183789"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83638379"
 ---
 # <a name="sign-in-using-an-android-application-in-azure-active-directory-b2c"></a>Iniciar sessão utilizando uma aplicação Android no Diretório Ativo Azure B2C
 
@@ -70,12 +70,12 @@ A amostra é uma modificação da amostra fornecida pela [AppAuth](https://openi
 Pode configurar a comunicação com o Azure AD B2C especificando a descoberta URI ou especificando tanto o ponto final de autorização como os URIs finais simbólicos. Em qualquer dos casos, necessitará das seguintes informações:
 
 * ID do inquilino (por exemplo, contoso.onmicrosoft.com)
-* Nome de fluxo do utilizador (por exemplo, B2C\_1\_SignUpIn)
+* Nome de fluxo do utilizador (por exemplo, B2C \_ 1 \_ SignUpIn)
 
-Se optar por descobrir automaticamente a autorização e o token endpoint URIs, terá de recolher informações a partir da descoberta URI. A descoberta URI pode ser gerada\_substituindo\_o ID do Inquilino e o Nome de Política no seguinte URL:
+Se optar por descobrir automaticamente a autorização e o token endpoint URIs, terá de recolher informações a partir da descoberta URI. A descoberta URI pode ser gerada substituindo `<tenant-id>` o e o seguinte `<policy-name>` URL:
 
 ```java
-String mDiscoveryURI = "https://<Tenant_name>.b2clogin.com/<Tenant_ID>/v2.0/.well-known/openid-configuration?p=<Policy_Name>";
+String mDiscoveryURI = "https://<tenant-name>.b2clogin.com/<tenant-id>/<policy-name>/v2.0/.well-known/openid-configuration";
 ```
 
 Em seguida, pode adquirir a autorização e simbólica urIs endpoint e criar um objeto de Configuração de Serviço de Autorização executando o seguinte:
@@ -99,12 +99,12 @@ AuthorizationServiceConfiguration.fetchFromIssuer(
   });
 ```
 
-Em vez de utilizar a descoberta para obter a autorização e o token endpoint URIs, também pode especificá-los explicitamente substituindo o ID do Inquilino\_e o Nome de Política\_no URL abaixo:
+Em vez de utilizar a descoberta para obter a autorização e o token endpoint URIs, também pode especificá-los explicitamente substituindo os `<tenant-id>` `<policy-name>` URLs e os URLs abaixo:
 
 ```java
-String mAuthEndpoint = "https://<Tenant_name>.b2clogin.com/<Tenant_ID>/oauth2/v2.0/authorize?p=<Policy_Name>";
+String mAuthEndpoint = "https://<tenant-name>.b2clogin.com/<tenant-id>/<policy-name>/oauth2/v2.0/authorize";
 
-String mTokenEndpoint = "https://<Tenant_name>.b2clogin.com/<Tenant_ID>/oauth2/v2.0/token?p=<Policy_Name>";
+String mTokenEndpoint = "https://<tenant-name>.b2clogin.com/<tenant-id>/<policy-name>/oauth2/v2.0/token";
 ```
 
 Executar o seguinte código para criar o seu objeto de Configuração de Serviçode Autorização:

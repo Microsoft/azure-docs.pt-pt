@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: b28901918f2606100d92f47800c6e0fb6778e3d0
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: bdd8104200bf21507e978abacf600c4780bb3808
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82606896"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83636672"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Proteção contra ameaças no Centro de Segurança do Azure
 
@@ -29,7 +29,10 @@ A proteção contra ameaças do Azure Security Center fornece defesas abrangente
 
 * **Proteção contra ameaças para camadas**de serviço Azure : Camada de rede Azure, camada de gestão Azure (Gestor de Recursos Azure) (Pré-visualização) e Cofre chave Azure (Pré-visualização)
 
-Se um alerta é gerado pelo Security Center, ou recebido pelo Security Center de um produto de segurança diferente, pode exportá-lo. Para exportar os seus alertas para o Azure Sentinel (ou um SIEM de terceiros) ou qualquer outra ferramenta externa, siga as instruções em [alertas de exportação para um SIEM](continuous-export.md). 
+Se um alerta é gerado pelo Security Center, ou recebido pelo Security Center de um produto de segurança diferente, pode exportá-lo. Para exportar os seus alertas para o Azure Sentinel, qualquer SIEM de terceiros, ou qualquer outra ferramenta externa, siga as instruções em [alertas de exportação para um SIEM](continuous-export.md). 
+
+> [!NOTE]
+> Alertas de diferentes fontes podem levar diferentes quantidades de tempo para aparecer. Por exemplo, alertas que requerem análise do tráfego da rede podem demorar mais tempo a aparecer do que alertas relacionados com processos suspeitos em execução em máquinas virtuais.
 
 > [!TIP]
 > Para permitir as capacidades de proteção contra ameaças do Security Center, deve aplicar o nível de preços padrão à subscrição que contém as cargas de trabalho aplicáveis.
@@ -44,14 +47,14 @@ Se um alerta é gerado pelo Security Center, ou recebido pelo Security Center de
 
 O Azure Security Center integra-se com os serviços Azure para monitorizar e proteger as suas máquinas baseadas no Windows. O Centro de Segurança apresenta os alertas e sugestões de reparação de todos estes serviços num formato fácil de usar.
 
-* **Microsoft Defender ATP** <a name="windows-atp"></a> - Security Center alarga as suas plataformas de proteção de carga de trabalho em nuvem, integrando-se com a Microsoft Defender Advanced Threat Protection (ATP). Juntos, fornecem capacidades abrangentes de deteção e resposta de pontofinal (EDR).
+* **Microsoft Defender Advanced Threat Protection (ATP)** <a name="windows-atp"></a> - O Security Center alarga as suas plataformas de proteção à carga de trabalho em nuvem, integrando-se com a Microsoft Defender Advanced Threat Protection (ATP). Juntos, fornecem capacidades abrangentes de deteção e resposta de pontofinal (EDR).
 
     > [!IMPORTANT]
     > O sensor ATP do Microsoft Defender é ativado automaticamente nos servidores do Windows que utilizam o Security Center.
 
     Quando o Microsoft Defender ATP deteta uma ameaça, desencadeia um alerta. O alerta está no painel do Centro de Segurança. A partir do painel de instrumentos, pode sondar para a consola ATP do Microsoft Defender e realizar uma investigação detalhada para descobrir o alcance do ataque. Para obter mais informações sobre o Microsoft Defender ATP, consulte [os servidores do Bordo para o serviço ATP do Microsoft Defender](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints).
 
-* Análise de despejo de **colisão** <a name="windows-dump"></a> - Quando o software falha, um depósito de lixo captura uma parte da memória no momento do acidente.
+* **Análise de dump de colisão** <a name="windows-dump"></a> - Quando o software se despenha, um depósito de lixo captura uma parte da memória no momento do acidente.
 
     Um acidente pode ter sido causado por malware ou conter malware. Para evitar ser detetado por produtos de segurança, várias formas de malware utilizam um ataque sem ficheiros, o que evita escrever em disco ou encriptar componentes de software escritos em disco. Este tipo de ataque é difícil de detetar usando abordagens tradicionais baseadas em disco.
 
@@ -59,7 +62,7 @@ O Azure Security Center integra-se com os serviços Azure para monitorizar e pro
 
     Para obter detalhes sobre os alertas de análise de despejo de colisão, consulte a [tabela de alertas de Referência](alerts-reference.md#alerts-windows).
 
-* **Deteção de** <a name="windows-fileless"></a> ataque sem ficheiros - Ataques sem ficheiro sem ficheiro sem registo que visam os seus pontos finais são comuns. Para evitar a deteção, ataques sem ficheiro injetam cargas maliciosas na memória. As cargas dos atacantes persistem na memória de processos comprometidos e realizam uma vasta gama de atividades maliciosas.
+* **Deteção de ataque sem ficheiros** <a name="windows-fileless"></a> - Ataques sem ficheiro sem registo que visam os seus pontos finais são comuns. Para evitar a deteção, ataques sem ficheiro injetam cargas maliciosas na memória. As cargas dos atacantes persistem na memória de processos comprometidos e realizam uma vasta gama de atividades maliciosas.
 
     Com a deteção de ataques sem ficheiros, técnicas forenses de memória automatizadas identificam kits de ferramentas de ataque sem ficheiros, técnicas e comportamentos. Esta solução digitaliza periodicamente a sua máquina no tempo de execução, e extrai insights diretamente da memória de processos críticos de segurança.
 
@@ -79,9 +82,9 @@ O Azure Security Center integra-se com os serviços Azure para monitorizar e pro
 
 O Security Center recolhe registos de auditoria de máquinas Linux utilizando **auditorias,** um dos quadros de auditoria mais comuns do Linux. vida auditada no núcleo principal. 
 
-* **Alertas auditados linux e integração** <a name="linux-auditd"></a> de agentes log analytics - O sistema auditado consiste num subsistema de nível kernel, que é responsável pela monitorização das chamadas do sistema. Filtra-os por um conjunto de regras especificado e escreve mensagens para eles a uma tomada. O Security Center integra funcionalidades do pacote auditado dentro do agente Log Analytics. Esta integração permite a recolha de eventos auditados em todas as distribuições suportadas do Linux, sem quaisquer pré-requisitos.
+* **Linux auditou alertas e integração** <a name="linux-auditd"></a> de agentes de Log Analytics - O sistema auditado consiste num subsistema de nível kernel, responsável pela monitorização das chamadas do sistema. Filtra-os por um conjunto de regras especificado e escreve mensagens para eles a uma tomada. O Security Center integra funcionalidades do pacote auditado dentro do agente Log Analytics. Esta integração permite a recolha de eventos auditados em todas as distribuições suportadas do Linux, sem quaisquer pré-requisitos.
 
-    os registos auditados são recolhidos, enriquecidos e agregados em eventos utilizando o agente Log Analytics para o agente Linux. O Security Center adiciona continuamente novas análises que utilizam sinais Linux para detetar comportamentos maliciosos na nuvem e nas máquinas Linux no local. À semelhança das capacidades do Windows, estas análises estendem-se por processos suspeitos, sinal duvidoso em tentativas, carregamento de módulos kernel e outras atividades. Estas atividades podem indicar que uma máquina está a ser atacada ou foi violada.  
+    os registos auditados são recolhidos, enriquecidos e agregados em eventos utilizando o agente Log Analytics para o agente Linux. O Security Center adiciona continuamente novas análises que utilizam sinais Linux para detetar comportamentos maliciosos na nuvem e nas máquinas Linux no local. À semelhança das capacidades do Windows, estas análises estendem-se por processos suspeitos, tentativas duvidosas de intenção, carregamento de módulos kernel e outras atividades. Estas atividades podem indicar que uma máquina está a ser atacada ou foi violada.  
 
     Para obter uma lista dos alertas Linux, consulte a [tabela de alertas de Referência](alerts-reference.md#alerts-linux).
 
@@ -171,7 +174,7 @@ A Advanced Threat Protection for Storage deteta tentativas incomuns e potencialm
 
 A proteção avançada contra ameaças para o Armazenamento Azure está atualmente disponível apenas para [armazenamento blob](https://azure.microsoft.com/services/storage/blobs/). 
 
-Este serviço está disponível em todas as nuvens públicas e nuvens do governo dos EUA, mas nenhuma outra região soberana ou azure nuvem de governo.
+Este serviço está disponível em todas as nuvens públicas e nuvens do governo dos EUA, mas nenhuma outra região de nuvem soberana ou azure governo.
 
 Para obter detalhes sobre preços, incluindo um teste gratuito de 30 dias, consulte a página de preços do Centro de [Segurança Azure](https://azure.microsoft.com/pricing/details/security-center/).
 

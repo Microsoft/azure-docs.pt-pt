@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e8ceaf13324864c7ec3df731c3e710815b0eba9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0db72e30fbced17665c112ad56510d7c2ca23d12
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81309785"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83639627"
 ---
 # <a name="enable-per-user-azure-multi-factor-authentication-to-secure-sign-in-events"></a>Ativar a autenticação multi-factor Azure por utilizador para garantir eventos de entrada
 
@@ -39,8 +39,8 @@ As contas de utilizador na Autenticação Multifactor Azure têm os seguintes tr
 | Estado | Descrição | Aplicações não-navegador afetadas | Aplicativos de navegador afetados | Autenticação moderna afetada |
 |:---:| --- |:---:|:--:|:--:|
 | Desativado | O estado padrão para um novo utilizador não inscrito na Autenticação Multi-Factor Azure. | Não | Não | Não |
-| Ativado | O utilizador foi inscrito na Autenticação Multi-Factor Azure, mas não está registado. Recebem uma solicitação para se registarem da próxima vez que assinarem. | Não.  Continuam a trabalhar até que o processo de registo esteja concluído. | Sim. Após o termo da sessão, é necessário o registo de autenticação de multifactor estoque Azure.| Sim. Após o termo do sinal de acesso, é necessário o registo de autenticação de multifactor estoirar. |
-| Imposto | O utilizador foi inscrito e completou o processo de registo da Autenticação Multifactor Azure. | Sim. As aplicações requerem senhas de aplicação. | Sim. A autenticação de multifactor azure é necessária no login. | Sim. A autenticação de multifactor azure é necessária no login. |
+| Ativado | O utilizador foi inscrito na Autenticação Multi-Factor Azure, mas não está registado. Recebem uma solicitação para se registarem da próxima vez que assinarem. | Não.  Continuam a trabalhar até que o processo de registo esteja concluído. | Yes. Após o termo da sessão, é necessário o registo de autenticação de multifactor estoque Azure.| Yes. Após o termo do sinal de acesso, é necessário o registo de autenticação de multifactor estoirar. |
+| Imposto | O utilizador foi inscrito e completou o processo de registo da Autenticação Multifactor Azure. | Yes. As aplicações requerem senhas de aplicação. | Yes. A autenticação de multifactor azure é necessária no login. | Yes. A autenticação de multifactor azure é necessária no login. |
 
 O estado de um utilizador reflete se um administrador os inscreveu na Autenticação Multi-Factor Azure e se completaram o processo de registo.
 
@@ -54,7 +54,7 @@ Todos os utilizadores iniciam *o Desativado*. Quando inscreve os utilizadores na
 Utilize os seguintes passos para aceder à página do portal Azure onde pode ver e gerir os estados do utilizador:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) como administrador.
-1. Procure e selecione *O Diretório Ativo Azure,* em seguida, selecione **Utilizadores** > **Todos os utilizadores**.
+1. Procure e selecione *O Diretório Ativo Azure,* em seguida, selecione **Utilizadores**  >  **Todos os utilizadores**.
 1. **Selecione a autenticação de vários fatores.** Pode ser necessário deslocar-se para a direita para ver esta opção de menu. Selecione a imagem de exemplo abaixo para ver a janela completa do portal Azure e a localização do menu:[![](media/howto-mfa-userstates/selectmfa-cropped.png "Selecione autenticação multi-factor da janela utilizadores em Azure AD")](media/howto-mfa-userstates/selectmfa.png#lightbox)
 1. Abre-se uma nova página que exibe o estado do utilizador, como mostra o seguinte exemplo.
    ![Screenshot que mostra informações do estado do utilizador exemplo para autenticação de multi-factor Supor](./media/howto-mfa-userstates/userstate1.png)
@@ -67,7 +67,7 @@ Para alterar o estado de autenticação de multi-factores Azure para um utilizad
 1. Encontre o utilizador que pretende ativar para autenticação de vários fatores Azure. Pode ser necessário alterar a vista no topo para **os utilizadores**.
    ![Selecione o utilizador para alterar o estado do separador utilizadores](./media/howto-mfa-userstates/enable1.png)
 1. Verifique a caixa junto ao(s) nome(s) do(s) utilizador(s) para alterar o estado.
-1. Do lado direito, sob **passos rápidos,** escolha **Ativar** ou **Desativar**. No exemplo seguinte, o utilizador *John Smith* tem uma verificação ao ![lado do seu nome e está a ser ativado para ser utilizado: Ativar o utilizador selecionado clicando em Ativar no menu de passos rápidos](./media/howto-mfa-userstates/user1.png)
+1. Do lado direito, sob **passos rápidos,** escolha **Ativar** ou **Desativar**. No exemplo seguinte, o utilizador *John Smith* tem uma verificação ao lado do seu nome e está a ser ativado para ser utilizado: Ativar o utilizador ![ selecionado clicando em Ativar no menu de passos rápidos](./media/howto-mfa-userstates/user1.png)
 
    > [!TIP]
    > Os utilizadores *ativados* são automaticamente trocados para *'Enforced'* quando se registam para autenticação multi-factor Azure. Não altere manualmente o estado de utilizador para *'Imposto'.*
@@ -98,7 +98,7 @@ Em seguida, [ligue-se utilizando o Connect-MsolService:](/powershell/module/mson
 Connect-MsolService
 ```
 
-O seguinte exemplo O script PowerShell permite *bsimon@contoso.com*mFA para um utilizador individual chamado:
+O seguinte exemplo O script PowerShell permite mFA para um utilizador individual *bsimon@contoso.com* chamado:
 
 ```PowerShell
 $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
@@ -110,7 +110,7 @@ $sta = @($st)
 Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
 ```
 
-Utilizar o PowerShell é uma boa opção quando precisa de ativar os utilizadores em massa. O script seguinte passa por uma lista de utilizadores e permite o MFA nas suas contas. Defina as contas de utilizador definidas na primeira linha para `$users` o seguinte:
+Utilizar o PowerShell é uma boa opção quando precisa de ativar os utilizadores em massa. O script seguinte passa por uma lista de utilizadores e permite o MFA nas suas contas. Defina as contas de utilizador definidas na primeira linha para o `$users` seguinte:
 
    ```PowerShell
    # Define your list of users to update state in bulk
@@ -185,4 +185,4 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 
 Para configurar definições de autenticação multi-factor Azure, como IPs fidedignos, mensagens de voz personalizadas e alertas de fraude, consulte as definições de [autenticação multi-factor Do Configure Azure](howto-mfa-mfasettings.md). Para gerir as definições do utilizador para autenticação de multi-factores, consulte Gerir as definições do [utilizador com a autenticação de vários fatores Azure](howto-mfa-userdevicesettings.md).
 
-Para entender por que razão um utilizador foi solicitado ou não para executar MFA, consulte [os relatórios de autenticação de multi-factors do Azure](howto-mfa-reporting.md#azure-ad-sign-ins-report).
+Para entender por que razão um utilizador foi solicitado ou não para executar MFA, consulte [os relatórios de autenticação de multi-factors do Azure](howto-mfa-reporting.md).

@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 56ab49949b4ea2a92bc591042b2d43a7f7b2dc63
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cd2511dcbf2e387a6f324742219b81c927b534af
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80632669"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83636398"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-synapse-analytics"></a>Limites de memória e concurrency para Azure Synapse Analytics
 
@@ -77,7 +77,7 @@ Com a introdução de grupos de carga de [trabalho,](sql-data-warehouse-workload
 
 ## <a name="concurrency-maximums-for-resource-classes"></a>Máximos de condivisões para classes de recursos
 
-Para garantir que cada consulta tem recursos suficientes para executar de forma eficiente, a SQL Analytics em Azure Synapse rastreia a utilização de recursos atribuindo slots de condivisa a cada consulta. O sistema coloca consultas numa fila baseada na importância e nas faixas de câmbio. As consultas esperam na fila até estarem disponíveis suficientes slots de condivisões. As faixas de [importância](sql-data-warehouse-workload-importance.md) e conmoedação determinam a priorização do CPU. Para mais informações, consulte [Analisar a sua carga de trabalho](analyze-your-workload.md)
+Para garantir que cada consulta tem recursos suficientes para executar de forma eficiente, o Synapse SQL rastreia a utilização de recursos atribuindo slots de concurrency a cada consulta. O sistema coloca consultas numa fila baseada na importância e nas faixas de câmbio. As consultas esperam na fila até estarem disponíveis suficientes slots de condivisões. As faixas de [importância](sql-data-warehouse-workload-importance.md) e conmoedação determinam a priorização do CPU. Para mais informações, consulte [Analisar a sua carga de trabalho](analyze-your-workload.md)
 
 **Classes de recursos estáticos**
 

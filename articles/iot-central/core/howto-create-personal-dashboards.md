@@ -8,23 +8,23 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 06225e284000d7f10f575be08cd683488abec339
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f7dca7352a49e668231f64632371a445985e4de3
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80985495"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83634563"
 ---
 # <a name="create-and-manage-multiple-dashboards"></a>Criar e gerir vários dashboards
 
 O **Dashboard** é a página que carrega quando navega pela primeira vez para a sua aplicação. Um **construtor** na sua aplicação define o dashboard de aplicação padrão para todos os utilizadores. Pode ainda criar o seu próprio painel de aplicações personalizado. Pode ter vários dashboards que exibem diferentes dados e alternam entre eles.
 
-Se for **administrador** da aplicação, também pode criar até 10 dashboards de nível de aplicação para partilhar com outros utilizadores da aplicação. Apenas **os administradores** têm a capacidade de criar, editar e eliminar os dashboards de nível de aplicação. 
+Se for **administrador** da aplicação, também pode criar até 10 dashboards de nível de aplicação para partilhar com outros utilizadores da aplicação. Apenas **os administradores** têm a capacidade de criar, editar e eliminar os dashboards de nível de aplicação.  
 
 ## <a name="create-dashboard"></a>Criar painel de instrumentos
 
 A imagem seguinte mostra o dashboard numa aplicação criada a partir do modelo de **aplicação personalizada.** Pode substituir o painel de aplicações predefinido por um dashboard pessoal, ou se for administrador, outro painel de instrumentos de nível de aplicação. Para isso, selecione **+ Novo** na parte superior à esquerda da página.
- 
+
 > [!div class="mx-imgBorder"]
 > ![Painel de instrumentos para aplicações com base no modelo "Aplicação Personalizada"](media/howto-create-personal-dashboards/dashboard-custom-app.png)
 
@@ -33,16 +33,17 @@ Selecionar **+ Nova** abre o editor do dashboard. No editor, pode dar um nome ao
 > [!div class="mx-imgBorder"]
 > ![Biblioteca do painel de instrumentos](media/howto-create-personal-dashboards/dashboard-library.png)
 
-Se for **administrador** da aplicação, terá a opção de alternar se quiser criar um painel de instrumentos de nível pessoal ou um painel de instrumentos de nível de aplicação. Se criar um painel de instrumentos de nível pessoal, só poderá vê-lo. Se criar um painel de instrumentos de nível de aplicação, todos os utilizadores da aplicação poderão vê-lo. Depois de introduzir um título e selecionar o tipo de painel que pretende criar, pode guardar e adicionar azulejos mais tarde. Ou se estiver pronto agora e tiver adicionado um modelo de dispositivo e uma instância de dispositivo, pode ir em frente e criar o seu primeiro azulejo. 
+Se for **administrador** da aplicação, será-lhe dada a opção de criar um painel de instrumentos de nível pessoal ou um painel de instrumentos de nível de aplicação. Se criar um painel de instrumentos de nível pessoal, só poderá vê-lo. Se criar um painel de instrumentos de nível de aplicação, todos os utilizadores da aplicação poderão vê-lo. Depois de introduzir um título e selecionar o tipo de painel que pretende criar, pode guardar e adicionar azulejos mais tarde. Ou se estiver pronto agora e tiver adicionado um modelo de dispositivo e uma instância de dispositivo, pode ir em frente e criar o seu primeiro azulejo.  
 
 > [!div class="mx-imgBorder"]
 > ![Configurar detalhes do dispositivo" formulário com detalhes para temperatura](media/howto-create-personal-dashboards/device-details.png)
 
 Por exemplo, pode adicionar um azulejo **telemetria** para a temperatura atual do dispositivo. Para tal:
-1. Selecione um **modelo de dispositivo**
-1. Selecione uma Instância de **Dispositivo** para o dispositivo que pretende ver num azulejo do painel de instrumentos. Em seguida, você verá uma lista das propriedades do dispositivo que pode ser usada no azulejo.
-1. Para criar o azulejo no painel de instrumentos, clique em **Temperatura** e arraste-o para a área do painel de instrumentos. Também pode clicar na caixa de verificação ao lado da **Temperatura** e clicar em **Combine**. A imagem seguinte mostra selecionando um modelo de dispositivo e instância de dispositivo, criando um azulejo de telemetria de temperatura no painel de instrumentos.
-1. Selecione **Guardar** na parte superior esquerda para guardar o azulejo para o tablier.
+
+1. Selecione um modelo de **dispositivo**
+1. Selecione um dispositivo a partir de **Dispositivos** para o dispositivo que pretende ver num azulejo do painel de instrumentos. Em seguida, você verá uma lista das propriedades do dispositivo que pode ser usada no azulejo.
+1. Para criar o azulejo no painel de instrumentos, clique em **Temperatura** e arraste-o para a área do painel de instrumentos. Também pode clicar na caixa de verificação ao lado da **Temperatura** e clicar em **adicionar azulejos**. A imagem seguinte mostra a seleção de um modelo e dispositivo do dispositivo, criando um azulejo de Telemetria de Temperatura no painel de instrumentos.
+1. Selecione **Guardar** na parte superior esquerda para guardar as alterações no painel de instrumentos.
 
 > [!div class="mx-imgBorder"]
 > ![Tab dashboard com detalhes para o azulejo temperatura](media/howto-create-personal-dashboards/temperature-tile-edit.png)
@@ -70,4 +71,4 @@ Pode editar os seus dashboards pessoais e eliminar quaisquer painéis de que já
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que aprendeu a criar e gerir dashboards pessoais, pode [aprender a gerir as suas preferências](howto-manage-preferences.md) de candidatura
+Agora que aprendeu a criar e gerir dashboards pessoais, pode [aprender a gerir as suas preferências](howto-manage-preferences.md)de candidatura.

@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/27/2019
+ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cbbd083a6b62733d71c316af95dffaa188b28955
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7725a9ddd1d9559166360b27bd8a5371d8c0557e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78186493"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83638252"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Visão geral dos tokens no Diretório Ativo Azure B2C
 
@@ -37,10 +37,10 @@ As seguintes fichas são utilizadas na comunicação com o Azure AD B2C:
 
 Uma [aplicação registada](tutorial-register-applications.md) recebe tokens e comunica com o Azure AD B2C enviando pedidos para estes pontos finais:
 
-- `https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/authorize`
-- `https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/token`
+- `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/oauth2/v2.0/authorize`
+- `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/oauth2/v2.0/token`
 
-Os símbolos de segurança que a sua aplicação recebe do `/authorize` `/token` Azure AD B2C podem vir dos pontos finais ou finais. Quando os tokens de `/authorize` ID são adquiridos a partir do ponto final, é feito usando o [fluxo implícito](implicit-flow-single-page-application.md), que é frequentemente usado para utilizadores que satisfazem em aplicações web baseadas em JavaScript. Quando os tokens de `/token` ID são adquiridos a partir do ponto final, é feito usando o fluxo de código de [autorização](openid-connect.md#get-a-token), que mantém o token escondido do navegador.
+Os símbolos de segurança que a sua aplicação recebe do Azure AD B2C podem vir dos `/authorize` `/token` pontos finais ou finais. Quando os tokens de ID são adquiridos a partir do `/authorize` ponto final, é feito usando o [fluxo implícito](implicit-flow-single-page-application.md), que é frequentemente usado para utilizadores que satisfazem em aplicações web baseadas em JavaScript. Quando os tokens de ID são adquiridos a partir do ponto final, é feito usando o fluxo de código de `/token` [autorização](openid-connect.md#get-a-token), que mantém o token escondido do navegador.
 
 ## <a name="claims"></a>Afirmações
 
@@ -50,21 +50,21 @@ As reclamações em fichas de identificação não são devolvidas em nenhuma or
 
 A tabela que se segue lista as alegações que pode esperar em fichas de identificação e fichas de acesso emitidas pelo Azure AD B2C.
 
-| Nome | Afirmação | Valor de exemplo | Descrição |
+| Name | Afirmação | Valor de exemplo | Descrição |
 | ---- | ----- | ------------- | ----------- |
 | Audiência | `aud` | `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` | Identifica o destinatário pretendido do símbolo. Para o Azure AD B2C, o público é o ID da aplicação. A sua aplicação deve validar este valor e rejeitar o símbolo se não corresponder. O público é sinónimo de recurso. |
-| Emissor | `iss` |`https://{tenant}.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` | Identifica o serviço de fichas de segurança (STS) que constrói e devolve o símbolo. Identifica também o diretório em que o utilizador foi autenticado. O seu pedido deve validar a alegação do emitente para se certificar de que o símbolo veio do ponto final apropriado. |
+| Emissor | `iss` |`https://<tenant-name>.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` | Identifica o serviço de fichas de segurança (STS) que constrói e devolve o símbolo. Identifica também o diretório em que o utilizador foi autenticado. O seu pedido deve validar a alegação do emitente para se certificar de que o símbolo veio do ponto final apropriado. |
 | Emitido em | `iat` | `1438535543` | O tempo em que o símbolo foi emitido, representado na época. |
 | Tempo de validade | `exp` | `1438539443` | O tempo em que o símbolo se torna inválido, representado na época. O seu pedido deve utilizar esta alegação para verificar a validade da vida útil do símbolo. |
 | Não antes. | `nbf` | `1438535543` | O tempo em que o símbolo se torna válido, representado no tempo da época. Desta vez é geralmente a mesma que a hora em que o símbolo foi emitido. O seu pedido deve utilizar esta alegação para verificar a validade da vida útil do símbolo. |
 | Versão | `ver` | `1.0` | A versão do símbolo id, tal como definida pelo Azure AD B2C. |
 | Código hash | `c_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | Um hash de código incluído num token de identificação apenas quando o símbolo é emitido juntamente com um código de autorização OAuth 2.0. Um hash código pode ser usado para validar a autenticidade de um código de autorização. Para obter mais informações sobre como realizar esta validação, consulte a [especificação OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html).  |
 | Hash token de acesso | `at_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | Um hash de acesso incluído num token de identificação apenas quando o token é emitido juntamente com um token de acesso OAuth 2.0. Um hash de acesso pode ser usado para validar a autenticidade de um token de acesso. Para obter mais informações sobre como realizar esta validação, consulte a [especificação OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html)  |
-| Nonce | `nonce` | `12345` | Um nonce é uma estratégia usada para mitigar ataques de repetição de tokens. O seu pedido pode especificar um nonce `nonce` num pedido de autorização utilizando o parâmetro de consulta. O valor que fornece no pedido é emitido `nonce` não modificado apenas na reclamação de um token de identificação. Esta reclamação permite que a sua aplicação verifique o valor em relação ao valor especificado no pedido. A sua aplicação deverá efetuar esta validação durante o processo de validação do token ID. |
+| Nonce | `nonce` | `12345` | Um nonce é uma estratégia usada para mitigar ataques de repetição de tokens. O seu pedido pode especificar um nonce num pedido de autorização utilizando o parâmetro de `nonce` consulta. O valor que fornece no pedido é emitido não modificado apenas na `nonce` reclamação de um token de identificação. Esta reclamação permite que a sua aplicação verifique o valor em relação ao valor especificado no pedido. A sua aplicação deverá efetuar esta validação durante o processo de validação do token ID. |
 | Assunto | `sub` | `884408e1-2918-4cz0-b12d-3aa027d7563b` | O principal sobre o qual o símbolo afirma informações, como o utilizador de uma aplicação. Este valor é imutável e não pode ser reatribuído ou reutilizado. Pode ser utilizado para efetuar controlos de autorização com segurança, como quando o símbolo é usado para aceder a um recurso. Por predefinição, a reclamação do sujeito é povoada com o ID do objeto do utilizador no diretório. |
 | Referência de classe de contexto de autenticação | `acr` | Não aplicável | Usado apenas com políticas mais antigas. |
 | Política-quadro de confiança | `tfp` | `b2c_1_signupsignin1` | O nome da apólice que foi usada para adquirir o símbolo de identificação. |
-| Tempo de autenticação | `auth_time` | `1438535543` | O momento em que um utilizador entrou pela última vez credenciais, representadas na época. Não existe discriminação entre essa autenticação ser um novo login, uma única sessão de inscrição (SSO) ou outro tipo de inscrição. Esta `auth_time` é a última vez que a aplicação (ou utilizador) iniciou uma tentativa de autenticação contra o Azure AD B2C. O método utilizado para autenticar não é diferenciado. |
+| Tempo de autenticação | `auth_time` | `1438535543` | O momento em que um utilizador entrou pela última vez credenciais, representadas na época. Não existe discriminação entre essa autenticação ser um novo login, uma única sessão de inscrição (SSO) ou outro tipo de inscrição. Esta é a última vez que `auth_time` a aplicação (ou utilizador) iniciou uma tentativa de autenticação contra o Azure AD B2C. O método utilizado para autenticar não é diferenciado. |
 | Âmbito | `scp` | `Read`| As permissões concedidas ao recurso para um sinal de acesso. Múltiplas permissões concedidas são separadas por um espaço. |
 | Parte Autorizada | `azp` | `975251ed-e4f5-4efd-abcb-5f1a8f566ab7` | A identificação da **aplicação** do cliente que iniciou o pedido. |
 
@@ -74,7 +74,7 @@ As seguintes propriedades são utilizadas para [gerir tokens de segurança emiti
 
 - Acesso & vida útil do **token (minutos)** - A vida útil do token oportador da OAuth 2.0 usado para ter acesso a um recurso protegido. O padrão é de 60 minutos. O mínimo (inclusivo) é de 5 minutos. O máximo (inclusivo) é de 1440 minutos.
 
-- Refrescar a vida útil do **token (dias)** - O período máximo de tempo antes do qual um token de atualização pode ser usado para adquirir um novo acesso ou ficha de identificação. O período de tempo também abrange a aquisição de um `offline_access` novo token de atualização se a sua aplicação tiver sido concedida o âmbito. O padrão é de 14 dias. O mínimo (inclusivo) é um dia. O máximo (inclusivo) é de 90 dias.
+- Refrescar a vida útil do **token (dias)** - O período máximo de tempo antes do qual um token de atualização pode ser usado para adquirir um novo acesso ou ficha de identificação. O período de tempo também abrange a aquisição de um novo token de atualização se a sua aplicação tiver sido concedida o `offline_access` âmbito. O padrão é de 14 dias. O mínimo (inclusivo) é um dia. O máximo (inclusivo) é de 90 dias.
 
 - Refrescar a **janela deslizante de token (dias)** - Após este período de tempo, o utilizador é obrigado a reautenticar, independentemente do período de validade do mais recente token de atualização adquirido pela aplicação. Só pode ser fornecido se o interruptor estiver ligado a **Limitado**. Tem de ser maior ou igual ao valor de **vida token (dias)** do Refresh. Se o interruptor estiver definido para **Unbounded,** não pode fornecer um valor específico. O padrão é de 90 dias. O mínimo (inclusivo) é um dia. O máximo (inclusivo) é de 365 dias.
 
@@ -89,11 +89,11 @@ Estas definições não estão disponíveis para redefinir os fluxos de utilizad
 
 As seguintes propriedades são utilizadas para gerir a [compatibilidade simbólica:](configure-tokens.md)
 
-- **Emitente (iss) reivindicação** - Este imóvel identifica o inquilino Azure AD B2C que emitiu o símbolo. O valor predefinido é `https://<domain>/{B2C tenant GUID}/v2.0/`. O valor `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/` dos IDs para o inquilino Azure AD AD B2C e o fluxo de utilizador que foi utilizado no pedido simbólico. Se a sua aplicação ou biblioteca necessitar de Azure AD B2C para estar em conformidade com a [especificação OpenID Connect Discovery 1.0,](https://openid.net/specs/openid-connect-discovery-1_0.html)utilize este valor.
+- **Emitente (iss) reivindicação** - Este imóvel identifica o inquilino Azure AD B2C que emitiu o símbolo. O valor predefinido é `https://<domain>/{B2C tenant GUID}/v2.0/`. O valor dos `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/` IDs para o inquilino Azure AD AD B2C e o fluxo de utilizador que foi utilizado no pedido simbólico. Se a sua aplicação ou biblioteca necessitar de Azure AD B2C para estar em conformidade com a [especificação OpenID Connect Discovery 1.0,](https://openid.net/specs/openid-connect-discovery-1_0.html)utilize este valor.
 
 - **Reclamação (sub)** - Este imóvel identifica a entidade para a qual o símbolo afirma informações. O valor predefinido é **objectID**, que povoa a `sub` reclamação no símbolo com o ID do objeto do utilizador. O valor de **Não suportado** só é previsto para retrocompatibilidade. Recomenda-se que mude para **objectID** assim que puder.
 
-- **Reivindicação que representa** id política - Esta propriedade identifica o tipo de reclamação no qual o nome de apólice utilizado no pedido simbólico é povoado. O valor predefinido é `tfp`. O valor `acr` só é previsto para retrocompatibilidade.
+- **Reivindicação que representa** id política - Esta propriedade identifica o tipo de reclamação no qual o nome de apólice utilizado no pedido simbólico é povoado. O valor predefinido é `tfp`. O valor só `acr` é previsto para retrocompatibilidade.
 
 ## <a name="pass-through"></a>Pass-through
 
@@ -124,17 +124,17 @@ O valor da reivindicação da **Alg** é o algoritmo que foi usado para assinar 
 O Azure AD B2C tem um ponto final de metadados OpenID Connect. Utilizando este ponto final, as aplicações podem solicitar informações sobre o Azure AD B2C em tempo de execução. Estas informações incluem pontos finais, conteúdo simbólico e chaves de assinatura simbólicas. O seu inquilino Azure AD B2C contém um documento de metadados JSON para cada política. O documento de metadados é um objeto JSON que contém várias peças de informação úteis. Os metadados contêm **jwks_uri,** que dá a localização do conjunto de chaves públicas que são usadas para assinar fichas. Essa localização é fornecida aqui, mas o melhor é obter a localização dinamicamente usando o documento de metadados e analisando **jwks_uri:**
 
 ```
-https://contoso.b2clogin.com/contoso.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_signupsignin1
+https://contoso.b2clogin.com/contoso.onmicrosoft.com/b2c_1_signupsignin1/discovery/v2.0/keys
 ```
 O documento JSON localizado neste URL contém todas as informações de chave pública em uso num determinado momento. A sua aplicação pode utilizar a `kid` reclamação no cabeçalho JWT para selecionar a chave pública no documento JSON que é usado para assinar um símbolo específico. Pode então executar validação de assinatura utilizando a chave pública correta e o algoritmo indicado.
 
-O documento de `B2C_1_signupsignin1` metadados `contoso.onmicrosoft.com` para a apólice no inquilino está localizado em:
+O documento de metadados para a `B2C_1_signupsignin1` apólice no inquilino está localizado `contoso.onmicrosoft.com` em:
 
 ```
-https://contoso.b2clogin.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_signupsignin1
+https://contoso.b2clogin.com/contoso.onmicrosoft.com/b2c_1_signupsignin1/v2.0/.well-known/openid-configuration
 ```
 
-Para determinar que política foi usada para assinar um símbolo (e para onde ir para solicitar os metadados), tem duas opções. Em primeiro lugar, o nome `acr` da apólice está incluído na reclamação no símbolo. Pode analisar as alegações do corpo do JWT descodificando o corpo e desserializando a cadeia JSON que resulta. A `acr` alegação é o nome da política que foi usada para emitir o símbolo. A outra opção é codificar a `state` política no valor do parâmetro quando emitir o pedido e, em seguida, descodificá-la para determinar qual a política utilizada. Qualquer um dos métodos é válido.
+Para determinar que política foi usada para assinar um símbolo (e para onde ir para solicitar os metadados), tem duas opções. Em primeiro lugar, o nome da apólice está incluído na `acr` reclamação no símbolo. Pode analisar as alegações do corpo do JWT descodificando o corpo e desserializando a cadeia JSON que resulta. A `acr` alegação é o nome da política que foi usada para emitir o símbolo. A outra opção é codificar a política no valor do parâmetro quando emitir o pedido e, em `state` seguida, descodificá-la para determinar qual a política utilizada. Qualquer um dos métodos é válido.
 
 Uma descrição de como realizar a validação de assinaturas está fora do âmbito deste documento. Muitas bibliotecas de código aberto estão disponíveis para ajudá-lo a validar um símbolo.
 

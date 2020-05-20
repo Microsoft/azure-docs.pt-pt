@@ -8,12 +8,12 @@ services: synapse-analytics
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: be7ac79b9429d2fc72c3b6bc2b6d92666b089dfb
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 6a627dfed3886a99a458a67d793c3ebbbdd0fb19
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591969"
+ms.locfileid: "83644876"
 ---
 # <a name="automatically-scale-azure-synapse-analytics-apache-spark-pools"></a>Escala automaticamente piscinas de Faíscas Apache Synapse Anapse Anapse
 
@@ -74,4 +74,4 @@ Os trabalhos de corrida continuarão a funcionar e a terminar. Os postos de trab
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Quickstart para criar uma nova piscina Spark [Criar uma piscina de faíscas](..\quickstart-create-apache-spark-pool.md)
+Quickstart para criar uma nova piscina Spark [Criar uma piscina de faíscas](../quickstart-create-apache-spark-pool-portal.md)

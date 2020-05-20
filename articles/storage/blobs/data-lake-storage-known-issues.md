@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/10/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: b02835ae3a1d7fed52f2cdb4ab25aa74ba66e8c3
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 4b6def2ce2b0c1ba6d3a45e64bb7f82b5948a524
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83119897"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83642195"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Questões conhecidas com Azure Data Lake Storage Gen2
 
@@ -107,7 +107,7 @@ As aplicações de terceiros que usam APIs REST para trabalhar continuarão a fu
 
 Se o [acesso de leitura anónimo](storage-manage-access-to-resources.md) tiver sido concedido a um contentor, então os ACLs não têm qualquer efeito sobre esse recipiente ou os ficheiros nesse recipiente.
 
-## <a name="premium-performance-block-blob-storage-accounts"></a>Contas de armazenamento de blocos de desempenho premium
+## <a name="premium-performance-blockblobstorage-storage-accounts"></a>Contas de armazenamento BlockBlobStorage de desempenho premium
 
 ### <a name="diagnostic-logs"></a>Registos de diagnósticos
 
@@ -126,7 +126,7 @@ Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations read,wr
 
 ### <a name="lifecycle-management-policies"></a>Políticas de gestão do ciclo de vida
 
-- As políticas de gestão do ciclo de vida ainda não são suportadas em contas de armazenamento de blocos premium. 
+- As políticas de gestão do ciclo de vida ainda não são suportadas em contas de armazenamento premium BlockBlobStorage. 
 
 - Os dados não podem ser transferidos do nível premium para os níveis mais baixos. 
 
@@ -134,11 +134,11 @@ Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations read,wr
 
 ### <a name="hdinsight-support"></a>Suporte HDInsight
 
-Ao criar um cluster n HDInsight, ainda não é possível selecionar uma conta de armazenamento de blocos blob que tenha a funcionalidade hierárquica de espaço de nome ativada. No entanto, pode anexar a conta ao cluster depois de a ter criado.
+Ao criar um cluster n HDInsight, ainda não é possível selecionar uma conta BlockBlobStorage que tenha a funcionalidade hierárquica de espaço de nome ativada. No entanto, pode anexar a conta ao cluster depois de a ter criado.
 
 ### <a name="dremio-support"></a>Apoio a Dremio
 
-Dremio ainda não se liga a uma conta de armazenamento de blocos blob que tem a funcionalidade hierárquica de espaço de nome ativada nele. 
+Dremio ainda não se liga a uma conta BlockBlobStorage que tenha a funcionalidade hierárquica de espaço de nome ativada nele. 
 
 ## <a name="windows-azure-storage-blob-wasb-driver-unsupported-with-data-lake-storage-gen2"></a>Condutor de Blob de Armazenamento Windows Azure (WASB) (sem suporte com Data Lake Storage Gen2)
 

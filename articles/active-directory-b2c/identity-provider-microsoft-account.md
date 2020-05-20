@@ -8,31 +8,31 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 25784eb161a860398b0741d1d20375cabd1c4eca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 375c83445bb559efe5c797e583129cb1b0c2fb65
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78188023"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83636909"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Configurar o início e iniciar sessão com uma conta Microsoft utilizando o Diretório Ativo Azure B2C
 
 ## <a name="create-a-microsoft-account-application"></a>Criar uma aplicação de conta Microsoft
 
-Para utilizar uma conta Microsoft como fornecedor de [identidade](openid-connect.md) no Azure Ative Directory B2C (Azure AD B2C), precisa de criar uma aplicação no inquilino da AD Azure. O inquilino da Azure AD não é o mesmo que o seu inquilino Azure AD B2C. Se ainda não tiver uma conta Microsoft, pode [https://www.live.com/](https://www.live.com/)conseguir uma em ...
+Para utilizar uma conta Microsoft como fornecedor de [identidade](openid-connect.md) no Azure Ative Directory B2C (Azure AD B2C), precisa de criar uma aplicação no inquilino da AD Azure. O inquilino da Azure AD não é o mesmo que o seu inquilino Azure AD B2C. Se ainda não tiver uma conta Microsoft, pode conseguir uma em [https://www.live.com/](https://www.live.com/) ...
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD selecionando o filtro de **subscrição Do Diretório +** no menu superior e escolhendo o diretório que contém o seu inquilino Azure AD.
 1. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione registos de **Aplicações**.
 1. Selecione **Novo registo**.
 1. Insira um **Nome** para a sua candidatura. Por exemplo, *MSAapp1*.
-1. No âmbito dos tipos de **conta suportados,** selecione **Contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)**. Esta opção visa o conjunto mais amplo de identidades da Microsoft.
+1. No âmbito dos tipos de **conta suportados,** selecione **Contas em qualquer diretório organizacional (Qualquer diretório AD Azure - Multitenant) e contas pessoais da Microsoft (por exemplo, Skype, Xbox)**.
 
    Para obter mais informações sobre as diferentes seleções de tipos de conta, consulte [Quickstart: Registe uma aplicação com a plataforma de identidade microsoft](../active-directory/develop/quickstart-register-app.md).
-1. Em **Redirecione o URI (opcional)**, selecione **Web** e introduza `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` na caixa de texto. Substitua `your-tenant-name` pelo nome de inquilino Azure AD B2C.
+1. Em **Redirecione o URI (opcional)**, selecione **Web** e introduza `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/oauth2/authresp` na caixa de texto. Substitua `<tenant-name>` pelo nome de inquilino Azure AD B2C.
 1. Selecione **Registar**
 1. Grave o ID de **Aplicação (cliente)** mostrado na página de visão geral da aplicação. Precisa disto quando configurar o fornecedor de identidade na secção seguinte.
 1. Selecione **Certificados & segredos**

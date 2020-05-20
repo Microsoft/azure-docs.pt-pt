@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/12/2020
-ms.openlocfilehash: 56bf1898eb00d74fe92934ca8cd7d9d2848c2f1f
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: fea444f2e864683d6350e1c08872ec574a36852c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005901"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83646005"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guia de referência para a utilização de funções em expressões para aplicações lógicas azure e automatização de potência
 
@@ -32,7 +32,7 @@ Para encontrar funções [com base no seu propósito geral,](#ordered-by-purpose
 
 ## <a name="functions-in-expressions"></a>Funções em expressões
 
-Para mostrar como usar uma função numa expressão, este exemplo `customerName` mostra como pode obter o `accountName` valor do parâmetro e atribuir esse valor à propriedade utilizando a função dos [parâmetros](#parameters) numa expressão:
+Para mostrar como usar uma função numa expressão, este exemplo mostra como pode obter o valor do `customerName` parâmetro e atribuir esse valor à propriedade utilizando a função dos `accountName` [parâmetros](#parameters) numa expressão:
 
 ```json
 "accountName": "@parameters('customerName')"
@@ -42,19 +42,19 @@ Aqui estão outras formas gerais de usar funções em expressões:
 
 | Tarefa | Sintaxe de função em uma expressão |
 | ---- | -------------------------------- |
-| Execute o trabalho com um item passando esse item para uma função. | \@<*"nome de função*> (> de> de *<)"* |
-| 1. Obtenha o valor do *parâmetroNome*utilizando `parameters()` a função aninhada. </br>2. Realizar trabalhocom o resultado passando esse valor para *a funçãoNome*. | "\@<*funçãoNome*> ('<*parâmetrosName*>')" |
-| 1. Obtenha o resultado da *função*interna aninhadaNome . </br>2. Passe o resultado para a *função exteriorNome2*. | "\@<*funçãoNome2*> *(<funçãoNome*> *(> do artigo* <)" |
-| 1. Obtenha o resultado da *funçãoNome*. </br>2. Dado que o resultado é um objeto com *propriedade name,* obtenha o valor desse imóvel. | \@<*"nome de função*> *(item* <>).<*propertyName*>" |
+| Execute o trabalho com um item passando esse item para uma função. | "nome \@ < *de função*> *(<item*>)" |
+| 1. Obtenha o valor do *parâmetroNome*utilizando a `parameters()` função aninhada. </br>2. Realizar trabalhocom o resultado passando esse valor para *a funçãoNome*. | " \@ < *funçãoNome*> ('<*parâmetrosNome*>')". |
+| 1. Obtenha o resultado da *função*interna aninhadaNome . </br>2. Passe o resultado para a *função exteriorNome2*. | " \@ < *funçãoNome2*> *(<funçãoNome*> *(<item*>)" |
+| 1. Obtenha o resultado da *funçãoNome*. </br>2. Dado que o resultado é um objeto com *propriedade name,* obtenha o valor desse imóvel. | " \@ < *funçãoNome*> *(item*><<*propriedadeNome*>" |
 |||
 
-Por exemplo, `concat()` a função pode tomar dois ou mais valores de cadeia como parâmetros. Esta função combina essas cordas numa corda. Pode passar em cordas literais, por exemplo, "Sophia" e "Owen" para que consiga uma corda combinada, "SophiaOwen":
+Por exemplo, a `concat()` função pode tomar dois ou mais valores de cadeia como parâmetros. Esta função combina essas cordas numa corda. Pode passar em cordas literais, por exemplo, "Sophia" e "Owen" para que consiga uma corda combinada, "SophiaOwen":
 
 ```json
 "customerName": "@concat('Sophia', 'Owen')"
 ```
 
-Ou pode obter valores de cordas a partir de parâmetros. Este exemplo `parameters()` utiliza a `concat()` função `firstName` em `lastName` cada parâmetro e nos e parâmetros. Em seguida, passa as `concat()` cordas resultantes para a função para que obtenha uma corda combinada, por exemplo, "SophiaOwen":
+Ou pode obter valores de cordas a partir de parâmetros. Este exemplo utiliza a `parameters()` função em cada `concat()` parâmetro e nos e `firstName` `lastName` parâmetros. Em seguida, passa as cordas resultantes para a função para `concat()` que obtenha uma corda combinada, por exemplo, "SophiaOwen":
 
 ```json
 "customerName": "@concat(parameters('firstName'), parameters('lastName'))"
@@ -179,7 +179,7 @@ Por exemplo, suponha que um gatilho retorne um valor numérico como saída:
 
 `triggerBody()?['123']`
 
-Se utilizar esta saída numérica onde se espera a entrada de cordas, como um URL, as Aplicações`{}`Lógicas convertem automaticamente o valor numa corda utilizando o aparelho encaracolado () notação:
+Se utilizar esta saída numérica onde se espera a entrada de cordas, como um URL, as Aplicações Lógicas convertem automaticamente o valor numa corda utilizando o aparelho encaracolado `{}` () notação:
 
 `@{triggerBody()?['123']}`
 
@@ -264,11 +264,11 @@ Para obter a referência completa sobre cada função, consulte a [lista alfabé
 
 | Função de fluxo de trabalho | Tarefa |
 | ----------------- | ---- |
-| [action](../logic-apps/workflow-definition-language-functions-reference.md#action) | Devolva a produção da ação atual em tempo de execução, ou valores de outros pares de nome e valor da JSON. Ver também [ações.](../logic-apps/workflow-definition-language-functions-reference.md#actions) |
-| [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody) | Devolva a `body` saída de uma ação no tempo de execução. Ver também [o corpo.](../logic-apps/workflow-definition-language-functions-reference.md#body) |
+| [ação](../logic-apps/workflow-definition-language-functions-reference.md#action) | Devolva a produção da ação atual em tempo de execução, ou valores de outros pares de nome e valor da JSON. Ver também [ações.](../logic-apps/workflow-definition-language-functions-reference.md#actions) |
+| [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody) | Devolva a saída de uma ação no tempo de `body` execução. Ver também [o corpo.](../logic-apps/workflow-definition-language-functions-reference.md#body) |
 | [actionSaídas](../logic-apps/workflow-definition-language-functions-reference.md#actionOutputs) | Devolva a saída de uma ação no tempo de execução. Ver [saídas](../logic-apps/workflow-definition-language-functions-reference.md#outputs) e [ações.](../logic-apps/workflow-definition-language-functions-reference.md#actions) |
 | [ações](../logic-apps/workflow-definition-language-functions-reference.md#actions) | Devolva a saída de uma ação no prazo de execução, ou valores de outros pares de nome e valor da JSON. Ver também [ação](../logic-apps/workflow-definition-language-functions-reference.md#action).  |
-| [corpo](#body) | Devolva a `body` saída de uma ação no tempo de execução. Ver também [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody). |
+| [corpo](#body) | Devolva a saída de uma ação no tempo de `body` execução. Ver também [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody). |
 | [formDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#formDataMultiValues) | Crie uma matriz com os valores que correspondam a um nome chave em *dados de formulário* ou saídas de ação codificadas por *formulários.* |
 | [formulárioDataValue](../logic-apps/workflow-definition-language-functions-reference.md#formDataValue) | Devolva um único valor que corresponda a um nome-chave nos *dados de formulário* de uma ação ou na saída codificada por *formulários*. |
 | [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | Quando estiver dentro de uma ação repetida sobre uma matriz, devolva o item atual na matriz durante a iteração atual da ação. |
@@ -278,9 +278,9 @@ Para obter a referência completa sobre cada função, consulte a [lista alfabé
 | [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | Devolva o corpo para uma parte específica da saída de uma ação que tenha várias partes. |
 | [saídas](../logic-apps/workflow-definition-language-functions-reference.md#outputs) | Devolva a saída de uma ação no tempo de execução. |
 | [parâmetros](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Devolva o valor de um parâmetro descrito na sua definição de fluxo de trabalho. |
-| [resultado](../logic-apps/workflow-definition-language-functions-reference.md#result) | Devolva as inputs e saídas de todas as ações `For_each` `Until`no `Scope`interior da ação de âmbito especificado, tais como, e . |
+| [resultado](../logic-apps/workflow-definition-language-functions-reference.md#result) | Devolva as inputs e saídas de todas as ações no interior da ação de âmbito especificado, tais `For_each` como, `Until` e `Scope` . |
 | [gatilho](../logic-apps/workflow-definition-language-functions-reference.md#trigger) | Volte a colocar a saída de um gatilho no prazo de execução, ou de outros pares de nome e valor da JSON. Consulte também [gatilhoS saídas](#triggerOutputs) e [gatilhoS](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody). |
-| [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) | Volte a devolver `body` a saída de um gatilho no tempo de execução. Ver [gatilho](../logic-apps/workflow-definition-language-functions-reference.md#trigger). |
+| [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) | Volte a devolver a saída de um gatilho no tempo de `body` execução. Ver [gatilho](../logic-apps/workflow-definition-language-functions-reference.md#trigger). |
 | [triggerFormDataValue](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue) | Devolva um único valor correspondente a um nome-chave em *dados de formulário* ou saídas de gatilho codificadas por *formulários.* |
 | [gatilhoMultipartBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerMultipartBody) | Devolva o corpo para uma parte específica na saída multiparte de um gatilho. |
 | [triggerFormDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataMultiValues) | Crie uma matriz cujos valores correspondam a um nome chave em *dados de formulário* ou saídas de gatilho codificadas por *formulários.* |
@@ -298,12 +298,12 @@ Para obter a referência completa sobre cada função, consulte a [lista alfabé
 
 | Função de parsing URI | Tarefa |
 | -------------------- | ---- |
-| [uriHost](../logic-apps/workflow-definition-language-functions-reference.md#uriHost) | Devolva o valor de `host` um identificador de recursos uniforme (URI). |
-| [uriPath](../logic-apps/workflow-definition-language-functions-reference.md#uriPath) | Devolva o valor de `path` um identificador de recursos uniforme (URI). |
-| [uriPathAndquery](../logic-apps/workflow-definition-language-functions-reference.md#uriPathAndQuery) | Devolva os `path` valores e valores `query` para um identificador de recursos uniforme (URI). |
-| [uriPorto](../logic-apps/workflow-definition-language-functions-reference.md#uriPort) | Devolva o valor de `port` um identificador de recursos uniforme (URI). |
-| [uriQuery](../logic-apps/workflow-definition-language-functions-reference.md#uriQuery) | Devolva o valor de `query` um identificador de recursos uniforme (URI). |
-| [uriScheme](../logic-apps/workflow-definition-language-functions-reference.md#uriScheme) | Devolva o valor de `scheme` um identificador de recursos uniforme (URI). |
+| [uriHost](../logic-apps/workflow-definition-language-functions-reference.md#uriHost) | Devolva o valor de um identificador de `host` recursos uniforme (URI). |
+| [uriPath](../logic-apps/workflow-definition-language-functions-reference.md#uriPath) | Devolva o valor de um identificador de `path` recursos uniforme (URI). |
+| [uriPathAndquery](../logic-apps/workflow-definition-language-functions-reference.md#uriPathAndQuery) | Devolva os `path` valores e `query` valores para um identificador de recursos uniforme (URI). |
+| [uriPorto](../logic-apps/workflow-definition-language-functions-reference.md#uriPort) | Devolva o valor de um identificador de `port` recursos uniforme (URI). |
+| [uriQuery](../logic-apps/workflow-definition-language-functions-reference.md#uriQuery) | Devolva o valor de um identificador de `query` recursos uniforme (URI). |
+| [uriScheme](../logic-apps/workflow-definition-language-functions-reference.md#uriScheme) | Devolva o valor de um identificador de `scheme` recursos uniforme (URI). |
 |||
 
 <a name="manipulation-functions"></a>
@@ -336,9 +336,9 @@ Devolva a produção da ação *atual* no prazo de execução, ou valores de out
 Por predefinição, esta função refere todo o objeto de ação, mas pode especificar opcionalmente uma propriedade cujo valor deseja.
 Ver também [ações()](../logic-apps/workflow-definition-language-functions-reference.md#actions).
 
-Só pode `action()` utilizar a função nestes locais:
+Só pode utilizar a `action()` função nestes locais:
 
-* A `unsubscribe` propriedade para uma ação webhook para que `subscribe` você possa aceder ao resultado do pedido original
+* A propriedade para uma ação webhook para `unsubscribe` que você possa aceder ao resultado do pedido original `subscribe`
 * A `trackedProperties` propriedade para uma ação
 * A `do-until` condição do loop para uma ação
 
@@ -361,8 +361,8 @@ action().outputs.body.<property>
 
 ### <a name="actionbody"></a>actionBody
 
-Devolva a `body` saída de uma ação no tempo de execução.
-Abreviação `actions('<actionName>').outputs.body`para.
+Devolva a saída de uma ação no tempo de `body` execução.
+Abreviação `actions('<actionName>').outputs.body` para.
 Ver [corpo()](#body) e [ações()](#actions).
 
 ```
@@ -371,7 +371,7 @@ actionBody('<actionName>')
 
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*nome de ação*> | Sim | String | O nome para a `body` saída da ação que você quer |
+| <*nome de ação*> | Sim | String | O nome para a saída da ação `body` que você quer |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -381,7 +381,7 @@ actionBody('<actionName>')
 
 *Exemplo*
 
-Este exemplo `body` obtém a `Get user`saída da ação do Twitter:
+Este exemplo obtém a `body` saída da ação do `Get user` Twitter:
 
 ```
 actionBody('Get_user')
@@ -408,7 +408,7 @@ E devolve este resultado:
 
 ### <a name="actionoutputs"></a>actionSaídas
 
-Devolva a saída de uma ação no tempo de execução.  e é abreviado para `actions('<actionName>').outputs`. Ver [ações()](#actions). A `actionOutputs()` função `outputs()` resolve-se no Logic App Designer, por isso `actionOutputs()`considere usar [saídas() em](#outputs)vez de . Embora ambas as funções `outputs()` funcionem da mesma forma, é preferível.
+Devolva a saída de uma ação no tempo de execução.  e é abreviado para `actions('<actionName>').outputs` . Ver [ações()](#actions). A `actionOutputs()` função resolve-se `outputs()` no Logic App Designer, por isso considere usar [saídas() em](#outputs)vez de `actionOutputs()` . Embora ambas as funções funcionem da mesma forma, `outputs()` é preferível.
 
 ```
 actionOutputs('<actionName>')
@@ -426,7 +426,7 @@ actionOutputs('<actionName>')
 
 *Exemplo*
 
-Este exemplo obtém a `Get user`saída da ação do Twitter:
+Este exemplo obtém a saída da ação do `Get user` Twitter:
 
 ```
 actionOutputs('Get_user')
@@ -476,8 +476,8 @@ Para versões abreviadas, consulte [actionBody()](#actionBody), [actionOutputs()
 Para a ação em curso, consulte [a ação()](#action).
 
 > [!NOTE]
-> Anteriormente, poderia utilizar `actions()` a `conditions` função ou o elemento ao especificar que uma ação decorreu com base na saída de outra ação. No entanto, para declarar explicitamente dependências entre ações, deve agora usar os bens da `runAfter` ação dependente.
-> Para saber mais `runAfter` sobre a propriedade, consulte [Catch e lide com falhas com a propriedade runAfter](../logic-apps/logic-apps-workflow-definition-language.md).
+> Anteriormente, poderia utilizar a `actions()` função ou o `conditions` elemento ao especificar que uma ação decorreu com base na saída de outra ação. No entanto, para declarar explicitamente dependências entre ações, deve agora usar os bens da ação `runAfter` dependente.
+> Para saber mais sobre a `runAfter` propriedade, consulte [Catch e lide com falhas com a propriedade runAfter](../logic-apps/logic-apps-workflow-definition-language.md).
 
 ```
 actions('<actionName>')
@@ -497,7 +497,7 @@ actions('<actionName>').outputs.body.<property>
 
 *Exemplo*
 
-Este exemplo `status` obtém o valor `Get user` da propriedade da ação do Twitter em tempo de execução:
+Este exemplo obtém o `status` valor da propriedade da ação do Twitter em tempo de `Get user` execução:
 
 ```
 actions('Get_user').outputs.body.status
@@ -704,7 +704,7 @@ addProperty(<object>['<parent-property>'], '<child-property>', <value>)
 
 *Exemplo 1*
 
-Este exemplo `middleName` adiciona a propriedade a um objeto JSON, que é convertido de uma corda para JSON utilizando a função [JSON()](#json) O objeto já `firstName` `surName` inclui as propriedades e propriedades. A função atribui o valor especificado à nova propriedade e devolve o objeto atualizado:
+Este exemplo adiciona a `middleName` propriedade a um objeto JSON, que é convertido de uma corda para JSON utilizando a função [JSON()](#json) O objeto já inclui as `firstName` `surName` propriedades e propriedades. A função atribui o valor especificado à nova propriedade e devolve o objeto atualizado:
 
 ```
 addProperty(json('{ "firstName": "Sophia", "lastName": "Owen" }'), 'middleName', 'Anne')
@@ -731,7 +731,7 @@ Aqui está o objeto jSON atualizado:
 
 *Exemplo 2*
 
-Este exemplo `middleName` adiciona a propriedade `customerName` da criança à propriedade existente num objeto JSON, que é convertido de uma corda para JSON utilizando a função [JSON()](#json) A função atribui o valor especificado à nova propriedade e devolve o objeto atualizado:
+Este exemplo adiciona a `middleName` propriedade da criança à propriedade existente num objeto `customerName` JSON, que é convertido de uma corda para JSON utilizando a função [JSON()](#json) A função atribui o valor especificado à nova propriedade e devolve o objeto atualizado:
 
 ```
 addProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }')['customerName'], 'middleName', 'Anne')
@@ -879,9 +879,9 @@ and(false, false)
 
 E devolve estes resultados:
 
-* Primeiro exemplo: Ambas as expressões `true`são verdadeiras, por isso os retornos.
-* Segundo exemplo: Uma expressão é `false`falsa, por isso devolve.
-* Terceiro exemplo: Ambas as expressões `false`são falsas, por isso devoluções .
+* Primeiro exemplo: Ambas as expressões são verdadeiras, por isso os `true` retornos.
+* Segundo exemplo: Uma expressão é falsa, por isso `false` devolve.
+* Terceiro exemplo: Ambas as expressões são falsas, por isso devoluções `false` .
 
 *Exemplo 2*
 
@@ -895,9 +895,9 @@ and(equals(1, 2), equals(1, 3))
 
 E devolve estes resultados:
 
-* Primeiro exemplo: Ambas as expressões `true`são verdadeiras, por isso os retornos.
-* Segundo exemplo: Uma expressão é `false`falsa, por isso devolve.
-* Terceiro exemplo: Ambas as expressões `false`são falsas, por isso devoluções .
+* Primeiro exemplo: Ambas as expressões são verdadeiras, por isso os `true` retornos.
+* Segundo exemplo: Uma expressão é falsa, por isso `false` devolve.
+* Terceiro exemplo: Ambas as expressões são falsas, por isso devoluções `false` .
 
 <a name="array"></a>
 
@@ -1067,8 +1067,8 @@ E devolve este resultado:
 
 ### <a name="body"></a>body
 
-Devolva a `body` saída de uma ação no tempo de execução.
-Abreviação `actions('<actionName>').outputs.body`para.
+Devolva a saída de uma ação no tempo de `body` execução.
+Abreviação `actions('<actionName>').outputs.body` para.
 Ver [actionBody()](#actionBody) e [ações()](#actions).
 
 ```
@@ -1077,7 +1077,7 @@ body('<actionName>')
 
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*nome de ação*> | Sim | String | O nome para a `body` saída da ação que você quer |
+| <*nome de ação*> | Sim | String | O nome para a saída da ação `body` que você quer |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -1087,7 +1087,7 @@ body('<actionName>')
 
 *Exemplo*
 
-Este exemplo `body` obtém `Get user` a saída da ação do Twitter:
+Este exemplo obtém a `body` saída da ação do `Get user` Twitter:
 
 ```
 body('Get_user')
@@ -1157,7 +1157,7 @@ coalesce(<object_1>, <object_2>, ...)
 
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*object_1*>,> *de object_2* <, ... | Sim | Qualquer, pode misturar tipos | Um ou mais itens para verificar se há nulos |
+| <*object_1*>, <*object_2*>, ... | Sim | Qualquer, pode misturar tipos | Um ou mais itens para verificar se há nulos |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -1451,7 +1451,7 @@ E devolve este resultado:`"data:text/plain;charset=utf-8;base64,aGVsbG8="`
 
 Devolva a versão binária para um identificador de recursos uniforme de dados (URI).
 Utilize esta função em vez [de descodificarDataUri()](#decodeDataUri).
-Embora ambas as funções `dataUriBinary()` funcionem da mesma forma, é preferível.
+Embora ambas as funções funcionem da mesma forma, `dataUriBinary()` é preferível.
 
 ```
 dataUriToBinary('<value>')
@@ -1612,7 +1612,7 @@ Esta função é depreciada, por isso, por favor, utilize o [base64ToString()](#
 
 ### <a name="decodedatauri"></a>descodificarDataUri
 
-Devolva a versão binária para um identificador de recursos uniforme de dados (URI). Considere utilizar [dadosUriToBinary() ()](#dataUriToBinary)em vez de `decodeDataUri()`. Embora ambas as funções `dataUriToBinary()` funcionem da mesma forma, é preferível.
+Devolva a versão binária para um identificador de recursos uniforme de dados (URI). Considere utilizar [dadosUriToBinary() ()](#dataUriToBinary)em vez de `decodeDataUri()` . Embora ambas as funções funcionem da mesma forma, `dataUriToBinary()` é preferível.
 
 > [!NOTE]
 > As Aplicações Lógicas Azure executam automaticamente a codificação e descodificação base64, o que significa que não é necessário realizar manualmente estas conversões. No entanto, se o fizer, poderá experimentar comportamentos de exibição inesperados, que não afetam as conversões reais, apenas como são mostradas. Para mais informações, consulte [Conversões implícitas do tipo de dados](#implicit-data-conversions).
@@ -1713,7 +1713,7 @@ E devolva este resultado:`2`
 
 ### <a name="encodeuricomponent"></a>codificar Componente UriUri
 
-Volte a colocar uma versão codificada por um identificador de recursos uniforme (URI) para uma cadeia, substituindo caracteres inseguros de URL por caracteres de fuga. Considere utilizar [uriComponent()](#uriComponent) `encodeUriComponent()`em vez de . Embora ambas as funções `uriComponent()` funcionem da mesma forma, é preferível.
+Volte a colocar uma versão codificada por um identificador de recursos uniforme (URI) para uma cadeia, substituindo caracteres inseguros de URL por caracteres de fuga. Considere utilizar [uriComponent()](#uriComponent)em vez de `encodeUriComponent()` . Embora ambas as funções funcionem da mesma forma, `uriComponent()` é preferível.
 
 > [!NOTE]
 > As Aplicações Lógicas Azure executam automaticamente a codificação e descodificação base64, o que significa que não é necessário realizar manualmente estas conversões. No entanto, se o fizer, poderá experimentar comportamentos de exibição inesperados, que não afetam as conversões reais, apenas como são mostradas. Para mais informações, consulte [Conversões implícitas do tipo de dados](#implicit-data-conversions).
@@ -1775,8 +1775,8 @@ empty('abc')
 
 E devolve estes resultados:
 
-* Primeiro exemplo: Passa uma corda vazia, `true`para que a função retorne .
-* Segundo exemplo: passa a corda "abc", `false`para que a função retorne.
+* Primeiro exemplo: Passa uma corda vazia, para que a função retorne `true` .
+* Segundo exemplo: passa a corda "abc", para que a função `false` retorne.
 
 <a name="endswith"></a>
 
@@ -1853,8 +1853,8 @@ equals('abc', 'abcd')
 
 E devolve estes resultados:
 
-* Primeiro exemplo: Ambos os valores são `true`equivalentes, pelo que a função retorna .
-* Segundo exemplo: Ambos os valores não são `false`equivalentes, pelo que a função retorna .
+* Primeiro exemplo: Ambos os valores são equivalentes, pelo que a função retorna `true` .
+* Segundo exemplo: Ambos os valores não são equivalentes, pelo que a função retorna `false` .
 
 <a name="first"></a>
 
@@ -2029,18 +2029,18 @@ formatNumber(<number>, <format>, <locale>?)
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*número*> | Sim | Inteiro ou Duplo | O valor que quer formatar. |
-| <*formato*> | Sim | String | Uma cadeia de formato composto que especifica o formato que pretende utilizar. Para as cordas de formato numérico suportadas, consulte as `number.ToString(<format>, <locale>)`cordas de [formato numérico Standard,](https://docs.microsoft.com/dotnet/standard/base-types/standard-numeric-format-strings)que são suportadas por . |
-| <*local*> | Não | String | O local a usar como `number.ToString(<format>, <locale>)`apoiado por . Se não especificado, o `en-us`valor predefinido é . |
+| <*formato*> | Sim | String | Uma cadeia de formato composto que especifica o formato que pretende utilizar. Para as cordas de formato numérico suportadas, consulte [as cordas de formato numérico Standard,](https://docs.microsoft.com/dotnet/standard/base-types/standard-numeric-format-strings)que são suportadas por `number.ToString(<format>, <locale>)` . |
+| <*local*> | Não | String | O local a usar como apoiado por `number.ToString(<format>, <locale>)` . Se não especificado, o valor predefinido é `en-us` . |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*número formatado*> | String | O número especificado como uma cadeia no formato que especificou. Pode lançar este valor `int` de `float`devolução a um ou . |
+| <*número formatado*> | String | O número especificado como uma cadeia no formato que especificou. Pode lançar este valor de devolução a um `int` ou `float` . |
 ||||
 
 *Exemplo 1*
 
-Suponha que queira `1234567890`formatar o número. Este exemplo formata esse número como a corda "1.234.567.890,00".
+Suponha que queira formatar o `1234567890` número. Este exemplo formata esse número como a corda "1.234.567.890,00".
 
 ```
 formatNumber(1234567890, '{0:0,0.00}', 'en-us')
@@ -2048,7 +2048,7 @@ formatNumber(1234567890, '{0:0,0.00}', 'en-us')
 
 *Exemplo 2"
 
-Suponha que queira `1234567890`formatar o número. Este exemplo formata o número para a corda "1.234.567.890,00".
+Suponha que queira formatar o `1234567890` número. Este exemplo formata o número para a corda "1.234.567.890,00".
 
 ```
 formatNumber(1234567890, '{0:0,0.00}', 'is-is')
@@ -2056,7 +2056,7 @@ formatNumber(1234567890, '{0:0,0.00}', 'is-is')
 
 *Exemplo 3*
 
-Suponha que queira `17.35`formatar o número. Este exemplo formata o número para a corda "$17.35".
+Suponha que queira formatar o `17.35` número. Este exemplo formata o número para a corda "$17.35".
 
 ```
 formatNumber(17.36, 'C2')
@@ -2064,7 +2064,7 @@ formatNumber(17.36, 'C2')
 
 *Exemplo 4*
 
-Suponha que queira `17.35`formatar o número. Este exemplo formata o número para a corda "17,35 kr".
+Suponha que queira formatar o `17.35` número. Este exemplo formata o número para a corda "17,35 kr".
 
 ```
 formatNumber(17.36, 'C2', 'is-is')
@@ -2292,8 +2292,8 @@ if(<expression>, <valueIfTrue>, <valueIfFalse>)
 
 *Exemplo*
 
-Este exemplo `"yes"` retorna porque a expressão especificada retorna verdadeira.
-Caso contrário, o `"no"`exemplo retorna:
+Este exemplo retorna `"yes"` porque a expressão especificada retorna verdadeira.
+Caso contrário, o exemplo `"no"` retorna:
 
 ```
 if(equals(1, 1), 'yes', 'no')
@@ -2379,7 +2379,7 @@ item()
 
 *Exemplo*
 
-Este exemplo `body` obtém o elemento da mensagem atual para a ação "Send_an_email" dentro da iteração atual de cada loop:
+Este exemplo obtém o `body` elemento da mensagem atual para a ação "Send_an_email" dentro da iteração atual de cada loop:
 
 ```
 item().body
@@ -2436,7 +2436,7 @@ iterationIndexes('<loopName>')
 
 *Exemplo* 
 
-Este exemplo cria uma contra variável e incrementos que variáveis por um durante cada iteração em loop Until até que o valor de contador atinja cinco. O exemplo também cria uma variável que acompanha o índice atual para cada iteração. No lacete Until, durante cada iteração, o exemplo incrementa o contador e atribui o valor de contador ao valor do índice atual e, em seguida, incrementa o contador. Enquanto no loop, este exemplo refere o `iterationIndexes` índice de iteração atual utilizando a função:
+Este exemplo cria uma contra variável e incrementos que variáveis por um durante cada iteração em loop Until até que o valor de contador atinja cinco. O exemplo também cria uma variável que acompanha o índice atual para cada iteração. No lacete Until, durante cada iteração, o exemplo incrementa o contador e atribui o valor de contador ao valor do índice atual e, em seguida, incrementa o contador. Enquanto no loop, este exemplo refere o índice de iteração atual utilizando a `iterationIndexes` função:
 
 `iterationIndexes('Until_Max_Increment')`
 
@@ -2635,7 +2635,7 @@ join([<collection>], '<delimiter>')
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*char1*><*delimitador*><*char2*><*delimitador*>... | String | A cadeia resultante criada a partir de todos os itens na matriz especificada |
+| <*char1* >< *delimitador* >< *char2* >< *delimitador*>... | String | A cadeia resultante criada a partir de todos os itens na matriz especificada |
 ||||
 
 *Exemplo*
@@ -3029,8 +3029,8 @@ not(true)
 
 E devolver estes resultados:
 
-* Primeiro exemplo: A expressão é falsa, `true`por isso a função retorna .
-* Segundo exemplo: A expressão é verdadeira, `false`por isso a função retorna .
+* Primeiro exemplo: A expressão é falsa, por isso a função retorna `true` .
+* Segundo exemplo: A expressão é verdadeira, por isso a função retorna `false` .
 
 *Exemplo 2*
 
@@ -3043,8 +3043,8 @@ not(equals(1, 1))
 
 E devolver estes resultados:
 
-* Primeiro exemplo: A expressão é falsa, `true`por isso a função retorna .
-* Segundo exemplo: A expressão é verdadeira, `false`por isso a função retorna .
+* Primeiro exemplo: A expressão é falsa, por isso a função retorna `true` .
+* Segundo exemplo: A expressão é verdadeira, por isso a função retorna `false` .
 
 <a name="or"></a>
 
@@ -3078,8 +3078,8 @@ or(false, false)
 
 E devolver estes resultados:
 
-* Primeiro exemplo: Pelo menos uma expressão é `true`verdadeira, pelo que a função retorna .
-* Segundo exemplo: Ambas as expressões são `false`falsas, pelo que a função retorna .
+* Primeiro exemplo: Pelo menos uma expressão é verdadeira, pelo que a função retorna `true` .
+* Segundo exemplo: Ambas as expressões são falsas, pelo que a função retorna `false` .
 
 *Exemplo 2*
 
@@ -3092,14 +3092,14 @@ or(equals(1, 2), equals(1, 3))
 
 E devolver estes resultados:
 
-* Primeiro exemplo: Pelo menos uma expressão é `true`verdadeira, pelo que a função retorna .
-* Segundo exemplo: Ambas as expressões são `false`falsas, pelo que a função retorna .
+* Primeiro exemplo: Pelo menos uma expressão é verdadeira, pelo que a função retorna `true` .
+* Segundo exemplo: Ambas as expressões são falsas, pelo que a função retorna `false` .
 
 <a name="outputs"></a>
 
 ### <a name="outputs"></a>saídas
 
-Devolva as saídas de uma ação no tempo de execução. Utilize esta função, em vez de `actionOutputs()`, que se resolve `outputs()` no Logic App Designer. Embora ambas as funções `outputs()` funcionem da mesma forma, é preferível.
+Devolva as saídas de uma ação no tempo de execução. Utilize esta função, em vez `actionOutputs()` de , que se resolve no Logic App `outputs()` Designer. Embora ambas as funções funcionem da mesma forma, `outputs()` é preferível.
 
 ```
 outputs('<actionName>')
@@ -3117,7 +3117,7 @@ outputs('<actionName>')
 
 *Exemplo*
 
-Este exemplo obtém a `Get user`saída da ação do Twitter:
+Este exemplo obtém a saída da ação do `Get user` Twitter:
 
 ```
 outputs('Get_user')
@@ -3225,7 +3225,7 @@ Este exemplo obtém um inteiro aleatório da gama especificada, excluindo o valo
 rand(1, 5)
 ```
 
-E devolve um destes números `2` `3`como resultado: `1`, , ou`4`
+E devolve um destes números como resultado: `1` `2` , , `3` ou`4`
 
 <a name="range"></a>
 
@@ -3331,7 +3331,7 @@ removeProperty(<object>['<parent-property>'], '<child-property>')
 
 *Exemplo 1*
 
-Este exemplo remove `middleName` a propriedade de um objeto JSON, que é convertido de uma corda para JSON utilizando a função [JSON()](#json) e devolve o objeto atualizado:
+Este exemplo remove a `middleName` propriedade de um objeto JSON, que é convertido de uma corda para JSON utilizando a função [JSON()](#json) e devolve o objeto atualizado:
 
 ```
 removeProperty(json('{ "firstName": "Sophia", "middleName": "Anne", "surName": "Owen" }'), 'middleName')
@@ -3358,7 +3358,7 @@ Aqui está o objeto jSON atualizado:
 
 *Exemplo 2*
 
-Este exemplo remove `middleName` a propriedade `customerName` da criança de uma propriedade dos pais num objeto JSON, que é convertido de uma corda para JSON utilizando a função [JSON()](#json) e devolve o objeto atualizado:
+Este exemplo remove a `middleName` propriedade da criança de uma propriedade dos pais num objeto `customerName` JSON, que é convertido de uma corda para JSON utilizando a função [JSON()](#json) e devolve o objeto atualizado:
 
 ```
 removeProperty(json('{ "customerName": { "firstName": "Sophia", "middleName": "Anne", "surName": "Owen" } }')['customerName'], 'middleName')
@@ -3391,7 +3391,7 @@ Aqui está o objeto jSON atualizado:
 
 ### <a name="result"></a>result
 
-Devolva as inputs e saídas de todas as ações que `For_each`estejam `Until`dentro `Scope` da ação de âmbito especificado, tais como a , ou ação. Esta função é útil devolvendo os resultados de uma ação falhada para que possa diagnosticar e lidar com exceções. Para mais informações, consulte [O contexto e os resultados para falhas](../logic-apps/logic-apps-exception-handling.md#get-results-from-failures).
+Devolva as inputs e saídas de todas as ações que estejam dentro da ação de âmbito especificado, tais como a `For_each` `Until` , ou `Scope` ação. Esta função é útil devolvendo os resultados de uma ação falhada para que possa diagnosticar e lidar com exceções. Para mais informações, consulte [O contexto e os resultados para falhas](../logic-apps/logic-apps-exception-handling.md#get-results-from-failures).
 
 ```
 result('<scopedActionName>')
@@ -3442,7 +3442,7 @@ Este exemplo devolve as inputs e saídas de cada iteração de uma ação HTTP d
 }
 ```
 
-Aqui está como o exemplo de volta `outputs` array pode olhar onde o objeto exterior contém `For_each` as inputs e saídas de cada iteração das ações dentro da ação.
+Aqui está como o exemplo de volta array pode olhar onde o objeto exterior `outputs` contém as inputs e saídas de cada iteração das ações dentro da `For_each` ação.
 
 ```json
 [
@@ -3525,7 +3525,7 @@ setProperty(<object>, '<property>', <value>)
 | <*valor*> | Sim | Qualquer | O valor a definir para o imóvel especificado |
 |||||
 
-Para colocar a propriedade da criança num `setProperty()` objeto de criança, use uma chamada aninhada. Caso contrário, a função devolve apenas o objeto da criança como saída.
+Para colocar a propriedade da criança num objeto de criança, use uma chamada aninhada. `setProperty()` Caso contrário, a função devolve apenas o objeto da criança como saída.
 
 ```
 setProperty(<object>['<parent-property>'], '<parent-property>', setProperty(<object>['parentProperty'], '<child-property>', <value>))
@@ -3546,7 +3546,7 @@ setProperty(<object>['<parent-property>'], '<parent-property>', setProperty(<obj
 
 *Exemplo 1*
 
-Este exemplo define `surName` a propriedade num objeto JSON, que é convertido de uma corda para JSON utilizando a função [JSON()](#json) A função atribui o valor especificado à propriedade e devolve o objeto atualizado:
+Este exemplo define a `surName` propriedade num objeto JSON, que é convertido de uma corda para JSON utilizando a função [JSON()](#json) A função atribui o valor especificado à propriedade e devolve o objeto atualizado:
 
 ```
 setProperty(json('{ "firstName": "Sophia", "surName": "Owen" }'), 'surName', 'Hartnett')
@@ -3572,7 +3572,7 @@ Aqui está o objeto jSON atualizado:
 
 *Exemplo 2*
 
-Este exemplo define `surName` a propriedade `customerName` da criança para a propriedade dos pais num objeto JSON, que é convertido de uma corda para JSON utilizando a função [JSON()](#json) A função atribui o valor especificado à propriedade e devolve o objeto atualizado:
+Este exemplo define a `surName` propriedade da criança para a propriedade dos pais num objeto `customerName` JSON, que é convertido de uma corda para JSON utilizando a função [JSON()](#json) A função atribui o valor especificado à propriedade e devolve o objeto atualizado:
 
 ```
 setProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }'), 'customerName', setProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }')['customerName'], 'surName', 'Hartnett'))
@@ -3745,7 +3745,7 @@ startOfMonth('<timestamp>', '<format>'?)
 | <*carimbo de tempo atualizado*> | String | A marca de tempo especificada, mas a partir do primeiro dia do mês na marca de zero horas |
 ||||
 
-*Exemplo*
+*Exemplo 1*
 
 Este exemplo devolve o início do mês para este carimbo temporal:
 
@@ -3754,6 +3754,16 @@ startOfMonth('2018-03-15T13:30:30Z')
 ```
 
 E devolve este resultado:`"2018-03-01T00:00:00.0000000Z"`
+
+*Exemplo 2*
+
+Este exemplo devolve o início do mês no formato especificado para este carimbo temporal:
+
+```
+startOfMonth('2018-03-15T13:30:30Z', 'yyyy-MM-dd')
+```
+
+E devolve este resultado:`"2018-03-01"`
 
 <a name="startswith"></a>
 
@@ -3830,7 +3840,7 @@ E devolve este resultado:`"10"`
 
 *Exemplo 2*
 
-Este exemplo cria uma corda para o objeto JSON\\especificado e utiliza o carácter backslash () como um personagem de fuga para a marca de dupla citação (").
+Este exemplo cria uma corda para o objeto JSON especificado e utiliza o carácter backslash \\ () como um personagem de fuga para a marca de dupla citação (").
 
 ```
 string( { "name": "Sophie Owen" } )
@@ -3986,8 +3996,7 @@ E devolver estes resultados:
 
 ### <a name="ticks"></a>tiques
 
-Devolva o valor da `ticks` propriedade por um carimbo de tempo especificado.
-Um *tique* é um intervalo de 100 nanossegundos.
+Devolve o número de carrapatos, que são intervalos de 100 nanossegundos, desde 1 de janeiro, 0001 12:00:00 meia-noite (ou DateTime.Ticks in C#) até à marca de tempo especificada. Para mais informações, consulte este tópico: [DateTime.Ticks Property (System)](https://docs.microsoft.com/dotnet/api/system.datetime.ticks?view=netframework-4.7.2#remarks).
 
 ```
 ticks('<timestamp>')
@@ -4089,8 +4098,8 @@ trigger()
 
 ### <a name="triggerbody"></a>triggerBody
 
-Volte a devolver `body` a saída de um gatilho no tempo de execução.
-Abreviação `trigger().outputs.body`para.
+Volte a devolver a saída de um gatilho no tempo de `body` execução.
+Abreviação `trigger().outputs.body` para.
 Ver [gatilho()](#trigger).
 
 ```
@@ -4188,7 +4197,7 @@ triggerMultipartBody(<index>)
 ### <a name="triggeroutputs"></a>gatilhoSaídas
 
 Volte a colocar a saída de um gatilho no prazo de execução, ou valores de outros pares de nome e valor da JSON.
-Abreviação `trigger().outputs`para.
+Abreviação `trigger().outputs` para.
 Ver [gatilho()](#trigger).
 
 ```
@@ -4268,7 +4277,7 @@ E devolve este resultado:`[1, 2, 3, 10, 101]`
 
 Volte a colocar uma versão codificada por um identificador de recursos uniforme (URI) para uma cadeia, substituindo caracteres inseguros de URL por caracteres de fuga.
 Utilize esta função em vez [de codificar o Componente Uri()](#encodeUriComponent).
-Embora ambas as funções `uriComponent()` funcionem da mesma forma, é preferível.
+Embora ambas as funções funcionem da mesma forma, `uriComponent()` é preferível.
 
 ```
 uriComponent('<value>')
@@ -4311,7 +4320,7 @@ uriComponentToBinary('<value>')
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*binário-para-codificado-uri*> | String | A versão binária para a cadeia codificada por URI. O conteúdo binário é codificado por base64 `$content`e representado por . |
+| <*binário-para-codificado-uri*> | String | A versão binária para a cadeia codificada por URI. O conteúdo binário é codificado por base64 e representado por `$content` . |
 ||||
 
 *Exemplo*
@@ -4363,7 +4372,7 @@ E devolve este resultado:`"https://contoso.com"`
 
 ### <a name="urihost"></a>uriHost
 
-Devolva o valor de `host` um identificador de recursos uniforme (URI).
+Devolva o valor de um identificador de `host` recursos uniforme (URI).
 
 ```
 uriHost('<uri>')
@@ -4371,7 +4380,7 @@ uriHost('<uri>')
 
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*uri*> | Sim | String | O URI `host` cujo valor quer |
+| <*uri*> | Sim | String | O URI cujo `host` valor quer |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -4381,7 +4390,7 @@ uriHost('<uri>')
 
 *Exemplo*
 
-Este exemplo `host` encontra o valor para este URI:
+Este exemplo encontra o `host` valor para este URI:
 
 ```
 uriHost('https://www.localhost.com:8080')
@@ -4393,7 +4402,7 @@ E devolve este resultado:`"www.localhost.com"`
 
 ### <a name="uripath"></a>uriPath
 
-Devolva o valor de `path` um identificador de recursos uniforme (URI).
+Devolva o valor de um identificador de `path` recursos uniforme (URI).
 
 ```
 uriPath('<uri>')
@@ -4401,7 +4410,7 @@ uriPath('<uri>')
 
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*uri*> | Sim | String | O URI `path` cujo valor quer |
+| <*uri*> | Sim | String | O URI cujo `path` valor quer |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -4411,7 +4420,7 @@ uriPath('<uri>')
 
 *Exemplo*
 
-Este exemplo `path` encontra o valor para este URI:
+Este exemplo encontra o `path` valor para este URI:
 
 ```
 uriPath('http://www.contoso.com/catalog/shownew.htm?date=today')
@@ -4423,7 +4432,7 @@ E devolve este resultado:`"/catalog/shownew.htm"`
 
 ### <a name="uripathandquery"></a>uriPathAndquery
 
-Devolva os `path` valores e valores `query` para um identificador de recursos uniforme (URI).
+Devolva os `path` valores e `query` valores para um identificador de recursos uniforme (URI).
 
 ```
 uriPathAndQuery('<uri>')
@@ -4431,7 +4440,7 @@ uriPathAndQuery('<uri>')
 
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*uri*> | Sim | String | O URI `path` `query` cujos e valores quer |
+| <*uri*> | Sim | String | O URI cujos `path` e `query` valores quer |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -4441,7 +4450,7 @@ uriPathAndQuery('<uri>')
 
 *Exemplo*
 
-Este exemplo `path` encontra `query` os valores e valores para este URI:
+Este exemplo encontra os `path` valores e `query` valores para este URI:
 
 ```
 uriPathAndQuery('http://www.contoso.com/catalog/shownew.htm?date=today')
@@ -4453,7 +4462,7 @@ E devolve este resultado:`"/catalog/shownew.htm?date=today"`
 
 ### <a name="uriport"></a>uriPorto
 
-Devolva o valor de `port` um identificador de recursos uniforme (URI).
+Devolva o valor de um identificador de `port` recursos uniforme (URI).
 
 ```
 uriPort('<uri>')
@@ -4461,7 +4470,7 @@ uriPort('<uri>')
 
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*uri*> | Sim | String | O URI `port` cujo valor quer |
+| <*uri*> | Sim | String | O URI cujo `port` valor quer |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -4471,7 +4480,7 @@ uriPort('<uri>')
 
 *Exemplo*
 
-Este exemplo `port` devolve o valor para este URI:
+Este exemplo devolve o `port` valor para este URI:
 
 ```
 uriPort('http://www.localhost:8080')
@@ -4483,7 +4492,7 @@ E devolve este resultado:`8080`
 
 ### <a name="uriquery"></a>uriQuery
 
-Devolva o valor de `query` um identificador de recursos uniforme (URI).
+Devolva o valor de um identificador de `query` recursos uniforme (URI).
 
 ```
 uriQuery('<uri>')
@@ -4491,7 +4500,7 @@ uriQuery('<uri>')
 
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*uri*> | Sim | String | O URI `query` cujo valor quer |
+| <*uri*> | Sim | String | O URI cujo `query` valor quer |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -4501,7 +4510,7 @@ uriQuery('<uri>')
 
 *Exemplo*
 
-Este exemplo `query` devolve o valor para este URI:
+Este exemplo devolve o `query` valor para este URI:
 
 ```
 uriQuery('http://www.contoso.com/catalog/shownew.htm?date=today')
@@ -4513,7 +4522,7 @@ E devolve este resultado:`"?date=today"`
 
 ### <a name="urischeme"></a>uriScheme
 
-Devolva o valor de `scheme` um identificador de recursos uniforme (URI).
+Devolva o valor de um identificador de `scheme` recursos uniforme (URI).
 
 ```
 uriScheme('<uri>')
@@ -4521,7 +4530,7 @@ uriScheme('<uri>')
 
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*uri*> | Sim | String | O URI `scheme` cujo valor quer |
+| <*uri*> | Sim | String | O URI cujo `scheme` valor quer |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -4531,7 +4540,7 @@ uriScheme('<uri>')
 
 *Exemplo*
 
-Este exemplo `scheme` devolve o valor para este URI:
+Este exemplo devolve o `scheme` valor para este URI:
 
 ```
 uriScheme('http://www.contoso.com/catalog/shownew.htm?date=today')
@@ -4650,7 +4659,7 @@ xml('<value>')
 
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Sim | String | A corda com o objeto JSON para converter <p>O objeto JSON deve ter apenas uma propriedade de raiz, que não pode ser uma matriz. <br>Use o carácter\\backslash () como um personagem de fuga para a marca de citação dupla ("). |
+| <*valor*> | Sim | String | A corda com o objeto JSON para converter <p>O objeto JSON deve ter apenas uma propriedade de raiz, que não pode ser uma matriz. <br>Use o carácter backslash \\ () como um personagem de fuga para a marca de citação dupla ("). |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -4721,7 +4730,7 @@ xpath('<xml>', '<xpath>')
 
 *Exemplo 1*
 
-Este exemplo encontra nós que `<name></name>` combinam com o nó nos argumentos especificados, e devolve uma matriz com esses valores de nó:
+Este exemplo encontra nós que combinam com o `<name></name>` nó nos argumentos especificados, e devolve uma matriz com esses valores de nó:
 
 `xpath(xml(parameters('items')), '/produce/item/name')`
 
@@ -4737,13 +4746,13 @@ Aqui estão os argumentos:
 
   `"/produce/item/name"`
 
-Aqui está o conjunto de resultados `<name></name`com os nós que combinam:
+Aqui está o conjunto de resultados com os nós que `<name></name` combinam:
 
 `[ <name>Gala</name>, <name>Honeycrisp</name> ]`
 
 *Exemplo 2*
 
-Seguindo o Exemplo 1, este exemplo encontra `<count></count>` nós que combinam com o `sum()` nó e adiciona esses valores de nó com a função:
+Seguindo o Exemplo 1, este exemplo encontra nós que combinam com o `<count></count>` nó e adiciona esses valores de nó com a `sum()` função:
 
 `xpath(xml(parameters('items')), 'sum(/produce/item/count)')`
 
@@ -4751,11 +4760,11 @@ E devolve este resultado:`30`
 
 *Exemplo 3*
 
-Para este exemplo, ambas as expressões `<location></location>` encontram nós que combinam com o nó, nos argumentos especificados, que incluem XML com um espaço de nome. 
+Para este exemplo, ambas as expressões encontram nós que combinam com o `<location></location>` nó, nos argumentos especificados, que incluem XML com um espaço de nome. 
 
 > [!NOTE]
 >
-> Se estiver a trabalhar em vista de código, escape da marca de\\citação dupla (") utilizando o caracteres backslash (). 
+> Se estiver a trabalhar em vista de código, escape da marca de citação dupla (") utilizando o caracteres backslash \\ (). 
 > Por exemplo, precisa de usar caracteres de fuga quando serializar uma expressão como uma corda JSON. 
 > No entanto, se estiver a trabalhar no Logic App Designer ou editor de expressão, não precisa de escapar à marca de citação dupla porque o carácter backslash é adicionado automaticamente à definição subjacente, por exemplo:
 > 
@@ -4775,7 +4784,7 @@ Para este exemplo, ambas as expressões `<location></location>` encontram nós q
 
 Aqui estão os argumentos:
 
-* Este XML, que inclui o espaço `xmlns="http://contoso.com"`de nome do documento XML,
+* Este XML, que inclui o espaço de nome do documento `xmlns="http://contoso.com"` XML,
 
   ```xml
   <?xml version="1.0"?> <file xmlns="http://contoso.com"> <location>Paris</location> </file>
@@ -4787,7 +4796,7 @@ Aqui estão os argumentos:
 
   * `/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]`
 
-Aqui está o nó de `<location></location>` resultados que combina com o nó:
+Aqui está o nó de resultados que combina com o `<location></location>` nó:
 
 ```xml
 <location xmlns="https://contoso.com">Paris</location>
@@ -4795,7 +4804,7 @@ Aqui está o nó de `<location></location>` resultados que combina com o nó:
 
 *Exemplo 4*
 
-Seguindo o Exemplo 3, este exemplo `<location></location>` encontra o valor no nó:
+Seguindo o Exemplo 3, este exemplo encontra o valor no `<location></location>` nó:
 
 `xpath(xml(body('Http')), 'string(/*[name()="file"]/*[name()="location"])')`
 

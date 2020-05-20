@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8358d3378ea892ebeef653bcb51243c9f1aa0b8d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 36027583d64ac91432888d866440932c6e1bdd07
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259776"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83635452"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Solicite um sinal de acesso no Diretório Ativo Azure B2C
 
@@ -33,7 +33,7 @@ Este artigo mostra-lhe como solicitar um sinal de acesso para uma aplicação we
 
 ## <a name="scopes"></a>Âmbitos
 
-Os âmbitos fornecem uma forma de gerir permissões para recursos protegidos. Quando é solicitada uma ficha de acesso, a aplicação do cliente necessita de especificar as permissões desejadas no parâmetro de **âmbito** do pedido. Por exemplo, para especificar `read` o Valor de **Âmbito** da API que tem o ID app **URI** de `https://contoso.onmicrosoft.com/api`, o âmbito seria `https://contoso.onmicrosoft.com/api/read`.
+Os âmbitos fornecem uma forma de gerir permissões para recursos protegidos. Quando é solicitada uma ficha de acesso, a aplicação do cliente necessita de especificar as permissões desejadas no parâmetro de **âmbito** do pedido. Por exemplo, para especificar o **Valor de Âmbito** da `read` API que tem o ID app **URI** de , o âmbito `https://contoso.onmicrosoft.com/api` seria `https://contoso.onmicrosoft.com/api/read` .
 
 São utilizados pela API Web para implementar o controlo de acesso baseado no âmbito. Por exemplo, os utilizadores da API Web podem ter acesso de leitura e escrita ou podem ter apenas acesso só de leitura. Para adquirir múltiplas permissões no mesmo pedido, pode adicionar múltiplas entradas no parâmetro de **âmbito** único do pedido, separados por espaços.
 
@@ -54,11 +54,11 @@ Se solicitar mais âmbitos do que o concedido para o seu pedido de cliente, a ch
 - **openid** - Solicita um símbolo de identificação.
 - **offline_access** - Solicita um token de atualização utilizando [fluxos de Código Auth](authorization-code-flow.md).
 
-Se **response_type** o parâmetro response_type `/authorize` num `token`pedido incluir, o parâmetro de **âmbito** `openid` deve `offline_access` incluir pelo menos um âmbito de recurso diferente e que será concedido. Caso contrário, `/authorize` o pedido falha.
+Se o parâmetro **response_type** num `/authorize` pedido incluir, o parâmetro de âmbito deve incluir pelo menos um âmbito de recurso diferente e que será `token` **scope** `openid` `offline_access` concedido. Caso contrário, o `/authorize` pedido falha.
 
 ## <a name="request-a-token"></a>Solicite um símbolo
 
-Para pedir um sinal de acesso, precisa de um código de autorização. Abaixo está um exemplo de `/authorize` um pedido ao ponto final de um código de autorização. Os domínios personalizados não são suportados para uso com fichas de acesso. Utilize o seu domínio tenant-name.onmicrosoft.com no URL de pedido.
+Para pedir um sinal de acesso, precisa de um código de autorização. Abaixo está um exemplo de um pedido ao ponto final de um código de `/authorize` autorização. Os domínios personalizados não são suportados para uso com fichas de acesso. Utilize o seu domínio tenant-name.onmicrosoft.com no URL de pedido.
 
 No exemplo seguinte, substitui estes valores:
 
@@ -85,7 +85,7 @@ https://jwt.ms/?code=eyJraWQiOiJjcGltY29yZV8wOTI1MjAxNSIsInZlciI6IjEuMC...
 Depois de receber com sucesso o código de autorização, pode usá-lo para solicitar um sinal de acesso:
 
 ```HTTP
-POST <tenant-name>.onmicrosoft.com/oauth2/v2.0/token?p=<policy-name> HTTP/1.1
+POST <tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/token HTTP/1.1
 Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
@@ -111,7 +111,7 @@ Deve ver algo semelhante à seguinte resposta:
 }
 ```
 
-Ao https://jwt.ms utilizar para examinar o sinal de acesso que foi devolvido, deve ver algo semelhante ao seguinte exemplo:
+Ao utilizar para examinar o sinal de https://jwt.ms acesso que foi devolvido, deve ver algo semelhante ao seguinte exemplo:
 
 ```JSON
 {

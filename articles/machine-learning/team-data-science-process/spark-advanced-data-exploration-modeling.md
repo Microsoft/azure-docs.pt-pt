@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 15d9d186ef36ee9181a6ce0386aa9cc5de7838e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c166684484b839ec661ae2e68d5a5e5253d2528f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76718656"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83634515"
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>Exploração e modelação avançada de dados com o Spark
 
@@ -54,11 +54,11 @@ Os passos e códigode configuração são fornecidos neste walkthrough para a ut
 
 ### <a name="spark-16-notebooks"></a>Cadernos Spark 1.6
 
-[pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): Inclui tópicos em #1 de cadernos, e desenvolvimento de modelos utilizando a finação e validação cruzada do hiperparâmetro.
+[pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure-Samples/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): Inclui tópicos em #1 de cadernos, e desenvolvimento de modelos utilizando a finação e validação cruzada do hiperparâmetro.
 
 ### <a name="spark-20-notebooks"></a>Cadernos Spark 2.0
 
-[Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): Este ficheiro fornece informações sobre como realizar a exploração de dados, modelação e pontuação em clusters Spark 2.0.
+[Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure-Samples/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): Este ficheiro fornece informações sobre como realizar a exploração de dados, modelação e pontuação em clusters Spark 2.0.
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -116,7 +116,7 @@ Os núcleos PySpark que são fornecidos com cadernos Jupyter têm um contexto pr
 O kernel PySpark fornece algumas "magias" predefinidas, que são comandos especiais que se pode chamar com %%. Há dois comandos que são usados nestas amostras de código.
 
 * **%%local** Especifica que o código nas linhas subsequentes deve ser executado localmente. O código deve ser válido código Python.
-* **%%sql -o \<nome variável>** Executa uma consulta de Colmeia contra o sqlContext. Se o parâmetro -o for passado, o resultado da consulta é persistente no contexto %%local python como um Pandas DataFrame.
+* **%%sql -o \< nome variável>** executa uma consulta da Colmeia contra o sqlContext. Se o parâmetro -o for passado, o resultado da consulta é persistente no contexto %%local python como um Pandas DataFrame.
 
 Para obter mais informações sobre os núcleos dos cadernos Jupyter e as "magias" predefinidas que fornecem, consulte [os Kernels disponíveis para os cadernos Jupyter com clusters HDInsight Spark Linux no HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
 
@@ -197,8 +197,8 @@ Uma vez que os dados tenham sido trazidos para a Spark, o próximo passo no proc
 ### <a name="plot-a-histogram-of-passenger-count-frequencies-in-the-sample-of-taxi-trips"></a>Defina um histograma de frequências de contagem de passageiros na amostra de viagens de táxi
 Este código e os subsequentes snippets usam magia SQL para consultar a amostra e a magia local para traçar os dados.
 
-* **Magia SQL`%%sql`()** O kernel PySpark HDInsight suporta consultas fáceis de linha HiveQL contra o sqlContext. O argumento (-o VARIABLE_NAME) persiste a saída da consulta SQL como um Pandas DataFrame no servidor Jupyter. Isto significa que está disponível no modo local.
-* A ** `%%local` magia** é usada para executar código localmente no servidor Jupyter, que é o headnode do cluster HDInsight. Normalmente, usas `%%local` magia `%%sql -o` depois da magia ser usada para fazer uma consulta. O parâmetro -o persistiria a saída da consulta SQL localmente. Em `%%local` seguida, a magia desencadeia o próximo conjunto de códigos de corte para correr localmente contra a saída das consultas SQL que tem sido persistida localmente. A saída é visualizada automaticamente depois de executar o código.
+* **Magia SQL ( `%%sql` )** O kernel PySpark HDInsight suporta consultas fáceis de hiveQL inline contra o sqlContext. O argumento (-o VARIABLE_NAME) persiste a saída da consulta SQL como um Pandas DataFrame no servidor Jupyter. Isto significa que está disponível no modo local.
+* A ** `%%local` magia** é usada para executar código localmente no servidor Jupyter, que é o headnode do cluster HDInsight. Normalmente, usas `%%local` magia depois da magia ser usada para fazer uma `%%sql -o` consulta. O parâmetro -o persistiria a saída da consulta SQL localmente. Em seguida, a `%%local` magia desencadeia o próximo conjunto de códigos de corte para correr localmente contra a saída das consultas SQL que tem sido persistida localmente. A saída é visualizada automaticamente depois de executar o código.
 
 Esta consulta recupera as viagens por contagem de passageiros. 
 
@@ -209,7 +209,7 @@ Esta consulta recupera as viagens por contagem de passageiros.
     SELECT passenger_count, COUNT(*) as trip_counts FROM taxi_train WHERE passenger_count > 0 and passenger_count < 7 GROUP BY passenger_count
 
 
-Este código cria um quadro de dados local a partir da saída de consulta e traça os dados. A `%%local` magia cria um quadro `sqlResults`de dados local, que pode ser usado para conspirar com matplotlib. 
+Este código cria um quadro de dados local a partir da saída de consulta e traça os dados. A `%%local` magia cria um quadro de dados local, que pode ser usado para conspirar com `sqlResults` matplotlib. 
 
 <!-- -->
 

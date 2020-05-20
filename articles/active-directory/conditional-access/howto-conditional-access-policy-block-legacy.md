@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 05/13/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a868c8199ac34a498a280e2522d6b1e4c7ec370
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1cf241ec9a26ea2c9e877e40205065b6ad4e0a98
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80295221"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83641329"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Acesso Condicional: Autenticação do legado do bloco
 
@@ -27,7 +27,7 @@ Devido ao risco acrescido associado aos protocolos de autenticação do legado, 
 Os seguintes passos ajudarão a criar uma política de Acesso Condicional para bloquear pedidos de autenticação do legado. Esta política é colocada no [modo apenas](howto-conditional-access-report-only.md) para iniciar o relatório para começar para que os administradores possam determinar o impacto que terão nos utilizadores existentes. Quando os administradores se sentem confortáveis em que a política se aplique como pretendem, podem mudar para **On** ou encenar a implantação adicionando grupos específicos e excluindo outros.
 
 1. Inscreva-se no **portal Azure** como administrador global, administrador de segurança ou administrador de Acesso Condicional.
-1. Navegue até ao**Acesso Condicional**de**Segurança** >  **do Diretório** > Ativo do Azure.
+1. Navegue até ao Acesso Condicional de Segurança **do Diretório Ativo do Azure.**  >  **Security**  >  **Conditional Access**
 1. Selecione **Nova política.**
 1. Dê um nome à sua apólice. Recomendamos que as organizações criem um padrão significativo para os nomes das suas políticas.
 1. Em **Atribuições**, selecione **Utilizadores e grupos**
@@ -36,10 +36,10 @@ Os seguintes passos ajudarão a criar uma política de Acesso Condicional para b
    1. Selecione **Done** (Concluído).
 1. Em **aplicativos ou ações cloud**, selecione Todas as **aplicações em nuvem**.
    1. Selecione **Done** (Concluído).
-1. Em **Condições** > **As aplicações do Cliente (pré-visualização)**, definir **Configure** para **Sim**.
-   1. Verifique apenas as caixas **Aplicações móveis e clientes** > de desktop**Outros clientes**.
+1. Em **Condições**  >  **As aplicações do Cliente (pré-visualização)**, definir **Configure** para **Sim**.
+   1. Verifique apenas as caixas **Aplicações móveis e clientes**de desktop  >  **Outros clientes**.
    1. Selecione **Done** (Concluído).
-1. Sob **controlos** > de acesso**Grant**, selecione acesso **ao bloco**.
+1. Sob **controlos de acesso**  >  **Grant**, selecione **acesso ao bloco**.
    1. Selecione **Selecionar**.
 1. Confirme as suas definições e ajuste **a política de ativação** **apenas**para reportar .
 1. Selecione **Criar** para criar para ativar a sua política.
@@ -51,3 +51,5 @@ Os seguintes passos ajudarão a criar uma política de Acesso Condicional para b
 [Determine o impacto utilizando o modo apenas de relatório de acesso condicional](howto-conditional-access-report-only.md)
 
 [Simular o sinal de comportamento usando a ferramenta de acesso condicional O que se a ferramenta](troubleshoot-conditional-access-what-if.md)
+
+[Como configurar um dispositivo ou aplicação multifunções para enviar e-mail utilizando o Office 365 e o Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-office-3)

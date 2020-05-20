@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 80da8d2880509a8ed6a2af8cb181b3bc2c281c09
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 37a458aea659cb6215cf29e6abcbc3341c7e0b7b
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930578"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83643259"
 ---
 # <a name="outbound-connections-in-azure"></a>Ligações de saída no Azure
 
@@ -105,7 +105,7 @@ Pode optar por suprimir um endereço IP frontal de ser utilizado para ligações
       ]
 ```
 
-Normalmente, `disableOutboundSnat` a opção falha em _falso_ e significa que esta regra programa snat de saída para os VMs associados no pool de backend da regra de equilíbrio de carga. A `disableOutboundSnat` pode ser alterada de _forma verdadeira_ para evitar que o Balancer de Carga utilize o endereço IP frontal associado para ligações de saída para os VMs no pool de backend desta regra de equilíbrio de carga.  E também pode designar um endereço IP específico para fluxos de saída, conforme descrito em [múltiplos cenários combinados](#combinations) também.
+Normalmente, a `disableOutboundSnat` opção falha em _falso_ e significa que esta regra programa snat de saída para os VMs associados no pool de backend da regra de equilíbrio de carga. A `disableOutboundSnat` pode ser alterada de forma _verdadeira_ para evitar que o Balancer de Carga utilize o endereço IP frontal associado para ligações de saída para os VMs no pool de backend desta regra de equilíbrio de carga.  E também pode designar um endereço IP específico para fluxos de saída, conforme descrito em [múltiplos cenários combinados](#combinations) também.
 
 #### <a name="load-balancer-basic"></a>Balancer Básico
 
@@ -257,6 +257,10 @@ Ao utilizar o comando nslookup, pode enviar uma consulta de DNS para o nome myip
 Quando aplicar um NSG a um VM equilibrado em carga, preste atenção às [etiquetas](../virtual-network/security-overview.md#service-tags) de serviço e às regras de [segurança padrão](../virtual-network/security-overview.md#default-security-rules). Deve certificar-se de que o VM pode receber pedidos de sonda de saúde do Azure Load Balancer. 
 
 Se um NSG bloquear os pedidos de sonda de saúde a partir da etiqueta padrão AZURE_LOADBALANCER, a sua sonda de saúde VM falha e o VM está marcado para baixo. O Balancer de Carga deixa de enviar novos fluxos para aquele VM.
+
+## <a name="connections-to-azure-storage-in-the-same-region"></a>Conexões ao Armazenamento Azure na mesma região
+
+Ter conectividade de saída através dos cenários acima não é necessário para ligar ao Armazenamento na mesma região que o VM. Se não quiser, utilize grupos de segurança de rede (NSGs) como acima explicado. Para a conectividade com o Armazenamento noutras regiões, é necessária conectividade de saída. Por favor, note que ao ligar-se ao Armazenamento de um VM na mesma região, o endereço IP de origem nos registos de diagnóstico de Armazenamento será um endereço de fornecedor interno, e não o endereço IP público do seu VM. Se pretender restringir o acesso à sua conta de Armazenamento a VMs numa ou mais subnets de Rede Virtual na mesma região, utilize [pontos finais](../virtual-network/virtual-network-service-endpoints-overview.md) de serviço da Rede Virtual e não o seu endereço IP público ao configurar a firewall da sua conta de armazenamento. Uma vez configurados os pontos finais do serviço, verá o seu endereço IP privado da Rede Virtual nos seus registos de diagnóstico de Armazenamento e não no endereço do fornecedor interno.
 
 ## <a name="limitations"></a>Limitações
 - As Funções dos Trabalhadores Web sem um VNet e outros serviços da plataforma Microsoft podem ser acessíveis quando apenas um Balancer de Carga Padrão interno é usado devido a um efeito colateral a partir do funcionamento dos serviços pré-VNet e de outros serviços da plataforma. Não confie neste efeito colateral, uma vez que o próprio serviço ou a plataforma subjacente podem mudar sem aviso prévio. Deve sempre assumir que precisa de criar uma conectividade de saída explicitamente, se desejar, quando utilizar apenas um Balancer de Carga Padrão interno. O cenário [padrão sNAT](#defaultsnat) 3 descrito neste artigo não está disponível.

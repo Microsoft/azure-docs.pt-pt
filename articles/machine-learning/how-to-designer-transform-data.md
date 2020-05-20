@@ -5,16 +5,17 @@ description: Aprenda a transformar dados no designer de Machine Learning Azure p
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
 author: peterclu
 ms.author: peterlu
 ms.date: 05/04/2020
-ms.openlocfilehash: 5296ac54cab403ef78b3e8bd32fe5ebe6ea43119
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.custom: designer
+ms.openlocfilehash: 718023424834ffca7a026dc5b3d35b8fb11fe633
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82842880"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83644288"
 ---
 # <a name="transform-data-in-azure-machine-learning-designer-preview"></a>Transforme dados em designer de Machine Learning Azure (pré-visualização)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -71,7 +72,7 @@ Nesta secção, utiliza-se o [módulo Split Data](algorithm-module-reference/spl
 
 1. No módulo os detalhes painelam à direita da tela, desloque **o modo de divisão** para a expressão **regular**.
 
-1. Introduza a `\"native-country" United-States` **Expressão Regular:**.
+1. Introduza a **Expressão Regular:** `\"native-country" United-States` .
 
     O modo **de expressão regular** testa uma única coluna por um valor. Para obter mais informações sobre o módulo De dados divididos, consulte a página de referência do [módulo de algoritmo](algorithm-module-reference/split-data.md)relacionado .
 
@@ -111,7 +112,7 @@ Agora que o seu pipeline está configurado para dividir os dados, precisa especi
     > [!NOTE]
     > Este artigo assume que tem acesso a uma loja de dados registada no atual espaço de trabalho azure machine learning. Para obter instruções sobre como configurar uma loja de dados, consulte os serviços de [armazenamento Connect to Azure](how-to-access-data.md#azure-machine-learning-studio).
 
-    Se não tiver uma loja de dados, pode criar uma agora. Por exemplo, este artigo irá guardar os conjuntos de dados para a conta de armazenamento blob padrão associada ao espaço de trabalho. Guardará os conjuntos de `azureml` dados no recipiente `data`numa nova pasta chamada .
+    Se não tiver uma loja de dados, pode criar uma agora. Por exemplo, este artigo irá guardar os conjuntos de dados para a conta de armazenamento blob padrão associada ao espaço de trabalho. Guardará os conjuntos de dados no `azureml` recipiente numa nova pasta chamada `data` .
 
 1.  Selecione o módulo de Dados de **Exportação** ligado à *porta mais correta*do módulo De dados **divididos.**
 
@@ -125,9 +126,9 @@ Agora que o seu pipeline está configurado para dividir os dados, precisa especi
 
     **Formato de ficheiro**: csv
 
-1. Confirme que o módulo de Dados de **Exportação** ligado à porta esquerda dos **Dados Divididos** tem o **Caminho** `/data/us-income`.
+1. Confirme que o módulo de Dados de **Exportação** ligado à porta esquerda dos **Dados Divididos** tem o **Caminho** `/data/us-income` .
 
-1. Confirme que o módulo **de Dados de Exportação** ligado à porta direita tem o **Caminho** `/data/non-us-income`.
+1. Confirme que o módulo **de Dados de Exportação** ligado à porta direita tem o **Caminho** `/data/non-us-income` .
 
     O seu oleoduto e as suas definições devem ser assim:
     
@@ -155,11 +156,11 @@ Depois de o gasoduto terminar de funcionar, pode ver os seus resultados navegand
 
 1. No módulo os detalhes painelam à direita da tela, selecione **Saídas + troncos**. 
 
-1. Selecione o ![ícone](media/how-to-designer-transform-data/visualize-icon.png) visualizar o ícone visualizar o ícone ao lado do **dataset1**dos resultados . 
+1. Selecione o ícone visualizar o ![ ícone visualizar o ícone ao lado do ](media/how-to-designer-transform-data/visualize-icon.png) **dataset1**dos resultados . 
 
 1. Verifique se a coluna "país nativo" contém apenas o valor "Estados Unidos".
 
-1. Selecione o ![ícone](media/how-to-designer-transform-data/visualize-icon.png) visualizar o ícone visualizar o ícone ao lado do conjunto de **dados resultados2**. 
+1. Selecione o ícone visualizar o ícone visualizar o ícone ao lado do conjunto de ![ dados ](media/how-to-designer-transform-data/visualize-icon.png) **resultados2**. 
 
 1. Verifique se a coluna "país nativo" não contém o valor "Estados Unidos".
 

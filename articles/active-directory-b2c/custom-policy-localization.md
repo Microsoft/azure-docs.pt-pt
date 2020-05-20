@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/11/2020
+ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: be12bce8fa29076621bec35228838a4ebdd97433
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 090fecea44c7881920fcd087304f33f935a5e907
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80545875"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83636268"
 ---
 # <a name="localize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Localize a interface de utilizador da sua aplicação utilizando uma política personalizada no Diretório Ativo Azure B2C
 
@@ -27,10 +27,10 @@ Este artigo mostra-lhe como apoiar vários locais ou idiomas na política para v
 
 ## <a name="set-up-the-list-of-supported-languages"></a>Configurar a lista de línguas apoiadas
 
-Abra o ficheiro de extensões da sua apólice. Por exemplo, <em> `SocialAndLocalAccounts/` </em>.
+Abra o ficheiro de extensões da sua apólice. Por exemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em> .
 
 1. Procure o elemento [BuildingBlocks.](buildingblocks.md) Se o elemento não existir, adicione-o.
-1. Adicione `Localization` o elemento com as línguas suportadas: inglês (padrão) e espanhol.  
+1. Adicione o `Localization` elemento com as línguas suportadas: inglês (padrão) e espanhol.  
 
 
 ```XML
@@ -46,10 +46,10 @@ Abra o ficheiro de extensões da sua apólice. Por exemplo, <em> `SocialAndLocal
 
 Os [Recursos Localizados](localization.md#localizedresources) do `Localization` elemento contêm a lista de cordas localizadas. O elemento de recursos localizados tem um identificador que é usado para identificar de forma única os recursos localizados. Este identificador é utilizado posteriormente no elemento de definição de [conteúdo.](contentdefinitions.md)
 
-Configura elementos de recursos localizados para a definição de conteúdo e qualquer idioma que queira suportar. Para personalizar as páginas unificadas de inscrição ou inscrição para `LocalizedResources` inglês e espanhol, `</SupportedLanguages>` adicione os seguintes elementos após o encerramento do elemento.
+Configura elementos de recursos localizados para a definição de conteúdo e qualquer idioma que queira suportar. Para personalizar as páginas unificadas de inscrição ou inscrição para inglês e espanhol, adicione os `LocalizedResources` seguintes elementos após o encerramento do `</SupportedLanguages>` elemento.
 
 > [!NOTE]
-> Na amostra seguinte adicionámos `#` o símbolo da libra na mendigagem de cada linha, para que possa encontrar as etiquetas localizadas no ecrã.
+> Na amostra seguinte adicionámos o símbolo da libra `#` na mendigagem de cada linha, para que possa encontrar as etiquetas localizadas no ecrã.
 
 ```XML
 <!--Local account sign-up or sign-in page English-->
@@ -252,10 +252,10 @@ No exemplo seguinte, as cordas personalizadas inglesas (en) e espanholas (es) s�
 1. Selecione a política que carregou e, em seguida, selecione **Executar agora**.
 1. Você deve ser capaz de ver a página de inscrição ou inscrição localizada.
 1. Clique no link de inscrição e poderá ver a página de inscrição localizada.
-1. Mude o idioma padrão do seu navegador para espanhol. Ou pode adicionar o parâmetro de `ui_locales` corda de consulta ao pedido de autorização. Por exemplo: 
+1. Mude o idioma padrão do seu navegador para espanhol. Ou pode adicionar o parâmetro de corda de consulta ao pedido de `ui_locales` autorização. Por exemplo: 
 
 ```http
-https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_signup_signin&client_id=0239a9cc-309c-4d41-12f1-31299feb2e82&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&ui_locales=es
+https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1A_signup_signin/oauth2/v2.0/authorize&client_id=0239a9cc-309c-4d41-12f1-31299feb2e82&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&ui_locales=es
 ```
 
 ## <a name="next-steps"></a>Passos seguintes

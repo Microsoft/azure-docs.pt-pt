@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89431c2bf1838d3264b03c8a5f2ce62cd6df3631
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 42768c61cc46ba97e9bd16a06c85f20219672fdd
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82127832"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83639789"
 ---
 # <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>Como é que a palavra-passe de autosserviço repõe o reescrita no Diretório Ativo do Azure?
 
@@ -56,9 +56,9 @@ Quando um utilizador sincronizado de hash federado ou senha tenta redefinir ou a
    * O objeto do utilizador deve existir no espaço do conector ative diretório.
    * O objeto do utilizador deve ser ligado ao objeto metaverso correspondente (MV).
    * O objeto do utilizador deve estar ligado ao objeto de conector Ativo azure correspondente.
-   * O link do objeto do conector ative diretório para `Microsoft.InfromADUserAccountEnabled.xxx` o MV deve ter a regra de sincronização no link.
+   * O link do objeto do conector ative diretório para o MV deve ter a regra de sincronização `Microsoft.InfromADUserAccountEnabled.xxx` no link.
 
-   Quando a chamada chega da nuvem, o motor de sincronização usa o atributo **cloudAnchor** para procurar o objeto espacial do conector Azure Ative Diretório. Segue então a ligação de volta ao objeto MV e, em seguida, segue a ligação de volta ao objeto de Diretório Ativo. Como pode haver vários objetos ative diretório (multi-floresta) para o `Microsoft.InfromADUserAccountEnabled.xxx` mesmo utilizador, o motor sincronizado depende do link para escolher o correto.
+   Quando a chamada chega da nuvem, o motor de sincronização usa o atributo **cloudAnchor** para procurar o objeto espacial do conector Azure Ative Diretório. Segue então a ligação de volta ao objeto MV e, em seguida, segue a ligação de volta ao objeto de Diretório Ativo. Como pode haver vários objetos ative diretório (multi-floresta) para o mesmo utilizador, o motor sincronizado depende do `Microsoft.InfromADUserAccountEnabled.xxx` link para escolher o correto.
 
 1. Após a descoberta da conta de utilizador, é feita uma tentativa de redefinir a palavra-passe diretamente na floresta de Diretório Ativo apropriado.
 1. Se a operação de conjunto de passwords for bem sucedida, o utilizador é informado de que a sua palavra-passe foi alterada.
@@ -141,6 +141,7 @@ As palavras-passe não são escritas em nenhuma das seguintes situações:
 * **Operações de administrador não apoiados**
    * Qualquer palavra-passe de utilizador final iniciado pelo administrador a partir da versão 1, versão 2 do PowerShell ou do Microsoft Graph API (a beta do [Microsoft Graph API](https://docs.microsoft.com/graph/api/passwordauthenticationmethod-resetpassword?view=graph-rest-beta&tabs=http) é suportada).
    * Qualquer palavra-passe de utilizador final iniciado pelo administrador reset a partir do centro de administração microsoft [365](https://admin.microsoft.com).
+   * Qualquer administrador não pode utilizar a ferramenta de redefinição de palavra-passe para redefinir a sua própria palavra-passe para a reescrita de palavra-passe.
 
 > [!WARNING]
 > A utilização da caixa de verificação "O utilizador deve alterar a palavra-passe no próximo início de sessão" em ferramentas administrativas AD DS no local, como utilizadores e computadores de diretório ativo ou o Ative Directory Administrative Center é suportado como uma funcionalidade de pré-visualização do Azure AD Connect. Para mais informações, consulte A sincronização de hash de [palavra-passe implemente com sincronização Azure AD Connect](../hybrid/how-to-connect-password-hash-synchronization.md).

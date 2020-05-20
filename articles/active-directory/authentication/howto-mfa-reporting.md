@@ -1,48 +1,32 @@
 ---
-title: Relatórios de acesso e utilização para Azure MFA - Diretório Ativo Azure
-description: Isto descreve como usar a funcionalidade de autenticação multi-factor Azure - relatórios.
+title: Detalhes do evento de entrada para autenticação de multi-factors Azure - Diretório Ativo Azure
+description: Saiba como visualizar a atividade de entrada para eventos de autenticação multi-factor Azure e mensagens de estado.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/30/2018
+ms.date: 05/15/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2df562d65ad064efb1be337e0b68cb8638536981
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c9bf76729c3b5844918659283a65eeb347c4237d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82112767"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83639850"
 ---
-# <a name="reports-in-azure-multi-factor-authentication"></a>Relatórios na autenticação multi-factor azure
+# <a name="use-the-sign-ins-report-to-review-azure-multi-factor-authentication-events"></a>Utilize o relatório de inscrição para rever eventos de autenticação de multifactor do Azure
 
-A Autenticação Multi-Factor Azure fornece vários relatórios que podem ser utilizados por si e pela sua organização acessíveis através do portal Azure. A tabela seguinte enumera os relatórios disponíveis:
+Para rever e compreender os eventos de autenticação multi-factor do Azure, pode utilizar o relatório de inscrições do Azure Ative Directory (Azure AD). Este relatório mostra detalhes de autenticação para eventos quando um utilizador é solicitado para autenticação multifactor, e se alguma política de Acesso Condicional estava em uso. Para obter informações detalhadas sobre o relatório de inscrição, consulte a visão geral dos relatórios de atividade de [entrada em Azure AD](../reports-monitoring/concept-sign-ins.md).
 
-| Relatório | Localização | Descrição |
-|:--- |:--- |:--- |
-| Histórico de utilizadores bloqueado | Azure AD > Segurança > MFA > bloquear/desbloquear utilizadores | Mostra o histórico de pedidos para bloquear ou desbloquear utilizadores. |
-| Alertas de utilização e fraude | Azure AD > Sign-ins | Fornece informações sobre a utilização global, resumo do utilizador e detalhes do utilizador; bem como um histórico de alertas de fraude apresentados durante o intervalo de data especificado. |
-| Utilização de componentes no local | Relatório de atividade seletiva > > de segurança da AD Azure > | Fornece informações sobre o uso global para MFA através da extensão NPS, ADFS e servidor MFA. |
-| Histórico de utilizador ignorado | Azure AD > Security > MFA > bypass único | Fornece um histórico de pedidos para contornar a autenticação multi-factor para um utilizador. |
-| Estado do servidor | Estado do servidor do > de segurança da AD Azure AD > M >FA | Apresenta o estado dos Servidores de Autenticação Multi-Factor associados à sua conta. |
+Este artigo mostra-lhe como ver o relatório de entrada de Anúncios Azure no portal Azure, e depois o módulo MSOnline V1 PowerShell.
 
-## <a name="view-mfa-reports"></a>Ver relatórios de MFA
+## <a name="view-the-azure-ad-sign-ins-report"></a>Ver o relatório de inscrições da AD Azure
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. À esquerda, selecione **Azure Ative Directory** > **Security** > **MFA**.
-3. Selecione o relatório que pretende ver.
-
-   ![Relatório de estado do servidor do Servidor MFA no portal Azure](./media/howto-mfa-reporting/report.png)
-
-## <a name="azure-ad-sign-ins-report"></a>Relatório de inscrições da AD Azure
-
-Com o relatório de atividade sintetizador no [portal Azure,](https://portal.azure.com)pode obter a informação necessária para determinar como está o seu ambiente. **sign-ins activity report**
-
-O relatório de entrada pode fornecer-lhe informações sobre a utilização de aplicações geridas e atividades de entrada de utilizadores, que incluem informações sobre a utilização da autenticação multifactor (MFA). Os dados de MFA disponibilizam-lhe informações sobre como esta está a funcionar na sua organização. Permite-lhe responder a perguntas como:
+O relatório de entrada fornece-lhe informações sobre a utilização de aplicações geridas e atividades de entrada de utilizadores, que incluem informações sobre a utilização da autenticação multifactor (MFA). Os dados de MFA disponibilizam-lhe informações sobre como esta está a funcionar na sua organização. Permite-lhe responder a perguntas como as seguintes:
 
 - O início de sessão foi submetido à MFA?
 - Como é que o utilizador concluiu a MFA?
@@ -51,94 +35,76 @@ O relatório de entrada pode fornecer-lhe informações sobre a utilização de 
 - Quantos utilizadores não conseguem concluir a submissão da MFA?
 - Quais são os problemas mais comuns da MFA com que os utilizadores finais se deparam?
 
-Estes dados estão disponíveis através do [portal Azure](https://portal.azure.com) e da [API reportando.](../reports-monitoring/concept-reporting-api.md)
+Para ver o relatório de atividade de entrada no [portal Azure,](https://portal.azure.com)preencha os seguintes passos. Também pode consultar dados através da [API reportando.](../reports-monitoring/concept-reporting-api.md)
 
-![Relatório de inscrições da AD Azure no portal Azure](./media/howto-mfa-reporting/sign-in-report.png)
+1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta com permissões *de administrador global.*
+1. Procure e selecione **Azure Ative Directory,** em seguida, escolha **utilizadores** do menu do lado esquerdo.
+1. No âmbito da *Atividade* do menu do lado esquerdo, selecione **Sign-ins**.
+1. É apresentada uma lista de eventos de inscrição, incluindo o estado. Pode selecionar um evento para ver mais detalhes.
 
-### <a name="sign-ins-report-structure"></a>Estrutura de relatório de insadiário
+    Os *Detalhes de Autenticação* ou o separador *de Acesso Condicional* dos detalhes do evento mostram-lhe o código de estado ou qual a política que desencadeou o pedido do MFA.
 
-Os relatórios de atividades de início de sessão para a MFA dão-lhe acesso às informações seguintes:
+    [![](media/howto-mfa-reporting/sign-in-report-cropped.png "Screenshot of example Azure Active Directory sign-ins report in the Azure portal")](media/howto-mfa-reporting/sign-in-report.png#lightbox)
 
-**MFA necessária:** se a MFA é necessária para o início de sessão ou não. O MFA pode ser exigido devido a MFA por utilizador, Acesso Condicional ou outras razões. Os valores possíveis são **Sim** ou **Não.**
+Se disponível, a autenticação é mostrada, como mensagem de texto, notificação de aplicação Do Autenticador microsoft ou chamada telefónica.
 
-**Resultado da MFA:** obter mais informações sobre se a MFA foi cumprida ou recusada:
+Os seguintes detalhes são mostrados na janela *Autenticação Detalhes* para um caso de inscrição que mostre se o pedido de MFA foi satisfeito ou negado:
 
-- Se a MFA for cumprida, esta coluna disponibiliza mais informações sobre como foi cumprida.
-   - Multi-Factor Authentication do Azure
-      - concluída na cloud
-      - expirou devido a políticas configuradas no inquilino
-      - registo concluído
-      - cumprida por reclamação no token
-      - cumprida por reclamação fornecida por fornecedor externo
-      - cumprida por autenticação forte
-      - ignorada porque o fluxo executado foi o fluxo de início de sessão de mediador do Windows
-      - ignorada devido a palavra-passe de aplicação
-      - ignorada devido a localização
-      - ignorada devido a dispositivo registado
-      - ignorada devido a dispositivo memorizado
-      - concluída com êxito
-   - Redirecionado para fornecedor externo para autenticação multifator
+* Se a MFA for cumprida, esta coluna disponibiliza mais informações sobre como foi cumprida.
+   * concluída na cloud
+   * expirou devido a políticas configuradas no inquilino
+   * registo concluído
+   * cumprida por reclamação no token
+   * cumprida por reclamação fornecida por fornecedor externo
+   * cumprida por autenticação forte
+   * ignorada porque o fluxo executado foi o fluxo de início de sessão de mediador do Windows
+   * ignorada devido a palavra-passe de aplicação
+   * ignorada devido a localização
+   * ignorada devido a dispositivo registado
+   * ignorada devido a dispositivo memorizado
+   * concluída com êxito
 
-- Se for recusada, a coluna mostrará o motivo da recusa.
-   - Multi-Factor Authentication do Azure recusada;
-      - autenticação em curso
-      - tentativa de autenticação duplicada
-      - código errado introduzido demasiadas vezes
-      - autenticação inválida
-      - código de verificação de aplicação móvel inválido
-      - configuração incorreta
-      - a chamada telefónica foi para o correio de voz
-      - o formato do número de telefone é inválido
-      - erro de serviço
-      - incapaz de alcançar o telefone do utilizador
-      - não é possível enviar a notificação de aplicação móvel para o dispositivo
-      - não é possível enviar a notificação de aplicação móvel
-      - o utilizador recusou a autenticação
-      - o utilizador não respondeu à notificação de aplicação móvel
-      - o utilizador não tem nenhum método de verificação registado
-      - o utilizador introduziu um código incorreto
-      - o utilizador introduziu um PIN incorreto
-      - o utilizador desligou a chamada telefónica sem que a autenticação fosse bem sucedida
-      - o utilizador está bloqueado
-      - o utilizador nunca introduziu o código de verificação
-      - o utilizador não foi encontrado
-      - o código de verificação já foi utilizado uma vez
-
-**Método de autenticação da MFA:** o método de autenticação que o utilizador utilizou para concluir a MFA. Valores possíveis incluem:
-
-- Mensagem de texto
-- Notificação de aplicação móvel
-- Chamada telefónica (telefone de autenticação)
-- Código de verificação de aplicação móvel
-- Chamada telefónica (telefone do escritório)
-- Chamada telefónica (telefone de autenticação alternativo)
-
-**Detalhe de autenticação da MFA:** versão limpa do número de telefone, por exemplo, + X XXXXXXXX64.
-
-**Acesso Condicional** Encontre informações sobre as políticas de acesso condicional que afetaram a tentativa de inscrição, incluindo:
-
-- Nome da política
-- Controlos de subvenções
-- Controlos de sessão
-- Resultado
+* Se for recusada, a coluna mostrará o motivo da recusa.
+   * autenticação em curso
+   * tentativa de autenticação duplicada
+   * código errado introduzido demasiadas vezes
+   * autenticação inválida
+   * código de verificação de aplicação móvel inválido
+   * configuração incorreta
+   * a chamada telefónica foi para o correio de voz
+   * o formato do número de telefone é inválido
+   * erro de serviço
+   * incapaz de alcançar o telefone do utilizador
+   * não é possível enviar a notificação de aplicação móvel para o dispositivo
+   * não é possível enviar a notificação de aplicação móvel
+   * o utilizador recusou a autenticação
+   * o utilizador não respondeu à notificação de aplicação móvel
+   * o utilizador não tem nenhum método de verificação registado
+   * o utilizador introduziu um código incorreto
+   * o utilizador introduziu um PIN incorreto
+   * o utilizador desligou a chamada telefónica sem que a autenticação fosse bem sucedida
+   * o utilizador está bloqueado
+   * o utilizador nunca introduziu o código de verificação
+   * o utilizador não foi encontrado
+   * o código de verificação já foi utilizado uma vez
 
 ## <a name="powershell-reporting-on-users-registered-for-mfa"></a>Relatórios PowerShell sobre utilizadores registados para MFA
 
 Em primeiro lugar, certifique-se de que tem o [módulo MSOnline V1 PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-1.0) instalado.
 
-Identifique os utilizadores que se registaram para o MFA utilizando o PowerShell que se segue. Este conjunto de comandos exclui utilizadores com deficiência, uma vez que estas contas não podem autenticar contra a AD Azure.
+Identifique os utilizadores que se registaram para o MFA utilizando o PowerShell que se segue. Este conjunto de comandos exclui utilizadores com deficiência, uma vez que estas contas não podem autenticar contra a AD Azure:
 
 ```powershell
 Get-MsolUser -All | Where-Object {$_.StrongAuthenticationMethods -ne $null -and $_.BlockCredential -eq $False} | Select-Object -Property UserPrincipalName
 ```
 
-Identifique os utilizadores que não se registaram no MFA utilizando o PowerShell que se segue. Este conjunto de comandos exclui utilizadores com deficiência, uma vez que estas contas não podem autenticar contra a AD Azure.
+Identifique os utilizadores que não se registaram no MFA utilizando o PowerShell que se segue. Este conjunto de comandos exclui utilizadores com deficiência, uma vez que estas contas não podem autenticar contra a AD Azure:
 
 ```powershell
 Get-MsolUser -All | Where-Object {$_.StrongAuthenticationMethods.Count -eq 0 -and $_.BlockCredential -eq $False} | Select-Object -Property UserPrincipalName
 ```
 
-Identificar utilizadores e métodos de saída registados. 
+Identificar utilizadores e métodos de saída registados:
 
 ```powershell
 Get-MsolUser -All | Select-Object @{N='UserPrincipalName';E={$_.UserPrincipalName}},
@@ -148,9 +114,9 @@ Get-MsolUser -All | Select-Object @{N='UserPrincipalName';E={$_.UserPrincipalNam
 @{N='MFA Methods';E={$_.StrongAuthenticationMethods.methodtype}} | Export-Csv -Path c:\MFA_Report.csv -NoTypeInformation
 ```
 
-## <a name="possible-results-in-activity-reports"></a>Possíveis resultados em relatórios de atividade
+## <a name="downloaded-activity-reports-result-codes"></a>Códigos de resultados de relatórios de atividade descarregados
 
-A tabela a seguir pode ser utilizada para resolver problemas de autenticação de vários fatores utilizando a versão descarregada do relatório de atividade de autenticação de vários fatores. Não aparecerão diretamente no portal Azure.
+A tabela seguinte pode ajudar a resolver eventos usando a versão descarregada do relatório de atividade sada dos passos do portal anteriores ou comandos PowerShell. Estes códigos de resultados não aparecem diretamente no portal Azure.
 
 | Resultado da chamada | Descrição | Descrição ampla |
 | --- | --- | --- |
@@ -200,8 +166,17 @@ A tabela a seguir pode ser utilizada para resolver problemas de autenticação d
 | FAILED_AUTH_RESULT_TIMEOUT | Timeout do resultado de Auth | O utilizador demorou muito tempo a completar a tentativa de autenticação multi-factor. |
 | FAILED_AUTHENTICATION_THROTTLED | Autenticação Acelerada | A tentativa de autenticação multi-factor foi acelerada pelo serviço. |
 
+## <a name="additional-mfa-reports"></a>Relatórios adicionais de MFA
+
+As seguintes informações e relatórios adicionais estão disponíveis para eventos MFA, incluindo os do MFA Server:
+
+| Relatório | Localização | Descrição |
+|:--- |:--- |:--- |
+| Histórico de utilizadores bloqueado | Azure AD > Segurança > MFA > bloquear/desbloquear utilizadores | Mostra o histórico de pedidos para bloquear ou desbloquear utilizadores. |
+| Utilização de componentes no local | Relatório de atividade seletiva > > de segurança da AD Azure > | Fornece informações sobre o uso global do MFA Server através da extensão NPS, ADFS e MFA Server. |
+| Histórico de utilizador ignorado | Azure AD > Security > MFA > bypass único | Fornece um histórico de pedidos do MFA Server para contornar o MFA para um utilizador. |
+| Estado do servidor | Estado do servidor do > de segurança da AD Azure AD > M >FA | Apresenta o estado dos Servidores MFA associados à sua conta. |
+
 ## <a name="next-steps"></a>Passos seguintes
 
-* [SSPR e Relatórios de Informação sobre o Uso de SSPR e MFA](howto-authentication-methods-usage-insights.md)
-* [Para utilizadores](../user-help/multi-factor-authentication-end-user.md)
-* [Onde implantar](concept-mfa-whichversion.md)
+Este artigo forneceu uma visão geral do relatório de atividade de inscrição. Para obter informações mais detalhadas sobre o que este relatório contém e compreender os dados, consulte relatórios de atividade de [entrada em Azure AD](../reports-monitoring/concept-sign-ins.md).

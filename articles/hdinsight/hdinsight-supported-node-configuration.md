@@ -6,15 +6,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 08/26/2019
-ms.openlocfilehash: e75146266568001d8fee7be26898ac8bdfffb7fc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 05/14/2020
+ms.openlocfilehash: 0bf5559590b66400fc4fc4dc27ea88c3522effb1
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77484791"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83646612"
 ---
 # <a name="what-are-the-default-and-recommended-node-configurations-for-azure-hdinsight"></a>Quais são as configurações padrão e recomendadas para o Azure HDInsight?
 
@@ -22,11 +22,11 @@ Este artigo discute configurações de nós padrão e recomendadas para clusters
 
 ## <a name="default-and-minimum-recommended-node-configuration-and-virtual-machine-sizes-for-clusters"></a>Configuração padrão e mínima recomendada do nó e tamanhos de máquina virtual para clusters
 
-As tabelas a seguir listam tamanhos padrão e recomendados de máquina virtual (VM) para clusters HDInsight.  Esta informação é necessária para entender os tamanhos vm a utilizar quando estiver a criar scripts PowerShell ou Azure CLI para implantar clusters HDInsight.
+As tabelas a seguir listam tamanhos padrão e recomendados de máquina virtual (VM) para clusters HDInsight.  Estas informações são necessárias para entender os tamanhos vM a utilizar quando estiver a criar scripts PowerShell ou Azure CLI para implantar clusters HDInsight.
 
-Se precisar de mais de 32 nós de trabalhador num cluster, selecione um tamanho de nó de cabeça com pelo menos 8 núcleos e 14 GB de RAM. 
+Se precisar de mais de 32 nós de trabalhador num cluster, selecione um tamanho de nó de cabeça com pelo menos 8 núcleos e 14 GB de RAM.
 
-Os únicos tipos de cluster que têm discos de dados são os clusters Kafka e HBase com a funcionalidade Accelerated Writes ativada. O HDInsight suporta os tamanhos do disco P30 e S30 nestes cenários.
+Os únicos tipos de cluster que têm discos de dados são os clusters Kafka e HBase com a funcionalidade Accelerated Writes ativada. O HDInsight suporta os tamanhos do disco P30 e S30 nestes cenários. Para todos os outros tipos de cluster, o HDInsight fornece espaço de disco gerido com o cluster. A partir de 11/07/2019, o tamanho do disco gerido de cada nó no cluster recém-criado é de 128 GB. Isto não pode ser mudado.
 
 As especificações de todos os tipos mínimos de VM recomendados utilizados neste documento são resumidas na tabela seguinte.
 
@@ -42,7 +42,7 @@ As especificações de todos os tipos mínimos de VM recomendados utilizados nes
 | Standard_A2_v2  | 2         | 4           | 20             | 2000 / 40 / 20                                           | 4 / 4x500               | 2 / 500                 |
 | Standard_A4_v2  | 4         | 8           | 40             | 4000 / 80 / 40                                           | 8 / 8x500               | 4 / 1000                     |
 
-Para obter mais detalhes sobre as especificações de cada tipo VM, consulte os seguintes documentos:
+Para obter mais informações sobre as especificações de cada tipo vm, consulte os seguintes documentos:
 
 * [Tamanhos de máquina virtual de propósito geral: Série Dv2 1-5](../virtual-machines/dv2-dsv2-series.md)
 * [Tamanhos otimizados da memória da máquina: Série Dv2 11-15](../virtual-machines/dv2-dsv2-series-memory.md)
@@ -51,9 +51,9 @@ Para obter mais detalhes sobre as especificações de cada tipo VM, consulte os 
 ### <a name="all-supported-regions-except-brazil-south-and-japan-west"></a>Todas as regiões apoiadas, exceto Brasil sul e Japão oeste
 
 > [!Note]
-> Para obter o identificador SKU para uso em `Standard_` powershell e outros scripts, adicione ao início de todas as VM SKUs nas tabelas abaixo. Por exemplo, `D12_v2` `Standard_D12_v2`tornar-se-ia.
+> Para obter o identificador SKU para uso em powershell e outros scripts, adicione `Standard_` ao início de todas as VM SKUs nas tabelas abaixo. Por exemplo, `D12_v2` tornar-se-ia. `Standard_D12_v2`
 
-| Tipo de cluster | Hadoop | HBase | Interactive Query | Storm | Spark | Servidor ML | Kafka |
+| Tipo de cluster | Hadoop | HBase | Interactive Query | Tempestade | Spark | Servidor ML | Kafka |
 |---|---|---|---|---|---|---|---|
 | Cabeça: tamanho VM padrão | D12_v2 | D12_v2 | D13_v2 | A4_v2 | D12_v2, <br/>D13_v2* | D12_v2 | D3_v2 |
 | Cabeça: tamanhos mínimos recomendados de VM | D5_v2 | D3_v2 | D13_v2 | A4_v2 | D12_v2, <br/>D13_v2* | D12_v2 | D3_v2 |
@@ -68,7 +68,7 @@ Para obter mais detalhes sobre as especificações de cada tipo VM, consulte os 
 
 ### <a name="brazil-south-and-japan-west-only"></a>Brasil sul e Japão apenas a oeste
 
-| Tipo de cluster | Hadoop | HBase | Interactive Query | Storm | Spark | Serviços ML |
+| Tipo de cluster | Hadoop | HBase | Interactive Query | Tempestade | Spark | Serviços ML |
 |---|---|---|---|---|---|---|
 | Cabeça: tamanho VM padrão | D12 | D12 | D13 | A4_v2 | D12 | D12 |
 | Cabeça: tamanhos mínimos recomendados de VM | D5_v2 | D3_v2 | D13_v2 | A4_v2 | D12_v2 | D12_v2 |

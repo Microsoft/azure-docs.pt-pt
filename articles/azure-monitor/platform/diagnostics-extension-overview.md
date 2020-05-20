@@ -6,18 +6,26 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: 6cb514312db525ffd2ccf9f7b70968daaa94f322
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5dcdfba6e8dd00c8ba09e5e98293a30d19e51c99
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77672383"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83635958"
 ---
 # <a name="azure-diagnostics-extension-overview"></a>Visão geral da extensão do Azure Diagnostics
 A extensão Azure Diagnostics é um [agente no Azure Monitor](agents-overview.md) que recolhe dados de monitorização do sistema operativo convidado de recursos computacionais do Azure, incluindo máquinas virtuais. Este artigo fornece uma visão geral da extensão do Azure Diagnostics, incluindo funcionalidade específica que suporta e opções de instalação e configuração. 
 
 > [!NOTE]
 > A extensão azure Diagnostics é um dos agentes disponíveis para recolher dados de monitorização do sistema operativo convidado de recursos computacionais. Consulte [a visão geral dos agentes do Monitor Azure](agents-overview.md) para obter uma descrição dos diferentes agentes e orientação sobre a seleção dos agentes apropriados para os seus requisitos.
+
+## <a name="primary-scenarios"></a>Cenários principais
+Os cenários primários abordados pela extensão de diagnósticos são:
+
+- Colete as métricas dos hóspedes nas Métricas do Monitor Azure.
+- Envie registos e métricas de hóspedes para o armazenamento azure para arquivamento.
+- Envie registos e métricas de hóspedes para os centros de eventos azure para enviar para fora de Azure.
+
 
 ## <a name="comparison-to-log-analytics-agent"></a>Comparação com o agente Log Analytics
 O agente Log Analytics no Monitor Azure também pode ser utilizado para recolher dados de monitorização do sistema operativo convidado de máquinas virtuais. Pode optar por utilizar ambos ou ambos, dependendo dos seus requisitos. Consulte [a visão geral dos agentes do Monitor Azure](agents-overview.md) para uma comparação detalhada dos agentes do Monitor Azure. 

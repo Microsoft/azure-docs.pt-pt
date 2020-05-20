@@ -1,51 +1,64 @@
 ---
 title: Incumprimentos de segurança do Diretório Ativo Azure
-description: Políticas de incumprimento de segurança que ajudam a proteger as organizações de ataques comuns
+description: Políticas de incumprimento de segurança que ajudam a proteger organizações de ataques comuns em Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 05/13/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f307553a97973d03b0699248373e53e4845aa39a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: contperfq4
+ms.openlocfilehash: 91a9a761b35a945fcd105465ae8dea7cb6623f42
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81869904"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83643352"
 ---
 # <a name="what-are-security-defaults"></a>O que são incumprimentos de segurança?
 
-Gerir a segurança pode ser difícil quando os ataques comuns relacionados com a identidade estão a tornar-se cada vez mais populares. Estes ataques incluem spray de senha, repetição e phishing.
+Gerir a segurança pode ser difícil com ataques comuns relacionados com a identidade, como spray de senha, repetição e phishing estão a tornar-se cada vez mais populares. Os incumprimentos de segurança facilitam a proteção da sua organização destes ataques com configurações de segurança pré-configuradas:
 
-Os incumprimentos de segurança no Azure Ative Directory (Azure AD) facilitam a segurança e ajudam a proteger a sua organização. Os incumprimentos de segurança contêm definições de segurança pré-configuradas para ataques comuns. 
-
-A Microsoft está a disponibilizar falhas de segurança a todos. O objetivo é garantir que todas as organizações tenham um nível básico de segurança habilitado sem custos adicionais. Ligas falhas de segurança no portal Azure.
+- Exigindo que todos os utilizadores se registem para autenticação multi-factor Azure.
+- Exigindo que os administradores realizem a autenticação de vários fatores.
+- Bloqueando protocolos de autenticação do legado.
+- Exigir que os utilizadores realizem a autenticação de vários fatores quando necessário.
+- Proteger atividades privilegiadas como o acesso ao portal Azure.
 
 ![Screenshot do portal Azure com o toggle para permitir falhas de segurança](./media/concept-fundamentals-security-defaults/security-defaults-azure-ad-portal.png)
  
-> [!TIP]
-> Se o seu inquilino foi criado em ou depois de 22 de outubro de 2019, é possível que esteja a experimentar o novo comportamento seguro por defeito e já tenha incumprimentos de segurança no seu inquilino. Num esforço para proteger todos os nossos utilizadores, os incumprimentos de segurança estão a ser lançados a todos os novos inquilinos criados.
-
 Mais detalhes sobre o porquê de falhas de segurança estarem a ser disponibilizadas podem ser encontrados no post de blog de Alex Weinert, [introduzindo incumprimentos](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/introducing-security-defaults/ba-p/1061414)de segurança .
 
-## <a name="unified-multi-factor-authentication-registration"></a>Registo unificado de autenticação multi-factor
+## <a name="availability"></a>Disponibilidade
 
-Todos os utilizadores do seu inquilino devem inscrever-se para autenticação multifactor (MFA) sob a forma do serviço de autenticação Multifactor Azure. Os utilizadores têm 14 dias para se registarem para autenticação multi-factor utilizando a aplicação Autenticadora Microsoft. Após os 14 dias passados, o utilizador não poderá iniciar o seu início até que o registo de autenticação multifactor esteja concluído.
+A Microsoft está a disponibilizar falhas de segurança a todos. O objetivo é garantir que todas as organizações tenham um nível básico de segurança habilitado sem custos adicionais. Ligas falhas de segurança no portal Azure. Se o seu inquilino foi criado em ou depois de 22 de outubro de 2019, é possível que os incumprimentos de segurança já estejam ativados no seu inquilino. Num esforço para proteger todos os nossos utilizadores, os incumprimentos de segurança estão a ser lançados a todos os novos inquilinos criados.
 
-Sabemos que alguns utilizadores podem estar fora do escritório ou não assinar durante os 14 dias imediatamente após permitir em preversões de segurança. Para garantir que cada utilizador tem tempo suficiente para se registar para autenticação multi-factor, o período de 14 dias é único para cada utilizador. O período de 14 dias de um utilizador começa após o seu primeiro início de sessão interativa bem sucedida depois de ativar as falhas de segurança.
+### <a name="whos-it-for"></a>Para quem é?
 
-## <a name="multi-factor-authentication-enforcement"></a>Aplicação da autenticação de vários fatores
+- Se você é uma organização que quer aumentar a sua postura de segurança mas você não sabe como ou por onde começar, os incumprimentos de segurança são para você.
+- Se é uma organização que utiliza o nível livre de licenciamento de Diretório Ativo Azure, os incumprimentos de segurança são para si.
+
+### <a name="who-should-use-conditional-access"></a>Quem deve usar o Acesso Condicional?
+
+- Se é uma organização que está a usar políticas de Acesso Condicional para reunir sinais, para tomar decisões e impor políticas organizacionais, os incumprimentos de segurança provavelmente não são adequados para si. 
+- Se é uma organização com licenças Azure Ative Directory Premium, os incumprimentos de segurança provavelmente não são adequados para si.
+- Se a sua organização tiver requisitos de segurança complexos, deve considerar o Acesso Condicional.
+
+## <a name="policies-enforced"></a>Políticas aplicadas
+
+### <a name="unified-multi-factor-authentication-registration"></a>Registo unificado de autenticação multi-factor
+
+Todos os utilizadores do seu inquilino devem inscrever-se para autenticação multifactor (MFA) sob a forma da Autenticação Multifactor Azure. Os utilizadores têm 14 dias para se registarem para autenticação multi-factor Azure utilizando a aplicação Autenticador a Microsoft. Após os 14 dias passados, o utilizador não poderá iniciar o seu início até que o registo esteja concluído. O período de 14 dias de um utilizador começa após o seu primeiro início de sessão interativa bem sucedida após permitir falhas de segurança.
 
 ### <a name="protecting-administrators"></a>Proteger administradores
 
-Os utilizadores com acesso a contas privilegiadas têm um acesso acrescido ao seu ambiente. Devido ao poder que estas contas têm, deve tratá-las com especial cuidado. Um método comum para melhorar a proteção das contas privilegiadas consiste em exigir uma forma mais forte de verificação da conta para o início do processo de inscrição. Em Azure AD, pode obter uma verificação de conta mais forte, exigindo autenticação multi-factor.
+Os utilizadores com acesso privilegiado têm um acesso acrescido ao seu ambiente. Devido ao poder que estas contas têm, deve tratá-las com especial cuidado. Um método comum para melhorar a proteção das contas privilegiadas consiste em exigir uma forma mais forte de verificação da conta para o início do processo de inscrição. Em Azure AD, você pode obter uma verificação de conta mais forte, exigindo a autenticação de vários fatores.
 
-Após a inscrição com A autenticação multi-factor, serão necessárias as seguintes nove funções de administrador da AD Azure para realizar a autenticação adicional sempre que iniciarem o seu início:
+Após a inscrição com a Autenticação Multi-Factor Azure, serão necessárias as seguintes nove funções de administrador da AD Azure para realizar a autenticação adicional sempre que iniciarem a sua inscrição:
 
 - Administrador global
 - Administrador do SharePoint
@@ -59,11 +72,11 @@ Após a inscrição com A autenticação multi-factor, serão necessárias as se
 
 ### <a name="protecting-all-users"></a>Proteger todos os utilizadores
 
-Tendemos a pensar que as contas de administrador são as únicas contas que precisam de camadas extra de autenticação. Os administradores têm um amplo acesso a informações sensíveis e podem fazer alterações às definições em toda a subscrição. Mas os atacantes tendem a visar os utilizadores finais. 
+Tendemos a pensar que as contas de administrador são as únicas contas que precisam de camadas extra de autenticação. Os administradores têm um amplo acesso a informações sensíveis e podem fazer alterações às definições em toda a subscrição. Mas os atacantes frequentemente visam os utilizadores finais. 
 
 Após o acesso destes agressores, podem solicitar acesso a informações privilegiadas em nome do titular da conta original. Eles podem até baixar todo o diretório para realizar um ataque de phishing a toda a sua organização. 
 
-Um método comum para melhorar a proteção de todos os utilizadores é exigir uma forma mais forte de verificação de conta, como a Autenticação Multi-Factor, para todos. Após os utilizadores completarem o registo de autenticação multi-factor, serão solicitados para autenticação adicional sempre que necessário.
+Um método comum para melhorar a proteção de todos os utilizadores é exigir uma forma mais forte de verificação de conta, como a Autenticação Multi-Factor, para todos. Após os utilizadores completarem o registo de autenticação multi-factor, serão solicitados para autenticação adicional sempre que necessário. Esta funcionalidade protege todas as aplicações registadas com a AD Azure, incluindo aplicações SaaS.
 
 ### <a name="blocking-legacy-authentication"></a>Bloquear a autenticação do legado
 
@@ -78,6 +91,8 @@ Após os incumprimentos de segurança estarem ativados no seu inquilino, todos o
 
 > [!WARNING]
 > Antes de ativar os incumprimentos de segurança, certifique-se de que os seus administradores não estão a utilizar protocolos de autenticação mais antigos. Para mais informações, consulte [Como afastar-se da autenticação do legado.](concept-fundamentals-block-legacy-authentication.md)
+
+- [Como configurar um dispositivo ou aplicação multifunções para enviar e-mail utilizando o Office 365 e o Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-office-3)
 
 ### <a name="protecting-privileged-actions"></a>Proteger ações privilegiadas
 
@@ -101,21 +116,26 @@ Depois de ativar falhas de segurança no seu inquilino, qualquer utilizador que 
 
 ## <a name="deployment-considerations"></a>Considerações sobre implementação
 
-As seguintes considerações adicionais estão relacionadas com a implementação de incumprimentos de segurança para o seu inquilino.
+As seguintes considerações adicionais estão relacionadas com a implementação de incumprimentos de segurança.
 
 ### <a name="authentication-methods"></a>Métodos de autenticação
 
-As falhas de segurança permitem o registo e utilização da Autenticação Multi-Factor Azure **utilizando apenas a aplicação Do Autenticador Microsoft utilizando notificações**. O Acesso Condicional permite a utilização de qualquer método de autenticação que o administrador opte por ativar.
+Estes incumprimentos de segurança gratuitos permitem o registo e utilização da Autenticação Multi-Factor Azure **utilizando apenas a aplicação Autenticadora Microsoft utilizando notificações**. O Acesso Condicional permite a utilização de qualquer método de autenticação que o administrador opte por ativar.
 
 |   | Predefinições de segurança | Acesso Condicional |
 | --- | --- | --- |
 | Notificação através de aplicação móvel | X | X |
-| Código de verificação de aplicativo móvel ou ficha de hardware |   | X |
+| Código de verificação de aplicativo móvel ou ficha de hardware | X** | X |
 | Mensagem de texto para telefone |   | X |
 | Chamada para telefone |   | X |
-| Palavras-passe da aplicação |   | X** |
+| Palavras-passe da aplicação |   | X*** |
 
-** As palavras-passe da aplicação só estão disponíveis em MFA por utilizador com cenários de autenticação legado apenas se ativadas pelos administradores.
+- ** Os utilizadores podem utilizar códigos de verificação da aplicação Microsoft Authenticator, mas só podem registar-se através da opção de notificação.
+- As palavras-passe das aplicações só estão disponíveis em MFA por utilizador com cenários de autenticação legado apenas se forem ativadas pelos administradores.
+
+### <a name="disabled-mfa-status"></a>Estatuto de MFA com deficiência
+
+Se a sua organização for um utilizador anterior de autenticação azure multi-factor baseada em utilizador, não se assuste em não ver os utilizadores num estado **habilitado** ou **forçado** se olhar para a página de estado do Multi-Factor Auth. **Desativado** é o estado adequado para os utilizadores que estão a utilizar falhas de segurança ou autenticação de multifactor azure baseada em acesso condicional.
 
 ### <a name="conditional-access"></a>Acesso Condicional
 
@@ -123,20 +143,20 @@ Pode utilizar o Acesso Condicional para configurar políticas semelhantes às fa
 
 ![Mensagem de aviso de que pode ter incumprimentos de segurança ou acesso condicional não ambos](./media/concept-fundamentals-security-defaults/security-defaults-conditional-access.png)
 
-Aqui estão guias passo a passo sobre como pode utilizar o Acesso Condicional para configurar políticas equivalentes:
+Aqui estão guias passo a passo sobre como pode utilizar o Acesso Condicional para configurar políticas equivalentes às políticas ativadas por incumprimentos de segurança:
 
-- [Exigir MFA aos administradores](../conditional-access/howto-conditional-access-policy-admin-mfa.md)
+- [Exigir MFA para administradores](../conditional-access/howto-conditional-access-policy-admin-mfa.md)
 - [Exigir MFA para a gestão do Azure](../conditional-access/howto-conditional-access-policy-azure-management.md)
-- [Bloquear a autenticação legada](../conditional-access/howto-conditional-access-policy-block-legacy.md)
+- [Autenticação do legado do bloco](../conditional-access/howto-conditional-access-policy-block-legacy.md)
 - [Pedir MFA para todos os utilizadores](../conditional-access/howto-conditional-access-policy-all-users-mfa.md)
-- [Exigir registo De MFA Azure](../identity-protection/howto-identity-protection-configure-mfa-policy.md) - Requer proteção de identidade Azure AD
+- [Exigir registo Azure MFA](../identity-protection/howto-identity-protection-configure-mfa-policy.md) - Requer a Proteção de Identidade Azure AD parte do Azure AD Premium P2.
 
 ## <a name="enabling-security-defaults"></a>Ativar incumprimentos de segurança
 
 Para ativar os incumprimentos de segurança no seu diretório:
 
-1. Inscreva-se no [portal](https://portal.azure.com) Azure como administrador de segurança, administrador de Acesso Condicional ou administrador global.
-1. Navegue pelas > **Propriedades** **de Diretório Ativo Azure.**
+1. Inscreva-se no [portal Azure](https://portal.azure.com)   como administrador de segurança, administrador de Acesso Condicional ou administrador global.
+1. Navegue pelas Propriedades **de Diretório Ativo Azure.**   >  **Properties**
 1. Selecione **Gerir os predefinições de segurança**.
 1. Desative as falhas de **segurança ativar** para **Sim**.
 1. Selecione **Guardar**.
@@ -149,8 +169,8 @@ As organizações que optem por implementar políticas de Acesso Condicional que
 
 Para desativar os incumprimentos de segurança no seu diretório:
 
-1. Inscreva-se no [portal](https://portal.azure.com) Azure como administrador de segurança, administrador de Acesso Condicional ou administrador global.
-1. Navegue pelas > **Propriedades** **de Diretório Ativo Azure.**
+1. Inscreva-se no [portal Azure](https://portal.azure.com)   como administrador de segurança, administrador de Acesso Condicional ou administrador global.
+1. Navegue pelas Propriedades **de Diretório Ativo Azure.**   >  **Properties**
 1. Selecione **Gerir os predefinições de segurança**.
 1. Desative as **predefinições** de segurança Ativar para **O**.
 1. Selecione **Guardar**.

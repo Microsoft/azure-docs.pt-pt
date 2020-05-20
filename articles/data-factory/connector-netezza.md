@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 05/09/2020
 ms.author: jingwang
-ms.openlocfilehash: 89efa8dc9989f693964415741299042c63f93780
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 69eef6d8457b183f61bae98c0bc80feb0ff2e263
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418121"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83635469"
 ---
 # <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Copiar dados da Netezza utilizando a Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -57,14 +57,14 @@ As seguintes propriedades são suportadas para o serviço ligado à Netezza:
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade **tipo** deve ser definida para **Netezza**. | Sim |
-| conexãoString | Uma cadeia de ligação ODBC para ligar a Netezza. <br/>Também pode colocar palavra-passe no Cofre `pwd` de Chaves Azure e retirar a configuração da cadeia de ligação. Consulte as seguintes amostras e [guarde as credenciais no](store-credentials-in-key-vault.md) artigo do Cofre chave Azure com mais detalhes. | Sim |
+| conexãoString | Uma cadeia de ligação ODBC para ligar a Netezza. <br/>Também pode colocar palavra-passe no Cofre de Chaves Azure e retirar a `pwd` configuração da cadeia de ligação. Consulte as seguintes amostras e [guarde as credenciais no](store-credentials-in-key-vault.md) artigo do Cofre chave Azure com mais detalhes. | Sim |
 | connectVia | O Tempo de [Integração](concepts-integration-runtime.md) para utilizar para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não especificado, é utilizado o tempo de execução de integração azure padrão. |Não |
 
-Uma corda de `Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>`ligação típica é . A tabela a seguir descreve mais propriedades que pode definir:
+Uma corda de ligação típica é `Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>` . A tabela a seguir descreve mais propriedades que pode definir:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| Nível de Segurança | O nível de segurança (SSL/TLS) que o condutor utiliza para a ligação ao armazém de dados. Exemplo: `SecurityLevel=preferredSecured`. Os valores suportados são:<br/>- **Apenas não seguro** (**apenas UnSecured**): O condutor não utiliza TLS.<br/>- **Preferencialmente não seguro (preferencialMente UnSecured) (predefinição)**: Se o servidor fornecer uma escolha, o controlador não utiliza TLS. <br/>- **Preferência segura (preferredSecured)**: Se o servidor fornecer uma escolha, o controlador utiliza TLS. <br/>- **Apenas seguro (apenas Protegido)**: O controlador não se liga a menos que esteja disponível uma ligação TLS. | Não |
+| Nível de Segurança | O nível de segurança (SSL/TLS) que o condutor utiliza para a ligação ao armazém de dados. O condutor suporta ligações SSL com autenticação de ida usando a versão SSL 3. <br>Exemplo: `SecurityLevel=preferredSecured`. Os valores suportados são:<br/>- **Apenas não seguro** (**apenas UnSecured**): O condutor não utiliza TLS.<br/>- **Preferencialmente não seguro (preferencialMente UnSecured) (predefinição)**: Se o servidor fornecer uma escolha, o controlador não utiliza TLS. <br/>- **Preferência segura (preferredSecured)**: Se o servidor fornecer uma escolha, o controlador utiliza TLS. <br/>- **Apenas seguro (apenas Protegido)**: O controlador não se liga a menos que esteja disponível uma ligação TLS. | Não |
 | CaCertFile | O caminho completo para o certificado TLS/SSL que é usado pelo servidor. Exemplo: `CaCertFile=<cert path>;`| Sim, se o TLS estiver ativado |
 
 **Exemplo**
@@ -124,7 +124,7 @@ Para copiar dados do Netezza, detete a propriedade **do tipo** do conjunto de da
 | tipo | A propriedade tipo do conjunto de dados deve ser definida para: **NetezzaTable** | Sim |
 | schema | Nome do esquema. |Não (se for especificada a "consulta" na fonte de atividade)  |
 | tabela | Nome da mesa. |Não (se for especificada a "consulta" na fonte de atividade)  |
-| tableName | Nome da mesa com esquema. Esta propriedade é suportada para retrocompatibilidade. Uso `schema` `table` e para nova carga de trabalho. | Não (se for especificada a "consulta" na fonte de atividade) |
+| tableName | Nome da mesa com esquema. Esta propriedade é suportada para retrocompatibilidade. Uso `schema` e para nova carga de `table` trabalho. | Não (se for especificada a "consulta" na fonte de atividade) |
 
 **Exemplo**
 
@@ -159,11 +159,11 @@ Para copiar dados do Netezza, delineie o tipo de **origem** na Atividade de Cóp
 |:--- |:--- |:--- |
 | tipo | A propriedade do **tipo** da fonte de atividade de cópia deve ser definida para **NetezzaSource**. | Sim |
 | consulta | Utilize a consulta SQL personalizada para ler dados. Exemplo: `"SELECT * FROM MyTable"` | Não (se for especificado "tableName" no conjunto de dados) |
-| partilhaOpOp | Especifica as opções de partilha de dados utilizadas para carregar dados da Netezza. <br>Os valores de adesão são: **Nenhum** (padrão), **DataSlice,** e **DynamicRange**.<br>Quando uma opção de partição `None`é ativada (isto é, não), o grau de paralelismo para carregar simultaneamente dados de uma base de dados netezza é controlado por [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) regulação da atividade da cópia. | Não |
-| partiçãoDefinições | Especifique o grupo das definições para a partilha de dados. <br>Aplicar quando a opção de partição não `None`é . | Não |
-| partitionColumnName | Especifique o nome da coluna de origem **no tipo inteiro** que será utilizado por divisórias de alcance para cópia paralela. Se não especificada, a chave principal da tabela é detetada automaticamente e utilizada como coluna de partição. <br>Aplicar quando a `DynamicRange`opção de partição for . Se utilizar uma consulta para recuperar os `?AdfRangePartitionColumnName` dados de origem, ligue-se à cláusula ONDE. Consulte o exemplo na cópia paralela da secção [Netezza.](#parallel-copy-from-netezza) | Não |
-| partiçãoUpperBound | O valor máximo da coluna de partição para copiar dados. <br>Aplicar quando a `DynamicRange`opção de partição é . Se utilizar a consulta para recuperar `?AdfRangePartitionUpbound` dados de origem, ligue-se à cláusula WHERE. Por exemplo, consulte a cópia paralela da secção [Netezza.](#parallel-copy-from-netezza) | Não |
-| partiçãoLowerBound | O valor mínimo da coluna de partição para copiar dados. <br>Aplicar quando a `DynamicRange`opção de partição for . Se utilizar uma consulta para recuperar os `?AdfRangePartitionLowbound` dados de origem, ligue-se à cláusula WHERE. Por exemplo, consulte a cópia paralela da secção [Netezza.](#parallel-copy-from-netezza) | Não |
+| partilhaOpOp | Especifica as opções de partilha de dados utilizadas para carregar dados da Netezza. <br>Os valores de adesão são: **Nenhum** (padrão), **DataSlice,** e **DynamicRange**.<br>Quando uma opção de partição é ativada (isto é, `None` não), o grau de paralelismo para carregar simultaneamente dados de uma base de dados netezza é controlado [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) por regulação da atividade da cópia. | Não |
+| partiçãoDefinições | Especifique o grupo das definições para a partilha de dados. <br>Aplicar quando a opção de partição não é `None` . | Não |
+| partitionColumnName | Especifique o nome da coluna de origem **no tipo inteiro** que será utilizado por divisórias de alcance para cópia paralela. Se não especificada, a chave principal da tabela é detetada automaticamente e utilizada como coluna de partição. <br>Aplicar quando a opção de partição for `DynamicRange` . Se utilizar uma consulta para recuperar os dados de origem, `?AdfRangePartitionColumnName` ligue-se à cláusula ONDE. Consulte o exemplo na cópia paralela da secção [Netezza.](#parallel-copy-from-netezza) | Não |
+| partiçãoUpperBound | O valor máximo da coluna de partição para copiar dados. <br>Aplicar quando a opção de partição é `DynamicRange` . Se utilizar a consulta para recuperar dados de origem, `?AdfRangePartitionUpbound` ligue-se à cláusula WHERE. Por exemplo, consulte a cópia paralela da secção [Netezza.](#parallel-copy-from-netezza) | Não |
+| partiçãoLowerBound | O valor mínimo da coluna de partição para copiar dados. <br>Aplicar quando a opção de partição for `DynamicRange` . Se utilizar uma consulta para recuperar os dados de origem, ligue-se `?AdfRangePartitionLowbound` à cláusula WHERE. Por exemplo, consulte a cópia paralela da secção [Netezza.](#parallel-copy-from-netezza) | Não |
 
 **Exemplo:**
 
@@ -203,15 +203,15 @@ O conector Netezza data Factory fornece partição de dados incorporados para co
 
 ![Screenshot das opções de partição](./media/connector-netezza/connector-netezza-partition-options.png)
 
-Quando ativa a cópia dividida, a Data Factory executa consultas paralelas contra a sua fonte Netezza para carregar dados por divisórias. O grau paralelo é [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) controlado pela regulação da atividade da cópia. Por exemplo, se `parallelCopies` definir para quatro, data Factory gera simultaneamente e executa quatro consultas com base na sua opção e configurações especificadas de partição, e cada consulta recupera uma parte dos dados da sua base de dados Netezza.
+Quando ativa a cópia dividida, a Data Factory executa consultas paralelas contra a sua fonte Netezza para carregar dados por divisórias. O grau paralelo é controlado pela [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) regulação da atividade da cópia. Por exemplo, se definir `parallelCopies` para quatro, data Factory gera simultaneamente e executa quatro consultas com base na sua opção e configurações especificadas de partição, e cada consulta recupera uma parte dos dados da sua base de dados Netezza.
 
 É sugerido que permita cópias paralelas com partilha de dados especialmente quando carrega uma grande quantidade de dados da sua base de dados Netezza. As seguintes são configurações sugeridas para diferentes cenários. Ao copiar dados para uma loja de dados baseada em ficheiros, é re-ordenado para escrever para uma pasta como múltiplos ficheiros (apenas especificar o nome da pasta), caso em que o desempenho é melhor do que escrever para um único ficheiro.
 
 | Cenário                                                     | Definições sugeridas                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Carga completa de mesa grande.                                   | **Opção de partição**: Data Slice. <br><br/>Durante a execução, a Data Factory partilha automaticamente os dados com base nas [fatias de dados incorporadas da Netezza](https://www.ibm.com/support/knowledgecenter/en/SSULQD_7.2.1/com.ibm.nz.adm.doc/c_sysadm_data_slices_parts_disks.html)e copia dados por divisórias. |
-| Carregue uma grande quantidade de dados utilizando uma consulta personalizada.                 | **Opção de partição**: Data Slice.<br>**Consulta:** `SELECT * FROM <TABLENAME> WHERE mod(datasliceid, ?AdfPartitionCount) = ?AdfDataSliceCondition AND <your_additional_where_clause>`.<br>Durante a execução, `?AdfPartitionCount` a Data Factory substitui (com `?AdfDataSliceCondition` número de cópia paralela definido na atividade de cópia) e com a lógica da partilha de fatias de dados, e envia para netezza. |
-| Carregue uma grande quantidade de dados utilizando uma consulta personalizada, tendo uma coluna inteiro com valor uniformemente distribuído para a partilha de alcance. | **Opções de partição**: Partição dinâmica.<br>**Consulta:** `SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`.<br>**Coluna de partição**: Especifique a coluna utilizada para os dados da partilha. Pode dividir-se contra a coluna com o tipo de dados inteiros.<br>**Divisória superior ligada** e **divisória inferior:** Especifique se pretende filtrar contra a coluna de divisórias para recuperar dados apenas entre a gama inferior e superior.<br><br>Durante a execução, `?AdfRangePartitionColumnName` `?AdfRangePartitionUpbound`a `?AdfRangePartitionLowbound` Data Factory substitui, e com o nome real da coluna e gamas de valor para cada partição, e envia para Netezza. <br>Por exemplo, se a sua coluna de partição "ID" definida com o limite inferior como 1 e o limite superior como 80, com cópia paralela definida como 4, data Factory recupera dados por 4 divisórias. As suas identificações estão entre [1,20], [21, 40], [41, 60], e [61, 80], respectivamente. |
+| Carregue uma grande quantidade de dados utilizando uma consulta personalizada.                 | **Opção de partição**: Data Slice.<br>**Consulta:** `SELECT * FROM <TABLENAME> WHERE mod(datasliceid, ?AdfPartitionCount) = ?AdfDataSliceCondition AND <your_additional_where_clause>` .<br>Durante a execução, a Data Factory substitui (com número de cópia paralela definido na atividade de cópia) e com a lógica da partilha de fatias de `?AdfPartitionCount` `?AdfDataSliceCondition` dados, e envia para netezza. |
+| Carregue uma grande quantidade de dados utilizando uma consulta personalizada, tendo uma coluna inteiro com valor uniformemente distribuído para a partilha de alcance. | **Opções de partição**: Partição dinâmica.<br>**Consulta:** `SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>` .<br>**Coluna de partição**: Especifique a coluna utilizada para os dados da partilha. Pode dividir-se contra a coluna com o tipo de dados inteiros.<br>**Divisória superior ligada** e **divisória inferior:** Especifique se pretende filtrar contra a coluna de divisórias para recuperar dados apenas entre a gama inferior e superior.<br><br>Durante a execução, a Data Factory substitui, e com o nome real da coluna e gamas de `?AdfRangePartitionColumnName` valor para cada `?AdfRangePartitionUpbound` `?AdfRangePartitionLowbound` partição, e envia para Netezza. <br>Por exemplo, se a sua coluna de partição "ID" definida com o limite inferior como 1 e o limite superior como 80, com cópia paralela definida como 4, data Factory recupera dados por 4 divisórias. As suas identificações estão entre [1,20], [21, 40], [41, 60], e [61, 80], respectivamente. |
 
 **Exemplo: consulta com partição de fatias de dados**
 
