@@ -1,14 +1,14 @@
 ---
 title: Obter dados de conformidade de políticas
 description: As avaliações e efeitos da Política Azure determinam a conformidade. Saiba como obter os detalhes de conformidade dos seus recursos Azure.
-ms.date: 02/01/2019
+ms.date: 05/20/2020
 ms.topic: how-to
-ms.openlocfilehash: d4d9c530a7f9c4683f522a08a30e23437d1774cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1c75f078cb80d5e2dbc00a69817d223d4818d55b
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82194011"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684517"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obtenha dados de conformidade dos recursos do Azure
 
@@ -26,17 +26,17 @@ Antes de analisar os métodos para reportar sobre o cumprimento, vamos ver quand
 
 ## <a name="evaluation-triggers"></a>Gatilhos de avaliação
 
-Os resultados de um ciclo de `Microsoft.PolicyInsights` avaliação `PolicyStates` `PolicyEvents` concluído estão disponíveis no Fornecedor de Recursos através e operações. Para obter mais informações sobre as operações da Política Azure REST API, consulte [azure Policy Insights](/rest/api/policy-insights/).
+Os resultados de um ciclo de avaliação concluído estão disponíveis no Fornecedor de `Microsoft.PolicyInsights` Recursos `PolicyStates` através e `PolicyEvents` operações. Para obter mais informações sobre as operações da Política Azure REST API, consulte [azure Policy Insights](/rest/api/policy-insights/).
 
 As avaliações das políticas e iniciativas atribuídas acontecem em resultado de diversos eventos:
 
-- Uma política ou iniciativa é recentemente atribuída a um âmbito. Leva cerca de 30 minutos para a atribuição ser aplicada ao âmbito definido. Uma vez aplicado, o ciclo de avaliação começa por recursos dentro desse âmbito contra a política ou iniciativa recém-atribuída e dependendo dos efeitos usados pela política ou iniciativa, os recursos são marcados como conformes ou não conformes. Uma grande política ou iniciativa avaliada contra um grande âmbito de recursos pode levar tempo. Como tal, não há expectativa pré-definida de quando o ciclo de avaliação estará concluído. Uma vez concluído, os resultados atualizados de conformidade estão disponíveis no portal e SDKs.
+- Uma política ou iniciativa é recentemente atribuída a um âmbito. Leva cerca de 30 minutos para a atribuição ser aplicada ao âmbito definido. Uma vez aplicado, o ciclo de avaliação começa por recursos dentro desse âmbito contra a política ou iniciativa recém-atribuída e dependendo dos efeitos usados pela política ou iniciativa, os recursos são marcados como conformes ou não conformes. Uma grande política ou iniciativa avaliada contra um grande âmbito de recursos pode levar tempo. Como tal, não há expectativa pré-definida de quando o ciclo de avaliação termina. Uma vez concluído, os resultados atualizados de conformidade estão disponíveis no portal e SDKs.
 
 - É atualizada uma política ou iniciativa já atribuída a um âmbito de aplicação. O ciclo de avaliação e o calendário para este cenário são os mesmos que para uma nova atribuição a um âmbito.
 
 - Um recurso é implantado para um âmbito com uma atribuição via Resource Manager, REST, Azure CLI ou Azure PowerShell. Neste cenário, o evento de efeito (apêndice, auditoria, negar, implementar) e informação de estado conforme para o recurso individual fica disponível no portal e SDKs cerca de 15 minutos depois. Este evento não causa uma avaliação de outros recursos.
 
-- Ciclo padrão de avaliação de conformidade. Uma vez a cada 24 horas, as atribuições são automaticamente reavaliadas. Uma grande política ou iniciativa de muitos recursos pode levar tempo, por isso não há expectativa pré-definida de quando o ciclo de avaliação estará concluído. Uma vez concluído, os resultados atualizados de conformidade estão disponíveis no portal e SDKs.
+- Ciclo padrão de avaliação de conformidade. Uma vez a cada 24 horas, as atribuições são automaticamente reavaliadas. Uma grande política ou iniciativa de muitos recursos pode levar tempo, por isso não há expectativa pré-definida de quando o ciclo de avaliação terminar. Uma vez concluído, os resultados atualizados de conformidade estão disponíveis no portal e SDKs.
 
 - O fornecedor de recursos de [Configuração de Hóspedes](../concepts/guest-configuration.md) é atualizado com detalhes de conformidade por um recurso gerido.
 
@@ -44,7 +44,41 @@ As avaliações das políticas e iniciativas atribuídas acontecem em resultado 
 
 ### <a name="on-demand-evaluation-scan"></a>On-demand evaluation scan (Análise de avaliação a pedido)
 
-Uma avaliação para uma subscrição ou um grupo de recursos pode ser iniciada com uma chamada para a API REST. Esta tomografia é um processo assíncrono. Como tal, o ponto final do REST para iniciar a varredura não espera até que a digitalização esteja completa para responder. Em vez disso, fornece um URI para consultar o estado da avaliação solicitada.
+Uma avaliação para uma subscrição ou um grupo de recursos pode ser iniciada com o Azure PowerShell ou uma chamada para a API REST. Esta tomografia é um processo assíncrono.
+
+#### <a name="on-demand-evaluation-scan---azure-powershell"></a>Avaliação a pedido - Azure PowerShell
+
+A varredura de conformidade é iniciada com o [cmdlet Start-AzPolicyComplianceScan.](/powershell/module/az.policyinsights/start-azpolicycompliancescan)
+
+Por predefinição, `Start-AzPolicyComplianceScan` inicia uma avaliação para todos os recursos na subscrição atual. Para iniciar uma avaliação num grupo de recursos específico, utilize o parâmetro **ResourceGroupName.** O exemplo seguinte inicia uma análise de conformidade na subscrição atual do grupo de recursos _MyRG:_
+
+```azurepowershell-interactive
+Start-AzPolicyComplianceScan -ResourceGroupName MyRG
+```
+
+Pode pedir à PowerShell que achamada assíncrona esteja concluída antes de fornecer a saída dos resultados ou executá-la em segundo plano como [um trabalho](/powershell/module/microsoft.powershell.core/about/about_jobs). Para utilizar um trabalho powerShell para executar a verificação de conformidade em segundo plano, use o parâmetro **AsJob** e defina o valor para um objeto, como `$job` neste exemplo:
+
+```azurepowershell-interactive
+$job = Start-AzPolicyComplianceScan -AsJob
+```
+
+Pode verificar o estado do trabalho verificando o `$job` objeto. O trabalho é do `Microsoft.Azure.Commands.Common.AzureLongRunningJob` tipo. Utilize `Get-Member` no objeto para ver as propriedades e `$job` métodos disponíveis.
+
+Enquanto a verificação de conformidade está em execução, verificando os resultados das saídas do `$job` objeto como estes:
+
+```azurepowershell-interactive
+$job
+
+Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
+--     ----            -------------   -----         -----------     --------             -------
+2      Long Running O… AzureLongRunni… Running       True            localhost            Start-AzPolicyCompliance…
+```
+
+Quando a varredura de conformidade estiver concluída, a propriedade **do Estado** muda para _Concluída_.
+
+#### <a name="on-demand-evaluation-scan---rest"></a>Avaliação a pedido - REST
+
+Como um processo assíncrono, o ponto final do REST para iniciar a varredura não espera até que a digitalização esteja completa para responder. Em vez disso, fornece um URI para consultar o estado da avaliação solicitada.
 
 Em cada URI da API REST, existem variáveis que são utilizadas que precisa de substituir pelos seus próprios valores:
 
@@ -56,22 +90,22 @@ A varredura suporta a avaliação de recursos numa subscrição ou num grupo de 
 - Subscrição
 
   ```http
-  POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
+  POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2019-10-01
   ```
 
 - Grupo de recursos
 
   ```http
-  POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{YourRG}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
+  POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{YourRG}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2019-10-01
   ```
 
 A chamada devolve um estatuto **aceite em 202.** Incluído no cabeçalho de resposta é uma propriedade **de Localização** com o seguinte formato:
 
 ```http
-https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/asyncOperationResults/{ResourceContainerGUID}?api-version=2018-07-01-preview
+https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/asyncOperationResults/{ResourceContainerGUID}?api-version=2019-10-01
 ```
 
-`{ResourceContainerGUID}`é gerado estáticamente para o âmbito solicitado. Se já está a fazer uma varredura a pedido, não é iniciado um novo exame. Em vez disso, o `{ResourceContainerGUID}` novo pedido é fornecido o mesmo **local** URI para o estado. Um comando REST API **GET** para o **Local** URI devolve um **202 Aceito** enquanto a avaliação está em curso. Quando a avaliação estiver concluída, devolve um estatuto de **200 OK.** O corpo de uma varredura completa é uma resposta JSON com o estatuto:
+`{ResourceContainerGUID}`é gerado estáticamente para o âmbito solicitado. Se já está a fazer uma varredura a pedido, não é iniciado um novo exame. Em vez disso, o novo pedido é fornecido o mesmo `{ResourceContainerGUID}` **local** URI para o estado. Um comando REST API **GET** para o **Local** URI devolve um **202 Aceito** enquanto a avaliação está em curso. Quando a avaliação estiver concluída, devolve um estatuto de **200 OK.** O corpo de uma varredura completa é uma resposta JSON com o estatuto:
 
 ```json
 {
@@ -143,7 +177,7 @@ De volta à página de conformidade de recursos, clique à direita na linha do e
 
 ### <a name="understand-non-compliance"></a>Compreender o incumprimento
 
-Quando um recursos é determinado a **não cumprir,** existem muitas razões possíveis. Para determinar a razão pela qual um recurso não está **em conformidade** ou para encontrar a alteração responsável, consulte determinar o [incumprimento](./determine-non-compliance.md).
+Quando um recurso é determinado a **não ser compatível,** existem muitas razões possíveis. Para determinar a razão pela qual um recurso não está **em conformidade** ou para encontrar a alteração responsável, consulte determinar o [incumprimento](./determine-non-compliance.md).
 
 ## <a name="command-line"></a>Linha de comandos
 
@@ -269,7 +303,7 @@ Para obter mais informações sobre consulta de eventos políticos, consulte o a
 ### <a name="azure-powershell"></a>Azure PowerShell
 
 O módulo Azure PowerShell para a Política Azure está disponível na PowerShell Gallery como [Az.PolicyInsights](https://www.powershellgallery.com/packages/Az.PolicyInsights).
-Utilizando o PowerShellGet, pode `Install-Module -Name Az.PolicyInsights` instalar o módulo utilizando (certifique-se de que tem o mais recente [Azure PowerShell](/powershell/azure/install-az-ps) instalado):
+Utilizando o PowerShellGet, pode instalar o módulo utilizando `Install-Module -Name Az.PolicyInsights` (certifique-se de que tem o mais recente [Azure PowerShell](/powershell/azure/install-az-ps) instalado):
 
 ```azurepowershell-interactive
 # Install from PowerShell Gallery via PowerShellGet
@@ -383,7 +417,7 @@ TenantId                   : {tenantId}
 PrincipalOid               : {principalOid}
 ```
 
-O campo **PrincipalOid** pode ser utilizado para obter um utilizador `Get-AzADUser`específico com o cmdlet Azure PowerShell . Substitua **{principalOid}** com a resposta que obtém do exemplo anterior.
+O campo **PrincipalOid** pode ser utilizado para obter um utilizador específico com o cmdlet Azure PowerShell `Get-AzADUser` . Substitua **{principalOid}** com a resposta que obtém do exemplo anterior.
 
 ```azurepowershell-interactive
 PS> (Get-AzADUser -ObjectId {principalOid}).DisplayName
@@ -392,7 +426,7 @@ Trent Baker
 
 ## <a name="azure-monitor-logs"></a>Registos do Azure Monitor
 
-Se tiver um [espaço](../../../log-analytics/log-analytics-overview.md) de `AzureActivity` trabalho log Analytics com a [solução Activity Log Analytics](../../../azure-monitor/platform/activity-log-collect.md) ligada à sua subscrição, também `AzureActivity` pode ver resultados de incumprimento do ciclo de avaliação utilizando simples consultas Kusto e a tabela. Com detalhes nos registos do Monitor Azure, os alertas podem ser configurados para ter cuidado com o incumprimento.
+Se tiver um espaço de trabalho log [Analytics](../../../log-analytics/log-analytics-overview.md) com `AzureActivity` a [solução Activity Log Analytics](../../../azure-monitor/platform/activity-log-collect.md) ligada à sua subscrição, também pode ver resultados de incumprimento do ciclo de avaliação utilizando simples consultas Kusto e a `AzureActivity` tabela. Com detalhes nos registos do Monitor Azure, os alertas podem ser configurados para ter cuidado com o incumprimento.
 
 :::image type="content" source="../media/getting-compliance-data/compliance-loganalytics.png" alt-text="Conformidade política azure usando registos do Monitor Azure" border="false":::
 

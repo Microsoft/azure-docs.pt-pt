@@ -15,12 +15,12 @@ ms.date: 03/28/2019
 ms.author: mimart
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecd49b340810f92727f0fc98f84031c8cbf68179
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7c43a1250f4d2be956b028689ee10eb4b968701f
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79481182"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680131"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Use restrições de inquilinos para gerir o acesso a aplicações em nuvem SaaS
 
@@ -30,13 +30,13 @@ A solução Azure Ative Directory (Azure AD) para este desafio é uma funcionali
 
 Com restrições aos inquilinos, as organizações podem especificar a lista de inquilinos a que os seus utilizadores estão autorizados a aceder. A Azure AD só concede acesso a estes inquilinos permitidos.
 
-Este artigo centra-se nas restrições de inquilinos para o Office 365, mas a funcionalidade deve funcionar com qualquer aplicação em nuvem SaaS que utilize protocolos de autenticação modernos com a AD Azure para um único sinal. Se utilizar aplicações SaaS com um inquilino Azure AD diferente do inquilino utilizado pelo Office 365, certifique-se de que todos os inquilinos necessários são permitidos. Para mais informações sobre as aplicações em nuvem SaaS, consulte o [Ative Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/).
+Este artigo centra-se nas restrições de inquilinos para o Office 365, mas a funcionalidade deve funcionar com qualquer aplicação em nuvem SaaS que utilize protocolos de autenticação modernos com a AD Azure para um único sinal. Se utilizar aplicações SaaS com um inquilino Azure AD diferente do inquilino utilizado pelo Office 365, certifique-se de que todos os inquilinos necessários são permitidos. Para mais informações sobre as aplicações em nuvem SaaS, consulte o [Ative Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory).
 
 ## <a name="how-it-works"></a>Como funciona
 
 A solução global compreende os seguintes componentes:
 
-1. **Azure AD**: `Restrict-Access-To-Tenants: <permitted tenant list>` Se o anúncio estiver presente, a Azure AD apenas emite fichas de segurança para os inquilinos permitidos.
+1. **Azure AD**: Se o anúncio estiver presente, a `Restrict-Access-To-Tenants: <permitted tenant list>` Azure AD apenas emite fichas de segurança para os inquilinos permitidos.
 
 2. **Infraestrutura de servidor esportivo no local**: Esta infraestrutura é um dispositivo proxy capaz de inspeção de Segurança da Camada de Transporte (TLS). Deve configurar o representante para inserir o cabeçalho que contém a lista de inquilinos autorizados no tráfego destinado ao Azure AD.
 
@@ -74,7 +74,7 @@ Para cada pedido de entrada para login.microsoftonline.com, login.microsoft.com 
 
 Os cabeçalhos devem incluir os seguintes elementos:
 
-- Para *restringir o acesso aos inquilinos,* \<utilize um\>valor da lista de inquilinos permitidos, que é uma lista separada de inquilinos que pretende permitir o acesso dos utilizadores. Qualquer domínio registado com um inquilino pode ser usado para identificar o inquilino nesta lista. Por exemplo, para permitir o acesso aos inquilinos Contoso e Fabrikam, o nome/par de valor parece: `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com`
+- Para *restringir o acesso aos inquilinos,* utilize um valor da lista de \< inquilinos \> permitidos, que é uma lista separada de inquilinos que pretende permitir o acesso dos utilizadores. Qualquer domínio registado com um inquilino pode ser usado para identificar o inquilino nesta lista. Por exemplo, para permitir o acesso aos inquilinos Contoso e Fabrikam, o nome/par de valor parece: `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com`
 
 - Para *restringir o contexto de acesso,* utilize um valor de um único ID de diretório, declarando qual o inquilino que está a definir as restrições ao arrendatário. Por exemplo, para declarar Contoso como o inquilino que definiu a política de restrições de inquilinos, o nome/par de valor parece: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`  
 
@@ -113,7 +113,7 @@ O administrador do inquilino especificado como inquilino de acesso restrito pode
 - **Utilizador**
 - **Aplicação**
 - **Estado**
-- **Date**
+- **Data**
 - **Data (UTC)** (onde utc é tempo universal coordenado)
 - **Método MFA Auth** (método de autenticação multifactor)
 - **Detalhe MFA Auth** (detalhe de autenticação multifactor)
@@ -155,7 +155,7 @@ Fiddler é um proxy de depuração web gratuito que pode ser usado para capturar
 
    1. Na ferramenta Fiddler Web Debugger, selecione o menu **Regras** e selecione **Regras Personalizadas...** para abrir o ficheiro CustomRules.
 
-   2. Adicione as seguintes linhas `OnBeforeRequest` no início da função. Substitua \<\> o domínio do inquilino por um `contoso.onmicrosoft.com`domínio registado pelo seu inquilino (por exemplo, ). Substitua \<a\> id do diretório pelo identificador Azure AD GUID do seu inquilino.
+   2. Adicione as seguintes linhas no início da `OnBeforeRequest` função. Substitua o \< domínio do inquilino por um domínio registado pelo seu inquilino \> (por exemplo, `contoso.onmicrosoft.com` ). Substitua a id do \< diretório \> pelo identificador Azure AD GUID do seu inquilino.
 
       ```JScript.NET
       if (

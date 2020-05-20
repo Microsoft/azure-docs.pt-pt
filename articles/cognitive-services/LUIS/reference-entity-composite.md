@@ -10,19 +10,19 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/14/2020
 ms.author: diberry
-ms.openlocfilehash: bac37e91933d16f36f2d8917760968122a4f5619
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 81299751affe5f59e1132950ccb80844fcc1fae3
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588909"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681387"
 ---
 # <a name="composite-entity"></a>Entidade composta
 
 Uma entidade composta é constituída por outras entidades, como entidades pré-construídas, expressão simples, regular e entidades de lista. As entidades separadas formam uma entidade inteira.
 
 > [!CAUTION]
-> Esta entidade está **depreciada.** Por favor, emigra para a [entidade aprendida](reference-entity-machine-learned-entity.md)pela máquina.
+> Esta entidade está **depreciada.** Por favor, emilique para a [entidade de aprendizagem automática.](reference-entity-machine-learned-entity.md)
 
 **Esta entidade é um bom ajuste quando os dados:**
 

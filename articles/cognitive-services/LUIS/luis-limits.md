@@ -3,12 +3,12 @@ title: Limites - LUIS
 description: Este artigo contém os limites conhecidos da compreensão da linguagem dos serviços cognitivos azure (LUIS). O LUIS tem várias áreas de limites. O limite de modelo controla as intenções, entidades e funcionalidades no LUIS. Limites de quota com base no tipo-chave. A combinação de teclado controla o website da LUIS.
 ms.topic: reference
 ms.date: 05/06/2020
-ms.openlocfilehash: 71f6126cbf9615d7f808f098202f29094a913982
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: d4a6162758fab7e5c9592b98974620bbf06ba978
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593244"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684617"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>Limites para o seu modelo LUIS e chaves
 O LUIS tem várias áreas limite. O primeiro é o limite de [modelo,](#model-limits)que controla as intenções, entidades e características no LUIS. A segunda área é [os limites](#key-limits) de quota com base no tipo-chave. Uma terceira área de limites é a [combinação](#keyboard-controls) de teclado para controlar o site da LUIS. Uma quarta área é a [região mundial mapeando](luis-reference-regions.md) entre o site de autor luis e as APIs [endpoint](luis-glossary.md#endpoint) LUIS.
@@ -28,7 +28,7 @@ Se a sua aplicação exceder os limites do modelo LUIS, considere utilizar uma a
 | Entidades externas | sem limites |
 | [Intenções][intents]|500 por aplicação: 499 intenções personalizadas, e a intenção de _nenhuma_ intencional.<br>A aplicação [baseada em despachos](https://aka.ms/dispatch-tool) tem 500 fontes de expedição correspondentes.|
 | [Listar entidades](./luis-concept-entity-types.md) | Pai: 50 anos, criança: 20.000 itens. O nome canónico é *padrão de caracteres max. Os valores do sinónimo não têm restrição de comprimento. |
-| [Entidades aprendidas por máquinas + funções:](./luis-concept-entity-types.md)<br> composto,<br>simples,<br>papel da entidade|Um limite de 100 entidades-mãe ou 330 entidades, o que limita o utilizador primeiro. Um papel conta como entidade para efeitos deste limite. Um exemplo é um compósito com uma entidade simples, que tem 2 funções é: 1 composto + 1 simples + 2 funções = 4 das 330 entidades.<br>As subentidades podem ser aninhadas até 5 níveis.|
+| [entidades de machine-learning + funções:](./luis-concept-entity-types.md)<br> composto,<br>simples,<br>papel da entidade|Um limite de 100 entidades-mãe ou 330 entidades, o que limita o utilizador primeiro. Um papel conta como entidade para efeitos deste limite. Um exemplo é um compósito com uma entidade simples, que tem 2 funções é: 1 composto + 1 simples + 2 funções = 4 das 330 entidades.<br>As subentidades podem ser aninhadas até 5 níveis.|
 |Modelo como recurso| Número máximo de modelos que podem ser usados como uma característica para um modelo específico para ser 10 modelos. O número máximo de listas de frases utilizadas como recurso para um modelo específico ser de 10 listas de frases.|
 | [Pré-visualização - Entidades de lista dinâmica](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2 listas de ~1k por pedido de ponto final de previsão de consulta|
 | [Padrões](luis-concept-patterns.md)|500 padrões por aplicação.<br>O comprimento máximo do padrão é de 400 caracteres.<br>3 Padrão.quaisquer entidades por padrão<br>Máximo de 2 textos opcionais aninhados em padrão|
@@ -53,7 +53,7 @@ Os nomes dos objetos devem ser únicos quando comparados com outros objetos do m
 |Objetos|Restrições|
 |--|--|
 |Intenção, entidade|Todos os nomes de intenção e entidadedevem ser únicos numa versão de uma aplicação.|
-|Componentes da entidade ML|Todos os componentes de entidades aprendidas por máquinas (entidades infantis) devem ser únicos, dentro dessa entidade para componentes ao mesmo nível.|
+|Componentes da entidade ML|Todos os componentes da entidade de machine-learning (entidades infantis) devem ser únicos, dentro dessa entidade para componentes ao mesmo nível.|
 |Funcionalidades | Todas as funcionalidades nomeadas, como listas de frases, devem ser únicas dentro de uma versão de uma aplicação.|
 |Funções de entidade|Todas as funções numa entidade ou componente de entidade devem ser únicas quando estiverem ao mesmo nível de entidade (pai, filho, neto, etc.).|
 

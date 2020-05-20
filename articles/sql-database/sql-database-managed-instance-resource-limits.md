@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 02/25/2020
-ms.openlocfilehash: b2871ec87e4d7f337c26b3ff3de83c1c3c88aea2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 49a9355d0e5653ac453493a1808ab95136410d19
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80365393"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680479"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Visão geral Azure SQL Base de dados gerido limites de recursos de instância
 
@@ -81,6 +81,7 @@ A instância gerida tem dois níveis de serviço: [General Purpose](sql-database
 | OLTP em memória | Não suportado | Disponível, [o tamanho depende do número de vCore](#in-memory-oltp-available-space) |
 | Sessões max | 30000 | 30000 |
 | [Réplicas só de leitura](sql-database-read-scale-out.md) | 0 | 1 (incluído no preço) |
+| Isolamento computacional | Gen5:<br/>-suportado por 80 vCores<br/>- não suportado para outros tamanhos<br/><br/>Gen4 não é suportado devido a depreciação|Gen5:<br/>-suportado por 60, 64, 80 vCores<br/>- não suportado para outros tamanhos<br/><br/>Gen4 não é suportado devido a depreciação|
 
 > [!NOTE]
 > - **Atualmente disponível,** o tamanho do armazenamento por exemplo é a diferença entre o tamanho reservado da instância e o espaço de armazenamento usado.

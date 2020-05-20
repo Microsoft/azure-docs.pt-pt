@@ -3,12 +3,12 @@ title: Armazenamento de imagem de recipiente
 description: Detalhes sobre como as imagens do seu contentor Docker são armazenadas no Registo de Contentores Azure, incluindo segurança, redundância e capacidade.
 ms.topic: article
 ms.date: 03/21/2018
-ms.openlocfilehash: f66c3dd95edfe5035c46857cb6f9aa59d8a6a0e1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b738556e5a4f764cd47c72d964ee188d1344b336
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74456202"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683395"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Armazenamento de imagem de contentor no Registo de Contentores de Azure
 
@@ -46,7 +46,7 @@ Para mais detalhes sobre os preços, consulte o preço do Registo de [Contentore
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre as diferentes SKUs do Registo de Contentores Azure (Básico, Standard, Premium), consulte O Registo de [Contentores Azure SKUs](container-registry-skus.md).
+Para obter mais informações sobre os registos de contentores Básicos, Standard e Premium, consulte os níveis de serviço do Registo de [Contentores De Azure](container-registry-skus.md).
 
 <!-- IMAGES -->
 

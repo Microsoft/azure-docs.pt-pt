@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: e9ad7c52af20762633c710b39a64fbebf0cf6213
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a5ebd9b05b2dea9e04d4c9745c13d692ea88fcb8
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79220052"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680428"
 ---
 # <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>Teste de lote com 1000 expressões no portal LUIS
 
@@ -24,7 +24,7 @@ O teste do lote valida a sua versão ativa treinada para medir a sua precisão d
 
 ## <a name="group-data-for-batch-test"></a>Dados de grupo para o teste do lote
 
-É importante que as declarações utilizadas para os testes de lote sejam novas para o LUIS. Se tiver um conjunto de pronunciamentos de dados, divida as expressões em três conjuntos: declarações de exemplo adicionadas a uma intenção, expressões recebidas do ponto final publicado, e expressões usadas para o teste de lote LUIS após o seu treino. 
+É importante que as declarações utilizadas para os testes de lote sejam novas para o LUIS. Se tiver um conjunto de pronunciamentos de dados, divida as expressões em três conjuntos: declarações de exemplo adicionadas a uma intenção, expressões recebidas do ponto final publicado, e expressões usadas para o teste de lote LUIS após o seu treino.
 
 ## <a name="a-data-set-of-utterances"></a>Um conjunto de dados de expressões
 
@@ -35,7 +35,7 @@ Envie um ficheiro de expressões, conhecido como conjunto de *dados,* para teste
 |*Sem declarações duplicadas|
 |1000 expressões ou menos|
 
-*Os duplicados são considerados fósforos de corda exatos, não fósforos que são tokenizados primeiro. 
+*Os duplicados são considerados fósforos de corda exatos, não fósforos que são tokenizados primeiro.
 
 ## <a name="entities-allowed-in-batch-tests"></a>Entidades permitidas em testes de lote
 
@@ -46,7 +46,7 @@ Todas as entidades personalizadas do modelo aparecem no filtro de entidades de t
 
 ## <a name="batch-file-format"></a>Formato de ficheiro de lote
 
-O ficheiro do lote consiste em expressões. Cada expressão deve ter uma previsão de intenções esperada, juntamente com quaisquer [entidades aprendidas](luis-concept-entity-types.md#types-of-entities) com máquinas que espere ser detetadas. 
+O ficheiro do lote consiste em expressões. Cada expressão deve ter uma previsão de intenções esperada, juntamente com quaisquer [entidades de aprendizagem automática](luis-concept-entity-types.md#types-of-entities) que espere ser detetadas.
 
 ## <a name="batch-syntax-template-for-intents-with-entities"></a>Modelo de sintaxe de lote para intenções com entidades
 
@@ -57,7 +57,7 @@ Utilize o seguinte modelo para iniciar o seu ficheiro de lote:
   {
     "text": "example utterance goes here",
     "intent": "intent name goes here",
-    "entities": 
+    "entities":
     [
         {
             "entity": "entity name 1 goes here",
@@ -74,7 +74,7 @@ Utilize o seguinte modelo para iniciar o seu ficheiro de lote:
 ]
 ```
 
-O ficheiro de lote utiliza as propriedades **startPos** e **endPos** para observar o início e o fim de uma entidade. Os valores são baseados em zero e não devem começar ou terminar num espaço. Isto é diferente dos registos de consulta, que usam propriedades startIndex e endIndex. 
+O ficheiro de lote utiliza as propriedades **startPos** e **endPos** para observar o início e o fim de uma entidade. Os valores são baseados em zero e não devem começar ou terminar num espaço. Isto é diferente dos registos de consulta, que usam propriedades startIndex e endIndex.
 
 [!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
 
@@ -92,12 +92,12 @@ Utilize o seguinte modelo para iniciar o seu ficheiro de lote sem entidades:
 ]
 ```
 
-Se não quiser testar entidades, `entities` inclua o imóvel e `[]`detetete o valor como uma matriz vazia, .
+Se não quiser testar entidades, inclua o `entities` imóvel e detetete o valor como uma matriz vazia, `[]` .
 
 
 ## <a name="common-errors-importing-a-batch"></a>Erros comuns importando um lote
 
-Os erros comuns incluem: 
+Os erros comuns incluem:
 
 > * Mais de 1.000 expressões
 > * Um objeto json que não tem uma propriedade de entidades. A propriedade pode ser uma matriz vazia.
@@ -112,7 +112,7 @@ Luis rastreia o estado do último teste de cada conjunto de dados. Isto inclui o
 
 ## <a name="batch-test-results"></a>Resultados dos testes do lote
 
-O resultado do teste do lote é um gráfico de dispersão, conhecido como uma matriz de erro. Este gráfico é uma comparação de 4 vias das expressões no ficheiro do lote e das intenções e entidades previstas do modelo atual. 
+O resultado do teste do lote é um gráfico de dispersão, conhecido como uma matriz de erro. Este gráfico é uma comparação de 4 vias das expressões no ficheiro do lote e das intenções e entidades previstas do modelo atual.
 
 Os pontos de dados nas secções **False Positive** e **False Negative** indicam erros, que devem ser investigados. Se todos os pontos de dados estiverem nas secções **True Positive** e **True Negative,** então a precisão da sua aplicação é perfeita neste conjunto de dados.
 
@@ -124,13 +124,13 @@ Este gráfico ajuda-o a encontrar declarações que a LUIS prevê incorretamente
 
 ## <a name="errors-in-the-results"></a>Erros nos resultados
 
-Erros no teste do lote indicam intençãos que não são previstas como observada no ficheiro do lote. Erros são indicados nas duas secções vermelhas do gráfico. 
+Erros no teste do lote indicam intençãos que não são previstas como observada no ficheiro do lote. Erros são indicados nas duas secções vermelhas do gráfico.
 
-A secção falsa mente positiva indica que uma expressão corresponde a uma intenção ou entidade quando não deveria. O falso negativo indica que uma expressão não corresponde a uma intenção ou entidade quando deveria. 
+A secção falsa mente positiva indica que uma expressão corresponde a uma intenção ou entidade quando não deveria. O falso negativo indica que uma expressão não corresponde a uma intenção ou entidade quando deveria.
 
 ## <a name="fixing-batch-errors"></a>Corrigir erros de lote
 
-Se houver erros nos testes de lote, pode adicionar mais declarações a uma intenção, e/ou rotular mais expressões com a entidade para ajudar a LUIS a fazer a discriminação entre intenções. Se adicionou expressões e rotulou-as, e ainda obtém erros de previsão nos testes de lote, considere adicionar uma funcionalidade de lista de [frases](luis-concept-feature.md) com vocabulário específico para ajudar a LUIS a aprender mais rapidamente. 
+Se houver erros nos testes de lote, pode adicionar mais declarações a uma intenção, e/ou rotular mais expressões com a entidade para ajudar a LUIS a fazer a discriminação entre intenções. Se adicionou expressões e rotulou-as, e ainda obtém erros de previsão nos testes de lote, considere adicionar uma funcionalidade de lista de [frases](luis-concept-feature.md) com vocabulário específico para ajudar a LUIS a aprender mais rapidamente.
 
 ## <a name="next-steps"></a>Passos seguintes
 

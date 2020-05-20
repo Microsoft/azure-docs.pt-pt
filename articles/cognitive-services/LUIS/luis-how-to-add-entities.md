@@ -8,14 +8,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: 8be5dac2d1d5e8a5a3ceafff6b51b2d89e03993f
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: fa7e2321d61721e370ef6b5924dc6f820dd1f724
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593291"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685296"
 ---
 # <a name="add-entities-to-extract-data"></a>Adicionar entidades para extrair dados
 
@@ -25,24 +25,28 @@ A entidade representa uma palavra ou frase dentro da expressão que quer extraí
 
 ## <a name="plan-entities-then-create-and-label"></a>Planear entidades, em seguida, criar e rotular
 
-As entidades aprendidas com máquinas podem ser criadas a partir das declarações de exemplo ou criadas a partir da página **Entidades.**
+As entidades de machine-learning podem ser criadas a partir das declarações de exemplo ou criadas a partir da página **Entidades.**
 
-Em geral, a melhor prática é passar o tempo a planear as entidades antes de criar uma entidade aprendida em máquinas no portal. Em seguida, crie a entidade aprendida pela máquina a partir da expressão do exemplo com tanto detalhe nas subentidades e funcionalidades que conhece na época. O [tutorial de entidade descomponsável](tutorial-machine-learned-entity.md) demonstra como usar este método.
+Em geral, a melhor prática é passar o tempo a planear as entidades antes de criar uma entidade de machine-learning no portal. Em seguida, crie a entidade de aprendizagem automática a partir da expressão do exemplo com tanto detalhe nas subentidades e funcionalidades que conhece na época. O [tutorial de entidade descomponsável](tutorial-machine-learned-entity.md) demonstra como usar este método.
 
 Como parte do planeamento das entidades, pode saber que precisa de entidades que correspondam a texto (como entidades pré-construídas, entidades de expressão regular ou entidades de lista). Pode criá-las a partir da página **Entidades** antes de serem rotuladas como pronunciações.
 
-Ao rotular, pode rotular entidades individuais e depois construir até uma entidade-mãe aprendida com máquinas. Ou pode começar com uma entidade mãe aprendida com máquinas e decompor-se em entidades infantis.
+Ao rotular, pode rotular entidades individuais e depois construir até uma entidade de aprendizagem automática dos pais. Ou pode começar com uma entidade de aprendizagem automática-mãe e decompor-se em entidades infantis.
 
 > [!TIP]
 >Rotular todas as palavras que possam indicar uma entidade, mesmo que as palavras não sejam utilizadas quando extraídas na aplicação do cliente.
 
-## <a name="creating-an-entity-before-or-with-labeling"></a>Criação de uma entidade antes ou com rotulagem
+## <a name="when-to-create-an-entity"></a>Quando criar uma entidade
 
-Utilize a tabela seguinte para entender quais as entidades onde criar ou adicionar cada entidade à app.
+Depois de planear as suas entidades, deverá criar as suas entidades e subentidades de aprendizagem automática. Isto pode exigir a adição de entidades pré-construídas ou entidades que correspondam a textos para fornecer funcionalidades às suas entidades de aprendizagem automática. Tudo isto deve ser feito antes da rotulagem.
+
+Assim que começar a rotular as palavras de exemplo, pode criar entidades aprendidas com máquinas ou alargar entidades de lista.
+
+Utilize a tabela seguinte para entender onde criar ou adicionar cada tipo de entidade à aplicação.
 
 |Tipo de entidade|Onde criar entidade no portal LUIS|
 |--|--|
-|Entidade de aprendizagem automática|Entidades ou detalhes de intenções|
+|entidade de machine-learning|Entidades ou detalhes de intenções|
 |Entidade de lista|Entidades ou detalhes de intenções|
 |Entidade de expressão regular|Entidades|
 |Entidade Pattern.any|Entidades|
@@ -51,27 +55,11 @@ Utilize a tabela seguinte para entender quais as entidades onde criar ou adicion
 
 Pode criar todas as entidades a partir da página **Entidades,** ou pode criar algumas entidades como parte da rotulagem da entidade na página de detalhes de **Intenção.** Só é possível _rotular_ uma entidade num exemplo da página de **detalhes intenta.**
 
-## <a name="create-a-machine-learned-entity"></a>Criar uma entidade aprendida por máquinas
 
-[!INCLUDE [Create and label entities in machine-learned tutorial](includes/decomposable-tutorial-links.md)]
 
-## <a name="create-a-text-matching-entity"></a>Criar uma entidade que colhe texto
+## <a name="how-to-create-a-new-custom-entity"></a>Como criar uma nova entidade personalizada
 
-Utilize entidades que correspondam a textos fornecem várias formas de extrair dados:
-
-|Entidades que correspondem a texto|Objetivo|
-|--|--|
-|[Entidade de lista](reference-entity-list.md)|lista de nomes canónicos, juntamente com sinónimos como formas alternativas|
-|Entidade de expressão regular|texto de jogo usando uma entidade de expressão regular|
-|[Entidade pré-construída](luis-reference-prebuilt-entities.md)|combinar tipos de dados comuns, tais como número, e-mail, data|
-|Entidade de domínio pré-construído|combinar usando domínios de assunto selecionados|
-|[Padrão.qualquer](reference-entity-pattern-any.md)| para combinar entidades que podem ser facilmente confundidas com o texto circundante|
-
-As entidades pré-construídas trabalham sem fornecer quaisquer dados de formação personalizados. As outras entidades precisam que forneça dados de formação de clientes (como itens da entidade list) ou uma expressão (como expressão regular ou padrão.qualquer).
-
-<a name="add-list-entities"></a>
-
-### <a name="how-to-create-a-new-custom-entity"></a>Como criar uma nova entidade personalizada
+Este processo funciona para entidades de aprendizagem automática, entidades de lista e entidades de expressão regular.
 
 1. Inscreva-se no [portal LUIS](https://www.luis.ai)e selecione o seu recurso **De Subscrição** e **Autoria** para ver as aplicações atribuídas a esse recurso de autoria.
 1. Abra a sua aplicação selecionando o seu nome na página **My Apps.**
@@ -79,7 +67,50 @@ As entidades pré-construídas trabalham sem fornecer quaisquer dados de formaç
 1. Selecione **+ Criar**e, em seguida, selecione o tipo de entidade.
 1. Continue a configurar a entidade e selecione **Criar** quando terminar.
 
-### <a name="add-list-entities-for-exact-matches"></a>Adicionar entidades da lista para jogos exatos
+## <a name="create-a-machine-learned-entity"></a>Criar uma entidade aprendida por máquinas
+
+1. Inscreva-se no [portal LUIS](https://www.luis.ai)e selecione o seu recurso **De Subscrição** e **Autoria** para ver as aplicações atribuídas a esse recurso de autoria.
+1. Abra a sua aplicação selecionando o seu nome na página **My Apps.**
+1. A partir da secção **Construir,** selecione **Entidades** no painel esquerdo e, em seguida, selecione **+ Criar**.
+1. Na caixa de diálogo **criar um tipo de entidade,** introduza o nome da entidade e selecione Máquina **aprendida**, selecione. Para adicionar subentidades, **selecione Adicionar estrutura**. Selecione **Criar**.
+
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot de criar uma entidade aprendida por máquinas.](media/add-entities/machine-learned-entity-with-structure.png)
+
+1. Em **Adicionar subentidades,** adicione uma subentidade selecionando a **+** linha da entidade-mãe.
+
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot de adicionar subentidades.](media/add-entities/machine-learned-entity-with-subentities.png)
+
+1. Selecione **Criar** para terminar o processo de criação.
+
+## <a name="add-a-feature-to-a-machine-learned-entity"></a>Adicione uma funcionalidade a uma entidade aprendida por máquinas
+
+1. Inscreva-se no [portal LUIS](https://www.luis.ai)e selecione o seu recurso **De Subscrição** e **Autoria** para ver as aplicações atribuídas a esse recurso de autoria.
+1. Abra a sua aplicação selecionando o seu nome na página **My Apps.**
+1. A partir da secção **Build,** selecione **Entidades** no painel esquerdo e, em seguida, selecione a entidade aprendida pela máquina.
+1. Adicione uma funcionalidade selecionando **+ Adicione a funcionalidade** na linha entidade ou subentidade.
+1. Selecione entre as entidades existentes e listas de frases.
+1. Se a entidade só for extraída se a funcionalidade for encontrada, selecione o asterisco, `*` para essa função.
+
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot de adicionar funcionalidade à entidade.](media/add-entities/machine-learned-entity-schema-with-features.png)
+
+## <a name="create-a-regular-expression-entity"></a>Criar uma entidade de expressão regular
+
+1. Inscreva-se no [portal LUIS](https://www.luis.ai)e selecione o seu recurso **De Subscrição** e **Autoria** para ver as aplicações atribuídas a esse recurso de autoria.
+1. Abra a sua aplicação selecionando o seu nome na página **My Apps.**
+1. A partir da secção **Construir,** selecione **Entidades** no painel esquerdo e, em seguida, selecione **+ Criar**.
+
+1. Na caixa de diálogo **Criar uma entidade,** introduza o nome da entidade e selecione **RegEx,** introduza a expressão regular no campo **Regex** e selecione **Criar**.
+
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot de criar uma entidade de expressão regular.](media/add-entities/add-regular-expression-entity.png)
+
+
+<a name="add-list-entities"></a>
+
+## <a name="create-a-list-entity"></a>Criar uma entidade de lista
 
 As entidades da lista representam um conjunto fixo e fechado de palavras relacionadas. Enquanto você, como autor, pode mudar a lista, LUIS não vai crescer ou encolher a lista. Também pode importar para uma entidade de lista existente usando um formato de [entidade de lista .json](reference-entity-list.md#example-json-to-import-into-list-entity).
 
@@ -88,7 +119,7 @@ A lista que se segue demonstra o nome canónico e os sinónimos.
 |Cor - nome do item da lista|Cor - sinónimos|
 |--|--|
 |Vermelho|carmesim, sangue, maçã, fogo-de-incêndio|
-|Azul|céu, azul, cobalto|
+|Azul|céu, cobalto|
 |Verde|kelly, lima|
 
 Utilize o procedimento para criar uma entidade de lista. Uma vez criada a entidade da lista, não é necessário rotular as palavras de exemplo numa intenção. Os itens de lista e os sinónimos são combinados usando texto exato.
@@ -138,47 +169,38 @@ Neste procedimento, adicione `origin` e `destination` funções a uma entidade d
     O papel é adicionado à entidade pré-construída, mas não é adicionado a nenhuma expressão usando essa entidade.
 
 ### <a name="label-text-with-a-role-in-an-example-utterance"></a>Rotular texto com um papel na expressão de exemplo
+
+> [!TIP]
+> As funções podem ser substituídas pela rotulagem por subentidades de uma entidade de aprendizagem automática.
+
 1. Inscreva-se no [portal LUIS](https://www.luis.ai)e selecione o seu recurso **De Subscrição** e **Autoria** para ver as aplicações atribuídas a esse recurso de autoria.
 1. Abra a sua aplicação selecionando o seu nome na página **My Apps.**
 1. Vá à página de detalhes da Intenção, que tem declarações exemplo que usam o papel.
-1. Para rotular com a função, selecione o rótulo da entidade (linha sólida em texto) na expressão do exemplo e, em seguida, selecione **View in entity palette** from the drop-down list.
+1. Para rotular com a função, selecione o rótulo da entidade (linha sólida em texto) na expressão do exemplo e, em seguida, selecione **View in entity pane** a partir da lista de abandono.
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot de selecionar Vista na paleta de entidade](media/how-to-add-entities/select-text-label-with-entity-palette-for-role.png)
+    > ![Screenshot de selecionar Vista na paleta de entidade](media/add-entities/view-in-entity-pane.png)
 
     A paleta de entidades abre-se para a direita.
 
 1. Selecione a entidade, depois vá para a parte inferior da paleta e selecione o papel.
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot de selecionar Vista na paleta de entidade](media/how-to-add-entities/select-role-from-entity-palette-entity-inspector.png)
+    > ![Screenshot de selecionar Vista na paleta de entidade](media/add-entities/select-role-in-entity-palette.png)
 
 <a name="add-pattern-any-entities"></a>
+<a name="add-a-patternany-entity"></a>
+<a name="create-a-pattern-from-an-utterance"></a>
 
-## <a name="add-a-patternany-entity"></a>Adicione um padrão.qualquer entidade
+## <a name="create-a-patternany-entity"></a>Criar um padrão.qualquer entidade
 
-[Padrão.qualquer](luis-concept-entity-types.md) entidade só é válida em [padrões,](luis-how-to-model-intent-pattern.md)não em declarações exemplo de intenções. Este tipo de entidade ajuda a LUIS a encontrar o fim de entidades de comprimento e escolha de palavras variadas. Como esta entidade é usada num padrão, a LUIS sabe onde está o fim da entidade no modelo de expressão.
+O **Padrão.qualquer** entidade só está disponível com [Padrões.](luis-how-to-model-intent-pattern.md)
 
-### <a name="steps-to-create-a-patternany-entity"></a>Passos para criar um padrão.qualquer entidade
-1. Inscreva-se no [portal LUIS](https://www.luis.ai)e selecione o seu recurso **De Subscrição** e **Autoria** para ver as aplicações atribuídas a esse recurso de autoria.
-1. Abra a sua aplicação selecionando o seu nome na página **My Apps.**
-1. A partir da secção **Construir,** selecione **Entidades** no painel esquerdo e, em seguida, selecione **+ Criar**.
-
-1. Na caixa de diálogo **tipo entidade Escolha uma entidade,** introduza o nome da entidade na caixa nome **e** selecione **Pattern.Any** as the **Type** então selecione **Criar**.
-
-    Uma vez [que você cria uma expressão](luis-how-to-model-intent-pattern.md) padrão usando esta entidade, a entidade é extraída com um algoritmo combinado aprendido com máquina e correspondência de texto.
-
-### <a name="create-a-pattern-template-utterance-to-use-patternany-entity"></a>Criar uma expressão de modelo de padrão para usar o padrão.qualquer entidade
-
-Para utilizar o padrão.qualquer entidade, adicione um padrão na página **Padrões,** na secção de desempenho da **aplicação Improve,** com a sintaxe de cinta encaracolada correta, como `Where is **{HumanResourcesFormTitle}** on the server?` .
-
-Se chegar à conclusão que o seu padrão, ao incluir uma entidade Pattern.any, extrai as entidades incorretamente, utilize uma [lista explícita](reference-pattern-syntax.md#explicit-lists) para corrigir este problema.
 
 ## <a name="do-not-change-entity-type"></a>Não alterar o tipo de entidade
 
 A LUIS não lhe permite alterar o tipo de entidade porque não sabe o que adicionar ou remover para construir essa entidade. Para alterar o tipo, é melhor criar uma nova entidade do tipo correto com um nome ligeiramente diferente. Uma vez criada a entidade, em cada expressão, remova o nome da antiga entidade rotulada e adicione o nome da nova entidade. Uma vez remarcadas todas as declarações, apague a antiga entidade.
 
-<a name="create-a-pattern-from-an-utterance"></a>
 
 ## <a name="next-steps"></a>Passos seguintes
 

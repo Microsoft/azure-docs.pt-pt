@@ -3,12 +3,12 @@ title: Permissões aos repositórios no Registo de Contentores de Azure
 description: Crie um símbolo com permissões revestidas a repositórios específicos num registo para puxar ou empurrar imagens, ou realizar outras ações
 ms.topic: article
 ms.date: 02/13/2020
-ms.openlocfilehash: 9004c45401833d3070266055dd7eb99a2bb43bde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: eeb2155e035dd4a3a7aa09f634c229676cd87db3
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80618834"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683465"
 ---
 # <a name="create-a-token-with-repository-scoped-permissions"></a>Crie um símbolo com permissões de repositório
 
@@ -25,7 +25,7 @@ Os cenários para a criação de um símbolo incluem:
 
 ## <a name="preview-limitations"></a>Limitações de pré-visualização
 
-* Esta funcionalidade só está disponível num registo de contentores **Premium.** Para obter informações sobre os níveis e limites de serviço de registo, consulte o [Registo de Contentores Azure SKUs](container-registry-skus.md).
+* Esta funcionalidade está disponível nos registos de contentores **Premium.** Para obter informações sobre os níveis e limites de serviço de registo, consulte os níveis de serviço do Registo de [Contentores De Azure](container-registry-skus.md).
 * Não é possível atribuir permissões de reposição a uma identidade de Diretório Ativo Azure, como um diretor de serviço ou identidade gerida.
 * Não é possível criar um mapa de âmbito num registo habilitado para [acesso anónimo](container-registry-faq.md#how-do-i-enable-anonymous-pull-access)à pull .
 
@@ -41,7 +41,7 @@ Para configurar permissões com requisitório, cria-se um *símbolo* com um mapa
   |---------|---------|--------|
   |`content/delete`    | Remover dados do repositório  | Eliminar um repositório ou um manifesto |
   |`content/read`     |  Leia os dados do repositório |  Puxe um artefacto |
-  |`content/write`     |  Escreva dados para o repositório     | Use `content/read` com para empurrar um artefacto |
+  |`content/write`     |  Escreva dados para o repositório     | Use com `content/read` para empurrar um artefacto |
   |`metadata/read`    | Ler metadados do repositório   | Listas ou manifestos |
   |`metadata/write`     |  Escreva metadados para o repositório  | Ativar ou desativar a leitura, a escrita ou a eliminação de operações |
 
@@ -70,7 +70,7 @@ A imagem que se segue mostra a relação entre fichas e mapas de âmbito.
 
 Crie um símbolo usando o [az acr token criar][az-acr-token-create] comando. Ao criar um símbolo, pode especificar um ou mais repositórios e ações associadas em cada repositório. Os repositórios ainda não precisam de estar no registo. Para criar um símbolo especificando um mapa de âmbito existente, consulte a secção seguinte.
 
-O exemplo seguinte cria um símbolo no *registo do registo* com `samples/hello-world` as `content/write` seguintes permissões no repo: e `content/read`. Por predefinição, o comando define `enabled`o estado do token `disabled` predefinido para , mas pode atualizar o estado a qualquer momento.
+O exemplo seguinte cria um símbolo no *registo do registo* com as seguintes permissões no `samples/hello-world` repo: `content/write` e `content/read` . Por predefinição, o comando define o estado do token predefinido para `enabled` , mas pode atualizar o estado a qualquer `disabled` momento.
 
 ```azurecli
 az acr token create --name MyToken --registry myregistry \
@@ -111,13 +111,13 @@ A saída mostra detalhes sobre o símbolo, incluindo duas senhas geradas. É aco
   "type": "Microsoft.ContainerRegistry/registries/tokens"
 ```
 
-A saída inclui detalhes sobre o mapa de âmbito que o comando criou. Você pode usar o mapa `MyToken-scope-map`de âmbito, aqui chamado, para aplicar as mesmas ações de repositório a outros tokens. Ou, atualizar o mapa de âmbito mais tarde para alterar as permissões dos tokens associados.
+A saída inclui detalhes sobre o mapa de âmbito que o comando criou. Você pode usar o mapa de âmbito, aqui `MyToken-scope-map` chamado, para aplicar as mesmas ações de repositório a outros tokens. Ou, atualizar o mapa de âmbito mais tarde para alterar as permissões dos tokens associados.
 
 ### <a name="create-token-and-specify-scope-map"></a>Criar mapa de âmbito simbólico e especificar
 
 Uma forma alternativa de criar um símbolo é especificar um mapa de âmbito existente. Se ainda não tem um mapa de âmbito, crie primeiro um especificando repositórios e ações associadas. Em seguida, especifique o mapa de âmbito ao criar um símbolo. 
 
-Para criar um mapa de âmbito, use o [mapa de alcance az acr criar][az-acr-scope-map-create] comando. O seguinte comando cria um mapa de `samples/hello-world` âmbito com as mesmas permissões no repositório usado anteriormente. 
+Para criar um mapa de âmbito, use o [mapa de alcance az acr criar][az-acr-scope-map-create] comando. O seguinte comando cria um mapa de âmbito com as mesmas permissões no `samples/hello-world` repositório usado anteriormente. 
 
 ```azurecli
 az acr scope-map create --name MyScopeMap --registry myregistry \
@@ -126,7 +126,7 @@ az acr scope-map create --name MyScopeMap --registry myregistry \
   --description "Sample scope map"
 ```
 
-Executar [acri token criar][az-acr-token-create] para criar um símbolo, especificando o mapa de âmbito *MyScopeMap.* Tal como no exemplo anterior, o comando define `enabled`o estado do símbolo padrão para .
+Executar [acri token criar][az-acr-token-create] para criar um símbolo, especificando o mapa de âmbito *MyScopeMap.* Tal como no exemplo anterior, o comando define o estado do símbolo padrão para `enabled` .
 
 ```azurecli
 az acr token create --name MyToken \
@@ -138,9 +138,9 @@ A saída mostra detalhes sobre o símbolo, incluindo duas senhas geradas. É aco
 
 ## <a name="create-token---portal"></a>Criar ficha - portal
 
-Pode utilizar o portal Azure para criar tokens e mapas de âmbito. Tal como `az acr token create` acontece com o comando CLI, pode aplicar um mapa de âmbito existente, ou criar um mapa de âmbito quando criar um símbolo, especificando um ou mais repositórios e ações associadas. Os repositórios ainda não precisam de estar no registo. 
+Pode utilizar o portal Azure para criar tokens e mapas de âmbito. Tal como acontece com o `az acr token create` comando CLI, pode aplicar um mapa de âmbito existente, ou criar um mapa de âmbito quando criar um símbolo, especificando um ou mais repositórios e ações associadas. Os repositórios ainda não precisam de estar no registo. 
 
-O exemplo seguinte cria um símbolo, e cria um mapa `samples/hello-world` de âmbito `content/write` com `content/read`as seguintes permissões no repositório: e .
+O exemplo seguinte cria um símbolo, e cria um mapa de âmbito com as seguintes permissões no `samples/hello-world` repositório: `content/write` e `content/read` .
 
 1. No portal, navegue para o seu registo de contentores.
 1. Em **Serviços**, selecione **Tokens (Pré-visualização) > +Adicionar**.
@@ -149,7 +149,7 @@ O exemplo seguinte cria um símbolo, e cria um mapa `samples/hello-world` de âm
 1. No **mapa scope,** selecione **Criar novo**.
 1. Configure o mapa de âmbito:
     1. Introduza um nome e descrição para o mapa de âmbito. 
-    1. Sob **os Repositórios,** insira, `samples/hello-world`e sob **Permissões,** selecione `content/read` e `content/write`. Em seguida, **selecione +Adicionar**.  
+    1. Sob **os Repositórios,** insira, `samples/hello-world` e sob **Permissões,** selecione `content/read` e `content/write` . Em seguida, **selecione +Adicionar**.  
     ![Criar mapa de âmbito no portal](media/container-registry-repository-scoped-permissions/portal-scope-map-add.png)
 
     1. Depois de adicionar repositórios e permissões, selecione **Adicionar** para adicionar o mapa de âmbito.
@@ -185,11 +185,11 @@ Quando um utilizador ou serviço utiliza um símbolo para autenticar com o regis
 
 ## <a name="examples-use-token"></a>Exemplos: Use token
 
-Os seguintes exemplos usam o símbolo criado anteriormente neste artigo para realizar operações comuns num repositório: empurrar e puxar imagens, apagar imagens e listar etiquetas de repositório. O símbolo foi criado inicialmente com`content/write` permissões push (e `content/read` ações) no `samples/hello-world` repositório.
+Os seguintes exemplos usam o símbolo criado anteriormente neste artigo para realizar operações comuns num repositório: empurrar e puxar imagens, apagar imagens e listar etiquetas de repositório. O símbolo foi criado inicialmente com permissões push `content/write` (e `content/read` ações) no `samples/hello-world` repositório.
 
 ### <a name="pull-and-tag-test-images"></a>Puxar e etiquetar imagens de teste
 
-Para os seguintes exemplos, puxe as `hello-world` imagens e imagens `alpine` do Docker Hub e marque-as para o seu registo e repositório.
+Para os seguintes exemplos, puxe as `hello-world` imagens e `alpine` imagens do Docker Hub e marque-as para o seu registo e repositório.
 
 ```bash
 docker pull hello-world
@@ -200,7 +200,7 @@ docker tag hello-world myregistry.azurecr.io/samples/alpine:v1
 
 ### <a name="authenticate-using-token"></a>Autenticar usando símbolo
 
-Executar `docker login` para autenticar com o registo, fornecer o nome simbólico como nome de utilizador e fornecer uma das suas palavras-passe. O símbolo deve `Enabled` ter o estatuto.
+Executar `docker login` para autenticar com o registo, fornecer o nome simbólico como nome de utilizador e fornecer uma das suas palavras-passe. O símbolo deve ter o `Enabled` estatuto.
 
 O exemplo seguinte é formatado para a concha de bash, e fornece os valores usando variáveis ambientais.
 
@@ -219,13 +219,13 @@ Login Succeeded
 
 ### <a name="push-images-to-registry"></a>Enviar imagens para o registo
 
-Depois de iniciar sessão com sucesso, tente empurrar as imagens marcadas para o registo. Como o símbolo tem permissões `samples/hello-world` para empurrar imagens para o repositório, o seguinte empurrão sucede:
+Depois de iniciar sessão com sucesso, tente empurrar as imagens marcadas para o registo. Como o símbolo tem permissões para empurrar imagens para o `samples/hello-world` repositório, o seguinte empurrão sucede:
 
 ```bash
 docker push myregistry.azurecr.io/samples/hello-world:v1
 ```
 
-O símbolo não tem permissões `samples/alpine` para o repo, pelo que a seguinte `requested access to the resource is denied`tentativa de empurrar falha com um erro semelhante a:
+O símbolo não tem permissões para o repo, pelo que a seguinte tentativa de `samples/alpine` empurrar falha com um erro semelhante `requested access to the resource is denied` a:
 
 ```bash
 docker push myregistry.azurecr.io/samples/alpine:v1
@@ -235,7 +235,7 @@ docker push myregistry.azurecr.io/samples/alpine:v1
 
 Para atualizar as permissões de um símbolo, atualize as permissões no mapa de âmbito associado. O mapa de âmbito atualizado é aplicado imediatamente a todas as fichas associadas. 
 
-Por exemplo, `MyToken-scope-map` `content/write` atualizar `content/read` e `samples/alpine` ações no repositório `content/write` e `samples/hello-world` remover a ação no repositório.  
+Por exemplo, atualizar `MyToken-scope-map` `content/write` e ações no `content/read` `samples/alpine` repositório e remover a `content/write` ação no `samples/hello-world` repositório.  
 
 Para utilizar o Azure CLI, execute a [atualização do mapa de âmbito acr acr][az-acr-scope-map-update] para atualizar o mapa de âmbito:
 
@@ -251,8 +251,8 @@ No portal do Azure:
 
 1. Navegue para o seu registo de contentores.
 1. Em **Serviços,** selecione **mapas de âmbito (Pré-visualização)** e selecione o mapa de âmbito para atualizar.
-1. Sob **os Repositórios,** insira, `samples/alpine`e sob **Permissões,** selecione `content/read` e `content/write`. Em seguida, **selecione +Adicionar**.
-1. Sob **os Repositórios,** selecione `samples/hello-world` e sob **permissões,** desmarque `content/write`. Em seguida, selecione **Guardar**.
+1. Sob **os Repositórios,** insira, `samples/alpine` e sob **Permissões,** selecione `content/read` e `content/write` . Em seguida, **selecione +Adicionar**.
+1. Sob **os Repositórios,** selecione `samples/hello-world` e sob **permissões,** desmarque `content/write` . Em seguida, selecione **Guardar**.
 
 Após a atualização do mapa de âmbito, o seguinte impulso sucede:
 
@@ -260,13 +260,13 @@ Após a atualização do mapa de âmbito, o seguinte impulso sucede:
 docker push myregistry.azurecr.io/samples/alpine:v1
 ```
 
-Como o mapa de `content/read` âmbito `samples/hello-world` só tem a permissão no `samples/hello-world` repositório, uma tentativa de empurrar para o repo agora falha:
+Como o mapa de âmbito só tem a `content/read` permissão no `samples/hello-world` repositório, uma tentativa de empurrar para o `samples/hello-world` repo agora falha:
  
 ```bash
 docker push myregistry.azurecr.io/samples/hello-world:v1
 ```
 
-Puxar imagens de ambos os repos tem `content/read` sucesso, porque o mapa de âmbito fornece permissões em ambos os repositórios:
+Puxar imagens de ambos os repos tem sucesso, porque o mapa de âmbito fornece `content/read` permissões em ambos os repositórios:
 
 ```bash
 docker pull myregistry.azurecr.io/samples/alpine:v1
@@ -274,7 +274,7 @@ docker pull myregistry.azurecr.io/samples/hello-world:v1
 ```
 ### <a name="delete-images"></a>Eliminar imagens
 
-Atualize o mapa `content/delete` de âmbito `alpine` adicionando a ação ao repositório. Esta ação permite a supressão de imagens no repositório, ou eliminação de todo o repositório.
+Atualize o mapa de âmbito adicionando a `content/delete` ação ao `alpine` repositório. Esta ação permite a supressão de imagens no repositório, ou eliminação de todo o repositório.
 
 Para a brevidade, mostramos apenas o comando de [atualização de mapas de âmbito az acr][az-acr-scope-map-update] para atualizar o mapa de âmbito:
 
@@ -287,7 +287,7 @@ az acr scope-map update \
 
 Para atualizar o mapa de âmbito utilizando o portal, consulte a secção anterior.
 
-Utilize o seguinte [repositório acr acr eliminar][az-acr-repository-delete] o comando para eliminar o `samples/alpine` repositório. Para apagar imagens ou repositórios, o símbolo `docker login`não autentica através de . Em vez disso, passe o nome do token e a senha para o comando. O exemplo seguinte utiliza as variáveis ambientais criadas anteriormente no artigo:
+Utilize o seguinte [repositório acr acr eliminar][az-acr-repository-delete] o comando para eliminar o `samples/alpine` repositório. Para apagar imagens ou repositórios, o símbolo não autentica através `docker login` de . Em vez disso, passe o nome do token e a senha para o comando. O exemplo seguinte utiliza as variáveis ambientais criadas anteriormente no artigo:
 
 ```azurecli
 az acr repository delete \
@@ -297,7 +297,7 @@ az acr repository delete \
 
 ### <a name="show-repo-tags"></a>Mostrar etiquetas de repo 
 
-Atualize o mapa `metadata/read` de âmbito `hello-world` adicionando a ação ao repositório. Esta ação permite ler dados manifestos e etiquetas no repositório.
+Atualize o mapa de âmbito adicionando a `metadata/read` ação ao `hello-world` repositório. Esta ação permite ler dados manifestos e etiquetas no repositório.
 
 Para a brevidade, mostramos apenas o comando de [atualização de mapas de âmbito az acr][az-acr-scope-map-update] para atualizar o mapa de âmbito:
 
@@ -310,9 +310,9 @@ az acr scope-map update \
 
 Para atualizar o mapa de âmbito utilizando o portal, consulte a secção anterior.
 
-Para ler metadados `samples/hello-world` no repositório, execute os manifestos de [show-manifestos de az acr repositório ou][az-acr-repository-show-manifests] [az acr repositório show-tags][az-acr-repository-show-tags] comando. 
+Para ler metadados no `samples/hello-world` repositório, execute os manifestos de [show-manifestos de az acr repositório ou][az-acr-repository-show-manifests] [az acr repositório show-tags][az-acr-repository-show-tags] comando. 
 
-Para ler metadados, o símbolo não autentica `docker login`através de . Em vez disso, passe o nome do token e a palavra-passe para qualquer comando. O exemplo seguinte utiliza as variáveis ambientais criadas anteriormente no artigo:
+Para ler metadados, o símbolo não autentica através `docker login` de . Em vez disso, passe o nome do token e a palavra-passe para qualquer comando. O exemplo seguinte utiliza as variáveis ambientais criadas anteriormente no artigo:
 
 ```azurecli
 az acr repository show-tags \
@@ -368,7 +368,7 @@ az acr token list --registry myregistry --output table
 
 Se não tiver uma senha simbólica, ou quiser gerar novas palavras-passe, execute o comando de [geração de credibilidade az acr token.][az-acr-token-credential-generate] 
 
-O exemplo seguinte gera um novo valor para a palavra-passe1 para o token *MyToken,* com um prazo de validade de 30 dias. Armazena a palavra-passe na variável `TOKEN_PWD`ambiente. Este exemplo é formatado para a concha da batida.
+O exemplo seguinte gera um novo valor para a palavra-passe1 para o token *MyToken,* com um prazo de validade de 30 dias. Armazena a palavra-passe na variável `TOKEN_PWD` ambiente. Este exemplo é formatado para a concha da batida.
 
 ```azurecli
 TOKEN_PWD=$(az acr token credential generate \
@@ -396,7 +396,7 @@ No portal, no ecrã **Tokens (pré-visualização),** selecione o símbolo e, no
 
 Pode ser necessário desativar temporariamente a utilização das credenciais simbólicas para um utilizador ou serviço. 
 
-Utilizando o Azure CLI, execute o comando de `status` [atualização az acr token][az-acr-token-update] para definir o : `disabled`
+Utilizando o Azure CLI, execute o comando de [atualização az acr token][az-acr-token-update] para definir o `status` `disabled` :
 
 ```azurecli
 az acr token update --name MyToken --registry myregistry \

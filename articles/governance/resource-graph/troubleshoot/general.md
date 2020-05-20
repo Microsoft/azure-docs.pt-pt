@@ -1,14 +1,14 @@
 ---
 title: Resolver erros comuns
 description: Aprenda a resolver problemas com os vários SDKs enquanto consulta os recursos do Azure com o Azure Resource Graph.
-ms.date: 10/18/2019
+ms.date: 05/20/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: f881db4f75bcee8c13221717596442ac29a4b1ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e1b3758e52641bc27341c5da0ced9e811263c02b
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74303905"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683228"
 ---
 # <a name="troubleshoot-errors-using-azure-resource-graph"></a>Erros de resolução de problemas usando o gráfico de recursos do Azure
 
@@ -19,6 +19,25 @@ Pode ter erros ao consultar os recursos do Azure com o Azure Resource Graph. Est
 A maioria dos erros é o resultado de um problema enquanto executa uma consulta com o Azure Resource Graph. Quando uma consulta falha, o SDK fornece detalhes sobre a consulta falhada. Estas informações indicam a questão para que possa ser corrigida e uma consulta posterior tenha sucesso.
 
 ## <a name="general-errors"></a>Erros gerais
+
+### <a name="scenario-throttled-requests"></a><a name="throttled"></a>Cenário: Pedidos acelerados
+
+#### <a name="issue"></a>Problema
+
+Os clientes que fazem consultas de recursos grandes ou frequentes têm pedidos estrangulados.
+
+#### <a name="cause"></a>Causa
+
+O Azure Resource Graph atribui um número de quota para cada utilizador com base numa janela de tempo. Por exemplo, um utilizador pode enviar no máximo 15 consultas dentro de cada janela de 5 segundos sem ser estrangulado. O valor da quota é determinado por muitos fatores e está sujeito a alterações. Para mais informações, consulte [Throttling no Gráfico](../overview.md#throttling)de Recursos Azure .
+
+#### <a name="resolution"></a>Resolução
+
+Existem vários métodos para lidar com pedidos acelerados:
+
+- [Consultas de agrupamento](../concepts/guidance-for-throttled-requests.md#grouping-queries)
+- [Escalonamento de consultas](../concepts/guidance-for-throttled-requests.md#staggering-queries)
+- [Consulta em Paralelo](../concepts/guidance-for-throttled-requests.md#query-in-parallel)
+- [Paginação](../concepts/guidance-for-throttled-requests.md#pagination)
 
 ### <a name="scenario-too-many-subscriptions"></a><a name="toomanysubscription"></a>Cenário: Demasiadas subscrições
 
@@ -65,11 +84,11 @@ Os clientes que consultam o Gráfico de Recursos Azure REST API recebem uma resp
 
 #### <a name="cause"></a>Causa
 
-A API do gráfico de recursos `Content-Type` azure REST apenas suporta uma **aplicação/json**. Algumas ferramentas rest ou agentes predefinidos para **texto/planície**, que não é suportado pela API REST.
+A API do gráfico de recursos azure REST apenas suporta uma `Content-Type` **aplicação/json**. Algumas ferramentas rest ou agentes predefinidos para **texto/planície**, que não é suportado pela API REST.
 
 #### <a name="resolution"></a>Resolução
 
-Valide que a ferramenta ou agente que está a usar para `Content-Type` consultar o Gráfico de Recursos Azure tem o cabeçalho REST API configurado para **aplicação/json**.
+Valide que a ferramenta ou agente que está a usar para consultar o Gráfico de Recursos Azure tem o cabeçalho REST API `Content-Type` configurado para **aplicação/json**.
 
 ### <a name="scenario-no-read-permission-to-all-subscriptions-in-list"></a><a name="rest-403"></a>Cenário: Não há autorização de leitura para todas as subscrições da lista
 

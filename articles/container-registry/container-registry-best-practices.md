@@ -3,12 +3,12 @@ title: Registar melhores práticas
 description: Saiba como utilizar o registo de contentor do Azure de forma eficiente, ao seguir estas melhores práticas.
 ms.topic: article
 ms.date: 09/27/2018
-ms.openlocfilehash: 233d84b8bfa6f3d8c800e76032ef74a643db11ca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fc84fb8cb98f58e28570095370d55a7358ce3a99
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79247075"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682677"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Melhores práticas do Azure Container Registry
 
@@ -33,7 +33,7 @@ Para saber como utilizar a georreplicação, veja o tutorial de três partes [Ge
 
 Ao tirar partido dos espaços de nomes do repositório, pode permitir a partilha de um único registo em vários grupos na sua organização. Os registos podem ser partilhados em implementações e equipas. O Azure Container Registry suporta espaços de nomes aninhados, ao ativar o isolamento de grupo.
 
-Por exemplo, considere as seguintes etiquetas da imagem de contentor. As imagens que são `aspnetcore`usadas em toda a empresa, como, são colocadas no espaço de nome raiz, enquanto imagens de contentores pertencentes aos grupos de Produtos e Marketing usam cada um os seus próprios espaços de nome.
+Por exemplo, considere as seguintes etiquetas da imagem de contentor. As imagens que são usadas em toda a empresa, `aspnetcore` como, são colocadas no espaço de nome raiz, enquanto imagens de contentores pertencentes aos grupos de Produtos e Marketing usam cada um os seus próprios espaços de nome.
 
 - *contoso.azurecr.io/aspnetcore:2.0*
 - *contoso.azurecr.io/products/widget/web:1*
@@ -53,13 +53,13 @@ Ao autenticar com um registo de contentor do Azure, existem dois cenários princ
 | Tipo | Cenário de exemplo | Método recomendado |
 |---|---|---|
 | Identidade individual | Um programador a extrair imagens ou enviar imagens a partir da respetiva máquina de desenvolvimento. | [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) |
-| Identidade de serviço/sem interface | Compile e implemente pipelines onde o utilizador não esteja diretamente envolvido. | [Diretor de serviço](container-registry-authentication.md#service-principal) |
+| Identidade de serviço/sem interface | Compile e implemente pipelines onde o utilizador não esteja diretamente envolvido. | [Service principal (Principal de serviço)](container-registry-authentication.md#service-principal) |
 
 Para obter informações aprofundadas sobre a autenticação do Azure Container Registry, veja [Authenticate with an Azure container registry (Autenticar com um registo de contentor do Azure)](container-registry-authentication.md).
 
 ## <a name="manage-registry-size"></a>Gerir o tamanho do registo
 
-As restrições de armazenamento de cada [registo de contentor SKU][container-registry-skus] são destinadas para alinhar com um cenário típico: **Básico** para começar a trabalhar, **Standard**, para a maioria das aplicações de produção, e **Premium**, para desempenho de hiper escala e [georreplicação][container-registry-geo-replication]. Ao longo da vida do registo, deve gerir o tamanho eliminando periodicamente o conteúdo não utilizado.
+Os constrangimentos de armazenamento de cada nível de serviço de registo de [contentores][container-registry-skus] destinam-se a alinhar-se com um cenário típico: **Básico** para começar, **Standard** para a maioria das aplicações de produção, e **Premium** para desempenho em hiperescala e [geo-replicação.][container-registry-geo-replication] Ao longo da vida do registo, deve gerir o tamanho eliminando periodicamente o conteúdo não utilizado.
 
 Utilize o comando Azure CLI [az acr show-usage][az-acr-show-usage] para mostrar o tamanho atual do seu registo:
 
@@ -86,7 +86,7 @@ Para mais detalhes sobre a eliminação de dados de imagem do seu registo, inclu
 
 ## <a name="next-steps"></a>Passos seguintes
 
-O Azure Container Registry está disponível em vários escalões, denominadas SKUs, e cada uma dispõe de funcionalidades diferentes. Para obter detalhes sobre as SKUs disponíveis, veja [Azure Container Registry SKUs (SKUs do Azure Container Registry)](container-registry-skus.md).
+O Registo de Contentores Azure está disponível em vários níveis (também chamados SKUs) que cada um fornece diferentes capacidades. Para mais informações sobre os níveis de serviço disponíveis, consulte os níveis de serviço do Registo de [Contentores do Azure](container-registry-skus.md).
 
 <!-- IMAGES -->
 [delete-repository-portal]: ./media/container-registry-best-practices/delete-repository-portal.png

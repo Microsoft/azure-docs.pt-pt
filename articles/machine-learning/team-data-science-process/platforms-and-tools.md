@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3f3f06bd5a9b6a78b45a63de0684b580e662075b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 88e9cdfa8ea4554a44ddfc25cde2b0eb2aed7a57
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81256523"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682697"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Plataformas e ferramentas para projetos de ciência de dados
 
@@ -49,7 +49,7 @@ Também inclui **ferramentas ML e IA** como xgboost, mxnet e Vowpal Wabbit.
 
 Atualmente o DSVM está disponível nos sistemas **operativos Windows** e **Linux CentOS.** Escolha o tamanho do seu DSVM (número de núcleos de CPU e a quantidade de memória) com base nas necessidades dos projetos de ciência de dados que está a planear executar nele. 
 
-Para obter mais informações sobre a edição do Windows do DSVM, consulte a [Microsoft Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019) no Azure Marketplace. Para a edição linux do DSVM, consulte [Linux Data Science Virtual Machine](https://azure.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804).
+Para obter mais informações sobre a edição do Windows do DSVM, consulte a [Microsoft Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019) no Azure Marketplace. Para a edição linux do DSVM, consulte [Linux Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804).
 
 Para aprender a executar algumas das tarefas comuns de ciência de dados no DSVM de forma eficiente, veja [10 coisas que pode fazer na Máquina Virtual](../data-science-virtual-machine/vm-do-ten-things.md) da Ciência dos Dados
 

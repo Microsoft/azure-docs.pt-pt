@@ -1,14 +1,14 @@
 ---
 title: Obter alterações do recurso
 description: Entenda como descobrir quando um recurso foi alterado, obtenha uma lista das propriedades que mudaram e avalie as difusões.
-ms.date: 10/09/2019
+ms.date: 05/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 9504ac77fc4a3b03434912cc65284e2001df6e03
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d53148f302d82a7563520036f327406ca4a86040
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74873034"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681048"
 ---
 # <a name="get-resource-changes"></a>Obter alterações do recurso
 
@@ -40,8 +40,8 @@ O primeiro passo para ver o que mudou num recurso é encontrar os eventos de mud
 
 O ponto final **alterações** de recursos aceita os seguintes parâmetros no organismo de pedido:
 
-- **recursosId** \[necessário\]: O recurso Azure para procurar alterações.
-- **intervalo** \[necessário\]: Uma propriedade com datas de _início_ e _fim_ para quando verificar se há um evento de mudança utilizando o **Fuso horário zulu (Z)**.
+- **recursosId** \[ necessário \] : O recurso Azure para procurar alterações.
+- **intervalo** \[ requerido : Uma propriedade com datas de início e fim para quando verificar se há um evento de \] mudança utilizando o Zulu Time Zone **(Z)**. _start_ _end_
 - **fetchPropertyChanges** (opcional): Uma propriedade booleana que se define se o objeto de resposta inclui alterações de propriedade.
 
 Órgão de pedido de exemplo:
@@ -289,3 +289,4 @@ Para comparar os resultados, utilize a propriedade das **alterações** em **rec
 - Consulte o idioma utilizado nas [consultas de arranque](../samples/starter.md).
 - Consulte [utilizações avançadas em consultas avançadas.](../samples/advanced.md)
 - Saiba mais sobre como [explorar recursos.](../concepts/explore-resources.md)
+- Para obter orientações sobre o trabalho com consultas de alta frequência, consulte [Orientação para pedidos acelerados](../concepts/guidance-for-throttled-requests.md).

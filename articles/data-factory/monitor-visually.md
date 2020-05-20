@@ -9,13 +9,13 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/19/2018
-ms.openlocfilehash: 40b1b8d040c4b3ea76372920f88551fba35c5f26
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/15/2020
+ms.openlocfilehash: 01a4cd172b699cef009197d1fce1d5bae62f2925
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81419447"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680630"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Monitor visualmente Azure Data Factory
 
@@ -132,6 +132,21 @@ Você também pode ver a história de recorrer para uma determinada execução d
 
 ![Ver história para uma corrida de gasodutos](media/monitor-visually/rerun-history-image2.png)
 
+## <a name="monitor-consumption"></a>Monitorizar o consumo
+
+Pode ver os recursos consumidos por um gasoduto executado clicando no ícone de consumo ao lado da corrida. 
+
+![Monitorizar o consumo](media/monitor-visually/monitor-consumption-1.png)
+
+Clicar no ícone abre um relatório de consumo dos recursos utilizados por esse gasoduto. 
+
+![Monitorizar o consumo](media/monitor-visually/monitor-consumption-2.png)
+
+Pode ligar estes valores à corrida de gasodutos calcula.hat.hat.preço do Azure. Para obter mais informações sobre os preços da Fábrica de Dados Azure, consulte [a compreensão dos preços.](pricing-concepts.md)
+
+> [!NOTE]
+> Estes valores devolvidos pela calculadora de preços são uma estimativa. Não reflete o valor exato que será cobrado pela Azure Data Factory 
+
 ## <a name="gantt-views"></a>Vistas de Gantt
 
 Use vistas gantt para visualizar rapidamente os seus oleodutos e corridas de atividade.
@@ -153,7 +168,7 @@ Selecione o ícone **Informação** na parte inferior esquerda. Em seguida, sele
 
 ## <a name="alerts"></a>Alertas
 
-Pode levantar alertas sobre métricas suportadas na Data Factory. Selecione **Monitor** > **Alerts & Métricas** na página de monitorização da Fábrica de Dados para começar.
+Pode levantar alertas sobre métricas suportadas na Data Factory. Selecione **Monitor**  >  **Monitor Alerts & Métricas** na página de monitorização da Fábrica de Dados para começar.
 
 ![Página de Monitor de fábrica de dados](media/monitor-visually/alerts01.png)
 

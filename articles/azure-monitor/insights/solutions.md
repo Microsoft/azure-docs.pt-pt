@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/23/2020
-ms.openlocfilehash: 58dbb52cd906d91daec7e4b16625bc264135e90c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 44094497c98c306b0995f3a74da68809ef66a0ac
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82114858"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682832"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Soluções de monitorização no Monitor Azure
 
@@ -80,7 +80,7 @@ Os membros da comunidade podem submeter soluções de gestão aos Modelos De Arr
 
 ## <a name="log-analytics-workspace-and-automation-account"></a>Log Analytics workspace e conta de Automação
 
-Todas as soluções de monitorização requerem um espaço de [trabalho do Log Analytics](../platform/manage-access.md) para armazenar dados recolhidos pela solução e para alojar as suas pesquisas e vistas de registo. Algumas soluções também requerem uma [conta de Automação](../../automation/automation-security-overview.md#automation-account-overview) para conter livros de execução e recursos conexos. O espaço de trabalho e a conta devem satisfazer os seguintes requisitos.
+Todas as soluções de monitorização requerem um espaço de [trabalho do Log Analytics](../platform/manage-access.md) para armazenar dados recolhidos pela solução e para alojar as suas pesquisas e vistas de registo. Algumas soluções também requerem uma [conta de Automação](../../automation/automation-security-overview.md) para conter livros de execução e recursos conexos. O espaço de trabalho e a conta devem satisfazer os seguintes requisitos.
 
 * Cada instalação de uma solução só pode utilizar um espaço de trabalho Log Analytics e uma conta Automation. Pode instalar a solução separadamente em vários espaços de trabalho.
 * Se uma solução requer uma conta de Automação, então o espaço de trabalho log Analytics e a conta de Automação devem estar ligados uns aos outros. Um espaço de trabalho de Log Analytics só pode estar ligado a uma conta de Automação, e uma conta de Automação só pode estar ligada a um espaço de trabalho de Log Analytics.

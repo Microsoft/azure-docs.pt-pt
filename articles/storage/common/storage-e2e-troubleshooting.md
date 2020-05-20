@@ -9,12 +9,13 @@ ms.date: 12/20/2019
 ms.author: normesta
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 8dc3c629830019a6c207c18f1783559e89512172
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.custom: monitoring
+ms.openlocfilehash: 9b4accd14785aedee06850d5a79dc9835086306a
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610977"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680377"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Resolução de problemas ponto a ponto com as métricas e o registo de Armazenamento do Azure, o AzCopy e o Message Analyzer
 
@@ -85,7 +86,7 @@ Neste tutorial, usaremos o Analisador de Mensagens para trabalhar com três tipo
 
 ### <a name="configure-server-side-logging-and-metrics"></a>Configure a exploração madeireira e métricas do lado do servidor
 
-Primeiro, precisamos configurar o registo de armazenamento do Azure e métricas, para que tenhamos dados do lado do serviço para analisar. Pode configurar a exploração madeireira e as métricas de várias maneiras - através do [portal Azure](https://portal.azure.com), utilizando o PowerShell, ou programáticamente. Consulte [as métricas de ativação](storage-analytics-metrics.md#enable-metrics-using-the-azure-portal) e ative a [exploração de registos](storage-analytics-logging.md#enable-storage-logging) para obter detalhes sobre a configuração da exploração madeireira e métricas.
+Primeiro, precisamos configurar o registo de armazenamento do Azure e métricas, para que tenhamos dados do lado do serviço para analisar. Pode configurar a exploração madeireira e as métricas de várias maneiras - através do [portal Azure](https://portal.azure.com), utilizando o PowerShell, ou programáticamente. Consulte [as métricas de ativação](storage-analytics-metrics.md#enable-metrics-by-using-the-azure-portal) e ative a [exploração de registos](storage-analytics-logging.md#enable-storage-logging) para obter detalhes sobre a configuração da exploração madeireira e métricas.
 
 ### <a name="configure-net-client-side-logging"></a>Configure .NET registo do lado do cliente
 
@@ -141,9 +142,9 @@ Para mais detalhes sobre a adição e personalização dos gráficos de métrica
 
 ## <a name="use-azcopy-to-copy-server-logs-to-a-local-directory"></a>Utilize o AzCopy para copiar registos de servidores para um diretório local
 
-O Azure Storage escreve dados de registo do servidor a bolhas, enquanto as métricas são escritas em tabelas. As bolhas de log estão `$logs` disponíveis no conhecido recipiente para a sua conta de armazenamento. As bolhas de log são nomeadas hierárquicamente por ano, mês, dia e hora, para que possa facilmente localizar o intervalo de tempo que pretende investigar. Por exemplo, `storagesample` na conta, o recipiente para as bolhas de madeira para 01/02/2015, das 8h às 9h, é `https://storagesample.blob.core.windows.net/$logs/blob/2015/01/08/0800`. As bolhas individuais neste recipiente são nomeadas sequencialmente, começando por `000000.log`.
+O Azure Storage escreve dados de registo do servidor a bolhas, enquanto as métricas são escritas em tabelas. As bolhas de log estão disponíveis no conhecido recipiente para a sua conta de `$logs` armazenamento. As bolhas de log são nomeadas hierárquicamente por ano, mês, dia e hora, para que possa facilmente localizar o intervalo de tempo que pretende investigar. Por exemplo, na conta, o recipiente para as bolhas de `storagesample` madeira para 01/02/2015, das 8h às 9h, é `https://storagesample.blob.core.windows.net/$logs/blob/2015/01/08/0800` . As bolhas individuais neste recipiente são nomeadas sequencialmente, começando por `000000.log` .
 
-Pode utilizar a ferramenta de linha de comando AzCopy para descarregar estes ficheiros de registo do lado do servidor para uma localização à sua escolha na sua máquina local. Por exemplo, pode utilizar o seguinte comando para descarregar os ficheiros de registo para operações `C:\Temp\Logs\Server`blob que ocorreram no dia 2 de janeiro de 2015 para a pasta; substituir `<storageaccountname>` pelo nome da sua conta de armazenamento:
+Pode utilizar a ferramenta de linha de comando AzCopy para descarregar estes ficheiros de registo do lado do servidor para uma localização à sua escolha na sua máquina local. Por exemplo, pode utilizar o seguinte comando para descarregar os ficheiros de registo para operações blob que ocorreram no dia 2 de janeiro de 2015 para a pasta `C:\Temp\Logs\Server` ; substituir pelo nome da sua conta de `<storageaccountname>` armazenamento:
 
 ```azcopy
 azcopy copy 'http://<storageaccountname>.blob.core.windows.net/$logs/blob/2015/01/02' 'C:\Temp\Logs\Server'  --recursive
@@ -211,7 +212,7 @@ As secções abaixo descrevem como usar vistas de layout pré-configuradas e per
 
 Os Ativos de Armazenamento para Analisador de Mensagens incluem layouts de vista de armazenamento Azure, que são vistas pré-configuradas que pode usar para exibir os seus dados com agrupamentos e colunas úteis para diferentes cenários. Também pode criar layouts de vista personalizadas e guardá-los para reutilização.
 
-A imagem abaixo mostra o menu **'Ver Layout',** disponível selecionando o **View Layout** da fita da barra de ferramentas. Os layouts de vista para o Armazenamento Azure estão agrupados sob o nó de **Armazenamento Azure** no menu. Pode pesquisar `Azure Storage` na caixa de pesquisa para filtrar apenas os layouts de vista de armazenamento azure. Também pode selecionar a estrela ao lado de um layout de visualização para torná-la uma favorita e exibi-la no topo do menu.
+A imagem abaixo mostra o menu **'Ver Layout',** disponível selecionando o **View Layout** da fita da barra de ferramentas. Os layouts de vista para o Armazenamento Azure estão agrupados sob o nó de **Armazenamento Azure** no menu. Pode pesquisar na caixa de pesquisa para filtrar apenas os layouts de vista de `Azure Storage` armazenamento azure. Também pode selecionar a estrela ao lado de um layout de visualização para torná-la uma favorita e exibi-la no topo do menu.
 
 ![Ver menu layout](./media/storage-e2e-troubleshooting/view-layout-menu.png)
 

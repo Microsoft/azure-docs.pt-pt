@@ -1,6 +1,6 @@
 ---
-title: Problemas de resolução de problemas problemas com problemas de agente de atualização do Windows na Gestão de Atualização de Automação do Azure
-description: Saiba como resolver problemas e resolver problemas com o agente de atualização do Windows utilizando a solução Degestão de Atualizações.
+title: Problemas de resolução de problemas problemas com problemas de agente de atualização do Windows na Automação Azure
+description: Este artigo diz como resolver problemas com o agente de atualização do Windows durante a Atualização.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: e9af9c6472f49ebccd36e8d73688636c98918ff1
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: ff996227e23836bf85cc3885d9184ae6d7d6c61d
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996444"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680839"
 ---
 # <a name="troubleshoot-windows-update-agent-issues"></a>Problemas problemas com problemas com o agente de atualização do Windows
 
-Pode haver muitas razões pelas quais a sua máquina não aparece tão pronta (saudável) na Gestão de Atualizações. Pode verificar a saúde de um agente do Trabalhador do Runbook Híbrido windows para determinar o problema subjacente. Seguem-se os três estados de prontidão para uma máquina:
+Pode haver muitas razões pelas quais a sua máquina não aparece tão pronta (saudável) durante uma implementação de Gestão de Atualização. Pode verificar a saúde de um agente do Trabalhador do Runbook Híbrido windows para determinar o problema subjacente. Seguem-se os três estados de prontidão para uma máquina:
 
 * Ready: The Hybrid Runbook Worker está implantado e foi visto pela última vez há menos de uma hora.
 * Desligado: O Trabalhador híbrido do livro de corridas está implantado e foi visto pela última vez há mais de uma hora.
-* Não configurado: O Trabalhador híbrido do runbook não é encontrado ou ainda não terminou o embarque.
+* Não configurado: O Trabalhador híbrido do runbook não é encontrado ou ainda não terminou a implementação.
 
 > [!NOTE]
 > Pode haver um ligeiro atraso entre o que o portal Azure mostra e o estado atual de uma máquina.
@@ -34,7 +34,7 @@ Este artigo discute como executar o resolução de problemas para máquinas Azur
 
 ## <a name="start-the-troubleshooter"></a>Inicie o resolução de problemas
 
-Para máquinas Azure, pode lançar a página Do Agente de Atualização de Problemas selecionando o link **Troubleshoot** sob a coluna **de prontidão** do agente de atualização no portal. Para máquinas não-Azure, o link leva-o a este artigo. Consulte as [instruções offline](#troubleshoot-offline) para filmar uma máquina não Azure.
+Para máquinas Azure, pode lançar a página Do Agente de Atualização de Problemas selecionando o link **Troubleshoot** sob a coluna **de prontidão** do agente de atualização no portal. Para máquinas não-Azure, o link leva-o a este artigo. Consulte [o Troubleshoot offline](#troubleshoot-offline) para filmar uma máquina não-Azure.
 
 ![Screenshot da lista de Gestão de Atualizações de máquinas virtuais](../media/update-agent-issues/vm-list.png)
 
@@ -89,7 +89,7 @@ As configurações de proxy e firewall devem permitir que o agente Hybrid Runboo
 
 ### <a name="monitoring-agent-service-status"></a>Estado do serviço do agente de monitorização
 
-Esta verificação determina se o`healthservice`agente Log Analytics para Windows () está a funcionar na máquina. Para saber mais sobre a resolução de problemas do serviço, consulte [o agente Log Analytics para windows não está a funcionar](hybrid-runbook-worker.md#mma-not-running).
+Esta verificação determina se o agente Log Analytics para Windows `healthservice` () está a funcionar na máquina. Para saber mais sobre a resolução de problemas do serviço, consulte [o agente Log Analytics para windows não está a funcionar](hybrid-runbook-worker.md#mma-not-running).
 
 Para reinstalar o agente Log Analytics para Windows, consulte [Instalar o agente para windows](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
 
@@ -110,7 +110,7 @@ A verificação de acesso da pasta Crypto determina se a conta do sistema local 
 
 ## <a name="troubleshoot-offline"></a><a name="troubleshoot-offline"></a>Resolução de problemas offline
 
-Você pode usar o resoludor de problemas em um Hybrid Runbook Worker offline, executando o script localmente. Obtenha o seguinte script na Galeria PowerShell: [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration). Para executar o script, deve ter WMF 4.0 ou posteriormente instalado. Para descarregar a versão mais recente do PowerShell, consulte [a instalação de várias versões do PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell).
+Você pode usar o resoludor de problemas em um Hybrid Runbook Worker offline executando o script localmente. Obtenha o seguinte script na Galeria PowerShell: [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration). Para executar o script, deve ter WMF 4.0 ou posteriormente instalado. Para descarregar a versão mais recente do PowerShell, consulte [a instalação de várias versões do PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell).
 
 A saída deste guião parece ser o seguinte exemplo:
 
@@ -208,4 +208,4 @@ CheckResultMessageArguments : {}
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Trabalhadores do livro híbrido de troubleshoot](hybrid-runbook-worker.md)
+[Problemas problemas híbridos do trabalhador](hybrid-runbook-worker.md)do livro de corridas.

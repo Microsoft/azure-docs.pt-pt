@@ -1,6 +1,6 @@
 ---
-title: Dados para recolher quando abrir um caso para a Microsoft Azure Automation. Microsoft Docs
-description: Este artigo descreve algumas das informações que deve recolher antes de abrir um caso para a Azure Automation com o Microsoft Azure Support.
+title: Dados a recolher ao abrir um caso para a Microsoft Azure Automation [ Automação Azul] Microsoft Docs
+description: Este artigo descreve as informações a recolher antes de abrir um caso para a Automação Azure com o Suporte Microsoft Azure.
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
 author: v-miegge
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/23/2019
 ms.author: v-miegge
-ms.openlocfilehash: e1d5d791a58f301991819b41757b9021f6e30fc0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d2f97d0b889186324aef9613847e3eddbfe1eb02
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81679409"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684839"
 ---
-# <a name="data-to-collect-when-you-open-a-case-for-microsoft-azure-automation"></a>Dados a recolher quando abre um incidente da Automatização do Microsoft Azure
+# <a name="data-to-collect-when-opening-a-case-for-microsoft-azure-automation"></a>Dados a recolher ao abrir um caso para a Microsoft Azure Automation
 
 Este artigo descreve algumas das informações que deve recolher antes de abrir um caso para a Azure Automation com o Microsoft Azure Support. Esta informação não é necessária para abrir o caso. No entanto, pode ajudar a Microsoft a resolver o seu problema mais rapidamente. Além disso, pode ser-lhe pedido estes dados pelo engenheiro de suporte depois de abrir o caso.
 
@@ -92,5 +92,5 @@ Para além dos [dados básicos,](#basic-data)recolher as seguintes informações
 Se precisar de mais ajuda:
 
 * Obtenha respostas de especialistas do Azure através dos [Fóruns Azure.](https://azure.microsoft.com/support/forums/)
-* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport)a conta oficial do Microsoft Azure para melhorar a experiência do cliente, ligando a comunidade Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) a conta oficial do Microsoft Azure para melhorar a experiência do cliente, ligando a comunidade Azure aos recursos certos: respostas, suporte e especialistas.
 * Arquiva um incidente de apoio ao Azure. Vá ao site de [suporte azure](https://azure.microsoft.com/support/options/) e selecione **Obter Suporte**.

@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: 0d73d0b395547c281a2dbbe6a6ac5e8dc6dfd849
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: d79c42f3bdf84efcdf2187741ac270087be05272
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83598900"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681990"
 ---
 # <a name="drawing-conversion-errors-and-warnings"></a>Erros de conversão de desenho e avisos
 
-O serviço de [conversão Do Azure Maps](https://docs.microsoft.com/rest/api/maps/data/conversion) permite converter pacotes de desenho carregados em dados de mapas. Os pacotes de desenho devem respeitar os requisitos do [pacote de desenho.](drawing-requirements.md) Se um ou mais requisitos não forem cumpridos, o serviço de Conversão devolverá erros ou avisos. Este artigo lista os códigos de erro de conversão e de aviso, com recomendações sobre como resolvê-los. Também fornece alguns exemplos de desenhos que podem fazer com que o serviço de Conversão devolva estes códigos.
+O serviço de [conversão Do Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) permite converter pacotes de desenho carregados em dados de mapas. Os pacotes de desenho devem respeitar os requisitos do [pacote de desenho.](drawing-requirements.md) Se um ou mais requisitos não forem cumpridos, o serviço de Conversão devolverá erros ou avisos. Este artigo lista os códigos de erro de conversão e de aviso, com recomendações sobre como resolvê-los. Também fornece alguns exemplos de desenhos que podem fazer com que o serviço de Conversão devolva estes códigos.
 
 O serviço de conversão terá sucesso se houver avisos de conversão. No entanto, recomenda-se que reveja e resolva todos os avisos. Um aviso significa que parte da conversão foi ignorada ou fixada automaticamente. A não resolução dos avisos pode resultar em erros nos últimos processos.
 
@@ -73,7 +73,7 @@ O aviso **não suportado FeatureRepresentation** ocorre quando o desenho contém
 
 A imagem abaixo mostra um tipo de entidade não suportada como um objeto de texto multi-linhas numa camada de etiqueta.
   
-![Exemplo de um objeto de texto multi-linhas na camada de etiqueta](./media/drawing-conversion-error-codes/multiline.png)
+![Exemplo de um objeto de texto multi-linhas na camada de etiqueta](./media/drawing-conversion-error-codes/multi-line.png)
 
 #### <a name="how-to-fix-unsupportedfeaturerepresentation"></a>*Como corrigir a Representação de Características não suportadas*
 
@@ -494,7 +494,7 @@ A imagem abaixo mostra uma área de penetração vertical sem sobreposição de 
 
 A imagem seguinte mostra uma área de penetração vertical que se sobrepõe a mais de uma área de penetração vertical num nível adjacente.
 
-![Exemplo de uma penetração vertical 2](./media/drawing-conversion-error-codes/vrt.png)
+![Exemplo de uma penetração vertical 2](./media/drawing-conversion-error-codes/vrt-1.png)
 
 #### <a name="how-to-fix-verticalpenetrationerror"></a>Como corrigir o Erro de Penetração vertical
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: f7e30fd0d53af7ee61d919b56e9ffcd1f1b6bd36
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 760c56ad6179a7bf94f19e004e2fbbece3908198
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207603"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683500"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>VMs de arranque/paragem durante solução off-hours na Automação Azure
 
@@ -102,37 +102,37 @@ A tabela seguinte lista os livros de execução que a solução implementa na su
 > [!IMPORTANT]
 > Não faça nenhum livro de corridas com **criança** anexada ao seu nome.
 
-Todos os livros `WhatIf` dos pais incluem o parâmetro. Quando definido para True, o parâmetro suporta detalhar o comportamento exato que o livro de corridas toma quando executado sem o parâmetro e valida que os VMs corretos são direcionados. Um livro de execução só `WhatIf` executa as suas ações definidas quando o parâmetro está definido para Falso.
+Todos os livros dos pais incluem o `WhatIf` parâmetro. Quando definido para True, o parâmetro suporta detalhar o comportamento exato que o livro de corridas toma quando executado sem o parâmetro e valida que os VMs corretos são direcionados. Um livro de execução só executa as suas ações definidas quando o `WhatIf` parâmetro está definido para Falso.
 
 |Runbook | Parâmetros | Descrição|
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> Ação de Alerta <br> WebHookURI | Ligou do livro dos pais. Este livro de execução cria alertas por recurso para o cenário de paragem automática.|
 |AutoStop_CreateAlert_Parent | VMList<br> O que if: Verdadeiro ou Falso  | Cria ou atualiza as regras de alerta azure sobre VMs nos grupos de subscrição ou recursos direcionados. <br> `VMList`é uma lista separada de VMs. Por exemplo, `vm1, vm2, vm3`.<br> `WhatIf`permite a validação da lógica do livro de rcads sem executar.|
-|AutoStop_Disable | Nenhuma | Desativa alertas de paragem automática e horário predefinido.|
+|AutoStop_Disable | Nenhum | Desativa alertas de paragem automática e horário predefinido.|
 |AutoStop_VM_Child | WebHookData | Ligou do livro dos pais. As regras de alerta chamam a este livro de corridas para parar um VM clássico.|
 |AutoStop_VM_Child_ARM | WebHookData |Ligou do livro dos pais. As regras de alerta chamam este livro de corridas para parar um VM.  |
 |ScheduledStartStop_Base_Classic | CloudServiceName<br> Ação: Iniciar ou Parar<br> VMList  | Executa o início ou paragem de ação no grupo VM clássico pela Cloud Services. |
 |ScheduledStartStop_Child | VMName <br> Ação: Iniciar ou Parar <br> ResourceGroupName | Ligou do livro dos pais. Executa uma ação de início ou paragem para a paragem programada.|
 |ScheduledStartStop_Child_Classic | VMName<br> Ação: Iniciar ou Parar<br> ResourceGroupName | Ligou do livro dos pais. Executa uma ação de início ou paragem para a paragem programada para VMs clássicos. |
-|ScheduledStartStop_Parent | Ação: Iniciar ou Parar <br>VMList <br> O que if: Verdadeiro ou Falso | Inicia ou para todos os VMs na subscrição. Editar as `External_Start_ResourceGroupNames` variáveis e `External_Stop_ResourceGroupNames` executar apenas nestes grupos de recursos direcionados. Também pode excluir VMs específicos atualizando a `External_ExcludeVMNames` variável.|
-|SequencedStartStop_Parent | Ação: Iniciar ou Parar <br> O que if: Verdadeiro ou Falso<br>VMList| Cria tags nomeadas **sequencestart** e **sequencestop** em cada VM para a qual pretende sequenciar a atividade de arranque/paragem. Estes nomes são sensíveis aos casos. O valor da etiqueta deve ser um inteiro positivo (1, 2, 3) que corresponda à ordem em que pretende iniciar ou parar. <br>**Nota:** Os VMs devem estar `External_Start_ResourceGroupNames` `External_Stop_ResourceGroupNames`dentro `External_ExcludeVMNames` de grupos de recursos definidos em, e variáveis. Devem ter as etiquetas adequadas para que as ações possam produzir efeitos.|
+|ScheduledStartStop_Parent | Ação: Iniciar ou Parar <br>VMList <br> O que if: Verdadeiro ou Falso | Inicia ou para todos os VMs na subscrição. Editar as variáveis `External_Start_ResourceGroupNames` e `External_Stop_ResourceGroupNames` executar apenas nestes grupos de recursos direcionados. Também pode excluir VMs específicos atualizando a `External_ExcludeVMNames` variável.|
+|SequencedStartStop_Parent | Ação: Iniciar ou Parar <br> O que if: Verdadeiro ou Falso<br>VMList| Cria tags nomeadas **sequencestart** e **sequencestop** em cada VM para a qual pretende sequenciar a atividade de arranque/paragem. Estes nomes são sensíveis aos casos. O valor da etiqueta deve ser um inteiro positivo (1, 2, 3) que corresponda à ordem em que pretende iniciar ou parar. <br>**Nota:** Os VMs devem estar dentro de grupos de recursos definidos `External_Start_ResourceGroupNames` em, `External_Stop_ResourceGroupNames` e `External_ExcludeVMNames` variáveis. Devem ter as etiquetas adequadas para que as ações possam produzir efeitos.|
 
 ### <a name="variables"></a>Variáveis
 
-A tabela seguinte lista as variáveis criadas na sua conta De automação. Só modificar variáveis `External`pré-fixas com . Modificar variáveis pré-fixas com `Internal` efeitos indesejáveis.
+A tabela seguinte lista as variáveis criadas na sua conta De automação. Só modificar variáveis pré-fixas com `External` . Modificar variáveis pré-fixas com `Internal` efeitos indesejáveis.
 
 > [!NOTE]
 > As limitações ao nome vm e ao grupo de recursos são em grande parte resultado do tamanho variável. Ver [ativos Variáveis na Automação Azure.](https://docs.microsoft.com/azure/automation/shared-resources/variables)
 
 |Variável | Descrição|
 |---------|------------|
-|External_AutoStop_Condition | O operador condicional necessário para configurar a condição antes de desencadear um alerta. Os valores `LessThan`aceitáveis `LessThanOrEqual`são, `GreaterThan` `GreaterThanOrEqual`e .|
+|External_AutoStop_Condition | O operador condicional necessário para configurar a condição antes de desencadear um alerta. Os valores aceitáveis `GreaterThan` `GreaterThanOrEqual` são, `LessThan` e `LessThanOrEqual` .|
 |External_AutoStop_Description | O alerta para parar o VM se a percentagem de CPU exceder o limiar.|
 |External_AutoStop_Frequency | A frequência de avaliação por regra. Este parâmetro aceita a entrada em formato timepan. Os valores possíveis são de 5 minutos a 6 horas. |
 |External_AutoStop_MetricName | O nome da métrica de desempenho para a qual a regra de Alerta Azure deve ser configurado.|
 |External_AutoStop_Severity | Gravidade do alerta métrico, que pode variar de 0 a 4. |
-|External_AutoStop_Threshold | O limiar da regra de alerta azure especificado na variável `External_AutoStop_MetricName`. Os valores percentuais variam entre 1 e 100.|
-|External_AutoStop_TimeAggregationOperator | O operador de agregação de tempo aplicado ao tamanho da janela selecionado para avaliar a circunstância. Os valores `Minimum` `Maximum`aceitáveis `Last`são, `Average`e `Total`.|
+|External_AutoStop_Threshold | O limiar da regra de alerta azure especificado na variável `External_AutoStop_MetricName` . Os valores percentuais variam entre 1 e 100.|
+|External_AutoStop_TimeAggregationOperator | O operador de agregação de tempo aplicado ao tamanho da janela selecionado para avaliar a circunstância. Os valores aceitáveis `Average` `Minimum` são, `Maximum` e `Total` `Last` .|
 |External_AutoStop_TimeWindow | O tamanho da janela durante a qual Azure analisa métricas selecionadas para desencadear um alerta. Este parâmetro aceita a entrada em formato timepan. Os valores possíveis são de 5 minutos a 6 horas.|
 |External_EnableClassicVMs| Valor especificando se os VMclássicos são direcionados pela solução. O valor padrão é verdadeiro. Detete esta variável para subscrições de Falso solução de nuvem (CSP). VMs clássicos requerem uma [corrida clássica Como conta](automation-create-standalone-account.md#create-a-classic-run-as-account).|
 |External_ExcludeVMNames | Lista separada da vírposta de nomes VM para excluir, limitada a 140 VMs. Se adicionar mais de 140 VMs à lista, os VMs que estão definidos para serem excluídos podem ser inadvertidamente iniciados ou parados.|
@@ -146,9 +146,9 @@ A tabela seguinte lista as variáveis criadas na sua conta De automação. Só m
 |Internal_ResourceGroupName | O nome do grupo de recursos da conta Automation.|
 
 >[!NOTE]
->Para a `External_WaitTimeForVMRetryInSeconds`variável, o valor predefinido foi atualizado de 600 para 2100. 
+>Para a `External_WaitTimeForVMRetryInSeconds` variável, o valor predefinido foi atualizado de 600 para 2100. 
 
-Em todos os cenários, `External_Stop_ResourceGroupNames`as `External_ExcludeVMNames` variáveis `External_Start_ResourceGroupNames`, e são necessárias para direcionar os VMs, exceto para as listas de VM separadas da vírlém para o **AutoStop_CreateAlert_Parent**, **SequencedStartStop_Parent**e **ScheduledStartStop_Parent** livros de execução. Ou seja, os seus VMs devem pertencer a grupos de recursos-alvo para que as ações de início e stop ocorram. A lógica funciona semelhante à Política Azure, na medida em que pode visar a subscrição ou grupo de recursos e ter ações herdadas por VMs recém-criados. Esta abordagem evita ter de manter um horário separado para cada VM e gerir partidas e paragens em escala.
+Em todos os cenários, as variáveis `External_Start_ResourceGroupNames` `External_Stop_ResourceGroupNames` , e são `External_ExcludeVMNames` necessárias para direcionar os VMs, exceto para as listas de VM separadas da vírlém para o **AutoStop_CreateAlert_Parent**, **SequencedStartStop_Parent**e **ScheduledStartStop_Parent** livros de execução. Ou seja, os seus VMs devem pertencer a grupos de recursos-alvo para que as ações de início e stop ocorram. A lógica funciona semelhante à Política Azure, na medida em que pode visar a subscrição ou grupo de recursos e ter ações herdadas por VMs recém-criados. Esta abordagem evita ter de manter um horário separado para cada VM e gerir partidas e paragens em escala.
 
 ### <a name="schedules"></a>Agendas
 
@@ -158,11 +158,11 @@ Não permita todos os horários, porque fazê-lo pode criar ações de horário 
 
 |Nome da agenda | Frequência | Descrição|
 |--- | --- | ---|
-|Schedule_AutoStop_CreateAlert_Parent | A cada 8 horas | Executa o **AutoStop_CreateAlert_Parent** livro de corridas a cada 8 horas, o que por sua vez para os valores baseados em VM em `External_Start_ResourceGroupNames`, `External_Stop_ResourceGroupNames`e `External_ExcludeVMNames` variáveis. Em alternativa, pode especificar uma lista separada de VMs `VMList` com a utilização do parâmetro.|
-|Scheduled_StopVM | Definido pelo utilizador, diariamente | Executa o **ScheduledStopStart_Parent** livro de `Stop` corridas com um parâmetro de todos os dias no momento especificado.Para automaticamente todos os VMs que cumprem as regras definidas por ativos variáveis.Ativar o **programado-startVM**relacionado .|
-|Scheduled_StartVM | Definido pelo utilizador, diariamente | Executa o **livro de ScheduledStopStart_Parent** `Start` com um valor de parâmetro de cada dia no momento especificado. Inicia automaticamente todos os VMs que cumprem as regras definidas por ativos variáveis.Ativar o **programado-stopVM**relacionado .|
-|Paragem sequenciada | 1:00 AM (UTC), todas as sextas-feiras | Executa o **livro de Sequenced_StopStop_Parent** `Stop` com um valor de parâmetro de cada sexta-feira no momento especificado.Sequencialmente (ascendente) para todos os VMs com uma etiqueta de **SequenceStop** definida pelas variáveis apropriadas. Para obter mais informações sobre valores de etiqueta e variáveis de ativos, consulte [Runbooks](#runbooks).Ativar o horário relacionado, **Sequenciado-StartVM**.|
-|Iniciado-Arranque-VM | 13:00 (UTC), todas as segundas-feiras | Executa o **livro de SequencedStopStart_Parent** `Start` com um valor de parâmetro de cada segunda-feira no momento especificado. Sequencialmente (descendente) inicia todos os VMs com uma etiqueta de **SequenceStart** definida pelas variáveis apropriadas. Para obter mais informações sobre valores de etiquetae ativos variáveis, consulte [Runbooks](#runbooks). Ativar o horário relacionado, **Sequenced-StopVM**.
+|Schedule_AutoStop_CreateAlert_Parent | A cada 8 horas | Executa o **AutoStop_CreateAlert_Parent** livro a cada 8 horas, o que por sua vez para os valores baseados em VM em `External_Start_ResourceGroupNames` , e `External_Stop_ResourceGroupNames` `External_ExcludeVMNames` variáveis. Em alternativa, pode especificar uma lista separada de VMs com a utilização do `VMList` parâmetro.|
+|Scheduled_StopVM | Definido pelo utilizador, diariamente | Executa o **ScheduledStopStart_Parent** livro de corridas com um parâmetro de `Stop` todos os dias no momento especificado.Para automaticamente todos os VMs que cumprem as regras definidas por ativos variáveis.Ativar o **programado-startVM**relacionado .|
+|Scheduled_StartVM | Definido pelo utilizador, diariamente | Executa o **livro de ScheduledStopStart_Parent** com um valor de parâmetro de cada dia no momento `Start` especificado. Inicia automaticamente todos os VMs que cumprem as regras definidas por ativos variáveis.Ativar o **programado-stopVM**relacionado .|
+|Paragem sequenciada | 1:00 AM (UTC), todas as sextas-feiras | Executa o **livro de Sequenced_StopStop_Parent** com um valor de parâmetro de cada `Stop` sexta-feira no momento especificado.Sequencialmente (ascendente) para todos os VMs com uma etiqueta de **SequenceStop** definida pelas variáveis apropriadas. Para obter mais informações sobre valores de etiqueta e variáveis de ativos, consulte [Runbooks](#runbooks).Ativar o horário relacionado, **Sequenciado-StartVM**.|
+|Iniciado-Arranque-VM | 13:00 (UTC), todas as segundas-feiras | Executa o **livro de SequencedStopStart_Parent** com um valor de parâmetro de cada `Start` segunda-feira no momento especificado. Sequencialmente (descendente) inicia todos os VMs com uma etiqueta de **SequenceStart** definida pelas variáveis apropriadas. Para obter mais informações sobre valores de etiquetae ativos variáveis, consulte [Runbooks](#runbooks). Ativar o horário relacionado, **Sequenced-StopVM**.
 
 ## <a name="use-of-the-solution-with-classic-vms"></a>Utilização da solução com VMs clássicos
 
@@ -173,7 +173,7 @@ Para utilizar a solução com VMs clássicos, precisa de uma conta Classic Run A
 Se tem mais de 20 VMs por serviço na nuvem, aqui ficam algumas recomendações:
 
 * Crie vários horários com o livro de execução dos pais **ScheduledStartStop_Parent** e especificando 20 VMs por programação. 
-* Nas propriedades de horário, utilize o parâmetro para especificar os `VMList` nomes vm como uma lista separada da vírvia. 
+* Nas propriedades de horário, utilize o `VMList` parâmetro para especificar os nomes vm como uma lista separada da vírvia. 
 
 Caso contrário, se o trabalho de Automação para esta solução dura mais de três horas, é temporariamente descarregado ou parado de acordo com o limite [de ações justas.](automation-runbook-execution.md#fair-share)
 
@@ -199,11 +199,11 @@ A seleção da solução mostra a página de solução **Start-Stop-VM[workspace
 
 Pode efetuar uma análise mais aprofundada dos registos de trabalho clicando no azulejo dodo. O dashboard de solução mostra histórico de trabalho e consultas de pesquisa de registo predefinidas. Mude para o portal avançado de análise de registos para pesquisar com base nas suas consultas de pesquisa.
 
-## <a name="update-the-solution"></a>Update the solution (Atualizar a solução)
+## <a name="update-the-feature"></a>Atualizar a funcionalidade
 
-Se implementou uma versão anterior desta solução, apague-a da sua conta antes de implementar uma versão atualizada. Siga os passos para [remover a solução](#remove-the-solution) e siga os passos para [implementar a solução](automation-solution-vm-management-enable.md).
+Se implementou uma versão anterior desta solução, apague-a da sua conta antes de implementar uma versão atualizada. Siga os passos para [remover a solução](#remove-the-feature) e siga os passos para [implementar a solução](automation-solution-vm-management-enable.md).
 
-## <a name="remove-the-solution"></a>Remove the solution (Remover a solução)
+## <a name="remove-the-feature"></a>Remova a função
 
 Se já não precisar de utilizar a solução, pode eliminá-la da conta Automation. A eliminação da solução apenas remove os livros de execução. Não apaga os horários ou variáveis que foram criados quando a solução foi adicionada. Remova estes ativos manualmente se não estiver a usá-los com outros livros de execução.
 

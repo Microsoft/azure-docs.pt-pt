@@ -1,14 +1,14 @@
 ---
 title: Criar políticas programaticamente
 description: Este artigo acompanha-o programaticamente criando e gerindo políticas para a Política Azure com azure CLI, Azure PowerShell e REST API.
-ms.date: 01/31/2019
+ms.date: 05/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 08ed43a464d1dd7de8220428dbc1c61ce9fc3ad6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8ee87ecd9e7c636b5bb63c8e94be0e353acc3e13
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79264547"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682130"
 ---
 # <a name="programmatically-create-policies"></a>Criar políticas programaticamente
 
@@ -72,7 +72,7 @@ O primeiro passo para uma melhor visibilidade dos seus recursos é criar e atrib
    O comando cria uma definição de política chamada Contas de _Armazenamento de Auditoria Abertas a Redes Públicas_.
    Para obter mais informações sobre outros parâmetros que pode utilizar, consulte [New-AzPolicyDefinition](/powershell/module/az.resources/new-azpolicydefinition).
 
-   Quando chamado sem `New-AzPolicyDefinition` parâmetros de localização, predefini-se de salvar a definição de política na subscrição selecionada do contexto das sessões. Para guardar a definição para um local diferente, utilize os seguintes parâmetros:
+   Quando chamado sem parâmetros de localização, `New-AzPolicyDefinition` predefini-se de salvar a definição de política na subscrição selecionada do contexto das sessões. Para guardar a definição para um local diferente, utilize os seguintes parâmetros:
 
    - **SubscriçãoId** - Poupe para uma subscrição diferente. Requer um valor _GUID._
    - **ManagementGroupName** - Poupe para um grupo de gestão. Requer um valor de _corda._
@@ -87,8 +87,8 @@ O primeiro passo para uma melhor visibilidade dos seus recursos é criar e atrib
 
    Substitua _contosoRG_ com o nome do seu grupo de recursos pretendido.
 
-   O **Scope** parâmetro Scope `New-AzPolicyAssignment` em obras com grupo de gestão, subscrição, grupo de recursos ou um único recurso. O parâmetro utiliza um caminho completo de recursos, que a propriedade **ResourceId** em `Get-AzResourceGroup` devoluções. O padrão para **o Âmbito** de Cada recipiente é o seguinte. `{rName}`Substitua, `{rgName}` `{subId}`e `{mgName}` com o seu nome de recurso, nome de grupo de recursos, ID de subscrição e nome de grupo de gestão, respectivamente.
-   `{rType}`seria substituído pelo tipo de **recurso** do `Microsoft.Compute/virtualMachines` recurso, como por exemplo para um VM.
+   O parâmetro **Scope** em `New-AzPolicyAssignment` obras com grupo de gestão, subscrição, grupo de recursos ou um único recurso. O parâmetro utiliza um caminho completo de recursos, que a propriedade **ResourceId** em `Get-AzResourceGroup` devoluções. O padrão para **o Âmbito** de Cada recipiente é o seguinte. Substitua, e com o seu nome de recurso, nome de grupo de recursos, ID de subscrição e nome de grupo de `{rName}` `{rgName}` `{subId}` `{mgName}` gestão, respectivamente.
+   `{rType}`seria substituído pelo tipo de **recurso** do recurso, como por exemplo para `Microsoft.Compute/virtualMachines` um VM.
 
    - Recurso -`/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - Grupo de recursos -`/subscriptions/{subId}/resourceGroups/{rgName}`
@@ -133,10 +133,10 @@ Utilize o seguinte procedimento para criar uma definição de política.
 
    ```console
    # For defining a policy in a subscription
-   armclient PUT "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
+   armclient PUT "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2019-09-01" @<path to policy definition JSON file>
 
    # For defining a policy in a management group
-   armclient PUT "/providers/Microsoft.Management/managementgroups/{managementGroupId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
+   armclient PUT "/providers/Microsoft.Management/managementgroups/{managementGroupId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2019-09-01" @<path to policy definition JSON file>
    ```
 
    Substitua o {subscrição AnteriorId} pelo ID da sua subscrição ou {managementGroupId} pelo ID do seu grupo de [gestão](../../management-groups/overview.md).
@@ -162,7 +162,7 @@ Utilize o seguinte procedimento para criar uma atribuição de políticas e atri
 1. Criar a atribuição de políticas utilizando a seguinte chamada:
 
    ```console
-   armclient PUT "/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/Audit Storage Accounts Open to Public Networks?api-version=2017-06-01-preview" @<path to Assignment JSON file>
+   armclient PUT "/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/Audit Storage Accounts Open to Public Networks?api-version=2019-09-01" @<path to Assignment JSON file>
    ```
 
    Substitua informações de exemplo em &lt; &gt; símbolos com os seus próprios valores.
@@ -205,10 +205,10 @@ Para criar uma definição de política, utilize o seguinte procedimento:
    O comando cria uma definição de política chamada Contas de _Armazenamento de Auditoria Abertas a Redes Públicas_.
    Para obter mais informações sobre outros parâmetros que pode utilizar, consulte a [definição de política az criar](/cli/azure/policy/definition#az-policy-definition-create).
 
-   Quando chamado sem `az policy definition creation` parâmetros de localização, predefini-se de salvar a definição de política na subscrição selecionada do contexto das sessões. Para guardar a definição para um local diferente, utilize os seguintes parâmetros:
+   Quando chamado sem parâmetros de localização, `az policy definition creation` predefini-se de salvar a definição de política na subscrição selecionada do contexto das sessões. Para guardar a definição para um local diferente, utilize os seguintes parâmetros:
 
-   - **--subscrição** - Poupe para uma subscrição diferente. Requer um valor _GUID_ para o ID de subscrição ou um valor de _cadeia_ para o nome de subscrição.
-   - **--grupo de gestão** - Poupe para um grupo de gestão. Requer um valor de _corda._
+   - **subscrição** - Poupe para uma subscrição diferente. Requer um valor _GUID_ para o ID de subscrição ou um valor de _cadeia_ para o nome de subscrição.
+   - **grupo de gestão** - Poupe para um grupo de gestão. Requer um valor de _corda._
 
 1. Use o seguinte comando para criar uma atribuição de política. Substitua informações de exemplo em &lt; &gt; símbolos com os seus próprios valores.
 
@@ -216,7 +216,7 @@ Para criar uma definição de política, utilize o seguinte procedimento:
    az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
    ```
 
-   O parâmetro **--âmbito** em `az policy assignment create` trabalhos com grupo de gestão, subscrição, grupo de recursos ou um único recurso. O parâmetro usa um caminho completo de recursos. O padrão para **--âmbito** para cada recipiente é o seguinte. `{rName}`Substitua, `{rgName}` `{subId}`e `{mgName}` com o seu nome de recurso, nome de grupo de recursos, ID de subscrição e nome de grupo de gestão, respectivamente. `{rType}`seria substituído pelo tipo de **recurso** do `Microsoft.Compute/virtualMachines` recurso, como por exemplo para um VM.
+   O parâmetro de **âmbito** em trabalhos com grupo de `az policy assignment create` gestão, subscrição, grupo de recursos ou um único recurso. O parâmetro usa um caminho completo de recursos. O padrão de **alcance** para cada recipiente é o seguinte. Substitua, e com o seu nome de recurso, nome de grupo de recursos, ID de subscrição e nome de grupo de `{rName}` `{rgName}` `{subId}` `{mgName}` gestão, respectivamente. `{rType}`seria substituído pelo tipo de **recurso** do recurso, como por exemplo para `Microsoft.Compute/virtualMachines` um VM.
 
    - Recurso -`/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - Grupo de recursos -`/subscriptions/{subID}/resourceGroups/{rgName}`
@@ -245,4 +245,4 @@ Reveja os seguintes artigos para obter mais informações sobre os comandos e co
 - [Módulos Azure PowerShell](/powershell/module/az.resources/#policies)
 - [Comandos políticos Azure CLI](/cli/azure/policy?view=azure-cli-latest)
 - [Referência da Azure Policy Insights REST API](/rest/api/policy-insights)
-- [Organize os seus recursos com grupos de gestão Azure.](../../management-groups/overview.md)
+- [Organizar os recursos com os grupos de gestão do Azure](../../management-groups/overview.md).

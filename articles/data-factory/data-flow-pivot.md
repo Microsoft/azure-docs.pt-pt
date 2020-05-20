@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/30/2019
-ms.openlocfilehash: a58444f81f60b48f9c2c76f13257a6a2431158a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a0084c3e8185f615e7ac2a2b8c212f1ebf022c08
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686463"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683298"
 ---
 # <a name="pivot-transformation-in-mapping-data-flow"></a>Transformação de pivô no fluxo de dados de mapeamento
 
@@ -27,7 +27,7 @@ A transformação do pivô requer três inputs diferentes: grupo por colunas, a 
 
 ### <a name="group-by"></a>Agrupar por
 
-![Agrupar por opções](media/data-flow/pivot2.png "[Grupo por opções")
+![Agrupar por opções](media/data-flow/pivot2.png "Agrupar por opções")
 
 Selecione quais colunas para agregar as colunas mais giradas. Os dados de saída agruparão todas as linhas com o mesmo grupo por valores numa só linha. A agregação feita na coluna pivotada ocorrerá sobre cada grupo.
 
@@ -63,7 +63,7 @@ O gráfico abaixo ajuda mostra como os diferentes componentes de pivô interagem
 
 Se não forem especificados valores na configuração da chave de rotação, as colunas dinâmicas serão geradas dinamicamente no tempo de execução. O número de colunas pivotadas equivalerá ao número de valores-chave únicos multiplicados pelo número de colunas de pivô. Como este pode ser um número de mudança, o UX não apresentará os metadados da coluna no separador **Inspecionar** e não haverá propagação da coluna. Para transformação destas colunas, utilize as capacidades de padrão da [coluna](concepts-data-flow-column-pattern.md) de mapeamento do fluxo de dados. 
 
-Se forem definidos valores-chave de pivô específicos, as colunas pivotadas aparecerão nos metadados.e Os nomes das colunas estarão disponíveis para si no mapeamento de Inspeção e Pia.
+Se forem definidos valores-chave de pivô específicos, as colunas dinâmicas aparecerão nos metadados. Os nomes das colunas estarão disponíveis para si no mapeamento de Inspeção e Pia.
 
 ### <a name="generate-metadata-from-drifted-columns"></a>Gerar metadados a partir de colunas derivadas
 
@@ -73,7 +73,7 @@ O pivô gera novos nomes de colunas dinamicamente baseados nos valores das linha
 
 ### <a name="sinking-pivoted-columns"></a>Colunas afundadas
 
-Embora as colunas dinâmicas sejam dinâmicas, ainda podem ser escritas na sua loja de dados de destino. Ativar **Permitir a deriva do esquema** nas definições da pia. Isto permitir-lhe-á escrever colunas que não estão incluídas em metadados. os metadados da sua coluna, mas a opção de deriva de esquemas permitirá aterrar os dados.
+Embora as colunas dinâmicas sejam dinâmicas, ainda podem ser escritas na sua loja de dados de destino. Ativar **Permitir a deriva do esquema** nas definições da pia. Isto permitir-lhe-á escrever colunas que não estão incluídas em metadados. Não verá os novos nomes dinâmicos nos metadados da sua coluna, mas a opção de deriva de esquemas permitirá que você aterre os dados.
 
 ### <a name="rejoin-original-fields"></a>Voltar a juntar-se aos campos originais
 

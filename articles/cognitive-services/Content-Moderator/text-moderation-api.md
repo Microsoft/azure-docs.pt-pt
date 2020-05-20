@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 05/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 41e88dd5a08de485f770559959843ba3b54e590f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5f41330836edab647f379eb43130c078c46cce53
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81274015"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685060"
 ---
 # <a name="learn-text-moderation-concepts"></a>Aprenda conceitos de moderação de texto
 
-Utilize a moderação de texto assistida por máquina sanções e capacidades de [revisão humana](Review-Tool-User-Guide/human-in-the-loop.md) do Content Moderator para moderar o conteúdo de texto.
+Utilize os modelos de moderação de texto do Moderador de Conteúdo para analisar o conteúdo do texto.
 
-Pode bloquear, aprovar ou rever os conteúdos com base nas suas políticas e limiares. Use-o para aumentar a moderação humana de ambientes onde parceiros, colaboradores e consumidores geram conteúdo de texto. Estes incluem salas de chat, áreas de debate, chatbots, catálogos de comércio eletrónico e documentos. 
+Pode bloquear, aprovar ou rever o conteúdo com base nas suas políticas e limiares (ver [Opiniões, fluxos](./review-api.md) de trabalho e empregos para aprender a configurar avaliações humanas). Utilize os modelos de moderação de texto para aumentar a moderação humana de ambientes onde parceiros, colaboradores e consumidores geram conteúdo de texto. Estes incluem salas de chat, áreas de debate, chatbots, catálogos de comércio eletrónico e documentos. 
 
 A resposta do serviço inclui as seguintes informações:
 
@@ -34,7 +34,7 @@ A resposta do serviço inclui as seguintes informações:
 
 ## <a name="profanity"></a>Palavras ofensivas
 
-Se a API detetar quaisquer termos profanos em qualquer uma das [línguas apoiadas,](Text-Moderation-API-Languages.md)esses termos estão incluídos na resposta. A resposta também contém`Index`a sua localização no texto original. A `ListId` amostra seguinte JSON refere-se aos termos encontrados nas [listas de termo personalizadas,](try-terms-list-api.md) se disponível.
+Se a API detetar quaisquer termos profanos em qualquer uma das [línguas apoiadas,](Text-Moderation-API-Languages.md)esses termos estão incluídos na resposta. A resposta também contém a sua localização no `Index` texto original. A `ListId` amostra seguinte JSON refere-se aos termos encontrados nas [listas de termo personalizadas,](try-terms-list-api.md) se disponível.
 
     "Terms": [
     {
@@ -45,7 +45,7 @@ Se a API detetar quaisquer termos profanos em qualquer uma das [línguas apoiada
     }
 
 > [!NOTE]
-> Para o parâmetro **linguístico,** atribua `eng` ou deixe vazio para ver a resposta de **classificação** assistida pela máquina (função de pré-visualização). **Esta funcionalidade suporta apenas inglês.**
+> Para o parâmetro **linguístico,** atribua ou deixe vazio para ver a resposta de `eng` **classificação** assistida pela máquina (função de pré-visualização). **Esta funcionalidade suporta apenas inglês.**
 >
 > Para deteção de **termos de profanação,** utilize o [código ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) das línguas suportadas enumeradas neste artigo, ou deixe-o vazio.
 
@@ -155,4 +155,4 @@ O Moderador de Conteúdo fornece uma Lista de [Prazos API](https://westus.dev.co
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Teste a [consola API de moderação](try-text-api.md) de texto e utilize as amostras de código REST API. Consulte também a secção de moderação de Texto do [quickstart .NET SDK](dotnet-sdk-quickstart.md) se estiver familiarizado com o Visual Studio e o C#.
+Teste as APIs com a [consola API de moderação](try-text-api.md)de texto . Consulte também [avaliações, fluxos de trabalho e empregos](./review-api.md) para aprender a criar avaliações humanas.

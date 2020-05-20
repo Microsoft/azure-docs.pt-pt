@@ -1,6 +1,6 @@
 ---
-title: Resolução de problemas da conta azure Automation
-description: Aprenda a resolver problemas e a resolver problemas com uma conta Azure.
+title: Problemas de suturação de problemas Da conta Azure Automation
+description: Este artigo diz como resolver problemas e resolver problemas com uma conta Azure.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -8,22 +8,22 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 6a7defdaa9b4b0f0b3580a3ac6b1a0487434a97c
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: bebc89514da7f28015da5cb145ae50bf3fccdb6a
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864135"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680077"
 ---
-# <a name="troubleshoot-an-azure-automation-account"></a>Resolução de problemas uma conta de Automação Azure
+# <a name="troubleshoot-azure-automation-account-issues"></a>Problemas de suturação de problemas Da conta Azure Automation
 
-Este artigo discute soluções para problemas que poderá encontrar quando utiliza uma conta De Automação Azure. Para obter informações gerais sobre as contas da Automação, consulte [Criar uma conta Azure](../automation-quickstart-create-account.md).
+Este artigo discute soluções para problemas que poderá encontrar quando utiliza uma conta De Automação Azure. Para obter informações gerais sobre contas de Automação, consulte a visão geral da [autenticação da conta Azure Automation](../automation-security-overview.md).
 
 ## <a name="scenario-unable-to-register-automation-resource-provider-for-subscriptions"></a><a name="rp-register"></a>Cenário: Incapaz de registar Fornecedor de Recursos Automation para subscrições
 
 ### <a name="issue"></a>Problema
 
-Quando trabalha com soluções de gestão na sua conta Automation, encontra o seguinte erro:
+Quando trabalha com funcionalidades de gestão, por exemplo, Gestão de Atualizações, na sua conta De automação, encontra-se o seguinte erro:
 
 ```error
 Error details: Unable to register Automation Resource Provider for subscriptions:
@@ -52,5 +52,5 @@ Para registar o Fornecedor de Recursos Automation, siga estes passos no portal A
 Se este artigo não resolver o seu problema, experimente um dos seguintes canais para obter apoio adicional:
 
 * Obtenha respostas de especialistas do Azure através dos [Fóruns Azure.](https://azure.microsoft.com/support/forums/)
-* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport). Esta é a conta oficial do Microsoft Azure para ligar a comunidade Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) . Esta é a conta oficial do Microsoft Azure para ligar a comunidade Azure aos recursos certos: respostas, suporte e especialistas.
 * Arquiva um incidente de apoio ao Azure. Vá ao site de [suporte azure](https://azure.microsoft.com/support/options/), e selecione **Obter Suporte**.

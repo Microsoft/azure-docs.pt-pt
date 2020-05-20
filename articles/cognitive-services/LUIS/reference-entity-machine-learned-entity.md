@@ -1,7 +1,7 @@
 ---
-title: Tipo de entidade aprendida por máquinas - LUIS
+title: Tipo de entidade de aprendizagem automática - LUIS
 titleSuffix: Azure Cognitive Services
-description: A entidade que aprendeu máquinaé é a entidade preferida para a construção de aplicações LUIS.
+description: A entidade de machine-learning é a entidade preferida para a construção de aplicações LUIS.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/30/2020
 ms.author: diberry
-ms.openlocfilehash: 5f663379939f24d16fb63e8e5b002fe088a2d9f8
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: ddaf5c921f92aeaefd8a8b0cb13602bc70a4dd5d
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585594"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684571"
 ---
-# <a name="machine-learned-entity"></a>Entidade de aprendizagem automática
+# <a name="machine-learning-entity"></a>Entidade de aprendizagem automática
 
-A entidade que aprendeu máquinaé é a entidade preferida para a construção de aplicações LUIS.
+A entidade de machine-learning é a entidade preferida para a construção de aplicações LUIS.
 
 
 ## <a name="example-json"></a>Exemplo JSON
@@ -38,7 +38,7 @@ Entre as expressões de exemplo incluem-se:
 
 #### <a name="v3-prediction-endpoint-response"></a>[Resposta final de previsão V3](#tab/V3)
 
-Como uma entidade aprendida por máquinas pode ter muitas subentidades com características necessárias, este é apenas um exemplo. Deve ser considerado um guia para o que a sua entidade irá devolver.
+Como uma entidade de machine-learning pode ter muitas subentidades com funcionalidades necessárias, este é apenas um exemplo. Deve ser considerado um guia para o que a sua entidade irá devolver.
 
 Considere a consulta:
 
@@ -348,6 +348,6 @@ Esta entidade não está disponível no tempo de execução da previsão V2.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre a entidade aprendida pela máquina, incluindo um [tutorial,](tutorial-machine-learned-entity.md) [conceitos](luis-concept-entity-types.md#design-entities-for-decomposition)e [como guiar.](luis-how-to-add-entities.md#create-a-machine-learned-entity)
+Saiba mais sobre a entidade de machine-learning, incluindo um [tutorial,](tutorial-machine-learned-entity.md) [conceitos](luis-concept-entity-types.md#design-entities-for-decomposition)e [como guiar.](luis-how-to-add-entities.md#create-a-machine-learned-entity)
 
 Conheça a entidade [da lista](reference-entity-list.md) e a entidade de [expressão regular.](reference-entity-regular-expression.md)

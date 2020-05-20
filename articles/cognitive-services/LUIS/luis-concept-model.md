@@ -3,12 +3,12 @@ title: Design com modelos - LUIS
 description: A compreensão da linguagem fornece vários tipos de modelos. Alguns modelos podem ser usados de uma forma.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 933588f96570e931cdc627aaae82bee1037bbdaa
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: bbb1f0d43b2a3fd2e8a2dff2201a09622ecaf977
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591884"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683929"
 ---
 # <a name="design-with-intent-and-entity-models"></a>Design com modelos de intenção e entidade
 
@@ -36,9 +36,9 @@ A seguinte expressão é um **exemplo positivo** para a `OrderBook` intenção e
 
 ## <a name="entities-extract-data"></a>Entidades extraem dados
 
-Uma entidade representa uma unidade de dados que pretende extrair da expressão. Uma entidade aprendida por máquinas é uma entidade de alto nível que contém subentidades, que também são entidades aprendidas por máquinas.
+Uma entidade representa uma unidade de dados que pretende extrair da expressão. Uma entidade de machine-learning é uma entidade de alto nível que contém subentidades, que também são entidades de aprendizagem automática.
 
-Um exemplo de uma entidade aprendida por máquinas é uma encomenda de um bilhete de avião. Conceptualmente esta é uma única transação com muitas unidades menores de dados, tais como data, hora, quantidade de assentos, tipo de assento, como primeira classe ou autocarro, localização de origem, localização de destino e escolha de refeições.
+Um exemplo de uma entidade de aprendizagem automática é uma encomenda de um bilhete de avião. Conceptualmente esta é uma única transação com muitas unidades menores de dados, tais como data, hora, quantidade de assentos, tipo de assento, como primeira classe ou autocarro, localização de origem, localização de destino e escolha de refeições.
 
 ## <a name="intents-versus-entities"></a>Intenções versus entidades
 
@@ -65,11 +65,11 @@ A decomposição do modelo tem as seguintes peças:
 
 * [intençãos](#intents-classify-utterances)
     * [características](#features)
-* [entidades aprendidas por máquinas](reference-entity-machine-learned-entity.md)
-    * subentidades (também entidades aprendidas por máquinas)
+* [entidades de aprendizagem automática](reference-entity-machine-learned-entity.md)
+    * subentidades (também entidades de aprendizagem automática)
         * [características](#features)
             * [lista de frases](luis-concept-feature.md)
-            * [entidades não-aprendidas por máquinas,](luis-concept-feature.md) tais como [expressões regulares,](reference-entity-regular-expression.md) [listas](reference-entity-list.md)e [entidades pré-construídas](luis-reference-prebuilt-entities.md)
+            * [entidades não-máquina-aprendizagem,](luis-concept-feature.md) tais como [expressões regulares,](reference-entity-regular-expression.md) [listas](reference-entity-list.md)e [entidades pré-construídas](luis-reference-prebuilt-entities.md)
 
 <a name="entities-extract-data"></a>
 <a name="machine-learned-entities"></a>

@@ -1,18 +1,18 @@
 ---
-title: Gestão de Atualizações na Automação Azure
-description: Este artigo descreve a funcionalidade Update Management que gere as atualizações para as suas máquinas Windows e Linux.
+title: Visão geral da Gestão de Atualização de Automação Azure
+description: Visão geral da funcionalidade Update Management que gere atualizações para as suas máquinas Windows e Linux
 services: automation
 ms.subservice: update-management
 ms.date: 05/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: ca5d8c35aea06143e058aade473282a038212605
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: d3a3a19673ecb6edb82f0512f318298865c8ed24
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872161"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681283"
 ---
-# <a name="update-management-in-azure-automation"></a>Gestão de Atualizações na Automação Azure
+# <a name="update-management-overview"></a>Descrição geral da Gestão de Atualizações
 
 Pode utilizar a Update Management no Azure Automation para gerir as atualizações do sistema operativo para as suas máquinas Windows e Linux em Azure, em ambientes no local e noutros ambientes em nuvem. Pode avaliar rapidamente o estado das atualizações disponíveis em todas as máquinas do agente e gerir o processo de instalação de atualizações necessárias para servidores.
 
@@ -83,7 +83,7 @@ A tabela seguinte lista os sistemas operativos suportados para avaliações de a
 |---------|---------|
 |Windows Server 2019 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2016 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2012 R2 (Datacenter/Standard)<br><br>Windows Server 2012 || 
 |Windows Server 2008 R2 (RTM e SP1 Standard)| A Atualização Management apenas suporta avaliações para este sistema operativo. O patching não é suportado, uma vez que o [Hybrid Runbook Worker](automation-windows-hrw-install.md) não é suportado para o Windows Server 2008 R2. |
-|CentOS 6 (x86/x64) e 7 (x64)      | Os agentes linux exigem acesso a um repositório de atualização. A correção baseada na `yum` classificação requer a devolução de dados de segurança que o CentOS não tem nas suas versões RTM. Para obter mais informações sobre patching baseado na classificação no CentOS, consulte [classificações de atualização no Linux](automation-view-update-assessments.md#linux-2).          |
+|CentOS 6 (x86/x64) e 7 (x64)      | Os agentes linux exigem acesso a um repositório de atualização. A correção baseada na classificação requer a devolução de dados de `yum` segurança que o CentOS não tem nas suas versões RTM. Para obter mais informações sobre patching baseado na classificação no CentOS, consulte [classificações de atualização no Linux](automation-view-update-assessments.md#linux-2).          |
 |Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | Os agentes linux exigem acesso a um repositório de atualização.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)     | Os agentes linux exigem acesso a um repositório de atualização.        |
 |Ubuntu 14.04 LTS, 16.04 LTS e 18.04 (x86/x64)      |Os agentes linux exigem acesso a um repositório de atualização.         |
@@ -140,7 +140,7 @@ A Update Management utiliza os recursos descritos nesta secção. Estes recursos
 
 Depois de ativar a Atualização, qualquer máquina Windows que esteja diretamente ligada ao seu espaço de trabalho Log Analytics é configurada automaticamente como um Trabalhador de Resta Híbrida para suportar os livros de execução que suportam a Gestão de Atualizações.
 
-Cada máquina Windows gerida pela Update Management está listada no painel de grupos de trabalhadores híbridos como um grupo de trabalhadores híbridos system para a conta Automation. Os grupos `Hostname FQDN_GUID` usam a convenção de nomeação. Não pode supor estes grupos com livros na sua conta. Se tentares, a tentativa falha. Estes grupos destinam-se a apoiar apenas a Atualização de Gestão.
+Cada máquina Windows gerida pela Update Management está listada no painel de grupos de trabalhadores híbridos como um grupo de trabalhadores híbridos system para a conta Automation. Os grupos usam a `Hostname FQDN_GUID` convenção de nomeação. Não pode supor estes grupos com livros na sua conta. Se tentares, a tentativa falha. Estes grupos destinam-se a apoiar apenas a Atualização de Gestão.
 
 Pode adicionar a máquina Windows a um grupo híbrido runbook Worker na sua conta Automation para suportar os livros de execução automation se utilizar a mesma conta para gestão de atualizações e a adesão ao grupo Hybrid Runbook Worker. Esta funcionalidade foi adicionada na versão 7.2.12024.0 do Trabalhador híbrido do Runbook Worker.
 
@@ -153,7 +153,7 @@ Se o seu grupo de gestão de Gestor de Operações estiver ligado a um espaço d
 * Pacote de Gestão de Implementação de Atualização
 
 > [!NOTE]
-> Se tiver um grupo de gestão 1807 ou 2019 ligado a um espaço de trabalho do Log Analytics com `IsAutoRegistrationEnabled` agentes configurados no grupo de gestão para recolher dados de registo, precisa de anular o parâmetro e defini-lo para True na regra **Microsoft.IntelligencePacks.AzureAutomation.HybridAgent.Init.**
+> Se tiver um grupo de gestão 1807 ou 2019 ligado a um espaço de trabalho do Log Analytics com agentes configurados no grupo de gestão para recolher dados de registo, precisa de anular o parâmetro `IsAutoRegistrationEnabled` e defini-lo para True na regra **Microsoft.IntelligencePacks.AzureAutomation.HybridAgent.Init.**
 
 Para obter mais informações sobre atualizações para pacotes de gestão, consulte [connect Operations Manager para registos do Monitor Azure](../azure-monitor/platform/om-agents.md).
 

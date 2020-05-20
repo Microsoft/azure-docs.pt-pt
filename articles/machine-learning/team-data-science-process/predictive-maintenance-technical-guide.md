@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 0542106f70e96b6c2f63e8ca03d2532de191d365
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6452a826cfb6f7ceb65e6e89cdd42d683ee463b1
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79477175"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682713"
 ---
 # <a name="technical-guide-to-the-solution-template-for-predictive-maintenance-in-aerospace"></a>Guia técnico do Modelo de Solução para manutenção preditiva em aeroespacial
 
@@ -83,7 +83,7 @@ O Azure Event Hub é genérico; os dados podem ser publicados no centro em forma
 
 Este documento não descreve como ingerir os seus dados, mas pode facilmente enviar eventos ou dados para um Hub de Eventos Azure utilizando as APIs do Hub de Eventos.
 
-### <a name="azure-stream-analytics"></a><a name="azure-stream-analytics-1"></a>Azure Stream Analytics
+### <a name="azure-stream-analytics"></a><a name="azure-stream-analytics-1"></a>Análise de Fluxo Azure
 Utilize o recurso Azure Stream Analytics para fornecer análises quase em tempo real, lendo a partir de fluxos de dados e divulgando dados para qualquer número de fontes.
 
 Para o modelo de manutenção preditiva para soluçõaeroespacial, a consulta Azure Stream Analytics é composta por quatro consultas sub, cada consulta consumindo eventos do serviço Azure Event Hub, com saídas para quatro locais distintos. Estas saídas consistem em três conjuntos de dados Power BI e um local de armazenamento Azure.
@@ -91,7 +91,7 @@ Para o modelo de manutenção preditiva para soluçõaeroespacial, a consulta Az
 A consulta Azure Stream Analytics pode ser encontrada por:
 
 * Ligue-se ao portal Azure
-* Localização dos trabalhos ![stream](./media/predictive-maintenance-technical-guide/icon-stream-analytics.png) analytics Stream Analytics que foram gerados quando a solução foi implementada (*por exemplo,* **manutençãosa02asapbi** e **manutençãoa02asablob** para a solução de manutenção preditiva)
+* Localização dos trabalhos stream analytics ![ Stream Analytics que foram ](./media/predictive-maintenance-technical-guide/icon-stream-analytics.png) gerados quando a solução foi implementada (*por exemplo,* **manutençãosa02asapbi** e **manutençãoa02asablob** para a solução de manutenção preditiva)
 * Seleção
   
   * ***INPUTS*** para ver a entrada de consulta
@@ -113,7 +113,7 @@ Esta secção discute os [gasodutos e atividades necessários contidos](../../da
 
 ![Azure Data Factory](./media/predictive-maintenance-technical-guide/azure-data-factory.png)
 
-Dois dos oleodutos desta fábrica contêm scripts [hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) usados para dividir e agregar os dados. Quando notado, os scripts estão localizados na conta [De armazenamento Azure](https://azure.microsoft.com/services/storage/) criada durante a configuração. A sua localização é:\\\\\\\\hive\\ \\ script de manutenção (ou https://[O seu nome de solução].blob.core.windows.net/maintenancesascript).
+Dois dos oleodutos desta fábrica contêm scripts [hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) usados para dividir e agregar os dados. Quando notado, os scripts estão localizados na conta [De armazenamento Azure](https://azure.microsoft.com/services/storage/) criada durante a configuração. A sua localização é: hive script de manutenção \\ \\ \\ \\ \\ \\ (ou https://[O seu nome de solução].blob.core.windows.net/maintenancesascript).
 
 Semelhante suplicou as consultas [do Azure Stream Analytics,](#azure-stream-analytics-1) os scripts [da Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) têm conhecimento implícito sobre o formato de dados que está a chegar e devem ser alterados com base no seu formato de dados.
 
@@ -142,7 +142,7 @@ A experiência [Azure Machine Learning](https://azure.microsoft.com/services/mac
 Uma vez lançado o Gerador de Dados, o gasoduto começa a desidratar-se e os diferentes componentes da sua solução começam a entrar em ação seguindo os comandos emitidos pela fábrica de dados. Há duas maneiras de monitorizar o oleoduto.
 
 * Um dos trabalhos da Stream Analytics escreve os dados brutos de entrada para o armazenamento de blob. Se clicar no componente de armazenamento blob da sua solução a partir do ecrã, implementou com sucesso a solução e, em seguida, clique em Open no painel certo, leva-o ao [portal Azure](https://portal.azure.com/). Uma vez lá, clique em Blobs. No próximo painel, vê-se uma lista de contentores. Clique em dados de **manutenção.** No painel seguinte está a pasta **rawdata.** Dentro da pasta rawdata estão pastas com nomes como hora=17 e hora=18. A presença destas pastas indica que os dados brutos estão a ser gerados no seu computador e armazenados no armazenamento de bolhas. Deve ver ficheiros csv com tamanhos finitos em MB nessas pastas.
-* O último passo do oleoduto é escrever dados (por exemplo, previsões de machine learning) para a Base de Dados SQL. Pode ter de esperar um máximo de três horas para que os dados apareçam na Base de Dados SQL. Uma forma de monitorizar a quantidade de dados disponíveis na sua Base de Dados SQL é através do [portal Azure](https://portal.azure.com/). No painel esquerdo, localize o ![ícone](./media/predictive-maintenance-technical-guide/icon-SQL-databases.png) SQL DATABASES SQL e clique nele. Em seguida, localize o **seu pmaintenancedb** da sua base de dados e clique nele. Na página seguinte na parte inferior, clique no MANAGE.
+* O último passo do oleoduto é escrever dados (por exemplo, previsões de machine learning) para a Base de Dados SQL. Pode ter de esperar um máximo de três horas para que os dados apareçam na Base de Dados SQL. Uma forma de monitorizar a quantidade de dados disponíveis na sua Base de Dados SQL é através do [portal Azure](https://portal.azure.com/). No painel esquerdo, localize o ícone SQL DATABASES ![ SQL ](./media/predictive-maintenance-technical-guide/icon-SQL-databases.png) e clique nele. Em seguida, localize o **seu pmaintenancedb** da sua base de dados e clique nele. Na página seguinte na parte inferior, clique no MANAGE.
    
     ![Gerir ícone](./media/predictive-maintenance-technical-guide/icon-manage.png)
    
@@ -159,7 +159,7 @@ O Power BI liga-se a uma Base de Dados SQL Azure como fonte de dados, onde os re
 
 Nota: 
 1.    Ao implementar a sua solução, uma previsão aparecerá na base de dados dentro de 3 horas. O ficheiro pbix que veio com o download do Gerador contém alguns dados de sementes para que possa criar o painel power BI imediatamente. 
-2.    Neste passo, o pré-requisito é descarregar e instalar o software gratuito [Power BI desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/).
+2.    Neste passo, o pré-requisito é descarregar e instalar o software gratuito [Power BI desktop](https://docs.microsoft.com/power-bi/fundamentals/desktop-get-the-desktop).
 
 Os seguintes passos guiam-no sobre como ligar o ficheiro pbix à Base de Dados SQL que foi fiada no momento da implementação da solução contendo dados (por exemplo, resultados de previsão) para visualização.
 
@@ -169,29 +169,29 @@ Os seguintes passos guiam-no sobre como ligar o ficheiro pbix à Base de Dados S
    
    * Uma vez que **'Azure SQL Database'** no seu modelo de modelo de solução fique verde, clique nele e clique em **'Abrir'**.
    * Verá um novo separador/janela do navegador que exibe a página do portal Azure. Clique em **"Grupos** de recursos" no painel esquerdo.
-   * Selecione a subscrição que está a utilizar para implementar a solução e, em seguida, selecione **'YourSolutionName\_ResourceGroup'**.
-   * No novo painel pop out, clique no ícone do ![ícone](./media/predictive-maintenance-technical-guide/icon-sql.png) SQL para aceder à sua base de dados. O nome da sua base de dados está ao lado deste ícone (por exemplo, **'pmaintenancedb'),** e o nome do servidor de base de **dados** está listado na propriedade do nome Server e deve ser semelhante ao **YourSolutionName.database.windows.net**.
+   * Selecione a subscrição que está a utilizar para implementar a solução e, em seguida, selecione **'YourSolutionName \_ ResourceGroup'**.
+   * No novo painel pop out, clique no ícone do ![ ícone SQL ](./media/predictive-maintenance-technical-guide/icon-sql.png) para aceder à sua base de dados. O nome da sua base de dados está ao lado deste ícone (por exemplo, **'pmaintenancedb'),** e o nome do servidor de base de **dados** está listado na propriedade do nome Server e deve ser semelhante ao **YourSolutionName.database.windows.net**.
    * O **nome** de utilizador e a **palavra-passe** da base de dados são os mesmos que o nome de utilizador e a palavra-passe previamente registados durante a implementação da solução.
 2. Atualize a fonte de dados do ficheiro de relatório do caminho frio com o Power BI Desktop.
    
-   * Na pasta onde descarregou e desfechou o ficheiro Generator, clique duas vezes no ficheiro **\\PowerBI PredictiveMaintenanceAerospace.pbix.** Se vir mensagens de aviso quando abrir o ficheiro, ignore-as. Na parte superior do ficheiro, clique em **'Editar Consultas'.**
+   * Na pasta onde descarregou e desfechou o ficheiro Generator, clique duas vezes no ficheiro **PowerBI \\ PredictiveMaintenanceAerospace.pbix.** Se vir mensagens de aviso quando abrir o ficheiro, ignore-as. Na parte superior do ficheiro, clique em **'Editar Consultas'.**
      
      ![Editar Consultas](./media/predictive-maintenance-technical-guide/edit-queries.png)
-   * Verá duas mesas, **RemainingUsefulLife** e **PMResult**. Selecione a ![primeira tabela](./media/predictive-maintenance-technical-guide/icon-query-settings.png) e clique no ícone de definições de consulta ao lado de **'Source'** em **'PASSOS APLICADOS'** no painel **'Definições** de consulta' direito. Ignore quaisquer mensagens de aviso que apareçam.
+   * Verá duas mesas, **RemainingUsefulLife** e **PMResult**. Selecione a primeira tabela e clique no ícone de definições de ![ consulta ao lado de ](./media/predictive-maintenance-technical-guide/icon-query-settings.png) **'Source'** em **'PASSOS APLICADOS'** no painel **'Definições** de consulta' direito. Ignore quaisquer mensagens de aviso que apareçam.
    * Na janela pop out, substitua **'Server'** e **'Database'** pelos nomes do seu próprio servidor e base de dados e, em seguida, clique em **'OK'**. Para o nome do servidor, certifique-se de especificar a porta 1433 **(YourSolutionName.database.windows.net, 1433**). Deixe o campo base de dados como **pmaintenancedb**. Ignore as mensagens de aviso que aparecem no ecrã.
    * Na próxima janela, verá duas opções no painel esquerdo **(Windows** e **Database).** Clique em **'Database'**( preencha o seu nome de **utilizador'** e **'Password'** (o nome de utilizador e a palavra-passe que introduziu quando implementou a solução pela primeira vez e criou uma Base de Dados Azure SQL). ***Selecione em que nível aplicar estas definições***, verifique a opção de nível de base de dados. Em seguida, clique em **'Ligar'**.
-   * Clique na segunda tabela **PMResult** e, em seguida, clique no ![ícone](./media/predictive-maintenance-technical-guide/icon-navigation.png) de navegação ao lado de **'Source'** em **'PASSOS APLICADOS'** no painel **'Definições** de Consulta' direito, e atualize os nomes do servidor e da base de dados como nos passos acima e clique em OK.
+   * Clique na segunda tabela **PMResult** e, em seguida, clique no ![ ícone de navegação ](./media/predictive-maintenance-technical-guide/icon-navigation.png) ao lado de **'Source'** em **'PASSOS APLICADOS'** no painel **'Definições** de Consulta' direito, e atualize os nomes do servidor e da base de dados como nos passos acima e clique em OK.
    * Assim que for guiado de volta para a página anterior, feche a janela. Uma mensagem exibe - clique **Em Aplicar**. Por último, clique no botão **Guardar** para guardar as alterações. O ficheiro Power BI estabeleceu agora a ligação ao servidor. Se as suas visualizações estiverem vazias, certifique-se de que limpa as seleções das visualizações para visualizar todos os dados clicando no ícone de borracha no canto superior direito das lendas. Utilize o botão de atualização para refletir novos dados sobre as visualizações. Inicialmente, basta ver os dados de sementes nas suas visualizações, uma vez que a fábrica de dados está programada para refrescar a cada 3 horas. Após 3 horas, verá novas previsões refletidas nas suas visualizações quando atualizar os dados.
 3. (Opcional) Publique online o painel de instrumentos de via fria para [Power BI](https://www.powerbi.com/). Este passo precisa de uma conta Power BI (ou conta office 365).
    
    * Clique em **'Publicar'** e poucos segundos depois aparece uma janela exibindo "Publishing to Power BI Success!" com uma marca de verificação verde. Clique no link abaixo "Open PredictiveMaintenanceAerospace.pbix in Power BI". Para encontrar instruções detalhadas, consulte [Publicar a partir do Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
-   * Para criar um novo **+** dashboard: clique no sinal ao lado da secção **Dashboards** no painel esquerdo. Introduza o nome "Demo de Manutenção Preditiva" para este novo painel de instrumentos.
-   * Assim que abrir o ![relatório, clique no ícone](./media/predictive-maintenance-technical-guide/icon-pin.png) PIN para fixar todas as visualizações no seu painel de instrumentos. Para encontrar instruções detalhadas, consulte [pin um azulejo para um painel power BI a partir de um relatório](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report).
+   * Para criar um novo dashboard: clique no **+** sinal ao lado da secção **Dashboards** no painel esquerdo. Introduza o nome "Demo de Manutenção Preditiva" para este novo painel de instrumentos.
+   * Assim que abrir o relatório, clique no ![ ícone PIN para fixar todas as ](./media/predictive-maintenance-technical-guide/icon-pin.png) visualizações no seu painel de instrumentos. Para encontrar instruções detalhadas, consulte [pin um azulejo para um painel power BI a partir de um relatório](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report).
      Vá à página do painel de instrumentos e ajuste o tamanho e localização das suas visualizações e edite os seus títulos. Para encontrar instruções detalhadas sobre como editar os seus azulejos, consulte [Editar um azulejo -- redimensionar, mover, mudar, mudar o nome, pin, eliminar, adicionar hiperligação](https://powerbi.microsoft.com/documentation/powerbi-service-edit-a-tile-in-a-dashboard/#rename). Aqui está um painel de exemplo com algumas visualizações de caminho frio presas nele.  Dependendo do tempo que executa o seu gerador de dados, os seus números nas visualizações podem ser diferentes.
      <br/>
      ![Vista final](./media/predictive-maintenance-technical-guide/final-view.png)
      <br/>
-   * Para agendar a atualização dos dados, passe o rato sobre ![o conjunto](./media/predictive-maintenance-technical-guide/icon-elipsis.png) de dados **PredictiveMaintenanceAerospace,** clique no ícone Ellipsis e, em seguida, escolha **'Agenda Refresh**' .
+   * Para agendar a atualização dos dados, passe o rato sobre o conjunto de dados **PredictiveMaintenanceAerospace,** clique no ![ ícone Ellipsis ](./media/predictive-maintenance-technical-guide/icon-elipsis.png) e, em seguida, escolha **'Agenda Refresh**' .
      <br/>
      > [!NOTE]
      > Se vir uma mensagem de aviso, clique em **Editar Credenciais** e certifique-se de que as suas credenciais de base de dados são as mesmas descritas no passo 1.
@@ -222,7 +222,7 @@ Os seguintes passos guiam-no como visualizar a produção de dados a partir de t
    * Clique no monitor de **aeronaves** dataset na secção datasets do painel esquerdo.
    * Clique no ícone **do Gráfico de Linha.**
    * Clique no painel **"Campos"** **para** que mostre em "Eixo" no painel de **Visualizações.**
-   * Clique em "s11" e\_"alerta s11" para que ambos apareçam em "Valores". Clique na pequena seta junto ao alerta **S11** e **\_S11**, mude "Soma" para "Média".
+   * Clique em "s11" e \_ "alerta s11" para que ambos apareçam em "Valores". Clique na pequena seta junto ao alerta **S11** e ** \_ S11**, mude "Soma" para "Média".
    * Clique em **SAVE** na parte superior e nomeie o relatório "aircraftmonitor". O relatório denominado "monitor de aeronaves" é mostrado na secção **relatórios** no painel **do Navegador** à esquerda.
    * Clique no ícone **Pin Visual** no canto superior direito desta tabela de linhas. Uma janela "Pin to Dashboard" pode aparecer para escolher um painel de instrumentos. Selecione "Demo de Manutenção Preditiva", em seguida, clique em "Pin".
    * Passe o rato sobre este azulejo no painel de instrumentos, clique no ícone "editar" no canto superior direito para alterar o seu título para "Fleet View of Sensor 11 vs. Threshold 48.26" e legenda para "Average across fleet over time".

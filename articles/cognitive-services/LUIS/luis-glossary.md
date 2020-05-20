@@ -3,12 +3,12 @@ title: Glossário - LUIS
 description: O glossário explica termos que pode encontrar enquanto trabalha com o Serviço LUIS API.
 ms.topic: reference
 ms.date: 05/08/2020
-ms.openlocfilehash: eb823e65acc55dd9d739b31e506ad27f6af9095a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 1513099decc21a7d219bfcb84563619640028550
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589674"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681612"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossário de compreensão linguística do vocabulário e conceitos comuns
 O glossário da Compreensão linguística (LUIS) explica termos que pode encontrar enquanto trabalha com o serviço LUIS.
@@ -139,9 +139,9 @@ A entidade é a estrutura que define para entidades aprendidas com máquinas com
 
 ### <a name="entitys-subentity"></a>Subentidade da entidade
 
-Uma subentidade é uma entidade infantil de uma entidade aprendida por máquinas.
+Uma subentidade é uma entidade infantil de uma entidade de machine-learning.
 
-### <a name="non-machine-learned-entity"></a>Entidade não-aprendida por máquinas
+### <a name="non-machine-learning-entity"></a>Entidade não-aprendizagem automática
 
 Uma entidade que utiliza texto correspondente para extrair dados:
 * Entidade de lista
@@ -164,7 +164,7 @@ Ver entrada do modelo pré-construído para [entidade pré-construída](#prebuil
 
 No machine learning, uma característica é uma característica que ajuda o modelo a reconhecer um conceito particular. É uma insinuação que luis pode usar, mas não uma regra difícil.
 
-Este termo também é referido como uma **[característica aprendida](luis-concept-feature.md)** por máquinas.
+Este termo também é referido como uma **[funcionalidade de aprendizagem automática.](luis-concept-feature.md)**
 
 Estas dicas são usadas em conjunto com os rótulos para aprender a prever novos dados. O LUIS suporta ambas as listas de frases e utiliza outros modelos como funcionalidades.
 
@@ -199,6 +199,10 @@ Um modelo (machine learned) é uma função que faz uma previsão nos dados de e
 ## <a name="normalized-value"></a>Valor normalizado
 
 Acrescenta valores às suas [entidades de lista.](#list-entity) Cada um desses valores pode ter uma lista de um ou mais sinónimos. Apenas o valor normalizado é devolvido na resposta.
+
+## <a name="overfitting"></a>Sobreajuste
+
+O excesso de montagem acontece quando o modelo está fixado nos exemplos específicos e não é capaz de generalizar bem.
 
 ## <a name="owner"></a>Proprietário
 
@@ -260,7 +264,7 @@ A quota LUIS é a limitação do nível de subscrição do Azure. A quota LUIS p
 
 ## <a name="schema"></a>Esquema
 
-O seu esquema inclui as suas intenções e entidades, juntamente com as subentidades. O esquema está inicialmente planeado para então iterado ao longo do tempo. O esquema não inclui definições de aplicativos, funcionalidades ou pronunciações de exemplo. 
+O seu esquema inclui as suas intenções e entidades, juntamente com as subentidades. O esquema está inicialmente planeado para então iterado ao longo do tempo. O esquema não inclui definições de aplicativos, funcionalidades ou pronunciações de exemplo.
 
 ## <a name="sentiment-analysis"></a>Análise de Sentimentos
 A análise do sentimento fornece valores positivos ou negativos das expressões fornecidas pelo [Text Analytics](../text-analytics/overview.md).

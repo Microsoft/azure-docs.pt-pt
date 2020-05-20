@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: e1b5b16d5522285f2d028303f3295cc1fb740330
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 01d131833f36c1b46eea1b9c08339b067fb9e937
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83598816"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681949"
 ---
 # <a name="using-the-azure-maps-drawing-error-visualizer"></a>Usando o visualizador de erro de desenho do Azure Maps
 
-O Visualizador de Erro de Desenho é uma aplicação web autónoma que exibe [avisos de pacotes de desenho e erros detetados](drawing-conversion-error-codes.md) durante o processo de conversão. A aplicação web Error Visualizer consiste numa página estática que pode utilizar sem se ligar à internet.  Pode utilizar o Error Visualizer para corrigir erros e avisos de acordo com [os requisitos](drawing-requirements.md)do pacote de desenho . A API de [conversão do Azure Maps](https://docs.microsoft.com/rest/api/maps/data/conversion) só devolve uma resposta com uma ligação ao Error Visualizer apenas quando um erro é detetado.
+O Visualizador de Erro de Desenho é uma aplicação web autónoma que exibe [avisos de pacotes de desenho e erros detetados](drawing-conversion-error-codes.md) durante o processo de conversão. A aplicação web Error Visualizer consiste numa página estática que pode utilizar sem se ligar à internet.  Pode utilizar o Error Visualizer para corrigir erros e avisos de acordo com [os requisitos](drawing-requirements.md)do pacote de desenho . A API de [conversão do Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) só devolve uma resposta com uma ligação ao Error Visualizer apenas quando um erro é detetado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -90,7 +90,7 @@ Assim que o ficheiro _ConversionWarningsAndErrors.json_ for carregado, verá uma
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Assim que o seu [pacote de desenho satisfizer os requisitos,](drawing-requirements.md)pode utilizar o [serviço De dataset Do Azure Maps](https://docs.microsoft.com/rest/api/maps/data/conversion) para converter o pacote Desacato num conjunto de dados. Em seguida, pode utilizar o módulo web Indoor Maps para desenvolver a sua aplicação. Saiba mais lendo os seguintes artigos:
+Assim que o seu [pacote de desenho satisfizer os requisitos,](drawing-requirements.md)pode utilizar o [serviço De dataset Do Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) para converter o pacote Desacato num conjunto de dados. Em seguida, pode utilizar o módulo web Indoor Maps para desenvolver a sua aplicação. Saiba mais lendo os seguintes artigos:
 
 > [!div class="nextstepaction"]
 > [Códigos de erro de conversão de desenho](drawing-conversion-error-codes.md)

@@ -11,12 +11,12 @@ author: nishankgu
 ms.author: nigup
 ms.date: 05/08/2020
 ms.custom: contperfq4
-ms.openlocfilehash: b8af654e14d8a5fa48c60ae62c590c4c99e66edb
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: c5862ee90a12240e7293647fae6af4f18f30c164
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891519"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680394"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Gerir & aumentar quotas de recursos com o Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -114,15 +114,9 @@ Para definir quotas ao nível do espaço de trabalho, vá a qualquer espaço de 
 
 ## <a name="view-your-usage-and-quotas"></a>Veja o seu uso e quotas
 
-Ver a sua quota para vários recursos, como Máquinas Virtuais, Armazenamento, Rede, é fácil através do portal Azure.
+A Azure Machine Learning Compute é gerida separadamente de outras quotas de recursos Azure na sua subscrição. Para ver esta quota, precisa de aprofundar os serviços de Machine Learning.  
 
-1. No painel esquerdo, selecione **Todos os serviços** e, em seguida, selecione **Subscrições** na categoria Geral.
-
-1. A partir da lista de subscrições, selecione a subscrição cuja quota procura.
-
-   **Há uma ressalva,** especificamente para visualizar a quota Azure Machine Learning Compute. Como mencionado acima, essa quota é separada da quota computacional da sua subscrição.
-
-1. No painel esquerdo, selecione **o serviço de Aprendizagem automática** e, em seguida, selecione qualquer espaço de trabalho da lista mostrada
+1. No painel esquerdo, selecione o **serviço de Aprendizagem automática** e, em seguida, selecione qualquer espaço de trabalho da lista mostrada.
 
 1. Na lâmina seguinte, sob a **secção suporte + resolução** de problemas selecione **Utilização + quotas** para ver os seus atuais limites de quota e utilização.
 
@@ -132,6 +126,12 @@ Ver a sua quota para vários recursos, como Máquinas Virtuais, Armazenamento, R
     + **Vista de subscrição:** Isto permite-lhe visualizar o seu uso da quota principal pela família VM, expandindo-a por espaço de trabalho, e expandindo-a ainda mais pelos nomes reais do cluster. Esta vista é ideal para entrar rapidamente nos detalhes do uso do núcleo para uma determinada família VM para ver a separação por espaços de trabalho e ainda mais pelos clusters subjacentes para cada um desses espaços de trabalho. A convenção geral, neste ponto de vista, é (utilização/quota), onde a utilização é o número atual de núcleos escalados, e a quota é o número máximo lógico de núcleos a que o recurso pode escalar. Para cada **espaço de trabalho,** a quota seria a quota de nível de espaço de trabalho (como explicado acima) que denota o número máximo de núcleos a que se pode escalar para uma determinada família VM. Para um **cluster** da mesma forma, a quota é, na verdade, os núcleos correspondentes ao número máximo de nós que o cluster pode escalar para definido pela propriedade max_nodes.
 
     + **Vista do espaço de trabalho:** Isto permite-lhe visualizar o seu uso da quota principal pelo Workspace, expandindo-a pela família VM, e expandindo-a ainda mais pelos nomes reais do cluster. Esta vista é ideal para entrar rapidamente nos detalhes da utilização do núcleo para um determinado espaço de trabalho para ver a separação das famílias VM e ainda mais pelos aglomerados subjacentes a cada uma dessas famílias.
+
+Ver a sua quota para vários outros recursos Azure, como Máquinas Virtuais, Armazenamento, Rede, é fácil através do portal Azure.
+
+1. No painel esquerdo, selecione **Todos os serviços** e, em seguida, selecione **Subscrições** na categoria Geral.
+
+1. A partir da lista de subscrições, selecione a subscrição cuja quota procura.
 
 ## <a name="request-quota-increases"></a>Pedir aumentos de quota
 

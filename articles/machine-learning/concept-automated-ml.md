@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: ce51a1b25453a5bbacbd268b37f2bd21cfe37fea
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: f328b86d07a997ea761b4381f1d6a2f8a1dae269
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983470"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683073"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>O que é aprendizagem automática de máquinas (AutoML)?
 
@@ -46,7 +46,7 @@ Semelhante à classificação, as tarefas de regressão são também uma tarefa 
 
 Diferente da classificação onde os valores de saída previstos são categóricos, os modelos de regressão preveem valores de saída numéricos baseados em preditores independentes. Em regressão, o objetivo é ajudar a estabelecer a relação entre essas variáveis de previsão independente, estimando como uma variável impacta as outras. Por exemplo, o preço do automóvel com base em características como, quilometragem de gás, classificação de segurança, etc. Saiba mais e veja um exemplo de [regressão com aprendizagem automática de máquinas.](tutorial-auto-train-models.md)
 
-Veja exemplos de regressão e aprendizagem automática de máquinas para previsões nestes cadernos Python: [CPU Performance Prediction,](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-hardware-performance-explanation-and-featurization/auto-ml-regression-hardware-performance-explanation-and-featurization.ipynb) 
+Veja exemplos de regressão e aprendizagem automática de máquinas para previsões nestes cadernos Python: [CPU Performance Prediction,](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-explanation-featurization/auto-ml-regression-explanation-featurization.ipynb) 
 
 ### <a name="time-series-forecasting"></a>Previsão de séries temporais
 
@@ -93,7 +93,7 @@ O diagrama que se segue ilustra este processo.
 ![Aprendizagem automática de máquinas](./media/concept-automated-ml/automl-concept-diagram2.png)
 
 
-Também pode inspecionar as informações de execução [registadas, que contêm métricas recolhidas](how-to-understand-automated-ml.md) durante a execução. O ensaio de treino produz um`.pkl` objeto serializado Python (ficheiro) que contém o modelo e o pré-processamento de dados.
+Também pode inspecionar as informações de execução [registadas, que contêm métricas recolhidas](how-to-understand-automated-ml.md) durante a execução. O ensaio de treino produz um objeto serializado Python `.pkl` (ficheiro) que contém o modelo e o pré-processamento de dados.
 
 Enquanto a construção de modelos é automatizada, também pode [aprender o quão importantes ou relevantes são as funcionalidades](how-to-configure-auto-train.md#explain) para os modelos gerados.
 
@@ -110,9 +110,9 @@ Em todas as experiências automatizadas de aprendizagem automática de máquinas
 
 ### <a name="automatic-preprocessing-standard"></a>Pré-processamento automático (padrão)
 
-Em todas as experiências automatizadas de aprendizagem automática de máquinas, os seus dados são automaticamente dimensionados ou normalizados para ajudar os algoritmos a ter um bom desempenho.  Durante o treino de modelos, uma das seguintes técnicas de escala ou normalização será aplicada a cada modelo.
+Em todas as experiências automatizadas de aprendizagem automática de máquinas, os seus dados são automaticamente dimensionados ou normalizados para ajudar os algoritmos a ter um bom desempenho.  Durante o treino de modelos, uma das seguintes técnicas de escala ou normalização será aplicada a cada modelo. Saiba como a autoML ajuda a [prevenir dados sobre-ajustados e desequilibrados](concept-manage-ml-pitfalls.md) nos seus modelos.
 
-|Normalização&nbsp;&&nbsp;de escala| Descrição |
+|Normalização de escala &nbsp; & &nbsp;| Descrição |
 | ------------- | ------------- |
 | [Invólucro standardScale](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | Padronize as funcionalidades removendo a média e a escala para a variação da unidade  |
 | [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | Transforma as características escalando cada característica pelo mínimo e máximo da coluna  |
@@ -128,7 +128,7 @@ Estão também disponíveis pré-processamento e funcionalidades avançados adic
 
 + Estúdio Azure Machine Learning: Ativar **a funcionalidade automática** na secção de **configuração adicional do View** com estes [passos](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
 
-+ Python SDK: `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` Especificar para a [ `AutoMLConfig` aula](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
++ Python SDK: Especificar `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` para a [ `AutoMLConfig` aula](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
 
 
 
@@ -154,7 +154,7 @@ A interface web para ML automatizado usa sempre um alvo de [computação](concep
 Considere estes fatores ao escolher o seu alvo computacional:
 
  * **Escolha um cálculo local**: Se o seu cenário é sobre explorações iniciais ou demonstrações usando pequenos dados e comboios curtos (isto é, segundos ou alguns minutos por viagem de criança), o treino no seu computador local pode ser uma escolha melhor.  Não existe tempo de configuração, os recursos de infraestrutura (o seu PC ou VM) estão diretamente disponíveis.
- * **Escolha um cluster remoto**de computação ML : Se estiver a treinar com conjuntos de dados maiores, como na formação de produção, criando modelos que precisam de comboios mais longos, a computação remota proporcionará um desempenho muito melhor no tempo final porque `AutoML` irá paralelamente aos comboios através dos nós do cluster. Numa computação remota, o tempo de arranque da infraestrutura interna irá adicionar cerca de 1,5 minutos por viagem de criança, além de minutos adicionais para a infraestrutura de cluster se os VMs ainda não estiverem em funcionamento.
+ * **Escolha um cluster remoto**de computação ML : Se estiver a treinar com conjuntos de dados maiores, como na formação de produção, criando modelos que precisam de comboios mais longos, a computação remota proporcionará um desempenho muito melhor no tempo final porque irá `AutoML` paralelamente aos comboios através dos nós do cluster. Numa computação remota, o tempo de arranque da infraestrutura interna irá adicionar cerca de 1,5 minutos por viagem de criança, além de minutos adicionais para a infraestrutura de cluster se os VMs ainda não estiverem em funcionamento.
 
 ### <a name="pros-and-cons"></a>Prós e contras
 Considere estes prós e contras ao escolher usar o local vs. remoto.
@@ -186,8 +186,19 @@ Considere estes prós e contras ao escolher usar o local vs. remoto.
 | Registe e visualize as informações e métricas da experiência na UI | ✓      | ✓     |                               |
 | Guarda-costas de dados                                            | ✓      | ✓     |                               |
 
+## <a name="many-models"></a>Muitos modelos 
 
-## <a name="automated-ml-in-azure-machine-learning"></a>ML automatizado em Aprendizagem automática de máquinas azure
+O [Acelerador de Soluções de Muitos Modelos](https://aka.ms/many-models) (pré-visualização) baseia-se no Azure Machine Learning e permite-lhe utilizar ml automatizado para treinar, operar e gerir centenas ou mesmo milhares de modelos de machine learning.
+
+Por exemplo, a construção de um modelo __para cada instância ou indivíduo__ nos seguintes cenários pode levar a melhores resultados:
+
+* Previsão de vendas para cada loja individual
+* Manutenção preditiva para centenas de poços de petróleo
+* Adaptar uma experiência para utilizadores individuais.
+
+Para mais informações, consulte o [Acelerador de Soluções de Muitos Modelos](https://aka.ms/many-models) no GitHub.
+
+## <a name="automl-in-azure-machine-learning"></a>AutoML em Aprendizagem automática Azure
 
 Azure Machine Learning oferece duas experiências para trabalhar com ML automatizado
 

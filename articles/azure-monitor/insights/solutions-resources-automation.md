@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 05/24/2017
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8ef9f27546e9db95d5a41769e1b5bc7bc0c2f851
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a3b1b134afbc4a13d7888281a82609d444cee377
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77663067"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682869"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>Adicionar recursos da Automação Azure a uma solução de gestão (Pré-visualização)
 > [!NOTE]
@@ -33,7 +33,7 @@ Este artigo assume que já está familiarizado com as seguintes informações.
 - Como [autor de modelos de Gestor](../../azure-resource-manager/templates/template-syntax.md) de Recursos
 
 ## <a name="automation-account"></a>Conta de automatização
-Todos os recursos da Automação Azure estão contidos numa [conta de Automação.](../../automation/automation-security-overview.md#automation-account-overview)  Conforme descrito no [log analytics workspace e na conta Automation,]( solutions.md#log-analytics-workspace-and-automation-account) a conta Automation não está incluída na solução de gestão, mas deve existir antes de a solução ser instalada.  Se não estiver disponível, a instalação da solução falhará.
+Todos os recursos da Automação Azure estão contidos numa [conta de Automação.](../../automation/automation-security-overview.md)  Conforme descrito no [log analytics workspace e na conta Automation,]( solutions.md#log-analytics-workspace-and-automation-account) a conta Automation não está incluída na solução de gestão, mas deve existir antes de a solução ser instalada.  Se não estiver disponível, a instalação da solução falhará.
 
 O nome de cada recurso Automation inclui o nome da sua conta Automation.  Isto é feito na solução com o parâmetro **name** name como no exemplo seguinte de um recurso de livro de execução.
 
@@ -270,14 +270,14 @@ As propriedades para recursos variáveis são descritas na tabela seguinte.
 > [!NOTE]
 > A propriedade **tipo** atualmente não tem qualquer efeito sobre a variável que está sendo criada.  O tipo de dados para a variável será determinado pelo valor.  
 
-Se definir o valor inicial da variável, deve ser configurado como o tipo de dados correto.  A tabela que se segue fornece os diferentes tipos de dados admissíveis e a sua sintaxe.  Note que os valores em JSON devem ser sempre incluídos em citações com quaisquer caracteres especiais dentro das cotações.  Por exemplo, um valor de cadeia seria especificado por citações\\em torno da cadeia (utilizando o carácter de fuga ()) enquanto um valor numérico seria especificado com um conjunto de citações.
+Se definir o valor inicial da variável, deve ser configurado como o tipo de dados correto.  A tabela que se segue fornece os diferentes tipos de dados admissíveis e a sua sintaxe.  Note que os valores em JSON devem ser sempre incluídos em citações com quaisquer caracteres especiais dentro das cotações.  Por exemplo, um valor de cadeia seria especificado por citações em torno da cadeia (utilizando o carácter de fuga \\ ()) enquanto um valor numérico seria especificado com um conjunto de citações.
 
 | Tipo de dados | Descrição | Exemplo | Resolve-se |
 |:--|:--|:--|:--|
-| string   | Valor de encerramento em cotações duplas.  | "\"Olá\"mundo" | "Olá mundo" |
+| string   | Valor de encerramento em cotações duplas.  | " \" Olá \" mundo" | "Olá mundo" |
 | numeric  | Valor numérico com cotações individuais.| "64" | 64 |
 | boolean  | **verdadeiro** ou **falso** em aspas.  Note que este valor deve ser minúsculo. | "Verdadeiro" | true |
-| datetime | Valor de data serializada.<br>Pode utilizar o cmdlet ConvertTo-Json no PowerShell para gerar este valor para uma determinada data.<br>Exemplo: data de validade "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Data(1495656897378)\\/" | 2017-05-24 13:14:57 |
+| datetime | Valor de data serializada.<br>Pode utilizar o cmdlet ConvertTo-Json no PowerShell para gerar este valor para uma determinada data.<br>Exemplo: data de validade "5/24/2017 13:14:57" \| ConvertTo-Json | " \\ /Data(1495656897378) \\ /" | 2017-05-24 13:14:57 |
 
 ## <a name="modules"></a>Módulos
 A sua solução de gestão não precisa de definir [módulos globais utilizados](../../automation/automation-integration-modules.md) pelos seus livros de execução, pois estarão sempre disponíveis na sua conta Automation.  Precisa de incluir um recurso para qualquer outro módulo utilizado pelos seus livros de execução.

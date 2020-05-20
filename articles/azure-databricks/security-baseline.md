@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 7d417f412592d87dec751b9d98a26bf786c719e5
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 23057723d46ed5d9203741ab2eb1a15edb5bd510
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82796853"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681707"
 ---
 # <a name="azure-security-baseline-for-azure-databricks"></a>Linha de base de segurança Azure para Tijolos de Dados Azure
 
@@ -146,7 +146,7 @@ Também pode utilizar plantas Azure para simplificar as implementações azure e
 
 **Orientação**: Utilize etiquetas para NSGs e outros recursos relacionados com a segurança da rede e fluxo de tráfego associados à sua instância DeBricks Azure. Para regras nsg individuais, utilize o campo "Descrição" para especificar a necessidade e/ou duração do negócio (etc.) para quaisquer regras que permitam o tráfego de/para uma rede.
 
-* [Como criar e usar Tags](httphttps://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Como criar e usar Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
 **Monitorização**do Azure Security Center : Não aplicável
 

@@ -4,14 +4,14 @@ description: Utilize modelos do Gestor de Recursos Azure para criar e configurar
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 05/19/2020
 ms.author: mjbrown
-ms.openlocfilehash: f16dec74b15f4945b54fe1423835fd8f5c8d96f1
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 630c965eadf17e21c75e1bd180fec4496df830e2
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791277"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684835"
 ---
 # <a name="manage-azure-cosmos-db-cassandra-api-resources-using-azure-resource-manager-templates"></a>Gerir os recursos da API da Azure Cosmos DB Cassandra utilizando modelos de Gestor de Recursos Azure
 
@@ -33,13 +33,13 @@ Para criar qualquer um dos recursos do Azure Cosmos DB abaixo, copie o seguinte 
 
 Este modelo cria uma conta Azure Cosmos em duas regiões com opções de consistência e failover, com um espaço de chave e tabela configurada para a produção de escala automática. Este modelo também está disponível para uma utilização de um clique na Galeria de Modelos De Quickstart Azure.
 
-[![Implementar no Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-cassandra-autosscale%2Fazuredeploy.json)
+[![Implementar no Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-cassandra-autoscale%2Fazuredeploy.json)
 
 :::code language="json" source="~/quickstart-templates/101-cosmosdb-cassandra-autoscale/azuredeploy.json":::
 
 <a id="create-manual"></a>
 
-## <a name="azure-cosmos-account-for-cassandra-with-standard-manual-provisioned-throughput"></a>Azure Cosmos conta cassandra com entrada padrão (manual) provisionada
+## <a name="azure-cosmos-account-for-cassandra-with-standard-provisioned-throughput"></a>Azure Cosmos conta com Cassandra com entrada padrão provisionada
 
 Este modelo cria uma conta Azure Cosmos em duas regiões com opções de consistência e failover, com um espaço de chave e tabela configurada para a entrada padrão. Este modelo também está disponível para uma utilização de um clique na Galeria de Modelos De Quickstart Azure.
 

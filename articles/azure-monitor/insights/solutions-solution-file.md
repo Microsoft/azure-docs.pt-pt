@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 01/09/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 999177f821b98adfa015520252bd3323d0892533
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 018fb457840e9ffe382ec1ed54df582ecfec8e49
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79275181"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682853"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Criação de um ficheiro de solução de gestão em Azure (Pré-visualização)
 > [!NOTE]
@@ -46,7 +46,7 @@ A estrutura básica de um ficheiro de solução de gestão é a mesma que um Mod
 ## <a name="parameters"></a>Parâmetros
 [Os parâmetros](../../azure-resource-manager/templates/template-syntax.md#parameters) são valores que o utilizador necessita quando instalam a solução de gestão.  Existem parâmetros padrão que todas as soluções terão, e pode adicionar parâmetros adicionais conforme necessário para a sua solução específica.  A forma como os utilizadores fornecerão valores de parâmetros quando instalarem a sua solução dependerá do parâmetro específico e da forma como a solução está a ser instalada.
 
-Quando um utilizador [instala a sua solução](solutions.md#install-a-monitoring-solution) de gestão através dos modelos Azure Marketplace ou Azure QuickStart, é solicitado a selecionar um espaço de trabalho de Log Analytics e uma conta de [Automação](solutions.md#log-analytics-workspace-and-automation-account).  Estes são usados para povoar os valores de cada um dos parâmetros padrão.  O utilizador não é solicitado a fornecer diretamente valores para os parâmetros padrão, mas é solicitado a fornecer valores para quaisquer parâmetros adicionais.
+Quando um utilizador [instala a sua solução](solutions.md#install-a-monitoring-solution) de gestão através dos modelos Azure Marketplace ou Azure Quickstart, é solicitado a selecionar um espaço de trabalho log Analytics e uma conta de [Automação](solutions.md#log-analytics-workspace-and-automation-account).  Estes são usados para povoar os valores de cada um dos parâmetros padrão.  O utilizador não é solicitado a fornecer diretamente valores para os parâmetros padrão, mas é solicitado a fornecer valores para quaisquer parâmetros adicionais.
 
 
 Um parâmetro de amostra é mostrado abaixo.  
@@ -161,7 +161,7 @@ Neste caso, refere-se a valores variáveis através da solução com as **variá
 O elemento **dependsOn** especifica uma [dependência](../../azure-resource-manager/templates/define-resource-dependency.md) de outro recurso.  Quando a solução é instalada, um recurso não é criado até que todas as suas dependências tenham sido criadas.  Por exemplo, a sua solução pode iniciar um livro de [execução](solutions-resources-automation.md#runbooks) quando é instalado usando um recurso de [trabalho](solutions-resources-automation.md#automation-jobs).  O recurso de trabalho dependeria do recurso do livro de recorridos para garantir que o livro de execução é criado antes da criação do trabalho.
 
 ### <a name="log-analytics-workspace-and-automation-account"></a>Log Analytics workspace e conta de Automação
-As soluções de gestão requerem um espaço de [trabalho log Analytics](../../azure-monitor/platform/manage-access.md) para conter vistas e uma conta de [Automação](../../automation/automation-security-overview.md#automation-account-overview) para conter livros de execução e recursos relacionados.  Estes devem estar disponíveis antes da criação dos recursos da solução e não devem ser definidos na própria solução.  O utilizador irá especificar um espaço de [trabalho e uma conta](solutions.md#log-analytics-workspace-and-automation-account) quando implementar a sua solução, mas como autor deve considerar os seguintes pontos.
+As soluções de gestão requerem um espaço de [trabalho log Analytics](../../azure-monitor/platform/manage-access.md) para conter vistas e uma conta de [Automação](../../automation/automation-security-overview.md) para conter livros de execução e recursos relacionados.  Estes devem estar disponíveis antes da criação dos recursos da solução e não devem ser definidos na própria solução.  O utilizador irá especificar um espaço de [trabalho e uma conta](solutions.md#log-analytics-workspace-and-automation-account) quando implementar a sua solução, mas como autor deve considerar os seguintes pontos.
 
 
 ## <a name="solution-resource"></a>Recurso de solução
@@ -206,7 +206,7 @@ O recurso de solução tem as propriedades na tabela seguinte.  Isto inclui os r
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| espaço de trabalhoResourceId |ID do espaço de trabalho Log Analytics no formulário * \<Id>/fornecedores do\<Grupo\>de Recursos/Microsoft.OperationalInsights/workspace/ Workspace Name*. |
+| espaço de trabalhoResourceId |ID do espaço de trabalho Log Analytics no formulário * \< Id>/fornecedores do Grupo de Recursos/Microsoft.OperationalInsights/workspace/ \< Workspace Name \> *. |
 | recursos referenciados |Lista de recursos na solução que não deve ser removida quando a solução é removida. |
 | recursos contidos |Lista de recursos na solução que deve ser removida quando a solução for removida. |
 
@@ -217,7 +217,7 @@ A entidade do **plano** do recurso de solução tem os imóveis na tabela seguin
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| nome |Nome da solução. |
+| name |Nome da solução. |
 | versão |Versão da solução determinada pelo autor. |
 | produto |Corda única para identificar a solução. |
 | publicador |Editor da solução. |

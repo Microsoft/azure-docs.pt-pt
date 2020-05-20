@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 03/13/2020
-ms.openlocfilehash: 3aecaf45a04c1428968791a71abece783c7eb7c0
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.date: 05/19/2020
+ms.openlocfilehash: 36012801a2d36b75a0683db6f029a4560150ac2b
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891323"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683069"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Segurança empresarial para Aprendizagem automática Azure
 
@@ -99,7 +99,7 @@ Para obter mais informações sobre identidades geridas, consulte [identidades g
 
 Não recomendamos que os administradores revoguem o acesso da identidade gerida aos recursos mencionados na tabela anterior. Pode restabelecer o acesso utilizando a operação de resincronização das teclas.
 
-O Azure Machine Learning cria uma `aml-` aplicação adicional (o nome começa com ou) `Microsoft-AzureML-Support-App-`com acesso ao nível dos contribuintes na sua subscrição para cada região do espaço de trabalho. Por exemplo, se tiver um espaço de trabalho no Leste dos EUA e um no Norte da Europa na mesma subscrição, verá duas destas aplicações. Estas aplicações permitem ao Azure Machine Learning ajudá-lo a gerir os recursos da computação.
+O Azure Machine Learning cria uma aplicação adicional (o nome começa com ou) com acesso ao `aml-` `Microsoft-AzureML-Support-App-` nível dos contribuintes na sua subscrição para cada região do espaço de trabalho. Por exemplo, se tiver um espaço de trabalho no Leste dos EUA e um no Norte da Europa na mesma subscrição, verá duas destas aplicações. Estas aplicações permitem ao Azure Machine Learning ajudá-lo a gerir os recursos da computação.
 
 ## <a name="network-security"></a>Segurança da rede
 
@@ -146,8 +146,6 @@ Para utilizar as suas próprias chaves (geridas pelo cliente) para encriptar a i
 
 Para permitir o fornecimento de uma instância Cosmos DB na sua subscrição com chaves geridas pelo cliente, execute as seguintes ações:
 
-* Ative as principais capacidades geridas pelo cliente para a Cosmos DB. Neste momento, deve solicitar o acesso à utilização desta capacidade. Para isso, por [cosmosdbpm@microsoft.com](mailto:cosmosdbpm@microsoft.com)favor contacte.
-
 * Registe os fornecedores de recursos Azure Machine Learning e Azure Cosmos DB na sua subscrição, se não for feito já.
 
 * Autorize a App de Aprendizagem Automática (em Gestão de Identidade e Acesso) com permissões dos colaboradores na sua subscrição.
@@ -163,7 +161,7 @@ Para permitir o fornecimento de uma instância Cosmos DB na sua subscrição com
         > [!NOTE]
         > Esta instância chave do cofre pode ser diferente da chave do cofre que é criado pela Azure Machine Learning quando você fornecer o espaço de trabalho. Se quiser utilizar a mesma instância chave do cofre para o espaço de trabalho, passe o mesmo cofre chave enquanto aprovisiona o espaço de trabalho utilizando o [parâmetro key_vault](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). 
 
-Esta instância Cosmos DB é criada num grupo de recursos gerido pela Microsoft na sua subscrição. O grupo de recursos geridos `<AML Workspace Resource Group Name><GUID>`está nomeado no formato .
+Esta instância Cosmos DB é criada num grupo de recursos gerido pela Microsoft na sua subscrição. O grupo de recursos geridos está nomeado no formato `<AML Workspace Resource Group Name><GUID>` .
 
 > [!IMPORTANT]
 > * Se precisar de eliminar esta instância Cosmos DB, tem de eliminar o espaço de trabalho Azure Machine Learning que o utiliza. 
@@ -188,7 +186,7 @@ Para um exemplo de criação de um espaço de trabalho utilizando um registo de 
 
 Pode encriptar um recurso Azure Container Instance (ACI) implantado utilizando chaves geridas pelo cliente. A chave gerida pelo cliente utilizada para a ACI pode ser armazenada no Cofre de Chaves Azure para o seu espaço de trabalho. Para obter informações sobre a geração de uma chave, consulte [Encriptar dados com uma chave gerida pelo cliente](../container-instances/container-instances-encrypt-data.md#generate-a-new-key).
 
-Para utilizar a tecla ao implementar um modelo para a Instância `AciWebservice.deploy_configuration()`de Contentores Azure, crie uma nova configuração de implementação utilizando . Forneça as informações-chave utilizando os seguintes parâmetros:
+Para utilizar a tecla ao implementar um modelo para a Instância de Contentores Azure, crie uma nova configuração de implementação utilizando `AciWebservice.deploy_configuration()` . Forneça as informações-chave utilizando os seguintes parâmetros:
 
 * `cmk_vault_base_url`: O URL do cofre da chave que contém a chave.
 * `cmk_key_name`: O nome da chave.
@@ -215,7 +213,7 @@ Este processo permite-lhe encriptar tanto os Dados como o Disco OS das máquinas
 
 O disco OS para cada nó computacional armazenado no Armazenamento Azure é encriptado com chaves geridas pela Microsoft nas contas de armazenamento de Machine Learning Azure. Este alvo computacional é efémero, e os clusters são tipicamente reduzidos quando não há corridas em fila. A máquina virtual subjacente é desprovisionada e o disco de SO é eliminado. A encriptação do disco azure não é suportada para o disco OS.
 
-Cada máquina virtual também tem um disco temporário local para operações de SO. Se quiser, pode usar o disco para encenar dados de treino. O disco é encriptado por padrão `hbi_workspace` para espaços `TRUE`de trabalho com o parâmetro definido para . Este ambiente é de curta duração apenas durante a duração da sua execução, e o suporte de encriptação está limitado apenas a chaves geridas pelo sistema.
+Cada máquina virtual também tem um disco temporário local para operações de SO. Se quiser, pode usar o disco para encenar dados de treino. O disco é encriptado por padrão para espaços de trabalho com o `hbi_workspace` parâmetro definido para `TRUE` . Este ambiente é de curta duração apenas durante a duração da sua execução, e o suporte de encriptação está limitado apenas a chaves geridas pelo sistema.
 
 #### <a name="azure-databricks"></a>Azure Databricks
 
@@ -247,7 +245,7 @@ A Microsoft pode recolher informações de identificação não-utilizadora como
 
 A Microsoft também recomenda não armazenar informações sensíveis (como segredos chave de conta) em variáveis ambientais. As variáveis ambientais são registadas, encriptadas e armazenadas por nós. Da mesma forma, ao nomear [run_id](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py), evite incluir informações sensíveis, como nomes de utilizadores ou nomes de projetos secretos. Estas informações podem aparecer em registos de telemetria acessíveis aos engenheiros do Microsoft Support.
 
-Pode optar por não fazer os `hbi_workspace` dados de `TRUE` diagnóstico recolhidos, definindo o parâmetro para o fornecimento do espaço de trabalho. Esta funcionalidade é suportada ao utilizar os modelos AzureML Python SDK, CLI, REST APIs ou Azure Resource Manager.
+Pode optar por não fazer os dados de diagnóstico recolhidos, definindo o parâmetro para o fornecimento do espaço de `hbi_workspace` `TRUE` trabalho. Esta funcionalidade é suportada ao utilizar os modelos AzureML Python SDK, CLI, REST APIs ou Azure Resource Manager.
 
 ### <a name="microsoft-generated-data"></a>Dados gerados pela Microsoft
 

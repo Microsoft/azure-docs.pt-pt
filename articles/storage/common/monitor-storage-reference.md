@@ -8,12 +8,13 @@ ms.topic: reference
 ms.date: 05/01/2020
 ms.author: normesta
 ms.subservice: logs
-ms.openlocfilehash: 7ba66441a87e3e02483ae27400f9900d2d052af4
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.custom: monitoring
+ms.openlocfilehash: e9abb2ded5465d4b245f4c9bcfab921444d41fa2
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83118163"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684918"
 ---
 # <a name="azure-storage-monitoring-data-reference"></a>Referência de dados de monitorização de armazenamento azure
 
@@ -31,13 +32,13 @@ O Armazenamento Azure fornece as seguintes métricas de capacidade no Monitor Az
 
 #### <a name="account-level"></a>Nível de conta
 
-| Métrica | Descrição |
+| Metric | Descrição |
 | ------------------- | ----------------- |
 | Capacidade Utilizada | A quantidade de armazenamento utilizada pela conta de armazenamento. Para as contas de armazenamento standard, é a soma da capacidade utilizada pelos blobs, tabelas, ficheiros e filas. Para as contas de armazenamento premium e contas de armazenamento de blobs, é o mesmo que BlobCapacity. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
 
 #### <a name="blob-storage"></a>Armazenamento de blobs
 
-| Métrica | Descrição |
+| Metric | Descrição |
 | ------------------- | ----------------- |
 | BlobCapacity | O total do armazenamento blob usado na conta de armazenamento. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 <br/> Dimensões: **BlobType**e **BlobTier** [(Definição)](#metrics-dimensions) |
 | BlobCount    | O número de objetos blob armazenados na conta de armazenamento. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 <br/> Dimensões: **BlobType**e **BlobTier** [(Definição)](#metrics-dimensions) |
@@ -46,7 +47,7 @@ O Armazenamento Azure fornece as seguintes métricas de capacidade no Monitor Az
 
 #### <a name="table-storage"></a>Table Storage
 
-| Métrica | Descrição |
+| Metric | Descrição |
 | ------------------- | ----------------- |
 | Capacidade de Mesa | A quantidade de armazenamento de mesa utilizada pela conta de armazenamento. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
 | Contagem de tabelas   | O número de tabelas na conta de armazenamento. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
@@ -54,7 +55,7 @@ O Armazenamento Azure fornece as seguintes métricas de capacidade no Monitor Az
 
 #### <a name="queue-storage"></a>Armazenamento de filas
 
-| Métrica | Descrição |
+| Metric | Descrição |
 | ------------------- | ----------------- |
 | Capacidade de fila | A quantidade de armazenamento de fila utilizada pela conta de armazenamento. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
 | Contagem de filas   | O número de filas na conta de armazenamento. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
@@ -62,7 +63,7 @@ O Armazenamento Azure fornece as seguintes métricas de capacidade no Monitor Az
 
 #### <a name="file-storage"></a>Armazenamento de ficheiros
 
-| Métrica | Descrição |
+| Metric | Descrição |
 | ------------------- | ----------------- |
 | Capacidade de Arquivo | A quantidade de armazenamento de ficheiros utilizada pela conta de armazenamento. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
 | Contagem de Ficheiros   | O número de ficheiros na conta de armazenamento. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
@@ -74,7 +75,7 @@ As métricas de transação são emitidas em todos os pedidos de uma conta de ar
 
 O Azure Storage fornece as seguintes métricas de transação no Monitor Azure.
 
-| Métrica | Descrição |
+| Metric | Descrição |
 | ------------------- | ----------------- |
 | Transações | O número de pedidos feitos a um serviço de armazenamento ou a uma operação de API especificada. Este número inclui pedidos com e sem êxito, bem como pedidos que produziram erros. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensões aplicáveis: ResponseType, GeoType, ApiName e Autenticação[(Definição)](#metrics-dimensions)<br/> Exemplo de valor: 1024 |
 | Entrada | A quantidade de dados de entrada. Este número inclui a entrada de um cliente externo no Armazenamento do Azure, assim como a entrada no Azure. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Total <br/> Dimensões aplicáveis: GeoType, ApiName e Autenticação[(Definição)](#metrics-dimensions) <br/> Exemplo de valor: 1024 |
@@ -262,7 +263,7 @@ A tabela seguinte lista as propriedades dos registos de recursos de armazenament
 |**smbCommandMajor uint32** | Valor no **comando SMB2_HEADER.Comando**. Atualmente, este é um número entre 0 e 18 inclusive. Por exemplo: `0x6` |
 |**smbCommandMinor** | A subclasse de **SmbCommandMajor,** se for caso disso. Por exemplo: `DirectoryCloseAndDelete` |
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - Consulte [o Armazenamento Azure de monitorização](monitor-storage.md) para obter uma descrição do armazenamento azure de monitorização.
 - Consulte [a Monitorização dos recursos do Azure com o Monitor Azure](../../azure-monitor/insights/monitor-azure-resource.md) para obter mais informações sobre a monitorização dos recursos do Azure.

@@ -5,15 +5,17 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/12/2019
-ms.openlocfilehash: e7a64776cba00a6840af70cecad5bf9c02b3f38e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/19/2020
+ms.openlocfilehash: 910a0d9b70a63fc93aebd47896db7c3493c846b2
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79251976"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684028"
 ---
-# <a name="provision-throughput-on-containers-and-databases"></a>Aprovisionar débito em contentores e bases de dados
+# <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introdução ao contributo previsto no Azure Cosmos DB
+
+O Azure Cosmos DB permite-lhe definir a entrada disponibilizada nas suas bases de dados e contentores. Existem dois tipos de produção aprovisionada, standard (manual) ou escala automática. Estes artigos dão uma visão geral de como funciona o fornecimento de um mofo. 
 
 Uma base de dados Azure Cosmos é uma unidade de gestão para um conjunto de contentores. Uma base de dados consiste num conjunto de recipientes schema-agnósticos. Um recipiente Azure Cosmos é a unidade de escalabilidade tanto para a entrada como para o armazenamento. Um recipiente é horizontalmente dividido através de um conjunto de máquinas dentro de uma região de Azure e é distribuído por todas as regiões Azure associadas à sua conta Azure Cosmos.
 
@@ -24,7 +26,7 @@ Com a Azure Cosmos DB, pode fornecer a sua provisão em duas granularidades:
 
 ## <a name="set-throughput-on-a-container"></a>Coloque a entrada num recipiente  
 
-A entrada disponibilizada num contentor Azure Cosmos é exclusivamente reservada para esse contentor. O recipiente recebe sempre a entrada aprovisionada. A produção disponibilizada num contentor é apoiada financeiramente por SLAs. Para aprender a configurar a entrada num recipiente, consulte a [entrada de provisionamento num recipiente Azure Cosmos](how-to-provision-container-throughput.md).
+A entrada disponibilizada num contentor Azure Cosmos é exclusivamente reservada para esse contentor. O recipiente recebe sempre a entrada aprovisionada. A produção disponibilizada num contentor é apoiada financeiramente por SLAs. Para aprender a configurar a entrada padrão (manual) num recipiente, consulte a [entrada de provisionamento num recipiente Azure Cosmos](how-to-provision-container-throughput.md). Para aprender a configurar a entrada em escala automática num recipiente, consulte a entrada em [escala automática provision](how-to-provision-autoscale-throughput.md).
 
 A regulação da entrada aprovisionada num recipiente é a opção mais utilizada. Pode escalar elástico a entrada de um recipiente, aprovisionando qualquer quantidade de entrada utilizando Unidades de [Pedido (RUs)](request-units.md). 
 
@@ -40,7 +42,7 @@ A imagem seguinte mostra como uma divisória física acolhe uma ou mais divisór
 
 ## <a name="set-throughput-on-a-database"></a>Definir a entrada numa base de dados
 
-Quando você disponibiliza a entrada numa base de dados Azure Cosmos, a entrada é partilhada em todos os recipientes (chamados recipientes de base de dados partilhadas) na base de dados. Uma exceção é se especificou uma entrada aprovisionada em recipientes específicos na base de dados. A partilha da produção de nível de base de dados aprovisionada entre os seus contentores é análoga ao alojamento de uma base de dados sobre um conjunto de máquinas. Como todos os contentores dentro de uma base de dados partilham os recursos disponíveis numa máquina, naturalmente não obtém um desempenho previsível em nenhum recipiente específico. Para aprender a configurar a entrada disponibilizada numa base de dados, consulte o [Configure aprovisionado numa base de dados Azure Cosmos](how-to-provision-database-throughput.md).
+Quando você disponibiliza a entrada numa base de dados Azure Cosmos, a entrada é partilhada em todos os recipientes (chamados recipientes de base de dados partilhadas) na base de dados. Uma exceção é se especificou uma entrada aprovisionada em recipientes específicos na base de dados. A partilha da produção de nível de base de dados aprovisionada entre os seus contentores é análoga ao alojamento de uma base de dados sobre um conjunto de máquinas. Como todos os contentores dentro de uma base de dados partilham os recursos disponíveis numa máquina, naturalmente não obtém um desempenho previsível em nenhum recipiente específico. Para aprender a configurar a entrada disponibilizada numa base de dados, consulte o [Configure aprovisionado numa base de dados Azure Cosmos](how-to-provision-database-throughput.md). Para aprender a configurar a entrada em escala automática numa base de dados, consulte a entrada de [escala automática provision](how-to-provision-autoscale-throughput.md).
 
 A definição de entrada numa base de dados Azure Cosmos garante que recebe o fornecimento de entrada para essa base de dados a toda a hora. Como todos os contentores dentro da base de dados partilham o fornecimento de entrada, o Azure Cosmos DB não fornece quaisquer garantias previsíveis de entrada para um determinado recipiente nessa base de dados. A parte da entrada que um recipiente específico pode receber depende:
 
@@ -60,7 +62,7 @@ Todos os recipientes criados dentro de uma base de dados com entrada aprovisiona
 
 Se a carga de trabalho numa divisória lógica consumir mais do que a entrada atribuída a uma divisória lógica específica, as suas operações são limitadas à taxa. Quando ocorre a limitação da taxa, pode aumentar o misto para toda a base de dados ou voltar a tentar as operações. Para obter mais informações sobre a partilha, consulte [divisórias lógicas.](partition-data.md)
 
-Os contentores numa base de dados de entradas partilhadas partilham o resultado (RU/s) atribuído a essa base de dados. Pode ter até quatro contentores com um mínimo de 400 RU/s na base de dados. Cada recipiente novo após os quatro primeiros exigirá um mínimo adicional de 100 RU/s. Por exemplo, se tiver uma base de dados de entrada partilhada com oito contentores, o mínimo de RU/s na base de dados será de 800 RU/s.
+Os contentores numa base de dados de entradas partilhadas partilham o resultado (RU/s) atribuído a essa base de dados. Pode ter até quatro contentores com um mínimo de 400 RU/s na base de dados. Com a entrada normal (manual) aprovisionada, cada novo recipiente após os quatro primeiros exigirá um mínimo adicional de 100 RU/s. Por exemplo, se tiver uma base de dados de entrada partilhada com oito contentores, o mínimo de RU/s na base de dados será de 800 RU/s. Com a entrada aprovisionada em escala automática, pode ter até contentores numa base de dados com max RU/s 4000 RU/s de escala automática (escalas entre 400 - 4000 RU/s).
 
 > [!NOTE]
 > Em fevereiro de 2020, introduzimos uma alteração que lhe permite ter um máximo de 25 contentores numa base de dados de entrada partilhada, o que permite melhor a partilha de entrada em todos os contentores. Após os primeiros 25 contentores, só pode adicionar mais contentores à base de dados se forem [aprovisionados com uma entrada dedicada](#set-throughput-on-a-database-and-a-container), que é separada da entrada partilhada da base de dados.<br>
@@ -72,9 +74,9 @@ Se as suas cargas de trabalho implicarem a eliminar e recriar todas as coleçõe
 
 ## <a name="set-throughput-on-a-database-and-a-container"></a>Coloque a entrada numa base de dados e num recipiente
 
-Pode combinar os dois modelos. É permitido o fornecimento de entrada na base de dados e no recipiente. O exemplo que se segue mostra como fornecer a entrada numa base de dados Azure Cosmos e num contentor:
+Pode combinar os dois modelos. É permitido o fornecimento de entrada na base de dados e no recipiente. O exemplo que se segue mostra como fornecer a entrada padrão (manual) disponibilizada numa base de dados Azure Cosmos e num recipiente:
 
-* Pode criar uma base de dados Azure Cosmos chamada *Z* com aprodo de *"K"* RUs. 
+* Pode criar uma base de dados Azure Cosmos chamada *Z* com uma entrada normal (manual) de RUs *"K".* 
 * Em seguida, crie cinco recipientes denominados *A,* *B,* *C,* *D*e *E* dentro da base de dados. Ao criar o recipiente B, certifique-se de que ativa a **provisão dedicada para esta** opção de contentor e configura explicitamente as RUs *"P"* de entrada aprovisionada neste recipiente. Tenha em anote que só pode configurar a entrada partilhada e dedicada ao criar a base de dados e o recipiente. 
 
    ![Definição da entrada ao nível do contentor](./media/set-throughput/coll-level-throughput.png)
@@ -89,31 +91,32 @@ Pode combinar os dois modelos. É permitido o fornecimento de entrada na base de
 
 Depois de criar um recipiente Azure Cosmos ou uma base de dados, pode atualizar a entrada prevista. Não existe um limite para a entrada máxima prevista que possa configurar na base de dados ou no recipiente. O [rendimento mínimo previsto](concepts-limits.md#storage-and-throughput) depende dos seguintes fatores: 
 
-* O tamanho máximo de dados que já armazena no recipiente
+* O tamanho atual dos dados que armazena no recipiente
 * A entrada máxima que alguma vez fornecer no recipiente
 * O número atual de contentores Azure Cosmos que você tem numa base de dados com entrada partilhada. 
 
-Pode recuperar a entrada mínima de um recipiente ou de uma base de dados programáticamente utilizando os SDKs ou visualizar o valor no portal Azure. Ao utilizar o .NET SDK, o [método DocumentClient.ReplaceOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync?view=azure-dotnet) permite-lhe escalar o valor de execução provisionado. Ao utilizar o Java SDK, o método [RequestOptions.setOfferThroughput](sql-api-java-samples.md#offer-examples) permite-lhe escalar o valor de entrada provisionado. 
+Pode recuperar a entrada mínima de um recipiente ou de uma base de dados programáticamente utilizando os SDKs ou visualizar o valor no portal Azure. Ao utilizar o .NET SDK, o [método DocumentClient.ReplaceOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync?view=azure-dotnet) permite-lhe escalar o valor de execução provisionado. Ao utilizar o Java SDK, o método [RequestOptions.setOfferThroughput](sql-api-java-sdk-samples.md) permite-lhe escalar o valor de entrada provisionado. 
 
 Ao utilizar o .NET SDK, o método [DocumentClient.ReadOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync?view=azure-dotnet) permite-lhe recuperar a entrada mínima de um recipiente ou de uma base de dados. 
 
-Pode escalar a entrada prevista de um recipiente ou de uma base de dados a qualquer momento. Quando uma operação de escala é executada para aumentar a entrada, pode demorar mais tempo devido às tarefas do sistema para fornecer os recursos necessários. Pode verificar o estado da operação de escala no portal Azure ou utilizar programaticamente os SDKs. Ao utilizar o SDK .Net, pode obter o estado `DocumentClient.ReadOfferAsync` do funcionamento da escala utilizando o método.
+Pode escalar a entrada prevista de um recipiente ou de uma base de dados a qualquer momento. Quando uma operação de escala é executada para aumentar a entrada, pode demorar mais tempo devido às tarefas do sistema para fornecer os recursos necessários. Pode verificar o estado da operação de escala no portal Azure ou utilizar programaticamente os SDKs. Ao utilizar o SDK .NET, pode obter o estado do funcionamento da escala utilizando o `DocumentClient.ReadOfferAsync` método.
 
 ## <a name="comparison-of-models"></a>Comparação de modelos
+Este quadro mostra uma comparação entre a entrada padrão de provisionamento (manual) numa base de dados vs. num recipiente. 
 
-|**Parâmetro**  |**Entrada disponibilizada numa base de dados**  |**Entrada aprovisionada num recipiente**|
-|---------|---------|---------|
-|Mínimo rus |400 (Após os primeiros quatro contentores, cada recipiente adicional requer um mínimo de 100 RUs por segundo.) |400|
-|Mínimo susipor recipiente|100|400|
-|RUs máximo|Ilimitado, na base de dados.|Ilimitado, no contentor.|
-|RUs atribuídos ou disponíveis para um recipiente específico|Sem garantias. As RUs atribuídas a um determinado contentor dependem das propriedades. As propriedades podem ser a escolha de chaves de divisória de recipientes que partilham a entrada, a distribuição da carga de trabalho e o número de contentores. |Todas as RUs configuradas no recipiente estão exclusivamente reservadas para o recipiente.|
-|Armazenamento máximo para um recipiente|Ilimitado.|Ilimitado.|
-|O máximo de entrada por partição lógica de um recipiente|10K RUs|10K RUs|
-|Armazenamento máximo (dados + índice) por partição lógica de um recipiente|20 GB|20 GB|
+|**Parâmetro**  |**Entrada padrão (manual) numa base de dados**  |**Entrada standard (manual) num recipiente**|**Produção de escala automática numa base de dados** | **Entrada em escala automática num recipiente**|
+|---------|---------|---------|---------|---------|
+|Ponto de entrada (mínimo RU/s) |400 RU/s. Após os quatro primeiros contentores, cada recipiente adicional requer um mínimo de 100 RU/s</li> |400| Escala automática entre 400 - 4000 RU/s. Pode ter até 25 contentores sem RU/s mínimo por recipiente</li> | Escala automática entre 400 - 4000 RU/s.|
+|Mínimo ru/s por recipiente|100|400|--|Escala automática entre 400 - 4000 RU/s|
+|RUs máximo|Ilimitado, na base de dados.|Ilimitado, no contentor.|Ilimitado, na base de dados.|Ilimitado, no contentor.
+|RUs atribuídos ou disponíveis para um recipiente específico|Sem garantias. As RUs atribuídas a um determinado contentor dependem das propriedades. As propriedades podem ser a escolha de chaves de divisória de recipientes que partilham a entrada, a distribuição da carga de trabalho e o número de contentores. |Todas as RUs configuradas no recipiente estão exclusivamente reservadas para o recipiente.|Sem garantias. As RUs atribuídas a um determinado contentor dependem das propriedades. As propriedades podem ser a escolha de chaves de divisória de recipientes que partilham a entrada, a distribuição da carga de trabalho e o número de contentores. |Todas as RUs configuradas no recipiente estão exclusivamente reservadas para o recipiente.|
+|Armazenamento máximo para um recipiente|Ilimitado.|Ilimitado|Ilimitado|Ilimitado|
+|O máximo de entrada por partição lógica de um recipiente|10K RU/s|10K RU/s|10K RU/s|10K RU/s|
+|Armazenamento máximo (dados + índice) por partição lógica de um recipiente|20 GB|20 GB|20 GB|20 GB|
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [divisórias lógicas.](partition-data.md)
-* Aprenda a [fornecer a entrada num recipiente Azure Cosmos.](how-to-provision-container-throughput.md)
-* Aprenda a fornecer a entrada numa base de [dados Azure Cosmos.](how-to-provision-database-throughput.md)
-
+* Aprenda a [fornecer norma (manual) num recipiente Azure Cosmos](how-to-provision-container-throughput.md).
+* Aprenda a [fornecer uma entrada padrão (manual) numa base de dados Azure Cosmos](how-to-provision-database-throughput.md).
+* Aprenda a fornecer entrada em [escala automática numa base de dados ou contentor da Azure Cosmos.](how-to-provision-autoscale-throughput.md)

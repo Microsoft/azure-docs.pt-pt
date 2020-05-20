@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 7dfc7b680c6b7d6b2a3641b25c0f82665143bde1
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 0ddfc445ee8bd67b39de4ddd013a25f20fd75315
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597423"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681220"
 ---
 # <a name="deploy-azure-sql-edge-preview"></a>Implementar borda SQL Azure (pré-visualização) 
 
@@ -119,4 +119,4 @@ Neste arranque rápido, implementou um Módulo SQL Edge num dispositivo IoT Edge
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Machine Learning e Inteligência Artificial com ONNX em SQL Edge](onnx-overview.md).
-- Construindo uma solução iot final com solução SQL edge usando IoT Edge.
+- [Construindo uma solução IoT final com SQL Edge utilizando ioT edge](tutorial-deploy-azure-resources.md).

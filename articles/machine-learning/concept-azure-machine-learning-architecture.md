@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 03/17/2020
+ms.date: 05/13/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: e70401bbaa97920163f3c7e76e32b9b9be2f5e72
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 49c23774fe16c24ba90daa02cdda1688b79b12d3
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871459"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683053"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Como funciona o Azure Machine Learning: Arquitetura e conceitos
 
@@ -34,7 +34,7 @@ O fluxo de trabalho do modelo de aprendizagem automática geralmente segue esta 
 
 1. **Pacote** - Depois de encontrar uma execução satisfatória, registe o modelo persistente no registo do **modelo**.
 
-1. **Validar** - **a experiência** para métricas registadas a partir das correntes e passadas. Se as métricas não indicarem um resultado desejado, volte ao passo 1 e iterará-lo nos seus scripts.
+1. **Validar**  -  **Consulta a experiência** das métricas registadas das correntes e das corridas passadas. Se as métricas não indicarem um resultado desejado, volte ao passo 1 e iterará-lo nos seus scripts.
 
 1. **Implementar** - Desenvolver um script de pontuação que utilize o modelo e **implemente o modelo** como **um serviço web** em Azure, ou para um dispositivo **IoT Edge**.
 
@@ -48,7 +48,7 @@ Utilize estas ferramentas para aprendizagem automática azure:
 + Interaja com o serviço em qualquer ambiente R com o [Azure Machine Learning SDK para R](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
 + Automatizar as suas atividades de aprendizagem automática com o [AZURE Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli).
 + Utilize o [designer de machine learning Azure (pré-visualização)](concept-designer.md) para executar os passos de fluxo de trabalho sem código de escrita.
-
++ O [Acelerador de Soluções de Muitos Modelos](https://aka.ms/many-models) (pré-visualização) baseia-se no Azure Machine Learning e permite-lhe treinar, operar e gerir centenas ou mesmo milhares de modelos de machine learning.
 
 > [!NOTE]
 > Embora este artigo defina termos e conceitos utilizados pelo Azure Machine Learning, não define termos e conceitos para a plataforma Azure. Para obter mais informações sobre a terminologia da plataforma Azure, consulte o [glossário do Microsoft Azure.](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology)
@@ -83,7 +83,7 @@ Uma atividade representa uma operação de longa duração. As seguintes operaç
 
 As atividades podem fornecer notificações através do SDK ou da Web UI para que possa monitorizar facilmente o progresso destas operações.
 
-### <a name="workspaces"></a>Áreas de Trabalho
+### <a name="workspaces"></a>Áreas de trabalho
 
 [O espaço de trabalho](concept-workspace.md) é o recurso de alto nível para o Azure Machine Learning. Fornece um lugar centralizado para trabalhar com todos os artefactos que cria quando utiliza o Azure Machine Learning. Podes partilhar um espaço de trabalho com os outros. Para uma descrição detalhada dos espaços de trabalho, veja o que é um espaço de [trabalho Azure Machine Learning?](concept-workspace.md)
 
@@ -182,7 +182,7 @@ Para facilitar a formação de modelos com quadros populares, a classe estimador
 
 Para as tarefas PyTorch, TensorFlow e Chainer, o Azure Machine Learning também fornece os respetivos estimativas [PyTorch,](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py) [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)e [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) para simplificar a utilização destas estruturas.
 
-Para obter mais informações, veja os artigos seguintes:
+Para obter mais informações, veja os seguintes artigos:
 
 * [Treine modelos ML com estimadores.](how-to-train-ml-models.md)
 * [Treine modelos de aprendizagem profunda pytorch em escala com Azure Machine Learning](how-to-train-pytorch.md).
@@ -222,7 +222,7 @@ Saiba mais sobre [os casos de computação.](concept-compute-instance.md)
 
 Os Conjuntos de Dados de **Aprendizagem Automática Azure** (pré-visualização) facilitam o acesso e o trabalho com os seus dados. Os conjuntos de dados gerem dados em vários cenários, tais como formação de modelos e criação de gasodutos. Utilizando o Azure Machine Learning SDK, pode aceder ao armazenamento subjacente, explorar dados e gerir o ciclo de vida de diferentes definições de Dataset.
 
-Os conjuntos de dados fornecem métodos para trabalhar `from_delimited_files()` `to_pandas_dataframe()`com dados em formatos populares, tais como a utilização ou .
+Os conjuntos de dados fornecem métodos para trabalhar com dados em formatos populares, tais como a utilização `from_delimited_files()` ou `to_pandas_dataframe()` .
 
 Para mais informações, consulte Criar e registar Conjuntos de Dados de [Aprendizagem Automática Azure](how-to-create-register-datasets.md).  Para mais exemplos utilizando conjuntos de dados, consulte os [cadernos de amostras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/datasets-tutorial).
 

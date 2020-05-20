@@ -1,30 +1,30 @@
 ---
-title: Serviço Azure Kubernetes (AKS) alta disponibilidade com Uptime SLA
-description: Conheça a oferta opcional de alta disponibilidade Uptime SLA para o Serviço Azure Kubernetes (AKS) API Server.
+title: Serviço Azure Kubernetes (AKS) com Uptime SLA
+description: Conheça a oferta opcional uptime SLA para o Serviço Azure Kubernetes (AKS) API Server.
 services: container-service
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.openlocfilehash: 1c340f85a107cac437e1241025d8c9bc6991b965
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 05/19/2020
+ms.openlocfilehash: e0e1399f69640dddfd618ac99637023390f28a92
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125728"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683216"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>Serviço Azure Kubernetes (AKS) Uptime SLA
 
-Uptime SLA é uma funcionalidade opcional para permitir sLA mais apoiado financeiramente para um cluster. Uptime SLA garante 99,95% de disponibilidade do ponto final do servidor Kubernetes API para clusters que usam [A Zona][availability-zones] de Disponibilidade e 99,9% da disponibilidade para clusters que não usam zonas de disponibilidade. O AKS utiliza réplicas de nó mestre em domínios de atualização e falhas para garantir que os requisitos de SLA são cumpridos.
+Uptime SLA é uma funcionalidade opcional para permitir um SLA financeiramente apoiado e mais alto para um cluster. Uptime SLA garante 99,95% de disponibilidade do ponto final do servidor Kubernetes API para clusters que usam Zonas de [Disponibilidade][availability-zones] e 99,9% da disponibilidade para clusters que não usam Zonas de Disponibilidade. O AKS utiliza réplicas de nó mestre em domínios de atualização e falhas para garantir que os requisitos de SLA são cumpridos.
 
-Os clientes que necessitem de SLA por razões de conformidade ou alargando sla's aos seus clientes devem ativar esta funcionalidade. Os clientes com cargas de trabalho críticas que precisam de maior disponibilidade com uma opção de SLA beneficiam de permitir esta funcionalidade. Ative a funcionalidade com Zonas de Disponibilidade para obter uma maior disponibilidade do servidor Kubernetes API.  
+Os clientes que necessitem de um SLA para satisfazer os requisitos de conformidade ou exigir o alargamento de um SLA aos seus utilizadores finais devem ativar esta funcionalidade. Os clientes com cargas de trabalho críticas que beneficiarão de um SLA de uptime mais elevado também podem beneficiar. A utilização da funcionalidade Uptime SLA com Zonas de Disponibilidade permite uma maior disponibilidade para o tempo de uptime do servidor Kubernetes API.  
 
-Os clientes podem criar clusters gratuitos ilimitados com um objetivo de nível de serviço (SLO) de 99,5%.
+Os clientes podem ainda criar clusters gratuitos ilimitados com um objetivo de nível de serviço (SLO) de 99,5% e optar pelo Horário de SLO ou SLA preferido, conforme necessário.
 
 > [!Important]
-> Para aglomerados com bloqueio de saída, consulte o [tráfego de egress limite](limit-egress-traffic.md) para abrir portas apropriadas para Uptime SLA.
+> Para aglomerados com bloqueio de saída, consulte o [tráfego de egress limite](limit-egress-traffic.md) para abrir portos apropriados.
 
 ## <a name="sla-terms-and-conditions"></a>Termos e condições sLA
 
-Uptime SLA é uma característica paga e ativada por cluster. Os preços uptime SLA são determinados pelo número de clusters, e não pelo tamanho dos clusters. Pode ver os detalhes de preços do [Uptime SLA](https://azure.microsoft.com/pricing/details/kubernetes-service/) para mais informações.
+Uptime SLA é uma característica paga e ativada por cluster. Os preços uptime SLA são determinados pelo número de clusters discretos, e não pelo tamanho dos clusters individuais. Pode ver os detalhes de preços do [Uptime SLA](https://azure.microsoft.com/pricing/details/kubernetes-service/) para mais informações.
 
 ## <a name="region-availability"></a>Disponibilidade da Região
 
@@ -64,19 +64,18 @@ Após alguns minutos, o comando completa e devolve informações formatadas da J
     "name": "Basic",
     "tier": "Paid"
   },
-  "tags": null,
-  "type": "Microsoft.ContainerService/ManagedClusters",
-  "windowsProfile": null
 ```
 
 ## <a name="limitations"></a>Limitações
 
-* Não pode adicionar SLA uptime aos aglomerados existentes.
-* Atualmente, não há como remover uptime SLA de um cluster AKS.  
+* Atualmente, não pode converter-se como cluster existente para permitir o Uptime SLA.
+* Atualmente, não há como remover uptime SLA de um cluster AKS após a criação com ele habilitado.  
+* Os agrupamentos privados não são atualmente apoiados.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Utilize zonas de [disponibilidade][availability-zones] para aumentar a alta disponibilidade com as suas cargas de trabalho de cluster AKS.
+Configure o seu cluster para limitar o tráfego de [saída](limit-egress-traffic.md).
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

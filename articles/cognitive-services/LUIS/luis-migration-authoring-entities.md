@@ -1,24 +1,24 @@
 ---
-title: Migrar para a entidade aprendida com máquinas V3
-description: A autoria v3 fornece um novo tipo de entidade, a entidade aprendida por máquinas, juntamente com a capacidade de adicionar relações à entidade aprendida por máquinas e outras entidades ou funcionalidades da aplicação.
+title: Migrar para a entidade de aprendizagem automática V3
+description: A autoria v3 fornece um novo tipo de entidade, a entidade de machine-learning, juntamente com a capacidade de adicionar relações à entidade de machine-learning e a outras entidades ou funcionalidades da aplicação.
 ms.topic: how-to
 ms.date: 05/08/2020
-ms.openlocfilehash: 79fbe261f597f55ca6caff468d4d5c154a273c42
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: aaa5472f25a5eca5ceadf979c57a83874ce4cb6e
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593227"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684587"
 ---
 # <a name="migrate-to-v3-authoring-entity"></a>Migrar para a entidade autora da V3
 
-A autoria v3 fornece um novo tipo de entidade, a entidade aprendida por máquinas, juntamente com a capacidade de adicionar relações à entidade aprendida por máquinas e outras entidades ou funcionalidades da aplicação.
+A autoria v3 fornece um novo tipo de entidade, a entidade de machine-learning, juntamente com a capacidade de adicionar relações à entidade de machine-learning e a outras entidades ou funcionalidades da aplicação.
 
 ## <a name="entities-are-decomposable-in-v3"></a>As entidades são descomponsáveis em V3
 
-As entidades criadas com o V3 que autorize APIs, quer utilizando as [APIs](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview) ou com o portal, permitem-lhe construir um modelo de entidade em camadas com um pai e filhos. O progenitor é conhecido como a **entidade aprendida** pela máquina e as crianças são conhecidas como **subentidades** da entidade aprendida pela máquina.
+As entidades criadas com o V3 que autorize APIs, quer utilizando as [APIs](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview) ou com o portal, permitem-lhe construir um modelo de entidade em camadas com um pai e filhos. O progenitor é conhecido como a **entidade de aprendizagem automática** e as crianças são conhecidas como **subentidades** da entidade aprendida pela máquina.
 
-Cada subentidade é também uma entidade aprendida por máquinas, mas com as opções de configuração adicionais de funcionalidades.
+Cada subentidade é também uma entidade de aprendizagem automática, mas com as opções de configuração adicionais de funcionalidades.
 
 * **As características necessárias** são regras que garantem que uma entidade é extraída quando corresponde a uma funcionalidade. A regra é definida pela característica necessária ao modelo:
     * [Entidade pré-construída](luis-reference-prebuilt-entities.md)
@@ -54,36 +54,36 @@ Quando migrar, considere o seguinte no seu plano de migração:
     * Entidades
         * Entidade hierárquica
         * Entidade composta
-    * Funções - funções só podem ser aplicadas a uma entidade (progenitora) aprendida por máquinas. Funções não podem ser aplicadas a subentidades
+    * Funções - funções só podem ser aplicadas a uma entidade de machine-learning (progenitora). Funções não podem ser aplicadas a subentidades
     * Testes e padrões de lote que utilizam as entidades hierárquicas e compostas
 
-Quando conceber o seu plano de migração, deixe tempo para rever as entidades definitivas aprendidas com máquinas, depois de todas as entidades hierárquicas e compostas terem sido migradas. Enquanto uma migração direta funcionará, depois de fazer a alteração e rever os resultados dos seus testes de lote, e a previsão JSON, a JSON mais unificada pode levá-lo a fazer alterações para que a informação final entregue à aplicação do lado do cliente seja organizada de forma diferente. Isto é semelhante ao refactoring de código e deve ser tratado com o mesmo processo de revisão que a sua organização tem em vigor.
+Quando conceber o seu plano de migração, deixe tempo para rever as entidades finais de aprendizagem automática, depois de todas as entidades hierárquicas e compostas terem sido migradas. Enquanto uma migração direta funcionará, depois de fazer a alteração e rever os resultados dos seus testes de lote, e a previsão JSON, a JSON mais unificada pode levá-lo a fazer alterações para que a informação final entregue à aplicação do lado do cliente seja organizada de forma diferente. Isto é semelhante ao refactoring de código e deve ser tratado com o mesmo processo de revisão que a sua organização tem em vigor.
 
 Se não tiver testes de lote no lugar para o seu modelo V2 e migrar os testes de lote para o modelo V3 como parte da migração, não será capaz de validar como a migração irá impactar os resultados da previsão do ponto final.
 
 ## <a name="migrating-from-v2-entities"></a>Migração de entidades V2
 
-À medida que começa a passar para o modelo de autoria V3, deve considerar como se deslocar para a entidade aprendida pela máquina, e as suas subentidades e características.
+À medida que começa a passar para o modelo de autoria V3, deve considerar como se deslocar para a entidade de aprendizagem automática, e suas subentidades e características.
 
 O quadro seguinte indica quais as entidades que precisam de migrar de um V2 para um design de entidade V3.
 
 |Tipo de entidade de autoria V2|Tipo de entidade de autoria V3|Exemplo|
 |--|--|--|
 |Entidade composta|Entidade aprendida por máquinas|[Saiba mais](#migrate-v2-composite-entity)|
-|Entidade hierárquica|Papel da entidade aprendida por máquinas|[Saiba mais](#migrate-v2-hierarchical-entity)|
+|Entidade hierárquica|papel da entidade de machine-learning|[Saiba mais](#migrate-v2-hierarchical-entity)|
 
 ## <a name="migrate-v2-composite-entity"></a>Migrar v2 entidade composta
 
-Cada criança do composto V2 deve ser representada com uma subentidade da entidade que se aprende com máquinas V3. Se a criança compósita for uma expressão pré-construída, regular ou uma entidade de lista, esta deve ser aplicada como uma característica necessária na subentidade.
+Cada criança do composto V2 deve ser representada com uma subentidade da entidade de aprendizagem automática V3. Se a criança compósita for uma expressão pré-construída, regular ou uma entidade de lista, esta deve ser aplicada como uma característica necessária na subentidade.
 
-Considerações ao planear migrar uma entidade composta para uma entidade aprendida por máquinas:
+Considerações ao planear migrar uma entidade composta para uma entidade de aprendizagem automática:
 * As entidades infantis não podem ser usadas em padrões
 * As entidades infantis já não são partilhadas
 * As entidades infantis têm de ser rotuladas se não forem aprendidas
 
 ### <a name="existing-features"></a>Características existentes
 
-Qualquer lista de frases utilizada para impulsionar palavras na entidade composta deve ser aplicada como uma característica para a entidade (mãe) aprendida pela máquina, a entidade de subentidade (criança) ou a intenção (se a lista de frases se aplicar apenas a uma intenção). Planeie adicionar a funcionalidade à entidade onde deve impulsionar de forma mais significativa. Não adicione a funcionalidade genericamente à entidade (progenitora) aprendida pela máquina, se aumentar significativamente a previsão de uma subentidade (criança).
+Qualquer lista de frases utilizada para impulsionar palavras na entidade composta deve ser aplicada como uma característica para a entidade de aprendizagem automática (mãe), a entidade de subentidade (criança) ou a intenção (se a lista de frases se aplicar apenas a uma intenção). Planeie adicionar a funcionalidade à entidade onde deve impulsionar de forma mais significativa. Não adicione a funcionalidade genericamente à entidade de machine-learning (progenitora), se aumentar significativamente a previsão de uma subentidade (criança).
 
 ### <a name="new-features"></a>Novas funcionalidades
 
@@ -106,7 +106,7 @@ A tabela que se segue demonstra a migração:
 
 |Modelos V2|Modelos V3|
 |--|--|
-|Parent - Entidade componente nomeada`Order`|Parent - Entidade aprendida por máquinas`Order`|
+|Parent - Entidade componente nomeada`Order`|Parent - entidade de aprendizagem automática nomeada`Order`|
 |Criança - Data pré-construídaV2|* Migrar entidade pré-construída para nova app.<br>* Adicione a função necessária no progenitor para datapré-construídaV2.|
 |Criança - entidade da lista para coberturas|* Migrar entidade da lista para nova app.<br>* Em seguida, adicione uma funcionalidade necessária no progenitor para a entidade da lista.|
 
@@ -116,7 +116,7 @@ A tabela que se segue demonstra a migração:
 Na autoria v2, uma entidade hierárquica foi fornecida antes de funções existentes no LUIS. Ambos serviram o mesmo propósito de extrair entidades com base no uso do contexto. Se tiver entidades hierárquicas, pode pensar nelas como entidades simples com papéis.
 
 Na autoria v3:
-* Uma função pode ser aplicada na entidade (progenitora) aprendida pela máquina.
+* Pode aplicar-se uma função na entidade de aprendizagem automática (progenitora).
 * Um papel não pode ser aplicado a nenhuma subentidade.
 
 Esta entidade é apenas um exemplo. A migração da sua própria entidade pode exigir outras considerações.
@@ -132,7 +132,7 @@ A tabela que se segue demonstra a migração:
 
 |Modelos V2|Modelos V3|
 |--|--|
-|Parent - Entidade componente nomeada`Order`|Parent - Entidade aprendida por máquinas`Order`|
+|Parent - Entidade componente nomeada`Order`|Parent - entidade de aprendizagem automática nomeada`Order`|
 |Criança - Entidade hierárquica com cobertura de pizza original e final|* Adicione papel para `Order` cada cobertura.|
 
 ## <a name="api-change-constraint-replaced-with-required-feature"></a>Restrição de alteração API substituída pela funcionalidade necessária

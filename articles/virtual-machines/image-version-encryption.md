@@ -7,16 +7,16 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: cynthn
-ms.openlocfilehash: aeacfdc07e5349dfce45b209da1d78bddf870f33
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 3d55efb15454f0b1dfe5ac1101a8a53eb1c9aa8f
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83269585"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683947"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>Pré-visualização: Utilize as chaves geridas pelo cliente para encriptar imagens
 
-As imagens da galeria são armazenadas como discos geridos, pelo que são automaticamente encriptadas utilizando encriptação do lado do servidor. A encriptação do lado do servidor utiliza [encriptação AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)de 256 bits, uma das cifras de blocomais fortes disponíveis, e é compatível com o FIPS 140-2. Para obter mais informações sobre os módulos criptográficos subjacentes aos discos geridos pelo Azure, consulte [Cryptography API: Next Generation](https://docs.microsoft.com/windows/desktop/seccng/cng-portal)
+As imagens da galeria são armazenadas como discos geridos, pelo que são automaticamente encriptadas utilizando encriptação do lado do servidor. A encriptação do lado do servidor utiliza [encriptação AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)de 256 bits, uma das cifras de blocomais fortes disponíveis, e é compatível com o FIPS 140-2. Para obter mais informações sobre os módulos criptográficos subjacentes aos discos geridos pelo Azure, consulte [Cryptography API: Next Generation](/windows/desktop/seccng/cng-portal)
 
 Pode confiar em chaves geridas pela plataforma para a encriptação das suas imagens, ou pode gerir a encriptação usando as suas próprias chaves. Se optar por gerir a encriptação com as suas próprias chaves, pode especificar uma *chave gerida pelo cliente* para encriptar e desencriptar todos os discos nas suas imagens. 
 
@@ -24,7 +24,7 @@ A encriptação do lado do servidor utilizando chaves geridas pelo cliente utili
 
 Para utilizar as chaves geridas pelo cliente para imagens, precisa primeiro de um Cofre de Chave Azure. Em seguida, cria-se um conjunto de encriptação de disco. O conjunto de encriptação do disco é então utilizado ao criar versões de imagem.
 
-Para obter mais informações sobre a criação e utilização de conjuntos de encriptação de discos, consulte [as chaves geridas pelo Cliente](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys).
+Para obter mais informações sobre a criação e utilização de conjuntos de encriptação de discos, consulte [as chaves geridas pelo Cliente](./windows/disk-encryption.md#customer-managed-keys).
 
 ## <a name="limitations"></a>Limitações
 
@@ -72,7 +72,7 @@ Se não `Registered` devolver, utilize o seguinte para registar os fornecedores:
 Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
-Para especificar um conjunto de encriptação de disco para uma versão de imagem, utilize a [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion) com o `-TargetRegion` parâmetro. 
+Para especificar um conjunto de encriptação de disco para uma versão de imagem, utilize a [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion) com o `-TargetRegion` parâmetro. 
 
 ```azurepowershell-interactive
 
@@ -194,4 +194,4 @@ Pode criar um VM a partir de uma galeria de imagens partilhada e utilizar chaves
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre [encriptação de disco do lado do servidor](/windows/disk-encryption.md)).
+Saiba mais sobre [encriptação de disco do lado do servidor](./windows/disk-encryption.md).

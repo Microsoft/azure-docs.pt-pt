@@ -1,14 +1,14 @@
 ---
 title: Determinar as causas da não conformidade
 description: Quando um recurso não é compatível, existem muitas razões possíveis. Aprenda a descobrir o que causou o incumprimento.
-ms.date: 04/26/2019
+ms.date: 05/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 395c70309ceca6e38f9f62522d80fb588821b886
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2b26357e9957259470049209913501cc024caeaa
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82182587"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684235"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinar as causas da não conformidade
 
@@ -115,11 +115,11 @@ Também pode não ter acesso a iniciar sessão diretamente no VM, mas tem de inf
 
 Comece por seguir os mesmos passos na secção acima para visualizar os detalhes da conformidade da política.
 
-Na visão do painel de detalhes de **conformidade** clique no link **Último recurso avaliado**.
+Na vista do painel de detalhes de conformidade, clique no link **Último recurso avaliado**.
 
 :::image type="content" source="../media/determine-non-compliance/guestconfig-auditifnotexists-compliance.png" alt-text="Ver auditoriaIfNotExists detalhes de definição" border="false":::
 
-A página de **Atribuição de Hóspedes** apresenta todos os detalhes de conformidade disponíveis. Cada linha na vista representa uma avaliação que foi realizada dentro da máquina. Na coluna **Reason,** é mostrada uma frase que descreve por que razão a Atribuição de Convidados não é _compatível._ Por exemplo, se estiver a auditar as políticas de passwords, a coluna **Reason** apresentaria texto, incluindo o valor atual para cada definição.
+A página de **Atribuição de Hóspedes** apresenta todos os detalhes de conformidade disponíveis. Cada linha na vista representa uma avaliação que foi realizada dentro da máquina. Na coluna **Reason,** é mostrada uma frase descrevendo por que a atribuição de hóspedes não _é compatível_. Por exemplo, se estiver a auditar as políticas de passwords, a coluna **Reason** apresentaria texto, incluindo o valor atual para cada definição.
 
 :::image type="content" source="../media/determine-non-compliance/guestconfig-compliance-details.png" alt-text="Ver detalhes de conformidade" border="false":::
 

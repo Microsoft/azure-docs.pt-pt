@@ -8,16 +8,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/03/2020
 ms.author: victorh
-ms.openlocfilehash: 92fed35c828398c048d704e1ec9b537904939967
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 56c7ddd6eda021c802eb256c62fcae680d573b69
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78272928"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681359"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>Criar um portal de aplicação com reorientação interna usando o Azure PowerShell
 
-Pode utilizar o Azure Powershell para configurar a [redirecção](multiple-site-overview.md) do tráfego web quando criar um gateway de [aplicação](overview.md). Neste tutorial, você define uma piscina de backend usando um conjunto de escala de máquinas virtuais. Em seguida, configura os ouvintes e as regras com base em domínios que possui para garantir que o tráfego web chegue à piscina apropriada. Este tutorial assume que possui vários domínios e utiliza exemplos de *www contoso.com\.* e www *\.contoso.org.*
+Pode utilizar o Azure Powershell para configurar a [redirecção](multiple-site-overview.md) do tráfego web quando criar um gateway de [aplicação](overview.md). Neste tutorial, você define uma piscina de backend usando um conjunto de escala de máquinas virtuais. Em seguida, configura os ouvintes e as regras com base em domínios que possui para garantir que o tráfego web chegue à piscina apropriada. Este tutorial assume que possui vários domínios e utiliza exemplos de *www \. contoso.com* e *www \. contoso.org.*
 
 Neste artigo, vai aprender a:
 
@@ -28,7 +28,7 @@ Neste artigo, vai aprender a:
 > * Crie um conjunto de escala de máquina virtual com a piscina de backend
 > * Criar um registo CNAME no seu domínio
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -107,7 +107,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-the-first-listener-and-rule"></a>Criar o primeiro ouvinte e governar
 
-É necessário um serviço de escuta para permitir ao gateway de aplicação encaminhar o tráfego adequadamente para o conjunto de back-end. Neste tutorial, vai criar dois serviços de escuta para os seus dois domínios. Neste exemplo, os ouvintes são criados para os domínios de *\.www contoso.com* e www *\.contoso.org.*
+É necessário um serviço de escuta para permitir ao gateway de aplicação encaminhar o tráfego adequadamente para o conjunto de back-end. Neste tutorial, vai criar dois serviços de escuta para os seus dois domínios. Neste exemplo, os ouvintes são criados para os domínios de *www \. contoso.com* e *www \. contoso.org.*
 
 Crie o primeiro ouvinte chamado *contosoComListener* utilizando [o New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) com a configuração frontal e a porta frontend que criou anteriormente. É necessária uma regra para o serviço de escuta saber qual o conjunto de back-end a utilizar para o tráfego de entrada. Crie uma regra básica chamada *contosoComRule* usando [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
 
@@ -292,11 +292,11 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicação
 
-Introduza o nome de domínio na barra de endereço do seu browser. Como, [https://www.contoso.com](https://www.contoso.com)por exemplo, .
+Introduza o nome de domínio na barra de endereço do seu browser. Como, por exemplo, `https://www.contoso.com`.
 
 ![Testar o site contoso no gateway de aplicação](./media/redirect-internal-site-powershell/application-gateway-iistest.png)
 
-Mude o endereço para o https://www.contoso.org seu outro domínio, por exemplo, e deverá ver se\.o tráfego foi redirecionado para o ouvinte para www contoso.com.
+Mude o endereço para o outro domínio, por `https://www.contoso.org` exemplo, e deverá ver se o tráfego foi redirecionado para o ouvinte para www \. contoso.com.
 
 ## <a name="next-steps"></a>Passos seguintes
 

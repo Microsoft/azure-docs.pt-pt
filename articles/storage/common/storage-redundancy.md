@@ -10,12 +10,12 @@ ms.date: 05/11/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 65d898112396755bb2518cade0ac94c21bc52685
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: c4d14c21174f9631a1ad72489d4c0bafe013572c
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83117721"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681347"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância de armazenamento azure
 
@@ -138,24 +138,42 @@ Pode consultar o valor da propriedade **Last Sync Time** utilizando o Azure Powe
 
 ## <a name="summary-of-redundancy-options"></a>Resumo das opções de despedimento
 
-O quadro seguinte mostra o quão duradouros e disponíveis os seus dados estão num dado cenário, dependendo do tipo de redundância que está em vigor para a sua conta de armazenamento:
+As tabelas nas secções seguintes resumem as opções de despedimento disponíveis para o Armazenamento Azure
 
-| Cenário                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | Gzrs/RA-Gzrs                              |
+### <a name="durability-and-availability-parameters"></a>Parâmetros de durabilidade e disponibilidade
+
+A tabela seguinte descreve os parâmetros-chave para cada opção de despedimento:
+
+| Parâmetro                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | Gzrs/RA-Gzrs                              |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
-| Um nó dentro de um centro de dados torna-se indisponível                                                                 | Sim                             | Sim                              | Sim                                  | Sim                                  |
-| Um centro de dados inteiro (zonal ou não zonal) fica indisponível                                           | Não                              | Sim                              | Sim                                  | Sim                                  |
-| Ocorre uma paralisação em toda a região                                                                                     | Não                              | Não                               | Sim                                  | Sim                                  |
-| Leia o acesso aos dados na região secundária se a região primária ficar indisponível | Não                              | Não                               | Sim (com RA-GRS)                                   | Sim (com RA-GZRS)                                 |
 | Por cento de durabilidade de objetos ao longo de um dado ano<sup>1</sup>                                          | pelo menos 99.999999999% (11 9's) | pelo menos 99.99999999999% (12 9's) | pelo menos 99.9999999999999999999 % (16 9's) | pelo menos 99.9999999999999999999 % (16 9's) |
-| Conta de armazenamento suportada tipos<sup>2</sup>                                                                   | GPv2, GPv1, BlockBlobStorage, BlobStorage, FileStorage                | GPv2, BlockBlobStorage, FileStorage                             | GPv2, GPv1, BlobStorage                     | GPv2                     |
 | Disponibilidade SLA para pedidos de leitura<sup>1</sup>  | Pelo menos 99,9% (99% para o nível de acesso cool) | Pelo menos 99,9% (99% para o nível de acesso cool) | Pelo menos 99,9% (99% para o nível de acesso cool) para GRS<br /><br />Pelo menos 99,99% (99,9% para o nível de acesso cool) para RA-GRS | Pelo menos 99,9% (99% para o nível de acesso cool) para GZRS<br /><br />Pelo menos 99,99% (99,9% para o nível de acesso cool) para RA-GZRS |
 | Disponibilidade SLA para pedidos de escrita<sup>1</sup>  | Pelo menos 99,9% (99% para o nível de acesso cool) | Pelo menos 99,9% (99% para o nível de acesso cool) | Pelo menos 99,9% (99% para o nível de acesso cool) | Pelo menos 99,9% (99% para o nível de acesso cool) |
 
 <sup>1</sup> Para obter informações sobre as garantias de armazenamento do Azure para durabilidade e disponibilidade, consulte o [Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/).
 
-<sup>2</sup> Para obter informações sobre os tipos de conta de armazenamento, consulte a [visão geral da conta](storage-account-overview.md)de armazenamento .
+### <a name="durability-and-availability-by-outage-scenario"></a>Durabilidade e disponibilidade por cenário de paragem
 
-Todos os dados relativos a todos os tipos de contas de armazenamento são copiados de acordo com a opção de despedimento para a conta de armazenamento. Objetos incluindo bolhas de blocos, bolhas de apêndice, bolhas de página, filas, mesas e ficheiros são copiados. Os dados em todos os níveis, incluindo o nível de arquivo, são copiados. Para obter mais informações sobre os níveis de blob, consulte [o armazenamento do Azure Blob: hot, cool e archive access tiers](../blobs/storage-blob-storage-tiers.md).
+O quadro seguinte indica se os seus dados são duráveis e disponíveis num dado cenário, dependendo do tipo de despedimento em vigor para a sua conta de armazenamento:
+
+| Cenário de paralisação                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | Gzrs/RA-Gzrs                              |
+| :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
+| Um nó dentro de um centro de dados torna-se indisponível                                                                 | Sim                             | Sim                              | Sim                                  | Sim                                 |
+| Um centro de dados inteiro (zonal ou não zonal) fica indisponível                                           | Não                              | Sim                              | Sim<sup>1</sup>                                  | Sim                                  |
+| Uma paralisação em toda a região ocorre na região primária                                                                                     | Não                              | Não                               | Sim<sup>1</sup>                                  | Sim<sup>1</sup>                                  |
+| Ler o acesso à região secundária está disponível se a região primária ficar indisponível | Não                              | Não                               | Sim (com RA-GRS)                                   | Sim (com RA-GZRS)                                 |
+
+<sup>1</sup> A falha da conta é necessária para restaurar a disponibilidade de escrita se a região primária ficar indisponível. Para mais informações, consulte a falha da conta de [recuperação e armazenamento](storage-disaster-recovery-guidance.md)de desastres.
+
+### <a name="supported-storage-account-types"></a>Tipos de conta de armazenamento suportado
+
+O quadro seguinte mostra quais as opções de despedimento que são suportadas por cada tipo de conta de armazenamento. Para obter informações sobre os tipos de conta de armazenamento, consulte a [visão geral da conta](storage-account-overview.md)de armazenamento .
+
+| LRS                             | ZRS                              | GRS/RA-GRS                                  | Gzrs/RA-Gzrs                              |
+| :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
+| Fins gerais v2<br /> Fins gerais v1<br /> Armazenamento de blocos de bolhas<br /> Armazenamento de blobs<br /> Armazenamento de ficheiros                | Fins gerais v2<br /> Armazenamento de blocos de bolhas<br /> Armazenamento de ficheiros                             | Fins gerais v2<br /> Fins gerais v1<br /> Armazenamento de blobs                     | Fins gerais v2                     |
+
+Todos os dados de todas as contas de armazenamento são copiados de acordo com a opção de despedimento para a conta de armazenamento. Objetos incluindo bolhas de blocos, bolhas de apêndice, bolhas de página, filas, mesas e ficheiros são copiados. Os dados em todos os níveis, incluindo o nível de arquivo, são copiados. Para obter mais informações sobre os níveis de blob, consulte [o armazenamento do Azure Blob: hot, cool e archive access tiers](../blobs/storage-blob-storage-tiers.md).
 
 Para obter informações sobre preços para cada opção de despedimento, consulte o preço do [Armazenamento Azure](https://azure.microsoft.com/pricing/details/storage/).
 
@@ -166,7 +184,7 @@ Para obter informações sobre preços para cada opção de despedimento, consul
 
 O Armazenamento Azure verifica regularmente a integridade dos dados armazenados com controlos cíclicos de despedimento (CRCs). Se for detetada corrupção de dados, é reparado utilizando dados redundantes. O Azure Storage também calcula verificações em todo o tráfego da rede para detetar corrupção de pacotes de dados ao armazenar ou recuperar dados.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - [Verifique a propriedade Do Último Tempo sincronizado para obter uma conta de armazenamento](last-sync-time-get.md)
 - [Alterar a opção de despedimento para uma conta de armazenamento](redundancy-migration.md)

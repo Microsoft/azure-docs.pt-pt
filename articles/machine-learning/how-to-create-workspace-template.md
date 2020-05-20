@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 03/05/2020
+ms.date: 05/19/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: 568bcdcfd8ae50fff58964ecc74176b151db22a4
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: eae10b7ae8cd14fd120e969c39c05a8ba2525003
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83121325"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681541"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Use um modelo de Gestor de Recursos Azure para criar um espaço de trabalho para o Azure Machine Learning
 
@@ -91,7 +91,6 @@ Para mais informações, consulte [encriptação em repouso](concept-enterprise-
 > * Deve ter um Cofre de Chave Azure existente que contenha uma chave de encriptação.
 > * Você deve ter uma política de acesso no Cofre chave Azure que concede __obter,__ __embrulhar__e __desembrulhar__ o acesso à aplicação __Azure Cosmos DB.__
 > * O Cofre chave Azure deve estar na mesma região onde planeia criar o espaço de trabalho Azure Machine Learning.
-> * A sua subscrição deve suportar __as chaves geridas pelo cliente__ para o Azure Cosmos DB.
 
 __Para adicionar a aplicação Azure Machine Learning como contribuinte,__ utilize os seguintes comandos:
 
@@ -134,8 +133,6 @@ Para adicionar uma política de __acesso ao cofre chave, utilize os seguintes co
     ```azurecli-interactive
     az keyvault set-policy --name <keyvault-name> --object-id <object-ID> --key-permissions get unwrapKey wrapKey
     ```
-
-__Para ativar as chaves geridas pelo cliente para o Azure Cosmos DB,__ envie correio para com o seu ID de azurecosmosdbcmk@service.microsoft.com subscrição Azure. Para mais informações, consulte [as chaves geridas pelo cliente Configure para a sua conta Azure Cosmos](..//cosmos-db/how-to-setup-cmk.md).
 
 __Para obter os valores__ para o `cmk_keyvault` (ID do cofre chave) e os `resource_cmk_uri` parâmetros (chave URI) necessários por este modelo, use os seguintes passos:
 

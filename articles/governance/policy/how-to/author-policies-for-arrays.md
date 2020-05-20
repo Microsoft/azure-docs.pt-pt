@@ -1,14 +1,14 @@
 ---
 title: Políticas de autor para propriedades de matriz em recursos
 description: Aprenda a trabalhar com parâmetros de matriz e expressões linguísticas matrizes, avalie o pseudónimo [*] e aprenda elementos com regras de definição de Política Azure.
-ms.date: 11/26/2019
+ms.date: 05/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 991d159f6444133d902382bc9ca43bc2acd201e2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f3d30f76d555386e5ab8041a0b8cc82b5b60e28e
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79280667"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684249"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Políticas de autor para propriedades de matriz sobre recursos Azure
 
@@ -16,7 +16,7 @@ As propriedades do Gestor de Recursos Azure são geralmente definidas como corda
 
 - O tipo de parâmetro de [definição,](../concepts/definition-structure.md#parameters)para fornecer múltiplas opções
 - Parte de uma [regra política](../concepts/definition-structure.md#policy-rule) usando as condições **dentro** ou **nãoIn**
-- Parte de uma regra política [ \[ \* \] ](../concepts/definition-structure.md#understanding-the--alias) que avalia o pseudónimo para avaliar:
+- Parte de uma regra política que avalia o [ \[ \* \] pseudónimo](../concepts/definition-structure.md#understanding-the--alias) para avaliar:
   - Cenários como **Nenhum,** **Nenhum,** ou **Todos**
   - Cenários complexos com **contagem**
 - No [efeito apêndice](../concepts/effects.md#append) para substituir ou adicionar a uma matriz existente
@@ -103,8 +103,8 @@ Para utilizar esta cadeia com cada SDK, utilize os seguintes comandos:
 
 ### <a name="array-conditions"></a>Condições de matriz
 
-As [condições](../concepts/definition-structure.md#conditions) da regra da política com as que `in` `notIn`um**tipo** de parâmetro _matriz_
-pode ser utilizado limitam-se e . Tome a seguinte `equals` definição de política com condição como exemplo:
+As [condições](../concepts/definition-structure.md#conditions) da regra da política com as que um _array_ 
+ **tipo** de parâmetro matriz pode ser utilizado limitam-se `in` e `notIn` . Tome a seguinte definição de política com condição `equals` como exemplo:
 
 ```json
 {
@@ -136,14 +136,14 @@ Tentar criar esta definição de política através do portal Azure leva a um er
 
 - "A política '{GUID}' não podia ser parametrizada devido a erros de validação. Por favor, verifique se os parâmetros da política estão devidamente definidos. A exceção interna 'Resultado de avaliação da expressão linguística '['parâmetros')' é o tipo 'Array', o tipo esperado é 'String'.".
 
-O **tipo** de `equals` condição esperado é _a corda._ Uma vez **que as localizações permitidas** são definidas como _matriz_de **tipo,** o motor de política avalia a expressão linguística e lança o erro. Com `in` a `notIn` condição e condição, o motor de política espera a _matriz_ **tipo** na expressão linguística. Para resolver esta mensagem `equals` de `in` `notIn`erro, mude para qualquer um ou .
+O **tipo** de condição esperado `equals` é a _corda._ Uma vez **que as localizações permitidas** são definidas como _matriz_de **tipo,** o motor de política avalia a expressão linguística e lança o erro. Com a `in` condição `notIn` e condição, o motor de política espera a _matriz_ **tipo** na expressão linguística. Para resolver esta mensagem de erro, mude `equals` para qualquer um ou `in` `notIn` .
 
 ### <a name="evaluating-the--alias"></a>Avaliação do pseudónimo [*]
 
-Os aliases ** \[ \* ** que se ligaram ao seu nome indicam que o **tipo** é uma _matriz_. Em vez de avaliar o valor ** \[ \* ** de toda a matriz, permite avaliar cada elemento da matriz individualmente, com lógica e entre eles. Existem três cenários padrão que esta avaliação por item é útil em: _Nenhum, qualquer_, _qualquer_ou _todos os_ elementos correspondem. Para cenários complexos, [a contagem de](../concepts/definition-structure.md#count)utilização.
+Os aliases que **\[\*\]** se ligaram ao seu nome indicam que o **tipo** é uma _matriz_. Em vez de avaliar o valor de toda a matriz, **\[\*\]** permite avaliar cada elemento da matriz individualmente, com lógica e entre eles. Existem três cenários padrão que esta avaliação por item é útil em: _Nenhum, qualquer_, _qualquer_ou _todos os_ elementos correspondem. Para cenários complexos, [a contagem de](../concepts/definition-structure.md#count)utilização.
 
 O motor de política desencadeia o **efeito** só nessa **altura** quando a regra **se** avalia como verdadeira.
-Este facto é importante de compreender ** \[ \* ** no contexto da forma como avalia cada elemento individual da matriz.
+Este facto é importante de compreender no contexto da forma como **\[\*\]** avalia cada elemento individual da matriz.
 
 A regra da política de exemplo para o quadro de cenário seguem:
 
@@ -179,7 +179,7 @@ O array **ipRules** é o seguinte para o quadro de cenário abaixo:
 ]
 ```
 
-Para cada condição exemplo `<field>` `"field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value"`abaixo, substitua por .
+Para cada condição exemplo abaixo, substitua `<field>` por `"field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value"` .
 
 Os seguintes resultados são o resultado da combinação da condição e da regra política de exemplo e de um conjunto de valores existentes acima:
 
@@ -196,10 +196,10 @@ Os seguintes resultados são o resultado da combinação da condição e da regr
 
 ## <a name="the-append-effect-and-arrays"></a>O efeito apêndice e as matrizes
 
-O [efeito apêndice](../concepts/effects.md#append) comporta-se de forma diferente dependendo se os **detalhes.field** são um ** \[ \* ** pseudónimo ou não.
+O [efeito apêndice](../concepts/effects.md#append) comporta-se de forma diferente dependendo se os **detalhes.field** são um **\[\*\]** pseudónimo ou não.
 
-- Quando não ** \[ \* ** é um pseudónimo, o apêndice substitui toda a matriz pela propriedade de **valor**
-- Quando ** \[ \* ** um pseudónimo, o apêndice adiciona a propriedade **de valor** à matriz existente ou cria a nova matriz
+- Quando não é um pseudónimo, o **\[\*\]** apêndice substitui toda a matriz pela propriedade de **valor**
+- Quando um **\[\*\]** pseudónimo, o apêndice adiciona a propriedade **de valor** à matriz existente ou cria a nova matriz
 
 Para mais informações, consulte os [exemplos do apêndice.](../concepts/effects.md#append-examples)
 

@@ -5,12 +5,12 @@ services: azure-monitor
 ms.topic: reference
 ms.date: 03/30/2020
 ms.subservice: metrics
-ms.openlocfilehash: 6be8cb1b7e74301d16a1174f5ca2b774334dac3f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 91fc2c4525ee622064520b0098087d54158bbe9e
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80422116"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680684"
 ---
 # <a name="azure-monitor-platform-metrics-exportable-via-diagnostic-settings"></a>Métricas da plataforma Azure Monitor exportáveis através de Definições de Diagnóstico
 
@@ -24,7 +24,10 @@ Devido a complexidades no backend do Monitor Azure, nem todas as métricas são 
 
 ## <a name="change-to-behavior-for-nulls-and-zero-values"></a>Alteração do comportamento dos VALORES NULls e Zero 
  
-Para as métricas da plataforma que podem ser exportadas através de configurações de diagnóstico, existem algumas métricas para as quais o Azure Monitor interpreta '0s' como 'Nulos'. Isto causou alguma confusão entre os verdadeiros '0' (emitidos por recurso) e interpretado '0s' (Nulos). Em breve, ocorrerá uma mudança e as métricas da plataforma exportadas através de definições de diagnóstico deixarão de exportar '0s', a menos que tenham sido verdadeiramente emitidas pelo recurso subjacente. A mudança estava prevista para 1 de abril de 2020, mas foi adiada devido a turnos prioritários devido ao COVID-19. 
+Para as métricas da plataforma que podem ser exportadas através de configurações de diagnóstico, existem algumas métricas para as quais o Azure Monitor interpreta '0s' como 'Nulos'. Isto causou alguma confusão entre os verdadeiros '0' (emitidos por recurso) e interpretado '0s' (Nulos). Em breve, ocorrerá uma mudança e as métricas da plataforma exportadas através de definições de diagnóstico deixarão de exportar '0s', a menos que tenham sido verdadeiramente emitidas pelo recurso subjacente. 
+
+> [!CAUTION]
+> A mudança de comportamento acima descrita está prevista para 1 de junho de 2020.
 
 Atenção:
 
@@ -41,7 +44,7 @@ A tabela contém as seguintes colunas.
 - Exportável através de Definições de Diagnóstico? 
 - Efetuado por NULO / 0 
 - ResourceType 
-- Métrica 
+- Metric 
 - Nome de exibição métrica
 - Unidade 
 - AgregadoTipo
@@ -51,7 +54,7 @@ A tabela contém as seguintes colunas.
 > A tabela abaixo pode ter uma barra de pergaminho horizontal na parte inferior. Se acredita que está a perder informação, verifique se a barra de pergaminho é até à esquerda.  
 
 
-| Exportável através de Definições de Diagnóstico?  | Já emitem NULLs |  ResourceType  |  Métrica  |  Nome de exibição métrica  |  Unidade  |  AgregadoTipo | 
+| Exportável através de Definições de Diagnóstico?  | Já emitem NULLs |  ResourceType  |  Metric  |  Nome de exibição métrica  |  Unidade  |  AgregadoTipo | 
 |---|---| ---- | ----- | ------ | ---- | ---- | 
 | Sim****  | Não |  Microsoft.AnalysisServices/servidores  |  Preço Corrente mais limpo  |  Memória: Preço Atual Mais Limpo  |  Contagem  |  Média | 
 | Sim****  | Não |  Microsoft.AnalysisServices/servidores  |  Memória Mais LimpaNão Encolhe  |  Memória: Memória mais limpa não encolhe  |  Bytes  |  Média | 
@@ -205,7 +208,7 @@ A tabela contém as seguintes colunas.
 | **Sim**  | Não |  Microsoft.Blockchain/blockchainMembers  |  Transações em fila  |  Transações em fila  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.Blockchain/blockchainMembers  |  RequestHandled  |  Pedidos tratados  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.Blockchain/blockchainMembers  |  Armazenamento  |  Utilização de armazenamento  |  Bytes  |  Média | 
-| **Sim**  | Não |  Microsoft.Cache/redis  |  cachehits  |  Cache Hits  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft.Cache/redis  |  cachehits  |  Acertos na Cache  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  cachehits0  |  Cache Hits (Fragmento 0)  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  cachehits1  |  Cache Hits (Fragmento 1)  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  cachehits2  |  Cache Hits (Fragmento 2)  |  Contagem  |  Total | 
@@ -217,7 +220,7 @@ A tabela contém as seguintes colunas.
 | **Sim**  | Não |  Microsoft.Cache/redis  |  cachehits8  |  Cache Hits (Fragmento 8)  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  cachehits9  |  Cache Hits (Fragmento 9)  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  cacheLatency  |  Microsegundos de Latência cache (Pré-visualização)  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Cache/redis  |  cachemisses  |  Cache Misses  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft.Cache/redis  |  cachemisses  |  Falhas de Acerto na Cache  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  cachemisses0  |  Cache Misses (Fragmento 0)  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  cachemisses1  |  Cache Misses (Fragmento 1)  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  cachemisses2  |  Cache Misses (Fragmento 2)  |  Contagem  |  Total | 
@@ -228,7 +231,7 @@ A tabela contém as seguintes colunas.
 | **Sim**  | Não |  Microsoft.Cache/redis  |  cachemisses7  |  Cache Misses (Fragmento 7)  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  cachemisses8  |  Cache Misses (Fragmento 8)  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  cachemisses9  |  Cache Misses (Fragmento 9)  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.Cache/redis  |  cacheLer  |  Leitura de cache  |  BytesPerSecond  |  Máximo | 
+| **Sim**  | Não |  Microsoft.Cache/redis  |  cacheLer  |  Leitura da Cache  |  BytesPerSecond  |  Máximo | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  cacheRead0  |  Cache Read (Fragmento 0)  |  BytesPerSecond  |  Máximo | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  cacheRead1  |  Cache Read (Fragmento 1)  |  BytesPerSecond  |  Máximo | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  cacheRead2  |  Cache Read (Fragmento 2)  |  BytesPerSecond  |  Máximo | 
@@ -239,7 +242,7 @@ A tabela contém as seguintes colunas.
 | **Sim**  | Não |  Microsoft.Cache/redis  |  cacheRead7  |  Cache Read (Fragmento 7)  |  BytesPerSecond  |  Máximo | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  cacheRead8  |  Cache Read (Fragmento 8)  |  BytesPerSecond  |  Máximo | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  cacheRead9  |  Cache Read (Fragmento 9)  |  BytesPerSecond  |  Máximo | 
-| **Sim**  | Não |  Microsoft.Cache/redis  |  cacheEscrever  |  Cache Write  |  BytesPerSecond  |  Máximo | 
+| **Sim**  | Não |  Microsoft.Cache/redis  |  cacheEscrever  |  Escrita na Cache  |  BytesPerSecond  |  Máximo | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  cacheWrite0  |  Cache Write (Fragmento 0)  |  BytesPerSecond  |  Máximo | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  cacheWrite1  |  Cache Write (Fragmento 1)  |  BytesPerSecond  |  Máximo | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  cacheWrite2  |  Cache Write (Fragmento 2)  |  BytesPerSecond  |  Máximo | 
@@ -262,7 +265,7 @@ A tabela contém as seguintes colunas.
 | **Sim**  | Não |  Microsoft.Cache/redis  |  clientes conectados8  |  Clientes Conectados (Fragmento 8)  |  Contagem  |  Máximo | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  clientes conectados9  |  Clientes Conectados (Shard 9)  |  Contagem  |  Máximo | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  erros  |  Erros  |  Contagem  |  Máximo | 
-| **Sim**  | Não |  Microsoft.Cache/redis  |  chaves despejadas  |  Chaves despejadas  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft.Cache/redis  |  chaves despejadas  |  Chaves Excluídas  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  despejadokeys0  |  Chaves despejadas (Fragmento 0)  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  despejadoskeys1  |  Chaves despejadas (Fragmento 1)  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  despejadoskeys2  |  Chaves despejadas (Fragmento 2)  |  Contagem  |  Total | 
@@ -273,7 +276,7 @@ A tabela contém as seguintes colunas.
 | **Sim**  | Não |  Microsoft.Cache/redis  |  despejadoskeys7  |  Chaves despejadas (Fragmento 7)  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  despejadoschaves8  |  Chaves despejadas (Fragmento 8)  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  despejadokeys9  |  Chaves despejadas (Fragmento 9)  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.Cache/redis  |  expiradokeys  |  Chaves expiradas  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft.Cache/redis  |  expiradokeys  |  Chaves Expiradas  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  expiradokeys0  |  Chaves expiradas (Fragmento 0)  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  expiradokeys1  |  Chaves expiradas (Fragmento 1)  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  expiradokeys2  |  Chaves expiradas (Fragmento 2)  |  Contagem  |  Total | 
@@ -284,7 +287,7 @@ A tabela contém as seguintes colunas.
 | **Sim**  | Não |  Microsoft.Cache/redis  |  expiradokeys7  |  Chaves expiradas (Fragmento 7)  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  expiradokeys8  |  Chaves expiradas (Fragmento 8)  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  expiradokeys9  |  Chaves expiradas (Fragmento 9)  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.Cache/redis  |  obter comandos  |  Fica  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft.Cache/redis  |  obter comandos  |  Obtenções  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  getcommands0  |  Recebe (Fragmento 0)  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  getcommands1  |  Recebe (Fragmento 1)  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  getcommands2  |  Recebe (Fragmento 2)  |  Contagem  |  Total | 
@@ -295,7 +298,7 @@ A tabela contém as seguintes colunas.
 | **Sim**  | Não |  Microsoft.Cache/redis  |  getcommands7  |  Recebe (Fragmento 7)  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  getcommands8  |  Recebe (Fragmento 8)  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  getcommands9  |  Recebe (Fragmento 9)  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.Cache/redis  |  operaçõesPerSecond  |  Operações por segundo  |  Contagem  |  Máximo | 
+| **Sim**  | Não |  Microsoft.Cache/redis  |  operaçõesPerSecond  |  Operações por Segundo  |  Contagem  |  Máximo | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  operaçõesPerSecond0  |  Operações por Segundo (Fragmento 0)  |  Contagem  |  Máximo | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  operaçõesPerSecond1  |  Operações por Segundo (Fragmento 1)  |  Contagem  |  Máximo | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  operaçõesPerSecond2  |  Operações por Segundo (Fragmento 2)  |  Contagem  |  Máximo | 
@@ -317,7 +320,7 @@ A tabela contém as seguintes colunas.
 | **Sim**  | Não |  Microsoft.Cache/redis  |  percentProcessorTime7  |  CPU (Fragmento 7)  |  Percentagem  |  Máximo | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  percentProcessorTime8  |  CPU (Fragmento 8)  |  Percentagem  |  Máximo | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  percentProcessorTime9  |  CPU (Fragmento 9)  |  Percentagem  |  Máximo | 
-| **Sim**  | Não |  Microsoft.Cache/redis  |  servidorLoad  |  Carga do servidor  |  Percentagem  |  Máximo | 
+| **Sim**  | Não |  Microsoft.Cache/redis  |  servidorLoad  |  Carga do Servidor  |  Percentagem  |  Máximo | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  servidorLoad0  |  Carga do servidor (Fragmento 0)  |  Percentagem  |  Máximo | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  servidorLoad1  |  Carga do servidor (Fragmento 1)  |  Percentagem  |  Máximo | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  servidorLoad2  |  Carga do servidor (Fragmento 2)  |  Percentagem  |  Máximo | 
@@ -328,7 +331,7 @@ A tabela contém as seguintes colunas.
 | **Sim**  | Não |  Microsoft.Cache/redis  |  servidorLoad7  |  Carga do servidor (Fragmento 7)  |  Percentagem  |  Máximo | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  servidorLoad8  |  Carga do servidor (Fragmento 8)  |  Percentagem  |  Máximo | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  servidorLoad9  |  Carga do servidor (Fragmento 9)  |  Percentagem  |  Máximo | 
-| **Sim**  | Não |  Microsoft.Cache/redis  |  setcommands  |  Conjuntos  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft.Cache/redis  |  setcommands  |  Definições  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  setcommands0  |  Conjuntos (Fragmento 0)  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  setcommands1  |  Conjuntos (Fragmento 1)  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  setcommands2  |  Conjuntos (Fragmento 2)  |  Contagem  |  Total | 
@@ -361,7 +364,7 @@ A tabela contém as seguintes colunas.
 | **Sim**  | Não |  Microsoft.Cache/redis  |  totaldekeys7  |  Chaves totais (Fragmento 7)  |  Contagem  |  Máximo | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  totaldekeys8  |  Chaves totais (Fragmento 8)  |  Contagem  |  Máximo | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  totaldekeys9  |  Chaves totais (Fragmento 9)  |  Contagem  |  Máximo | 
-| **Sim**  | Não |  Microsoft.Cache/redis  |  memória usada  |  Memória Usada  |  Bytes  |  Máximo | 
+| **Sim**  | Não |  Microsoft.Cache/redis  |  memória usada  |  Memória Utilizada  |  Bytes  |  Máximo | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  memória usada0  |  Memória Usada (Fragmento 0)  |  Bytes  |  Máximo | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  memória usada1  |  Memória Usada (Fragmento 1)  |  Bytes  |  Máximo | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  memória usada2  |  Memória Usada (Fragmento 2)  |  Bytes  |  Máximo | 
@@ -372,7 +375,7 @@ A tabela contém as seguintes colunas.
 | **Sim**  | Não |  Microsoft.Cache/redis  |  memória usada7  |  Memória Usada (Fragmento 7)  |  Bytes  |  Máximo | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  memória usada8  |  Memória Usada (Fragmento 8)  |  Bytes  |  Máximo | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  memória usada9  |  Memória Usada (Fragmento 9)  |  Bytes  |  Máximo | 
-| **Sim**  | Não |  Microsoft.Cache/redis  |  percentagem de memória usada  |  Percentagem de memória usada  |  Percentagem  |  Máximo | 
+| **Sim**  | Não |  Microsoft.Cache/redis  |  percentagem de memória usada  |  Percentagem de Memória Utilizada  |  Percentagem  |  Máximo | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  memória usadaRss  |  RSS de memória usada  |  Bytes  |  Máximo | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  memória usadaRss0  |  Memória Usada RSS (Fragmento 0)  |  Bytes  |  Máximo | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  memória usadaRss1  |  Memória Usada RSS (Fragmento 1)  |  Bytes  |  Máximo | 
@@ -456,7 +459,7 @@ A tabela contém as seguintes colunas.
 | **Sim**  | Não |  Microsoft.CognitiveServices/accounts  |  Duração das sessões de discurso  |  Duração da sessão de discurso  |  Segundos  |  Total | 
 | **Sim**  | Não |  Microsoft.CognitiveServices/accounts  |  Chamadas bem sucedidas  |  Chamadas bem sucedidas  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.CognitiveServices/accounts  |  Totalcall  |  Total de Chamadas  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.CognitiveServices/accounts  |  Erros Totais  |  Erros Totais  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft.CognitiveServices/accounts  |  Erros Totais  |  Total de Erros  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.CognitiveServices/accounts  |  TotalTokenCalls  |  Total de chamadas simbólicas  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.CognitiveServices/accounts  |  Total de Transações  |  Total de Transações  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Créditos da CPU consumidos  |  Créditos da CPU consumidos  |  Contagem  |  Média | 
@@ -763,7 +766,7 @@ A tabela contém as seguintes colunas.
 | **Sim**  | Não |  Microsoft.DocumentDB/databaseAccounts  |  DeleteVirtualNetwork  |  DeleteVirtualNetwork  |  Contagem  |  Contagem | 
 | Não  | Não |  Microsoft.DocumentDB/databaseAccounts  |  Contagem de documentos  |  Contagem de Documentos  |  Contagem  |  Total | 
 | Não  | Não |  Microsoft.DocumentDB/databaseAccounts  |  DocumentQuota  |  Quota de Documento  |  Bytes  |  Total | 
-| Não  | Não |  Microsoft.DocumentDB/databaseAccounts  |  Utilização de índices  |  Utilização do índice  |  Bytes  |  Total | 
+| Não  | Não |  Microsoft.DocumentDB/databaseAccounts  |  Utilização de índices  |  Utilização do Índice  |  Bytes  |  Total | 
 | Não  | Não |  Microsoft.DocumentDB/databaseAccounts  |  MetadadosPedidos  |  Pedidos de Metadados  |  Contagem  |  Contagem | 
 | **Sim**  | **Sim** |  Microsoft.DocumentDB/databaseAccounts  |  MongoRequestCharge  |  Taxa de pedido de Mongo  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.DocumentDB/databaseAccounts  |  Pedidos de Mongo  |  Pedidos de Mongo  |  Contagem  |  Contagem | 
@@ -778,7 +781,7 @@ A tabela contém as seguintes colunas.
 | **Sim**  | **Sim** |  Microsoft.DocumentDB/databaseAccounts  |  TotalRequests  |  Total de Pedidos  |  Contagem  |  Contagem | 
 | **Sim**  | **Sim** |  Microsoft.DocumentDB/databaseAccounts  |  TotaldeUnidades de Pedidos  |  Total de Unidades de Pedido  |  Contagem  |  Total | 
 | Não  | Não |  Microsoft.EnterpriseKnowledgeGraph/services  |  FalhaCount  |  Contagem de Falhas  |  Contagem  |  Contagem | 
-| Não  | Não |  Microsoft.EnterpriseKnowledgeGraph/services  |  Contagem de Sucessos  |  Contagens com Êxito  |  Contagem  |  Contagem | 
+| Não  | Não |  Microsoft.EnterpriseKnowledgeGraph/services  |  Contagem de Sucessos  |  Contagem de Êxitos  |  Contagem  |  Contagem | 
 | Não  | Não |  Microsoft.EnterpriseKnowledgeGraph/services  |  SucessoLatency  |  Latência de Sucesso  |  MilliSeconds  |  Média | 
 | Não  | Não |  Microsoft.EnterpriseKnowledgeGraph/services  |  TransacçõesContagem  |  Contagem de Transações  |  Contagem  |  Contagem | 
 | **Sim**  | **Sim** |  Microsoft.EventGrid/domínios  |  DeadLetteredCount  |  Eventos com Letras Mortas  |  Contagem  |  Total | 

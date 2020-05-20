@@ -5,15 +5,15 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: include
-ms.date: 03/11/2020
+ms.date: 05/18/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 0090f02382e024e5539383328b55d58798002d63
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 19d0be6a032868c6683cd5b6bbfa7f07306171fb
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79117136"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683435"
 ---
 | Recurso | Básico | Standard | Premium |
 |---|---|---|---|
@@ -26,9 +26,9 @@ ms.locfileid: "79117136"
 | Webhooks | 2 | 10 | 500 |
 | Georreplicação | N/D | N/D | [Apoiado][geo-replication] |
 | Confiança de conteúdo | N/D | N/D | [Apoiado][content-trust] |
-| Acesso à rede virtual | N/D | N/D | [previsualizar][vnet] |
-| Integração de ligações privadas | N/D | N/D | [previsualizar][plink] |
-| Chaves geridas pelo cliente | N/D | N/D | [previsualizar][cmk] |
+| Ligação privada com pontos finais privados | N/D | N/D | [Apoiado][plink] |
+| Acesso vNet endpoint de serviço | N/D | N/D | [previsualizar][vnet] |
+| Chaves geridas pelo cliente | N/D | N/D | [Apoiado][cmk] |
 | Permissões com âmbito de repositório | N/D | N/D | [previsualizar][token]|
 | &bull;Fichas | N/D | N/D | 20 000 |
 | &bull;Mapas de âmbito | N/D | N/D | 20 000 |

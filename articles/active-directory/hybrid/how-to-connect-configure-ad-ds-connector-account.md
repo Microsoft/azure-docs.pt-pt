@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eeb80c3a94e63a886e4a16c0b8fa445b2a8a34e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c69a700c9bcaa018bcfc1b1e6e01e166ef2d43bf
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72515812"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680242"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Ligação Azure AD: Configure As permissões da conta do conector AD DS 
 
@@ -40,7 +40,7 @@ A tabela seguinte fornece um resumo das permissões exigidas em objetos AD:
 | Pasta Pública de Troca de Correio |Leia as permissões aos atributos documentados na Pasta Pública de [Troca de Correios](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder) para pastas públicas. | 
 | Repetição de escrita de palavras-passe |Leia e Escreva permissões aos atributos documentados em [Começar com a gestão](../authentication/howto-sspr-writeback.md) de passwords para os utilizadores. |
 | Repetição de escrita do dispositivo |Leia e escreva permissões para dispositivos objetos e recipientes documentados na [reescrita](how-to-connect-device-writeback.md)do dispositivo . |
-| Repetição de escrita do grupo |Ler, Criar, Atualizar e Eliminar objetos de grupo para grupos sincronizados **do Office 365**.  Para mais informações consulte o [Group Writeback](how-to-connect-preview.md#group-writeback).|
+| Repetição de escrita do grupo |Ler, Criar, Atualizar e Eliminar objetos de grupo para grupos sincronizados **do Office 365**.|
 
 ## <a name="using-the-adsyncconfig-powershell-module"></a>Utilização do Módulo PowerShell ADSyncConfig 
 O módulo ADSyncConfig requer as Ferramentas de Administração do [Servidor Remoto (RSAT) para DS AD,](https://docs.microsoft.com/windows-server/remote/remote-server-administration-tools) uma vez que depende do módulo e ferramentas AD DS PowerShell. Para instalar o RSAT para DS AD, abra uma janela Do Windows PowerShell com 'Executar como administrador' e executar: 
@@ -81,15 +81,15 @@ Ou;
 Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <ADAccountDN>
 ```
 
-Certifique-se `<ADAccountName>`de `<ADDomainName>` `<ADAccountDN>` substituir, e com os valores adequados para o seu ambiente.
+Certifique-se de `<ADAccountName>` substituir, `<ADDomainName>` e com os `<ADAccountDN>` valores adequados para o seu ambiente.
 
-Caso não pretenda modificar permissões no recipiente 'AdministradorSDHolder', utilize o interruptor `-SkipAdminSdHolders`. 
+Caso não pretenda modificar permissões no recipiente 'AdministradorSDHolder', utilize o interruptor `-SkipAdminSdHolders` . 
 
 Por predefinição, todas as permissões definidas tentarão definir permissões AD DS na raiz de cada Domínio na Floresta, o que significa que o utilizador que executa a sessão PowerShell requer direitos de Administrador de Domínio em cada domínio na Floresta.  Devido a este requisito, recomenda-se a utilização de um Administrador Empresarial da raiz florestal. Se a sua implantação Azure AD Connect tiver vários Conectores AD DS, será necessário executar o mesmo cmdlet em cada floresta que tenha um Conector AD DS. 
 
-Também pode definir permissões num objeto ou ad dS `-ADobjectDN` específico utilizando o parâmetro seguido pelo DN do objeto alvo onde pretende definir permissões. Ao utilizar um ADobjectDN alvo, o cmdlet definirá permissões apenas neste objeto e não na raiz de domínio ou no recipiente AdminSDHolder. Este parâmetro pode ser útil quando tiver certos objetos OUs ou DS AD que tenham permissão desativada (ver Localizar objetos AD DS com permissão desativada) 
+Também pode definir permissões num objeto ou ad dS específico utilizando o parâmetro `-ADobjectDN` seguido pelo DN do objeto alvo onde pretende definir permissões. Ao utilizar um ADobjectDN alvo, o cmdlet definirá permissões apenas neste objeto e não na raiz de domínio ou no recipiente AdminSDHolder. Este parâmetro pode ser útil quando tiver certos objetos OUs ou DS AD que tenham permissão desativada (ver Localizar objetos AD DS com permissão desativada) 
 
-Exceções a estes parâmetros `Set-ADSyncRestrictedPermissions` comuns são o cmdlet que é usado para definir as permissões na própria Conta de Conector AD DS, e o `Set-ADSyncPasswordHashSyncPermissions` cmdlet `-ObjectDN` uma `-SkipAdminSdHolders` vez que as permissões necessárias para O Sync de Hash De palavra-passe são apenas definidas na raiz de domínio, pelo que este cmdlet não inclui os parâmetros ou parâmetros.
+Exceções a estes parâmetros comuns são o `Set-ADSyncRestrictedPermissions` cmdlet que é usado para definir as permissões na própria Conta de Conector AD DS, e o `Set-ADSyncPasswordHashSyncPermissions` cmdlet uma vez que as permissões necessárias para O Sync de Hash De palavra-passe são apenas definidas na raiz de domínio, pelo que este cmdlet não inclui os `-ObjectDN` parâmetros ou `-SkipAdminSdHolders` parâmetros.
 
 ### <a name="determine-your-ad-ds-connector-account"></a>Determine a sua conta de conector AD DS 
 Caso o Azure AD Connect já esteja instalado e deseja verificar qual é a conta de conector AD DS atualmente utilizada pelo Azure AD Connect, pode executar o cmdlet: 
@@ -103,7 +103,7 @@ Caso pretenda verificar se existe algum objeto AD DS com herança de permissão 
 ``` powershell
 Get-ADSyncObjectsWithInheritanceDisabled -SearchBase '<DistinguishedName>' 
 ```
-Por predefinição, este cmdlet só procurará OUs com herança desativada, `-ObjectClass` mas pode especificar outras classes de objetos AD DS no parâmetro ou usar '*' para todas as classes de objetos, da seguinte forma: 
+Por predefinição, este cmdlet só procurará OUs com herança desativada, mas pode especificar outras classes de objetos AD DS no `-ObjectClass` parâmetro ou usar '*' para todas as classes de objetos, da seguinte forma: 
 
 ``` powershell
 Get-ADSyncObjectsWithInheritanceDisabled -SearchBase '<DistinguishedName>' -ObjectClass * 
@@ -136,7 +136,7 @@ Set-ADSyncBasicReadPermissions -ADConnectorAccountDN <String> [-ADobjectDN <Stri
 Este cmdlet definirá as seguintes permissões: 
  
 
-|Tipo |Nome |Acesso |Aplica-se A| 
+|Tipo |Name |Access |Aplica-se A| 
 |-----|-----|-----|-----|
 |Permitir |Conta de Conector AD DS |Ler todas as propriedades |Objetos de dispositivo descendente| 
 |Permitir |Conta de Conector AD DS|Ler todas as propriedades |Objetos descendentes inetOrgPerson| 
@@ -148,7 +148,7 @@ Este cmdlet definirá as seguintes permissões:
 
  
 ### <a name="configure-ms-ds-consistency-guid-permissions"></a>Configure permissões mS-DS-Consistência-Guia 
-Para definir permissões para a conta AD DS Connector ao utilizar o atributo ms-Ds-Consistência-Guia como âncora de origem (aka "Deixe O Azure gerir a âncora de origem para mim" 
+Para definir permissões para a conta AD DS Connector ao utilizar o atributo ms-Ds-Consistência-Guia como âncora de origem (também conhecida como opção "Deixe o Azure gerir a âncora de origem para mim" 
 
 ``` powershell
 Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
@@ -162,7 +162,7 @@ Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountDN <String> [-ADobje
 
 Este cmdlet definirá as seguintes permissões: 
 
-|Tipo |Nome |Acesso |Aplica-se A|
+|Tipo |Name |Access |Aplica-se A|
 |-----|-----|-----|-----| 
 |Permitir|Conta de Conector AD DS|Ler/Escrever propriedade|Objetos de utilizador descendente|
 
@@ -182,7 +182,7 @@ Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <String> [<CommonPar
 
 Este cmdlet definirá as seguintes permissões: 
 
-|Tipo |Nome |Acesso |Aplica-se A|
+|Tipo |Name |Access |Aplica-se A|
 |-----|-----|-----|-----| 
 |Permitir |Conta de Conector AD DS |Replicando alterações de diretório |Este objeto apenas (raiz de domínio)| 
 |Permitir |Conta de Conector AD DS |Replicando mudanças de diretório todos |Este objeto apenas (raiz de domínio)| 
@@ -202,7 +202,7 @@ Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountDN <String> [-ADobject
 ```
 Este cmdlet definirá as seguintes permissões: 
 
-|Tipo |Nome |Acesso |Aplica-se A|
+|Tipo |Name |Access |Aplica-se A|
 |-----|-----|-----|-----| 
 |Permitir |Conta de Conector AD DS |Repor palavra-passe |Objetos de utilizador descendente| 
 |Permitir |Conta de Conector AD DS |Escreva lockout de propriedadeTime |Objetos de utilizador descendente| 
@@ -222,7 +222,7 @@ Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADob
  
 Este cmdlet definirá as seguintes permissões: 
 
-|Tipo |Nome |Acesso |Aplica-se A|
+|Tipo |Name |Access |Aplica-se A|
 |-----|-----|-----|-----| 
 |Permitir |Conta de Conector AD DS |Leitura/Escrita Genérica |Todos os atributos do grupo e subobjetos tipo objeto| 
 |Permitir |Conta de Conector AD DS |Criar/Eliminar o objeto infantil |Todos os atributos do grupo e subobjetos tipo objeto| 
@@ -245,7 +245,7 @@ Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN 
 Este cmdlet definirá as seguintes permissões:  
  
 
-|Tipo |Nome |Acesso |Aplica-se A|
+|Tipo |Name |Access |Aplica-se A|
 |-----|-----|-----|-----| 
 |Permitir |Conta de Conector AD DS |Ler/Escrever todas as propriedades |Objetos de utilizador descendente| 
 |Permitir |Conta de Conector AD DS |Ler/Escrever todas as propriedades |Objetos descendentes inetOrgPerson| 
@@ -267,7 +267,7 @@ Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountDN <String> [-A
 ```
 Este cmdlet definirá as seguintes permissões: 
 
-|Tipo |Nome |Acesso |Aplica-se A|
+|Tipo |Name |Access |Aplica-se A|
 |-----|-----|-----|-----| 
 |Permitir |Conta de Conector AD DS |Ler todas as propriedades |Objetos descendentes da pasta pública| 
 
@@ -292,7 +292,7 @@ Set-ADSyncRestrictedPermissions -ADConnectorAccountDN'CN=ADConnectorAccount,CN=U
 
 Este cmdlet definirá as seguintes permissões: 
 
-|Tipo |Nome |Acesso |Aplica-se A|
+|Tipo |Name |Access |Aplica-se A|
 |-----|-----|-----|-----| 
 |Permitir |SISTEMA |Controlo Total |Este objeto 
 |Permitir |Administradores da Empresa |Controlo Total |Este objeto 

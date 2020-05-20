@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/08/2020
+ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: d050efe1224e2783cdad52a12c842f7abe44b7af
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 73a96f295d5dfa74130927e5096e9278a0e348e8
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597703"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682436"
 ---
 # <a name="publisher-verification-preview"></a>Verificação da editora (pré-visualização)
 
-A verificação da editora (pré-visualização) ajuda os administradores e os utilizadores finais a entender a autenticidade dos desenvolvedores de aplicações que se integram com a plataforma de identidade da Microsoft. Por outras palavras, a editora é uma fonte conhecida ou um mau ator disfarçando-se de uma editora conhecida? Quando uma aplicação é marcada como a editora verificada, significa que a editora verificou a sua identidade através de uma conta [microsoft Partner Network](https://partner.microsoft.com/membership) que completou o processo de [verificação](/partner-center/verification-responses) e associou esta conta MPN ao seu registo de aplicação. 
+A verificação da editora (pré-visualização) ajuda os administradores e os utilizadores finais a entender a autenticidade dos desenvolvedores de aplicações que se integram com a plataforma de identidade da Microsoft. Quando uma aplicação é marcada como a editora verificada, significa que a editora verificou a sua identidade através de uma conta [microsoft Partner Network](https://partner.microsoft.com/membership) que completou o processo de [verificação](/partner-center/verification-responses) e associou esta conta MPN ao seu registo de aplicação. 
 
 Um crachá azul "verificado" aparece no pedido de consentimento da AD Azure e outros ecrãs: Solicitação de ![ consentimento](./media/publisher-verification-overview/consent-prompt.png)
 

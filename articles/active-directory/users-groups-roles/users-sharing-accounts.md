@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 987c3ee7c90eb0bb793b96eb2771efbb258f16a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 37935d229f62028e074f92bb6f8b70b9eebd87dc
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77565507"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685197"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Partilhar contas com a Azure AD
 
@@ -62,13 +62,13 @@ As funcionalidades da Azure AD que permitem a partilha de conta incluem:
 * [Painel de instrumentos/relatórios de utilização de aplicativos](../active-directory-passwords-get-insights.md)
 * Portais de acesso ao utilizador final
 * [Procuração de aplicativos](../manage-apps/application-proxy.md)
-* [Mercado de Diretório ativo](https://azure.microsoft.com/marketplace/active-directory/all/)
+* [Mercado de Diretório ativo](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory)
 
 ## <a name="sharing-an-account"></a>Partilhar uma conta
 
 Para utilizar o Azure AD para partilhar uma conta, é necessário:
 
-* Adicione uma galeria de [aplicações](https://azure.microsoft.com/marketplace/active-directory/) de aplicações ou [aplicação personalizada](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/)
+* Adicione uma galeria de [aplicações](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory) de aplicações ou [aplicação personalizada](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/)
 * Configure a aplicação para senha Single Sign-On (SSO)
 * Utilize [a atribuição baseada em grupo](groups-saasapps.md) e selecione a opção de introduzir uma credencial partilhada
 

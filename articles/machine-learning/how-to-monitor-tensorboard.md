@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: maxluk
 ms.author: maxluk
 ms.date: 02/27/2020
-ms.openlocfilehash: b6b7e47acdbc5bd059e17e512731bd09c8580798
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3df37126281a6654a6113f31895ddee276784c1c
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78195384"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681458"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>Visualizar as experiências e métricas com tensorBoard e Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -47,7 +47,7 @@ A forma como lança sonorboard com experiências de Machine Learning Azure depen
             * **how-to-use-azureml > track-and-monitor-experiments > tensorboard.ipynb**
 
     * O seu próprio servidor de cadernos Juptyer
-       * [Instale o SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) de `tensorboard` Aprendizagem automática Azure com o extra
+       * [Instale o SDK de Aprendizagem automática Azure](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) com o `tensorboard` extra
         * [Crie um espaço de trabalho azure machine learning.](how-to-manage-workspace.md)  
         * Criar um ficheiro de [configuração do espaço de trabalho.](how-to-configure-environment.md#workspace)
   
@@ -55,7 +55,7 @@ A forma como lança sonorboard com experiências de Machine Learning Azure depen
 
 ## <a name="option-1-directly-view-run-history-in-tensorboard"></a>Opção 1: Visualizar diretamente o histórico de execução no TensorBoard
 
-Esta opção funciona para experiências que de forma nativa produzficheiros de registo consumíveis pela TensorBoard, tais como experiências PyTorch, Chainer e TensorFlow. Se não for esse o caso da sua experiência, utilize [ `export_to_tensorboard()` o método.](#export)
+Esta opção funciona para experiências que de forma nativa produzficheiros de registo consumíveis pela TensorBoard, tais como experiências PyTorch, Chainer e TensorFlow. Se não for esse o caso da sua experiência, utilize [o `export_to_tensorboard()` método.](#export)
 
 O seguinte código de exemplo utiliza a [experiência de demonstração MNIST](https://raw.githubusercontent.com/tensorflow/tensorflow/r1.8/tensorflow/examples/tutorials/mnist/mnist_with_summaries.py) do repositório da TensorFlow num alvo de computação remota, a Azure Machine Learning Compute. Em seguida, treinamos o nosso modelo com o [estimador tensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)personalizado do SDK, e em seguida, iniciar o TensorBoard contra esta experiência TensorFlow, isto é, uma experiência que produz de forma nativa ficheiros de eventos TensorBoard.
 
@@ -87,7 +87,7 @@ tf_code = requests.get("https://raw.githubusercontent.com/tensorflow/tensorflow/
 with open(os.path.join(exp_dir, "mnist_with_summaries.py"), "w") as file:
     file.write(tf_code.text)
 ```
-Ao longo do ficheiro de código MNIST, mnist_with_summaries.py, note que existem linhas que ligam, `tf.summary.scalar()` `tf.summary.histogram()` `tf.summary.FileWriter()` etc. Estes métodos group, log e tag métricas chave das suas experiências para o histórico de execução. O `tf.summary.FileWriter()` é especialmente importante pois serializa os dados das suas métricas de experiência registadas, o que permite que o TensorBoard gere visualizações fora deles.
+Ao longo do ficheiro de código MNIST, mnist_with_summaries.py, note que existem linhas que `tf.summary.scalar()` ligam, `tf.summary.histogram()` `tf.summary.FileWriter()` etc. Estes métodos group, log e tag métricas chave das suas experiências para o histórico de execução. O `tf.summary.FileWriter()` é especialmente importante pois serializa os dados das suas métricas de experiência registadas, o que permite que o TensorBoard gere visualizações fora deles.
 
  ### <a name="configure-experiment"></a>Configurar experiência
 
@@ -166,7 +166,7 @@ run = exp.submit(tf_estimator)
 
 ### <a name="launch-tensorboard"></a>Lançar TensorBoard
 
-Pode lançar o TensorBoard durante a sua execução ou após o seu completo. No seguinte, criamos uma instância de `tb`objeto TensorBoard, que `run`leva o histórico de execução `start()` de experiências carregado no , e depois lança o TensorBoard com o método. 
+Pode lançar o TensorBoard durante a sua execução ou após o seu completo. No seguinte, criamos uma instância de objeto TensorBoard, que leva o histórico de execução de `tb` experiências carregado no `run` , e depois lança o TensorBoard com o `start()` método. 
   
 O [construtor TensorBoard](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?view=azure-ml-py) faz uma série de corridas, por isso certifique-se e passe-o como uma matriz de um único elemento.
 
@@ -194,11 +194,11 @@ O código seguinte configura uma experiência de amostra, inicia o processo de e
 
 ### <a name="set-up-experiment"></a>Configurar a experiência
 
-O código seguinte estabelece uma nova experiência e `root_run`dá nomes ao diretório de execução . 
+O código seguinte estabelece uma nova experiência e dá nomes ao diretório de execução `root_run` . 
 
 ```python
 from azureml.core import Workspace, Experiment
-import azuremml.core
+import azureml.core
 
 # set experiment name and run name
 ws = Workspace.from_config()
@@ -225,7 +225,7 @@ data = {
 
 ### <a name="run-experiment-and-log-metrics"></a>Executar experimentos e métricas de log
 
-Para este código, treinamos um modelo linear de regressão e `alpha`registamos métricas chave, o coeficiente alfa, e erro quadrado médio, `mse`na história da execução.
+Para este código, treinamos um modelo linear de regressão e registamos métricas chave, o coeficiente alfa, `alpha` e erro quadrado médio, na história da `mse` execução.
 
 ```Python
 from tqdm import tqdm
@@ -233,7 +233,7 @@ alphas = [.1, .2, .3, .4, .5, .6 , .7]
 # try a bunch of alpha values in a Linear Regression (aka Ridge regression) mode
 for alpha in tqdm(alphas):
   # create child runs and fit lines for the resulting models
-  with root_run.child_run("alpha" + str(alpha)) as run
+  with root_run.child_run("alpha" + str(alpha)) as run:
  
    reg = Ridge(alpha=alpha)
    reg.fit(data["train"]["x"], data["train"]["y"])    
@@ -251,7 +251,7 @@ for alpha in tqdm(alphas):
 
 Com o método [export_to_tensorboard()](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.export?view=azure-ml-py) do SDK, podemos exportar o histórico de execução da nossa experiência de aprendizagem automática Azure em registos TensorBoard, para que possamos vê-los via TensorBoard.  
 
-No seguinte código, criamos `logdir` a pasta no nosso atual diretório de trabalho. Esta pasta é onde exportaremos o histórico `root_run` de experiências e registos de e, em seguida, marcar que funcionam como concluídos. 
+No seguinte código, criamos a pasta no nosso atual diretório de `logdir` trabalho. Esta pasta é onde exportaremos o histórico de experiências e registos de `root_run` e, em seguida, marcar que funcionam como concluídos. 
 
 ```Python
 from azureml.tensorboard.export import export_to_tensorboard

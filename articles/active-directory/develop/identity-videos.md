@@ -8,24 +8,72 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/08/2020
+ms.date: 05/19/2020
 ms.author: marsma
 ms.custom: aaddev
 ms.reviewer: celested
-ms.openlocfilehash: e8c7ec6cf1d15e414a6db54d5bc2ad7e4994cd82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 346d5560d8388c8958e94efd4e149f54eb0235b7
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80991301"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681781"
 ---
 # <a name="microsoft-identity-platform-videos"></a>Vídeos da plataforma de identidade da Microsoft
 
 Conheça os fundamentos da autenticação moderna, a plataforma de identidade da Microsoft e as Bibliotecas de Autenticação da Microsoft (MSAL).
 
+## <a name="microsoft-identity-platform-for-developers"></a>Plataforma de identidade da Microsoft para desenvolvedores
+
+A série de vídeos *Identity for Developers* foca-se no que precisa de saber para começar a adicionar suporte de identidade à sua aplicação. Sintonizados para a entrega rápida dos aspetos fundamentais da plataforma e como usar as suas bibliotecas de autenticação, estes são um bom lugar para começar para qualquer desenvolvedor.
+___
+
+:::row:::
+    :::column:::
+        1 - Visão geral da plataforma de identidade da Microsoft para programadores (33:55)
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/zjezqZPPOfc]
+    :::column-end:::
+     :::column:::
+        2 - Como autenticar os utilizadores das suas apps com a plataforma de identidade da Microsoft (29:09)
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/Mtpx_lpfRLs]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        3 - As permissões e o quadro de consentimento da plataforma de identidade da Microsoft (45:08)
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/toAWRNqqDL4]
+    :::column-end:::
+    :::column:::
+        4 - Como proteger as APIs utilizando a plataforma de identidade da Microsoft (33:17)
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/IIQ7QW4bYqA]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        5 - Funções de aplicação e grupos de segurança na plataforma de identidade da Microsoft (15:52)
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/-BK2iBDrmNo]
+    :::column-end:::
+    :::column:::
+        <!-- BLANK TITLE CELL -->
+    :::column-end:::
+    :::column:::
+        <!-- BLANK VIDEO CELL -->
+    :::column-end:::
+:::row-end:::
+
 ## <a name="authentication-fundamentals"></a>Fundamentos da autenticação
 
-Se você é novo em conceitos como fornecedores de identidade, fichas de segurança, reivindicações e público, esta série de vídeo é um bom lugar para começar.
+Se você é novo em conceitos como fornecedores de identidade, fichas de segurança, reivindicações e público, esta série de vídeo pode ajudar a limpar os conceitos e componentes na autenticação moderna.
 ___
 
 :::row:::

@@ -7,21 +7,21 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: conceptual
-ms.date: 01/10/2019
+ms.topic: how-to
+ms.date: 05/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 71858755fe31823d4d7ef8623b915db851530116
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 081f512fd421bf46a86f3789eadd75e178e1b6f5
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "72755243"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685306"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>Analisar conteúdo de vídeo para material censurável em C #
 
 Este artigo fornece informações e amostras de código para ajudá-lo a começar a usar o [SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) moderador de conteúdo para .NET para digitalizar conteúdo sonoro para conteúdos adultos ou picantes.
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 - Qualquer edição do [Visual Studio 2015 ou 2017](https://www.visualstudio.com/downloads/)
@@ -40,7 +40,7 @@ Navegue para a sua nova subscrição AMS no portal Azure e selecione **o acesso 
 
 Na secção de **aplicações Azure AD,** selecione **Create New** e nomeie o seu novo registo de aplicação Azure AD (por exemplo, "VideoModADApp"). Clique em **Guardar** e aguarde alguns minutos enquanto a aplicação estiver configurada. Em seguida, deverá ver o seu novo registo de aplicações na secção de **aplicações Azure AD** da página.
 
-Selecione o registo da sua aplicação e clique no botão **'Gerir'** abaixo. Note o valor no campo de ID da **aplicação;** Vai precisar disto mais tarde. Selecione **Teclas** > de**Definições**e introduza uma descrição para uma nova tecla (como "VideoModKey"). Clique em **Guardar**e, em seguida, note o novo valor-chave. Copie esta corda e guarde-a em algum lugar seguro.
+Selecione o registo da sua aplicação e clique no botão **'Gerir'** abaixo. Note o valor no campo de ID da **aplicação;** Vai precisar disto mais tarde. Selecione **Teclas**de  >  **Definições**e introduza uma descrição para uma nova tecla (como "VideoModKey"). Clique em **Guardar**e, em seguida, note o novo valor-chave. Copie esta corda e guarde-a em algum lugar seguro.
 
 Para uma passagem mais completa do processo acima, Veja [Começar com a autenticação Azure AD](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad).
 
@@ -83,7 +83,7 @@ using System.Collections.Generic;
 
 ### <a name="set-up-resource-references"></a>Configurar referências de recursos
 
-Adicione os seguintes campos estáticos à classe **Programa** em _Program.cs_. Estes campos possuem as informações necessárias para a ligação à sua subscrição AMS. Preencha-os com os valores que obteve nos degraus acima. Tenha em `CLIENT_ID` anote que é o valor de `CLIENT_SECRET` ID de **aplicação** da sua aplicação Azure AD, e é o valor do "VideoModKey" que criou para essa aplicação.
+Adicione os seguintes campos estáticos à classe **Programa** em _Program.cs_. Estes campos possuem as informações necessárias para a ligação à sua subscrição AMS. Preencha-os com os valores que obteve nos degraus acima. Tenha em anote que `CLIENT_ID` é o valor de ID de **aplicação** da sua aplicação Azure AD, e `CLIENT_SECRET` é o valor do "VideoModKey" que criou para essa aplicação.
 
 ```csharp
 // declare constants and globals

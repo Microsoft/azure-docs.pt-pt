@@ -3,12 +3,12 @@ title: Webhooks para responder a ações de registo
 description: Aprenda a usar webhooks para desencadear eventos quando as ações de impulso ou de puxar ocorrem nos seus repositórios de registo.
 ms.topic: article
 ms.date: 05/24/2019
-ms.openlocfilehash: 5e6fd2d9f4c7727365a8e2fe3893aafebfeb7bd4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3d0a12b6e742b0209cbb746a70686423f2fb5627
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74454371"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685028"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Utilização de webhooks de registo de contentores Azure
 
@@ -18,7 +18,7 @@ Para mais informações sobre pedidos de webhook, consulte a referência do esqu
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Registo de contentores do Azure - crie um registos de contentores na sua subscrição do Azure. Por exemplo, utilize o [portal Azure](container-registry-get-started-portal.md) ou o [Azure CLI](container-registry-get-started-azure-cli.md). As SKUs do Registo de [Contentores Azure](container-registry-skus.md) têm diferentes quotas de webhooks.
+* Registo de contentores do Azure - crie um registos de contentores na sua subscrição do Azure. Por exemplo, utilize o [portal Azure](container-registry-get-started-portal.md) ou o [Azure CLI](container-registry-get-started-azure-cli.md). Os níveis de serviço de registo de [contentores Azure](container-registry-skus.md) têm quotas de webhooks diferentes.
 * Docker CLI - para configurar o seu computador local como anfitrião Docker e aceder aos comandos da CLI do Docker, instale o [Docker Engine](https://docs.docker.com/engine/installation/).
 
 ## <a name="create-webhook---azure-portal"></a>Criar webhook - Portal Azure

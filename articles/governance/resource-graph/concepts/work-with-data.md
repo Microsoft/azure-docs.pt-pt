@@ -3,12 +3,12 @@ title: Trabalhar com grandes conjuntos de dados
 description: Compreenda como obter, formato, página e saltar registos em grandes conjuntos de dados enquanto trabalha com o Azure Resource Graph.
 ms.date: 03/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: be15a6234935627ca748276e6330c50c3ee5a775
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4b45a28a5dbd2ebc233bcf9a6808cb7d7cd6d8c8
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80064747"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681062"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Trabalhar com grandes conjuntos de dados de recursos Azure
 
@@ -21,7 +21,7 @@ Para obter orientações sobre o trabalho com consultas de alta frequência, con
 Por padrão, o Resource Graph limita qualquer consulta à devolução de apenas **100** registos. Este controlo protege tanto o utilizador como o serviço de consultas não intencionais que resultariam em grandes conjuntos de dados. Este evento acontece mais frequentemente como um cliente está experimentando consultas para encontrar e filtrar recursos da forma que se adequa às suas necessidades particulares. Este controlo é diferente de utilizar os [operadores](/azure/kusto/query/topoperator) de línguas do Top Ou [limite](/azure/kusto/query/limitoperator) o Azure Data Explorer para limitar os resultados.
 
 > [!NOTE]
-> Ao utilizar **primeiro,** recomenda-se encomendar os resultados `asc` por `desc`pelo menos uma coluna com ou . Sem triagem, os resultados devolvidos são aleatórios e não repetíveis.
+> Ao utilizar **primeiro,** recomenda-se encomendar os resultados por pelo menos uma coluna com `asc` ou `desc` . Sem triagem, os resultados devolvidos são aleatórios e não repetíveis.
 
 O limite padrão pode ser ultrapassado através de todos os métodos de interação com o Resource Graph. Os seguintes exemplos mostram como alterar o limite de tamanho do conjunto de dados para _200:_
 
@@ -37,14 +37,17 @@ Na [API REST,](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/re
 
 O controlo _mais restritivo_ vai ganhar. Por exemplo, se a sua consulta utilizar os operadores **superiores** ou **limitadores** e resultar em mais registos do que **primeiro,** os registos máximos devolvidos seriam iguais ao **Primeiro**. Da mesma forma, se **o topo** ou o **limite** forem menores do que **o Primeiro,** o recorde devolvido seria o valor mais pequeno configurado por **topo** ou **limite**.
 
-**A primeira** tem atualmente um valor máximo permitido de _5000_.
+**A primeira** vez tem atualmente um valor máximo permitido de _5000_, que obtém [com](#paging-results) _1000_ recordes de cada vez.
+
+> [!IMPORTANT]
+> Quando **a Primeira** estiver configurada para ser superior a _1000_ registos, a consulta deve **projetar** o campo **id** para que a paginação funcione. Se faltar na consulta, a resposta não será [chamada](#paging-results) e os resultados estão limitados a _1000_ registos.
 
 ## <a name="skipping-records"></a>Faltando recordes
 
 A próxima opção para trabalhar com grandes conjuntos de dados é o controlo **Skip.** Este controlo permite que a sua consulta salte ou salte o número definido de registos antes de devolver os resultados. **Skip** é útil para consultas que tipo resulta de uma forma significativa onde a intenção é obter em algum lugar no meio do conjunto de resultados. Se os resultados necessários estiverem no final do conjunto de dados devolvidos, é mais eficiente utilizar uma configuração de tipo diferente e recuperar os resultados do topo do conjunto de dados.
 
 > [!NOTE]
-> Ao utilizar **o Skip,** recomenda-se encomendar os resultados por pelo menos uma coluna com `asc` ou `desc`. Sem triagem, os resultados devolvidos são aleatórios e não repetíveis.
+> Ao utilizar **o Skip,** recomenda-se encomendar os resultados por pelo menos uma coluna com `asc` ou `desc` . Sem triagem, os resultados devolvidos são aleatórios e não repetíveis.
 
 Os seguintes exemplos mostram como saltar os primeiros _10_ registos em que uma consulta resultaria, em vez de iniciar o resultado devolvido estabelecido com o 11º recorde:
 
@@ -63,7 +66,7 @@ Na [API REST,](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/re
 Quando for necessário quebrar um resultado definido em registos menores para processamento ou porque um conjunto de resultados excederia o valor máximo permitido de _1000_ registos devolvidos, use a paging. O [REST API](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources) **QueryResponse** fornece valores que indicam que foi quebrado um conjunto de resultados: **resultadoTruncated** e **$skipToken**.
 **resultadoTruncated** é um valor booleano que informa o consumidor se houver registos adicionais não devolvidos na resposta. Esta condição também pode ser identificada quando a propriedade **contada** é inferior à propriedade **total da Records.** **totalRecords** define quantos registos correspondem à consulta.
 
- **resultadoTruncated** é **verdade** quando ou a pagagem é `id` desativada ou não é possível devido a nenhuma coluna ou quando há menos recursos disponíveis do que uma consulta está solicitando. Quando **o resultadoTruncado** é **verdadeiro,** a **propriedade $skipToken** não está definida.
+ **resultadoTruncated** é **verdade** quando ou a pagagem é desativada ou não é possível devido a nenhuma `id` coluna ou quando há menos recursos disponíveis do que uma consulta está solicitando. Quando **o resultadoTruncado** é **verdadeiro,** a **propriedade $skipToken** não está definida.
 
 Os seguintes exemplos mostram como **saltar** os primeiros 3000 discos e devolver os **primeiros** 1000 registos depois de esses registos terem saltado com o Azure CLI e o Azure PowerShell:
 
@@ -84,7 +87,7 @@ Por exemplo, consulte a [consulta da página seguinte](/rest/api/azureresourcegr
 
 Os resultados de uma consulta de gráfico de recursos são fornecidos em dois formatos, _Tabela_ e _ObjectArray_. O formato é configurado com o parâmetro **formato de resultados** como parte das opções de pedido. O formato _Tabela_ é o valor padrão para **o resultadoFormat**.
 
-Os resultados do Azure CLI são fornecidos em JSON por padrão. Os resultados em Azure PowerShell são um **PSCustomObject** por padrão, `ConvertTo-Json` mas podem ser rapidamente convertidos para JSON usando o cmdlet. Para outros SDKs, os resultados da consulta podem ser configurados para a saída do formato _ObjectArray._
+Os resultados do Azure CLI são fornecidos em JSON por padrão. Os resultados em Azure PowerShell são um **PSCustomObject** por padrão, mas podem ser rapidamente convertidos para JSON usando o `ConvertTo-Json` cmdlet. Para outros SDKs, os resultados da consulta podem ser configurados para a saída do formato _ObjectArray._
 
 ### <a name="format---table"></a>Formato - Tabela
 

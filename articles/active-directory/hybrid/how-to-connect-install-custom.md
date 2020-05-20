@@ -14,12 +14,12 @@ ms.date: 11/14/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5f83fa040de501adf3afa523086e100244fa619
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f96e70c6699fb7ce85bd1c01f72028f537f994f2
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80331794"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680304"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Instalação personalizada do Azure AD Connect
 As **Definições personalizadas** do Azure AD Connect são utilizadas quando pretende mais opções para a instalação. São utilizadas se tiver várias florestas ou se pretender configurar funcionalidades opcionais não abrangidas na instalação rápida. São utilizadas em todos os casos em que a opção [**instalação rápida**](how-to-connect-install-express.md) não satisfaz a sua implementação ou topologia.
@@ -89,7 +89,7 @@ Depois de introduzir o nome da floresta e de clicar em **Adicionar Diretório**,
 #### <a name="enterprise-admin-and-domain-admin-accounts-not-supported"></a>Contas de Administração da Empresa e do Domínio não suportadas
 A partir da construção 1.4.18.0 já não é suportado para usar uma conta de Administrador da Empresa ou uma conta de Administração de Domínio como conta de Conector AD DS.  Se tentar introduzir uma conta que seja administradora ou administradora de domínio da empresa ao especificar a **utilização da conta existente,** receberá o seguinte erro:
 
-  **"Não é permitida a utilização de uma conta de administrador da Enterprise ou do Domain para a sua conta florestal AD.  Deixe o Azure AD Connect criar a conta para si ou especificar uma conta de sincronização com as permissões corretas.  &lt;Saiba&gt;mais "**
+  **"Não é permitida a utilização de uma conta de administrador da Enterprise ou do Domain para a sua conta florestal AD.  Deixe o Azure AD Connect criar a conta para si ou especificar uma conta de sincronização com as permissões corretas.  &lt;Saiba mais &gt; "**
 
 ### <a name="azure-ad-sign-in-configuration"></a>Configuração do início de sessão do Azure AD
 Esta página permite-lhe rever os domínios UPN presentes no AD DS no local e que foram verificados no Azure AD. Esta página também lhe permite configurar o atributo a utilizar para userPrincipalName.
@@ -181,7 +181,7 @@ Este ecrã permite-lhe selecionar as funcionalidades opcionais para os seus cen�
 | Aplicação Azure AD e filtragem de atributos |Ao ativar a aplicação Azure AD e a filtragem de atributos, o conjunto de atributos sincronizados pode ser personalizado. Esta opção adiciona mais duas páginas de configuração ao assistente. Para obter mais informações, consulte [Aplicação Azure AD e filtragem de atributos](#azure-ad-app-and-attribute-filtering). |
 | Sincronização de hash de palavra-passe |Se tiver selecionado a federação como solução de início de sessão, poderá ativar esta opção. A sincronização de hash de palavras-passe pode ser utilizada como uma opção de cópia de segurança. Para obter mais informações, consulte [Sincronização de hash de palavras-passe](how-to-connect-password-hash-synchronization.md). </br></br>Se tiver selecionado a Autenticação Pass-through, esta opção também poderá ser ativada para assegurar o suporte para clientes legados e como uma opção de cópia de segurança. Para obter mais informações, consulte [Sincronização de hash de palavras-passe](how-to-connect-password-hash-synchronization.md).|
 | Repetição de escrita de palavras-passe |Ao ativar a repetição de escrita de palavras-passe, as alterações de palavras-passe com origem no Azure AD são reescritas no diretório no local. Para mais informações, consulte [Introdução à gestão de palavras-passe](../authentication/quickstart-sspr.md) |
-| Repetição de escrita do grupo |Se utilizar a funcionalidade **Grupos do Office 365**, pode ter estes grupos representados no Active Directory no local. Esta opção só está disponível se tiver o Exchange presente no Active Directory no local. Para obter mais informações, consulte [Repetição de escrita do grupo](how-to-connect-preview.md#group-writeback). |
+| Repetição de escrita do grupo |Se utilizar a funcionalidade **Grupos do Office 365**, pode ter estes grupos representados no Active Directory no local. Esta opção só está disponível se tiver o Exchange presente no Active Directory no local. |
 | Repetição de escrita do dispositivo |Permite-lhe reescrever objetos de dispositivos em Azure AD para o seu Diretório Ativo no local para cenários de Acesso Condicional. Para mais informações, consulte [Ativar a repetição de escrita do dispositivo no Azure AD Connect](how-to-connect-device-writeback.md). |
 | Sincronização de atributos de extensões de diretórios |Ao ativar a sincronização de atributos de extensões de diretórios, os atributos especificados são sincronizados com o Azure AD. Para obter mais informações, consulte [Extensões de diretórios](how-to-connect-sync-feature-directory-extensions.md). |
 
@@ -382,7 +382,7 @@ O Azure AD Connect verifica as definições de DNS quando clica no botão Verifi
 
 * Resolver FQDN de federação: o Azure AD Connect verifica se o FQDN de federação pode ser resolvido pelo DNS para garantir a conectividade.
 
-![Concluída](./media/how-to-connect-install-custom/completed.png)
+![Concluído](./media/how-to-connect-install-custom/completed.png)
 
 ![Verificar](./media/how-to-connect-install-custom/adfs7.png)
 

@@ -1,6 +1,6 @@
 ---
 title: Gerir horários na Automação Azure
-description: Aprenda a criar e gerir um horário na Azure Automation para que possa iniciar automaticamente um livro de recortes num determinado momento ou num horário recorrente.
+description: Este artigo diz como criar e trabalhar com um horário na Automação Azure.
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
@@ -9,22 +9,22 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4cd6d4236b95a17f404df13e8b50daf989cf6072
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.openlocfilehash: c644333fd49c4e54a54d00e7fb033c6d4bdc158b
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82652100"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685347"
 ---
 # <a name="manage-schedules-in-azure-automation"></a>Gerir horários na Automação Azure
 
 Para agendar um livro de recortes na Automatização Azure para começar num determinado horário, ligue-o a um ou mais horários. Um horário pode ser configurado para funcionar uma vez ou em horário sinuoso ou diário para livros de execução no portal Azure. Também pode agendar para dias semanais, mensais, específicos da semana ou dias do mês, ou um determinado dia do mês. Um runbook pode ser ligado a várias agendas e uma agenda pode ter vários runbooks a si ligados.
 
 > [!NOTE]
-> Os horários não suportam atualmente configurações de DSC de Automação Azure.
+> A Azure Automation suporta o Horário de verão e programa-o adequadamente para operações de automação.
 
->[!NOTE]
->Este artigo foi atualizado para utilizar o novo módulo AZ do Azure PowerShell. Pode continuar a utilizar o módulo AzureRM, que continuará a receber correções de erros até, pelo menos, dezembro de 2020. Para obter mais informações sobre o novo módulo Az e a compatibilidade do AzureRM, veja [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para instruções de instalação do módulo Az no seu Executor Híbrido, consulte [Instalar o módulo PowerShell Azure](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para a sua conta Automation, pode atualizar os seus módulos para a versão mais recente, utilizando [como atualizar os módulos Azure PowerShell em Automação Azure](../automation-update-azure-modules.md).
+> [!NOTE]
+> Os horários atualmente não estão ativados para configurações de DSC de Automação Azure.
 
 ## <a name="powershell-cmdlets-used-to-access-schedules"></a>Cmdlets PowerShell usados para aceder a horários
 
@@ -164,7 +164,7 @@ Quando desativa um horário, qualquer livro de execução ligado a ele já não 
 
 ### <a name="disable-a-schedule-with-powershell"></a>Desative um horário com a PowerShell
 
-Utilize o [cmdlet Set-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/Set-AzAutomationSchedule?view=azps-3.7.0) para alterar as propriedades de um horário existente. Para desativar o `IsEnabled` horário, especifique falso para o parâmetro.
+Utilize o [cmdlet Set-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/Set-AzAutomationSchedule?view=azps-3.7.0) para alterar as propriedades de um horário existente. Para desativar o horário, especifique falso para o `IsEnabled` parâmetro.
 
 O exemplo seguinte mostra como desativar um horário para um livro de execução utilizando um cmdlet do Gestor de Recursos Azure.
 
@@ -187,7 +187,7 @@ Quando estiver pronto para remover os seus horários, pode utilizar o portal Azu
 
 ### <a name="remove-a-schedule-with-powershell"></a>Remova um horário com powerShell
 
-Pode utilizar `Remove-AzAutomationSchedule` o cmdlet como mostrado abaixo para eliminar um horário existente. 
+Pode utilizar o `Remove-AzAutomationSchedule` cmdlet como mostrado abaixo para eliminar um horário existente. 
 
 ```azurepowershell-interactive
 $automationAccountName = "MyAutomationAccount"

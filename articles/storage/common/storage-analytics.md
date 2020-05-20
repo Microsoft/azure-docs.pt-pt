@@ -8,12 +8,13 @@ ms.date: 03/03/2017
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 4ad9f13bcdf36b67400adb62d58ee260ff256bb3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: monitoring
+ms.openlocfilehash: 9a081a28d4c96e3c38986cbb3c0990bc89c5ab99
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80637151"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684476"
 ---
 # <a name="storage-analytics"></a>Análise de Armazenamento
 

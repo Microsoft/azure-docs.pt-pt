@@ -1,14 +1,14 @@
 ---
 title: Aprenda a auditar o conteúdo das máquinas virtuais
 description: Saiba como a Política Azure utiliza o agente de configuração do hóspede para auditar definições dentro de máquinas virtuais.
-ms.date: 11/04/2019
+ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 89f7cc3931971d70b441490f77b67ace89434c2b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6ff24f14281712497798f2c5231a8d98d7d89055
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82025225"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684288"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Compreender a configuração de hóspedes da Política Azure
 
@@ -18,7 +18,8 @@ Além de auditar e [remediar](../how-to/remediate-resources.md) os recursos do A
 - Presença ou configuração da aplicação
 - Definições do ambiente
 
-Neste momento, a maioria das políticas de configuração de hóspedes da Política Azure apenas auditam definições dentro da máquina. Não aplicam configurações. A exceção é uma política incorporada [abaixo referida](#applying-configurations-using-guest-configuration).
+Neste momento, a maioria das políticas de configuração de hóspedes da Política Azure apenas auditam definições dentro da máquina.
+Não aplicam configurações. A exceção é uma política incorporada [abaixo referida](#applying-configurations-using-guest-configuration).
 
 ## <a name="resource-provider"></a>Fornecedor de recursos
 
@@ -28,11 +29,10 @@ Antes de poder utilizar a Configuração do Hóspede, tem de registar o forneced
 
 Para auditar as definições dentro de uma máquina, é ativada uma [extensão virtual](../../../virtual-machines/extensions/overview.md) da máquina. A extensão descarrega a atribuição de política aplicável e a definição de configuração correspondente.
 
-> [!Important]
-> A extensão de Configuração de Hóspedes é necessária para realizar auditorias em máquinas virtuais Azure.
-> Para implementar a extensão em escala, atribua as seguintes definições políticas:
->   - [Implemente pré-requisitos para ativar a Política de Configuração do Hóspede nos VMs do Windows.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
->   - [Implemente pré-requisitos para ativar a Política de Configuração de Hóspedes em VMs Linux.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
+> [!IMPORTANT]
+> A extensão de Configuração de Hóspedes é necessária para realizar auditorias em máquinas virtuais Azure. Para implementar a extensão em escala, atribua as seguintes definições políticas: 
+>  - [Implemente pré-requisitos para ativar a Política de Configuração do Hóspede nos VMs do Windows.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
+>  - [Implemente pré-requisitos para ativar a Política de Configuração de Hóspedes em VMs Linux.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
 
 ### <a name="limits-set-on-the-extension"></a>Limites definidos na extensão
 
@@ -51,14 +51,14 @@ A tabela que se segue apresenta uma lista das ferramentas locais utilizadas em c
 
 ### <a name="validation-frequency"></a>Frequência de validação
 
-O cliente de Configuração de Hóspedes verifica novos conteúdos a cada 5 minutos. Uma vez recebida uma atribuição de hóspedes, as definições para essa configuração são novamente verificadas num intervalo de 15 minutos.
-Os resultados são enviados ao fornecedor de recursos de Configuração de Hóspedes quando a auditoria estiver concluída. Quando ocorre um gatilho de [avaliação](../how-to/get-compliance-data.md#evaluation-triggers) de política, o estado da máquina é escrito ao fornecedor de recursos de Configuração de Hóspedes. Esta atualização faz com que a Política Azure avalie as propriedades do Gestor de Recursos Do Azure. Uma avaliação de Política Azure a pedido recupera o valor mais recente do fornecedor de recursos de Configuração de Hóspedes. No entanto, não desencadeia uma nova auditoria da configuração dentro da máquina.
+O cliente de Configuração de Hóspedes verifica novos conteúdos a cada 5 minutos. Uma vez recebida uma atribuição de hóspedes, as definições para essa configuração são novamente verificadas num intervalo de 15 minutos. Os resultados são enviados ao fornecedor de recursos de Configuração de Hóspedes quando a auditoria estiver concluída. Quando ocorre um gatilho de [avaliação](../how-to/get-compliance-data.md#evaluation-triggers) de política, o estado da máquina é escrito ao fornecedor de recursos de Configuração de Hóspedes. Esta atualização faz com que a Política Azure avalie as propriedades do Gestor de Recursos Do Azure. Uma avaliação de Política Azure a pedido recupera o valor mais recente do fornecedor de recursos de Configuração de Hóspedes. No entanto, não desencadeia uma nova auditoria da configuração dentro da máquina.
 
 ## <a name="supported-client-types"></a>Tipos de clientes suportados
 
-As políticas de Configuração de Hóspedes incluem novas versões. As versões mais antigas dos sistemas operativos disponíveis no mercado Azure são excluídas se o agente de configuração do hóspede não for compatível. A tabela que se segue mostra uma lista de sistemas operativos suportados nas imagens do Azure:
+As políticas de Configuração de Hóspedes incluem novas versões. As versões mais antigas dos sistemas operativos disponíveis no Mercado Azure são excluídas se o agente de configuração de hóspedes não for compatível.
+A tabela que se segue mostra uma lista de sistemas operativos suportados nas imagens do Azure:
 
-|Publicador|Nome|Versões|
+|Publisher|Name|Versões|
 |-|-|-|
 |Canónico|Ubuntu Server|14.04 e mais tarde|
 |Credativ|Debian|8 e mais tarde|
@@ -76,19 +76,18 @@ O Windows Server Nano Server não é suportado em nenhuma versão.
 
 ## <a name="guest-configuration-extension-network-requirements"></a>Requisitos da rede de extensão de configuração do hóspede
 
-Para comunicar com o fornecedor de recursos de Configuração de Hóspedes em Azure, as máquinas requerem acesso de saída aos centros de dados Azure na porta **443**. Se uma rede em Azure não permitir o tráfego de saída, configure exceções com as regras do Grupo de Segurança da [Rede.](../../../virtual-network/manage-network-security-group.md#create-a-security-rule)
-A etiqueta de [serviço](../../../virtual-network/service-tags-overview.md) "GuestAndHybridManagement" pode ser utilizada para fazer referência ao serviço de Configuração de Hóspedes.
+Para comunicar com o fornecedor de recursos de Configuração de Hóspedes em Azure, as máquinas requerem acesso de saída aos centros de dados Azure na porta **443**. Se uma rede em Azure não permitir o tráfego de saída, configure exceções com as regras do Grupo de Segurança da [Rede.](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) A etiqueta de [serviço](../../../virtual-network/service-tags-overview.md) "GuestAndHybridManagement" pode ser utilizada para fazer referência ao serviço de Configuração de Hóspedes.
 
-## <a name="azure-managed-identity-requirements"></a>Requisitos de identidade geridos pelo Azure
+## <a name="managed-identity-requirements"></a>Requisitos de identidade geridos
 
 As políticas **DeployIfNotExists** que adicionam a extensão a máquinas virtuais também permitem um sistema de identidade gerida, se não existir.
 
 > [!WARNING]
-> Evite permitir que o utilizador atribuísse identidade gerida a máquinas virtuais no âmbito de políticas que permitam o sistema de identidade gerida atribuída. A identidade atribuída ao utilizador será substituída e poderá a máquina ficar sem resposta.
+> Evite permitir que o utilizador atribuísse identidade gerida a máquinas virtuais no âmbito de políticas que permitam o sistema de identidade gerida atribuída. A identidade atribuída ao utilizador é substituída e pode a máquina ficar sem resposta.
 
 ## <a name="guest-configuration-definition-requirements"></a>Requisitos de definição de configuração de hóspedes
 
-Cada auditoria realizada pela Configuração do Hóspede requer duas definições de política, uma definição **DeployIfNotExists** e uma definição **AuditIfNotExists.** 
+Cada auditoria realizada pela Configuração do Hóspede requer duas definições de política, uma definição **DeployIfNotExists** e uma definição **AuditIfNotExists.**
 
 A definição de política **DeployIfNotExists** valida e corrige os seguintes itens:
 
@@ -106,13 +105,14 @@ A Política Azure utiliza a propriedade **compliancede** os fornecedores de recu
 > [!NOTE]
 > A política **DeployIfNotExists** é necessária para que a política **AuditIfNotExist** a devolução dos resultados. Sem o **DeployIfNotExists,** a política **AuditIfNotExists** mostra os recursos "0 de 0" como estatuto.
 
-Todas as políticas incorporadas para configuração de hóspedes estão incluídas numa iniciativa para agrupar as definições para uso em atribuições. A iniciativa incorporada denominada _ \[Pré-visualização\]: Audite a segurança da palavra-passe dentro das máquinas Linux e Windows_ contém 18 políticas. Existem seis pares **ImplementIfNotExists** e **AuditIfNotExists** para Windows e três pares para o Linux. A lógica de [definição](definition-structure.md#policy-rule) de política valida que apenas o sistema operativo-alvo é avaliado.
+Todas as políticas incorporadas para configuração de hóspedes estão incluídas numa iniciativa para agrupar as definições para uso em atribuições. A iniciativa incorporada denominada _ \[ Pré-visualização : Audite a segurança da \] palavra-passe dentro das máquinas Linux e Windows_ contém 18 políticas. Existem seis pares **ImplementIfNotExists** e **AuditIfNotExists** para Windows e três pares para o Linux. A lógica de [definição](definition-structure.md#policy-rule) de política valida que apenas o sistema operativo-alvo é avaliado.
 
 #### <a name="auditing-operating-system-settings-following-industry-baselines"></a>Auditoria das definições do sistema operativo seguindo as linhas de base da indústria
 
-Uma iniciativa da Política Azure oferece a capacidade de auditar as definições do sistema operativo seguindo uma "linha de base". A definição, _ \[Pré-visualização\]: Auditar VMs windows que não correspondam_ às definições de base de segurança do Azure inclui um conjunto de regras baseadas na Política de Grupo de Diretório Ativo.
+Uma iniciativa da Política Azure oferece a capacidade de auditar as definições do sistema operativo seguindo uma "linha de base". A definição, _ \[ Pré-visualização \] : Auditar VMs windows que não correspondam_ às definições de base de segurança do Azure inclui um conjunto de regras baseadas na Política de Grupo de Diretório Ativo.
 
-A maioria das definições estão disponíveis como parâmetros. Os parâmetros permitem personalizar o que é auditado. Alinhe a política com os seus requisitos ou mapeie a política para informações de terceiros, como normas regulamentares do setor.
+A maioria das definições estão disponíveis como parâmetros. Os parâmetros permitem personalizar o que é auditado.
+Alinhe a política com os seus requisitos ou mapeie a política para informações de terceiros, como normas regulamentares do setor.
 
 Alguns parâmetros suportam uma gama de valor inteiro. Por exemplo, a definição da Idade máxima da palavra-passe poderia auditar a definição efetiva da Política do Grupo. Uma gama de "1,70" confirmaria que os utilizadores são obrigados a alterar as suas palavras-passe pelo menos a cada 70 dias, mas não menos do que um dia.
 
@@ -126,7 +126,7 @@ Ao atribuir definições que comecem com _configure,_ deve também atribuir a de
 
 #### <a name="assigning-policies-to-machines-outside-of-azure"></a>Atribuindo políticas a máquinas fora de Azure
 
-As políticas de Auditoria disponíveis para configuração de hóspedes incluem o tipo de recursos **Microsoft.HybridCompute/machines.** Quaisquer máquinas a bordo do [Azure Arc para Servidores](../../../azure-arc/servers/overview.md) que estejam no âmbito da atribuição de políticas estão automaticamente incluídas.
+As políticas de Auditoria disponíveis para configuração de hóspedes incluem o tipo de recursos **Microsoft.HybridCompute/machines.** Quaisquer máquinas a bordo do [Azure Arc para servidores](../../../azure-arc/servers/overview.md) que estejam no âmbito da atribuição de políticas estão automaticamente incluídas.
 
 ### <a name="multiple-assignments"></a>Múltiplas atribuições
 

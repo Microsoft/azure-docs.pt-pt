@@ -10,16 +10,16 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 36777208dc8ac179f1aaf345c374a33001e3f8bd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dd6228ea50968c98c5ba151b8af9a0c2fa829582
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81404254"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684059"
 ---
 # <a name="learn-image-moderation-concepts"></a>Aprenda conceitos de moderação de imagem
 
-Utilize a ferramenta de moderação de imagem assistida por máquina sanções assistida pelo Moderador de Conteúdo e a ferramenta de revisão humana no [loop](Review-Tool-User-Guide/human-in-the-loop.md) para moderar imagens para conteúdos adultos e picantes. Scaneie imagens para conteúdo de texto e extrai esse texto e detete rostos. Pode combinar imagens com listas personalizadas e tomar mais medidas.
+Utilize a ferramenta de moderação de imagem assistida por máquina e [revisão](Review-Tool-User-Guide/human-in-the-loop.md) assistida por conteúdo para moderar imagens para conteúdos adultos e picantes. Scaneie imagens para conteúdo de texto e extrai esse texto e detete rostos. Pode combinar imagens com listas personalizadas e tomar mais medidas.
 
 ## <a name="evaluating-for-adult-and-racy-content"></a>Avaliação de conteúdos adultos e picantes
 
@@ -147,4 +147,4 @@ Para casos mais matizados, utilize a ferramenta Content Moderator [Review](Revie
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Teste a [consola Image Moderation API](try-image-api.md) e utilize as amostras de código REST API. Consulte também a secção de moderação de imagem do [quickstart .NET SDK](dotnet-sdk-quickstart.md) se estiver familiarizado com o Visual Studio e o C#.
+Teste a [consola Image Moderation API](try-image-api.md) e utilize as amostras de código REST API. Consulte também [avaliações, fluxos de trabalho e empregos](./review-api.md) para aprender a criar avaliações humanas.

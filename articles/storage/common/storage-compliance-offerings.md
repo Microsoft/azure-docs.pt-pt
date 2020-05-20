@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: 1ad41b0b7391236a15b7c1be7d42ed81aaf5b51a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f711d0dbc2df2a5ab102b520fb0d166a459383c1
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "61483439"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684463"
 ---
 # <a name="azure-storage-compliance-offerings"></a>Ofertas de conformidade de armazenamento azure
 
@@ -37,7 +37,7 @@ Pode encontrar abaixo as ofertas de conformidade no Armazenamento Azure para gar
 ## <a name="us-government"></a>Governo dos Estados Unidos
 
 * [DoD DISA L2, L4, L5](https://www.microsoft.com/trustcenter/compliance/disa)
-* [Doe 10 CFR Parte 810](https://aka.ms/AzureCompliance)
+* [DoE 10 CFR Parte 810](https://aka.ms/AzureCompliance)
 * [EAR (Regulamento seleto de administração de exportação dos EUA)](https://aka.ms/AzureCompliance)
 * [Título cfr da FDA 21 Parte 11](https://aka.ms/AzureCompliance)
 * [FedRAMP](https://www.microsoft.com/trustcenter/compliance/fedramp)
@@ -52,7 +52,7 @@ Pode encontrar abaixo as ofertas de conformidade no Armazenamento Azure para gar
 * [APRA (Austrália)](https://aka.ms/AzureCompliance)
 * [CDSA](https://www.microsoft.com/trustcenter/compliance/cdsa)
 * [DPP (Reino Unido)](https://aka.ms/AzureCompliance)
-* [FACTO (REINO UNIDO)](https://www.microsoft.com/trustcenter/compliance/fact)
+* [FACT (Reino Unido)](https://www.microsoft.com/trustcenter/compliance/fact)
 * [FCA (Reino Unido)](https://aka.ms/AzureCompliance)
 * [FFIEC](https://www.microsoft.com/trustcenter/compliance/FFIEC)
 * [FISC (Japão)](https://www.microsoft.com/trustcenter/compliance/fisc)
@@ -64,17 +64,16 @@ Pode encontrar abaixo as ofertas de conformidade no Armazenamento Azure para gar
 * [MAS + ABS (Singapura)](https://aka.ms/AzureCompliance)
 * [MPAA](https://www.microsoft.com/trustcenter/compliance/mpaa)
 * [NEN-7510 (Holanda)](https://www.microsoft.com/trustcenter/compliance/nen-7510)
-* [NHS IG Toolkit (Reino Unido)](https://www.microsoft.com/trustcenter/Compliance/NHS)
 * [PCI DSS](https://www.microsoft.com/trustcenter/compliance/pci)
 * [Avaliações Partilhadas](https://aka.ms/AzureCompliance)
 * [SOX](https://www.microsoft.com/trustcenter/compliance/SOX)
 
 ## <a name="regional"></a>Regional
 
-* [BIR 2012 (Holanda)](https://www.microsoft.com/TrustCenter/Compliance/bir-2012)
+* [BIR 2012 (Países Baixos)](https://www.microsoft.com/TrustCenter/Compliance/bir-2012)
 * [C5 (Alemanha)](https://www.microsoft.com/TrustCenter/Compliance/C5)
 * [CCSL/IRAP (Austrália)](https://www.microsoft.com/trustcenter/compliance/ccsl)
-* [Marca de ouro CS (Japão)](https://www.microsoft.com/trustcenter/compliance/cloud-security-mark)
+* [CS Gold Mark (Japão)](https://www.microsoft.com/trustcenter/compliance/cloud-security-mark)
 * [DJCP (China)](https://www.trustcenter.cn/compliance/default.html#DJCP)
 * [ENISA IAF (UE)](https://aka.ms/AzureCompliance)
 * [ENS (Espanha)](https://www.microsoft.com/trustcenter/compliance/spainens)
@@ -85,7 +84,7 @@ Pode encontrar abaixo as ofertas de conformidade no Armazenamento Azure para gar
 * [Livro de Trabalho de Grundschutz (Alemanha)](https://www.microsoft.com/TrustCenter/Compliance/IT-Grundschutz)
 * [LOPD (Espanha)](https://aka.ms/AzureCompliance)
 * [MTCS (Singapura)](https://www.microsoft.com/trustcenter/compliance/mtcs)
-* [O meu número (Japão)](https://www.microsoft.com/trustcenter/privacy/we-set-and-adhere-to-stringent-standards#my_number)
+* [My Number (Japão)](https://www.microsoft.com/trustcenter/privacy/we-set-and-adhere-to-stringent-standards#my_number)
 * [Quadro NZ CC (Nova Zelândia)](https://www.microsoft.com/trustcenter/compliance/nzcc)
 * [PASF (Reino Unido)](https://aka.ms/AzureCompliance)
 * [PDPA (Argentina)](https://www.microsoft.com/trustcenter/privacy/we-set-and-adhere-to-stringent-standards#argentina)

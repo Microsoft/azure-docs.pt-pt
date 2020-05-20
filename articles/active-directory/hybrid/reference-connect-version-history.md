@@ -8,17 +8,16 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 04/23/2020
+ms.date: 05/07/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.custom: has-adal-ref
-ms.openlocfilehash: bc3c572aeb72328bc4708d27052756623ccd7701
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 7b75f03afc587d9616997b1df48b9c5c5166cb89
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83200964"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681713"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: histórico de versões
 A equipa azure Ative Directory (Azure AD) atualiza regularmente o Azure AD Connect com novas funcionalidades e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -31,7 +30,7 @@ Tópico |  Detalhes
 --------- | --------- |
 Passos para atualizar a partir de Azure AD Connect | Diferentes métodos para [atualizar de uma versão anterior para o mais recente](how-to-upgrade-previous-version.md) lançamento do Azure AD Connect.
 Permissões obrigatórias | Para obter permissões necessárias para aplicar uma atualização, consulte [contas e permissões](reference-connect-accounts-permissions.md#upgrade).
-Transferência| [Baixar Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
+Download| [Baixar Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
 
 >[!NOTE]
 >Lançar uma nova versão do Azure AD Connect é um processo que requer vários passos de controlo de qualidade para garantir a funcionalidade de operação do serviço, e enquanto passamos por este processo, o número de versão de uma nova versão, bem como o estado de lançamento, serão atualizados para refletir o estado mais recente.
@@ -55,10 +54,12 @@ Nem todos os lançamentos do Azure AD Connect serão disponibilizados para atual
 05/07/2020: Lançado para download
 
 ### <a name="fixed-issues"></a>Problemas corrigidos
-- Corrigiu um problema em que os domínios não selecionados estavam a ser incorretamente selecionados a partir do UI do assistente.
-- Corrigiu um problema no módulo ADSyncConfig PowerShell, onde invocar o comando DSACLS utilizado em todos os cmdlets set-ADSync* provocaria um dos seguintes erros:
-     - `GrantAclsNoInheritance : The parameter is incorrect.   The command failed to complete successfully.`
-     - `GrantAcls : No GUID Found for computer …`
+Esta construção de hotfix corrige um problema em que os domínios não selecionados estavam a ser incorretamente selecionados do Assistente UI se apenas fossem selecionados recipientes de neto.
+
+
+>[!NOTE]
+>Esta versão é necessária para utilizar o novo Azure AD Connect sync V2 endpoint API.  Para mais informações consulte [Azure AD Connect sync V2 endpoint API (pré-visualização pública)](how-to-connect-sync-endpoint-api-v2.md).
+
 
 ## <a name="15290"></a>1.5.29.0
 
@@ -82,7 +83,10 @@ Esta construção de hotfix corrige um problema na construção 1.5.20.0 se tive
 04/09/2020: Lançado para download
 
 ### <a name="fixed-issues"></a>Problemas corrigidos
-Esta construção de hotfix corrige um problema com a build 1.5.18.0 se tiver a função de filtragem de grupo ativada e utilizar mS-DS-Consistência Como âncora de origem.
+- Esta construção de hotfix corrige um problema com a build 1.5.18.0 se tiver a função de filtragem de grupo ativada e utilizar mS-DS-Consistência Como âncora de origem.
+- Corrigiu um problema no módulo ADSyncConfig PowerShell, onde invocar o comando DSACLS utilizado em todos os cmdlets set-ADSync* provocaria um dos seguintes erros:
+     - `GrantAclsNoInheritance : The parameter is incorrect.   The command failed to complete successfully.`
+     - `GrantAcls : No GUID Found for computer …`
 
 > [!IMPORTANT]
 > Se clonou a regra de sincronização **In from AD - Group Join** e não clonou a regra de sincronização In da **AD - Grupo Comum** e planeia atualizar, complete os seguintes passos como parte da atualização:
@@ -117,7 +121,6 @@ Esta construção de hotfix corrige um problema com a build 1.5.18.0 se tiver a 
 - Corrigiu um problema com a criação da conta de sincronização do Diretório Ativo Azure onde a habilitação de extensões de diretório ou PHS pode falhar porque a conta não se propagou em todas as réplicas de serviço antes de tentar a utilização. 
 - Fixou um bug na utilidade de compressão de erros de sincronização que não manuseava corretamente os caracteres de substituição. 
 - Fixou um bug na atualização automática que deixou o servidor no estado suspenso do programador. 
-- Fixou um bug na página de filtragem Domain/OU que removeria os Perfis de Execução de um domínio expandindo parcialmente a árvore de domínio, sem fazer quaisquer alterações.
 
 ## <a name="14380"></a>1.4.38.0
 ### <a name="release-status"></a>Estado de lançamento
@@ -567,7 +570,7 @@ Bloqueie o acesso à conta AD DS implementando as seguintes alterações de perm
 *   Remova todos os ACEs no objeto específico, exceto ACEs específicos de SELF. Queremos manter intactas as permissões por defeito no que diz respeito a SELF.
 *   Atribuir estas permissões específicas:
 
-Tipo     | Name                          | Acesso               | Aplica-se A
+Tipo     | Name                          | Access               | Aplica-se A
 ---------|-------------------------------|----------------------|--------------|
 Permitir    | SISTEMA                        | Controlo Total         | Este objeto  |
 Permitir    | Administradores da Empresa             | Controlo Total         | Este objeto  |
@@ -910,7 +913,7 @@ CBool(
     |CertFriendlyName|CertThumbprint|CertExtensionOids|
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotAntes|CertPublicKeyParametersOid|
-    |CertVersion|CertSignatureAlgorithmOid|Selecione|
+    |CertVersion|CertSignatureAlgorithmOid|Selecionar|
     |CertKeyAlgorithmParams|CertHashString|Onde|
     |||Com|
 
@@ -1337,7 +1340,6 @@ Mudou de nome de Azure AD Sync para Azure AD Connect.
 **Novas funcionalidades de pré-visualização:**
 
 * [Redação do utilizador](how-to-connect-preview.md#user-writeback)
-* [Repetição de escrita do grupo](how-to-connect-preview.md#group-writeback)
 * [Repetição de escrita do dispositivo](how-to-connect-device-writeback.md)
 * [Extensões de diretórios](how-to-connect-preview.md)
 

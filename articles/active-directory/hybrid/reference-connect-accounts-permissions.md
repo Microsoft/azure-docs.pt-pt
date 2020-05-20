@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 10/03/2019
+ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6071e6553fb1275fea63a37b4897aef2685bd509
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 23508535c1853cd056bb162c254cda5f7f86d7fe
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253770"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681744"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: contas e permissões
 
@@ -149,9 +149,9 @@ Quais as permissões que necessita depende das funcionalidades opcionais que ati
 | Pasta Pública de Troca de Correio |Leia as permissões aos atributos documentados na Pasta Pública de [Troca de Correios](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder) para pastas públicas. | 
 | Repetição de escrita de palavras-passe |Escreva permissões aos atributos documentados em [Iniciar-se com a gestão](../authentication/howto-sspr-writeback.md) de passwords para os utilizadores. |
 | Repetição de escrita do dispositivo |Permissões concedidas com um script PowerShell conforme descrito na [reescrita](how-to-connect-device-writeback.md)do dispositivo . |
-| Repetição de escrita do grupo |Permite-lhe reescrever o **Office 365 Groups** para uma floresta com exchange instalado.  Para mais informações consulte o [Group Writeback](how-to-connect-preview.md#group-writeback).|
+| Repetição de escrita do grupo |Permite-lhe reescrever o **Office 365 Groups** para uma floresta com exchange instalado.|
 
-## <a name="upgrade"></a>Atualizar
+## <a name="upgrade"></a>Atualização
 Quando atualizas de uma versão do Azure AD Connect para um novo lançamento, precisas das seguintes permissões:
 
 >[!IMPORTANT]
@@ -200,7 +200,7 @@ Legenda:
 - sMSA - [conta de serviço gerido autónomo](https://technet.microsoft.com/library/dd548356.aspx)
 - gMSA - conta de [serviço gerido](https://technet.microsoft.com/library/hh831782.aspx) pelo grupo
 
-| | LocalDB</br>Express | LocalDB/LocalsQL</br>Personalizado | SQL remoto</br>Personalizado |
+| | LocalDB</br>Express | LocalDB/LocalsQL</br>Personalizar | SQL remoto</br>Personalizar |
 | --- | --- | --- | --- |
 | **máquina autónoma/grupo de trabalho** | Não suportado | **VSA**</br>Conta local (2008)</br>Conta local |  Não suportado |
 | **máquina unida ao domínio** | **VSA**</br>Conta local (2008) | **VSA**</br>Conta local (2008)</br>Conta local</br>Conta do domínio</br>sMSA,gMSA | **gMSA**</br>Conta do domínio |

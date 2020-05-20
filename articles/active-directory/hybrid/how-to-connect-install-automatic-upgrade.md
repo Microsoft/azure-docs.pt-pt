@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2020
+ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae0632fbc3208befe197c15ffdbf2d9a4e7b2d7a
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: a05de8bf6a6e4ab79e63d6634ddb1b79fae6045f
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82926481"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680214"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: atualização automática
 Esta funcionalidade foi introduzida com a build [1.1.105.0 (lançado em fevereiro de 2016)](reference-connect-version-history.md#111050).  Esta funcionalidade foi atualizada na [build 1.1.561](reference-connect-version-history.md#115610) e agora suporta cenários adicionais que anteriormente não eram suportados.
@@ -35,7 +35,7 @@ A atualização automática está ativada por predefinição para o seguinte:
 * A conta AD é a conta MSOL_ predefinida criada pelas definições do Express e pelo DirSync.
 * Tenha menos de 100.000 objetos no metaverso.
 
-O estado atual de atualização automática pode ser `Get-ADSyncAutoUpgrade`visto com o cmdlet PowerShell . Tem os seguintes estados:
+O estado atual de atualização automática pode ser visto com o cmdlet PowerShell `Get-ADSyncAutoUpgrade` . Tem os seguintes estados:
 
 | Estado | Comentário |
 | --- | --- |
@@ -43,7 +43,7 @@ O estado atual de atualização automática pode ser `Get-ADSyncAutoUpgrade`vist
 | Suspenso |Definido apenas pelo sistema. O sistema não é **atualmente** elegível para receber atualizações automáticas. |
 | Desativado |A atualização automática está desativada. |
 
-Pode alterar entre **Ativado** e `Set-ADSyncAutoUpgrade` **Desativado** com . Só o sistema deve definir o estado **suspenso.**  Antes de 1.1.750.0 o cmdlet Set-ADSyncAutoUpgrade bloquearia a atualização automática se o estado de atualização automática fosse definido para suspenso. Esta funcionalidade mudou agora para que não bloqueie o AutoUpgrade.
+Pode alterar entre **Ativado** e **Desativado** com `Set-ADSyncAutoUpgrade` . Só o sistema deve definir o estado **suspenso.**  Antes de 1.1.750.0 o cmdlet Set-ADSyncAutoUpgrade bloquearia a atualização automática se o estado de atualização automática fosse definido para suspenso. Esta funcionalidade mudou agora para que não bloqueie o AutoUpgrade.
 
 A atualização automática está a utilizar a Azure AD Connect Health para a infraestrutura de upgrade. Para que a atualização automática funcione, certifique-se de que abriu os URLs no seu servidor proxy para **a Azure AD Connect Health,** conforme documentado nas gamas de [endereços Do Office 365 URLs e IP](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
@@ -55,7 +55,7 @@ Se a instalação Connect não se atualizar como esperado, siga estes passos par
 
 Em primeiro lugar, não deve esperar que a atualização automática seja tentada no primeiro dia em que uma nova versão seja lançada. Há uma aleatoriedade intencional antes de uma atualização ser tentada, por isso não se assuste se a sua instalação não for atualizada imediatamente.
 
-Se achar que algo não está `Get-ADSyncAutoUpgrade` certo, então primeiro corra para garantir que a atualização automática está ativada.
+Se achar que algo não está certo, então primeiro corra `Get-ADSyncAutoUpgrade` para garantir que a atualização automática está ativada.
 
 Em seguida, certifique-se de que abriu os URLs necessários no seu proxy ou firewall. A atualização automática está a utilizar a Azure AD Connect Health, conforme descrito na [visão geral](#overview). Se utilizar um representante, certifique-se de que a Saúde foi configurada para utilizar um [servidor proxy](how-to-connect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy). Teste também a [conectividade de saúde](how-to-connect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service) com a AD Azure.
 
@@ -92,7 +92,7 @@ Aqui está uma lista das mensagens mais comuns que encontra. Não enumera tudo, 
 | UpgradeNotSupportedAdfsSignInMethod | Selecionou a Adfs como método de inscrição. |
 | UpgradeNotSupportedCustomizedSyncRules |Adicionou as suas próprias regras personalizadas à configuração. |
 | UpgradeNotSupportedDeviceWritebackEnabled |Ativou a funcionalidade de reprodução do [dispositivo.](how-to-connect-device-writeback.md) |
-| UpgradeNotSupportedGroupWritebackEnabled |Permitiu a funcionalidade de [redação](how-to-connect-preview.md#group-writeback) em grupo. |
+| UpgradeNotSupportedGroupWritebackEnabled |Permitiu a funcionalidade de redação em grupo. |
 | UpgradeNotSupportedInvalidedPersistedState |A instalação não é uma definição express ou uma atualização DirSync. |
 | UpgradeNotSupportedMetaverseSizeMeadoeeded |Tem mais de 100.000 objetos no metaverso. |
 | UpgradeNotSupportedMultiForestSetup |Estás a ligar-te a mais do que uma floresta. A configuração expressa só se liga a uma floresta. |

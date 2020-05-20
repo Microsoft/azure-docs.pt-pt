@@ -2,13 +2,13 @@
 title: Bloquear recursos para evitar alterações
 description: Impedir que os utilizadores atualizem ou abatam recursos críticos do Azure aplicando um bloqueio para todos os utilizadores e funções.
 ms.topic: conceptual
-ms.date: 02/07/2020
-ms.openlocfilehash: 70fb189adb634b7ac24afe7cc8b94738117da5ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/19/2020
+ms.openlocfilehash: 6bd595e3c676c8521470a1f5a00fe782e83dc840
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79274011"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683749"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloquear recursos para prevenir alterações inesperadas
 
@@ -25,17 +25,23 @@ Ao contrário do controlo de acesso baseado em funções, pode utilizar a gestã
 
 Os bloqueios do Resource Manager aplicam-se apenas a operações que ocorrem no painel de gestão, o que consiste em operações enviadas para `https://management.azure.com`. Os bloqueios não restringem a forma como os recursos desempenham as suas próprias funções. As alterações dos recursos são restritas, mas as operações dos recursos não o são. Por exemplo, um bloqueio De Leitura Apenas numa Base de Dados SQL impede-o de apagar ou modificar a base de dados. Não impede a criação, atualização ou eliminação dos dados na base de dados. As transações de dados são permitidas porque essas operações não são enviadas para `https://management.azure.com`.
 
-Aplicar **a ReadOnly** pode levar a resultados inesperados porque algumas operações que não parecem modificar o recurso realmente requerem ações bloqueadas pelo bloqueio. O bloqueio **ReadOnly** pode ser aplicado ao recurso ou ao grupo de recursos que contém o recurso. Alguns exemplos comuns das operações que são bloqueadas por um bloqueio **ReadOnly** são:
+## <a name="considerations-before-applying-locks"></a>Considerações antes de aplicar fechaduras
 
-* Um bloqueio **de leitura Apenas** numa conta de armazenamento impede todos os utilizadores de listar as chaves. A operação de listar chaves é processada através de um pedido POST porque as chaves devolvidas estão disponíveis para operações de escrita.
+A aplicação de fechaduras pode levar a resultados inesperados porque algumas operações que não parecem modificar o recurso realmente requerem ações bloqueadas pelo bloqueio. Alguns exemplos comuns das operações bloqueadas por fechaduras são:
 
-* Um bloqueio **De LeituraOnly** num recurso do Serviço de Aplicações impede o Visual Studio Server Explorer de apresentar ficheiros para o recurso, porque essa interação requer acesso por escrito.
+* Um bloqueio apenas de leitura numa conta de **armazenamento** impede todos os utilizadores de listar as chaves. A operação de listar chaves é processada através de um pedido POST porque as chaves devolvidas estão disponíveis para operações de escrita.
 
-* Um bloqueio **De Leitura Apenas** num grupo de recursos que contém uma máquina virtual impede que todos os utilizadores iniciem ou reiniciem a máquina virtual. Estas operações requerem um pedido de CORREIO.
+* Um bloqueio apenas de leitura num recurso **do Serviço de Aplicações** impede o Visual Studio Server Explorer de apresentar ficheiros para o recurso, porque essa interação requer acesso por escrito.
+
+* Um bloqueio apenas de leitura num grupo de **recursos** que contém uma **máquina virtual** impede que todos os utilizadores iniciem ou reiniciem a máquina virtual. Estas operações requerem um pedido de CORREIO.
+
+* Um bloqueio de leitura apenas numa **subscrição** impede o **Azure Advisor** de funcionar corretamente. O consultor não pode armazenar os resultados das suas consultas.
+
+* Um bloqueio não pode excluir o grupo de **recursos** criado pelo Serviço de **Backup Azure** faz com que as cópias de segurança falhem. O serviço suporta um máximo de 18 pontos de restauro. Quando bloqueado, o serviço de reserva não consegue limpar os pontos de restauro. Para mais informações, consulte [frequentemente perguntas-Back up Azure VMs](../../backup/backup-azure-vm-backup-faq.md).
 
 ## <a name="who-can-create-or-delete-locks"></a>Quem pode criar ou apagar fechaduras
 
-Para criar ou eliminar fechaduras de `Microsoft.Authorization/*` `Microsoft.Authorization/locks/*` gestão, deve ter acesso ou ações. Das funções incorporadas, apenas **Proprietário** e **Administrador de Acesso dos Utilizadores** têm acesso a essas ações.
+Para criar ou eliminar fechaduras de gestão, deve ter acesso `Microsoft.Authorization/*` ou `Microsoft.Authorization/locks/*` ações. Das funções incorporadas, apenas **Proprietário** e **Administrador de Acesso dos Utilizadores** têm acesso a essas ações.
 
 ## <a name="managed-applications-and-locks"></a>Aplicações e fechaduras geridas
 
@@ -56,10 +62,6 @@ Note que o serviço inclui um link para um Grupo de **Recursos Geridos**. Este g
 Para eliminar tudo para o serviço, incluindo o grupo de recursos de infraestrutura bloqueado, **selecione Eliminar** para o serviço.
 
 ![Eliminar o serviço](./media/lock-resources/delete-service.png)
-
-## <a name="azure-backups-and-locks"></a>Backups e fechaduras Azure
-
-Se bloquear o grupo de recursos criado pelo Serviço de Backup Azure, as cópias de segurança começarão a falhar. O serviço suporta um máximo de 18 pontos de restauro. Com um bloqueio **CanNotDelete,** o serviço de backup não consegue limpar pontos de restauro. Para mais informações, consulte [frequentemente perguntas-Back up Azure VMs](../../backup/backup-azure-vm-backup-faq.md).
 
 ## <a name="portal"></a>Portal
 

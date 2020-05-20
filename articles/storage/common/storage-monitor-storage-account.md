@@ -8,12 +8,13 @@ ms.date: 01/09/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 43955950b2fc0544b149c67e3f8df7ca905fafed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: monitoring
+ms.openlocfilehash: 6f53d5ec2d73c9edbb7e24c24107b2a6d6deb167
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79268291"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684671"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Monitorizar uma conta de armazenamento no portal do Azure
 
@@ -111,10 +112,10 @@ Pode criar alertas para notificá-lo quando os limiares tiverem sido atingidos p
 Pode adicionar gráficos de métricas de armazenamento Azure para qualquer uma das suas contas de armazenamento ao seu portal dashboard.
 
 1. Selecione clique em **Editar painel de instrumentos** enquanto vê o seu painel de instrumentos no [portal Azure](https://portal.azure.com).
-1. Na **Galeria tile,** selecione **Encontrar azulejos por** > **Tipo**.
-1. Selecione contas de**armazenamento** **de tipo** > .
+1. Na **Galeria tile,** selecione **Encontrar azulejos por**  >  **Tipo**.
+1. Selecione contas de armazenamento **de tipo**  >  **Storage accounts**.
 1. Em **Recursos,** selecione a conta de armazenamento cujas métricas pretende adicionar ao painel de instrumentos.
-1. Selecione**Monitorização** **de Categorias** > .
+1. Selecione **Monitorização de Categorias**  >  **Monitoring**.
 1. Arraste e largue o azulejo do gráfico no seu painel de instrumentos para a métrica que gostaria de exibir. Repita para todas as métricas que gostaria de exibir no painel de instrumentos. Na imagem seguinte, o gráfico "Blobs - Total solicita" é destacado como um exemplo, mas todos os gráficos estão disponíveis para colocação no seu painel de instrumentos.
 
    ![Galeria de azulejos no portal Azure](./media/storage-monitor-storage-account/storage-customize-dashboard.png)

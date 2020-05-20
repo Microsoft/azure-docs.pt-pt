@@ -1,6 +1,6 @@
 ---
-title: Problemas de resolução de problemas com rastreio de mudança e inventário
-description: Aprenda a resolver problemas e a resolver problemas com a solução azure Automation Change Tracking and Inventory.
+title: Problemas de resolução de problemas De rastreio de automatização e problemas de inventário
+description: Este artigo diz como resolver problemas e resolver problemas com a funcionalidade de Rastreio e Inventário de Alterações de Automação azure.
 services: automation
 ms.service: automation
 ms.subservice: change-inventory-management
@@ -9,19 +9,16 @@ ms.author: magoedte
 ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4f230cd0965d58f690d333cd62f2c7c1d499e8d1
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 3fe28ba0871009785b1bb8b263b42f453c2918be
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582142"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684860"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory-issues"></a>Problemas de mudança de mudança e problemas de inventário
 
-Este artigo descreve como resolver problemas com problemas de rastreio de mudanças de automatização e problemas de inventário.
-
->[!NOTE]
->Este artigo foi atualizado para utilizar o novo módulo AZ do Azure PowerShell. Pode continuar a utilizar o módulo AzureRM, que continuará a receber correções de erros até, pelo menos, dezembro de 2020. Para obter mais informações sobre o novo módulo Az e a compatibilidade do AzureRM, veja [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para instruções de instalação do módulo Az no seu Executor Híbrido, consulte [Instalar o Módulo PowerShell Azure](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para a sua conta Automation, pode atualizar os seus módulos para a versão mais recente, utilizando [como atualizar os módulos Azure PowerShell em Automação Azure](../automation-update-azure-modules.md).
+Este artigo descreve como resolver problemas e resolver problemas de rastreio e inventário de alterações de automatização do Azure. Para obter informações gerais sobre o rastreio e o inventário de alterações, consulte a visão geral do [Rastreio de Alterações e do Inventário](../change-tracking.md).
 
 ## <a name="windows"></a>Windows
 
@@ -29,7 +26,7 @@ Este artigo descreve como resolver problemas com problemas de rastreio de mudan�
 
 #### <a name="issue"></a>Problema
 
-Não se vê nenhum resultado de Rastreio de Alterações e Inventário para máquinas Windows que estejam a bordo.
+Não se vê quaisquer resultados de Rastreio de Alterações e Inventário para máquinas Windows que tenham sido ativadas para a funcionalidade.
 
 #### <a name="cause"></a>Causa
 
@@ -38,7 +35,7 @@ Este erro pode ter as seguintes causas:
 * O agente Azure Log Analytics para windows não está a funcionar.
 * A comunicação de volta à conta da Automação está a ser bloqueada.
 * Os pacotes de gestão de Rastreio de Mudanças e Inventário não são descarregados.
-* O VM a bordo pode ter vindo de uma máquina clonada que não foi sysprepped com o agente Log Analytics para windows instalado.
+* O VM ativado pode ter vindo de uma máquina clonada que não foi preparada com a Preparação do Sistema (sysprep) com o agente Log Analytics para windows instalado.
 
 #### <a name="resolution"></a>Resolução
 
@@ -54,7 +51,7 @@ net start healthservice
 Se ainda precisar de ajuda, pode recolher informações de diagnóstico e suporte de contato.
 
 > [!NOTE]
-> O agente Log Analytics permite o rastreio de erros por padrão. Para ativar as mensagens de erro verbosas como no exemplo anterior, utilize o `VER` parâmetro. Para obter vestígios `INF` de `StartTracing.cmd`informação, utilize quando invocar .
+> O agente Log Analytics permite o rastreio de erros por padrão. Para ativar as mensagens de erro verbosas como no exemplo anterior, utilize o `VER` parâmetro. Para obter vestígios de informação, utilize `INF` quando invocar `StartTracing.cmd` .
 
 ##### <a name="log-analytics-agent-for-windows-not-running"></a>Agente de Log Analytics para Windows não está a funcionar
 
@@ -62,9 +59,9 @@ Verifique se o agente Log Analytics para Windows **(HealthService.exe)** está a
 
 ##### <a name="communication-to-automation-account-blocked"></a>Conta de comunicação à Automação bloqueada
 
-Consulte o Espectador de Eventos na máquina e `changetracking` procure quaisquer eventos que tenham a palavra neles.
+Consulte o Espectador de Eventos na máquina e procure quaisquer eventos que tenham a palavra `changetracking` neles.
 
-Para saber sobre endereços e portas que devem ser permitidos para o rastreio de mudanças e inventário funcionar, consulte [os recursos de automatização no seu datacenter ou nuvem utilizando o Hybrid Runbook Worker](../automation-hybrid-runbook-worker.md#network-planning).
+Para conhecer endereços e portas que devem ser permitidos para que o Rastreio de Alterações e Inventário funcione, consulte o [planeamento da rede.](../automation-hybrid-runbook-worker.md#network-planning)
 
 ##### <a name="management-packs-not-downloaded"></a>Pacotes de gestão não descarregados
 
@@ -84,7 +81,7 @@ Se utilizar uma imagem clonada, siprepare a imagem primeiro e, em seguida, insta
 
 #### <a name="issue"></a>Problema
 
-Não se vê nenhum resultado de Change Tracking e Inventário para as máquinas Linux que estejam a bordo para a solução. 
+Não se vê nenhum resultado de Rastreio de Alterações e Inventário para as máquinas Linux que estejam ativadas para a funcionalidade. 
 
 #### <a name="cause"></a>Causa
 Aqui estão possíveis causas específicas para esta questão:
@@ -111,16 +108,16 @@ Para mais resolução de problemas desta questão, consulte [Edição: Não est�
 
 ##### <a name="log-analytics-agent-for-linux-not-configured-correctly"></a>Agente de Log Analytics para Linux não configurado corretamente
 
-O agente Log Analytics para o Linux pode não estar corretamente configurado para a recolha de saída de log e linha de comando utilizando a ferramenta OMS Log Collector. Consulte [as alterações de rastreio no seu ambiente com a solução de Rastreio e Inventário](../change-tracking.md)de Alterações .
+O agente Log Analytics para o Linux pode não estar corretamente configurado para a recolha de saída de log e linha de comando utilizando a ferramenta OMS Log Collector. Consulte a visão geral do [Rastreio de Alterações e do Inventário](../change-tracking.md).
 
 ##### <a name="fim-conflicts"></a>Conflitos fim
 
-A funcionalidade FIM do Azure Security Center pode estar a validar incorretamente a integridade dos seus ficheiros Linux. Verifique se o FIM está operacional e corretamente configurado para a monitorização de ficheiros Linux. Consulte [as alterações de rastreio no seu ambiente com a solução de Rastreio e Inventário](../change-tracking.md)de Alterações .
+A funcionalidade FIM do Azure Security Center pode estar a validar incorretamente a integridade dos seus ficheiros Linux. Verifique se o FIM está operacional e corretamente configurado para a monitorização de ficheiros Linux. Consulte a visão geral do [Rastreio de Alterações e do Inventário](../change-tracking.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Se não vir o seu problema aqui ou não conseguir resolver o seu problema, experimente um dos seguintes canais para obter apoio adicional:
 
 * Obtenha respostas de especialistas do Azure através dos [Fóruns Azure.](https://azure.microsoft.com/support/forums/)
-* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport)a conta oficial do Microsoft Azure para melhorar a experiência do cliente. O Azure Support liga a comunidade Azure a respostas, apoios e especialistas.
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) a conta oficial do Microsoft Azure para melhorar a experiência do cliente. O Azure Support liga a comunidade Azure a respostas, apoios e especialistas.
 * Arquiva um incidente de apoio ao Azure. Vá ao [site de suporte do Azure](https://azure.microsoft.com/support/options/)e selecione Obter **Suporte**.

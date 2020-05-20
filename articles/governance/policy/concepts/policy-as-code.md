@@ -1,14 +1,14 @@
 ---
 title: Criar fluxos de trabalho de Política como Código
 description: Aprenda a desenhar fluxos de trabalho para implementar as definições da Política Azure como código e validar automaticamente os recursos.
-ms.date: 11/04/2019
+ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: fd77fdd4011c3e1e83f8dfa9f30045bb72881c25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 972ec40609c340b159d21dde2bf18ab3330bf8cd
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187737"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684266"
 ---
 # <a name="design-policy-as-code-workflows"></a>Criar fluxos de trabalho de Política como Código
 
@@ -17,7 +17,7 @@ ms.locfileid: "82187737"
 - Infraestrutura como Código: A prática de tratar o conteúdo que define os seus ambientes, desde modelos de Gestor de Recursos até definições de Política Azure até Plantas Azure, como código fonte.
 - DevOps: A união de pessoas, processos e produtos para permitir a entrega contínua de valor aos nossos utilizadores finais.
 
-Política como Código é a combinação destas ideias. Essencialmente, mantenha as definições de política no controlo de fontes e sempre que for feita uma alteração, teste e valide essa alteração. No entanto, não deve ser essa a extensão das políticas de envolvimento com a Infraestrutura como Código ou DevOps.
+Política como Código é a combinação destas ideias. Essencialmente, mantenha as definições de política no controlo de fontes e sempre que uma mudança é feita, teste e valide essa alteração. No entanto, não deve ser essa a extensão das políticas de envolvimento com a Infraestrutura como Código ou DevOps.
 
 O passo de validação deve também ser um componente de outros fluxos de trabalho de integração contínua ou de implantação contínua. Exemplos incluem a implantação de um ambiente de aplicação ou infraestrutura virtual. Ao fazer da validação da Política Azure um componente precoce do processo de construção e implementação, as equipas de aplicação e operações descobrem se as suas alterações não são reclamadas, muito antes de ser tarde demais e estão a tentar implementar na produção.
 
@@ -29,7 +29,7 @@ O fluxo de trabalho geral recomendado da Política como Código se parece com es
 
 ### <a name="create-and-update-policy-definitions"></a>Criar e atualizar definições políticas
 
-As definições de política são criadas usando jSON, e armazenadas no controlo de fontes. Cada política tem o seu próprio conjunto de ficheiros, como os parâmetros, regras e parâmetros ambientais, que devem ser armazenados na mesma pasta. A estrutura que se segue é uma forma recomendada de manter as definições de política no controlo de fontes.
+As definições de política são criadas usando jSON, e armazenadas no controlo de fontes. Cada política tem o seu próprio conjunto de ficheiros, tais como os parâmetros, regras e parâmetros ambientais, que devem ser armazenados na mesma pasta. A estrutura que se segue é uma forma recomendada de manter as definições de política no controlo de fontes.
 
 ```text
 .
@@ -87,10 +87,10 @@ Tal como as definições de políticas, ao adicionar ou atualizar uma iniciativa
 
 Uma vez que a automatização tenha tomado as suas definições de política ou iniciativa recém-criadas ou atualizadas e feito a atualização para o objeto em Azure, é hora de testar as mudanças que foram feitas. Ou a política ou a iniciativa de que faz parte devem então ser atribuídas a recursos no ambiente mais distantes da produção. Este ambiente é tipicamente _Dev_.
 
-A atribuição deve utilizar o modo de [execução](./assignment-structure.md#enforcement-mode) dos _deficientes_ para que a criação de recursos e as atualizações não sejam bloqueadas, mas que os recursos existentes ainda são auditados para o cumprimento da definição de política atualizada. Mesmo com o modo de execução, recomenda-se que o âmbito de atribuição seja um grupo de recursos ou uma subscrição especificamente usada para validar políticas.
+A atribuição deve utilizar o modo de [execução](./assignment-structure.md#enforcement-mode) dos _deficientes_ para que a criação de recursos e as atualizações não sejam bloqueadas, mas que os recursos existentes ainda são auditados para o cumprimento da definição de política atualizada. Mesmo com o modo de execução, recomenda-se que o âmbito de atribuição seja um grupo de recursos ou uma subscrição especificamente para validação de políticas.
 
 > [!NOTE]
-> Embora o modo de aplicação seja útil, não é um substituto para testar completamente uma definição de política sob várias condições. A definição de `PUT` política `PATCH` deve ser testada e as chamadas REST API, recursos conformes e não conformes, e casos de borda como um imóvel em falta do recurso.
+> Embora o modo de aplicação seja útil, não é um substituto para testar completamente uma definição de política sob várias condições. A definição de política deve ser testada `PUT` e as chamadas REST `PATCH` API, recursos conformes e não conformes, e casos de borda como um imóvel em falta do recurso.
 
 Após a implementação da atribuição, utilize o SDK de Política para [obter dados](../how-to/get-compliance-data.md) de conformidade para a nova atribuição. O ambiente utilizado para testar as políticas e atribuições deve dispor de recursos compatíveis e não conformes. Como um bom teste de unidade para código, você quer testar que os recursos são como esperado e que você também não tem falsos positivos ou falsos negativos. Se testar e validar apenas para o que espera, pode haver um impacto inesperado e não identificado da apólice. Para mais informações, consulte [Avaliar o impacto de uma nova definição de Política Azure](./evaluate-impact.md).
 
@@ -99,7 +99,7 @@ Após a implementação da atribuição, utilize o SDK de Política para [obter 
 Se a validação da atribuição corresponde às expectativas, o próximo passo é validar a reparação.
 As políticas que utilizam o [IfNotExist](./effects.md#deployifnotexists) ou [modificam](./effects.md#modify) podem ser transformadas numa tarefa de reparação e corrigir recursos de um estado não conforme.
 
-O primeiro passo para o fazer é conceder à atribuição de políticas a atribuição de funções definida na definição de política. Esta atribuição de funções confere à atribuição de políticas direitos de identidade geridos suficientes para fazer as alterações necessárias para tornar o recurso conforme.
+O primeiro passo para a remediação dos recursos é conceder à atribuição de políticas a atribuição de funções definida na definição de política. Esta atribuição de funções confere à atribuição de políticas direitos de identidade geridos suficientes para fazer as alterações necessárias para tornar o recurso conforme.
 
 Uma vez que a atribuição de políticas tenha direitos adequados, utilize o SDK de política para desencadear uma tarefa de reparação contra um conjunto de recursos que se sabe não cumprirem. Devem ser efetuados três ensaios contra estas tarefas remediadas antes de prosseguir:
 
@@ -111,7 +111,7 @@ Testar os resultados atualizados da avaliação das políticas e o ambiente forn
 
 ### <a name="update-to-enforced-assignments"></a>Atualização para atribuições forçadas
 
-Depois de todos os portões de validação terem sido concluídos, atualize a atribuição para utilizar o modo _de_ **execução** de . Esta alteração deve ser inicialmente feita no mesmo ambiente, longe da produção. Uma vez que esse ambiente seja validado como esperado, a mudança deve então ser prevista para incluir o ambiente seguinte e assim por diante até que a política seja implementada para os recursos produtivos.
+Depois de todos os portões de validação terem sido concluídos, atualize a atribuição para utilizar o modo _de_ **execução** de . É aconselhável fazer esta mudança inicialmente no mesmo ambiente longe da produção. Uma vez validado esse ambiente como esperado, a mudança deve então ser prevista para incluir o ambiente seguinte, e assim por diante, até que a política seja implementada para os recursos produtivos.
 
 ## <a name="process-integrated-evaluations"></a>Avaliações integradas de processo
 

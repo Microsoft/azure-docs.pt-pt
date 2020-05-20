@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 04/02/2020
-ms.openlocfilehash: 38088503fee016651a8c1c9a1f57ad4bbe102456
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dec9d7d6f4676c3550bb6c0be79e25d907e5b3da
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81257152"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682488"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Ciência de dados com uma máquina virtual linux data science em Azure
 
@@ -29,9 +29,9 @@ Neste walkthrough, analisamos o conjunto de dados da [base de spam.](https://arc
 Antes de poder utilizar um Linux DSVM, deve ter os seguintes pré-requisitos:
 
 * **Assinatura Azure.** Para obter uma subscrição Azure, consulte [Criar a sua conta Azure gratuita hoje](https://azure.microsoft.com/free/).
-* [**Máquina virtual linux data science**](https://azure.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). Para obter informações sobre o fornecimento da máquina virtual, consulte [Provision the Linux Data Science Virtual Machine](linux-dsvm-intro.md).
+* [**Máquina virtual linux data science**](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). Para obter informações sobre o fornecimento da máquina virtual, consulte [Provision the Linux Data Science Virtual Machine](linux-dsvm-intro.md).
 * [**X2Go**](https://wiki.x2go.org/doku.php) instalado no seu computador com uma sessão de XFCE aberta. Para mais informações, consulte [Instalar e configurar o cliente X2Go](linux-dsvm-intro.md#x2go).
-* Para uma experiência de scrolling mais suave, no navegador web Firefox `gfx.xrender.enabled` da `about:config`DSVM, altere a bandeira em . [Saiba mais](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Considere também `mousewheel.enable_pixel_scrolling` `False`definir para . [Saiba mais](https://support.mozilla.org/questions/981140).
+* Para uma experiência de scrolling mais suave, no navegador web Firefox da DSVM, altere a `gfx.xrender.enabled` bandeira `about:config` em . [Saiba mais](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Considere também `mousewheel.enable_pixel_scrolling` definir para `False` . [Saiba mais](https://support.mozilla.org/questions/981140).
 * **Conta de Aprendizagem automática Azure.** Se ainda não tem uma, inscreva-se para uma nova conta na página inicial do [Azure Machine Learning](https://azure.microsoft.com/free/services/machine-learning//).
 
 ## <a name="download-the-spambase-dataset"></a>Descarregue o conjunto de dados da base de spam
@@ -64,11 +64,11 @@ mv headers spambaseHeaders.data
 
 O conjunto de dados tem vários tipos de estatísticas para cada e-mail:
 
-* Colunas **como\_\_palavra freq WORD** indicam a percentagem de palavras no e-mail que *correspondem*word . Por exemplo, se a **\_palavra freq\_make** é **1**, então 1% de todas as palavras no e-mail foram *tornadas*.
-* Colunas como **o char\_\_freq CHAR** indicam a percentagem de todos os caracteres no e-mail que são *CHAR*.
-* **o\_\_comprimento\_mais longo** do capital é o comprimento mais longo de uma sequência de letras maiúsculas.
-* **a\_\_média\_** de comprimento de execução de capital é o comprimento médio de todas as sequências de letras maiúsculas.
-* **o\_\_comprimento\_total** do capital é o comprimento total de todas as sequências de letras maiúsculas.
+* Colunas como **palavra \_ freq \_ _WORD_ ** indicam a percentagem de palavras no e-mail que correspondem word . *WORD* Por exemplo, se a **palavra \_ freq \_ make** é **1**, então 1% de todas as palavras no e-mail foram *tornadas*.
+* Colunas como **o char \_ freq \_ _CHAR_ ** indicam a percentagem de todos os caracteres no e-mail que são *CHAR*.
+* **o \_ \_ comprimento \_ mais longo** do capital é o comprimento mais longo de uma sequência de letras maiúsculas.
+* **a \_ \_ \_ média** de comprimento de execução de capital é o comprimento médio de todas as sequências de letras maiúsculas.
+* **o \_ \_ \_ comprimento total** do capital é o comprimento total de todas as sequências de letras maiúsculas.
 * **o spam** indica se o e-mail foi considerado spam ou não (1 = spam, 0 = não spam).
 
 ## <a name="explore-the-dataset-by-using-r-open"></a>Explore o conjunto de dados usando o R Open
@@ -313,10 +313,10 @@ predictSpam.service(1, 1, 1)
 
 ### <a name="jupyterhub"></a>JupyterHub
 
-A distribuição da Anaconda no DSVM vem com um Caderno Jupyter, um ambiente transversal para a partilha de código e análise python, R ou Julia. O Caderno Jupyter é acedido através do JupyterHub. Insere-se utilizando o nome de utilizador\<e senha de utilizador do\>Linux local em https:// nome DNS DNS ou endereço IP :8000/. Todos os ficheiros de configuração para JupyterHub são encontrados em /etc/jupyterhub.
+A distribuição da Anaconda no DSVM vem com um Caderno Jupyter, um ambiente transversal para a partilha de código e análise python, R ou Julia. O Caderno Jupyter é acedido através do JupyterHub. Insere-se utilizando o nome de utilizador e senha de utilizador do Linux local em https:// \< nome DNS DNS ou endereço IP \> :8000/. Todos os ficheiros de configuração para JupyterHub são encontrados em /etc/jupyterhub.
 
 > [!NOTE]
-> Para utilizar o Gestor de `pip` Pacotes Python (através do comando) a partir de um Caderno Jupyter no núcleo atual, utilize este comando na célula de código:
+> Para utilizar o Gestor de Pacotes Python (através `pip` do comando) a partir de um Caderno Jupyter no núcleo atual, utilize este comando na célula de código:
 >
 >   ```Python
 >    import sys
@@ -368,7 +368,7 @@ Para carregar e configurar o conjunto de dados:
 Para explorar os dados:
 
 1. Selecione o separador **Explore.**
-1. Para ver informações sobre os tipos variáveis e algumas estatísticas sumárias, selecione **Executar Resumo** > **.**
+1. Para ver informações sobre os tipos variáveis e algumas estatísticas sumárias, selecione **Executar Resumo**  >  **Execute**.
 1. Para ver outros tipos de estatísticas sobre cada variável, selecione outras opções, como **Descrever** ou **Básicos**.
 
 Também pode usar o separador **Explore** para gerar enredos perspicazes. Para traçar um histograma dos dados:
@@ -421,7 +421,7 @@ Uma característica útil do Rattle é a sua capacidade de executar vários mét
 Quando terminar os modelos de construção, selecione o separador **Log** para visualizar o código R que foi executado pela Rattle durante a sua sessão. Pode selecionar o botão **Export** para o guardar.
 
 > [!NOTE]
-> A libertação atual de Rattle contém um bug. Para modificar o script ou utilizá-lo para repetir **#** os seus passos mais tarde, deve inserir um personagem em frente à *Exportação deste registo...* no texto do registo.
+> A libertação atual de Rattle contém um bug. Para modificar o script ou utilizá-lo para repetir os seus passos mais tarde, deve inserir um **#** personagem em frente à *Exportação deste registo...* no texto do registo.
 
 ### <a name="postgresql-and-squirrel-sql"></a>PostgreSQL e SQuirreL SQL
 
@@ -492,16 +492,16 @@ Agora, vamos explorar os dados e executar algumas consultas usando o SQuirreL SQ
 
 Para começar, no menu **aplicações,** abra o SQuirreL SQL. Para configurar o condutor:
 
-1. Selecione**Controladores de visualização do** **Windows** > .
+1. Selecione **Windows**  >  **Controladores de visualização do**Windows .
 1. Clique à direita **PostgreSQL** e selecione **Modificar o Controlador**.
-1. Selecione **extra class path** > **add**.
+1. Selecione **extra class path**  >  **add**.
 1. Para **nome de ficheiro**, insira **/usr/share/java/jdbcdrivers/postgresql-9.4.1208.jre6.jar**.
 1. Selecione **Open** (Abrir).
 1. Selecione **Lista de Condutores**. Para **nome de classe**, selecione **org.postgresql.Driver**, e, em seguida, selecione **OK**.
 
 Para configurar a ligação ao servidor local:
 
-1. Selecione **Windows** > **View Aliases.**
+1. Selecione **Windows**  >  **View Aliases.**
 1. Selecione o **+** botão para criar um novo pseudónimo. Para obter o novo nome, introduza a **base de dados de spam**. 
 1. Para **driver**, selecione **PostgreSQL**.
 1. Delineie o URL para **jdbc:postgresql://localhost/spam**.
@@ -513,7 +513,7 @@ Para configurar a ligação ao servidor local:
 Para fazer algumas perguntas:
 
 1. Selecione o **separador SQL.**
-1. Na caixa de consulta na parte superior do **separador SQL,** introduza uma consulta básica, como `SELECT * from data;`.
+1. Na caixa de consulta na parte superior do **separador SQL,** introduza uma consulta básica, como `SELECT * from data;` .
 1. Prima Ctrl+Enter para executar a consulta. Por predefinição, o SQuirreL SQL devolve as primeiras 100 linhas da sua consulta.
 
 Há muitas mais consultas que pode fazer para explorar estes dados. Por exemplo, como é que a frequência da palavra *difere* entre spam e presunto?

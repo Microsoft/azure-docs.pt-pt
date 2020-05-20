@@ -5,17 +5,23 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/15/2019
-ms.openlocfilehash: a50ba39777e6a9d3d609e584c0c7d872f2a65f35
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/31/2020
+ms.openlocfilehash: 1ea6d09609d1b7b3f7ba7297a040447d1fc24756
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80283723"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684390"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms"></a>Como traçar o desempenho com o Monitor Azure para VMs
 
 O Monitor Azure para VMs inclui um conjunto de gráficos de desempenho que visam vários indicadores de desempenho chave (KPIs) para ajudá-lo a determinar o quão bem uma máquina virtual está a funcionar. Os gráficos mostram a utilização de recursos durante um período de tempo para que possa identificar estrangulamentos, anomalias ou mudar para uma perspetiva listando cada máquina para visualizar a utilização de recursos com base na métrica selecionada. Embora existam inúmeros elementos a considerar ao lidar com o desempenho, o Monitor Azure para VMs monitoriza os principais indicadores de desempenho do sistema operativo relacionados com processador, memória, adaptador de rede e utilização de discos. O desempenho complementa a funcionalidade de monitorização da saúde e ajuda a expor problemas que indicam uma possível falha na componente do sistema, afinação de suporte e otimização para alcançar eficiência, ou planeamento da capacidade de suporte.  
+
+## <a name="limitations"></a>Limitações
+Seguem-se limitações na recolha de desempenho com o Monitor Azure para VMs.
+
+- **A memória disponível** não está disponível para máquinas virtuais que executam o Red Hat Linux (RHEL) 6. Esta métrica é calculada a partir de **MemDisponíve** que foi introduzida na [versão kernel 3.14](http://www.man7.org/linux/man-pages/man1/free.1.html).
+- As métricas só estão disponíveis para discos de dados em máquinas virtuais Linux utilizando a família extsystem (EXT2, EXT3, EXT4).
 
 ## <a name="multi-vm-perspective-from-azure-monitor"></a>Perspetiva multi-VM do Monitor Azure
 

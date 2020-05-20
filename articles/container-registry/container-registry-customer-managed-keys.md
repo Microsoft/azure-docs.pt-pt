@@ -4,12 +4,12 @@ description: Saiba sobre encriptação no resto do seu registo de contentores Az
 ms.topic: article
 ms.date: 05/01/2020
 ms.custom: ''
-ms.openlocfilehash: d9cd10401e7f645a8edd269184a56dc27544a8c8
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: a81305be13fd824e7674346aadcaddb83787322d
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927326"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683479"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Criptografe o registo usando uma chave gerida pelo cliente
 
@@ -17,7 +17,7 @@ Quando armazena imagens e outros artefactos num registo de contentores Azure, o 
 
 A encriptação do lado do servidor com chaves geridas pelo cliente é suportada através da integração com [o Cofre de Chaves Azure](../key-vault/general/overview.md). Pode criar as suas próprias chaves de encriptação e armazená-las num cofre de chaves, ou usar as APIs do Azure Key Vault para gerar chaves. Com o Azure Key Vault, também pode auditar o uso da chave.
 
-Esta funcionalidade está disponível no nível de serviço de registo de contentores **Premium.** Para obter informações sobre os níveis e limites de serviço de registo, consulte o [Registo de Contentores Azure SKUs](container-registry-skus.md).
+Esta funcionalidade está disponível no nível de serviço de registo de contentores **Premium.** Para obter informações sobre os níveis e limites de serviço de registo, consulte os níveis de serviço do Registo de [Contentores De Azure](container-registry-skus.md).
 
    
 ## <a name="things-to-know"></a>Aspetos importantes

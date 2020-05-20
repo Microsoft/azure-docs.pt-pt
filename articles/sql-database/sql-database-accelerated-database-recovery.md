@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
-ms.date: 03/24/2020
-ms.openlocfilehash: 57ca594dd067d15009de5e3abf7276fae48720d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/19/2020
+ms.openlocfilehash: f259d423f465d93031c3a72855fd7aac4e320573
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80238664"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684973"
 ---
 # <a name="accelerated-database-recovery"></a>Recuperação acelerada da base de dados
 
@@ -33,7 +33,7 @@ ms.locfileid: "80238664"
 
   Com a ADR, o registo de transações é agressivamente truncado, mesmo na presença de transações ativas de longo prazo, o que o impede de crescer fora de controlo.
 
-## <a name="the-current-database-recovery-process"></a>O atual processo de recuperação da base de dados
+## <a name="standard-database-recovery-process"></a>Processo de recuperação de bases de dados padrão
 
 A recuperação da base de dados no SQL Server segue o modelo de recuperação [da ARIES](https://people.eecs.berkeley.edu/~brewer/cs262/Aries.pdf) e consiste em três fases, que são ilustradas no diagrama seguinte e explicadas com mais detalhes após o diagrama.
 
@@ -95,7 +95,7 @@ Os quatro componentes-chave da ADR são:
 
 - **Loja de Versão Persistida (PVS)**
 
-  A loja de versão persistida é um novo mecanismo de motor de base de dados `tempdb` SQL para persistir as versões de linha geradas na própria base de dados em vez da loja de versão tradicional. O PVS permite o isolamento de recursos, bem como melhora a disponibilidade de secundários legíveis.
+  A loja de versão persistida é um novo mecanismo de motor de base de dados SQL para persistir as versões de linha geradas na própria base de dados em vez da loja de `tempdb` versão tradicional. O PVS permite o isolamento de recursos, bem como melhora a disponibilidade de secundários legíveis.
 
 - **Reverter lógico**
 

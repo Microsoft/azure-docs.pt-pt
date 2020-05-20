@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/02/2020
-ms.openlocfilehash: 9b720470ac406ed0730e6243262dcf33d2df169a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/15/2020
+ms.openlocfilehash: f95f35fe0d17afdeec864674d3360fc3b172cad1
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82233431"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683386"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>Junte-se à transformação no fluxo de dados de mapeamento
 
@@ -48,9 +48,9 @@ Adere seleções exteriores completas a todas as colunas e linhas de ambos os la
 
 Cruze as saídas do produto transversal dos dois fluxos com base numa condição. Se estiver a usar uma condição que não seja igualdade, especifique uma expressão personalizada como condição de união cruzada. O fluxo de saída será todas as linhas que cumprem a condição de união.
 
-Pode utilizar este tipo de união para ```OR``` uniões e condições não-equi.
+Pode utilizar este tipo de união para uniões e ```OR``` condições não-equi.
 
-Se quiser produzir explicitamente um produto cartesiano completo, utilize a transformação da Coluna Derivada em cada um dos dois fluxos independentes antes da união para criar uma chave sintética para combinar. Por exemplo, criar uma nova coluna em ```SyntheticKey``` Coluna Derivada ```1```em cada fluxo chamado e defini-lo igual a . Em ```a.SyntheticKey == b.SyntheticKey``` seguida, use como expressão de adesão personalizada.
+Se quiser produzir explicitamente um produto cartesiano completo, utilize a transformação da Coluna Derivada em cada um dos dois fluxos independentes antes da união para criar uma chave sintética para combinar. Por exemplo, criar uma nova coluna em Coluna Derivada em cada fluxo chamado ```SyntheticKey``` e defini-lo igual a ```1``` . Em seguida, use ```a.SyntheticKey == b.SyntheticKey``` como expressão de adesão personalizada.
 
 > [!NOTE]
 > Certifique-se de incluir pelo menos uma coluna de cada lado da sua relação esquerda e direita numa cruz personalizada. Executar a cruz junta-se a valores estáticos em vez de colunas de cada lado resulta em exames completos de todo o conjunto de dados, fazendo com que o fluxo de dados seja executado mal.
@@ -61,7 +61,13 @@ Se quiser produzir explicitamente um produto cartesiano completo, utilize a tran
 1. Selecione o seu **tipo De juntar**
 1. Escolha quais as colunas-chave que pretende combinar para se juntar às condições. Por padrão, o fluxo de dados procura a igualdade entre uma coluna em cada fluxo. Para comparar através de um valor computado, paire sobre a coluna dropdown e **selecione coluna Computed**.
 
-![Junte-se à transformação](media/data-flow/join.png "Associar")
+![Junte-se à transformação](media/data-flow/join.png "Participar")
+
+### <a name="non-equi-joins"></a>Não-equi junta-se
+
+Para utilizar um operador condicional, como não é igual (!=) ou superior (>) nas suas condições de adesão, altere a queda do operador entre as duas colunas. As juntas não-equi requerem que pelo menos um dos dois streams seja transmitido utilizando a radiodifusão **fixa** no separador **Otimize.**
+
+![Não-equi aderir](media/data-flow/non-equi-join.png "Não-equi aderir")
 
 ## <a name="optimizing-join-performance"></a>Otimizar o desempenho de juntar
 
@@ -98,7 +104,7 @@ Ao testar as transformações de união com a pré-visualização de dados no mo
 
 ### <a name="inner-join-example"></a>Exemplo de adesão interior
 
-O exemplo abaixo é `JoinMatchedData` uma transformação `TripData` de `TripFare`união chamada que toma fluxo esquerdo e fluxo direito .  A condição de `hack_license == { hack_license} && TripData@medallion == TripFare@medallion && vendor_id == { vendor_id} && pickup_datetime == { pickup_datetime}` união é `hack_license`a `medallion` `vendor_id`expressão `pickup_datetime` que retorna verdadeira se as colunas em cada stream corresponderem. O `joinType` `'inner'`é. Estamos a permitir a transmissão apenas `broadcast` no `'left'`fluxo esquerdo, por isso tem valor.
+O exemplo abaixo é uma transformação de união chamada `JoinMatchedData` que toma fluxo esquerdo e fluxo direito `TripData` `TripFare` .  A condição de união é a expressão `hack_license == { hack_license} && TripData@medallion == TripFare@medallion && vendor_id == { vendor_id} && pickup_datetime == { pickup_datetime}` que retorna verdadeira se as colunas em `hack_license` cada stream `medallion` `vendor_id` `pickup_datetime` corresponderem. O `joinType` `'inner'` é. Estamos a permitir a transmissão apenas no fluxo esquerdo, por isso `broadcast` tem `'left'` valor.
 
 Na Fábrica de Dados UX, esta transformação parece a imagem abaixo:
 
@@ -120,7 +126,7 @@ TripData, TripFare
 
 ### <a name="custom-cross-join-example"></a>Exemplo de junta de cruz personalizada
 
-O exemplo abaixo é `JoiningColumns` uma transformação `LeftStream` de `RightStream`união chamada que toma fluxo esquerdo e fluxo direito . Esta transformação acolhe dois fluxos e une `leftstreamcolumn` todas as `rightstreamcolumn`linhas onde a coluna é maior que a coluna. O `joinType` `cross`é. A radiodifusão `broadcast` não `'none'`está ativada tem valor.
+O exemplo abaixo é uma transformação de união chamada `JoiningColumns` que toma fluxo esquerdo e fluxo direito `LeftStream` `RightStream` . Esta transformação acolhe dois fluxos e une todas as linhas onde a coluna é maior que a `leftstreamcolumn` `rightstreamcolumn` coluna. O `joinType` `cross` é. A radiodifusão não está ativada `broadcast` tem `'none'` valor.
 
 Na Fábrica de Dados UX, esta transformação parece a imagem abaixo:
 

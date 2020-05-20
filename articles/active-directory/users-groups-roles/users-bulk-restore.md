@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11f35c7615135f5aa6c63d5d05898d139df61d0d
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 1db23bb1176a41b4b9bac548b737fbd13fbe82c4
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203313"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685245"
 ---
 # <a name="bulk-restore-deleted-users-in-azure-active-directory"></a>A granel restaura utilizadores eliminados no Diretório Ativo do Azure
 
@@ -35,7 +35,7 @@ Descarregue e preencha o modelo CSV para ajudá-lo a restaurar com sucesso os ut
 As linhas num modelo CSV descarregado são as seguintes:
 
 - **Número**da versão : A primeira linha que contém o número da versão deve ser incluída no CSV de carregamento.
-- **Títulos da coluna**: O formato das rubricas da coluna é &lt;o nome&gt; &lt; *item* [PropertyName] *exigido ou em branco*&gt;. Por exemplo, `Object ID [objectId] Required`. Algumas versões mais antigas do modelo podem ter ligeiras variações.
+- **Títulos da coluna**: O formato das rubricas da coluna é &lt; *o nome item* &gt; [PropertyName] &lt; *exigido ou em branco* &gt; . Por exemplo, `Object ID [objectId] Required`. Algumas versões mais antigas do modelo podem ter ligeiras variações.
 - **Exemplos de linha**: Incluímos no modelo uma linha de exemplos de valores aceitáveis para cada coluna. Deve remover a linha de exemplos e substituí-la pelas suas próprias entradas.
 
 ### <a name="additional-guidance"></a>Orientações adicionais
@@ -48,14 +48,14 @@ As linhas num modelo CSV descarregado são as seguintes:
 ## <a name="to-bulk-restore-users"></a>Para restaurar a granel os utilizadores
 
 1. [Inscreva-se na sua organização Azure AD](https://aad.portal.azure.com) com uma conta que é administradora de utilizador na organização Azure AD.
-1. No Anúncio Azure, selecione **Utilizadores Apagados** > **Deleted**.
+1. No Anúncio Azure, selecione **Utilizadores**  >  **Apagados**.
 1. Na página **de utilizadores Eliminados,** selecione **Restaurar a Granel** para carregar um ficheiro CSV válido de propriedades dos utilizadores para restaurar.
 
-   ![Selecione o comando de restauro a granel na página de utilizadores Eliminados](./media/users-bulk-restore/bulk-restore.png)
+    ![Selecione o comando de restauro a granel na página de utilizadores Eliminados](./media/users-bulk-restore/bulk-restore.png)
 
 1. Abra o modelo CSV e adicione uma linha para cada utilizador que pretende restaurar. O único valor exigido é **objectID**. Em seguida, guarde o ficheiro.
 
-   ![Selecione um ficheiro CSV local no qual lista os utilizadores que pretende adicionar](./media/users-bulk-restore/upload-button.png)
+    :::image type="content" source="./media/users-bulk-restore/upload-button.png" alt-text="Selecione um ficheiro CSV local no qual lista os utilizadores que pretende adicionar":::
 
 1. Na página **de restauro a granel,** sob **o upload do seu ficheiro CSV,** navegue para o ficheiro. Quando selecionar o ficheiro e clicar **em Submeter,** a validação do ficheiro CSV começa.
 1. Quando o conteúdo do ficheiro for validado, verá o **Ficheiro carregado com sucesso**. Se houver erros, tem de os corrigir antes de poder submeter o trabalho.

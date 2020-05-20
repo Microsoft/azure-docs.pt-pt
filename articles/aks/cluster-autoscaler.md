@@ -4,12 +4,12 @@ description: Aprenda a utilizar o autoscaler cluster para escalar automaticament
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: 3ebbeab82031ddc037c7885e7453e603a8f440a1
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: f40d13b6b9a37f4c5efcc73e52b631bd2eec659a
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509249"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683552"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Escala automaticamente um cluster para satisfazer as exigências de aplicação no Serviço Azure Kubernetes (AKS)
 
@@ -81,7 +81,7 @@ Leva alguns minutos para criar o cluster e configurar as definições de autoesc
 ## <a name="change-the-cluster-autoscaler-settings"></a>Alterar as definições de autoescalador do cluster
 
 > [!IMPORTANT]
-> Se tiver várias piscinas de nós no seu cluster AKS, salte para a [escala automática com várias piscinas](#use-the-cluster-autoscaler-with-multiple-node-pools-enabled)de agentes . Os clusters com várias piscinas de agentes requerem a `az aks nodepool` `az aks`utilização do conjunto de comandos para alterar propriedades específicas da piscina de nós em vez de .
+> Se tiver várias piscinas de nós no seu cluster AKS, salte para a [escala automática com várias piscinas](#use-the-cluster-autoscaler-with-multiple-node-pools-enabled)de agentes . Os clusters com várias piscinas de agentes requerem a utilização do conjunto de `az aks nodepool` comandos para alterar propriedades específicas da piscina de nós em vez de `az aks` .
 
 No passo anterior para criar um cluster AKS ou atualizar um conjunto de nóexistente, a contagem mínima de nó de escalar de cluster foi fixada para *1*, e a contagem máxima do nó foi fixada para *3*. Como a sua aplicação exige alterações, poderá ter de ajustar a contagem de nósdea de escala automática do cluster.
 
@@ -99,7 +99,7 @@ az aks update \
 O exemplo acima atualiza o autoscaler do cluster na piscina de nó único no *myAKSCluster* para um mínimo de *1* e máximo de *5* nós.
 
 > [!NOTE]
-> Você não pode definir uma contagem mínima de nó mais alta do que está atualmente definida para a piscina do nó. Por exemplo, se tem atualmente a contagem de min definida para *1,* não pode atualizar a contagem de min para *3*.
+O autoscaler cluster tomará as suas decisões de escala com base nas contagens mínimas e máximas definidas em cada piscina de nó, mas não as aplica. Por exemplo, a definição de uma contagem de 5 quando a contagem atual do nó é 3 não escalará imediatamente a piscina até 5. Se alterar a contagem mínima no conjunto do nó para um valor superior ao número atual de nós, este novo limite será respeitado quando houver pods desprogramados suficientes que exigiriam 2 novos nós adicionais e desencadeariam um evento de escalar automática. Após a ocorrência, o novo limite mínimo de contagem será respeitado para o autoescalador do cluster.
 
 Monitorize o desempenho das suas aplicações e serviços e ajuste as contagens do cluster autoscaler para corresponder ao desempenho exigido.
 
@@ -213,7 +213,7 @@ A AKS gere o autoscaler do cluster em seu nome e executa-o no plano de controlo 
 
 Para configurar os registos a serem empurrados do autoscaler do cluster para o Log Analytics, siga estes passos.
 
-1. Estabeleça uma regra para os registos de recursos para empurrar os registos de escalar de cluster para log Analytics. [As instruções são detalhadas aqui](https://docs.microsoft.com/azure/aks/view-master-logs#enable-resource-logs) `cluster-autoscaler` , certifique-se de verificar se a caixa está a selecionar opções para "Registos".
+1. Estabeleça uma regra para os registos de recursos para empurrar os registos de escalar de cluster para log Analytics. [As instruções são detalhadas aqui](https://docs.microsoft.com/azure/aks/view-master-logs#enable-resource-logs), certifique-se de verificar se a caixa está a `cluster-autoscaler` selecionar opções para "Registos".
 1. Clique na secção "Registos" no seu cluster através do portal Azure.
 1. Insera a seguinte consulta de exemplo no Log Analytics:
 
@@ -226,7 +226,7 @@ Deve ver registos semelhantes ao seguinte exemplo, desde que existam registos pa
 
 ![Log Analytics logs](media/autoscaler/autoscaler-logs.png)
 
-O autoscaler cluster também irá escrever o estado `cluster-autoscaler-status`de saúde para um configmap chamado . Para recuperar estes troncos, `kubectl` execute o seguinte comando. Será reportado um estado de saúde para cada piscina de nó configurada com o autoescalador do cluster.
+O autoscaler cluster também irá escrever o estado de saúde para um configmap chamado `cluster-autoscaler-status` . Para recuperar estes troncos, execute o seguinte `kubectl` comando. Será reportado um estado de saúde para cada piscina de nó configurada com o autoescalador do cluster.
 
 ```
 kubectl get configmap -n kube-system cluster-autoscaler-status -o yaml
@@ -250,7 +250,7 @@ az aks nodepool update \
   --max-count 5
 ```
 
-O autoscaler do cluster pode ser desativado com `--disable-cluster-autoscaler` a atualização de [nodepool az aks][az-aks-nodepool-update] e passando o parâmetro.
+O autoscaler do cluster pode ser desativado com a atualização de [nodepool az aks][az-aks-nodepool-update] e passando o `--disable-cluster-autoscaler` parâmetro.
 
 ```azurecli-interactive
 az aks nodepool update \

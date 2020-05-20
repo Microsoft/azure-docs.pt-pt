@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5191f05752c177aa29d121abe9d1aa29fde265a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 23105a78e2ba34cf6a45f749ebfdd6b034ebf0dc
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253484"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680153"
 ---
 # <a name="how-to-investigate-risk"></a>Como: Investigar o risco
 
@@ -26,7 +26,7 @@ Todos os três relatórios permitem o download de eventos em . Formato CSV para 
 
 As organizações podem aproveitar as integrações da Microsoft Graph API para agregar dados com outras fontes a que possam ter acesso como organização.
 
-Os três relatórios encontram-se no **portal** > **Azure Ative Directory** > **Security.**
+Os três relatórios encontram-se no **portal**  >  **Azure Ative Directory**  >  **Security.**
 
 ## <a name="navigating-the-reports"></a>Navegar nos relatórios
 
@@ -74,6 +74,9 @@ Os administradores podem então optar por tomar medidas sobre estes eventos. Os 
 
 - Confirmar compromisso de inscrição
 - Confirmar o cofre de inscrição
+
+> [!NOTE] 
+> A Proteção de Identidade avalia o risco para todos os fluxos de autenticação, seja interativo ou não interativo. No entanto, o relatório de inscrição mostra apenas os sign-ins interativos. Pode ver inscrições arriscadas que ocorreram em inscrições não interativas, mas o inscreveu-se não aparecerá no relatório de inscrições da AD Azure.
 
 ## <a name="risk-detections"></a>Deteções de riscos
 

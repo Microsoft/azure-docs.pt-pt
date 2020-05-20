@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/11/2020
+ms.date: 05/12/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: eab9db77dee5420ddc5baa9f71bde98fc46ca3f6
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 5991c6e073001e565a965a8db3cf32ca76d843f4
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196851"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684416"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Use o Azure para hospedar e executar cenários de carga de trabalho SAP
 
@@ -29,7 +29,7 @@ Quando utilizar o Microsoft Azure, pode executar de forma fiável as suas cargas
 
 Além de hospedar cenários SAP NetWeaver com os diferentes DBMS em Azure, você pode hospedar outros cenários de carga de trabalho SAP, como SAP BI em Azure. 
 
-A singularidade do Azure para o SAP HANA é uma oferta que distingue o Azure. Para permitir o hospedar mais memória e cenários SAP exigentes com recursos CPU que envolvam sAP HANA, o Azure oferece o uso de hardware de metal nu dedicado ao cliente. Utilize esta solução para executar implementações SAP HANA que requerem até 24 TB (escala de 120 TB) de memória para S/4HANA ou outra carga de trabalho SAP HANA. 
+A singularidade do Azure para o SAP HANA é uma oferta que distingue o Azure. Para permitir o hospedar mais memória e cenários SAP exigentes com recursos CPU que envolvam sAP HANA, o Azure oferece o uso de hardware de metal nu dedicado ao cliente. Utilize esta solução para executar implementações SAP HANA que requerem até 24 TB (120 TB de escala de memória) para S/4HANA ou outra carga de trabalho SAP HANA. 
 
 Hospedar cenários de carga de trabalho SAP em Azure também pode criar requisitos de integração de identidade e inscrição única. Esta situação pode ocorrer quando utiliza o Azure Ative Directory (Azure AD) para ligar diferentes componentes SAP e software SAP como serviço (SaaS) ou plataforma-as-a-service (PaaS). Uma lista de tais integrações e cenários de inscrição única com entidades Azure AD e SAP é descrita e documentada na secção "Integração de identidade AAD SAP e inscrição única".
 
@@ -48,7 +48,7 @@ Se tiver perguntas específicas, vamos apontá-lo para documentos ou fluxos espe
  
 ## <a name="sap-hana-on-azure-large-instances"></a>SAP HANA no Azure (Instâncias Grandes)
 
-Uma série de documentos leva-o através de SAP HANA em Azure (Grandes Instâncias), ou para curto, HANA Large Instances. Para obter informações sobre as grandes instâncias hana começa com o documento [Visão Geral e arquitetura de SAP HANA on Azure (Grandes Instâncias)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) e passar pela documentação relacionada na secção HANA Large Instance
+Uma série de documentos leva-o através de SAP HANA em Azure (Grandes Instâncias), ou para curto, HANA Large Instances. Para obter informações sobre as grandes instâncias hana, comece com o documento [Visão Geral e arquitetura da SAP HANA on Azure (Grandes Instâncias)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) e consulte a documentação relacionada na secção HANA Large Instance
 
 
 
@@ -104,13 +104,17 @@ Para obter informações sobre a integração entre os serviços Azure Ative Dir
 Para obter informações sobre a integração dos serviços Azure nos componentes SAP, consulte:
 
 - [Utilizar o SAP HANA no Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-sap-hana)
-- [DirectQuery e SAP HANA](https://docs.microsoft.com/power-bi/desktop-directquery-sap-hana)
+- [DirectQuery and SAP HANA](https://docs.microsoft.com/power-bi/desktop-directquery-sap-hana) (DirectQuery e SAP HANA)
 - [Utilizar o conector SAP BW no Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-sap-bw-connector) 
 - [O Azure Data Factory oferece integração de dados do SAP HANA e Business Warehouse](https://azure.microsoft.com/blog/azure-data-factory-offer-sap-hana-and-business-warehouse-data-integration)
 
 
 ## <a name="change-log"></a>Alterar Log
 
+- 05/19/2020: Adicione mensagem importante para não utilizar o grupo de volume de raiz ao utilizar LVM para volumes relacionados com HANA em configurações de [armazenamento de máquinas virtuais SAP HANA Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
+- 05/19/2020: Adicionar um novo SISTEMA suportado para HANA Grande Instância Tipo II em [Sistemas operativos compatíveis para grandes instâncias HANA].https://docs.microsoft.com/
+- azure/virtual-machines/workloads/sap/os-compatibilidade-matrix-hana-large-instância)
+- 05/12/2020: Alteração da [conectividade de ponto final público para VMs utilizando o Azure Standard ILB nos cenários SAP HA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) para atualizar links e adicionar informações para a configuração de firewall de terceiros
 - 05/11/2020: Alteração [da elevada disponibilidade de SAP HANA em VMs Azure em SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability) para definir a adesão dos recursos a 0 para o recurso netcat, uma vez que isso leva a uma falha mais simplificada 
 - 05/05/2020: Alterações no planeamento e implementação de [Máquinas Virtuais Azure para a SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) para expressar que as implementações da Gen2 estão disponíveis para a família Mv1 VM
 - 04/24/2020: Alterações na [escala SAP HANA com nó de standby em VMs Azure com ANF em SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse), em [escala SAP HANA com nó de standby em VMs Azure com ANF em RHE L](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel), Alta disponibilidade para [SAP NetWeaver em VMs Azure em SLES com ANF](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) e [alta disponibilidade para SAP NetWeaver em VMs Azure em RHEL com ANF](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files) para adicionar esclarecimentos de que os endereços IP para volumes ANF são automaticamente atribuídos
@@ -163,13 +167,13 @@ Para obter informações sobre a integração dos serviços Azure nos componente
 - 01/16/2020: Alterações na [elevada disponibilidade para SAP NetWeaver em VMs Azure no guia Multi-SID SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid) para adicionar instruções para sistemas SAP, utilizando a arquitetura enqueue server 2 (ENSA2)
 - 01/10/2020: Alterações na [escala SAP HANA com nó de standby em VMs Azure com Ficheiros Azure NetApp em SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse) e em [escala SAP HANA com nó de standby em VMs Azure com Ficheiros Azure NetApp no RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel) para adicionar instruções sobre como tornar `nfs4_disable_idmapping` as alterações permanentes.
 - 01/10/2020: Alterações na [alta disponibilidade para SAP NetWeaver em VMs Azure em SLES com Ficheiros Azure NetApp para aplicações SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) e em [Máquinas Virtuais Azure alta disponibilidade para SAP NetWeaver em RHEL com Ficheiros Azure NetApp para aplicações SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files) para adicionar instruções como montar volumes Azure NetApp Files NFSv4.
-- 12/23/2019: Lançamento de [alta disponibilidade para SAP NetWeaver em VMs Azure no guia Multi-SID SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid)
-- 12/18/2019: Lançamento da [escala SAP HANA com nó de standby em VMs Azure com Ficheiros Azure NetApp no RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel)
-- 11/21/2019: Alterações na [escala SAP HANA com nó de standby em VMs Azure com Ficheiros Azure NetApp no SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse) para simplificar a configuração para mapeamento de ID NFS e alterar a interface de rede primária recomendada para simplificar o encaminhamento.
-- 11/15/2019: Pequenas alterações na [alta disponibilidade para SAP NetWeaver no SUSE Linux Enterprise Server com Ficheiros Azure NetApp para aplicações SAP](high-availability-guide-suse-netapp-files.md) e [Alta disponibilidade para SAP NetWeaver em Red Hat Enterprise Linux com Ficheiros Azure NetApp para aplicações SAP](high-availability-guide-rhel-netapp-files.md) para clarificar restrições de tamanho de piscina de capacidade e remover declaração de que apenas a versão NFSv3 é suportada.
-- 11/12/2019: Lançamento de [alta disponibilidade para SAP NetWeaver no Windows com Ficheiros Azure NetApp (SMB)](high-availability-guide-windows-netapp-files-smb.md)
-- 11/08/2019: Alterações na [alta disponibilidade do SAP HANA em VMs Azure no SUSE Linux Enterprise Server](sap-hana-high-availability.md), Configurar a replicação do sistema [SAP HANA em máquinas virtuais Azure (VMs)](sap-hana-high-availability-rhel.md), [Máquinas Virtuais Azure alta disponibilidade para SAP NetWeaver no SUSE Linux Enterprise Server para aplicações SAP](high-availability-guide-suse.md), [Máquinas Virtuais Azure alta disponibilidade para SAP NetWeaver em SUSE Linux Server com SUSE Ficheiros NetApp,](high-availability-guide-suse-netapp-files.md) [Máquinas Virtuais Azure alta disponibilidade para SAP NetWeaver no Red Hat Enterprise Linux](high-availability-guide-rhel.md), [Máquinas Virtuais Azure alta disponibilidade para SAP NetWeaver em Red Hat Enterprise Linux com Ficheiros Azure NetApp,](high-availability-guide-rhel-netapp-files.md) [Alta disponibilidade para NFS em VMs Azure no SUSE Linux Enterprise Server,](high-availability-guide-suse-nfs.md) [GlusterFS em VMs Azure em Red Hat Enterprise Linux para SAP NetWeaver para](high-availability-guide-rhel-glusterfs.md) recomendar o carregador de fios Azure  
-- 11/08/2019: Alterações na lista de verificação de [planeamento e implementação](sap-deployment-checklist.md) de carga sap para clarificar recomendação de encriptação  
-- 11/04/2019: Alterações na configuração do [Pacemaker no SUSE Linux Enterprise Server em Azure](high-availability-guide-suse-pacemaker.md) para criar o cluster diretamente com configuração unicast  
+- 23 de dezembro de 2019: Lançamento de [alta disponibilidade para SAP NetWeaver em VMs Azure no guia Multi-SID SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid)
+- 18 de dezembro de 2019: Lançamento da [escala SAP HANA com nó de standby em VMs Azure com Ficheiros Azure NetApp no RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel)
+- 21 de novembro de 2019: Alterações na [escala SAP HANA com nó de standby em VMs Azure com Ficheiros Azure NetApp no SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse) para simplificar a configuração para mapeamento de ID NFS e alterar a interface de rede primária recomendada para simplificar o encaminhamento.
+- 15 de novembro de 2019: Pequenas alterações na [alta disponibilidade para SAP NetWeaver no SUSE Linux Enterprise Server com Ficheiros Azure NetApp para aplicações SAP](high-availability-guide-suse-netapp-files.md) e [Alta disponibilidade para SAP NetWeaver em Red Hat Enterprise Linux com Ficheiros Azure NetApp para aplicações SAP](high-availability-guide-rhel-netapp-files.md) para clarificar restrições de tamanho de piscina de capacidade e remover a declaração de que apenas a versão NFSv3 é suportada.
+- 12 de novembro de 2019: Lançamento de [alta disponibilidade para SAP NetWeaver no Windows com Ficheiros Azure NetApp (SMB)](high-availability-guide-windows-netapp-files-smb.md)
+- 8 de novembro, 2019: Alterações na [alta disponibilidade do SAP HANA em VMs Azure no SUSE Linux Enterprise Server](sap-hana-high-availability.md), Configurar a replicação do sistema [SAP HANA em máquinas virtuais Azure (VMs)](sap-hana-high-availability-rhel.md), [Máquinas Virtuais Azure alta disponibilidade para SAP NetWeaver no SUSE Linux Enterprise Server para aplicações SAP](high-availability-guide-suse.md), [Máquinas Virtuais Azure alta disponibilidade para SAP NetWeaver em SUSE Linux Enterprise Server com Azure NetApp Ficheiros](high-availability-guide-suse-netapp-files.md), [Máquinas Virtuais Azure alta disponibilidade para SAP NetWeaver em Red Hat Enterprise Linux](high-availability-guide-rhel.md), [Máquinas Virtuais Azure alta disponibilidade para SAP NetWeaver em Red Hat Enterprise Linux com Ficheiros Azure NetApp,](high-availability-guide-rhel-netapp-files.md) [Alta disponibilidade para NFS em VMs Azure no SUSE Linux Enterprise Server,](high-availability-guide-suse-nfs.md) [GlusterFS em VMs Azure em Red Hat Enterprise Linux para SAP NetWeaver para](high-availability-guide-rhel-glusterfs.md) recomendar o carregador padrão Azure  
+- 8 de novembro de 2019: Alterações na lista de [verificação de trabalho e implementação](sap-deployment-checklist.md) de carga sap para clarificar recomendação de encriptação  
+- 4 de novembro de 2019: Alterações na configuração do [Pacemaker no SUSE Linux Enterprise Server em Azure](high-availability-guide-suse-pacemaker.md) para criar o cluster diretamente com configuração unicast  
 
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.openlocfilehash: 7c843b45b5a398aaaa1aab66f80961560477cf18
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 794c88556fb69aae11c582afd03f548480469e34
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82128086"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684704"
 ---
 # <a name="collect-telemetry-data-for-search-traffic-analytics"></a>Recolher dados de telemetria para análise de tráfego de pesquisa
 
@@ -48,7 +48,7 @@ Uma vez que tenha um recurso Application Insights, pode seguir [instruções par
 
 Um atalho que funciona para alguns tipos de projetos do Estúdio Visual reflete-se nos seguintes passos. Cria um recurso e regista a sua aplicação em apenas alguns cliques.
 
-1. Para o desenvolvimento do Visual Studio e ASP.NET, abra a sua solução e selecione **Project** > **Add Application Insights Telemetria**.
+1. Para o Visual Studio e ASP.NET desenvolvimento, abra a sua solução e selecione **Project**  >  **Add Application Insights Telemetria**.
 
 1. Clique em **Começar**.
 
@@ -236,4 +236,4 @@ Instrumente a sua aplicação de pesquisa para obter dados poderosos e perspicaz
 
 Pode encontrar mais informações sobre os Insights de [Aplicação](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) e visitar a [página de preços](https://azure.microsoft.com/pricing/details/application-insights/) para saber mais sobre os seus diferentes níveis de serviço.
 
-Saiba mais sobre a criação de relatórios incríveis. Ver [Começar com power bi desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/) para obter detalhes.
+Saiba mais sobre a criação de relatórios incríveis. Ver [Começar com power bi desktop](https://docs.microsoft.com/power-bi/fundamentals/desktop-getting-started) para obter detalhes.

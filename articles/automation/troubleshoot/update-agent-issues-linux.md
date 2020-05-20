@@ -1,6 +1,6 @@
 ---
-title: Problemas de resolução de problemas de problemas com problemas de agente de atualização linux na Azure Automation Update Management
-description: Saiba como resolver problemas com o agente de atualização do Linux Windows utilizando a solução DeGestão de Atualizações.
+title: Problemas de resolução de problemas de problemas com problemas de agente de atualização linux na Azure Automation
+description: Este artigo diz como resolver problemas com o agente de atualização do Linux Windows em Gestão de Atualizações.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: a4082ddfd8c092a6f9223a0894f21bc734b6efb6
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: f1351b29a0102a374b75d832687d66c3b5572c75
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82997021"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680867"
 ---
 # <a name="troubleshoot-linux-update-agent-issues"></a>Problemas problemas com problemas de problemas com problemas de problemas com problemas de agente de atualização linux
 
@@ -22,7 +22,7 @@ Pode haver muitas razões pelas quais a sua máquina não aparece tão pronta (s
 
 * Ready: The Hybrid Runbook Worker está implantado e foi visto pela última vez há menos de uma hora.
 * Desligado: O Trabalhador híbrido do livro de corridas está implantado e foi visto pela última vez há mais de uma hora.
-* Não configurado: O Trabalhador híbrido do runbook não é encontrado ou ainda não terminou o embarque.
+* Não configurado: O Trabalhador híbrido do runbook não é encontrado ou ainda não terminou a implantação.
 
 > [!NOTE]
 > Pode haver um ligeiro atraso entre o que o portal Azure mostra e o estado atual de uma máquina.
@@ -70,7 +70,7 @@ Esta verificação garante que o agente Log Analytics para o Linux está instala
 
 ### <a name="log-analytics-agent-status"></a>Estado do agente Log Analytics
 
-Esta verificação garante que o agente Log Analytics do Linux está a funcionar. Se o agente não estiver a funcionar, pode executar o seguinte comando para tentar reiniciá-lo. Para obter mais informações sobre a resolução de problemas do agente, consulte [linux Hybrid Runbook Worker resolução](hybrid-runbook-worker.md#linux)de problemas .
+Esta verificação garante que o agente Log Analytics do Linux está a funcionar. Se o agente não estiver a funcionar, pode executar o seguinte comando para tentar reiniciá-lo. Para obter mais informações sobre problemas de resolução de problemas com o agente, consulte [os problemas do Linux - Troubleshoot Hybrid Runbook Worker](hybrid-runbook-worker.md#linux).
 
 ```bash
 sudo /opt/microsoft/omsagent/bin/service_control restart
@@ -78,13 +78,13 @@ sudo /opt/microsoft/omsagent/bin/service_control restart
 
 ### <a name="multihoming"></a>Multihoming
 
-Esta verificação determina se o agente está reportando a vários espaços de trabalho. O Multihoming não é suportado pela Update Management.
+Esta verificação determina se o agente está reportando a vários espaços de trabalho. A Atualização de Gestão não suporta multihoming.
 
 ### <a name="hybrid-runbook-worker"></a>Função de Trabalho de Runbook Híbrida
 
-Esta verificação verifica se o agente Log Analytics para linux tem o pacote Hybrid Runbook Worker. Este pacote é necessário para que a Atualização funcione. Para saber mais, veja [que o agente de Log Analytics para o Linux não está a funcionar.](hybrid-runbook-worker.md#oms-agent-not-running)
+Esta verificação verifica se o agente Log Analytics para linux tem o pacote Hybrid Runbook Worker. Este pacote é necessário para que a Atualização funcione. Para saber mais, consulte o [agente log Analytics para o Linux não está a funcionar.](hybrid-runbook-worker.md#oms-agent-not-running)
 
-Update Management descarrega pacotes Híbridos Runbook Worker a partir do ponto final de operações. Portanto, se o Trabalhador do Livro híbrido não estiver em execução e o ponto final das [operações](#operations-endpoint) falhar, a atualização pode falhar.
+Update Management descarrega pacotes Híbridos Runbook Worker a partir do ponto final de operações. Portanto, se o Trabalhador do Livro de Execução Híbrido não estiver em execução e a verificação final de [operações](#operations-endpoint) falhar, a atualização pode falhar.
 
 ### <a name="hybrid-runbook-worker-status"></a>Estatuto de Trabalhador de Runbook Híbrido
 
@@ -184,4 +184,4 @@ Passed: TCP test for {ods.systemcenteradvisor.com} (port 443) succeeded
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para resolver problemas adicionais com os seus Trabalhadores híbridos, consulte [troubleshoot Hybrid Runbook Workers](hybrid-runbook-worker.md).
+[Problemas problemas híbridos do trabalhador](hybrid-runbook-worker.md)do livro de corridas.

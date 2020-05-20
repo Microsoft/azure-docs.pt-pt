@@ -14,14 +14,14 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: d9c1cff53d5d0f0385d3d61938c7fb6309efb7b1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 60c07fbf0f68897c0936cab13ebbe1505bc84079
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80985393"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682576"
 ---
-# <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Registe uma máquina virtual SQL Server em Azure com o fornecedor de recursos SQL VM
+# <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Registar uma máquina virtual do SQL Server no Azure com o fornecedor de recursos da VM do SQL
 
 Este artigo descreve como registar a sua máquina virtual SQL Server (VM) em Azure com o fornecedor de recursos SQL VM. Registar-se com o fornecedor de recursos cria o _recurso_ **de máquina virtual SQL** dentro da sua subscrição, que é um recurso separado do recurso virtual da máquina. O desregistar o seu VM do Servidor SQL do fornecedor de recursos removerá o _recurso_ da **máquina virtual SQL,** mas não deixará cair a máquina virtual real. 
 
@@ -51,11 +51,6 @@ A implementação de uma imagem Do SQL Server VM Azure Marketplace através do p
    ---
 
 Para utilizar o fornecedor de recursos SQL VM, tem primeiro de registar a [sua subscrição junto do fornecedor](#register-subscription-with-rp)de recursos, o que dá ao fornecedor de recursos a capacidade de criar recursos dentro dessa subscrição específica.
-
-Para obter mais informações sobre os benefícios da utilização do fornecedor de recursos SQL VM, veja este vídeo [do canal9:](https://channel9.msdn.com/Shows/Data-Exposed/Benefit-from-SQL-VM-Resource-Provider-when-self-installing-SQL-Server-on-Azure?WT.mc_id=dataexposed-c9-niner) 
-
-<iframe src="https://channel9.msdn.com/Shows/Data-Exposed/Benefit-from-SQL-VM-Resource-Provider-when-self-installing-SQL-Server-on-Azure/player" width="960" height="540" allowFullScreen frameBorder="0" title="Beneficie do Fornecedor de Recursos SQL VM ao instalar o Servidor SQL em Azure - Microsoft Channel 9 Video"></iframe>
-
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -128,7 +123,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 
 Se a extensão do [agente SQL Server IaaS](virtual-machines-windows-sql-server-agent-extension.md) não tiver sido instalada no VM, então a recomendação é registar-se com o fornecedor de recursos SQL VM em modo leve. Isto instalará a extensão SQL IaaS em [modo leve](#management-modes) e impedirá o reinício do serviço SQL Server. Em seguida, pode fazer o upgrade para o modo completo a qualquer momento, mas fazê-lo reiniciará o serviço SQL Server, pelo que é aconselhável esperar até uma janela de manutenção programada. 
 
-Forneça o tipo de licença Do Servidor SQL`PAYG`como pagamento como pagamento ()`AHUB`para pagar por utilização,`DR`Azure Hybrid Benefit () para usar a sua própria licença, ou recuperação de desastres ( ) para ativar a [licença de réplica DR gratuita](virtual-machines-windows-sql-high-availability-dr.md#free-dr-replica-in-azure).
+Forneça o tipo de licença Do Servidor SQL como pagamento como pagamento `PAYG` () para pagar por utilização, Azure Hybrid Benefit () para usar a `AHUB` sua própria licença, ou recuperação de desastres ( `DR` ) para ativar a licença de réplica DR [gratuita](virtual-machines-windows-sql-high-availability-dr.md#free-dr-replica-in-azure).
 
 Falhas de cluster As instâncias e as implementações em várias instâncias só podem ser registadas com o fornecedor de recursos SQL VM em modo leve. 
 
@@ -178,7 +173,7 @@ Para registar o vM do seu Servidor SQL diretamente em modo completo (e possivelm
 
 O SQL Server 2008 e 2008 R2 instalados no Windows Server 2008 _(não R2_) podem ser registados com o fornecedor de recursos SQL VM no [modo NoAgent](#management-modes). Esta opção garante a conformidade e permite que o VM do Servidor SQL seja monitorizado no portal Azure com funcionalidade limitada.
 
-Especifique `AHUB`ou, `PAYG`ou `DR` como o `SQL2008-WS2008` **sqlLicenseType,** e `SQL2008R2-WS2008`como o **sqlImageOffer**. 
+Especifique `AHUB` ou, `PAYG` ou como o `DR` **sqlLicenseType,** e `SQL2008-WS2008` como o `SQL2008R2-WS2008` **sqlImageOffer**. 
 
 Para registar o seu SQL Server 2008 ou 2008 R2 na instância Do Windows Server 2008, utilize o seguinte snippet de código Az CLI ou PowerShell: 
 
@@ -295,7 +290,7 @@ Pode verificar se o seu VM de Servidor SQL já foi registado no fornecedor de re
 
 ### <a name="command-line"></a>Linha de comandos
 
-Verifique o estado de registo VM do Servidor SQL atual utilizando a Az CLI ou a PowerShell. `ProvisioningState`mostrará `Succeeded` se o registo foi bem sucedido. 
+Verifique o estado de registo VM do Servidor SQL atual utilizando a Az CLI ou a PowerShell. `ProvisioningState`mostrará se o `Succeeded` registo foi bem sucedido. 
 
 # <a name="az-cli"></a>[AZ CLI](#tab/bash)
 
@@ -325,7 +320,7 @@ O desinscrição do VM SQL com o fornecedor de recursos SQL VM é necessário pa
 
 Para não registar o seu VM do Servidor SQL com o fornecedor de recursos que utiliza o portal Azure, siga estes passos:
 
-1. Assine no [portal Azure.](https://portal.azure.com)
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Navegue para o recurso VM do Servidor SQL. 
   
    ![Recurso de máquinas virtuais SQL](media/virtual-machines-windows-sql-manage-portal/sql-vm-manage.png)
@@ -372,7 +367,7 @@ O fornecedor de recursos SQL VM apenas suporta:
 - VMs de servidor SQL implantados para o público ou nuvem do Governo Azure. Não são apoiados destacamentos para outras nuvens privadas ou governamentais. 
 
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes 
+## <a name="frequently-asked-questions"></a>Perguntas frequentes 
 
 **Devo registar o meu VM de servidor SQL a partir de uma imagem do Servidor SQL no Azure Marketplace?**
 
@@ -426,7 +421,7 @@ Não. A atualização do modo de gestão para o modo completo ou leve não está
 
 **Posso atualizar a extensão SQL Server IaaS do modo leve para o modo completo?**
 
-Sim. A atualização do modo de gestão de peso leve para completo é suportada através da PowerShell ou do portal Azure. Requer reiniciar o serviço SQL Server.
+Yes. A atualização do modo de gestão de peso leve para completo é suportada através da PowerShell ou do portal Azure. Requer reiniciar o serviço SQL Server.
 
 **Posso desvalorizar a extensão SQL Server IaaS do modo completo para o modo de gestão sem agente ou leve?**
 
@@ -444,15 +439,15 @@ Não. Um VM deve ter pelo menos uma instância de SQL Server (Database Engine) p
 
 **Posso registar um VM com o fornecedor de recursos SQL VM se houver várias instâncias do Servidor SQL?**
 
-Sim. O fornecedor de recursos SQL VM registará apenas uma instância do SQL Server (Database Engine). O fornecedor de recursos SQL VM registará a instância padrão do Servidor SQL no caso de múltiplas instâncias. Se não houver uma instância predefinida, apenas é suportado o registo em modo leve. Para atualizar do modo de gestão leve para o modo de gestão total, ou a instância padrão do Servidor SQL deve existir ou o VM deve ter apenas uma chamada instância de Servidor SQL.
+Yes. O fornecedor de recursos SQL VM registará apenas uma instância do SQL Server (Database Engine). O fornecedor de recursos SQL VM registará a instância padrão do Servidor SQL no caso de múltiplas instâncias. Se não houver uma instância predefinida, apenas é suportado o registo em modo leve. Para atualizar do modo de gestão leve para o modo de gestão total, ou a instância padrão do Servidor SQL deve existir ou o VM deve ter apenas uma chamada instância de Servidor SQL.
 
 **Posso registar uma instância de cluster sQL Server failover com o fornecedor de recursos SQL VM?**
 
-Sim. As instâncias de cluster de falha do SQL Server num VM Azure podem ser registadas com o fornecedor de recursos SQL VM em modo leve. No entanto, as instâncias de cluster de failover do SQL Server não podem ser atualizadas para o modo de gestão total.
+Yes. As instâncias de cluster de falha do SQL Server num VM Azure podem ser registadas com o fornecedor de recursos SQL VM em modo leve. No entanto, as instâncias de cluster de failover do SQL Server não podem ser atualizadas para o modo de gestão total.
 
 **Posso registar o meu VM com o fornecedor de recursos SQL VM se um grupo de disponibilidade Always On estiver configurado?**
 
-Sim. Não existem restrições ao registo de uma instância do SQL Server num VM Azure com o fornecedor de recursos SQL VM se estiver a participar numa configuração de grupo sempre em jogo.
+Yes. Não existem restrições ao registo de uma instância do SQL Server num VM Azure com o fornecedor de recursos SQL VM se estiver a participar numa configuração de grupo sempre em jogo.
 
 **Qual é o custo para se registar com o fornecedor de recursos SQL VM, ou com a atualização para o modo de gestão completa?**
 Nenhum. Não existe qualquer taxa associada ao registo com o fornecedor de recursos SQL VM, ou com a utilização de qualquer um dos três modos de gestão. Gerir o seu VM de Servidor SQL com o fornecedor de recursos é completamente gratuito. 
@@ -461,13 +456,13 @@ Nenhum. Não existe qualquer taxa associada ao registo com o fornecedor de recur
 Não há impacto na utilização dos modos de gestão *NoAgent* e *leve.* Existe um impacto mínimo ao utilizar o modo de gestão *total* de dois serviços instalados no SISTEMA. Estes podem ser monitorizados através do gestor de tarefas e vistos na consola incorporada do Windows Services. 
 
 Os dois nomes de serviço são:
-- `SqlIaaSExtensionQuery`(Nome de `Microsoft SQL Server IaaS Query Service`exibição - )
-- `SQLIaaSExtension`(Nome de `Microsoft SQL Server IaaS Agent`exibição - )
+- `SqlIaaSExtensionQuery`(Nome de exibição - `Microsoft SQL Server IaaS Query Service` )
+- `SQLIaaSExtension`(Nome de exibição - `Microsoft SQL Server IaaS Agent` )
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações, veja os artigos seguintes: 
+Para obter mais informações, veja os seguintes artigos: 
 
 * [Visão geral do Servidor SQL num VM do Windows](virtual-machines-windows-sql-server-iaas-overview.md)
 * [FAQ para Servidor SQL em um VM do Windows](virtual-machines-windows-sql-server-iaas-faq.md)

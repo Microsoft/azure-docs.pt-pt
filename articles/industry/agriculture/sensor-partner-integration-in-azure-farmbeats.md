@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 3431576acbb01a0cc3a5f372460b28be05bf7ce7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 37a387b93f1c6b3796b66993405787cf43990bc4
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80437470"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684015"
 ---
 # <a name="sensor-partner-integration"></a>Integração de parceiros de sensores
 
@@ -64,22 +64,27 @@ headers = {"Authorization": "Bearer " + access_token, …} 
 A amostra seguinte O código Python dá o sinal de acesso, que pode ser usado para chamadas subsequentes da API para FarmBeats.
 
 ```python
-import azure 
+import requests
+import json
+import msal
 
-from azure.common.credentials import ServicePrincipalCredentials 
-import adal 
-#FarmBeats API Endpoint 
-ENDPOINT = "https://<yourdatahub>.azurewebsites.net" [Azure website](https://<yourdatahub>.azurewebsites.net)
-CLIENT_ID = "<Your Client ID>"   
-CLIENT_SECRET = "<Your Client Secret>"   
-TENANT_ID = "<Your Tenant ID>" 
-AUTHORITY_HOST = 'https://login.microsoftonline.com' 
-AUTHORITY = AUTHORITY_HOST + '/' + TENANT_ID 
-#Authenticating with the credentials 
-context = adal.AuthenticationContext(AUTHORITY) 
-token_response = context.acquire_token_with_client_credentials(ENDPOINT, CLIENT_ID, CLIENT_SECRET) 
-#Should get an access token here 
-access_token = token_response.get('accessToken') 
+# Your service principal App ID
+CLIENT_ID = "<CLIENT_ID>"
+# Your service principal password
+CLIENT_SECRET = "<CLIENT_SECRET>"
+# Tenant ID for your Azure subscription
+TENANT_ID = "<TENANT_ID>"
+
+AUTHORITY_HOST = 'https://login.microsoftonline.com'
+AUTHORITY = AUTHORITY_HOST + '/' + TENANT_ID
+
+ENDPOINT = "https://<yourfarmbeatswebsitename-api>.azurewebsites.net"
+SCOPE = ENDPOINT + "/.default"
+
+context = msal.ConfidentialClientApplication(CLIENT_ID, authority=AUTHORITY, client_credential=CLIENT_SECRET)
+token_response = context.acquire_token_for_client(SCOPE)
+# We should get an access token here
+access_token = token_response.get('access_token')
 ```
 
 
@@ -90,13 +95,13 @@ Aqui estão os cabeçalhos de pedido mais comuns que precisam de ser especificad
 
 **Cabeçalho** | **Descrição e exemplo**
 --- | ---
-Content-Type | O formato de pedido (Tipo de conteúdo: aplicação/<format>). Para FarmBeats Datahub APIs, o formato é JSON. Tipo de conteúdo: aplicação/json
+Content-Type | O formato de pedido (Tipo de conteúdo: aplicação/ <format> ). Para FarmBeats Datahub APIs, o formato é JSON. Tipo de conteúdo: aplicação/json
 Autorização | Especifica o sinal de acesso necessário para fazer uma chamada aPi. Autorização:> de acesso ao <do portador
 Aceitar | O formato de resposta. Para FarmBeats Datahub APIs, o formato é JSON. Aceitar: aplicação/json
 
 **Pedidos da API**
 
-Para fazer um pedido de API REST, combina o método HTTP (GET, POST ou PUT), o URL ao serviço API, o Uniform Resource Identifier (URI) a um recurso para consultar, submeter dados para, atualizar ou eliminar, e um ou mais cabeçalhos de pedido http. O URL do serviço API é o ponto final da API que fornece. Aqui está uma amostra: https://\<o seu site-website>.azurewebsites.net
+Para fazer um pedido de API REST, combina o método HTTP (GET, POST ou PUT), o URL ao serviço API, o Uniform Resource Identifier (URI) a um recurso para consultar, submeter dados para, atualizar ou eliminar, e um ou mais cabeçalhos de pedido http. O URL do serviço API é o ponto final da API que fornece. Aqui está uma amostra: https:// \< o nome do site datahub>.azurewebsites.net
 
 Opcionalmente, pode incluir parâmetros de consulta nas chamadas GET para filtrar, limitar o tamanho e classificar os dados nas respostas.
 
@@ -132,7 +137,7 @@ O FarmBeats Datahub tem as seguintes APIs que permitem aos parceiros do disposit
   Fabricante  | Nome do fabricante |
   Código de Produto  | Código do produto do dispositivo ou nome ou número do modelo. Por exemplo, EnviroMonitor#6800. |
   Portas  | Nome e tipo de porta, que é digital ou analógico.  |
-  Nome  | Nome para identificar recurso. Por exemplo, nome do modelo ou nome do produto. |
+  Name  | Nome para identificar recurso. Por exemplo, nome do modelo ou nome do produto. |
   Descrição  | Forneça uma descrição significativa do modelo. |
   Propriedades  | Propriedades adicionais do fabricante. |
   **Dispositivo** |  |
@@ -141,7 +146,7 @@ O FarmBeats Datahub tem as seguintes APIs que permitem aos parceiros do disposit
   Intervalo de Reporte |Intervalo de reporte em segundos. |
   Localização    |Latitude do dispositivo (-90 a +90), longitude (-180 a 180) e elevação (em metros). |
   ParentDeviceid | Identificação do dispositivo-mãe ao qual este dispositivo está ligado. Por exemplo, se um nó estiver ligado a um portal, o nó tem o paiDeviceID como porta de entrada. |
-  Nome  | Nome para identificar o recurso. Os parceiros do dispositivo precisam de enviar um nome consistente com o nome do dispositivo no lado do parceiro do dispositivo. Se o nome do dispositivo for definido pelo utilizador no lado do parceiro do dispositivo, o mesmo nome definido pelo utilizador deve ser propagado ao FarmBeats.  |
+  Name  | Nome para identificar o recurso. Os parceiros do dispositivo precisam de enviar um nome consistente com o nome do dispositivo no lado do parceiro do dispositivo. Se o nome do dispositivo for definido pelo utilizador no lado do parceiro do dispositivo, o mesmo nome definido pelo utilizador deve ser propagado ao FarmBeats.  |
   Descrição  | Forneça uma descrição significativa.  |
   Propriedades  |Propriedades adicionais do fabricante.  |
   **Modelo de Sensores** |  |
@@ -155,7 +160,7 @@ O FarmBeats Datahub tem as seguintes APIs que permitem aos parceiros do disposit
   SensorMeasures > AgregaçãoType  | Ou nenhuma, média, máxima, mínima ou StandardDeviation.
   SensorMedidas > profundidade  | A profundidade do sensor em centímetros. Por exemplo, a medição da humidade 10 cm debaixo do solo.
   SensorMeasures > Descrição  | Forneça uma descrição significativa da medição.
-  Nome  | Nome para identificar recurso. Por exemplo, o nome do modelo ou o nome do produto.
+  Name  | Nome para identificar recurso. Por exemplo, o nome do modelo ou o nome do produto.
   Descrição  | Forneça uma descrição significativa do modelo.
   Propriedades  | Propriedades adicionais do fabricante.
   **Sensor**  |  |
@@ -164,7 +169,7 @@ O FarmBeats Datahub tem as seguintes APIs que permitem aos parceiros do disposit
   Localização  | Latitude do sensor (-90 a +90), longitude (-180 a 180) e elevação (em metros).
   Nome > do Porto  |Nome e tipo da porta a que o sensor está ligado no dispositivo. Este deve ser o mesmo nome definido no modelo do dispositivo.
   DeviceId  | Identificação do dispositivo a que o sensor está ligado.
-  Nome  | Nome para identificar o recurso. Por exemplo, o nome do sensor ou nome do produto e o número do modelo ou código do produto.
+  Name  | Nome para identificar o recurso. Por exemplo, o nome do sensor ou nome do produto e o número do modelo ou código do produto.
   Descrição  | Forneça uma descrição significativa.
   Propriedades  | Propriedades adicionais do fabricante.
 

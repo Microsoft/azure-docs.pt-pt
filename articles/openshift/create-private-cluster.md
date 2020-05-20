@@ -8,12 +8,12 @@ author: ms-jasondel
 ms.author: jasondel
 keywords: aro, openshift, az aro, chapéu vermelho, cli
 ms.custom: mvc
-ms.openlocfilehash: cfc28577f089ef22457e9f66ff08106969a5a4b2
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 581587382c3bfd03ed329672e5c6ca065554d1c7
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857385"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681428"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-private-cluster"></a>Crie um cluster privado Azure Red Hat OpenShift 4
 
@@ -30,7 +30,7 @@ Se optar por instalar e utilizar o CLI localmente, este tutorial requer que este
 ### <a name="install-the-az-aro-extension"></a>Instale a extensão 'az aro'
 A `az aro` extensão permite-lhe criar, aceder e eliminar os clusters OpenShift do Chapéu Vermelho Azure diretamente da linha de comando utilizando o Azure CLI.
 
-Executar o seguinte comando `az aro` para instalar a extensão.
+Executar o seguinte comando para instalar a `az aro` extensão.
 
 ```azurecli-interactive
 az extension add -n aro --index https://az.aroapp.io/stable
@@ -44,7 +44,7 @@ az extension update -n aro --index https://az.aroapp.io/stable
 
 ### <a name="register-the-resource-provider"></a>Registar o fornecedor de recursos
 
-Em seguida, precisa `Microsoft.RedHatOpenShift` de registar o fornecedor de recursos na sua subscrição.
+Em seguida, precisa de registar o fornecedor de `Microsoft.RedHatOpenShift` recursos na sua subscrição.
 
 ```azurecli-interactive
 az provider register -n Microsoft.RedHatOpenShift --wait
@@ -75,9 +75,9 @@ Um segredo de pull Red Hat permite ao seu cluster aceder aos registos de content
 
 2. **Clique em Baixar segredo de puxar.**
 
-Mantenha o `pull-secret.txt` ficheiro guardado em algum lugar seguro - será usado em cada criação de cluster.
+Mantenha o ficheiro guardado `pull-secret.txt` em algum lugar seguro - será usado em cada criação de cluster.
 
-Ao executar `az aro create` o comando, pode fazer `--pull-secret @pull-secret.txt` referência ao seu segredo de puxar usando o parâmetro. Execute `az aro create` a partir do diretório `pull-secret.txt` onde guardou o seu ficheiro. Caso contrário, `@pull-secret.txt` `@<path-to-my-pull-secret-file`substitua-o por .
+Ao executar o comando, pode fazer referência ao `az aro create` seu segredo de puxar usando o `--pull-secret @pull-secret.txt` parâmetro. Execute `az aro create` a partir do diretório onde guardou o seu `pull-secret.txt` ficheiro. Caso contrário, `@pull-secret.txt` substitua-o por `@<path-to-my-pull-secret-file` .
 
 Se estiver a copiar o seu segredo de puxar ou a referenciar noutros scripts, o seu segredo de puxar deve ser formatado como uma corda JSON válida.
 
@@ -194,21 +194,23 @@ az aro create \
   --name $CLUSTER \
   --vnet aro-vnet \
   --master-subnet master-subnet \
-  --worker-subnet worker-subnet
+  --worker-subnet worker-subnet \
+  --apiserver-visibility Private \
+  --ingress-visibility Private
   # --domain foo.example.com # [OPTIONAL] custom domain
   # --pull-secret @pull-secret.txt # [OPTIONAL]
 ```
 
-Depois de `az aro create` executar o comando, normalmente leva cerca de 35 minutos para criar um cluster.
+Depois de executar o `az aro create` comando, normalmente leva cerca de 35 minutos para criar um cluster.
 
 >[!IMPORTANT]
-> Se optar por especificar um domínio personalizado, por **exemplo, foo.example.com,** a `https://console-openshift-console.apps.foo.example.com`consola OpenShift estará disponível num URL como, em vez do domínio `https://console-openshift-console.apps.<random>.<location>.aroapp.io`incorporado.
+> Se optar por especificar um domínio personalizado, por **exemplo, foo.example.com,** a consola OpenShift estará disponível num URL `https://console-openshift-console.apps.foo.example.com` como, em vez do domínio `https://console-openshift-console.apps.<random>.<location>.aroapp.io` incorporado.
 >
-> Por padrão, a OpenShift utiliza certificados auto-assinados para todas as rotas criadas em `*.apps.<random>.<location>.aroapp.io`.  Se escolher DNS personalizados, depois de ligar ao cluster, terá de seguir a documentação OpenShift para [configurar um CA personalizado para o seu controlador](https://docs.openshift.com/container-platform/4.3/authentication/certificates/replacing-default-ingress-certificate.html) de ingresso e CA personalizado para o seu servidor [API](https://docs.openshift.com/container-platform/4.3/authentication/certificates/api-server.html).
+> Por padrão, a OpenShift utiliza certificados auto-assinados para todas as rotas criadas em `*.apps.<random>.<location>.aroapp.io` .  Se escolher DNS personalizados, depois de ligar ao cluster, terá de seguir a documentação OpenShift para [configurar um CA personalizado para o seu controlador](https://docs.openshift.com/container-platform/4.3/authentication/certificates/replacing-default-ingress-certificate.html) de ingresso e CA personalizado para o seu servidor [API](https://docs.openshift.com/container-platform/4.3/authentication/certificates/api-server.html).
 
 ## <a name="connect-to-the-private-cluster"></a>Ligue-se ao cluster privado
 
-Pode iniciar sessão no `kubeadmin` cluster utilizando o utilizador.  Executar o seguinte comando para `kubeadmin` encontrar a palavra-passe para o utilizador.
+Pode iniciar sessão no cluster utilizando o `kubeadmin` utilizador.  Executar o seguinte comando para encontrar a palavra-passe para o `kubeadmin` utilizador.
 
 ```azurecli-interactive
 az aro list-credentials \
@@ -216,7 +218,7 @@ az aro list-credentials \
   --resource-group $RESOURCEGROUP
 ```
 
-A saída de exemplo seguinte `kubeadminPassword`mostra que a palavra-passe estará dentro .
+A saída de exemplo seguinte mostra que a palavra-passe estará dentro `kubeadminPassword` .
 
 ```json
 {
@@ -237,7 +239,7 @@ Você pode encontrar o URL da consola cluster executando o seguinte comando, que
 >[!IMPORTANT]
 > Para se ligar a um cluster privado do Azure Red Hat OpenShift, terá de realizar o seguinte passo de um hospedeiro que esteja na Rede Virtual que criou ou numa Rede Virtual que seja [espreitada](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) com a Rede Virtual para a a ção a que o cluster foi implantado.
 
-Lance o URL da consola num `kubeadmin` browser e faça login utilizando as credenciais.
+Lance o URL da consola num browser e faça login utilizando as `kubeadmin` credenciais.
 
 ![Tela de login OpenShift do chapéu vermelho azure](media/aro4-login.png)
 
@@ -247,7 +249,7 @@ Assim que estiver ligado à Consola Web OpenShift, clique no **?** na parte supe
 
 ![Tela de login OpenShift do chapéu vermelho azure](media/aro4-download-cli.png)
 
-Também pode descarregar o mais recente lançamento do <https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/>CLI apropriado para a sua máquina a partir de .
+Também pode descarregar o mais recente lançamento do CLI apropriado para a sua máquina a partir de <https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/> .
 
 ## <a name="connect-using-the-openshift-cli"></a>Conecte-se utilizando o CLI OpenShift
 
@@ -260,7 +262,7 @@ apiServer=$(az aro show -g $RESOURCEGROUP -n $CLUSTER --query apiserverProfile.u
 >[!IMPORTANT]
 > Para se ligar a um cluster privado do Azure Red Hat OpenShift, terá de realizar o seguinte passo de um hospedeiro que esteja na Rede Virtual que criou ou numa Rede Virtual que seja [espreitada](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) com a Rede Virtual para a a ção a que o cluster foi implantado.
 
-Inicie sessão no servidor API do cluster OpenShift utilizando o seguinte comando. Substitua a ** \<palavra-passe de kubeadmin>** pela palavra-passe que acabou de recuperar.
+Inicie sessão no servidor API do cluster OpenShift utilizando o seguinte comando. Substitua ** \< a palavra-passe de kubeadmin>** pela palavra-passe que acabou de recuperar.
 
 ```azurecli-interactive
 oc login $apiServer -u kubeadmin -p <kubeadmin password>
@@ -273,7 +275,7 @@ Neste artigo, foi implantado um cluster OpenShift 4 do Azure Red Hat que executa
 > [!div class="checklist"]
 > * Configurar os pré-requisitos e criar a rede virtual e as subredes necessárias
 > * Implementar um cluster
-> * Ligue-se ao `kubeadmin` cluster utilizando o utilizador
+> * Ligue-se ao cluster utilizando o `kubeadmin` utilizador
 
 Avançar para o próximo artigo para aprender a configurar o cluster para autenticação usando o Diretório Ativo Azure.
 

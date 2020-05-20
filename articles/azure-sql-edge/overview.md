@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 6e5e54f7bf61d933240403ff952c1aa6e162958f
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 5d7274712f3e7f5b16dc5be28d0ad47cfefba9fa
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597360"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685149"
 ---
 # <a name="what-is-azure-sql-edge-preview"></a>O que é Azure SQL Edge (Pré-visualização)?
 
@@ -33,7 +33,7 @@ O Azure SQL Edge está disponível no Azure Marketplace e pode ser implantado co
 
 ## <a name="editions-of-sql-edge"></a>Edições da SQL Edge
 
-O SQL Edge está disponível com três edições ou planos de software diferentes. Estas edições têm conjuntos de funcionalidades idênticos e só diferem em termos dos seus direitos de utilização e da quantidade de cpu/memória que suportam.
+O SQL Edge está disponível com duas edições diferentes ou planos de software. Estas edições têm conjuntos de funcionalidades idênticos e só diferem em termos dos seus direitos de utilização e da quantidade de cpu/memória que suportam.
 
    |**Planear**  |**Descrição**  |
    |---------|---------|

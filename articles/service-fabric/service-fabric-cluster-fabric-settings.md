@@ -3,12 +3,12 @@ title: Alterar definições de cluster de tecido de serviço Azure
 description: Este artigo descreve as definições de tecido e as políticas de atualização de tecido que pode personalizar.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: c2e280af814a3e10ad84c5ba07fc376868fcd851
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 05b0b132f45e1cc7fbb136c46a7596f480941178
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416250"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682987"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalizar as definições do cluster do Service Fabric
 Este artigo descreve as várias definições de tecido para o seu cluster De Tecido de Serviço que pode personalizar. Para clusters hospedados em Azure, pode personalizar as definições através do [portal Azure](https://portal.azure.com) ou utilizando um modelo de Gestor de Recursos Azure. Para mais informações, consulte [Atualizar a configuração de um cluster Azure](service-fabric-cluster-config-upgrade-azure.md). Para clusters autónomos, personaliza as definições atualizando o ficheiro *ClusterConfig.json* e realizando uma atualização de configuração no seu cluster. Para mais informações, consulte [Atualizar a configuração de um cluster autónomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -57,7 +57,7 @@ Segue-se uma lista de definições de Tecido que pode personalizar, organizadapo
 |Tamanho MinReplicaSetSize|int, padrão é 0|Estático|O MinReplicaSetSize para BackupRestoreService |
 |Restrições de Colocação|cadeia, padrão é ""|Estático|    Os Constrangimentos de Colocação para o serviço BackupRestore |
 |Impressão secreta EncriptaçãoCertThumbprint|cadeia, padrão é ""|Dinâmica|Impressão digital do certificado de encriptação Secreta X509 |
-|SecretEncryptionCertX509StoreName|cadeia, padrão é "O meu"|    Dinâmica|    Isto indica o certificado a utilizar para encriptação e desencriptação de creds Nome da loja de certificados X.509 que é usado para encriptar credenciais de loja desencriptação usadas pelo serviço Backup Restore |
+|SecretEncryptionCertX509StoreName|cadeia, valor recomendado é "O meu" (sem padrão) |    Dinâmica|    Isto indica o certificado a utilizar para encriptação e desencriptação de creds Nome da loja de certificados X.509 que é usado para encriptar credenciais de loja desencriptação usadas pelo serviço Backup Restore |
 |Tamanho de replicação de alvos|int, padrão é 0|Estático| O TargetReplicaSetSize para BackupRestoreService |
 
 ## <a name="clustermanager"></a>ClusterManager
@@ -77,15 +77,15 @@ Segue-se uma lista de definições de Tecido que pode personalizar, organizadapo
 |MaxDataMigrationTimeout |Tempo em segundos, padrão é 600 |Dinâmica|Especifique a hora de tempo em segundos. O prazo máximo para as operações de recuperação da migração de dados após a realização de uma atualização do Tecido. |
 |Atraso de Retry |Tempo em segundos, padrão é 5|Dinâmica| Especifique a hora de tempo em segundos. O atraso máximo para as tentativas internas quando se encontram falhas. |
 |MaxOperationTimeout |Tempo em segundos, padrão é MaxValue |Dinâmica| Especifique a hora de tempo em segundos. O prazo máximo global para operações de processamento interno no ClusterManager. |
-|MaxTimeoutRetryBuffer | Tempo em segundos, padrão é 600 |Dinâmica|Especifique a hora de tempo em segundos. O prazo máximo de funcionamento quando se tenta `<Original Time out> + <MaxTimeoutRetryBuffer>`internamente devido a intervalos é de . O tempo adicional é adicionado em incrementos de MinOperationTimeout. |
+|MaxTimeoutRetryBuffer | Tempo em segundos, padrão é 600 |Dinâmica|Especifique a hora de tempo em segundos. O prazo máximo de funcionamento quando se tenta internamente devido a intervalos é `<Original Time out> + <MaxTimeoutRetryBuffer>` de . O tempo adicional é adicionado em incrementos de MinOperationTimeout. |
 |MinOperationTimeout | Tempo em segundos, padrão é 60 |Dinâmica|Especifique a hora de tempo em segundos. O tempo mínimo global para operações de processamento interno no ClusterManager. |
 |Tamanho MinReplicaSetSize |Int, padrão é 3 |Não é permitido|O MinReplicaSetSize para ClusterManager. |
 |Restrições de Colocação | cadeia, padrão é "" |Não é permitido|Os Constrangimentos de Colocação para ClusterManager. |
 |Duração da espera do QuorumLoss |Tempo em segundos, padrão é MaxValue |Não é permitido| Especifique a hora de tempo em segundos. O QuorumLossWaitDuration para ClusterManager. |
-|Duração da espera de reinício de réplica |Tempo em segundos, padrão é \* (60.0 30)|Não é permitido|Especifique a hora de tempo em segundos. A Duração do ReplicaRestartWait para ClusterManager. |
+|Duração da espera de reinício de réplica |Tempo em segundos, padrão é (60.0 \* 30)|Não é permitido|Especifique a hora de tempo em segundos. A Duração do ReplicaRestartWait para ClusterManager. |
 |ReplicaSetCheckTimeoutRollbackOverride |Tempo em segundos, padrão é 1200 |Dinâmica| Especifique a hora de tempo em segundos. Se o ReplicaSetCheckTimeout estiver definido para o valor máximo do DWORD; então é ultrapassado com o valor deste config para efeitos de retrocesso. O valor utilizado para o roll-forward nunca é ultrapassado. |
 |SkipRollbackUpdateDefaultService | Bool, o padrão é falso. |Dinâmica|O CM saltará para reverter os serviços padrão atualizados durante a reversão da atualização da aplicação. |
-|Duração da manutenção de standbyreplica | Tempo em segundos, predefinido é \* (3600.0 2)|Não é permitido|Especifique a hora de tempo em segundos. O StandByReplicaKeepDuration para ClusterManager. |
+|Duração da manutenção de standbyreplica | Tempo em segundos, predefinido é (3600.0 \* 2)|Não é permitido|Especifique a hora de tempo em segundos. O StandByReplicaKeepDuration para ClusterManager. |
 |Tamanho de replicação de alvos |Int, padrão é 7 |Não é permitido|O TargetReplicaSetSize para ClusterManager. |
 |UpgradeHealthCheckInterval |Tempo em segundos, padrão é 60 |Dinâmica|A frequência dos controlos do estado de saúde durante uma atualização de aplicações monitorizada |
 |UpgradeStatusPollInterval |Tempo em segundos, padrão é 60 |Dinâmica|A frequência das sondagens para o estado de atualização da aplicação. Este valor determina a taxa de atualização para qualquer chamada GetApplicationUpgradeProgress |
@@ -214,22 +214,22 @@ Segue-se uma lista de definições de Tecido que pode personalizar, organizadapo
 |ClusterPauseThreshold|int, padrão é 1|Dinâmica|Se o número de nós no sistema ficar abaixo deste valor, então a colocação; equilíbrio de carga; e a falha é interrompida. |
 |Criar tempo limite|TimeSpan, o padrão é comum:TimeSpan:FromSeconds (300)|Dinâmica|Especifique a hora de tempo em segundos. O prazo para a criação de um caso apátrida; após o qual será iniciado um relatório de saúde de alerta |
 |Tamanho esperado do Cluster|int, padrão é 1|Dinâmica|Quando o cluster é inicialmente iniciado; o FM esperará que estes nós se reportem antes de começar a colocar outros serviços; incluindo os serviços do sistema como nomear. Aumentar este valor aumenta o tempo que um cluster leva para iniciar; mas impede que os primeiros nós fiquem sobrecarregados e também os movimentos adicionais que serão necessários à medida que mais nós entram online. Este valor deve geralmente ser definido para uma pequena fração do tamanho inicial do cluster. |
-|Duração dedeactivação esperada|TimeSpan, o padrão é comum:TimeSpan::FromSeconds \* (60.0 30)|Dinâmica|Especifique a hora de tempo em segundos. Esta é a duração esperada para um nó para completar a desativação. |
-|Duração esperada NonodeFabricUpgrade|TimeSpan, o padrão é comum:TimeSpan::FromSeconds \* (60.0 30)|Dinâmica|Especifique a hora de tempo em segundos. Esta é a duração esperada para um nó ser atualizado durante a atualização do Windows Fabric. |
-|Duração de upgrade de replicação esperada|TimeSpan, o padrão é comum:TimeSpan::FromSeconds \* (60.0 30)|Dinâmica|Especifique a hora de tempo em segundos. Esta é a duração esperada para todas as réplicas serem atualizadas num nó durante a atualização da aplicação. |
+|Duração dedeactivação esperada|TimeSpan, o padrão é comum:TimeSpan::FromSeconds (60.0 \* 30)|Dinâmica|Especifique a hora de tempo em segundos. Esta é a duração esperada para um nó para completar a desativação. |
+|Duração esperada NonodeFabricUpgrade|TimeSpan, o padrão é comum:TimeSpan::FromSeconds (60.0 \* 30)|Dinâmica|Especifique a hora de tempo em segundos. Esta é a duração esperada para um nó ser atualizado durante a atualização do Windows Fabric. |
+|Duração de upgrade de replicação esperada|TimeSpan, o padrão é comum:TimeSpan::FromSeconds (60.0 \* 30)|Dinâmica|Especifique a hora de tempo em segundos. Esta é a duração esperada para todas as réplicas serem atualizadas num nó durante a atualização da aplicação. |
 |IssingletonReplicaMoveAlloweddurante a atualização|bool, padrão é VERDADE|Dinâmica|Se for definido como verdadeiro; réplicas com um conjunto de réplica de 1 será permitido mover-se durante a atualização. |
 |Tamanho MinReplicaSetSize|int, padrão é 3|Não é permitido|Este é o tamanho mínimo da réplica definida para o FM. Se o número de réplicas ativas de FM descer abaixo deste valor; o FM rejeitará alterações ao cluster até que pelo menos o número de réplicas min seja recuperado |
 |Restrições de Colocação|cadeia, padrão é ""|Não é permitido|Quaisquer restrições de colocação para as réplicas do gestor de failover |
 |Prazo de colocação|TimeSpan, o padrão é comum:TimeSpan::FromSeconds (600)|Dinâmica|Especifique a hora de tempo em segundos. O prazo para atingir a contagem de réplicas alvo; após o qual será iniciado um relatório de saúde de alerta |
 |Duração da espera do QuorumLoss |Tempo em segundos, padrão é MaxValue |Dinâmica|Especifique a hora de tempo em segundos. Esta é a duração máxima para a qual permitimos que uma partição esteja em estado de perda de quórum. Se a partição ainda estiver em perda de quórum após esta duração; a partição é recuperada da perda de quórum considerando as réplicas para baixo como perdidas. Note que isto pode potencialmente incorrer na perda de dados. |
 |ReconfiguraçãoTimeLimit|TimeSpan, o padrão é comum:TimeSpan:FromSeconds (300)|Dinâmica|Especifique a hora de tempo em segundos. O prazo para a reconfiguração; após o qual será iniciado um relatório de saúde de alerta |
-|Duração da espera de reinício de réplica|TimeSpan, o padrão é comum:TimeSpan::FromSeconds \* (60.0 30)|Não é permitido|Especifique a hora de tempo em segundos. Esta é a ReplicaRestartWaitDuration para o FMService |
+|Duração da espera de reinício de réplica|TimeSpan, o padrão é comum:TimeSpan::FromSeconds (60.0 \* 30)|Não é permitido|Especifique a hora de tempo em segundos. Esta é a ReplicaRestartWaitDuration para o FMService |
 | SeedNodeQuorumAdditionalBufferNodes | int, padrão é 0 | Dinâmica | Tampão de nós de sementes que é necessário para ser para cima (juntamente com quórum de nós de sementes) FM deve permitir que um máximo de nódeos de sementes (totalNodequorum + seedNodeQuorumAdicionalBufferNodes)) deve permitir que um máximo de nódeos de sementes (totalNodequorum + seedNodeumAdicionalBufferNodes)) desça. |
 |Duração da manutenção de standbyreplica|Timepan, predefinição é comum:TimeSpan::FromSeconds (3600.0 \* 24 \* 7)|Não é permitido|Especifique a hora de tempo em segundos. Esta é a duração standByReplicaKeep para o FMService |
 |Tamanho de replicação de alvos|int, padrão é 7|Não é permitido|Este é o número-alvo de réplicas de FM que o Windows Fabric irá manter. Um número mais elevado resulta numa maior fiabilidade dos dados fm; com uma pequena troca de desempenho. |
 |UserMaxStandByReplicaCount |Int, padrão é 1 |Dinâmica|O número máximo padrão de réplicas De StandBy que o sistema mantém para os serviços de utilizador. |
-|Duração da espera de reinício da reinício da recomeçação do utilizador |Tempo em segundos, padrão \* é 60.0 30 |Dinâmica|Especifique a hora de tempo em segundos. Quando uma réplica persistida desce; O Windows Fabric aguarda esta duração para que a réplica volte a subir antes de criar novas réplicas de substituição (que exigiriam uma cópia do estado). |
-|UserstandByReplicaKeepDura |Tempo em segundos, padrão é \* 3600.0 24 \* 7 |Dinâmica|Especifique a hora de tempo em segundos. Quando uma réplica persistida volta de um estado baixo; pode já ter sido substituído. Este temporizador determina quanto tempo o FM manterá a réplica de espera antes de a descartar. |
+|Duração da espera de reinício da reinício da recomeçação do utilizador |Tempo em segundos, padrão é 60.0 \* 30 |Dinâmica|Especifique a hora de tempo em segundos. Quando uma réplica persistida desce; O Windows Fabric aguarda esta duração para que a réplica volte a subir antes de criar novas réplicas de substituição (que exigiriam uma cópia do estado). |
+|UserstandByReplicaKeepDura |Tempo em segundos, padrão é 3600.0 \* 24 \* 7 |Dinâmica|Especifique a hora de tempo em segundos. Quando uma réplica persistida volta de um estado baixo; pode já ter sido substituído. Este temporizador determina quanto tempo o FM manterá a réplica de espera antes de a descartar. |
 
 ## <a name="faultanalysisservice"></a>Serviço de Análise de Falhas
 
@@ -271,7 +271,7 @@ Segue-se uma lista de definições de Tecido que pode personalizar, organizadapo
 |DiskSpaceHealthReportingIntervalwhenclosetooutofdiskSpace |TimeSpan, o padrão é comum:TimeSpan::FromMinutes (5)|Dinâmica|Especifique a hora de tempo em segundos. O intervalo de tempo entre a verificação do espaço do disco para reportar evento de saúde quando o disco está perto do espaço. |
 |DiskSpaceHealthReportingIntervalwhenEnoughdiskSpace |TimeSpan, o padrão é comum:TimeSpan:FromMinutes(15)|Dinâmica|Especifique a hora de tempo em segundos. O intervalo de tempo entre a verificação do espaço do disco para reportar evento de saúde quando há espaço suficiente no disco. |
 |EnableImageStoreHealthReporting |bool, padrão é VERDADE    |Estático|Config para determinar se o serviço de loja de arquivos deve reportar a sua saúde. |
-|FreediskSpaceNotificationSizeInKB|int64, padrão é\*25 1024 |Dinâmica|O tamanho do espaço de disco livre abaixo do qual pode ocorrer um aviso sanitário. O valor mínimo deste config e do FreeDiskSpaceNotificationThresholdPercentage são utilizados para determinar o envio do aviso sanitário. |
+|FreediskSpaceNotificationSizeInKB|int64, padrão é 25 \* 1024 |Dinâmica|O tamanho do espaço de disco livre abaixo do qual pode ocorrer um aviso sanitário. O valor mínimo deste config e do FreeDiskSpaceNotificationThresholdPercentage são utilizados para determinar o envio do aviso sanitário. |
 |FreediskSpaceNotificationThresholdPercentage|duplo, padrão é 0.02 |Dinâmica|A percentagem de espaço de disco livre abaixo do qual pode ocorrer um aviso sanitário. O valor mínimo deste config e do FreeDiskSpaceNotificationInMB config são utilizados para determinar o envio de avisode saúde. |
 |Gerav1CommonNameAccount| bool, padrão é VERDADE|Estático|Especifica se gera uma conta com algoritmo de geração V1 de nome de utilizador. Começando com a versão 6.1 do Tecido de Serviço; uma conta com geração v2 é sempre criada. A conta V1 é necessária para atualizações de/para versões que não suportam a geração V2 (antes de 6.1).|
 |MaxCopyOperationThreads | Uint, padrão é 0 |Dinâmica| O número máximo de ficheiros paralelos que o secundário pode copiar a partir das primárias. '0' == número de núcleos. |
@@ -393,8 +393,8 @@ Segue-se uma lista de definições de Tecido que pode personalizar, organizadapo
 |Tamanho MinReplicaSetSize | Int, padrão é 3 |Estático|O MinReplicaSetSize para ImageStoreService. |
 |Restrições de Colocação | cadeia, padrão é "" |Estático| As Restrições de Colocação para ImageStoreService. |
 |Duração da espera do QuorumLoss | Tempo em segundos, padrão é MaxValue |Estático| Especifique a hora de tempo em segundos. O QuorumLossWaitDura para ImageStoreService. |
-|Duração da espera de reinício de réplica | Tempo em segundos, padrão \* é 60.0 30 |Estático|Especifique a hora de tempo em segundos. A Duração da Reprodução Reinício de Duração do ImageStoreService. |
-|Duração da manutenção de standbyreplica | Tempo em segundos, padrão é \* 3600.0 2 |Estático| Especifique a hora de tempo em segundos. O StandByReplicaKeepDura para ImageStoreService. |
+|Duração da espera de reinício de réplica | Tempo em segundos, padrão é 60.0 \* 30 |Estático|Especifique a hora de tempo em segundos. A Duração da Reprodução Reinício de Duração do ImageStoreService. |
+|Duração da manutenção de standbyreplica | Tempo em segundos, padrão é 3600.0 \* 2 |Estático| Especifique a hora de tempo em segundos. O StandByReplicaKeepDura para ImageStoreService. |
 |Tamanho de replicação de alvos | Int, padrão é 7 |Estático|O TargetReplicaSetSize para ImageStoreService. |
 
 ## <a name="ktllogger"></a>KtlLogger
@@ -456,7 +456,7 @@ Segue-se uma lista de definições de Tecido que pode personalizar, organizadapo
 |MaxClientConnections |Int, padrão é 1000 |Dinâmica|O número máximo permitido de ligações de clientes por gateway. |
 |MaxFileOperationTimeout |Tempo em segundos, padrão é 30 |Dinâmica|Especifique a hora de tempo em segundos. O prazo máximo permitido para o funcionamento do serviço de loja de ficheiros. Os pedidos que especificam um prazo maior serão rejeitados. |
 |Divisórias Vazias MaxIndexed |Int, padrão é 1000 |Dinâmica|O número máximo de divisórias vazias que permanecerão indexadas na cache de notificação para sincronizar os clientes de religação. Quaisquer divisórias vazias acima deste número serão removidas do índice na ordem de versão de procura ascendente. Os clientes reconectarem-se ainda podem sincronizar e receber atualizações de partição vazias perdidas; mas o protocolo de sincronização torna-se mais caro. |
-|Tamanho MaxMessage |Int, o\*padrão é\*4 1024 1024 |Estático|O tamanho máximo da mensagem para a comunicação do nó do cliente ao usar o nome. Alívio de ataque DOS; o valor predefinido é de 4MB. |
+|Tamanho MaxMessage |Int, o padrão é 4 \* 1024 \* 1024 |Estático|O tamanho máximo da mensagem para a comunicação do nó do cliente ao usar o nome. Alívio de ataque DOS; o valor predefinido é de 4MB. |
 |MaxNamingServiceHealthReports | Int, padrão é 10 |Dinâmica|O número máximo de operações lentas que o serviço de loja Naming reporta não ser saudável de uma só vez. Se 0; todas as operações lentas são enviadas. |
 |MaxOperationTimeout |Tempo em segundos, padrão é 600 |Dinâmica|Especifique a hora de tempo em segundos. O tempo máximo permitido para operações de clientes. Os pedidos que especificam um prazo maior serão rejeitados. |
 |MaxOutstandingNotificationsPerClient |Int, padrão é 1000 |Dinâmica|O número máximo de notificações pendentes antes do registo de um cliente é fechado à força pelo portal. |
@@ -616,7 +616,7 @@ Segue-se uma lista de definições de Tecido que pode personalizar, organizadapo
 
 | **Parâmetro** | **Valores Permitidos** | **Política de Upgrade** | **Orientação ou Breve Descrição** |
 | --- | --- | --- | --- |
-|Nome de conta runas |cadeia, padrão é "" |Dinâmica|Indica o nome da conta RunAs. Isto só é necessário para o tipo de conta "DomainUser" ou "ManagedServiceAccount". Os valores válidos sãouser@domain"domain\user" ou " ". |
+|Nome de conta runas |cadeia, padrão é "" |Dinâmica|Indica o nome da conta RunAs. Isto só é necessário para o tipo de conta "DomainUser" ou "ManagedServiceAccount". Os valores válidos são "domain\user" ou " user@domain ". |
 |RunasAccountType|cadeia, padrão é "" |Dinâmica|Indica o tipo de conta RunAs. Isto é necessário para qualquer secção RunAs Valores válidos são "DomainUser/NetworkService/ManagedServiceAccount/LocalSystem".|
 |RunAsPassword|cadeia, padrão é "" |Dinâmica|Indica a senha da conta RunAs. Isto só é necessário para o tipo de conta "DomainUser". |
 
@@ -624,7 +624,7 @@ Segue-se uma lista de definições de Tecido que pode personalizar, organizadapo
 
 | **Parâmetro** | **Valores Permitidos** | **Política de Upgrade** | **Orientação ou Breve Descrição** |
 | --- | --- | --- | --- |
-|Nome de conta runas |cadeia, padrão é "" |Dinâmica|Indica o nome da conta RunAs. Isto só é necessário para o tipo de conta "DomainUser" ou "ManagedServiceAccount". Os valores válidos sãouser@domain"domain\user" ou " ". |
+|Nome de conta runas |cadeia, padrão é "" |Dinâmica|Indica o nome da conta RunAs. Isto só é necessário para o tipo de conta "DomainUser" ou "ManagedServiceAccount". Os valores válidos são "domain\user" ou " user@domain ". |
 |RunasAccountType|cadeia, padrão é "" |Dinâmica|Indica o tipo de conta RunAs. Isto é necessário para qualquer secção RunAs Valores válidos são "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
 |RunAsPassword|cadeia, padrão é "" |Dinâmica|Indica a senha da conta RunAs. Isto só é necessário para o tipo de conta "DomainUser". |
 
@@ -632,7 +632,7 @@ Segue-se uma lista de definições de Tecido que pode personalizar, organizadapo
 
 | **Parâmetro** | **Valores Permitidos** | **Política de Upgrade** | **Orientação ou Breve Descrição** |
 | --- | --- | --- | --- |
-|Nome de conta runas |cadeia, padrão é "" |Dinâmica|Indica o nome da conta RunAs. Isto só é necessário para o tipo de conta "DomainUser" ou "ManagedServiceAccount". Os valores válidos sãouser@domain"domain\user" ou " ". |
+|Nome de conta runas |cadeia, padrão é "" |Dinâmica|Indica o nome da conta RunAs. Isto só é necessário para o tipo de conta "DomainUser" ou "ManagedServiceAccount". Os valores válidos são "domain\user" ou " user@domain ". |
 |RunasAccountType|cadeia, padrão é "" |Dinâmica|Indica o tipo de conta RunAs. Isto é necessário para qualquer secção RunAs Valores válidos são "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
 |RunAsPassword|cadeia, padrão é "" |Dinâmica|Indica a senha da conta RunAs. Isto só é necessário para o tipo de conta "DomainUser". |
 
@@ -640,21 +640,21 @@ Segue-se uma lista de definições de Tecido que pode personalizar, organizadapo
 
 | **Parâmetro** | **Valores Permitidos** | **Política de Upgrade** | **Orientação ou Breve Descrição** |
 | --- | --- | --- | --- |
-|Nome de conta runas |cadeia, padrão é "" |Dinâmica|Indica o nome da conta RunAs. Isto só é necessário para o tipo de conta "DomainUser" ou "ManagedServiceAccount". Os valores válidos sãouser@domain"domain\user" ou " ". |
+|Nome de conta runas |cadeia, padrão é "" |Dinâmica|Indica o nome da conta RunAs. Isto só é necessário para o tipo de conta "DomainUser" ou "ManagedServiceAccount". Os valores válidos são "domain\user" ou " user@domain ". |
 |RunasAccountType|cadeia, padrão é "" |Dinâmica|Indica o tipo de conta RunAs. Isto é necessário para qualquer secção RunAs Valores válidos são "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
 |RunAsPassword|cadeia, padrão é "" |Dinâmica|Indica a senha da conta RunAs. Isto só é necessário para o tipo de conta "DomainUser". |
 
 ## <a name="security"></a>Segurança
 | **Parâmetro** | **Valores Permitidos** |**Política de Upgrade**| **Orientação ou Breve Descrição** |
 | --- | --- | --- | --- |
-|AADCertEndpointFormat|cadeia, padrão é ""|Estático|Formato AAD Cert Endpoint, default Azure Commercial, especificado para ambiente\/não{0}predefinido como o Governo azure "https: /login.microsoftonline.us/ /federaçãometametametametais/2007-06/federaçãometameta.xml" |
+|AADCertEndpointFormat|cadeia, padrão é ""|Estático|Formato AAD Cert Endpoint, default Azure Commercial, especificado para ambiente não predefinido como o Governo azure "https: \/ /login.microsoftonline.us/ {0} /federaçãometametametametama/2007-06/federaçãometameta.xml" |
 |Aplicação AADClient|cadeia, padrão é ""|Estático|Nome de pedido de cliente nativo ou ID representando clientes de tecido |
 |Aplicação AADCluster|cadeia, padrão é ""|Estático|Nome ou ID da aplicação Web API que representa o cluster |
-|AADLoginEndpoint|cadeia, padrão é ""|Estático|AAD Login Endpoint, default Azure Commercial, especificado para ambiente não\/predefinido como Governo Azure "https: /login.microsoftonline.us" |
+|AADLoginEndpoint|cadeia, padrão é ""|Estático|AAD Login Endpoint, default Azure Commercial, especificado para ambiente não predefinido como Governo Azure "https: \/ /login.microsoftonline.us" |
 |AdTenantid|cadeia, padrão é ""|Estático|ID do inquilino (GUID) |
 |AcceptExpiredPinnedClusterCertificate|bool, padrão é FALSO|Dinâmica|A bandeira indicando se aceita certificados de cluster expirados declarados por impressão digital aplica-se apenas aos certificados de cluster; de modo a manter o aglomerado vivo. |
 |AdminClientCertThumbprints|cadeia, padrão é ""|Dinâmica|Impressões digitais de certificados utilizados pelos clientes em função de administrador. É uma lista de nomes separados de vírem. |
-|AADTokenEndpointFormat|cadeia, padrão é ""|Estático|AAD Token Endpoint, default Azure Commercial, especificado para ambiente não\/predefinido, como o Governo Azure "https: /login.microsoftonline.us/{0}" |
+|AADTokenEndpointFormat|cadeia, padrão é ""|Estático|AAD Token Endpoint, default Azure Commercial, especificado para ambiente não predefinido, como o Governo Azure "https: \/ /login.microsoftonline.us/ {0} " |
 |AdminClientClaims|cadeia, padrão é ""|Dinâmica|Todas as reclamações possíveis esperadas de clientes administradores; o mesmo formato que o ClienteClaims; esta lista é adicionada internamente às Reclamações de Clientes; por isso, não há necessidade de adicionar as mesmas entradas ao ClientClaims. |
 |AdminClientIdentities|cadeia, padrão é ""|Dinâmica|Identidades windows de clientes de tecido em função de administrador; usado para autorizar operações de tecido privilegiado. É uma lista separada de vírpostas; cada entrada é um nome de conta de domínio ou nome de grupo. Por conveniência; a conta que executa o tecido.exe é automaticamente atribuída a função de administrador; assim como os administradores de serviço sinuoso. |
 |ApprunasaccountGroupX509Pasta|cadeia, padrão é /casa/sfuser/sfusercerts |Estático|Pasta onde estão localizados certificados AppRunAsAccountGroup X509 e chaves privadas |
@@ -662,7 +662,7 @@ Segue-se uma lista de definições de Tecido que pode personalizar, organizadapo
 |Intervalo de reporte de CertificateHealth|TimeSpan, o padrão é comum:TimeSpan::FromSeconds (3600 * 8)|Estático|Especifique a hora de tempo em segundos. Especificar intervalo para relatórios de saúde de certificado; padrão para 8 horas; definição para 0 relatórios de saúde de certificadode invalides |
 |Impressões ClientCertThumb|cadeia, padrão é ""|Dinâmica|Impressões digitais de certificados utilizados pelos clientes para falar com o cluster; cluster usa esta ligação de entrada autorizada. É uma lista de nomes separados de vírem. |
 |Reclamação de ClientesAuthEnabled|bool, padrão é FALSO|Estático|Indica se a autenticação baseada em reclamações está ativada nos clientes; definir este verdadeiro implicitamente define o ClientRoleEnabled. |
-|Reclamações de Clientes|cadeia, padrão é ""|Dinâmica|Todas as reclamações possíveis esperadas dos clientes para a ligação ao gateway. Esta é uma lista 'OR': ClaimsEntry \| \| ClaimsEntry ClaimsEntryEntry \| \| ... cada ClaimEntry é uma lista "AND": ClaimType=ClaimValue && ClaimType=ClaimValue && ClaimType=ClaimValue = ClaimValue ... |
+|Reclamações de Clientes|cadeia, padrão é ""|Dinâmica|Todas as reclamações possíveis esperadas dos clientes para a ligação ao gateway. Esta é uma lista 'OR': ClaimsEntry \| \| \| \| ClaimsEntry ClaimsEntryEntry ... cada ClaimEntry é uma lista "AND": ClaimType=ClaimValue && ClaimType=ClaimValue && ClaimType=ClaimValue = ClaimValue ... |
 |Identidades do Cliente|cadeia, padrão é ""|Dinâmica|Identidades windows do FabricClient; nomear gateway usa isto para autorizar ligações de entrada. É uma lista separada de vírpostas; cada entrada é um nome de conta de domínio ou nome de grupo. Por conveniência; a conta que executa o tecido.exe é automaticamente permitida; assim são os Utilizadores de Serviços de GrupoFabricAllowedE e ServiceFabricAdministrators. |
 |ClientRoleEnabled|bool, padrão é FALSO|Estático|Indica se a função do cliente está ativada; quando definido para verdade; os clientes são atribuídos a papéis com base nas suas identidades. Para V2; permitir isto significa que o cliente que não está no AdminClientCommonNames/AdminClientIdentities só pode executar operações apenas de leitura. |
 |ClusterCertThumbprints|cadeia, padrão é ""|Dinâmica|Impressões digitais de certificados autorizados a aderir ao cluster; uma lista de nomes separados de vírem. |
@@ -718,47 +718,47 @@ Segue-se uma lista de definições de Tecido que pode personalizar, organizadapo
 |DeleteNetwork|cadeia, padrão é "Administrador" |Dinâmica|Elimina uma rede de contentores |
 |Eliminar Serviço |cadeia, padrão é "Administrador" |Dinâmica|Configuração de segurança para eliminação do serviço. |
 |DeleteVolume|cadeia, padrão é "Administrador"|Dinâmica|Elimina um volume.| 
-|EnumerateProperties |cadeia, padrão é\|\|"Utilizador De Administração" | Dinâmica|Configuração de segurança para enumeração de propriedade de Nomeação. |
-|EnumerarSubnomes |cadeia, padrão é\|\|"Utilizador De Administração" |Dinâmica| Configuração de segurança para nomear a enumeração URI. |
+|EnumerateProperties |cadeia, padrão é "Utilizador De \| \| Administração" | Dinâmica|Configuração de segurança para enumeração de propriedade de Nomeação. |
+|EnumerarSubnomes |cadeia, padrão é "Utilizador De \| \| Administração" |Dinâmica| Configuração de segurança para nomear a enumeração URI. |
 |Conteúdo de Ficheiros |cadeia, padrão é "Administrador" |Dinâmica| Configuração de segurança para transferência de ficheiros de cliente de loja de imagem (externa para cluster). |
 |Download de Ficheiros |cadeia, padrão é "Administrador" |Dinâmica| Configuração de segurança para iniciação de descarregamento de ficheiros de cliente de loja de imagem (externa ao cluster). |
 |Tarefa de FinishInfrastructure |cadeia, padrão é "Administrador" |Dinâmica| Configuração de segurança para tarefas de infraestrutura de acabamento. |
-|GetChaosReport | cadeia, padrão é\|\|"Utilizador De Administração" |Dinâmica| Busca o estado do Caos dentro de um determinado intervalo de tempo. |
-|Configuração getcluster | cadeia, padrão é\|\|"Utilizador De Administração" | Dinâmica|Induz getClusterConfiguration numa divisória. |
-|Estatuto de upgrade de configuração getcluster | cadeia, padrão é\|\|"Utilizador De Administração" |Dinâmica| Induz GetClusterConfigurationUpgradeStatus numa divisória. |
-|GetFabricUpgradeStatus |cadeia, padrão é\|\|"Utilizador De Administração" |Dinâmica| Configuração de segurança para o estado de atualização do cluster de sondagens. |
+|GetChaosReport | cadeia, padrão é "Utilizador De \| \| Administração" |Dinâmica| Busca o estado do Caos dentro de um determinado intervalo de tempo. |
+|Configuração getcluster | cadeia, padrão é "Utilizador De \| \| Administração" | Dinâmica|Induz getClusterConfiguration numa divisória. |
+|Estatuto de upgrade de configuração getcluster | cadeia, padrão é "Utilizador De \| \| Administração" |Dinâmica| Induz GetClusterConfigurationUpgradeStatus numa divisória. |
+|GetFabricUpgradeStatus |cadeia, padrão é "Utilizador De \| \| Administração" |Dinâmica| Configuração de segurança para o estado de atualização do cluster de sondagens. |
 |GetFolderSize |cadeia, padrão é "Administrador" |Dinâmica|Configuração de segurança para o tamanho da pasta fileStoreService |
 |Estatuto de ativação GetNodeDeativação |cadeia, padrão é "Administrador" |Dinâmica| Configuração de segurança para verificar o estado de desativação. |
-|GetNodeTransitionProgress | cadeia, padrão é\|\|"Utilizador De Administração" |Dinâmica| Configuração de segurança para obter progressos num comando de transição de nó. |
-|GetPartitionDataLossProgress | cadeia, padrão é\|\|"Utilizador De Administração" | Dinâmica|Busca o progresso para uma chamada de perda de dados invocada. |
-|GetPartitionQuorumLossProgress | cadeia, padrão é\|\|"Utilizador De Administração" |Dinâmica| Busca o progresso para uma invocação de perda de quórum api chamada. |
-|GetPartitionRestartProgress | cadeia, padrão é\|\|"Utilizador De Administração" |Dinâmica| Busca o progresso para uma chamada de api de partição reata. |
+|GetNodeTransitionProgress | cadeia, padrão é "Utilizador De \| \| Administração" |Dinâmica| Configuração de segurança para obter progressos num comando de transição de nó. |
+|GetPartitionDataLossProgress | cadeia, padrão é "Utilizador De \| \| Administração" | Dinâmica|Busca o progresso para uma chamada de perda de dados invocada. |
+|GetPartitionQuorumLossProgress | cadeia, padrão é "Utilizador De \| \| Administração" |Dinâmica| Busca o progresso para uma invocação de perda de quórum api chamada. |
+|GetPartitionRestartProgress | cadeia, padrão é "Utilizador De \| \| Administração" |Dinâmica| Busca o progresso para uma chamada de api de partição reata. |
 |GetSecrets|cadeia, padrão é "Administrador"|Dinâmica|Obter valores secretos |
-|GetServiceDescription |cadeia, padrão é\|\|"Utilizador De Administração" |Dinâmica| Configuração de segurança para notificações de serviço de sondagem longa e descrições de serviços de leitura. |
+|GetServiceDescription |cadeia, padrão é "Utilizador De \| \| Administração" |Dinâmica| Configuração de segurança para notificações de serviço de sondagem longa e descrições de serviços de leitura. |
 |Localização getstaging |cadeia, padrão é "Administrador" |Dinâmica| Configuração de segurança para a recuperação da localização do cliente da loja de imagens. |
 |GetStoreLocation |cadeia, padrão é "Administrador" |Dinâmica| Configuração de segurança para a recuperação da localização da loja de clientes da loja de imagens. |
 |GetUpgradeOrchestrationServiceState|cadeia, padrão é "Administrador"| Dinâmica|Induz GetUpgradeOrchestrationServiceState numa partição |
 |GetUpgradesSpendApproval |cadeia, padrão é "Administrador" |Dinâmica| Induz GetUpgradesSpendApproval numa partição. |
-|GetUpgradeStatus |cadeia, padrão é\|\|"Utilizador De Administração" |Dinâmica| Configuração de segurança para o estado de atualização da aplicação de sondagens. |
+|GetUpgradeStatus |cadeia, padrão é "Utilizador De \| \| Administração" |Dinâmica| Configuração de segurança para o estado de atualização da aplicação de sondagens. |
 |Lista Interna |cadeia, padrão é "Administrador" | Dinâmica|Configuração de segurança para a operação da lista de ficheiros do cliente da loja de imagens (interna). |
 |InvokeContainerApi|string,padrão é "Administrador"|Dinâmica|Invocar recipiente API |
 |Invocar InfrastructureCommand |cadeia, padrão é "Administrador" |Dinâmica| Configuração de segurança para comandos de gestão de tarefas de infraestrutura. |
-|InvocarInfra-sequery |cadeia, padrão é\|\|"Utilizador De Administração" | Dinâmica|Configuração de segurança para consulta de tarefas de infraestrutura. |
-|Lista |cadeia, padrão é\|\|"Utilizador De Administração" | Dinâmica|Configuração de segurança para a operação da lista de ficheiros do cliente da loja de imagens. |
+|InvocarInfra-sequery |cadeia, padrão é "Utilizador De \| \| Administração" | Dinâmica|Configuração de segurança para consulta de tarefas de infraestrutura. |
+|Lista |cadeia, padrão é "Utilizador De \| \| Administração" | Dinâmica|Configuração de segurança para a operação da lista de ficheiros do cliente da loja de imagens. |
 |MoveNextFabricUpgradeDomain |cadeia, padrão é "Administrador" |Dinâmica| Configuração de segurança para retomar atualizações de cluster com um domínio de upgrade explícito. |
 |Domínio moveNextupgrade |cadeia, padrão é "Administrador" |Dinâmica| Configuração de segurança para retomar atualizações de aplicações com um domínio de upgrade explícito. |
 |MoveReplicaControl |cadeia, padrão é "Administrador" | Dinâmica|Mova a réplica. |
-|Nomeexiste |cadeia, padrão é\|\|"Utilizador De Administração" | Dinâmica|Configuração de segurança para nomear verificações de existência URI. |
+|Nomeexiste |cadeia, padrão é "Utilizador De \| \| Administração" | Dinâmica|Configuração de segurança para nomear verificações de existência URI. |
 |NodeControl |cadeia, padrão é "Administrador" |Dinâmica| Configuração de segurança para iniciar; parar; e reiniciando os nódosos. |
 |NodeStateRemoved |cadeia, padrão é "Administrador" |Dinâmica| Configuração de segurança para reportar estado do nó removido. |
-|Ping |cadeia, padrão é\|\|"Utilizador De Administração" |Dinâmica| Configuração de segurança para pings de cliente. |
+|Ping |cadeia, padrão é "Utilizador De \| \| Administração" |Dinâmica| Configuração de segurança para pings de cliente. |
 |Pré-implantaçãoPackageToNode |cadeia, padrão é "Administrador" |Dinâmica| Api pré-implantação. |
-|PrefixoResolveService |cadeia, padrão é\|\|"Utilizador De Administração" |Dinâmica| Configuração de segurança para resolução de prefixo de serviço baseado em reclamações. |
-|PropertyReadBatch |cadeia, padrão é\|\|"Utilizador De Administração" |Dinâmica| Configuração de segurança para nomear operações de leitura de propriedade. |
+|PrefixoResolveService |cadeia, padrão é "Utilizador De \| \| Administração" |Dinâmica| Configuração de segurança para resolução de prefixo de serviço baseado em reclamações. |
+|PropertyReadBatch |cadeia, padrão é "Utilizador De \| \| Administração" |Dinâmica| Configuração de segurança para nomear operações de leitura de propriedade. |
 |Lote de PropriedadesWrite |cadeia, padrão é "Administrador" |Dinâmica|Configurações de segurança para nomear operações de escrita de propriedade. |
 |Tipo de aplicação de provisões |cadeia, padrão é "Administrador" |Dinâmica| Configuração de segurança para o fornecimento de tipo de aplicação. |
 |ProvisionFabric |cadeia, padrão é "Administrador" |Dinâmica| Configuração de segurança para mSI e/ou cluster manifesto provisionamento. |
-|Consulta |cadeia, padrão é\|\|"Utilizador De Administração" |Dinâmica| Configuração de segurança para consultas. |
+|Consulta |cadeia, padrão é "Utilizador De \| \| Administração" |Dinâmica| Configuração de segurança para consultas. |
 |RecoverPartition |cadeia, padrão é "Administrador" | Dinâmica|Configuração de segurança para recuperar uma partição. |
 |Recuperação De Divisórias |cadeia, padrão é "Administrador" | Dinâmica|Configuração de segurança para recuperar divisórias. |
 |RecoverServicePartitions |cadeia, padrão é "Administrador" |Dinâmica| Configuração de segurança para recuperar divisórias de serviço. |
@@ -768,14 +768,14 @@ Segue-se uma lista de definições de Tecido que pode personalizar, organizadapo
 |Falha de relatório |cadeia, padrão é "Administrador" |Dinâmica| Configuração de segurança para reportar falha. |
 |ReportHealth |cadeia, padrão é "Administrador" |Dinâmica| Configuração de segurança para reportar saúde. |
 |ReportUpgradeHealth |cadeia, padrão é "Administrador" |Dinâmica| Configuração de segurança para retomar as atualizações da aplicação com o progresso atual da atualização. |
-|ResetPartitionLoad |cadeia, padrão é\|\|"Utilizador De Administração" |Dinâmica| Configuração de segurança para redefinir a carga para uma FailoverUnit. |
-|ResolveNameOwner |cadeia, padrão é\|\|"Utilizador De Administração" | Dinâmica|Configuração de segurança para resolver nomear o proprietário do URI. |
-|Resolução De Partição |cadeia, padrão é\|\|"Utilizador De Administração" | Dinâmica|Configuração de segurança para a resolução de serviços do sistema. |
-|Serviço de Resolução |cadeia, padrão é\|\|"Utilizador De Administração" |Dinâmica| Configuração de segurança para resolução de serviços baseado em reclamações. |
-|ResolveSystemService|cadeia, padrão é\|\|"Utilizador De Administração"|Dinâmica| Configuração de segurança para a resolução de serviços do sistema |
+|ResetPartitionLoad |cadeia, padrão é "Utilizador De \| \| Administração" |Dinâmica| Configuração de segurança para redefinir a carga para uma FailoverUnit. |
+|ResolveNameOwner |cadeia, padrão é "Utilizador De \| \| Administração" | Dinâmica|Configuração de segurança para resolver nomear o proprietário do URI. |
+|Resolução De Partição |cadeia, padrão é "Utilizador De \| \| Administração" | Dinâmica|Configuração de segurança para a resolução de serviços do sistema. |
+|Serviço de Resolução |cadeia, padrão é "Utilizador De \| \| Administração" |Dinâmica| Configuração de segurança para resolução de serviços baseado em reclamações. |
+|ResolveSystemService|cadeia, padrão é "Utilizador De \| \| Administração"|Dinâmica| Configuração de segurança para a resolução de serviços do sistema |
 |RollbackApplicationUpgrade |cadeia, padrão é "Administrador" |Dinâmica| Configuração de segurança para reverter atualizações de aplicações. |
 |RollbackFabricUpgrade |cadeia, padrão é "Administrador" |Dinâmica| Configuração de segurança para reverter atualizações de cluster. |
-|Notificações de Serviço |cadeia, padrão é\|\|"Utilizador De Administração" |Dinâmica| Configuração de segurança para notificações de serviço baseadas em eventos. |
+|Notificações de Serviço |cadeia, padrão é "Utilizador De \| \| Administração" |Dinâmica| Configuração de segurança para notificações de serviço baseadas em eventos. |
 |SetUpgradeOrchestrationServiceState|cadeia, padrão é "Administrador"| Dinâmica|Induz SetUpgradeOrchestrationServiceState numa partição |
 |StartApprovedUpgrades |cadeia, padrão é "Administrador" |Dinâmica| Induz startApprovedUpgrades numa divisória. |
 |StartChaos |cadeia, padrão é "Administrador" |Dinâmica| Começa o Caos - se ainda não está iniciado. |
@@ -786,7 +786,7 @@ Segue-se uma lista de definições de Tecido que pode personalizar, organizadapo
 |InícioPartitionQuorumLoss |cadeia, padrão é "Administrador" |Dinâmica| Induz a perda de quórum numa divisória. |
 |Reiniciar partição |cadeia, padrão é "Administrador" |Dinâmica| Simultaneamente reinicia algumas ou todas as réplicas de uma partição. |
 |StopChaos |cadeia, padrão é "Administrador" |Dinâmica| Stops Chaos - se tiver sido iniciado. |
-|ToggleVerboseServicePlacementHealthReporting | cadeia, padrão é\|\|"Utilizador De Administração" |Dinâmica| Configuração de segurança para Toggling Verbose ServicePlacement HealthReporting. |
+|ToggleVerboseServicePlacementHealthReporting | cadeia, padrão é "Utilizador De \| \| Administração" |Dinâmica| Configuração de segurança para Toggling Verbose ServicePlacement HealthReporting. |
 |Não provisionuçãoApplicationType |cadeia, padrão é "Administrador" |Dinâmica| Configuração de segurança para o tipo de aplicação que não está a fornecer. |
 |Não provisionamentoTecido |cadeia, padrão é "Administrador" |Dinâmica| Configuração de segurança para MSI e/ou Cluster Manifest não provisionando. |
 |Controlo de Transportes Pouco fiáveis |cadeia, padrão é "Administrador" |Dinâmica| Transporte pouco fiável para adicionar e remover comportamentos. |
@@ -877,7 +877,7 @@ Segue-se uma lista de definições de Tecido que pode personalizar, organizadapo
 |FrameHeaderErrorCheckingEnabled|bool, padrão é VERDADE|Estático|Definição predefinida para verificação de erros no cabeçalho do quadro no modo não seguro; a definição do componente sobrepõe-se a isto. |
 |Verificação de erros de mensagemAcessível|bool,padrão é FALSO|Estático|Definição predefinida para verificar erros no cabeçalho da mensagem e no corpo no modo não seguro; a definição do componente sobrepõe-se a isto. |
 |Opção Resolver|cadeia, padrão é "não especificado"|Estático|Determina como a FQDN é resolvida.  Os valores válidos são "não especificados/ipv4/ipv6". |
-|Tempo de envio|TimeSpan, o padrão é comum:TimeSpan:FromSeconds (300)|Dinâmica|Especifique a hora de tempo em segundos. Envie tempo para detetar a ligação presa. Os relatórios de falhas da TCP não são fiáveis em alguns ambientes. Isto pode ter de ser ajustado de acordo com a\*largura de\/\*banda de rede disponível e o tamanho dos dados de saída (MaxMessageSize SendQueueSizeLimit). |
+|Tempo de envio|TimeSpan, o padrão é comum:TimeSpan:FromSeconds (300)|Dinâmica|Especifique a hora de tempo em segundos. Envie tempo para detetar a ligação presa. Os relatórios de falhas da TCP não são fiáveis em alguns ambientes. Isto pode ter de ser ajustado de acordo com a largura de banda de rede disponível e o tamanho dos dados de saída \* (MaxMessageSize \/ \* SendQueueSizeLimit). |
 
 ## <a name="upgradeorchestrationservice"></a>UpgradeOrchestrationService
 

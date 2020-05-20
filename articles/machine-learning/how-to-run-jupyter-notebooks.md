@@ -1,5 +1,5 @@
 ---
-title: Como executar cadernos jupyter no seu espaço de trabalho
+title: Como executar Jupyter Notebooks na área de trabalho
 titleSuffix: Azure Machine Learning
 description: Saiba como executar um Caderno Jupyter sem deixar o seu espaço de trabalho no estúdio Azure Machine Learning.
 services: machine-learning
@@ -10,14 +10,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 04/21/2020
-ms.openlocfilehash: 67da2cb31d59838bb3ad2b964530d85d8be9be4c
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 96e37afd8bf7d59eef4a4c0c831f535faa36d34d
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82783659"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681437"
 ---
-# <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Como executar cadernos jupyter no seu espaço de trabalho
+# <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Como executar Jupyter Notebooks na área de trabalho
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Aprenda a executar os seus Cadernos Jupyter diretamente no seu espaço de trabalho no estúdio Azure Machine Learning. Enquanto pode lançar [jupyter](https://jupyter.org/) ou [JupyterLab,](https://jupyterlab.readthedocs.io)também pode editar e executar os seus cadernos sem sair do espaço de trabalho.
@@ -31,7 +31,7 @@ Veja como pode:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure. Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://aka.ms/AMLFree) antes de começar.
+* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://aka.ms/AMLFree) antes de começar.
 * Um espaço de trabalho de Aprendizagem automática. Consulte Criar um espaço de [trabalho de aprendizagem automática Azure](how-to-manage-workspace.md).
 
 ## <a name="create-notebooks"></a><a name="create"></a>Criar cadernos
@@ -62,7 +62,7 @@ O seu espaço de trabalho contém uma pasta **de Amostras** com cadernos projeta
 
 Por exemplo, consulte [Tutorial: Crie a sua primeira experiência ML](tutorial-1st-experiment-sdk-setup.md#azure).
 
-### <a name="a-nameterminal-use-files-from-git-and-version-my-files"></a><a name="terminal">Use ficheiros do Git e verie os meus ficheiros
+### <a name="use-files-from-git-and-version-my-files"></a><a name="terminal"></a>Use ficheiros do Git e verie os meus ficheiros
 
 Pode aceder a todas as operações da Git utilizando uma janela terminal. Todos os ficheiros e pastas Git serão armazenados no seu sistema de ficheiros espaço de trabalho.
 
@@ -123,7 +123,7 @@ Também pode lançar jupyter ou JupyterLab a partir da barra de ferramentas do C
 
 Para executar uma experiência a partir de um Caderno, você primeiro se conecta a uma instância de computação em [execução](concept-compute-instance.md). Se não tiver uma instância de cálculo, use estes passos para criar um: 
 
-1. Selecione **+** na barra de ferramentas do Caderno. 
+1. Selecione na barra de **+** ferramentas do Caderno. 
 2. Nomeie o Compute e escolha um **tamanho de máquina virtual**. 
 3. Selecione **Criar**.
 4. A instância computacional está ligada automaticamente ao Caderno e agora pode executar as suas células.
@@ -161,7 +161,7 @@ O Caderno encontrará automaticamente todos os núcleos de Jupyter instalados na
 
 1. [**Selecione terminal aberto**](#terminal) na barra de ferramentas do Caderno.
 1. Utilize a janela do terminal para criar um novo ambiente.
-1. Ative o ambiente.  Por exemplo, `newenv`após a criação:
+1. Ative o ambiente.  Por exemplo, após a `newenv` criação:
 
     ```shell
     source activate newenv

@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: ryanwi
 ms.reviewer: jeedes
-ms.openlocfilehash: 90f4d22ba782fd71460595f69a52e70be87a3047
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b8d998d40b9920ccbdaf0079c32a0feb84bba87b
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80883258"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680277"
 ---
 # <a name="add-a-multitenant-application-to-the-azure-ad-application-gallery"></a>Adicione uma aplicação multiarrendatária à galeria de aplicações da AD Azure
 
 ## <a name="what-is-the-azure-ad-application-gallery"></a>O que é a galeria de aplicações da AD Azure?
 
-Azure Ative Directory (Azure AD) é um serviço de identidade baseado na nuvem. A [galeria de aplicações Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/) está na loja de aplicações Azure Marketplace, onde todos os conectores de aplicações são publicados para um único fornecimento de inscrição e utilizador. Os clientes que utilizam a Azure AD como fornecedor de identidade encontram os diferentes conectores de aplicações SaaS publicados aqui. Os administradores de TI adicionam conectores da galeria de aplicações e, em seguida, configuram e utilizam os conectores para um único sinal e provisionamento. A Azure AD apoia todos os principais protocolos da federação, incluindo SAML 2.0, OpenID Connect, OAuth e WS-Fed para um único sign-on. 
+Azure Ative Directory (Azure AD) é um serviço de identidade baseado na nuvem. A [galeria de aplicações Azure AD](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory) está na loja de aplicações Azure Marketplace, onde todos os conectores de aplicações são publicados para um único fornecimento de inscrição e utilizador. Os clientes que utilizam a Azure AD como fornecedor de identidade encontram os diferentes conectores de aplicações SaaS publicados aqui. Os administradores de TI adicionam conectores da galeria de aplicações e, em seguida, configuram e utilizam os conectores para um único sinal e provisionamento. A Azure AD apoia todos os principais protocolos da federação, incluindo SAML 2.0, OpenID Connect, OAuth e WS-Fed para um único sign-on. 
 
 ## <a name="if-your-application-supports-saml-or-openidconnect"></a>Se a sua aplicação apoiar sAML ou OpenIDConnect
 Se tem uma aplicação multiarrendatária que deseja listada na galeria de aplicações da AD Azure, deve primeiro certificar-se de que a sua aplicação suporta uma das seguintes tecnologias de inscrição única:

@@ -1,17 +1,17 @@
 ---
 title: Monitor Azure Automation runbooks com alertas métricos
-description: Este artigo acompanha-o através da monitorização de livros de execução da Azure Automation baseados em métricas
+description: Este artigo diz como monitorizar os livros com base em métricas.
 services: automation
 ms.date: 11/01/2018
 ms.topic: article
-ms.openlocfilehash: f288029bb35fe4e3c71db37a1de265edbcd913b1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e0d30e3d18ecb279e26731346bca7bb7c12943cb
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81310547"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685405"
 ---
-# <a name="monitoring-runbooks-with-metric-alerts"></a>Monitorização de livros de execução com alertas métricos
+# <a name="monitor-runbooks-with-metric-alerts"></a>Monitorizar runbooks com alertas de métrica
 
 Neste artigo, aprende-se a criar alertas com base no estado de conclusão dos livros de execução.
 
@@ -31,7 +31,7 @@ No portal Azure, navegue para a sua conta de Automação. Em **monitorização,*
 
 2. A página lógica do **sinal Configurar** é onde define a lógica que desencadeia o alerta. Sob o gráfico histórico é-lhe apresentada duas dimensões, Nome do Livro de **Execução** e **Estado**. As dimensões são propriedades diferentes para uma métrica que pode ser usada para filtrar resultados. Para **'Nome do Livro de Execução',** selecione o livro de execução que pretende alertar ou deixe em branco para alertar em todos os livros de execução. Para **o Estado**, selecione um estado a partir da queda que pretende monitorizar. O nome do livro de corridas e os valores de estatuto que aparecem no abandono são apenas para empregos que correram na última semana.
 
-   Se quiser alertar sobre um estado ou um livro de execução que **\+** não seja mostrado no dropdown, clique no próximo à dimensão. Esta ação abre um diálogo que lhe permite entrar num valor personalizado, que não emitiu para essa dimensão recentemente. Se introduzir um valor que não existe para uma propriedade, o seu alerta não será desencadeado.
+   Se quiser alertar sobre um estado ou um livro de execução que não seja mostrado no dropdown, clique no **\+** próximo à dimensão. Esta ação abre um diálogo que lhe permite entrar num valor personalizado, que não emitiu para essa dimensão recentemente. Se introduzir um valor que não existe para uma propriedade, o seu alerta não será desencadeado.
 
    > [!NOTE]
    > Se não aplicar um nome para a dimensão **RunbookName,** se existirem livros de execução que satisfaçam os critérios de estado, que incluam livros de execução do sistema oculto, receberá um alerta.
@@ -67,7 +67,7 @@ No portal Azure, navegue para a sua conta de Automação. Em **monitorização,*
 > [!NOTE]
 > Ao adicionar um endereço de e-mail a um Grupo de Ação, é enviado um e-mail de notificação indicando que o endereço foi adicionado a um Grupo de Ação.
 
-## <a name="notification"></a>Notificação
+## <a name="receive-notification"></a>Receber notificação
 
 Quando os critérios de alerta são cumpridos, o grupo de ação executa a ação definida. No exemplo deste artigo, é enviado um e-mail. A imagem que se segue é um exemplo de um e-mail que recebe sem aviso:
 

@@ -3,18 +3,20 @@ title: Política para reter manifestos não marcados
 description: Saiba como ativar uma política de retenção no seu registo de contentores Azure, para eliminação automática de manifestos não marcados após um período definido.
 ms.topic: article
 ms.date: 10/02/2019
-ms.openlocfilehash: 912616b6ab95cdff91e70477c7d6de476ccfdfa7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5dda85934bb10cf16fd90381539b892df4f5445c
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74454809"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683452"
 ---
 # <a name="set-a-retention-policy-for-untagged-manifests"></a>Estabeleça uma política de retenção para manifestos não marcados
 
-O Registo de Contentores Azure dá-lhe a opção de definir uma política de *retenção* para manifestos de imagem armazenados que não têm etiquetas associadas *(manifestos não marcados).* Quando uma política de retenção é ativada, os manifestos não marcados no registo são automaticamente eliminados após alguns dias definidos. Esta funcionalidade impede que o registo se encha com artefactos que não são necessários e ajuda-o a economizar nos custos de armazenamento. Se `delete-enabled` o atributo de um manifesto `false`não marcado for definido para , o manifesto não pode ser apagado, e a política de retenção não se aplica.
+O Registo de Contentores Azure dá-lhe a opção de definir uma política de *retenção* para manifestos de imagem armazenados que não têm etiquetas associadas *(manifestos não marcados).* Quando uma política de retenção é ativada, os manifestos não marcados no registo são automaticamente eliminados após alguns dias definidos. Esta funcionalidade impede que o registo se encha com artefactos que não são necessários e ajuda-o a economizar nos custos de armazenamento. Se o `delete-enabled` atributo de um manifesto não marcado for definido `false` para , o manifesto não pode ser apagado, e a política de retenção não se aplica.
 
 Pode utilizar a Casca de Nuvem Azure ou uma instalação local do Azure CLI para executar os exemplos de comando neste artigo. Se quiser usá-lo localmente, a versão 2.0.74 ou posterior é necessária. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli].
+
+Uma política de retenção é uma característica dos registos de contentores **Premium.** Para obter informações sobre os níveis de serviço de registo, consulte os níveis de serviço do Registo de [Contentores de Azure](container-registry-skus.md).
 
 > [!IMPORTANT]
 > Esta funcionalidade encontra-se atualmente em pré-visualização, e [aplicam-se algumas limitações.](#preview-limitations) As pré-visualizações são disponibilizadas a si na condição de concordar com os [termos suplementares de utilização][terms-of-use]. Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
@@ -24,7 +26,6 @@ Pode utilizar a Casca de Nuvem Azure ou uma instalação local do Azure CLI para
 
 ## <a name="preview-limitations"></a>Limitações de pré-visualização
 
-* Apenas um registo de **contentores Premium** pode ser configurado com uma política de retenção. Para obter informações sobre os níveis de serviço de registo, consulte o Registo de [Contentores Azure SKUs](container-registry-skus.md).
 * Só se pode definir uma política de retenção para manifestos não marcados.
 * Atualmente, a política de retenção aplica-se apenas aos manifestos que não são marcados *após* a ativação da política. Os manifestos não marcados existentes no registo não estão sujeitos à apólice. Para eliminar os manifestos existentes não marcados, consulte exemplos em Apagar imagens de contentores no Registo de [Contentores De Azure](container-registry-delete.md).
 
@@ -58,7 +59,7 @@ az acr config retention update --registry myregistry --status enabled --days 0 -
 
 Se ativar a política anterior com um período de retenção de 0 dias, pode verificar rapidamente se os manifestos não marcados são eliminados:
 
-1. Empurre uma `hello-world:latest` imagem de imagem de teste para o seu registo ou substitua outra imagem de teste à sua escolha.
+1. Empurre uma imagem de imagem de teste `hello-world:latest` para o seu registo ou substitua outra imagem de teste à sua escolha.
 1. Desmarque a `hello-world:latest` imagem, por exemplo, usando o comando [az acr repositório untag.][az-acr-repository-untag] O manifesto não marcado permanece no registo.
     ```azurecli
     az acr repository untag --name myregistry --image hello-world:latest
@@ -73,7 +74,7 @@ Para ver a política de retenção definida num registo, executar o comando de r
 az acr config retention show --registry myregistry
 ```
 
-Para desativar uma política de retenção num registo, executar o `--status disabled`comando de atualização de retenção de [acr acr config][az-acr-config-retention-update] e definir:
+Para desativar uma política de retenção num registo, executar o comando de atualização de retenção de [acr acr config][az-acr-config-retention-update] e `--status disabled` definir:
 
 ```azurecli
 az acr config retention update --registry myregistry --status disabled --type UntaggedManifests

@@ -7,13 +7,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/23/2020
-ms.openlocfilehash: 672fecc7487a73909efa5b4247f4889bb47b7b7e
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.date: 05/15/2020
+ms.openlocfilehash: 59c7a34e975a53226b032827feae436202c8fa30
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594326"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683309"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>Transformação de procura no fluxo de dados de mapeamento
 
@@ -41,13 +41,19 @@ A transformação da procura só suporta jogos de igualdade. Para personalizar a
 
 Todas as colunas de ambos os fluxos estão incluídas nos dados de saída. Para deixar cair colunas duplicadas ou indesejadas, adicione uma [transformação selecionada](data-flow-select.md) após a sua transformação de lookup. As colunas também podem ser largadas ou renomeadas numa transformação de pia.
 
+### <a name="non-equi-joins"></a>Não-equi junta-se
+
+Para utilizar um operador condicional, como não é igual (!=) ou superior (>) nas suas condições de procura, altere a queda do operador entre as duas colunas. As juntas não-equi requerem que pelo menos um dos dois streams seja transmitido utilizando a radiodifusão **fixa** no separador **Otimize.**
+
+![Procura ção sem equi](media/data-flow/non-equi-lookup.png "Procura ção sem equi")
+
 ## <a name="analyzing-matched-rows"></a>Analisar linhas partidas
 
-Após a sua transformação `isMatch()` de procuração, a função pode ser usada para ver se a procura corresponde a linhas individuais.
+Após a sua transformação de procuração, a função `isMatch()` pode ser usada para ver se a procura corresponde a linhas individuais.
 
 ![Padrão de procura](media/data-flow/lookup111.png "Padrão de procura")
 
-Um exemplo deste padrão é usar a transformação de divisão condicional para dividir a `isMatch()` função. No exemplo acima, as linhas correspondentes passam pelo fluxo superior ```NoMatch``` e as linhas não correspondentes fluem através do fluxo.
+Um exemplo deste padrão é usar a transformação de divisão condicional para dividir a `isMatch()` função. No exemplo acima, as linhas correspondentes passam pelo fluxo superior e as linhas não correspondentes fluem através do ```NoMatch``` fluxo.
 
 ## <a name="testing-lookup-conditions"></a>Testar condições de procura
 

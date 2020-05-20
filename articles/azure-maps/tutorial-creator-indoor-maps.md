@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 5a7f64ead6d2e19242950002feed1cd1491dbacc
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: a49661ca8776f04d98cc04bbe7a07b8c388f91ee
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83598767"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681688"
 ---
 # <a name="use-creator-to-create-indoor-maps"></a>Use o Criador para criar mapas interiores
 
@@ -57,7 +57,7 @@ O Data Upload API é uma transação de longo prazo que implementa o padrão def
 
 4. No separador **Cabeçalhos,** especifique um valor para a `Content-Type` tecla. O pacote de desenho é uma pasta com fecho, por isso use o `application/octet-stream` valor. No separador **Corpo,** **selecione binário**. Clique em **Select File** e escolha um pacote de desenho.
 
-     ![gestão de dados](./media/tutorial-creator-indoor-maps/enter-content-type.png)
+     ![gestão de dados](./media/tutorial-creator-indoor-maps/enter-content-type-dialog.png)
 
 5. Clique no botão de **enviar** azul e aguarde o pedido para processar. Uma vez que o pedido esteja concluído, vá ao separador **Cabeçalhos** da resposta. Copie o valor da chave **Localização,** que é a `status URL` .
 

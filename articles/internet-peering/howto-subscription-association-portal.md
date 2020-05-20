@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: cee548aff49cd5e4a57eed994b8ade2d157c6313
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ee4fb0708d437c21bea8e77864f210c42b5df019
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75912200"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683970"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-the-portal"></a>Associar o ASN do elemento de rede à subscrição do Azure com o portal
 
@@ -55,22 +55,8 @@ Registe-se para o fornecedor de recursos de peering na sua subscrição seguindo
     > ![Inscrição concluída](./media/rp-register-completed.png)
 
 ### <a name="create-peerasn"></a>Criar peerasn
-Pode criar um novo recurso PeerAsn para associar um Número de Sistema Autónomo (ASN) à subscrição do Azure. Pode associar várias ASNs a uma subscrição criando um **PeerAsn** para cada ASN que precisa de associar.
+Como Fornecedor de Serviços de Internet ou Fornecedor de Intercâmbio de Internet, pode criar um novo recurso PeerAsn para associar um Número de Sistema Autónomo (ASN) a uma subscrição Azure. Pode associar várias ASNs a uma subscrição navegando para a [página PeerASN do Associado](https://go.microsoft.com/fwlink/?linkid=2129592) para cada ASN que precisa de associar.
 
-1. Clique **em Criar um recurso** > **Ver tudo.**
-
-    > [!div class="mx-imgBorder"]
-    > ![Pesquisar PeerAsn](./media/peerasn-seeall.png)
-
-1. Procure *peerAsn* na caixa de pesquisa e bata *Enter* no seu teclado. A partir dos resultados, clique no recurso **PeerAsn.**
-
-    > [!div class="mx-imgBorder"]
-    > ![Lançar PeerAsn](./media/peerasn-launch.png)
-
-1. Assim **que o PeerAsn** for lançado, clique **em Criar**.
-
-    > [!div class="mx-imgBorder"]
-    > ![Criar peerasn](./media/peerasn-create.png)
 
 1. Na página **Associate a Peer ASN,** sob o separador **Basics,** preencha os campos como mostrado abaixo.
 

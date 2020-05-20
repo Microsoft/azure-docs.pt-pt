@@ -13,12 +13,12 @@ ms.author: mimart
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b117309a3ccc9893890d82c2d0b0d2cb0c6e7bca
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 56acddfd534ab640d4ea7ac54db6c11d98e680da
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83197879"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680254"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Arquivo para O que há de novo no Diretório Ativo Azure?
 
@@ -1604,7 +1604,7 @@ Para obter mais informações sobre licenciamento baseado em grupo, consulte [O 
 
 Em novembro de 2018, adicionámos estas 26 novas aplicações com apoio da Federação à galeria de aplicações:
 
-[CoreStack](https://cloud.corestack.io/site/login), [HubSpot](https://docs.microsoft.com/azure/active-directory/saas-apps/HubSpot-tutorial), [GetThere](https://docs.microsoft.com/azure/active-directory/saas-apps/getthere-tutorial), [Gra-Pe,](https://docs.microsoft.com/azure/active-directory/saas-apps/grape-tutorial) [eHour,](https://getehour.com/try-now) [Consent2Go,](https://docs.microsoft.com/azure/active-directory/saas-apps/Consent2Go-tutorial) [Appinux,](https://docs.microsoft.com/azure/active-directory/saas-apps/appinux-tutorial) [DriveDollar,](https://azuremarketplace.microsoft.com/marketplace/apps/savitas.drivedollar-azuread?tab=Overview) [Useall](https://docs.microsoft.com/azure/active-directory/saas-apps/useall-tutorial), [Infinite Campus,](https://docs.microsoft.com/azure/active-directory/saas-apps/infinitecampus-tutorial) [Alaya,](https://alayagood.com/en/demo/) [HeyBuddy,](https://docs.microsoft.com/azure/active-directory/saas-apps/heybuddy-tutorial) [Wrike SAML,](https://docs.microsoft.com/azure/active-directory/saas-apps/wrike-tutorial) [Drift,](https://docs.microsoft.com/azure/active-directory/saas-apps/drift-tutorial) [Zenegy for Business Central 365,](https://accounting.zenegy.com/) [Everbridge Member Portal,](https://docs.microsoft.com/azure/active-directory/saas-apps/everbridge-tutorial) [IDEO](https://profile.ideo.com/users/sign_up), [Ivanti Service Manager (ISM)](https://docs.microsoft.com/azure/active-directory/saas-apps/ivanti-service-manager-tutorial), [Peakon](https://docs.microsoft.com/azure/active-directory/saas-apps/peakon-tutorial), [Allbound SSO,](https://docs.microsoft.com/azure/active-directory/saas-apps/allbound-sso-tutorial) [Plex Apps - Classic Test](https://test.plexonline.com/signon), [Plex Apps – Classic,](https://www.plexonline.com/signon) [Plex Apps - UX Test](https://test.cloud.plex.com/sso), [Plex Apps – UX,](https://cloud.plex.com/sso) [Plex Apps – IAM,](https://accounts.plex.com/) [CRAFTS - Childcare Records, Attendance, sistema de rastreio financeiro &](https://getcrafts.ca/craftsregistration)
+[CoreStack](https://cloud.corestack.io/site/login), [HubSpot](https://docs.microsoft.com/azure/active-directory/saas-apps/HubSpot-tutorial), [GetThere](https://docs.microsoft.com/azure/active-directory/saas-apps/getthere-tutorial), [Gra-Pe,](https://docs.microsoft.com/azure/active-directory/saas-apps/grape-tutorial) [eHour,](https://getehour.com/try-now) [Consent2Go,](https://docs.microsoft.com/azure/active-directory/saas-apps/Consent2Go-tutorial) [Appinux,](https://docs.microsoft.com/azure/active-directory/saas-apps/appinux-tutorial) [DriveDollar,](https://azuremarketplace.microsoft.com/marketplace/apps/savitas.drivedollar-azuread?tab=Overview) [Useall](https://docs.microsoft.com/azure/active-directory/saas-apps/useall-tutorial), [Infinite Campus,](https://docs.microsoft.com/azure/active-directory/saas-apps/infinitecampus-tutorial) [Alaya,](https://alayagood.com) [HeyBuddy,](https://docs.microsoft.com/azure/active-directory/saas-apps/heybuddy-tutorial) [Wrike SAML,](https://docs.microsoft.com/azure/active-directory/saas-apps/wrike-tutorial) [Drift,](https://docs.microsoft.com/azure/active-directory/saas-apps/drift-tutorial) [Zenegy for Business Central 365,](https://accounting.zenegy.com/) [Everbridge Member Portal,](https://docs.microsoft.com/azure/active-directory/saas-apps/everbridge-tutorial) [IDEO](https://profile.ideo.com/users/sign_up), [Ivanti Service Manager (ISM)](https://docs.microsoft.com/azure/active-directory/saas-apps/ivanti-service-manager-tutorial), [Peakon](https://docs.microsoft.com/azure/active-directory/saas-apps/peakon-tutorial), [Allbound SSO,](https://docs.microsoft.com/azure/active-directory/saas-apps/allbound-sso-tutorial) [Plex Apps - Classic Test](https://test.plexonline.com/signon), [Plex Apps – Classic,](https://www.plexonline.com/signon) [Plex Apps - UX Test](https://test.cloud.plex.com/sso), [Plex Apps – UX,](https://cloud.plex.com/sso) [Plex Apps – IAM,](https://accounts.plex.com/) [CRAFTS - Childcare Records, Attendance, sistema de rastreio financeiro &](https://getcrafts.ca/craftsregistration)
 
 Para obter mais informações sobre as aplicações, consulte [a integração da aplicação SaaS com o Azure Ative Directory](https://aka.ms/appstutorial). Para mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte Lista da sua aplicação na galeria de [aplicações do Diretório Ativo Azure](https://aka.ms/azureadapprequest).
 
@@ -2095,7 +2095,7 @@ A notificação de aplicações móveis só pode ser ativada como parte de uma p
 
 ---
 
-## <a name="june-2018"></a>junho de 2018
+## <a name="june-2018"></a>Junho de 2018
 
 ### <a name="change-notice-security-fix-to-the-delegated-authorization-flow-for-apps-using-azure-ad-activity-logs-api"></a>Aviso de alteração: Correção de segurança ao fluxo de autorização delegado para aplicações que utilizem API de Registos de Atividade seletiva do Azure
 
@@ -2239,7 +2239,7 @@ Para mais informações sobre a pré-visualização pública, consulte as funç�
 
 ---
 
-## <a name="may-2018"></a>Maio de 2018
+## <a name="may-2018"></a>May 2018
 
 ### <a name="expressroute-support-changes"></a>Alterações de suporte expressRoute
 

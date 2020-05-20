@@ -1,6 +1,6 @@
 ---
-title: Resolução de problemas no embarque de soluções de gestão da Automação Azure
-description: Aprenda a resolver problemas com a solução Azure Automation sobre erros de embarque.
+title: Problemas de implantação de funcionalidades da Azure Automation
+description: Este artigo diz como resolver problemas e resolver problemas que surgem ao implementar funcionalidades da Automação Azure.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -8,16 +8,16 @@ ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 371094ecba5168fd32a7af9fb81a71eb722efc91
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 27b93e77e7b813e73496d15c4003e999daff10d5
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836534"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681276"
 ---
-# <a name="troubleshoot-solution-onboarding"></a>Solução de resolução de problemas no embarque
+# <a name="troubleshoot-feature-deployment-issues"></a>Problemas de implantação de funcionalidades
 
-Pode receber mensagens de erro quando embarcar na solução de Gestão de Atualização de Automação do Azure ou na solução de Rastreio e Inventário de Alterações. Este artigo descreve os vários erros que podem ocorrer e como resolvê-los.
+Pode receber mensagens de erro quando implementar a funcionalidade de Gestão de Atualizações de Automação do Azure ou a funcionalidade de Rastreio e Inventário de Alterações nos seus VMs. Este artigo descreve os erros que podem ocorrer e como resolvê-los.
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
@@ -39,7 +39,7 @@ Desregistre o nó da Configuração do Estado da Automação Azure e, em seguida
 
 #### <a name="issue"></a>Problema
 
-Quando se liga através de uma solução de procuração que termina o tráfego HTTPS e depois volta a encriptar o tráfego utilizando um novo certificado, o serviço não permite a ligação.
+Quando liga através de um proxy que termina o tráfego HTTPS e depois encripta o tráfego usando um novo certificado, o serviço não permite a ligação.
 
 #### <a name="cause"></a>Causa
 
@@ -51,11 +51,11 @@ Não há atualmente nenhuma soposição para esta questão.
 
 ## <a name="general-errors"></a>Erros gerais
 
-### <a name="scenario-onboarding-fails-with-the-message-the-solution-cannot-be-enabled"></a><a name="missing-write-permissions"></a>Cenário: Embarque falha com a mensagem "A solução não pode ser ativada"
+### <a name="scenario-feature-deployment-fails-with-the-message-the-solution-cannot-be-enabled"></a><a name="missing-write-permissions"></a>Cenário: A implementação da funcionalidade falha com a mensagem "A solução não pode ser ativada"
 
 #### <a name="issue"></a>Problema
 
-Recebe uma das seguintes mensagens quando tenta embarcar num VM para uma solução:
+Recebe uma das seguintes mensagens quando tenta ativar uma funcionalidade num VM:
 
 ```error
 The solution cannot be enabled due to missing permissions for the virtual machine or deployments
@@ -71,13 +71,13 @@ Este erro é causado por permissões incorretas ou em falta no VM ou no espaço 
 
 #### <a name="resolution"></a>Resolução
 
-Certifique-se de que tem [permissões corretas necessárias para as máquinas](../automation-role-based-access-control.md#onboarding-permissions)a bordo e, em seguida, tente embarcar novamente a bordo da solução. Se receber a `The solution cannot be enabled on this VM because the permission to read the workspace is missing`mensagem de erro, `Microsoft.OperationalInsights/workspaces/read` certifique-se de que tem a permissão para poder encontrar se o VM está a bordo de um espaço de trabalho.
+Certifique-se de que tem [permissões de implementação corretas](../automation-role-based-access-control.md#onboarding-permissions)da funcionalidade e, em seguida, tente implementar novamente a funcionalidade. Se receber a mensagem de `The solution cannot be enabled on this VM because the permission to read the workspace is missing` erro, certifique-se de que tem `Microsoft.OperationalInsights/workspaces/read` a permissão para poder encontrar se o VM está ativado para um espaço de trabalho.
 
-### <a name="scenario-onboarding-fails-with-the-message-failed-to-configure-automation-account-for-diagnostic-logging"></a><a name="diagnostic-logging"></a>Cenário: Embarque falha com a mensagem "Falhou em configurar a conta de automatização para o registo de diagnóstico"
+### <a name="scenario-feature-deployment-fails-with-the-message-failed-to-configure-automation-account-for-diagnostic-logging"></a><a name="diagnostic-logging"></a>Cenário: A implementação da funcionalidade falha com a mensagem "Falhou em configurar a conta de automatização para o registo de diagnóstico"
 
 #### <a name="issue"></a>Problema
 
-Recebe a seguinte mensagem quando tenta embarcar num VM para uma solução:
+Recebe a seguinte mensagem quando tenta ativar uma funcionalidade num VM:
 
 ```error
 Failed to configure automation account for diagnostic logging
@@ -89,13 +89,13 @@ Este erro pode ser causado se o nível de preços não corresponder ao modelo de
 
 #### <a name="resolution"></a>Resolução
 
-Crie manualmente o seu espaço de trabalho Log Analytics e repita o processo de embarque para selecionar o espaço de trabalho criado.
+Crie manualmente o seu espaço de trabalho log Analytics e repita o processo de implementação da funcionalidade para selecionar o espaço de trabalho criado.
 
 ### <a name="scenario-computergroupqueryformaterror"></a><a name="computer-group-query-format-error"></a>Cenário: ComputerGroupQueryFormatError
 
 #### <a name="issue"></a>Problema
 
-Este código de erro significa que a consulta de grupo de pesquisa guardada utilizada para direcionar a solução não está formatada corretamente. 
+Este código de erro significa que a consulta de grupo de pesquisa guardada utilizada para direcionar a funcionalidade não está formatada corretamente. 
 
 #### <a name="cause"></a>Causa
 
@@ -103,7 +103,7 @@ Podes ter alterado a consulta, ou o sistema pode tê-la alterado.
 
 #### <a name="resolution"></a>Resolução
 
-Pode eliminar a consulta para a solução e, em seguida, embarcar novamente a bordo da solução, o que recria a consulta. A consulta pode ser encontrada no seu espaço de trabalho sob **pesquisas guardadas**. O nome da consulta é **MicrosoftDefaultComputerGroup**, e a categoria da consulta é o nome da solução associada. Se várias soluções estiverem ativadas, a consulta do **MicrosoftDefaultComputerGroup** mostra várias vezes em **pesquisas Saved**.
+Pode eliminar a consulta para a funcionalidade e, em seguida, ativar novamente a funcionalidade, o que recria a consulta. A consulta pode ser encontrada no seu espaço de trabalho sob **pesquisas guardadas**. O nome da consulta é **MicrosoftDefaultComputerGroup**, e a categoria da consulta é o nome da funcionalidade associada. Se várias funcionalidades estiverem ativadas, a consulta do **MicrosoftDefaultComputerGroup** mostra várias vezes em **pesquisas Saved**.
 
 ### <a name="scenario-policyviolation"></a><a name="policy-violation"></a>Cenário: Violação de políticas
 
@@ -117,10 +117,10 @@ Uma política está a impedir a operação de concluir.
 
 #### <a name="resolution"></a>Resolução
 
-Para implementar com sucesso a solução, deve considerar alterar a política indicada. Como há muitos tipos diferentes de políticas que podem ser definidas, as mudanças necessárias dependem da política que é violada. Por exemplo, se uma política for definida num grupo de recursos que nega a permissão para alterar o conteúdo de alguns recursos contidos, poderá escolher uma destas correções:
+Para implementar com sucesso a funcionalidade, deve considerar alterar a política indicada. Como há muitos tipos diferentes de políticas que podem ser definidas, as mudanças necessárias dependem da política que é violada. Por exemplo, se uma política for definida num grupo de recursos que nega a permissão para alterar o conteúdo de alguns recursos contidos, poderá escolher uma destas correções:
 
 * Remova completamente a política.
-* Tente embarcar na solução para um grupo de recursos diferente.
+* Tente ativar a funcionalidade para um grupo de recursos diferente.
 * Redirecione a política para um recurso específico, por exemplo, uma conta de Automação.
 * Reveja o conjunto de recursos que a política está configurada para negar.
 
@@ -138,26 +138,26 @@ The link cannot be updated or deleted because it is linked to Update Management 
 
 #### <a name="cause"></a>Causa
 
-Este erro ocorre quando ainda tem soluções ativas no seu espaço de trabalho Log Analytics que dependem da sua conta de Automação e do espaço de trabalho log Analytics.
+Este erro ocorre quando ainda tem funcionalidades ativas no seu espaço de trabalho Log Analytics que dependem da sua conta De automação e do espaço de trabalho log Analytics estar ligado.
 
 ### <a name="resolution"></a>Resolução
 
-Retire as seguintes soluções do seu espaço de trabalho se estiver a utilizá-las:
+Remova os recursos para as seguintes funcionalidades do seu espaço de trabalho se estiver a usá-los:
 
 * Gestão de Atualizações
 * Controlo de Alterações e Inventário
 * Iniciar/Parar VMs durante horas de inatividade
 
-Depois de remover as soluções, pode desligar o seu espaço de trabalho. É importante limpar quaisquer artefactos existentes a partir destas soluções a partir do seu espaço de trabalho e da sua conta de Automação:
+Depois de remover os recursos, pode desligar o seu espaço de trabalho. É importante limpar quaisquer artefactos existentes a partir destas funcionalidades a partir do seu espaço de trabalho e da sua conta de Automação:
 
 * Para gestão de atualizações, remova as **Implementações de Atualização (Horários)** da sua conta Deautomação.
-* Para os VMs de arranque/paragem durante o horário de folga, remova quaisquer fechaduras nos componentes da solução na sua conta De automatização em **'Fechaduras de** **Definições** > ' . Para mais informações, consulte [Remova os VMs de arranque/paragem durante a solução fora de horas](../automation-solution-vm-management.md#remove-the-solution).
+* Para iniciar/parar VMs durante o horário de folga, remova quaisquer fechaduras nos componentes da funcionalidade na sua conta De automação em **Settings**  >  **Definições Fechaduras**. Para mais informações, consulte [Remova a funcionalidade](../automation-solution-vm-management.md#remove-the-feature).
 
 ## <a name="log-analytics-for-windows-extension-failures"></a><a name="mma-extension-failures"></a>Log Analytics para falhas de extensão do Windows
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
 
-Uma instalação do agente Log Analytics para extensão do Windows pode falhar por uma variedade de razões. A secção seguinte descreve problemas de embarque que podem causar falhas durante a implementação do agente Log Analytics para a extensão do Windows.
+Uma instalação do agente Log Analytics para extensão do Windows pode falhar por uma variedade de razões. A secção seguinte descreve problemas de implementação de funcionalidades que podem causar falhas durante a implementação do agente Log Analytics para a extensão do Windows.
 
 >[!NOTE]
 >O agente Log Analytics para windows é o nome utilizado atualmente na Automatização Azure para o Agente de Monitorização da Microsoft (MMA).
@@ -245,5 +245,5 @@ Tente instalar o agente Log Analytics para a extensão do Windows quando o VM es
 Se não vir o seu problema aqui ou não conseguir resolver o seu problema, experimente um dos seguintes canais para obter apoio adicional:
 
 * Obtenha respostas de especialistas do Azure através dos [Fóruns Azure.](https://azure.microsoft.com/support/forums/)
-* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport)a conta oficial do Microsoft Azure para melhorar a experiência do cliente. O Azure Support liga a comunidade Azure a respostas, apoios e especialistas.
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) a conta oficial do Microsoft Azure para melhorar a experiência do cliente. O Azure Support liga a comunidade Azure a respostas, apoios e especialistas.
 * Arquiva um incidente de apoio ao Azure. Vá ao site de [suporte azure](https://azure.microsoft.com/support/options/), e selecione **Obter Suporte**.

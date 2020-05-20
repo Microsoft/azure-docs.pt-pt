@@ -12,38 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/13/2017
+ms.date: 05/15/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7def733a80aea1be77825bb9069217f5f43e003
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 396e1d9e6ad474d053ca803218d55396c073845d
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79261284"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680193"
 ---
 # <a name="more-details-about-features-in-preview"></a>Mais detalhes sobre funcionalidades na pré-visualização
 Este tópico descreve como usar funcionalidades atualmente em pré-visualização.
 
-## <a name="group-writeback"></a>Repetição de escrita do grupo
-A opção de reescrita em grupo em funcionalidades opcionais permite-lhe reescrever o **Office 365 Groups** para uma floresta com Exchange instalado. Este é um grupo que é sempre dominado na nuvem. Se tiver exchange on-local, então pode reescrever estes grupos para as instalações para que os utilizadores com uma caixa de correio de troca no local possam enviar e receber e-mails destes grupos.
+## <a name="azure-ad-connect-sync-v2-endpoint-api-public-preview"></a>Azure AD Connect sync V2 endpoint API (pré-visualização pública) 
 
-Mais informações sobre os Grupos 365 do Office e como utilizá-los podem ser consultados [aqui](https://aka.ms/O365g).
-
-Um grupo do Office 365 está representado como um grupo de distribuição no ad DS no local. O seu servidor de intercâmbio no local deve estar na Exchange 2013 atualização cumulativa 8 (lançada em março de 2015) ou Exchange 2016 para reconhecer este novo tipo de grupo.
-
-**Notas durante a pré-visualização**
-
-* O atributo do livro de endereços não está atualmente povoado na pré-visualização. Sem este atributo, o grupo não é visível na GAL. A maneira mais fácil de povoar este atributo `update-recipient`é usar o cmdlet Exchange PowerShell .
-* Apenas as florestas com o esquema de troca são alvos válidos para grupos. Se não foi detetada nenhuma Troca, então a redação em grupo não é possível de ativar.
-* Apenas os destacamentos de organização de intercâmbio uniflorestal são atualmente apoiados. Se você tem mais do que uma organização exchange no local, então você precisa de uma solução GALSync no local para que estes grupos apareçam nas suas outras florestas.
-* A funcionalidade de redação do Grupo não trata de grupos de segurança ou de grupos de distribuição.
-
-> [!NOTE]
-> É necessária uma subscrição do Azure AD Premium para reprodução em grupo.
-> 
->
+Implementámos um novo ponto final (API) para o Azure AD Connect que melhora o desempenho das operações de serviço de sincronização para o Azure Ative Directory. Ao utilizar o novo ponto final do V2, irá experimentar ganhos de desempenho visíveis na exportação e importação para a Azure AD. Este novo ponto final também apoia grupos sincronizados com até 250 mil membros. A utilização deste ponto final também permite-lhe reescrever os grupos unificados O365, sem limite máximo de adesão, ao seu Diretório Ativo no local, quando a reescrita em grupo estiver ativada.   Para mais informações consulte [Azure AD Connect sync V2 endpoint API (pré-visualização pública)](how-to-connect-sync-endpoint-api-v2.md).
 
 ## <a name="user-writeback"></a>Redação do utilizador
 > [!IMPORTANT]

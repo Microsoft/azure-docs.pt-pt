@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot recursos partilhados na Automação Azure
-description: Saiba como resolver problemas e resolver problemas com os recursos partilhados da Azure Automation.
+title: Problemas de sessão de segurança Azure Automation compartilhar problemas de recursos
+description: Este artigo diz como resolver problemas e resolver problemas com os recursos partilhados da Azure Automation.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -8,19 +8,16 @@ ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: c59e8ec67777a9cfebc12508b197e1237a61df4a
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: 5b87a98ed38e3af315789adffc11824f2522b802
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864203"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680879"
 ---
-# <a name="troubleshoot-shared-resources-in-azure-automation"></a>Troubleshoot recursos partilhados na Automação Azure
+# <a name="troubleshoot-shared-resource-issues"></a>Problemas com problemas de recursos partilhados
 
-Este artigo discute soluções para problemas que pode ter quando está a usar [recursos partilhados](../automation-intro.md#shared-resources) na Automação Azure.
-
->[!NOTE]
->Este artigo foi atualizado para utilizar o novo módulo AZ do Azure PowerShell. Ainda pode utilizar o módulo AzureRM no momento presente. Para obter mais informações sobre o novo módulo Az e a compatibilidade do AzureRM, veja [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para instruções de instalação do módulo Az no seu Executor Híbrido, consulte [Instalar o Módulo PowerShell Azure](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para a sua conta Automation, pode atualizar os seus módulos para a versão mais recente, utilizando [como atualizar os módulos Azure PowerShell em Automação Azure](../automation-update-azure-modules.md).
+Este artigo discute questões que podem surgir quando se está a usar [recursos partilhados](../automation-intro.md#shared-resources) na Azure Automation.
 
 ## <a name="modules"></a>Módulos
 
@@ -98,7 +95,7 @@ Para este livro de execução, a definição predefinida para determinar quantos
 Não é comum que todos os módulos AzureRM ou Az sejam necessários na mesma conta de Automação. Só deve importar os módulos específicos de que necessita.
 
 > [!NOTE]
-> Evite importar a `Az.Automation` `AzureRM.Automation` totalidade ou módulo, que importa todos os módulos contidos.
+> Evite importar a totalidade `Az.Automation` ou `AzureRM.Automation` módulo, que importa todos os módulos contidos.
 
 Se o processo de atualização suspender, adicione o `SimultaneousModuleImportJobCount` parâmetro ao script **Update-AzureModules.ps1** e forneça um valor inferior ao padrão de 10. Se implementar esta lógica, tente começar com um valor de 3 ou 5. `SimultaneousModuleImportJobCount`é um parâmetro do livro de execução do sistema **Update-AutomationAzureModulesForAccount** que é utilizado para atualizar os módulos Azure. Se fizer este ajuste, o processo de atualização dura mais tempo, mas tem mais hipóteses de completar. O exemplo que se segue mostra o parâmetro e onde colocá-lo no livro de corridas:
 
@@ -170,6 +167,6 @@ Connect-AzAccount -ServicePrincipal -Tenant $connection.TenantID `
 Se este artigo não resolver o seu problema, experimente um dos seguintes canais para obter apoio adicional:
 
 * Obtenha respostas de especialistas do Azure através dos [Fóruns Azure.](https://azure.microsoft.com/support/forums/)
-* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport). Esta é a conta oficial do Microsoft Azure para ligar a comunidade Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) . Esta é a conta oficial do Microsoft Azure para ligar a comunidade Azure aos recursos certos: respostas, suporte e especialistas.
 * Arquiva um incidente de apoio ao Azure. Vá ao site de [suporte azure](https://azure.microsoft.com/support/options/), e selecione **Obter Suporte**.
 

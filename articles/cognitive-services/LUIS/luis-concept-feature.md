@@ -2,13 +2,13 @@
 title: Características - LUIS
 description: Adicione funcionalidades a um modelo de idioma para fornecer dicas sobre como reconhecer a entrada que pretende rotular ou classificar.
 ms.topic: conceptual
-ms.date: 04/23/2020
-ms.openlocfilehash: 906876e39eb7ff31c2e6b954d1514d8afc50bf3a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/14/2020
+ms.openlocfilehash: e0fd4470c9e1c2a56562b3783010ff1ef87ff466
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591901"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682159"
 ---
 # <a name="machine-learning-ml-features"></a>Características de aprendizagem automática (ML)
 
@@ -38,9 +38,9 @@ Quando precisar da sua app LUIS para poder generalizar e identificar novos itens
 Com uma lista de frases, a LUIS considera o contexto e generaliza para identificar itens semelhantes, mas não uma correspondência exata de texto.
 
 Passos para usar uma lista de frases:
-* Comece com uma entidade aprendida por máquinas
+* Comece com uma entidade de aprendizagem automática
     * Adicionar expressões de exemplo
-    * Etiqueta com uma entidade aprendida por máquinas
+    * Etiqueta com uma entidade de aprendizagem automática
 * Adicione uma lista de frases
     * Adicione palavras com significado semelhante - **não** adicione todas as palavras ou frases possíveis. Em vez disso, adicione algumas palavras ou frases de cada vez, em seguida, retree e publique.
     * Reveja e adicione palavras sugeridas
@@ -54,7 +54,7 @@ Um exemplo de palavras que podem precisar de uma lista de frases para aumentar o
 Se quiser extrair os termos médicos:
 * Primeiro crie declarações de exemplo e rotule termos médicos dentro dessas expressões.
 * Em seguida, crie uma lista de frases com exemplos dos termos dentro do domínio sujeito. Esta lista de frases deve incluir o termo real que rotulou e outros termos que descrevem o mesmo conceito.
-* Adicione a lista de frases à entidade ou subentidade que extrai o conceito utilizado na lista de frases. O cenário mais comum é um componente (criança) de uma entidade aprendida por máquinas. Se a lista de frases deve ser aplicada em todas as intenções ou entidades, marque a lista de frases como uma lista de frases globais. A `enabledForAllModels` bandeira controla este âmbito de modelo na API.
+* Adicione a lista de frases à entidade ou subentidade que extrai o conceito utilizado na lista de frases. O cenário mais comum é um componente (criança) de uma entidade de aprendizagem automática. Se a lista de frases deve ser aplicada em todas as intenções ou entidades, marque a lista de frases como uma lista de frases globais. A `enabledForAllModels` bandeira controla este âmbito de modelo na API.
 
 <a name="how-to-use-phrase-lists"></a>
 <a name="how-to-use-a-phrase-lists"></a>
@@ -88,9 +88,21 @@ Por exemplo, se a entidade de endereços de envio contivesse uma subentidade de 
     * País (subentidade)
     * Código postal (subentidade)
 
+## <a name="nested-subentities-with-features"></a>Subentidades aninhadas com características
+
+Uma subentidade aprendida por máquinaindica que um conceito está presente na entidade-mãe, quer essa mãe seja outra subentidade ou a entidade de topo. O valor da subentidade funciona como uma característica para o seu progenitor.
+
+Uma subentidade pode ter tanto uma lista de frases como uma funcionalidade, bem como um modelo (outra entidade) como recurso.
+
+Quando a subentidade tem uma lista de frases, isto irá impulsionar o vocabulário do conceito, mas não adicionará qualquer informação à resposta da JSON da previsão.
+
+Quando a subentidade tem uma característica de outra entidade, a resposta da JSON inclui os dados extraídos dessa outra entidade.
+
 ## <a name="required-features"></a>Funcionalidades necessárias
 
 Uma característica necessária tem de ser encontrada para que o modelo seja devolvido do ponto final da previsão. Utilize uma funcionalidade necessária quando souber que os seus dados de entrada devem corresponder à funcionalidade.
+
+Se o texto de expressão não corresponder à função necessária, não será extraído.
 
 **Uma função necessária utiliza uma entidade não-automática aprendida:**
 * Entidade de expressão regular

@@ -1,14 +1,14 @@
 ---
 title: Documentação de orientação para pedidos limitados
 description: Aprenda a agrupar, cambalear, paginado e consulta paralelamente para evitar que os pedidos sejam estrangulados pelo Azure Resource Graph.
-ms.date: 12/02/2019
+ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: fbd4bec715b187bcc643fe32b8452b0e062e7713
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dbcd438f1eda4edd30deef41542beeae6d746dc2
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259854"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682056"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Orientação para pedidos acelerados no Gráfico de Recursos Azure
 
@@ -23,17 +23,17 @@ Este artigo abrange quatro áreas e padrões relacionados com a criação de con
 
 ## <a name="understand-throttling-headers"></a>Compreender os cabeçalhos de limitação
 
-O Azure Resource Graph atribui o número de quota para cada utilizador com base numa janela de tempo. Por exemplo, um utilizador pode enviar no máximo 15 consultas dentro de cada janela de 5 segundos sem ser estrangulado. O valor da quota é determinado por muitos fatores e está sujeito a alterações.
+O Azure Resource Graph atribui um número de quota para cada utilizador com base numa janela de tempo. Por exemplo, um utilizador pode enviar no máximo 15 consultas dentro de cada janela de 5 segundos sem ser estrangulado. O valor da quota é determinado por muitos fatores e está sujeito a alterações.
 
 Em todas as respostas de consulta, o Azure Resource Graph adiciona dois cabeçalhos de estrangulamento:
 
 - `x-ms-user-quota-remaining`(int): A restante quota de recursos para o utilizador. Este valor mapeia para consulta conta.
 - `x-ms-user-quota-resets-after`(hh:mm:s): A duração do tempo até que o consumo de quota do utilizador seja reposto.
 
-Para ilustrar como funcionam os cabeçalhos, vamos olhar para uma resposta `x-ms-user-quota-remaining: 10` `x-ms-user-quota-resets-after: 00:00:03`de consulta que tem o cabeçalho e os valores de e .
+Para ilustrar como funcionam os cabeçalhos, vamos olhar para uma resposta de consulta que tem o cabeçalho e os valores de `x-ms-user-quota-remaining: 10` e `x-ms-user-quota-resets-after: 00:00:03` .
 
 - Nos próximos 3 segundos, no máximo, 10 consultas podem ser submetidas sem serem estranguladas.
-- Em 3 segundos, `x-ms-user-quota-remaining` `x-ms-user-quota-resets-after` os valores `15` e `00:00:05` serão reiniciados para e respectivamente.
+- Em 3 segundos, os valores e `x-ms-user-quota-remaining` `x-ms-user-quota-resets-after` serão reiniciados para `15` e `00:00:05` respectivamente.
 
 Para ver um exemplo de utilização dos cabeçalhos para _recuar_ nos pedidos de consulta, consulte a amostra em [Consulta em Paralelo](#query-in-parallel).
 
@@ -228,14 +228,14 @@ Uma vez que o Azure Resource Graph retorna no máximo 1000 entradas numa única 
 
 ## <a name="still-get-throttled"></a>Ainda está sem aceleração?
 
-Se estiver a ser estrangulado depois de exercer as [resourcegraphsupport@microsoft.com](mailto:resourcegraphsupport@microsoft.com)recomendações acima, contacte a equipa em .
+Se estiver a ser estrangulado depois de exercer as recomendações acima, contacte a equipa em [resourcegraphsupport@microsoft.com](mailto:resourcegraphsupport@microsoft.com) .
 
 Forneça estes detalhes:
 
 - O seu caso de utilização específico e as necessidades do motorista de negócios para um limite de estrangulamento mais elevado.
 - Quantos recursos tem acesso? Quantos são devolvidos de uma única consulta?
 - Que tipo de recursos está interessado?
-- Qual é o seu padrão de consulta? X consultas por Y segundos etc.
+- Qual é o seu padrão de consulta? X consultas por Y segundos, e assim por diante.
 
 ## <a name="next-steps"></a>Passos seguintes
 

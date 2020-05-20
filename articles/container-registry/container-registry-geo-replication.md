@@ -3,14 +3,14 @@ title: Georreplicação de um registo
 description: Começar a criar e gerir um registo de contentores Azure geo-replicado, que permite ao registo servir várias regiões com réplicas regionais multi-master.
 author: stevelas
 ms.topic: article
-ms.date: 08/16/2019
+ms.date: 05/11/2020
 ms.author: stevelas
-ms.openlocfilehash: d238de30e458261a11c941c03ac127c732ca8d3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ea5e3dffaafb691a667bad3ef0014389e1604e27
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74456437"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682781"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Geo-replicação no Registo de Contentores de Azure
 
@@ -63,11 +63,11 @@ Utilizando a característica de geo-replicação do Registo de Contentores Azure
 
 Configurar a geo-replicação é tão fácil como clicar em regiões num mapa. Também pode gerir a geo-replicação utilizando ferramentas, incluindo os comandos de [replicação az acr](/cli/azure/acr/replication) no ClI Azure, ou implementar um registo habilitado para a geo-replicação com um modelo de Gestor de [Recursos Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry-geo-replication).
 
-A geo-replicação é apenas uma característica dos [registos Premium.](container-registry-skus.md) Se o seu registo ainda não for Premium, pode mudar de Básico e Standard para Premium no [portal Azure:](https://portal.azure.com)
+A geo-replicação é uma característica dos [registos Premium.](container-registry-skus.md) Se o seu registo ainda não for Premium, pode mudar de Básico e Standard para Premium no [portal Azure:](https://portal.azure.com)
 
-![Troca de SKUs no portal Azure](media/container-registry-skus/update-registry-sku.png)
+![Mudar os níveis de serviço no portal Azure](media/container-registry-skus/update-registry-sku.png)
 
-Para configurar a geo-replicação para o seu registo Premium, inicie sessão no portal Azure em https://portal.azure.com.
+Para configurar a geo-replicação para o seu registo Premium, inicie sessão no portal Azure em https://portal.azure.com .
 
 Navegue para o seu Registo de Contentores Azure e selecione **Replicações:**
 
@@ -92,9 +92,11 @@ O ACR começa a sincronizar imagens através das réplicas configuradas. Uma vez
 ## <a name="considerations-for-using-a-geo-replicated-registry"></a>Considerações para a utilização de um registo geo-replicado
 
 * Cada região num registo geo-replicado é independente uma vez criada. As SLAs do Registo de Contentores Azure aplicam-se a cada região geo-replicada.
-* Quando empurra ou puxa imagens de um registo geo-replicado, o Gestor de Tráfego azure em segundo plano envia o pedido para o registo localizado na região mais próxima de si.
+* Quando empurra ou puxa imagens de um registo geo-replicado, o Gestor de Tráfego azure em segundo plano envia o pedido para o registo localizado na região que lhe é mais próximo em termos de latência da rede.
 * Depois de empurrar uma atualização de imagem ou etiqueta para a região mais próxima, leva algum tempo para o Registo de Contentores Azure replicar os manifestos e camadas para as restantes regiões em que optou. Imagens maiores demoram mais tempo a replicar-se do que as mais pequenas. Imagens e tags são sincronizadas em todas as regiões de replicação com um eventual modelo de consistência.
-* Para gerir fluxos de trabalho que dependem de atualizações push para um geo-replicado, recomendamos que configure [webhooks](container-registry-webhook.md) para responder aos eventos push. Você pode configurar webhooks regionais dentro de um registo geo-replicado para rastrear eventos push à medida que eles completam em todas as regiões geo-replicadas.
+* Para gerir fluxos de trabalho que dependem de atualizações push para um registo geo-replicado, recomendamos que configure [webhooks](container-registry-webhook.md) para responder aos eventos push. Você pode configurar webhooks regionais dentro de um registo geo-replicado para rastrear eventos push à medida que eles completam em todas as regiões geo-replicadas.
+* Para servir bolhas que representam camadas de conteúdo, o Azure Container Registy utiliza pontos finais de dados. Pode ativar [pontos finais dedicados](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints-preview) para o seu registo em cada uma das regiões geo-replicadas do seu registo. Estes pontos finais permitem a configuração de regras de acesso a firewall com um alcance apertado.
+* Se configurar um [link privado](container-registry-private-link.md) para o seu registo utilizando pontos finais privados numa rede virtual, os pontos finais dedicados em cada uma das regiões geo-replicadas são ativados por padrão. 
 
 ## <a name="delete-a-replica"></a>Eliminar réplicas
 
@@ -105,12 +107,15 @@ Para apagar uma réplica no portal Azure:
 1. Navegue para o registo de contentores Azure e selecione **Replicações**.
 1. Selecione o nome de uma réplica e selecione **Eliminar**. Confirme que pretende apagar a réplica.
 
-> [!NOTE]
-> Não é possível apagar a réplica do registo na *região de origem* do registo, ou seja, o local onde criou o registo. Só é possível apagar a réplica da casa eliminando o próprio registo.
+Utilizar o Azure CLI para eliminar uma réplica do *meu registo* na região leste dos EUA:
+
+```azurecli
+az acr replication delete --name eastus --registry myregistry
+```
 
 ## <a name="geo-replication-pricing"></a>Preços de geo-replicação
 
-A geo-replicação é uma característica do [SKU Premium](container-registry-skus.md) do Registo de Contentores Azure. Quando replica um registo para as regiões desejadas, incorre em taxas de registo Premium para cada região.
+A geo-replicação é uma característica do [nível](container-registry-skus.md) de serviço Premium do Registo de Contentores Azure. Quando replica um registo para as regiões desejadas, incorre em taxas de registo Premium para cada região.
 
 No exemplo anterior, Contoso consolidou dois registos para um, adicionando réplicas aos EUA Orientais, Canadá Central e Europa Ocidental. Contoso pagaria quatro vezes Premium por mês, sem configuração ou gestão adicional. Cada região agora puxa as suas imagens localmente, melhorando o desempenho, a fiabilidade sem taxas de egress de rede dos EUA Ocidentais para o Canadá e Leste dos EUA.
 
@@ -118,7 +123,7 @@ No exemplo anterior, Contoso consolidou dois registos para um, adicionando répl
  
 Um cliente Docker que empurra uma imagem para um registo geo-replicado pode não empurrar todas as camadas de imagem e o seu manifesto para uma única região replicada. Isto pode ocorrer porque o Gestor de Tráfego Azure encaminha os pedidos de registo para o registo replicado mais próximo da rede. Se o registo tiver duas regiões de replicação *próximas,* camadas de imagem e o manifesto podem ser distribuídos para os dois locais, e a operação de impulso falha quando o manifesto é validado. Este problema ocorre devido à forma como o nome DNS do registo é resolvido em alguns anfitriões linux. Este problema não ocorre no Windows, que fornece uma cache DNS do lado do cliente.
  
-Se este problema ocorrer, uma solução é aplicar uma `dnsmasq` cache DNS do lado do cliente, como no hospedeiro Linux. Isto ajuda a garantir que o nome do registo seja resolvido de forma consistente. Se estiver a usar um Linux VM em Azure para empurrar para um registo, consulte opções nas opções de Resolução de [Nomes DNS para máquinas virtuais Linux em Azure](../virtual-machines/linux/azure-dns.md).
+Se este problema ocorrer, uma solução é aplicar uma cache DNS do lado do cliente, como `dnsmasq` no hospedeiro Linux. Isto ajuda a garantir que o nome do registo seja resolvido de forma consistente. Se estiver a usar um Linux VM em Azure para empurrar para um registo, consulte opções nas opções de Resolução de [Nomes DNS para máquinas virtuais Linux em Azure](../virtual-machines/linux/azure-dns.md).
 
 Para otimizar a resolução do DNS para a réplica mais próxima ao empurrar imagens, configure um registo geo-replicado nas mesmas regiões de Azure como a fonte das operações de impulso, ou a região mais próxima quando trabalhar fora de Azure.
 

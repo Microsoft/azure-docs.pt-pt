@@ -2,17 +2,17 @@
 title: Boas declarações de exemplo - LUIS
 description: As expressões são os elementos introduzidos pelo utilizador que a sua aplicação tem de interpretar. Colete frases que pensa que os utilizadores vão entrar. Inclua expressões que significam a mesma coisa, mas são construídas de forma diferente no comprimento da palavra e na colocação de palavras.
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: 184038ff2758fbe7c5834682c82c082ef6661234
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/19/2020
+ms.openlocfilehash: 6a17416183762893432841c27124ec6a0f8a289d
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592870"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685269"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Compreenda quais são as boas declarações para a sua app LUIS
 
-**As declarações** são informações do utilizador que a sua aplicação precisa de interpretar. Para treinar o LUIS para extrair intenções e entidades deles, é importante capturar uma variedade de diferentes expressões de exemplo para cada intenção. A aprendizagem ativa, ou o processo de continuar a treinar em novas expressões, é essencial para a inteligência aprendida por máquinas que a LUIS fornece.
+**As declarações** são informações do utilizador que a sua aplicação precisa de interpretar. Para treinar o LUIS para extrair intenções e entidades deles, é importante capturar uma variedade de diferentes expressões de exemplo para cada intenção. A aprendizagem ativa, ou o processo de continuar a treinar em novas expressões, é essencial para a inteligência de aprendizagem automática que a LUIS fornece.
 
 Colete declarações que pensa que os utilizadores vão entrar. Incluem expressões, que significam a mesma coisa, mas são construídas de várias maneiras diferentes:
 
@@ -84,7 +84,7 @@ Delineie as definições da versão através do portal LUIS, na secção **Gerir
 
 ### <a name="word-forms"></a>Formas de palavra
 
-Normalizar **formas** de palavraignora as diferenças de palavras que se expandem para além da raiz. Por exemplo, as palavras `run` , e a mudança com base no `running` `runs` verbo tenso.
+Normalizar **formas** de palavraignora as diferenças de palavras que se expandem para além da raiz.
 
 <a name="utterance-normalization-for-diacritics-and-punctuation"></a>
 

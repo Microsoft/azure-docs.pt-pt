@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 3/16/2020
+ms.date: 5/19/2020
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 4cb5a3d471aa3131d3233841cd6450f0a968dfe7
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 97599d8113d20511882ec38928b221706e7f37b9
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82800979"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682414"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de versão do agente do Azure File Sync
 O Azure File Sync permite-lhe centralizar as partilhas de ficheiros da sua organização nos Ficheiros do Azure sem abdicar da flexibilidade, do desempenho e da compatibilidade de um servidor de ficheiros no local. As suas instalações do Windows Server são transformadas numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS). Pode ter o número de caches que precisar em todo o mundo.
@@ -25,17 +25,15 @@ São suportadas as seguintes versões para o agente do Azure File Sync:
 
 | Marco | Número de versão do agente | Data da versão | Estado |
 |----|----------------------|--------------|------------------|
-| Lançamento V10 - [4522409](https://support.microsoft.com/en-us/help/4522409)| 10.0.0.0 | 9 de abril de 2020 | Em voo |
+| Rollup de atualização de maio de 2020 - [KB4522412](https://support.microsoft.com/help/4522412)| 10.0.2.0 | 19 de maio de 2020 | Suportado |
+| Lançamento V10 - [KB4522409](https://support.microsoft.com/en-us/help/4522409)| 10.0.0.0 | 9 de abril de 2020 | Suportado |
 | Rollup de atualização de dezembro de 2019 - [KB4522360](https://support.microsoft.com/help/4522360)| 9.1.0.0 | 12 de dezembro de 2019 | Suportado |
 | V9 Lançamento - [KB4522359](https://support.microsoft.com/help/4522359)| 9.0.0.0 | 2 de dezembro de 2019 | Suportado |
 | V8 Lançamento - [KB4511224](https://support.microsoft.com/help/4511224)| 8.0.0.0 | 8 de outubro de 2019 | Suportado |
 | Julho 2019 atualização rollup - [KB4490497](https://support.microsoft.com/help/4490497)| 7.2.0.0 | 24 de julho de 2019 | Suportado |
 | Julho 2019 atualização rollup - [KB4490496](https://support.microsoft.com/help/4490496)| 7.1.0.0 | 12 de julho de 2019 | Suportado |
 | V7 Lançamento - [KB4490495](https://support.microsoft.com/help/4490495)| 7.0.0.0 | 19 de junho de 2019 | Suportado |
-| Junho de 2019 rollup - [KB4489739](https://support.microsoft.com/help/4489739)| 6.3.0.0 | 27 de junho de 2019 | Suportado - Versão do agente expirará no dia 21 de abril de 2020 |
-| Junho de 2019 atualização rollup - [KB4489738](https://support.microsoft.com/help/4489738)| 6.2.0.0 | 13 de junho de 2019 | Suportado - Versão do agente expirará no dia 21 de abril de 2020 |
-| Rollup de atualização de maio de 2019 - [KB4489737](https://support.microsoft.com/help/4489737)| 6.1.0.0 | 7 de maio de 2019 | Suportado - Versão do agente expirará no dia 21 de abril de 2020 |
-| V6 Lançamento - [KB4489736](https://support.microsoft.com/help/4489736)| 6.0.0.0 | 21 de abril de 2019 | Suportado - Versão do agente expirará no dia 21 de abril de 2020 |
+| Lançamento V6 | 6.0.0.0 - 6.3.0.0 | N/D | Não Suportado - Versões de agente expiraram em 21 de abril de 2020 |
 | Libertação V5 | 5.0.2.0 - 5.2.0.0 | N/D | Não Suportado - Versões de agente expiraram em 18 de março de 2020 |
 | Lançamento V4 | 4.0.1.0 - 4.3.0.0 | N/D | Não Suportado - Versões de agente expiraram a 6 de novembro de 2019 |
 | Lançamento V3 | 3.1.0.0 - 3.4.0.0 | N/D | Não Suportado - Versões de agente expiraram a 19 de agosto de 2019 |
@@ -43,6 +41,12 @@ São suportadas as seguintes versões para o agente do Azure File Sync:
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Política de atualização do agente do Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-10020"></a>Versão do agente 10.0.2.0
+As seguintes notas de lançamento são para a versão 10.0.2.0 do agente Azure File Sync lançado a 19 de maio de 2020. Estas notas são além das notas de lançamento listadas para a versão 10.0.0.0.
+
+Emissão fixada nesta versão:  
+- O Agente de Sincronização de Armazenamento (FileSyncSvc) falha frequentemente após a instalação do agente Azure File Sync v10.
 
 ## <a name="agent-version-10000"></a>Versão do agente 10.0.0.0
 As seguintes notas de lançamento são para a versão 10.0.0.0 do agente Azure File Sync (lançado a 9 de abril de 2020).
@@ -310,7 +314,7 @@ As seguintes notas de lançamento são para a versão 7.0.0.0 do agente Azure Fi
 ### <a name="improvements-and-issues-that-are-fixed"></a>Melhorias e questões que são corrigidas
 
 - Suporte para maiores tamanhos de partilha de ficheiros
-    - Com a pré-visualização de maiores ações de ficheiros Azure, estamos a aumentar os nossos limites de suporte para sincronização de ficheiros também. Neste primeiro passo, o Azure File Sync suporta agora até 25 TB e 50 milhões de ficheiros num único espaço de nome sincronizado. Para se candidatar à pré-visualização https://aka.ms/azurefilesatscalesurveyde partilha de ficheiros, preencha este formulário . 
+    - Com a pré-visualização de maiores ações de ficheiros Azure, estamos a aumentar os nossos limites de suporte para sincronização de ficheiros também. Neste primeiro passo, o Azure File Sync suporta agora até 25 TB e 50 milhões de ficheiros num único espaço de nome sincronizado. Para se candidatar à pré-visualização de partilha de ficheiros, preencha este formulário https://aka.ms/azurefilesatscalesurvey . 
 - Suporte para firewall e configuração de rede virtual em contas de armazenamento
     - O Azure File Sync suporta agora a definição de firewall e rede virtual nas contas de armazenamento. Para configurar a sua implementação para funcionar com a firewall e a definição de rede virtual, consulte configurações de [firewall configure e redes virtuais](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings).
 - PowerShell cmdlet para sincronizar imediatamente ficheiros alterados na partilha de ficheiros Azure
@@ -501,7 +505,7 @@ As seguintes notas de lançamento são para a versão 5.0.2.0 do agente Azure Fi
 ### <a name="improvements-and-issues-that-are-fixed"></a>Melhorias e questões que são corrigidas
 
 - Apoio à nuvem do Governo de Azure
-  - Acrescentámos apoio de pré-visualização à nuvem do Governo de Azure. Isto requer uma subscrição listada em branco e um download de um agente especial da Microsoft. Para ter acesso à pré-visualização, [AzureFiles@microsoft.com](mailto:AzureFiles@microsoft.com)por favor envie-nos um e-mail diretamente para .
+  - Acrescentámos apoio de pré-visualização à nuvem do Governo de Azure. Isto requer uma subscrição listada em branco e um download de um agente especial da Microsoft. Para ter acesso à pré-visualização, por favor envie-nos um e-mail diretamente para [AzureFiles@microsoft.com](mailto:AzureFiles@microsoft.com) .
 - Suporte para Deduplicação de Dados
     - A deduplicação de dados está agora totalmente suportada com o tiering em nuvem ativado no Windows Server 2016 e no Windows Server 2019. Permitir a duplicação num volume com tiering em nuvem ativado permite-lhe guardar mais ficheiros no local sem fornecer mais armazenamento.
 - Suporte para transferência de dados offline (por exemplo, via Data Box)

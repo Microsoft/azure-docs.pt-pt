@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2694e0c1536064267faad10517ae58d0709ad1c8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 62b3445ba841a87f04dbe8c867411814b849be07
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231769"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682441"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Utilizar uma partilha de ficheiros do Azure com o Windows
 [Ficheiros do Azure](storage-files-introduction.md) é o sistema de ficheiros na cloud fácil de utilizar da Microsoft. As partilhas de ficheiros do Azure podem ser utilizadas de forma totalmente integrada no Windows e no Windows Server. Este artigo aborda as considerações relativas à utilização de uma partilha de ficheiros do Azure com o Windows e o Windows Server.
@@ -80,7 +80,7 @@ Pode utilizar as partilhas de ficheiros do Azure numa instalação do Windows qu
 ## <a name="using-an-azure-file-share-with-windows"></a>Utilizar uma partilha de ficheiros do Azure com o Windows
 Para utilizar uma partilha de ficheiros do Azure com o Windows, tem de montá-la, o que significa atribuir uma letra de unidade ou um caminho de ponto de montagem, ou aceder-lhe através do respetivo [caminho UNC](https://msdn.microsoft.com/library/windows/desktop/aa365247.aspx). 
 
-Ao contrário de outras partilhas SMB com que possa ter interagido, como as que estão alojadas em servidores do Windows Server, em servidores Linux Samba ou em dispositivos NAS, as partilhas de ficheiros do Azure não suportam, atualmente, a autenticação Kerberos com a sua identidade do Active Directory (AD) nem do Azure Active Directory (AAD), embora estejamos a [trabalhar](https://feedback.azure.com/forums/217298-storage/suggestions/6078420-acl-s-for-azurefiles) nesta funcionalidade. Em vez disso, tem de aceder à partilha de ficheiros do Azure com a chave da conta de armazenamento que contém a sua partilha. Uma chave de conta de armazenamento é uma chave de administrador para uma conta de armazenamento, incluindo permissões de administrador para todos os ficheiros e pastas dentro da partilha de ficheiros a que acede, e para todas as partilhas de ficheiros e outros recursos de armazenamento (blobs, filas, tabelas, etc.) contidas na sua conta de armazenamento. Se isso não for suficiente para a sua carga de trabalho, o [Azure File Sync](storage-sync-files-planning.md) poderá satisfazer a ausência da autenticação Kerberos e do suporte da ACL enquanto a autenticação Kerberos baseada no AAD e o suporte da ACL não estiverem disponíveis publicamente.
+Este artigo utiliza a chave da conta de armazenamento para aceder à partilha de ficheiros. Uma chave de conta de armazenamento é uma chave de administrador para uma conta de armazenamento, incluindo permissões de administrador para todos os ficheiros e pastas dentro da partilha de ficheiros a que acede, e para todas as partilhas de ficheiros e outros recursos de armazenamento (blobs, filas, tabelas, etc.) contidas na sua conta de armazenamento. Se isto não for suficiente para a sua carga de trabalho, o [Azure File Sync](storage-sync-files-planning.md) pode ser utilizado, ou poderá utilizar a [autenticação baseada na identidade em sMB](storage-files-active-directory-overview.md).
 
 Um padrão comum para fazer a migração lift and shift para o Azure de aplicações de linha de negócio (LOB) que esperam uma partilha de ficheiros SMB é utilizar uma partilha de ficheiros do Azure como alternativa à execução de um servidor de ficheiros do Windows dedicado numa VM do Azure. Uma consideração importante para a migração bem-sucedida de aplicações de linha de negócio de modo a utilizarem uma partilha de ficheiros do Azure é o facto de muitas dessas aplicações serem executadas no contexto de uma conta de serviço dedicada com permissões de sistema limitadas em vez de no contexto da conta administrativa da VM. Por esse motivo, tem de garantir que monta/guarda as credenciais da partilha de ficheiros do Azure no contexto da conta de serviço em vez da conta administrativa.
 
@@ -186,7 +186,7 @@ Remove-PSDrive -Name <desired-drive-letter>
     
     ![Instantâneo do menu pendente "Mapear unidade de rede"](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
-1. Selecione a letra de unidade e entre no `<storageAccountName>.file.core.windows.net/<fileShareName>`caminho do CNU, o formato de caminho da CNU é . Por exemplo: `anexampleaccountname.file.core.windows.net/example-share-name`.
+1. Selecione a letra de unidade e entre no caminho do CNU, o formato de caminho da CNU é `<storageAccountName>.file.core.windows.net/<fileShareName>` . Por exemplo: `anexampleaccountname.file.core.windows.net/example-share-name`.
     
     ![Instantâneo da caixa de diálogo “Mapear Unidade de Rede”](./media/storage-how-to-use-files-windows/2_MountOnWindows10.png)
 

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/25/2018
+ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3f6b698922440c6e3e9b488cca93ca8d98d9c59
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b23c2b81d281f787914e32818d768d2d531537f4
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80983080"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682223"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Funcionalidades do serviço de sincronização do Azure AD Connect
 
@@ -34,12 +34,12 @@ Este tópico explica como as seguintes funcionalidades do serviço de **sincroni
 
 Estas definições são configuradas pelo [Módulo de Diretório Ativo Azure para windows PowerShell](https://aka.ms/aadposh). Descarregue e instale-o separadamente a partir do Azure AD Connect. Os cmdlets documentados neste tema foram introduzidos no lançamento de março de [2016 (construção 9031.1)](https://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1). Se não tiver os cmdlets documentados neste tópico ou se não produzirem o mesmo resultado, certifique-se de que executa a versão mais recente.
 
-Para ver a configuração no seu diretório Azure AD, corra `Get-MsolDirSyncFeatures`.  
+Para ver a configuração no seu diretório Azure AD, corra `Get-MsolDirSyncFeatures` .  
 ![Resultado get-MsolDirSyncFeatures](./media/how-to-connect-syncservice-features/getmsoldirsyncfeatures.png)
 
 Muitas destas definições só podem ser alteradas pelo Azure AD Connect.
 
-As seguintes definições `Set-MsolDirSyncFeature`podem ser configuradas por:
+As seguintes definições podem ser configuradas `Set-MsolDirSyncFeature` por:
 
 | DirSyncFeature | Comentário |
 | --- | --- |
@@ -53,16 +53,16 @@ Depois de ter ativado uma funcionalidade, não pode voltar a ser desativada.
 > 
 > 
 
-As seguintes definições são configuradas pelo Azure `Set-MsolDirSyncFeature`AD Connect e não podem ser modificadas por:
+As seguintes definições são configuradas pelo Azure AD Connect e não podem ser modificadas `Set-MsolDirSyncFeature` por:
 
 | DirSyncFeature | Comentário |
 | --- | --- |
 | DispositivoWriteback |[Azure AD Connect: Habilitar a reescrita do dispositivo](how-to-connect-device-writeback.md) |
 | Extensões de Diretório |[Sincronização Azure AD Connect: Extensões de diretório](how-to-connect-sync-feature-directory-extensions.md) |
-| [DuplicadoProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Permite que um atributo seja colocado em quarentena quando é uma duplicação de outro objeto em vez de falhar todo o objeto durante a exportação. |
+| [DuplicadoProxyAddressResiliency <br/> DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Permite que um atributo seja colocado em quarentena quando é uma duplicação de outro objeto em vez de falhar todo o objeto durante a exportação. |
 | Sincronização hash de palavra-passe |[Implementação de sincronização de hash de senha com sincronização Azure AD Connect](how-to-connect-password-hash-synchronization.md) |
 |Autenticação pass-through|[Início de sessão do utilizador com a Autenticação Pass-through do Azure Active Directory](how-to-connect-pta.md)|
-| UnificadoGroupWriteback |[Pré-visualização: Reprodução do grupo](how-to-connect-preview.md#group-writeback) |
+| UnificadoGroupWriteback |Repetição de escrita do grupo|
 | UserWriteback |Não apoiado atualmente. |
 
 ## <a name="duplicate-attribute-resiliency"></a>Duplicar a resiliência do atributo
@@ -114,7 +114,7 @@ Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $true
 
 Depois de ativar esta funcionalidade, os valores do userPrincipalName existentes permanecerão como e-e-is. Na próxima alteração do atributo do userPrincipalName no local, a sincronização delta normal dos utilizadores irá atualizar a UPN.  
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [Sincronização azure AD Connect](how-to-connect-sync-whatis.md)
 * [Integrando as suas identidades no local com o Diretório Ativo Azure.](whatis-hybrid-identity.md)

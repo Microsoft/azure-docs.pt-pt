@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/10/2020
+ms.date: 05/19/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b0d8228586c0e20e4314331339aa2f2c46a38c9a
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: aa3096f43952c047620b310412b27c434fc5fb06
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792161"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682598"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurações de armazenamento da máquina virtual do Azure do SAP HANA
 
@@ -55,6 +55,9 @@ No mundo das instalações, raramente se preocupava com os subsistemas de I/S e 
 - Ativar a atividade de escrita de pelo menos 250 MB/seg para **/hana/dados** com tamanhos de 16 MB e 64 MB I/O
 
 Dado que a baixa latência de armazenamento é fundamental para os sistemas DBMS, mesmo que o DBMS, como o SAP HANA, mantenha os dados na memória. O caminho crítico no armazenamento é geralmente em torno dos registos de transações dos sistemas DBMS. Mas também operações como escrever pontos de salvamento ou carregar dados na memória após a recuperação do acidente podem ser cruciais. Por isso, é **obrigatório** alavancar discos Premium Azure para **/hana/data** e **/hana/log** volumes. Para obter a entrada mínima de **/hana/log** e **/hana/data,** conforme desejado pelo SAP, é necessário construir um RAID 0 utilizando MDADM ou LVM sobre vários discos de Armazenamento Premium Azure. E utilize os volumes RAID como **/hana/data** e **volumes /hana/log.** 
+
+> [!IMPORTANT]
+>Os três Sistemas de Ficheiros /dados SAP HANA, /log e /shared não devem ser colocados num grupo de volume padrão ou raiz.  É altamente recomendado seguir a orientação dos Fornecedores Linux, que é tipicamente criar grupos de volume individuais para /dados, /log e /shared.
 
 **Recomendação: Como tamanhos de listras para o RAID 0, a recomendação é usar:**
 
@@ -258,13 +261,13 @@ Ao considerar os Ficheiros Azure NetApp para o SAP Netweaver e SAP HANA, esteja 
 - O Azure NetApp Files oferece política de [exportação:](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy)pode controlar os clientes permitidos, o tipo de acesso (Ler&Escrever, Ler Apenas, etc.). 
 - A funcionalidade De Ficheiros Azure NetApp ainda não está ciente da zona. Atualmente, a funcionalidade Azure NetApp Files não está implementada em todas as zonas de disponibilidade de uma região do Azure. Esteja ciente das potenciais implicações de latência em algumas regiões de Azure.  
 - É importante que as máquinas virtuais se desloque nas proximidades do armazenamento Azure NetApp para baixa latência. 
-- O ID <b>sid</b>do utilizador para sid `sapsys` adm e o ID do grupo para as máquinas virtuais devem coincidir com a configuração em Ficheiros Azure NetApp. 
+- O ID do utilizador para <b>sid</b>adm e o ID do grupo `sapsys` para as máquinas virtuais devem coincidir com a configuração em Ficheiros Azure NetApp. 
 
 > [!IMPORTANT]
 > Para as cargas de trabalho da SAP HANA, a baixa latência é crítica. Trabalhe com o seu representante da Microsoft para garantir que as máquinas virtuais e os volumes de Ficheiros Azure NetApp são implantados nas proximidades.  
 
 > [!IMPORTANT]
-> Se houver um desfasamento entre o `sapsys` ID do utilizador para <b>sid</b>adm e o ID do grupo entre a máquina virtual e a configuração `nobody`Azure NetApp, as permissões para ficheiros em volumes Azure NetApp, montados em máquinas virtuais, serão apresentadas como . Certifique-se de especificar o <b>sid</b>ID de utilizador `sapsys`correto para sid adm e o ID do grupo para, quando [embarcar um novo sistema](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxjSlHBUxkJBjmARn57skvdUQlJaV0ZBOE1PUkhOVk40WjZZQVJXRzI2RC4u) para Ficheiros Azure NetApp.
+> Se houver um desfasamento entre o ID do utilizador para <b>sid</b>adm e o ID do grupo entre `sapsys` a máquina virtual e a configuração Azure NetApp, as permissões para ficheiros em volumes Azure NetApp, montados em máquinas virtuais, serão apresentadas como `nobody` . Certifique-se de especificar o ID de utilizador correto para <b>sid</b>adm e o ID do grupo `sapsys` para, quando [embarcar um novo sistema](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxjSlHBUxkJBjmARn57skvdUQlJaV0ZBOE1PUkhOVk40WjZZQVJXRzI2RC4u) para Ficheiros Azure NetApp.
 
 ### <a name="sizing-for-hana-database-on-azure-netapp-files"></a>Dimensionamento para base de dados HANA em Ficheiros Azure NetApp
 
@@ -283,7 +286,7 @@ Os limites de produção dos [Ficheiros Azure NetApp](https://docs.microsoft.com
 > [!IMPORTANT]
 > Independentemente da capacidade que desloque num único volume NFS, espera-se que o planalto atinja a largura de banda de 1,2-1,4 GB/seg alavancada por um consumidor numa máquina virtual. Isto tem a ver com a arquitetura subjacente da oferta da ANF e os limites de sessão linux relacionados em torno do NFS. Os números de desempenho e de desempenho, tal como documentados no artigo, foram realizados resultados de testes de [referência de desempenho para Ficheiros Azure NetApp](https://docs.microsoft.com/azure/azure-netapp-files/performance-benchmarks-linux) contra um volume NFS partilhado com vários VMs de clientes e como resultado com várias sessões. Este cenário é diferente do cenário que medimos no SAP. Quando medimos a entrada de um único VM contra um volume NFS. hospedado na ANF.
 
-Para satisfazer os requisitos mínimos de entrada de dados e `/hana/shared`registo sapeios os dados e registos, e de acordo com as diretrizes para, os tamanhos recomendados seriam:
+Para satisfazer os requisitos mínimos de entrada de dados e registo sapeios os dados e registos, e de acordo com as diretrizes `/hana/shared` para, os tamanhos recomendados seriam:
 
 | Volume | Tamanho<br /> Nível de armazenamento premium | Tamanho<br /> Nível ultra armazenamento | Protocolo NFS suportado |
 | --- | --- | --- |
@@ -298,7 +301,7 @@ Para satisfazer os requisitos mínimos de entrada de dados e `/hana/shared`regis
 Por isso, pode considerar a implementação de um misto semelhante para os volumes ANF listados para armazenamento de discos Ultra já. Considere também os tamanhos dos tamanhos listados para os volumes para as diferentes VM SKUs já feitas nas tabelas de discos Ultra.
 
 > [!TIP]
-> Pode redimensionar os volumes do Azure NetApp `unmount` Files de forma dinâmica, sem a necessidade dos volumes, parar as máquinas virtuais ou parar o SAP HANA. Isso permite flexibilidade para satisfazer a sua aplicação, tanto esperadas como imprevistas exigências de entrada.
+> Pode redimensionar os volumes do Azure NetApp Files de forma dinâmica, sem a necessidade dos `unmount` volumes, parar as máquinas virtuais ou parar o SAP HANA. Isso permite flexibilidade para satisfazer a sua aplicação, tanto esperadas como imprevistas exigências de entrada.
 
 A documentação sobre como implementar uma configuração de escala SAP HANA com nó de standby utilizando volumes NFS v4.1 que estão hospedados na ANF é publicada em [escala SAP HANA com nó de standby em VMs Azure com Ficheiros Azure NetApp no SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse).
 

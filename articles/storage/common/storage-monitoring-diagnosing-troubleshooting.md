@@ -8,12 +8,13 @@ ms.date: 09/23/2019
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 0bbffacc0a8c47950b8637e826d1d5db9fbdb234
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: monitoring
+ms.openlocfilehash: 71f2acfc7c1d227d89f96f753572f4631f4cad65
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81605074"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684667"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorizar, diagnosticar e resolver problemas do Armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -359,7 +360,7 @@ O serviço de armazenamento apenas calcula a métrica **AverageE2ELatency** para
 #### <a name="investigating-client-performance-issues"></a>Investigar problemas de desempenho do cliente
 As possíveis razões para o cliente responder lentamente incluem ter um número limitado de ligações ou fios disponíveis, ou ser baixo em recursos como CPU, memória ou largura de banda da rede. Poderá ser capaz de resolver o problema modificando o código do cliente para ser mais eficiente (por exemplo, utilizando chamadas assíncronas para o serviço de armazenamento), ou utilizando uma Máquina Virtual maior (com mais núcleos e mais memória).
 
-Para os serviços de mesa e fila, o algoritmo Nagle também pode causar **alta médiaE2ELatency** em comparação com **averageServerLatency**: para mais informações, consulte o algoritmo pós [Nagle não é amigável para pequenos pedidos](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx). Pode desativar o algoritmo Nagle em código utilizando a classe **ServicePointManager** no **espaço de** System.Net nome. Deve fazê-lo antes de fazer chamadas para a mesa ou serviços de fila na sua aplicação, uma vez que isso não afeta ligações que já estão abertas. O exemplo que se segue provém do método **Application_Start** no papel de trabalhador.
+Para os serviços de mesa e fila, o algoritmo Nagle também pode causar **alta médiaE2ELatency** em comparação com **averageServerLatency**: para mais informações, consulte o algoritmo pós [Nagle não é amigável para pequenos pedidos](https://docs.microsoft.com/archive/blogs/windowsazurestorage/nagles-algorithm-is-not-friendly-towards-small-requests). Pode desativar o algoritmo Nagle em código utilizando a classe **ServicePointManager** no **espaço de** System.Net nome. Deve fazê-lo antes de fazer chamadas para a mesa ou serviços de fila na sua aplicação, uma vez que isso não afeta ligações que já estão abertas. O exemplo que se segue provém do método **Application_Start** no papel de trabalhador.
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);
@@ -516,24 +517,24 @@ Entradas de registo:
 
 | ID do pedido | Texto da Operação |
 | --- | --- |
-| 07b26a5d-... |Iniciando um pedido sincronizado `https://domemaildist.blob.core.windows.net/azuremmblobcontainer`para . |
+| 07b26a5d-... |Iniciando um pedido sincronizado para `https://domemaildist.blob.core.windows.net/azuremmblobcontainer` . |
 | 07b26a5d-... |StringtoSign = HEAD.................. x-ms-cliente-request-id:07b26a5d-.... x-ms-date:Tue, 03 jun 2014 10:33:11 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |À espera de resposta. |
-| 07b26a5d-... |Resposta recebida. Código de estado = 200, Id de Pedido = eeead849-... Conteúdo-MD5 = , &quot;ETag = 0x8D14D2DC63D059B&quot;. |
+| 07b26a5d-... |Resposta recebida. Código de estado = 200, Id de Pedido = eeead849-... Conteúdo-MD5 = , ETag = &quot; 0x8D14D2DC63D059B &quot; . |
 | 07b26a5d-... |Os cabeçalhos de resposta foram processados com sucesso, prosseguindo com o resto da operação. |
 | 07b26a5d-... |A descarregar o corpo de resposta. |
 | 07b26a5d-... |Operação concluída com sucesso. |
-| 07b26a5d-... |Iniciando um pedido sincronizado `https://domemaildist.blob.core.windows.net/azuremmblobcontainer`para . |
+| 07b26a5d-... |Iniciando um pedido sincronizado para `https://domemaildist.blob.core.windows.net/azuremmblobcontainer` . |
 | 07b26a5d-... |StringtoSign = DELETE.................. x-ms-cliente-request-id:07b26a5d-.... x-ms-date:Tue, 03 jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |À espera de resposta. |
 | 07b26a5d-... |Resposta recebida. Código de estado = 202, ID de pedido = 6ab2a4cf-..., Content-MD5 = , ETag = . |
 | 07b26a5d-... |Os cabeçalhos de resposta foram processados com sucesso, prosseguindo com o resto da operação. |
 | 07b26a5d-... |A descarregar o corpo de resposta. |
 | 07b26a5d-... |Operação concluída com sucesso. |
-| e2d06d78-... |Iniciando um pedido assíncrono para `https://domemaildist.blob.core.windows.net/azuremmblobcontainer`.</td> |
+| e2d06d78-... |Iniciando um pedido assíncrono para `https://domemaildist.blob.core.windows.net/azuremmblobcontainer` .</td> |
 | e2d06d78-... |StringtoSign = HEAD.................. x-ms-cliente-request-id:e2d06d78-.... x-ms-date:Tue, 03 jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | e2d06d78-... |À espera de resposta. |
-| de8b1c3c-... |Iniciando um pedido sincronizado `https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt`para . |
+| de8b1c3c-... |Iniciando um pedido sincronizado para `https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt` . |
 | de8b1c3c-... |StringToSign = PUT... 64.qCmF+TQLPhq/YYK50mP9ZQ==........ x-ms-blob-type:BlockBlob.x-ms-cliente-request-id:de8b1c3c-.... x-ms-date:Tue, 03 jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt. |
 | de8b1c3c-... |Preparando-se para escrever dados de pedidos. |
 | e2d06d78-... |Exceção lançada enquanto aguarda resposta: O servidor remoto devolveu um erro: (404) Não Encontrado.. |
@@ -541,7 +542,7 @@ Entradas de registo:
 | e2d06d78-... |Os cabeçalhos de resposta foram processados com sucesso, prosseguindo com o resto da operação. |
 | e2d06d78-... |A descarregar o corpo de resposta. |
 | e2d06d78-... |Operação concluída com sucesso. |
-| e2d06d78-... |Iniciando um pedido assíncrono para `https://domemaildist.blob.core.windows.net/azuremmblobcontainer`. |
+| e2d06d78-... |Iniciando um pedido assíncrono para `https://domemaildist.blob.core.windows.net/azuremmblobcontainer` . |
 | e2d06d78-... |StringToSign = PUT... 0.........x-ms-cliente-request-id:e2d06d78-.... x-ms-date:Tue, 03 jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | e2d06d78-... |À espera de resposta. |
 | de8b1c3c-... |Escrever dados de pedidos. |
@@ -562,7 +563,7 @@ Se a aplicação do cliente tentar utilizar uma chave SAS que não inclua as per
 
 A tabela que se segue mostra uma mensagem de registo do lado do servidor da amostra do ficheiro de registo de registo de armazenamento:
 
-| Nome | Valor |
+| Name | Valor |
 | --- | --- |
 | Hora de início do pedido | 2014-05-30t06:17:48.4473697Z |
 | Tipo de operação     | GetBlobProperties            |
@@ -571,7 +572,7 @@ A tabela que se segue mostra uma mensagem de registo do lado do servidor da amos
 | Tipo de autenticação| Sas                          |
 | Tipo de serviço       | Blobs                         |
 | URL do Pedido         | `https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt` |
-| &nbsp;                 |   ?sv=2014-02-14&sr=c&si=mypolicy&&;sig=XXXXX api-version=2014-02-14 |
+| &nbsp;                 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX &; api-version=2014-02-14 |
 | Pedir cabeçalho de ID  | a1f348d5-8032-4912-93ef-b393e52a3b |
 | ID de pedido de cliente  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
 
