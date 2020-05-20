@@ -1,116 +1,157 @@
 ---
 title: Monitor Azure para Azure Cache para Redis (pré-visualização)/ Microsoft Docs
-description: Este artigo descreve a funcionalidade Azure Monitor for Redis Cache que fornece ao Azure Cache para os proprietários da Redis uma compreensão rápida dos problemas de desempenho e utilização.
+description: Este artigo descreve a funcionalidade Azure Monitor para Azure Redis Cache, que proporciona aos proprietários de cache uma compreensão rápida dos problemas de desempenho e utilização.
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/07/2020
-ms.openlocfilehash: af32459ffcb50c9f1cfdc59d2c8d355d3551e230
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: a6a8499a13e5c14869f9c9063528cea4ee82f419
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83210978"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650426"
 ---
 # <a name="explore-azure-monitor-for-azure-cache-for-redis-preview"></a>Explore o Monitor Azure para Azure Cache para Redis (pré-visualização)
 
-O Azure Monitor para Azure Cache for Redis (pré-visualização) proporciona uma visão do desempenho global, falhas, capacidade e saúde operacional de todos os seus recursos Azure Cache para Redis numa experiência interativa unificada. Este artigo irá ajudá-lo a entender os benefícios desta nova experiência de monitorização, e como pode modificar e adaptar a experiência de acordo com as necessidades únicas da sua organização.
+Para todos os seus recursos Azure Cache para Redis, o Azure Monitor para Azure Cache for Redis (pré-visualização) proporciona uma visão unificada e interativa de:
+
+- Desempenho geral
+- Falhas
+- Capacidade
+- Saúde operacional
+
+Este artigo ajuda-o a compreender os benefícios desta nova experiência de monitorização. Também mostra como modificar e adaptar a experiência de acordo com as necessidades únicas da sua organização.
 
 ## <a name="introduction"></a>Introdução
 
-Antes de mergulhar na experiência, deve entender como apresenta e visualiza a informação.
+Antes de iniciar a experiência, deve entender como o Azure Monitor para Azure Cache for Redis apresenta visualmente informações.
 
 Entrega:
 
-* **Na perspetiva** de escala do seu Azure Cache para recursos Redis em todas as suas subscrições num único local, com a capacidade de se adequar seletivamente apenas às subscrições e recursos que está interessado em avaliar.
+- **Na perspetiva** de escala do seu Azure Cache para recursos Redis num único local em todas as suas subscrições. Pode selecionar apenas as subscrições e recursos que pretende avaliar.
 
-* **Faça análises** de um determinado azure cache para o recurso Redis para ajudar a diagnosticar problemas ou realizar análises detalhadas por categoria - utilização, falhas, capacidade e operações. A seleção de qualquer uma dessas opções proporciona uma visão aprofundada do relevante.  
+- **Análise de perfuração** de um cache azure particular para recurso Redis. Pode diagnosticar problemas e ver uma análise detalhada da utilização, falhas, capacidade e operações. Selecione qualquer uma destas categorias para ver uma visão aprofundada das informações relevantes.  
 
-* **Personalizável** - Esta experiência é construída em cima de modelos de livro do Azure Monitor, permitindo-lhe alterar quais as métricas apresentadas, modificar ou definir limiares que se alinham com os seus limites e, em seguida, economizar num livro personalizado. Os gráficos nos livros de trabalho podem então ser fixados nos tabliers Azure.  
+- **Personalização** desta experiência, que é construída no topo dos modelos do livro Azure Monitor. A experiência permite alterar as métricas apresentadas e modificar ou definir limiares que se alinham com os seus limites. Pode guardar as alterações num livro personalizado e, em seguida, fixar gráficos de livro para os dashboards Azure.
 
-Esta funcionalidade não requer que ative ou configure nada, estes Azure Cache for Redis são recolhidos por padrão.
+- **A personalização** desta experiência é construída no topo dos modelos de livro do Azure Monitor. A experiência permite-lhe alterar as métricas apresentadas e modificar ou definir limiares que se alinham com os seus limites. Pode guardar as alterações num livro personalizado e, em seguida, fixar gráficos de livro para os dashboards Azure.
+
+Esta funcionalidade não requer que ative ou configure nada. A informação azure Cache para redis é recolhida por padrão.
 
 >[!NOTE]
->Não existe qualquer custo para aceder a esta funcionalidade e só será cobrado para as funcionalidades essenciais do Monitor Azure que configura ou ativa, conforme descrito na página de detalhes de preços do [Monitor Azure.](https://azure.microsoft.com/pricing/details/monitor/)
+>Não há nenhuma taxa para aceder a esta funcionalidade. É cobrado apenas para as funcionalidades essenciais do Monitor Azure que configura ou ativa, conforme descrito na página de detalhes de preços do [Monitor Azure.](https://azure.microsoft.com/pricing/details/monitor/)
 
 ## <a name="view-utilization-and-performance-metrics-for-azure-cache-for-redis"></a>Ver métricas de utilização e desempenho para Azure Cache para Redis
 
-Para ver a utilização e desempenho das suas contas de armazenamento em todas as suas subscrições, execute os seguintes passos.
+Para ver a utilização e desempenho das suas contas de armazenamento em todas as suas subscrições, faça os seguintes passos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. Procure monitor **e** selecione **Monitor**.
+1. Procure o **Monitor**e selecione **Monitor**.
 
-    ![Caixa de pesquisa com a palavra "Monitor" e uma queda que diz Serviços "Monitor" com uma imagem de estilo velocímetro](./media/cosmosdb-insights-overview/search-monitor.png)
+    ![Caixa de pesquisa com a palavra "Monitor" e o resultado de pesquisa de Serviços que mostra "Monitor" com um símbolo de velocímetro](./media/cosmosdb-insights-overview/search-monitor.png)
 
-3. Selecione **Azure Cache para Redis (pré-visualização)**.
-
-Se esta opção não estiver presente clique **mais** e selecione **Azure Cache para Redis**.
+1. Selecione **Azure Cache para Redis (pré-visualização)**. Se esta opção não estiver presente, selecione **Mais**  >  **Cache Azure para Redis**.
 
 ### <a name="overview"></a>Descrição geral
 
 Em **resumo,** a tabela apresenta o Azure Cache interativo para as métricas Redis. Pode filtrar os resultados com base nas opções selecionadas a partir das seguintes listas de drop-down:
 
-* **Assinaturas** - apenas estão listadas subscrições que possuam um Azure Cache para o recurso Redis.  
+- **Assinaturas**: Apenas estão listadas subscrições que possuam um Azure Cache para o recurso Redis.  
 
-* **Azure Cache for Redis** - Pode selecionar tudo, um subconjunto ou um único Azure Cache para o recurso Redis.
+- **Cache Azure para Redis**: Pode selecionar tudo, um subconjunto ou um único Azure Cache para o recurso Redis.
 
-* **Intervalo** de tempo - por padrão, exibe as últimas 4 horas de informação com base nas seleções correspondentes feitas.
+- **Intervalo**de tempo : Por defeito, a tabela apresenta as últimas quatro horas de informação com base nas seleções correspondentes.
 
-O telha de balcão sob as listas de drop-down rolls-up o número total de azure cache para recursos Redis estão nas subscrições selecionadas. Há códigos de cores condicional ou mapas de calor para colunas no livro que reportam métricas de transação. A cor mais profunda tem o valor mais alto e uma cor mais clara é baseada nos valores mais baixos.
+Há um contra-lore debaixo das listas de entrega. O azulejo mostra o número total de azure cache para recursos Redis nas subscrições selecionadas. Códigos de cores condicional ou mapas de calor para colunas de livros reportam métricas de transação. A cor mais profunda representa o maior valor. As cores mais claras representam valores mais baixos.
 
-A seleção de uma seta de queda ao lado de um dos recursos Azure Cache para os recursos Redis revelará uma desagregação das métricas de desempenho a nível de recursos individuais:
+A seleção de uma seta de lista de lançamento ao lado de um dos recursos Azure Cache para os recursos Redis revela uma desagregação das métricas de desempenho a nível de recursos individuais.
 
 ![Screenshot da experiência de visão geral](./media/redis-cache-insights-overview/overview.png)
 
-A seleção do Azure Cache para o nome de recurso Redis realçado em azul irá levá-lo à **visão** geral padrão para a conta associada. Mostra, `Used Memory` `Used Memory Percentage` , , , `Server Load` `Server Load Timeline` . `CPU` `Connected Clients` `Cache Misses` . `Errors (Max)`
+Ao selecionar o nome de recurso Azure Cache para Redis realçado em azul, consulte a tabela de **visão geral** padrão para a conta associada. Mostra estas colunas:
+
+- **Memória Utilizada**
+- **Percentagem de Memória Utilizada**
+- **Carga do Servidor**
+- **Linha Cronológica da Carga do Servidor**
+- **CPU**
+- **Clientes Ligados**
+- **Falhas de Acerto na Cache**
+- **Erros (Máx.)**
 
 ### <a name="operations"></a>Operações
 
-Selecione **Operações** no topo da página e abre a parte de **Operações** do modelo do livro. Mostra, `Total Operations` `Total Operations Timeline` , . `Operations Per Second` `Gets` `Sets` .
+Quando selecionar **Operações** no topo da página, abre-se a tabela **de Operações** do modelo do livro. Mostra estas colunas:
 
-![Screenshot da experiência de visão geral](./media/redis-cache-insights-overview/operations.png)
+- **Total de Operações**
+- **Linha Cronológica do Total de Operações**
+- **Operações por Segundo**
+- **Obtenções**
+- **Definições**
+
+![Screenshot da experiência de operações](./media/redis-cache-insights-overview/operations.png)
 
 ### <a name="usage"></a>Utilização
 
-Selecione **Utilização** na parte superior da página e abre a parte de **utilização** do modelo do livro. Mostra, `Cache Read` `Cache Read Timeline` , . `CacheWrite` `CacheHits` `Cache Misses` .
+Quando selecionar **o Uso** no topo da página, abre-se a tabela de **utilização** do modelo do livro. Mostra estas colunas:
 
-![Screenshot da experiência de visão geral](./media/redis-cache-insights-overview/usage.png)
+- **Leitura da Cache**
+- **Linha Cronológica de Leitura da Cache**
+- **Escrita na Cache**
+- **Acertos na Cache**
+- **Falhas de Acerto na Cache**
 
-Selecione **Falhas** no topo da página e abre a parte de **Falhas** do modelo do livro. Mostra, `Total Errors` `Failover/Errors` , , , `UnresponsiveClient/Errors` `RDB/Errors` . `AOF/Errors` `Export/Errors` `Dataloss/Errors` . `Import/Errors`
+![Screenshot da experiência de utilização](./media/redis-cache-insights-overview/usage.png)
 
-![Screenshot de falhas com avaria por tipo de pedido HTTP](./media/redis-cache-insights-overview/failures.png)
+### <a name="failures"></a>Falhas
+
+Ao selecionar **Falhas** no topo da página, abre-se a tabela **Falhas** do modelo do livro. Mostra estas colunas:
+
+- **Total de Erros**
+- **Falha/Erros**
+- **Cliente/Erros Sem Resposta**
+- **RDB/Erros**
+- **AOF/Erros**
+- **Exportação/Erros**
+- **Perda de dados/Erros**
+- **Importação/Erros**
+
+![Screenshot de falhas com uma avaria por tipo de pedido HTTP](./media/redis-cache-insights-overview/failures.png)
 
 ### <a name="metric-definitions"></a>Definições métricas
 
-Para obter uma lista completa das definições métricas que compõem estes livros, consulte as métricas disponíveis e os intervalos de [reporte.](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-monitor#available-metrics-and-reporting-intervals)
+Para obter uma lista completa das definições métricas que formam estes livros, consulte o [artigo sobre métricas disponíveis e intervalos](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-monitor#available-metrics-and-reporting-intervals)de reporte .
 
 ## <a name="pin-export-and-expand"></a>Pin, exportar e expandir
 
-Pode fixar qualquer uma das secções métricas num [Painel De Instrumentos Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards) selecionando o ícone do pino na parte superior direita da secção.
+Para fixar qualquer secção métrica num [painel azure,](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards)selecione o símbolo do pino na parte superior direita da secção.
 
-![Pino de secção métrica para exemplo do painel de instrumentos](./media/cosmosdb-insights-overview/pin.png)
+![Uma secção métrica com o símbolo do pino realçado](./media/cosmosdb-insights-overview/pin.png)
 
-Para exportar os seus dados para o formato Excel, selecione o ícone de seta para baixo para a esquerda do ícone do pino.
+Para exportar os seus dados para um formato Excel, selecione o símbolo da seta para baixo para a esquerda do símbolo do pino.
 
-![Ícone do livro de exportação](./media/cosmosdb-insights-overview/export.png)
+![Um símbolo de livro de exportação destacado](./media/cosmosdb-insights-overview/export.png)
 
-Para expandir ou colapsar todas as vistas de drop-down no livro, selecione o ícone de expansão à esquerda do ícone de exportação:
+Para expandir ou colapsar todas as vistas num livro, selecione o símbolo de expansão à esquerda do símbolo de exportação.
 
-![Expandir ícone de livro](./media/cosmosdb-insights-overview/expand.png)
+![Um símbolo de livro expandido destacado](./media/cosmosdb-insights-overview/expand.png)
 
 ## <a name="customize-azure-monitor-for-azure-cache-for-redis-preview"></a>Personalize o Monitor Azure para Azure Cache para Redis (pré-visualização)
 
-Uma vez que esta experiência é construída em cima dos modelos de livro do Azure Monitor, você tem a capacidade de **personalizar**  >  **editar** e **guardar** uma cópia da sua versão modificada em um livro personalizado. 
+Como esta experiência é construída no topo dos modelos de livro do Azure Monitor, pode selecionar **Customize**  >  **Edit**  >  **Save** para guardar uma cópia da sua versão modificada num livro personalizado.
 
-![Personalizar bar](./media/cosmosdb-insights-overview/customize.png)
+![Uma barra de comando com Customize destacado](./media/cosmosdb-insights-overview/customize.png)
 
-Os livros de reprodução são guardados dentro de um grupo de recursos, quer na secção **My Reports** que seja privada para si ou na secção **Relatórios Partilhados** que esteja acessível a todos os que tenham acesso ao grupo de recursos. Depois de guardar o livro personalizado, precisa de ir à galeria do livro para o lançar.
+Os livros de reprodução são guardados dentro de um grupo de recursos na secção **My Reports** ou na secção **Relatórios Partilhados.** **Os meus relatórios** só estão disponíveis para si. **Os Relatórios Partilhados** estão disponíveis para todos os que têm acesso ao grupo de recursos.
 
-![Lançar galeria de livro saindo do bar de comando](./media/cosmosdb-insights-overview/gallery.png)
+Depois de guardar um livro personalizado, vá à galeria do livro para abri-lo.
+
+![Um bar de comando com Galeria em destaque](./media/cosmosdb-insights-overview/gallery.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Configure [alertas métricos](../platform/alerts-metric.md) e notificações de [saúde](../../service-health/alerts-activity-log-service-notifications.md) de serviço para configurar alertaautomatizado para ajudar na deteção de problemas.
+* Configure [alertas métricos](../platform/alerts-metric.md) e notificações de [saúde](../../service-health/alerts-activity-log-service-notifications.md) de serviço para configurar alertas automatizados que ajudam na deteção de problemas.
 
-* Saiba os cenários que os livros de trabalho são projetados para apoiar, como autor de novos relatórios existentes e mais através da revisão de [relatórios interativos Create com livros de trabalho do Monitor Azure.](../app/usage-workbooks.md)
+* Conheça os cenários que os livros de trabalho suportam, como autor ou personalizar relatórios, e muito mais através da revisão de [relatórios interativos Create com livros de trabalho do Azure Monitor.](../app/usage-workbooks.md)

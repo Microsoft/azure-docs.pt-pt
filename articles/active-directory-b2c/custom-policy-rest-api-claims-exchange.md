@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6316165ba08d055be1186995e2fe2ad5a0079fb7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78f7c8eb363d791b7109aebced668c1e0a952274
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80330727"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83636083"
 ---
 # <a name="walkthrough-add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Walkthrough: Adicionar REST API reclama trocas a políticas personalizadas no Diretório Ativo Azure B2C
 
@@ -34,7 +34,7 @@ Também pode projetar a interação como um perfil técnico de validação. Isto
 
 ## <a name="prepare-a-rest-api-endpoint"></a>Prepare um ponto final da API REST
 
-Para esta passagem, deve ter uma API REST que valida se o objectId Azure AD B2C de um utilizador está registado no seu sistema de back-end. Se registado, a API REST devolve o saldo da conta do utilizador. Caso contrário, a API REST regista a nova conta no `50.00`diretório e devolve o saldo inicial.
+Para esta passagem, deve ter uma API REST que valida se o objectId Azure AD B2C de um utilizador está registado no seu sistema de back-end. Se registado, a API REST devolve o saldo da conta do utilizador. Caso contrário, a API REST regista a nova conta no diretório e devolve o saldo `50.00` inicial.
 
 O seguinte código JSON ilustra os dados que o Azure AD B2C enviará para o seu ponto final REST API. 
 
@@ -59,7 +59,7 @@ A configuração do ponto final da API REST está fora do âmbito deste artigo. 
 
 Uma reclamação fornece armazenamento temporário de dados durante uma execução política Azure AD B2C. Pode declarar reclamações dentro da secção [de sinistros.](claimsschema.md) 
 
-1. Abra o ficheiro de extensões da sua apólice. Por exemplo, <em> `SocialAndLocalAccounts/` </em>.
+1. Abra o ficheiro de extensões da sua apólice. Por exemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em> .
 1. Procure o elemento [BuildingBlocks.](buildingblocks.md) Se o elemento não existir, adicione-o.
 1. Localize o elemento [ClaimsSchema.](claimsschema.md) Se o elemento não existir, adicione-o.
 1. Adicione as seguintes reclamações ao elemento **ClaimsSchema.**  
@@ -77,7 +77,7 @@ Uma reclamação fornece armazenamento temporário de dados durante uma execuç�
 
 ## <a name="configure-the-restful-api-technical-profile"></a>Configure o perfil técnico restful DaPI 
 
-Um [perfil técnico restful](restful-technical-profile.md) fornece suporte para interfaceção com o seu próprio serviço RESTful. O Azure AD B2C envia dados para `InputClaims` o serviço RESTful `OutputClaims` numa recolha e recebe dados numa recolha. Encontre o elemento **Reclamações Fornecedores** no seu <em>**`TrustFrameworkExtensions.xml`**</em> ficheiro e adicione um novo fornecedor de sinistros da seguinte forma:
+Um [perfil técnico restful](restful-technical-profile.md) fornece suporte para interfaceção com o seu próprio serviço RESTful. O Azure AD B2C envia dados para o serviço RESTful numa `InputClaims` recolha e recebe dados numa `OutputClaims` recolha. Encontre o elemento **Reclamações Fornecedores** no seu ficheiro e adicione um novo fornecedor de <em>**`TrustFrameworkExtensions.xml`**</em> sinistros da seguinte forma:
 
 ```xml
 <ClaimsProvider>
@@ -109,19 +109,19 @@ Um [perfil técnico restful](restful-technical-profile.md) fornece suporte para 
 </ClaimsProvider>
 ```
 
-Neste exemplo, `userLanguage` o serviço REST será `lang` enviado para o serviço REST como dentro da carga útil JSON. O valor `userLanguage` da reclamação contém o ID atual do idioma do utilizador. Para mais informações, consulte a [reclamação](claim-resolver-overview.md).
+Neste exemplo, o serviço `userLanguage` REST será enviado para o serviço REST como dentro da carga útil `lang` JSON. O valor da `userLanguage` reclamação contém o ID atual do idioma do utilizador. Para mais informações, consulte a [reclamação](claim-resolver-overview.md).
 
-Os comentários `AuthenticationType` acima `AllowInsecureAuthInProduction` e especificar alterações que deve fazer quando se muda para um ambiente de produção. Para aprender a proteger as suas APIs RESTful para produção, consulte [Secure RESTful API](secure-rest-api.md).
+Os comentários acima `AuthenticationType` e `AllowInsecureAuthInProduction` especificar alterações que deve fazer quando se muda para um ambiente de produção. Para aprender a proteger as suas APIs RESTful para produção, consulte [Secure RESTful API](secure-rest-api.md).
 
 ## <a name="add-an-orchestration-step"></a>Adicione um passo de orquestração
 
 [As viagens de utilizador](userjourneys.md) especificam caminhos explícitos através dos quais uma política permite que uma aplicação de parte dependente obtenha as reclamações desejadas para um utilizador. Uma viagem de utilizador é representada como uma sequência de orquestração que deve ser seguida para uma transação bem sucedida. Pode adicionar ou subtrair passos de orquestração. Neste caso, irá adicionar um novo passo de orquestração que é usado para aumentar as informações fornecidas à aplicação após o início do utilizador ou o início através da chamada REST API.
 
-1. Abra o ficheiro base da sua apólice. Por exemplo, <em> `SocialAndLocalAccounts/` </em>.
+1. Abra o ficheiro base da sua apólice. Por exemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`**</em> .
 1. Procure o `<UserJourneys>` elemento. Copie todo o elemento e, em seguida, elimine-o.
-1. Abra o ficheiro de extensões da sua apólice. Por exemplo, <em> `SocialAndLocalAccounts/` </em>.
-1. Colhe `<UserJourneys>` o ficheiro de extensões no `<ClaimsProviders>` ficheiro de extensões, após o fecho do elemento.
-1. Localize `<UserJourney Id="SignUpOrSignIn">`o passo de orquestração seguinte antes do último.
+1. Abra o ficheiro de extensões da sua apólice. Por exemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em> .
+1. Colhe o ficheiro de extensões no ficheiro de `<UserJourneys>` extensões, após o fecho do `<ClaimsProviders>` elemento.
+1. Localize o `<UserJourney Id="SignUpOrSignIn">` passo de orquestração seguinte antes do último.
 
     ```XML
     <OrchestrationStep Order="7" Type="ClaimsExchange">
@@ -131,7 +131,7 @@ Os comentários `AuthenticationType` acima `AllowInsecureAuthInProduction` e esp
     </OrchestrationStep>
     ```
 
-1. Refactor o último passo de `Order` `8`orquestração mudando o para . Os seus dois últimos passos de orquestração devem parecer os seguintes:
+1. Refactor o último passo de orquestração mudando o `Order` para `8` . Os seus dois últimos passos de orquestração devem parecer os seguintes:
 
     ```XML
     <OrchestrationStep Order="7" Type="ClaimsExchange">
@@ -148,7 +148,7 @@ Os comentários `AuthenticationType` acima `AllowInsecureAuthInProduction` e esp
 
 ## <a name="include-a-claim-in-the-token"></a>Incluir uma reclamação no símbolo 
 
-Para devolver `balance` a reclamação à aplicação da parte <em> `SocialAndLocalAccounts/` </em> que depende, adicione uma reclamação de saída ao ficheiro. A adição de uma reclamação de saída emitirá a reclamação no token após uma viagem bem sucedida do utilizador, e será enviada para a aplicação. Modifique o elemento de perfil técnico `balance` dentro da secção do partido de fiação para adicionar como uma reivindicação de saída.
+Para devolver a `balance` reclamação à aplicação da parte que depende, adicione uma reclamação de saída ao <em>`SocialAndLocalAccounts/`**`SignUpOrSignIn.xml`**</em> ficheiro. A adição de uma reclamação de saída emitirá a reclamação no token após uma viagem bem sucedida do utilizador, e será enviada para a aplicação. Modifique o elemento de perfil técnico dentro da secção do partido de fiação para adicionar como uma reivindicação de `balance` saída.
  
 ```xml
 <RelyingParty>
@@ -184,7 +184,7 @@ Guarde os ficheiros que alterou: *TrustFrameworkBase.xml*e *TrustFrameworkExtens
 1. Selecione **'Upload Custom Policy**', ' e, em seguida, faça upload dos ficheiros de política que alterou: *TrustFrameworkBase.xml*, e *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml*, and *PasswordReset.xml*. 
 1. Selecione a política de inscrição ou de inscrição que fez o upload e clique no botão **Executar agora.**
 1. Deverá poder inscrever-se através de um endereço de e-mail ou de uma conta no Facebook.
-1. O símbolo enviado de volta `balance` para o seu pedido inclui a reclamação.
+1. O símbolo enviado de volta para o seu pedido inclui a `balance` reclamação.
 
 ```json
 {
@@ -209,9 +209,6 @@ Guarde os ficheiros que alterou: *TrustFrameworkBase.xml*e *TrustFrameworkExtens
   ...
 }
 ```
-
-## <a name="next-steps"></a>Passos seguintes
-
 
 ## <a name="next-steps"></a>Passos seguintes
 

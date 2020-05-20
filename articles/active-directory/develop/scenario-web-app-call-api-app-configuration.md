@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 68f6f8ec67aca44c89b338287bdd37b6066992e0
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: f20636bfaf8b1b1f7714a9cede63886deaf53e36
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207025"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83641184"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>Uma aplicação web que chama APIs web: Configuração de código
 
@@ -41,7 +41,7 @@ Selecione o separador para a plataforma em que está interessado:
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Para permitir que a sua aplicação web ligue para APIs protegidos `AddWebAppCallsProtectedWebApi` ao utilizar o Microsoft.Identity.Web, basta ligar e especificar um formato de serialização de cache token (por exemplo, cache token na memória):
+Para permitir que a sua aplicação web ligue para APIs protegidos ao utilizar o Microsoft.Identity.Web, basta ligar e especificar um formato de serialização de `AddWebAppCallsProtectedWebApi` cache token (por exemplo, cache token na memória):
 
 ```C#
 // This method gets called by the runtime. Use this method to add services to the container.
@@ -80,7 +80,7 @@ Exemplos de código neste artigo e no seguinte são extraídos da [amostra de ap
 Exemplos de código neste artigo e no seguinte são extraídos da [aplicação web Java que chama microsoft graph](https://github.com/Azure-Samples/ms-identity-java-webapp), uma amostra de aplicação web que usa MSAL para Java.
 A amostra permite atualmente que a MSAL para a Java produza o URL do código de autorização e manuseie a navegação até ao ponto final de autorização da plataforma de identidade da Microsoft. Também é possível usar a segurança sprint para iniciar sessão. Talvez queira consultar a amostra para obter detalhes completos de implementação.
 
-# <a name="python"></a>[Python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
 Exemplos de código neste artigo e no seguinte são extraídos da [aplicação web Python chamada Microsoft Graph](https://github.com/Azure-Samples/ms-identity-python-webapp), uma amostra de aplicação web que utiliza mSAL. A Python.
 A amostra permite atualmente a MSAL. Python produz o URL de código de autorização e manuseia a navegação até ao ponto final de autorização para a plataforma de identidade da Microsoft. Talvez queira consultar a amostra para obter detalhes completos de implementação.
@@ -95,7 +95,7 @@ Microsoft.Identity.Web simplifica o seu código definindo as definições corret
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-ASP.NET lida com as coisas da mesma forma que ASP.NET Core, `OnAuthorizationCodeReceived` exceto que a configuração do OpenID Connect e a subscrição do evento acontecem no ficheiro [App_Start\Startup.Auth.cs.](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/App_Start/Startup.Auth.cs) Os conceitos também são semelhantes aos do núcleo ASP.NET, `RedirectUri` exceto que em ASP.NET deve especificar o [web.config#L15](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/master/WebApp/Web.config#L15). Esta configuração é um pouco menos robusta do que a do ASP.NET Core, porque terá de alterá-la quando implementar a sua aplicação.
+ASP.NET lida com as coisas de forma semelhante à ASP.NET Core, exceto que a configuração do OpenID Connect e a subscrição do `OnAuthorizationCodeReceived` evento acontecem no ficheiro [App_Start\Startup.Auth.cs.](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/App_Start/Startup.Auth.cs) Os conceitos também são semelhantes aos do ASP.NET Core, exceto que em ASP.NET deve especificar o `RedirectUri` [web.config#L15](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/master/WebApp/Web.config#L15). Esta configuração é um pouco menos robusta do que a do ASP.NET Core, porque terá de alterá-la quando implementar a sua aplicação.
 
 Aqui está o código para Startup.Auth.cs:
 
@@ -169,7 +169,7 @@ public partial class Startup
 Consulte [a aplicação Web que assina nos utilizadores: Configuração](scenario-web-app-sign-user-app-configuration.md?tabs=java#initialization-code) de código para entender como a amostra java obtém o código de autorização. Depois de a aplicação receber o código, o [AuthFilter.java#L51-L56](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthFilter.java#L51-L56):
 
 1. Delegados ao `AuthHelper.processAuthenticationCodeRedirect` método em [AuthHelper.java#L67-L97](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthHelper.java#L67-L97).
-1. Ligações. `getAuthResultByAuthCode`
+1. `getAuthResultByAuthCode`Ligações.
 
 ```Java
 class AuthHelper {
@@ -191,7 +191,7 @@ class AuthHelper {
 }
 ```
 
-O `getAuthResultByAuthCode` método é definido em [AuthHelper.java#L176](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthHelper.java#L176). Cria um MSAL, `ConfidentialClientApplication`e `acquireToken()` `AuthorizationCodeParameters` depois liga com criado a partir do código de autorização.
+O `getAuthResultByAuthCode` método é definido em [AuthHelper.java#L176](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthHelper.java#L176). Cria um MSAL, `ConfidentialClientApplication` e depois liga com criado a partir do código de `acquireToken()` `AuthorizationCodeParameters` autorização.
 
 ```Java
    private IAuthenticationResult getAuthResultByAuthCode(
@@ -233,7 +233,7 @@ O `getAuthResultByAuthCode` método é definido em [AuthHelper.java#L176](https:
     }
 ```
 
-# <a name="python"></a>[Python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
 O fluxo de código de autorização é solicitado como mostrado na [aplicação Web que assina nos utilizadores: Configuração de código](scenario-web-app-sign-user-app-configuration.md?tabs=python#initialization-code). O código é então recebido na `authorized` função, que o Flask faz a partir do `/getAToken` URL. Consulte [app.py#L30-L44](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/app.py#L30-L44) para obter todo o contexto deste código:
 
@@ -268,7 +268,7 @@ O uso de afirmações de clientes é um cenário avançado, detalhado nas afirma
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-O tutorial central ASP.NET usa a injeção de dependência para que você decida a implementação do cache simbólico no ficheiro Startup.cs para a sua aplicação. Microsoft.Identity.Web vem com serializadores de cache de token pré-construídos descritos em serialização de [cache token](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/Microsoft.Identity.Web/README.md#token-cache-serialization). Uma possibilidade interessante é escolher ASP.NET [caches de memória distribuídos](https://docs.microsoft.com/aspnet/core/performance/caching/distributed#distributed-memory-cache)core:
+O tutorial central ASP.NET usa a injeção de dependência para que você decida a implementação do cache simbólico no ficheiro Startup.cs para a sua aplicação. Microsoft.Identity.Web vem com serializadores de cache de token pré-construídos descritos em serialização de [cache token](msal-net-token-cache-serialization.md#token-cache-for-a-web-app-confidential-client-application). Uma possibilidade interessante é escolher ASP.NET [caches de memória distribuídos](https://docs.microsoft.com/aspnet/core/performance/caching/distributed#distributed-memory-cache)core:
 
 ```csharp
 // Use a distributed token cache by adding:
@@ -355,9 +355,9 @@ IAuthenticationResult getAuthResultBySilentFlow(HttpServletRequest httpRequest, 
 }
 ```
 
-Os detalhes `SessionManagementHelper` da aula são fornecidos na [amostra MSAL para Java.](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/SessionManagementHelper.java)
+Os detalhes da `SessionManagementHelper` aula são fornecidos na amostra [MSAL para Java.](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/SessionManagementHelper.java)
 
-# <a name="python"></a>[Python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
 Na amostra Python, uma cache por conta é assegurada recriando um pedido de cliente confidencial para cada pedido e, em seguida, serializando-o na cache da sessão do Flask:
 

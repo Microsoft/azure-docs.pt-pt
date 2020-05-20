@@ -5,16 +5,17 @@ description: Aprenda a usar python em azure machine learning designer para trans
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
 author: peterclu
 ms.author: peterlu
 ms.date: 02/28/2020
-ms.openlocfilehash: a2bd9845cd29c7d139e2042f39b4697847639207
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: designer
+ms.openlocfilehash: e27844f9f534ea4db1aba53c12fb3947e7269846
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79455796"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83644460"
 ---
 # <a name="execute-python-code-in-azure-machine-learning-designer"></a>Execute código Python em designer de machine learning azure
 
@@ -47,7 +48,7 @@ Este artigo utiliza o conjunto de dados da amostra, **dados sobre o preço do au
     ![Ligar conjuntos de dados](media/how-to-designer-python/connect-dataset.png)
         
 
-1. Tome nota da porta de entrada que utiliza. O designer atribui a porta de `dataset1` entrada esquerda à variável e à porta de entrada média para `dataset2`. 
+1. Tome nota da porta de entrada que utiliza. O designer atribui a porta de entrada esquerda à variável `dataset1` e à porta de entrada média para `dataset2` . 
 
 Os módulos de entrada são opcionais, uma vez que pode gerar ou importar dados diretamente no módulo **Execute Python Script.**
 
@@ -74,7 +75,7 @@ Neste exemplo, você usa Pandas para combinar duas colunas encontradas no conjun
     
     ![Executar o gasoduto Python](media/how-to-designer-python/execute-python-pipeline.png)
 
-    O script do ponto `azureml_main`de entrada deve conter a função . Existem dois parâmetros de função que mapeiam as duas portas de entrada para o módulo **execute Python Script.**
+    O script do ponto de entrada deve conter a função `azureml_main` . Existem dois parâmetros de função que mapeiam as duas portas de entrada para o módulo **execute Python Script.**
 
     O valor de retorno deve ser um Quadro de Dados pandas. Pode devolver até dois quadros de dados como saídas de módulos.
     

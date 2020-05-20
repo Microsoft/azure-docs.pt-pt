@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/02/2020
 ms.author: alkohli
-ms.openlocfilehash: 054f1449d6f06225633bf0647cac93ca42f2b59b
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 5a4ac2342ca36d83d1a579851c090c4713814c8d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929014"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652050"
 ---
 # <a name="azure-stack-edge-technical-specifications"></a>Especificações técnicas azure Stack Edge
 
-Os componentes de hardware do seu dispositivo Microsoft Azure Stack Edge aderem às especificações técnicas e normas regulamentares descritas neste artigo. As especificações técnicas descrevem as unidades de alimentação (OP), capacidade de armazenamento, recintos e normas ambientais. 
+Os componentes de hardware do seu dispositivo Microsoft Azure Stack Edge aderem às especificações técnicas e normas regulamentares descritas neste artigo. As especificações técnicas descrevem as unidades de alimentação (OP), capacidade de armazenamento, recintos e normas ambientais.
 
 ## <a name="compute-memory-specifications"></a>Compute, especificações de memória
 
@@ -28,15 +28,13 @@ O dispositivo Azure Stack Edge tem as seguintes especificações para computaç�
 | CPU    | 2 X 10 CPU central                     |
 | Memória              | 128 GB de RAM                  |
 
-
 ## <a name="fpga-specifications"></a>Especificações da FPGA
 
-Um field programmable gate Array (FPGA) está incluído em todos os dispositivos Azure Stack Edge que permite cenários de Machine Learning (ML). 
+Um field programmable gate Array (FPGA) está incluído em todos os dispositivos Azure Stack Edge que permite cenários de Machine Learning (ML).
 
 | Especificação           | Valor                  |
 |-------------------------|----------------------------|
-| FPGA   | Intel Arria 10 <br> Os modelos disponíveis da Deep Neural Network (DNN) são os mesmos que [suportados por instâncias fPGA em nuvem.](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-fpga-web-service#whats-supported-on-azure)| 
-
+| FPGA   | Intel Arria 10 <br> Os modelos disponíveis da Deep Neural Network (DNN) são os mesmos que [suportados por instâncias fPGA em nuvem.](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-fpga-web-service#whats-supported-on-azure)|
 
 ## <a name="power-supply-unit-specifications"></a>Especificações da unidade de alimentação de energia
 
@@ -48,6 +46,11 @@ O dispositivo Azure Stack Edge tem duas unidades de alimentação 100-240 V (PSU
 | Frequência               | 50/60 Hz                   |
 | Seleção de tensão | Auto ranging: 100-240 V AC |
 | Pluggable quente           | Sim                        |
+
+### <a name="azure-stack-edge-power-cord-specifications-by-region"></a>Especificações do cabo de alimentação Azure Stack Edge por região
+
+O seu dispositivo Azure Stack Edge necessita de um cabo de alimentação que varia consoante a sua região Azure.
+Para obter especificações técnicas de todos os cabos de alimentação suportados, consulte as especificações do cabo de [alimentação Azure Stack Edge por região](azure-stack-edge-technical-specifications-power-cords-regional.md).
 
 <!--## Power consumption statistics
 
@@ -133,7 +136,6 @@ Esta secção enumera as especificações relacionadas com o ambiente do recinto
 |    Energia             |    Regulamento da Comissão (UE) Nº. 617/2013                                                                                                                                                                                        |
 |    Rio Rohs           |    EN 50581:2012                                                                                                                                                                                        |
 
-
 ### <a name="operating-temperature-de-rating-specifications"></a>Especificações de declassificação da temperatura de funcionamento
 
 |     Declassificação da temperatura de funcionamento     |     Intervalo de temperatura ambiente                                                         |
@@ -141,7 +143,6 @@ Esta secção enumera as especificações relacionadas com o ambiente do recinto
 |    Até 35°C (95°F)                       |    A temperatura máxima é reduzida em 1°C/300 m (1°F/547 ft) acima de 950 m (3,117 pés).    |
 |    35°C a 40°C (95°F a 104°F)            |    A temperatura máxima é reduzida em 1°C/175 m (1°F/319 ft) acima de 950 m (3,117 pés).    |
 |    40°C a 45°C (104°F a 113°F)           |    A temperatura máxima é reduzida em 1°C/125 m (1°F/228 ft) acima de 950 m (3,117 pés).    |
-
 
 ## <a name="next-steps"></a>Passos seguintes
 

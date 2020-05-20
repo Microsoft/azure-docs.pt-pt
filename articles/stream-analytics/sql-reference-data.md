@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: e6feca8cc87eadb2be5f43cafaa82195a18c3c75
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 9f780ad3d2c95f9d23ea9a0b675b59ba22e25016
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83200386"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83651945"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Utilize dados de referência de uma base de dados SQL para um trabalho de Azure Stream Analytics
 
@@ -161,11 +161,11 @@ Ao utilizar a consulta delta, recomenda-se a utilização da consulta delta, rec
    Para registos que foram atualizados, a tabela temporal faz contabilidade capturando uma operação de inserção e eliminação. O tempo de execução do Stream Analytics aplicará então os resultados da consulta delta ao instantâneo anterior para manter os dados de referência atualizados. Um exemplo de consulta delta é mostrado abaixo:
 
    ```SQL
-      SELECT DeviceId, GroupDeviceId, Description, ValidFrom as watermark 1 as _operation_
+      SELECT DeviceId, GroupDeviceId, Description, ValidFrom as _watermark_, 1 as _operation_
       FROM dbo.DeviceTemporal
       WHERE ValidFrom BETWEEN @deltaStartTime AND @deltaEndTime   -- records inserted
       UNION
-      SELECT DeviceId, GroupDeviceId, Description, ValidTo as watermark 2 as _operation_
+      SELECT DeviceId, GroupDeviceId, Description, ValidTo as _watermark_, 2 as _operation_
       FROM dbo.DeviceHistory   -- table we created in step 1
       WHERE ValidTo BETWEEN @deltaStartTime AND @deltaEndTime     -- record deleted
    ```

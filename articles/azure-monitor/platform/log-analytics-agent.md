@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: 0a29ee1536c7c808fe7d15c0abe26f27042bc962
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: e60fa73af9bd33c22f8489520b683f244dc46302
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196253"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655945"
 ---
 # <a name="log-analytics-agent-overview"></a>Visão geral do agente de Log Analytics
 O agente Azure Log Analytics foi desenvolvido para uma gestão abrangente através de máquinas virtuais em qualquer nuvem, máquinas no local, e as monitorizadas pelo [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/). Os agentes Windows e Linux enviam dados recolhidos de diferentes fontes para o seu espaço de trabalho Log Analytics no Monitor Azure, bem como quaisquer registos ou métricas únicos, conforme definido numa solução de monitorização. O agente Log Analytics também suporta insights e outros serviços no Azure Monitor, tais como [O Monitor Azure para VMs,](../insights/vminsights-enable-overview.md) [Azure Security Center](/azure/security-center/)e [Azure Automation.](../../automation/automation-intro.md)
@@ -91,7 +91,7 @@ As seguintes versões do sistema operativo Windows são oficialmente suportadas 
 * Windows Server 2016, versão 1709 e 1803
 * Windows Server 2012, 2012 R2
 * Windows Server 2008 SP2 (x64), 2008 R2
-* Windows 10 Enterprise e Pro
+* Windows 10 Enterprise (incluindo multi-sessão) e Pro
 * Windows 8 Enterprise e Pro 
 * Windows 7 SP1
 

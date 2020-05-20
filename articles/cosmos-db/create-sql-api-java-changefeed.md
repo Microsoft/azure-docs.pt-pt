@@ -5,23 +5,23 @@ author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
-ms.topic: conceptual
-ms.date: 05/08/2020
+ms.topic: tutorial
+ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 5e8656e891d250547174aa3deb27a94eebaa0ba3
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 34341e39f2db78d8f0d3355d180a2781229f232f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125677"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83651150"
 ---
 # <a name="how-to-create-a-java-application-that-uses-azure-cosmos-db-sql-api-and-change-feed-processor"></a>Como criar uma aplicação Java que utiliza a API SQL Do Azure Cosmos DB e alterar processador de feed
 
-> [!IMPORTANT]  
-> Para mais informações sobre as dicas de desempenho do Azure Cosmos DB Java SDK v4, consulte as notas de lançamento do Azure Cosmos DB Java SDK v4, do [repositório Maven,](https://mvnrepository.com/artifact/com.azure/azure-cosmos)das dicas de [desempenho](performance-tips-java-sdk-v4-sql.md)do Azure Cosmos DB Java SDK v4 e do guia de resolução de [problemas](troubleshoot-java-sdk-v4-sql.md)Azure Cosmos DB Java SDK v4.
->
-
 Este guia de como guiar percorre-o através de uma simples aplicação Java que utiliza a API Azure Cosmos DB SQL para inserir documentos num recipiente Azure Cosmos DB, mantendo uma visão materializada do recipiente utilizando o Processador Change Feed e Change Feed. A aplicação Java comunica com o Azure Cosmos DB SQL API utilizando o Azure Cosmos DB Java SDK v4.
+
+> [!IMPORTANT]  
+> Este tutorial é apenas para Azure Cosmos DB Java SDK v4. Por favor, veja as notas de [lançamento](sql-api-sdk-java-v4.md)do Azure Cosmos DB Java SDK v4, [repositório Maven,](https://mvnrepository.com/artifact/com.azure/azure-cosmos)Dicas de [desempenho](performance-tips-java-sdk-v4-sql.md)Do Azure Cosmos DB Java SDK [v4](troubleshoot-java-sdk-v4-sql.md) para mais informações. Se está a utilizar atualmente uma versão mais antiga do que a v4, consulte o guia [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) para ajudar a atualizar para v4.
+>
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -31,7 +31,7 @@ Este guia de como guiar percorre-o através de uma simples aplicação Java que 
 
 * Java 8
 
-## <a name="background"></a>Segundo plano
+## <a name="background"></a>Fundo
 
 O feed de mudança de DB Azure Cosmos fornece uma interface orientada para eventos para desencadear ações em resposta à inserção de documentos. Isto tem muitos usos. Por exemplo, em aplicações que são lidas e escrevem pesadas, um uso principal do feed de mudança é criar uma **visão materializada** em tempo real de um recipiente, uma vez que está a ingerir documentos. O recipiente de visualização materializado terá os mesmos dados, mas dividido para leituras eficientes, tornando a aplicação tanto lida como escrita eficiente.
 

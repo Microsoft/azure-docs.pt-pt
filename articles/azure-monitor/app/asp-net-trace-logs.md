@@ -3,12 +3,12 @@ title: Explore os registos de rastreio .NET em Insights de Aplicação
 description: Registos de pesquisa gerados por Trace, NLog ou Log4Net.
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.openlocfilehash: 273d5a2f4e1155541e159332312bdaa68aa175d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bcd21286a547e0b0a6b5b93e8b05921e8e8cc1e2
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79276273"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647915"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Explore os registos de rastreio de .NET/.NET Core e Python em Insights de Aplicação
 
@@ -49,20 +49,20 @@ Utilize este método se o seu tipo de projeto não for suportado pelo instalador
 3. Procure "Application Insights".
 4. Selecione um dos seguintes pacotes:
 
-   - Para iLogger: [Microsoft.Extensions.Logging.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights/)
-[![NuGet](https://img.shields.io/nuget/vpre/Microsoft.Extensions.Logging.ApplicationInsights.svg)](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights/)
-   - Para o NLog: [Microsoft.applicationInsights.NlogTarget](https://www.nuget.org/packages/Microsoft.ApplicationInsights.NLogTarget/)
-[![nuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.NLogTarget.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.NLogTarget/)
-   - Para Log4Net: [Microsoft.ApplicationInsights.Log4NetAppender](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Log4NetAppender/)
-[![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.Log4NetAppender.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Log4NetAppender/)
-   - Para system.Diagnostics: [Microsoft.ApplicationInsights.TraceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/)
-[![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.TraceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/)
-   - [Microsoft.ApplicationInsights.DiagnosticSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/)
-[![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.DiagnosticSourceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/)
-   - [Microsoft.ApplicationInsights.EtwCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector/)
-[![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.EtwCollector.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector/)
-   - [Microsoft.ApplicationInsights.EventSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/)
-[![Nuget](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.EventSourceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/)
+   - Para iLogger: [Microsoft.Extensions.Logging.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights/) 
+ [ ![ NuGet](https://img.shields.io/nuget/vpre/Microsoft.Extensions.Logging.ApplicationInsights.svg)](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights/)
+   - Para o NLog: [Microsoft.applicationInsights.NlogTarget](https://www.nuget.org/packages/Microsoft.ApplicationInsights.NLogTarget/) 
+ [ ![ nuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.NLogTarget.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.NLogTarget/)
+   - Para Log4Net: [Microsoft.ApplicationInsights.Log4NetAppender](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Log4NetAppender/) 
+ [ ![ NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.Log4NetAppender.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Log4NetAppender/)
+   - Para system.Diagnostics: [Microsoft.ApplicationInsights.TraceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/) 
+ [ ![ NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.TraceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/)
+   - [Microsoft.ApplicationInsights.DiagnosticSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/) 
+ [ ![ Nuget](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.DiagnosticSourceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/)
+   - [Microsoft.ApplicationInsights.EtwCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector/) 
+ [ ![ Nuget](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.EtwCollector.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector/)
+   - [Microsoft.ApplicationInsights.EventSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/) 
+ [ ![ Nuget](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.EventSourceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/)
 
 O pacote NuGet instala os conjuntos necessários e modifica web.config ou app.config se for aplicável.
 
@@ -124,7 +124,7 @@ Pode configurar eventos de Rastreio de Eventos para Windows (ETW) a serem enviad
 
 Para cada fonte, pode definir os seguintes parâmetros:
  * **ProviderName** é o nome do fornecedor ETW para recolher.
- * **O ProviderGuid** especifica o GUID do fornecedor ETW para cobrar. Pode ser usado `ProviderName`em vez de .
+ * **O ProviderGuid** especifica o GUID do fornecedor ETW para cobrar. Pode ser usado em vez de `ProviderName` .
  * **O nível** define o nível de exploração a cobrar. Pode ser *Crítico*, *Erro,* *Informacional,* *LogAlways,* *Verbose*ou *Aviso*.
  * **As palavras-chave** (opcional) fixam o valor inteiro das combinações de palavras-chave a utilizar.
 
@@ -182,16 +182,18 @@ Pode, por exemplo:
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 ### <a name="how-do-i-do-this-for-java"></a>Como faço isto pela Java?
-Utilize os [adaptadores](../../azure-monitor/app/java-trace-logs.md)de registo Java .
+Na instrumentação sem código java (recomendado) os registos são recolhidos fora da caixa, utilize [o agente Java 3.0](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent).
+
+Se estiver a utilizar o Java SDK, utilize os [adaptadores](../../azure-monitor/app/java-trace-logs.md)de registo Java .
 
 ### <a name="theres-no-application-insights-option-on-the-project-context-menu"></a>Não há opção De insights de aplicação no menu de contexto do projeto
-* Certifique-se de que as Ferramentas de Análise do Desenvolvedor estão instaladas na máquina de desenvolvimento. Na Visual Studio **Tools** > **Extensions and Updates,** procure ferramentas de análise de **desenvolvedores.** Se não estiver no separador **Instalado,** abra o separador **Online** e instale-o.
-* Este pode ser um tipo de projeto que a Devloper Analytics Tools não suporta. Utilize [a instalação manual](#manual-installation).
+* Certifique-se de que as Ferramentas de Análise do Desenvolvedor estão instaladas na máquina de desenvolvimento. Na Visual Studio **Tools**  >  **Extensions and Updates,** procure ferramentas de análise de **desenvolvedores.** Se não estiver no separador **Instalado,** abra o separador **Online** e instale-o.
+* Este pode ser um tipo de projeto que o Developer Analytics Tools não suporta. Utilize [a instalação manual](#manual-installation).
 
 ### <a name="theres-no-log-adapter-option-in-the-configuration-tool"></a>Não há opção de adaptador de log na ferramenta de configuração
 * Instale primeiro a estrutura de exploração madeireira.
 * Se estiver a utilizar o System.Diagnostics.Trace, certifique-se de que o tem [configurado em *web.config*](https://msdn.microsoft.com/library/system.diagnostics.eventlogtracelistener.aspx).
-* Certifique-se de que tem a versão mais recente do Application Insights. No Estúdio Visual, vá a **Ferramentas** > **Extensões e Atualizações**e abra o separador **Atualizações.** Se estiver em **questão,** selecione-as para atualizá-la.
+* Certifique-se de que tem a versão mais recente do Application Insights. No Estúdio Visual, **Tools**vá a  >  **Ferramentas Extensões e Atualizações**e abra o separador **Atualizações.** Se estiver em **questão,** selecione-as para atualizá-la.
 
 ### <a name="i-get-the-instrumentation-key-cannot-be-empty-error-message"></a><a name="emptykey"></a>Recebo a mensagem de erro "Chave de Instrumentação não pode estar vazia"
 Provavelmente instalou o pacote nuget do adaptador de madeira sem instalar o Application Insights. No Solution Explorer, clique à direita *ApplicationInsights.config*, e selecione **Update Application Insights**. Será solicitado a iniciar sessão no Azure e criar um recurso Application Insights ou reutilizar um existente. Isto deve resolver o problema.

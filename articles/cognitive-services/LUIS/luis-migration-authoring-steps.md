@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/28/2020
+ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: f5197ae79670e4543c58224a33838706edae6218
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2c28e6c1edf4188cf3ea80c14565785dcf1dcbba
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78194648"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653808"
 ---
 # <a name="steps-to-migrate-to-the-azure-authoring-resource"></a>Passos para migrar para o recurso de autoria azure
 
@@ -97,12 +97,12 @@ O processo de migração está disponível se for proprietário de quaisquer apl
 
 1. Antes de aceder às suas apps, selecione a subscrição e o recurso de autor da LUIS para ver as aplicações que pode ser autor.
 
-    ![Selecione subscrição e recurso de autor LUIS para ver as aplicações que pode ser autora.](./media/migrate-authoring-key/app-list-by-subscription-and-resource.png)
-
+    > [!div class="mx-imgBorder"]
+    > ![Selecione subscrição e recurso de autor LUIS para ver as aplicações que pode ser autora.](./media/create-app-in-portal-select-subscription-luis-resource.png)
 
 ## <a name="app-contributor-begins-the-migration-process"></a>Colaborador da App inicia o processo de migração
 
-Siga os mesmos passos que o proprietário da aplicação para migração. O processo cria um novo `LUIS.Authoring`recurso de autoria do tipo.
+Siga os mesmos passos que o proprietário da aplicação para migração. O processo cria um novo recurso de autoria do `LUIS.Authoring` tipo.
 
 É necessário migrar a sua conta para ser adicionada como contribuinte para aplicações migratórias detidas por outras pessoas.
 
@@ -114,7 +114,7 @@ Saiba [como adicionar colaboradores.](luis-how-to-collaborate.md)
 
 ## <a name="troubleshooting-errors-with-the-migration-process"></a>Erros de resolução de problemas com o processo de migração
 
-Se receber `MissingSubscriptionRegistration` um erro no portal LUIS com uma barra de notificação vermelha durante o processo de migração, crie um recurso do Serviço Cognitivo no [portal Azure](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) ou [azure CLI](luis-how-to-azure-subscription.md#create-resources-in-azure-cli). Saiba mais sobre [as causas deste erro.](../../azure-resource-manager/templates/error-register-resource-provider.md#cause)
+Se receber um erro no portal LUIS com uma barra de notificação vermelha durante o processo de `MissingSubscriptionRegistration` migração, crie um recurso do Serviço Cognitivo no [portal Azure](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) ou [azure CLI](luis-how-to-azure-subscription.md#create-resources-in-azure-cli). Saiba mais sobre [as causas deste erro.](../../azure-resource-manager/templates/error-register-resource-provider.md#cause)
 
 ## <a name="next-steps"></a>Passos seguintes
 

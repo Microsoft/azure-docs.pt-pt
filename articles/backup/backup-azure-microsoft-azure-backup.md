@@ -3,12 +3,12 @@ title: Use o Servidor de Backup Azure para fazer backup das cargas de trabalho
 description: Neste artigo, aprenda a preparar o seu ambiente para proteger e fazer backup de cargas de trabalho utilizando o Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: dd506668f9d75523ff7494bccb2979bf0785990d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7a442cb094f87852c9d4f781d378f5886f3a4a42
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79273413"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652127"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalar e atualizar o Servidor de Backup Azure
 
@@ -40,6 +40,9 @@ O Azure Backup Server herda grande parte da funcionalidade de backup da carga de
 ## <a name="choose-an-installation-platform"></a>Escolha uma plataforma de instalação
 
 O primeiro passo para pôr o Servidor de Backup Azure a funcionar é configurar um Servidor windows. O seu servidor pode estar no Azure ou no local.
+
+* Para proteger as cargas de trabalho no local, o servidor MABS deve estar localizado no local.
+* Para proteger as cargas de trabalho em VMs Azure, o servidor MABS deve estar localizado em Azure, funcionando como um VM Azure.
 
 ### <a name="using-a-server-in-azure"></a>Usando um servidor em Azure
 
@@ -183,9 +186,9 @@ Uma vez concluído o processo de extração, verifique a caixa para lançar a *c
 
     Utilize os seguintes valores para a configuração ssrs:
     * Conta de Serviço: 'Use a conta incorporada' deve ser serviço de rede
-    * URL do Serviço Web: 'Diretório\<Virtual' deve ser ReportServer_ SQLInstanceName>
-    * Base de Dados: Nome\<da base de dados deve ser ReportServer$ SQLInstanceName>
-    * URL do Portal Web: 'Diretório\<Virtual' deve ser Reports_ SQLInstanceName>
+    * URL do Serviço Web: 'Diretório Virtual' deve ser ReportServer_ \< SQLInstanceName>
+    * Base de Dados: Nome da base de dados deve ser ReportServer$ \< SQLInstanceName>
+    * URL do Portal Web: 'Diretório Virtual' deve ser Reports_ \< SQLInstanceName>
 
     [Saiba mais](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) sobre a configuração ssrs.
 
@@ -237,7 +240,7 @@ O MABS utiliza o agente de proteção de dados do System Center. [Aqui estão os
 
 As seguintes secções descrevem como atualizar os agentes de proteção para computadores clientes.
 
-1. Na consola de administrador do servidor de backup, selecione**Agentes de** **Gestão** > .
+1. Na consola de administrador do servidor de backup, selecione Agentes de **Gestão**  >  **Agents**.
 
 2. No painel de visualização, selecione os computadores clientes para os quais pretende atualizar o agente de proteção.
 
@@ -280,7 +283,7 @@ Aqui estão os passos se precisar de mover o MABS para um novo servidor, mantend
 
 ## <a name="network-connectivity"></a>Conectividade de rede
 
-O Azure Backup Server requer conectividade com o serviço de backup Azure para que o produto funcione com sucesso. Para validar se a máquina tem a conectividade ```Get-DPMCloudConnection``` com o Azure, utilize o cmdlet na consola PowerShell do Servidor de Backup Azure. Se a saída do cmdlet for TRUE, então existe conectividade, caso contrário não há conectividade.
+O Azure Backup Server requer conectividade com o serviço de backup Azure para que o produto funcione com sucesso. Para validar se a máquina tem a conectividade com o Azure, utilize o ```Get-DPMCloudConnection``` cmdlet na consola PowerShell do Servidor de Backup Azure. Se a saída do cmdlet for TRUE, então existe conectividade, caso contrário não há conectividade.
 
 Ao mesmo tempo, a subscrição do Azure tem de estar num estado saudável. Para saber o estado da sua subscrição e geri-la, inscreva-se no portal de [subscrição](https://account.windowsazure.com/Subscriptions).
 
@@ -288,10 +291,10 @@ Assim que souber o estado da conectividade Azure e da subscrição do Azure, pod
 
 | Estado de Conectividade | Subscrição do Azure | Criar uma cópia de segurança no Azure | Voltar ao disco | Restaurar de Azure | Restaurar a partir do disco |
 | --- | --- | --- | --- | --- | --- |
-| Ligada |Ativa |Permitido |Permitido |Permitido |Permitido |
+| Ligada |Ativo |Permitido |Permitido |Permitido |Permitido |
 | Ligada |Fora do prazo |Parada |Parada |Permitido |Permitido |
 | Ligada |Deprovisionado |Parada |Parada |Pontos de recuperação parados e Azure apagados |Parada |
-| A conectividade perdida > 15 dias |Ativa |Parada |Parada |Permitido |Permitido |
+| A conectividade perdida > 15 dias |Ativo |Parada |Parada |Permitido |Permitido |
 | A conectividade perdida > 15 dias |Fora do prazo |Parada |Parada |Permitido |Permitido |
 | A conectividade perdida > 15 dias |Deprovisionado |Parada |Parada |Pontos de recuperação parados e Azure apagados |Parada |
 

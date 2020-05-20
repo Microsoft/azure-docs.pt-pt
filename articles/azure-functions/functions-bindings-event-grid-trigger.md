@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4673bcb71fc2f45c3b02f8fe5e463184395e8ef8
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: a92e64311d8a4f5e87c5be3d00c1c23898db551d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891284"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648351"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Gatilho da grelha de eventos azure para funções azure
 
@@ -27,7 +27,7 @@ Para um exemplo de gatilho HTTP, consulte [Receber eventos para um ponto final H
 
 ### <a name="c-2x-and-higher"></a>C# (2.x e superior)
 
-O exemplo seguinte mostra uma [função C#](functions-dotnet-class-library.md) que se liga a: `EventGridEvent`
+O exemplo seguinte mostra uma [função C#](functions-dotnet-class-library.md) que se liga `EventGridEvent` a:
 
 ```cs
 using Microsoft.Azure.EventGrid.Models;
@@ -53,7 +53,7 @@ Para mais informações, consulte Pacotes, [Atributos,](#attributes-and-annotati
 
 ### <a name="version-1x"></a>Versão 1.x
 
-O exemplo seguinte mostra uma [função](functions-dotnet-class-library.md) Funções 1.x C# que se liga a: `JObject`
+O exemplo seguinte mostra uma [função](functions-dotnet-class-library.md) Funções 1.x C# que se liga `JObject` a:
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -97,7 +97,7 @@ Aqui estão os dados vinculativos no ficheiro *função.json:*
 
 ### <a name="version-2x-and-higher"></a>Versão 2.x e superior
 
-Aqui está um exemplo que `EventGridEvent`se liga a:
+Aqui está um exemplo que se liga `EventGridEvent` a:
 
 ```csharp
 #r "Microsoft.Azure.EventGrid"
@@ -114,7 +114,7 @@ Para mais informações, consulte Pacotes, [Atributos,](#attributes-and-annotati
 
 ### <a name="version-1x"></a>Versão 1.x
 
-Aqui está as Funções 1.x C# `JObject`código de script que se liga a:
+Aqui está as Funções 1.x C# código de script que se liga `JObject` a:
 
 ```cs
 #r "Newtonsoft.Json"
@@ -159,7 +159,7 @@ module.exports = function (context, eventGridEvent) {
 };
 ```
 
-# <a name="python"></a>[Python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
 O exemplo seguinte mostra uma ligação do gatilho num ficheiro *function.json* e uma [função Python](functions-reference-python.md) que utiliza a ligação.
 
@@ -207,7 +207,7 @@ Esta secção contém os seguintes exemplos:
 * [Gatilho da grelha de eventos, parâmetro de corda](#event-grid-trigger-string-parameter)
 * [Gatilho da Grelha de Eventos, parâmetro POJO](#event-grid-trigger-pojo-parameter)
 
-Os seguintes exemplos mostram a ligação do gatilho em [Java](functions-reference-java.md) que `String` usa a encadernação e imprime um evento, recebendo primeiro o evento como um POJO.
+Os seguintes exemplos mostram a ligação do gatilho em [Java](functions-reference-java.md) que usa a encadernação e imprime um evento, recebendo primeiro o evento `String` como um POJO.
 
 ### <a name="event-grid-trigger-string-parameter"></a>Gatilho da grelha de eventos, parâmetro de corda
 
@@ -245,7 +245,7 @@ public class EventSchema {
 }
 ```
 
-À chegada, a carga útil JSON do evento ```EventSchema``` é desserializada no POJO para utilização pela função. Este processo permite que a função aceda às propriedades do evento de forma orientada para o objeto.
+À chegada, a carga útil JSON do evento é desserializada no ```EventSchema``` POJO para utilização pela função. Este processo permite que a função aceda às propriedades do evento de forma orientada para o objeto.
 
 ```java
   @FunctionName("eventGridMonitor")
@@ -263,7 +263,7 @@ public class EventSchema {
   }
 ```
 
-Na [biblioteca de tempo de funcionamento das funções java,](/java/api/overview/azure/functions/runtime)utilize a `EventGridTrigger` anotação em parâmetros cujo valor viria da EventGrid. Os parâmetros com estas anotações fazem com que a função funcione quando um evento chega.  Esta anotação pode ser usada com tipos nativos de `Optional<T>`Java, POJOs ou valores nuníveis usando .
+Na [biblioteca de tempo de funcionamento das funções java,](/java/api/overview/azure/functions/runtime)utilize a `EventGridTrigger` anotação em parâmetros cujo valor viria da EventGrid. Os parâmetros com estas anotações fazem com que a função funcione quando um evento chega.  Esta anotação pode ser usada com tipos nativos de Java, POJOs ou valores nuníveis usando `Optional<T>` .
 
 ---
 
@@ -273,7 +273,7 @@ Na [biblioteca de tempo de funcionamento das funções java,](/java/api/overview
 
 Nas [bibliotecas da classe C#,](functions-dotnet-class-library.md)utilize o atributo [EventGridTrigger.](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/TriggerBinding/EventGridTriggerAttribute.cs)
 
-Aqui está `EventGridTrigger` um atributo numa assinatura de método:
+Aqui está um `EventGridTrigger` atributo numa assinatura de método:
 
 ```csharp
 [FunctionName("EventGridTest")]
@@ -293,7 +293,7 @@ Os atributos não são suportados por C# Script.
 
 Os atributos não são suportados pelo JavaScript.
 
-# <a name="python"></a>[Python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
 Os atributos não são suportados pela Python.
 
@@ -305,12 +305,12 @@ A anotação [EventGridTrigger](https://github.com/Azure/azure-functions-java-li
 
 ## <a name="configuration"></a>Configuração
 
-A tabela que se segue explica as propriedades de configuração de ligação que definiu no ficheiro *função.json.* Não existem parâmetros ou propriedades de `EventGridTrigger` construtores para definir no atributo.
+A tabela que se segue explica as propriedades de configuração de ligação que definiu no ficheiro *função.json.* Não existem parâmetros ou propriedades de construtores para definir no `EventGridTrigger` atributo.
 
 |propriedade fun.json |Descrição|
 |---------|---------|
-| **tipo** | Obrigatório - deve ser `eventGridTrigger`definido para . |
-| **direção** | Obrigatório - deve ser `in`definido para . |
+| **tipo** | Obrigatório - deve ser definido para `eventGridTrigger` . |
+| **direção** | Obrigatório - deve ser definido para `in` . |
 | **nome** | Obrigatório - o nome variável utilizado no código de função para o parâmetro que recebe os dados do evento. |
 
 ## <a name="usage"></a>Utilização
@@ -327,7 +327,7 @@ Nas Funções Azure 2.x e superior, também tem a opção de utilizar o seguinte
 * `Microsoft.Azure.EventGrid.Models.EventGridEvent`- Define propriedades para os campos comuns a todos os tipos de eventos.
 
 > [!NOTE]
-> Nas funções v1 se tentar `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`ligar-se, o compilador apresentará uma mensagem "depreciada" e aconselhará a utilizar `Microsoft.Azure.EventGrid.Models.EventGridEvent` em vez disso. Para utilizar o tipo mais recente, faça referência ao pacote [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet e qualifique totalmente o nome do `EventGridEvent` tipo, prefixando-o com `Microsoft.Azure.EventGrid.Models`.
+> Nas funções v1 se tentar ligar-se, `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent` o compilador apresentará uma mensagem "depreciada" e aconselhará a utilizar `Microsoft.Azure.EventGrid.Models.EventGridEvent` em vez disso. Para utilizar o tipo mais recente, faça referência ao pacote [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet e qualifique totalmente o nome do `EventGridEvent` tipo, prefixando-o com `Microsoft.Azure.EventGrid.Models` .
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
@@ -341,19 +341,19 @@ Nas Funções Azure 2.x e superior, também tem a opção de utilizar o seguinte
 * `Microsoft.Azure.EventGrid.Models.EventGridEvent`- Define propriedades para os campos comuns a todos os tipos de eventos.
 
 > [!NOTE]
-> Nas funções v1 se tentar `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`ligar-se, o compilador apresentará uma mensagem "depreciada" e aconselhará a utilizar `Microsoft.Azure.EventGrid.Models.EventGridEvent` em vez disso. Para utilizar o tipo mais recente, faça referência ao pacote [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet e qualifique totalmente o nome do `EventGridEvent` tipo, prefixando-o com `Microsoft.Azure.EventGrid.Models`. Para obter informações sobre como referenciar pacotes NuGet numa função de script C#, consulte [utilizar pacotes NuGet](functions-reference-csharp.md#using-nuget-packages)
+> Nas funções v1 se tentar ligar-se, `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent` o compilador apresentará uma mensagem "depreciada" e aconselhará a utilizar `Microsoft.Azure.EventGrid.Models.EventGridEvent` em vez disso. Para utilizar o tipo mais recente, faça referência ao pacote [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet e qualifique totalmente o nome do `EventGridEvent` tipo, prefixando-o com `Microsoft.Azure.EventGrid.Models` . Para obter informações sobre como referenciar pacotes NuGet numa função de script C#, consulte [utilizar pacotes NuGet](functions-reference-csharp.md#using-nuget-packages)
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-A instância Da Grelha de Eventos está disponível através do `name` parâmetro configurado na propriedade do ficheiro *function.json.*
+A instância Da Grelha de Eventos está disponível através do parâmetro configurado na propriedade do ficheiro *function.json.* `name`
 
-# <a name="python"></a>[Python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
-A instância Da Grelha de Eventos está disponível através do `name` parâmetro configurado `func.EventGridEvent`na propriedade do ficheiro *fun.json,* dactilografado como .
+A instância Da Grelha de Eventos está disponível através do parâmetro configurado na propriedade do ficheiro *fun.json,* `name` dactilografado como `func.EventGridEvent` .
 
 # <a name="java"></a>[Java](#tab/java)
 
-A instância de eventos da Grelha de `EventGridTrigger` Eventos está disponível `EventSchema`através do parâmetro associado ao atributo, dactilografado como um . Veja o [exemplo](#example) para mais detalhes.
+A instância de eventos da Grelha de Eventos está disponível através do parâmetro associado ao `EventGridTrigger` atributo, dactilografado como `EventSchema` um . Veja o [exemplo](#example) para mais detalhes.
 
 ---
 
@@ -389,11 +389,11 @@ Os dados de um evento da Grelha de Eventos são recebidos como um objeto JSON no
 
 O exemplo mostrado é uma variedade de um elemento. A Grelha de Eventos envia sempre uma matriz e pode enviar mais de um evento na matriz. O tempo de funcionamento invoca a sua função uma vez para cada elemento de matriz.
 
-As propriedades de alto nível no caso de os dados da JSON são os mesmos entre todos os tipos de eventos, enquanto o conteúdo da `data` propriedade é específico de cada tipo de evento. O exemplo mostrado é para um evento de armazenamento de bolhas.
+As propriedades de alto nível no caso de os dados da JSON são os mesmos entre todos os tipos de eventos, enquanto o conteúdo da propriedade é específico de cada tipo de `data` evento. O exemplo mostrado é para um evento de armazenamento de bolhas.
 
 Para obter explicações sobre as propriedades comuns e específicas do evento, consulte [as propriedades](../event-grid/event-schema.md#event-properties) do Evento na documentação da Grelha de Eventos.
 
-O `EventGridEvent` tipo define apenas as propriedades de alto nível; a `Data` propriedade `JObject`é um .
+O `EventGridEvent` tipo define apenas as propriedades de alto nível; a `Data` propriedade é a `JObject` .
 
 ## <a name="create-a-subscription"></a>Criar uma subscrição
 
@@ -401,13 +401,13 @@ Para começar a receber pedidos de Grelha de Eventos HTTP, crie uma subscrição
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-Para funções que desenvolve no portal Azure com o gatilho da Grelha de Eventos, selecione **Adicionar a subscrição da Grelha de Eventos**.
+Para funções que desenvolve no portal Azure com o gatilho da Grelha de Eventos, selecione **Integração** e, em seguida, escolha o Gatilho da Grelha de **Eventos** e selecione **Create Event Grid subscrição**.
 
-![Criar subscrição no portal](media/functions-bindings-event-grid/portal-sub-create.png)
+:::image type="content" source="media/functions-bindings-event-grid/portal-sub-create.png" alt-text="Conecte uma nova subscrição de evento para desencadear no portal.":::
 
-Ao selecionar este link, o portal abre a página de Subscrição de **Eventos Create** com o URL final pré-preenchido.
+Ao selecionar este link, o portal abre a página de Subscrição de **Eventos Create** com o ponto final do gatilho atual já definido.
 
-![URL de ponto final pré-preenchido](media/functions-bindings-event-grid/endpoint-url.png)
+:::image type="content" source="media/functions-bindings-event-grid/endpoint-url.png" alt-text="Criar subscrição de evento com ponto final de função já definido" :::
 
 Para obter mais informações sobre como criar subscrições utilizando o portal Azure, consulte [Create evento personalizado - Portal Azure](../event-grid/custom-event-quickstart-portal.md) na documentação da Rede de Eventos.
 
@@ -556,7 +556,7 @@ Utilize uma ferramenta como [o Carteiro](https://www.getpostman.com/) ou [o Curl
     http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={FUNCTION_NAME}
     ```
 
-O `functionName` parâmetro deve ser o nome `FunctionName` especificado no atributo.
+O `functionName` parâmetro deve ser o nome especificado no `FunctionName` atributo.
 
 As seguintes imagens mostram os cabeçalhos e o corpo de pedido no Carteiro:
 

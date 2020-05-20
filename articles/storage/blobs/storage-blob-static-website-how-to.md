@@ -7,12 +7,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
-ms.openlocfilehash: 23a5d2c0e52a22872a8b9a64503d61493018b611
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 020c25dfb17f733359e596100cfd24cfa3f68036
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82839169"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648556"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Hospedar um site estático no Armazenamento Azure
 
@@ -60,7 +60,7 @@ Pode ativar o alojamento em sites estáticos utilizando a Interface de [Linha de
    az account set --subscription <subscription-id>
    ```
 
-   Substitua `<subscription-id>` o valor do espaço reservado pela identificação da sua subscrição.
+   Substitua o valor do `<subscription-id>` espaço reservado pela identificação da sua subscrição.
 
 3. Ativar o alojamento em sites estáticos.
 
@@ -68,9 +68,9 @@ Pode ativar o alojamento em sites estáticos utilizando a Interface de [Linha de
    az storage blob service-properties update --account-name <storage-account-name> --static-website --404-document <error-document-name> --index-document <index-document-name>
    ```
 
-   * Substitua `<storage-account-name>` o valor do espaço reservado pelo nome da sua conta de armazenamento.
+   * Substitua o valor do `<storage-account-name>` espaço reservado pelo nome da sua conta de armazenamento.
 
-   * Substitua `<error-document-name>` o espaço reservado pelo nome do documento de erro que aparecerá para os utilizadores quando um navegador solicitar uma página no seu site que não existe.
+   * Substitua o `<error-document-name>` espaço reservado pelo nome do documento de erro que aparecerá para os utilizadores quando um navegador solicitar uma página no seu site que não existe.
 
    * Substitua `<index-document-name>` o espaço reservado com o nome do documento do índice. Este documento é comumente "index.html".
 
@@ -103,7 +103,7 @@ Pode ativar o alojamento estático do site utilizando o módulo PowerShell Azure
    Set-AzContext $context
    ```
 
-   Substitua `<subscription-id>` o valor do espaço reservado pela identificação da sua subscrição.
+   Substitua o valor do `<subscription-id>` espaço reservado pela identificação da sua subscrição.
 
 5. Obtenha o contexto da conta de armazenamento que define a conta de armazenamento que pretende utilizar.
 
@@ -112,9 +112,9 @@ Pode ativar o alojamento estático do site utilizando o módulo PowerShell Azure
    $ctx = $storageAccount.Context
    ```
 
-   * Substitua `<resource-group-name>` o valor do espaço reservado pelo nome do seu grupo de recursos.
+   * Substitua o valor do `<resource-group-name>` espaço reservado pelo nome do seu grupo de recursos.
 
-   * Substitua `<storage-account-name>` o valor do espaço reservado pelo nome da sua conta de armazenamento.
+   * Substitua o valor do `<storage-account-name>` espaço reservado pelo nome da sua conta de armazenamento.
 
 6. Ativar o alojamento em sites estáticos.
 
@@ -122,7 +122,7 @@ Pode ativar o alojamento estático do site utilizando o módulo PowerShell Azure
    Enable-AzStorageStaticWebsite -Context $ctx -IndexDocument <index-document-name> -ErrorDocument404Path <error-document-name>
    ```
 
-   * Substitua `<error-document-name>` o espaço reservado pelo nome do documento de erro que aparecerá para os utilizadores quando um navegador solicitar uma página no seu site que não existe.
+   * Substitua o `<error-document-name>` espaço reservado pelo nome do documento de erro que aparecerá para os utilizadores quando um navegador solicitar uma página no seu site que não existe.
 
    * Substitua `<index-document-name>` o espaço reservado com o nome do documento do índice. Este documento é comumente "index.html".
 
@@ -142,19 +142,19 @@ Estas instruções mostram-lhe como carregar ficheiros utilizando a versão do S
 
    ![Carregar ficheiros](media/storage-blob-static-website/storage-blob-static-website-upload.png)
 
-4. Se pretender que o navegador exiba o conteúdo do ficheiro, certifique-se de que o tipo de conteúdo desse ficheiro está definido para `text/html`. 
+4. Se pretender que o navegador exiba o conteúdo do ficheiro, certifique-se de que o tipo de conteúdo desse ficheiro está definido para `text/html` . 
 
    ![Verificar os tipos de conteúdos](media/storage-blob-static-website/storage-blob-static-website-content-type.png)
 
    >[!NOTE]
-   > O Storage Explorer define automaticamente `text/html` esta propriedade para extensões comumente reconhecidas, tais como `.html`. No entanto, em alguns casos, terá que definir isto por si mesmo. Se não configurar esta `text/html`propriedade para , o navegador irá pedir aos utilizadores para descarregarem o ficheiro em vez de renderizarem o conteúdo. Para definir esta propriedade, clique no ficheiro e clique em **Propriedades**.
+   > O Storage Explorer define automaticamente esta propriedade `text/html` para extensões comumente reconhecidas, tais como `.html` . No entanto, em alguns casos, terá que definir isto por si mesmo. Se não configurar esta propriedade `text/html` para , o navegador irá pedir aos utilizadores para descarregarem o ficheiro em vez de renderizarem o conteúdo. Para definir esta propriedade, clique no ficheiro e clique em **Propriedades**.
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Faça upload de objetos para o recipiente *$web* a partir de um diretório de origem.
 
 > [!NOTE]
-> Se estiver a utilizar a Casca de Nuvem `\` Azure, certifique-se de adicionar um carácter de fuga quando se refere ao `$web` recipiente (por exemplo: `\$web`). Se estiver a usar uma instalação local do Azure CLI, então não terá de usar o personagem de fuga.
+> Se estiver a utilizar a Casca de Nuvem Azure, certifique-se de adicionar um carácter de `\` fuga quando se refere ao recipiente `$web` (por exemplo: `\$web` ). Se estiver a usar uma instalação local do Azure CLI, então não terá de usar o personagem de fuga.
 
 Este exemplo pressupõe que está a executar comandos da sessão Azure Cloud Shell.
 
@@ -163,14 +163,14 @@ az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-a
 ```
 
 > [!NOTE] 
-> Se o navegador solicitar aos utilizadores que descarreguem o ficheiro `--content-type 'text/html; charset=utf-8'` em vez de renderizar o conteúdo, pode anexar o comando. 
+> Se o navegador solicitar aos utilizadores que descarreguem o ficheiro em vez de renderizar o conteúdo, pode anexar `--content-type 'text/html; charset=utf-8'` o comando. 
 
-* Substitua `<storage-account-name>` o valor do espaço reservado pelo nome da sua conta de armazenamento.
+* Substitua o valor do `<storage-account-name>` espaço reservado pelo nome da sua conta de armazenamento.
 
-* Substitua `<source-path>` o espaço reservado por um caminho para a localização dos ficheiros que pretende carregar.
+* Substitua o `<source-path>` espaço reservado por um caminho para a localização dos ficheiros que pretende carregar.
 
 > [!NOTE]
-> Se estiver a utilizar uma instalação de localização do Azure CLI, então pode `C:\myFolder`utilizar o caminho para qualquer local no seu computador local (por exemplo: .
+> Se estiver a utilizar uma instalação de localização do Azure CLI, então pode utilizar o caminho para qualquer local no seu computador local (por exemplo: `C:\myFolder` .
 >
 > Se estiver a usar a Azure Cloud Shell, terá de fazer referência a uma partilha de ficheiros que seja visível para a Cloud Shell. Esta localização pode ser a parte de ficheiro da Cloud partilhar-se ou uma partilha de ficheiros existente que montas a partir da Cloud Shell. Para aprender a fazer isto, consulte [ficheiros Persist em Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage).
 
@@ -187,21 +187,21 @@ set-AzStorageblobcontent -File "<path-to-file>" `
 ```
 
 > [!NOTE] 
-> Se o navegador solicitar aos utilizadores que descarreguem o ficheiro `-Properties @{ ContentType = "text/html; charset=utf-8";}` em vez de renderizar o conteúdo, pode anexar o comando.
+> Se o navegador solicitar aos utilizadores que descarreguem o ficheiro em vez de renderizar o conteúdo, pode anexar `-Properties @{ ContentType = "text/html; charset=utf-8";}` o comando.
 
-* Substitua `<path-to-file>` o valor do espaço reservado pelo caminho totalmente qualificado para `C:\temp\index.html`o ficheiro que pretende carregar (por exemplo: ).
+* Substitua o valor do `<path-to-file>` espaço reservado pelo caminho totalmente qualificado para o ficheiro que pretende carregar (por exemplo: `C:\temp\index.html` ).
 
-* Substitua `<blob-name>` o valor do espaço reservado pelo nome que pretende `index.html`dar à bolha resultante (por exemplo: ).
+* Substitua o valor do `<blob-name>` espaço reservado pelo nome que pretende dar à bolha resultante (por exemplo: `index.html` ).
 
 ---
 
-## <a name="find-the-website-url-by-using-the-azure-portal"></a>Encontre o URL do site utilizando o portal Azure
+<a id="portal-find-url" />
+
+## <a name="find-the-website-url"></a>Encontre o URL do site
 
 Pode ver as páginas do seu site a partir de um browser utilizando o URL público do site.
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
-
-<a id="portal-find-url" />
 
 No painel que aparece ao lado da página geral da conta da sua conta de armazenamento, selecione **Site Estático**. O URL do seu site aparece no campo **final primário.**
 
@@ -209,21 +209,17 @@ No painel que aparece ao lado da página geral da conta da sua conta de armazena
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-<a id="cli-find-url" />
-
 Encontre o URL público do seu website estático utilizando o seguinte comando:
 
 ```azurecli-interactive
 az storage account show -n <storage-account-name> -g <resource-group-name> --query "primaryEndpoints.web" --output tsv
 ```
 
-* Substitua `<storage-account-name>` o valor do espaço reservado pelo nome da sua conta de armazenamento.
+* Substitua o valor do `<storage-account-name>` espaço reservado pelo nome da sua conta de armazenamento.
 
-* Substitua `<resource-group-name>` o valor do espaço reservado pelo nome do seu grupo de recursos.
+* Substitua o valor do `<resource-group-name>` espaço reservado pelo nome do seu grupo de recursos.
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-
-<a id="powershell-find-url" />
 
 Encontre o URL público do seu website estático utilizando o seguinte comando:
 
@@ -232,9 +228,9 @@ Encontre o URL público do seu website estático utilizando o seguinte comando:
 Write-Output $storageAccount.PrimaryEndpoints.Web
 ```
 
-* Substitua `<resource-group-name>` o valor do espaço reservado pelo nome do seu grupo de recursos.
+* Substitua o valor do `<resource-group-name>` espaço reservado pelo nome do seu grupo de recursos.
 
-* Substitua `<storage-account-name>` o valor do espaço reservado pelo nome da sua conta de armazenamento.
+* Substitua o valor do `<storage-account-name>` espaço reservado pelo nome da sua conta de armazenamento.
 
 ---
 

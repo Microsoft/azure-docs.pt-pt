@@ -2,118 +2,34 @@
 title: Implementar recursos cruze subscrição & grupo de recursos
 description: Mostra como direcionar mais de um grupo de subscrição e recursos Azure durante a implantação.
 ms.topic: conceptual
-ms.date: 12/09/2019
-ms.openlocfilehash: 70868f5a3598c26ffff81f0ad3536a6c5c0a7e53
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/18/2020
+ms.openlocfilehash: 2ef68dcb933075833c323d973b023cdaee61bd2f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79460352"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650632"
 ---
-# <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Dispor recursos do Azure para mais de um grupo de subscrição ou recursos
+# <a name="deploy-azure-resources-across-subscriptions-or-resource-groups"></a>Implementar recursos Azure em assinaturas ou grupos de recursos
 
-Normalmente, você implementa todos os recursos do seu modelo para um único [grupo de recursos.](../management/overview.md) No entanto, existem cenários em que pretende utilizar um conjunto de recursos, mas colocá-los em diferentes grupos de recursos ou subscrições. Por exemplo, pode querer implementar a máquina virtual de backup para a Recuperação do Site Azure para um grupo e localização de recursos separados. O Gestor de Recursos permite-lhe utilizar modelos aninhados para direcionar mais do que um grupo de subscrição e recursos.
+O Gestor de Recursos permite-lhe implantar-se em mais de um grupo de recursos numa única implementação. Utiliza modelos aninhados para especificar grupos de recursos diferentes do grupo de recursos na operação de implantação. Os grupos de recursos podem existir em diferentes subscrições.
 
 > [!NOTE]
-> Pode implantar apenas cinco grupos de recursos numa única implantação. Normalmente, esta limitação significa que pode implantar-se num grupo de recursos especificado para o modelo de progenitor, e até quatro grupos de recursos em implementações aninhadas ou ligadas. No entanto, se o seu modelo de progenitor contiver apenas modelos aninhados ou ligados e não implementar quaisquer recursos, então pode incluir até cinco grupos de recursos em implementações aninhadas ou ligadas.
+> Pode **implantar-se em 800 grupos** de recursos numa única implantação. Normalmente, esta limitação significa que pode implantar-se num grupo de recursos especificado para o modelo de progenitor, e até 799 grupos de recursos em implementações aninhadas ou ligadas. No entanto, se o seu modelo de progenitor contiver apenas modelos aninhados ou ligados e não implementar quaisquer recursos, então pode incluir até 800 grupos de recursos em implementações aninhadas ou ligadas.
 
 ## <a name="specify-subscription-and-resource-group"></a>Especificar grupo de subscrição e recursos
 
-Para direcionar um grupo de recursos ou subscrição diferente, utilize um [modelo aninhado ou ligado](linked-templates.md). O `Microsoft.Resources/deployments` tipo de recurso `subscriptionId` fornece `resourceGroup`parâmetros para e, que lhe permitem especificar o grupo de subscrição e recursos para a implantação aninhada. Se não especificar o ID de subscrição ou o grupo de recursos, o grupo de subscrição e recursos do modelo de progenitor é utilizado. Todos os grupos de recursos devem existir antes de executar a implantação.
+Para direcionar um grupo de recursos diferente do modelo dos pais, use um [modelo aninhado ou ligado](linked-templates.md). Dentro do tipo de recurso de implementação, especifique valores para o ID de subscrição e grupo de recursos para o qual pretende que o modelo aninhado seja implantado.
 
-A conta que utiliza para implementar o modelo deve ter permissões para implantar no ID de subscrição especificado. Se a subscrição especificada existir num inquilino do Diretório Ativo Azure diferente, deve [adicionar utilizadores convidados de outro diretório](../../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md).
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/crosssubscription.json" range="38-43" highlight="5-6":::
 
-Para especificar um grupo de recursos diferente e subscrição, utilize:
+Se não especificar o ID de subscrição ou o grupo de recursos, o grupo de subscrição e recursos do modelo de progenitor é utilizado. Todos os grupos de recursos devem existir antes de executar a implantação.
 
-```json
-"resources": [
-  {
-    "apiVersion": "2017-05-10",
-    "name": "nestedTemplate",
-    "type": "Microsoft.Resources/deployments",
-    "resourceGroup": "[parameters('secondResourceGroup')]",
-    "subscriptionId": "[parameters('secondSubscriptionID')]",
-    ...
-  }
-]
-```
+A conta que implementa o modelo deve ter permissão para implantar no ID de subscrição especificado. Se a subscrição especificada existir num inquilino do Diretório Ativo Azure diferente, deve [adicionar utilizadores convidados de outro diretório](../../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md).
 
-Se os seus grupos de recursos estiverem na mesma subscrição, pode remover o valor **de subscriçãoId.**
+O exemplo seguinte implementa duas contas de armazenamento. A primeira conta de armazenamento é implantada para o grupo de recursos especificado na operação de implantação. A segunda conta de armazenamento é implantada para o grupo de recursos especificado nos `secondResourceGroup` e `secondSubscriptionID` parâmetros:
 
-O exemplo seguinte implementa duas contas de armazenamento. A primeira conta de armazenamento é implantada para o grupo de recursos especificado durante a implantação. A segunda conta de armazenamento é implantada `secondResourceGroup` `secondSubscriptionID` para o grupo de recursos especificado nos e parâmetros:
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storagePrefix": {
-      "type": "string",
-      "maxLength": 11
-    },
-    "secondResourceGroup": {
-      "type": "string"
-    },
-    "secondSubscriptionID": {
-      "type": "string",
-      "defaultValue": ""
-    },
-    "secondStorageLocation": {
-      "type": "string",
-      "defaultValue": "[resourceGroup().location]"
-    }
-  },
-  "variables": {
-    "firstStorageName": "[concat(parameters('storagePrefix'), uniqueString(resourceGroup().id))]",
-    "secondStorageName": "[concat(parameters('storagePrefix'), uniqueString(parameters('secondSubscriptionID'), parameters('secondResourceGroup')))]"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2017-06-01",
-      "name": "[variables('firstStorageName')]",
-      "location": "[resourceGroup().location]",
-      "sku":{
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "properties": {
-      }
-    },
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2017-05-10",
-      "name": "nestedTemplate",
-      "resourceGroup": "[parameters('secondResourceGroup')]",
-      "subscriptionId": "[parameters('secondSubscriptionID')]",
-      "properties": {
-      "mode": "Incremental",
-      "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "parameters": {},
-          "variables": {},
-          "resources": [
-          {
-            "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2017-06-01",
-            "name": "[variables('secondStorageName')]",
-            "location": "[parameters('secondStorageLocation')]",
-            "sku":{
-              "name": "Standard_LRS"
-            },
-            "kind": "Storage",
-            "properties": {
-            }
-          }
-          ]
-      },
-      "parameters": {}
-      }
-    }
-  ]
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/crosssubscription.json":::
 
 Se definir `resourceGroup` o nome de um grupo de recursos que não existe, a implementação falha.
 
@@ -205,7 +121,7 @@ az deployment group create \
 
 ## <a name="use-functions"></a>Utilizar funções
 
-As funções do Grupo de [Recursos()](template-functions-resource.md#resourcegroup) e [da subscrição](template-functions-resource.md#subscription) resolvem de forma diferente com base na forma como especifica o modelo. Quando se liga a um modelo externo, as funções resolvem-se sempre ao âmbito desse modelo. Quando nidificar um modelo dentro `expressionEvaluationOptions` de um modelo de progenitor, use a propriedade para especificar se as funções resolvem o grupo de recursos e a subscrição para o modelo dos pais ou o modelo aninhado. Desloque `inner` a propriedade para resolver o âmbito para o modelo aninhado. Desloque `outer` a propriedade para resolver o âmbito do modelo de progenitor.
+As funções do Grupo de [Recursos()](template-functions-resource.md#resourcegroup) e [da subscrição](template-functions-resource.md#subscription) resolvem de forma diferente com base na forma como especifica o modelo. Quando se liga a um modelo externo, as funções resolvem-se sempre ao âmbito desse modelo. Quando nidificar um modelo dentro de um modelo de progenitor, use a `expressionEvaluationOptions` propriedade para especificar se as funções resolvem o grupo de recursos e a subscrição para o modelo dos pais ou o modelo aninhado. Desloque a propriedade `inner` para resolver o âmbito para o modelo aninhado. Desloque a propriedade `outer` para resolver o âmbito do modelo de progenitor.
 
 O quadro seguinte mostra se as funções resolvem para o grupo de recursos e subscrição incorporados.
 
@@ -221,99 +137,7 @@ O [seguinte modelo](https://github.com/Azure/azure-docs-json-samples/blob/master
 * modelo aninhado com âmbito interior
 * modelo ligado
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "variables": {},
-  "resources": [
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2017-05-10",
-      "name": "defaultScopeTemplate",
-      "resourceGroup": "inlineGroup",
-      "properties": {
-      "mode": "Incremental",
-      "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "parameters": {},
-          "variables": {},
-          "resources": [
-          ],
-          "outputs": {
-          "resourceGroupOutput": {
-            "type": "string",
-            "value": "[resourceGroup().name]"
-          }
-          }
-      },
-      "parameters": {}
-      }
-    },
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2017-05-10",
-      "name": "innerScopeTemplate",
-      "resourceGroup": "inlineGroup",
-      "properties": {
-      "expressionEvaluationOptions": {
-          "scope": "inner"
-      },
-      "mode": "Incremental",
-      "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "parameters": {},
-          "variables": {},
-          "resources": [
-          ],
-          "outputs": {
-          "resourceGroupOutput": {
-            "type": "string",
-            "value": "[resourceGroup().name]"
-          }
-          }
-      },
-      "parameters": {}
-      }
-    },
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2017-05-10",
-      "name": "linkedTemplate",
-      "resourceGroup": "linkedGroup",
-      "properties": {
-      "mode": "Incremental",
-      "templateLink": {
-          "contentVersion": "1.0.0.0",
-          "uri": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/resourceGroupName.json"
-      },
-      "parameters": {}
-      }
-    }
-  ],
-  "outputs": {
-    "parentRG": {
-      "type": "string",
-      "value": "[concat('Parent resource group is ', resourceGroup().name)]"
-    },
-    "defaultScopeRG": {
-      "type": "string",
-      "value": "[concat('Default scope resource group is ', reference('defaultScopeTemplate').outputs.resourceGroupOutput.value)]"
-    },
-    "innerScopeRG": {
-      "type": "string",
-      "value": "[concat('Inner scope resource group is ', reference('innerScopeTemplate').outputs.resourceGroupOutput.value)]"
-    },
-    "linkedRG": {
-      "type": "string",
-      "value": "[concat('Linked resource group is ', reference('linkedTemplate').outputs.resourceGroupOutput.value)]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/crossresourcegroupproperties.json":::
 
 Para testar o modelo anterior e ver os resultados, utilize powerShell ou Azure CLI.
 

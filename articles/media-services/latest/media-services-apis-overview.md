@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: eacdfe8211c97e75b6609f5e11b681f84ae55846
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5afa5b5620532865233e38ccb5889b37b2100854
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79472089"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648549"
 ---
 # <a name="develop-with-media-services-v3-apis"></a>Desenvolver com Media Services v3 APIs
 
@@ -54,7 +54,7 @@ Nos seguintes números, os números representam o fluxo dos pedidos por ordem cr
    * Recursos URI para REST Media Services.
    * Valores da aplicação Azure AD: o ID do cliente e o segredo do cliente.
 
-   Para obter todos os valores necessários, consulte [access Azure Media Services API com o Azure CLI](access-api-cli-how-to.md).
+   Para obter todos os valores necessários, consulte [Access Azure Media Services API](access-api-cli-how-to.md).
 
 2. O sinal de acesso azure ad é enviado para o nível médio.
 4. O nível médio envia um pedido à API Azure Media REST com o token Azure AD.
@@ -96,7 +96,7 @@ A Media Services tem as seguintes operações de longo prazo:
 * [Iniciar evento ao vivo](https://docs.microsoft.com/rest/api/media/liveevents/start)
 * [Pare o LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents/stop)
 
-  Utilize `removeOutputsOnStop` o parâmetro para eliminar todas as saídas ao vivo associadas ao parar o evento.  
+  Utilize o `removeOutputsOnStop` parâmetro para eliminar todas as saídas ao vivo associadas ao parar o evento.  
 * [Reset LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents/reset)
 * [Criar LiveOutput](https://docs.microsoft.com/rest/api/media/liveevents/create)
 * [Eliminar liveOutput](https://docs.microsoft.com/rest/api/media/liveevents/delete)
@@ -127,7 +127,7 @@ Apenas uma operação de longa duração é suportada para um dado Live Event ou
 |[SDK Go](https://aka.ms/ams-v3-go-sdk) |[Referência a Go](https://aka.ms/ams-v3-go-ref)|
 |[SDK Ruby](https://aka.ms/ams-v3-ruby-sdk)||
 
-### <a name="see-also"></a>Consulte também
+### <a name="see-also"></a>Ver também
 
 - [EventGrid .NET SDK que inclui eventos do Media Service](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Definições de eventos de Serviços de Media](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
@@ -136,7 +136,7 @@ Apenas uma operação de longa duração é suportada para um dado Live Event ou
 
 [O Azure Media Services Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (AMSE) é uma ferramenta disponível para clientes windows que querem aprender sobre os Serviços de Media. A AMSE é uma aplicação Winforms/C# que faz upload, download, codificação, streaming VOD e conteúdo ao vivo com os Media Services. A ferramenta AMSE destina-se a clientes que pretendam testar os Serviços de Media sem escrever qualquer código. O código AMSE é fornecido como um recurso para os clientes que querem desenvolver-se com os Media Services.
 
-A AMSE é um projeto Open Source, o apoio é https://github.com/Azure/Azure-Media-Services-Explorer/issues)prestado pela comunidade (as questões podem ser reportadas a . Este projeto adotou o [Microsoft Open Source Code of Conduct (Código de Conduta do Microsoft Open Source)](https://opensource.microsoft.com/codeofconduct/). Para mais informações, consulte o Código opencode@microsoft.com de Conduta DAS [FAQ](https://opensource.microsoft.com/codeofconduct/faq/) ou contacte quaisquer outras questões ou comentários.
+A AMSE é um projeto Open Source, o apoio é prestado pela comunidade (as questões podem ser reportadas a https://github.com/Azure/Azure-Media-Services-Explorer/issues) . Este projeto adotou o [Microsoft Open Source Code of Conduct (Código de Conduta do Microsoft Open Source)](https://opensource.microsoft.com/codeofconduct/). Para mais informações, consulte o [Código de Conduta DAS FAQ](https://opensource.microsoft.com/codeofconduct/faq/) ou contacte opencode@microsoft.com quaisquer outras questões ou comentários.
 
 ## <a name="filtering-ordering-paging-of-media-services-entities"></a>Filtragem, encomenda, paging de entidades de Serviços de Media
 
@@ -146,9 +146,9 @@ Ver [Filtragem, encomenda, paging de entidades da Azure Media Services.](entitie
 
 Confira o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Serviços de Media.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
-[CLI do Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+Para obter todos os valores necessários, consulte [Access Azure Media Services API](access-api-cli-how-to.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

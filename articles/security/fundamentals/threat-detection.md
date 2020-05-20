@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 3c1c385a87fc302d180729ec2e4bcd1c4a315f6f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 43a5360965c13df3227ecbc0c716327346244ebd
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75981469"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653631"
 ---
 # <a name="azure-advanced-threat-detection"></a>Deteção avançada de ameaças do Azure
 
@@ -268,7 +268,7 @@ Os detetores de ameaças da Base de Dados SQL utilizam uma das seguintes metodol
 
 ### <a name="application-gateway-web-application-firewall"></a>Application Gateway Web Application Firewall
 
-[Firewall de aplicação web (WAF)](../../app-service/environment/app-service-app-service-environment-web-application-firewall.md) é uma característica do Portal de [Aplicações Azure](../../application-gateway/application-gateway-web-application-firewall-overview.md) que fornece proteção às aplicações web que utilizam um gateway de aplicação para funções padrão de controlo de [aplicação.](https://kemptechnologies.com/in/application-delivery-controllers) A Firewall de aplicação web faz isso protegendo-os contra a maioria do Projeto de Segurança de [Aplicações Abertas web (OWASP) top 10 vulnerabilidades comuns web](https://www.owasp.org/index.php/Top_10_2010-Main).
+[Firewall de aplicação web (WAF)](../../app-service/environment/app-service-app-service-environment-web-application-firewall.md) é uma característica do Portal de [Aplicações Azure](../../application-gateway/application-gateway-web-application-firewall-overview.md) que fornece proteção às aplicações web que utilizam um gateway de aplicação para funções padrão de controlo de [aplicação.](https://kemptechnologies.com/in/application-delivery-controllers) A Firewall de aplicação web faz isso protegendo-os contra a maioria do Projeto de Segurança de [Aplicações Abertas web (OWASP) top 10 vulnerabilidades comuns web](https://owasp.org/www-project-top-ten/).
 
 ![Diagrama de firewall de aplicação web de aplicação de gateway de aplicação de aplicação](./media/threat-detection/azure-threat-detection-fig13.png)
 
@@ -344,9 +344,9 @@ Com ferramentas para ajudar a desvendar Shadow IT, avaliar o risco, aplicar pol�
 |---|---|
 | Detetar | Desvende o TI sombra com o Cloud App Security. Obtenha visibilidade ao detetar aplicações, atividades, utilizadores, dados e ficheiros no seu ambiente na cloud. Detete aplicações de terceiros que estão ligadas à sua cloud.|
 |Investigar | Investigue as suas aplicações na cloud com ferramentas forenses de cloud para ajudar a obter informações detalhadas sobre aplicações arriscadas, utilizadores e ficheiros específicos na sua rede. Descubra padrões nos dados recolhidos a partir da cloud. Gere relatórios para monitorizar a sua cloud. |
-| Controlo | Reduza o risco através da definição de políticas e alertas para obter o máximo controlo sobre o tráfego de rede de cloud. Utilize o Cloud App Security para migrar os seus utilizadores para aplicações em cloud alternativas seguras e aprovadas. |
+| Controlar | Reduza o risco através da definição de políticas e alertas para obter o máximo controlo sobre o tráfego de rede de cloud. Utilize o Cloud App Security para migrar os seus utilizadores para aplicações em cloud alternativas seguras e aprovadas. |
 | Proteger | Use cloud App Security para sancionar ou proibir aplicações, impor a prevenção de perdas de dados, controlar permissões e partilha, e gerar relatórios e alertas personalizados. |
-| Controlo | Reduza o risco através da definição de políticas e alertas para obter o máximo controlo sobre o tráfego de rede de cloud. Utilize o Cloud App Security para migrar os seus utilizadores para aplicações em cloud alternativas seguras e aprovadas. |
+| Controlar | Reduza o risco através da definição de políticas e alertas para obter o máximo controlo sobre o tráfego de rede de cloud. Utilize o Cloud App Security para migrar os seus utilizadores para aplicações em cloud alternativas seguras e aprovadas. |
 | | |
 
 
@@ -366,7 +366,7 @@ Ao recolher dados destas fontes, a Cloud App Security executa uma análise sofis
 
 ## <a name="third-party-advanced-threat-detection-capabilities-through-the-azure-marketplace"></a>Capacidades avançadas de deteção de ameaças de terceiros através do Mercado Azure
 
-### <a name="web-application-firewall"></a>Firewall de Aplicação Web
+### <a name="web-application-firewall"></a>Firewall de Aplicações Web
 
 Aplicação Web Firewall inspeciona tráfego web de entrada e bloqueia injeções SQL, scripts cross-site, uploads de malware, ataques dDoS da aplicação e outros ataques direcionados para as suas aplicações web. Também inspeciona as respostas dos servidores web back-end para prevenção de perdas de dados (DLP). O motor integrado de controlo de acesso permite aos administradores criar políticas de controlo de acesso granular para autenticação, autorização e contabilidade (AAA), o que confere às organizações uma autenticação forte e controlo do utilizador.
 

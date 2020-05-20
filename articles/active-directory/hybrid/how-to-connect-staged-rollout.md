@@ -6,16 +6,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/23/2020
+ms.date: 05/12/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80b7536704d68e96429d715705a0518410db399a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9fbe76fb18e33efaa161d2e2b488b48fa5c8580d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82112325"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83644159"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrar para a autenticação em nuvem usando o rollout encenado (pré-visualização)
 
@@ -38,8 +38,8 @@ Para uma visão geral da funcionalidade, veja este "Azure Ative Directory: What 
 -   Você tem um inquilino azure Ative Directory (Azure AD) com domínios federados.
 
 -   Decidiu mudar-se para qualquer uma das duas opções:
-    - **Opção Uma** - *palavra-passe sincronização de hash (sincronização)* + *sem emenda única (SSO)*
-    - **Opção B** - *de autenticação* + pass-through*sem emenda SSO*
+    - **Opção A**  -  *sincronização de hash password (sincronização)*  +  *sem emenda único sign-on (SSO)*
+    - **Opção B**  -  autenticação pass-through *pass-through authentication*  +  *SSO sem emenda*
     
     Embora o *SSO sem emenda* seja opcional, recomendamos que lhe permita obter uma experiência de entrada silenciosa para utilizadores que estejam a executar máquinas unidas ao domínio a partir de dentro de uma rede corporativa.
 
@@ -51,6 +51,7 @@ Para uma visão geral da funcionalidade, veja este "Azure Ative Directory: What 
 
 -   Para permitir um *SSO sem emenda* numa floresta específica de Diretório Ativo, você precisa ser um administrador de domínio.
 
+
 ## <a name="supported-scenarios"></a>Cenários suportados
 
 Os seguintes cenários são suportados para o lançamento encenado. A funcionalidade funciona apenas para:
@@ -58,6 +59,7 @@ Os seguintes cenários são suportados para o lançamento encenado. A funcionali
 - Utilizadores que são provisionados para AD Azure utilizando o Azure AD Connect. Não se aplica autilizadores apenas à nuvem.
 
 - Tráfego de login do utilizador nos navegadores e clientes de *autenticação moderna.* Aplicações ou serviços na nuvem que utilizem autenticação legado regem-se aos fluxos de autenticação federados. Um exemplo pode ser o Exchange online com a autenticação moderna desligada, ou o Outlook 2010, que não suporta a autenticação moderna.
+- O tamanho do grupo está atualmente limitado a 50.000 utilizadores.  Se tiver grupos maiores do que 50.000 utilizadores, recomenda-se dividir este grupo em vários grupos para lançamento encenado.
 
 ## <a name="unsupported-scenarios"></a>Cenários não suportados
 
@@ -78,6 +80,9 @@ Os seguintes cenários não são suportados para o lançamento encenado:
 
 - Quando adiciona um grupo de segurança para lançamento encenado, está limitado a 200 utilizadores para evitar um intervalo de ux. Depois de adicionar o grupo, pode adicionar mais utilizadores diretamente ao mesmo, conforme necessário.
 
+>[!NOTE]
+> Como os pontos finais inquilinos não enviam pistas de login, não são suportados para lançamento encenado.  As aplicações SAML utilizam os pontos finais arrendados e também não são suporte para lançamento sondados.
+
 ## <a name="get-started-with-staged-rollout"></a>Começar com o lançamento encenado
 
 Para testar o *sincronia* de hash de palavra-passe utilizando o rollout encenado, siga as instruções de pré-trabalho na secção seguinte.
@@ -86,7 +91,7 @@ Para obter informações sobre quais os cmdlets PowerShell a utilizar, consulte 
 
 ## <a name="pre-work-for-password-hash-sync"></a>Pré-trabalho para sincronização de hash de senha
 
-1. Ative o sincronização de hash de *palavra-passe*na página [de funcionalidades](how-to-connect-install-custom.md#optional-features) Opcional no Azure AD Connect. 
+1. Ative o sincronização de hash de *palavra-passe*   na página de [funcionalidades Opcional](how-to-connect-install-custom.md#optional-features)no   Azure AD Connect. 
 
    ![Screenshot da página "Funcionalidades Opcionais" no Azure Ative Directory Connect](media/how-to-connect-staged-rollout/sr1.png)
 
@@ -112,27 +117,27 @@ Recomendamos que permita o *SSO sem emenda,* independentemente do método de ent
 
 ## <a name="pre-work-for-seamless-sso"></a>Pré-trabalho para SSO sem emenda
 
-Ative *sSO* sem emenda nas florestas de Diretório Ativo utilizando powerShell. Se tiver mais do que uma floresta de Diretório Ativo, ative-a individualmente para cada floresta.  *O SSO sem emenda* é acionado apenas para utilizadores selecionados para lançamento sem emenda. Não afeta a sua atual instalação da federação.
+Ative *sSO sem emenda*nas florestas de   Diretório Ativo utilizando powerShell. Se tiver mais do que uma floresta de Diretório Ativo, ative-a individualmente para cada floresta.  *O SSO sem emenda* é acionado apenas para utilizadores selecionados para lançamento sem emenda. Não afeta a sua atual instalação da federação.
 
 Habilitar *o SSO sem emenda* fazendo o seguinte:
 
 1. Inscreva-se no Azure AD Connect Server.
 
-2. Vá à pasta  *%programfiles%\\Microsoft Azure Ative Directory Connect.*
+2. Vá à pasta *%programfiles% \\ Microsoft Azure Ative Directory Connect.*  
 
 3. Importar o módulo *SSO* PowerShell sem costura executando o seguinte comando: 
 
    `Import-Module .\AzureADSSO.psd1`
 
-4. Execute o PowerShell como um administrador. Na PowerShell, `New-AzureADSSOAuthenticationContext`ligue. Este comando abre um painel onde pode introduzir as credenciais de administrador global do seu inquilino.
+4. Execute o PowerShell como um administrador. Na PowerShell,  `New-AzureADSSOAuthenticationContext` ligue. Este comando abre um painel onde pode introduzir as credenciais de administrador global do seu inquilino.
 
-5. Ligue. `Get-AzureADSSOStatus | ConvertFrom-Json` Este comando apresenta uma lista de florestas de Diretório Ativo (ver a lista "Domínios") na qual esta funcionalidade foi ativada. Por padrão, está definido para falso ao nível do inquilino.
+5.  `Get-AzureADSSOStatus | ConvertFrom-Json`Ligue. Este comando apresenta uma lista de florestas de Diretório Ativo (ver a lista "Domínios") na qual esta funcionalidade foi ativada. Por padrão, está definido para falso ao nível do inquilino.
 
    ![Exemplo da saída do Windows PowerShell](./media/how-to-connect-staged-rollout/sr3.png)
 
-6. Ligue. `$creds = Get-Credential` No momento, introduza as credenciais do administrador de domínio para a floresta de Diretório Ativo pretendida.
+6.  `$creds = Get-Credential`Ligue. No momento, introduza as credenciais do administrador de domínio para a floresta de Diretório Ativo pretendida.
 
-7. Ligue. `Enable-AzureADSSOForest -OnPremCredentials $creds` Este comando cria a conta de computador AZUREADSSOACC a partir do controlador de domínio no local para a floresta de Diretório Ativo que é necessária para *sso sem emenda*.
+7. `Enable-AzureADSSOForest -OnPremCredentials $creds`Ligue. Este comando cria a conta de computador AZUREADSSOACC a partir do controlador de domínio no local para a floresta de Diretório Ativo que é necessária para *sso sem emenda*.
 
 8. *SSO sem emenda* requer URLs para estar na zona intranet. Para implementar esses URLs utilizando políticas de grupo, consulte [Quickstart: Azure AD seamless single sign-on](how-to-connect-sso-quick-start.md#step-3-roll-out-the-feature).
 
@@ -146,9 +151,9 @@ Para lançar uma funcionalidade específica *(autenticação pass-through,* sinc
 
 Pode lançar uma destas opções:
 
-- **Opção Uma** - *palavra-passe hash sync* + *sem emenda SSO*
-- **Opção B** - *de autenticação* + pass-through*sem emenda SSO*
-- **Not supported** - *pass-through authentication* + *SSO sem* emenda de sem + fim de passe de*palavra-passe*não suportada
+- **Opção A**  -  sincronização de *hash password*  +  *SSO sem emenda*
+- **Opção B**  -  autenticação pass-through *pass-through authentication*  +  *SSO sem emenda*
+- **Não apoiado**  -  sincronização de *hash password*  +  autenticação pass-through *pass-through authentication*  +  *SSO sem emenda*
 
 Faça o seguinte:
 
@@ -221,7 +226,7 @@ Para testar o sign-in com *SSO sem emenda:*
 
 A remoção de um utilizador do grupo desativa o lançamento faseado para esse utilizador. Para desativar a função de lançamento encenada, deslize o controlo de volta para **Off**.
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 **P: Posso usar esta capacidade na produção?**
 

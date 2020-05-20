@@ -1,32 +1,32 @@
 ---
 title: Alterar streams na API da Azure Cosmos DB para o MongoDB
-description: Saiba como utilizar fluxos de mudança na API do Azure Cosmos DB para o MongoDB para obter as alterações feitas aos seus dados.
-author: timsander1
+description: Saiba como utilizar os fluxos de mudança na API do Azure Cosmos DB para a MongoDB para obter as alterações feitas aos seus dados.
+author: srchi
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
-ms.date: 03/30/2020
-ms.author: tisande
-ms.openlocfilehash: 7a6060448175530ada5ba95ceda470056a7be002
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.date: 11/16/2019
+ms.author: srchi
+ms.openlocfilehash: cc6b74a56d2a538d35e324090832e6c7e03e609f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872154"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647301"
 ---
 # <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>Alterar streams na API da Azure Cosmos DB para o MongoDB
 
 O suporte [para alimentação](change-feed.md) de alterações na API da Azure Cosmos DB para o MongoDB está disponível utilizando os fluxos de mudança API. Ao utilizar os fluxos de alteração API, as suas aplicações podem obter as alterações feitas na recolha ou nos itens num único fragmento. Mais tarde poderá tomar mais medidas com base nos resultados. As alterações aos itens da coleção são capturadas na ordem do seu tempo de modificação e a ordem de classificação é garantida por chave de fragmentos.
 
-> [!NOTE]
-> Para utilizar os streams de mudança, crie a conta com a versão 3.6 da API do Azure Cosmos DB para o MongoDB, ou uma versão posterior. Se executar os exemplos de fluxo de mudança contra `Unrecognized pipeline stage name: $changeStream` uma versão anterior, poderá ver o erro.
+[!NOTE]
+Para utilizar os streams de mudança, crie a conta com a versão 3.6 da API do Azure Cosmos DB para o MongoDB, ou uma versão posterior. Se executar os exemplos de fluxo de mudança contra uma versão anterior, poderá ver o `Unrecognized pipeline stage name: $changeStream` erro.
 
 ## <a name="current-limitations"></a>Limitações atuais
 
 As seguintes limitações aplicam-se quando se utilizam fluxos de mudança:
 
-* As `operationType` `updateDescription` propriedades e propriedades ainda não são suportadas no documento de saída.
-* Os `insert` `update`tipos `replace` de operações e operações são atualmente suportados. 
+* As `operationType` propriedades e propriedades ainda não são suportadas no documento de `updateDescription` saída.
+* Os `insert` `update` tipos de operações e `replace` operações são atualmente suportados. 
 * A eliminação da operação ou de outros eventos ainda não são suportados.
 
 Devido a estas limitações, as opções $match fase, $project palco e fullDocument são necessárias como mostrado nos exemplos anteriores.
@@ -39,11 +39,11 @@ Os seguintes códigos de erro e mensagens são suportados quando utilizam os flu
 
 * Código de **erro HTTP 16500** - Quando o fluxo de mudança é estrangulado, devolve uma página vazia.
 
-* **NamespaceNotFound (OperationType Invalida)** - Se executar o fluxo de alteração na recolha que `NamespaceNotFound` não existe ou se a recolha for abandonada, então um erro é devolvido. Como `operationType` a propriedade não pode ser devolvida no `operationType Invalidate` documento de `NamespaceNotFound` saída, em vez do erro, o erro é devolvido.
+* **NamespaceNotFound (OperationType Invalida)** - Se executar o fluxo de alteração na recolha que não existe ou se a recolha for abandonada, então um `NamespaceNotFound` erro é devolvido. Como a `operationType` propriedade não pode ser devolvida no documento de saída, em vez do `operationType Invalidate` erro, o erro é `NamespaceNotFound` devolvido.
 
 ## <a name="examples"></a>Exemplos
 
-O exemplo que se segue mostra como obter fluxos de mudança em todos os itens da coleção. Este exemplo cria um cursor para observar itens quando são inseridos, atualizados ou substituídos. O `$match` palco, `$project` o `fullDocument` palco e a opção são necessários para obter os fluxos de mudança. Atualmente, não é suportado o cuidado de eliminar as operações utilizando fluxos de mudança. Como uma suver, pode adicionar um marcador suave nos itens que estão a ser eliminados. Por exemplo, pode adicionar um atributo no item chamado "eliminado". Quando quiser apagar o item, pode definir "apagado" `true` e definir um TTL no item. Uma vez que `true` atualizar "eliminado" para uma atualização, esta alteração será visível no fluxo de alterações.
+O exemplo que se segue mostra como obter fluxos de mudança em todos os itens da coleção. Este exemplo cria um cursor para observar itens quando são inseridos, atualizados ou substituídos. O `$match` palco, `$project` o palco e `fullDocument` a opção são necessários para obter os fluxos de mudança. Atualmente, não é suportado o cuidado de eliminar as operações utilizando fluxos de mudança. Como uma suver, pode adicionar um marcador suave nos itens que estão a ser eliminados. Por exemplo, pode adicionar um atributo no item chamado "eliminado". Quando quiser apagar o item, pode definir "apagado" `true` e definir um TTL no item. Uma vez que atualizar "eliminado" `true` para uma atualização, esta alteração será visível no fluxo de alterações.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -89,8 +89,8 @@ O exemplo seguinte mostra como obter alterações nos itens dentro de um único 
 ```javascript
 var cursor = db.coll.watch(
     [
-        {
-            $match: {
+        { 
+            $match: { 
                 $and: [
                     { "fullDocument.a": 1 }, 
                     { "operationType": { $in: ["insert", "update", "replace"] } }
@@ -102,6 +102,23 @@ var cursor = db.coll.watch(
     { fullDocument: "updateLookup" });
 
 ```
+
+## <a name="current-limitations"></a>Limitações atuais
+
+As seguintes limitações aplicam-se quando se utilizam fluxos de mudança:
+
+* As `operationType` propriedades e propriedades ainda não são suportadas no documento de `updateDescription` saída.
+* Os `insert` `update` tipos de operações e `replace` operações são atualmente suportados. A eliminação da operação ou de outros eventos ainda não são suportados.
+
+Devido a estas limitações, as opções $match fase, $project palco e fullDocument são necessárias como mostrado nos exemplos anteriores.
+
+## <a name="error-handling"></a>Processamento de erros
+
+Os seguintes códigos de erro e mensagens são suportados quando utilizam os fluxos de mudança:
+
+* Código de **erro HTTP 429** - Quando o fluxo de mudança é estrangulado, devolve uma página vazia.
+
+* **NamespaceNotFound (OperationType Invalida)** - Se executar o fluxo de alteração na recolha que não existe ou se a recolha for abandonada, então um `NamespaceNotFound` erro é devolvido. Como a `operationType` propriedade não pode ser devolvida no documento de saída, em vez do `operationType Invalidate` erro, o erro é `NamespaceNotFound` devolvido.
 
 ## <a name="next-steps"></a>Passos seguintes
 

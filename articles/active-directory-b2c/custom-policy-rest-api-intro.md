@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6a6cc8e5931f3e29c242f51a6e062441953228ad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0a62cd4ad6d992d8994fbd3e66bd0b90e45aa213
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80337418"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83636990"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-custom-policy"></a>Integrar rest API reclama trocas de reclamações na sua política personalizada Azure AD B2C
 
@@ -74,7 +74,7 @@ Quando a opção **Body** está configurada, o perfil técnico REST API permite-
 
 ## <a name="receiving-data"></a>Dados de receção
 
-O `OutputClaims` elemento do [perfil técnico RESTful](restful-technical-profile.md) contém uma lista de reclamações devolvidas pela API REST. Poderá ter de mapear o nome da reclamação definida na sua política para o nome definido na API REST. Também pode incluir reclamações que não são devolvidas pelo fornecedor de identidade REST API, desde que detetete o atributo DefaultValue.
+O `OutputClaims` elemento do perfil técnico [RESTful](restful-technical-profile.md) contém uma lista de reclamações devolvidas pela API REST. Poderá ter de mapear o nome da reclamação definida na sua política para o nome definido na API REST. Também pode incluir reclamações que não são devolvidas pelo fornecedor de identidade REST API, desde que detetete o atributo DefaultValue.
 
 Os pedidos de saída analisados pelo fornecedor de sinistros RESTful esperam sempre analisar uma resposta plana do Corpo JSON, tais como:
 
@@ -162,7 +162,7 @@ Num perfil técnico RESTful, pode querer enviar a língua/local da sessão atual
 
 ## <a name="handling-error-messages"></a>Manipulação de mensagens de erro
 
-A Sua API REST poderá ter de devolver uma mensagem de erro, como "O utilizador não foi encontrado no sistema CRM." Se ocorrer um erro, a API REST deve devolver uma mensagem de erro HTTP 409 (código de estado de resposta a conflitos). Para mais informações, consulte o [perfil técnico RESTful](https://identitydivision.visualstudio.com/defaultcollection/Identity%20CXP/_git/GTP?path=%2Fyoelh%2Fdocs%2Frest-api%2Frestful-technical-profile.md&version=GBmaster&anchor=returning-error-message).
+A Sua API REST poderá ter de devolver uma mensagem de erro, como "O utilizador não foi encontrado no sistema CRM." Se ocorrer um erro, a API REST deve devolver uma mensagem de erro HTTP 409 (código de estado de resposta a conflitos). Para mais informações, consulte o [perfil técnico RESTful](restful-technical-profile.md#returning-error-message).
 
 Isto só pode ser conseguido chamando um perfil técnico REST API a partir de um perfil técnico de validação. Isto permite ao utilizador corrigir os dados na página e executar a validação novamente após a submissão da página.
 

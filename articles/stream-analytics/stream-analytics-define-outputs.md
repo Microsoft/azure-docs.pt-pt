@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/8/2020
-ms.openlocfilehash: d1eda3671b52a1e4bbae9af2d97010657880c383
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: c4790585d089ab287260f74001a8aa3f1cb7e5f7
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585407"
+ms.locfileid: "83647496"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Compreender as saídas do Azure Stream Analytics
 
@@ -80,7 +80,7 @@ Os trabalhos da Azure Stream Analytics podem chegar a uma mesa de bilhar SQL no 
 
 A mesa de bilhar SQL deve existir antes de poder adicioná-la como saída ao seu trabalho de Stream Analytics. O esquema da mesa deve coincidir com os campos e os seus tipos na saída do seu trabalho. 
 
-Para utilizar o Azure Synapse como saída, tem de garantir que tem a conta de armazenamento configurada. Navegue para as definições da conta de armazenamento para configurar a conta de armazenamento. Apenas são permitidos os tipos de conta de armazenamento que suportam tabelas: V2 de uso geral e V1 de uso geral.   
+Para utilizar o Azure Synapse como saída, tem de garantir que tem a conta de armazenamento configurada. Navegue para as definições da conta de armazenamento para configurar a conta de armazenamento. Apenas são permitidos os tipos de conta de armazenamento que suportam tabelas: V2 de uso geral e V1 de uso geral. Selecione apenas Standard Tier. O nível premium não é suportado.   
 
 A tabela seguinte lista os nomes da propriedade e as suas descrições para a criação da saída azure Synapse Analytics.
 

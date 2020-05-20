@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/31/2019
+ms.date: 04/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 00938d831e70289b24acb599b81016aa6e564d78
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0ffadca550a3a28b0ab490dd43c3b884602c93df
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78186935"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83638487"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Assegurar uma API de Gestão De API Azure com Azure AD B2C
 
@@ -67,17 +67,17 @@ Em seguida, obtenha o conhecido URL de config para um dos fluxos de utilizador D
     ![Hiperligação URI bem conhecida na página Run agora do portal Azure](media/secure-apim-with-b2c-token/portal-01-policy-link.png)
 
 1. Selecione a hiperligação para navegar na página de configuração do OpenID Connect bem conhecida.
-1. Na página que abre no seu `issuer` navegador, registe o valor, por exemplo:
+1. Na página que abre no seu navegador, registe o `issuer` valor, por exemplo:
 
-    `https://your-b2c-tenant.b2clogin.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/`
+    `https://<tenant-name>.b2clogin.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/`
 
     Utiliza este valor na secção seguinte quando configurar a Sua API na Gestão de API Azure.
 
 Deverá agora ter dois URLs gravados para utilização na secção seguinte: o URL final de configuração openID Connect bem conhecido e o emitente URI. Por exemplo:
 
 ```
-https://yourb2ctenant.b2clogin.com/yourb2ctenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_signupsignin1
-https://yourb2ctenant.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/
+https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_signupsignin1/v2.0/.well-known/openid-configuration
+https://<tenant-name>.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/
 ```
 
 ## <a name="configure-inbound-policy-in-azure-api-management"></a>Configure a política de entrada na Gestão da API azure
@@ -88,23 +88,23 @@ Está agora pronto para adicionar a política de entrada na Azure API Management
 1. Selecione **APIs**.
 1. Selecione a API que pretende fixar com O Azure AD B2C.
 1. Selecione o separador **Design**.
-1. No processamento de ** \< / ** **Entrada,** selecione para abrir o editor de código de política.
-1. Coloque a `<validate-jwt>` seguinte `<inbound>` etiqueta dentro da apólice.
+1. No **processamento de Entrada,** selecione **\</\>** para abrir o editor de código de política.
+1. Coloque a seguinte `<validate-jwt>` etiqueta dentro da `<inbound>` apólice.
 
-    1. Atualize `url` o `<openid-config>` valor no elemento com o conhecido URL de configuração da sua política.
-    1. Atualize `<audience>` o elemento com ID de aplicação da aplicação que criou anteriormente no seu inquilino B2C (por exemplo, *webapp1*).
-    1. Atualize `<issuer>` o elemento com o ponto final do emitente simbólico que gravou anteriormente.
+    1. Atualize o `url` valor no elemento com o conhecido URL de `<openid-config>` configuração da sua política.
+    1. Atualize o `<audience>` elemento com ID de aplicação da aplicação que criou anteriormente no seu inquilino B2C (por exemplo, *webapp1*).
+    1. Atualize o `<issuer>` elemento com o ponto final do emitente simbólico que gravou anteriormente.
 
     ```xml
     <policies>
         <inbound>
             <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
-                <openid-config url="https://yourb2ctenant.b2clogin.com/yourb2ctenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_signupsignin1" />
+                <openid-config url="https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_signupsignin1/v2.0/.well-known/openid-configuration" />
                 <audiences>
                     <audience>44444444-0000-0000-0000-444444444444</audience>
                 </audiences>
                 <issuers>
-                    <issuer>https://yourb2ctenant.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
+                    <issuer>https://<tenant-name>.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
                 </issuers>
             </validate-jwt>
             <base />
@@ -123,18 +123,18 @@ Para ligar para a API, precisa de um token de acesso emitido pelo Azure AD B2C e
 
 ### <a name="get-an-access-token"></a>Obter um token de acesso
 
-Primeiro precisa de um símbolo emitido pelo Azure AD `Authorization` B2C para usar no cabeçalho do Carteiro. Pode obter um utilizando a funcionalidade **Executar agora** do seu fluxo de utilizador de inscrição/inscrição que deve ter criado como um dos pré-requisitos.
+Primeiro precisa de um símbolo emitido pelo Azure AD B2C para usar no `Authorization` cabeçalho do Carteiro. Pode obter um utilizando a funcionalidade **Executar agora** do seu fluxo de utilizador de inscrição/inscrição que deve ter criado como um dos pré-requisitos.
 
 1. Navegue até ao seu inquilino Azure AD B2C no [portal Azure.](https://portal.azure.com)
 1. Em **Termos de Políticas,** selecione **fluxos de utilizador (políticas)**.
 1. Selecione um fluxo de utilizador de entrada/entrada existente, por *exemplo, B2C_1_signupsignin1*.
 1. Para **aplicação**, selecione *webapp1*.
-1. Para url de `https://jwt.ms` **resposta,** escolha .
+1. Para **url de resposta,** escolha `https://jwt.ms` .
 1. Selecione **Executar o fluxo do utilizador**.
 
     ![Executar página de fluxo do utilizador para inscrever o sinal no fluxo do utilizador no portal Azure](media/secure-apim-with-b2c-token/portal-03-user-flow.png)
 
-1. Conclua o processo de início de sessão. Devia ser redirecionado `https://jwt.ms`para.
+1. Conclua o processo de início de sessão. Devia ser redirecionado `https://jwt.ms` para.
 1. Grave o valor do token codificado exibido no seu navegador. Usa este valor simbólico para o cabeçalho de autorização no Carteiro.
 
     ![Valor simbólico codificado exibido em jwt.ms](media/secure-apim-with-b2c-token/jwt-ms-01-token.png)
@@ -146,7 +146,7 @@ Uma aplicação de cliente (neste caso, Carteiro) que ligue para uma API publica
 1. Navegue na sua instância de serviço azure API Management no [portal Azure.](https://portal.azure.com)
 1. Selecione **Subscrições**.
 1. Selecione a elipse para **produto: Ilimitada,** em seguida, selecione **teclas Mostrar/ocultar**.
-1. Grave a **CHAVE PRIMÁRIA** do produto. Utilize esta chave `Ocp-Apim-Subscription-Key` para o cabeçalho no seu pedido http no Carteiro.
+1. Grave a **CHAVE PRIMÁRIA** do produto. Utilize esta chave para o `Ocp-Apim-Subscription-Key` cabeçalho no seu pedido http no Carteiro.
 
 ![Página chave de subscrição com teclas Show/hide selecionadas no portal Azure](media/secure-apim-with-b2c-token/portal-04-api-subscription-key.png)
 
@@ -154,7 +154,7 @@ Uma aplicação de cliente (neste caso, Carteiro) que ligue para uma API publica
 
 Com o token de acesso e a chave de subscrição APIM gravados, está agora pronto para testar se configurabem o acesso seguro à API.
 
-1. Crie `GET` um novo pedido no [Carteiro.](https://www.getpostman.com/) Para o URL de pedido, especifique o ponto final da lista de oradores da API que publicou como um dos pré-requisitos. Por exemplo:
+1. Crie um novo `GET` pedido no [Carteiro.](https://www.getpostman.com/) Para o URL de pedido, especifique o ponto final da lista de oradores da API que publicou como um dos pré-requisitos. Por exemplo:
 
     `https://contosoapim.azure-api.net/conference/speakers`
 
@@ -162,7 +162,7 @@ Com o token de acesso e a chave de subscrição APIM gravados, está agora pront
 
     | Chave | Valor |
     | --- | ----- |
-    | `Authorization` | Valor simbólico codificado que gravou anteriormente, `Bearer ` pré-fixado (inclua o espaço após "Portador") |
+    | `Authorization` | Valor simbólico codificado que gravou anteriormente, pré-fixado `Bearer ` (inclua o espaço após "Portador") |
     | `Ocp-Apim-Subscription-Key` | Chave de subscrição APIM que gravou anteriormente |
 
     O **GET** URL de pedido get e **os Cabeçalhos** devem parecer semelhantes a:
@@ -198,13 +198,13 @@ Com o token de acesso e a chave de subscrição APIM gravados, está agora pront
 
 ### <a name="test-an-insecure-api-call"></a>Teste uma chamada de API insegura
 
-Agora que fez um pedido bem sucedido, teste o caso de falha para garantir que as chamadas para a sua API com um token *inválido* são rejeitadas como esperado. Uma forma de realizar o teste é adicionar ou alterar alguns caracteres `GET` no valor simbólico e, em seguida, executar o mesmo pedido que antes.
+Agora que fez um pedido bem sucedido, teste o caso de falha para garantir que as chamadas para a sua API com um token *inválido* são rejeitadas como esperado. Uma forma de realizar o teste é adicionar ou alterar alguns caracteres no valor simbólico e, em seguida, executar o mesmo `GET` pedido que antes.
 
 1. Adicione vários caracteres ao valor simbólico para simular um símbolo inválido. Por exemplo, adicione "INVÁLIDO" ao valor simbólico:
 
     ![Secção de cabeçalhos do Carteiro UI mostrando INVALID adicionado ao símbolo](media/secure-apim-with-b2c-token/postman-02-invalid-token.png)
 
-1. Selecione o botão **Enviar** para executar o pedido. Com um token inválido, o `401` resultado esperado é um código de estado não autorizado:
+1. Selecione o botão **Enviar** para executar o pedido. Com um token inválido, o resultado esperado é um código de `401` estado não autorizado:
 
     ```JSON
     {
@@ -213,11 +213,11 @@ Agora que fez um pedido bem sucedido, teste o caso de falha para garantir que as
     }
     ```
 
-Se vir `401` o código de estado, verificou que apenas os chamadores com um token de acesso válido emitido pelo Azure AD B2C podem fazer pedidos bem sucedidos à sua API de Gestão de API Azure.
+Se vir o código de `401` estado, verificou que apenas os chamadores com um token de acesso válido emitido pelo Azure AD B2C podem fazer pedidos bem sucedidos à sua API de Gestão de API Azure.
 
 ## <a name="support-multiple-applications-and-issuers"></a>Apoiar múltiplas aplicações e emitentes
 
-Várias aplicações normalmente interagem com uma única API REST. Para permitir que a sua API aceite fichas destinadas a múltiplas aplicações, adicione os seus IDs de aplicação ao `<audiences>` elemento na política de entrada da APIM.
+Várias aplicações normalmente interagem com uma única API REST. Para permitir que a sua API aceite fichas destinadas a múltiplas aplicações, adicione os seus IDs de aplicação ao elemento na política de `<audiences>` entrada da APIM.
 
 ```XML
 <!-- Accept tokens intended for these recipient applications -->
@@ -227,19 +227,19 @@ Várias aplicações normalmente interagem com uma única API REST. Para permiti
 </audiences>
 ```
 
-Da mesma forma, para apoiar vários emitentes simbólicos, adicione os seus URIs de ponto final ao `<issuers>` elemento na política de entrada da APIM.
+Da mesma forma, para apoiar vários emitentes simbólicos, adicione os seus URIs de ponto final ao elemento na política de `<issuers>` entrada da APIM.
 
 ```XML
 <!-- Accept tokens from multiple issuers -->
 <issuers>
-    <issuer>https://yourb2ctenant.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
+    <issuer>https://<tenant-name>.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
     <issuer>https://login.microsoftonline.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
 </issuers>
 ```
 
 ## <a name="migrate-to-b2clogincom"></a>Migrar para b2clogin.com
 
-Se tiver uma API API que valide fichas `login.microsoftonline.com` emitidas pelo ponto final do legado, deve migrar a API e as aplicações que a chamam para usar fichas emitidas por [b2clogin.com](b2clogin.md).
+Se tiver uma API API que valide fichas emitidas pelo ponto final do `login.microsoftonline.com` legado, deve migrar a API e as aplicações que a chamam de utilização de tokens emitidos por [b2clogin.com](b2clogin.md).
 
 Pode seguir este processo geral para realizar uma migração encenada:
 
@@ -253,14 +253,14 @@ O exemplo seguinte a política de entrada da APIM ilustra como aceitar fichas em
 <policies>
     <inbound>
         <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
-            <openid-config url="https://yourb2ctenant.b2clogin.com/yourb2ctenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_signupsignin1" />
+            <openid-config url="https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_signupsignin1/v2.0/.well-known/openid-configuration" />
             <audiences>
                 <audience>44444444-0000-0000-0000-444444444444</audience>
                 <audience>66666666-0000-0000-0000-666666666666</audience>
             </audiences>
             <issuers>
                 <issuer>https://login.microsoftonline.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
-                <issuer>https://yourb2ctenant.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
+                <issuer>https://<tenant-name>.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
             </issuers>
         </validate-jwt>
         <base />

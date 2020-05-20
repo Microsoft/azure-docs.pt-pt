@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
 ms.date: 05/05/2020
-ms.openlocfilehash: b0a596ee4c576ff98be302b15a86a8758b11ce25
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 01e7e6c84be13db839338928f8086bcceb2ea169
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83598592"
+ms.locfileid: "83654418"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Aprendizagem de reforço (pré-visualização) com Aprendizagem automática Azure
 
@@ -49,7 +49,7 @@ Executar este código em qualquer um dos seguintes ambientes. Recomendamos que e
  - O seu próprio servidor jupyter Notebook
 
     - Instale o [SDK de Aprendizagem automática Azure](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
-    - Instale o [Azure Machine Learning RL SDK:](https://review.docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/?view=azure-ml-py&branch=harnvirdebug)`pip install --upgrade azureml-contrib-reinforcementlearning`
+    - Instale o [Azure Machine Learning RL SDK:](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/?view=azure-ml-py)`pip install --upgrade azureml-contrib-reinforcementlearning`
     - Criar um ficheiro de [configuração do espaço de trabalho.](how-to-configure-environment.md#workspace)
     - Executar o caderno de [configuração](https://aka.ms/azure-rl-env-setup) da rede virtual para abrir portas de rede usadas para a aprendizagem de reforço distribuído.
 
@@ -210,7 +210,7 @@ else:
 
 ## <a name="create-a-reinforcement-learning-estimator"></a>Criar um estimador de aprendizagem de reforço
 
-Nesta secção, aprende-se a utilizar o [ReforçoLearningEstimator](https://review.docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?view=azure-ml-py&branch=harnvirdebug) para submeter um trabalho de formação à Azure Machine Learning.
+Nesta secção, aprende-se a utilizar o [ReforçoLearningEstimator](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?view=azure-ml-py) para submeter um trabalho de formação à Azure Machine Learning.
 
 O Azure Machine Learning utiliza aulas de estimadores para encapsular as informações de configuração de execução. Isto permite especificar facilmente como configurar uma execução de script. Para obter mais informações sobre o padrão de estimativa de aprendizagem automática azure, consulte [como treinar modelos usando estimadores](how-to-train-ml-models.md).
 

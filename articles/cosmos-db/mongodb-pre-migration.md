@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: lbosq
-ms.openlocfilehash: 89cd1de3658c16fccdb70567641a68f5c1575507
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 8156c1c3601b0cd6f518f6a70bc4e0769c570e7f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791753"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647288"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Etapas de pré-migração para migrações de dados de MongoDB para API da Azure Cosmos DB para MongoDB
 
@@ -63,7 +63,7 @@ Seguem-se factores-chave que afetam o número de RUs necessários:
 
 - **Padrões**de consulta : A complexidade de uma consulta afeta quantas unidades de pedido são consumidas pela consulta. 
 
-A melhor maneira de compreender o custo das consultas é utilizar dados de amostras em Azure Cosmos DB, [e executar consultas de amostra da MongoDB Shell](connect-mongodb-account.md) usando o `getLastRequestStastistics` comando para obter a taxa de pedido, que irá obter o número de RUs consumidos:
+A melhor maneira de compreender o custo das consultas é utilizar dados de amostras em Azure Cosmos DB, [e executar consultas de amostra da MongoDB Shell](connect-mongodb-account.md) usando o comando para obter a taxa de `getLastRequestStastistics` pedido, que irá obter o número de RUs consumidos:
 
 `db.runCommand({getLastRequestStatistics: 1})`
 
@@ -79,7 +79,7 @@ A partilha, também conhecida como Sharding, é um ponto chave de consideração
 Da mesma forma, a capacidade de partição adiciona automaticamente capacidade e reequilibra os dados em conformidade. Para mais detalhes e recomendações sobre a escolha da chave de partição certa para os seus dados, consulte o [artigo Chave de Escolha](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview#choose-partitionkey). 
 
 ## <a name="index-your-data"></a><a id="indexing"></a>Indexar os seus dados
-Por padrão, o Azure Cosmos DB fornece indexação automática em todos os dados inseridos. As capacidades de indexação fornecidas pela Azure Cosmos DB incluem a adição de índices compósitos, índices únicos e índices de tempo-a-vivo (TTL). A interface de gestão de `createIndex()` índices está mapeada para o comando. Saiba mais na [Indexing in Azure Cosmos DB's API para MongoDB](mongodb-indexing.md).
+Por padrão, o Azure Cosmos DB fornece indexação automática em todos os dados inseridos. As capacidades de indexação fornecidas pela Azure Cosmos DB incluem a adição de índices compósitos, índices únicos e índices de tempo-a-vivo (TTL). A interface de gestão de índices está mapeada para o `createIndex()` comando. Saiba mais na [Indexing in Azure Cosmos DB's API para MongoDB](mongodb-indexing.md).
 
 O Serviço de Migração de Bases de [Dados Azure](../dms/tutorial-mongodb-cosmos-db.md) migra automaticamente coleções MongoDB com índices únicos. No entanto, os índices únicos devem ser criados antes da migração. A Azure Cosmos DB não suporta a criação de índices únicos, quando já existem dados nas suas coleções. Para mais informações, consulte [as chaves Unique em Azure Cosmos DB](unique-keys.md).
 
@@ -89,4 +89,4 @@ O Serviço de Migração de Bases de [Dados Azure](../dms/tutorial-mongodb-cosmo
 * [Criação de partições no Azure Cosmos DB](partition-data.md)
 * [Distribuição Global em Azure Cosmos DB](distribute-data-globally.md)
 * [Indexação no Azure Cosmos DB](index-overview.md)
-* [Request Units in Azure Cosmos DB](request-units.md) (Unidades de Pedido no Azure Cosmos DB)
+* [Unidades de Pedido no Azure Cosmos DB](request-units.md)

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/27/2020
+ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 70cd4f2ca3a4ac37bdf1d1e465d1f1a7d06ef9e1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d1989f65f73ac4f9dc8dd328fa9d7ed267eec1aa
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78189706"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83636420"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configure as credenciais de senha do proprietário de recursos fluem em Azure AD B2C
 
@@ -40,7 +40,7 @@ O fluxo de credenciais de senha do proprietário de recursos (ROPC) é um fluxo 
 
    Verá então um ponto final como este exemplo:
 
-   `https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_ROPC_Auth`
+   `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/v2.0/.well-known/openid-configuration`
 
 
 ## <a name="register-an-application"></a>Registar uma aplicação
@@ -50,18 +50,18 @@ O fluxo de credenciais de senha do proprietário de recursos (ROPC) é um fluxo 
 ## <a name="test-the-user-flow"></a>Testar o fluxo do utilizador
 
 Utilize a sua aplicação de desenvolvimento API favorita para gerar uma chamada API e reveja a resposta para desinserir o fluxo do utilizador. Construa uma chamada como esta com a informação na tabela seguinte como o corpo do pedido do POST:
-- Substitua yourtenant.onmicrosoft.com * \<>* pelo nome do seu inquilino B2C.
-- Substitua B2C_1A_ROPC_Auth * \<>* pelo nome completo da sua política de credenciais de senha do proprietário de recursos.
-- Substitua o * \<bef222d56-552f-4a5b-b90a-1988a7d634c3>* com o ID de inscrição do seu registo.
+- Substitua * \< o nome do inquilino>.onmicrosoft.com* pelo nome do seu inquilino B2C.
+- Substitua * \< B2C_1A_ROPC_Auth>* com o nome completo da sua política de credenciais de senha do proprietário de recursos.
+- Substitua o * \< bef222d56-552f-4a5b-b90a-1988a7d634c3>* com o ID de inscrição do seu registo.
 
-`https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
+`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
 
 | Chave | Valor |
 | --- | ----- |
 | o nome de utilizador | leadiocl@outlook.com |
 | palavra-passe | Passxword1 |
 | grant_type | palavra-passe |
-| scope | openid \<bef222d56-552f-4a5b-b90a-1988a7d634c3> offline_access |
+| scope | openid \< bef222d56-552f-4a5b-b90a-1988a7d634c3> offline_access |
 | client_id | \<bef222d56-552f-4a5b-b90a-1988a7d634c3> |
 | response_type | id_token simbólico |
 
@@ -70,8 +70,8 @@ Utilize a sua aplicação de desenvolvimento API favorita para gerar uma chamada
 O pedido post real parece o seguinte:
 
 ```
-POST /yourtenant.onmicrosoft.com/oauth2/v2.0/token?p=B2C_1_ROPC_Auth HTTP/1.1
-Host: yourtenant.b2clogin.com
+POST /<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token HTTP/1.1
+Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
 username=leadiocl%40trashmail.ws&password=Passxword1&grant_type=password&scope=openid+bef22d56-552f-4a5b-b90a-1988a7d634ce+offline_access&client_id=bef22d56-552f-4a5b-b90a-1988a7d634ce&response_type=token+id_token
@@ -94,7 +94,7 @@ Uma resposta bem sucedida com acesso offline parece o seguinte exemplo:
 
 Construa uma chamada POST como a mostrada aqui com a informação na tabela seguinte como o corpo do pedido:
 
-`https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
+`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
 
 | Chave | Valor |
 | --- | ----- |

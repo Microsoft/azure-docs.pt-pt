@@ -1,19 +1,19 @@
 ---
 title: 'Azure Cosmos DB: SQL Java API, SDK & recursos'
 description: Saiba tudo sobre o SQL Java API e SDK, incluindo datas de lançamento, datas de reforma e alterações feitas entre cada versão do Azure Cosmos DB SQL Java SDK.
-author: SnehaGunda
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 02/21/2020
-ms.author: sngun
-ms.openlocfilehash: e57029e53365fbf99054e2d926296ccca3360663
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/11/2020
+ms.author: anfeldma
+ms.openlocfilehash: 61016597310e6bb160999981216190e8caa34fc8
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80983607"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656746"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK para SQL API: Notas de lançamento e recursos
 > [!div class="op_single_selector"]
@@ -21,16 +21,21 @@ ms.locfileid: "80983607"
 > * [.NET Change Feed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
-> * [Java assíncrono](sql-api-sdk-async-java.md)
-> * [Java](sql-api-sdk-java.md)
-> * [Python](sql-api-sdk-python.md)
+> * [Java SDK v4](sql-api-sdk-java-v4.md)
+> * [SDK v2 Java assíncrono](sql-api-sdk-async-java.md)
+> * [SDK v2 Java síncrono](sql-api-sdk-java.md)
+> * [Pitão](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Fornecedor de Recursos REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
 > * [Executor a granel - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Executor a granel - Java](sql-api-sdk-bulk-executor-java.md)
 
-O SQL API Java SDK suporta operações sincronizadas. Para suporte assíncrono, utilize o [SQL ASYNC Java SDK](sql-api-sdk-async-java.md). 
+Este é o Azure Cosmos DB Sync Java SDK v2 original para API SQL que suporta operações sincronizadas.
+
+> [!IMPORTANT]  
+> Este *não* é o mais recente Java SDK para Azure Cosmos DB! Considere utilizar [o Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md) para o seu projeto. Para fazer upgrade, siga as instruções no guia [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) e no guia [Reator vs RxJava.](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) 
+>
 
 | |  |
 |---|---|
@@ -320,6 +325,6 @@ Qualquer pedido à Cosmos DB utilizando um SDK reformado será rejeitado pelo se
 ## <a name="faq"></a>FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 Para saber mais sobre cosmos DB, consulte a página de serviço [do Microsoft Azure Cosmos DB.](https://azure.microsoft.com/services/cosmos-db/)
 

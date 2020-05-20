@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/19/2020
+ms.date: 05/12/2020
 ms.author: jingwang
-ms.openlocfilehash: 8467bbe1512e45342b86ff62d51a3f66b3096f03
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9fbf4062304dda7112e89ecd4abd5288533f28ff
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418138"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83635784"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Copiar dados do MySQL utilizando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -38,7 +38,7 @@ Este conector MySQL é suportado para as seguintes atividades:
 
 Pode copiar dados da base de dados MySQL para qualquer loja de dados suportada. Para obter uma lista de lojas de dados que são suportadas como fontes/pias pela atividade de cópia, consulte a tabela de lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)
 
-Especificamente, este conector MySQL suporta a versão MySQL **5.6 e 5.7**.
+Especificamente, este conector MySQL suporta a versão MySQL **5.6, 5.7 e 8.0**.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -59,10 +59,10 @@ As seguintes propriedades são suportadas para o serviço ligado ao MySQL:
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo deve ser definida para: **MySql** | Sim |
-| conexãoString | Especifique as informações necessárias para se ligar à base de dados Azure para a instância MySQL.<br/> Também pode colocar palavra-passe no Cofre `password` de Chaves Azure e retirar a configuração da cadeia de ligação. Consulte as seguintes amostras e [guarde as credenciais no](store-credentials-in-key-vault.md) artigo do Cofre chave Azure com mais detalhes. | Sim |
+| conexãoString | Especifique as informações necessárias para se ligar à base de dados Azure para a instância MySQL.<br/> Também pode colocar palavra-passe no Cofre de Chaves Azure e retirar a `password` configuração da cadeia de ligação. Consulte as seguintes amostras e [guarde as credenciais no](store-credentials-in-key-vault.md) artigo do Cofre chave Azure com mais detalhes. | Sim |
 | connectVia | O Tempo de [Integração](concepts-integration-runtime.md) a utilizar para se ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não especificado, utiliza o tempo de funcionar de integração azure padrão. |Não |
 
-Uma corda de `Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`ligação típica é . Mais propriedades que pode definir no seu caso:
+Uma corda de ligação típica é `Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>` . Mais propriedades que pode definir no seu caso:
 
 | Propriedade | Descrição | Opções | Necessário |
 |:--- |:--- |:--- |:--- |
@@ -168,7 +168,7 @@ Para copiar dados do MySQL, são suportadas as seguintes propriedades:
 }
 ```
 
-Se estiver `RelationalTable` a utilizar o conjunto de dados dactilografado, ainda é suportado como está, enquanto é sugerido que utilize o novo para a frente.
+Se estiver a utilizar o conjunto de `RelationalTable` dados dactilografado, ainda é suportado como está, enquanto é sugerido que utilize o novo para a frente.
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
@@ -215,7 +215,7 @@ Para copiar dados do MySQL, as seguintes propriedades são suportadas na secçã
 ]
 ```
 
-Se estiver `RelationalSource` a usar a fonte dactilografada, continua a ser suportada como está, enquanto é sugerido que utilize o novo para a frente.
+Se estiver a usar `RelationalSource` a fonte dactilografada, continua a ser suportada como está, enquanto é sugerido que utilize o novo para a frente.
 
 ## <a name="data-type-mapping-for-mysql"></a>Mapeamento de tipo de dados para MySQL
 

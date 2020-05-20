@@ -6,14 +6,14 @@ ms.service: storage
 ms.topic: conceptual
 ms.author: normesta
 ms.reviewer: dineshm
-ms.date: 05/29/2019
+ms.date: 05/14/2020
 ms.subservice: blobs
-ms.openlocfilehash: 57ba59288cbf65c1ef588302965d480ee357ea4d
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 6a007525f8402bb163195b623173d665f9721bff
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82779982"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648501"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Alojamento de site estático no Armazenamento do Azure
 
@@ -50,24 +50,24 @@ Pode utilizar qualquer uma destas ferramentas para fazer o upload de conteúdo p
 
 ## <a name="viewing-content"></a>Visualização de conteúdos
 
-Os utilizadores podem ver o conteúdo do site a partir de um browser utilizando o URL público do website. Pode encontrar o URL utilizando o portal Azure, Azure CLI ou PowerShell. Use esta mesa como guia.
-
-|Ferramenta| Orientação |
-|----|----|
-|**Portal do Azure** | [Encontre o URL do site utilizando o portal Azure](storage-blob-static-website-how-to.md#portal-find-url) |
-|**CLI do Azure** | [Encontre o URL do site utilizando o Azure CLI](storage-blob-static-website-how-to.md#cli-find-url) |
-|**Módulo do Azure PowerShell** | [Encontre o URL do site usando powerShell](storage-blob-static-website-how-to.md#powershell-find-url) |
-
-O URL do seu site contém um código regional. Por exemplo, `https://contosoblobaccount.z22.web.core.windows.net/` o `z22`URL contém código regional .
-
-Embora esse código tenha de permanecer no URL, é apenas para uso interno, e não terá de usar esse código de outra forma.
-
-O documento de índice que especifica quando ativa o alojamento estático do website, aparece quando `https://contosoblobaccount.z22.web.core.windows.net`os utilizadores abrem o site e não especificam um ficheiro específico (por exemplo: ).  
+Os utilizadores podem ver o conteúdo do site a partir de um browser utilizando o URL público do website. Pode encontrar o URL utilizando o portal Azure, Azure CLI ou PowerShell. Ver [Encontrar o URL do site](storage-blob-static-website-how-to.md#portal-find-url).
 
 Se o servidor devolver um erro de 404 e não tiver especificado um documento de erro quando ativou o website, então uma página padrão 404 é devolvida ao utilizador.
 
 > [!NOTE]
 > [O CORS](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) não é suportado com um website estático.
+
+### <a name="regional-codes"></a>Códigos regionais
+
+O URL do seu site contém um código regional. Por exemplo, o URL `https://contosoblobaccount.z22.web.core.windows.net/` contém código regional `z22` .
+
+Embora esse código tenha de permanecer no URL, é apenas para uso interno, e não terá de usar esse código de outra forma.
+
+O documento de índice que especifica quando ativa o alojamento estático do website, aparece quando os utilizadores abrem o site e não especificam um ficheiro específico (por exemplo: `https://contosoblobaccount.z22.web.core.windows.net` ).  
+
+### <a name="secondary-endpoints"></a>Pontos finais secundários
+
+Se configurar [o despedimento numa região secundária,](../common/storage-redundancy.md#redundancy-in-a-secondary-region)também pode aceder ao conteúdo do website utilizando um ponto final secundário. Uma vez que os dados são replicados para regiões secundárias assincronicamente, os ficheiros disponíveis no ponto final secundário nem sempre estão em sintonia com os ficheiros disponíveis no ponto final primário. 
 
 ## <a name="impact-of-the-setting-the-public-access-level-of-the-web-container"></a>Impacto da definição do nível de acesso público do contentor web
 
@@ -79,9 +79,9 @@ A imagem que se segue mostra a definição do nível de acesso público no porta
 
 Embora o ponto final do site estático primário não seja afetado, uma alteração ao nível de acesso público afeta o ponto final do serviço de blob primário.
 
-Por exemplo, se alterar o nível de acesso público do contentor **$web** do **Private (sem acesso anónimo)** ao **Blob (acesso de leitura anónima apenas para blobs)**, então o nível de acesso público ao ponto `https://contosoblobaccount.z22.web.core.windows.net/index.html` final do site estático primário não muda.
+Por exemplo, se alterar o nível de acesso público do contentor **$web** do **Private (sem acesso anónimo)** ao **Blob (acesso de leitura anónima apenas para blobs)**, então o nível de acesso público ao ponto final do site estático primário `https://contosoblobaccount.z22.web.core.windows.net/index.html` não muda.
 
-No entanto, o acesso público ao `https://contosoblobaccount.blob.core.windows.net/$web/index.html` ponto final do serviço de blob primário muda de privado para público. Agora os utilizadores podem abrir esse ficheiro utilizando qualquer um destes dois pontos finais.
+No entanto, o acesso público ao ponto final do serviço de blob primário `https://contosoblobaccount.blob.core.windows.net/$web/index.html` muda de privado para público. Agora os utilizadores podem abrir esse ficheiro utilizando qualquer um destes dois pontos finais.
 
 ## <a name="mapping-a-custom-domain-to-a-static-website-url"></a>Mapear um domínio personalizado para um URL do site estático
 

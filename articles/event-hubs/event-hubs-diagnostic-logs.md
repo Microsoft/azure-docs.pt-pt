@@ -16,12 +16,12 @@ ms.workload: data-services
 ms.custom: seodec18
 ms.date: 04/28/2020
 ms.author: shvija
-ms.openlocfilehash: 0fb5da965a9b13667b8a128e83a5a4cd2c2b28d7
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: b9dcf35b3ea178894a0387e650b6814c0f920926
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691846"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649796"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurar registos de diagnósticos para um hub de eventos do Azure
 
@@ -148,6 +148,16 @@ O log de escala automática JSON inclui elementos listados na tabela seguinte:
 | ResourceId | ID de recurso do Gestor de Recursos Azure. |
 | Mensagem | Mensagem informativa, que fornece detalhes sobre a ação de auto-inflação. A mensagem contém o valor anterior e atual da unidade de entrada para um determinado espaço de nome e o que desencadeou a insuflação do TU. |
 
+Aqui está um evento de escala automática exemplo: 
+
+```json
+{
+    "TrackingId": "fb1b3676-bb2d-4b17-85b7-be1c7aa1967e",
+    "Message": "Scaled-up EventHub TUs (UpdateStartTimeUTC: 5/13/2020 7:48:36 AM, PreviousValue: 1, UpdatedThroughputUnitValue: 2, AutoScaleReason: 'IncomingMessagesPerSecond reached 2170')",
+    "ResourceId": "/subscriptions/0000000-0000-0000-0000-000000000000/resourcegroups/testrg/providers/microsoft.eventhub/namespaces/namespace-name"
+}
+```
+
 ## <a name="kafka-coordinator-logs-schema"></a>Kafka coordenador logs schema
 O log do coordenador kafka JSON inclui elementos listados na tabela seguinte:
 
@@ -241,5 +251,5 @@ O registo de utilizador-chave gerido pelo cliente JSON inclui elementos listados
 - Introdução ao Event Hubs
     - [.NET Core](get-started-dotnet-standard-send-v2.md)
     - [Java](get-started-java-send-v2.md)
-    - [Python](get-started-python-send-v2.md)
+    - [Pitão](get-started-python-send-v2.md)
     - [JavaScript](get-started-java-send-v2.md)

@@ -3,12 +3,12 @@ title: Recuperar ficheiros e pastas da cópia de segurança Azure VM
 description: Neste artigo, aprenda a recuperar ficheiros e pastas de um ponto de recuperação de máquinas virtuais Azure.
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: 0e3061ea8fc26adcf39fe415cd9a662de739543a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0c518c080f3789d36d2ca600ade23a0b4b2ab385
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79273309"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652104"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar ficheiros da cópia de segurança da máquina virtual Azure
 
@@ -53,11 +53,11 @@ Para restaurar ficheiros ou pastas a partir do ponto de recuperação, vá à m�
 
     ![Senha gerada](./media/backup-azure-restore-files-from-vm/generated-pswd.png)
 
-7. A partir da localização de descarregamento (normalmente a pasta Downloads), clique no direito do executável ou do script e execute-o com credenciais do Administrador. Quando solicitado, digite a palavra-passe ou cola a palavra-passe a partir da memória e prima **Enter**. Uma vez introduzida a palavra-passe válida, o script liga-se ao ponto de recuperação.
+7. Certifique-se de [que tem a máquina certa](#selecting-the-right-machine-to-run-the-script) para executar o guião. Se a máquina certa for a mesma máquina onde descarregou o script, então pode continuar na secção de descarregamento. A partir da localização de descarregamento (normalmente a pasta *Downloads),* clique no direito do executável ou do script e execute-o com credenciais do Administrador. Quando solicitado, digite a palavra-passe ou cola a palavra-passe a partir da memória e prima **Enter**. Uma vez introduzida a palavra-passe válida, o script liga-se ao ponto de recuperação.
 
     ![Menu de recuperação de ficheiros](./media/backup-azure-restore-files-from-vm/executable-output.png)
 
-8. Para as máquinas Linux, é gerado um guião python. É preciso descarregar o script e copiá-lo para o servidor Linux relevante/compatível. Pode ter de modificar as permissões para a executar com ```chmod +x <python file name>```. Em seguida, executar ```./<python file name>```o ficheiro python com .
+8. Para as máquinas Linux, é gerado um guião python. É preciso descarregar o script e copiá-lo para o servidor Linux relevante/compatível. Pode ter de modificar as permissões para a executar com ```chmod +x <python file name>``` . Em seguida, executar o ficheiro python com ```./<python file name>``` .
 
 Consulte a secção [de requisitos](#access-requirements) de Acesso para se certificar de que o script é executado com sucesso.
 
@@ -65,7 +65,7 @@ Consulte a secção [de requisitos](#access-requirements) de Acesso para se cert
 
 #### <a name="for-windows"></a>Para Windows
 
-Quando executa o executável, o sistema operativo monta os novos volumes e atribui cartas de acionamento. Pode utilizar o Windows Explorer ou o File Explorer para navegar nessas unidades. As letras de acionamento atribuídas aos volumes podem não ser as mesmas letras que a máquina virtual original. No entanto, o nome do volume é preservado. Por exemplo, se o volume da máquina virtual original`\`for "Data Disk (E:)", esse volume pode ser`\`fixado no computador local como "Data Disk ('Qualquer letra': ). Navegue por todos os volumes mencionados na saída do script até encontrar os seus ficheiros ou pasta.  
+Quando executa o executável, o sistema operativo monta os novos volumes e atribui cartas de acionamento. Pode utilizar o Windows Explorer ou o File Explorer para navegar nessas unidades. As letras de acionamento atribuídas aos volumes podem não ser as mesmas letras que a máquina virtual original. No entanto, o nome do volume é preservado. Por exemplo, se o volume da máquina virtual original for "Data Disk `\` (E:)", esse volume pode ser fixado no computador local como "Data Disk ('Qualquer letra': `\` ). Navegue por todos os volumes mencionados na saída do script até encontrar os seus ficheiros ou pasta.  
 
    ![Menu de recuperação de ficheiros](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
 
@@ -84,6 +84,23 @@ Depois de identificar os ficheiros e copiá-los para um local de armazenamento l
 Uma vez que os discos tenham sido desmontados, recebeuma mensagem. Pode levar alguns minutos para a ligação refrescar-se para que possa remover os discos.
 
 Em Linux, após a ligação ao ponto de recuperação ser cortada, o SO não remove automaticamente os caminhos de montagem correspondentes. Os caminhos de montagem existem como volumes "órfãos" e são visíveis, mas atire um erro quando aceder/escrever os ficheiros. Podem ser removidos manualmente. O script, quando executado, identifica quaisquer volumes existentes a partir de quaisquer pontos de recuperação anteriores e limpa-os após consentimento.
+
+## <a name="selecting-the-right-machine-to-run-the-script"></a>Selecionando a máquina certa para executar o script
+
+Se o script for descarregado com sucesso, então o próximo passo é verificar se a máquina na qual planeia executar o script é a máquina certa. Seguem-se os requisitos a cumprir na máquina.
+
+### <a name="original-backed-up-machine-versus-another-machine"></a>Máquina original apoiada contra outra máquina
+
+1. Se a máquina de back-up for um VM de disco grande - isto é, o número de discos é superior a 16 discos ou cada disco é superior a 4 TB, então o script **deve ser executado em outra máquina** e estes [requisitos](#file-recovery-from-virtual-machine-backups-having-large-disks) têm de ser cumpridos.
+1. Mesmo que a máquina apoiada não seja um VM de disco grande, [nestes cenários](#special-configurations) o script não pode ser executado no mesmo VM apoiado.
+
+### <a name="os-requirements-on-the-machine"></a>Requisitos de Os na máquina
+
+A máquina onde o guião precisa de ser executado deve satisfazer [estes requisitos de SO](#system-requirements).
+
+### <a name="access-requirements-for-the-machine"></a>Requisitos de acesso para a máquina
+
+A máquina onde o guião precisa de ser executado deve satisfazer [estes requisitos](#access-requirements)de acesso.
 
 ## <a name="special-configurations"></a>Configurações especiais
 
@@ -210,15 +227,13 @@ Se executar o script num computador com acesso restrito, certifique-se de que h�
 
 > [!NOTE]
 >
-> - O nome do ficheiro de script descarregado terá o **nome geo-nome** para ser preenchido no URL. Para o exame: O nome do \'script\'\_\'descarregado\'começa\'\'com o geonome VMname _ GUID , como *ContosoVM_wcus_12345678*
-> - O URL <https://pod01-rec2.wcus.backup.windowsazure.com>seria "
+> - O nome do ficheiro de script descarregado terá o **nome geo-nome** para ser preenchido no URL. Para o exame: O nome do script descarregado começa com \' o geonome VMname \' \_ \' \' _ \' \' GUID, como *ContosoVM_wcus_12345678*
+> - O URL seria <https://pod01-rec2.wcus.backup.windowsazure.com> "
 >
 
 Para o Linux, o guião requer componentes 'open-iscsi' e 'lshw' para se ligar ao ponto de recuperação. Se os componentes não existirem no computador onde o script é executado, o script pede permissão para instalar os componentes. Dê consentimento para instalar os componentes necessários.
 
 O acesso `download.microsoft.com` é necessário para descarregar componentes usados para construir um canal seguro entre a máquina onde o script é executado e os dados no ponto de recuperação.
-
-Pode executar o script em qualquer máquina que tenha o mesmo (ou compatível) sistema operativo que o VM de back-up. Consulte a [tabela OS compatível](backup-azure-restore-files-from-vm.md#system-requirements) para sistemas operativos compatíveis. Se a máquina virtual Azure protegida utilizar espaços de armazenamento windows (para VMs Windows Azure) ou LM/RAID Arrays (para VMs Linux), não pode executar o executável ou script na mesma máquina virtual. Em vez disso, execute o executável ou script em qualquer outra máquina com um sistema operativo compatível.
 
 ## <a name="file-recovery-from-virtual-machine-backups-having-large-disks"></a>Recuperação de ficheiros de backups de máquinas virtuais com grandes discos
 
@@ -246,7 +261,7 @@ Uma vez que o processo de recuperação de ficheiros anexa todos os discos da c�
   - No ficheiro /etc/iscsi/iscsid.conf, altere a definição de:
     - nó.conn[0].timeo.noop_out_timeout = 5 ao nó.conn[0].timeo.noop_out_timeout = 30
 - Depois de fazer a mudança acima, volte a executar o guião. Com estas mudanças, é altamente provável que a recuperação do ficheiro tenha sucesso.
-- Cada vez que o utilizador descarrega um script, o Azure Backup inicia o processo de preparação do ponto de recuperação para download. Com discos grandes, este processo levará muito tempo. Se houver sucessivas explosões de pedidos, a preparação do alvo entrará numa espiral de descarregamento. Portanto, é recomendado descarregar um script do Portal/Powershell/CLI, esperar 20-30 minutos (um heurístico) e, em seguida, executá-lo. Por esta altura, espera-se que o alvo esteja pronto para a ligação a partir do guião.
+- Cada vez que o utilizador descarrega um script, o Azure Backup inicia o processo de preparação do ponto de recuperação para download. Com discos grandes, este processo levará muito tempo. Se houver sucessivas explosões de pedidos, a preparação do alvo entrará numa espiral de descarregamento. Portanto, é recomendado descarregar um script do Portal/PowerShell/CLI, esperar 20-30 minutos (um heurístico) e, em seguida, executá-lo. Por esta altura, espera-se que o alvo esteja pronto para a ligação a partir do guião.
 - Após a recuperação do ficheiro, certifique-se de que volta ao portal e clique em **discos Desmontar** para pontos de recuperação onde não foi capaz de montar volumes. Essencialmente, este passo irá limpar quaisquer processos/sessões existentes e aumentar a possibilidade de recuperação.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
@@ -304,6 +319,6 @@ O script dá acesso apenas a leitura a um ponto de recuperação e é válido po
 ## <a name="next-steps"></a>Passos seguintes
 
 - Para quaisquer problemas durante a restauração de ficheiros, consulte a secção [de resolução de problemas](#troubleshooting)
-- Saiba como [restaurar ficheiros via Powershell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#restore-files-from-an-azure-vm-backup)
+- Saiba como [restaurar ficheiros via PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#restore-files-from-an-azure-vm-backup)
 - Saiba como [restaurar ficheiros via Azure CLI](https://docs.microsoft.com/azure/backup/tutorial-restore-files)
 - Depois que a VM é restaurada, aprenda a [gerir backups](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms)

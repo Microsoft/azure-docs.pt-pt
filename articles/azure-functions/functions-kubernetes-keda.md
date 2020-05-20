@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: jehollan
-ms.openlocfilehash: 5c050eb38e47ce2ab9d11e5c92eb7bdd3ac8e572
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: eab0a54d30f2cd2829779dbfc6081445f5be0a71
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83121699"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648855"
 ---
 # <a name="azure-functions-on-kubernetes-with-keda"></a>Funções Azure em Kubernetes com KEDA
 
@@ -28,7 +28,7 @@ Para executar funções no seu cluster Kubernetes, tem de instalar o componente 
 
 ### <a name="installing-with-helm"></a>Instalação com Leme
 
-Existem várias formas de instalar keda em qualquer cluster Kubernetes, incluindo Helm.  As opções de implementação estão documentadas no site da [KEDA](https://keda.sh/docs/deploy/).
+Existem várias formas de instalar keda em qualquer cluster Kubernetes, incluindo Helm.  As opções de implementação estão documentadas no site da [KEDA](https://keda.sh/docs/1.4/deploy/).
 
 ## <a name="deploying-a-function-app-to-kubernetes"></a>Implementação de uma aplicação de função para kubernetes
 
@@ -67,7 +67,7 @@ kubectl delete secret <name-of-function-deployment>
 
 ## <a name="uninstalling-keda-from-kubernetes"></a>Desinstalação keda da Kubernetes
 
-As medidas para desinstalar a KEDA estão documentadas [no site da KEDA](https://keda.sh/deploy/).
+As medidas para desinstalar a KEDA estão documentadas [no site da KEDA](https://keda.sh/docs/1.4/deploy/).
 
 ## <a name="supported-triggers-in-keda"></a>Gatilhos suportados na KEDA
 

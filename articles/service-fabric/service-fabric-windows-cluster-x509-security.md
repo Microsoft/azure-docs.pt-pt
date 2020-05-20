@@ -5,12 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: cf7d418d8bca8f690acf29ba701fdc54ced1ca6c
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 1277af2e8f9de575fbe51ea0f43bbcfd2812e610
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562003"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653635"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Proteja um cluster autónomo no Windows utilizando certificados X.509
 Este artigo descreve como garantir a comunicação entre os vários nós do seu cluster Windows autónomo. Também descreve como autenticar clientes que se ligam a este cluster utilizando certificados X.509. A autenticação garante que apenas os utilizadores autorizados podem aceder ao cluster e às aplicações implementadas e executar tarefas de gestão. A segurança do certificado deve ser ativada no cluster quando o cluster for criado.  
@@ -248,12 +248,24 @@ Se estiver a utilizar lojas emitentes, então não é necessário realizar nenhu
 ## <a name="acquire-the-x509-certificates"></a>Adquirir os certificados X.509
 Para garantir a comunicação dentro do cluster, primeiro é necessário obter certificados X.509 para os seus nós de cluster. Além disso, para limitar a ligação a este cluster a máquinas/utilizadores autorizados, é necessário obter e instalar certificados para as máquinas clientes.
 
-Para os clusters que estão a executar cargas de trabalho de produção, utilize um certificado x.509 assinado pela autoridade de [certificados](https://en.wikipedia.org/wiki/Certificate_authority)para assegurar o cluster. Para obter mais informações sobre como obter estes certificados, consulte [Como obter um certificado](https://msdn.microsoft.com/library/aa702761.aspx).
+Para os clusters que estão a executar cargas de trabalho de produção, utilize um certificado x.509 assinado pela autoridade de [certificados](https://en.wikipedia.org/wiki/Certificate_authority)para assegurar o cluster. Para obter mais informações sobre como obter estes certificados, consulte [Como obter um certificado](https://msdn.microsoft.com/library/aa702761.aspx). 
+
+Existem uma série de propriedades que o certificado deve ter para funcionar corretamente:
+
+* O fornecedor do certificado deve ser o Fornecedor Criptográfico Melhorado da Microsoft e o **AES Cryptographic Provider**
+
+* Ao criar uma tecla RSA, certifique-se de que a chave é **de 2048 bits**.
+
+* A extensão de utilização chave tem um valor de **Assinatura Digital, Encipherment chave (a0)**
+
+* A extensão de utilização da chave melhorada tem valores de **Autenticação** do Servidor (OID: 1.3.6.1.5.7.3.1) e **Autenticação** do Cliente (OID: 1.3.6.1.5.5.7.3.2)
 
 Para os clusters que utiliza para fins de teste, pode optar por utilizar um certificado auto-assinado.
 
+Para perguntas adicionais, consulte [frequentemente perguntas](https://docs.microsoft.com/azure/service-fabric/cluster-security-certificate-management#troubleshooting-and-frequently-asked-questions)de certificado.
+
 ## <a name="optional-create-a-self-signed-certificate"></a>Opcional: Criar um certificado auto-assinado
-Uma forma de criar um certificado auto-assinado que pode ser protegido corretamente é usar o script CertSetup.ps1 na pasta SDK de tecido de serviço no diretório C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\Secure. Editar este ficheiro para alterar o nome predefinido do certificado. (Procure o valor CN=ServiceFabricDevClusterCert.) Execute este `.\CertSetup.ps1 -Install`guião como.
+Uma forma de criar um certificado auto-assinado que pode ser protegido corretamente é usar o script CertSetup.ps1 na pasta SDK de tecido de serviço no diretório C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\Secure. Editar este ficheiro para alterar o nome predefinido do certificado. (Procure o valor CN=ServiceFabricDevClusterCert.) Execute este guião `.\CertSetup.ps1 -Install` como.
 
 Agora exporte o certificado para um ficheiro .pfx com uma senha protegida. Primeiro, pegue a impressão digital do certificado. 
 1. A partir do menu **Iniciar,** executar **Gerir certificados de computador**. 
@@ -264,7 +276,7 @@ Agora exporte o certificado para um ficheiro .pfx com uma senha protegida. Prime
 
 4. Retire os espaços e copie o valor da impressão digital no seguinte comando PowerShell. 
 
-5. Mude `String` o valor para uma senha segura adequada para protegê-lo e executar o seguinte na PowerShell:
+5. Mude o `String` valor para uma senha segura adequada para protegê-lo e executar o seguinte na PowerShell:
 
    ```powershell   
    $pswd = ConvertTo-SecureString -String "1234" -Force –AsPlainText
@@ -292,7 +304,7 @@ Depois de ter certificados, pode instalá-los nos nós do cluster. Os seus nós 
     $PfxFilePath ="C:\mypfx.pfx"
     Import-PfxCertificate -Exportable -CertStoreLocation Cert:\LocalMachine\My -FilePath $PfxFilePath -Password (ConvertTo-SecureString -String $pswd -AsPlainText -Force)
     ```
-3. Agora, detete te o controlo de acesso deste certificado para que o processo de Tecido de Serviço, que funciona sob a conta do Serviço de Rede, possa usá-lo executando o seguinte script. Forneça a impressão digital do certificado e do **SERVIÇO DE REDE** para a conta de serviço. Pode verificar se os ACLs do certificado estão corretos abrindo o certificado em **Certificados**de > **computador** Start Manage e olhando para **todas as tarefas** > gerir**chaves privadas**.
+3. Agora, detete te o controlo de acesso deste certificado para que o processo de Tecido de Serviço, que funciona sob a conta do Serviço de Rede, possa usá-lo executando o seguinte script. Forneça a impressão digital do certificado e do **SERVIÇO DE REDE** para a conta de serviço. Pode verificar se os ACLs do certificado estão corretos abrindo o certificado em **Certificados**de computador Start  >  **Manage** e olhando para **todas as tarefas**gerir  >  **chaves privadas**.
    
     ```powershell
     param
@@ -355,7 +367,7 @@ Para remover o cluster, ligue-se ao nó do cluster onde descarregou o pacote Ser
 ```
 
 > [!NOTE]
-> A configuração incorreta do certificado pode impedir que o cluster apareça durante a implantação. Para auto-diagnosticar problemas de segurança, procure no grupo Evento **Aplicações e Serviços Logs** > **Microsoft-Service Fabric**.
+> A configuração incorreta do certificado pode impedir que o cluster apareça durante a implantação. Para auto-diagnosticar problemas de segurança, procure no grupo Evento **Aplicações e Serviços Logs**  >  **Microsoft-Service Fabric**.
 > 
 > 
 

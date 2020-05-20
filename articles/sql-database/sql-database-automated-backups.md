@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 12/13/2019
-ms.openlocfilehash: 7cbe0015eeb9b46cd72496a220ce7f7d094cb61d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: dd5ca3c52364813a9aabe3db821c4f7e094fa637
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198564"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83634136"
 ---
 # <a name="automated-backups"></a>Cópias de segurança automatizadas
 
@@ -91,7 +91,7 @@ As cópias de segurança que ocorrem antes do período de retenção são automa
 A Base de Dados Azure SQL calcula o seu armazenamento total de reserva de retenção como um valor cumulativo. A cada hora, este valor é reportado ao oleoduto de faturação Azure, que é responsável por agregar este uso de hora em hora para calcular o seu consumo no final de cada mês. Após a queda da base de dados, o consumo diminui à medida que os backups envelhecem. Depois de os backups se tornarem mais antigos do que o período de retenção, a faturação para.
 
    > [!IMPORTANT]
-   > As cópias de segurança de uma base de dados são retidas durante o período de retenção especificado, mesmo que a base de dados tenha sido retirada. Ao deixar cair e recriar uma base de dados pode frequentemente economizar nos custos de armazenamento e cálculo, pode aumentar os custos de armazenamento de backup porque a Microsoft mantém uma cópia de segurança para o período de retenção especificado (que é de 7 dias no mínimo) para cada base de dados largada, sempre que é baixada.
+   > As cópias de segurança de uma base de dados são retidas durante o período de retenção especificado, mesmo que a base de dados tenha sido retirada. Ao deixar cair e recriar uma base de dados pode frequentemente economizar nos custos de armazenamento e cálculo, pode aumentar os custos de armazenamento de backup porque a Microsoft mantém uma cópia de segurança para o período de retenção especificado para cada base de dados abandonada, sempre que é baixada.
 
 ### <a name="monitor-consumption"></a>Monitorizar o consumo
 
@@ -149,6 +149,9 @@ Se necessitar de manter as cópias de segurança por mais tempo do que o períod
 
 > [!IMPORTANT]
 > Se eliminar o servidor Azure SQL que acolhe bases de dados SQL, todas as bases de dados elásticas e bases de dados que pertencem ao servidor também são eliminadas. Não podem ser recuperados. Não pode restaurar um servidor apagado. Mas se configurar a retenção a longo prazo, as cópias de segurança das bases de dados com LTR não serão eliminadas e estas bases de dados podem ser restauradas.
+
+> [!NOTE]
+> A retenção mínima de backup PITR que pode ser configurada para bases de dados únicas e reunidas e istances geridas através do portal Azure é de 7 dias. A retenção mínima de reserva PITR de 1 dia pode ser configurada para a sua utilização gerida apenas utilizando o PowerShell com o módulo As.SQL v2.6.0 ou superior.
 
 ## <a name="encrypted-backups"></a>Backups encriptados
 
