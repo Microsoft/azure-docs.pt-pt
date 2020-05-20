@@ -1,0 +1,70 @@
+### YamlMime:Landing
+title: Documentação sobre Aplicações Web Estáticas do Azure
+summary: As Aplicações Web Estáticas do Azure permitem-lhe construir aplicações Web JavaScript que publicam automaticamente a partir de alterações efetuadas no GitHub.
+metadata:
+  title: Documentação sobre Aplicações Web Estáticas do Azure
+  description: As Aplicações Web Estáticas do Azure permitem-lhe construir aplicações Web JavaScript que publicam automaticamente a partir de alterações efetuadas no GitHub.
+  ms.topic: landing-page
+  ms.service: static-web-apps
+  author: craigshoemaker
+  ms.author: cshoe
+  ms.date: 04/09/2020
+  ms.openlocfilehash: 8dd4f7420c4b58d621312f361beede1e48bc17b5
+  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 05/19/2020
+  ms.locfileid: "83593074"
+landingContent:
+- title: Sobre Aplicações Web Estáticas
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que são as Aplicações Web Estáticas do Azure?
+      url: overview.md
+- title: Introdução
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Criar a sua primeira aplicação Angular
+      url: /azure/static-web-apps/getting-started?tabs=angular
+    - text: Criar a sua primeira aplicação React
+      url: /azure/static-web-apps/getting-started?tabs=react
+    - text: Criar a sua primeira aplicação Vue
+      url: /azure/static-web-apps/getting-started?tabs=vue
+    - text: Criar a sua primeira aplicação (sem quadro)
+      url: /azure/static-web-apps/getting-started?tabs=vanilla-javascript
+  - linkListType: learn
+    links:
+    - text: Publicar uma aplicação Angular, React, Svelte ou Vue JavaScript e API
+      url: /learn/modules/publish-app-service-static-web-app-api
+- title: Conceitos-chave
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Rotas
+      url: routes.md
+    - text: APIs públicos
+      url: apis.md
+    - text: Processo de teste
+      url: review-publish-pull-requests.md
+    - text: Restringir o acesso
+      url: authentication-authorization.md
+- title: Publicar cenários
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Publicar a partir do Gatsby
+      url: publish-gatsby.md
+    - text: Publicar a partir do Hugo
+      url: publish-hugo.md
+    - text: Publicar a partir do VuePress
+      url: publish-vuepress.md
+    - text: Publicar a partir do Next.js
+      url: deploy-nextjs.md
+    - text: Publicar a partir do Nuxt.js
+      url: deploy-nuxtjs.md
+  - linkListType: learn
+    links:
+    - text: Publicar uma aplicação Web estática com Gatsby
+      url: /learn/modules/create-deploy-static-webapp-gatsby-app-service

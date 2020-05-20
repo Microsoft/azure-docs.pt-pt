@@ -6,12 +6,12 @@ author: mamccrea
 ms.author: mamccrea
 ms.topic: conceptual
 ms.date: 01/29/2020
-ms.openlocfilehash: 73905483850a47a9d036bef1b9e1ee60d3484555
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d68c36e7d6603cb8cdc906ad2a0280094e6e0e5
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77484592"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698266"
 ---
 # <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>Dados da Parse JSON e da Avro no Azure Stream Analytics
 
@@ -19,7 +19,8 @@ O Azure Stream Analytics suporta eventos de processamento em formatos de dados C
 
 >[!NOTE]
 >Os ficheiros AVRO criados pela Event Hub Capture utilizam um formato específico que requer que utilize a função de *desserializer personalizada.* Para mais informações, consulte [A entrada de ler em qualquer formato utilizando desserializers personalizados .NET](https://docs.microsoft.com/azure/stream-analytics/custom-deserializer-examples).
-
+>
+>A desserialização do Stream Analytics AVRO não suporta o tipo de mapa. O Stream Analytics não consegue ler bolhas de captura do EventHub porque a captura do EventHub usa o mapa.
 
 
 ## <a name="record-data-types"></a>Tipos de dados de gravação
@@ -205,7 +206,7 @@ Em seguida, pode criar um passo na sua consulta stream analytics, como mostrado 
 
 Os tipos de dados matrizes são uma recolha ordenada de valores. Algumas operações típicas sobre valores de matriz são detalhadas abaixo. Estes exemplos utilizam as funções [GetArrayElement,](https://docs.microsoft.com/stream-analytics-query/getarrayelement-azure-stream-analytics) [GetArrayElements,](https://docs.microsoft.com/stream-analytics-query/getarrayelements-azure-stream-analytics) [GetArrayLength](https://docs.microsoft.com/stream-analytics-query/getarraylength-azure-stream-analytics)e o operador [APPLY.](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics)
 
-Aqui está um exemplo de um único evento. Ambos `CustomSensor03` `SensorMetadata` e são de **tipo matriz:**
+Aqui está um exemplo de um único evento. Ambos `CustomSensor03` e são de tipo `SensorMetadata` **matriz:**
 
 ```json
 {

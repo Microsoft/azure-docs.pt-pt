@@ -1,0 +1,55 @@
+### YamlMime:Landing
+title: Documentação do SQL do Azure no Edge (Pré-visualização)
+summary: O SQL do Azure no Edge é um motor de base de dados relacional otimizado para implementações de IoT e no edge.
+metadata:
+  title: Documentação do SQL do Azure no Edge (Pré-visualização)
+  meta.description: Learn how to use Azure SQL Edge (Preview).
+  services: sql-database-edge
+  ms.service: sql-database-edge
+  ms.topic: landing-page
+  author: stevestein
+  ms.author: sstein
+  ms.date: 05/19/2020
+  ms.openlocfilehash: a2e26d4bfbec3a139987e2a7a0fe21c429c740a5
+  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 05/19/2020
+  ms.locfileid: "83593142"
+landingContent:
+- title: SQL no Edge
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o SQL no Edge?
+      url: overview.md
+  - linkListType: deploy
+    links:
+    - text: Implementar o SQL no Edge
+      url: deploy-portal.md
+- title: Sincronizar dados
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Sincronizar dados do SQL no Edge com o Azure Data Factory
+      url: tutorial-sync-data-factory.md
+    - text: Sincronizar dados do SQL no Edge com a Base de Dados SQL
+      url: tutorial-sync-data-sync.md
+- title: Transmissão de dados
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Transmissão de dados
+      url: stream-data.md
+    - text: Transmissão em fluxo das vistas de catálogo
+      url: streaming-catalog-views.md
+- title: Aprendizagem automática
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Aprendizagem automática e inteligência artificial
+      url: onnx-overview.md
+  - linkListType: quickstart
+    links:
+    - text: Implementar ONNX no SQL no Edge
+      url: deploy-onnx.md

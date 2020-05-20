@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/15/2020
-ms.openlocfilehash: 01a4cd172b699cef009197d1fce1d5bae62f2925
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 9a81ab58335e968e5ce4816de85ed1b63bc93455
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680630"
+ms.locfileid: "83699602"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Monitor visualmente Azure Data Factory
 
@@ -142,7 +142,7 @@ Clicar no ícone abre um relatório de consumo dos recursos utilizados por esse 
 
 ![Monitorizar o consumo](media/monitor-visually/monitor-consumption-2.png)
 
-Pode ligar estes valores à corrida de gasodutos calcula.hat.hat.preço do Azure. Para obter mais informações sobre os preços da Fábrica de Dados Azure, consulte [a compreensão dos preços.](pricing-concepts.md)
+Pode ligar estes valores à calculadora de preços do Azure. ( https://azure.microsoft.com/pricing/details/data-factory/) estimar o custo da execução do gasoduto. Para obter mais informações sobre os preços da Fábrica de Dados Azure, consulte [a compreensão dos preços.](pricing-concepts.md)
 
 > [!NOTE]
 > Estes valores devolvidos pela calculadora de preços são uma estimativa. Não reflete o valor exato que será cobrado pela Azure Data Factory 

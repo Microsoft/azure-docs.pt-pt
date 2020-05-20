@@ -9,12 +9,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 1/15/2020
-  ms.openlocfilehash: 852a01416b52c6a7b98c3b4883210749bf3cc509
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: b3e986c67c55af467ea6534dd7484a307ec08227
+  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "80132454"
+  ms.lasthandoff: 05/19/2020
+  ms.locfileid: "83589266"
 landingContent:
 - title: Sobre o Azure Maps
   linkLists:
@@ -56,6 +56,36 @@ landingContent:
       url: how-to-manage-pricing-tier.md
     - text: Ver as métricas de utilização da API do Azure Maps
       url: how-to-view-api-usage.md
+- title: Programar com o Criador
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Conceitos do mapa do interior
+      url: creator-indoor-maps.md
+  - linkListType: tutorial
+    links:
+    - text: Use o Criador para criar dados de mapas do interior
+      url: tutorial-creator-indoor-maps.md
+  - linkListType: how-to-guide
+    links:
+    - text: Gerir mapas do interior do Criador
+      url: how-to-manage-creator.md
+    - text: Implementar Estilo dinâmico para mapas do interior
+      url: indoor-map-dynamic-styling.md
+    - text: Utilizar o visualizador do erro de desenho do Azure Maps
+      url: drawing-error-visualizer.md
+    - text: Utilizar o módulo de mapa do interior
+      url: how-to-use-indoor-module.md
+  - linkListType: reference
+    links:
+    - text: Serviço de conversão
+      url: https://docs.microsoft.com/rest/api/maps/conversion
+    - text: Serviço de conjunto de dados
+      url: https://docs.microsoft.com/rest/api/maps/dataset
+    - text: Serviço de conjunto de mosaicos
+      url: https://docs.microsoft.com/rest/api/maps/tileset
+    - text: Serviço de conjunto de funcionalidades dos recursos
+      url: https://docs.microsoft.com/rest/api/maps/featurestate
 - title: Programar com o SDK Web
   linkLists:
   - linkListType: concept

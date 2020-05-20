@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2020
 ms.author: spelluru
-ms.openlocfilehash: 449ff8aafd6dec1e9c0ff16dc407155949fd1313
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 4b4e6bf7b69f1b4c7664a104a0af70d9e486f08a
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83586172"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83699955"
 ---
 # <a name="access-virtual-machines-as-a-student-from-the-educator-view"></a>Aceda a máquinas virtuais como estudante a partir da vista do educador
 Este artigo mostra como os educadores podem aceder aos seus VMs para as aulas que frequentam enquanto estudantes. 
@@ -36,5 +36,6 @@ Aqui está um cenário onde esta funcionalidade vai ajudar. Uma assistente de en
 Consulte os seguintes artigos:
 
 - [Ligar a uma VM](how-to-use-classroom-lab.md#connect-to-the-vm)
-- [Ligue-se a um VM usando RDP num Mac](connect-virtual-machine-mac-rdp.md)
+- [Ligue-se a um VM usando RDP num Mac](connect-virtual-machine-mac-remote-desktop.md)
+- [Ligue-se a um VM usando RDP num Chromebook](connect-virtual-machine-chromebook-remote-desktop.md)
 - [Utilize o ambiente de trabalho remoto para máquinas virtuais Linux](how-to-use-remote-desktop-linux-student.md)

@@ -3,12 +3,12 @@ title: Como é que eu... in Azure Application Insights [ Insights de Aplicação
 description: FAQ em Insights de Aplicação.
 ms.topic: conceptual
 ms.date: 04/04/2017
-ms.openlocfilehash: 8d4b1e79c48b14ed7dce756468e4c48d633c3f04
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9ca5900bc9172b1f4ef9b1a7a660c6936ac38095
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81536867"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701956"
 ---
 # <a name="how-do-i--in-application-insights"></a>Como... no Application Insights?
 ## <a name="get-an-email-when-"></a>Recebe um e-mail quando...
@@ -16,7 +16,7 @@ ms.locfileid: "81536867"
 Detete um [teste web de disponibilidade.](../../azure-monitor/app/monitor-web-app-availability.md)
 
 ### <a name="email-if-my-site-is-overloaded"></a>E-mail se o meu site estiver sobrecarregado
-Destome um [alerta](../../azure-monitor/app/alerts.md) sobre o tempo de **resposta do Servidor**. Um limiar entre 1 e 2 segundos deve funcionar.
+Destome um [alerta](../../azure-monitor/platform/alerts-log.md) sobre o tempo de **resposta do Servidor**. Um limiar entre 1 e 2 segundos deve funcionar.
 
 ![](./media/how-do-i/030-server.png)
 
@@ -26,10 +26,10 @@ Se quiser definir um alerta sobre **as exceções**do Servidor, poderá ter de f
 
 ### <a name="email-on-exceptions"></a>E-mail sobre exceções
 1. [Configurar a monitorização da exceção](../../azure-monitor/app/asp-net-exceptions.md)
-2. [Desema um alerta](../../azure-monitor/app/alerts.md) sobre a métrica da contagem de exceções
+2. [Desema um alerta](../../azure-monitor/platform/alerts-log.md) sobre a métrica da contagem de exceções
 
 ### <a name="email-on-an-event-in-my-app"></a>E-mail em um evento na minha app
-Suponho que gostaria de receber um e-mail quando um evento específico ocorre. A Aplicação Insights não fornece esta instalação diretamente, mas pode [enviar um alerta quando uma métrica atravessa um limiar](../../azure-monitor/app/alerts.md).
+Suponho que gostaria de receber um e-mail quando um evento específico ocorre. A Aplicação Insights não fornece esta instalação diretamente, mas pode [enviar um alerta quando uma métrica atravessa um limiar](../../azure-monitor/platform/alerts-log.md).
 
 Os alertas podem ser definidos em [métricas personalizadas,](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric)embora não em eventos personalizados. Escreva um código para aumentar uma métrica quando o evento ocorrer:
 
@@ -65,17 +65,17 @@ Alguns pontos a considerar:
 * Uma vez que os e-mails são enviados em "alerta" e "saudável", é melhor considerar repensar o seu evento de um tiro como uma condição de dois estados. Por exemplo, em vez de um evento de "trabalho concluído", tem uma condição de "trabalho em andamento", onde recebe e-mails no início e no fim de um trabalho.
 
 ### <a name="set-up-alerts-automatically"></a>Configurar alertas automaticamente
-[Use o PowerShell para criar novos alertas](../../azure-monitor/app/alerts.md#automation)
+[Use o PowerShell para criar novos alertas](../../azure-monitor/platform/alerts-log.md)
 
 ## <a name="use-powershell-to-manage-application-insights"></a>Use powerShell para gerir insights de aplicação
 * [Criar novos recursos](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically)
-* [Criar novos alertas](../../azure-monitor/app/alerts.md#automation)
+* [Criar novos alertas](../../azure-monitor/platform/alerts-log.md)
 
 ## <a name="separate-telemetry-from-different-versions"></a>Telemetria separada de diferentes versões
 
 * Múltiplas funções numa aplicação: Utilize um único recurso de Insights de Aplicação e filtre em [cloud_Rolename](../../azure-monitor/app/app-map.md).
 * Separar as versões de desenvolvimento, teste e lançamento: Utilize diferentes recursos de Insights de Aplicação. Pegue as chaves de instrumentação da web.config. [Saiba mais](../../azure-monitor/app/separate-resources.md)
-* Reportando versões de construção: Adicione uma propriedade usando um inicializador de telemetria. [Mais informações](../../azure-monitor/app/separate-resources.md)
+* Reportando versões de construção: Adicione uma propriedade usando um inicializador de telemetria. [Saiba mais](../../azure-monitor/app/separate-resources.md)
 
 ## <a name="monitor-backend-servers-and-desktop-apps"></a>Monitor de backend servidores e aplicativos de ambiente de trabalho
 [Utilize o módulo SDK do Servidor do Windows](../../azure-monitor/app/windows-desktop.md).
@@ -120,7 +120,7 @@ Se quiser uma lista de utilizadores com dados como as páginas que analisam ou c
 ## <a name="reduce-traffic-from-my-app-to-application-insights"></a>Reduzir o tráfego da minha app para Apps Insights
 * Em [ApplicationInsights.config,](../../azure-monitor/app/configuration-with-applicationinsights-config.md)desative quaisquer módulos de que não necessite, tal como o contador de desempenho.
 * Utilizar [amostragem e filtragem](../../azure-monitor/app/api-filtering-sampling.md) no SDK.
-* Nas suas páginas web, limite o número de chamadas do Ajax reportadas para cada visualização de página. No corte do script `instrumentationKey:...` depois, `,maxAjaxCallsPerView:3` insira: (ou um número adequado).
+* Nas suas páginas web, limite o número de chamadas do Ajax reportadas para cada visualização de página. No corte do script `instrumentationKey:...` depois, insira: `,maxAjaxCallsPerView:3` (ou um número adequado).
 * Se estiver a utilizar o [TrackMetric,](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric)calcule o agregado de lotes de valores métricos antes de enviar o resultado. Há uma sobrecarga de TrackMetric() que fornece para isso.
 
 Saiba mais sobre [preços e quotas.](../../azure-monitor/app/pricing.md)
@@ -137,10 +137,10 @@ Para **parar e iniciar dinamicamente** a recolha e transmissão de telemetria a 
 ```
 
 ### <a name="other-applications"></a>Outras aplicações
-Não é aconselhável `TelemetryConfiguration.Active` utilizar singleton na consola ou ASP.NET aplicações Core.
-se criou `TelemetryConfiguration` o exemplo `DisableTelemetry` `true`- definido para .
+Não é aconselhável utilizar `TelemetryConfiguration.Active` singleton na consola ou ASP.NET aplicações Core.
+se criou o `TelemetryConfiguration` exemplo - definido para `DisableTelemetry` `true` .
 
-Para ASP.NET aplicações Core `TelemetryConfiguration` pode aceder à instância utilizando ASP.NET injeção de [dependência do Núcleo](/aspnet/core/fundamentals/dependency-injection/). Por favor, encontre mais detalhes no Artigo de [Aplicações Do ASP.NET Core.](../../azure-monitor/app/asp-net-core.md)
+Para ASP.NET aplicações Core pode aceder à instância utilizando ASP.NET injeção de `TelemetryConfiguration` [dependência do Núcleo](/aspnet/core/fundamentals/dependency-injection/). Por favor, encontre mais detalhes no Artigo de [Aplicações Do ASP.NET Core.](../../azure-monitor/app/asp-net-core.md)
 
 ## <a name="disable-selected-standard-collectors"></a>Desativar os colecionadores padrão selecionados
 Pode desativar os colecionadores padrão (por exemplo, contadores de desempenho, pedidos HTTP ou dependências)
@@ -156,7 +156,7 @@ Entre as métricas que pode mostrar no explorador de métricas estão um conjunt
 ### <a name="if-you-see-no-performance-counter-data"></a>Se não vir nenhum contador de dados de desempenho
 * **Servidor IIS** na sua própria máquina ou num VM. [Instalar monitor de estado](../../azure-monitor/app/monitor-performance-live-website-now.md).
 * **Web site azure** - ainda não apoiamos contadores de desempenho. Existem várias métricas que pode obter como uma parte padrão do painel de controlo do site Azure.
-* **Instalação** - de servidor Unix[colecionada](../../azure-monitor/app/java-collectd.md)
+* Servidor Unix **Unix server**  -  [Instalar colecionados](../../azure-monitor/app/java-collectd.md)
 
 ### <a name="to-display-more-performance-counters"></a>Para exibir mais contadores de desempenho
 * Em primeiro lugar, [adicione um novo gráfico](../../azure-monitor/platform/metrics-charts.md) e veja se o contador está no conjunto básico que oferecemos.

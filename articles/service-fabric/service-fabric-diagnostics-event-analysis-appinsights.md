@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 5c80dc9f350fec30469a9bce2ed836c276ef3a7f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3b7cb09d67080d49f53d9dd48b5ed0f8f3a54884
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75464748"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701889"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Análise de eventos e visualização com Insights de Aplicação
 
@@ -42,7 +42,7 @@ Para explorar ainda mais as capacidades do portal Application Insights, dirija-s
 
 ### <a name="configuring-application-insights-with-eventflow"></a>Configurar insights de aplicação com EventFlow
 
-Se estiver a utilizar o EventFlow para `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights`agregar eventos, certifique-se de importar o pacote NuGet. O seguinte código é exigido na secção de *saídas* do *eventoFlowConfig.json:*
+Se estiver a utilizar o EventFlow para agregar eventos, certifique-se de importar o `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights` pacote NuGet. O seguinte código é exigido na secção de *saídas* do *eventoFlowConfig.json:*
 
 ```json
 "outputs": [
@@ -73,5 +73,5 @@ Clicar no **Analytics** irá levá-lo ao portal Application Insights Analytics, 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Configurar alertas em IA](../azure-monitor/app/alerts.md) para serem notificados sobre alterações no desempenho ou utilização
+* [Configurar alertas em IA](/azure/azure-monitor/platform/alerts-log) para serem notificados sobre alterações no desempenho ou utilização
 * [Smart Detection in Application Insights](../azure-monitor/app/proactive-diagnostics.md) realiza uma análise proativa da telemetria enviada para Application Insights para avisá-lo de potenciais problemas de desempenho

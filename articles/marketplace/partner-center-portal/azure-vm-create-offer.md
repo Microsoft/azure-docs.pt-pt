@@ -6,13 +6,13 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/01/2020
-ms.openlocfilehash: 31b8960f5617566a72545510cf03771f7a3bfcbd
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.date: 05/19/2020
+ms.openlocfilehash: 25b7a619f6d3e308de966ead5925133f6094d9c8
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82745014"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701087"
 ---
 # <a name="create-an-azure-virtual-machine-offer-in-the-azure-marketplace"></a>Criar uma oferta de máquina virtual Azure no Azure Marketplace
 
@@ -39,7 +39,7 @@ Se ainda não o fez, reveja a oferta da [máquina Virtual](https://docs.microsof
 - Guias quickstart
   - [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/)
   - [Modelos GitHub Azure Quickstart](https://github.com/azure/azure-quickstart-templates)
-- Tutoriais
+- Tutorials (Tutoriais)
   - [VMs do Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
   - [VMs do Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
 - Amostras
@@ -61,8 +61,8 @@ A sua equipa de engenharia deve compreender as seguintes tecnologias da Microsof
 ## <a name="create-a-new-offer"></a>Criar uma nova oferta
 
 1. Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/home).
-2. No menu de navegação à esquerda, selecione **Commercial Marketplace** > **Overview**.
-3. Na página 'Visão Geral', selecione **+ Nova oferta** > **Máquina Virtual Azure**.
+2. No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **Overview**.
+3. Na página 'Visão Geral', selecione **+ Nova oferta**Máquina Virtual  >  **Azure**.
 
     ![Ilustra o menu de navegação à esquerda.](./media/new-offer-azure-vm.png)
 
@@ -74,7 +74,7 @@ A sua equipa de engenharia deve compreender as seguintes tecnologias da Microsof
 Introduza um **ID de oferta**. Este é um identificador único para cada oferta na sua conta.
 
 - Este ID é visível para os clientes no endereço web para a oferta de marketplace e no Azure PowerShell e Azure CLI, se aplicável.
-- Utilize apenas letras minúsculas e números. Pode incluir hífenes e sublinhados, mas sem espaços, e está limitado a 50 caracteres. Por exemplo, se introduzir o **test-offer-1** aqui, `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`o endereço web da oferta será .
+- Utilize apenas letras minúsculas e números. Pode incluir hífenes e sublinhados, mas sem espaços, e está limitado a 50 caracteres. Por exemplo, se introduzir o **test-offer-1** aqui, o endereço web da oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
 - O ID da Oferta não pode ser alterado depois de selecionar **Criar**.
 
 Insira um **pseudónimo da Oferta.** Este é o nome usado para a oferta no Partner Center.
@@ -197,32 +197,11 @@ Forneça uma descrição mais longa da sua oferta. Isto pode ter até 256 caract
 
 #### <a name="description"></a>Descrição
 
-Forneça uma descrição detalhada da sua oferta, até 3.000 caracteres. Isto é apresentado aos clientes na visão geral da listagem do mercado comercial.
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-Inclua um ou mais dos seguintes na sua descrição:
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-- O valor e os principais benefícios da sua oferta
-- Categoria ou associações industriais, ou ambos
-- Oportunidades de compra na aplicação
-- Quaisquer divulgações necessárias
-
-Aqui ficam algumas dicas para escrever a sua descrição:
-
-- Descreva claramente a proposta de valor da sua oferta nas primeiras frases da sua descrição. Incluir os seguintes itens:
-  - Descrição da sua oferta.
-  - O tipo de utilizador que beneficia da sua oferta.
-  - Necessidades ou problemas do cliente que a oferta endereça.
-- Lembre-se que as primeiras frases podem ser exibidas nos resultados do motor de busca.
-- Não confie em funcionalidades e funcionalidades para vender a sua oferta. Em vez disso, concentre-se no valor que a sua oferta proporciona.
-- Utilize palavras específicas da indústria ou baseadas em benefícios.
-
-Para tornar a sua descrição mais envolvente, use o rico editor de texto para aplicar formatação.
-
-![Usando o rico editor de texto](./media/rich-text-editor.png)
-
-| <center>Alterar o formato de texto | <center>Adicionar balas ou numerar | <center>Adicionar ou remover o travessão de texto |
-| --- | --- | --- |
-| <center>![Usando o rico editor de texto para alterar o formato de texto](./media/text-editor3.png) |  <center>![Usando o rico editor de texto para adicionar listas](./media/text-editor4.png) |  <center>![Usando o rico editor de texto para o travessão](./media/text-editor5.png) |
+[!INCLUDE [Long description-3](./includes/long-description-3.md)]
 
 #### <a name="privacy-policy-link"></a>Ligação política de privacidade
 
@@ -263,7 +242,7 @@ Forneça informações de contacto para a Microsoft usar quando houver problemas
 Forneça logotipos e imagens para usar com a sua oferta. Todas as imagens devem estar em formato PNG. Imagens desfocadas farão com que a sua submissão seja rejeitada.
 
 >[!Note]
->Se tiver algum problema de upload de ficheiros, https://upload.xboxlive.com certifique-se de que a sua rede local não bloqueia o serviço utilizado pelo Partner Center.
+>Se tiver algum problema de upload de ficheiros, certifique-se de que a sua rede local não bloqueia o https://upload.xboxlive.com serviço utilizado pelo Partner Center.
 
 #### <a name="marketplace-logos"></a>Logotipos do mercado
 
@@ -276,7 +255,7 @@ Forneça ficheiros PNG do logótipo da sua oferta nos seguintes quatro tamanhos 
 
 Todos os quatro logótipos são necessários e são usados em diferentes lugares na listagem do mercado.
 
-#### <a name="screenshots"></a>Capturas de Ecrã
+#### <a name="screenshots"></a>Capturas de ecrã
 
 Adicione cinco imagens que mostram como a sua oferta funciona. Cada screenshot deve ter 1280 x 720 pixels em tamanho e em formato PNG. Cada imagem deve incluir uma legenda.
 
@@ -288,7 +267,7 @@ Para obter recursos adicionais de listagem de mercado, consulte [as melhores pr�
 
 Selecione **guardar rascunho** antes de continuar.
 
-## <a name="preview"></a>Pré-visualização
+## <a name="preview"></a>Pré-visualizar
 
 No separador Preview, escolha um Público de **Pré-visualização** limitado para validar a sua oferta antes de publicá-la ao vivo para o público mais amplo do mercado.
 

@@ -23,6 +23,8 @@
           href: tutorial-create-store-locator.md
     - name: Tutoriais da API REST
       items:
+        - name: Criar mapas do interior
+          href: tutorial-creator-indoor-maps.md
         - name: Configurar um perímetro geográfico
           href: tutorial-geofence.md
         - name: Análise espacial
@@ -49,6 +51,12 @@
       href: azure-maps-event-grid-integration.md
     - name: Escolher o melhor escalão de preço
       href: choose-pricing-tier.md
+    - name: Criador de Mapas do interior
+      items:
+        - name: Conceitos do mapa do interior
+          href: creator-indoor-maps.md
+        - name: Erros de conversão de desenho e avisos
+          href: drawing-conversion-error-codes.md
     - name: Cobertura
       items:
         - name: Cobertura de geocodificação
@@ -83,6 +91,8 @@
           href: how-to-manage-authentication.md
         - name: Gerir o escalão de preço
           href: how-to-manage-pricing-tier.md
+        - name: Gerir Criador
+          href: how-to-manage-creator.md
         - name: Ver métricas de utilização
           href: how-to-view-api-usage.md
     - name: Obter dados de mapa das APIs Rest
@@ -201,12 +211,22 @@
           href: how-to-add-tile-layer-android-map.md
         - name: Mostrar dados de tráfego
           href: how-to-show-traffic-android.md
+    - name: Desenvolver com Mapas do interior do Criador
+      items:
+        - name: Módulo de Mapas do interior
+          href: how-to-use-indoor-module.md
+        - name: Estilo dinâmico para mapas do interior
+          href: indoor-map-dynamic-styling.md
+        - name: Visualizador do erro de desenho
+          href: drawing-error-visualizer.md
     - name: Fornecer comentários sobre dados
       href: how-to-use-feedback-tool.md
 - name: Referência
   items:
     - name: API e extensões de parâmetro
       items:
+        - name: Requisitos de pacote do desenho
+          href: drawing-requirements.md
         - name: Modelo de consumo do veículo
           href: consumption-model.md
         - name: Expandir o formato GeoJSON
@@ -251,6 +271,8 @@
           href: 'https://docs.microsoft.com/javascript/api/azure-maps-rest/'
         - name: Módulo IO espacial
           href: 'https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/'
+        - name: Módulo interior
+          href: 'https://aka.ms/am-indoor-module-websdk/'
     - name: Modelo do Resource Manager
       href: /azure/templates/microsoft.maps/accounts
 - name: Recursos

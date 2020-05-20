@@ -7,13 +7,13 @@ manager: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/08/2020
-ms.openlocfilehash: 41b2e12a94f5751e31f482c913c71b4731b1cf6c
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.date: 05/19/2020
+ms.openlocfilehash: 3d8806e34afe45e6cced3de4554b7dd365f4ddf9
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871903"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701783"
 ---
 # <a name="create-a-managed-service-offer"></a>Criar uma oferta de Serviço Gerido
 
@@ -24,8 +24,8 @@ Você deve ter um [nível](https://partner.microsoft.com/membership/cloud-platfo
 ## <a name="create-a-new-offer"></a>Criar uma nova oferta
 
 1. Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/home).
-2. No menu de navegação à esquerda, selecione **Commercial Marketplace** > **Overview**.
-3. Na página 'Visão Geral', selecione **+ Novo Serviço** > **Gerido**.
+2. No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **Overview**.
+3. Na página 'Visão Geral', selecione **+ Novo Serviço**  >  **Gerido**.
 
     ![Ilustra o menu de navegação à esquerda.](./media/new-offer-managed-service.png)
 
@@ -37,7 +37,7 @@ Você deve ter um [nível](https://partner.microsoft.com/membership/cloud-platfo
 Introduza um **ID de oferta**. Este é um identificador único para cada oferta na sua conta.
 
 * Este ID é visível para os clientes no endereço web para a oferta de mercado e modelos do Gestor de Recursos Azure, se aplicável.
-* Utilize apenas letras minúsculas e números. Pode incluir hífenes e sublinhados, mas sem espaços, e está limitado a 50 caracteres. Por exemplo, se introduzir o **test-offer-1,** `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`o endereço web da oferta será .
+* Utilize apenas letras minúsculas e números. Pode incluir hífenes e sublinhados, mas sem espaços, e está limitado a 50 caracteres. Por exemplo, se introduzir o **test-offer-1,** o endereço web da oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
 * O ID da Oferta não pode ser alterado depois de selecionar **Criar**.
 
 Insira um **pseudónimo da Oferta.** Este é o nome usado para a oferta no Partner Center.
@@ -94,25 +94,11 @@ Forneça uma descrição mais longa da sua oferta (até 256 caracteres). Este lo
 
 ### <a name="description"></a>Descrição
 
-Forneça uma descrição mais longa da sua oferta (até 3.000 caracteres). Esta descrição será exibida aos clientes na visão geral da listagem do mercado. Inclua a proposta de valor da sua oferta, benefícios-chave, associações de categorias e/ou industriais, oportunidades de compra na aplicação e quaisquer divulgações necessárias.
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-Algumas dicas para escrever a sua descrição:  
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-- Descreva claramente a proposta de valor da sua oferta nas primeiras frases da sua descrição. Inclua os seguintes itens na sua proposta de valor:
-  - Descrição da oferta
-  - O tipo de utilizador que beneficia da oferta
-  - Necessidades do cliente ou dor que a oferta endereça
-- Tenha em mente que as primeiras frases podem ser exibidas nos resultados do motor de busca.  
-- Não confie em funcionalidades e funcionalidades para vender o seu produto. Em vez disso, concentre-se no valor que entregar.  
-- Utilize o vocabulário específico da indústria ou a formulação baseada em benefícios o máximo possível.
-
-Para tornar a sua descrição mais envolvente, use o rico editor de texto para aplicar formatação.
-
-![Usando o rico editor de texto](./media/rich-text-editor.png)
-
-| <center>Alterar o formato de texto | <center>Adicionar balas ou numerar | <center>Adicionar ou remover o travessão de texto |
-| --- | --- | --- |
-| <center>![Usando o rico editor de texto para alterar o formato de texto](./media/text-editor3.png) |  <center>![Usando o rico editor de texto para adicionar listas](./media/text-editor4.png) |  <center>![Usando o rico editor de texto para o travessão](./media/text-editor5.png) |
+[!INCLUDE [Long description-3](./includes/long-description-3.md)]
 
 ### <a name="privacy-policy-link"></a>Ligação política de privacidade
 
@@ -135,7 +121,7 @@ Se tiver websites de suporte para **clientes Azure Global Customers** e/ou **Azu
 Nesta secção, pode fornecer logótipos e imagens que serão utilizados ao mostrar a sua oferta ao cliente. Todas as imagens devem estar em formato .png.
 
 >[!NOTE]
->Se tiver algum problema de envio de ficheiros, https://upload.xboxlive.com certifique-se de que a sua rede local não bloqueia o serviço utilizado pelo Partner Center.
+>Se tiver algum problema de envio de ficheiros, certifique-se de que a sua rede local não bloqueia o https://upload.xboxlive.com serviço utilizado pelo Partner Center.
 
 #### <a name="marketplace-logos"></a>Logotipos do mercado
 
@@ -155,7 +141,7 @@ Siga estas orientações para os seus logotipos:
 - Não coloque texto no logótipo, nem mesmo o nome da empresa ou da marca.
 - Certifique-se que o logótipo não está ampliado.
 
-#### <a name="screenshots"></a>Capturas de Ecrã
+#### <a name="screenshots"></a>Capturas de ecrã
 
 Adicione cinco imagens que mostram como a sua oferta funciona. Todas as imagens devem ser de 1280 x 720 pixels.
 
@@ -169,7 +155,7 @@ Pode adicionar opcionalmente cinco vídeos que demonstram a sua oferta. Estes v�
 
 Selecione **guardar rascunho** antes de continuar.
 
-## <a name="preview"></a>Pré-visualização
+## <a name="preview"></a>Pré-visualizar
 
 Antes de publicar a sua oferta ao vivo para a oferta de mercado mais ampla, você primeiro terá que disponibilizá-la a um público de pré-visualização limitado. Isto permite-lhe confirmar como a sua oferta aparece no Mercado Azure antes de a disponibilizar aos clientes. As equipas de suporte e engenharia da Microsoft também poderão ver a sua oferta durante este período de pré-visualização.
 

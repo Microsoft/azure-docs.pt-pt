@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: fd49d11061a345b396d300c2356645a2acd5b4c0
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 69d4b1d6c67dc63347ec4fb8043427ddf0a42ae1
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588127"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83702124"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurar e utilizar alvos de cálculo para formação de modelos 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -95,9 +95,11 @@ Agora que ligou o cálculo e configurou a sua execução, o próximo passo é [s
 
 A Azure Machine Learning Compute é uma infraestrutura de computação gerida que permite ao utilizador criar facilmente uma computação única ou multi-nó. A computação é criada dentro da sua região do espaço de trabalho como um recurso que pode ser partilhado com outros utilizadores no seu espaço de trabalho. O cálculo escala automaticamente quando um trabalho é submetido, e pode ser colocado numa Rede Virtual Azure. O cálculo executa num ambiente contentorizado e embala as dependências do seu modelo num [recipiente Docker](https://www.docker.com/why-docker).
 
-Você pode usar a Azure Machine Learning Compute para distribuir o processo de treino através de um conjunto de nós computacionais CPU ou GPU na nuvem. Para obter mais informações sobre os tamanhos vm que incluem GPUs, consulte tamanhos de [máquinavirtual otimizadas por GPU](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu).
+Você pode usar a Azure Machine Learning Compute para distribuir o processo de treino através de um conjunto de nós computacionais CPU ou GPU na nuvem. Para obter mais informações sobre os tamanhos vm que incluem GPUs, consulte tamanhos de [máquinavirtual otimizadas por GPU](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu). 
 
 A Azure Machine Learning Compute tem limites de predefinição, como o número de núcleos que podem ser atribuídos. Para mais informações, consulte [Gerir e solicitar quotas para os recursos do Azure.](https://docs.microsoft.com/azure/machine-learning/how-to-manage-quotas)
+
+Também pode optar por utilizar VMs de baixa prioridade para executar algumas ou todas as suas cargas de trabalho. Estes VMs não têm disponibilidade garantida e podem ser antecipados durante a utilização. Um emprego pré-empreitado é reiniciado, não retomado.  Os VMs de baixa prioridade têm taxas descontadas em comparação com os VM normais, ver [Plano e gerir custos.](https://docs.microsoft.com/azure/machine-learning/concept-plan-manage-cost)
 
 > [!TIP]
 > Os clusters podem geralmente escalar até 100 nós, desde que tenha quota suficiente para o número de núcleos necessários. Por padrão, os clusters são configurados com uma comunicação inter-nó ativada entre os nós do cluster para apoiar os empregos de PMI, por exemplo. No entanto, pode escalar os seus clusters para 1000 s de nós, [bastando levantar um bilhete](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)de apoio e solicitar para whitelist a sua subscrição, ou espaço de trabalho, ou um cluster específico para desativar a comunicação inter-nó. 

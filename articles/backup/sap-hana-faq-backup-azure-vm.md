@@ -3,12 +3,12 @@ title: FAQ - Fazer a cópia de segurança de bases de dados SAP HANA nas VMs do 
 description: Neste artigo, descubra respostas a perguntas comuns sobre o backup das bases de dados SAP HANA utilizando o serviço de backup Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: f9e0d96439a79c2c3d2cb2caa00ff09be3ff790d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 56f98dddb00eb3ffc87eb27da73066de807a1ee1
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660113"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701006"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Perguntas frequentes – Back up SAP HANA bases de dados em VMs Azure
 
@@ -49,9 +49,9 @@ Consulte os [pré-requisitos](tutorial-backup-sap-hana-db.md#prerequisites) e [o
 
 A execução do script de pré-registo define as permissões necessárias para permitir que o Azure reserve as bases de dados SAP HANA. Pode encontrar mais o que o script pré-inscrição faz [aqui.](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does)
 
-### <a name="will-backups-work-after-migrating-sap-hana-from-10-to-20"></a>Os backups funcionarão depois de migrarem o SAP HANA de 1,0 para 2.0?
+### <a name="will-backups-work-after-migrating-sap-hana-from-sdc-to-mdc"></a>Os backups funcionarão depois de migrarem o SAP HANA da SDC para a MDC?
 
-Consulte [esta secção](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#upgrading-from-sap-hana-10-to-20) do guia de resolução de problemas.
+Consulte [esta secção](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#sdc-to-mdc-upgrade-with-a-change-in-sid) do guia de resolução de problemas.
 
 ### <a name="can-azure-hana-backup-be-set-up-against-a-virtual-ip-load-balancer-and-not-a-virtual-machine"></a>Pode o Azure HANA Backup ser configurado contra um IP virtual (equilibrador de carga) e não uma máquina virtual?
 

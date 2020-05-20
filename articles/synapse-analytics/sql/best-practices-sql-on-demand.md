@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 07ceb8eebed5657f87417dc24281008dd0863851
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 0792dd98bb554b7b430676472c27274f3312d381
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650402"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701366"
 ---
 # <a name="best-practices-for-sql-on-demand-preview-in-azure-synapse-analytics"></a>Boas práticas para SQL on-demand (pré-visualização) em Azure Synapse Analytics
 
@@ -121,7 +121,7 @@ Para mais informações, verifique o nome de [ficheiros](develop-storage-files-o
 > [!NOTE]
 > As funções utilizadas para a eliminação da partição, o filepath e o fileinfo, não são atualmente suportadas para tabelas externas diferentes das criadas automaticamente para cada tabela criada em Apache Spark para Azure Synapse Analytics.
 
-Se os seus dados armazenados não forem divididos, considere dividi-los para que possa usar estas funções para otimizar consultas direcionadas a esses ficheiros. Ao [consultar tabelas de Faíscas divididas](develop-storage-files-spark-tables.md) a pedido da SQL, a consulta irá automaticamente direcionar apenas os ficheiros necessários.
+Se os seus dados armazenados não forem divididos, considere dividi-los para que possa usar estas funções para otimizar consultas direcionadas a esses ficheiros. Ao [consultar a Apache Spark dividida para as tabelas Azure Synapse](develop-storage-files-spark-tables.md) a pedido da SQL, a consulta irá automaticamente direcionar apenas os ficheiros necessários.
 
 ## <a name="use-parser_version-20-for-querying-csv-files"></a>Utilize PARSER_VERSION 2.0 para consulta de ficheiros CSV
 

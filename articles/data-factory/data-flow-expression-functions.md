@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/15/2019
-ms.openlocfilehash: 52f389e00d63f3659dfe79487b31ec9c3fab1ced
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 82fbc144b9b2dffdddc09900bf6ed9424b445100
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82580689"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701456"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Expressões de transformação de dados no fluxo de dados de mapeamento
 
@@ -59,6 +59,13 @@ ___
 Lógico e operador. O mesmo que && * ``and(true, false) -> false``  
 * ``true && false -> false``  
 ___
+### <code>array</code>
+<code><b>array([<i>&lt;value1&gt;</i> : any], ...) => array</b></code><br/><br/>
+Cria uma série de itens. Todos os itens devem ser do mesmo tipo. Se não forem especificados itens, uma matriz de corda vazia é a defeito. O mesmo que um operador de criação* ``array('Seattle', 'Washington')``
+* ``['Seattle', 'Washington']``
+* ``['Seattle', 'Washington'][1]``
+* ``'Washington'``
+___
 ### <code>asin</code>
 <code><b>asin(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Calcula um valor seno inverso* ``asin(0) -> 0.0``  
@@ -79,6 +86,27 @@ Seleciona um valor de coluna por nome no fluxo. Pode passar um nome de fluxo opc
 * ``toLong(byName($debtCol))``  
 * ``toString(byName('Bogus Column'))``  
 * ``toString(byName('Bogus Column', 'DeriveStream'))``  
+___
+### <code>byNames</code>
+<code><b>byNames(<i>&lt;column names&gt;</i> : array, [<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
+Selecione um conjunto de colunas por nome no fluxo. Pode passar um nome de fluxo opcional como segundo argumento. Se houver vários fósforos, o primeiro jogo é devolvido. Se não houver correspondência para uma coluna, toda a saída é um valor NULO. O valor devolvido requer funções de conversão de tipo (toDate, toString, ...).  Os nomes das colunas conhecidos na hora do design devem ser abordados apenas pelo seu nome. As inputs computadas não são suportadas, mas pode utilizar substituições de parâmetros.
+* ``toString(byNames(['parent', 'child']))``
+* ````
+* ``byNames(['parent']) ? string``
+* ````
+* ``toLong(byNames(['income']))``
+* ````
+* ``byNames(['income']) ? long``
+* ````
+* ``toBoolean(byNames(['foster']))``
+* ````
+* ``toLong(byNames($debtCols))``
+* ````
+* ``toString(byNames(['a Column']))``
+* ````
+* ``toString(byNames(['a Column'], 'DeriveStream'))``
+* ````
+* ``byNames(['orderItem']) ? (itemName as string, itemQty as integer)``
 ___
 ### <code>byPosition</code>
 <code><b>byPosition(<i>&lt;position&gt;</i> : integer) => any</b></code><br/><br/>
@@ -119,6 +147,15 @@ ___
 Obtém todas as colunas de saída para um fluxo. Pode passar um nome de fluxo opcional como segundo argumento.  
 * ``columnNames()``
 * ``columnNames('DeriveStream')``
+
+___
+### <code>columns</code>
+<code><b>columns([<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
+Obtém todas as colunas de saída para um fluxo. Pode passar um nome de fluxo opcional como segundo argumento.   
+* ``columns()``
+* ````
+* ``columns('DeriveStream')``
+* ````
 ___
 ### <code>compare</code>
 <code><b>compare(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => integer</b></code><br/><br/>
@@ -402,7 +439,7 @@ Almofadas esquerdas a corda pelo acolchoado fornecido até que tenha um certo co
 * ``lpad('dumbo', 4, '-') -> 'dumb'``  
 *''lpad('dumbo', 8, '<>') -> '<><dumbo'``  
 ___
-### <code>ltrim</code>
+### <code> ltrim</code>
 <code><b>ltrim(<i>&lt;string to trim&gt;</i> : string, [<i>&lt;trim characters&gt;</i> : string]) => string</b></code><br/><br/>
 A esquerda apara uma série de personagens principais. Se o segundo parâmetro não for especificado, apara o espaço branco. Então apara qualquer personagem especificado no segundo parâmetro* ``ltrim('  dumbo  ') -> 'dumbo  '``  
 * ``ltrim('!--!du!mbo!', '-!') -> 'du!mbo!'``  
@@ -523,17 +560,17 @@ Acumula elementos numa matriz. Reduzir espera uma referência a um acumulador e 
 ___
 ### <code>regexExtract</code>
 <code><b>regexExtract(<i>&lt;string&gt;</i> : string, <i>&lt;regex to find&gt;</i> : string, [<i>&lt;match group 1-based index&gt;</i> : integral]) => string</b></code><br/><br/>
-Extrair um substring correspondente para um determinado padrão regex. O último parâmetro identifica o grupo de correspondência e está em incumprimento para 1 se omitido. Use<regex>' '(citação traseira) para combinar com uma corda sem escapar* ``regexExtract('Cost is between 600 and 800 dollars', '(\\d+) and (\\d+)', 2) -> '800'``  
+Extrair um substring correspondente para um determinado padrão regex. O último parâmetro identifica o grupo de correspondência e está em incumprimento para 1 se omitido. Use <regex> ' '(citação traseira) para combinar com uma corda sem escapar* ``regexExtract('Cost is between 600 and 800 dollars', '(\\d+) and (\\d+)', 2) -> '800'``  
 * ``regexExtract('Cost is between 600 and 800 dollars', `(\d+) and (\d+)`, 2) -> '800'``  
 ___
 ### <code>regexMatch</code>
 <code><b>regexMatch(<i>&lt;string&gt;</i> : string, <i>&lt;regex to match&gt;</i> : string) => boolean</b></code><br/><br/>
-Verifica se a corda corresponde ao padrão regex dado. Use<regex>' '(citação traseira) para combinar com uma corda sem escapar* ``regexMatch('200.50', '(\\d+).(\\d+)') -> true``  
+Verifica se a corda corresponde ao padrão regex dado. Use <regex> ' '(citação traseira) para combinar com uma corda sem escapar* ``regexMatch('200.50', '(\\d+).(\\d+)') -> true``  
 * ``regexMatch('200.50', `(\d+).(\d+)`) -> true``  
 ___
 ### <code>regexReplace</code>
 <code><b>regexReplace(<i>&lt;string&gt;</i> : string, <i>&lt;regex to find&gt;</i> : string, <i>&lt;substring to replace&gt;</i> : string) => string</b></code><br/><br/>
-Substitua todas as ocorrências de um padrão regex<regex>por outra substring na dada corda Use '(citação traseira) para combinar com uma corda sem escapar* ``regexReplace('100 and 200', '(\\d+)', 'bojjus') -> 'bojjus and bojjus'``  
+Substitua todas as ocorrências de um padrão regex por outra substring na dada corda Use <regex> '(citação traseira) para combinar com uma corda sem escapar* ``regexReplace('100 and 200', '(\\d+)', 'bojjus') -> 'bojjus and bojjus'``  
 * ``regexReplace('100 and 200', `(\d+)`, 'gunchus') -> 'gunchus and gunchus'``  
 ___
 ### <code>regexSplit</code>
@@ -965,7 +1002,7 @@ Obtém o valor do primeiro parâmetro avaliado n linhas após a linha atual. O s
 ___
 ### <code>nTile</code>
 <code><b>nTile([<i>&lt;value1&gt;</i> : integer]) => integer</b></code><br/><br/>
-A função NTile divide as linhas `n` para cada divisória `n`de janela em baldes que variam de 1 a no máximo . Os valores do balde diferirão no máximo 1. Se o número de linhas na divisória não se dividir uniformemente no número de baldes, então os valores restantes são distribuídos um por balde, começando pelo primeiro balde. A função NTile é útil para o cálculo de tertiles, quartiles, deciles e outras estatísticas sumárias comuns. A função calcula duas variáveis durante a inicialização: O tamanho de um balde normal terá uma linha extra adicionada a ele. Ambas as variáveis baseiam-se no tamanho da partição atual. Durante o processo de cálculo, a função mantém o registo do número atual da linha, do número atual do balde e do número da linha em que o balde irá mudar (bucketThreshold). Quando o número atual da linha atinge o limiar do balde, o valor do balde é aumentado por um e o limiar é aumentado pelo tamanho do balde (mais um extra se o balde atual for acolchoado).  
+A função NTile divide as linhas para cada divisória de janela `n` em baldes que variam de 1 a no máximo `n` . Os valores do balde diferirão no máximo 1. Se o número de linhas na divisória não se dividir uniformemente no número de baldes, então os valores restantes são distribuídos um por balde, começando pelo primeiro balde. A função NTile é útil para o cálculo de tertiles, quartiles, deciles e outras estatísticas sumárias comuns. A função calcula duas variáveis durante a inicialização: O tamanho de um balde normal terá uma linha extra adicionada a ele. Ambas as variáveis baseiam-se no tamanho da partição atual. Durante o processo de cálculo, a função mantém o registo do número atual da linha, do número atual do balde e do número da linha em que o balde irá mudar (bucketThreshold). Quando o número atual da linha atinge o limiar do balde, o valor do balde é aumentado por um e o limiar é aumentado pelo tamanho do balde (mais um extra se o balde atual for acolchoado).  
 * ``nTile()``  
 * ``nTile(numOfBuckets)``  
 ___

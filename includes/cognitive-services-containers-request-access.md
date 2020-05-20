@@ -1,20 +1,20 @@
 ---
-author: IEvangelist
-ms.author: dapine
+author: aahill
+ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/04/2020
-ms.openlocfilehash: 88d83676de1e7fa18c4c1dcbf347da8d685ba2fa
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/18/2020
+ms.openlocfilehash: 66bd78c94e6c54d26959778cc059730c13d02629
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593341"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698552"
 ---
-Preencha e submeta os recipientes dos [Serviços Cognitivos a solicitar](https://aka.ms/cognitivegate) o formulário de pedido para solicitar o acesso ao recipiente. O formulário solicita informações sobre si, a sua empresa e o cenário de utilizador para o qual utilizará o recipiente. Depois de submeter o formulário, a equipa de Serviços Cognitivos Azure revê-o para se certificar de que satisfaz os critérios de acesso ao registo de contentores privados.
+O formulário solicita informações sobre si, a sua empresa e o cenário de utilizador para o qual utilizará o recipiente. Depois de submeter o formulário, a equipa de Serviços Cognitivos Azure revê-o para se certificar de que satisfaz os critérios de acesso ao registo de contentores privados.
 
 > [!IMPORTANT]
-> Deve utilizar um endereço de e-mail associado a uma Conta Microsoft (MSA) ou a uma conta Azure Ative Directory (Azure AD) no formulário. Para obter mais informações sobre os critérios de aceitação, consulte [Serviços Cognitivos - Processo de Gating](../articles/cognitive-services/cognitive-services-gating-process.md).
+> Deve utilizar um endereço de e-mail associado a uma Conta Microsoft (MSA) ou a uma conta Azure Ative Directory (Azure AD) no formulário.
 
 Se o seu pedido for aprovado, receberá um e-mail com instruções que descrevem como obter as suas credenciais e aceder ao registo de contentores privados.
 

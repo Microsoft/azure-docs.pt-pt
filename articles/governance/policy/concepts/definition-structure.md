@@ -3,12 +3,12 @@ title: Detalhes da estrutura de definição de políticas
 description: Descreve como as definições políticas são usadas para estabelecer convenções para os recursos azure na sua organização.
 ms.date: 04/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3852644e888fd4a7cef1d84cc4008d106a8c7910
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 509d4424e26873d8e8da8fac96eb7e380b0fa262
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684345"
+ms.locfileid: "83700610"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -80,7 +80,7 @@ Por exemplo, o recurso `Microsoft.Network/routeTables` suporta etiquetas e local
 
 Recomendamos que ajuste **o modo** na maioria dos `all` casos. Todas as definições de política criadas através do portal utilizam o `all` modo. Se utilizar o PowerShell ou o Azure CLI, pode especificar manualmente o parâmetro de **modo.** Se a definição de política não incluir um valor de **modo,** não se aplica a `all` Azure PowerShell e ao `null` Azure CLI. Um `null` modo é o mesmo que usar para suportar a compatibilidade para `indexed` trás.
 
-`indexed`deve ser utilizado na criação de políticas que apliquem etiquetas ou locais. Apesar de não ser necessário, evita que recursos que não suportem etiquetas e locais apareçam como incompatíveis nos resultados de conformidade. A exceção são **os grupos de recursos** e as **assinaturas.** As políticas que impõem a localização ou as etiquetas num grupo de recursos ou subscrição devem definir **o modo** `all` e especificamente direcionar o ou `Microsoft.Resources/subscriptions/resourceGroups` `Microsoft.Resources/subscriptions` tipo. Por exemplo, consulte [Impor etiquetas](../samples/enforce-tag-rg.md)de grupo de recursos . Para obter uma lista de recursos que suportem tags, consulte o suporte da [Tag para os recursos Azure.](../../../azure-resource-manager/management/tag-support.md)
+`indexed`deve ser utilizado na criação de políticas que apliquem etiquetas ou locais. Apesar de não ser necessário, evita que recursos que não suportem etiquetas e locais apareçam como incompatíveis nos resultados de conformidade. A exceção são **os grupos de recursos** e as **assinaturas.** As definições de política que impõem a localização ou as etiquetas num grupo de recursos ou subscrição devem definir **o modo** e `all` especificamente visar o ou `Microsoft.Resources/subscriptions/resourceGroups` `Microsoft.Resources/subscriptions` tipo. Por exemplo, consulte [Pattern: Tags - Amostra #1](../samples/pattern-tags.md). Para obter uma lista de recursos que suportem tags, consulte o suporte da [Tag para os recursos Azure.](../../../azure-resource-manager/management/tag-support.md)
 
 ### <a name="resource-provider-modes-preview"></a><a name="resource-provider-modes" />Modos de Fornecedor de Recursos (pré-visualização)
 

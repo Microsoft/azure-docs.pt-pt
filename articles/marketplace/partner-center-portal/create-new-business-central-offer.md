@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: c7618bd4408f07b70e2f9fffe23e38ba968e7210
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: f8fb7a3858b8991b2dc27bd07fe6c4b004be28df
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792399"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701359"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Criar uma oferta do Dynamics 365 Business Central
 
@@ -23,8 +23,8 @@ Antes de começar, [Crie uma conta de Marketplace Comercial no Partner Center](h
 ## <a name="create-a-new-offer"></a>Criar uma nova oferta
 
 1. Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/home).
-2. No menu de navegação à esquerda, selecione **Commercial Marketplace** > **Overview**.
-3. Na página 'Visão Geral', selecione **+ Nova oferta** > **Dynamics 365 business central**.
+2. No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **Overview**.
+3. Na página 'Visão Geral', selecione **+ Nova oferta**Dynamics  >  **365 business central**.
 
     ![Ilustra o menu de navegação à esquerda.](./media/new-offer-dynamics-365-bc.png)
 
@@ -36,7 +36,7 @@ Antes de começar, [Crie uma conta de Marketplace Comercial no Partner Center](h
 Introduza um **ID de oferta**. Este é um identificador único para cada oferta na sua conta.
 
 - Este ID é visível para os clientes no endereço web para a oferta de mercado e modelos do Gestor de Recursos Azure, se aplicável.
-- Utilize apenas letras minúsculas e números. Pode incluir hífenes e sublinhados, mas sem espaços, e está limitado a 50 caracteres. Por exemplo, se introduzir o **test-offer-1,** `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`o endereço web da oferta será .
+- Utilize apenas letras minúsculas e números. Pode incluir hífenes e sublinhados, mas sem espaços, e está limitado a 50 caracteres. Por exemplo, se introduzir o **test-offer-1,** o endereço web da oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
 - O ID da Oferta não pode ser alterado depois de selecionar **Criar**.
 
 Insira um **pseudónimo da Oferta.** Este é o nome usado para a oferta no Partner Center.
@@ -137,30 +137,15 @@ O nome que introduzir aqui será mostrado aos clientes como título da sua ofert
 
 ### <a name="short-description"></a>Descrição curta
 
-Forneça uma breve descrição da sua oferta (até 100 caracteres), que pode ser usada em resultados de pesquisa de mercado.
+Forneça uma breve descrição da sua oferta, até 100 caracteres. Esta descrição pode ser utilizada nos resultados da pesquisa no mercado.
 
 ### <a name="description"></a>Descrição
 
-Forneça uma descrição mais longa da sua oferta (até 3.000 caracteres). Esta descrição será exibida aos clientes na visão geral da listagem do mercado. Inclua a proposta de valor da sua oferta, benefícios-chave, associações de categorias e/ou industriais, oportunidades de compra na aplicação e quaisquer divulgações necessárias. 
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-Algumas dicas para escrever a sua descrição:
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-- Descreva claramente a proposta de valor da sua oferta nas primeiras frases da sua descrição. Inclua os seguintes itens na sua proposta de valor:
-  - Descrição do produto
-  - O tipo de utilizador que beneficia do produto
-  - Necessidades do cliente ou dor que o produto aborda
-- Tenha em mente que as primeiras frases podem ser exibidas nos resultados do motor de busca.  
-- Não confie em funcionalidades e funcionalidades para vender o seu produto. Em vez disso, concentre-se no valor que entregar.  
-- Utilize o vocabulário específico da indústria ou a formulação baseada em benefícios o máximo possível.
-- Considere usar tags HTML para formatar a sua descrição e torná-la mais envolvente.
-
-Para tornar a sua descrição mais envolvente, use o rico editor de texto para aplicar formatação.
-
-![Usando o rico editor de texto](./media/rich-text-editor.png)
-
-| <center>Alterar o formato de texto | <center>Adicionar balas ou numerar | <center>Adicionar ou remover o travessão de texto |
-| --- | --- | --- |
-| <center>![Usando o rico editor de texto para alterar o formato de texto](./media/text-editor3.png) |  <center>![Usando o rico editor de texto para adicionar listas](./media/text-editor4.png) |  <center>![Usando o rico editor de texto para o travessão](./media/text-editor5.png) |
+[!INCLUDE [Rich text editor](./includes/rich-text-editor.md)]
 
 ### <a name="search-keywords"></a>Pesquisar palavras-chave
 
@@ -200,9 +185,9 @@ Forneça logotipos e imagens para a sua oferta. Todas as imagens devem estar em 
 * **Grande** (216 x 216 pixels)
 
 >[!NOTE]
->Se tiver algum problema de envio de ficheiros, `https://upload.xboxlive.com` certifique-se de que a sua rede local não bloqueia o serviço utilizado pelo Partner Center.
+>Se tiver algum problema de envio de ficheiros, certifique-se de que a sua rede local não bloqueia o `https://upload.xboxlive.com` serviço utilizado pelo Partner Center.
 
-#### <a name="screenshots"></a>Capturas de Ecrã
+#### <a name="screenshots"></a>Capturas de ecrã
 
 Adicione imagens que mostrem como funciona a sua oferta. São necessárias pelo menos três imagens, e pode somar até cinco. Todas as imagens devem ser de 1280 x 720 pixels.
 
@@ -266,7 +251,7 @@ Necessária se a sua oferta tiver de ser instalada juntamente com outra extensã
 
 #### <a name="dependency-package-file"></a>Arquivo de pacote de dependência
 
-Necessária se a sua oferta tiver de ser instalada juntamente com outra extensão que já tenha sido publicada no mercado. Em caso afirmativo, `.app` `.zip` faça o upload ou o arquivo aqui.
+Necessária se a sua oferta tiver de ser instalada juntamente com outra extensão que já tenha sido publicada no mercado. Em caso afirmativo, faça o upload `.app` ou `.zip` o arquivo aqui.
 
 ### <a name="url-to-app-installation"></a>URL para instalação de aplicativos
 
@@ -317,9 +302,9 @@ A Microsoft pode remover a complexidade da instalação de um test drive hospeda
 
 - **Duração** da unidade de teste (necessária) – Introduza o tempo de permanência da Test Drive definindo o número de horas. Após tantas horas, a sessão terminará e deixará de consumir uma das suas licenças. Recomendamos um valor de 2 a 24 horas dependendo da complexidade da sua oferta. Esta duração só pode ser definida por um número inteiro de horas (por exemplo, "2" horas, "1,5" não é válida).  O utilizador pode solicitar uma nova sessão se ficar sem tempo e pretender aceder novamente ao test drive.
 
-- **URL de instância** (necessário) – O URL onde o cliente iniciará o seu test drive. Tipicamente, o URL da sua instância Dynamics 365 executando `https://testdrive.crm.dynamics.com`a sua aplicação com dados de amostra instalados (por exemplo, ).
+- **URL de instância** (necessário) – O URL onde o cliente iniciará o seu test drive. Tipicamente, o URL da sua instância Dynamics 365 executando a sua aplicação com dados de amostra instalados (por exemplo, `https://testdrive.crm.dynamics.com` ).
 
-- **Exemplo Web API URL** (necessário) – Recupere o URL Web API para a sua instância Dynamics 365, iniciando sessão na sua conta Microsoft 365 e navegando para **Definições** \&gt; **Personalização** \&gt; **Recursos** \&de Desenvolvimento gt; **Por exemplo, Web API (URL raiz**de serviço) `https://testdrive.crm.dynamics.com/api/data/v9.0`, copiar o URL encontrado aqui (por exemplo, ).
+- **Exemplo Web API URL** (necessário) – Recupere o URL Web API para a sua instância Dynamics 365, iniciando sessão na sua conta Microsoft 365 e navegando para **Definições** \& gt; **Personalização** \& gt; Recursos de **Desenvolvimento** \& gt; **Por exemplo, Web API (URL raiz**de serviço) , copiar o URL encontrado aqui (por exemplo, `https://testdrive.crm.dynamics.com/api/data/v9.0` ).
 
 - Nome de **função** (obrigatório) – Forneça o nome de papel de segurança que definiu no seu test drive personalizado Dynamics 365, que será atribuído ao utilizador durante o seu test drive (por exemplo, função test-drive).
 
@@ -349,7 +334,7 @@ Para implementar o Test Drive em seu nome, crie e forneça uma subscrição Azur
 
 - Id de **subscrição Azure** (necessário para o Gestor de Recursos Azure e aplicações Lógica) – Introduza o ID de subscrição para conceder acesso aos serviços da sua conta Azure para relatórios de utilização de recursos e faturação. Recomendamos que considere [criar uma subscrição Azure separada](https://docs.microsoft.com/azure/billing/billing-create-subscription) para usar para test drives se ainda não tiver uma. Pode encontrar o seu ID de subscrição Azure iniciando sessão no [portal Azure](https://portal.azure.com/) e navegando no separador **Subscrições** do menu do lado esquerdo. A seleção do separador irá exibir o seu ID de subscrição (por exemplo, "a83645ac-1234-5ab6-6789-1h234g764ghty").
 
-- **ID de inquilino azure AD** (obrigatório) – Insira o seu Id de [inquilino](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)azure Ative Directory (AD). Para encontrar este ID, inscreva-se no [portal Azure,](https://portal.azure.com/)selecione o separador Ative Directy no menu esquerdo, selecione **Properties, em seguida, procure o número de ID do **Diretório** listado (por exemplo, 50c464d3-4930-494c-963c-1e951d15360e). Também pode procurar o ID do seu inquilino da [https://www.whatismytenantid.com](https://www.whatismytenantid.com)sua organização usando o seu endereço de nome de domínio em .
+- **ID de inquilino azure AD** (obrigatório) – Insira o seu Id de [inquilino](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)azure Ative Directory (AD). Para encontrar este ID, inscreva-se no [portal Azure,](https://portal.azure.com/)selecione o separador Ative Directy no menu esquerdo, selecione **Properties, em seguida, procure o número de ID do **Diretório** listado (por exemplo, 50c464d3-4930-494c-963c-1e951d15360e). Também pode procurar o ID do seu inquilino da sua organização usando o seu endereço de nome de domínio em [https://www.whatismytenantid.com](https://www.whatismytenantid.com) .
 
 - Nome de **inquilino Azure AD** (necessário para Dinâmico 365) – Introduza o nome de Diretório Ativo Azure (AD). Para encontrar este nome, inscreva-se no [portal Azure,](https://portal.azure.com/)no canto superior direito o seu nome de inquilino será listado sob o nome da sua conta.
 

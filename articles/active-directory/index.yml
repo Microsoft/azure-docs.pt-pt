@@ -11,13 +11,13 @@ metadata:
   author: mtillman
   ms.author: mtillman
   manager: daveba
-  ms.date: 03/17/2020
-  ms.openlocfilehash: 7f953c7de34e5574deb843dc42092103c8d9b87a
-  ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+  ms.date: 05/19/2020
+  ms.openlocfilehash: 4e1b18e1037b37deba3e037f3e896bf1536f4fd7
+  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/17/2020
-  ms.locfileid: "81603334"
+  ms.lasthandoff: 05/19/2020
+  ms.locfileid: "83591918"
 highlightedContent:
   items:
   - title: O que é o Azure AD?
@@ -81,34 +81,6 @@ conceptualContent:
       text: Ativar a Multi-Factor Authentication do Azure
     footerLink:
       url: ./authentication/index.yml
-      text: Ver mais
-  - title: Empresa-Empresa (B2B)
-    links:
-    - url: ./b2b/what-is-b2b.md
-      itemType: overview
-      text: O que é o Azure AD B2B?
-    - url: ./b2b/add-users-administrator.md
-      itemType: how-to-guide
-      text: Adicionar utilizadores convidados no portal
-    - url: ./b2b/o365-external-user.md
-      itemType: concept
-      text: Partilha B2B e do Office 365
-    footerLink:
-      url: ./b2b/index.yml
-      text: Ver mais
-  - title: Empresa-Consumidor (B2C)
-    links:
-    - url: ../active-directory-b2c/active-directory-b2c-overview.md
-      itemType: overview
-      text: O que é o Azure AD B2C?
-    - url: ../active-directory-b2c/tutorial-create-tenant.md
-      itemType: tutorial
-      text: Criar um inquilino do Azure AD B2C
-    - url: ../active-directory-b2c/active-directory-b2c-get-started-custom.md
-      itemType: how-to-guide
-      text: Políticas personalizadas no Azure AD B2C
-    footerLink:
-      url: ../active-directory-b2c/index.yml
       text: Ver mais
   - title: Aprovisionamento na cloud
     links:
@@ -193,6 +165,20 @@ conceptualContent:
       text: Restrições e limites de serviço do Azure AD
     footerLink:
       url: ./users-groups-roles/index.yml
+      text: Ver mais
+  - title: Identidades Externas
+    links:
+    - url: ./b2b/compare-with-b2c.md
+      itemType: overview
+      text: Comparar soluções para utilizadores externos
+    - url: ../active-directory-b2c/active-directory-b2c-overview.md
+      itemType: overview
+      text: Dimensionar as suas aplicações para consumidores (B2C)
+    - url: ./b2b/what-is-b2b.md
+      itemType: overview
+      text: Colaborar com utilizadores fora da sua organização (B2B)
+    footerLink:
+      url: ./b2b/index.yml
       text: Ver mais
   - title: Identidade híbrida
     links:

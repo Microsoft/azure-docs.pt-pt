@@ -1,0 +1,61 @@
+- name: Documentação sobre Aplicações Web Estáticas do Azure
+  href: index.yml
+- name: Descrição geral
+  items:
+    - name: Sobre Aplicações Web Estáticas
+      href: overview.md
+- name: Guias de Início Rápido
+  expanded: true
+  items:
+    - name: Construa a sua primeira aplicação web estática
+      href: getting-started.md
+- name: Conceitos
+  items:
+    - name: Suporte de API com as Funções do Azure
+      href: apis.md
+    - name: Rotas
+      href: routes.md
+    - name: Autenticação e autorização
+      href: authentication-authorization.md
+    - name: Aceder às informações do utilizador
+      href: user-information.md
+    - name: Reveja os pedidos pull em ambientes de pré-produção
+      href: review-publish-pull-requests.md
+    - name: Domínio personalizado
+      href: custom-domain.md
+    - name: Configuração de compilação e fluxo de trabalho
+      href: github-actions-workflow.md
+- name: Guias de procedimentos
+  items:
+    - name: Configurar desenvolvimento local
+      href: local-development.md
+    - name: Adicionar uma API
+      href: add-api.md
+    - name: Configurar as definições da aplicação
+      href: application-settings.md
+- name: Tutoriais
+  items:
+    - name: Publicar a partir de um gerador de sites estáticos
+      items:
+        - name: Gatsby
+          href: publish-gatsby.md
+        - name: Hugo
+          href: publish-hugo.md
+        - name: VuePress
+          href: publish-vuepress.md
+    - name: Implementar a partir de um quadro
+      items:
+        - name: Next.js
+          href: deploy-nextjs.md
+        - name: Nuxt.js
+          href: deploy-nuxtjs.md
+- name: Recursos
+  items:
+    - name: Desenvolva as suas competências com o Microsoft Learn
+      items:
+        - name: 'Publique uma aplicação Angular, React, Svelte ou Vue JavaScript e API'
+          href: /learn/modules/publish-app-service-static-web-app-api
+        - name: Crie e publique uma aplicação Web estática com Gatsby
+          href: /learn/modules/create-deploy-static-webapp-gatsby-app-service
+    - name: Quotas
+      href: quotas.md

@@ -4,16 +4,16 @@ description: Saiba como adicionar um serviço de automação principal ao papel 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 925fbbb51ac240b96486a2c0aa09c850a8d164bc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bc3e17ce5becf039703585167e1ef3aa825cf2ab
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80408637"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697526"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Adicione um principal de serviço à função de administrador do servidor 
 
@@ -30,7 +30,7 @@ Antes de completar esta tarefa, deve ter um diretor de serviço registado no Dir
 Pode configurar administradores de servidores utilizando o Estúdio de Gestão de Servidores SQL (SSMS). Para completar esta tarefa, deve ter permissões de administrador de [servidor](analysis-services-server-admins.md) no servidor Azure AS. 
 
 1. No SSMS, ligue-se ao seu servidor Azure AS.
-2. Na > **segurança das** **propriedades do servidor,** clique em **Adicionar**.
+2. Na segurança das **propriedades do servidor,**  >  **Security**clique em **Adicionar**.
 3. Em **Selecione um Utilizador ou Grupo,** procure a sua aplicação registada pelo nome, selecione e, em seguida, clique em **Adicionar**.
 
     ![Procurar conta principal de serviço](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-picker.png)
@@ -44,7 +44,7 @@ Pode configurar administradores de servidores utilizando o Estúdio de Gestão d
 Também pode configurar os administradores do servidor implementando o servidor de Serviços de Análise utilizando um modelo de Gestor de Recursos Azure. A identidade que executa a implantação deve pertencer ao papel **de Contribuinte** para o recurso no Controlo de Acesso baseado em [Funções Azure (RBAC)](../role-based-access-control/overview.md).
 
 > [!IMPORTANT]
-> O diretor de serviço deve `app:{service-principal-client-id}@{azure-ad-tenant-id}`ser adicionado utilizando o formato .
+> O diretor de serviço deve ser adicionado utilizando o formato `app:{service-principal-client-id}@{azure-ad-tenant-id}` .
 
 O seguinte modelo de Gestor de Recursos implementa um servidor de Serviços de Análise com um principal de serviço especificado adicionado à função de Administração de Serviços de Análise:
 

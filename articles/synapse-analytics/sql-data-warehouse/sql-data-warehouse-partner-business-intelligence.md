@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 7600eae27daf11c4fd02718abc25cef9006179e1
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 23e3ccff11dc33858249565d3ad8396b19dd87c6
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683628"
+ms.locfileid: "83698886"
 ---
 # <a name="azure-synapse-analytics-business-intelligence-partners"></a>Parceiros de inteligência empresarial Azure Synapse Analytics
 
@@ -27,7 +27,7 @@ Para criar a sua solução completa de armazém de dados utilizando piscina SQL 
 | ------- | ----------- | -------------------- |
 | ![Rio Birst](./media/sql-data-warehouse-partner-business-intelligence/birst_logo.png) |**Rio Birst**<br>Birst liga toda a organização através de uma rede de instâncias de BI virtualizadas entrelaçadas no topo de um tecido analítico comum comum comum|[Página do produto](https://www.birst.com/)<br> |
 | ![Dados clearstory](./media/sql-data-warehouse-partner-business-intelligence/clearstory_data_logo.png) |**Dados ClearStory (Insights Comerciais Contínuos)**<br>ClearStory Data permite a análise de ciclo rápido através de dados díspares armazenados em piscina SYnapse SQL. Plataforma integrada baseada em Spark e análise de acesso de dados de aplicações e harmonização de conjuntos de dados díspares. Permitem uma exploração rápida e colaborativa que apoia os utilizadores empresariais a serem autossuficientes para obter em rápida informação. |[Página do produto](https://www.clearstorydata.com/product/continuous-insights/)<br> |
-| ![Dundas](./media/sql-data-warehouse-partner-business-intelligence/dundas_software_logo.png) |**Dundas BI**<br>Dundas Data Visualization é um fornecedor líder e global de software de Inteligência Empresarial e Visualização de Dados.  Os dashboards dundas, relatórios e análise de dados visuais proporcionam uma integração perfeita nas aplicações empresariais, permitindo melhores decisões e insights mais rápidos.|[Página do produto](https://www.dundas.com/dundas-bi)<br>[Azure Marketplace](https://azure.microsoft.com/marketplace/partners/dundas/dundas-bi/)<br> |
+| ![Dundas](./media/sql-data-warehouse-partner-business-intelligence/dundas_software_logo.png) |**Dundas BI**<br>Dundas Data Visualization é um fornecedor líder e global de software de Inteligência Empresarial e Visualização de Dados.  Os dashboards dundas, relatórios e análise de dados visuais proporcionam uma integração perfeita nas aplicações empresariais, permitindo melhores decisões e insights mais rápidos.|[Página do produto](https://www.dundas.com/dundas-bi)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/dundas.dundas-bi)<br> |
 | ![IBM Cognos](./media/sql-data-warehouse-partner-business-intelligence/cognos_analytics_logo.png) |**IBM Cognos Analytics**<br>A Cognos Analytics inclui capacidades inteligentes de self-service que o tornam simples, claro e fácil de usar se você é um analista de negócios experiente examinando as dobras em uma vasta cadeia de fornecimento ou um marketer otimizando uma única campanha. A Cognos Analytics utiliza IA e outras capacidades inteligentes para fazer o levantamento pesado para orientar a exploração de dados, e facilitar aos utilizadores obter as respostas de que precisam|[Página do produto](https://www.ibm.com/products/cognos-analytics)<br>|
 | ![Construtores de Informação](./media/sql-data-warehouse-partner-business-intelligence/informationbuilders_logo.png) |**Construtores de Informação (WebFOCUS)**<br>A inteligência empresarial WebFOCUS ajuda as empresas a usar dados de forma mais estratégica em toda e para além da empresa. Permite que utilizadores e administradores criem rapidamente dashboards que combinam conteúdo a partir de múltiplas fontes e formatos de dados. Também proporciona uma segurança robusta e uma governação abrangente que permite uma partilha perfeita e segura de qualquer conteúdo bi e analítico|[Página do produto](https://www.informationbuilders.com/products/bi-and-analytics-platform)<br> |
 ![Jinfonet](./media/sql-data-warehouse-partner-business-intelligence/jinfonet_logo.png) |**Jinfonet JReport**<br>JReport é uma solução BI incorporado para a empresa. A solução oferece uma multiplicidade de capacidades como criação de relatórios, dashboards e análise de dados em nuvem, big data e fontes de dados transacionais. Ao visualizar dados, pode realizar os seus próprios relatórios e descobertade dados para uma tomada de decisão ágil e em movimento. |[Página do produto](https://www.jinfonet.com/product/jreport-designer)<br> |

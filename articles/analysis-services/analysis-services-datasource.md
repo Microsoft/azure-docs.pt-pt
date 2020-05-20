@@ -4,15 +4,15 @@ description: Descreve fontes de dados e conectores suportados por modelos de dad
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f65d8fa2c2e522c718c637e32defc4c56fca8364
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 71df537535003fe23902949c70b086a30a6b5049
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77461662"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698148"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Data sources supported in Azure Analysis Services (Origens de dados suportadas no Azure Analysis Services)
 
@@ -87,17 +87,17 @@ A ligação a fontes de dados no local a partir de um servidor dos [Serviços](a
 
 ## <a name="understanding-providers"></a>Provedores de compreensão
 
-Ao criar projetos de modelos tabular 1400 e modelos mais elevados no Estúdio Visual, por padrão, não especifica um fornecedor de dados quando se conecta a uma fonte de dados utilizando o **Get Data**. Os modelos Tabular 1400 e superiores utilizam conectores [Power Query](/power-query/power-query-what-is-power-query) para gerir ligações, consultas de dados e mashups entre a fonte de dados e os Serviços de Análise. Estas são por vezes referidas como ligações *estruturadas* de fonte de dados nessa ligação as definições de propriedade são definidas para si. Pode, no entanto, ativar fontes de dados antigas. Quando ativado, pode utilizar o Assistente de Importação de **Tabelas** para se ligar a determinadas fontes de dados tradicionalmente suportadas em modelos tabular 1200 e modelos inferiores como *legado*, ou fontes de dados *do fornecedor.* Quando especificado como fonte de dados do fornecedor, pode especificar um determinado fornecedor de dados e outras propriedades avançadas de ligação. Por exemplo, pode ligar-se a um Armazém de Dados do Servidor SQL no local ou mesmo a uma Base de Dados Azure SQL como fonte de dados antigas. Em seguida, pode selecionar o Controlador OLE DB para o fornecedor de dados MSOLEDBSQL do Servidor SQL. Neste caso, a seleção de um fornecedor de dados OLE DB pode proporcionar um melhor desempenho sobre o conector Power Query. 
+Ao criar projetos de modelos tabular 1400 e modelos mais elevados no Estúdio Visual, por padrão, não especifica um fornecedor de dados quando se conecta a uma fonte de dados utilizando o **Get Data**. Os modelos Tabular 1400 e superiores utilizam conectores [Power Query](/power-query/power-query-what-is-power-query) para gerir ligações, consultas de dados e mashups entre a fonte de dados e os Serviços de Análise. Estas são por vezes referidas como ligações *estruturadas* de fonte de dados nessa ligação as definições de propriedade são definidas para si. Pode, no entanto, ativar fontes de dados antigas para um projeto modelo no Estúdio Visual. Quando ativado, pode utilizar o Assistente de Importação de **Tabelas** para se ligar a determinadas fontes de dados tradicionalmente suportadas em modelos tabular 1200 e modelos inferiores como *legado*, ou fontes de dados *do fornecedor.* Quando especificado como fonte de dados do fornecedor, pode especificar um determinado fornecedor de dados e outras propriedades avançadas de ligação. Por exemplo, pode ligar-se a um Armazém de Dados do Servidor SQL no local ou mesmo a uma Base de Dados Azure SQL como fonte de dados antigas. Em seguida, pode selecionar o Controlador OLE DB para o fornecedor de dados MSOLEDBSQL do Servidor SQL. Neste caso, a seleção de um fornecedor de dados OLE DB pode proporcionar um melhor desempenho sobre o conector Power Query. 
 
 Ao utilizar o Assistente de Importação de Tabelas no Estúdio Visual, as ligações a qualquer fonte de dados requerem um fornecedor de dados. Um fornecedor de dados predefinido é selecionado para si. Pode alterar o fornecedor de dados se necessário. O tipo de fornecedor que escolher pode depender do desempenho, quer o modelo esteja ou não a utilizar armazenamento na memória ou directquery, e para que plataforma de Serviços de Análise implementa o seu modelo.
 
 ### <a name="specify-provider-data-sources-in-tabular-1400-and-higher-model-projects"></a>Especificar as fontes de dados do fornecedor em projetos de modelos tabular 1400 e modelos mais elevados
 
-Para ativar as fontes de dados do fornecedor, no Estúdio Visual, clique em **Tools** > **Options** > **Analysis Services Tabular** > **Data Import**, selecione Enable **source solegacy data sources**.
+Para ativar as fontes de dados do fornecedor, no Estúdio Visual, clique em **Tools**  >  **Options**  >  **Analysis Services Tabular**  >  **Data Import**, **selecione Enable source solegacy data sources**.
 
 ![Ativar fontes de dados antigas](media/analysis-services-datasource/aas-enable-legacy-datasources.png)
 
-Com fontes de dados antigas ativadas, no **Tabular Model Explorer,** clique à **direita, as fontes** > de dados importam de origem de**dados (legado)**.
+Com fontes de dados antigas ativadas, no **Tabular Model Explorer,** clique à **direita, as fontes**de dados importam de origem de  >  **dados (legado)**.
 
 ![Fontes de dados antigas no Tabular Model Explorer](media/analysis-services-datasource/aas-import-legacy-datasources.png)
 
@@ -107,7 +107,7 @@ Tal como acontece com os projetos-modelo tabular 1200, utilize o Assistente de I
 
 
 ## <a name="impersonation"></a>Personificação
-Em alguns casos, pode ser necessário especificar uma conta de imitação diferente. A conta de personificação pode ser especificada no Visual Studio ou sSMS.
+Em alguns casos, pode ser necessário especificar uma conta de imitação diferente. A conta de personificação pode ser especificada no Estúdio Visual ou no Estúdio de Gestão de Servidores SQL (SSMS).
 
 Para fontes de dados no local:
 

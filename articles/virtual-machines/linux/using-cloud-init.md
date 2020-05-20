@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 05/18/2019
+ms.date: 05/19/2019
 ms.author: danis
-ms.openlocfilehash: 8c591efeedc87926a0ed7b42de6c3267721cebab
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 989e265c83cb2a71d93453b0c3bcbc3e41079447
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657436"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701592"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>suporte cloud-init para máquinas virtuais em Azure
 Este artigo explica o suporte que existe para o [cloud-init](https://cloudinit.readthedocs.io) configurar uma máquina virtual (VM) ou conjuntos de escala de máquina virtual no tempo de provisionamento em Azure. Estas configurações de cloud-init são executadas na primeira bota uma vez que os recursos foram aprovisionados pelo Azure.  
@@ -44,6 +44,7 @@ Existem duas fases para disponibilizar o init em nuvem para o endossado Linux di
 ### <a name="canonical"></a>Canónico
 | Editor / Versão| Oferta | SKU | Versão | imagem cloud-init pronto | suporte de pacote cloud-init em Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
+|Canónica 20.04 |UbuntuServer |18.04-LTS |mais recente |sim | sim |
 |Canónica 18.04 |UbuntuServer |18.04-LTS |mais recente |sim | sim |
 |Canónica 16.04|UbuntuServer |16.04-LTS |mais recente |sim | sim |
 |Canónica 14.04|UbuntuServer |14.04.5-LTS |mais recente |sim | sim |
@@ -55,9 +56,10 @@ Existem duas fases para disponibilizar o init em nuvem para o endossado Linux di
 |RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 | Sim (note que esta é uma imagem de pré-visualização, e uma vez que todas as imagens RHEL 7.7 suportem cloud-init, esta será removida 1 de setembro de 2020) | sim - suporte da versão do pacote: *18.5-3.el7*|
 |RedHat 7.7 |RHEL |7-LVM | n/a| não - atualizações de imagem para completar o final de maio| sim - suporte da versão do pacote: *18.5-3.el7*|
 |RedHat 7.7 |RHEL |7.7 | n/a| não - atualizações de imagem para completar o final de maio | sim - suporte da versão do pacote: *18.5-3.el7*|
-|RedHat 7.7 (Gen1) |rhel-byos | rhel-lvm77 | n/a|não - atualizações de imagem para completar o final de abril  | sim - suporte da versão do pacote: *18.5-3.el7*|
-|RedHat 8.1 (Gen1) |RHEL |8.1-ci |7.7.2019081601 | Sim (note que esta é uma imagem de pré-visualização, e uma vez que todas as imagens RHEL 8.1 suportem cloud-init, esta será removida a 1 de agosto de 2020) | Não, ETA para apoio total junho de 2020|
-|RedHat 8.1 (Gen2) |RHEL |81-ci-gen2 |7.7.2019081601 | Sim (note que esta é uma imagem de pré-visualização, e uma vez que todas as imagens RHEL 8.1 suportem cloud-init, esta será removida a 1 de agosto de 2020) | Não, ETA para apoio total junho de 2020 |
+|RedHat 7.7 (Gen1) |rhel-byos | rhel-lvm77 | 7.7.2020051912 | não - atualizações de imagem em voo, até final de maio  | sim - suporte da versão do pacote: *18.5-3.el7*|
+|RedHat 7.7 (Gen2) |rhel-byos | rhel-lvm77 | 7.7.2020051913 |não - atualizações de imagem em voo, até final de maio  | sim - suporte da versão do pacote: *18.5-3.el7*|
+|RedHat 8.1 (Gen1) |RHEL |8.1-ci |8.1.2020042511 | Sim (note que esta é uma imagem de pré-visualização, e uma vez que todas as imagens RHEL 8.1 suportem cloud-init, esta será removida a 1 de agosto de 2020) | Não, ETA para apoio total junho de 2020|
+|RedHat 8.1 (Gen2) |RHEL |81-ci-gen2 |8.1.2020042524 | Sim (note que esta é uma imagem de pré-visualização, e uma vez que todas as imagens RHEL 8.1 suportem cloud-init, esta será removida a 1 de agosto de 2020) | Não, ETA para apoio total junho de 2020 |
 
 As imagens RedHat:RHEL 7.8 e 8.2 (Gen1 e Gen2) são disponibilizadas usando cloud-init.
 
@@ -68,6 +70,8 @@ As imagens RedHat:RHEL 7.8 e 8.2 (Gen1 e Gen2) são disponibilizadas usando clou
 |OpenLogic 7.7 |CentOS |7-CI |7.7.20190920 |Sim (note que esta é uma imagem de pré-visualização, e uma vez que todas as imagens CentOS 7.7 suportem cloud-init, esta será removida 1 de setembro de 2020) | sim - suporte da versão do pacote: *18.5-3.el7.centos*|
 
 * Imagens CentOS 7.7 que serão ativadas em nuvem serão atualizadas aqui em junho de 2020 
+* As imagens CentOS 7.8 são aprovisionadas usando cloud-init.
+
 
 ### <a name="oracle"></a>Oracle
 

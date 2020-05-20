@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: yelevin
-ms.openlocfilehash: 5cb1f699f070bbb0c37d4b6adf5e919c7ec5d6cd
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 4060cfe08e91c87467a8ef6801adab6f027473bf
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82591980"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83696866"
 ---
 # <a name="connect-data-sources"></a>Ligar a origens de dados
 
@@ -104,9 +104,9 @@ Em alternativa, pode implantar o agente manualmente num VM Azure existente, num 
 ## <a name="map-data-types-with-azure-sentinel-connection-options"></a>Mapear tipos de dados com as opções de ligação do Azure Sentinel
 
 
-| **Tipo de dados** | **Como ligar** | **Conector de dados?** | **Comentários** |
+| **Tipo de dados** | **Como se ligar** | **Conector de dados?** | **Comentários** |
 |------|---------|-------------|------|
-| AWSCloudTrail | [Ligar AWS](connect-aws.md) | V | |
+| AWSCloudTrail | [Ligar o AWS](connect-aws.md) | V | |
 | AzureActivity | [Conecte](connect-azure-activity.md) a visão geral dos [registos](../azure-monitor/platform/platform-logs-overview.md) de atividade e atividade do Azure| V | |
 | Registos de Auditoria | [Ligar ao Azure AD](connect-azure-active-directory.md)  | V | |
 | SigninLogs | [Ligar ao Azure AD](connect-azure-active-directory.md)  | V | |
@@ -114,7 +114,7 @@ Em alternativa, pode implantar o agente manualmente num VM Azure existente, num 
 | InformationProtectionLogs_CL  | [Relatórios de Proteção de Informação azure](https://docs.microsoft.com/azure/information-protection/reports-aip)<br>[Ligar ao Azure Information Protection](connect-azure-information-protection.md)  | V | Isto normalmente utiliza a função **InformationProtectionEvents** para além do tipo de dados. Para mais informações, consulte [Como modificar os relatórios e criar consultas personalizadas](https://docs.microsoft.com/azure/information-protection/reports-aip#how-to-modify-the-reports-and-create-custom-queries)|
 | AzureNetworkAnalytics_CL  | Análise de [tráfego](../network-watcher/traffic-analytics.md) [analítico esquemaa](../network-watcher/traffic-analytics.md)  | | |
 | CommonSecurityLog  | [Ligar CEF](connect-common-event-format.md)  | V | |
-| Atividade do Escritório | [Ligar ao Office 365](connect-office-365.md) | V | |
+| Atividade do Escritório | [Ligar o Office 365](connect-office-365.md) | V | |
 | Eventos de Segurança | [Ligar aos eventos de segurança do Windows](connect-windows-security-events.md)  | V | Para os livros de trabalho inseguros protocolos, consulte a configuração do livro de [protocolos inseguros](/azure/sentinel/quickstart-get-visibility#use-built-in-workbooks)  |
 | Syslog | [Ligar a Syslog](connect-syslog.md) | V | |
 | Firewall de aplicação web da Microsoft (WAF) - (AzureDiagnostics) |[Conecte firewall de aplicação web da Microsoft](connect-microsoft-waf.md) | V | |
@@ -130,7 +130,7 @@ Em alternativa, pode implantar o agente manualmente num VM Azure existente, num 
 | Alerta de Segurança ASC  | [Ligar ao Centro de Segurança do Azure](connect-azure-security-center.md)  | V | |
 | Alerta de Segurança MCAS  | [Conecte a segurança da aplicação microsoft cloud](connect-cloud-app-security.md)  | V | |
 | SecurityAlert | | | |
-| Sysmon (Evento) | [Conecte Sysmon](https://azure.microsoft.com/blog/detecting-in-memory-attacks-with-sysmon-and-azure-security-center)<br> [Conectar eventos do Windows](../azure-monitor/platform/data-sources-windows-events.md) <br> [Pegue o Sysmon Parser](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/Sysmon-v10.42-Parser.txt)| X | A coleção Sysmon não é instalada por padrão em máquinas virtuais. Para obter mais informações sobre como instalar o Agente Sysmon, consulte [Sysmon](https://docs.microsoft.com/sysinternals/downloads/sysmon). |
+| Sysmon (Evento) | [Conecte Sysmon](https://azure.microsoft.com/blog/detecting-in-memory-attacks-with-sysmon-and-azure-security-center)<br> [Conectar eventos do Windows](../azure-monitor/platform/data-sources-windows-events.md) <br> [Pegue o Sysmon Parser](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/Sysmon/Sysmon-v10.42-Parser.txt)| X | A coleção Sysmon não é instalada por padrão em máquinas virtuais. Para obter mais informações sobre como instalar o Agente Sysmon, consulte [Sysmon](https://docs.microsoft.com/sysinternals/downloads/sysmon). |
 | ConfiguraçãoData  | [Automatizar inventário VM](../automation/automation-vm-inventory.md)| X | |
 | ConfiguraçãoChange  | [Automatizar o rastreio vm](../automation/change-tracking.md) | X | |
 | F5 BIG-IP | [Ligar a F5 BIG-IP](https://devcentral.f5.com/s/articles/Integrating-the-F5-BIGIP-with-Azure-Sentinel)  | X | |

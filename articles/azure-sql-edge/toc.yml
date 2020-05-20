@@ -1,0 +1,75 @@
+- name: Documentação do SQL no Edge
+  href: index.yml
+- name: Descrição geral
+  items:
+    - name: O que é o SQL no Edge?
+      href: overview.md
+    - name: Edições e funcionalidades suportadas
+      href: features.md
+- name: Guias de Início Rápido
+  expanded: true
+  items:
+    - name: Implementar o SQL no Edge
+      href: deploy-portal.md
+    - name: Implementar modelos ONNX no SQL no Edge
+      href: deploy-onnx.md
+- name: Tutoriais
+  items:
+    - name: Sincronizar dados com o Azure Data Factory
+      href: tutorial-sync-data-factory.md
+    - name: Sincronizar dados com a Sincronização de Dados SQL
+      href: tutorial-sync-data-sync.md
+    - name: Construa uma solução IoT de ponta a ponta com o SQL no Edge
+      items:
+        - name: Configurar recursos do Azure
+          href: tutorial-deploy-azure-resources.md
+        - name: Configurar Módulos do IoT Edge
+          href: tutorial-set-up-iot-edge-modules.md
+        - name: Implementar modelo para o SQL no Edge
+          href: tutorial-run-ml-model-on-sql-edge.md
+- name: Procedimento
+  items:
+    - name: Pacotes DAC e tarefas do Stream Analytics
+      href: stream-analytics.md
+    - name: Configurar a replicação
+      href: configure-replication.md
+    - name: Monitorizar alterações de dados
+      href: track-data-changes.md
+    - name: Gerir tarefas de transmissão em fluxo de T-SQL
+      href: create-stream-analytics-job.md
+    - name: Ligar ao SQL no Edge
+      href: connect.md
+    - name: Configurar o SQL no Edge
+      href: configure.md
+    - name: Implementar pacote DAC
+      href: deploy-dacpac.md
+- name: Conceitos
+  items:
+    - name: Aprendizagem automática e IA com ONNX
+      href: onnx-overview.md
+    - name: Cópia de segurança e restauro
+      href: backup-restore.md
+    - name: Transmissão de Dados no SQL no Edge
+      items:
+        - name: Dados de transmissão em fluxo
+          href: stream-data.md
+        - name: Criar Transmissão Externa (Transact-SQL)
+          href: create-external-stream-transact-sql.md
+        - name: Alterar Transmissão Externa (Transact-SQL)
+          href: alter-external-stream-transact-sql.md
+        - name: Remover Transmissão Externa (Transact-SQL)
+          href: drop-external-stream-transact-sql.md
+        - name: Vistas de transmissão em fluxo e DMVs
+          items:
+            - name: Vistas de transmissão em fluxo e DMVs
+              href: streaming-catalog-views.md
+            - name: sys.external_job_streams (Transact-SQL)
+              href: sys-external-job-streams.md
+            - name: sys.external-streaming_jobs (Transact-SQL)
+              href: sys-external-streaming-jobs.md
+            - name: sys.external_streams (Transact-SQL)
+              href: sys-external-streams.md
+    - name: Processamento de dados de séries de tempo
+      items:
+        - name: Date_Bucket (Transact-SQL)
+          href: date-bucket-tsql.md

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: allensu
-ms.openlocfilehash: 14cb5a06e9f51269d05468d36ecb6cd2bf19e40c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: af7d47c98e4716df3a6cbd222c7d3c8def48e5fc
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83643622"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701638"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Configuração DNS de ponto final privado Azure
 
@@ -36,7 +36,7 @@ As suas aplicações não precisam de alterar o URL de ligação. Ao tentar reso
 
 Para os serviços Azure, utilize os nomes de zona recomendados descritos no quadro seguinte:
 
-| Tipo de recurso de ligação privada / Subrecurso |Nome da Zona DNS Privada | Nome da zona DNS pública |
+| Tipo de recurso de ligação privada / Subrecurso |Nome da Zona DNS Privada | Avançados públicos da zona dNS |
 |---|---|---|---|
 | SQL DB (Microsoft.Sql/servidores) / Sql Server | privatelink.database.windows.net | database.windows.net |
 | Azure Synapse Analytics (Microsoft.Sql/servidores) / Sql Server  | privatelink.database.windows.net | database.windows.net |
@@ -54,7 +54,7 @@ Para os serviços Azure, utilize os nomes de zona recomendados descritos no quad
 | Base de Dados Azure para PostgreSQL - Servidor único (Microsoft.DBforPostgreSQL/servidores) / postgresqlServer | privatelink.postgres.database.azure.com | postgres.database.azure.com |
 | Base de Dados Azure para MySQL (Microsoft.DBforMySQL/servidores) / mysqlServer | privatelink.mysql.database.azure.com | mysql.database.azure.com |
 | Base de Dados Azure para MariaDB (Microsoft.DBforMariaDB/servidores) / mariadbServer | privatelink.mariadb.database.azure.com | mariadb.database.azure.com |
-| Cofre de Chaves Azure (Microsoft.KeyVault/cofres) / cofre | privatelink.vaultcore.azure.net | vault.azure.net |
+| Cofre de Chaves Azure (Microsoft.KeyVault/cofres) / cofre | privatelink.vaultcore.azure.net | vault.azure.net <br> vaultcore.azure.net |
 | Serviço Azure Kubernetes - Kubernetes API (Microsoft.containerService/managedClusters) / managedCluster | privatelink. {região}.azmk8s.io | {região}.azmk8s.io |
 | Pesquisa Azure (Microsoft.Search/searchServices) / searchService | privatelink.search.windows.net | search.windows.net |
 | Registo de contentores azure (Microsoft.ContainerRegistry/registos) /registo | privatelink.azurecr.io | azurecr.io |
@@ -150,7 +150,7 @@ Para configurar corretamente, precisaria dos seguintes recursos:
 O diagrama seguinte ilustra a sequência de resolução dNS de uma rede no local que encaminha condicionalmente o tráfego de DNS para Azure, onde a resolução é feita por uma zona privada de DNS [ligada a uma rede virtual.](../dns/private-dns-virtual-network-links.md)
 
 > [!IMPORTANT]
-> O encaminhamento condicional deve ser feito para a [zona pública do DNS](#azure-services-dns-zone-configuration)   Ex: , em vez de  `database.windows.net`    **privatelink**.database.windows.net
+> O encaminhamento condicional deve ser feito ao avançado público recomendado da [**zona DNS**](#azure-services-dns-zone-configuration)   Ex: , em vez de  `database.windows.net`    **privatelink**.database.windows.net
 
 :::image type="content" source="media/private-endpoint-dns/on-premises-forwarding-to-azure.png" alt-text="No local encaminhamento para O DNS Azure":::
 

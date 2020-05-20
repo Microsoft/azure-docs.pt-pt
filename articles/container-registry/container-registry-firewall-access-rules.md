@@ -2,13 +2,13 @@
 title: Regras de acesso à firewall
 description: Configure as regras para aceder a um registo de contentores Azure por trás de uma firewall, permitindo o acesso a ("whitelisting") nomes de domínio de ponto final de dados e endereços IP específicos do serviço.
 ms.topic: article
-ms.date: 05/07/2020
-ms.openlocfilehash: b3560fe769a97c8d3a4e5a3580d42d7c0b3a3f08
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.date: 05/18/2020
+ms.openlocfilehash: 109764a5697920547230530de41a3e5acfe0117d
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82978353"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701934"
 ---
 # <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>Configure regras para aceder a um registo de contentores Azure atrás de uma firewall
 
@@ -18,7 +18,7 @@ Se pretender configurar o acesso à rede de entrada a um registo de contentores 
 
 ## <a name="about-registry-endpoints"></a>Sobre os pontos finais do registo
 
-Para puxar ou empurrar imagens ou outros artefactos para um registo de contentores Azure, um cliente como um daemon Docker precisa interagir sobre HTTPS com dois pontos finais distintos. Para clientes que acedem a um registo por detrás de uma firewall, é necessário configurar regras de acesso para ambos os pontos finais.
+Para puxar ou empurrar imagens ou outros artefactos para um registo de contentores Azure, um cliente como um daemon Docker precisa interagir sobre HTTPS com dois pontos finais distintos. Para clientes que acedem a um registo por detrás de uma firewall, é necessário configurar regras de acesso para ambos os pontos finais. Ambos os pontos finais são alcançados sobre a porta 443.
 
 * Ponto final da **API DO REGISTO -** As operações de autenticação e gestão do registo são tratadas através do ponto final da API do registo. Este ponto final é o nome do servidor de login do registo. Exemplo: `myregistry.azurecr.io`
 
@@ -28,10 +28,10 @@ Se o seu registo for [geo-replicado,](container-registry-geo-replication.md)um c
 
 ## <a name="allow-access-to-rest-and-data-endpoints"></a>Permitir o acesso ao REST e aos pontos finais dos dados
 
-* **Ponto final** DO REST - Permitir o acesso ao `<registry-name>.azurecr.io`nome do servidor de login de registo totalmente qualificado, ou uma gama de endereços IP associado
-* **Ponto final de armazenamento (dados)** - Permitir o acesso a `*.blob.core.windows.net`todas as contas de armazenamento de blob Azure utilizando o wildcard, ou uma gama de endereços IP associado.
+* **Ponto final** DO REST - Permitir o acesso ao nome do servidor de login de registo totalmente qualificado, ou uma gama de `<registry-name>.azurecr.io` endereços IP associado
+* **Ponto final de armazenamento (dados)** - Permitir o acesso a todas as contas de armazenamento de blob Azure utilizando o wildcard, ou uma gama de `*.blob.core.windows.net` endereços IP associado.
 > [!NOTE]
-> O Registo de Contentores Azure está a introduzir [pontos finais](#enable-dedicated-data-endpoints-preview) de dados dedicados (pré-visualização), permitindo-lhe analisar rigorosamente as regras de firewall do cliente para o seu armazenamento de registo. Faculte opcionalmente os pontos finais dos dados em todas as `<registry-name>.<region>.data.azurecr.io`regiões onde o registo está localizado ou replicado, utilizando o formulário .
+> O Registo de Contentores Azure está a introduzir [pontos finais de dados dedicados,](#enable-dedicated-data-endpoints)permitindo-lhe analisar rigorosamente as regras de firewall do cliente para o seu armazenamento de registo. Faculte opcionalmente os pontos finais dos dados em todas as regiões onde o registo está localizado ou replicado, utilizando o formulário `<registry-name>.<region>.data.azurecr.io` .
 
 ## <a name="allow-access-by-ip-address-range"></a>Permitir o acesso através da gama de endereços IP
 
@@ -117,26 +117,45 @@ Numa rede virtual Azure, utilize regras de segurança da rede para filtrar o tr�
 
 Por exemplo, criar uma regra de grupo de segurança de rede de saída com o destino **AzureContainerRegistry** para permitir o tráfego para um registo de contentores Azure. Para permitir o acesso à etiqueta de serviço apenas numa região específica, especifique a região no seguinte formato: **AzureContainerRegistry**. [nome da*região].*
 
-## <a name="enable-dedicated-data-endpoints-preview"></a>Ativar pontos finais de dados dedicados (pré-visualização)
+## <a name="enable-dedicated-data-endpoints"></a>Ativar pontos finais de dados dedicados 
 
 > [!WARNING]
-> Se configurar previamente o acesso à `*.blob.core.windows.net` firewall do cliente aos pontos finais existentes, mudar para pontos finais de dados dedicados terá impacto na conectividade do cliente, causando falhas de pull. Para garantir que os clientes têm acesso consistente, adicione as novas regras de ponto final de dados às regras de firewall do cliente. Uma vez concluído, ative pontos finais de dados dedicados para os seus registos utilizando o Azure CLI ou outras ferramentas.
+> Se configurar previamente o acesso à firewall do cliente aos `*.blob.core.windows.net` pontos finais existentes, mudar para pontos finais de dados dedicados terá impacto na conectividade do cliente, causando falhas de pull. Para garantir que os clientes têm acesso consistente, adicione as novas regras de ponto final de dados às regras de firewall do cliente. Uma vez concluído, ative pontos finais de dados dedicados para os seus registos utilizando o Azure CLI ou outras ferramentas.
 
-Pontos finais de dados dedicados é uma característica opcional do nível de serviço de registo de contentores **Premium.** Para obter informações sobre os níveis e limites de serviço de registo, consulte os níveis de registo de [contentores de Azure](container-registry-skus.md). Para ativar os pontos finais de dados utilizando o Azure CLI, utilize a versão Azure CLI 2.4.0 ou superior. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli).
+Pontos finais de dados dedicados é uma característica opcional do nível de serviço de registo de contentores **Premium.** Para obter informações sobre os níveis e limites de serviço de registo, consulte os níveis de serviço do Registo de [Contentores De Azure](container-registry-skus.md). 
 
-O comando de [atualização az acr az][az-acr-update] permite pontos finais de dados dedicados num *registo de registo*. Para efeitos de demonstração, assuma que o registo é replicado em duas regiões:
+Pode ativar pontos finais dedicados de dados utilizando o portal Azure ou o Azure CLI. Os pontos finais dos dados seguem um padrão regional, `<registry-name>.<region>.data.azurecr.io` . Num registo geo-replicado, permitir pontos finais de dados permite pontos finais em todas as regiões de réplica.
+
+### <a name="portal"></a>Portal
+
+Para ativar pontos finais de dados utilizando o portal:
+
+1. Navegue para o seu registo de contentores.
+1. Selecione Acesso público **em rede**  >  **Public access**.
+1. Selecione a caixa de verificação **de ponto final de dados ativada.**
+1. Selecione **Guardar**.
+
+Os pontos finais ou pontos finais dos dados aparecem no portal.
+
+![Pontos finais de dados dedicados no portal](./media/container-registry-firewall-access-rules/dedicated-data-endpoints-portal.png)
+
+### <a name="azure-cli"></a>CLI do Azure
+
+Para ativar os pontos finais de dados utilizando o Azure CLI, utilize a versão Azure CLI 2.4.0 ou superior. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli).
+
+O comando de [atualização az acr az][az-acr-update] permite pontos finais de dados dedicados num *registo de registo*. 
 
 ```azurecli
 az acr update --name myregistry --data-endpoint-enabled
 ```
 
-Os pontos finais dos `<registry-name>.<region>.data.azurecr.io`dados usam um padrão regional, . Para visualizar os pontos finais dos dados, utilize o comando [az acr show-endpoints:][az-acr-show-endpoints]
+Para visualizar os pontos finais dos dados, utilize o comando [az acr show-endpoints:][az-acr-show-endpoints]
 
 ```azurecli
 az acr show-endpoints --name myregistry
 ```
 
-Saída:
+Produção para efeitos de demonstração mostra dois pontos finais regionais
 
 ```
 {
@@ -165,6 +184,8 @@ Se precisar de aceder ao Microsoft Container Registry (MCR) por trás de uma fir
 * Conheça [as melhores práticas do Azure para a segurança da rede](../security/fundamentals/network-best-practices.md)
 
 * Saiba mais sobre [grupos de segurança](/azure/virtual-network/security-overview) numa rede virtual Azure
+
+* Saiba mais sobre a criação [de Link Privado](container-registry-private-link.md) para um registo de contentores
 
 * Saiba mais sobre [pontos finais dedicados](https://azure.microsoft.com/blog/azure-container-registry-mitigating-data-exfiltration-with-dedicated-data-endpoints/) para o Registo de Contentores do Azure
 

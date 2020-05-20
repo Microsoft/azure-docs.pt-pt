@@ -4,15 +4,15 @@ description: Este artigo descreve como os Serviços de Análise Azure utilizam o
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4a054c3c042e18f1679acd75e5ba5ad74f66edff
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 5ca9b1d9fbd18f60de80a80c932f0e27b8dc8583
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73572752"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701041"
 ---
 # <a name="authentication-and-user-permissions"></a>Autenticação e permissões de utilizador
 

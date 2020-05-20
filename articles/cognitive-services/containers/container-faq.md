@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 0e4f9da3aec42df42cc43f73fdeefa7087de6db5
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: bf30fc5e6ccfc0f59c1769245e58177428472156
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592190"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701806"
 ---
 # <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Os contentores dos Serviços Cognitivos Azure fazem frequentemente perguntas (FAQ)
 
@@ -22,7 +22,7 @@ ms.locfileid: "83592190"
 
 **P: O que está disponível?**
 
-**A:** Os recipientes dos Serviços Cognitivos Azure permitem aos desenvolvedores utilizar as mesmas APIs inteligentes que estão disponíveis em Azure, mas com os [benefícios](../cognitive-services-container-support.md#features-and-benefits) da contentorização. Alguns contentores estão disponíveis como [pré-visualização fechada,](../cognitive-services-gating-process.md)o que pode exigir uma aplicação de acesso. Outros recipientes estão disponíveis ao público como pré-visualização ungida, ou estão geralmente disponíveis. Pode encontrar uma lista completa de contentores e a sua disponibilidade no suporte do Contentor no artigo dos [Serviços Cognitivos Azure.](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services) 
+**A:** Os recipientes dos Serviços Cognitivos Azure permitem aos desenvolvedores utilizar as mesmas APIs inteligentes que estão disponíveis em Azure, mas com os [benefícios](../cognitive-services-container-support.md#features-and-benefits) da contentorização. Alguns contentores estão disponíveis como pré-visualização fechada que pode exigir uma aplicação de acesso. Outros recipientes estão disponíveis ao público como pré-visualização ungida, ou estão geralmente disponíveis. Pode encontrar uma lista completa de contentores e a sua disponibilidade no suporte do Contentor no artigo dos [Serviços Cognitivos Azure.](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services) 
 
 **P: Existe alguma diferença entre a nuvem dos Serviços Cognitivos e os contentores?**
 
@@ -104,7 +104,7 @@ Explore as seguintes etiquetas para potenciais perguntas e respostas que se alin
 
 * [Detetor de Anomalias][ad-containers-billing]
 * [Imagem Digitalizada][cv-containers-billing]
-* [Face][fa-containers-billing]
+* [Rostos][fa-containers-billing]
 * [Reconhecedor de Formato][fr-containers-billing]
 * [Compreensão de Idiomas (LUIS)][lu-containers-billing]
 * [API de Serviço de Voz][sp-containers-billing]
@@ -131,7 +131,7 @@ Explore as seguintes etiquetas para potenciais perguntas e respostas que se alin
 
 * [Detetor de Anomalias][ad-containers-recommendations]
 * [Imagem Digitalizada][cv-containers-recommendations]
-* [Face][fa-containers-recommendations]
+* [Rostos][fa-containers-recommendations]
 * [Reconhecedor de Formato][fr-containers-recommendations]
 * [Compreensão de Idiomas (LUIS)][lu-containers-recommendations]
 * [API de Serviço de Voz][sp-containers-recommendations]

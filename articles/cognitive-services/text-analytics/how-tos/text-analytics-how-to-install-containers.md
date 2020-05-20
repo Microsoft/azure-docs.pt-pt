@@ -11,17 +11,17 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: d22dcf221bef40edb8bb2bd346dd5964000a4a68
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: efe76323b4159af01f1eaf470d9c1833edd0a186
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588417"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83702128"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Instalar e executar contentores da Análise de Texto
 
 > [!NOTE]
-> * O recipiente para Análise de Sentimentos v3 está agora geralmente disponível. A frase-chave de extração e dedetecção de linguagens está disponível como [pré-visualização pública ungida.](../../cognitive-services-gating-process.md)
+> * O recipiente para Análise de Sentimentos v3 está agora geralmente disponível. A frase-chave de extração e deteção de linguagens está disponível como pré-visualização pública ungida.
 > * Entidade seletiva e NER não estão atualmente disponíveis como recipiente.
 
 Os contentores permitem-lhe executar as APIs analíticas do texto no seu próprio ambiente e são ótimos para os seus requisitos específicos de segurança e governança de dados. Os recipientes Text Analytics fornecem processamento avançado de linguagem natural sobre texto cru, e incluem três funções principais: análise de sentimentos, extração de frases-chave e deteção de linguagem. 

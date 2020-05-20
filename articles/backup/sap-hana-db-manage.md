@@ -3,12 +3,12 @@ title: Gerir bases de dados SAP HANA apoiadas em VMs Azure
 description: Neste artigo, aprenda tarefas comuns para gerir e monitorizar as bases de dados SAP HANA que estão a funcionar em máquinas virtuais Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: c810a049fafcbce6d4c840557b101e5226343ab7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: e3705750e32b8b34ed397b8f68f22b0728129266
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660158"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701117"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Gerir e monitorizar bases de dados do SAP HANA guardadas em cópia de segurança
 
@@ -208,13 +208,13 @@ Para retomar a proteção de uma base de dados SAP HANA:
 
 * No menu de **política de backup,** selecione uma apólice e, em seguida, selecione **Guardar**.
 
-### <a name="upgrading-from-sap-hana-10-to-20"></a>Upgrade de SAP HANA 1.0 para 2.0
+### <a name="upgrading-from-sdc-to-mdc"></a>Upgrade de SDC para MDC
 
-Saiba como continuar a fazer backup para uma base de dados SAP HANA [após a atualização de SAP HANA 1.0 a 2.0](backup-azure-sap-hana-database-troubleshoot.md#upgrading-from-sap-hana-10-to-20).
+Saiba como continuar a fazer backup para uma base de dados SAP HANA [após a atualização de SDC para MDC](backup-azure-sap-hana-database-troubleshoot.md#sdc-to-mdc-upgrade-with-a-change-in-sid).
 
-### <a name="upgrading-without-a-sid-change"></a>Upgrade sem uma mudança de SID
+### <a name="upgrading-from-sdc-to-mdc-without-a-sid-change"></a>Upgrade de SDC para MDC sem alteração SID
 
-Saiba como continuar a cópia de segurança de uma base de dados SAP HANA cujo [SID não mudou após](backup-azure-sap-hana-database-troubleshoot.md#upgrading-without-an-sid-change)a atualização .
+Saiba como continuar a cópia de segurança de uma base de dados SAP HANA cujo SID não mudou após a [atualização de SDC para MDC](backup-azure-sap-hana-database-troubleshoot.md#sdc-to-mdc-upgrade-with-no-change-in-sid).
 
 ### <a name="unregister-an-sap-hana-instance"></a>Desregistre uma instância SAP HANA
 

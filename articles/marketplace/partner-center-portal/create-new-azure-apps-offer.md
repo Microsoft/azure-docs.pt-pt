@@ -6,17 +6,17 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/03/2020
-ms.openlocfilehash: 22d6c37b59488633394d7f3ed5ca5b0c78371e7d
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.date: 05/19/2020
+ms.openlocfilehash: 55d544ecf6c96335ca65255e1af695f7757b818c
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790692"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83699515"
 ---
 # <a name="create-an-azure-application-offer"></a>Criar uma oferta de aplicações do Azure
 
-Este artigo explica os passos e considerações para a criação de uma nova oferta de aplicação Azure no mercado comercial. Deve estar familiarizado com estes conceitos antes de criar uma nova oferta de aplicação Azure. 
+Este artigo explica os passos e considerações para a criação de uma nova oferta de aplicação Azure no mercado comercial. Deve estar familiarizado com estes conceitos antes de criar uma nova oferta de aplicação Azure.
 
 Antes de poder publicar uma nova oferta de aplicação Azure, [crie uma conta de marketplace comercial no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) e certifique-se de que a sua conta está inscrita no programa de marketplace comercial.
 
@@ -90,7 +90,7 @@ Existem dois tipos de planos de aplicação Azure: modelos de soluções e aplic
 
 ## <a name="technical-requirements"></a>Requisitos técnicos
 
-Todas as aplicações do Azure incluem pelo `.zip` menos dois ficheiros na pasta raiz de um arquivo:
+Todas as aplicações do Azure incluem pelo menos dois ficheiros na pasta raiz de um `.zip` arquivo:
 
 * Um ficheiro de modelo de gestor de recursos chamado [mainTemplate.json](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).  Este modelo define os recursos para implantar na subscrição do Azure do cliente.  Por exemplo, nos modelos de Gestor de Recursos, consulte a [galeria de modelos De Quickstart Azure](https://azure.microsoft.com/resources/templates/) ou o [correspondente GitHub: Modelos quickstart do Gestor](https://github.com/azure/azure-quickstart-templates) de Recursos Azure repo.
 
@@ -107,16 +107,16 @@ Para conhecer os requisitos de publicação de cada plano de aplicação, consul
 
 1. Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/home).
 
-1. No menu esquerdo, selecione **Commercial Marketplace** > **Overview**.
+1. No menu esquerdo, selecione **Commercial Marketplace**  >  **Overview**.
 
-1. Na página 'Visão Geral', selecione **+ Nova oferta** > **Aplicação Azure**.
+1. Na página 'Visão Geral', selecione **+ Nova oferta**  >  **Aplicação Azure**.
 
     ![Ilustra o menu de navegação à esquerda.](./media/new-offer-azure-app.png)
 
 1. Na página **new offer,** insira um **ID da Oferta**. Este é um identificador único para cada oferta na sua conta.
 
      * Este ID é visível para os clientes no endereço web para a oferta de mercado e modelos do Gestor de Recursos Azure, se aplicável.
-     * Utilize apenas letras minúsculas e números. Pode incluir hífenes e sublinhados, mas sem espaços, e está limitado a 50 caracteres. Por exemplo, se introduzir o **test-offer-1,** `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`o endereço web da oferta será .
+     * Utilize apenas letras minúsculas e números. Pode incluir hífenes e sublinhados, mas sem espaços, e está limitado a 50 caracteres. Por exemplo, se introduzir o **test-offer-1,** o endereço web da oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
      * O ID da Oferta não pode ser alterado depois de selecionar **Criar**.
 
 1. Insira um **pseudónimo da Oferta.** Este é o nome usado para a oferta no Partner Center.
@@ -174,26 +174,19 @@ O nome que introduzir aqui será mostrado aos clientes como título da sua ofert
 
 #### <a name="search-results-summary"></a>Resumo dos resultados da pesquisa
 
-Forneça uma breve descrição da sua oferta (até 100 caracteres), que pode ser usada nos resultados da pesquisa.
+Forneça uma breve descrição da sua oferta, até 100 caracteres. Esta descrição pode ser utilizada nos resultados da pesquisa.
 
 #### <a name="long-summary"></a>Resumo longo
 
-Forneça uma descrição mais longa da sua oferta (até 256 caracteres). Esta descrição pode ser utilizada nos resultados da pesquisa.
+Forneça uma descrição mais longa da sua oferta, até 256 caracteres. Esta descrição pode ser utilizada nos resultados da pesquisa.
 
 #### <a name="description"></a>Descrição
 
-Forneça uma descrição mais longa da sua oferta (até 3.000 caracteres). Esta descrição será exibida aos clientes na visão geral da listagem. Inclua a proposta de valor da sua oferta, benefícios-chave, associações de categorias e/ou industriais, oportunidades de compra na aplicação e quaisquer divulgações necessárias.
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-SHere são algumas dicas para escrever a sua descrição:
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-* Descreva claramente a proposta de valor da sua oferta nas primeiras frases da sua descrição. Incluir os seguintes itens:
-  * Descrição da sua oferta.
-  * O tipo de utilizador que beneficia da sua oferta.
-  * Necessidades ou problemas do cliente que a oferta endereça.
-* Lembre-se que as primeiras frases podem ser exibidas nos resultados do motor de busca.
-* Não confie em funcionalidades e funcionalidades para vender a sua oferta. Em vez disso, concentre-se no valor que a sua oferta proporciona.
-* Utilize palavras específicas da indústria ou baseadas em benefícios.
-* Considere usar tags HTML para formatar a sua descrição para torná-la mais envolvente.
+[!INCLUDE [Rich text editor](./includes/rich-text-editor.md)]
 
 #### <a name="search-keywords"></a>Pesquisar palavras-chave
 
@@ -216,7 +209,7 @@ Forneça o nome, e-mail e número de telefone para um contacto de **suporte,** *
 Forneça logotipos e imagens para usar com a sua oferta. Todas as imagens devem estar em formato PNG. Imagens desfocadas farão com que a sua submissão seja rejeitada.
 
 >[!Note]
->Se tiver algum problema de upload de ficheiros, https://upload.xboxlive.com certifique-se de que a sua rede local não bloqueia o serviço utilizado pelo Partner Center.
+>Se tiver algum problema de upload de ficheiros, certifique-se de que a sua rede local não bloqueia o https://upload.xboxlive.com serviço utilizado pelo Partner Center.
 
 #### <a name="store-logos"></a>Logotipos de loja
 
@@ -229,7 +222,7 @@ Forneça ficheiros PNG do logótipo da sua oferta nos seguintes três tamanhos d
 
 Todos os três logótipos são necessários e são usados em diferentes lugares na listagem.
 
-#### <a name="screenshots"></a>Capturas de Ecrã
+#### <a name="screenshots"></a>Capturas de ecrã
 
 Adicione cinco imagens que mostram como a sua oferta funciona. Cada screenshot deve ter 1280 x 720 pixels em tamanho e em formato PNG. Cada imagem deve incluir uma legenda.
 
@@ -422,24 +415,24 @@ Este separador permite-lhe fazer o upload do pacote de implementação que permi
 
 Este separador permite-lhe editar a versão de rascunho da sua configuração técnica.
 
-**Versão** – Atribuir a versão atual da configuração técnica.  Incremente esta versão sempre que publicar uma alteração nesta página. A versão deve `{integer}.{integer}.{integer}`estar no formato .
+**Versão** – Atribuir a versão atual da configuração técnica.  Incremente esta versão sempre que publicar uma alteração nesta página. A versão deve estar no formato `{integer}.{integer}.{integer}` .
 
 **Ficheiro** de pacote (.zip) – Este pacote contém todos os ficheiros de modelo necessários para este plano, bem como quaisquer recursos adicionais, embalados como um `.zip` ficheiro.
 
-Todos os pacotes do plano de aplicação Azure `.zip` devem incluir estes dois ficheiros na pasta raiz de um arquivo:
+Todos os pacotes do plano de aplicação Azure devem incluir estes dois ficheiros na pasta raiz de um `.zip` arquivo:
 
 * Um ficheiro de modelo de gestor de recursos chamado [mainTemplate.json](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). Este modelo automatiza a implantação de recursos na subscrição do Azure dos clientes.  Por exemplo, nos modelos de Gestor de Recursos, consulte a [galeria de modelos De Quickstart Azure](https://azure.microsoft.com/documentation/templates/) ou o [correspondente GitHub: Modelos quickstart do Gestor](https://github.com/azure/azure-quickstart-templates) de Recursos Azure repo.
 * Uma definição de interface de utilizador para a experiência de criação de aplicações Azure chamada [createUiDefinition.json](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
 
 Os tamanhos máximos de ficheiro suportados são:
 
-* Até 1 Gb em `.zip` tamanho total de arquivo comprimido
-* Até 1 Gb para qualquer ficheiro individual `.zip` não comprimido dentro do arquivo  
+* Até 1 Gb em tamanho total de arquivo comprimido `.zip`
+* Até 1 Gb para qualquer ficheiro individual não comprimido dentro do `.zip` arquivo  
 
 Todas as novas ofertas de aplicações Azure também devem incluir uma atribuição de uso de [cliente parceiro Azure](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution) GUID.
 
 >[!Note]
->Se tiver algum problema de envio de ficheiros, https://upload.xboxlive.com certifique-se de que a sua rede local não bloqueia o serviço utilizado pelo Partner Center.
+>Se tiver algum problema de envio de ficheiros, certifique-se de que a sua rede local não bloqueia o https://upload.xboxlive.com serviço utilizado pelo Partner Center.
 
 Os planos de aplicação geridos requerem informações adicionais sobre este separador.
 
@@ -452,13 +445,13 @@ O subseparador de **pacotes anteriormente** publicadopermite-lhe visualizar toda
 Selecione esta opção para permitir o acesso just-in-time (JIT) para este plano.  O acesso ao JIT permite-lhe solicitar um acesso elevado aos recursos de uma aplicação gerida para resolução ou manutenção de problemas. Você sempre tem acesso apenas a leitura aos recursos, mas por um período de tempo específico você pode ter um maior acesso.  Para mais informações, consulte [Enable e solicite acesso just-in-time para Aplicações Geridas azure](https://docs.microsoft.com/azure/managed-applications/request-just-in-time-access).  Para exigir que os consumidores da sua aplicação gerida concedam acesso permanente à sua conta, deixe esta opção desmarcada.
 
 >[!Note]
->Certifique-se de `createUiDefinition.json` atualizar o seu ficheiro para suportar esta funcionalidade.  
+>Certifique-se de atualizar o seu `createUiDefinition.json` ficheiro para suportar esta funcionalidade.  
 
 #### <a name="deployment-mode"></a>Modo de implantação
 
 Selecione se configura o modo de **implementação** **Completo** ou Incremental ao implementar este plano: 
 
-* Em **modo completo,** uma reafectação da aplicação pelo cliente resultará na remoção de recursos `mainTemplate.json`no grupo de recursos geridos se os recursos não forem definidos no . 
+* Em **modo completo,** uma reafectação da aplicação pelo cliente resultará na remoção de recursos no grupo de recursos geridos se os recursos não forem definidos no `mainTemplate.json` . 
 * No **modo incremental,** uma redistribuição da aplicação deixa os recursos existentes inalterados.
 
 Para saber mais sobre os modos de implementação, consulte os modos de [implementação do Gestor de Recursos Do Azure](https://docs.microsoft.com/azure/azure-resource-manager/deployment-modes).
@@ -469,9 +462,9 @@ Especifique um ponto final https webhook para receber notificações sobre todas
 
 #### <a name="customize-allowed-customer-actions"></a>Personalize as ações permitidas ao cliente
 
-Selecione esta opção para especificar quais as ações que`*/read`os clientes podem executar sobre os recursos geridos, além das " ações " que estão disponíveis por padrão. 
+Selecione esta opção para especificar quais as ações que os clientes podem executar sobre os recursos geridos, além das `*/read` " ações " que estão disponíveis por padrão. 
 
-Enumere as ações adicionais que pretende permitir que o seu cliente realize aqui, separados por pontos evívias.  Para mais informações, consulte [Understanding negar atribuições para os recursos do Azure.](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments)  Para as ações disponíveis, consulte as operações de fornecedor de recursos do Gestor de [Recursos do Azure.](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations) Por exemplo, permitir que os consumidores `Microsoft.Compute/virtualMachines/restart/action` reiniciem as máquinas virtuais, adicione às ações permitidas.
+Enumere as ações adicionais que pretende permitir que o seu cliente realize aqui, separados por pontos evívias.  Para mais informações, consulte [Understanding negar atribuições para os recursos do Azure.](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments)  Para as ações disponíveis, consulte as operações de fornecedor de recursos do Gestor de [Recursos do Azure.](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations) Por exemplo, permitir que os consumidores reiniciem as máquinas virtuais, adicione `Microsoft.Compute/virtualMachines/restart/action` às ações permitidas.
 
 #### <a name="global-azure--azure-government-cloud"></a>Nuvem global do governo azure / Azure
 
@@ -519,7 +512,7 @@ Para ativar um test drive, selecione a caixa de verificação **de test drive** 
 Para permitir que o Test Drive seja implantado em seu nome, crie e forneça uma subscrição Azure separada e única (não necessária para unidades de teste Power BI).
 
 * Id de **subscrição Azure** (necessário para o Gestor de Recursos Azure e aplicações Lógica) – Introduza o ID de subscrição para conceder acesso aos serviços da sua conta Azure para relatórios de utilização de recursos e faturação. Recomendamos que considere [criar uma subscrição Azure separada](https://docs.microsoft.com/azure/billing/billing-create-subscription) para usar para test drives se ainda não tiver uma. Pode encontrar o seu ID de subscrição Azure iniciando sessão no [portal Azure](https://portal.azure.com/) e navegando no separador **Subscrições** do menu do lado esquerdo. A seleção do separador irá exibir o seu ID de subscrição (por exemplo, "a83645ac-1234-5ab6-6789-1h234g764ghty").
-* **ID de inquilino azure AD** (obrigatório) – Insira o seu Id de [inquilino](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)azure Ative Directory (AD). Para encontrar este ID, inscreva-se no [portal Azure](https://portal.azure.com/), selecione o separador Ative Directy no menu esquerdo, selecione **Properties,** procure o número de ID do **Diretório** listado (como 50c464d3-4930-494c-963c-1e951d15360e). Também pode procurar o ID do inquilino da sua [https://www.whatismytenantid.com](https://www.whatismytenantid.com)organização usando o seu URL de nome de domínio em: .
+* **ID de inquilino azure AD** (obrigatório) – Insira o seu Id de [inquilino](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)azure Ative Directory (AD). Para encontrar este ID, inscreva-se no [portal Azure](https://portal.azure.com/), selecione o separador Ative Directy no menu esquerdo, selecione **Properties,** procure o número de ID do **Diretório** listado (como 50c464d3-4930-494c-963c-1e951d15360e). Também pode procurar o ID do inquilino da sua organização usando o seu URL de nome de domínio em: [https://www.whatismytenantid.com](https://www.whatismytenantid.com) .
 * Nome de **inquilino Azure AD** (necessário para Dinâmico 365) – Introduza o nome de Diretório Ativo Azure (AD). Para encontrar este nome, inscreva-se no [portal Azure,](https://portal.azure.com/)no canto superior direito o seu nome de inquilino será listado sob o nome da sua conta.
 * ID da **aplicação Azure AD** (obrigatório) – Introduza o id da [aplicação](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)Azure Ative Directory (AD). Para encontrar este ID, inscreva-se no [portal Azure](https://portal.azure.com/), selecione o separador Ative Directy no menu de navegação à esquerda, selecione **registos**de Aplicações, procure o número de ID de **aplicação** listado (como 50c464d3-4930-494c-963c-1e951d15360e).
 * **Azure Ative Directory aplicação segredo** cliente (necessário) – Insira o [segredo do cliente](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets)da aplicação Azure AD . Para encontrar este valor, inscreva-se no [portal Azure.](https://portal.azure.com/) Selecione o separador **Diretório Ativo Azure** no menu de navegação à esquerda, selecione **as inscrições**da App e, em seguida, selecione a sua aplicação de test drive. Em seguida, selecione **Certificados e segredos**, selecione **Novo segredo do cliente,** introduza uma descrição, selecione **Never** under **Expires,** em seguida, escolha **Adicionar**. Certifique-se de copiar o valor antes de sair desta página.)

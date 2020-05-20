@@ -1,14 +1,14 @@
 ---
-title: Configure as regras de firewall de serviço
+title: Configurar o acesso ao registo público
 description: Configure as regras ip para permitir o acesso a um registo de contentores Azure a partir de endereços IP públicos selecionados ou intervalos de endereços.
 ms.topic: article
-ms.date: 05/04/2020
-ms.openlocfilehash: f6459061ca486b4bf229409e6ec1ed1bd808a474
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.date: 05/19/2020
+ms.openlocfilehash: dc0514fbe7d3e01914965cee5dc547172d4435a4
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82984619"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83702085"
 ---
 # <a name="configure-public-ip-network-rules"></a>Configurar as regras da rede IP pública
 
@@ -59,24 +59,46 @@ az acr network-rule add \
 
 ## <a name="disable-public-network-access"></a>Desativar o acesso à rede pública
 
-Para limitar o tráfego a redes virtuais utilizando [o Private Link,](container-registry-private-link.md)desative o ponto final do registo. Desativar o ponto final do público sobrepõe-se a todas as configurações de firewall.
+Opcionalmente, desabilite o ponto final do registo. Desativar o ponto final do público sobrepõe-se a todas as configurações de firewall. Por exemplo, é melhor desativar o acesso público a um registo protegido numa rede virtual utilizando o [Private Link](container-registry-private-link.md).
 
-### <a name="disable-public-access---portal"></a>Desativar o acesso público - Portal
+### <a name="disable-public-access---cli"></a>Desativar o acesso público - CLI
+
+Para desativar o acesso público utilizando o Azure CLI, execute a [atualização az acr][az-acr-update] e desative `--public-network-enabled` para `false` . 
+
+> [!NOTE]
+> O `public-network-enabled` argumento requer O Azure CLI 2.6.0 ou mais tarde. 
+
+```azurecli
+az acr update --name myContainerRegistry --public-network-enabled false
+```
+
+### <a name="disable-public-access---portal"></a>Desativar o acesso público - portal
 
 1. No portal, navegue para o registo do seu contentor e selecione **Definições > Networking**.
-1. No separador de **acesso público,** em **Permitir o acesso do público,** selecione **Disabled**. Em seguida, selecione **Guardar**.
+1. No separador de **acesso público,** em **Permitir o acesso à rede pública,** selecione **Disabled**. Em seguida, selecione **Guardar**.
 
 ![Desativar o acesso público][acr-access-disabled]
 
-## <a name="restore-default-registry-access"></a>Restaurar o acesso ao registo predefinido
 
-Para restaurar o registo para permitir o acesso por predefinição, atualize a ação predefinida. 
+## <a name="restore-public-network-access"></a>Restaurar o acesso à rede pública
 
-### <a name="restore-default-registry-access---portal"></a>Restaurar o acesso ao registo predefinido - portal
+Para reativar o ponto final do público, atualize as definições de rede para permitir o acesso do público. Permitir que o ponto final do público sobrepõe todas as configurações de firewall. 
+
+### <a name="restore-public-access---cli"></a>Restaurar o acesso público - CLI
+
+Executar [atualização az acr][az-acr-update] e definido `--public-network-enabled` para `true` . 
+
+> [!NOTE]
+> O `public-network-enabled` argumento requer O Azure CLI 2.6.0 ou mais tarde. 
+
+```azurecli
+az acr update --name myContainerRegistry --public-network-enabled true
+```
+
+### <a name="restore-public-access---portal"></a>Restaurar o acesso público - portal
 
 1. No portal, navegue para o registo do seu contentor e selecione **Definições > Networking**.
-1. Em **Firewall,** selecione cada intervalo de endereços e, em seguida, selecione o ícone Eliminar.
-1. No separador **de acesso público,** em **Permitir o acesso do público,** selecione **Todas as redes**. Em seguida, selecione **Guardar**.
+1. No separador **de acesso público,** em **Permitir o acesso à rede pública,** selecione **Todas as redes**. Em seguida, selecione **Guardar**.
 
 ![Acesso público de todas as redes][acr-access-all-networks]
 

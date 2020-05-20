@@ -7,14 +7,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 4d9dc0315a5c87ed67390e8edb23d44ee55f242b
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 37569eba0d351fdedcd68042af2e33b0e3947faa
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82732772"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701513"
 ---
-# <a name="customer-dashboard-in-commercial-marketplace-analytics"></a>Dashboard de clientes na análise do mercado comercial
+# <a name="customer-dashboard-in-commercial-marketplace-analytics"></a>Dashboard do Cliente na análise do mercado comercial
 
 Este artigo fornece informações sobre o **dashboard do Cliente** no Partner Center. Este dashboard exibe informações sobre os seus clientes, incluindo tendências de crescimento, apresentadas num formato gráfico e descarregável.
 
@@ -97,7 +97,8 @@ A tabela de detalhes do **Cliente** apresenta uma lista numerada dos 1000 client
 - Cada coluna na grelha é ordenada.
 - Os dados podem ser extraídos para um ficheiro TSV se a contagem dos registos for inferior a 1000.
 - Se o número de registos for superior a 1000, os dados exportados serão colocados assincronicamente numa página de downloads durante os próximos 30 dias.
-- Os filtros podem ser aplicados na tabela para visualizar apenas os dados que lhe interessam. Os dados podem ser filtrados pelo nome da empresa, ID do cliente, ID de subscrição do mercado, Tipo de Licença Azure, Data Adquirida, Data Perdida, E-mail do Cliente, País cliente/Estado/Cidade/Zip, Idioma do Cliente, etc.
+- Os filtros podem ser aplicados na tabela para visualizar apenas os dados que lhe interessam. Os dados podem ser filtrados pelo nome da empresa, ID do cliente, ID de subscrição do mercado, Tipo de Licença Azure, Data Adquirida, Data Perdida, E-mail do Cliente, País cliente/Estado/Cidade/Zip, Idioma do Cliente, e assim por diante.
+- Quando uma oferta é comprada por um cliente protegido, a informação em **Dados Detalhados** do Cliente será mascarada (**************).
 
 ### <a name="customer-page-filters"></a>Filtros de página do cliente
 

@@ -3,18 +3,18 @@ title: Automatizar insights de aplicação Azure com powerShell / Microsoft Docs
 description: Automatizar a criação e gestão de recursos, alertas e testes de disponibilidade no PowerShell utilizando um modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
 ms.date: 05/02/2020
-ms.openlocfilehash: fba85981f32611164c328945e45de4032ad949eb
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: a6653582a990b97775976b757198f11b2a46c46b
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780509"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697916"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>Gerir os recursos da Application Insights usando o PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Este artigo mostra-lhe como automatizar automaticamente a criação e atualização dos recursos [da Application Insights](../../azure-monitor/app/app-insights-overview.md) utilizando a Azure Resource Management. Pode, por exemplo, fazê-lo como parte de um processo de construção. Juntamente com o recurso basic Application Insights, pode criar testes web de [disponibilidade,](../../azure-monitor/app/monitor-web-app-availability.md)configurar [alertas,](../../azure-monitor/app/alerts.md)definir o [esquema de preços](pricing.md)e criar outros recursos Azure.
+Este artigo mostra-lhe como automatizar automaticamente a criação e atualização dos recursos [da Application Insights](../../azure-monitor/app/app-insights-overview.md) utilizando a Azure Resource Management. Pode, por exemplo, fazê-lo como parte de um processo de construção. Juntamente com o recurso basic Application Insights, pode criar testes web de [disponibilidade,](../../azure-monitor/app/monitor-web-app-availability.md)configurar [alertas,](../../azure-monitor/platform/alerts-log.md)definir o [esquema de preços](pricing.md)e criar outros recursos Azure.
 
 A chave para a criação destes recursos são os modelos JSON para [o Gestor de Recursos Azure.](../../azure-resource-manager/management/manage-resources-powershell.md) O procedimento básico é: baixar as definições jSON dos recursos existentes; parametrizar certos valores, tais como nomes; e, em seguida, executar o modelo sempre que quiser criar um novo recurso. Você pode embalar vários recursos em conjunto, para criá-los todos de uma só vez - por exemplo, um monitor de aplicativos com testes de disponibilidade, alertas e armazenamento para exportação contínua. Há algumas subtilezas em algumas das parametrizaçãos, o que vamos explicar aqui.
 
@@ -50,7 +50,7 @@ Aqui está como criar um novo recurso Application Insights usando um modelo de G
 
 ### <a name="create-the-azure-resource-manager-template"></a>Crie o modelo de Gestor de Recursos Azure
 
-Crie um novo ficheiro .json `template1.json` - vamos chamá-lo neste exemplo. Copie este conteúdo nele:
+Crie um novo ficheiro .json - vamos chamá-lo `template1.json` neste exemplo. Copie este conteúdo nele:
 
 ```JSON
     {
@@ -245,7 +245,7 @@ $Resource | Set-AzResource -Force
 
 ### <a name="setting-data-retention-using-rest"></a>Definição da retenção de dados utilizando o REST
 
-Para obter a retenção de dados atuais para o seu recurso Application Insights, pode utilizar a ferramenta OSS [ARMClient](https://github.com/projectkudu/ARMClient).  (Saiba mais sobre o ARMClient a partir de artigos de [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) e [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/).)  Aqui está um `ARMClient`exemplo usando, para obter a retenção atual:
+Para obter a retenção de dados atuais para o seu recurso Application Insights, pode utilizar a ferramenta OSS [ARMClient](https://github.com/projectkudu/ARMClient).  (Saiba mais sobre o ARMClient a partir de artigos de [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) e [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/).)  Aqui está um exemplo `ARMClient` usando, para obter a retenção atual:
 
 ```PS
 armclient GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName?api-version=2018-05-01-preview
@@ -268,7 +268,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "<resource group>" `
 
 ### <a name="setting-data-retention-using-a-powershell-script"></a>Definição da retenção de dados usando um script PowerShell
 
-O seguinte script também pode ser usado para alterar a retenção. Copie este script `Set-ApplicationInsightsRetention.ps1`para guardar como .
+O seguinte script também pode ser usado para alterar a retenção. Copie este script para guardar como `Set-ApplicationInsightsRetention.ps1` .
 
 ```PS
 Param(
@@ -350,7 +350,7 @@ armclient GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
 
 ## <a name="set-the-daily-cap-reset-time"></a>Definir o tempo de reset da tampa diária
 
-Para definir o tempo de reset da tampa diária, pode utilizar o [ARMClient](https://github.com/projectkudu/ARMClient). Aqui está um `ARMClient`exemplo usando, para definir o tempo de reset para uma nova hora (neste exemplo 12:00 UTC):
+Para definir o tempo de reset da tampa diária, pode utilizar o [ARMClient](https://github.com/projectkudu/ARMClient). Aqui está um exemplo `ARMClient` usando, para definir o tempo de reset para uma nova hora (neste exemplo 12:00 UTC):
 
 ```PS
 armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName/CurrentBillingFeatures?api-version=2018-05-01-preview "{'CurrentBillingFeatures':['Basic'],'DataVolumeCap':{'ResetTime':12}}"
@@ -365,13 +365,13 @@ Para obter o plano de preços atual, utilize o [cmdlet Set-AzApplicationInsights
 Set-AzApplicationInsightsPricingPlan -ResourceGroupName <resource group> -Name <resource name> | Format-List
 ```
 
-Para definir o plano de preços, utilize `-PricingPlan` o mesmo cmdlet com o especificado:  
+Para definir o plano de preços, utilize o mesmo cmdlet com o `-PricingPlan` especificado:  
 
 ```PS
 Set-AzApplicationInsightsPricingPlan -ResourceGroupName <resource group> -Name <resource name> -PricingPlan Basic
 ```
 
-Também pode definir o plano de preços de um recurso existente para insights de aplicação utilizando o modelo `dependsOn` de Gestor de Recursos acima, omitindo o recurso "microsoft.insights/components" e o nó do recurso de faturação. Por exemplo, para defini-lo no plano Per GB (anteriormente chamado de plano Básico), executar:
+Também pode definir o plano de preços de um recurso existente para insights de aplicação utilizando o modelo de Gestor de Recursos acima, omitindo o recurso "microsoft.insights/components" e o `dependsOn` nó do recurso de faturação. Por exemplo, para defini-lo no plano Per GB (anteriormente chamado de plano Básico), executar:
 
 ```PS
         New-AzResourceGroupDeployment -ResourceGroupName "<resource group>" `
@@ -415,19 +415,19 @@ Para automatizar os testes de disponibilidade, consulte o modelo de modelo de [a
 
 Para automatizar a criação de qualquer outro recurso de qualquer tipo, crie um exemplo manualmente e, em seguida, copie e parametrize o seu código do [Azure Resource Manager](https://resources.azure.com/). 
 
-1. Open [Azure Resource Manager](https://resources.azure.com/). Navegue `subscriptions/resourceGroups/<your resource group>/providers/Microsoft.Insights/components`até ao seu recurso de aplicação. 
+1. Open [Azure Resource Manager](https://resources.azure.com/). Navegue até `subscriptions/resourceGroups/<your resource group>/providers/Microsoft.Insights/components` ao seu recurso de aplicação. 
    
     ![Navegação no Explorador de Recursos Azure](./media/powershell/01.png)
    
     *Os componentes* são os recursos básicos da Aplicação Insights para exibir aplicações. Existem recursos separados para as regras de alerta associadas e testes web de disponibilidade.
-2. Copie o JSON do componente `template1.json`no local apropriado em .
+2. Copie o JSON do componente no local apropriado em `template1.json` .
 3. Eliminar estas propriedades:
    
    * `id`
    * `InstrumentationKey`
    * `CreationDate`
    * `TenantId`
-4. Abra `webtests` as `alertrules` secções e as secções e copie o JSON para itens individuais no seu modelo. (Não copie dos `webtests` `alertrules` nós ou nós: entre nos itens sob os mesmos.)
+4. Abra as `webtests` secções e `alertrules` as secções e copie o JSON para itens individuais no seu modelo. (Não copie dos `webtests` nós ou `alertrules` nós: entre nos itens sob os mesmos.)
    
     Cada teste web tem uma regra de alerta associada, por isso tem de copiar os dois.
    
@@ -439,7 +439,7 @@ Para automatizar a criação de qualquer outro recurso de qualquer tipo, crie um
 ### <a name="parameterize-the-template"></a>Parametrize o modelo
 Agora tens de substituir os nomes específicos por parâmetros. Para [parametrizar um modelo,](../../azure-resource-manager/templates/template-syntax.md)escreve expressões utilizando um [conjunto de funções de ajudante](../../azure-resource-manager/templates/template-functions.md). 
 
-Não se pode parametrizar apenas parte `concat()` de uma corda, por isso usa para construir cordas.
+Não se pode parametrizar apenas parte de uma corda, por isso usa `concat()` para construir cordas.
 
 Aqui estão exemplos das substituições que vai querer fazer. Há várias ocorrências de cada substituição. Pode precisar de outros no seu modelo. Estes exemplos usam os parâmetros e variáveis que definimos no topo do modelo.
 

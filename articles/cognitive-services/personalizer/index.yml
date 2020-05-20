@@ -3,7 +3,7 @@ title: Documentação do Personalizador
 summary: Saiba como utilizar o Personalizador para permitir que a sua aplicação escolha a melhor experiência para os seus utilizadores, ao aprender com o respetivo comportamento em tempo real.
 metadata:
   ms.topic: landing-page
-  ms.date: 10/03/2019
+  ms.date: 05/01/2020
   ms.author: nitinme
   author: nitinme
   ms.service: cognitive-services
@@ -12,12 +12,12 @@ metadata:
   title: Documentação do Personalizador
   titleSuffix: Azure Cognitive Services
   description: O Personalizador do Azure é um serviço de API com base na cloud que lhe permite escolher a melhor experiência para os seus utilizadores, ao aprender com o respetivo comportamento em tempo real.
-  ms.openlocfilehash: c703673ec85cadb57e2cc69d1ee1a0d023d53436
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: ef18921e9211bb1a3659fffc84bde922d500d0b0
+  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "77525028"
+  ms.lasthandoff: 05/19/2020
+  ms.locfileid: "83586325"
 landingContent:
 - title: Acerca do Personalizador
   linkLists:
@@ -101,6 +101,8 @@ landingContent:
   linkLists:
   - linkListType: concept
     links:
+    - text: Utilize o modo Aprendiz
+      url: how-to-learning-behavior.md
     - text: Melhorar o ciclo com avaliações offline
       url: concepts-offline-evaluation.md
     - text: Eventos ativos e inativos

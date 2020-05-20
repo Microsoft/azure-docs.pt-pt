@@ -4,15 +4,15 @@ description: Descreve como configurar o registo para monitorizar o servidor dos 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 71a81c4a3a57c206540e20f7c7e58949c552e582
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7e1eab20a8e315b977c21de46dd4f6ea2fec9f5d
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82128934"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701486"
 ---
 # <a name="setup-diagnostic-logging"></a>Configurar registo de diagnósticos
 
@@ -90,7 +90,7 @@ A categoria Métricas regista as mesmas [métricas do Servidor](analysis-service
 
 3. Clique em **Guardar**.
 
-    Se receber um erro que diga "Falhei em atualizar diagnósticos para \<o nome do espaço de trabalho>. O \<id de subscrição de subscrição> não está registado para usar microsoft.insights." siga as instruções de [Diagnóstico De Troubleshoot Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) para registar a conta e, em seguida, tente novamente este procedimento.
+    Se receber um erro que diga "Falhei em atualizar diagnósticos para \< o nome do espaço de trabalho>. O \< id de subscrição de subscrição> não está registado para usar microsoft.insights." siga as instruções de [Diagnóstico De Troubleshoot Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) para registar a conta e, em seguida, tente novamente este procedimento.
 
     Se pretender alterar a forma como os seus registos de recursos são guardados em qualquer momento no futuro, pode voltar a esta página para modificar as definições.
 
@@ -158,7 +158,7 @@ Para ver os seus dados de diagnóstico, no espaço de trabalho do Log Analytics,
 
 ![Opções de pesquisa de log no portal Azure](./media/analysis-services-logging/aas-logging-open-log-search.png)
 
-No construtor de consultas, expanda **o LogManagement** > **AzureDiagnostics**. A AzureDiagnostics inclui eventos de motor e serviço. Note que uma consulta é criada no voo. O campo\_EventClass contém nomes xEvento, que podem parecer familiares se tiver usado xEvents para a exploração no local. Clique em **EventClass\_ou** num dos nomes do evento e o espaço de trabalho log Analytics continua a construir uma consulta. Confirme que guarda as consultas para reutilização posterior.
+No construtor de consultas, expanda **o LogManagement**  >  **AzureDiagnostics**. A AzureDiagnostics inclui eventos de motor e serviço. Note que uma consulta é criada no voo. O \_ campo EventClass contém nomes xEvento, que podem parecer familiares se tiver usado xEvents para a exploração no local. Clique em **EventClass \_ ou** num dos nomes do evento e o espaço de trabalho log Analytics continua a construir uma consulta. Confirme que guarda as consultas para reutilização posterior.
 
 ### <a name="example-queries"></a>Consultas de exemplo
 
@@ -251,7 +251,7 @@ Set-AzContext -SubscriptionId <subscription ID>
 
 Pode utilizar uma conta de armazenamento existente para os seus registos, desde que esteja na mesma subscrição que o seu servidor. Para este tutorial, cria uma nova conta de armazenamento dedicada aos registos dos Serviços de Análise. Para facilitar, está a armazenar os detalhes da conta de armazenamento numa variável chamada **sa**.
 
-Também utiliza o mesmo grupo de recursos que aquele que contém o seu servidor de Serviços de Análise. Valores `awsales_resgroup`de `awsaleslogs`substituição por, e `West Central US` com os seus próprios valores:
+Também utiliza o mesmo grupo de recursos que aquele que contém o seu servidor de Serviços de Análise. Valores de substituição `awsales_resgroup` `awsaleslogs` por, e `West Central US` com os seus próprios valores:
 
 ```powershell
 $sa = New-AzStorageAccount -ResourceGroupName awsales_resgroup `

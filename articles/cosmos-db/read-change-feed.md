@@ -5,14 +5,14 @@ author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 05/20/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 06e5a1a7b107f949dbb4945ef4d3116b9fa6d076
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: d7408f3b3e955d397ba4a54d07323f80dd72c3d3
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656595"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697342"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Leitura do feed de alterações do Azure Cosmos DB
 
@@ -20,7 +20,7 @@ Pode trabalhar com o feed de mudança De DB Azure Cosmos usando um modelo push o
 
 Com um modelo de pull, um servidor solicita que funcione, solicitando-o frequentemente a partir de uma fila de trabalho central. O cliente, neste caso, não só tem lógica de negócio para processar alterações, mas também armazenar o Estado para a última alteração processada, manusear o equilíbrio de carga em vários clientes processando alterações paralelas e erros de manuseamento.
 
-Ao ler a partir do feed de mudança DB Azure Cosmos, usar um modelo push é tipicamente recomendado porque você não precisa se preocupar com:
+Ao ler o feed de mudança de DB Azure Cosmos, recomendamos usar um modelo push porque não precisa de se preocupar:
 
 - Sondagem a mudança para futuras mudanças.
 - Armazenar estado para a última mudança processada. Ao ler a partir do feed de mudança, este é automaticamente armazenado num recipiente de [aluguer](change-feed-processor.md#components-of-the-change-feed-processor).
@@ -41,7 +41,7 @@ Usar um modelo push é a maneira mais fácil de ler a partir do feed de mudança
 
 As Funções Azure são a opção mais simples se estiver apenas a começar a usar o feed de mudança. Devido à sua simplicidade, é também a opção recomendada para a maioria dos casos de utilização de alimentos para animais de alteração. Quando cria um gatilho de Funções Azure para o Azure Cosmos DB, seleciona o recipiente para se ligar e a Função Azure é acionada sempre que houver uma alteração no recipiente. Uma vez que a Azure Functions utiliza o processador de reparação de mudanças nos bastidores, paralelamente ao processamento de alterações nas [divisórias](partition-data.md)do seu recipiente .
 
-Desenvolver-se com as Funções Azure é uma experiência fácil e pode ser mais rápido do que implementar o processador de feed de mudança por conta própria. Os gatilhos podem ser criados utilizando o portal Funções Azure ou programáticamente com SDKs. O Visual Studio e o VS Code fornecem suporte para escrever Funções Azure, e pode até utilizar as Funções Azure CLI para desenvolvimento de plataformas cruzadas. Pode escrever e depurar o código no seu ambiente de trabalho e, em seguida, implementar a função com um clique. Consulte a computação da base de [dados Serverless utilizando funções Azure](serverless-computing-database.md) e utilizando o feed de mudança com artigos de [Funções Azure](change-feed-functions.md) para saber mais.
+Desenvolver-se com as Funções Azure é uma experiência fácil e pode ser mais rápido do que implementar o processador de feed de mudança por conta própria. Os gatilhos podem ser criados utilizando o portal Funções Azure ou utilizando programáticamente SDKs. O Visual Studio e o VS Code fornecem suporte para escrever Funções Azure, e pode até utilizar as Funções Azure CLI para desenvolvimento de plataformas cruzadas. Pode escrever e depurar o código no seu ambiente de trabalho e, em seguida, implementar a função com um clique. Consulte a computação da base de [dados Serverless utilizando funções Azure](serverless-computing-database.md) e utilizando o feed de mudança com artigos de [Funções Azure](change-feed-functions.md) para saber mais.
 
 ### <a name="change-feed-processor-library"></a>Alterar biblioteca de processadores de feed
 

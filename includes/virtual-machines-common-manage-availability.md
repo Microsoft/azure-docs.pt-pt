@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: ba21dfc900145ceeacab6c363e5de84b830282b1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8f65912d0e2ab322d73315828a98cc48274850fc
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82109637"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83696480"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Compreender os Reinícios da VM - manutenção vs. período de indisponibilidade
 Existem três cenários que podem levar a que a máquina virtual em Azure seja impactada: manutenção de hardware não planeada, tempo de inatividade inesperado e manutenção planeada.
@@ -33,7 +33,7 @@ Para reduzir o impacto do período de indisponibilidade devido a um ou mais dest
 * [Configurar várias máquinas virtuais num conjunto de disponibilidade para redundância]
 * [Utilizar discos geridos para VMs num conjunto de disponibilidade]
 * [Use eventos programados para responder proativamente a eventos de impacto vm](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
-* [Configurar cada camada da aplicação em conjuntos de disponibilidade separados]
+* [Configure cada nível de aplicação em conjuntos de disponibilidade separados]
 * [Combinar um Balanceador de Carga com conjuntos de disponibilidade]
 * [Utilize zonas de disponibilidade para proteger contra falhas de nível de datacenter]
 
@@ -91,19 +91,12 @@ Se planeia utilizar VMs com discos não geridos, siga abaixo as melhores prátic
 
 1. **Manter todos os discos (SO e dados) associados a uma VM na mesma conta de armazenamento**
 2. **Reveja os [limites](../articles/storage/blobs/scalability-targets-premium-page-blobs.md) do número de discos não geridos numa conta** de Armazenamento Azure antes de adicionar mais VHDs a uma conta de armazenamento
-3. **Utilize uma conta de armazenamento separada para cada VM num Conjunto de Disponibilidade.** Não partilhe Contas de armazenamento com várias VMs no mesmo Conjunto de Disponibilidade. É aceitável que os VMs em diferentes Conjuntos de Disponibilidade ![partilhem contas de armazenamento se forem seguidas as melhores práticas, os FDs não geridos](./media/virtual-machines-common-manage-availability/umd-updated.png)
+3. **Utilize uma conta de armazenamento separada para cada VM num Conjunto de Disponibilidade.** Não partilhe Contas de armazenamento com várias VMs no mesmo Conjunto de Disponibilidade. É aceitável que os VMs em diferentes Conjuntos de Disponibilidade partilhem contas de armazenamento se forem seguidas as melhores ![ práticas, os FDs não geridos](./media/virtual-machines-common-manage-availability/umd-updated.png)
 
 ## <a name="use-scheduled-events-to-proactively-respond-to-vm-impacting-events"></a>Use eventos programados para responder proativamente a eventos de impacto vm
 
 Quando subscreve [eventos agendados,](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)o seu VM é notificado sobre os próximos eventos de manutenção que podem afetar o seu VM. Quando os eventos programados estiverem ativados, a sua máquina virtual recebe um tempo mínimo antes da atividade de manutenção ser realizada. Por exemplo, as atualizações do Os do anfitrião que podem afetar o seu VM são feitas em fila como eventos que especificam o impacto, bem como um momento em que a manutenção será realizada se não forem tomadas medidas. Os eventos de agendamento também estão em fila quando o Azure detetar uma falha de hardware iminente que pode afetar o seu VM, o que lhe permite decidir quando deve ser realizada a cicatrização. Os clientes podem usar o evento para executar tarefas antes da manutenção, como o estado de poupança, falhando no secundário, e assim por diante. Depois de completar a sua lógica para lidar graciosamente com o evento de manutenção, pode aprovar o evento agendado pendente para permitir que a plataforma prossiga com a manutenção.
 
-## <a name="configure-each-application-tier-into-separate-availability-zones-or-availability-sets"></a>Configure cada nível de aplicação em zonas de disponibilidade separadas ou conjuntos de disponibilidade
-Se as suas máquinas virtuais forem quase idênticas e servirem o mesmo propósito para a sua aplicação, recomendamos que configure uma zona de disponibilidade ou um conjunto de disponibilidade para cada nível da sua aplicação.  Se colocar dois níveis diferentes na mesma zona de disponibilidade ou conjunto, todas as máquinas virtuais no mesmo nível de aplicação podem ser reiniciadas de uma só vez. Ao configurar pelo menos duas máquinas virtuais numa zona de disponibilidade ou definidas para cada nível, garante que pelo menos uma máquina virtual em cada nível está disponível.
-
-Por exemplo, você poderia colocar todas as máquinas virtuais na parte frontal da sua aplicação executando IIS, Apache e Nginx em uma única zona de disponibilidade ou conjunto. Certifique-se de que apenas as máquinas virtuais frontais são colocadas na mesma zona de disponibilidade ou definidas. Da mesma forma, certifique-se de que apenas as máquinas virtuais de nível de dados são colocadas na sua própria zona de disponibilidade ou configuradas, como as suas máquinas virtuais SQL Server replicadas, ou as suas máquinas virtuais MySQL.
-
-<!--Image reference-->
-   ![Camadas da aplicação](./media/virtual-machines-common-manage-availability/application-tiers.png)
 
 ## <a name="combine-a-load-balancer-with-availability-zones-or-sets"></a>Combine um equilibrador de carga com zonas de disponibilidade ou conjuntos
 Combine o Equilíbrio de [Carga Azure](../articles/load-balancer/load-balancer-overview.md) com uma zona de disponibilidade ou definido para obter a maior resiliência de aplicação. O Balanceador de Carga do Azure distribui tráfego entre várias máquinas virtuais. Para as nossas máquinas virtuais de camada Standard, o Balanceador de Carga do Azure está incluído. Nem todas as camadas de máquina virtual incluem o Balanceador de Carga do Azure. Para mais informações sobre o balanceamento de carga de máquinas virtuais, veja [Balanceamento de Carga de máquinas virtuais](../articles/virtual-machines/virtual-machines-linux-load-balance.md).
@@ -115,7 +108,6 @@ Para um tutorial sobre como carregar o equilíbrio em zonas de disponibilidade, 
 
 <!-- Link references -->
 [Configurar várias máquinas virtuais num conjunto de disponibilidade para redundância]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
-[Configurar cada camada da aplicação em conjuntos de disponibilidade separados]: #configure-each-application-tier-into-separate-availability-zones-or-availability-sets
 [Combinar um Balanceador de Carga com conjuntos de disponibilidade]: #combine-a-load-balancer-with-availability-zones-or-sets
 [Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Utilizar discos geridos para VMs num conjunto de disponibilidade]: #use-managed-disks-for-vms-in-an-availability-set

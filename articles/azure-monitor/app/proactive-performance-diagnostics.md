@@ -4,12 +4,12 @@ description: Application Insights realiza uma análise inteligente da sua teleme
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: 6c5b19c7e03993ef973cd708ed7a6fe89feb01a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ad4341993d92052123eacd3d37500905a0b25179
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81687709"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697172"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Deteção Inteligente - Anomalias de Desempenho
 
@@ -34,7 +34,7 @@ Não, uma notificação não significa que a sua aplicação definitivamente ten
 
 ## <a name="how-do-i-fix-it"></a>Como posso corrigi-lo?
 
-As notificações incluem informações de diagnóstico. Segue-se um exemplo:
+As notificações incluem informações de diagnóstico. Eis um exemplo:
 
 
 ![Aqui está um exemplo de deteção de degradação do tempo de resposta do servidor](media/proactive-performance-diagnostics/server_response_time_degradation.png)
@@ -70,12 +70,12 @@ Os e-mails sobre anomalias de desempenho de Deteções Inteligentes estão limit
 * *Posso criar as minhas próprias regras de deteção de anomalias ou personalizar as regras existentes?*
 
   * Ainda não, mas pode:
-    * [Instale alertas](../../azure-monitor/app/alerts.md) que lhe digam quando uma métrica atravessa um limiar.
+    * [Instale alertas](/azure/azure-monitor/platform/alerts-log) que lhe digam quando uma métrica atravessa um limiar.
     * [Exportar telemetria](../../azure-monitor/app/export-telemetry.md) para uma [base de dados](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) ou para O Power [BI,](../../azure-monitor/app/export-power-bi.md )onde você pode analisá-la por si mesmo.
 * *Com que frequência é feita a análise?*
 
   * Executamos a análise diariamente sobre a telemetria do dia anterior (dia inteiro no fuso horário UTC).
-* *Então isto substitui [os alertas métricos?](../../azure-monitor/app/alerts.md)*
+* *Então isto substitui [os alertas métricos?](/azure/azure-monitor/platform/alerts-log)*
   * Não.  Não nos comprometemos a detetar todos os comportamentos que considere anormais.
 
 
@@ -180,5 +180,5 @@ Estas ferramentas de diagnóstico ajudam-no a inspecionar a telemetria da sua ap
 
 As deteções inteligentes são completamente automáticas. Mas talvez queira criar mais alguns alertas?
 
-* [Alertas métricos configurados manualmente](../../azure-monitor/app/alerts.md)
+* [Alertas métricos configurados manualmente](/azure/azure-monitor/platform/alerts-log)
 * [Testes Web de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md)

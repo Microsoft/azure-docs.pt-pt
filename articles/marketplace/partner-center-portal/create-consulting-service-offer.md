@@ -6,13 +6,13 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/08/2020
-ms.openlocfilehash: 626dc5a7d1cd52182e68eb0d217b2ac4c653330e
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.date: 05/19/2020
+ms.openlocfilehash: bd9d643708515855e81ac6729843388a690b2c45
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82994359"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700938"
 ---
 # <a name="create-a-consulting-service-offer"></a>Criar uma oferta de serviço de consultoria
 
@@ -32,8 +32,8 @@ Benefícios da publicação no mercado comercial:
 ## <a name="create-a-new-offer"></a>Criar uma nova oferta
 
 1. Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/home).
-2. No menu de navegação à esquerda, selecione **Commercial Marketplace** > **Overview**.
-3. Na página 'Visão Geral', selecione + Novo Serviço de**Consultoria**de **Oferta.** > 
+2. No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **Overview**.
+3. Na página 'Visão Geral', selecione **+ Novo**Serviço de  >  **Consultoria**de Oferta.
 
     ![Ilustra o menu de navegação à esquerda.](./media/new-offer-consulting-service.png)
 
@@ -45,7 +45,7 @@ Benefícios da publicação no mercado comercial:
 Introduza um **ID de oferta**. Este é um identificador único para cada oferta na sua conta.
 
 - Este ID é visível para os clientes no endereço web para a oferta de marketplace.
-- Utilize apenas letras minúsculas e números. Pode incluir hífenes e sublinhados, mas sem espaços, e está limitado a 50 caracteres. Por exemplo, se introduzir o **test-offer-1,** `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`o endereço web da oferta será .
+- Utilize apenas letras minúsculas e números. Pode incluir hífenes e sublinhados, mas sem espaços, e está limitado a 50 caracteres. Por exemplo, se introduzir o **test-offer-1,** o endereço web da oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
 - O ID da Oferta não pode ser alterado depois de selecionar **Criar**.
 
 Insira um **pseudónimo da Oferta.** Este é o nome usado para a oferta no Partner Center.
@@ -108,7 +108,7 @@ Selecione **guardar rascunho** antes de continuar.
 Aqui irá definir os detalhes da oferta que são exibidos no mercado. Isto inclui o nome da oferta, descrição, imagens, e assim por diante. Certifique-se de seguir as políticas detalhadas na página de políticas de [certificação](https://docs.microsoft.com/legal/marketplace/certification-policies#800-consulting-services) do mercado comercial enquanto configura esta oferta.
 
 > [!NOTE]
-> Os detalhes da oferta não são necessários para estar em &quot;inglês se a descrição da oferta começar com a frase, esta aplicação está disponível apenas em [língua não inglesa]. &quot; Também é normal fornecer um Link Útil para oferecer conteúdo num idioma diferente do usado nos detalhes da listagem de oferta.
+> Os detalhes da oferta não são necessários para estar em inglês se a descrição da oferta começar com a frase, &quot; esta aplicação está disponível apenas em [língua não inglesa]. &quot; Também é normal fornecer um Link Útil para oferecer conteúdo num idioma diferente do usado nos detalhes da listagem de oferta.
 
 ### <a name="name"></a>Name
 
@@ -126,32 +126,11 @@ Forneça uma breve descrição da sua oferta. Isto pode ter até 100 caracteres 
 
 ### <a name="description"></a>Descrição
 
-Forneça uma descrição mais longa da sua oferta, até 3.000 caracteres. Isto é apresentado aos clientes na visão geral da listagem do mercado.
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-Inclua um ou mais dos seguintes na sua descrição:
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-- O valor e os benefícios-chave que a sua oferta proporciona
-- Categoria ou associações industriais, ou ambos
-- Oportunidades de compra na aplicação
-- Quaisquer divulgações necessárias
-
-Aqui ficam algumas dicas para escrever a sua descrição:
-
-- Descreva claramente o valor da sua oferta nas primeiras frases da sua descrição. Incluir os seguintes itens:
-  - Descrição da oferta.
-  - O tipo de utilizador que beneficia da oferta.
-  - As necessidades do cliente ou emite os endereços da oferta.
-- Lembre-se que as primeiras frases podem ser exibidas nos resultados da pesquisa.
-- Não confie em funcionalidades e funcionalidades para vender o seu produto. Em vez disso, concentre-se no valor que a sua oferta proporciona.
-- Tente utilizar vocabulário específico da indústria ou formulação baseada em benefícios.
-
-Para tornar a sua descrição mais envolvente, use o rico editor de texto para aplicar formatação.
-
-![Usando o rico editor de texto](./media/rich-text-editor.png)
-
-| <center>Alterar o formato de texto | <center>Adicionar balas ou numerar | <center>Adicionar ou remover o travessão de texto |
-| --- | --- | --- |
-| <center>![Usando o rico editor de texto para alterar o formato de texto](./media/text-editor3.png) |  <center>![Usando o rico editor de texto para adicionar listas](./media/text-editor4.png) |  <center>![Usando o rico editor de texto para o travessão](./media/text-editor5.png) |
+[!INCLUDE [Long description-3](./includes/long-description-3.md)]
 
 ### <a name="keywords"></a>Palavras-chave
 
@@ -174,7 +153,7 @@ Adicione até três (mas pelo menos um) documentos PDF comprovando para a sua of
 Forneça logotipos e imagens para usar com a sua oferta. Todas as imagens devem estar em formato .png. Imagens desfocadas serão rejeitadas.
 
 >[!Note]
->Se tiver algum problema de envio de ficheiros, https://upload.xboxlive.com certifique-se de que a sua rede local não bloqueia o serviço utilizado pelo Partner Center.
+>Se tiver algum problema de envio de ficheiros, certifique-se de que a sua rede local não bloqueia o https://upload.xboxlive.com serviço utilizado pelo Partner Center.
 
 #### <a name="store-logos"></a>Logotipos de loja
 

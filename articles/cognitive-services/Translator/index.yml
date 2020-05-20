@@ -1,10 +1,10 @@
 ### YamlMime:Landing
-title: Documentação da Tradução de Texto
-summary: A Tradução de Texto é um serviço de tradução automática com base na cloud que pode utilizar para traduzir texto quase em tempo real através de uma simples chamada à API REST. A API utiliza uma tecnologia de tradução automática neural e oferece tecnologia de tradução automática estatística. O Tradutor Personalizado é uma extensão da API de Tradução de Texto, que lhe permite criar sistemas de tradução neural. O sistema de tradução personalizado pode ser utilizado para traduzir texto com a API de Tradução de Texto ou com os Serviços de Voz da Microsoft.
+title: Documentação do Tradutor
+summary: O Tradutor é um serviço de tradução automática com base na cloud que pode utilizar para traduzir texto quase em tempo real através de uma simples chamada à API REST. O serviço utiliza uma tecnologia de tradução automática neural e oferece tecnologia de tradução automática estatística. O Tradutor Personalizado é uma extensão do Tradutor, que lhe permite criar sistemas de tradução neural. O sistema de tradução personalizado pode ser utilizado para traduzir texto com o Tradutor ou com os Serviços de Voz da Microsoft.
 metadata:
-  title: Documentação da Tradução de Texto - inícios rápidos, tutoriais, referência da API
+  title: Documentação do Tradutor - inícios rápidos, tutoriais, referência da API
   titleSuffix: Azure Cognitive Services
-  description: A Tradução de Texto é um serviço de tradução automática com base na cloud que pode utilizar para traduzir texto quase em tempo real através de uma simples chamada à API REST. A API utiliza uma tecnologia de tradução automática neural e oferece tecnologia de tradução automática estatística. O Tradutor Personalizado é uma extensão da API de Tradução de Texto, que lhe permite criar sistemas de tradução neural. O sistema de tradução personalizado pode ser utilizado para traduzir texto com a API de Tradução de Texto ou com os Serviços de Voz da Microsoft.
+  description: O Tradutor é um serviço de tradução automática com base na cloud que pode utilizar para traduzir texto quase em tempo real através de uma simples chamada à API REST. O serviço utiliza uma tecnologia de tradução automática neural e oferece tecnologia de tradução automática estatística. O Tradutor Personalizado é uma extensão do Tradutor, que lhe permite criar sistemas de tradução neural. O sistema de tradução personalizado pode ser utilizado para traduzir texto com o Tradutor ou com os Serviços de Voz da Microsoft.
   services: cognitive-services
   author: erhopf
   manager: nitinme
@@ -13,18 +13,18 @@ metadata:
   ms.topic: landing-page
   ms.date: 10/14/2019
   ms.author: erhopf
-  ms.openlocfilehash: 47944b573cdc2a8121c525c7750aa868d4a4e696
-  ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+  ms.openlocfilehash: 26fc174ef0993339487a2edcc32cbb4fd864f96e
+  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/16/2020
-  ms.locfileid: "81529807"
+  ms.lasthandoff: 05/19/2020
+  ms.locfileid: "83592751"
 landingContent:
 - title: Tradutor
   linkLists:
   - linkListType: overview
     links:
-    - text: API de Texto do Tradutor
+    - text: Tradutor
       url: translator-info-overview.md
     - text: Custom Translator
       url: translator-info-overview.md
@@ -36,7 +36,7 @@ landingContent:
       url: translator-text-how-to-signup.md
     - text: FAQ
       url: https://www.microsoft.com/translator/faq.aspx
-- title: API de Texto do Tradutor
+- title: Introdução
   linkLists:
   - linkListType: quickstart
     links:
@@ -60,7 +60,7 @@ landingContent:
       url: tutorial-build-flask-app-translation-synthesis.md
   - linkListType: reference
     links:
-    - text: Referência da API de Tradução de Texto (v3)
+    - text: Referência do Tradutor (v3)
       url: reference/v3-0-reference.md
     - text: Limites de pedidos
       url: request-limits.md

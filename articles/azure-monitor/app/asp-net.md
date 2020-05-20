@@ -3,12 +3,12 @@ title: Configurar a análise de aplicações Web para ASP.NET com o Azure Applic
 description: Configure ferramentas de análise de desempenho, disponibilidade e comportamento do utilizador para o seu site ASP.NET, hospedado no local ou no Azure.
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.openlocfilehash: d3181c3d43f07c7cb920b9fe265a8420c1417a56
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aa4449a0229ba156dbeed37c10ed21f8b1b5f201
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82145270"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698497"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Configurar o Application Insights para o seu site ASP.NET
 
@@ -30,7 +30,7 @@ Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.mi
 > [!IMPORTANT]
 > As imagens deste exemplo baseiam-se na versão 15.9.9 do Visual Studio 2017 e posteriormente. A experiência para adicionar Insights de Aplicação varia entre versões do Estúdio Visual, bem como por ASP.NET tipo de modelo. Versões mais antigas podem ter texto alternativo, como "Configure Application Insights".
 
-Clique no nome da sua aplicação web no Solution Explorer e escolha **Adicionar** > **Insights de Aplicação Telemetria**
+Clique no nome da sua aplicação web no Solution Explorer e escolha **Adicionar**  >  **Insights de Aplicação Telemetria**
 
 ![Captura de ecrã do Explorador de Soluções, com a opção Configurar Application Insights realçada](./media/asp-net/add-telemetry-new.png)
 
@@ -50,7 +50,7 @@ Se pretender definir o grupo de recursos ou a localização onde os seus dados s
 
 ![Captura de ecrã da página Registar a sua aplicação no Application Insights](./media/asp-net/00005-register-ed.png)
 
- Selecione **Project** > **Manage NuGet Packages** > **Package source: nuget.org** > Confirme que tem a mais recente versão estável do SDK de Insights de Aplicação.
+ Selecione **Project**  >  **Manage NuGet Packages**  >  **Package source: nuget.org** > Confirme que tem a mais recente versão estável do SDK de Insights de Aplicação.
 
  A telemetria será enviada para o [portal do Azure](https://portal.azure.com), durante a depuração e após ter publicado a aplicação.
 > [!NOTE]
@@ -68,7 +68,7 @@ Pode ver a sua telemetria no Visual Studio ou no portal Web do Application Insig
 
 ### <a name="see-your-telemetry-in-visual-studio"></a>Consulte a sua telemetria no Visual Studio
 
-No Visual Studio, para ver os dados do Application Insights.  Selecione **Serviços Conectados do Explorador** > **Connected Services** de Soluções > insights de **aplicação**de clique sintetizado e, em seguida, clique em **Search Live Telemettry**.
+No Visual Studio, para ver os dados do Application Insights.  Selecione **Serviços Conectados do Explorador**de Soluções  >  **Connected Services** > insights de **aplicação**de clique sintetizado e, em seguida, clique em **Search Live Telemettry**.
 
 Na janela de Pesquisa do Visual Studio Application Insights, verá os dados da aplicação para ver a telemetria gerada no lado do servidor da aplicação. Experimente os filtros e clique em qualquer evento para ver mais detalhes.
 
@@ -139,7 +139,7 @@ Existem tópicos alternativos que pode ver se estiver interessado em:
 
 * [Testes de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md): Crie testes para garantir que o seu site está visível na Web.
 * [Diagnóstico inteligente](../../azure-monitor/app/proactive-diagnostics.md): Estes testes são executados automaticamente, pelo que não precisa de fazer nada para os configurar. Estes indicam se a aplicação tem uma taxa de pedidos com falha fora do normal.
-* [Alertas métricos](../../azure-monitor/app/alerts.md): Destete alertas para o avisar se uma métrica atravessar um limiar. Pode defini-los em métricas personalizadas que introduz no código da sua aplicação.
+* [Alertas métricos](../../azure-monitor/platform/alerts-log.md): Destete alertas para o avisar se uma métrica atravessar um limiar. Pode defini-los em métricas personalizadas que introduz no código da sua aplicação.
 
 ### <a name="automation"></a>Automatização
 

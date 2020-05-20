@@ -6,13 +6,13 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/01/2020
-ms.openlocfilehash: 17a6b7e46341ee0231ac88b849495cfc7e46ad88
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.date: 05/19/2020
+ms.openlocfilehash: 9c31c6ca4ccb5ff328faa5db1803134aa6b0c873
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82839152"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701129"
 ---
 # <a name="create-a-power-bi-app-for-microsoft-appsource"></a>Criar um aplicativo Power BI para microsoft AppSource
 
@@ -23,8 +23,8 @@ Antes de começar, [Crie uma conta de Marketplace Comercial no Partner Center](h
 ## <a name="create-a-new-offer"></a>Criar uma nova oferta
 
 1. Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/home).
-2. No menu de navegação à esquerda, selecione **Commercial Marketplace** > **Overview**.
-3. Na página 'Visão Geral', selecione **+ Nova oferta** > **Power BI Service App**.
+2. No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **Overview**.
+3. Na página 'Visão Geral', selecione **+ Nova oferta**Power BI Service  >  **App**.
 
    ![Ilustra o menu de navegação à esquerda.](./media/new-offer-pbi-app.png)
 
@@ -39,7 +39,7 @@ Antes de começar, [Crie uma conta de Marketplace Comercial no Partner Center](h
 Introduza um **ID de oferta**. Este é um identificador único para cada oferta na sua conta.
 
 - Este ID é visível para os clientes no endereço web para a oferta de mercado e modelos do Gestor de Recursos Azure, se aplicável.
-- Utilize apenas letras minúsculas e números. Pode incluir hífenes e sublinhados, mas sem espaços, e está limitado a 50 caracteres. Por exemplo, se introduzir o **test-offer-1** aqui, `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`o endereço web da oferta será .
+- Utilize apenas letras minúsculas e números. Pode incluir hífenes e sublinhados, mas sem espaços, e está limitado a 50 caracteres. Por exemplo, se introduzir o **test-offer-1** aqui, o endereço web da oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
 - O ID da Oferta não pode ser alterado depois de selecionar **Criar**.
 
 Insira um **pseudónimo da Oferta.** Este é o nome usado para a oferta no Partner Center.
@@ -109,17 +109,17 @@ Opcionalmente, selecione até duas indústrias e duas verticais sob cada indúst
 | *Automóvel | *Automóvel |
 | Agricultura | *Outros - Não segmentado |
 | Distribuição | *Por grosso<br>Envio de encomendas e pacotes |
-| Education | *Ensino<br> Superior* Ensino Primário e Secundário / K-12<br>*Bibliotecas e Museus |
-| Serviços Financeiros | *Mercados<br> Bancários e De Capitais* Seguro |
-| Governo | *Defesa e Inteligência (costumava ser chamado<br> de Segurança Nacional e Pública)* Segurança Pública e Justiça<br>*Governo Civil |
-| Cuidados de saúde (costumavam chamar-se Saúde) | *Pagador de<br> Saúde* Provedor de Saúde<br>*Farmacêuticos |
-| Fabrico e Recursos (costumava chamar-se Fabricação) | *Química e<br> Agroquímica* Fabrico discreto<br>*Energia |
-| Produtos de retalho e de consumo (costumavam chamar-se Retalho) | *Bens de<br> Consumo* Retalhistas |
-| *Media and Communications (costumava chamar-se Media and Entertainment) | *Media e<br> Entretenimento* Telecomunicações |
-| Serviços Profissionais | *Legal<br> * Serviços Profissionais parceiros |
+| Education | *Ensino <br> Superior* Ensino Primário e Secundário / K-12<br>*Bibliotecas e Museus |
+| Serviços Financeiros | *Mercados <br> Bancários e De Capitais* Seguro |
+| Administração Pública | *Defesa e Inteligência (costumava ser chamado <br> de Segurança Nacional e Pública)* Segurança Pública e Justiça<br>*Governo Civil |
+| Cuidados de saúde (costumavam chamar-se Saúde) | *Pagador de <br> Saúde* Provedor de Saúde<br>*Farmacêuticos |
+| Fabrico e Recursos (costumava chamar-se Fabricação) | *Química e <br> Agroquímica* Fabrico discreto<br>*Energia |
+| Produtos de retalho e de consumo (costumavam chamar-se Retalho) | *Bens de <br> Consumo* Retalhistas |
+| *Media and Communications (costumava chamar-se Media and Entertainment) | *Media e <br> Entretenimento* Telecomunicações |
+| Serviços Profissionais | *Legal <br> * Serviços Profissionais parceiros |
 | *Arquitetura e Construção (costumava ser chamada engenharia de arquitetura) | *Outros - Não segmentado |
-| *Hospitalidade e Viagens | *Hotéis<br> e Lazer* Viagens e Transportes<br>*Restaurantes e Serviços alimentares |
-| *Outras Indústrias do Sector Público | *Silvicultura<br> e Pesca* Sem fins lucrativos |
+| *Hospitalidade e Viagens | *Hotéis <br> e Lazer* Viagens e Transportes<br>*Restaurantes e Serviços alimentares |
+| *Outras Indústrias do Sector Público | *Silvicultura <br> e Pesca* Sem fins lucrativos |
 | *Imóveis | *Outros - Não segmentado |
 
 ### <a name="legal"></a>Legal
@@ -161,32 +161,11 @@ Forneça uma breve descrição da sua oferta. Isto pode ter até 100 caracteres 
 
 ### <a name="description"></a>Descrição
 
-Forneça uma descrição mais longa da sua oferta, até 3.000 caracteres. Isto é apresentado aos clientes na visão geral da listagem do mercado.
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-Inclua um ou mais dos seguintes na sua descrição:
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-- O valor e os benefícios fundamentais que a sua oferta proporciona.
-- Categoria ou associações industriais, ou ambas.
-- Oportunidades de compra na aplicação.
-- Quaisquer divulgações necessárias.
-
-Aqui ficam algumas dicas para escrever a sua descrição:
-
-- Descreva claramente o valor da sua oferta nas primeiras frases da sua descrição. Incluir os seguintes itens:
-  - Descrição da oferta.
-  - O tipo de utilizador que beneficia da oferta.
-  - As necessidades do cliente ou emite os endereços da oferta.
-- Lembre-se que as primeiras frases podem ser exibidas nos resultados da pesquisa.
-- Não confie em funcionalidades e funcionalidades para vender o seu produto. Em vez disso, concentre-se no valor que a sua oferta proporciona.
-- Tente utilizar vocabulário específico da indústria ou formulação baseada em benefícios.
-
-Para tornar a sua descrição mais envolvente, use o rico editor de texto para aplicar formatação.
-
-![Usando o rico editor de texto](./media/rich-text-editor.png)
-
-| <center>Alterar o formato de texto | <center>Adicionar balas ou numerar | <center>Adicionar ou remover o travessão de texto |
-| --- | --- | --- |
-| <center>![Usando o rico editor de texto para alterar o formato de texto](./media/text-editor3.png) |  <center>![Usando o rico editor de texto para adicionar listas](./media/text-editor4.png) |  <center>![Usando o rico editor de texto para o travessão](./media/text-editor5.png) |
+[!INCLUDE [Long description-3](./includes/long-description-3.md)]
 
 ### <a name="search-keywords"></a>Pesquisar palavras-chave
 
@@ -223,7 +202,7 @@ Forneça pelo menos um e até três documentos de marketing relacionados em form
 Forneça logotipos e imagens para usar com a sua oferta. Todas as imagens devem estar em formato .png. Imagens desfocadas serão rejeitadas.
 
 >[!NOTE]
->Se tiver algum problema de envio de ficheiros, https://upload.xboxlive.com certifique-se de que a sua rede local não bloqueia o serviço utilizado pelo Partner Center.
+>Se tiver algum problema de envio de ficheiros, certifique-se de que a sua rede local não bloqueia o https://upload.xboxlive.com serviço utilizado pelo Partner Center.
 
 #### <a name="store-logos"></a>Logotipos de loja
 
@@ -233,7 +212,7 @@ Forneça ficheiros .png do logótipo da sua oferta em dois tamanhos de pixel:
 
 Ambos os logótipos são necessários e são usados em diferentes lugares na listagem do mercado.
 
-#### <a name="screenshots"></a>Capturas de Ecrã
+#### <a name="screenshots"></a>Capturas de ecrã
 
 Adicione pelo menos uma e até cinco imagens que mostram como a sua oferta funciona. Cada um deve ter 1280 x 720 pixels de tamanho e em formato .png.
 

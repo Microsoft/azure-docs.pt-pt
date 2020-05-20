@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 02/20/2020
-ms.openlocfilehash: fcebc7eb170239e5d7efd8a32599a6e782f630bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/20/2020
+ms.openlocfilehash: 2cf8ff446fe3441fc039ef3c2afef6308224666f
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80235249"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701214"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-oracle-to-azure-db-for-postgresql-single-server"></a>Questões conhecidas/limitações de migração com migrações on-line de Oracle para Azure DB para o servidor PostgreSQL-Single
 
@@ -64,7 +64,7 @@ Além disso, as colunas BLOB/CLOB vazias são mapeadas para NULO no alvo.
 
 ## <a name="known-issues-and-limitations"></a>Problemas e limitações conhecidos
 
-- Os clientes devem usar o SYSDBA para se ligarem à Oracle.
+- O utilizador deve ter privilégio saqueado no Servidor Oracle.
 - As alterações de dados resultantes de operações de partição/subpartição (ADD, DROP, EXCHANGE e TRUNCATE) não serão migradas e podem causar os seguintes erros:
   - Para operações ADD, atualizações e eliminações nos dados adicionados pode devolver um aviso de "0 linhas afetadas".
   - Para as operações DROP e TRUNCATE, novas inserções podem resultar em erros de "duplicados".
