@@ -3,12 +3,12 @@ title: Gerir bases de dados SAP HANA apoiadas em VMs Azure
 description: Neste artigo, aprenda tarefas comuns para gerir e monitorizar as bases de dados SAP HANA que estão a funcionar em máquinas virtuais Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 89fd7f23163d301817e767771257d9bc6f4ed526
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c810a049fafcbce6d4c840557b101e5226343ab7
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79480067"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660158"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Gerir e monitorizar bases de dados do SAP HANA guardadas em cópia de segurança
 
@@ -64,17 +64,25 @@ Os backups funcionam de acordo com o calendário de apólices. Pode executar um 
 1. No menu do cofre, clique em **itens de backup**.
 2. Em Itens de **Backup,** selecione o VM que executa a base de dados SAP HANA e, em seguida, clique em **Backup agora**.
 3. Em **Backup Now,** utilize o controlo do calendário para selecionar o último dia em que o ponto de recuperação deve ser mantido. Em seguida, clique em **OK**.
-4. Monitorize as notificações do portal. Você pode monitorizar o progresso do trabalho no painel de instrumentos do cofre > **Backup Jobs** > **Em andamento.** Dependendo do tamanho da sua base de dados, a criação da cópia de segurança inicial pode demorar algum tempo.
+4. Monitorize as notificações do portal. Você pode monitorizar o progresso do trabalho no painel de instrumentos do cofre > **Backup Jobs**  >  **Em andamento.** Dependendo do tamanho da sua base de dados, a criação da cópia de segurança inicial pode demorar algum tempo.
 
 ### <a name="hana-native-client-integration"></a>Integração de clientes nativos da HANA
 
-Agora, os backups completos a pedido desencadeados por qualquer um dos clientes nativos da HANA aparecerão como um reforço completo na página de **Backup Itens.**
+#### <a name="backup"></a>Cópia de segurança
+
+Os backups a pedido desencadeados por qualquer um dos clientes nativos da HANA (para **Backint)** aparecerão na lista de backup na página **'Backup Itens'.**
 
 ![Última corrida de backups](./media/sap-hana-db-manage/last-backups.png)
 
-Estes backups completos ad-hoc também aparecerão na lista de pontos de restauro para restauro.
+Também pode [monitorizar estes backups](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#monitor-manual-backup-jobs-in-the-portal) a partir da página **de backup.**
+
+Estes backups a pedido também aparecerão na lista de pontos de restauro para restauro.
 
 ![Lista de pontos de restauro](./media/sap-hana-db-manage/list-restore-points.png)
+
+#### <a name="restore"></a>Restauro
+
+Os restauros desencadeados por clientes nativos da HANA (utilizando **backint)** para restaurar a mesma máquina podem ser [monitorizados](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#monitor-manual-backup-jobs-in-the-portal) a partir da página de **trabalhos de backup.**
 
 ### <a name="run-sap-hana-native-client-backup-on-a-database-with-azure-backup-enabled"></a>Executar backup de cliente nativo SAP HANA em uma base de dados com backup Azure ativado
 
@@ -82,7 +90,7 @@ Se quiser obter uma cópia de segurança local (usando o HANA Studio / Cockpit) 
 
 1. Aguarde quaisquer cópias de segurança completas ou de registo para que a base de dados termine. Verifique o estado no Estúdio SAP HANA/ Cockpit.
 2. Desative as cópias de segurança e desative as cópias de segurança e desative o catálogo de cópias de segurança no sistema de ficheiros para uma base de dados relevante.
-3. Para isso, clique duas vezes na**configuração** > do **sistema,** > **selecione** > filtro de base de dados **(Log)**.
+3. Para isso, clique **systemdb**duas vezes na  >  **configuração**do  >  **sistema, selecione**filtro de base de dados  >  **(Log)**.
 4. Definir **enable_auto_log_backup** para **Nº**.
 5. Coloque **log_backup_using_backint** a **Falso**.
 6. Pegue uma cópia de segurança completa da base de dados.

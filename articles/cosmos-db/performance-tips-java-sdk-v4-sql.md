@@ -5,14 +5,14 @@ author: anfeldma-ms
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: ce4e4d11ead41ee8cc4a4bd1d85f1fbad2af4b07
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: dca9babff198fc780e54df6e89149f2c4c8157bf
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982535"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83677699"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Dicas de desempenho para Azure Cosmos DB Java SDK v4
 
@@ -24,7 +24,7 @@ ms.locfileid: "82982535"
 > 
 
 > [!IMPORTANT]  
-> As dicas de desempenho neste artigo são apenas para Azure Cosmos DB Java SDK v4. Por favor, veja as notas de lançamento do Azure Cosmos DB Java SDK v4, [o repositório Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos)e o guia de resolução de [problemas](troubleshoot-java-sdk-v4-sql.md) Azure Cosmos DB Java SDK v4 para mais informações. Se está a utilizar atualmente uma versão mais antiga do que a v4, consulte o guia [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) para ajudar a atualizar para v4.
+> As dicas de desempenho neste artigo são apenas para Azure Cosmos DB Java SDK v4. Por favor, veja as [notas](sql-api-sdk-java-v4.md)de lançamento do Azure Cosmos DB Java SDK v4, [repositório Maven,](https://mvnrepository.com/artifact/com.azure/azure-cosmos)e o guia de resolução de [problemas](troubleshoot-java-sdk-v4-sql.md) Azure Cosmos DB Java SDK v4 para mais informações. Se está a utilizar atualmente uma versão mais antiga do que a v4, consulte o guia [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) para ajudar a atualizar para v4.
 >
 
 Azure Cosmos DB é uma base de dados distribuída rápida e flexível que escala perfeitamente com latência garantida e produção. Não é preciso fazer grandes alterações de arquitetura ou escrever código complexo para escalar a sua base de dados com o Azure Cosmos DB. Escalar para cima e para baixo é tão fácil como fazer uma única chamada aPI ou chamada de método SDK. No entanto, como o Azure Cosmos DB é acedido através de chamadas de rede, existem otimizações do lado do cliente que você pode fazer para alcançar o desempenho máximo ao usar Azure Cosmos DB Java SDK v4.
@@ -92,7 +92,7 @@ Então, se estás a perguntar"Como posso melhorar o meu desempenho na base de da
 
     ![Ilustração da política de conexão Azure Cosmos DB](./media/performance-tips/same-region.png)
 
-    Uma aplicação que interage com uma conta multi-região do Azure Cosmos DB precisa de configurar [locais preferenciais]() para garantir que os pedidos vão para uma região colocalizada.
+    Uma aplicação que interage com uma conta multi-região do Azure Cosmos DB precisa de configurar [locais preferenciais](tutorial-global-distribution-sql-api.md#preferred-locations) para garantir que os pedidos vão para uma região colocalizada.
 
 * **Ative a rede acelerada no seu VM Azure para uma latência mais baixa.**
 
@@ -133,7 +133,7 @@ Consulte as instruções [do Windows](https://docs.microsoft.com/azure/virtual-n
     
     A collocalização geográfica pode dar-lhe uma maior e mais consistente entrada ao utilizar sync API (ver [clientes Collocate na mesma região de Azure para desempenho),](#collocate-clients)mas ainda não é esperado que exceda a alocação de ASYNC API alcançável.
 
-    Alguns utilizadores também podem não estar familiarizados com o [Project Reator,](https://projectreactor.io/)o quadro Reative Streams usado para implementar a API ASYNC Azure Cosmos DB Java SDK v4. Se isto for uma preocupação, recomendamos que leia o nosso Guia de Padrão do [Reator](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-pattern-guide.md) introdutório e, em seguida, dê uma olhada nesta [Introdução à Programação Reativa](https://tech.io/playgrounds/929/reactive-programming-with-reactor-3/Intro) para se familiarizar. Se já usou o Azure Cosmos DB com uma interface Async, e o SDK que usou foi Azure Cosmos DB Async Java SDK v2, então pode estar familiarizado com o [ReactiveX](http://reactivex.io/)/[RxJava,](https://github.com/ReactiveX/RxJava) mas não tenha a certeza do que mudou no Project Reator. Nesse caso, por favor, dê uma olhada no nosso [Reator vs. RxJava Guide](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) para se familiarizar.
+    Alguns utilizadores também podem não estar familiarizados com o [Project Reator,](https://projectreactor.io/)o quadro Reative Streams usado para implementar a API ASYNC Azure Cosmos DB Java SDK v4. Se isto for uma preocupação, recomendamos que leia o nosso Guia de Padrão do [Reator](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-pattern-guide.md) introdutório e, em seguida, dê uma olhada nesta [Introdução à Programação Reativa](https://tech.io/playgrounds/929/reactive-programming-with-reactor-3/Intro) para se familiarizar. Se já usou o Azure Cosmos DB com uma interface Async, e o SDK que usou foi Azure Cosmos DB Async Java SDK v2, então pode estar familiarizado com o [ReactiveX](http://reactivex.io/) / [RxJava,](https://github.com/ReactiveX/RxJava) mas não tenha a certeza do que mudou no Project Reator. Nesse caso, por favor, dê uma olhada no nosso [Reator vs. RxJava Guide](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) para se familiarizar.
 
     Os seguintes códigos mostram como inicializar o seu cliente Azure Cosmos DB para a operação ASYNC API ou Sync API, respectivamente:
 
@@ -278,7 +278,7 @@ Consulte as instruções [do Windows](https://docs.microsoft.com/azure/virtual-n
         });
     ```
 
-    Com base no tipo de trabalho que deve utilizar o programador de reatores adequado para o seu trabalho. Leia [``Schedulers``](https://projectreactor.io/docs/core/release/api/reactor/core/scheduler/Schedulers.html)aqui.
+    Com base no tipo de trabalho que deve utilizar o programador de reatores adequado para o seu trabalho. Leia [``Schedulers``](https://projectreactor.io/docs/core/release/api/reactor/core/scheduler/Schedulers.html) aqui.
 
     Para mais informações sobre o Azure Cosmos DB Java SDK v4, por favor, consulte o [diretório Cosmos DB do Azure SDK para Java monorepo no GitHub.](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos)
 
@@ -292,7 +292,7 @@ Consulte as instruções [do Windows](https://docs.microsoft.com/azure/virtual-n
 
     * ***Desativar a exploração madeireira da rede***
 
-        O registo da biblioteca netty é falador e precisa de ser desligado (suprimir o sinal na configuração pode não ser suficiente) para evitar custos adicionais de CPU. Se não estiver em modo de depuração, desative completamente a exploração madeireira da Netty. Por isso, se estiver a utilizar o log4j ``org.apache.log4j.Category.callAppenders()`` para remover os custos adicionais de CPU incorridos a partir de netty adicione a seguinte linha à sua base de código:
+        O registo da biblioteca netty é falador e precisa de ser desligado (suprimir o sinal na configuração pode não ser suficiente) para evitar custos adicionais de CPU. Se não estiver em modo de depuração, desative completamente a exploração madeireira da Netty. Por isso, se estiver a utilizar o log4j para remover os custos adicionais de CPU incorridos a ``org.apache.log4j.Category.callAppenders()`` partir de netty adicione a seguinte linha à sua base de código:
 
         ```java
         org.apache.log4j.Logger.getLogger("io.netty").setLevel(org.apache.log4j.Level.OFF);
@@ -393,7 +393,7 @@ Consulte as instruções [do Windows](https://docs.microsoft.com/azure/virtual-n
 
     A complexidade de uma consulta tem impacto na quantidade de unidades de pedido que são consumidas para uma operação. O número de predicados, a natureza dos predicados, o número de UDFs e a dimensão dos dados de origem todos influenciam o custo das operações de consulta.
 
-    Para medir o sobretempo de qualquer operação (criar, atualizar ou eliminar), inspecione o cabeçalho [x-ms-request-charge](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) para medir o número de unidades de pedido consumidas por estas operações. Também pode olhar para a propriedade equivalente\<RequestCharge em\<RecursosResponse T> ou FeedResponse T>.
+    Para medir o sobretempo de qualquer operação (criar, atualizar ou eliminar), inspecione o cabeçalho [x-ms-request-charge](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) para medir o número de unidades de pedido consumidas por estas operações. Também pode olhar para a propriedade equivalente RequestCharge em RecursosResponse \< T> ou FeedResponse T \<>.
 
     #### <a name="async"></a>[Async](#tab/api-async)
 

@@ -6,12 +6,12 @@ author: zr-msft
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: zarhoads
-ms.openlocfilehash: 1d97ae5692a4cdc328833ce4c01a8114506a960a
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 9fd7d6c6d472400afea05ac0cd87321a46dddb37
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82779077"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83677922"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Boas práticas para a segurança do casulo no Serviço Azure Kubernetes (AKS)
 
@@ -71,14 +71,17 @@ Trabalhe com o seu operador de cluster para determinar que definições de conte
 
 Para limitar o risco de as credenciais serem expostas no seu código de aplicação, evite a utilização de credenciais fixas ou partilhadas. Credenciais ou chaves não devem ser incluídas diretamente no seu código. Se estas credenciais forem expostas, a aplicação tem de ser atualizada e reimplantada. Uma melhor abordagem é dar aos pods a sua própria identidade e forma de se autenticarem, ou de recuperarautomaticamente credenciais de um cofre digital.
 
-Os [seguintes projetos associados][aks-associated-projects] de código aberto AKS permitem autenticar automaticamente cápsulas ou solicitar credenciais e chaves de um cofre digital:
+### <a name="use-azure-container-compute-upstream-projects"></a>Utilizar projetos de computação de contentores Azure A montante
 
-* Identidades geridas para recursos Azure, e
-* [Fornecedor de cofre de chaves azure para segredos loja CSI motorista](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage)
+> [!IMPORTANT]
+> Os projetos associados de código aberto AKS não são apoiados pelo apoio técnico do Azure. São fornecidos para que os utilizadores se auto-instalam em clusters e recolham feedback da nossa comunidade.
 
-Os projetos associados de código aberto AKS não são apoiados pelo apoio técnico do Azure. São fornecidos para recolher feedback e insetos da nossa comunidade. Estes projetos não são recomendados para uso produtivo.
+Os [seguintes projetos de código aberto AKS associados][aks-associated-projects] permitem autenticar automaticamente cápsulas ou solicitar credenciais e chaves de um cofre digital. Estes projetos são mantidos pela equipa azure container Compute Upstream e fazem parte de uma [lista mais alargada de projetos disponíveis para utilização.](https://github.com/Azure/container-compute-upstream/blob/master/README.md#support)
 
-### <a name="use-pod-managed-identities"></a>Use identidades geridas por pod
+ * [Identidade de Pod de Diretório Ativo Azure][aad-pod-identity]
+ * [Fornecedor de cofre de chaves azure para segredos loja CSI motorista](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage)
+
+#### <a name="use-pod-managed-identities"></a>Use identidades geridas por pod
 
 Uma identidade gerida para os recursos Azure permite que um pod se autentique contra os serviços Azure que o suportam, como o Storage ou o SQL. A cápsula é atribuída uma Identidade Azure que lhes permite autenticar o Diretório Ativo Azure e receber um símbolo digital. Este token digital pode ser apresentado a outros serviços Azure que verificam se o casulo está autorizado a aceder ao serviço e executar as ações necessárias. Esta abordagem significa que não são necessários segredos para as cordas de ligação da base de dados, por exemplo. O fluxo de trabalho simplificado para a identidade gerida pela cápsula é mostrado no seguinte diagrama:
 
@@ -88,7 +91,7 @@ Com uma identidade gerida, o seu código de aplicação não precisa de incluir 
 
 Para obter mais informações sobre identidades de pod, consulte [Configure um cluster AKS para usar identidades geridas][aad-pod-identity] por pod e com as suas aplicações
 
-### <a name="use-azure-key-vault-with-secrets-store-csi-driver"></a>Use cofre de chave azure com motorista CSI loja de segredos
+#### <a name="use-azure-key-vault-with-secrets-store-csi-driver"></a>Use cofre de chave azure com motorista CSI loja de segredos
 
 A utilização do projeto de identidade do pod permite a autenticação contra o apoio aos serviços Azure. Para os seus próprios serviços ou aplicações sem identidades geridas para recursos Azure, ainda pode autenticar usando credenciais ou chaves. Um cofre digital pode ser usado para armazenar estes conteúdos secretos.
 

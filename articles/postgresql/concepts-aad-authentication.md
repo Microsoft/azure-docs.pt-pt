@@ -6,22 +6,17 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ec853657d6dd1f3b019d8a414cfa28edc1083b29
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8fa9a4ebe64880ae136a8460d35200fb84abb6cf
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74769919"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660178"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-postgresql"></a>Utilizar o Diretório Ativo Azure para autenticação com postgreSQL
 
 A autenticação do Microsoft Azure Ative Directory (Azure AD) é um mecanismo de ligação à Base de Dados Azure para postgreSQL utilizando identidades definidas em AD Azure.
 Com a autenticação da AD Azure, pode gerir as identidades dos utilizadores da base de dados e outros serviços da Microsoft numa localização central, o que simplifica a gestão da permissão.
-
-> [!IMPORTANT]
-> A autenticação Azure AD para a Base de Dados Azure para PostgreSQL encontra-se atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-> Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 
 Os benefícios da utilização do Azure AD incluem:
 
@@ -57,7 +52,7 @@ Ao utilizar a autenticação AD Azure, existem duas contas de Administrador para
 
 ## <a name="permissions"></a>Permissões
 
-Para criar novos utilizadores que possam autenticar com AD `azure_ad_admin` Azure, deve ter o papel na base de dados. Esta função é atribuída configurando a conta do Administrador AD Azure para uma base de dados azure específica para servidor PostgreSQL.
+Para criar novos utilizadores que possam autenticar com AD Azure, deve ter o papel na base de `azure_ad_admin` dados. Esta função é atribuída configurando a conta do Administrador AD Azure para uma base de dados azure específica para servidor PostgreSQL.
 
 Para criar um novo utilizador de base de dados Azure AD, deve ligar-se como administrador da AD Azure. Isto é demonstrado em [Configure e Login com Azure AD para Base de Dados Azure para PostgreSQL](howto-configure-sign-in-aad-authentication.md).
 

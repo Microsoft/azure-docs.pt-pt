@@ -1,6 +1,6 @@
 ---
 title: Orientação de design para tabelas replicadas
-description: Recomendações para conceber tabelas replicadas no Synapse SQL
+description: Recomendações para conceber tabelas replicadas na piscina SQL synapse
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,34 +11,34 @@ ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 654aeddbb305124ea00a883dbef9d8b5ad585a36
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6f3418d73496ae25782b57a43e3357dc0bc7131a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80990791"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660032"
 ---
-# <a name="design-guidance-for-using-replicated-tables-in-sql-analytics"></a>Orientação de design para a utilização de tabelas replicadas no SQL Analytics
+# <a name="design-guidance-for-using-replicated-tables-in-synapse-sql-pool"></a>Orientação de design para usar tabelas replicadas na piscina SQL Synapse
 
-Este artigo dá recomendações para conceber tabelas replicadas no seu esquema SQL Analytics. Utilize estas recomendações para melhorar o desempenho da consulta, reduzindo o movimento de dados e a complexidade da consulta.
+Este artigo dá recomendações para conceber tabelas replicadas no seu esquema de piscina Synapse SQL. Utilize estas recomendações para melhorar o desempenho da consulta, reduzindo o movimento de dados e a complexidade da consulta.
 
 > [!VIDEO https://www.youtube.com/embed/1VS_F37GI9U]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este artigo assume que está familiarizado com os conceitos de distribuição de dados e movimento de dados no SQL Analytics.Para mais informações, consulte o artigo da [arquitetura.](massively-parallel-processing-mpp-architecture.md)
+Este artigo assume que está familiarizado com os conceitos de distribuição de dados e movimento de dados no pool SQL.Para mais informações, consulte o artigo da [arquitetura.](massively-parallel-processing-mpp-architecture.md)
 
 Como parte do design de tabela, compreenda o máximo possível sobre os seus dados e como os dados são consultados.Por exemplo, considere estas questões:
 
 - Qual é o tamanho da mesa?
 - Quantas vezes a mesa é refrescada?
-- Tenho tabelas de factos e dimensões numa base de dados da SQL Analytics?
+- Tenho tabelas de factos e dimensões numa base de dados de piscinas SQL?
 
 ## <a name="what-is-a-replicated-table"></a>O que é uma mesa replicada?
 
 Uma tabela replicada tem uma cópia completa da tabela acessível em cada nó computacional. A replicação de uma tabela elimina a necessidade de transferir dados entre nós de Computação antes de se proceder a uma associação ou agregação. Uma vez que a tabela tem várias cópias, as tabelas replicadas funcionam melhor quando o tamanho da mesa é inferior a 2 GB comprimido.  2 GB não é um limite difícil.  Se os dados forem estáticos e não mudarem, pode replicar tabelas maiores.
 
-O diagrama seguinte mostra uma tabela replicada que é acessível em cada nó computacional. No SQL Analytics, a tabela replicada é totalmente copiada para uma base de dados de distribuição em cada nó computacional.
+O diagrama seguinte mostra uma tabela replicada que é acessível em cada nó computacional. Na piscina SQL, a tabela replicada é totalmente copiada para uma base de dados de distribuição em cada nó computacional.
 
 ![Tabela replicada](./media/design-guidance-for-replicated-tables/replicated-table.png "Tabela replicada")  
 
@@ -46,14 +46,14 @@ As mesas replicadas funcionam bem para tabelas de dimensão num esquema estelar.
 
 Considere usar uma tabela replicada quando:
 
-- O tamanho da mesa no disco é inferior a 2 GB, independentemente do número de linhas. Para encontrar o tamanho de uma mesa, pode `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`utilizar o comando [dBCC PDW_SHOWSPACEUSED:](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .
+- O tamanho da mesa no disco é inferior a 2 GB, independentemente do número de linhas. Para encontrar o tamanho de uma mesa, pode utilizar o [comando de PDW_SHOWSPACEUSED DBCC:](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')` .
 - A tabela é utilizada em juntas que de outra forma exigiriam movimento de dados. Ao juntar tabelas que não são distribuídas na mesma coluna, como uma tabela distribuída por hash para uma mesa de robin redondo, é necessário um movimento de dados para completar a consulta.  Se uma das mesas for pequena, considere uma mesa replicada. Recomendamos a utilização de mesas replicadas em vez de mesas de rodapé na maioria dos casos. Para visualizar as operações de movimento de dados em planos de consulta, utilize [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  A BroadcastMoveOperation é a operação típica de movimento de dados que pode ser eliminada utilizando uma tabela replicada.  
 
 As tabelas replicadas não podem produzir o melhor desempenho de consulta quando:
 
 - A tabela tem operações frequentes de inserção, atualização e exclusão.As operações da linguagem de manipulação de dados (DML) requerem uma reconstrução da tabela replicada.A reconstrução frequentemente pode causar um desempenho mais lento.
-- A base de dados SQL Analytics é dimensionada com frequência. A escala de uma base de dados SQL Analytics altera o número de nós computacionais, que incorrem na reconstrução da tabela replicada.
-- A tabela tem um grande número de colunas, mas as operações de dados normalmente acedem apenas a um pequeno número de colunas. Neste cenário, em vez de replicar toda a tabela, pode ser mais eficaz distribuir a tabela e, em seguida, criar um índice nas colunas frequentemente acedidas. Quando uma consulta requer movimento de dados, o SQL Analytics apenas move dados para as colunas solicitadas.
+- A base de dados de piscinaS SQL é dimensionada com frequência. A escala de uma base de dados de piscinaS SQL altera o número de nós computacionais, que incorrem na reconstrução da tabela replicada.
+- A tabela tem um grande número de colunas, mas as operações de dados normalmente acedem apenas a um pequeno número de colunas. Neste cenário, em vez de replicar toda a tabela, pode ser mais eficaz distribuir a tabela e, em seguida, criar um índice nas colunas frequentemente acedidas. Quando uma consulta requer movimento de dados, o pool SQL apenas move dados para as colunas solicitadas.
 
 ## <a name="use-replicated-tables-with-simple-query-predicates"></a>Use tabelas replicadas com predicados de consulta simples
 
@@ -101,7 +101,7 @@ DROP TABLE [dbo].[DimSalesTerritory_old];
 
 Uma tabela replicada não requer qualquer movimento de dados para uniões porque toda a tabela já está presente em cada nó computacional. Se as tabelas de dimensão forem distribuídas em rodada, uma junta copia a tabela de dimensões na íntegra para cada nó computacional. Para mover os dados, o plano de consulta contém uma operação chamada BroadcastMoveOperation. Este tipo de operação de movimento de dados retarda o desempenho da consulta e é eliminado utilizando tabelas replicadas. Para ver os passos do plano de consulta, utilize a vista de catálogo do sistema [sys.dm_pdw_request_steps.](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  
 
-Por exemplo, na seguinte consulta contra o esquema `FactInternetSales` AdventureWorks, a tabela é distribuída por hash. As `DimDate` `DimSalesTerritory` mesas e as mesas são tabelas de dimensão menor. Esta consulta devolve o total das vendas na América do Norte para o ano fiscal de 2004:
+Por exemplo, na seguinte consulta contra o esquema AdventureWorks, a `FactInternetSales` tabela é distribuída por hash. As `DimDate` `DimSalesTerritory` mesas e as mesas são tabelas de dimensão menor. Esta consulta devolve o total das vendas na América do Norte para o ano fiscal de 2004:
 
 ```sql
 SELECT [TotalSalesAmount] = SUM(SalesAmount)
@@ -124,7 +124,7 @@ Recriámos `DimDate` e `DimSalesTerritory` como mesas replicadas, e fizemos a co
 
 ## <a name="performance-considerations-for-modifying-replicated-tables"></a>Considerações de desempenho para modificar tabelas replicadas
 
-A SQL Analytics implementa uma tabela replicada mantendo uma versão master da tabela. Copia a versão principal para a primeira base de dados de distribuição de cada nó computacional. Quando há uma mudança, a SQL Analytics atualiza primeiro a versão master, depois reconstrói as tabelas em cada nó computacional. Uma reconstrução de uma tabela replicada inclui copiar a tabela para cada nó computacional e, em seguida, construir os índices.  Por exemplo, uma tabela replicada num DW2000c tem 5 cópias dos dados.  Uma cópia principal e uma cópia completa em cada nó computacional.  Todos os dados são armazenados em bases de dados de distribuição. O SQL Analytics utiliza este modelo para suportar declarações mais rápidas de modificação de dados e operações de escala flexível.
+A piscina SQL implementa uma tabela replicada mantendo uma versão master da tabela. Copia a versão principal para a primeira base de dados de distribuição de cada nó computacional. Quando há uma mudança, a versão master é atualizada primeiro, em seguida, as tabelas em cada nó Compute são reconstruídas. Uma reconstrução de uma tabela replicada inclui copiar a tabela para cada nó computacional e, em seguida, construir os índices.  Por exemplo, uma tabela replicada num DW2000c tem 5 cópias dos dados.  Uma cópia principal e uma cópia completa em cada nó computacional.  Todos os dados são armazenados em bases de dados de distribuição. O pool SQL utiliza este modelo para suportar declarações mais rápidas de modificação de dados e operações de escala flexível.
 
 As reconstruções são necessárias após:
 
@@ -141,7 +141,7 @@ A reconstrução não acontece imediatamente após a modificação dos dados. Em
 
 ### <a name="use-indexes-conservatively"></a>Use índices de forma conservadora
 
-As práticas de indexação padrão aplicam-se a tabelas replicadas. A SQL Analytics reconstrói cada índice de tabela replicado como parte da reconstrução. Utilize apenas índices quando o ganho de desempenho supera o custo de reconstrução dos índices.
+As práticas de indexação padrão aplicam-se a tabelas replicadas. A piscina SQL reconstrói cada índice de tabela replicado como parte da reconstrução. Utilize apenas índices quando o ganho de desempenho supera o custo de reconstrução dos índices.
 
 ### <a name="batch-data-load"></a>Carga de dados de lote
 
@@ -193,7 +193,7 @@ SELECT TOP 1 * FROM [ReplicatedTable]
 
 Para criar uma tabela replicada, use uma destas declarações:
 
-- [TABELA CREATE (SQL Analytics)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [CRIAR TABELA AS SELECT (SQL Analytics)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [TABELA DE CRIAÇÃO (piscina SQL)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [CRIAR TABELA COMO SELECT (piscina SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 Para uma visão geral das tabelas distribuídas, consulte [as tabelas distribuídas](sql-data-warehouse-tables-distribute.md).

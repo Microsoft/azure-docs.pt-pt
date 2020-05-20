@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 04/22/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3f3b37a6336c578ed25d8ab9553bc1ea9c79872f
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 6454903a7c37da30e317e29c126109b39b14efbc
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83117212"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660574"
 ---
 # <a name="disaster-recovery-failover-procedure"></a>Procedimento de ativação pós-falha de recuperação após desastre
 
@@ -39,7 +39,7 @@ Para restaurar as mais recentes imagens de armazenamento replicadas, siga os pas
 Se quiser ter várias instâncias SAP HANA falhadas, corra o comando azure_hana_dr_failover várias vezes. Quando solicitado, insira o SID SAP HANA que pretende falhar e restaurar. 
 
 
-Pode testar a falha do DR também sem afetar a relação real de replicação. Para efetuar uma falha no teste, siga os passos em "Execute um teste DR failover - azure_hana_test_dr_failover" nas [ferramentas instantâneas da Microsoft para SAP HANA no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.2/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.2.1.pdf). 
+Pode testar a falha do DR também sem afetar a relação real de replicação. Para efetuar uma falha no teste, siga os passos em "Execute um teste DR failover - azure_hana_test_dr_failover" nas [ferramentas instantâneas da Microsoft para SAP HANA no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.3/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.3.pdf). 
 
 >[!IMPORTANT]
 >*Não* ecorra quaisquer transações de produção na instância que criou no site dr através do processo de **teste de uma falha**. O comando azure_hana_test_dr_failover cria um conjunto de volumes que não têm relação com o local primário. Como resultado, a sincronização de volta ao local primário *não* é possível. 
@@ -117,7 +117,7 @@ Siga estes passos.
 
 Para monitorizar o estado do progresso da sua replicação de armazenamento, execute o script `azure_hana_replication_status` . Este comando deve ser executado a partir de uma unidade que funciona no local de recuperação de desastres para funcionar como esperado. O comando funciona independentemente de a replicação estar ativa. O comando pode ser executado para cada unidade hana grande instância do seu inquilino no local de recuperação de desastres. Não pode ser usado para obter detalhes sobre o volume de botas. 
 
-Para obter mais informações sobre o comando e a sua saída, consulte "Obter o estado de replicação de DR - azure_hana_replication_status" nas [ferramentas instantâneas da Microsoft para SAP HANA no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.2/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.2.1.pdf).
+Para obter mais informações sobre o comando e a sua saída, consulte "Obter o estado de replicação de DR - azure_hana_replication_status" nas [ferramentas instantâneas da Microsoft para SAP HANA no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.3/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.3.pdf).
 
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -4,16 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: 47cb20f3a23caf586777523e56902af20b747ea1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3a4a68d45d633caf9a318cd17f1e8d94752ecfe9
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81399884"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673072"
 ---
 :::row:::
     :::column span="3":::
-        O Java SDK para Android está embalado como <a href="https://developer.android.com/studio/projects/android-library" target="_blank">Um Ar (Biblioteca Android), <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>que inclui as bibliotecas necessárias e as permissões necessárias para android. Está hospedado num repositório Maven `https://csspeechstorage.blob.core.windows.net/maven/` como `com.microsoft.cognitiveservices.speech:client-sdk:1.11.0`pacote.
+        O Java SDK para Android está embalado como <a href="https://developer.android.com/studio/projects/android-library" target="_blank">Um Ar (Biblioteca Android), <span class="docon docon-navigate-external x-hidden-focus"></span> </a>que inclui as bibliotecas necessárias e as permissões necessárias para android. Está hospedado num repositório Maven `https://csspeechstorage.blob.core.windows.net/maven/` como `com.microsoft.cognitiveservices.speech:client-sdk:1.12.0` pacote.
     :::column-end:::
     :::column:::
         <br>
@@ -25,14 +25,14 @@ ms.locfileid: "81399884"
 
 Para consumir o pacote do seu projeto Android Studio, efaça as seguintes alterações:
 
-1. No ficheiro *build.gradle* ao nível do `repository` projeto, adicione o seguinte à secção:
+1. No ficheiro *build.gradle* ao nível do projeto, adicione o seguinte à `repository` secção:
   ```gradle
   maven { url 'https://csspeechstorage.blob.core.windows.net/maven/' }
   ```
 
-2. No ficheiro *build.gradle* de nível de `dependencies` módulo, adicione o seguinte à secção:
+2. No ficheiro *build.gradle* de nível de módulo, adicione o seguinte à `dependencies` secção:
   ```gradle
-  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.11.0'
+  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.12.0'
   ```
 
 O Java SDK também faz parte do [SDK dispositivos](../speech-devices-sdk.md)de fala.

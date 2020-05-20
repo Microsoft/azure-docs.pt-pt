@@ -5,17 +5,18 @@ author: normesta
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 05/19/2020
 ms.author: normesta
 ms.reviewer: fryu
-ms.openlocfilehash: 1e41eb02f4b02078dbf4d42c46cab574cf8d0701
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.custom: monitoring
+ms.openlocfilehash: b1134f5538663f5b04e77270fee1a715b32a4f3e
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204071"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83675919"
 ---
-# <a name="azure-storage-analytics-logging"></a>Registo da análise de Armazenamento do Azure
+# <a name="azure-storage-analytics-logging"></a>Azure Storage analytics logging (Registo de análise do Armazenamento do Azure)
 
 A Análise de Armazenamento regista informações detalhadas sobre os pedidos com êxito e com falha feitos a um serviço de armazenamento. Estas informações podem ser utilizadas para monitorizar os pedidos individuais e diagnosticar problemas num serviço de armazenamento. Os pedidos são registados com o melhor esforço.
 
@@ -24,7 +25,7 @@ A Análise de Armazenamento regista informações detalhadas sobre os pedidos co
  As entradas de registo só são criadas se houver pedidos contra o ponto final do serviço. Por exemplo, se uma conta de armazenamento tiver atividade no seu ponto final blob, mas não nos seus pontos finais de Tabela ou Fila, apenas serão criados registos relativos ao serviço Blob.
 
 > [!NOTE]
->  Atualmente, o registo da Análise de Armazenamento está disponível apenas para os serviços Blobs, Fila e Tabela. No entanto, a conta de armazenamento premium não é suportada.
+>  Atualmente, o registo da Análise de Armazenamento está disponível apenas para os serviços Blobs, Fila e Tabela. O registo de armazenamento Analytics também está disponível para contas [blockBlobStorage](../blobs/storage-blob-create-account-block-blob.md) de desempenho premium. No entanto, não está disponível para contas v2 de uso geral com desempenho premium.
 
 ## <a name="requests-logged-in-logging"></a>Pedidos registados em exploração madeireira
 ### <a name="logging-authenticated-requests"></a>Pedidos autenticados
@@ -51,10 +52,10 @@ A Análise de Armazenamento regista informações detalhadas sobre os pedidos co
 
 ## <a name="how-logs-are-stored"></a>Como os registos são armazenados
 
-Todos os registos são armazenados em blocos num recipiente chamado `$logs`, que é automaticamente criado quando o Storage Analytics está ativado para uma conta de armazenamento. O `$logs` recipiente encontra-se no espaço de nome blob `http://<accountname>.blob.core.windows.net/$logs`da conta de armazenamento, por exemplo: . Este recipiente não pode ser eliminado uma vez que o Storage Analytics tenha sido ativado, embora o seu conteúdo possa ser eliminado. Se utilizar a sua ferramenta de navegação de armazenamento para navegar diretamente para o contentor, verá todas as bolhas que contêm os seus dados de registo.
+Todos os registos são armazenados em blocos num recipiente chamado `$logs` , que é automaticamente criado quando o Storage Analytics está ativado para uma conta de armazenamento. O `$logs` recipiente encontra-se no espaço de nome blob da conta de armazenamento, por exemplo: `http://<accountname>.blob.core.windows.net/$logs` . Este recipiente não pode ser eliminado uma vez que o Storage Analytics tenha sido ativado, embora o seu conteúdo possa ser eliminado. Se utilizar a sua ferramenta de navegação de armazenamento para navegar diretamente para o contentor, verá todas as bolhas que contêm os seus dados de registo.
 
 > [!NOTE]
->  O `$logs` recipiente não é apresentado quando é executada uma operação de listagem de contentores, como a operação 'List Containers'. Deve ser acedido diretamente. Por exemplo, pode utilizar a operação List Blobs para `$logs` aceder às bolhas no recipiente.
+>  O recipiente não é apresentado quando é executada uma operação de listagem de `$logs` contentores, como a operação 'List Containers'. Deve ser acedido diretamente. Por exemplo, pode utilizar a operação List Blobs para aceder às bolhas no `$logs` recipiente.
 
 À medida que os pedidos são registados, o Storage Analytics carregará os resultados intermédios como blocos. Periodicamente, o Storage Analytics irá comprometer estes blocos e disponibilizá-los como uma bolha. Pode levar até uma hora para que os dados de registo apareçam nas bolhas **do** $logs contentor, porque a frequência com que o serviço de armazenamento descarrega os escritores de registo. Podem existir registos duplicados para os registos criados na mesma hora. Pode determinar se um registo é duplicado verificando o número **de RequestId** e **Operação.**
 
@@ -88,13 +89,13 @@ Para obter informações sobre a listagem de blobs programáticamente, consulte 
 
 |Atributo|Descrição|
 |---------------|-----------------|
-|`<service-name>`|O nome do serviço de armazenamento. Por `blob`exemplo: `table`, ou`queue`|
+|`<service-name>`|O nome do serviço de armazenamento. Por exemplo: `blob` , `table` ou`queue`|
 |`YYYY`|O ano de quatro dígitos para o tronco. Por exemplo: `2011`|
 |`MM`|O mês de dois dígitos para o tronco. Por exemplo: `07`|
 |`DD`|O dia de dois dígitos para o tronco. Por exemplo: `31`|
 |`hh`|A hora de dois dígitos que indica a hora de partida para os registos, em formato UTC 24 horas. Por exemplo: `18`|
-|`mm`|O número de dois dígitos que indica o minuto de partida para os registos. **Nota:**  Este valor não é suportado na versão atual do Storage `00`Analytics, e o seu valor será sempre .|
-|`<counter>`|Um contador de base zero com seis dígitos que indica o número de bolhas de log geradas para o serviço de armazenamento num período de tempo de hora. Este balcão `000000`começa a. Por exemplo: `000001`|
+|`mm`|O número de dois dígitos que indica o minuto de partida para os registos. **Nota:**  Este valor não é suportado na versão atual do Storage Analytics, e o seu valor será sempre `00` .|
+|`<counter>`|Um contador de base zero com seis dígitos que indica o número de bolhas de log geradas para o serviço de armazenamento num período de tempo de hora. Este balcão começa `000000` a. Por exemplo: `000001`|
 
  Segue-se um nome completo de registo de amostras que combina os exemplos acima:
 
@@ -113,8 +114,8 @@ Para obter informações sobre a listagem de blobs programáticamente, consulte 
 |Atributo|Descrição|
 |---------------|-----------------|
 |`LogType`|Descreve se o registo contém informações relativas a leitura, escrita ou exclusão de operações. Este valor pode incluir um tipo ou uma combinação dos três, separados por vírgulas.<br /><br /> Exemplo 1:`write`<br /><br /> Exemplo 2:`read,write`<br /><br /> Exemplo 3:`read,write,delete`|
-|`StartTime`|O mais cedo tempo de uma entrada no `YYYY-MM-DDThh:mm:ssZ`diário, na forma de . Por exemplo: `2011-07-31T18:21:46Z`|
-|`EndTime`|A última hora de uma entrada no `YYYY-MM-DDThh:mm:ssZ`registo, na forma de . Por exemplo: `2011-07-31T18:22:09Z`|
+|`StartTime`|O mais cedo tempo de uma entrada no diário, na forma de `YYYY-MM-DDThh:mm:ssZ` . Por exemplo: `2011-07-31T18:21:46Z`|
+|`EndTime`|A última hora de uma entrada no registo, na forma de `YYYY-MM-DDThh:mm:ssZ` . Por exemplo: `2011-07-31T18:22:09Z`|
 |`LogVersion`|A versão do formato de registo.|
 
  A lista seguinte apresenta metadados completos da amostra utilizando os exemplos acima referidos:
@@ -187,7 +188,7 @@ queueClient.SetServiceProperties(serviceProperties);
  Para visualizar e analisar os seus dados de registo, deve descarregar as bolhas que contêm os dados de registo em que está interessado numa máquina local. Muitas ferramentas de navegação de armazenamento permitem-lhe descarregar bolhas da sua conta de armazenamento; também pode utilizar a equipa de Armazenamento Azure forneceu a Ferramenta De Cópia Azure de linha de comando [AzCopy](storage-use-azcopy-v10.md) para descarregar os seus dados de registo.  
  
 >[!NOTE]
-> O `$logs` recipiente não está integrado na Grelha de Eventos, pelo que não receberá notificações quando os ficheiros de registo estiverem escritos. 
+> O recipiente não está integrado na Grelha de `$logs` Eventos, pelo que não receberá notificações quando os ficheiros de registo estiverem escritos. 
 
  Para se certificar de que descarrega os dados de registo que lhe interessa e para evitar o download dos mesmos dados de registo mais de uma vez:  
 

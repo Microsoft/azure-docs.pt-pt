@@ -2,13 +2,13 @@
 title: Perguntas frequentes para o Serviço Azure Kubernetes (AKS)
 description: Encontre respostas a algumas das perguntas comuns sobre o Serviço Azure Kubernetes (AKS).
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: 5ba776424462b3a8b586b1f90e83f409770e5597
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 05/14/2020
+ms.openlocfilehash: 767b5b80aab7d98af92f86bf66cc2ff83242ff92
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83123824"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83677782"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Perguntas mais frequentes acerca do Azure Kubernetes Service (AKS)
 
@@ -24,11 +24,11 @@ Não. Os clusters AKS são recursos regionais e não podem abranger regiões. Co
 
 ## <a name="can-i-spread-an-aks-cluster-across-availability-zones"></a>Posso espalhar um cluster AKS através de zonas de disponibilidade?
 
-Sim. Você pode implantar um cluster AKS em uma ou mais [zonas de disponibilidade][availability-zones] em [regiões que os apoiam][az-regions].
+Yes. Você pode implantar um cluster AKS em uma ou mais [zonas de disponibilidade][availability-zones] em [regiões que os apoiam][az-regions].
 
 ## <a name="can-i-limit-who-has-access-to-the-kubernetes-api-server"></a>Posso limitar quem tem acesso ao servidor Kubernetes API?
 
-Sim. Existem duas opções para limitar o acesso ao servidor API:
+Yes. Existem duas opções para limitar o acesso ao servidor API:
 
 - Utilize [intervalos IP autorizados][api-server-authorized-ip-ranges] do Servidor API se pretender manter um ponto final público para o servidor API, mas restringir o acesso a um conjunto de gamas IP fidedignas.
 - Utilize [um cluster privado][private-clusters] se pretender limitar o servidor API *apenas* a estar acessível dentro da sua rede virtual.
@@ -62,7 +62,7 @@ Para permitir esta arquitetura, cada implantação AKS abrange dois grupos de re
 
 ## <a name="can-i-provide-my-own-name-for-the-aks-node-resource-group"></a>Posso fornecer o meu próprio nome para o grupo de recursos do nó AKS?
 
-Sim. Por padrão, a AKS nomeará o grupo de recursos do nó *MC_resourcegroupname_clustername_location,* mas também pode fornecer o seu próprio nome.
+Yes. Por padrão, a AKS nomeará o grupo de recursos do nó *MC_resourcegroupname_clustername_location,* mas também pode fornecer o seu próprio nome.
 
 Para especificar o nome do seu próprio grupo de recursos, instale a versão de extensão Azure CLI de [pré-visualização][aks-preview-cli] de aks *0.3.2* ou posterior. Quando criar um cluster AKS utilizando as [aks az criar][az-aks-create] comando, use o parâmetro *do grupo de recursos-nó* e especifique um nome para o grupo de recursos. Se [utilizar um modelo][aks-rm-template] de Gestor de Recursos Azure para implementar um cluster AKS, pode definir o nome do grupo de recursos utilizando a propriedade do *NodeResourceGroup.*
 
@@ -127,11 +127,7 @@ O suporte do Windows Server para piscina de nó inclui algumas limitações que 
 
 ## <a name="does-aks-offer-a-service-level-agreement"></a>A AKS oferece um acordo de nível de serviço?
 
-A AKS fornece a capacidade de alcançar uma disponibilidade de 99,95% para o servidor API com [Uptime SLA][uptime-sla.md].
-
-Num acordo de nível de serviço (SLA), o prestador aceita reembolsar o cliente pelo custo do serviço se o nível de serviço publicado não for cumprido. Uma vez que a AKS é gratuita, não há custos disponíveis para reembolsar, pelo que a AKS não tem SLA formal. No entanto, a AKS procura manter a disponibilidade de pelo menos 99,5% para o servidor Kubernetes API.
-
-É importante reconhecer a distinção entre a disponibilidade de serviço AKS que se refere ao tempo de uptime do plano de controlo Kubernetes e a disponibilidade da sua carga de trabalho específica que está a funcionar em Máquinas Virtuais Azure. Embora o plano de controlo possa não estar disponível se o plano de controlo não estiver pronto, as cargas de trabalho do seu cluster em funcionamento em VMs Azure ainda podem funcionar. Dado que os VMs Azure são recursos pagos, são apoiados por um SLA financeiro. Leia [aqui para mais detalhes](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) sobre o Azure VM SLA e como aumentar essa disponibilidade com [funcionalidades][availability-zones]como Zonas de Disponibilidade .
+A AKS fornece garantias SLA como um add opcional na funcionalidade com [Uptime SLA][uptime-sla].
 
 ## <a name="can-i-apply-azure-reservation-discounts-to-my-aks-agent-nodes"></a>Posso aplicar descontos de reserva Azure aos meus nós de agente AKS?
 
@@ -211,7 +207,7 @@ Nenhuma AKS é um serviço gerido, e a manipulação dos recursos iaaS não é a
 [bcdr-bestpractices]: ./operator-best-practices-multi-region.md#plan-for-multiregion-deployment
 [availability-zones]: ./availability-zones.md
 [az-regions]: ../availability-zones/az-region.md
-[uptime-sla] ./uptime-sla.mdd
+[uptime-sla]: ./uptime-sla.md
 
 <!-- LINKS - external -->
 [aks-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
@@ -220,3 +216,4 @@ Nenhuma AKS é um serviço gerido, e a manipulação dos recursos iaaS não é a
 [admission-controllers]: https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/
 [private-clusters-github-issue]: https://github.com/Azure/AKS/issues/948
 [csi-driver]: https://github.com/Azure/secrets-store-csi-driver-provider-azure
+[vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/

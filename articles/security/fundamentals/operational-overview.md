@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: bcaf45af4c02dad22e2cc611fa7ea5a32ad3a853
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 00a71fec9c0bfc1db45eee7129b7c2a8adaef0fa
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75443872"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83674238"
 ---
 # <a name="azure-operational-security-overview"></a>Visão geral de segurança operacional do Azure
 
@@ -50,7 +50,7 @@ O Azure Backup oferece componentes que descarrega e implementa no computador ou 
 
 Para mais informações, consulte a tabela de componentes de [backup Azure](/azure/backup/backup-overview#what-can-i-back-up).
 
-### <a name="site-recovery"></a>Site Recovery
+### <a name="site-recovery"></a>Recuperação de sites
 
 [A Azure Site Recovery](https://azure.microsoft.com/documentation/services/site-recovery) proporciona continuidade ao negócio orquestrando a replicação de máquinas virtuais e físicas no local para Azure, ou para um local secundário. Se o seu site principal não estiver disponível, falha a localização secundária para que os utilizadores possam continuar a trabalhar. Falha-se quando os sistemas voltam à ordem de funcionamento. Utilize o Azure Security Center para realizar uma deteção de ameaças mais inteligente e eficaz.
 
@@ -60,7 +60,7 @@ Para mais informações, consulte a tabela de componentes de [backup Azure](/azu
 
 -   Permite a gestão de identidade e acesso (IAM) como um serviço na nuvem.
 -   Fornece gestão central de acesso, inscrição única (SSO) e reporte.
--   Suporta a gestão integrada de acesso para [milhares de aplicações](https://azure.microsoft.com/marketplace/active-directory/) no Mercado Azure, incluindo Salesforce, Google Apps, Box e Concur.
+-   Suporta a gestão integrada de acesso para [milhares de aplicações](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory) no Mercado Azure, incluindo Salesforce, Google Apps, Box e Concur.
 
 A Azure AD também inclui um conjunto completo de capacidades de gestão de [identidade,](/azure/security/security-identity-management-overview#security-monitoring-alerts-and-machine-learning-based-reports)incluindo estas:
 

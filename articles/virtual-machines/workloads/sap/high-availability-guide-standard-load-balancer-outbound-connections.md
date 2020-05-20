@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/07/2020
+ms.date: 05/12/2020
 ms.author: radeltch
-ms.openlocfilehash: 4fd01764c183098a8bd78d502eea7ab173fa22cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a89c848f5c6e57aba01c7156cdc61f9e69c30d0b
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80293903"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660169"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Conectividade de ponto final público para máquinas virtuais usando o Equilíbrio de Carga Padrão Azure em cenários de alta disponibilidade SAP
 
@@ -154,7 +154,7 @@ A arquitetura seria como:
 4. Crie a Regra de Firewall Azure para permitir a conectividade de saída a pontos finais públicos especificados. O exemplo mostra como permitir o acesso ao ponto final da API de Gestão Azure.  
    1. Selecione Regras, Recolha de Regras de Rede e, em seguida, clique em Adicionar a recolha de regras de rede.  
    1. Nome: **MyOutboundRule**, introduza Prioridade, **Selecione**Action Allow .  
-   1. Serviço: Nome **ToAzureAPI**.  Protocolo: Selecione **Qualquer**. Endereço fonte: introduza o intervalo para a sua sub-rede, onde os VMs e o Standard Load Balancer são implantados por exemplo: **11.97.0.0.0/24**. Portas de destino: entrar <b>*</b>.  
+   1. Serviço: Nome **ToAzureAPI**.  Protocolo: Selecione **Qualquer**. Endereço fonte: introduza o intervalo para a sua sub-rede, onde os VMs e o Standard Load Balancer são implantados por exemplo: **11.97.0.0.0/24**. Portas de destino: entrar <b>*</b> .  
    1. Guardar
    1. Como ainda está posicionado na Firewall Azure, selecione a visão geral. Anote o endereço IP privado da Firewall Azure.  
 5. Criar rota para o Firewall Azure  
@@ -162,7 +162,7 @@ A arquitetura seria como:
    1. Introduza o Nome MyRouteTable, selecione Subscrição, Grupo de Recursos e Localização (correspondendo à localização da sua rede Virtual e Firewall).  
    1. Guardar  
 
-   A regra da firewall ![seria como: Ligação de saída com Firewall Azure](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-firewall-rule.png)
+   A regra da firewall seria como: ![ Ligação de saída com Firewall Azure](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-firewall-rule.png)
 
 6. Crie a Rota Definida do Utilizador desde a subnet a subnet dos seus VMs até ao IP privado do **MyAzureFirewall**.
    1. À medida que estiver posicionado na Tabela de Rotas, clique em Rotas. Selecione Adicionar. 
@@ -176,7 +176,7 @@ Você poderia usar procuração para permitir chamadas pacemaker para o ponto fi
 ### <a name="important-considerations"></a>Considerações importantes
 
   - Se já houver procuração corporativa, pode encaminhar chamadas de saída para pontos finais públicos através dele. Chamadas de saída para pontos finais públicos passarão pelo ponto de controlo corporativo.  
-  - Certifique-se de que a configuração proxy permite a conectividade de saída à API de gestão azure:`https://management.azure.com`  
+  - Certifique-se de que a configuração proxy permite a conectividade de saída à API de gestão azure: `https://management.azure.com` e`https://login.microsoftonline.com`  
   - Certifique-se de que há uma rota dos VMs para o Proxy  
   - Proxy tratará apenas de chamadas HTTP/HTTPS. Se houver necessidade adicional de fazer chamadas de saída para o ponto final público sobre diferentes protocolos (como o RFC), será necessária uma solução alternativa  
   - A solução Proxy deve estar altamente disponível, para evitar instabilidade no cluster Pacemaker  
@@ -219,6 +219,10 @@ Para permitir que o pacemaker se comunique com a API de gestão azure, execute o
      # Take the cluster out of maintenance mode
      sudo pcs property set maintenance-mode=false
      ```
+
+## <a name="other-solutions"></a>Outras soluções
+
+Se o tráfego de saída for encaminhado através de firewall de terceiros, certifique-se de que a configuração da firewall permite a conectividade de saída com a API de gestão azure: `https://management.azure.com` e `https://login.microsoftonline.com` .  
 
 ## <a name="next-steps"></a>Passos seguintes
 

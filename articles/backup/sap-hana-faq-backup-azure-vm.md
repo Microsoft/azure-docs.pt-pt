@@ -3,12 +3,12 @@ title: FAQ - Fazer a cópia de segurança de bases de dados SAP HANA nas VMs do 
 description: Neste artigo, descubra respostas a perguntas comuns sobre o backup das bases de dados SAP HANA utilizando o serviço de backup Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: a46c4d6cccc00452a56567880400ef5779e6aed4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f9e0d96439a79c2c3d2cb2caa00ff09be3ff790d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80155397"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660113"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Perguntas frequentes – Back up SAP HANA bases de dados em VMs Azure
 
@@ -60,6 +60,18 @@ Atualmente não temos a capacidade de configurar a solução apenas contra um IP
 ### <a name="i-have-a-sap-hana-system-replication-hsr-how-should-i-configure-backup-for-this-setup"></a>Tenho uma replicação do sistema SAP HANA (HSR), como devo configurar cópias de segurança para esta configuração?
 
 Os nós primários e secundários do HSR serão tratados como dois VMs individuais e não relacionados. Você precisa configurar backup no nó principal e quando o fail-over acontece, você precisa configurar backup no nó secundário (que agora se torna o nó principal). Não existe uma "falha" automática de cópia seleções para o outro nó.
+
+### <a name="how-can-i-move-an-on-demand-backup-to-the-local-file-system-instead-of-the-azure-vault"></a>Como posso mover um reforço a pedido para o sistema de ficheiros local em vez do cofre Azure?
+
+1. Aguarde que o backup atualmente em execução esteja completo na base de dados desejada (consulte o estúdio para conclusão)
+1. Desative as cópias de segurança de registo e desative as cópias de segurança do catálogo para o Sistema de **Ficheiros** para o DB desejado utilizando os seguintes passos:
+1. **Configuração systemdb**de duplo clique  ->  **configuration**  ->  **Select Database**  ->  **(registo)**
+    1. Definir enable_auto_log_backup a **não**
+    1. Definir log_backup_using_backint a **falso**
+1. Pegue uma cópia de segurança a pedido na base de dados desejada e aguarde que a cópia de segurança e o backup do catálogo sejam concluídos.
+1. Revertendo as definições anteriores para permitir que as cópias de segurança fluam para o cofre Azure:
+    1. Definir enable_auto_log_backup para **sim**
+    1. Definir log_backup_using_backint **verdadeiro**
 
 ## <a name="restore"></a>Restauro
 

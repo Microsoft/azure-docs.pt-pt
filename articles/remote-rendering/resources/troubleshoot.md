@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: c1b807c6e4fa269ac2ab8d7eacd3ca1d4f81a1ca
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: b518b2b92ba6d2529ffdefce754a3b29b74fb21b
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792620"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83674285"
 ---
 # <a name="troubleshoot"></a>Resolução de problemas
 
@@ -50,7 +50,7 @@ A razão para esta questão é uma definição de segurança incorreta nos DLLs.
     Get-AppxPackage -Name Microsoft.HEVCVideoExtension
     ```
   
-    Esse comando deve `InstallLocation` forrindo o do codec, algo como:
+    Esse comando deve forrindo o `InstallLocation` do codec, algo como:
   
     ```cmd
     InstallLocation   : C:\Program Files\WindowsApps\Microsoft.HEVCVideoExtension_1.0.23254.0_x64__5wasdgertewe
@@ -106,7 +106,7 @@ Consulte [limitações específicas do tamanho](../reference/limits.md#overall-n
 
 Em muitos casos, o modelo é apresentado corretamente, mas localizado fora do frustum da câmara. Uma razão comum é que o modelo foi exportado com um pivô muito fora do centro, por isso é cortado pelo avião de corte da câmara. Ajuda a consultar a caixa de delimitação do modelo programáticamente e visualizar a caixa com a Unidade como uma caixa de linha ou imprimir os seus valores para o registo de depuração.
 
-Além disso, o processo de conversão gera um [ficheiro json de saída](../how-tos/conversion/get-information.md) ao lado do modelo convertido. Para depurar problemas de posicionamento do `boundingBox` modelo, vale a pena olhar para a entrada na [secção outputEstatísticas:](../how-tos/conversion/get-information.md#the-outputstatistics-section)
+Além disso, o processo de conversão gera um [ficheiro json de saída](../how-tos/conversion/get-information.md) ao lado do modelo convertido. Para depurar problemas de posicionamento do modelo, vale a pena olhar para a `boundingBox` entrada na [secção outputEstatísticas:](../how-tos/conversion/get-information.md#the-outputstatistics-section)
 
 ```JSON
 {
@@ -129,15 +129,15 @@ Além disso, o processo de conversão gera um [ficheiro json de saída](../how-t
 }
 ```
 
-A caixa de delimitação é descrita como a `min` e `max` posição no espaço 3D, em metros. Assim, uma coordenada de 1000.0 significa que está a 1 km de distância da origem.
+A caixa de delimitação é descrita como a `min` e posição no espaço `max` 3D, em metros. Assim, uma coordenada de 1000.0 significa que está a 1 km de distância da origem.
 
 Pode haver dois problemas com esta caixa de delimitação que levam a geometria invisível:
-* **A caixa pode estar muito fora do centro,** por isso o objeto é completamente cortado devido a um recorte de avião distante. Os `boundingBox` valores neste caso seriam `min = [-2000, -5,-5], max = [-1990, 5,5]`assim: usando uma grande compensação no eixo X como exemplo aqui. Para resolver este tipo de `recenterToOrigin` problema, ative a opção na [configuração](../how-tos/conversion/configure-model-conversion.md)de conversão do modelo .
-* **A caixa pode ser centrada, mas ser ordens de magnitude demasiado grande.** Isto significa que, embora a câmara comece no centro do modelo, a sua geometria é cortada em todas as direções. Valores típicos `boundingBox` neste caso `min = [-1000,-1000,-1000], max = [1000,1000,1000]`seriam assim: . A razão para este tipo de problema é geralmente uma incompatibilidade de escala unitária. Para compensar, especifique um [valor de escala durante a conversão](../how-tos/conversion/configure-model-conversion.md#geometry-parameters) ou marque o modelo de origem com as unidades corretas. A escala também pode ser aplicada no nó raiz ao carregar o modelo em tempo de execução.
+* **A caixa pode estar muito fora do centro,** por isso o objeto é completamente cortado devido a um recorte de avião distante. Os `boundingBox` valores neste caso seriam assim: `min = [-2000, -5,-5], max = [-1990, 5,5]` usando uma grande compensação no eixo X como exemplo aqui. Para resolver este tipo de problema, ative a `recenterToOrigin` opção na [configuração](../how-tos/conversion/configure-model-conversion.md)de conversão do modelo .
+* **A caixa pode ser centrada, mas ser ordens de magnitude demasiado grande.** Isto significa que, embora a câmara comece no centro do modelo, a sua geometria é cortada em todas as direções. Valores `boundingBox` típicos neste caso seriam assim: `min = [-1000,-1000,-1000], max = [1000,1000,1000]` . A razão para este tipo de problema é geralmente uma incompatibilidade de escala unitária. Para compensar, especifique um [valor de escala durante a conversão](../how-tos/conversion/configure-model-conversion.md#geometry-parameters) ou marque o modelo de origem com as unidades corretas. A escala também pode ser aplicada no nó raiz ao carregar o modelo em tempo de execução.
 
 **O oleoduto de renderização da Unidade não inclui os ganchos de renderização:**
 
-Os ganchos de renderização remota Azure no pipeline de renderização da Unidade para fazer a composição da moldura com o vídeo e para fazer a reprojeção. Para verificar se estes ganchos existem, abra o menu *Janela > Análise > debugger Frame*. Ative-o e certifique-se de `HolographicRemotingCallbackPass` que existem duas entradas para o gasoduto:
+Os ganchos de renderização remota Azure no pipeline de renderização da Unidade para fazer a composição da moldura com o vídeo e para fazer a reprojeção. Para verificar se estes ganchos existem, abra o menu *Janela > Análise > debugger Frame*. Ative-o e certifique-se de que existem duas entradas para `HolographicRemotingCallbackPass` o gasoduto:
 
 ![Debugger quadro de unidade](./media/troubleshoot-unity-pipeline.png)
 
@@ -145,12 +145,12 @@ Os ganchos de renderização remota Azure no pipeline de renderização da Unida
 
 ### <a name="use-debug-when-compiling-for-unity-editor"></a>Use debug ao compilar para Editor de Unidade
 
-Mude o tipo de *construção* da solução Deunidade para **Debug**. Ao testar arr no editor `UNITY_EDITOR` de Unidade, o definição só está disponível nas construções 'Debug'. Note que isto não está relacionado com o tipo de construção utilizado para [aplicações implantadas,](../quickstarts/deploy-to-hololens.md)onde deve preferir as construções 'Release'.
+Mude o tipo de *construção* da solução Deunidade para **Debug**. Ao testar arr no editor de Unidade, o definição `UNITY_EDITOR` só está disponível nas construções 'Debug'. Note que isto não está relacionado com o tipo de construção utilizado para [aplicações implantadas,](../quickstarts/deploy-to-hololens.md)onde deve preferir as construções 'Release'.
 
 ### <a name="compile-failures-when-compiling-unity-samples-for-hololens-2"></a>Compile falhas ao compilar amostras de unidade para HoloLens 2
 
 Temos visto falhas espúrias ao tentar compilar amostras de Unidade (quickstart, ShowCaseApp, ..) para HoloLens 2. O Visual Studio queixa-se de não poder copiar alguns ficheiros, apesar de estarem lá. Se acertar neste problema:
-* Remova todos os ficheiros de Unidade temporários do projeto e tente novamente.
+* Remova todos os ficheiros de Unidade temporários do projeto e tente novamente. Ou seja, close Unitity, apagar a *biblioteca* temporária e as pastas *obj* no diretório do projeto e carregar/construir o projeto novamente.
 * Certifique-se de que os projetos estão localizados num diretório no disco com um percurso razoavelmente curto, uma vez que o passo da cópia às vezes parece ter problemas com nomes de ficheiros longos.
 * Se isso não ajudar, pode ser que a MS Sense interfira com o passo da cópia. Para estabelecer uma exceção, executar este comando de registo a partir da linha de comando (requer direitos de administração):
     ```cmd
@@ -161,13 +161,13 @@ Temos visto falhas espúrias ao tentar compilar amostras de Unidade (quickstart,
 
 No caso de objetos renderizados parecerem mover-se juntamente com movimentos da cabeça, pode estar a encontrar problemas com a *Reprojection Late Stage* (LSR). Consulte a secção de [Reprojeção](../overview/features/late-stage-reprojection.md) de Fase Tardia para obter orientações sobre como abordar tal situação.
 
-Outra razão para hologramas instáveis (oscilações, desasque, nervosismo ou hologramas saltitantes) pode ser a fraca conectividade da rede, em particular a largura de banda insuficiente da rede, ou a latência demasiado elevada. Um bom indicador para a qualidade da sua `ARRServiceStats.VideoFramesReused`ligação de rede é o valor das estatísticas de [desempenho.](../overview/features/performance-queries.md) Os quadros reutilizados indicam situações em que uma antiga moldura de vídeo precisava de ser reutilizada do lado do cliente porque não havia nova moldura de vídeo disponível – por exemplo, devido à perda de pacotes ou devido a variações na latência da rede. Se `ARRServiceStats.VideoFramesReused` for frequentemente maior do que zero, isto indica um problema de rede.
+Outra razão para hologramas instáveis (oscilações, desasque, nervosismo ou hologramas saltitantes) pode ser a fraca conectividade da rede, em particular a largura de banda insuficiente da rede, ou a latência demasiado elevada. Um bom indicador para a qualidade da sua ligação de rede é o valor [das estatísticas](../overview/features/performance-queries.md) de `ARRServiceStats.VideoFramesReused` desempenho. Os quadros reutilizados indicam situações em que uma antiga moldura de vídeo precisava de ser reutilizada do lado do cliente porque não havia nova moldura de vídeo disponível – por exemplo, devido à perda de pacotes ou devido a variações na latência da rede. Se `ARRServiceStats.VideoFramesReused` for frequentemente maior do que zero, isto indica um problema de rede.
 
-Outro valor a `ARRServiceStats.LatencyPoseToReceiveAvg`olhar é. Deve ser consistentemente inferior a 100 ms. Se vir valores mais elevados, isto indica que está ligado a um centro de dados que está muito longe.
+Outro valor a olhar `ARRServiceStats.LatencyPoseToReceiveAvg` é. Deve ser consistentemente inferior a 100 ms. Se vir valores mais elevados, isto indica que está ligado a um centro de dados que está muito longe.
 
 Para obter uma lista de potenciais atenuações, consulte as [diretrizes para](../reference/network-requirements.md#guidelines-for-network-connectivity)a conectividade da rede.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Requisitos de sistema](../overview/system-requirements.md)
-* [Requisitos da rede](../reference/network-requirements.md)
+* [Requisitos de rede](../reference/network-requirements.md)

@@ -2,31 +2,31 @@
 title: incluir ficheiro
 description: incluir ficheiro
 services: azure maps
-author: jinzh-azureiot
+author: anastasia-ms
 ms.service: azure-maps
 ms.topic: include
-ms.date: 11/29/2018
-ms.author: jinzh
+ms.date: 05/01/2020
+ms.author: v-stharr
 ms.custom: include file
-ms.openlocfilehash: cbf43f60a438c740c087ddd2344c982da09da634
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9eafc1ee2d873fbb0602c932eab57c45ddaeac08
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81007822"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673021"
 ---
-A tabela que se segue mostra o limite de utilização para o nível de preços Azure Maps S0. O limite de utilização depende do nível de preços. 
+A tabela que se segue mostra o limite de utilização para o nível de preços Azure Maps S0. O limite de utilização depende do nível de preços.
 
 | Recurso                              | Limite de nível de preços S0 |
 |---------------------------------------|:---------------------:|
 | Taxa máxima de pedidos por subscrição |   50 pedidos por segundo  |
 
+O quadro seguinte mostra o limite acumulado de tamanho de dados para contas Do Azure Maps numa subscrição do Azure. O serviço de dados Do Azure Maps está disponível apenas no nível de preços S1.
 
-A tabela que se segue mostra o limite de tamanho de dados para o Azure Maps. O serviço de dados Azure Maps está disponível apenas no nível de preços S1.
-
-| Recurso                              | Limite |
-|---------------------------------------|:---------------------:|
-| Tamanho máximo dos dados |   50 MB  |
+| Recurso                               | Limite  |
+|----------------------------------------|:---------------------:|
+| Armazenamento máximo por subscrição do Azure |   1 GB |
+| Tamanho máximo por upload de ficheiros           | 100 MB |
 
 
 Para obter mais informações sobre os níveis de preços do Azure Maps, consulte [os preços do Azure Maps.](https://azure.microsoft.com/pricing/details/azure-maps/)

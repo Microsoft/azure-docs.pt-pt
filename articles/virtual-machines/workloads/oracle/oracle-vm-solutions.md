@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/23/2019
+ms.date: 05/12/2020
 ms.author: borisb
-ms.openlocfilehash: 0cee7c25960d567c75a14d8ad9ef95b3e7221862
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 27cc0c758a1f8cec5ad7f124f39c01c4e770676e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81683422"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660522"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Imagens VM da Oracle e sua implementação no Microsoft Azure
 
@@ -30,26 +30,47 @@ Para obter uma lista das imagens atualmente disponíveis, executar o seguinte co
 az vm image list --publisher oracle -o table --all
 ```
 
-A partir de maio de 2019 estão disponíveis as seguintes imagens:
+A partir de maio de 2020 estão disponíveis as seguintes imagens:
 
 ```bash
 Offer                   Publisher    Sku                     Urn                                                          Version
 ----------------------  -----------  ----------------------  -----------------------------------------------------------  -------------
+oracle-database-19-3    Oracle       oracle-db-19300         Oracle:oracle-database-19-3:oracle-db-19300:19.3.0           19.3.0
 Oracle-Database-Ee      Oracle       12.1.0.2                Oracle:Oracle-Database-Ee:12.1.0.2:12.1.20170220             12.1.20170220
 Oracle-Database-Ee      Oracle       12.2.0.1                Oracle:Oracle-Database-Ee:12.2.0.1:12.2.20180725             12.2.20180725
 Oracle-Database-Ee      Oracle       18.3.0.0                Oracle:Oracle-Database-Ee:18.3.0.0:18.3.20181213             18.3.20181213
 Oracle-Database-Se      Oracle       12.1.0.2                Oracle:Oracle-Database-Se:12.1.0.2:12.1.20170220             12.1.20170220
 Oracle-Database-Se      Oracle       12.2.0.1                Oracle:Oracle-Database-Se:12.2.0.1:12.2.20180725             12.2.20180725
 Oracle-Database-Se      Oracle       18.3.0.0                Oracle:Oracle-Database-Se:18.3.0.0:18.3.20181213             18.3.20181213
-Oracle-Linux            Oracle       6.10                    Oracle:Oracle-Linux:6.10:6.10.20190506                       6.10.20190506
-Oracle-Linux            Oracle       6.8                     Oracle:Oracle-Linux:6.8:6.8.20190506                         6.8.20190506
-Oracle-Linux            Oracle       6.9                     Oracle:Oracle-Linux:6.9:6.9.20190506                         6.9.20190506
-Oracle-Linux            Oracle       7.3                     Oracle:Oracle-Linux:7.3:7.3.20190506                         7.3.20190506
-Oracle-Linux            Oracle       7.4                     Oracle:Oracle-Linux:7.4:7.4.20190506                         7.4.20190506
+Oracle-Linux            Oracle       6.10                    Oracle:Oracle-Linux:6.10:6.10.00                             6.10.00
+Oracle-Linux            Oracle       6.8                     Oracle:Oracle-Linux:6.8:6.8.0                                6.8.0
+Oracle-Linux            Oracle       6.8                     Oracle:Oracle-Linux:6.8:6.8.20190529                         6.8.20190529
+Oracle-Linux            Oracle       6.9                     Oracle:Oracle-Linux:6.9:6.9.0                                6.9.0
+Oracle-Linux            Oracle       6.9                     Oracle:Oracle-Linux:6.9:6.9.20190529                         6.9.20190529
+Oracle-Linux            Oracle       7.3                     Oracle:Oracle-Linux:7.3:7.3.0                                7.3.0
+Oracle-Linux            Oracle       7.3                     Oracle:Oracle-Linux:7.3:7.3.20190529                         7.3.20190529
+Oracle-Linux            Oracle       7.4                     Oracle:Oracle-Linux:7.4:7.4.1                                7.4.1
+Oracle-Linux            Oracle       7.4                     Oracle:Oracle-Linux:7.4:7.4.20190529                         7.4.20190529
+Oracle-Linux            Oracle       7.5                     Oracle:Oracle-Linux:7.5:7.5.1                                7.5.1
+Oracle-Linux            Oracle       7.5                     Oracle:Oracle-Linux:7.5:7.5.2                                7.5.2
 Oracle-Linux            Oracle       7.5                     Oracle:Oracle-Linux:7.5:7.5.20181207                         7.5.20181207
-Oracle-Linux            Oracle       7.5                     Oracle:Oracle-Linux:7.5:7.5.20190506                         7.5.20190506
-Oracle-Linux            Oracle       7.6                     Oracle:Oracle-Linux:7.6:7.6.20181207                         7.6.20181207
-Oracle-Linux            Oracle       7.6                     Oracle:Oracle-Linux:7.6:7.6.20190506                         7.6.20190506
+Oracle-Linux            Oracle       7.5                     Oracle:Oracle-Linux:7.5:7.5.20190529                         7.5.20190529
+Oracle-Linux            Oracle       7.6                     Oracle:Oracle-Linux:7.6:7.6.2                                7.6.2
+Oracle-Linux            Oracle       7.6                     Oracle:Oracle-Linux:7.6:7.6.3                                7.6.3
+Oracle-Linux            Oracle       7.6                     Oracle:Oracle-Linux:7.6:7.6.4                                7.6.4
+Oracle-Linux            Oracle       77                      Oracle:Oracle-Linux:77:7.7.1                                 7.7.1
+Oracle-Linux            Oracle       77                      Oracle:Oracle-Linux:77:7.7.2                                 7.7.2
+Oracle-Linux            Oracle       77                      Oracle:Oracle-Linux:77:7.7.3                                 7.7.3
+Oracle-Linux            Oracle       77                      Oracle:Oracle-Linux:77:7.7.4                                 7.7.4
+Oracle-Linux            Oracle       77-ci                   Oracle:Oracle-Linux:77-ci:7.7.01                             7.7.01
+Oracle-Linux            Oracle       77-ci                   Oracle:Oracle-Linux:77-ci:7.7.02                             7.7.02
+Oracle-Linux            Oracle       77-ci                   Oracle:Oracle-Linux:77-ci:7.7.03                             7.7.03
+Oracle-Linux            Oracle       8                       Oracle:Oracle-Linux:8:8.0.2                                  8.0.2
+Oracle-Linux            Oracle       8-ci                    Oracle:Oracle-Linux:8-ci:8.0.11                              8.0.11
+Oracle-Linux            Oracle       81                      Oracle:Oracle-Linux:81:8.1.0                                 8.1.0
+Oracle-Linux            Oracle       81-ci                   Oracle:Oracle-Linux:81-ci:8.1.0                              8.1.0
+Oracle-Linux            Oracle       ol77-ci-gen2            Oracle:Oracle-Linux:ol77-ci-gen2:7.7.1                       7.7.1
+Oracle-Linux            Oracle       ol77-gen2               Oracle:Oracle-Linux:ol77-gen2:7.7.01                         7.7.01
 Oracle-WebLogic-Server  Oracle       Oracle-WebLogic-Server  Oracle:Oracle-WebLogic-Server:Oracle-WebLogic-Server:12.1.2  12.1.2
 ```
 
@@ -101,10 +122,14 @@ Além de ter uma solução HA e DR arquitetada em Azure, deverá ter uma estrat�
 
 
 ## <a name="support-for-jd-edwards"></a>Apoio a JD Edwards
-De acordo com a nota de suporte da Oracle [Doc ID 2178595.1,](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=573435677515785&id=2178595.1&_afrWindowMode=0&_adf.ctrl-state=o852dw7d_4)as versões JD `Minimum Technical Requirements` Edwards EnterpriseOne 9.2 ou superior são suportadas em qualquer oferta de nuvem **pública** que responda ao seu específico (MTR).  Você precisa criar imagens personalizadas que vão ao encontro das suas especificações MTR para a compatibilidade de aplicações de SISTEMA e software. 
+De acordo com a nota de suporte da Oracle [Doc ID 2178595.1,](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=573435677515785&id=2178595.1&_afrWindowMode=0&_adf.ctrl-state=o852dw7d_4)as versões JD Edwards EnterpriseOne 9.2 ou superior são suportadas em **qualquer oferta de nuvem pública** que responda ao seu específico `Minimum Technical Requirements` (MTR).  Você precisa criar imagens personalizadas que vão ao encontro das suas especificações MTR para a compatibilidade de aplicações de SISTEMA e software. 
 
 
-## <a name="oracle-weblogic-server-virtual-machine-images"></a>Imagens de máquinavirtual do Servidor WebLogic oracle
+## <a name="oracle-weblogic-server-virtual-machine-offers"></a>Ofertas de máquina virtual do Servidor WebLogic oracle
+
+A Oracle e a Microsoft estão a colaborar para levar o WebLogic Server ao Azure Marketplace sob a forma de uma coleção de ofertas da Aplicação Azure.  Estas ofertas são descritas no artigo [Aplicações Oráculo WebLogic Server Azure.](oracle-weblogic.md)
+
+### <a name="oracle-weblogic-server-virtual-machine-images"></a>Imagens de máquinavirtual do Servidor WebLogic oracle
 
 * **O clustering é suportado apenas na Enterprise Edition.** Você está licenciado para usar o clusterWebLogic apenas quando usar a Edição Enterprise do Servidor WebLogic Oracle. Não utilize o clustering com a Oracle WebLogic Server Standard Edition.
 * **O multicast UDP não é suportado.** O Azure suporta o unicasting uDP, mas não multicasting ou radiodifusão. O Oracle WebLogic Server é capaz de confiar nas capacidades unicast azure UDP. Para obter os melhores resultados baseados no unicast UDP, recomendamos que o tamanho do cluster WebLogic seja mantido estático, ou mantido com não mais de 10 servidores geridos.
@@ -125,7 +150,7 @@ De acordo com a nota de suporte da Oracle [Doc ID 2178595.1,](https://support.or
     -Dweblogic.rjvm.enableprotocolswitch=true
     ```
 
-Para obter informações relacionadas, consulte o artigo <https://support.oracle.com> **KB 860340.1** em .
+Para obter informações relacionadas, consulte o artigo **KB 860340.1** em <https://support.oracle.com> .
 
 * **Limitações dinâmicas de clustering e equilíbrio de carga.** Suponha que queira usar um cluster dinâmico no Oracle WebLogic Server e expô-lo através de um único ponto final equilibrado em carga pública em Azure. Isto pode ser feito desde que utilize um número de porta fixo para cada um dos servidores geridos (não atribuído dinamicamente a partir de uma gama) e não inicie servidores mais geridos do que as máquinas que o administrador está a seguir. Ou seja, não há mais do que um servidor gerido por máquina virtual). Se a sua configuração resultar em mais servidores Oracle WebLogic sendo iniciados do que há máquinas virtuais (isto é, onde várias instâncias do Oracle WebLogic Server partilham a mesma máquina virtual), então não é possível que mais do que uma dessas instâncias de Servidores WebLogic oracle se ligue a um determinado número de porta. Os outros naquela máquina virtual falham.
 

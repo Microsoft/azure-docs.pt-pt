@@ -1,19 +1,19 @@
 ---
 title: Azure Cosmos DB .NET change feed Processador API, notas de lançamento SDK
 description: Saiba tudo sobre o Processador de Feed de Mudança API e SDK, incluindo datas de lançamento, datas de reforma e alterações efetuadas entre cada versão do Processador de Feed de Mudança .NET SDK.
-author: ealsur
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 01/30/2019
-ms.author: maquaran
-ms.openlocfilehash: 5820778d46f5701b82bb289192350a9e13739d37
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/11/2020
+ms.author: anfeldma
+ms.openlocfilehash: e39cef33d8d402b6e04c6b9952cae21848e02424
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80619449"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660423"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET Change Feed Processor SDK: Descarregamento e descarregamento de notas
 
@@ -23,9 +23,10 @@ ms.locfileid: "80619449"
 > * [.NET Change Feed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
-> * [Java assíncrono](sql-api-sdk-async-java.md)
-> * [Java](sql-api-sdk-java.md)
-> * [Python](sql-api-sdk-python.md)
+> * [Java SDK v4](sql-api-sdk-java-v4.md)
+> * [SDK v2 Java assíncrono](sql-api-sdk-async-java.md)
+> * [SDK v2 Java síncrono](sql-api-sdk-java.md)
+> * [Pitão](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Fornecedor de Recursos REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
@@ -34,7 +35,7 @@ ms.locfileid: "80619449"
 
 |   |   |
 |---|---|
-|**Download sDK**|[Nuget](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
+|**Download sDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
 |**Documentação da API**|[Alterar documentação de referência da biblioteca de processadores de feed aPI](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
 |**Introdução**|[Começar com o Processador de Feed de Mudança .NET SDK](change-feed.md)|
 |**Quadro apoiado atual**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
@@ -47,22 +48,22 @@ ms.locfileid: "80619449"
 ### <a name="v2-builds"></a>v2 constrói
 
 ### <a name="230"></a><a name="2.3.0"/>2.3.0
-* Adicionei um `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory` novo método `ICheckpointPartitionProcessorFactory`e interface pública correspondente. Isto permite uma `IPartitionProcessor` implementação da interface para usar mecanismo de controlo incorporado. A nova fábrica é semelhante `IPartitionProcessorFactory`à existente, exceto que o seu `Create` método também leva o `ILeaseCheckpointer` parâmetro.
-* Apenas um dos dois `ChangeFeedProcessorBuilder.WithPartitionProcessorFactory` `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory`métodos, ou, `ChangeFeedProcessorBuilder` pode ser utilizado para o mesmo caso.
+* Adicionei um novo método `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory` e interface pública `ICheckpointPartitionProcessorFactory` correspondente. Isto permite uma implementação da interface para usar mecanismo `IPartitionProcessor` de controlo incorporado. A nova fábrica é semelhante à `IPartitionProcessorFactory` existente, exceto que o seu `Create` método também leva o `ILeaseCheckpointer` parâmetro.
+* Apenas um dos dois métodos, `ChangeFeedProcessorBuilder.WithPartitionProcessorFactory` `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory` ou, pode ser utilizado para o mesmo `ChangeFeedProcessorBuilder` caso.
 
 ### <a name="228"></a><a name="2.2.8"/>2.2.8
 * Melhorias de estabilidade e de diagnosticabilidade:
-  * Suporte adicional para detetar a mudança de leitura alimentação demorando muito tempo. Quando demora mais do que o `ChangeFeedProcessorOptions.ChangeFeedTimeout` valor especificado pela propriedade, são tomadas as seguintes etapas:
+  * Suporte adicional para detetar a mudança de leitura alimentação demorando muito tempo. Quando demora mais do que o valor especificado pela `ChangeFeedProcessorOptions.ChangeFeedTimeout` propriedade, são tomadas as seguintes etapas:
     * A operação para ler a mudança de alimentos sobre a divisória problemática é abortada.
     * A instância do processador de feed de mudança deixa cair a propriedade do contrato de arrendamento problemático. O arrendamento suspenso será recolhido durante o próximo passo de aquisição de locação que será feito pela mesma ou diferente instância do processador de feed de mudança. Desta forma, a leitura da mudança vai recomeçar.
     * Um problema é reportado ao monitor de saúde. O monitor de saúde predefinido envia todos os problemas reportados para rastrear o registo.
-  * Acrescentou uma nova `ChangeFeedProcessorOptions.ChangeFeedTimeout`propriedade pública: . O valor padrão desta propriedade é de 10 minutos.
-  * Acrescentou um novo valor `Monitoring.MonitoredOperation.ReadChangeFeed`público enum: . Quando o `HealthMonitoringRecord.Operation` valor é `Monitoring.MonitoredOperation.ReadChangeFeed`definido para , indica que a questão da saúde está relacionada com a mudança de leitura alimentos.
+  * Acrescentou uma nova propriedade pública: `ChangeFeedProcessorOptions.ChangeFeedTimeout` . O valor padrão desta propriedade é de 10 minutos.
+  * Acrescentou um novo valor público enum: `Monitoring.MonitoredOperation.ReadChangeFeed` . Quando o valor é definido para , indica que a questão da saúde está relacionada com a mudança de `HealthMonitoringRecord.Operation` leitura `Monitoring.MonitoredOperation.ReadChangeFeed` alimentos.
 
 ### <a name="227"></a><a name="2.2.7"/>2.2.7
 * A melhoria da estratégia de equilíbrio de carga para o cenário ao obter todos os contratos de arrendamento demora mais tempo do que o intervalo de expiração do arrendamento, por exemplo, devido a problemas de rede:
   * Neste cenário, o algoritmo de equilíbrio de carga usado para considerar falsamente os contratos de arrendamento como expirados, causando o roubo de arrendamentos de proprietários ativos. Isto pode desencadear um reequilíbrio desnecessário de muitos contratos de arrendamento.
-  * Esta questão é corrigida nesta versão, evitando a repetição do conflito enquanto adquire o arrendamento expirado que o proprietário não mudou e posicionando a aquisição de locação caducada para a próxima iteração de equilíbrio de carga.
+  * Esta questão é corrigida nesta versão, evitando a repetição do conflito enquanto adquire o arrendamento expirado que o proprietário não alterou e adiando a aquisição de locação caducada para a próxima iteração de equilíbrio de carga.
 
 ### <a name="226"></a><a name="2.2.6"/>2.2.6
 * Melhor gestão das exceções do Observador.
@@ -96,7 +97,7 @@ ms.locfileid: "80619449"
 * Pequenas melhorias de diagnóstico.
 
 ### <a name="210"></a><a name="2.1.0"/>2.1.0
-* Adicionou novo API,&lt;Task&lt;IReadOnlyList RemainingPartitionWorkWork&gt; &gt; IRemainingWorkEstimatetor.GetEstimatedRemainingRemainingWorkPerPartitionAsync(). Isto pode ser usado para obter trabalho estimado para cada partição.
+* Adicionou novo API, Task &lt; IReadOnlyList &lt; RemainingPartitionWorkWork &gt; &gt; IRemainingWorkEstimatetor.GetEstimatedRemainingRemainingWorkPerPartitionAsync(). Isto pode ser usado para obter trabalho estimado para cada partição.
 * Suporta Microsoft.Azure.DocumentDB SDK 2.0. Requer Microsoft.Azure.DocumentDB 2.0 ou mais tarde.
 
 ### <a name="206"></a><a name="2.0.6"/>2.0.6
@@ -158,7 +159,7 @@ ms.locfileid: "80619449"
 * Compatível com as versões [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.21 ou superior.
 
 ### <a name="120"></a><a name="1.2.0"/>1.2.0
-* Adiciona suporte para .NET Standard 2.0. O pacote agora `netstandard2.0` `net451` apoia e as alcunhas-quadro.
+* Adiciona suporte para .NET Standard 2.0. O pacote agora apoia `netstandard2.0` e `net451` as alcunhas-quadro.
 * Compatível com as versões [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.17.0 ou superior.
 * Compatível com as versões [SQL .NET Core SDK](sql-api-sdk-dotnet-core.md) 1.5.1 ou superior.
 
@@ -207,6 +208,6 @@ Qualquer pedido à Cosmos DB utilizando um SDK reformado será rejeitado pelo se
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 Para saber mais sobre cosmos DB, consulte a página de serviço [do Microsoft Azure Cosmos DB.](https://azure.microsoft.com/services/cosmos-db/)

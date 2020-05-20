@@ -9,17 +9,17 @@ editor: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2019
+ms.date: 05/19/2020
 ms.author: yelevin
-ms.openlocfilehash: 5eed208ed79aeab4e46ed90dd4d340a8b445be96
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ded28ef872bbc3147793ea3d68c94f8dde35f74e
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461638"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83674190"
 ---
 # <a name="set-up-azure-sentinel-customer-managed-key"></a>Configurar a chave gerida pelo cliente Azure Sentinel
 
@@ -27,13 +27,15 @@ ms.locfileid: "81461638"
 Este artigo fornece informações e passos de fundo para configurar uma chave gerida pelo cliente (CMK) para o Azure Sentinel. A CMK permite que todos os dados guardados ou enviados ao Azure Sentinel sejam encriptados em todos os recursos de armazenamento relevantes com uma chave Azure Key Vault criada ou detida por si.
 
 > [!NOTE]
-> -   A capacidade da CMK Azure Sentinel é fornecida apenas a clientes **novos** e o acesso a esta capacidade é controlado pelo registo de funcionalidades Azure.Pode solicitar acesso contactando, azuresentinelCMK@microsoft.come como a capacidade está disponível, os pedidos pendentes serão aprovados.
+> -   A capacidade da CMK Azure Sentinel é fornecida apenas a clientes **novos** e o acesso a esta capacidade é controlado pelo registo de funcionalidades Azure.Pode solicitar acesso contactando, azuresentinelCMK@microsoft.com e como a capacidade está disponível, os pedidos pendentes serão aprovados.
 > -   A capacidade da CMK Azure Sentinel só está disponível nas regiões leste dos EUA, West US 2 e Sul-Centro dos EUA.
-> -   A capacidade cmk só está disponível para os clientes que enviam 1TB por dia ou mais. Receberá informações sobre preços adicionais quando se candidatar à Microsoft para fornecer CMK na sua subscrição Azure. Saiba mais sobre o carregamento [de Log Analytics.](../azure-monitor/platform/customer-managed-keys.md#disclaimers)
+> -   A capacidade cmk só está disponível para os clientes que enviam 1TB por dia ou mais. Receberá informações sobre preços adicionais quando se candidatar à Microsoft para fornecer CMK na sua subscrição Azure. Saiba mais sobre os preços do [Log Analytics.](../azure-monitor/platform/manage-cost-storage.md#log-analytics-dedicated-clusters)
 
 ## <a name="how-cmk-works"></a>Como funciona a CMK 
 
-A solução Azure Sentinel utiliza vários recursos de armazenamento para recolha de registos e funcionalidades, estes incluem Log Analytics e outros recursos de armazenamento. Como parte da configuração do CMK Azure Sentinel, terá de configurar as definições cmk nos recursos de armazenamento relacionados. Os dados guardados em recursos de armazenamento que não o Log Analytics também serão encriptados.
+A solução Azure Sentinel utiliza vários recursos de armazenamento para recolha de registos e funcionalidades, incluindo Log Analytics e outros. Como parte da configuração do CMK Azure Sentinel, terá de configurar as definições cmk nos recursos de armazenamento relacionados. Os dados guardados em recursos de armazenamento que não o Log Analytics também serão encriptados.
+
+Saiba mais sobre a [CMK.](../azure-monitor/platform/customer-managed-keys.md#customer-managed-key-cmk-overview)
 
 > [!NOTE]
 > Se ativar a CMK no Azure Sentinel, qualquer funcionalidade de Pré-visualização Pública que não suporte a CMK não estará ativada.

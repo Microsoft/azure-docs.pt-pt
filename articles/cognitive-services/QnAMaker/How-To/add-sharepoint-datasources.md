@@ -3,12 +3,12 @@ title: Ficheiros SharePoint - QnA Maker
 description: Adicione fontes de dados seguras do SharePoint à sua base de conhecimentos para enriquecer a base de conhecimentos com perguntas e respostas que possam ser protegidas com O Diretório Ativo.
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 6f05079e39c8afb001bd4ba09d68f435c18efad5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 93f17e79834b412ce0babf220ba13649ae07718c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80294883"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660305"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Adicione uma fonte de dados segura do SharePoint à sua base de conhecimentos
 
@@ -27,12 +27,12 @@ Se o gestor de base de conhecimento do QnA Maker não for o gestor de Diretório
 
 Pode adicionar todos os tipos de [ficheiros](../Concepts/content-types.md) suportados pelo QnA Maker a partir de um site do SharePoint à sua base de conhecimentos. Poderá ter de conceder [permissões](#permissions) se o recurso do ficheiro estiver seguro.
 
-1. A partir da biblioteca com o site SharePoint, selecione o menu de elipse do ficheiro, `...`.
+1. A partir da biblioteca com o site SharePoint, selecione o menu de elipse do ficheiro, `...` .
 1. Copie a URL do ficheiro.
 
    ![Obtenha o URL do ficheiro SharePoint selecionando o menu de elipse do ficheiro e, em seguida, copiando o URL.](../media/add-sharepoint-datasources/get-sharepoint-file-url.png)
 
-1. No portal QnA Maker, na página **Definições,** [adicione o URL](manage-knowledge-bases.md#edit-knowledge-base) à base de conhecimentos.
+1. No portal QnA Maker, na página **Definições,** adicione o URL à base de conhecimentos.
 
 ### <a name="images-with-sharepoint-files"></a>Imagens com ficheiros SharePoint
 
@@ -44,7 +44,7 @@ Adicione a imagem com a seguinte sintaxe de marcação:
 ![Explanation or description of image](URL of public image)
 ```
 
-O texto nos suportes `[]`quadrados, explica a imagem. O URL nos parênteses, `()`é o link direto para a imagem.
+O texto nos suportes `[]` quadrados, explica a imagem. O URL nos parênteses, `()` é o link direto para a imagem.
 
 Quando se testa o par QnA no painel de teste interativo, no portal QnA Maker, a imagem é exibida, em vez do texto de marcação. Isto valida que a imagem pode ser recuperada publicamente a partir da sua aplicação de cliente.
 

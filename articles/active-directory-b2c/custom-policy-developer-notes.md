@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/28/2020
+ms.date: 05/19/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 471c2d45e28e634adde78c2d96d407ec219be68c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 90d9c6a2ebf445ba492f2e1634e57910cd235aed
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82229668"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83679247"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Notas de desenvolvedor espreitapara políticas personalizadas no Diretório Ativo Azure B2C
 
@@ -62,20 +62,20 @@ Política personalizada/Experiência de Identidade As capacidades de enquadramen
 
 ### <a name="protocols-and-authorization-flows"></a>Protocolos e fluxos de autorização
 
-| Funcionalidade | Desenvolvimento | Pré-visualização | GA | Notas |
+| Funcionalidade | Desenvolvimento | Pré-visualizar | GA | Notas |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | [Código de autorização OAuth2](authorization-code-flow.md) |  |  | X |  |
 | Código de autorização OAuth2 com PKCE |  |  | X | Aplicações móveis apenas  |
 | [Fluxo implícito OAuth2](implicit-flow-single-page-application.md) |  |  | X |  |
 | [Credenciais de senha do proprietário de recursos OAuth2](ropc-custom.md) |  | X |  |  |
 | [Ligação OIDC](openid-connect.md) |  |  | X |  |
-| [SAML2](connect-with-saml-service-providers.md)  |  |X  |  | ENCADEr e Redirecionar encadernações. |
+| [SAML2](connect-with-saml-service-providers.md)  |  |  |X  | ENCADEr e Redirecionar encadernações. |
 | OAuth1 |  |  |  | Não suportado. |
 | WSFED | X |  |  |  |
 
 ### <a name="identify-providers-federation"></a>Identificar a federação de fornecedores 
 
-| Funcionalidade | Desenvolvimento | Pré-visualização | GA | Notas |
+| Funcionalidade | Desenvolvimento | Pré-visualizar | GA | Notas |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | [OpenID Connect](openid-connect-technical-profile.md) |  |  | X | Por exemplo, google+.  |
 | [OAuth2](oauth2-technical-profile.md) |  |  | X | Por exemplo, Facebook.  |
@@ -86,7 +86,7 @@ Política personalizada/Experiência de Identidade As capacidades de enquadramen
 
 ### <a name="rest-api-integration"></a>Integração da API REST
 
-| Funcionalidade | Desenvolvimento | Pré-visualização | GA | Notas |
+| Funcionalidade | Desenvolvimento | Pré-visualizar | GA | Notas |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | [REST API com auth básico](secure-rest-api.md#http-basic-authentication) |  |  | X |  |
 | [REST API com certificado de cliente auth](secure-rest-api.md#https-client-certificate-authentication) |  |  | X |  |
@@ -94,7 +94,7 @@ Política personalizada/Experiência de Identidade As capacidades de enquadramen
 
 ### <a name="component-support"></a>Suporte de componentes
 
-| Funcionalidade | Desenvolvimento | Pré-visualização | GA | Notas |
+| Funcionalidade | Desenvolvimento | Pré-visualizar | GA | Notas |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | [Autenticação do fator telefone](phone-factor-technical-profile.md) |  |  | X |  |
 | [Autenticação Azure MFA](multi-factor-auth-technical-profile.md) |  | X |  |  |
@@ -109,7 +109,7 @@ Política personalizada/Experiência de Identidade As capacidades de enquadramen
 
 ### <a name="page-layout-versions"></a>Versões do esquema de página
 
-| Funcionalidade | Desenvolvimento | Pré-visualização | GA | Notas |
+| Funcionalidade | Desenvolvimento | Pré-visualizar | GA | Notas |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | [2.0.0](page-layout.md#200) |  | X |  |  |
 | [1.2.0](page-layout.md#120) |  | X |  |  |
@@ -119,7 +119,7 @@ Política personalizada/Experiência de Identidade As capacidades de enquadramen
 
 ### <a name="app-ief-integration"></a>Integração App-IEF
 
-| Funcionalidade | Desenvolvimento | Pré-visualização | GA | Notas |
+| Funcionalidade | Desenvolvimento | Pré-visualizar | GA | Notas |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Parâmetro de corda de consulta`domain_hint` |  |  | X | Disponível como reclamação, pode ser passado para IDP. |
 | Parâmetro de corda de consulta`login_hint` |  |  | X | Disponível como reclamação, pode ser passado para IDP. |
@@ -129,7 +129,7 @@ Política personalizada/Experiência de Identidade As capacidades de enquadramen
 
 ### <a name="session-management"></a>Gestão de Sessões
 
-| Funcionalidade | Desenvolvimento | Pré-visualização | GA | Notas |
+| Funcionalidade | Desenvolvimento | Pré-visualizar | GA | Notas |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | [Provedor de sessão SSO padrão](custom-policy-reference-sso.md#defaultssosessionprovider) |  |  | X |  |
 | [Fornecedor externo de sessão de login](custom-policy-reference-sso.md#externalloginssosessionprovider) |  |  | X |  |
@@ -139,7 +139,7 @@ Política personalizada/Experiência de Identidade As capacidades de enquadramen
 
 ### <a name="security"></a>Segurança
 
-| Funcionalidade | Desenvolvimento | Pré-visualização | GA | Notas |
+| Funcionalidade | Desenvolvimento | Pré-visualizar | GA | Notas |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | Chaves de política- Gerar, Manual, Carregar |  |  | X |  |
 | Chaves políticas- RSA/Cert, Segredos |  |  | X |  |
@@ -147,7 +147,7 @@ Política personalizada/Experiência de Identidade As capacidades de enquadramen
 
 ### <a name="developer-interface"></a>Interface de desenvolvedor
 
-| Funcionalidade | Desenvolvimento | Pré-visualização | GA | Notas |
+| Funcionalidade | Desenvolvimento | Pré-visualizar | GA | Notas |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Ux do Portal-IEF |  |  | X |  |
 | Upload de política |  |  | X |  |

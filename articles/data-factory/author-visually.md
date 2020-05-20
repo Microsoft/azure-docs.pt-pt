@@ -9,13 +9,13 @@ author: djpmsft
 ms.author: daperlov
 ms.reviewer: ''
 manager: anandsub
-ms.date: 12/19/2019
-ms.openlocfilehash: e7de92878dac72470c0b65d1cf18c1a2d526a0bb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/15/2020
+ms.openlocfilehash: bf0aeb3b73f2b12e723269a792d67d7f6185894f
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418495"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83674559"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Autoria visual na Azure Data Factory
 
@@ -34,6 +34,14 @@ Para abrir a **tela de autor,** clique no ícone do lápis.
 Aqui, você será o autor dos oleodutos, atividades, conjuntos de dados, serviços ligados, fluxos de dados, gatilhos e tempos de execução de integração que compõem a sua fábrica. Para começar a construir um oleoduto utilizando a tela de autor, consulte [os dados da Cópia utilizando a atividade da cópia](tutorial-copy-data-portal.md). 
 
 A experiência de autor visual padrão está a trabalhar diretamente com o serviço Data Factory. A integração azure Repos Git ou GitHub também é suportada para permitir o controlo de fontes e colaboração para o trabalho nos seus oleodutos de fábrica de dados. Para saber mais sobre as diferenças entre estas experiências de autoria, consulte o [controlo de origem na Azure Data Factory.](source-control.md)
+
+### <a name="properties-pane"></a>Painel Propriedades
+
+Para recursos de alto nível, tais como oleodutos, conjuntos de dados e fluxos de dados, propriedades de alto nível são editáveis no painel de propriedades no lado direito da tela. O painel de propriedades contém propriedades como nome, descrição, anotações e outras propriedades de alto nível. Subrecursos como as atividades de gasoduto e as transformações de fluxo de dados são editados utilizando o painel na parte inferior da tela. 
+
+![Tela de autoria](media/author-visually/properties-pane.png)
+
+O painel de propriedades só será aberto por padrão na criação de recursos. Para editá-lo, clique no ícone do painel de propriedades localizado no canto superior direito da tela.
 
 ## <a name="expressions-and-functions"></a>Expressões e funções
 

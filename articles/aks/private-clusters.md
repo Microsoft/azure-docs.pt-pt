@@ -4,12 +4,12 @@ description: Saiba como criar um cluster privado do Serviço Azure Kubernetes (A
 services: container-service
 ms.topic: article
 ms.date: 2/21/2020
-ms.openlocfilehash: 4f0d702a213c4c34024c043edc50d25e6696cbc1
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: a09781efd58c29acbd8ca445b58b89c04daa94f8
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610943"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83674369"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Criar um cluster privado de serviço Azure Kubernetes
 
@@ -76,7 +76,7 @@ Como mencionado, o peering VNet é uma forma de aceder ao seu cluster privado. P
 3. No painel esquerdo, selecione o link de **rede Virtual.**  
 4. Crie um novo link para adicionar a rede virtual do VM à zona privada de DNS. Leva alguns minutos para que a ligação de zona DNS fique disponível.  
 5. Volte para o grupo de recursos MC_* no portal Azure.  
-6. No painel certo, selecione a rede virtual. O nome da rede virtual está na forma *aks-vnet-\**.  
+6. No painel certo, selecione a rede virtual. O nome da rede virtual está na forma *aks-vnet- \* *.  
 7. No painel esquerdo, selecione **Peerings**.  
 8. Selecione **Adicionar,** adicione a rede virtual do VM e, em seguida, crie o peering.  
 9. Vá à rede virtual onde tem o VM, selecione **Peerings,** selecione a rede virtual AKS e, em seguida, crie o peering. Se o endereço variar na rede virtual AKS e no choque de rede virtual do VM, o olhar falha. Para mais informações, consulte o peering da [rede Virtual.][virtual-network-peering]
@@ -102,13 +102,13 @@ Como mencionado, o peering VNet é uma forma de aceder ao seu cluster privado. P
 * As gamas autorizadas IP não podem ser aplicadas ao ponto final do servidor api privado, aplicam-se apenas ao servidor público da API
 * As Zonas de Disponibilidade são atualmente suportadas para determinadas regiões, ver o início deste documento 
 * [As limitações][private-link-service] do serviço Azure Private Link aplicam-se a clusters privados.
-* Nenhum suporte para nós virtuais em um cluster privado para girar instâncias privadas de contentores Azure (ACI) em uma rede virtual azure privada
 * Nenhum apoio à integração de Azure DevOps fora da caixa com clusters privados
 * Para os clientes que precisam de permitir que o Registo de Contentores do Azure trabalhe com AKS privados, a rede virtual de registo de contentores deve ser espreitada com a rede virtual do cluster de agentes.
 * Nenhum suporte atual para espaços Azure Dev
 * Nenhum apoio para converter os aglomerados AKS existentes em clusters privados
 * A apagamento ou modificação do ponto final privado na sub-rede do cliente fará com que o cluster deixe de funcionar. 
 * O Monitor Azure para recipientes Live Data não é suportado atualmente.
+* O Uptime SLA não é atualmente suportado.
 
 
 <!-- LINKS - internal -->

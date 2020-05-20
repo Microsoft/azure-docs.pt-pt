@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: d02cd12552b3664dd7acaae0142fc939ee57f5f6
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 40078d33d2b89c2fcf3b90cd8a19405b1a29c5d7
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591986"
+ms.locfileid: "83660078"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Proteja o seu espaço de trabalho Synapse (pré-visualização)
 
@@ -115,11 +115,11 @@ Os utilizadores de cada função precisam de completar os seguintes passos:
 |   | Passo | Administradores de área de trabalho | Administradores de faíscas | Administradores da SQL |
 | --- | --- | --- | --- | --- |
 | 1 | Faça upload de um ficheiro parquet para cnt1 | SIM | SIM | SIM |
-| 2 | Leia o ficheiro parquet usando sQL a pedido | SIM | NO | SIM |
+| 2 | Leia o ficheiro parquet usando a Pedido sQL | SIM | NO | SIM |
 | 3 | Criar uma piscina de faíscas | SIM [1] | SIM [1] | NO  |
 | 4 | Lê o arquivo de parquet com um Caderno | SIM | SIM | NO |
 | 5 | Crie um oleoduto a partir do Caderno e desencadeie o oleoduto para funcionar agora | SIM | NO | NO |
-| 6 | Crie um SQL Pool e execute um script SQL como &quot; SELECT 1&quot; | SIM [1] | NO | SIM[1] |
+| 6 | Crie uma piscina SQL e execute um script SQL como &quot; SELECT 1&quot; | SIM [1] | NO | SIM[1] |
 
 > [!NOTE]
 > [1] Para criar piscinas SQL ou Spark, o utilizador deve ter pelo menos uma função de Contribuinte no espaço de trabalho Synapse.

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: mimckitt
-ms.openlocfilehash: 105279940546c8e5b40d1d8378b35f85af1ea98b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b688341b8814c52523821851bef4d7600105cafd
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82099551"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83675870"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Serviço de Metadados Azure: Eventos agendados para VMs do Windows
 
@@ -47,21 +47,21 @@ Eventos Agendados fornece eventos nos seguintes casos de utilização:
 O serviço De metadados Azure expõe informações sobre o funcionamento de Máquinas Virtuais utilizando um ponto final REST acessível a partir do VM. A informação está disponível através de um IP não resaída para que não seja exposta fora do VM.
 
 ### <a name="endpoint-discovery"></a>Descoberta endpoint
-Para VNET ativado VMs, o serviço de metadados está `169.254.169.254`disponível a partir de um IP estático não resaída, . O ponto final completo para a versão mais recente dos Eventos Agendados é: 
+Para VNET ativado VMs, o serviço de metadados está disponível a partir de um IP estático não resaída, `169.254.169.254` . O ponto final completo para a versão mais recente dos Eventos Agendados é: 
 
  > `http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01`
 
 Se a Máquina Virtual não for criada dentro de uma Rede Virtual, os casos padrão para serviços na nuvem e VMs clássicos, é necessária uma lógica adicional para descobrir o endereço IP para usar. Consulte esta amostra para aprender a [descobrir o ponto final do hospedeiro](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
 
 ### <a name="version-and-region-availability"></a>Versão e Disponibilidade da Região
-O Serviço de Eventos Agendados é versão. As versões são obrigatórias `2019-01-01`e a versão atual é.
+O Serviço de Eventos Agendados é versão. As versões são obrigatórias e a versão atual `2019-01-01` é.
 
-| Versão | Tipo de lançamento | Regiões | Notas de Versão | 
+| Versão | Tipo de lançamento | Regiões | Release Notes (Notas de Lançamento) | 
 | - | - | - | - |
 | 2019-01-01 | Disponibilidade Geral | Todos | <li> Suporte adicional para conjuntos de escala de máquina virtual 'Terminate' |
 | 2017-11-01 | Disponibilidade Geral | Todos | <li> Suporte adicional para o evento de despejo Spot VM 'Preempt'<br> | 
 | 2017-08-01 | Disponibilidade Geral | Todos | <li> Sublinhado de recursos para VMs IaaS<br><li>Requisito de cabeçalho de metadados imposto para todos os pedidos | 
-| 2017-03-01 | Pré-visualização | Todos |<li>Versão inicial |
+| 2017-03-01 | Pré-visualizar | Todos |<li>Versão inicial |
 
 > [!NOTE] 
 > Os lançamentos anteriores de pré-visualização de eventos agendados suportavam {mais recente} como a versão api. Este formato já não é suportado e será depreciado no futuro.
@@ -74,12 +74,12 @@ Os Eventos Agendados são desativados para o seu serviço se não fizer um pedid
 ### <a name="user-initiated-maintenance"></a>Manutenção Iniciada do Utilizador
 O utilizador iniciou a manutenção virtual da máquina através do portal Azure, API, CLI ou PowerShell resulta num evento agendado. Isto permite-lhe testar a lógica de preparação de manutenção na sua aplicação e permite que a sua aplicação se prepare para a manutenção iniciada pelo utilizador.
 
-Reiniciar uma máquina virtual marca um `Reboot`evento com tipo . A recolocação de uma máquina `Redeploy`virtual marca um evento com tipo .
+Reiniciar uma máquina virtual marca um evento com tipo `Reboot` . A recolocação de uma máquina virtual marca um evento com tipo `Redeploy` .
 
 ## <a name="using-the-api"></a>Utilização da API
 
 ### <a name="headers"></a>Cabeçalhos
-Ao consultar o Serviço de Metadados, `Metadata:true` deve fornecer o cabeçalho para garantir que o pedido não foi redirecionado involuntariamente. O `Metadata:true` cabeçalho é necessário para todos os pedidos de eventos agendados. A não intenção de incluir o cabeçalho no pedido resultará numa resposta de Pedido De mau pedido do Serviço de Metadados.
+Ao consultar o Serviço de Metadados, deve fornecer o cabeçalho `Metadata:true` para garantir que o pedido não foi redirecionado involuntariamente. O `Metadata:true` cabeçalho é necessário para todos os pedidos de eventos agendados. A não intenção de incluir o cabeçalho no pedido resultará numa resposta de Pedido De mau pedido do Serviço de Metadados.
 
 ### <a name="query-for-events"></a>Consulta para eventos
 Você pode consultar eventos agendados simplesmente fazendo a seguinte chamada:
@@ -115,11 +115,11 @@ O DocumentIncarnation é um ETag e fornece uma maneira fácil de inspecionar se 
 | Tipo de evento | Impacto que este evento causa. <br><br> Valores: <br><ul><li> `Freeze`: A Máquina Virtual está programada para parar durante alguns segundos. A CPU e a conectividade da rede podem ser suspensas, mas não há impacto na memória ou nos ficheiros abertos. <li>`Reboot`: A Máquina Virtual está programada para reiniciar (perde-se a memória não persistente). <li>`Redeploy`: A Máquina Virtual está programada para se deslocar para outro nó (os discos efémeros estão perdidos). <li>`Preempt`: A Máquina Virtual spot está a ser eliminada (os discos efémeros perdem-se). <li> `Terminate`: A Máquina Virtual está programada para ser eliminada. |
 | ResourceType | Tipo de recurso que este evento tem impacto. <br><br> Valores: <ul><li>`VirtualMachine`|
 | Recursos| Lista de recursos que este evento impacta. Isto é garantido que contenha máquinas de, no máximo, um Domínio de [Atualização,](manage-availability.md)mas pode não conter todas as máquinas da UD. <br><br> Exemplo: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
-| Estado do Evento | Estado deste evento. <br><br> Valores: <ul><li>`Scheduled`: Este evento está programado para começar `NotBefore` após o tempo especificado na propriedade.<li>`Started`: Este evento já começou.</ul> Nunca `Completed` é concedido nenhum ou estatuto semelhante; o evento deixará de ser devolvido quando o evento estiver concluído.
+| Estado do Evento | Estado deste evento. <br><br> Valores: <ul><li>`Scheduled`: Este evento está programado para começar após o tempo especificado na `NotBefore` propriedade.<li>`Started`: Este evento já começou.</ul> Nunca `Completed` é prestado nenhum ou estatuto semelhante; o evento deixará de ser devolvido quando o evento estiver concluído.
 | NotBefore| Tempo após o qual este evento pode começar. <br><br> Exemplo: <br><ul><li> Seg, 19 set 2016 18:29:47 GMT  |
 
 ### <a name="event-scheduling"></a>Agendamento de eventos
-Cada evento está agendado um tempo mínimo no futuro com base no tipo de evento. Desta vez reflete-se na `NotBefore` propriedade de um evento. 
+Cada evento está agendado um tempo mínimo no futuro com base no tipo de evento. Desta vez reflete-se na propriedade de um `NotBefore` evento. 
 
 |Tipo de evento  | Aviso Mínimo |
 | - | - |
@@ -130,22 +130,22 @@ Cada evento está agendado um tempo mínimo no futuro com base no tipo de evento
 | Terminar | [Configurar o utilizador:](../../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md#enable-terminate-notifications)5 a 15 minutos |
 
 > [!NOTE] 
-> Em alguns casos, o Azure é capaz de prever a falha do hospedeiro devido ao hardware degradado e tentará mitigar a perturbação do seu serviço, agendando uma migração. As máquinas virtuais afetadas receberão `NotBefore` um evento agendado com um que é normalmente alguns dias no futuro. O tempo real varia consoante a avaliação prevista do risco de falha. O Azure tenta dar 7 dias de antecedência quando possível, mas o tempo real varia e pode ser menor se a previsão for de que há uma alta probabilidade de o hardware falhar iminentemente. Para minimizar o risco para o seu serviço caso o hardware falhe antes de o sistema iniciar a migração, recomenda-se a reutilização da sua máquina virtual o mais rapidamente possível.
+> Em alguns casos, o Azure é capaz de prever a falha do hospedeiro devido ao hardware degradado e tentará mitigar a perturbação do seu serviço, agendando uma migração. As máquinas virtuais afetadas receberão um evento agendado com um `NotBefore` que é normalmente alguns dias no futuro. O tempo real varia consoante a avaliação prevista do risco de falha. O Azure tenta dar 7 dias de antecedência quando possível, mas o tempo real varia e pode ser menor se a previsão for de que há uma alta probabilidade de o hardware falhar iminentemente. Para minimizar o risco para o seu serviço caso o hardware falhe antes de o sistema iniciar a migração, recomenda-se a reutilização da sua máquina virtual o mais rapidamente possível.
 
 ### <a name="event-scope"></a>Âmbito do evento     
 Os eventos agendados são entregues a:
  - Máquinas virtuais autónomas
  - Todas as máquinas virtuais em um serviço de nuvem      
  - Todas as máquinas virtuais em um conjunto de disponibilidade      
- - Todas as máquinas virtuais num grupo de colocação de conjunto sinuoso.         
+ - Todas as máquinas virtuais em um grupo de colocação de conjunto de escala (incluindo lote)        
 
-Como resultado, deve verificar `Resources` o campo no caso para identificar quais VMs vão ser impactados. 
+Como resultado, deve verificar o `Resources` campo no caso para identificar quais VMs vão ser impactados. 
 
 ### <a name="starting-an-event"></a>Iniciar um evento 
 
-Depois de ter sabido de um evento próximo e ter completado a sua `POST` lógica para uma paragem `EventId`graciosa, pode aprovar o evento pendente fazendo uma chamada para o serviço de metadados com o . Isto indica ao Azure que pode encurtar o tempo mínimo de notificação (quando possível). 
+Depois de ter sabido de um evento próximo e ter completado a sua lógica para uma paragem graciosa, pode aprovar o evento pendente fazendo uma chamada para o serviço de `POST` metadados com o `EventId` . Isto indica ao Azure que pode encurtar o tempo mínimo de notificação (quando possível). 
 
-Segue-se o json `POST` esperado no órgão de pedido. O pedido deve conter `StartRequests`uma lista de . Cada `StartRequest` um `EventId` contém o para o evento que pretende acelerar:
+Segue-se o json esperado no órgão de `POST` pedido. O pedido deve conter uma lista de `StartRequests` . Cada um `StartRequest` contém o para o evento que pretende `EventId` acelerar:
 ```
 {
     "StartRequests" : [
@@ -162,7 +162,7 @@ curl -H @{"Metadata"="true"} -Method POST -Body '{"StartRequests": [{"EventId": 
 ```
 
 > [!NOTE] 
-> Reconhecer um evento permite que o `Resources` evento prossiga para todos no evento, e não apenas a máquina virtual que reconhece o evento. Pode, portanto, optar por eleger um líder para coordenar o reconhecimento, que `Resources` pode ser tão simples como a primeira máquina no terreno.
+> Reconhecer um evento permite que o evento prossiga para todos `Resources` no evento, e não apenas a máquina virtual que reconhece o evento. Pode, portanto, optar por eleger um líder para coordenar o reconhecimento, que pode ser tão simples como a primeira máquina no `Resources` terreno.
 
 
 ## <a name="powershell-sample"></a>Exemplo do PowerShell 

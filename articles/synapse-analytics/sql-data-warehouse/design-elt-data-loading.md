@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: ''
-ms.date: 02/19/2020
+ms.date: 05/13/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: e99fd898956e11a4827d023691111a47e5a790c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: faeab07ce7ec057981d23228461c2fa07600cdc1
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80744954"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660022"
 ---
 # <a name="data-loading-strategies-for-synapse-sql-pool"></a>Estratégias de carregamento de dados para piscina Synapse SQL
 
@@ -29,7 +29,7 @@ Enquanto o pool SQL suporta muitos métodos de carregamento, incluindo opções 
 Com a PolyBase e a declaração COPY, pode aceder a dados externos armazenados no armazenamento Azure Blob ou na Azure Data Lake Store através do idioma T-SQL. Para a maior flexibilidade ao carregar, recomendamos a utilização da declaração COPY.
 
 > [!NOTE]  
-> A declaração do COPY encontra-se atualmente em pré-visualização pública. Para fornecer feedback, envie e-mail sqldwcopypreview@service.microsoft.compara a seguinte lista de distribuição: .
+> A declaração do COPY encontra-se atualmente em pré-visualização pública. Para fornecer feedback, envie e-mail para a seguinte lista de distribuição: sqldwcopypreview@service.microsoft.com .
 
 > [!VIDEO https://www.youtube.com/embed/l9-wP7OdhDk]
 
@@ -68,7 +68,7 @@ Ferramentas e serviços que pode utilizar para mover dados para o Armazenamento 
 
 - O serviço [Azure ExpressRoute](../../expressroute/expressroute-introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) melhora a entrada, desempenho e previsibilidade da rede. O ExpressRoute é um serviço que encaminha os seus dados através de uma ligação privada dedicada ao Azure. As ligações ExpressRoute não encaminham dados através da internet pública. As ligações oferecem mais fiabilidade, velocidades mais rápidas, mais latências e maior segurança do que as ligações típicas através da internet pública.
 - [O utilitário AZCopy](../../storage/common/storage-choose-data-transfer-solution.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) transfere dados para o Armazenamento Azure através da internet pública. Isto funciona se os seus tamanhos de dados forem inferiores a 10 TB. Para efetuar cargas regularmente com a AZCopy, teste a velocidade da rede para ver se é aceitável.
-- [A Azure Data Factory (ADF)](../../data-factory/introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) tem uma porta de entrada que pode instalar no seu servidor local. Em seguida, pode criar um pipeline para mover dados do seu servidor local para o Armazenamento Azure. Para utilizar a Data Factory com SQL Analytics, consulte [os dados de carregamento para SQL Analytics](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+- [A Azure Data Factory (ADF)](../../data-factory/introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) tem uma porta de entrada que pode instalar no seu servidor local. Em seguida, pode criar um pipeline para mover dados do seu servidor local para o Armazenamento Azure. Para utilizar a Data Factory com piscina SQL, consulte [os dados de carregamento para piscina SQL](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ## <a name="3-prepare-the-data-for-loading"></a>3. Preparar os dados para o carregamento
 
@@ -88,30 +88,43 @@ A definição de tabelas externas implica especificar a fonte de dados, o format
 
 Ao carregar parquet, o mapeamento do tipo de dados SQL é:
 
-| **Tipo de dados de Parquet** | **Tipo de dados SQL** |
-| :-------------------: | :---------------: |
-|        tinyint        |      tinyint      |
-|       smallint        |     smallint      |
-|          int          |        int        |
-|        bigint         |      bigint       |
-|        boolean        |        bit        |
-|        double         |       float       |
-|         float         |       real        |
-|        double         |       dinheiro       |
-|        double         |    dinheiro pequeno     |
-|        string         |       nchar       |
-|        string         |     nvarchar      |
-|        string         |       char        |
-|        string         |      varchar      |
-|        binary         |      binary       |
-|        binary         |     varbinary     |
-|       carimbo de data/hora       |       date        |
-|       carimbo de data/hora       |   tempo de data pequena   |
-|       carimbo de data/hora       |     datetime2     |
-|       carimbo de data/hora       |     datetime      |
-|       carimbo de data/hora       |       hora        |
-|         date          |       date        |
-|        decimal        |      decimal      |
+|                         Tipo parquet                         |   Tipo lógico parquet (anotação)   |  Tipo de dados SQL   |
+| :----------------------------------------------------------: | :-----------------------------------: | :--------------: |
+|                           BOOLEAN                            |                                       |       bit        |
+|                     BINARY / BYTE_ARRAY                      |                                       |    varbinary     |
+|                            DUPLO                            |                                       |      float       |
+|                            BOIA                             |                                       |       real       |
+|                            INT32                             |                                       |       int        |
+|                            INT64                             |                                       |      bigint      |
+|                            INT96                             |                                       |    datetime2     |
+|                     FIXED_LEN_BYTE_ARRAY                     |                                       |      binary      |
+|                            BINÁRIO                            |                 UTF8                  |     nvarchar     |
+|                            BINÁRIO                            |                CORDA                 |     nvarchar     |
+|                            BINÁRIO                            |                 ENUM                  |     nvarchar     |
+|                            BINÁRIO                            |                 UUID                  | uniqueidentifier |
+|                            BINÁRIO                            |                DECIMAL                |     decimal      |
+|                            BINÁRIO                            |                 JSON                  |  nvarchar(MAX)   |
+|                            BINÁRIO                            |                 BSON                  |  varbinary (máx)  |
+|                     FIXED_LEN_BYTE_ARRAY                     |                DECIMAL                |     decimal      |
+|                          BYTE_ARRAY                          |               INTERVALO                |  varchar(max),   |
+|                            INT32                             |             INT(8, verdade)              |     smallint     |
+|                            INT32                             |            INT(16, verdade)            |     smallint     |
+|                            INT32                             |             INT(32, verdade)             |       int        |
+|                            INT32                             |            INT(8, falso)            |     tinyint      |
+|                            INT32                             |            INT(16, falso)             |       int        |
+|                            INT32                             |           INT(32, falso)            |      bigint      |
+|                            INT32                             |                 DATA                  |       data       |
+|                            INT32                             |                DECIMAL                |     decimal      |
+|                            INT32                             |            TEMPO (MILLIS)             |       hora       |
+|                            INT64                             |            INT(64, verdade)            |      bigint      |
+|                            INT64                             |           INT(64, falso)            |  decimal (20,0)   |
+|                            INT64                             |                DECIMAL                |     decimal      |
+|                            INT64                             |         TEMPO (MICROS/ NANOS)         |       hora       |
+|                            INT64                             | TIMESTAMP (MILLIS / MICROS / NANOS) |    datetime2     |
+| [Tipo complexo](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Fapache%2Fparquet-format%2Fblob%2Fmaster%2FLogicalTypes.md%23lists&data=02\|01\|kevin%40microsoft.com\|19f74d93f5ca45a6b73c08d7d7f5f111\|72f988bf86f141af91ab2d7cd011db47\|1\|0\|637215323617803168&sdata=6Luk047sK26ijTzfvKMYc%2FNu%2Fz0AlLCX8lKKTI%2F8B5o%3D&reserved=0) |                 LISTA                  |   varchar(max)   |
+| [Tipo complexo](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Fapache%2Fparquet-format%2Fblob%2Fmaster%2FLogicalTypes.md%23maps&data=02\|01\|kevin%40microsoft.com\|19f74d93f5ca45a6b73c08d7d7f5f111\|72f988bf86f141af91ab2d7cd011db47\|1\|0\|637215323617803168&sdata=FiThqXxjgmZBVRyigHzfh5V7Z%2BPZHjud2IkUUM43I7o%3D&reserved=0) |                  MAPA                  |   varchar(max)   |
+
+
 
 Para um exemplo de criação de objetos externos, consulte o passo das [tabelas externas Criar](load-data-from-azure-blob-storage-using-polybase.md#create-external-tables-for-the-sample-data) no tutorial de carregamento.
 

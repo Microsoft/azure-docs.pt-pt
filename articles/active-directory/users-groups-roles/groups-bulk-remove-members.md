@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b3c6e471a8e44236baf9bfc2c8eb6c9d5526d72
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 6d6f3a714174b2b808629e0cb41aba6f393d3410
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203467"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83679185"
 ---
 # <a name="bulk-remove-group-members-in-azure-active-directory"></a>A granel remove membros do grupo no Diretório Ativo do Azure
 
@@ -35,7 +35,7 @@ Descarregue e preencha o modelo CSV de carregamento a granel para adicionar com 
 As linhas num modelo CSV descarregado são as seguintes:
 
 - **Número**da versão : A primeira linha que contém o número da versão deve ser incluída no CSV de carregamento.
-- **Títulos da coluna**: O formato das rubricas da coluna é &lt;o nome&gt; &lt; *item* [PropertyName] *exigido ou em branco*&gt;. Por exemplo, `Member object ID or user principal name [memberObjectIdOrUpn] Required`. Algumas versões mais antigas do modelo podem ter ligeiras variações. Para alterações na adesão ao grupo, tem a opção de identificar a utilização: id do objeto membro ou nome principal do utilizador.
+- **Títulos da coluna**: O formato das rubricas da coluna é &lt; *o nome item* &gt; [PropertyName] &lt; *exigido ou em branco* &gt; . Por exemplo, `Member object ID or user principal name [memberObjectIdOrUpn] Required`. Algumas versões mais antigas do modelo podem ter ligeiras variações. Para alterações na adesão ao grupo, tem a opção de identificar a utilização: id do objeto membro ou nome principal do utilizador.
 - **Exemplos de linha**: Incluímos no modelo uma linha de exemplos de valores aceitáveis para cada coluna. Deve remover a linha de exemplos e substituí-la pelas suas próprias entradas.
 
 ### <a name="additional-guidance"></a>Orientações adicionais
@@ -48,7 +48,7 @@ As linhas num modelo CSV descarregado são as seguintes:
 ## <a name="to-bulk-remove-group-members"></a>Para remover a granel membros do grupo
 
 1. Inscreva-se [no portal Azure](https://portal.azure.com) com uma conta de administrador de utilizador na organização. Os proprietários de grupos também podem remover em massa membros de grupos que possuem.
-1. Em Azure AD, selecione **Grupos** > **Todos os grupos**.
+1. Em Azure AD, selecione **Groups**  >  **Grupos Todos os grupos**.
 1. Abra o grupo a partir do qual está a retirar membros e, em seguida, selecione **Membros**.
 1. Na página **dos Membros,** selecione **Remover membros**.
 1. Na página de remoção de membros do **grupo Bulk,** selecione **Download** para obter o modelo de ficheiro CSV com as propriedades necessárias do membro do grupo.
@@ -57,7 +57,7 @@ As linhas num modelo CSV descarregado são as seguintes:
 
 1. Abra o ficheiro CSV e adicione uma linha para cada membro do grupo que pretende remover do grupo (os valores necessários são id do objeto membro ou nome principal do utilizador). Em seguida, guarde o ficheiro.
 
-   ![O ficheiro CSV contém nomes e IDs para os membros removerem](./media/groups-bulk-remove-members/csv-file.png)
+    :::image type="content" source="./media/groups-bulk-import-members/csv-file.png" alt-text="O ficheiro CSV contém nomes e IDs dos membros do grupo para remover":::
 
 1. Na página de remoção de membros do **grupo Bulk,** sob o **upload do ficheiro CSV,** navegue para o ficheiro. Quando selecionar o ficheiro, a validação do ficheiro CSV começa.
 1. Quando o conteúdo do ficheiro é validado, a página de importação a granel apresenta **file uploaded com sucesso**. Se houver erros, tem de os corrigir antes de poder submeter o trabalho.

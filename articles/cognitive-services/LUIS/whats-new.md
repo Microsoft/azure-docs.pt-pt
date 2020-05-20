@@ -2,13 +2,13 @@
 title: O que há de novo - Compreensão da Linguagem (LUIS)
 description: Este artigo é regularmente atualizado com notícias sobre a API de Compreensão da Linguagem dos Serviços Cognitivos Do Azure.
 ms.topic: overview
-ms.date: 05/08/2020
-ms.openlocfilehash: d7ef989d04132dedc79d2408b7083b57d8c926b0
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/19/2020
+ms.openlocfilehash: b4d287c8d1ddbeeee63390fb397718de1234c93e
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592802"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83675949"
 ---
 # <a name="whats-new-in-language-understanding"></a>O que há de novo na compreensão da linguagem
 
@@ -21,12 +21,18 @@ Saiba o que há de novo no serviço. Estes itens incluem notas de lançamento, v
 * Lançado como **geralmente disponível** (GA):
     * [Recipiente de compreensão da linguagem](luis-container-howto.md)
     * Portal de pré-visualização promovido ao [portal atual](https://www.luis.ai), portal [anterior](https://previous.luis.ai) ainda disponível
-    * Nova experiência de criação e rotulagem de entidades aprendidas com máquinas
-    * Processo de [atualização](migrate-from-composite-entity.md) de entidades compostas e simples para entidades aprendidas por máquinas
+    * Nova experiência de criação e rotulagem de novas entidades de aprendizagem automática
+    * Processo de [atualização](migrate-from-composite-entity.md) de entidades compostas e simples para entidades de machine-learning
     * [Definição de](how-to-application-settings-portal.md) suporte para normalizar variantes de palavras
 * Pré-visualização Autorde alterações da API
-    * App schema 7.x para entidades aninhadas aprendizagem de máquinas
+    * App schema 7.x para entidades aninhadas de aprendizagem automática
     * [Migração para recurso necessário](luis-migration-authoring-entities.md#api-change-constraint-replaced-with-required-feature)
+* Novos recursos para programadores
+    * [Ferramentas de integração contínua](developer-reference-resource.md#continuous-integration-tools)
+    * Workshop - aprenda as melhores práticas para [ _compreensão de linguagem natural_ (NLU) usando LUIS](developer-reference-resource.md#workshops)
+* [Chaves geridas pelo cliente](luis-encryption-of-data-at-rest.md) - criptografe todos os dados que utiliza no LUIS utilizando a sua própria chave
+* [AI show](https://channel9.msdn.com/Shows/AI-Show/New-Features-in-Language-Understanding) (vídeo) - veja as novas funcionalidades no LUIS
+
 
 
 ### <a name="march-2020"></a>Março de 2020
@@ -48,13 +54,13 @@ Saiba o que há de novo no serviço. Estes itens incluem notas de lançamento, v
     * Entidades [pré-construídas italianas](luis-reference-prebuilt-entities.md#italian-entity-support) - idade, moeda, dimensão, número e resolução percentual alterada seleção de V2.
 * Experiência melhorada do utilizador em [preview.luis.ai portal](https://preview.luis.ai) - experiência de rotulagem renovada para permitir a construção e depuração de modelos complexos. Experimente os tutoriais do portal de pré-visualização:
     * [Apenas intenções](tutorial-intents-only.md)
-    * [Entidade descompizável de máquinas](tutorial-machine-learned-entity.md)
+    * [Entidade de aprendizagem automática descompável](tutorial-machine-learned-entity.md)
 * Capacidades avançadas de compreensão da linguagem - [construindo modelos linguísticos sofisticados](luis-concept-entity-types.md) com menos esforço.
 * Defina funcionalidades de machine learning ao nível do modelo e permita que os modelos sejam usados como sinais para outros modelos, por exemplo, utilizando entidades como funcionalidades de intenções e outras entidades.
 * Novos [limites](luis-limits.md) expandidos - máximo máximo para listas de frases e frases totais, novo modelo como limites de características
 * Extrair informação do texto no formato da estrutura da hierarquia profunda, tornando as aplicações de conversação mais poderosas.
 
-    ![imagem de entidade aprendida por máquinas](./media/whats-new/deep-entity-extraction-example.png)
+    ![imagem de entidade de aprendizagem automática](./media/whats-new/deep-entity-extraction-example.png)
 
 ### <a name="september-3-2019"></a>3 de setembro de 2019
 

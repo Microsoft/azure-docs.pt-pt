@@ -1,19 +1,19 @@
 ---
 title: 'Azure Cosmos DB: Executor a granel Java API, SDK & recursos'
 description: Saiba tudo sobre o executor a granel Java API e SDK, incluindo datas de lançamento, datas de reforma e alterações feitas entre cada versão do executor a granel do Azure Cosmos DB Java SDK.
-author: milismsft
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 11/21/2018
-ms.author: adrianmi
-ms.openlocfilehash: 0030f974a36dc80dc8c4112000aa5934126a2482
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.date: 05/11/2020
+ms.author: anfeldma
+ms.openlocfilehash: 6fe075d2679ec13217200bc8b0da132e8f4d9b57
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836449"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660435"
 ---
 # <a name="java-bulk-executor-library-download-information"></a>Biblioteca executor a granel de Java: Descarregue informações
 
@@ -22,9 +22,10 @@ ms.locfileid: "82836449"
 > * [.NET Change Feed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
-> * [Java assíncrono](sql-api-sdk-async-java.md)
-> * [Java](sql-api-sdk-java.md)
-> * [Python](sql-api-sdk-python.md)
+> * [Java SDK v4](sql-api-sdk-java-v4.md)
+> * [SDK v2 Java assíncrono](sql-api-sdk-async-java.md)
+> * [SDK v2 Java síncrono](sql-api-sdk-java.md)
+> * [Pitão](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Fornecedor de Recursos REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)

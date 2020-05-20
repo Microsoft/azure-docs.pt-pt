@@ -11,15 +11,15 @@ ms.service: virtual-machines
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/16/2020
+ms.date: 05/12/2020
 ms.author: borisb
 ms.custom: ''
-ms.openlocfilehash: e70eedcfcdf548965b79e4a48a3a8bfa643f0396
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 077fd70f0908dcef3af0c1e037fe137d636a4ac4
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81687435"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660557"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure"></a>Soluções de aplicação Oracle que integram a Microsoft Azure e a Oracle Cloud Infrastructure
 
@@ -27,9 +27,11 @@ A Microsoft e a Oracle estabeleceram uma parceria para fornecer baixa latência,
 
 Utilizando esta conectividade transversal, pode dividir uma aplicação de vários níveis para executar o seu nível de base de dados na Oracle Cloud Infrastructure (OCI), e na aplicação e outros níveis no Microsoft Azure. A experiência é semelhante a executar toda a pilha de soluções numa única nuvem. 
 
+Se estiver interessado em executar o seu middleware, incluindo o WebLogic Server, na infraestrutura Azure, mas tem a base de dados Oracle a funcionar dentro do OCI, consulte [aplicações WebLogic Server Azure](oracle-weblogic.md).
+
 Se estiver interessado em implementar soluções Oracle inteiramente na infraestrutura Azure, consulte [as imagens da Oracle VM e a sua implementação no Microsoft Azure](oracle-vm-solutions.md).
 
-## <a name="scenario-overview"></a>Descrição geral do cenário
+## <a name="scenario-overview"></a>Scenario overview (Descrição geral do cenário)
 
 A conectividade cross-cloud fornece uma solução para você executar as aplicações líderes do setor da Oracle, e suas próprias aplicações personalizadas, em máquinas virtuais Azure enquanto desfruta dos benefícios dos serviços de base de dados hospedados no OCI. 
 
@@ -44,18 +46,18 @@ As aplicações que pode executar numa configuração de nuvem cruzada incluem:
 * Aplicações oracle Retail
 * Gestão Financeira Oracle Hyperion
 
-O diagrama que se segue é uma visão geral de alto nível da solução conectada. Para a simplicidade, o diagrama mostra apenas um nível de aplicação e um nível de dados. Dependendo da arquitetura de aplicação, a sua solução poderia incluir camadas adicionais, como um nível web em Azure. Para mais informações, consulte as seguintes secções.
+O diagrama que se segue é uma visão geral de alto nível da solução conectada. Para a simplicidade, o diagrama mostra apenas um nível de aplicação e um nível de dados. Dependendo da arquitetura de aplicação, a sua solução pode incluir níveis adicionais, como um cluster WebLogic Server ou um nível web em Azure. Para mais informações, consulte as seguintes secções.
 
 ![Visão geral da solução Azure OCI](media/oracle-oci-overview/crosscloud.png)
 
 ## <a name="region-availability"></a>Disponibilidade da Região 
 
 A conectividade transversal limita-se às seguintes regiões:
-* Azure East US (leste) & OCI Ashburn (EUA Leste)
-* Azure UK South (uksouth) & OCI London (REINO Unido Sul)
-* Azure Canada Central (canadácentral) & OCI Toronto (Canadá Sudeste)
+* Azure East US (EastUS) & OCI Ashburn, VA (EUA Leste)
+* Azure UK South (UKSouth) & OCI London (UK Sul)
+* Azure Canada Central (CanadáCentral) & OCI Toronto (Canadá Sudeste)
 * Azure West Europe (Europa Ocidental) & OCI Amsterdam (Noroeste dos Países Baixos)
-* Azure Japan East (japãoeast) & OCI Tokyo (Japão Leste)
+* Azure Japan East (JapãoEast) & OCI Tokyo (Japão Leste)
 
 ## <a name="networking"></a>Redes
 
@@ -70,10 +72,12 @@ Utilizando o ExpressRoute e o FastConnect, os clientes podem utilizar uma rede v
 A segurança da rede é um componente crucial de qualquer aplicação da empresa, e é central para esta solução multi-nuvem. Qualquer tráfego que passe por ExpressRoute e FastConnect passa por uma rede privada. Esta configuração permite uma comunicação segura entre uma rede virtual Azure e uma rede de nuvem virtual Oracle. Não precisa de fornecer um endereço IP público a nenhuma máquina virtual em Azure. Da mesma forma, você não precisa de um portal de internet no OCI. Toda a comunicação acontece através do endereço IP privado das máquinas.
 
 Além disso, pode configurar [listas](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/securitylists.htm) de segurança na sua rede de nuvem virtual OCI e regras de segurança (anexadas aos [grupos](../../../virtual-network/security-overview.md)de segurança da rede Azure). Utilize estas regras para controlar o tráfego que flui entre máquinas nas redes virtuais. As regras de segurança da rede podem ser adicionadas a nível de máquina, a nível de subnet, bem como a nível de rede virtual.
+
+As [aplicações WebLogic Server Azure](oracle-weblogic.md) criam cada um um grupo de segurança de rede pré-configurado para funcionar com as configurações de porta do WebLogic Server.
  
 ## <a name="identity"></a>Identidade
 
-A identidade é um dos pilares fundamentais da parceria entre a Microsoft e a Oracle. Foram realizados trabalhos significativos para integrar o [Oracle Identity Cloud Service](https://docs.oracle.com/en/cloud/paas/identity-cloud/index.html) (IDCS) com o [Azure Ative Directory](../../../active-directory/index.yml) (Azure AD). O Azure AD é o serviço de gestão de identidade e acesso baseado na nuvem da Microsoft. Ajuda os seus utilizadores a iniciars sessão e a aceder a vários recursos. A Azure AD também lhe permite gerir os seus utilizadores e as suas permissões.
+A identidade é um dos pilares fundamentais da parceria entre a Microsoft e a Oracle. Foram realizados trabalhos significativos para integrar o [Oracle Identity Cloud Service](https://docs.oracle.com/en/cloud/paas/identity-cloud/index.html) (IDCS) com o [Azure Ative Directory](../../../active-directory/index.yml) (Azure AD). O Azure AD é o serviço de gestão de identidade e acesso baseado na nuvem da Microsoft. Os seus utilizadores podem iniciar sessão e aceder a vários recursos com a ajuda da Azure AD. A Azure AD também lhe permite gerir os seus utilizadores e as suas permissões.
 
 Atualmente, esta integração permite-lhe gerir numa localização central, que é o Azure Ative Directory. A Azure AD sincroniza quaisquer alterações no diretório com o diretório oracle correspondente e é usada para uma única assinatura para soluções Oracle de nuvem cruzada.
 

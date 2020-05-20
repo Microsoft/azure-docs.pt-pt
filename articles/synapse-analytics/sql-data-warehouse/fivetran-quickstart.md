@@ -11,16 +11,16 @@ ms.date: 10/12/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 8f164232a3b1782511758f93a9e9b8d17d3714d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4cf6c82b330a2672fdde39c3acf156a74cb57e34
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414276"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659990"
 ---
 # <a name="quickstart-fivetran-with-data-warehouse"></a>Quickstart: Fivetran com armazém de dados 
 
-Este quickstart descreve como configurar um novo utilizador fivetran para trabalhar com um armazém de dados Azure Synapse Analytics aprovisionado com um SQL Pool. O artigo assume que tem um armazém de dados existente.
+Este quickstart descreve como configurar um novo utilizador fivetran para trabalhar com um armazém de dados Azure Synapse Analytics, aprovisionado com uma piscina SQL. O artigo assume que tem um armazém de dados existente.
 
 ## <a name="set-up-a-connection"></a>Configurar uma ligação
 
@@ -66,7 +66,7 @@ Este quickstart descreve como configurar um novo utilizador fivetran para trabal
 
 3. Adicione uma classe de recursos adequada ao utilizador Fivetran. A classe de recursos que usa depende da memória necessária para criar um índice de loja de colunas. Por exemplo, as integrações com produtos como marketo e Salesforce requerem uma classe de recursos mais elevada devido ao grande número de colunas e ao maior volume de dados que os produtos utilizam. Uma classe de recursos mais elevado requer mais memória para criar índices de lojas de colunas.
 
-    Recomendamos que utilize aulas de recursos estáticos. Podecomeçar com `staticrc20` a classe de recursos. A `staticrc20` classe de recursos atribui 200 MB para cada utilizador, independentemente do nível de desempenho que utilizar. Se a indexação da coluna falhar ao nível inicial da classe de recursos, aumente a classe de recursos.
+    Recomendamos que utilize aulas de recursos estáticos. Podecomeçar com a classe de `staticrc20` recursos. A `staticrc20` classe de recursos atribui 200 MB para cada utilizador, independentemente do nível de desempenho que utilizar. Se a indexação da coluna falhar ao nível inicial da classe de recursos, aumente a classe de recursos.
 
     ```sql
     EXEC sp_addrolemember '<resource_class_name>', 'fivetran';
@@ -82,5 +82,5 @@ Para se ligar ao seu armazém de dados a partir da sua conta Fivetran, insira as
 * Anfitrião (nome do seu servidor).
 * Porto, porto.
 * Base de dados.
-* Utilizador (o nome do utilizador deve ser **de cinco transerver_name\@** onde *server_name* faz parte do seu anfitrião Azure URI: nome do ** _servidor\__.database.windows.net**).
+* Utilizador (o nome do utilizador deve ser **de cinco \@ _transerver_name_ ** onde *server_name* faz parte do seu anfitrião Azure URI: nome do ** _servidor \_ _.database.windows.net**).
 * Senha.
