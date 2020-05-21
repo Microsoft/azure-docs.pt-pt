@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfd430d750b2220882479a430322f4b4c4e0c44c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: cd94fffded8c0e5d7b120993f069b042c2b19b6c
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597465"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83712354"
 ---
 # <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>Adicione um fluxo de utilizador de inscrição de autosserviço a uma aplicação (Pré-visualização)
 |     |
@@ -25,7 +25,10 @@ ms.locfileid: "83597465"
 | A inscrição em self-service é uma funcionalidade de pré-visualização pública do Azure Ative Directory. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
-Associar o fluxo do utilizador a uma aplicação permite-lhe ativar a inscrição nessa aplicação. Pode escolher mais do que uma aplicação para estar associada ao fluxo do utilizador. Uma vez associado o fluxo do utilizador a uma ou mais aplicações, os utilizadores que visitarem essa aplicação poderão inscrever-se utilizando as opções configuradas no fluxo do utilizador.
+Pode criar fluxos de utilizadores para apps que são construídas pela sua organização. Associar o fluxo do utilizador a uma aplicação permite-lhe ativar a inscrição nessa aplicação. Pode escolher mais do que uma aplicação para estar associada ao fluxo do utilizador. Uma vez associado o fluxo do utilizador a uma ou mais aplicações, os utilizadores que visitarem essa aplicação poderão inscrever-se e obter uma conta de hóspedes utilizando as opções configuradas no fluxo do utilizador.
+
+> [!NOTE]
+> Pode associar fluxos de utilizadores a aplicações construídas pela sua organização. Os fluxos de utilizadores não podem ser utilizados para aplicações da Microsoft, como o SharePoint ou Teams.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -33,9 +36,12 @@ Associar o fluxo do utilizador a uma aplicação permite-lhe ativar a inscriçã
 
 A Azure AD é o fornecedor de identidade padrão para a inscrição de self-service. Isto significa que os utilizadores são capazes de se inscrever por padrão com uma conta Azure AD. Os fornecedores de identidade social também podem ser incluídos nestes fluxos de inscrição para suportar as contas do Google e do Facebook.
 
-- [Adicione o Google à sua lista de fornecedores de identidade social](google-federation.md)
 - [Adicione o Facebook à sua lista de fornecedores de identidade social](facebook-federation.md)
- 
+- [Adicione o Google à sua lista de fornecedores de identidade social](google-federation.md)
+
+> [!NOTE]
+> Na pré-visualização atual, se um fluxo de utilizador de autosserviço estiver associado a uma aplicação e enviar um convite a um utilizador para essa aplicação, o utilizador não poderá utilizar uma conta do Gmail para resgatar o convite. Como uma suver, o utilizador pode passar pelo processo de inscrição de self-service. Ou podem resgatar o convite acedendo a uma aplicação diferente ou utilizando o portal My Apps em https://myapps.microsoft.com .
+
 ### <a name="define-custom-attributes-optional"></a>Definir atributos personalizados (opcional)
 
 Os atributos do utilizador são valores recolhidos do utilizador durante o autosserviço de inscrição. O Azure AD vem com um conjunto incorporado de atributos, mas pode criar atributos personalizados para uso no fluxo do utilizador. Também pode ler e escrever estes atributos utilizando a API do Microsoft Graph. Ver [Definir atributos personalizados para fluxos de utilizador](user-flow-add-custom-attributes.md).
@@ -99,7 +105,7 @@ Agora pode associar aplicações ao fluxo do utilizador.
 8. Selecione a aplicação da lista. Ou use a caixa de pesquisa para encontrar a aplicação e, em seguida, selecione-a.
 9. Clique em **Selecionar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Adicione o Google à sua lista de fornecedores de identidade social](google-federation.md)
 - [Adicione o Facebook à sua lista de fornecedores de identidade social](facebook-federation.md)

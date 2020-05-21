@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: mimart
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: 2064ac929063fcdcf15c1e7495769c7d84aeef33
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 0a508e52189938447ea6fc1928d441d81deab392
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83698080"
+ms.locfileid: "83714025"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>Configure como os utilizadores finais consentem com as aplicações
 
@@ -49,7 +49,7 @@ Para configurar as definições de consentimento do utilizador através do porta
 1. Sob o **consentimento do Utilizador para aplicações,** selecione qual a definição de consentimento que deseja configurar para todos os utilizadores.
 1. Selecione **Guardar** para guardar as suas definições.
 
-![Definições de consentimento do utilizador](./media/configure-user-consent/configure-consent-setting-for-all-users.png)
+![Definições de consentimento do utilizador](./media/configure-user-consent/setting-for-all-users.png)
 
 > [!TIP]
 > Considere [permitir que o fluxo](configure-admin-consent-workflow.md) de trabalho de consentimento do administrador permita que os utilizadores solicitem a revisão e aprovação de uma aplicação que o utilizador não está autorizado a consentir- por exemplo, quando o consentimento do utilizador foi desativado ou quando uma aplicação está a solicitar permissões que o utilizador não está autorizado a conceder.
@@ -102,7 +102,7 @@ As classificações de permissões permitem identificar o impacto que diferentes
 
 Neste exemplo, classificamos o conjunto mínimo de permissão necessário para um único sinal:
 
-![Classificações de permissão](./media/configure-user-consent/configure-permission-classifications.png)
+![Classificações de permissão](./media/configure-user-consent/permission-classifications.png)
 
 > [!TIP]
 > Para a API do Microsoft Graph, as permissões mínimas necessárias para fazer um único sinal básico são `openid` `profile` , e `User.Read` `offline_access` . Com estas permissões, uma aplicação pode ler os detalhes do perfil do utilizador inscrito e pode manter este acesso mesmo quando o utilizador já não está a utilizar a aplicação.
@@ -192,7 +192,7 @@ Pode configurar quais os utilizadores autorizados a consentir em aplicações qu
 
 Neste exemplo, todos os proprietários de grupos estão autorizados a consentir com aplicações que acedam aos dados dos seus grupos:
 
-![Classificações de permissão](./media/configure-user-consent/configure-group-owner-consent.png)
+![Classificações de permissão](./media/configure-user-consent/group-owner-consent.png)
 
 ### <a name="configure-group-owner-consent-using-powershell"></a>Configure o consentimento do proprietário do grupo usando powerShell
 
@@ -308,7 +308,7 @@ Pode fazê-lo utilizando os mesmos passos acima indicados para configurar o cons
     $riskBasedConsentEnabledValue.Value = "True"
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais:
 

@@ -1,20 +1,20 @@
 ---
-title: Utilize modelos do Gestor de Recursos Azure para criar uma conta de Automação [ Microsoft Docs
-description: Pode utilizar um modelo de Gestor de Recursos Azure para criar uma conta De Automação Azure.
+title: Crie uma conta de Automação utilizando um modelo de Gestor de Recursos Azure [ Microsoft Docs
+description: Este artigo diz como usar um modelo de Gestor de Recursos Azure para criar uma conta De Automação Azure.
 ms.service: automation
 ms.subservice: update-management
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 04/24/2020
-ms.openlocfilehash: 949b07a16b2c2b08891d721e46948481cfe572b2
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 10b53da1ef277d7a3d6ab7c850192ce8f08ded68
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996107"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83712677"
 ---
-# <a name="create-an-automation-account-by-using-an-azure-resource-manager-template"></a>Criar uma conta de Automação usando um modelo de Gestor de Recursos Azure
+# <a name="create-an-automation-account-using-an-azure-resource-manager-template"></a>Crie uma conta de Automação usando um modelo de Gestor de Recursos Azure
 
 Pode utilizar modelos do Gestor de [Recursos Azure](../azure-resource-manager/templates/template-syntax.md) para criar uma conta Azure Automation no seu grupo de recursos. Este artigo fornece um modelo de amostra que:
 
@@ -38,7 +38,7 @@ A tabela seguinte lista a versão API pelos recursos utilizados neste exemplo.
 
 ## <a name="before-you-use-the-template"></a>Antes de usar o modelo
 
-Se optar por instalar e utilizar o PowerShell localmente, este artigo requer o módulo Azure PowerShell Az. Executar `Get-Module -ListAvailable Az` para localizar a versão. Se precisar de atualizar, veja [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se estiver a executar a PowerShell localmente, também precisa de correr `Connect-AzAccount` para criar uma ligação com o Azure. Com o PowerShell, a implementação utiliza a [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
+Se optar por instalar e utilizar o PowerShell localmente, este artigo requer o módulo Azure PowerShell Az. Executar `Get-Module -ListAvailable Az` para localizar a versão. Se precisar de atualizar, veja [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se estiver a executar a PowerShell localmente, também precisa de correr para criar uma ligação com o `Connect-AzAccount` Azure. Com o PowerShell, a implementação utiliza a [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
 
 Se optar por instalar e utilizar o Azure CLI localmente, este artigo requer que esteja a executar a versão 2.1.0 ou mais tarde. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Com o Azure CLI, esta implementação utiliza a criação de implementação do [grupo Az](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). 
 
@@ -308,10 +308,8 @@ Se é novo no Azure Automation e no Azure Monitor, é importante que compreenda 
 
     ![Resultado do exemplo quando a implementação está completa](media/automation-create-account-template/template-output.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Agora que tem uma conta de Automação, pode criar livros de execução e automatizar processos manuais.
-
-* Para começar com os livros de execução da PowerShell, consulte [Create a PowerShell runbook](automation-first-runbook-textual-powershell.md).
-* Para começar com os livros de fluxo de trabalho PowerShell, consulte [Create a PowerShell Workflow runbook](automation-first-runbook-textual.md).
-* Para começar com os livros python 2, consulte [Create a Python runbook](automation-first-runbook-textual-python2.md).
+* [Criar runbook do PowerShell](automation-first-runbook-textual-powershell.md)
+* [Criar um livro de execução powerShell Workflow](automation-first-runbook-textual.md)
+* [Criar um runbook de Python](automation-first-runbook-textual-python2.md)

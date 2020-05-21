@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: d859d04b9fee9af52c2d63004ba9c84665fe9edf
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 05941081580295ddcf396a9ec2c12826d2cc2136
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81404443"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83712745"
 ---
 # <a name="quickstart-analyze-a-local-image-using-the-computer-vision-rest-api-and-python"></a>Quickstart: Analise uma imagem local usando a API e Python de Visão Computacional
 
@@ -26,12 +26,12 @@ Pode executar este início rápido passo a passo com um bloco de notas do Jupyte
 
 [![Aglutinante](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/try/cognitive-services/) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/try/cognitive-services/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Tem de ter o [Python](https://www.python.org/downloads/) instalado se quiser executar o exemplo localmente.
-- Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de teste gratuita da [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou, siga as instruções na [Conta Criar uma Conta de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever a Visão Computacional e obter a sua chave. Em seguida, [crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para `COMPUTER_VISION_SUBSCRIPTION_KEY` a `COMPUTER_VISION_ENDPOINT`chave e corda final de serviço, nomeada e, respectivamente.
+- Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de teste gratuita da [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou, siga as instruções na [Conta Criar uma Conta de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever a Visão Computacional e obter a sua chave. Em seguida, [crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e corda final de serviço, nomeada `COMPUTER_VISION_SUBSCRIPTION_KEY` `COMPUTER_VISION_ENDPOINT` e, respectivamente.
 - Deve ter os seguintes pacotes Python instalados. Pode utilizar [pip](https://packaging.python.org/tutorials/installing-packages/) para instalar pacotes Python.
     - pedidos
     - [matplotlib](https://matplotlib.org/)
@@ -42,7 +42,7 @@ Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.mi
 Para criar e executar o exemplo, siga os seguintes passos:
 
 1. Copie o código seguinte para um editor de texto.
-1. Opcionalmente, substitua o valor de `image_path` pelo nome de ficheiro e o caminho de uma imagem diferente que pretende analisar.
+1. Substitua o valor `image_path` do caminho e do nome de arquivo de uma imagem diferente que pretende analisar.
 1. Guarde o código como um ficheiro com a extensão `.py`. Por exemplo, `analyze-local-image.py`.
 1. Abra uma janela da linha de comandos.
 1. Na linha de comandos, utilize o comando `python` para executar o exemplo. Por exemplo, `python analyze-local-image.py`.
@@ -67,9 +67,11 @@ else:
 if 'COMPUTER_VISION_ENDPOINT' in os.environ:
     endpoint = os.environ['COMPUTER_VISION_ENDPOINT']
 
-analyze_url = endpoint + "vision/v2.1/analyze"
+analyze_url = endpoint + "vision/v3.0/analyze"
 
 # Set image_path to the local path of an image that you want to analyze.
+# Sample images are here, if needed:
+# https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/ComputerVision/Images
 image_path = "C:/Documents/ImageToAnalyze.jpg"
 
 # Read the image into a byte array
@@ -92,6 +94,7 @@ image = Image.open(BytesIO(image_data))
 plt.imshow(image)
 plt.axis("off")
 _ = plt.title(image_caption, size="x-large", y=-0.1)
+plt.show()
 ```
 
 ## <a name="examine-the-response"></a>Examinar a resposta
@@ -170,7 +173,7 @@ O JSON devolve uma resposta de êxito. A página Web de exemplo analisa e aprese
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Em seguida, explore uma aplicação Python que utiliza a Visão Computacional para realizar o reconhecimento ótico de caracteres (OCR); criar miniaturas de corte inteligente; e detetar, categorizar, etiquetar e descrever características visuais em imagens.
 

@@ -1,5 +1,5 @@
 ---
-title: Consulta Azure Cosmos DB Analytical Store com Apache Spark para Azure Synapse Analytics
+title: Consulta Azure Cosmos DB Analytical Store (pré-visualização) com Apache Spark para Azure Synapse Analytics
 description: Como consultar azure Cosmos DB analítico com Apache Spark para Azure Synapse Analytics
 services: synapse-analytics
 author: ArnoMicrosoft
@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 05/06/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 02d4b6a636bff5ef11686abba6efb52f45f04779
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 5c19a3f808b85ba9e34d3304251fe8acb21204ce
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83600070"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700196"
 ---
-# <a name="query-azure-cosmos-db-analytical-store-with-apache-spark-for-azure-synapse-analytics"></a>Consulta Azure Cosmos DB Analytical Store com Apache Spark para Azure Synapse Analytics
+# <a name="query-azure-cosmos-db-analytical-store-preview-with-apache-spark-for-azure-synapse-analytics"></a>Consulta Azure Cosmos DB Analytical Store (pré-visualização) com Apache Spark para Azure Synapse Analytics
 
 Este artigo dá alguns exemplos de como pode interagir com a loja analítica a partir de gestos Synapse. Os gestos são visíveis quando clica à direita num recipiente. Com gestos, pode rapidamente gerar código e adaptá-lo às suas necessidades. Os gestos também são perfeitos para descobrir dados com um único clique.
 
@@ -163,7 +163,7 @@ val query = dfStream.
 
 query.awaitTermination()
 ```
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba o que é apoiado entre Synapse e Azure Cosmos DB](./concept-synapse-link-cosmos-db-support.md)
 * [Ligue-se à Ligação Synapse para Azure Cosmos DB](../quickstart-connect-synapse-link-cosmos-db.md)

@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/10/2019
+ms.date: 05/20/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.openlocfilehash: 7ee685da3492b6915a687151beea3e82e46185de
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 533e38206b9a85b449880d88c9ff969c051fac53
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593731"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83712235"
 ---
 # <a name="how-provisioning-works"></a>Como funciona o aprovisionamento
 
@@ -25,14 +25,14 @@ O fornecimento automático refere-se à criação de identidades e funções de 
 O Serviço de Provisionamento de **AD Azure** fornece aos utilizadores aplicações SaaS e outros sistemas através da ligação a um Sistema de Gestão de Identidade de Domínio Transversal (SCIM) 2.0 ponto final de gestão de utilizadores Fornecido pelo fornecedor de aplicações. Este ponto final do SCIM permite que o Azure AD crie, atualize e remova os utilizadores programáticamente. Para aplicações selecionadas, o serviço de provisionamento também pode criar, atualizar e remover objetos adicionais relacionados com a identidade, tais como grupos e funções. O canal utilizado para o fornecimento entre a AD Azure e a aplicação é encriptado utilizando encriptação HTTPS TLS 1.2.
 
 
-![Azure AD Provisioning Service](./media/how-provisioning-works/provisioning0.PNG)
-Figure*1: The Azure AD Provisioning Service*
+![Azure AD Provisioning Service ](./media/how-provisioning-works/provisioning0.PNG)
+ *Figure 1: The Azure AD Provisioning Service*
 
-![Fluxo de trabalho](./media/how-provisioning-works/provisioning1.PNG)
-de fornecimento de utilizadores de saída Figura*2: fluxo de trabalho de fornecimento de utilizadores "outbound" de Azure AD para aplicações populares do SaaS*
+![Fluxo de trabalho de fornecimento de utilizadores de saída ](./media/how-provisioning-works/provisioning1.PNG)
+ *Figura 2: fluxo de trabalho de fornecimento de utilizadores "outbound" de Azure AD para aplicações populares do SaaS*
 
-![Fluxo de trabalho](./media/how-provisioning-works/provisioning2.PNG)
-de fornecimento de utilizadores de entrada Figura 3: Fluxo de trabalho de fornecimento de utilizadores *"Inbound" de aplicações populares de Gestão de Capital Humano (HCM) para O Diretório Ativo azure e Diretório Ativo do Servidor Windows*
+![Fluxo de trabalho de fornecimento de utilizadores de entrada Figura 3: Fluxo de trabalho de fornecimento de ](./media/how-provisioning-works/provisioning2.PNG)
+ *utilizadores "Inbound" de aplicações populares de Gestão de Capital Humano (HCM) para O Diretório Ativo azure e Diretório Ativo do Servidor Windows*
 
 ## <a name="provisioning-using-scim-20"></a>Provisionamento utilizando o SCIM 2.0
 
@@ -63,7 +63,7 @@ Ao configurar o fornecimento a uma aplicação SaaS, um dos tipos de mapeamento 
 
 Para o fornecimento de saída da Azure AD a uma aplicação SaaS, confiar nas [atribuições](../manage-apps/assign-user-or-group-access-portal.md) de utilizador ou grupo é a forma mais comum de determinar quais os utilizadores que estão no âmbito do provisionamento. Uma vez que as atribuições do utilizador também são utilizadas para permitir uma única inscrição, o mesmo método pode ser utilizado para gerir tanto o acesso como o provisionamento. A deteção baseada em atribuição não se aplica a cenários de fornecimento de entrada, tais como Workday e Successfactors.
 
-* **Grupos, grupos.** Com um plano de licença Azure AD Premium, pode utilizar grupos para atribuir acesso a uma aplicação SaaS. Em seguida, quando o âmbito de provisionamento for definido para **Sync apenas utilizadores e grupos atribuídos**, o serviço de provisionamento AD Azure fornecerá ou desprovisionará utilizadores com base no facto de serem membros de um grupo que é atribuído à aplicação. O objeto de grupo em si não é provisionado a menos que a aplicação suporte objetos de grupo. Certifique-se de que os grupos atribuídos à sua aplicação têm o imóvel "SecurityEnabled" definido para "Falso".
+* **Grupos, grupos.** Com um plano de licença Azure AD Premium, pode utilizar grupos para atribuir acesso a uma aplicação SaaS. Em seguida, quando o âmbito de provisionamento for definido para **Sync apenas utilizadores e grupos atribuídos**, o serviço de provisionamento AD Azure fornecerá ou desprovisionará utilizadores com base no facto de serem membros de um grupo que é atribuído à aplicação. O objeto de grupo em si não é provisionado a menos que a aplicação suporte objetos de grupo. Certifique-se de que os grupos atribuídos à sua aplicação têm o imóvel "SecurityEnabled" definido como "True".
 
 * **Grupos dinâmicos.** O serviço de fornecimento de utilizadores da AD Azure pode ler e fornecer utilizadores em [grupos dinâmicos.](../users-groups-roles/groups-create-rule.md) Tenha em mente estas ressalvas e recomendações:
 
@@ -83,7 +83,7 @@ Pode utilizar filtros de deteção para definir regras baseadas em atributos que
 
 É possível utilizar o serviço de fornecimento de utilizadores Da Azure AD para fornecer utilizadores B2B (ou convidado) em aplicações Azure AD para SaaS. No entanto, para que os utilizadores b2B inscrevam-se na aplicação SaaS utilizando o Azure AD, a aplicação SaaS deve ter a sua capacidade de inscrição única baseada no SAML configurada de forma específica. Para obter mais informações sobre como configurar as aplicações SaaS para suportar os sign-ins dos utilizadores B2B, consulte [as aplicações Configure SaaS para colaboração B2B](../b2b/configure-saas-apps.md).
 
-Note que o nome principal do utilizador para um utilizador convidado@domain.comé frequentemente armazenado como "alias#EXT# ". quando o nome principal do utilizador é incluído nos mapeamentos do seu atributo como um atributo de origem, o #EXT# é retirado do nome principal do utilizador. Se necessitar que o #EXT# esteja presente, substitua o userPrincipalName por originalUserPrincipalName como atributo de origem. 
+Note que o nome principal do utilizador para um utilizador convidado é frequentemente armazenado como "alias#EXT# @domain.com ". quando o nome principal do utilizador é incluído nos mapeamentos do seu atributo como um atributo de origem, o #EXT# é retirado do nome principal do utilizador. Se necessitar que o #EXT# esteja presente, substitua o userPrincipalName por originalUserPrincipalName como atributo de origem. 
 
 ## <a name="provisioning-cycles-initial-and-incremental"></a>Ciclos de provisionamento: Inicial e incremental
 

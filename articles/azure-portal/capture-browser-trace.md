@@ -9,16 +9,16 @@ ms.date: 05/11/2020
 ms.topic: troubleshooting
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 9f09477eb174792d6348a6b9761a4f9e5467ec44
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: dba321d055e64d62ca91f95461c3299bee5f90d2
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649495"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714224"
 ---
 # <a name="capture-a-browser-trace-for-troubleshooting"></a>Capturar um rastreio de browser para resolução de problemas
 
-Se estiver a resolver um problema com o portal Azure e precisar de contactar o suporte da Microsoft, recomendamos que capture primeiro um rastreio de navegador e algumas informações adicionais. A informação que recolhe pode fornecer detalhes importantes sobre o portal no momento em que o problema ocorre. Siga os passos neste artigo para as ferramentas de desenvolvimento no navegador que utiliza: Google Chrome ou Microsoft Edge (Chromium), Microsoft Edge (EdgeHTML) ou Apple Safari.
+Se estiver a resolver um problema com o portal Azure e precisar de contactar o suporte da Microsoft, recomendamos que capture primeiro um rastreio de navegador e algumas informações adicionais. A informação que recolhe pode fornecer detalhes importantes sobre o portal no momento em que o problema ocorre. Siga os passos neste artigo para as ferramentas de desenvolvimento no navegador que utiliza: Google Chrome ou Microsoft Edge (Chromium), Microsoft Edge (EdgeHTML), Apple Safari ou Firefox.
 
 ## <a name="google-chrome-and-microsoft-edge-chromium"></a>Google Chrome e Microsoft Edge (Crómio)
 
@@ -208,6 +208,6 @@ Os seguintes passos mostram como utilizar as ferramentas de desenvolvimento no F
 
 1. Embala o ficheiro HAR, a saída da consola e a gravação do ecrã num formato comprimido como .zip, e partilhe-o com o suporte da Microsoft.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Descrição geral do portal do Azure](azure-portal-overview.md)

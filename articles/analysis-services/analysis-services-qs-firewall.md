@@ -4,15 +4,15 @@ description: Este quickstart ajuda-o a configurar uma firewall para um servidor 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 10/30/2019
+ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 68994f9b79af55b32527eed52bbc4e5866c89538
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 48618815519fad31bff5d6a8d2d2edc82535f437
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79205164"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697908"
 ---
 # <a name="quickstart-configure-server-firewall---portal"></a>Início Rápido: Configurar a firewall do servidor – Portal
 
@@ -32,7 +32,7 @@ Este início rápido ajuda-o a configurar uma firewall para o servidor do Analys
 ## <a name="configure-a-firewall"></a>Configurar uma firewall
 
 1. Clique no servidor para abrir a página Descrição geral. 
-2. Em **DEFINIÇÕES** > **Firewall** > **Ativar firewall**, clique em **.**
+2. Em **DEFINIÇÕES**  >  **Firewall**  >  **Ativar firewall**, clique em **.**
 3. Para permitir o acesso do DirectQuery a partir do serviço Power BI, em **Permitir acesso a partir do Power BI**, clique em **Ativar**.  
 4. (Opcional) Especifique um ou mais intervalos de endereços IP. Introduza um nome, um endereço IP de início e de fim para cada intervalo. O nome da regra da firewall deve ser limitado a 128 caracteres e só pode conter caracteres maiúsculos, caracteres minúsculos, números, sublinhado e hífen. Espaços brancos e outros personagens especiais não são permitidos.
 5. Clique em **Guardar**.
@@ -43,7 +43,7 @@ Este início rápido ajuda-o a configurar uma firewall para o servidor do Analys
 
 Quando já não forem necessários, elimine os intervalos de endereços IP ou desative a firewall.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste guia de início rápido, aprendeu a configurar uma firewall para o servidor. Agora que tem o servidor protegido com uma firewall, pode adicionar um modelo de dados básicos de exemplo a partir do portal. Ter um modelo de exemplo é útil para saber como configurar as funções de base de dados do modelo e testar as ligações de cliente. Para obter mais informações, avance para o tutorial para adicionar um modelo de exemplo.
 
 > [!div class="nextstepaction"]

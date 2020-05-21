@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4ec6e18aa4fa741ba784e68ccf9b5f87ad654eba
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 3861b981a1083b44e9cc522a01c50cf24f281e91
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591425"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83702027"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Como utilizar o OPENROWSET com o SQL a pedido (pré-visualização)
 
@@ -45,10 +45,12 @@ Esta é uma forma rápida e fácil de ler o conteúdo dos ficheiros sem pré-con
                     TYPE = 'PARQUET') AS file
     ```
 
+
     Esta opção permite configurar a localização da conta de armazenamento na fonte de dados e especificar o método de autenticação que deve ser usado para aceder ao armazenamento. 
     
     > [!IMPORTANT]
     > `OPENROWSET`sem `DATA_SOURCE` fornecer forma rápida e fácil de aceder aos ficheiros de armazenamento, mas oferece opções de autenticação limitadas. Como exemplo, o diretor da AD Azure só pode aceder a ficheiros utilizando a sua [identidade Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#force-azure-ad-pass-through) e não pode aceder a ficheiros disponíveis ao público. Se precisar de opções de autenticação mais poderosas, use `DATA_SOURCE` a opção e defina a credencial que pretende utilizar para aceder ao armazenamento.
+
 
 ## <a name="security"></a>Segurança
 
@@ -57,10 +59,10 @@ Um utilizador de base de dados deve ter `ADMINISTER BULK OPERATIONS` permissão 
 O administrador de armazenamento também deve permitir que um utilizador aceda aos ficheiros fornecendo ficha SAS válida ou permitindo que o diretor da Azure AD aceda aos ficheiros de armazenamento. Saiba mais sobre o controlo de acesso ao armazenamento [neste artigo.](develop-storage-files-storage-access-control.md)
 
 `OPENROWSET`Utilize as seguintes regras para determinar como autenticar o armazenamento:
-- Dentro `OPENROWSET` `DATA_SOURCE` com o mecanismo de autenticação depende do tipo de chamada.
-  - Os logins AAD só podem aceder a ficheiros utilizando a sua própria [identidade Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#force-azure-ad-pass-through) se o armazenamento do Azure permitir ao utilizador da AD Azure aceder a ficheiros subjacentes (por exemplo, se o autor da chamada tiver permissão do Leitor de Armazenamento no armazenamento) e se ativar a autenticação de passagem da [Azure AD](develop-storage-files-storage-access-control.md#force-azure-ad-pass-through) no serviço SYnapse SQL.
-  - Os logins SQL também podem ser usados `OPENROWSET` sem `DATA_SOURCE` aceder a ficheiros disponíveis ao público, ficheiros protegidos usando token SAS ou Identidade Gerida do espaço de trabalho Synapse. Teria de [criar credenciais](develop-storage-files-storage-access-control.md#examples) com âmbito de servidor para permitir o acesso aos ficheiros de armazenamento. 
-- No mecanismo de autenticação é definido na base de dados de credenciais com âmbito de dados atribuída à fonte de `OPENROWSET` `DATA_SOURCE` dados referenciada. Esta opção permite-lhe aceder ao armazenamento disponível ao público ou ao armazenamento de acesso utilizando token SAS, Identidade Gerida do espaço de trabalho ou [identidade Azure AD do chamador](develop-storage-files-storage-access-control.md?tabs=user-identity#) (se o chamador for o principal da AD Azure). Se `DATA_SOURCE` referências ao armazenamento do Azure que não seja público, terá de [criar credenciais](develop-storage-files-storage-access-control.md#examples) com um espaço de dados e referenciar para permitir o acesso aos ficheiros de `DATA SOURCE` armazenamento.
+- Dentro `OPENROWSET` sem mecanismo de autenticação depende do tipo de `DATA_SOURCE` chamada.
+  - Os logins da AD Azure só podem aceder a ficheiros utilizando a sua própria [identidade Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) se o armazenamento do Azure permitir ao utilizador da AD Azure aceder a ficheiros subjacentes (por exemplo, se o autor da chamada tiver permissão do Leitor de Armazenamento no armazenamento) e se ativar a autenticação de passagem da [Azure AD](develop-storage-files-storage-access-control.md#force-azure-ad-pass-through) no serviço SYnapse SQL.
+  - Os logins SQL também podem ser usados `OPENROWSET` sem `DATA_SOURCE` aceder a ficheiros publicamente disponíveis, ficheiros protegidos usando token SAS ou Espaço de trabalho Gerido do Synapse. Teria de [criar credenciais](develop-storage-files-storage-access-control.md#examples) com âmbito de servidor para permitir o acesso aos ficheiros de armazenamento. 
+- No mecanismo de autenticação é definido na base de dados de `OPENROWSET` `DATA_SOURCE` credenciais de aplicação atribuída à fonte de dados referenciada. Esta opção permite-lhe aceder ao armazenamento disponível ao público ou ao armazenamento de acesso utilizando token SAS, Identidade Gerida do espaço de trabalho ou [identidade Azure AD do chamador](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) (se o chamador for o principal da AD Azure). Se `DATA_SOURCE` referências ao armazenamento do Azure que não é público, terá de [criar credenciais](develop-storage-files-storage-access-control.md#examples) com um espaço de dados e referenciar para permitir o acesso aos ficheiros de `DATA SOURCE` armazenamento.
 
 O chamador deve ter `REFERENCES` permissão na credencial para usá-lo para autenticar o armazenamento.
 
@@ -169,7 +171,7 @@ Especifica o exterminador de campo a utilizar. O exterminador de campo padrão �
 
 ROWTERMINATOR ='row_terminator''
 
-Especifica o exterminador de linha a utilizar. Se o exterminador de linha não for especificado, será utilizado um dos exterminadores predefinidos. Os exterminadores predefinidos para PARSER_VERSION = '1.0' são \r\n, \n e \r. Os exterminadores predefinidos para PARSER_VERSION = '2.0' são \r\n e \n.
+Especifica o exterminador de linha a utilizar. Se o exterminador de linha não for especificado, um dos exterminadores padrão será utilizado. Os exterminadores predefinidos para PARSER_VERSION = '1.0' são \r\n, \n e \r. Os exterminadores predefinidos para PARSER_VERSION = '2.0' são \r\n e \n.
 
 ESCAPE_CHAR = 'char'
 
@@ -193,18 +195,18 @@ Especifica o método de compressão. É apoiado o seguinte método de compressã
 
 PARSER_VERSION = 'parser_version'
 
-Especifica a versão parser a utilizar ao ler ficheiros. Atualmente suportadas as versões de parser CSV são 1.0 e 2.0
+Especifica a versão parser a utilizar ao ler ficheiros. Atualmente, as versões de parser CSV suportadas são 1.0 e 2.0:
 
 - PARSER_VERSION = '1.0'
 - PARSER_VERSION = '2.0'
 
-A versão 1.0 do parser CSV é padrão e rica em funcionalidades, enquanto 2.0 é construída para o desempenho e não suporta todas as opções e codificações. 
+A versão 1.0 do parser CSV é padrão e é rica em recursos, enquanto 2.0 é construído para o desempenho e não suporta todas as opções e codificações. 
 
 CSV parser versão 2.0 especificações:
 
 - Nem todos os tipos de dados são suportados.
-- O limite máximo de tamanho da linha é de 8MB.
-- As seguintes opções não são suportadas: DATA_COMPRESSION.
+- O limite máximo de tamanho da linha é de 8 MB.
+- As seguintes opções não são apoiadas: DATA_COMPRESSION.
 - A corda vazia citada (") é interpretada como uma corda vazia.
 
 ## <a name="examples"></a>Exemplos
@@ -237,9 +239,9 @@ FROM
 ```
 
 Se está a ter um erro a dizer que os ficheiros não podem ser listados, tem de permitir o acesso ao armazenamento público em Synapse SQL a pedido:
-- Se estiver a utilizar um login SQL, tem de [criar credenciais](develop-storage-files-storage-access-control.md#examples)com mira de servidor que permita o acesso ao armazenamento público .
+- Se estiver a utilizar um login SQL, precisa [de criar credenciais](develop-storage-files-storage-access-control.md#examples)com mira de servidor que permita o acesso ao armazenamento público .
 - Se estiver a utilizar um diretor da AD Azure para aceder ao armazenamento público, terá de [criar credenciais](develop-storage-files-storage-access-control.md#examples) com âmbito de servidor que permita o acesso ao armazenamento público e desative a autenticação de passagem da [AD Azure.](develop-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para mais amostras, consulte o armazenamento de dados de [consulta rapidamente para](query-data-storage.md) aprender a usar os formatos de ficheiroS [CSV,](query-single-csv-file.md) [PARQUET](query-parquet-files.md)e [JSON.](query-json-files.md) Também pode aprender a guardar os resultados da sua consulta ao Armazenamento Azure utilizando o [CETAS](develop-tables-cetas.md).

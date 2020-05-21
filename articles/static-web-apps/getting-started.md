@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 14fd237b6437c15ede2da7c0694004f6c22736cc
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 8de6e9cff8149423f4b00b07e3113be6606181b5
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83600004"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714241"
 ---
 # <a name="quickstart-building-your-first-static-web-app"></a>Quickstart: Construindo a sua primeira aplicação web estática
 
@@ -81,7 +81,7 @@ Comece por configurar a sua nova aplicação e ligá-la a um repositório GitHub
 - Selecione a sua _subscrição Azure_
 - Selecione ou crie um novo _Grupo de Recursos_
 - Nomeie a aplicação **my-first-static-web-app**.
-  - Os caracteres válidos são `a-z` (caso insensível), `0-9` e `_` .
+  - Os caracteres válidos são `a-z` (caso insensível), `0-9` e `-` .
 - Selecione uma _Região_ mais próxima de si
 - Selecione o _SKU_ **gratuito**
 - Clique no **Sign-in com** o botão GitHub e autenticar com gitHub
@@ -131,6 +131,8 @@ Clique no botão **Rever + criar**.
 
 :::image type="content" source="media/getting-started/review-create.png" alt-text="Rever criar botão":::
 
+Para alterar estes valores depois de criar a aplicação, pode editar o [ficheiro workflow](github-actions-workflow.md).
+
 ### <a name="review--create"></a>Rever + criar
 
 Após a validação do pedido, pode continuar a criar a aplicação.
@@ -167,7 +169,7 @@ Se não vai continuar a utilizar esta aplicação, pode eliminar a instância de
 1. Clique no botão **Eliminar**
 1. Clique **Sim** para confirmar a ação de exclusão
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
-> [Adicione uma API](add-api.md)
+> [Adicionar uma API](add-api.md)

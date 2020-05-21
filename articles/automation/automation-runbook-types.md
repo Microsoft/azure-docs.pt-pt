@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1ac6347bd8e723f356da4803da54a6ea45a4a71a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 390f14e8369f206b2f5ffce74f0775b33e313021
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535524"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714989"
 ---
 # <a name="azure-automation-runbook-types"></a>Tipos de livro de execução da Automação Azure
 
@@ -69,8 +69,8 @@ Os livros de execução powerShell são baseados no Windows PowerShell. Edita di
 ### <a name="limitations"></a>Limitações
 
 * Deve estar familiarizado com o script powerShell.
-* Os livros de execução não podem usar [o processamento paralelo](automation-powershell-workflow.md#parallel-processing) para executar múltiplas ações paralelamente.
-* Os livros de [execução](automation-powershell-workflow.md#checkpoints) não podem usar postos de controlo para retomar o livro de ensaios se houver um erro.
+* Os livros de execução não podem usar [o processamento paralelo](automation-powershell-workflow.md#use-parallel-processing) para executar múltiplas ações paralelamente.
+* Os livros de [execução](automation-powershell-workflow.md#use-checkpoints-in-a-workflow) não podem usar postos de controlo para retomar o livro de ensaios se houver um erro.
 * Pode incluir apenas livros de execução powerShell Workflow e livros gráficos como livros de execução para crianças utilizando o cmdlet [Start-AzAutomationRunbook,](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) o que cria um novo trabalho.
 
 ### <a name="known-issues"></a>Problemas conhecidos
@@ -80,7 +80,7 @@ Seguem-se os problemas conhecidos atuais com os livros de execução da PowerShe
 * Os livros de execução da PowerShell não conseguem recuperar um [ativo variável](automation-variables.md) não encriptado com um valor nulo.
 * Os livros de execução da PowerShell não conseguem recuperar um ativo variável com `*~*` o nome.
 * Uma operação [Get-Process](https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-process?view=powershell-7) num ciclo num livro de corridas da PowerShell pode falhar após cerca de 80 iterações.
-* Um livro de execução powerShell pode falhar se tentar escrever uma grande quantidade de dados para o fluxo de saída de uma só vez. Normalmente, pode contornar este problema, tendo a saída do livro de corridas apenas a informação necessária para trabalhar com objetos grandes. Por exemplo, em `Get-Process` vez de utilizar sem limitações, pode ter a saída `Get-Process | Select ProcessName, CPU`de cmdlet apenas os parâmetros necessários como em .
+* Um livro de execução powerShell pode falhar se tentar escrever uma grande quantidade de dados para o fluxo de saída de uma só vez. Normalmente, pode contornar este problema, tendo a saída do livro de corridas apenas a informação necessária para trabalhar com objetos grandes. Por exemplo, em vez de utilizar `Get-Process` sem limitações, pode ter a saída de cmdlet apenas os parâmetros necessários como em `Get-Process | Select ProcessName, CPU` .
 
 ## <a name="powershell-workflow-runbooks"></a>Livros de execução powerShell Workflow
 
@@ -89,16 +89,16 @@ Os livros de execução do PowerShell Workflow são livros de execução de text
 ### <a name="advantages"></a>Vantagens
 
 * Implementar toda a lógica complexa com o código powerShell Workflow.
-* Utilize [os pontos](automation-powershell-workflow.md#checkpoints) de verificação para retomar a operação se houver um erro.
-* Utilize [o processamento paralelo](automation-powershell-workflow.md#parallel-processing) para fazer múltiplas ações paralelas.
+* Utilize [os pontos](automation-powershell-workflow.md#use-checkpoints-in-a-workflow) de verificação para retomar a operação se houver um erro.
+* Utilize [o processamento paralelo](automation-powershell-workflow.md#use-parallel-processing) para fazer múltiplas ações paralelas.
 * Pode incluir outros livros gráficos e livros de fluxo de trabalho powerShell como livros de corridas para crianças para criar fluxos de trabalho de alto nível.
 
 ### <a name="limitations"></a>Limitações
 
 * Deve estar familiarizado com o PowerShell Workflow.
-* Os livros de execução devem lidar com a complexidade adicional do PowerShell Workflow, como [objetos desserializados.](automation-powershell-workflow.md#code-changes)
+* Os livros de execução devem lidar com a complexidade adicional do PowerShell Workflow, como [objetos desserializados.](automation-powershell-workflow.md#deserialized-objects)
 * Os livros de execução demoram mais tempo a começar do que os livros powerShell, uma vez que devem ser compilados antes de serem executados.
-* Só pode incluir os livros powerShell como `Start-AzAutomationRunbook` livros infantis utilizando o cmdlet.
+* Só pode incluir os livros powerShell como livros infantis utilizando o `Start-AzAutomationRunbook` cmdlet.
 * Os livros não funcionam com um Trabalhador do Livro Híbrido Linux.
 
 ## <a name="python-runbooks"></a>Livros de execução python
@@ -116,7 +116,7 @@ Os livros de python compilam sob python 2. Pode editar diretamente o código do 
 * Apenas python 2 é suportado atualmente. Quaisquer funções específicas python 3 falham.
 * Para utilizar bibliotecas de terceiros, deve [importar os pacotes](python-packages.md) para a conta Automation.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre a autoria de um livro gráfico, consulte [a autoria gráfica em Automação Azure.](automation-graphical-authoring-intro.md)
 * Para compreender as diferenças entre powerShell e powerShell fluxos de trabalho para livros de execução, consulte [Learning Windows PowerShell Workflow](automation-powershell-workflow.md).

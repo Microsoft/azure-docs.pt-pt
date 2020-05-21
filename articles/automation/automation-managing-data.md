@@ -1,23 +1,20 @@
 ---
-title: Gerir os dados da Automatização do Azure
-description: Este artigo contém múltiplos tópicos para gerir um ambiente de Automação Azure.  Atualmente inclui a Retenção de Dados e O Apoio à Recuperação de Desastres de Automação Azure na Automação Azure.
+title: Gestão dos dados da Automatização do Azure
+description: Este artigo fornece conceitos de gestão de dados na Automatização Azure, incluindo retenção de dados e backup.
 services: automation
 ms.subservice: shared-capabilities
 ms.date: 03/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: f917e9c64a932d75fd0f6b14c9e0f35808467355
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 44fe626abd71c13b7f16aa07c4ddf261ff3cacea
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80984662"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715431"
 ---
-# <a name="managing-azure-automation-data"></a>Gerir os dados da Automatização do Azure
+# <a name="management-of-azure-automation-data"></a>Gestão dos dados da Automatização do Azure
 
-Este artigo contém múltiplos tópicos para a gestão de dados num ambiente de Automação Azure.
-
->[!NOTE]
->Este artigo foi atualizado para utilizar o novo módulo AZ do Azure PowerShell. Pode continuar a utilizar o módulo AzureRM, que continuará a receber correções de erros até, pelo menos, dezembro de 2020. Para obter mais informações sobre o novo módulo Az e a compatibilidade do AzureRM, veja [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para instruções de instalação do módulo Az no seu Executor Híbrido, consulte [Instalar o Módulo PowerShell Azure](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para a sua conta Automation, pode atualizar os seus módulos para a versão mais recente, utilizando [como atualizar os módulos Azure PowerShell em Automação Azure](automation-update-azure-modules.md).
+Este artigo contém vários tópicos para a gestão de dados num ambiente de Automação Azure.
 
 ## <a name="data-retention"></a>Retenção de dados
 
@@ -77,7 +74,7 @@ O serviço de georeplicação automation não é acessível diretamente a client
 
 4. Importe os livros de execução para a sua conta de Automação na região secundária.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre ativos seguros na Automatização Azure, consulte [encriptar ativos seguros na Automação Azure.](automation-secure-asset-encryption.md)
 

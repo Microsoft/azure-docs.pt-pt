@@ -1,6 +1,6 @@
 ---
-title: Regiões de suporte para espaço de trabalho linked Log Analytics
-description: Este artigo diz como apoiar mapeamentos da região entre uma conta de Automação e um espaço de trabalho log Analytics.
+title: Regiões suportadas para a área de trabalho do Log Analytics ligada
+description: Este artigo descreve os mapeamentos da região suportada entre uma conta de Automação e um espaço de trabalho log Analytics.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -9,14 +9,14 @@ ms.author: magoedte
 ms.date: 04/23/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 229fab5550d7b03fcbba80b5f4d9433d3b31e5b1
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: e637aec3c5105bb9628a854b0d4c73988e60daaf
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680445"
+ms.locfileid: "83714513"
 ---
-# <a name="support-regions-for-linked-log-analytics-workspace"></a>Regiões de suporte para espaço de trabalho linked Log Analytics
+# <a name="supported-regions-for-linked-log-analytics-workspace"></a>Regiões suportadas para a área de trabalho do Log Analytics ligada
 
 Na Automatização Azure, pode ativar a Gestão de Atualizações, O Rastreio de Alterações e Inventário e Os VMs de Início/Paragem durante as funcionalidades off-hours para os seus VMs. No entanto, apenas algumas regiões são suportadas para ligar um espaço de trabalho log Analytics e uma conta de Automação na sua subscrição. Os mapeamentos da região aplicam-se apenas à conta de Automação e ao espaço de trabalho log Analytics. O espaço de trabalho log Analytics e a conta de Automação devem estar na mesma subscrição, mas podem estar em diferentes grupos de recursos implantados na mesma região. Para mais informações, consulte o espaço de [trabalho do Log Analytics e a conta de Automação.](../../azure-monitor/insights/solutions.md#log-analytics-workspace-and-automation-account)
 
@@ -49,9 +49,9 @@ A tabela seguinte mostra os mapeamentos suportados:
 
 ## <a name="unlink-a-workspace"></a>Desvincular um espaço de trabalho
 
-Se decidir que já não pretende integrar a sua conta de Automação com um espaço de trabalho de Log Analytics, pode desvincular a sua conta diretamente do portal Azure. Antes de prosseguir, primeiro precisa [de desativar](move-account.md#disable-features) a Gestão de Atualizações, alterar o rastreio e o inventário e iniciar/parar vMs durante o horário de folga se estiver a usá-los. Se não desativar as funcionalidades, não pode completar a operação de desligação. 
+Se decidir que já não pretende integrar a sua conta de Automação com um espaço de trabalho de Log Analytics, pode desvincular a sua conta diretamente do portal Azure. Antes de prosseguir, primeiro tem de [remover](move-account.md#remove-features) a Gestão da Atualização, alterar o rastreio e o inventário e iniciar/parar vMs durante o horário de folga se estiver a utilizá-los. Se não os remover, não pode completar a operação de desligação. 
 
-Com as funcionalidades desativadas, pode seguir os passos abaixo para desligar a sua conta Desvinculação da Automatização.
+Com as funcionalidades removidas, pode seguir os passos abaixo para desligar a sua conta Desvinculação da Automatização.
 
 > [!NOTE]
 > Algumas funcionalidades, incluindo versões anteriores da solução de monitorização Azure SQL, podem ter criado ativos da Automação que precisam de ser removidos antes de desvincular o espaço de trabalho.
@@ -78,8 +78,8 @@ Em alternativa, pode desligar o seu espaço de trabalho a partir da sua conta Au
 1. No espaço de trabalho, selecione **Conta de Automação** em **Recursos Relacionados.** 
 2. Na página da Conta de Automação, selecione **Conta Unlink**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Saiba mais sobre a Gestão de Atualizações na visão geral da [Gestão de Atualizações.](../automation-update-management.md)
-* Saiba mais sobre o rastreio de alterações e o inventário na visão geral do rastreio e do inventário de [alterações.](../change-tracking.md)
-* Saiba mais sobre os VMs de início/paragem durante as horas de [arranque/paragem de VMs durante a visão geral do horário de folga](../automation-solution-vm-management.md).
+* [Descrição geral da Gestão de Atualizações](../automation-update-management.md)
+* [Alterar visão geral do rastreio e do inventário](../change-tracking.md)
+* [VMs de arranque/paragem durante a visão geral fora de horas](../automation-solution-vm-management.md)

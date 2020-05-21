@@ -11,25 +11,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/30/2020
 ms.author: allensu
-ms.openlocfilehash: 4a84c43b57ec4f632a2bfabb10d112e4975249bf
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 84857315e4b6b4375ed5b78520b4c6ff0d66751a
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82733112"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684978"
 ---
 # <a name="azure-load-balancer-components"></a>Componentes do equilíbrio de carga Azure
 
-O Azure Load Balancer contém vários componentes-chave para o seu funcionamento. Estes componentes podem ser configurados na sua subscrição através do portal Azure, Azure CLI, Azure PowerShell ou Templates.
+O Equilíbrio de Carga Azure é composto por alguns componentes-chave. Estes podem ser configurados na sua subscrição através do portal Azure, Azure CLI, Azure PowerShell ou Templates.
 
-## <a name="frontend-ip-configurations"></a>Configurações IP frontend
+## <a name="frontend-ip-configuration"></a>Configuração IP frontend<a name = "frontend-ip-configurations"></a>
 
-O endereço IP do equilibrador de carga. É o ponto de contacto dos clientes. Estes endereços podem ser:
+O endereço IP do seu Equilíbrio de Carga Azure. É o ponto de contacto dos clientes. Estes endereços IP podem ser:
 
 - **Endereço IP público**
 - **Endereço IP privado**
 
-A seleção do endereço IP determina o **tipo** de equilíbrio de carga criado. A seleção privada de endereços IP cria um equilibrador interno de carga. A seleção de endereços IP públicos cria um equilibrador de carga pública.
+A natureza do endereço IP determina o **tipo** de equilíbrio de carga criado. A seleção privada de endereços IP cria um equilibrador interno de carga. A seleção de endereços IP públicos cria um equilibrador de carga pública.
 
 |  | Balanceador de Carga Público  | Balanceador de Carga Interno |
 | ---------- | ---------- | ---------- |
@@ -41,46 +41,45 @@ A seleção do endereço IP determina o **tipo** de equilíbrio de carga criado.
 
 ## <a name="backend-pool"></a>Conjunto de back-end
 
-O grupo de máquinas virtuais ou instâncias num conjunto de escala de máquina virtual que está a servir o pedido de entrada. Para escalar os custos de forma eficaz para satisfazer os elevados volumes de tráfego que chegam, as diretrizes de computação geralmente recomendam adicionar mais instâncias à piscina de backend. 
+O grupo de máquinas virtuais ou instâncias num conjunto de escala de máquina virtual que está a servir o pedido de entrada. Para escalar os custos de forma eficaz para satisfazer os elevados volumes de tráfego que chegam, as diretrizes de computação geralmente recomendam adicionar mais instâncias à piscina de backend.
 
-O equilibrador de carga reconfigura-se instantaneamente através da reconfiguração automática quando escala as instâncias para cima ou para baixo. A adição ou remoção de VMs da piscina de backend reconfigura o equilibrador de carga sem operações adicionais. O âmbito da piscina de backend é qualquer máquina virtual na rede virtual. 
+O equilibrador de carga reconfigura-se instantaneamente através da reconfiguração automática quando escala as instâncias para cima ou para baixo. A adição ou remoção de VMs da piscina de backend reconfigura o equilibrador de carga sem operações adicionais. O âmbito da piscina de backend é qualquer máquina virtual na rede virtual.
 
 Ao considerar como projetar o seu backend pool, desenhe para o menor número de recursos individuais de piscina de backend para otimizar a duração das operações de gestão. Não há diferença no desempenho ou escala do avião de dados.
 
 ## <a name="health-probes"></a>Sondas do estado de funcionamento
 
-Uma sonda de saúde é usada para determinar a saúde dos casos na piscina de backend. Pode definir o limiar pouco saudável para as suas sondas de saúde. Quando uma sonda não responde, o equilibrador de carga deixa de enviar novas ligações para os casos pouco saudáveis. Uma falha na sonda não afeta as ligações existentes. A ligação continua até à aplicação:
+Uma sonda de saúde é usada para determinar o estado de saúde dos casos na piscina de backend. Ao criar um Balancer de Carga, deve configurar uma sonda de saúde que o seu Balancer de Carga pode usar para determinar se uma instância é saudável e encaminhar o tráfego para o mesmo.
+
+Pode definir o limiar pouco saudável para as suas sondas de saúde. Quando uma sonda não responde, o Balancer load para de enviar novas ligações para os casos pouco saudáveis. Uma falha na sonda não afeta as ligações existentes. A ligação continua até à aplicação:
 
 - Acaba com o fluxo
 - O tempo limite de marcha lenta ocorre
 - O VM fecha
 
-O Balancer de Carga fornece diferentes tipos de sonda de saúde para pontos finais:
+O Load Balancer fornece diferentes tipos de sonda de saúde para pontos finais: TCP, HTTP e HTTPS.
 
-- TCP
-- HTTP
-- HTTPS
-
-O equilíbrio de carga básico não suporta sondas HTTPS. O equilíbrio de carga básico fecha todas as ligações TCP (incluindo ligações estabelecidas).
+O Equilíbrio de Carga Básico não suporta sondas HTTPS. O Equilíbrio de Carga Básico fecha todas as ligações TCP (incluindo ligações estabelecidas).
 
 ## <a name="load-balancing-rules"></a>Regras de equilíbrio de carga
 
-As regras de equilíbrio de carga dizem ao equilibrador de carga o que fazer. Uma regra de equilíbrio de carga mapeia uma configuração IP frontal dada e porta para vários endereços IP e portas de backend.
+Uma regra do Balancer de Carga é usada para definir como o tráfego de entrada é distribuído para **todas** as instâncias dentro do Backend Pool. Uma regra de equilíbrio de carga mapeia uma configuração IP frontend dada e porta para vários endereços IP e portas backend.
+
+Por exemplo, se quiser que o tráfego no porto 80 (ou outra porta) do seu IP frontal seja encaminhado para a porta 80 de todas as instâncias de backend, usaria uma regra de Equilíbrio de Carga para o conseguir.
 
 ## <a name="inbound-nat-rules"></a>Regras NAT de entrada
 
-O NAT de entrada rege o tráfego do endereço IP frontend para uma instância de backend dentro da rede virtual. O encaminhamento por porta é feito pela mesma distribuição baseada em hash como o equilíbrio de carga. 
+Uma regra de entrada na NAT reencaminha o tráfego de entrada enviado para um endereço IP frontend selecionado e combinação de porta para uma máquina virtual **específica** ou instância na piscina de backend. O encaminhamento por porta é feito pela mesma distribuição baseada em hash como o equilíbrio de carga.
 
-Exemplo de utilização é o Protocolo de Ambiente de Trabalho Remoto (RDP) ou sessões secure Shell (SSH) para separar as instâncias vm dentro de uma rede virtual. Vários pontos finais internos podem ser mapeados para portas no mesmo endereço IP frontal. Os endereços IP front-front-end podem ser usados para administrar remotamente os seus VMs sem uma caixa de salto adicional.
+Por exemplo, se quiser sessões de Protocolo de Ambiente de Trabalho Remoto (RDP) ou Secure Shell (SSH) para separar as instâncias vm numa piscina de backend. Vários pontos finais internos podem ser mapeados para portas no mesmo endereço IP Frontend. Os endereços IP Frontend podem ser usados para administrar remotamente os seus VMs sem uma caixa de salto adicional.
 
 ## <a name="outbound-rules"></a>Regras de saída
 
-Uma regra de saída configura a tradução de endereços de rede (NAT) para todas as máquinas virtuais ou instâncias identificadas pela piscina de backend.
+Uma regra de saída configura a tradução de endereços de rede (NAT) para todas as máquinas virtuais ou instâncias identificadas pela piscina de backend. Isto permite que os casos no backend comuniquem (saída) à internet ou a outros pontos finais.
 
 O equilibrista básico de carga não suporta as regras de saída.
-![Azure Load Balancer](./media/load-balancer-overview/load-balancer-overview.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte [Criar um Balancer de Carga Padrão público](quickstart-load-balancer-standard-public-portal.md) para começar com o uso de um Balancer de Carga.
 - Saiba mais sobre o Equilíbrio de [Carga Azure.](load-balancer-overview.md)
@@ -90,7 +89,7 @@ O equilibrista básico de carga não suporta as regras de saída.
 - Saiba mais sobre diagnósticos de [balanceadores de carga padrão.](load-balancer-standard-diagnostics.md)
 - Saiba mais sobre [o Reset TCP em Idle](load-balancer-tcp-reset.md).
 - Saiba mais sobre o [Balancer de Carga Standard com regras](load-balancer-ha-ports-overview.md)de equilíbrio de carga ha ports .
-- Aprenda a utilizar o [Balancer de Carga com extremidades múltiplas](load-balancer-multivip-overview.md).
+- Saiba utilizar o [Balancer de Carga com configurações IP de fachada múltiplas](load-balancer-multivip-overview.md).
 - Saiba mais sobre grupos de [segurança de rede.](../virtual-network/security-overview.md)
 - Saiba mais sobre [os tipos](load-balancer-custom-probe-overview.md#types)de sonda .
 - Saiba mais sobre [os limites](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer)do equilíbrio de carga.

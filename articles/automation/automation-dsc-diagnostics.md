@@ -1,6 +1,6 @@
 ---
-title: Forward Azure Automation Configuração de relatórios de dados para registos do Monitor Azure
-description: Este artigo demonstra como enviar dados de informação de configuração do Estado Desejado (DSC) da Configuração do Estado da Automação Azure para registos do Monitor Azure para fornecer informações e gestão adicionais.
+title: Integrar com registos do Monitor Azure
+description: Este artigo diz como enviar dados de relatórios de configuração do Estado pretendidos da Configuração do Estado da Automação Azure para registos do Monitor Azure.
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -9,14 +9,14 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0b0ee75c39ba87503f150ffb72b7ab95aaf83999
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: cc68b53137175042f586ee83bc045f0fbbca38f7
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996057"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83713289"
 ---
-# <a name="forward-state-configuration-reporting-data-to-azure-monitor-logs"></a>Reencaminhar a comunicação de dados da Configuração de Estado para os registos do Azure Monitor
+# <a name="integrate-with-azure-monitor-logs"></a>Integrar com registos do Monitor Azure
 
 A Configuração do Estado da Automação Azure mantém os dados do estado do nó durante 30 dias. Pode enviar dados de estado do nó para o seu espaço de trabalho Log Analytics se preferir reter estes dados por um período mais longo. O estado de conformidade é visível no portal Azure ou com powerShell, para nós e para recursos DSC individuais em configurações de nós. 
 
@@ -29,7 +29,6 @@ Os registos do Monitor Azure proporcionam uma maior visibilidade operacional aos
 - Utilize vistas personalizadas e consultas de pesquisa para visualizar os resultados do seu livro de execução, o estado do trabalho do livro de corridas e outros indicadores ou métricas relacionados.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
-
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -78,7 +77,7 @@ Depois de configurar a integração com os registos do Monitor Azure para os seu
 
 ![Registos](media/automation-dsc-diagnostics/automation-dsc-logs-toc-item.png)
 
-O painel de Pesquisa de Registos abre com uma região de consulta ao seu recurso de conta Automation. Pode pesquisar os registos de Configuração do Estado para operações de DSC, pesquisando em registos do Monitor Azure. Os registos das operações da `AzureDiagnostics` DSC estão guardados na mesa. Por exemplo, para encontrar nós que não sejam compatíveis, escreva a seguinte consulta.
+O painel de Pesquisa de Registos abre com uma região de consulta ao seu recurso de conta Automation. Pode pesquisar os registos de Configuração do Estado para operações de DSC, pesquisando em registos do Monitor Azure. Os registos das operações da DSC estão guardados na `AzureDiagnostics` mesa. Por exemplo, para encontrar nós que não sejam compatíveis, escreva a seguinte consulta.
 
 ```AzureDiagnostics
 | where Category == 'DscNodeStatus' 
@@ -89,7 +88,7 @@ O painel de Pesquisa de Registos abre com uma região de consulta ao seu recurso
 Detalhes de filtragem:
 
 * Filtrar `DscNodeStatusData` as operações de devolução de cada nó de Configuração do Estado.
-* Filtrar `DscResourceStatusData` as operações de devolução de cada recurso DSC chamado na configuração do nó aplicada a esse recurso. 
+* Filtrar as operações de `DscResourceStatusData` devolução de cada recurso DSC chamado na configuração do nó aplicada a esse recurso. 
 * Filtre `DscResourceStatusData` para devolver informações de erro para quaisquer recursos DSC que falhem.
 
 Para saber mais sobre a construção de consultas de registo para encontrar dados, consulte a [visão geral das consultas de registo no Monitor Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
@@ -103,7 +102,7 @@ Para criar uma regra de alerta, comece por criar uma pesquisa de registo para os
 1. A partir da página de visualização geral do espaço de trabalho Log Analytics, clique em **Registos**.
 1. Crie uma consulta de pesquisa de registo para o seu alerta digitando a seguinte pesquisa no campo de consulta:`Type=AzureDiagnostics Category='DscNodeStatus' NodeName_s='DSCTEST1' OperationName='DscNodeStatusData' ResultType='Failed'`
 
-   Se tiver configurado registos a partir de mais de uma conta Automation ou subscrição do seu espaço de trabalho, pode agrupar os seus alertas por subscrição e conta de Automação. Obtenha o nome da `Resource` conta Automation a `DscNodeStatusData` partir do campo na pesquisa dos registos.
+   Se tiver configurado registos a partir de mais de uma conta Automation ou subscrição do seu espaço de trabalho, pode agrupar os seus alertas por subscrição e conta de Automação. Obtenha o nome da conta Automation a partir do `Resource` campo na pesquisa dos `DscNodeStatusData` registos.
 1. Para abrir o ecrã de **regra Criar,** clique em **Nova Regra** de Alerta no topo da página. 
 
 Para obter mais informações sobre as opções para configurar o alerta, consulte [Criar uma regra de alerta](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
@@ -127,8 +126,8 @@ Esta consulta exibe um gráfico do estado do nó ao longo do tempo.
 
 Os diagnósticos da Azure Automation criam duas categorias de registos nos registos do Monitor Azure:
 
-* Dados do estado`DscNodeStatusData`do nó ()
-* Dados do`DscResourceStatusData`estado dos recursos ()
+* Dados do estado do nó `DscNodeStatusData` ()
+* Dados do estado dos recursos `DscResourceStatusData` ()
 
 ### <a name="dscnodestatusdata"></a>DscNodeStatusData
 
@@ -140,7 +139,7 @@ Os diagnósticos da Azure Automation criam duas categorias de registos nos regis
 | NodeName_s |O nome do nó gerido. |
 | NodeComplianceStatus_s |Valor de estado que especifica se o nó está em conformidade. |
 | DscReportStatus |Valor de estado indicando se a verificação de conformidade foi com sucesso. |
-| Modo de Configuração | O modo utilizado para aplicar a configuração ao nó. Os valores possíveis são: <ul><li>`ApplyOnly`: O DSC aplica a configuração e não faz mais nada a menos que uma nova configuração seja empurrada para o nó alvo ou quando uma nova configuração é retirada de um servidor. Após a aplicação inicial de uma nova configuração, a DSC não verifica a deriva de um estado previamente configurado. A DSC tenta aplicar a configuração `ApplyOnly` até que tenha sucesso antes que o valor entre em vigor. </li><li>`ApplyAndMonitor`: Este é o valor predefinido. O LCM aplica novas configurações. Após a aplicação inicial de uma nova configuração, se o nó alvo deriva do estado pretendido, a DSC relata a discrepância nos registos. A DSC tenta aplicar a configuração `ApplyAndMonitor` até que tenha sucesso antes que o valor entre em vigor.</li><li>`ApplyAndAutoCorrect`: A DSC aplica novas configurações. Após a aplicação inicial de uma nova configuração, se o nó alvo deriva do estado pretendido, a DSC relata a discrepância nos registos e, em seguida, reaplica a configuração atual.</li></ul> |
+| Modo de Configuração | O modo utilizado para aplicar a configuração ao nó. Os valores possíveis são: <ul><li>`ApplyOnly`: O DSC aplica a configuração e não faz mais nada a menos que uma nova configuração seja empurrada para o nó alvo ou quando uma nova configuração é retirada de um servidor. Após a aplicação inicial de uma nova configuração, a DSC não verifica a deriva de um estado previamente configurado. A DSC tenta aplicar a configuração até que tenha sucesso antes que o `ApplyOnly` valor entre em vigor. </li><li>`ApplyAndMonitor`: Este é o valor predefinido. O LCM aplica novas configurações. Após a aplicação inicial de uma nova configuração, se o nó alvo deriva do estado pretendido, a DSC relata a discrepância nos registos. A DSC tenta aplicar a configuração até que tenha sucesso antes que o `ApplyAndMonitor` valor entre em vigor.</li><li>`ApplyAndAutoCorrect`: A DSC aplica novas configurações. Após a aplicação inicial de uma nova configuração, se o nó alvo deriva do estado pretendido, a DSC relata a discrepância nos registos e, em seguida, reaplica a configuração atual.</li></ul> |
 | HostName_s | O nome do nó gerido. |
 | IPAddress | O endereço IPv4 do nó gerido. |
 | Categoria | `DscNodeStatus`. |
@@ -193,7 +192,7 @@ Os diagnósticos da Azure Automation criam duas categorias de registos nos regis
 | CorrelationId |GUID que é a identificação correlação do relatório de conformidade. |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para uma visão geral, consulte a Configuração do Estado da [Automação Azure](automation-dsc-overview.md).
 - Para começar, veja O Início com a Configuração do Estado da [Automação Azure](automation-dsc-getting-started.md).

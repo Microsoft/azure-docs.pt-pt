@@ -9,34 +9,36 @@ ms.subservice: ''
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0405644af24eb277aa47db64348c9a217cf72239
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: bf014c7188232f07a399cc3e438d1d894c96a233
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195971"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701433"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Utilize tabelas externas com SYnapse SQL
 
 Uma tabela externa aponta para dados localizados em Hadoop, Azure Storage blob ou Azure Data Lake Storage. As tabelas externas são utilizadas para ler dados de ficheiros ou escrever dados para ficheiros no Armazenamento Do Azure. Com o Synapse SQL, pode utilizar tabelas externas para ler e escrever dados para piscina SQL ou SQL on-demand (pré-visualização).
 
-## <a name="external-tables-in-synapse-sql"></a>Tabelas externas em Synapse SQL
+## <a name="external-tables-in-synapse-sql-pool-and-on-demand"></a>Tabelas externas na piscina SQL synapse e a pedido
 
-### <a name="sql-pool"></a>[Conjunto de SQL](#tab/sql-pool)
+### <a name="sql-pool"></a>[Conjunto de SQL](#tab/sql-pool) 
 
 Na piscina SQL, pode utilizar uma tabela externa para:
 
 - Consulta Azure Blob Storage e Azure Data Lake Gen2 com declarações transact-SQL.
 - Importar e armazenar dados do Armazenamento De Azure Blob e do Armazenamento do Lago Azure Data na piscina SQL.
 
-Quando utilizado em conjunto com a declaração [CREATE TABLE AS SELECT,](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) selecionando a partir de uma tabela externa importa dados para uma tabela dentro do pool SQL. Em adição à [declaração copy,](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)as tabelas externas são úteis para o carregamento de dados. Para um tutorial de carregamento, consulte [Use PolyBase para carregar dados do Armazenamento De Blob Azure](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Quando utilizado em conjunto com a declaração [CREATE TABLE AS SELECT,](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) selecionando a partir de uma tabela externa importa dados para uma tabela dentro do pool SQL. Além da [declaração](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)copy, as tabelas externas são úteis para o carregamento de dados. 
 
-### <a name="sql-on-demand"></a>[SQL a pedido](#tab/sql-ondemand)
+Para um tutorial de carregamento, consulte [Use PolyBase para carregar dados do Armazenamento De Blob Azure](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+
+### <a name="sql-on-demand"></a>[SQL a pedido](#tab/sql-on-demand)
 
 Para a SQL a pedido, você usará uma tabela externa para:
 
 - Dados de consulta em Armazenamento de Blob Azure ou Armazenamento de Lagos De Dados Azure com declarações transact-SQL
-- Guarde os resultados da consulta a pedido da SQL para ficheiros em Armazenamento de Blob Azure ou armazenamento de lagos de dados azure utilizando [CETAS](develop-tables-cetas.md).
+- Guarde os resultados da consulta a pedido da SQL para ficheiros em Armazenamento de Blob Azure ou Armazenamento de Lago de Dados Azure utilizando [CETAS](develop-tables-cetas.md)
 
 Pode criar tabelas externas utilizando o SQL a pedido através dos seguintes passos:
 
@@ -50,8 +52,8 @@ Pode criar tabelas externas utilizando o SQL a pedido através dos seguintes pas
 
 O utilizador deve ter `SELECT` permissão na mesa externa para ler os dados.
 Acesso à tabela externa subjacente ao armazenamento do Azure utilizando a credencial de base de dados definida na fonte de dados utilizando as seguintes regras:
-- Fonte de dados sem credenciais permite que as tabelas externas acedam a ficheiros publicamente disponíveis no armazenamento do Azure.
-- A fonte de dados pode ter credenciais que permitem que as tabelas externas acedam apenas aos ficheiros no armazenamento do Azure utilizando token SAS ou workspace Managed Identity - consulte [exemplos aqui](develop-storage-files-storage-access-control.md#examples).
+- A fonte de dados sem credenciais permite que as tabelas externas acedam a ficheiros publicamente disponíveis no armazenamento do Azure.
+- A fonte de dados pode ter credenciais que permitem que as tabelas externas acedam apenas aos ficheiros no armazenamento do Azure utilizando token SAS ou workspace Managed Identity - Por exemplo, consulte o artigo de controlo de acesso de armazenamento de ficheiros de [armazenamento Desenvolver ficheiros](develop-storage-files-storage-access-control.md#examples) de armazenamento.
 
 > [!IMPORTANT]
 > No pool SQL, o datasource sem creatrepermite que o utilizador da AD Azure aceda a ficheiros de armazenamento utilizando a sua identidade Azure AD. No SQL on-demand, é necessário criar fonte de dados com credenciais com base de dados que tem `IDENTITY='User Identity'` propriedade - consulte [exemplos aqui](develop-storage-files-storage-access-control.md#examples).
@@ -74,7 +76,7 @@ WITH
 [;]
 ```
 
-#### <a name="sql-on-demand"></a>[SQL a pedido](#tab/sql-ondemand)
+#### <a name="sql-on-demand"></a>[SQL a pedido](#tab/sql-on-demand)
 
 ```syntaxsql
 CREATE EXTERNAL DATA SOURCE <data_source_name>
@@ -84,11 +86,14 @@ WITH
 )
 [;]
 ```
+
 ---
 
 ### <a name="arguments-for-create-external-data-source"></a>Argumentos para criar FONTE DE DADOS EXTERNOS
 
-data_source_name -Especifica o nome definido pelo utilizador para a fonte de dados. O nome deve ser único dentro da base de dados.
+data_source_name
+
+Especifica o nome definido pelo utilizador para a fonte de dados. O nome deve ser único dentro da base de dados.
 
 #### <a name="location"></a>Localização
 LOCALIZAÇÃO = `'<prefix>://<path>'` - Fornece o protocolo de conectividade e o caminho para a fonte externa de dados. O caminho pode incluir um recipiente na forma de `'<prefix>://<path>/container'` , e uma pasta na forma de `'<prefix>://<path>/container/folder'` .
@@ -100,12 +105,14 @@ LOCALIZAÇÃO = `'<prefix>://<path>'` - Fornece o protocolo de conectividade e o
 | Azure Data Lake Store Gen 2 | `abfs[s]`       | `<container>@<storage_account>.dfs.core.windows.net`  |
 
 #### <a name="credential"></a>Credencial
-CREDENTIAL = `<database scoped credential>` é credencial opcional que será usada para autenticar no armazenamento Azure. Fonte de dados externa sem credencial pode aceder à conta de armazenamento público. Fontes de dados externas sem credenciais no pool SQL também podem usar a identidade do IdA para aceder a ficheiros no armazenamento. Fonte externa de dados com identidade de utilização credencial especificada na credencial para aceder a ficheiros.
+CREDENTIAL = `<database scoped credential>` é credencial opcional que será usada para autenticar no armazenamento Azure. Fonte de dados externa sem credencial pode aceder à conta de armazenamento público. 
+
+Fontes de dados externas sem credenciais no pool SQL também podem usar a identidade do IdA para aceder a ficheiros no armazenamento. Fonte externa de dados com identidade de utilização credencial especificada na credencial para aceder a ficheiros.
 - No pool SQL, a credencial de base de dados pode especificar identidade de aplicação personalizada, workspace Identidade Gerida ou chave SAK. 
 - No SQL on-demand, a credencial de base de dados pode especificar a identidade Azure AD do chamador, a identidade gerida do espaço de trabalho ou a chave SAS. 
 
 #### <a name="type"></a>TIPO
-TYPE = `HADOOP` é opção obrigatória no pool SQL e especifica que a tecnologia Polybase é usada para aceder a ficheiros subjacentes. Este parâmetro não pode ser utilizado no serviço SQL on-demand que utiliza leitor nativo incorporado.
+TYPE = `HADOOP` é opção obrigatória no pool SQL e especifica que a tecnologia Polybase é usada para aceder a ficheiros subjacentes. Este parâmetro não pode ser usado no serviço sql on-demand que utiliza leitor nativo incorporado.
 
 ### <a name="example-for-create-external-data-source"></a>Exemplo para criar FONTE DE DADOS EXTERNOS
 
@@ -123,7 +130,7 @@ WITH
   ) ;
 ```
 
-#### <a name="sql-on-demand"></a>[SQL a pedido](#tab/sql-ondemand)
+#### <a name="sql-on-demand"></a>[SQL a pedido](#tab/sql-on-demand)
 
 O exemplo seguinte cria uma fonte externa de dados para o Lago de Dados Azure Gen2 que pode ser acedido usando a credencial SAS:
 
@@ -341,7 +348,7 @@ Utilizando as capacidades de exploração do Data Lake, pode agora criar e consu
 
 - Você deve ter pelo menos [permissões para criar](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#permissions-2) e consultar tabelas externas na piscina SQL ou SQL OD
 
-- O serviço vinculado associado à Conta ADLS Gen2 **deve ter acesso ao ficheiro**. Por exemplo, se o mecanismo de autenticação do serviço ligado for identidade gerida, a identidade gerida pelo espaço de trabalho deve ter pelo menos permissão do leitor de armazenamento blob na conta de armazenamento
+- O serviço vinculado associado à Conta ADLS Gen2 **deve ter acesso ao ficheiro**. Por exemplo, se o mecanismo de autenticação do serviço ligado for identidade gerida, o espaço de trabalho Identidade Gerida deve ter pelo menos permissão do leitor de armazenamento blob na conta de armazenamento
 
 A partir do painel Dados, selecione o ficheiro que pretende criar a tabela externa a partir de:
 > [!div class="mx-imgBorder"]
@@ -366,4 +373,4 @@ A tabela externa é agora criada, para futura exploração do conteúdo desta ta
 
 ## <a name="next-steps"></a>Próximos passos
 
-Consulte o artigo [cetas](develop-tables-cetas.md) sobre como guardar os resultados da consulta para uma tabela externa no Armazenamento Azure. Ou pode começar a consultar [mesas de Faísca.](develop-storage-files-spark-tables.md)
+Consulte o artigo [cetas](develop-tables-cetas.md) sobre como guardar os resultados da consulta para uma tabela externa no Armazenamento Azure. Ou pode começar a consultar [a Apache Spark para as mesas externas Azure Synapse](develop-storage-files-spark-tables.md).

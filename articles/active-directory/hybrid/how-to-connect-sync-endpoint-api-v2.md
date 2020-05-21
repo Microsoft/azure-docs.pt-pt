@@ -8,16 +8,16 @@ editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fce1168f8f95e01b6ac05e673636e02356043cf3
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: b5501153a9c54d4509aa7dd948e03e011b30d79e
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83691076"
+ms.locfileid: "83713816"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api-public-preview"></a>Azure AD Connect sync V2 endpoint API (pré-visualização pública) 
 A Microsoft implementou um novo ponto final (API) para o Azure AD Connect que melhora o desempenho das operações de serviço de sincronização para o Azure Ative Directory. Ao utilizar o novo ponto final do V2, irá experimentar ganhos de desempenho visíveis na exportação e importação para a Azure AD. Este novo ponto final suporta o seguinte:
@@ -31,6 +31,9 @@ A Microsoft implementou um novo ponto final (API) para o Azure AD Connect que me
 
 ## <a name="pre-requisites"></a>Pré-requisitos  
 Para utilizar o novo ponto final v2, terá de utilizar a [versão 1.5.30.0 do Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) ou seguir os passos de implementação fornecidos abaixo para ativar o ponto final do V2 para o seu servidor Azure AD Connect.   
+
+>[!NOTE]
+>Atualmente, esta pré-visualização pública só está disponível na nuvem global do Azure e não está disponível para [nuvens nacionais.](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud)
 
 ### <a name="public-preview-limitations"></a>Limitações da pré-visualização pública  
 Embora esta versão tenha sido submetida a testes extensivos, ainda pode encontrar problemas. Um dos objetivos deste lançamento público de pré-visualização é encontrar e corrigir tais problemas.  
@@ -180,7 +183,7 @@ Se tiver ativado o ponto final v2 e precisar de recuar, siga estes passos:
 >[!NOTE]
 > Ao mudar dos pontos finais V2 para V1, os grupos sincronizados com mais de 50k membros serão eliminados após a execução de uma sincronização completa, para ambos os grupos AD aprovisionados para grupos Azure AD e O365 unificados aprovisionados em AD. 
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes  
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes  
 **P: Um cliente pode usar esta funcionalidade em produção?**  
 </br>Sim, isto pode ser usado em ambientes de produção, com a ressalva como mencionado anteriormente.
  
@@ -193,7 +196,7 @@ Se tiver ativado o ponto final v2 e precisar de recuar, siga estes passos:
 **P: Tempo para o próximo marco?**  
 </br>As capacidades de pré-visualização pública podem ser retiradas e possivelmente redesenhadas antes de atingirem mais marcos.  
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Sincronização Azure AD Connect: Compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)
 * [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md)

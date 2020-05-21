@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 04/07/2020
-ms.openlocfilehash: 4ede8833fdbdbd57654e6c02147f53e58a17b1de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/07/2020
+ms.openlocfilehash: 8e76f767470b9052b25cd2b2958f3f9e9780881b
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80886998"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714751"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planeamento da capacidade para clusters do HDInsight
 
@@ -84,50 +84,16 @@ Pode escalar o seu cluster para satisfazer as exigências de carga máxima. Em s
 
 > [!NOTE]  
 > Quando um cluster é eliminado, a sua metaloja por defeito da Hive também é eliminada. Para persistir a metaloja para a recriação do cluster seguinte, utilize uma loja de metadados externo, como a Base de Dados Azure ou [a Apache Oozie](https://oozie.apache.org/).
-<!-- see [Using external metadata stores](hdinsight-using-external-metadata-stores.md). -->
 
 ### <a name="isolate-cluster-job-errors"></a>Isolar erros de trabalho de cluster
 
-Por vezes, erros podem ocorrer devido à execução paralela de vários mapas e reduzir componentes num cluster de vários nós. Para ajudar a isolar o problema, tente testes distribuídos. Executar múltiplos empregos simultâneos num único aglomerado de nó de trabalhadores. Em seguida, expandir esta abordagem para executar múltiplos empregos simultaneamente em clusters que contenham mais do que um nó. Para criar um cluster HDInsight de nó único *`Custom(size, settings, apps)`* em Azure, use a opção e use um valor de 1 para *número de nós de trabalhador* na secção tamanho do **Cluster** ao fornecer um novo cluster no portal.
+Por vezes, erros podem ocorrer devido à execução paralela de vários mapas e reduzir componentes num cluster de vários nós. Para ajudar a isolar o problema, tente testes distribuídos. Executar múltiplos empregos simultâneos num único aglomerado de nó de trabalhadores. Em seguida, expandir esta abordagem para executar múltiplos empregos simultaneamente em clusters que contenham mais do que um nó. Para criar um cluster HDInsight de nó único em Azure, use a *`Custom(size, settings, apps)`* opção e use um valor de 1 para *número de nós de trabalhador* na secção tamanho do **Cluster** ao fornecer um novo cluster no portal.
 
 ## <a name="quotas"></a>Quotas
 
-Depois de determinar o tamanho, escala e tipo de vm do seu cluster-alvo, verifique os limites de capacidade de quota atuais da sua subscrição. Quando se chega a um limite de quotas, não se pode implantar novos aglomerados. Ou esdimensionar os aglomerados existentes adicionando mais nós de trabalhadores. O único limite de quota é a quota CPU Cores que existe ao nível da região para cada subscrição. Por exemplo, a sua subscrição pode ter um limite de 30 núcleos na região leste dos EUA.
+Para obter mais informações sobre a gestão das quotas de subscrição, consulte o pedido de [aumento das quotas.](quota-increase-request.md)
 
-Para verificar os seus núcleos disponíveis, faça os seguintes passos:
-
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. Navegue para a página **de visão geral** do cluster HDInsight.
-3. No menu esquerdo, selecione **limites de quota**.
-
-   A página mostra o número de núcleos em uso, o número de núcleos disponíveis e os núcleos totais.
-
-Se necessitar de solicitar um aumento de quota, faça os seguintes passos:
-
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-1. Selecione **Ajuda + suporte** no lado inferior esquerdo da página.
-1. Selecione **Novo pedido de suporte**.
-1. Na página de pedido de **suporte Novo,** sob o separador **Basics,** selecione as seguintes opções:
-
-   - **Tipo de emissão**: Limites de **serviço e subscrição (quotas)**
-   - **Subscrição**: a subscrição que pretende modificar
-   - **Tipo**de quota : **HDInsight**
-
-     ![Criar um pedido de suporte para aumentar a quota central do HDInsight](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
-
-1. Selecione **Seguinte: Soluções >>**.
-1. Na página **Detalhes,** introduza uma descrição do problema, selecione a gravidade do problema, o seu método de contacto preferido e outros campos necessários.
-1. Selecione **Seguinte: Rever + criar >>**.
-1. No **separador Review + criar,** selecione **Criar**.
-
-> [!NOTE]  
-> Se precisar de aumentar a quota central do HDInsight numa região privada, [apresente um pedido de whitelist](https://aka.ms/canaryintwhitelist).
-
-Pode [contactar o suporte para solicitar um aumento](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request)de quota.
-
-Há alguns limites de quota fixas. Por exemplo, uma única subscrição azure pode ter no máximo 10.000 núcleos. Para mais detalhes sobre estes limites, consulte [os limites de subscrição e serviço do Azure, quotas e restrições.](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)
-
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Configure clusters em HDInsight com Apache Hadoop, Spark, Kafka e muito mais:](hdinsight-hadoop-provision-linux-clusters.md)Saiba como configurar e configurar clusters no HDInsight.
 * [Monitorize](hdinsight-key-scenarios-to-monitor.md)o desempenho do cluster : Saiba sobre cenários-chave para monitorizar o seu cluster HDInsight que possam afetar a capacidade do seu cluster.

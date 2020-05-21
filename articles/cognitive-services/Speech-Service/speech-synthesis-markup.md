@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: 41de12c08dee52240f9b10c191ced4aacaea8e94
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 8ec4c87dc4f19c140c5ac02779c5551016dfb0b3
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592785"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714326"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Melhorar a síntese com a linguagem de marcação da síntese da fala (SSML)
 
@@ -109,7 +109,7 @@ Dentro do `speak` elemento, pode especificar várias vozes para a saída de text
 
 Dependendo da linguagem SDK do discurso, você definirá a `"SpeechServiceResponse_Synthesis_WordBoundaryEnabled"` propriedade em uma instância do `false` `SpeechConfig` objeto.
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 Para mais informações, consulte <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.setproperty?view=azure-dotnet" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 
@@ -195,10 +195,8 @@ Por padrão, o serviço de texto-a-fala sintetiza o texto usando um estilo de fa
 
 Atualmente, os ajustes de estilo de fala são suportados para estas vozes neurais:
 * `en-US-AriaNeural`
-* `pt-BR-FranciscaNeural`
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
-* `zh-CN-YunyeNeural`
 
 As alterações são aplicadas ao nível da frase, e o estilo varia de acordo com a voz. Se um estilo não for suportado, o serviço devolverá o discurso no estilo de fala neutro padrão.
 
@@ -223,15 +221,11 @@ Utilize esta tabela para determinar quais os estilos de fala suportados para cad
 |                         | `style="chat"`            | Expressa um tom casual e descontraído                         |
 |                         | `style="cheerful"`        | Expressa um tom positivo e feliz                         |
 |                         | `style="empathetic"`      | Expressa uma sensação de carinho e compreensão               |
-|   `pt-BR-FranciscaNeural`| `style="calm"`      | Expresse um tom calmo               |
 | `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | Expressa um tom formal e profissional para narrar notícias |
 |                         | `style="customerservice"` | Expressa um tom amigável e útil para o apoio ao cliente  |
 |                         | `style="assistant"`       | Expressa um tom quente e descontraído para assistentes digitais    |
 |                         | `style="lyrical"`         | Expressa emoções de uma forma melódica e sentimental         |   
-| `zh-CN-YunyangNeural`  | `style="customerservice"` | Expressa um tom amigável e útil para o apoio ao cliente  |
-| `zh-CN-YunyeNeural`  | `style="calm"`      | Expresse um tom calmo               |  
-|                         | `style="sad"`       | Expressa um tom infeliz e perturbado    |
-|                         | `style="serious"`         | Expresse um tom sério e duro        |   
+| `zh-CN-YunyangNeural`   | `style="customerservice"` | Expressa um tom amigável e útil para o apoio ao cliente  | 
 
 **Exemplo**
 
@@ -694,6 +688,6 @@ Apenas um ficheiro áudio de fundo é permitido por documento SSML. No entanto, 
 </speak>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Apoio linguístico: vozes, locais, línguas](language-support.md)

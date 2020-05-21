@@ -1,14 +1,14 @@
 ---
 title: 'Quickstart: Nova atribuição de política com a PowerShell'
 description: Neste arranque rápido, você usa o Azure PowerShell para criar uma atribuição de Política Azure para identificar recursos não conformes.
-ms.date: 11/25/2019
+ms.date: 05/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: 3fd6060d1f38c523ccf22e80807f6220bfdf3cbc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1fe1c7ee50c1e93f94d387440a22b011d392ffca
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75978297"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684507"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Quickstart: Criar uma atribuição de políticas para identificar recursos não conformes usando a Azure PowerShell
 
@@ -41,10 +41,10 @@ Neste arranque rápido, cria-se uma atribuição de políticas para os _VMs de A
 Execute os seguintes comandos para criar uma nova atribuição de política:
 
 ```azurepowershell-interactive
-# Get a reference to the resource group that will be the scope of the assignment
+# Get a reference to the resource group that is the scope of the assignment
 $rg = Get-AzResourceGroup -Name '<resourceGroupName>'
 
-# Get a reference to the built-in policy definition that will be assigned
+# Get a reference to the built-in policy definition to assign
 $definition = Get-AzPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Audit VMs that do not use managed disks' }
 
 # Create the policy assignment with the built-in definition against your resource group
@@ -102,7 +102,7 @@ Para remover a atribuição criada, utilize o seguinte comando:
 Remove-AzPolicyAssignment -Name 'audit-vm-manageddisks' -Scope '/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>'
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste guia de introdução, atribuiu uma definição de política para identificar recursos incompatíveis no seu ambiente do Azure.
 

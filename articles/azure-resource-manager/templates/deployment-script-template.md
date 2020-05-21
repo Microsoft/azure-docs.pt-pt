@@ -5,18 +5,18 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 05/20/2020
 ms.author: jgao
-ms.openlocfilehash: 5b938e2072daec56261e529ab8a2a8b15b55d143
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 24a0891b57f67bfb78cf3699bddbcf8d345ee679
+ms.sourcegitcommit: a3c6efa4d4a48e9b07ecc3f52a552078d39e5732
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872332"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83708011"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Utilize scripts de implementação em modelos (Pré-visualização)
 
-Aprenda a usar scripts de implementação em modelos de Recursos Azure. Com um novo `Microsoft.Resources/deploymentScripts`tipo de recurso chamado , os utilizadores podem executar scripts de implementação em implementações de modelos e rever os resultados da execução. Estes scripts podem ser usados para executar passos personalizados tais como:
+Aprenda a usar scripts de implementação em modelos de Recursos Azure. Com um novo tipo de recurso chamado , os utilizadores podem executar scripts de `Microsoft.Resources/deploymentScripts` implementação em implementações de modelos e rever os resultados da execução. Estes scripts podem ser usados para executar passos personalizados tais como:
 
 - adicionar utilizadores a um diretório
 - executar operações de aviões de dados, por exemplo, copiar bolhas ou bases de dados de sementes
@@ -140,12 +140,12 @@ Detalhes do valor da propriedade:
 - **forceUpdateTag**: Alterar este valor entre as implementações do modelo obriga o script de implantação a reexecutar. Utilize a função newGuid() ou utcNow() que precisa de ser definida como o valor padrão de um parâmetro. Para saber mais, consulte [o guião run mais de uma vez](#run-script-more-than-once).
 - **recipienteDefinições**: Especifique as definições para personalizar a instância do contentor Azure.  **containerGroupName** é para especificar o nome do grupo de contentores.  Se não especificado, o nome do grupo será automaticamente gerado.
 - **armazenamentoDefinições de contas**: Especifique as definições para utilizar uma conta de armazenamento existente. Se não especificada, é criada automaticamente uma conta de armazenamento. Consulte [Utilize uma conta](#use-an-existing-storage-account)de armazenamento existente .
-- **azPowerShellVersion**/**azCliVersion**: Especifique a versão do módulo a utilizar. Para obter uma lista de versões PowerShell e CLI suportadas, consulte [pré-requisitos](#prerequisites).
+- **azPowerShellVersion** / **azCliVersão**: Especifique a versão do módulo a utilizar. Para obter uma lista de versões PowerShell e CLI suportadas, consulte [pré-requisitos](#prerequisites).
 - **argumentos**: Especificar os valores dos parâmetros. Os valores são separados por espaços.
 - **ambienteVariáveis**: Especifique as variáveis ambientais para passar para o script. Para mais informações, consulte [Desenvolver scripts](#develop-deployment-scripts)de implementação .
-- **scriptConteúdo**: Especifique o conteúdo do script. Para executar um script `primaryScriptUri` externo, use em vez disso. Por exemplo, consulte [Utilize o script inline](#use-inline-scripts) e [use script externo](#use-external-scripts).
+- **scriptConteúdo**: Especifique o conteúdo do script. Para executar um script externo, use `primaryScriptUri` em vez disso. Por exemplo, consulte [Utilize o script inline](#use-inline-scripts) e [use script externo](#use-external-scripts).
 - **primaryScriptUri**: Especifique um Url acessível ao público para o script de implementação primária com extensões de ficheiros suportadas.
-- **suporteScriptUris**: Especifique um conjunto de Urls acessíveis `ScriptContent` `PrimaryScriptUri`ao público para suportar ficheiros que são chamados em ou .
+- **suporteScriptUris**: Especifique um conjunto de Urls acessíveis ao público para suportar ficheiros que são chamados em `ScriptContent` ou `PrimaryScriptUri` .
 - **prazo**: Especificar o tempo máximo de execução do script especificado no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). O valor predefinido é **P1D**.
 - **limpezaPreferência**. Especifique a preferência de limpar os recursos de implantação quando a execução do script estiver em estado terminal. A definição predefinida é **sempre**, o que significa apagar os recursos apesar do estado terminal (Bem sucedido, falhado, cancelado). Para saber mais, consulte [a Limpeza dos recursos do script de implementação.](#clean-up-deployment-script-resources)
 - intervalo de **retençãoIntervalo**: Especifique o intervalo para o qual o serviço mantém os recursos do script de implantação após a execução do script de implantação atingir um estado terminal. Os recursos do script de implantação serão eliminados quando esta duração expirar. A duração baseia-se no [padrão ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). O valor predefinido é **P1D,** o que significa sete dias. Esta propriedade é utilizada quando a limpezaA preferência está definida para *OnExpiration*. A propriedade *OnExpiration* não está ativada atualmente. Para saber mais, consulte [a Limpeza dos recursos do script de implementação.](#clean-up-deployment-script-resources)
@@ -161,7 +161,7 @@ Detalhes do valor da propriedade:
 
 ## <a name="use-inline-scripts"></a>Utilizar scripts inline
 
-O modelo seguinte tem um `Microsoft.Resources/deploymentScripts` recurso definido com o tipo. A parte em destaque é o guião inline.
+O modelo seguinte tem um recurso definido com o `Microsoft.Resources/deploymentScripts` tipo. A parte em destaque é o guião inline.
 
 :::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-helloworld.json" range="1-54" highlight="34-40":::
 
@@ -190,7 +190,7 @@ O resultado tem o seguinte aspeto:
 
 ## <a name="use-external-scripts"></a>Utilize scripts externos
 
-Além de scripts inline, também pode utilizar ficheiros de script externos. Apenas são suportados scripts primários powerShell com a extensão do ficheiro **PS1.** Para scripts CLI, os scripts primários podem ter quaisquer extensões (ou sem extensão), desde que os scripts sejam scripts de bash válidos. Para utilizar ficheiros `scriptContent` de `primaryScriptUri`script externos, substitua-o por . Por exemplo:
+Além de scripts inline, também pode utilizar ficheiros de script externos. Apenas são suportados scripts primários powerShell com a extensão do ficheiro **PS1.** Para scripts CLI, os scripts primários podem ter quaisquer extensões (ou sem extensão), desde que os scripts sejam scripts de bash válidos. Para utilizar ficheiros de script externos, `scriptContent` substitua-o por `primaryScriptUri` . Por exemplo:
 
 ```json
 "primaryScriptURI": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.ps1",
@@ -255,6 +255,8 @@ Pode controlar a forma como o PowerShell reage a erros não terminadores utiliza
 
 A definição de variáveis ambientais (EnvironmentVariable) nas instâncias do seu recipiente permite-lhe fornecer uma configuração dinâmica da aplicação ou script executado pelo recipiente. O script de implantação trata de variáveis ambientais não seguras e seguras da mesma forma que a Instância do Contentor Azure. Para obter mais informações, consulte As [variáveis ambiente definidas em instâncias de contentores](../../container-instances/container-instances-environment-variables.md#secure-values).
 
+O tamanho máximo permitido para variáveis ambientais é de 64KB.
+
 ## <a name="debug-deployment-scripts"></a>Scripts de implementação de depurados
 
 O serviço de script cria uma conta de [armazenamento](../../storage/common/storage-account-overview.md) (a menos que especifique uma conta de armazenamento existente) e uma instância de [contentores](../../container-instances/container-instances-overview.md) para execução de scripts. Se estes recursos forem automaticamente criados pelo serviço de script, ambos os recursos têm o sufixo **azscripts** nos nomes de recursos.
@@ -308,7 +310,7 @@ Uma conta de armazenamento e uma instância de contentores são necessárias par
 - As regras de firewall da conta de armazenamento ainda não são suportadas. Para obter mais informações, veja [Configurar firewalls e redes virtuais do Armazenamento do Microsoft Azure](../../storage/common/storage-network-security.md).
 - A identidade gerida atribuída pelo utilizador do script de implementação deve ter permissões para gerir a conta de armazenamento, que inclui ler, criar, eliminar as partilhas de ficheiros.
 
-Para especificar uma conta de armazenamento existente, adicione o `Microsoft.Resources/deploymentScripts`seguinte json ao elemento de propriedade de:
+Para especificar uma conta de armazenamento existente, adicione o seguinte json ao elemento de propriedade `Microsoft.Resources/deploymentScripts` de:
 
 ```json
 "storageAccountSettings": {
@@ -318,7 +320,7 @@ Para especificar uma conta de armazenamento existente, adicione o `Microsoft.Res
 ```
 
 - **nome da conta**de armazenamento : especifique o nome da conta de armazenamento.
-- **armazenamentoAccountKey":** especificar uma das chaves da conta de armazenamento. Pode utilizar [`listKeys()`](./template-functions-resource.md#listkeys) a função para recuperar a chave. Por exemplo:
+- **armazenamentoAccountKey":** especificar uma das chaves da conta de armazenamento. Pode utilizar a [`listKeys()`](./template-functions-resource.md#listkeys) função para recuperar a chave. Por exemplo:
 
     ```json
     "storageAccountSettings": {
@@ -327,7 +329,7 @@ Para especificar uma conta de armazenamento existente, adicione o `Microsoft.Res
     }
     ```
 
-Consulte [os modelos de amostra](#sample-templates) para obter uma amostra completa `Microsoft.Resources/deploymentScripts` de definição.
+Consulte [os modelos de amostra](#sample-templates) para obter uma amostra completa de `Microsoft.Resources/deploymentScripts` definição.
 
 Quando uma conta de armazenamento existente é utilizada, o serviço de script cria uma partilha de ficheiros com um nome único. Consulte os recursos de script de [implementação de limpeza](#clean-up-deployment-script-resources) para saber como o serviço de script limpa a parte do ficheiro.
 
@@ -357,7 +359,7 @@ A execução do guião de implantação é uma operação idempotente. Se nenhum
     > [!NOTE]
     > A função utcNow só pode ser utilizada no valor padrão para um parâmetro.
 
-- Especifique um `forceUpdateTag` valor diferente na propriedade do modelo.  Por exemplo, use utcNow como valor.
+- Especifique um valor diferente na propriedade do `forceUpdateTag` modelo.  Por exemplo, use utcNow como valor.
 
 > [!NOTE]
 > Escreva os scripts de implantação que são idempotentes. Isto garante que, se voltarem a funcionar acidentalmente, não provocará alterações no sistema. Por exemplo, se o script de implementação for usado para criar um recurso Azure, verifique se o recurso não existe antes de o criar, para que o script tenha sucesso ou não volte a criar o recurso.
@@ -397,7 +399,7 @@ Pode utilizar uma imagem de recipiente de estiva pré-configurada como ambiente 
     docker run -v <host drive letter>:/<host directory name>:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az2.7
     ```
 
-    Substitua ** &lt;** a carta do condutor anfitrião>e ** &lt;o nome do diretório anfitrião>** por uma pasta existente na unidade partilhada.  Mapeia a pasta para a pasta **/dados** no recipiente. Por exemplo, para mapear D:\docker:
+    Substitua a ** &lt; carta do condutor anfitrião>** e o nome do ** &lt; diretório anfitrião>** por uma pasta existente na unidade partilhada.  Mapeia a pasta para a pasta **/dados** no recipiente. Por exemplo, para mapear D:\docker:
 
     ```command
     docker run -v d:/docker:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az2.7
@@ -418,7 +420,7 @@ Pode utilizar uma imagem de recipiente de estiva pré-configurada como ambiente 
 
 Depois de o script ser testado com sucesso, pode usá-lo como um script de implementação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a usar scripts de implantação. Para percorrer um tutorial de script de implantação:
 

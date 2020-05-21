@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 05/01/2020
+ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: a35a0d8ae0beb9995f8ab9fce037d0ae5bd7bf63
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: a8ec2dbe430bff2f47e6560dde3ce34f47156a9f
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691616"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684180"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-python"></a>Quickstart: Analise uma imagem remota usando a API e Python de Visão Computacional
 
@@ -66,7 +66,7 @@ else:
 if 'COMPUTER_VISION_ENDPOINT' in os.environ:
     endpoint = os.environ['COMPUTER_VISION_ENDPOINT']
 
-analyze_url = endpoint + "vision/v2.1/analyze"
+analyze_url = endpoint + "vision/v3.0/analyze"
 
 # Set image_url to the URL of an image that you want to analyze.
 image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/" + \
@@ -169,7 +169,7 @@ O JSON devolve uma resposta de êxito. A página Web de exemplo analisa e aprese
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Em seguida, explore uma aplicação Python que utiliza a Visão Computacional para realizar o reconhecimento ótico de caracteres (OCR); criar miniaturas de corte inteligente; além de detetar, categorizar, etiquetar e descrever características visuais em imagens.
 

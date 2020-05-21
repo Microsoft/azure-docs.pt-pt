@@ -1,6 +1,6 @@
 ---
 title: Começar com a Configuração do Estado da Automação Azure
-description: Explicação e exemplos das tarefas mais comuns na Configuração do Estado da Automação Azure
+description: Este artigo diz como fazer as tarefas mais comuns na Configuração do Estado da Automação Azure.
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 45d56daee20d95230f77db249028883165acb951
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 76d078d564125db7b6b8ae10909340a52b220407
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82995787"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83713221"
 ---
 # <a name="get-started-with-azure-automation-state-configuration"></a>Começar com a Configuração do Estado da Automação Azure
 
@@ -71,7 +71,7 @@ Em seguida, importa-se a configuração para a conta Automation.
 1. À esquerda, clique em **Todos os recursos** e, em seguida, o nome da sua conta Automation.
 1. Na página da conta Automation, selecione **a configuração do Estado (DSC)** em Gestão de **Configuração**.
 1. Na página de configuração do Estado (DSC), clique no separador **Configurações** e, em seguida, clique em **Adicionar**.
-1. No painel de configuração de `TestConfig.ps1` importação, navegue para o ficheiro no seu computador.
+1. No painel de configuração de importação, navegue para o `TestConfig.ps1` ficheiro no seu computador.
 
    ![Screenshot da lâmina **Import Configuration**](./media/automation-dsc-getting-started/AddConfig.png)
 
@@ -123,7 +123,7 @@ Depois de iniciar uma compilação, pode vê-la no azulejo **Detrabalhos** de Co
 
 ## <a name="view-node-configurations"></a>Ver configurações de nó
 
-A conclusão bem sucedida de um trabalho de compilação cria uma ou mais novas configurações de nó. Uma configuração de nó é um documento MOF que é implantado no servidor de puxar e pronto para ser puxado e aplicado por um ou mais nós. Pode visualizar as configurações do nó na sua conta De automação na página de configuração do Estado (DSC). Uma configuração nó tem um `ConfigurationName.NodeName`nome com o formulário .
+A conclusão bem sucedida de um trabalho de compilação cria uma ou mais novas configurações de nó. Uma configuração de nó é um documento MOF que é implantado no servidor de puxar e pronto para ser puxado e aplicado por um ou mais nós. Pode visualizar as configurações do nó na sua conta De automação na página de configuração do Estado (DSC). Uma configuração nó tem um nome com o formulário `ConfigurationName.NodeName` .
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. À esquerda, clique em **Todos os recursos** e, em seguida, o nome da sua conta Automation.
@@ -188,7 +188,7 @@ Na lâmina para um relatório individual, pode ver as seguintes informações de
 - O estado do relatório. Os valores possíveis são:
     * Conforme - o nó está em conformidade com a verificação.
    * Falhou - a configuração falhou no cheque.
-   * Não Conforme - o `ApplyandMonitor` nó está em modo e a máquina não está no estado desejado.
+   * Não Conforme - o nó está em `ApplyandMonitor` modo e a máquina não está no estado desejado.
 - A hora de início para a verificação de consistência.
 - O tempo total de execução para a verificação de consistência.
 - O tipo de verificação de consistência.

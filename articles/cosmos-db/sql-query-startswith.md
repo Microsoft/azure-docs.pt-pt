@@ -4,23 +4,24 @@ description: Saiba mais sobre a função do sistema SQL STARTWITH em Azure Cosmo
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 05/20/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 9ed49c067946186f8b79f67bad0a460113eacb73
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e915ea4be058f805e938ec8526ca0ee40d556271
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78295713"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715278"
 ---
 # <a name="startswith-azure-cosmos-db"></a>STARTWITH (Azure Cosmos DB)
+
  Devolve uma Boolean indicando se a primeira expressão de corda começa com a segunda.  
   
 ## <a name="syntax"></a>Sintaxe
   
 ```sql
-STARTSWITH(<str_expr1>, <str_expr2>)  
+STARTSWITH(<str_expr1>, <str_expr2> [, <bool_expr>])  
 ```  
   
 ## <a name="arguments"></a>Argumentos
@@ -30,6 +31,8 @@ STARTSWITH(<str_expr1>, <str_expr2>)
   
 *str_expr2*  
    É uma expressão de corda a ser comparada com o início de *str_expr1*.
+
+*bool_expr* Valor opcional para ignorar caso. Quando definido como verdadeiro, a STARTWITH fará uma pesquisa insensível de caso. Quando não especificado, este valor é falso.
 
 ## <a name="return-types"></a>Tipos de retorno
   
@@ -53,7 +56,7 @@ SELECT STARTSWITH("abc", "b") AS s1, STARTSWITH("abc", "a") AS s2
 
 Esta função do sistema beneficiará de um índice de [alcance](index-policy.md#includeexclude-strategy).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Funções de corda Azure Cosmos DB](sql-query-string-functions.md)
 - [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)

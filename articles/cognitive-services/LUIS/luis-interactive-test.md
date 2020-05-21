@@ -2,13 +2,13 @@
 title: App de teste no portal LUIS
 description: Use a Compreensão da Linguagem (LUIS) para trabalhar continuamente na sua aplicação para refiná-la e melhorar a sua compreensão linguística.
 ms.topic: conceptual
-ms.date: 05/17/2020
-ms.openlocfilehash: 3608bb17b6d1ea8c9095fa54324993a9e40355b6
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 05/20/2020
+ms.openlocfilehash: 91994418b50eb112582bbed1853dd85e9db3599d
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653885"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714429"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Teste a sua app LUIS no portal LUIS
 
@@ -42,7 +42,8 @@ A expressão do teste não deve ser exatamente a mesma que qualquer exemplo pron
 
 1. A expressão, a sua principal intenção e pontuação são adicionados à lista de expressões sob a caixa de texto.
 
-    ![Testes interativos identificam a intenção errada](./media/luis-how-to-interactive-test/test-weather-1.png)
+    > [!div class="mx-imgBorder"]
+    > ![Testes interativos identificam a intenção errada](./media/luis-how-to-interactive-test/test-weather-1.png)
 
 ## <a name="inspect-the-prediction"></a>Inspecione a previsão
 
@@ -50,9 +51,13 @@ Inspecione os detalhes do resultado do teste no painel **de inspeção.**
 
 1. Com o painel de diapositivos **do Teste** aberto, selecione **Inspecione-se** para obter uma expressão que queira comparar.
 
-    ![Selecione Inspecione o botão para ver mais detalhes sobre os resultados dos testes](./media/luis-how-to-interactive-test/inspect.png)
+    > [!div class="mx-imgBorder"]
+    > ![Selecione Inspecione o botão para ver mais detalhes sobre os resultados dos testes](./media/luis-how-to-interactive-test/inspect.png)
 
 1. O painel de **inspeção** aparece. O painel inclui a intenção de pontuação superior, bem como quaisquer entidades identificadas. O painel mostra a previsão da expressão selecionada.
+
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot parcial do painel de inspeção de teste](./media/luis-how-to-interactive-test/inspect-panel.png)
 
 ## <a name="add-to-example-utterances"></a>Adicione a declarações de exemplo
 
@@ -76,12 +81,14 @@ Se estiver a usar [Padrões](luis-concept-patterns.md) e a expressão correspond
 
 Pode testar a versão ativa da sua aplicação com a versão [final](luis-glossary.md#endpoint) publicada. No painel **Inspecionar,** selecione **Compare com publicado**. Qualquer teste contra o modelo publicado é deduzido do seu saldo de quota de subscrição Azure.
 
-![Comparar com publicado](./media/luis-how-to-interactive-test/inspect-panel-compare.png)
+> [!div class="mx-imgBorder"]
+> ![Comparar com publicado](./media/luis-how-to-interactive-test/inspect-panel-compare.png)
 
 ## <a name="view-endpoint-json-in-test-panel"></a>Ver ponto final JSON no painel de teste
 Pode ver o ponto final jSON devolvido para a comparação selecionando a **vista Show JSON**.
 
-![Resposta json publicada](./media/luis-how-to-interactive-test/inspect-panel-compare-json.png)
+> [!div class="mx-imgBorder"]
+> ![Resposta json publicada](./media/luis-how-to-interactive-test/inspect-panel-compare-json.png)
 
 ## <a name="additional-settings-in-test-panel"></a>Definições adicionais no painel de teste
 
@@ -96,7 +103,7 @@ Se tiver vários pontos finais LUIS, utilize a ligação **Definições Adiciona
 ## <a name="batch-testing"></a>Testes em lote
 Consulte [os conceitos](luis-concept-batch-test.md) de teste de lote e aprenda [a](luis-how-to-batch-test.md) testar um lote de expressões.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se os testes indicarem que a sua aplicação LUIS não reconhece as intenções e entidades corretas, pode trabalhar para melhorar a precisão da sua app LUIS, rotulando mais expressões ou adicionando funcionalidades.
 

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2b80efa30ac7e04b9eb21dd6f8a39ab4ee90adf6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ff29b9ab87b2cd48297f5f1ee195f11fb56b428a
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81424854"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700310"
 ---
 # <a name="sql-authentication"></a>Autenticação SQL
 
@@ -44,13 +44,13 @@ As contas de **administração** do Server e **azure d.D.** têm as seguintes ca
 
 - São as únicas contas que podem ligar-se automaticamente a qualquer Base de Dados SQL no servidor. (Para ligar a uma base de dados de utilizador, as outras contas têm de ser o proprietário da base de dados ou ter uma conta de utilizador na base de dados de utilizador.)
 - Estas contas introduzem bases de dados de utilizador como o utilizador `dbo` e têm todas as permissões nas bases de dados de utilizador. (O proprietário de uma base de dados de utilizador também introduz a base de dados como o utilizador `dbo`.)
-- Não introduza `master` a `dbo` base de dados como utilizador e tenha permissões limitadas em mestrado.
-- **Não** são membros da função padrão do servidor fixo Do Servidor `sysadmin` SQL, que não está disponível na base de dados SQL.  
+- Não introduza a `master` base de dados como utilizador e tenha `dbo` permissões limitadas em mestrado.
+- **Não** são membros da função padrão do servidor fixo Do Servidor SQL, que não está disponível na base de `sysadmin` dados SQL.  
 - Pode criar, alterar e largar bases de dados, logins, utilizadores em regras de firewall IP de nível de servidor.
-- Pode adicionar e remover `dbmanager` `loginmanager` membros para as funções e e funções.
-- Pode ver `sys.sql_logins` a tabela do sistema.
+- Pode adicionar e remover membros para as `dbmanager` funções e e `loginmanager` funções.
+- Pode ver a tabela do `sys.sql_logins` sistema.
 
-## <a name="sql-on-demand-preview"></a>SQL on-demand (pré-visualização)
+## <a name="sql-on-demand-preview"></a>[SQL on-demand (pré-visualização)](#tab/serverless)
 
 Para gerir os utilizadores que têm acesso à SQL a pedido, pode utilizar as instruções abaixo.
 
@@ -72,7 +72,7 @@ CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
 
 Assim que o login e o utilizador forem criados, pode utilizar a sintaxe regular do SQL Server para conceder direitos.
 
-## <a name="sql-pool"></a>Piscina SQL
+## <a name="sql-pool"></a>[Conjunto de SQL](#tab/provisioned)
 
 ### <a name="administrator-access-path"></a>Caminho de acesso do administrador
 
@@ -88,9 +88,9 @@ Quando utilizar uma porta aberta na firewall ao nível do servidor, os administr
 
 Uma dessas funções administrativas é o papel **de gestor.** Os membros desta função podem criar novas bases de dados. Para utilizar esta função, crie um utilizador na base de dados `master` e, em seguida, adicione o utilizador à função de base de dados **dbmanager**. 
 
-Para criar uma base de dados, o utilizador deve ser um `master` utilizador baseado num login do SQL Server na base de dados ou no utilizador da base de dados com base num utilizador do Diretório Ativo Do Azure.
+Para criar uma base de dados, o utilizador deve ser um utilizador baseado num login do SQL Server na base de dados ou no utilizador da base de `master` dados com base num utilizador do Diretório Ativo Do Azure.
 
-1. Utilizando uma conta de `master` administrador, ligue-se à base de dados.
+1. Utilizando uma conta de administrador, ligue-se à base de `master` dados.
 2. Crie um login de autenticação do Servidor SQL, utilizando a declaração [CREATE LOGIN.](/sql/t-sql/statements/create-login-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) Instrução de exemplo:
 
    ```sql
@@ -102,7 +102,7 @@ Para criar uma base de dados, o utilizador deve ser um `master` utilizador basea
 
    Para melhorar o desempenho, os início de sessão (principais ao nível do servidor) são temporariamente colocados em cache ao nível da base de dados. Para atualizar a cache de autenticação, veja [DBCC FLUSHAUTHCACHE](/sql/t-sql/database-console-commands/dbcc-flushauthcache-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
-3. Na `master` base de dados, crie um utilizador utilizando a declaração CREATE [USER.](/sql/t-sql/statements/create-user-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) O utilizador pode ser um utilizador de autenticação De cabeça de dados Do Diretório Ativo Do Azure (se configurar o seu ambiente para autenticação AD Azure), ou uma autenticação do Servidor SQL que continha um utilizador de base de dados, ou um utilizador de autenticação do Servidor SQL baseado num login de autenticação do Servidor SQL (criado na fase anterior.) Declarações de amostra:
+3. Na base de `master` dados, crie um utilizador utilizando a declaração CREATE [USER.](/sql/t-sql/statements/create-user-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) O utilizador pode ser um utilizador de autenticação De cabeça de dados Do Diretório Ativo Do Azure (se configurar o seu ambiente para autenticação AD Azure), ou uma autenticação do Servidor SQL que continha um utilizador de base de dados, ou um utilizador de autenticação do Servidor SQL baseado num login de autenticação do Servidor SQL (criado na fase anterior.) Declarações de amostra:
 
    ```sql
    CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER; -- To create a user with Azure Active Directory
@@ -110,7 +110,7 @@ Para criar uma base de dados, o utilizador deve ser um `master` utilizador basea
    CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
    ```
 
-4. Adicione o novo utilizador à função `master` de base de dados **dbmanager** na utilização da declaração [ALTER ROLE.](/sql/t-sql/statements/alter-role-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) Instruções de exemplo:
+4. Adicione o novo utilizador à função de base de dados **dbmanager** na `master` utilização da declaração [ALTER ROLE.](/sql/t-sql/statements/alter-role-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) Instruções de exemplo:
 
    ```sql
    ALTER ROLE dbmanager ADD MEMBER Mary;
@@ -122,11 +122,13 @@ Para criar uma base de dados, o utilizador deve ser um `master` utilizador basea
 
 5. Se for necessário, configure uma regra de firewall para permitir que o novo utilizador se ligue. (O novo utilizador poderá ser abrangido por uma regra de firewall existente.)
 
-Agora o utilizador pode `master` ligar-se à base de dados e criar novas bases de dados. A conta que cria a base de dados torna-se na proprietária da base de dados.
+Agora o utilizador pode ligar-se à base de dados e criar novas bases de `master` dados. A conta que cria a base de dados torna-se na proprietária da base de dados.
 
 ### <a name="login-managers"></a>Gestores de início de sessão
 
 A outra função administrativa é a função de gestor de início de sessão. Os membros desta função podem criar novos inícios de sessão na base de dados mestra. Se pretender, pode seguir os mesmos passos (criar um início de sessão e um utilizador e adicionar um utilizador à função **loginmanager**) para permitir que um utilizador crie novos inícios de sessão na base de dados mestra. Normalmente, os inícios de sessão não são necessários, uma vez que a Microsoft recomenda a utilização de utilizadores de base de dados contidos, o que autentica ao nível da base de dados em vez de utilizar os utilizadores com base em inícios de sessão. Para obter mais informações, veja [Contained Database Users - Making Your Database Portable (Utilizadores de Base de Dados Contidos - Tornar a Sua Base de Dados Portátil)](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+
+---
 
 ## <a name="non-administrator-users"></a>Utilizadores não administradores
 
@@ -149,7 +151,7 @@ GRANT ALTER ANY USER TO Mary;
 
 Para dar aos utilizadores mais controlo da base de dados, faça-os membros da **função db_owner** base de dados fixa.
 
-Na Base de Dados Azure `ALTER ROLE` SQL, utilize a declaração.
+Na Base de Dados Azure SQL, utilize a `ALTER ROLE` declaração.
 
 ```sql
 ALTER ROLE db_owner ADD MEMBER Mary;
@@ -202,7 +204,7 @@ Comece com a lista de permissões em [Permissions (Database Engine) (Permissões
 
 Ao gerir logins e utilizadores na Base de Dados SQL, considere os seguintes pontos:
 
-- Deve estar ligado **master** à base de `CREATE/ALTER/DROP DATABASE` dados principal ao executar as declarações.
+- Deve estar ligado à base de dados **principal** ao executar as `CREATE/ALTER/DROP DATABASE` declarações.
 - O utilizador da base de dados que corresponde ao início de sessão do **Administrador de servidor** não pode ser alterado ou removido.
 - O inglês dos E.U.A. é o idioma predefinido do início de sessão do **Administrador de servidor**.
 - Só os administradores (início de sessão do **Administrador de servidor** ou administrador do Azure AD) e os membros da função de base de dados **dbmanager**ba base de dados **mestra** têm permissão para executar as declarações `CREATE DATABASE` e `DROP DATABASE`.
@@ -231,7 +233,7 @@ Ao gerir logins e utilizadores na Base de Dados SQL, considere os seguintes pont
 - Para `CREATE/ALTER/DROP`, um utilizador necessita da permissão `ALTER ANY USER` na base de dados.
 - Quando o proprietário de uma função de base de dados tenta adicionar ou remover outro utilizador de base de dados de ou para essa função de base de dados, pode ocorrer o seguinte erro: **o utilizador ou a função "Nome" não existe nesta base de dados.** Este erro ocorre porque o utilizador não está visível para o proprietário. Para resolver este problema, conceda uma permissão de `VIEW DEFINITION` ao proprietário da função. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações, veja [Contained Database Users - Making Your Database Portable (Utilizadores de Base de Dados Contidos - Tornar a Sua Base de Dados Portátil)](https://msdn.microsoft.com/library/ff929188.aspx).
  

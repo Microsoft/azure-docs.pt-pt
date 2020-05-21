@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 2d5d508afe81975cbeda448b497a098e8a3bbcf3
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 83410d5945a7fe462afa86a9d217ee7e005550f4
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589283"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83696912"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Acesso à conta de armazenamento de controlo para SQL a pedido (pré-visualização)
 
@@ -99,7 +99,7 @@ Antes de aceder aos dados, o administrador de Armazenamento Azure deve conceder 
 
 ### <a name="anonymous-access"></a>[Acesso anónimo](#tab/public-access)
 
-Pode aceder a ficheiros publicamente disponíveis colocados em contas de armazenamento do Azure que [permitem o acesso anónimo](/azure/storage/blobs/storage-manage-access-to-resources.md).
+Pode aceder a ficheiros publicamente disponíveis colocados em contas de armazenamento do Azure que [permitem o acesso anónimo](/azure/storage/blobs/storage-manage-access-to-resources).
 
 ---
 
@@ -117,7 +117,7 @@ Na tabela abaixo pode encontrar os tipos de autorização disponíveis:
 
 Pode utilizar as seguintes combinações de tipos de autorização e armazenamento azure:
 
-|                     | Armazenamento de Blobs   | ADLS Gen1        | ADLS Gen2     |
+|                     | Blob Storage   | ADLS Gen1        | ADLS Gen2     |
 | ------------------- | ------------   | --------------   | -----------   |
 | *SAS*               | Suportado      | Não apoiado   | Suportado     |
 | *Identidade Gerida* | Suportado      | Suportado        | Suportado     |
@@ -339,7 +339,7 @@ SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet', DATA_SOURCE 
 GO
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Os artigos listados abaixo irão ajudá-lo a aprender como consulta diferentes tipos de pastas, tipos de ficheiros e criar e usar vistas:
 

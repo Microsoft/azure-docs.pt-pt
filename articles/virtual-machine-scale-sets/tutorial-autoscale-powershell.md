@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 03/27/2018
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: 3c8488fa794e2bfa4de7833cb4cd4756b5394263
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: d2e10c2a02bf14f7a01ce03bc70f6e3f43b96385
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201354"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700826"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: Dimensionar automaticamente um conjunto de dimensionamento de máquinas virtuais com o Azure PowerShell
 
@@ -28,7 +28,7 @@ Quando criar um conjunto de dimensionamento, pode definir o número de instânci
 > * Teste de esforço das instâncias e acionar as regras de dimensionamento automático
 > * Voltar ao dimensionamento automático à medida que a exigência diminui
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 Existe um problema conhecido que afeta a versão do módulo 6.8.1 do Azure PowerShell ou posterior, incluindo a versão atual do Azure Cloud Shell. Este tutorial pode ser executado apenas com a versão 6.0.0 à 6.8.0 do Azure PowerShell. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzureRmAccount` para criar uma ligação com o Azure.
 
@@ -247,7 +247,7 @@ Remove-AzureRmResourceGroup -Name "myResourceGroup" -Force -AsJob
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste tutorial, aprendeu a aumentar e reduzir automaticamente um conjunto de dimensionamento com o Azure PowerShell:
 
 > [!div class="checklist"]
@@ -255,8 +255,3 @@ Neste tutorial, aprendeu a aumentar e reduzir automaticamente um conjunto de dim
 > * Criar e utilizar regras de dimensionamento automático
 > * Teste de esforço das instâncias e acionar as regras de dimensionamento automático
 > * Voltar ao dimensionamento automático à medida que a exigência diminui
-
-Para obter mais exemplos de conjuntos de dimensionamento de máquinas virtuais em ação, veja os seguintes scripts de exemplo do Azure PowerShell:
-
-> [!div class="nextstepaction"]
-> [Exemplos de scripts de conjuntos de dimensionamento do Azure PowerShell](powershell-samples.md)

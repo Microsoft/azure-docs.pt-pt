@@ -10,13 +10,13 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 02/10/2020
 ms.author: dapine
-zone_pivot_groups: programming-languages-set-two-with-js
-ms.openlocfilehash: b12e00b292cbee1f1b89197bb3d81a10cb8f36c6
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+zone_pivot_groups: programming-languages-set-two-with-js-spx
+ms.openlocfilehash: 343b2e6786e955a460840a34711ef86ae21d8f23
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82979332"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714701"
 ---
 # <a name="quickstart-recognize-speech-from-an-audio-file"></a>Quickstart: Reconhecer o discurso a partir de um ficheiro áudio
 
@@ -48,6 +48,13 @@ ms.locfileid: "82979332"
 [!INCLUDE [Header](../includes/quickstarts/from-file/header.md)]
 [!INCLUDE [Header](../includes/quickstarts/from-file/javascript/header.md)]
 [!INCLUDE [python](../includes/quickstarts/from-file/javascript/javascript.md)]
+::: zone-end
+
+::: zone pivot="programmer-tool-spx"
+[!INCLUDE [SPX Header](../includes/quickstarts/from-file/spx/header.md)]
+[!INCLUDE [SPX Setup](../includes/spx-setup.md)]
+[!INCLUDE [spx](../includes/quickstarts/from-file/spx/spx.md)]
+[!INCLUDE [next steps to spx basics](../includes/quickstarts/spx-next-steps.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-more"

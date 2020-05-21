@@ -1,17 +1,17 @@
 ---
 title: Manual de Início Rápido do Azure - Criar um runbook de Automatização do Azure | Microsoft Docs
-description: Saiba como criar um runbook de Automatização do Azure
+description: Este artigo ajuda-o a começar a criar um livro de execução da Automação Azure.
 services: automation
 ms.date: 02/05/2019
 ms.topic: quickstart
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 250f51c9f028dd55d8327259e35b82b0c392c1f6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a784ddbc2ab1298bec3e2dc21469785163d7a228
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81537003"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83711997"
 ---
 # <a name="create-an-azure-automation-runbook"></a>Crie um runbook de Automatização do Azure
 
@@ -21,7 +21,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](http
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inscreva-se no https://portal.azure.comAzure em .
+Inscreva-se no Azure em https://portal.azure.com .
 
 ## <a name="create-the-runbook"></a>Criar o livro de corridas
 
@@ -33,7 +33,7 @@ Primeiro, crie um runbook. O runbook de exemplo criado neste guia rápido devolv
 
 1. Clique em Criar um livro de **corridas** no topo da lista.
 
-1. Introduza `Hello-World` para o nome do livro de execução no campo **Nome** e selecione **PowerShell** para o campo **do tipo Runbook.** 
+1. Introduza para o nome do livro de `Hello-World` execução no campo **Nome** e selecione **PowerShell** para o campo **do tipo Runbook.** 
 
    ![Introduza as informações sobre o runbook de Automatização na página](./media/automation-quickstart-create-runbook/automation-create-runbook-configure.png)
 
@@ -41,7 +41,7 @@ Primeiro, crie um runbook. O runbook de exemplo criado neste guia rápido devolv
 
     ![Criar o script do PowerShell no editor de runbooks](./media/automation-quickstart-create-runbook/automation-edit-runbook-empty.png)
 
-1. Escreva ou copie e cole o seguinte código no painel de edição. Cria um parâmetro de entrada `Name` opcional chamado `World`com um valor predefinido de, e produz uma cadeia que utiliza este valor de entrada:
+1. Escreva ou copie e cole o seguinte código no painel de edição. Cria um parâmetro de entrada opcional chamado `Name` com um valor predefinido de, e produz uma cadeia que utiliza este valor de `World` entrada:
 
    ```powershell-interactive
    param
@@ -85,7 +85,7 @@ Assim que o runbook é publicado, é apresentada a página de descrição geral.
 
    ![Tarefa de teste do runbook](./media/automation-quickstart-create-runbook/automation-job-page.png)
 
-1. Quando o estado `Running` `Completed`de trabalho estiver ou , clique em **Saída** para abrir o painel de saída e ver a saída do livro de saída.
+1. Quando o estado de trabalho estiver `Running` ou , clique em `Completed` **Saída** para abrir o painel de saída e ver a saída do livro de saída.
 
    ![Tarefa de teste do runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job-output.png)
 
@@ -93,7 +93,7 @@ Assim que o runbook é publicado, é apresentada a página de descrição geral.
 
 Quando já não precisar, elimine o runbook. Para tal, selecione o runbook na lista de runbooks e clique em **Eliminar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste guia rápido, criou, editou, testou e publicou um runbook e iniciou uma tarefa de runbook. Para obter mais informações sobre Runbooks de automatização, avance para o artigo sobre os diferentes tipos de runbooks que pode criar e utilizar na Automatização.
 

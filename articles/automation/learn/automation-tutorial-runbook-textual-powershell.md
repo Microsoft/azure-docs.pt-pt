@@ -1,17 +1,17 @@
 ---
 title: Criar um livro de execução PowerShell na Automação Azure
-description: Tutorial mostrando como criar, testar e publicar um simples livro de execução PowerShell.
+description: Este artigo ensina-o a criar, testar e publicar um simples livro de execução powerShell.
 keywords: Azure powershell, tutorial de script do powershell, automatização de powershell
 services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
-ms.openlocfilehash: b94969ff0973f68b57a1f43aa9d3205901bb1436
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bf06515f98b21c24f5222b51e1b1c97b702c12d4
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81726159"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714496"
 ---
 # <a name="tutorial-create-a-powershell-runbook"></a>Tutorial: Criar um livro de corridas PowerShell
 
@@ -22,9 +22,6 @@ Este tutorial explica como criar um [ runbook do PowerShell](../automation-runbo
 > * Teste e publique o livro de corridas
 > * Executar e rastrear o estado do trabalho do livro de corridas
 > * Atualize o livro de corridas para iniciar uma máquina virtual Azure com parâmetros de livro
-
->[!NOTE]
->Este artigo foi atualizado para utilizar o novo módulo AZ do Azure PowerShell. Pode continuar a utilizar o módulo AzureRM, que continuará a receber correções de erros até, pelo menos, dezembro de 2020. Para obter mais informações sobre o novo módulo Az e a compatibilidade do AzureRM, veja [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para instruções de instalação do módulo Az no seu Executor Híbrido, consulte [Instalar o Módulo PowerShell Azure](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para a sua conta Automation, pode atualizar os seus módulos para a versão mais recente, utilizando [como atualizar os módulos Azure PowerShell em Automação Azure](../automation-update-azure-modules.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -50,7 +47,7 @@ Além destas diferenças, os livros de execução da PowerShell têm [algumas di
 
 ## <a name="step-1---create-runbook"></a>Passo 1 – Criar runbook
 
-Comece por criar um livro simples `Hello World`que produz o texto .
+Comece por criar um livro simples que produz o texto `Hello World` .
 
 1. No portal do Azure, abra a sua conta da Automatização.
 
@@ -86,7 +83,7 @@ Antes de publicar o livro de execução para o disponibilizar em produção, dev
 
    O estado de trabalho começa como fila, indicando que o trabalho está à espera que um trabalhador do livro na nuvem fique disponível. O estado muda para Começar quando um trabalhador reclama o trabalho. Finalmente, o estado torna-se Running quando o livro de corridas realmente começa a funcionar.
 
-4. Quando o trabalho do livro de execução estiver concluído, o painel de teste mostra a sua saída. Neste caso, `Hello World`vê.
+4. Quando o trabalho do livro de execução estiver concluído, o painel de teste mostra a sua saída. Neste caso, `Hello World` vê.
 
    ![Resultado do Painel de Teste](../media/automation-tutorial-runbook-textual-powershell/automation-testpane-output.png)
 
@@ -110,13 +107,13 @@ O livro de execução que criou ainda está em modo Draft. Tem de ser publicado 
 
    ![Resumo da Tarefa](../media/automation-tutorial-runbook-textual-powershell/job-pane-status-blade-jobsummary.png)
 
-6. Assim que o estado do **Output** livro de execução mostrar concluído, `Hello World` clique em Saída para abrir a página De saída, onde pode ver visualizado.
+6. Assim que o estado do livro de execução mostrar concluído, clique em **Saída** para abrir a página De saída, onde pode ver `Hello World` visualizado.
 
    ![Resultado da Tarefa](../media/automation-tutorial-runbook-textual-powershell/job-pane-status-blade-outputtile.png)
 
 7. Feche a página de saída.
 
-8. Clique em **Todos os Registos** para abrir o painel Fluxos da tarefa de runbook. Só deve `Hello World` ver no fluxo de saída.
+8. Clique em **Todos os Registos** para abrir o painel Fluxos da tarefa de runbook. Só deve ver `Hello World` no fluxo de saída.
 
     Note que o painel streams pode mostrar outros fluxos para um trabalho de livro de corridas, como verbose e fluxos de erro, se o livro de execução escrever para eles.
 
@@ -134,10 +131,10 @@ O livro de execução que criou ainda está em modo Draft. Tem de ser publicado 
 
 Testou e publicou o seu runbook, mas, até ao momento, não faz nada de útil. Deve fazer com que gira os recursos do Azure. Para isso, o livro de recortes deve ser capaz de autenticar usando a conta Run As que foi criada automaticamente quando criou a sua conta Desmase.
 
-Como mostra o exemplo abaixo, a ligação Run As é feita com o cmdlet [Connect-AzAccount.](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0) Se estiver a gerir recursos em várias `AzContext` subscrições, precisa de utilizar o parâmetro com [o Get-AzContext](https://docs.microsoft.com/powershell/module/Az.Accounts/Get-AzContext?view=azps-3.5.0).
+Como mostra o exemplo abaixo, a ligação Run As é feita com o cmdlet [Connect-AzAccount.](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0) Se estiver a gerir recursos em várias subscrições, precisa de utilizar o `AzContext` parâmetro com [o Get-AzContext](https://docs.microsoft.com/powershell/module/Az.Accounts/Get-AzContext?view=azps-3.5.0).
 
 > [!NOTE]
-> Para os livros `Add-AzAccount` de `Add-AzureRMAccount` execução da `Connect-AzAccount`PowerShell, e são pseudónimos para . Pode utilizar estes cmdlets ou pode [atualizar os seus módulos](../automation-update-azure-modules.md) na sua conta Automation para as versões mais recentes. Pode precisar de atualizar os seus módulos mesmo que tenha acabado de criar uma nova conta Automation.
+> Para os livros de execução da PowerShell, `Add-AzAccount` e `Add-AzureRMAccount` são pseudónimos para `Connect-AzAccount` . Pode utilizar estes cmdlets ou pode [atualizar os seus módulos](../automation-update-azure-modules.md) na sua conta Automation para as versões mais recentes. Pode precisar de atualizar os seus módulos mesmo que tenha acabado de criar uma nova conta Automation.
 
    ```powershell
    # Ensures you do not inherit an AzContext in your runbook
@@ -167,7 +164,7 @@ Como mostra o exemplo abaixo, a ligação Run As é feita com o cmdlet [Connect-
 
 1. Abra o editor textual clicando em **Editar** na página MyFirstRunbook-PowerShell.
 
-2. Já não precisas `Write-Output` da linha. Basta ir em frente e apagá-lo.
+2. Já não precisas da `Write-Output` linha. Basta ir em frente e apagá-lo.
 
 3. Digite ou copie e cole o seguinte código, que trata a autenticação com a sua Execução de Automação Como conta.
 
@@ -201,7 +198,7 @@ Como mostra o exemplo abaixo, a ligação Run As é feita com o cmdlet [Connect-
 
 Agora que o seu livro de execução está a autenticar a sua subscrição Azure, pode gerir recursos. Vamos adicionar um comando para iniciar uma máquina virtual. Pode escolher qualquer máquina virtual na sua subscrição Azure, e apenas código rígido esse nome no livro de execução por enquanto.
 
-1. Ao seu script de livro de execução, adicione o cmdlet [Start-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0) para iniciar a máquina virtual. Como mostrado abaixo, o cmdlet inicia uma `VMName` máquina virtual com `ResourceGroupName`o nome e com um grupo de recursos chamado .
+1. Ao seu script de livro de execução, adicione o cmdlet [Start-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0) para iniciar a máquina virtual. Como mostrado abaixo, o cmdlet inicia uma máquina virtual com o nome e com um grupo de `VMName` recursos chamado `ResourceGroupName` .
 
    ```powershell
    # Ensures you do not inherit an AzContext in your runbook
@@ -232,7 +229,7 @@ Agora que o seu livro de execução está a autenticar a sua subscrição Azure,
 
 O seu livro de execução começa atualmente a máquina virtual que codifica no livro de execução. O livro de execução é mais útil se especificar a máquina virtual quando o livro de execução for iniciado. Vamos adicionar parâmetros de entrada ao livro de execução para fornecer essa funcionalidade.
 
-1. No editor textual, `Start-AzVM` modifique o cmdlet para `VMName` utilizar `ResourceGroupName`variáveis para os parâmetros e . 
+1. No editor textual, modifique o `Start-AzVM` cmdlet para utilizar variáveis para os parâmetros `VMName` e `ResourceGroupName` . 
 
    ```powershell
    Param(
@@ -275,12 +272,11 @@ O seu livro de execução começa atualmente a máquina virtual que codifica no 
 
 8. Quando o livro de execução estiver concluído, certifique-se de que a máquina virtual foi iniciada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Para obter mais informações sobre o PowerShell, incluindo módulos de referência linguística e aprendizagem, consulte os [Docs PowerShell](/powershell/scripting/overview).
-* Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
-* Para começar com livros gráficos, consulte [Criar um livro de execução gráfico](automation-tutorial-runbook-graphical.md).
-* Para começar com os livros de execução powerShell Workflow, consulte [Create a PowerShell Workflow runflow](automation-tutorial-runbook-textual.md).
-* Para saber mais sobre os tipos de livro de corridas e as suas vantagens e limitações, consulte os tipos de livro de [execução da Automação Azure](../automation-runbook-types.md).
-* Para obter mais informações sobre a funcionalidade de suporte ao script PowerShell, consulte o suporte do [script Native PowerShell na Automação Azure](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/).
+* [PowerShell Docs](/powershell/scripting/overview)
+* [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)
+* [Criar um livro de execução gráfico](automation-tutorial-runbook-graphical.md)
+* [Criar um livro de execução powerShell Workflow](automation-tutorial-runbook-textual.md)
+* [Tipos de livro de execução da Automação Azure](../automation-runbook-types.md)
+* [Suporte de script nativo PowerShell na Automação Azure](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)

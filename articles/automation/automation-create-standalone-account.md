@@ -1,16 +1,16 @@
 ---
 title: Criar uma conta de Automatização do Azure autónoma
-description: Este artigo percorre-o através dos passos de criação, teste e utilização de um exemplo de autenticação principal de segurança na Automação Azure.
+description: Este artigo diz como criar uma conta autónoma da Automação Azure e uma conta Classic Run As.
 services: automation
 ms.subservice: process-automation
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5f291bdea2df67e07b1aca2dcc6326c3c9864ad2
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: ffe7edd5faf5ae4f88f9f3e0c40256bee32395d7
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82995802"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714870"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Criar uma conta de Automatização do Azure autónoma
 
@@ -31,13 +31,11 @@ Com esta conta criada para si, pode rapidamente começar a construir e a impleme
 Para criar ou atualizar uma conta de Automação, e para completar as tarefas descritas neste artigo, deve ter os seguintes privilégios e permissões:
 
 * Para criar uma conta De automação, a sua conta de utilizador Azure AD deve ser adicionada a uma função com permissões equivalentes à função de Proprietário para `Microsoft.Automation` recursos. Para mais informações, consulte [O Controlo de Acesso baseado em Funções na Automação Azure](automation-role-based-access-control.md).
-* No portal Azure, sob as**definições**de**Utilizador de Manage** > do **Diretório** > Ativo do Azure, se as inscrições da App forem **definidas** para **Sim,** os utilizadores não administradores no seu inquilino Azure AD podem [registar aplicações de Diretório Ativo.](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions) Se **as inscrições** da App estiverem definidas para **Nº,** o utilizador que executa esta ação deve ser um administrador global no Azure AD.
+* No portal Azure, sob as definições de Utilizador de Manage do **Diretório Ativo do Azure,** se as inscrições da  >  **MANAGE**  >  **User settings**App forem **definidas** para **Sim,** os utilizadores não administradores do seu inquilino Azure AD podem [registar aplicações de Diretório Ativo.](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions) Se **as inscrições** da App estiverem definidas para **Nº,** o utilizador que executa esta ação deve ser um administrador global no Azure AD.
 
 Se não for membro da instância de Diretório Ativo da subscrição antes de ser adicionado ao papel global de Administrador/Coadministrador da subscrição, é adicionado ao Ative Directory como convidado. Neste cenário, vê esta mensagem no painel da Conta Add Automation:`You do not have permissions to create.`
 
-Se um utilizador for adicionado primeiro à função global de administrador/coadministrador, pode remover o utilizador da instância de Diretório Ativo da subscrição. Pode ler o utilizador para a função de Utilizador no Diretório Ativo.
-
-Para verificar as funções do utilizador:
+Se um utilizador for adicionado primeiro à função global de administrador/coadministrador, pode remover o utilizador da instância de Diretório Ativo da subscrição. Pode ler o utilizador para a função de Utilizador no Diretório Ativo. Para verificar as funções do utilizador:
 
 1. No portal Azure, vá ao painel de Diretório Ativo Azure.
 1. Selecione **Utilizadores e grupos**.
@@ -83,8 +81,6 @@ Para criar uma conta Azure Automation no portal Azure, complete os seguintes pas
 
 1. Para acompanhar o progresso da criação da conta Automation, selecione **Notificações** no menu.
 
-### <a name="resources-included"></a>Recursos incluídos
-
 Quando a conta de Automatização é criada com sucesso, são criados vários recursos automaticamente para si. Após a criação, estes livros podem ser eliminados com segurança se não desejar mantê-los. O Run As Accounts pode ser usado para autenticar a sua conta num livro de execução, e deve ser deixado a menos que crie outro ou não as exija. A tabela seguinte resume os recursos para a conta Run As.
 
 | Recurso | Descrição |
@@ -103,11 +99,10 @@ Corrida clássica Como as contas já não são criadas por padrão quando cria u
 2. Selecione **Azure Classic Run As Account**.
 3. Clique em **Criar** para prosseguir com a Classic Run Como criação de conta.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Para saber mais sobre autoria gráfica, consulte [a autoria gráfica em Automação Azure.](automation-graphical-authoring-intro.md)
-* Para começar com os livros de execução da PowerShell, veja o meu primeiro livro de [corridas PowerShell.](automation-first-runbook-textual-powershell.md)
-* Para começar com os livros de fluxo de trabalho powerShell, consulte o meu primeiro livro de execução de fluxo de [trabalho PowerShell.](automation-first-runbook-textual.md)
-* Para começar com os livros python 2, veja [o meu primeiro livro python2.](automation-first-runbook-textual-python2.md)
-* Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+* [Autoria gráfica em Automação Azure](automation-graphical-authoring-intro.md)
+* [O meu primeiro runbook do PowerShell](automation-first-runbook-textual-powershell.md)
+* [O meu primeiro livro de fluxo de trabalho PowerShell](automation-first-runbook-textual.md)
+* [O meu primeiro livro python2](automation-first-runbook-textual-python2.md)
+* [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)

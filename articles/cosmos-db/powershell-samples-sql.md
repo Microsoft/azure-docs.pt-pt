@@ -4,14 +4,14 @@ description: Obtenha as amostras Azure PowerShell para executar várias tarefas 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 03/26/2020
+ms.date: 05/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: efc0ff8e6c198071d3906a0e7e999510198f73bf
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7cd14151d8cb0fbef7593d62eee050be7987ab18
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80366177"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83713544"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db---sql-core-api"></a>Amostras Azure PowerShell para Azure Cosmos DB - SQL (Core) API
 
@@ -20,7 +20,7 @@ A tabela seguinte inclui links para scripts Azure PowerShell comumente usados pa
 Para obter amostras adicionais da Cosmos DB PowerShell para API SQL (Core) e documentação, consulte [manage Azure Cosmos DB SQL API recursos utilizando powerShell](manage-with-powershell.md). Para amostras cosmos DB PowerShell para outras APIs, consulte [Cassandra API,](powershell-samples-cassandra.md) [MongoDB API,](powershell-samples-mongodb.md) [Gremlin API](powershell-samples-gremlin.md)e [Table API](powershell-samples-table.md).
 
 > [!NOTE]
-> As amostras usam cmdlets de gestão [Az.CosmosDB.](https://docs.microsoft.com/powershell/module/az.cosmosdb) Por favor, `Az.CosmosDB` note que as cmdlets ainda estão na pré-visualização e podem mudar antes de serem libertadas. Por favor, verifique `Az.CosmosDB` se há atualizações regularmente.
+> As amostras usam cmdlets de gestão [Az.CosmosDB.](https://docs.microsoft.com/powershell/module/az.cosmosdb) Por favor, verifique se há atualizações `Az.CosmosDB` regularmente.
 
 | | |
 |---|---|

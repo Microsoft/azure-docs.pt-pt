@@ -1,18 +1,18 @@
 ---
-title: Implantação contínua do Estado da Automação Azure com Chocolatey
-description: Descreve a implantação contínua da DevOps utilizando a configuração do estado azure Automation com o gestor de pacotes Chocolatey. Inclui um exemplo com o modelo completo do Gestor de Recursos JSON e fonte PowerShell.
+title: Configurar a implantação contínua da Automação Azure com o Chocolatey
+description: Este artigo diz como configurar a implantação contínua com a Configuração do Estado e o gestor de pacotes chocolatey.
 services: automation
 ms.subservice: dsc
 ms.date: 08/08/2018
 ms.topic: conceptual
-ms.openlocfilehash: 278c6ee05fdf78cbfa8653381b65233fbb513593
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 63fd65f6a80dec582b9cecc8483bc3425d08c551
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996111"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714190"
 ---
-# <a name="provide-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Fornecer implantação contínua a máquinas virtuais utilizando a Configuração do Estado da Automação e o Chocolatey
+# <a name="set-up-continuous-deployment-with-chocolatey"></a>Configurar a implantação contínua com chocolatey
 
 Num mundo de DevOps, existem muitas ferramentas para ajudar com vários pontos no pipeline de integração contínua. A [Configuração do Estado](automation-dsc-overview.md) da Automação Azure é uma nova adição bem-vinda às opções que as equipas da DevOps podem empregar. 
 
@@ -69,7 +69,7 @@ Fonte completa para este exemplo de uso está [neste projeto do Estúdio Visual]
 
 ## <a name="step-1-set-up-the-pull-server-and-automation-account"></a>Passo 1: Configurar o servidor de puxar e a conta de Automação
 
-Numa linha de`Connect-AzAccount`comando autenticada () PowerShell: (pode demorar alguns minutos enquanto o servidor de puxar está configurado)
+Numa linha de comando autenticada `Connect-AzAccount` () PowerShell: (pode demorar alguns minutos enquanto o servidor de puxar está configurado)
 
 ```azurepowershell-interactive
 New-AzResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
@@ -189,7 +189,7 @@ Get-AzAutomationDscCompilationJob `
     -Id $compilationJobId
 ```
 
-Estes passos resultam numa nova configuração do nó chamada **ISVBoxConfig.isvbox** sendo colocada no servidor pull. O nome de configuração `configurationName.nodeName`do nó é construído como .
+Estes passos resultam numa nova configuração do nó chamada **ISVBoxConfig.isvbox** sendo colocada no servidor pull. O nome de configuração do nó é construído como `configurationName.nodeName` .
 
 ## <a name="step-5-create-and-maintain-package-metadata"></a>Passo 5: Criar e manter metadados de pacotes
 
@@ -207,7 +207,7 @@ A partir daí, cabe aos VMs que dependem dessa configuração puxar a atualizaç
 * [Visão geral do DSC da Automação Azure](automation-dsc-overview.md)
 * [Máquinas de embarque para gestão pela Azure Automation DSC](automation-dsc-onboarding.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para uma visão geral, consulte a Configuração do Estado da [Automação Azure](automation-dsc-overview.md).
 - Para começar, veja O Início com a Configuração do Estado da [Automação Azure](automation-dsc-getting-started.md).

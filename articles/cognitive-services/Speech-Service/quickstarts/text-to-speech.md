@@ -10,13 +10,13 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 02/10/2020
 ms.author: trbye
-zone_pivot_groups: programming-languages-set-two-with-js
-ms.openlocfilehash: 67457b071fd3c1a953e493305a449913b70adc84
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+zone_pivot_groups: programming-languages-set-two-with-js-spx
+ms.openlocfilehash: 03d564242748fa52c176aaaa5341ede4449477fb
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82979467"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715253"
 ---
 # <a name="quickstart-synthesize-speech-to-a-speaker"></a>Quickstart: Discurso sintetizador para um orador
 
@@ -48,6 +48,13 @@ ms.locfileid: "82979467"
 [!INCLUDE [Header](../includes/quickstarts/tts/header.md)]
 [!INCLUDE [Header](../includes/quickstarts/tts/javascript/header.md)]
 [!INCLUDE [javascript](../includes/quickstarts/tts/javascript/javascript.md)]
+::: zone-end
+
+::: zone pivot="programmer-tool-spx"
+[!INCLUDE [Header](../includes/quickstarts/tts/spx/header.md)]
+[!INCLUDE [SPX Setup](../includes/spx-setup.md)]
+[!INCLUDE [spx](../includes/quickstarts/tts/spx/spx.md)]
+[!INCLUDE [next steps to spx basics](../includes/quickstarts/spx-next-steps.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-more"

@@ -4,15 +4,15 @@ description: Nesta aula de tutorial, aprenda a adicionar um modelo de exemplo no
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 10/30/2019
+ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a72236843c13e139f33a669b54f108e91679c8c6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 88ed58ea1eea80b4b890c31260fc65153377eaaa
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74326586"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697518"
 ---
 # <a name="tutorial-add-a-sample-model-from-the-portal"></a>Tutorial: Adicionar um modelo de exemplo a partir do portal
 
@@ -43,7 +43,7 @@ Inicie sessão no [portal](https://portal.azure.com/).
 
     ![Criar um modelo de exemplo](./media/analysis-services-create-sample-model/aas-create-sample-new-model.png)
 
-2. No **novo modelo** > Escolha uma fonte de**dados,** verifique se os **dados da amostra** são selecionados e, em seguida, clique em **Adicionar**.
+2. No **novo modelo**Escolha uma fonte de dados, verifique se os dados da  >  **Choose a data source** **amostra** são selecionados e, em seguida, clique em **Adicionar**.
 
     ![Selecionar dados de exemplo](./media/analysis-services-create-sample-model/aas-create-sample-data.png)
 
@@ -68,7 +68,7 @@ Estes passos descrevem como eliminar um modelo de um servidor com o SSMS.
 
     ![Eliminar base de dados de amostra](./media/analysis-services-create-sample-model/aas-create-sample-cleanup-delete.png)
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Próximos passos 
 
 Neste tutorial, aprendeu a adicionar um modelo de exemplo básico ao seu servidor. Agora que tem uma base de dados modelo, pode ligar-se à mesma a partir do SQL Server Management Studio e adicionar funções de utilizador. Para obter mais informações, avance para o próximo tutorial.
 

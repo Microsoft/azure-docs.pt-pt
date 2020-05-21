@@ -4,12 +4,12 @@ description: Este artigo descreve como usar o Backup Explorer para realizar a mo
 ms.reviewer: dcurwin
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.openlocfilehash: 87780124d531212a141520df65ff7408cc120e55
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: e891ee1ccfbe929aaa8ac35518b40f5514da714f
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160994"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715210"
 ---
 # <a name="monitor-your-backups-with-backup-explorer"></a>Monitorize as suas cópias de segurança com o Backup Explorer
 
@@ -30,6 +30,7 @@ Estas capacidades são fornecidas fora da caixa por integração nativa com o Az
 > * O Backup Explorer não é atualmente suportado nas nuvens nacionais.
 > * Atualmente, personalizar o modelo do Explorador de Backup não é suportado.
 > * Não recomendamos a escrita de automatizações personalizadas em dados do Azure Resource Graph.
+> * Atualmente, o Backup Explorer permite-lhe monitorizar cópias de segurança através de um máximo de 1000 subscrições (entre inquilinos).
 
 ## <a name="get-started"></a>Introdução
 
@@ -95,6 +96,6 @@ Pode selecionar o ícone "pin" na parte superior de cada tabela ou gráfico para
 
 Se for um utilizador do Farol Azure com acesso delegado a subscrições em vários ambientes de inquilinos, pode utilizar o filtro de subscrição predefinido. Exibe as subscrições para as quais pretende ver dados selecionando o ícone "filtro" na parte superior direita do portal Azure. Quando utiliza esta funcionalidade, o Backup Explorer agrega informações sobre todos os cofres através das suas subscrições selecionadas. Para saber mais, veja [o que é o Farol Azure?](https://docs.microsoft.com/azure/lighthouse/overview)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Saiba como usar o Monitor Azure para obter informações sobre os seus dados de backup](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor)

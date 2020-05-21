@@ -7,18 +7,18 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/03/2019
-ms.openlocfilehash: 79b8cfd3f50ffd9f1c6b36dd73942ed3ddc5929f
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 577a80f04ad186ab1575fa78db3fa59402d6058f
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594921"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697392"
 ---
 # <a name="tutorial-analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Tutorial: Analise os dados da chamada telefónica com o Stream Analytics e visualize os resultados no dashboard Power BI
 
 Este tutorial ensina como analisar dados de chamadas telefónicas com o Azure Stream Analytics. Os dados de chamadas telefónicas, gerados por uma aplicação de cliente, contêm algumas chamadas fraudulentas, que serão filtradas pelo trabalho do Stream Analytics.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Gerar dados de uma chamada telefónica de exemplo e enviá-los para os Hubs de Eventos do Azure
@@ -44,14 +44,14 @@ Para que o Stream Analytics possa analisar o fluxo de dados de chamadas fraudule
 Utilize os passos seguintes para criar um Hub de Eventos e enviar dados de chamadas para esse Hub de Eventos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. Selecione **Criar um recurso** > **Internet of Things** > **Event Hubs**.
+2. Selecione **Criar um recurso**Internet of  >  **Things**  >  **Event Hubs**.
 
    ![Criar um Hub de Eventos Azure no portal](media/stream-analytics-manage-job/find-event-hub-resource.png)
 3. Preencha o painel **Create Namespace** com os seguintes valores:
 
    |**Definição**  |**Valor sugerido** |**Descrição**  |
    |---------|---------|---------|
-   |Nome     | myEventHubsNS        |  Um nome exclusivo para identificar o espaço de nomes do hub de eventos.       |
+   |Name     | myEventHubsNS        |  Um nome exclusivo para identificar o espaço de nomes do hub de eventos.       |
    |Subscrição     |   \<A sua subscrição\>      |   Selecione uma subscrição do Azure onde pretende criar o hub de eventos.      |
    |Grupo de recursos     |   MyASADemoRG      |  Selecione **Criar Novo** e introduza um novo nome de grupo de recursos para a sua conta.       |
    |Localização     |   E.U.A. Oeste 2      |    Localização onde o espaço de nomes do hub de eventos pode ser implementado.     |
@@ -128,7 +128,7 @@ Agora que tem um fluxo de eventos de chamada, pode criar uma tarefa do Stream An
 
 1. Para criar uma tarefa do Stream Analytics, navegue até ao [portal do Azure](https://portal.azure.com/).
 
-2. Selecione **Criar um recurso** > **Internet of Things** > **Stream Analytics trabalho**.
+2. Selecione **Criar um recurso**Internet of  >  **Things**Stream  >  **Analytics trabalho**.
 
 3. Preencha o painel **Nova Tarefa do Stream Analytics** com os seguintes valores:
 
@@ -175,7 +175,7 @@ O último passo consiste em definir um sink de saída para a tarefa, onde possa 
 
 2. Na secção **Topologia da Tarefa** do painel de tarefas do Stream Analytics, selecione a opção **Saídas**.
 
-3. Selecione **+ Adicionar** > **Power BI**. Em seguida, preencha o formulário com os seguintes detalhes e selecione **Autorizar**:
+3. Selecione **+ Adicionar**  >  **Power BI**. Em seguida, preencha o formulário com os seguintes detalhes e selecione **Autorizar**:
 
    |**Definição**  |**Valor sugerido**  |
    |---------|---------|
@@ -210,7 +210,7 @@ Neste exemplo, as chamadas fraudulentas são feitas pelo mesmo utilizador num in
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-   Para verificar a existência de chamadas fraudulentas, pode fazer a associação automática dos dados de transmissão em fluxo com base no valor `CallRecTime`. Em seguida, pode procurar `CallingIMSI` registos de chamadas onde o valor `SwitchNum` (o número de origem) é o mesmo, mas o valor (país/região de origem) é diferente. Quando utiliza uma operação JOIN com dados de transmissão em fluxo, a associação tem de fornecer alguns limites relativamente à distância de separação no tempo das linhas correspondentes. Uma vez que os dados de transmissão em fluxo são infinitos, os limites de tempo para a relação são especificados na cláusula **ON** da associação, com a função [DATEDIFF](https://docs.microsoft.com/stream-analytics-query/datediff-azure-stream-analytics).
+   Para verificar a existência de chamadas fraudulentas, pode fazer a associação automática dos dados de transmissão em fluxo com base no valor `CallRecTime`. Em seguida, pode procurar registos de chamadas onde o `CallingIMSI` valor (o número de origem) é o mesmo, mas o `SwitchNum` valor (país/região de origem) é diferente. Quando utiliza uma operação JOIN com dados de transmissão em fluxo, a associação tem de fornecer alguns limites relativamente à distância de separação no tempo das linhas correspondentes. Uma vez que os dados de transmissão em fluxo são infinitos, os limites de tempo para a relação são especificados na cláusula **ON** da associação, com a função [DATEDIFF](https://docs.microsoft.com/stream-analytics-query/datediff-azure-stream-analytics).
 
    Esta consulta é semelhante a uma associação normal de SQL, exceto a função **DATEDIFF**. A função **DATEDIFF** utilizada nesta consulta é específica do Stream Analytics e tem de aparecer dentro da cláusula `ON...BETWEEN`.
 
@@ -264,7 +264,7 @@ Pode testar uma consulta do editor de consultas com dados de exemplo. Execute os
 
 Para esta parte do tutorial, você usará uma amostra [ASP.NET](https://asp.net/) aplicação web criada pela equipa power BI para incorporar o seu dashboard. Para obter mais informações sobre a incorporação de dashboards, veja o artigo [Incorporação com o Power BI](https://docs.microsoft.com/power-bi/developer/embedding).
 
-Para configurar a aplicação, dirija-se ao repositório [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) GitHub e siga as instruções sob a secção **User Owns Data** (utilize os URLs de redirecionamento e página inicial sob a subsecção de **aplicações web integradas).** Uma vez que estamos a usar o exemplo do Dashboard, utilize o código de amostra **de aplicação web integrado** localizado no [repositório GitHub](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Framework/User%20Owns%20Data/integrate-web-app).
+Para configurar a aplicação, dirija-se ao repositório [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) GitHub e siga as instruções sob a secção **User Owns Data** (utilize os URLs de redirecionamento e página inicial sob a subsecção de **aplicações web integradas).** Uma vez que estamos a usar o exemplo do Dashboard, utilize o código de amostra **de aplicação web integrado** localizado no [repositório GitHub](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Framework/Embed%20for%20your%20organization/integrate-web-app).
 Quando a aplicação estiver em execução no browser, siga estes passos para incorporar o dashboard que criou anteriormente na página Web:
 
 1. Selecione **Iniciar sessão no Power BI,** que concede à aplicação acesso aos dashboards na sua conta Power BI.
@@ -273,7 +273,7 @@ Quando a aplicação estiver em execução no browser, siga estes passos para in
 
 3. Por fim, cole o **EmbedUrl** no campo de texto correspondente e selecione **Incorporar Dashboard**. Agora, pode ver o mesmo dashboard incorporado numa aplicação Web.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, criou uma tarefa simples do Stream Analytics, analisou os dados de entrada e apresentou os resultados num dashboard do Power BI. Para saber mais sobre tarefas do Stream Analytics, avance para o próximo tutorial:
 

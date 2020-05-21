@@ -1,15 +1,15 @@
 ---
 title: Tutorial - Implementar um modelo local de Gestor de Recursos Azure
 description: Saiba como implementar um modelo de Gestor de Recursos Azure a partir do seu computador local
-ms.date: 03/13/2020
+ms.date: 05/20/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 7f134bb836d05d006ef2e474ea48382a671957fe
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 01f04d18ae54c3c512010dd005e9d820b914e536
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82188829"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714071"
 ---
 # <a name="tutorial-deploy-a-local-azure-resource-manager-template"></a>Tutorial: Implementar um modelo local de Gestor de Recursos Azure
 
@@ -25,7 +25,7 @@ Vamos começar por ter a certeza de que tem as ferramentas necessárias para imp
 
 Precisa de Azure PowerShell ou Azure CLI para implementar o modelo. Para as instruções de instalação, consulte:
 
-- [Instalar a PowerShell Azure](/powershell/azure/install-az-ps)
+- [Instalar o Azure PowerShell](/powershell/azure/install-az-ps)
 - [Instalar a CLI do Azure no Windows](/cli/azure/install-azure-cli-windows)
 - [Instale o Azure CLI no Linux](/cli/azure/install-azure-cli-linux)
 
@@ -69,7 +69,7 @@ Se tiver várias subscrições do Azure, selecione a subscrição que pretende u
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Select-AzSubscription [SubscriptionID/SubscriptionName]
+Set-AzContext [SubscriptionID/SubscriptionName]
 ```
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
@@ -160,7 +160,7 @@ Limpe os recursos que implementou ao apagar o grupo de recursos.
 3. Selecione o nome do grupo de recursos.
 4. **Selecione Eliminar** o grupo de recursos do menu superior.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Aprendeu a implementar um modelo local. No tutorial seguinte, separa-se o modelo num modelo principal e num modelo ligado, e aprende a armazenar e a fixar o modelo ligado.
 

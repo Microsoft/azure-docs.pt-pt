@@ -1,25 +1,22 @@
 ---
-title: Executar livros de corridas no Azure Automation Hybrid Runbook Worker
-description: Este artigo fornece informações sobre a execução de livros de execução em máquinas no seu datacenter local ou fornecedor de nuvem com o Hybrid Runbook Worker.
+title: Run Azure Automation run book em um trabalhador de runbook híbrido
+description: Este artigo diz como executar livros de corridas em máquinas no seu datacenter local ou fornecedor de nuvem com o Hybrid Runbook Worker.
 services: automation
 ms.subservice: process-automation
 ms.date: 01/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 86f5b636d6d9393e173a65779318166ad80c3c97
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 23b7808f1262ab0829821817e03164b2ba98be4c
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871966"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83713799"
 ---
 # <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>Executar runbooks numa Função de Trabalho de Runbook Híbrida
 
 Os livros de execução que funcionam num [Trabalhador De Runbook Híbrido](automation-hybrid-runbook-worker.md) normalmente gerem recursos no computador local ou contra recursos no ambiente local onde o trabalhador é implantado. Os livros de corridas em Automação Azure normalmente gerem recursos na nuvem Azure. Apesar de serem usados de forma diferente, os livros que funcionam na Azure Automation e os livros que funcionam num Trabalhador de Runbook Híbrido são idênticos na estrutura.
 
 Quando você é autor de um livro de corridas para executar em um Trabalhador de Runbook Híbrido, você deve editar e testar o livro de execução na máquina que acolhe o trabalhador. A máquina hospedeira tem todos os módulos PowerShell e acesso à rede necessários para gerir os recursos locais. Uma vez testado o livro de execução na máquina Hybrid Runbook Worker, pode então carregá-lo para o ambiente De automação Azure, onde pode ser executado sobre o trabalhador. 
-
->[!NOTE]
->Este artigo foi atualizado para utilizar o novo módulo AZ do Azure PowerShell. Pode continuar a utilizar o módulo AzureRM, que continuará a receber correções de erros até, pelo menos, dezembro de 2020. Para obter mais informações sobre o novo módulo Az e a compatibilidade do AzureRM, veja [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para instruções de instalação do módulo Az no seu Executor Híbrido, consulte [Instalar o Módulo PowerShell Azure](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para a sua conta Automation, pode atualizar os seus módulos para a versão mais recente, utilizando [como atualizar os módulos Azure PowerShell em Automação Azure](automation-update-azure-modules.md).
 
 ## <a name="plan-runbook-job-behavior"></a>Planeie comportamento de trabalho de livro de corridas
 
@@ -37,7 +34,7 @@ Defina permissões para que o seu livro de execução seja executado no Trabalha
 
 ## <a name="use-runbook-authentication-to-local-resources"></a>Utilize a autenticação do livro de corridas para os recursos locais
 
-Se preparar um livro de execução que forneça a sua própria autenticação aos recursos, utilize ativos [credenciais](automation-credentials.md) e [certificados](automation-certificates.md) no seu livro de execução. Existem vários cmdlets que lhe permitem especificar credenciais para que o livro de execução possa autenticar a diferentes recursos. O exemplo que se segue mostra uma parte de um livro que reinicia um computador. Recupera credenciais de um ativo credencial e o nome do computador a partir `Restart-Computer` de um ativo variável e depois utiliza estes valores com o cmdlet.
+Se preparar um livro de execução que forneça a sua própria autenticação aos recursos, utilize ativos [credenciais](automation-credentials.md) e [certificados](automation-certificates.md) no seu livro de execução. Existem vários cmdlets que lhe permitem especificar credenciais para que o livro de execução possa autenticar a diferentes recursos. O exemplo que se segue mostra uma parte de um livro que reinicia um computador. Recupera credenciais de um ativo credencial e o nome do computador a partir de um ativo variável e depois utiliza estes valores com o `Restart-Computer` cmdlet.
 
 ```powershell
 $Cred = Get-AutomationPSCredential -Name "MyCredential"
@@ -46,7 +43,7 @@ $Computer = Get-AutomationVariable -Name "ComputerName"
 Restart-Computer -ComputerName $Computer -Credential $Cred
 ```
 
-Também pode utilizar uma atividade [InlineScript.](automation-powershell-workflow.md#inlinescript) `InlineScript`permite-lhe executar blocos de código noutro computador com credenciais.
+Também pode utilizar uma atividade [InlineScript.](automation-powershell-workflow.md#use-inlinescript) `InlineScript`permite-lhe executar blocos de código noutro computador com credenciais.
 
 ## <a name="use-runbook-authentication-with-managed-identities"></a><a name="runbook-auth-managed-identities"></a>Utilize a autenticação do livro de corridas com identidades geridas
 
@@ -62,7 +59,7 @@ Siga os próximos passos para utilizar uma identidade gerida para os recursos Az
 2. Configure identidades geridas para os recursos Azure no VM. Consulte [as identidades geridas pela Configure para os recursos Azure num VM utilizando o portal Azure](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm).
 3. Dê ao VM acesso a um grupo de recursos em Gestor de Recursos. Consulte [a Utilização](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager)de uma identidade gerida atribuída ao sistema Windows VM para aceder ao Gestor de Recursos .
 4. Instale o Trabalhador do Livro Híbrido no VM. Consulte a implementação de um trabalhador do [livro de corridas híbrido windows](automation-windows-hrw-install.md) ou implante um trabalhador de [resta híbrido Linux](automation-linux-hrw-install.md).
-5. Atualize o livro de execução para utilizar o `Identity` cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0) com o parâmetro para autenticar os recursos do Azure. Esta configuração reduz a necessidade de utilizar uma conta Run As e realizar a gestão da conta associada.
+5. Atualize o livro de execução para utilizar o cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0) com o `Identity` parâmetro para autenticar os recursos do Azure. Esta configuração reduz a necessidade de utilizar uma conta Run As e realizar a gestão da conta associada.
 
     ```powershell
     # Connect to Azure using the managed identities for Azure resources identity configured on the Azure VM that is hosting the hybrid runbook worker
@@ -73,7 +70,7 @@ Siga os próximos passos para utilizar uma identidade gerida para os recursos Az
     ```
 
     > [!NOTE]
-    > `Connect-AzAccount -Identity`Trabalha para um Trabalhador de RaquinaDo Híbrido utilizando uma identidade atribuída ao sistema e uma única identidade atribuída ao utilizador. Se utilizar várias identidades atribuídas ao utilizador no Hybrid Runbook `AccountId` Worker, `Connect-AzAccount` o seu livro de execução deve especificar o parâmetro para selecionar uma identidade específica atribuída ao utilizador.
+    > `Connect-AzAccount -Identity`Trabalha para um Trabalhador de RaquinaDo Híbrido utilizando uma identidade atribuída ao sistema e uma única identidade atribuída ao utilizador. Se utilizar várias identidades atribuídas ao utilizador no Hybrid Runbook Worker, o seu livro de execução deve especificar o parâmetro para selecionar uma identidade específica atribuída ao `AccountId` `Connect-AzAccount` utilizador.
 
 ## <a name="use-runbook-authentication-with-run-as-account"></a>Utilize a autenticação do livro de corridas com conta Run As
 
@@ -168,7 +165,7 @@ Get-AzAutomationAccount | Select-Object AutomationAccountName
 ```
 
 >[!NOTE]
->Para os livros `Add-AzAccount` de `Add-AzureRMAccount` execução da `Connect-AzAccount`PowerShell, e são pseudónimos para . Ao pesquisar os itens da sua biblioteca, se não vir `Connect-AzAccount`, pode usar, `Add-AzAccount`ou pode atualizar os seus módulos na sua conta Deautomação.
+>Para os livros de execução da PowerShell, `Add-AzAccount` e `Add-AzureRMAccount` são pseudónimos para `Connect-AzAccount` . Ao pesquisar os itens da sua biblioteca, se não vir `Connect-AzAccount` , pode `Add-AzAccount` usar, ou pode atualizar os seus módulos na sua conta Deautomação.
 
 Para terminar de preparar a Conta Run As:
 
@@ -270,7 +267,7 @@ Para criar o teclado GPG e o teclado, utilize a [conta de nxautomação hybrid](
 
 ### <a name="make-the-keyring-available-to-the-hybrid-runbook-worker"></a>Disponibilize o porta-chaves ao Trabalhador híbrido do livro de corridas
 
-Uma vez criado o porta-chaves, disponibilize-o ao Trabalhador híbrido do livro de corridas. Modificar o ficheiro de definições **/var/opt/microsoft/omsagent/state/automaworker/diy/worker.conf** para `[worker-optional]`incluir o seguinte código de exemplo na secção de ficheiros .
+Uma vez criado o porta-chaves, disponibilize-o ao Trabalhador híbrido do livro de corridas. Modificar o ficheiro de definições **/var/opt/microsoft/omsagent/state/automaworker/diy/worker.conf** para incluir o seguinte código de exemplo na secção de ficheiros `[worker-optional]` .
 
 ```bash
 gpg_public_keyring_path = /var/opt/microsoft/omsagent/run/.gnupg/pubring.kbx
@@ -278,7 +275,7 @@ gpg_public_keyring_path = /var/opt/microsoft/omsagent/run/.gnupg/pubring.kbx
 
 ### <a name="verify-that-signature-validation-is-on"></a>Verifique se a validação da assinatura está em
 
-Se a validação da assinatura tiver sido desativada na máquina, deve ligá-la executando o seguinte comando sudo. Substitua-a `<LogAnalyticsworkspaceId>` com o seu ID do espaço de trabalho.
+Se a validação da assinatura tiver sido desativada na máquina, deve ligá-la executando o seguinte comando sudo. `<LogAnalyticsworkspaceId>`Substitua-a com o seu ID do espaço de trabalho.
 
 ```bash
 sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --true <LogAnalyticsworkspaceId>
@@ -292,7 +289,7 @@ Depois de configurar a validação de assinaturas, utilize o seguinte comando GP
 gpg –-clear-sign <runbook name>
 ```
 
-O livro de execução assinado chama-se ** <runbook name>.asc**.
+O livro de execução assinado chama-se ** <runbook name> .asc**.
 
 Agora pode enviar o livro de execução assinado para a Azure Automation e executá-lo como um livro regular.
 
@@ -302,13 +299,13 @@ Agora pode enviar o livro de execução assinado para a Azure Automation e execu
 
 Quando inicia um livro de corridas no portal Azure, é-lhe apresentado o **Run em** opção para o qual pode selecionar O Trabalhador **Azure** ou **Híbrido**. Se selecionar **O Trabalhador Híbrido,** pode escolher o grupo Hybrid Runbook Worker a partir de uma queda.
 
-Ao iniciar um livro de execução `RunOn` utilizando o PowerShell, utilize o parâmetro com o cmdlet [Start-AzAutomationRunbook.](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0) O exemplo seguinte utiliza o Windows PowerShell para iniciar um livro de corridas chamado **Test-Runbook** num grupo híbrido de runbook worker chamado MyHybridGroup.
+Ao iniciar um livro de execução utilizando o PowerShell, utilize o `RunOn` parâmetro com o cmdlet [Start-AzAutomationRunbook.](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0) O exemplo seguinte utiliza o Windows PowerShell para iniciar um livro de corridas chamado **Test-Runbook** num grupo híbrido de runbook worker chamado MyHybridGroup.
 
 ```azurepowershell-interactive
 Start-AzAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -RunOn "MyHybridGroup"
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Se os seus livros não estiverem a completar com sucesso, reveja o guia de resolução de problemas para falhas na [execução de livros](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails)de corridas .
 * Para obter mais informações sobre o PowerShell, incluindo módulos de referência linguística e aprendizagem, consulte os [Docs PowerShell](https://docs.microsoft.com/powershell/scripting/overview).

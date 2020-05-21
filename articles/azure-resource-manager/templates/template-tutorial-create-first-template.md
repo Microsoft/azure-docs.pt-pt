@@ -2,15 +2,15 @@
 title: Tutorial - Criar & modelo de implantação
 description: Crie o seu primeiro modelo de Gestor de Recursos Azure. No tutorial, você aprende sobre a sintaxe de ficheiro sintaxe do modelo e como implementar uma conta de armazenamento.
 author: mumian
-ms.date: 05/12/2020
+ms.date: 05/20/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: c07f587b8b200a6f9d686c77e5ffefa399c6e179
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 2180ca80d87643eb885d814318e516b4b3c53f37
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199931"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714802"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Tutorial: Crie e implante o seu primeiro modelo ARM
 
@@ -34,7 +34,7 @@ Os modelos são ficheiros JSON. Para criar modelos, precisa de um bom editor JSO
 
 Também precisa do Azure PowerShell ou do Azure CLI para implementar o modelo. Se utilizar o Azure CLI, deve ter a versão mais recente. Para as instruções de instalação, consulte:
 
-- [Instalar a PowerShell Azure](/powershell/azure/install-az-ps)
+- [Instalar o Azure PowerShell](/powershell/azure/install-az-ps)
 - [Instalar a CLI do Azure no Windows](/cli/azure/install-azure-cli-windows)
 - [Instale o Azure CLI no Linux](/cli/azure/install-azure-cli-linux)
 
@@ -98,7 +98,7 @@ Se tiver várias subscrições do Azure, selecione a subscrição que pretende u
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Select-AzSubscription [SubscriptionID/SubscriptionName]
+Set-AzContext [SubscriptionID/SubscriptionName]
 ```
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
@@ -208,7 +208,7 @@ Se está sanando agora, talvez queira apagar o grupo de recursos.
 3. Selecione o nome do grupo de recursos.
 4. **Selecione Eliminar** o grupo de recursos do menu superior.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Criou um modelo simples para implantar no Azure. No próximo tutorial, você adicionará uma conta de armazenamento ao modelo e irá implementá-la ao seu grupo de recursos.
 

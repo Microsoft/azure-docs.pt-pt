@@ -1,5 +1,5 @@
 ---
-title: Mesas de faíscas de consulta utilizando SQL on-demand (pré-visualização)
+title: Sincronizar a Apache Spark para definições externas de tabela synapse Azure em SQL a pedido (pré-visualização)
 description: Visão geral de como consultar tabelas Spark usando SQL on-demand (pré-visualização)
 services: synapse-analytics
 author: julieMSFT
@@ -9,22 +9,26 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 210e0b240eefd2dd3f8d1ac45c781959e47ab893
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 47737489256d349ebc02c107cf8bbb2e8ec1cb7a
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198482"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701960"
 ---
-# <a name="query-spark-tables-with-azure-synapse-analytics-using-sql-on-demand-preview"></a>Mesas de Faísca synapse Azure usando SQL on-demand (pré-visualização)
+# <a name="synchronize-apache-spark-for-azure-synapse-external-table-definitions-in-sql-on-demand-preview"></a>Sincronizar a Apache Spark para definições externas de tabela synapse Azure em SQL a pedido (pré-visualização)
 
-O SQL on-demand (pré-visualização) pode sincronizar automaticamente os metadados de piscinas Spark dentro do espaço de trabalho Synapse (pré-visualização). Será criada uma base de dados on-demand SQL para cada base de dados existente em piscinas Spark (pré-visualização). Para cada tabela externa Spark baseada em Parquet e localizada no Armazenamento Azure, é criada uma tabela externa na base de dados on-demand da SQL. Como tal, pode desligar as suas piscinas Spark e ainda consultar mesas externas Spark a pedido da SQL.
+O SQL on-demand (pré-visualização) pode sincronizar automaticamente os metadados da Apache Spark para piscinas Azure Synapse. Será criada uma base de dados on-demand SQL para cada base de dados existente em piscinas Spark (pré-visualização). 
+
+Para cada tabela externa Spark baseada em Parquet e localizada no Armazenamento Azure, é criada uma tabela externa na base de dados on-demand da SQL. Como tal, pode desligar as suas piscinas Spark e ainda consultar mesas externas Spark a pedido da SQL.
 
 Quando uma mesa é dividida em Spark, os ficheiros em armazenamento são organizados por pastas. A SQL on-demand utilizará metadados de partição e apenas direciona as pastas e ficheiros relevantes para a sua consulta.
 
 A sincronização dos metadados é configurada automaticamente para cada piscina Spark aprovisionada no espaço de trabalho Azure Synapse. Pode começar a consultar as tabelas externas spark instantaneamente.
 
-Cada tabela externa Spark parquet localizada no Armazenamento Azure está representada com uma tabela externa num esquema dbo que corresponde a uma base de dados on-demand SQL. Para consultas de mesa externas spark, execute uma consulta que visa um [spark_table] externo. Antes de executar o exemplo abaixo, certifique-se de que tem acesso correto [à conta](develop-storage-files-storage-access-control.md) de armazenamento onde os ficheiros estão localizados.
+Cada tabela externa Spark parquet localizada no Armazenamento Azure está representada com uma tabela externa num esquema dbo que corresponde a uma base de dados on-demand SQL. 
+
+Para consultas de mesa externas spark, execute uma consulta que visa um [spark_table] externo. Antes de executar o exemplo abaixo, certifique-se de que tem acesso correto [à conta](develop-storage-files-storage-access-control.md) de armazenamento onde os ficheiros estão localizados.
 
 ```sql
 SELECT * FROM [db].dbo.[spark_table]

@@ -1,17 +1,17 @@
 ---
 title: Início Rápido do Azure - Criar uma conta de Automatização do Azure | Microsoft Docs
-description: Saiba como criar uma conta de Automatização do Azure e executar um runbook
+description: Este artigo ajuda-o a começar a criar uma conta Azure Automation e a executar um livro de corridas.
 services: automation
 ms.date: 04/04/2019
 ms.topic: quickstart
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 7704f080b7c1878f2fa2b079a1f242c8c2cc87a9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8d4cdb87302e12c024e15f8e0a7e3854d6f707a7
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81536986"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715465"
 ---
 # <a name="create-an-azure-automation-account"></a>Crie uma conta de Automatização do Azure
 
@@ -63,9 +63,9 @@ Execute um dos runbooks do tutorial.
 
     ![Página de tarefa do runbook](./media/automation-quickstart-create-account/automation-tutorial-script-job.png)
 
-1. Depois de se `Running`tornar o estado de trabalho , clique em **Output** ou **All Logs** para visualizar a saída do livro de trabalho. Para este runbook do tutorial, o resultado é uma lista dos seus recursos Azure.
+1. Depois de se tornar o estado de trabalho `Running` , clique em **Output** ou **All Logs** para visualizar a saída do livro de trabalho. Para este runbook do tutorial, o resultado é uma lista dos seus recursos Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste guia de introdução, implementou uma conta de Automatização, iniciou uma tarefa de runbook e visualizou os resultados das tarefas. Para saber mais sobre a Automatização do Azure, avance para o início rápido para criar o seu primeiro runbook.
 

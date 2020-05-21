@@ -1,27 +1,24 @@
 ---
 title: FaQ de Automação Azure Microsoft Docs
-description: Respostas a perguntas frequentes sobre a Automação Azure.
+description: Este artigo dá respostas a perguntas frequentes sobre a Automação Azure.
 services: automation
 ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 02/25/2020
-ms.openlocfilehash: 3fa29f3df5f0434c4c61e8d12adbb3f55156a29f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 46786ff5bd158804ea5d93377fbbcc39a9c8af26
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81405968"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83712881"
 ---
 # <a name="azure-automation-frequently-asked-questions"></a>A Automação Azure frequentemente fez perguntas
 
 Esta FAQ da Microsoft é uma lista de perguntas comumente feitas sobre a Automação Azure. Se tiver alguma dúvida adicional sobre as suas capacidades, vá ao fórum de discussão e publique as suas perguntas. Quando uma pergunta é frequentemente feita, adicionamo-la a este artigo para que possa ser encontrado de forma rápida e fácil.
 
->[!NOTE]
->Este artigo foi atualizado para utilizar o novo módulo AZ do Azure PowerShell. Pode continuar a utilizar o módulo AzureRM, que continuará a receber correções de erros até, pelo menos, dezembro de 2020. Para obter mais informações sobre o novo módulo Az e a compatibilidade do AzureRM, veja [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para instruções de instalação do módulo Az no seu Executor Híbrido, consulte [Instalar o Módulo PowerShell Azure](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para a sua conta Automation, pode atualizar os seus módulos para a versão mais recente, utilizando [como atualizar os módulos Azure PowerShell em Automação Azure](automation-update-azure-modules.md).
-
-## <a name="update-management-solution"></a>Solução de Gestão de Atualizações
+## <a name="update-management"></a>Gestão de Atualizações
 
 ### <a name="can-i-prevent-unexpected-os-level-upgrades"></a>Posso evitar atualizações inesperadas ao nível do OS?
 
@@ -29,7 +26,7 @@ Em algumas variantes do Linux, como red hat enterprise linux, as atualizações 
 
 Para evitar atualizar a versão OS através de implementações de Atualização, utilize a função **Exclusão.**
 
-Em Red Hat Enterprise Linux, o `redhat-release-server.x86_64`nome do pacote a excluir é .
+Em Red Hat Enterprise Linux, o nome do pacote a excluir é `redhat-release-server.x86_64` .
 
 ### <a name="why-arent-criticalsecurity-updates-applied"></a>Por que não são aplicadas atualizações críticas/de segurança?
 
@@ -53,7 +50,7 @@ $sched = New-AzAutomationSchedule -ResourceGroupName mygroup -AutomationAccountN
 New-AzAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName <automationAccountName> -Schedule $sched -Windows -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se a sua pergunta não for respondida aqui, pode consultar as seguintes fontes para perguntas e respostas adicionais.
 

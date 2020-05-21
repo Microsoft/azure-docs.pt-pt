@@ -1,6 +1,6 @@
 ---
-title: Edição de livros textual na Automação Azure
-description: Este artigo fornece diferentes procedimentos para trabalhar com os livros powerShell e PowerShell Workflow na Azure Automation usando o editor textual.
+title: Editar livros de texto na Automação Azure
+description: Este artigo diz como usar o editor textual Azure Automation para trabalhar com os livros powerShell e PowerShell Workflow.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -9,16 +9,16 @@ ms.author: magoedte
 ms.date: 08/01/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: aef6a58d18c0d9c1b18915786dd6e3359c31eda0
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 2b30b807764159378c594f82ae6cfc55cfa4f7e4
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82855789"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83712915"
 ---
-# <a name="editing-textual-runbooks-in-azure-automation"></a>Edição de livros textual na Automação Azure
+# <a name="edit-textual-runbooks-in-azure-automation"></a>Editar livros de texto na Automação Azure
 
-O editor textual da Azure Automation pode ser usado para editar os livros de [execução powerShell](automation-runbook-types.md#powershell-runbooks) e os livros de [execução powerShell Workflow.](automation-runbook-types.md#powershell-workflow-runbooks) Este editor tem as características típicas de outros editores de código, como o IntelliSense. Também tem codificação de cores com funcionalidades especiais adicionais para ajudá-lo no acesso a recursos comuns a livros de execução. 
+Pode utilizar o editor textual na Azure Automation para editar os livros de [execução powerShell](automation-runbook-types.md#powershell-runbooks) e os livros de [execução powerShell Workflow](automation-runbook-types.md#powershell-workflow-runbooks). Este editor tem as características típicas de outros editores de código, como o IntelliSense. Também usa codificação de cores com funcionalidades especiais adicionais para ajudá-lo no acesso a recursos comuns a livros de execução. 
 
 O editor textual inclui uma funcionalidade para inserir código para cmdlets, ativos e livros infantis num livro de corridas. Em vez de escrever o código por si mesmo, pode selecionar a partir de uma lista de recursos disponíveis e o editor insere o código apropriado no livro de execução.
 
@@ -26,12 +26,7 @@ Cada livro de execução em Azure Automation tem duas versões, Draft e Publishe
 
 Este artigo fornece passos detalhados para o desempenho de diferentes funções com este editor. Estes não são aplicáveis a [livros gráficos.](automation-runbook-types.md#graphical-runbooks) Para trabalhar com estes livros de execução, consulte [a autoria gráfica em Automação Azure.](automation-graphical-authoring-intro.md)
 
->[!NOTE]
->Este artigo foi atualizado para utilizar o novo módulo AZ do Azure PowerShell. Pode continuar a utilizar o módulo AzureRM, que continuará a receber correções de erros até, pelo menos, dezembro de 2020. Para obter mais informações sobre o novo módulo Az e a compatibilidade do AzureRM, veja [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para instruções de instalação do módulo Az no seu Executor Híbrido, consulte [Instalar o Módulo PowerShell Azure](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para a sua conta Automation, pode atualizar os seus módulos para a versão mais recente, utilizando [como atualizar os módulos Azure PowerShell em Automação Azure](automation-update-azure-modules.md).
-
-## <a name="editing-a-runbook-with-the-azure-portal"></a>Editar um livro de corridas com o portal Azure
-
-Utilize o seguinte procedimento para abrir um livro de execução para edição no editor textual.
+## <a name="edit-a-runbook-with-the-azure-portal"></a>Editar um livro de corridas com o portal Azure
 
 1. No portal Azure, selecione a sua conta Deautomação.
 2. Em **FASE DE AUTOMAÇÃO**DE PROCESSOs, selecione **Runbooks** para abrir a lista de livros de execução.
@@ -65,7 +60,7 @@ Utilize o seguinte procedimento para abrir um livro de execução para edição 
 4. Clique no nome do ativo para inserir e **selecione Adicionar à tela**. Para [ativos variáveis,](automation-variables.md)selecione **adicionar "Obter Variável" à tela** ou adicionar **"set Variable" à tela,** dependendo se pretende obter ou definir a variável.
 5. Note que o código do ativo está inserido no livro de execução.
 
-## <a name="editing-an-azure-automation-runbook-using-windows-powershell"></a>Editar um livro de execução da Automação Azure utilizando o Windows PowerShell
+## <a name="edit-an-azure-automation-runbook-using-windows-powershell"></a>Editar um livro de execução da Automação Azure utilizando o Windows PowerShell
 
 Para editar um livro de execução com o Windows PowerShell, utilize o editor à sua escolha e guarde o livro de execução para um ficheiro **.ps1.** Pode utilizar o cmdlet [Export-AzAutomationRunbook](/powershell/module/Az.Automation/Export-AzAutomationRunbook) para recuperar o conteúdo do livro de execução. Pode utilizar o cmdlet [Import-AzAutomationRunbook](/powershell/module/Az.Automation/import-azautomationrunbook) para substituir o caderno de redação existente pelo modificado.
 

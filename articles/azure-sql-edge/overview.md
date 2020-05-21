@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 5d7274712f3e7f5b16dc5be28d0ad47cfefba9fa
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 40128c68caeba793919a680ba2beeb35eb3aa3be
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83685149"
+ms.locfileid: "83712813"
 ---
 # <a name="what-is-azure-sql-edge-preview"></a>O que é Azure SQL Edge (Pré-visualização)?
 
@@ -38,11 +38,11 @@ O SQL Edge está disponível com duas edições diferentes ou planos de software
    |**Planear**  |**Descrição**  |
    |---------|---------|
    |Desenvolvedor de borda sql azure  |  Desenvolvimento apenas sku, cada recipiente SQL Edge está limitado a até 4 núcleos e 32 GB De Memória  |
-   |Borda SQL Azure    |  Sku de produção, cada recipiente SQL Edge está limitado a até 8 núcleos e 64 GB de memória. |
+   |SQL do Azure no Edge    |  Sku de produção, cada recipiente SQL Edge está limitado a até 8 núcleos e 64 GB de memória. |
 
 ## <a name="pricing-and-availability"></a>Preços e Disponibilidade
 
-O Azure SQL Edge encontra-se atualmente em pré-visualização. Para obter mais informações sobre os preços e disponibilidade, consulte [Azure SQL Edge](https://azure.microsoft.com/services/sql-database-edge/).
+O Azure SQL Edge encontra-se atualmente em pré-visualização. Para obter mais informações sobre os preços e disponibilidade, consulte [Azure SQL Edge](https://azure.microsoft.com/services/sql-edge/).
 
 > [!IMPORTANT]
 > Para compreender as diferenças de funcionalidade sintetizadas entre o Azure SQL Edge e o SQL Server, bem como as diferenças entre diferentes opções azure SQL Edge, consulte [as funcionalidades suportadas do Azure SQL Edge](features.md).
@@ -70,7 +70,7 @@ O Azure SQL Edge torna o desenvolvimento e a manutenção de aplicações mais f
 - [Visual Studio Code](https://code.visualstudio.com/docs) - Um editor de código gratuito, transferível e aberto para Windows, macOS e Linux. Suporta extensões, incluindo a [extensão mssql](https://aka.ms/mssql-marketplace) para consulta do Microsoft SQL Server, Azure SQL Database e Azure SQL Data Warehouse.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Implementar sQL Edge através do portal Azure](deploy-portal.md)
 - [Machine Learning e Inteligência Artificial com Borda SQL](onnx-overview.md)

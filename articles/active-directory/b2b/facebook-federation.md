@@ -12,16 +12,17 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ff291592efc73415cce74ff666117851bb53e8a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 0428671cf41bf148bc76bbd963bdd8fd90fce8e5
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681012"
+ms.locfileid: "83712275"
 ---
 # <a name="add-facebook-as-an-identity-provider-for-external-identities"></a>Adicione o Facebook como fornecedor de identidade para identidades externas
 
 Pode adicionar o Facebook aos fluxos de utilizadores de inscrição de autosserviço (Pré-visualização) para que os utilizadores possam iniciar sessão nas suas aplicações utilizando as suas próprias contas de Facebook. Para permitir que os utilizadores assinem através do Facebook, primeiro terá de ativar o [autosserviço de inscrição](self-service-sign-up-user-flow.md) para o seu inquilino. Depois de adicionar o Facebook como fornecedor de identidade, configurar um fluxo de utilizador para a aplicação e selecionar o Facebook como uma das opções de entrada.
+
 > [!NOTE]
 > Os utilizadores só podem utilizar as suas contas do Facebook para se inscreverem através de apps utilizando o autosserviço de inscrição e fluxos de utilizadores. Os utilizadores não podem ser convidados e resgatar o seu convite através de uma conta no Facebook.
 
@@ -100,6 +101,6 @@ Pode eliminar a sua configuração da federação do Facebook. Se o fizer, quais
    > [!NOTE]
    > Para mais informações, consulte [Remove-AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/Remove-AzureADMSIdentityProvider?view=azureadps-2.0-preview). 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Adicione inscrição de autosserviço a uma app](self-service-sign-up-user-flow.md)

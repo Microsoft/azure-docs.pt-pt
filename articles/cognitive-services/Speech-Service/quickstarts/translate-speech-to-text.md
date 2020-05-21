@@ -10,13 +10,13 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 02/10/2020
 ms.author: trbye
-zone_pivot_groups: programming-languages-set-two-with-js
-ms.openlocfilehash: b61970d40c3f5062440dd705cc9dcbf327da1ea1
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+zone_pivot_groups: programming-languages-set-two-with-js-spx
+ms.openlocfilehash: c6fff4ca8a28f8980e10c82393b77994d0ef9bdb
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82978849"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715031"
 ---
 # <a name="quickstart-translate-speech-to-text"></a>Quickstart: Traduzir discurso-a-texto
 
@@ -48,6 +48,13 @@ ms.locfileid: "82978849"
 [!INCLUDE [Header](../includes/quickstarts/translate-stt/header.md)]
 [!INCLUDE [Header](../includes/quickstarts/translate-stt/javascript/header.md)]
 [!INCLUDE [javascript](../includes/quickstarts/translate-stt/javascript/javascript.md)]
+::: zone-end
+
+::: zone pivot="programmer-tool-spx"
+[!INCLUDE [Header](../includes/quickstarts/translate-stt/spx/header.md)]
+[!INCLUDE [SPX Setup](../includes/spx-setup.md)]
+[!INCLUDE [spx](../includes/quickstarts/translate-stt/spx/spx.md)]
+[!INCLUDE [next steps to spx basics](../includes/quickstarts/spx-next-steps.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-more"

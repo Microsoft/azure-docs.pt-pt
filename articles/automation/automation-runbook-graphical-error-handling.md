@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: f1aa605b3e6f32b260ea4a9eee9c056277fcd12d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a53d0cf0127ac3b66139d40dda62b64b05155bbd
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79367079"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714887"
 ---
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Erro ao Processar em Runbooks Gráficos da Automatização do Azure
 
@@ -48,7 +48,7 @@ A prática recomendada é criar um livro de execução dedicado ao manuseamento 
 1. Envia uma notificação sobre este problema.
 2. Inicia outro livro de execução que provise automaticamente um novo VM.
 
-Uma solução é ter uma ligação de erro no livro de execução que aponta para uma atividade que lida com o passo um. Por exemplo, o livro `Write-Warning` de execução pode ligar o cmdlet a uma atividade para o segundo passo, como o [cmdlet Start-AzAutomationRunbook.](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.5.0)
+Uma solução é ter uma ligação de erro no livro de execução que aponta para uma atividade que lida com o passo um. Por exemplo, o livro de execução pode ligar o `Write-Warning` cmdlet a uma atividade para o segundo passo, como o [cmdlet Start-AzAutomationRunbook.](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.5.0)
 
 Você também pode generalizar este comportamento para uso em muitos livros de execução colocando estas duas atividades em um livro de execução de manipulação de erros separado. Antes de o seu livro original chamar este livro de execução de manipulação de erros, pode construir uma mensagem personalizada a partir dos seus dados e, em seguida, passá-la como parâmetro para o livro de execução de manipulação de erros.
 
@@ -60,12 +60,12 @@ Depois de ativar a definição de configuração, o seu livro de execução crie
 
 No exemplo seguinte, um livro de execução recupera uma variável que contém o nome do computador de um VM. Em seguida, tenta iniciar o VM com a próxima atividade.<br><br> ![Exemplo de manipulação de erros de executo de automatização](media/automation-runbook-graphical-error-handling/runbook-example-error-handling.png)<br><br>      
 
-A `Get-AutomationVariable` atividade e o cmdlet [Start-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0) estão configurados para converter exceções a erros. Se houver problemas em obter a variável ou iniciar o VM, o código gera erros.<br><br> ![Definições](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png)de atividade de manipulação de erros do livro de automatização.
+A `Get-AutomationVariable` atividade e o cmdlet [Start-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0) estão configurados para converter exceções a erros. Se houver problemas em obter a variável ou iniciar o VM, o código gera erros.<br><br> ![Definições de atividade de manipulação de erros do livro de ](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png) automatização.
 
-As ligações de erro `error management` fluem destas atividades para uma única atividade de código. Esta atividade é configurada com uma simples `throw` expressão PowerShell que `$Error.Exception.Message` usa a palavra-chave para parar o processamento, juntamente com obter a mensagem que descreve a exceção atual.<br><br> ![Exemplo de código de manipulação de erros de executo de automatização](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
+As ligações de erro fluem destas atividades para uma `error management` única atividade de código. Esta atividade é configurada com uma simples expressão PowerShell que usa a `throw` palavra-chave para parar o processamento, juntamente com `$Error.Exception.Message` obter a mensagem que descreve a exceção atual.<br><br> ![Exemplo de código de manipulação de erros de executo de automatização](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Para saber mais sobre ligações e tipos de ligações em runbooks gráficos, veja [Criação de runbooks gráficos na Automatização do Azure](automation-graphical-authoring-intro.md#links-and-workflow).
+* Para saber mais sobre links e tipos de links em livros de execução gráficos, consulte [Utilizar links para fluxo de trabalho](automation-graphical-authoring-intro.md#use-links-for-workflow).
 
 * Para saber mais sobre a execução do livro de corridas, monitorização de trabalhos de livro de corridas e outros detalhes técnicos, consulte a execução do Livro de [Corridas na Automação Azure.](automation-runbook-execution.md)

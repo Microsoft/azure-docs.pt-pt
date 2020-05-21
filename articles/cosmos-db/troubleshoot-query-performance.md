@@ -8,12 +8,12 @@ ms.date: 04/22/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: b3c6926f17e8378fd3b53bfd59a7c5ea8141adb4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 977b2fa40e2ce27a2711e5a44f5fb487433c9462
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82097239"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714564"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Problemas de consulta ao usar O Azure Cosmos DB
 
@@ -35,19 +35,19 @@ Antes de ler este guia, é útil considerar problemas comuns de SDK que não est
 - Para obter o melhor desempenho, siga estas [dicas de Desempenho.](performance-tips.md)
     > [!NOTE]
     > Para um melhor desempenho, recomendamos o processamento do anfitrião windows 64 bits. O SQL SDK inclui um ServiceInterop.dll nativo para analisar e otimizar consultas localmente. ServiceInterop.dll é suportado apenas na plataforma Windows x64. Para o Linux e outras plataformas não suportadas onde o ServiceInterop.dll não está disponível, será feita uma chamada adicional de rede para obter a consulta otimizada.
-- O SDK permite `MaxItemCount` definir um para as suas consultas, mas não pode especificar uma contagem mínima de artigos.
-    - O código deve manusear qualquer `MaxItemCount`tamanho da página, de zero a .
-    - O número de itens numa página será sempre menor ou `MaxItemCount`igual ao especificado . No `MaxItemCount` entanto, é estritamente um máximo e pode haver menos resultados do que este montante.
+- O SDK permite definir um `MaxItemCount` para as suas consultas, mas não pode especificar uma contagem mínima de artigos.
+    - O código deve manusear qualquer tamanho da página, de zero a `MaxItemCount` .
+    - O número de itens numa página será sempre menor ou igual ao especificado `MaxItemCount` . No entanto, `MaxItemCount` é estritamente um máximo e pode haver menos resultados do que este montante.
 - Por vezes, as consultas podem ter páginas vazias mesmo quando há resultados numa página futura. As razões para isto podem ser:
     - O SDK pode estar a fazer várias chamadas de rede.
     - A consulta pode estar a demorar muito tempo a recuperar os documentos.
-- Todas as consultas têm um token de continuação que permitirá que a consulta continue. Certifique-se de drenar completamente a consulta. Olhe para as amostras de `while` SDK e use um loop para `FeedIterator.HasMoreResults` drenar toda a consulta.
+- Todas as consultas têm um token de continuação que permitirá que a consulta continue. Certifique-se de drenar completamente a consulta. Olhe para as amostras de SDK e use um `while` loop `FeedIterator.HasMoreResults` para drenar toda a consulta.
 
 ## <a name="get-query-metrics"></a>Obtenha métricas de consulta
 
 Quando otimizauma consulta em Azure Cosmos DB, o primeiro passo é sempre [obter as métricas](profile-sql-api-query.md) de consulta para a sua consulta. Estas métricas também estão disponíveis através do portal Azure. Uma vez que executa a sua consulta no Data Explorer, as métricas de consulta são visíveis ao lado do separador **Resultados:**
 
-[![Obtenção de](./media/troubleshoot-query-performance/obtain-query-metrics.png) métricas de consulta](./media/troubleshoot-query-performance/obtain-query-metrics.png#lightbox)
+[![Obtenção de métricas ](./media/troubleshoot-query-performance/obtain-query-metrics.png) de consulta](./media/troubleshoot-query-performance/obtain-query-metrics.png#lightbox)
 
 Depois de obter as métricas de consulta, compare a Contagem de **Documentos Recuperado** com a Contagem de **Documentos** de Saída para a sua consulta. Utilize esta comparação para identificar as secções relevantes para rever neste artigo.
 
@@ -135,12 +135,12 @@ A Contagem de **Documentos Recuperados** (60.951) é significativamente superior
 
 ### <a name="include-necessary-paths-in-the-indexing-policy"></a>Incluir os caminhos necessários na política de indexação
 
-A sua política de indexação `WHERE` deve abranger `ORDER BY` quaisquer `JOIN`propriedades incluídas em cláusulas, cláusulas e a maioria das funções do sistema. Os caminhos desejados especificados na política de índice devem coincidir com as propriedades nos documentos JSON.
+A sua política de indexação deve abranger quaisquer propriedades incluídas em `WHERE` `ORDER BY` cláusulas, cláusulas e a maioria das funções do `JOIN` sistema. Os caminhos desejados especificados na política de índice devem coincidir com as propriedades nos documentos JSON.
 
 > [!NOTE]
 > As propriedades na política de indexação do Azure Cosmos DB são sensíveis a casos
 
-Se executar a seguinte consulta simples no conjunto de [dados](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) nutricional, observará uma `WHERE` carga de RU muito mais baixa quando a propriedade na cláusula estiver indexada:
+Se executar a seguinte consulta simples no conjunto de [dados](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) nutricional, observará uma carga de RU muito mais baixa quando a propriedade na cláusula `WHERE` estiver indexada:
 
 #### <a name="original"></a>Original
 
@@ -200,7 +200,8 @@ Se uma expressão pode ser traduzida numa gama de valores de cadeia, pode usar o
 
 Aqui está a lista de algumas funções comuns de cordas que podem usar o índice:
 
-- STARTSWITH(str_expr, str_expr)
+- STARTWITH (str_expr1, str_expr2, bool_expr)  
+- CONTÉM(str_expr, str_expr, bool_expr)
 - LEFT(str_expr, num_expr) = str_expr
 - SUBSTRING (str_expr, num_expr, num_expr) = str_expr, mas apenas se o primeiro num_expr for 0
 
@@ -208,8 +209,7 @@ Seguem-se algumas funções comuns do sistema que não utilizam o índice e deve
 
 | **Função do sistema**                     | **Ideias para otimização**             |
 | --------------------------------------- |------------------------------------------------------------ |
-| CONTAINS                                | Utilize a Pesquisa Azure para pesquisa por texto completo.                        |
-| SUPERIOR/INFERIOR                             | Em vez de utilizar a função do sistema para normalizar os dados para comparações, normalize o invólucro após a inserção. Uma consulta ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` como ```SELECT * FROM c WHERE c.name = 'BOB'```se torna. |
+| SUPERIOR/INFERIOR                             | Em vez de utilizar a função do sistema para normalizar os dados para comparações, normalize o invólucro após a inserção. Uma consulta como ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` se ```SELECT * FROM c WHERE c.name = 'BOB'``` torna. |
 | Funções matemáticas (não agregados) | Se precisar calcular um valor com frequência na sua consulta, considere armazenar o valor como imóvel no seu documento JSON. |
 
 ------
@@ -220,9 +220,9 @@ Outras partes da consulta ainda podem usar o índice, mesmo que as funções do 
 
 Na maioria dos casos, as funções do sistema agregado no Azure Cosmos DB usarão o índice. No entanto, dependendo dos filtros ou cláusulas adicionais numa consulta agregada, o motor de consulta pode ser obrigado a carregar um elevado número de documentos. Normalmente, o motor de consulta aplicará primeiro filtros de igualdade e gama. Após a aplicação destes filtros, o motor de consulta pode avaliar filtros adicionais e recorrer ao carregamento de documentos restantes para calcular o agregado, se necessário.
 
-Por exemplo, tendo em conta estas duas consultas de `CONTAINS` amostra, a consulta com um filtro de função de igualdade e de funcionamento do sistema será geralmente mais eficiente do que uma consulta com apenas um `CONTAINS` filtro de função do sistema. Isto porque o filtro de igualdade é aplicado primeiro e utiliza o `CONTAINS` índice antes que os documentos precisem de ser carregados para o filtro mais caro.
+Por exemplo, tendo em conta estas duas consultas de amostra, a consulta com um filtro de função de igualdade e de funcionamento do `CONTAINS` sistema será geralmente mais eficiente do que uma consulta com apenas um filtro de `CONTAINS` função do sistema. Isto porque o filtro de igualdade é aplicado primeiro e utiliza o índice antes que os documentos precisem de ser carregados para o filtro mais `CONTAINS` caro.
 
-Consulta com `CONTAINS` apenas filtro - maior carga RU:
+Consulta com apenas `CONTAINS` filtro - maior carga RU:
 
 ```sql
 SELECT COUNT(1)
@@ -230,7 +230,7 @@ FROM c
 WHERE CONTAINS(c.description, "spinach")
 ```
 
-Consulta com filtro de `CONTAINS` igualdade e filtro - menor carga RU:
+Consulta com filtro de igualdade e `CONTAINS` filtro - menor carga RU:
 
 ```sql
 SELECT AVG(c._ts)
@@ -260,9 +260,9 @@ WHERE udf.MyUDF("Sausages and Luncheon Meats")
 
 #### <a name="queries-with-group-by"></a>Consultas com GROUP BY
 
-A acusação de `GROUP BY` perguntas da RU vai aumentar à `GROUP BY` medida que a cardinalidade dos imóveis na cláusula aumenta. Na consulta abaixo, por exemplo, a carga ru da consulta aumentará à medida que o número de descrições únicas aumenta.
+A acusação de perguntas da RU vai aumentar à medida que `GROUP BY` a cardinalidade dos imóveis na `GROUP BY` cláusula aumenta. Na consulta abaixo, por exemplo, a carga ru da consulta aumentará à medida que o número de descrições únicas aumenta.
 
-A carga ru de uma `GROUP BY` função agregada com uma cláusula será maior do que a carga ru de uma função agregada apenas. Neste exemplo, o motor de consulta deve `c.foodGroup = "Sausages and Luncheon Meats"` carregar todos os documentos que correspondam ao filtro, pelo que se espera que a carga RU seja elevada.
+A carga ru de uma função agregada com uma `GROUP BY` cláusula será maior do que a carga ru de uma função agregada apenas. Neste exemplo, o motor de consulta deve carregar todos os documentos que correspondam ao filtro, pelo que `c.foodGroup = "Sausages and Luncheon Meats"` se espera que a carga RU seja elevada.
 
 ```sql
 SELECT COUNT(1)
@@ -275,7 +275,7 @@ Se planeia executar frequentemente as mesmas consultas agregadas, pode ser mais 
 
 ### <a name="optimize-queries-that-have-both-a-filter-and-an-order-by-clause"></a>Otimizar consultas que tenham um filtro e uma cláusula ORDER BY
 
-Embora as consultas que têm `ORDER BY` um filtro e uma cláusula normalmente utilizem um índice de gama, serão mais eficientes se puderem ser servidas a partir de um índice composto. Além de modificar a política de indexação, deve adicionar `ORDER BY` todas as propriedades do índice composto à cláusula. Esta alteração à consulta assegurará que utiliza o índice composto.  Pode observar o impacto executando uma consulta no conjunto de [dados](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) nutricional:
+Embora as consultas que têm um filtro e uma cláusula normalmente utilizem um índice de `ORDER BY` gama, serão mais eficientes se puderem ser servidas a partir de um índice composto. Além de modificar a política de indexação, deve adicionar todas as propriedades do índice composto à `ORDER BY` cláusula. Esta alteração à consulta assegurará que utiliza o índice composto.  Pode observar o impacto executando uma consulta no conjunto de [dados](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) nutricional:
 
 #### <a name="original"></a>Original
 
@@ -308,7 +308,7 @@ Política de indexação:
 
 #### <a name="optimized"></a>Otimizado
 
-Consulta atualizada (inclui ambas `ORDER BY` as propriedades na cláusula):
+Consulta atualizada (inclui ambas as propriedades na `ORDER BY` cláusula):
 
 ```sql
 SELECT *
@@ -349,7 +349,7 @@ Política de indexação atualizada:
 
 ### <a name="optimize-join-expressions-by-using-a-subquery"></a>Otimizar as expressões JOIN utilizando uma subqueria
 
-Subqueries de vários `JOIN` valores podem otimizar expressões empurrando predicados após cada expressão `WHERE` selecionada em vez de afinal juntas cruzadas na cláusula.
+Subqueries de vários valores podem otimizar `JOIN` expressões empurrando predicados após cada expressão selecionada em vez de afinal juntas cruzadas na `WHERE` cláusula.
 
 Considere esta consulta:
 
@@ -365,7 +365,7 @@ AND n.nutritionValue < 10) AND s.amount > 1
 
 **Carga RU:** 167.62 RUs
 
-Para esta consulta, o índice corresponderá a qualquer `infant formula`documento `nutritionValue` que tenha `amount` uma etiqueta com o nome , superior a 0, e superior a 1. A `JOIN` expressão aqui irá executar o cross-product de todos os itens de tags, nutrientes e porções arrays para cada documento correspondente antes de qualquer filtro ser aplicado. A `WHERE` cláusula aplicará então o `<c, t, n, s>` predicado do filtro em cada tuple.
+Para esta consulta, o índice corresponderá a qualquer documento que tenha uma etiqueta com o nome `infant formula` , `nutritionValue` superior a 0, e superior a `amount` 1. A `JOIN` expressão aqui irá executar o cross-product de todos os itens de tags, nutrientes e porções arrays para cada documento correspondente antes de qualquer filtro ser aplicado. A `WHERE` cláusula aplicará então o predicado do filtro em cada `<c, t, n, s>` tuple.
 
 Por exemplo, se um documento correspondente tiver 10 itens em cada uma das três matrizes, expandir-se-á para 1 x 10 x 10 x 10 x 10 (isto é, 1.000) tuples. O uso de subqueimas aqui pode ajudar a filtrar itens de matriz unificados antes de se juntar à próxima expressão.
 
@@ -385,7 +385,7 @@ Assuma que apenas um item na matriz de etiquetas corresponde ao filtro e que exi
 
 ## <a name="queries-where-retrieved-document-count-is-equal-to-output-document-count"></a>Consultas onde a contagem de documentos recuperadoé igual à contagem de documentos de saída
 
-Se a Contagem de **Documentos Recuperadofor** aproximadamente igual à Contagem de Documentos de **Saída,** o motor de consulta não teve de digitalizar muitos documentos desnecessários. Para muitas consultas, como `TOP` as que usam a palavra-chave, a Contagem de **Documentos Recuperada** pode exceder a Contagem de **Documentos** de Saída por 1. Não precisas de te preocupar com isto.
+Se a Contagem de **Documentos Recuperadofor** aproximadamente igual à Contagem de Documentos de **Saída,** o motor de consulta não teve de digitalizar muitos documentos desnecessários. Para muitas consultas, como as que usam a palavra-chave, a Contagem de `TOP` **Documentos Recuperada** pode exceder a Contagem de **Documentos** de Saída por 1. Não precisas de te preocupar com isto.
 
 ### <a name="minimize-cross-partition-queries"></a>Minimizar consultas de partição cruzada
 
@@ -401,7 +401,7 @@ FROM c
 WHERE c.foodGroup = "Soups, Sauces, and Gravies" and c.description = "Mushroom, oyster, raw"
 ```
 
-As consultas que `IN` tenham um filtro com a chave de partição só verificarão as divisórias físicas relevantes e não irão "sair":
+As consultas que tenham um `IN` filtro com a chave de partição só verificarão as divisórias físicas relevantes e não irão "sair":
 
 ```sql
 SELECT *
@@ -488,7 +488,7 @@ Consultas paralelas funcionam consultando múltiplas divisórias em paralelo. Ma
 
 As consultas são concebidas para pré-obter resultados enquanto o atual lote de resultados está a ser processado pelo cliente. A pré-busca ajuda a melhorar a latência geral de uma consulta. Definição MaxBufferedItemCount limita o número de resultados pré-rebuscados. Se definir este valor para o número esperado de resultados devolvidos (ou um número superior), a consulta pode obter o maior benefício de pré-busca. Se definir este valor para -1, o sistema determinará automaticamente o número de itens para tampão.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte os seguintes artigos para obter informações sobre como medir as RUs por consulta, obtenha estatísticas de execução para afinar as suas consultas, e muito mais:
 
 * [Obtenha métricas de execução de consulta SQL usando .NET SDK](profile-sql-api-query.md)

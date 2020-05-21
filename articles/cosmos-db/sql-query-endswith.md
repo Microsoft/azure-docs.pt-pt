@@ -4,23 +4,24 @@ description: Saiba mais sobre a função do sistema ENDSWITH SQL em Azure Cosmos
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/03/2020
+ms.date: 05/20/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 37c5a8b3c44c5ac46b837e4d851d22f85aeaf39c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d7e7f3e33389d4a201ec3281829cb9f0415978e6
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78299453"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83713561"
 ---
 # <a name="endswith-azure-cosmos-db"></a>ENDSWITH (Azure Cosmos DB)
+
  Devolve uma Boolean indicando se a primeira expressão de corda termina com a segunda.  
   
 ## <a name="syntax"></a>Sintaxe
   
 ```sql
-ENDSWITH(<str_expr1>, <str_expr2>)  
+ENDSWITH(<str_expr1>, <str_expr2> [, <bool_expr>])
 ```  
   
 ## <a name="arguments"></a>Argumentos
@@ -29,7 +30,9 @@ ENDSWITH(<str_expr1>, <str_expr2>)
    É uma expressão de cordas.  
   
 *str_expr2*  
-   É uma expressão de corda a ser comparada com o final de *str_expr1*.  
+   É uma expressão de corda a ser comparada com o final de *str_expr1*.
+
+*bool_expr* Valor opcional para ignorar caso. Quando for em vigor, a ENDSWITH fará uma pesquisa insensível em casos. Quando não especificado, este valor é falso.
   
 ## <a name="return-types"></a>Tipos de retorno
   
@@ -51,9 +54,9 @@ SELECT ENDSWITH("abc", "b") AS e1, ENDSWITH("abc", "bc") AS e2
 
 ## <a name="remarks"></a>Observações
 
-Esta função do sistema não utilizará o índice.
+Esta função do sistema beneficiará de um índice de [alcance](index-policy.md#includeexclude-strategy).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Funções de corda Azure Cosmos DB](sql-query-string-functions.md)
 - [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)

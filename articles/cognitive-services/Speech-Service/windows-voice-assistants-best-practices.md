@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/1/2020
 ms.author: adamwa
-ms.openlocfilehash: 30df02062d3b94836f0131ac1124f56d1deefb5b
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: a9145c7c26f4d6caa1679052035b36f1ae88f878
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82997493"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714785"
 ---
 # <a name="design-assistant-experiences-for-windows-10"></a>Experiências de assistente de design para windows 10
 
@@ -63,25 +63,22 @@ Os assistentes devem construir uma experiência de audição para fornecer feedb
 - Assistente está processando e preparando uma resposta
 - Assistente está respondendo
 
-Mesmo que os Estados mudem rapidamente, vale a pena considerar fornecer UX para estados, uma vez que as durações são variáveis em todo o ecossistema windows. O feedback visual, bem como breves sinos de áudio ou chilrear, também chamados &quot;auriculares,&quot;podem ser parte da solução. Da mesma forma, os cartões visuais associados a descrições áudio fazem com que se verifiquem boas opções de resposta.
+Mesmo que os Estados mudem rapidamente, vale a pena considerar fornecer UX para estados, uma vez que as durações são variáveis em todo o ecossistema windows. O feedback visual, bem como breves sinos de áudio ou chilrear, também &quot; chamados &quot; auriculares, podem ser parte da solução. Da mesma forma, os cartões visuais associados a descrições áudio fazem com que se verifiquem boas opções de resposta.
 
 ## <a name="design-guidance-for-in-app-voice-activation"></a>Orientação de design para ativação de voz na aplicação
 
 Quando a aplicação assistente tem foco, a intenção do cliente é claramente interagir com a app, por isso todas as experiências de ativação de voz devem ser tratadas pela visão principal da aplicação. Esta vista pode ser redimensionada pelo cliente. Para ajudar a explicar as interações de conchas assistentes, o resto deste documento usa o exemplo concreto de um assistente de serviço financeiro chamado Contoso. Neste e nos diagramas subsequentes, o que o cliente diz aparecerá nas bolhas do discurso dos desenhos animados à esquerda com respostas assistentes em bolhas de desenho soporto à direita.
 
-**Vista na aplicação. Estado inicial quando a ativação de voz começa:**
-![Screenshot do assistente de voz no Windows antes da ativação](media/voice-assistants/windows_voice_assistant/initial_state.png)
+**Vista na aplicação. Estado inicial quando a ativação de voz começa:** Screenshot do assistente de voz no Windows antes da 
+ ![ ativação](media/voice-assistants/windows_voice_assistant/initial_state.png)
 
-**Vista na aplicação. Após ativação de voz bem sucedida, começa a experiência de audição:**![Screenshot do assistente de voz no Windows enquanto assistente de voz está a ouvir](media/voice-assistants/windows_voice_assistant/listening.png)
+**Vista na aplicação. Após ativação de voz bem sucedida, começa a experiência de audição:** Screenshot do assistente de voz no Windows ![ enquanto assistente de voz está a ouvir](media/voice-assistants/windows_voice_assistant/listening.png)
 
-**Vista na aplicação. Todas as respostas permanecem na experiência da aplicação.** ![Screenshot do assistente de voz no Windows como resposta seleção](media/voice-assistants/windows_voice_assistant/response.png)
+**Vista na aplicação. Todas as respostas permanecem na experiência da aplicação.** ![ Screenshot do assistente de voz no Windows como resposta seleção](media/voice-assistants/windows_voice_assistant/response.png)
 
 ## <a name="design-guidance-for-voice-activation-above-lock"></a>Orientação de design para ativação de voz acima do bloqueio
 
 Disponíveis com 19H2, os assistentes construídos na plataforma de ativação de voz windows estão disponíveis para responder acima do bloqueio.
-
-> [!NOTE]
-> Devido a um problema ativo, os assistentes que desenham acima do bloqueio UI devem implementar O Serviço de Janelas.CloseWindow() para todos os despedimentos. Isto resultará na rescisão da aplicação, mas atenua um problema técnico e mantém o assistente em estado de limpeza. Além disso, para manter o estado limpo se uma aplicação estiver ativada para ativação de voz de bloqueio acima, deve ouvir alterações de estado de bloqueio e WindowService.CloseWindow() quando o dispositivo bloqueia.
 
 ### <a name="customer-opt-in"></a>Opt-in do cliente
 
@@ -108,16 +105,16 @@ O assistente deve implementar a orientação de despedimento nesta secção para
 - **Todas as telas assistentes que mostram acima da fechadura devem conter um X** no direito superior que dispensa o assistente.
 - **Premir qualquer tecla também deve descartar a aplicação de assistente**. A entrada do teclado é um sinal tradicional de aplicação de bloqueio que o cliente quer fazer login. Portanto, qualquer entrada de teclado/texto não deve ser direcionada para a aplicação. Em vez disso, a aplicação deve ser auto-descartada quando a entrada do teclado for detetada, para que o cliente possa facilmente iniciar sessão no seu dispositivo.
 - **Se o ecrã se desligar, a aplicação deve ser auto-dispensada.** Isto garante que da próxima vez que o cliente utilizar o seu PC, o ecrã de login estará pronto e à sua espera.
-- Se a &quot;aplicação&quot;estiver a ser utilizada, pode continuar acima do bloqueio. &quot;em&quot; uso constitui qualquer entrada ou saída. Por exemplo, ao transmitir música ou vídeo, a aplicação pode continuar acima do bloqueio. &quot;Siga&quot; e outros passos de diálogo multiturnos são autorizados a manter a aplicação acima do bloqueio.
+- Se a aplicação estiver &quot; a ser &quot; utilizada, pode continuar acima do bloqueio. &quot;em uso &quot; constitui qualquer entrada ou saída. Por exemplo, ao transmitir música ou vídeo, a aplicação pode continuar acima do bloqueio. &quot;Siga &quot; e outros passos de diálogo multiturnos são autorizados a manter a aplicação acima do bloqueio.
 - Os detalhes de **implementação sobre a anulação do pedido** podem ser encontrados no guia de [implementação do bloqueio acima indicado](windows-voice-assistants-implementation-guide.md#closing-the-application).
 
 ![Screenshot do assistente de voz no Windows antes da ativação](media/voice-assistants/windows_voice_assistant/above_lock_response.png)
 
 ![Screenshot do assistente de voz no Windows antes da ativação](media/voice-assistants/windows_voice_assistant/lock_screen2.png)
 
-### <a name="privacy-amp-security-considerations-above-lock"></a>Considerações de segurança de privacidade &amp; acima do bloqueio
+### <a name="privacy-amp-security-considerations-above-lock"></a>&amp;Considerações de segurança de privacidade acima do bloqueio
 
-Muitos computadores são portáteis, mas nem sempre ao alcance do cliente. Podem ser brevemente deixados em quartos de hotel, assentos de avião ou espaços de trabalho, onde outras pessoas têm acesso físico. Se os assistentes que estão habilitados acima do bloqueio não estiverem &quot;preparados, podem ficar sujeitos à classe dos chamados ataques de [empregadas maléficas.](https://en.wikipedia.org/wiki/Evil_maid_attack) &quot;
+Muitos computadores são portáteis, mas nem sempre ao alcance do cliente. Podem ser brevemente deixados em quartos de hotel, assentos de avião ou espaços de trabalho, onde outras pessoas têm acesso físico. Se os assistentes que estão habilitados acima do bloqueio não estiverem preparados, podem ficar sujeitos à classe dos chamados ataques de &quot; [empregadas maléficas.](https://en.wikipedia.org/wiki/Evil_maid_attack) &quot;
 
 Por isso, os assistentes devem seguir as orientações nesta secção para ajudar a manter a experiência segura. A interação acima do bloqueio ocorre quando o utilizador do Windows não é autenticado. Isto significa que, em geral, **a entrada no assistente deve também ser tratada como não autenticada**.
 
@@ -127,9 +124,9 @@ Por isso, os assistentes devem seguir as orientações nesta secção para ajuda
 
 | **Classe de ação** | **Descrição** | **Exemplos (não uma lista completa)** |
 | --- | --- | --- |
-| Cofre sem autenticação | Informações sobre finalidade geral ou comando e controlo básicos de aplicações | &quot;Que horas são? &quot;, &quot;Toque a próxima faixa&quot; |
-| Cofre com ID do orador | Risco de personificação, revelando informações pessoais. | &quot;Qual é&#39;o meu próximo compromisso? &quot;, &quot;Reveja&quot;a &quot;minha lista de compras, responda à chamada&quot; |
-| Cofre apenas após a autenticação do Windows | Ações de alto risco que um intruso poderia usar para prejudicar o cliente | &quot;Comprar mais&quot;compras &quot;, Apagar a&quot; &quot;minha (importante) nomeação, Enviar uma mensagem&quot;de texto (média) , &quot;Lançar uma página (nefasta)&quot; |
+| Cofre sem autenticação | Informações sobre finalidade geral ou comando e controlo básicos de aplicações | &quot;Que horas &quot; são? &quot;&quot; |
+| Cofre com ID do orador | Risco de personificação, revelando informações pessoais. | &quot;Qual é&#39;a minha próxima &quot; consulta? &quot; &quot; &quot;&quot; |
+| Cofre apenas após a autenticação do Windows | Ações de alto risco que um intruso poderia usar para prejudicar o cliente | &quot;Comprar mais compras , Apagar a &quot; &quot; minha (importante) &quot; nomeação, Enviar uma mensagem de texto &quot; (média) &quot; , Lançar uma página &quot; (nefasta)&quot; |
 
 Para o caso de Contoso, a informação geral em torno da informação sobre o stock público é segura sem autenticação. Informações específicas do cliente, tais como o número de ações detidas, são provavelmente seguras com id do orador. No entanto, a compra ou venda de ações nunca deve ser permitida sem a autenticação do Windows.
 
@@ -164,7 +161,7 @@ O assistente de Contoso tem uma casa na barra de tarefas: o seu ícone circular 
 
 ![Imagens do assistente de voz no Windows antes e depois de expandir a vista compacta](media/voice-assistants/windows_voice_assistant/compact_transition.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Começar a desenvolver o seu assistente de voz](how-to-windows-voice-assistants-get-started.md)

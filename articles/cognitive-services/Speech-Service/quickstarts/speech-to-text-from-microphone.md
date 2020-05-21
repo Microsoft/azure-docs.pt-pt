@@ -10,13 +10,13 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 02/10/2020
 ms.author: dapine
-zone_pivot_groups: programming-languages-set-two-with-js-go
-ms.openlocfilehash: 104d06db483eaad4e8aeb327077a6168e47c8f32
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+zone_pivot_groups: programming-languages-set-two-with-js-go-spx
+ms.openlocfilehash: 455475d87557cf70f3a3d14b18060c08a2ac5da1
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82979608"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715319"
 ---
 # <a name="quickstart-recognize-speech-from-a-microphone"></a>Quickstart: Reconhecer o discurso a partir de um microfone
 
@@ -59,6 +59,18 @@ ms.locfileid: "82979608"
 [!INCLUDE [Python Header](../includes/quickstarts/from-microphone/python/header.md)]
 
 [!INCLUDE [python](../includes/quickstarts/from-microphone/python/python.md)]
+
+::: zone-end
+
+::: zone pivot="programmer-tool-spx"
+
+[!INCLUDE [SPX Header](../includes/quickstarts/from-microphone/spx/header.md)]
+
+[!INCLUDE [](../includes/spx-setup.md)]
+
+[!INCLUDE [spx](../includes/quickstarts/from-microphone/spx/spx.md)]
+
+[!INCLUDE [next steps to spx basics](../includes/quickstarts/spx-next-steps.md)]
 
 ::: zone-end
 

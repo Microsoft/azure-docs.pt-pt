@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.author: sandeepu
 author: sandeeppujar
 ms.date: 04/30/2020
-ms.openlocfilehash: cd583b79d6c73ff8da1c9770bf72b3e6990c3140
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: a42b483a5ca4b4948f14c1ccbf0b7af6e49224bb
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597206"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715070"
 ---
 # <a name="connect-an-azure-sphere-device-to-your-azure-iot-central-application"></a>Ligue um dispositivo Azure Sphere à sua aplicação Central Azure IoT
 
@@ -20,7 +20,7 @@ ms.locfileid: "83597206"
 
 Este artigo mostra-lhe como ligar um dispositivo Azure Sphere (DevKit) a uma aplicação Azure IoT Central.
 
-A Esfera Azure é uma plataforma de aplicação segura e de alto nível com funcionalidades de comunicação e segurança incorporadas para dispositivos ligados à Internet. Inclui uma unidade de microcontrolador de crossover (MCU) segura, conectada e crossover (MCU), um sistema operativo baseado em Linux (OS) personalizado, e um serviço de segurança baseado na nuvem que fornece segurança contínua e renovável. Para mais informações, veja[o que é a Esfera Azure?](https://docs.microsoft.com/azure-sphere/product-overview/what-is-azure-sphere)
+A Esfera Azure é uma plataforma de aplicação segura e de alto nível com funcionalidades de comunicação e segurança incorporadas para dispositivos ligados à Internet. Inclui uma unidade de microcontrolador de crossover (MCU) segura, conectada e crossover (MCU), um sistema operativo baseado em Linux (OS) personalizado, e um serviço de segurança baseado na nuvem que fornece segurança contínua e renovável. Para mais informações, veja [o que é a Esfera Azure?](https://docs.microsoft.com/azure-sphere/product-overview/what-is-azure-sphere)
 
 Os kits de [desenvolvimento da Esfera Azure](https://azure.microsoft.com/services/azure-sphere/get-started/) fornecem tudo o que precisa para começar a prototipagem e desenvolver aplicações da Esfera Azure. A Central Azure IoT com a Esfera Azure permite uma pilha de ponta a ponta para uma solução IoT. A Azure Sphere fornece o suporte do dispositivo e a IoT Central como uma plataforma de aplicação IoT gerida por código zero.
 
@@ -80,7 +80,7 @@ Para criar um dispositivo simulado:
 - Ativar a definição **simulada.**
 - Selecione **Criar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se é um desenvolvedor de dispositivos, alguns sugeriu que os próximos passos são para:
 

@@ -12,15 +12,15 @@ ms.subservice: msi
 ms.devlang: ''
 ms.topic: overview
 ms.custom: mvc
-ms.date: 04/18/2020
+ms.date: 05/20/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2231d70e6c4368a7c896f9063b58cc97ee292f53
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0a5026fa055307a3a37031dbf64128e4622fc2b8
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81682581"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83713935"
 ---
 # <a name="what-are-managed-identities-for-azure-resources"></a>Quais são as identidades geridas para os recursos do Azure?
 
@@ -47,8 +47,8 @@ Os seguintes termos são utilizados em todas as identidades geridas para o conju
 
 Existem dois tipos de identidades geridas:
 
-- Uma **identidade gerida atribuída pelo sistema**, que é ativada diretamente numa instância de um serviço do Azure. Quando ativada, o Azure cria uma identidade para a instância no inquilino do Azure AD no qual a subscrição da instância confia. Assim que a identidade for criada, as credenciais são aprovisionadas na instância. O ciclo de vida das identidades atribuídas pelo sistema está diretamente ligado à instância do serviço do Azure nas quais estão ativadas. Se a instância for eliminada, o Azure limpa automaticamente as credenciais e a identidade no Azure AD.
-- Uma **identidade gerida atribuída pelo utilizador**, que é criada como um recurso do Azure autónomo. Através de um processo de criação, o Azure cria uma identidade no inquilino do Azure AD no qual a subscrição que está a ser utilizada confia. Depois de criada, a identidade pode ser atribuída a uma ou mais instâncias do serviço do Azure. O ciclo de vida das identidades atribuídas pelo utilizador é gerido separadamente do ciclo de vida das instâncias do serviço do Azure ao qual estão atribuídas.
+- Uma **identidade gerida atribuída pelo sistema**, que é ativada diretamente numa instância de um serviço do Azure. Quando ativada, o Azure cria uma identidade para a instância no inquilino do Azure AD no qual a subscrição da instância confia. Assim que a identidade for criada, as credenciais são aprovisionadas na instância. O ciclo de vida de uma identidade atribuída ao sistema está diretamente ligado à instância de serviço Azure em que está ativado. Se a instância for eliminada, o Azure limpa automaticamente as credenciais e a identidade no Azure AD.
+- Uma **identidade gerida atribuída pelo utilizador**, que é criada como um recurso do Azure autónomo. Através de um processo de criação, o Azure cria uma identidade no inquilino do Azure AD no qual a subscrição que está a ser utilizada confia. Depois de criada, a identidade pode ser atribuída a uma ou mais instâncias do serviço do Azure. O ciclo de vida de uma identidade atribuída ao utilizador é gerido separadamente do ciclo de vida das instâncias de serviço Azure a que é atribuído.
 
 Internamente, as identidades geridas são os principais de serviço de um tipo especial, que estão bloqueados apenas para serem utilizados com recursos Azure. Quando a identidade gerida é eliminada, o diretor de serviço correspondente é automaticamente removido.
 Além disso, quando é criada uma identidade atribuída ao utilizador ou atribuída ao sistema, o Fornecedor de Recursos de Identidade Gerido (MSRP) emite um certificado internamente a essa identidade. 
@@ -151,7 +151,7 @@ Saiba como utilizar uma identidade gerida com outros serviços do Azure:
 
 As identidades geridas para recurso do Azure podem ser utilizadas para autenticação em serviços que suportem a autenticação do Azure AD. Para obter uma lista dos serviços do Azure que suportam a funcionalidade de identidades geridas para recursos do Azure, veja [Serviços que suportam as identidades geridas para recursos do Azure](services-support-msi.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Comece a utilizar a funcionalidade de identidades geridas para recursos do Azure com os inícios rápidos seguintes:
 

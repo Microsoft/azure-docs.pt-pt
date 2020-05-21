@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 7bdcccee3270f9d2b611682a9a59505158a494d2
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 593cca5fbf0aa6e4c162e541560763c50cbc067e
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82205212"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83711419"
 ---
 # <a name="azure-red-hat-openshift-support-policy"></a>Política de apoio openshift do chapéu vermelho azure
 
@@ -22,13 +22,13 @@ Certas configurações para os clusters OpenShift 4 do Chapéu Vermelho Azure po
 
 ## <a name="cluster-configuration-requirements"></a>Requisitos de configuração do cluster
 
-* Todos os operadores do Cluster OpenShift devem permanecer num estado gerido. A lista de operadores de `oc get clusteroperators`cluster pode ser devolvida em execução.
+* Todos os operadores do Cluster OpenShift devem permanecer num estado gerido. A lista de operadores de cluster pode ser devolvida em `oc get clusteroperators` execução.
 * Não remova ou modifique os serviços de cluster Prometheus e Alertmanager.
 * Não remova as regras do Service Alertmanager.
 * Não modifique a versão do cluster OpenShift.
 * Não remova ou modifique o serviço de registo de serviço Saque de Serviço Azure Red Hat OpenShift (mdsd pods).
 * Não remova ou modifique o cluster 'arosvc.azurecr.io' retire segredo.
-* Todas as máquinas virtuais do cluster devem ter acesso à Internet de saída, pelo menos ao Gestor de Recursos Azure (ARM) e aos pontos finais de registo de serviços (Genebra).
+* Todas as máquinas virtuais do cluster devem ter acesso direto à Internet, pelo menos para o Gestor de Recursos Azure (ARM) e para os pontos finais de registo de serviços (Genebra).  Não é suportada nenhuma forma de procuração HTTPS.
 * O serviço Azure Red Hat OpenShift acede ao seu cluster através do Private Link Service.  Não remova ou modifique o acesso ao serviço.
 * Os nós de computação não RHCOS não são suportados. Por exemplo, não se pode usar um nó de cálculo RHEL.
 

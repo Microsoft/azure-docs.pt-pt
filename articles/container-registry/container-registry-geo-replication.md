@@ -5,12 +5,12 @@ author: stevelas
 ms.topic: article
 ms.date: 05/11/2020
 ms.author: stevelas
-ms.openlocfilehash: ea5e3dffaafb691a667bad3ef0014389e1604e27
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: bea71695c66c77a8e9fff3cb708113a04f24ed96
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682781"
+ms.locfileid: "83711572"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Geo-replicação no Registo de Contentores de Azure
 
@@ -95,7 +95,7 @@ O ACR começa a sincronizar imagens através das réplicas configuradas. Uma vez
 * Quando empurra ou puxa imagens de um registo geo-replicado, o Gestor de Tráfego azure em segundo plano envia o pedido para o registo localizado na região que lhe é mais próximo em termos de latência da rede.
 * Depois de empurrar uma atualização de imagem ou etiqueta para a região mais próxima, leva algum tempo para o Registo de Contentores Azure replicar os manifestos e camadas para as restantes regiões em que optou. Imagens maiores demoram mais tempo a replicar-se do que as mais pequenas. Imagens e tags são sincronizadas em todas as regiões de replicação com um eventual modelo de consistência.
 * Para gerir fluxos de trabalho que dependem de atualizações push para um registo geo-replicado, recomendamos que configure [webhooks](container-registry-webhook.md) para responder aos eventos push. Você pode configurar webhooks regionais dentro de um registo geo-replicado para rastrear eventos push à medida que eles completam em todas as regiões geo-replicadas.
-* Para servir bolhas que representam camadas de conteúdo, o Azure Container Registy utiliza pontos finais de dados. Pode ativar [pontos finais dedicados](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints-preview) para o seu registo em cada uma das regiões geo-replicadas do seu registo. Estes pontos finais permitem a configuração de regras de acesso a firewall com um alcance apertado.
+* Para servir bolhas que representam camadas de conteúdo, o Azure Container Registy utiliza pontos finais de dados. Pode ativar [pontos finais dedicados](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) para o seu registo em cada uma das regiões geo-replicadas do seu registo. Estes pontos finais permitem a configuração de regras de acesso a firewall com um alcance apertado.
 * Se configurar um [link privado](container-registry-private-link.md) para o seu registo utilizando pontos finais privados numa rede virtual, os pontos finais dedicados em cada uma das regiões geo-replicadas são ativados por padrão. 
 
 ## <a name="delete-a-replica"></a>Eliminar réplicas
@@ -127,7 +127,7 @@ Se este problema ocorrer, uma solução é aplicar uma cache DNS do lado do clie
 
 Para otimizar a resolução do DNS para a réplica mais próxima ao empurrar imagens, configure um registo geo-replicado nas mesmas regiões de Azure como a fonte das operações de impulso, ou a região mais próxima quando trabalhar fora de Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Confira a série tutorial em três partes, [geo-replicação no Registo de Contentores Azure](container-registry-tutorial-prepare-registry.md). Caminhe através da criação de um registo geo-replicado, construindo um contentor, e, em seguida, implantando-o com um único `docker push` comando para várias aplicações regionais para web apps para instâncias de contentores.
 

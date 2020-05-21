@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
 ms.date: 03/27/2018
 ms.custom: avverma
-ms.openlocfilehash: 4e9c050c82a08572042f75e7979fc338b8133d0f
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 759ebb58afcceade8d52305c6a6a41a782ed4df6
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125065"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83702007"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-powershell"></a>Dimensionar automaticamente um conjunto de dimensionamento de máquinas virtuais com o PowerShell
 Este script cria um conjunto de dimensionamento de máquinas virtuais com o Windows Server 2016 e utiliza as métricas baseadas no anfitrião para dimensionar automaticamente à medida que a carga de CPU muda.
@@ -46,7 +46,6 @@ Este script utiliza os seguintes comandos para criar a implementação. Cada ite
 | [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) | Obtém informações sobre o endereço IP público atribuído, utilizado pelo balanceador de carga. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Remove um grupo de recursos e todos os recursos contidos no grupo. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
 
-Pode encontrar exemplos adicionais do script do conjunto de dimensionamento de máquinas virtuais do PowerShell na [documentação do conjunto de dimensionamento de máquinas virtuais do Azure](../powershell-samples.md).

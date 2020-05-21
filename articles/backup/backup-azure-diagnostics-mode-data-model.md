@@ -3,12 +3,12 @@ title: Modelo de dados de logs do Azure Monitor
 description: Neste artigo, conheça os detalhes do modelo de dados Do Log Analytics do Azure Monitor para os dados de Backup Azure.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 72484923bc94e197cd195c0192b53feb3ef457ce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78d43e4c65f31b47f4b6070f071c932692cee883
+ms.sourcegitcommit: a3c6efa4d4a48e9b07ecc3f52a552078d39e5732
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183692"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83707994"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Log Analytics modelo de dados para dados de backup do Azure
 
@@ -463,8 +463,10 @@ Abaixo estão algumas amostras para ajudá-lo a escrever consultas sobre os dado
 ## <a name="v1-schema-vs-v2-schema"></a>V1 esquema vs V2 esquema
 Anteriormente, os dados de diagnóstico do Agente de Backup Azure e da cópia de segurança Azure VM foram enviados para a tabela De diagnóstico sinuoso num esquema referido como ***esquema V1***. Posteriormente, foram adicionadas novas colunas para apoiar outros cenários e cargas de trabalho, e os dados de diagnóstico foram empurrados num novo esquema referido como ***esquema V2***. 
 
-Por razões de retrocompatibilidade, os dados de diagnóstico do Agente de Backup Azure e da cópia de segurança Azure VM são atualmente enviados para a tabela De diagnóstico seletiva em esquemav e V2 (com v1 schema agora em rota de depreciação). Pode identificar quais os registos em Log Analytics de esquema V1 filtrando registos de SchemaVersion_s=="V1" nas suas consultas de registo.
+Por razões de retrocompatibilidade, os dados de diagnóstico do Agente de Backup Azure e da cópia de segurança Azure VM são atualmente enviados para a tabela De diagnóstico seletiva em esquemav e V2 (com v1 schema agora em rota de depreciação). Pode identificar quais os registos em Log Analytics de esquema V1 filtrando registos de SchemaVersion_s=="V1" nas suas consultas de registo. 
 
-## <a name="next-steps"></a>Passos seguintes
+Consulte a terceira coluna 'Descrição' do modelo de [dados](https://docs.microsoft.com/azure/backup/backup-azure-diagnostics-mode-data-model#using-azure-backup-data-model) acima descrito para identificar quais as colunas que pertencem apenas ao esquema V1.
+
+## <a name="next-steps"></a>Próximos passos
 
 Assim que rever o modelo de dados, pode começar a [criar consultas personalizadas](../azure-monitor/learn/tutorial-logs-dashboards.md) em registos do Monitor Azure para construir o seu próprio dashboard.

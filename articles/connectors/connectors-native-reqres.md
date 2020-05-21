@@ -7,12 +7,12 @@ ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/06/2020
 tags: connectors
-ms.openlocfilehash: c6d8dc087e6306173fc4d55368cd3c4c624d5302
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 0dea516ea6b938b91fc4b9b833979bcecc285339
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82978574"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714972"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Receber e responder a pedidos de entrada em HTTPS em Aplicações Lógicas Azure
 
@@ -53,7 +53,7 @@ Este gatilho incorporado cria um ponto final HTTPS manualmente calivel que *só*
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). Criar uma aplicação lógica em branco.
 
-1. Depois da Logic App Designer abrir, `http request` na caixa de pesquisa, introduza como filtro. A partir da lista de gatilhos, selecione o **gatilho quando um pedido HTTP é recebido,** que é o primeiro passo no fluxo de trabalho da aplicação lógica.
+1. Depois da Logic App Designer abrir, na caixa de pesquisa, introduza `http request` como filtro. A partir da lista de gatilhos, selecione o **gatilho quando um pedido HTTP é recebido,** que é o primeiro passo no fluxo de trabalho da aplicação lógica.
 
    ![Selecione gatilho de pedido](./media/connectors-native-reqres/select-request-trigger.png)
 
@@ -61,7 +61,7 @@ Este gatilho incorporado cria um ponto final HTTPS manualmente calivel que *só*
 
    ![Gatilho de pedido](./media/connectors-native-reqres/request-trigger.png)
 
-   | Nome da propriedade | Nome da propriedade JSON | Necessário | Descrição |
+   | Nome da propriedade | Nome da propriedade JSON | Obrigatório | Descrição |
    |---------------|--------------------|----------|-------------|
    | **HTTP POST URL** | {nenhum} | Sim | O URL de ponto final que é gerado depois de guardar a aplicação lógica e é usado para chamar a sua app lógica |
    | **Solicitar corpo JSON Schema** | `schema` | Não | O esquema JSON que descreve as propriedades e valores no corpo de pedido de entrada |
@@ -117,7 +117,7 @@ Este gatilho incorporado cria um ponto final HTTPS manualmente calivel que *só*
    }
    ```
 
-   Ao introduzir um esquema JSON, o designer mostra `Content-Type` um lembrete para incluir o `application/json`cabeçalho no seu pedido e definir esse valor de cabeçalho para . Para mais informações, consulte [os tipos de conteúdo de lidar](../logic-apps/logic-apps-content-type.md).
+   Ao introduzir um esquema JSON, o designer mostra um lembrete para incluir o cabeçalho no seu pedido e definir esse valor de `Content-Type` cabeçalho para `application/json` . Para mais informações, consulte [os tipos de conteúdo de lidar](../logic-apps/logic-apps-content-type.md).
 
    ![Lembrete para incluir o cabeçalho "Content-Type"](./media/connectors-native-reqres/include-content-type.png)
 
@@ -160,7 +160,7 @@ Este gatilho incorporado cria um ponto final HTTPS manualmente calivel que *só*
 
 1. Para especificar propriedades adicionais, abra a **lista de novos parâmetros** e selecione os parâmetros que pretende adicionar.
 
-   | Nome da propriedade | Nome da propriedade JSON | Necessário | Descrição |
+   | Nome da propriedade | Nome da propriedade JSON | Obrigatório | Descrição |
    |---------------|--------------------|----------|-------------|
    | **Método** | `method` | Não | O método que o pedido de entrada deve usar para chamar a app lógica |
    | **Caminho relativo** | `relativePath` | Não | O caminho relativo para o parâmetro que o URL final da app lógica pode aceitar |
@@ -178,7 +178,7 @@ Este gatilho incorporado cria um ponto final HTTPS manualmente calivel que *só*
 
    Por exemplo, pode responder ao pedido [adicionando uma ação resposta](#add-response), que pode usar para devolver uma resposta personalizada e é descrita mais tarde neste tópico.
 
-   A sua aplicação lógica mantém o pedido de entrada aberto apenas por um minuto. Assumindo que o fluxo de trabalho da sua aplicação lógica inclui uma ação de Resposta, `504 GATEWAY TIMEOUT` se a aplicação lógica não devolver uma resposta após este tempo passa, a sua aplicação lógica devolve uma ao chamador. Caso contrário, se a sua aplicação lógica não incluir uma `202 ACCEPTED` ação de Resposta, a sua aplicação lógica devolve imediatamente uma resposta ao chamador.
+   A sua aplicação lógica mantém o pedido de entrada aberto apenas por um [tempo limitado.](../logic-apps/logic-apps-limits-and-config.md#request-limits) Assumindo que o fluxo de trabalho da sua aplicação lógica inclui uma ação de Resposta, se a aplicação lógica não devolver uma resposta após este tempo passa, a sua aplicação lógica devolve uma `504 GATEWAY TIMEOUT` ao chamador. Caso contrário, se a sua aplicação lógica não incluir uma ação de Resposta, a sua aplicação lógica devolve imediatamente uma `202 ACCEPTED` resposta ao chamador.
 
 1. Quando terminar, guarde a sua aplicação lógica. Na barra de ferramentas de design, selecione **Guardar**.
 
@@ -188,7 +188,7 @@ Este gatilho incorporado cria um ponto final HTTPS manualmente calivel que *só*
 
 1. Para desencadear a sua aplicação lógica, envie um POST HTTP para o URL gerado.
 
-   Por exemplo, pode utilizar uma ferramenta como [o Carteiro](https://www.getpostman.com/) para enviar o HTTP POST. Se ativar a Autenticação Aberta do [Diretório Ativo Azure](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth) (Azure AD OAuth) para autorizar chamadas de entrada no gatilho do Pedido, ligue para o gatilho utilizando um URL de Assinatura de [Acesso Partilhado (SAS)](../logic-apps/logic-apps-securing-a-logic-app.md#sas) ou utilizando um símbolo de autenticação, mas não pode utilizar ambos. O símbolo de autenticação `Bearer` deve especificar o tipo no cabeçalho de autorização. Para mais informações, consulte [O acesso seguro e os dados nas Aplicações lógicas do Azure - Acesso a triggers baseados em pedidos](../logic-apps/logic-apps-securing-a-logic-app.md#secure-triggers).
+   Por exemplo, pode utilizar uma ferramenta como [o Carteiro](https://www.getpostman.com/) para enviar o HTTP POST. Se ativar a Autenticação Aberta do [Diretório Ativo Azure](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth) (Azure AD OAuth) para autorizar chamadas de entrada no gatilho do Pedido, ligue para o gatilho utilizando um URL de Assinatura de [Acesso Partilhado (SAS)](../logic-apps/logic-apps-securing-a-logic-app.md#sas) ou utilizando um símbolo de autenticação, mas não pode utilizar ambos. O símbolo de autenticação deve especificar o `Bearer` tipo no cabeçalho de autorização. Para mais informações, consulte [O acesso seguro e os dados nas Aplicações lógicas do Azure - Acesso a triggers baseados em pedidos](../logic-apps/logic-apps-securing-a-logic-app.md#secure-triggers).
 
 Para obter mais informações sobre a definição json subjacente do gatilho e como chamar este gatilho, consulte estes tópicos, tipo de [gatilho de pedido](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) e [Call, trigger ou nest workflows com pontos finais HTTP em Aplicações Lógicas Azure](../logic-apps/logic-apps-http-endpoint.md).
 
@@ -208,13 +208,13 @@ Aqui está mais informações sobre as saídas do gatilho do Pedido:
 
 Pode utilizar a ação Resposta para responder com uma carga útil (dados) a um pedido HTTPS de entrada, mas apenas numa aplicação lógica que é desencadeada por um pedido HTTPS. Pode adicionar a ação Resposta em qualquer ponto do seu fluxo de trabalho. Para obter mais informações sobre a definição jSON subjacente para este gatilho, consulte o tipo de [ação Resposta](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action).
 
-A sua aplicação lógica mantém o pedido de entrada aberto apenas por um minuto. Assumindo que o fluxo de trabalho da sua aplicação lógica inclui uma ação de Resposta, `504 GATEWAY TIMEOUT` se a aplicação lógica não devolver uma resposta após este tempo passa, a sua aplicação lógica devolve uma ao chamador. Caso contrário, se a sua aplicação lógica não incluir uma `202 ACCEPTED` ação de Resposta, a sua aplicação lógica devolve imediatamente uma resposta ao chamador.
+A sua aplicação lógica mantém o pedido de entrada aberto apenas por um [tempo limitado.](../logic-apps/logic-apps-limits-and-config.md#request-limits) Assumindo que o fluxo de trabalho da sua aplicação lógica inclui uma ação de Resposta, se a aplicação lógica não devolver uma resposta após este tempo passa, a sua aplicação lógica devolve uma `504 GATEWAY TIMEOUT` ao chamador. Caso contrário, se a sua aplicação lógica não incluir uma ação de Resposta, a sua aplicação lógica devolve imediatamente uma `202 ACCEPTED` resposta ao chamador.
 
 > [!IMPORTANT]
 > Se uma ação de Resposta incluir estes cabeçalhos, as Aplicações Lógicas removem estes cabeçalhos da mensagem de resposta gerada sem mostrar qualquer aviso ou erro:
 >
 > * `Allow`
-> * `Content-*`com estas exceções: `Content-Disposition`, `Content-Encoding`e`Content-Type`
+> * `Content-*`com estas exceções: `Content-Disposition` , `Content-Encoding` e`Content-Type`
 > * `Cookie`
 > * `Expires`
 > * `Last-Modified`
@@ -229,7 +229,7 @@ A sua aplicação lógica mantém o pedido de entrada aberto apenas por um minut
 
    ![Adicione um novo passo](./media/connectors-native-reqres/add-response.png)
 
-   Para adicionar uma ação entre passos, mova o ponteiro sobre a seta entre esses passos. Selecione o**+** sinal de mais ( ) que aparece e, em seguida, selecione **Adicionar uma ação**.
+   Para adicionar uma ação entre passos, mova o ponteiro sobre a seta entre esses passos. Selecione o sinal de mais ( **+** ) que aparece e, em seguida, selecione **Adicionar uma ação**.
 
 1. Em **'Escolha uma ação**' na caixa de pesquisa, introduza "resposta" como filtro e selecione a ação **Resposta.**
 
@@ -251,7 +251,7 @@ A sua aplicação lógica mantém o pedido de entrada aberto apenas por um minut
 
    Aqui está mais informações sobre as propriedades que pode definir na ação Resposta. 
 
-   | Nome da propriedade | Nome da propriedade JSON | Necessário | Descrição |
+   | Nome da propriedade | Nome da propriedade JSON | Obrigatório | Descrição |
    |---------------|--------------------|----------|-------------|
    | **Código de Estado** | `statusCode` | Sim | O código de estado para devolver na resposta |
    | **Cabeçalhos** | `headers` | Não | Um objeto JSON que descreve um ou mais cabeçalhos para incluir na resposta |
@@ -262,6 +262,6 @@ A sua aplicação lógica mantém o pedido de entrada aberto apenas por um minut
 
 1. Quando terminar, guarde a sua aplicação lógica. Na barra de ferramentas de design, selecione **Guardar**. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Conectores para as Logic Apps](../connectors/apis-list.md)

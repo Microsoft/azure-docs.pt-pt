@@ -17,12 +17,12 @@ ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 84b68e5aecca11fb72f8cacc7e16701eebd0ae1a
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: d29689b088759b73465b24d06d4341571b599782
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83197315"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714054"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>FaQs e questões conhecidas com identidades geridas para recursos Azure
 
@@ -51,27 +51,7 @@ O limite de segurança da identidade é o recurso a que está ligado. Por exempl
 - Se o sistema atribuído à identidade gerida não estiver ativado e apenas existir uma identidade gerida atribuída ao utilizador, o IMDS irá desempendê-lo a essa identidade gerida atribuída ao único utilizador. 
 - Se o sistema atribuído à identidade gerida não estiver ativado e existirem múltiplas identidades geridas por utilizador, é necessário especificar uma identidade gerida no pedido.
 
-### <a name="should-i-use-the-managed-identities-for-azure-resources-imds-endpoint-or-the-vm-extension-endpoint"></a>Devo utilizar as identidades geridas para os recursos Azure IMDS endpoint ou o ponto final de extensão VM?
 
-Ao utilizar identidades geridas para recursos Azure com VMs, recomendamos a utilização do ponto final do IMDS. O Serviço de Metadados de Instância Seletiva Azure é um ponto final REST acessível a todos os VMs IaaS criados através do Gestor de Recursos Azure. 
-
-Alguns dos benefícios da utilização de identidades geridas para os recursos do Azure sobre o IMDS são:
-- Todos os sistemas operativos apoiados pelo Azure IaaS podem utilizar identidades geridas para recursos Azure em vez do IMDS.
-- Já não é necessário instalar uma extensão no seu VM para permitir identidades geridas para os recursos Azure. 
-- Os certificados utilizados por identidades geridas para os recursos Azure já não estão presentes no VM.
-- O ponto final do IMDS é um conhecido endereço IP não resaída, disponível apenas a partir do VM.
-- 1000 identidades geridas atribuídas ao utilizador podem ser atribuídas a um único VM. 
-
-As identidades geridas para a extensão VM de recursos Azure ainda estão disponíveis; no entanto, já não estamos a desenvolver novas funcionalidades sobre o mesmo. Recomendamos que se altere para utilizar o ponto final do IMDS. 
-
-Algumas das limitações da utilização do ponto final da extensão VM são:
-- Suporte limitado para distribuição de Linux: CoreOS Estável, CentOS 7.1, Chapéu Vermelho 7.2, Ubuntu 15.04, Ubuntu 16.04
-- Apenas 32 identidades geridas atribuídas ao utilizador podem ser atribuídas ao VM.
-
-
-Nota: As identidades geridas para a extensão vm de recursos Azure estarão fora de apoio em janeiro de 2019. 
-
-Para mais informações sobre o Serviço de Metadados de Caso Sino Do Azure, consulte a [documentação do IMDS](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
 
 ### <a name="will-managed-identities-be-recreated-automatically-if-i-move-a-subscription-to-another-directory"></a>As identidades geridas serão recriadas automaticamente se eu mover uma subscrição para outro diretório?
 
@@ -88,16 +68,7 @@ Não. As identidades geridas não suportam atualmente cenários transversais.
 - Identidade gerida atribuída pelo sistema: Precisa de permissões de escrita sobre o recurso. Por exemplo, para máquinas virtuais, precisa de Microsoft.Compute/virtualMachines/write. Esta ação está incluída em funções específicas de recursos incorporados como [o Virtual Machine Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).
 - Identidade gerida atribuída ao utilizador: Precisa de permissões de escrita sobre o recurso. Por exemplo, para máquinas virtuais, precisa de Microsoft.Compute/virtualMachines/write. Para além da atribuição de funções de [Operador de Identidade Gerida](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) sobre a identidade gerida.
 
-### <a name="how-do-you-restart-the-managed-identities-for-azure-resources-extension"></a>Como reiniciar as identidades geridas para a extensão de recursos do Azure?
-No Windows e em certas versões do Linux, se a extensão parar, o seguinte cmdlet pode ser utilizado para reiniciá-lo manualmente:
 
-```powershell
-Set-AzVMExtension -Name <extension name>  -Type <extension Type>  -Location <location> -Publisher Microsoft.ManagedIdentity -VMName <vm name> -ResourceGroupName <resource group name> -ForceRerun <Any string different from any last value used>
-```
-
-Em que: 
-- Nome e tipo de extensão para Windows é: ManagedIdentityExtensionForWindows
-- Nome e tipo de extensão para Linux é: ManagedIdentityExtensionForLinux
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
@@ -133,12 +104,7 @@ Uma vez iniciado o VM, a etiqueta pode ser removida utilizando o seguinte comand
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
 
-### <a name="vm-extension-provisioning-fails"></a>Falha no fornecimento de extensão VM
 
-O fornecimento da extensão VM pode falhar devido a falhas de procura do DNS. Reinicie o VM e tente de novo.
- 
-> [!NOTE]
-> A extensão vm está prevista para ser depreciada até janeiro de 2019. Recomendamos que se mova para a utilização do ponto final do IMDS.
 
 ### <a name="transferring-a-subscription-between-azure-ad-directories"></a>Transferência de uma subscrição entre diretórios da AD Azure
 
@@ -151,4 +117,4 @@ Seleção para identidades geridas numa subscrição que foi transferida para ou
 
 ### <a name="moving-a-user-assigned-managed-identity-to-a-different-resource-groupsubscription"></a>Mover uma identidade gerida atribuída ao utilizador para um grupo/subscrição diferente
 
-Mover uma identidade gerida atribuída ao utilizador para um grupo de recursos diferente fará com que a identidade se rompa. Como resultado, os recursos (por exemplo, VM) que utilizam essa identidade não poderão solicitar fichas para a sua identidade. 
+Não é suportada a deslocação de uma identidade gerida atribuída ao utilizador para um grupo de recursos diferente.

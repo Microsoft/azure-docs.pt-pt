@@ -1,5 +1,5 @@
 ---
-title: Ligue-se à Ligação Synapse para Azure Cosmos DB
+title: Ligue-se a Azure Synapse Link para Azure Cosmos DB
 description: Como ligar um Azure Cosmos DB a um espaço de trabalho sinapse com ligação synapse
 services: synapse-analytics
 author: ArnoMicrosoft
@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: dbacb70cd2166b601a47200b81f31a8eb7bb79ec
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 81cc7745790c7a89576dc5d0ff925dbaff2b2334
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599986"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700377"
 ---
-# <a name="connect-to-synapse-link-for-azure-cosmos-db"></a>Ligue-se à Ligação Synapse para Azure Cosmos DB
+# <a name="connect-to-azure-synapse-link-for-azure-cosmos-db"></a>Ligue-se a Azure Synapse Link para Azure Cosmos DB
 
 Este artigo descreve como aceder a uma base de dados Azure Cosmos DB do estúdio Azure Synapse Analytics com Synapse Link. 
 
@@ -64,7 +64,7 @@ As bases de dados Azure Cosmos DB são visíveis sob o separador **Linked** na s
 
 Quando clicar num recipiente, terá uma lista de gestos que irão desencadear um tempo de execução De Faísca ou SQL. A escrita num contentor acontecerá através da Loja Transacional de Azure Cosmos DB e consumirá Unidades de Pedido.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba o que é apoiado entre Synapse e Azure Cosmos DB](./synapse-link/concept-synapse-link-cosmos-db-support.md)
 * [Saiba consultar uma loja analítica com Apache Spark para a Azure Synapse Analytics](synapse-link/how-to-query-analytical-store-spark.md)

@@ -1,33 +1,33 @@
 ---
-description: Conheça o histórico da versão para a extensão de Configuração do Estado Desejado (DSC) em Azure.
+title: Trabalhar com o histórico de extensão de extensão de configuração do Estado Do Azure
+description: Este artigo diz como trabalhar com o histórico da versão para a extensão de Configuração do Estado Desejado (DSC) em Azure.
 ms.date: 06/21/2018
 keywords: dsc, powershell, azul, extensão
-title: Histórico de versões da extensão do DSC do Azure
 author: mgoedtel
 ms.author: magoedte
 services: automation
 ms.service: automation
 ms.subservice: dsc
 ms.topic: conceptual
-ms.openlocfilehash: 207b8f7467753a8693bbabe6dd3f7a890307cf21
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4578e3bff7951293c5ec2f1992e597face84b716
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82120707"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83713204"
 ---
-# <a name="azure-desired-state-configuration-extension-version-history"></a>Histórico de extensão de extensão de configuração do Estado do Azure
+# <a name="work-with-azure-desired-state-configuration-extension-version-history"></a>Trabalhar com o histórico de extensão de extensão de configuração do Estado Do Azure
 
 A extensão de Configuração do Estado Do Desejo Azure (DSC) vM é atualizada conforme necessário para suportar melhorias e novas capacidades entregues pelo Azure, Windows Server e a Estrutura de Gestão do Windows (WMF) que inclui o Windows PowerShell.
 
-Este artigo fornecerá informações sobre cada versão da Extensão VM Azure DSC, que ambientes suporta, e comentários e comentários sobre novas funcionalidades ou alterações.
+Este artigo fornece informações sobre cada versão da Extensão VM Azure DSC, que ambientes suporta, e comentários e comentários sobre novas funcionalidades ou alterações.
 
 ## <a name="latest-version"></a>Versão mais recente
 
 ### <a name="version-276"></a>Versão 2.76
 
 - **Data de lançamento:**
-  - 9 de maio de 2018 (Azure) [ 21 de junho de 2018 (Azure China, Governo Azure)
+  - 9 de maio de 2018 (Azure) [ 21 de junho de 2018 (Azure China Vianet 21, Governo Azure)
 - **Suporte para os Sistemas Operativos:**
   - Windows Server 2016
   - Windows Server 2012 R2
@@ -42,7 +42,7 @@ Este artigo fornecerá informações sobre cada versão da Extensão VM Azure DS
   - WMF 4.0
 - **Ambiente:**
   - Azure
-  - Azure China
+  - Vianet Azure China 21
   - Azure Government
 - **Observações:** Esta versão utiliza o DSC como incluído no Windows Server 2016; para outros OSes do Windows, instala o [Windows Management Framework 5.1](https://devblogs.microsoft.com/powershell/wmf-5-1-releasing-january-2017/) (a instalação do WMF requer um reboot). Para o Nano Server, a função DSC está instalada no VM.
 - **Novas funcionalidades:**
@@ -181,10 +181,10 @@ Este artigo fornecerá informações sobre cada versão da Extensão VM Azure DS
 - **Data de lançamento:** 3 de junho de 2016
 - **Suporte para os Sistemas Operativos:** Pré-visualização técnica do Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 SP1
 - **Suporte wmf:** WMF 5.0 RTM, WMF 4.0 Update, WMF 4.0
-- **Ambiente:** Azure, Azure China, Governo Azure
+- **Ambiente:** Azure, Azure China Vianet 21, Governo Azure
 - **Observações:** Esta versão utiliza o DSC tal como incluído na Pré-visualização Técnica do Windows Server 2016; para outros OSes do Windows, instala o [Windows Management Framework 5.0 RTM](https://devblogs.microsoft.com/powershell/windows-management-framework-wmf-5-0-rtm-is-now-available-via-the-microsoft-update-catalog/) (instalar o WMF requer um reboot).
 - **Novas funcionalidades:**
-  - A extensão do DSC está agora a bordo da Azure China. Esta versão contém principalmente correções para executar a extensão sobre a China Azure.
+  - A extensão do DSC está agora a bordo da Azure China Vianet 21. Esta versão contém principalmente correções para executar a extensão da Vianet 21 azure China.
 
 ### <a name="version-218"></a>Versão 2.18
 
@@ -247,9 +247,9 @@ Este artigo fornecerá informações sobre cada versão da Extensão VM Azure DS
   - Fornece um formato de definições atualizado para a extensão num modelo de Gestor de Recursos. Para mais informações, consulte [o blog.](https://devblogs.microsoft.com/powershell/arm-dsc-extension-settings/)
   - Correções de bugs e outras melhorias.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Para mais informações sobre o PowerShell DSC, vá ao centro de [documentação PowerShell](/powershell/scripting/dsc/overview/overview).
+- Para mais informações sobre o PowerShell DSC, consulte o centro de [documentação PowerShell](/powershell/scripting/dsc/overview/overview).
 - Examine o modelo do Gestor de [Recursos para a extensão DSC](/azure/virtual-machines/extensions/dsc-template).
 - Para obter mais funcionalidades que possa gerir utilizando o PowerShell DSC e para obter mais recursos DSC, navegue na [galeria PowerShell.](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0)
 - Para mais detalhes sobre a passagem de parâmetros sensíveis em configurações, consulte [Gerir as credenciais de forma segura com o manipulador de extensão DSC](/azure/virtual-machines/extensions/dsc-credentials).

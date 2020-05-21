@@ -1,6 +1,6 @@
 ---
-title: Ativar máquinas para gestão pela Configuração do Estado da Automação Azure
-description: Como configurar máquinas para gestão com configuração do Estado da Automação Azure
+title: Ativar a configuração do Estado da Automação Azure
+description: Este artigo diz como configurar máquinas para gestão com a Configuração do Estado da Automação Azure.
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -9,14 +9,14 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 12/10/2019
 manager: carmonm
-ms.openlocfilehash: 52cd72d1144fa2acad993e927d49545d645d596f
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: a2693803603e053f06c8b6886c6f6639f0859461
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993743"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83713153"
 ---
-# <a name="enable-machines-for-management-by-azure-automation-state-configuration"></a>Ativar máquinas para gestão pela Configuração do Estado da Automação Azure
+# <a name="enable-azure-automation-state-configuration"></a>Ativar a configuração do Estado da Automação Azure
 
 Este tópico descreve como pode configurar as suas máquinas para gestão com a Configuração do Estado da Automação Azure. Para mais detalhes deste serviço, consulte a visão geral da Configuração do Estado da [Automatização do Azure](automation-dsc-overview.md).
 
@@ -26,7 +26,7 @@ A Configuração do Estado da Automação Azure permite facilmente ativar os VMs
 
 > [!NOTE]
 >A implantação de DSC para um nó Linux utiliza a pasta **/tmp.** Módulos como `nxautomation` são temporariamente descarregados para verificação antes de os instalarem nos locais apropriados. Para garantir que os módulos se instalam corretamente, o agente Log Analytics para o Linux necessita de permissões de leitura/escrita na pasta **/tmp.**<br><br>
->O agente Log Analytics para `omsagent` o Linux funciona como utilizador. Para conceder >autorizar `omsagent` o utilizador, `setfacl -m u:omsagent:rwx /tmp`execute o comando .
+>O agente Log Analytics para o Linux funciona como `omsagent` utilizador. Para conceder >autorizar o `omsagent` utilizador, execute o comando `setfacl -m u:omsagent:rwx /tmp` .
 
 ### <a name="enable-a-vm-using-azure-portal"></a>Ativar um VM utilizando o portal Azure
 
@@ -83,7 +83,7 @@ Pode ativar servidores Linux que executem no local ou em outros ambientes de nuv
 1. Certifique-se de que a versão mais recente da [Configuração do Estado PowerShell Desired para Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) está instalada nas máquinas para ativar a Configuração do Estado.
 2. Se o [PowerShell DSC Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaConfig4) corresponder ao seu caso de utilização, e pretender ativar as máquinas de modo a que ambos se retirem e reportem à Configuração do Estado:
 
-   - Em cada máquina Linux `Register.py` para ativar, utilize para ativar a máquina com as predefinições do PowerShell DSC Local Configuration Manager.
+   - Em cada máquina Linux para ativar, utilize `Register.py` para ativar a máquina com as predefinições do PowerShell DSC Local Configuration Manager.
 
      `/opt/microsoft/dsc/Scripts/Register.py <Automation account registration key> <Automation account registration URL>`
 
@@ -110,7 +110,7 @@ Pode ativar servidores Linux que executem no local ou em outros ambientes de nuv
 
 7. Se não conseguir aplicar as configurações do DSC PowerShell remotamente, copie as configurações correspondentes às máquinas remotas da pasta descrita no passo 4 para as máquinas Linux.
 
-8. Adicione código `Set-DscLocalConfigurationManager.py` para ligar localmente em cada máquina Linux para ativar a Configuração do Estado.
+8. Adicione código para ligar `Set-DscLocalConfigurationManager.py` localmente em cada máquina Linux para ativar a Configuração do Estado.
 
    `/opt/microsoft/dsc/Scripts/SetDscLocalConfigurationManager.py -configurationmof <path to metaconfiguration file>`
 
@@ -123,7 +123,7 @@ Para ativar qualquer máquina para configuração do Estado, pode gerar uma [con
 > [!NOTE]
 > As configurações do DSC contêm os segredos necessários para permitir uma máquina numa conta de Automação para gestão. Certifique-se de que protege corretamente quaisquer configurações DSC que crie ou elimine-as após a utilização.
 
-O suporte proxy para configurações é controlado por LCM, que é o motor DSC Windows PowerShell. O LCM funciona em todos os nós alvo e é responsável por chamar os recursos de configuração que estão incluídos num script de configuração DSC. Pode incluir suporte proxy numa configuração, incluindo definições do URL proxy e `ConfigurationRepositoryWeb` `ResourceRepositoryWeb`da `ReportServerWeb` credencial de procuração, conforme necessário nos blocos e blocos. Consulte [a configuração do Gestor de Configuração Local](https://docs.microsoft.com/powershell/scripting/dsc/managing-nodes/metaconfig?view=powershell-7).
+O suporte proxy para configurações é controlado pelo Gestor de [Configuração Local](https://docs.microsoft.com/powershell/scripting/dsc/managing-nodes/metaconfig?view=powershell-7), que é o motor DSC do Windows PowerShell. O LCM funciona em todos os nós alvo e é responsável por chamar os recursos de configuração que estão incluídos num script de configuração DSC. Pode incluir suporte por procuração numa configuração, incluindo definições de `ProxyURL` e propriedades conforme necessário nos `ProxyCredential` `ConfigurationRepositoryWeb` blocos e `ResourceRepositoryWeb` `ReportServerWeb` blocos. Um exemplo da definição de URL é `ProxyURL = "http://172.16.3.6:3128";` . A `ProxyCredential` propriedade está definida para um `PSCredential` objeto, como descrito nas [credenciais De Gestão na Automação Azure.](shared-resources/credentials.md) 
 
 ### <a name="generate-dsc-metaconfigurations-using-a-dsc-configuration"></a>Gerar configurações DSC utilizando uma configuração DSC
 
@@ -245,9 +245,9 @@ O suporte proxy para configurações é controlado por LCM, que é o motor DSC W
 
 1. Preencha a chave de registo e o URL para a sua conta Deautomatização, bem como os nomes das máquinas para ativar. Todos os outros parâmetros são opcionais. Para encontrar a chave de registo e url de registo da sua conta Automation, consulte [as máquinas Ativar em segurança utilizando](#enable-machines-securely-using-registration)o registo .
 
-1. Se pretender que as máquinas reportem informações de estado dSC à Configuração do `ReportOnly` Estado da Automação Azure, mas não puxe a configuração ou os módulos PowerShell, defina o parâmetro como verdadeiro.
+1. Se pretender que as máquinas reportem informações de estado dSC à Configuração do Estado da Automação Azure, mas não puxe a configuração ou os módulos PowerShell, defina o `ReportOnly` parâmetro como verdadeiro.
 
-1. Se `ReportOnly` não estiver definido, as máquinas reportam informações de estado dSC à Configuração do Estado da Automação Azure e à configuração de puxar ou módulos PowerShell. Coloque os parâmetros `ConfigurationRepositoryWeb`em `ResourceRepositoryWeb`conformidade `ReportServerWeb` nos blocos e blocos.
+1. Se `ReportOnly` não estiver definido, as máquinas reportam informações de estado dSC à Configuração do Estado da Automação Azure e à configuração de puxar ou módulos PowerShell. Coloque os parâmetros em conformidade nos `ConfigurationRepositoryWeb` `ResourceRepositoryWeb` blocos e `ReportServerWeb` blocos.
 
 1. Execute o script. Deve agora ter uma pasta de diretório de trabalho chamada **DscMetaConfigs,** contendo as configurações do DSC PowerShell para as máquinas ativarem (como administrador).
 
@@ -299,11 +299,11 @@ Para maior segurança, pode regenerar as chaves de acesso primária e secundári
 
 Depois de registar uma máquina como nó DSC na Configuração do Estado da Automação Azure, existem várias razões pelas quais poderá ser necessário reregistar esse nó no futuro.
 
-- **Renovação de certificado.** Para versões do Windows Server antes do Windows Server 2019, cada nó negoceia automaticamente um certificado único para autenticação que expira após um ano. Se um certificado expirar sem renovação, o nó não pode `Unresponsive`comunicar com a Automação Azure e está marcado . Atualmente, o protocolo de registo DoC PowerShell não pode renovar automaticamente os certificados quando estão perto da expiração, e deve voltar a registar os nós após um ano. Antes de voltar a registar-se, certifique-se de que cada nó está a funcionar WMF 5 RTM. 
+- **Renovação de certificado.** Para versões do Windows Server antes do Windows Server 2019, cada nó negoceia automaticamente um certificado único para autenticação que expira após um ano. Se um certificado expirar sem renovação, o nó não pode comunicar com a Automação Azure e está marcado `Unresponsive` . Atualmente, o protocolo de registo DoC PowerShell não pode renovar automaticamente os certificados quando estão perto da expiração, e deve voltar a registar os nós após um ano. Antes de voltar a registar-se, certifique-se de que cada nó está a funcionar WMF 5 RTM. 
 
     A reinscrição realizada 90 dias ou menos a partir do prazo de validade do certificado, ou em qualquer ponto após o prazo de validade do certificado, resulta na geração e uso de um novo certificado. Uma resolução para este problema está incluída no Windows Server 2019 e posteriormente.
 
-- **Alterações nos valores dSC LCM.** Pode ser necessário alterar os [valores do PowerShell DSC LCM](/powershell/scripting/dsc/managing-nodes/metaConfig4) `ConfigurationMode`definidos durante o registo inicial do nó, por exemplo, . Atualmente, só pode alterar estes valores de agente DSC através de reregisto. A única exceção é o valor de configuração do nó atribuído ao nó. Pode alterar isto diretamente no Azure Automation DSC.
+- **Alterações nos valores dSC LCM.** Pode ser necessário alterar os [valores do PowerShell DSC LCM](/powershell/scripting/dsc/managing-nodes/metaConfig4) definidos durante o registo inicial do nó, por exemplo, `ConfigurationMode` . Atualmente, só pode alterar estes valores de agente DSC através de reregisto. A única exceção é o valor de configuração do nó atribuído ao nó. Pode alterar isto diretamente no Azure Automation DSC.
 
 Pode voltar a registar um nó assim que registou o nó inicialmente, utilizando qualquer um dos métodos descritos neste documento. Não é necessário desregistar um nó da Configuração do Estado da Automação Azure antes de o reregistar.
 
@@ -323,7 +323,7 @@ Para resolver problemas ou visualizar o estado da extensão de configuração de
 
 Para obter mais informações sobre resolução de problemas, consulte [Troubleshoot Azure Automation State Configuration](./troubleshoot/desired-state-configuration.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para começar, veja O Início com a Configuração do Estado da [Automação Azure](automation-dsc-getting-started.md).
 - Para aprender sobre a compilação de configurações de DSC para que possa atribuí-las a nós-alvo, consulte [configurações de compilação na Configuração do Estado da Automação Azure](automation-dsc-compile.md).

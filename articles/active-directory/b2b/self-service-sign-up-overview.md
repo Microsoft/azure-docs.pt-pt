@@ -11,30 +11,33 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e0325b43b6726f04d5994b60404f218ac58122d
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: fd76a0556ff22890aff9f4b623e7688064192558
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597535"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83712201"
 ---
-# <a name="self-service-sign-up-preview"></a>Inscrição de autosserviço (Pré-visualização)
+# <a name="self-service-sign-up-preview"></a>Inscrição personalizada (Pré-visualização)
 |     |
 | --- |
 | A inscrição em self-service é uma funcionalidade de pré-visualização pública do Azure Ative Directory. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
-Ao partilhar aplicações com utilizadores externos, pode nem sempre saber com antecedência quem precisará de acesso a uma aplicação. Como alternativa ao envio de convites diretamente para indivíduos, pode permitir que utilizadores externos se inscrevam para aplicações específicas, permitindo o autosserviço de inscrição. Pode criar uma experiência de inscrição personalizada personalizando o fluxo de utilizador de inscrição de autosserviço. Por exemplo, pode fornecer opções para fornecedores de identidade azure ou de identidade social e recolher informações sobre o utilizador.
+Ao partilhar uma aplicação com utilizadores externos, pode nem sempre saber com antecedência quem necessitará de acesso à aplicação. Como alternativa ao envio de convites diretamente para indivíduos, pode permitir que utilizadores externos se inscrevam para aplicações específicas, permitindo o autosserviço de inscrição. Pode criar uma experiência de inscrição personalizada personalizando o fluxo de utilizador de inscrição de autosserviço. Por exemplo, pode fornecer opções para se inscrever com a Azure AD ou fornecedores de identidade social e recolher informações sobre o utilizador durante o processo de inscrição.
+
+> [!NOTE]
+> Pode associar fluxos de utilizadores a aplicações construídas pela sua organização. Os fluxos de utilizadores não podem ser utilizados para aplicações da Microsoft, como o SharePoint ou Teams.
 
 ## <a name="user-flow-for-self-service-sign-up"></a>Fluxo de utilizador para inscrição de autosserviço
 
-Um fluxo de utilizador de inscrição de autosserviço cria uma experiência de inscrição para os seus utilizadores externos através da aplicação que pretende partilhar. O fluxo do utilizador pode ser associado a uma ou mais das suas aplicações. Primeiro, permitirá a inscrição de self-service para o seu inquilino e federará com quaisquer fornecedores de identidade que pretenda permitir que utilizadores externos utilizem para iniciar sessão. Em seguida, criará e personalizará o fluxo de utilizador de inscrição e atribuirá-lhe as suas aplicações.
+Um fluxo de utilizador de inscrição de autosserviço cria uma experiência de inscrição para os seus utilizadores externos através da aplicação que pretende partilhar. O fluxo do utilizador pode ser associado a uma ou mais das suas aplicações. Primeiro, permitirá a inscrição de self-service para o seu inquilino e federará com os fornecedores de identidade que pretende permitir que utilizadores externos utilizem para iniciar sessão. Em seguida, criará e personalizará o fluxo de utilizador de inscrição e atribuirá-lhe as suas aplicações.
 Pode configurar as definições de fluxo do utilizador para controlar a forma como o utilizador se inscreve na aplicação:
 
 - Tipos de conta utilizados para iniciar sessão, tais como contas sociais como facebook ou contas AD Azure
 - Atributos a recolher do utilizador que se inscreva, tais como primeiro nome, código postal ou país de residência
 
-Quando um utilizador quer iniciar sessão na sua aplicação, seja uma aplicação web, móvel, de secretária ou de uma única página (SPA), a aplicação inicia um pedido de autorização para o ponto final fornecido pelo utilizador. O fluxo do utilizador define e controla a experiência do utilizador. Quando completam um fluxo de utilizador de inscrição, o Azure AD gera um token e, em seguida, redireciona o utilizador de volta para a sua aplicação. Várias aplicações podem utilizar o mesmo fluxo de utilizador.
+Quando um utilizador quer iniciar sessão na sua aplicação, seja uma aplicação web, móvel, de secretária ou de uma única página (SPA), a aplicação inicia um pedido de autorização para o ponto final fornecido pelo utilizador. O fluxo do utilizador define e controla a experiência do utilizador. Quando o utilizador completa o fluxo de utilizador de inscrição, o Azure AD gera um token e redireciona o utilizador de volta para a sua aplicação. Após a conclusão da inscrição, é prevista uma conta de hóspedes para o utilizador no diretório. Várias aplicações podem utilizar o mesmo fluxo de utilizador.
 
 ## <a name="example-of-self-service-sign-up"></a>Exemplo de inscrição de autosserviço
 
@@ -47,7 +50,7 @@ Usam o e-mail da sua escolha para se inscreverem.
 
 ![Exemplo mostrando seleção do Facebook para iniciar sessão](media/self-service-sign-up-overview/example-sign-in-with-facebook.png)
 
-A Azure AD cria uma relação com a Woodgrove usando a conta de Facebook do parceiro, e cria uma nova conta.
+A Azure AD cria uma relação com a Woodgrove utilizando a conta de Facebook do parceiro e cria uma nova conta de hóspedes para o utilizador depois de se inscreverem.
 
 A Woodgrove quer saber mais sobre o utilizador, como nome, nome comercial, código de registo de negócios, número de telefone.
 
@@ -57,6 +60,6 @@ O utilizador introduz a informação, continua o fluxo de inscrição e tem aces
 
 ![Exemplo mostrando o utilizador instávido](media/self-service-sign-up-overview/example-signed-in.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
  Para mais detalhes, consulte como adicionar a [inscrição de self-service a uma aplicação](self-service-sign-up-user-flow.md).

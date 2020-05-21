@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: thweiss
-ms.openlocfilehash: 684799ee12715c789910accf80aa5b4afec763d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 921a11d8846c868436365fe400852eac0f7dcd3e
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81273244"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83712099"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indexação no Azure Cosmos DB – Descrição geral
 
@@ -90,7 +90,7 @@ A Azure Cosmos DB suporta atualmente três tipos de índices.
    ```sql
    SELECT * FROM container c WHERE c.property > 'value'
    ```
-  (trabalha `>` `<`para, `>=` `<=`, `!=`, , )
+  (trabalha `>` `<` para, `>=` , , , `<=` `!=` )
 
 - Verificando a presença de um imóvel:
 
@@ -98,7 +98,11 @@ A Azure Cosmos DB suporta atualmente três tipos de índices.
    SELECT * FROM c WHERE IS_DEFINED(c.property)
    ```
 
-- Correspondências de prefixo de cadeia (a palavra-chave CONTÉM não alavancará o índice de gama):
+- Funções do sistema de cordas:
+
+   ```sql
+   SELECT * FROM c WHERE CONTAINS(c.property, "value")
+   ```
 
    ```sql
    SELECT * FROM c WHERE STARTSWITH(c.property, "value")
@@ -152,7 +156,7 @@ Os índices **compósitos** aumentam a eficiência quando se está a realizar op
  SELECT * FROM container c ORDER BY c.property1, c.property2
 ```
 
-- Consultas com filtro `ORDER BY`e . Estas consultas podem utilizar um índice composto se `ORDER BY` a propriedade do filtro for adicionada à cláusula.
+- Consultas com filtro e `ORDER BY` . Estas consultas podem utilizar um índice composto se a propriedade do filtro for adicionada à `ORDER BY` cláusula.
 
 ```sql
  SELECT * FROM container c WHERE c.property1 = 'value' ORDER BY c.property1, c.property2
@@ -173,16 +177,16 @@ Enquanto um predicado de filtro utilizar um dos tipos de índice, o motor de con
 
 ## <a name="querying-with-indexes"></a>Consulta com índices
 
-Os caminhos extraídos ao indexar os dados facilitam a procura do índice no processamento de uma consulta. Ao combinar `WHERE` a cláusula de uma consulta com a lista de caminhos indexados, é possível identificar os itens que correspondem à consulta predicada muito rapidamente.
+Os caminhos extraídos ao indexar os dados facilitam a procura do índice no processamento de uma consulta. Ao combinar a `WHERE` cláusula de uma consulta com a lista de caminhos indexados, é possível identificar os itens que correspondem à consulta predicada muito rapidamente.
 
-Por exemplo, considere a `SELECT location FROM location IN company.locations WHERE location.country = 'France'`seguinte consulta: . O predicado da consulta (filtragem em itens, onde qualquer localização tem "França" como seu país) corresponderia ao caminho realçado a vermelho abaixo:
+Por exemplo, considere a seguinte consulta: `SELECT location FROM location IN company.locations WHERE location.country = 'France'` . O predicado da consulta (filtragem em itens, onde qualquer localização tem "França" como seu país) corresponderia ao caminho realçado a vermelho abaixo:
 
 ![Combinando um caminho específico dentro de uma árvore](./media/index-overview/matching-path.png)
 
 > [!NOTE]
-> Uma `ORDER BY` cláusula que encomenda por uma única propriedade *precisa sempre* de um índice de alcance e falhará se o caminho que refere não tiver um. Da mesma `ORDER BY` forma, uma consulta que encomenda por múltiplas propriedades *sempre* precisa de um índice composto.
+> Uma `ORDER BY` cláusula que encomenda por uma única propriedade precisa *sempre* de um índice de alcance e falhará se o caminho que refere não tiver um. Da mesma forma, uma `ORDER BY` consulta que encomenda por múltiplas propriedades *sempre* precisa de um índice composto.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Leia mais sobre indexação nos seguintes artigos:
 

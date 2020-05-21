@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: cc6cf908c5550f81ca6002de031d8d54dcff1eec
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: cb89caa0a2fe5cde5bcea92e08c0df117215d916
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83685317"
+ms.locfileid: "83713306"
 ---
 # <a name="manage-variables-in-azure-automation"></a>Gerir variáveis na Automação Azure
 
@@ -188,12 +188,12 @@ Num livro gráfico, pode adicionar atividades para os cmdlets internos `Get-Auto
 
 ![Adicionar variável à tela](../media/variables/runbook-variable-add-canvas.png)
 
-A imagem que se segue mostra atividades de exemplo para atualizar uma variável com um valor simples num livro gráfico. Neste exemplo, a atividade para `Get-AzVM` recuperar uma única máquina virtual Azure e guarda o nome do computador para uma variável de cadeia de automação existente. Não importa se a [ligação é um oleoduto ou sequência,](../automation-graphical-authoring-intro.md#links-and-workflow) uma vez que o código só espera um único objeto na saída.
+A imagem que se segue mostra atividades de exemplo para atualizar uma variável com um valor simples num livro gráfico. Neste exemplo, a atividade para `Get-AzVM` recuperar uma única máquina virtual Azure e guarda o nome do computador para uma variável de cadeia de automação existente. Não importa se a [ligação é um oleoduto ou sequência,](../automation-graphical-authoring-intro.md#use-links-for-workflow) uma vez que o código só espera um único objeto na saída.
 
 ![Definir variável simples](../media/variables/runbook-set-simple-variable.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Para saber mais sobre os cmdlets usados para aceder a variáveis, consulte [Gerir módulos em Automação Azure](modules.md).
-* Para obter informações gerais sobre livros de execução, consulte a execução do Livro de [Corridas na Automação Azure.](../automation-runbook-execution.md)
-* Para mais detalhes sobre as configurações do DSC, consulte a visão geral da [Configuração do Estado](../automation-dsc-overview.md).
+* [Utilizar módulos na Automatização do Azure](modules.md)
+* [Execução de runbooks na Automatização do Azure](../automation-runbook-execution.md)
+* [Visão geral da configuração do Estado da Automação Azure](../automation-dsc-overview.md) 

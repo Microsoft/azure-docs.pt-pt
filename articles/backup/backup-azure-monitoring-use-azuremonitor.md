@@ -4,12 +4,12 @@ description: Monitorize as cargas de trabalho de backup azure e crie alertas per
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 54a98cebc2887f7508543a4dc752b2145c3bbda2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 81e4f9f63df19ed57f26be8eb246c6dab1bf512c
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183658"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714836"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Monitor à escala utilizando o Monitor Azure
 
@@ -45,6 +45,9 @@ A característica determinante de um alerta é a sua condição de desencadeamen
 
 Se necessário, pode editar a consulta de Kusto. Escolha um limiar, período e frequência. O limiar determina quando o alerta será levantado. O período é a janela de tempo em que a consulta é executada. Por exemplo, se o limiar for superior a 0, o período é de 5 minutos, e a frequência é de 5 minutos, então a regra executa a consulta a cada 5 minutos, revendo os 5 minutos anteriores. Se o número de resultados for superior a 0, é notificado através do grupo de ação selecionado.
 
+> [!NOTE]
+> Para executar a regra de alerta uma vez por dia, em todos os eventos/registos que foram criados no dia seguinte, alterar o valor tanto do 'período' como da 'frequência' para 1440, ou seja, 24 horas.
+
 #### <a name="alert-action-groups"></a>Grupos de ação de alerta
 
 Utilize um grupo de ação para especificar um canal de notificação. Para ver os mecanismos de notificação disponíveis, em **grupos action,** selecione **Create New**.
@@ -64,6 +67,7 @@ Os gráficos padrão dão-lhe consultas kusto para cenários básicos nos quais 
     ````Kusto
     AddonAzureBackupJobs
     | where JobOperation=="Backup"
+    | summarize arg_max(TimeGenerated,*) by JobUniqueId
     | where JobStatus=="Completed"
     ````
 
@@ -72,6 +76,7 @@ Os gráficos padrão dão-lhe consultas kusto para cenários básicos nos quais 
     ````Kusto
     AddonAzureBackupJobs
     | where JobOperation=="Backup"
+    | summarize arg_max(TimeGenerated,*) by JobUniqueId
     | where JobStatus=="Failed"
     ````
 
@@ -80,6 +85,7 @@ Os gráficos padrão dão-lhe consultas kusto para cenários básicos nos quais 
     ````Kusto
     AddonAzureBackupJobs
     | where JobOperation=="Backup"
+    | summarize arg_max(TimeGenerated,*) by JobUniqueId
     | where JobStatus=="Completed"
     | join kind=inner
     (
@@ -96,6 +102,7 @@ Os gráficos padrão dão-lhe consultas kusto para cenários básicos nos quais 
     ````Kusto
     AddonAzureBackupJobs
     | where JobOperation=="Backup" and JobOperationSubType=="Log"
+    | summarize arg_max(TimeGenerated,*) by JobUniqueId
     | where JobStatus=="Completed"
     | join kind=inner
     (
@@ -112,6 +119,7 @@ Os gráficos padrão dão-lhe consultas kusto para cenários básicos nos quais 
     ````Kusto
     AddonAzureBackupJobs
     | where JobOperation=="Backup"
+    | summarize arg_max(TimeGenerated,*) by JobUniqueId
     | where JobStatus=="Completed"
     | join kind=inner
     (
@@ -161,8 +169,8 @@ Os dados de diagnóstico do cofre são bombeados para o espaço de trabalho log 
 Também pode utilizar registos de atividade para obter notificação para eventos como o sucesso de backup. Para começar, siga estes passos:
 
 1. Inicie sessão no Portal do Azure.
-1. Abra o cofre relevante dos Serviços de Recuperação.
-1. Nas propriedades do cofre, abra a secção de registo de **atividade.**
+2. Abra o cofre relevante dos Serviços de Recuperação.
+3. Nas propriedades do cofre, abra a secção de registo de **atividade.**
 
 Para identificar o registo adequado e criar um alerta:
 
@@ -170,9 +178,9 @@ Para identificar o registo adequado e criar um alerta:
 
    ![Filtragem para encontrar registos de atividade para backups De VM Azure](media/backup-azure-monitoring-laworkspace/activitylogs-azurebackup-vmbackups.png)
 
-1. Selecione o nome de operação para ver os detalhes relevantes.
-1. Selecione **Nova regra de alerta** para abrir a página de regra **Criar.**
-1. Crie um alerta seguindo os passos em [Criar, visualizar e gerir alertas](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)de registo de atividade utilizando o Monitor Azure .
+2. Selecione o nome de operação para ver os detalhes relevantes.
+3. Selecione **Nova regra de alerta** para abrir a página de regra **Criar.**
+4. Crie um alerta seguindo os passos em [Criar, visualizar e gerir alertas](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)de registo de atividade utilizando o Monitor Azure .
 
    ![Nova regra de alerta](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
 
@@ -190,6 +198,6 @@ Embora possa obter notificações através de registos de atividade, recomendamo
 
 Utilize um espaço de trabalho de Log Analytics para monitorização e alerta em escala para todas as suas cargas de trabalho protegidas por Backup Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para criar consultas personalizadas, consulte o modelo de [dados Log Analytics](backup-azure-reports-data-model.md).

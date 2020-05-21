@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: 5b1c6561519bc25c2b7ac77f0a25eff89413a07a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dea5b3fb6cf20924666668e59e370399664d6b28
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81256489"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684744"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model"></a>Tutorial: Use R para criar um modelo de aprendizagem automática
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -121,10 +121,10 @@ Agora vá em frente e importe o pacote **azuremlsdk.**
 library(azuremlsdk)
 ```
 
-Os guiões de treino`accidents.R` `accident_predict.R`e pontuação (e ) têm algumas dependências adicionais. Se planeia executar esses scripts localmente, certifique-se de que também tem os pacotes necessários.
+Os guiões de treino e pontuação `accidents.R` (e `accident_predict.R` ) têm algumas dependências adicionais. Se planeia executar esses scripts localmente, certifique-se de que também tem os pacotes necessários.
 
 ### <a name="load-your-workspace"></a>Carregue o seu espaço de trabalho
-Instanteire um objeto espaço de trabalho do seu espaço de trabalho existente. O código seguinte carregará os detalhes do espaço de trabalho a partir do ficheiro **config.json.** Também pode recuperar um [`get_workspace()`](https://azure.github.io/azureml-sdk-for-r/reference/get_workspace.html)espaço de trabalho utilizando .
+Instanteire um objeto espaço de trabalho do seu espaço de trabalho existente. O código seguinte carregará os detalhes do espaço de trabalho a partir do ficheiro **config.json.** Também pode recuperar um espaço de trabalho utilizando [`get_workspace()`](https://azure.github.io/azureml-sdk-for-r/reference/get_workspace.html) .
 
 ```R
 ws <- load_workspace_from_config()
@@ -159,7 +159,7 @@ wait_for_provisioning_completion(compute_target)
 
 ## <a name="prepare-data-for-training"></a>Preparar dados para a formação
 Este tutorial utiliza dados da [Administração Nacional](https://cdan.nhtsa.gov/tsftables/tsfar.htm) de Segurança rodoviária dos EUA (graças a [Mary C. Meyer e Tremika Finney).](https://www.stat.colostate.edu/~meyer/airbags.htm)
-Este conjunto de dados inclui dados de mais de 25.000 acidentes de carro nos EUA, com variáveis que pode usar para prever a probabilidade de uma fatalidade. Em primeiro lugar, importe os dados em `accidents` R e transforme-os num novo quadro de dados para análise, e exporte-os para um `Rdata` ficheiro.
+Este conjunto de dados inclui dados de mais de 25.000 acidentes de carro nos EUA, com variáveis que pode usar para prever a probabilidade de uma fatalidade. Em primeiro lugar, importe os dados em R e transforme-os num novo quadro de dados `accidents` para análise, e exporte-os para um `Rdata` ficheiro.
 
 ```R
 nassCDS <- read.csv("nassCDS.csv", 
@@ -200,11 +200,11 @@ Para este tutorial, coloque um modelo de regressão logística nos seus dados ca
 * Submeter o trabalho
 
 ### <a name="prepare-the-training-script"></a>Prepare o roteiro de treino
-Foi-lhe `accidents.R` fornecido um guião de treino no mesmo diretório que este tutorial. Note os seguintes detalhes **dentro do roteiro** de treino que foram feitos para alavancar o Azure Machine Learning para formação:
+Foi-lhe fornecido um guião de treino `accidents.R` no mesmo diretório que este tutorial. Note os seguintes detalhes **dentro do roteiro** de treino que foram feitos para alavancar o Azure Machine Learning para formação:
 
-* O roteiro de `-d` treino requer um argumento para encontrar o diretório que contém os dados de treino. Quando define e submete o seu trabalho mais tarde, aponta para a loja de dados para este argumento. O Azure ML montará a pasta de armazenamento no cluster remoto para o trabalho de formação.
-* O script de treino regista a precisão final como métrica `log_metric_to_run()`para o registo de execução em Azure ML utilizando . O Azure ML SDK fornece um conjunto de APIs de exploração de madeira para registar várias métricas durante os treinos. Estas métricas são registadas e persistidas no registo de execução da experiência. As métricas podem então ser acedidas a qualquer momento ou vistas na página de detalhes de execução no [estúdio](https://ml.azure.com). Consulte a [referência](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation) para o `log_*()`conjunto completo de métodos de exploração madeireira .
-* O guião de treino salva o seu modelo num diretório chamado **outputs**. A `./outputs` pasta recebe tratamento especial pelo Azure ML. Durante o treino, `./outputs` os ficheiros escritos são automaticamente enviados para o seu registo de execução pelo Azure ML e persistiram como artefactos. Ao guardar o `./outputs`modelo treinado para, poderá aceder e recuperar o seu ficheiro modelo mesmo depois de terminar a corrida e já não ter acesso ao seu ambiente de treino remoto.
+* O roteiro de treino requer um argumento `-d` para encontrar o diretório que contém os dados de treino. Quando define e submete o seu trabalho mais tarde, aponta para a loja de dados para este argumento. O Azure ML montará a pasta de armazenamento no cluster remoto para o trabalho de formação.
+* O script de treino regista a precisão final como métrica para o registo de execução em Azure ML utilizando `log_metric_to_run()` . O Azure ML SDK fornece um conjunto de APIs de exploração de madeira para registar várias métricas durante os treinos. Estas métricas são registadas e persistidas no registo de execução da experiência. As métricas podem então ser acedidas a qualquer momento ou vistas na página de detalhes de execução no [estúdio](https://ml.azure.com). Consulte a [referência](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation) para o conjunto completo de métodos de exploração madeireira `log_*()` .
+* O guião de treino salva o seu modelo num diretório chamado **outputs**. A `./outputs` pasta recebe tratamento especial pelo Azure ML. Durante o treino, os ficheiros escritos são `./outputs` automaticamente enviados para o seu registo de execução pelo Azure ML e persistiram como artefactos. Ao guardar o modelo treinado `./outputs` para, poderá aceder e recuperar o seu ficheiro modelo mesmo depois de terminar a corrida e já não ter acesso ao seu ambiente de treino remoto.
 
 ### <a name="create-an-estimator"></a>Criar simulador
 
@@ -212,11 +212,11 @@ Um estimador Azure ML encapsula as informações de configuração de execução
 
 Para criar o estimador, defina:
 
-* O diretório que contém os seus`source_directory`scripts necessários para o treino ( ). Todos os ficheiros deste diretório são enviados para o nó do cluster para execução. O diretório deve conter o seu roteiro de treino e quaisquer scripts adicionais necessários.
-* O roteiro de treino que`entry_script`será executado .
-* O alvo computacional (`compute_target`), neste caso, o cluster AmlCompute que criou anteriormente.
-* Os parâmetros exigidos a`script_params`partir do script de treino ( ). O Azure ML executará o seu guião de treino como um guião de linha de comando com `Rscript`. Neste tutorial especifica-se um argumento para o script, o ponto `ds$path(target_path)`de montagem do diretório de dados, ao qual pode aceder .
-* Quaisquer dependências ambientais necessárias para o treino. A imagem padrão do Docker construída para`caret`o `e1071`treino `optparse`já contém os três pacotes ( , e ) necessários no roteiro de treino.  Então não precisa especificar informações adicionais. Se estiver a utilizar pacotes R que não estejam incluídos `cran_packages` por defeito, utilize o parâmetro do estimador para adicionar pacotes CRAN adicionais. Consulte [`estimator()`](https://azure.github.io/azureml-sdk-for-r/reference/estimator.html) a referência para o conjunto completo de opções configuráveis.
+* O diretório que contém os seus scripts necessários para o treino `source_directory` ( ). Todos os ficheiros deste diretório são enviados para o nó do cluster para execução. O diretório deve conter o seu roteiro de treino e quaisquer scripts adicionais necessários.
+* O roteiro de treino que será executado `entry_script` .
+* O alvo computacional ( `compute_target` ), neste caso, o cluster AmlCompute que criou anteriormente.
+* Os parâmetros exigidos a partir do script de treino `script_params` ( ). O Azure ML executará o seu guião de treino como um guião de linha de comando com `Rscript` . Neste tutorial especifica-se um argumento para o script, o ponto de montagem do diretório de dados, ao qual pode aceder `ds$path(target_path)` .
+* Quaisquer dependências ambientais necessárias para o treino. A imagem padrão do Docker construída para o treino já contém os três pacotes ( `caret` `e1071` , e ) `optparse` necessários no roteiro de treino.  Então não precisa especificar informações adicionais. Se estiver a utilizar pacotes R que não estejam incluídos por defeito, utilize o parâmetro do estimador `cran_packages` para adicionar pacotes CRAN adicionais. Consulte a [`estimator()`](https://azure.github.io/azureml-sdk-for-r/reference/estimator.html) referência para o conjunto completo de opções configuráveis.
 
 ```R
 est <- estimator(source_directory = ".",
@@ -252,7 +252,7 @@ Você e colegas com acesso ao espaço de trabalho podem submeter múltiplas expe
 Uma vez que o seu modelo tenha terminado o treino, você pode aceder aos artefactos do seu trabalho que foram persistidos para o recorde de corrida, incluindo quaisquer métricas registadas e o modelo treinado final.
 
 ### <a name="get-the-logged-metrics"></a>Obtenha as métricas registadas
-No roteiro `accidents.R`de treino, registou uma métrica do seu modelo: a precisão das previsões nos dados de treino. Pode ver métricas no [estúdio,](https://ml.azure.com)ou extraí-las para a sessão local como uma lista R da seguinte forma:
+No roteiro de `accidents.R` treino, registou uma métrica do seu modelo: a precisão das previsões nos dados de treino. Pode ver métricas no [estúdio,](https://ml.azure.com)ou extraí-las para a sessão local como uma lista R da seguinte forma:
 
 ```R
 metrics <- get_run_metrics(run)
@@ -262,7 +262,7 @@ metrics
 Se tiver feito várias experiências (por exemplo, usando diferentes variáveis, algoritmos ou hiperparamers), pode utilizar as métricas de cada corrida para comparar e escolher o modelo que utilizará na produção.
 
 ### <a name="get-the-trained-model"></a>Obtenha o modelo treinado
-Pode recuperar o modelo treinado e ver os resultados da sua sessão R local. O código seguinte irá descarregar `./outputs` os conteúdos do diretório, que inclui o ficheiro modelo.
+Pode recuperar o modelo treinado e ver os resultados da sua sessão R local. O código seguinte irá descarregar os conteúdos do `./outputs` diretório, que inclui o ficheiro modelo.
 
 ```R
 download_files_from_run(run, prefix="outputs/")
@@ -309,7 +309,7 @@ Com o seu modelo, pode prever o perigo de morte de uma colisão. Utilize o Azure
 
 ### <a name="register-the-model"></a>Registar o modelo
 
-Primeiro, registe o modelo que descarregou para o seu espaço de trabalho com [`register_model()`](https://azure.github.io/azureml-sdk-for-r/reference/register_model.html). Um modelo registado pode ser qualquer coleção de ficheiros, mas neste caso o objeto modelo R é suficiente. O Azure ML utilizará o modelo registado para a implantação.
+Primeiro, registe o modelo que descarregou para o seu espaço de trabalho com [`register_model()`](https://azure.github.io/azureml-sdk-for-r/reference/register_model.html) . Um modelo registado pode ser qualquer coleção de ficheiros, mas neste caso o objeto modelo R é suficiente. O Azure ML utilizará o modelo registado para a implantação.
 
 ```R
 model <- register_model(ws, 
@@ -319,7 +319,7 @@ model <- register_model(ws,
 ```
 
 ### <a name="define-the-inference-dependencies"></a>Definir as dependências de inferência
-Para criar um serviço web para o seu modelo,`entry_script`primeiro precisa de criar um script de pontuação ( ), um script R que terá como valores variáveis de entrada (em formato JSON) e produz uma previsão do seu modelo. Para este tutorial, utilize o `accident_predict.R`ficheiro de pontuação fornecido . O script de pontuação deve conter um `init()` método que carregue o seu modelo e retorne uma função que utiliza o modelo para fazer uma previsão com base nos dados de entrada. Consulte a [documentação](https://azure.github.io/azureml-sdk-for-r/reference/inference_config.html#details) para mais detalhes.
+Para criar um serviço web para o seu modelo, primeiro precisa de criar um script de pontuação ( `entry_script` ), um script R que terá como valores variáveis de entrada (em formato JSON) e produz uma previsão do seu modelo. Para este tutorial, utilize o ficheiro de pontuação fornecido `accident_predict.R` . O script de pontuação deve conter um `init()` método que carregue o seu modelo e retorne uma função que utiliza o modelo para fazer uma previsão com base nos dados de entrada. Consulte a [documentação](https://azure.github.io/azureml-sdk-for-r/reference/inference_config.html#details) para mais detalhes.
 
 Em seguida, defina um **ambiente** Azure ML para as dependências do seu script. Com um ambiente, especifice pacotes R (de CRAN ou em qualquer outro lugar) que são necessários para que o seu script seja executado. Também pode fornecer os valores das variáveis ambientais que o seu script pode referir para modificar o seu comportamento. Por padrão, o Azure ML construirá a mesma imagem padrão do Docker utilizada com o estimador para treino. Uma vez que o tutorial não tem requisitos especiais, crie um ambiente sem atributos especiais.
 
@@ -327,7 +327,7 @@ Em seguida, defina um **ambiente** Azure ML para as dependências do seu script.
 r_env <- r_environment(name = "basic_env")
 ```
 
-Se quiser utilizar a sua própria imagem Docker `custom_docker_image` para ser implantada, especifique o parâmetro. Consulte [`r_environment()`](https://azure.github.io/azureml-sdk-for-r/reference/r_environment.html) a referência para o conjunto completo de opções configuráveis para definir um ambiente.
+Se quiser utilizar a sua própria imagem Docker para ser implantada, especifique o `custom_docker_image` parâmetro. Consulte [`r_environment()`](https://azure.github.io/azureml-sdk-for-r/reference/r_environment.html) a referência para o conjunto completo de opções configuráveis para definir um ambiente.
 
 Agora tens tudo o que precisas para criar uma **inferência** para encapsular o teu guião de pontuação e dependências ambientais.
 
@@ -338,7 +338,7 @@ inference_config <- inference_config(
 ```
 
 ### <a name="deploy-to-aci"></a>Implementar para ACI
-Neste tutorial, irá implementar o seu serviço para a ACI. Este código prevê um único recipiente para responder aos pedidos de entrada, adequados para testes e cargas leves. Consulte [`aci_webservice_deployment_config()`](https://azure.github.io/azureml-sdk-for-r/reference/aci_webservice_deployment_config.html) opções configuradas adicionais. (Para implantações à escala de produção, também pode ser implantado para o [Serviço Azure Kubernetes](https://azure.github.io/azureml-sdk-for-r/articles/deploy-to-aks/deploy-to-aks.html).)
+Neste tutorial, irá implementar o seu serviço para a ACI. Este código prevê um único recipiente para responder aos pedidos de entrada, adequados para testes e cargas leves. Consulte [`aci_webservice_deployment_config()`](https://azure.github.io/azureml-sdk-for-r/reference/aci_webservice_deployment_config.html) opções configuradas adicionais. (Para implantações à escala de produção, também pode ser implantado para o [Serviço Azure Kubernetes](https://azure.github.io/azureml-sdk-for-r/articles/deploy-to-aks.html).)
 
 ``` R
 aci_config <- aci_webservice_deployment_config(cpu_cores = 1, memory_gb = 0.5)
@@ -358,7 +358,7 @@ wait_for_deployment(aci_service, show_output = TRUE)
 
 ## <a name="test-the-deployed-service"></a>Testar o serviço implantado
 
-Agora que o seu modelo está implantado como um serviço, pode testar o serviço a partir de R usando [`invoke_webservice()`](https://azure.github.io/azureml-sdk-for-r/reference/invoke_webservice.html).  Forneça um novo conjunto de dados para prever, convertê-lo para JSON, e enviá-lo para o serviço.
+Agora que o seu modelo está implantado como um serviço, pode testar o serviço a partir de R usando [`invoke_webservice()`](https://azure.github.io/azureml-sdk-for-r/reference/invoke_webservice.html) .  Forneça um novo conjunto de dados para prever, convertê-lo para JSON, e enviá-lo para o serviço.
 
 ```R
 library(jsonlite)
@@ -409,7 +409,7 @@ delete_compute(compute)
 
 Também pode manter o grupo de recursos, mas eliminar um único espaço de trabalho. Mostrar as propriedades do espaço de trabalho e selecionar **Apagar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Agora que completou a sua primeira experiência de Aprendizagem automática Azure em R, saiba mais sobre o [Azure Machine Learning SDK para R](https://azure.github.io/azureml-sdk-for-r/index.html).
 

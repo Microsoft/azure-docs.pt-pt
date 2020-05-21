@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8d4de424d5d4d6da1ee80e04b35e63ae29df57c8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b3cca8403897227843b088a3985d54a3b164be0d
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81424910"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83702051"
 ---
 # <a name="sql-on-demand-preview-in-azure-synapse-analytics"></a>SQL on-demand (pré-visualização) em Azure Synapse Analytics 
 
@@ -28,7 +28,7 @@ O SQL on-demand é um sistema de processamento de dados distribuído, construíd
 
 A procura on-demand da SQL é inservidora, pelo que não existe nenhuma infraestrutura para configurar ou clusters para manter. Um ponto final padrão para este serviço é fornecido em todos os espaços de trabalho Azure Synapse, para que você possa começar a consultar dados assim que o espaço de trabalho é criado. Não há qualquer custo para os recursos reservados, você está apenas sendo cobrado pelos dados digitalizados por consultas que executa, por isso este modelo é um verdadeiro modelo pay-per-use.  
 
-Se utilizar a Spark no seu pipeline de dados, para preparação de dados, limpeza ou enriquecimento, pode [consultar quaisquer tabelas Spark](develop-storage-files-spark-tables.md) que tenha criado no processo, diretamente a partir da SQL on-demand. Utilize o [Private Link](../security/how-to-connect-to-workspace-with-private-links.md) para trazer o seu ponto final a pedido sQL para o seu espaço de trabalho [gerido VNet](../security/synapse-workspace-managed-vnet.md).  
+Se utilizar a Apache Spark para o Azure Synapse no seu pipeline de dados, para preparação de dados, limpeza ou enriquecimento, pode [consultar tabelas externas](develop-storage-files-spark-tables.md) de Spark que criou no processo, diretamente a partir da SQL a pedido. Utilize o [Private Link](../security/how-to-connect-to-workspace-with-private-links.md) para trazer o seu ponto final a pedido sQL para o seu espaço de trabalho [gerido VNet](../security/synapse-workspace-managed-vnet.md).  
 
 ## <a name="who-is-sql-on-demand-for"></a>Quem é SQL on-demand para
 
@@ -42,7 +42,7 @@ Diferentes funções profissionais podem beneficiar da SQL a pedido:
 
 - Os Engenheiros de Dados podem explorar o lago, transformar e preparar dados usando este serviço, e simplificar os seus oleodutos de transformação de dados. Para mais informações, consulte este [tutorial.](tutorial-data-analyst.md)
 - Dados Os cientistas podem rapidamente raciocinar sobre o conteúdo e estrutura dos dados no lago, graças a funcionalidades como OPENROWSET e inferência automática de esquemas.
-- Os analistas de dados podem [explorar dados e tabelas spark](develop-storage-files-spark-tables.md) criadas por Cientistas de Dados ou Engenheiros de Dados usando linguagem T-SQL familiar ou as suas ferramentas favoritas, que podem ligar-se à SQL on-demand.
+- Os analistas de dados podem [explorar dados e tabelas externas Spark](develop-storage-files-spark-tables.md) criadas por Cientistas de Dados ou Engenheiros de Dados usando linguagem T-SQL familiar ou as suas ferramentas favoritas, que podem ligar-se à SQL on-demand.
 - Os profissionais do BI podem rapidamente [criar relatórios power BI em cima de dados no lago](tutorial-connect-power-bi-desktop.md) e mesas Spark.
 
 ## <a name="what-do-i-need-to-do-to-start-using-it"></a>O que preciso fazer para começar a usá-lo?
@@ -110,7 +110,7 @@ A SQL on-demand oferece mecanismos para garantir o acesso aos seus dados.
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Integração do Azure Active Directory e a autenticação multifator
 
-A SQL on-demand permite-lhe gerir centralmente identidades de utilizadores de bases de dados e outros serviços da Microsoft com [integração do Diretório Ativo do Azure](../../sql-database/sql-database-Azure AD-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Esta capacidade simplifica a gestão de permissões e melhora a segurança. O Azure Ative Directory (Azure AD) suporta a [autenticação de vários fatores](../../sql-database/sql-database-ssms-mfa-authentication-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (MFA) para aumentar a segurança dos dados e da aplicação, ao mesmo tempo que suporta um único processo de inscrição.
+A SQL on-demand permite-lhe gerir centralmente identidades de utilizadores de bases de dados e outros serviços da Microsoft com [integração do Diretório Ativo do Azure](../../sql-database/sql-database-aad-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Esta capacidade simplifica a gestão de permissões e melhora a segurança. O Azure Ative Directory (Azure AD) suporta a [autenticação de vários fatores](../../sql-database/sql-database-ssms-mfa-authentication-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (MFA) para aumentar a segurança dos dados e da aplicação, ao mesmo tempo que suporta um único processo de inscrição.
 
 #### <a name="authentication"></a>Autenticação
 
@@ -140,7 +140,7 @@ Um utilizador que esteja registado no serviço sql on-demand deve ser autorizado
 
 - **Identidade de Utilizador** (também conhecido como "pass-through") é um tipo de autorização em que a identidade do utilizador da AD Azure que acedeu à SQL a pedido é utilizada para autorizar o acesso aos dados. Antes de aceder aos dados, o administrador de Armazenamento Azure deve conceder permissões ao utilizador da Azure AD para aceder aos dados. Este tipo de autorização utiliza o utilizador Azure AD que acedeu à SQL a pedido, pelo que não é suportado para tipos de utilizadores SQL.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Informações adicionais sobre a ligação de pontofinal e os ficheiros de consulta podem ser encontrados nos seguintes artigos: 
 - [Ligue-se ao seu ponto final](connect-overview.md)
 - [Consulta dos seus ficheiros](develop-storage-files-overview.md)

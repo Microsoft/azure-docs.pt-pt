@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 03/11/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5ba3ff2cc98e505486de9cf2337fe19024f97c62
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 62291505aae35b6fe334e2bdb53335a1ea3fe20b
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680462"
+ms.locfileid: "83714547"
 ---
 # <a name="move-your-azure-automation-account-to-another-subscription"></a>Mova a sua conta De Automação Azure para outra subscrição
 
@@ -28,16 +28,16 @@ A conta Automation é um dos recursos que pode mover. Neste artigo, você vai ap
 4. Eliminar e recriar o Run As contas.
 5. Reative as suas funcionalidades.
 
-## <a name="disable-features"></a>Desativar funcionalidades
+## <a name="remove-features"></a>Remover funcionalidades
 
-Para desligar o seu espaço de trabalho a partir da sua conta Automation, deve desativar os recursos no seu espaço de trabalho:
+Para desligar o seu espaço de trabalho da sua conta Automation, deve remover os recursos no seu espaço de trabalho:
 
 - Controlo de Alterações e Inventário
 - Gestão de Atualizações
 - Iniciar/Parar VMs durante horas de inatividade
 
 1. No portal do Azure, localize o grupo de recursos.
-2. Encontre cada recurso e selecione **Eliminar** na página Eliminar Recursos.
+2. Encontre cada recurso e selecione **Eliminar** na página **Eliminar Recursos.**
 
     ![Screenshot de apagar recursos recursos do portal Azure](../media/move-account/delete-solutions.png)
 
@@ -127,7 +127,7 @@ Agora pode mover a sua conta de Automação e os seus livros de execução.
 
 ## <a name="enable-features"></a>Ativar funcionalidades
 
-Depois de recriar as contas Run As, deve reativar as funcionalidades que desativou antes da mudança: 
+Depois de recriar as contas Run As, deve reativar as funcionalidades que removeu antes da mudança:
 
 1. Para ligar o Rastreio de Alterações e O Inventário, selecione **'Change Tracking and Inventory'** na sua conta Deautomação. Escolha o espaço de trabalho log Analytics que moveu e selecione **Enable**.
 
@@ -155,6 +155,6 @@ Quando o movimento estiver concluído, verifique se as capacidades listadas abai
 |Gestão de atualizações|Verifique se vê as suas máquinas e que estão saudáveis.</br>Executar uma implementação de atualização de software de teste.|[Gestão de atualização de resolução de problemas](../troubleshoot/update-management.md)|
 |Recursos partilhados|Verifique se vê todos os seus recursos partilhados, tais como [credenciais](../shared-resources/credentials.md) e [variáveis.](../shared-resources/variables.md)|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para aprender sobre a movimentação de recursos em Azure em geral, consulte [os recursos move em Azure](../../azure-resource-manager/management/move-support-resources.md).
+[Movimentar recursos em Azure](../../azure-resource-manager/management/move-support-resources.md)

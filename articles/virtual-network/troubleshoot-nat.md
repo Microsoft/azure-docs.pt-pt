@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/28/2020
+ms.date: 05/20/2020
 ms.author: allensu
-ms.openlocfilehash: c9b5aaefeb8ab21eed850f5bf291d38981239aab
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 7723e74b9617d5e8d56dd3c3e46145c4945ca21f
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82508433"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698091"
 ---
 # <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Conectividade na rede virtual Desfilmo Azure NaT
 
@@ -31,6 +31,7 @@ Este artigo ajuda os administradores a diagnosticar e resolver problemas de cone
 * [ICMP ping está falhando](#icmp-ping-is-failing)
 * [Falhas de conectividade](#connectivity-failures)
 * [Coexistência IPv6](#ipv6-coexistence)
+* [A ligação não tem origem em IP(s) gateway IP(s)](#connection-doesnt-originate-from-nat-gateway-ips)
 
 Para resolver estes problemas, siga os passos na secção seguinte.
 
@@ -61,10 +62,10 @@ _**Solução:**_ Utilize padrões e boas práticas apropriados
 - O DNS pode introduzir muitos fluxos individuais em volume quando o cliente não está a cortar o resultado dos resolvers dNS. Use o cache.
 - Os fluxos uDP (por exemplo, as despesas com DNS) atribuem portas SNAT durante o tempo de paragem. Quanto mais tempo o tempo de paragem, maior a pressão sobre as portas SNAT. Utilize um tempo de paragem curto (por exemplo, 4 minutos).
 - Utilize piscinas de ligação para moldar o volume de ligação.
-- Nunca abandone silenciosamente um fluxo de TCP e confie em temporizadores de TCP para limpar o fluxo. Se não deixar que o TCP feche explicitamente a ligação, o Estado permanece alocado em sistemas intermédios e pontos finais e torna as portas SNAT indisponíveis para outras ligações. Isto pode desencadear falhas na aplicação e exaustão de SNAT. 
+- Nunca abandone silenciosamente um fluxo de TCP e confie em temporizadores de TCP para limpar o fluxo. Se não deixar que o TCP feche explicitamente a ligação, o Estado permanece alocado em sistemas intermédios e pontos finais e torna as portas SNAT indisponíveis para outras ligações. Este padrão pode desencadear falhas de aplicação e exaustão de SNAT. 
 - Não altere os valores de temporizador estomato de Nível OS sem conhecimento especializado do impacto. Enquanto a pilha de TCP irá recuperar, o desempenho da sua aplicação pode ser impactado negativamente quando os pontos finais de uma ligação têm expectativas desajustadas. O desejo de mudar os temporizadores é geralmente um sinal de um problema de design subjacente. Rever seguindo recomendações.
 
-Muitas vezes, a exaustão do SNAT também pode ser amplificada com outros anti-padrões na aplicação subjacente. Reveja estes padrões e boas práticas adicionais para melhorar a escala e a fiabilidade do seu serviço.
+A exaustão do SNAT também pode ser amplificada com outros anti-padrões na aplicação subjacente. Reveja estes padrões e boas práticas adicionais para melhorar a escala e a fiabilidade do seu serviço.
 
 - Explore o impacto da redução do [tempo inativo](nat-gateway-resource.md#timers) do TCP para valores mais baixos, incluindo o tempo inativo padrão de 4 minutos para libertar o inventário da porta SNAT mais cedo.
 - Considere padrões de [sondagens assíncronos](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply) para operações de longa duração para libertar recursos de ligação para outras operações.
@@ -116,8 +117,8 @@ Utilize ferramentas como a seguinte para validação da conectividade. [O iCMP p
 
 #### <a name="configuration"></a>Configuração
 
-Verifique o seguinte:
-1. O recurso nat gateway tem pelo menos um recurso IP público ou um recurso público de pré-fixação IP? Deve pelo menos ter um endereço IP associado à porta de entrada NAT para que possa fornecer conectividade de saída.
+Verifique a sua configuração:
+1. O recurso NAT gateway tem pelo menos um recurso IP público ou um recurso de prefixo de IP público? Deve pelo menos ter um endereço IP associado ao NAT gateway para que possa fornecer conectividade de saída.
 2. A subnet da rede virtual está configurada para usar o portal NAT?
 3. Está a usar o UDR (rota definida pelo utilizador) e está a sobrepor-se ao destino?  Os recursos de gateway NAT tornam-se a rota padrão (0/0) em subredes configuradas.
 
@@ -183,7 +184,19 @@ _**Solução:**_ Desloque o gateway NAT numa subnet sem prefixo IPv6.
 
 Pode indicar interesse em capacidades adicionais através da [Rede Virtual NAT UserVoice](https://aka.ms/natuservoice).
 
-## <a name="next-steps"></a>Passos seguintes
+### <a name="connection-doesnt-originate-from-nat-gateway-ips"></a>A ligação não tem origem em IP(s) gateway IP(s)
+
+Configura risa do portal NAT, endereço IP (es) para utilizar e qual a sub-rede que deve utilizar um recurso de gateway NAT. No entanto, as ligações de casos de máquinas virtuais que existiam antes da implementação do gateway NAT não utilizam o endereço IP(es).  Parecem estar a utilizar endereços IP(es) não utilizados com o recurso de gateway NAT.
+
+_**Solução:**_
+
+[A Rede Virtual NAT](nat-overview.md) substitui a conectividade de saída para a sub-rede em que está configurada. Ao transitar do SNAT padrão ou do balancer de carga para utilizar gateways NAT, novas ligações começarão imediatamente a utilizar o endereço IP(es) associado ao recurso de gateway NAT.  No entanto, se uma máquina virtual ainda tiver uma ligação estabelecida durante a mudança para o recurso de gateway NAT, a ligação continuará a utilizar o antigo endereço IP SNAT que foi atribuído quando a ligação foi estabelecida.  Certifique-se de que está realmente a estabelecer uma nova ligação em vez de reutilizar uma ligação que já existia porque o SISTEMA ou o navegador estava a cortar as ligações numa piscina de ligação.  Por exemplo, ao utilizar _caracóis_ no PowerShell, certifique-se de especificar o parâmetro _-DisableKeepalive_ para forçar uma nova ligação.  Se estiver a usar um browser, as ligações também podem ser reunidas.
+
+Não é necessário reiniciar uma máquina virtual configurando uma sub-rede para um recurso de gateway NAT.  No entanto, se uma máquina virtual for reiniciada, o estado de ligação é lavado.  Quando o estado de ligação tiver sido descarregado, todas as ligações começarão a utilizar o endereço IP do recurso de gateway NAT.  No entanto, este é um efeito colateral da máquina virtual sendo reiniciada e não um indicador de que é necessário um reboot.
+
+Se ainda tiver problemas, abra um caso de apoio para mais resolução de problemas.
+
+## <a name="next-steps"></a>Próximos passos
 
 * Conheça a [Rede Virtual NAT](nat-overview.md)
 * Saiba mais sobre o [recurso de gateway NAT](nat-gateway-resource.md)

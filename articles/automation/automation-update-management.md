@@ -1,16 +1,16 @@
 ---
 title: Visão geral da Gestão de Atualização de Automação Azure
-description: Visão geral da funcionalidade Update Management que gere atualizações para as suas máquinas Windows e Linux
+description: Visão geral da funcionalidade Update Management que gere as atualizações para as suas máquinas Windows e Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 05/04/2020
+ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: d3a3a19673ecb6edb82f0512f318298865c8ed24
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: ba4ce84dca85ea1e3f2385ac280bd82c16aa8fb3
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681283"
+ms.locfileid: "83714768"
 ---
 # <a name="update-management-overview"></a>Descrição geral da Gestão de Atualizações
 
@@ -74,7 +74,7 @@ Ter uma máquina registada para Gestão de Atualizações em mais de um espaço 
 
 ### <a name="supported-client-types"></a>Tipos de clientes suportados
 
-A tabela seguinte lista os sistemas operativos suportados para avaliações de atualizações. Remendar requer um Trabalhador Híbrido do Livro de Corridas. Para obter informações sobre os requisitos do Trabalhador do Livro de Execução Híbrido, consulte A implantação de um Trabalhador do [Livro de Corridas Híbrido do Windows](automation-windows-hrw-install.md) e de um Trabalhador de [Runbook Híbrido Linux](automation-linux-hrw-install.md).
+A tabela seguinte lista os sistemas operativos suportados para avaliações de atualizações. Remendar requer um Trabalhador Híbrido do Livro de Corridas. Para obter informações sobre os requisitos do Trabalhador do Livro de Execução Híbrido, consulte [A implantação de um Trabalhador](automation-windows-hrw-install.md) do Livro híbrido do Windows e implante um Trabalhador de [Runbook Híbrido Linux](automation-linux-hrw-install.md).
 
 > [!NOTE]
 > A avaliação da atualização das máquinas Linux só é suportada em certas regiões, tal como listado na conta de Automação e na tabela de [mapeamento do](https://docs.microsoft.com/azure/automation/how-to/region-mappings#supported-mappings)espaço de trabalho Log Analytics. 
@@ -98,9 +98,11 @@ A tabela que se segue enumera sistemas operativos não suportados:
 
 |Sistema operativo  |Notas  |
 |---------|---------|
-|Cliente Windows     | Os sistemas operativos dos clientes (como o Windows 7 e windows 10) não são suportados.        |
+|Cliente Windows     | Os sistemas operativos dos clientes (como o Windows 7 e windows 10) não são suportados.<br> Para o Azure Windows Virtual Desktop (WVD), o método recomendado<br> para gerir atualizações é [o Windows Update for Business](https://docs.microsoft.com/windows/deployment/update/waas-manage-updates-wufb) para a gestão de patchde seleções do cliente Windows 10. |
 |Windows Server 2016 Nano Server     | Não suportado.       |
 |Nódosos de serviço Azure Kubernetes | Não suportado. Utilize o processo de correção descrito em Aplicar atualizações de [segurança e kernel aos nós Linux no Serviço Azure Kubernetes (AKS)](../aks/node-updates-kured.md)|
+
+
 
 ### <a name="client-requirements"></a>Requisitos do cliente
 
@@ -253,6 +255,6 @@ Aqui estão as formas de ativar a Gestão de Atualizações e selecionar máquin
 * [Desde a navegação em várias máquinas.](automation-onboard-solutions-from-browse.md)
 * [A partir de uma conta de Automação Azure.](automation-onboard-solutions.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Reveja as [FAQ](automation-faq.md) de Automação Azure para analisar questões comuns sobre gestão de atualizações.

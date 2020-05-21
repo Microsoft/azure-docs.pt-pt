@@ -1,17 +1,17 @@
 ---
 title: Criar um livro de corridas Python na Automação Azure
-description: Tutorial mostrando como criar, testar e publicar um simples livro de corridas python.
+description: Este artigo ensina-te a criar, testar e publicar um simples livro de execução python.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
 ms.custom: has-adal-ref
-ms.openlocfilehash: 2b20796fdcf71ccfb60c519d081b42fba982f0b6
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 4e3edc9819fc3a282cc707db636c8bb213b13776
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82608699"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714479"
 ---
 # <a name="tutorial-create-a-python-runbook"></a>Tutorial: Criar um livro de corridas python
 
@@ -54,7 +54,7 @@ Começa-se por criar um livro simples que produz o texto *Hello World.*
 
 ## <a name="add-code-to-the-runbook"></a>Adicione código ao livro de execução
 
-Agora adicione um simples comando `Hello World`para imprimir o texto .
+Agora adicione um simples comando para imprimir o texto `Hello World` .
 
 ```python
 print("Hello World!")
@@ -73,19 +73,17 @@ Antes de publicar o runbook para o disponibilizar na produção, deve testá-lo 
 3. Uma [tarefa do runbook](../automation-runbook-execution.md) é criada e o respetivo estado é apresentado.
    O estado de trabalho começa como Fila, indicando que está à espera que um trabalhador do livro na nuvem esteja disponível. Passa para começar quando um trabalhador reclama o trabalho, e depois correr quando o livro começa a funcionar.
 
-4. Quando a tarefa de runbook tiver concluído, o resultado é apresentado. Neste caso, deve `Hello World`ver.
+4. Quando a tarefa de runbook tiver concluído, o resultado é apresentado. Neste caso, deve `Hello World` ver.
 
 5. Feche o painel de Teste para voltar à tela.
 
 ## <a name="publish-and-start-the-runbook"></a>Publicar e iniciar o livro de corridas
 
-O runbook que criou ainda está no modo de Rascunho. Tens de publicá-lo antes de o conseguires executar em produção.
-Quando publica um livro de execução, substitui a versão publicada existente com a versão do projeto.
-Neste caso, ainda não tem uma versão publicada porque acabou de criar o livro de corridas.
+O runbook que criou ainda está no modo de Rascunho. Tens de publicá-lo antes de o conseguires executar em produção. Quando publica um livro de execução, substitui a versão publicada existente com a versão do projeto. Neste caso, ainda não tem uma versão publicada porque acabou de criar o livro de corridas.
 
 1. Clique em **Publicar** para publicar o runbook e, em seguida, em **Sim** quando lhe for pedido.
 
-2. Se rolar para a esquerda para ver o livro de execução na página **Runbooks,** deve ver um Estatuto de **Autor** de **Publicado**.
+2. Se rolar para a esquerda para ver o livro de execução na página Runbooks, deve ver um Estatuto de **Autor** de **Publicado**.
 
 3. Percorra para a direita para ver o painel **myFirstRunbook-Python**.
 
@@ -97,11 +95,11 @@ Neste caso, ainda não tem uma versão publicada porque acabou de criar o livro 
 
 6. O estado de trabalho é mostrado no Resumo de **Trabalho** e corresponde aos estados que viu quando testou o livro de execução.
 
-7. Assim que o estado do livro de execução mostrar concluído, clique em **Saída**. O painel de saída está aberto, onde pode ver `Hello World`.
+7. Assim que o estado do livro de execução mostrar concluído, clique em **Saída**. O painel de saída está aberto, onde pode ver `Hello World` .
 
 8. Feche o painel Resultado.
 
-9. Clique em **Todos os Registos** para abrir o painel Fluxos da tarefa de runbook. Só deve `Hello World` ver na corrente de saída. No entanto, este painel pode mostrar outros fluxos para um trabalho de livro de corridas, como Verbose e Error, se o livro de execução lhes escrever.
+9. Clique em **Todos os Registos** para abrir o painel Fluxos da tarefa de runbook. Só deve ver `Hello World` na corrente de saída. No entanto, este painel pode mostrar outros fluxos para um trabalho de livro de corridas, como Verbose e Error, se o livro de execução lhes escrever.
 
 10. Feche o painel de Streams e o painel de trabalho para voltar ao painel MyFirstRunbook-Python.
 
@@ -181,7 +179,7 @@ async_vm_start = compute_client.virtual_machines.start(
 async_vm_start.wait()
 ```
 
-Onde `MyResourceGroup` está o nome do grupo de recursos `TestVM` que contém o VM, e é o nome do VM que pretende iniciar.
+Onde `MyResourceGroup` está o nome do grupo de recursos que contém o VM, e `TestVM` é o nome do VM que pretende iniciar.
 
 Teste e volte a executar o livro de corridas para ver se inicia o VM.
 
@@ -189,7 +187,7 @@ Teste e volte a executar o livro de corridas para ver se inicia o VM.
 
 O livro de execução utiliza atualmente valores codificados para os nomes do grupo de recursos e do VM. Agora vamos adicionar código que obtém estes valores a partir de parâmetros de entrada.
 
-Usa-se `sys.argv` a variável para obter os valores dos parâmetros. Adicione o seguinte código ao livro de `import` execução imediatamente após as outras declarações:
+Usa-se a `sys.argv` variável para obter os valores dos parâmetros. Adicione o seguinte código ao livro de execução imediatamente após as `import` outras declarações:
 
 ```python
 import sys
@@ -198,7 +196,7 @@ resource_group_name = str(sys.argv[1])
 vm_name = str(sys.argv[2])
 ```
 
-Isto importa `sys` o módulo, e cria duas variáveis para conter os nomes do Grupo de Recursos e VM. Note que o elemento `sys.argv[0]`da lista de argumentos, é o nome do script, e não é a entrada do utilizador.
+Isto importa o `sys` módulo, e cria duas variáveis para conter os nomes do Grupo de Recursos e VM. Note que o elemento da lista de argumentos, `sys.argv[0]` é o nome do script, e não é a entrada do utilizador.
 
 Agora pode modificar as duas últimas linhas do livro de execução para utilizar os valores do parâmetro de entrada em vez de utilizar valores codificados:
 
@@ -212,7 +210,7 @@ Quando iniciar um livro de execução Python (seja no painel de teste ou como um
 
 Depois de começar a inserir um valor na primeira caixa, aparece um segundo, e assim por diante, para que possa introduzir o maior número de valores de parâmetros necessários.
 
-Os valores estão disponíveis `sys.argv` para o script na matriz como no código que acabou de adicionar.
+Os valores estão disponíveis para o script na `sys.argv` matriz como no código que acabou de adicionar.
 
 Insira o nome do seu grupo de recursos como o valor do primeiro parâmetro, e o nome do VM comece como o valor do segundo parâmetro.
 
@@ -232,7 +230,7 @@ print("DEBUG: - Hello world debug")
 print("VERBOSE: - Hello world verbose")
 ```
 
-O exemplo que se segue `try...except` mostra esta convenção utilizada num bloco.
+O exemplo que se segue mostra esta convenção utilizada num `try...except` bloco.
 
 ```python
 try:
@@ -242,13 +240,13 @@ except Exception as detail:
 ```
 
 > [!NOTE]
-> A Azure Automation `sys.stderr`não suporta.
+> A Azure Automation não `sys.stderr` suporta.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Para começar com os livros de execução da PowerShell, consulte [Create a PowerShell runbook](automation-tutorial-runbook-textual-powershell.md).
-- Para começar com livros gráficos, consulte [Criar um livro de execução gráfico](automation-tutorial-runbook-graphical.md).
-- Para começar com os livros de fluxo de trabalho PowerShell, consulte [Create a PowerShell workflow runbook](automation-tutorial-runbook-textual.md).
-- Para saber mais sobre tipos de livro de corridas, as suas vantagens e limitações, consulte os tipos de livro de [execução da Automação Azure](../automation-runbook-types.md).
-- Para aprender sobre o desenvolvimento para Azure com Python, consulte [Azure para desenvolvedores python.](/azure/python/)
-- Para visualizar a amostra de livros de execução Python 2, consulte o [Azure Automation GitHub](https://github.com/azureautomation/runbooks/tree/master/Utility/Python).
+- [Criar runbook do PowerShell](automation-tutorial-runbook-textual-powershell.md)
+- [Criar um livro de execução gráfico](automation-tutorial-runbook-graphical.md)
+- [Criar um runbook de fluxo de trabalho do PowerShell](automation-tutorial-runbook-textual.md)
+- [Tipos de livro de execução da Automação Azure](../automation-runbook-types.md)
+- [Azure for Python developers](/azure/python/) (Azure para programadores Python)
+- [Azure Automation GitHub](https://github.com/azureautomation/runbooks/tree/master/Utility/Python)

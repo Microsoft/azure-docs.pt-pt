@@ -1,29 +1,25 @@
 ---
-title: Implemente um modelo de Gestor de Recursos Azure num livro de execução da Automação Azure
-description: Como implementar um modelo de Gestor de Recursos Azure armazenado no Armazenamento Azure a partir de um livro de execução
+title: Implementar um modelo do Azure Resource Manager num runbook do PowerShell da Automatização do Azure
+description: Este artigo diz como implementar um modelo de Gestor de Recursos Azure armazenado no Armazenamento Azure a partir de um livro de execução PowerShell.
 services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 keywords: powershell, runbook, json, automação azul
-ms.openlocfilehash: 1bf381499ac31fafc8aaeef2b4ee488cfa1aa5c1
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: dcb1f5919db71bb233f59cc5b5ba92648b8476d9
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82994690"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714292"
 ---
-# <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Implementar um modelo do Azure Resource Manager num runbook do PowerShell da Automatização do Azure
+# <a name="deploy-an-azure-resource-manager-template-in-a-powershell-runbook"></a>Implemente um modelo de Gestor de Recursos Azure num livro de execução powerShell
 
-Pode escrever um livro de [execução Azure Automation PowerShell](automation-first-runbook-textual-powershell.md) que implementa um recurso Azure utilizando um modelo de Gestão de [Recursos Azure](../azure-resource-manager/resource-manager-create-first-template.md).
-
-Ao fazê-lo, pode automatizar a implantação de recursos Azure. Pode manter os seus modelos de Gestor de Recursos num local central e seguro, como o Armazenamento Azure.
+Pode escrever um livro de [execução Azure Automation PowerShell](automation-first-runbook-textual-powershell.md) que implementa um recurso Azure utilizando um modelo de Gestão de [Recursos Azure](../azure-resource-manager/resource-manager-create-first-template.md). A utilização do modelo permite-lhe utilizar a Azure Automation e o Azure Storage para automatizar a implantação dos seus recursos Azure. Pode manter os seus modelos de Gestor de Recursos num local central e seguro, como o Armazenamento Azure.
 
 Neste artigo, criamos um livro powerShell que utiliza um modelo de Gestor de Recursos armazenado no [Armazenamento Azure](../storage/common/storage-introduction.md) para implementar uma nova conta de Armazenamento Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-
-Para completar este tutorial, precisa dos seguintes itens:
 
 * Subscrição do Azure. Se ainda não tiver uma, pode [ativar as vantagens de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou [inscrever-se numa conta gratuita](https://azure.microsoft.com/free/).
 * [Conta de automatização](automation-sec-configure-azure-runas-account.md) para manter o runbook e autenticar-se nos recursos do Azure.  Esta conta tem de ter permissão para iniciar e parar a máquina virtual.
@@ -222,7 +218,7 @@ $startParams = @{
 $job = Start-AzAutomationRunbook @startParams
 ```
 
-O livro de corridas corre e `$job.Status`pode verificar o seu estado executando .
+O livro de corridas corre e pode verificar o seu estado executando `$job.Status` .
 
 O livro de execução obtém o modelo de Gestor de Recursos e usa-o para implementar uma nova conta de Armazenamento Azure.
 Pode ver que a nova conta de armazenamento foi criada executando o seguinte comando:
@@ -231,15 +227,10 @@ Pode ver que a nova conta de armazenamento foi criada executando o seguinte coma
 Get-AzStorageAccount
 ```
 
-## <a name="summary"></a>Resumo
+## <a name="next-steps"></a>Próximos passos
 
-Já está! Agora pode utilizar o Azure Automation e o Azure Storage com modelos de Gestor de Recursos para implementar todos os seus recursos Azure.
-
-## <a name="next-steps"></a>Passos seguintes
-
-* Para saber mais sobre os modelos do Gestor de Recursos, consulte a [visão geral do Gestor de Recursos do Azure](../azure-resource-manager/management/overview.md).
-* Para começar com o Armazenamento Azure, consulte [Introdução ao Armazenamento Azure.](../storage/common/storage-introduction.md)
-* Para encontrar outros livros de execução úteis da Azure Automation, consulte [Runbook e galerias de módulos para a Automação Azure.](automation-runbook-gallery.md)
-* Para encontrar outros modelos úteis do Gestor de Recursos, consulte [os modelos De Arranque Rápido do Azure](https://azure.microsoft.com/resources/templates/).
-* Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+* [Visão geral do Gestor de Recursos Azure](../azure-resource-manager/management/overview.md)
+* [Introdução ao Armazenamento do Azure](../storage/common/storage-introduction.md)
+* [Runbook and module galleries for Azure Automation](automation-runbook-gallery.md) (Galerias de runbooks e módulos para a Automatização do Azure)
+* [Modelos azure quickstart](https://azure.microsoft.com/resources/templates/)
+* [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)

@@ -1,6 +1,6 @@
 ---
-title: Criar configurações a partir de servidores existentes - Automação Azure
-description: Saiba como criar configurações a partir de servidores existentes para a Automação Azure.
+title: Criar configurações a partir de servidores existentes para configuração do Estado da Automação Azure
+description: Este artigo diz como criar configurações a partir de servidores existentes para configuração do Estado de Automação Azure.
 keywords: dsc,powershell,configuração,configuração,configuração
 services: automation
 ms.service: automation
@@ -10,14 +10,14 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dff9b8f52207a38cf7eaddefa178aff262ddc546
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d783ce7193faed4110d07988d3f3f05951c80a45
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80585553"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83711402"
 ---
-# <a name="create-configurations-from-existing-servers"></a>Criar configurações a partir de servidores existentes
+# <a name="create-configurations-from-existing-servers-for-azure-automation-state-configuration"></a>Criar configurações a partir de servidores existentes para configuração do Estado da Automação Azure
 
 > Aplica-se a: Windows PowerShell 5.1
 
@@ -43,7 +43,7 @@ Em seguida, registe os seus servidores a partir do [local](/azure/automation/aut
 
 Para experimentar o ReverseDSC, visite a [Galeria PowerShell](https://www.powershellgallery.com/packages/ReverseDSC/) e descarregue a solução ou clique em "Site do Projeto" para ver a [documentação](https://github.com/Microsoft/sharepointDSC.reverse).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Visão geral de configuração de estado desejada do Windows PowerShell](/powershell/scripting/dsc/overview/overview)
 - [Recursos dSC](/powershell/scripting/dsc/resources/resources)

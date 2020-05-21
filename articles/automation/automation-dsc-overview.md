@@ -1,6 +1,6 @@
 ---
 title: Visão geral da configuração do Estado da Automação Azure
-description: Uma visão geral da Configuração do Estado da Automação Azure, seus termos e questões conhecidas
+description: Este artigo fornece uma visão geral da Configuração do Estado da Automação Azure.
 keywords: powershell dsc, configuração de estado desejado, powershell dsc azure
 services: automation
 ms.service: automation
@@ -10,12 +10,12 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dbe617e6614eb69f0a7f6e31c89c1f645804fe1b
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: be0da641a67d532851b8d295065213016c795f01
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993857"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83713187"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Visão geral da configuração do Estado da Automação Azure
 
@@ -88,18 +88,18 @@ Se os seus nós estiverem localizados numa rede privada, são necessários os se
 * Porta: Apenas TCP 443 necessário para acesso à Internet de saída
 * URL global: ***.azure-automation.net**
 * URL global dos EUA Gov Virginia: ***.azure-automation.us**
-* Serviço de agente: **https://\<workspaceId\>.agentsvc.azure-automation.net**
+* Serviço de agente: **https:// \< espaço de trabalhoId \> .agentsvc.azure-automation.net**
 
 Se estiver a utilizar recursos DSC que comunicam entre nós, como os [recursos WaitFor**](https://docs.microsoft.com/powershell/scripting/dsc/reference/resources/windows/waitForAllResource), também precisa de permitir o tráfego entre nós. Consulte a documentação de cada recurso dSC para compreender estes requisitos de rede.
 
 #### <a name="proxy-support"></a>Apoio proxy
 
-O suporte proxy para o agente DSC está disponível na versão 1809 do Windows e posteriormente. Esta opção é ativada `ProxyURL` definindo os valores para e `ProxyCredential` no script de [configuração utilizado](automation-dsc-onboarding.md#generate-dsc-metaconfigurations) para registar nós.
+O suporte proxy para o agente DSC está disponível na versão 1809 do Windows e posteriormente. Esta opção é ativada definindo os valores e propriedades no script de `ProxyURL` `ProxyCredential` [configuração](automation-dsc-onboarding.md#generate-dsc-metaconfigurations) utilizado para registar nós. 
 
 >[!NOTE]
 >A Configuração do Estado da Automação Azure não fornece suporte de procuração DSC para versões anteriores do Windows.
 
-Para os nós linux, o agente DSC `http_proxy` suporta procuração e utiliza a variável para determinar o URL.
+Para os nós linux, o agente DSC suporta procuração e utiliza a `http_proxy` variável para determinar o URL. Para saber mais sobre o suporte proxy, consulte [as configurações de Geração DSC](automation-dsc-onboarding.md#generate-dsc-metaconfigurations).
 
 #### <a name="azure-automation-state-configuration-network-ranges-and-namespace"></a>Gamas de gamas e espaço de configuração do Estado da Automatização Azure
 
@@ -132,7 +132,7 @@ Para obter uma lista de endereços IP da região em vez de nomes de região, des
 
 Os utilizadores do Azure ExpressRoute devem notar que este ficheiro é utilizado para atualizar o anúncio do Protocolo border gateway (BGP) do espaço Azure na primeira semana de cada mês.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para começar a usar o DSC na Configuração do Estado da Automação Azure, consulte Começar com a Configuração do Estado da [Automação Azure](automation-dsc-getting-started.md).
 - Para aprender a ativar os nós, consulte [máquinas Ativas para gestão pela Configuração do Estado da Automação Azure](automation-dsc-onboarding.md).

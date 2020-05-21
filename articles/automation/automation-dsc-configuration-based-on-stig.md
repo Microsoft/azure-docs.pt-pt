@@ -1,6 +1,6 @@
 ---
-title: Configuração baseada no STIG para usar na configuração do estado - Automação Azure
-description: Conheça as configurações baseadas no STIG para configuração estatal na Automação Azure.
+title: Configure dados baseados no STIG para configuração do Estado da Automação Azure
+description: Este artigo diz como configurar dados baseados no STIG para a Configuração do Estado da Automação Azure.
 keywords: dsc,powershell,configuração,configuração,configuração
 services: automation
 ms.service: automation
@@ -10,14 +10,14 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d6d257198fcae54b1214d77f6b905d876d2687f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e17ae51addce2bb156b6f1c54e29fd777699516f
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80585537"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83711385"
 ---
-# <a name="configuration-based-on-stig"></a>Configuração baseada em STIG
+# <a name="configure-data-based-on-stig-for-azure-automation-state-configuration"></a>Configure dados baseados no STIG para configuração do Estado da Automação Azure
 
 > Aplica-se a: Windows PowerShell 5.1
 
@@ -41,7 +41,7 @@ Em seguida, registe os seus servidores a partir do [local](/azure/automation/aut
 
 Para experimentar o PowerSTIG, visite a [PowerShell Gallery](https://www.powershellgallery.com) e descarregue a solução ou clique em "Site do Projeto" para ver a [documentação](https://github.com/microsoft/powerstig).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Visão geral de configuração de estado desejada do Windows PowerShell](/powershell/scripting/dsc/overview/overview)
 - [Recursos dSC](/powershell/scripting/dsc/resources/resources)

@@ -2,13 +2,13 @@
 title: 'Quickstart: Criar uma nova app no portal LUIS'
 description: Neste arranque rápido, cria-se as partes básicas de uma app, intenções e entidades, bem como testar com a expressão da amostra no portal LUIS.
 ms.topic: quickstart
-ms.date: 05/05/2020
-ms.openlocfilehash: b2ab2ec0fa5398ae8a69906aee25ef44ad5db3c9
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/19/2020
+ms.openlocfilehash: 7cf55a7891b7e06c18c80d9d359b19e54f0413a9
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585283"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697244"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Quickstart: Criar uma nova app no portal LUIS
 
@@ -137,7 +137,7 @@ As declarações de exemplo da **Nenhuma** intenção devem estar fora do domín
 
 1. Verifique se a entidade está encontrada na intenção **FindForm** selecionando **Intenções** do menu esquerdo. Em seguida, selecione a intenção **FindForm.**
 
-   A entidade é marcada onde aparece nas declarações de exemplo. Se quiser ver o texto original em vez do nome da entidade, alternar **entidades Ver** a partir da barra de ferramentas.
+   A entidade é marcada onde aparece nas declarações de exemplo.
 
    > [!div class="mx-imgBorder"]
    > [![Screenshot de todas as expressões de exemplo marcadas com entidades](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png)](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png#lightbox)
@@ -163,7 +163,7 @@ Utilize o painel de **teste** interativo no portal LUIS para validar que a entid
 
 Quando terminar com este quickstart e não estiver a avançar para o próximo quickstart, selecione **Minhas aplicações** a partir do menu de navegação de topo. Em seguida, selecione a caixa de verificação esquerda da aplicação da lista e selecione **Eliminar** a partir da barra de ferramentas de contexto acima da lista.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [2. Implementar uma aplicação](get-started-portal-deploy-app.md)

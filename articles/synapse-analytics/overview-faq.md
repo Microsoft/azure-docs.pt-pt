@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 083bad1aa9abd2cb8efe3520b0acecc9ab00853c
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: b28f34c6ee160f96a7b30ded274b030936ce3266
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983878"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701580"
 ---
 # <a name="azure-synapse-analytics-workspace-preview-frequently-asked-questions"></a>Azure Synapse Analytics (pré-visualização do espaço de trabalho) frequentemente faz perguntas
 
@@ -35,9 +35,7 @@ R: Azure Synapse é uma plataforma integrada de dados para BI, IA e inteligênci
 
 ### <a name="q-how-do-i-get-started-with-azure-synapse-analytics"></a>P: Como começar com a Azure Synapse Analytics
 
-R: Para começar a usar o Azure Synapse Analytics, crie um espaço de [trabalho Synapse](https://portal.azure.com) (é gratuito!) e crie os recursos que deseja sob esse espaço de trabalho. Você pode seguir um dos nossos tutoriais quickstart, como [Criar uma piscina SYnapse SQL](quickstart-create-sql-pool.md) ou Criar um espaço de [trabalho,](quickstart-create-workspace.md)que irá acompanhá-lo através de uma caixa de uso simples. 
-
-Também pode encontrar cadernos de amostrae scripts SQL no nosso [repositório.](https://github.com/Azure/azure-synapse-analytics/tree/master/samples) Se precisar de se ligar a um conjunto de dados público, crie um novo serviço ligado com os seguintes atributos:
+R: Para começar a utilizar o Azure Synapse Analytics, registe o fornecedor de [recursos Azure Synapse](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types) selecionando o *Microsoft.Synapse* da lista de fornecedores de recursos. Em seguida, crie um espaço de [trabalho Synapse](https://portal.azure.com) (é gratuito!) e crie os recursos que deseja sob esse espaço de trabalho. Você pode seguir um dos nossos tutoriais quickstart, como [Criar uma piscina SYnapse SQL](quickstart-create-sql-pool-portal.md) ou Criar um espaço de [trabalho,](quickstart-create-workspace.md)que irá acompanhá-lo através de uma caixa de uso simples. Também pode encontrar cadernos de amostrae scripts SQL no nosso [repositório.](https://github.com/Azure/azure-synapse-analytics/tree/master/samples) Se precisar de se ligar a um conjunto de dados público, crie um novo serviço ligado com os seguintes atributos:
 
 - azure_storage_account_name = "armazenamento de dados em azureopen"
 - azure_storage_sas_token = "" (escrever **""**)
@@ -102,10 +100,10 @@ R: O acesso a ficheiros e pastas é atualmente gerido através do ADLS Gen2. Par
 
 R: Sim, você pode usar suas aplicações de negócio de terceiros, como Tableau e Power BI, para ligar à piscina SQL e SQL on-demand. A Faísca apoia o IntelliJ.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Criar uma área de trabalho](quickstart-create-workspace.md)
 - [Use o Estúdio Synapse](quickstart-synapse-studio.md)
-- [Criar uma piscina SQL](quickstart-create-sql-pool.md)
+- [Criar uma piscina SQL](quickstart-create-sql-pool-portal.md)
 - [Utilizar o SQL a pedido](quickstart-sql-on-demand.md)
-- [Crie uma piscina apache spark](quickstart-create-apache-spark-pool.md) 
+- [Crie uma piscina apache spark](quickstart-create-apache-spark-pool-portal.md) 

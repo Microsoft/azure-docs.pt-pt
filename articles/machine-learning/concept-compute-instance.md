@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/13/2019
-ms.openlocfilehash: 7afbfcc7830374c07850d1f634eb5e29fb459597
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 9f10825d8f22a7ddd9858e86dc2083ae47da9a69
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654908"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83712762"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>O que é uma instância de computação do Azure Machine Learning?
 
@@ -114,7 +114,7 @@ Pode realizar as seguintes ações:
 
 * Criar uma instância de computação. Especifique o nome, tipo Azure VM, incluindo GPUs (por favor note que o tipo VM não pode ser alterado após a criação), ativar/desativar o acesso sSH e configurar opcionalmente as definições de rede virtual. Também pode criar uma instância diretamente a partir de cadernos integrados, portal Azure, modelo de Gestor de Recursos ou SDK de Aprendizagem automática Azure. Os núcleos dedicados por quota de região que se aplica à criação de instâncias computacionais são unificados e partilhados com a quota de cluster de computação Azure Machine Learning.
 * Atualizar o separador de instâncias computadas
-* Iniciar, parar e reiniciar uma instância de computação
+* Iniciar, parar e reiniciar uma instância de cálculo. Pare o VM quando não estiver a usá-lo para reduzir o custo. Então comece de novo quando precisar.
 * Eliminar uma instância de cálculo
 
 Para cada instância de cálculo no seu espaço de trabalho pode:
@@ -146,6 +146,6 @@ Quaisquer ficheiros portátil armazenados na partilha de ficheiros do espaço de
 Não podem ser criados novos VMs portátil. No entanto, ainda pode aceder e utilizar VMs portátil que criou, com funcionalidade completa. Os casos de computação podem ser criados no mesmo espaço de trabalho que os VMs de caderno existentes. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
  * [Tutorial: Treinar o seu primeiro modelo ML](tutorial-1st-experiment-sdk-train.md) mostra como usar uma instância computacional com um caderno integrado.

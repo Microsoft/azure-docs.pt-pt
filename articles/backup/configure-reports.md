@@ -3,12 +3,12 @@ title: Configurar relatórios do Azure Backup
 description: Configure e veja relatórios para backup azure usando log analytics e livros de trabalho Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: c1af9a532b390b428e74957c455988dfd4df3967
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cd6e0e55f471da83d15e26252b0730ab00f20d3c
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82184950"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83713833"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios do Azure Backup
 
@@ -22,11 +22,12 @@ Hoje, a Azure Backup fornece uma solução de reporte que utiliza [registos do M
 
 ## <a name="supported-scenarios"></a>Cenários suportados
 
-- Os relatórios de backup são suportados para VMs Azure, SQL em VMs Azure, SAP HANA/ASE em VMs Azure, agente dos Serviços de Recuperação do Microsoft Azure (MARS), Microsoft Azure Backup Server (MABS) e System Center Data Protection Manager (DPM). Os dados relativos à cópia de segurança do Azure File Share não são atualmente visíveis nos Relatórios de Backup.
+- Os relatórios de backup são suportados para VMs Azure, SQL em VMs Azure, SAP HANA em VMs Azure, agente microsoft Azure Recovery Services (MARS), Microsoft Azure Backup Server (MABS) e System Center Data Protection Manager (DPM). Os dados relativos à cópia de segurança do Azure File Share não são atualmente visíveis nos Relatórios de Backup.
 - Para cargas de trabalho DPM, os relatórios de backup são suportados para dPM versão 5.1.363.0 e acima e Verden.0.0.9127.0 ou superior.
 - Para cargas de trabalho MABS, os relatórios de backup são suportados para a versão 13.0.415.0 e superior e para a Versão Agente 2.0.9170.0 ou superior.
 - Os relatórios de backup podem ser vistos em todos os itens de backup, cofres, subscrições e regiões, desde que os seus dados sejam enviados para um espaço de trabalho do Log Analytics a que o utilizador tenha acesso. Para ver relatórios para um conjunto de cofres, basta ter acesso dos leitores ao espaço de trabalho do Log Analytics para o qual os cofres estão a enviar os seus dados. Não precisas de ter acesso aos cofres individuais.
 - Se é um utilizador do [Farol Azure](https://docs.microsoft.com/azure/lighthouse/) com acesso delegado às subscrições dos seus clientes, pode utilizar estes relatórios com o Farol Azure para ver relatórios em todos os seus inquilinos.
+- Atualmente, os dados podem ser vistos em Relatórios de Backup através de um máximo de 100 espaços de trabalho de Log Analytics (entre inquilinos).
 - Os dados relativos a trabalhos de backup de registo não estão atualmente apresentados nos relatórios.
 
 ## <a name="get-started"></a>Introdução
@@ -81,6 +82,9 @@ O relatório contém vários separadores:
 
    ![Separador de utilização](./media/backup-azure-configure-backup-reports/usage.png)
 
+> [!NOTE]
+> No caso das cargas de trabalho do DPM, os utilizadores podem ver uma ligeira diferença (da ordem de 20 MB por servidor DPM) entre os valores de utilização apresentados nos relatórios em comparação com o valor de utilização agregado, como mostrado no separador de visão geral do cofre dos serviços de recuperação. Esta diferença é explicada pelo facto de todos os servidores DPM registados para cópia de segurança terem uma fonte de dados associada de 'metadados' que não é surgida como um artefacto para reportar.
+
 - **Empregos**: Utilize este separador para ver as tendências de longo prazo no emprego, como o número de empregos falhados por dia e as principais causas de insuficiência de emprego. Pode ver esta informação tanto a um nível agregado como a um nível de backup. Selecione um determinado item de backup numa grelha para visualizar informações detalhadas sobre cada trabalho que foi desencadeado nesse item de backup no intervalo de tempo selecionado.
 
    ![Separador de empregos](./media/backup-azure-configure-backup-reports/jobs.png)
@@ -127,8 +131,8 @@ Os widgets no relatório Backup são alimentados por consultas Kusto, que funcio
 
 - A anterior aplicação de modelo supreende Power BI para reportagem, que produziu dados de uma conta de armazenamento Azure, está numa trajetória de depreciação. Recomendamos que comece a enviar dados de diagnóstico de cofre para O Log Analytics para visualizar relatórios.
 
-- * Além disso, o [esquema V1](https://docs.microsoft.com/azure/backup/backup-azure-diagnostics-mode-data-model#v1-schema-vs-v2-schema) de enviar dados de diagnóstico para uma conta de armazenamento ou um espaço de trabalho de LA também está em uma rota de depreciação. Isto significa que se tiver escrito quaisquer consultas ou automatizações personalizadas com base no esquema V1, é aconselhável atualizar estas consultas para utilizar o esquema V2 atualmente suportado.
+- Além disso, o [esquema V1](https://docs.microsoft.com/azure/backup/backup-azure-diagnostics-mode-data-model#v1-schema-vs-v2-schema) de enviar dados de diagnóstico para uma conta de armazenamento ou um espaço de trabalho de LA também está em uma rota de depreciação. Isto significa que se tiver escrito quaisquer consultas ou automatizações personalizadas com base no esquema V1, é aconselhável atualizar estas consultas para utilizar o esquema V2 atualmente suportado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Saiba mais sobre monitorização e reportagem com O Backup Azure](https://docs.microsoft.com/azure/backup/backup-azure-monitor-alert-faq)

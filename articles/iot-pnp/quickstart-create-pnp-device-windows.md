@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: e80194f53a406b8b378d0fb787df627937125a27
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4f9b8f3edc475ec50eaf11080020aa9f62a0d2c1
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75867490"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700875"
 ---
 # <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-windows"></a>Quickstart: Utilize um modelo de capacidade do dispositivo para criar um dispositivo de pré-visualização ioT Plug e Play (Windows)
 
@@ -28,7 +28,7 @@ Para completar este arranque rápido, é necessário instalar o seguinte softwar
 * [Construa ferramentas para estúdio visual](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16) com **ferramentas de construção C++** e cargas de trabalho componentes de **gestor de pacotes NuGet.** Ou se já tem [o Visual Studio (Comunidade, Profissional ou Empresa)](https://visualstudio.microsoft.com/downloads/) 2019, 2017 ou 2015 com as mesmas cargas de trabalho instaladas.
 * [Git.](https://git-scm.com/download/)
 * [Cmake.](https://cmake.org/download/)
-* [Código de estúdio visual.](https://code.visualstudio.com/)
+* [Visual Studio Code](https://code.visualstudio.com/).
 
 ### <a name="install-azure-iot-tools"></a>Instalar ferramentas Azure IoT
 
@@ -85,9 +85,9 @@ Neste arranque rápido, utiliza o gestor da biblioteca [Vcpkg](https://github.co
 
 Neste arranque rápido, utiliza-se um modelo de capacidade de dispositivo de amostra existente e interfaces associadas.
 
-1. Crie `pnp_app` uma pasta na sua unidade local. Utiliza esta pasta para os ficheiros do modelo do dispositivo e para o código do dispositivo.
+1. Crie uma `pnp_app` pasta na sua unidade local. Utiliza esta pasta para os ficheiros do modelo do dispositivo e para o código do dispositivo.
 
-1. Descarregue o modelo de capacidade do [dispositivo e experimente](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/SampleDevice.capabilitymodel.json) a amostra de [interface](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/EnvironmentalSensor.interface.json) e guarde os ficheiros na `pnp_app` pasta.
+1. Descarregue o modelo de capacidade do [dispositivo e experimente](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/SampleDevice.model.json) a amostra de [interface](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/EnvironmentalSensor.interface.json) e guarde os ficheiros na `pnp_app` pasta.
 
     > [!TIP]
     > Para descarregar um ficheiro do GitHub, navegue para o ficheiro, clique à direita em **Raw**, e, em seguida, selecione **o link Guardar como**.
@@ -96,13 +96,13 @@ Neste arranque rápido, utiliza-se um modelo de capacidade de dispositivo de amo
 
     ![Modelo de capacidade do dispositivo](media/quickstart-create-pnp-device/dcm.png)
 
-1. Nos ficheiros que descarregou, `@id` `schema` substitua `<YOUR_COMPANY_NAME_HERE>` nos campos e campos por um valor único. Use apenas os caracteres a-z, A-Z, 0-9, e sublinhe. Para mais informações, consulte o [formato de identificador Digital Twin.](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL#digital-twin-identifier-format)
+1. Nos ficheiros que descarregou, substitua `<YOUR_COMPANY_NAME_HERE>` nos campos e campos por um valor `@id` `schema` único. Use apenas os caracteres a-z, A-Z, 0-9, e sublinhe. Para mais informações, consulte o [formato de identificador Digital Twin.](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL#digital-twin-identifier-format)
 
 ## <a name="generate-the-c-code-stub"></a>Gerar o código C
 
 Agora que tem um DCM e as suas interfaces associadas, pode gerar o código do dispositivo que implementa o modelo. Para gerar o código C no Código VS:
 
-1. Com `pnp_app` a pasta aberta no Código VS, utilize **o Ctrl+Shift+P** para abrir a paleta de comando, **introduza a Ficha IoT e a Reprodução,** e selecione **Generate Device Code Stub**.
+1. Com a `pnp_app` pasta aberta no Código VS, utilize o **Ctrl+Shift+P** para abrir a paleta de comando, **introduza a Ficha IoT e a Reprodução,** e selecione **Generate Device Code Stub**.
 
     > [!NOTE]
     > A primeira vez que utiliza o IoT Plug e reprodução do CodeGen CLI, demora alguns segundos a descarregar e instalar automaticamente.
@@ -126,7 +126,7 @@ Agora que tem um DCM e as suas interfaces associadas, pode gerar o código do di
 
 Usa a embalagem vcpkg para construir o código do dispositivo gerado. A aplicação que constrói simula um dispositivo que se conecta a um hub IoT. A aplicação envia telemetria e propriedades e recebe comandos.
 
-1. Crie `cmake` um subdiretório na `sample_device` pasta e navegue para essa pasta:
+1. Crie um `cmake` subdiretório na `sample_device` pasta e navegue para essa pasta:
 
     ```cmd
     mkdir cmake
@@ -169,9 +169,9 @@ Usa a embalagem vcpkg para construir o código do dispositivo gerado. A aplicaç
 
 Para validar o código do dispositivo com o **Azure IoT Explorer,** é necessário publicar os ficheiros no repositório do modelo.
 
-1. Com `pnp_app` a pasta aberta no Código VS, utilize **ctrl+Shift+P** para abrir a paleta de comando, digitar e selecionar **plug IoT & Reproduzir: Submeter ficheiros ao Repositório**modelo .
+1. Com a `pnp_app` pasta aberta no Código VS, utilize **ctrl+Shift+P** para abrir a paleta de comando, digitar e selecionar **plug IoT & Reproduzir: Submeter ficheiros ao Repositório**modelo .
 
-1. Selecione `SampleDevice.capabilitymodel.json` e `EnvironmentalSensor.interface.json` ficheiros.
+1. `SampleDevice.capabilitymodel.json`Selecione e `EnvironmentalSensor.interface.json` ficheiros.
 
 1. Introduza a sua cadeia de ligação repositório modelo da empresa.
 
@@ -197,7 +197,7 @@ Para validar o código do dispositivo com o **Azure IoT Explorer,** é necessár
 
 [!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, aprendeu a criar um dispositivo IoT Plug and Play utilizando um DCM.
 

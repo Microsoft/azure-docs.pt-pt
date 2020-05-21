@@ -6,32 +6,40 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 01/09/2020
 ms.author: cynthn
-ms.openlocfilehash: ba40e610e31a1215ac90baf63a04b435b636d68a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dc772368de1a0f7d8a7d4f44b47ecafda70f0a70
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79127691"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714853"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>Implementar VMs para anfitriões dedicados usando o Azure CLI
  
 
 Este artigo guia-o através de como criar um [anfitrião dedicado](dedicated-hosts.md) azure para hospedar as suas máquinas virtuais (VMs). 
 
-Certifique-se de que instalou a versão 2.0.70 do Azure CLI `az login`ou posteriormente, e inscreveu-se numa conta Azure utilizando . 
+Certifique-se de que instalou a versão 2.0.70 do Azure CLI ou posteriormente, e inscreveu-se numa conta Azure utilizando `az login` . 
 
 
 ## <a name="limitations"></a>Limitações
 
 - Os conjuntos de escala de máquinas virtuais não são atualmente suportados em anfitriões dedicados.
 - Os tamanhos e tipos de hardware disponíveis para anfitriões dedicados variam por região. Consulte a [página](https://aka.ms/ADHPricing) de preços do anfitrião para saber mais.
- 
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos 
 Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Crie o grupo de recursos com o grupo Az criar. O exemplo seguinte cria um grupo de recursos chamado *myDHResourceGroup* na localização *dos EUA Orientais.*
 
 ```bash
 az group create --name myDHResourceGroup --location eastus 
+```
+ 
+## <a name="list-available-host-skus-in-a-region"></a>Lista Disponível anfitrião SKUs em uma região
+Nem todas as SKUs hospedeiras estão disponíveis em todas as regiões, e zonas de disponibilidade. 
+
+Liste a disponibilidade do anfitrião e quaisquer restrições de oferta antes de começar a fornecer anfitriões dedicados. 
+
+```bash
+az vm list-skus -l eastus2  -r hostGroups/hosts  -o table  
 ```
  
 ## <a name="create-a-host-group"></a>Criar um grupo de anfitriões 
@@ -229,7 +237,7 @@ Você pode exportar um modelo se você agora quiser criar um ambiente de desenvo
 az group export --name myDHResourceGroup > myDHResourceGroup.json 
 ```
 
-Este comando `myDHResourceGroup.json` cria o ficheiro no seu atual diretório de trabalho. Quando você cria um ambiente a partir deste modelo, você é solicitado para todos os nomes de recursos. Pode povoar estes nomes no `--include-parameter-default-value` seu ficheiro `az group export` de modelo adicionando o parâmetro ao comando. Edite o seu modelo JSON para especificar os nomes dos recursos ou crie um ficheiro parameters.json que especifica os nomes dos recursos.
+Este comando cria o ficheiro no seu atual diretório de `myDHResourceGroup.json` trabalho. Quando você cria um ambiente a partir deste modelo, você é solicitado para todos os nomes de recursos. Pode povoar estes nomes no seu ficheiro de modelo adicionando o `--include-parameter-default-value` parâmetro ao `az group export` comando. Edite o seu modelo JSON para especificar os nomes dos recursos ou crie um ficheiro parameters.json que especifica os nomes dos recursos.
  
 Para criar um ambiente a partir do seu modelo, use a criação de implementação do [grupo Az](/cli/azure/group/deployment#az-group-deployment-create).
 
@@ -268,7 +276,7 @@ Também pode eliminar todo o grupo de recursos num único comando. Isto eliminar
 az group delete -n myDHResourceGroup 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para mais informações, consulte a visão geral dos [anfitriões dedicados.](dedicated-hosts.md)
 

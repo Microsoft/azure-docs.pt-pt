@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
-ms.openlocfilehash: 15f8a3ac8c2777b3a878de92db495e559f64ad20
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a1a55ceec2679034125ddd202402cabcbf71e17e
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81726551"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698302"
 ---
 # <a name="changelog"></a>Registo de alterações #
 
@@ -246,7 +246,7 @@ ms.locfileid: "81726551"
 
 ### <a name="changes-211"></a>Alterações 2.1.1 ####
 
-- [Mudança] Código de Erro adicionado para requisito widevine Https: a partir do Chrome v58, o conteúdo de grande videira deve ser carregado/reproduzido através do `https://` protocolo caso contrário a reprodução falhará.
+- [Mudança] Código de Erro adicionado para requisito widevine Https: a partir do Chrome v58, o conteúdo de grande videira deve ser carregado/reproduzido através do protocolo caso contrário a `https://` reprodução falhará.
 - [Mudança] Rótulo de ária adicionado para carregar spinner para que a tecnologia assistida possa narrar "carregamento de vídeo" quando o conteúdo está a carregar  
 
 ## <a name="210-official-release"></a>2.1.0 (Lançamento Oficial) ##
@@ -577,8 +577,8 @@ ms.locfileid: "81726551"
 - [Bug Fix] [AzureHtml5JS] Congelamento de reprodução ao vivo em atualizações de MPD quando há pequenas imprecisões no carimbo de tempo
 - [Bug Fix] [AzureHtml5JS] Atenuado vários problemas de reprodução ao vivo
 - [Bug Fix] [AzureHtml5JS] Lave os amortecedores quando a heurística do tamanho da janela está ligado e vá para um ecrã de resolução mais alto
-- [Bug Fix] [AzureHtml5JS] O Chrome mostra agora devidamente o evento terminado. Ligado à edição anterior conhecida do *Chrome não enviará&euro;propriamente&euro;um evento "" ao utilizar o AzureHtml5JS. Existe um problema no navegador subjacente.*
-- [Bug Fix] [AzureHtml5JS] Safari desativado para esta tecnologia de forma a abordar o problema da Reprodução com a *OSX Yosemite com a tecnologia AzureHtml5JS. Existem questões de implementação da MSE. Mitigação Temporária:&euro;força â&euro;flashSSâ ,&euro;â&euro;"silverlightSSâ" como ordem tecnológica para estes agentes utilizadores*
+- [Bug Fix] [AzureHtml5JS] O Chrome mostra agora devidamente o evento terminado. Ligado à edição anterior conhecida do *Chrome não enviará evento sem problemas ao utilizar o AzureHtml5JS. Existe um problema no navegador subjacente.*
+- [Bug Fix] [AzureHtml5JS] Safari desativado para esta tecnologia de forma a abordar o problema da Reprodução com a *OSX Yosemite com a tecnologia AzureHtml5JS. Existem questões de implementação da MSE. Mitigação Temporária: força flashSS, silverlightSS como ordem tecnológica para estes agentes utilizadores*
 - [Bug Fix] [FlashSS] loadstart disparado após erro ocorreu
 
 ## <a name="020-beta"></a>0.2.0 (Beta) ##
@@ -589,7 +589,7 @@ ms.locfileid: "81726551"
 - [Recurso] Manuseamento de descontinuidades
 - [Recurso] Suporte para selos temporais superiores a 2^53
 - [Recurso] Parâmetro de consulta de URL persiste ao pedido manifesto
-- [Recurso] [Não testado] Perfis `QuickStart` de `HighQuality` apoio e heurística
+- [Recurso] [Não testado] Perfis de apoio `QuickStart` e `HighQuality` heurística
 - [Recurso] [Não testado] Expondo informações sobre fluxode vídeo para bitrates, largura e altura em AzureHtml5JS e FlashSS
 - [Recurso] [Não testado] Selecione Bitrate em AzureHtml5JS e FlashSS (ver documentação API)
 
@@ -615,6 +615,6 @@ ms.locfileid: "81726551"
 
 Pré-lançamento inicial
 
-## <a name="next-steps"></a>Passos seguintes ##
+## <a name="next-steps"></a>Próximos passos ##
 
 - [Azure Media Player Quickstart](azure-media-player-quickstart.md)

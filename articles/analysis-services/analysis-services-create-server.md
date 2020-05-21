@@ -4,15 +4,15 @@ description: Aprenda a criar rapidamente uma instância de servidor de Serviços
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 10/30/2019
+ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4c1b22d4871d3e490f59be71b63569fdf563ce45
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 36899aa789f4947fe860621bc1795bfbe2ff1ecf
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75442827"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697478"
 ---
 # <a name="quickstart-create-a-server---portal"></a>Início Rápido: Criar um servidor - Portal
 
@@ -30,7 +30,7 @@ Este início rápido descreve como criar um recurso de servidor do Analysis Serv
 
 ## <a name="create-a-server"></a>Criar um servidor
 
-1. Clique **+ Crie um recurso** > **Analytics** > **Analysis Services**.
+1. Clique **+ Crie um recurso**  >  **Analytics**Analysis  >  **Services**.
 
     ![Portal](./media/analysis-services-create-server/aas-create-server-portal.png)
 
@@ -45,7 +45,7 @@ Este início rápido descreve como criar um recurso de servidor do Analysis Serv
    * **Definição do Armazenamento de Cópias de Segurança**: opcional. Se já tiver uma [conta de armazenamento](../storage/common/storage-introduction.md), pode especificá-la como a predefinição para a cópia de segurança de base de dados modelo. Também pode especificar as definições da [cópia de segurança e restauro](analysis-services-backup.md) mais tarde.
    * **Expiração da chave de armazenamento**: opcional. Especifique um período de expiração da chave de armazenamento.
 
-Criar o servidor, normalmente, demora menos de um minuto. Se tiver selecionado **Adicionar ao Portal**, navegue até ao seu portal para ver o seu novo servidor. Ou, navegue para **todos os serviços** > **de análise de serviços** para ver se o seu servidor está pronto. Os servidores suportam modelos tabular nos níveis de compatibilidade 1200 e mais elevados. O nível de compatibilidade do modelo é especificado no Visual Studio ou SSMS.
+Criar o servidor, normalmente, demora menos de um minuto. Se tiver selecionado **Adicionar ao Portal**, navegue até ao seu portal para ver o seu novo servidor. Ou, navegue para **todos os**  >  **serviços de análise de serviços** para ver se o seu servidor está pronto. Os servidores suportam modelos tabular nos níveis de compatibilidade 1200 e mais elevados. O nível de compatibilidade do modelo é especificado no Visual Studio ou SSMS.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -54,7 +54,7 @@ Quando já não precisar, elimine o seu servidor. Na **Descrição Geral** do se
  ![Limpeza](./media/analysis-services-create-server/aas-create-server-cleanup.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste início rápido, aprendeu a criar um servidor na sua subscrição do Azure. Agora que tem o servidor, pode ajudar a protegê-lo ao configurar uma firewall do servidor (opcional). Também pode adicionar um modelo de dados de exemplo básico ao seu servidor diretamente a partir do portal. Ter um modelo de exemplo é útil para saber como configurar as funções de base de dados do modelo e testar as ligações de cliente. Para obter mais informações, avance para o tutorial para adicionar um modelo de exemplo.
 
 > [!div class="nextstepaction"]
