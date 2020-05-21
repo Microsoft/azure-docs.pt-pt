@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: b9c40d93c48bcf5959b5d9651510ce6076eb789e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b63aa2b2d98a12246d0dc2c35e015da872caff28
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82201759"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83641107"
 ---
 # <a name="tutorial-build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>Tutorial: Construa um daemon multiinquilino que usa o ponto final da plataforma de identidade da Microsoft
 
@@ -32,7 +32,7 @@ Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.mi
 
 A aplicação é construída como uma aplicação ASP.NET MVC. Utiliza o middleware OWIN OpenID Connect para iniciar sessão nos utilizadores.
 
-O componente "daemon" nesta amostra é `SyncController.cs`um controlador API, . Quando o controlador é chamado, ele puxa uma lista de utilizadores no inquilino Azure Ative Directory (Azure AD) do cliente da Microsoft Graph. `SyncController.cs`é desencadeada por uma chamada do AJAX na aplicação web. Utiliza a [Microsoft Authentication Library (MSAL) para .NET](msal-overview.md) adquirir um token de acesso para o Microsoft Graph.
+O componente "daemon" nesta amostra é um controlador API, `SyncController.cs` . Quando o controlador é chamado, ele puxa uma lista de utilizadores no inquilino Azure Ative Directory (Azure AD) do cliente da Microsoft Graph. `SyncController.cs`é desencadeada por uma chamada do AJAX na aplicação web. Utiliza a [Microsoft Authentication Library (MSAL) para .NET](msal-overview.md) adquirir um token de acesso para o Microsoft Graph.
 
 >[!NOTE]
 > Se for novidade na plataforma de identidade da Microsoft, recomendamos que comece com o [quickstart .NET Core](quickstart-v2-netcore-daemon.md).
@@ -114,8 +114,8 @@ Se não quiser utilizar a automatização, utilize os passos nas seguintes secç
 1. Selecione **Registar** para criar a aplicação.
 1. Na página **de Visão Geral** da aplicação, encontre o valor de ID da **Aplicação (cliente)** e grave-o para mais tarde. Vai precisar dele para configurar o ficheiro de configuração do Estúdio Visual para este projeto.
 1. Na lista de páginas da aplicação, selecione **Autenticação**. Em seguida:
-   - Na secção **de definições avançadas,** coloque **o URL de logout** para **https://localhost:44316/Account/EndSession**.
-   - Nas **definições avançadas** > A secção de**subvenção implícita,** selecione **fichas** de acesso e **fichas de identificação**. Esta amostra requer que o fluxo implícito de [subvenção](v2-oauth2-implicit-grant-flow.md) seja ativado para assinar no utilizador e chamar uma API.
+   - Na secção **de definições avançadas,** coloque **o URL de logout** para **https://localhost:44316/Account/EndSession** .
+   - Nas **definições avançadas**A secção de  >  **subvenção implícita,** selecione **fichas** de acesso e **fichas de identificação**. Esta amostra requer que o fluxo implícito de [subvenção](v2-oauth2-implicit-grant-flow.md) seja ativado para assinar no utilizador e chamar uma API.
 1. Selecione **Guardar**.
 1. A partir da página **de Certificados & segredos,** na secção **de segredos do Cliente,** selecione **novo segredo de cliente.** Em seguida:
 
@@ -199,7 +199,7 @@ O código relevante para esta amostra encontra-se nos seguintes ficheiros:
 1. Adicione um novo **controlador MVC 5 - Instância vazia** chamada **UserController**. Substitua a implementação pelo conteúdo do ficheiro com o mesmo nome da amostra.
 1. Adicione um novo **controlador Web API 2 - Instância vazia** chamada **SyncController**. Substitua a implementação pelo conteúdo do ficheiro com o mesmo nome da amostra.
 1. Para a interface do utilizador, na pasta **Views\Account,** adicione três situações **de visualização vazias (sem modelo)** chamadas **GrantPermissions**, **Index**, e **UserMismatch**. Adicione e um **índice** nomeado na pasta **Views\User.** Substitua a implementação pelo conteúdo do ficheiro com o mesmo nome da amostra.
-1. Update **\_Shared Layout.cshtml** e **Home\Index.cshtml** para ligar corretamente as várias vistas.
+1. Update **Shared \_ Layout.cshtml** e **Home\Index.cshtml** para ligar corretamente as várias vistas.
 
 ## <a name="deploy-the-sample-to-azure"></a>Implante a amostra para Azure
 
@@ -213,7 +213,7 @@ Este projeto tem web app e projetos web API. Para implantá-los em websites do A
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione **Criar um recurso** no canto superior esquerdo.
-1. Selecione **Web** > **Web App**e, em seguida, dê um nome ao seu website. Por exemplo, **nomeie-o dotnet-web-daemon-v2-contoso.azurewebsites.net**.
+1. Selecione **Web**  >  **Web Web App**e, em seguida, dê um nome ao seu website. Por exemplo, **nomeie-o dotnet-web-daemon-v2-contoso.azurewebsites.net**.
 1. Selecione as informações para **Subscrição,** **Grupo de Recursos,** plano de serviço de **aplicações e localização.** **OS** é **Windows**, e **Publicar** é **Código**.
 1. Selecione **Criar** e aguarde a criação do serviço de aplicações.
 1. Quando receber a notificação bem sucedida da **Implementação,** selecione **Ir a recorrer** para ir ao serviço de aplicações recém-criado.
@@ -224,7 +224,7 @@ Este projeto tem web app e projetos web API. Para implantá-los em websites do A
    1. Clique no projeto no Solution Explorer e, em seguida, **selecione Publicar**.
    1. Selecione **Import Profile** na barra inferior e importe o perfil de publicação que descarregou anteriormente.
 1. Selecione **Configurar**.
-1. No separador **Ligação,** atualize o URL de destino de modo a que utilize "https". Por exemplo, `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`utilize . Selecione **Seguinte**.
+1. No separador **Ligação,** atualize o URL de destino de modo a que utilize "https". Por exemplo, utilize `https://dotnet-web-daemon-v2-contoso.azurewebsites.net` . Selecione **Seguinte**.
 1. No separador **Definições,** certifique-se de que **a autenticação organizacional ativa** está limpa.
 1. Selecione **Guardar**. Selecione **Publicar** no ecrã principal.
 
@@ -235,10 +235,10 @@ O Visual Studio publicará o projeto e abrirá automaticamente um navegador para
 1. Regresse ao [portal do Azure](https://portal.azure.com).
 1. No painel esquerdo, selecione o serviço **de Diretório Ativo Azure** e, em seguida, selecione **as inscrições**da App .
 1. Selecione a aplicação **dotnet-web-daemon-v2.**
-1. Na página **de Autenticação** para a sua aplicação, atualize os campos DE URL de **Logout** com o endereço do seu serviço. Por exemplo, [https://dotnet-web-daemon-v2-contoso.azurewebsites.net](https://dotnet-web-daemon-v2-contoso.azurewebsites.net)utilize .
-1. A partir do menu **Branding,** atualize o URL da **página inicial** para o endereço do seu serviço. Por exemplo, [https://dotnet-web-daemon-v2-contoso.azurewebsites.net](https://dotnet-web-daemon-v2-contoso.azurewebsites.net)utilize .
+1. Na página **de Autenticação** para a sua aplicação, atualize os campos DE URL de **Logout** com o endereço do seu serviço. Por exemplo, utilize `https://dotnet-web-daemon-v2-contoso.azurewebsites.net` .
+1. A partir do menu **Branding,** atualize o URL da **página inicial** para o endereço do seu serviço. Por exemplo, utilize `https://dotnet-web-daemon-v2-contoso.azurewebsites.net` .
 1. Guarde a configuração.
-1. Adicione o mesmo URL na lista de valores do menu**URIs de Autenticação Redirecionamento.** **Authentication** >  Se tiver vários URLs redirecionados, certifique-se de que existe uma nova entrada que utiliza o URI do serviço de aplicações para cada URL de redirecionamento.
+1. Adicione o mesmo URL na lista **Authentication**de valores do menu  >  **URIs de Autenticação Redirecionamento.** Se tiver vários URLs redirecionados, certifique-se de que existe uma nova entrada que utiliza o URI do serviço de aplicações para cada URL de redirecionamento.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 Quando já não for necessário, elimine o objeto de aplicação que criou no registo da sua etapa de [aplicação.](#register-your-application)  Para remover a aplicação, siga as instruções em [Remover uma aplicação da autoria de si ou da sua organização](quickstart-remove-app.md#remove-an-application-authored-by-you-or-your-organization).
@@ -255,7 +255,7 @@ Se encontrar um bug em MSAL.NET, por favor levante a questão sobre [MSAL.NET Qu
 
 Para fornecer uma recomendação, vá à [página de Voz do Utilizador](https://feedback.azure.com/forums/169401-azure-active-directory).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre os diferentes [fluxos de autenticação e cenários](authentication-flows-app-scenarios.md) de aplicação que a plataforma de identidade da Microsoft suporta.
 
 Para mais informações, consulte a seguinte documentação conceptual:

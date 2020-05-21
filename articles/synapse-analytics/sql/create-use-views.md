@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 4c6a151bdd3b437c6a01a949096604b3963489bd
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 508c12d89d5b0476e4cd4cbd8dc43b8bda8fbd90
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195151"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647469"
 ---
 # <a name="create-and-use-views-in-sql-on-demand-preview-using-azure-synapse-analytics"></a>Crie e use vistas em SQL on-demand (pré-visualização) usando Azure Synapse Analytics
 
@@ -26,7 +26,7 @@ O seu primeiro passo é criar uma base de dados onde a vista será criada e inic
 
 ## <a name="create-a-view"></a>Criar uma vista
 
-Pode criar vistas da mesma forma que cria vistas regulares do SQL Server. A consulta abaixo cria uma visão que lê o ficheiro *population.csv.*
+Pode criar vistas da mesma forma que cria vistas regulares do SQL Server. A seguinte consulta cria uma visão que lê o ficheiro *population.csv.*
 
 > [!NOTE]
 > Mude a primeira linha da consulta, ou seja, [mydbname], então está a usar a base de dados que criou.

@@ -3,12 +3,12 @@ title: O que é o Language Understanding (LUIS)?
 description: O Language Understanding (LUIS) é um serviço de API baseado na cloud que aplica inteligência de machine learning personalizada aos textos conversacionais de idioma natural do utilizador, para prever o sentido geral e extrair informações relevantes e detalhadas.
 ms.topic: overview
 ms.date: 05/05/2020
-ms.openlocfilehash: d09aaabeec1d22132843ba98472e1cd89ba95815
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 26e1dfd5a610be9470d05080ca1559eec47196ab
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592819"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83675988"
 ---
 # <a name="what-is-language-understanding-luis"></a>O que é o Language Understanding (LUIS)?
 
@@ -46,7 +46,7 @@ A sua aplicação LUIS contém um modelo de linguagem natural específico para o
 
 * **Modelo pré-criado** O LUIS tem muitos modelos de domínio pré-criados, incluindo intenções, expressões e entidades pré-criadas. Pode utilizar as entidades pré-criadas sem utilizar as intenções e as expressões do modelo pré-criado. Os [modelos de domínio pré-criados](luis-how-to-use-prebuilt-domains.md) incluem todo o design para si e são uma excelente forma de começar a utilizar o LUIS rapidamente.
 
-* **Modelo personalizado** A LUIS dá-lhe várias formas de identificar os seus próprios modelos personalizados, incluindo intenções e entidades. As entidades incluem entidades aprendidas por máquinas, entidades específicas ou literais, e uma combinação de máquinas aprendidas e literais.
+* **Modelo personalizado** A LUIS dá-lhe várias formas de identificar os seus próprios modelos personalizados, incluindo intenções e entidades. As entidades incluem entidades de machine-learning, entidades específicas ou literais, e uma combinação de machine-learning e literal.
 
 ## <a name="build-the-luis-model"></a>Compilar o modelo do LUIS
 Construa o modelo com as APIs [de autoria](https://go.microsoft.com/fwlink/?linkid=2092087) ou com o [portal LUIS.](https://www.luis.ai)
@@ -120,7 +120,7 @@ Amostras que utilizem O LUIS:
 * [IA conversacional](https://github.com/Microsoft/AI) Repositório GitHub.
 * [Quadro bot - Amostras de bot](https://github.com/microsoft/BotBuilder-Samples)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Novidades](whats-new.md)
 * Crie uma aplicação do LUIS nova com um domínio [pré-criado](luis-get-started-create-app.md) ou [personalizado](luis-quickstart-intents-only.md).

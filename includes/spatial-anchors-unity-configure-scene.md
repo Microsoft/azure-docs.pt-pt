@@ -4,13 +4,15 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/2/2019
 ms.author: crtreasu
-ms.openlocfilehash: 96046e63c896817a2af78b2a11af34af24565608
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e3ef7e7b8f527cde1fcfbb13141fd3a520921267
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68561435"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673429"
 ---
 O próximo passo é configurar a aplicação para utilizar o identificador de conta e a chave de conta. Copiou-os para um editor de texto ao [criar o recurso Spatial Anchors.](#create-a-spatial-anchors-resource)
 
-No painel do **Projeto,** navegue para `Assets\AzureSpatialAnchors.SDK\Resources`. Selecione `SpatialAnchorConfig`. Em seguida, no painel do `Account Key` **Inspetor,** insira o `Spatial Anchors Account Id`valor para `Spatial Anchors Account Key` e `Account ID` como o valor para .
+No painel do **Projeto,** navegue para `Assets\AzureSpatialAnchors.SDK\Resources` . Selecione `SpatialAnchorConfig`. Em seguida, no painel do **Inspetor,** insira o `Account Key` valor para e como o valor para `Spatial Anchors Account Key` `Account ID` `Spatial Anchors Account Id` .
+
+Em seguida, `SpatialAnchorManager.cs` abra. Encontre `CreateSessionAsync()` e adicione a seguinte linha, substituindo no domínio da sua conta anterior: `session.Configuration.AccountId = "MyAccountDomain";` . Pode adicionar esta linha diretamente antes deste comentário `// Configure authentication` .

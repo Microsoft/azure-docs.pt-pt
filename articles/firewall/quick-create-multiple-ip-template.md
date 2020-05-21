@@ -5,20 +5,19 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
+ms.custom: subject-armqs
 ms.date: 04/14/2020
 ms.author: victorh
-ms.openlocfilehash: 3d58173d239e7a9249b588ff038ea46cfedb27a3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b81362f191e6317aa7ffa974a6d432b0c7514d8f
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81605212"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680547"
 ---
 # <a name="quickstart-create-an-azure-firewall-with-multiple-public-ip-addresses---resource-manager-template"></a>Quickstart: Criar uma Firewall Azure com vários endereços IP públicos - modelo de Gestor de Recursos
 
-Neste arranque rápido, você usa um modelo de Gestor de Recursos para implementar uma Firewall Azure com vários endereços IP públicos.
-
-A firewall implementada tem regras de recolha de regras NAT que permitem ligações RDP a duas máquinas virtuais Windows Server 2019.
+Neste arranque rápido, você usa um modelo de Gestor de Recursos para implementar uma Firewall Azure com vários endereços IP públicos. A firewall implementada tem regras de recolha de regras NAT que permitem ligações RDP a duas máquinas virtuais Windows Server 2019.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -34,21 +33,20 @@ Este modelo cria uma Firewall Azure com dois endereços IP públicos, juntamente
 
 ### <a name="review-the-template"></a>Reveja o modelo
 
-O modelo usado neste quickstart é de [modelos Azure Quickstart](https://github.com/Azure/azure-quickstart-templates/blob/master/fw-docs-qs/azuredeploy.json)
+O modelo utilizado neste quickstart é de [modelos Azure Quickstart](https://azure.microsoft.com/resources/templates/fw-docs-qs).
 
 :::code language="json" source="~/quickstart-templates/fw-docs-qs/azuredeploy.json" range="001-391" highlight="238-370":::
 
 Vários recursos Azure são definidos no modelo:
 
-- [**Microsoft.Network/publicIPAddresss**](/azure/templates/microsoft.network/publicipaddresses)
 - [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
+- [**Microsoft.Network/publicIPAddresss**](/azure/templates/microsoft.network/publicipaddresses)
 - [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
 - [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)
-- [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces)
 - [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageAccounts)
+- [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces)
 - [**Microsoft.Network/azureFirewalls**](/azure/templates/microsoft.network/azureFirewalls)
 - [**Microsoft.Network/routeTables**](/azure/templates/microsoft.network/routeTables)
-
 
 ### <a name="deploy-the-template"></a>Implementar o modelo
 
@@ -77,13 +75,13 @@ Utilize a Ligação de Ambiente de Trabalho Remoto para ligar aos endereços IP 
 
 Quando já não precisa dos recursos que criou com a firewall, elimine o grupo de recursos. Isto remove a firewall e todos os recursos relacionados.
 
-Para eliminar o grupo `Remove-AzResourceGroup` de recursos, ligue para o cmdlet:
+Para eliminar o grupo de recursos, ligue para o `Remove-AzResourceGroup` cmdlet:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name "<your resource group name>"
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Tutorial: Implementar e configurar firewall Azure numa rede híbrida utilizando o portal Azure](tutorial-hybrid-portal.md)

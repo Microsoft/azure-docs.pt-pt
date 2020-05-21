@@ -1,18 +1,18 @@
 ---
 title: Definições políticas incorporadas para nuvem de primavera azure
 description: Lista definições políticas integradas da Política Azure para a Nuvem de primavera de Azure. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 04/30/2020
+ms.date: 05/13/2020
 ms.topic: sample
 author: bmitchell287
 ms.author: brendm
 ms.service: spring-cloud
 ms.custom: subject-policy-samples
-ms.openlocfilehash: e15c598bcfdc63da7980f5a2f636706b56b5e4bb
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: 8c68f6f802b12e93e0968c3193527e0a1815efff
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82907013"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657185"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-spring-cloud"></a>Definições políticas integradas da Política Azure para a Nuvem de primavera de Azure
 

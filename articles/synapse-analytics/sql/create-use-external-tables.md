@@ -9,16 +9,16 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: f90021e35b4089547b236d01b10820f6c06bd0cc
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 039fdda4ab8fe636c1eab926c477aea420b59de8
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195169"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647482"
 ---
 # <a name="create-and-use-external-tables-in-sql-on-demand-preview-using-azure-synapse-analytics"></a>Crie e utilize tabelas externas em SQL on-demand (pré-visualização) utilizando o Azure Synapse Analytics
 
-Nesta secção, aprenderá a criar e utilizar tabelas externas em SQL on-demand (pré-visualização). As tabelas externas são úteis quando pretende controlar o acesso a dados externos no SQL On-demand e se pretender utilizar ferramentas, como o Power BI, em conjunto com a SQL on-demand. As tabelas externas podem aceder a dois tipos de armazenamento:
+Nesta secção, aprenderá a criar e utilizar [tabelas externas](develop-tables-external-tables.md) em SQL on-demand (pré-visualização). As tabelas externas são úteis quando pretende controlar o acesso a dados externos no SQL On-demand e se pretender utilizar ferramentas, como o Power BI, em conjunto com a SQL on-demand. As tabelas externas podem aceder a dois tipos de armazenamento:
 - Armazenamento público onde os utilizadores acedem a ficheiros de armazenamento público.
 - Armazenamento protegido onde os utilizadores acedem a ficheiros de armazenamento utilizando a credencial SAS, identidade AD Azure ou Identidade Gerida do espaço de trabalho Synapse.
 
@@ -61,7 +61,11 @@ As consultas neste artigo serão executadas na sua base de dados de amostras e u
 
 ## <a name="create-an-external-table-on-protected-data"></a>Criar uma tabela externa sobre dados protegidos
 
-Pode criar tabelas externas que acedam a dados de uma conta de armazenamento Azure que permita o acesso a utilizadores com alguma identidade Azure AD ou chave SAS. Pode criar tabelas externas da mesma forma que cria tabelas externas regulares do SQL Server. A consulta abaixo cria uma tabela externa que lê o ficheiro *population.csv* da conta de armazenamento de mo Azure synapseSQL que é referenciada usando fonte de dados e protegida com credenciais de base de dados com recurso a base `sqlondemanddemo` de dados chamada `sqlondemand` . A credencial de código de dados e fonte de dados de dados são criadas no script de [configuração](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql).
+Pode criar tabelas externas que acedam a dados de uma conta de armazenamento Azure que permita o acesso a utilizadores com alguma identidade Azure AD ou chave SAS. Pode criar tabelas externas da mesma forma que cria tabelas externas regulares do SQL Server. 
+
+A seguinte consulta cria uma tabela externa que lê o ficheiro *population.csv* da conta de armazenamento de mo Azure SynapseSQL que é referenciada usando fonte de dados e protegida com credenciais de base de dados com recurso a base `sqlondemanddemo` de dados chamada `sqlondemand` . 
+
+A credencial de código de dados e fonte de dados de dados são criadas no script de [configuração](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql).
 
 > [!NOTE]
 > Mude a primeira linha da consulta, ou seja, [mydbname], então está a usar a base de dados que criou. 
@@ -81,7 +85,6 @@ WITH (
     DATA_SOURCE = sqlondemanddemo,
     FILE_FORMAT = QuotedCSVWithHeaderFormat
 );
-GO
 ```
 
 ## <a name="create-an-external-table-on-public-data"></a>Criar uma tabela externa sobre dados públicos
@@ -105,9 +108,9 @@ CREATE EXTERNAL TABLE Taxi (
          FILE_FORMAT = ParquetFormat
 );
 ```
-## <a name="use-a-external-table"></a>Use uma tabela externa
+## <a name="use-an-external-table"></a>Use uma tabela externa
 
-Pode utilizar tabelas externas nas suas consultas da mesma forma que as utiliza em consultas do SQL Server.
+Pode utilizar [tabelas externas](develop-tables-external-tables.md) nas suas consultas da mesma forma que as utiliza em consultas do SQL Server.
 
 A seguinte consulta demonstra isso usando a tabela externa *da população* que criamos na secção anterior. Devolve nomes de países com a sua população em 2019 por ordem descendente.
 

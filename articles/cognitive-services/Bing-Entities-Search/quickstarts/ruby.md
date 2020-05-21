@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 12/11/2019
+ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: 69e4d992e2ef89b4d3d9408d6e50591fb8166c79
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 9699bb0e75aac19a2d5c5c68d07e85b1c17c7cbc
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75385784"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650181"
 ---
-# <a name="quickstart-for-bing-entity-search-api-with-ruby"></a>Início Rápido da API de Pesquisa de Entidades do Bing com Ruby
+# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-ruby"></a>Quickstart: Envie um pedido de pesquisa para a API de pesquisa da entidade bing usando ruby
 
 Use este quickstart para fazer a sua primeira chamada para a API de Pesquisa de Entidades Bing e veja a resposta JSON. Esta simples aplicação Ruby envia uma consulta de pesquisa de notícias para a API, e exibe a resposta. O código fonte desta aplicação está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingEntitySearchv7.rb).
 
-Embora esta aplicação seja escrita em Ruby, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
+Embora esta aplicação esteja escrita em Ruby, a API é um serviço Web RESTful compatível com a maioria dos idiomas de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -31,7 +31,7 @@ Embora esta aplicação seja escrita em Ruby, a API é um serviço Web RESTful c
 
 ## <a name="create-and-initialize-the-application"></a>Criar e inicializar a aplicação
 
-1. No seu IDE favorito ou editor de código, crie uma notícia do ficheiro Ruby e importe os seguintes pacotes.
+1. No seu IDE favorito ou editor de código, crie uma notícia do ficheiro Ruby e importe os seguintes pacotes:
 
     ```ruby
     require 'net/https'
@@ -39,7 +39,7 @@ Embora esta aplicação seja escrita em Ruby, a API é um serviço Web RESTful c
     require 'json'
     ```
 
-2. Crie variáveis para o seu ponto final da API, URL de pesquisa de notícias, a sua chave de subscrição e uma consulta de pesquisa. Pode utilizar o ponto final global abaixo, ou o ponto final personalizado do [subdomínio](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
+2. Crie variáveis para o seu ponto final da API, URL de pesquisa de notícias, a sua chave de subscrição e consulta de pesquisa. Pode utilizar o ponto final global no seguinte código ou utilizar o ponto final de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
     
     ```ruby
     host = 'https://api.cognitive.microsoft.com'
@@ -51,21 +51,21 @@ Embora esta aplicação seja escrita em Ruby, a API é um serviço Web RESTful c
 
 ## <a name="format-and-make-an-api-request"></a>Formatar e fazer um pedido de API
 
-1. Crie a cadeia de parâmetros para o `?mkt=` seu pedido, alinhando a sua variável de mercado ao parâmetro. Codifique a sua consulta e `&q=` adere-a ao parâmetro. Combine o seu anfitrião, caminho e os parâmetros para o seu pedido e lance-os como um objeto URI.
+1. Crie a cadeia de parâmetros para o seu pedido, alinhando a sua variável de mercado ao `?mkt=` parâmetro. Codifique a sua consulta e adere-a ao `&q=` parâmetro. Combine o seu anfitrião, caminho e os parâmetros para o seu pedido e lance-os como um objeto URI.
 
     ```ruby
     params = '?mkt=' + mkt + '&q=' + CGI.escape(query)
     uri = URI (host + path + params)
     ```
 
-2. Use as variáveis do último passo para criar o pedido. Adicione a sua `Ocp-Apim-Subscription-Key` chave de subscrição ao cabeçalho.
+2. Use as variáveis do último passo para criar o pedido. Adicione a sua chave de subscrição ao `Ocp-Apim-Subscription-Key` cabeçalho.
 
     ```ruby
     request = Net::HTTP::Get.new(uri)
     request['Ocp-Apim-Subscription-Key'] = subscriptionKey
     ```
 
-3. Envie o pedido e imprima a resposta
+3. Envie o pedido e imprima a resposta.
 
     ```ruby
     response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
@@ -140,10 +140,10 @@ Embora esta aplicação seja escrita em Ruby, a API é um serviço Web RESTful c
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Criar uma aplicação web de página única](../tutorial-bing-entities-search-single-page-app.md)
 
-* [O que é a API de Pesquisa de Entidadebing](../search-the-web.md)
-* [Referência da API da Entidade Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)
+* [O que é a API de Pesquisa de Entidades Bing?](../search-the-web.md)
+* [Referência a API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)de Pesquisa de Entidades Bing .

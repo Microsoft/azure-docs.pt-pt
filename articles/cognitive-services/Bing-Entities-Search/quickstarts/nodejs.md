@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 12/11/2019
+ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: f3585e96376a25721f478f9dd621835e75e3c600
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 194368acd6be65da6a800ad1394ac156a6654b50
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448639"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650237"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-nodejs"></a>Quickstart: Envie um pedido de pesquisa para a API de pesquisa de entidadebing usando node.js
 
@@ -27,20 +27,20 @@ Embora esta aplicação esteja escrita no JavaScript, a API é um serviço Web R
 
 * A versão mais recente do [Node.js](https://nodejs.org/en/download/).
 
-* A [Biblioteca de Pedidos JavaScript](https://github.com/request/request)
+* A [Biblioteca de Pedidos JavaScript.](https://github.com/request/request)
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
 ## <a name="create-and-initialize-the-application"></a>Criar e inicializar a aplicação
 
-1. Crie um novo ficheiro JavaScript no seu IDE ou editor favorito e defina os requisitos de exatidão e HTTPS.
+1. Crie um novo ficheiro JavaScript no seu IDE ou editor favorito e detete teanta a rigor e os requisitos HTTPS.
 
     ```javaScript
     'use strict';
     let https = require ('https');
     ```
 
-2. Crie variáveis para o ponto final da API, a sua chave de subscrição e consulta de pesquisa. Pode utilizar o ponto final global abaixo, ou o ponto final personalizado do [subdomínio](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
+2. Crie variáveis para o ponto final da API, a sua chave de subscrição e consulta de pesquisa. Pode utilizar o ponto final global no seguinte código ou utilizar o ponto final de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
 
     ```javascript
     let subscriptionKey = 'ENTER YOUR KEY HERE';
@@ -51,62 +51,63 @@ Embora esta aplicação esteja escrita no JavaScript, a API é um serviço Web R
     let q = 'italian restaurant near me';
     ```
 
-3. Acomode o seu mercado e parâmetros de consulta a uma corda chamada `query`. Certifique-se de que codifica a `encodeURI()`sua consulta com .
+3. Acomode o seu mercado e parâmetros de consulta a uma corda chamada `query` . Certifique-se de que codifica a sua consulta com `encodeURI()` .
     ```javascript 
     let query = '?mkt=' + mkt + '&q=' + encodeURI(q);
     ```
 
 ## <a name="handle-and-parse-the-response"></a>Processar e analisar a resposta
 
-1. Defina uma `response_handler` função chamada `response`que requer uma chamada HTTP, como parâmetro. Dentro desta função, execute os seguintes passos:
+1. Defina uma função chamada `response_handler()` que requer uma chamada HTTP, como `response` parâmetro. 
 
-    1. Defina uma variável para incluir o corpo da resposta JSON.  
-        ```javascript
-        let response_handler = function (response) {
-            let body = '';
-        };
+2. Dentro desta função, defina uma variável para conter o corpo da resposta JSON.  
+    ```javascript
+    let response_handler = function (response) {
+        let body = '';
+    };
+    ```
+
+3. Guarde o corpo da resposta quando a `data` bandeira for chamada.
+    ```javascript
+    response.on('data', function (d) {
+        body += d;
+    });
+    ```
+
+4. Quando uma `end` bandeira é sinalizada, analise o JSON e imprima-a.
+
+    ```javascript
+    response.on ('end', function () {
+    let json = JSON.stringify(JSON.parse(body), null, '  ');
+    console.log (json);
+    });
         ```
 
-    2. Armazene o corpo da resposta quando o sinalizador **data** for chamado
-        ```javascript
-        response.on('data', function (d) {
-            body += d;
-        });
-        ```
+## Send a request
 
-    3. Quando uma bandeira **final** for sinalizada, analise o JSON e imprima-a.
+1. Create a function called `Search()` to send a search request. In it, perform the following steps:
 
-        ```javascript
-        response.on ('end', function () {
-        let json = JSON.stringify(JSON.parse(body), null, '  ');
-        console.log (json);
-        });
-        ```
+2. Within this function, create a JSON object containing your request parameters. Use `Get` for the method, and add your host and path information. Add your subscription key to the `Ocp-Apim-Subscription-Key` header. 
 
-## <a name="send-a-request"></a>Enviar um pedido
-
-1. Crie uma `Search` função chamada para enviar um pedido de pesquisa. Nele, execute os seguintes passos.
-
-   1. Crie um objeto JSON contendo `Get` os parâmetros do seu pedido: use para o método e adicione as informações do anfitrião e do caminho. Adicione a sua `Ocp-Apim-Subscription-Key` chave de subscrição ao cabeçalho. 
-   2. Utilize `https.request()` para enviar o pedido com o manipulador de resposta criado anteriormente, e os seus parâmetros de pesquisa.
+3. Use `https.request()` to send the request with the response handler created previously, and your search parameters.
     
-      ```javascript
-      let Search = function () {
-       let request_params = {
-           method : 'GET',
-           hostname : host,
-           path : path + query,
-           headers : {
-               'Ocp-Apim-Subscription-Key' : subscriptionKey,
-           }
-       };
+   ```javascript
+   let Search = function () {
+    let request_params = {
+        method : 'GET',
+        hostname : host,
+        path : path + query,
+        headers : {
+            'Ocp-Apim-Subscription-Key' : subscriptionKey,
+        }
+    };
     
-       let req = https.request (request_params, response_handler);
-       req.end ();
-      }
+    let req = https.request (request_params, response_handler);
+    req.end ();
+   }
       ```
 
-2. Ligue `Search()` para a função.
+2. Ligue para a `Search()` função.
 
 ## <a name="example-json-response"></a>Exemplo resposta JSON
 
@@ -173,10 +174,10 @@ Embora esta aplicação esteja escrita no JavaScript, a API é um serviço Web R
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Criar uma aplicação web de página única](../tutorial-bing-entities-search-single-page-app.md)
 
 * [O que é a API de Pesquisa de Entidades Bing?](../overview.md )
-* [Referência da API da Entidade Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)
+* [Referência a API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)de Pesquisa de Entidades Bing .

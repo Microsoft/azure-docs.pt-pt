@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/16/2020
 ms.author: masoucou
-ms.openlocfilehash: 98b0ddf345ebd19e2cd974db3891e88c9f72530d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: db28455c47541b49b38ddbbc4d5e83ae20e2279d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79481692"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659171"
 ---
 # <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>QuickStart: Construa uma aplicação Xamarin.Forms com .NET SDK e Azure Cosmos DB's API para MongoDB
 
@@ -23,7 +23,7 @@ ms.locfileid: "79481692"
 > * [Node.js](create-mongodb-nodejs.md)
 > * [Python](create-mongodb-flask.md)
 > * [Xamarin](create-mongodb-xamarin.md)
-> * [Golang](create-mongodb-golang.md)
+> * [Golang](create-mongodb-go.md)
 >  
 
 O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente da Microsoft. Pode criar e consultar rapidamente o documento, a chave/valor e as bases de dados de gráficos, que beneficiam de capacidades de escalamento horizontal e distribuição global no centro do Azure Cosmos DB.
@@ -84,7 +84,7 @@ Se não quiser usar git, também pode [descarregar o projeto como um ficheiro ZI
 
 Este passo é opcional. Se estiver interessado em aprender de que forma os recursos da base de dados são criados no código, pode consultar os seguintes fragmentos. Caso contrário, pode avançar diretamente para [Update your connection string (Atualizar a cadeia de ligação)](#update-your-connection-string).
 
-Os seguintes cortes são todos `MongoService` retirados da classe, encontrados no seguinte caminho: src/TaskList.Core/Services/MongoService.cs.
+Os seguintes cortes são todos retirados da `MongoService` classe, encontrados no seguinte caminho: src/TaskList.Core/Services/MongoService.cs.
 
 * Inicializar o cliente Mongo.
     ```cs
@@ -173,13 +173,13 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 4. Retire `&replicaSet=globaldb` da corda de ligação. Terá um erro de tempo de execução se não remover esse valor da cadeia de consulta.
 
 > [!IMPORTANT]
-> Deve remover `&replicaSet=globaldb` o par chave/valor da corda de consulta da corda de ligação para evitar um erro de tempo de execução.
+> Deve remover o par chave/valor da corda de consulta da corda de ligação para evitar um erro de tempo de `&replicaSet=globaldb` execução.
 
 Atualizou agora a sua aplicação com todas as informações necessárias para comunicar com o Azure Cosmos DB.
 
 ## <a name="run-the-app"></a>Executar a aplicação
 
-### <a name="visual-studio-2019"></a>Visual Studio 2019
+### <a name="visual-studio-2019"></a>Visual Studio 2019
 
 1. No Visual Studio, clique com o botão direito do rato em cada projeto no **Explorador de Soluções** e clique em **Gerir Pacotes NuGet**.
 2. Clique em **Restaurar todos os pacotes NuGet**.
@@ -202,7 +202,7 @@ Atualizou agora a sua aplicação com todas as informações necessárias para c
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste início rápido, aprendeu a criar uma conta do Azure Cosmos DB e a executar uma aplicação Xamarin.Forms com a API do MongoDB. Agora, pode importar dados adicionais à sua conta do Cosmos DB.
 

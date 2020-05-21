@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 05/11/2020
+ms.date: 05/19/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 928e0cec1cad5d6fe8b70b728cd86a41577ce797
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: b54e8efc4f5f22a89526bb5d529805b33371529f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195349"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655118"
 ---
 # <a name="what-is-azure-firewall"></a>O que é o Azure Firewall?
 
@@ -124,10 +124,11 @@ As regras de filtragem de rede para protocolos não TCP/UDP (por exemplo, ICMP) 
 |FtP ativo não é suportado|O FTP ativo é desativado no Azure Firewall para proteger contra ataques ftp bounce usando o comando FTP PORT.|Em vez disso, pode utilizar ftp passivo. Ainda deve abrir explicitamente as portas TCP 20 e 21 na firewall.
 |Métrica de utilização da porta SNAT mostra 0%|A métrica de utilização da porta Azure Firewall SNAT pode mostrar uma utilização de 0%, mesmo quando as portas SNAT são utilizadas. Neste caso, a utilização da métrica como parte da métrica de saúde da firewall proporciona um resultado incorreto.|Esta questão foi corrigida e a produção está direcionada para maio de 2020. Em alguns casos, a redistribuição da firewall resolve o problema, mas não é consistente. Como uma suposição intermédia, utilize apenas o estado de saúde da firewall para procurar *o estado=degradado,* não para *o status=insalubre*. A exaustão portuária mostrar-se-á *degradada.* *Não é saudável* é reservado para uso futuro quando são mais métricas para impactar a saúde da firewall.
 |O DNAT não é suportado com túnel forçado habilitado|As firewalls implantadas com túneis forçados ativados não suportam o acesso à entrada da Internet devido ao encaminhamento assimétrico.|Isto é por design por causa do encaminhamento assimétrico. O caminho de retorno para ligações de entrada passa pela firewall no local, que não viu a ligação estabelecida.
-|O FTP passivo de saída não funciona para firewalls com vários endereços IP públicos.|O FTP passivo estabelece diferentes ligações para os canais de controlo e dados. Quando um Firewall com vários endereços IP públicos envia dados de saída, ele seleciona aleatoriamente um dos seus endereços IP públicos para o endereço IP fonte. O FTP falha quando os canais de dados e de controlo utilizam diferentes endereços IP de origem.|Está prevista uma configuração sNAT explícita. Entretanto, considere utilizar um único endereço IP nesta situação.|
+|FTP passivo de saída não funciona para Firewalls com vários endereços IP públicos|O FTP passivo estabelece diferentes ligações para os canais de controlo e dados. Quando um Firewall com vários endereços IP públicos envia dados de saída, ele seleciona aleatoriamente um dos seus endereços IP públicos para o endereço IP fonte. O FTP falha quando os canais de dados e de controlo utilizam diferentes endereços IP de origem.|Está prevista uma configuração sNAT explícita. Entretanto, considere utilizar um único endereço IP nesta situação.|
 |A métrica NetworkRuleHit está a perder uma dimensão de protocolo|A métrica ApplicationRuleHit permite filtrar o protocolo baseado, mas esta capacidade está em falta na métrica correspondente do NetworkRuleHit.|Uma correção está a ser investigada.|
 |As regras do NAT com portos entre 64000 e 65535 não são apoiadas|O Azure Firewall permite qualquer porta na gama 1-65535 nas regras de rede e aplicação, no entanto as regras na NAT apenas suportam portas na gama 1-63999.|Esta é uma limitação atual.
-|As atualizações de configuração podem demorar, em média, cinco minutos.|Uma atualização de configuração de Firewall Azure pode demorar entre 3 a 5 minutos, em média, e as atualizações paralelas não são suportadas.|Uma correção está a ser investigada.
+|As atualizações de configuração podem demorar cinco minutos, em média,|Uma atualização de configuração de Firewall Azure pode demorar entre 3 a 5 minutos, em média, e as atualizações paralelas não são suportadas.|Uma correção está a ser investigada.|
+|Azure Firewall usa cabeçalhos SNI TLS para filtrar tráfego HTTPS e MSSQL|Se o software do navegador ou servidor não suportar a extensão do Indicador de Nome do Servidor (SNI), não poderá ligar através do Firewall Do Azure.|Se o software do navegador ou servidor não suportar o SNI, poderá controlar a ligação utilizando uma regra de rede em vez de uma regra de aplicação. Consulte a [indicação do nome](https://wikipedia.org/wiki/Server_Name_Indication) do servidor para software que suporta o SNI.
 
 ## <a name="next-steps"></a>Próximos passos
 

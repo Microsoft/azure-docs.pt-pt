@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.openlocfilehash: 43f4cf7e4008aa01a26c48a8e99f7465eeeb234b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 53d1010f501e59b99c3ba6bac675124cdc5f77a0
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77061748"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659210"
 ---
 # <a name="quickstart-build-a-python-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Quickstart: Construa uma app Python utilizando a API da Azure Cosmos DB para o MongoDB
 
@@ -23,7 +23,7 @@ ms.locfileid: "77061748"
 > * [Node.js](create-mongodb-nodejs.md)
 > * [Python](create-mongodb-flask.md)
 > * [Xamarin](create-mongodb-xamarin.md)
-> * [Golang](create-mongodb-golang.md)
+> * [Golang](create-mongodb-go.md)
 >  
 
 Neste arranque rápido, você usa um Azure Cosmos DB para a conta Mongo DB API ou o Emulador Db Azure Cosmos para executar uma aplicação web Python Flask To-Do clonada a partir do GitHub. Azure Cosmos DB é um serviço de base de dados multi-modelo que permite criar e consultar rapidamente documentos, tabelas, basede-chaves e bases de dados de gráficos com capacidades de distribuição global e escala horizontal.
@@ -96,9 +96,9 @@ Os seguintes cortes são todos retirados do ficheiro *app.py* e usam a corda de 
 
 2. Abra uma janela de terminal e `cd` para o diretório onde a aplicação está guardada.
 
-3. Em seguida, detete a `set FLASK_APP=app.py`variável ambiental para a aplicação Flask com , `$env:FLASK_APP = app.py` para os editores PowerShell, ou `export FLASK_APP=app.py` se estiver a usar um Mac. 
+3. Em seguida, detete a variável ambiental para a aplicação Flask com `set FLASK_APP=app.py` , `$env:FLASK_APP = app.py` para os editores PowerShell, ou `export FLASK_APP=app.py` se estiver a usar um Mac. 
 
-4. Executar a `flask run` aplicação com e navegar para *http:\//127.0.0.1:5000/*.
+4. Executar a aplicação com `flask run` e navegar para *http: \/ /127.0.0.1:5000/*.
 
 5. Adicione e remova tarefas e veja-as adicionadas e alteradas na coleção.
 
@@ -155,7 +155,7 @@ Se não quiser criar uma bifurcação deste repo, também pode selecionar o bot�
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, aprendeu a criar um Azure Cosmos DB para a conta Mongo DB API, e usou o Emulador Db Azure Cosmos para executar uma aplicação web Python Flask To-Do clonada do GitHub. Agora, pode importar dados adicionais para a sua conta do Azure Cosmos DB. 
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a421afc736399472a513dfc145321ba33ef6fdca
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d353aad9f0ecf871410dd94b0081381a0b1304c6
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "71129732"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647342"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-apptio"></a>Tutorial: Azure Ative Directory integração individual (SSO) com apptio
 
@@ -105,7 +105,7 @@ Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
    1. No campo **Nome**, introduza `B.Simon`.  
-   1. No campo de nome username@companydomain.extensiondo **Utilizador,** introduza o . Por exemplo, `B.Simon@contoso.com`.
+   1. No campo de **nome do Utilizador,** introduza o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa de verificação de **palavra-passe do Show** e, em seguida, escreva o valor que está apresentado na caixa **password.**
    1. Clique em **Criar**.
 
@@ -129,11 +129,11 @@ Nesta secção, permitirá que b.Simon utilize um único sign-on azure, conceden
 
 ## <a name="configure-apptio-sso"></a>Configure Apptio SSO
 
-Para configurar um único sinal no lado **apptio,** você precisa enviar os metadados da **Federação xML** descarregados e URLs copiados apropriados do portal Azure para a equipa de [suporte Apptio](https://www.apptio.com/about/contact). Eles definiram esta definição para ter a ligação SAML SSO corretamente definida em ambos os lados.
+Para configurar um único sinal no lado **apptio,** você precisa enviar os metadados da **Federação xML** descarregados e URLs copiados apropriados do portal Azure para a equipa de [suporte Apptio](https://www.apptio.com/resources/customer-support/). Eles definiram esta definição para ter a ligação SAML SSO corretamente definida em ambos os lados.
 
 ### <a name="create-apptio-test-user"></a>Criar o utilizador de teste Apptio
 
-Nesta secção, cria-se um utilizador chamado B.Simon em Apptio. Trabalhe com a equipa de [suporte apptio](https://www.apptio.com/about/contact) para adicionar os utilizadores na plataforma Apptio. Os utilizadores devem ser criados e ativados antes de utilizar um único sinal.
+Nesta secção, cria-se um utilizador chamado B.Simon em Apptio. Trabalhe com a equipa de [suporte apptio](https://www.apptio.com/resources/customer-support/) para adicionar os utilizadores na plataforma Apptio. Os utilizadores devem ser criados e ativados antes de utilizar um único sinal.
 
 ## <a name="test-sso"></a>Teste SSO 
 

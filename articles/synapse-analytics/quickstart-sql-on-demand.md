@@ -1,5 +1,5 @@
 ---
-title: Utilização de SQL a pedido (pré-visualização)
+title: Utilize o SQL a pedido (pré-visualização)
 description: Neste arranque rápido, você verá e aprenderá como é fácil consultar vários tipos de ficheiros usando sQL on-demand (pré-visualização).
 services: synapse-analytics
 author: azaricstefan
@@ -9,18 +9,18 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9cb90ba81f6399d7b0e238d673c2d956911bd004
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 8c87b059d94d6b3be1a4b5cf2f83007b746f4156
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201035"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658585"
 ---
-# <a name="quickstart-using-sql-on-demand"></a>Quickstart: Utilização a pedido do SQL
+# <a name="quickstart-use-sql-on-demand"></a>Quickstart: Use SQL a pedido
 
 Synapse SQL on-demand (pré-visualização) é um serviço de consulta sem servidor que lhe permite executar consultas SQL em ficheiros colocados no Armazenamento Azure. Neste arranque rápido, você vai aprender a consultar vários tipos de ficheiros usando sQL on-demand. Os formatos suportados estão listados no [OPENROWSET](sql/develop-openrowset.md).
 
-Este quickstart mostra consulta: CSV, Apache Parquet e ficheiros JSON.
+Este quickstart mostra consultas: CSV, Apache Parquet e ficheiros JSON.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -30,7 +30,7 @@ Escolha um cliente SQL para emitir consultas:
 - [O Azure Data Studio](sql/get-started-azure-data-studio.md) é uma ferramenta de cliente que lhe permite executar consultas e cadernos SQL na sua base de dados On-demand.
 - [O SQL Server Management Studio](sql/get-started-ssms.md) é uma ferramenta de cliente que lhe permite executar consultas SQL na sua base de dados On-demand.
 
-Parâmetros para o arranque rápido:
+Parâmetros para este arranque rápido:
 
 | Parâmetro                                 | Descrição                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
@@ -89,7 +89,7 @@ SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-
 GO
 ```
 
-## <a name="querying-csv-files"></a>Consulta de ficheiros CSV
+## <a name="query-csv-files"></a>Consultas de ficheiros CSV
 
 A seguinte imagem é uma pré-visualização do ficheiro a ser consultado:
 
@@ -118,7 +118,7 @@ WHERE
 Pode especificar o esquema no tempo de compilação de consultas.
 Para mais exemplos, veja como consultar o [ficheiro CSV](sql/query-single-csv-file.md).
 
-## <a name="querying-parquet-files"></a>Consulta de ficheiros de parquet
+## <a name="query-parquet-files"></a>Consultar ficheiros de Parquet
 
 A amostra que se segue mostra as capacidades automáticas de inferência do esquema para consulta de ficheiros Parquet. Devolve o número de filas em setembro de 2017 sem especificar o esquema.
 
@@ -136,7 +136,7 @@ FROM OPENROWSET
 
 Encontre mais informações sobre a [consulta de ficheiros de parquet](sql/query-parquet-files.md).
 
-## <a name="querying-json-files"></a>Consulta de ficheiros JSON
+## <a name="query-json-files"></a>Consultar ficheiros JSON
 
 ### <a name="json-sample-file"></a>Arquivo de amostra JSON
 
@@ -158,7 +158,7 @@ Os ficheiros são armazenados em recipiente *json,* *livros*de pastas, e contêm
 }
 ```
 
-### <a name="querying-json-files"></a>Consulta de ficheiros JSON
+### <a name="query-json-files"></a>Consultar ficheiros JSON
 
 A seguinte consulta mostra como usar [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para recuperar valores escalar (título, editor) de um livro com o título *Probabilístico e Métodos Estatísticos em Criptologia, Uma Introdução por artigos selecionados:*
 

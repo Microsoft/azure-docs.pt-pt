@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 02/14/2020
+ms.date: 05/19/2020
 ms.author: diberry
-ms.openlocfilehash: c0ee1abcb99e10d57d05945f45595e5bfd76fa28
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: e1ac608d064e3ad60fb98f35abab61e453d20edd
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80155992"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654794"
 ---
 # <a name="whats-new-in-qna-maker"></a>O que há de novo no QnA Maker
 
@@ -24,6 +24,11 @@ Saiba o que há de novo no serviço. Estes itens podem lançar notas, vídeos, p
 ## <a name="release-notes"></a>Notas de versão
 
 Saiba o que há de novo com o Fabricante qnA.
+
+### <a name="may-2020"></a>Maio de 2020
+
+* [Controlo de acesso baseado em funções (RBAC)](concepts/role-based-access-control.md)
+* [Edição de texto rico](how-to/edit-knowledge-base.md#rich-text-editing-for-answer) para respostas
 
 ### <a name="march-2020"></a>Março de 2020
 

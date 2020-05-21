@@ -1,15 +1,15 @@
 ---
 title: Definições políticas incorporadas para o Serviço de Aplicações Azure
 description: Lista definições políticas integradas da Política Azure para o Serviço de Aplicações Azure. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 05/01/2020
+ms.date: 05/13/2020
 ms.topic: sample
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 1bbaee1b51aaf79023401d42f270cb99b34c0f8b
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 0ea6464f66a92872bfd1df08cde88f502b9c8556
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82981277"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648987"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-app-service"></a>Definições políticas integradas da Política Azure para o Serviço de Aplicações Azure
 

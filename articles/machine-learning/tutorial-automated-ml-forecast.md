@@ -1,5 +1,5 @@
 ---
-title: Previsão de partilha de bicicletas com experiência automatizada ml
+title: Tutorial:Previsão da procura & AutoML
 titleSuffix: Azure Machine Learning
 description: Aprenda a treinar e implementar um modelo de previsão da procura com machine learning automatizado no estúdio Azure Machine Learning.
 services: machine-learning
@@ -9,24 +9,27 @@ ms.topic: tutorial
 ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
-ms.date: 01/27/2020
-ms.openlocfilehash: 11e0a8a0076fb2e68c379b279f471ff74846df2e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/19/2020
+ms.openlocfilehash: 07450f0c1ea85f22d19e59aaa27898cbf34a7978
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77088243"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656560"
 ---
-# <a name="tutorial-forecast-bike-sharing-demand-with-automated-machine-learning"></a>Tutorial: Previsão de partilha de bicicletas com machine learning automatizado
+# <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Tutorial: Procura de previsão com aprendizagem automática de máquinas
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 Neste tutorial, você usa machine learning automatizado, ou ML automatizado, no estúdio Azure Machine Learning para criar um modelo de previsão de séries temporais para prever a procura de aluguer de um serviço de partilha de bicicletas.
+
+Para um exemplo de modelo de classificação, consulte [Tutorial: Crie um modelo de classificação com ML automatizado em Aprendizagem automática](tutorial-first-experiment-automated-ml.md)de Máquinas.
 
 Neste tutorial, aprende-se a fazer as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Criar e carregar um conjunto de dados.
 > * Configure e execute uma experiência ml automatizada.
+> * Especifique as definições de previsão.
 > * Explore os resultados da experiência.
 > * Implementar o melhor modelo.
 
@@ -75,10 +78,10 @@ Antes de configurar a sua experiência, faça o upload do seu ficheiro de dados 
         Campo|Descrição| Valor para tutorial
         ---|---|---
         Formato de ficheiro|Define o layout e o tipo de dados armazenados num ficheiro.| Delimitado
-        Delimitador|Um ou mais caracteres para especificar&nbsp; a fronteira entre regiões separadas e independentes em texto simples ou outros fluxos de dados. |Ponto
+        Delimitador|Um ou mais caracteres para especificar a fronteira entre &nbsp; regiões separadas e independentes em texto simples ou outros fluxos de dados. |Ponto
         Codificação|Identifica o pouco que a tabela de esquemas de caracteres usar para ler o seu conjunto de dados.| UTF-8
         Cabeçalhos de coluna| Indica como os cabeçalhos do conjunto de dados, se houver, serão tratados.| Utilize cabeçalhos do primeiro ficheiro
-        Linhas de salto | Indica quantas, se houver, são ignoradas linhas no conjunto de dados.| Nenhuma
+        Linhas de salto | Indica quantas, se houver, são ignoradas linhas no conjunto de dados.| Nenhum
 
     1. O formulário **Schema** permite uma maior configuração dos seus dados para esta experiência. 
     
@@ -110,7 +113,7 @@ Depois de carregar e configurar os seus dados, configure o seu alvo de cálculo 
         Campo | Descrição | Valor para tutorial
         ----|---|---
         Nome computacional |Um nome único que identifica o contexto da computação.|bike-compute
-        Tamanho&nbsp;&nbsp;da máquina virtual| Selecione o tamanho da máquina virtual para a sua computação.|Standard_DS12_V2
+        Tamanho da &nbsp; máquina virtual &nbsp;| Selecione o tamanho da máquina virtual para a sua computação.|Standard_DS12_V2
         Nós min / Max (em Definições Avançadas)| Para perfilar os dados, deve especificar 1 ou mais nós.|Nósodes: 1<br>Nómáximo: 6
   
         1. Selecione **Criar** para obter o alvo da computação. 
@@ -129,19 +132,19 @@ Complete a configuração para a sua experiência ml automatizada especificando 
 
 1. Selecione **a data** como **coluna time** e deixe o Grupo **por coluna(s)** em branco. 
 
-    1. Selecione **Ver configurações adicionais** de configuração e povoar os campos da seguinte forma. Estas configurações são para controlar melhor o trabalho de treino. Caso contrário, as predefinições são aplicadas com base na seleção de experiências e dados.
+    1. Selecione **Ver configurações adicionais** de configuração e povoar os campos da seguinte forma. Estas definições são para controlar melhor o trabalho de formação e especificar as definições para a sua previsão. Caso contrário, as predefinições são aplicadas com base na seleção de experiências e dados.
 
   
-        Configurações adicionais&nbsp;|Descrição|Valor&nbsp;&nbsp;para tutorial
+        Configurações adicionais &nbsp;|Descrição|Valor &nbsp; para &nbsp; tutorial
         ------|---------|---
         Métrica primária| Métrica de avaliação pela quais o algoritmo de aprendizagem automática será medido.|Erro quadrado da raiz normalizada
         Caracterização automática| Permite o pré-processamento. Isto inclui limpeza automática de dados, preparação e transformação para gerar características sintéticas.| Ativar
         Explique o melhor modelo (pré-visualização)| Mostra automaticamente a explicabilidade do melhor modelo criado por ML automatizado.| Ativar
         Algoritmos bloqueados | Algoritmos que quer excluir do trabalho de formação| Árvores aleatórias extremas
-        Definições adicionais de previsão| Estas definições ajudam a melhorar a precisão do seu modelo <br><br> _**Horizonte**_ de previsão : duração do tempo para o futuro que quer prever <br> _**O objetivo da previsão fica atrasado:**_ até onde quer construir os lags de uma variável-alvo <br> _**Janela de rolamento**_ do alvo : especifica o tamanho da janela rolante sobre a qual serão geradas características, como o *máximo, o min* e o *montante.* |Horizonte de previsão: 14 <br> Previsão&nbsp;&nbsp;de intervalos de destino: Nenhum <br> Tamanho&nbsp;&nbsp;da&nbsp;janela de rolamento do alvo: Nenhum
-        Critério de saída| Se um critério for cumprido, o trabalho de formação é interrompido. |Tempo&nbsp;&nbsp;de trabalho de formação (horas): 3 <br> Limiar&nbsp;&nbsp;de pontuação métrica: Nenhum
-        Validação | Escolha um tipo de validação cruzada e número de testes.|Tipo de validação:<br>&nbsp;k-fold&nbsp;validação cruzada <br> <br> Número de validações: 5
-        Simultaneidade| O número máximo de iterações paralelas executadas por iteração| Iterações&nbsp;simultâneas:&nbsp;6
+        Definições adicionais de previsão| Estas definições ajudam a melhorar a precisão do seu modelo <br><br> _**Horizonte**_ de previsão : duração do tempo para o futuro que quer prever <br> _**O objetivo da previsão fica atrasado:**_ até onde quer construir os lags de uma variável-alvo <br> _**Janela de rolamento**_ do alvo : especifica o tamanho da janela rolante sobre a qual serão geradas características, como o *máximo, o min* e o *montante.* |Horizonte de previsão: 14 <br> Previsão &nbsp; &nbsp; de intervalos de destino: Nenhum <br> Tamanho da janela de rolamento do &nbsp; &nbsp; &nbsp; alvo: Nenhum
+        Critério de saída| Se um critério for cumprido, o trabalho de formação é interrompido. |Tempo de trabalho de formação &nbsp; &nbsp; (horas): 3 <br> &nbsp;Limiar de pontuação &nbsp; métrica: Nenhum
+        Validação | Escolha um tipo de validação cruzada e número de testes.|Tipo de validação:<br>&nbsp;k-fold &nbsp; validação cruzada <br> <br> Número de validações: 5
+        Simultaneidade| O número máximo de iterações paralelas executadas por iteração| &nbsp; &nbsp; Iterações simultâneas: 6
         
         Selecione **Guardar**.
 
@@ -215,7 +218,7 @@ Elimine apenas a instância de implantação do estúdio Azure Machine Learning,
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, utilizou ml automatizado no estúdio Azure Machine Learning para criar e implementar um modelo de previsão de séries temporais que prevê a procura de aluguer de partilha de bicicletas. 
 
@@ -224,6 +227,10 @@ Consulte este artigo para obter passos sobre como criar um esquema suportado pel
 > [!div class="nextstepaction"]
 > [Consumir serviços Web](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
++ Saiba mais sobre [aprendizagem automática de máquinas.](concept-automated-ml.md)
++ Para obter mais informações sobre métricas e gráficos de classificação, consulte o artigo de [resultados automatizados](how-to-understand-automated-ml.md#classification) de machine learning.
++ Saiba mais sobre [a caracterização.](how-to-use-automated-ml-for-ml-models.md#featurization)
++ Saiba mais sobre [o perfil de dados.](how-to-use-automated-ml-for-ml-models.md#profile)
 
 >[!NOTE]
 > Este conjunto de dados de partilha de bicicletas foi modificado para este tutorial. Este conjunto de dados foi disponibilizado como parte de um [concurso kaggle](https://www.kaggle.com/c/bike-sharing-demand/data) e estava originalmente disponível via [Capital Bikeshare.](https://www.capitalbikeshare.com/system-data) Também pode ser encontrado na base de dados de [aprendizagem automática da UCI.](http://archive.ics.uci.edu/ml/datasets/Bike+Sharing+Dataset)<br><br>

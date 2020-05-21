@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5c458b1c04a7f3be1a43d725591426e619286b7d
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 0f34b853728c91d9e3c6e32396c0f7eb427af101
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83587885"
+ms.locfileid: "83656204"
 ---
 # <a name="what-is-azure-synapse-analytics-workspaces-preview"></a>O que é Azure Synapse Analytics (pré-visualização de espaços de trabalho)?
 
@@ -63,7 +63,7 @@ O Azure Synapse remove as barreiras tecnológicas tradicionais entre a utilizaç
 
 O Azure Synapse vem integrado com o mesmo motor de integração de dados e experiências como a Azure Data Factory, permitindo-lhe criar ricos gasodutos de dados sem utilizar um motor de orquestração separado.
 
-* Mover dados entre synapse e 85+ fontes de dados no local
+* Mover dados entre azure synapse e 90+ no local fontes de dados
 * Cadernos orquestrados, oleodutos, spark jobs, Scripts SQL, procedimentos armazenados
 * ETL livre de códigocom atividades de fluxo de dados
 
@@ -83,10 +83,10 @@ A Azure Synapse fornece uma única forma de as empresas gerirem os recursos de a
 * Produtividade líder do setor para engenheiros de dados que escrevem código SQL ou Spark: autoria, depuração e otimização de desempenho
 * Integrar com os processos CI/CD da empresa
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Criar uma área de trabalho](quickstart-create-workspace.md)
 * [Use o Estúdio Synapse](quickstart-synapse-studio.md)
-* [Criar uma piscina SQL](quickstart-create-sql-pool.md)
+* [Criar uma piscina SQL](quickstart-create-sql-pool-portal.md)
 * [Utilizar o SQL a pedido](quickstart-sql-on-demand.md)
-* [Crie uma piscina apache spark](quickstart-create-apache-spark-pool.md)
+* [Crie uma piscina apache spark](quickstart-create-apache-spark-pool-portal.md)

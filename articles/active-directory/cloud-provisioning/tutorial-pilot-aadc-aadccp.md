@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 03/04/2020
+ms.date: 05/19/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aba42e6bd9b11e47d793219c0ff06b9177d609f5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f149678bd65ff47b8582e56cf376d88284c8fa8b
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78298824"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681321"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Aprovisionamento na cloud piloto de uma floresta do AD sincronizada existente 
 
@@ -199,7 +199,9 @@ O sincronização do Azure AD Connect sincroniza as alterações que ocorrem no 
 3.  Execute `Start-ADSyncSyncCycle`.  Bata no Enter.  
 
 >[!NOTE] 
->Se estiver a executar o seu próprio programador personalizado para sincronização aAD Connect, por favor, ative o programador. 
+>Se estiver a executar o seu próprio programador personalizado para a sincronização Azure AD Connect, por favor, ative o programador. 
+
+Uma vez ativado o programador, o Azure AD Connect deixará de exportar quaisquer alterações em objetos `cloudNoFlow=true` com o metaverso, a menos que qualquer atributo de referência (por exemplo. gestor) está a ser atualizado. No caso de existir alguma atualização de atributode de referência no objeto, o Azure AD Connect ignorará o `cloudNoFlow` sinal e exportará todas as atualizações sobre o objeto.
 
 ## <a name="something-went-wrong"></a>Algo correu mal
 Caso o piloto não funcione como esperado, pode voltar à configuração da sincronização Azure AD Connect seguindo os passos abaixo:
@@ -221,7 +223,7 @@ Uma vez verificado que os utilizadores da Ou piloto são geridos com sucesso atr
  10. No **pronto para configurar o** ecrã clique **em Configurar**.
  11. Uma vez concluído, clique em **Saída**. 
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Próximos passos 
 
 - [O que é o aprovisionamento?](what-is-provisioning.md)
 - [O que é o aprovisionamento na cloud do Azure AD Connect?](what-is-cloud-provisioning.md)

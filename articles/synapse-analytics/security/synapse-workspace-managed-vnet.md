@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 162d96244b01f8c5e1acf224475aadb9508f0aa5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 623b6325b88f42f0076c84a221864762cd3918f9
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81423636"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83645223"
 ---
 # <a name="azure-synapse-analytics-managed-virtual-network-preview"></a>Rede Virtual Gerida por Análise Synapse Azure (pré-visualização)
 
@@ -40,6 +40,8 @@ A piscina SQL e a procura de SQL são capacidades multi-inquilinos e, portanto, 
 
 ## <a name="create-an-azure-synapse-workspace-with-a-managed-workspace-vnet"></a>Crie um espaço de trabalho Azure Synapse com um VNet gerido
 
+Se ainda não o fez, registe o fornecedor de recursos da Rede. Registar um fornecedor de recursos configura a sua subscrição para trabalhar com o fornecedor de recursos. Escolha *microsoft.Rede* na lista de fornecedores de recursos quando [se registar](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
+
 Para criar um espaço de trabalho Azure Synapse que tenha um VNet gerido associado a ele, selecione o separador **de rede Security +** no portal Azure e verifique a caixa de verificação de rede virtual gerida **enable.**
 
 Se deixar a caixa de verificação desmarcada, o seu espaço de trabalho não terá uma VNet associada a ela.
@@ -50,13 +52,13 @@ Se deixar a caixa de verificação desmarcada, o seu espaço de trabalho não te
 ![Ativar o espaço de trabalho gerido VNet](./media/synapse-workspace-managed-vnet/enable-managed-vnet-1.png)
 
 >[!NOTE]
->Todo o tráfego de saída do espaço de trabalho Gerido VNet será bloqueado no futuro. Recomenda-se que se conectem a todas as suas fontes de dados utilizando pontos finais privados geridos.
+>Todo o tráfego de saída do espaço de trabalho Gerido VNet, exceto através de pontos finais privados geridos, será bloqueado no futuro. Recomenda-se que crie pontos finais privados geridos para se conectar a todas as fontes de dados do Azure externas ao espaço de trabalho. 
 
 Pode verificar se o seu espaço de trabalho Azure Synapse está associado a um VNet gerido, selecionando **a visão geral** do portal Azure.
 
 ![Visão geral do espaço de trabalho no portal Azure](./media/synapse-workspace-managed-vnet/enable-managed-vnet-2.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Criar um espaço de [trabalho Azure Synapse](../quickstart-create-workspace.md)
 

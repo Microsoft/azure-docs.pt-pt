@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 49c1a29547195ad8557550ba1bc0cb80fae40ad8
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: 0d2666e2b56e73b809a0480d45fa3a4a63f06490
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402635"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652215"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>Forneça a autenticação do Cofre chave com uma política de controlo de acesso
 
@@ -107,9 +107,6 @@ Na saída, o objectid é listado `Id` como:
 Id                    : 1cef38c4-388c-45a9-b5ae-3d88375e166a
 ...
 ```
-
-> [!WARNING]
-> Os Grupos AD Azure com Identidades Geridas requerem até 8horas para refrescar o token e tornar-se eficazes.
 
 #### <a name="users"></a>Utilizadores
 
@@ -226,7 +223,10 @@ Por último, dê permissões ao grupo AD para o seu cofre chave utilizando o com
 
 A aplicação também necessita de pelo menos uma função de Gestão de Identidade e Acesso (IAM) atribuída ao cofre chave. Caso contrário, não poderá entrar em sessão e falhará com direitos insuficientes de acesso à subscrição.
 
-## <a name="next-steps"></a>Passos seguintes
+> [!WARNING]
+> Os Grupos AD Azure com Identidades Geridas podem exigir até 8horas para refrescar o token e tornar-se eficazes.
+
+## <a name="next-steps"></a>Próximos passos
 
 - [Segurança do Cofre chave Azure: Gestão de identidade e acesso](overview-security.md#identity-and-access-management)
 - [Forneça a autenticação chave vault com uma identidade gerida pelo Serviço de Aplicações](managed-identity.md)

@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: c5e217a33c8b461a438e2d0209fe6733850634e6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9c5e36fd062a2579ece4aaa1501243295af72e1b
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75465142"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649824"
 ---
 # <a name="quickstart-create-a-xamarin-ios-app-with-azure-spatial-anchors"></a>Quickstart: Crie uma app Xamarin iOS com âncoras espaciais Azure
 
@@ -51,9 +51,11 @@ O próximo passo é configurar a aplicação para utilizar o identificador de co
 
 Abra `Xamarin/SampleXamarin.Common/AccountDetails.cs`.
 
-Localize `SpatialAnchorsAccountKey` o `Set me` campo e substitua-o pela chave da conta.
+Localize o `SpatialAnchorsAccountKey` campo e `Set me` substitua-o pela chave da conta.
 
-Localize `SpatialAnchorsAccountId` o `Set me` campo e substitua-o pelo identificador de conta.
+Localize o `SpatialAnchorsAccountId` campo e `Set me` substitua-o pelo identificador de conta.
+
+Localize `StartSession()` e adicione a seguinte linha, substituindo no domínio da sua conta anterior: `this.cloudSession.Configuration.AccountKey = "MyAccountDomain";` .
 
 ## <a name="deploy-the-app-to-your-ios-device"></a>Implemente a aplicação para o seu dispositivo iOS
 
@@ -63,13 +65,13 @@ Detete o projeto de arranque para **SampleXamarin.iOS,** altere a Configuração
 
 ![Configuração do estúdio visual](./media/get-started-xamarin-iOS/visual-studio-macos-configuration.jpg)
 
-Selecione **Executar** > **Iniciar Sem Debugging** para implementar e iniciar a sua aplicação.
+Selecione **Executar**  >  **Iniciar Sem Debugging** para implementar e iniciar a sua aplicação.
 
 Na aplicação, selecione **Basic** para executar a demonstração e siga as instruções para colocar e recordar uma âncora.
 
-> ![Screenshot](./media/get-started-xamarin-ios/screenshot-1.jpg)
-> ![1](./media/get-started-xamarin-ios/screenshot-2.jpg)
-> ![Screenshot 2 Screenshot 3](./media/get-started-xamarin-ios/screenshot-3.jpg)
+> ![Screenshot 1 ](./media/get-started-xamarin-ios/screenshot-1.jpg)
+>  ![ Screenshot 2 Screenshot ](./media/get-started-xamarin-ios/screenshot-2.jpg)
+>  ![ 3](./media/get-started-xamarin-ios/screenshot-3.jpg)
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

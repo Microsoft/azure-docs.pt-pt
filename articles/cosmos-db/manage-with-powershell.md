@@ -4,24 +4,24 @@ description: Use o Azure Powershell gerir as suas contas Azure Cosmos, bases de 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 04/29/2020
+ms.date: 05/13/2020
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: d4473bbfe10fa2d0fc87eed7889a3e06af650b5b
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 0ae3ff54e1060255913d8155b297c5d412ce345f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82592150"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656300"
 ---
 # <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>Gerir os recursos da API Da Azure Cosmos DB SQL utilizando a PowerShell
 
 O guia a seguir descreve como utilizar o PowerShell para gerar scripts e automatizar a gestão de recursos do Azure Cosmos DB, incluindo a conta, a base de dados, o contentor e o débito.
 
 > [!NOTE]
-> As amostras deste artigo utilizam cmdlets de gestão [Az.CosmosDB.](https://docs.microsoft.com/powershell/module/az.cosmosdb) Estes cmdlets ainda estão em pré-visualização e podem mudar antes de estarem geralmente disponíveis. Consulte a página de referência da [API Az.CosmosDB](https://docs.microsoft.com/powershell/module/az.cosmosdb) para obter quaisquer atualizações aos comandos.
+> As amostras deste artigo utilizam cmdlets de gestão [Az.CosmosDB.](https://docs.microsoft.com/powershell/module/az.cosmosdb) Consulte a página de referência da [API Az.CosmosDB](https://docs.microsoft.com/powershell/module/az.cosmosdb) para obter as últimas alterações.
 
-Para gestão transversal do `Az` Azure Cosmos DB, `Az.CosmosDB` pode utilizar os cmdlets e cmdlets com [powershell cross-platform](https://docs.microsoft.com/powershell/scripting/install/installing-powershell), bem como o [Azure CLI,](manage-with-cli.md)o [REST API,][rp-rest-api]ou o [portal Azure.](create-sql-api-dotnet.md#create-account)
+Para gestão transversal do Azure Cosmos DB, pode utilizar os `Az` `Az.CosmosDB` cmdlets e cmdlets com [powershell cross-platform](https://docs.microsoft.com/powershell/scripting/install/installing-powershell), bem como o [Azure CLI,](manage-with-cli.md)o [REST API,][rp-rest-api]ou o [portal Azure.](create-sql-api-dotnet.md#create-account)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -73,7 +73,7 @@ New-AzCosmosDBAccount `
 * `$locations`As regiões da conta de base de dados, a começar pela região de escrita e ordenadas por prioridade de failover.
 * `$accountName`O nome da conta azure cosmos. Deve ser único, minúsculo, incluir apenas caracteres alfanuméricos e '-' e entre 3 e 31 caracteres de comprimento.
 * `$apiKind`O tipo de conta cosmos para criar. Para mais informações, consulte [APIs em Cosmos DB](introduction.md#develop-applications-on-cosmos-db-using-popular-open-source-software-oss-apis).
-* `$consistencyPolicy`, `$maxStalenessInterval`e `$maxStalenessPrefix` o nível de consistência padrão e as configurações da conta Azure Cosmos. Para mais informações, consulte [Níveis de Consistência em Azure Cosmos DB](consistency-levels.md).
+* `$consistencyPolicy`, `$maxStalenessInterval` e `$maxStalenessPrefix` o nível de consistência padrão e as configurações da conta Azure Cosmos. Para mais informações, consulte [Níveis de Consistência em Azure Cosmos DB](consistency-levels.md).
 
 As contas da Azure Cosmos podem ser configuradas com IP Firewall, pontos finais de serviço de Rede Virtual e pontos finais privados. Para obter informações sobre como configurar o FIREWALL IP para Azure Cosmos DB, consulte [Configure IP Firewall](how-to-configure-firewall.md). Para obter informações sobre como ativar pontos finais de serviço para O Azure Cosmos DB, consulte o [acesso configure a partir de redes virtuais](how-to-configure-vnet-service-endpoint.md). Para obter informações sobre como ativar pontos finais privados para O Azure Cosmos DB, consulte o [acesso configure a partir de pontos finais privados](how-to-configure-private-endpoints.md).
 
@@ -109,7 +109,7 @@ Este comando permite-lhe atualizar as propriedades da sua conta de base de dados
 * Habilitar o Multi-mestre
 
 > [!NOTE]
-> Não é possível adicionar`locations`ou remover simultaneamente regiões e alterar outras propriedades para uma conta Azure Cosmos. As regiões modificantes devem ser executadas como uma operação separada de qualquer outra alteração à conta.
+> Não é possível adicionar ou remover simultaneamente regiões `locations` e alterar outras propriedades para uma conta Azure Cosmos. As regiões modificantes devem ser executadas como uma operação separada de qualquer outra alteração à conta.
 > [!NOTE]
 > Este comando permite-lhe adicionar e remover regiões, mas não permite modificar as prioridades de failover ou desencadear uma falha manual. Consulte [modificar a prioridade de failover](#modify-failover-priority) e [acionar o manual de falhas](#trigger-manual-failover).
 
@@ -204,7 +204,7 @@ Remove-AzCosmosDBAccount `
 
 ### <a name="update-tags-of-an-azure-cosmos-account"></a><a id="update-tags"></a>Etiquetas atualizadas de uma conta Azure Cosmos
 
-Este comando define as etiquetas de [recursos Azure][azure-resource-tags] para uma conta Azure Cosmos. As etiquetas podem ser definidas tanto na criação de conta como `New-AzCosmosDBAccount` na atualização da conta utilizando `Update-AzCosmosDBAccount`.
+Este comando define as etiquetas de [recursos Azure][azure-resource-tags] para uma conta Azure Cosmos. As etiquetas podem ser definidas tanto na criação de conta como na atualização da `New-AzCosmosDBAccount` conta utilizando `Update-AzCosmosDBAccount` .
 
 ```azurepowershell-interactive
 $resourceGroupName = "myResourceGroup"
@@ -291,10 +291,10 @@ Update-AzCosmosDBAccount `
 
 Para contas configuradas com Failover Automático, pode alterar a ordem em que a Cosmos promoverá réplicas secundárias para as primárias caso as primárias fiquem indisponíveis.
 
-Para o exemplo abaixo, assuma `West US 2 = 0` `East US 2 = 1`que `South Central US = 2`a atual prioridade de failover é, . O comando vai `West US 2 = 0`mudar `South Central US = 1` `East US 2 = 2`isto para. .
+Para o exemplo abaixo, assuma que a atual prioridade de failover `West US 2 = 0` `East US 2 = 1` é, `South Central US = 2` . O comando vai mudar isto `West US 2 = 0` `South Central US = 1` `East US 2 = 2` para. .
 
 > [!CAUTION]
-> Mudar a `failoverPriority=0` localização para irá desencadear uma falha manual para uma conta Azure Cosmos. Quaisquer outras alterações prioritárias não desencadearão uma falha.
+> Mudar a localização `failoverPriority=0` para irá desencadear uma falha manual para uma conta Azure Cosmos. Quaisquer outras alterações prioritárias não desencadearão uma falha.
 
 ```azurepowershell-interactive
 $resourceGroupName = "myResourceGroup"
@@ -309,12 +309,12 @@ Update-AzCosmosDBAccountFailoverPriority `
 
 ### <a name="trigger-manual-failover"></a><a id="trigger-manual-failover"></a>Falha manual do gatilho
 
-Para contas configuradas com Failover Manual, pode falhar e promover qualquer réplica `failoverPriority=0`secundária para primária modificando para . Esta operação pode ser usada para iniciar um exercício de recuperação de desastres para testar o planeamento de recuperação de desastres.
+Para contas configuradas com Failover Manual, pode falhar e promover qualquer réplica secundária para primária modificando para `failoverPriority=0` . Esta operação pode ser usada para iniciar um exercício de recuperação de desastres para testar o planeamento de recuperação de desastres.
 
-Para o exemplo abaixo, assuma que `West US 2 = 0` a `East US 2 = 1` conta tem uma prioridade atual de falha e e virar as regiões.
+Para o exemplo abaixo, assuma que a conta tem uma prioridade atual de falha `West US 2 = 0` e e virar as `East US 2 = 1` regiões.
 
 > [!CAUTION]
-> A `locationName` `failoverPriority=0` mudança irá desencadear uma falha manual para uma conta Azure Cosmos. Qualquer outra mudança prioritária não irá desencadear uma falha.
+> A mudança `locationName` irá desencadear uma falha manual para uma conta `failoverPriority=0` Azure Cosmos. Qualquer outra mudança prioritária não irá desencadear uma falha.
 
 ```azurepowershell-interactive
 $resourceGroupName = "myResourceGroup"
@@ -345,7 +345,7 @@ $resourceGroupName = "myResourceGroup"
 $accountName = "mycosmosaccount"
 $databaseName = "myDatabase"
 
-Set-AzCosmosDBSqlDatabase `
+New-AzCosmosDBSqlDatabase `
     -ResourceGroupName $resourceGroupName `
     -AccountName $accountName `
     -Name $databaseName
@@ -359,7 +359,7 @@ $accountName = "mycosmosaccount"
 $databaseName = "myDatabase"
 $databaseRUs = 400
 
-Set-AzCosmosDBSqlDatabase `
+New-AzCosmosDBSqlDatabase `
     -ResourceGroupName $resourceGroupName `
     -AccountName $accountName `
     -Name $databaseName `
@@ -441,7 +441,7 @@ $databaseName = "myDatabase"
 $containerName = "myContainer"
 $partitionKeyPath = "/myPartitionKey"
 
-Set-AzCosmosDBSqlContainer `
+New-AzCosmosDBSqlContainer `
     -ResourceGroupName $resourceGroupName `
     -AccountName $accountName `
     -DatabaseName $databaseName `
@@ -460,7 +460,7 @@ $databaseName = "myDatabase"
 $containerName = "myContainer"
 $partitionKeyPath = "/myPartitionKey"
 
-Set-AzCosmosDBSqlContainer `
+New-AzCosmosDBSqlContainer `
     -ResourceGroupName $resourceGroupName `
     -AccountName $accountName `
     -DatabaseName $databaseName `
@@ -506,7 +506,7 @@ $indexingPolicy = New-AzCosmosDBSqlIndexingPolicy `
     -IndexingMode Consistent `
     -Automatic $true
 
-Set-AzCosmosDBSqlContainer `
+New-AzCosmosDBSqlContainer `
     -ResourceGroupName $resourceGroupName `
     -AccountName $accountName `
     -DatabaseName $databaseName `
@@ -529,7 +529,7 @@ $partitionKeyPath = "/myPartitionKey"
 $indexingPolicy = New-AzCosmosDBSqlIndexingPolicy `
     -IndexingMode None
 
-Set-AzCosmosDBSqlContainer `
+New-AzCosmosDBSqlContainer `
     -ResourceGroupName $resourceGroupName `
     -AccountName $accountName `
     -DatabaseName $databaseName `
@@ -557,7 +557,7 @@ $uniqueKey = New-AzCosmosDBSqlUniqueKey `
 $uniqueKeyPolicy = New-AzCosmosDBSqlUniqueKeyPolicy `
     -UniqueKey $uniqueKey
 
-Set-AzCosmosDBSqlContainer `
+New-AzCosmosDBSqlContainer `
     -ResourceGroupName $resourceGroupName `
     -AccountName $accountName `
     -DatabaseName $databaseName `
@@ -570,7 +570,7 @@ Set-AzCosmosDBSqlContainer `
 
 ### <a name="create-an-azure-cosmos-db-container-with-conflict-resolution"></a><a id="create-container-lww"></a>Criar um contentor Azure Cosmos DB com resolução de conflitos
 
-Para escrever todos os conflitos para o ConflictsFeed e manusear separadamente, passe `-Type "Custom" -Path ""`.
+Para escrever todos os conflitos para o ConflictsFeed e manusear separadamente, passe `-Type "Custom" -Path ""` .
 
 ```azurepowershell-interactive
 # Create container with last-writer-wins conflict resolution policy
@@ -585,7 +585,7 @@ $conflictResolutionPolicy = New-AzCosmosDBSqlConflictResolutionPolicy `
     -Type LastWriterWins `
     -Path $conflictResolutionPath
 
-Set-AzCosmosDBSqlContainer `
+New-AzCosmosDBSqlContainer `
     -ResourceGroupName $resourceGroupName `
     -AccountName $accountName `
     -DatabaseName $databaseName `
@@ -595,7 +595,7 @@ Set-AzCosmosDBSqlContainer `
     -ConflictResolutionPolicy $conflictResolutionPolicy
 ```
 
-Para criar uma política de resolução de `New-AzCosmosDBSqlConflictResolutionPolicy` conflitos `-Type` para `-ConflictResolutionProcedure`utilizar um procedimento armazenado, ligue e passe parâmetros e .
+Para criar uma política de resolução de conflitos para utilizar um procedimento armazenado, ligue `New-AzCosmosDBSqlConflictResolutionPolicy` e passe parâmetros `-Type` e `-ConflictResolutionProcedure` .
 
 ```azurepowershell-interactive
 # Create container with custom conflict resolution policy using a stored procedure
@@ -612,7 +612,7 @@ $conflictResolutionPolicy = New-AzCosmosDBSqlConflictResolutionPolicy `
     -Type Custom `
     -ConflictResolutionProcedure $conflictResolutionSproc
 
-Set-AzCosmosDBSqlContainer `
+New-AzCosmosDBSqlContainer `
     -ResourceGroupName $resourceGroupName `
     -AccountName $accountName `
     -DatabaseName $databaseName `
@@ -669,7 +669,7 @@ Remove-AzCosmosDBSqlContainer `
     -Name $containerName
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Todas as amostras powershell](powershell-samples.md)
 * [Como gerir a conta Azure Cosmos](how-to-manage-database-account.md)

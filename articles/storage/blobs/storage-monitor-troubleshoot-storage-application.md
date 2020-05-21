@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/20/2018
 ms.author: normesta
 ms.reviewer: fryu
-ms.openlocfilehash: 3a2381302a378e7b2635b84c32a87e844e4605a7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8554a78112d197ef8174ac9d18147d301745165e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68844876"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652154"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Monitorizar e resolver problemas de uma aplicação de armazenamento na cloud
 
@@ -87,9 +87,9 @@ Neste cenário, utilize o [Microsoft Message Analyzer](https://technet.microsoft
 
 ### <a name="download-microsoft-message-analyzer"></a>Transferir o Microsoft Message Analyzer
 
-Transfira o [Microsoft Message Analyzer](https://www.microsoft.com/download/details.aspx?id=44226) e instale a aplicação.
+Transfira o [Microsoft Message Analyzer](https://docs.microsoft.com/message-analyzer/installing-and-upgrading-message-analyzer) e instale a aplicação.
 
-Lance a aplicação e escolha **file** > **open** > **from Other File Sources**.
+Lance a aplicação e escolha **file**  >  **open**  >  **from Other File Sources**.
 
 Na caixa de diálogo **Seletor de Ficheiros**, selecione **+ Adicionar Ligação do Azure**. Introduza o **nome da conta de armazenamento** e a **chave da conta** e clique em **OK**.
 
@@ -107,7 +107,7 @@ Depois de abrir o registo, pode ver os eventos de armazenamento. Como pode ver n
 
 O [Explorador de Armazenamento](https://azure.microsoft.com/features/storage-explorer/) é outra ferramenta que serve para interagir com as contas de armazenamento, incluindo o contentor **$logs** e os registos nele contidos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Na quarta e última parte da série, aprendeu a monitorizar e a resolver problemas da conta de armazenamento, como:
 

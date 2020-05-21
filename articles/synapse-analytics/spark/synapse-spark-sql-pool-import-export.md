@@ -9,28 +9,30 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: prgomata
 ms.reviewer: euang
-ms.openlocfilehash: f562c195e90f2356568530b9b618ae9e6610fa56
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: d2c8215a68d2f80471be87b0ca07aa1438a25ac4
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201466"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660046"
 ---
 # <a name="introduction"></a>Introdução
 
-O Conector Spark SQL Analytics foi concebido para transferir dados eficientemente entre o Spark Pool (pré-visualização) e os pools SQL em Azure Synapse. O Conector Spark SQL Analytics funciona apenas em piscinas SQL, não funciona com a SQL on-Demand.
+O conector Azure Synapse Apache Spark para synapse SQL foi projetado para transferir dados eficientemente entre piscinas Spark (pré-visualização) e piscinas SQL em Azure Synapse. O conector Azure Synapse Apache Spark para synapse SQL funciona apenas em piscinas SQL, não funciona com a SQL a pedido.
 
 ## <a name="design"></a>Design
 
 A transferência de dados entre piscinas Spark e Piscinas SQL pode ser feita usando JDBC. No entanto, tendo em conta dois sistemas distribuídos, como as piscinas Spark e SQL, a JDBC tende a ser um estrangulamento com a transferência de dados em série.
 
-Os pools Spark para o SQL Analytics Connector são uma implementação de fonte de dados para a Apache Spark. Utiliza o Azure Data Lake Storage Gen 2, e a Polybase em piscinas SQL para transferir dados eficientemente entre o cluster Spark e a instância SQL Analytics.
+O pool Azure Synapse Apache Spark para o conector Synapse SQL é uma implementação de fonte de dados para a Apache Spark. Utiliza o Azure Data Lake Storage Gen2 e polybase em piscinas SQL para transferir dados eficientemente entre o cluster Spark e a instância SQL synapse.
 
 ![Arquitetura do Conector](./media/synapse-spark-sqlpool-import-export/arch1.png)
 
 ## <a name="authentication-in-azure-synapse-analytics"></a>Autenticação em Azure Synapse Analytics
 
-A autenticação entre sistemas é feita sem emenda no Azure Synapse Analytics. Existe um Serviço Token que se conecta com o Azure Ative Directory para obter fichas de segurança para uso ao aceder à conta de armazenamento ou ao servidor de armazém de dados. Por esta razão, não há necessidade de criar credenciais ou especiá-las na API do conector, desde que a AAD-Auth esteja configurada na conta de armazenamento e no servidor de armazém de dados. Caso contrário, o SQL Auth pode ser especificado. Mais detalhes na secção [Utilização.](#usage)
+A autenticação entre sistemas é feita sem emenda no Azure Synapse Analytics. Existe um Serviço Token que se conecta com o Azure Ative Directory para obter fichas de segurança para uso ao aceder à conta de armazenamento ou ao servidor de armazém de dados. 
+
+Por esta razão, não há necessidade de criar credenciais ou especiá-las na API do conector, desde que a AAD-Auth esteja configurada na conta de armazenamento e no servidor de armazém de dados. Caso contrário, o SQL Auth pode ser especificado. Mais detalhes na secção [Utilização.](#usage)
 
 ## <a name="constraints"></a>Restrições
 
@@ -147,13 +149,13 @@ sqlanalytics("[DBName].[Schema].[TableName]", [TableType])
 
 Assuma que tem um "pyspark_df" de dados que pretende escrever no DW.
 
-Criar uma tabela temporária usando o dataframe em PySpark
+Criar uma tabela temporária utilizando o quadro de dados no PySpark:
 
 ```Python
 pyspark_df.createOrReplaceTempView("pysparkdftemptable")
 ```
 
-Executar uma célula Scala no caderno PySpark usando magias
+Gereuma célula Scala no caderno PySpark usando magias:
 
 ```Scala
 %%spark
@@ -164,9 +166,9 @@ pysparkdftemptable.write.sqlanalytics("sqlpool.dbo.PySparkTable", Constants.INTE
 
 Da mesma forma, no cenário de leitura, leia os dados usando Scala e escreva-os numa tabela temporária, e use spark SQL em PySpark para consultar a tabela temporária em um quadro de dados.
 
-## <a name="allowing-other-users-to-use-the-dw-connector-in-your-workspace"></a>Permitir que outros utilizadores utilizem o Conector DW no seu espaço de trabalho
+## <a name="allowing-other-users-to-use-the-dw-connector-in-your-workspace"></a>Permitir que outros utilizadores utilizem o conector DW no seu espaço de trabalho
 
-Para alterar permissões em falta para outros, é necessário ser o Proprietário de Dados blob de armazenamento na conta de armazenamento ADLS Gen2 ligada ao espaço de trabalho. Certifique-se de que o utilizador tem acesso ao espaço de trabalho e permissões para executar cadernos.
+Você precisa ser Storage Blob Data Owner na conta de armazenamento ADLS Gen2 ligada ao espaço de trabalho para alterar permissões em falta para outros. Certifique-se de que o utilizador tem acesso ao espaço de trabalho e permissões para executar cadernos.
 
 ### <a name="option-1"></a>Opção 1
 
@@ -178,8 +180,8 @@ Para alterar permissões em falta para outros, é necessário ser o Proprietári
 
 | Pasta | / | sinapse | áreas de trabalho  | <workspacename> | faíscas | <sparkpoolname>  | sparkpoolinstances  |
 |--|--|--|--|--|--|--|--|
-| Permissões de acesso |--X |--X |--X |--X |--X |--X |-WX |
-| Permissões por predefinição |---|---|---|---|---|---|---|
+| Permissões de acesso | --X | --X | --X | --X | --X | --X | -WX |
+| Permissões por predefinição | ---| ---| ---| ---| ---| ---| ---|
 
 - Você deve ser capaz de ACL todas as pastas de "sinapse" e para baixo do portal Azure. Para ACL a pasta raiz "/", siga as instruções abaixo.
 
@@ -188,9 +190,10 @@ Para alterar permissões em falta para outros, é necessário ser o Proprietári
 - Assim que puder ver a conta de armazenamento listada, clique no espaço de trabalho de listagem e selecione "Gerir o Acesso"
 - Adicione o Utilizador à /pasta com "Executar" Permissão de acesso. Selecione "Ok"
 
-**Certifique-se de que não seleciona "Padrão" se não pretender**
+> [!IMPORTANT]
+> Certifique-se de que não seleciona "Padrão" se não pretender.
 
 ## <a name="next-steps"></a>Próximos passos
 
-- [Criar uma piscina SQL)](../../synapse-analytics/quickstart-create-apache-spark-pool.md)
-- [Crie uma nova piscina Apache Spark para um espaço de trabalho Azure Synapse Analytics](../../synapse-analytics/quickstart-create-apache-spark-pool.md) 
+- [Crie uma piscina SQL utilizando o portal Azure](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)
+- [Crie uma nova piscina Apache Spark usando o portal Azure](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md) 

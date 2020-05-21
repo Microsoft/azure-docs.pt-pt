@@ -7,18 +7,19 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 07/23/2019
 ms.author: sngun
-ms.openlocfilehash: 9b6635a0dab20c8122ad4df4b7fbc5a0cb6f4c99
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6a9ab62d5ea408a5c7683d2f06e2cd52f52da1bb
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "71351132"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683877"
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB: Exemplos .NET para a API do SQL
+
 > [!div class="op_single_selector"]
-> * [Exemplos .NET](sql-api-dotnet-samples.md)
-> * [Exemplos de Java](sql-api-java-samples.md)
-> * [Exemplos de Async Java](sql-api-async-java-samples.md)
+> * [.NET V2 SDK Exemplos](sql-api-dotnet-samples.md)
+> * [.NET V3 SDK Exemplos](sql-api-dotnet-v3sdk-samples.md)
+> * [Exemplos Java V4 SDK](sql-api-java-sdk-samples.md)
 > * [Exemplos de Node.js](sql-api-nodejs-samples.md)
 > * [Exemplos python](sql-api-python-samples.md)
 > * [Galeria de Exemplo de Código do Azure](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
@@ -68,7 +69,7 @@ O método [RunCollectionDemo](https://github.com/Azure/azure-documentdb-dotnet/b
 | [Alterar um desempenho configurado de uma coleção](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L190) |[DocumentClient.ReplaceOfferAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync) |
 | [Obtenha uma coleção por ID](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L202) |[DocumentClient.ReadDocumentCollectionAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.readdocumentcollectionasync) |
 | [Ler todas as coleções numa base de dados](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L215) |[DocumentClient.ReadDocumentCollectionFeedAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.readdocumentcollectionfeedasync) |
-| [Eliminar uma coleção](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L228) |[DocumentClient.DeleteDocumentCollectionAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.deletedocumentcollectionasync) |
+| [Delete a collection (Eliminar uma coleção)](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L228) |[DocumentClient.DeleteDocumentCollectionAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.deletedocumentcollectionasync) |
 
 ## <a name="document-examples"></a>Exemplos de documento
 O método [RunDocumentsDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs#L109-L118) do projeto *documentmanagement* da amostra mostra como fazer as seguintes tarefas. Para conhecer os documentos da Azure Cosmos antes de executar as seguintes amostras, consulte Trabalhar com bases de [dados, contentores e itens.](databases-containers-items.md) 

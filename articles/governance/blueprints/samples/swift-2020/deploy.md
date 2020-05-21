@@ -1,14 +1,14 @@
 ---
 title: Implementar a amostra de plantas SWIFT CSP-CSCF v2020
 description: Desloque os passos para a amostra de plantas SWIFT CSP-CSCF v2020, incluindo detalhes do parâmetro do artefacto da planta.
-ms.date: 09/24/2019
+ms.date: 05/13/2020
 ms.topic: sample
-ms.openlocfilehash: 63a3880d0092f1ed6fabb2b024d05eebb79fe58b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 971b69dcc5c64d7e51e9237e09ee8474551ac43a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74546493"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657060"
 ---
 # <a name="deploy-the-swift-csp-cscf-v2020-blueprint-sample"></a>Implementar a amostra de plantas SWIFT CSP-CSCF v2020
 
@@ -19,7 +19,7 @@ Para implantar a amostra de plantas SWIFT CSP-CSCF v2020 do Azure Blueprints SWI
 > - Marque a sua cópia da amostra como **Publicado**
 > - Atribuir a sua cópia da planta a uma subscrição existente
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
 
 ## <a name="create-blueprint-from-sample"></a>Criar a planta a partir da amostra
 
@@ -93,31 +93,31 @@ A tabela seguinte fornece uma lista dos parâmetros do artefacto da planta:
 
 |Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Descrição|
 |-|-|-|-|
-|\[Pré-visualização\]: Auditoria SWIFT CSP-CSCF v2020 controles e implementação de extensões vm específicas para apoiar os requisitos de auditoria|Atribuição de política|Lista de tipos de recursos que devem ter registos de diagnóstico ativados|Lista de tipos de recursos para auditar se a definição de registo de diagnóstico não estiver ativada. Valores aceitáveis podem ser encontrados em [registos de diagnóstico do Monitor Azure.](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type)|
-|\[Pré-visualização\]: Auditoria SWIFT CSP-CSCF v2020 controles e implementação de extensões vm específicas para apoiar os requisitos de auditoria|Atribuição de política|IDs de espaço de trabalho conectados|Uma lista semi-separada das iDs do espaço de trabalho a que o agente Log Analytics deve ser ligado|
-|\[Pré-visualização\]: Auditoria SWIFT CSP-CSCF v2020 controles e implementação de extensões vm específicas para apoiar os requisitos de auditoria|Atribuição de política|Lista de utilizadores que devem ser incluídos no grupo de Administradores VM do Windows|Uma lista separada do ponto-e-vírgula dos membros que deve ser incluída no grupo local administradores. Ex: Administrador; myUser1; myUser2|
-|\[Pré-visualização\]: Auditoria SWIFT CSP-CSCF v2020 controles e implementação de extensões vm específicas para apoiar os requisitos de auditoria|Atribuição de política|Nome de domínio (FQDN)|O nome de domínio totalmente qualificado (FQDN) a que os VMs do Windows devem ser unidos|
-|\[Pré-visualização\]: Implementar o agente de análise de registo para conjuntos de escala SM (VMSS)|Atribuição de política|Log Analytics espaço de trabalho para conjuntos de escala De VM Linux (VMSS)|Se este espaço de trabalho estiver fora do âmbito da atribuição, deve conceder manualmente permissões de "Log Analytics Contributor" (ou similares) ao ID principal da atribuição de apólices.|
-|\[Pré-visualização\]: Implementar o agente de análise de registo para conjuntos de escala SM (VMSS)|Atribuição de política|Opcional: Lista de imagens VM que apoiaram o Sistema Linux OS para adicionar ao âmbito|Uma matriz vazia pode ser utilizada para indicar que não há parâmetros opcionais:\[\]|
-|\[Pré-visualização\]: Implementar o Agente de Análise de Registo para VMs Linux|Atribuição de política|Log Analytics espaço de trabalho para VMs Linux|Se este espaço de trabalho estiver fora do âmbito da atribuição, deve conceder manualmente permissões de "Log Analytics Contributor" (ou similares) ao ID principal da atribuição de apólices.|
-|\[Pré-visualização\]: Implementar o Agente de Análise de Registo para VMs Linux|Atribuição de política|Opcional: Lista de imagens VM que apoiaram o Sistema Linux OS para adicionar ao âmbito|Uma matriz vazia pode ser utilizada para indicar que não há parâmetros opcionais:\[\]|
-|\[Pré-visualização\]: Implementar o agente de análise de registo para conjuntos de escala seletivas VM Do Windows (VMSS)|Atribuição de política|Log Analytics espaço de trabalho para conjuntos de escala VM windows (VMSS)|Se este espaço de trabalho estiver fora do âmbito da atribuição, deve conceder manualmente permissões de "Log Analytics Contributor" (ou similares) ao ID principal da atribuição de apólices.|
-|\[Pré-visualização\]: Implementar o agente de análise de registo para conjuntos de escala seletivas VM Do Windows (VMSS)|Atribuição de política|Opcional: Lista de imagens VM que têm suportado o Windows OS para adicionar ao âmbito|Uma matriz vazia pode ser utilizada para indicar que não há parâmetros opcionais:\[\]|
-|\[Pré-visualização\]: Implementar o agente de análise de registo para VMs do Windows|Atribuição de política|Log Analytics espaço de trabalho para VMs do Windows|Se este espaço de trabalho estiver fora do âmbito da atribuição, deve conceder manualmente permissões de "Log Analytics Contributor" (ou similares) ao ID principal da atribuição de apólices.|
-|\[Pré-visualização\]: Implementar o agente de análise de registo para VMs do Windows|Atribuição de política|Opcional: Lista de imagens VM que têm suportado o Windows OS para adicionar ao âmbito|Uma matriz vazia pode ser utilizada para indicar que não há parâmetros opcionais:\[\]|
+|\[Pré-visualização \] : Auditoria SWIFT CSP-CSCF v2020 controles e implementação de extensões vm específicas para apoiar os requisitos de auditoria|Atribuição de política|Lista de tipos de recursos que devem ter registos de diagnóstico ativados|Lista de tipos de recursos para auditar se a definição de registo de diagnóstico não estiver ativada. Valores aceitáveis podem ser encontrados em [registos de diagnóstico do Monitor Azure.](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type)|
+|\[Pré-visualização \] : Auditoria SWIFT CSP-CSCF v2020 controles e implementação de extensões vm específicas para apoiar os requisitos de auditoria|Atribuição de política|IDs de espaço de trabalho conectados|Uma lista semi-separada das iDs do espaço de trabalho a que o agente Log Analytics deve ser ligado|
+|\[Pré-visualização \] : Auditoria SWIFT CSP-CSCF v2020 controles e implementação de extensões vm específicas para apoiar os requisitos de auditoria|Atribuição de política|Lista de utilizadores que devem ser incluídos no grupo de Administradores VM do Windows|Uma lista separada do ponto-e-vírgula dos membros que deve ser incluída no grupo local administradores. Ex: Administrador; myUser1; myUser2|
+|\[Pré-visualização \] : Auditoria SWIFT CSP-CSCF v2020 controles e implementação de extensões vm específicas para apoiar os requisitos de auditoria|Atribuição de política|Nome de domínio (FQDN)|O nome de domínio totalmente qualificado (FQDN) a que os VMs do Windows devem ser unidos|
+|\[Pré-visualização : Implementar o agente de análise de registo para conjuntos de \] escala SM (VMSS)|Atribuição de política|Log Analytics espaço de trabalho para conjuntos de escala De VM Linux (VMSS)|Se este espaço de trabalho estiver fora do âmbito da atribuição, deve conceder manualmente permissões de "Log Analytics Contributor" (ou similares) ao ID principal da atribuição de apólices.|
+|\[Pré-visualização : Implementar o agente de análise de registo para conjuntos de \] escala SM (VMSS)|Atribuição de política|Opcional: Lista de imagens VM que apoiaram o Sistema Linux OS para adicionar ao âmbito|Uma matriz vazia pode ser utilizada para indicar que não há parâmetros opcionais:\[\]|
+|\[Pré-visualização \] : Implementar o Agente de Análise de Registo para VMs Linux|Atribuição de política|Log Analytics espaço de trabalho para VMs Linux|Se este espaço de trabalho estiver fora do âmbito da atribuição, deve conceder manualmente permissões de "Log Analytics Contributor" (ou similares) ao ID principal da atribuição de apólices.|
+|\[Pré-visualização \] : Implementar o Agente de Análise de Registo para VMs Linux|Atribuição de política|Opcional: Lista de imagens VM que apoiaram o Sistema Linux OS para adicionar ao âmbito|Uma matriz vazia pode ser utilizada para indicar que não há parâmetros opcionais:\[\]|
+|\[Pré-visualização : Implementar o agente de análise de registo para conjuntos de \] escala seletivas VM Do Windows (VMSS)|Atribuição de política|Log Analytics espaço de trabalho para conjuntos de escala VM windows (VMSS)|Se este espaço de trabalho estiver fora do âmbito da atribuição, deve conceder manualmente permissões de "Log Analytics Contributor" (ou similares) ao ID principal da atribuição de apólices.|
+|\[Pré-visualização : Implementar o agente de análise de registo para conjuntos de \] escala seletivas VM Do Windows (VMSS)|Atribuição de política|Opcional: Lista de imagens VM que têm suportado o Windows OS para adicionar ao âmbito|Uma matriz vazia pode ser utilizada para indicar que não há parâmetros opcionais:\[\]|
+|\[Pré-visualização \] : Implementar o agente de análise de registo para VMs do Windows|Atribuição de política|Log Analytics espaço de trabalho para VMs do Windows|Se este espaço de trabalho estiver fora do âmbito da atribuição, deve conceder manualmente permissões de "Log Analytics Contributor" (ou similares) ao ID principal da atribuição de apólices.|
+|\[Pré-visualização \] : Implementar o agente de análise de registo para VMs do Windows|Atribuição de política|Opcional: Lista de imagens VM que têm suportado o Windows OS para adicionar ao âmbito|Uma matriz vazia pode ser utilizada para indicar que não há parâmetros opcionais:\[\]|
 |Implementar proteção avançada de ameaças em contas de armazenamento|Atribuição de política|Efeito|Informações sobre efeitos políticos podem ser encontradas na [Understand Azure Policy Effects](../../../policy/concepts/effects.md)|
 |Implementar auditoria sql|Atribuição de política|O valor nos dias do período de retenção (0 indica retenção ilimitada)|Dias de retenção (opcional, 180 dias se não especificados)|
 |Implementar auditoria sql|Atribuição de política|Nome do grupo de recursos para conta de armazenamento para auditoria de servidor SQL|A auditoria escreve eventos de base de dados para um registo de auditoria na sua conta de Armazenamento Azure (será criada uma conta de armazenamento em cada região onde é criado um Servidor SQL que será partilhado por todos os servidores dessa região). Importante - para o bom funcionamento da Auditoria não apague ou mude o nome do grupo de recursos ou das contas de armazenamento.|
 |Implementar definições de diagnóstico para grupos de segurança da rede|Atribuição de política|Prefixo de conta de armazenamento para diagnósticos de grupo de segurança de rede|Este prefixo será combinado com a localização do grupo de segurança da rede para formar o nome da conta de armazenamento criada.|
 |Implementar definições de diagnóstico para grupos de segurança da rede|Atribuição de política|Nome do grupo de recursos para conta de armazenamento para diagnósticos de grupo de segurança de rede (deve existir)|O grupo de recursos em que a conta de armazenamento será criada. Este grupo de recursos já deve existir.|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que reviu os passos para implementar a amostra de plantas SWIFT CSP-CSCF v2020, visite os seguintes artigos para saber sobre o mapeamento de plantas e controlo:
 
 > [!div class="nextstepaction"]
-> [Swift CSP-CSCF v2020 blueprint - Visão geral](./index.md)
-> [SWIFT CSP-CSCF v2020 - Mapeamento](./control-mapping.md) de controlo
+> [Swift CSP-CSCF v2020 blueprint - Visão geral](./index.md) 
+>  [Swift CSP-CSCF v2020 blueprint - Mapeamento de controlo](./control-mapping.md)
 
 Artigos adicionais sobre esquemas e como os utilizar:
 

@@ -8,12 +8,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 09/13/2019
-ms.openlocfilehash: f3ff9bd64f54d8f83fd1889078e8a4c01827d135
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 61d401a543032b1a206a4477f04d7e8e209c0f2a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77525894"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83646610"
 ---
 # <a name="quickstart-set-up-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Quickstart: Criar uma máquina virtual de inteligência geoartificial em Azure 
 
@@ -24,7 +24,7 @@ As ferramentas de IA incluídas no Geo-DSVM incluem o seguinte:
 - Edições GPU de estruturas populares de deep learning como Microsoft Cognitive Toolkit, TensorFlow, Keras, Caffe2 e Chainer
 - Ferramentas para adquirir e pré-processar dados de imagem e textual
 - Ferramentas para atividades de desenvolvimento como Microsoft Machine Learning Server Developer Edition, Anaconda Python, cadernos Jupyter para Python e R, IDEs para Python e R, e bases de dados SQL
-- Software de desktop ArcGIS Pro da ESRI, juntamente com interfaces Python e R que podem trabalhar com os dados geoespaciais das suas aplicações de IA
+- Software de desktop ArcGIS Pro da Esri, juntamente com interfaces Python e R que podem trabalhar com os dados geoespaciais das suas aplicações de IA
  
 
 ## <a name="create-your-geo-ai-data-science-vm"></a>Crie o seu VM geo-AI Data Science
@@ -84,7 +84,7 @@ Depois de se inscrever numa conta ArcGIS padrão ou num teste gratuito, pode aut
 
 Depois de iniciar sessão no ambiente de trabalho Do ArcGIS Pro através da sua conta ArcGIS, está pronto para começar a utilizar as ferramentas de ciência de dados que estão instaladas e configuradas no VM para os seus projetos de análise geoespacial e de machine-learning.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Comece a utilizar o VM geo-AI data science com orientação do seguinte recurso:
 

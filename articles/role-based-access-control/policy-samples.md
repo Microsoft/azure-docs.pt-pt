@@ -1,18 +1,18 @@
 ---
 title: Definições políticas incorporadas para O RBAC Azure
 description: Lista definições políticas integradas da Política Azure para o Azure RBAC. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 05/05/2020
+ms.date: 05/13/2020
 ms.topic: sample
 author: rolyon
 ms.author: rolyon
 ms.service: role-based-access-control
 ms.custom: subject-policy-samples
-ms.openlocfilehash: c90e0da2a1a33bbc52b8add963c995be04622e18
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: a835678d4869ad63d0b3a61485bdc034c3d4ee10
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82966415"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659639"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-rbac"></a>Definições políticas integradas da Política Azure para o Azure RBAC
 

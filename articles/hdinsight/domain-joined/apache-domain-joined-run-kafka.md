@@ -6,19 +6,19 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.date: 09/04/2019
-ms.openlocfilehash: 58c5b3bdd6d50f2e512cccffe78bd4e70805d729
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/19/2020
+ms.openlocfilehash: 6da2537464e39ecb2c613a97b19f2d8f316818af
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78204740"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83677547"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Tutorial: Configure as políticas de Apache Kafka no HDInsight com pacote de segurança empresarial (pré-visualização)
 
 Saiba como configurar as políticas apache Ranger para os clusters Apache Security Package (ESP) Apache Kafka. Os clusters do ESP estão ligados a um domínio, permitindo que os utilizadores sejam autenticados com credenciais do domínio. Neste tutorial, vai criar duas políticas do Ranger para restringir o acesso aos tópicos `sales` e `marketingspend`.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar utilizadores de domínio
@@ -48,7 +48,7 @@ Crie uma política do Ranger para **sales_user** e **marketing_user**.
 
 1. Abra a **IU do Ranger Admin**.
 
-2. Selecione ** \<ClusterName>_kafka** em **Kafka**. Poderá ser apresentada uma política pré-configurada.
+2. Selecione ** \< ClusterName>_kafka** sob **Kafka**. Poderá ser apresentada uma política pré-configurada.
 
 3. Selecione **Adicionar Nova Política** e introduza os seguintes valores:
 
@@ -85,7 +85,7 @@ Crie uma política do Ranger para **sales_user** e **marketing_user**.
 
 ## <a name="create-topics-in-a-kafka-cluster-with-esp"></a>Criar tópicos num cluster do Kafka com o ESP
 
-Para criar dois `salesevents` tópicos, e: `marketingspend`
+Para criar dois tópicos, `salesevents` `marketingspend` e:
 
 1. Utilize o seguinte comando para abrir uma ligação SSH ao cluster:
 
@@ -93,7 +93,7 @@ Para criar dois `salesevents` tópicos, e: `marketingspend`
    ssh DOMAINADMIN@CLUSTERNAME-ssh.azurehdinsight.net
    ```
 
-   Substitua-a `DOMAINADMIN` pelo utilizador administrativo do seu cluster `CLUSTERNAME` configurado durante a [criação](./apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp)do cluster e substitua-a pelo nome do seu cluster. Se solicitado, introduza a palavra-passe para a conta de utilizador administrativo. Para obter mais informações sobre como utilizar `SSH` com o HDInsight, veja [Utilizar SSH com o HDInsight](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
+   Substitua-a pelo utilizador administrativo do seu cluster configurado durante a `DOMAINADMIN` [criação](./apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp)do cluster e `CLUSTERNAME` substitua-a pelo nome do seu cluster. Se solicitado, introduza a palavra-passe para a conta de utilizador administrativo. Para obter mais informações sobre como utilizar `SSH` com o HDInsight, veja [Utilizar SSH com o HDInsight](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Utilize os comandos seguintes para guardar o nome do cluster numa variável e instalar um utilitário de análise JSON `jq`. Quando lhe for pedido, introduza o nome do cluster do Kafka.
 
@@ -123,7 +123,7 @@ Para criar dois `salesevents` tópicos, e: `marketingspend`
 
 ## <a name="test-the-ranger-policies"></a>Testar as políticas do Ranger
 
-Com base nas políticas dos Rangers configuradas, **sales_user** pode produzir/consumir tópico, `salesevents` mas não tópico. `marketingspend` Inversamente, **marketing_user** pode `marketingspend` produzir/consumir `salesevents`tópico, mas não tópico.
+Com base nas políticas dos Rangers configuradas, **sales_user** pode produzir/consumir tópico, `salesevents` mas não `marketingspend` tópico. Inversamente, **marketing_user** pode produzir/consumir tópico, `marketingspend` mas não `salesevents` tópico.
 
 1. Abra uma nova ligação SSH ao cluster. Utilize o seguinte comando para iniciar sessão como **sales_user1**:
 
@@ -145,17 +145,18 @@ Com base nas políticas dos Rangers configuradas, **sales_user** pode produzir/c
 
    Exemplo: `export KAFKABROKERS=wn0-khdicl.contoso.com:9092,wn1-khdicl.contoso.com:9092`
 
-4. Siga o passo 3 sob **a construção e implemente o exemplo** no [Tutorial: Use o Produtor Apache Kafka e as APIs de consumo](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example) para garantir que o `kafka-producer-consumer.jar` também está disponível para **sales_user**.
+4. Siga o passo 3 sob **a construção e implemente o exemplo** no [Tutorial: Use o Produtor Apache Kafka e as APIs](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example) de consumo para garantir que o `kafka-producer-consumer.jar` também está disponível para **sales_user**.
 
-**Nota: Para este tutorial, utilize o frasco kafka-produtor-consumidor.no âmbito do projeto "DomainJoined-Producer-Consumer" (não o do projeto Produtor-Consumidor, que se destina a cenários não-domínio aderentes).**
+> [!NOTE]  
+> Para este tutorial, utilize o frasco kafka-produtor-consumidor.no âmbito do projeto "DomainJoined-Producer-Consumer" (não o do projeto Produtor-Consumidor, que se destina a cenários não-domínio aderentes).
 
-5. Verifique se **sales_user1** pode `salesevents` produzir ao tópico executando o seguinte comando:
+5. Verifique se **sales_user1** pode produzir ao tópico `salesevents` executando o seguinte comando:
 
    ```bash
    java -jar kafka-producer-consumer.jar producer salesevents $KAFKABROKERS
    ```
 
-6. Executar o seguinte comando `salesevents`para consumir a partir do tópico:
+6. Executar o seguinte comando para consumir a partir do `salesevents` tópico:
 
    ```bash
    java -jar kafka-producer-consumer.jar consumer salesevents $KAFKABROKERS
@@ -163,7 +164,7 @@ Com base nas políticas dos Rangers configuradas, **sales_user** pode produzir/c
 
    Verifique se é capaz de ler as mensagens.
 
-7. Verifique se o **sales_user1** não `marketingspend` pode produzir tópico executando o seguinte na mesma janela ssh:
+7. Verifique se o **sales_user1** não pode produzir tópico `marketingspend` executando o seguinte na mesma janela ssh:
 
    ```bash
    java -jar kafka-producer-consumer.jar producer marketingspend $KAFKABROKERS
@@ -171,11 +172,11 @@ Com base nas políticas dos Rangers configuradas, **sales_user** pode produzir/c
 
    Um erro de autorização ocorre e pode ser ignorado.
 
-8. Note que **marketing_user1** não `salesevents`pode consumir do tópico.
+8. Note que **marketing_user1** não pode consumir do `salesevents` tópico.
 
    Repita os passos 1-4 acima, mas desta vez **como marketing_user1**.
 
-   Executar o seguinte comando `salesevents`para consumir a partir do tópico:
+   Executar o seguinte comando para consumir a partir do `salesevents` tópico:
 
    ```bash
    java -jar kafka-producer-consumer.jar consumer salesevents $KAFKABROKERS
@@ -200,7 +201,7 @@ Se não vai continuar a usar esta aplicação, elimine o cluster Kafka que criou
 ## <a name="troubleshooting"></a>Resolução de problemas
 Se kafka-produtor-consumidor.jar não funcionar num cluster de domínio aderente, certifique-se de que está a utilizar o frasco kafka-produtor-consumidor.jar no âmbito do projeto "DomainJoined-Producer-Consumer" (não o do projeto Produtor-Consumidor, que se destina a cenários não-membros do domínio).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Encriptação de discos chave gerida pelo cliente](../disk-encryption.md)

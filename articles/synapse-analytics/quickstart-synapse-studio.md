@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 64895e5f48168305aea3e83596cdbcae982a6cb9
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 182c6a20af51508c357079b9542b2bda695fdae4
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692427"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658548"
 ---
-# <a name="quickstart-using-synapse-studio-preview"></a>Quickstart: Usando o Estúdio Synapse (pré-visualização)
+# <a name="quickstart-use-synapse-studio-preview"></a>Quickstart: Use Synapse Studio (pré-visualização)
 
 Neste arranque rápido, aprenderás a consultar ficheiros usando o Estúdio Synapse.
 
@@ -49,10 +49,10 @@ Pode criar novas pastas e carregar ficheiros utilizando os links na barra de fer
 ## <a name="query-files-on-storage-account"></a>Arquivos de consulta na conta de armazenamento
 
 > [!IMPORTANT]
-> Você precisa ser um `Storage Blob Reader` membro do papel no armazenamento subjacente para ser capaz de consultar os ficheiros. Saiba como atribuir permissões rBAC do Leitor de [Dados **blob de armazenamento** ou do contribuinte de armazenamento **Blob** no Armazenamento Azure](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-a-built-in-rbac-role).
+> Você precisa ser um membro do papel no armazenamento subjacente para ser capaz de `Storage Blob Reader` consultar os ficheiros. Saiba como atribuir permissões rBAC do Leitor de [Dados **blob de armazenamento** ou do contribuinte de armazenamento **Blob** no Armazenamento Azure](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-a-built-in-rbac-role).
 
-1. Faça `PARQUET` upload de alguns ficheiros.
-2. Selecione um ou mais ficheiros e, em seguida, crie um novo script SQL ou um notebook Spark para ver o conteúdo dos ficheiros. Se quiser criar um caderno, terá de criar uma [piscina Apache Spark no espaço de trabalho.](quickstart-create-apache-spark-pool.md)
+1. Faça upload de `PARQUET` alguns ficheiros.
+2. Selecione um ou mais ficheiros e, em seguida, crie um novo script SQL ou um notebook Spark para ver o conteúdo dos ficheiros. Se quiser criar um caderno, terá de criar uma piscina Apache Spark em espaços de [trabalho Synapse.](quickstart-create-apache-spark-pool-studio.md)
 
    ![Arquivos de consulta no armazenamento](./media/quickstart-synapse-studio/query-files-on-storage.png)
 
@@ -62,9 +62,9 @@ Pode criar novas pastas e carregar ficheiros utilizando os links na barra de fer
 
 4. Pode alterar a consulta para filtrar e classificar os resultados. Encontre funcionalidades linguísticas disponíveis no SQL on-demand em [recursos SQL visão geral](sql/overview-features.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Ativar os utilizadores de Anúncios Azure para consultar ficheiros atribuindo [permissões rBAC do Leitor de **Dados Blob de Armazenamento** ou do Contribuinte de Armazenamento **Blob** no Armazenamento Azure](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-a-built-in-rbac-role)
-- [Arquivos de consulta sobre armazenamento Azure usando SQL on-Demand](sql/on-demand-workspace-overview.md)
-- [Crie a piscina Apache Spark usando o portal Azure](quickstart-create-apache-spark-pool.md)
+- Ativar os utilizadores de Anúncios Azure para consultar ficheiros [atribuindo permissões rBAC do Leitor de **Dados Blob de Armazenamento** ou do Contribuinte de Armazenamento **Blob** no Armazenamento Azure](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-a-built-in-rbac-role)
+- [Arquivos de consulta sobre armazenamento Azure usando SQL On-Demand](sql/on-demand-workspace-overview.md)
+- [Criar um conjunto do Apache Spark com o portal do Azure](quickstart-create-apache-spark-pool-portal.md)
 - [Criar relatório Power BI sobre ficheiros armazenados no Armazenamento Azure](sql/tutorial-connect-power-bi-desktop.md)

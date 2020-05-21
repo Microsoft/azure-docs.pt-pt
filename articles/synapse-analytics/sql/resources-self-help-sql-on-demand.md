@@ -2,19 +2,19 @@
 title: SQL a pedido De pré-ajuda) autoajuda
 description: Esta secção contém informações que podem ajudá-lo a resolver problemas com a SQL a pedido (pré-visualização).
 services: synapse analytics
-author: vvasic-msft
+author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
-ms.date: 04/15/2020
-ms.author: vvasic
+ms.date: 05/15/2020
+ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: e2c262915c928cf487cb84aeb3423d67e7a96e97
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8b2a9b6c5324240d71a80cde904057757d6ef421
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81424833"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658871"
 ---
 # <a name="self-help-for-sql-on-demand-preview"></a>Autoajuda para sQL a pedido (pré-visualização)
 
@@ -29,19 +29,49 @@ Se o Estúdio Synapse não conseguir estabelecer a ligação à SQL a pedido, no
 
 ## <a name="query-fails-because-file-cannot-be-opened"></a>A consulta falha porque o ficheiro não pode ser aberto
 
-Se a sua consulta falhar com o erro dizendo "O ficheiro não pode ser aberto porque não existe ou é usado por outro processo" e tem a certeza de que ambos os ficheiros existem e não é utilizado por outro processo, significa que a SQL a pedido não pode aceder ao ficheiro. Este problema geralmente acontece porque a sua identidade de Diretório Ativo Azure não tem direitos de acesso ao ficheiro. Por padrão, a SQL on-demand está a tentar aceder ao ficheiro utilizando a sua identidade de Diretório Ativo Azure. Para resolver este problema, precisa de ter direitos adequados para aceder ao ficheiro. A forma mais fácil é conceder a si mesmo o papel de 'Storage Blob Data Contributor' na conta de armazenamento que está a tentar consultar. Visite o guia completo sobre o controlo de acesso ao [Diretório Ativo do Azure para obter mais informações.](../../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 
+Se a sua consulta falhar com o erro dizendo "O ficheiro não pode ser aberto porque não existe ou é usado por outro processo" e tem a certeza de que ambos os ficheiros existem e não é utilizado por outro processo, significa que a SQL a pedido não pode aceder ao ficheiro. Este problema geralmente acontece porque a sua identidade de Diretório Ativo Azure não tem direitos de acesso ao ficheiro. Por padrão, a SQL on-demand está a tentar aceder ao ficheiro utilizando a sua identidade de Diretório Ativo Azure. Para resolver este problema, precisa de ter direitos adequados para aceder ao ficheiro. A forma mais fácil é conceder a si próprio a função de“Contribuinte de Dados do Armazenamento de Blobs” na conta de armazenamento que está a tentar consultar. [Veja o guia completo no controlo de acesso do Azure Active Directory para obter mais informações](../../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). 
 
 ## <a name="query-fails-because-it-cannot-be-executed-due-to-current-resource-constraints"></a>A consulta falha porque não pode ser executada devido a restrições de recursos atuais 
 
-Se a sua consulta falhar com a mensagem de erro "Esta consulta não pode ser executada devido a restrições de recursos atuais", significa que o OD SQL não é capaz de executá-lo neste momento devido a restrições de recursos: 
+Se a sua consulta falhar com a mensagem de erro "Esta consulta não pode ser executada devido a restrições de recursos atuais", significa que a SQL a pedido não é capaz de executá-la neste momento devido a restrições de recursos: 
 
-- Por favor, certifique-se de que são utilizados tipos de dados de tamanhos razoáveis. Além disso, especifique o esquema para ficheiros Parquet para colunas de cordas, uma vez que serão VARCHAR(8000) por defeito. 
+- Confirme que são utilizados tipos de dados de tamanhos razoáveis. Além disso, especifique o esquema para ficheiros Parquet para colunas de cadeias, uma vez que, por predefinição, vão ser VARCHAR(8000). 
 
 - Se a sua consulta visa ficheiros CSV, considere [criar estatísticas](develop-tables-statistics.md#statistics-in-sql-on-demand-preview). 
 
 - Visite [as melhores práticas de desempenho para a SQL a pedido](best-practices-sql-on-demand.md) para otimizar a consulta.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="create-statement-is-not-supported-in-master-database"></a>CREATE 'STATEMENT' não é suportado na base de dados principal
+
+Se a sua consulta falhar com a mensagem de erro:
+
+> Falhou em executar a consulta. Erro: Criar QUADRO EXTERNO/FONTE DE DADOS/BASE DE DADOS O FORMATO CREDENTIAL/ARQUIVO não é suportado na base de dados principal.». 
+
+significa que a base de dados principal da SQL a pedido não suporta a criação de:
+  - Tabelas externas
+  - Fontes de dados externas
+  - Credenciais de base de dados
+  - Formatos externos de ficheiros
+
+Solução:
+
+  1. Criar uma base de dados de utilizadores:
+
+```sql
+CREATE DATABASE <DATABASE_NAME>
+```
+
+  2. Execute a criação de uma declaração no contexto de <DATABASE_NAME> que falharam anteriormente para a base de dados principal. 
+  
+  Exemplo para a criação do formato de ficheiro externo:
+    
+```sql
+USE <DATABASE_NAME>
+CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] 
+WITH ( FORMAT_TYPE = PARQUET)
+```
+
+## <a name="next-steps"></a>Próximos passos
 
 Reveja os seguintes artigos para saber mais sobre como utilizar a SQL a pedido:
 

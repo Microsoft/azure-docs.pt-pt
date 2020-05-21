@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: df29ecf0a4ddb30aea1c1ab9ceed44a93fc61eb8
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: b22ba1df6eeddfaf04d11e542acb4f2b8ab00d76
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81400076"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673123"
 ---
 Neste arranque rápido, aprenderá a usar o SDK dos Dispositivos de Fala para o Windows para construir um produto ativado pela fala ou usá-lo como um dispositivo de Transcrição de [Conversas.](../conversation-transcription-service.md) Para a Transcrição de Conversas apenas o [DK Azure Kinect](https://azure.microsoft.com/services/kinect-dk/) é suportado. Para outros, utilize matrizes de microfoneline que fornecem uma geometria de matriz de microfone são suportadas.
 
@@ -48,19 +48,19 @@ Se planeia utilizar as intenções, necessitará de uma subscrição do Serviço
 
 1. Dentro de momentos, é apresentada a janela principal do IDE do Eclipse. Feche o ecrã de Boas-Vindas, se existir.
 
-1. A partir da barra de menueclipse, crie um novo projeto escolhendo **File** > **New** > **Java Project**. Se não estiver disponível escolha **Projeto** e, em seguida, **Projeto Java**.
+1. A partir da barra de menueclipse, crie um novo projeto escolhendo **File**  >  **New**  >  **Java Project**. Se não estiver disponível escolha **Projeto** e, em seguida, **Projeto Java**.
 
 1. O feiticeiro do **Projeto New Java** começa. **Procure** a localização do projeto da amostra. Selecione **Concluir**.
 
    ![Captura de ecrã do assistente Novo Projeto Java](../media/speech-devices-sdk/eclipse-new-java-project.png)
 
-1. No **explorador**de pacotes, clique no seu projeto. Escolha **Configure** > **Converter para Maven Project** a partir do menu de contexto. Selecione **Concluir**.
+1. No **explorador**de pacotes, clique no seu projeto. Escolha **Configure**  >  **Converter para Maven Project** a partir do menu de contexto. Selecione **Concluir**.
 
    ![Captura de ecrã do Explorador de pacotes](../media/speech-devices-sdk/eclipse-convert-to-maven.png)
 
 1. Abra o ficheiro pom.xml e edite-o.
 
-    No final do ficheiro, antes `</project>`da `repositories` etiqueta `dependencies` de fecho, crie e `version` elementos, como mostrado aqui, e certifique-se de que a versão atual corresponde:
+    No final do ficheiro, antes da etiqueta de `</project>` fecho, crie `repositories` e `dependencies` elementos, como mostrado aqui, e certifique-se de que a `version` versão atual corresponde:
     ```xml
     <repositories>
          <repository>
@@ -74,20 +74,20 @@ Se planeia utilizar as intenções, necessitará de uma subscrição do Serviço
         <dependency>
              <groupId>com.microsoft.cognitiveservices.speech</groupId>
              <artifactId>client-sdk</artifactId>
-             <version>1.11.0</version>
+             <version>1.12.0</version>
         </dependency>
     </dependencies>
    ```
 
 1. Copie o conteúdo do **Windows-x64** para a localização do Projeto Java, por exemplo **C:\SDSDK\JRE-Sample-Release**
 
-1. `kws.table`Copiar, `participants.properties` `Microsoft.CognitiveServices.Speech.extension.pma.dll` e entrar no alvo da pasta do **projeto\classes**
+1. Copiar, `kws.table` e entrar no alvo da pasta do `participants.properties` `Microsoft.CognitiveServices.Speech.extension.pma.dll` **projeto\classes**
 
 ## <a name="configure-the-sample-application"></a>Configurar o exemplo de aplicação
 
 1. Adicione a chave de subscrição do seu discurso ao código fonte. Se quiser experimentar o reconhecimento de intenções, adicione também a chave de subscrição do [serviço De compreensão](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) de idiomas e o ID da aplicação.
 
-   Para a fala e para `FunctionsList.java`o LUIS, a sua informação vai para:
+   Para a fala e para o LUIS, a sua informação vai `FunctionsList.java` para:
 
    ```java
     // Subscription
@@ -98,7 +98,7 @@ Se planeia utilizar as intenções, necessitará de uma subscrição do Serviço
     private static String LuisAppId = "<enter your LUIS AppId>";
    ```
 
-   Se estiver a utilizar a transcrição da conversação, `Cts.java`a sua chave de fala e informações da região também são necessárias em:
+   Se estiver a utilizar a transcrição da conversação, a sua chave de fala e informações da região também são necessárias `Cts.java` em:
 
    ```java
     private static final String CTSKey = "<Conversation Transcription Service Key>";
@@ -110,10 +110,10 @@ Se planeia utilizar as intenções, necessitará de uma subscrição do Serviço
     > [!TIP]
     > Também pode [criar uma palavra-chave personalizada.](../speech-devices-sdk-create-kws.md)
 
-    Para utilizar uma nova palavra-chave, `FunctionsList.java`atualize a seguinte linha e copie a palavra-chave para a sua aplicação. Por exemplo, utilizar a palavra-chave 'Máquina' `machine.zip`do pacote de palavras-chave:
+    Para utilizar uma nova palavra-chave, atualize a seguinte linha `FunctionsList.java` e copie a palavra-chave para a sua aplicação. Por exemplo, utilizar a palavra-chave 'Máquina' do pacote de palavras-chave: `machine.zip`
 
-   * Copie `kws.table` o ficheiro do pacote zip para o **alvo/classes**da pasta do projeto .
-   * Atualize `FunctionsList.java` o com o nome da palavra-chave:
+   * Copie o `kws.table` ficheiro do pacote zip para o **alvo/classes**da pasta do projeto .
+   * Atualize o `FunctionsList.java` com o nome da palavra-chave:
 
      ```java
      private static final String Keyword = "Machine";
@@ -121,7 +121,7 @@ Se planeia utilizar as intenções, necessitará de uma subscrição do Serviço
 
 ## <a name="run-the-sample-application-from-eclipse"></a>Executar a aplicação da amostra a partir do Eclipse
 
-1. A partir da barra de menu eclipse, **Run Run** > **As** > Java**Application**. Em seguida, selecione **FunctionsList** e **OK**.
+1. A partir da barra de menu eclipse, **Run**  >  **Run As**Java  >  **Application**. Em seguida, selecione **FunctionsList** e **OK**.
 
    ![Screenshot da aplicação Select Java](../media/speech-devices-sdk/eclipse-run-sample.png)
 
@@ -129,7 +129,7 @@ Se planeia utilizar as intenções, necessitará de uma subscrição do Serviço
 
    ![Aplicação e opções de exemplo sdk dispositivos de fala de amostra](../media/speech-devices-sdk/java-sample-app-windows.png)
 
-1. Experimente a nova demonstração de Transcrição de **Conversas.** Comece a transcrever com o**Início**de **Sessão** > . Por defeito, todos são convidados. No entanto, se tiver as assinaturas de `participants.properties` voz dos participantes, podem ser colocadas num ficheiro no **alvo/classes**da pasta do projeto . Para gerar a assinatura de voz, veja as [conversas do Transcribe (SDK)](../how-to-use-conversation-transcription-service.md).
+1. Experimente a nova demonstração de Transcrição de **Conversas.** Comece a transcrever com o Início de **Sessão**  >  **Start**. Por defeito, todos são convidados. No entanto, se tiver as assinaturas de voz dos participantes, podem ser colocadas num ficheiro `participants.properties` no **alvo/classes**da pasta do projeto . Para gerar a assinatura de voz, veja as [conversas do Transcribe (SDK)](../how-to-use-conversation-transcription-service.md).
 
    ![Aplicação de transcrição de conversação de demonstração](../media/speech-devices-sdk/cts-sample-app-windows.png)
 
@@ -145,7 +145,7 @@ Se planeia utilizar as intenções, necessitará de uma subscrição do Serviço
 
    ![Screenshot da exportação de ficheiros JAR Runnable](../media/speech-devices-sdk/eclipse-export-jar-windows.png)
 
-1. Por `kws.table`favor, `unimic_runtime.dll` `pma.dll` coloque, `Microsoft.CognitiveServices.Speech.extension.pma.dll` `participants.properties`e na pasta de destino escolhida acima, uma vez que estes ficheiros são necessários pela aplicação.
+1. Por favor, coloque, e na pasta de destino escolhida acima, uma vez `kws.table` `participants.properties` que estes `unimic_runtime.dll` `pma.dll` `Microsoft.CognitiveServices.Speech.extension.pma.dll` ficheiros são necessários pela aplicação.
 
 1. Para executar a aplicação autónoma
 

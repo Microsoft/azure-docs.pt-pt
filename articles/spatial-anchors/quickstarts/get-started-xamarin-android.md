@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 94906d645ec38a24d54536ee8aa93e7418c8dc35
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1de2d647a6292467a5ac4cc333ccacdedfc3c9ea
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75465175"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83638973"
 ---
 # <a name="quickstart-create-a-xamarin-android-app-with-azure-spatial-anchors"></a>Quickstart: Crie uma aplicação Xamarin Android com Âncoras Espaciais Azure
 
@@ -59,9 +59,11 @@ O próximo passo é configurar a aplicação para utilizar o identificador de co
 
 Abra `Xamarin/SampleXamarin.Common/AccountDetails.cs`.
 
-Localize `SpatialAnchorsAccountKey` o `Set me` campo e substitua-o pela chave da conta.
+Localize o `SpatialAnchorsAccountKey` campo e `Set me` substitua-o pela chave da conta.
 
-Localize `SpatialAnchorsAccountId` o `Set me` campo e substitua-o pelo identificador de conta.
+Localize o `SpatialAnchorsAccountId` campo e `Set me` substitua-o pelo identificador de conta.
+
+Localize `AzureSpatialAnchorsManager(Session arCoreSession)` e adicione a seguinte linha, substituindo no domínio da sua conta anterior: `this.spatialAnchorsSession.Configuration.AccountId = "MyAccountDomain";` .
 
 ## <a name="deploy-the-app-to-your-android-device"></a>Implemente a aplicação para o seu dispositivo Android
 
@@ -73,21 +75,21 @@ Detete o projeto de arranque para **SampleXamarin.Android,** altere a Configura�
 
 ![Configuração do estúdio visual](./media/get-started-xamarin-android/visual-studio-windows-configuration.png)
 
-Selecione **Debug** > **Comece a depurar** para implementar e inicie a sua aplicação.
+Selecione **Debug**  >  **Comece a depurar** para implementar e inicie a sua aplicação.
 
 # <a name="macos"></a>[macOS](#tab/deploy-macos)
 
 ![Configuração do estúdio visual](./media/get-started-xamarin-android/visual-studio-macos-configuration.jpg)
 
-Selecione **Executar** > **Iniciar Sem Debugging** para implementar e iniciar a sua aplicação.
+Selecione **Executar**  >  **Iniciar Sem Debugging** para implementar e iniciar a sua aplicação.
 
 ---
 
 Na aplicação, selecione **Basic** para executar a demonstração e siga as instruções para colocar e recordar uma âncora.
 
-> ![Screenshot](./media/get-started-xamarin-android/screenshot-1.jpg)
-> ![1](./media/get-started-xamarin-android/screenshot-2.jpg)
-> ![Screenshot 2 Screenshot 3](./media/get-started-xamarin-android/screenshot-3.jpg)
+> ![Screenshot 1 ](./media/get-started-xamarin-android/screenshot-1.jpg)
+>  ![ Screenshot 2 Screenshot ](./media/get-started-xamarin-android/screenshot-2.jpg)
+>  ![ 3](./media/get-started-xamarin-android/screenshot-3.jpg)
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

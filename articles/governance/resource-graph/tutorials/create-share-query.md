@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Gerir consultas no portal Azure'
 description: Neste tutorial, você cria uma Consulta de Gráfico de Recursos e partilha a nova consulta com outros no portal Azure.
-ms.date: 11/21/2019
+ms.date: 05/20/2020
 ms.topic: tutorial
-ms.openlocfilehash: 00cb3f95112804c81beb6bce6fc35891e6197e60
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e63a92a4570a0713ed65e1090e4d77d25fb10f95
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74303953"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83637755"
 ---
 # <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>Tutorial: Crie e partilhe uma consulta de gráfico de recursos azure no portal Azure
 
@@ -129,7 +129,7 @@ A seleção da consulta do Graph de Recursos abre a página para essa consulta. 
 
 ### <a name="query-resource-graph"></a>Gráfico de recursos de consulta
 
-Você pode encontrar consultas de Gráfico de Recursos através de uma consulta ao Graph de Recursos. Os seguintes limites de `Microsoft.ResourceGraph/queries`consulta do `project` Gráfico de Recursos por tipo, e depois usam para listar apenas o nome, o tempo modificado e a própria consulta:
+Você pode encontrar consultas de Gráfico de Recursos através de uma consulta ao Graph de Recursos. Os seguintes limites de consulta do Gráfico de Recursos por `Microsoft.ResourceGraph/queries` tipo, e depois usam `project` para listar apenas o nome, o tempo modificado e a própria consulta:
 
 ```kusto
 Resources
@@ -151,7 +151,7 @@ Pode eliminar uma consulta partilhada através das seguintes interfaces:
 
 Quando terminar este tutorial, elimine as consultas privadas e partilhadas que criou se já não as quiser.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, criou consultas privadas e partilhadas. Para saber mais sobre a linguagem do gráfico de recursos, continue na página de detalhes da linguagem da consulta.
 

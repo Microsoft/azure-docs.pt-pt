@@ -10,12 +10,12 @@ ms.topic: include
 ms.custom: include file
 ms.date: 04/27/2020
 ms.author: diberry
-ms.openlocfilehash: 97dfe175a609ab336206098948b4e3fcc401d8bc
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 1f47b4532a009694d4167c08f6f04312f8020acc
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203978"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673480"
 ---
 Este quickstart baseado em Carteiro leva-o através de obter uma resposta da sua base de conhecimento.
 
@@ -37,7 +37,7 @@ Utilize este procedimento para configurar o Carteiro e, em seguida, leia cada se
 
 1. A partir da página **Definições** da base de conhecimento, selecione o separador **Carteiro** para ver a configuração utilizada para gerar uma resposta a partir da base de conhecimento. Copie as seguintes informações a utilizar no Carteiro.
 
-    |Nome|Definição|Finalidade e valor|
+    |Name|Definição|Finalidade e valor|
     |--|--|--|
     |`POST`| `/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer`|Este é o método HTTP e a rota para o URL.|
     |`Host`|`https://YOUR-RESOURCE_NAME.azurewebsites.net/qnamaker`|Este é o anfitrião da URL. Concatenate os valores do Anfitrião e do Post para obter o URL de resposta gerada completa.|
@@ -51,7 +51,7 @@ Utilize este procedimento para configurar o Carteiro e, em seguida, leia cada se
 
 Num início rápido anterior, os metadados foram adicionados a dois pares QnA para distinguir entre duas questões diferentes. Adicione os metadados à consulta para restringir o filtro apenas ao par QnA relevante.
 
-1. No Carteiro, altere apenas a consulta `strictFilters` JSON adicionando a `service:qna_maker`propriedade com o nome/par de valor de . O corpo JSON deve ser:
+1. No Carteiro, altere apenas a consulta JSON adicionando a `strictFilters` propriedade com o nome/par de valor de `service:qna_maker` . O corpo JSON deve ser:
 
     ```json
     {
@@ -64,7 +64,7 @@ Num início rápido anterior, os metadados foram adicionados a dois pares QnA pa
     }
     ```
 
-    A questão é apenas uma palavra, `size`que pode devolver qualquer um dos dois conjuntos de perguntas e respostas. A `strictFilters` matriz diz a resposta `qna_maker` para reduzir apenas para as respostas.
+    A questão é apenas uma palavra, `size` que pode devolver qualquer um dos dois conjuntos de perguntas e respostas. A `strictFilters` matriz diz a resposta para reduzir apenas para as `qna_maker` respostas.
 
 1. A resposta inclui apenas a resposta que satisfaz os critérios do filtro.
 
@@ -103,13 +103,16 @@ Num início rápido anterior, os metadados foram adicionados a dois pares QnA pa
     }
     ```
 
-    Se houver um conjunto de perguntas e respostas que não cumpra o prazo de pesquisa mas que tenha cumprido o filtro, não seria devolvido. Em vez disso, a resposta `No good match found in KB.` geral é devolvida.
+    Se houver um conjunto de perguntas e respostas que não cumpra o prazo de pesquisa mas que tenha cumprido o filtro, não seria devolvido. Em vez disso, a resposta geral `No good match found in KB.` é devolvida.
 
 ## <a name="use-debug-query-property"></a>Use propriedade de consulta de depuração
 
+> [!NOTE]
+>Não recomendamos usar poreperty Debug para qualquer dependência. Esta propriedade foi adicionada para ajudar a equipa de produtos na resolução de problemas. 
+
 A informação de depuração ajuda-o a entender como a resposta devolvida foi determinada. Embora seja útil, não é necessário. Para gerar uma resposta com informações sobre depuração, adicione a `debug` propriedade:
 
-1. No Carteiro, mude apenas o corpo `debug` JSON adicionando a propriedade. O JSON deve ser:
+1. No Carteiro, mude apenas o corpo JSON adicionando a `debug` propriedade. O JSON deve ser:
 
     ```json
     {
@@ -213,9 +216,9 @@ A informação de depuração ajuda-o a entender como a resposta devolvida foi d
 
 ## <a name="use-test-knowledge-base"></a>Utilizar base de conhecimentos de teste
 
-Se quiser obter uma resposta da base de `isTest` conhecimentos de teste, use a propriedade do corpo.
+Se quiser obter uma resposta da base de conhecimentos de teste, use a `isTest` propriedade do corpo.
 
-No Carteiro, mude apenas o corpo `isTest` JSON adicionando a propriedade. O JSON deve ser:
+No Carteiro, mude apenas o corpo JSON adicionando a `isTest` propriedade. O JSON deve ser:
 
 ```json
 {
@@ -357,7 +360,7 @@ Pode solicitar um limiar mínimo para a resposta. Se o limiar não for cumprido,
     }
     ```
 
-    QnA Maker devolveu `0`uma pontuação de, o que significa não confiança. Também devolveu a resposta padrão.
+    QnA Maker devolveu uma pontuação `0` de, o que significa não confiança. Também devolveu a resposta padrão.
 
 1. Mude o valor limiar para 60% e solicite novamente a consulta:
 

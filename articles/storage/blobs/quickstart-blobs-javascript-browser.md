@@ -7,12 +7,12 @@ ms.date: 04/18/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 3b23eac4ab50401e68e17064d0964dacc3c17d32
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.openlocfilehash: 4d486b8ffc921a5ca2f38bef912ba6dc46ecec40
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82120507"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83634093"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -20,7 +20,7 @@ ms.locfileid: "82120507"
 
 O armazenamento da Blob Azure está otimizado para armazenar grandes quantidades de dados não estruturados. As bolhas são objetos que podem conter texto ou dados binários, incluindo imagens, documentos, meios de streaming e dados de arquivo. Neste arranque rápido, aprende-se a gerir bolhas utilizando o JavaScript num browser. Você vai carregar e listar bolhas, e você vai criar e apagar recipientes.
 
-[Documentação de](/javascript/api/@azure/storage-blob) | referência API[Biblioteca Código fonte](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob) | [Pacote (npm)](https://www.npmjs.com/package/@azure/storage-blob) | [Amostras](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+[Documentação de](/javascript/api/@azure/storage-blob)  |  referência da API Código fonte [da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob)  |  [Pacote (npm)](https://www.npmjs.com/package/@azure/storage-blob)  |  [Amostras](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 > [!NOTE]
 > Para começar com a versão SDK anterior, consulte [Quickstart: Gerencie as bolhas com JavaScript v10 SDK em Node.js](storage-quickstart-blobs-nodejs-legacy.md).
@@ -32,9 +32,9 @@ O armazenamento da Blob Azure está otimizado para armazenar grandes quantidades
 * [Node.js](https://nodejs.org)
 * [Código do Estúdio Visual da Microsoft](https://code.visualstudio.com)
 * Uma extensão de Código de Estúdio Visual para depuração do navegador, tais como:
-    * [Debugger para Microsoft Edge](vscode:extension/msjsdiag.debugger-for-edge)
-    * [Debugger para O Cromo](vscode:extension/msjsdiag.debugger-for-chrome)
-    * [Debugger para Firefox](vscode:extension/firefox-devtools.vscode-firefox-debug)
+    * [Debugger para Microsoft Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge)
+    * [Debugger para O Cromo](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
+    * [Debugger para Firefox](https://marketplace.visualstudio.com/items?itemName=firefox-devtools.vscode-firefox-debug)
 
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
@@ -53,9 +53,9 @@ O diagrama seguinte mostra a relação entre estes recursos.
 
 Neste arranque rápido, utilizará as seguintes aulas javaScript para interagir com estes recursos:
 
-* [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient): `BlobServiceClient` A classe permite-lhe manipular os recursos de Armazenamento Azure e os recipientes blob.
-* [ContainerClient](/javascript/api/@azure/storage-blob/containerclient): `ContainerClient` A classe permite-lhe manipular os recipientes de armazenamento Azure e as suas bolhas.
-* [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient): `BlockBlobClient` A classe permite-lhe manipular bolhas de Armazenamento Azure.
+* [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient): A `BlobServiceClient` classe permite-lhe manipular os recursos de Armazenamento Azure e os recipientes blob.
+* [ContainerClient](/javascript/api/@azure/storage-blob/containerclient): A `ContainerClient` classe permite-lhe manipular os recipientes de armazenamento Azure e as suas bolhas.
+* [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient): A `BlockBlobClient` classe permite-lhe manipular bolhas de Armazenamento Azure.
 
 ## <a name="setting-up"></a>Configuração
 
@@ -107,7 +107,7 @@ Selecione **Ver > Terminal** para abrir uma janela de consola dentro do Código 
 npm init -y
 ```
 
-O Azure SDK é composto por muitos pacotes separados. Pode escolher quais os pacotes que precisa com base nos serviços que pretende utilizar. Executar `npm` o comando seguinte na `@azure/storage-blob` janela do terminal para instalar a embalagem.
+O Azure SDK é composto por muitos pacotes separados. Pode escolher quais os pacotes que precisa com base nos serviços que pretende utilizar. Executar `npm` o comando seguinte na janela do terminal para instalar a `@azure/storage-blob` embalagem.
 
 ```console
 npm install --save @azure/storage-blob
@@ -117,13 +117,13 @@ npm install --save @azure/storage-blob
 
 Para utilizar bibliotecas Azure SDK num site, converta o seu código para funcionar dentro do navegador. Faz-se isto usando uma ferramenta chamada bundler. A agregação leva o código JavaScript escrito usando convenções [nonóios](https://nodejs.org) e converte-o num formato que é entendido pelos navegadores. Este artigo de arranque rápido usa o bundler [Parcel.](https://parceljs.org/)
 
-Instale parcela com `npm` o seguinte comando na janela do terminal:
+Instale parcela com o seguinte `npm` comando na janela do terminal:
 
 ```console
 npm install -g parcel-bundler
 ```
 
-No Visual Studio Code, abra o ficheiro *package.json* e adicione um `browserlist` entre as `license` entradas e `dependencies` as entradas. Isto `browserlist` visa a versão mais recente de três navegadores populares. O ficheiro completo *do pacote.json* deve agora ser assim:
+No Visual Studio Code, abra o ficheiro *package.json* e adicione um `browserlist` entre as entradas e as `license` `dependencies` entradas. Isto `browserlist` visa a versão mais recente de três navegadores populares. O ficheiro completo *do pacote.json* deve agora ser assim:
 
 :::code language="json" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/package.json" highlight="12-16":::
 
@@ -131,7 +131,7 @@ Guarde o ficheiro *package.json.*
 
 ### <a name="import-the-azure-blob-storage-client-library"></a>Importar a biblioteca de clientes de armazenamento Azure Blob
 
-Para utilizar bibliotecas Azure SDK `@azure/storage-blob` dentro do JavaScript, importe o pacote. Crie um novo ficheiro no Código do Estúdio Visual contendo o seguinte código JavaScript.
+Para utilizar bibliotecas Azure SDK dentro do JavaScript, importe o `@azure/storage-blob` pacote. Crie um novo ficheiro no Código do Estúdio Visual contendo o seguinte código JavaScript.
 
 :::code language="javascript" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/index.js" id="snippet_ImportLibrary":::
 
@@ -167,7 +167,7 @@ Adicione o seguinte código ao fim do ficheiro *index.js.*
 
 Guarde o ficheiro *index.js.*
 
-Este código declara campos para cada elemento `reportStatus` HTML e implementa uma função para visualizar a saída.
+Este código declara campos para cada elemento HTML e implementa uma `reportStatus` função para visualizar a saída.
 
 Nas seguintes secções, adicione cada novo bloco de código JavaScript após o bloco anterior.
 
@@ -203,7 +203,7 @@ Enumera o conteúdo do recipiente de armazenamento quando clicar no botão **'Fi
 
 Guarde o ficheiro *index.js.*
 
-Este código chama a função [ContainerClient.listBlobsFlat](/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-) e, em seguida, utiliza um iterator para recuperar o nome de cada [BlobItem](/javascript/api/@azure/storage-blob/blobitem) devolvido. Para `BlobItem`cada um, atualiza a lista **de Ficheiros** com o valor de propriedade do [nome.](/javascript/api/@azure/storage-blob/blobitem#name)
+Este código chama a função [ContainerClient.listBlobsFlat](/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-) e, em seguida, utiliza um iterator para recuperar o nome de cada [BlobItem](/javascript/api/@azure/storage-blob/blobitem) devolvido. Para cada `BlobItem` um, atualiza a lista **de Ficheiros** com o valor de propriedade do [nome.](/javascript/api/@azure/storage-blob/blobitem#name)
 
 ### <a name="upload-blobs"></a>Carregar bolhas
 
@@ -213,7 +213,7 @@ Faça upload de ficheiros para o recipiente de armazenamento quando clicar no bo
 
 Guarde o ficheiro *index.js.*
 
-Este código liga o botão Select `file-input` e carregar **ficheiros** ao elemento oculto. O `click` evento do botão `click` aciona o evento de entrada de ficheiros e exibe o apanhador de ficheiros. Depois de selecionar ficheiros e fechar `input` a caixa `uploadFiles` de diálogo, o evento ocorre e a função é chamada. Esta função cria um objeto [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) e, em seguida, liga para a função [de uploadBrowserData](/javascript/api/@azure/storage-blob/blockblobclient#uploadbrowserdata-blob---arraybuffer---arraybufferview--blockblobparalleluploadoptions-) apenas para cada ficheiro que selecionou. Cada chamada `Promise`devolve um . Cada `Promise` um é adicionado a uma lista para que todos possam ser aguardados em conjunto, fazendo com que os ficheiros carreguem em paralelo.
+Este código liga o botão **Select e carregar ficheiros** ao elemento oculto. `file-input` O evento do botão aciona o evento de `click` entrada de ficheiros `click` e exibe o apanhador de ficheiros. Depois de selecionar ficheiros e fechar a caixa de diálogo, o `input` evento ocorre e a `uploadFiles` função é chamada. Esta função cria um objeto [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) e, em seguida, liga para a função [de uploadBrowserData](/javascript/api/@azure/storage-blob/blockblobclient#uploadbrowserdata-blob---arraybuffer---arraybufferview--blockblobparalleluploadoptions-) apenas para cada ficheiro que selecionou. Cada chamada devolve um `Promise` . Cada `Promise` um é adicionado a uma lista para que todos possam ser aguardados em conjunto, fazendo com que os ficheiros carreguem em paralelo.
 
 ### <a name="delete-blobs"></a>Eliminar blobs
 
@@ -223,7 +223,7 @@ Elimine ficheiros do recipiente de armazenamento quando clicar no botão **apaga
 
 Guarde o ficheiro *index.js.*
 
-Este código chama a função [ContainerClient.deleteBlob](/javascript/api/@azure/storage-blob/containerclient#deleteblob-string--blobdeleteoptions-) para remover cada ficheiro selecionado na lista. Em seguida, `listFiles` chama a função mostrada anteriormente para refrescar o conteúdo da lista **de Ficheiros.**
+Este código chama a função [ContainerClient.deleteBlob](/javascript/api/@azure/storage-blob/containerclient#deleteblob-string--blobdeleteoptions-) para remover cada ficheiro selecionado na lista. Em seguida, chama a `listFiles` função mostrada anteriormente para refrescar o conteúdo da lista **de Ficheiros.**
 
 ## <a name="run-the-code"></a>Executar o código
 
@@ -236,7 +236,7 @@ Para configurar a extensão de debugger no Código do Estúdio Visual:
 1. Selecione **executar > adicionar configuração**
 2. Selecione **Edge,** **Chrome,** ou **Firefox,** dependendo da extensão que instalou na secção [Pré-requisitos](#prerequisites) anteriormente.
 
-Adicionar uma nova configuração cria um ficheiro *launch.json* e abre-o no editor. Modifique o ficheiro *launch.json* de modo a que o `url` valor seja, `http://localhost:1234/index.html`como mostrado aqui:
+Adicionar uma nova configuração cria um ficheiro *launch.json* e abre-o no editor. Modifique o ficheiro *launch.json* de modo a que o `url` valor `http://localhost:1234/index.html` seja, como mostrado aqui:
 
 :::code language="json" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/.vscode/launch.json" highlight="11":::
 
@@ -250,9 +250,9 @@ Para lançar o servidor web de desenvolvimento local, selecione **'Ver > Termina
 parcel index.html
 ```
 
-Parcel embala o seu código e inicia `http://localhost:1234/index.html`um servidor de desenvolvimento local para a sua página em . As alterações que fizer ao *index.js* serão automaticamente construídas e refletidas no servidor de desenvolvimento sempre que guardar o ficheiro.
+Parcel embala o seu código e inicia um servidor de desenvolvimento local para a sua página em `http://localhost:1234/index.html` . As alterações que fizer ao *index.js* serão automaticamente construídas e refletidas no servidor de desenvolvimento sempre que guardar o ficheiro.
 
-Se receber uma mensagem que diga que a **porta configurada 1234 não pode ser utilizada,** pode alterar a porta executando o comando `parcel -p <port#> index.html`. No ficheiro *launch.json,* atualize a porta no caminho URL para combinar.
+Se receber uma mensagem que diga que a **porta configurada 1234 não pode ser utilizada,** pode alterar a porta executando o comando `parcel -p <port#> index.html` . No ficheiro *launch.json,* atualize a porta no caminho URL para combinar.
 
 ### <a name="start-debugging"></a>Comece a depurar
 
@@ -285,7 +285,7 @@ No [portal Azure,](https://portal.azure.com)pode verificar os resultados das cha
 #### <a name="step-4---delete-the-container"></a>Passo 4 - Apagar o recipiente
 
 1. Na aplicação web, selecione eliminar o **recipiente**. O estado indica que o recipiente foi apagado.
-2. No portal Azure, selecione o ** \<nome\> da conta [ Os recipientes** ligam-se à parte superior esquerda do painel do portal.
+2. No portal Azure, selecione o ** \< nome da conta \> [ Os recipientes** ligam-se à parte superior esquerda do painel do portal.
 3. Selecione **Refresh**. O novo contentor desaparece.
 4. Feche a aplicação web.
 
@@ -295,7 +295,7 @@ Clique na consola **Terminal** em Código de Estúdio Visual e prima CTRL+C para
 
 Para limpar os recursos criados durante este arranque rápido, vá ao [portal Azure](https://portal.azure.com) e elimine o grupo de recursos que criou na secção [Pré-requisitos.](#prerequisites)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, aprendeu a carregar, listar e eliminar bolhas usando o JavaScript. Também aprendeu a criar e eliminar um recipiente de armazenamento de bolhas.
 

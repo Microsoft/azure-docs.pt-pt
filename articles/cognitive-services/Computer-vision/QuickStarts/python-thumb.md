@@ -11,22 +11,22 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 68a6504668b9f180a421fe20c2c89d73b87bcc35
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 9f80d9be8966d1e2d8350f7fbc3c34182cb7b63e
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81404353"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684140"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-python"></a>Quickstart: Gere uma miniatura utilizando a API e Python de Visão Computacional
 
 Neste arranque rápido, você gerará uma miniatura a partir de uma imagem usando a API DE DESCANSO DE Visão Computacional. Com o método [Get Miniatura,](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) pode especificar a altura e largura desejadas, e a Computer Vision utiliza uma colheita inteligente para identificar inteligentemente a área de interesse e gerar coordenadas de cultura com base nessa região.
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/try/cognitive-services/) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/try/cognitive-services/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de teste gratuita da [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou, siga as instruções na [Conta Criar uma Conta de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever a Visão Computacional e obter a sua chave. Em seguida, [crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para `COMPUTER_VISION_SUBSCRIPTION_KEY` a `COMPUTER_VISION_ENDPOINT`chave e corda final de serviço, nomeada e, respectivamente.
+- Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de teste gratuita da [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou, siga as instruções na [Conta Criar uma Conta de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever a Visão Computacional e obter a sua chave. Em seguida, [crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e corda final de serviço, nomeada `COMPUTER_VISION_SUBSCRIPTION_KEY` `COMPUTER_VISION_ENDPOINT` e, respectivamente.
 - Um editor de código como [Visual Studio Code.](https://code.visualstudio.com/download)
 
 ## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo
@@ -37,46 +37,49 @@ Para criar e executar a amostra, copie o seguinte código no editor de código.
 import os
 import sys
 import requests
-# If you are using a Jupyter notebook, uncomment the following line.
+# If you are using a Jupyter notebook, uncomment the following lines.
 # %matplotlib inline
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 from PIL import Image
 from io import BytesIO
 
 # Add your Computer Vision subscription key and endpoint to your environment variables.
-if 'COMPUTER_VISION_SUBSCRIPTION_KEY' in os.environ:
-    subscription_key = os.environ['COMPUTER_VISION_SUBSCRIPTION_KEY']
-else:
-    print("\nSet the COMPUTER_VISION_SUBSCRIPTION_KEY environment variable.\n**Restart your shell or IDE for changes to take effect.**")
-    sys.exit()
-
-if 'COMPUTER_VISION_ENDPOINT' in os.environ:
-    endpoint = os.environ['COMPUTER_VISION_ENDPOINT']
+subscription_key = os.environ['COMPUTER_VISION_SUBSCRIPTION_KEY']
+endpoint = os.environ['COMPUTER_VISION_ENDPOINT']
 
 thumbnail_url = endpoint + "vision/v2.1/generateThumbnail"
 
 # Set image_url to the URL of an image that you want to analyze.
 image_url = "https://upload.wikimedia.org/wikipedia/commons/9/94/Bloodhound_Puppy.jpg"
 
+# Construct URL
 headers = {'Ocp-Apim-Subscription-Key': subscription_key}
 params = {'width': '50', 'height': '50', 'smartCropping': 'true'}
 data = {'url': image_url}
-response = requests.post(thumbnail_url, headers=headers,
-                         params=params, json=data)
+# Call API
+response = requests.post(thumbnail_url, headers=headers, params=params, json=data)
 response.raise_for_status()
 
+# Open the image from bytes
 thumbnail = Image.open(BytesIO(response.content))
-
-# Display the thumbnail.
-plt.imshow(thumbnail)
-plt.axis("off")
 
 # Verify the thumbnail size.
 print("Thumbnail is {0}-by-{1}".format(*thumbnail.size))
+
+# Save thumbnail to file
+thumbnail.save('thumbnail.png')
+
+# Display image
+thumbnail.show()
+
+# Optional. Display the thumbnail from Jupyter.
+# plt.imshow(thumbnail)
+# plt.axis("off")
 ```
 
 Em seguida, faça o seguinte:
-1. Opcionalmente, substitua o valor de `image_url` pelo URL de uma imagem diferente para a qual pretende gerar uma miniatura.
+
+1. (Opcional) Substitua o valor do `image_url` URL da sua própria imagem.
 1. Guarde o código como um ficheiro com a extensão `.py`. Por exemplo, `get-thumbnail.py`.
 1. Abra uma janela da linha de comandos.
 1. Na linha de comandos, utilize o comando `python` para executar o exemplo. Por exemplo, `python get-thumbnail.py`.
@@ -91,7 +94,7 @@ Você pode executar opcionalmente este quickstart em uma forma passo-a-passo usa
 
 [![Aglutinante](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Em seguida, explore uma aplicação Python que utiliza a Visão Computacional para realizar o reconhecimento ótico de caracteres (OCR); criar miniaturas de corte inteligente; e detetar, categorizar, etiquetar e descrever características visuais em imagens.
 

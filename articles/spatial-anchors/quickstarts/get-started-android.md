@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 0501c8bb1d71c6cff6033fc937cda019c8890056
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3f794d1c70baee07b9ff3ed5d8299cf8ad3bf983
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75376465"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652496"
 ---
 # <a name="quickstart-create-an-android-app-with-azure-spatial-anchors"></a>Quickstart: Criar uma aplicação Android com Âncoras Espaciais Azure
 
@@ -34,7 +34,7 @@ Para concluir este início rápido, certifique-se de que tem:
 
 - Uma máquina Windows ou macOS com <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.4+</a>.
   - Se estiver a funcionar no Windows, também vai precisar de <a href="https://git-scm.com/download/win" target="_blank">Git para Windows</a> e <a href="https://git-lfs.github.com/">Git LFS</a>.
-  - Se funcionar no macOS, instale o Git via HomeBrew. Introduza o seguinte comando numa única `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`linha do Terminal: . Então, `brew install git` `brew install git-lfs`corra e.
+  - Se funcionar no macOS, instale o Git via HomeBrew. Introduza o seguinte comando numa única linha do Terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"` . Então, corra `brew install git` `brew install git-lfs` e.
   - Para construir a amostra NDK, você também precisa instalar as ferramentas NDK e CMake 3.6 ou maiores SDK no Android Studio.
 - Um <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">desenvolvedor ativado</a> e dispositivo Android <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">capaz de ARCore.</a>
   - Podem ser necessários controladores adicionais para que o seu computador se comunique com o seu dispositivo Android. Consulte [aqui](https://developer.android.com/studio/run/device.html) informações e instruções adicionais.
@@ -52,7 +52,7 @@ Para concluir este início rápido, certifique-se de que tem:
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
-Faça `arcore_c_api.h` o download [daqui](https://raw.githubusercontent.com/google-ar/arcore-android-sdk/v1.11.0/libraries/include/arcore_c_api.h) e coloque-o em `Android\NDK\libraries\include`.
+Faça o download `arcore_c_api.h` [daqui](https://raw.githubusercontent.com/google-ar/arcore-android-sdk/v1.11.0/libraries/include/arcore_c_api.h) e coloque-o em `Android\NDK\libraries\include` .
 
 A partir do repositório recém-clonado, inicializar os submódulos executando o seguinte comando:
 
@@ -66,11 +66,11 @@ Abra o Android Studio.
 
 # <a name="java"></a>[Java](#tab/openproject-java)
 
-**Selecione Abra um projeto Android Studio** `Android/Java/`existente e selecione o projeto localizado em .
+**Selecione Abra um projeto Android Studio existente** e selecione o projeto localizado em `Android/Java/` .
 
 # <a name="ndk"></a>[NDK](#tab/openproject-ndk)
 
-**Selecione Abra um projeto Android Studio** `Android/NDK/`existente e selecione o projeto localizado em .
+**Selecione Abra um projeto Android Studio existente** e selecione o projeto localizado em `Android/NDK/` .
 
 ---
 
@@ -82,17 +82,21 @@ O próximo passo é configurar a aplicação para utilizar o identificador de co
 
 Abra `Android/Java/app/src/main/java/com/microsoft/sampleandroid/AzureSpatialAnchorsManager.java`.
 
-Localize `SpatialAnchorsAccountKey` o `Set me` campo e substitua-o pela chave da conta.
+Localize o `SpatialAnchorsAccountKey` campo e `Set me` substitua-o pela chave da conta.
 
-Localize `SpatialAnchorsAccountId` o `Set me` campo e substitua-o pelo identificador de conta.
+Localize o `SpatialAnchorsAccountId` campo e `Set me` substitua-o pelo identificador de conta.
+
+Localize `public AzureSpatialAnchorsManager(Session arCoreSession)` e adicione a seguinte linha, substituindo no domínio da sua conta anterior: `spatialAnchorsSession.getConfiguration().setAccountDomain("MyAccountDomain");` .
 
 # <a name="ndk"></a>[NDK](#tab/openproject-ndk)
 
 Abra `Android/NDK/app/src/main/cpp/AzureSpatialAnchorsApplication.cpp`.
 
-Localize `SpatialAnchorsAccountKey` o `Set me` campo e substitua-o pela chave da conta.
+Localize o `SpatialAnchorsAccountKey` campo e `Set me` substitua-o pela chave da conta.
 
-Localize `SpatialAnchorsAccountId` o `Set me` campo e substitua-o pelo identificador de conta.
+Localize o `SpatialAnchorsAccountId` campo e `Set me` substitua-o pelo identificador de conta.
+
+Localize `AzureSpatialAnchorsApplication::StartCloudSession()` e adicione a seguinte linha, substituindo no domínio da sua conta anterior: `m_cloudSession->Configuration()->AccountDomain("MyAccountDomain");` .
 
 ---
 

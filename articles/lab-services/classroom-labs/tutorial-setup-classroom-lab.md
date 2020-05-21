@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/10/2020
+ms.date: 05/19/2020
 ms.author: spelluru
-ms.openlocfilehash: b3a9c95233c2016dc35f4fcade3e2634e121d252
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 1c9e594af96fd43bc03f67caa06f585ab57b4b6e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591782"
+ms.locfileid: "83643456"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Configurar um laboratório de sala de aula 
 Neste tutorial, vai configurar um laboratório de sala de aula com máquinas virtuais que serão utilizadas pelos alunos na sala de aula.  
@@ -70,6 +70,9 @@ Neste passo, cria-se um laboratório para a sua turma em Azure.
     1. Ligue-se à VM de modelo através da seleção de **Ligar**. Se for um VM de modelo Linux, escolha se pretende ligar-se utilizando SSH ou RDP (se o RDP estiver ativado).
     3. Instale e configure o software necessário para a sua aula no modelo VM. 
     4. **Pare** o modelo VM.  
+
+    > [!NOTE]
+    > Os VMs do modelo incorrem em **custos** durante a execução, por isso certifique-se de que o modelo VM é desligado quando não precisa que esteja em execução. 
 
 ## <a name="publish-the-template-vm"></a>Publicar a VM do modelo
 Neste passo, publica o modelo VM. Ao publicar o modelo VM, o Azure Lab Services cria VMs no laboratório utilizando o modelo. Todas as máquinas virtuais têm a mesma configuração do modelo.
@@ -155,7 +158,7 @@ Crie um evento programado para o laboratório para que os VMs no laboratório se
 
     Para obter mais informações sobre a adição de alunos a uma aula e a gestão do seu uso do laboratório, consulte [como configurar o uso](how-to-configure-student-usage.md)do aluno.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste tutorial, criou um laboratório para a sua aula em Azure. Para saber como um aluno pode aceder a uma VM no laboratório através da ligação de registo, avance para o próximo tutorial:
 
 > [!div class="nextstepaction"]

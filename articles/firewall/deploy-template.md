@@ -5,26 +5,27 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
+ms.custom: subject-armqs
 ms.date: 04/30/2020
 ms.author: victorh
-ms.openlocfilehash: 17ab693033b61c25ba2f5b5bd588ef52caf8c046
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: 9b9b7926caa717c1a02988ac7a927bd9bd39d52a
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82597710"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683701"
 ---
 # <a name="quickstart-deploy-azure-firewall-with-availability-zones---resource-manager-template"></a>Quickstart: Implementar firewall azure com zonas de disponibilidade - modelo de gestor de recursos
 
 Neste arranque rápido, você usa um modelo de Gestor de Recursos para implementar uma Firewall Azure em três Zonas de Disponibilidade. 
 
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
 O modelo cria um ambiente de rede de teste com uma firewall. A rede tem uma rede virtual (VNet) com três subredes: *AzureFirewallSubnet,* *ServersSubnet*e *JumpboxSubnet*. A sub-rede *ServersSubnet* e *JumpboxSubnet* têm uma única máquina virtual do Windows Server de dois núcleos.
 
-A firewall está na subnet *AzureFirewallSubnet,* e tem uma coleção de `www.microsoft.com`regras de aplicação com uma única regra que permite o acesso a .
+A firewall está na subnet *AzureFirewallSubnet,* e tem uma coleção de regras de aplicação com uma única regra que permite o acesso a `www.microsoft.com` .
 
 Uma rede de pontos de rota definida pelo utilizador a partir da subnet *ServersSubnet* através da firewall, onde são aplicadas as regras de firewall.
-
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Para mais informações sobre o Firewall Azure, consulte [O Conjunto e configure a Firewall Azure utilizando o portal Azure](tutorial-firewall-deploy-portal.md).
 
@@ -38,20 +39,20 @@ Este modelo cria uma Firewall Azure com Zonas de Disponibilidade, juntamente com
 
 ### <a name="review-the-template"></a>Reveja o modelo
 
-O modelo utilizado neste quickstart é de [modelos Azure Quickstart](https://github.com/Azure/azure-quickstart-templates/blob/master/101-azurefirewall-with-zones-sandbox/azuredeploy.json).
+O modelo utilizado neste quickstart é de [modelos Azure Quickstart](https://azure.microsoft.com/resources/templates/101-azurefirewall-with-zones-sandbox).
 
 :::code language="json" source="~/quickstart-templates/101-azurefirewall-with-zones-sandbox/azuredeploy.json" range="001-444" highlight="369-442":::
 
 Vários recursos Azure são definidos no modelo:
 
-- [**Microsoft.Network/publicIPAddresss**](/azure/templates/microsoft.network/publicipaddresses)
+- [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageAccounts)
+- [**Microsoft.Network/routeTables**](/azure/templates/microsoft.network/routeTables)
 - [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
 - [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
-- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)
+- [**Microsoft.Network/publicIPAddresss**](/azure/templates/microsoft.network/publicipaddresses)
 - [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces)
-- [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageAccounts)
+- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)
 - [**Microsoft.Network/azureFirewalls**](/azure/templates/microsoft.network/azureFirewalls)
-- [**Microsoft.Network/routeTables**](/azure/templates/microsoft.network/routeTables)
 
 ### <a name="deploy-the-template"></a>Implementar o modelo
 
@@ -77,15 +78,17 @@ Para saber mais sobre a sintaxe jSON e propriedades para uma firewall num modelo
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não precisar deles, pode remover o grupo de recursos, `Remove-AzResourceGroup` firewall e todos os recursos relacionados executando o comando PowerShell. Para remover um grupo de recursos chamado *MyResourceGroup,* executar: 
+Quando já não precisar deles, pode remover o grupo de recursos, firewall e todos os recursos relacionados executando o `Remove-AzResourceGroup` comando PowerShell. Para remover um grupo de recursos chamado *MyResourceGroup,* executar: 
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name MyResourceGroup
 ```
+
 Não remova o grupo de recursos e a firewall se pretender continuar no tutorial de monitorização de firewall. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Em seguida, pode monitorizar os registos da Firewall Azure:
+Em seguida, pode monitorizar os registos do Azure Firewall.
 
-[Tutorial: monitorizar registos do Azure Firewall](./tutorial-diagnostics.md)
+> [!div class="nextstepaction"]
+> [Tutorial: monitorizar registos do Azure Firewall](tutorial-diagnostics.md)

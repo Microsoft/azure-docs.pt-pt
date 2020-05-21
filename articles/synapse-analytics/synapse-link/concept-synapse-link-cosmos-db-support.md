@@ -1,5 +1,5 @@
 ---
-title: Azure Synapse Link para Azure Cosmos DB suportado
+title: Azure Synapse Link (pré-visualização) para funcionalidades suportadas pela Azure Cosmos DB
 description: Conheça a lista atual de ações apoiadas por Azure Synapse Link for Azure Cosmos DB
 services: synapse-analytics
 author: ArnoMicrosoft
@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1b94d7677026f3695d07be4d83a5059373078c2e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 2e0b1ee5584420ab38fda8897ef610794b09c29a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599950"
+ms.locfileid: "83658835"
 ---
-# <a name="azure-synapse-link-for-azure-cosmos-db-supported-features"></a>Azure Synapse Link para Azure Cosmos DB suportado
+# <a name="azure-synapse-link-preview-for-azure-cosmos-db-supported-features"></a>Azure Synapse Link (pré-visualização) para funcionalidades suportadas pela Azure Cosmos DB
 
 Este artigo descreve as funcionalidades que são atualmente suportadas no Azure Synapse Link for Azure Cosmos DB. 
 
@@ -58,7 +58,7 @@ Pode ligar-se a um recipiente Azure Cosmos DB sem permitir a Ligação Synapse, 
 | **Selecione top 100** |Pré-visualizar os 100 itens de um recipiente|X| ✓ |
 | **Criar vista** |Crie uma vista para ter diretamente acesso bi em um recipiente através do Synapse SQL|X| ✓ |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Veja como [ligar-se ao Synapse Link para Azure Cosmos DB](../quickstart-connect-synapse-link-cosmos-db.md)
 * [Saiba como consultar a loja analítica com a Spark](how-to-query-analytical-store-spark.md)

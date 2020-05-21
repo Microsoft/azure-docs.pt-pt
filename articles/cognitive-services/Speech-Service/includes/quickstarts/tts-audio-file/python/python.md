@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: 10a11168b8046dbcc877f45141571fccdca879f0
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 4429a03709d0f565d5fcf98f6999c812c0d43561
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81400347"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673089"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -35,7 +35,7 @@ sudo apt-get update
 sudo apt-get install build-essential libssl1.0.2 libasound2
 ```
 
-# <a name="rhel--centos-8"></a>[RHEL / CentOS 8](#tab/rhel-centos)
+# <a name="rhelcentos"></a>[RHEL/CentOS](#tab/rhel-centos)
 
 ```Bash
 sudo yum update
@@ -43,7 +43,8 @@ sudo yum install alsa-lib openssl python3
 ```
 
 > [!NOTE]
-> Em RHEL/CentOS 7/8, siga as instruções sobre como configurar o [OpenSSL para Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
+> - No RHEL/CentOS 7, siga as instruções sobre [como configurar o RHEL/CentOS 7 para o SDK](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md)da Fala .
+> - No RHEL/CentOS 8, siga as instruções sobre como configurar o [OpenSSL para Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 ---
 
@@ -62,8 +63,8 @@ pip install azure-cognitiveservices-speech
 ## <a name="support-and-updates"></a>Suporte e atualizações
 
 As atualizações do pacote Speech SDK Python são distribuídas via PyPI e anunciadas nas notas de [lançamento.](~/articles/cognitive-services/Speech-Service/releasenotes.md)
-Se uma nova versão estiver disponível, pode `pip install --upgrade azure-cognitiveservices-speech`atualizá-la com o comando .
-Verifique qual a versão atualmente instalada `azure.cognitiveservices.speech.__version__` inspecionando a variável.
+Se uma nova versão estiver disponível, pode atualizá-la com o comando `pip install --upgrade azure-cognitiveservices-speech` .
+Verifique qual a versão atualmente instalada inspecionando a `azure.cognitiveservices.speech.__version__` variável.
 
 Se tiver algum problema, ou se estiver a perder uma funcionalidade, consulte [opções](~/articles/cognitive-services/Speech-Service/support.md)de Suporte e Ajuda .
 
@@ -71,7 +72,7 @@ Se tiver algum problema, ou se estiver a perder uma funcionalidade, consulte [op
 
 ### <a name="run-the-sample"></a>Executar o exemplo
 
-Pode copiar o código da [amostra](#sample-code) a `quickstart.py` partir deste quickstart para um ficheiro fonte e executá-lo no iDE ou na consola:
+Pode copiar o código da [amostra](#sample-code) a partir deste quickstart para um ficheiro fonte `quickstart.py` e executá-lo no iDE ou na consola:
 
 ```Bash
 python quickstart.py
@@ -117,7 +118,7 @@ elif result.reason == speechsdk.ResultReason.Canceled:
 
 1. Descarregue e instale uma versão de 64 bits de [Python](https://www.python.org/downloads/), 3.5 a 3.8, no seu computador.
 1. Descarregue e instale o Código do [Estúdio Visual.](https://code.visualstudio.com/Download)
-1. Abra o Código do Estúdio Visual e instale a extensão Python. Selecione**extensões** de**preferências** > de **ficheiro** > sacar do menu. Pesquisa por **Python.**
+1. Abra o Código do Estúdio Visual e instale a extensão Python. Selecione **File**  >  extensões de**Preferences**  >  **preferências** de ficheiro sacar do menu. Pesquisa por **Python.**
 
    ![Instale a extensão Python](~/articles/cognitive-services/Speech-Service/media/sdk/qs-python-vscode-python-extension.png)
 
@@ -126,7 +127,7 @@ elif result.reason == speechsdk.ResultReason.Canceled:
 
    ![Abra uma pasta](~/articles/cognitive-services/Speech-Service/media/sdk/qs-python-vscode-python-open-folder.png)
 
-1. Crie um novo `speechsdk.py`ficheiro de origem Python, selecionando o novo ícone de ficheiro.
+1. Crie um novo ficheiro de origem `speechsdk.py` Python, selecionando o novo ícone de ficheiro.
 
    ![Criar um ficheiro](~/articles/cognitive-services/Speech-Service/media/sdk/qs-python-vscode-python-newfile.png)
 
@@ -136,7 +137,7 @@ elif result.reason == speechsdk.ResultReason.Canceled:
    Caso contrário, enumere uma lista de intérpretes python disponíveis. Abra a paleta de comando<kbd>(Ctrl+Shift+P</kbd>) e **introduza Python: Select Interpreter**. Escolha um apropriado.
 1. Pode instalar o pacote Speech SDK Python a partir do Código do Estúdio Visual. Faça isso se ainda não estiver instalado para o intérprete Python que selecionou.
    Para instalar o pacote Speech SDK, abra um terminal. Volte a levantar a paleta de comando<kbd>(Ctrl+Shift+P</kbd>) e introduza o **Terminal: Criar novo terminal integrado**.
-   No terminal que se abre, `python -m pip install azure-cognitiveservices-speech` introduza o comando ou o comando apropriado para o seu sistema.
+   No terminal que se abre, introduza o comando `python -m pip install azure-cognitiveservices-speech` ou o comando apropriado para o seu sistema.
 1. Para executar o código da amostra, clique em algum lugar dentro do editor. Selecione **Executar ficheiro Python no terminal**.
    O seu texto é convertido em fala e guardado nos dados áudio especificados.
 
@@ -146,11 +147,11 @@ elif result.reason == speechsdk.ResultReason.Canceled:
 
 Se tiver problemas seguindo estas instruções, consulte o tutorial de Código Python do [Estúdio Visual](https://code.visualstudio.com/docs/python/python-tutorial)mais extenso.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [!INCLUDE [Speech synthesis basics](../../text-to-speech-next-steps.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - [Criar uma voz personalizada](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
 - [Gravar amostras de voz personalizadas](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

@@ -7,20 +7,19 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 08/23/2019
 ms.author: dech
-ms.openlocfilehash: 4ac3d74cb76a936cc88261a2fedf16764e8ae52f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 89fc13f7391a3bd270730a6e95e0132305e04b68
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76718298"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683852"
 ---
 # <a name="nodejs-examples-to-manage-data-in-azure-cosmos-db"></a>Exemplos de Node.js para gerir dados em Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET V2 SDK Exemplos](sql-api-dotnet-samples.md)
 > * [.NET V3 SDK Exemplos](sql-api-dotnet-v3sdk-samples.md)
-> * [Exemplos de Java](sql-api-java-samples.md)
-> * [Exemplos de Async Java](sql-api-async-java-samples.md)
+> * [Exemplos Java V4 SDK](sql-api-java-sdk-samples.md)
 > * [Exemplos de Node.js](sql-api-nodejs-samples.md)
 > * [Exemplos python](sql-api-python-samples.md)
 > * [Galeria de Exemplo de Código do Azure](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)

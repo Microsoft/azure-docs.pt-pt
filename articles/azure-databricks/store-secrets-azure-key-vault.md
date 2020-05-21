@@ -7,18 +7,18 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 07/19/2019
-ms.openlocfilehash: 15399d5a00c13141877dcf44640df2c1f9b9ba5c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 026165c7c2052992e8ab485f9ab81c8964f38235
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75889060"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647959"
 ---
-# <a name="tutorial-access-azure-blob-storage-from-azure-databricks-using-azure-key-vault"></a>Tutorial: Armazenamento de Blob De acesso Azure a partir de Tijolos de Dados Azure usando cofre chave Azure
+# <a name="tutorial-access-azure-blob-storage-from-azure-databricks-using-azure-key-vault"></a>Tutorial: Aceder ao Armazenamento de Blobs do Azure do Azure Databricks com o Azure Key Vault
 
 Este tutorial descreve como aceder ao Armazenamento Azure Blob a partir de Databricks Azure usando segredos armazenados num cofre chave.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar uma conta de armazenamento e um recipiente de bolha
@@ -40,7 +40,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-storage-account-and-blob-container"></a>Criar uma conta de armazenamento e um recipiente de bolha
 
-1. No portal Azure, selecione Criar um**armazenamento**de **recursos.** >  Em seguida, selecione **a conta de armazenamento**.
+1. No portal Azure, selecione **Criar um armazenamento**de  >  **Storage**recursos. Em seguida, selecione **a conta de armazenamento**.
 
    ![Encontre o recurso da conta de armazenamento Azure](./media/store-secrets-azure-key-vault/create-storage-account-resource.png)
 
@@ -76,7 +76,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
    |Propriedade|Descrição|
    |--------|-----------|
-   |Nome|Um nome único para o seu cofre chave.|
+   |Name|Um nome único para o seu cofre chave.|
    |Subscrição|Escolha uma subscrição.|
    |Grupo de recursos|Escolha um grupo de recursos ou crie um novo.|
    |Localização|Escolher uma localização.|
@@ -94,7 +94,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
    |Propriedade|Valor|
    |--------|-----------|
    |Opções de upload|Manual|
-   |Nome|Nome amigável para a chave da sua conta de armazenamento.|
+   |Name|Nome amigável para a chave da sua conta de armazenamento.|
    |Valor|key1 da sua conta de armazenamento.|
 
    ![Propriedades para novo segredo de cofre chave](./media/store-secrets-azure-key-vault/create-storage-secret.png)
@@ -105,7 +105,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-an-azure-databricks-workspace-and-add-a-secret-scope"></a>Criar um espaço de trabalho Azure Databricks e adicionar um âmbito secreto
 
-1. No portal Azure, selecione **Criar um recurso** > **Analytics** > **Azure Databricks**.
+1. No portal Azure, selecione **Criar um recurso**  >  **Analytics**  >  **Azure Databricks**.
 
     ![Tijolos de dados no portal Azure](./media/store-secrets-azure-key-vault/azure-databricks-on-portal.png)
 
@@ -167,7 +167,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
    ```
 
    * **o nome do suporte** é um caminho DBFS que representa onde será montado o recipiente de armazenamento Blob ou uma pasta no interior do recipiente (especificado na fonte).
-   * **conf-key** pode `fs.azure.account.key.<\your-storage-account-name>.blob.core.windows.net` ser ou ou`fs.azure.sas.<\your-container-name>.<\your-storage-account-name>.blob.core.windows.net`
+   * **conf-key** pode ser `fs.azure.account.key.<\your-storage-account-name>.blob.core.windows.net` ou ou`fs.azure.sas.<\your-container-name>.<\your-storage-account-name>.blob.core.windows.net`
    * **o nome do âmbito** é o nome do âmbito secreto que criou na secção anterior. 
    * **nome chave** é o nome do segredo que criou para a chave da conta de armazenamento no seu cofre chave.
 
@@ -176,7 +176,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 6. Execute o seguinte comando para ler o ficheiro de texto no seu recipiente de armazenamento blob para um quadro de dados. Altere os valores no comando para combinar com o nome do seu suporte e nome de ficheiro.
 
    ```python
-   df = spark.read.text("mnt/<mount-name>/<file-name>")
+   df = spark.read.text("/mnt/<mount-name>/<file-name>")
    ```
 
    ![Ler ficheiro sintetmente](./media/store-secrets-azure-key-vault/command2.png)
@@ -208,7 +208,7 @@ Se não vai continuar a utilizar esta aplicação, elimine todo o seu grupo de r
 
 2. **Selecione Eliminar o grupo de recursos** e digite o nome do grupo de recursos. Em seguida, selecione **Eliminar**. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Avançar para o próximo artigo para aprender a implementar um ambiente de Databricks injetado VNet com um ponto final de serviço habilitado para cosmos DB.
 > [!div class="nextstepaction"]

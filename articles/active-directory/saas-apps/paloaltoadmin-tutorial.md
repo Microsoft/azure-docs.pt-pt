@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/12/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2fc9a23a8b0ef69760867dd5768510397f8570e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9804a44a29f4540c28ec4e1eb6927e65af70218c
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80129774"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682957"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>Tutorial: Integração de Diretório Sonícola Azure com redes Palo Alto - Admin UI
 
@@ -115,7 +115,7 @@ Para configurar o único sign-on azure ad com a Palo Alto Networks - Admin UI, e
 
 1. Além de acima, a aplicação PureCloud by Genesys espera que poucos atributos sejam passados de volta na resposta SAML que são mostradas abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
 
-    | Nome |  Atributo fonte|
+    | Name |  Atributo fonte|
     | --- | --- |
     | o nome de utilizador | user.userprincipalname |
     | adminrole | customadmin |
@@ -124,7 +124,7 @@ Para configurar o único sign-on azure ad com a Palo Alto Networks - Admin UI, e
     > [!NOTE]
     > Para obter mais informações sobre os atributos, consulte os seguintes artigos:
     > * [Perfil de função administrativa para a Admin UI (administrador)](https://www.paloaltonetworks.com/documentation/80/pan-os/pan-os/firewall-administration/manage-firewall-administrators/configure-an-admin-role-profile)
-    > * [Domínio de acesso ao dispositivo para Admin UI (domínio de acesso)](https://www.paloaltonetworks.com/documentation/80/pan-os/web-interface-help/device/device-access-domain)
+    > * [Domínio de acesso ao dispositivo para Admin UI (domínio de acesso)](https://docs.paloaltonetworks.com/pan-os/8-0/pan-os-web-interface-help/device/device-access-domain.html)
 
 1. Na configuração de um único sign-on com a página **SAML,** na secção Certificado de **Assinatura SAML,** clique em **Baixar** para descarregar o **Federation Metadata XML** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
@@ -148,7 +148,7 @@ Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
    1. No campo **Nome**, introduza `B.Simon`.  
-   1. No campo de nome username@companydomain.extensiondo **Utilizador,** introduza o . Por exemplo, `B.Simon@contoso.com`.
+   1. No campo de **nome do Utilizador,** introduza o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa de verificação de **palavra-passe do Show** e, em seguida, escreva o valor que está apresentado na caixa **password.**
    1. Clique em **Criar**.
 
@@ -243,7 +243,7 @@ Nesta secção, você permitirá que B.Simon use o único sign-on Azure, concede
 
     g. Selecione **OK**.
 
-13. Para permitir que os administradores utilizem o SSO SAML utilizando o Azure, selecione**Configuração**do **dispositivo** > . No painel de **configuração,** selecione o separador **'Gestão'** e, em seguida, em definições de **autenticação,** selecione o botão **Definições** ("engrenagem").
+13. Para permitir que os administradores utilizem o SSO **Device**SAML utilizando o Azure, selecione  >  **Configuração**do dispositivo . No painel de **configuração,** selecione o separador **'Gestão'** e, em seguida, em definições de **autenticação,** selecione o botão **Definições** ("engrenagem").
 
     ![O botão Definições](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_authsetup.png)
 

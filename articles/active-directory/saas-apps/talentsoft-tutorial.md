@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 12/18/2019
+ms.date: 05/12/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b130bb88ea9a3e08d788171b1d341b8db21a3ed
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3f1384d23f77407d2d20066cc2fa086037d546f6
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75533630"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648467"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-talentsoft"></a>Tutorial: Azure Ative Directory integração individual (SSO) com a Talentsoft
 
@@ -90,7 +90,7 @@ Siga estes passos para permitir o Azure AD SSO no portal Azure.
     Na caixa de texto **de URL sign-on,** escreva um URL utilizando o seguinte padrão:`https://<tenant>.talentsoft.com`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL de identificação, resposta real e URL de sinalização. Contacte a equipa de suporte do [Talentsoft Client](mailto:jlegoff@talentsoft.com) para obter estes valores. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
+    > Estes valores não são reais. Atualize estes valores com o URL de identificação, resposta real e URL de sinalização. Contacte a equipa de suporte do [Talentsoft Client](mailto:advancedservices@talentsoft.com) para obter estes valores. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
 
 1. Na configuração de um único sessão com a página **SAML,** na secção Certificado de **Assinatura SAML,** encontre **o Certificado (Base64)** e selecione **Descarregar** para descarregar o certificado e guardá-lo no seu computador.
 
@@ -108,7 +108,7 @@ Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
    1. No campo **Nome**, introduza `B.Simon`.  
-   1. No campo de nome username@companydomain.extensiondo **Utilizador,** introduza o . Por exemplo, `B.Simon@contoso.com`.
+   1. No campo de **nome do Utilizador,** introduza o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa de verificação de **palavra-passe do Show** e, em seguida, escreva o valor que está apresentado na caixa **password.**
    1. Clique em **Criar**.
 
@@ -132,11 +132,11 @@ Nesta secção, permitirá que b.Simon use o único sign-on Azure, concedendo ac
 
 ## <a name="configure-talentsoft-sso"></a>Configure Talentsoft SSO
 
-Para configurar um único sign-on no lado **talentsoft,** você precisa enviar o Certificado descarregado **(Base64)** e URLs copiados apropriados do portal Azure para a equipe de [suporte Talentsoft](mailto:jlegoff@talentsoft.com). Eles definiram esta definição para ter a ligação SAML SSO corretamente definida em ambos os lados.
+Para configurar um único sign-on no lado **talentsoft,** você precisa enviar o Certificado descarregado **(Base64)** e URLs copiados apropriados do portal Azure para a equipe de [suporte Talentsoft](mailto:advancedservices@talentsoft.com). Eles definiram esta definição para ter a ligação SAML SSO corretamente definida em ambos os lados.
 
 ### <a name="create-talentsoft-test-user"></a>Criar o utilizador de teste Talentsoft
 
-Nesta secção, cria-se um utilizador chamado B.Simon na Talentsoft. Trabalhe com a equipa de [suporte talentsoft](mailto:jlegoff@talentsoft.com) para adicionar os utilizadores na plataforma Talentsoft. Os utilizadores devem ser criados e ativados antes de utilizar um único sinal.
+Nesta secção, cria-se um utilizador chamado B.Simon na Talentsoft. Trabalhe com a equipa de [suporte talentsoft](mailto:advancedservices@talentsoft.com) para adicionar os utilizadores na plataforma Talentsoft. Os utilizadores devem ser criados e ativados antes de utilizar um único sinal.
 
 ## <a name="test-sso"></a>Teste SSO
 

@@ -1,18 +1,18 @@
 ---
 title: Definições políticas incorporadas para base de dados Azure para MariaDB
 description: Lista definições políticas integradas da Política Azure para a Base de Dados Azure para o MariaDB. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 04/30/2020
+ms.date: 05/13/2020
 ms.topic: sample
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 637904740fd54b529403f1af18b8bada25cfe5b3
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 35141784e21b0c11fa7fd6a66fbd76610c291ea1
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983436"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656777"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-database-for-mariadb"></a>Definições políticas integradas da Azure Policy para a Base de Dados Azure para o MariaDB
 

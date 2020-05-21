@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 941fa8d2570d22b6c2a54de02a61b4a7ece2e632
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 204fd1b1a0a2984886684bbabf33dc7e73c1b45c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691882"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653533"
 ---
 # <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Ficheiros de armazenamento de consulta utilizando recursos sql on-demand (pré-visualização) dentro do Synapse SQL
 
@@ -90,7 +90,7 @@ Estes parâmetros adicionais são introduzidos para trabalhar com ficheiros CSV 
 ```
 
 - ESCAPE_CHAR = 'char' Especifica o carácter no ficheiro que é usado para escapar a si próprio e todos os valores delimitadores no ficheiro. Se o personagem de fuga for seguido por um valor diferente de si mesmo ou de qualquer um dos valores delimitador, o personagem de fuga é abandonado ao ler o valor.
-O parâmetro ESCAPE_CHAR será aplicado independentemente de o FIELDQUOTE estar ou não ativado. Não será usado para escapar ao personagem citando. O personagem citando é escapado com duas citações em alinhamento com o comportamento do Excel CSV.
+O parâmetro ESCAPE_CHAR será aplicado quer o FIELDQUOTE esteja ou não ativado. Não será usado para escapar ao personagem citando. O personagem citando é escapado com duas citações em alinhamento com o comportamento do Excel CSV.
 - FIELDTERMINATOR ='field_terminator' Especifica o exterminador de campo a utilizar. O exterminador de campo padrão é uma vírem ("**,**")
 - ROWTERMINATOR ='row_terminator' Especifica o exterminador de linha a utilizar. O exterminador de linha padrão é um personagem de linha nova: **\r\n**.
 
@@ -215,7 +215,7 @@ Consulte o fragmento de sintaxe abaixo:
 
 Pode encontrar amostras de consulta para aceder a elementos de colunas repetidas no artigo tipos [aninhados query Parquet.](query-parquet-nested-types.md#access-elements-from-repeated-columns)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre como consultar diferentes tipos de ficheiros e criar e utilizar pontos de vista, consulte os seguintes artigos:
 

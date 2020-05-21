@@ -8,12 +8,12 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
-ms.openlocfilehash: b97bae252b25c9ae2891506f08fc4955f84c1eb6
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 59bf2f3cc66391bc25ac56d8a1bf228b7c2b3765
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593023"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680530"
 ---
 # <a name="what-is-azure-machine-learning"></a>O que é o Azure Machine Learning?
 
@@ -46,9 +46,11 @@ O Azure Machine Learning fornece todas as ferramentas que os desenvolvedores e c
 
 + Scripts R ou cadernos em que utiliza o <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">SDK para R</a> para escrever o seu próprio código ou utilizar os módulos R no designer.
 
++ + O [Acelerador de Soluções de Muitos Modelos](https://aka.ms/many-models) (pré-visualização) baseia-se no Azure Machine Learning e permite-lhe treinar, operar e gerir centenas ou mesmo milhares de modelos de machine learning.
+
 + [Extensão do Visual Studio Code](tutorial-setup-vscode-extension.md)
 
-+ [CLI de Aprendizagem automática](reference-azure-machine-learning-cli.md)
++ [ClI de aprendizagem automática](reference-azure-machine-learning-cli.md)
 
 + Quadros de código aberto como PyTorch, TensorFlow e scikit-learn e muito mais
 
@@ -132,7 +134,7 @@ Atribua a edição sempre que cria um espaço de trabalho. E, os espaços de tra
 
 Os clientes são responsáveis pelos custos incorridos na computação e outros recursos Azure durante este período.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Crie a sua primeira experiência com o seu método preferido:
   + [Use os cadernos Python para treinar & implementar modelos ML](tutorial-1st-experiment-sdk-setup.md)

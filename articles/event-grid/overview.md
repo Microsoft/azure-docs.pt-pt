@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 02/20/2020
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: 7a323bd9b9c605363963d5a25d1746727e379553
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 75ee828c659aba895f65d0cf14070966428a1d19
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83587600"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682502"
 ---
 # <a name="what-is-azure-event-grid"></a>O que é o Azure Event Grid?
 
@@ -38,7 +38,7 @@ Atualmente, os seguintes serviços do Azure suportam o envio de eventos para o E
 - [Armazenamento de Blobs do Azure](event-schema-blob-storage.md)
 - [Registo de Contentores do Azure](event-schema-container-registry.md)
 - [Azure Event Hubs](event-schema-event-hubs.md)
-- [Hub IoT do Azure](event-schema-iot-hub.md)
+- [Azure IoT Hub](event-schema-iot-hub.md)
 - [Azure Key Vault](event-schema-key-vault.md)
 - [Azure Machine Learning](event-schema-machine-learning.md)
 - [Azure Maps](event-schema-azure-maps.md)
@@ -56,10 +56,10 @@ Para obter detalhes completos sobre as capacidades de cada processador, bem como
 * [Funções do Azure](handler-functions.md)
 * [Hubs de Eventos](handler-event-hubs.md)
 * [Conexões Híbridas de Retransmissão](handler-relay-hybrid-connections.md)
-* [Logic Apps](handler-webhooks.md#logic-apps)
+* [Aplicações Lógicas](handler-webhooks.md#logic-apps)
 * [Power Automate (anteriormente conhecido como Microsoft Flow)](https://preview.flow.microsoft.com/connectors/shared_azureeventgrid/azure-event-grid/)
 * [Service Bus](handler-service-bus.md)
-* [Armazenamento de Filas](handler-storage-queues.md)
+* [Armazenamento de filas](handler-storage-queues.md)
 * [WebHooks](handler-webhooks.md)
 
 ## <a name="concepts"></a>Conceitos
@@ -115,7 +115,7 @@ O Event Grid liga a sua aplicação a outros serviços. Por exemplo, crie um tó
 
 O Azure Event Grid tem um modelo de preços “pagar por evento”, de modo que só paga pelo que utilizar. As primeiras 100 000 operações por mês são gratuitas. As operações são definidas como entrada de evento, tentativas de entrega de subscrição, chamadas de gestão e filtragem pelo sufixo do requerente. Para obter detalhes, veja a [página de preços](https://azure.microsoft.com/pricing/details/event-grid/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Route Storage Blob events](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) (Encaminhar eventos do Blob de Armazenamento)  
   Utilize o Event Grid para responder a eventos de blobs de armazenamento.

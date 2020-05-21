@@ -9,15 +9,14 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: a25049aee620a1cf14eeb51adfb75f6577defc2a
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 72006879c7181a8cefe56248215099eeb784d816
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83197073"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658224"
 ---
 # <a name="connect-to-synapse-sql-with-sql-server-management-studio-ssms"></a>Ligue-se ao Synapse SQL com o SQL Server Management Studio (SSMS)
-
 > [!div class="op_single_selector"]
 > * [Azure Data Studio](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
@@ -41,7 +40,7 @@ Pode utilizar o [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-ser
 Antes de começar, certifique-se de que tem os seguintes pré-requisitos:  
 
 * [Estúdio de Gestão de Servidores SQL (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms). 
-* Para piscina SQL, você precisa de um armazém de dados existente. Para criar uma, consulte [Criar uma piscina SQL](../quickstart-create-sql-pool.md). Para a SQL a pedido, já está previsto no seu espaço de trabalho no momento da criação. 
+* Para piscina SQL, você precisa de um armazém de dados existente. Para criar uma, consulte [Criar uma piscina SQL](../quickstart-create-sql-pool-portal.md). Para a SQL a pedido, já está previsto no seu espaço de trabalho no momento da criação. 
 * O nome SQL Server totalmente qualificado. Para encontrar isto, consulte [Connect to Synapse SQL](connect-overview.md).
 
 ## <a name="connect"></a>Ligar

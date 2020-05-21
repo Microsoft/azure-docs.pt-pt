@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 08c6610541d987cddd7cf2aeb71c526cb2359598
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dc748260c6e71eaaa469defb227d5cc2748a1345
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81423685"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83645310"
 ---
 # <a name="synapse-managed-private-endpoints-preview"></a>Synapse Managed pontos finais privados (pré-visualização)
 
@@ -30,8 +30,9 @@ O ponto final privado utiliza um endereço IP privado do seu VNet para efetivame
 
 >[!IMPORTANT]
 >Os pontos finais privados geridos só são suportados em espaços de trabalho Azure Synapse com um Espaço de Trabalho Gerido VNet.
+
 >[!NOTE]
->Recomenda-se que crie pontos finais privados geridos para se conectar a todas as fontes de dados do Azure. Todo o tráfego de saída do >Managed Workspace VNet será bloqueado no futuro.
+>Todo o tráfego de saída do espaço de trabalho Gerido VNet, exceto através de pontos finais privados geridos, será bloqueado no futuro. Recomenda-se que crie pontos finais privados geridos para se conectar a todas as fontes de dados do Azure externas ao espaço de trabalho. 
 
 Uma ligação de ponto final privado é criada em um estado "Pendente" quando você cria um ponto final privado gerido em Azure Synapse. É iniciado um fluxo de trabalho de aprovação. O proprietário de recursos de ligação privada é responsável por aprovar ou rejeitar a ligação.
 
@@ -47,11 +48,11 @@ Quando um espaço de trabalho é criado, o Azure Synapse cria dois pontos finais
 
 Estes dois pontos finais privados geridos estão listados no Estúdio Azure Synapse. Selecione **Gerir** na navegação à esquerda e, em seguida, selecione **Redes Virtuais Geridas** para ver então no Estúdio.
 
-O ponto final privado gerido que visa a piscina SQL é chamado *synapse-ws-sql--\<workspacename\> * e aquele que visa a SQL on-demand é chamado *synapse-ws-sqlOnDemand--\<workspacename\>*.
+O ponto final privado gerido que visa a piscina SQL é chamado *synapse-ws-sql-- \< workspacename \> * e aquele que visa a SQL on-demand é chamado *synapse-ws-sqlOnDemand-- \< workspacename \> *.
 ![Pontos finais privados geridos para piscina SQL e SQL a pedido](./media/synapse-workspace-managed-private-endpoints/managed-pe-for-sql-1.png)
 
 Estes dois pontos finais privados geridos são automaticamente criados para si quando criar o seu espaço de trabalho Azure Synapse. Não é cobrado por estes dois pontos finais privados geridos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Crie pontos finais privados geridos para as suas fontes de dados](./how-to-create-managed-private-endpoints.md)

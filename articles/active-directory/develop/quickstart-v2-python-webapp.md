@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 549df101e2bab81766b7b40e659b31457c9994d3
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: b137f47ac2cfb8074320677419a6a34b7d8bba84
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82592796"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680331"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Quickstart: Adicione o sessão com a Microsoft a uma aplicação web Python
 
@@ -29,7 +29,7 @@ Quando tiver concluído o guia, a sua aplicação aceitará inscrições de cont
 Para executar esta amostra, você precisará:
 
 - [Python 2.7+](https://www.python.org/downloads/release/python-2713) ou [Python 3+](https://www.python.org/downloads/release/python-364/)
-- Pedido de [balão,](http://flask.pocoo.org/) [flask-session](https://pythonhosted.org/Flask-Session/) [requests](https://requests.kennethreitz.org/en/master/)
+- Pedido de [balão,](http://flask.pocoo.org/) [flask-session](https://pypi.org/project/Flask-Session/) [requests](https://requests.kennethreitz.org/en/master/)
 - [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python)
 
 > [!div renderon="docs"]
@@ -55,7 +55,7 @@ Para executar esta amostra, você precisará:
 > 1. Navegue na plataforma de identidade da Microsoft para programadores da página de registos de [aplicações.](https://go.microsoft.com/fwlink/?linkid=2083908)
 > 1. Selecione **Novo registo**.
 > 1. Quando a página **Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação:
->      - Na secção **Nome,** introduza um nome de aplicação significativo que `python-webapp`será apresentado aos utilizadores da aplicação, por exemplo.
+>      - Na secção **Nome,** introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação, por `python-webapp` exemplo.
 >      - Nos tipos de **conta suportados,** selecione **Contas em qualquer diretório organizacional e contas pessoais**da Microsoft .
 >      - Selecione **Registar**.
 >      - Na página de **visão geral** da aplicação, note o valor de ID da **Aplicação (cliente)** para posterior utilização.
@@ -82,7 +82,7 @@ Para executar esta amostra, você precisará:
 >
 > Para a amostra de código para este início rápido funcionar, é necessário:
 >
-> 1. Adicione um URL `http://localhost:5000/getAToken`de resposta como .
+> 1. Adicione um URL de resposta como `http://localhost:5000/getAToken` .
 > 1. Criar um Segredo de Cliente.
 > 1. Adicione o utilizador da Microsoft Graph API.ReadBasic.Todas as permissões delegadas.
 >
@@ -162,7 +162,7 @@ Pode adicionar a referência ao MSAL Python adicionando o seguinte código à pa
 import msal
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre aplicações web que assinam nos utilizadores, e depois que chama APIs web:
 

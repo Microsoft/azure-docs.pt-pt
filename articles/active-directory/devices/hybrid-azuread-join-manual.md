@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f23520bd724d2f7ed5a9422a0541e717c800dee2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 596b47ecc0cf42e8cf1e7001c1462f55d34ff9c3
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82201028"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680285"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutorial: Configurar dispositivos híbridos associados ao Azure Active Directory manualmente.
 
@@ -25,7 +25,7 @@ Com a gestão de dispositivos no Azure Ative Directory (Azure AD), pode garantir
 > [!TIP]
 > Se utilizar o Azure AD Connect é uma opção para si, consulte os tutoriais relacionados para domínios [geridos](hybrid-azuread-join-managed-domains.md) ou [federados.](hybrid-azuread-join-federated-domains.md) Ao utilizar o Azure AD Connect, pode simplificar significativamente a configuração da adesão híbrida azure.
 
-Se tiver um ambiente do Active Directory no local e quiser associar os seus dispositivos associados ao domínio ao Azure AD, pode fazê-lo ao configurar os dispositivos híbridos associados ao Azure AD. Neste tutorial, ficará a saber como:
+Se tiver um ambiente do Active Directory no local e quiser associar os seus dispositivos associados ao domínio ao Azure AD, pode fazê-lo ao configurar os dispositivos híbridos associados ao Azure AD. Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Configure manualmente a ad azure híbrida
@@ -112,7 +112,7 @@ Pode verificar a existência do objeto e recuperar os valores de descoberta util
    $scp.Keywords;
    ```
 
-O **$scp. A saída de palavras-chave** mostra a informação do inquilino da AD Azure. Segue-se um exemplo:
+O **$scp. A saída de palavras-chave** mostra a informação do inquilino da AD Azure. Eis um exemplo:
 
    ```
    azureADName:microsoft.com
@@ -141,7 +141,7 @@ O cmdlet `Initialize-ADSyncDomainJoinedComputerSync`:
 
 * Utiliza o módulo PowerShell de Diretório Ativo e as ferramentas Azure Ative Directory Domain Services (Azure AD DS). Estas ferramentas dependem de Serviços Web de Diretório Ativo que executam um controlador de domínio. Os Serviços Web do Active Directory são suportados em controladores de domínio em execução no Windows Server 2008 R2 e posterior.
 * Só são suportados pela versão 1.1.166.0 do módulo MSOnline do PowerShell. Para descarregar este módulo, utilize [este link](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0).
-* Se as ferramentas AD DS `Initialize-ADSyncDomainJoinedComputerSync` não estiverem instaladas, falhará. Pode instalar as ferramentas AD DS através do Gestor de Servidores em **recursos** > ferramentas de administração de**servidores remotos** > Ferramentas de administração de**funções**.
+* Se as ferramentas AD DS não estiverem instaladas, `Initialize-ADSyncDomainJoinedComputerSync` falhará. Pode instalar as ferramentas AD DS através do Gestor de Servidores em **recursos**ferramentas de administração de  >  **servidores**  >  **remotos Ferramentas**de administração de funções .
 
 Para controladores de domínio que executem o Windows Server 2008 ou versões anteriores, utilize o seguinte script para criar o ponto de ligação ao serviço. Numa configuração multiflorestal, utilize o seguinte script para criar o ponto de ligação de serviço em cada floresta onde existem computadores.
 
@@ -185,7 +185,7 @@ Quando estiver a usar AD FS, precisa de ativar os seguintes pontos finais wS-Tru
 - `/adfs/services/trust/13/certificatemixed`
 
 > [!WARNING]
-> Tanto as **adfs/services/trust/2005/windowstransport** e **adfs/services/trust/13/windowstransport** devem ser ativadas apenas como pontos finais intranet e NÃO devem ser expostas como pontos finais virados para a extranet através do Proxy de Aplicação Web. Para saber mais sobre como desativar os pontos finais do WS-Trust Windows, consulte [desativar os pontos finais do WS-Trust Windows no proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Pode ver quais os pontos finais ativados através da consola de gestão AD FS em**pontos finais**de **serviço** > .
+> Tanto as **adfs/services/trust/2005/windowstransport** e **adfs/services/trust/13/windowstransport** devem ser ativadas apenas como pontos finais intranet e NÃO devem ser expostas como pontos finais virados para a extranet através do Proxy de Aplicação Web. Para saber mais sobre como desativar os pontos finais do WS-Trust Windows, consulte [desativar os pontos finais do WS-Trust Windows no proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Pode ver quais os pontos finais ativados através **Service**da consola de gestão AD FS em  >  **pontos finais**de serviço .
 
 > [!NOTE]
 >Se não tiver AD FS como serviço da federação no local, siga as instruções do seu fornecedor para se certificar de que suporta pontos finais WS-Trust 1.3 ou 2005 e que estes sejam publicados através do ficheiro Demetadata Exchange (MEX).
@@ -200,7 +200,7 @@ Se tiver vários nomes de domínio verificados, tem de indicar a seguinte afirma
 
 * `http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid`
 
-Se já está a emitir uma reclamação imutável (por exemplo, id de login alternativo), precisa de fornecer uma reclamação correspondente para computadores:
+Se já está a emitir uma reclamação Imutável (por exemplo, utilizando `mS-DS-ConsistencyGuid` ou outro atributo como valor de origem para o IdI Imutável), tem de fornecer uma reclamação correspondente para computadores:
 
 * `http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`
 
@@ -321,7 +321,7 @@ A `http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid` reclamaçã
    );
    ```
 
-Na reivindicação anterior, `<verified-domain-name>` é um espaço reservado. Substitua-o por um dos seus nomes de domínio verificados em Azure AD. Por exemplo, `Value = "http://contoso.com/adfs/services/trust/"`utilize .
+Na reivindicação anterior, `<verified-domain-name>` é um espaço reservado. Substitua-o por um dos seus nomes de domínio verificados em Azure AD. Por exemplo, utilize `Value = "http://contoso.com/adfs/services/trust/"` .
 
 Para mais informações sobre nomes de domínio verificados, consulte Adicionar um nome de [domínio personalizado ao Diretório Ativo Azure](../active-directory-domains-add-azure-portal.md).  
 
@@ -329,7 +329,7 @@ Para obter uma lista dos domínios verificados da sua empresa, pode utilizar o c
 
 ![Lista de domínios da empresa](./media/hybrid-azuread-join-manual/01.png)
 
-### <a name="issue-immutableid-for-the-computer-when-one-for-users-exists-for-example-an-alternate-login-id-is-set"></a>Emita ID imutável para o computador quando existe um para utilizadores (por exemplo, é definido um ID de login alternativo)
+### <a name="issue-immutableid-for-the-computer-when-one-for-users-exists-for-example-using-ms-ds-consistencyguid-as-the-source-for-immutableid"></a>Emita ID imutável para o computador quando existe um para utilizadores (por exemplo, utilizando mS-DS-ConsistênciaGuid como fonte de ID Imutável)
 
 A `http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID` reclamação deve conter um valor válido para os computadores. No AD FS, pode criar uma regra de transformação de emissão da seguinte forma:
 
@@ -501,7 +501,7 @@ Se alguns dos seus dispositivos associados a um domínio são dispositivos de n�
 
 ### <a name="set-a-policy-in-azure-ad-to-enable-users-to-register-devices"></a>Definir uma política em AD Azure para permitir aos utilizadores registar em dispositivos
 
-Para registar dispositivos de nível inferior do Windows, certifique-se de que a definição para permitir que os utilizadores registem dispositivos em AD Azure está ativada. No portal Azure, pode encontrar esta definição no âmbito de utilizadores de **Diretório** > Ativo Azure**e configurações** > de**dispositivos**de grupos .
+Para registar dispositivos de nível inferior do Windows, certifique-se de que a definição para permitir que os utilizadores registem dispositivos em AD Azure está ativada. No portal Azure, pode encontrar esta definição no âmbito de utilizadores de **Diretório Ativo Azure**e configurações de  >  **Users and groups**  >  **dispositivos**de grupos .
 
 A seguinte política deve ser definida para **Todos:** **Os utilizadores podem registar os seus dispositivos com a AD Azure**.
 
@@ -523,7 +523,7 @@ Quando esse pedido vier, o serviço da federação no local deve autenticar o ut
 
 Em AD FS, deve adicionar uma regra de transformação de emissão que passa pelo método de autenticação. Para adicionar esta regra:
 
-1. Na consola de gestão AD FS, vá para **AD FS** > **Trust Relationships** > **Trust Trust Trusting Party Trusts**.
+1. Na consola de gestão AD FS, vá para **AD FS**  >  **Trust Relationships**Trust Trust  >  **Trusting Party Trusts**.
 1. Clique com o botão direito do rato no objeto de confiança da entidade confiadora da Plataforma de Identidade do Microsoft Office 365 e selecione **Edit Claim Rules** (Editar Regras de Emissão).
 1. No separador **Issuance Transform Rules** (Regras de Transformação de Emissão), selecione **Add Rule** (Adicionar Regra).
 1. Na lista de modelos **Claim rule** (Regra de afirmação), selecione **Send Claims Using a Custom Rule** (Enviar Afirmações com uma Regra Personalizada).
@@ -533,7 +533,7 @@ Em AD FS, deve adicionar uma regra de transformação de emissão que passa pelo
 
    `c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"] => issue(claim = c);`
 
-1. No servidor da federação, introduza o seguinte comando PowerShell. Substitua ** \<o\> RPObjectName** pelo nome do objeto de parte de confiança para o seu objeto fidedigno de confiança da parte azure AD. Normalmente, este objeto é denominado **Plataforma de Identidade do Microsoft Objeto 365**.
+1. No servidor da federação, introduza o seguinte comando PowerShell. Substitua o ** \< RPObjectName \> ** pelo nome do objeto de parte de confiança para o seu objeto fidedigno de confiança da parte azure AD. Normalmente, este objeto é denominado **Plataforma de Identidade do Microsoft Objeto 365**.
 
    `Set-AdfsRelyingPartyTrust -TargetName <RPObjectName> -AllowedAuthenticationClassReferences wiaormultiauthn`
 
@@ -560,7 +560,7 @@ Se estiver a ter problemas com a conclusão do Anúncio Híbrido Azure, junte-se
 * [Troubleshooting Hybrid Azure AD join for Windows current devices](troubleshoot-hybrid-join-windows-current.md) (Resolver problemas com a associação híbrida ao Azure AD para dispositivos Windows atuais)
 * [Troubleshooting Hybrid Azure AD join for Windows down-level devices](troubleshoot-hybrid-join-windows-legacy.md) (Resolver problemas com a associação híbrida ao Azure AD para dispositivos Windows de nível inferior)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Introduction to device management in Azure Active Directory](overview.md) (Introdução à gestão de dispositivos no Azure Active Directory)
 

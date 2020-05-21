@@ -9,12 +9,13 @@ ms.topic: sample
 author: peterclu
 ms.author: peterlu
 ms.date: 03/29/2020
-ms.openlocfilehash: 60f8f2593ef9c05fa905e9d3d6f6ba0901a14243
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.custom: designer
+ms.openlocfilehash: e40c49cdcaae6fa84a72c645f5fea4bac99ee03f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983351"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654565"
 ---
 # <a name="example-pipelines--datasets-for-azure-machine-learning-designer"></a>Exemplo de oleodutos & conjuntos de dados para Azure Machine Learning Designer
 
@@ -54,7 +55,7 @@ Aqui está como usar uma amostra de designer:
 
    1. Selecione um módulo na tela.
 
-   1. No módulo os detalhes painelam à direita da tela, selecione **Saídas + troncos**. Selecione ![o ícone](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) de visualização do ícone do gráfico para ver os resultados de cada módulo. 
+   1. No módulo os detalhes painelam à direita da tela, selecione **Saídas + troncos**. Selecione o ícone de visualização do ícone do gráfico ![ ](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) para ver os resultados de cada módulo. 
 
    Use as amostras como pontos de partida para alguns dos cenários mais comuns de aprendizagem automática.
 
@@ -102,12 +103,12 @@ Saiba mais sobre as amostras que demonstram utilitários e funcionalidades de ap
 
 Quando se cria um novo pipeline no designer de Machine Learning Azure, vários conjuntos de dados de amostras são incluídos por padrão. Estes conjuntos de dados de amostra são utilizados pelos gasodutos de amostra na página inicial do designer. 
 
-Os conjuntos de dados da amostra estão disponíveis na categoria **datasets**-**Samples.** Pode encontrá-lo na paleta de módulos à esquerda da tela no designer. Pode utilizar qualquer um destes conjuntos de dados no seu próprio oleoduto arrastando-os para a tela.
+Os conjuntos de dados da amostra estão disponíveis na categoria **datasets** - **Samples.** Pode encontrá-lo na paleta de módulos à esquerda da tela no designer. Pode utilizar qualquer um destes conjuntos de dados no seu próprio oleoduto arrastando-os para a tela.
 
-| Nome&nbsp;do conjunto de dados&nbsp;&nbsp;&nbsp;&nbsp;| Descrição do conjunto de dados |
+| Nome do conjunto de dados &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Descrição do conjunto de dados |
 |-------------|:--------------------|
 | Conjunto de dados de classificação binária de rendimento do recenseamento adulto | Um subconjunto da base de dados do Censos de 1994, utilizando adultos que trabalham com mais de 16 anos com um índice de rendimento ajustado de > 100.<br/>**Utilização**: Classifique as pessoas que usam demografia para prever se uma pessoa ganha mais de 50 mil por ano.<br/> **Investigação Relacionada**: Kohavi, R., Becker, B., (1996). [Repositório de Aprendizagem automática UCI.](https://archive.ics.uci.edu/ml) Irvine, CA: Universidade da Califórnia, Escola de Informação e Ciências da Computação|
-|Dados sobre o preço do automóvel (Cru)|Informações sobre automóveis por marca e modelo, incluindo o preço, características como o número de cilindros e MPG, bem como uma pontuação de risco de seguro.<br/> A pontuação de risco está inicialmente associada ao preço automóvel. É então ajustado para o risco real num processo conhecido pelos atuadores como símbolo. Um valor de +3 indica que o automóvel é arriscado, e um valor de -3 que provavelmente é seguro.<br/>**Utilização**:</b> Prever a pontuação de risco por características, utilizando a classificação de regressão ou multivariado.<br/>**Investigação**</b> Relacionada : Schlimmer, J.C. (1987). [Repositório de Aprendizagem automática UCI.](https://archive.ics.uci.edu/ml) Irvine, CA: Universidade da Califórnia, Escola de Informação e Ciências da Computação. |
+|Dados sobre o preço do automóvel (Cru)|Informações sobre automóveis por marca e modelo, incluindo o preço, características como o número de cilindros e MPG, bem como uma pontuação de risco de seguro.<br/> A pontuação de risco está inicialmente associada ao preço automóvel. É então ajustado para o risco real num processo conhecido pelos atuadores como símbolo. Um valor de +3 indica que o automóvel é arriscado, e um valor de -3 que provavelmente é seguro.<br/>**Utilização**: </b> Prever a pontuação de risco por características, utilizando a classificação de regressão ou multivariado.<br/>**Investigação Relacionada**: </b> Schlimmer, J.C. (1987). [Repositório de Aprendizagem automática UCI.](https://archive.ics.uci.edu/ml) Irvine, CA: Universidade da Califórnia, Escola de Informação e Ciências da Computação. |
 | Etiquetas de appetence CRM partilhadas |Etiquetas do desafio de previsão da relação com o cliente da KDD Cup 2009[(orange_small_train_appetency.labels).](http://www.sigkdd.org/site/2009/files/orange_small_train_appetency.labels)|
 |Etiquetas CRM Churn partilhadas|Etiquetas do desafio de previsão da relação com o cliente da KDD Cup 2009[(orange_small_train_churn.labels).](http://www.sigkdd.org/site/2009/files/orange_small_train_churn.labels)|
 |Conjunto de dados CRM partilhado | Estes dados provêm do desafio de previsão da relação com o cliente da KDD Cup 2009[(orange_small_train.data.zip](http://www.sigkdd.org/site/2009/files/orange_small_train.data.zip)). <br/>O conjunto de dados contém clientes de 50K da empresa francesa de telecomunicações Orange. Cada cliente tem 230 características anoonizadas, das quais 190 são numéricas e 40 são categóricas. As características são muito escassas. |
@@ -117,14 +118,14 @@ Os conjuntos de dados da amostra estão disponíveis na categoria **datasets**-*
 |Títulos de filme iMDB|O conjunto de dados contém informações sobre filmes que foram classificados em tweets do Twitter: IMDB movie ID, nome do filme, género e ano de produção. Há filmes de 17K no conjunto de dados. O conjunto de dados foi introduzido no jornal "S. Dooms, T. De Pessemier e L. Martens. MovieTweetings: um conjunto de dados de classificação de filmes recolhido do Twitter. Workshop sobre Crowdsourcing e Computação Humana para Sistemas Recomendadores, CrowdRec na RecSys 2013."|
 |Classificações de filmes|O conjunto de dados é uma versão estendida do conjunto de dados movie Tweetings. O conjunto de dados tem classificações de 170K para filmes, extraídos de tweets bem estruturados no Twitter. Cada instância representa um tweet e é um tuple: ID do utilizador, ID de filme IMDB, classificação, carimbo de tempo, número de favoritos para este tweet, e número de retweets deste tweet. O conjunto de dados foi disponibilizado por A. Said, S. Dooms, B. Loni e D. Tikk para recommender Systems Challenge 2014.|
 |Conjunto de Dados meteorológicos|Observações meteorológicas por hora da NOAA ([dados fundidos de 201304 a 201310).](https://az754797.vo.msecnd.net/data/WeatherDataset.csv)<br/>Os dados meteorológicos abrangem observações feitas a partir de estações meteorológicas do aeroporto, abrangendo o período de abril a outubro de 2013. Antes de enviar para o designer, o conjunto de dados foi processado da seguinte forma:    <br/> - As iDs da estação meteorológica foram mapeadas para as iDs do aeroporto correspondentes    <br/> - As estações meteorológicas não associadas aos 70 aeroportos mais movimentados foram filtradas    <br/> - A coluna Data foi dividida em colunas separadas ano, mês e dia    <br/> - Foram selecionadas as seguintes colunas: AirportID, Ano, mês, dia, tempo, TimeZone, SkyCondition, Visibilidade, WeatherType, DryBulbFarenheit, DryBulbCelsius, WetBulbFarenheit, WetBulbCelsius, DewPointFarenheit, DewPointCelsius, RelativeHumidity, WindSpeed, WindDirection, ValueForWindCharacter, StationPressure, PressureTendency, PressureChange, SeaLevelPressure, RecordType, HourlyPrecip, Altimeter|
-|Wikipedia SP 500 Dataset|Os dados são derivados da Wikipédia (https://www.wikipedia.org/) com base em artigos de cada empresa S&P 500, armazenados como dados XML.    <br/>Antes de enviar para o designer, o conjunto de dados foi processado da seguinte forma:    <br/> - Extrair conteúdo de texto para cada empresa específica    <br/> - Remover a formatação wiki    <br/> - Remover caracteres não alfanuméricos    <br/> - Converter todo o texto em minúscula    <br/> - Foram adicionadas categorias de empresas conhecidas    <br/>Note-se que para algumas empresas não foi possível encontrar um artigo, pelo que o número de registos é inferior a 500.|
+|Wikipedia SP 500 Dataset|Os dados são derivados da Wikipédia ( https://www.wikipedia.org/) com base em artigos de cada empresa S&P 500, armazenados como dados XML.    <br/>Antes de enviar para o designer, o conjunto de dados foi processado da seguinte forma:    <br/> - Extrair conteúdo de texto para cada empresa específica    <br/> - Remover a formatação wiki    <br/> - Remover caracteres não alfanuméricos    <br/> - Converter todo o texto em minúscula    <br/> - Foram adicionadas categorias de empresas conhecidas    <br/>Note-se que para algumas empresas não foi possível encontrar um artigo, pelo que o número de registos é inferior a 500.|
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Conheça o básico da análise preditiva e da aprendizagem automática com [tutorial: Preveja](tutorial-designer-automobile-price-train-score.md) o preço do automóvel com o designer
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 027876e3d8d669d2ab41d37e24f4171c2349adaa
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a1d4836586bac359c3208147ec7bf59061cf0928
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67095017"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648586"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panopto"></a>Tutorial: Integração do Diretório Ativo Azure com o Panopto
 
@@ -110,7 +110,7 @@ Para configurar o único sinal de Azure AD com o Panopto, execute os seguintes p
     Na caixa de texto **de URL sign-on,** escreva um URL utilizando o seguinte padrão:`https://<tenant-name>.panopto.com`
 
     > [!NOTE]
-    > O valor não é real. Atualize o valor com o URL de Sign-On real. Contacte a equipa de suporte do [Cliente Panopto](mailto:support@panopto.com%E2%80%8E) para obter o valor. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
+    > O valor não é real. Atualize o valor com o URL de Sign-On real. Contacte a equipa de suporte do [Cliente Panopto](mailto:support@panopto.com) para obter o valor. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
 
 5. Na configuração de um único sign-on com a página **SAML,** na secção Certificado de **Assinatura SAML,** clique em **Baixar** para descarregar o **Federation Metadata XML** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 

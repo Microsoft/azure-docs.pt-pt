@@ -1,14 +1,14 @@
 ---
 title: Implementar amostra de planta IRS 1075
 description: Desloque os passos para a amostra de planta IRS 1075 (Rev.11-2016), incluindo detalhes do parâmetro de artefacto de plantas.
-ms.date: 11/20/2019
+ms.date: 05/13/2020
 ms.topic: sample
-ms.openlocfilehash: 15fcac5bfd11d889522d078853bd6f916eb54616
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7faf1042f695ac43b2fa22d2685149426cb1ed80
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74546807"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653093"
 ---
 # <a name="deploy-the-irs-1075-blueprint-sample"></a>Implementar a amostra de plantas IRS 1075
 
@@ -19,7 +19,7 @@ Para implantar a amostra de plantas azure IRS 1075 (Rev.11-2016), devem ser toma
 > - Marque a sua cópia da amostra como **Publicado**
 > - Atribuir a sua cópia da planta a uma subscrição existente
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
 
 ## <a name="create-blueprint-from-sample"></a>Criar a planta a partir da amostra
 
@@ -111,13 +111,13 @@ A tabela seguinte fornece uma lista dos parâmetros do artefacto da planta:
 |Implementar definições de diagnóstico para grupos de segurança da rede|Atribuição de política|Prefixo de conta de armazenamento para diagnósticos de grupo de segurança de rede|Este prefixo será combinado com a localização do grupo de segurança da rede para formar o nome da conta de armazenamento criada.|
 |Implementar definições de diagnóstico para grupos de segurança da rede|Atribuição de política|Nome do grupo de recursos para conta de armazenamento para diagnósticos de grupo de segurança de rede (deve existir)|O grupo de recursos em que a conta de armazenamento será criada. Este grupo de recursos já deve existir.|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que reviu os passos para implementar a amostra de plantas do IRS 1075 (Rev.11-2016), visite os seguintes artigos para conhecer a planta e o mapeamento de controlo:
 
 > [!div class="nextstepaction"]
-> [Projeto IRS 1075 - Visão geral](./index.md)
-> [do irs 1075 - Mapeamento](./control-mapping.md) de controlo
+> [Projeto IRS 1075 - Visão geral](./index.md) 
+>  [Projeto IRS 1075 - Mapeamento de controlo](./control-mapping.md)
 
 Artigos adicionais sobre esquemas e como os utilizar:
 

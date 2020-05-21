@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 45dd4e8dcfd74cdb5d96b935e239b9f4b5094a7c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 41f68ead6f985d6cc2c8120091c36783d074b066
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73720923"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659143"
 ---
 # <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Tutorial: Criar um caderno em Azure Cosmos DB para analisar e visualizar os dados
 
@@ -28,13 +28,13 @@ Nesta secção, irá criar a base de dados, contentor estoque azure cosmos e imp
 
 1. Navegue para a sua conta Azure Cosmos e abra o **Data Explorer.**
 
-1. Vá ao separador **Cadernos,** selecione `…` ao lado dos **Meus Cadernos** e crie um **Novo Caderno**. Selecione **Python 3** como kernel padrão.
+1. Vá ao separador **Cadernos,** selecione `…` ao lado dos Meus **Cadernos** e crie um **Novo Caderno**. Selecione **Python 3** como kernel padrão.
 
    ![Criar um novo Notebook](./media/create-notebook-visualize-data/create-new-notebook.png)
 
 1. Depois de criado um novo caderno, pode rebatizá-lo para algo como **VisualizeRetailData.ipynb.**
 
-1. Em seguida, criará uma base de dados chamada "RetailDemo" e um contentor chamado "WebsiteData" para armazenar os dados de retalho. Pode utilizar /CardID como chave de partição. Copie e cole o seguinte código a uma nova célula no seu caderno e execute-o:
+1. Em seguida, criará uma base de dados chamada "RetailDemo" e um contentor chamado "WebsiteData" para armazenar os dados de retalho. Pode utilizar /CartID como chave de partição. Copie e cole o seguinte código a uma nova célula no seu caderno e execute-o:
 
    ```python
    import azure.cosmos
@@ -47,7 +47,7 @@ Nesta secção, irá criar a base de dados, contentor estoque azure cosmos e imp
    print('Container WebsiteData created')
    ```
 
-   Para executar uma `Shift + Enter` célula, selecione ou selecione a célula e escolha a opção Executar Célula **Ativa** na barra de navegação do explorador de dados.
+   Para executar uma célula, `Shift + Enter` selecione ou selecione a célula e escolha a opção **Executar** Célula Ativa na barra de navegação do explorador de dados.
 
    ![Executar a célula ativa](./media/create-notebook-visualize-data/run-active-cell.png)
 
@@ -121,7 +121,7 @@ Antes de executar consultas para analisar os dados, pode ler os dados do content
 {Query text}
 ```
 
-Para saber mais, consulte os [comandos e funcionalidades do caderno incorporado no artigo da Azure Cosmos DB.](use-notebook-features-and-commands.md) Vai sairá da `SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c`consulta. Os resultados serão guardados num Pandas DataFrame chamado df_cosmos. Colhe o seguinte comando numa nova célula de caderno e executá-lo:
+Para saber mais, consulte os [comandos e funcionalidades do caderno incorporado no artigo da Azure Cosmos DB.](use-python-notebook-features-and-commands.md) Vai sairá da `SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c` consulta. Os resultados serão guardados num Pandas DataFrame chamado df_cosmos. Colhe o seguinte comando numa nova célula de caderno e executá-lo:
 
 ```python
 %%sql --database RetailDemo --container WebsiteData --output df_cosmos
@@ -288,6 +288,6 @@ Nesta secção, irá fazer algumas consultas sobre os dados recuperados.
 
    ![Visualizar a taxa de conversão de compra](./media/create-notebook-visualize-data/visualize-purchase-conversion-rate.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Para saber mais sobre comandos de cadernos, veja [como usar comandos e funcionalidades de cadernos incorporados no artigo da Azure Cosmos DB.](use-notebook-features-and-commands.md)
+* Para saber mais sobre comandos de caderno Python, veja [como usar comandos e funcionalidades de cadernos incorporados no artigo da Azure Cosmos DB.](use-python-notebook-features-and-commands.md)

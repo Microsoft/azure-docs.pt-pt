@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 6bcdfc3eb09b6c5ed4f8dde4d48a34bee8746e1e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 7971681c3f0c99a11567e6a30e61167c5d42348c
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599656"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680513"
 ---
 # <a name="tutorial-sync-data-from-sql-edge-to-azure-sql-database-by-using-sql-data-sync"></a>Tutorial: Sync data from SQL Edge to Azure SQL Database utilizando SQL Data Sync
 
@@ -32,7 +32,7 @@ Este tutorial requer um computador Windows configurado com o Agente de Sincroniz
 
 * Crie as tabelas e outros objetos necessários na sua implementação de Base de Dados Azure SQL.
 
-* Crie as tabelas e objetos necessários na sua implantação Azure SQL Edge. Para mais informações, consulte utilizando pacotes DAC da Base de [Dados SQL com SQL Edge](stream-analytics.md).
+* Crie as tabelas e objetos necessários na sua implantação Azure SQL Edge. Para mais informações, consulte utilizando pacotes DAC da Base de [Dados SQL com SQL Edge](deploy-dacpac.md).
 
 * Registe a instância Azure SQL Edge com o Agente de Sincronização de Dados para O Sincronizador de Dados Azure SQL. Para mais informações, consulte Adicionar uma base de dados do [SQL Server no local](../sql-database/sql-database-get-started-sql-data-sync.md#add-on-prem).
 
@@ -58,6 +58,6 @@ Para mais informações sobre o SQL Data Sync, consulte estes artigos:
 
 * [Atualize o esquema de sincronização com transact-SQL](../sql-database/sql-database-update-sync-schema.md) ou [PowerShell](../sql-database/scripts/sql-database-sync-update-schema.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Utilize a PowerShell para sincronizar entre a Base de [Dados Azure SQL e a Borda SQL Azure](../sql-database/scripts/sql-database-sync-data-between-azure-onprem.md). Neste tutorial, substitua os dados da base de `OnPremiseServer` dados com os detalhes do Azure SQL Edge.

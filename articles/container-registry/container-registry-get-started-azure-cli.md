@@ -4,12 +4,12 @@ description: Aprenda rapidamente a criar um registo do contentor do Docker com a
 ms.topic: quickstart
 ms.date: 01/22/2019
 ms.custom: seodec18, H1Hack27Feb2017, mvc
-ms.openlocfilehash: 551a3659feb39943c9f794484abb6f2da4367f39
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 888daa53b719151b4362597c7a300e82fe26860e
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74455165"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682750"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>Quickstart: Criar um registo de contentores privados utilizando o Azure CLI
 
@@ -33,7 +33,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container-registry"></a>Criar um registo de contentores
 
-Neste quickstart cria-se um registo *Básico,* que é uma opção otimizada para os desenvolvedores que aprendem sobre o Registo de Contentores Azure. Para mais informações sobre os níveis de serviço disponíveis, consulte o [registo de contentores SKUs][container-registry-skus].
+Neste quickstart cria-se um registo *Básico,* que é uma opção otimizada para os desenvolvedores que aprendem sobre o Registo de Contentores Azure. Para mais informações sobre os níveis de serviço disponíveis, consulte os níveis de serviço de registo de [contentores][container-registry-skus].
 
 Crie uma instância do ACR com o comando [az acr create][az-acr-create]. O nome do registo tem de ser exclusivo no Azure e pode incluir de 5 a 50 carateres alfanuméricos. No exemplo seguinte, é utilizado *myContainerRegistry007*. Atualize para um valor exclusivo.
 
@@ -64,7 +64,7 @@ Quando o registo é criado, o resultado é semelhante ao seguinte:
 }
 ```
 
-Tome nota na `loginServer` saída, que é o nome de registo totalmente qualificado (todas as minúsculas). Em todo o resto deste início rápido, `<acrName>` é um marcador de posição para o nome do registo de contentor.
+Tome nota `loginServer` na saída, que é o nome de registo totalmente qualificado (todas as minúsculas). Em todo o resto deste início rápido, `<acrName>` é um marcador de posição para o nome do registo de contentor.
 
 ## <a name="log-in-to-registry"></a>Iniciar sessão no registo
 
@@ -118,7 +118,7 @@ Quando já não for necessário, pode utilizar o comando de eliminação do [gru
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, criou um Registo de Contentores Azure com o Azure CLI, empurrou uma imagem de contentor para o registo, e puxou e executou a imagem do registo. Continue aos tutoriais do Registo de Contentores Azure para uma olhada mais profunda na ACR.
 

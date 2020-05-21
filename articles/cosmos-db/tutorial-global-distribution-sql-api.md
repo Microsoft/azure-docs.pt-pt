@@ -1,18 +1,18 @@
 ---
 title: 'Tutorial: Tutorial de distribuição global Azure Cosmos DB para a API SQL'
-description: 'Tutorial: Aprenda a configurar a distribuição global da Azure Cosmos DB utilizando a API SQL com .Net, Java, Python e vários outros SDKs'
+description: 'Tutorial: Aprenda a configurar a distribuição global da Azure Cosmos DB utilizando o SQL API com .NET, Java, Python e vários outros SDKs'
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 177973cf766a6215453f3062c0fb206961649272
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9fbd42b6f4ef1afd0dfb4c47b6807105ff3810ca
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80295530"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83677644"
 ---
 # <a name="tutorial-set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Tutorial: Criar distribuição global da Azure Cosmos DB utilizando a API SQL
 
@@ -28,7 +28,7 @@ Este artigo abrange as seguintes tarefas:
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 
-## <a name="connecting-to-a-preferred-region-using-the-sql-api"></a>Ligar a uma região preferencial com a API SQL
+## <a name="connecting-to-a-preferred-region-using-the-sql-api"></a><a id="preferred-locations"></a>Ligação a uma região preferida utilizando a API SQL
 
 Para tirar o máximo partido da [distribuição global](distribute-data-globally.md), as aplicações cliente podem especificar a lista de preferência ordenada de regiões a utilizar nas operações de documentos. Isto pode ser feito ao definir a política de ligação. Com base na configuração da conta do Azure Cosmos DB, disponibilidade regional atual e lista de preferência especificada, o SDK SQL selecionará o ponto final ideal para efetuar operações de escrita e leitura.
 
@@ -175,7 +175,7 @@ Se a região de escrita mudar após a fase inicial de descoberta do cliente, as 
 
 Já está, isto conclui este tutorial. Pode saber como gerir a consistência da sua conta replicada globalmente ao ler [Níveis de consistência no Azure Cosmos DB](consistency-levels.md). Para obter mais informações sobre como funciona a replicação de base de dados global no Azure Cosmos DB, veja [Distribuir dados globalmente com o Azure Cosmos DB](distribute-data-globally.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, fez o seguinte:
 

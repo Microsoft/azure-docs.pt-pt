@@ -10,12 +10,12 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.custom: mvc
 ms.reviewer: akjosh
-ms.openlocfilehash: 9f3a175352aa0455cecc2e31e235a60cc27c76c5
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: bed65754dd872d51d4cbd1bccc673373e8e96846
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792178"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652990"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>Tutorial: Criar uma imagem personalizada de uma VM do Azure com a CLI do Azure
 
@@ -53,7 +53,7 @@ Para concluir o exemplo neste tutorial, tem de ter uma máquina virtual existent
 
 O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. 
 
-Para abrir o Cloud Shell, basta selecionar **Experimente** no canto superior direito de um bloco de código. Também pode lançar cloud Shell em um [https://shell.azure.com/powershell](https://shell.azure.com/powershell)separado separado browser, indo para . Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
+Para abrir o Cloud Shell, basta selecionar **Experimente** no canto superior direito de um bloco de código. Também pode lançar cloud Shell em um separado separado browser, indo para [https://shell.azure.com/powershell](https://shell.azure.com/powershell) . Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
 
 ## <a name="create-an-image-gallery"></a>Criar uma galeria de imagens 
 
@@ -118,7 +118,7 @@ Os caracteres permitidos para a versão de imagem são números e períodos. Os 
 
 Neste exemplo, a versão da nossa imagem é *de 1.0.0* e vamos criar 2 réplicas na região *centro-oeste dos EUA,* 1 réplica na região *centro-sul dos EUA* e 1 réplica na região leste dos EUA *2* utilizando armazenamento redundante. As regiões de replicação devem incluir a região onde se encontra a fonte VM.
 
-Substitua o `--managed-image` valor deste exemplo pela identificação do seu VM do passo anterior.
+Substitua o valor `--managed-image` deste exemplo pela identificação do seu VM do passo anterior.
 
 ```azurecli-interactive 
 az sig image-version create \
@@ -134,7 +134,7 @@ az sig image-version create \
 > [!NOTE]
 > É preciso esperar que a versão de imagem termine completamente de ser construída e replicada antes de poder utilizar a mesma imagem gerida para criar outra versão de imagem.
 >
-> Também pode armazenar a sua imagem no `--storage-account-type  premium_lrs`armazenamento Premiun através `--storage-account-type  standard_zrs` de um armazenamento de adição ou [Zona Redundante](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) adicionando quando criar a versão de imagem.
+> Também pode armazenar a sua imagem no armazenamento Premiun através de um armazenamento de adição `--storage-account-type  premium_lrs` ou [Zona Redundante](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) adicionando `--storage-account-type  standard_zrs` quando criar a versão de imagem.
 >
 
  
@@ -142,7 +142,7 @@ az sig image-version create \
 
 Criar o VM usando [az vm criar](/cli/azure/vm#az-vm-create) usando o parâmetro --especializado para indicar que a imagem é uma imagem especializada. 
 
-Utilize o ID `--image` de definição de imagem para criar o VM a partir da versão mais recente da imagem que está disponível. Também pode criar o VM a partir de uma `--image`versão específica, fornecendo o ID da versão de imagem para . 
+Utilize o ID de definição de imagem para `--image` criar o VM a partir da versão mais recente da imagem que está disponível. Também pode criar o VM a partir de uma versão específica, fornecendo o ID da versão de imagem para `--image` . 
 
 Neste exemplo, estamos a criar um VM a partir da versão mais recente da imagem *myImageDefinition.*
 
@@ -167,7 +167,7 @@ az sig show \
    --query id
 ```
 
-Utilize o ID do objeto como âmbito, juntamente com um endereço de e-mail e [uma atribuição de função az criar](/cli/azure/role/assignment#az-role-assignment-create) para dar a um utilizador acesso à galeria de imagens partilhadas. `<email-address>` Substitua `<gallery iD>` e com a sua própria informação.
+Utilize o ID do objeto como âmbito, juntamente com um endereço de e-mail e [uma atribuição de função az criar](/cli/azure/role/assignment#az-role-assignment-create) para dar a um utilizador acesso à galeria de imagens partilhadas. Substitua `<email-address>` e com a sua própria `<gallery iD>` informação.
 
 ```azurecli-interactive
 az role assignment create \
@@ -182,7 +182,7 @@ Para obter mais informações sobre como partilhar recursos usando o RBAC, consu
 
 A Azure também oferece um serviço, construído em Packer, [Azure VM Image Builder.](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview) Basta descrever as suas personalizações num modelo, e tratará da criação de imagem. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, criou uma imagem de VM personalizada. Aprendeu a:
 
@@ -196,5 +196,5 @@ Neste tutorial, criou uma imagem de VM personalizada. Aprendeu a:
 Avance para o próximo tutorial para saber mais sobre máquinas virtuais de elevada disponibilidade.
 
 > [!div class="nextstepaction"]
-> [Criar VMs altamente disponíveis.](tutorial-availability-sets.md)
+> [Criar VMs de elevada disponibilidade](tutorial-availability-sets.md)
 

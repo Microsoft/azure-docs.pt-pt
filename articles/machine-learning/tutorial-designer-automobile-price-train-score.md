@@ -9,12 +9,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 05/12/2020
-ms.openlocfilehash: d730eb64f5025daa740e4fad0fce0a95300363e1
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.custom: designer
+ms.openlocfilehash: 16f281cce70fb8d2a943b62c796c3037649c3c72
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983402"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656574"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Tutorial: Prever o preço do automóvel com o designer (pré-visualização)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -69,7 +70,7 @@ Um oleoduto funciona num alvo de cálculo, que é um recurso de computação que
 
 Pode definir um alvo de **computação Padrão** para todo o pipeline, que dirá a cada módulo para usar o mesmo alvo de computação por padrão. No entanto, pode especificar os alvos da computação numa base por módulo.
 
-1. Ao lado do nome do pipeline, selecione o **ícone** ![de engrenagem Screenshot do ícone](./media/tutorial-designer-automobile-price-train-score/gear-icon.png) de engrenagem na parte superior da tela para abrir o painel **Definições.**
+1. Ao lado do nome do pipeline, selecione o **ícone de engrenagem** ![ Screenshot do ícone de engrenagem na parte ](./media/tutorial-designer-automobile-price-train-score/gear-icon.png) superior da tela para abrir o painel **Definições.**
 
 1. No painel **Definições** à direita da tela, **selecione Selecione o alvo computacional**.
 
@@ -217,7 +218,7 @@ Treine o modelo dando-lhe um conjunto de dados que inclui o preço. O algoritmo 
     
     Esta opção exibe várias categorias de módulos que pode utilizar para inicializar algoritmos de aprendizagem.
 
-1. **Selecione Regressão** > **Linear regressão**e arraste-a para a tela do oleoduto.
+1. **Selecione**  >  **Regressão Linear regressão**e arraste-a para a tela do oleoduto.
 
 1. Ligue a saída do módulo **De regressão linear** à entrada esquerda do módulo **Modelo de Comboio.**
 
@@ -292,7 +293,7 @@ Após a execução, pode ver os resultados da execução do gasoduto. Primeiro, 
 
 1. Selecione o módulo **'Modelo de Pontuação'** para visualizar a sua saída.
 
-1. No módulo os detalhes painelam à direita da tela, selecione **Outputs + logs** > ícone ![de gráfico visualizar ícone](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) para visualizar resultados.
+1. No módulo os detalhes painelam à direita da tela, selecione **Outputs + logs** > ícone de gráfico ![ visualizar o ícone ](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) para visualizar os resultados.
 
     Aqui pode ver os preços previstos e os preços reais a partir dos dados de teste.
 
@@ -304,7 +305,7 @@ Utilize o **Modelo de Avaliação** para ver se o modelo treinado foi executado 
 
 1. Selecione o módulo **'Avaliar Modelo'** para visualizar a sua saída.
 
-1. No módulo os detalhes painelam à direita da tela, selecione **Outputs + logs** > ícone ![de gráfico visualizar ícone](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) para visualizar resultados.
+1. No módulo os detalhes painelam à direita da tela, selecione **Outputs + logs** > ícone de gráfico ![ visualizar o ícone ](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) para visualizar os resultados.
 
 As seguintes estatísticas são mostradas para o seu modelo:
 
@@ -322,7 +323,7 @@ Ignore esta secção se quiser continuar com a parte 2 do tutorial, [implantando
 
 [!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Na segunda parte, aprenderás a implementar o teu modelo como um ponto final em tempo real.
 

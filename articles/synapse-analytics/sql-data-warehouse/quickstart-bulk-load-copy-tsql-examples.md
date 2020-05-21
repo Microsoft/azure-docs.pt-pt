@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 05/06/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: c7d6a0d289953376c6535f2401c9c77edb3205df
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 7f2d77f3b174d8a00df9f7a93b6fef80b9cd29e8
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82994855"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647612"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Carregue de forma segura os dados usando synapse SQL
 
@@ -28,7 +28,7 @@ A seguinte matriz descreve os métodos de autenticação suportados para cada ti
 |  Armazenamento de blobs do Azure  | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD |              SAS/KEY              |              SAS/KEY              |
 | Lago de Dados Azure Gen2 | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD |
 
-## <a name="a-storage-account-key-with-lf-as-the-row-terminator"></a>R. Chave da conta de armazenamento com LF como o exterminador de linha
+## <a name="a-storage-account-key-with-lf-as-the-row-terminator-unix-style-new-line"></a>R. Chave da conta de armazenamento com LF como o exterminador de linha (nova linha estilo Unix)
 
 
 ```sql
@@ -47,7 +47,7 @@ WITH (
 >
 > - Utilize o valor hexadecimal (0x0A) para especificar o caracteres Line Feed/Newline. Note que a declaração copy interpretará a corda '\n' como '\r\n' (novalinha de retorno do transporte).
 
-## <a name="b-shared-access-signatures-sas-with-crlf-as-the-row-terminator"></a>B. Assinaturas de Acesso Partilhado (SAS) com CRLF como o exterminador de linha
+## <a name="b-shared-access-signatures-sas-with-crlf-as-the-row-terminator-windows-style-new-line"></a>B. Assinaturas de Acesso Partilhado (SAS) com CRLF como o exterminador de linha (nova linha estilo Windows)
 ```sql
 COPY INTO target_table
 FROM 'https://adlsgen2account.dfs.core.windows.net/myblobcontainer/folder1/'
@@ -154,7 +154,7 @@ A autenticação de identidade gerida é necessária quando a sua conta de armaz
 >
 > - Utilize a versão **V1** do ponto final de 2.0 token OAuth
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte o artigo de declaração da [CÓPIA](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#syntax) para a sintaxe detalhada
 - Consulte o artigo sobre [visão geral](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/design-elt-data-loading#what-is-elt) de dados para carregar as melhores práticas

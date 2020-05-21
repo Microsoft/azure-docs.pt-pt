@@ -3,12 +3,12 @@ title: 'Tutorial: Testes em lote para encontrar problemas - LUIS'
 description: Este tutorial demonstra como usar testes de lote para validar a qualidade da sua aplicação Language Understanding (LUIS).
 ms.topic: tutorial
 ms.date: 05/07/2020
-ms.openlocfilehash: c823cbd854c28ab356dd9968e6f8f1a12b6421be
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 09e5ebc9f80eb51175b13e601983690b6229b747
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592598"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681624"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>Tutorial: Conjuntos de dados de teste de lote
 
@@ -49,13 +49,13 @@ Importar uma app que requer uma encomenda de pizza como `1 pepperoni pizza on th
 
 ## <a name="what-should-the-batch-file-utterances-include"></a>O que as expressões do ficheiro do lote devem incluir
 
-O ficheiro do lote deve incluir expressões com entidades de alto nível aprendidas com máquinas rotuladas, incluindo a posição de início e fim. As declarações não devem fazer parte dos exemplos já na aplicação. Devem ser declarações que pretende prever positivamente para intenções e entidades.
+O ficheiro do lote deve incluir expressões com entidades de aprendizagem automática de alto nível rotuladas, incluindo a posição de início e fim. As declarações não devem fazer parte dos exemplos já na aplicação. Devem ser declarações que pretende prever positivamente para intenções e entidades.
 
 Pode separar os testes por intenção e/ou entidade ou ter todos os testes (até 1000 expressões) no mesmo ficheiro.
 
 ## <a name="batch-file"></a>Ficheiro de lote
 
-O exemplo JSON inclui uma expressão com uma entidade rotulada para ilustrar como é um ficheiro de teste. Nos seus próprios testes, deve ter muitas declarações com a intenção correta e entidade aprendida com máquinas rotuladas.
+O exemplo JSON inclui uma expressão com uma entidade rotulada para ilustrar como é um ficheiro de teste. Nos seus próprios testes, deve ter muitas declarações com a intenção correta e entidade de aprendizagem automática rotulada.
 
 1. Crie num editor de `pizza-with-machine-learned-entity-test.json` texto ou [descarregue-o.](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/batch-tests/pizza-with-machine-learned-entity-test.json?raw=true)
 

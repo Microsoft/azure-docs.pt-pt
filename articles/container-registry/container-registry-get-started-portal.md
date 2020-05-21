@@ -4,12 +4,12 @@ description: Aprenda rapidamente a criar um registo privado de Docker no Registo
 ms.topic: quickstart
 ms.date: 03/03/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 6fe6358655f50ab783b4017efa8ee1db351cd018
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0875e5be628ddfe47696a9d4fc537a8a07122804
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79409288"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682796"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Quickstart: Criar um registo de contentores privados utilizando o portal Azure
 
@@ -25,7 +25,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 ## <a name="create-a-container-registry"></a>Criar um registo de contentores
 
-Selecione **Criar um** > registo de**contentores** > **Container Registry**de recursos .
+Selecione **Criar um**registo de  >  **Containers**  >  **contentores**de recursos .
 
 ![Criar um registo de contentor no portal do Azure][qs-portal-01]
 
@@ -35,7 +35,7 @@ No separador **Basics,** introduza valores para **o grupo de recursos** e o nome
 
 Aceite os valores predefinidos para as definições restantes. Em seguida, selecione **Rever + criar**. Depois de rever as definições, selecione **Criar**.
 
-Neste quickstart cria-se um registo *Básico,* que é uma opção otimizada para os desenvolvedores que aprendem sobre o Registo de Contentores Azure. Para mais informações sobre os níveis de serviço disponíveis, consulte o [registo de contentores SKUs][container-registry-skus].
+Neste quickstart cria-se um registo *Básico,* que é uma opção otimizada para os desenvolvedores que aprendem sobre o Registo de Contentores Azure. Para mais informações sobre os níveis de serviço disponíveis, consulte os níveis de serviço de registo de [contentores][container-registry-skus].
 
 Quando a mensagem **de implantação tiver sucesso,** selecione o registo do recipiente no portal. 
 
@@ -57,9 +57,9 @@ O comando devolve `Login Succeeded` depois de estar concluído.
 
 ## <a name="list-container-images"></a>Listar imagens de contentor
 
-Para listar as imagens no seu registo, navegue para o seu registo no portal e `docker push`selecione **Repositórios,** em seguida, selecione o repositório com que criou .
+Para listar as imagens no seu registo, navegue para o seu registo no portal e selecione **Repositórios,** em seguida, selecione o repositório com que criou `docker push` .
 
-Neste exemplo, selecionamos o repositório do mundo `v1` **olá,** e podemos ver a imagem marcada sob **tags**.
+Neste exemplo, selecionamos o repositório **do mundo olá,** e podemos ver a `v1` imagem marcada sob **tags**.
 
 ![Liste imagens de contentores no portal Azure][qs-portal-09]
 
@@ -71,7 +71,7 @@ Para limpar os seus recursos, navegue para o grupo de recursos **myResourceGroup
 
 ![Eliminar grupo de recursos no portal do Azure][qs-portal-08]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, criou um Registo de Contentores Azure com o portal Azure, empurrou uma imagem de contentor, puxou e executou a imagem do registo. Continue aos tutoriais do Registo de Contentores Azure para uma olhada mais profunda na ACR.
 

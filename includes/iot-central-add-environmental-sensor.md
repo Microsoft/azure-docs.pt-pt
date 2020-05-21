@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 9618dc1cef8d04cc5906579af0ef372694aeaaa9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9717c76b42a63479c77f862057bfb141954eacff
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80673986"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673412"
 ---
 ## <a name="create-a-device-template"></a>Criar um modelo de dispositivo
 
-Crie uma `environmental-sensor` pasta chamada na sua máquina local.
+Crie uma pasta chamada `environmental-sensor` na sua máquina local.
 
-Descarregue o ficheiro JSON da capacidade `environmental-sensor` do sensor [ambiental](https://raw.githubusercontent.com/Azure/IoTPlugandPlay/master/samples/EnvironmentalSensorInline.capabilitymodel.json) e guarde-o na pasta.
+Descarregue o ficheiro JSON da capacidade do [sensor ambiental](https://raw.githubusercontent.com/Azure/IoTPlugandPlay/9004219bff1e958b7cd6ff2a52209f4b7ae19396/samples/EnvironmentalSensorInline.capabilitymodel.json) e guarde-o na `environmental-sensor` pasta.
 
-Utilize um editor de texto para `{YOUR_COMPANY_NAME_HERE}` substituir as duas `EnvironmentalSensorInline.capabilitymodel.json` instâncias do nome da sua empresa no ficheiro que descarregou.
+Utilize um editor de texto para substituir as duas instâncias do nome da `{YOUR_COMPANY_NAME_HERE}` sua empresa no ficheiro que `EnvironmentalSensorInline.capabilitymodel.json` descarregou.
 
-Na sua aplicação Azure IoT Central, crie um `EnvironmentalSensorInline.capabilitymodel.json` modelo de dispositivo chamado sensor *ambiental* importando o ficheiro do modelo de capacidade do dispositivo:
+Na sua aplicação Azure IoT Central, crie um modelo de dispositivo chamado *sensor ambiental* importando o ficheiro do modelo de capacidade do `EnvironmentalSensorInline.capabilitymodel.json` dispositivo:
 
 ![Modelo de dispositivo com modelo de capacidade de dispositivo importado](./media/iot-central-add-environmental-sensor/device-template.png)
 
@@ -32,7 +32,7 @@ O modelo de capacidade do dispositivo inclui duas interfaces: a interface padrã
 | Tipo | Nome a Apresentar | Descrição |
 | ---- | ------------ | ----------- |
 | Propriedade | Estado do Dispositivo     | O estado do dispositivo. Dois estados online/offline estão disponíveis. |
-| Propriedade (rectilável) | Nome do cliente    | O nome do cliente que está a operar o dispositivo. |
+| Propriedade (rectilável) | Nome do Cliente    | O nome do cliente que está a operar o dispositivo. |
 | Propriedade (rectilável) | Nível de brilho | O nível de luminosidade para a luz no dispositivo. Pode ser especificado como 1 (alto), 2 (médio), 3 (baixo). |
 | Telemetria | Temperatura | Temperatura atual detetada pelo dispositivo. |
 | Telemetria | Humidade    | Humidade atual detetada pelo dispositivo. |

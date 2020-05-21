@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: 4a2d9f382045db2aeab80d9ecf5a05b031bcbc9e
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 57244c2022d06d8f1768dbe8bcc971aa59acd6a9
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81400082"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673140"
 ---
 Neste arranque rápido, aprenderá a usar o SDK de Dispositivos de Fala para Android para construir um produto ativado pela fala ou usá-lo como um dispositivo de Transcrição de [Conversas.](../conversation-transcription-service.md)
 
@@ -47,7 +47,7 @@ Antes de começar a usar o SDK dos Dispositivos de Fala, terá de:
 
 1. O seu dispositivo deve ser listado em **Escolher um dispositivo**. Selecione o botão **'Ver'** ao lado do dispositivo.
 
-1. Ligue à sua rede sem fios selecionando o ícone da pasta e, em seguida, selecione **Definições** > **WLAN**.
+1. Ligue à sua rede sem fios selecionando o ícone da pasta e, em seguida, selecione **Definições**  >  **WLAN**.
 
    ![Vysor WLAN](../media/speech-devices-sdk/qsg-4.png)
 
@@ -58,7 +58,7 @@ Antes de começar a usar o SDK dos Dispositivos de Fala, terá de:
    >
    > ![Pasta de ficheiros Vysor](../media/speech-devices-sdk/qsg-10.png)
    >
-   > Selecione **Definições**. Procure por "mac address", e, em seguida, selecione **Endereço Mac** > **Advanced WLAN**. Anote o endereço MAC que aparece perto da parte inferior da caixa de diálogo.
+   > Selecione **Definições**. Procure por "mac address", e, em seguida, selecione **Endereço Mac**  >  **Advanced WLAN**. Anote o endereço MAC que aparece perto da parte inferior da caixa de diálogo.
    >
    > ![Endereço Mac vysor](../media/speech-devices-sdk/qsg-11.png)
    >
@@ -96,7 +96,7 @@ Para validar a configuração do seu kit de desenvolvimento, construir e instala
     Atualize o **build.gradle (Module:app)** adicionando esta linha à secção de dependências. 
     
     ```xml
-    implementation'com.microsoft.cognitiveservices.speech:client-sdk:1.11.0'
+    implementation'com.microsoft.cognitiveservices.speech:client-sdk:1.12.0'
     ```
     
 1. Adicione a chave de subscrição do seu discurso ao código fonte. Se quiser experimentar o reconhecimento de intenções, adicione também a chave de subscrição do [serviço De compreensão](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) de idiomas e o ID da aplicação.
@@ -124,10 +124,10 @@ Para validar a configuração do seu kit de desenvolvimento, construir e instala
    > [!TIP]
    > Também pode [criar uma palavra-chave personalizada.](../speech-devices-sdk-create-kws.md)
 
-   Para utilizar uma nova palavra-chave, `MainActivity.java`atualize as duas linhas seguintes e copie o pacote de palavras-chave para a sua aplicação. Por exemplo, utilizar a palavra-chave 'Máquina' do pacote de palavras-chave kws-machine.zip:
+   Para utilizar uma nova palavra-chave, atualize as duas linhas seguintes `MainActivity.java` e copie o pacote de palavras-chave para a sua aplicação. Por exemplo, utilizar a palavra-chave 'Máquina' do pacote de palavras-chave kws-machine.zip:
 
    - Copie o pacote de palavras-chave na pasta "C:\SDSDK\Android-Sample-Release\exemplo\app\src\main\assets\".
-   - Atualize `MainActivity.java` a palavra-chave e o nome do pacote:
+   - Atualize a `MainActivity.java` palavra-chave e o nome do pacote:
 
      ```java
      private static final String Keyword = "Machine";
@@ -162,7 +162,7 @@ Para validar a configuração do seu kit de desenvolvimento, construir e instala
 
    ![Aplicação e opções de exemplo sdk dispositivos de fala de amostra](../media/speech-devices-sdk/qsg-8.png)
 
-1. Experimente a nova demonstração de Transcrição de Conversas. Comece a transcrever com 'Start Session'. Por defeito, todos são convidados. No entanto, se tiver as assinaturas de `/video/participants.properties` voz dos participantes, podem ser colocadas num ficheiro no dispositivo. Para gerar a assinatura de voz, veja as [conversas do Transcribe (SDK)](../how-to-use-conversation-transcription-service.md).
+1. Experimente a nova demonstração de Transcrição de Conversas. Comece a transcrever com 'Start Session'. Por defeito, todos são convidados. No entanto, se tiver as assinaturas de voz dos participantes, podem ser colocadas num ficheiro `/video/participants.properties` no dispositivo. Para gerar a assinatura de voz, veja as [conversas do Transcribe (SDK)](../how-to-use-conversation-transcription-service.md).
 
    ![Aplicação de transcrição de conversação de demonstração](../media/speech-devices-sdk/qsg-15.png)
 
@@ -177,6 +177,6 @@ Se não conseguir ligar-se ao Dispositivo da Fala. Digite o seguinte comando num
 ```
 
 > [!NOTE]
-> Este comando utiliza a Ponte `adb.exe`Android Debug, que faz parte da instalação do Android Studio. Esta ferramenta está localizada no\[nome do utilizador C:\Utilizadores]\AppData\Local\Android\Sdk\platform-tools. Pode adicionar este diretório ao seu caminho para `adb`que seja mais conveniente invocar. Caso contrário, deve especificar o caminho completo para a sua instalação `adb`de adb.exe em todos os comandos que invoquem .
+> Este comando utiliza a Ponte Android Debug, `adb.exe` que faz parte da instalação do Android Studio. Esta ferramenta está localizada no nome do \[ utilizador C:\Utilizadores]\AppData\Local\Android\Sdk\platform-tools. Pode adicionar este diretório ao seu caminho para que seja mais conveniente `adb` invocar. Caso contrário, deve especificar o caminho completo para a sua instalação de adb.exe em todos os comandos que invoquem `adb` .
 >
 > Se vir um `no devices/emulators found` erro, verifique se o cabo USB está ligado e certifique-se de que um cabo de alta qualidade é utilizado.

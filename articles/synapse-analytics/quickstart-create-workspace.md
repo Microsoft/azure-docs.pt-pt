@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: pimorano
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 0bf58348d91c23db9bcc016ff6d71ce2b3804ced
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: df7753983cea2ca2cc285f04cd32da6ed065f415
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201063"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656154"
 ---
 # <a name="quickstart-create-an-azure-synapse-analytics-workspace-preview"></a>Quickstart: Criar um espaço de trabalho Azure Synapse Analytics (pré-visualização)
 
@@ -25,6 +25,9 @@ Se não tiver uma subscrição Azure, [crie uma conta gratuita antes](https://az
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - [Conta de armazenamento de armazenamento do Lago Azure Data Gen2](../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+
+## <a name="register-azure-synapse-resource-provider"></a>Registe o fornecedor de recursos Azure Synapse
+Se ainda não o fez, registe o fornecedor de recursos Azure Synapse. Registar um fornecedor de recursos configura a sua subscrição para trabalhar com o fornecedor de recursos. Para registar o fornecedor de recursos Azure Synapse, consulte [os fornecedores e tipos](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types)de recursos azure . Escolha *microsoft.Synapse* na lista de fornecedores de recursos quando se registar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
@@ -76,10 +79,10 @@ Se pretender eliminar o espaço de trabalho Azure Synapse, complete os seguintes
 1. Navegue até ao espaço de trabalho Azure Synapse para eliminar.
 1. Prima **apagar** na barra de comando.
  ![Visão geral do espaço de trabalho Azure Synapse - elimine o comando realçado.](media/quickstart-create-synapse-workspace/create-workspace-10.png)
-1. Confirme a eliminação e prima **Apagar** o botão.
+1. Confirme a eliminação e prima o botão **Apagar.**
  ![Visão geral do espaço de trabalho Azure Synapse - elimine o diálogo de confirmação do espaço de trabalho.](media/quickstart-create-synapse-workspace/create-workspace-11.png)
 1. Quando o processo terminar com sucesso, o espaço de trabalho Azure Synapse deixará de constar da lista de espaços de trabalho.
 
 ## <a name="next-steps"></a>Próximos passos
 
-Em seguida, você pode [criar piscinas SQL](quickstart-create-sql-pool.md) ou [criar piscinas Apache Spark](quickstart-create-apache-spark-pool.md) para começar a analisar e explorar os seus dados.
+Em seguida, você pode [criar piscinas SQL](quickstart-create-sql-pool-studio.md) ou [criar piscinas Apache Spark](quickstart-create-apache-spark-pool-studio.md) para começar a analisar e explorar os seus dados.

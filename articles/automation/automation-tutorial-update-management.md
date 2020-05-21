@@ -6,12 +6,12 @@ ms.subservice: update-management
 ms.topic: tutorial
 ms.date: 04/06/2020
 ms.custom: mvc
-ms.openlocfilehash: 62c661f75aef77117a61be7e802562e6dde17ba5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 52158fe78262b5b2b3d006fb3a543ca743f4e417
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81604680"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683825"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Gerencie atualizações e patches para os seus VMs Azure
 
@@ -19,7 +19,7 @@ Pode utilizar a solução de Gestão de Atualizações para gerir as atualizaç�
 
 Para obter informações sobre preços, veja [Preços de Automatização para Gestão de Atualizações](https://azure.microsoft.com/pricing/details/automation/).
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Ver avaliações de atualizações
@@ -67,7 +67,7 @@ Clique em **Adicionar condição** para selecionar o sinal adequado para a sua i
 |`Total Update Deployment Runs`|- Nome de implementação de atualização<br>- Estatuto|Este sinal alerta sobre o estado geral de uma implementação de atualização.|
 |`Total Update Deployment Machine Runs`|- Nome de implementação de atualização</br>- Estatuto</br>- Computador-alvo</br>- Id de execução de implementação de atualização|Este sinal alerta para o estado de uma implementação de atualização direcionada a máquinas específicas.|
 
-Para uma dimensão, selecione um valor válido da lista. Se o valor que deseja não estiver **\+** na lista, clique no sinal ao lado da dimensão e escreva o nome personalizado. Em seguida, selecione o valor a procurar. Se pretender selecionar todos os valores para uma dimensão, clique no botão **Select. \* ** Se não escolher um valor para uma dimensão, a Atualização de Gestão ignora essa dimensão.
+Para uma dimensão, selecione um valor válido da lista. Se o valor que deseja não estiver na lista, clique no **\+** sinal ao lado da dimensão e escreva o nome personalizado. Em seguida, selecione o valor a procurar. Se pretender selecionar todos os valores para uma dimensão, clique no botão **Select. \* ** Se não escolher um valor para uma dimensão, a Atualização de Gestão ignora essa dimensão.
 
 ![Configurar lógica de sinal](./media/automation-tutorial-update-management/signal-logic.png)
 
@@ -123,10 +123,10 @@ Em **Nova implementação de atualização**, especifique as seguintes informaç
 
    Para descrições dos tipos de classificação, consulte classificações de [atualização](automation-view-update-assessments.md#update-classifications).
 
-* **Atualizações para incluir/excluir** - Abre a página Incluir/Excluir. As atualizações a incluir ou excluídas estão em separados, especificando os números de IDENTIFICAção do artigo KB. Ao especificar um ou mais números de IDENTIFICAÇÃO, é necessário remover ou desmarcar todas as classificações com a implementação da atualização. Isto garante que nenhuma outra atualização está incluída no seu pacote de atualizações ao especificar iDs de atualização.
+* **Incluir/excluir atualizações** - Abre a página Incluir/Excluir. As atualizações a incluir ou excluídas estão em separados, especificando os números de IDENTIFICAção do artigo KB. Ao especificar um ou mais números de IDENTIFICAÇÃO, é necessário remover ou desmarcar todas as classificações com a implementação da atualização. Isto garante que nenhuma outra atualização está incluída no seu pacote de atualizações ao especificar iDs de atualização.
 
 > [!NOTE]
-> É importante saber que as exclusões sobrepõem-se às inclusãos. Por exemplo, se definir uma `*`regra de exclusão de , A Gestão de Atualizações não instala patches ou pacotes, uma vez que todos estão excluídos. Os patches excluídos continuam a mostrar como desaparecidos da máquina. Para as máquinas Linux, se incluir um pacote que tenha um pacote dependente que tenha sido excluído, a Update Management não instala o pacote principal.
+> É importante saber que as exclusões sobrepõem-se às inclusãos. Por exemplo, se definir uma regra de exclusão de , A Gestão de `*` Atualizações não instala patches ou pacotes, uma vez que todos estão excluídos. Os patches excluídos continuam a mostrar como desaparecidos da máquina. Para as máquinas Linux, se incluir um pacote que tenha um pacote dependente que tenha sido excluído, a Update Management não instala o pacote principal.
 
 > [!NOTE]
 > Não é possível especificar atualizações que tenham sido substituídos para inclusão com a implementação da atualização.
@@ -149,7 +149,7 @@ Em **Nova implementação de atualização**, especifique as seguintes informaç
   > Para evitar que as atualizações sejam aplicadas fora de uma janela de manutenção em Ubuntu, reconfigure o pacote Deactualização Não Atendida para desativar atualizações automáticas. Para obter informações sobre como configurar o pacote, consulte [o tópico de Atualizações Automáticas no Guia do Servidor Ubuntu](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
 
 * **Opções**de reiniciar : Utilize para especificar opções para manusear reboots. Estão disponíveis as seguintes opções:
-  * Reiniciar se necessário (padrão)
+  * Reiniciar se necessário (predefinido)
   * Reiniciar sempre
   * Nunca reiniciar
   * Apenas reiniciar - não instala atualizações

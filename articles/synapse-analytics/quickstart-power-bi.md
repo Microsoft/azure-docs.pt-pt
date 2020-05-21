@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/29/2020
 ms.author: jocaplan
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 83e9e802d2150ee7f43f01e9f6d6827ef3acfcdd
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: c5b86319752fc70e754e34b787bbdc12f18636f0
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83204755"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655975"
 ---
 # <a name="quickstart-linking-a-power-bi-workspace-to-a-synapse-analytics-workspace-preview"></a>Quickstart: Ligar um espaço de trabalho power BI a um espaço de trabalho Synapse Analytics (pré-visualização)
 
@@ -70,4 +70,4 @@ Novos relatórios podem ser criados clicando **+** na parte superior do separado
 
 ## <a name="next-steps"></a>Próximos passos
 
-Em seguida, pode [criar relatório Power BI sobre ficheiros armazenados no Armazenamento Azure](sql/tutorial-connect-power-bi-desktop.md)
+Saiba mais sobre a criação de [relatório power BI sobre ficheiros armazenados no Armazenamento Azure](sql/tutorial-connect-power-bi-desktop.md).

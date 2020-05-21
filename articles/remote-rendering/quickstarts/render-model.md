@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: b0af45ba4a6b1ca7f9e751af082ff0db80776ec0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: be5bc8ec4e8f363d9b6079d22f3bba1af2d4d5fb
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80679787"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682564"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>Quickstart: Render um modelo com Unidade
 
@@ -41,7 +41,7 @@ Deve ser instalado o seguinte software:
 
 ## <a name="clone-the-sample-app"></a>Clonar a aplicação de exemplo
 
-Abra um pedido `cmd` de comando (digite no menu inicial do Windows) e mude para um diretório onde pretende armazenar o projeto de amostra ARR.
+Abra um pedido de comando (digite `cmd` no menu inicial do Windows) e mude para um diretório onde pretende armazenar o projeto de amostra ARR.
 
 Execute os seguintes comandos:
 
@@ -66,13 +66,13 @@ O modelo padrão que prestamos é um [modelo de amostra incorporado.](../samples
 
 1. No navegador de ativos da Unidade, navegue para a pasta *Scenes* e abra a cena **Quickstart.**
 1. A partir da *Hierarquia, selecione*o objeto de jogo **RemoteRendering.**
-1. No *Inspetor,* insira [as credenciais da](../how-tos/create-an-account.md)sua conta.
+1. No *Inspetor,* insira [as credenciais da](../how-tos/create-an-account.md)sua conta. Se ainda não tem uma conta, [crie uma.](../how-tos/create-an-account.md)
 
 ![Informação da conta ARR](./media/arr-sample-account-info.png)
 
 > [!IMPORTANT]
 > O Portal Azure exibe o domínio da sua conta apenas *mixedreality.azure.com*. Isto é insuficiente para uma ligação com sucesso.
-> Definir **AccountDomain** `<region>.mixedreality.azure.com`para, onde `<region>` está uma das [regiões disponíveis perto de si.](../reference/regions.md)
+> Definir **AccountDomain** `<region>.mixedreality.azure.com` para, onde `<region>` está uma das [regiões disponíveis perto de si.](../reference/regions.md)
 
 Mais tarde queremos implementar este projeto para um HoloLens e ligar-nos ao serviço de renderização remota a partir desse dispositivo. Uma vez que não temos uma maneira fácil de introduzir as credenciais no dispositivo, a amostra de arranque rápido **irá salvar as credenciais na cena da Unidade**.
 
@@ -103,7 +103,7 @@ Há um objeto de [avião cortado](../overview/features/cut-planes.md) no local. 
 
 Para sincronizar transformações, clique em **Sync agora** ou verifique o Sync cada opção **de quadro.** Para propriedades componentes, apenas mudá-las é suficiente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 No próximo arranque rápido, vamos implantar a amostra num HoloLens para ver o modelo remotamente renderizado no seu tamanho original.
 

@@ -1,30 +1,30 @@
 ---
 title: 'Quickstart: Construa uma app Python utilizando a conta API Azure Cosmos DB SQL'
 description: Apresenta um exemplo de código Python que pode utilizar para ligar e consultar a Azure Cosmos DB SQL API
-author: SnehaGunda
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 03/09/2020
-ms.author: sngun
+ms.date: 05/11/2020
+ms.author: anfeldma
 ms.custom:
 - seodec18
 - seo-javascript-september2019
 - seo-python-october2019
-ms.openlocfilehash: 10247e22b3fbe1250a15b06a0cce974905ca6b7f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 674b9d132f96b8807355955949463c000565bb38
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78942625"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654611"
 ---
 # <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>Quickstart: Construa uma aplicação Python utilizando uma conta API Azure Cosmos DB SQL
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
 > * [.NET V4](create-sql-api-dotnet-V4.md)
-> * [Java](create-sql-api-java.md)
+> * [Java SDK v4](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
@@ -33,9 +33,9 @@ Neste arranque rápido, cria-se e gere-se uma conta API Azure Cosmos DB SQL a pa
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma conta Azure com uma subscrição ativa. [Crie um de graça.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) Ou [experimente o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição Azure. Você também pode usar o [Emulador Db Azure Cosmos](https://aka.ms/cosmosdb-emulator) com um URI de `https://localhost:8081` e a chave. `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`
-- [Python 3.6+](https://www.python.org/downloads/), `python` com o `PATH`executável na sua .
-- [Código de estúdio visual.](https://code.visualstudio.com/)
+- Uma conta Azure com uma subscrição ativa. [Crie um de graça.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) Ou [experimente o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição Azure. Você também pode usar o [Emulador Db Azure Cosmos](https://aka.ms/cosmosdb-emulator) com um URI de `https://localhost:8081` e a `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==` chave.
+- [Python 3.6+](https://www.python.org/downloads/), com o `python` executável na sua `PATH` .
+- [Visual Studio Code](https://code.visualstudio.com/).
 - A [extensão Python para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview).
 - [Git.](https://www.git-scm.com/downloads) 
 
@@ -47,7 +47,7 @@ Neste arranque rápido, cria-se e gere-se uma conta API Azure Cosmos DB SQL a pa
 
 Agora pode utilizar a ferramenta Data Explorer no portal Azure para criar uma base de dados e um recipiente. 
 
-1. Selecione **Data Explorer** > **Novo Recipiente**. 
+1. Selecione **Data Explorer**  >  **Novo Recipiente**. 
     
     A área **add container** é exibida na extrema-direita, pode ser necessário rolar para a direita para vê-lo.
 
@@ -57,7 +57,7 @@ Agora pode utilizar a ferramenta Data Explorer no portal Azure para criar uma ba
 
     |Definição|Valor sugerido|Descrição
     |---|---|---|
-    |**ID da Base de Dados**|Tarefas|Designe a nova base de dados como *Tarefas*. Os nomes da base de dados devem conter `/, \\, #, ?`de 1 a 255 caracteres, e não podem conter, ou um espaço de fuga. Consulte a opção de entrada da base de **dados Provision,** permite-lhe partilhar a entrada disponibilizada na base de dados em todos os recipientes da base de dados. Esta opção também ajuda na poupança de custos. |
+    |**ID da Base de Dados**|Tarefas|Designe a nova base de dados como *Tarefas*. Os nomes da base de dados devem conter de 1 a 255 caracteres, e não podem `/, \\, #, ?` conter, ou um espaço de fuga. Consulte a opção de entrada da base de **dados Provision,** permite-lhe partilhar a entrada disponibilizada na base de dados em todos os recipientes da base de dados. Esta opção também ajuda na poupança de custos. |
     |**Débito**|400|Deixe a entrada em 400 unidades de pedido por segundo (RU/s). Se pretender reduzir a latência, pode aumentar o débito mais tarde.| 
     |**ID do contentor**|Itens|Introduza *itens* como o nome do seu novo recipiente. Os IDs dos contentores têm os mesmos requisitos em termos de carateres que os nomes das bases de dados.|
     |**Chave de partição**| /categoria| A amostra descrita neste artigo *utiliza/categoria* como chave de partição.|
@@ -135,31 +135,31 @@ Os seguintes cortes são todos retirados do ficheiro *cosmos_get_started.py.*
 
     [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=create_database_if_not_exists)]
 
-* É criado um novo recipiente, com 400 RU/s de [entrada aprovisionada](request-units.md). Escolhemos `lastName` como [chave de partição,](partitioning-overview.md#choose-partitionkey)que nos permite fazer consultas eficientes que filtram nesta propriedade. 
+* É criado um novo recipiente, com 400 RU/s de [entrada aprovisionada](request-units.md). Escolhemos `lastName` como chave de [partição,](partitioning-overview.md#choose-partitionkey)que nos permite fazer consultas eficientes que filtram nesta propriedade. 
 
     [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=create_container_if_not_exists)]
 
-* Alguns itens são adicionados ao contentor. Os contentores são uma coleção de itens (documentos JSON) que podem ter esquemas variados. Os métodos ```get_[name]_family_item``` de ajuda devolvem as representações de uma família que está armazenada no Azure Cosmos DB como documentos JSON.
+* Alguns itens são adicionados ao contentor. Os contentores são uma coleção de itens (documentos JSON) que podem ter esquemas variados. Os métodos de ajuda ```get_[name]_family_item``` devolvem as representações de uma família que está armazenada no Azure Cosmos DB como documentos JSON.
 
     [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=create_item)]
 
-* As leituras de pontos (as `read_item` aparências de valor chave) são realizadas utilizando o método. Imprimimos a [carga da RU](request-units.md) de cada operação.
+* As leituras de pontos (as aparências de valor chave) são realizadas utilizando o `read_item` método. Imprimimos a [carga da RU](request-units.md) de cada operação.
 
     [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=read_item)]
 
-* Uma consulta é realizada usando sintaxe de consulta SQL. Como estamos a usar valores-chave de ```lastName``` divisórias na cláusula WHERE, o Azure Cosmos DB irá encaminhar eficientemente esta consulta para as divisórias relevantes, melhorando o desempenho.
+* Uma consulta é realizada usando sintaxe de consulta SQL. Como estamos a usar valores-chave de divisórias ```lastName``` na cláusula WHERE, o Azure Cosmos DB irá encaminhar eficientemente esta consulta para as divisórias relevantes, melhorando o desempenho.
 
     [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=query_items)]
    
 ## <a name="run-the-app"></a>Executar a aplicação
 
-1. No Código do Estúdio Visual, selecione **'Ver** > Paleta de**Comando**' . 
+1. No Código do Estúdio Visual, selecione **'Ver**Paleta de  >  **Comando**' . 
 
 2. Na linha de comandos, introduza **Python: Selecione o Interpretador** e, em seguida, selecione a versão do Python a utilizar.
 
     O Rodapé no Visual Studio Code é atualizado para indicar o interpretador selecionado. 
 
-3. Selecione**Terminal Integrado** **de Visão** > para abrir o terminal integrado do Código do Estúdio Visual.
+3. Selecione Terminal Integrado **de Visão**para abrir o terminal integrado do Código do  >  **Integrated Terminal** Estúdio Visual.
 
 4. Na janela de terminais integrada, certifique-se de que está na pasta *azure-cosmos-db-python-start-start.* Caso contrário, execute o seguinte comando para mudar para a pasta de exemplo. 
 
@@ -181,7 +181,7 @@ Os seguintes cortes são todos retirados do ficheiro *cosmos_get_started.py.*
     python cosmos_get_started.py
     ```
 
-7. Para confirmar os novos itens foram criados e guardados, no portal Azure, selecione **Dados Explorer** > **AzureSampleFamilyDatabase** > **Itens**. Veja os itens que foram criados. Por exemplo, aqui está uma amostra do documento JSON para a família Andersen:
+7. Para confirmar os novos itens foram criados e guardados, no portal Azure, **selecione Dados Explorer**  >  **AzureSampleFamilyDatabase**  >  **Itens**. Veja os itens que foram criados. Por exemplo, aqui está uma amostra do documento JSON para a família Andersen:
    
    ```json
    {
@@ -221,7 +221,7 @@ Os seguintes cortes são todos retirados do ficheiro *cosmos_get_started.py.*
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, aprendeu a criar uma conta Azure Cosmos DB, criar um recipiente usando o Data Explorer e executar uma aplicação Python no Visual Studio Code. Agora, pode importar dados adicionais para a sua conta do Azure Cosmos DB. 
 

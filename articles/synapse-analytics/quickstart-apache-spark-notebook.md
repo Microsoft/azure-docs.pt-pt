@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.subservice: ''
 ms.topic: quickstart
 ms.date: 04/15/2020
-ms.openlocfilehash: 9e8a539421a76b6f94f10d559ad0086c9d87abf4
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 27ec09f1286f4e7999db56acdedaba1a37122aad
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592955"
+ms.locfileid: "83656186"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-preview-in-azure-synapse-analytics-using-web-tools"></a>Quickstart: Crie uma piscina Apache Spark (pré-visualização) no Azure Synapse Analytics usando ferramentas web
 
@@ -29,7 +29,7 @@ Se não tiver uma subscrição Azure, [crie uma conta gratuita antes](https://az
 
 - Assinatura Azure - [crie uma gratuitamente](https://azure.microsoft.com/free/)
 - [Espaço de trabalho synapse Analytics](quickstart-create-workspace.md)
-- [Piscina apache faísca](quickstart-create-apache-spark-pool.md)
+- [Piscina apache faísca](quickstart-create-apache-spark-pool-studio.md)
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
@@ -133,11 +133,13 @@ A Linguagem de Consulta Estruturada (SQL) é a linguagem mais comum e amplamente
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-A Azure Synapse guarda os seus dados no Armazenamento do Lago Azure Data. Pode permitir que uma instância de Spark desligue quando não estiver a ser utilizada. Você é cobrado por uma piscina De Faísca Synapse Azure, desde que esteja funcionando, mesmo quando não está em uso. As taxas para a piscina são muitas vezes mais do que as taxas de armazenamento. Como tal, faz sentido económico deixar as instâncias spark encerrarem quando não estão a ser utilizadas.
+A Azure Synapse guarda os seus dados no Armazenamento do Lago Azure Data. Pode deixar uma instância spark desligar-se com segurança quando não estiver a ser utilizada. É cobrado por uma piscina De Faísca Synapse Azure, desde que esteja em funcionamento, mesmo quando não estiver a ser utilizada. 
+
+Uma vez que as taxas para a piscina são muitas vezes mais do que as taxas de armazenamento, faz sentido económico deixar as instâncias spark encerrarquando não estão a ser utilizadas.
 
 Para garantir que a instância Spark é encerrada, termine as sessões ligadas (cadernos). A piscina fecha quando o **tempo de inativo** especificado na piscina apache Spark é atingido. Também pode selecionar a **sessão final** a partir da barra de estado na parte inferior do caderno.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, aprendeu a criar uma piscina De Faísca Synapse Azure e executar uma consulta básica de Spark SQL.
 

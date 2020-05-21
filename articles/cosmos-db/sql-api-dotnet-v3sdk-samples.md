@@ -7,20 +7,19 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 10/07/2019
 ms.author: sngun
-ms.openlocfilehash: 65d34d1e82a46cc5b3d7b0ad3239836acaee6f97
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d162639885a7736953a3e7388336c3105f2f0893
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80585351"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683854"
 ---
 # <a name="azure-cosmos-dbnet-v3-sdk-microsoftazurecosmos-examples-for-the-sql-api"></a>Os exemplos da Azure Cosmos DB.NET V3 SDK (Microsoft.Azure.Cosmos) para a API SQL
 
 > [!div class="op_single_selector"]
 > * [.NET V2 SDK Exemplos](sql-api-dotnet-samples.md)
 > * [.NET V3 SDK Exemplos](sql-api-dotnet-v3sdk-samples.md)
-> * [Exemplos de Java](sql-api-java-samples.md)
-> * [Exemplos de Async Java](sql-api-async-java-samples.md)
+> * [Exemplos Java V4 SDK](sql-api-java-sdk-samples.md)
 > * [Exemplos de Node.js](sql-api-nodejs-samples.md)
 > * [Exemplos python](sql-api-python-samples.md)
 > * [Galeria de Exemplo de Código do Azure](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)

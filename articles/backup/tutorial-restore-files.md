@@ -4,12 +4,12 @@ description: Saiba como realizar restauros ao nível do ficheiro numa VM do Azur
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: 338c6b642076835132b75aa4259381791378577a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 439ffeed7f0e37f04eda39380ddcabe1fa4e06c3
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74171726"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653274"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Restaurar ficheiros para uma máquina virtual no Azure
 
@@ -118,6 +118,9 @@ Para restaurar ficheiros, o Azure Backup oferece um script para executar na sua 
 
 Com o script de recuperação copiado para a VM, já pode ligar o ponto de recuperação e restaurar ficheiros.
 
+>[!NOTE]
+> Consulte [aqui](backup-azure-restore-files-from-vm.md#selecting-the-right-machine-to-run-the-script) para ver se consegue executar o script no seu VM antes de continuar.
+
 1. Ligar à VM com SSH. Substitua *publicIPAddress* pelo endereço IP público da VM da seguinte forma:
 
     ```bash
@@ -189,7 +192,7 @@ Com o script de recuperação copiado para a VM, já pode ligar o ponto de recup
         --rp-name myRecoveryPointName
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, ligou um ponto de recuperação a uma VM e restaurou ficheiros para um servidor Web. Aprendeu a:
 

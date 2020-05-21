@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: chez
 ms.reviewer: mariozi
-ms.openlocfilehash: 3933edff3730b9c16ea3c129890c1a7d66cf5215
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: fa1ce8516223b725c1efcb7e27d4726bbadfe62e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83117902"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655046"
 ---
-# <a name="enhance-data-factory-security-and-configure-customer-managed-keys-with-azure-key-vault"></a>Melhorar a segurança da fábrica de dados e configurar as chaves geridas pelo cliente com o Cofre de Chaves Azure
+# <a name="encrypt-azure-data-factory-with-customer-managed-keys"></a>Encrypt Azure Data Factory com chaves geridas pelo cliente
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
@@ -25,7 +25,7 @@ A Azure Data Factory encripta dados em repouso, incluindo definições de entida
 O Cofre de Chaves Azure é necessário para armazenar chaves geridas pelo cliente. Pode criar as suas próprias chaves e armazená-las num cofre de chaves, ou pode usar as APIs do Cofre de Chaves Azure para gerar chaves. O cofre chave e a Fábrica de Dados devem estar no mesmo inquilino azure Ative Directory (Azure AD) e na mesma região, mas podem estar em diferentes subscrições. Para mais informações sobre o Cofre de Chaves Azure, veja [o que é o Cofre chave Azure?](../key-vault/general/overview.md)
 
 > [!NOTE]
-> Por enquanto, a chave gerida pelo cliente só pode ser configurada numa Fábrica de Dados vazia: nenhum serviço ligado, nenhum pipeline, nenhum conjunto de dados, nada. Considere ativar a chave gerida pelo cliente logo após a criação da fábrica.
+> Uma chave gerida pelo cliente só pode ser configurada numa Fábrica de dados vazios. A fábrica de dados não pode conter recursos como serviços ligados, oleodutos e fluxos de dados. Recomenda-se que permita a chave gerida pelo cliente logo após a criação da fábrica.
 
 ## <a name="about-customer-managed-keys"></a>Sobre chaves geridas pelo cliente
 
@@ -41,7 +41,7 @@ A lista que se segue explica os passos numerados no diagrama:
 1. Data Factory embrulha a chave de encriptação da fábrica com a chave do cliente no Cofre de Chaves Azure
 1. Para operações de leitura/escrita, data Factory envia pedidos para Azure Key Vault para desembrulhar a chave de encriptação da conta para realizar operações de encriptação e desencriptação
 
-## <a name="prerequisites---configure-azure-key-vault-and-generate-keys"></a>Pré-requisitos - Configure Cofre de Chaves Azure e Chaves de Geração
+## <a name="prerequisites---configure-azure-key-vault-and-generate-keys"></a>Pré-requisitos - configure o Cofre chave Azure e gere chaves
 
 ### <a name="enable-soft-delete-and-do-not-purge-on-azure-key-vault"></a>Ativar soft delete e não purgar no cofre da chave azure
 
@@ -54,13 +54,13 @@ Se estiver a criar um novo Cofre chave Azure através do portal Azure, __o Soft 
 
   ![Screenshot Enable Soft Delete and Purge Protection após a criação de cofre chave](media/quickstart-enable-customer-managed-key/01-enable-purge-protection.png)
 
-### <a name="grant-data-factory-access-to-key-vault"></a>Grant Data Factory Acesso ao Cofre chave
+### <a name="grant-data-factory-access-to-azure-key-vault"></a>Grant Data Factory acesso ao Cofre chave Azure
 
 Certifique-se de que o Azure Key Vault e a Azure Data Factory estão no mesmo inquilino azure Ative Directory (Azure AD) e na _mesma região._ A partir do controlo de acesso ao Cofre de Chaves Azure, conceder a identidade de serviço gerida (MSI) da fábrica de dados seguindo permissões: _Obter,_ _Chave de desembrulhar_e _Chave de Embrulho_. Estas permissões são necessárias para ativar as chaves geridas pelo cliente na Data Factory.
 
   ![Screenshot ativar acesso de fábrica de dados ao cofre chave](media/quickstart-enable-customer-managed-key/02-access-policy-factory-msi.png)
 
-### <a name="generate-or-upload-customer-managed-key-to-key-vault"></a>Gerar ou carregar a chave gerida pelo cliente para o Cofre chave
+### <a name="generate-or-upload-customer-managed-key-to-azure-key-vault"></a>Gere ou carregue a chave gerida pelo cliente para o Cofre chave Azure
 
 Pode criar as suas próprias chaves e armazená-las num cofre de chaves, ou pode usar as APIs do Cofre de Chaves Azure para gerar chaves. Apenas as teclas RSA de 2048 bits são suportadas com encriptação data Factory. Para mais informações, consulte [chaves, segredos e certificados.](../key-vault/general/about-keys-secrets-certificates.md)
 
@@ -68,7 +68,7 @@ Pode criar as suas próprias chaves e armazená-las num cofre de chaves, ou pode
 
 ## <a name="enable-customer-managed-keys"></a>Ativar chaves geridas pelo cliente
 
-1. Certifique-se de que a Fábrica de Dados está vazia: nenhum serviço ligado, nenhum oleoduto, nem conjunto de dados, nada. Por enquanto, a implantação da chave gerida pelo cliente para uma fábrica não vazia resultará num erro.
+1. Certifique-se de que a Fábrica de Dados está vazia. A fábrica de dados não pode conter recursos como serviços ligados, oleodutos e fluxos de dados. Por enquanto, a implantação da chave gerida pelo cliente para uma fábrica não vazia resultará num erro.
 
 1. Para localizar a chave URI no portal Azure, navegue até ao Cofre de Chaves Azure e selecione a definição de Teclas. Selecione a tecla procurada e, em seguida, clique na tecla para visualizar as suas versões. Selecione uma versão chave para visualizar as definições
 
@@ -112,7 +112,7 @@ Para alterar a chave utilizada para encriptação data Factory, tem de atualizar
 
 ## <a name="disable-customer-managed-keys"></a>Desativar as chaves geridas pelo cliente
 
-Por design, uma vez ativada a função de chave gerida pelo cliente, não é possível remover o passo de segurança extra. Esperamos sempre que um cliente forneceu a chave para encriptar a fábrica e os dados.
+Por design, uma vez ativada a função chave gerida pelo cliente, não pode remover o passo de segurança extra. Esperamos sempre que um cliente forneceu a chave para encriptar a fábrica e os dados.
 
 ## <a name="next-steps"></a>Próximos passos
 

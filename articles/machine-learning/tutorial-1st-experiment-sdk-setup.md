@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
-ms.openlocfilehash: 535cf95216cca210b5add5ca22cd6e5b1b997541
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 3177de6816dd690514620098e79db844077fbaf6
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82779020"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655442"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Tutorial: Começar a criar a sua primeira experiência ML com o Python SDK
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -47,7 +47,9 @@ Cria um espaço de trabalho através do portal Azure, uma consola baseada na web
 
 Este tutorial utiliza o servidor de portátil em nuvem no seu espaço de trabalho para uma experiência sem instalação e pré-configurada. Use [o seu próprio ambiente](how-to-configure-environment.md#local) se preferir ter controlo sobre o seu ambiente, pacotes e dependências.
 
- Use os passos detalhados abaixo para clonar e executar o tutorial a partir do seu espaço de trabalho. 
+ Acompanhe este vídeo ou use os passos detalhados abaixo para clonar e executar o tutorial a partir do seu espaço de trabalho. 
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4mTUr]
 
 ### <a name="clone-a-notebook-folder"></a>Clone uma pasta de caderno
 
@@ -103,14 +105,14 @@ Completa as seguintes etapas de experimentação no estúdio Azure Machine Learn
 
 Se tiver widgets personalizados ou preferir usar o Jupyter/JupyterLab, selecione o **Jupyter** descer na extrema direita, então selecione **Jupyter** ou **JupyterLab**. A nova janela do navegador será aberta.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, completou estas tarefas:
 
 * Criou um espaço de trabalho azure machine learning.
 * Criou e configurou um servidor de portátil em nuvem no seu espaço de trabalho.
 
-Na **segunda parte** do tutorial, `tutorial-1st-experiment-sdk-train.ipynb` você executa o código para treinar um modelo de aprendizagem automática. 
+Na **segunda parte** do tutorial, você executa o código para treinar um modelo de `tutorial-1st-experiment-sdk-train.ipynb` aprendizagem automática. 
 
 > [!div class="nextstepaction"]
 > [Tutorial: Treine o seu primeiro modelo](tutorial-1st-experiment-sdk-train.md)

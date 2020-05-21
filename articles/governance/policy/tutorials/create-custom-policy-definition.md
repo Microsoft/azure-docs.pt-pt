@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Criar uma definição de política personalizada'
 description: Neste tutorial, você cria uma definição de política personalizada para a Política Azure para impor regras comerciais personalizadas sobre os seus recursos Azure.
-ms.date: 11/25/2019
+ms.date: 05/20/2020
 ms.topic: tutorial
-ms.openlocfilehash: 7a1eb8abcfbf7513b4620f66c0a7fdbd288f8705
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4d91ae589adbadb7d03e318dc20d6b2b78a84a18
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82190712"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683254"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Tutorial: Criar uma definição de política personalizada
 
@@ -33,7 +33,7 @@ A abordagem para criar uma política personalizada segue estes passos:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="identify-requirements"></a>Identificar requisitos
 
@@ -321,7 +321,7 @@ O Azure Resource Graph pode ser usado através da [Cloud Shell,](https://shell.a
 
 Decidir o que fazer com os seus recursos não conformes é quase tão importante como decidir o que avaliar em primeiro lugar. Cada resposta possível a um recurso não conforme é chamada de [efeito](../concepts/effects.md). O efeito controla se o recurso não conforme for registado, bloqueado, tiver dados anexados ou tiver uma implementação associada a ele para colocar o recurso de volta num estado conforme.
 
-Por exemplo, o Deny é o efeito que queremos, uma vez que não queremos recursos não conformes criados no nosso ambiente Azure. A auditoria é uma boa primeira escolha para um efeito político para determinar qual é o impacto de uma política antes de defini-la para Negar. Uma maneira de facilitar a mudança do efeito por atribuição é parametrizar o efeito. Veja os [parâmetros](#parameters) abaixo para obter os detalhes sobre como.
+Para o nosso exemplo, Deny é o efeito que queremos, uma vez que não queremos recursos não conformes criados no nosso ambiente Azure. A auditoria é uma boa primeira escolha para um efeito político para determinar qual é o impacto de uma política antes de defini-la para Negar. Uma maneira de facilitar a mudança do efeito por atribuição é parametrizar o efeito. Veja os [parâmetros](#parameters) abaixo para obter os detalhes sobre como.
 
 ## <a name="compose-the-definition"></a>Componha a definição
 
@@ -474,7 +474,7 @@ Neste tutorial conseguiu realizar com êxito as seguintes tarefas:
 > - Determinou o efeito a utilizar
 > - Compôs a definição de política
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Em seguida, use a sua definição de política personalizada para criar e atribuir uma política:
 

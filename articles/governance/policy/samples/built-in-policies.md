@@ -1,21 +1,21 @@
 ---
 title: Lista de definições políticas incorporadas
 description: Enumera as definições políticas incorporadas para a Política Azure. As categorias incluem Tags, Compliance Regulação, Key Vault, Kubernetes, Configuração de Hóspedes, e muito mais.
-ms.date: 05/05/2020
+ms.date: 05/13/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 2ff75ce7d6f0df5906894c50a25fede0f2a19f1a
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: c6a7f128dd2479645cc379f36532563c0ade5d14
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82838205"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83651650"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Definições políticas integradas da Política Azure
 
 Esta página é um índice de definições políticas integradas da Política Azure.
 
-O nome de cada um embutido liga-se à definição de política no portal Azure. Utilize o link na coluna **Fonte** para visualizar a fonte no [repo da política azure GitHub](https://github.com/Azure/azure-policy). Os incorporados são agrupados pela propriedade da **categoria** em **metadados.** Para saltar para uma **categoria**específica, use o menu do lado direito da página. Caso contrário, utilize <kbd>ctrl</kbd>-<kbd>F</kbd> para utilizar a funcionalidade de pesquisa do seu navegador.
+O nome de cada um embutido liga-se à definição de política no portal Azure. Utilize o link na coluna **Fonte** para visualizar a fonte no [repo da política azure GitHub](https://github.com/Azure/azure-policy). Os incorporados são agrupados pela propriedade da **categoria** em **metadados.** Para saltar para uma **categoria**específica, use o menu do lado direito da página. Caso contrário, utilize <kbd>ctrl</kbd>F para utilizar a funcionalidade de - <kbd>F</kbd> pesquisa do seu navegador.
 
 ## <a name="app-configuration"></a>App Configuration
 

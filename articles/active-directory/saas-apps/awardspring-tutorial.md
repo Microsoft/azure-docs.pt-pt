@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ab8f18c065b283883cfca0a0d555a5fa3bb9d5a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e199b0d6cf2be7dc956267843f4dabe521d87428
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78897819"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647619"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-awardspring"></a>Tutorial: Azure Ative Diretório integração individual (SSO) com AwardSpring
 
@@ -99,11 +99,11 @@ Siga estes passos para permitir o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação AwardSpring espera que poucos atributos sejam retransmitidos na resposta SAML que são mostradas abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
 
-    |  Nome | Atributo fonte |
+    |  Name | Atributo fonte |
     | ---------------| --------------- |
     | Nome Próprio | user.givenname |
     | Apelido | utilizador.sobrenome |
-    | Email | utilizador.mail |
+    | E-mail | utilizador.mail |
     | Nome de utilizador | user.userprincipalname |
     | EstudanteID | > de identificação de estudante de < |
 
@@ -126,7 +126,7 @@ Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
    1. No campo **Nome**, introduza `B.Simon`.  
-   1. No campo de nome username@companydomain.extensiondo **Utilizador,** introduza o . Por exemplo, `B.Simon@contoso.com`.
+   1. No campo de **nome do Utilizador,** introduza o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa de verificação de **palavra-passe do Show** e, em seguida, escreva o valor que está apresentado na caixa **password.**
    1. Clique em **Criar**.
 
@@ -157,7 +157,7 @@ Para configurar um único sign-on no lado da **AwardSpring,** você precisa envi
 Nesta secção, um utilizador chamado B.Simon é criado em AwardSpring. AwardSpring suporta o fornecimento de utilizadores just-in-time, que é ativado por padrão. Não há nenhum item de ação para si nesta secção. Se um utilizador já não existir no AwardSpring, um novo é criado após a autenticação.
 
 > [!Note]
-> Se precisar de criar um utilizador manualmente, contacte a equipa de [suporte da AwardSpring](maito:support@awardspring.com).
+> Se precisar de criar um utilizador manualmente, contacte a equipa de [suporte da AwardSpring](mailto:support@awardspring.com).
 
 ## <a name="test-sso"></a>Teste SSO
 

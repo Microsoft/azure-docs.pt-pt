@@ -1,15 +1,15 @@
 ---
-title: Quickstart - Criar registo - Powershell
+title: Quickstart - Criar registo - PowerShell
 description: Aprenda rapidamente a criar um registo privado de Docker no Registo de Contentores Azure com powerShell
 ms.topic: quickstart
 ms.date: 01/22/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 872b2a29444e5278db34ce44741e2ca90d885702
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 792146abeaad137a29bfea25a59a957c5f69c5ac
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74456369"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682771"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>Quickstart: Criar um registo de contentores privados utilizando o Azure PowerShell
 
@@ -51,7 +51,7 @@ O nome do registo tem de ser exclusivo no Azure e pode incluir de 5 a 50 carater
 $registry = New-AzContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic
 ```
 
-Neste quickstart cria-se um registo *Básico,* que é uma opção otimizada para os desenvolvedores que aprendem sobre o Registo de Contentores Azure. Para mais informações sobre os níveis de serviço disponíveis, consulte o [registo de contentores SKUs][container-registry-skus].
+Neste quickstart cria-se um registo *Básico,* que é uma opção otimizada para os desenvolvedores que aprendem sobre o Registo de Contentores Azure. Para mais informações sobre os níveis de serviço disponíveis, consulte os níveis de serviço de registo de [contentores][container-registry-skus].
 
 ## <a name="log-in-to-registry"></a>Iniciar sessão no registo
 
@@ -81,7 +81,7 @@ Uma vez que termine de trabalhar com os recursos que criou neste arranque rápid
 Remove-AzResourceGroup -Name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, criou um Registo de Contentores Azure com a Azure PowerShell, empurrou uma imagem de contentor, puxou e executou a imagem do registo. Continue aos tutoriais do Registo de Contentores Azure para uma olhada mais profunda na ACR.
 

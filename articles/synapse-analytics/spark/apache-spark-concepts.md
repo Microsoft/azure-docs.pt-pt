@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: b1db306ffdb1c05c880e5fc639de2cc1db130d8e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6276d198e547efec3d2e3cb88816da5e2b593aae
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82096287"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83644689"
 ---
 # <a name="apache-spark-in-azure-synapse-analytics-core-concepts"></a>Apache Spark em Conceitos Centrais de Analytics Azure Synapse
 
@@ -30,7 +30,7 @@ Como não há um dólar ou custo de recursos associado à criação de piscinas 
 
 A melhor prática é criar piscinas de faíscas mais pequenas que possam ser usadas para desenvolvimento e depuração e, em seguida, maiores para executar cargas de trabalho de produção.
 
-Você pode ler como criar uma piscina de faíscas e ver todas as suas propriedades aqui [Começar com piscinas Spark em Synapse Analytics](../quickstart-create-apache-spark-pool.md)
+Você pode ler como criar uma piscina de faíscas e ver todas as suas propriedades aqui [Começar com piscinas Spark em Synapse Analytics](../quickstart-create-apache-spark-pool-portal.md)
 
 ## <a name="spark-instances"></a>Casos de faíscas
 
@@ -60,7 +60,7 @@ Quando apresentar um segundo emprego, então se houver capacidade na piscina, a 
 - Outro utilizador, u2, submete um Job, J3, que usa 10 nós, uma nova instância spark, SI2, é criada para processar o trabalho.
 - Agora submete-se a outro trabalho, J2, que usa 10 nós porque ainda há capacidade na piscina e a instância, J2, é processada pela SI1.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
 - [Documentação de Faísca apache](https://spark.apache.org/docs/2.4.4/)

@@ -3,16 +3,16 @@ title: Visão geral da pré-visualização dos cadernos azure
 description: Executar os cadernos Jupyter na nuvem utilizando o serviço gratuito de pré-visualização de cadernos Azure, onde não é necessária configuração ou configuração.
 ms.topic: overview
 ms.date: 04/05/2019
-ms.openlocfilehash: bd2355bdefcedca5026a25915dc1da55fdc33a36
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e40b7056aef7e59759c9e04ba9d98fbfb7d28ca3
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75646335"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647551"
 ---
 # <a name="overview-of-azure-notebooks-preview"></a>Visão geral da pré-visualização dos cadernos azure
 
-O Azure Notebooks é um serviço alojado gratuito que serve para desenvolver e executar blocos de notas Jupyter na cloud sem instalação. [Jupyter](https://jupyter.org/) (anteriormente IPython) é um projeto de código aberto que permite combinar facilmente texto Markdown, código executável, dados persistentes, gráficos e visualizações em uma única tela sharable, o *caderno* (imagem cortesia de jupyter.org):
+O Azure Notebooks é um serviço alojado gratuito que serve para desenvolver e executar blocos de notas Jupyter na cloud sem instalação. [Jupyter](https://jupyter.org/) (anteriormente IPython) é um projeto de código aberto que permite combinar facilmente texto Markdown, código executável, dados persistentes, gráficos e visualizações sobre uma única tela sharable, chamada *caderno* (imagem cortesia de jupyter.org):
 
 [![Exemplos de cadernos Jupyter](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
@@ -87,7 +87,7 @@ Atualmente, recomendamos não utilizar os Cadernos Azure Preview para aplicaçõ
 
 Para discutir as suas perguntas sobre os Cadernos Azure, apresente um problema no [repositório GitHub.](https://github.com/Microsoft/AzureNotebooks/issues)
 
-## <a name="next-steps"></a>Passos seguintes  
+## <a name="next-steps"></a>Próximos passos  
 
 - [Explore os cadernos de amostras](azure-notebooks-samples.md)
 

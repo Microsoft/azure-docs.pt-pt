@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: e0bc7eeff276d44f3cd23e30eb54c9bd1ca94efd
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 49aaf9c748d75df8ffbb2adcd80aa6b966f88680
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80658683"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673191"
 ---
 1. Inicie o Eclipse.
 
@@ -19,7 +19,7 @@ ms.locfileid: "80658683"
 
 1. Dentro de momentos, é apresentada a janela principal do IDE do Eclipse. Feche o ecrã **welcome** se estiver presente.
 
-1. A partir da barra de menueclipse, crie um novo projeto escolhendo **File** > **New** > **Project**.
+1. A partir da barra de menueclipse, crie um novo projeto escolhendo **File**  >  **New**  >  **Project**.
 
 1. Aparece a caixa de diálogo **Novo Projeto**. Selecione **Projeto Java** e selecione **Seguinte**.
 
@@ -31,11 +31,11 @@ ms.locfileid: "80658683"
 
 1. Se a janela **Abrir Perspetiva Associada?** for apresentada, selecione **Abrir Perspetiva**.
 
-1. Na **Explorador de pacotes**, clique com o botão direito do rato no projeto **início rápido**. Escolha **Configure** > **Converter para Maven Project** a partir do menu de contexto.
+1. Na **Explorador de pacotes**, clique com o botão direito do rato no projeto **início rápido**. Escolha **Configure**  >  **Converter para Maven Project** a partir do menu de contexto.
 
    ![Captura de ecrã do Explorador de pacotes](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-04-convert-to-maven-project.png)
 
-1. A janela **Criar Nova POM** é apresentada. No campo **Group Id,** insira *com.microsoft.cognitiveservices.speech.samples*, e no campo **Artifact Id,** entre em *quickstart*. Em seguida, selecione **Concluir**.
+1. A janela **Criar Nova POM** é apresentada. No campo **Group Id,** insira *com.microsoft.cognitiveservices.speech.samples*, e no campo **Artifact Id,** entre em *quickstart*. Em seguida, selecione **Terminar**.
 
    ![Captura de ecrã da janela Criar nova POM](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-05-configure-maven-pom.png)
 
@@ -45,7 +45,7 @@ ms.locfileid: "80658683"
 
      [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-microphone/pom.xml#repositories)]
 
-   * Adicione também `dependencies` um elemento, com a versão 1.11.0 do Speech SDK como dependência:
+   * Adicione também um `dependencies` elemento, com a versão 1.12.0 do Speech SDK como dependência:
 
      [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-microphone/pom.xml#dependencies)]
 

@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 05/07/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d19a7cc8d81f9e6e913f147b24c5cce03ff82027
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2325259cd5e613223ee77371d7e563e8ab1e94ca
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76986738"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648452"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-tableau-server"></a>Tutorial: Azure Ative Directory integração de um único sign-on (SSO) com o Tableau Server
 
@@ -107,7 +107,7 @@ Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
    1. No campo **Nome**, introduza `B.Simon`.  
-   1. No campo de nome username@companydomain.extensiondo **Utilizador,** introduza o . Por exemplo, `B.Simon@contoso.com`.
+   1. No campo de **nome do Utilizador,** introduza o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa de verificação de **palavra-passe do Show** e, em seguida, escreva o valor que está apresentado na caixa **password.**
    1. Clique em **Criar**.
 
@@ -145,7 +145,7 @@ Nesta secção, permitirá que b.Simon utilize um único sign-on Azure, conceden
 
     b. Selecione a caixa de verificação de **Autenticação Ativa sAML para o servidor**.
 
-    c. URL de devolução do Servidor tableau — O URL a <http://tableau_server>que os utilizadores do Tableau Server vão aceder, tais como . A `http://localhost` utilização não é recomendada. Não é suportado utilizar um URL `http://tableau_server/`com um corte de rasto (por exemplo, ) Copy **Tableau Server devolver URL** e colá-lo para assinar caixa de texto **URL** na secção básica **de configuração SAML** no portal Azure
+    c. URL de devolução do Servidor tableau — O URL a que os utilizadores do Tableau Server vão aceder, tais como <http://tableau_server> . A utilização `http://localhost` não é recomendada. Não é suportado utilizar um URL com um corte de rasto (por exemplo, `http://tableau_server/` ) Copy **Tableau Server devolver URL** e colá-lo para assinar caixa de texto **URL** na secção básica **de configuração SAML** no portal Azure
 
     d. ID da entidade SAML — O ID da entidade identifica exclusivamente a instalação do Seu Servidor Tableau para o IdP. Pode introduzir o url do Tableau Server novamente aqui, se quiser, mas não tem de ser o url do Tableau Server. Copie **o ID da entidade SAML** e cole-o na caixa de texto **identificador** na secção **de configuração Básica SAML** no portal Azure
 
@@ -158,7 +158,7 @@ Nesta secção, permitirá que b.Simon utilize um único sign-on Azure, conceden
     h. Clique em **Guardar**
 
     > [!NOTE]
-    > O cliente tem de carregar qualquer certificado na configuração Tableau Server SAML SSO e será ignorado no fluxo SSO. Se precisar de ajuda para configurar o SAML no Tableau Server, consulte este artigo [Configure SAML](https://help.tableau.com/current/online/en-us/saml_config_azure_ad.htm).
+    > O cliente tem de carregar um ficheiro x509 codificado por PEM com uma extensão .crt e um ficheiro de chave privada RSA ou DSA que tenha a extensão .chave, como ficheiro Chave de Certificado. Para mais informações sobre o ficheiro de Certificado e o ficheiro Chave de Certificado, consulte [este](https://help.tableau.com/current/server/en-us/saml_requ.htm) documento. Se precisar de ajuda para configurar o SAML no Tableau Server, consulte este artigo [Configurar o Servidor Wide SAML](https://help.tableau.com/current/server/en-us/config_saml.htm).
 
 ### <a name="create-tableau-server-test-user"></a>Criar o utilizador de teste do Tableau Server
 

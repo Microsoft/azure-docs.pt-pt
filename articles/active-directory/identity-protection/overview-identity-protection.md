@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2b1d9748b243dcc2104ce7b8e0e8735a7b7276f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 27adab85f684143db29e248739492b68af869404
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79497671"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647350"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>O que é o Azure Active Directory Identity Protection?
 
@@ -86,6 +86,8 @@ A Proteção de Identidade requer que os utilizadores sejam um Leitor de Seguran
 | Operador de segurança | Ver todos os relatórios de Proteção de Identidade e lâmina de visão geral <br><br> Descartar o risco do utilizador, confirmar o insessão seguro, confirmar o compromisso | Configurar ou alterar políticas <br><br> Redefinir a palavra-passe para um utilizador <br><br> Configurar alertas |
 | Leitor de segurança | Ver todos os relatórios de Proteção de Identidade e lâmina de visão geral | Configurar ou alterar políticas <br><br> Redefinir a palavra-passe para um utilizador <br><br> Configurar alertas <br><br> Dar feedback sobre deteções |
 
+Atualmente, a função do operador de segurança não pode aceder ao relatório de entrada de risco.
+
 Os administradores de Acesso Condicional também podem criar políticas que fator de risco de inscrição como condição, encontrar mais informações no artigo [Acesso Condicional: Condições](../conditional-access/concept-conditional-access-conditions.md#sign-in-risk).
 
 ## <a name="license-requirements"></a>Requisitos de licença
@@ -104,7 +106,7 @@ Os administradores de Acesso Condicional também podem criar políticas que fato
 | Notificações | Digestão semanal | Sim | Não | Não |
 | | Política de registo de MFA | Sim | Não | Não |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Descrição geral da segurança](concept-identity-protection-security-overview.md)
 

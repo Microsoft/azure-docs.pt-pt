@@ -5,20 +5,19 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
+ms.custom: subject-armqs
 ms.date: 04/06/2020
 ms.author: victorh
-ms.openlocfilehash: 53e5bf4f770ce986af2f3572bd6c1ef4cd9e3c2b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 403aaafebcae680f337aeff551b81a80a9549252
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81605235"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680564"
 ---
 # <a name="quickstart-create-an-azure-firewall-and-ip-groups---resource-manager-template"></a>Quickstart: Criar um Azure Firewall e grupos IP - modelo de Gestor de Recursos
 
-Neste arranque rápido, você usa um modelo de Gestor de Recursos para implementar um Firewall Azure com grupos IP de amostra utilizados numa regra de rede e regra de aplicação.
-
-Um Grupo IP é um recurso de alto nível que permite definir e agrupar endereços IP, gamas e subnets num único objeto. Isto é útil para a gestão de endereços IP nas regras da Firewall Azure. Pode introduzir manualmente endereços IP ou importá-los a partir de um ficheiro.
+Neste arranque rápido, você usa um modelo de Gestor de Recursos para implementar um Firewall Azure com grupos IP de amostra utilizados numa regra de rede e regra de aplicação. Um Grupo IP é um recurso de alto nível que permite definir e agrupar endereços IP, gamas e subnets num único objeto. Isto é útil para a gestão de endereços IP nas regras da Firewall Azure. Pode introduzir manualmente endereços IP ou importá-los a partir de um ficheiro.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -32,22 +31,21 @@ Este modelo cria um Azure Firewall e grupos IP, juntamente com os recursos neces
 
 ### <a name="review-the-template"></a>Reveja o modelo
 
-O modelo usado neste quickstart é de [modelos Azure Quickstart](https://github.com/Azure/azure-quickstart-templates/blob/master/101-azurefirewall-create-with-ipgroups-and-linux-jumpbox/azuredeploy.json)
+O modelo utilizado neste quickstart é de [modelos Azure Quickstart](https://azure.microsoft.com/resources/templates/101-azurefirewall-create-with-ipgroups-and-linux-jumpbox).
 
 :::code language="json" source="~/quickstart-templates/101-azurefirewall-create-with-ipgroups-and-linux-jumpbox/azuredeploy.json" range="001-512" highlight="118-141":::
 
 Vários recursos Azure são definidos no modelo:
 
 - [**Microsoft.Network/ipGroups**](/azure/templates/microsoft.network/ipGroups)
-- [**Microsoft.Network/publicIPAddresss**](/azure/templates/microsoft.network/publicipaddresses)
+- [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageAccounts)
+- [**Microsoft.Network/routeTables**](/azure/templates/microsoft.network/routeTables)
 - [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
 - [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
-- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)
+- [**Microsoft.Network/publicIPAddresss**](/azure/templates/microsoft.network/publicipaddresses)
 - [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces)
-- [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageAccounts)
+- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)
 - [**Microsoft.Network/azureFirewalls**](/azure/templates/microsoft.network/azureFirewalls)
-- [**Microsoft.Network/routeTables**](/azure/templates/microsoft.network/routeTables)
-
 
 ### <a name="deploy-the-template"></a>Implementar o modelo
 
@@ -84,13 +82,13 @@ Para saber mais sobre a sintaxe jSON e propriedades para uma firewall num modelo
 
 Quando já não precisa dos recursos que criou com a firewall, elimine o grupo de recursos. Isto remove a firewall e todos os recursos relacionados.
 
-Para eliminar o grupo `Remove-AzResourceGroup` de recursos, ligue para o cmdlet:
+Para eliminar o grupo de recursos, ligue para o `Remove-AzResourceGroup` cmdlet:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name "<your resource group name>"
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Tutorial: Implementar e configurar firewall Azure numa rede híbrida utilizando o portal Azure](tutorial-hybrid-portal.md)

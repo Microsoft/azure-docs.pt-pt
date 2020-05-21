@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 04/01/2020
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: 1d1da88d1e7eaf06ebf71da999ef8fb25c7cf066
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 77b801837be80749ca73dd4ae5c526a7980e83e0
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81482204"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652703"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Tutorial: Automatizar imagens carregadas usando a Grelha de Eventos
 
@@ -37,7 +37,7 @@ Utilize a CLI do Azure e o portal do Azure para adicionar a funcionalidade de re
 
 ---
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar uma conta de Armazenamento do Azure
@@ -192,15 +192,15 @@ O código de projeto de função é implementado diretamente a partir do reposit
 
 Uma subscrição de evento indica que eventos gerados pelo fornecedor quer que sejam enviados para um ponto final específico. Neste caso, o ponto final é exposto pela sua função. Utilize os passos seguintes para criar uma subscrição de evento que envia notificações para a sua função no portal do Azure:
 
-1. No [portal Azure,](https://portal.azure.com)selecione **Todos os Serviços** no menu esquerdo e, em seguida, selecione **Aplicações de Função**.
+1. No [portal Azure,](https://portal.azure.com)no topo da página procure e selecione `Function App` e escolha a aplicação de funções que acabou de criar. Selecione **Funções** e escolha a função **Miniatura.**
 
-    ![Navegue para funcionar apps no portal Azure](./media/resize-images-on-storage-blob-upload-event/portal-find-functions.png)
+    :::image type="content" source="media/resize-images-on-storage-blob-upload-event/choose-thumbnail-function.png" alt-text="Escolha a função Miniatura no portal":::
 
-2. Expanda a sua aplicação de função, escolha a função **Miniatura** e, em seguida, selecione **adicionar subscrição de Rede de Eventos**.
+1.  Selecione **Integração,** escolha o Gatilho da Grelha de **Eventos** e selecione **Criar subscrição de Rede**de Eventos .
 
-    ![Navegue para adicionar subscrição da Grelha de Eventos no portal Azure](./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png)
+    :::image type="content" source="./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png" alt-text="Navegue para adicionar subscrição da Grelha de Eventos no portal Azure" :::
 
-3. Utilize as definições de subscrição de evento especificadas na tabela.
+1. Utilize as definições de subscrição de evento especificadas na tabela.
     
     ![Criar uma subscrição de evento a partir da função no portal do Azure](./media/resize-images-on-storage-blob-upload-event/event-subscription-create.png)
 
@@ -215,13 +215,13 @@ Uma subscrição de evento indica que eventos gerados pelo fornecedor quer que s
     | **Tipo endpoint** | gerado automaticamente | Pré-definida como **Função Azure**. |
     | **Ponto Final** | gerado automaticamente | Nome da função. Neste caso, é **miniatura.** |
 
-4. Mude para o separador Filtros e faça as **seguintes** ações:
+1. Mude para o separador Filtros e faça as **seguintes** ações:
     1. Selecione ativar a opção de filtragem do **assunto.**
     2. Para **o Assunto começa com**, insira o seguinte valor : **/blobServices/default/containers/images/blobs/**.
 
         ![Especificar filtro para a subscrição do evento](./media/resize-images-on-storage-blob-upload-event/event-subscription-filter.png)
 
-5. Selecione **Criar** para adicionar a subscrição do evento. Isto cria uma subscrição `Thumbnail` de evento que desencadeia `images` a função quando uma bolha é adicionada ao recipiente. A função redimensiona as imagens e adiciona-as ao `thumbnails` recipiente.
+1. Selecione **Criar** para adicionar a subscrição do evento. Isto cria uma subscrição de evento que desencadeia a `Thumbnail` função quando uma bolha é adicionada ao `images` recipiente. A função redimensiona as imagens e adiciona-as ao `thumbnails` recipiente.
 
 Agora que os serviços de back-end estão configurados, teste a funcionalidade de redimensionamento de imagens na aplicação Web de exemplo.
 

@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: f36a76187538d93b57d2d3f5973408f141271f67
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1dfac9a56e3bc299fbb0651ae1cd5644eba83267
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81424112"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83645821"
 ---
 # <a name="azure-synapse-analytics-ip-firewall-rules-preview"></a>Regras de firewall IP azure Synapse Analytics (pré-visualização)
 
@@ -42,9 +42,9 @@ Certifique-se de que a firewall na sua rede e computador local permite a comunic
 
 Além disso, você precisa permitir comunicação de saída na porta UDP 53 para O Estúdio Synapse. Para ligar utilizando ferramentas como SSMS e Power BI, deve permitir a comunicação de saída na porta TCP 1433.
 
-Se estiver a utilizar a definição de política de ligação redirecionamento padrão, poderá ter de permitir a comunicação de saída em portas adicionais. Pode saber mais sobre as políticas de conexão aqui.
+Se estiver a utilizar a definição de política de ligação redirecionamento padrão, poderá ter de permitir a comunicação de saída em portas adicionais. Pode saber mais sobre as políticas de conexão [aqui.](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-architecture#connection-policy)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Criar um espaço de [trabalho Azure Synapse](../quickstart-create-workspace.md)
 

@@ -9,12 +9,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: d8c38707f68b5841edb39e4527ec2cdcb1a35adf
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.custom: designer
+ms.openlocfilehash: 41b6fb38798e9aa7264000676d81101db1c83236
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983385"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656530"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Tutorial: Implementar um modelo de machine learning com o designer (pré-visualização)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -37,7 +38,7 @@ Para implantar o seu oleoduto, primeiro tem de converter o gasoduto de treino nu
 
 ### <a name="create-a-real-time-inference-pipeline"></a>Criar um oleoduto de inferência em tempo real
 
-1. Acima da tela do gasoduto, selecione Criar gasoduto > de **inferência**Em**tempo real**.
+1. Acima da tela do gasoduto, selecione Criar gasoduto de **inferência**Em  >  **tempo real**.
 
     ![Screenshot mostrando onde encontrar o botão de criar pipeline](./media/tutorial-designer-automobile-price-deploy/tutorial2-create-inference-pipeline.png)
 
@@ -68,7 +69,7 @@ Na caixa de diálogo que aparece, pode selecionar entre quaisquer clusters de Se
 
 1. Selecione **Compute** na caixa de diálogo que parece ir para a página **Compute.**
 
-1. Na fita de navegação, selecione **Clusters** > de Inferência **+ Novo**.
+1. Na fita de navegação, selecione **Clusters de Inferência**  >  **+ Novo**.
 
     ![Screenshot mostrando como chegar ao novo painel de cluster de inferência](./media/tutorial-designer-automobile-price-deploy/new-inference-cluster.png)
 
@@ -120,7 +121,7 @@ Após os acabamentos de implementação, pode testar o seu ponto final em tempo 
 
 [!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu os passos-chave na forma de criar, implantar e consumir um modelo de machine learning no designer. Para saber mais sobre como pode usar o designer para resolver outros tipos de problemas, consulte os nossos outros pipelines de amostra.
 

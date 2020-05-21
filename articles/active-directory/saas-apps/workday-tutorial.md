@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2f39b6f58b250d68a3b2ce962f158c7df36d812
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 83fd986e31410e34871d1b795db0c8c83ece688e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77046606"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648609"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workday"></a>Tutorial: Azure Ative Diretório integração individual (SSO) com workday
 
@@ -91,7 +91,7 @@ Siga estes passos para permitir o Azure AD SSO no portal Azure.
 
     > [!NOTE]
     > Estes valores não são os reais. Atualize estes valores com o URL de inscrição e url de resposta real. O URL de resposta deve ter um subdomínio, por exemplo: www,wd2, wd3, wd3-impl, wd5, wd5-impl).
-    > Usar algo `http://www.myworkday.com` como `http://myworkday.com` obras, mas não funciona. Contacte a equipa de apoio ao [cliente workday](https://www.workday.com/en-us/partners-services/services/support.html) para obter estes valores. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
+    > Usar algo como `http://www.myworkday.com` obras, mas `http://myworkday.com` não funciona. Contacte a equipa de apoio ao [cliente workday](https://www.workday.com/en-us/partners-services/services/support.html) para obter estes valores. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
 
 6. A sua aplicação Workday espera as afirmações do SAML num formato específico, o que requer que adicione mapeamentos personalizados de atributos à configuração de atributos de token SAML. A imagem a seguir mostra a lista de atributos predefinidos, onde o identificador de **nomes** é mapeado com **nome de utilizador.userprincipal .** A aplicação Workday espera que o identificador de **nomes** seja mapeado com **user.mail**, **UPN,** etc., por isso precisa editar o mapeamento do atributo clicando no ícone **Editar** e alterar o mapeamento do atributo.
 
@@ -126,7 +126,7 @@ Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
    1. No campo **Nome**, introduza `B.Simon`.  
-   1. No campo de nome username@companydomain.extensiondo **Utilizador,** introduza o . Por exemplo, `B.Simon@contoso.com`.
+   1. No campo de **nome do Utilizador,** introduza o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa de verificação de **palavra-passe do Show** e, em seguida, escreva o valor que está apresentado na caixa **password.**
    1. Clique em **Criar**.
 
@@ -170,7 +170,7 @@ Nesta secção, permitirá que b.Simon utilize um único sign-on Azure, conceden
 
    > [!NOTE]
    > O valor do atributo ambiental está ligado ao valor do URL do arrendatário:  
-   > -Se o nome de domínio do URL do inquilino do Workday começar com o impl, por exemplo: * https://www.myworkday.com/"inquilino"/login-saml2.htmld),* **o** atributo ambiente deve ser definido para implementação.  
+   > -Se o nome de domínio do URL do inquilino do Workday começar com o impl, por exemplo: * https://www.myworkday.com/ "inquilino"/login-saml2.htmld),* **o** atributo ambiente deve ser definido para implementação.  
    > -Se o nome de domínio começar com outra coisa, precisa de contactar a equipa de suporte do [Cliente Workday](https://www.workday.com/en-us/partners-services/services/support.html) para obter o valor **ambiente** correspondente.
 
 4. Na secção **de configuração SAML,** execute os seguintes passos:
@@ -209,7 +209,7 @@ Nesta secção, permitirá que b.Simon utilize um único sign-on Azure, conceden
 
     ![Ver x509 Chave Pública](./media/workday-tutorial/IC782930.png "Ver x509 Chave Pública")
 
-    a. Na caixa de texto **Name,** digite um nome para o seu certificado (por exemplo: *PPE\_SP*).
+    a. Na caixa de texto **Name,** digite um nome para o seu certificado (por exemplo: *PPE \_ SP*).
 
     b. Na Caixa de Texto **Válida,** escreva o valor válido do valor do atributo do seu certificado.
 
@@ -230,7 +230,7 @@ Nesta secção, permitirá que b.Simon utilize um único sign-on Azure, conceden
 
     ![Configuração SSO](./media/workday-tutorial/WorkdaySSOConfiguratio.png "Configuração SSO")
 
-    a.  Na caixa de texto ID **http://www.workday.com**do Prestador de **Serviços,** escreva .
+    a.  Na caixa de texto ID do Prestador de **Serviços,** escreva **http://www.workday.com** .
 
     b. Selecione Não esvazie o **pedido de autenticação iniciado por SP**.
 
@@ -247,7 +247,7 @@ Nesta secção, permitirá que b.Simon utilize um único sign-on Azure, conceden
 
 ### <a name="create-workday-test-user"></a>Criar o utilizador do teste Workday
 
-Nesta secção, cria-se um utilizador chamado B.Simon no Dia do Trabalho. Trabalhe com a equipe de suporte ao [Cliente Workday](https://www.workday.com/partners-services/services/support.html) para adicionar os utilizadores na plataforma Workday. Os utilizadores devem ser criados e ativados antes de utilizar um único sinal.
+Nesta secção, cria-se um utilizador chamado B.Simon no Dia do Trabalho. Trabalhe com a equipe de suporte ao [Cliente Workday](https://www.workday.com/en-us/partners-services/services/support.html) para adicionar os utilizadores na plataforma Workday. Os utilizadores devem ser criados e ativados antes de utilizar um único sinal.
 
 ## <a name="test-sso"></a>Teste SSO
 

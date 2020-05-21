@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 01a9a8239e2997335f5123d63cfc664027cffa02
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 27471cad2dfcd7accdb6b43414f216f85552fab3
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75376397"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652482"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-spatial-anchors-in-cwinrt-and-directx"></a>Quickstart: Criar uma aplicação HoloLens com Âncoras Espaciais Azure, em C++/WinRT e DirectX
 
@@ -50,9 +50,11 @@ O próximo passo é configurar a aplicação para utilizar o identificador de co
 
 Abra `HoloLens\DirectX\SampleHoloLens\ViewController.cpp`.
 
-Localize `SpatialAnchorsAccountKey` o `Set me` campo e substitua-o pela chave da conta.
+Localize o `SpatialAnchorsAccountKey` campo e `Set me` substitua-o pela chave da conta.
 
-Localize `SpatialAnchorsAccountId` o `Set me` campo e substitua-o pelo identificador de conta.
+Localize o `SpatialAnchorsAccountId` campo e `Set me` substitua-o pelo identificador de conta.
+
+Localize `case DemoStep::ConfigSession:` e adicione a seguinte linha, substituindo no domínio da sua conta anterior: `configuration.AccountKey("MyAccountDomain");` .
 
 ## <a name="deploy-the-app-to-your-hololens"></a>Implemente a aplicação para os seus HoloLens
 
@@ -64,7 +66,7 @@ Se utilizar hololens 2, utilize o **ARM64** como Plataforma de **Solução**, em
 
 Ligue o dispositivo HoloLens, inscreva-se e ligue-o ao PC utilizando um cabo USB.
 
-Selecione **Debug** > **Comece a depurar-se** para implementar a sua aplicação e comece a depurar.
+Selecione **Debug**  >  **Comece a depurar-se** para implementar a sua aplicação e comece a depurar.
 
 Siga as instruções na aplicação para colocar e lembre-se de uma âncora.
 

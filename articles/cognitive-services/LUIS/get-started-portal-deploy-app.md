@@ -3,12 +3,12 @@ title: 'Quickstart: Implemente uma app com o portal LUIS'
 description: Este quickstart mostra como implementar uma aplicação criando um recurso final de previsão, atribuindo o recurso, formação e publicação da app.
 ms.topic: quickstart
 ms.date: 05/06/2020
-ms.openlocfilehash: 9b22f1eda822b5354f0b434a04c2ea03e4c0ff2a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 743c2fe311eeeabad5a3e957319be3a6e372e74f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585099"
+ms.locfileid: "83653226"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Quickstart: Implementar uma aplicação no portal LUIS
 
@@ -40,7 +40,8 @@ Sempre que cria um novo recurso de autor ou previsão de consulta para o LUIS, t
 
 1. Selecione o seu nome de inquilino, subscrição e recursos. Selecione **recurso atribuir**.
 
-   ![Atribuir um recurso à sua aplicação](./media/get-started-portal-deploy-app/assign-resource.png)
+   > [!div class="mx-imgBorder"]
+   > ![Atribuir um recurso à sua aplicação](./media/get-started-portal-deploy-app/assign-resource.png)
 
 1. Complete os mesmos passos para adicionar a chave de autor à sua aplicação.
 
@@ -51,11 +52,11 @@ Sempre que cria um novo recurso de autor ou previsão de consulta para o LUIS, t
 
 ## <a name="train-the-app"></a>Preparar a aplicação
 
-[!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
+Se mudou a aplicação desde que a treinou pela última vez, [treine](get-started-portal-build-app.md) a aplicação.
 
 ## <a name="publish-the-app-to-the-prediction-endpoint"></a>Publique a app para o ponto final da previsão
 
-[!INCLUDE [LUIS How to Train steps](includes/howto-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](includes/howto-publish.md)]
 
 ## <a name="prediction-endpoint-request"></a>Pedido de ponto final de previsão
 
@@ -115,7 +116,7 @@ Para ver este mesmo nível de informação no painel de teste, tem de publicar a
 
 Quando terminar com este quickstart, selecione **Minhas aplicações** no menu de navegação superior. Selecione a caixa de verificação da aplicação da lista e, em seguida, selecione **Eliminar** a partir da barra de ferramentas de contexto acima da lista.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Identificar intenções e entidades comuns](luis-tutorial-prebuilt-intents-entities.md)

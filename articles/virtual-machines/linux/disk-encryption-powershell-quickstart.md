@@ -7,18 +7,18 @@ ms.service: virtual-machines-linux
 ms.subservice: security
 ms.topic: quickstart
 ms.date: 05/17/2019
-ms.openlocfilehash: a2cb8919ac0752c42f22e064d6201c7120fbc9b6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b78ef71c63448653cab24ccea25e53f64490fa2f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78970538"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655827"
 ---
 # <a name="quickstart-create-and-encrypt-a-linux-vm-in-azure-with-azure-powershell"></a>Quickstart: Crie e criptografe um Linux VM em Azure com a Azure PowerShell
 
 O módulo do Azure PowerShell é utilizado para criar e gerir recursos do Azure a partir da linha de comandos do PowerShell ou em scripts. Este quickstart mostra-lhe como usar o módulo Azure PowerShell para criar uma máquina virtual Linux (VM), criar um Cofre chave para o armazenamento de chaves de encriptação e encriptar o VM. Este quickstart utiliza a imagem de mercado Ubuntu 16.04 LTS da Canonical e um VM Standard_D2S_V3 tamanho. 
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -33,9 +33,9 @@ New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
 Crie uma máquina virtual Azure com [New-AzVM,](/powershell/module/az.compute/new-azvm)passando para ele o objeto de configuração VM que criou acima.
 
 ```powershell-interactive
-$cred = = Get-Credential
+$cred = Get-Credential
 
-New-AzVM -Name MyVm -Credential $cred -ResourceGroupName MyResourceGroup -Image Canonical:UbuntuServer:16.04-LTS:latest -Size Standard_D2S_V3
+New-AzVM -Name MyVm -Credential $cred -ResourceGroupName MyResourceGroup -Image Canonical:UbuntuServer:18.04-LTS:latest -Size Standard_D2S_V3
 ```
 
 Irá demorar alguns minutos até a VM ser implementada. 
@@ -94,7 +94,7 @@ Quando já não for necessário, pode utilizar o cmdlet [Remove-AzResourceGroup]
 Remove-AzResourceGroup -Name "myResourceGroup"
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, criou uma máquina virtual, criou um Cofre chave que estava habilitado para chaves de encriptação e encriptava o VM.  Avance para o próximo artigo para saber mais sobre a Encriptação de Disco Azure para VMs Linux.
 

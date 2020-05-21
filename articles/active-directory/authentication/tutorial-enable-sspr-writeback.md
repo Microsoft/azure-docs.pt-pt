@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd4815187e829cff56893988874e4dcac3b8985e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d0ea181b0e6ac18a559614c5bce0707775acdcec
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82143764"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83640196"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Tutorial: Enable Azure Ative Diretório auto-service password repor reescrita para um ambiente no local
 
@@ -23,7 +23,7 @@ Com o reset de autosserviço do Azure Ative Directory (Azure AD), os utilizadore
 
 A reescrita de palavra-passe pode ser usada para sincronizar as alterações de palavra-passe no Azure AD de volta ao seu ambiente AD DS no local. O Azure AD Connect fornece um mecanismo seguro para enviar estas alterações de senha de volta para um diretório existente no local a partir de Azure AD.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Configure as permissões necessárias para a reescrita de palavra-passe
@@ -59,11 +59,15 @@ Para funcionar corretamente com a reescrita da SSPR, a conta especificada no Azu
 
 Se não atribuir estas permissões, a reprodução parece estar configurada corretamente, mas os utilizadores encontram erros quando gerem as suas palavras-passe no local a partir da nuvem. Devem ser aplicadas permissões a **Este objeto e a todos os objetos descendentes** para que apareça "Palavra-passe não expirada".  
 
+> [!TIP]
+>
+> Se as palavras-passe de algumas contas de utilizador não forem redigidas para o diretório no local, certifique-se de que a herança não é desativada para a conta no ambiente ad DS on-prem. As permissões de escrita para senhas devem ser aplicadas a objetos descendentes para que a funcionalidade funcione corretamente.
+
 Para configurar as permissões adequadas para a reescrita de palavra-passe, complete os seguintes passos:
 
 1. No seu ambiente AD DS no local, abra **utilizadores e computadores de diretório ativo** com uma conta que tenha as permissões adequadas do administrador de *domínio.*
 1. A partir do menu **'Ver',** certifique-se de que as **funcionalidades Avançadas** estão ligadas.
-1. No painel esquerdo, selecione o objeto que representa a raiz do domínio e selecione **Properties** > **Security** > **Advanced**.
+1. No painel esquerdo, selecione o objeto que representa a raiz do domínio e selecione **Properties**  >  **Security**  >  **Advanced**.
 1. A partir do separador **Permissões,** selecione **Adicionar**.
 1. Para **principal,** selecione a conta à a que as permissões devem ser aplicadas (a conta utilizada pelo Azure AD Connect).
 1. Na lista **Aplica-se à** lista de abandono, selecione **objetos de utilizador descendentes**.
@@ -79,9 +83,9 @@ Para configurar as permissões adequadas para a reescrita de palavra-passe, comp
 
 Quando atualiza as permissões, pode demorar até uma hora ou mais para que estas permissões se reproduzam a todos os objetos do seu diretório.
 
-As políticas de password no ambiente AD DS no local podem impedir que os resets de palavra-passe sejam corretamente processados. Para que a reescrita de palavra-passe funcione de forma mais eficiente, a política de grupo para a idade mínima da *palavra-passe* deve ser definida para 0. Esta definição pode ser encontrada em **políticas de configuração de computador > > definições do Windows > Definições de segurança > políticas** de conta dentro de `gpedit.msc`.
+As políticas de password no ambiente AD DS no local podem impedir que os resets de palavra-passe sejam corretamente processados. Para que a reescrita de palavra-passe funcione de forma mais eficiente, a política de grupo para a idade mínima da *palavra-passe* deve ser definida para 0. Esta definição pode ser encontrada em políticas de **configuração de > de computador > Definições do Windows > Definições** de segurança > políticas de conta dentro `gpedit.msc` de .
 
-Se atualizar a política do grupo, aguarde que `gpupdate /force` a política atualizada se reproduza ou utilize o comando.
+Se atualizar a política do grupo, aguarde que a política atualizada se reproduza ou utilize o `gpupdate /force` comando.
 
 > [!Note]
 > Para que as palavras-passe sejam alteradas imediatamente, a reescrita da palavra-passe deve ser definida para 0. No entanto, se os utilizadores aderirem às políticas no local, e a idade mínima da *palavra-passe* for fixada para um valor superior a zero, a redação da palavra-passe continuará a funcionar após a avaliação das políticas no local. 
@@ -139,7 +143,7 @@ Se já não pretender utilizar qualquer funcionalidade de senha, complete os seg
 1. Na página **Pronto a configurar**, selecione **Configurar** e aguarde que o processo termine.
 1. Quando vir a configuração a concluir, selecione **Sair**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, permitiu que a Azure AD SSPR reescrevesse para um ambiente AD DS no local. Aprendeu a:
 

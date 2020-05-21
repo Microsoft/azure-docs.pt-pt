@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: c7ae76128e90dbd9328c4bc5adcbddc334ab11cc
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: c49e5f421f88b4d2676204ff0a32a0aa2b808be1
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983164"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652656"
 ---
 # <a name="azure-synapse-analytics-cheat-sheet"></a>Folha de batota azure Synapse Analytics
 
@@ -31,7 +31,7 @@ A folha de batota Azure Synapse Analytics irá guiá-lo através dos conceitos b
 | Substantivos e verbos                         | O que faz       |
 |:---                                 |:---                 |
 | **Espaço de trabalho sinapse (pré-visualização)** | Um limite de colaboração assegurável para fazer análises empresariais baseadas em nuvem em Azure. Um espaço de trabalho é implantado numa região específica e tem um sistema de conta e ficheiros Associado aDLS Gen2 (para armazenar dados temporários). Um espaço de trabalho está sob um grupo de recursos. |
-| **Análise de SQL**   | Executar análises com piscinas ou com capacidades a pedido.  |
+| **SQL do Synapse**   | Executar análises com piscinas ou com capacidades a pedido.  |
 | **Conjunto de SQL**   | Os recursos aprovisionados 0 a N SQL com as respetivas bases de dados podem ser implantados num espaço de trabalho. Cada piscina SQL tem uma base de dados associada. Uma piscina SQL pode ser dimensionada, pausada e retomada manualmente ou automaticamente. Uma piscina SQL pode escalar de 100 DWU até 30.000 DWU.       |
 | **SQL on-demand (pré-visualização)**   | Sistema de processamento de dados distribuído construído para dados em larga escala que permite executar consultas T-SQL sobre dados em data lake. É inútil para que não precise de gerir a infraestrutura.       |
 |**Apache Spark** | Tempo de faísca usado numa piscina de faíscas. A versão atual suportada é Spark 2.4 com Python 3.6.1, Scala 2.11.12, .NET suporte para Apache Spark 0.5 e Delta Lake 0.3.  | 
@@ -51,11 +51,11 @@ A folha de batota Azure Synapse Analytics irá guiá-lo através dos conceitos b
 |**Serviço ligado**| Cordas de ligação que definem as informações de ligação necessárias para que o espaço de trabalho se conectem a recursos externos.|
 |**Conjunto de dados**|  Vista nomeada de dados que simplesmente apontam ou referem os dados a serem utilizados numa atividade como entrada e saída. Pertence a um Serviço Ligado.|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Criar uma área de trabalho](quickstart-create-workspace.md)
 - [Use o Estúdio Synapse](quickstart-synapse-studio.md)
-- [Criar uma piscina SQL](quickstart-create-sql-pool.md)
+- [Criar uma piscina SQL](quickstart-create-sql-pool-portal.md)
 - [Utilizar o SQL a pedido](quickstart-sql-on-demand.md)
-- [Crie uma piscina apache spark](quickstart-create-apache-spark-pool.md)
+- [Crie uma piscina apache spark](quickstart-create-apache-spark-pool-portal.md)
 

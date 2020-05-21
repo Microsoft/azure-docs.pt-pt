@@ -1,17 +1,16 @@
 ---
 title: Quickstart - Back up a VM with the Azure portal
 description: Neste Quickstart, aprenda a criar um cofre de Serviços de Recuperação, permita proteção num VM Azure, e faça backup o VM, com o portal Azure.
-ms.reviewer: saurse
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 02/06/2020
+ms.date: 05/12/2020
 ms.custom: mvc
-ms.openlocfilehash: 4bff53516447408486a6e40f2f7059ebc811aaa4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 80944d99c51ae4880a40df8700a73d08a95efe77
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79240451"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656923"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Fazer uma cópia de segurança de uma máquina virtual no Azure
 
@@ -66,11 +65,11 @@ Na janela **Cópia de segurança** da VM, o estado da cópia de segurança e o n
 
 Quando já não precisar, pode desativar a proteção na VM, remover os pontos de restauro e o cofre dos Serviços de Recuperação e, em seguida, eliminar o grupo de recursos e os recursos da VM associados.
 
-Se quiser avançar para um tutorial de Cópia de segurança que explique como restaurar dados para a sua VM, ignore os passos desta secção e aceda a [Passos seguintes](#next-steps).
+Se vai continuar num tutorial de backup que explique como restaurar os dados para o seu VM, salte os passos nesta secção e vá para [os próximos passos](#next-steps).
 
 1. Selecione a opção **Cópia de segurança** para a sua VM.
 
-2. Selecione **...Mais** para mostrar opções adicionais e, em seguida, escolha **Parar cópia de segurança**.
+2. Escolha **parar a cópia de segurança**.
 
     ![Parar a cópia de segurança da VM a partir do portal do Azure](./media/quick-backup-vm-portal/stop-backup.png)
 
@@ -86,7 +85,7 @@ Se quiser avançar para um tutorial de Cópia de segurança que explique como re
 
     ![Eliminar o grupo de recursos do portal do Azure](./media/quick-backup-vm-portal/delete-resource-group.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste início rápido, criou um cofre dos Serviços de Recuperação, ativou a proteção numa VM e criou o ponto de recuperação inicial. Para saber mais sobre o Azure Backup e os Serviços de Recuperação, prossiga para os tutoriais.
 
