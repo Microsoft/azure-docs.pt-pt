@@ -8,16 +8,16 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 05/07/2020
+ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b75f03afc587d9616997b1df48b9c5c5166cb89
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: fe9c9f44c42ef1e8dd6ff3401ad7201b174aa952
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681713"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725300"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: histórico de versões
 A equipa azure Ative Directory (Azure AD) atualiza regularmente o Azure AD Connect com novas funcionalidades e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -58,8 +58,7 @@ Esta construção de hotfix corrige um problema em que os domínios não selecio
 
 
 >[!NOTE]
->Esta versão é necessária para utilizar o novo Azure AD Connect sync V2 endpoint API.  Para mais informações consulte [Azure AD Connect sync V2 endpoint API (pré-visualização pública)](how-to-connect-sync-endpoint-api-v2.md).
-
+>Esta versão inclui o novo Azure AD Connect sync V2 endpoint API.  Este novo ponto final v2 está atualmente em pré-visualização pública.  Esta versão ou posteriormente é necessária para utilizar o novo V2 endpoint API.  No entanto, a simples instalação desta versão não permite o ponto final V2. Continuará a utilizar o ponto final V1 a menos que ative o ponto final V2.  É necessário seguir os passos sob o [Azure AD Connect sync V2 endpoint API (pré-visualização pública)](how-to-connect-sync-endpoint-api-v2.md) de forma a permitir e optar pela pré-visualização pública.  
 
 ## <a name="15290"></a>1.5.29.0
 
@@ -913,7 +912,7 @@ CBool(
     |CertFriendlyName|CertThumbprint|CertExtensionOids|
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotAntes|CertPublicKeyParametersOid|
-    |CertVersion|CertSignatureAlgorithmOid|Selecionar|
+    |CertVersion|CertSignatureAlgorithmOid|Selecione|
     |CertKeyAlgorithmParams|CertHashString|Onde|
     |||Com|
 
@@ -1431,5 +1430,5 @@ Lançado: setembro de 2014
 
 **Lançamento inicial do Azure AD Sync.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

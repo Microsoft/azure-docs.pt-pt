@@ -1,15 +1,15 @@
 ---
-title: Disponibilize uma piscina numa rede virtual - Azure Batch [ Lote Azul ] Microsoft Docs
+title: Fornecer uma piscina em uma rede virtual
 description: Como criar um pool de Lote numa rede virtual Azure para que os nós de computação possam comunicar de forma segura com outros VMs na rede, como um servidor de ficheiros.
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: 616118d5f75f9bfa6d97d89baac9d7ea9186cd5d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6ca9a8bb60ecbea38da7dfdb44123d7201d6a112
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82111900"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726286"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Crie uma piscina de Lote Azure numa rede virtual
 
@@ -51,9 +51,9 @@ Pode ter requisitos na sua organização para redirecionar (força) tráfego lig
 
 Para garantir que os seus nós de computação de piscina Azure Batch funcionam num VNet que tenha forçado a colocação de túneis, deve adicionar as seguintes [rotas definidas pelo utilizador](../virtual-network/virtual-networks-udr-overview.md) para essa sub-rede:
 
-* O serviço Batch precisa de comunicar com os nossos nódos de cálculo de piscina para tarefas de agendamento. Para ativar esta comunicação, adicione uma rota definida pelo utilizador para cada endereço IP utilizado pelo serviço 'Lote' na região onde existe a sua conta Batch. Para saber como obter a lista de endereços IP do serviço Batch, consulte [as etiquetas de serviço no local](../virtual-network/service-tags-overview.md). Os endereços IP do serviço de `BatchNodeManagement` lote serão associados com a etiqueta de serviço (ou a variante regional que corresponde à região da sua conta Batch).
+* O serviço Batch precisa de comunicar com os nossos nódos de cálculo de piscina para tarefas de agendamento. Para ativar esta comunicação, adicione uma rota definida pelo utilizador para cada endereço IP utilizado pelo serviço 'Lote' na região onde existe a sua conta Batch. Para saber como obter a lista de endereços IP do serviço Batch, consulte [as etiquetas de serviço no local](../virtual-network/service-tags-overview.md). Os endereços IP do serviço de lote serão associados com a etiqueta de `BatchNodeManagement` serviço (ou a variante regional que corresponde à região da sua conta Batch).
 
-* Certifique-se de que o tráfego de saída para `<account>.table.core.windows.net`o `<account>.queue.core.windows.net`Armazenamento `<account>.blob.core.windows.net`Azure (especificamente, URLs do formulário , e ) não está bloqueado através do seu aparelho de rede no local.
+* Certifique-se de que o tráfego de saída para o Armazenamento Azure (especificamente, URLs do formulário , e ) não está bloqueado através do `<account>.table.core.windows.net` seu aparelho de rede no `<account>.queue.core.windows.net` `<account>.blob.core.windows.net` local.
 
 Quando adicionar uma rota definida pelo utilizador, defina a rota para cada prefixo de endereço IP do Lote e coloque o **tipo de lúpulo seguinte** na **Internet**. Veja o seguinte exemplo:
 
@@ -62,7 +62,7 @@ Quando adicionar uma rota definida pelo utilizador, defina a rota para cada pref
 > [!WARNING]
 > Os endereços IP do serviço de lote podem ser alterados ao longo do tempo. Para evitar uma interrupção devido a uma alteração de endereço IP, sugerimos que estabeleça um processo periódico para atualizar automaticamente os endereços IP do serviço de lote e mantê-los atualizados na tabela de rotas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para uma visão geral aprofundada do Lote, consulte Desenvolver soluções de [computação paralela em larga escala com lote](batch-api-basics.md).
 - Para mais informações sobre a criação de uma rota definida pelo utilizador, consulte [Criar uma rota definida pelo utilizador - portal Azure](../virtual-network/tutorial-create-route-table-portal.md).

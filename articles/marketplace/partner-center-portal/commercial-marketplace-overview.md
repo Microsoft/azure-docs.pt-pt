@@ -6,13 +6,13 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/13/2020
-ms.openlocfilehash: 909f044fd18ce98577e16d877f174dfa00bc1f3c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/19/2020
+ms.openlocfilehash: 95d57e34694190b4ab997229f005ebeef7924e57
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81270405"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83724824"
 ---
 # <a name="overview-of-the-commercial-marketplace-portal-in-partner-center"></a>Visão geral do Portal do Mercado Comercial no Partner Center
 
@@ -26,31 +26,15 @@ Empresas, governos e organizações de todas as dimensões encontram soluções 
 
 Partner Center é o centro de uma experiência de parceiro da Microsoft. Para as organizações que vão ao mercado com a Microsoft e aproveitam o mercado comercial, o Partner Center é o portal que os editores usam para criar e gerir ofertas, fornecer demonstrações de test drive e ver a análise do desempenho da oferta.
 
-## <a name="migration-from-cloud-partner-portal"></a>Migração do Portal do Parceiro cloud
+## <a name="migration-from-the-cloud-partner-portal"></a>Migração do Portal do Parceiro cloud
 
-O Partner Center está a evoluir para integrar melhor todos os aspetos da nossa relação com editores de software. Como parte desta evolução, estamos migrando o Portal do [Parceiro cloud](https://cloudpartner.azure.com/) para o Partner Center.
+O Partner Center está a evoluir para integrar melhor todos os aspetos da nossa relação com editores de software. Como parte desta evolução, migramos toda a gestão de ofertas de mercado comercial do [Portal cloud partner](https://cloudpartner.azure.com/) para partner Center.
 
-Os editores de mercado comercial existentes encontrarão uma experiência familiar mas melhorada do utilizador com uma interface intuitiva. As notificações no portal e notificações por e-mail informam os editores da migração. Os utilizadores serão perfeitamente direcionados para o local apropriado. Os clientes não serão afetados por este upgrade de experiência de parceiro.
-
->[!NOTE]
->Atualmente, o Partner Center apoia a criação e gestão de alguns tipos de oferta, conforme indicado na tabela abaixo. Mais tipos de oferta serão suportados assim que migrarmos todos oferecem gestão de oferta saqueada para partner center.
-
-|Tipo de Oferta  |Gestão de ofertas migrada do Cloud Partner Portal para partner Center  |
-|---------|---------|
-|Software como um Serviço (SaaS)     | Já disponível       |
-|Dinâmica 365 para envolvimento com clientes & PowerApps     | Já disponível         |
-|Dinâmica 365 para operações     | Já disponível        |
-|Dinâmica 365 para o business central     | Já disponível        |
-|Aplicação do Azure     | Já disponível        |
-|Máquina Virtual do Azure     | Disponibilidade geral abril-maio 2020        |
-|Contentor Azure     | Disponibilidade geral abril-maio 2020        |
-|Serviço de consultoria     | Disponibilidade geral abril-maio 2020        |
-|Módulo IoT Edge     | Disponibilidade geral abril-maio 2020        |
-|Aplicação Power BI    | Disponibilidade geral abril-maio 2020        |
+As editoras existentes que utilizaram anteriormente o Portal do Parceiro cloud encontrarão uma experiência familiar, mas melhorada e intuitiva, do utilizador com o Partner Center. Os utilizadores serão perfeitamente direcionados para o local apropriado. Os clientes não serão afetados por este upgrade de experiência de parceiro.
 
 ### <a name="improvements-on-publishing-and-offer-management-user-experience"></a>Melhorias na experiência de utilizador de publicação e oferta
 
-Com a transição para partner center, está disponível uma nova funcionalidade para os editores, além de melhorias na experiência do utilizador.  Para mais detalhes, consulte [frequentemente perguntas para migrar do Portal do Parceiro cloud para](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-migration-faq)o Partner Center .
+Com a transição para partner center, está disponível uma nova funcionalidade para os editores, além de melhorias na experiência do utilizador.  Para mais detalhes, consulte [frequentemente perguntas para migrar do Portal do Parceiro cloud para](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-migration-faq)o Partner Center .
 
 ### <a name="account-and-user-management-updates"></a>Atualizações de gestão de conta e de utilizadores
 
@@ -68,7 +52,7 @@ A análise do Partner Center proporciona uma visão do desempenho das suas ofert
 
 Saiba mais sobre lançamentos recentes e futuros visitando o roteiro do mercado comercial da [Microsoft,](https://docs.microsoft.com/azure/marketplace/marketplace-roadmap)ou junte-se à conversa na Comunidade de [Parceiros](https://www.microsoftpartnercommunity.com/)da Microsoft .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para novos parceiros da Microsoft interessados em publicar uma oferta para os mercados, consulte [Create a Commercial Marketplace account no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
 - Para parceiros existentes que já publicaram ofertas no Cloud Partner Portal, [Gerencie](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account)a sua conta de Mercado Comercial no Partner Center .

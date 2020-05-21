@@ -1,16 +1,16 @@
 ---
-title: Visão geral de renderização - Lote Azure
+title: Visão geral de renderização
 description: Introdução da utilização do Azure para renderização e uma visão geral das capacidades de renderização do Lote Azure
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
-ms.topic: conceptual
-ms.openlocfilehash: 515fc92aa14c0a86746d0a97d2bc601fab553aa3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.openlocfilehash: fc779d6caba2b896b869440ad523291bc3c9a9b2
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115708"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726439"
 ---
 # <a name="rendering-using-azure"></a>Composição com o Azure
 
@@ -98,6 +98,6 @@ Consulte os seguintes tutoriais introdutórios para experimentar a renderizaçã
 * [Use o Batch Explorer para renderizar uma cena de liquidificador](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender)
 * [Utilize o Batch CLI para renderizar uma cena Autodesk 3ds Max](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Determine a lista de aplicações e versões de renderização incluídas nas imagens VM do Azure Marketplace [neste artigo](https://docs.microsoft.com/azure/batch/batch-rendering-applications).

@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: d6902b2b076df86012cec6941be417ad0f0c7660
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8b5d508450d17d6e07e2c2bdb78b7934988936b9
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81428735"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715754"
 ---
 # <a name="optimizing-transactions-in-sql-pool"></a>Otimização de transações em piscina SQL
 
@@ -44,7 +44,7 @@ Os limites de segurança da transação aplicam-se apenas às operações totalm
 
 As seguintes operações são capazes de ser minimamente registadas:
 
-* CRIAR TABELA COMO SELECIONADO[(CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+* CRIAR TABELA COMO SELECT ([CTAS])(.. /sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 * INSERIR. SELECIONE
 * CREATE INDEX
 * ALTERAR RECONSTRUÇÃO DO ÍNDICE
@@ -84,7 +84,7 @@ Carregar dados numa tabela não vazia com um índice agrupado pode muitas vezes 
 
 ## <a name="optimizing-deletes"></a>Otimizar elimina
 
-Delete é uma operação totalmente registada.  Se precisar de eliminar uma grande quantidade de dados numa tabela ou `SELECT` numa divisória, muitas vezes faz mais sentido para os dados que pretende guardar, que podem ser executados como uma operação minimamente registada.  Para selecionar os dados, crie uma nova tabela com [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  Uma vez criado, use [RENAME](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para trocar a sua mesa antiga com a mesa recém-criada.
+Delete é uma operação totalmente registada.  Se precisar de eliminar uma grande quantidade de dados numa tabela ou numa divisória, muitas vezes faz mais sentido para `SELECT` os dados que pretende guardar, que podem ser executados como uma operação minimamente registada.  Para selecionar os dados, crie uma nova tabela com [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  Uma vez criado, use [RENAME](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para trocar a sua mesa antiga com a mesa recém-criada.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.
@@ -413,13 +413,13 @@ Quando você pausa ou escala o seu pool SQL, é importante entender que quaisque
 Se a sua carga de trabalho tiver emitido uma modificação de dados de longo curso e incompleta antes da pausa ou operação de escala, então este trabalho terá de ser desfeito. Esta destruição pode ter impacto no tempo que leva para parar ou escalar a sua piscina SQL. 
 
 > [!IMPORTANT]
-> Ambos `UPDATE` `DELETE` e stão a ser operações totalmente registadas, pelo que estas operações de desfazer/redo podem demorar significativamente mais tempo do que as operações mínimas equivalentes.
+> Ambos `UPDATE` e stão a ser `DELETE` operações totalmente registadas, pelo que estas operações de desfazer/redo podem demorar significativamente mais tempo do que as operações mínimas equivalentes.
 
 O melhor cenário é permitir que as transações de modificação de dados de voo sejam concluídas antes de fazer uma pausa ou escalonar o pool SQL. No entanto, este cenário pode nem sempre ser prático. Para mitigar o risco de uma longa reversão, considere uma das seguintes opções:
 
 * Reescrever operações de longo prazo utilizando [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 * Quebrar a operação em pedaços; operando em um subconjunto das linhas
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte [as Transações em pool SQL](develop-transactions.md) para saber mais sobre os níveis de isolamento e os limites transacionais.  Para uma visão geral de outras Boas Práticas, consulte [as melhores práticas da piscina SQL.](best-practices-sql-pool.md)

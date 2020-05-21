@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: a2bc39a35299f56ba52a0143ce123560bd4d88fa
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 09867d6739998902ea0fd11281d1b975866c1242
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77137759"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83722631"
 ---
 # <a name="train-a-model-for-custom-speech"></a>Preparar um modelo para Voz Personalizada
 
@@ -42,7 +42,7 @@ O primeiro passo para treinar um modelo é carregar dados de treino. Utilize [Pr
 2. Navegue para **discurso-a-texto > discurso personalizado > formação**.
 3. Clique no **modelo de comboio**.
 4. Em seguida, dê ao seu treino um **nome** e **descrição.**
-5. A partir do menu de drop-down do **modelo Cenário e Baseline,** selecione o cenário que melhor se adequa ao seu domínio. Se não tem a certeza de qual cenário escolher, selecione **General**. O modelo de base é o ponto de partida para o treino. Se não tem preferência, pode usar as últimas.
+5. A partir do menu de drop-down do **modelo Cenário e Baseline,** selecione o cenário que melhor se adequa ao seu domínio. Se não tem a certeza de qual cenário escolher, selecione **General**. O modelo de base é o ponto de partida para o treino. O modelo mais recente é geralmente a melhor escolha.
 6. Na página de dados de **treino Select,** escolha um ou vários conjuntos de dados de transcrição de áudio + com rótulo humano que gostaria de utilizar para treinar.
 7. Uma vez concluído o treino, pode optar por realizar testes de precisão no modelo recém-treinado. Este passo é opcional.
 8. Selecione **Criar** para construir o seu modelo personalizado.
@@ -58,7 +58,7 @@ Pode inspecionar os dados e avaliar a precisão do modelo utilizando estes docum
 
 Se optou por testar a precisão, é importante selecionar um conjunto de dados acústico diferente daquele que usou com o seu modelo para ter uma noção realista do desempenho do modelo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Implante o seu modelo](how-to-custom-speech-deploy-model.md)
 

@@ -8,12 +8,12 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 999204cf2fc8ce18b42f873b9d34af4e6c08052b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3edd29703f74c7671537fbcf08159dd830e5453c
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80411499"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726231"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Autenticar um dispositivo a jusante no Hub IoT do Azure
 
@@ -59,7 +59,7 @@ Pode utilizar a [extensão IoT para o Azure CLI](https://github.com/Azure/azure-
 az iot hub device-identity create -n {iothub name} -d {new device ID} --pd {existing gateway device ID}
 ```
 
-Para obter mais informações sobre os comandos Azure CLI para a criação de dispositivos e gestão de pais/filhos, consulte o conteúdo de referência para comandos de [identidade de dispositivo sot hub.](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest)
+Para obter mais informações sobre os comandos Azure CLI para a criação de dispositivos e gestão de pais/filhos, consulte o conteúdo de referência para comandos de [identidade de dispositivo sot hub.](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest)
 
 
 Em seguida, [recupere e modifique a cadeia](#retrieve-and-modify-connection-string) de ligação de modo a que o seu dispositivo saiba ligar-se através do seu portal.
@@ -109,7 +109,7 @@ Pode utilizar a [extensão IoT para o Azure CLI](https://github.com/Azure/azure-
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_thumbprint --ptp {primary thumbprint} --stp {secondary thumbprint}
 ```
 
-Para obter mais informações sobre os comandos Azure CLI para criação de dispositivos, geração de certificados e gestão de pais e filhos, consulte o conteúdo de referência para comandos [de identidade de dispositivo](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) sitia hub.
+Para obter mais informações sobre os comandos Azure CLI para criação de dispositivos, geração de certificados e gestão de pais e filhos, consulte o conteúdo de referência para comandos [de identidade de dispositivo](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest) sitia hub.
 
 Em seguida, [recupere e modifique a cadeia](#retrieve-and-modify-connection-string) de ligação de modo a que o seu dispositivo saiba ligar-se através do seu portal.
 
@@ -123,7 +123,7 @@ Se não tiver autoridade para criar certificados X.509, pode criar certificados 
 
 1. Siga as instruções nos certificados De SEm Registo [X.509 na sua](../iot-hub/iot-hub-security-x509-get-started.md#register-x509-ca-certificates-to-your-iot-hub) secção de hub IoT de *configurar a segurança X.509 no seu hub Azure IoT*. Nessa secção, executa os seguintes passos:
 
-   1. Faça upload de um certificado ca raiz. Se estiver a utilizar os certificados de demonstração, a raiz CA é ** \<caminho>/certs/azure-iot-test-only.root.ca.cert.pem**.
+   1. Faça upload de um certificado ca raiz. Se estiver a utilizar os certificados de demonstração, a raiz CA é ** \< o caminho>/certs/azure-iot-test-only.root.ca.cert.pem**.
 
    2. Verifique se é dono do certificado de raiz da AC.
 
@@ -152,7 +152,7 @@ Pode utilizar a [extensão IoT para o Azure CLI](https://github.com/Azure/azure-
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_ca
 ```
 
-Para mais informações, consulte o conteúdo de referência Azure CLI para comandos [de identidade de dispositivo sot hub.](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest)
+Para mais informações, consulte o conteúdo de referência Azure CLI para comandos [de identidade de dispositivo sot hub.](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest)
 
 Em seguida, [recupere e modifique a cadeia](#retrieve-and-modify-connection-string) de ligação de modo a que o seu dispositivo saiba ligar-se através do seu portal.
 
@@ -183,6 +183,6 @@ Neste ponto, deve ter um dispositivo IoT Edge registado e configurado como um po
 
 Continue para o próximo artigo da série gateway, [Ligue um dispositivo a jusante a um gateway Azure IoT Edge](how-to-connect-downstream-device.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Ao completar este artigo, deve ter um dispositivo IoT Edge a funcionar como uma porta de entrada transparente e um dispositivo a jusante registado com um hub IoT. Em seguida, é necessário configurar os seus dispositivos a jusante para confiar no dispositivo gateway e ligar-se a ele de forma segura. Para mais informações, consulte [Ligue um dispositivo a jusante a um gateway Azure IoT Edge](how-to-connect-downstream-device.md).

@@ -2,13 +2,13 @@
 title: Aplicações de renderização
 description: É possível usar quaisquer aplicações de renderização com o Lote Azure. No entanto, as imagens VM do Azure Marketplace estão disponíveis com aplicações comuns pré-instaladas.
 ms.date: 09/19/2019
-ms.topic: conceptual
-ms.openlocfilehash: f04fff3df2deb714f0432e5ad77d921a2d7ac205
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.openlocfilehash: 70e3fb18f0cc4788303ed16656e1eed0f8177dfc
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115793"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726490"
 ---
 # <a name="pre-installed-applications-on-rendering-vm-images"></a>Aplicações pré-instaladas na renderização de imagens VM
 
@@ -60,7 +60,7 @@ A lista seguinte aplica-se ao Windows Server 2016, versão 1.3.8 imagens de rend
 * AZ 10
 
 > [!IMPORTANT]
-> Para executar o V-Ray com maya fora dos `vrayses.exe` modelos de [extensão do Lote Azure,](https://github.com/Azure/batch-extension-templates)comece antes de executar o render. Para iniciar as vrayses.exe fora dos modelos `%MAYA_2017%\vray\bin\vrayses.exe"`pode utilizar o seguinte comando .
+> Para executar o V-Ray com maya fora dos modelos de [extensão do Lote Azure,](https://github.com/Azure/batch-extension-templates)comece `vrayses.exe` antes de executar o render. Para iniciar as vrayses.exe fora dos modelos pode utilizar o seguinte comando `%MAYA_2017%\vray\bin\vrayses.exe"` .
 >
 > Por exemplo, consulte a tarefa inicial do [modelo Maya e V-Ray](https://github.com/Azure/batch-extension-templates/blob/master/templates/maya/render-vray-windows/pool.template.json) no GitHub.
 
@@ -85,6 +85,6 @@ A lista seguinte aplica-se ao Windows Server 2016, versão 1.3.7 imagens de rend
 > [!NOTE]
 > O Grupo Caótico V-Ray para 3ds Max 2019 (versão 4.10.01) introduz alterações de rutura no raio-V. Para utilizar a versão anterior (versão 3.60.02), utilize os nódosos de renderização do Windows Server 2016, versão 1.3.2.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para utilizar as imagens VM de renderização, elas precisam de ser especificadas na configuração da piscina quando uma piscina é criada; ver as capacidades da [piscina do Lote para renderização](https://docs.microsoft.com/azure/batch/batch-rendering-functionality#batch-pools).

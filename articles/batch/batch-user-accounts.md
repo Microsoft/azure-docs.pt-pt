@@ -1,15 +1,15 @@
 ---
-title: Executar tarefas sob contas de utilizador - Lote Azure
+title: Executar tarefas sob contas de utilizador
 description: É útil ser capaz de configurar a conta de utilizador sob a qual pretende que uma tarefa seja executada. Aprenda os tipos de contas de utilizador e como configurá-las.
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1aeb96075e95d7bc0d1e4527fb50b2d5238dbab5
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: f1bd31f9d4881bdc489988d3f955e7143eaf7759
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82980291"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726269"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Executar tarefas sob contas de utilizador em Lote
 
@@ -81,7 +81,7 @@ Pode configurar a especificação de utilizador automático para privilégios de
 >
 >
 
-Os seguintes fragmentos de código mostram como configurar a especificação de utilizador automático. Os exemplos estabelecem `Admin` o nível `Task`de elevação e o alcance para . O âmbito de tarefa é a definição padrão, mas está incluído aqui por uma questão de exemplo.
+Os seguintes fragmentos de código mostram como configurar a especificação de utilizador automático. Os exemplos estabelecem o nível de elevação `Admin` e o alcance para `Task` . O âmbito de tarefa é a definição padrão, mas está incluído aqui por uma questão de exemplo.
 
 #### <a name="batch-net"></a>.NET do Batch
 
@@ -146,7 +146,7 @@ Uma conta de utilizador nomeada é útil quando pretende executar todas as taref
 
 Também pode utilizar uma conta de utilizador nomeada para executar uma tarefa que define permissões em recursos externos, tais como partilhas de ficheiros. Com uma conta de utilizador nomeada, controla a identidade do utilizador e pode utilizar essa identidade de utilizador para definir permissões.  
 
-As contas de utilizador nomeadas permitem sSH sem palavra-passe entre nós Linux. Pode utilizar uma conta de utilizador com nódosos Linux que precisam de executar tarefas de várias instâncias. Cada nó na piscina pode executar tarefas sob uma conta de utilizador definida em toda a piscina. Para obter mais informações sobre tarefas de várias instâncias, consulte [Utilize tarefas de várias\-instâncias para executar aplicações de MPI](batch-mpi.md).
+As contas de utilizador nomeadas permitem sSH sem palavra-passe entre nós Linux. Pode utilizar uma conta de utilizador com nódosos Linux que precisam de executar tarefas de várias instâncias. Cada nó na piscina pode executar tarefas sob uma conta de utilizador definida em toda a piscina. Para obter mais informações sobre tarefas de várias instâncias, consulte [Utilize tarefas de \- várias instâncias para executar aplicações de MPI](batch-mpi.md).
 
 ### <a name="create-named-user-accounts"></a>Criar contas de utilizador nomeadas
 
@@ -282,7 +282,7 @@ batch_client.pool.add(pool)
 
 ### <a name="run-a-task-under-a-named-user-account-with-elevated-access"></a>Executar uma tarefa sob uma conta de utilizador nomeada com acesso elevado
 
-Para executar uma tarefa como utilizador elevado, detete a propriedade **UserIdentity** da tarefa para uma `Admin`conta de utilizador nomeada que foi criada com a sua propriedade **ElevationLevel** definida para .
+Para executar uma tarefa como utilizador elevado, detete a propriedade **UserIdentity** da tarefa para uma conta de utilizador nomeada que foi criada com a sua propriedade **ElevationLevel** definida para `Admin` .
 
 Este código de corte especifica que a tarefa deve ser executada sob uma conta de utilizador nomeada. Esta conta de utilizador nomeada foi definida na piscina quando a piscina foi criada. Neste caso, a conta de utilizador nomeada foi criada com permissões de administração:
 
@@ -320,6 +320,6 @@ A versão de serviço do Batch 2017-01-01.4.0 introduz uma alteração de rutura
 | `run_elevated`não especificado | Nenhuma atualização necessária                                                                                                                                  |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para uma visão geral aprofundada do Lote, consulte Desenvolver soluções de [computação paralela em larga escala com lote](batch-api-basics.md).

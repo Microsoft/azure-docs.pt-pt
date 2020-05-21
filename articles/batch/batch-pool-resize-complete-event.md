@@ -1,15 +1,14 @@
 ---
 title: Piscina de Lote Azure redimensiona evento completo
 description: Referência para lote de piscina redimensionar evento completo. Veja um exemplo de uma piscina que aumentou de tamanho e completou com sucesso.
-ms.topic: article
+ms.topic: reference
 ms.date: 04/20/2017
-ms.author: labrenne
-ms.openlocfilehash: 4268c9d840aa9dfadd785d74811e9d12ac32ec31
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 94301f29fb6e7968dbe0389754fcf2a3b105d7ef
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115895"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83723821"
 ---
 # <a name="pool-resize-complete-event"></a>Evento de conclusão de redimensionamento de conjunto
 

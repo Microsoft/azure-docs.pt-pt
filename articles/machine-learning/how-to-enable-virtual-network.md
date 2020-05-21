@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 05/11/2020
 ms.custom: contperfq4
-ms.openlocfilehash: 5099cc2ce2228bcdbf49d3484e488e7373883ec0
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 771f6dd265b2df686d00642d2063915dfab17a86
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83119046"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83722784"
 ---
 # <a name="secure-your-machine-learning-lifecycles-with-private-virtual-networks"></a>Proteja os seus ciclos de vida de aprendizagem automática com redes virtuais privadas
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -404,7 +404,7 @@ except:
 __CLI do Azure__
 
 ```azurecli-interactive
-az rest --method put --uri https://management.azure.com"/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.ContainerService/managedClusters/<aks-resource-id>?api-version=2018-11-19 --body @body.json
+az rest --method put --uri https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.MachineLearningServices/workspaces/<workspace>/computes/<compute>?api-version=2018-11-19 --body @body.json
 ```
 
 O conteúdo do `body.json` ficheiro referenciado pelo comando é semelhante ao seguinte documento JSON:
@@ -413,7 +413,7 @@ O conteúdo do `body.json` ficheiro referenciado pelo comando é semelhante ao s
 { 
     "location": "<region>", 
     "properties": { 
-        "resourceId": "/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.ContainerService/managedClusters/<aks-resource-id>", 
+        "resourceId": "/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.ContainerService/managedClusters/<aks-resource-name>", 
         "computeType": "AKS", 
         "provisioningState": "Succeeded", 
         "properties": { 
@@ -608,7 +608,7 @@ Para obter informações específicas sobre a utilização de Tijolos de Dados A
 
 Para utilizar uma máquina virtual ou um cluster Azure HDInsight numa rede virtual com o seu espaço de trabalho, utilize os seguintes passos:
 
-1. Crie um cluster VM ou HDInsight utilizando o portal Azure ou o Azure CLI, e coloque o cluster numa rede virtual Azure. Para obter mais informações, veja os artigos seguintes:
+1. Crie um cluster VM ou HDInsight utilizando o portal Azure ou o Azure CLI, e coloque o cluster numa rede virtual Azure. Para obter mais informações, veja os seguintes artigos:
     * [Criar e gerir redes virtuais Azure para VMs Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
 
     * [Alargar o HDInsight utilizando uma rede virtual Azure](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network)
@@ -638,7 +638,7 @@ Para utilizar uma máquina virtual ou um cluster Azure HDInsight numa rede virtu
 1. Fixe o cluster VM ou HDInsight ao seu espaço de trabalho de Aprendizagem automática Azure. Para obter mais informações, consulte [Configurar os alvos do cálculo para a formação](how-to-set-up-training-targets.md)de modelos .
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Configurar ambientes de preparação](how-to-set-up-training-targets.md)
 * [Configurar pontos finais privados](how-to-configure-private-link.md)

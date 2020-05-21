@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 7979d1288cd99f8e28a421663383a930e0346357
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 8fe53b7a27c922462f9134bc78ff648aca3aca62
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199593"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715550"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Acesso seguro e dados em Aplicações Lógicas Azure
 
@@ -867,7 +867,7 @@ Quando utiliza [parâmetros seguros](#secure-action-parameters) para manusear e 
 
 ### <a name="managed-identity-authentication"></a>Autenticação de identidade gerida
 
-Se a opção [Identidade Gerida](../active-directory/managed-identities-azure-resources/overview.md) estiver disponível, a sua aplicação lógica pode utilizar a identidade atribuída pelo sistema ou uma *única* identidade atribuída manualmente ao utilizador para autenticar o acesso a recursos em outros inquilinos do Azure Ative Directory (Azure AD) sem se inscrever. O Azure gere esta identidade para si e ajuda-o a garantir as suas credenciais porque não tem de fornecer ou rodar segredos. Saiba mais sobre [os serviços Azure que suportam identidades geridas para a autenticação da AD Azure.](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)
+Se a opção [Identidade Gerida](../active-directory/managed-identities-azure-resources/overview.md) estiver disponível, a sua aplicação lógica pode utilizar a identidade atribuída pelo sistema ou uma *única* identidade atribuída manualmente ao utilizador para autenticar o acesso a outros recursos protegidos pelo Azure Ative Directory (Azure AD) sem iniciar sessão. O Azure gere esta identidade para si e ajuda-o a garantir as suas credenciais porque não tem de fornecer ou rodar segredos. Saiba mais sobre [os serviços Azure que suportam identidades geridas para a autenticação da AD Azure.](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)
 
 1. Antes de a sua aplicação lógica poder usar uma identidade gerida, siga os passos no [acesso authenticado aos recursos do Azure utilizando identidades geridas em Aplicações Lógicas Azure](../logic-apps/create-managed-service-identity.md). Estes passos permitem a identidade gerida na sua aplicação lógica e configuram o acesso dessa identidade ao recurso Azure alvo.
 
@@ -900,7 +900,7 @@ Se a opção [Identidade Gerida](../active-directory/managed-identities-azure-re
    }
    ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Implementação automatizada para aplicações lógicas azure](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)  
 * [Monitorizar aplicações lógicas](../logic-apps/monitor-logic-apps-log-analytics.md)  

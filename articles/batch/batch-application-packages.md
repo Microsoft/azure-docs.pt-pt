@@ -1,15 +1,15 @@
 ---
-title: Instale pacotes de aplicações em nódeos de cálculo
+title: Implementar pacotes de aplicações para calcular os nódosos
 description: Utilize a funcionalidade de pacotes de aplicação do Lote Azure para gerir facilmente várias aplicações e versões para instalação em nódos de computação batch.
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/26/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7824d3e2d8cfb7b52041e59a9007688c4ef1cafa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 61e94ade21d8dd6fad2ba10dff87d4ba10333e3a
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115623"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726881"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implementar aplicações para calcular os nódosos com pacotes de aplicação do Lote
 
@@ -123,13 +123,13 @@ Nos detalhes da aplicação, pode configurar as seguintes definições para a su
 ### <a name="add-a-new-application"></a>Adicione uma nova aplicação
 Para criar uma nova aplicação, adicione um pacote de aplicação e especifique um novo ID de aplicação único. O primeiro pacote de aplicações que adiciona com o novo ID de aplicação também cria a nova aplicação.
 
-Clique em **Aplicações** > **Adicionar**.
+Clique em **Aplicações**  >  **Adicionar**.
 
 ![Nova lâmina de aplicação no portal Azure][5]
 
 A nova janela de **aplicações** fornece os seguintes campos para especificar as definições do seu novo pacote de aplicação e aplicação.
 
-**ID de aplicação**
+**ID da Aplicação**
 
 Este campo especifica a identificação da sua nova aplicação, que está sujeita às regras padrão de validação do ID do Lote Azure. As regras para a disponibilização de um ID de aplicação são as seguintes:
 
@@ -159,7 +159,7 @@ Depois de selecionar um ficheiro, clique em **OK** para iniciar o upload para o 
 > 
 
 ### <a name="add-a-new-application-package"></a>Adicione um novo pacote de aplicações
-Para adicionar uma versão de pacote de aplicação para uma aplicação existente, selecione uma aplicação nas **janelas aplicações** e clique em **Pacotes** > **Adicionar**.
+Para adicionar uma versão de pacote de aplicação para uma aplicação existente, selecione uma aplicação nas **janelas aplicações** e clique em **Pacotes**  >  **Adicionar**.
 
 ![Adicione a lâmina do pacote de aplicação no portal Azure][8]
 
@@ -170,7 +170,7 @@ Para atualizar ou eliminar um pacote de aplicação existente, abra os detalhes 
 
 ![Atualizar ou eliminar pacote no portal Azure][7]
 
-**Atualizar**
+**Atualização**
 
 Quando clicar em **Atualizar,** o **pacote 'Actualizar'** é apresentado. Esta janela é semelhante à janela **do pacote de aplicações,** no entanto apenas o campo de seleção do pacote está ativado, permitindo especificar um novo ficheiro ZIP para carregar.
 
@@ -239,7 +239,7 @@ task.ApplicationPackageReferences = new List<ApplicationPackageReference>
 ```
 
 ## <a name="execute-the-installed-applications"></a>Executar as aplicações instaladas
-Os pacotes que especificou para uma piscina ou tarefa são descarregados e `AZ_BATCH_ROOT_DIR` extraídos para um diretório nomeado dentro do nó. O lote também cria uma variável ambiental que contém o caminho para o diretório nomeado. As linhas de comando de tarefa utilizam esta variável ambiental ao fazer referência à aplicação no nó. 
+Os pacotes que especificou para uma piscina ou tarefa são descarregados e extraídos para um diretório nomeado dentro `AZ_BATCH_ROOT_DIR` do nó. O lote também cria uma variável ambiental que contém o caminho para o diretório nomeado. As linhas de comando de tarefa utilizam esta variável ambiental ao fazer referência à aplicação no nó. 
 
 Nos nós do Windows, a variável encontra-se no seguinte formato:
 
@@ -332,7 +332,7 @@ foreach (ApplicationSummary app in applications)
 ## <a name="wrap-up"></a>Embrulhar
 Com pacotes de aplicações, pode ajudar os seus clientes a selecionar as aplicações para os seus trabalhos e especificar a versão exata a utilizar ao processar trabalhos com o seu serviço ativado pelo Batch. Também pode fornecer a capacidade de os seus clientes fazerem upload e rastrearem as suas próprias aplicações no seu serviço.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * A [API do Lote REST][api_rest] também fornece suporte para trabalhar com pacotes de aplicação. Por exemplo, consulte o elemento [aplicaçãoPackageReferences][rest_add_pool_with_packages] em [Adicionar um pool a uma conta][rest_add_pool] para obter informações sobre como especificar pacotes a instalar utilizando a API REST. Consulte [as Aplicações][rest_applications] para obter informações sobre como obter informações sobre a aplicação utilizando a API do Lote REST.
 * Saiba gerir programáticamente as contas e quotas do [Lote Azure com a Batch Management .NET](batch-management-dotnet.md). A biblioteca [Batch Management .NET][api_net_mgmt] pode ativar funcionalidades de criação e eliminação de conta para a sua aplicação ou serviço de lote.
 

@@ -1,15 +1,15 @@
 ---
-title: Criar dependências de tarefas para executar tarefas - Lote Azure
+title: Criar dependências de tarefas para executar tarefas
 description: Crie tarefas que dependam da conclusão de outras tarefas para o processamento do estilo MapReduce e cargas de trabalho semelhantes de big data em Azure Batch.
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/22/2017
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9b3bc37a3d004f077e2e780d096b7bb2a8e5f773
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 42cf24758c64f107723ae0907db08bd4b757a15a
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116490"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726388"
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Criar dependências de tarefas para executar tarefas que dependem de outras tarefas
 
@@ -30,7 +30,7 @@ Pode criar tarefas que dependem de outras tarefas numa relação um-para-um ou d
 Neste artigo, discutimos como configurar as dependências de tarefas utilizando a biblioteca [Batch .NET.][net_msdn] Primeiro mostramos-lhe como permitir a dependência da [tarefa](#enable-task-dependencies) dos seus trabalhos e, em seguida, demonstramos como [configurar uma tarefa com dependências](#create-dependent-tasks). Também descrevemos como especificar uma ação de dependência para executar tarefas dependentes se o progenitor falhar. Finalmente, discutimos os [cenários](#dependency-scenarios) de dependência que batch apoia.
 
 ## <a name="enable-task-dependencies"></a>Ativar dependências de tarefas
-Para utilizar as dependências de tarefas na sua aplicação Batch, tem primeiro de configurar o trabalho para utilizar dependências de tarefas. Em Batch .NET, ative-o no seu [CloudJob,][net_cloudjob] `true`definindo a sua propriedade [UseTaskDependencies][net_usestaskdependencies] para:
+Para utilizar as dependências de tarefas na sua aplicação Batch, tem primeiro de configurar o trabalho para utilizar dependências de tarefas. Em Batch .NET, ative-o no seu [CloudJob,][net_cloudjob] definindo a sua propriedade [UseTaskDependencies][net_usestaskdependencies] `true` para:
 
 ```csharp
 CloudJob unboundJob = batchClient.JobOperations.CreateJob( "job001",
@@ -57,7 +57,7 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 Este código de corte cria uma tarefa dependente com id de tarefa "Flores". A tarefa "Flores" depende das tarefas "Chuva" e "Sol". A tarefa "Flores" só será executada num nó computacional depois de as tarefas "Rain" e "Sun" terem concluído com sucesso.
 
 > [!NOTE]
-> Por padrão, considera-se que uma tarefa é concluída com sucesso quando se `0`encontra no estado **concluído** e o seu código de **saída** é . No Lote .NET, isto significa uma [CloudTask][net_cloudtask]. [Valor][net_taskstate] da `Completed` propriedade do Estado e [a Informação][net_taskexecutioninformation]de Execução de Tarefas da CloudTask. O valor da `0`propriedade do [ExitCode][net_exitcode] é . Para como mudar isto, consulte a secção de [ações de Dependência.](#dependency-actions)
+> Por padrão, considera-se que uma tarefa é concluída com sucesso quando se encontra no estado **concluído** e o seu código de **saída** é `0` . No Lote .NET, isto significa uma [CloudTask][net_cloudtask]. [Valor][net_taskstate] da propriedade do Estado `Completed` e a Informação de [Execução][net_taskexecutioninformation]de Tarefas da CloudTask.[ O][net_exitcode] valor da propriedade do ExitCode é `0` . Para como mudar isto, consulte a secção de [ações de Dependência.](#dependency-actions)
 > 
 > 
 
@@ -110,9 +110,9 @@ Numa dependência de uma série de tarefas-mãe, uma tarefa depende da conclusã
 Para criar a dependência, forneça as primeiras e últimas tarefas iDs na gama para as [TaskDependencies][net_taskdependencies]. Método estático [OnIdRange][net_onidrange] quando povoa a propriedade [DependsOn][net_dependson] da [CloudTask][net_cloudtask].
 
 > [!IMPORTANT]
-> Quando utilizar intervalos de ID de tarefa para as suas dependências, apenas as tarefas com IDs que representam valores inteiros serão selecionadas pela gama. Assim, o `1..10` intervalo irá `3` `7`selecionar tarefas e, mas não. `5flamingoes` 
+> Quando utilizar intervalos de ID de tarefa para as suas dependências, apenas as tarefas com IDs que representam valores inteiros serão selecionadas pela gama. Assim, o intervalo `1..10` irá selecionar tarefas `3` `7` e, mas `5flamingoes` não. 
 > 
-> Os zeros principais não são significativos na avaliação das `4`dependências de alcance, pelo que as tarefas com identificadores de cordas , `04` e `004` todas estarão *dentro* do alcance e todas serão tratadas como tarefa `4`, pelo que a primeira a completar irá satisfazer a dependência.
+> Os zeros principais não são significativos na avaliação das dependências de alcance, pelo que as tarefas com identificadores de cordas `4` , `04` e todas `004` estarão *dentro* do alcance e todas serão tratadas como tarefa , pelo que `4` a primeira a completar irá satisfazer a dependência.
 > 
 > Todas as tarefas na gama devem satisfazer a dependência, quer completando com sucesso, quer completando com uma falha que está mapeada para uma ação de dependência definida para **satisfazer**. Consulte a secção [de ações de Dependência](#dependency-actions) para obter mais detalhes.
 >
@@ -199,7 +199,7 @@ O projeto de amostra [TaskDependencies][github_taskdependencies] é uma das amos
 - Como criar tarefas que dependem de outras tarefas
 - Como executar essas tarefas num conjunto de nódosos de computação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 ### <a name="application-deployment"></a>Implementação de aplicações
 A funcionalidade de pacotes de [aplicação](batch-application-packages.md) do Batch fornece uma maneira fácil de implementar e verver as aplicações que as suas tarefas executam em nós de cálculo.
 

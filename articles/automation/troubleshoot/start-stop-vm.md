@@ -1,6 +1,6 @@
 ---
-title: Problemas de automação Azure Start/Stop VMs durante problemas de implementação fora de horas
-description: Este artigo diz como resolver problemas e resolver problemas que surgem durante a implementação dos VMs de início/paragem durante a funcionalidade off-hours.
+title: Problemas de automação Azure Start/Stop VMs durante problemas fora de horas
+description: Este artigo diz como resolver problemas e resolver problemas que surgem durante a utilização dos VMs de início/paragem durante a funcionalidade off-hours.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -9,14 +9,14 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: bd537fd943e9a13a59c2fa630235130ce9ccfe2d
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 53a7e113d64ea4cf7018d51a44f9488342f1470f
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680845"
+ms.locfileid: "83715635"
 ---
-# <a name="troubleshoot-startstop-vms-during-off-hours-deployment-issues"></a>Problemas Start/Stop VMs durante problemas de implantação fora de horas
+# <a name="troubleshoot-startstop-vms-during-off-hours-issues"></a>Problemas Iniciar/Parar VMs durante problemas fora de horas
 
 Este artigo fornece informações sobre problemas de resolução e resolução de problemas que surgem quando implementa os VMs De Arranque/Paragem de Automação Azure durante a funcionalidade off-hours nos seus VMs. 
 
@@ -228,7 +228,7 @@ Muitas vezes os erros podem ser causados através da utilização de uma versão
 
 Para resolver muitos erros, remova e [atualize os VMs start/stop durante as horas de folga](../automation-solution-vm-management.md#update-the-feature). Também pode verificar os [fluxos](../automation-runbook-execution.md#job-statuses) de trabalho para procurar erros. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se não vir o seu problema aqui ou não conseguir resolver o seu problema, experimente um dos seguintes canais para obter apoio adicional:
 

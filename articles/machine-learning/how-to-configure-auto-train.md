@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Machine learning automatizado escolhe um algoritmo para si e gera um modelo pronto para ser implantado. Aprenda as opções que pode utilizar para configurar experiências automatizadas de aprendizagem automática.
 author: cartacioS
 ms.author: sacartac
-ms.reviewer: sgilley
+ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 03/09/2020
+ms.date: 05/20/2020
 ms.custom: seodec18
-ms.openlocfilehash: 0eadb0f7ca6aad635d20148f63a204506a821d75
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: c183c179200738566d0794ba23582f16068013b6
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681593"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83722852"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar experimentações do ML automatizado no Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -251,16 +251,23 @@ automl_config = AutoMLConfig(task = 'forecasting',
 
 Os modelos do Conjunto são ativados por padrão, e aparecem como as iterações de execução final numa corrida automatizada de aprendizagem automática. Atualmente, os métodos de conjunto suportados são o voto e o empilhamento. A votação é implementada como voto suave usando médias ponderadas, e a implementação do empilhamento está usando uma implementação de duas camadas, onde a primeira camada tem os mesmos modelos que o conjunto de votação, e o modelo de segunda camada é usado para encontrar a combinação ideal dos modelos a partir da primeira camada. Se estiver a utilizar modelos ONNX **ou** tiver uma explicabilidade de modelo, o empilhamento será desativado e apenas o voto será utilizado.
 
-Existem múltiplos argumentos predefinidos que podem ser fornecidos como num objeto para alterar o comportamento padrão do conjunto de `kwargs` `AutoMLConfig` pilhas.
+Existem múltiplos argumentos predefinidos que podem ser fornecidos como `kwargs` num objeto para alterar o comportamento padrão do `AutoMLConfig` conjunto.
+
+* `ensemble_download_models_timeout_sec`: Durante a geração de modelos VoteEnsemble e StackEnsemble, são descarregados vários modelos equipados das anteriores corridas para crianças. Se encontrar este erro, `AutoMLEnsembleException: Could not find any models for running ensembling` poderá ter de dar mais tempo aos modelos para serem descarregados. O valor padrão é de 300 segundos para descarregar estes modelos em paralelo e não há limite máximo de tempo limite. Configure este parâmetro com um valor superior a 300 segundos, se for necessário mais tempo. **Nota:** Se o tempo for atingido e houver modelos descarregados, então o insemado prossegue com o maior número de modelos que descarregou (não é necessário que todos os modelos precisem de ser descarregados para terminar dentro desse prazo).
+
+Os seguintes parâmetros aplicam-se apenas aos modelos StackEnsemble: 
 
 * `stack_meta_learner_type`: o meta-aprendiz é um modelo treinado na saída dos modelos heterogéneos individuais. Os meta-aprendizes predefinidos destinam-se a tarefas de `LogisticRegression` classificação (ou `LogisticRegressionCV` se a validação cruzada estiver ativada) e a tarefas de `ElasticNet` regressão/previsão (ou `ElasticNetCV` se a validação cruzada estiver ativada). Este parâmetro pode ser uma das seguintes cordas: `LogisticRegression` . , , , ou `LogisticRegressionCV` `LightGBMClassifier` `ElasticNet` `ElasticNetCV` `LightGBMRegressor` `LinearRegression` .
-* `stack_meta_learner_train_percentage`: especifica a proporção do conjunto de formação (ao escolher o tipo de treino de comboio e validação) a reservar para a formação do meta-aprendiz. O valor predefinido é `0.2` .
+
+* `stack_meta_learner_train_percentage`: especifica a proporção do conjunto de formação (ao escolher o tipo de treino de comboio e validação) a reservar para a formação do meta-aprendiz. O valor predefinido é `0.2` . 
+
 * `stack_meta_learner_kwargs`: parâmetros opcionais para passar para o inicializador do meta-aprendiz. Estes parâmetros e parâmetros espelham os parâmetros e os tipos de parâmetros do construtor de modelos correspondentes, e são encaminhados para o construtor do modelo.
 
 O código que se segue mostra um exemplo de especificar o comportamento do conjunto personalizado num `AutoMLConfig` objeto.
 
 ```python
 ensemble_settings = {
+    "ensemble_download_models_timeout_sec": 600
     "stack_meta_learner_type": "LogisticRegressionCV",
     "stack_meta_learner_train_percentage": 0.3,
     "stack_meta_learner_kwargs": {
@@ -527,7 +534,7 @@ Veja como obter amostras [de](how-to-machine-learning-interpretability-automl.md
 
 Para obter informações gerais sobre como as explicações do modelo e a importância da funcionalidade podem ser ativadas noutras áreas do SDK fora da aprendizagem automática de máquinas, consulte [o](how-to-machine-learning-interpretability.md) artigo conceptual sobre a interpretação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 + Saiba mais sobre [como e onde implementar um modelo.](how-to-deploy-and-where.md)
 

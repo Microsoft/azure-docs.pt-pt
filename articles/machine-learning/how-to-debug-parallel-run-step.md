@@ -10,12 +10,12 @@ ms.reviewer: trbye, jmartens, larryfr, vaidyas
 ms.author: trmccorm
 author: tmccrmck
 ms.date: 01/15/2020
-ms.openlocfilehash: b5431ae574f40c29368848808004a53abe43c3a8
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: c4e2777f59bab8d7d874019004bff2e30395ab1d
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680965"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83723481"
 ---
 # <a name="debug-and-troubleshoot-parallelrunstep"></a>Depuração e resolução de problemas ParallelRunStep
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -40,7 +40,7 @@ Devido à natureza distribuída dos trabalhos ParaleloRunStep, existem registos 
 
 Os registos gerados a partir do script de entrada utilizando o ajudante do EntryScript e as declarações de impressão serão encontrados nos seguintes ficheiros:
 
-- `~/logs/user/<node_name>.log.txt`: Estes são os registos escritos a partir de entry_script utilizando o ajudante EntryScript. Também contém uma declaração de impressão (stdout) de entry_script.
+- `~/logs/user/<ip_address>/<node_name>.log.txt`: Estes são os registos escritos a partir de entry_script utilizando o ajudante EntryScript. Também contém uma declaração de impressão (stdout) de entry_script.
 
 Para uma compreensão concisa dos erros no seu script, existe:
 
@@ -111,7 +111,7 @@ args, _ = parser.parse_known_args()
 labels_path = args.labels_dir
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Consulte a referência SDK para obter ajuda com o pacote de [passo sinuoso-de-gasoduto-diálgeno e](https://docs.microsoft.com/python/api/azureml-contrib-pipeline-steps/azureml.contrib.pipeline.steps?view=azure-ml-py) a [documentação](https://docs.microsoft.com/python/api/azureml-contrib-pipeline-steps/azureml.contrib.pipeline.steps.parallelrunstep?view=azure-ml-py) para a classe ParallelRunStep.
 

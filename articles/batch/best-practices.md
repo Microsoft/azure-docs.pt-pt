@@ -2,13 +2,13 @@
 title: Melhores práticas
 description: Aprenda as melhores práticas e dicas úteis para desenvolver a sua solução De Lote Azure.
 ms.date: 04/03/2020
-ms.topic: article
-ms.openlocfilehash: 43a0020953ea44593cf38298a78547194751fc72
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: conceptual
+ms.openlocfilehash: f7d2add5fb30e3efdfb761364babf2211c3c254f
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117510"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725810"
 ---
 # <a name="azure-batch-best-practices"></a>Boas práticas do Lote Azure
 
@@ -89,9 +89,9 @@ As tarefas são unidades individuais de trabalho que compõem um trabalho. As ta
 ### <a name="task-lifetime"></a>Vida útil da tarefa
 
 - **Elimine as tarefas quando estiverem completas.**
-    Eliminar tarefas quando já não forem necessárias ou definir uma restrição de tarefa de [retençãoTempo.](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskconstraints.retentiontime?view=azure-dotnet) Se `retentionTime` estiver definido, o Lote limpa automaticamente o espaço do `retentionTime` disco utilizado pela tarefa quando a tarefa expirar.
+    Eliminar tarefas quando já não forem necessárias ou definir uma restrição de tarefa de [retençãoTempo.](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskconstraints.retentiontime?view=azure-dotnet) Se `retentionTime` estiver definido, o Lote limpa automaticamente o espaço do disco utilizado pela tarefa quando a `retentionTime` tarefa expirar.
 
-    Apagar tarefas realiza duas coisas. Garante que não tem uma acumulação de tarefas no trabalho, tornando a consulta/encontrar a tarefa em que está mais interessado (porque terá de filtrar as tarefas concluídas). Também limpa os dados de tarefacorrespondentes no `retentionTime` nó (desde que ainda não tenha sido atingido). Isto garante que os seus nós não se enchem de dados de tarefas e estão sem espaço para o disco.
+    Apagar tarefas realiza duas coisas. Garante que não tem uma acumulação de tarefas no trabalho, tornando a consulta/encontrar a tarefa em que está mais interessado (porque terá de filtrar as tarefas concluídas). Também limpa os dados de tarefacorrespondentes no nó (desde que `retentionTime` ainda não tenha sido atingido). Isto garante que os seus nós não se enchem de dados de tarefas e estão sem espaço para o disco.
 
 ### <a name="task-submission"></a>Submissão de tarefas
 
@@ -100,11 +100,11 @@ As tarefas são unidades individuais de trabalho que compõem um trabalho. As ta
 
 ### <a name="task-execution"></a>Execução de tarefas
 
-- **Escolher as suas tarefas max por nó** O lote suporta a subscrição de tarefas sobresubscritas em nós (executando mais tarefas do que um nó tem núcleos). Cabe-lhe a si garantir que as suas tarefas "encaixem" nos nódosos da sua piscina. Por exemplo, pode ter uma experiência degradada se tentar agendar oito tarefas que cada uma consome 25% de uso de CPU num nó (numa piscina com). `maxTasksPerNode = 8`
+- **Escolher as suas tarefas max por nó** O lote suporta a subscrição de tarefas sobresubscritas em nós (executando mais tarefas do que um nó tem núcleos). Cabe-lhe a si garantir que as suas tarefas "encaixem" nos nódosos da sua piscina. Por exemplo, pode ter uma experiência degradada se tentar agendar oito tarefas que cada uma consome 25% de uso de CPU num nó (numa piscina `maxTasksPerNode = 8` com).
 
 ### <a name="designing-for-retries-and-re-execution"></a>Desenho para retries e reexecução
 
-As tarefas podem ser automaticamente novamente experimentadas pelo Batch. Existem dois tipos de repetições: controladas pelo utilizador e internas. As repetições controladas pelo utilizador são especificadas pelo [maxTaskRetryCount](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskconstraints.maxtaskretrycount?view=azure-dotnet)da tarefa . Quando um programa especificado na tarefa sai com um código de saída não zero, `maxTaskRetryCount`a tarefa é novamente experimentada até ao valor do .
+As tarefas podem ser automaticamente novamente experimentadas pelo Batch. Existem dois tipos de repetições: controladas pelo utilizador e internas. As repetições controladas pelo utilizador são especificadas pelo [maxTaskRetryCount](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskconstraints.maxtaskretrycount?view=azure-dotnet)da tarefa . Quando um programa especificado na tarefa sai com um código de saída não zero, a tarefa é novamente experimentada até ao valor do `maxTaskRetryCount` .
 
 Embora rara, uma tarefa pode ser novamente experimentada internamente devido a falhas no nó de computação, tais como não ser capaz de atualizar o estado interno ou uma falha no nó enquanto a tarefa está em execução. A tarefa será novamente experimentada no mesmo nó de cálculo, se possível, até um limite interno antes de desistir da tarefa e adiar a tarefa a ser reagendada pelo Batch, potencialmente num nó de cálculo diferente.
 
@@ -121,7 +121,7 @@ Embora rara, uma tarefa pode ser novamente experimentada internamente devido a f
 - **Iniciar tarefas deve ser idempotente** À semelhança de outras tarefas, a tarefa de início do nó deve ser idempotente, uma vez que será reexecutada sempre que as botas do nó. Uma tarefa idempotente é simplesmente uma que produz um resultado consistente quando executada várias vezes.
 
 - **Gerencie serviços de longo prazo através da interface de serviços do sistema operativo.**
-    Às vezes, é necessário executar outro agente ao lado do agente Batch no nó, por exemplo, recolher dados do nó e denunciá-lo. Recomendamos que estes agentes sejam implantados como serviços de `systemd` SO, como um serviço Windows ou um serviço Linux.
+    Às vezes, é necessário executar outro agente ao lado do agente Batch no nó, por exemplo, recolher dados do nó e denunciá-lo. Recomendamos que estes agentes sejam implantados como serviços de SO, como um serviço Windows ou um `systemd` serviço Linux.
 
     Ao executar estes serviços, não devem ter fechaduras de ficheiros em quaisquer ficheiros em diretórios geridos pelo Batch no nó, porque caso contrário o Batch não poderá eliminar esses diretórios devido às fechaduras dos ficheiros. Por exemplo, se instalar um serviço Windows numa tarefa inicial, em vez de lançar o serviço diretamente a partir do diretório de trabalho de tarefa inicial, copie os ficheiros noutrolocal (se os ficheiros existirem apenas saltar a cópia). Instale o serviço a partir desse local. Quando o Batch repetir a sua tarefa inicial, eliminará o diretório de tarefa inicial e irá criá-lo novamente. Isto funciona porque o serviço tem fechaduras de ficheiros no outro diretório e não no diretório de trabalho de tarefa inicial.
 
@@ -149,10 +149,10 @@ Para obter mais informações sobre o Gestor de Recursos e modelos, consulte [Qu
 
 ### <a name="network-security-groups-nsgs-and-user-defined-routes-udrs"></a>Grupos de Segurança de Rede (NSGs) e Rotas Definidas pelo Utilizador (UDRs)
 
-Ao fornecer piscinas de [lotes numa rede virtual,](batch-virtual-network.md)certifique-se de que `BatchNodeManagement` está a seguir de perto as orientações relativas à utilização da etiqueta de serviço, portas, protocolos e direção da regra.
+Ao fornecer piscinas de [lotes numa rede virtual,](batch-virtual-network.md)certifique-se de que está a seguir de perto as orientações relativas à utilização da etiqueta de `BatchNodeManagement` serviço, portas, protocolos e direção da regra.
 A utilização da etiqueta de serviço é altamente recomendada e não os endereços IP do serviço de lote subjacentes, uma vez que estes podem mudar ao longo do tempo. A utilização direta dos endereços IP do serviço de lote pode manifestar-se como instabilidade, interrupções ou interrupções para as suas piscinas de Lote, uma vez que o serviço de lote atualiza os endereços IP utilizados ao longo do tempo. Se está atualmente a utilizar endereços IP do serviço de lote nas suas regras NSG, é aconselhável mudar para a utilização da etiqueta de serviço.
 
-Para as Rotas Definidas pelo Utilizador, certifique-se de que tem um processo em vigor para atualizar periodicamente os endereços IP do serviço de lote na tabela de rotas à medida que estes mudam ao longo do tempo. Para saber como obter a lista de endereços IP do serviço de lote, consulte [as etiquetas](../virtual-network/service-tags-overview.md)de serviço no local . Os endereços IP do serviço de `BatchNodeManagement` lote serão associados com a etiqueta de serviço (ou a variante regional que corresponde à região da sua conta Batch).
+Para as Rotas Definidas pelo Utilizador, certifique-se de que tem um processo em vigor para atualizar periodicamente os endereços IP do serviço de lote na tabela de rotas à medida que estes mudam ao longo do tempo. Para saber como obter a lista de endereços IP do serviço de lote, consulte [as etiquetas](../virtual-network/service-tags-overview.md)de serviço no local . Os endereços IP do serviço de lote serão associados com a etiqueta de `BatchNodeManagement` serviço (ou a variante regional que corresponde à região da sua conta Batch).
 
 ### <a name="honoring-dns"></a>Homenagem ao DNS
 

@@ -1,15 +1,15 @@
 ---
 title: Criar tarefas para preparar & trabalhos completos em substantivos de cálculo
 description: Utilize tarefas de preparação ao nível do trabalho para minimizar a transferência de dados para os nós de computação do Lote Azure e liberte tarefas para limpeza de nós no final do trabalho.
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: c9c88994a65d4d2cb8c8373d2bbb4aa2877fe465
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a73baa03500dfbcdd7193035bf70b0f3e03be283
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116065"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726677"
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Executar tarefas de preparação de emprego e libertação de emprego em nódos de computação batch
 
@@ -73,7 +73,7 @@ As tarefas de libertação de empregos podem funcionar durante um máximo de 15 
 ## <a name="job-prep-and-release-tasks-with-batch-net"></a>Tarefas de preparação e lançamento de trabalho com Lote .NET
 Para utilizar uma tarefa de preparação de emprego, atribua um objeto de Tarefa de [Preparação][net_job_prep] de Emprego à propriedade [CloudJob.JobPreparationTask][net_job_prep_cloudjob] do seu trabalho. Da mesma forma, inicialize uma [JobReleaseTask][net_job_release] e atribua-a à propriedade [CloudJob.JobReleaseTask][net_job_prep_cloudjob] do seu trabalho para definir a tarefa de lançamento do trabalho.
 
-Neste código, `myBatchClient` é uma instância de [BatchClient,][net_batch_client]e `myPool` é um pool existente dentro da conta Batch.
+Neste código, é `myBatchClient` uma instância de [BatchClient,][net_batch_client]e `myPool` é um pool existente dentro da conta Batch.
 
 ```csharp
 // Create the CloudJob for CloudPool "myPool"
@@ -178,7 +178,7 @@ A imagem abaixo mostra a lâmina de tarefas de **preparação** no portal Azure 
 
 ![Propriedades de preparação de emprego no portal Azure][1]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 ### <a name="application-packages"></a>Pacotes de aplicações
 Além da tarefa de preparação de trabalho, também pode utilizar a funcionalidade de pacotes de [aplicação](batch-application-packages.md) do Batch para preparar nós de computação para execução de tarefas. Esta funcionalidade é especialmente útil para a implementação de aplicações que não requerem executar um instalador, aplicações que contenham muitos ficheiros (100+) ou aplicações que requeiram um controlo rigoroso da versão.
 

@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova, danil
 ms.date: 03/11/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: e01c61ca4f415ffbb46c86034d4b7441bc2617d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2e121d94b27710eb952f98bf97c3b4e5602866f4
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80365492"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83724637"
 ---
 # <a name="managed-instance-t-sql-differences-and-limitations"></a>Diferenças e limitações t-SQL geridas
 
@@ -50,27 +50,27 @@ As questões conhecidas temporáriamente que são descobertas em instância geri
 
 ### <a name="backup"></a>Cópia de segurança
 
-As instâncias geridas têm cópias de segurança `COPY_ONLY` automáticas, para que os utilizadores possam criar cópias de dados completas. As cópias de segurança diferenciais, de registo e de instantâneo sem suporte não são suportadas.
+As instâncias geridas têm cópias de segurança automáticas, para que os utilizadores possam criar cópias de `COPY_ONLY` dados completas. As cópias de segurança diferenciais, de registo e de instantâneo sem suporte não são suportadas.
 
 - Com um caso gerido, pode fazer o back up a uma base de dados de instâncias apenas para uma conta de armazenamento Azure Blob:
   - Só `BACKUP TO URL` é apoiado.
-  - `FILE`E `TAPE`os dispositivos de reserva não são suportados.
-- A maioria `WITH` das opções gerais são apoiadas.
+  - `FILE`E os `TAPE` dispositivos de reserva não são suportados.
+- A maioria das `WITH` opções gerais são apoiadas.
   - `COPY_ONLY`é obrigatório.
   - `FILE_SNAPSHOT`não é apoiado.
-  - Opções `REWIND`de `NOREWIND` `UNLOAD`fita: `NOUNLOAD` , , , e não são suportados.
-  - Opções específicas `NORECOVERY` `STANDBY`de `NO_TRUNCATE` registo: , e não são suportadas.
+  - Opções de fita: `REWIND` , , , e não são `NOREWIND` `UNLOAD` `NOUNLOAD` suportados.
+  - Opções específicas de registo: `NORECOVERY` , e não são `STANDBY` `NO_TRUNCATE` suportadas.
 
 Limitações: 
 
 - Com um caso gerido, pode fazer o backup de uma base de dados de instância seletiva com até 32 faixas, o que é suficiente para bases de dados até 4 TB se for utilizada uma compressão de reserva.
-- Não é possível executar `BACKUP DATABASE ... WITH COPY_ONLY` numa base de dados encriptada com encriptação transparente de dados (TDE) gerida pelo serviço. O TDE gerido pelo serviço obriga as cópias de segurança a serem encriptadas com uma chave TDE interna. A chave não pode ser exportada, por isso não podes restaurar a reserva. Utilize cópias de segurança automáticas e restauro pontual, ou utilize [tDE (BYOK) gerido pelo cliente.](transparent-data-encryption-azure-sql.md#customer-managed-transparent-data-encryption---bring-your-own-key) Também pode desativar a encriptação na base de dados.
-- O tamanho máximo da `BACKUP` risca de reserva utilizando o comando numa instância gerida é de 195 GB, que é o tamanho máximo da bolha. Aumente o número de listras no comando de reserva para reduzir o tamanho das listras individuais e permaneça dentro deste limite.
+- Não é possível executar numa base de dados encriptada com encriptação transparente de `BACKUP DATABASE ... WITH COPY_ONLY` dados (TDE) gerida pelo serviço. O TDE gerido pelo serviço obriga as cópias de segurança a serem encriptadas com uma chave TDE interna. A chave não pode ser exportada, por isso não podes restaurar a reserva. Utilize cópias de segurança automáticas e restauro pontual, ou utilize [tDE (BYOK) gerido pelo cliente.](transparent-data-encryption-azure-sql.md#customer-managed-transparent-data-encryption---bring-your-own-key) Também pode desativar a encriptação na base de dados.
+- O tamanho máximo da risca de reserva utilizando o comando numa instância gerida é de `BACKUP` 195 GB, que é o tamanho máximo da bolha. Aumente o número de listras no comando de reserva para reduzir o tamanho das listras individuais e permaneça dentro deste limite.
 
     > [!TIP]
     > Para contornar esta limitação, quando faz o backup a partir de uma base de dados do SQL Server num ambiente no local ou numa máquina virtual, pode:
     >
-    > - Recua em `DISK` vez de `URL`recuar até...
+    > - Recua em `DISK` vez de recuar `URL` até...
     > - Faça o upload dos ficheiros de reserva para o armazenamento blob.
     > - Restaurar na instância gerida.
     >
@@ -92,7 +92,7 @@ A auditoria do XEvent em instância gerida suporta os alvos de armazenamento da 
 
 As principais diferenças na `CREATE AUDIT` sintaxe para a auditoria ao armazenamento da Blob Azure são:
 
-- É fornecida uma `TO URL` nova sintaxe que pode utilizar para especificar o `.xel` URL do recipiente de armazenamento Azure Blob onde os ficheiros são colocados.
+- É fornecida uma nova sintaxe `TO URL` que pode utilizar para especificar o URL do recipiente de armazenamento Azure Blob onde os `.xel` ficheiros são colocados.
 - A sintaxe `TO FILE` não é suportada porque uma instância gerida não pode aceder a partilhas de ficheiros do Windows.
 
 Para obter mais informações, consulte: 
@@ -105,8 +105,8 @@ Para obter mais informações, consulte:
 
 Uma instância gerida não pode aceder a partilhas de ficheiros e pastas do Windows, pelo que se aplicam os seguintes constrangimentos:
 
-- `CREATE FROM` / O `BACKUP TO` ficheiro não é suportado para certificados.
-- O `CREATE` / / `ASSEMBLY` certificado `FILE` não é suportado. `BACKUP` Ficheiros de chaves privadas não podem ser usados. 
+- O `CREATE FROM` / `BACKUP TO` ficheiro não é suportado para certificados.
+- O `CREATE` / `BACKUP` certificado não `FILE` / `ASSEMBLY` é suportado. Ficheiros de chaves privadas não podem ser usados. 
 
 Consulte O [CERTIFICADO](/sql/t-sql/statements/backup-certificate-transact-sql)DE [CRIAÇÃO](/sql/t-sql/statements/create-certificate-transact-sql) e O CERTIFICADO DE BACKUP . 
  
@@ -120,7 +120,7 @@ WITH PRIVATE KEY (<private_key_options>)
 
 ### <a name="credential"></a>Credencial
 
-Apenas o Cofre `SHARED ACCESS SIGNATURE` de Chaves Azure e as identidades são suportadas. Os utilizadores do Windows não são suportados.
+Apenas o Cofre de Chaves Azure e `SHARED ACCESS SIGNATURE` as identidades são suportadas. Os utilizadores do Windows não são suportados.
 
 Ver [CRIAR CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql) e [ALTERAR CREDENTIAL](/sql/t-sql/statements/alter-credential-transact-sql).
 
@@ -133,14 +133,14 @@ Uma instância gerida não pode aceder a ficheiros, por isso os fornecedores cri
 
 ### <a name="logins-and-users"></a>Inícios de sessão e utilizadores
 
-- Os logins SQL `FROM CERTIFICATE` `FROM ASYMMETRIC KEY`criados `FROM SID` pela utilização, e são suportados. Ver [CRIAR LOGIN](/sql/t-sql/statements/create-login-transact-sql).
+- Os logins SQL criados pela `FROM CERTIFICATE` `FROM ASYMMETRIC KEY` utilização, e são `FROM SID` suportados. Ver [CRIAR LOGIN](/sql/t-sql/statements/create-login-transact-sql).
 - Os diretores de servidores azure Ative Directory (Azure AD) (logins) criados com a sintaxe [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) ou o [CREATE USER FROM LOGIN [Azure AD Login]](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) são suportados. Estes logins são criados ao nível do servidor.
 
-    A instância gerida suporta os principais da base `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER`de dados Azure AD com a sintaxe . Esta funcionalidade também é conhecida como Azure AD continha utilizadores de base de dados.
+    A instância gerida suporta os principais da base de dados Azure AD com a sintaxe `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER` . Esta funcionalidade também é conhecida como Azure AD continha utilizadores de base de dados.
 
-- Os logins do `CREATE LOGIN ... FROM WINDOWS` Windows criados com a sintaxe não são suportados. Utilize logins e utilizadores de Diretório Ativo Azure.
+- Os logins do Windows criados com a `CREATE LOGIN ... FROM WINDOWS` sintaxe não são suportados. Utilize logins e utilizadores de Diretório Ativo Azure.
 - O utilizador da AD Azure que criou a instância tem [privilégios administrativos ilimitados.](sql-database-manage-logins.md)
-- Os utilizadores de bases de dados ad azure `CREATE USER ... FROM EXTERNAL PROVIDER` não administradores podem ser criados através da sintaxe. Ver [CREATE USER ... Do FORNECEDOR EXTERNO.](sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)
+- Os utilizadores de bases de dados ad azure não administradores podem ser criados através da `CREATE USER ... FROM EXTERNAL PROVIDER` sintaxe. Ver [CREATE USER ... Do FORNECEDOR EXTERNO.](sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)
 - Os diretores do servidor Azure AD (logins) suportam as funcionalidades SQL dentro de uma instância gerida apenas. As funcionalidades que requerem interação transversal, independentemente de estarem dentro do mesmo inquilino da AD Azure ou de diferentes inquilinos, não são suportadas para utilizadores da AD Azure. Exemplos de tais características são:
 
   - Replicação transacional SQL.
@@ -149,7 +149,7 @@ Uma instância gerida não pode aceder a ficheiros, por isso os fornecedores cri
 - Definir um login Azure AD mapeado para um grupo DeA Azure como o proprietário da base de dados não é suportado.
 - A personificação dos diretores de servidores Azure AD utilizando outros diretores de AD Azure é suportada, como a cláusula [EXECUTE AS.](/sql/t-sql/statements/execute-as-transact-sql) EXECUTAR AS limitações são:
 
-  - Execute COMO UTILIZADOR não é suportado para utilizadores de Anúncios Azure quando o nome difere do nome de login. Um exemplo é quando o utilizador é criado através do utilizador criar sintaxe CREATE USER [myAadUser] FROM LOGIN [john@contoso.com] e a personificação é tentada através do EXEC AS USER = _myAadUser_. Quando criar um **UTILIZADOR** a partir de um servidor Azure AD (login), especifique o user_name como o mesmo login_name do **LOGIN**.
+  - Execute COMO UTILIZADOR não é suportado para utilizadores de Anúncios Azure quando o nome difere do nome de login. Um exemplo é quando o utilizador é criado através do utilizador criar sintaxe CREATE USER [myAadUser] FROM LOGIN [ ] e a john@contoso.com personificação é tentada através do EXEC AS USER = _myAadUser_. Quando criar um **UTILIZADOR** a partir de um servidor Azure AD (login), especifique o user_name como o mesmo login_name do **LOGIN**.
   - Apenas os principais de nível SQL (logins) que fazem parte da `sysadmin` função podem executar as seguintes operações que visam os principais da AD Azure:
 
     - EXECUTAR COMO UTILIZADOR
@@ -163,8 +163,8 @@ Uma instância gerida não pode aceder a ficheiros, por isso os fornecedores cri
     - Exportar uma base de dados de instância gerida e importar para o SQL Server (versão 2012 ou posterior).
       - Nesta configuração, todos os utilizadores de AD Azure são criados como principais de base de dados SQL (utilizadores) sem logins. O tipo de utilizadores está listado como SQL (visível como SQL_USER em sys.database_principals). As suas permissões e funções permanecem nos metadados da base de dados do SQL Server e podem ser usadas para personificação. No entanto, não podem ser utilizados para aceder e iniciar sessão no Servidor SQL utilizando as suas credenciais.
 
-- Apenas o login principal ao nível do servidor, que é criado pelo processo `securityadmin` `sysadmin`de fornecimento de instâncias gerido, membros das funções do servidor, tais como ou , ou outros logins com a permissão ALTER ANY LOGIN ao nível do servidor podem criar diretores de servidores AD Azure (logins) na base de dados principal para por exemplo gerido.
-- Se o login for um principal SQL, apenas `sysadmin` os logins que fazem parte da função podem usar o comando de criação para criar logins para uma conta Azure AD.
+- Apenas o login principal ao nível do servidor, que é criado pelo processo de fornecimento de instâncias gerido, membros das funções do servidor, tais como `securityadmin` ou , ou outros `sysadmin` logins com a permissão ALTER ANY LOGIN ao nível do servidor podem criar diretores de servidores AD Azure (logins) na base de dados principal para por exemplo gerido.
+- Se o login for um principal SQL, apenas os logins que fazem parte da `sysadmin` função podem usar o comando de criação para criar logins para uma conta Azure AD.
 - O login Azure AD deve ser membro de um Anúncio Azure dentro do mesmo diretório que é usado para a instância gerida pela Base de Dados Azure SQL.
 - Os diretores do servidor Azure AD (logins) são visíveis no Object Explorer a partir da pré-visualização do SQL Server Management Studio 18.0 5.
 - É permitido sobrepor-se aos diretores de servidores da AD Azure (logins) com uma conta de administração Azure AD. Os diretores de servidores da Azure AD (logins) têm precedência sobre o administrador da AD Azure quando resolve o diretor e aplica permissões à instância gerida.
@@ -193,7 +193,7 @@ Uma instância gerida não pode aceder a ficheiros, por isso os fornecedores cri
 
 ### <a name="collation"></a>Agrupamento
 
-A colagem de `SQL_Latin1_General_CP1_CI_AS` instância padrão é e pode ser especificada como um parâmetro de criação. Ver [Collations.](/sql/t-sql/statements/collations)
+A colagem de instância padrão é e pode ser especificada como um parâmetro de `SQL_Latin1_General_CP1_CI_AS` criação. Ver [Collations.](/sql/t-sql/statements/collations)
 
 ### <a name="compatibility-levels"></a>Níveis de compatibilidade
 
@@ -222,13 +222,13 @@ Para mais informações, consulte [alter DATABASE SET PARTNER e SET WITNESS](/sq
 
 #### <a name="create-database-statement"></a>Criar declaração de BASE DE DADOS
 
-As seguintes limitações aplicam-se a: `CREATE DATABASE`
+As seguintes limitações aplicam-se `CREATE DATABASE` a:
 
 - Ficheiros e grupos de ficheiros não podem ser definidos. 
 - A `CONTAINMENT` opção não é apoiada. 
 - `WITH`opções não são suportadas. 
    > [!TIP]
-   > Como suver, `ALTER DATABASE` `CREATE DATABASE` utilize depois para definir opções de base de dados para adicionar ficheiros ou para definir a contenção. 
+   > Como suver, utilize depois para definir opções de base de `ALTER DATABASE` `CREATE DATABASE` dados para adicionar ficheiros ou para definir a contenção. 
 
 - A `FOR ATTACH` opção não é apoiada.
 - A `AS SNAPSHOT OF` opção não é apoiada.
@@ -239,8 +239,8 @@ Para mais informações, consulte [CREATE DATABASE](/sql/t-sql/statements/create
 
 Algumas propriedades de ficheiros não podem ser definidas ou alteradas:
 
-- Um caminho de ficheiro não pode `ALTER DATABASE ADD FILE (FILENAME='path')` ser especificado na declaração t-SQL. Retire `FILENAME` do script porque uma instância gerida coloca automaticamente os ficheiros. 
-- Um nome de ficheiro não pode `ALTER DATABASE` ser alterado usando a declaração.
+- Um caminho de ficheiro não pode ser especificado na `ALTER DATABASE ADD FILE (FILENAME='path')` declaração t-SQL. Retire `FILENAME` do script porque uma instância gerida coloca automaticamente os ficheiros. 
+- Um nome de ficheiro não pode ser alterado usando a `ALTER DATABASE` declaração.
 
 As seguintes opções são definidas por padrão e não podem ser alteradas:
 
@@ -275,7 +275,7 @@ Para mais informações, consulte [alter DATABASE](/sql/t-sql/statements/alter-d
 ### <a name="sql-server-agent"></a>SQL Server Agent
 
 - Ativar e desativar o Agente de Servidor SQL não é suportado em instância gerida. O Agente SQL está sempre a correr.
-- As definições do Agente do Servidor SQL são lidas apenas. O `sp_set_agent_properties` procedimento não é suportado em instância gerida. 
+- As definições do Agente do Servidor SQL são lidas apenas. O procedimento `sp_set_agent_properties` não é suportado em instância gerida. 
 - Tarefas
   - Os passos de trabalho da T-SQL são apoiados.
   - Apoiam-se os seguintes trabalhos de replicação:
@@ -290,7 +290,7 @@ Para mais informações, consulte [alter DATABASE](/sql/t-sql/statements/alter-d
   - Casos geridos não podem aceder a recursos externos, por exemplo, partilhas de rede através de robocopia. 
   - Os Serviços de Análise do Servidor SQL não são suportados.
 - As notificações são parcialmente suportadas.
-- A notificação por e-mail é suportada, embora exija que configure um perfil de Correio de Base de Dados. O Agente servidor SQL só pode utilizar um `AzureManagedInstance_dbmail_profile`perfil de Correio de Base de Dados, e deve ser chamado . 
+- A notificação por e-mail é suportada, embora exija que configure um perfil de Correio de Base de Dados. O Agente servidor SQL só pode utilizar um perfil de Correio de Base de Dados, e deve ser chamado `AzureManagedInstance_dbmail_profile` . 
   - Pager não é apoiado.
   - NetSend não é suportado.
   - Os alertas ainda não são suportados.
@@ -331,21 +331,21 @@ Uma instância gerida não pode aceder a partilhas de ficheiros e pastas Windows
 
 Uma instância gerida não pode aceder a partilhas de ficheiros e pastas do Windows, pelo que se aplicam os seguintes constrangimentos:
 
-- Só `CREATE ASSEMBLY FROM BINARY` é apoiado. Consulte [CRIAR CONJUNTO BLY a partir de BINÁRIO](/sql/t-sql/statements/create-assembly-transact-sql). 
+- Só `CREATE ASSEMBLY FROM BINARY` é apoiado. Ver [MONTAGEM CRIAR A PARTIR DE BINÁRIO](/sql/t-sql/statements/create-assembly-transact-sql). 
 - `CREATE ASSEMBLY FROM FILE`não é apoiado. Consulte [A MONTAGEM CREATE FROM FILE](/sql/t-sql/statements/create-assembly-transact-sql).
 - `ALTER ASSEMBLY`não pode referência ficheiros. Ver [ALTER MONTAGEM](/sql/t-sql/statements/alter-assembly-transact-sql).
 
 ### <a name="database-mail-db_mail"></a>Correio de Base de Dados (db_mail)
- - `sp_send_dbmail`não pode enviar @file_attachments anexos usando parâmetro. O sistema de ficheiros local e as ações externas ou o Armazenamento De Blob Azure não estão acessíveis a partir deste procedimento.
- - Consulte as questões `@query` conhecidas relacionadas com o parâmetro e a autenticação.
+ - `sp_send_dbmail`não pode enviar anexos usando @file_attachments parâmetro. O sistema de ficheiros local e as ações externas ou o Armazenamento De Blob Azure não estão acessíveis a partir deste procedimento.
+ - Consulte as questões conhecidas relacionadas com `@query` o parâmetro e a autenticação.
  
 ### <a name="dbcc"></a>DBCC
 
 As declarações dBCC não documentadas que são ativadas no SQL Server não são suportadas em casos geridos.
 
-- Apenas um número limitado de bandeiras da Global Trace são suportadas. O nível `Trace flags` da sessão não é suportado. Ver [Trace flags](/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql).
+- Apenas um número limitado de bandeiras da Global Trace são suportadas. O nível da sessão `Trace flags` não é suportado. Ver [Trace flags](/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql).
 - [DBCC TRACEOFF](/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql) e [DBCC TRACEON](/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql) trabalham com o número limitado de trace-flags globais.
-- [DBCC CHECKDB](/sql/t-sql/database-console-commands/dbcc-checkdb-transact-sql) com opções REPAIR_ALLOW_DATA_LOSS, REPAIR_FAST e REPAIR_REBUILD não `SINGLE_USER` podem ser utilizados porque a base de dados não pode ser definida no modo - ver [alter diferenças de BASE DE DADOS](#alter-database-statement). Potenciais corrupçãos na base de dados são tratadas pela equipa de apoio do Azure. Contacte o suporte do Azure se notar a corrupção na base de dados que deve ser corrigida.
+- [DBCC CHECKDB](/sql/t-sql/database-console-commands/dbcc-checkdb-transact-sql) com opções REPAIR_ALLOW_DATA_LOSS, REPAIR_FAST e REPAIR_REBUILD não podem ser utilizados porque a base de dados não pode ser definida no `SINGLE_USER` modo - ver alter [diferenças de BASE DE DADOS](#alter-database-statement). Potenciais corrupçãos na base de dados são tratadas pela equipa de apoio do Azure. Contacte o suporte do Azure se notar a corrupção na base de dados que deve ser corrigida.
 
 ### <a name="distributed-transactions"></a>Transações distribuídas
 
@@ -365,9 +365,9 @@ Na base de dados R e Python, as bibliotecas externas ainda não são suportadas.
 ### <a name="filestream-and-filetable"></a>Filestream e FileTable
 
 - Os dados do filestream não são suportados.
-- A base de dados não `FILESTREAM` pode conter grupos de ficheiros com dados.
+- A base de dados não pode conter grupos de ficheiros com `FILESTREAM` dados.
 - `FILETABLE`não é apoiado.
-- As mesas `FILESTREAM` não podem ter tipos.
+- As mesas não podem ter `FILESTREAM` tipos.
 - As seguintes funções não são suportadas:
   - `GetPathLocator()`
   - `GET_FILESTREAM_TRANSACTION_CONTEXT()`
@@ -387,14 +387,14 @@ Servidores ligados em casos geridos suportam um número limitado de alvos:
 
 - Os alvos suportados são instâncias geridas, bases de dados únicas e casos de Servidor SQL. 
 - Os servidores ligados não suportam transações responsadas distribuídas (MS DTC).
-- Os alvos que não são suportados são ficheiros, serviços de análise e outros RDBMS. Tente utilizar a importação nativa de CSV `BULK INSERT` `OPENROWSET` do Armazenamento De Blob Azure utilizando ou como alternativa para a importação de ficheiros.
+- Os alvos que não são suportados são ficheiros, serviços de análise e outros RDBMS. Tente utilizar a importação nativa de CSV do Armazenamento De Blob Azure utilizando ou como alternativa para a importação de `BULK INSERT` `OPENROWSET` ficheiros.
 
 Operações
 
 - As transações de escrita de instâncias cruzadas não são suportadas.
 - `sp_dropserver`é suportado para deixar cair um servidor ligado. Veja [sp_dropserver.](/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql)
 - A `OPENROWSET` função só pode ser utilizada para executar consultas em casos de Servidor SQL. Podem ser geridos, no local ou em máquinas virtuais. Ver [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql).
-- A `OPENDATASOURCE` função só pode ser utilizada para executar consultas em casos de Servidor SQL. Podem ser geridos, no local ou em máquinas virtuais. Apenas `SQLNCLI` `SQLNCLI11`os `SQLOLEDB` , e valores são suportados como fornecedor. Um exemplo é `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. Ver [OPENDATASOURCE](/sql/t-sql/functions/opendatasource-transact-sql).
+- A `OPENDATASOURCE` função só pode ser utilizada para executar consultas em casos de Servidor SQL. Podem ser geridos, no local ou em máquinas virtuais. Apenas os `SQLNCLI` `SQLNCLI11` , e `SQLOLEDB` valores são suportados como fornecedor. Um exemplo é `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. Ver [OPENDATASOURCE](/sql/t-sql/functions/opendatasource-transact-sql).
 - Os servidores ligados não podem ser utilizados para ler ficheiros (Excel, CSV) a partir das partilhas da rede. Tente utilizar [inserção](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) a granel ou [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) que leia ficheiros CSV a partir do Armazenamento De Blob Azure. Acompanhe estes pedidos em itens de feedback de [instância gerida](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources)|
 
 ### <a name="polybase"></a>PolyBase
@@ -428,23 +428,23 @@ Para obter mais informações sobre a configuração da replicação transaciona
   - `FROM URL`(Armazenamento Azure Blob) é a única opção suportada.
   - `FROM DISK`/`TAPE`/dispositivo de reserva não é suportado.
   - Os conjuntos de reserva não são suportados.
-- `WITH`opções não são suportadas, `DIFFERENTIAL` `STATS`tais como não ou .
-- `ASYNC RESTORE`: A restauração continua mesmo que a ligação do cliente se rompa. Se a sua ligação for `sys.dm_operation_status` abandonada, pode verificar a visualização do estado de uma operação de restauro e para uma base de dados CREATE e DROP. Ver [sys.dm_operation_status.](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) 
+- `WITH`opções não são suportadas, tais como não `DIFFERENTIAL` ou `STATS` .
+- `ASYNC RESTORE`: A restauração continua mesmo que a ligação do cliente se rompa. Se a sua ligação for abandonada, pode verificar `sys.dm_operation_status` a visualização do estado de uma operação de restauro e para uma base de dados CREATE e DROP. Ver [sys.dm_operation_status.](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) 
 
 As seguintes opções de base de dados são definidas ou ultrapassadas e não podem ser alteradas mais tarde: 
 
 - `NEW_BROKER`se o corretor não estiver ativado no ficheiro .bak. 
 - `ENABLE_BROKER`se o corretor não estiver ativado no ficheiro .bak. 
-- `AUTO_CLOSE=OFF`se uma base de dados `AUTO_CLOSE=ON`no ficheiro .bak tiver . 
-- `RECOVERY FULL`se uma base de dados `SIMPLE` `BULK_LOGGED` no ficheiro .bak tiver ou modo de recuperação.
+- `AUTO_CLOSE=OFF`se uma base de dados no ficheiro .bak tiver `AUTO_CLOSE=ON` . 
+- `RECOVERY FULL`se uma base de dados no ficheiro .bak tiver ou modo de `SIMPLE` `BULK_LOGGED` recuperação.
 - Um grupo de ficheiros otimizado pela memória é adicionado e chamado XTP se não estivesse no ficheiro fonte .bak. 
 - Qualquer grupo de ficheiros otimizado para memória existente é renomeado para XTP. 
-- `SINGLE_USER`e `RESTRICTED_USER` as opções são convertidas para `MULTI_USER`.
+- `SINGLE_USER`e `RESTRICTED_USER` as opções são convertidas para `MULTI_USER` .
 
 Limitações: 
 
-- Os backups das bases de dados corrompidas podem ser restaurados dependendo do tipo de corrupção, mas os backups automatizados não serão tomados até que a corrupção seja corrigida. Certifique-se de `DBCC CHECKDB` que executa a `WITH CHECKSUM` instância de origem e utilize cópias de segurança para evitar este problema.
-- A `.BAK` restauração do ficheiro de uma base de dados `FILESTREAM` `FILETABLE` que contenha qualquer limitação descrita neste documento (por exemplo, ou objetos) não pode ser restaurada em Instância Gerida.
+- Os backups das bases de dados corrompidas podem ser restaurados dependendo do tipo de corrupção, mas os backups automatizados não serão tomados até que a corrupção seja corrigida. Certifique-se de que executa a instância de origem e utilize cópias de `DBCC CHECKDB` segurança para evitar este `WITH CHECKSUM` problema.
+- A restauração do ficheiro de uma base de `.BAK` dados que contenha qualquer limitação descrita neste documento (por exemplo, `FILESTREAM` ou `FILETABLE` objetos) não pode ser restaurada em Instância Gerida.
 - `.BAK`ficheiros que contenham vários conjuntos de backup não podem ser restaurados. 
 - `.BAK`ficheiros que contenham vários ficheiros de registo não podem ser restaurados.
 - As cópias de segurança que contenham bases de dados superiores a 8 TB, objetos OLTP ativos na memória ou número de ficheiros que excederiam 280 ficheiros por instância não podem ser restaurados numa instância de Propósito Geral. 
@@ -459,8 +459,8 @@ Para obter informações sobre as declarações de restauro, consulte [as declar
 O corretor de serviços de instâncias cruzadas não é suportado:
 
 - `sys.routes`: Como pré-requisito, deve selecionar o endereço a partir de sys.routes. O endereço deve ser LOCAL em todas as rotas. Ver [sys.routes](/sql/relational-databases/system-catalog-views/sys-routes-transact-sql).
-- `CREATE ROUTE`: Não pode `CREATE ROUTE` usar `ADDRESS` com `LOCAL`outra coisa que não seja . Ver [CREATE ROUTE](/sql/t-sql/statements/create-route-transact-sql).
-- `ALTER ROUTE`: Não pode `ALTER ROUTE` usar `ADDRESS` com `LOCAL`outra coisa que não seja . Ver [ALTER ROUTE](/sql/t-sql/statements/alter-route-transact-sql). 
+- `CREATE ROUTE`: Não pode usar com outra coisa que não `CREATE ROUTE` `ADDRESS` seja `LOCAL` . Ver [CREATE ROUTE](/sql/t-sql/statements/create-route-transact-sql).
+- `ALTER ROUTE`: Não pode usar com outra coisa que não `ALTER ROUTE` `ADDRESS` seja `LOCAL` . Ver [ALTER ROUTE](/sql/t-sql/statements/alter-route-transact-sql). 
 
 ### <a name="stored-procedures-functions-and-triggers"></a>Procedimentos, funções e gatilhos armazenados
 
@@ -474,8 +474,8 @@ O corretor de serviços de instâncias cruzadas não é suportado:
   - `remote proc trans`
 - `sp_execute_external_scripts`não é apoiado. Veja [sp_execute_external_scripts.](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples)
 - `xp_cmdshell`não é apoiado. Veja [xp_cmdshell.](/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql)
-- `Extended stored procedures`não são suportados, `sp_addextendedproc`  o `sp_dropextendedproc`que inclui e . Ver [Procedimentos armazenados alargados](/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
-- `sp_attach_db`E `sp_attach_single_file_db`não `sp_detach_db` são apoiados. Ver [sp_attach_db,](/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql) [sp_attach_single_file_db](/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql)e [sp_detach_db.](/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql)
+- `Extended stored procedures`não são suportados, o que inclui `sp_addextendedproc`   e `sp_dropextendedproc` . Ver [Procedimentos armazenados alargados](/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
+- `sp_attach_db`E `sp_attach_single_file_db` `sp_detach_db` não são apoiados. Ver [sp_attach_db,](/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql) [sp_attach_single_file_db](/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql)e [sp_detach_db.](/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql)
 
 ### <a name="system-functions-and-variables"></a>Funções e variáveis do sistema
 
@@ -483,9 +483,9 @@ As seguintes variáveis, funções e pontos de vista retornam resultados diferen
 
 - `SERVERPROPERTY('EngineEdition')`devolve o valor 8. Esta propriedade identifica de forma única um caso gerido. Ver [SERVERPROPERTY](/sql/t-sql/functions/serverproperty-transact-sql).
 - `SERVERPROPERTY('InstanceName')`devoluções NULO porque o conceito de instância tal como existe para o SQL Server não se aplica a uma instância gerida. Ver [SERVERPROPERTY ('Nome de instância')](/sql/t-sql/functions/serverproperty-transact-sql).
-- `@@SERVERNAME`devolve um nome completo de DNS "conectável", por exemplo, my-managed-instance.wcus17662feb9ce98.database.windows.net. Ver [@SERVERNAME@](/sql/t-sql/functions/servername-transact-sql). 
-- `SYS.SERVERS`devolve um nome completo de DNS `myinstance.domain.database.windows.net` "conectável", como para as propriedades "nome" e "data_source". Ver [Sys. SERVIDORES](/sql/relational-databases/system-catalog-views/sys-servers-transact-sql).
-- `@@SERVICENAME`devoluções NULO porque o conceito de serviço tal como existe para o SQL Server não se aplica a uma instância gerida. Ver [@SERVICENAME@](/sql/t-sql/functions/servicename-transact-sql).
+- `@@SERVERNAME`devolve um nome completo de DNS "conectável", por exemplo, my-managed-instance.wcus17662feb9ce98.database.windows.net. Ver [ @SERVERNAME @](/sql/t-sql/functions/servername-transact-sql). 
+- `SYS.SERVERS`devolve um nome completo de DNS "conectável", como `myinstance.domain.database.windows.net` para as propriedades "nome" e "data_source". Ver [Sys. SERVIDORES](/sql/relational-databases/system-catalog-views/sys-servers-transact-sql).
+- `@@SERVICENAME`devoluções NULO porque o conceito de serviço tal como existe para o SQL Server não se aplica a uma instância gerida. Ver [ @SERVICENAME @](/sql/t-sql/functions/servicename-transact-sql).
 - `SUSER_ID`é apoiado. Devolve NULO se o login Azure AD não estiver em sys.syslogins. Veja [SUSER_ID.](/sql/t-sql/functions/suser-id-transact-sql) 
 - `SUSER_SID`não é apoiado. Os dados errados são devolvidos, o que é uma questão temporária conhecida. Veja [SUSER_SID.](/sql/t-sql/functions/suser-sid-transact-sql) 
 
@@ -505,7 +505,7 @@ As seguintes variáveis, funções e pontos de vista retornam resultados diferen
 
 ### <a name="tempdb"></a>TEMPDB
 
-O tamanho máximo `tempdb` do ficheiro não pode ser superior a 24 GB por núcleo num nível de Propósito Geral. O `tempdb` tamanho máximo num nível Business Critical é limitado pelo tamanho de armazenamento por exemplo. `Tempdb`o tamanho do ficheiro de registo está limitado a 120 GB no nível de Propósito Geral. Algumas consultas podem devolver um erro se precisarem `tempdb` de mais de 24 GB por núcleo ou se produzirem mais de 120 GB de dados de registo.
+O tamanho máximo do ficheiro não pode ser superior a `tempdb` 24 GB por núcleo num nível de Propósito Geral. O tamanho máximo `tempdb` num nível Business Critical é limitado pelo tamanho de armazenamento por exemplo. `Tempdb`o tamanho do ficheiro de registo está limitado a 120 GB no nível de Propósito Geral. Algumas consultas podem devolver um erro se precisarem de mais de 24 GB por núcleo `tempdb` ou se produzirem mais de 120 GB de dados de registo.
 
 ### <a name="msdb"></a>MSDB
 
@@ -531,7 +531,7 @@ Os seguintes schemas de MSDB em instância gerida devem ser propriedade das resp
 
 Uma instância gerida coloca informações verbosas em registos de erros. Há muitos eventos do sistema interno que estão registados no registo de erros. Utilize um procedimento personalizado para ler registos de erros que filtram algumas entradas irrelevantes. Para mais informações, consulte a [exemplo gerida – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/) ou [extensão de instância gerida (pré-visualização)](/sql/azure-data-studio/azure-sql-managed-instance-extension#logs) para o Azure Data Studio.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter mais informações sobre casos geridos, consulte [O que é um caso gerido?](sql-database-managed-instance.md)
 - Para obter uma lista de funcionalidades e comparação, consulte a comparação de funcionalidades de [recurso Azure SQL](sql-database-features.md).

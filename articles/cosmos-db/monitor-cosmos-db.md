@@ -5,15 +5,15 @@ author: bwren
 services: cosmos-db
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/24/2020
+ms.date: 05/20/2020
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: eef6ece115afc41fd30d77747eb3e368cf95719c
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: fcdc80e73d11bbc6d94e921548d346ee436b69ac
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780186"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715686"
 ---
 # <a name="monitoring-azure-cosmos-db"></a>Monitorização Azure Cosmos DB
 
@@ -32,7 +32,7 @@ Se ainda não está familiarizado com a monitorização dos serviços azure, com
 
 As seguintes secções baseiam-se neste artigo descrevendo os dados específicos recolhidos do Azure Cosmos DB e fornecendo exemplos para configurar a recolha de dados e analisar estes dados com ferramentas Azure.
 
-## <a name="azure-monitor-for-cosmos-db-preview"></a>Monitor Azure para Cosmos DB (Pré-visualização)
+## <a name="azure-monitor-for-azure-cosmos-db"></a>Monitor Azure para Azure Cosmos DB
 
 O Azure Monitor para o Azure Cosmos DB baseia-se na [funcionalidade de livros de livros do Azure Monitor](../azure-monitor/app/usage-workbooks.md) e utiliza os mesmos dados de monitorização recolhidos para o Cosmos DB descritos nas secções abaixo. Utilize o Monitor Azure para uma visão do desempenho global, falhas, capacidade e saúde operacional de todos os seus recursos Azure Cosmos DB numa experiência interativa unificada, e aproveite as outras funcionalidades do Azure Monitor para análise detalhada e alerta. Para saber mais, consulte o explore Azure Monitor para o artigo [da Azure Cosmos DB.](../azure-monitor/insights/cosmosdb-insights-overview.md)
 
@@ -92,7 +92,7 @@ Os dados em Registos do Monitor Azure são armazenados em tabelas que cada tabel
 
 | Tabela | Descrição |
 |:---|:---|
-| AzureDiagnostics | Tabela comum usada por vários serviços para armazenar registos de recursos. Os registos de recursos da Azure `MICROSOFT.DOCUMENTDB`Cosmos DB podem ser identificados com .   |
+| AzureDiagnostics | Tabela comum usada por vários serviços para armazenar registos de recursos. Os registos de recursos da Azure Cosmos DB podem ser identificados com `MICROSOFT.DOCUMENTDB` .   |
 | AzureActivity    | Tabela comum que armazena todos os registos do registo de atividades. 
 
 
@@ -148,7 +148,7 @@ As consultas para recuperar métricas individuais utilizam o seguinte formato:
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte a referência de dados de monitorização do [Azure Cosmos DB](monitor-cosmos-db-reference.md) para uma referência dos registos e métricas criados pela Azure Cosmos DB.
 - Consulte [a Monitorização dos recursos do Azure com o Monitor Azure](../azure-monitor/insights/monitor-azure-resource.md) para obter mais informações sobre a monitorização dos recursos do Azure.

@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Problemas de resolução de problemas comuns com arc permitiu aglomerados kubernetes.
 keywords: Kubernetes, Arc, Azure, contentores
-ms.openlocfilehash: e0583fdeaa0819ec961e87ae89ee3aa7592d1f79
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 1527f8d4ca06c2deaf4ce18b73bfdb515dcadc63
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680698"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725589"
 ---
 # <a name="azure-arc-enabled-kubernetes-troubleshooting-preview"></a>O Azure Arc permitiu a resolução de problemas da Kubernetes (Pré-visualização)
 
@@ -49,21 +49,27 @@ Se a libertação do Leme não for encontrada ou desaparecida, tente embarcar no
 Se a libertação do Leme estiver presente e `STATUS: deployed` determinar o estado dos agentes que `kubectl` utilizem:
 
 ```console
-$ kubectl -n azure-arc get deploy,pods
-NAME                                 READY   UP-TO-DATE   AVAILABLE   AGE
-deployment.apps/config-agent         1/1     1            1           53s
-deployment.apps/connect-agent        1/1     1            1           53s
-deployment.apps/controller-manager   1/1     1            1           53s
-deployment.apps/metrics-agent        1/1     1            1           53s
+$ kubectl -n azure-arc get deployments,pods
+NAME                                        READY   UP-TO-DATE AVAILABLE AGE
+deployment.apps/cluster-metadata-operator   1/1     1           1        16h
+deployment.apps/clusteridentityoperator     1/1     1           1        16h
+deployment.apps/config-agent                1/1     1           1        16h
+deployment.apps/controller-manager          1/1     1           1        16h
+deployment.apps/flux-logs-agent             1/1     1           1        16h
+deployment.apps/metrics-agent               1/1     1           1        16h
+deployment.apps/resource-sync-agent         1/1     1           1        16h
 
-NAME                                      READY   STATUS    RESTARTS   AGE
-pod/config-agent-74cf758b5f-cxnhs         2/2     Running   0          53s
-pod/connect-agent-bc6b9ff5d-dzkvf         2/2     Running   0          53s
-pod/controller-manager-7cf95d5d77-wv5cw   2/2     Running   0          53s
-pod/metrics-agent-c77c9dfc7-45n5r         1/1     Running   0          53s
+NAME                                            READY   STATUS   RESTART AGE
+pod/cluster-metadata-operator-7fb54d9986-g785b  2/2     Running  0       16h
+pod/clusteridentityoperator-6d6678ffd4-tx8hr    3/3     Running  0       16h
+pod/config-agent-544c4669f9-4th92               3/3     Running  0       16h
+pod/controller-manager-fddf5c766-ftd96          3/3     Running  0       16h
+pod/flux-logs-agent-7c489f57f4-mwqqv            2/2     Running  0       16h
+pod/metrics-agent-58b765c8db-n5l7k              2/2     Running  0       16h
+pod/resource-sync-agent-5cf85976c7-522p5        3/3     Running  0       16h
 ```
 
-Todas as cápsulas devem mostrar `STATUS` como e devem ser ou `Running` `READY` `2/2` `1/1` . Pegue os registos e descreva as cápsulas que estão a regressar `Error` ou `CrashLoopBackOff` .
+Todas as cápsulas devem mostrar `STATUS` como e devem ser ou `Running` `READY` `3/3` `2/2` . Pegue os registos e descreva as cápsulas que estão a regressar `Error` ou `CrashLoopBackOff` .
 
 ## <a name="unable-to-connect-my-kubernetes-cluster-to-azure"></a>Incapaz de ligar o meu cluster Kubernetes a Azure
 
@@ -96,54 +102,6 @@ This operation might take a while...
 
 There was a problem with connect-agent deployment. Please run 'kubectl -n azure-arc logs -l app.kubernetes.io/component=connect-agent -c connect-agent' to debug the error.
 ```
-
-### <a name="incorrect-or-expired-onboarding-credentials"></a>Credenciais de embarque incorretas ou caducadas
-
-```console
-$ kubectl -n azure-arc get deploy,pod
-NAME                                 READY   UP-TO-DATE   AVAILABLE   AGE
-deployment.apps/config-agent         1/1     1            1           8m11s
-deployment.apps/connect-agent        0/1     1            0           8m11s
-deployment.apps/controller-manager   1/1     1            1           8m11s
-deployment.apps/metrics-agent        1/1     1            1           8m11s
-
-NAME                                      READY   STATUS             RESTARTS   AGE
-pod/config-agent-74cf758b5f-d7qz9         2/2     Running            0          8m11s
-pod/connect-agent-bc6b9ff5d-sd9fb         1/2     CrashLoopBackOff   6          8m11s
-pod/controller-manager-7cf95d5d77-qlsvs   2/2     Running            0          8m11s
-pod/metrics-agent-c77c9dfc7-lp2rf         1/1     Running            1          8m11s
-```
-
-Conecte o agente regista todos os erros que comunicam com o Azure e o servidor Kubernetes API local como registos padrão de cápsulas. Pegue os troncos usando `kubectl` para depurar.
-
-```console
-$ kubectl -n azure-arc logs -l app.kubernetes.io/component=connect-agent -c connect-agent
-2020/04/07 20:52:50 Environment validation :success
-2020/04/07 20:52:50 Kubernetes API server access validation :success
-2020/04/07 20:52:51 Azure Subscription access token :error :http request failed. Authentication Token URL:https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db47/oauth2/token Authentication Token Body:grant_type=client_credentials&client_id=82195c37-7497-458c-b643-f4a3d0a64190&client_secret=9814c84e-59d7-49fc-bef6-17b717d2f5a8&resource=https%3A%2F%2Fmanagement.azure.com%2F ErrorInfo: Response:{"error":"invalid_client","error_description":"AADSTS7000215: Invalid client secret is provided.\r\nTrace ID: b179b7db-c957-4917-a1b6-66fab2042a00\r\nCorrelation ID: 4cfc9c81-660f-4a1a-ba0b-87db205c5461\r\nTimestamp: 2020-04-07 20:52:51Z","error_codes":[7000215],"timestamp":"2020-04-07 20:52:51Z","trace_id":"b179b7db-c957-4917-a1b6-66fab2042a00","correlation_id":"4cfc9c81-660f-4a1a-ba0b-87db205c5461","error_uri":"https://login.microsoftonline.com/error?code=7000215"} HTTPReturnCode:401
-```
-
-Para corrigir uma credencial de cliente inválida, valide que os client_id e segredo estão corretos:
-
-```console
-$ kubectl -n azure-arc get cm/azure-clusterconfig -o yaml
-  AZURE_CLIENT_ID: 82195c37-7497-458c-b643-f4a3d0a64190
-  AZURE_RESOURCE_GROUP: AzureArc
-  AZURE_RESOURCE_NAME: AzureArcCluster
-```
-
-### <a name="expired-credentials"></a>Credenciais expiradas
-
-As credenciais principais de serviço que estão caducadas fazem com que o agente de ligação inicie um erro `AADSTS7000222: The provided client secret keys are expired` .
-
-```console
-$ kubectl -n azure-arc logs -l app.kubernetes.io/component=connect-agent -c connect-agent
-2020/04/13 19:49:19 Environment validation :success
-2020/04/13 19:49:19 Kubernetes API server access validation :success
-2020/04/13 19:49:19 Azure Subscription access token :error :http request failed. Authentication Token URL:https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db47/oauth2/token Authentication Token Body:grant_type=client_credentials&client_id=82195c37-7497-458c-b643-f4a3d0a64190&client_secret=9814c84e-59d7-49fc-bef6-17b717d2f5a8&resource=https%3A%2F%2Fmanagement.azure.com%2F ErrorInfo: Response:{"error":"invalid_client","error_description":"AADSTS7000222: The provided client secret keys are expired.\r\nTrace ID: 69ade0e5-f089-4a9d-b55d-9089e07f6300\r\nCorrelation ID: 10057011-6143-4e87-ad4a-c8256cf0e353\r\nTimestamp: 2020-04-13 19:49:19Z","error_codes":[7000222],"timestamp":"2020-04-13 19:49:19Z","trace_id":"69ade0e5-f089-4a9d-b55d-9089e07f6300","correlation_id":"10057011-6143-4e87-ad4a-c8256cf0e353"} HTTPReturnCode:401
-```
-
-As credenciais expiradas podem ser recriadas utilizando `az ad sp credential reset` .
 
 ## <a name="configuration-management"></a>Gestão da configuração
 

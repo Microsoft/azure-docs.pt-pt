@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
-ms.openlocfilehash: d960c8225cbb22c221ecaec1b7c49b5bb20c1429
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a8136f8fe6431187884a180925234d6aab36983f
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203646"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725521"
 ---
 # <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Tutorial: Criar um projeto de rotulagem para classificação de imagem multi-classe 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -69,7 +69,7 @@ As lojas de dados Azure Machine Learning são usadas para armazenar informaçõe
     Nome da loja de dados | Dê um nome à loja de dados.  Aqui usamos **labeling_tutorial.**
     Tipo de datastore | Selecione o tipo de armazenamento.  Aqui utilizamos **o Armazenamento Azure Blob,** o armazenamento preferido para imagens.
     Método de seleção de contas | Selecione **Introduzir manualmente**.
-    do IdP | `https://azureopendatastorage.blob.core.windows.net/openimagescontainer`
+    URL | `https://azureopendatastorage.blob.core.windows.net/openimagescontainer`
     Tipo de autenticação | Selecione **token SAS**.
     Chave de conta | `?sv=2019-02-02&ss=bfqt&srt=sco&sp=rl&se=2025-03-25T04:51:17Z&st=2020-03-24T20:51:17Z&spr=https&sig=7D7SdkQidGT6pURQ9R4SUzWGxZ%2BHlNPCstoSRRVg8OY%3D`
 
@@ -77,7 +77,7 @@ As lojas de dados Azure Machine Learning são usadas para armazenar informaçõe
 
 ### <a name="create-a-labeling-project"></a>Criar um projeto de rotulagem
 
-Agora que tem a sua lista de rotuladores e acesso aos dados que pretende ter rotulados, crie o seu projeto de rotulagem.
+Agora que tem acesso aos dados que pretende ter rotulados, crie o seu projeto de rotulagem.
 
 1. No topo da página, selecione **Projetos.**
 
@@ -201,7 +201,7 @@ As etiquetas de imagem podem ser exportadas em [formato COCO](http://cocodataset
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, rotulou as imagens.  Agora use os seus dados rotulados:
 

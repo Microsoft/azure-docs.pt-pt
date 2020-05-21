@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
-ms.openlocfilehash: 2055558ef80a641084a7cf9d299281497d282936
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 97c4461fd2abd39e75838f67ab5d34bd52a79459
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80060681"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715618"
 ---
 # <a name="repair-a-windows-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Reparar uma VM do Windows com os comandos de reparação da Máquina Virtual do Azure
 
@@ -54,13 +54,13 @@ Para obter documentação e instruções adicionais, consulte [az vm repair](htt
 
    O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Inclui ferramentas azure comuns pré-instaladas e configuradas para usar com a sua conta.
 
-   Para abrir a Cloud Shell, selecione **Experimente a** partir do canto superior direito de um bloco de código. Também pode abrir cloud shell em um [https://shell.azure.com](https://shell.azure.com)separado separado browser aba, visitando .
+   Para abrir a Cloud Shell, selecione **Experimente a** partir do canto superior direito de um bloco de código. Também pode abrir cloud shell em um separado separado browser aba, visitando [https://shell.azure.com](https://shell.azure.com) .
 
    Selecione **Copiar** para copiar os blocos de código, em seguida, cole o código na Cloud Shell e selecione **Enter** para executá-lo.
 
    Se preferir instalar e utilizar a CLI localmente, este início rápido requer a versão 2.0.30 ou posterior da CLI do Azure. Executar ``az --version`` para localizar a versão. Se precisar de instalar ou atualizar o seu Azure CLI, consulte [Instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-2. Se for a primeira vez `az vm repair` que utilizar os comandos, adicione a extensão CLI de reparação vm.
+2. Se for a primeira vez que utilizar os `az vm repair` comandos, adicione a extensão CLI de reparação vm.
 
    ```azurecli-interactive
    az extension add -n vm-repair
@@ -72,16 +72,16 @@ Para obter documentação e instruções adicionais, consulte [az vm repair](htt
    az extension update -n vm-repair
    ```
 
-3. Execute `az vm repair create`. Este comando criará uma cópia do disco OS para o VM não funcional, criará um VM de reparação e fixará o disco.
+3. Execute `az vm repair create`. Este comando criará uma cópia do disco OS para o VM não funcional, criará um VM de reparação num novo Grupo de Recursos e anexará a cópia do disco OS.  O VM de reparação terá o mesmo tamanho e região especificado.
 
    ```azurecli-interactive
    az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password password!234 --verbose
    ```
 
-4. Execute `az vm repair run`. Este comando executará o script de reparação especificado no disco anexo através do VM de reparação.
+4. Execute `az vm repair run`. Este comando executará o script de reparação especificado no disco anexo através do VM de reparação.  Se o guia de resolução de problemas que estiver a utilizar especificar um run-id, por favor, utilize-o aqui, caso contrário poderá utilizar para ver scripts de `az vm repair list-scripts` reparação disponíveis.
 
    ```azurecli-interactive
-   az vm repair run  –g MyResourceGroup –n MyVM -–run-on-repair --run-id 2 --verbose
+   az vm repair run  –g MyResourceGroup –n MyVM -–run-on-repair --run-id win-hello-world --verbose
    ```
 
 5. Execute `az vm repair restore`. Este comando trocará o disco OS reparado com o disco osso original do VM.
@@ -92,7 +92,7 @@ Para obter documentação e instruções adicionais, consulte [az vm repair](htt
 
 ## <a name="verify-and-enable-boot-diagnostics"></a>Verificar e ativar diagnósticos de arranque
 
-O exemplo seguinte permite a extensão ``myVMDeployed`` de diagnóstico no ``myResourceGroup``VM nomeado no grupo de recursos denominado:
+O exemplo seguinte permite a extensão de diagnóstico no VM nomeado ``myVMDeployed`` no grupo de recursos ``myResourceGroup`` denominado:
 
 CLI do Azure
 
@@ -100,7 +100,7 @@ CLI do Azure
 az vm boot-diagnostics enable --name myVMDeployed --resource-group myResourceGroup --storage https://mystor.blob.core.windows.net/
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Se tiver problemas de ligação ao seu VM, consulte [ligações RDP de Troubleshoot a um VM Azure](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-rdp-connection).
 * Para problemas com o acesso a aplicações em execução no seu VM, consulte problemas de conectividade de [aplicações troubleshoot em máquinas virtuais em Azure](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-app-connection).

@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 06c28c2e0df7333d0c2d6f735ae0758bcd93191a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 798da0261dbb692d411f1bb568a272a6bb7dbb03
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83685384"
+ms.locfileid: "83715669"
 ---
 # <a name="manage-credentials-in-azure-automation"></a>Gerir credenciais na Automação Azure
 
@@ -138,7 +138,7 @@ Pode adicionar uma atividade para o `Get-AutomationPSCredential` cmdlet interno 
 
 ![Adicione credencial à tela](../media/credentials/credential-add-canvas.png)
 
-A imagem que se segue mostra um exemplo de utilização de uma credencial num livro gráfico. Neste caso, a credencial prevê a autenticação de um livro de execução aos recursos Azure, conforme descrito na [Usa Azure AD em Azure Automation para autenticar o Azure.](../automation-use-azure-ad.md) A primeira atividade recupera a credencial que tem acesso à subscrição do Azure. A atividade de ligação à conta utiliza então esta credencial para fornecer autenticação para quaisquer atividades que venham depois dela. Uma [ligação de gasoduto](../automation-graphical-authoring-intro.md#links-and-workflow) é usada aqui, uma vez que espera um único `Get-AutomationPSCredential` objeto.  
+A imagem que se segue mostra um exemplo de utilização de uma credencial num livro gráfico. Neste caso, a credencial prevê a autenticação de um livro de execução aos recursos Azure, conforme descrito na [Usa Azure AD em Azure Automation para autenticar o Azure.](../automation-use-azure-ad.md) A primeira atividade recupera a credencial que tem acesso à subscrição do Azure. A atividade de ligação à conta utiliza então esta credencial para fornecer autenticação para quaisquer atividades que venham depois dela. Uma [ligação de gasoduto](../automation-graphical-authoring-intro.md#use-links-for-workflow) é usada aqui, uma vez que espera um único `Get-AutomationPSCredential` objeto.  
 
 ![Adicione credencial à tela](../media/credentials/get-credential.png)
 
@@ -161,8 +161,8 @@ print cred["username"]
 print cred["password"]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Para saber mais sobre os cmdlets usados para aceder a credenciais, consulte [Gerir módulos em Automação Azure](modules.md).
-* Para obter informações gerais sobre livros de execução, consulte a execução do Livro de [Corridas na Automação Azure.](../automation-runbook-execution.md)
-* Para mais detalhes sobre as configurações do DSC, consulte a visão geral da [Configuração do Estado](../automation-dsc-overview.md).
+* [Utilizar módulos na Automatização do Azure](modules.md)
+* [Execução de runbooks na Automatização do Azure](../automation-runbook-execution.md)
+* [Visão geral da configuração do Estado da Automação Azure](../automation-dsc-overview.md) 

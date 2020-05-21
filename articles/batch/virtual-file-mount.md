@@ -1,15 +1,14 @@
 ---
-title: Monte um sistema de arquivovirtual numa piscina - Lote Azure [ Lote Azul ] Microsoft Docs
+title: Monte um sistema de arquivo virtual em uma piscina
 description: Aprenda a montar um sistema de ficheiros virtual numa piscina de Lote.
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/13/2019
-ms.author: labrenne
-ms.openlocfilehash: 703b65f0a1571659d7be479776dd8fdf02d86731
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4a9ea7d9ecd65ab55c2420015f82e863e45cbd5d
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117034"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83722665"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Monte um sistema de ficheiros virtual em uma piscina de lote
 
@@ -32,17 +31,17 @@ Considere um cenário com múltiplas tarefas que requerem acesso a um conjunto c
 
 A montagem de um sistema de ficheiros virtual numa piscina disponibiliza o sistema de ficheiros a todos os nódosos de computação na piscina. O sistema de ficheiros é configurado quando um nó computacional se junta a uma piscina, ou quando o nó é reiniciado ou reimagem.
 
-Para montar um sistema de ficheiros numa piscina, crie um `MountConfiguration` objeto. Escolha o objeto que se `AzureBlobFileSystemConfiguration`adequa `AzureFileShareConfiguration` `NfsMountConfiguration`ao `CifsMountConfiguration`seu sistema de ficheiros virtual: , ou .
+Para montar um sistema de ficheiros numa piscina, crie um `MountConfiguration` objeto. Escolha o objeto que se adequa ao seu sistema de ficheiros virtual: `AzureBlobFileSystemConfiguration` `AzureFileShareConfiguration` , ou `NfsMountConfiguration` `CifsMountConfiguration` .
 
 Todos os objetos de configuração do suporte precisam dos seguintes parâmetros de base. Algumas configurações de montagem têm parâmetros específicos para o sistema de ficheiros que estão a ser utilizados, que são discutidos com mais detalhes nos exemplos de código.
 
 - **Nome da conta ou fonte**: Para montar uma parte de ficheiro virtual, precisa do nome da conta de armazenamento ou da sua fonte.
-- **Caminho de montagem relativo ou Fonte**: A localização do sistema de `fsmounts` ficheiros montado no nó `AZ_BATCH_NODE_MOUNTS_DIR`da computação, em relação ao diretório padrão acessível no nó via . A localização exata varia consoante o sistema operativo utilizado no nó. Por exemplo, a localização física num nó Ubuntu `mnt\batch\tasks\fsmounts`é mapeada para , e `mnt\resources\batch\tasks\fsmounts`num nó CentOS é mapeada para .
+- **Caminho de montagem relativo ou Fonte**: A localização do sistema de ficheiros montado no nó da computação, em relação ao diretório padrão `fsmounts` acessível no nó via `AZ_BATCH_NODE_MOUNTS_DIR` . A localização exata varia consoante o sistema operativo utilizado no nó. Por exemplo, a localização física num nó Ubuntu é mapeada para `mnt\batch\tasks\fsmounts` , e num nó CentOS é mapeada para `mnt\resources\batch\tasks\fsmounts` .
 - **Opções de montagem ou blobfuse**: Estas opções descrevem parâmetros específicos para a montagem de um sistema de ficheiros.
 
-Assim `MountConfiguration` que o objeto for criado, `MountConfigurationList` atribua o objeto à propriedade quando criar a piscina. O sistema de ficheiros é montado quando um nó se junta a uma piscina ou quando o nó é reiniciado ou reimagem.
+Assim que o `MountConfiguration` objeto for criado, atribua o objeto à `MountConfigurationList` propriedade quando criar a piscina. O sistema de ficheiros é montado quando um nó se junta a uma piscina ou quando o nó é reiniciado ou reimagem.
 
-Quando o sistema de ficheiros `AZ_BATCH_NODE_MOUNTS_DIR` é montado, é criada uma variável ambiental que aponta para a localização dos sistemas de ficheiros montados, bem como ficheiros de registo, que são úteis para resolução de problemas e depuração. Os ficheiros de registo são explicados mais detalhadamente na secção de erros de [montagem diagnosticar.](#diagnose-mount-errors)  
+Quando o sistema de ficheiros é montado, é criada uma variável ambiental `AZ_BATCH_NODE_MOUNTS_DIR` que aponta para a localização dos sistemas de ficheiros montados, bem como ficheiros de registo, que são úteis para resolução de problemas e depuração. Os ficheiros de registo são explicados mais detalhadamente na secção de erros de [montagem diagnosticar.](#diagnose-mount-errors)  
 
 > [!IMPORTANT]
 > O número máximo de sistemas de ficheiros montados numa piscina é de 10. Consulte [quotas e limites](batch-quota-limit.md#other-limits) de serviço do Lote para detalhes e outros limites.
@@ -78,7 +77,7 @@ new PoolAddParameter
 
 ### <a name="azure-blob-file-system"></a>Sistema de ficheiros Azure Blob
 
-Outra opção é utilizar o armazenamento Azure Blob via [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md). A montagem de um sistema `AccountKey` `SasKey` de ficheiros blob requer uma ou para a sua conta de armazenamento. Para obter estas chaves, consulte Gerir as chaves de acesso à conta de [armazenamento,](../storage/common/storage-account-keys-manage.md)ou utilizar assinaturas de [acesso partilhado (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md). Para obter mais informações sobre o uso de blobfuse, consulte o blobfuse [Troubleshoot FAQ](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ). Para obter acesso padrão ao diretório montado blobfuse, execute a tarefa como **Administrador**. Blobfuse monta o diretório no espaço do utilizador, e na criação da piscina é montado como raiz. Em Linux todas as tarefas **do Administrador** são fundamentais. Todas as opções para o módulo FUSE são descritas na [página de referência FUSE](https://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html).
+Outra opção é utilizar o armazenamento Azure Blob via [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md). A montagem de um sistema de ficheiros blob requer uma ou para a sua conta de `AccountKey` `SasKey` armazenamento. Para obter estas chaves, consulte Gerir as chaves de acesso à conta de [armazenamento,](../storage/common/storage-account-keys-manage.md)ou utilizar assinaturas de [acesso partilhado (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md). Para obter mais informações sobre o uso de blobfuse, consulte o blobfuse [Troubleshoot FAQ](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ). Para obter acesso padrão ao diretório montado blobfuse, execute a tarefa como **Administrador**. Blobfuse monta o diretório no espaço do utilizador, e na criação da piscina é montado como raiz. Em Linux todas as tarefas **do Administrador** são fundamentais. Todas as opções para o módulo FUSE são descritas na [página de referência FUSE](https://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html).
 
 Além do guia de resolução de problemas, as questões do GitHub no repositório blobfuse são uma forma útil de verificar as questões e resoluções atuais da blobfuse. Para mais informações, consulte [os problemas de blobfuse](https://github.com/Azure/azure-storage-fuse/issues).
 
@@ -154,13 +153,13 @@ new PoolAddParameter
 
 ## <a name="diagnose-mount-errors"></a>Diagnosticar erros de montagem
 
-Se uma configuração de montagem falhar, o nó de computação na piscina falhará e o estado do nó torna-se inutilizável. Para diagnosticar uma falha de [`ComputeNodeError`](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) configuração do suporte, inspecione a propriedade para obter detalhes sobre o erro.
+Se uma configuração de montagem falhar, o nó de computação na piscina falhará e o estado do nó torna-se inutilizável. Para diagnosticar uma falha de configuração do suporte, inspecione a [`ComputeNodeError`](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) propriedade para obter detalhes sobre o erro.
 
-Para obter os ficheiros de registo para depuração, utilize o [OutputFiles](batch-task-output-files.md) para fazer o upload dos `*.log` ficheiros. Os `*.log` ficheiros contêm informações sobre `AZ_BATCH_NODE_MOUNTS_DIR` o suporte do sistema de ficheiros no local. Os ficheiros de `<type>-<mountDirOrDrive>.log` registo de montagem têm o formato: para cada montagem. Por exemplo, `cifs` um suporte num `test` diretório de montagem nomeado `cifs-test.log`terá um ficheiro de registo de montagem chamado: .
+Para obter os ficheiros de registo para depuração, utilize o [OutputFiles](batch-task-output-files.md) para fazer o upload dos `*.log` ficheiros. Os `*.log` ficheiros contêm informações sobre o suporte do sistema de ficheiros no `AZ_BATCH_NODE_MOUNTS_DIR` local. Os ficheiros de registo de montagem têm o formato: `<type>-<mountDirOrDrive>.log` para cada montagem. Por exemplo, um `cifs` suporte num diretório de montagem nomeado terá um ficheiro de registo de montagem `test` chamado: `cifs-test.log` .
 
 ## <a name="supported-skus"></a>SKUs suportados
 
-| Publicador | Oferta | SKU | Partilha de ficheiros Azure | Blobfuse | Montagem nFS | Montagem CIFS |
+| Publisher | Oferta | SKU | Partilha de ficheiros Azure | Blobfuse | Montagem nFS | Montagem CIFS |
 |---|---|---|---|---|---|---|
 | lote | renderização-centos73 | renderização | :heavy_check_mark: <br>Nota: Compatível com CentOS 7.7</br>| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Canónico | UbuntuServer | 16.04-LTS, 18.04-LTS | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -176,7 +175,7 @@ Para obter os ficheiros de registo para depuração, utilize o [OutputFiles](bat
 | Oracle | Oráculo-Linux | 7.6 | :x: | :x: | :x: | :x: |
 | Windows | WindowsServer | 2012, 2016, 2019 | :heavy_check_mark: | :x: | :x: | :x: |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais detalhes sobre a montagem de uma partilha de Ficheiros Azure com [windows](../storage/files/storage-how-to-use-files-windows.md) ou [Linux](../storage/files/storage-how-to-use-files-linux.md).
 - Aprenda a utilizar e a montar sistemas de ficheiros virtuais [blobfuse.](https://github.com/Azure/azure-storage-fuse)

@@ -1,14 +1,14 @@
 ---
 title: Lote De Monitor Azure
 description: Conheça os serviços de monitorização do Azure, métricas, registos de diagnóstico e outras funcionalidades de monitorização para o Lote Azure.
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/05/2018
-ms.openlocfilehash: c8b11d0b7187d6c4b5b3ccff1e19eb533ff3f0da
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 09ac9c676dc1e95cbece6fa500b4f2cf554f8526
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82113896"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83723532"
 ---
 # <a name="monitor-batch-solutions"></a>Monitorizar soluções do Batch
 
@@ -22,7 +22,7 @@ Ao nível da subscrição, que inclui contas de Lote, o registo de [atividade si
 
 Para as contas do Lote especificamente, o registo de atividade recolhe eventos relacionados com a criação de contas e a eliminação e gestão chave.
 
-Uma forma de recuperar eventos do registo de atividade é usar o portal Azure. Clique em **Todos os serviços** > **Registo de Atividades**. Ou, consulta para eventos que utilizem os cmdlets Azure CLI, PowerShell ou a API REST Do Monitor Azure. Também pode exportar o registo de atividade, ou configurar alertas de [registo de atividade.](../monitoring-and-diagnostics/monitoring-activity-log-alerts-new-experience.md)
+Uma forma de recuperar eventos do registo de atividade é usar o portal Azure. Clique em **Todos os serviços**  >  **Registo de Atividades**. Ou, consulta para eventos que utilizem os cmdlets Azure CLI, PowerShell ou a API REST Do Monitor Azure. Também pode exportar o registo de atividade, ou configurar alertas de [registo de atividade.](../monitoring-and-diagnostics/monitoring-activity-log-alerts-new-experience.md)
 
 ## <a name="batch-account-level-monitoring"></a>Monitorização ao nível da conta do lote
 
@@ -58,7 +58,7 @@ Nas suas aplicações de Lote, utilize as APIs do Lote para monitorizar ou consu
 * [O Batch Explorer](https://github.com/Azure/BatchExplorer) é uma ferramenta de cliente gratuita, rica e autónoma para ajudar a criar, depurar e monitorizar aplicações do Lote Azure. Transfira um [pacote de instalação](https://azure.github.io/BatchExplorer/) para Mac, Linux ou Windows. Configure opcionalmente a sua solução de Lote para exibir dados de Insights de [Aplicação,](https://github.com/Azure/batch-insights) como contadores de desempenho VM no Batch Explorer.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre o [Ferramentas e APIs do Batch](batch-apis-tools.md) disponíveis para criação de soluções para o Batch.
 * Saiba mais sobre [o diagnóstico de login](batch-diagnostics.md) com Batch.

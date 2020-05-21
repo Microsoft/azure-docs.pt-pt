@@ -1,14 +1,14 @@
 ---
 title: Configure pontos finais do nó na piscina do Lote Azure
 description: Como configurar ou desativar o acesso às portas SSH ou RDP em nódeos de computação numa piscina de Lote Azure.
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/13/2018
-ms.openlocfilehash: 8b0ae4b80757bfa647cd5322668d793fa66ffca3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4b990e4223f37f71d453cd91b9b3a20bd70d0bbb
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82113855"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83723515"
 ---
 # <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Configure ou desative o acesso remoto aos nódosos de computação numa piscina de Lote Azure
 
@@ -118,7 +118,7 @@ pool.network_configuration = batchmodels.NetworkConfiguration(
 )
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter mais informações sobre as regras da NSG em Azure, consulte o tráfego da [rede Filter com grupos](../virtual-network/security-overview.md)de segurança da rede .
 

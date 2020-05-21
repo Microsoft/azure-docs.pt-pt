@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: edoyle
 ms.date: 04/24/2020
-ms.openlocfilehash: 60771d5a188df5dfeca3530a551a116c870e63f5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2db3dffbbf0f6d98fe6da7a0cec5400f7f2c03da
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82149334"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83722461"
 ---
 # <a name="quickstart-create-a-service-fabric-cluster-using-resource-manager-template"></a>Quickstart: Criar um cluster de tecido de serviço usando o modelo de Gestor de Recursos
 
@@ -91,7 +91,7 @@ $certThumbprint = "<Certificate Thumbprint>"
 
 ### <a name="review-the-template"></a>Reveja o modelo
 
-O modelo utilizado neste quickstart é de [modelos de quickstart Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/service-fabric-secure-cluster-5-node-1-nodetype). O modelo para este artigo é muito longo para mostrar aqui. Para ver o https://github.com/Azure/azure-quickstart-templates/blob/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.jsonmodelo, ver .
+O modelo utilizado neste quickstart é de [modelos Azure Quickstart](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/). O modelo para este artigo é muito longo para mostrar aqui. Para ver o modelo, consulte o ficheiro [azuredeploy.json.](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json)
 
 Vários recursos Azure foram definidos no modelo:
 
@@ -111,7 +111,7 @@ Abra *azuredeploy.parameters.json* e edite os valores do parâmetro de modo a:
 * **clusterName** corresponde ao valor fornecido para *CertDNSName* ao criar o seu certificado de cluster
 * **adminUserName** é um valor diferente do *token GEN-UNIQUE* padrão
 * **adminPassword** é um valor diferente do token *GEN-PASSWORD* padrão
-* **certificadoImpressãoPolegar,** **fonteVaultResourceId,** e **certificadoUrlValue** são`""`todos de cadeia vazia ( )
+* **certificadoImpressãoPolegar,** **fonteVaultResourceId,** e **certificadoUrlValue** são todos de cadeia vazia ( `""` )
 
 Por exemplo:
 
@@ -162,7 +162,7 @@ New-AzResourceGroupDeployment `
 
 ## <a name="review-deployed-resources"></a>Rever os recursos implantados
 
-Assim que a implementação `managementEndpoint` estiver concluída, encontre o valor na saída e abra o endereço num navegador web para ver o seu cluster no [Service Fabric Explorer](./service-fabric-visualizing-your-cluster.md).
+Assim que a implementação estiver concluída, encontre o `managementEndpoint` valor na saída e abra o endereço num navegador web para ver o seu cluster no Service Fabric [Explorer](./service-fabric-visualizing-your-cluster.md).
 
 ![Service Fabric Explorer mostrando novo cluster](./media/quickstart-cluster-template/service-fabric-explorer.png)
 
@@ -180,7 +180,7 @@ Remove-AzResourceGroup -Name $resourceGroupName
 Write-Host "Press [ENTER] to continue..."
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para aprender sobre a criação de um modelo personalizado de cluster azure service fabric, consulte:
 

@@ -1,14 +1,14 @@
 ---
 title: Monitor Lote com insights de aplicação azure
 description: Saiba como instrumentar uma aplicação Azure Batch .NET utilizando a biblioteca Azure Application Insights.
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/05/2018
-ms.openlocfilehash: ca8cde9b1838239a79ebca4efe43d9e619f80f12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b6817ad1303e6039ebfe5fe5ae6101b9bc192eb4
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115470"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83723617"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Monitor e depuração de uma aplicação Azure Batch .NET com Insights de Aplicação
 
@@ -215,7 +215,7 @@ foreach (string aiFile in AIFilesToUpload)
 ...
 ```
 
-O `FileToStage` método é uma função de ajudante na amostra de código que lhe permite carregar facilmente um ficheiro do disco local para uma bolha de Armazenamento Azure. Cada ficheiro é posteriormente descarregado para um nó de cálculo e referenciado por uma tarefa.
+O método é uma função de ajudante na amostra de `FileToStage` código que lhe permite carregar facilmente um ficheiro do disco local para uma bolha de Armazenamento Azure. Cada ficheiro é posteriormente descarregado para um nó de cálculo e referenciado por uma tarefa.
 
 Por fim, adicione as tarefas ao trabalho e inclua os binários de Insights de Aplicação necessários.
 ```csharp
@@ -280,13 +280,13 @@ As seguintes imagens mostram como os Insights de Aplicação registam exceções
 As métricas personalizadas também são uma ferramenta valiosa no portal. Por exemplo, pode apresentar o tempo médio que cada nó computacional demorou a descarregar o ficheiro de texto necessário que estava a processar.
 
 Para criar um gráfico de amostras:
-1. No seu recurso Application Insights, clique em **Métricas Explorer** > **Add chart**.
+1. No seu recurso Application Insights, clique em **Métricas Explorer**  >  **Add chart**.
 2. Clique em **Editar** na tabela que foi adicionada.
 2. Atualize os detalhes do gráfico da seguinte forma:
    * Definir **tipo de gráfico** para **grelha**.
    * Definir **agregação** para **a média**.
    * Set **Group by** to **NodeId**.
-   * Em **Métricas,** selecione **Custom** > **Blob baixar em segundos**.
+   * Em **Métricas,** selecione **Custom**  >  **Blob baixar em segundos**.
    * Ajuste a **paleta de cores** de exibição à sua escolha. 
 
 ![Tempo de descarregamento blob por nó](./media/monitor-application-insights/blobdownloadtime.png)
@@ -333,7 +333,7 @@ pool.StartTask = new StartTask()
 Devido à natureza em larga escala das aplicações do Lote Azure em produção, é melhor limitar a quantidade de dados recolhidos pela Application Insights para gerir os custos. Consulte [a Amostragem em Insights](../azure-monitor/app/sampling.md) de Aplicação para obter isso.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Saiba mais sobre [os Insights de Aplicação.](../azure-monitor/app/app-insights-overview.md)
 
 * Para suporte de Insights de Aplicação noutras línguas, veja as [línguas, plataformas e documentação de integrações.](../azure-monitor/app/platforms.md)

@@ -7,17 +7,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 4d2d33f9d83132147b5b257ffcd6d659f272b8ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3c4e5fa4ce960f8113504b52aa0d5055bf1bf85a
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81730723"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83722716"
 ---
 # <a name="create-your-azure-virtual-machine-technical-assets"></a>Crie os seus ativos técnicos da Máquina Virtual Azure
-
-> [!IMPORTANT]
-> Estamos a mover a gestão das suas ofertas de Máquina Virtual Azure do Portal do Parceiro cloud para o Partner Center. Até que as suas ofertas sejam migradas, siga as instruções em [Criar ativos técnicos para uma oferta de máquina virtual para](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-technical-assets) o Portal parceiro cloud para gerir as suas ofertas.
 
 Este artigo descreve como criar e configurar ativos técnicos para uma oferta de máquina virtual (VM) para o Azure Marketplace. Um VM contém dois componentes: o disco rígido virtual do sistema operativo (VHD) e os VHDs de discos de dados associados opcionais:
 
@@ -270,7 +267,7 @@ O processo seguinte generaliza um VM Linux e reimplanta-o como um VM separado. P
 1. **Remova o agente Azure Linux**
 
     1. Ligue-se ao seu VM Linux utilizando um cliente SSH.
-    2. Na janela SSH, introduza `sudo waagent -deprovision+user`o seguinte comando: .
+    2. Na janela SSH, introduza o seguinte comando: `sudo waagent -deprovision+user` .
     3. Escreva **Y** para continuar (pode adicionar o parâmetro **de força** ao comando anterior para evitar o passo de confirmação).
     d. Depois de o comando estar concluído, digite **saída** para fechar o cliente SSH.
 
@@ -279,7 +276,7 @@ O processo seguinte generaliza um VM Linux e reimplanta-o como um VM separado. P
     1. No portal Azure, selecione o seu grupo de recursos (RG) e desloque o VM.
     2. O seu VHD está agora generalizado e pode criar um novo VM usando este VHD.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se encontrou dificuldades em criar o seu novo VHD baseado em Azure, consulte [questões comuns durante a criação de VHD](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues).
 

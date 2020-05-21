@@ -1,15 +1,15 @@
 ---
 title: Gerir a sua conta
 description: Saiba o que inclui uma conta Azure Batch
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ce0c612e3434249c0c7d078949b10e0b9f6b1f10
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6ef87fab099c6ff7402b351664ee15a198d69a4b
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116014"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83722971"
 ---
 # <a name="manage-your-batch-account"></a>Gerir a sua conta Lote
 
@@ -45,7 +45,7 @@ A conta Batch permite-lhe executar trabalhos de computação em grande escala pa
 
 - A conta identifica a sua conta de armazenamento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Crie uma conta Batch utilizando o [portal Azure](batch-account-create-portal.md).
 - Crie uma conta Batch programáticamente, como na [biblioteca Batch Management .NET](batch-management-dotnet.md).

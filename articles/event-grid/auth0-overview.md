@@ -7,15 +7,17 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: babanisa
-ms.openlocfilehash: f96aa4d75f85aea046981641f84fd2b2c3078bd1
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 17416131566edf8710737862f0cbea2e31477960
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83691216"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83722529"
 ---
 # <a name="auth0-partner-topics"></a>Tópicos parceiros da Auth0
-![A Uth0 Logo ](./media/auth0-overview/auth0-logo.png) Auth0, plataforma identitária para construtores de aplicações, fornece aos desenvolvedores e empresas os blocos de construção de que necessitam para garantir as suas aplicações.
+![Logotipo auth0](./media/auth0-overview/auth0-logo.png)
+
+A Auth0, plataforma identitária para construtores de aplicações, fornece aos desenvolvedores e empresas os blocos de construção de que necessitam para garantir as suas aplicações.
 
 O Tópico de Parceiro Auth0 permite-lhe usar eventos que são emitidos pelo sistema da Auth0 para realizar uma série de tarefas. Envolva-se com os utilizadores de forma significativa após a autenticação ou automatizar tarefas de segurança e infraestrutura.
 
@@ -40,7 +42,7 @@ Manter e auditar as suas ações de utilizador é crucial para manter a seguran�
 ### <a name="secure-your-application"></a>Proteja a sua aplicação
 A combinação de procedimentos de monitorização da segurança e de resposta a incidentes é importante na proteção de um sistema distribuído. Por esta razão, é importante manter todos os dados num só lugar e monitorizar toda a pilha. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Visão geral dos tópicos dos parceiros](partner-topics-overview.md)
 - [Como usar o Tópico do Parceiro Auth0](auth0-how-to.md)

@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: add2d515e4f8e8c56a98a7292e137e601332d10c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e653adfd7a148cea7bfb1ecfdbbf386eff0c3e86
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80410872"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83723328"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual do Cofre chave para Linux
 
@@ -65,16 +65,16 @@ O seguinte JSON mostra o esquema para a extensão VM do cofre chave. A extensão
 ```
 
 > [!NOTE]
-> Os seus certificados observados URLs `https://myVaultName.vault.azure.net/secrets/myCertName`devem ser do formulário .
+> Os seus certificados observados URLs devem ser do formulário `https://myVaultName.vault.azure.net/secrets/myCertName` .
 > 
-> Isto porque `/secrets` o caminho devolve o certificado completo, `/certificates` incluindo a chave privada, enquanto o caminho não. Mais informações sobre certificados podem ser encontradas aqui: [Certificados de cofre chave](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
+> Isto porque o `/secrets` caminho devolve o certificado completo, incluindo a chave privada, enquanto o caminho `/certificates` não. Mais informações sobre certificados podem ser encontradas aqui: [Certificados de cofre chave](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
 
 
 ### <a name="property-values"></a>Valores patrimoniais
 
-| Nome | Valor / Exemplo | Tipo de Dados |
+| Name | Valor / Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
-| apiVersion | 2019-07-01 | date |
+| apiVersion | 2019-07-01 | data |
 | publicador | Microsoft.Azure.KeyVault | string |
 | tipo | KeyVaultForLinux | string |
 | typeHandlerVersion | 1.0 | int |
@@ -90,7 +90,7 @@ O seguinte JSON mostra o esquema para a extensão VM do cofre chave. A extensão
 
 As extensões VM azure podem ser implantadas com modelos de Gestor de Recursos Azure. Os modelos são ideais ao implantar uma ou mais máquinas virtuais que requerem a atualização pós-implantação de certificados. A extensão pode ser implantada em VMs individuais ou conjuntos de escala de máquinas virtuais. O esquema e a configuração são comuns a ambos os tipos de modelos. 
 
-A configuração JSON para uma extensão virtual da máquina deve ser `"resources": []` aninhada dentro do fragmento de recurso `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` virtual da máquina do modelo, especificamente o objeto para o modelo de máquina virtual e no caso de uma escala de máquina virtual colocada sob objeto.
+A configuração JSON para uma extensão virtual da máquina deve ser aninhada dentro do fragmento de recurso virtual da máquina do modelo, especificamente o objeto para o modelo de `"resources": []` máquina virtual e no caso de uma escala de máquina virtual colocada sob `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` objeto.
 
 ```json
     {
@@ -194,7 +194,7 @@ O Azure CLI pode ser utilizado para implantar a extensão VM do Cofre chave para
 Tenha em atenção as seguintes restrições/requisitos:
 - Restrições do cofre chave:
   - Deve existir no momento da implantação 
-  - A Política de Acesso ao Cofre chave está definida para identidade VM/VMSS usando MSI
+  - A política de acesso ao cofre chave deve ser definida para identidade VM/VMSS utilizando uma identidade gerida. Ver [Fornecer autenticação chave vault com uma identidade gerida](../../key-vault/managed-identity.md)
 
 
 ## <a name="troubleshoot-and-support"></a>Resolução de problemas e apoio

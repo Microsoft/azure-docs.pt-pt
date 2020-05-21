@@ -9,12 +9,12 @@ ms.date: 4/14/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ff6bb9e4d4e40c02b52f35bd56bf065a8804a43a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a7bb2cc23374110d447ec7526ada75f7e36a966e
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82134380"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726167"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Implementar e monitorizar módulos IoT Edge em escala utilizando o AZURE CLI
 
@@ -112,7 +112,7 @@ Aqui está um manifesto básico de implantação com um módulo como exemplo:
 
 As implantações em camadas são um tipo de implantação automática que pode ser empilhada em cima umas das outras. Para obter mais informações sobre implementações em camadas, consulte [as implementações automáticas De IoT Edge para dispositivos únicos ou em escala](module-deployment-monitoring.md).
 
-As implementações em camadas podem ser criadas e geridas com o AZURE CLI como qualquer implantação automática, com apenas algumas diferenças. Uma vez criada uma implantação em camadas, o mesmo Azure CLI trabalha para implementações em camadas como qualquer implantação. Para criar uma implantação `--layered` em camadas, adicione a bandeira ao comando de criação.
+As implementações em camadas podem ser criadas e geridas com o AZURE CLI como qualquer implantação automática, com apenas algumas diferenças. Uma vez criada uma implantação em camadas, o mesmo Azure CLI trabalha para implementações em camadas como qualquer implantação. Para criar uma implantação em camadas, adicione a `--layered` bandeira ao comando de criação.
 
 A segunda diferença está na construção do manifesto de implantação. Embora a implementação automática padrão deva conter os módulos de tempo de funcionamento do sistema para além de quaisquer módulos de utilizador, as implementações em camadas só podem conter módulos de utilizador. Em vez disso, as implementações em camadas precisam de uma implementação automática padrão também num dispositivo, para fornecer os componentes necessários de cada dispositivo IoT Edge, como os módulos de tempo de funcionamento do sistema.
 
@@ -148,7 +148,7 @@ Aqui está um manifesto básico de implantação em camadas com um módulo como 
 }
 ```
 
-O exemplo anterior mostrou uma `properties.desired` implementação em camadas que define o para um módulo. Se esta implementação em camadas tivesse como alvo um dispositivo onde o mesmo módulo já estava aplicado, substituiria quaisquer propriedades existentes. Para atualizar, em vez de sobrepor, propriedades desejadas, pode definir uma nova subsecção. Por exemplo:
+O exemplo anterior mostrou uma implementação em camadas que define o `properties.desired` para um módulo. Se esta implementação em camadas tivesse como alvo um dispositivo onde o mesmo módulo já estava aplicado, substituiria quaisquer propriedades existentes. Para atualizar, em vez de sobrepor, propriedades desejadas, pode definir uma nova subsecção. Por exemplo:
 
 ```json
 "SimulatedTEmperatureSensor": {
@@ -178,24 +178,24 @@ Antes de poder criar uma implementação, tem de ser capaz de especificar quais 
 
 Para obter mais informações sobre gémeos e tags de dispositivos, consulte [Compreender e utilizar gémeos dispositivos no IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
 
-## <a name="create-a-deployment"></a>Criar uma implantação
+## <a name="create-a-deployment"></a>Create a deployment (Criar uma implementação)
 
 Implementa módulos para os seus dispositivos-alvo criando uma implementação que consiste no manifesto de implantação, bem como em outros parâmetros.
 
-Utilize a implantação de [borda az iot criar](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-create) comando para criar uma implantação:
+Utilize a implantação de [borda az iot criar](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/edge/deployment?view=azure-cli-latest#ext-azure-iot-az-iot-edge-deployment-create) comando para criar uma implantação:
 
 ```cli
 az iot edge deployment create --deployment-id [deployment id] --hub-name [hub name] --content [file path] --labels "[labels]" --target-condition "[target query]" --priority [int]
 ```
 
-Use o mesmo `--layered` comando com a bandeira para criar uma implantação em camadas.
+Use o mesmo comando com a `--layered` bandeira para criar uma implantação em camadas.
 
 A implementação cria o comando tem os seguintes parâmetros:
 
 * **-em camadas** - Uma bandeira opcional para identificar a implantação como uma implantação em camadas.
-* **--implantação-id** - O nome da implantação que será criado no centro ioT. Dê à sua implantação um nome único que seja até 128 letras minúsculas. Evite espaços e os seguintes caracteres inválidos: `& ^ [ ] { } \ | " < > /`. Parâmetro necessário.
+* **--implantação-id** - O nome da implantação que será criado no centro ioT. Dê à sua implantação um nome único que seja até 128 letras minúsculas. Evite espaços e os seguintes caracteres inválidos: `& ^ [ ] { } \ | " < > /` . Parâmetro necessário.
 * **--conteúdo** - Arquivo para o manifesto de implantação JSON. Parâmetro necessário.
-* **--hub-name** - Nome do centro IoT no qual a implantação será criada. O centro deve estar na subscrição atual. Altere a sua `az account set -s [subscription name]` subscrição atual com o comando.
+* **--hub-name** - Nome do centro IoT no qual a implantação será criada. O centro deve estar na subscrição atual. Altere a sua subscrição atual com o `az account set -s [subscription name]` comando.
 * **--labels** - Adicione etiquetas para ajudar a rastrear as suas implementações. As etiquetas são Nome, pares de valor que descrevem a sua implantação. As etiquetas tomam formatação JSON para os nomes e valores. Por exemplo, `{"HostPlatform":"Linux", "Version:"3.0.1"}`
 * **--condição do alvo** - Introduza uma condição-alvo para determinar quais os dispositivos que serão alvo com esta implementação.A condição baseia-se em etiquetas duplas do dispositivo ou propriedades reportadas de dispositivos twin e deve corresponder ao formato de expressão.Por exemplo, `tags.environment='test' and properties.reported.devicemodel='4000x'`.
 * **--prioridade** - Um inteiro positivo. No caso de duas ou mais implementações serem direcionadas para o mesmo dispositivo, aplicar-se-á a implantação com o maior valor numérico para a Priority.
@@ -215,7 +215,7 @@ Se atualizar a condição-alvo, ocorrem as seguintes atualizações:
 
 Não é possível atualizar o conteúdo de uma implementação, que inclui os módulos e rotas definidos no manifesto de implantação. Se pretender atualizar o conteúdo de uma implementação, fá-lo criando uma nova implementação que visa os mesmos dispositivos com uma prioridade maior. Pode modificar certas propriedades de um módulo existente, incluindo a condição alvo, etiquetas, métricas e prioridade.
 
-Utilize o comando de atualização de atualização de atualização de [borda az iot](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-update) para atualizar uma implementação:
+Utilize o comando de atualização de atualização de atualização de [borda az iot](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/edge/deployment?view=azure-cli-latest#ext-azure-iot-az-iot-edge-deployment-update) para atualizar uma implementação:
 
 ```cli
 az iot edge deployment update --deployment-id [deployment id] --hub-name [hub name] --set [property1.property2='value']
@@ -236,7 +236,7 @@ O comando de atualização de implantação tem os seguintes parâmetros:
 
 Ao eliminar uma implementação, quaisquer dispositivos assumem a sua próxima implementação de prioridade máxima. Se os seus dispositivos não cumprirem o estado-alvo de qualquer outra implementação, os módulos não são removidos quando a implementação for eliminada.
 
-Utilize o comando de eliminação de [arestas az iot](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-delete) para eliminar uma implantação:
+Utilize o comando de eliminação de [arestas az iot](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/edge/deployment?view=azure-cli-latest#ext-azure-iot-az-iot-edge-deployment-delete) para eliminar uma implantação:
 
 ```cli
 az iot edge deployment delete --deployment-id [deployment id] --hub-name [hub name]
@@ -247,6 +247,6 @@ O comando de eliminação de implantação tem os seguintes parâmetros:
 * **--implantação-id** - O nome da implantação que existe no centro ioT.
 * **--hub-name** - Nome do centro IoT em que a implantação existe. O centro deve estar na subscrição atual. Mude para a subscrição desejada com o comando`az account set -s [subscription name]`
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre [a implementação de módulos para dispositivos IoT Edge](module-deployment-monitoring.md).

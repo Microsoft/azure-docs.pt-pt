@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Ligue um cluster Kubernetes ativado por Arco Azure com o Arco Azure
 keywords: Kubernetes, Arc, Azure, K8s, contentores
-ms.openlocfilehash: 9b37ad264dc8a8a6c653c25ddf6ac0fcb4065f9b
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: dd4e03ac6bdf2e4554f07f2aa5ffca78b1ed1230
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680814"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725623"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Ligue um cluster Kubernetes ativado por Arco Azure (Pré-visualização)
 
@@ -169,7 +169,7 @@ AzureArcTest1  eastus      AzureArcTest
 O Azure Arc permitiu que a Kubernetes implantasse alguns operadores no espaço de `azure-arc` nome. Pode ver estas implementações e cápsulas aqui:
 
 ```console
-kubectl -n azure-arc get deploy,po
+kubectl -n azure-arc get deployments,pods
 ```
 
 **Saída:**
@@ -198,8 +198,13 @@ pod/resource-sync-agent-5cf85976c7-522p5        3/3     Running  0       16h
 
 O Azure Arc habilitado kubernetes é composto por alguns agentes (operadores) que funcionam no seu cluster implantado para o espaço de `azure-arc` nome.
 
-* `deploy/config-agent`: observa o cluster conectado para os recursos de configuração do controlo de fonte aplicados no estado de conformidade do cluster e atualiza
-* `deploy/controller-manager`: é operador de operadores e orquestra interações entre componentes do Arco Azure
+* `deployment.apps/config-agent`: observa o cluster conectado para os recursos de configuração do controlo de fonte aplicados no estado de conformidade do cluster e atualiza
+* `deployment.apps/controller-manager`: é operador de operadores e orquestra interações entre componentes do Arco Azure
+* `deployment.apps/metrics-agent`: recolhe métricas de outros agentes da Arc para garantir que estes agentes apresentam um desempenho ótimo
+* `deployment.apps/cluster-metadata-operator`: reúne metadados de cluster - versão de cluster, contagem de nó e versão do agente Arc
+* `deployment.apps/resource-sync-agent`: sincroniza os metadados de cluster acima mencionados para o Azure
+* `deployment.apps/clusteridentityoperator`: mantém o certificado de identidade de serviço gerido (MSI) utilizado por outros agentes para comunicação com o Azure
+* `deployment.apps/flux-logs-agent`: recolhe registos dos operadores de fluxo implantados como parte da configuração do controlo de fontes
 
 ## <a name="delete-a-connected-cluster"></a>Eliminar um cluster conectado
 
@@ -211,7 +216,7 @@ O portal Azure elimina o `Microsoft.Kubernetes/connectedcluster` recurso em Azur
 
 Para remover os agentes no aglomerado é necessário executar `az connectedk8s delete` ou `helm uninstall azurearcfork8s` .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Use GitOps num cluster conectado](./use-gitops-connected-cluster.md)
 * [Use a Política Azure para governar a configuração do cluster](./use-azure-policy.md)

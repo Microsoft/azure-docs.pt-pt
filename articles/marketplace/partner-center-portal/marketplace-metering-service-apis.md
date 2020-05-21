@@ -6,13 +6,13 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/11/2019
-ms.openlocfilehash: 159d2c60fc1fc5ad1f21f2b948208eaae0d06208
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.date: 05/18/2020
+ms.openlocfilehash: 95eba648219413923ce27d433a5236877c4953f3
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857863"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725470"
 ---
 # <a name="marketplace-metering-service-apis"></a>APIs do serviço de medição do Marketplace
 
@@ -34,7 +34,10 @@ O evento de utilização A API permite-lhe emitir eventos de uso para uma entida
 | ------------------ | ---------------------------- |
 | `x-ms-requestid`     | Valor de cadeia único para acompanhar o pedido do cliente, de preferência um GUID. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
 | `x-ms-correlationid` | Valor de cadeia único para operação no cliente. Este parâmetro correlaciona todos os eventos da operação do cliente com eventos do lado do servidor. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
-| `authorization`   | [Obtenha o token do portador da Web JSON (JWT).](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) Nota: Ao epreito `Bearer` o símbolo obtido a partir do link referenciado. |
+| `authorization`   | [Obtenha o token do portador da Web JSON (JWT).](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) Nota: Ao epreito o `Bearer` símbolo obtido a partir do link referenciado. |
+
+>[!Note]
+>Para os planos de Apps Geridas por Aplicações geridas pela Aplicação Azure, `resourceId` encontra-se no âmbito do objeto de `resourceUsageId` `billingDetails` metadados da App Gerida.  Um roteiro de exemplo para a sua busca pode ser encontrado na [utilização do símbolo de identidades geridas pelo Azure](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token).  Para ofertas SaaS, o `resourceId` é o ID de subscrição SaaS.  Para mais detalhes sobre as subscrições do SaaS, consulte [as subscrições da lista.](./pc-saas-fulfillment-api-v2.md#list-subscriptions)
 
 *Pedido:*
 
@@ -95,7 +98,7 @@ Mau pedido, dados em falta ou inválidos fornecidos ou expirados
 ```
 
 Código: 409<br>
-Conflito, quando recebemos a chamada de utilização para o ID do recurso de uso, e uso eficaz, que já existe. A resposta `additionalInfo` conterá um campo que contém informações sobre a mensagem aceite.
+Conflito, quando recebemos a chamada de utilização para o ID do recurso de uso, e uso eficaz, que já existe. A resposta conterá `additionalInfo` um campo que contém informações sobre a mensagem aceite.
 
 ```json
 {
@@ -134,7 +137,7 @@ O evento de utilização do lote API permite-lhe emitir eventos de utilização 
 | ------------------ | ------ |
 | `x-ms-requestid`     | Valor de cadeia único para acompanhar o pedido do cliente, de preferência um GUID. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
 | `x-ms-correlationid` | Valor de cadeia único para operação no cliente. Este parâmetro correlaciona todos os eventos da operação do cliente com eventos do lado do servidor. Se este valor não for fornecido, um será gerado, e fornecido nos cabeçalhos de resposta. |
-| `authorization`      | [Obtenha o token do portador da Web JSON (JWT).](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) Nota: Ao epreito `Bearer` o símbolo obtido a partir do link referenciado.  |
+| `authorization`      | [Obtenha o token do portador da Web JSON (JWT).](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) Nota: Ao epreito o `Bearer` símbolo obtido a partir do link referenciado.  |
 
 *Pedido:*
 ```json
@@ -192,7 +195,7 @@ OK
 }
 ```
 
-Descrição do código `BatchUsageEvent` de estado referenciado na resposta da API:
+Descrição do código de estado referenciado na `BatchUsageEvent` resposta da API:
 
 | Código de estado  | Description |
 | ---------- | -------------------- |
@@ -233,6 +236,6 @@ O utilizador não está autorizado a fazer esta chamada
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para mais informações, consulte a [faturação de medidor SaaS.](./saas-metered-billing.md)

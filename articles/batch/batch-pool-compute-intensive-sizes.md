@@ -1,15 +1,14 @@
 ---
 title: Use VMs Azure intensivos com lote
 description: Como aproveitar os tamanhos das máquinas virtuais HPC e GPU nas piscinas do Lote Azure. Conheça as dependências do OS e veja vários exemplos de cenário.
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/17/2018
-ms.author: labrenne
-ms.openlocfilehash: 674ee6c5b96c7aaf2926b51824488d03fc56d0a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 04e39678c77604bca4194bebc7968c5c43fb019c
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115963"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83724093"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Utilize instâncias DE RDMA ou GPU em piscinas de lotes
 
@@ -101,7 +100,7 @@ Para executar aplicações CUDA em uma piscina de nós do Windows NC, você prec
 | Definição | Valor |
 | ---- | ----- | 
 | **Tipo de Imagem** | Marketplace (Linux/Windows) |
-| **Editora** | MicrosoftWindowsServer |
+| **Publisher** | MicrosoftWindowsServer |
 | **Oferta** | WindowsServer |
 | **Rio Sku** | Centro de Dados 2016 |
 | **Tamanho do nó** | Norma NC6 |
@@ -155,14 +154,14 @@ Utilizando o portal Batch APIs ou Azure, crie uma piscina utilizando esta imagem
 | Definição | Valor |
 | ---- | ---- |
 | **Tipo de Imagem** | Marketplace (Linux/Windows) |
-| **Editora** | OpenLogic |
+| **Publisher** | OpenLogic |
 | **Oferta** | CentOS-HPC |
 | **Rio Sku** | 7.4 |
 | **Tamanho do nó** | Padrão H16r |
 | **Comunicação Internade ativada** | Verdadeiro |
 | **Tarefas max por nó** | 1 |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para executar trabalhos de MPI numa piscina de Lote Azure, consulte os exemplos [do Windows](batch-mpi.md) ou [Linux.](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/)
 

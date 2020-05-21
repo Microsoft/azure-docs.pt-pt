@@ -2,14 +2,14 @@
 title: Tutorial - Use a biblioteca de clientes do Lote Azure para Node.js
 description: Aprenda os conceitos básicos do Azure Batch e crie uma solução simples com Node.js.
 ms.assetid: ''
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 05/22/2017
-ms.openlocfilehash: ccf0778938c873a5510f1408bf31d95c9d6ee873
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 57b411e3c9c96aab31e85c4022a5954f7215cf02
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116864"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83724212"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Introdução ao SDK do Batch para Node.js
 
@@ -60,7 +60,7 @@ Este comando instala a versão mais recente do SDK do nó azure-batch.
 
 ### <a name="step-2-create-an-azure-batch-account"></a>Passo 2: Criar uma conta do Azure Batch
 
-Pode criá-lo a partir do [portal Azure](batch-account-create-portal.md) ou da linha de comando[(PowerShell](batch-powershell-cmdlets-get-started.md) /[Azure CLI).](/cli/azure)
+Pode criá-lo a partir do [portal Azure](batch-account-create-portal.md) ou da linha de comando[(PowerShell](batch-powershell-cmdlets-get-started.md)  / [Azure CLI).](/cli/azure)
 
 Seguem-se os comandos para criar a conta com a CLI do Azure.
 
@@ -344,7 +344,7 @@ O código adiciona várias tarefas ao conjunto e cada uma das tarefas é executa
 
 O portal tem vistas detalhadas sobre as tarefas e os estados dos trabalhos. Também pode utilizar a lista para obter funções no SDK do Azure para Node. Estão disponíveis detalhes na [ligação](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html) da documentação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Reveja o artigo [Descrição geral das funcionalidades do Azure Batch](batch-api-basics.md), que recomendamos se não estiver familiarizado com o serviço.
 - Veja [Batch Node.js reference](/javascript/api/overview/azure/batch) (Referência de Node.js do Batch) para explorar a API do Batch.

@@ -1,15 +1,15 @@
 ---
-title: Executar Linux em nódosos de computação de máquinavirtual - Lote Azure / Microsoft Docs
+title: Executar Linux em nódos de computação de máquina virtual
 description: Aprenda a processar as suas cargas de trabalho paralelas em piscinas de máquinas virtuais Linux em Azure Batch.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/01/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 31e7a9558590ee3c6943e7a50c67c93f713908c7
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: cd8a39556fb0aec0ddbf6c8e639281d7329228a4
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993832"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726609"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Provision Linux computação nóde sintetizar em piscinas de lote
 
@@ -35,7 +35,7 @@ Ao configurar uma referência de imagem virtual da máquina, especifice as propr
 
 | **Propriedades de referência de imagem** | **Exemplo** |
 | --- | --- |
-| Publicador |Canónico |
+| Publisher |Canónico |
 | Oferta |UbuntuServer |
 | SKU |18.04-LTS |
 | Versão |mais recente |
@@ -280,7 +280,7 @@ O Azure Batch é construído com base na tecnologia Azure Cloud Services e Azure
 
 Se implementar aplicações nos seus nós de Lote utilizando pacotes de [aplicações,](batch-application-packages.md)também é cobrado pelos recursos de Armazenamento Azure que os seus pacotes de aplicação consomem.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 As [amostras][github_samples_py] de código Python no repositório [de amostras de lote azul][github_samples] no GitHub contêm scripts que mostram como realizar operações comuns do Lote, tais como pool, job, e criação de tarefas. A [README][github_py_readme] que acompanha as amostras python tem detalhes sobre como instalar os pacotes necessários.
 

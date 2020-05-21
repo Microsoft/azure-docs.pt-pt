@@ -1,16 +1,16 @@
 ---
-title: Copiar aplicações e dados para conjuntos de nós
+title: Copiar aplicações e dados para piscina de nódosos
 description: Saiba como copiar aplicações e dados para juntar os nódosos.
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/17/2020
-ms.openlocfilehash: 700e9b80f8420266c0300b47bdd30bc271f8421c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dad52a69ee468872c10b3a9e66b967a1c7bd101d
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115589"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726830"
 ---
-# <a name="copying-applications-and-data-to-pool-nodes"></a>Copiar aplicações e dados para conjuntos de nós
+# <a name="copy-applications-and-data-to-pool-nodes"></a>Copiar aplicações e dados para piscina de nódosos
 
 O Azure Batch suporta várias formas de obter dados e aplicações em nós de computação para que os dados e aplicações estejam disponíveis para uso através de tarefas. Os dados e aplicações podem ser necessários para executar todo o trabalho e, por isso, precisam de ser instalados em todos os nódosos. Alguns podem ser necessários apenas para uma tarefa específica, ou precisam de ser instalados para o trabalho, mas não precisam de estar em todos os nós. O lote tem ferramentas para cada um destes cenários.
 

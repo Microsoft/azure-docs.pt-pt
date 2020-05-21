@@ -4,13 +4,13 @@ description: Este artigo abrange as operações de fundo que podem ocorrer, junt
 author: mscurrell
 ms.author: markscu
 ms.date: 08/23/2019
-ms.topic: conceptual
-ms.openlocfilehash: 5051b9c536ded50e77fb75515c16daba884d5d24
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.openlocfilehash: 5ac3991a52ab75dccd0033160d6e972d155a882b
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115912"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83723923"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Verifique se há erros na piscina e nonóio
 
@@ -152,6 +152,6 @@ Certifique-se de que todos os dados necessários foram recuperados do nó ou env
 
 3.  Eliminar trabalhos antigos concluídos ou tarefas antigas concluídas cujos dados de tarefa ainda se encontra nos nódosos. Para obter uma dica sobre quais os dados de emprego/tarefas nos nós pode procurar na [recolha de Tarefas Recentes](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskinformation) no nó, ou nos [ficheiros no nó](https://docs.microsoft.com//rest/api/batchservice/file/listfromcomputenode). A eliminação do trabalho eliminará todas as tarefas no trabalho, e a eliminação das tarefas no trabalho irá desencadear dados nos diretórios de tarefas no nó a serem eliminados, libertando assim espaço. Uma vez libertado espaço suficiente, reinicie o nó e deve sair do estado "Inutilizável" e voltar a entrar em "Idle".
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Verifique se definiu a sua aplicação para implementar uma verificação abrangente de erros, especialmente para operações assíncronas. Pode ser fundamental detetar e diagnosticar rapidamente problemas.

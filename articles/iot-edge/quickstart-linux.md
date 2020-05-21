@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 52258a8bc287df36158ec143e4aad74c34455ea4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e015999d8c1f60340fb30609c6563f770c5c824f
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80236079"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726218"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>Quickstart: Implemente o seu primeiro módulo IoT Edge para um dispositivo linux virtual
 
@@ -94,7 +94,7 @@ Registe um dispositivo do IoT Edge no seu hub IoT recentemente criado.
 
 Crie uma identidade de dispositivo para o seu dispositivo IoT Edge para que possa comunicar com o seu hub IoT. A identidade do dispositivo reside na cloud e verá uma cadeia de ligação do dispositivo única para associar um dispositivo físico a uma identidade do dispositivo.
 
-Uma vez que os dispositivos IoT Edge se comportam e podem ser geridos de forma diferente dos `--edge-enabled` dispositivos IoT típicos, declaram esta identidade para um dispositivo IoT Edge com a bandeira.
+Uma vez que os dispositivos IoT Edge se comportam e podem ser geridos de forma diferente dos dispositivos IoT típicos, declaram esta identidade para um dispositivo IoT Edge com a `--edge-enabled` bandeira.
 
 1. No Azure Cloud Shell, introduza o comando seguinte para criar um dispositivo com o nome **myEdgeDevice** no seu hub.
 
@@ -102,7 +102,7 @@ Uma vez que os dispositivos IoT Edge se comportam e podem ser geridos de forma d
    az iot hub device-identity create --hub-name {hub_name} --device-id myEdgeDevice --edge-enabled
    ```
 
-   Se obtiver um erro relativo às chaves da política de iothubowner, certifique-se de que o Cloud Shell está a executar a versão mais recente da extensão azure-cli-iot-ext.
+   Se tiver um erro sobre as chaves da política do iothubowner, certifique-se de que a sua casca de nuvem está a executar a versão mais recente da extensão azure-iot.
 
 2. Obtenha a cadeia de ligação para o seu dispositivo, que liga o dispositivo físico à respetiva identidade do Hub IoT.
 
@@ -110,7 +110,7 @@ Uma vez que os dispositivos IoT Edge se comportam e podem ser geridos de forma d
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
-3. Copie o `connectionString` valor da chave a partir da saída JSON e guarde-a. Este valor é a cadeia de ligação do dispositivo. Irá utilizar esta cadeia de ligação para configurar o runtime do IoT Edge na secção seguinte.
+3. Copie o valor da `connectionString` chave a partir da saída JSON e guarde-a. Este valor é a cadeia de ligação do dispositivo. Irá utilizar esta cadeia de ligação para configurar o runtime do IoT Edge na secção seguinte.
 
    ![Recuperar a cadeia de ligação da saída CLI](./media/quickstart/retrieve-connection-string.png)
 
@@ -126,7 +126,7 @@ Durante a configuração do runtime, apresenta a cadeia de ligação do disposit
 
 ### <a name="set-the-connection-string-on-the-iot-edge-device"></a>Desloque a cadeia de ligação no dispositivo IoT Edge
 
-Se estiver a utilizar o Edge Azure IoT na máquina virtual Ubuntu, conforme descrito nos pré-requisitos, então o seu dispositivo já tem o tempo de execução do IoT Edge instalado. Basta configurar o seu dispositivo com a cadeia de ligação do dispositivo que recuperou na secção anterior. Pode fazer isto de forma remota sem ter de se ligar à máquina virtual. Executa o seguinte `{device_connection_string}` comando, substituindo-o pela sua própria corda.
+Se estiver a utilizar o Edge Azure IoT na máquina virtual Ubuntu, conforme descrito nos pré-requisitos, então o seu dispositivo já tem o tempo de execução do IoT Edge instalado. Basta configurar o seu dispositivo com a cadeia de ligação do dispositivo que recuperou na secção anterior. Pode fazer isto de forma remota sem ter de se ligar à máquina virtual. Executa o seguinte comando, `{device_connection_string}` substituindo-o pela sua própria corda.
 
    ```azurecli-interactive
    az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script "/etc/iotedge/configedge.sh '{device_connection_string}'"
@@ -136,7 +136,7 @@ Se estiver a executar ioT Edge na sua máquina local ou num dispositivo ARM32 ou
 
 ### <a name="view-the-iot-edge-runtime-status"></a>Ver o estado de runtime do IoT Edge
 
-O resto dos comandos neste arranque rápido ocorrem no próprio dispositivo IoT Edge, para que possa ver o que está a acontecer no dispositivo. Se estiver a utilizar uma máquina virtual, ligue-se a essa máquina utilizando agora o endereço IP público que foi saída pelo comando de criação. Também pode encontrar o endereço IP público na página geral da sua máquina virtual no portal Azure. Utilize o seguinte comando para se ligar à máquina virtual. Substitua `{azureuser}` se usou um nome de utilizador diferente do sugerido nos pré-requisitos. Substitua-a `{publicIpAddress}` com o endereço da máquina.
+O resto dos comandos neste arranque rápido ocorrem no próprio dispositivo IoT Edge, para que possa ver o que está a acontecer no dispositivo. Se estiver a utilizar uma máquina virtual, ligue-se a essa máquina utilizando agora o endereço IP público que foi saída pelo comando de criação. Também pode encontrar o endereço IP público na página geral da sua máquina virtual no portal Azure. Utilize o seguinte comando para se ligar à máquina virtual. Substitua `{azureuser}` se usou um nome de utilizador diferente do sugerido nos pré-requisitos. `{publicIpAddress}`Substitua-a com o endereço da máquina.
 
    ```console
    ssh azureuser@{publicIpAddress}
@@ -145,7 +145,7 @@ O resto dos comandos neste arranque rápido ocorrem no próprio dispositivo IoT 
 Verifique se o tempo de execução foi instalado e configurado com sucesso no seu dispositivo IoT Edge.
 
 >[!TIP]
->Precisa de privilégios elevados para executar os comandos `iotedge`. Depois de terminar sessão do seu computador e iniciar sessão novamente pela primeira vez depois de instalar o runtime do IoT Edge, as suas permissões são atualizadas automaticamente. Até lá, `sudo` utilize em frente aos comandos.
+>Precisa de privilégios elevados para executar os comandos `iotedge`. Depois de terminar sessão do seu computador e iniciar sessão novamente pela primeira vez depois de instalar o runtime do IoT Edge, as suas permissões são atualizadas automaticamente. Até lá, utilize `sudo` em frente aos comandos.
 
 1. Verifique se o daemon de segurança IoT Edge está funcionando como um serviço de sistema.
 
@@ -217,7 +217,7 @@ Remova o grupo de **IoTEdgeResources**.
 az group delete --name IoTEdgeResources
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, criou um dispositivo IoT Edge e utilizou a interface cloud Azure IoT Edge para implementar código no dispositivo. Agora tem um dispositivo de teste a gerar dados não processados sobre o seu ambiente.
 

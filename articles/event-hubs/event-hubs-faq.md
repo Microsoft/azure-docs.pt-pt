@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/02/2019
 ms.author: shvija
-ms.openlocfilehash: 7f6e1896c97c96cd484d15fb9e6a3056e5c5d6b2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d461652758dd1fe6bb90a703b7c3fa113c9bd3e
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82086373"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726252"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Centros de Eventos frequentemente fazem perguntas
 
@@ -85,7 +85,7 @@ Para encontrar os endereços IP certos para a lista branca para as suas ligaçõ
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. Note o endereço IP `Non-authoritative answer`devolvido em . A única altura em que mudaria é se restaurar o espaço de nome num cluster diferente.
+2. Note o endereço IP devolvido `Non-authoritative answer` em . A única altura em que mudaria é se restaurar o espaço de nome num cluster diferente.
 
 Se utilizar a redundância da zona para o seu espaço de nome, precisa de fazer alguns passos adicionais: 
 
@@ -115,7 +115,7 @@ bootstrap.servers={YOUR. EVENTHUBS. FQDN}:9093 request.timeout.ms=60000 security
 
 Exemplo:
 
-bootstrap.servers=dummynamespace.servicebus.windows.net:9093 request.timeout.ms=60000 security.protocol=SASL_SSL sasl.mechanism=PLAIN sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://dummynamespace.servicebus.net.net. SharedAccessKeyName=DummyAccessKeyName; SharedAccessKey=5dOntTRytoC24opYThisAsit3is2B+OGY1US/fuL3ly=";
+bootstrap.servers=dummynamespace.servicebus.windows.net:9093 request.timeout.ms=60000 security.protocol=SASL_SSL sasl.mechanism=PLAIN sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://dummynamespace.servicebus.net. SharedAccessKeyName=DummyAccessKeyName; SharedAccessKey=5dOntTRytoC24opYThisAsit3is2B+OGY1US/fuL3ly=";
 
 Nota: Se sasl.jaas.config não for uma configuração suportada na sua estrutura, encontre as configurações que são usadas para definir o nome de utilizador e a palavra-passe SASL e utilizá-las. Detete o nome de utilizador para $ConnectionString e a palavra-passe para a sua linha de ligação Event Hubs.
 
@@ -150,9 +150,11 @@ Pode querer começar com unidades de baixa suposição (TUs), por exemplo, 2 TUs
 Não há **nenhum custo** associado a esta funcionalidade. 
 
 ### <a name="how-are-throughput-limits-enforced"></a>Como são aplicados os limites de entrada?
-Se a entrada total de ingressos ou a taxa total de eventos de ingresso em todos os centros de eventos num espaço de nome exceder as licenças unitárias de produção agregados, os remetentes são estrangulados e recebem erros que indicam que a quota de ingresso foi ultrapassada.
+Se a entrada total de **ingressos** ou a taxa total de eventos de ingresso em todos os centros de eventos num espaço de nome exceder as licenças unitárias de produção agregados, os remetentes são estrangulados e recebem erros que indicam que a quota de ingresso foi ultrapassada.
 
-Se a produção total de saída ou a taxa total de egress do evento em todos os centros de eventos num espaço de nome exceder as licenças unitárias de produção agregadas, os recetores são estrangulados e recebem erros que indicam que a quota de saída foi ultrapassada. As quotas de ingresso e de saída são aplicadas separadamente, de modo que nenhum remetente pode fazer com que o consumo do evento abrande, nem um recetor pode impedir que os eventos sejam enviados para um centro de eventos.
+Se a produção total de **saída** ou a taxa total de egress do evento em todos os centros de eventos num espaço de nome exceder as licenças unitárias de produção agregadas, os recetores são estrangulados, mas não são gerados erros de estrangulamento. 
+
+As quotas de ingresso e de saída são aplicadas separadamente, de modo que nenhum remetente pode fazer com que o consumo do evento abrande, nem um recetor pode impedir que os eventos sejam enviados para um centro de eventos.
 
 ### <a name="is-there-a-limit-on-the-number-of-throughput-units-tus-that-can-be-reservedselected"></a>Existe um limite no número de unidades de entrada (Ti) que podem ser reservadas/selecionadas?
 Numa oferta multi-arrendatária, as unidades de entrada podem crescer até 40 TUs (pode selecionar até 20 TUs no portal, e levantar um bilhete de apoio para elevar para 40 TUs no mesmo espaço de nome). Além de 40 TUs, o Event Hubs oferece o modelo baseado em recursos/capacidade chamado **clusters dedicados**do Event Hubs . Os clusters dedicados são vendidos em Unidades de Capacidade (CUs).
@@ -236,7 +238,7 @@ Para obter uma lista de todas as quotas do Event Hubs, consulte [quotas.](event-
 ## <a name="troubleshooting"></a>Resolução de problemas
 
 ### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>Por que não sou capaz de criar um espaço de nome depois de aapagar de outra subscrição? 
-Quando eliminar um espaço de nome de uma subscrição, aguarde 4 horas antes de o recriar com o mesmo nome noutra subscrição. Caso contrário, poderá receber a `Namespace already exists`seguinte mensagem de erro: . 
+Quando eliminar um espaço de nome de uma subscrição, aguarde 4 horas antes de o recriar com o mesmo nome noutra subscrição. Caso contrário, poderá receber a seguinte mensagem de erro: `Namespace already exists` . 
 
 ### <a name="what-are-some-of-the-exceptions-generated-by-event-hubs-and-their-suggested-actions"></a>Quais são algumas das exceções geradas pelos Centros de Eventos e as suas ações sugeridas?
 
@@ -252,7 +254,7 @@ O suporte técnico para Centros de Eventos está disponível através dos [fóru
 
 Para saber mais sobre o nosso SLA, consulte a página de Acordos de [Nível de Serviço.](https://azure.microsoft.com/support/legal/sla/)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
 

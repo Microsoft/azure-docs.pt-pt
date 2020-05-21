@@ -7,12 +7,12 @@ ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: 84c132c333e4d6ba052029350f275ebf499a906f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a12f74e1b96cd305ec7b7a89f8ad77725122ac75
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79536807"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83724586"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Quickstart: Criar um trabalho de Stream Analytics usando o Azure PowerShell
 
@@ -70,7 +70,7 @@ O seguinte bloco de código SLI Azure faz muitos comandos para preparar os dados
 
 1. Na janela PowerShell, execute o comando [de login az](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest) para iniciar sessão na sua conta Azure.
 
-    Quando iniciar sessão com sucesso, o Azure CLI devolve uma lista das suas subscrições. Copie a subscrição que está a utilizar para este arranque rápido e execute o comando de conjunto de [contas az](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#change-the-active-subscription) para selecionar essa subscrição. Escolha a mesma subscrição selecionada na secção anterior com a PowerShell. Certifique-se `<your subscription name>` de substituir pelo nome da sua subscrição.
+    Quando iniciar sessão com sucesso, o Azure CLI devolve uma lista das suas subscrições. Copie a subscrição que está a utilizar para este arranque rápido e execute o comando de conjunto de [contas az](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#change-the-active-subscription) para selecionar essa subscrição. Escolha a mesma subscrição selecionada na secção anterior com a PowerShell. Certifique-se de substituir `<your subscription name>` pelo nome da sua subscrição.
 
     ```azurecli
     az login
@@ -96,7 +96,7 @@ O seguinte bloco de código SLI Azure faz muitos comandos para preparar os dados
     az iot hub device-identity create --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice"
     ```
 
-4. Obtenha a cadeia de ligação do dispositivo utilizando o comando de cadeia de ligação de dispositivo-ligação de eixo [az iot.](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity#ext-azure-cli-iot-ext-az-iot-hub-device-identity-show-connection-string) Copie toda a cadeia de ligação e guarde-a para quando criar o simulador Raspberry Pi.
+4. Obtenha a cadeia de ligação do dispositivo utilizando o comando de cadeia de ligação de dispositivo-ligação de eixo [az iot.](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-show-connection-string) Copie toda a cadeia de ligação e guarde-a para quando criar o simulador Raspberry Pi.
 
     ```azurecli
     az iot hub device-identity show-connection-string --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice" --output table
@@ -162,7 +162,7 @@ Crie um trabalho de Stream Analytics com [o cmdlet New-AzStreamAnalyticsJob.](ht
 }
 ```
 
-Em seguida, execute o cmdlet `New-AzStreamAnalyticsJob`. Substitua o `jobDefinitionFile` valor da variável pelo caminho onde armazenou o ficheiro JSON de definição de trabalho.
+Em seguida, execute o cmdlet `New-AzStreamAnalyticsJob`. Substitua o valor da `jobDefinitionFile` variável pelo caminho onde armazenou o ficheiro JSON de definição de trabalho.
 
 ```powershell
 $jobName = "MyStreamingJob"
@@ -178,7 +178,7 @@ New-AzStreamAnalyticsJob `
 
 Adicione uma entrada ao seu trabalho utilizando o cmdlet [New-AzStreamAnalyticsInputput.](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticsinput) Este cmdlet utiliza o nome da tarefa, o nome da entrada da tarefa, o nome do grupo de recursos e a definição de entrada da tarefa como parâmetros. A definição da entrada do trabalho é um ficheiro JSON que contém as propriedades necessárias para configurar essa entrada. Neste exemplo, você vai criar um armazenamento de bolhas como uma entrada.
 
-No computador local, crie um ficheiro denominado `JobInputDefinition.json` e adicione os seguintes dados JSON ao mesmo. Certifique-se de que `accesspolicykey` substitui `SharedAccessKey` o valor pela parte da cadeia de ligação IoT Hub que guardou numa secção anterior.
+No computador local, crie um ficheiro denominado `JobInputDefinition.json` e adicione os seguintes dados JSON ao mesmo. Certifique-se de que substitui o valor `accesspolicykey` pela parte da cadeia de `SharedAccessKey` ligação IoT Hub que guardou numa secção anterior.
 
 ```json
 {
@@ -209,7 +209,7 @@ No computador local, crie um ficheiro denominado `JobInputDefinition.json` e adi
 }
 ```
 
-Em seguida, `New-AzStreamAnalyticsInput` executar o cmdlet, certifique-se de substituir o valor da `jobDefinitionFile` variável pelo caminho onde armazenou o ficheiro JSON de definição de entrada de trabalho.
+Em seguida, executar o `New-AzStreamAnalyticsInput` cmdlet, certifique-se de substituir o valor da `jobDefinitionFile` variável pelo caminho onde armazenou o ficheiro JSON de definição de entrada de trabalho.
 
 ```powershell
 $jobInputName = "IoTHubInput"
@@ -286,7 +286,7 @@ Adicione uma transformação ao usar o [cmdlet New-AzStreamAnalyticsTransformati
 }
 ```
 
-Execute novamente o cmdlet `New-AzStreamAnalyticsTransformation`. Certifique-se de substituir `jobTransformationDefinitionFile` o valor da variável pelo caminho onde armazenou o ficheiro JSON de transformação de emprego.
+Execute novamente o cmdlet `New-AzStreamAnalyticsTransformation`. Certifique-se de substituir o valor da `jobTransformationDefinitionFile` variável pelo caminho onde armazenou o ficheiro JSON de transformação de emprego.
 
 ```powershell
 $jobTransformationName = "MyJobTransformation"
@@ -330,7 +330,7 @@ Remove-AzResourceGroup `
   -Name $resourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste início rápido, implementou uma tarefa simples do Stream Analytics com o PowerShell. Também pode implementar tarefas do Stream Analytics com o [portal do Azure](stream-analytics-quick-create-portal.md) e o [Visual Studio](stream-analytics-quick-create-vs.md).
 

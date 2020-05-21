@@ -1,15 +1,15 @@
 ---
-title: Persistir dados de saída para o Armazenamento Azure com serviço de lote API - Lote Azure
+title: Persistir dados de saída para o Armazenamento Azure com serviço de lote API
 description: Aprenda a utilizar o serviço de lote API para persistir a tarefa do Lote e os dados de saída de trabalho para o Armazenamento Azure.
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: d9c6465a553e5652ecab5dcd167bb4058ff5cc08
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8020fbd184e200504d0fb0a9ab7ef5de64bd76c9
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82234286"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726320"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Persistir dados de tarefas para o Armazenamento Azure com o serviço de lote API
 
@@ -43,7 +43,7 @@ await container.CreateIfNotExists();
 
 ## <a name="get-a-shared-access-signature-for-the-container"></a>Obtenha uma assinatura de acesso partilhado para o recipiente
 
-Depois de criar o recipiente, obtenha uma assinatura de acesso partilhado (SAS) com acesso por escrito ao recipiente. Um SAS proporciona acesso delegado ao contentor. O SAS concede acesso com um conjunto de permissões especificado e num intervalo de tempo especificado. O serviço Batch necessita de um SAS com permissões de escrita para escrever a saída de tarefas para o recipiente. Para obter mais informações sobre o SAS, consulte [Utilizar assinaturas \(de acesso partilhado SAS\) no Armazenamento Azure](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Depois de criar o recipiente, obtenha uma assinatura de acesso partilhado (SAS) com acesso por escrito ao recipiente. Um SAS proporciona acesso delegado ao contentor. O SAS concede acesso com um conjunto de permissões especificado e num intervalo de tempo especificado. O serviço Batch necessita de um SAS com permissões de escrita para escrever a saída de tarefas para o recipiente. Para obter mais informações sobre o SAS, consulte [Utilizar assinaturas de acesso partilhado \( SAS \) no Armazenamento Azure](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 Quando obtém um SAS utilizando as APIs de Armazenamento Azure, a API devolve uma corda de token SAS. Esta cadeia simbólica inclui todos os parâmetros do SAS, incluindo as permissões e o intervalo sobre o qual o SAS é válido. Para utilizar o SAS para aceder a um contentor no Armazenamento Azure, é necessário anexar a cadeia de token SAS ao recurso URI. O recurso URI, juntamente com o token SAS anexado, proporciona acesso autenticado ao Armazenamento Azure.
 
@@ -63,7 +63,7 @@ string containerSasUrl = container.Uri.AbsoluteUri + containerSasToken;
 
 Para especificar ficheiros de saída para uma tarefa, crie uma coleção de objetos [OutputFile](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile) e atribua-os à propriedade [CloudTask.OutputFiles](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles#Microsoft_Azure_Batch_CloudTask_OutputFiles) quando criar a tarefa.
 
-O exemplo de código C# seguinte cria uma tarefa `output.txt`que escreve números aleatórios para um ficheiro chamado . O exemplo cria um `output.txt` ficheiro de saída para ser escrito no recipiente. O exemplo também cria ficheiros de saída `std*.txt` para quaisquer ficheiros `stderr.txt`de registo que correspondam ao padrão de ficheiro _(por exemplo,_ `stdout.txt` e ). O URL do recipiente requer o SAS que foi criado anteriormente para o recipiente. O serviço Batch utiliza o SAS para autenticar o acesso ao contentor:
+O exemplo de código C# seguinte cria uma tarefa que escreve números aleatórios para um ficheiro chamado `output.txt` . O exemplo cria um ficheiro de saída para `output.txt` ser escrito no recipiente. O exemplo também cria ficheiros de saída para quaisquer ficheiros de registo que correspondam ao padrão de ficheiro `std*.txt` _(por exemplo,_ `stdout.txt` e `stderr.txt` ). O URL do recipiente requer o SAS que foi criado anteriormente para o recipiente. O serviço Batch utiliza o SAS para autenticar o acesso ao contentor:
 
 ```csharp
 new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,100000) DO (ECHO !RANDOM!)) > output.txt\"")
@@ -93,11 +93,11 @@ new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,1000
 
 Quando especificar um ficheiro de saída, pode utilizar a propriedade [OutputFile.FilePattern](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile.filepattern#Microsoft_Azure_Batch_OutputFile_FilePattern) para especificar um padrão de ficheiro para correspondência. O padrão de ficheiro pode coincidir com ficheiros zero, um único ficheiro ou um conjunto de ficheiros criados pela tarefa.
 
-A propriedade **FilePattern** suporta wildcards padrão `*` do sistema de ficheiros tais `**` como (para jogos não recursivos) e (para partidas recursivas). Por exemplo, a amostra de código acima `std*.txt` especifica o padrão de ficheiro para combinar não-recursivamente:
+A propriedade **FilePattern** suporta wildcards padrão do sistema de ficheiros tais como `*` (para jogos não recursivos) e `**` (para partidas recursivas). Por exemplo, a amostra de código acima especifica o padrão de ficheiro para combinar `std*.txt` não-recursivamente:
 
 `filePattern: @"..\std*.txt"`
 
-Para fazer o upload de um único ficheiro, especifique um padrão de ficheiro sem wildcards. Por exemplo, a amostra de código acima `output.txt`especifica o padrão de ficheiro para combinar:
+Para fazer o upload de um único ficheiro, especifique um padrão de ficheiro sem wildcards. Por exemplo, a amostra de código acima especifica o padrão de ficheiro para `output.txt` combinar:
 
 `filePattern: @"output.txt"`
 
@@ -113,11 +113,11 @@ Para outras definições, consulte o enum de [OutputFileUploadCondition.](https:
 
 ### <a name="disambiguate-files-with-the-same-name"></a>Ficheiros desambiguados com o mesmo nome
 
-As tarefas num trabalho podem produzir ficheiros com o mesmo nome. Por `stdout.txt` exemplo, `stderr.txt` e são criados para cada tarefa que corre num trabalho. Como cada tarefa funciona no seu próprio contexto, estes ficheiros não entram em conflito no sistema de ficheiros do nó. No entanto, ao fazer o upload de ficheiros de várias tarefas para um recipiente partilhado, terá de desambiguar ficheiros com o mesmo nome.
+As tarefas num trabalho podem produzir ficheiros com o mesmo nome. Por exemplo, `stdout.txt` e `stderr.txt` são criados para cada tarefa que corre num trabalho. Como cada tarefa funciona no seu próprio contexto, estes ficheiros não entram em conflito no sistema de ficheiros do nó. No entanto, ao fazer o upload de ficheiros de várias tarefas para um recipiente partilhado, terá de desambiguar ficheiros com o mesmo nome.
 
 A propriedade [OutputFileBlobContainerDestination.Path](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfileblobcontainerdestination.path#Microsoft_Azure_Batch_OutputFileBlobContainerDestination_Path) especifica a bolha de destino ou o diretório virtual para ficheiros de saída. Você pode usar a propriedade **Path** para nomear o blob ou diretório virtual de modo a que os ficheiros de saída com o mesmo nome sejam nomeados exclusivamente no Armazenamento Azure. Usar o ID de tarefa no caminho é uma boa maneira de garantir nomes únicos e identificar facilmente ficheiros.
 
-Se a propriedade **FilePattern** for definida para uma expressão wildcard, então todos os ficheiros que correspondam ao padrão são enviados para o diretório virtual especificado pela propriedade **Path.** Por exemplo, se `mycontainer`o recipiente for `mytask`, o ID `..\std*.txt`de tarefa é , e o padrão de ficheiro é , então os URIs absolutos para os ficheiros de saída em Armazenamento Azure serão semelhantes a:
+Se a propriedade **FilePattern** for definida para uma expressão wildcard, então todos os ficheiros que correspondam ao padrão são enviados para o diretório virtual especificado pela propriedade **Path.** Por exemplo, se o recipiente for `mycontainer` , o ID de tarefa é , e o padrão de ficheiro é , `mytask` `..\std*.txt` então os URIs absolutos para os ficheiros de saída em Armazenamento Azure serão semelhantes a:
 
 ```
 https://myaccount.blob.core.windows.net/mycontainer/mytask/stderr.txt
@@ -147,11 +147,11 @@ Code: FileUploadContainerNotFound
 Message: One of the specified Azure container(s) was not found while attempting to upload an output file
 ```
 
-Em cada upload de ficheiros, o Batch escreve `fileuploadout.txt` dois `fileuploaderr.txt`ficheiros de registo para o nó de cálculo, e . Pode examinar estes ficheiros de registo para saber mais sobre uma falha específica. Nos casos em que o upload do ficheiro nunca foi tentado, por exemplo porque a tarefa em si não podia ser executada, então estes ficheiros de registo não existirão.
+Em cada upload de ficheiros, o Batch escreve dois ficheiros de registo para o nó de `fileuploadout.txt` cálculo, e `fileuploaderr.txt` . Pode examinar estes ficheiros de registo para saber mais sobre uma falha específica. Nos casos em que o upload do ficheiro nunca foi tentado, por exemplo porque a tarefa em si não podia ser executada, então estes ficheiros de registo não existirão.
 
 ## <a name="diagnose-file-upload-performance"></a>Diagnóstico de desempenho de upload de ficheiro
 
-Os `fileuploadout.txt` registos de ficheiros fazem upload do progresso. Pode examinar este ficheiro para saber mais sobre quanto tempo os seus uploads de ficheiros estão a demorar. Tenha em mente que existem muitos fatores que contribuem para carregar o desempenho, incluindo o tamanho do nó, outra atividade no nó no momento do upload, se o recipiente alvo está na mesma região que a piscina do Lote, quantos nós estão a carregar para a conta de armazenamento ao mesmo tempo, e assim por diante.
+Os registos de `fileuploadout.txt` ficheiros fazem upload do progresso. Pode examinar este ficheiro para saber mais sobre quanto tempo os seus uploads de ficheiros estão a demorar. Tenha em mente que existem muitos fatores que contribuem para carregar o desempenho, incluindo o tamanho do nó, outra atividade no nó no momento do upload, se o recipiente alvo está na mesma região que a piscina do Lote, quantos nós estão a carregar para a conta de armazenamento ao mesmo tempo, e assim por diante.
 
 ## <a name="use-the-batch-service-api-with-the-batch-file-conventions-standard"></a>Utilize o serviço de lote API com a norma De Convenções de Ficheiros de Lote
 
@@ -174,12 +174,12 @@ O projeto de amostra [PersistOutputs][github_persistoutputs] é uma das amostras
 1. Abra o projeto no **Visual Studio 2019.**
 2. Adicione **as suas credenciais** de conta de Lote e Armazenamento às **definições de Definições de Conta** no projeto Microsoft.Azure.Batch.Samples.Common.
 3. **Construir** (mas não executar) a solução. Restaure quaisquer pacotes NuGet se solicitado.
-4. Utilize o portal Azure para fazer upload de um pacote de [aplicações](batch-application-packages.md) para **persistOutputsTask**. Incluir `PersistOutputsTask.exe` os conjuntos e os seus conjuntos dependentes no pacote .zip, definir o ID da aplicação para "PersistOutputsTask", e a versão do pacote de aplicação para "1.0".
+4. Utilize o portal Azure para fazer upload de um pacote de [aplicações](batch-application-packages.md) para **persistOutputsTask**. Incluir os `PersistOutputsTask.exe` conjuntos e os seus conjuntos dependentes no pacote .zip, definir o ID da aplicação para "PersistOutputsTask", e a versão do pacote de aplicação para "1.0".
 5. **Iniciar** (executar) o projeto **PersistOutputs.**
 6. Quando solicitado a escolher a tecnologia de persistência a utilizar para executar a amostra, introduza **2** para executar a amostra utilizando a API do serviço de lote para persistir na saída de tarefas.
 7. Se desejar, volte a executar a amostra, inserindo **3** para persistir a saída com a API do serviço de lote, e também para nomear o contentor de destino e o caminho blob de acordo com a norma das Convenções de Ficheiros.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter mais informações sobre a saída de tarefas persistente sinuosa mente com a biblioteca de Convenções de Ficheiros para .NET, consulte persist e dados de [tarefas para o Armazenamento De Azure com a biblioteca](batch-task-output-file-conventions.md)de Convenções de Ficheiros de Lote para .NET .
 - Para obter informações sobre outras abordagens para a persistência de dados de saída em Azure Batch, consulte [a saída de trabalho e tarefa sinuosa para o Armazenamento Azure](batch-task-output.md).

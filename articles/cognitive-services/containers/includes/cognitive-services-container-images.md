@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/24/2020
 ms.author: aahi
-ms.openlocfilehash: 9025e016725a966061c557f16b610d8897c04c11
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 6d47829d32ed0b7ded545c73748cda1019d94bde
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83590673"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83721356"
 ---
 ### <a name="container-repositories-and-images"></a>Repositórios e imagens de contentores
 
@@ -62,12 +62,12 @@ Os seguintes recipientes de pré-visualização estão disponíveis publicamente
 
 #### <a name="public-gated-preview-container-registry-containerpreviewazurecrio"></a>Pré-visualização pública "Gated" (registo de contentores: `containerpreview.azurecr.io` )
 
-Os seguintes recipientes de pré-visualização fechados estão alojados no registo de pré-visualização do contentor e requerem uma aplicação de acesso. Consulte o processo de [gating dos Serviços Cognitivos](../../cognitive-services-gating-process.md) para obter mais informações.
+Os seguintes recipientes de pré-visualização fechados estão alojados no registo de pré-visualização do contentor e requerem uma aplicação de acesso. Consulte os seguintes artigos de contentores para obter mais informações.
 
 | Serviço | Contentor | Registo de Contentores / Repositório / Nome de imagem |
 |--|--|--|
 | [Imagem Digitalizada](../../Computer-vision/computer-vision-how-to-install-containers.md) | Leitura | `containerpreview.azurecr.io/microsoft/cognitive-services-read` |
-| [Face](../../face/face-how-to-install-containers.md) | Face | `containerpreview.azurecr.io/microsoft/cognitive-services-face` |
+| [Rostos](../../face/face-how-to-install-containers.md) | Rostos | `containerpreview.azurecr.io/microsoft/cognitive-services-face` |
 | [Reconhecimento de formulários](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409) | Reconhecedor de Formato | `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer` |
 | [API de Serviço de Voz](../../speech-service/speech-container-howto.md?tab=stt) | Conversão de voz em texto | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` |
 | [API de Serviço de Voz](../../speech-service/speech-container-howto.md?tab=cstt) | Discurso personalizado a texto | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text` |

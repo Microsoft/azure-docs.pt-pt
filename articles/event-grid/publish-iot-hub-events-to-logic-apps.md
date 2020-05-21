@@ -7,12 +7,12 @@ ms.service: iot-hub
 ms.topic: tutorial
 ms.date: 11/21/2019
 ms.author: robinsh
-ms.openlocfilehash: 889c5e68759a94682150ac88970b7123ad0fc412
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0b1870af6316713590eec59aee2af94ce34b7e1a
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82201742"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83722563"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-event-grid-and-logic-apps"></a>Tutorial: Envie notificações por e-mail sobre eventos do Hub Azure IoT usando a Grelha de Eventos e Aplicações Lógicas
 
@@ -27,7 +27,7 @@ Este artigo percorre uma configuração de amostra que utiliza o Hub IoT e a Gre
 * Uma conta de e-mail de qualquer fornecedor de e-mail que seja suportada por Aplicações Lógicas Azure, como Office 365 Outlook, Outlook.com ou Gmail. Esta conta de e-mail é utilizada para enviar notificações de eventos. Para obter uma lista completa de conectores de Aplicações Lógicas suportados, consulte a visão geral dos [Conectores](https://docs.microsoft.com/connectors/).
 
   > [!IMPORTANT]
-  > Antes de utilizar o Gmail, verifique se tem uma conta de negócios G-Suite (endereço @gmail.com de @googlemail.come-mail com um domínio personalizado) ou uma conta de consumo do Gmail (endereço de e-mail com ou). Apenas as contas empresariais Da G-Suite podem usar o conector Gmail com outros conectores sem restrições em aplicações lógicas. Se tiver uma conta de consumo do Gmail, pode utilizar o conector Gmail apenas com serviços específicos aprovados pela Google, ou pode criar uma aplicação de [cliente da Google para usar para autenticação.](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application) Para mais informações, consulte as políticas de [segurança e privacidade dos dados para os conectores da Google em Aplicações Lógicas Azure](../connectors/connectors-google-data-security-privacy-policy.md).
+  > Antes de utilizar o Gmail, verifique se tem uma conta de negócios G-Suite (endereço de e-mail com um domínio personalizado) ou uma conta de consumo do Gmail (endereço de e-mail com @gmail.com @googlemail.com ou). Apenas as contas empresariais Da G-Suite podem usar o conector Gmail com outros conectores sem restrições em aplicações lógicas. Se tiver uma conta de consumo do Gmail, pode utilizar o conector Gmail apenas com serviços específicos aprovados pela Google, ou pode criar uma aplicação de [cliente da Google para usar para autenticação.](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application) Para mais informações, consulte as políticas de [segurança e privacidade dos dados para os conectores da Google em Aplicações Lógicas Azure](../connectors/connectors-google-data-security-privacy-policy.md).
 
 * Um Hub IoT no Azure. Se ainda não criou um, consulte [Introdução ao Hub IoT](../iot-hub/iot-hub-csharp-csharp-getstarted.md) para obter instruções.
 
@@ -117,7 +117,7 @@ Um acionador é um evento específico que inicia a sua aplicação lógica. Nest
 
 1. Poderá receber uma notificação de pop-up com a indicação, **Lembre-se de incluir um cabeçalho Content-Type definido para application/json no seu pedido.** Pode ignorar esta sugestão com segurança e avançar para a secção seguinte. 
 
-### <a name="create-an-action"></a>Criar uma ação
+### <a name="create-an-action"></a>Create an action (Criar uma ação)
 
 Ações são os passos que ocorrem depois de o acionador iniciar o fluxo de trabalho da aplicação lógica. Neste tutorial, a ação consiste no envio de uma notificação por e-mail a partir do seu fornecedor de e-mail. 
 
@@ -137,7 +137,7 @@ Ações são os passos que ocorrem depois de o acionador iniciar o fluxo de trab
 
    * **Para**: introduza o endereço de e-mail para receber as mensagens de e-mail de notificação. Neste tutorial, utilize uma conta de e-mail a que tenha acesso para fins de teste. 
 
-   * **Assunto**: Preencha o texto para o assunto. Quando clicar na caixa de texto do Assunto, pode selecionar conteúdo dinâmico para incluir. Por exemplo, este `IoT Hub alert: {event Type}`tutorial utiliza. Se não conseguir ver conteúdo dinâmico, selecione o hiperlink **de conteúdo dinâmico Adicionar** - este alterna-o dentro e fora.
+   * **Assunto**: Preencha o texto para o assunto. Quando clicar na caixa de texto do Assunto, pode selecionar conteúdo dinâmico para incluir. Por exemplo, este tutorial `IoT Hub alert: {event Type}` utiliza. Se não conseguir ver conteúdo dinâmico, selecione o hiperlink **de conteúdo dinâmico Adicionar** - este alterna-o dentro e fora.
 
    * **Corpo**: Escreva o texto para o seu e-mail. Selecione as propriedades de JSON na ferramenta do seletor para incluir conteúdo dinâmico baseado em dados de eventos. Se não conseguir ver o conteúdo Dinâmico, selecione a hiperligação dinâmica de **conteúdo adicionar** sob a caixa de texto **Body.** Se não mostrar os campos que deseja, clique *mais* no ecrã de conteúdo Dinâmico para incluir os campos da ação anterior.
 
@@ -193,19 +193,19 @@ Nesta secção, vai configurar o Hub IoT para publicar eventos à medida que est
 
 6. **Selecione Adicionar novo filtro**. Preencha os campos com estes valores:
 
-   * **Chave**: `Subject`Selecione .
+   * **Chave**: Selecione `Subject` .
 
-   * **Operador**: `String begins with`Selecione .
+   * **Operador**: Selecione `String begins with` .
 
-   * **Valor**: `devices/Building1_` Introduza para filtrar os eventos do dispositivo no edifício 1.
+   * **Valor**: Introduza `devices/Building1_` para filtrar os eventos do dispositivo no edifício 1.
   
    Adicione outro filtro com estes valores:
 
-   * **Chave**: `Subject`Selecione .
+   * **Chave**: Selecione `Subject` .
 
-   * **Operador**: `String ends with`Selecione .
+   * **Operador**: Selecione `String ends with` .
 
-   * **Valor**: `_Temperature` Introduza para filtrar para eventos do dispositivo relacionados com a temperatura.
+   * **Valor**: Introduza `_Temperature` para filtrar para eventos do dispositivo relacionados com a temperatura.
 
    O separador **Filtros** da subscrição do seu evento deve agora ser semelhante a esta imagem:
 
@@ -240,7 +240,7 @@ Teste a sua aplicação lógica através da criação de um novo dispositivo par
 
 ## <a name="use-the-azure-cli"></a>Utilizar a CLI do Azure
 
-Em vez de utilizar o portal do Azure, pode realizar os passos do Hub IoT com a CLI do Azure. Para mais detalhes, consulte as páginas Do CLI do Azure para [criar uma subscrição](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) de eventos e [criar um dispositivo IoT](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity).
+Em vez de utilizar o portal do Azure, pode realizar os passos do Hub IoT com a CLI do Azure. Para mais detalhes, consulte as páginas Do CLI do Azure para [criar uma subscrição](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) de eventos e [criar um dispositivo IoT](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -274,7 +274,7 @@ Mesmo que decida manter o hub IoT, poderá ser conveniente eliminar a subscriç�
 
 3. Selecione **Eliminar**. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre como [Reagir aos eventos do Hub IoT com o Event Grid para acionar ações](../iot-hub/iot-hub-event-grid.md).
 * [Saiba como encomendar eventos de dispositivos ligados e desligados](../iot-hub/iot-hub-how-to-order-connection-state-events.md)

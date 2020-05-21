@@ -7,17 +7,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: 9bd7e40855f30612b90cf28365c0b1410cd3e3d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fe04cb12dc1afea78b023eab623927a07224888c
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81731132"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726150"
 ---
 # <a name="azure-virtual-machine-vm-image-certification"></a>Certificação de imagem da máquina virtual Azure (VM)
-
-> [!NOTE]
-> Estamos a mover a gestão das suas ofertas Azure VM do Cloud Partner Portal para partner Center. Até que as suas ofertas sejam migradas, por favor continue a seguir as instruções em [Create certificados para azure key vault](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-key-vault-cert) no Cloud Partner Portal para gerir as suas ofertas.
 
 Este artigo descreve como testar e submeter uma imagem de máquina virtual (VM) no mercado comercial para garantir que cumpre os mais recentes requisitos de publicação do Azure Marketplace.
 
@@ -89,7 +86,7 @@ Editar e executar o seguinte script Azure PowerShell para criar o ficheiro de ce
 
 #### <a name="create-the-azure-key-vault-to-store-the-certificate"></a>Crie o cofre chave Azure para armazenar o certificado
 
-Copie o conteúdo do modelo abaixo para um ficheiro na sua máquina local. No exemplo abaixo, este `C:\certLocation\keyvault.json`recurso é).
+Copie o conteúdo do modelo abaixo para um ficheiro na sua máquina local. No exemplo abaixo, este recurso `C:\certLocation\keyvault.json` é).
 
 ```json
 {
@@ -571,7 +568,7 @@ Editar este ficheiro para fornecer valores para estes parâmetros:
 | vmName | Nome da máquina virtual. |
 | nome do cofre | Nome do cofre da chave. |
 | vaultResourceGroup | Grupo de recursos do cofre chave. |
-| certificadoUrl | Endereço web (URL) do certificado, incluindo versão armazenada no `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7`cofre da chave, por exemplo: . |
+| certificadoUrl | Endereço web (URL) do certificado, incluindo versão armazenada no cofre da chave, por exemplo: `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7` . |
 | vhdUrl | Endereço web do disco rígido virtual. |
 | vmSize | Tamanho da caixa de máquinavirtual. |
 | nome de endereço ipaddress público | Nome do endereço IP público. |
@@ -583,7 +580,7 @@ Editar este ficheiro para fornecer valores para estes parâmetros:
 
 ### <a name="deploy-an-azure-vm"></a>Implementar um VM Azure
 
-Copiar e editar o seguinte script `$storageaccount` `$vhdUrl` para fornecer valores para as e variáveis. Execute-o para criar um recurso Azure VM a partir do vHD generalizado existente.
+Copiar e editar o seguinte script para fornecer valores para as `$storageaccount` `$vhdUrl` e variáveis. Execute-o para criar um recurso Azure VM a partir do vHD generalizado existente.
 
 ```PowerShell
 

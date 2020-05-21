@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/22/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 41bc2a05b81bca586cde261bf2eb05db96d687f8
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 062fa867115ea90dd129cac9c71ac6d9df6f3de2
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801321"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725861"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as ações de ficheiros da sua organização em Ficheiros Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Podes ter as caches que precisares em todo o mundo.
@@ -161,7 +161,7 @@ Este erro ocorrerá se o limite de pontos finais do servidor por servidor for at
 Este erro ocorrerá se outro ponto final do servidor já estiver a sincronizar o caminho do ponto final do servidor especificado. O Azure File Sync não suporta múltiplos pontos finais de servidor a sincronizar o mesmo diretório ou volume.
 
 <a id="-2160590967"></a>**A criação de pontofinal do servidor falha, com este erro: "MgmtServerJobFailed" (Código de erro: -2160590967 ou 0x80c80077)**  
-Este erro ocorre se o caminho do ponto final do servidor contiver ficheiros órfãos. Se um ponto final do servidor foi recentemente removido, aguarde até que a limpeza de ficheiros órfãos esteja concluída. Um Id de evento 6662 é registado no registo do evento telemetria uma vez que a limpeza de ficheiros órfãos hierarquizados tenha começado. Um Id de evento 6661 é registado uma vez que a limpeza de ficheiros órfãos está concluída e um ponto final do servidor pode ser recriado usando o caminho. Se a criação do ponto final do servidor falhar após o registo de um Id 6661 do Evento, remova os ficheiros hierárquicos órfãos, executando os passos documentados nos [ficheiros Tiered, não estão acessíveis no servidor após a eliminação](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) de uma secção de ponto final do servidor.
+Este erro ocorre se o caminho do ponto final do servidor contiver ficheiros órfãos. Se um ponto final do servidor foi recentemente removido, aguarde até que a limpeza de ficheiros órfãos esteja concluída. Um Id de evento 6662 é registado no registo do evento telemetria uma vez que a limpeza de ficheiros órfãos hierarquizados tenha começado. Um Id de evento 6661 é registado uma vez que a limpeza de ficheiros órfãos está concluída e um ponto final do servidor pode ser recriado usando o caminho. Se a criação de pontofinal do servidor falhar após a limpeza dos ficheiros hierárquicos ter concluído ou se o Event ID 6661 não puder ser encontrado no registo do evento Telemettry devido ao capotamento do registo de eventos, remova os ficheiros hirofeórquicos órfãos executando os passos documentados nos [ficheiros Tiered não estão acessíveis no servidor após a eliminação](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) de uma secção de ponto final do servidor.
 
 <a id="-2134347757"></a>**A eliminação do ponto final do servidor falha, com este erro: "MgmtServerJobExpired" (Código de erro: -2134347757 ou 0x80c87013)**  
 Este erro ocorrerá se o servidor estiver offline ou não tiver conectividade de rede. Se o servidor deixar de estar disponível, anule o registo do servidor no portal, o que eliminará os pontos finais do servidor. Para eliminar os pontos finais do servidor, siga os passos descritos no [Desregistre um servidor com O Sincronizado de Ficheiros Azure](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
@@ -227,7 +227,7 @@ Dentro de cada grupo de sincronização, pode perfurar os seus pontos finais do 
 ![Uma imagem do portal Azure](media/storage-sync-files-troubleshoot/portal-sync-health.png)
 
 # <a name="server"></a>[Servidor](#tab/server)
-Aceda aos registos de telemetria do servidor, que `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry`podem ser encontrados no Espectador de Eventos em . O evento 9102 corresponde a uma sessão de sincronização concluída; para o mais recente estado de sincronização, procure o evento mais recente com ID 9102. A SyncDirection diz-lhe se esta sessão foi um upload ou download. Se o HResult é 0, então a sessão de sincronização foi bem sucedida. Um HResult não-zero significa que houve um erro durante a sincronização; ver abaixo para uma lista de erros comuns. Se o PerItemErrorCount for superior a 0, isto significa que alguns ficheiros ou pastas não sincronizaram corretamente. É possível ter um HResult de 0 mas um PerItemErrorCount que é maior que 0.
+Aceda aos registos de telemetria do servidor, que podem ser encontrados no Espectador de Eventos em `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry` . O evento 9102 corresponde a uma sessão de sincronização concluída; para o mais recente estado de sincronização, procure o evento mais recente com ID 9102. A SyncDirection diz-lhe se esta sessão foi um upload ou download. Se o HResult é 0, então a sessão de sincronização foi bem sucedida. Um HResult não-zero significa que houve um erro durante a sincronização; ver abaixo para uma lista de erros comuns. Se o PerItemErrorCount for superior a 0, isto significa que alguns ficheiros ou pastas não sincronizaram corretamente. É possível ter um HResult de 0 mas um PerItemErrorCount que é maior que 0.
 
 Abaixo está um exemplo de um upload bem sucedido. Por uma questão de brevidade, apenas alguns dos valores contidos em cada evento 9102 estão listados abaixo. 
 
@@ -284,7 +284,7 @@ Para cada servidor num determinado grupo de sincronização, certifique-se de:
 - O campo Dessincronização de Ficheiros Não sincronizado é 0 para o upload e o download.
 
 # <a name="server"></a>[Servidor](#tab/server)
-Veja as sessões de sincronização concluídas, que são marcadas por 9102 eventos no `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry`registo de eventos de telemetria para cada servidor (no Espectador de Eventos, vá a ). 
+Veja as sessões de sincronização concluídas, que são marcadas por 9102 eventos no registo de eventos de telemetria para cada servidor (no Espectador de Eventos, vá a `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry` ). 
 
 1. Em qualquer servidor, você deve certificar-se de que as mais recentes sessões de upload e download concluídas com sucesso. Para tal, verifique se o HResult e o PerItemErrorCount são 0 para o upload e o download (o campo SyncDirection indica se uma determinada sessão é uma sessão de upload ou download). Note que se não vir uma sessão de sincronização recentemente concluída, é provável que esteja em curso uma sessão de sincronização, o que é de esperar se apenas adicionar ou modificar uma grande quantidade de dados.
 2. Quando um servidor estiver totalmente atualizado com a nuvem e não tiver alterações para sincronizar em qualquer direção, verá sessões de sincronização vazias. Estes são indicados por eventos de upload e download em que todos os campos Sync* (SyncFileCount, SyncDirCount, SyncTombstoneCount e SyncSizeBytes) são zero, o que significa que não havia nada a sincronizar. Note que estas sessões de sincronização vazias podem não ocorrer em servidores de alta agitação, uma vez que há sempre algo novo para sincronizar. Se não houver atividade sincronizada, devem ocorrer a cada 30 minutos. 
@@ -357,7 +357,7 @@ A tabela abaixo contém todos os caracteres unicódigo Azure File Sync ainda nã
 | **HRESULT** | 0x800704c7 |
 | **HRESULT (decimal)** | -2147023673 | 
 | **Cadeia do erro** | ERROR_CANCELLED |
-| **Reparação necessária** | No |
+| **Reparação necessária** | Não |
 
 As sessões de sincronização podem falhar por várias razões, incluindo o reinício ou atualização do servidor, instantâneos VSS, etc. Embora este erro pareça necessitar de acompanhamento, é seguro ignorar este erro a menos que persista durante um período de várias horas.
 
@@ -379,7 +379,7 @@ As sessões de sincronização podem falhar por várias razões, incluindo o rei
 | **HRESULT** | 0x80c8004c |
 | **HRESULT (decimal)** | -2134376372 |
 | **Cadeia do erro** | ECS_E_USER_REQUEST_THROTTLED |
-| **Reparação necessária** | No |
+| **Reparação necessária** | Não |
 
 Não é necessária qualquer ação; o servidor tentará novamente. Se este erro persistir durante várias horas, crie um pedido de suporte.
 
@@ -390,7 +390,7 @@ Não é necessária qualquer ação; o servidor tentará novamente. Se este erro
 | **HRESULT** | 0x80c83075 |
 | **HRESULT (decimal)** | -2134364043 |
 | **Cadeia do erro** | ECS_E_SYNC_BLOCKED_ON_CHANGE_DETECTION_POST_RESTORE |
-| **Reparação necessária** | No |
+| **Reparação necessária** | Não |
 
 nenhuma ação necessária. Quando uma partilha de ficheiros ou ficheiros (cloud endpoint) é restaurada utilizando o Azure Backup, a sincronização é bloqueada até que a deteção de alterações esteja concluída na partilha de ficheiros Azure. A deteção de alterações é executada imediatamente após o restauro ser concluído e a duração é baseada no número de ficheiros na partilha de ficheiros.
 
@@ -401,7 +401,7 @@ nenhuma ação necessária. Quando uma partilha de ficheiros ou ficheiros (cloud
 | **HRESULT** | 0x80041295 |
 | **HRESULT (decimal)** | -2147216747 |
 | **Cadeia do erro** | SYNC_E_METADATA_INVALID_OPERATION |
-| **Reparação necessária** | No |
+| **Reparação necessária** | Não |
 
 Este erro normalmente ocorre quando uma aplicação de cópia de segurança cria um instantâneo do VSS e a base de dados de sincronização é descarregada. Se este erro persistir durante várias horas, crie um pedido de suporte.
 
@@ -570,7 +570,7 @@ Este erro ocorre quando a partilha de ficheiros do Azure está inacessível devi
 | **HRESULT** | 0x80c80219 |
 | **HRESULT (decimal)** | -2134375911 |
 | **Cadeia do erro** | ECS_E_SYNC_METADATA_WRITE_LOCK_TIMEOUT |
-| **Reparação necessária** | No |
+| **Reparação necessária** | Não |
 
 Este erro resolve-se normalmente de forma autónoma e poderá ocorrer se existir:
 
@@ -704,7 +704,7 @@ Este erro ocorre porque o volume ficou cheio. Este erro geralmente ocorre porque
 | **HRESULT** | 0x80c8300f |
 | **HRESULT (decimal)** | -2134364145 |
 | **Cadeia do erro** | ECS_E_REPLICA_NOT_READY |
-| **Reparação necessária** | No |
+| **Reparação necessária** | Não |
 
 Este erro ocorre porque o ponto final da nuvem foi criado com conteúdo já existente na partilha de ficheiros Azure. O Azure File Sync deve digitalizar a parte do ficheiro Azure para todos os conteúdos antes de permitir que o ponto final do servidor prossiga com a sua sincronização inicial.
 
@@ -761,7 +761,7 @@ Este erro ocorre porque a versão do controlador de filtro de Arrumo na Cloud (S
 | **HRESULT** | 0x80c8004b |
 | **HRESULT (decimal)** | -2134376373 |
 | **Cadeia do erro** | ECS_E_SERVICE_UNAVAILABLE |
-| **Reparação necessária** | No |
+| **Reparação necessária** | Não |
 
 Este erro ocorre porque o serviço Azure File Sync está indisponível. Este erro será resolvido automaticamente quando o serviço do Azure File Sync estiver novamente disponível.
 
@@ -772,7 +772,7 @@ Este erro ocorre porque o serviço Azure File Sync está indisponível. Este err
 | **HRESULT** | 0x80131500 |
 | **HRESULT (decimal)** | -2146233088 |
 | **Cadeia do erro** | COR_E_EXCEPTION |
-| **Reparação necessária** | No |
+| **Reparação necessária** | Não |
 
 Este erro ocorre porque a sincronização falhou devido a uma exceção. Se o erro persistir durante várias horas, por favor crie um pedido de apoio.
 
@@ -794,7 +794,7 @@ Este erro ocorreu porque a conta de armazenamento efetuou uma ativação pós-fa
 | **HRESULT** | 0x80c8020e |
 | **HRESULT (decimal)** | -2134375922 |
 | **Cadeia do erro** | ECS_E_SYNC_METADATA_WRITE_LEASE_LOST |
-| **Reparação necessária** | No |
+| **Reparação necessária** | Não |
 
 Esse erro ocorre devido a um problema interno na base de dados de sincronização. Este erro será resolvido automaticamente quando a tentar executar novamente a sincronização. Se este erro continuar por um longo período de tempo, crie um pedido de apoio e entraremos em contacto consigo para ajudá-lo a resolver este problema.
 
@@ -878,7 +878,7 @@ Este erro ocorre porque o Azure File Sync não suporta a reorientação http (c�
 | **HRESULT** | 0x80c83085 |
 | **HRESULT (decimal)** | -2134364027 |
 | **Cadeia do erro** | ECS_E_DATA_INGESTION_WAIT_TIMEOUT |
-| **Reparação necessária** | No |
+| **Reparação necessária** | Não |
 
 Este erro ocorre quando uma operação de ingestão de dados excede o tempo limite. Este erro pode ser ignorado se a sincronização estiver a progredir (AppliedItemCount é superior a 0). Vêcomo [posso monitorizar o progresso de uma sessão de sincronização atual?](#how-do-i-monitor-the-progress-of-a-current-sync-session)
 
@@ -1078,7 +1078,7 @@ Se os ficheiros não forem nividares aos Ficheiros Azure:
 
    2. Verifique se o servidor tem conectividade com a Internet. 
    3. Verifique se os controladores de filtro Sincronia de Ficheiros Azure (StorageSync.sys e StorageSyncGuard.sys) estão em execução:
-       - Num pedido de comando `fltmc`elevado, corra. Verifique se os controladores de filtro de ficheiros StorageSync.sys e StorageSyncGuard.sys estão listados.
+       - Num pedido de comando elevado, `fltmc` corra. Verifique se os controladores de filtro de ficheiros StorageSync.sys e StorageSyncGuard.sys estão listados.
 
 > [!NOTE]
 > Um Id de evento 9003 é registado uma vez por hora no registo de eventos da Telemetria se um ficheiro não conseguir tier (um evento é registado por código de erro). Verifique os erros de tiering e a secção de [reparação](#tiering-errors-and-remediation) para ver se as medidas de reparação estão listadas para o código de erro.
@@ -1118,7 +1118,7 @@ Se os ficheiros não forem recolhidos:
     2. Verifique se o servidor tem conectividade com a Internet. 
     3. Abra o snap-in do MMC de serviços e verifique se o serviço de Agente de Sincronização de Armazenamento (FileSyncSvc) está em execução.
     4. Verifique se os controladores de filtro Sincronia de Ficheiros Azure (StorageSync.sys e StorageSyncGuard.sys) estão em execução:
-        - Num pedido de comando `fltmc`elevado, corra. Verifique se os controladores de filtro de ficheiros StorageSync.sys e StorageSyncGuard.sys estão listados.
+        - Num pedido de comando elevado, `fltmc` corra. Verifique se os controladores de filtro de ficheiros StorageSync.sys e StorageSyncGuard.sys estão listados.
 
 > [!NOTE]
 > Um Id de evento 9006 é registado uma vez por hora no registo de eventos da Telemetria se um ficheiro não se lembrar (um evento é registado por código de erro). Verifique os erros de recolha e a secção de [reparação](#recall-errors-and-remediation) para ver se as medidas de reparação estão listadas para o código de erro.
@@ -1243,7 +1243,7 @@ Se encontrar problemas com o Azure File Sync num servidor, comece por completar 
 2. Verifique se o serviço Desincronização de Ficheiros Azure está a funcionar no servidor:
     - Abra o snap-in do MMC de serviços e verifique se o serviço de Agente de Sincronização de Armazenamento (FileSyncSvc) está em execução.
 3. Verifique se os controladores de filtro Sincronia de Ficheiros Azure (StorageSync.sys e StorageSyncGuard.sys) estão em execução:
-    - Num pedido de comando `fltmc`elevado, corra. Verifique se os controladores de filtro de ficheiros StorageSync.sys e StorageSyncGuard.sys estão listados.
+    - Num pedido de comando elevado, `fltmc` corra. Verifique se os controladores de filtro de ficheiros StorageSync.sys e StorageSyncGuard.sys estão listados.
 
 Se o problema não for resolvido, execute a ferramenta AFSDiag e envie a sua saída de ficheiro .zip para o engenheiro de suporte atribuído ao seu caso para posterior diagnóstico.
 
@@ -1280,7 +1280,7 @@ Para a versão do agente v10 e anterior:
 5. Reproduza o problema. Quando terminar, entre em **D.**
 6. Um ficheiro .zip que contém registos e ficheiros de rastreio é guardado no diretório de saída que especificou.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 - [Monitorizar o Azure File Sync](storage-sync-files-monitoring.md)
 - [Ficheiros Azure frequentemente fazem perguntas](storage-files-faq.md)
 - [Resolver problemas de Ficheiros do Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md)

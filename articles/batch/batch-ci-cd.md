@@ -4,13 +4,13 @@ description: Aprenda a implementar um pipeline de construção/libertação para
 author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
-ms.topic: conceptual
-ms.openlocfilehash: 79c4e74086acc0f74bcc43f6b4543afe12916364
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.openlocfilehash: 72f976071a5fc65c8e96f6b3cd5c0094785e287b
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117391"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726847"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Utilizar os oleodutos Azure para construir e implementar soluções HPC
 
@@ -475,7 +475,7 @@ Uma vez configurado o ambiente, confirme que os seguintes testes podem ser concl
 
 Ligue-se à nova Conta de Lote Azure, utilizando o ClI Azure a partir de um pedido de comando PowerShell.
 
-* Inscreva-se na sua `az login` conta Azure e siga as instruções para autenticar.
+* Inscreva-se na sua conta Azure `az login` e siga as instruções para autenticar.
 * Agora autenticar a conta Lote:`az batch account login -g <resourceGroup> -n <batchAccount>`
 
 #### <a name="list-the-available-applications"></a>Enumerar as candidaturas disponíveis
@@ -490,7 +490,7 @@ az batch application list -g <resourcegroup> -n <batchaccountname>
 az batch pool list
 ```
 
-Note o `currentDedicatedNodes` valor da saída deste comando. Este valor é ajustado no próximo teste.
+Note o valor `currentDedicatedNodes` da saída deste comando. Este valor é ajustado no próximo teste.
 
 #### <a name="resize-the-pool"></a>Redimensionar a piscina
 
@@ -500,7 +500,7 @@ Redimensione a piscina para que existam nós de computação disponíveis para t
 az batch pool resize --pool-id <poolname> --target-dedicated-nodes 4
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Além deste artigo, existem dois tutoriais que utilizam ffmpeg, utilizando .NET e Python. Consulte estes tutoriais para obter mais informações sobre como interagir com uma conta De lote através de uma aplicação simples.
 

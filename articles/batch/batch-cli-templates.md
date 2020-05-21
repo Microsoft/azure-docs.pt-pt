@@ -1,15 +1,15 @@
 ---
 title: Executar empregos de ponta a ponta usando modelos
 description: Com apenas comandos CLI, pode criar um pool, carregar dados de entrada, criar empregos e tarefas associadas, e descarregar os dados de saída resultantes.
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 634a0b66379d8c94988d5f974baffe475af94c2e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2b1a28c817e0b0aa8047cdd9952065862bda9b73
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117357"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726779"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Utilize modelos CLI de lote azure e transferência de ficheiros
 
@@ -61,7 +61,7 @@ Os modelos de Lote Azure são semelhantes aos modelos do Gestor de Recursos Azur
 
 -   **Parâmetros**
 
-    -   Permitir que os valores de propriedade sejam especificados numa secção do corpo, com apenas valores de parâmetros a necessitar em fornecer quando o modelo for utilizado. Por exemplo, a definição completa para uma piscina poderia ser `poolId`colocada no corpo e apenas um parâmetro definido para; apenas uma cadeia de ID de piscina precisa, portanto, ser fornecida para criar uma piscina.
+    -   Permitir que os valores de propriedade sejam especificados numa secção do corpo, com apenas valores de parâmetros a necessitar em fornecer quando o modelo for utilizado. Por exemplo, a definição completa para uma piscina poderia ser colocada no corpo e apenas um parâmetro definido para ; apenas uma cadeia de ID da `poolId` piscina precisa, portanto, de ser fornecida para criar uma piscina.
         
     -   O corpo do modelo pode ser da autoria de alguém com conhecimento de Batch e as aplicações a serem executadas por Batch; só devem ser fornecidos valores para os parâmetros definidos pelo autor quando o modelo é utilizado. Um utilizador sem o lote aprofundado e/ou conhecimento de aplicação pode, portanto, utilizar os modelos.
 
@@ -136,7 +136,7 @@ Se o ficheiro do modelo foi nomeado _pool-ffmpeg.json,_ então invoque o modelo 
 az batch pool create --template pool-ffmpeg.json
 ```
 
-O CLI pede-lhe que `poolId` forneça `nodeCount` valores para os e parâmetros. Também pode fornecer os parâmetros num ficheiro JSON. Por exemplo:
+O CLI pede-lhe que forneça valores para os `poolId` `nodeCount` e parâmetros. Também pode fornecer os parâmetros num ficheiro JSON. Por exemplo:
 
 ```json
 {
@@ -253,7 +253,7 @@ Pode enviar um modelo DE CLI de lote para a aplicação de ambiente de trabalho 
 
 Para fazer upload de um modelo:
 
-1. No Batch Explorer, selecione**Modelos Locais** **da Galeria** > .
+1. No Batch Explorer, selecione **Gallery**  >  **Modelos Locais**da Galeria .
 
 2. Selecione, ou arraste e deixe cair, uma piscina local ou modelo de trabalho.
 
@@ -283,7 +283,7 @@ O suporte de transferência de modelos e ficheiros foi atualmente adicionado ape
 
 Experimente a extensão do Lote para o Azure CLI e forneça-nos qualquer feedback ou sugestão, quer nos comentários relativos a este artigo quer através do [repo comunitário](https://github.com/Azure/Batch)de lote .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Documentação detalhada de instalação e utilização, amostras e código fonte estão disponíveis no [repo Azure GitHub](https://github.com/Azure/azure-batch-cli-extensions).
 

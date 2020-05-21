@@ -1,16 +1,15 @@
 ---
 title: Escolha tamanhos VM para piscinas
 description: Como escolher entre os tamanhos vm disponíveis para os nódosos de computação em piscinas de Lote Azure
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/12/2019
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: d33b97790d2ce9a276a552fd02fe28c796234b15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a299ce05caa02432f96dfbb5eb675bc2d6f82ab5
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115861"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83723719"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Escolha um tamanho VM para comum de cafés em uma piscina de lote azure
 
@@ -32,8 +31,8 @@ As piscinas de lote na configuração da Máquina Virtual suportam quase todos o
 | Básico A | Todos os *tamanhos, exceto* Basic_A0 (A0) |
 | A | Todos os tamanhos, *exceto* Standard_A0 |
 | Av2 | Todos os tamanhos |
-| B | Nenhuma |
-| DC | Nenhuma |
+| B | Nenhum |
+| DC | Nenhum |
 | Dv2, DSv2 | Todos os tamanhos |
 | Dv3, Dsv3 | Todos os tamanhos |
 | Dav4 | Nenhum - ainda não disponível |
@@ -57,8 +56,8 @@ As piscinas de lote na configuração da Máquina Virtual suportam quase todos o
 | NDv2<sup>1</sup> | Nenhum - ainda não disponível |
 | NV | Todos os tamanhos |
 | NVv3<sup>1</sup> | Todos os tamanhos |
-| NVv4 | Nenhuma |
-| SAP HANA | Nenhuma |
+| NVv4 | Nenhum |
+| SAP HANA | Nenhum |
 
 <sup>1</sup> Estes tamanhos vm podem ser atribuídos em piscinas de lote na configuração da Máquina Virtual, mas você deve criar uma nova conta Batch e solicitar um aumento específico de [quota](batch-quota-limit.md#increase-a-quota). Esta limitação será removida assim que a quota vCPU por série VM for totalmente suportada para as contas do Lote.
 
@@ -85,7 +84,7 @@ As piscinas de lote na configuração do Serviço Cloud suportam todos os [taman
 
 * **Configuração** da piscina - Em geral, tem mais opções de tamanho VM quando cria uma piscina na configuração da Máquina Virtual, em comparação com a configuração do Cloud Service.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para uma visão geral aprofundada do Lote, consulte Desenvolver soluções de [computação paralela em larga escala com lote](batch-api-basics.md).
 * Para obter informações sobre a utilização de tamanhos vm intensivos de computação, consulte [Utilize instâncias capazes de RDMA ou gpu-habilitadas em piscinas](batch-pool-compute-intensive-sizes.md)de lote .

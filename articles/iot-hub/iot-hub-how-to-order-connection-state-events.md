@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
-ms.openlocfilehash: 210c2e74305ba99b4ac3a12625d0b7f5fc47ba43
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d84db9f9c36dc2818c78c5091b1ebe29c35f865
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73954257"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726201"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Ordenar eventos de ligação do dispositivo do Hub IoT com o Azure Cosmos DB
 
@@ -26,7 +26,7 @@ O número da sequência é uma representação de cordas de um número hexadecim
 
 * Uma conta aPI Ative Azure Cosmos DB SQL. Se ainda não criou uma, consulte [criar uma conta de base](../cosmos-db/create-sql-api-java.md#create-a-database-account) de dados para uma passagem.
 
-* Uma coleção na sua base de dados. Consulte [Adicionar uma coleção](../cosmos-db/create-sql-api-java.md#add-a-container) para um passeio. Quando criar a sua `/id` coleção, utilize para a chave de partição.
+* Uma coleção na sua base de dados. Consulte [Adicionar uma coleção](../cosmos-db/create-sql-api-java.md#add-a-container) para um passeio. Quando criar a sua coleção, utilize `/id` para a chave de partição.
 
 * Um Hub IoT no Azure. Se ainda não criou um, consulte [Introdução ao Hub IoT](iot-hub-csharp-csharp-getstarted.md) para obter instruções.
 
@@ -34,7 +34,7 @@ O número da sequência é uma representação de cordas de um número hexadecim
 
 Primeiro, crie um procedimento armazenado e crie-o para executar uma lógica que compara os números de sequências de eventos e regista o mais recente evento por dispositivo na base de dados.
 
-1. No seu Cosmos DB SQL API, selecione Itens de**Items** >  **Explorador** > de Dados**Novo Procedimento Armazenado**.
+1. No seu Cosmos DB SQL API, selecione Itens de Explorador de **Dados**Novo  >  **Items**  >  **Procedimento Armazenado**.
 
    ![Criar procedimento armazenado](./media/iot-hub-how-to-order-connection-state-events/create-stored-procedure.png)
 
@@ -334,7 +334,7 @@ Pode ver os resultados do procedimento armazenado no seu documento Cosmos DB. O 
 
 ## <a name="use-the-azure-cli"></a>Utilizar a CLI do Azure
 
-Em vez de utilizar o [portal Azure,](https://portal.azure.com)pode realizar os passos do Hub IoT utilizando o Azure CLI. Para mais detalhes, consulte as páginas Do CLI do Azure para [criar uma subscrição](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) de eventos e [criar um dispositivo IoT](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity#ext-azure-cli-iot-ext-az-iot-hub-device-identity-create).
+Em vez de utilizar o [portal Azure,](https://portal.azure.com)pode realizar os passos do Hub IoT utilizando o Azure CLI. Para mais detalhes, consulte as páginas Do CLI do Azure para [criar uma subscrição](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) de eventos e [criar um dispositivo IoT](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -362,7 +362,7 @@ Se não quiser perder o trabalho realizado na sua aplicação lógica, desative-
 
 Para remover uma conta Azure Cosmos DB do portal Azure, clique no nome da conta e clique em Eliminar a **conta**. Consulte instruções detalhadas para [apagar uma conta Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/manage-account).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [reagir a eventos do IoT Hub usando](../iot-hub/iot-hub-event-grid.md) a Grelha de Eventos para desencadear ações
 

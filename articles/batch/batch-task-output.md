@@ -1,15 +1,15 @@
 ---
-title: Persistir na produção de trabalho e tarefa para uma loja de dados - Azure Batch
+title: Persistir na produção de trabalho e tarefa para uma loja de dados
 description: Conheça diferentes opções para persistir dados de produção a partir de tarefas e empregos do Lote. Pode persistir dados para o Armazenamento Azure, ou para outra loja de dados.
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/14/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3a0c8f7517e88bf4e5476c7bad98d167ce760a9a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 492de237acdf2d6d42f27638bac3adc0f6549828
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116422"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726303"
 ---
 # <a name="persist-job-and-task-output"></a>Manter saída de trabalhos e tarefas
 
@@ -75,7 +75,7 @@ Ao conceber a sua solução Batch, considere os seguintes fatores relacionados c
 
 - **Visualização da saída**: Quando navega para uma tarefa de Lote no portal Azure e seleciona **Ficheiros no nó,** é apresentado com todos os ficheiros associados à tarefa, e não apenas os ficheiros de saída em que está interessado. Mais uma vez, os ficheiros em nós computacionais só estão disponíveis enquanto o nó existe e apenas dentro do tempo de retenção de ficheiros que definiu para a tarefa. Para ver a saída de tarefas que persistiu no Armazenamento Azure, pode utilizar o portal Azure ou uma aplicação de cliente de Armazenamento Azure, como o [Azure Storage Explorer][storage_explorer]. Para ver os dados de saída no Armazenamento Azure com o portal ou outra ferramenta, deve saber a localização do ficheiro e navegar diretamente para ele.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Explore utilizando as novas funcionalidades do serviço de lote API para persistir os dados de tarefas em [Dados de tarefas Persist para o Armazenamento Azure com o serviço de lote API](batch-task-output-files.md).
 - Saiba utilizar a biblioteca de Convenções de Ficheiros de Lote para .NET em persist e dados de [tarefas para o Armazenamento De Lote com a biblioteca](batch-task-output-file-conventions.md)de Convenções de Ficheiros de Lote para .NET .

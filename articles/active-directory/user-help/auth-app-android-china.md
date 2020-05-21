@@ -1,5 +1,5 @@
 ---
-title: Disponibilidade e limitações do Microsoft Autenticador foe Android na China Microsoft Docs
+title: Disponibilidade e limitações do Microsoft Autenticador para Android na China Microsoft Docs
 description: Saiba como obter a aplicação Microsoft Authenticator - disponibilidade na China
 services: active-directory
 author: curtand
@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: overview
-ms.date: 05/06/2020
+ms.date: 05/20/2020
 ms.author: curtand
-ms.openlocfilehash: 3ba1b41859a543ab5e0393c5715dc49d452ea73c
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: e42c4e5aced9fd567c67b520a98318c965045e07
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891838"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715533"
 ---
 # <a name="microsoft-authenticator-for-android-in-the-public-cloud-in-china"></a>Autenticador da Microsoft para Android na nuvem pública na China
 
@@ -50,14 +50,14 @@ Em vez de utilizarem notificações push para autenticação de vários fatores,
 
 Funcionalidade do Autenticador microsoft | Disponibilidade na China
 ------------------------------- | ---------------------
-Registo de MFA com notificações push | No
-Conta MFA pré-existente que verifica identidade usando notificações push | No
+Registo de MFA com notificações push | Não
+Conta MFA pré-existente que verifica identidade usando notificações push | Não
 Conta MFA pré-existente que executa verificação manual para notificações | Sim
 Registo/autenticação do MFA utilizando apenas códigos TOTP/verificação | Sim
-Registo de Registo de Registo telefónico | No
-Sinal de telefone existente usando notificações push | No
+Registo de Registo de Registo telefónico | Não
+Sinal de telefone existente usando notificações push | Não
 Verificação de registo telefónico existente através da verificação manual de pedidos de autenticação | Sim
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Descarregue e instale a aplicação Microsoft Authenticator](user-help-auth-app-download-install.md)

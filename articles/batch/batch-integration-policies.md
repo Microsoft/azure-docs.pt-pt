@@ -1,15 +1,15 @@
 ---
 title: Integração com políticas azure
 description: A Azure Policy é um serviço em Azure que utiliza para criar, atribuir e gerir políticas que apliquem regras sobre os seus recursos.
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: a160de1277afea026a16f470c8f76cdc2ec1733f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e576c99e918410cb63743aaca32bdef78ae01d83
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82184270"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726660"
 ---
 # <a name="integration-with-azure-policy"></a>Integração com a Política Azure
 

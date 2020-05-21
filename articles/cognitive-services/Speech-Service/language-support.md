@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 28c5c1258c0733cd23f7c4ad3c901360461d5bdc
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 93dc831fa631a28b918ef5015a3c9ff107d41541
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682147"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726082"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Apoio à linguagem e voz para o serviço da Fala
 
@@ -24,7 +24,11 @@ O suporte linguístico varia de acordo com a funcionalidade do serviço da Fala.
 
 ## <a name="speech-to-text"></a>Conversão de voz em texto
 
-Tanto o Microsoft Speech SDK como o REST API suportam os seguintes idiomas (locais). Para melhorar a precisão, a personalização é oferecida para um subconjunto das línguas através do upload de Audio + Transcrições com rótulo humano ou texto relacionado: Frases. A personalização da pronúncia é oferecida através do upload de Texto Relacionado: Pronúncia. Saiba mais sobre personalização [aqui](how-to-custom-speech.md).
+Tanto o Microsoft Speech SDK como o REST API suportam os seguintes idiomas (locais). 
+
+Para melhorar a precisão, a personalização é oferecida para um subconjunto das línguas através do upload **de Audio + Transcrições com rótulo humano** ou texto **relacionado: Frases**. Para saber mais sobre personalização, consulte [Começar com Discurso Personalizado](how-to-custom-speech.md).
+
+Para obter mais informações sobre como pode melhorar a pronúncia, consulte [Melhorar um modelo para discurso personalizado](how-to-custom-speech-improve-accuracy.md#add-new-words-with-pronunciation).
 
 <!--
 To get the AM and ML bits:
@@ -34,7 +38,7 @@ To get pronunciation bits:
 https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
 -->
 
-| Região  | Idioma                          | Suportado | Personalizações                                    |
+| Região  | Linguagem                          | Suportado | Personalizações                                    |
 |---------|-----------------------------------|-----------|---------------------------------------------------|
 | `ar-AE` | Árabe (EAU)                      | Sim       | Não                                                |
 | `ar-BH` | Árabe (Bahrein), padrão moderno | Sim       | Modelo de linguagem                                    |
@@ -75,7 +79,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `ta-IN` | Tamil (Índia)                     | Sim       | Modelo de linguagem                                    |
 | `te-IN` | Telugu (Índia)                    | Sim       | Não                                                |
 | `th-TH` | Tailandês (Tailândia)                   | Sim       | Não                                                |
-| `tr-TR` | Turco (Turquia)                  | Sim       | Não                                                |
+| `tr-TR` | Turco (Turquia)                  | Sim       | Modelo de linguagem                                    |
 | `zh-CN` | Chinês (mandarim, simplificado)    | Sim       | Modelo acústico<br>Modelo de linguagem                  |
 | `zh-HK` | Chinês (cantonês, tradicional)  | Sim       | Modelo de linguagem                                    |
 | `zh-TW` | Chinês (Mandarim taiwanês)      | Sim       | Modelo de linguagem                                    |
@@ -95,29 +99,29 @@ As vozes neurais podem ser usadas para tornar as interações com chatbots e ass
 
 Para obter mais informações sobre a disponibilidade regional, consulte [regiões.](regions.md#standard-and-neural-voices)
 
-|Região  | Idioma            | Género | Nome de voz  | Apoio bilingual | Suporte de estilo |
-|--|--|--|--|--|--|
-| `de-DE` | Alemão (Alemanha)    | Mulheres | "de-DE-KatjaNeural" | Yes. Inglês (E.U.A.) | Geral |
-| `en-AU` | Inglês (Austrália) | Mulheres |  "en-AU-NatashaNeural" | Não | Geral |
-| `en-CA` | Inglês (Canadá)    | Mulheres |  "en-CA-ClaraNeural"| Não | Geral |
-| `en-GB` | Inglês (Reino Unido)        | Mulheres |  "en-GB-LibbyNeural"| Não | Geral |
-|  |      | Mulheres |  "en-GB-MiaNeural" | Não | Geral |
-| `en-US` | Inglês (E.U.A.)        | Mulheres |  "en-US-AriaNeural"| Não | Estilos de voz gerais e múltiplos disponíveis |
-|  |      | Homens   | "en-US-GuyNeural" | Não | Geral |
-| `es-ES` | Espanhol (Espanha)     | Mulheres |  "es-ES-ElviraNeural"| Yes. Inglês (E.U.A.) | Geral |
-| `es-MX` | Espanhol (México)    | Mulheres |  "es-MX-DaliaNeural" | Yes. Inglês (E.U.A.) | Geral |
-| `fr-CA` | Francês (Canadá)     | Mulheres |  "fr-CA-SylvieNeural" | Yes. Inglês (E.U.A.) | Geral |
-| `fr-FR` | Francês (França)     | Mulheres | "FR-FR-DeniseNeural"  | Yes. Inglês (E.U.A.) | Geral |
-| `it-IT` | Italiano (Itália)     | Mulheres |  "IT-IT-ElsaNeural"  | Yes. Inglês (E.U.A.) | Geral |
-| `ja-JP` | Japonês            | Mulheres |  "ja-JP-NanamiNeural" | Yes. Inglês (E.U.A.) | Geral |
-| `ko-KR` | Coreano              | Mulheres |  "ko-KR-SunHiNeural" | Yes. Inglês (E.U.A.) | Geral |
-| `nb-NO` | Norueguês           | Mulheres | "nb-NO-IselinNeural" | Não | Geral |
-| `pt-BR` | Português (Brasil) | Mulheres |  "pt-BR-FranciscaNeural" | Não | Geral |
-| `tr-TR` | Turco             | Mulheres | "Tr-TR-EmelNeural" | Não | Geral |
-| `zh-CN` | Chinês (mandarim, simplificado)  | Mulheres |  "zh-CN-XiaoxiaoNeural"  | Yes. Inglês (E.U.A.) | Estilos de voz gerais e múltiplos disponíveis |
-|  |  | Mulheres |  "zh-CN-XiaoyouNeural"  | Yes. Inglês (E.U.A.) | Voz de criança, otimizada para narração de história |
-|  |  | Homens |  "zh-CN-YunyangNeural"  | Yes. Inglês (E.U.A.) | Otimizado para leitura de notícias, vários estilos de voz disponíveis |
-|  |  | Homens |  "zh-CN-YunyeNeural"  | Não | Otimizado para narração de histórias |
+|Região  | Linguagem            | Género | Nome de voz | Suporte de estilo |
+|--|--|--|--|--|
+| `de-DE` | Alemão (Alemanha)                | Mulheres | "de-DE-KatjaNeural"      | Geral |
+| `en-AU` | Inglês (Austrália)             | Mulheres | "en-AU-NatashaNeural"    | Geral |
+| `en-CA` | Inglês (Canadá)                | Mulheres | "en-CA-ClaraNeural"      | Geral |
+| `en-GB` | Inglês (Reino Unido)                    | Mulheres | "en-GB-LibbyNeural"      | Geral |
+|         |                                 | Mulheres | "en-GB-MiaNeural"        | Geral |
+| `en-US` | Inglês (E.U.A.)                    | Mulheres | "en-US-AriaNeural"       | Estilos de voz gerais e múltiplos disponíveis |
+|         |                                 | Homens   | "en-US-GuyNeural"        | Geral |
+| `es-ES` | Espanhol (Espanha)                 | Mulheres | "es-ES-ElviraNeural"     | Geral |
+| `es-MX` | Espanhol (México)                | Mulheres | "es-MX-DaliaNeural"      | Geral |
+| `fr-CA` | Francês (Canadá)                 | Mulheres | "fr-CA-SylvieNeural"     | Geral |
+| `fr-FR` | Francês (França)                 | Mulheres | "FR-FR-DeniseNeural"     | Geral |
+| `it-IT` | Italiano (Itália)                 | Mulheres | "IT-IT-ElsaNeural"       | Geral |
+| `ja-JP` | Japonês                        | Mulheres | "ja-JP-NanamiNeural"     | Geral |
+| `ko-KR` | Coreano                          | Mulheres | "ko-KR-SunHiNeural"      | Geral |
+| `nb-NO` | Norueguês                       | Mulheres | "nb-NO-IselinNeural"     | Geral |
+| `pt-BR` | Português (Brasil)             | Mulheres | "pt-BR-FranciscaNeural"  | Geral |
+| `tr-TR` | Turco                         | Mulheres | "Tr-TR-EmelNeural"       | Geral |
+| `zh-CN` | Chinês (mandarim, simplificado)  | Mulheres | "zh-CN-XiaoxiaoNeural"   | Estilos de voz gerais e múltiplos disponíveis |
+|         |                                 | Mulheres | "zh-CN-XiaoyouNeural"    | Voz de criança, otimizada para narração de história |
+|         |                                 | Homens   | "zh-CN-YunyangNeural"    | Otimizado para leitura de notícias, vários estilos de voz disponíveis |
+|         |                                 | Homens   | "zh-CN-YunyeNeural"      | Otimizado para narração de histórias |
 
 > [!IMPORTANT]
 > A `en-US-JessaNeural` voz mudou `en-US-AriaNeural` para. Se já estavas a usar "Jessa", convertes-te em "Aria".
@@ -131,7 +135,7 @@ Para saber como pode configurar e ajustar vozes neurais, consulte a linguagem de
 
 Mais de 75 vozes padrão estão disponíveis em mais de 45 línguas e locais, que permitem converter texto em discurso sintetizado. Para obter mais informações sobre a disponibilidade regional, consulte [regiões.](regions.md#standard-and-neural-voices)
 
-| Região | Idioma | Género | Nome de voz |
+| Região | Linguagem | Género | Nome de voz |
 |--|--|--|--|
 | <sup>1</sup>`ar-EG` | Árabe (Egito) | Mulheres | "ar-EG-Hoda" |
 | `ar-SA` | Árabe (Arábia Saudita) | Homens | "ar-SA-Naayf" |
@@ -309,7 +313,7 @@ A API de **Tradução da Fala** apoia diferentes línguas para a tradução fala
 | Galês                   | `cy`          |
 | Maia yucateca            | `yua`         |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Obtenha a subscrição do teste do serviço Speech](https://azure.microsoft.com/try/cognitive-services/)
 * [Veja como reconhecer o discurso em C #](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp)

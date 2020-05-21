@@ -7,17 +7,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mingshen
-ms.openlocfilehash: b521a3a035044e2f0c1b625df19d265cfa35b49a
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 42e2419301b282685b2afe13782c2deb4f52823c
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857938"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725878"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>Obtenha assinatura de acesso partilhado URI para a sua imagem VM
-
-> [!IMPORTANT]
-> Estamos a mover a gestão das suas ofertas de Máquina Virtual Azure do Portal do Parceiro cloud para o Partner Center. Até que as suas ofertas sejam migradas, siga as instruções em Get shared access signature URI para a [sua imagem VM](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-get-sas-uri) para cloud partner Portal para gerir as suas ofertas.
 
 Este artigo descreve como gerar um identificador uniforme de recurso de assinatura de acesso partilhado (SAS) para cada disco rígido virtual (VHD).
 
@@ -26,7 +23,7 @@ Durante o processo de publicação, deve fornecer um URI para cada VHD que estej
 Ao gerar URIs SAS para os seus VHDs, siga estes requisitos:
 
 * Apenas VHDs não geridos são suportados.
-* `List` Apenas `Read` e são necessárias permissões. Não forneça acesso ao Write ou ao Delete.
+* Apenas `List` e `Read` são necessárias permissões. Não forneça acesso ao Write ou ao Delete.
 * A duração do acesso (data de validade) deve ser mínima de três semanas a contar da criação do SAS URI.
 * Para proteger contra alterações de tempo UTC, detete a data de início para um dia antes da data atual. Por exemplo, se a data atual for 6 de outubro de 2019, selecione 10/5/2019.
 
@@ -62,7 +59,7 @@ Existem duas ferramentas comuns usadas para criar um endereço SAS (URL):
 
 9. Insira o seu nome VHD após a cadeia vhds no SAS URI (inclua um corte para a frente). O SAS URI final deve ser assim:
 
-    `<blob-service-endpoint-url> + /vhds/ + <vhd-name>? + <sas-connection-string>`Por exemplo, se o nome do `TestRGVM2.vhd`VDH for, então o SAS URI resultante seria:
+    `<blob-service-endpoint-url> + /vhds/ + <vhd-name>? + <sas-connection-string>`Por exemplo, se o nome do VDH `TestRGVM2.vhd` for, então o SAS URI resultante seria:
 
     `https://catech123.blob.core.windows.net/vhds/TestRGVM2.vhd?st=2018-05-06T07%3A00%3A00Z&se=2019-08-02T07%3A00%3A00Z&sp=rl&sv=2017-04-17&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
@@ -77,7 +74,7 @@ Existem duas ferramentas comuns usadas para criar um endereço SAS (URL):
     az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' --name <vhd-name> --permissions rl --start '<start-date>' --expiry '<expiry-date>'
     ```
 
-3. Editar o ficheiro para utilizar os seguintes valores de parâmetro. Fornecer datas no formato data-data UTC, tais como `2020-04-01T00:00:00Z`.
+3. Editar o ficheiro para utilizar os seguintes valores de parâmetro. Fornecer datas no formato data-data UTC, tais como `2020-04-01T00:00:00Z` .
 
     * `<account-name>`– O nome da sua conta de armazenamento Azure
     * `<account-key>`– A chave da conta de armazenamento Azure
@@ -109,7 +106,7 @@ Existem duas ferramentas comuns usadas para criar um endereço SAS (URL):
 
     `<blob-service-endpoint-url> + /vhds/ + <vhd-name>? + <sas-connection-string>`
 
-    Por exemplo, se o nome do `TestRGVM2.vhd`VHD for, o SAS URI será:
+    Por exemplo, se o nome do VHD `TestRGVM2.vhd` for, o SAS URI será:
 
     `https://catech123.blob.core.windows.net/vhds/TestRGVM2.vhd?st=2018-05-06T07%3A00%3A00Z&se=2019-08-02T07%3A00%3A00Z&sp=rl&sv=2017-04-17&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
@@ -121,8 +118,8 @@ Reveja cada um criado SAS URI utilizando a seguinte lista de verificação para 
 
 * O URI é assim:`<blob-service-endpoint-url>` + `/vhds/` + `<vhd-name>?` + `<sas-connection-string>`
 * O URI inclui o nome de ficheiro de imagem VHD, incluindo a extensão do nome de ficheiro ".vhd".
-* `sp=rl`aparece perto do meio do seu URI. Esta corda `Read` mostra `List` isso e o acesso é especificado.
-* Quando `sr=c` aparece, isto significa que o acesso ao nível do contentor é especificado.
+* `sp=rl`aparece perto do meio do seu URI. Esta corda mostra isso `Read` e o acesso é `List` especificado.
+* Quando aparece, isto significa que o acesso ao `sr=c` nível do contentor é especificado.
 * Copie e cole o URI num browser para testar o descarregamento da bolha (pode cancelar a operação antes de o download terminar).
 
 ## <a name="next-step"></a>Passo seguinte

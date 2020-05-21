@@ -1,32 +1,24 @@
 ---
-title: Roteiro do mercado comercial da Microsoft
-description: Este roteiro destaca novas e futuras funcionalidades e outros lançamentos para o mercado comercial
+title: Recursos de lançamento do mercado comercial da Microsoft
+description: Conheça novas e futuras funcionalidades, lançamentos e outras atualizações para o mercado comercial
 author: qianw211
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/02/2019
-ms.openlocfilehash: 847d4f95d7e8bacb721c450f7e831c0c2d98334c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 05/19/2020
+ms.openlocfilehash: d8f836af35c433bd078b721b6829097e6ee8482b
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657835"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725895"
 ---
-# <a name="microsoft-commercial-marketplace-roadmap"></a>Roteiro do mercado comercial da Microsoft
+# <a name="microsoft-commercial-marketplace-resources"></a>Recursos de mercado comercial da Microsoft
 
-Este artigo descreve lançamentos recentes e o que vem a seguir para o mercado comercial da Microsoft para editores, vendedores e clientes. Captura algumas das funcionalidades com as quais nos comprometemos e dá um prazo difícil para quando se pode esperar vê-las. Não é uma lista completa de todas as novas funcionalidades, mas destina-se a dar visibilidade aos nossos principais investimentos. Estes conjuntos de funcionalidades e os prazos de entrega estão atuais e sujeitos a alterações.
+Consulte os seguintes recursos para obter informações sobre lançamentos recentes e outras atualizações em torno do mercado comercial da Microsoft.
 
-Congratulamo-nos com as suas sugestões! Junte-se à conversa na Comunidade parceiro da [Microsoft](https://www.microsoftpartnercommunity.com/) para obter as mais recentes atualizações sobre novas capacidades, programas e eventos.
-
-## <a name="roadmap"></a>Mapa
-![Roteiro do mercado para novembro de 2019](./media/marketplace-publishers-guide/roadmap-nov19.png)
-
-## <a name="recent-releases"></a>Lançamentos recentes
-
-Uma vez que uma capacidade é ao vivo, será removida do roteiro. A funcionalidade que foi adicionada ao mercado pode ser encontrada na seguinte documentação.
-
+* [Microsoft AppSource e Azure Marketplace - Fórum Comunitário de Parceiros](https://www.microsoftpartnercommunity.com/t5/Microsoft-AppSource-and-Azure/bd-p/2222)
 * [Blog de atualização de Marketplace e Cloud Solution Provider (CSP)](https://azure.microsoft.com/blog/azure-marketplace-and-cloud-solution-provider-updates-march-2019/)
 * [Publique ofertas no canal CSP (ISV)](./cloud-solution-providers.md)
 * [Revender ofertas do Marketplace (CSP)](https://docs.microsoft.com/partner-center/sell-marketplace-products)
@@ -41,6 +33,4 @@ Uma vez que uma capacidade é ao vivo, será removida do roteiro. A funcionalida
 )  /  [Oferta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer)  /  [Offer Analytics](https://docs.microsoft.com/azure/marketplace/partner-center-portal/analytics) Existente
 * [Obtenha apoio para marketplace no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support)
 
-## <a name="next-steps"></a>Passos seguintes
-
-Visite a página do Guia da [Editora Azure Marketplace e AppSource.](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide)
+Congratulamo-nos com as suas sugestões! Junte-se à conversa na Comunidade parceiro da [Microsoft](https://www.microsoftpartnercommunity.com/) para obter as mais recentes atualizações sobre novas capacidades, programas e eventos.

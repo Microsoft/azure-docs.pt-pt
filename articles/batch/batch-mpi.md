@@ -1,15 +1,15 @@
 ---
 title: Utilize tarefas de várias instâncias para executar aplicações de MPI
 description: Saiba como executar aplicações de Interface de Passagem de Mensagens (MPI) utilizando o tipo de tarefa de várias instâncias no Lote Azure.
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/13/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4502fc9632c2cb05d757459d07bcfe17ae96aea2
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 43902e774f4c291e8d6a9c659b575d7e75ca032e
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735271"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83724232"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Utilize tarefas de várias instâncias para executar aplicações de interface de passagem de mensagens (MPI) em Lote
 
@@ -30,8 +30,8 @@ Quando submete uma tarefa com configurações de várias instâncias para um tra
 1. O serviço Batch cria uma **subtarefa primária** e várias com base nas definições de **várias instâncias.** O número total de tarefas (primárias mais todas as subtarefas) corresponde ao número de **instâncias** (nós de computação) que especifica nas definições de várias instâncias.
 2. O lote designa um dos nós computacionais como **o mestre,** e programa a tarefa principal para executar no mestre. Ele programa as subtarefas para executar no restante dos nós computacionais atribuídos à tarefa de várias instâncias, uma subtarefa por nó.
 3. As principais e todas as subtarefas descarregam quaisquer **ficheiros de recursos comuns** que especifique nas definições de várias instâncias.
-4. Depois de descarregados os ficheiros de recursos comuns, as principais e subtarefas executam o comando de **coordenação** que especifica nas definições de várias instâncias. O comando de coordenação é normalmente usado para preparar nódosos para executar a tarefa. Isto pode incluir o início de serviços `smpd.exe`de fundo (como o [MPI's][msmpi_msdn]da Microsoft) e verificar se os nós estão prontos para processar mensagens inter-nó.
-5. A tarefa principal executa o comando de **aplicação** no nó principal *depois* de o comando de coordenação ter sido concluído com sucesso pelas primárias e todas as subtarefas. O comando de aplicação é a linha de comando da própria tarefa em várias instâncias, e é executado apenas pela tarefa principal. Numa solução baseada em [MS-MPI,][msmpi_msdn]é aqui que executa `mpiexec.exe`a sua aplicação ativada por MPI utilizando .
+4. Depois de descarregados os ficheiros de recursos comuns, as principais e subtarefas executam o comando de **coordenação** que especifica nas definições de várias instâncias. O comando de coordenação é normalmente usado para preparar nódosos para executar a tarefa. Isto pode incluir o início de serviços de fundo (como o [MPI's][msmpi_msdn]da `smpd.exe` Microsoft) e verificar se os nós estão prontos para processar mensagens inter-nó.
+5. A tarefa principal executa o comando de **aplicação** no nó principal *depois* de o comando de coordenação ter sido concluído com sucesso pelas primárias e todas as subtarefas. O comando de aplicação é a linha de comando da própria tarefa em várias instâncias, e é executado apenas pela tarefa principal. Numa solução baseada em [MS-MPI,][msmpi_msdn]é aqui que executa a sua aplicação ativada por MPI `mpiexec.exe` utilizando .
 
 > [!NOTE]
 > Embora seja funcionalmente distinto, a "tarefa de várias instâncias" não é um tipo de tarefa único como a Tarefa de [Preparação de Tarefas de Início][net_starttask] ou [JobPreparation .][net_jobprep] A tarefa de várias instâncias é simplesmente uma tarefa padrão do Lote[(CloudTask][net_task] in Batch .NET) cujas definições de várias instâncias foram configuradas. Neste artigo, referimo-nos a esta questão como uma **tarefa em várias instâncias.**
@@ -150,19 +150,19 @@ A invocação do comando de coordenação está a bloquear-- O lote não executa
 cmd /c start cmd /c ""%MSMPI_BIN%\smpd.exe"" -d
 ```
 
-Note a `start` utilização neste comando de coordenação. Isto é necessário `smpd.exe` porque o pedido não regressa imediatamente após a execução. Sem a utilização do [comando][cmd_start] inicial, este comando de coordenação não regressaria, pelo que impediria o comando de aplicação de funcionar.
+Note a utilização neste comando de `start` coordenação. Isto é necessário porque o pedido não regressa imediatamente após a `smpd.exe` execução. Sem a utilização do [comando][cmd_start] inicial, este comando de coordenação não regressaria, pelo que impediria o comando de aplicação de funcionar.
 
 ## <a name="application-command"></a>Comando de aplicação
 Uma vez que a tarefa principal e todas as subtarefas tenham terminado de executar o comando de coordenação, a linha de comando da tarefa de várias instâncias é executada *apenas*pela tarefa principal . Chamamos a isto o comando de **aplicação** para distingui-lo do comando de coordenação.
 
-Para aplicações MS-MPI, utilize o comando de aplicação `mpiexec.exe`para executar a sua aplicação ativada por MPI com . Por exemplo, aqui está um comando de aplicação para uma solução utilizando a versão 7 mS-MPI:
+Para aplicações MS-MPI, utilize o comando de aplicação para executar a sua aplicação ativada por MPI com `mpiexec.exe` . Por exemplo, aqui está um comando de aplicação para uma solução utilizando a versão 7 mS-MPI:
 
 ```
 cmd /c ""%MSMPI_BIN%\mpiexec.exe"" -c 1 -wdir %AZ_BATCH_TASK_SHARED_DIR% MyMPIApplication.exe
 ```
 
 > [!NOTE]
-> Uma vez que a `mpiexec.exe` MS-MPI utiliza a `CCP_NODES` variável por padrão (ver [variáveis ambientais),](#environment-variables)a linha de comando de aplicação de exemplo acima exclui-a.
+> Uma vez que a MS-MPI `mpiexec.exe` utiliza a `CCP_NODES` variável por padrão (ver [variáveis ambientais),](#environment-variables)a linha de comando de aplicação de exemplo acima exclui-a.
 >
 >
 
@@ -186,12 +186,12 @@ Para mais detalhes sobre estas e outras variáveis ambientais de némesis de com
 ## <a name="resource-files"></a>Ficheiros de recursos
 Existem dois conjuntos de ficheiros de recursos a considerar para tarefas de várias instâncias: **ficheiros de recursos comuns** que *todas as* tarefas descarregam (primárias e subtarefas), e os **ficheiros** de recursos especificados para a própria tarefa em várias instâncias, que *apenas a* tarefa primária descarrega.
 
-Pode especificar um ou mais **ficheiros de recursos comuns** nas definições de várias instâncias para uma tarefa. Estes ficheiros de recursos comuns são descarregados do [Azure Storage](../storage/common/storage-introduction.md) para a tarefa partilhada de cada nó **pelo diretório** principal e por todas as subtarefas. Pode aceder ao diretório partilhado de tarefas a `AZ_BATCH_TASK_SHARED_DIR` partir das linhas de comando de aplicação e coordenação utilizando a variável ambiental. O `AZ_BATCH_TASK_SHARED_DIR` caminho é idêntico em cada nó atribuído à tarefa em várias instâncias, assim pode partilhar um único comando de coordenação entre as primárias e todas as subtarefas. O lote não "partilha" o diretório num sentido de acesso remoto, mas pode usá-lo como um ponto de montagem ou partilha, como mencionado anteriormente na dica sobre variáveis ambientais.
+Pode especificar um ou mais **ficheiros de recursos comuns** nas definições de várias instâncias para uma tarefa. Estes ficheiros de recursos comuns são descarregados do [Azure Storage](../storage/common/storage-introduction.md) para a tarefa partilhada de cada nó **pelo diretório** principal e por todas as subtarefas. Pode aceder ao diretório partilhado de tarefas a partir das linhas de comando de aplicação e coordenação utilizando a `AZ_BATCH_TASK_SHARED_DIR` variável ambiental. O `AZ_BATCH_TASK_SHARED_DIR` caminho é idêntico em cada nó atribuído à tarefa em várias instâncias, assim pode partilhar um único comando de coordenação entre as primárias e todas as subtarefas. O lote não "partilha" o diretório num sentido de acesso remoto, mas pode usá-lo como um ponto de montagem ou partilha, como mencionado anteriormente na dica sobre variáveis ambientais.
 
-Os ficheiros de recursos que especifica para a tarefa em várias instâncias são descarregados para o diretório de trabalho da tarefa, `AZ_BATCH_TASK_WORKING_DIR`por padrão. Como mencionado, em contraste com os ficheiros de recursos comuns, apenas a tarefa primária descarrega ficheiros de recursos especificados para a própria tarefa em várias instâncias.
+Os ficheiros de recursos que especifica para a tarefa em várias instâncias são descarregados para o diretório de trabalho da tarefa, `AZ_BATCH_TASK_WORKING_DIR` por padrão. Como mencionado, em contraste com os ficheiros de recursos comuns, apenas a tarefa primária descarrega ficheiros de recursos especificados para a própria tarefa em várias instâncias.
 
 > [!IMPORTANT]
-> Utilize sempre as `AZ_BATCH_TASK_SHARED_DIR` variáveis ambientais e `AZ_BATCH_TASK_WORKING_DIR` refira-se a estes diretórios nas suas linhas de comando. Não tente construir os caminhos manualmente.
+> Utilize sempre as variáveis ambientais `AZ_BATCH_TASK_SHARED_DIR` e `AZ_BATCH_TASK_WORKING_DIR` refira-se a estes diretórios nas suas linhas de comando. Não tente construir os caminhos manualmente.
 >
 >
 
@@ -259,11 +259,11 @@ A amostra de código [MultiInstanceTasks][github_mpi] no GitHub demonstra como u
 ### <a name="preparation"></a>Preparação
 1. Siga os dois primeiros passos em [Como compilar e executar um simples programa mS-MPI][msmpi_howto]. Isto satisfaz os pré-requisitos para o passo seguinte.
 2. Construa uma versão de *Lançamento* do programa [MPIHelloWorld][helloworld_proj] sample MPI. Este é o programa que será executado em nós de computação pela tarefa em várias instâncias.
-3. Crie um `MPIHelloWorld.exe` ficheiro zip contendo (que `MSMpiSetup.exe` construiu o passo 2) e (que descarregou o passo 1). Você vai carregar este ficheiro zip como um pacote de aplicação no próximo passo.
+3. Crie um ficheiro zip contendo (que construiu o `MPIHelloWorld.exe` passo 2) e `MSMpiSetup.exe` (que descarregou o passo 1). Você vai carregar este ficheiro zip como um pacote de aplicação no próximo passo.
 4. Utilize o [portal Azure][portal] para criar uma [aplicação](batch-application-packages.md) de Lote chamada "MPIHelloWorld", e especificar o ficheiro zip que criou no passo anterior como versão "1.0" do pacote de aplicações. Consulte [o Upload e gereas aplicações](batch-application-packages.md#upload-and-manage-applications) para obter mais informações.
 
 > [!TIP]
-> Construa uma versão *de Lançamento* para que não tenha de incluir `msvcp140d.dll` dependências adicionais (por exemplo, ou) `vcruntime140d.dll`no seu pacote de `MPIHelloWorld.exe` aplicações.
+> Construa uma versão *de Lançamento* para que não tenha de `MPIHelloWorld.exe` incluir dependências adicionais (por exemplo, ou) no seu pacote de `msvcp140d.dll` `vcruntime140d.dll` aplicações.
 >
 >
 
@@ -272,7 +272,7 @@ A amostra de código [MultiInstanceTasks][github_mpi] no GitHub demonstra como u
 2. Abra a **solução** MultiInstanceTasks no Visual Studio 2019. O `MultiInstanceTasks.sln` ficheiro de solução está localizado em:
 
     `azure-batch-samples\CSharp\ArticleProjects\MultiInstanceTasks\`
-3. Insira as credenciais `AccountSettings.settings` da sua conta de Lote e Armazenamento no projeto **Microsoft.Azure.Batch.Samples.Common.**
+3. Insira as credenciais da sua conta de Lote e Armazenamento `AccountSettings.settings` no projeto **Microsoft.Azure.Batch.Samples.Common.**
 4. **Construir e executar** a solução MultiInstânciaTasks para executar a aplicação da amostra MPI em nódos de cálculo numa piscina de Lote.
 5. *Opcional:* Utilize o [portal Azure][portal] ou [o Batch Explorer][batch_labs] para examinar o conjunto de amostras, o trabalho e a tarefa ("MultiInstanceSamplePool", "MultiInstanceSampleJob", "MultiInstanceSampleTask") antes de eliminar os recursos.
 
@@ -281,7 +281,7 @@ A amostra de código [MultiInstanceTasks][github_mpi] no GitHub demonstra como u
 >
 >
 
-A `MultiInstanceTasks.exe` saída é semelhante à seguinte:
+A saída é `MultiInstanceTasks.exe` semelhante à seguinte:
 
 ```
 Creating pool [MultiInstanceSamplePool]...
@@ -316,7 +316,7 @@ Delete pool? [yes] no: yes
 Sample complete, hit ENTER to exit...
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * O blog da Microsoft HPC & Azure Batch Team discute o suporte de [MPI para o Linux no Lote Azure,][blog_mpi_linux]e inclui informações sobre a utilização do [OpenFOAM][openfoam] com batch. Pode encontrar amostras de código Python para o [exemplo OpenFOAM no GitHub][github_mpi].
 * Aprenda a [criar piscinas de nódos de computato Linux](batch-linux-nodes.md) para utilização nas suas soluções DE MPI do Lote Azure.
 

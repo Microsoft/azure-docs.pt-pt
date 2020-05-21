@@ -1,21 +1,20 @@
 ---
 title: Piscina de Lote Azure cria evento
 description: Referência para o lote de piscina criar evento, que é emitido uma vez que uma piscina é criada. O conteúdo do registo exporá informações gerais sobre a piscina.
-ms.topic: article
+ms.topic: reference
 ms.date: 04/20/2017
-ms.author: labrenne
-ms.openlocfilehash: 755fbe548b4be729d20788597db05f4d9678ebea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fe327b7c369405cb3160c67d79e5dbdf55463f77
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116558"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83724042"
 ---
 # <a name="pool-create-event"></a>Evento de criação de conjunto
 
  Este evento é emitido uma vez que uma piscina foi criada. O conteúdo do registo exporá informações gerais sobre a piscina. Note que se o tamanho alvo da piscina for maior do que 0 nós de computação, um evento de redimensionação da piscina seguir-se-á imediatamente após este evento.
 
- O exemplo seguinte mostra o corpo de uma piscina `CloudServiceConfiguration` criar evento para uma piscina criada usando a propriedade.
+ O exemplo seguinte mostra o corpo de uma piscina criar evento para uma piscina criada usando a `CloudServiceConfiguration` propriedade.
 
 ```
 {
@@ -54,7 +53,7 @@ ms.locfileid: "82116558"
 |-------------|----------|-----------|
 |`id`|String|A identificação da piscina.|
 |`displayName`|String|O nome da exposição da piscina.|
-|`vmSize`|String|Do tamanho das máquinas virtuais na piscina. Todas as máquinas virtuais numa piscina têm o mesmo tamanho. <br/><br/> Para obter informações sobre os tamanhos disponíveis de máquinas virtuais para piscinas de Serviços cloud (piscinas criadas com cloudServiceConfiguration), consulte [Sizes for Cloud Services](https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). O lote suporta todos os tamanhos vm dos serviços de nuvem `ExtraSmall`exceto .<br/><br/> Para obter informações sobre os tamanhos vm disponíveis para piscinas usando imagens do Mercado de Máquinas Virtuais (piscinas criadas com virtualMachineConfiguration) ver [Tamanhos para Máquinas Virtuais](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) (Linux) ou [Tamanhos para Máquinas Virtuais](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/) (Windows). O Batch suporta todos os tamanhos de VM do Azure, exceto `STANDARD_A0` e os do armazenamento premium (séries `STANDARD_GS`, `STANDARD_DS` e `STANDARD_DSV2`).|
+|`vmSize`|String|Do tamanho das máquinas virtuais na piscina. Todas as máquinas virtuais numa piscina têm o mesmo tamanho. <br/><br/> Para obter informações sobre os tamanhos disponíveis de máquinas virtuais para piscinas de Serviços cloud (piscinas criadas com cloudServiceConfiguration), consulte [Sizes for Cloud Services](https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). O lote suporta todos os tamanhos vm dos serviços de nuvem `ExtraSmall` exceto .<br/><br/> Para obter informações sobre os tamanhos vm disponíveis para piscinas usando imagens do Mercado de Máquinas Virtuais (piscinas criadas com virtualMachineConfiguration) ver [Tamanhos para Máquinas Virtuais](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) (Linux) ou [Tamanhos para Máquinas Virtuais](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/) (Windows). O Batch suporta todos os tamanhos de VM do Azure, exceto `STANDARD_A0` e os do armazenamento premium (séries `STANDARD_GS`, `STANDARD_DS` e `STANDARD_DSV2`).|
 |`imageType`|String|O método de implantação para a imagem. Valores suportados são `virtualMachineConfiguration` ou`cloudServiceConfiguration`|
 |[`cloudServiceConfiguration`](#bk_csconf)|Tipo complexo|A configuração do serviço de nuvem para a piscina.|
 |[`virtualMachineConfiguration`](#bk_vmconf)|Tipo complexo|A configuração da máquina virtual para a piscina.|
@@ -73,7 +72,7 @@ ms.locfileid: "82116558"
 |Nome do elemento|Tipo|Notas|
 |------------------|----------|-----------|
 |`osFamily`|String|A família Azure Guest OS será instalada nas máquinas virtuais da piscina.<br /><br /> Os valores possíveis são:<br /><br /> **2** – OS Família 2, equivalente ao Windows Server 2008 R2 SP1.<br /><br /> **3** – OS Família 3, equivalente ao Windows Server 2012.<br /><br /> **4** – OS Família 4, equivalente ao Windows Server 2012 R2.<br /><br /> Para mais informações, consulte [lançamentos do Os](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases)Do TS do Azure Guest .|
-|`targetOSVersion`|String|A versão O SO do Azure Guest a instalar nas máquinas virtuais da piscina.<br /><br /> O valor **\*** predefinido é o que especifica a versão mais recente do sistema operativo para a família especificada.<br /><br /> Para outros valores permitidos, consulte [lançamentos de Os](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases)OS do Hóspede Azure .|
+|`targetOSVersion`|String|A versão O SO do Azure Guest a instalar nas máquinas virtuais da piscina.<br /><br /> O valor predefinido é **\*** o que especifica a versão mais recente do sistema operativo para a família especificada.<br /><br /> Para outros valores permitidos, consulte [lançamentos de Os](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases)OS do Hóspede Azure .|
 
 ###  <a name="virtualmachineconfiguration"></a><a name="bk_vmconf"></a>configuração virtualMáquina
 

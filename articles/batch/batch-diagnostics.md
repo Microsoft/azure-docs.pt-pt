@@ -1,15 +1,15 @@
 ---
 title: Métricas, alertas e registos de diagnóstico
 description: Grave e analise eventos de registo de diagnóstico para recursos da conta Azure Batch, como piscinas e tarefas.
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/05/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7f75a8302c8ba368138e6c8edee6c6069c5031d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0a33f71cd185a327bfe6852b9acd7d7317b94c2c
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117306"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726745"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métricas, alertas e registos de lote para avaliação e monitorização de diagnóstico
 
@@ -34,7 +34,7 @@ Consulte as métricas da sua conta Batch no portal Azure. A página **de visão 
 
 Para ver todas as métricas da conta do Lote: 
 
-1. No portal, clique em todas as contas do Lote de > **serviços**e, em seguida, clique no nome da sua conta Batch. **All services**
+1. No portal, clique em **todas as**contas do Lote de  >  **serviços**e, em seguida, clique no nome da sua conta Batch.
 2. Em **Monitorização,** clique em **Métricas**.
 3. Selecione uma ou mais métricas. Se desejar, selecione métricas de recursos adicionais utilizando as **Subscrições,** **grupo de recursos,** **tipo de recurso**e desistências de **recursos.**
     * Para métricas baseadas na contagem (como "Contagem central dedicada" ou "Contagem de nódeos de baixa prioridade"), utilize a agregação "Média". Para métricas baseadas em eventos (como "Pool Resize Complete Events"), utilize a agregação "Count".
@@ -62,8 +62,8 @@ Por exemplo, é possível configurar um alerta métrico quando a sua contagem de
 
 Para configurar um alerta métrico no portal:
 
-1. Clique em todas as contas do Lote de > **Serviços**e, em seguida, clique no nome da sua conta Batch. **All services**
-2. Sob **monitorização,** clique em **regras** > de alerta**Adicione alerta métrico**.
+1. Clique em **todas as**contas do Lote de  >  **Serviços**e, em seguida, clique no nome da sua conta Batch.
+2. Sob **monitorização,** clique em regras de **alerta**Adicione  >  **alerta métrico**.
 3. Selecione uma métrica, uma condição de alerta (como quando uma métrica excede um valor específico durante um período) e uma ou mais notificações.
 
 Também pode configurar um alerta quase em tempo real utilizando a [API REST](https://docs.microsoft.com/rest/api/monitor/). Para mais informações, consulte a visão geral dos [Alertas](../azure-monitor/platform/alerts-overview.md). Para incluir trabalho, tarefa ou informações específicas do pool nos seus alertas, consulte as informações sobre consultas de pesquisa em [Responder a eventos com Alertas de Monitor Estoque Azure](../azure-monitor/learn/tutorial-response.md)
@@ -94,8 +94,8 @@ Outros destinos opcionais para registos de diagnóstico:
 
 ### <a name="enable-collection-of-batch-diagnostic-logs"></a>Ativar a recolha de registos de diagnóstico do Lote
 
-1. No portal, clique em todas as contas do Lote de > **serviços**e, em seguida, clique no nome da sua conta Batch. **All services**
-2. Em **Monitorização,** clique em **registos** > de**diagnóstico Ligue os diagnósticos**.
+1. No portal, clique em **todas as**contas do Lote de  >  **serviços**e, em seguida, clique no nome da sua conta Batch.
+2. Em **Monitorização,** clique em **registos de diagnóstico**Ligue os  >  **diagnósticos**.
 3. Nas **definições de Diagnóstico,** introduza um nome para a definição e escolha um destino de registo (conta de armazenamento existente, Hub de Eventos ou registos do Monitor Azure). Selecione o **ServiceLog** e o **AllMetrics**.
 
     Quando selecionar uma conta de armazenamento, delineie opcionalmente uma política de retenção. Se não especificar alguns dias para retenção, os dados são retidos durante a vida útil da conta de armazenamento.
@@ -125,9 +125,9 @@ insights-metrics-pt1m/resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXX
 RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/
 BATCHACCOUNTS/MYBATCHACCOUNT/y=2018/m=03/d=05/h=22/m=00/PT1H.json
 ```
-Cada `PT1H.json` ficheiro blob contém eventos formados por JSON que ocorreram dentro `h=12`da hora especificada no URL blob (por exemplo, ). Durante a hora atual, os `PT1H.json` eventos são anexados ao ficheiro à medida que ocorrem. O valor`m=00`minúsculo é `00`sempre, uma vez que os eventos de registo de diagnóstico são divididos em bolhas individuais por hora. (Todos os tempos estão na UTC.)
+Cada `PT1H.json` ficheiro blob contém eventos formados por JSON que ocorreram dentro da hora especificada no URL blob (por exemplo, `h=12` ). Durante a hora atual, os eventos são anexados ao `PT1H.json` ficheiro à medida que ocorrem. O valor minúsculo é sempre, uma vez que os eventos de `m=00` registo de diagnóstico são `00` divididos em bolhas individuais por hora. (Todos os tempos estão na UTC.)
 
-Abaixo está um `PoolResizeCompleteEvent` exemplo de `PT1H.json` uma entrada num ficheiro de registo. Inclui informações sobre o número atual e alvo de nós dedicados e de baixa prioridade, bem como o tempo de início e fim da operação:
+Abaixo está um exemplo de uma entrada num ficheiro de `PoolResizeCompleteEvent` `PT1H.json` registo. Inclui informações sobre o número atual e alvo de nós dedicados e de baixa prioridade, bem como o tempo de início e fim da operação:
 
 ```
 { "Tenant": "65298bc2729a4c93b11c00ad7e660501", "time": "2019-08-22T20:59:13.5698778Z", "resourceId": "/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/BATCHACCOUNTS/MYBATCHACCOUNT/", "category": "ServiceLog", "operationName": "PoolResizeCompleteEvent", "operationVersion": "2017-06-01", "properties": {"id":"MYPOOLID","nodeDeallocationOption":"Requeue","currentDedicatedNodes":10,"targetDedicatedNodes":100,"currentLowPriorityNodes":0,"targetLowPriorityNodes":0,"enableAutoScale":false,"isAutoPool":false,"startTime":"2019-08-22 20:50:59.522","endTime":"2019-08-22 20:59:12.489","resultCode":"Success","resultMessage":"The operation succeeded"}}
@@ -175,7 +175,7 @@ O serviço Batch emite atualmente os seguintes eventos de Registo de Serviço. E
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre o [Ferramentas e APIs do Batch](batch-apis-tools.md) disponíveis para criação de soluções para o Batch.
 * Saiba mais sobre a monitorização das [soluções do Lote](monitoring-overview.md).

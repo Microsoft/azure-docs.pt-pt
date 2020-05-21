@@ -4,13 +4,13 @@ description: Utilizando a integração do gestor de renderização do Azure Batc
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
-ms.topic: conceptual
-ms.openlocfilehash: 9921c68bf6ebe44d6d2a6b7b74afbe3fa98e0803
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.openlocfilehash: c44cbf86d8bf2fe83a6dc91dee1c4f58eec156c0
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115742"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726456"
 ---
 # <a name="using-azure-batch-with-render-farm-managers"></a>Utilização do Lote Azure com gestores de quintas renderizados
 
@@ -44,6 +44,6 @@ Para um exemplo de um cliente da Royal Render usando a integração Azure, consu
 
 O Azure Render Hub apoia gestores de renderização populares, incluindo o Deadline.  Para obter instruções sobre a implantação e utilização do Render Hub, consulte [o repositório GitHub](https://github.com/Azure/azure-render-hub).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Experimente a integração do Lote Azure para o seu gestor de renderização, utilizando o plug-in apropriado e instruções no GitHub, quando aplicável.

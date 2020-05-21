@@ -1,16 +1,15 @@
 ---
 title: Agende os seus trabalhos
 description: Utilize o agendamento de trabalho para gerir as suas tarefas.
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/20/2020
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 49b2064d38f9f646c6189d859479d2414569ff60
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c75f635a937dcddd2c1c02cc717f96f1441efe81
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116881"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726643"
 ---
 # <a name="schedule-jobs-for-efficiency"></a>Agendar trabalhos para eficiência
 
@@ -70,7 +69,7 @@ Depois de selecionar **Save**, se for aos **horários** de Trabalho na navegaç�
 
 Para gerir um trabalho utilizando o Azure CLI, consulte o horário de trabalho do [lote az](https://docs.microsoft.com/cli/azure/batch/job-schedule?view=azure-cli-latest).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Criar dependências de tarefas para executar tarefas que dependem de outras tarefas](batch-task-dependencies.md).
 

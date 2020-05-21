@@ -2,14 +2,14 @@
 title: Conde estados para tarefas e nódosos
 description: Conte o estado das tarefas do Lote Azure e calcule os nódosos para ajudar a gerir e monitorizar as soluções do Lote.
 ms.date: 09/07/2018
-ms.topic: article
+ms.topic: how-to
 ms.custom: seodec18
-ms.openlocfilehash: 1abff4c1a07ba0c5375228995330646204d33cd7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e063ef56deeb7fa0f2a217f48b1c23a810a9d890
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116099"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726694"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>Monitorize as soluções do Lote contando tarefas e nódosos por estado
 
@@ -29,11 +29,11 @@ Se estiver a usar uma versão do serviço que não suporta as operações de con
 
 A operação Get Task Counts conta tarefas pelos seguintes estados:
 
-- **Ativo** - Uma tarefa que está na fila e é capaz de executar, mas que não está atualmente atribuída a um nó de cálculo. Uma tarefa `active` é também se estiver [dependente de uma tarefa-mãe](batch-task-dependencies.md) que ainda não tenha sido concluída. 
-- **Execução** - Uma tarefa que foi atribuída a um nó de cálculo, mas ainda não concluída. Uma tarefa é `running` contada como `preparing` quando `running`o seu estado é ou , como indicado pelo [Obter informações sobre uma][rest_get_task] operação de tarefa.
+- **Ativo** - Uma tarefa que está na fila e é capaz de executar, mas que não está atualmente atribuída a um nó de cálculo. Uma tarefa é também `active` se estiver dependente de uma [tarefa-mãe](batch-task-dependencies.md) que ainda não tenha sido concluída. 
+- **Execução** - Uma tarefa que foi atribuída a um nó de cálculo, mas ainda não concluída. Uma tarefa é contada como quando o `running` seu estado é ou , como indicado pelo Obter `preparing` `running` informações sobre uma operação de [tarefa.][rest_get_task]
 - **Concluída** - Uma tarefa que já não é elegível para executar, porque terminou com sucesso, ou terminou sem sucesso e também esgotou o seu limite de retry. 
-- **Succeeded** - Uma tarefa cujo `success`resultado da execução da tarefa é . O lote determina se uma tarefa foi bem `TaskExecutionResult` sucedida ou falhou verificando a propriedade da propriedade [executionInfo.][rest_get_exec_info]
-- **Falhou** Uma tarefa cujo resultado `failure`da execução da tarefa é.
+- **Succeeded** - Uma tarefa cujo resultado da execução da tarefa é `success` . O lote determina se uma tarefa foi bem sucedida ou falhou verificando a `TaskExecutionResult` propriedade da propriedade [executionInfo.][rest_get_exec_info]
+- **Falhou** Uma tarefa cujo resultado da execução da tarefa `failure` é.
 
 A seguinte amostra de código .NET mostra como recuperar as contagens de tarefa por estado: 
 
@@ -50,7 +50,7 @@ Console.WriteLine("Failed task count: {0}", taskCounts.Failed);
 Você pode usar um padrão semelhante para REST e outras línguas apoiadas para obter contagens de tarefa para um trabalho. 
 
 > [!NOTE]
-> As versões API do Serviço de Lote antes de 2018-08-01.7.0 também devolvem um `validationStatus` imóvel na resposta Get Task Counts. Esta propriedade indica se o Batch verificou que o estado conta para a consistência com os Estados relatados na API de Tarefas de Lista. Um valor `validated` indica apenas que o Batch verificou a consistência pelo menos uma vez para o trabalho. O valor `validationStatus` da propriedade não indica se as contagens que obtêm devoluções de Contagens de Tarefa estão atualmente atualizadas.
+> As versões API do Serviço de Lote antes de 2018-08-01.7.0 também devolvem um `validationStatus` imóvel na resposta Get Task Counts. Esta propriedade indica se o Batch verificou que o estado conta para a consistência com os Estados relatados na API de Tarefas de Lista. Um valor indica `validated` apenas que o Batch verificou a consistência pelo menos uma vez para o trabalho. O valor da `validationStatus` propriedade não indica se as contagens que obtêm devoluções de Contagens de Tarefa estão atualmente atualizadas.
 >
 
 ## <a name="node-state-counts"></a>Contagem de estado do nó
@@ -66,10 +66,10 @@ A operação List Pool Node Counts conta com nós de cálculo pelos seguintes es
 - **Reimaging** - Um nó no qual o sistema operativo está a ser reinstalado.
 - **Execução** - Um nó que está a executar uma ou mais tarefas (para além da tarefa inicial).
 - **Início** - Um nó no qual o serviço De lote está a começar. 
-- **StartTaskFailed** - Um nó no qual a [tarefa][rest_start_task] inicial falhou `waitForSuccess` e esgotou todas as tentativas, e no qual está definido na tarefa inicial. O nó não é utilizável para executar tarefas.
+- **StartTaskFailed** - Um nó no qual a [tarefa][rest_start_task] inicial falhou e esgotou todas as tentativas, e no qual `waitForSuccess` está definido na tarefa inicial. O nó não é utilizável para executar tarefas.
 - **Desconhecido** - Um nó que perdeu o contacto com o serviço Batch e cujo estado não é conhecido.
 - **Inutilizável** - Um nó que não pode ser usado para execução de tarefas por causa de erros.
-- **WaitingForStartTask** - Um nó no qual a `waitForSuccess` tarefa inicial começou a funcionar, mas está definido e a tarefa inicial ainda não está concluída.
+- **WaitingForStartTask** - Um nó no qual a tarefa inicial começou a funcionar, mas está definido e a tarefa inicial `waitForSuccess` ainda não está concluída.
 
 O seguinte c# snippet mostra como listar contagens de nó para todos os pools na conta corrente:
 
@@ -113,7 +113,7 @@ foreach (var nodeCounts in batchClient.PoolOperations.ListPoolNodeCounts(new ODA
 ```
 Você pode usar um padrão semelhante para REST e outras línguas apoiadas para obter contagens de nó para piscinas.
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Consulte a [Batch feature overview (Descrição geral da funcionalidade do Batch)](batch-api-basics.md) para saber mais sobre conceitos e funcionalidades de serviço do Batch. O artigo discute os recursos primários do Lote, tais como piscinas, nós de computação, empregos e tarefas, e fornece uma visão geral das características do serviço.
 

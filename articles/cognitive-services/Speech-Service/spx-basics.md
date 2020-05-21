@@ -10,40 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: 68947895891b4875ef4c57355f1236afdb8c2c7d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 31c1d50962b2710fbeb249c61c8b3c144762be43
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83204822"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715652"
 ---
 # <a name="learn-the-basics-of-spx"></a>Conheça o básico do SPX
 
 Neste artigo, você aprende os padrões básicos de utilização do SPX, uma ferramenta de linha de comando para usar o serviço De Fala sem escrever código. Você pode testar rapidamente as principais características do serviço de Fala, sem criar ambientes de desenvolvimento ou escrever qualquer código, para ver se os seus casos de uso podem ser adequadamente cumpridos. Além disso, o SPX está pronto para a produção e pode ser usado para automatizar fluxos de trabalho simples no serviço De Fala, utilizando `.bat` ou shell scripts.
 
-## <a name="prerequisites"></a>Pré-requisitos
-
-O único pré-requisito é uma assinatura do Discurso Azure. Consulte o [guia](get-started.md#new-resource) sobre a criação de uma nova subscrição se ainda não tiver uma.
-
-## <a name="download-and-install"></a>Transferir e instalar
-
-O SPX está disponível no Windows e Linux. Comece por descarregar o [arquivo zip](https://aka.ms/speech/spx-zips.zip)e, em seguida, extrai-lo. O SPX requer o tempo de execução do .NET Core ou .NET Framework, e as seguintes versões são suportadas pela plataforma:
-
-* Janelas: [.NET Framework 4.7](https://dotnet.microsoft.com/download/dotnet-framework/net471), [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0)
-* Linux: [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0)
-
-Depois de ter instalado um tempo de execução, vá ao diretório raiz `spx-zips` que extraiu do download e extraio o subdiretório de que precisa ( `spx-net471` por exemplo). Num pedido de comando, mude de diretório para este local e, em seguida, corra `spx` para iniciar a aplicação.
-
-## <a name="create-subscription-config"></a>Criar config de assinatura
-
-Para começar a utilizar o SPX, primeiro precisa de introduzir a sua chave de subscrição do Discurso e informações da região. Consulte a página de apoio da [região](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) para encontrar o seu identificador de região. Uma vez que tenha a sua chave de subscrição e identificador de região (ex. `eastus`, `westus` executar os seguintes comandos.
-
-```shell
-spx config @key --set YOUR-SUBSCRIPTION-KEY
-spx config @region --set YOUR-REGION-ID
-```
-
-A autenticação por subscrição está agora armazenada para futuros pedidos spx. Se precisar remover qualquer um destes valores armazenados, corra `spx config @region --clear` ou `spx config @key --clear` .
+[!INCLUDE [](includes/spx-setup.md)]
 
 ## <a name="basic-usage"></a>Utilização básica
 
@@ -130,6 +108,6 @@ Pode substituir estes nomes de campo com os argumentos corretos utilizando a seg
 spx synthesize --foreach audio.output;text in @C:\your\path\to\text_synthesis.tsv
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Complete o [reconhecimento](./quickstarts/speech-to-text-from-microphone.md) da fala ou [a síntese da fala](./quickstarts/text-to-speech.md) começa rapidamente usando o SDK.

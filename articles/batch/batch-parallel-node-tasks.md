@@ -1,15 +1,15 @@
 ---
 title: Executar tarefas paralelas à otimização dos recursos computacionais
 description: Aumentar a eficiência e reduzir os custos utilizando menos nós de cálculo e executando tarefas simultâneas em cada nó numa piscina de Lote Azure
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/17/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 180294e7da95392e5c6c8055e53cea1ad3b4c7a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d38076396ea89eed9e1ef0c2e9ba14cddfd7cc6
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116762"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83724195"
 ---
 # <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>Executar tarefas simultaneamente para maximizar o uso de nós computacionais de Lote 
 
@@ -23,17 +23,17 @@ Embora alguns cenários beneficiem de dedicar todos os recursos de um nó a uma 
 * **Replicando um cluster de cálculo no local,** como quando se move pela primeira vez um ambiente de computação para Azure. Se a sua solução atual no local executar múltiplas tarefas por nó de cálculo, pode aumentar o número máximo de tarefas do nó para espelhar mais de perto essa configuração.
 
 ## <a name="example-scenario"></a>Cenário de exemplo
-Como exemplo para ilustrar os benefícios da execução paralela da tarefa, digamos que a sua aplicação de tarefa tem CPU e requisitos de memória de tal forma que os nós [\_Standard D1](../cloud-services/cloud-services-sizes-specs.md) são suficientes. Mas, para terminar o trabalho no tempo necessário, são necessários 1.000 destes nós.
+Como exemplo para ilustrar os benefícios da execução paralela da tarefa, digamos que a sua aplicação de tarefa tem CPU e requisitos de memória de tal forma que os nós [ \_ Standard D1](../cloud-services/cloud-services-sizes-specs.md) são suficientes. Mas, para terminar o trabalho no tempo necessário, são necessários 1.000 destes nós.
 
-Em vez\_de utilizar os nós Standard D1 que têm 1 núcleo CPU, pode utilizar nós [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md) que têm 16 núcleos cada, e permitir a execução paralela de tarefas. Portanto, *16 vezes menos nós* poderiam ser usados - em vez de 1.000 nós, apenas 63 seriam necessários. Além disso, se forem necessários grandes ficheiros de aplicação ou dados de referência para cada nó, a duração do trabalho e a eficiência voltarão a melhorar, uma vez que os dados são copiados para apenas 63 nós.
+Em vez de utilizar os nós Standard \_ D1 que têm 1 núcleo CPU, pode utilizar nós [Standard \_ D14](../cloud-services/cloud-services-sizes-specs.md) que têm 16 núcleos cada, e permitir a execução paralela de tarefas. Portanto, *16 vezes menos nós* poderiam ser usados - em vez de 1.000 nós, apenas 63 seriam necessários. Além disso, se forem necessários grandes ficheiros de aplicação ou dados de referência para cada nó, a duração do trabalho e a eficiência voltarão a melhorar, uma vez que os dados são copiados para apenas 63 nós.
 
 ## <a name="enable-parallel-task-execution"></a>Permitir a execução paralela de tarefas
 Configura ruma a computação para execução de tarefaparalela ao nível da piscina. Com a biblioteca Batch .NET, delineie a propriedade [CloudPool.MaxTasksPerComputeNode][maxtasks_net] quando criar uma piscina. Se estiver a utilizar a API do Lote REST, defino o elemento [maxTasksPerNode][rest_addpool] no organismo de pedido durante a criação da piscina.
 
-O Lote Azure permite-lhe definir tarefas por nó até (4x) o número de nós principais. Por exemplo, se a piscina estiver configurada com nós de tamanho `maxTasksPerNode` "Grande" (quatro núcleos), então pode ser definido para 16. No entanto, independentemente de quantos núcleos o nó tem, não pode ter mais de 256 tarefas por nó. Para mais detalhes sobre o número de núcleos para cada um dos tamanhos do nó, consulte [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md). Para obter mais informações sobre os limites de serviço, consulte [Quotas e limites para o serviço De lote Azure](batch-quota-limit.md).
+O Lote Azure permite-lhe definir tarefas por nó até (4x) o número de nós principais. Por exemplo, se a piscina estiver configurada com nós de tamanho "Grande" (quatro núcleos), `maxTasksPerNode` então pode ser definido para 16. No entanto, independentemente de quantos núcleos o nó tem, não pode ter mais de 256 tarefas por nó. Para mais detalhes sobre o número de núcleos para cada um dos tamanhos do nó, consulte [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md). Para obter mais informações sobre os limites de serviço, consulte [Quotas e limites para o serviço De lote Azure](batch-quota-limit.md).
 
 > [!TIP]
-> Certifique-se de ter `maxTasksPerNode` em conta o valor quando construir uma fórmula de [escala automática][enable_autoscaling] para a sua piscina. Por exemplo, uma fórmula `$RunningTasks` que avalia poderia ser drasticamente afetada por um aumento de tarefas por nó. Consulte [automaticamente os nós de computação numa piscina de Lote Azure](batch-automatic-scaling.md) para obter mais informações.
+> Certifique-se de ter em conta o valor quando construir uma fórmula de `maxTasksPerNode` [escala automática][enable_autoscaling] para a sua piscina. Por exemplo, uma fórmula que avalia `$RunningTasks` poderia ser drasticamente afetada por um aumento de tarefas por nó. Consulte [automaticamente os nós de computação numa piscina de Lote Azure](batch-automatic-scaling.md) para obter mais informações.
 >
 >
 
@@ -42,7 +42,7 @@ Quando os nós computacionais numa piscina podem executar tarefas simultaneament
 
 Ao utilizar a propriedade [CloudPool.TaskSchedulingPolicy,][task_schedule] pode especificar que as tarefas devem ser atribuídas uniformemente em todos os nós da piscina ("spreading"). Ou pode especificar que o maior número possível de tarefas deve ser atribuída a cada nó antes de as tarefas serem atribuídas a outro nó na piscina ("embalagem").
 
-Como exemplo de como esta funcionalidade é valiosa, considere o conjunto de nós [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md) (no exemplo acima) que está configurado com um valor [CloudPool.MaxTasksPerComputeNode][maxtasks_net] de 16. Se a [CloudPool.TaskSchedulingPolicy][task_schedule] estiver configurada com um [ComputeNodeFillType][fill_type] of *Pack,* maximizaria a utilização de todos os 16 núcleos de cada nó e permitiria que uma [piscina autoscalcificada](batch-automatic-scaling.md) podasse nós não utilizados da piscina (nós sem tarefas atribuídas). Isto minimiza o uso de recursos e poupa dinheiro.
+Como exemplo de como esta funcionalidade é valiosa, considere o conjunto de nós [Standard \_ D14](../cloud-services/cloud-services-sizes-specs.md) (no exemplo acima) que está configurado com um valor [CloudPool.MaxTasksPerComputeNode][maxtasks_net] de 16. Se a [CloudPool.TaskSchedulingPolicy][task_schedule] estiver configurada com um [ComputeNodeFillType][fill_type] of *Pack,* maximizaria a utilização de todos os 16 núcleos de cada nó e permitiria que uma [piscina autoscalcificada](batch-automatic-scaling.md) podasse nós não utilizados da piscina (nós sem tarefas atribuídas). Isto minimiza o uso de recursos e poupa dinheiro.
 
 ## <a name="batch-net-example"></a>Lote .NET exemplo
 Este código [De lote .NET][api_net] API mostra um pedido para criar uma piscina que contenha quatro nós com um máximo de quatro tarefas por nó. Especifica uma política de agendamento de tarefas que preencherá cada nó com tarefas antes de atribuir tarefas a outro nó na piscina. Para obter mais informações sobre a adição de piscinas utilizando o Batch .NET API, consulte [BatchClient.PoolOperations.CreatePool][poolcreate_net].
@@ -79,7 +79,7 @@ Este snippet API [de repouso de lote][api_rest] mostra um pedido para criar uma 
 ```
 
 > [!NOTE]
-> Você pode `maxTasksPerNode` definir o elemento e propriedade [MaxTasksPerComputeNode][maxtasks_net] apenas no tempo de criação da piscina. Não podem ser modificados depois de já ter sido criada uma piscina.
+> Você pode definir o elemento e propriedade `maxTasksPerNode` [MaxTasksPerComputeNode][maxtasks_net] apenas no tempo de criação da piscina. Não podem ser modificados depois de já ter sido criada uma piscina.
 >
 >
 
@@ -113,7 +113,7 @@ A segunda série da amostra revela uma diminuição significativa da duração d
 >
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 ### <a name="batch-explorer-heat-map"></a>Mapa de calor do explorador do lote
 [O Batch Explorer][batch_labs] é uma ferramenta de cliente gratuita, rica e autónoma para ajudar a criar, depurar e monitorizar aplicações do Lote Azure. O Batch Explorer contém uma funcionalidade *de Mapa* de Calor que proporciona visualização da execução da tarefa. Ao executar a aplicação da amostra [ParallelTasks,][parallel_tasks_sample] pode utilizar a função Heat Map para visualizar facilmente a execução de tarefas paralelas em cada nó.
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6fb776b4c1ff537401a23eb272526b3043fdb1e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2ac6a38d99f588c9dbab7a40bc092aa01b27649a
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80235729"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726014"
 ---
 # <a name="register-an-azure-iot-edge-device"></a>Registe um dispositivo Azure IoT Edge
 
@@ -122,7 +122,7 @@ O [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) é uma
 
 ### <a name="create-an-iot-edge-device-with-the-azure-cli"></a>Crie um dispositivo IoT Edge com o Azure CLI
 
-Utilize o [dispositivo-identidade do hub az iot criar](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-create) comando para criar uma nova identidade de dispositivo no seu hub IoT. Por exemplo:
+Utilize o [dispositivo-identidade do hub az iot criar](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest#ext-azure-iot-az-iot-hub-device-identity-create) comando para criar uma nova identidade de dispositivo no seu hub IoT. Por exemplo:
 
    ```azurecli
    az iot hub device-identity create --device-id [device id] --hub-name [hub name] --edge-enabled
@@ -138,7 +138,7 @@ Este comando inclui três parâmetros:
 
 ### <a name="view-iot-edge-devices-with-the-azure-cli"></a>Ver dispositivos IoT Edge com o Azure CLI
 
-Utilize o comando de identidade de dispositivo do [hub az iot](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-list) para visualizar todos os dispositivos no seu hub IoT. Por exemplo:
+Utilize o comando de identidade de dispositivo do [hub az iot](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest#ext-azure-iot-az-iot-hub-device-identity-list) para visualizar todos os dispositivos no seu hub IoT. Por exemplo:
 
    ```azurecli
    az iot hub device-identity list --hub-name [hub name]
@@ -148,15 +148,15 @@ Qualquer dispositivo que esteja registado como um dispositivo IoT Edge terá as 
 
 ### <a name="retrieve-the-connection-string-with-the-azure-cli"></a>Recupere a corda de ligação com o Azure CLI
 
-Quando estiver pronto para configurar o seu dispositivo, precisa da cadeia de ligação que liga o seu dispositivo físico à sua identidade no centro IoT. Utilize o comando de cadeia de ligação de [dispositivo-identidade az iot](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-show-connection-string) para devolver a corda de ligação para um único dispositivo:
+Quando estiver pronto para configurar o seu dispositivo, precisa da cadeia de ligação que liga o seu dispositivo físico à sua identidade no centro IoT. Utilize o comando de cadeia de ligação de [dispositivo-identidade az iot](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest#ext-azure-iot-az-iot-hub-device-identity-show-connection-string) para devolver a corda de ligação para um único dispositivo:
 
    ```azurecli
    az iot hub device-identity show-connection-string --device-id [device id] --hub-name [hub name]
    ```
 
-O valor `device-id` para o parâmetro é sensível a casos. Não copie as aspas à volta da corda de ligação.
+O valor para o `device-id` parâmetro é sensível a casos. Não copie as aspas à volta da corda de ligação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que tem uma identidade de dispositivo registada no seu hub IoT, está pronto para instalar o tempo de execução do IoT Edge nos seus dispositivos. Instale o tempo de funcionamento de acordo com o sistema operativo do dispositivo:
 

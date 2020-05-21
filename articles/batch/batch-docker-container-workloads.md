@@ -1,15 +1,15 @@
 ---
 title: Cargas de trabalho de contentor
 description: Aprenda a executar e dimensionar aplicações a partir de imagens de contentores no Lote Azure. Crie um conjunto de nódosos computacionais que suportem tarefas de contentores em execução.
-ms.topic: article
-ms.date: 03/02/2020
+ms.topic: how-to
+ms.date: 05/20/2020
 ms.custom: seodec18
-ms.openlocfilehash: 27edfe67152857a89840f5cd24b06d66ae8d94c1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b1310af2797e43659ac8859e74d1be8bdbab3c98
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116133"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726728"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Executar aplicações de contentores em Lote Azure
 
@@ -46,7 +46,7 @@ Utilize uma das seguintes imagens suportadas pelo Windows ou Linux para criar um
 
 ### <a name="windows-support"></a>Suporte para janelas
 
-O lote suporta imagens do servidor do Windows que têm designações de suporte de contentores. Tipicamente, estes nomes de sku de imagem são sufixos com `-with-containers` ou `-with-containers-smalldisk`. Além disso, [a API para listar todas as imagens suportadas no Batch](batch-linux-nodes.md#list-of-virtual-machine-images) irá denotar uma `DockerCompatible` capacidade se a imagem suportar os recipientes Docker.
+O lote suporta imagens do servidor do Windows que têm designações de suporte de contentores. Tipicamente, estes nomes de sku de imagem são sufixos com `-with-containers` ou `-with-containers-smalldisk` . Além disso, [a API para listar todas as imagens suportadas no Batch](batch-linux-nodes.md#list-of-virtual-machine-images) irá denotar uma capacidade se a imagem suportar os `DockerCompatible` recipientes Docker.
 
 Também pode criar imagens personalizadas a partir de VMs que executam o Docker no Windows.
 
@@ -72,7 +72,7 @@ Estas imagens são suportadas apenas para utilização em piscinas de Lote Azure
 
 * Condutores de GPU da NVIDIA pré-instalados e tempo de execução de contentores NVIDIA, para agilizar a implantação em VMs da série N Azure
 
-* Imagem pré-instalada/pré-configurada com suporte para tamanhos de VM RDMA de Infiniband para imagens com o sufixo de `-rdma`. Atualmente, estas imagens não suportam tamanhos vm SR-IOV IB/RDMA.
+* Imagem pré-instalada/pré-configurada com suporte para tamanhos de VM RDMA de Infiniband para imagens com o sufixo de `-rdma` . Atualmente, estas imagens não suportam tamanhos vm SR-IOV IB/RDMA.
 
 Também pode criar imagens personalizadas de VMs executando Docker numa das distribuições Linux que é compatível com o Batch. Se optar por fornecer a sua própria imagem personalizada de Linux, consulte as instruções em [Utilizar uma imagem personalizada gerida para criar uma piscina de máquinas virtuais](batch-custom-images.md).
 
@@ -96,7 +96,7 @@ A vantagem de pré-rebuscar imagens de contentores é que quando as tarefas come
 
 ### <a name="pool-without-prefetched-container-images"></a>Piscina sem imagens de recipientes pré-rebuscados
 
-Para configurar uma piscina ativada por recipientes `ContainerConfiguration` sem imagens de recipientes pré-rebuscados, defina e `VirtualMachineConfiguration` objetos como mostrado no exemplo python seguinte. Este exemplo utiliza o Ubuntu Server para o conjunto de contentores Do Lote Azure imagem do Marketplace.
+Para configurar uma piscina ativada por recipientes sem imagens de recipientes pré-rebuscados, defina `ContainerConfiguration` e `VirtualMachineConfiguration` objetos como mostrado no exemplo python seguinte. Este exemplo utiliza o Ubuntu Server para o conjunto de contentores Do Lote Azure imagem do Marketplace.
 
 
 ```python
@@ -126,7 +126,7 @@ new_pool = batch.models.PoolAddParameter(
 
 ### <a name="prefetch-images-for-container-configuration"></a>Imagens de prefetch para configuração do recipiente
 
-Para pré-rebuscar imagens de contentores`container_image_names`na piscina, adicione `ContainerConfiguration`a lista de imagens de contentores ( em Python) à .
+Para pré-rebuscar imagens de contentores na piscina, adicione a lista de imagens de contentores ( `container_image_names` em Python) à `ContainerConfiguration` .
 
 O exemplo básico de Python mostra como pré-obter uma imagem de recipiente Ubuntu padrão de [Docker Hub](https://hub.docker.com).
 
@@ -159,58 +159,66 @@ new_pool = batch.models.PoolAddParameter(
 O exemplo C# seguinte pressupõe que pretende pré-obter uma imagem TensorFlow do [Docker Hub](https://hub.docker.com). Este exemplo inclui uma tarefa inicial que corre no anfitrião VM nos nós da piscina. Pode executar uma tarefa inicial no anfitrião, por exemplo, para montar um servidor de ficheiros que possa ser acedido a partir dos recipientes.
 
 ```csharp
-
 ImageReference imageReference = new ImageReference(
     publisher: "microsoft-azure-batch",
     offer: "ubuntu-server-container",
     sku: "16-04-lts",
     version: "latest");
 
+ContainerRegistry containerRegistry = new ContainerRegistry(
+    registryServer: "https://hub.docker.com",
+    userName: "UserName",
+    password: "YourPassword"                
+);
+
 // Specify container configuration, prefetching Docker images
-ContainerConfiguration containerConfig = new ContainerConfiguration(
-    containerImageNames: new List<string> { "tensorflow/tensorflow:latest-gpu" } );
+ContainerConfiguration containerConfig = new ContainerConfiguration();
+containerConfig.ContainerImageNames = new List<string> { "tensorflow/tensorflow:latest-gpu" };
+containerConfig.ContainerRegistries = new List<ContainerRegistry> { containerRegistry };
 
 // VM configuration
 VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
     imageReference: imageReference,
-    containerConfiguration: containerConfig,
     nodeAgentSkuId: "batch.node.ubuntu 16.04");
+virtualMachineConfiguration.ContainerConfiguration = containerConfig;
 
 // Set a native host command line start task
-StartTask startTaskNative = new StartTask( CommandLine: "<native-host-command-line>" );
+StartTask startTaskContainer = new StartTask( commandLine: "<native-host-command-line>" );
 
 // Create pool
 CloudPool pool = batchClient.PoolOperations.CreatePool(
     poolId: poolId,
-    targetDedicatedComputeNodes: 4,
     virtualMachineSize: "Standard_NC6",
-    virtualMachineConfiguration: virtualMachineConfiguration, startTaskContainer);
+    virtualMachineConfiguration: virtualMachineConfiguration);
+
+// Start the task in the pool
+pool.StartTask = startTaskContainer;
 ...
 ```
 
 
 ### <a name="prefetch-images-from-a-private-container-registry"></a>Imagens prefetch de um registo de contentores privados
 
-Também pode pré-obter imagens de contentores autenticando-se num servidor de registo de contentores privado. No exemplo seguinte, `ContainerConfiguration` `VirtualMachineConfiguration` os objetos prebuscam uma imagem privada do TensorFlow de um registo privado de contentores Azure. A referência da imagem é a mesma do exemplo anterior.
+Também pode pré-obter imagens de contentores autenticando-se num servidor de registo de contentores privado. No exemplo seguinte, os `ContainerConfiguration` `VirtualMachineConfiguration` objetos prebuscam uma imagem privada do TensorFlow de um registo privado de contentores Azure. A referência da imagem é a mesma do exemplo anterior.
 
 ```csharp
 // Specify a container registry
-ContainerRegistry containerRegistry = new ContainerRegistry (
+ContainerRegistry containerRegistry = new ContainerRegistry(
     registryServer: "myContainerRegistry.azurecr.io",
-    username: "myUserName",
+    userName: "myUserName",
     password: "myPassword");
 
 // Create container configuration, prefetching Docker images from the container registry
-ContainerConfiguration containerConfig = new ContainerConfiguration(
-    containerImageNames: new List<string> {
-        "myContainerRegistry.azurecr.io/tensorflow/tensorflow:latest-gpu" },
-    containerRegistries: new List<ContainerRegistry> { containerRegistry } );
+ContainerConfiguration containerConfig = new ContainerConfiguration();
+containerConfig.ContainerImageNames = new List<string> {
+        "myContainerRegistry.azurecr.io/tensorflow/tensorflow:latest-gpu" };
+containerConfig.ContainerRegistries = new List<ContainerRegistry> { containerRegistry } );
 
 // VM configuration
 VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
     imageReference: imageReference,
-    containerConfiguration: containerConfig,
     nodeAgentSkuId: "batch.node.ubuntu 16.04");
+virtualMachineConfiguration.ContainerConfiguration = containerConfig;
 
 // Create pool
 CloudPool pool = batchClient.PoolOperations.CreatePool(
@@ -225,7 +233,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 
 Para executar uma tarefa de contentor numa piscina ativada por contentores, especifique as definições específicas do recipiente. As definições incluem a imagem a utilizar, o registo e as opções de execução do contentor.
 
-* Utilize `ContainerSettings` a propriedade das classes de tarefas para configurar as definições específicas do contentor. Estas definições são definidas pela classe [TaskContainerSettings.](/dotnet/api/microsoft.azure.batch.taskcontainersettings) Note que `--rm` a opção do `--runtime` recipiente não requer uma opção adicional, uma vez que é cuidada pelo Batch.
+* Utilize a propriedade das classes de `ContainerSettings` tarefas para configurar as definições específicas do contentor. Estas definições são definidas pela classe [TaskContainerSettings.](/dotnet/api/microsoft.azure.batch.taskcontainersettings) Note que a opção do `--rm` recipiente não requer uma opção adicional, uma vez que é cuidada pelo `--runtime` Batch.
 
 * Se executar tarefas em imagens de contentores, a tarefa de [tarefa em nuvem](/dotnet/api/microsoft.azure.batch.cloudtask) e o gestor de [emprego](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) requerem definições de contentores. No entanto, a [tarefa de início,](/dotnet/api/microsoft.azure.batch.starttask)tarefa de preparação de [emprego,](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask)e tarefa de [libertação](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) de emprego sem necessidade de configurações de contentores (isto é, podem funcionar dentro de um contexto de contentorou diretamente no nó).
 
@@ -237,21 +245,21 @@ Tal como acontece com as tarefas não contentores, definiu uma linha de comando 
 
 Se a imagem do recipiente para uma tarefa de Lote estiver configurada com um script [DE ENTRADA,](https://docs.docker.com/engine/reference/builder/#exec-form-entrypoint-example) pode definir a sua linha de comando para utilizar o PONTO DE ENTRADA predefinido ou sobrepor-se:
 
-* Para utilizar o ponto de entrada predefinido da imagem do `""`recipiente, delineie a linha de comando de tarefa para a corda vazia .
+* Para utilizar o ponto de entrada predefinido da imagem do recipiente, delineie a linha de comando de tarefa para a corda vazia `""` .
 
-* Para anular o ponto de entrada predefinido, ou se a imagem não tiver um PONTO `/app/myapp` DE `/bin/sh -c python myscript.py`ENTRADA, delineie uma linha de comando adequada para o recipiente, por exemplo, ou .
+* Para anular o ponto de entrada predefinido, ou se a imagem não tiver um PONTO DE ENTRADA, delineie uma linha de comando adequada para o recipiente, por exemplo, `/app/myapp` ou `/bin/sh -c python myscript.py` .
 
-[ContainerRunOptions](/dotnet/api/microsoft.azure.batch.taskcontainersettings.containerrunoptions) opcionais são argumentos `docker create` adicionais que fornece ao comando que o Batch utiliza para criar e executar o recipiente. Por exemplo, para definir um diretório de `--workdir <directory>` trabalho para o recipiente, definir a opção. Consulte o [estivador criar](https://docs.docker.com/engine/reference/commandline/create/) referência para opções adicionais.
+[ContainerRunOptions](/dotnet/api/microsoft.azure.batch.taskcontainersettings.containerrunoptions) opcionais são argumentos adicionais que fornece ao `docker create` comando que o Batch utiliza para criar e executar o recipiente. Por exemplo, para definir um diretório de trabalho para o recipiente, definir a `--workdir <directory>` opção. Consulte o [estivador criar](https://docs.docker.com/engine/reference/commandline/create/) referência para opções adicionais.
 
 ### <a name="container-task-working-directory"></a>Diretório de trabalho de tarefas de contentores
 
-Uma tarefa de contentor de lote executa num diretório de trabalho no recipiente que é muito semelhante ao lote de diretório configura do conjunto para uma tarefa regular (não contentor). Note que este diretório de trabalho é diferente do [WORKDIR](https://docs.docker.com/engine/reference/builder/#workdir) se configurado`C:\` na imagem, ou `/` no diretório de trabalho do recipiente padrão (num recipiente Windows, ou num recipiente Linux).
+Uma tarefa de contentor de lote executa num diretório de trabalho no recipiente que é muito semelhante ao lote de diretório configura do conjunto para uma tarefa regular (não contentor). Note que este diretório de trabalho é diferente do [WORKDIR](https://docs.docker.com/engine/reference/builder/#workdir) se configurado na imagem, ou no diretório de trabalho do recipiente padrão `C:\` (num recipiente Windows, ou `/` num recipiente Linux).
 
 Para uma tarefa de contentor de lote:
 
 * Todos os diretórios recursivamente abaixo do `AZ_BATCH_NODE_ROOT_DIR` nó de acolhimento (a raiz dos diretórios do Lote Azure) são mapeados no recipiente
 * Todas as variáveis do ambiente de tarefa são mapeadas no recipiente
-* O diretório `AZ_BATCH_TASK_WORKING_DIR` de trabalho de tarefas no nó é definido da mesma forma que para uma tarefa regular e mapeado no recipiente.
+* O diretório de trabalho de tarefas no nó é definido da mesma forma `AZ_BATCH_TASK_WORKING_DIR` que para uma tarefa regular e mapeado no recipiente.
 
 Estes mapeamentos permitem-lhe trabalhar com tarefas de contentores da mesma forma que as tarefas não contentores. Por exemplo, instale aplicações utilizando pacotes de aplicações, aceda a ficheiros de recursos a partir do Armazenamento Azure, utilize as definições de ambiente de tarefas e persista ficheiros de saída de tarefas após a paragem do contentor.
 
@@ -263,11 +271,11 @@ Se necessário, ajuste as definições da tarefa do recipiente com base na image
 
 * Especifique um caminho absoluto na linha de comando de tarefa. Se o PONTO DE ENTRADA padrão da imagem for utilizado para a linha de comando de tarefa, certifique-se de que está definido um caminho absoluto.
 
-* Nas opções de execução do contentor da tarefa, altere o diretório de trabalho para corresponder ao WORKDIR na imagem. Por exemplo, `--workdir /app`set .
+* Nas opções de execução do contentor da tarefa, altere o diretório de trabalho para corresponder ao WORKDIR na imagem. Por exemplo, set `--workdir /app` .
 
 ## <a name="container-task-examples"></a>Exemplos de tarefas de contentores
 
-O seguinte snippet Python mostra uma linha de comando básica correndo em um recipiente criado a partir de uma imagem fictícia retirada de Docker Hub. Aqui, `--rm` a opção do recipiente remove o recipiente `--workdir` após o acabamento da tarefa, e a opção define um diretório de trabalho. A linha de comando sobrepõe-se ao recipiente ENTRYPOINT com um simples comando de concha que escreve um pequeno ficheiro para o diretório de trabalho de tarefas no hospedeiro.
+O seguinte snippet Python mostra uma linha de comando básica correndo em um recipiente criado a partir de uma imagem fictícia retirada de Docker Hub. Aqui, a opção do `--rm` recipiente remove o recipiente após o acabamento da tarefa, e a `--workdir` opção define um diretório de trabalho. A linha de comando sobrepõe-se ao recipiente ENTRYPOINT com um simples comando de concha que escreve um pequeno ficheiro para o diretório de trabalho de tarefas no hospedeiro.
 
 ```python
 task_id = 'sampletask'
@@ -285,7 +293,6 @@ O exemplo c# seguinte mostra as definições básicas do recipiente para uma tar
 
 ```csharp
 // Simple container task command
-
 string cmdLine = "c:\\app\\myApp.exe";
 
 TaskContainerSettings cmdContainerSettings = new TaskContainerSettings (
@@ -295,12 +302,11 @@ TaskContainerSettings cmdContainerSettings = new TaskContainerSettings (
 
 CloudTask containerTask = new CloudTask (
     id: "Task1",
-    containerSettings: cmdContainerSettings,
-    commandLine: cmdLine);
+    commandline: cmdLine);
+containerTask.ContainerSettings = cmdContainerSettings;
 ```
 
-
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Consulte também o kit de ferramentas [do Estaleiro de Lote](https://github.com/Azure/batch-shipyard) para facilitar a colocação de cargas de trabalho de contentores no Lote Azure através de [receitas do Estaleiro](https://github.com/Azure/batch-shipyard/tree/master/recipes).
 

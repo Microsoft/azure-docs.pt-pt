@@ -10,12 +10,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 8fdc64632be8b5fcb3dca8de2ee833fef25719fe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b7aefc54a20e23ae969750532e7e3bc824f69c56
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77656743"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725317"
 ---
 # <a name="redirect-urireply-url-restrictions-and-limitations"></a>Redirecionar restrições e limitações de URI/URI de resposta
 
@@ -23,8 +23,9 @@ Um URI redirecionado, ou URL de resposta, é a localização para a qual o servi
 
  As seguintes restrições aplicam-se à resposta dos URLs:
 
-    * O URL de resposta `https`deve começar com o esquema .
-    * O URL de resposta é sensível a casos. O seu caso deve coincidir com o caso do percurso url da sua aplicação de execução. Por exemplo, se a sua aplicação incluir como parte do seu caminho, `.../abc/response-oidc`não especifique `.../ABC/response-oidc` no URL de resposta. Como o navegador da Web trata os caminhos como `.../abc/response-oidc` sensíveis a casos, os cookies `.../ABC/response-oidc` associados podem ser excluídos se redirecionados para o URL desajustado do caso.
+* O URL de resposta deve começar com o esquema `https` .
+
+* O URL de resposta é sensível a casos. O seu caso deve coincidir com o caso do percurso url da sua aplicação de execução. Por exemplo, se a sua aplicação incluir como parte do seu `.../abc/response-oidc` caminho, não especifique `.../ABC/response-oidc` no URL de resposta. Como o navegador da Web trata os caminhos como sensíveis a casos, os cookies associados `.../abc/response-oidc` podem ser excluídos se redirecionados para o URL desajustado do `.../ABC/response-oidc` caso.
     
 ## <a name="maximum-number-of-redirect-uris"></a>Número máximo de URIs redirecionais
 
@@ -40,14 +41,14 @@ A tabela que se segue mostra o número máximo de URIs redirecionais que pode ad
 Pode utilizar um máximo de 256 caracteres para cada redirecionamento de URI que adiciona a uma inscrição na aplicação.
 
 ## <a name="supported-schemes"></a>Regimes apoiados
-O modelo de aplicação Azure AD suporta hoje tanto os esquemas HTTP como https para apps que assinam em trabalho seletiva da Microsoft ou contas escolares em qualquer inquilino azure ative diretório (Azure AD) de qualquer organização. Isto `signInAudience` é, no campo do manifesto de aplicação, está definido para *AzureADMyOrg* ou *AzureADMultipleOrgs*. Para as aplicações que assinam em contas pessoais `signInAudience` da Microsoft e contas de trabalho e escola (que está definida para *AzureADandPersonalMicrosoftAccount*) apenas é permitido o esquema HTTPS.
+O modelo de aplicação Azure AD suporta hoje tanto os esquemas HTTP como https para apps que assinam em trabalho seletiva da Microsoft ou contas escolares em qualquer inquilino azure ative diretório (Azure AD) de qualquer organização. Isto `signInAudience` é, no campo do manifesto de aplicação, está definido para *AzureADMyOrg* ou *AzureADMultipleOrgs*. Para as aplicações que assinam em contas pessoais da Microsoft e contas de trabalho e escola (que está `signInAudience` definida para *AzureADandPersonalMicrosoftAccount*) apenas é permitido o esquema HTTPS.
 
 > [!NOTE]
 > A experiência de [registos](https://go.microsoft.com/fwlink/?linkid=2083908) da nova App não permite que os desenvolvedores adicionem URIs com o esquema HTTP na UI. A adição de HTTP URIs para apps que assinam em contas de trabalho ou de escola é suportada apenas através do editor manifesto da aplicação. Daqui para a frente, as novas aplicações não poderão utilizar esquemas HTTP no redirecionamento URI. No entanto, aplicações mais antigas que contenham esquemas HTTP em URIs redirecionados continuarão a funcionar. Os desenvolvedores devem utilizar esquemas HTTPS nos URIs de redirecionamento.
 
 ## <a name="restrictions-using-a-wildcard-in-uris"></a>Restrições usando um wildcard em URIs
 
-Os URIs wildcard, como, `https://*.contoso.com`são convenientes, mas devem ser evitados. A utilização de wildcards no URI redirecionado tem implicações de segurança. De acordo com a especificação OAuth 2.0[(secção 3.1.2 do RFC 6749),](https://tools.ietf.org/html/rfc6749#section-3.1.2)um ponto final de reorientação URI deve ser um URI absoluto. 
+Os URIs wildcard, `https://*.contoso.com` como, são convenientes, mas devem ser evitados. A utilização de wildcards no URI redirecionado tem implicações de segurança. De acordo com a especificação OAuth 2.0[(secção 3.1.2 do RFC 6749),](https://tools.ietf.org/html/rfc6749#section-3.1.2)um ponto final de reorientação URI deve ser um URI absoluto. 
 
 O modelo de aplicação Azure AD não suporta URIs wildcard para aplicações configuradas para assinar em contas pessoais da Microsoft e contas de trabalho ou escola. No entanto, os URIs wildcard são permitidos para apps que estão configuradas para assinar em contas de trabalho ou escola em um inquilino Azure AD de uma organização hoje. 
  
@@ -71,6 +72,6 @@ Nesta abordagem:
 > [!NOTE]
 > Esta abordagem permite que um cliente comprometido modifique os parâmetros adicionais enviados no parâmetro do Estado, redirecionando assim o utilizador para um URL diferente, que é a ameaça aberta de [redirector](https://tools.ietf.org/html/rfc6819#section-4.2.4) descrito no RFC 6819. Por isso, o cliente deve proteger estes parâmetros encriptando o estado ou verificando-o por outros meios, tais como validar o nome de domínio no redirecionamento do URI contra o símbolo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Conheça o manifesto de [Candidatura](reference-app-manifest.md)

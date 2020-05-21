@@ -6,12 +6,12 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 012d27b44ecfbdd460adf241742df397880f78c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: abbf5d79da033a696890566d85bd24bb54577d2c
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81450356"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715703"
 ---
 # <a name="change-feed-design-patterns-in-azure-cosmos-db"></a>Alterar padrões de design de feed em Azure Cosmos DB
 
@@ -29,7 +29,7 @@ O feed de mudança no Azure Cosmos DB permite-lhe construir soluções eficiente
 
 ## <a name="event-computing-and-notifications"></a>Computação e notificações de eventos
 
-O feed de mudança de DB Azure Cosmos pode simplificar cenários que precisam desencadear uma notificação ou uma chamada para uma API com base num determinado evento. Pode utilizar a Biblioteca de [Processos](change-feed-processor.md) de Feed de Mudança para fazer uma pesquisa automática no seu contentor para alterações e chamar uma API externa sempre que houver uma escrita ou atualização.
+O feed de mudança de DB Azure Cosmos pode simplificar cenários que precisam de desencadear uma notificação ou enviar uma chamada para uma API com base num determinado evento. Pode utilizar a Biblioteca de [Processos](change-feed-processor.md) de Feed de Mudança para fazer uma pesquisa automática no seu contentor para alterações e chamar uma API externa sempre que houver uma escrita ou atualização.
 
 Também pode desencadear uma notificação seletiva ou enviar uma chamada para uma API com base em critérios específicos. Por exemplo, se estiver a ler o feed de mudança utilizando [funções Azure,](change-feed-functions.md)pode colocar lógica na função apenas para enviar uma notificação se tiver sido cumprido um critério específico. Embora o código função Azure seja executado durante cada escrita e atualização, a notificação só seria enviada se tivessem sido cumpridos critérios específicos.
 
@@ -112,7 +112,7 @@ Aqui estão alguns exemplos de código de mudança no mundo real que se estendem
 - [IoT usar caso centrado em torno do feed de mudança](https://github.com/AzureCosmosDB/scenario-based-labs)
 - [Caso de uso retalhista centrado em torno do feed de mudança](https://github.com/AzureCosmosDB/scenario-based-labs)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Descrição geral do feed de alterações](change-feed.md)
 * [Opções para ler feed de mudança](read-change-feed.md)

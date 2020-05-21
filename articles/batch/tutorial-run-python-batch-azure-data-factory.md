@@ -1,5 +1,5 @@
 ---
-title: Executar scripts Python através da Fábrica de Dados - Azure Batch Python
+title: Executar scripts Python através da Fábrica de Dados
 description: Tutorial - Aprenda a executar scripts Python como parte de um oleoduto através da Azure Data Factory usando o Lote Azure.
 author: mammask
 ms.devlang: python
@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 12/11/2019
 ms.author: komammas
 ms.custom: mvc
-ms.openlocfilehash: 6761896a6555c11d7957f923a5951641c1541012
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 49f675a56247433ce92763a69045fb214c7c37dc
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82117068"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83723073"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Tutorial: Executar scripts Python através da Fábrica de Dados Azure usando o Lote Azure
 
@@ -56,7 +56,7 @@ Nesta secção, utilizará o Batch Explorer para criar a piscina de lote que o s
     1. Dete teo tipo de calcário para **o tamanho fixo,** e desloque a contagem de nós dedicada a 2.
     1. Em **ciência de Dados,** selecione **Dsvm Windows** como o sistema operativo.
     1. Escolha `Standard_f2s_v2` como o tamanho da máquina virtual.
-    1. Ative a tarefa inicial `cmd /c "pip install pandas"`e adicione o comando . A identidade do utilizador pode permanecer como utilizador padrão **do Pool**.
+    1. Ative a tarefa inicial e adicione o comando `cmd /c "pip install pandas"` . A identidade do utilizador pode permanecer como utilizador padrão **do Pool**.
     1. Selecione **OK**.
 
 ## <a name="create-blob-containers"></a>Criar recipientes de bolha
@@ -65,13 +65,13 @@ Aqui irá criar recipientes blob que armazenarão os seus ficheiros de entrada e
 
 1. Inscreva-se no Storage Explorer utilizando as suas credenciais Azure.
 1. Utilizando a conta de armazenamento ligada à sua conta Batch, crie dois recipientes blob (um para ficheiros de entrada, um para ficheiros de saída) seguindo os passos em [Criar um recipiente de bolha](../vs-azure-tools-storage-explorer-blobs.md#create-a-blob-container).
-    * Neste exemplo, chamaremos o nosso `input`recipiente de `output`entrada , e o nosso recipiente de saída .
-1. Carregue `main.py` `iris.csv` e para o `input` seu recipiente de entrada utilizando o Storage Explorer seguindo os passos de [Gestão](../vs-azure-tools-storage-explorer-blobs.md#managing-blobs-in-a-blob-container) de bolhas num recipiente de bolha
+    * Neste exemplo, chamaremos o nosso recipiente de entrada `input` , e o nosso recipiente de saída `output` .
+1. Carregue e para o seu recipiente de `main.py` entrada utilizando o Storage Explorer seguindo os `iris.csv` `input` passos de [Gestão](../vs-azure-tools-storage-explorer-blobs.md#managing-blobs-in-a-blob-container) de bolhas num recipiente de bolha
 
 
 ## <a name="develop-a-script-in-python"></a>Desenvolver um roteiro em Python
 
-O seguinte script `iris.csv` Python carrega `input` o conjunto de dados do seu recipiente, executa um processo de manipulação de dados e guarda os resultados de volta para o `output` recipiente.
+O seguinte script Python carrega o `iris.csv` conjunto de dados do seu recipiente, executa um processo de manipulação de dados e guarda os `input` resultados de volta para o `output` recipiente.
 
 ``` python
 # Load libraries
@@ -101,7 +101,7 @@ df.to_csv("iris_setosa.csv", index = False)
 blobService.create_blob_from_text(containerName, "iris_setosa.csv", "iris_setosa.csv")
 ```
 
-Guarde o `main.py` script como e carregue-o para o recipiente de **armazenamento Azure.** Certifique-se de testar e validar a sua funcionalidade localmente antes de a enviar para o seu recipiente de blob:
+Guarde o script como `main.py` e carregue-o para o recipiente de **armazenamento Azure.** Certifique-se de testar e validar a sua funcionalidade localmente antes de a enviar para o seu recipiente de blob:
 
 ``` bash
 python main.py
@@ -125,7 +125,7 @@ Nesta secção, você vai criar e validar um oleoduto usando o seu script Python
 
     ![](./media/run-python-batch-azure-data-factory/integrate-pipeline-with-azure-batch.png)
 
-1. No separador **Definições,** introduza o comando `python main.py`.
+1. No separador **Definições,** introduza o comando `python main.py` .
 1. Para o Serviço Ligado ao **Recurso,** adicione a conta de armazenamento que foi criada nos passos anteriores. Teste a ligação para garantir que é bem sucedida.
 1. No Caminho das **Pastas,** selecione o nome do recipiente de **armazenamento De blob Azure** que contém o script Python e as inputs associadas. Isto irá transferir os ficheiros selecionados do contentor para as instâncias do nó da piscina antes da execução do script Python.
 
@@ -142,17 +142,17 @@ Nesta secção, você vai criar e validar um oleoduto usando o seu script Python
 Caso os avisos ou erros sejam produzidos pela execução do seu script, pode consultar `stdout.txt` ou `stderr.txt` obter mais informações sobre a saída que foi registada.
 
 1. Selecione **Jobs** do lado esquerdo do Batch Explorer.
-1. Escolha o trabalho criado pela sua fábrica de dados. Assumindo que `custom-activity-pool`nomeou `adfv2-custom-activity-pool`a sua piscina, selecione.
+1. Escolha o trabalho criado pela sua fábrica de dados. Assumindo que nomeou a sua `custom-activity-pool` piscina, selecione. `adfv2-custom-activity-pool`
 1. Clique na tarefa que tinha um código de saída de falha.
-1. Veja `stdout.txt` `stderr.txt` e investigue e diagnostice o seu problema.
+1. Veja `stdout.txt` e investigue e `stderr.txt` diagnostice o seu problema.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, você explorou um exemplo que o ensinou a executar scripts Python como parte de um oleoduto através da Azure Data Factory usando o Azure Batch.
 
 Para saber mais sobre a Azure Data Factory, consulte:
 
 > [!div class="nextstepaction"]
-> [Azure Data Factory](../data-factory/introduction.md)
-> [Oleodutos e atividades](../data-factory/concepts-pipelines-activities.md)
-> [Custom activities](../data-factory/transform-data-using-dotnet-custom-activity.md) da Fábrica de Dados Azure
+> [Fábrica de](../data-factory/introduction.md) 
+>  Dados Azure [Oleodutos e atividades](../data-factory/concepts-pipelines-activities.md) 
+>  [Atividades personalizadas](../data-factory/transform-data-using-dotnet-custom-activity.md)

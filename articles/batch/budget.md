@@ -1,14 +1,14 @@
 ---
 title: Análise de custos e orçamento
 description: Aprenda a obter uma análise de custos e detetete um orçamento para os recursos computacionais subjacentes e licenças de software usadas para executar as suas cargas de trabalho do Batch.
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/19/2019
-ms.openlocfilehash: c3c3203882d003d7fbb5f9d5092a1c93886f313a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 13c8cc508a4940b5e21570104527c40988879919
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117493"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725776"
 ---
 # <a name="cost-analysis-and-budgets-for-azure-batch"></a>Análise de custos e orçamentos para o Lote Azure
 
@@ -43,7 +43,7 @@ Através do portal Azure, pode criar orçamentos e alertas de gastos para a sua 
 1. No portal Azure, selecione **Cost Management + Faturação** a partir da barra de navegação esquerda.
 1. Selecione a sua subscrição na secção **Minhas assinaturas**
 1. Vá à análise de **custos** sob a secção de Gestão de **Custos** da barra de navegação esquerda, que mostrará uma vista como esta:
-1. Selecione **Adicionar filtro**. Na primeira gota, selecione **Resource** ![Selecione o filtro de recursos](./media/batch-budget/resource-filter.png)
+1. Selecione **Adicionar filtro**. Na primeira gota, selecione **Resource** ![ Selecione o filtro de recursos](./media/batch-budget/resource-filter.png)
 1. Na segunda descida, selecione a piscina batch. Quando a piscina for selecionada, a análise de custos será semelhante à seguinte análise.
     ![Análise de custos de uma piscina](./media/batch-budget/pool-cost-analysis.png)
 
@@ -68,7 +68,7 @@ Saiba mais sobre como configurar VMs de baixa prioridade para a sua carga de tra
 
 ### <a name="virtual-machine-os-disk-type"></a>Tipo de disco de máquina virtual
 
-Existem vários tipos de [disco VM OS](../virtual-machines/windows/disks-types.md). A maioria das séries VM têm tamanhos que suportam armazenamento premium e padrão. Quando um tamanho VM 's' é selecionado para uma piscina, o Batch configura discos SSD OS premium. Quando o tamanho vm 'não-s' é selecionado, então o tipo de disco HDD mais barato e padrão é utilizado. Por exemplo, os discos SSD `Standard_D2s_v3` OS premium são utilizados e `Standard_D2_v3`os discos HDD OS padrão são utilizados para .
+Existem vários tipos de [disco VM OS](../virtual-machines/windows/disks-types.md). A maioria das séries VM têm tamanhos que suportam armazenamento premium e padrão. Quando um tamanho VM 's' é selecionado para uma piscina, o Batch configura discos SSD OS premium. Quando o tamanho vm 'não-s' é selecionado, então o tipo de disco HDD mais barato e padrão é utilizado. Por exemplo, os discos SSD OS premium são utilizados e `Standard_D2s_v3` os discos HDD OS padrão são utilizados para `Standard_D2_v3` .
 
 Os discos Premium SSD OS são mais caros, mas têm um desempenho mais elevado e os VMs com discos premium podem começar ligeiramente mais rápidos do que os VMs com discos hDD os padrão. Com o Batch, o disco OS não é frequentemente utilizado tanto quanto as aplicações e ficheiros de tarefas estão localizados no disco SSD temporário vMs. Portanto, em muitos casos, não há necessidade de pagar o custo aumentado para o SSD premium que é provisionado quando um tamanho vM 's' é especificado.
 
@@ -82,7 +82,7 @@ Se pretender utilizar o Batch durante um longo período de tempo, pode economiza
 
 Para obter mais informações sobre escala automática, consulte automaticamente os nós de [computação numa piscina de Lote Azure](batch-automatic-scaling.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre as [APIs do Lote e as ferramentas](batch-apis-tools.md) disponíveis para a construção e monitorização das soluções do Lote.  
 

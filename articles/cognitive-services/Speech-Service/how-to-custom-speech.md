@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: trbye
-ms.openlocfilehash: a52735ee62f564a5dc536fd2b7d3539406388341
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5401957cb527d43e041345ac9e67e7f7a69ed0d0
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81402073"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725538"
 ---
 # <a name="what-is-custom-speech"></a>O que é discurso personalizado?
 
@@ -37,9 +37,11 @@ Este diagrama destaca as peças que compõem o [portal de Discurso Personalizado
 
 4. [Avaliar a precisão](how-to-custom-speech-evaluate-data.md) - Avaliar a precisão do modelo de fala-a-texto. O [portal de discurso personalizado](https://speech.microsoft.com/customspeech) fornecerá uma Taxa de Erro de *Palavras,* que pode ser usada para determinar se é necessário treino adicional. Se estiver satisfeito com a precisão, pode utilizar diretamente o serviço de Fala APIs. Se quiser melhorar a precisão em uma média relativa de 5% - 20%, use o separador **Formação** no portal para fazer upload de dados de formação adicionais, como transcrições com rótulo humano e texto relacionado.
 
-5. [Treine o modelo](how-to-custom-speech-train-model.md) - Melhore a precisão do seu modelo de discurso a texto, fornecendo transcrições escritas (10-1.000 horas) e texto relacionado (<200 MB) juntamente com os seus dados de teste áudio. Estes dados ajudam a formar o modelo de discurso a texto. Depois do treino, teste novamente, e se estiver satisfeito com o resultado, pode implementar o seu modelo.
+5. Melhorar a [precisão](how-to-custom-speech-improve-accuracy.md) - Escolha dados de formação adicionais estrategicamente para melhorar a qualidade do modelo de fala-a-texto com base no seu cenário.
 
-6. [Implemente o modelo](how-to-custom-speech-deploy-model.md) - Crie um ponto final personalizado para o seu modelo de discurso a texto e use-o nas suas aplicações, ferramentas ou produtos.
+6. [Treine o modelo](how-to-custom-speech-train-model.md) - Melhore a precisão do seu modelo de discurso a texto, fornecendo transcrições escritas (10-1.000 horas) e texto relacionado (<200 MB) juntamente com os seus dados de teste áudio. Estes dados ajudam a formar o modelo de discurso a texto. Depois do treino, teste novamente, e se estiver satisfeito com o resultado, pode implementar o seu modelo.
+
+7. [Implemente o modelo](how-to-custom-speech-deploy-model.md) - Crie um ponto final personalizado para o seu modelo de discurso a texto e use-o nas suas aplicações, ferramentas ou produtos.
 
 ## <a name="set-up-your-azure-account"></a>Configurar a sua conta Azure
 
@@ -64,7 +66,7 @@ Para criar o seu primeiro projeto, selecione o **discurso Discurso-a-texto/Discu
 > [!IMPORTANT]
 > O [portal Custom Speech](https://aka.ms/custom-speech) foi recentemente atualizado! Se criou dados anteriores, modelos, testes e pontos finais publicados no portal CRIS.ai ou com APIs, é necessário criar um novo projeto no novo portal para se conectar a estas entidades antigas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Prepare e teste os seus dados](how-to-custom-speech-test-data.md)
 * [Inspecione os seus dados](how-to-custom-speech-inspect-data.md)

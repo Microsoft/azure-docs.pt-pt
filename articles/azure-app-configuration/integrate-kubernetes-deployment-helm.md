@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: shuawan
-ms.openlocfilehash: 2aebccdf18aaba345beb344a8b6fc3b37754a4a1
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: aac42e6f782ac1e939ff955c5811238f99e703eb
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82793618"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725674"
 ---
 # <a name="integrate-with-kubernetes-deployment-using-helm"></a>Integrar com a Implantação kubernetes usando helm
 
@@ -23,7 +23,7 @@ Durante o processo de lançamento, helm funde o gráfico com a configuração ad
 
 Pode anular os valores armazenados em *valores.yaml* fornecendo ficheiros de configuração baseados em YAML adicionais na linha de comando ao executar o Helm. A Configuração de Aplicações Azure suporta a exportação de valores de configuração para ficheiros YAML. Integrar esta capacidade de exportação na sua implementação permite que as suas aplicações Kubernetes aproveitem os valores de configuração armazenados na Configuração da App.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 > [!div class="checklist"]
 > * Utilize valores a partir da Configuração da Aplicação ao implementar uma aplicação para kubernetes utilizando o Helm.
 > * Crie um Segredo Kubernetes baseado numa referência chave vault na configuração da aplicação.
@@ -41,7 +41,7 @@ Este tutorial assume a compreensão básica de gerir Kubernetes com Helm. Saiba 
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selecione **Configuração Explorer** > **Criar** para adicionar os seguintes pares de valor-chave:
+6. Selecione **Configuração Explorer**  >  **Criar** para adicionar os seguintes pares de valor-chave:
 
     | Chave | Valor |
     |---|---|
@@ -56,7 +56,7 @@ Este tutorial assume a compreensão básica de gerir Kubernetes com Helm. Saiba 
 
 3. Selecione Explorador de **Configuração**.
 
-4. Selecione **+ Criar** > **referência de cofre chave,** e depois especificar os seguintes valores:
+4. Selecione **+ Criar**  >  **referência de cofre chave,** e depois especificar os seguintes valores:
     - **Chave**: Selecione **segredos.password**.
     - **Etiqueta**: Deixe este valor em branco.
     - **Subscrição,** **Grupo de Recursos**e Cofre **chave**: Introduza os valores correspondentes aos do cofre chave que criou em passo anterior.
@@ -169,7 +169,7 @@ metadata:
   name: mysecret
 type: Opaque
 data:
-  password: {{ .Values.secrets.password }}
+  password: {{ .Values.secrets.password | b64enc }}
 ```
 
 Por fim, atualize o ficheiro *values.yaml* com o seguinte conteúdo para fornecer opcionalmente valores predefinidos das definições de configuração e segredos que se referem no *ficheiro deployment.yaml* e *secrets.yaml.* Os seus valores reais serão substituídos por configuração retirada da Configuração da App.
@@ -237,7 +237,7 @@ Um segredo, **palavra-passe,** lojas como referência chave vault na configuraç
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, exportou dados de configuração de aplicações do Azure para serem utilizados numa implementação da Kubernetes com a Helm. Para saber mais sobre como utilizar a Configuração da App, continue com as amostras do Azure CLI.
 

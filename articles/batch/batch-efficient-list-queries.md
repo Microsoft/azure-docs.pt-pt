@@ -1,15 +1,15 @@
 ---
 title: Consultas de lista eficientes de design
 description: Aumente o desempenho filtrando as suas consultas ao solicitar informações sobre recursos do Lote, como piscinas, empregos, tarefas e nós de computação.
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: fea8efd4e4946b67754bad98589b728e8d696425
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 987a31f9506dcd1b13b04d544465c7529f23122d
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116116"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726711"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Criar consultas para listar os recursos do Lote de forma eficiente
 
@@ -60,22 +60,22 @@ As APIs de [Lote .NET][api_net] e [Lote REST][api_rest] fornecem a capacidade de
 A cadeia do filtro é uma expressão que reduz o número de itens que são devolvidos. Por exemplo, enumerar apenas as tarefas de execução para um trabalho, ou listar apenas nós de cálculo que estejam prontos para executar tarefas.
 
 * A cadeia de filtros consiste numa ou mais expressões, com expressão que consiste num nome de propriedade, operador e valor. As propriedades que podem ser especificadas são específicas de cada tipo de entidade que consulta, assim como os operadores que são suportados por cada imóvel.
-* As expressões múltiplas podem ser `and` `or`combinadas utilizando os operadores lógicos e .
-* Este exemplo de cadeia de filtro selelista apenas as tarefas de "renderização" em execução: `(state eq 'running') and startswith(id, 'renderTask')`.
+* As expressões múltiplas podem ser combinadas utilizando os operadores lógicos `and` e `or` .
+* Este exemplo de cadeia de filtro selelista apenas as tarefas de "renderização" em execução: `(state eq 'running') and startswith(id, 'renderTask')` .
 
 ### <a name="select"></a>Selecione
 A cadeia selecionada limita os valores de propriedade que são devolvidos para cada item. Especifica uma lista de nomes de propriedade, e apenas esses valores de propriedade são devolvidos para os itens nos resultados da consulta.
 
 * A cadeia selecionada consiste numa lista separada de nomes de propriedade. Pode especificar qualquer uma das propriedades para o tipo de entidade que está a consultar.
-* Este exemplo seleciona a cadeia especifica que apenas `id, state, stateTransitionTime`três valores de propriedade devem ser devolvidos para cada tarefa: .
+* Este exemplo seleciona a cadeia especifica que apenas três valores de propriedade devem ser devolvidos para cada tarefa: `id, state, stateTransitionTime` .
 
 ### <a name="expand"></a>Expandir
 A cadeia de expansão reduz o número de chamadas API que são necessárias para obter certas informações. Quando utiliza uma cadeia de expansão, mais informações sobre cada item podem ser obtidas com uma única chamada API. Em vez de obter primeiro a lista de entidades, depois solicitando informações para cada item da lista, você usa uma cadeia de expansão para obter a mesma informação numa única chamada API. Menos chamadas aPi significa melhor desempenho.
 
 * Semelhante à cadeia selecionada, a cadeia de expansão controla se determinados dados estão incluídos nos resultados da consulta da lista.
 * A cadeia de expansão só é suportada quando é usada na listagem de empregos, horários de trabalho, tarefas e piscinas. Atualmente, apenas apoia a informação estatística.
-* Quando todas as propriedades são necessárias e nenhuma cadeia selecionada é especificada, a cadeia de expansão *deve* ser usada para obter informações estatísticas. Se for utilizada uma cadeia selecionada para obter `stats` um subconjunto de propriedades, então pode ser especificado na cadeia selecionada e a cadeia de expansão não precisa de ser especificada.
-* Este exemplo expande a cadeia especifica que as informações `stats`estatísticas devem ser devolvidas para cada item da lista: .
+* Quando todas as propriedades são necessárias e nenhuma cadeia selecionada é especificada, a cadeia de expansão *deve* ser usada para obter informações estatísticas. Se for utilizada uma cadeia selecionada para obter um subconjunto de propriedades, `stats` então pode ser especificado na cadeia selecionada e a cadeia de expansão não precisa de ser especificada.
+* Este exemplo expande a cadeia especifica que as informações estatísticas devem ser devolvidas para cada item da lista: `stats` .
 
 > [!NOTE]
 > Ao construir qualquer um dos três tipos de cordas de consulta (filtro, selecione e expandir), deve certificar-se de que os nomes de propriedade e o caso correspondem aos dos seus elementos REST API. Por exemplo, ao trabalhar com a classe [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) .NET, deve especificar **estado** em vez de **Estado**, mesmo que a propriedade .NET seja [CloudTask.State](/dotnet/api/microsoft.azure.batch.cloudtask.state#Microsoft_Azure_Batch_CloudTask_State). Consulte as tabelas abaixo para mapeamento de propriedades entre as APIs .NET e REST.
@@ -85,12 +85,12 @@ A cadeia de expansão reduz o número de chamadas API que são necessárias para
 ### <a name="rules-for-filter-select-and-expand-strings"></a>Regras para filtro, selecione e expanda cordas
 * As propriedades nomes no filtro, selecionam e expandem as cordas devem aparecer como fazem no [Lote REST][api_rest] API - mesmo quando utiliza o [Batch .NET][api_net] ou um dos outros SDKs de Lote.
 * Todos os nomes de propriedade são sensíveis a casos, mas os valores da propriedade são insensíveis.
-* As cordas data/hora podem ser um de dois formatos, e devem ser precedidas com `DateTime`.
+* As cordas data/hora podem ser um de dois formatos, e devem ser precedidas com `DateTime` .
   
   * Exemplo de formato W3C-DTF:`creationTime gt DateTime'2011-05-08T08:49:37Z'`
   * Exemplo de formato RFC 1123:`creationTime gt DateTime'Sun, 08 May 2011 08:49:37 GMT'`
-* Cordas booleanas `true` são `false`ou.
-* Se for especificado um imóvel `400 (Bad Request)` ou operador inválido, resultará um erro.
+* Cordas booleanas são `true` `false` ou.
+* Se for especificado um imóvel ou operador inválido, resultará um `400 (Bad Request)` erro.
 
 ## <a name="efficient-querying-in-batch-net"></a>Consulta eficiente em Lote .NET
 Dentro do [Lote .NET][api_net] API, a classe [ODATADetailLevel][odata] é utilizada para fornecer filtro, selecionar e expandir cordas para listar operações. A classe ODataDetailLevel tem três propriedades de cadeia pública que podem ser especificadas no construtor, ou definidas diretamente no objeto. Em seguida, passa o objeto ODataDetailLevel como parâmetro para as várias operações da lista, tais como [ListPools,][net_list_pools] [ListJobs][net_list_jobs]e [ListTasks][net_list_tasks].
@@ -218,7 +218,7 @@ A aplicação da amostra no âmbito do projeto demonstra as seguintes operaçõe
 1. Selecionar atributos específicos para descarregar apenas as propriedades que necessita
 2. Filtragem nos tempos de transição do Estado para descarregar apenas alterações desde a última consulta
 
-Por exemplo, o seguinte método aparece na biblioteca BatchMetrics. Devolve um ODATADetailLevel que especifica `id` que `state` apenas as propriedades e propriedades devem ser obtidas para as entidades que são consultadas. Especifica ainda que apenas as entidades cujo `DateTime` Estado tenha mudado, uma vez que o parâmetro especificado deve ser devolvido.
+Por exemplo, o seguinte método aparece na biblioteca BatchMetrics. Devolve um ODATADetailLevel que especifica que apenas as `id` propriedades e propriedades devem ser `state` obtidas para as entidades que são consultadas. Especifica ainda que apenas as entidades cujo Estado tenha mudado, uma vez que o parâmetro especificado `DateTime` deve ser devolvido.
 
 ```csharp
 internal static ODATADetailLevel OnlyChangedAfter(DateTime time)
@@ -230,7 +230,7 @@ internal static ODATADetailLevel OnlyChangedAfter(DateTime time)
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 ### <a name="parallel-node-tasks"></a>Tarefas paralelas do nó
 Maximizar O uso de [recursos computacionais do Lote Maximize Com tarefas de nó simultânea](batch-parallel-node-tasks.md) é outro artigo relacionado com o desempenho da aplicação do Lote. Alguns tipos de cargas de trabalho podem beneficiar da execução de tarefas paralelas em nós maiores mas menos-- computados. Confira o cenário de [exemplo](batch-parallel-node-tasks.md#example-scenario) no artigo para mais detalhes sobre tal cenário.
 

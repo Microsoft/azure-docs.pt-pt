@@ -8,16 +8,18 @@ ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: cynthn
 ms.custom: legacy
-ms.openlocfilehash: 70282879b64054d48d904b5ada9284f844448851
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 54f82d0ba4b0c5de0b4e373416857d670d4bba53
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792688"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83723311"
 ---
 # <a name="how-to-create-a-managed-image-of-a-virtual-machine-or-vhd"></a>Como criar uma imagem gerida de uma máquina virtual ou VHD
 
 Para criar várias cópias de uma máquina virtual (VM) para utilização em Azure para desenvolvimento e teste, capture uma imagem gerida do VM ou do VHD osS. Para criar, armazenar e partilhar imagens em escala, consulte Galerias de [Imagem Partilhada](../shared-images-cli.md).
+
+Uma imagem gerida suporta até 20 implementações simultâneas. Tentar criar mais de 20 VMs simultaneamente, a partir da mesma imagem gerida, pode resultar em prazos de fornecimento devido às limitações de desempenho de armazenamento de um único VHD. Para criar mais de 20 VMs em simultâneo, utilize uma imagem de Galerias de [Imagem Partilhada](shared-image-galleries.md) configurada com 1 réplica para cada 20 implementações vm simultâneas.
 
 Para criar uma imagem gerida, terá de remover informações pessoais da conta. Nos seguintes passos, você desprovisiona um VM existente, desaloca-lo e criar uma imagem. Pode utilizar esta imagem para criar VMs em qualquer grupo de recursos dentro da sua subscrição.
 
@@ -37,7 +39,7 @@ Para uma versão simplificada deste artigo, e para testar, avaliar ou aprender s
 
 
 ## <a name="step-1-deprovision-the-vm"></a>Passo 1: Desprovisionamento do VM
-Primeiro irá desfornecer o VM utilizando o agente Azure VM para eliminar ficheiros e dados específicos da máquina. Utilize `waagent` o comando `-deprovision+user` com o parâmetro na sua fonte Linux VM. Para obter mais informações, veja o [Guia de utilizador do Agente Linux do Azure](../extensions/agent-linux.md).
+Primeiro irá desfornecer o VM utilizando o agente Azure VM para eliminar ficheiros e dados específicos da máquina. Utilize o `waagent` comando com o parâmetro na sua fonte `-deprovision+user` Linux VM. Para obter mais informações, veja o [Guia de utilizador do Agente Linux do Azure](../extensions/agent-linux.md).
 
 1. Ligue-se ao seu VM Linux com um cliente SSH.
 2. Na janela SSH, insira o seguinte comando:
@@ -46,9 +48,9 @@ Primeiro irá desfornecer o VM utilizando o agente Azure VM para eliminar fichei
     sudo waagent -deprovision+user
     ```
    > [!NOTE]
-   > Só executa este comando num VM que vai capturar como imagem. Este comando não garante que a imagem seja desmarcada de todas as informações sensíveis ou seja adequada para redistribuição. O `+user` parâmetro também remove a última conta de utilizador provisionada. Para manter as credenciais de conta `-deprovision`de utilizador no VM, utilize apenas .
+   > Só executa este comando num VM que vai capturar como imagem. Este comando não garante que a imagem seja desmarcada de todas as informações sensíveis ou seja adequada para redistribuição. O `+user` parâmetro também remove a última conta de utilizador provisionada. Para manter as credenciais de conta de utilizador no VM, utilize apenas `-deprovision` .
  
-3. Insira **y** para continuar. Pode adicionar `-force` o parâmetro para evitar este passo de confirmação.
+3. Insira **y** para continuar. Pode adicionar o `-force` parâmetro para evitar este passo de confirmação.
 4. Depois de o comando estar concluído, introduza a **saída** para fechar o cliente SSH.  O VM ainda estará a funcionar neste momento.
 
 ## <a name="step-2-create-vm-image"></a>Passo 2: Criar imagem VM
@@ -134,5 +136,5 @@ az vm show \
    --show-details
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para criar, armazenar e partilhar imagens em escala, consulte Galerias de [Imagem Partilhada](shared-images.md).

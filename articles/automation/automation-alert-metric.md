@@ -4,12 +4,12 @@ description: Este artigo diz como monitorizar os livros com base em métricas.
 services: automation
 ms.date: 11/01/2018
 ms.topic: article
-ms.openlocfilehash: e0d30e3d18ecb279e26731346bca7bb7c12943cb
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: c5f51ec34ea0b31f4c8fc349246b439425112104
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83685405"
+ms.locfileid: "83715856"
 ---
 # <a name="monitor-runbooks-with-metric-alerts"></a>Monitorizar runbooks com alertas de métrica
 
@@ -75,9 +75,6 @@ Quando os critérios de alerta são cumpridos, o grupo de ação executa a açã
 
 Uma vez que a métrica já não esteja fora do limiar definido, o alerta é desativado e o grupo de ação executa a ação definida. Se for selecionado um tipo de ação de e-mail, é enviado um e-mail de resolução indicando que foi resolvido.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Continue a conhecer o seguinte artigo para saber sobre outras formas de integrar alertas na sua conta De automação.
-
-> [!div class="nextstepaction"]
-> [Use um alerta para desencadear um livro de execução da Automação Azure](automation-create-alert-triggered-runbook.md)
+* [Use um alerta para desencadear um livro de execução da Automação Azure](automation-create-alert-triggered-runbook.md)

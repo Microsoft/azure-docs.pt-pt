@@ -13,17 +13,20 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2020
+ms.date: 05/20/2020
 ms.author: shvija
-ms.openlocfilehash: c166f4cace6a8cc25b36a84f4614033801e69a51
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b3411b3e138778ca7ca1ffcfe14d8d6e84d76d4e
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265015"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726099"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Capture eventos através de Hubs de Eventos Azure em Armazenamento De Blob Azure ou Armazenamento de Lago de Dados Azure
 O Azure Event Hubs permite-lhe capturar automaticamente os dados de streaming em Event Hubs num [armazenamento Azure Blob](https://azure.microsoft.com/services/storage/blobs/) ou na conta de Armazenamento do [Lago Azure Data Gen 1 ou Gen 2](https://azure.microsoft.com/services/data-lake-store/) à sua escolha, com a flexibilidade adicional de especificar um intervalo de tempo ou tamanho. A configuração da Captura é rápida, não existem custos administrativos para executá-lo, e escala automaticamente com [unidades](event-hubs-scalability.md#throughput-units)de produção de Hubs de Eventos . O Event Hubs Capture é a forma mais fácil de carregar dados de streaming para o Azure, e permite-lhe focar-se no processamento de dados e não na captura de dados.
+
+> [!NOTE]
+> Configurar hubs de eventos Captura para usar Azure Data Lake Storage **Gen 2** é o mesmo que configurá-lo para usar um Armazenamento De Blob Azure. Para mais detalhes, consulte [Configure Event Hubs Capture](event-hubs-capture-enable-through-portal.md). 
 
 A Captura de Hubs de Eventos permite-lhe processar oleodutos em tempo real e baseados em lotes no mesmo fluxo. Isto significa que pode construir soluções que cresçam com as suas necessidades ao longo do tempo. Quer esteja a construir sistemas baseados em lotes hoje em dia com vista para o processamento futuro em tempo real, ou se quer adicionar um caminho frio eficiente a uma solução em tempo real existente, o Event Hubs Capture facilita o trabalho com dados de streaming.
 
@@ -44,7 +47,7 @@ A Captura de Hubs de Eventos permite-lhe configurar uma janela para controlar a 
 {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}
 ```
 
-Note que os valores da data são acolchoados com zeros; um nome de ficheiro de exemplo pode ser:
+Os valores da data são acolchoados com zeros; um nome de ficheiro de exemplo pode ser:
 
 ```
 https://mystorageaccount.blob.core.windows.net/mycontainer/mynamespace/myeventhub/0/2017/12/08/03/03/17.avro
@@ -60,7 +63,7 @@ Uma vez configurado, a Captura de Centros de Eventos é automática quando envia
 
 ## <a name="setting-up-event-hubs-capture"></a>Configuração da captura de hubs de eventos
 
-Pode configurar a Captura no tempo de criação do hub de eventos utilizando o [portal Azure,](https://portal.azure.com)ou utilizando modelos do Gestor de Recursos Azure. Para obter mais informações, veja os artigos seguintes:
+Pode configurar a Captura no tempo de criação do hub de eventos utilizando o [portal Azure,](https://portal.azure.com)ou utilizando modelos do Gestor de Recursos Azure. Para obter mais informações, veja os seguintes artigos:
 
 - [Ativar a funcionalidade de Captura de Hubs de Eventos no portal do Azure](event-hubs-capture-enable-through-portal.md)
 - [Criar um espaço de nomes de Hubs de Eventos com o hub de um evento e ativar a Captura através de um modelo do Azure Resource Manager](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
@@ -129,7 +132,7 @@ Este comando retorna
 
 Também pode utilizar ferramentas Avro para converter o ficheiro em formato JSON e realizar outro processamento.
 
-Para realizar um processamento mais avançado, descarregue e instale a Avro para a sua escolha da plataforma. No momento desta escrita, existem implementações disponíveis para C, C++, C,\#Java, NodeJS, Perl, PHP, Python e Ruby.
+Para realizar um processamento mais avançado, descarregue e instale a Avro para a sua escolha da plataforma. No momento desta escrita, existem implementações disponíveis para C, C++, \# C, Java, NodeJS, Perl, PHP, Python e Ruby.
 
 Apache Avro tem guias completos de arranque para [Java][Java] e [Python.][Python] Você também pode ler o [artigo Getting started with Event Hubs Capture.](event-hubs-capture-python.md)
 
@@ -137,13 +140,13 @@ Apache Avro tem guias completos de arranque para [Java][Java] e [Python.][Python
 
 A captura de Hubs de Eventos é medida da mesma forma às unidades de produção: como uma carga horária. A carga é diretamente proporcional ao número de unidades de entrada adquiridas para o espaço de nome. À medida que as unidades de produção são aumentadas e diminuídas, os centros de eventos Capturam os contadores e diminuem para proporcionar um desempenho correspondente. Os contadores ocorrem em conjunto. Para mais detalhes sobre preços, consulte os preços dos Centros de [Eventos.](https://azure.microsoft.com/pricing/details/event-hubs/) 
 
-Note que a Captura não consome quota de saída, uma vez que é faturada separadamente. 
+A captura não consome quota de saída, uma vez que é faturada separadamente. 
 
 ## <a name="integration-with-event-grid"></a>Integração com Grelha de Eventos 
 
 Pode criar uma subscrição da Azure Event Grid com um espaço de nome do Event Hubs como fonte. O seguinte tutorial mostra-lhe como criar uma subscrição da Rede de Eventos com um hub de eventos como fonte e uma aplicação De Funções Azure como um lavatório: [Processar e migrar dados de Hubs de Eventos capturados para um Armazém de Dados SQL usando a Grelha de Eventos e Funções Azure.](store-captured-data-data-warehouse.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 O Event Hubs Capture é a forma mais fácil de obter dados no Azure. Utilizando o Azure Data Lake, a Azure Data Factory e o Azure HDInsight, pode realizar o processamento de lotes e outras análises utilizando ferramentas e plataformas familiares à sua escolha, a qualquer escala que necessite.
 
 Saiba como ativar esta funcionalidade utilizando o portal Azure e o modelo do Gestor de Recursos Azure:

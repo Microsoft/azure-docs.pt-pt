@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: allensu
-ms.openlocfilehash: af7d47c98e4716df3a6cbd222c7d3c8def48e5fc
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 7c8ff0808ada522dc24ef3c27156f4151832fbcd
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701638"
+ms.locfileid: "83715941"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Configuração DNS de ponto final privado Azure
 
@@ -155,5 +155,5 @@ O diagrama seguinte ilustra a sequência de resolução dNS de uma rede no local
 :::image type="content" source="media/private-endpoint-dns/on-premises-forwarding-to-azure.png" alt-text="No local encaminhamento para O DNS Azure":::
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Saiba mais sobre pontos finais privados](private-endpoint-overview.md)

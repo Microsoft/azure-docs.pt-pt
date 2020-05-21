@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: 78857709447f99895c36f23d8760f44f8468ba7c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bc79dabe82ab02166e3aa60a378ff394bca25028
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81402129"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725555"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparar dados para Voz Personalizada
 
@@ -27,7 +27,7 @@ Esta tabela lista os tipos de dados aceites, quando cada tipo de dados deve ser 
 
 | Tipo de dados | Utilizado para testes | Quantidade recomendada | Usado para treinar | Quantidade recomendada |
 |-----------|-----------------|----------|-------------------|----------|
-| [Áudio](#audio-data-for-testing) | Sim<br>Utilizado para inspeção visual | 5+ ficheiros áudio | Não | N/a |
+| [Áudio](#audio-data-for-testing) | Sim<br>Utilizado para inspeção visual | 5+ ficheiros áudio | Não | N/D |
 | [Audio + Transcrições com rótulo humano](#audio--human-labeled-transcript-data-for-testingtraining) | Sim<br>Usado para avaliar a precisão | 0,5-5 horas de áudio | Sim | 1-1.000 horas de áudio |
 | [Texto relacionado](#related-text-data-for-training) | Não | N/a | Sim | 1-200 MB de texto relacionado |
 
@@ -38,7 +38,7 @@ Os ficheiros devem ser agrupados por tipo num conjunto de dados e carregados com
 
 ## <a name="upload-data"></a>Carregar dados
 
-Para fazer upload dos seus dados, navegue para o <a href="https://speech.microsoft.com/customspeech" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"> </span>de Discurso Personalizado </a>. A partir do portal, clique em **carregar dados** para lançar o assistente e criar o seu primeiro conjunto de dados. Será-lhe pedido que selecione um tipo de dados de fala para o seu conjunto de dados, antes de permitir o upload dos seus dados.
+Para fazer upload dos seus dados, navegue para o <a href="https://speech.microsoft.com/customspeech" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> de Discurso Personalizado </a>. A partir do portal, clique em **carregar dados** para lançar o assistente e criar o seu primeiro conjunto de dados. Será-lhe pedido que selecione um tipo de dados de fala para o seu conjunto de dados, antes de permitir o upload dos seus dados.
 
 ![Selecione áudio do Portal da Fala](./media/custom-speech/custom-speech-select-audio.png)
 
@@ -63,7 +63,7 @@ Utilize esta tabela para garantir que os seus ficheiros áudio estão formatados
 | Comprimento máximo por áudio | Duas horas               |
 | Formato de amostra            | PCM, 16-bit           |
 | Formato de arquivo           | .zip                  |
-| Tamanho máximo do arquivo     | 2GB                  |
+| Tamanho máximo do arquivo     | 2 GB                  |
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
@@ -81,6 +81,8 @@ Utilize <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">o <s
 
 Para medir a precisão da precisão do discurso ao texto da Microsoft ao processar os seus ficheiros áudio, deve fornecer transcrições com rótulo humano (palavra a palavra) para comparação. Embora a transcrição com rótulo humano seja muitas vezes morosa, é necessário avaliar a precisão e treinar o modelo para os seus casos de utilização. Tenha em mente que as melhorias no reconhecimento só serão tão boas quanto os dados fornecidos. Por isso, é importante que apenas transcrições de alta qualidade sejam carregadas.
 
+Os ficheiros áudio podem ter silêncio no início e no fim da gravação. Se possível, inclua pelo menos meio segundo de silêncio antes e depois da fala em cada ficheiro de amostra. Embora o áudio com baixo volume de gravação ou ruído de fundo disruptivo não seja útil, não deve prejudicar o seu modelo personalizado. Considere sempre atualizar os microfones e o hardware de processamento de sinais antes de recolher amostras de áudio.
+
 | Propriedade                 | Valor                               |
 |--------------------------|-------------------------------------|
 | Formato de ficheiro              | RIFF (WAV)                          |
@@ -89,7 +91,7 @@ Para medir a precisão da precisão do discurso ao texto da Microsoft ao process
 | Comprimento máximo por áudio | 2 horas (testes) / 60 s (treino) |
 | Formato de amostra            | PCM, 16-bit                         |
 | Formato de arquivo           | .zip                                |
-| Tamanho máximo do fecho         | 2GB                                |
+| Tamanho máximo do fecho         | 2 GB                                |
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
@@ -110,7 +112,7 @@ Para abordar questões como a eliminação de palavras ou a substituição, é n
 
 As transcrições são normalizadas para texto, de modo a que o sistema as possa processar. No entanto, existem algumas normalizações importantes que devem ser feitas antes de enviar os dados para o Speech Studio. Para que a linguagem adequada utilize quando preparar as suas transcrições, consulte [Como criar uma transcrição com rótulo humano](how-to-custom-speech-human-labeled-transcriptions.md)
 
-Depois de ter recolhido os seus ficheiros áudio e transcrições correspondentes, embalhe-os como um único ficheiro .zip antes de enviar para o <a href="https://speech.microsoft.com/customspeech" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"> </span>De Discurso Personalizado </a>. Abaixo está um conjunto de dados de exemplo com três ficheiros áudio e um ficheiro de transcrição com rótulo humano:
+Depois de ter recolhido os seus ficheiros áudio e transcrições correspondentes, embalhe-os como um único ficheiro .zip antes de enviar para o <a href="https://speech.microsoft.com/customspeech" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> De Discurso Personalizado </a>. Abaixo está um conjunto de dados de exemplo com três ficheiros áudio e um ficheiro de transcrição com rótulo humano:
 
 > [!div class="mx-imgBorder"]
 > ![Selecione áudio do Portal da Fala](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
@@ -124,7 +126,7 @@ Os nomes ou funcionalidades do produto que são únicos, devem incluir dados de 
 | Frases (pronunciamentos) | Melhorar a precisão ao reconhecer os nomes dos produtos ou o vocabulário específico da indústria no contexto de uma frase. |
 | Pronúncias | Melhorar a pronúncia de termos, siglas ou outras palavras incomuns com pronúncias indefinidas. |
 
-As frases podem ser fornecidas como um único ficheiro de texto ou vários ficheiros de texto. Para melhorar a precisão, utilize dados de texto mais próximos das pronunciações faladas esperadas. As pronúncias devem ser fornecidas como um único ficheiro de texto. Tudo pode ser embalado como um único ficheiro zip e enviado para o <a href="https://speech.microsoft.com/customspeech" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"> </span>de Discurso Personalizado </a>.
+As frases podem ser fornecidas como um único ficheiro de texto ou vários ficheiros de texto. Para melhorar a precisão, utilize dados de texto mais próximos das pronunciações faladas esperadas. As pronúncias devem ser fornecidas como um único ficheiro de texto. Tudo pode ser embalado como um único ficheiro zip e enviado para o <a href="https://speech.microsoft.com/customspeech" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> de Discurso Personalizado </a>.
 
 ### <a name="guidelines-to-create-a-sentences-file"></a>Diretrizes para criar um ficheiro de frases
 
@@ -143,7 +145,7 @@ Utilize esta tabela para garantir que o seu ficheiro de dados relacionado para a
 Além disso, irá prestar contas das seguintes restrições:
 
 * Evite repetir caracteres mais de quatro vezes. Por exemplo: "aaaa" ou "uuuuu".
-* Não utilize caracteres especiais ou caracteres `U+00A1`UTF-8 acima .
+* Não utilize caracteres especiais ou caracteres UTF-8 acima `U+00A1` .
 * Os URIs serão rejeitados.
 
 ### <a name="guidelines-to-create-a-pronunciation-file"></a>Diretrizes para criar um ficheiro de pronúncia
@@ -163,9 +165,9 @@ Isto inclui exemplos de uma expressão falada, e uma pronúncia personalizada pa
 
 O formulário falado é a sequência fonética escrita. Pode ser composto por letras, palavras, silabáveis, ou uma combinação de todos os três.
 
-A pronúncia personalizada está`en-US`disponível`de-DE`em inglês ( ) e alemão . Esta tabela mostra caracteres suportados por linguagem:
+A pronúncia personalizada está disponível em inglês `en-US` ( ) e alemão `de-DE` . Esta tabela mostra caracteres suportados por linguagem:
 
-| Idioma | Região | Personagens |
+| Linguagem | Região | Personagens |
 |----------|--------|------------|
 | Inglês | `en-US` | `a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
 | Alemão | `de-DE` | `ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
@@ -178,7 +180,7 @@ Utilize a tabela seguinte para garantir que o seu ficheiro de dados relacionado 
 | # de pronúncias por linha | 1 |
 | Tamanho máximo do ficheiro | 1 MB (1 KB para o nível livre) |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Inspecione os seus dados](how-to-custom-speech-inspect-data.md)
 * [Avaliar os seus dados](how-to-custom-speech-evaluate-data.md)

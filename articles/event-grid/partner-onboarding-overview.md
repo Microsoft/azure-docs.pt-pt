@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: babanisa
-ms.openlocfilehash: 2c275a5cd5dd7dd9399aa957dd7e68c611fc7c0e
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 3c2c2e3d5a2ef48ddc212fc0df4906c91071d803
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83691181"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725962"
 ---
 # <a name="become-and-event-grid-partner"></a>Torne-se e parceiro de Rede de Eventos
 
@@ -34,10 +34,14 @@ Os tópicos dos parceiros permitem-lhe publicar eventos na Azure Event Grid para
 #### <a name="partner-flow"></a>Fluxo de parceiros
 
 1. Crie um inquilino Azure se ainda não tiver um.
-1. A utilização do CLI cria uma nova Grelha de `partnerRegistration` Eventos. Este recurso inclui informações como nome de exibição, descrição, configuração URI e assim por diante. 
-![Criar tópico de parceiro](./media/partner-onboarding-how-to/create-partner-registration.png)
+1. A utilização do CLI cria uma nova Grelha de `partnerRegistration` Eventos. Este recurso inclui informações como nome de exibição, descrição, configuração URI e assim por diante.
+
+    ![Criar tópico de parceiro](./media/partner-onboarding-how-to/create-partner-registration.png)
+
 1. Crie um ou mais `partnerNamespaces` em cada região que queira publicar eventos. Como parte deste, o serviço Event Grid fornecerá um ponto final de publicação (por exemplo, e chaves de https://contoso.westus-1.eventgrid.azure.net/api/events) acesso.
-![Criar espaço de nome de parceiro](./media/partner-onboarding-how-to/create-partner-namespace.png)
+
+    ![Criar espaço de nome de parceiro](./media/partner-onboarding-how-to/create-partner-namespace.png)
+
 1. Forneça uma forma de os clientes se registarem no seu sistema que gostariam de ter um tópico de parceiro.
 1. Contacte a equipa da Rede de Eventos para nos informar que gostaria que o seu Tipo de Tópico de Parceiro se tornasse público.
 
@@ -46,9 +50,12 @@ Os tópicos dos parceiros permitem-lhe publicar eventos na Azure Event Grid para
 1. O seu cliente visitará o portal Azure para observar o ID de Subscrição Azure e o Grupo de Recursos em que gostariam que o Tópico de Parceiro sintetizasse.
 1. O cliente solicitará um Tópico de Parceiro através do seu sistema. Em resposta, você vai criar um Túnel de Eventos o seu Espaço nome do parceiro.
 1. A Event Grid criará um Tópico de Parceiro **Pendente** no Grupo de Subscrição e Recursos Azure do cliente.
-![Criar canal de eventos](./media/partner-onboarding-how-to/create-event-tunnel-partner-topic.png)
+
+    ![Criar canal de eventos](./media/partner-onboarding-how-to/create-event-tunnel-partner-topic.png)
+
 1. O cliente ativa o Tópico do Parceiro através do portal Azure. Os eventos podem agora fluir do seu serviço para a Subscrição Azure do cliente.
-![Ativar tópico de parceiro](./media/partner-onboarding-how-to/activate-partner-topic.png)
+
+    ![Ativar tópico de parceiro](./media/partner-onboarding-how-to/activate-partner-topic.png)
 
 ## <a name="resource-model"></a>Modelo de Recursos
 
@@ -64,21 +71,14 @@ Abaixo está o modelo de recurso para Tópicos de Parceiros.
     Apenas os parceiros aprovados pela MicrosoftOs registos são detetáveis pelos clientes.
 * Âmbito: Criado na subscrição azure do parceiro. Metadados visíveis para os clientes uma vez públicos.
 
-### <a name="event-types"></a>Tipos de eventos
-* Recurso:`partnerRegistrations/eventTypes`
-* Usado por: Parceiros
-* Descrição: Captura metadados sobre tipos de eventos suportados por um registo de parceiro.
-* Âmbito: Descobrida por clientes uma vez tornadas públicas. Vive na subscrição de um parceiro como recurso infantil do Registo de Parceiros.
-        
-
 ### <a name="partner-namespaces"></a>Espaços de Nome de Parceiro
 * Recurso: partnerNamespaces
 * Usado por: Parceiros
 * Descrição: Fornece um recurso regional para a publicação de eventos de clientes para. Cada Partner Namespace tem um ponto final de publicação e chaves auth. O espaço de nome é também como o parceiro solicita um Tópico de Parceiro para um determinado cliente e lista clientes ativos.
 * Âmbito: Vive na subscrição do parceiro.
 
-### <a name="event-tunnels"></a>Túneis de eventos
-* Recurso:`partnerNamespaces/eventTunnels`
+### <a name="event-channel"></a>Canal de Eventos
+* Recurso:`partnerNamespaces/eventChannels`
 * Usado por: Parceiros
 * Descrição: Os Túneis de Eventos são um espelho do Tópico do Parceiro do cliente. Ao criar um Túnel de Eventos e especificar o Grupo de Subscrição e Recursos Azure do cliente nos metadados, está a sinalizar para a Rede de Eventos para criar um Tópico de Parceiro para o cliente. A Event Grid emitirá uma chamada DAA para criar um parceiro correspondenteTopic na subscrição do cliente. O tema do parceiro será criado num estado "pendente". Há uma ligação 1-1 entre cada eventoTunnel e um partnerTopic.
 * Âmbito: Vive na subscrição do parceiro.
@@ -163,7 +163,7 @@ Depois de publicar no ponto final do partnerNamespace, receberá uma resposta. A
 
 ### <a name="sdks"></a>SDKs
   * [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid/5.3.1-preview)
-  * [Pitão](https://pypi.org/project/azure-mgmt-eventgrid/3.0.0rc6/)
+  * [Python](https://pypi.org/project/azure-mgmt-eventgrid/3.0.0rc6/)
   * [Java](https://search.maven.org/artifact/com.microsoft.azure.eventgrid.v2020_04_01_preview/azure-mgmt-eventgrid/1.0.0-beta-3/jar)
   * [Ruby](https://rubygems.org/gems/azure_mgmt_event_grid/versions/0.19.0)
   * [JS](https://www.npmjs.com/package/@azure/arm-eventgrid/v/7.0.0)

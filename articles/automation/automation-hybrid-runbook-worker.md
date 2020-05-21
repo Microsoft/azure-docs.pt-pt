@@ -1,16 +1,16 @@
 ---
-title: Visão geral do trabalhador do livro híbrido na automação azure
-description: Este artigo fornece uma visão geral do Trabalhador do Livro Híbrido, que é uma característica da Automação Azure que pode usar para executar livros de corridas em máquinas no seu datacenter local ou fornecedor de nuvem.
+title: Visão geral do trabalhador do livro híbrido azure automation
+description: Este artigo fornece uma visão geral do Trabalhador do Livro Híbrido, que pode utilizar para executar livros de execução em máquinas no seu datacenter local ou fornecedor de nuvem.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: c02a61366b05fa2750c581a1dedefb0d6239dada
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: f555d603756159dd108345260d71233c23c01ce5
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82994751"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715720"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Descrição geral das Funções de Trabalho de Runbook Híbridas (Hybrid Runbook Worker overview)
 
@@ -53,7 +53,7 @@ São necessários os seguintes portes e URLs para o Trabalhador do Livro Híbrid
 * Porta: Apenas TCP 443 necessário para acesso à Internet de saída
 * URL global: *.azure-automation.net
 * URL global do US Gov – Virginia: *.azure-automation.us
-* Serviço de\<agente:\>https:// workspaceId .agentsvc.azure-automation.net
+* Serviço de agente: https:// \< espaço de trabalhoId \> .agentsvc.azure-automation.net
 
 Recomendamos que utilize os endereços listados ao definir [exceções](automation-runbook-execution.md#exceptions). Para endereços IP, pode descarregar os intervalos IP do [Microsoft Azure Datacenter](https://www.microsoft.com/en-us/download/details.aspx?id=56519). Este ficheiro é atualizado semanalmente, e tem as gamas atualmente implementadas e quaisquer alterações futuras nas gamas IP.
 
@@ -112,9 +112,9 @@ Além dos endereços padrão e portas que o Trabalhador do Livro híbrido necess
 |*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
 |*.blob.core.windows.net | *.blob.core.usgovcloudapi.net|
 
-## <a name="state-configuration-dsc-on-hybrid-runbook-worker"></a>Configuração do Estado (DSC) no Trabalhador do Livro de Execução Híbrido
+## <a name="azure-automation-state-configuration-on-a-hybrid-runbook-worker"></a>Configuração do Estado da Automação Azure em um trabalhador de livro híbrido
 
-Pode executar a função [de Configuração do Estado (DSC)](automation-dsc-overview.md) num Trabalhador híbrido do livro. Para gerir a configuração dos servidores que suportam o Trabalhador do Livro de Execução Híbrido, tem de adicionar os servidores como nós DSC. Para obter mais informações sobre o embarque, consulte [as máquinas onboard para gestão por Configuração estatal (DSC)](automation-dsc-onboarding.md).
+Pode executar a Configuração do Estado de [Automação Azure](automation-dsc-overview.md) num Trabalhador Híbrido do Livro. Para gerir a configuração dos servidores que suportam o Trabalhador do Livro de Execução Híbrido, tem de adicionar os servidores como nós DSC. Consulte [máquinas Ativas para gestão pela Configuração do Estado da Automação Azure](automation-dsc-onboarding.md).
 
 ## <a name="runbooks-on-a-hybrid-runbook-worker"></a>Livros de corridas em um trabalhador híbrido do livro de corridas
 
@@ -130,7 +130,7 @@ Se a máquina de anfitriões Hybrid Runbook Worker reiniciar, qualquer trabalho 
 
 Uma vez que acedem a recursos não-Azure, os livros de execução que funcionam num Trabalhador de Runbook Híbrido não podem utilizar o mecanismo de autenticação normalmente utilizado por livros de execução autenticando recursos Azure. Um livro de execução ou fornece a sua própria autenticação aos recursos locais, ou confunde a autenticação usando [identidades geridas para recursos Azure](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager). Também pode especificar uma conta Run As para fornecer um contexto de utilizador para todos os livros de execução.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para aprender a configurar os seus livros de execução para automatizar processos no seu centro de dados no local ou em outro ambiente em nuvem, consulte [run run run book em um Hybrid Runbook Worker](automation-hrw-run-runbooks.md).
-* Para aprender a resolver os seus Trabalhadores Híbridos, consulte os [Trabalhadores híbridos de runbook de resolução de problemas.](troubleshoot/hybrid-runbook-worker.md#general)
+* Para aprender a resolver os seus Trabalhadores Híbridos, consulte os [Trabalhadores híbridos da Troubleshoot Hybrid Runbook.](troubleshoot/hybrid-runbook-worker.md#general)

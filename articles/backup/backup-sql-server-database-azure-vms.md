@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a apoiar as bases de dados do SQL Server em m
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 9becb574594672c1cf91e610b4c13f91c91aa14f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 3fd94dc6332d96f875c164dfeadff3a8ab2cad4e
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659524"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715601"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Fazer cópias de segurança de bases de dados do SQL Server em VMs do Azure
 
@@ -43,74 +43,59 @@ Antes de fazer o check-up numa base de dados do SQL Server, verifique os seguint
 
 ### <a name="establish-network-connectivity"></a>Estabelecer conectividade de rede
 
-Para todas as operações, um VM de servidor SQL requer conectividade com endereços IP públicos do Azure. As operações vM (descoberta de bases de dados, configurar backups, agendar backups, restaurar pontos de recuperação, e assim por diante) falham sem conectividade com endereços IP públicos do Azure.
+Para todas as operações, um VM SQL Server requer conectividade com o serviço de backup Azure, armazenamento Azure e Diretório Ativo Azure. Isto pode ser conseguido utilizando pontos finais privados ou permitindo o acesso aos endereços IP públicos ou FQDNs necessários. Não permitir uma conectividade adequada aos serviços azure necessários pode levar a falhas em operações como a descoberta de bases de dados, configurar backups, executar backups e restaurar dados.
 
-Estabelecer conectividade utilizando uma das seguintes opções:
+A tabela que se segue lista as várias alternativas que pode utilizar para estabelecer conectividade:
 
-#### <a name="allow-the-azure-datacenter-ip-ranges"></a>Permitir as gamas IP do datacenter Azure
+| **Opção**                        | **Vantagens**                                               | **Desvantagens**                                            |
+| --------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Pontos finais privados                 | Permitir backups sobre IPs privados dentro da rede virtual  <br><br>   Fornecer controlo granular na rede e lado do cofre | Incorrer em [custos finais privados](https://azure.microsoft.com/pricing/details/private-link/) padrão |
+| Etiquetas de serviço NSG                  | Mais fácil de gerir à medida que as alterações de gama são automaticamente fundidas   <br><br>   Sem custos adicionais | Pode ser usado apenas com NSGs  <br><br>    Fornece acesso a todo o serviço |
+| Tags FQDN de firewall azure          | Mais fácil de gerir uma vez que as FQDNs necessárias são geridas automaticamente | Pode ser usado apenas com Firewall Azure                         |
+| Permitir o acesso ao serviço FQDNs/IPs | Sem custos adicionais   <br><br>  Funciona com todos os aparelhos de segurança da rede e firewalls | Um vasto conjunto de IPs ou FQDNs pode ser obrigado a ser acedido   |
+| Use um proxy HTTP                 | Ponto único de acesso à Internet aos VMs                       | Custos adicionais para executar um VM com o software proxy         |
 
-Esta opção permite que as [gamas IP](https://www.microsoft.com/download/details.aspx?id=41653) no ficheiro descarregado. Para aceder a um grupo de segurança de rede (NSG), utilize o cmdlet Set-AzureNetworkSecurityRule. Se a sua lista de destinatários seguros incluir apenas IPs específicos da região, também terá de atualizar a lista de destinatários seguros da etiqueta de serviço Azure Ative Directory (Azure AD) para permitir a autenticação.
+Mais detalhes em torno da utilização destas opções são partilhados abaixo:
 
-Alternativamente, também pode permitir o acesso às seguintes FQDNs para estabelecer a conectividade necessária:
+#### <a name="private-endpoints"></a>Pontos finais privados
 
-* `*.<datacentercode>.backup.windowsazure.com`<br>
-(Consulte os códigos do data center [aqui)](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx)
+Os pontos finais privados permitem-lhe ligar-se de forma segura a partir de servidores dentro de uma rede virtual ao seu cofre de Serviços de Recuperação. O ponto final privado usa um IP do espaço de endereço VNET para o seu cofre. O tráfego de rede entre os seus recursos dentro da rede virtual e o cofre viaja sobre a sua rede virtual e um link privado na rede de espinha dorsal da Microsoft. Isto elimina a exposição da internet pública. Leia mais sobre pontos finais privados para Azure Backup [aqui](https://docs.microsoft.com/azure/backup/private-endpoints).
 
-* `login.windows.net`
-* `*.blob.core.windows.net`
-* `*.queue.core.windows.net`
+#### <a name="nsg-tags"></a>Tags NSG
 
+Se utilizar grupos de segurança de rede (NSG), utilize a etiqueta de serviço *AzureBackup* para permitir o acesso de saída à Cópia de Segurança Azure. Além da etiqueta de backup Azure, também precisa de permitir a conectividade para a autenticação e transferência de dados através da criação de [regras nsg](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) semelhantes para *o Azure AD* e *o Azure Storage.*  Os seguintes passos descrevem o processo para criar uma regra para a etiqueta de backup Azure:
 
-#### <a name="allow-access-using-nsg-tags"></a>Permitir o acesso utilizando tags NSG
+1. Em **Todos os Serviços,** vá a **grupos** de segurança da Rede e selecione o grupo de segurança da rede.
 
-Se utilizar o NSG para restringir a conectividade, deverá utilizar a etiqueta de serviço AzureBackup para permitir o acesso de saída ao Azure Backup. Além disso, deve também permitir a conectividade para a autenticação e transferência de dados utilizando [regras](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) para o Azure AD e O Armazenamento Azure. Isto pode ser feito a partir do portal Azure ou via PowerShell.
+1. Selecione regras de **segurança de saída** em **Definições**.
 
-Para criar uma regra usando o portal:
+1. Selecione **Adicionar**. Introduza todos os detalhes necessários para criar uma nova regra, conforme descrito nas [definições](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings)de regra de segurança . Certifique-se de que a opção **Destino** está definida para *etiqueta de serviço* e etiqueta de serviço **destino** está definida para *AzureBackup*.
 
-  1. Em **Todos os Serviços,** vá a **grupos** de segurança da Rede e selecione o grupo de segurança da rede.
-  2. Selecione regras de **segurança de saída** em **Definições**.
-  3. Selecione **Adicionar**. Introduza todos os detalhes necessários para criar uma nova regra, conforme descrito nas [definições](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings)de regra de segurança . Certifique-se de que a opção **Destino** está definida para **etiqueta de serviço** e etiqueta de serviço **destino** está definida para **AzureBackup**.
-  4. Clique em **Adicionar,** para salvar a regra de segurança de saída recém-criada.
+1. Clique em **Adicionar** para salvar a regra de segurança de saída recém-criada.
 
-Para criar uma regra usando o PowerShell:
+Pode igualmente criar regras de segurança de saída da NSG para o Azure Storage e o Azure AD.
 
- 1. Adicione credenciais de conta Azure e atualize as nuvens nacionais<br/>
-      `Add-AzureRmAccount`<br/>
+#### <a name="azure-firewall-tags"></a>Tags Azure Firewall
 
- 2. Selecione a subscrição NSG<br/>
-      `Select-AzureRmSubscription "<Subscription Id>"`
+Se estiver a utilizar o Firewall Azure, crie uma regra de aplicação utilizando a [etiqueta FQDN da Firewall Azure](https://docs.microsoft.com/azure/firewall/fqdn-tags) *Azure* . Isto permite todo o acesso de saída ao Azure Backup.
 
- 3. Selecione o NSG<br/>
-    `$nsg = Get-AzureRmNetworkSecurityGroup -Name "<NSG name>" -ResourceGroupName "<NSG resource group name>"`
+#### <a name="allow-access-to-service-ip-ranges"></a>Permitir o acesso às gamas IP de serviço
 
- 4. Adicione a regra de saída para a etiqueta de serviço de backup Azure<br/>
-    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureBackupAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureBackup" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"`
+Se optar por permitir iPs de serviço de acesso, consulte as gamas IP do ficheiro JSON disponíveis [aqui](https://www.microsoft.com/download/confirmation.aspx?id=56519). Terá de permitir o acesso a IPs correspondentes ao Azure Backup, Azure Storage e Azure Ative Directory.
 
- 5. Adicione a regra de saída para a etiqueta de serviço de armazenamento<br/>
-    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "StorageAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "Storage" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"`
+#### <a name="allow-access-to-service-fqdns"></a>Permitir o acesso às FQDNs de serviço
 
- 6. Adicione a regra de saída para a etiqueta de serviço AzureActiveDirectory<br/>
-    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureActiveDirectoryAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureActiveDirectory" -DestinationPortRange 443 -Description "Allow outbound traffic to AzureActiveDirectory service"`
+Também pode utilizar as seguintes FQDNs para permitir o acesso aos serviços necessários dos seus servidores:
 
- 7. Salve o NSG<br/>
-    `Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg`
+| Serviço    | Nomes de domínio a serem acedidos                             |
+| -------------- | ------------------------------------------------------------ |
+| Azure Backup  | `*.backup.windowsazure.com`                             |
+| Armazenamento Azure | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` |
+| Azure AD      | Permitir o acesso às FQDNs nas secções 56 e 59 de acordo com [este artigo](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) |
 
-**Permitir o acesso utilizando tags De firewall Azure**. Se estiver a utilizar o Firewall Azure, crie uma regra de aplicação utilizando a [etiqueta AzureBackup FQDN](https://docs.microsoft.com/azure/firewall/fqdn-tags). Isto permite o acesso de saída ao Azure Backup.
+#### <a name="use-an-http-proxy-server-to-route-traffic"></a>Utilize um servidor proxy HTTP para encaminhar o tráfego
 
-**Implemente um servidor proxy HTTP para encaminhar**o tráfego . Quando faz o backup de uma base de dados do SQL Server num VM Azure, a extensão de cópia de segurança no VM utiliza as APIs HTTPS para enviar comandos de gestão para Backup Azure e dados para o Armazenamento Azure. A extensão de reserva também utiliza AD Azure para autenticação. Encaminhe o tráfego de extensão de reserva para estes três serviços através do proxy HTTP. Não existem domínios wildcard em uso com O Backup Azure para adicionar à lista de espera para as suas regras de procuração. Você precisará usar as gamas públicas de IP para estes serviços prestados pelo Azure. As extensões são o único componente configurado para o acesso à internet pública.
-
-As opções de conectividade incluem as seguintes vantagens e desvantagens:
-
-**Opção** | **Vantagens** | **Desvantagens**
---- | --- | ---
-Permitir gamas IP | Sem custos adicionais | Complexo de gerir porque as gamas de endereços IP mudam ao longo do tempo <br/><br/> Dá acesso a todo o Azure, e não apenas ao Armazenamento Azure
-Utilize etiquetas de serviço NSG | Mais fácil de gerir à medida que as alterações de gama são automaticamente fundidas <br/><br/> Sem custos adicionais <br/><br/> | Pode ser usado apenas com NSGs <br/><br/> Fornece acesso a todo o serviço
-Utilize tags FQDN de firewall Azure | Mais fácil de gerir à medida que as FQDNs necessárias são geridas automaticamente | Pode ser usado apenas com Firewall Azure
-Use um proxy HTTP | Ponto único de acesso à Internet aos VMs <br/> | Custos adicionais para executar um VM com o software proxy <br/> Sem endereços FQDN publicados, permitir regras estarão sujeitas a alterações de endereço IP Do Azure
-
-#### <a name="private-endpoints"></a>Pontos Finais Privados
-
-[!INCLUDE [Private Endpoints](../../includes/backup-private-endpoints.md)]
+Quando faz o backup de uma base de dados do SQL Server num VM Azure, a extensão de cópia de segurança no VM utiliza as APIs HTTPS para enviar comandos de gestão para Backup Azure e dados para o Armazenamento Azure. A extensão de reserva também utiliza AD Azure para autenticação. Encaminhe o tráfego de extensão de reserva para estes três serviços através do proxy HTTP. Utilize a lista de IPs e FQDNs acima mencionados para permitir o acesso aos serviços necessários. Servidores de procuração autenticados não são suportados.
 
 ### <a name="database-naming-guidelines-for-azure-backup"></a>Base de dados de diretrizes de nomeação para Backup Azure
 
@@ -296,7 +281,7 @@ Se precisar de desativar a proteção automática, selecione o nome da instânci
 
 ![Desativar a proteção automática neste caso](./media/backup-azure-sql-database/disable-auto-protection.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Aprenda a:
 

@@ -1,15 +1,14 @@
 ---
 title: Evento de redimensionamento da piscina do Lote Azure
 description: Referência para evento de redimensionamento de piscina de lote. O exemplo mostra o corpo de um evento de arranque de redimensionamento de piscina para uma piscina redimensionando de 0 a 2 nódosos com um redimensionamento manual.
-ms.topic: article
+ms.topic: reference
 ms.date: 04/20/2017
-ms.author: labrenne
-ms.openlocfilehash: b4aa503c5dfbe00a77216277bdaf7e4c0dc3b1bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 63576b04b06aad024211d0a50225907c88c138ce
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115878"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83723736"
 ---
 # <a name="pool-resize-start-event"></a>Evento de início de redimensionamento de conjunto
 

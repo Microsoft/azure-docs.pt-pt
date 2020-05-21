@@ -4,13 +4,13 @@ description: As capacidades standard Azure Batch são usadas para executar carga
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
-ms.topic: conceptual
-ms.openlocfilehash: 3efe1dfa69de5ce41aed2152baa88b313fd928f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.openlocfilehash: 867dfae570a1e2006b7eea568e3450050f485d9d
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115759"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726473"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Capacidades de renderização do Lote Azure
 
@@ -28,7 +28,7 @@ Existe uma imagem do Windows 2016 e uma imagem CentOS.  No [Mercado Azure,](http
 
 Para um exemplo, configuração da piscina, consulte o tutorial de [renderização Azure CLI](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli).  O portal Azure e o Batch Explorer fornecem ferramentas GUI para selecionar uma imagem VM de renderização quando criar uma piscina.  Se utilizar uma API de lote, especifique os seguintes valores de propriedade para [ImageReference](https://docs.microsoft.com/rest/api/batchservice/pool/add#imagereference) ao criar um pool:
 
-| Publicador | Oferta | Sku | Versão |
+| Publisher | Oferta | Sku | Versão |
 |---------|---------|---------|--------|
 | lote | renderização-centos73 | renderização | mais recente |
 | lote | renderização-windows2016 | renderização | mais recente |
@@ -46,15 +46,15 @@ Outras opções estão disponíveis se forem necessárias aplicações adicionai
 
 As aplicações que serão utilizadas e têm uma taxa de licenciamento precisam de ser especificadas na configuração do pool.
 
-* Especifique a `applicationLicenses` propriedade ao [criar uma piscina.](https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body)  Os seguintes valores podem ser especificados na gama de cordas - "vray", "arnold", "3dsmax", "maya".
+* Especifique a `applicationLicenses` propriedade ao criar uma [piscina.](https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body)  Os seguintes valores podem ser especificados na gama de cordas - "vray", "arnold", "3dsmax", "maya".
 * Quando especifica uma ou mais aplicações, o custo dessas aplicações é adicionado ao custo dos VMs.  Os preços da aplicação estão listados na página de preços do [Lote Azure](https://azure.microsoft.com/pricing/details/batch/#graphic-rendering).
 
 > [!NOTE]
-> Se em vez disso se ligar a um servidor de `applicationLicenses` licença para utilizar as aplicações de renderização, não especifique a propriedade.
+> Se em vez disso se ligar a um servidor de licença para utilizar as aplicações de renderização, não especifique a `applicationLicenses` propriedade.
 
 Pode utilizar o portal Azure ou o Batch Explorer para selecionar aplicações e mostrar os preços de aplicação.
 
-Se for feita uma tentativa de utilização de uma aplicação, mas a aplicação não foi especificada na `applicationLicenses` propriedade da configuração do pool ou não chega a um servidor de licença, então a execução da aplicação falha com um erro de licenciamento e código de saída não zero.
+Se for feita uma tentativa de utilização de uma aplicação, mas a aplicação não foi especificada na propriedade da configuração do pool ou não chega a um servidor de `applicationLicenses` licença, então a execução da aplicação falha com um erro de licenciamento e código de saída não zero.
 
 ### <a name="environment-variables-for-pre-installed-applications"></a>Variáveis ambientais para aplicações pré-instaladas
 
@@ -88,7 +88,7 @@ Para obter mais informações sobre as características dos VMs de baixa priorid
 Não é necessário um apoio específico para os postos de trabalho e tarefas.  O item principal de configuração é a linha de comando de tarefa, que precisa de fazer referência à aplicação necessária.
 Quando as imagens VM do Azure Marketplace são utilizadas, então a melhor prática é utilizar as variáveis ambientais para especificar o caminho e a aplicação executáveis.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Por exemplo, a renderização do Lote experimente os dois tutoriais:
 

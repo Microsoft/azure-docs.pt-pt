@@ -1,15 +1,15 @@
 ---
-title: Construir soluções com modelos de Estúdio Visual - Lote Azure [ Lote ] Microsoft Docs
+title: Construir soluções com modelos de Estúdio Visual
 description: Saiba como os modelos do projeto Visual Studio podem ajudá-lo a implementar e executar as suas cargas de trabalho intensivas em Computação no Lote Azure.
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/27/2017
 ms.custom: seodec18
-ms.openlocfilehash: 8e8d5be4a9f0fb5482ba6c86a8766a25e5713c09
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0dac39d1ff463dc4ba5efae50c7fc1ea9d36c829
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117527"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725827"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Use modelos de projeto do Estúdio Visual para lançar soluções de lote
 
@@ -57,7 +57,7 @@ Para utilizar os modelos de Lote, necessitará do seguinte:
 ## <a name="preparation"></a>Preparação
 Recomendamos a criação de uma solução que possa conter o seu gestor de emprego, bem como o seu processador de tarefas, pois isso pode facilitar a partilha de código entre o seu gestor de emprego e os programas de processadores de tarefas. Para criar esta solução, siga estes passos:
 
-1. Open Visual Studio e selecione **File** > **New** > **Project**.
+1. Open Visual Studio e selecione **File**  >  **New**  >  **Project**.
 2. Em **Modelos,** expanda **Outros Tipos de Projeto,** clique em **Soluções de Estúdio Visual,** e, em seguida, selecione **Solução Em Branco**.
 3. Digite um nome que descreva a sua aplicação e o propósito desta solução (por exemplo, "LitwareBatchTaskPrograms").
 4. Para criar a nova solução, clique em **OK**.
@@ -77,7 +77,7 @@ O modelo do Gestor de Emprego ajuda-o a implementar uma tarefa de gestor de empr
 Para adicionar um gestor de emprego à solução que criou anteriormente, siga estes passos:
 
 1. Abra a sua solução existente no Estúdio Visual.
-2. No Solution Explorer, clique na solução, clique em **Adicionar** > **Novo Projeto**.
+2. No Solution Explorer, clique na solução, clique em **Adicionar**  >  **Novo Projeto**.
 3. Em **Visual C#** clique em **Cloud,** e clique em **Azure Batch Job Manager com Job Splitter**.
 4. Digite um nome que descreva a sua aplicação e identifique este projeto como gerente de emprego (por exemplo, "LitwareJobManager").
 5. Para criar o projeto, clique em **OK**.
@@ -146,29 +146,29 @@ public IEnumerable<CloudTask> Split()
 ```
 
 > [!NOTE]
-> A secção anotada `Split()` no método é a única secção do código de modelo do Job Manager que se destina a modificar, adicionando a lógica para dividir os seus empregos em diferentes tarefas. Se quiser modificar uma secção diferente do modelo, certifique-se de que está familiarizado com o funcionamento do Lote e experimente algumas das [amostras][github_samples]de código do Lote .
+> A secção anotada no método é a única secção do código de modelo do `Split()` Job Manager que se destina a modificar, adicionando a lógica para dividir os seus empregos em diferentes tarefas. Se quiser modificar uma secção diferente do modelo, certifique-se de que está familiarizado com o funcionamento do Lote e experimente algumas das [amostras][github_samples]de código do Lote .
 > 
 > 
 
 A sua implementação split tem acesso a:
 
-* Os parâmetros de `_parameters` trabalho, através do campo.
-* O objeto CloudJob que representa `_job` o trabalho, através do campo.
-* O objeto CloudTask que representa a `_jobManagerTask` tarefa do gestor de emprego, através do campo.
+* Os parâmetros de trabalho, através do `_parameters` campo.
+* O objeto CloudJob que representa o trabalho, através do `_job` campo.
+* O objeto CloudTask que representa a tarefa do gestor de emprego, através do `_jobManagerTask` campo.
 
-A `Split()` sua implementação não necessita de adicionar tarefas diretamente ao trabalho. Em vez disso, o seu código deve devolver uma sequência de objetos CloudTask, e estes serão adicionados automaticamente ao trabalho pelas classes-quadro que invocam o divisor de trabalho. É comum usar o iterator de`yield return`C#para implementar divisores de trabalho, pois permite que as tarefas comecem a funcionar o mais rapidamente possível, em vez de esperar que todas as tarefas sejam calculadas.
+A sua `Split()` implementação não necessita de adicionar tarefas diretamente ao trabalho. Em vez disso, o seu código deve devolver uma sequência de objetos CloudTask, e estes serão adicionados automaticamente ao trabalho pelas classes-quadro que invocam o divisor de trabalho. É comum usar o iterator de C#para implementar divisores de trabalho, pois permite que as tarefas comecem a funcionar o `yield return` mais rapidamente possível, em vez de esperar que todas as tarefas sejam calculadas.
 
 **Falha de splitter de emprego**
 
 Se o seu separador de trabalho encontrar um erro, deve:
 
-* Terminar a sequência utilizando `yield break` a declaração De C#, caso em que o gestor de emprego será tratado como bem sucedido; ou
+* Terminar á sequência utilizando a declaração De `yield break` C#, caso em que o gestor de emprego será tratado como bem sucedido;
 * Atire uma exceção, caso em que o gestor de emprego será tratado como falhado e poderá ser novamente julgado dependendo da forma como o cliente o configurou).
 
 Em ambos os casos, quaisquer tarefas já devolvidas pelo separador de trabalho e adicionadas ao trabalho do Batch serão elegíveis para executar. Se não queres que isto aconteça, então podes:
 
 * Desabote o emprego antes de voltar do separador de trabalho
-* Formule toda a coleção de tarefas antes de a devolver (isto é, devolva um `ICollection<CloudTask>` ou `IList<CloudTask>` em vez de implementar o seu separador de trabalho utilizando um iterator C#)
+* Formule toda a coleção de tarefas antes de a devolver (isto é, devolva um ou em vez de implementar o seu separador de `ICollection<CloudTask>` trabalho utilizando um `IList<CloudTask>` iterator C#)
 * Use dependências de tarefas para fazer todas as tarefas dependerem da conclusão bem-sucedida do gestor de emprego
 
 **Retenta gerente de emprego**
@@ -223,7 +223,7 @@ Normalmente é seguro para o cliente definir *runExclusive* a **falso**.
 
 O cliente deve utilizar os *recursosFiles* ou *aplicaçãoRecolha De Referências* para que o gestor de emprego seja executável (e os seus DLLs necessários) implantados no nó computacional.
 
-Por defeito, o gestor de emprego não será novamente julgado se falhar. Dependendo da lógica do gestor de emprego, o cliente pode querer permitir repetições através de *restrições*/*maxTaskRetryCount*.
+Por defeito, o gestor de emprego não será novamente julgado se falhar. Dependendo da lógica do gestor de emprego, o cliente pode querer permitir repetições através de *restrições* / *maxTaskRetryCount*.
 
 **Definições da tarefa**
 
@@ -345,9 +345,9 @@ O método Run é responsável pelo lançamento da linha de comando, iniciando um
 
 A sua implementação tem acesso a:
 
-* Os parâmetros de `_parameters` tarefa, através do campo.
-* O trabalho e as tarefas ids, através dos `_jobId` campos e campos. `_taskId`
-* A configuração da `_configuration` tarefa, através do campo.
+* Os parâmetros de tarefa, através do `_parameters` campo.
+* O trabalho e as tarefas ids, através dos `_jobId` campos e `_taskId` campos.
+* A configuração da tarefa, através do `_configuration` campo.
 
 **Falha de tarefa**
 
@@ -361,7 +361,7 @@ Uma tarefa de processador de tarefas que é implementada com o modelo do Process
 | Código | Descrição |
 | --- | --- |
 | [Processo.Código de saída][process_exitcode] |O processador de tarefas correu para a conclusão. Note que isso não implica que o programa que invocou tenha sido bem sucedido – apenas que o processador de tarefas o invocou com sucesso e realizou qualquer pós-processamento sem exceções. O significado do código de saída depende do programa invocado – normalmente sair do código 0 significa que o programa foi bem sucedido e qualquer outro código de saída significa que o programa falhou. |
-| 1 |O processador de tarefas falhou com uma exceção numa parte 'esperada' do programa. A exceção foi `TaskProcessorException` traduzida para um com informação de diagnóstico e, sempre que possível, sugestões para resolver a falha. |
+| 1 |O processador de tarefas falhou com uma exceção numa parte 'esperada' do programa. A exceção foi traduzida para um `TaskProcessorException` com informação de diagnóstico e, sempre que possível, sugestões para resolver a falha. |
 | 2 |O processador de tarefas falhou com uma exceção "inesperada". A exceção foi registada à saída padrão, mas o processador de tarefas não foi capaz de adicionar qualquer informação adicional de diagnóstico ou reparação. |
 
 > [!NOTE]
@@ -383,7 +383,7 @@ job.CommonEnvironmentSettings = new [] {
 };
 ```
 
-A conta de armazenamento está então `_configuration.StorageAccount` disponível na classe TaskProcessor através da propriedade.
+A conta de armazenamento está então disponível na classe TaskProcessor através da `_configuration.StorageAccount` propriedade.
 
 Se preferir utilizar um URL de recipiente com SAS, também pode passá-lo através de uma configuração ambiente comum de trabalho, mas o modelo do processador de tarefas não inclui atualmente suporte incorporado para isso.
 
@@ -399,15 +399,15 @@ Um cliente pode passar informações para a tarefa do gestor de emprego sob a fo
 * URL de conta de lote
 * Chave da conta do lote
 
-O serviço Batch tem um mecanismo simples para passar as `EnvironmentSettings` definições ambientais para uma tarefa de gestor de emprego, utilizando a propriedade em [Microsoft.Azure.Batch.JobManagerTask][net_jobmanagertask].
+O serviço Batch tem um mecanismo simples para passar as definições ambientais para uma tarefa de gestor de emprego, utilizando a `EnvironmentSettings` propriedade em [Microsoft.Azure.Batch.JobManagerTask][net_jobmanagertask].
 
-Por exemplo, para `BatchClient` obter a instância de uma conta Batch, você pode passar como variáveis ambientais do código do cliente o URL e credenciais-chave partilhadas para a conta Batch. Da mesma forma, para aceder à conta de armazenamento que está ligada à conta 'Lote', pode passar o nome da conta de armazenamento e a chave da conta de armazenamento como variáveis ambientais.
+Por exemplo, para obter a `BatchClient` instância de uma conta Batch, você pode passar como variáveis ambientais do código do cliente o URL e credenciais-chave partilhadas para a conta Batch. Da mesma forma, para aceder à conta de armazenamento que está ligada à conta 'Lote', pode passar o nome da conta de armazenamento e a chave da conta de armazenamento como variáveis ambientais.
 
 ### <a name="pass-parameters-to-the-job-manager-template"></a>Passar parâmetros para o modelo de Gestor de Emprego
-Em muitos casos, é útil passar parâmetros por trabalho para a tarefa de gestor de emprego, quer para controlar o processo de divisão de trabalho, quer para configurar as tarefas para o trabalho. Pode fazê-lo enviando um ficheiro JSON chamado parâmetros.json como um ficheiro de recursos para a tarefa do gestor de emprego. Os parâmetros podem então `JobSplitter._parameters` ficar disponíveis no campo no modelo do Gestor de Emprego.
+Em muitos casos, é útil passar parâmetros por trabalho para a tarefa de gestor de emprego, quer para controlar o processo de divisão de trabalho, quer para configurar as tarefas para o trabalho. Pode fazê-lo enviando um ficheiro JSON chamado parâmetros.json como um ficheiro de recursos para a tarefa do gestor de emprego. Os parâmetros podem então ficar disponíveis no campo no modelo do Gestor de `JobSplitter._parameters` Emprego.
 
 > [!NOTE]
-> O manipulador de parâmetros incorporado suporta apenas dicionários de cordas a cordas. Se quiser passar valores complexos de JSON como valores de parâmetros, terá de os passar como cordas `Configuration.GetJobParameters` e analisá-los no separador de trabalho, ou modificar o método do quadro.
+> O manipulador de parâmetros incorporado suporta apenas dicionários de cordas a cordas. Se quiser passar valores complexos de JSON como valores de parâmetros, terá de os passar como cordas e analisá-los no separador de trabalho, ou modificar o método do `Configuration.GetJobParameters` quadro.
 > 
 > 
 
@@ -416,15 +416,15 @@ Também pode passar parâmetros para tarefas individuais implementadas utilizand
 
 parâmetros.json, e se encontrá-lo carrega-lo como o dicionário de parâmetros. Existem algumas opções para como passar parâmetros para as tarefas do processador de tarefas:
 
-* Reutilizar os parâmetros de trabalho JSON. Isto funciona bem se os únicos parâmetros forem os de toda a obra (por exemplo, uma altura e largura de renderização). Para tal, ao criar uma CloudTask no separador de trabalho, adicione uma referência ao objeto de ficheiro de`JobSplitter._jobManagerTask.ResourceFiles`recursos dos parâmetros.json dos Recursos Ficheiros de Recursos () do gestor de trabalho para a coleção de Recursos Ficheiros da CloudTask.
+* Reutilizar os parâmetros de trabalho JSON. Isto funciona bem se os únicos parâmetros forem os de toda a obra (por exemplo, uma altura e largura de renderização). Para tal, ao criar uma CloudTask no separador de trabalho, adicione uma referência ao objeto de ficheiro de recursos dos parâmetros.json dos Recursos Ficheiros de Recursos () do gestor de trabalho para a coleção de `JobSplitter._jobManagerTask.ResourceFiles` Recursos Ficheiros da CloudTask.
 * Gere e carregue um documento de parâmetros específicos da tarefa.json como parte da execução de splitter de trabalho, e referência que blob na coleção de ficheiros de recursos da tarefa. Isto é necessário se diferentes tarefas tiverem parâmetros diferentes. Um exemplo pode ser um cenário de renderização 3D onde o índice de quadros é passado para a tarefa como parâmetro.
 
 > [!NOTE]
-> O manipulador de parâmetros incorporado suporta apenas dicionários de cordas a cordas. Se quiser passar valores complexos de JSON como valores de parâmetros, terá de os passar como `Configuration.GetTaskParameters` cordas e analisá-los no processador de tarefas, ou modificar o método do quadro.
+> O manipulador de parâmetros incorporado suporta apenas dicionários de cordas a cordas. Se quiser passar valores complexos de JSON como valores de parâmetros, terá de os passar como cordas e analisá-los no processador de tarefas, ou modificar o método do `Configuration.GetTaskParameters` quadro.
 > 
 > 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 ### <a name="persist-job-and-task-output-to-azure-storage"></a>Persistir na produção de trabalho e tarefa sintetizar para o Armazenamento Azure
 Outra ferramenta útil no desenvolvimento da solução de lote é as Convenções de [Ficheiros de Lote Azure][nuget_package]. Utilize esta biblioteca de classe .NET (atualmente em pré-visualização) nas suas aplicações Batch .NET para armazenar e recuperar facilmente as saídas de tarefas de e para o Armazenamento Azure. O trabalho e a saída de tarefas do [Lote Azure Persist](batch-task-output.md) contêm uma discussão completa sobre a biblioteca e a sua utilização.
 

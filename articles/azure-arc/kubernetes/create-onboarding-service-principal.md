@@ -8,23 +8,20 @@ author: mlearned
 ms.author: mlearned
 description: 'Criar um Diretor de Serviço de Embarque ativado por Arco Azure '
 keywords: Kubernetes, Arc, Azure, contentores
-ms.openlocfilehash: f9f750980d8a8b5d8190ba0b399fe068f1dd99c7
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 3c95c6bb85c7c1bc097b7751a560a658863c0afd
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680792"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725606"
 ---
 # <a name="create-an-azure-arc-enabled-onboarding-service-principal-preview"></a>Criar um diretor de serviço de embarque ativado por Arco Azul (Pré-visualização)
 
 ## <a name="overview"></a>Descrição geral
 
-Quando um cluster está a bordo do Azure, os agentes que correm no seu cluster devem autenticar o Gestor de Recursos Azure como parte do registo. A `connectedk8s` extensão Azure CLI tem criação automatizada de principais de serviço. No entanto, pode haver alguns cenários em que a automatização cli não funcione:
+É possível utilizar os principais de serviços que têm uma atribuição de funções com privilégios limitados para embarcar em clusters Kubernetes para o Azure Arc. Isto é útil na integração contínua e na implantação contínua de oleodutos (CI/CD) como os Oleodutos Azure e as Ações GitHub.
 
-* A sua organização geralmente restringe a criação de Diretores de Serviços
-* O utilizador que está a embarcar no cluster não tem permissões suficientes para criar Diretores de Serviço
-
-Em vez disso, vamos criar o Diretor de Serviço fora da banda, e depois passar o diretor para a extensão Azure CLI.
+Os seguintes passos proporcionam uma passagem pela utilização de diretores de serviço para embarcar em clusters Kubernetes para Azure Arc.
 
 ## <a name="create-a-new-service-principal"></a>Criar um novo Diretor de Serviço
 
@@ -63,7 +60,7 @@ As permissões podem ser ainda limitadas através da aprovação do argumento ad
 az role assignment create \
     --role 34e09817-6cbe-4d01-b1a2-e0eac5743d41 \      # this is the id for the built-in role
     --assignee 22cc2695-54b9-49c1-9a73-2269592103d8 \  # use the appId from the new SP
-    --scope /subscriptions/<<SUBSCRIPTION_ID>>         # apply the apropriate scope
+    --scope /subscriptions/<<SUBSCRIPTION_ID>>         # apply the appropriate scope
 ```
 
 **Saída:**
@@ -90,6 +87,6 @@ az login --service-principal -u mySpnClientId -p mySpnClientSecret --tenant myTe
 az connectedk8s connect -n myConnectedClusterName -g myResoureGroupName
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Use a Política Azure para governar a configuração do cluster](./use-azure-policy.md)

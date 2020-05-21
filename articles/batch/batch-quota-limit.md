@@ -1,15 +1,15 @@
 ---
 title: Quotas e limites do serviço
 description: Conheça as quotas, limites e constrangimentos do Lote Azure padrão, e como solicitar aumentos de quota
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: a901d54ea584ec67bfa679e9cdc716ab27d45eca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f47f2df38a601c6359ed257a9787130ea95d2ac8
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115827"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726575"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quotas e limites do serviço Batch
 
@@ -80,14 +80,14 @@ Siga estes passos para solicitar um aumento de quota para a sua conta Batch ou a
 ### <a name="increase-cores-quota-in-batch"></a>Aumentar a quota de núcleos em Lote 
 
 1. Selecione o azulejo **de suporte Help +** no seu portal dashboard, ou o ponto de interrogação (**?**) no canto superior direito do portal.
-1. Selecione **Novo pedido** > de suporte**Básicos**.
+1. Selecione **Novo pedido**de suporte  >  **Básicos**.
 1. No **Básico:**
    
-    a. **Serviço de tipo** > de**emissão e limites de subscrição (quotas)**
+    a. **Tipo de**  >  emissão **Limites de serviço e subscrição (quotas)**
    
     b. Selecione a sua subscrição.
    
-    c. **Lote tipo** > **Batch** quota
+    c. **Tipo de**  >  quota **Lote**
       
     Selecione **Seguinte**.
     

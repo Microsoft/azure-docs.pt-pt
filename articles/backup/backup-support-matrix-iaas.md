@@ -3,12 +3,12 @@ title: Matriz de suporte da cópia de segurança de uma VM do Azure
 description: Fornece um resumo das definições de suporte e limitações ao apoiar os VMs Azure com o serviço de backup Azure.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 8ac2896b0b3b8c87ff993eddcebb063a66add1fa
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 01c81257ab2cc9882ec1d388702a00f58694a7e4
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659400"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83724263"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte da cópia de segurança de uma VM do Azure
 
@@ -48,7 +48,7 @@ Volte a subir os discos após migrar para discos geridos | Suportado.<br/><br/> 
 Back up gerido discos após ativar bloqueio de grupo de recursos | Não suportado.<br/><br/> O Azure Backup não pode eliminar os pontos de restauro mais antigos, e as cópias de segurança começarão a falhar quando o limite máximo dos pontos de restauro for atingido.
 Modificar a política de backup para um VM | Suportado.<br/><br/> O VM será apoiado utilizando as definições de horário e retenção em nova política. Se as definições de retenção forem estendidas, os pontos de recuperação existentes são marcados e mantidos. Se forem reduzidos, os pontos de recuperação existentes serão podados no próximo trabalho de limpeza e eventualmente eliminados.
 Cancele um trabalho de reserva| Suportado durante o processo de instantâneo.<br/><br/> Não suportado quando a foto está sendo transferida para o cofre.
-Apoiar o VM para uma região ou subscrição diferente |Não suportado.
+Apoiar o VM para uma região ou subscrição diferente |Não suportado.<br><br>Para fazer backup com sucesso, as máquinas virtuais devem estar na mesma subscrição que o cofre para cópia de segurança.
 Backups por dia (através da extensão Azure VM) | Um reforço programado por dia.<br/><br/>O serviço De backup Azure suporta até nove backups a pedido por dia, mas a Microsoft recomenda não mais do que quatro backups diários a pedido para garantir o melhor desempenho.
 Backups por dia (através do agente MARS) | Três reforços programados por dia.
 Backups por dia (via DPM/MABS) | Dois reforços programados por dia.

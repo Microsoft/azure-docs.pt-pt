@@ -4,12 +4,12 @@ description: Visão geral do Serviço Azure Blockchain
 ms.date: 03/30/2020
 ms.topic: overview
 ms.reviewer: ravastra
-ms.openlocfilehash: 821bac0da13209e5126f5bab109aa0895ade840a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f70eaa0decc3d94e7bebf10a9105d32d99131398
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80529147"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715584"
 ---
 # <a name="what-is-azure-blockchain-service"></a>O que é o Azure Blockchain Service?
 
@@ -75,11 +75,11 @@ Para fornecer feedback do produto ou para solicitar novas funcionalidades, poste
 
 Envolva-se com engenheiros da Microsoft e especialistas da comunidade Azure Blockchain.
 
-* [Fórum Azure Blockchain MSDN](https://social.msdn.microsoft.com/Forums/home?forum=azureblockchain)
+* [Azure Blockchain Q&Um fórum](https://docs.microsoft.com/answers/topics/azure-blockchain-service.html)
 * [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/AzureBlockchainService)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para começar, tente um arranque rápido ou descubra mais detalhes destes recursos.
 * [Crie um membro blockchain usando o portal Azure](create-member.md) ou [crie um membro blockchain usando o Azure CLI](create-member-cli.md)

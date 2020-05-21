@@ -1,14 +1,14 @@
 ---
 title: Partilha de ficheiros Azure para piscinas de Lotes Azure
 description: Como montar uma partilha de Ficheiros Azure a partir de nódos de computação numa piscina linux ou Windows em Azure Batch.
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/24/2018
-ms.openlocfilehash: 666ee6bd0e6287545c107427dffcc9f2ccde900a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0aa8c8f6dcf1114688e6abaf1a17f2e8af6fa4fe
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115453"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83723498"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>Use uma partilha de ficheiros Azure com uma piscina de lote
 
@@ -37,10 +37,10 @@ Esta secção fornece passos e exemplos de código para montar e usar uma partil
 
 No Batch, é necessário montar a parte sempre que uma tarefa é executada num nó windows. Atualmente, não é possível persistir a ligação de rede entre tarefas em nós do Windows.
 
-Por exemplo, `net use` inclua um comando para montar a partilha de ficheiros como parte de cada linha de comando de tarefa. Para montar a parte do ficheiro, são necessárias as seguintes credenciais:
+Por exemplo, inclua um `net use` comando para montar a partilha de ficheiros como parte de cada linha de comando de tarefa. Para montar a parte do ficheiro, são necessárias as seguintes credenciais:
 
-* **Nome do**utilizador\\\<:\>nome da conta\\de armazenamento AZURE, por exemplo, nome de*conta de armazenamento AZURE*
-* **Password** \<: StorageAccountKeyWhichEnds in==>, por exemplo, *XXXXXXXXXXXXXXXXXX==*
+* **Nome do utilizador**: nome da conta de armazenamento AZURE, por exemplo, nome de \\ \< conta de \> armazenamento \\ *AZURE*
+* **Palavra-passe:** \< StorageAccountKeyWhichEnds in==>, por exemplo, *XXXXXXXXXXXXXXXXXX==*
 
 O seguinte comando monta um ficheiro partilhar *myfileshare* na conta *de armazenamento mystorage accountname* como *s:* drive: drive:
 
@@ -52,14 +52,14 @@ Para a simplicidade, os exemplos aqui passam as credenciais diretamente em texto
 
 Para simplificar o funcionamento do suporte, persistir opcionalmente as credenciais nos nós. Depois, podes montar a parte sem credenciais. Executar os seguintes dois passos:
 
-1. Executar `cmdkey` o utilitário da linha de comando utilizando uma tarefa de início na configuração da piscina. Isto persiste as credenciais em cada nó do Windows. A linha de comando de tarefa inicial é semelhante a:
+1. Executar o `cmdkey` utilitário da linha de comando utilizando uma tarefa de início na configuração da piscina. Isto persiste as credenciais em cada nó do Windows. A linha de comando de tarefa inicial é semelhante a:
 
    ```
    cmd /c "cmdkey /add:mystorageaccountname.file.core.windows.net /user:AZURE\mystorageaccountname /pass:XXXXXXXXXXXXXXXXXXXXX=="
 
    ```
 
-2. Monte a parte em cada nó como `net use`parte de cada tarefa utilizando . Por exemplo, a seguinte linha de comando de tarefa saque a parte do ficheiro como o *S:* unidade. Isto seria seguido por um comando ou script que referencia a parte. As credenciais em cache `net use`são usadas na chamada para . Este passo pressupõe que está a usar a mesma identidade de utilizador para as tarefas que utilizou na tarefa inicial na piscina, o que não é apropriado para todos os cenários.
+2. Monte a parte em cada nó como parte de cada tarefa utilizando `net use` . Por exemplo, a seguinte linha de comando de tarefa saque a parte do ficheiro como o *S:* unidade. Isto seria seguido por um comando ou script que referencia a parte. As credenciais em cache são usadas na chamada para `net use` . Este passo pressupõe que está a usar a mesma identidade de utilizador para as tarefas que utilizou na tarefa inicial na piscina, o que não é apropriado para todos os cenários.
 
    ```
    cmd /c "net use S: \\mystorageaccountname.file.core.windows.net\myfileshare" 
@@ -90,7 +90,7 @@ pool.StartTask = new StartTask
 pool.Commit();
 ```
 
-Depois de armazenar as credenciais, utilize as linhas de comando de tarefa seleção para montar a parte e fazer referência à parte nas operações de leitura ou escrita. Como exemplo básico, a linha de comando de `dir` tarefas no seguinte corte utiliza o comando para listar ficheiros na partilha de ficheiros. Certifique-se de executar cada tarefa de trabalho utilizando a mesma identidade de [utilizador](batch-user-accounts.md) que usou para executar a tarefa inicial na piscina. 
+Depois de armazenar as credenciais, utilize as linhas de comando de tarefa seleção para montar a parte e fazer referência à parte nas operações de leitura ou escrita. Como exemplo básico, a linha de comando de tarefas no seguinte corte utiliza o `dir` comando para listar ficheiros na partilha de ficheiros. Certifique-se de executar cada tarefa de trabalho utilizando a mesma identidade de [utilizador](batch-user-accounts.md) que usou para executar a tarefa inicial na piscina. 
 
 ```csharp
 ...
@@ -108,16 +108,16 @@ tasks.Add(task);
 
 As ações de ficheiros Azure podem ser montadas nas distribuições linux utilizando o [cliente kernel CIFS](https://wiki.samba.org/index.php/LinuxCIFS). O exemplo seguinte mostra como montar uma partilha de ficheiros numa piscina de nódos os nomes de cálculo ubuntu 16.04 LTS. Se utilizar uma distribuição linux diferente, os passos gerais são semelhantes, mas use o gestor de pacotes apropriado para a distribuição. Para mais detalhes e exemplos adicionais, consulte [Use Azure Files com Linux](../storage/files/storage-how-to-use-files-linux.md).
 
-Em primeiro lugar, sob uma `cifs-utils` identidade de utilizador administrador, instale o pacote e crie o ponto de montagem (por exemplo, */mnt/MyAzureFileShare)* no sistema de ficheiros local. Uma pasta para um ponto de montagem pode ser criada em qualquer lugar `/mnt` do sistema de ficheiros, mas é uma convenção comum para criar isto sob a pasta. Certifique-se de não criar um `/mnt` ponto de montagem `/mnt/resource` diretamente em Ubuntu ou (em outras distribuições).
+Em primeiro lugar, sob uma identidade de utilizador administrador, instale o pacote e crie o ponto de `cifs-utils` montagem (por exemplo, */mnt/MyAzureFileShare)* no sistema de ficheiros local. Uma pasta para um ponto de montagem pode ser criada em qualquer lugar do sistema de ficheiros, mas é uma convenção comum para criar isto sob a `/mnt` pasta. Certifique-se de não criar um ponto de montagem diretamente em `/mnt` Ubuntu ou `/mnt/resource` (em outras distribuições).
 
 ```
 apt-get update && apt-get install cifs-utils && sudo mkdir -p /mnt/MyAzureFileShare
 ```
 
-Em seguida, `mount` executar o comando para montar a parte do ficheiro, fornecendo estas credenciais:
+Em seguida, executar o `mount` comando para montar a parte do ficheiro, fornecendo estas credenciais:
 
-* **Nome**do \<utilizador\>: nome da conta de armazenamento, por exemplo, nome de *conta mystorage*
-* **Password** \<: StorageAccountKeyWhichEnds in==>, por exemplo, *XXXXXXXXXXXXXXXXXX==*
+* **Nome do utilizador**: \< nome da conta de \> armazenamento, por exemplo, nome de conta *mystorage*
+* **Palavra-passe:** \< StorageAccountKeyWhichEnds in==>, por exemplo, *XXXXXXXXXXXXXXXXXX==*
 
 O comando seguinte monta um ficheiro partilhar *myfileshare* na conta de armazenamento *mystorageaccount name* at */mnt/MyAzureFileShare*: 
 
@@ -158,7 +158,7 @@ pool = batch.models.PoolAddParameter(
 batch_service_client.pool.add(pool)
 ```
 
-Depois de montar a parte e definir um trabalho, use a parte nas linhas de comando de tarefa. Por exemplo, o seguinte `ls` comando básico utiliza-se para listar ficheiros na partilha de ficheiros.
+Depois de montar a parte e definir um trabalho, use a parte nas linhas de comando de tarefa. Por exemplo, o seguinte comando básico `ls` utiliza-se para listar ficheiros na partilha de ficheiros.
 
 ```python
 ...
@@ -170,7 +170,7 @@ batch_service_client.task.add(job_id, task)
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para outras opções para ler e escrever dados em Batch, consulte a visão geral da [funcionalidade do Lote](batch-api-basics.md) e persista a saída de trabalho e [tarefas](batch-task-output.md).
 

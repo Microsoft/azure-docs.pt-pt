@@ -1,5 +1,5 @@
 ---
-title: Criar uma oferta de máquina virtual Azure no Azure Marketplace
+title: Criar uma oferta de Máquina Virtual Azure no Azure Marketplace
 description: Aprenda a criar uma oferta de máquina virtual no Azure Marketplace com o SKU necessário.
 author: emuench
 ms.author: mingshen
@@ -7,19 +7,16 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 25b7a619f6d3e308de966ead5925133f6094d9c8
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: ab41d3619150ace8e55702792d5974060133d5c1
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701087"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726184"
 ---
-# <a name="create-an-azure-virtual-machine-offer-in-the-azure-marketplace"></a>Criar uma oferta de máquina virtual Azure no Azure Marketplace
+# <a name="create-an-azure-virtual-machine-offer-in-azure-marketplace"></a>Criar uma oferta de Máquina Virtual Azure no Azure Marketplace
 
-> [!IMPORTANT]
-> Estamos a mover a gestão das suas ofertas Azure VM do Cloud Partner Portal para partner Center. Até que as suas ofertas sejam migradas, por favor continue a seguir as instruções na [oferta da Create Virtual Machine](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-offer) no Portal do Parceiro cloud para gerir as suas ofertas.
-
-Este artigo descreve como criar e publicar uma oferta de máquina virtual Azure ao [Azure Marketplace.](https://azuremarketplace.microsoft.com/) Dirige-se a máquinas virtuais baseadas no Windows e linux que contêm um sistema operativo, disco rígido virtual (VHD) e até 16 discos de dados. Antes de começar, [Crie uma conta de Marketplace Comercial no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) se ainda não o fez. Certifique-se de que a sua conta está inscrita no programa de marketplace comercial.
+Este artigo descreve como criar e publicar uma oferta de Máquina Virtual Azure ao [Azure Marketplace.](https://azuremarketplace.microsoft.com/) Dirige-se a máquinas virtuais baseadas no Windows e linux que contêm um sistema operativo, disco rígido virtual (VHD) e até 16 discos de dados. Antes de começar, [Crie uma conta de Marketplace Comercial no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) se ainda não o fez. Certifique-se de que a sua conta está inscrita no programa de marketplace comercial.
 
 ## <a name="introduction"></a>Introdução
 
@@ -34,12 +31,12 @@ A publicação no Azure Marketplace tem os seguintes benefícios:
 
 ### <a name="before-you-begin"></a>Antes de começar
 
-Se ainda não o fez, reveja a oferta da [máquina Virtual](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) e este material de máquina virtual Azure:
+Se ainda não o fez, reveja a oferta da [máquina Virtual](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) e este material azure virtual machine:
 
 - Guias quickstart
   - [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/)
   - [Modelos GitHub Azure Quickstart](https://github.com/azure/azure-quickstart-templates)
-- Tutorials (Tutoriais)
+- Tutoriais
   - [VMs do Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
   - [VMs do Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
 - Amostras
@@ -226,7 +223,7 @@ Forneça o site de suporte onde os clientes podem chegar à sua equipa de suport
 Forneça informações de contacto para os parceiros da Microsoft usarem quando os seus clientes abrirem um bilhete de suporte. Isto não será listado no mercado.
 
 - Name
-- Email
+- E-mail
 - Telefone
 
 ### <a name="engineering-contact"></a>Contacto de engenharia
@@ -234,7 +231,7 @@ Forneça informações de contacto para os parceiros da Microsoft usarem quando 
 Forneça informações de contacto para a Microsoft usar quando houver problemas com a sua oferta, incluindo problemas com certificação. Isto não será listado no mercado.
 
 - Name
-- Email
+- E-mail
 - Telefone
 
 ### <a name="marketplace-media"></a>Meios de comunicação do mercado
