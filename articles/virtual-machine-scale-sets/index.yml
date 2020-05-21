@@ -10,12 +10,12 @@ metadata:
   ms.author: jushiman
   ms.reviewer: mimckitt
   ms.date: 03/16/2020
-  ms.openlocfilehash: d5cb11bfc45a3d5fa91b242143b025e11c25b3d2
-  ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+  ms.openlocfilehash: 8eff3979088aecf5ea8ed0383a1af8ad0d71c21d
+  ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 05/12/2020
-  ms.locfileid: "83197554"
+  ms.lasthandoff: 05/20/2020
+  ms.locfileid: "83701336"
 landingContent:
 - title: Sobre os conjuntos de dimensionamento de máquinas virtuais
   linkLists:
@@ -69,14 +69,6 @@ landingContent:
       url: tutorial-autoscale-cli.md
     - text: Dimensionar automaticamente um conjunto de dimensionamento com o Azure PowerShell
       url: tutorial-autoscale-powershell.md
-- title: Amostras
-  linkLists:
-  - linkListType: sample
-    links:
-    - text: Implementação de exemplo para conjuntos de dimensionamento de máquinas virtuais com a CLI do Azure
-      url: cli-samples.md
-    - text: Implementação de exemplo para conjuntos de dimensionamento de máquinas virtuais com o Azure PowerShell
-      url: powershell-samples.md
 - title: Formação personalizada
   linkLists:
   - linkListType: learn

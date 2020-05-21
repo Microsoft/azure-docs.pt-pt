@@ -4,18 +4,17 @@ summary: O Azure Batch executa aplicações de grande escala com eficiência na 
 metadata:
   title: Documentação do Azure Batch
   description: O Azure Batch executa aplicações de grande escala com eficiência na cloud. Agende tarefas de computação intensiva e ajuste recursos de forma dinâmica para a sua solução sem ter de gerir infraestrutura.
-  services: batch
   ms.service: batch
   ms.topic: landing-page
-  author: LauraBrenner
-  ms.author: labrenne
+  author: JnHs
+  ms.author: jenhayes
   ms.date: 09/23/2019
-  ms.openlocfilehash: d44ef419ec93e890ac1f8696d3ee45aadd3cd26f
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 72c72d8125d9d7d4e3f3e00ad0ee8d99acd501c0
+  ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "77026069"
+  ms.lasthandoff: 05/21/2020
+  ms.locfileid: "83725708"
 landingContent:
 - title: Acerca do Azure Batch
   linkLists:

@@ -338,6 +338,24 @@ groups:
     title: JavaScript
   - id: programming-language-more
     title: Mais linguagens...
+- id: programming-languages-set-two-with-js-spx
+  title: Linguagens de programação
+  prompt: Escolher uma linguagem de programação
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programmer-tool-spx
+    title: SPX
+  - id: programming-language-more
+    title: Mais linguagens...
 - id: programming-languages-set-two-with-js-go
   title: Linguagens de programação
   prompt: Escolher uma linguagem de programação
@@ -352,6 +370,26 @@ groups:
     title: Python
   - id: programming-language-javascript
     title: JavaScript
+  - id: programming-language-go
+    title: Ir
+  - id: programming-language-more
+    title: Mais linguagens...
+- id: programming-languages-set-two-with-js-go-spx
+  title: Linguagens de programação
+  prompt: Escolher uma linguagem de programação
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programmer-tool-spx
+    title: SPX
   - id: programming-language-go
     title: Ir
   - id: programming-language-more
@@ -402,10 +440,24 @@ groups:
     title: JavaScript
   - id: programming-language-objectivec
     title: Objective-C
+- id: programming-languages-set-nineteen
+  title: Linguagens de programação
+  prompt: Escolher uma linguagem de programação
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-objectivec
+    title: Objective-C
 metadata:
-  ms.openlocfilehash: da1e4c0150749cf17b36e6f1a69b76666895f5ab
-  ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+  ms.openlocfilehash: 031ae809e8497d3f43a0337df6f89e0fcca974a3
+  ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 05/08/2020
-  ms.locfileid: "82981817"
+  ms.lasthandoff: 05/20/2020
+  ms.locfileid: "83714955"

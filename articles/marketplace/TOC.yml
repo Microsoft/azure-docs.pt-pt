@@ -202,26 +202,6 @@
           href: ./cloud-partner-portal/consulting-services/consulting-services-offer.md
         - name: Oferta de contentores
           href: ./cloud-partner-portal/containers/cpp-containers-offer.md
-          items:
-            - name: Pré-requisitos
-              href: ./cloud-partner-portal/containers/cpp-prerequisites.md
-            - name: Criar oferta de contentor
-              href: ./cloud-partner-portal/containers/cpp-create-offer.md
-              items:
-                - name: Separador Definições de Oferta
-                  href: ./cloud-partner-portal/containers/cpp-offer-settings-tab.md
-                - name: Separador de SKUs
-                  href: ./cloud-partner-portal/containers/cpp-skus-tab.md
-                - name: Separador Marketplace
-                  href: ./cloud-partner-portal/containers/cpp-marketplace-tab.md
-                - name: Separador Suporte
-                  href: ./cloud-partner-portal/containers/cpp-support-tab.md
-            - name: Criar recursos técnicos de contentor
-              href: ./cloud-partner-portal/containers/cpp-create-technical-assets.md
-            - name: Publicar oferta de contentor
-              href: ./cloud-partner-portal/containers/cpp-publish-offer.md
-            - name: Atualizar oferta existente
-              href: ./cloud-partner-portal/containers/cpp-update-existing-offer.md
         - name: Oferta do Dynamics 365 for Business Central
           href: ./cloud-partner-portal-orig/cpp-business-central-offer.md
           items:

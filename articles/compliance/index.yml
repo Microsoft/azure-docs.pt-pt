@@ -14,12 +14,12 @@ metadata:
   ms.author: terrylan
   manager: rkarlin
   ms.date: 05/06/2020
-  ms.openlocfilehash: 38ab01655e55e3bb623ae2f0ba4685ba7464fa69
-  ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+  ms.openlocfilehash: 0cf23d39aa350b18aa1db338626465a7f2512fda
+  ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 05/06/2020
-  ms.locfileid: "82871137"
+  ms.lasthandoff: 05/19/2020
+  ms.locfileid: "83658340"
 conceptualContent:
   title: Ofertas de conformidade
   items:
@@ -205,9 +205,6 @@ conceptualContent:
     - url: https://docs.microsoft.com/microsoft-365/compliance/offering-nen-7510-netherlands
       itemType: concept
       text: NEN 7510 (Países Baixos)
-    - url: https://docs.microsoft.com/microsoft-365/compliance/offering-nhs-ig-toolkit-uk
-      itemType: concept
-      text: NHS IG Toolkit (Reino Unido)
   - title: Multimédia e fabrico
     links:
     - url: https://docs.microsoft.com/microsoft-365/compliance/offering-cdsa

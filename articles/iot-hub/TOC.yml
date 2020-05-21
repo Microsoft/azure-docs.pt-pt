@@ -81,6 +81,11 @@
       href: tutorial-firmware-update.md
     - name: Conectividade do dispositivo de teste
       href: tutorial-connectivity.md
+- name: Amostras
+  items:
+    - name: Incorporações do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Conceitos
   items:
     - name: Suporte de TLS

@@ -16,7 +16,7 @@
   expanded: true
   items:
     - name: Criar um cluster privado do Azure Red Hat OpenShift 4
-      href: create-private-cluster.md
+      href: howto-create-private-cluster-4x.md
     - name: Configurar o reencaminhamento de DNS para um cluster do Azure Red Hat OpenShift 4
       href: dns-forwarding.md
     - name: Configurar a autenticação do Azure Active Directory para um cluster do Azure Red Hat OpenShift 4
@@ -48,7 +48,7 @@
         - name: Gerir projetos num cluster do Azure Red Hat OpenShift 3.11
           href: howto-manage-projects.md
         - name: Criar um cluster privado do Azure Red Hat OpenShift 3.11
-          href: howto-create-private-cluster.md
+          href: howto-create-private-cluster-3x.md
         - name: Monitorização e registos do Azure Red Hat OpenShift 3.11
           items:
             - name: Azure Monitor para Contentores no Azure Red Hat OpenShift 3.11 (pré-visualização)
