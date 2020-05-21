@@ -152,7 +152,7 @@ Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
    1. No campo **Nome**, introduza `B.Simon`.  
-   1. No campo de nome username@companydomain.extensiondo **Utilizador,** introduza o . Por exemplo, `B.Simon@contoso.com`.
+   1. No campo de **nome do Utilizador,** introduza o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa de verificação de **palavra-passe do Show** e, em seguida, escreva o valor que está apresentado na caixa **password.**
    1. Clique em **Criar**.
 
@@ -176,7 +176,7 @@ Nesta secção, permitirá que a B.Simon utilize um único sign-on azure, conced
 
 ## <a name="configure-sap-cloud-platform-identity-authentication-sso"></a>Configure SSO de autenticação de identidade da plataforma de nuvem SAP
 
-1. Para obter O SSO configurado para a sua aplicação, vá à consola de autenticação de identidade da Plataforma SAP Cloud. O URL tem o `https://<tenant-id>.accounts.ondemand.com/admin`seguinte padrão: . Em seguida, leia a documentação sobre a autenticação de identidade da plataforma SAP Cloud em integração com o [Microsoft Azure AD](https://developers.sap.com/tutorials/cp-ias-azure-ad.html).
+1. Para obter O SSO configurado para a sua aplicação, vá à consola de autenticação de identidade da Plataforma SAP Cloud. O URL tem o seguinte padrão: `https://<tenant-id>.accounts.ondemand.com/admin` . Em seguida, leia a documentação sobre a autenticação de identidade da plataforma SAP Cloud em integração com o [Microsoft Azure AD](https://developers.sap.com/tutorials/cp-ias-azure-ad.html).
 
 2. No portal Azure, selecione o botão **Guardar.**
 

@@ -6,21 +6,21 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/31/2020
+ms.date: 05/18/2020
 ms.author: diberry
-ms.openlocfilehash: 96129b9141b4759fd61b539fa08354f02af3af7b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: b1bf3c0d7c902a048881b5fb75783744214b073e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80151130"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655505"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Compreensão da língua azure - chave de caracteres de recursos 32 e url de ponto final de autor. Criar com o [portal Azure](../luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) ou [Azure CLI](../luis-how-to-azure-subscription.md#create-resources-in-azure-cli).
-* Importar a aplicação [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) do repositório gitHub compreensivo cognitivo-serviços.
-* O ID da aplicação LUIS para a aplicação TravelAgent importada. O ID da aplicação é apresentado no dashboard de aplicações.
-* O ID da versão na aplicação que recebe as expressões. O ID predefinido é "0.1".
+* Importar a app [Pizza](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/pizza-with-machine-learned-entity.json) do `Azure-Samples/cognitive-services-sample-data-files` repositório GitHub.
+* O ID de aplicação LUIS para a app Pizza importada. O ID da aplicação é apresentado no dashboard de aplicações.
+* O ID da versão na aplicação que recebe as expressões.
 * [.NET Core 3.1](https://dotnet.microsoft.com/download)
 * [Visual Studio Code](https://code.visualstudio.com/)
 
@@ -30,18 +30,20 @@ ms.locfileid: "80151130"
 
 ## <a name="change-model-programmatically"></a>Alterar modelo programáticamente
 
-1. Crie uma nova aplicação de consola direcionada para o `model-with-rest`idioma C#, com um nome de projeto e pasta de .
+1. Crie uma nova aplicação de consola direcionada para o idioma C#, com um nome de projeto e pasta de `csharp-model-with-rest` .
 
     ```console
-    dotnet new console -lang C# -n model-with-rest
+    dotnet new console -lang C# -n csharp-model-with-rest
     ```
 
-1. Instale dependências necessárias com os seguintes comandos CLI dotnet.
+1. Mude para o `csharp-model-with-rest` diretório que criou e instale dependências necessárias com estes comandos:
 
     ```console
+    cd csharp-model-with-rest
     dotnet add package System.Net.Http
     dotnet add package JsonFormatterPlus
     ```
+
 1. Substitua Program.cs pelo seguinte código:
 
     ```csharp
@@ -60,20 +62,20 @@ ms.locfileid: "80151130"
     {
         class Program
         {
-            // NOTE: use your LUIS authoring key - 32 character value
-            static string authoringKey = "YOUR-KEY";
-
-            // NOTE: Replace this endpoint with your authoring key endpoint
-            // for example, your-resource-name.api.cognitive.microsoft.com
-            static string endpoint = "YOUR-ENDPOINT";
-
-            // NOTE: Replace this with the ID of your LUIS application
+            // YOUR-APP-ID: The App ID GUID found on the www.luis.ai Application Settings page.
             static string appID = "YOUR-APP-ID";
 
-            // NOTE: Replace this your version number
+            // YOUR-AUTHORING-KEY: Your LUIS authoring key, 32 character value.
+            static string authoringKey = "YOUR-AUTHORING-KEY";
+
+            // YOUR-AUTHORING-ENDPOINT: Replace this endpoint with your authoring key endpoint.
+            // For example, "https://your-resource-name.api.cognitive.microsoft.com/"
+            static string endpoint = "YOUR-AUTHORING-ENDPOINT";
+
+            // NOTE: Replace this your version number.
             static string appVersion = "0.1";
 
-            static string host = String.Format("https://{0}/luis/authoring/v3.0-preview/apps/{1}/versions/{2}/", endpoint, appID, appVersion);
+            static string host = String.Format("{0}luis/authoring/v3.0-preview/apps/{1}/versions/{2}/", endpoint, appID, appVersion);
 
             // GET request with authentication
             async static Task<HttpResponseMessage> SendGet(string uri)
@@ -87,6 +89,7 @@ ms.locfileid: "80151130"
                     return await client.SendAsync(request);
                 }
             }
+
             // POST request with authentication
             async static Task<HttpResponseMessage> SendPost(string uri, string requestBody)
             {
@@ -105,6 +108,7 @@ ms.locfileid: "80151130"
                     return await client.SendAsync(request);
                 }
             }
+
             // Add utterances as string with POST request
             async static Task AddUtterances(string utterances)
             {
@@ -115,6 +119,7 @@ ms.locfileid: "80151130"
                 Console.WriteLine("Added utterances.");
                 Console.WriteLine(JsonFormatter.Format(result));
             }
+
             // Train app after adding utterances
             async static Task Train()
             {
@@ -125,6 +130,7 @@ ms.locfileid: "80151130"
                 Console.WriteLine("Sent training request.");
                 Console.WriteLine(JsonFormatter.Format(result));
             }
+
             // Check status of training
             async static Task Status()
             {
@@ -133,29 +139,88 @@ ms.locfileid: "80151130"
                 Console.WriteLine("Requested training status.");
                 Console.WriteLine(JsonFormatter.Format(result));
             }
+
             // Add utterances, train, check status
             static void Main(string[] args)
             {
                 string utterances = @"
                 [
                     {
-                    'text': 'go to Seattle today',
-                    'intentName': 'BookFlight',
-                    'entityLabels': [
-                        {
-                        'entityName': 'Location::LocationTo',
-                        'startCharIndex': 6,
-                        'endCharIndex': 12
-                        }
-                    ]
+                        'text': 'order a pizza',
+                        'intentName': 'ModifyOrder',
+                        'entityLabels': [
+                            {
+                                'entityName': 'Order',
+                                'startCharIndex': 6,
+                                'endCharIndex': 12
+                            }
+                        ]
                     },
                     {
-                        'text': 'a barking dog is annoying',
-                        'intentName': 'None',
-                        'entityLabels': []
+                        'text': 'order a large pepperoni pizza',
+                        'intentName': 'ModifyOrder',
+                        'entityLabels': [
+                            {
+                                'entityName': 'Order',
+                                'startCharIndex': 6,
+                                'endCharIndex': 28
+                            },
+                            {
+                                'entityName': 'FullPizzaWithModifiers',
+                                'startCharIndex': 6,
+                                'endCharIndex': 28
+                            },
+                            {
+                                'entityName': 'PizzaType',
+                                'startCharIndex': 14,
+                                'endCharIndex': 28
+                            },
+                            {
+                                'entityName': 'Size',
+                                'startCharIndex': 8,
+                                'endCharIndex': 12
+                            }
+                        ]
+                    },
+                    {
+                        'text': 'I want two large pepperoni pizzas on thin crust',
+                        'intentName': 'ModifyOrder',
+                        'entityLabels': [
+                            {
+                                'entityName': 'Order',
+                                'startCharIndex': 7,
+                                'endCharIndex': 46
+                            },
+                            {
+                                'entityName': 'FullPizzaWithModifiers',
+                                'startCharIndex': 7,
+                                'endCharIndex': 46
+                            },
+                            {
+                                'entityName': 'PizzaType',
+                                'startCharIndex': 17,
+                                'endCharIndex': 32
+                            },
+                            {
+                                'entityName': 'Size',
+                                'startCharIndex': 11,
+                                'endCharIndex': 15
+                            },
+                            {
+                                'entityName': 'Quantity',
+                                'startCharIndex': 7,
+                                'endCharIndex': 9
+                            },
+                            {
+                                'entityName': 'Crust',
+                                'startCharIndex': 37,
+                                'endCharIndex': 46
+                            }
+                        ]
                     }
                 ]
                 ";
+
                 AddUtterances(utterances).Wait();
                 Train().Wait();
                 Status().Wait();
@@ -164,13 +229,13 @@ ms.locfileid: "80151130"
     }
     ```
 
-1. Substitua os valores a começar pelos `YOUR-` seus próprios valores.
+1. Substitua os valores a começar `YOUR-` pelos seus próprios valores.
 
     |Informações|Objetivo|
     |--|--|
-    |`YOUR-KEY`|A tua chave de autor de 32 personagens.|
-    |`YOUR-ENDPOINT`| O seu ponto final de URL de autoria. Por exemplo, `replace-with-your-resource-name.api.cognitive.microsoft.com`. Definiu o seu nome de recurso quando criou o recurso.|
     |`YOUR-APP-ID`| O seu ID de aplicativo LUIS. |
+    |`YOUR-AUTHORING-KEY`|A tua chave de autor de 32 personagens.|
+    |`YOUR-AUTHORING-ENDPOINT`| O seu ponto final de URL de autoria. Por exemplo, `https://replace-with-your-resource-name.api.cognitive.microsoft.com/`. Definiu o seu nome de recurso quando criou o recurso.|
 
     As chaves e recursos atribuídos são visíveis no portal LUIS na secção Gerir, na página de **recursos do Azure.** O ID da aplicação está disponível na mesma secção Gerir, na página definições de **aplicações.**
 
@@ -188,9 +253,9 @@ ms.locfileid: "80151130"
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando terminar este arranque rápido, elimine o ficheiro do sistema de ficheiros.
+Quando terminar este arranque rápido, elimine a pasta do projeto do sistema de ficheiros.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Boas práticas para uma aplicação](../luis-concept-best-practices.md)
