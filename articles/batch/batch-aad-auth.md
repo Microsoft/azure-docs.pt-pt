@@ -1,15 +1,15 @@
 ---
 title: Serviços authenticate Azure Batch com Diretório Ativo Azure
 description: O lote suporta a AD Azure para autenticação do serviço Batch. Aprenda a autenticar de uma de duas maneiras.
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/28/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: 3fa1aa2bb7389200fe5e5a80598686143344d636
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 3ed3db184174d0a383c5c1fbd85e69d9fef0da44
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82608477"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726915"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Soluções de serviço authenticate Batch com Diretório Ativo
 
@@ -39,7 +39,7 @@ Para autenticar com a Azure AD, utiliza este ponto final juntamente com o ID do 
 > [!NOTE]
 > O ponto final específico do inquilino é necessário quando autentica o recurso a um diretor de serviço.
 >
-> O ponto final específico do arrendatário é opcional quando autentica com a autenticação integrada, mas recomendado. No entanto, também pode utilizar o ponto final comum da AD Azure. O ponto final comum fornece uma interface de reunião de credencial genérica quando um inquilino específico não é fornecido. O ponto final `https://login.microsoftonline.com/common`comum é.
+> O ponto final específico do arrendatário é opcional quando autentica com a autenticação integrada, mas recomendado. No entanto, também pode utilizar o ponto final comum da AD Azure. O ponto final comum fornece uma interface de reunião de credencial genérica quando um inquilino específico não é fornecido. O ponto final comum `https://login.microsoftonline.com/common` é.
 >
 >
 
@@ -221,7 +221,7 @@ Os exemplos de código nesta secção mostram como autenticar com a AD Azure uti
 
 Para autenticar com autenticação integrada do Batch .NET, consulte o pacote [Azure Batch .NET](https://www.nuget.org/packages/Microsoft.Azure.Batch/) e o pacote [ADAL.](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/)
 
-Inclua `using` as seguintes declarações no seu código:
+Inclua as `using` seguintes declarações no seu código:
 
 ```csharp
 using Microsoft.Azure.Batch;
@@ -294,7 +294,7 @@ public static async Task PerformBatchOperations()
 
 Para autenticar com um diretor de serviço do Batch .NET, consulte o pacote [Azure Batch .NET](https://www.nuget.org/packages/Azure.Batch/) e o pacote [ADAL.](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/)
 
-Inclua `using` as seguintes declarações no seu código:
+Inclua as `using` seguintes declarações no seu código:
 
 ```csharp
 using Microsoft.Azure.Batch;
@@ -417,7 +417,7 @@ Utilize as credenciais principais do serviço para abrir um objeto **BatchServic
 )
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para saber mais sobre o Azure AD, consulte a Documentação de [Diretório Ativo Azure.](https://docs.microsoft.com/azure/active-directory/) Exemplos aprofundados que mostram como utilizar o ADAL estão disponíveis na biblioteca De amostras de [código azul.](https://azure.microsoft.com/resources/samples/?service=active-directory)
 

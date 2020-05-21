@@ -4,24 +4,21 @@ titlesuffix: Azure Virtual Network
 description: Saiba como é que o Azure encaminha o tráfego da rede virtual e como pode personalizar o encaminhamento do Azure.
 services: virtual-network
 documentationcenter: na
-author: malopMSFT
+author: KumudD
 manager: ''
-editor: v-miegge
-tags: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
-ms.author: malop
-ms.reviewer: kumud
-ms.openlocfilehash: d9ed11cd00909a104b5ea54463f8a98020837e10
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: aldomel
+ms.openlocfilehash: ad0a5fc5940c36aa5d2d6912987b154532bc80a1
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80477889"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83727122"
 ---
 # <a name="virtual-network-traffic-routing"></a>Encaminhamento de tráfego da rede virtual
 
@@ -39,9 +36,9 @@ Cada rota contém um prefixo de endereço e o tipo de salto seguinte. Quando o t
 |-------|---------                                               |---------      |
 |Predefinição|Exclusivos da rede virtual                           |Rede virtual|
 |Predefinição|0.0.0.0/0                                               |Internet       |
-|Predefinição|10.0.0.0/8                                              |Nenhuma           |
-|Predefinição|192.168.0.0/16                                          |Nenhuma           |
-|Predefinição|100.64.0.0/10                                           |Nenhuma           |
+|Predefinição|10.0.0.0/8                                              |Nenhum           |
+|Predefinição|192.168.0.0/16                                          |Nenhum           |
+|Predefinição|100.64.0.0/10                                           |Nenhum           |
 
 Os tipos de salto seguintes listados na tabela anterior representam a forma como o Azure encaminha o tráfego destinado ao prefixo de endereço listado. As explicações para os tipos de salto seguintes são as seguintes:
 
@@ -109,7 +106,7 @@ O nome apresentado e referenciado para os tipos de próximo salto são diferente
 |Rede virtual                 |VNetLocal                                       |VNETLocal (não disponível na CLI clássica no modo asm)|
 |Internet                        |Internet                                        |Internet (não disponível na CLI clássica no modo asm)|
 |Aplicação virtual               |VirtualAppliance                                |VirtualAppliance|
-|Nenhuma                            |Nenhuma                                            |Null (não disponível na CLI clássica no modo asm)|
+|Nenhum                            |Nenhum                                            |Null (não disponível na CLI clássica no modo asm)|
 |Peering de rede virtual         |VNet peering                                    |Não aplicável|
 |Ponto final de serviço de rede virtual|VirtualNetworkServiceEndpoint                   |Não aplicável|
 
@@ -170,7 +167,7 @@ Quando substitui o prefixo de endereço 0.0.0.0/0, para além do tráfego de sa�
 
 Se a rede virtual esiver ligada a um gateway VPN do Azure, não associe nenhuma tabela de rota à [sub-rede do gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) que incluia uma rota com um destino 0.0.0.0/0. Se o fizer, poderá impedir que o gateway funcione corretamente. Para obter detalhes, veja a questão *Por que motivo determinadas portas são abertas no meu gateway de VPN?* nas [FAQ do Gateway de VPN](../vpn-gateway/vpn-gateway-vpn-faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gatewayports).
 
-Veja [DMZ between Azure and your on-premises datacenter](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) (DMZ entre o Azure e o seu datacenter no local) e [DMZ between Azure and the Internet](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json) (DMZ entre o Azure e a Internet) para obter detalhes da implementação ao utilizar gateways de rede virtual e aplicações virtuais entre a Internet e o Azure.
+Consulte [o DMZ entre](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) o Azure e o seu centro de dados no local para obter detalhes de implementação ao utilizar gateways de rede virtual entre a Internet e o Azure.
 
 ## <a name="routing-example"></a>Exemplo de encaminhamento
 
@@ -213,17 +210,17 @@ A tabela de rotas de *Subnet1* na imagem contém as rotas seguintes:
 |ID  |Origem |Estado  |Prefixos de endereço    |Tipo de salto seguinte          |Endereço IP do próximo salto|Nome da rota definida pelo utilizador| 
 |----|-------|-------|------              |-------                |--------           |--------      |
 |1   |Predefinição|Inválido|10.0.0.0/16         |Rede virtual        |                   |              |
-|2   |Utilizador   |Ativa |10.0.0.0/16         |Aplicação virtual      |10.0.100.4         |Within-VNet1  |
-|3   |Utilizador   |Ativa |10.0.0.0/24         |Rede virtual        |                   |Within-Subnet1|
+|2   |Utilizador   |Ativo |10.0.0.0/16         |Aplicação virtual      |10.0.100.4         |Within-VNet1  |
+|3   |Utilizador   |Ativo |10.0.0.0/24         |Rede virtual        |                   |Within-Subnet1|
 |4   |Predefinição|Inválido|10.1.0.0/16         |VNet peering           |                   |              |
 |5   |Predefinição|Inválido|10.2.0.0/16         |VNet peering           |                   |              |
-|6   |Utilizador   |Ativa |10.1.0.0/16         |Nenhuma                   |                   |ToVNet2-1-Drop|
-|7   |Utilizador   |Ativa |10.2.0.0/16         |Nenhuma                   |                   |ToVNet2-2-Drop|
+|6   |Utilizador   |Ativo |10.1.0.0/16         |Nenhum                   |                   |ToVNet2-1-Drop|
+|7   |Utilizador   |Ativo |10.2.0.0/16         |Nenhum                   |                   |ToVNet2-2-Drop|
 |8   |Predefinição|Inválido|10.10.0.0/16        |Gateway de rede virtual|[X.X.X.X]          |              |
-|9   |Utilizador   |Ativa |10.10.0.0/16        |Aplicação virtual      |10.0.100.4         |To-On-Prem    |
-|10  |Predefinição|Ativa |[X.X.X.X]           |VirtualNetworkServiceEndpoint    |         |              |
+|9   |Utilizador   |Ativo |10.10.0.0/16        |Aplicação virtual      |10.0.100.4         |To-On-Prem    |
+|10  |Predefinição|Ativo |[X.X.X.X]           |VirtualNetworkServiceEndpoint    |         |              |
 |11  |Predefinição|Inválido|0.0.0.0/0           |Internet               |                   |              |
-|12  |Utilizador   |Ativa |0.0.0.0/0           |Aplicação virtual      |10.0.100.4         |Default-NVA   |
+|12  |Utilizador   |Ativo |0.0.0.0/0           |Aplicação virtual      |10.0.100.4         |Default-NVA   |
 
 Segue-se uma explicação de cada ID de rota:
 
@@ -246,18 +243,18 @@ A tabela de rotas de *Subnet2* na imagem contém as rotas seguintes:
 
 |Origem  |Estado  |Prefixos de endereço    |Tipo de salto seguinte             |Endereço IP do próximo salto|
 |------- |-------|------              |-------                   |--------           
-|Predefinição |Ativa |10.0.0.0/16         |Rede virtual           |                   |
-|Predefinição |Ativa |10.1.0.0/16         |VNet peering              |                   |
-|Predefinição |Ativa |10.2.0.0/16         |VNet peering              |                   |
-|Predefinição |Ativa |10.10.0.0/16        |Gateway de rede virtual   |[X.X.X.X]          |
-|Predefinição |Ativa |0.0.0.0/0           |Internet                  |                   |
-|Predefinição |Ativa |10.0.0.0/8          |Nenhuma                      |                   |
-|Predefinição |Ativa |100.64.0.0/10       |Nenhuma                      |                   |
-|Predefinição |Ativa |192.168.0.0/16      |Nenhuma                      |                   |
+|Predefinição |Ativo |10.0.0.0/16         |Rede virtual           |                   |
+|Predefinição |Ativo |10.1.0.0/16         |VNet peering              |                   |
+|Predefinição |Ativo |10.2.0.0/16         |VNet peering              |                   |
+|Predefinição |Ativo |10.10.0.0/16        |Gateway de rede virtual   |[X.X.X.X]          |
+|Predefinição |Ativo |0.0.0.0/0           |Internet                  |                   |
+|Predefinição |Ativo |10.0.0.0/8          |Nenhum                      |                   |
+|Predefinição |Ativo |100.64.0.0/10       |Nenhum                      |                   |
+|Predefinição |Ativo |192.168.0.0/16      |Nenhum                      |                   |
 
 A tabela de rotas para *Subnet2* contém todas as rotas predefinidas criadas pelo Azure e as rotas opcionais de peering de VNet e de gateway de rede virtual. O Azure adicionou as rotas opcionais a todas as sub-redes na rede virtual quando o gateway e o peering foram adicionados à rede virtual. O Azure removeu as rotas para os prefixos de 10.0.0.0.0/8, 192.168.0.0.0.0/16 e 100.64.0.0/10 prefixos da tabela de rotas *subnet1* quando a rota definida pelo utilizador para o prefixo de endereço 0.0.0.0/0 foi adicionada à *Subnet1*.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Criar uma tabela de rotas definidas pelo utilizador com rotas e uma aplicação de rede virtual](tutorial-create-route-table-portal.md)<br>
 * [Configurar o BGP para um Gateway de VPN do Azure](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br>

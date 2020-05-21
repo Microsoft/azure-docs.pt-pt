@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: 52f9e6529329c5bb1abb176082294dc26e64baa3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7b5487233e2bd0e532efad4e108c41f188b51d91
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78675533"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83727182"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Quickstart: Comunicar a uma aplicação do dispositivo em C através de fluxos de dispositivos IoT Hub (pré-visualização)
 
@@ -120,7 +120,7 @@ Para este arranque rápido, utilize o [dispositivo Azure IoT SDK para C](iot-hub
 
 ## <a name="register-a-device"></a>Registar um dispositivo
 
-Tem de registar um dispositivo com o seu hub IoT antes de se ligar. Nesta secção, utiliza a Casca de Nuvem Azure com a [extensão IoT](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) para registar um dispositivo simulado.
+Tem de registar um dispositivo com o seu hub IoT antes de se ligar. Nesta secção, utiliza a Casca de Nuvem Azure com a [extensão IoT](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) para registar um dispositivo simulado.
 
 1. Para criar a identidade do dispositivo, execute o seguinte comando na Cloud Shell:
 
@@ -153,7 +153,7 @@ Nesta secção, executa tanto a aplicação do lado do dispositivo como a aplica
 
 Para executar a aplicação do lado do dispositivo, siga estes passos:
 
-1. Forneça as credenciais do seu dispositivo editando o ficheiro **fonte iothub_client_c2d_streaming_sample.c** na pasta e adicionando a `iothub_client/samples/iothub_client_c2d_streaming_sample` corda de ligação do dispositivo.
+1. Forneça as credenciais do seu dispositivo editando o ficheiro **fonte iothub_client_c2d_streaming_sample.c** na pasta e adicionando a corda de `iothub_client/samples/iothub_client_c2d_streaming_sample` ligação do dispositivo.
 
    ```C
    /* Paste in your iothub connection string  */
@@ -200,7 +200,7 @@ Como mencionado anteriormente, o IoT Hub C SDK suporta fluxos de dispositivos ap
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources-device-streams](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, criou um hub IoT, registou um dispositivo, estabeleceu um fluxo de dispositivo entre uma aplicação C no dispositivo e outra aplicação no lado do serviço, e utilizou o fluxo para enviar dados de um lado para o outro entre as aplicações.
 

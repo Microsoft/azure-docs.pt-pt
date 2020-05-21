@@ -1,15 +1,15 @@
 ---
 title: Utilize o Diretório Ativo Azure para autenticar soluções de Gestão de Lotes
 description: Explore utilizando o Azure Ative Directory para autenticar a partir de aplicações que utilizam a biblioteca Batch Management .NET.
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/27/2017
 ms.custom: has-adal-ref
-ms.openlocfilehash: 7ca32e5f9ff32d635d7f662c74dea5534e3dd072
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: ec9cf15f37c3ca7e4e477c628733d34cac21c141
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82608460"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726898"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Soluções de Gestão de Lotes Autenticados com Diretório Ativo
 
@@ -25,7 +25,7 @@ Para saber mais sobre a utilização da biblioteca Batch Management .NET e da am
 
 A Biblioteca de [Autenticação de Diretórios Ativos][aad_adal] Azure (ADAL) fornece uma interface programática à Azure AD para utilização dentro das suas aplicações. Para ligar para a ADAL a partir da sua candidatura, deve registar a sua candidatura num inquilino da AD Azure. Ao registar a sua candidatura, fornece à Azure AD informações sobre a sua aplicação, incluindo um nome para o mesmo dentro do inquilino da AD Azure. A Azure AD fornece então um ID de aplicação que utiliza para associar a sua aplicação ao Azure AD em tempo de execução. Para saber mais sobre o ID da aplicação, consulte [os objetos principais de aplicação e serviço no Diretório Ativo azure](../active-directory/develop/app-objects-and-service-principals.md).
 
-Para registar a aplicação da amostra De Gestão de Contas, siga os passos na secção [adicionar uma aplicação](../active-directory/develop/quickstart-register-app.md) na integração de [aplicações com o Diretório Ativo azure][aad_integrate]. Especifique a **Aplicação do Cliente Nativo** para o tipo de aplicação. O padrão da indústria OAuth 2.0 `urn:ietf:wg:oauth:2.0:oob`URI para o **Redirect URI** é . No entanto, pode especificar qualquer `http://myaccountmanagementsample`URI válido (como) para o **Redirect URI,** uma vez que não precisa de ser um verdadeiro ponto final:
+Para registar a aplicação da amostra De Gestão de Contas, siga os passos na secção [adicionar uma aplicação](../active-directory/develop/quickstart-register-app.md) na integração de [aplicações com o Diretório Ativo azure][aad_integrate]. Especifique a **Aplicação do Cliente Nativo** para o tipo de aplicação. O padrão da indústria OAuth 2.0 URI para o **Redirect URI** é `urn:ietf:wg:oauth:2.0:oob` . No entanto, pode especificar qualquer URI válido `http://myaccountmanagementsample` (como) para o **Redirect URI,** uma vez que não precisa de ser um verdadeiro ponto final:
 
 ![](./media/batch-aad-auth-management/app-registration-management-plane.png)
 
@@ -112,7 +112,7 @@ AuthenticationResult authResult = authContext.AcquireToken(ResourceUri,
 
 Depois de fornecer as suas credenciais, o pedido de amostra pode proceder à emissão de pedidos autenticados ao serviço de gestão do Lote.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre a execução da aplicação da [amostra De Gestão][acct_mgmt_sample]de Contas, consulte gerir contas e quotas de Lote com a biblioteca de clientes da Batch Management para [.NET](batch-management-dotnet.md).
 

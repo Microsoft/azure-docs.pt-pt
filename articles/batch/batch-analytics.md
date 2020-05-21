@@ -1,14 +1,14 @@
 ---
 title: Análise de Lote Azure
 description: Os tópicos no Batch Analytics contêm informações de referência para os eventos e alertas disponíveis para os recursos de serviço do Lote.
-ms.topic: article
+ms.topic: reference
 ms.date: 04/20/2017
-ms.openlocfilehash: d35bf249a3ae5dd06f42b89c3d5c2773f9508603
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b07d362c3cc2d3b086cf0a82325025604907a393
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82113073"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726864"
 ---
 # <a name="batch-analytics"></a>Batch Analytics
 Os tópicos no Batch Analytics contêm informações de referência para os eventos e alertas disponíveis para os recursos de serviço do Lote.

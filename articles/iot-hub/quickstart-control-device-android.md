@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 ms.date: 06/21/2019
 ms.author: wesmc
-ms.openlocfilehash: 8c3a9c6c5e835104675239882d2a1929a3c07c82
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b9afd1c4ca5e4c652a03bc2ef652b8e43ea12787
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81771033"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83727204"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>Quickstart: Controle um dispositivo ligado a um hub IoT (Android)
 
@@ -123,7 +123,7 @@ A aplicação de amostras SDK do dispositivo pode ser executada num dispositivo 
     DeviceConnectionString=HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyAndroidDevice;SharedAccessKey={YourSharedAccessKey}
     ```
 
-3. No Android Studio, clique em **File** > **Sync Project com Ficheiros Gradle**. Verifique se a construção completa.
+3. No Android Studio, clique em **File**  >  **Sync Project com Ficheiros Gradle**. Verifique se a construção completa.
 
    > [!NOTE]
    > Se a sincronização do projeto falhar, pode ser por uma das seguintes razões:
@@ -131,7 +131,7 @@ A aplicação de amostras SDK do dispositivo pode ser executada num dispositivo 
    > * As versões do plugin E Gradle do Android Gradle referenciados no projeto estão desatualizadas para a sua versão do Android Studio. Siga [estas instruções](https://developer.android.com/studio/releases/gradle-plugin) para referência e instale as versões corretas do plugin e gradle para a sua instalação.
    > * O contrato de licença para o Android SDK não foi assinado. Siga as instruções na saída Build para assinar o contrato de licença e baixar o SDK.
 
-4. Uma vez concluída a construção, clique em **Executar** > **Executar 'app'.** Configure a aplicação para executar num dispositivo Android físico ou num emulador Android. Para obter mais informações sobre a execução de uma aplicação Android num dispositivo físico ou emulador, consulte [Executar a sua aplicação](https://developer.android.com/training/basics/firstapp/running-app).
+4. Uma vez concluída a construção, clique em **Executar**  >  **Executar 'app'.** Configure a aplicação para executar num dispositivo Android físico ou num emulador Android. Para obter mais informações sobre a execução de uma aplicação Android num dispositivo físico ou emulador, consulte [Executar a sua aplicação](https://developer.android.com/training/basics/firstapp/running-app).
 
 5. Assim que a aplicação estiver carregada, clique no botão **Iniciar** para começar a enviar telemetria para o seu Hub IoT:
 
@@ -141,7 +141,7 @@ Esta aplicação precisa de ser deixada em funcionamento num dispositivo físico
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Ler a telemetria a partir do seu hub
 
-Nesta secção, utilizará a Shell Nuvem Azure com a [extensão IoT](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) para monitorizar as mensagens que são enviadas pelo dispositivo Android.
+Nesta secção, utilizará a Shell Nuvem Azure com a [extensão IoT](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) para monitorizar as mensagens que são enviadas pelo dispositivo Android.
 
 1. Com o Azure Cloud Shell, execute o seguinte comando para se ligar e ler mensagens do hub IoT:
 
@@ -176,7 +176,7 @@ Uma aplicação de serviço back-end IoT Hub normalmente funciona na nuvem, onde
     DeviceId=MyAndroidDevice
     ```
 
-3. No Android Studio, clique em **File** > **Sync Project com Ficheiros Gradle**. Verifique se a construção completa.
+3. No Android Studio, clique em **File**  >  **Sync Project com Ficheiros Gradle**. Verifique se a construção completa.
 
    > [!NOTE]
    > Se a sincronização do projeto falhar, pode ser por uma das seguintes razões:
@@ -184,7 +184,7 @@ Uma aplicação de serviço back-end IoT Hub normalmente funciona na nuvem, onde
    > * As versões do plugin E Gradle do Android Gradle referenciados no projeto estão desatualizadas para a sua versão do Android Studio. Siga [estas instruções](https://developer.android.com/studio/releases/gradle-plugin) para referência e instale as versões corretas do plugin e gradle para a sua instalação.
    > * O contrato de licença para o Android SDK não foi assinado. Siga as instruções na saída Build para assinar o contrato de licença e baixar o SDK.
 
-4. Uma vez concluída a construção, clique em **Executar** > **Executar 'app'.** Configure a aplicação para executar num dispositivo Android físico separado ou num emulador Android. Para obter mais informações sobre a execução de uma aplicação Android num dispositivo físico ou emulador, consulte [Executar a sua aplicação](https://developer.android.com/training/basics/firstapp/running-app).
+4. Uma vez concluída a construção, clique em **Executar**  >  **Executar 'app'.** Configure a aplicação para executar num dispositivo Android físico separado ou num emulador Android. Para obter mais informações sobre a execução de uma aplicação Android num dispositivo físico ou emulador, consulte [Executar a sua aplicação](https://developer.android.com/training/basics/firstapp/running-app).
 
 5. Assim que a aplicação estiver carregada, atualize o valor do intervalo de **mensagens para** **1000** e clique **em Invocar**.
 
@@ -200,7 +200,7 @@ Uma aplicação de serviço back-end IoT Hub normalmente funciona na nuvem, onde
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, chamou um método direto num dispositivo a partir de uma aplicação de back-end, e respondeu à chamada do método direto numa aplicação simulada do dispositivo.
 

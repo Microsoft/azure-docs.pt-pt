@@ -3,12 +3,12 @@ title: Back up VMs Azure em um cofre de serviços de recuperação
 description: Descreve como fazer backup de VMs Azure num cofre de Serviços de Recuperação usando o Backup Azure
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: aeadd7bc798f690c67eef38c6dc645204ff39115
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cba042efb08f121d4cd9fa5693edd69c827f1465
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79273517"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83727017"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Back up VMs Azure em um cofre de serviços de recuperação
 
@@ -91,7 +91,7 @@ Configure uma política de reserva para o cofre.
 
    ![Botão de backup](./media/backup-azure-arm-vms-prepare/backup-button.png)
 
-2. Em **Backup Goal** > Onde está **Azure**a sua carga**de trabalho?** Em O que quer fazer **Virtual machine** >  **OK** **de volta?** Isto regista a extensão VM no cofre.
+2. Em **Backup Goal**Onde está a sua carga de  >  **trabalho?** **Azure** Em **O que quer fazer de volta?** **Virtual machine**  >   **OK** Isto regista a extensão VM no cofre.
 
    ![Painel de backup e backup Goal](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
 
@@ -108,6 +108,9 @@ Configure uma política de reserva para o cofre.
    * VMs só podem ser apoiados num único cofre.
 
      ![Painel "Selecione máquinas virtuais"](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
+
+    >[!NOTE]
+    > Apenas VMs na mesma região e subscrição do cofre estarão disponíveis para configurar backup.
 
 5. Na **cópia de segurança,** clique em **ativar a cópia de segurança**. Isto implementa a política para o cofre e para os VMs, e instala a extensão de reserva no agente VM em execução no VM Azure.
 
@@ -149,7 +152,7 @@ O backup inicial será executado de acordo com o horário, mas você pode execut
 3. Na lista **de Itens de Backup,** clique nas elipses (...).
 4. Clique em **Backup agora**.
 5. Em **Backup Now,** utilize o controlo do calendário para selecionar o último dia em que o ponto de recuperação deve ser mantido. Em seguida, clique em **OK**.
-6. Monitorize as notificações do portal. Você pode monitorizar o progresso do trabalho no painel de instrumentos do cofre > **Backup Jobs** > **Em andamento.** Dependendo do tamanho da sua VM, a criação da cópia de segurança inicial poderá demorar algum tempo.
+6. Monitorize as notificações do portal. Você pode monitorizar o progresso do trabalho no painel de instrumentos do cofre > **Backup Jobs**  >  **Em andamento.** Dependendo do tamanho da sua VM, a criação da cópia de segurança inicial poderá demorar algum tempo.
 
 ## <a name="verify-backup-job-status"></a>Verificar o estado do trabalho de backup
 
@@ -185,7 +188,7 @@ O Azure Backup apoia os VMs Azure instalando uma extensão ao agente Azure VM em
 
 **VM** | **Detalhes**
 --- | ---
-**Windows** | 1. [Descarregue e instale](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) o ficheiro MSI do agente.<br/><br/> 2. Instale com permissões de administração na máquina.<br/><br/> 3. Verifique a instalação. Em *C:\WindowsAzure\Packages* no VM, clique à direita **WaAppAgent.exe** > **Properties**. No separador **Details,** a versão do **produto** deve ser 2.6.1198.718 ou superior.<br/><br/> Se estiver a atualizar o agente, certifique-se de que não estão a decorrer operações de backup e [reinstale o agente.](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)
+**Windows** | 1. [Descarregue e instale](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) o ficheiro MSI do agente.<br/><br/> 2. Instale com permissões de administração na máquina.<br/><br/> 3. Verifique a instalação. Em *C:\WindowsAzure\Packages* no VM, clique à direita **WaAppAgent.exe**  >  **Properties**. No separador **Details,** a versão do **produto** deve ser 2.6.1198.718 ou superior.<br/><br/> Se estiver a atualizar o agente, certifique-se de que não estão a decorrer operações de backup e [reinstale o agente.](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)
 **Linux** | Instale utilizando um pacote RPM ou UM DEB do repositório de pacotes da sua distribuição. Este é o método preferido para instalar e atualizar o agente Azure Linux. Todos os fornecedores de [distribuição endossados](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integram o pacote de agentes Azure Linux nas suas imagens e repositórios. O agente está disponível no [GitHub,](https://github.com/Azure/WALinuxAgent)mas não recomendamos a instalação a partir daí.<br/><br/> Se estiver a atualizar o agente, certifique-se de que não estão a decorrer operações de backup e atualize os binários.
 
 >[!NOTE]
@@ -195,7 +198,7 @@ O Azure Backup apoia os VMs Azure instalando uma extensão ao agente Azure VM em
 >
 >**Para se inscrever para a pré-visualização, escreva-nos emAskAzureBackupTeam@microsoft.com**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Problemas de resolução de problemas com [agentes Da VM Azure](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) ou [backup Azure VM](backup-azure-vms-troubleshoot.md).
 * [Restaurar](backup-azure-arm-restore-vms.md) VMs azure.

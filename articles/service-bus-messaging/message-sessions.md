@@ -11,23 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2020
+ms.date: 05/20/2020
 ms.author: aschhab
-ms.openlocfilehash: a4bc2dcfd1826623516a40be0aff7688d0b6168c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9cedf3678fc73b004c142380b4ba69c10ca72ebf
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116694"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83727000"
 ---
 # <a name="message-sessions"></a>Sessões de mensagens
-As sessões de ônibus de serviço do Microsoft Azure permitem o manuseamento conjunto e ordenado de sequências não limitadas de mensagens relacionadas. As sessões podem ser usadas em primeiro dentro, primeiro fora (FIFO) e padrões de resposta a pedidos. Este artigo mostra como usar sessões para implementar estes padrões ao usar o Service Bus. 
-
-## <a name="first-in-first-out-fifo-pattern"></a>Padrão de primeiro in, primeiro fora (FIFO)
-Para realizar uma garantia FIFO no Ônibus de Serviço, utilize sessões. O Service Bus não é prescritivo sobre a natureza da relação entre as mensagens, e também não define um modelo específico para determinar onde uma sequência de mensagens começa ou termina.
+As sessões de ônibus de serviço do Microsoft Azure permitem o manuseamento conjunto e ordenado de sequências não limitadas de mensagens relacionadas. As sessões podem ser usadas em **primeiro dentro, primeiro fora (FIFO)** e padrões **de resposta a pedidos.** Este artigo mostra como usar sessões para implementar estes padrões ao usar o Service Bus. 
 
 > [!NOTE]
 > O nível básico de Ônibus de serviço não suporta sessões. As sessões de suporte de níveis standard e premium. Para as diferenças entre estes níveis, consulte os preços dos [Autocarros de Serviço](https://azure.microsoft.com/pricing/details/service-bus/).
+
+## <a name="first-in-first-out-fifo-pattern"></a>Padrão de primeiro in, primeiro fora (FIFO)
+Para realizar uma garantia FIFO no Ônibus de Serviço, utilize sessões. O Service Bus não é prescritivo sobre a natureza da relação entre as mensagens, e também não define um modelo específico para determinar onde uma sequência de mensagens começa ou termina.
 
 Qualquer remetente pode criar uma sessão ao submeter mensagens num tópico ou fila, definindo a propriedade [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) para um identificador definido pela aplicação que seja único na sessão. Ao nível do protocolo AMQP 1.0, este valor mapeia para a propriedade *group-id.*
 
@@ -95,19 +95,19 @@ A definição de contagem de entregas por mensagem no contexto das sessões vari
 ## <a name="request-response-pattern"></a>Padrão de resposta a pedidos
 O [padrão de resposta a pedidos](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html) é um padrão de integração bem estabelecido que permite ao pedido do remetente enviar um pedido e fornece uma forma de o recetor enviar corretamente uma resposta de volta à aplicação do remetente. Este padrão normalmente precisa de uma fila de curta duração ou tópico para a aplicação enviar respostas para. Neste cenário, as sessões fornecem uma solução alternativa simples com semântica comparável. 
 
-Várias aplicações podem enviar os seus pedidos para uma única fila de pedidos, com um parâmetro de cabeçalho específico definido para identificar exclusivamente a aplicação do remetente. A aplicação do recetor pode processar os pedidos que chegam na fila e enviar respostas numa fila ativada, definindo o ID da sessão para o identificador único que o remetente tinha enviado na mensagem de pedido. A aplicação que enviou o pedido pode então receber mensagens num ID de sessão específico e processar corretamente as respostas.
+Várias aplicações podem enviar os seus pedidos para uma única fila de pedidos, com um parâmetro de cabeçalho específico definido para identificar exclusivamente a aplicação do remetente. A aplicação do recetor pode processar os pedidos que chegam na fila e enviar respostas na fila ativada da sessão, definindo o ID da sessão para o identificador único que o remetente tinha enviado na mensagem de pedido. A aplicação que enviou o pedido pode então receber mensagens no ID da sessão específica e processar corretamente as respostas.
 
 > [!NOTE]
-> O pedido que envia os pedidos iniciais deve `SessionClient.AcceptMessageSession(SessionID)` saber sobre o ID da sessão e usar para bloquear a sessão em que espera a resposta. É uma boa ideia usar um GUID que identifica exclusivamente a instância da aplicação como um id de sessão. Não deve haver um `AcceptMessageSession(timeout)` manipulador de sessão ou na fila para garantir que as respostas estão disponíveis para serem bloqueadas e processadas por recetores específicos.
+> O pedido que envia os pedidos iniciais deve saber sobre o ID da sessão e usar `SessionClient.AcceptMessageSession(SessionID)` para bloquear a sessão em que espera a resposta. É uma boa ideia usar um GUID que identifica exclusivamente a instância da aplicação como um id de sessão. Não deve haver um manipulador de sessão ou `AcceptMessageSession(timeout)` na fila para garantir que as respostas estão disponíveis para serem bloqueadas e processadas por recetores específicos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte as [amostras Microsoft.Azure.ServiceBus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/Sessions) ou [Microsoft.ServiceBus.Mensagens,](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions) por exemplo, que utiliza o cliente .NET Framework para lidar com mensagens conscientes da sessão. 
 
 Para saber mais sobre as mensagens de ônibus de serviço, consulte os seguintes tópicos:
 
 * [Filas, tópicos e subscrições do Service Bus](service-bus-queues-topics-subscriptions.md)
-* [Começar com as filas de ônibus de serviço](service-bus-dotnet-get-started-with-queues.md)
+* [Introdução às filas do Service Bus](service-bus-dotnet-get-started-with-queues.md)
 * [Como utilizar os tópicos e as subscrições do Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
 [1]: ./media/message-sessions/sessions.png

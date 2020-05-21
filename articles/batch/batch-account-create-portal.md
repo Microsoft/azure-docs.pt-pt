@@ -1,15 +1,15 @@
 ---
 title: Criar uma conta no portal Azure
 description: Saiba como criar uma conta do Azure Batch no portal do Azure a executar cargas de trabalho paralelas em grande escala na nuvem
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/26/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9349ed74111565f68a088cda95c8defcd79f7e69
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e01c62270fc0195c430150a534df2a141808ffa6
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82113226"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726932"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Criar uma conta do Batch com portal do Azure
 
@@ -23,7 +23,7 @@ Para informações sobre contas do Batch e cenários, consulte a [descrição ge
 
 1. Inicie sessão no [portal do Azure][azure_portal].
 
-1. Selecione **Criar um** > serviço de**lote****computacional** > de recursos .
+1. Selecione **Criar um**serviço de lote  >  **computacional**de recursos  >  **Batch Service**.
 
     ![Batch no Marketplace][marketplace_portal]
 
@@ -75,13 +75,13 @@ Quando criar a sua primeira conta do Batch no modo de subscrição de utilizador
 
 1. Inicie sessão no [portal do Azure][azure_portal].
 
-1. Selecione Todas as**Subscrições**de **Serviços** > e selecione a subscrição que pretende utilizar para a conta 'Lote'.
+1. Selecione **Todas as**Subscrições de  >  **Serviços**e selecione a subscrição que pretende utilizar para a conta 'Lote'.
 
 1. Na página **Subscrição**, selecione **Fornecedores de recursos** e procure **Microsoft.Batch**. Verifique se o fornecedor de recursos **Microsoft.Batch** está registado na subscrição. Se não estiver registado, selecione a ligação **Registar**.
 
     ![Registar fornecedor do Microsoft.Batch][register_provider]
 
-1. Na página **de Subscrição,** selecione**atribuições** > de função de controlo de **acesso (IAM)** > Adicionar atribuição de**funções**.
+1. Na página **de Subscrição,** selecione atribuições de função de controlo de **acesso (IAM)**  >  **Role assignments**  >  **Adicionar atribuição de funções**.
 
     ![Controlo de acesso da subscrição][subscription_access]
 
@@ -112,7 +112,7 @@ Se preferir conceder acesso manual mente ao cofre chave, aceda à secção **de 
 > [!NOTE]
 > Certifique-se de que as **Máquinas Virtuais Azure para implantação** e o Gestor de **Recursos Azure para** caixas de verificação de implementação de modelos são selecionadas no âmbito das políticas de **Acesso** para o recurso **Key Vault** ligado.
 > 
-> ![Política](./media/batch-account-create-portal/key-vault-access-policy.png) obrigatória de acesso ao cofre chave Isto não é obrigatório ao criar uma conta De lote no portal Azure. A opção é selecionada por defeito.
+> ![Política obrigatória de acesso ao cofre chave ](./media/batch-account-create-portal/key-vault-access-policy.png) Isto não é obrigatório ao criar uma conta De lote no portal Azure. A opção é selecionada por defeito.
 
 
 
@@ -134,7 +134,7 @@ Além do portal do Azure, também pode criar e gerir contas do Batch com ferrame
 * [CLI do Azure](batch-cli-get-started.md)
 * [Gestão de Batch .NET](batch-management-dotnet.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Consulte a [Batch feature overview (Descrição geral da funcionalidade do Batch)](batch-api-basics.md) para saber mais sobre conceitos e funcionalidades de serviço do Batch. O artigo aborda os recursos do Batch principais como conjuntos, nós de computação e tarefas e fornece uma descrição geral das funcionalidades do serviço para cargas de trabalho de computação em grande escala.
 * Aprenda os conceitos básicos de programação de uma aplicação compatível com o Batch ao utilizar a [biblioteca de cliente .NET do Batch](quick-run-dotnet.md) ou [Python](quick-run-python.md). Estes inícios rápidos orientam-no numa aplicação de exemplo que utiliza o serviço do Batch para executar uma carga de trabalho em vário nós de computação e inclui a utilização do Armazenamento do Azure para o teste e obtenção do ficheiro de carga de trabalho.

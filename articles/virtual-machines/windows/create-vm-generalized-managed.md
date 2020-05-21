@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: b0c6689b66037067a4c5174738945b7c6fabd5b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a028d597c3eb2a1c66df0e40266c2822e5cd7aab
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82086322"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726966"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>Create a VM from a managed image (Criar uma VM a partir de uma imagem personalizada)
 
@@ -20,6 +20,7 @@ Pode criar várias máquinas virtuais (VMs) a partir de uma imagem VM gerida pel
 
 Antes de criar um novo VM, terá de [criar uma imagem VM gerida](capture-image-resource.md) para usar como imagem de origem e conceder acesso lido na imagem a qualquer utilizador que deva ter acesso à imagem. 
 
+Uma imagem gerida suporta até 20 implementações simultâneas. Tentar criar mais de 20 VMs simultaneamente, a partir da mesma imagem gerida, pode resultar em prazos de fornecimento devido às limitações de desempenho de armazenamento de um único VHD. Para criar mais de 20 VMs em simultâneo, utilize uma imagem de Galerias de [Imagem Partilhada](shared-image-galleries.md) configurada com 1 réplica para cada 20 implementações vm simultâneas.
 
 ## <a name="use-the-portal"></a>Utilizar o portal
 
@@ -58,6 +59,6 @@ New-AzVm `
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Crie e gerencie VMs do Windows com o módulo PowerShell Azure](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

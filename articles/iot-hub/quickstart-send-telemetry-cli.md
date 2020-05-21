@@ -9,12 +9,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/06/2019
-ms.openlocfilehash: 711e15986265324bbb353fb2b4404cbfeb48dc84
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b8a057890d20fc233eae6f1636d83e73855305b7
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78851412"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83727051"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-monitor-it-with-the-azure-cli"></a>Quickstart: Envie a telemetria de um dispositivo para um hub IoT e monitorize-a com o Azure CLI
 
@@ -92,7 +92,7 @@ Nesta secção, você usa o AZURE CLI para criar um grupo de recursos e um Hub I
 Nesta secção, cria-se um dispositivo simulado na primeira sessão do CLI. O dispositivo simulado envia telemetria do dispositivo para o seu hub IoT. Na segunda sessão do CLI, monitoriza eventos e telemetria e envia uma mensagem cloud-to-device para o dispositivo simulado.
 
 Para criar e iniciar um dispositivo simulado:
-1. Executar o [dispositivo-identidade do hub az iot criar](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-create) comando na primeira sessão CLI. Isto cria a identidade do dispositivo simulado. 
+1. Executar o [dispositivo-identidade do hub az iot criar](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest#ext-azure-iot-az-iot-hub-device-identity-create) comando na primeira sessão CLI. Isto cria a identidade do dispositivo simulado. 
 
     *YourIotHubName*. Substitua este espaço reservado abaixo pelo nome que escolheu para o seu hub IoT. 
 
@@ -102,7 +102,7 @@ Para criar e iniciar um dispositivo simulado:
     az iot hub device-identity create --device-id simDevice --hub-name {YourIoTHubName} 
     ```
 
-1. Executar o [dispositivo az iot simular](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/device?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-device-simulate) o comando na primeira sessão CLI.  Isto inicia o dispositivo simulado. O dispositivo envia telemetria para o seu hub IoT e recebe mensagens dele.  
+1. Executar o [dispositivo az iot simular](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/device?view=azure-cli-latest#ext-azure-iot-az-iot-device-simulate) o comando na primeira sessão CLI.  Isto inicia o dispositivo simulado. O dispositivo envia telemetria para o seu hub IoT e recebe mensagens dele.  
 
     *YourIotHubName*. Substitua este espaço reservado abaixo pelo nome que escolheu para o seu hub IoT. 
 
@@ -111,7 +111,7 @@ Para criar e iniciar um dispositivo simulado:
     ```
 
 Para monitorizar um dispositivo:
-1. Na segunda sessão do CLI, execute o comando de [monitores de eventos do centro az iot.](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-monitor-events) Isto começa a monitorizar o dispositivo simulado. A saída mostra a telemetria que o dispositivo simulado envia para o centro IoT.
+1. Na segunda sessão do CLI, execute o comando de [monitores de eventos do centro az iot.](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-monitor-events) Isto começa a monitorizar o dispositivo simulado. A saída mostra a telemetria que o dispositivo simulado envia para o centro IoT.
 
     *YourIotHubName*. Substitua este espaço reservado abaixo pelo nome que escolheu para o seu hub IoT. 
 
@@ -134,7 +134,7 @@ Nesta secção, utiliza a segunda sessão CLI para enviar uma mensagem para o di
     az iot device simulate -d simDevice -n {YourIoTHubName}
     ```
 
-1. Na segunda sessão do CLI, execute o comando de envio de [mensagens c2d do dispositivo az iot.](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/device/c2d-message?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-device-c2d-message-send) Isto envia uma mensagem cloud-to-device do seu hub IoT para o dispositivo simulado. A mensagem inclui uma corda e dois pares de valor-chave.  
+1. Na segunda sessão do CLI, execute o comando de envio de [mensagens c2d do dispositivo az iot.](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/device/c2d-message?view=azure-cli-latest#ext-azure-iot-az-iot-device-c2d-message-send) Isto envia uma mensagem cloud-to-device do seu hub IoT para o dispositivo simulado. A mensagem inclui uma corda e dois pares de valor-chave.  
 
     *YourIotHubName*. Substitua este espaço reservado abaixo pelo nome que escolheu para o seu hub IoT. 
 
@@ -193,7 +193,7 @@ Para eliminar um grupo de recursos por nome:
     az group list
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste arranque rápido, usou o Azure CLI para criar um hub IoT, criar um dispositivo simulado, enviar telemetria, monitorizar a telemetria, enviar uma mensagem cloud-to-device e limpar recursos. Usou o portal Azure para visualizar métricas de mensagens no seu dispositivo.
 
 Se for um desenvolvedor de dispositivos, o próximo passo sugerido é ver o quickstart de telemetria que utiliza o Dispositivo Azure IoT SDK para C. Opcionalmente, consulte um dos artigos de telemetria do Azure IoT Hub disponíveis na sua língua preferida ou SDK.

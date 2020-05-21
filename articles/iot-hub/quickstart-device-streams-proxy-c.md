@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 91cf594e74d91b8b4df2108d23459016fa843700
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b8cba8f7a21b04dc722124eb2873c64f67fd6def
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80586607"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83727138"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Quickstart: Ative o SSH e o RDP sobre um fluxo de dispositivos IoT Hub utilizando uma aplicação de procuração C (pré-visualização)
 
@@ -48,7 +48,7 @@ A figura que se segue ilustra como os programas de procuração local de disposi
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -126,7 +126,7 @@ Para este arranque rápido, utilize o [dispositivo Azure IoT SDK para C](iot-hub
 
 ## <a name="register-a-device"></a>Registar um dispositivo
 
-É necessário registar um dispositivo no hub IoT antes de o mesmo se poder ligar. Nesta secção, utiliza a Azure Cloud Shell com a [extensão IoT](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) para registar um dispositivo simulado.
+É necessário registar um dispositivo no hub IoT antes de o mesmo se poder ligar. Nesta secção, utiliza a Azure Cloud Shell com a [extensão IoT](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) para registar um dispositivo simulado.
 
 1. Para criar a identidade do dispositivo, execute o seguinte comando na Cloud Shell:
 
@@ -157,7 +157,7 @@ Nesta secção, estabelece-se um fluxo de ponta a ponta para o túnel de tráfeg
 
 ### <a name="run-the-device-local-proxy-application"></a>Executar a aplicação de procuração local de dispositivo
 
-1. Editar o ficheiro fonte **iothub_client_c2d_streaming_proxy_sample.c** na pasta `iothub_client/samples/iothub_client_c2d_streaming_proxy_sample`, e fornecer a sua cadeia de ligação ao dispositivo, o nome ip/nome do dispositivo alvo e a porta SSH 22:
+1. Editar o ficheiro fonte **iothub_client_c2d_streaming_proxy_sample.c** na pasta , e fornecer a sua cadeia de `iothub_client/samples/iothub_client_c2d_streaming_proxy_sample` ligação ao dispositivo, o nome ip/nome do dispositivo alvo e a porta SSH 22:
 
    ```C
    /* Paste in your device connection string  */
@@ -211,7 +211,7 @@ ssh {username}@localhost -p 2222
 
 Neste ponto, a janela de entrada ssh leva-o a introduzir as suas credenciais.
 
-A imagem seguinte mostra a saída da consola no proxy local do dispositivo, `IP_address:22`que se liga ao daemon SSH em:
+A imagem seguinte mostra a saída da consola no proxy local do dispositivo, que se liga ao daemon SSH `IP_address:22` em:
 
 ![Saída de procuração local de dispositivo](./media/quickstart-device-streams-proxy-c/device-console-output.png)
 
@@ -223,7 +223,7 @@ A imagem seguinte mostra a saída da consola do programa de cliente SSH. O clien
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, instalou um hub IoT, registou um dispositivo, implementou um dispositivo e um programa de procuração local de serviço para estabelecer um fluxo de dispositivo através do IoT Hub, e usou os proxies para fazer um túnel de tráfego ssh.
 
