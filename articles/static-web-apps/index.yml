@@ -9,12 +9,12 @@ metadata:
   author: craigshoemaker
   ms.author: cshoe
   ms.date: 04/09/2020
-  ms.openlocfilehash: 8dd4f7420c4b58d621312f361beede1e48bc17b5
-  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+  ms.openlocfilehash: db4bccbc2b366cbd2997542b3b10068b0f5941a2
+  ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 05/19/2020
-  ms.locfileid: "83593074"
+  ms.lasthandoff: 05/20/2020
+  ms.locfileid: "83701848"
 landingContent:
 - title: Sobre Aplicações Web Estáticas
   linkLists:
@@ -38,18 +38,10 @@ landingContent:
     links:
     - text: Publicar uma aplicação Angular, React, Svelte ou Vue JavaScript e API
       url: /learn/modules/publish-app-service-static-web-app-api
-- title: Conceitos-chave
-  linkLists:
-  - linkListType: concept
+  - linkListType: video
     links:
-    - text: Rotas
-      url: routes.md
-    - text: APIs públicos
-      url: apis.md
-    - text: Processo de teste
-      url: review-publish-pull-requests.md
-    - text: Restringir o acesso
-      url: authentication-authorization.md
+    - text: Criar e implementar uma aplicação Web estática
+      url: https://channel9.msdn.com/Shows/Docs-Azure/Building-and-Deploying-a-Static-Web-App/
 - title: Publicar cenários
   linkLists:
   - linkListType: tutorial
@@ -68,3 +60,15 @@ landingContent:
     links:
     - text: Publicar uma aplicação Web estática com Gatsby
       url: /learn/modules/create-deploy-static-webapp-gatsby-app-service
+- title: Conceitos-chave
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Rotas
+      url: routes.md
+    - text: APIs públicos
+      url: apis.md
+    - text: Processo de teste
+      url: review-publish-pull-requests.md
+    - text: Restringir o acesso
+      url: authentication-authorization.md

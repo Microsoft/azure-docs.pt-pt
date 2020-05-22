@@ -17,13 +17,13 @@
 - name: Guias de Início Rápido
   expanded: true
   items:
-    - name: Implementação com Grupos IP
+    - name: Implementar com Grupos de IPs - Modelo do ARM
       displayName: Resource Manager
       href: quick-create-ipgroup-template.md
-    - name: Implementar com vários endereços
+    - name: Implementar com vários endereços - Modelo do ARM
       displayName: Resource Manager
       href: quick-create-multiple-ip-template.md
-    - name: Implementar com Zonas de Disponibilidade
+    - name: Implementar com Zonas de Disponibilidade - Modelo do ARM
       displayName: Resource Manager
       href: deploy-template.md
 - name: Amostras

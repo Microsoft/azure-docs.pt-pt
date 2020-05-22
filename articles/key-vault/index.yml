@@ -13,12 +13,12 @@ metadata:
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 04/07/2020
-  ms.openlocfilehash: 90867d51bd0952eea350ed9120d2274d40b30d99
-  ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+  ms.openlocfilehash: e445e7ad433643953e5341ec06b91dee9515c268
+  ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/22/2020
-  ms.locfileid: "81867262"
+  ms.lasthandoff: 05/19/2020
+  ms.locfileid: "83658662"
 highlightedContent:
   items:
   - title: Introdução ao Azure Key Vault
@@ -120,3 +120,20 @@ conceptualContent:
     - url: ../virtual-machine-scale-sets/disk-encryption-key-vault.md
       itemType: overview
       text: Key Vault com Conjuntos de Dimensionamento de Máquinas Virtuais
+  - title: Integração do Key Vault
+    links:
+    - url: https://docs.microsoft.com/azure/devops/pipelines/library/variable-groups?view=azure-devops&tabs=yaml#link-secrets-from-an-azure-key-vault
+      itemType: overview
+      text: Azure Dev Ops - Referenciar segredos do Key Vault no Azure Pipelines
+    - url: ../app-service/app-service-key-vault-references.md
+      itemType: overview
+      text: Serviços Aplicacionais - Referenciar segredos do Key Vault nos Serviços Aplicacionais
+    - url: ../app-service/configure-ssl-certificate.md#store-in-azure-key-vault
+      itemType: overview
+      text: Serviços Aplicacionais - Manter certificados dos Serviços Aplicacionais no Key Vault
+    - url: ../aks/developer-best-practices-pod-security.md#use-azure-key-vault-with-secrets-store-csi-driver
+      itemType: overview
+      text: Azure Kubernetes Service - Utilizar segredos do Vault, certificados, chaves no AKS
+    - url: ../data-factory/store-credentials-in-key-vault.md
+      itemType: overview
+      text: Azure Data Factory - Manter credenciais no Key Vault

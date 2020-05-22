@@ -752,6 +752,8 @@
                   href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Azure Data Factory
               href: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Transferir dados com a ferramenta DistCp
+              href: data-lake-storage-use-distcp.md
             - name: Transferir dados com a biblioteca do Movimento de Dados
               href: ../common/storage-use-data-movement-library.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Otimizar

@@ -25,9 +25,13 @@
         - name: Criar um bloco de notas do Apache Spark com ferramentas Web
           href: quickstart-apache-spark-notebook.md
         - name: Criar um conjunto do Apache Spark com o portal do Azure
-          href: quickstart-create-apache-spark-pool.md
-        - name: Criar um conjunto de SQL
-          href: quickstart-create-sql-pool.md
+          href: quickstart-create-apache-spark-pool-portal.md
+        - name: Criar conjunto do Apache Spark com o Synapse Studio
+          href: quickstart-create-apache-spark-pool-studio.md
+        - name: Criar conjunto do SQL com o portal do Azure
+          href: quickstart-create-sql-pool-portal.md
+        - name: Criar conjunto do SQL com o Synapse Studio
+          href: quickstart-create-sql-pool-studio.md
     - name: Carregar dados com conjuntos de SQL
       items:
         - name: Declaração COPY
@@ -308,7 +312,7 @@
                   href: sql/develop-storage-files-overview.md
                 - name: Controlo de Acesso de Armazenamento
                   href: sql/develop-storage-files-storage-access-control.md
-                - name: Tabelas do Spark
+                - name: Tabelas externas do Apache Spark para Azure Synapse
                   href: sql/develop-storage-files-spark-tables.md
         - name: Gestão de cargas de trabalho
           items:
@@ -328,8 +332,16 @@
               href: ./sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Synapse Link
       items:
+        - name: Synapse Link para Azure Cosmos DB
+          href: ../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Descrição Geral da Loja Analítica
+          href: ../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Funcionalidades suportadas pelo Synapse Link
           href: ./synapse-link/concept-synapse-link-cosmos-db-support.md
+        - name: FAQ do Synapse Link
+          href: ../cosmos-db/synapse-link-frequently-asked-questions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Casos de utilização do Synapse Link
+          href: ../cosmos-db/synapse-link-use-cases.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: 'Integração de ferramentas (IA, ETL, BI)'
       items:
         - name: Resolver problemas do Synapse Analytics Studio
@@ -414,6 +426,8 @@
       items:
         - name: Synapse Link
           items:
+            - name: Configurar o Synapse Link
+              href: ../cosmos-db/configure-synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Ligar ao Azure Synapse Link para Cosmos DB
               href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
             - name: Consultar loja analítica do Cosmos DB com o Apache Spark para o Azure Synapse Analytics
@@ -860,14 +874,16 @@
   items:
     - name: Mapa do Azure
       href: 'https://azure.microsoft.com/roadmap/?category=databases'
+    - name: Pedidos de funcionalidades
+      href: 'https://feedback.azure.com/forums/307516-sql-data-warehouse/'
     - name: Fórum
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse'
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/synapse-analytics/'
     - name: Calculadora de preços
       href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Pedidos de funcionalidades
-      href: 'https://feedback.azure.com/forums/307516-sql-data-warehouse/'
+    - name: Perguntas e Respostas
+      href: 'https://docs.microsoft.com/en-us/answers/questions/topics/single/25423.html'
     - name: Atualizações de serviço
       href: 'https://azure.microsoft.com/updates/?product=sql-data-warehouse'
     - name: Stack Overflow

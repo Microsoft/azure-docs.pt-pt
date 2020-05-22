@@ -15,6 +15,9 @@
       href: quick-run-dotnet.md
     - name: Executar uma tarefa do Batch - Python
       href: quick-run-python.md
+    - name: Criar uma conta Batch - modelo do ARM
+      href: quick-create-template.md
+      displayName: Resource Manager
 - name: Tutoriais
   items:
     - name: Processamento de ficheiros em paralelo - .NET
@@ -169,32 +172,32 @@
               href: batch-cli-templates.md
     - name: Utilizar o SDK do Batch em Node.js
       href: batch-nodejs-get-started.md
-- name: Executar cargas de trabalho
-  items:
-    - name: Tarefas MPI
-      href: batch-mpi.md
-    - name: Cargas de trabalho de contentor
-      href: batch-docker-container-workloads.md
-    - name: Composição
+    - name: Executar cargas de trabalho
       items:
-        - name: Composição com o Azure
-          href: batch-rendering-service.md
-        - name: Composição de imagens de VM
-          href: batch-rendering-applications.md
-        - name: Capacidades de composição do Batch
-          href: batch-rendering-functionality.md
-        - name: Utilizar a composição do Batch
-          href: batch-rendering-using.md
-        - name: Utilizar gestores de composição
-          href: batch-rendering-render-managers.md
-        - name: Composição de referência de aplicação
-          href: batch-rendering-application-reference.md
-        - name: Movimento de dados e armazenamento
-          href: batch-rendering-storage-data-movement.md
-        - name: Composição de arquiteturas
-          href: batch-rendering-architectures.md
-    - name: Processamento de dados com o Batch e o Data Factory
-      href: ../data-factory/transform-data-using-dotnet-custom-activity.md?toc=%2fazure%2fbatch%2ftoc.json
+        - name: Tarefas MPI
+          href: batch-mpi.md
+        - name: Cargas de trabalho de contentor
+          href: batch-docker-container-workloads.md
+        - name: Composição
+          items:
+            - name: Composição com o Azure
+              href: batch-rendering-service.md
+            - name: Composição de imagens de VM
+              href: batch-rendering-applications.md
+            - name: Capacidades de composição do Batch
+              href: batch-rendering-functionality.md
+            - name: Utilizar a composição do Batch
+              href: batch-rendering-using.md
+            - name: Utilizar gestores de composição
+              href: batch-rendering-render-managers.md
+            - name: Composição de referência de aplicação
+              href: batch-rendering-application-reference.md
+            - name: Movimento de dados e armazenamento
+              href: batch-rendering-storage-data-movement.md
+            - name: Composição de arquiteturas
+              href: batch-rendering-architectures.md
+        - name: Processamento de dados com o Batch e o Data Factory
+          href: ../data-factory/transform-data-using-dotnet-custom-activity.md?toc=%2fazure%2fbatch%2ftoc.json
 - name: Referência
   items:
     - name: CLI do Azure

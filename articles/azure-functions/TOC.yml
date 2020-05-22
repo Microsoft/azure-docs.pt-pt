@@ -127,6 +127,9 @@
           href: 'functions-reference-node.md#typescript'
     - name: Segurança
       items:
+        - name: Descrição geral da segurança
+          href: security-concepts.md
+          displayName: 'secure, ssl'
         - name: Linha de base de segurança
           href: security-baseline.md
     - name: Diagnóstico
@@ -332,6 +335,8 @@
       items:
         - name: Resolução de problemas de armazenamento
           href: functions-recover-storage-account.md
+        - name: Resolução de Problemas com dependências de Python
+          href: recover-module-not-found.md
 - name: Referência
   items:
     - name: Referências de API
@@ -347,12 +352,16 @@
         - name: Armazenamento de blobs
           items:
             - name: Descrição geral
+              displayName: Blob storage
               href: functions-bindings-storage-blob.md
             - name: Acionador
+              displayName: Blob storage
               href: functions-bindings-storage-blob-trigger.md
             - name: Input
+              displayName: Blob storage
               href: functions-bindings-storage-blob-input.md
             - name: Saída
+              displayName: Blob storage
               href: functions-bindings-storage-blob-output.md
         - name: Azure Cosmos DB
           items:
@@ -378,10 +387,13 @@
           items:
             - name: Descrição geral
               href: functions-bindings-event-grid.md
+              displayName: Event Grid
             - name: Acionador
               href: functions-bindings-event-grid-trigger.md
+              displayName: Event Grid
             - name: Saída
               href: functions-bindings-event-grid-output.md
+              displayName: Event Grid
         - name: Hubs de Eventos
           items:
             - name: Descrição geral
@@ -408,10 +420,13 @@
           items:
             - name: Descrição geral
               href: functions-bindings-http-webhook.md
+              displayName: HTTP
             - name: Acionador
               href: functions-bindings-http-webhook-trigger.md
+              displayName: HTTP
             - name: Saída
               href: functions-bindings-http-webhook-output.md
+              displayName: HTTP
         - name: Microsoft Graph
           href: functions-bindings-microsoft-graph.md
         - name: Mobile Apps
@@ -422,20 +437,26 @@
           items:
             - name: Descrição geral
               href: functions-bindings-storage-queue.md
+              displayName: Queue storage
             - name: Acionador
               href: functions-bindings-storage-queue-trigger.md
+              displayName: Queue storage
             - name: Saída
               href: functions-bindings-storage-queue-output.md
+              displayName: Queue storage
         - name: SendGrid
           href: functions-bindings-sendgrid.md
         - name: Service Bus
           items:
             - name: Descrição geral
               href: functions-bindings-service-bus.md
+              displayName: Service Bus
             - name: Acionador
               href: functions-bindings-service-bus-trigger.md
+              displayName: Service Bus
             - name: Saída
               href: functions-bindings-service-bus-output.md
+              displayName: Service Bus
         - name: Serviço SignalR
           items:
             - name: Descrição geral

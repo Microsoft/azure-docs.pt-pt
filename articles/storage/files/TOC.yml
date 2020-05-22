@@ -190,6 +190,14 @@
           href: storage-files-identity-auth-active-directory-domain-service-enable.md
         - name: Ativar o TLS seguro para o cliente do Armazenamento do Azure
           href: ../common/storage-security-tls.md
+    - name: Transferir
+      items:
+        - name: Introdução - AzCopy
+          href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Utilizar com os Ficheiros
+          href: ../common/storage-use-azcopy-files.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: 'Configurar, otimizar, resolver problemas - AzCopy'
+          href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Resolução de problemas
       items:
         - name: Resolução de problemas dos Ficheiros do Azure no Windows

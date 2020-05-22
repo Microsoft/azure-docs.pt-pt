@@ -1,7 +1,7 @@
 - name: Documentação do marketplace comercial
   href: index.yml
   items:
-    - name: Mapa de objetivos do marketplace comercial
+    - name: Atualizações do marketplace comercial
       href: ./marketplace-roadmap.md
     - name: Políticas e termos do marketplace comercial
       href: ./policies-terms.md
@@ -76,10 +76,6 @@
 - name: Portal de Parceiros da Cloud
   href: ./cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md
   items:
-    - name: Migração do Cloud Partner Portal para o Centro de Parceiros
-      href: ./cloud-partner-portal-orig/cloud-partner-portal-migration-to-partner-center.md
-    - name: FAQ da migração
-      href: ./cloud-partner-portal-orig/cloud-partner-portal-migration-faq.md
     - name: Apresentação do portal
       href: ./cloud-partner-portal/portal-tour/cpp-portal-tour.md
       items:
@@ -134,8 +130,6 @@
           items:
             - name: Introdução
               href: ./cloud-partner-portal-orig/si-getting-started.md
-            - name: Novidades
-              href: ./cloud-partner-portal-orig/si-changes.md
             - name: Análise Web
               href: ./cloud-partner-portal-orig/web-analytics.md
             - name: Definições
@@ -264,67 +258,6 @@
           href: ./cloud-partner-portal/saas-app/cpp-saas-offer.md
         - name: Oferta de máquina virtual
           href: ./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md
-          items:
-            - name: Pré-requisitos
-              href: ./cloud-partner-portal/virtual-machine/cpp-prerequisites.md
-            - name: Criar oferta de VM
-              href: ./cloud-partner-portal/virtual-machine/cpp-create-offer.md
-              items:
-                - name: Separador Definições de Oferta
-                  href: ./cloud-partner-portal/virtual-machine/cpp-offer-settings-tab.md
-                - name: Separador de SKUs
-                  href: ./cloud-partner-portal/virtual-machine/cpp-skus-tab.md
-                - name: Separador Versão de Teste
-                  href: ./cloud-partner-portal/virtual-machine/cpp-test-drive-tab.md
-                - name: Separador Marketplace
-                  href: ./cloud-partner-portal/virtual-machine/cpp-marketplace-tab.md
-                - name: Separador Suporte
-                  href: ./cloud-partner-portal/virtual-machine/cpp-support-tab.md
-            - name: Criar recursos técnicos de VM
-              href: ./cloud-partner-portal/virtual-machine/cpp-create-technical-assets.md
-              items:
-                - name: Criar VHD
-                  href: ./cloud-partner-portal/virtual-machine/cpp-create-vhd.md
-                - name: Problemas de criação de VHD comuns
-                  href: ./cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues.md
-                - name: Ligar à VM
-                  href: ./cloud-partner-portal/virtual-machine/cpp-connect-vm.md
-                - name: Configurar VM
-                  href: ./cloud-partner-portal/virtual-machine/cpp-configure-vm.md
-                - name: Gestão Remota do Windows
-                  href: ./cloud-partner-portal/virtual-machine/cpp-winrm-over-https.md
-                  items:
-                    - name: Configurar o WinRM após a criação da VM
-                      href: ./cloud-partner-portal/virtual-machine/cpp-configure-winrm-after-vm-creation.md
-                - name: Implementar a VM
-                  href: ./cloud-partner-portal/virtual-machine/cpp-deploy-vm-vhd.md
-                  items:
-                    - name: Criar uma imagem de VM do utilizador
-                      href: ./cloud-partner-portal/virtual-machine/cpp-create-user-image.md
-                    - name: Criar um certificado do cofre de chaves
-                      href: ./cloud-partner-portal/virtual-machine/cpp-create-key-vault-cert.md
-                      items:
-                        - name: Modelo de implementação do cofre de chaves
-                          href: ./cloud-partner-portal/virtual-machine/cpp-key-vault-deploy-template.md
-                - name: Implementar a VM a partir do VHD do utilizador
-                  href: ./cloud-partner-portal/virtual-machine/cpp-deploy-vm-user-image.md
-                  items:
-                    - name: Modelo de Implementação de VHD
-                      href: ./cloud-partner-portal/virtual-machine/cpp-deploy-json-template.md
-                    - name: Implementar uma VM a partir do marketplace
-                      href: ./cloud-partner-portal/virtual-machine/cpp-deploy-vm-marketplace.md
-                - name: Certificar a imagem de VM
-                  href: ./cloud-partner-portal/virtual-machine/cpp-certify-vm.md
-                - name: Cliente de autoteste de VM
-                  href: ./cloud-partner-portal/virtual-machine/cpp-selftest-client.md
-                - name: Obter o URI de SAS
-                  href: ./cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md
-                - name: Problemas comuns do URL de SAS
-                  href: ./cloud-partner-portal/virtual-machine/cpp-common-sas-url-issues.md
-            - name: Publicar oferta de VM
-              href: ./cloud-partner-portal/virtual-machine/cpp-publish-offer.md
-            - name: Atualizar oferta existente
-              href: ./cloud-partner-portal/virtual-machine/cpp-update-existing-offer.md
     - name: Referência da API
       items:
         - name: Descrição geral
@@ -361,6 +294,8 @@
   items:
     - name: Descrição geral do marketplace comercial
       href: ./partner-center-portal/commercial-marketplace-overview.md
+    - name: FAQ da migração
+      href: ./cloud-partner-portal-migration-faq.md
     - name: Gestão de Contas
       items:
         - name: Criar uma nova conta do Centro de Parceiros

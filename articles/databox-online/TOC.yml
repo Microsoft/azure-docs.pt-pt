@@ -29,7 +29,7 @@
           href: data-box-gateway-security.md
         - name: Ver casos de utilização
           href: data-box-gateway-use-cases.md
-    - name: Como
+    - name: Procedimento
       items:
         - name: Gerir
           items:
@@ -88,8 +88,12 @@
         - name: Descrição geral da segurança
           href: azure-stack-edge-security.md
         - name: Rever especificações
-          href: azure-stack-edge-technical-specifications-compliance.md
-    - name: Como
+          items:
+            - name: Especificações do dispositivo
+              href: azure-stack-edge-technical-specifications-compliance.md
+            - name: Especificações do cabo de alimentação
+              href: azure-stack-edge-technical-specifications-power-cords-regional.md
+    - name: Procedimento
       items:
         - name: 'Desenvolver um módulo C#'
           href: azure-stack-edge-create-iot-edge-module.md

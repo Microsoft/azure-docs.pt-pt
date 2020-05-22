@@ -4,15 +4,12 @@
   items:
     - name: O que é o Azure Arc para servidores?
       href: ./servers/overview.md
-- name: Amostras
-  items:
-    - name: Incorporações do Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./servers/policy-samples.md
 - name: Guias de procedimentos
   items:
     - name: Ligar ao Azure Arc
       items:
+        - name: Descrição geral do agente Connected Machine
+          href: ./servers/agent-overview.md
         - name: Ligar computadores ao Azure Arc no portal do Azure
           href: ./servers/onboard-portal.md
         - name: Ligar computadores em escala através do principal de serviço
@@ -23,3 +20,8 @@
       items:
         - name: Gerir o agente
           href: ./servers/manage-agent.md
+- name: Amostras
+  items:
+    - name: Incorporações do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./servers/policy-samples.md

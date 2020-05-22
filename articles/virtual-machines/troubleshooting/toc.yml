@@ -77,6 +77,10 @@
           href: troubleshoot-guide-critical-process-died.md
         - name: Serviço crítico falhou
           href: troubleshoot-critical-service-failed-boot-error.md
+        - name: Resolução de problemas com erros de arranque - Estado não encontrado
+          href: boot-error-status-not-found.md
+        - name: Resolução de problemas da capacidade de instalação do Windows Update
+          href: windows-update-installation-capacity.md
         - name: A VM não responde ao aplicar a política de utilizadores e grupos locais
           href: troubleshoot-vm-unresponsive-group-policy-local-users.md
         - name: Não é um disco de arranque

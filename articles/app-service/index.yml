@@ -7,12 +7,12 @@ metadata:
   ms.topic: landing-page
   ms.service: app-service
   ms.date: 02/26/2020
-  ms.openlocfilehash: 059769a3a78ffc9df5bfd5916c075b3d3a622e79
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: eea156253163f1ffe9751cfc0e7824628cb1c773
+  ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "78944382"
+  ms.lasthandoff: 05/20/2020
+  ms.locfileid: "83697835"
 landingContent:
 - title: Acerca do Serviço de Aplicações
   linkLists:
@@ -42,6 +42,8 @@ landingContent:
       url: app-service-web-get-started-nodejs.md
     - text: Primeira aplicação PHP
       url: app-service-web-get-started-php.md
+    - text: Primeira aplicação Java
+      url: app-service-web-get-started-java.md
 - title: Tarefas comuns
   linkLists:
   - linkListType: tutorial

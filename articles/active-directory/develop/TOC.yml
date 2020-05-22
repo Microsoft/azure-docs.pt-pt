@@ -28,7 +28,9 @@
       items:
         - name: Angular
           href: quickstart-v2-angular.md
-        - name: JavaScript
+        - name: JavaScript - Fluxo de código de autenticação
+          href: quickstart-v2-javascript-auth-code.md
+        - name: JavaScript - Fluxo implícito
           href: quickstart-v2-javascript.md
     - name: Web Apps
       items:
@@ -73,7 +75,9 @@
       items:
         - name: Angular
           href: tutorial-v2-angular.md
-        - name: JavaScript
+        - name: JavaScript - Fluxo de código de autenticação
+          href: tutorial-v2-javascript-auth-code.md
+        - name: JavaScript - Fluxo implícito
           href: tutorial-v2-javascript-spa.md
     - name: Web Apps
       items:
@@ -479,6 +483,10 @@
           href: active-directory-optional-claims.md
         - name: Configurar durações de token
           href: active-directory-configurable-token-lifetimes.md
+        - name: Processar as alterações de cookies do SameSite no browser do Chrome
+          href: howto-handle-samesite-cookie-changes-chrome-browser.md
+        - name: Processar o ITP no Safari
+          href: reference-third-party-cookies-spas.md
     - name: Configuração da aplicação
       displayName: App configuration
       items:
@@ -576,7 +584,7 @@
           href: vs-active-directory-webapi-what-happened.md
         - name: Diagnosticar erros durante a autenticação
           href: vs-active-directory-error.md
-- name: Referências
+- name: Referência
   items:
     - name: Manifesto de aplicação
       href: reference-app-manifest.md

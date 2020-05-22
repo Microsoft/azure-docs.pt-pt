@@ -21,7 +21,7 @@
       href: hsm-protected-keys.md
     - name: Importar chaves protegidas por HSM (pré-visualização)
       href: hsm-protected-keys-vendor-agnostic-byok.md
-    - name: Importar chaves protegidas por HSM (legado)
+    - name: Importa chaves protegidas por HSM (legado)
       href: hsm-protected-keys-legacy.md
 - name: Amostras
   items:

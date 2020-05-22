@@ -200,6 +200,8 @@
               href: howto-create-users.md
             - name: Configurar a integração do Azure AD
               href: howto-configure-sign-in-aad-authentication.md
+            - name: Ligar com a Identidade Gerida
+              href: howto-connect-with-managed-identity.md
         - name: Otimizar
           items:
             - name: Inserções em massa

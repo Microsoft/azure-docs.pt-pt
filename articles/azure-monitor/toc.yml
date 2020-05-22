@@ -240,10 +240,7 @@
               displayname: 'functions, monitor functions, automation'
               href: ../azure-functions/functions-monitoring.md
             - name: Azure Kubernetes Service
-              items:
-                - name: Kubernetes (Preterido)
-                  displayname: 'aks, microservice, istio, service mesh, application monitoring, monitor kubernetes, monitor aks'
-                  href: app/kubernetes.md
+              href: app/kubernetes-codeless.md
             - name: Autónomo - qualquer ambiente
               items:
                 - name: Java (pré-visualização)
@@ -1000,8 +997,6 @@
           items:
             - name: Disponibilidade
               href: app/monitor-web-app-availability.md
-            - name: Alertas de métricas
-              href: app/alerts.md
         - name: Regras de alerta de métricas
           items:
             - name: Gerir alertas de métrica
@@ -1268,6 +1263,8 @@
           href: insights/azure-web-apps-analytics.md
         - name: Conector do Application Insights
           href: platform/app-insights-connector.md
+        - name: Application Insights para AKS sem código
+          href: app/kubernetes.md
         - name: Monitorizar aplicações do Docker
           href: app/docker.md
         - name: Descontinuação do portal do OMS

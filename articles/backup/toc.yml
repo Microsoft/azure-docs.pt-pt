@@ -407,8 +407,8 @@
       href: compliance-offerings.md
     - name: Mapa do Azure
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: Fórum do MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup'
+    - name: Perguntas e Respostas da Microsoft - Azure Backup
+      href: 'https://docs.microsoft.com/answers/topics/azure-backup.html'
     - name: Calculadora de preços
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Atualizações de serviço

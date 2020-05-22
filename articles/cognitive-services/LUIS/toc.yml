@@ -42,8 +42,6 @@
         - name: 2. Extrair dados do utilizador
           href: tutorial-machine-learned-entity.md
           displayName: 'n-depth, constraint, descriptor, phrase list, entity, feature'
-        - name: 3. Obter sentimento a partir de expressões do utilizador
-          href: tutorial-publish-settings.md
     - name: Melhorar a aplicação
       items:
         - name: Corrigir predições inseguras

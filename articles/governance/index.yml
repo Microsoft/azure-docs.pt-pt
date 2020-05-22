@@ -10,13 +10,13 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 03/24/2020
-  ms.openlocfilehash: 8bb9c305a67ca1d87de31188d8455e210a414a42
-  ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+  ms.date: 05/20/2020
+  ms.openlocfilehash: 4f88fc9d72a7a8bbdf80ed8553888da3b975804f
+  ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/28/2020
-  ms.locfileid: "82234167"
+  ms.lasthandoff: 05/20/2020
+  ms.locfileid: "83683545"
 highlightedContent:
   items:
   - title: Descrição geral da governação
@@ -48,8 +48,8 @@ productDirectory:
       text: Descrição geral
     - url: ./policy/how-to/get-compliance-data.md
       text: Avaliar a conformidade
-    - url: ./policy/concepts/rego-for-aks.md
-      text: Gerir a configuração do AKS
+    - url: ./policy/concepts/policy-for-kubernetes.md
+      text: Gerir configuração do Kubernetes
     - url: ./policy/concepts/guest-configuration.md
       text: Gerir a configuração da VM
     - url: ./policy/index.yml
@@ -115,6 +115,8 @@ additionalContent:
         url: /javascript/api/@azure/arm-managementgroups/managementgroups
       - text: REST
         url: /rest/api/resources/managementgroups
+      - text: Modelos do Resource Manager
+        url: /azure/templates/microsoft.management/managementgroups
     - title: Azure Policy
       links:
       - text: CLI do Azure

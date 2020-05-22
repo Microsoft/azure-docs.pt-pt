@@ -79,9 +79,8 @@
     - name: Jupyter Notebooks
       displayName: 'example, examples, server, jupyter, azure notebooks, python, notebook, github'
       href: samples-notebooks.md
-    - name: Conjuntos de dados de designer
-      href: sample-designer-datasets.md
-    - name: Pipelines de exemplo de estruturador
+    - name: Exemplos e conjuntos de dados do Estruturador
+      displayName: 'example, examples, studio, pipelines, data sets, modules'
       href: samples-designer.md
     - name: Exemplos de MLOps ponto a ponto
       href: 'https://github.com/microsoft/MLOps'
@@ -261,6 +260,9 @@
             - name: Versão e controlo de conjuntos de dados
               displayName: 'data, data set'
               href: how-to-version-track-datasets.md
+            - name: Preservar a privacidade dos dados
+              displayName: 'data,privacy,differential privacy'
+              href: how-to-differential-privacy.md
     - name: Preparar modelos
       items:
         - name: Utilizar avaliadores para ML
@@ -376,6 +378,9 @@
               href: how-to-monitor-data-drift.md
             - name: Monitorizar com o Application Insights
               href: how-to-enable-app-insights.md
+        - name: Implementar serviço de inferência encriptada
+          displayName: 'homomorhic,encryption,deployment'
+          href: how-to-homomorphic-encryption-seal.md
     - name: Compilar e utilizar pipelines de ML
       displayName: pipelines
       items:
@@ -393,9 +398,6 @@
         - name: Depurar pipelines no Application Insights
           displayname: 'pipelines, log, monitor'
           href: how-to-debug-pipelines-application-insights.md
-        - name: Pipelines do Azure para CI/CD
-          displayName: 'continuous, integration, delivery'
-          href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/context/ml-context
         - name: Dados de transformação do estruturador
           displayName: pipeline
           href: how-to-designer-transform-data.md
@@ -417,6 +419,9 @@
         - name: Iterar e evoluir pipelines de machine learning
           displayName: modularizing testing
           href: concept-pipeline-practices-tips.md
+    - name: Pipelines do Azure para CI/CD
+      displayName: 'continuous, integration, delivery'
+      href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/context/ml-context
     - name: Gerir quotas de recursos
       displayName: limits
       href: how-to-manage-quotas.md
