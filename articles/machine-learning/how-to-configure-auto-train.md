@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.custom: seodec18
-ms.openlocfilehash: c183c179200738566d0794ba23582f16068013b6
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 09f0e0f47ecd94c6db67b3973218cc1323bccde3
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/21/2020
-ms.locfileid: "83722852"
+ms.locfileid: "83736165"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar experimentações do ML automatizado no Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -253,9 +253,12 @@ Os modelos do Conjunto são ativados por padrão, e aparecem como as iterações
 
 Existem múltiplos argumentos predefinidos que podem ser fornecidos como `kwargs` num objeto para alterar o comportamento padrão do `AutoMLConfig` conjunto.
 
-* `ensemble_download_models_timeout_sec`: Durante a geração de modelos VoteEnsemble e StackEnsemble, são descarregados vários modelos equipados das anteriores corridas para crianças. Se encontrar este erro, `AutoMLEnsembleException: Could not find any models for running ensembling` poderá ter de dar mais tempo aos modelos para serem descarregados. O valor padrão é de 300 segundos para descarregar estes modelos em paralelo e não há limite máximo de tempo limite. Configure este parâmetro com um valor superior a 300 segundos, se for necessário mais tempo. **Nota:** Se o tempo for atingido e houver modelos descarregados, então o insemado prossegue com o maior número de modelos que descarregou (não é necessário que todos os modelos precisem de ser descarregados para terminar dentro desse prazo).
+* `ensemble_download_models_timeout_sec`: Durante **a geração** de modelos VoteEnsemble e **StackEnsemble,** são descarregados vários modelos equipados das anteriores corridas para crianças. Se encontrar este erro, `AutoMLEnsembleException: Could not find any models for running ensembling` poderá ter de dar mais tempo aos modelos para serem descarregados. O valor padrão é de 300 segundos para descarregar estes modelos em paralelo e não há limite máximo de tempo limite. Configure este parâmetro com um valor superior a 300 segundos, se for necessário mais tempo. 
 
-Os seguintes parâmetros aplicam-se apenas aos modelos StackEnsemble: 
+  > [!NOTE]
+  >  Se o tempo for atingido e houver modelos descarregados, então o insemato prossegue com o maior número de modelos que descarregou. Não é necessário que todos os modelos precisem de ser descarregados para terminar dentro desse intervalo.
+
+Os seguintes parâmetros aplicam-se apenas aos modelos **StackEnsemble:** 
 
 * `stack_meta_learner_type`: o meta-aprendiz é um modelo treinado na saída dos modelos heterogéneos individuais. Os meta-aprendizes predefinidos destinam-se a tarefas de `LogisticRegression` classificação (ou `LogisticRegressionCV` se a validação cruzada estiver ativada) e a tarefas de `ElasticNet` regressão/previsão (ou `ElasticNetCV` se a validação cruzada estiver ativada). Este parâmetro pode ser uma das seguintes cordas: `LogisticRegression` . , , , ou `LogisticRegressionCV` `LightGBMClassifier` `ElasticNet` `ElasticNetCV` `LightGBMRegressor` `LinearRegression` .
 
@@ -534,7 +537,7 @@ Veja como obter amostras [de](how-to-machine-learning-interpretability-automl.md
 
 Para obter informações gerais sobre como as explicações do modelo e a importância da funcionalidade podem ser ativadas noutras áreas do SDK fora da aprendizagem automática de máquinas, consulte [o](how-to-machine-learning-interpretability.md) artigo conceptual sobre a interpretação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 + Saiba mais sobre [como e onde implementar um modelo.](how-to-deploy-and-where.md)
 

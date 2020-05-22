@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40f89fbe19b93601f9e0525f0387e402bd175fe4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8e4521cb67ae95a1cd4a3e728a13e43bfd5773ab
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78672671"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83737032"
 ---
 # <a name="azure-ad-joined-devices"></a>Dispositivos associados ao Azure AD
 
@@ -43,7 +43,7 @@ A adesão à Azure AD destina-se a organizações que queiram ser apenas em nuve
 |   | Reset de palavra-passe de autosserviço e reset PIN do Windows Hello PIN no ecrã de bloqueio |
 |   | Roaming do Estado Da Empresa através de dispositivos |
 
-Os dispositivos aderes à Azure AD são assinados para usar uma conta aD organizacional Azure. O acesso aos recursos na organização pode ser ainda limitado com base nessa conta Azure AD e nas políticas de [Acesso Condicional](../conditional-access/overview.md) aplicadas à identidade do dispositivo.
+Os dispositivos aderes à Azure AD são assinados para usar uma conta aD organizacional Azure. O acesso aos recursos na organização pode ser ainda limitado com base nessa conta Azure AD e nas políticas de [Acesso Condicional](../conditional-access/howto-conditional-access-policy-compliant-device.md) aplicadas à identidade do dispositivo.
 
 Os administradores podem proteger e controlar ainda mais o Azure AD juntou-se a dispositivos utilizando ferramentas de Gestão de Dispositivos Móveis (MDM) como o Microsoft Intune ou em cenários de cogestão utilizando o Microsoft Endpoint Configuration Manager. Estas ferramentas fornecem um meio para impor configurações exigidas pela organização, como exigir que o armazenamento seja encriptado, complexidade de passwords, instalações de software e atualizações de software. Os administradores podem disponibilizar aplicações de organização para o Azure AD, utilizando o Gestor de Configuração para [gerir aplicações a partir da Microsoft Store for Business and Education.](/configmgr/apps/deploy-use/manage-apps-from-the-windows-store-for-business)
 

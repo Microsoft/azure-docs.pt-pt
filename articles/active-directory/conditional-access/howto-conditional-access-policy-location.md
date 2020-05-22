@@ -11,21 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34b29ceadaaf85e69d1214039fa1b563ed21a77d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 10b0f86447436b8bf08874daf472b1223bff7d0a
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80295192"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83737661"
 ---
 # <a name="conditional-access-block-access-by-location"></a>Acesso Condicional: Bloquear acesso por localização
 
-Com a condição de localização no Acesso Condicional, pode controlar o acesso às suas aplicações na nuvem com base na localização da rede de um utilizador. A condição de localização é comumente usada para bloquear o acesso de países de onde a sua organização sabe que o tráfego não deve vir.
+Com a condição de localização no Acesso Condicional, pode controlar o acesso às suas aplicações na nuvem com base na localização da rede de um utilizador. A condição de localização é comumente usada para bloquear o acesso de países/regiões de onde a sua organização sabe que o tráfego não deve vir.
 
 ## <a name="define-locations"></a>Definir localizações
 
 1. Inscreva-se no **portal Azure** como administrador global, administrador de segurança ou administrador de Acesso Condicional.
-1. Navegue até **azure Ative Directy** > **Security** > **Conditional Access** > **Locals nomeados**.
+1. Navegue até **azure Ative Directy**  >  **Security**  >  **Conditional Access**  >  **Locals nomeados**.
 1. Escolha **a nova localização**.
 1. Dê um nome à sua localização.
 1. Escolha **intervalos IP** se conhecer as gamas específicas de endereços IPv4 acessíveis externamente que compõem esse local ou **países/regiões**.
@@ -38,20 +38,20 @@ Mais informações sobre a condição de localização no Acesso Condicional pod
 ## <a name="create-a-conditional-access-policy"></a>Criar uma política de acesso condicional
 
 1. Inscreva-se no **portal Azure** como administrador global, administrador de segurança ou administrador de Acesso Condicional.
-1. Navegue até ao**Acesso Condicional**de**Segurança** >  **do Diretório** > Ativo do Azure.
+1. Navegue até ao Acesso Condicional de Segurança **do Diretório Ativo do Azure.**  >  **Security**  >  **Conditional Access**
 1. Selecione **Nova política.**
 1. Dê um nome à sua apólice. Recomendamos que as organizações criem um padrão significativo para os nomes das suas políticas.
 1. Em **Atribuições**, selecione **Utilizadores e grupos**
    1. Em **Incluir,** selecione **Todos os utilizadores**.
    1. Selecione **Done** (Concluído).
-1. Em **aplicativos ou ações** > cloud**Inclua**, selecione **todas as aplicações em nuvem**, e selecione **Done**.
-1. Sob **condições** > **de localização**.
+1. Em **aplicativos ou ações cloud**  >  **Inclua**, selecione todas as **aplicações em nuvem**, e selecione **Done**.
+1. Sob **Conditions**  >  **condições de localização**.
    1. **Definir configurar** para **sim**
    1. **Incluir** **locais selecionados selecionados**
    1. Selecione a localização bloqueada que criou para a sua organização.
-   1. Clique em **Selecionar** > **Feito .** > **Done**
-1. Em **condições,** > **as aplicações do Cliente (Pré-visualização)**, definir **Configurar** para **Sim,** e selecionar **Feito**.
-1. Sob **controlos** > de acesso**Bloco**, e selecione **Selecione**.
+   1. Clique em **Selecionar**  >  **Feito**  >  **.**
+1. Em **condições,**  >  **as aplicações do Cliente (Pré-visualização)**, definir **Configurar** para **Sim,** e selecionar **Feito**.
+1. Sob **controlos de acesso**  >  **Bloco**, e **selecione Selecione**.
 1. Confirme as suas definições e ajuste **a política de ativação** para **On**.
 1. Selecione **Criar** para criar para ativar a sua política.
 

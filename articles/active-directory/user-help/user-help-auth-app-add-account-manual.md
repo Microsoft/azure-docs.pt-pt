@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: b237f710866ad3960dd65902c0789228d8c391bc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3838234f9f65fcf91f8de33e3d7196aa13f2b903
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77062324"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83741726"
 ---
 # <a name="manually-add-an-account-to-the-app"></a>Adicione manualmente uma conta à app
 

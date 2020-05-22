@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ccdd25d82af2b4893260af18dac818816d9e4579
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ddcd95356f9b70fec5a74f36f5b80e55ea56b477
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72791984"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744004"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>Chave frase Habilidade cognitiva de extração
 
@@ -31,7 +31,7 @@ Esta capacidade é útil se precisar identificar rapidamente os principais ponto
 Microsoft.Skills.Text.KeyPhraseExtractionSkill 
 
 ## <a name="data-limits"></a>Limites de dados
-O tamanho máximo de um disco deve ser de [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)50.000 caracteres medido por . Se precisar de separar os seus dados antes de enviá-los para o extrator de frases-chave, considere utilizar a [habilidade Text Split](cognitive-search-skill-textsplit.md).
+O tamanho máximo de um disco deve ser de 50.000 caracteres medido por [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length) . Se precisar de separar os seus dados antes de enviá-los para o extrator de frases-chave, considere utilizar a [habilidade Text Split](cognitive-search-skill-textsplit.md).
 
 ## <a name="skill-parameters"></a>Parâmetros de habilidade
 
@@ -44,10 +44,17 @@ Os parâmetros são sensíveis às maiúsculas e minúsculas.
 
 ## <a name="skill-inputs"></a>Inputs de habilidade
 
-| Entradas     | Descrição |
+| Input  | Descrição |
 |--------------------|-------------|
 | texto | O texto a ser analisado.|
 | languageCode  |  Uma corda indicando a linguagem dos registos. Se este parâmetro não for especificado, o código de idioma padrão será utilizado para analisar os registos. <br/>Ver [lista completa de línguas suportadas](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)|
+
+## <a name="skill-outputs"></a>Saídas de habilidades
+
+| Saída  | Descrição |
+|--------------------|-------------|
+| keyPhrases | Uma lista de frases-chave extraídas do texto de entrada. As frases-chave são devolvidas por ordem de importância. |
+
 
 ##  <a name="sample-definition"></a>Definição de amostra
 
@@ -120,7 +127,7 @@ Se fornecer um código de linguagem não suportado, gera-se um erro e não se ex
 Se o seu texto estiver vazio, será emitido um aviso.
 Se o seu texto for superior a 50.000 caracteres, apenas serão analisados os primeiros 50.000 caracteres e emitido um aviso.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 + [Competências incorporadas](cognitive-search-predefined-skills.md)
 + [Como definir um conjunto de habilidades](cognitive-search-defining-skillset.md)

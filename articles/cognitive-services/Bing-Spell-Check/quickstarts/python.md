@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 12/16/2019
 ms.author: aahi
-ms.openlocfilehash: 6b0977628f7c3d971804d8597f42425608028081
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 3350ff4bc810666f7b772607c2983d86902f5ffc
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448460"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744049"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-python"></a>Quickstart: Verifique a ortografia com o Bing Spell Check REST API e Python
 
@@ -46,13 +46,13 @@ Use este quickstart para fazer a sua primeira chamada para a API de Verificaçã
 
 ## <a name="create-the-parameters-for-the-request"></a>Criar os parâmetros para o pedido
 
-1. Crie um novo `text` dicionário com como chave, e o seu texto como valor.
+1. Crie um novo dicionário com `text` como chave, e o seu texto como valor.
 
     ```python
     data = {'text': example_text}
     ```
 
-2. Adicione os parâmetros para o seu pedido. Anexar o seu `mkt=`código de mercado depois de . O código de mercado é o país de onde faz o pedido. Além disso, apende `&mode=`o seu modo de verificação ortográfica depois de . O modo `proof` é ou (apanha a `spell` maioria dos erros ortográficos/gramaticais) ou (captura a maioria da ortografia, mas não tantos erros gramaticais).
+2. Adicione os parâmetros para o seu pedido. Anexar o seu código de mercado depois `mkt=` de . O código de mercado é o país/região de onde faz o pedido. Além disso, apende o seu modo de verificação ortográfica depois `&mode=` de . O modo é `proof` ou (apanha a maioria dos erros ortográficos/gramaticais) ou (captura a `spell` maioria da ortografia, mas não tantos erros gramaticais).
 
     ```python
     params = {
@@ -61,7 +61,7 @@ Use este quickstart para fazer a sua primeira chamada para a API de Verificaçã
         }
     ```
 
-3. Adicione `Content-Type` um cabeçalho e a `Ocp-Apim-Subscription-Key` sua chave de subscrição ao cabeçalho.
+3. Adicione um cabeçalho e a sua chave de `Content-Type` subscrição ao `Ocp-Apim-Subscription-Key` cabeçalho.
 
     ```python
     headers = {

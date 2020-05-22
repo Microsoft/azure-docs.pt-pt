@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 73256aef19a03c4c971be5fc9e69f988ef5a831a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d1455bc65f175970bb741dab4a56aa0aac58fc59
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75438619"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743001"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Perguntas Mais Frequentes
 
@@ -166,7 +166,7 @@ A.  To speed up the copy process:
 
 - Create a local VHDx on fast storage or create an empty VHD on the HDD/SSD (slower).
 - Mount it to a VM.
-- Copy files to the VM’s disk.-->
+- Copy files to the VM's disk.-->
 
 
 ### <a name="q-can-i-use-multiple-storage-accounts-with-data-box"></a>P. Posso utilizar várias contas de armazenamento com o Data Box?
@@ -194,8 +194,8 @@ Uma vez concluída a cópia de dados, tome os seguintes passos para devolver o s
 3. Coloque em segurança o cabo de alimentação enviado com o dispositivo atrás do mesmo.
 4. Envie um e-mail à equipa de Operações de Caixas de [Dados Azure](mailto:adbops@microsoft.com) e forneça-lhes o código que guardou anteriormente. Eles fornecer-lhe-iam informações sobre onde e quando deixar o dispositivo.
 
-### <a name="q-will-my-data-box-devices-cross-country-borders-during-shipping"></a>P. Os meus dispositivos data Box atravessarão as fronteiras do país durante o transporte?
-R. Todos os dispositivos Data Box são enviados de dentro do mesmo país que o seu destino e não atravessarão quaisquer fronteiras internacionais. A única exceção é as encomendas na União Europeia (UE), onde os dispositivos podem ser enviados de e para qualquer país da UE. Isto aplica-se tanto à Caixa de Dados como aos dispositivos Data Box Heavy.
+### <a name="q-will-my-data-box-devices-cross-countryregion-borders-during-shipping"></a>P. Os meus dispositivos Data Box atravessarão as fronteiras do país/região durante o transporte?
+R. Todos os dispositivos Data Box são enviados de dentro do mesmo país/região que o seu destino e não atravessarão quaisquer fronteiras internacionais. A única exceção é as encomendas na União Europeia (UE), onde os dispositivos podem ser enviados de e para qualquer país/região da UE. Isto aplica-se tanto à Caixa de Dados como aos dispositivos Data Box Heavy.
 
 ### <a name="q-i-ordered-a-data-box-in-us-east-but-i-received-a-device-that-was-shipped-from-a-location-in-us-west-where-should-i-return-the-device-to"></a>P. Encomendei uma Caixa de Dados no Leste dos EUA, mas recebi um dispositivo que foi enviado de um local em Us West. Para onde devo devolver o dispositivo?
 R. Tentamos obter um dispositivo Data Box o mais rápido possível para si. Priorizamos o envio de um datacenter mais próximo da sua conta de armazenamento, mas enviaremos um dispositivo a partir de qualquer datacenter Azure que tenha inventário disponível. A sua Caixa de Dados deve ser devolvida ao mesmo local onde foi enviada, tal como exibida na etiqueta de envio.
@@ -221,7 +221,7 @@ R. Se o seu dispositivo não estiver a arrancar, vá à sua encomenda no portal 
 
 ## <a name="verify-and-upload"></a>Verificar e carregar
 
-### <a name="q-how-soon-can-i-access-my-data-in-azure-once-ive-shipped-the-data-box-back"></a>P. Quanto tempo depois de devolver o Data Box é que posso aceder aos meus dados no Azure? 
+### <a name="q-how-soon-can-i-access-my-data-in-azure-once-ive-shipped-the-data-box-back"></a>P. Quando posso aceder aos meus dados em Azure assim que enviar a Caixa de Dados de volta? 
 R.  Assim que o estado de encomenda **da Data Copy** mostrar como **Completo,** deverá poder aceder imediatamente aos seus dados.
 
 ### <a name="q-where-is-my-data-located-in-azure-after-the-upload"></a>P. Depois do carregamento, onde é que os meus dados ficam localizados no Azure?
@@ -258,7 +258,7 @@ R.  Para suportar a cadeia de custódia, estão disponíveis os seguintes relat�
 - Limpeza do dispositivo Data Box (de acordo com as normas 800 88R1 da NIST) após a cópia dos dados para a sua conta de armazenamento do Azure.
 
 ### <a name="are-the-carrier-tracking-logs-from-ups-available"></a>Os registos de rastreio da transportadora (da UPS) estão disponíveis? 
-R.  Os registos de acompanhamento da transportadora são guardados no histórico de encomendas do Data Box. Este relatório está disponível após o dispositivo ter chegado ao datacenter do Azure e de os dados no mesmo terem sido limpos. Para necessidades imediatas, também pode aceder diretamente ao site da transportadora com o número de acompanhamento da encomenda e obter as informações de acompanhamento.
+R.  Os registos de acompanhamento da transportadora são guardados no histórico de encomendas do Data Box. Este relatório está disponível após o dispositivo ter chegado ao datacenter do Azure e de os dados no mesmo terem sido limpos. Para necessidades imediatas, também pode ir diretamente ao site da transportadora com o número de rastreio da encomenda e obter as informações de rastreio.
 
 ### <a name="can-i-transport-the-data-box-to-azure-datacenter"></a>Posso transportar o Data Box para o datacenter do Azure? 
 R.  Não. Atualmente o Centro de Dados Azure não aceita a entrega da Caixa de Dados de clientes ou de transportadoras que não sejam ups.

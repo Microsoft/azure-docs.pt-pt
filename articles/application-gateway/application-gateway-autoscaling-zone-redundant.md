@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 03/24/2020
 ms.author: victorh
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 74af3d14512018abc216b288a27dc54ed806d8c9
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 18bcd57c804746da5cff2efe8713616174fc794d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125235"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739486"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Gateway de Aplicação com dimensionamento automático e redundância entre zonas v2 
 
-O Gateway de aplicações e a Firewall de aplicações web (WAF) também estão disponíveis sob um Standard_v2 e WAF_v2 SKU. O V2 SKU oferece melhorias de desempenho e adiciona suporte para novas funcionalidades críticas como autoscalcificação, redundância de zona e suporte para VIPs estáticos. As funcionalidades existentes sob a Norma e WAF SKU continuam a ser suportadas no novo V2 SKU, com algumas exceções listadas na secção [de comparação.](#differences-with-v1-sku)
+O Gateway de aplicações e a Firewall de aplicações web (WAF) também estão disponíveis sob um Standard_v2 e WAF_v2 SKU. O V2 SKU oferece melhorias de desempenho e adiciona suporte para novas funcionalidades críticas como autoscalcificação, redundância de zona e suporte para VIPs estáticos. As funcionalidades existentes sob a Norma e WAF SKU continuam a ser suportadas no novo V2 SKU, com algumas exceções listadas na secção [de comparação.](#differences-from-v1-sku)
 
 O novo V2 SKU inclui as seguintes melhorias:
 
@@ -172,7 +172,9 @@ A tabela seguinte compara as funcionalidades disponíveis com cada SKU.
 > [!NOTE]
 > O autoscalcificante v2 SKU agora suporta sondas de [saúde padrão](application-gateway-probe-overview.md#default-health-probe) para monitorizar automaticamente a saúde de todos os recursos no seu pool back-end e destacar os membros backend que são considerados insalubres. A sonda de saúde padrão é configurada automaticamente para backends que não têm qualquer configuração de sonda personalizada. Para saber mais, consulte sondas de saúde no gateway da [aplicação.](application-gateway-probe-overview.md)
 
-## <a name="differences-with-v1-sku"></a>Diferenças com v1 SKU
+## <a name="differences-from-v1-sku"></a>Diferenças de v1 SKU
+
+Esta secção descreve características e limitações do V2 SKU que diferem do V1 SKU.
 
 |Diferença|Detalhes|
 |--|--|

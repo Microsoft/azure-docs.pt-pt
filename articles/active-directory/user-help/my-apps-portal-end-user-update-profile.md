@@ -7,17 +7,17 @@ manager: daveba
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 02/03/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: a6bcfa7fc58d47e64bff0838ff698bc59eda4e70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: edbe76145c83e000c549f7e0dd89cc500e6f05f9
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79266341"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83741779"
 ---
 # <a name="update-your-profile-and-account-information-on-the-my-apps-portal"></a>Atualize o seu perfil e informações sobre contas no portal My Apps
 

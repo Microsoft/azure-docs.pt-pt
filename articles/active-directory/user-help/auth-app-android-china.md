@@ -8,15 +8,15 @@ ms.reviewer: sahenry
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: overview
+ms.topic: end-user-help
 ms.date: 05/20/2020
 ms.author: curtand
-ms.openlocfilehash: e42c4e5aced9fd567c67b520a98318c965045e07
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 6d6d32a7a340ef4b07138d5ec12c561e958cf739
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715533"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739503"
 ---
 # <a name="microsoft-authenticator-for-android-in-the-public-cloud-in-china"></a>Autenticador da Microsoft para Android na nuvem pública na China
 

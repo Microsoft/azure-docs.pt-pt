@@ -12,12 +12,12 @@ ms.date: 04/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: 9f2ed6ea8cc75e2ee72f15c14f3de7bb8bf8cef6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3338c71d37a176206ff106a8229c3b583209ddd4
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81450891"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83737338"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifesto de aplicativo sony Azure Ative Diretório
 
@@ -63,11 +63,11 @@ Exemplo:
 
 Especifica a versão simbólica de acesso esperada pelo recurso. Este parâmetro altera a versão e o formato do JWT produzido independentemente do ponto final ou cliente utilizado para solicitar o sinal de acesso.
 
-O ponto final utilizado, v1.0 ou v2.0, é escolhido pelo cliente e só afeta a versão de id_tokens. Os recursos precisam de `accesstokenAcceptedVersion` configurar explicitamente para indicar o formato de acesso suportado.
+O ponto final utilizado, v1.0 ou v2.0, é escolhido pelo cliente e só afeta a versão de id_tokens. Os recursos precisam de configurar explicitamente `accesstokenAcceptedVersion` para indicar o formato de acesso suportado.
 
 Os valores possíveis são `accesstokenAcceptedVersion` 1, 2 ou nulos. Se o valor for nulo, este parâmetro desfaz-se em 1, o que corresponde ao ponto final v1.0.
 
-Se `signInAudience` `AzureADandPersonalMicrosoftAccount`for, o `2`valor deve ser.
+Se `signInAudience` `AzureADandPersonalMicrosoftAccount` for, o valor deve `2` ser.
 
 Exemplo:
 
@@ -81,7 +81,7 @@ Exemplo:
 | :--- | :--- |
 | addIns | Coleção |
 
-Define o comportamento personalizado que um serviço consumista pode usar para chamar uma app em contextos específicos. Por exemplo, as aplicações que podem `addIns` renderizar streams de ficheiros podem definir a propriedade para a sua funcionalidade "FileHandler". Este parâmetro permitirá que serviços como o Office 365 liguem para a aplicação no contexto de um documento em que o utilizador está a trabalhar.
+Define o comportamento personalizado que um serviço consumista pode usar para chamar uma app em contextos específicos. Por exemplo, as aplicações que podem renderizar streams de ficheiros podem definir a propriedade para a `addIns` sua funcionalidade "FileHandler". Este parâmetro permitirá que serviços como o Office 365 liguem para a aplicação no contexto de um documento em que o utilizador está a trabalhar.
 
 Exemplo:
 
@@ -189,7 +189,7 @@ Sem apoio.
 | :--- | :--- |
 |grupoMembershipClaims | String |
 
-Configura `groups` a reclamação emitida num utilizador ou no token de acesso OAuth 2.0 que a aplicação espera. Para definir este atributo, utilize um dos seguintes valores de cadeia válidos:
+Configura a reclamação emitida num utilizador ou no token de `groups` acesso OAuth 2.0 que a aplicação espera. Para definir este atributo, utilize um dos seguintes valores de cadeia válidos:
 
 - `"None"`
 - `"SecurityGroup"`(para grupos de segurança e funções azure ad)
@@ -349,7 +349,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| nome | String |
+| name | String |
 
 O nome de exibição da aplicação.
 
@@ -432,8 +432,8 @@ Exemplo:
 | :--- | :--- |
 | parentalControlDefinições | String |
 
-- `countriesBlockedForMinors`especifica os países em que a aplicação é bloqueada para menores.
-- `legalAgeGroupRule`especifica a regra do grupo etário legal que se aplica aos utilizadores da app. Pode ser `Allow`definido `RequireConsentForPrivacyServices` `RequireConsentForMinors`para, , , `RequireConsentForKids`ou `BlockMinors`.  
+- `countriesBlockedForMinors`especifica os países/regiões em que a aplicação é bloqueada para menores.
+- `legalAgeGroupRule`especifica a regra do grupo etário legal que se aplica aos utilizadores da app. Pode ser definido `Allow` para, `RequireConsentForPrivacyServices` , , ou `RequireConsentForMinors` `RequireConsentForKids` `BlockMinors` .  
 
 Exemplo:
 
@@ -551,10 +551,10 @@ Exemplo:
 | :--- | :--- |
 | necessárioRecursoAccess | Coleção |
 
-Com consentimento `requiredResourceAccess` dinâmico, impulsiona a experiência de consentimento do administrador e a experiência de consentimento do utilizador para os utilizadores que estão a usar o consentimento estático. No entanto, este parâmetro não conduz a experiência de consentimento do utilizador para o caso geral.
+Com consentimento dinâmico, `requiredResourceAccess` impulsiona a experiência de consentimento do administrador e a experiência de consentimento do utilizador para os utilizadores que estão a usar o consentimento estático. No entanto, este parâmetro não conduz a experiência de consentimento do utilizador para o caso geral.
 
 - `resourceAppId`é o identificador único para o recurso a que a aplicação requer acesso. Este valor deve ser igual ao appId declarado na aplicação de recursos-alvo.
-- `resourceAccess`é uma matriz que lista os âmbitos de permissão OAuth2.0 e funções de aplicação que a aplicação requer a partir do recurso especificado. Contém `id` os `type` valores e valores dos recursos especificados.
+- `resourceAccess`é uma matriz que lista os âmbitos de permissão OAuth2.0 e funções de aplicação que a aplicação requer a partir do recurso especificado. Contém os `id` valores e `type` valores dos recursos especificados.
 
 Exemplo:
 

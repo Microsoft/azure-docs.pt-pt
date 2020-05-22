@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f04a3fea3801f917a3ae4aced04ef3824d1cfa82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ad681f4996f713b8bb0c85b07a3f38f0dcb6708a
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78184524"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83738239"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Gerir o acesso ao utilizador no Diretório Ativo Azure B2C
 
@@ -66,15 +66,15 @@ Um fluxo de utilizador personalizado pode recolher informações do DOB e país/
 
 Os seguintes passos mostram a lógica que é usada para calcular o **ageGroup** a partir da data de nascimento do utilizador:
 
-1. Tente encontrar o país pelo código do país na lista. Se o país não for encontrado, recue para **o Incumprimento.**
+1. Tente encontrar o país/região pelo código país/região na lista. Se o país/região não for encontrado, recue para **o Incumprimento**.
 
-2. Se o nó **MinorConsent** estiver presente no elemento do país:
+2. Se o nó **MinorConsent** estiver presente no elemento país/região:
 
     a. Calcular a data em que o utilizador deve ter nascido para ser considerado adulto. Por exemplo, se a data atual for 14 de março de 2015, e **minorConsent** for 18, a data de nascimento deve ser o mais tardar em 14 de março de 2000.
 
     b. Compare a data mínima de nascimento com a data de nascimento real. Se a data mínima de nascimento for antes da data de nascimento do utilizador, o cálculo devolve **Menor** como cálculo da faixa etária.
 
-3. Se o nó **MinorNoConsentRequired** estiver presente no elemento do país, repita os passos 2a e 2b utilizando o valor de **MinorNoConsentRequired**. A saída de 2b devolve **MinorNoConsentRequired** se a data mínima de nascimento for antes da data de nascimento do utilizador.
+3. Se o nó **MinorNoConsentRequired** estiver presente no elemento país/região, repita os passos 2a e 2b utilizando o valor de **MinorNoConsentRequired**. A saída de 2b devolve **MinorNoConsentRequired** se a data mínima de nascimento for antes da data de nascimento do utilizador.
 
 4. Se nenhum dos cálculos for verdadeiro, o cálculo devolve **Adulto**.
 

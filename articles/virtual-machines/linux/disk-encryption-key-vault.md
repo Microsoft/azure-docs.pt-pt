@@ -7,12 +7,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0038d5fdb38fdcfd4130a710f51d764e0cf9d907
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2adb158032582dff7449c7c0fc7b13419745f36c
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81459819"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743574"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption"></a>Criar e configurar um cofre de chaves para o Azure Disk Encryption
 
@@ -56,12 +56,12 @@ Connect-AzAccount
 ```
 
 [!INCLUDE [disk-encryption-key-vault](../../../includes/disk-encryption-key-vault.md)]
- ```
  
-## Next steps
+ 
+## <a name="next-steps"></a>Passos seguintes
 
-- [Azure Disk Encryption prerequisites CLI script](https://github.com/ejarvi/ade-cli-getting-started)
-- [Azure Disk Encryption prerequisites PowerShell script](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts)
-- Learn [Azure Disk Encryption scenarios on Linux VMs](disk-encryption-linux.md)
-- Learn how to [troubleshoot Azure Disk Encryption](disk-encryption-troubleshooting.md)
-- Read the [Azure Disk Encryption sample scripts](disk-encryption-sample-scripts.md)
+- [Encriptação do disco azure pré-requisitos script CLI](https://github.com/ejarvi/ade-cli-getting-started)
+- [Encriptação de disco azure pré-requisitos PowerShell script](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts)
+- Conheça cenários de [encriptação de discos Azure em VMs Linux](disk-encryption-linux.md)
+- Saiba como resolver a [encriptação do disco azure](disk-encryption-troubleshooting.md)
+- Leia os scripts da amostra de [encriptação do disco azure](disk-encryption-sample-scripts.md)

@@ -16,12 +16,12 @@ ms.date: 04/24/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91bb5a342eea079b6e9abcf109ad472151d3c13d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ab2974cf95726f44641b4ac220c7ee871890ca56
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82144489"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83736857"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Utilize avaliações de acesso a Anúncio saqueadas para gerir utilizadores excluídos das políticas de Acesso Condicional
 
@@ -32,7 +32,7 @@ Num mundo ideal, todos os utilizadores seguem as políticas de acesso para garan
 
 ## <a name="why-would-you-exclude-users-from-policies"></a>Por que excluiria os utilizadores das políticas?
 
-Digamos que, como administrador, decide utilizar o [Acesso Condicional Azure AD](../conditional-access/overview.md) para exigir a autenticação de vários fatores (MFA) e limitar os pedidos de autenticação a redes ou dispositivos específicos. Durante o planeamento de implementação, percebe que nem todos os utilizadores podem cumprir estes requisitos. Por exemplo, pode ter utilizadores que trabalham a partir de escritórios remotos, não parte da sua rede interna. Também pode ter de acomodar os utilizadores que se conectam utilizando dispositivos não suportados enquanto aguardam que esses dispositivos sejam substituídos. Em suma, o negócio precisa que estes utilizadores assinem e façam o seu trabalho, para que os exclua das políticas de Acesso Condicional.
+Digamos que, como administrador, decide utilizar o [Acesso Condicional Azure AD](../conditional-access/concept-conditional-access-policy-common.md) para exigir a autenticação de vários fatores (MFA) e limitar os pedidos de autenticação a redes ou dispositivos específicos. Durante o planeamento de implementação, percebe que nem todos os utilizadores podem cumprir estes requisitos. Por exemplo, pode ter utilizadores que trabalham a partir de escritórios remotos, não parte da sua rede interna. Também pode ter de acomodar os utilizadores que se conectam utilizando dispositivos não suportados enquanto aguardam que esses dispositivos sejam substituídos. Em suma, o negócio precisa que estes utilizadores assinem e façam o seu trabalho, para que os exclua das políticas de Acesso Condicional.
 
 Como outro exemplo, poderá estar a utilizar [localizações nomeadas](../conditional-access/location-condition.md) no Acesso Condicional para especificar um conjunto de países e regiões a partir dos quais não pretende permitir que os utilizadores acedam aos seus inquilinos.
 

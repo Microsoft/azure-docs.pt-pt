@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/29/2020
-ms.openlocfilehash: 8ec20e03544ba54b83130ae41244dcdb186252d0
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 9398b40763e8226cedf788f9cefbf5ed28cd649d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82613091"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739537"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Trocar mensagens X12 para integração empresarial B2B em Aplicações Lógicas Azure com Pacote de Integração Empresarial
 
@@ -31,7 +31,7 @@ Para trabalhar com mensagens X12 em Aplicações Lógicas Azure, pode utilizar o
 
 * Os [esquemas](../logic-apps/logic-apps-enterprise-integration-schemas.md) a utilizar para validação XML que já adicionou à sua conta de integração. Se estiver a trabalhar com schemas da Health Insurance Portability and Accountability Act (HIPAA), consulte [os esquemas hipaa](#hipaa-schemas).
 
-* Antes de poder utilizar o conector X12, tem de criar um [acordo](../logic-apps/logic-apps-enterprise-integration-agreements.md) X12 entre os seus parceiros comerciais e armazenar esse acordo na sua conta de integração. Se está a trabalhar com squemas da Health Insurance Portability and Accountability `schemaReferences` Act (HIPAA), precisa adicionar uma secção ao seu acordo. Para mais informações, consulte [os esquemas hipaa](#hipaa-schemas).
+* Antes de poder utilizar o conector X12, tem de criar um [acordo](../logic-apps/logic-apps-enterprise-integration-agreements.md) X12 entre os seus parceiros comerciais e armazenar esse acordo na sua conta de integração. Se está a trabalhar com squemas da Health Insurance Portability and Accountability Act (HIPAA), precisa adicionar uma `schemaReferences` secção ao seu acordo. Para mais informações, consulte [os esquemas hipaa](#hipaa-schemas).
 
 <a name="receive-settings"></a>
 
@@ -319,8 +319,8 @@ Esta tabela lista os tipos de mensagens afetados, quaisquer variantes e os núme
 | Tipo de mensagem ou variante |  Descrição | Número da versão do documento (GS8) |
 |-------------------------|--------------|-------------------------------|
 | 277 | Notificação do Estado da Informação sobre Cuidados de Saúde | 005010X212 |
-| 837_I | Pedido de cuidados de saúde dentário | 004010X096A1 <br>005010X223A1 <br>005010X223A2 |
-| 837_D | Reivindicação institucional de cuidados de saúde | 004010X097A1 <br>005010X224A1 <br>005010X224A2 |
+| 837_I | Reivindicação institucional de cuidados de saúde | 004010X096A1 <br>005010X223A1 <br>005010X223A2 |
+| 837_D | Pedido de cuidados de saúde dentário | 004010X097A1 <br>005010X224A1 <br>005010X224A2 |
 | 837_P | Profissionais de Reclamação de Cuidados de Saúde | 004010X098A1 <br>005010X222 <br>005010X222A1 |
 |||
 
@@ -330,7 +330,7 @@ Para especificar estes números de versão documental e tipos de mensagens, siga
 
 1. No seu esquema HIPAA, substitua o tipo de mensagem atual pelo tipo de mensagem variante para o número da versão do documento que pretende utilizar.
 
-   Por exemplo, suponha que `005010X222A1` pretenda `837` utilizar o número da versão do documento com o tipo de mensagem. No seu esquema, substitua `"X12_00501_837"` cada `"X12_00501_837_P"` valor pelo valor.
+   Por exemplo, suponha que pretenda utilizar o número da versão do documento `005010X222A1` com o tipo de `837` mensagem. No seu esquema, substitua cada `"X12_00501_837"` valor pelo `"X12_00501_837_P"` valor.
 
    Para atualizar o seu esquema, siga estes passos:
 
@@ -338,9 +338,9 @@ Para especificar estes números de versão documental e tipos de mensagens, siga
 
    1. Nas definições de mensagem do seu acordo, selecione o esquema revisto.
 
-1. No objeto do `schemaReferences` seu acordo, adicione outra entrada que especifica o tipo de mensagem variante que corresponde ao número da versão do documento.
+1. No objeto do seu acordo, adicione outra entrada que especifica o tipo de mensagem variante que corresponde ao número da `schemaReferences` versão do documento.
 
-   Por exemplo, suponha que `005010X222A1` pretenda `837` utilizar o número da versão do documento para o tipo de mensagem. O seu `schemaReferences` acordo tem uma secção com estas propriedades e valores:
+   Por exemplo, suponha que pretenda utilizar o número da versão do documento para o tipo de `005010X222A1` `837` mensagem. O seu acordo tem uma `schemaReferences` secção com estas propriedades e valores:
 
    ```json
    "schemaReferences": [
@@ -358,7 +358,7 @@ Para especificar estes números de versão documental e tipos de mensagens, siga
    * `"schemaVersion": "00501"`
    * `"schemaName": "X12_00501_837_P"`
 
-   Quando terminar, a `schemaReferences` sua secção é assim:
+   Quando terminar, a sua `schemaReferences` secção é assim:
 
    ```json
    "schemaReferences": [

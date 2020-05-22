@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 4/17/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 5c8808450f8baa6d395ee9c24dbc59dfa919b66d
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 8075574556375b7c07de2abd6c5aff792880b497
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801013"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83738823"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerir grupos de ação no portal Azure
 Um grupo de ação é uma coleção de preferências de notificação definidas pelo proprietário de uma subscrição Azure. Os alertas do Azure Monitor e da Saúde de Serviço usam grupos de ação para notificar os utilizadores de que foi desencadeado um alerta. Vários alertas podem utilizar o mesmo grupo de ação ou diferentes grupos de ação, dependendo dos requisitos do utilizador. Pode configurar até 2.000 grupos de ação numa subscrição.
@@ -80,7 +80,7 @@ Você pode ter um número limitado de ações de Runbook em um Grupo de Ação.
 ### <a name="azure-app-push-notifications"></a>Notificações push da aplicação Azure
 Você pode ter um número limitado de ações de aplicações Azure em um Grupo de Ação.
 
-### <a name="email"></a>Email
+### <a name="email"></a>E-mail
 Os e-mails serão enviados a partir dos seguintes endereços de e-mail. Certifique-se de que a sua filtragem de e-mail está configurada adequadamente
 - azure-noreply@microsoft.com
 - azureemail-noreply@microsoft.com
@@ -88,8 +88,8 @@ Os e-mails serão enviados a partir dos seguintes endereços de e-mail. Certifiq
 
 Você pode ter um número limitado de ações de e-mail em um Grupo de Ação. Consulte a taxa que limita o artigo de [informação.](./../../azure-monitor/platform/alerts-rate-limiting.md)
 
-### <a name="email-azure-resource-manager-role"></a>Papel de Gestor de Recursos Azure de e-mail
-Envie e-mail aos membros do papel da subscrição. O e-mail só será enviado aos utilizadores da **Azure AD.** O e-mail não será enviado para grupos da AD Azure ou diretores de serviço.
+### <a name="email-azure-resource-manager-role"></a>E-mail da Função do Azure Resource Manager
+Envie e-mail aos membros do papel da subscrição. O e-mail só será enviado aos utilizadores da **Azure AD.** O e-mail não será enviado aos grupos ou principais de serviço do Azure Active Directory.
 
 Você pode ter um número limitado de ações de e-mail em um Grupo de Ação. Consulte a taxa que limita o artigo de [informação.](./../../azure-monitor/platform/alerts-rate-limiting.md)
 
@@ -201,9 +201,9 @@ Consulte a [taxa que limita a informação](./../../azure-monitor/platform/alert
 Pode ter um número limitado de ações de SMS num Grupo de Ação.
 
 > [!NOTE]
-> Se a interface de utilizador do grupo de ação do portal Azure não permitir selecionar o seu código de país, então o SMS não é suportado para o seu país.  Se o seu código de país não estiver disponível, pode votar para que o seu país seja adicionado à voz do [utilizador](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice). Entretanto, um trabalho em torno é fazer com que o seu grupo de ação chame um webhook a um fornecedor de SMS de terceiros com apoio no seu país.  
+> Se a interface de utilizador do grupo de ação do portal Azure não permitir selecionar o seu código país/região, então o SMS não é suportado para o seu país/região.  Se o seu código país/região não estiver disponível, pode votar para que o seu país/região seja adicionado à voz do [utilizador](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice). Entretanto, um trabalho em torno é fazer com que o seu grupo de ação chame um webhook a um fornecedor de SMS de terceiros com apoio no seu país/região.  
 
-Os preços dos países apoiados constam da página de preços do [Monitor Do Azure.](https://azure.microsoft.com/pricing/details/monitor/)
+Os preços dos países/regiões apoiados constam da página de preços do [Monitor Do Azure.](https://azure.microsoft.com/pricing/details/monitor/)
   
 
 ### <a name="voice"></a>Voz
@@ -212,9 +212,9 @@ Consulte a taxa que limita o artigo de [informação](./../../azure-monitor/plat
 Pode ter um número limitado de ações de Voz num Grupo de Ação.
 
 > [!NOTE]
-> Se a interface de utilizador do grupo de ação do portal Azure não permitir selecionar o seu código de país, então as chamadas de voz não são suportadas para o seu país. Se o seu código de país não estiver disponível, pode votar para que o seu país seja adicionado à voz do [utilizador](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice).  Entretanto, um trabalho em torno é fazer com que o seu grupo de ação chame um webhook a um fornecedor de chamadas de voz de terceiros com apoio no seu país.  
+> Se a interface de utilizador do grupo de ação do portal Azure não permitir selecionar o seu código país/região, então as chamadas de voz não são suportadas para o seu país/região. Se o seu código país/região não estiver disponível, pode votar para que o seu país/região seja adicionado à voz do [utilizador](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice).  Entretanto, um trabalho em torno é fazer com que o seu grupo de ação chame um webhook a um fornecedor de chamadas de voz de terceiros com apoio no seu país/região.  
 
-Os preços dos países apoiados constam da página de preços do [Monitor Do Azure.](https://azure.microsoft.com/pricing/details/monitor/)
+Os preços dos países/regiões apoiados constam da página de preços do [Monitor Do Azure.](https://azure.microsoft.com/pricing/details/monitor/)
 
 ### <a name="webhook"></a>Webhook
 Os webhooks são novamente experimentados usando as seguintes regras. A chamada webhook é novamente experimentada um máximo de 2 vezes quando os seguintes códigos de estado HTTP são devolvidos: 408, 429, 503, 504 ou o ponto final http não responde. A primeira repetição ocorre ao fim de 10 segundos. A segunda tentativa acontece após 100 segundos. Depois de duas falhas, nenhum grupo de ação ligará para o ponto final durante 30 minutos. 

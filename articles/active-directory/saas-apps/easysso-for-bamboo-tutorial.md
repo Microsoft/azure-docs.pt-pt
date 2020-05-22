@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 05/06/2020
+ms.date: 05/18/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 227f4a804c466af81707eca79e9d8cf6c00e52be
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: c37850d2188f560b8eb8d0b16f5a1b2880a8b32e
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82984364"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83740631"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-easysso-for-bamboo"></a>Tutorial: Azure Ative Diretório integração de um único sign-on (SSO) com easySSO para bambu
 
@@ -99,7 +99,7 @@ Siga estes passos para permitir o Azure AD SSO no portal Azure.
     ![image](common/default-attributes.png)
 
 1. Além de acima, a aplicação EasySSO para bambu espera que poucos atributos sejam passados na resposta SAML que são mostradas abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
-    
+
     | Name | Atributo fonte |
     | ---------------|  --------- |
     | urn:oid:2.16.840.1.113730.3.1.241 | user.displayname |
@@ -120,7 +120,7 @@ Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
    1. No campo **Nome**, introduza `B.Simon`.  
-   1. No campo de nome username@companydomain.extensiondo **Utilizador,** introduza o . Por exemplo, `B.Simon@contoso.com`.
+   1. No campo de **nome do Utilizador,** introduza o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa de verificação de **palavra-passe do Show** e, em seguida, escreva o valor que está apresentado na caixa **password.**
    1. Clique em **Criar**.
 
@@ -144,13 +144,50 @@ Nesta secção, permitirá que b.Simon utilize um único sign-on Azure, conceden
 
 ## <a name="configure-easysso-for-bamboo-sso"></a>Configure easySSO para SSO de Bambu
 
-Para configurar um único sinal no **EasySSO para** o lado do Bambu, precisa enviar o Url de **Metadados da Federação de Aplicações** para [a equipa](mailto:support@techtime.co.nz)de suporte de bambu . Eles definiram esta definição para ter a ligação SAML SSO corretamente definida em ambos os lados.
+1. Assine o seu EasySSO para a instância de Bambu com privilégios de Administrador e navegue para a secção **'Gerir Apps'.**
+
+    ![EasySSO para configuração de bambu](./media/easysso-for-bamboo-tutorial/jira-admin-1.png)
+
+1. Clique no **EasySSO**.
+
+    ![EasySSO para configuração de bambu](./media/easysso-for-bamboo-tutorial/jira-admin-2.png)
+
+1. Selecione a opção **SAML.** Isto irá levá-lo à secção de configuração SAML.
+
+    ![EasySSO para configuração de bambu](./media/easysso-for-bamboo-tutorial/jira-admin-3.png)
+
+1. Selecione o separador **Certificados** na parte superior e será apresentado com o seguinte ecrã e localizará **o Certificado (Base64)** ou **ficheiro de metadados** que guardou nos passos anteriores da configuração **Azure AD SSO.** Tem as seguintes opções sobre como proceder:
+
+    ![EasySSO para configuração de bambu](./media/easysso-for-bamboo-tutorial/jira-admin-4.png)
+
+    a. Utilize o Ficheiro de Metadados da Federação de **Aplicações** que descarregou para ficheirolocal no seu computador. **Selecione botão de** rádio upload e siga o diálogo de ficheiro supérre específico do seu sistema operativo
+
+    **OU**
+
+    b. Abra o Ficheiro de Metadados da Federação de **Aplicações** para ver o conteúdo (em qualquer editor de texto simples) do ficheiro e copiá-lo para a área de cópia. Selecione a opção **de entrada** e o conteúdo da pasta no campo de texto.
+
+    **OU**
+
+    c. Configuração totalmente manual. Abra o Certificado da Federação de Aplicações **(Base64)** para ver o conteúdo (em qualquer editor de texto simples) do ficheiro e copiá-lo para a área de cópia. Cola-o no campo de texto dos certificados de **assinatura idp token.** Em seguida, navegue para o separador **Geral** e preencha os campos DE URL de **Ligação POST** e **id da entidade** com os respetivos valores para URL de **Login** e **identificador de AD Azure** que guardou anteriormente.
+
+1. Clique no botão **Guardar** na parte inferior da página. Verá que o conteúdo dos ficheiros Metadados ou Certificados está analisado nos campos de configuração. EasySSO para a configuração de bambu está completo.
+
+1. Para obter a melhor experiência de teste, navegue para **olhar & sinta** o separador e verifique a opção **SAML Login Button.** Isto permitirá um botão separado no ecrã de login EasySSO para bambu especificamente para testar a sua integração Azure AD SAML de ponta a ponta. Também pode deixar este botão ligado e configurar a sua colocação, cor e tradução para o modo de produção.
+
+    ![EasySSO para configuração de bambu](./media/easysso-for-bamboo-tutorial/jira-admin-5.png)
+
+    > [!NOTE]
+    > Caso tenha algum problema, contacte a equipa de [suporte da EasySSO.](mailto:support@techtime.co.nz)
 
 ### <a name="create-easysso-for-bamboo-test-user"></a>Criar easySSO para o utilizador do teste de bambu
 
-Nesta secção, um utilizador chamado Britta Simon é criado na EasySSO para bambu. EasySSO for Bamboo suporta o fornecimento de utilizadores just-in-time, que é ativado por padrão. Não há nenhum item de ação para si nesta secção. Se um utilizador já não existir no EasySSO para o Bamboo, um novo é criado após a autenticação.
+Nesta secção, um utilizador chamado B.Simon é criado na EasySSO para bambu. EasySSO for Bamboo suporta o fornecimento de utilizadores just-in-time, que é **desativado** por padrão. Para ativar o fornecimento do utilizador, tem de verificar explicitamente o utilizador sobre a opção de **login bem sucedida** na secção geral da configuração de plugin easySSO. Se um utilizador já não existir no EasySSO para o Bamboo, um novo é criado após a autenticação.
 
-## <a name="test-sso"></a>Teste SSO 
+No entanto, se não pretender ativar o fornecimento automático de utilizadores no primeiro login do utilizador, os utilizadores devem existir nos Diretórios de Utilizador de backend que o EasySSO para o Bamboo por exemplo faz uso, como LDAP ou Atlassian Crowd.
+
+![Aprovisionamento de utilizadores](./media/easysso-for-bamboo-tutorial/jira-admin-6.png)
+
+## <a name="test-sso"></a>Teste SSO
 
 Nesta secção, testa a configuração de um único sinal do Azure AD utilizando o Painel de Acesso.
 

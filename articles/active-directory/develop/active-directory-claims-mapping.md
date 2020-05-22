@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: d8be2c8cc70db963252054a39cad558c4c1b5bd2
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 7c462f25703b581c0882582d57fa8e5d2902dc4f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871214"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83737508"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Como: Personalizar reclamações emitidas em fichas para uma aplicação específica num inquilino (Pré-visualização)
 
@@ -319,7 +319,7 @@ O elemento ID identifica qual o imóvel da fonte que fornece o valor para a recl
 | Utilizador | extensãoatribuído14 | Atributo de extensão 14 |
 | Utilizador | extensãoatribuído15 | Atributo de extensão 15 |
 | Utilizador | outro correio | Outros Correios |
-| Utilizador | país | País |
+| Utilizador | país | País/Região |
 | Utilizador | city | Localidade |
 | Utilizador | state | Estado |
 | Utilizador | título de emprego | Cargo |
@@ -328,7 +328,7 @@ O elemento ID identifica qual o imóvel da fonte que fornece o valor para a recl
 | aplicação, recurso, público | nome de exibição | Nome a Apresentar |
 | aplicação, recurso, público | objeto | ObjectID |
 | aplicação, recurso, público | etiquetas | Etiqueta principal de serviço |
-| Empresa | país inquilino | País do arrendatário |
+| Empresa | país inquilino | País/região do arrendatário |
 
 **TransformationID:** O elemento TransformationID só deve ser fornecido se o elemento Fonte estiver definido para "transformação".
 
@@ -360,8 +360,8 @@ Com base no método escolhido, espera-se um conjunto de inputs e saídas. Defina
 
 |Método de Transformação|Entrada esperada|Resultado esperado|Descrição|
 |-----|-----|-----|-----|
-|Associar|string1, string2, separador|saídaReclamada|Junta cordas de entrada utilizando um separador no meio. Por exemplo: string1:"foo@bar.com" string2:"sandbox", separador:"." resultafoo@bar.com.sandboxem saídaClaim:"|
-|ExtractmailPrefix|correio|saídaReclamada|Extrai a parte local de um endereço de e-mail. Por exemplo: correio:"foo@bar.com" "resulta em saídaClaim:"foo". Se \@ não houver sinal, então a cadeia de entrada original é devolvida como está.|
+|Associar|string1, string2, separador|saídaReclamada|Junta cordas de entrada utilizando um separador no meio. Por exemplo: string1:" foo@bar.com " string2:"sandbox", separador:"." resulta em saídaClaim:" foo@bar.com.sandbox|
+|ExtractmailPrefix|correio|saídaReclamada|Extrai a parte local de um endereço de e-mail. Por exemplo: correio:" foo@bar.com " "resulta em saídaClaim:"foo". Se não \@ houver sinal, então a cadeia de entrada original é devolvida como está.|
 
 **Créditos de entrada:** Utilize um elemento InputClaims para passar os dados de uma entrada de esquema de reclamação para uma transformação. Tem dois atributos: **ClaimTypeReferenceId** e **TransformationClaimType**.
 
@@ -415,9 +415,9 @@ Com base no método escolhido, espera-se um conjunto de inputs e saídas. Defina
 
 ### <a name="custom-signing-key"></a>Chave de assinatura personalizada
 
-Uma chave de assinatura personalizada deve ser atribuída ao principal objeto do serviço para que uma política de mapeamento de sinistros entre em vigor. Isto garante o reconhecimento de que os tokens foram modificados pelo criador da política de mapeamento de sinistros e protege as aplicações de políticas de mapeamento de sinistros criadas por intervenientes maliciosos. Para adicionar uma chave de assinatura personalizada, pode utilizar o `new-azureadapplicationkeycredential` cmdlet Azure PowerShell para criar uma credencial de chave simétrica para o seu objeto Aplicação. Para obter mais informações sobre este cmdlet Azure PowerShell, consulte [New-AzureADApplicationKeyCredential](https://docs.microsoft.com/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
+Uma chave de assinatura personalizada deve ser atribuída ao principal objeto do serviço para que uma política de mapeamento de sinistros entre em vigor. Isto garante o reconhecimento de que os tokens foram modificados pelo criador da política de mapeamento de sinistros e protege as aplicações de políticas de mapeamento de sinistros criadas por intervenientes maliciosos. Para adicionar uma chave de assinatura personalizada, pode utilizar o cmdlet Azure PowerShell `new-azureadapplicationkeycredential` para criar uma credencial de chave simétrica para o seu objeto Aplicação. Para obter mais informações sobre este cmdlet Azure PowerShell, consulte [New-AzureADApplicationKeyCredential](https://docs.microsoft.com/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
 
-As aplicações que tenham o mapeamento de sinistros ativadas devem validar as suas chaves de assinatura simbólicas, anexando-se `appid={client_id}` aos seus pedidos de [metadados OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Abaixo está o formato do documento de metadados OpenID Connect que deve utilizar: 
+As aplicações que tenham o mapeamento de sinistros ativadas devem validar as suas chaves de assinatura simbólicas, anexando-se aos seus pedidos de `appid={client_id}` [metadados OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Abaixo está o formato do documento de metadados OpenID Connect que deve utilizar: 
 
 ```
 https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration?appid={client-id}
@@ -478,7 +478,7 @@ Neste exemplo, cria-se uma política que remove a reivindicação básica defini
 
 #### <a name="example-create-and-assign-a-policy-to-include-the-employeeid-and-tenantcountry-as-claims-in-tokens-issued-to-a-service-principal"></a>Exemplo: Criar e atribuir uma política para incluir o EmployeeID e o TenantCountry como reclamações em fichas emitidas a um diretor de serviços
 
-Neste exemplo, cria-se uma política que adiciona o EmployeeID e o TenantCountry aos tokens emitidos aos principais de serviços ligados. O EmployeeID é emitido como o tipo de reclamação de nome em ambas as fichas SAML e JWTs. O TenantCountry é emitido como o tipo de reivindicação do país em tokens SAML e JWTs. Neste exemplo, continuamos a incluir as alegações básicas estabelecidas nos símbolos.
+Neste exemplo, cria-se uma política que adiciona o EmployeeID e o TenantCountry aos tokens emitidos aos principais de serviços ligados. O EmployeeID é emitido como o tipo de reclamação de nome em ambas as fichas SAML e JWTs. O TenantCountry é emitido como o tipo de reivindicação país/região em ambos os tokens SAML e JWTs. Neste exemplo, continuamos a incluir as alegações básicas estabelecidas nos símbolos.
 
 1. Crie uma política de mapeamento de reivindicações. Esta política, ligada a princípios de serviço específicos, adiciona as reivindicações do EmployeeID e do TenantCountry aos tokens.
    1. Para criar a política, executar o seguinte comando:  
@@ -524,6 +524,6 @@ Neste exemplo, cria-se uma política que emite uma reivindicação personalizada
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 Para aprender a personalizar as reclamações emitidas no token SAML através do portal Azure, consulte [Como: Personalizar as reclamações emitidas no token SAML para aplicações empresariais](active-directory-saml-claims-customization.md)

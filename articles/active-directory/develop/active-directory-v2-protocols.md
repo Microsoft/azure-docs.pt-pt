@@ -13,16 +13,16 @@ ms.date: 05/06/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 12f5df9b644246092f0a5da2b30dc5a7187ca827
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 0bb7812d75fa3276b52a182f9184e28a21a910ae
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82926821"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83737491"
 ---
 # <a name="oauth-20-and-openid-connect-protocols-on-microsoft-identity-platform"></a>Protocolos OAuth 2.0 e OpenID Connect na plataforma de identidade da Microsoft
 
-O ponto final da plataforma de identidade da Microsoft para identidade como serviço com protocolos padrão da indústria, OpenID Connect (OIDC) e OAuth 2.0. Embora o serviço seja compatível com as normas, pode haver diferenças subtis entre quaisquer duas implementações destes protocolos. As informações aqui serão úteis se optar por escrever o seu código enviando e manuseando diretamente pedidos de HTTP ou utilizar uma biblioteca de código aberto de terceiros, em vez de utilizar uma das [nossas bibliotecas de código aberto.](reference-v2-libraries.md)
+O ponto final da plataforma de identidade da Microsoft para a identidade como serviço implementa a autenticação e autorização com protocolos padrão da indústria OpenID Connect (OIDC) e OAuth 2.0, respectivamente. Embora o serviço seja compatível com as normas, pode haver diferenças subtis entre quaisquer duas implementações destes protocolos. As informações aqui serão úteis se optar por escrever o seu código enviando e manuseando diretamente pedidos de HTTP ou utilizar uma biblioteca de código aberto de terceiros, em vez de utilizar uma das [nossas bibliotecas de código aberto.](reference-v2-libraries.md)
 
 ## <a name="the-basics"></a>Noções básicas
 
@@ -54,7 +54,7 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 ```
 
-Onde `{tenant}` a lata pode levar um de quatro valores diferentes:
+Onde a `{tenant}` lata pode levar um de quatro valores diferentes:
 
 | Valor | Descrição |
 | --- | --- |

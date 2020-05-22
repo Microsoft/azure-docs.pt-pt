@@ -8,12 +8,12 @@ ms.date: 03/17/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 64df2e0f17322f8e650ede9d4453d90c36252135
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 35049e148af09376667a55e2f0bb4a28cf728245
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680017"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83735893"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Problemas problemas de Gestão de Atualização de Problemas
 
@@ -50,7 +50,7 @@ Este erro pode ocorrer pelas seguintes razões:
 
 * Aceda à [configuração da Rede](../../azure-monitor/platform/log-analytics-agent.md#network-requirements) para saber quais os endereços e portas que devem ser autorizados a trabalhar para o agente Log Analytics.
 
-* Verifique se há problemas de configuração de âmbito. [A configuração do âmbito](../automation-onboard-solutions-from-automation-account.md#scope-configuration) determina quais as máquinas configuradas para gestão de atualizações. Se a sua máquina estiver a aparecer no seu espaço de trabalho, mas não no portal de Gestão de Atualizações, tem de definir a configuração de âmbito para direcionar as máquinas. Para saber mais sobre a configuração do âmbito, consulte [Máquinas Ativar no espaço](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace)de trabalho .
+* Verifique se há problemas de configuração de âmbito. [A configuração do âmbito](../automation-onboard-solutions-from-automation-account.md#scope-configuration) determina quais as máquinas configuradas para gestão de atualizações. Se a sua máquina estiver a aparecer no seu espaço de trabalho, mas não no portal de Gestão de Atualizações, tem de definir a configuração de âmbito para direcionar as máquinas. Para saber mais sobre a configuração do âmbito, consulte [Máquinas Ativar no espaço](../automation-onboard-solutions-from-automation-account.md#enable-machines-in-the-workspace)de trabalho .
 
 * Retire a configuração do trabalhador seguindo os passos em Remover o Trabalhador do [Livro Híbrido de um computador Windows no local](../automation-windows-hrw-install.md#remove-windows-hybrid-runbook-worker) ou remova o Trabalhador do Livro Híbrido de um computador [Linux no local](../automation-linux-hrw-install.md#remove-linux-hybrid-runbook-worker). 
 
@@ -119,9 +119,9 @@ Este problema pode ser causado por problemas de configuração locais ou por con
 
 4. Se não vir a sua máquina nos resultados da consulta, não fez o check-in recentemente. Há provavelmente um problema de configuração local e deve [reinstalar o agente.](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows) 
 
-5. Se a sua máquina aparecer nos resultados da consulta, verifique se há problemas de configuração de âmbito. [A configuração do âmbito](../automation-onboard-solutions-from-automation-account.md#scope-configuration) determina quais as máquinas configuradas para gestão de atualizações. 
+5. Se a sua máquina aparecer nos resultados da consulta, verifique se há problemas de configuração de âmbito. A [configuração](../automation-scope-configurations-update-management.md) de âmbito determina quais as máquinas configuradas para gestão de atualizações. 
 
-6. Se a sua máquina estiver a aparecer no seu espaço de trabalho, mas não na Atualização, tem de configurar a configuração de âmbito para direcionar a máquina. Para aprender a fazê-lo, consulte [Máquinas Ativas no espaço de trabalho](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace).
+6. Se a sua máquina estiver a aparecer no seu espaço de trabalho, mas não na Atualização, tem de configurar a configuração de âmbito para direcionar a máquina. Para aprender a fazê-lo, consulte [Máquinas Ativas no espaço de trabalho](../automation-onboard-solutions-from-automation-account.md#enable-machines-in-the-workspace).
 
 7. No seu espaço de trabalho, execute esta consulta.
 

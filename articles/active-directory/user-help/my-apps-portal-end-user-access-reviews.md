@@ -7,17 +7,17 @@ manager: daveba
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 02/03/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: c71195b247af6d5046d88d3e6918a660eddf09b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3b529c8112683281148751091ee93dd12ae73b4a
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77062388"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83741930"
 ---
 # <a name="perform-an-access-review-from-the-my-apps-portal"></a>Execute uma análise de acesso a partir do portal My Apps
 
@@ -41,7 +41,7 @@ Se o seu administrador lhe tiver dado permissão para realizar as suas próprias
 
 1. Inscreva-se no seu trabalho ou na conta da escola.
 
-2. Abra o seu navegador https://myapps.microsoft.comweb e vá para, ou use o link fornecido pela sua organização. Por exemplo, pode ser direcionado para uma página personalizada https://myapps.microsoft.com/contoso.compara a sua organização, como .
+2. Abra o seu navegador web e vá https://myapps.microsoft.com para, ou use o link fornecido pela sua organização. Por exemplo, pode ser direcionado para uma página personalizada para a sua organização, como https://myapps.microsoft.com/contoso.com .
 
     A **Apps** página apps aparece, mostrando todas as aplicações baseadas na nuvem detidas pela sua organização e disponíveis para que possa utilizar.
 

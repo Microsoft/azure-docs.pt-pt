@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bd26b2b475e293a1fda1b007289ba7c3eef35136
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8052f94755019d8ad3fe818d979d2eb7f8ba0a5e
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78183941"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83738766"
 ---
 # <a name="define-phone-number-claims-transformations-in-azure-ad-b2c"></a>Definir número de telefone reclama transformações em Azure AD B2C
 
@@ -28,14 +28,14 @@ Este artigo fornece referência e exemplos para a utilização do número de tel
 
 ## <a name="convertphonenumberclaimtostring"></a>Converter Número de Telefone Claimtostring
 
-Converte `phoneNumber` um tipo `string` de dados num tipo de dados.
+Converte um tipo de `phoneNumber` dados num tipo de `string` dados.
 
 | Item | Tipo de reclamação de transformação | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | Pedido de crédito | telefoneNúmero | telefoneNúmero |  O ClaimType para converter numa corda. |
 | Pedido de saída | telefoneNumberString | string | O ClaimType que é produzido após esta transformação de sinistros foi invocado. |
 
-Neste exemplo, a alegação do cellNumber `phoneNumber` com um tipo de valor é `string`convertida para uma reivindicação de telemóvelPhone com um tipo de valor de .
+Neste exemplo, a alegação do cellNumber com um tipo de valor `phoneNumber` é convertida para uma reivindicação de telemóvelPhone com um tipo de valor de `string` .
 
 ```XML
 <ClaimsTransformation Id="PhoneNumberToString" TransformationMethod="ConvertPhoneNumberClaimToString">
@@ -62,8 +62,8 @@ Esta transformação de reclamação valida o formato do número de telefone. Se
 
 | Item | Tipo de reclamação de transformação | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| Pedido de crédito | telefoneNumberString | string |  A reclamação de cordas para o número de telefone. O número de telefone tem de estar em formato internacional, completo com um código "+" e país. Se for `country` fornecida a reclamação de entrada, o número de telefone encontra-se em formato local (sem o código do país). |
-| Pedido de crédito | país | string | [Opcional] A reclamação de cadeias para o código de país do número de telefone no formato ISO3166 (o código de dois letras ISO-3166). |
+| Pedido de crédito | telefoneNumberString | string |  A reclamação de cordas para o número de telefone. O número de telefone tem de estar em formato internacional, completo com um código "+" e país/região. Se for fornecida a reclamação `country` de entrada, o número de telefone encontra-se em formato local (sem o código país/região). |
+| Pedido de crédito | país | string | [Opcional] A reclamação de cadeias para o código país/região do número de telefone no formato ISO3166 (o código país/região de duas letras). |
 | Pedido de saída | saídaReclamada | telefoneNúmero | O resultado desta transformação de reivindicações. |
 
 A transformação de reclamações **ConvertStringToPhoneNumberClaim** é sempre executada a partir de um perfil técnico de [validação](validation-technical-profile.md) que é chamado por um [perfil técnico autoafirmado](self-asserted-technical-profile.md) ou controlo de [ecrã](display-controls.md). Os metadados de perfil técnico autoafirmados do **UserMessageIfClaimsTransformationInvalidNumber** controlam a mensagem de erro que é apresentada ao utilizador.
@@ -113,24 +113,24 @@ O perfil técnico autoafirmado que chama o perfil técnico de validação que co
 
 ## <a name="getnationalnumberandcountrycodefromphonenumberstring"></a>GetNationalNumberandCountryCodeFromNumberstring
 
-Isto extrai o código do país e o número nacional da alegação de entrada, e opcionalmente lança uma exceção se o número de telefone fornecido não for válido.
+Isto extrai o código país/região e o número nacional da alegação de entrada, e opcionalmente lança uma exceção se o número de telefone fornecido não for válido.
 
 | Item | Tipo de reclamação de transformação | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| Pedido de crédito | telefoneNúmero | string | A alegação de corda do número de telefone. O número de telefone tem de estar em formato internacional, completo com um código "+" e país. |
+| Pedido de crédito | telefoneNúmero | string | A alegação de corda do número de telefone. O número de telefone tem de estar em formato internacional, completo com um código "+" e país/região. |
 | EntradaParametro | throwExceptionOnFailure | boolean | [Opcional] Um parâmetro que indique se é lançada uma exceção quando o número de telefone não é válido. O valor predefinido é falso. |
-| EntradaParametro | paísCodeType | string | [Opcional] Um parâmetro que indique o tipo de código do país na reivindicação de saída. Os valores disponíveis são **CallCode** (o código de chamada internacional para um país, por exemplo +1) ou **ISO3166** (o código de dois letras ISO-3166). |
+| EntradaParametro | paísCodeType | string | [Opcional] Um parâmetro que indique o tipo de código país/região na reivindicação de saída. Os valores disponíveis são **callCode** (o código de chamada internacional para um país/região, por exemplo +1) ou **ISO3166** (o código de duas letras ISO-3166 país/região). |
 | Pedido de saída | nacionalNúmero | string | A reivindicação de cordas para o número nacional do número de telefone. |
-| Pedido de saída | paísCódigo | string | A reivindicação de cordas para o código do país do número de telefone. |
+| Pedido de saída | paísCódigo | string | A reivindicação de cordas para o código país/região do número de telefone. |
 
 
 Se o **GetNationalNumberAndCountryCodeFromNumberString** a transformação é executada a partir de um perfil técnico de [validação](validation-technical-profile.md) que é chamado por um [perfil técnico autoafirmado](self-asserted-technical-profile.md) ou por uma ação de controlo de [ecrã](display-controls.md#display-control-actions), então o **userMessageIfNumberParseFailure** autoafirmado metadados de perfil técnico controla a mensagem de erro que é apresentada ao utilizador.
 
 ![Diagrama do caminho de execução da mensagem de erro](./media/phone-authentication/assert-execution.png)
 
-Pode usar esta transformação de sinistros para dividir um número de telefone completo no código do país e no número nacional. Se o número de telefone fornecido não for válido, pode optar por enviar uma mensagem de erro.
+Pode utilizar esta transformação de sinistros para dividir um número de telefone completo no código país/região e no número nacional. Se o número de telefone fornecido não for válido, pode optar por enviar uma mensagem de erro.
 
-O exemplo que se segue tenta dividir o número de telefone em número nacional e código de país. Se o número de telefone for válido, o número de telefone será ultrapassado pelo número nacional. Se o número de telefone não for válido, não será lançada uma exceção e o número de telefone ainda tem o seu valor original.
+O exemplo que se segue tenta dividir o número de telefone em número nacional e código país/região. Se o número de telefone for válido, o número de telefone será ultrapassado pelo número nacional. Se o número de telefone não for válido, não será lançada uma exceção e o número de telefone ainda tem o seu valor original.
 
 ```XML
 <ClaimsTransformation Id="GetNationalNumberAndCountryCodeFromPhoneNumberString" TransformationMethod="GetNationalNumberAndCountryCodeFromPhoneNumberString">

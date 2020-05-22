@@ -3,12 +3,12 @@ title: Características - LUIS
 description: Adicione funcionalidades a um modelo de idioma para fornecer dicas sobre como reconhecer a entrada que pretende rotular ou classificar.
 ms.topic: conceptual
 ms.date: 05/14/2020
-ms.openlocfilehash: e0fd4470c9e1c2a56562b3783010ff1ef87ff466
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: c4f19ceed2e48f3f6ec2ed0958bccb7a85cff44f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682159"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83742719"
 ---
 # <a name="machine-learning-ml-features"></a>Características de aprendizagem automática (ML)
 
@@ -85,7 +85,7 @@ Por exemplo, se a entidade de endereços de envio contivesse uma subentidade de 
     * Endereço de rua (subentidade)
     * Cidade (subentidade)
     * Estado ou Província (subentidade)
-    * País (subentidade)
+    * País/Região (subentidade)
     * Código postal (subentidade)
 
 ## <a name="nested-subentities-with-features"></a>Subentidades aninhadas com características
@@ -118,14 +118,14 @@ Continuando com o exemplo do endereço de envio:
     * Nome de rua (subentidade)
     * Cidade (subentidade)
     * Estado ou Província (subentidade)
-    * País (subentidade)
+    * País/Região (subentidade)
     * Código postal (subentidade)
 
 ### <a name="required-feature-using-prebuilt-entities"></a>Recurso necessário usando entidades pré-construídas
 
-A cidade, o estado e o país são geralmente um conjunto fechado de listas, o que significa que não mudam muito com o tempo. Estas entidades podem ter as características recomendadas relevantes e essas funcionalidades podem ser marcadas conforme necessário. Isto significa que todo o endereço de envio não é devolvido é que as entidades com funcionalidades necessárias não são encontradas.
+A cidade, o estado e o país/região são geralmente um conjunto fechado de listas, o que significa que não mudam muito com o tempo. Estas entidades podem ter as características recomendadas relevantes e essas funcionalidades podem ser marcadas conforme necessário. Isto significa que todo o endereço de envio não é devolvido é que as entidades com funcionalidades necessárias não são encontradas.
 
-E se a cidade, o estado ou o país estiverem na proclamação, mas num local ou numa gíria que o LUIS não espera? Se pretender fornecer algum processamento pós-processamento para ajudar a resolver a entidade, devido a uma pontuação de confiança baixa da LUIS, não marque a funcionalidade conforme necessário.
+E se a cidade, o estado ou o país/região estiverem na proclamação, mas quer num local ou numa gíria que o LUIS não espera? Se pretender fornecer algum processamento pós-processamento para ajudar a resolver a entidade, devido a uma pontuação de confiança baixa da LUIS, não marque a funcionalidade conforme necessário.
 
 Outro exemplo de uma característica necessária para o endereço de envio é fazer do número de rua um número [pré-construído](luis-reference-prebuilt-entities.md) necessário. Isto permite que um utilizador introduza "1 Microsoft Way" ou "One Microsoft Way". Ambos decidirão para uma série de "1" para a subentidade número de rua.
 
@@ -133,19 +133,19 @@ Outro exemplo de uma característica necessária para o endereço de envio é fa
 
 Uma [entidade da lista](reference-entity-list.md) é usada como uma lista de nomes canónicos juntamente com os seus sinónimos. Como característica necessária, se a expressão não incluir o nome canónico ou um sinónimo, então a entidade não é devolvida como parte do ponto final da previsão.
 
-Continuando com o exemplo do endereço de envio, suponha que a sua empresa apenas naves para um conjunto limitado de países. Pode criar uma entidade de lista que inclui várias formas de o seu cliente fazer referência ao país. Se o LUIS não encontrar uma correspondência exata dentro do texto da expressão, então a entidade (que tem a característica necessária da entidade da lista) não é devolvida na previsão.
+Continuando com o exemplo do endereço de envio, suponha que a sua empresa apenas naves para um conjunto limitado de países/regiões. Pode criar uma entidade de lista que inclui várias formas de o seu cliente fazer referência ao país. Se o LUIS não encontrar uma correspondência exata dentro do texto da expressão, então a entidade (que tem a característica necessária da entidade da lista) não é devolvida na previsão.
 
 |Nome canónico|Sinónimos|
 |--|--|
 |Estados Unidos da América|U.S.<br>E.U.A.<br>EUA<br>EUA<br>0|
 
-A aplicação do cliente, como um chat bot pode fazer uma pergunta de seguimento, para que o cliente entenda que a seleção do país é limitada e _necessária._
+A aplicação do cliente, como um chat bot pode fazer uma pergunta de seguimento, para que o cliente entenda que a seleção país/região é limitada e _necessária._
 
 ### <a name="required-feature-using-regular-expression-entities"></a>Recurso necessário usando entidades de expressão regular
 
 Uma [entidade de expressão regular](reference-entity-regular-expression.md) usada como uma funcionalidade necessária fornece capacidades ricas de correspondência de texto.
 
-Continuando com o endereço de envio, você pode criar uma expressão regular que captura regras de sintaxe dos códigos postais do país.
+Continuando com o endereço de envio, você pode criar uma expressão regular que captura regras de sintaxe dos códigos postais país/região.
 
 ## <a name="global-features"></a>Características globais
 

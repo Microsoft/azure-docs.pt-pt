@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: f0cc14a53f7ead7f0a496728d477d7d30857a0fb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8f084057c8bc2d0be1e04dc1821378c9733cc050
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77063922"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83741544"
 ---
 # <a name="add-your-work-or-school-account-to-the-microsoft-authenticator-app"></a>Adicione o seu trabalho ou conta escolar à aplicação Microsoft Authenticator
 

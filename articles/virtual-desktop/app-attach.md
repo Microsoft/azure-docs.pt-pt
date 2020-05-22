@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3f54c296575b256339f4c22708c06e3579720e00
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: a222e5a0602a676872eb8119e565f243f2ecc1b4
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647795"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83742940"
 ---
 # <a name="set-up-msix-app-attach"></a>Configurar a anexação da aplicação MSIX
 
 > [!IMPORTANT]
-> A anexação da aplicação MSIX encontra-se atualmente em pré-visualização pública.
+> A anexação da aplicação MSIX encontra-se atualmente em pré-visualização privada.
 > Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não recomendamos usá-la para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 
 Este tópico irá acompanhá-lo sobre como configurar a aplicação MSIX anexar-se num ambiente de ambiente de trabalho virtual do Windows.

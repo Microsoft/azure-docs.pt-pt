@@ -3,12 +3,12 @@ title: Excluir discos de replicação com recuperação do site Azure
 description: Como excluir discos da replicação para Azure com recuperação do site Azure.
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: abecc19cac57a4a95d01b7a7ec076259088b101b
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: aa2e3ef3906a03be649a1978c1d662056c4d0f25
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82900272"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83740523"
 ---
 # <a name="exclude-disks-from-disaster-recovery"></a>Excluir discos da recuperação de desastres
 
@@ -24,9 +24,9 @@ Este artigo descreve como excluir discos de replicação durante a recuperação
 
 Pode excluir discos de replicação como resumido na tabela.
 
-**Azure para o Azure** | **VMware para o Azure** | **Hyper-V para o Azure** 
---- | --- | ---
-Sim | Sim | Sim 
+**Azure para o Azure** | **VMware para o Azure** | **Hyper-V para o Azure** | **Servidor Físico para Azure**
+--- | --- | --- | ---
+Sim | Sim | Sim | Sim
 
 ## <a name="exclude-limitations"></a>Excluir limitações
 
@@ -179,7 +179,7 @@ Após o failover planeado (failback) de Azure para o hiper-V no local, o VM Hype
 DB-Disk0-OS | Disco0 |   C:\ | Disco do sistema operativo.
 DB-Disk1 | Disk1 | D:\ | Base de dados do sistema SQL e Base de Dados de Utilizadores1.
 BD-Disk2 (disco excluído) | Disk2 | E:\ | Ficheiros temporários.
-DB-Disk3 (disco excluído) | Disk3 | F:\ | Base de dados tempdb SQL<br/><br/> Caminho da pasta (F:\MSSQL\Data\).
+DB-Disk3 (disco excluído) | Disk3 | F:\ | Base de dados tempdb SQL<br/><br/> Caminho da pasta (F:\MSSQL\Data \) .
 DB-Disk4 | Disk4 | G:\ | User Database2
 
 

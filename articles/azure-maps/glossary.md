@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: c9d5c2efc14dec5beee0eaf81a4f628421ef3d49
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4c3e6216c172b0ba1273fea1690c030a05f4c456
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77657049"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83742217"
 ---
 # <a name="glossary"></a>Glossário
 
@@ -31,7 +31,7 @@ A lista seguinte descreve palavras comuns usadas com os serviços Azure Maps.
 
 <a name="altitude"></a>**Altitude**: A altura ou elevação vertical de um ponto acima de uma superfície de referência. As medições de altitude baseiam-se num datum de referência, como o nível médio do mar. Ver também elevação.
 
-<a name="ambiguous"></a>**Ambíguo**: Um estado de incerteza na classificação de dados que existe quando um objeto pode ser adequadamente atribuído dois ou mais valores para um determinado atributo. Por exemplo, quando a geocodificação "CA", são devolvidos dois resultados ambíguos: "Canadá" e "Califórnia". "CA" é um país e um código de Estado, para "Canadá" e "Califórnia", respectivamente. 
+<a name="ambiguous"></a>**Ambíguo**: Um estado de incerteza na classificação de dados que existe quando um objeto pode ser adequadamente atribuído dois ou mais valores para um determinado atributo. Por exemplo, quando a geocodificação "CA", são devolvidos dois resultados ambíguos: "Canadá" e "Califórnia". "CA" é um país/região e um código de Estado, para "Canadá" e "Califórnia", respectivamente. 
 
 <a name="annotation"></a>**Anotação**: Texto ou gráficos apresentados no mapa para fornecer informações ao utilizador. A anotação pode identificar ou descrever uma entidade de mapa específica, fornecer informações gerais sobre uma área no mapa, ou fornecer informações sobre o próprio mapa.
 
@@ -93,7 +93,7 @@ A lista seguinte descreve palavras comuns usadas com os serviços Azure Maps.
 
 <a name="coordinate-system"></a>**Sistema de coordenadas**: Um quadro de referência utilizado para definir as posições dos pontos no espaço em duas ou três dimensões.
 
-<a name="country-code"></a>**Código do país**: Um identificador único para um país/região com base na norma ISO. ISO2 é um código de dois caracteres para um país (por exemplo, EUA), que o ISO3 representa um código de três caracteres (por exemplo, EUA).
+<a name="country-code"></a>**Código do país**: Um identificador único para um país/região com base na norma ISO. ISO2 é um código de dois caracteres para um país/região (por exemplo, EUA), que o ISO3 representa um código de três caracteres (por exemplo, EUA).
 
 <a name="country-subdivision"></a>**Subdivisão**do país : Uma subdivisão de primeiro nível de um país/região, vulgarmente conhecida como estado ou província.
 
@@ -408,5 +408,5 @@ A lista seguinte descreve palavras comuns usadas com os serviços Azure Maps.
 
 <a name="zip-code"></a>**Código postal**: Ver [código postal](#postal-code).
 
-<a name="Zoom level"></a>**Nível**de zoom: Especifica o nível de detalhe e a quantidade do mapa visível. Quando zoomed todo o caminho para o nível 0, o mapa do mundo completo será muitas vezes visível. Mas, o mapa mostrará detalhes limitados, como nomes de país/região, fronteiras e nomes oceânicos. Quando ampliado mais perto do nível 17, o mapa mostrará uma área de alguns quarteirões da cidade com informações detalhadas sobre a estrada. Nos mapas azuis, o nível de zoom mais alto é 22. Para mais informações, consulte os níveis de Zoom e documentação da [grelha de azulejos.](zoom-levels-and-tile-grid.md)
+<a name="Zoom level"></a>**Nível**de zoom: Especifica o nível de detalhe e a quantidade do mapa visível. Quando zoomed todo o caminho para o nível 0, o mapa do mundo completo será muitas vezes visível. Mas, o mapa mostrará detalhes limitados, como nomes de país/região, fronteiras e nomes oceânicos. Quando ampliado mais perto do nível 17, o mapa mostrará uma área de alguns quarteirões da cidade com informações detalhadas sobre a estrada. No Azure Maps, o nível de zoom mais alto é 22. Para mais informações, consulte os níveis de Zoom e documentação da [grelha de azulejos.](zoom-levels-and-tile-grid.md)
 

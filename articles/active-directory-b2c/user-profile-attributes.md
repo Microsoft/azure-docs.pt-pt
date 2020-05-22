@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 3/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e921f0a40f53b1d08831047d1cb89ca26de41402
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1e6965e15b7482935148ae7fcd2edf0f3cc722b2
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80057295"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83738562"
 ---
 # <a name="user-profile-attributes"></a>Atributos de perfil de utilizador
 
@@ -33,9 +33,9 @@ A tabela abaixo lista os atributos do tipo de recurso do [utilizador](https://do
 - Descrição do atributo
 - Se o atributo estiver disponível no portal Azure
 - Se o atributo puder ser utilizado num fluxo de utilizador
-- Se o atributo puder ser utilizado numa política personalizada [do perfil técnico Azure AD](active-directory-technical-profile.md) e em que secção (&lt;InputClaims,&gt; &lt;OutputClaims,&gt;or &lt;PersistedClaims&gt;)
+- Se o atributo puder ser utilizado numa política personalizada [do perfil técnico Azure AD](active-directory-technical-profile.md) e em que secção ( &lt; InputClaims, &gt; &lt; &gt; OutputClaims, or &lt; PersistedClaims &gt; )
 
-|Nome     |Tipo     |Descrição|Portal do Azure|Fluxos do utilizador|Política personalizada|
+|Name     |Tipo     |Descrição|Portal do Azure|Fluxos do utilizador|Política personalizada|
 |---------|---------|----------|------------|----------|-------------|
 |contaEnabled  |Booleano|Se a conta de utilizador está ativada ou desativada: **verdadeira** se a conta estiver ativada, de outra forma **falsa**.|Sim|Não|Persistida, Saída|
 |ageGroup        |String|A faixa etária do utilizador. Valores possíveis: nulo, indefinido, menor, adulto, não adulto.|Sim|Não|Persistida, Saída|
@@ -46,7 +46,7 @@ A tabela abaixo lista os atributos do tipo de recurso do [utilizador](https://do
 |país         |String|O país/região em que o utilizador se encontra. Exemplo: "EUA" ou "Reino Unido". Comprimento máximo 128.|Sim|Sim|Persistida, Saída|
 |criadoDateTime|DateTime|A data em que o objeto de utilizador foi criado. Leia apenas.|Não|Não|Persistida, Saída|
 |criaçãoTipo    |String|Se a conta de utilizador foi criada como uma conta local para um inquilino Azure Ative Directory B2C, o valor é LocalAccount ou nomeCoexistência. Leia apenas.|Não|Não|Persistida, Saída|
-|dataofbirth     |Date|Data de nascimento.|Não|Não|Persistida, Saída|
+|dataofbirth     |Data|Data de nascimento.|Não|Não|Persistida, Saída|
 |departamento      |String|O nome para o departamento em que o utilizador trabalha. Comprimento máximo 64.|Sim|Não|Persistida, Saída|
 |displayName     |String|O nome do visor para o utilizador. Comprimento máximo 256.|Sim|Sim|Persistida, Saída|
 |facsimileTelefoneNúmero<sup>1</sup>|String|O número de telefone do fax de negócios do utilizador.|Sim|Não|Persistida, Saída|
@@ -54,13 +54,13 @@ A tabela abaixo lista os atributos do tipo de recurso do [utilizador](https://do
 |empregoTítulo        |String|O cargo de utilizador. Comprimento máximo 128.|Sim|Sim|Persistida, Saída|
 |imutávelId     |String|Um identificador que é normalmente utilizado para utilizadores migrados do diretório ativo no local.|Não|Não|Persistida, Saída|
 |legalAgeGroupClassification|String|Classificação de grupo etário legal. Apenas de leitura e calculado com base nas propriedades do AgeGroup e do consentProvidedForMinor. Valores permitidos: nulo, minorWithOutParentalConsent, minorWithParentalConsent, minorNoParentalConsentRequired, não Adulto e Adulto.|Sim|Não|Persistida, Saída|
-|legalPaís<sup>1</sup>  |String|País para fins legais.|Não|Não|Persistida, Saída|
-|correio            |String|O endereço SMTP para o utilizador, por exemplo,bob@contoso.com". Só de leitura.|Não|Não|Persistida, Saída|
+|legalPaís<sup>1</sup>  |String|País/Região para fins legais.|Não|Não|Persistida, Saída|
+|correio            |String|O endereço SMTP para o utilizador, por exemplo, bob@contoso.com ". Só de leitura.|Não|Não|Persistida, Saída|
 |mailNickName    |String|O pseudónimo do correio para o utilizador. Comprimento máximo 64.|Não|Não|Persistida, Saída|
 |móvel (telemóvelPhone) |String|O número de telefone celular primário para o utilizador. Comprimento máximo 64.|Sim|Não|Persistida, Saída|
 |netId           |String|Identificação da rede.|Não|Não|Persistida, Saída|
 |objectId        |String|Um identificador globalmente único (GUID) que é o identificador único para o utilizador. Exemplo: 12345678-9abc-def0-1234-56789abcde. Leia apenas, imutável.|Só de leitura|Sim|Entrada, Persistida, Saída|
-|outros Mails      |Coleção de cordas|Uma lista de endereços de e-mail adicionais para o utilizador. Exemplo: ["bob@contoso.comRobert@fabrikam.com", "].|Sim (e-mail alternativo)|Não|Persistida, Saída|
+|outros Mails      |Coleção de cordas|Uma lista de endereços de e-mail adicionais para o utilizador. Exemplo: [" bob@contoso.com ", Robert@fabrikam.com "].|Sim (e-mail alternativo)|Não|Persistida, Saída|
 |palavra-passe        |String|A palavra-passe para a conta local durante a criação do utilizador.|Não|Não|Persistido|
 |passwordPolíticas     |String|Política da senha. É uma corda composta por diferentes nomes políticos separados pela vírem. ou é. "Desativar a validade da palavra-passe, desativar a palavra-passe".|Não|Não|Persistida, Saída|
 |physicalDeliveryOfficeName (officeLocation)|String|A localização do escritório no local de negóciodo do utilizador. Comprimento máximo 128.|Sim|Não|Persistida, Saída|
@@ -74,12 +74,12 @@ A tabela abaixo lista os atributos do tipo de recurso do [utilizador](https://do
 |state           |String|O estado ou província no endereço do utilizador. Comprimento máximo 128.|Sim|Sim|Persistida, Saída|
 |streetAddress   |String|O endereço de rua do local de negóciodo do utilizador. Comprimento máximo 1024.|Sim|Sim|Persistida, Saída|
 |strongAutenticação AlternativaTelefoneNumber<sup>1</sup>|String|O número de telefone secundário do utilizador, utilizado para a autenticação de vários fatores.|Sim|Não|Persistida, Saída|
-|strongAutenticaçãoEmailAddress<sup>1</sup>|String|O endereço SMTP para o utilizador. Exemplo:bob@contoso.com" Este atributo é usado para iniciar sessão com a política de nome de utilizador, para armazenar o endereço de e-mail do utilizador. O endereço de e-mail utilizado num fluxo de redefinição de palavra-passe.|Sim|Não|Persistida, Saída|
+|strongAutenticaçãoEmailAddress<sup>1</sup>|String|O endereço SMTP para o utilizador. Exemplo: bob@contoso.com " Este atributo é usado para iniciar sessão com a política de nome de utilizador, para armazenar o endereço de e-mail do utilizador. O endereço de e-mail utilizado num fluxo de redefinição de palavra-passe.|Sim|Não|Persistida, Saída|
 |strongAuthenticationPhoneNumber<sup>1</sup>|String|O número de telefone primário do utilizador, utilizado para a autenticação de vários fatores.|Sim|Não|Persistida, Saída|
 |surname         |String|Apelido do utilizador (nome de família ou apelido). Comprimento máximo 64.|Sim|Sim|Persistida, Saída|
 |telefoneNumber (primeira entrada de businessPhones)|String|O número de telefone primário do local de trabalho do utilizador.|Sim|Não|Persistida, Saída|
 |userPrincipalName    |String|O nome principal de utilizador (UPN). A UPN é um nome de login ao estilo da Internet para o utilizador com base no RFC 822 padrão da Internet. O domínio deve estar presente na coleção de domínios verificados pelo arrendatário. Este imóvel é necessário quando uma conta é criada. Imutável.|Não|Não|Entrada, Persistida, Saída|
-|utilizaçãoLocalização   |String|Necessáriopara os utilizadores que serão atribuídos licenças devido à obrigação legal de verificar a disponibilidade de serviços em países. Não é nulidade. Um código de dois letras (iso standard 3166). Exemplos: "EUA", "JP" e "GB".|Sim|Não|Persistida, Saída|
+|utilizaçãoLocalização   |String|Necessáriopara os utilizadores que serão atribuídos licenças devido à obrigação legal de verificar a disponibilidade de serviços em países/regiões. Não é nulidade. Um código de duas letras país/região (norma ISO 3166). Exemplos: "EUA", "JP" e "GB".|Sim|Não|Persistida, Saída|
 |userType        |String|Um valor de cadeia que pode ser usado para classificar os tipos de utilizador no seu diretório. O valor deve ser membro. Só de leitura.|Só de leitura|Não|Persistida, Saída|
 |userState (externalUserState)<sup>2</sup>|String|Apenas para a conta Azure AD B2B, indica se o convite é Pendente aceitaou ou aceito.|Não|Não|Persistida, Saída|
 |userStateChangedOn (externalUserStateChangeDateTime)<sup>2</sup>|DateTime|Mostra a marca de tempo para a mais recente alteração na propriedade userState.|Não|Não|Persistida, Saída|

@@ -8,12 +8,12 @@ ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 27b93e77e7b813e73496d15c4003e999daff10d5
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 4c4c43d8522c6f507d458c56abc445e2da35fa6d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681276"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739384"
 ---
 # <a name="troubleshoot-feature-deployment-issues"></a>Problemas de implantação de funcionalidades
 
@@ -71,7 +71,7 @@ Este erro é causado por permissões incorretas ou em falta no VM ou no espaço 
 
 #### <a name="resolution"></a>Resolução
 
-Certifique-se de que tem [permissões de implementação corretas](../automation-role-based-access-control.md#onboarding-permissions)da funcionalidade e, em seguida, tente implementar novamente a funcionalidade. Se receber a mensagem de `The solution cannot be enabled on this VM because the permission to read the workspace is missing` erro, certifique-se de que tem `Microsoft.OperationalInsights/workspaces/read` a permissão para poder encontrar se o VM está ativado para um espaço de trabalho.
+Certifique-se de que tem [permissões de implementação corretas](../automation-role-based-access-control.md#feature-setup-permissions)da funcionalidade e, em seguida, tente implementar novamente a funcionalidade. Se receber a mensagem de `The solution cannot be enabled on this VM because the permission to read the workspace is missing` erro, certifique-se de que tem `Microsoft.OperationalInsights/workspaces/read` a permissão para poder encontrar se o VM está ativado para um espaço de trabalho.
 
 ### <a name="scenario-feature-deployment-fails-with-the-message-failed-to-configure-automation-account-for-diagnostic-logging"></a><a name="diagnostic-logging"></a>Cenário: A implementação da funcionalidade falha com a mensagem "Falhou em configurar a conta de automatização para o registo de diagnóstico"
 

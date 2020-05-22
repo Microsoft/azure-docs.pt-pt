@@ -8,15 +8,15 @@ ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 01/15/2020
 ms.author: curtand
-ms.openlocfilehash: 3ed79be318319009aabb1b1ef0c42c4021bbbabe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b27b046d53a45c91d0a55a468758386437a7a6a5
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77062664"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739669"
 ---
 # <a name="reset-your-work-or-school-password-using-security-info"></a>Redefinir o seu trabalho ou senha escolar usando informações de segurança
 
@@ -103,7 +103,7 @@ Se não conseguir aceder à sua conta de Diretório Ativo Azure (Azure AD), pode
 
      Se ainda não conseguir aceder à sua conta, deverá contactar o administrador da sua organização para obter mais ajuda.
 
-Depois de redefinir a sua palavra-passe, poderá obter um e-mail \<de confirmação que vem de uma conta como: "Microsoft em nome de *your_organization*>." Se receber um e-mail semelhante, mas não redefiniu recentemente a sua palavra-passe, deve contactar imediatamente o administrador da sua organização.
+Depois de redefinir a sua palavra-passe, poderá obter um e-mail de confirmação que vem de uma conta como: "Microsoft em nome de \< *your_organization*>." Se receber um e-mail semelhante, mas não redefiniu recentemente a sua palavra-passe, deve contactar imediatamente o administrador da sua organização.
 
 ## <a name="how-to-change-your-password"></a>How to change your password (Como alterar a palavra-passe) para alterar as palavras-passe
 
@@ -117,7 +117,7 @@ Utilize este método se aceder normalmente às suas aplicações através do por
 
 2. Selecione o seu perfil no lado superior direito e, em seguida, selecione **a conta 'Ver '.**
 
-3. Selecione **Segurança & privacidade** > **Password**.
+3. Selecione **Segurança & privacidade**  >  **Password**.
 
 4. Digite a sua palavra-passe antiga, crie e confirme a sua nova palavra-passe e, em seguida, selecione **Enviar**.
 

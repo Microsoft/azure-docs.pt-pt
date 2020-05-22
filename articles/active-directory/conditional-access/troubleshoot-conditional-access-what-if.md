@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 661afc08c76c6cde61b02a29a55b4a8bec932e21
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: a9aaab58acb00305f76b10847a0417d91d724ba8
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73175788"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83737644"
 ---
 # <a name="troubleshooting-conditional-access-using-the-what-if-tool"></a>Resolução de problemas Acesso Condicional utilizando a ferramenta What If
 
 A [ferramenta What If](what-if-tool.md) in Conditional Access é poderosa quando se tenta perceber porque é que uma apólice foi ou não aplicada a um utilizador numa circunstância específica ou se uma política se aplicaria num estado conhecido.
 
-A ferramenta What If is located in the **Azure portal** > **Azure Ative Diretório Diretório** > **Conditional Access** > **What If**.
+A ferramenta What If is located in the **Azure portal**  >  **Azure Ative Diretório Diretório**  >  **Conditional Access**What  >  **If**.
 
 ![Acesso Condicional O que se a ferramenta em estado padrão](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-tool.png)
 
@@ -37,7 +37,7 @@ As seguintes informações adicionais são opcionais, mas ajudarão a reduzir o 
 
 * Aplicações na app ou ações
 * Endereço IP 
-* País
+* País/Região
 * Plataforma de dispositivo
 * Aplicativos de clientes (pré-visualização)
 * Estado do dispositivo (pré-visualização) 

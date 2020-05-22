@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 022c6360b97c7c27887ff5d2f6460f69cb8126c6
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: d6cf00fab14f91b151327b435068d689edab32b2
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82778469"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83737729"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Acesso Condicional: Aplicações ou ações em nuvem
 
@@ -117,6 +117,10 @@ Além das aplicações da Microsoft, os administradores podem adicionar qualquer
 - [Candidaturas adicionadas a partir da galeria](../manage-apps/add-application-portal.md)
 - [Aplicações personalizadas não na galeria](../manage-apps/add-non-gallery-app.md)
 - [Aplicações antigas publicadas através de controladores e redes de entrega de aplicações](../manage-apps/secure-hybrid-access.md)
+
+> [!NOTE]
+> Uma vez que a política de acesso condicional define os requisitos para aceder a um serviço, não pode aplicá-lo a uma aplicação de cliente (público/nativo). Outras palavras a política não é definida diretamente numa aplicação de cliente (público/nativo), mas é aplicada quando um cliente chama um serviço. Por exemplo, uma política definida no serviço SharePoint aplica-se aos clientes que chamam SharePoint. Uma política definida no Exchange aplica-se à tentativa de aceder ao e-mail utilizando o cliente Do Outlook. É por isso que as aplicações de clientes (público/nativo) não estão disponíveis para seleção na opção de picker e acesso condicional de Aplicações Cloud Apps não estão disponíveis nas definições de candidatura para o cliente (público/nativo) registado seleção no seu inquilino. 
+
 
 ## <a name="user-actions"></a>Ações do utilizador
 

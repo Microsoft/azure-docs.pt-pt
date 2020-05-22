@@ -1,50 +1,48 @@
 ---
-title: Gerir atualizações para várias máquinas virtuais do Azure
-description: Este artigo descreve como gerir atualizações para máquinas virtuais Azure e não-Azure.
+title: Gerir atualizações para vários VMs na Automação Azure
+description: Este artigo diz como gerir atualizações para vários VMs.
 services: automation
 ms.subservice: update-management
 ms.date: 03/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6a878ecf4519a852a9798b320bda26cd490487a4
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 864b6793f65c69c83c0e26d01a10e156b1094889
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82731990"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83741030"
 ---
-# <a name="manage-updates-for-multiple-azure-virtual-machines"></a>Gerir atualizações para várias máquinas virtuais do Azure
+# <a name="manage-updates-for-multiple-vms"></a>Gerir atualizações de várias VMs
 
-Pode utilizar a Azure Automation Update Management para gerir atualizações e patches para as suas máquinas virtuais Windows e Linux. Na sua conta da [Automatização do Azure](automation-offering-get-started.md), pode:
+Pode utilizar a Azure Automation Update Management para gerir atualizações e patches para os seus VMs Windows e Linux. Na sua conta da [Automatização do Azure](automation-offering-get-started.md), pode:
 
-- Adicionar máquinas virtuais.
+- Ativar VMs para gestão de atualizações.
 - Avaliar o estado das atualizações disponíveis.
 - Agendar a instalação das atualizações necessárias.
-- Reveja os resultados da implementação para verificar se as atualizações foram aplicadas com sucesso a todas as máquinas virtuais para as quais a Atualização está ativada.
+- Reveja os resultados da implementação para verificar se as atualizações foram aplicadas com sucesso a todos os VMs para os quais a Atualização de Gestão está ativada.
 
 Para conhecer os requisitos do sistema para a Gestão de Atualizações, consulte os [requisitos do cliente](automation-update-management.md#client-requirements)da Atualização Management .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma máquina virtual ou um computador que tenha instalado um dos sistemas operativos suportados.
-* Acesso a um repositório de atualização para VMs Linux a bordo para Update Management.
+* Um VM ou computador com um dos sistemas operativos suportados instalados.
+* Acesso a um repositório de atualização para VMs Linux habilitado para Gestão de Atualizações.
 
-## <a name="enable-update-management-for-azure-virtual-machines"></a>Ativar a Gestão de Atualizações para máquinas virtuais Azure
+## <a name="enable-update-management-for-azure-vms"></a>Ativar a Gestão de Atualizações para VMs Azure
 
-No portal Azure, abra a sua conta De automação e, em seguida, selecione **a gestão de Atualização.**
+1. No portal Azure, abra a sua conta De automação e, em seguida, selecione **a gestão de Atualização.**
 
-**Selecione Adicionar VMs Azure**.
+2. **Selecione Adicionar VMs Azure**.
 
-![Separador Adicionar VM do Azure](./media/manage-update-multi/update-onboard-vm.png)
+    ![Separador Adicionar VM do Azure](./media/manage-update-multi/update-onboard-vm.png)
 
-Selecione uma máquina virtual para carregar.
+3. Selecione um VM para ativar e selecionar **ativar** a atualização de **ativação**.
 
-Em **'Ativar Gestão de Actualizações',** selecione **Ativar** a bordo da máquina virtual.
+    ![Caixa de diálogo Ativar Gestão de Atualizações](./media/manage-update-multi/update-enable.png)
 
-![Caixa de diálogo Ativar Gestão de Atualizações](./media/manage-update-multi/update-enable.png)
+    Quando a operação estiver concluída, a Atualização de Gestão está ativada no seu VM.
 
-Quando o embarque estiver terminado, a Atualização Management está ativada para a sua máquina virtual.
-
-## <a name="enable-update-management-for-non-azure-virtual-machines-and-computers"></a>Ativar a Gestão de Atualizações para máquinas e computadores virtuais não-Azure
+## <a name="enable-update-management-for-non-azure-vms-and-computers"></a>Ativar a Gestão de Atualizações para VMs e computadores não-Azure
 
 O agente Log Analytics para Windows e Linux precisa de ser instalado nos VMs que estão a funcionar na sua rede corporativa ou noutro ambiente de nuvem, de forma a capacitá-los com a Gestão de Atualizações. Para aprender os requisitos do sistema e métodos suportados para implantar o agente em máquinas alojadas fora de Azure, consulte a [visão geral do agente Log Analytics](../azure-monitor/platform/log-analytics-agent.md).
 
@@ -54,7 +52,7 @@ Depois de ativar a Atualização da Gestão das suas máquinas, pode visualizar 
 
   ![Separador Ver computadores](./media/manage-update-multi/update-computers-tab.png)
 
-Os computadores que foram recentemente ativados para a Gestão de Atualizações podem ainda não ter sido avaliados. O estado de conformidade `Not assessed`para esses computadores é. Aqui está uma lista de possíveis valores para o estado de conformidade:
+Os computadores que foram recentemente ativados para a Gestão de Atualizações podem ainda não ter sido avaliados. O estado de conformidade para esses computadores `Not assessed` é. Aqui está uma lista de possíveis valores para o estado de conformidade:
 
 - `Compliant`: Computadores que não faltam atualizações críticas ou de segurança.
 - `Non-compliant`: Computadores que faltam pelo menos uma atualização crítica ou de segurança.
@@ -70,18 +68,18 @@ Após a ativação da Atualização, abre-se o painel de Gestão de Atualizaçõ
 
 ## <a name="collect-data"></a>Recolher dados
 
-Os agentes que estão instalados em máquinas virtuais e computadores recolhem dados sobre atualizações. Os agentes enviam os dados para a Azure Update Management.
+Os agentes que estão instalados em VMs e computadores recolhem dados sobre atualizações. Os agentes enviam os dados para a Azure Update Management.
 
 ### <a name="supported-agents"></a>Agentes suportados
 
-A tabela seguinte descreve as origens ligadas que são suportadas por esta solução:
+O quadro seguinte descreve as fontes conectadas que a Atualização de Gestão suporta:
 
 | Origem ligada | Suportado | Descrição |
 | --- | --- | --- |
 | Agentes do Windows |Sim |A Update Management recolhe informações sobre atualizações do sistema a partir de agentes do Windows e inicia a instalação de atualizações necessárias. |
 | Agentes do Linux |Sim |A Update Management recolhe informações sobre atualizações do sistema a partir de agentes Linux e inicia a instalação de atualizações necessárias sobre distribuições suportadas. |
 | Grupo de gestão do Operations Manager |Sim |A Update Management recolhe informações sobre atualizações do sistema de agentes de um grupo de gestão conectado. |
-| Conta de armazenamento do Azure |No |O Azure Storage não inclui informações sobre atualizações do sistema. |
+| Conta de armazenamento do Azure |Não |O Azure Storage não inclui informações sobre atualizações do sistema. |
 
 ### <a name="collection-frequency"></a>Frequência da recolha
 
@@ -101,7 +99,7 @@ Para instalar atualizações, agende uma implementação que se alinha com o seu
 >Ao agendar uma implementação de atualização, cria um recurso de [agenda](shared-resources/schedules.md) ligado ao livro de execução **Patch-MicrosoftOMSComputers** que trata da implementação da atualização nas máquinas-alvo. Se eliminar o recurso de agenda do portal Azure ou utilizar o PowerShell após a criação da implementação, quebra a implementação da atualização programada e apresenta um erro ao tentar reconfigurá-lo a partir do portal. Só é possível eliminar o recurso de agenda eliminando o calendário de implementação correspondente.
 >
 
-Para agendar uma nova atualização para uma ou mais máquinas virtuais, sob gestão de **Atualização,** selecione a **atualização**do Schedule .
+Para agendar uma nova implementação de atualização para um ou mais VMs, sob gestão de **Atualização,** selecione a **atualização**do Schedule .
 
 No painel de implementação da **nova atualização,** especifique as seguintes informações:
 
@@ -117,7 +115,7 @@ No painel de implementação da **nova atualização,** especifique as seguintes
 
   ![Novo painel de implementação de atualização](./media/manage-update-multi/update-select-computers.png)
 
-- **Classificação da atualização**: Selecione os tipos de software a incluir na implementação da atualização. Para uma descrição dos tipos de classificação, consulte classificações de [atualização](automation-view-update-assessments.md#update-classifications). Os tipos de classificação são:
+- **Classificação da atualização**: Selecione os tipos de software a incluir na implementação da atualização. Para uma descrição dos tipos de classificação, consulte classificações de [atualização](automation-view-update-assessments.md#work-with-update-classifications). Os tipos de classificação são:
   - Atualizações críticas
   - Atualizações de segurança
   - Update rollups
@@ -130,11 +128,10 @@ No painel de implementação da **nova atualização,** especifique as seguintes
 - **Atualizações a incluir/excluir**: esta opção abre a página Incluir/Excluir. As atualizações a serem incluídas ou excluídas estão em separadores diferentes. Para obter informações adicionais sobre como a inclusão é tratada, consulte [Agendar uma Implementação de Atualização](automation-tutorial-update-management.md#schedule-an-update-deployment).
 
 > [!NOTE]
-> É importante saber que as exclusões sobrepõem-se às inclusãos. Por exemplo, se definir uma `*`regra de exclusão de, então não são instalados patches ou pacotes, uma vez que todos estão excluídos. Os patches excluídos continuam a mostrar como desaparecidos da máquina. Para as máquinas Linux se um pacote estiver incluído mas tiver um pacote dependente que foi excluído, o pacote não está instalado.
+> É importante saber que as exclusões sobrepõem-se às inclusãos. Por exemplo, se definir uma regra de exclusão `*` de, então não são instalados patches ou pacotes, uma vez que todos estão excluídos. Os patches excluídos continuam a mostrar como desaparecidos da máquina. Para as máquinas Linux se um pacote estiver incluído mas tiver um pacote dependente que foi excluído, o pacote não está instalado.
 
 > [!NOTE]
 > Não é possível especificar atualizações que tenham sido substituídos para inclusão com a implementação da atualização.
->
 
 - **Definições da agenda**: pode aceitar a data e hora predefinidas, que é 30 minutos após a hora atual. Também pode especificar um tempo diferente.
 
@@ -171,7 +168,7 @@ Se uma ou mais atualizações falharem na implementação, o estado é **Falha p
 
 Para ver o dashboard relativo a uma implementação de atualizações, selecione a implementação concluída.
 
-O painel de resultados da Atualização mostra o número total de atualizações e os resultados de implementação da máquina virtual. A tabela à direita dá uma desagregação detalhada de cada atualização e dos resultados da instalação. Os resultados da instalação podem ser um dos seguintes valores:
+O painel de resultados da Atualização mostra o número total de atualizações e os resultados de implementação para o VM. A tabela à direita dá uma desagregação detalhada de cada atualização e dos resultados da instalação. Os resultados da instalação podem ser um dos seguintes valores:
 
 - `Not attempted`: A atualização não foi instalada porque não havia tempo suficiente com base na janela de manutenção definida.
 - `Succeeded`: A atualização foi bem sucedida.
@@ -179,10 +176,10 @@ O painel de resultados da Atualização mostra o número total de atualizações
 
 Para ver todas as entradas de registo que a implementação criou, selecione **Todos os registos**.
 
-Para ver o fluxo de trabalho do livro de execução que gere a implementação da atualização na máquina virtual alvo, selecione o azulejo de saída.
+Para ver o fluxo de trabalho do livro de execução que gere a implementação da atualização no VM alvo, selecione o azulejo de saída.
 
 Para ver informações detalhadas sobre os erros da implementação, selecione **Erros**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre registos de Gestão de Atualização, saída e erros, consulte os registos de [atualização da Query para Gestão](automation-update-management-query-logs.md)de Atualizações .
+[Consultar os registos da Gestão de Atualizações](automation-update-management-query-logs.md)

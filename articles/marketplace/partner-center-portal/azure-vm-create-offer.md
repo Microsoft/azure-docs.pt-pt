@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: ab41d3619150ace8e55702792d5974060133d5c1
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 7ecd68023c5c48a82c07d98615807a895cdd0cae
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726184"
+ms.locfileid: "83743110"
 ---
 # <a name="create-an-azure-virtual-machine-offer-in-azure-marketplace"></a>Criar uma oferta de Máquina Virtual Azure no Azure Marketplace
 
@@ -370,7 +370,7 @@ Neste separador, configurará o seguinte:
 
 #### <a name="markets"></a>Mercados
 
-Todos os planos devem estar disponíveis em pelo menos um mercado. Selecione a caixa de verificação para cada local de mercado onde este plano deve estar disponível para compra (os utilizadores nestes mercados ainda podem implementar a oferta para todas as regiões azure selecionadas no plano de **[configuração).](#plan-setup)** O botão **Tax Remitted** mostra países em que a Microsoft atribui as vendas e utiliza o imposto em seu nome. A publicação na China limita-se a planos que sejam **gratuitos** ou **tragam a sua própria licença** (BYOL).
+Todos os planos devem estar disponíveis em pelo menos um mercado. Selecione a caixa de verificação para cada local de mercado onde este plano deve estar disponível para compra (os utilizadores nestes mercados ainda podem implementar a oferta para todas as regiões azure selecionadas no plano de **[configuração).](#plan-setup)** O botão **Tax Remitted** mostra países/regiões em que a Microsoft atribui as vendas e utiliza o imposto em seu nome. A publicação na China limita-se a planos que sejam **gratuitos** ou **tragam a sua própria licença** (BYOL).
 
 Se já definiu preços para o seu plano em Dólares dos Estados Unidos (USD) e adicionar outra localização de mercado, o preço do novo mercado será calculado de acordo com as taxas de câmbio atuais. Reveja sempre o preço de cada mercado antes de publicar. Reveja os preços utilizando o link **Preços de Exportação (xlsx)** depois de ter guardado as suas alterações.
 

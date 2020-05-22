@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: tyao
-ms.openlocfilehash: e3119745e35140d0344d25f34f54b63939d2542d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 10f8bd3682b442dd55e195c6dc1855fae07a155c
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79471460"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744087"
 ---
 # <a name="how-to-set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Como configurar uma política WAF de filtragem geográfica para o Front Door
 Este tutorial mostra como utilizar o Azure PowerShell para criar uma política de filtragem geográfica de exemplo e associá-la ao anfitrião de front-end do Front Door existente. Esta política de geofiltração da amostra bloqueará os pedidos de todos os outros países/regiões, com exceção dos Estados Unidos.
@@ -51,7 +51,7 @@ Crie um perfil porta da frente seguindo as instruções descritas em [Quickstart
 
 ## <a name="define-geo-filtering-match-condition"></a>Defina a condição de correspondência de geofiltração
 
-Crie uma condição de correspondência de amostra seletiva que selecione pedidos que não vêm de "EUA" usando [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject) em parâmetros ao criar uma condição de jogo. São [aqui](front-door-geo-filtering.md)fornecidos códigos de duas letras para mapeamento de países.
+Crie uma condição de correspondência de amostra seletiva que selecione pedidos que não vêm de "EUA" usando [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject) em parâmetros ao criar uma condição de jogo. São aqui fornecidos [códigos](front-door-geo-filtering.md)de duas letras país/região para mapeamento país/região .
 
 ```azurepowershell-interactive
 $nonUSGeoMatchCondition = New-AzFrontDoorWafMatchConditionObject `
@@ -63,7 +63,7 @@ $nonUSGeoMatchCondition = New-AzFrontDoorWafMatchConditionObject `
  
 ## <a name="add-geo-filtering-match-condition-to-a-rule-with-action-and-priority"></a>Adicionar condições de correspondência da filtragem geográfica a uma regra com Ação e Prioridade
 
-Crie um `nonUSBlockRule` objeto CustomRule baseado na condição de jogo, uma ação e uma prioridade usando [New-AzFrontDoorWafCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject).  Um objeto CustomRule pode ter vários MatchCondition.  Neste exemplo, a Ação está definida como Bloquear e Prioridade como 1, a prioridade mais alta.
+Crie um objeto CustomRule `nonUSBlockRule` baseado na condição de jogo, uma ação e uma prioridade usando [New-AzFrontDoorWafCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject).  Um objeto CustomRule pode ter vários MatchCondition.  Neste exemplo, a Ação está definida como Bloquear e Prioridade como 1, a prioridade mais alta.
 
 ```
 $nonUSBlockRule = New-AzFrontDoorWafCustomRuleObject `
@@ -75,7 +75,7 @@ $nonUSBlockRule = New-AzFrontDoorWafCustomRuleObject `
 ```
 
 ## <a name="add-rules-to-a-policy"></a>Adicionar regras a uma política
-Encontre o nome do grupo de recursos `Get-AzResourceGroup`que contém o perfil porta da frente utilizando . Em seguida, `geoPolicy` crie `nonUSBlockRule` um objeto político contendo a utilização [de New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) no grupo de recursos especificado que contém o perfil porta da frente. Deve fornecer um nome único para a política de geofiltração. 
+Encontre o nome do grupo de recursos que contém o perfil porta da frente utilizando `Get-AzResourceGroup` . Em seguida, crie um `geoPolicy` objeto político contendo a `nonUSBlockRule` utilização de [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) no grupo de recursos especificado que contém o perfil porta da frente. Deve fornecer um nome único para a política de geofiltração. 
 
 O exemplo abaixo utiliza o nome do Grupo de Recursos *myResourceGroupFD1* com o pressuposto de que criou o perfil porta da frente usando instruções fornecidas no [Quickstart: Create a Front Door.](quickstart-create-front-door.md) No exemplo abaixo, substitua o nome de política *geoPolicyAllowUSOnly* por um nome de política único.
 

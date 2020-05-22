@@ -5,12 +5,12 @@ author: ofirmanor
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: 62b2738324f4c728cd4b5959c04c93649c156afb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7f0c99899b647c677025dbb38480b4d7f64c24fa
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81114449"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739993"
 ---
 # <a name="common-alert-schema-definitions"></a>Definições do esquema de alertas comuns
 
@@ -85,7 +85,7 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
 | resolvidoDataTime | A data e a hora em que a condição do monitor para a instância de alerta está definida para **resolver** na UTC. Atualmente apenas aplicável para alertas métricos.|
 | descrição | A descrição, tal como definida na regra de alerta. |
 |essencialVersão| O número da versão para a secção essencial.|
-|alertContextVersion | O número da `alertContext` versão para a secção. |
+|alertContextVersion | O número da versão para a `alertContext` secção. |
 
 **Valores da amostra**
 ```json
@@ -149,7 +149,7 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
 ### <a name="log-alerts"></a>Alertas de registo
 
 > [!NOTE]
-> Para alertas de registo que tenham um sujeito de e-mail personalizado e/ou carga útil JSON definida, permitindo que o esquema comum reverta o assunto do e-mail e/ou o esquema de carga útil para o descrito da seguinte forma. Os alertas com o esquema comum ativado têm um limite de tamanho superior de 256 KB por alerta. Os resultados da pesquisa não estão incorporados na carga útil dos alertas de registo se fizerem com que o tamanho do alerta atravesse este limiar. Pode determinar isto verificando `IncludeSearchResults`a bandeira. Quando os resultados da pesquisa não estiverem incluídos, deve utilizar a consulta de pesquisa em conjunto com a [API](https://docs.microsoft.com/rest/api/loganalytics/query/get)log analytics . 
+> Para alertas de registo que tenham um sujeito de e-mail personalizado e/ou carga útil JSON definida, permitindo que o esquema comum reverta o assunto do e-mail e/ou o esquema de carga útil para o descrito da seguinte forma. Os alertas com o esquema comum ativado têm um limite de tamanho superior de 256 KB por alerta. Os resultados da pesquisa não estão incorporados na carga útil dos alertas de registo se fizerem com que o tamanho do alerta atravesse este limiar. Pode determinar isto verificando a `IncludeSearchResults` bandeira. Quando os resultados da pesquisa não estiverem incluídos, deve utilizar a consulta de pesquisa em conjunto com a [API](https://docs.microsoft.com/rest/api/loganalytics/dataaccess/query/get)log analytics . 
 
 #### <a name="monitoringservice--log-analytics"></a>`monitoringService` = `Log Analytics`
 

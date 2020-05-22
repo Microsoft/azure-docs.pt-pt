@@ -7,17 +7,17 @@ manager: daveba
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 02/03/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 00639462fce4e67561b8e50609264d4423872c82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 23b7205e63c7991368efe421d5c067e980314611
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77022301"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83741985"
 ---
 # <a name="update-your-groups-info-on-the-my-apps-portal"></a>Atualize as informações dos seus Grupos no portal My Apps
 
@@ -40,7 +40,7 @@ Se o seu administrador lhe deu permissão para ver o azulejo **dos Grupos,** pod
 
 1. Inscreva-se no seu trabalho ou na conta da escola.
 
-2. Abra o seu navegador https://myapps.microsoft.comweb e vá para, ou use o link fornecido pela sua organização. Por exemplo, pode ser direcionado para uma página personalizada https://myapps.microsoft.com/contoso.compara a sua organização, como .
+2. Abra o seu navegador web e vá https://myapps.microsoft.com para, ou use o link fornecido pela sua organização. Por exemplo, pode ser direcionado para uma página personalizada para a sua organização, como https://myapps.microsoft.com/contoso.com .
 
     A **Apps** página apps aparece, mostrando todas as aplicações baseadas na nuvem detidas pela sua organização e disponíveis para que possa utilizar.
 
@@ -98,7 +98,7 @@ Se o seu administrador lhe deu permissão para ver o azulejo **dos Grupos,** pod
 
 Depois de criar um grupo, pode editar os seus dados, incluindo atualizar qualquer uma das informações existentes.
 
-1. Selecione o grupo que pretende editar a partir da página **Grupos** e, em seguida, **selecione detalhes editar** na página * &lt;group_name.&gt; *
+1. Selecione o grupo que pretende editar a partir da página **Grupos** e, em seguida, **selecione detalhes editar** na página * &lt; group_name. &gt; *
 
     A caixa de **detalhes editar** aparece e pode atualizar as informações que adicionou quando criou inicialmente o grupo.
 
@@ -108,7 +108,7 @@ Depois de criar um grupo, pode editar os seus dados, incluindo atualizar qualque
 
 Pode adicionar ou remover membros para quaisquer grupos que possua.
 
-1. Selecione o grupo a que pretende **+** adicionar membros e, em seguida, selecione na * &lt;&gt; * página group_name.
+1. Selecione o grupo a que pretende adicionar membros e, em seguida, selecione **+** na página * &lt; &gt; group_name.*
 
     ![Adicione um membro do grupo, com + sinal realçado](media/my-apps-portal/my-apps-portal-add-member-link.png)
 
@@ -118,7 +118,7 @@ Pode adicionar ou remover membros para quaisquer grupos que possua.
 
     É enviado um convite ao novo membro, para começar a aceder às aplicações da organização.
 
-3. Se tiver adicionado um membro por engano, ou se um membro tiver deixado a sua organização, pode remover o membro selecionando o **membro Remover** ao lado do nome do membro na página * &lt;group_name.&gt; *
+3. Se tiver adicionado um membro por engano, ou se um membro tiver deixado a sua organização, pode remover o membro selecionando o **membro Remover** ao lado do nome do membro na página * &lt; group_name. &gt; *
 
     ![Remova um membro, com o link de remoção realçado](media/my-apps-portal/my-apps-portal-remove-member-link.png)
 
@@ -138,9 +138,9 @@ Se a sua organização o permitir, pode renovar um grupo do Office 365, prolonga
 
 Pode eliminar qualquer um dos seus próprios grupos a qualquer momento. No entanto, se eliminar um grupo por engano, terá de criá-lo e adicionar novamente aos membros.
 
-1. Selecione o grupo que pretende eliminar permanentemente e, em seguida, **selecione eliminar** o * &lt;&gt; * grupo na página group_name.
+1. Selecione o grupo que pretende eliminar permanentemente e, em seguida, **selecione eliminar** o grupo na página * &lt; group_name. &gt; *
 
-    ![<Group_name página> com o link do grupo Delete em destaque](media/my-apps-portal/my-apps-portal-delete-group-link.png)
+    ![<Group_name> página com o link de grupo Delete destacado](media/my-apps-portal/my-apps-portal-delete-group-link.png)
 
 2. Selecione **Sim** na mensagem de confirmação.
 

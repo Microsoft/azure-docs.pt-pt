@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: bf2c4ff1afbf3558d6c49cf7bec90cd37e17929b
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 33effe0bbc566880b147c377b3bb130cd81999c8
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658009"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83740778"
 ---
 # <a name="offer-listing-best-practices"></a>Melhores práticas de listagem de ofertas
 
@@ -22,7 +22,7 @@ Este artigo dá sugestões para criar e envolver ofertas de mercado comercial. A
 
 | Definição de montra | Melhores práticas |
 |:--- |:--- |  
-| Nome da Oferta | Forneça um título forte:<br> <ul> <li> O nome da sua aplicação deve comunicar o valor central para os seus clientes. </li> <li> Inclua palavras-chave de pesquisa no título da sua aplicação para receber um ranking mais elevado nos resultados do motor de busca. </li> </ul> Siga um formato de título definido para listas de serviços de consultoria:<br>[Nome da Oferta: [Duração] [Tipo de Oferta] (por exemplo, *Contoso: Implementação de 2 semanas)* <br><br> Respeite as diretrizes da marca:<br>Siga [as Diretrizes](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx) de Marca microsoft e marca e outras diretrizes relevantes e específicas do produto quando se refere às marcas da Microsoft e aos nomes do software, produtos e serviços da Microsoft. |
+| Nome da Oferta | Forneça um título forte:<br> <ul> <li> O nome da sua aplicação deve comunicar o valor central para os seus clientes. </li> <li> Inclua palavras-chave de pesquisa no título da sua aplicação para receber um ranking mais elevado nos resultados do motor de busca. </li> </ul> Siga um formato de título definido para listas de serviços de consultoria:<br>[Nome da Oferta: [Duração] [Tipo de Oferta] (por exemplo, *Contoso: Implementação de 2 semanas)* <br><br> Respeite as diretrizes da marca:<br>Siga [as Diretrizes](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx) de Marca microsoft e marca e outras diretrizes relevantes e específicas do produto quando se refere às marcas da Microsoft e aos nomes do software, produtos e serviços da Microsoft. |
 | Descrição da Oferta | Forneça uma descrição clara da oferta:<br> <ul> <li> Descreva claramente a proposta de valor da sua oferta nas primeiras frases da sua descrição. </li> <li> Tenha em mente que as primeiras frases podem ser exibidas nos resultados do motor de busca. </li> <li> Não confie em funcionalidades e funcionalidades para vender o seu produto. Em vez disso, concentre-se no valor que entregar. </li> <li> Utilize o vocabulário específico da indústria ou a formulação baseada em benefícios o máximo possível.</li> <li> Além disso, as listas de Serviços de Consultoria devem indicar claramente o serviço profissional que presta. </li></ul> Os componentes fundamentais da sua proposta de valor devem incluir as seguintes informações:<ul><li>Descrição do produto.</li><li>Tipo de utilizador que beneficia do produto.</li><li>Necessidade ou dor do cliente que o produto endereça.</li></ul> |
 
 As tabelas desta secção fornecem sugestões para criar e envolver ofertas de mercado. Para escrever e configurar os seus materiais de marketing, vá ao [Partner Center.](https://partner.microsoft.com/dashboard/commercial-marketplace/) 
@@ -49,7 +49,7 @@ Pode selecionar até duas categorias e duas subcategorias para uma oferta. As ca
 | Distribuição    | *Por grosso <br> *Envio de pacote sin& |
 | Education     | *Ensino Superior <br> *Ensino Secundário & Primário / K-12 <br> *Bibliotecas & Museus |
 | Serviços Financeiros     | *Mercados de Capitais & Bancários <br> *Seguros |
-| Administração Pública    | *Defesa & Inteligência (costumava ser chamada de Segurança Nacional e Pública) <br> *Segurança Pública & Justiça <br> *Governo Civil |
+| Governo    | *Defesa & Inteligência (costumava ser chamada de Segurança Nacional e Pública) <br> *Segurança Pública & Justiça <br> *Governo Civil |
 | Cuidados de saúde (costumavam chamar-se Saúde)   | *Pagador de saúde <br> *Provedor de Saúde <br> *Farmacêuticos |
 | Recursos & de fabrico (costumava ser chamado de Fabricação)   | *Produtos químicos & Agroquímico <br> *Fabrico discreto <br> *Energia |
 | Produtos de consumo & retalhistas (costumavam chamar-se Retalho)  | *Bens de Consumo <br> *Retalhistas |

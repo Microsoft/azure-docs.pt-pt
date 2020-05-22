@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 6edc114a2d69dfe8f1e6e5d3c0a2d4af26dbad67
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 6d31edaea109f2969cc68c566594dc436be203d7
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83598774"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743551"
 ---
 # <a name="implement-dynamic-styling-for-creator-indoor-maps"></a>Implementar estilo dinâmico para mapas interiores do Criador
 
-O serviço Azure Maps Creator [Feature State](https://docs.microsoft.com/rest/api/maps/featurestate/featurestate) permite-lhe aplicar estilos com base nas propriedades dinâmicas das funcionalidades de dados do mapa interior.  Por exemplo, você pode render salas de reuniões de instalações com uma cor específica para refletir o estado de ocupação. Neste artigo, vamos mostrar-lhe como renderizar dinamicamente as funcionalidades do mapa interior com o [serviço Feature State](https://docs.microsoft.com/rest/api/maps/featurestate/featurestate) e o Módulo Web [Interior](how-to-use-indoor-module.md).
+O serviço Azure Maps Creator [Feature State](https://docs.microsoft.com/rest/api/maps/featurestate) permite-lhe aplicar estilos com base nas propriedades dinâmicas das funcionalidades de dados do mapa interior.  Por exemplo, você pode render salas de reuniões de instalações com uma cor específica para refletir o estado de ocupação. Neste artigo, vamos mostrar-lhe como renderizar dinamicamente as funcionalidades do mapa interior com o [serviço Feature State](https://docs.microsoft.com/rest/api/maps/featurestate) e o Módulo Web [Interior](how-to-use-indoor-module.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

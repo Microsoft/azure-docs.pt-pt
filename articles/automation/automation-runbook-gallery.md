@@ -1,18 +1,18 @@
 ---
-title: Runbook and module galleries for Azure Automation (Galerias de runbooks e módulos para a Automatização do Azure)
-description: Os livros e módulos da Microsoft e da comunidade estão disponíveis para que possa instalar e utilizar no seu ambiente De Automação Azure.  Este artigo descreve como pode aceder a estes recursos e contribuir com os seus livros para a galeria.
+title: Utilize livros e módulos de automação Azure na Galeria PowerShell
+description: Este artigo diz como usar livros e módulos da Microsoft e da comunidade na PowerShell Gallery.
 services: automation
 ms.subservice: process-automation
 ms.date: 03/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 90b475e275598363314c8f131911fe12650cd3df
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f1d60c19b05de218ab985b2087071733602c7f2c
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535558"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743894"
 ---
-# <a name="runbook-and-module-galleries-for-azure-automation"></a>Runbook and module galleries for Azure Automation (Galerias de runbooks e módulos para a Automatização do Azure)
+# <a name="use-runbooks-and-modules-in-powershell-gallery"></a>Use livros e módulos na Galeria PowerShell
 
 Em vez de criar os seus próprios livros e módulos na Azure Automation, pode aceder a cenários que já foram construídos pela Microsoft e pela comunidade. Você pode obter livros e [módulos](#modules-in-powershell-gallery) PowerShell da PowerShell Gallery e livros de [execução Python](#use-python-runbooks) da Galeria Script Center. Também pode contribuir para a comunidade partilhando [cenários que desenvolve.](#add-a-powershell-runbook-to-the-gallery) 
 
@@ -32,9 +32,9 @@ Só é possível importar diretamente a partir da Galeria PowerShell utilizando 
 
 Os módulos PowerShell contêm cmdlets que pode utilizar nos seus livros de execução, e os módulos existentes que pode instalar na Azure Automation estão disponíveis na [PowerShell Gallery](https://www.powershellgallery.com). Pode lançar esta galeria a partir do portal Azure e instalá-las diretamente na Automação Azure. Também pode descarregá-los e instalá-los manualmente.
 
-## <a name="common-solutions-available-in-powershell-gallery"></a>Soluções comuns disponíveis na PowerShell Gallery
+## <a name="common-scenarios-available-in-powershell-gallery"></a>Cenários comuns disponíveis na Galeria PowerShell
 
-A lista abaixo contém alguns livros que fornecem soluções para cenários comuns. Para obter uma lista completa de livros de execução criados pela equipa azure Automation, consulte o [perfil AzureAutomationTeam](https://www.powershellgallery.com/profiles/AzureAutomationTeam).
+A lista abaixo contém alguns livros que suportam cenários comuns. Para obter uma lista completa de livros de execução criados pela equipa azure Automation, consulte o [perfil AzureAutomationTeam](https://www.powershellgallery.com/profiles/AzureAutomationTeam).
 
    * [Update-ModulesInAutomationToLatestVersion](https://www.powershellgallery.com/packages/Update-ModulesInAutomationToLatestVersion/) - Importa a versão mais recente de todos os módulos numa conta de Automação da PowerShell Gallery.
    * [Enable-AzureDiagnostics](https://www.powershellgallery.com/packages/Enable-AzureDiagnostics/) - Configures Azure Diagnostics e Log Analytics para receber registos de Automação Azure contendo o estado do trabalho e fluxos de trabalho.
@@ -94,7 +94,7 @@ A Microsoft encoraja-o a adicionar livros de execução à PowerShell Gallery qu
 
 ## <a name="use-python-runbooks"></a>Use livros de corridas Python
 
-Os Livros de Execução Python estão disponíveis na galeria do [Script Center.](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B1%5D.Type=ProgrammingLanguage&f%5B1%5D.Value=Python&f%5B1%5D.Text=Python&sortBy=Date&username=) Pode contribuir com os livros de execução python para a galeria do Script Center clicando em **Carregar uma contribuição**. Quando o fizer, certifique-se `Python` de que adiciona a etiqueta ao fazer o upload da sua contribuição.
+Os Livros de Execução Python estão disponíveis na galeria do [Script Center.](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B1%5D.Type=ProgrammingLanguage&f%5B1%5D.Value=Python&f%5B1%5D.Text=Python&sortBy=Date&username=) Pode contribuir com os livros de execução python para a galeria do Script Center clicando em **Carregar uma contribuição**. Quando o fizer, certifique-se de que adiciona a etiqueta `Python` ao fazer o upload da sua contribuição.
 
 > [!NOTE]
 > Para fazer o upload de conteúdo para [script center,](https://gallery.technet.microsoft.com/scriptcenter)precisa de um mínimo de 100 pontos.
@@ -105,6 +105,6 @@ Pode enviar pedidos para [a Voz do Utilizador](https://feedback.azure.com/forums
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para começar com livros de corridas, consulte Gerir o livro de [corridas em Automação Azure.](manage-runbooks.md)
-* Para compreender as diferenças entre powerShell e PowerShell Workflow com livros de execução, consulte [Learning PowerShell workflow](automation-powershell-workflow.md).
-* Para obter mais informações sobre o PowerShell, incluindo módulos de referência linguística e aprendizagem, consulte os [Docs PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
+* [Gerir livros de corridas na Automação Azure](manage-runbooks.md)
+* [Conheça o fluxo de trabalho powerShell para a automação azure](automation-powershell-workflow.md)
+* [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview)

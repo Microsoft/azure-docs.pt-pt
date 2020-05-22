@@ -7,14 +7,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 86bce85c6ec273b4ab5f9f00cbae68fc054f53f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c7f1700cb386a197b33427e2ea615de019284d96
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262405"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83738324"
 ---
-# <a name="summary-dashboard-in-commercial-marketplace-analytics"></a>Painel de instrumentos sumário na análise do mercado comercial
+# <a name="summary-dashboard-in-commercial-marketplace-analytics"></a>Dashboard de resumo na análise do mercado comercial
 
 Este artigo fornece informações sobre o dashboard Sumário no Partner Center. Este dashboard exibe gráficos, tendências e valores de dados agregados que resumem a atividade do mercado para as suas ofertas.
 
@@ -70,7 +70,7 @@ Os Clientes por mapa de **calor de geografia** exibem uma contagem de clientes n
 - Pode mover o mapa para ver a localização exata.
 - Pode ampliar para um local específico.
 - O mapa térmico tem uma grelha suplementar para ver os detalhes da contagem de clientes, contagem de encomendas, horas de utilização normalizadas no local específico.
-- Pode pesquisar e selecionar um país da grelha para ampliar a localização do mapa. Volte à vista original premindo o botão **Home** no mapa.
+- Pode pesquisar e selecionar um país/região na grelha para ampliar a localização do mapa. Volte à vista original premindo o botão **Home** no mapa.
 - Um **novo** cliente adquiriu uma das suas ofertas pela primeira vez durante o mês dentro da gama de datas selecionadas.
 
 ### <a name="growth-trend-charts"></a>Gráficos de tendências de crescimento

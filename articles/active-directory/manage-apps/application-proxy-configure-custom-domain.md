@@ -16,16 +16,16 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f35658a75adb4d4c6c279e45087e741b8117e65
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fda84a68921500e8ba40aa6d04bfb5939f79a1ef
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79481386"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83736488"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Configure domínios personalizados com procuração de aplicação ad azure
 
-Ao publicar uma aplicação através do Azure Ative Directory Application Proxy, cria um URL externo para os seus utilizadores. Este URL obtém o domínio padrão *yourtenant.msappproxy.net*. Por exemplo, se publicar uma aplicação chamada *Despesas* do seu inquilino chamada *Contoso,* o URL externo é *\/https: /expenses-contoso.msappproxy.net*. Se quiser usar o seu próprio nome de domínio em vez de *msappproxy.net,* pode configurar um domínio personalizado para a sua aplicação. 
+Ao publicar uma aplicação através do Azure Ative Directory Application Proxy, cria um URL externo para os seus utilizadores. Este URL obtém o domínio padrão *yourtenant.msappproxy.net*. Por exemplo, se publicar uma aplicação chamada *Despesas* do seu inquilino chamada *Contoso,* o URL externo é *https: \/ /expenses-contoso.msappproxy.net*. Se quiser usar o seu próprio nome de domínio em vez de *msappproxy.net,* pode configurar um domínio personalizado para a sua aplicação. 
 
 ## <a name="benefits-of-custom-domains"></a>Benefícios dos domínios personalizados
 
@@ -128,7 +128,7 @@ Deve utilizar um certificado PFX, para garantir que todos os certificados interm
 
 Não há restrições nos métodos de assinatura de certificado. Criptografia da Curva Elíptica (ECC), Nome Alternativo sujeito (SAN) e outros tipos de certificados comuns são suportados. 
 
-Pode utilizar certificados wildcard desde que o wildcard corresponda ao URL externo. Deve utilizar certificados wildcard para [aplicações wildcard](application-proxy-wildcard.md). Se pretender utilizar o certificado para aceder também a subdomínios, deve adicionar os wildcards de subdomínio como nomes alternativos sujeitos no mesmo certificado. Por exemplo, um certificado para * \*.adventure-works.com* não funcionará para * \*.apps.adventure-works.com* a menos que adicione * \*.apps.adventure-works.com* como um nome alternativo. 
+Pode utilizar certificados wildcard desde que o wildcard corresponda ao URL externo. Deve utilizar certificados wildcard para [aplicações wildcard](application-proxy-wildcard.md). Se pretender utilizar o certificado para aceder também a subdomínios, deve adicionar os wildcards de subdomínio como nomes alternativos sujeitos no mesmo certificado. Por exemplo, um certificado para * \* .adventure-works.com* não funcionará para * \* .apps.adventure-works.com* a menos que adicione * \* .apps.adventure-works.com* como um nome alternativo sujeito. 
 
 Pode utilizar certificados emitidos pela sua própria infraestrutura de chaves públicas (PKI) se a cadeia de certificados estiver instalada nos seus dispositivos clientes. Intune pode implementar estes certificados para dispositivos geridos. Para dispositivos não geridos, tem de instalar manualmente estes certificados. 
 
@@ -143,6 +143,6 @@ Pode utilizar o mesmo certificado para várias aplicações. Se um certificado c
 Quando um certificado expira, recebe um aviso a dizer-lhe para fazer o upload de outro certificado. Se o certificado for revogado, os seus utilizadores poderão ver um aviso de segurança ao aceder à aplicação. Para atualizar o certificado para uma aplicação, navegue para a página proxy da **Aplicação** para a aplicação, selecione **Certificado**, e faça upload de um novo certificado. Se o certificado antigo não estiver a ser utilizado por outras aplicações, é apagado automaticamente. 
 
 ## <a name="next-steps"></a>Passos seguintes
-* Ative um [único início de sessão](application-proxy-configure-single-sign-on-with-kcd.md) nas suas aplicações publicadas com autenticação Azure AD.
-* [Ative o Acesso Condicional](../conditional-access/overview.md) às suas aplicações publicadas.
 
+* Ative um [único início de sessão](application-proxy-configure-single-sign-on-with-kcd.md) nas suas aplicações publicadas com autenticação Azure AD.
+* [Acesso Condicional](../conditional-access/concept-conditional-access-cloud-apps.md) para as suas aplicações na nuvem publicadas.

@@ -9,15 +9,15 @@ ms.assetid: ''
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 01/15/2020
 ms.author: curtand
-ms.openlocfilehash: 397e1fd7695fd7e74e1f22959d0f9f24af7d1ea3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3deb59b04f3c0ba90e270bc064e3ece3c21229b3
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77062647"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739611"
 ---
 # <a name="register-your-verification-method-info-to-reset-your-own-password"></a>Registe as informações do seu método de verificação para redefinir a sua própria palavra-passe
 
@@ -26,7 +26,7 @@ Se esqueceu do seu trabalho ou palavra-passe escolar, nunca obteve uma senha da 
 O seu administrador deve ativar esta funcionalidade para que possa registar as suas informações e redefinir a sua própria palavra-passe. Se não vires a **opção esqueci-me** da minha senha, significa que o teu administrador não ligou a funcionalidade para a tua organização. Se acredita que está incorreto, contacte o seu balcão de ajuda para obter assistência.
 
 >[!Important]
->Este artigo destina-se a utilizadores que pretendam utilizar o 'sign-up' para reset de palavra-passe de self-service. Isto significa que poderá redefinir o seu próprio trabalho ou alain@contoso.comsenha escolar (como, por exemplo), sem precisar da ajuda do seu administrador. Se for um administrador à procura de informações sobre como ativar o reset de palavra-passe de self-service para os seus colaboradores ou outros utilizadores, consulte o [reset de palavra-passe de autosserviço da Deploy Azure AD e outros artigos](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment).
+>Este artigo destina-se a utilizadores que pretendam utilizar o 'sign-up' para reset de palavra-passe de self-service. Isto significa que poderá redefinir o seu próprio trabalho ou senha escolar (como, por exemplo), alain@contoso.com sem precisar da ajuda do seu administrador. Se for um administrador à procura de informações sobre como ativar o reset de palavra-passe de self-service para os seus colaboradores ou outros utilizadores, consulte o [reset de palavra-passe de autosserviço da Deploy Azure AD e outros artigos](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment).
 
 ## <a name="set-up-your-password-reset-verification-method"></a>Configurar o seu método de verificação de redefinição de palavra-passe
 
@@ -57,7 +57,7 @@ O seu administrador deve ativar esta funcionalidade para que possa registar as s
 
 | Mensagem de erro |  Possível solução |
 | --- | --- | --- |
-| Contacte o administrador.<br>Detetámos que a sua palavra-passe da conta de utilizador não é gerida pela Microsoft. Como resultado, não podemos redefinir automaticamente a sua palavra-passe.<br>Contacte o seu pessoal de TI para obter qualquer assistência adicional.| Se receber esta mensagem de erro depois de digitar o id do utilizador, significa que a sua organização gere internamente a sua palavra-passe e não quer que reponha a sua palavra-passe a partir do **link Can't access your account.** Para redefinir a sua palavra-passe nesta situação, deve contactar o balcão de ajuda da sua organização ou o seu administrador para obter ajuda. |
+| Contacte o seu administrador.<br>Detetámos que a sua palavra-passe da conta de utilizador não é gerida pela Microsoft. Como resultado, não podemos redefinir automaticamente a sua palavra-passe.<br>Contacte o seu pessoal de TI para obter qualquer assistência adicional.| Se receber esta mensagem de erro depois de digitar o id do utilizador, significa que a sua organização gere internamente a sua palavra-passe e não quer que reponha a sua palavra-passe a partir do **link Can't access your account.** Para redefinir a sua palavra-passe nesta situação, deve contactar o balcão de ajuda da sua organização ou o seu administrador para obter ajuda. |
 | A sua conta não está ativada para reposição de palavra-passe.<br>Lamentamos, mas o seu pessoal de TI não criou a sua conta para uso com este serviço.<br>Se quiser, podemos contactar um administrador da sua organização para redefinir a sua senha para si. | Se receber esta mensagem de erro depois de digitar o id do utilizador, significa que ou a sua organização não ligou a função de reset da palavra-passe ou não está autorizada a usá-la. Para redefinir a sua palavra-passe nesta situação, deve selecionar o **link de 'Contato's' de um administrador.** Depois de clicar no link, um e-mail é enviado para o balcão de ajuda ou administrador da sua organização, informando-os de que pretende redefinir a sua palavra-passe. |
 | Não pudemos verificar a sua conta.<br>Se quiser, podemos contactar um administrador da sua organização para redefinir a sua senha para si. | Se receber esta mensagem de erro depois de digitar o seu ID do utilizador, significa que a sua organização ligou o reset da palavra-passe e que pode utilizá-la, mas que não se registou para o serviço. Nesta situação, deve contactar o balcão de ajuda ou administrador da sua organização para redefinir a sua palavra-passe. Para obter informações sobre o registo para reset de palavra-passe depois de estar de volta ao seu dispositivo, consulte o processo acima neste artigo. |
 

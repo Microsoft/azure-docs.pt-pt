@@ -8,15 +8,15 @@ ms.reviewer: jpettere
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 10/28/2019
 ms.author: curtand
-ms.openlocfilehash: a97b79f7927c56a737723060cd9cb3218b12bf55
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 0e74ea4a3204efb35fa6113504356e87c85aa0dd
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82625498"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83742104"
 ---
 # <a name="view-how-your-organization-uses-your-privacy-related-data"></a>Veja como a sua organização utiliza os seus dados relacionados com a privacidade
 
@@ -24,7 +24,7 @@ Pode ver como a sua organização utiliza os seus dados a partir da página de *
 
 ## <a name="view-your-privacy-related-info"></a>Ver as suas informações relacionadas com a privacidade
 
-1. Inscreva-se na sua conta de trabalho https://myaccount.microsoft.com/ ou escola e depois vá para a sua página.
+1. Inscreva-se na sua conta de trabalho ou escola e depois vá para a sua https://myaccount.microsoft.com/ página.
 
 2. Selecione **Privacidade** a partir do painel de navegação esquerdo ou selecione o link de **privacidade Rever** do bloco **Privacidade.**
 

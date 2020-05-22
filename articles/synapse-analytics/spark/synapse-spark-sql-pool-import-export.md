@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: prgomata
 ms.reviewer: euang
-ms.openlocfilehash: d2c8215a68d2f80471be87b0ca07aa1438a25ac4
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 1a2b9c739f3583fb5d842bd9d3834252d542cb7d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660046"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739282"
 ---
 # <a name="introduction"></a>Introdução
 
@@ -44,14 +44,14 @@ Por esta razão, não há necessidade de criar credenciais ou especiá-las na AP
 
 Para criar utilizadores, ligue-se à base de dados e siga estes exemplos:
 
-```Sql
+```sql
 CREATE USER Mary FROM LOGIN Mary;
 CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
 ```
 
 Atribuir um papel:
 
-```Sql
+```sql
 EXEC sp_addrolemember 'db_exporter', 'Mary';
 ```
 
@@ -64,14 +64,14 @@ As declarações de importação não são necessárias, são pré-importadas pa
 > [!NOTE]
 > **Importações não necessárias na experiência do caderno**
 
-```Scala
+```scala
  import com.microsoft.spark.sqlanalytics.utils.Constants
  import org.apache.spark.sql.SqlAnalyticsConnector._
 ```
 
 #### <a name="read-api"></a>Ler API
 
-```Scala
+```scala
 val df = spark.read.sqlanalytics("[DBName].[Schema].[TableName]")
 ```
 
@@ -79,13 +79,13 @@ A API acima funcionará tanto para quadros internos (geridos) como para tabelas 
 
 #### <a name="write-api"></a>Escrever API
 
-```Scala
+```scala
 df.write.sqlanalytics("[DBName].[Schema].[TableName]", [TableType])
 ```
 
 onde o TableType pode ser Constants.INTERNAL ou Constants.EXTERNAL
 
-```Scala
+```scala
 df.write.sqlanalytics("[DBName].[Schema].[TableName]", Constants.INTERNAL)
 df.write.sqlanalytics("[DBName].[Schema].[TableName]", Constants.EXTERNAL)
 ```
@@ -97,14 +97,14 @@ A autenticação ao Armazenamento e ao Servidor SQL está feita
 > [!NOTE]
 > Importações não necessárias na experiência do caderno
 
-```Scala
+```scala
  import com.microsoft.spark.sqlanalytics.utils.Constants
  import org.apache.spark.sql.SqlAnalyticsConnector._
 ```
 
 #### <a name="read-api"></a>Ler API
 
-```Scala
+```scala
 val df = spark.read.
 option(Constants.SERVER, "samplews.database.windows.net").
 sqlanalytics("<DBName>.<Schema>.<TableName>")
@@ -112,7 +112,7 @@ sqlanalytics("<DBName>.<Schema>.<TableName>")
 
 #### <a name="write-api"></a>Escrever API
 
-```Scala
+```scala
 df.write.
 option(Constants.SERVER, "[samplews].[database.windows.net]").
 sqlanalytics("[DBName].[Schema].[TableName]", [TableType])
@@ -124,7 +124,7 @@ sqlanalytics("[DBName].[Schema].[TableName]", [TableType])
 
 Atualmente, o conector não suporta auth baseado em token para uma piscina SQL que está fora do espaço de trabalho. Tens de usar o SQL Auth.
 
-```Scala
+```scala
 val df = spark.read.
 option(Constants.SERVER, "samplews.database.windows.net").
 option(Constants.USER, [SQLServer Login UserName]).
@@ -134,7 +134,7 @@ sqlanalytics("<DBName>.<Schema>.<TableName>")
 
 #### <a name="write-api"></a>Escrever API
 
-```Scala
+```scala
 df.write.
 option(Constants.SERVER, "[samplews].[database.windows.net]").
 option(Constants.USER, [SQLServer Login UserName]).
@@ -151,13 +151,13 @@ Assuma que tem um "pyspark_df" de dados que pretende escrever no DW.
 
 Criar uma tabela temporária utilizando o quadro de dados no PySpark:
 
-```Python
+```py
 pyspark_df.createOrReplaceTempView("pysparkdftemptable")
 ```
 
 Gereuma célula Scala no caderno PySpark usando magias:
 
-```Scala
+```scala
 %%spark
 val scala_df = spark.sqlContext.sql ("select * from pysparkdftemptable")
 
@@ -193,7 +193,7 @@ Você precisa ser Storage Blob Data Owner na conta de armazenamento ADLS Gen2 li
 > [!IMPORTANT]
 > Certifique-se de que não seleciona "Padrão" se não pretender.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Crie uma piscina SQL utilizando o portal Azure](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)
 - [Crie uma nova piscina Apache Spark usando o portal Azure](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md) 

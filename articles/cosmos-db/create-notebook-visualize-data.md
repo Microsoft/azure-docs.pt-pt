@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 41f68ead6f985d6cc2c8120091c36783d074b066
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 3de73156618b0f5234cc8049c4ea70385b790388
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659143"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743585"
 ---
 # <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Tutorial: Criar um caderno em Azure Cosmos DB para analisar e visualizar os dados
 
@@ -141,7 +141,7 @@ df_cosmos.head(10)
 
 Nesta secção, irá fazer algumas consultas sobre os dados recuperados.
 
-* **Consulta1:** Executar um Grupo consultando no DataFrame para obter a soma das receitas totais de vendas para cada país e exibir 5 itens dos resultados. Numa nova célula de caderno, execute o seguinte código:
+* **Consulta1:** Executar um Grupo consultando no DataFrame para obter a soma das receitas totais de vendas para cada país/região e exibir 5 itens dos resultados. Numa nova célula de caderno, execute o seguinte código:
 
    ```python
    df_revenue = df_cosmos.groupby("Country").sum().reset_index()
@@ -170,16 +170,16 @@ Nesta secção, irá fazer algumas consultas sobre os dados recuperados.
    !{sys.executable} -m pip install bokeh --user
    ```
 
-1. Em seguida, prepare-se para traçar os dados num mapa. Junte-se aos dados em Azure Cosmos DB com informações do país localizadas no armazenamento da Blob Azure e converta o resultado em formato GeoJSON. Copie o seguinte código para uma nova célula de caderno e execute-o.
+1. Em seguida, prepare-se para traçar os dados num mapa. Junte-se aos dados em Azure Cosmos DB com informações de país/região localizadas no armazenamento Azure Blob e converta o resultado em formato GeoJSON. Copie o seguinte código para uma nova célula de caderno e execute-o.
 
    ```python
    import urllib.request, json
    import geopandas as gpd
 
-   # Load country information for mapping
+   # Load country/region information for mapping
    countries = gpd.read_file("https://cosmosnotebooksdata.blob.core.windows.net/notebookdata/countries.json")
 
-   # Merge the countries dataframe with our data in Azure Cosmos DB, joining on country code
+   # Merge the countries/regions dataframe with our data in Azure Cosmos DB, joining on country/region code
    df_merged = countries.merge(df_revenue, left_on = 'admin', right_on = 'Country', how='left')
 
    # Convert to GeoJSON so bokeh can plot it
@@ -187,7 +187,7 @@ Nesta secção, irá fazer algumas consultas sobre os dados recuperados.
    json_data = json.dumps(merged_json)
    ```
 
-1. Visualizar as receitas de vendas de diferentes países num mapa mundial executando o seguinte código numa nova célula de caderno:
+1. Visualizar as receitas de vendas de diferentes países/regiões num mapa mundial executando o seguinte código numa nova célula de caderno:
 
    ```python
    from bokeh.io import output_notebook, show
@@ -233,9 +233,9 @@ Nesta secção, irá fazer algumas consultas sobre os dados recuperados.
    show(p)
    ```
 
-   A saída exibe o mapa do mundo com cores diferentes. As cores mais escuras para mais claras representam os países com maiores receitas para as receitas mais baixas.
+   A saída exibe o mapa do mundo com cores diferentes. As cores mais escuras para mais claras representam os países/regiões com maior receita para menor estoque de receitas.
 
-   ![Visualização do mapa de receitas dos países](./media/create-notebook-visualize-data/countries-revenue-map-visualization.png)
+   ![Visualização do mapa de receitas de países/regiões](./media/create-notebook-visualize-data/countries-revenue-map-visualization.png)
 
 1. Vamos ver outro caso de visualização de dados. O contentor do SiteData tem registo de utilizadores que viram um item, adicionados ao seu carrinho e adquiridos o item. Vamos traçar a taxa de conversão dos artigos comprados. Executar o seguinte código numa nova célula para visualizar a taxa de conversão de cada item:
 
@@ -288,6 +288,6 @@ Nesta secção, irá fazer algumas consultas sobre os dados recuperados.
 
    ![Visualizar a taxa de conversão de compra](./media/create-notebook-visualize-data/visualize-purchase-conversion-rate.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre comandos de caderno Python, veja [como usar comandos e funcionalidades de cadernos incorporados no artigo da Azure Cosmos DB.](use-python-notebook-features-and-commands.md)

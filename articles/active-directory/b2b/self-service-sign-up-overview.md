@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd76a0556ff22890aff9f4b623e7688064192558
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 98456f26fbc7ca3955883eb283b54084bd86d503
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83712201"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83737763"
 ---
 # <a name="self-service-sign-up-preview"></a>Inscrição personalizada (Pré-visualização)
 |     |
@@ -35,7 +35,7 @@ Um fluxo de utilizador de inscrição de autosserviço cria uma experiência de 
 Pode configurar as definições de fluxo do utilizador para controlar a forma como o utilizador se inscreve na aplicação:
 
 - Tipos de conta utilizados para iniciar sessão, tais como contas sociais como facebook ou contas AD Azure
-- Atributos a recolher do utilizador que se inscreva, tais como primeiro nome, código postal ou país de residência
+- Atributos a recolher do utilizador que se inscreva, tais como primeiro nome, código postal ou país/região de residência
 
 Quando um utilizador quer iniciar sessão na sua aplicação, seja uma aplicação web, móvel, de secretária ou de uma única página (SPA), a aplicação inicia um pedido de autorização para o ponto final fornecido pelo utilizador. O fluxo do utilizador define e controla a experiência do utilizador. Quando o utilizador completa o fluxo de utilizador de inscrição, o Azure AD gera um token e redireciona o utilizador de volta para a sua aplicação. Após a conclusão da inscrição, é prevista uma conta de hóspedes para o utilizador no diretório. Várias aplicações podem utilizar o mesmo fluxo de utilizador.
 
@@ -60,6 +60,6 @@ O utilizador introduz a informação, continua o fluxo de inscrição e tem aces
 
 ![Exemplo mostrando o utilizador instávido](media/self-service-sign-up-overview/example-signed-in.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
  Para mais detalhes, consulte como adicionar a [inscrição de self-service a uma aplicação](self-service-sign-up-user-flow.md).

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 54b45825f2322dc127d5db818b7abe52e4a98967
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: f5e4515cfbacb656f60492613b5379c0bde60244
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208402"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83736029"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Gerencie a sua conta de mercado comercial no Partner Center
 
@@ -64,7 +64,7 @@ Na secção de informações de Contacto, pode ver o nome de **exibição**do Ed
 
 #### <a name="payout-account"></a>Conta de pagamento
 
-Uma conta de pagamento é a conta bancária para a qual os lucros são enviados das suas vendas. Esta conta bancária deve estar no mesmo país onde registou a sua conta de Partner Center.
+Uma conta de pagamento é a conta bancária para a qual os lucros são enviados das suas vendas. Esta conta bancária deve estar no mesmo país/região onde registou a sua conta de Partner Center.
 
 Para configurar a sua conta de pagamento:
 
@@ -80,21 +80,21 @@ Para configurar a sua conta de pagamento:
 
 Reveja o seu estado de perfil fiscal atual, confirmando o tipo de **Entidade** correta e a **Informação** do Certificado Fiscal é apresentada. Selecione **Editar** para atualizar ou preencher os formulários necessários.
 
-Para estabelecer o seu estatuto fiscal, deve especificar o seu país de residência e cidadania e preencher os formulários fiscais adequados associados ao seu país/região.
+Para estabelecer o seu estatuto fiscal, deve especificar o seu país/região de residência e cidadania e preencher os formulários fiscais adequados associados ao seu país/região.
 
-Independentemente do seu país de residência ou cidadania, deve preencher formulários fiscais dos Estados Unidos para vender quaisquer ofertas através da Microsoft. Os parceiros que satisfaçam determinados requisitos de residência dos Estados Unidos devem preencher um formulário de IRS W-9. Outros parceiros fora dos Estados Unidos devem preencher um formulário W-8 do IRS. Pode preencher estes formulários online à medida que completa o seu perfil fiscal.
+Independentemente do seu país/região de residência ou cidadania, deve preencher formulários fiscais dos Estados Unidos para vender quaisquer ofertas através da Microsoft. Os parceiros que satisfaçam determinados requisitos de residência dos Estados Unidos devem preencher um formulário de IRS W-9. Outros parceiros fora dos Estados Unidos devem preencher um formulário W-8 do IRS. Pode preencher estes formulários online à medida que completa o seu perfil fiscal.
 
 Um Número de Identificação Individual dos Contribuintes (ou ITIN) dos Estados Unidos não é obrigado a receber pagamentos da Microsoft ou a reclamar benefícios do tratado fiscal.
 
 Pode preencher e submeter os seus formulários fiscais eletronicamente no Partner Center; na maioria dos casos, não é necessário imprimir e enviar formulários.
 
-Diferentes países e regiões têm diferentes requisitos fiscais. O valor exato que deve pagar em impostos depende dos países e regiões onde vende as suas ofertas. A Microsoft atribui vendas e utiliza impostos em seu nome em alguns países. Estes países serão identificados no processo de listagem da sua oferta. Noutros países, dependendo do local onde está registado, poderá ter de remeter as vendas e utilizar o imposto para as suas vendas diretamente para a autoridade tributária local. Além disso, as receitas de venda que recebe podem ser tributáveis como rendimento. Encorajamo-lo vivamente a contactar a autoridade relevante para o seu país ou região que melhor o ajude a determinar as informações fiscais certas para as suas transações de vendas da Microsoft.
+Diferentes países e regiões têm diferentes requisitos fiscais. O valor exato que deve pagar em impostos depende dos países e regiões onde vende as suas ofertas. A Microsoft atribui vendas e utiliza impostos em seu nome em alguns países/regiões. Estes países/regiões serão identificados no processo de listagem da sua oferta. Noutros países/regiões, dependendo do local onde está registado, poderá ter de remeter as vendas e utilizar o imposto para as suas vendas diretamente para a autoridade tributária local. Além disso, as receitas de venda que recebe podem ser tributáveis como rendimento. Encorajamo-lo vivamente a contactar a autoridade relevante para o seu país ou região que melhor o ajude a determinar as informações fiscais certas para as suas transações de vendas da Microsoft.
 
 ##### <a name="withholding-rates"></a>Taxas de retenção
-A informação que apresenta nos seus formulários fiscais determina a taxa de retenção de impostos adequada. A taxa de retenção aplica-se apenas às vendas que faz nos Estados Unidos; as vendas efetuadas em locais não americanos não estão sujeitas a retenção. As taxas de retenção variam, mas para a maioria dos desenvolvedores que se registam fora dos Estados Unidos, a taxa de incumprimento é de 30%. Tem a opção de reduzir esta taxa se o seu país tiver concordado com um tratado de impostos sobre o rendimento com os Estados Unidos.
+A informação que apresenta nos seus formulários fiscais determina a taxa de retenção de impostos adequada. A taxa de retenção aplica-se apenas às vendas que faz nos Estados Unidos; as vendas efetuadas em locais não americanos não estão sujeitas a retenção. As taxas de retenção variam, mas para a maioria dos desenvolvedores que se registam fora dos Estados Unidos, a taxa de incumprimento é de 30%. Tem a opção de reduzir esta taxa se o seu país/região tiver concordado com um tratado sobre o imposto sobre o rendimento com os Estados Unidos.
 
 ##### <a name="tax-treaty-benefits"></a>Benefícios do tratado fiscal
-Se estiver fora dos Estados Unidos, poderá aproveitar-se dos benefícios do tratado fiscal. Estes benefícios variam de país para país, e podem permitir-lhe reduzir o montante dos impostos que a Microsoft retém. Pode reclamar benefícios do tratado fiscal preenchendo a Parte II do formulário W-8BEN. Recomendamos que comunique com os recursos apropriados no seu país ou região para determinar se esses benefícios se aplicam a si.
+Se estiver fora dos Estados Unidos, poderá aproveitar-se dos benefícios do tratado fiscal. Estes benefícios variam de país/região para país/região, e podem permitir-lhe reduzir o montante dos impostos que a Microsoft retém. Pode reclamar benefícios do tratado fiscal preenchendo a Parte II do formulário W-8BEN. Recomendamos que comunique com os recursos apropriados no seu país ou região para determinar se esses benefícios se aplicam a si.
 
 [Saiba mais sobre detalhes fiscais para desenvolvedores de aplicações/jogos do Windows e editores do Azure Marketplace.](https://docs.microsoft.com/windows/uwp/publish/tax-details-for-paid-apps)
 
@@ -134,7 +134,7 @@ Para mais informações, consulte o uso do [cliente Tracking Azure com GUIDs FAQ
 
 Se estiver a publicar uma [Oferta De Sem](./create-new-customer-engagement-offer.md) Acordo para o Envolvimento com o Cliente & Power Apps ou [A Dinâmica 365 para Operações,](./create-new-operations-offer.md) precisa de completar o seu perfil de **faturação**.
 
-O endereço de faturação é pré-povoado da sua entidade legal, e você pode atualizar este endereço mais tarde. Os campos de IDENTIFICAÇÃO DE IVA são opcionais.  O nome do país e o nome da empresa não podem ser editados.
+O endereço de faturação é pré-povoado da sua entidade legal, e você pode atualizar este endereço mais tarde. Os campos de IDENTIFICAÇÃO DE IVA são opcionais.  O nome país/região e o nome da empresa não podem ser editados.
 
 ## <a name="multi-user-account-management"></a>Gestão de conta multiutilizador
 
@@ -291,7 +291,7 @@ Os utilizadores da sua empresa podem ser atribuídos as seguintes funções e pe
 - **Gestor**
   - Pode aceder a todas as funcionalidades da conta da Microsoft, exceto definições de impostos e pagamentos
   - Pode gerir utilizadores, funções e contas de trabalho (inquilinos)
-- **Developer (Programador)**
+- **Programador**
   - Pode gerir e publicar ofertas
   - Pode ver alguns relatórios de editores
 

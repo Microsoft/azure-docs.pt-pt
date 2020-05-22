@@ -1,125 +1,58 @@
 ---
-title: Gestão de atualização a bordo, rastreio de alterações e soluções de inventário de um VM Azure
-description: Saiba como embarcar numa máquina virtual Azure com soluções de Gestão de Atualização, Rastreio de Alterações e Inventário que fazem parte da Automação Azure.
+title: Ativar a Gestão de Atualização de Automação Azure a partir de um Azure VM
+description: Este artigo diz como ativar a Gestão de Atualizações a partir de um VM Azure.
 services: automation
 ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: f33f829b6cb86cb01c848e5fc48e1618a3e00a2c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cab114e50852f293a3d1caf5bdc9a341f75f2557
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537037"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743951"
 ---
-# <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Soluções de Gestão de Atualização a bordo, Rastreio de Alterações e Inventário de uma máquina virtual Azure
+# <a name="enable-update-management-from-an-azure-vm"></a>Ativar a Gestão de Atualizações a partir de um Azure VM
 
-A Azure Automation fornece soluções para o ajudar a gerir as atualizações de segurança do sistema operativo, as alterações na faixa e o inventário do que está instalado nos seus computadores. Há várias maneiras de entrar nas máquinas. Pode embarcar na solução a partir de uma máquina virtual, [a partir da sua conta Automation,](automation-onboard-solutions-from-automation-account.md)desde a navegação em [várias máquinas,](automation-onboard-solutions-from-browse.md)ou através de um livro de [execução](automation-onboard-solutions.md). Este artigo cobre o embarque destas soluções a partir de uma máquina virtual Azure.
+Este artigo descreve como pode utilizar um VM Azure para ativar a funcionalidade [De Gestão](automation-update-management.md) de Atualizações noutras máquinas. Para ativar os VMs Azure em escala, deve ativar um VM existente utilizando a Atualização. 
+
+> [!NOTE]
+> Ao ativar a Gestão de Atualizações, apenas certas regiões são suportadas para ligar um espaço de trabalho log Analytics e uma conta de Automação. Para obter uma lista dos pares de mapeamento suportados, consulte [O mapeamento da Região para a conta de Automação e o espaço de trabalho log Analytics](how-to/region-mappings.md).
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+* Subscrição do Azure. Se ainda não tiver um, pode ativar os seus benefícios de [subscrição da MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se para uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* [Conta de automatização](automation-offering-get-started.md) para gerir máquinas.
+* Uma [máquina virtual.](../virtual-machines/windows/quick-create-portal.md)
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 Inicie sessão no portal do Azure em https://portal.azure.com.
 
-## <a name="enable-the-solutions"></a>Ativar as soluções
-
-Em primeiro lugar, ative uma ou todas as três soluções no seu VM:
+## <a name="enable-update-management"></a>Ativar a Gestão de Atualizações
 
 1. No [portal Azure, selecione](https://portal.azure.com) **máquinas Virtuais** ou procure e selecione **máquinas Virtuais** a partir da página Inicial.
-2. Selecione o VM para o qual pretende ativar uma solução.
-3. Na página VM, em **Operações,** selecione **Gestão de Atualização,** **Inventário**ou **Rastreio de Alterações**. A máquina virtual pode existir em qualquer região, independentemente da localização da sua conta Deautomação. Ao embarcar numa solução de um VM, precisa de ter a `Microsoft.OperationalInsights/workspaces/read` permissão para determinar se o VM está a bordo de um espaço de trabalho. Para conhecer as permissões adicionais necessárias, consulte [as permissões necessárias às máquinas](automation-role-based-access-control.md#onboarding-permissions)a bordo . Para aprender a bordo várias máquinas ao mesmo tempo, consulte soluções de Gestão de Atualização de [Bordo, Deslocalização e Inventário](automation-onboard-solutions-from-automation-account.md).
 
-4. Selecione o espaço de trabalho e a conta de Automação do Azure Log Analytics e, em seguida, clique em **Ativar** a solução. A solução demora até 15 minutos a ativar.
+2. Selecione o VM para o qual pretende ativar a Gestão de Atualizações. Os VMs podem existir em qualquer região, independentemente da localização da sua conta De automação. O utilizador
 
-![A bordo da solução de Gestão de Atualização](media/automation-tutorial-update-management/manageupdates-update-enable.png)
+3. Na página VM, em **Operações,** selecione **Gestão de Atualizações.**
 
-5. Vá para as outras soluções e, em seguida, selecione **Enable**. As listas de drop-down do espaço de trabalho log Analytics e da conta Automation são desativadas porque estas soluções utilizam a mesma conta de espaço de trabalho e automação que a solução previamente ativada.
+4. Deve ter `Microsoft.OperationalInsights/workspaces/read` a permissão para determinar se o VM está habilitado para um espaço de trabalho. Para conhecer as permissões adicionais necessárias, consulte [permissões necessárias para ativar as máquinas](automation-role-based-access-control.md#feature-setup-permissions). Para aprender a ativar várias máquinas ao mesmo tempo, consulte [a Enable Update Management a partir de uma conta De automação](automation-onboard-solutions-from-automation-account.md).
 
-> [!NOTE]
-> Alterar o rastreio e o inventário utilize a mesma solução. Quando uma destas soluções está ativada, a outra também está ativada.
+5. Escolha o espaço de trabalho e a conta de Automação do Log Analytics e clique em **Ativar** para ativar a Gestão de Atualizações. A configuração leva até 15 minutos para ser concluída. 
 
-## <a name="scope-configuration"></a>Configuração de âmbito
+    ![Ativar a Gestão de Atualizações](media/automation-tutorial-update-management/manageupdates-update-enable.png)
 
-Cada solução utiliza uma configuração de âmbito no espaço de trabalho para direcionar os computadores que obtêm a solução. A configuração de âmbito é um grupo de uma ou mais pesquisas guardadas que são usadas para limitar o âmbito da solução a computadores específicos. Para aceder às configurações de âmbito:
+## <a name="check-the-scope-configuration"></a><a name="scope-configuration"></a>Verifique a configuração do âmbito
 
-1. Na sua conta de Automação, sob **recursos Relacionados,** selecione **Workspace**. 
-2. No espaço de trabalho, sob fontes de **dados do Espaço de Trabalho,** selecione **Configurações**de Âmbito .
-3. Se o espaço de trabalho selecionado ainda não tiver a solução de Gestão de Atualização ou Deslocalização, são criadas as seguintes configurações de âmbito:
-
-    * `MicrosoftDefaultScopeConfig-ChangeTracking`
-    * `MicrosoftDefaultScopeConfig-Updates`
-
-    Se o espaço de trabalho selecionado já tiver a solução, a solução não é reimplantada e a configuração de âmbito não é adicionada.
-
-4. Selecione as elipses **(...**) em qualquer uma das configurações e, em seguida, clique em **Editar**. 
-5. No painel de configuração de **abrangência editar,** selecione **Select Computer Groups**. O painel de Grupos de **Computadores** mostra as pesquisas guardadas que são usadas para criar a configuração de âmbito.
-
-## <a name="saved-searches"></a>Pesquisas guardadas
-
-Quando um computador é adicionado à solução de Gestão de Atualização, Deslocalização ou Inventário, o computador é adicionado a uma das duas pesquisas guardadas no seu espaço de trabalho. As pesquisas guardadas são consultas que contêm os computadores que são direcionados para estas soluções.
-
-Vá para a área de trabalho. Em **Geral,** selecione **Pesquisas Guardadas**. As duas pesquisas guardadas que são utilizadas por estas soluções são mostradas na tabela seguinte:
-
-|Nome     |Categoria  |Alias  |
-|---------|---------|---------|
-|MicrosoftDefaultComputerGroup     |  ChangeTracking       | ChangeTracking__MicrosoftDefaultComputerGroup        |
-|MicrosoftDefaultComputerGroup     | Atualizações        | Updates__MicrosoftDefaultComputerGroup         |
-
-Selecione qualquer uma das pesquisas guardadas para ver a consulta que é usada para povoar o grupo. A imagem seguinte mostra a consulta e os seus resultados:
-
-![Pesquisas guardadas](media/automation-onboard-solutions-from-vm/logsearch.png)
-
-## <a name="unlink-workspace"></a>Unlink workspace (Desassociar a área de trabalho)
-
-As seguintes soluções dependem de um espaço de trabalho log Analytics:
-
-* [Gestão de Atualizações](automation-update-management.md)
-* [Monitorização de Alterações](automation-change-tracking.md)
-* [Iniciar/Parar VMs durante horas de inatividade](automation-solution-vm-management.md)
-
-Se decidir que já não pretende integrar a sua conta de Automação com um espaço de trabalho de Log Analytics, pode desvincular a sua conta diretamente do portal Azure.  Antes de prosseguir, primeiro tem de remover as soluções mencionadas anteriormente, caso contrário este processo será impedido de prosseguir. Reveja o artigo para a solução específica que importou para compreender os passos necessários para removê-lo.
-
-Depois de remover estas soluções, pode executar os seguintes passos para desligar a sua conta Desvinculação da Automatização.
-
-> [!NOTE]
-> Algumas soluções, incluindo versões anteriores da solução de monitorização Azure SQL, podem ter criado ativos de automação e podem também ter de ser removidas antes de desvincular o espaço de trabalho.
-
-1. A partir do portal Azure, abra a sua conta de Automação e selecione **Linked workspace** sob a secção **Recursos Relacionados** à esquerda.
-
-2. Na página de espaço de trabalho Unlink, clique em **Unlink espaço de trabalho**.
-
-   ![Página de espaço de trabalho desvinculação](media/automation-onboard-solutions-from-vm/automation-unlink-workspace-blade.png).
-
-   Irá receber um pedido de confirmação de que pretende continuar.
-
-3. Enquanto a Azure Automation tenta desvincular a conta do seu espaço de trabalho Log Analytics, pode acompanhar o progresso em **Notificações** do menu.
-
-Se utilizou a solução De Gestão de Atualizações, opcionalmente poderá querer remover os seguintes itens que já não são necessários depois de remover a solução.
-
-* Horários de atualização - Cada um terá nomes que correspondam às implementações de atualizações que criou.
-
-* Grupos de trabalhadores híbridos criados para a solução - Cada um será nomeado da mesma forma que machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8).
-
-Se utilizou os VMs iniciar/parar durante a solução off-hours, opcionalmente poderá querer remover os seguintes itens que já não são necessários depois de remover a solução.
-
-* Iniciar e parar os horários do livro de corridas vM
-* Iniciar e parar livros de execução VM
-* Variáveis
-
-Em alternativa, também pode desligar o seu espaço de trabalho a partir da sua Conta de Automação a partir do seu espaço de trabalho Log Analytics. No seu espaço de trabalho, selecione **Conta de Automação** em **Recursos Relacionados.** Na página da Conta de Automação, selecione **Conta Unlink**.
-
-## <a name="clean-up-resources"></a>Limpar recursos
-
-Para remover um VM da Atualização:
-
-* No seu espaço de trabalho Log Analytics, retire o `MicrosoftDefaultScopeConfig-Updates`VM da pesquisa guardada para a Configuração scope . Pesquisas guardadas podem ser encontradas sob **o General** no seu espaço de trabalho.
-* Remova o [agente Log Analytics para Windows](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) ou o agente Log Analytics para o [Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
+A Atualização A Gestão utiliza uma configuração de âmbito dentro do espaço de trabalho para direcionar os computadores para ativar a funcionalidade. A configuração de âmbito é um grupo de uma ou mais pesquisas guardadas que são usadas para limitar o âmbito da funcionalidade a computadores específicos. Para mais informações, consulte [Trabalhar com configurações de âmbito para Gestão de Atualizações.](automation-scope-configurations-update-management.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Continue aos tutoriais para as soluções para aprender a usá-las:
-
-* [Tutorial - Gerir atualizações para o seu VM](automation-tutorial-update-management.md)
-
-* [Tutorial - Identificar software num VM](automation-tutorial-installed-software.md)
-
-* [Tutorial - Mudanças de resolução de problemas num VM](automation-tutorial-troubleshoot-changes.md)
+* Para utilizar a Gestão de Atualizações para VMs, consulte ['Gerir atualizações e patches' para os seus VMs Azure](automation-tutorial-update-management.md).
+* Para configurações de âmbito, consulte [Trabalhar com configurações de âmbito para Gestão de Atualizações](automation-scope-configurations-update-management.md).
+* Se já não necessitar do espaço de trabalho do Log Analytics, consulte instruções no [espaço de trabalho Unlink da Automação para gestão](automation-unlink-workspace-update-management.md)de atualizações .
+* Para eliminar VMs da Atualização, consulte [Remover VMs da Gestão de Atualizações](automation-remove-vms-from-update-management.md).
+* Para resolver os erros gerais de Gestão de Atualizações, consulte [os problemas](troubleshoot/update-management.md)de Gestão de Atualização de Resolução de Problemas .
+* Para resolver problemas com o agente de atualização do Windows, consulte problemas de agente de [atualização do Windows](troubleshoot/update-agent-issues.md).
+* Para resolver problemas com o agente de atualização linux, consulte problemas de agente de[atualização Da Troubleshoot Linux](troubleshoot/update-agent-issues-linux.md).

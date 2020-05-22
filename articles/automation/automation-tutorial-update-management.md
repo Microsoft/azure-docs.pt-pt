@@ -1,38 +1,28 @@
 ---
-title: Gerencie atualizações e patches para os seus VMs Azure
-description: Este artigo fornece uma visão geral de como utilizar a Azure Automation Update Management para gerir atualizações e patches para os seus VMs Azure e não-Azure.
+title: Gerencie atualizações e patches para os seus VMs Azure em Automação Azure
+description: Este artigo diz como usar a Atualização Management para gerir atualizações e patches para os seus VMs Azure.
 services: automation
 ms.subservice: update-management
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: mvc
-ms.openlocfilehash: 52158fe78262b5b2b3d006fb3a543ca743f4e417
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 4b47fa873df88bf85c4c56c9f2ac94fce16c63be
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683825"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743652"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Gerencie atualizações e patches para os seus VMs Azure
 
-Pode utilizar a solução de Gestão de Atualizações para gerir as atualizações e correções de erros das suas máquinas virtuais. Neste tutorial, irá aprender a avaliar rapidamente o estado das atualizações disponíveis, agendar a instalação das atualizações necessárias, rever os resultados da implementação e criar um alerta para verificar se as atualizações são aplicadas com êxito.
+Este artigo descreve como pode utilizar a funcionalidade De Gestão de [Atualizações](automation-update-management.md) de Automação Do Azure para gerir atualizações e patches para os seus VMs Azure. 
 
 Para obter informações sobre preços, veja [Preços de Automatização para Gestão de Atualizações](https://azure.microsoft.com/pricing/details/automation/).
 
-Neste tutorial, vai aprender a:
-
-> [!div class="checklist"]
-> * Ver avaliações de atualizações
-> * Configurar alertas
-> * Agendar uma implementação de atualizações
-> * Ver os resultados de uma implementação
-
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, precisa de:
-
-* A solução [De Gestão](automation-update-management.md) de Atualização ativada para um ou mais dos seus VMs.
-* Uma [máquina virtual](../virtual-machines/windows/quick-create-portal.md) para carregar.
+* A funcionalidade ['Gestão de Actualizações'](automation-update-management.md) está ativada para um ou mais dos seus VMs. 
+* Uma [máquina virtual](../virtual-machines/windows/quick-create-portal.md) ativada para gestão de atualizações.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -95,7 +85,7 @@ Para personalizar o assunto do e-mail de alerta, sob **a regra Criar,** sob **a�
 
 ## <a name="schedule-an-update-deployment"></a>Agendar uma implementação de atualizações
 
-Em seguida, agende uma implementação que siga o seu agendamento e o período de administração da versão para instalar atualizações. Pode escolher os tipos de atualização para incluir na implementação. Por exemplo, pode incluir atualizações de segurança ou críticas e excluir update rollups.
+Agende uma implementação que siga o seu horário de lançamento e janela de serviço para instalar atualizações. Pode escolher os tipos de atualização para incluir na implementação. Por exemplo, pode incluir atualizações de segurança ou críticas e excluir update rollups.
 
 >[!NOTE]
 >Agendar uma implementação de atualização cria um recurso de [agenda](shared-resources/schedules.md) ligado ao livro de execução **Patch-MicrosoftOMSComputers** que trata da implementação da atualização nas máquinas-alvo. Se eliminar o recurso de agenda do portal Azure ou utilizar o PowerShell após a criação da implementação, a eliminação quebra a implementação da atualização programada e apresenta um erro ao tentar reconfigurar o recurso de agenda a partir do portal. Só é possível eliminar o recurso de agenda eliminando o calendário de implementação correspondente.  
@@ -112,18 +102,9 @@ Em **Nova implementação de atualização**, especifique as seguintes informaç
 
 * **Máquinas para atualizar:** Selecione uma pesquisa guardada, grupo importado ou escolha **Máquinas** do menu suspenso e selecione máquinas individuais. Se escolher **Máquinas,** a prontidão de cada máquina é mostrada na coluna de prontidão do **agente Atualizar.** Para conhecer os diferentes métodos de criação de grupos informáticos nos registos do Monitor Azure, consulte [grupos informáticos nos registos do Monitor Azure](../azure-monitor/platform/computer-groups.md).
 
-* **Classificação da atualização**: Para cada produto, desmarque todas as classificações de atualização suportadas, mas as que incluirão na sua implementação da atualização. Para este tutorial, deixe todos os tipos selecionados para todos os produtos.
+* **Classificação da atualização**: Para cada produto, desmarque todas as classificações de atualização suportadas, mas as que incluirão na sua implementação da atualização. Para descrições dos tipos de classificação, consulte classificações de [atualização](automation-view-update-assessments.md#work-with-update-classifications).
 
-  Os tipos de classificação são:
-
-   |SO  |Tipo  |
-   |---------|---------|
-   |Windows     | Atualizações críticas</br>Atualizações de segurança</br>Update rollups</br>Pacotes de funcionalidades</br>Service packs</br>Atualizações de definições</br>Ferramentas</br>Atualizações<br>Controlador        |
-   |Linux     | Atualizações críticas e de segurança</br>Outras atualizações       |
-
-   Para descrições dos tipos de classificação, consulte classificações de [atualização](automation-view-update-assessments.md#update-classifications).
-
-* **Incluir/excluir atualizações** - Abre a página Incluir/Excluir. As atualizações a incluir ou excluídas estão em separados, especificando os números de IDENTIFICAção do artigo KB. Ao especificar um ou mais números de IDENTIFICAÇÃO, é necessário remover ou desmarcar todas as classificações com a implementação da atualização. Isto garante que nenhuma outra atualização está incluída no seu pacote de atualizações ao especificar iDs de atualização.
+* **Atualizações para incluir/excluir** - Abre a página Incluir/Excluir. As atualizações a incluir ou excluídas estão em separados, especificando os números de IDENTIFICAção do artigo KB. Ao especificar um ou mais números de IDENTIFICAÇÃO, é necessário remover ou desmarcar todas as classificações com a implementação da atualização. Isto garante que nenhuma outra atualização está incluída no seu pacote de atualizações ao especificar iDs de atualização.
 
 > [!NOTE]
 > É importante saber que as exclusões sobrepõem-se às inclusãos. Por exemplo, se definir uma regra de exclusão de , A Gestão de `*` Atualizações não instala patches ou pacotes, uma vez que todos estão excluídos. Os patches excluídos continuam a mostrar como desaparecidos da máquina. Para as máquinas Linux, se incluir um pacote que tenha um pacote dependente que tenha sido excluído, a Update Management não instala o pacote principal.
@@ -131,7 +112,6 @@ Em **Nova implementação de atualização**, especifique as seguintes informaç
 > [!NOTE]
 > Não é possível especificar atualizações que tenham sido substituídos para inclusão com a implementação da atualização.
 >
-
 * **Definições da agenda**: o painel Definições da Agenda abre. A hora de início predefinida é 30 minutos depois da hora atual. Pode definir a hora de início para qualquer hora a partir de 10 minutos no futuro.
 
    Também pode especificar se a implementação ocorre uma vez ou configurar um agendamento periódico. Em **Periodicidade**, selecione **Uma vez**. Deixe o padrão como 1 dia e clique **OK**. Estas entradas estabelecem um horário recorrente.
@@ -149,7 +129,7 @@ Em **Nova implementação de atualização**, especifique as seguintes informaç
   > Para evitar que as atualizações sejam aplicadas fora de uma janela de manutenção em Ubuntu, reconfigure o pacote Deactualização Não Atendida para desativar atualizações automáticas. Para obter informações sobre como configurar o pacote, consulte [o tópico de Atualizações Automáticas no Guia do Servidor Ubuntu](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
 
 * **Opções**de reiniciar : Utilize para especificar opções para manusear reboots. Estão disponíveis as seguintes opções:
-  * Reiniciar se necessário (predefinido)
+  * Reiniciar se necessário (padrão)
   * Reiniciar sempre
   * Nunca reiniciar
   * Apenas reiniciar - não instala atualizações
@@ -196,16 +176,4 @@ Quando a sua implementação de atualização for bem sucedida, recebe um e-mail
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, ficou a saber como:
-
-> [!div class="checklist"]
-> * Carregar uma VM para Gestão de Atualizações
-> * Ver avaliações de atualizações
-> * Configurar alertas
-> * Agendar uma implementação de atualizações
-> * Ver os resultados de uma implementação
-
-Avance para a descrição geral da solução de Gestão de Atualizações.
-
-> [!div class="nextstepaction"]
-> [Solução de Gestão de Atualizações](automation-update-management.md)
+* [Descrição geral da Gestão de Atualizações](automation-update-management.md)

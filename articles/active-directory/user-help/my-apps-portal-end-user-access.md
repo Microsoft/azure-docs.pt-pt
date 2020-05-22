@@ -7,17 +7,17 @@ manager: daveba
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 02/03/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 8eb59eebd29c2cc94e20b71b467866686deec2f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aa9813480425d179bdd11bac6f6f944f9f65e3ab
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81869731"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83741972"
 ---
 # <a name="sign-in-and-start-apps-from-the-my-apps-portal"></a>Inscreva-se e inicie aplicações a partir do portal My Apps
 
@@ -78,9 +78,9 @@ Um ícone é adicionado à direita da sua barra de **Endereço,** permitindo-lhe
 
 Pode escolher quantas aplicações visualizar na secção **Recentemente Utilizada** e decidir se permite que os URLs internos da sua organização redirecionem.
 
-1. Selecione o novo ícone](media/my-apps-portal/my-apps-portal-extension-icon.png) de ![extensão de extensão de extensão de sinais de aplicação das **Minhas Aplicações** à direita da sua barra de **endereços** e, em seguida, selecione Iniciar o **'Sign's para começar**.
+1. Selecione o novo ícone de extensão de extensão de extensão de sinais de aplicação das **Minhas Aplicações** à direita da sua barra de ![ ](media/my-apps-portal/my-apps-portal-extension-icon.png) **endereços** e, em seguida, selecione Iniciar o **'Sign's para começar**.
 
-2. Clique à direita ![no](media/my-apps-portal/my-apps-portal-extension-settings-icon.png)ícone Definições do ícone **Definições** , e depois selecione **Definições**.
+2. Clique à direita no ícone **Definições** ![ do ícone Definições , e depois ](media/my-apps-portal/my-apps-portal-extension-settings-icon.png) selecione **Definições**.
 
 3. Na caixa **Definições,** selecione o número de aplicações recentes que pretende ver no portal e se permite que os URLs internos da sua organização redirecionem para que possa utilizá-las remotamente.
 
@@ -98,7 +98,7 @@ Se tiver permissão para aceder e utilizar as aplicações baseadas na nuvem da 
 
 1. Inscreva-se no seu trabalho ou na conta escolar no seu computador.
 
-2. Num navegador web suportado, abra https://myapps.microsoft.come vá para , ou use o link fornecido pela `https://myapps.microsoft.com/contoso.com`sua organização se o direcionar para uma página personalizada, como .
+2. Num navegador web suportado, abra e vá para https://myapps.microsoft.com , ou use o link fornecido pela sua organização se o direcionar para uma página personalizada, como `https://myapps.microsoft.com/contoso.com` .
 
     A **Apps** página apps aparece, mostrando todas as aplicações baseadas na nuvem detidas pela sua organização que estão disponíveis para você usar.
 
@@ -112,7 +112,7 @@ Veja e utilize as aplicações da sua organização a partir de um Navegador Ger
 
 1. No seu dispositivo móvel, descarregue e instale a aplicação Intune Managed Browser a partir da Apple App Store e da Google Play Store.
 
-2. Abra a aplicação Intune Managed Browser, vá para https://myapps.microsoft.com, ou use o link fornecido https://myapps.microsoft.com/contoso.compela sua organização se o direcionar para uma página personalizada, como .
+2. Abra a aplicação Intune Managed Browser, vá para https://myapps.microsoft.com , ou use o link fornecido pela sua organização se o direcionar para uma página personalizada, como https://myapps.microsoft.com/contoso.com .
 
     A **Apps** página apps aparece, mostrando todas as aplicações baseadas na nuvem detidas pela sua organização e disponíveis para que possa utilizar.
 
@@ -126,7 +126,7 @@ Ver e utilizar o portal **My Apps** a partir de um dispositivo iPhone ou iPad, e
 
 1. No seu dispositivo móvel, inicie uma aplicação de navegador web, como o Safari.
 
-2. Vá https://myapps.microsoft.coma , ou use o link fornecido pela sua organização se https://myapps.microsoft.com/contoso.comeles o direcionarem para uma página personalizada, como .
+2. Vá a https://myapps.microsoft.com , ou use o link fornecido pela sua organização se eles o direcionarem para uma página personalizada, como https://myapps.microsoft.com/contoso.com .
 
     A **Apps** página apps aparece, mostrando todas as aplicações baseadas na nuvem detidas pela sua organização que estão disponíveis para você usar.
 
@@ -140,7 +140,7 @@ Ver e utilizar o portal **My Apps** num dispositivo Android.
 
 1. No seu dispositivo móvel, inicie uma aplicação de navegador web, como o Google Chrome.
 
-2. Vá https://myapps.microsoft.coma , ou use o link fornecido pela sua organização se https://myapps.microsoft.com/contoso.comeles o direcionarem para uma página personalizada, como .
+2. Vá a https://myapps.microsoft.com , ou use o link fornecido pela sua organização se eles o direcionarem para uma página personalizada, como https://myapps.microsoft.com/contoso.com .
 
     A **Apps** página apps aparece, mostrando todas as aplicações baseadas na nuvem detidas pela sua organização e disponíveis para que possa utilizar.
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
-ms.openlocfilehash: 627f6f01a17fc8cabb4f1883306baeb0e2d77e70
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 0256e5c60a417cec47f90cd6ec30fe9208f47f7f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792892"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83738290"
 ---
 # <a name="set-up-your-payout-account-and-tax-forms"></a>Configurar a conta de dividendos e os formulários fiscais
 
@@ -36,13 +36,13 @@ Depois de configurar a sua conta, há duas coisas que precisa de fazer antes de 
 
 Primeiro, terá de criar um perfil fiscal e atribuí-lo aos programas em que participa. Pode criar o seu *perfil fiscal* para o mercado comercial, completando os seguintes passos:
 
-- Especifique o seu país de residência e cidadania.
+- Especifique o seu país/região de residência e cidadania.
 - Preencha os formulários fiscais apropriados.
 
 Pode preencher e submeter os seus formulários fiscais eletronicamente no Partner Center; na maioria dos casos, não é necessário imprimir e enviar formulários.
 
 > [!IMPORTANT]
-> Diferentes países e regiões têm diferentes requisitos fiscais. O valor exato que deve pagar em impostos depende dos países e regiões onde vende a sua oferta. Consulte o [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560) para saber em que países a Microsoft atribui vendas e utiliza o imposto em seu nome. Noutros países, dependendo do local onde está registado, poderá ter de remeter as vendas e utilizar o imposto para a sua oferta de venda diretamente à autoridade tributária local. Além disso, as receitas de venda de aplicações que recebe podem ser tributáveis como rendimento. Encorajamo-lo vivamente a contactar a autoridade relevante para o seu país ou região que melhor o ajude a determinar a informação fiscal certa para as suas atividades no mercado comercial.
+> Diferentes países e regiões têm diferentes requisitos fiscais. O valor exato que deve pagar em impostos depende dos países e regiões onde vende a sua oferta. Consulte o [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560) para saber quais países/regiões a Microsoft atribui vendas e utiliza o imposto em seu nome. Noutros países/regiões, dependendo do local onde está registado, poderá ter de remeter as vendas e utilizar o imposto para a sua oferta de venda diretamente à autoridade tributária local. Além disso, as receitas de venda de aplicações que recebe podem ser tributáveis como rendimento. Encorajamo-lo vivamente a contactar a autoridade relevante para o seu país ou região que melhor o ajude a determinar a informação fiscal certa para as suas atividades no mercado comercial.
 
 1. No [Partner Center,](https://partner.microsoft.com/dashboard)selecione o ícone de **definições da Conta** no canto superior direito e, em seguida, selecione as **definições do Desenvolvedor**.
 
@@ -54,20 +54,20 @@ Pode preencher e submeter os seus formulários fiscais eletronicamente no Partne
 
 5. Clique no botão **Editar** para editar as suas informações fiscais.
 
-6. Selecione o botão de rádio apropriado e selecione o seu país se for solicitado. Este passo determina a entidade empresarial da Microsoft que será usada para fazer pagamentos na sua conta.
+6. Selecione o botão de rádio apropriado e selecione o seu país/região se solicitado. Este passo determina a entidade empresarial da Microsoft que será usada para fazer pagamentos na sua conta.
 
-7. Dependendo das suas seleções no passo 6, será solicitado a fornecer informações fiscais necessárias para o seu país.
+7. Dependendo das suas seleções no passo 6, será solicitado a fornecer informações fiscais necessárias para o seu país/região.
 
    > [!NOTE]
-   > Independentemente do seu país de residência ou cidadania, deve preencher formulários fiscais dos Estados Unidos para vender qualquer oferta ou complemento através do mercado comercial. Os editores que satisfaçam determinados requisitos de residência nos Estados Unidos devem preencher um formulário de IRS W-9. Outras editoras fora dos Estados Unidos devem preencher um formulário de IRS W-8. Pode preencher estes formulários online à medida que completa o seu perfil fiscal.
+   > Independentemente do seu país/região de residência ou cidadania, deve preencher formulários fiscais dos Estados Unidos para vender qualquer oferta ou complemento através do mercado comercial. Os editores que satisfaçam determinados requisitos de residência nos Estados Unidos devem preencher um formulário de IRS W-9. Outras editoras fora dos Estados Unidos devem preencher um formulário de IRS W-8. Pode preencher estes formulários online à medida que completa o seu perfil fiscal.
 
 ### <a name="withholding-rates"></a>Taxas de retenção
 
-A informação que apresenta nos seus formulários fiscais determina a taxa de retenção de impostos adequada. A taxa de retenção aplica-se apenas às vendas que faz nos Estados Unidos; as vendas efetuadas em locais não americanos não estão sujeitas a retenção. As taxas de retenção variam, mas para a maioria dos editores que se registam fora dos Estados Unidos, a taxa de incumprimento é de 30%. Tem a opção de reduzir esta taxa se o seu país tiver concordado com um tratado de impostos sobre o rendimento com os Estados Unidos.
+A informação que apresenta nos seus formulários fiscais determina a taxa de retenção de impostos adequada. A taxa de retenção aplica-se apenas às vendas que faz nos Estados Unidos; as vendas efetuadas em locais não americanos não estão sujeitas a retenção. As taxas de retenção variam, mas para a maioria dos editores que se registam fora dos Estados Unidos, a taxa de incumprimento é de 30%. Tem a opção de reduzir esta taxa se o seu país/região tiver concordado com um tratado sobre o imposto sobre o rendimento com os Estados Unidos.
 
 ### <a name="tax-treaty-benefits"></a>Benefícios do tratado fiscal
 
-Se estiver fora dos Estados Unidos, poderá aproveitar-se dos benefícios do tratado fiscal. Estes benefícios variam de país para país, e podem permitir-lhe reduzir o montante dos impostos que o mercado comercial retém. Pode reclamar benefícios do tratado fiscal preenchendo a Parte II do formulário W-8BEN. Recomendamos que comunique com os recursos apropriados no seu país ou região para determinar se esses benefícios se aplicam a si.
+Se estiver fora dos Estados Unidos, poderá aproveitar-se dos benefícios do tratado fiscal. Estes benefícios variam de país/região para país/região, podendo permitir-lhe reduzir o montante dos impostos que o mercado comercial retém. Pode reclamar benefícios do tratado fiscal preenchendo a Parte II do formulário W-8BEN. Recomendamos que comunique com os recursos apropriados no seu país ou região para determinar se esses benefícios se aplicam a si.
 
 > [!NOTE]
 > Um Número de Identificação Individual dos Contribuintes (ou ITIN) dos Estados Unidos não é obrigado a receber pagamentos da Microsoft ou a reclamar benefícios do tratado fiscal.

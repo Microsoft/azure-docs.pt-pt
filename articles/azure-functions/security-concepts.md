@@ -3,12 +3,12 @@ title: Assegurar funções azure
 description: Saiba como tornar o seu código de função em funcionamento em Azure mais seguro de ataques comuns.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7336974a0f982f2dd2394f16d7f6d520ecb8571d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 07d099ae3ce8a544994208436770674e6674e6f0
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83664418"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744055"
 ---
 # <a name="securing-azure-functions"></a>Assegurar funções azure
 
@@ -181,7 +181,7 @@ Ao ter um ponto final separado, pode controlar implementações e outras funcion
 
 ### <a name="continuous-security-validation"></a>Validação contínua de segurança
 
-Uma vez que a segurança tem de ser considerada um passo no processo de desenvolvimento, faz sentido também implementar validações de segurança num ambiente de implantação contínua. Isto às vezes chama-se DevSecOps. Utilizando o Azure DevOps para o seu pipeline de implantação, integra a validação no processo de implementação. Para mais informações, consulte [Saiba como adicionar validação contínua de segurança ao seu pipeline CI/CD](/devops/migrate/security-validation-cicd-pipeline).  
+Uma vez que a segurança tem de ser considerada um passo no processo de desenvolvimento, faz sentido também implementar validações de segurança num ambiente de implantação contínua. Isto às vezes chama-se DevSecOps. Utilizando o Azure DevOps para o seu pipeline de implantação, integra a validação no processo de implementação. Para mais informações, consulte [Saiba como adicionar validação contínua de segurança ao seu pipeline CI/CD](/azure/devops/migrate/security-validation-cicd-pipeline).  
 
 ## <a name="network-security"></a>Segurança da rede
 

@@ -1,37 +1,34 @@
 ---
-title: Utilize modelos do Gestor de Recursos Azure para a Gestão de Atualização a bordo [ Microsoft Docs
-description: Pode utilizar um modelo de Gestor de Recursos Azure para embarcar na solução azure Automation Update Management.
+title: Ativar a Gestão de Atualizações utilizando o modelo de Gestor de Recursos Azure [ Microsoft Docs
+description: Este artigo diz como usar um modelo de Gestor de Recursos Azure para ativar a Gestão de Atualizações.
 ms.service: automation
 ms.subservice: update-management
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 04/24/2020
-ms.openlocfilehash: dd8706c1e95e6b1e4ca4a38d4a336f6186464696
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 9e4396a1def5b032077c1c15c2d10b7f3452853f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872200"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743467"
 ---
-# <a name="onboard-update-management-solution-using-azure-resource-manager-template"></a>Solução de Gestão de Atualização de Bordo utilizando o modelo de Gestor de Recursos Azure
+# <a name="enable-update-management-using-azure-resource-manager-template"></a>Ativar a Gestão de Atualizações utilizando o modelo de Gestor de Recursos Azure
 
-Pode utilizar modelos do Gestor de [Recursos Azure](../azure-resource-manager/templates/template-syntax.md) para ativar a solução de Gestão de Atualização de Automação Azure no seu grupo de recursos. Este artigo fornece um modelo de amostra que automatiza o seguinte:
+Pode utilizar um modelo de Gestor de [Recursos Azure](../azure-resource-manager/templates/template-syntax.md) para ativar a funcionalidade de Gestão de Atualização de Automação Azure no seu grupo de recursos. Este artigo fornece um modelo de amostra que automatiza o seguinte:
 
 * Criação de um espaço de trabalho Azure Monitor Log Analytics.
 * Criação de uma conta Azure Automation.
 * Ligando a conta de Automação ao espaço de trabalho do Log Analytics, se não estiver já ligado.
-* A bordo da solução Azure Automation Update Management.
+* Habilitando a Gestão de Atualizações.
 
-O modelo não automatiza o embarque de um ou mais VMs Azure ou não-Azure.
+O modelo não automatiza a habilitação de um ou mais VMs Azure ou não-Azure.
 
-Se já tem uma conta log Analytics e de Automação implantada numa região apoiada na sua subscrição, não estão ligadas. O espaço de trabalho ainda não tem a solução de Gestão de Atualização implementada. A utilização deste modelo cria com sucesso o link e implementa a solução de Gestão de Atualização. 
-
->[!NOTE]
->O utilizador **da nxautomation** a bordo como parte da Atualização management no Linux executa apenas livros de execução assinados.
+Se já tem uma conta log Analytics e de Automação implantada numa região apoiada na sua subscrição, não estão ligadas. O espaço de trabalho ainda não tem A Gestão de Atualização ativada. A utilização deste modelo cria com sucesso o link e implementa a Gestão de Atualizações para os seus VMs. 
 
 >[!NOTE]
->Este artigo foi atualizado para utilizar o novo módulo AZ do Azure PowerShell. Pode continuar a utilizar o módulo AzureRM, que continuará a receber correções de erros até, pelo menos, dezembro de 2020. Para obter mais informações sobre o novo módulo Az e a compatibilidade do AzureRM, veja [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para instruções de instalação do módulo Az no seu Executor Híbrido, consulte [Instalar o Módulo PowerShell Azure](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para a sua conta Automation, pode atualizar os seus módulos para a versão mais recente, utilizando [como atualizar os módulos Azure PowerShell em Automação Azure](automation-update-azure-modules.md).
+>O utilizador **de nxautomation** ativado como parte da Atualização management no Linux executa apenas livros de execução assinados.
 
 ## <a name="api-versions"></a>Versões da API
 
@@ -244,10 +241,10 @@ O modelo JSON especifica um valor predefinido para os outros parâmetros que pro
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que tem a solução de Gestão de Atualização implementada, pode ativar VMs para gestão, avaliações de atualização de revisão e implementação de atualizações para os colocar em conformidade.
+Agora que tem a Atualização ativada, pode ativar VMs para gestão, avaliações de atualização de revisão e implementação de atualizações para os colocar em conformidade.
 
-- A partir do seu [Azure Automation conta](automation-onboard-solutions-from-automation-account.md) uma ou mais máquinas Azure e manualmente para máquinas não Azure.
+- A partir da sua [conta Azure Automation](automation-onboard-solutions-from-automation-account.md) para uma ou mais máquinas Azure e manualmente para máquinas não-Azure
 
-- Para um único Azure VM a partir da página de máquina virtual no portal Azure. Este cenário está disponível para [VMs Linux](../virtual-machines/linux/tutorial-config-management.md#enable-update-management) e [Windows.](../virtual-machines/windows/tutorial-config-management.md#enable-update-management)
+- Para um único Azure VM a partir da página de máquina virtual no portal Azure. Este cenário está disponível para [VMs Linux](../virtual-machines/linux/tutorial-config-management.md#enable-update-management) e [Windows](../virtual-machines/windows/tutorial-config-management.md#enable-update-management)
 
-- Para [vários VMs Azure](manage-update-multi.md) selecionando-os a partir da página de **máquinas Virtuais** no portal Azure. 
+- Para [vários VMs Azure](manage-update-multi.md) selecionando-os a partir da página de **máquinas virtuais** no portal Azure 

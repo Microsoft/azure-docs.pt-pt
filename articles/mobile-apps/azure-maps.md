@@ -7,12 +7,12 @@ ms.service: vs-appcenter
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: masoucou
-ms.openlocfilehash: aa2931440b538346d9f1aa9d0ec967f1a812d56b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b6eec99594ca748fa0610c60c83fd58e388f7923
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80241019"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83742898"
 ---
 # <a name="geospatial-apis-to-add-maps-spatial-analytics-and-mobility-solutions-with-azure-maps"></a>APIs geoespaciais para adicionar mapas, análise espacial e soluções de mobilidade com mapas Azure
 
@@ -25,7 +25,7 @@ ms.locfileid: "80241019"
 - **Encaminhamento**: Apresenta as rotas mais curtas ou rápidas disponíveis para vários destinos num momento específico. O encaminhamento também fornece rotas e fatos especializados para caminhantes, ciclistas e veículos comerciais.
 - **Fusos horários**: Torna fácil ver a que horas está em qualquer lugar do mundo.
 - **Operações espaciais**: Melhore a sua inteligência de localização.
-- **Geolocalização**: Encontra o país de um endereço IP.
+- **Geolocalização**: Encontra o país/região de um endereço IP.
 - **Serviço de dados**: Uploads e armazena dados geoespaciais para utilização com operações espaciais ou composição de imagem.
 - **Mobilidade**: Fornece informações de localização em tempo real em serviços de trânsito público nas proximidades. Paragens, informações de rota e estimativas de tempo de viagem estão incluídas.
 

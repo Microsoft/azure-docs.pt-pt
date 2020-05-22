@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: babanisa
-ms.openlocfilehash: 17416131566edf8710737862f0cbea2e31477960
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: e193b272460fe97f599adff414fcac6e80648104
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/21/2020
-ms.locfileid: "83722529"
+ms.locfileid: "83738375"
 ---
 # <a name="auth0-partner-topics"></a>Tópicos parceiros da Auth0
 ![Logotipo auth0](./media/auth0-overview/auth0-logo.png)
@@ -42,10 +42,10 @@ Manter e auditar as suas ações de utilizador é crucial para manter a seguran�
 ### <a name="secure-your-application"></a>Proteja a sua aplicação
 A combinação de procedimentos de monitorização da segurança e de resposta a incidentes é importante na proteção de um sistema distribuído. Por esta razão, é importante manter todos os dados num só lugar e monitorizar toda a pilha. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Visão geral dos tópicos dos parceiros](partner-topics-overview.md)
 - [Como usar o Tópico do Parceiro Auth0](auth0-how-to.md)
-- [Documentação Auth0](https://auth0.com/docs/logs/streams/azure-eventgrid)
+- [Documentação Auth0](https://auth0.com/docs/azure-tutorial)
 - [Torne-se um parceiro da Grelha de Eventos](partner-onboarding-overview.md)
 

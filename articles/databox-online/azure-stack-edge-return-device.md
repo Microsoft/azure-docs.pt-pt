@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 02/26/2020
 ms.author: alkohli
-ms.openlocfilehash: dfd9c949767d3dc8e63e3f15ba12641f27d46b80
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: bb73494dd5fe22c3be645f732f9d0958e48edb64
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82569358"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743644"
 ---
 # <a name="return-or-replace-your-azure-stack-edge-device"></a>Volte ou substitua o seu dispositivo Azure Stack Edge
 
@@ -47,7 +47,7 @@ Para redefinir o seu dispositivo utilizando a UI web local, tome os seguintes pa
 
 O reset apaga os dados dos discos de dados do dispositivo. Dependendo da quantidade de dados no seu dispositivo, este processo demora cerca de 30 a 40 minutos.
 
-Em alternativa, ligue-se à interface PowerShell `Reset-HcsAppliance` do dispositivo e utilize o cmdlet para apagar os dados dos discos de dados. Para mais informações, consulte [Redefinir o seu dispositivo](azure-stack-edge-connect-powershell-interface.md#reset-your-device).
+Em alternativa, ligue-se à interface PowerShell do dispositivo e utilize o `Reset-HcsAppliance` cmdlet para apagar os dados dos discos de dados. Para mais informações, consulte [Redefinir o seu dispositivo](azure-stack-edge-connect-powershell-interface.md#reset-your-device).
 
 > [!NOTE]
 > - Se estiver a trocar ou a atualizar para um novo dispositivo, recomendamos que reponha o seu dispositivo apenas depois de ter recebido o novo dispositivo.
@@ -74,7 +74,7 @@ Para iniciar o processo de devolução, tome os seguintes passos.
 5. Afixe a etiqueta de envio que recebeu do Azure no pacote.
 6. Agende uma recolha com a transportadora regional. Se devolver o dispositivo nos EUA, a sua transportadora poderá ser UPS ou FedEx. Para agendar uma pick-up com ups:
 
-    1. Ligue para a UPS local (número gratuito de portagem específica do país).
+    1. Ligue para o ponto UPS local (número gratuito específico do seu país/região).
     2. Na sua chamada, cite o número de rastreio de envio invertido, como mostrado na sua etiqueta impressa.
     3. Se o número de rastreio não for cotado, a UPS exigirá que pague uma taxa adicional durante a recolha.
 

@@ -1,20 +1,26 @@
 ---
-title: Criar uma tarefa de observador na conta Azure Automation
-description: Saiba como criar uma tarefa de observador na conta Azure Automation para ver novos ficheiros criados numa pasta.
+title: Rastreie ficheiros atualizados com uma tarefa de observador de Automação Azure
+description: Este artigo diz como criar uma tarefa de observador na conta Azure Automation para ver novos ficheiros criados numa pasta.
 services: automation
 ms.subservice: process-automation
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 1175350e7f9f4db92d7d59eba0cc66ac4bb49f5f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1c41437773cf45e51e90dc55ad37e198c77f4373
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617358"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744153"
 ---
-# <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>Criar uma tarefa de observador de automação Azure para rastrear alterações de ficheiros numa máquina local
+# <a name="track-updated-files-with-a-watcher-task"></a>Rastreie ficheiros atualizados com uma tarefa de observador
 
 A Azure Automation usa uma tarefa de observadores para procurar eventos e desencadear ações com os livros de execução da PowerShell. A tarefa do observador contém duas partes, o observador e a ação. Um livro de execução de observadores funciona num intervalo definido na tarefa do observador, e produz dados para um livro de execução de ação. 
+
+> [!NOTE]
+> As tarefas de observadores não são suportadas na Vianet 21 da China Azure.
+
+> [!IMPORTANT]
+> A partir de maio de 2020, a utilização de Apps Lógicas Azure é a forma suportada de monitorizar eventos, agendar tarefas recorrentes e desencadear ações. Consulte [agendar e executar tarefas automatizadas recorrentes, processos e fluxos de trabalho com aplicações lógicas azure](https://docs.microsoft.com/azure/logic-apps/concepts-schedule-automated-recurring-tasks-workflows).
 
 Este tutorial leva-o através da criação de uma tarefa de observadores para monitorizar quando um novo ficheiro é adicionado a um diretório. Saiba como:
 
@@ -34,9 +40,6 @@ Para concluir este tutorial, é necessário o seguinte:
 * [Conta de automação](automation-offering-get-started.md) para manter os cadernos de observadores e de ação e a Tarefa observadora.
 * Um trabalhador híbrido de livro de [corridas](automation-hybrid-runbook-worker.md) onde a tarefa do observador funciona.
 * Livros de execução da PowerShell. Os livros de execução powerShell Workflow não são suportados por tarefas de observadores.
-
-> [!NOTE]
-> As tarefas dos observadores não são apoiadas na China Azure.
 
 ## <a name="import-a-watcher-runbook"></a>Importar um livro de observadores
 
@@ -166,5 +169,5 @@ Neste tutorial, ficou a saber como:
 Siga este link para saber mais sobre a autoria do seu próprio livro de corridas.
 
 > [!div class="nextstepaction"]
-> [O meu primeiro livro de corridas da PowerShell.](automation-first-runbook-textual-powershell.md)
+> [Criar runbook do PowerShell](learn/automation-tutorial-runbook-textual-powershell.md)
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: febdb708c637ac322c0ca884eae627da9bd5904c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1db133f52a99bd716c2228add0573e8d44255c9e
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79530398"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83736522"
 ---
 # <a name="overview-of-azure-multi-factor-authentication-for-your-organization"></a>Visão geral da autenticação multi-factor Azure para a sua organização
 
@@ -43,7 +43,7 @@ Para clientes com escritório 365, existem duas opções:
 
 Para clientes com Azure AD Premium P1 ou licenças similares que incluam esta funcionalidade como Enterprise Mobility + Security E3, Microsoft 365 F1 ou Microsoft 365 E3: 
 
-Utilize o [Acesso Condicional Azure AD](../conditional-access/overview.md) para solicitar aos utilizadores a autenticação de vários fatores durante determinados cenários ou eventos para se adaptarem aos seus requisitos de negócio.
+Utilize o [Acesso Condicional Azure AD](../authentication/tutorial-enable-azure-mfa.md) para solicitar aos utilizadores a autenticação de vários fatores durante determinados cenários ou eventos para se adaptarem aos seus requisitos de negócio.
 
 ## <a name="azure-ad-premium-p2"></a>Azure AD Premium P2
 

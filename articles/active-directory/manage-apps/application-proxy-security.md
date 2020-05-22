@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fd6794bafc3c209032f32626e8c46b51769d05e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 74e0faf8ac776c043f2407e509c936d21f227664
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79481233"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739973"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Considerações de segurança para aceder remotamente a apps com procuração de aplicação ad-ad-azure
 
@@ -47,7 +47,7 @@ Se escolher a Passthrough como o seu método de pré-autenticação, não obtém
 
 Aplique controlos políticos mais ricos antes de estabelecer ligações à sua rede.
 
-Com [acesso condicional,](../conditional-access/overview.md)pode definir restrições sobre o tráfego que é permitido aceder às suas aplicações de back-end. Pode criar políticas que restringem os sign-ins com base na localização, na força da autenticação e no perfil de risco do utilizador.
+Com [acesso condicional,](../conditional-access/concept-conditional-access-cloud-apps.md)pode definir restrições na forma como os utilizadores podem aceder às suas aplicações. Pode criar políticas que restringem os sign-ins com base na localização, na força da autenticação e no perfil de risco do utilizador.
 
 Também pode utilizar o Acesso Condicional para configurar as políticas de autenticação multi-factor, adicionando outra camada de segurança às autenticações do utilizador. Além disso, as suas aplicações também podem ser encaminhadas para o Microsoft Cloud App Security via Azure AD Conditional Access para fornecer monitorização e controloem em tempo real, através de políticas de [acesso](https://docs.microsoft.com/cloud-app-security/access-policy-aad) e [sessão](https://docs.microsoft.com/cloud-app-security/session-policy-aad)
 
@@ -79,7 +79,7 @@ Não tens de te preocupar em manter e remendar servidores no local.
 
 O software não remendo ainda é responsável por um grande número de ataques. O Azure AD Application Proxy é um serviço à escala da Internet que a Microsoft detém, pelo que obtém sempre os mais recentes patches de segurança e atualizações.
 
-Para melhorar a segurança das aplicações publicadas pela Azure AD Application Proxy, bloqueamos os robôs web crawler de indexar e arquivar as suas aplicações. Cada vez que um robô web crawler tenta recuperar as definições do robô para uma `User-agent: * Disallow: /`aplicação publicada, application Proxy responde com um ficheiro robots.txt que inclui .
+Para melhorar a segurança das aplicações publicadas pela Azure AD Application Proxy, bloqueamos os robôs web crawler de indexar e arquivar as suas aplicações. Cada vez que um robô web crawler tenta recuperar as definições do robô para uma aplicação publicada, application Proxy responde com um ficheiro robots.txt que inclui `User-agent: * Disallow: /` .
 
 #### <a name="azure-ddos-protection-service"></a>Serviço de proteção Azure DDoS
 

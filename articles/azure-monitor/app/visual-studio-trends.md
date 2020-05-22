@@ -7,12 +7,12 @@ ms.author: daviste
 ms.date: 03/17/2017
 ms.reviewer: mbullwin
 ms.custom: vs-azure
-ms.openlocfilehash: bb94d3596fde541f16edd1b7012f57b89ebf52eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 151248f7cd6fe763643da42fc8edbe7c01a69cc7
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77670870"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744121"
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Analisar Tendências no Visual Studio
 A ferramenta Application Insights Trends visualiza como eventos de telemetria importantes da sua aplicação Web alteram ao longo do tempo, ajudando-o a identificar rapidamente problemas e anomalias. Ao ligá-lo a informações mais detalhadas de diagnóstico, o Trends pode ajudá-lo a melhorar o desempenho da aplicação, identificar as causas de exceções e descobrir conhecimentos aprofundados dos seus eventos personalizados.
@@ -48,7 +48,7 @@ Comece por escolher uma das cinco análises de tendência comuns, em que cada an
 Estas análises criadas previamente estão disponíveis mais tarde a partir do botão **Ver tipos comuns de análise de telemetria** no canto superior esquerdo da janela do Trends.
 
 ## <a name="visualize-trends-in-your-application"></a>Visualizar tendências na sua aplicação
-O Application Insights Trends cria uma visualização de séries de tempo a partir da telemetria da sua aplicação. Cada visualização de séries de tempo apresenta um tipo de telemetria, agrupado por uma propriedade dessa telemetria, através de algum intervalo de tempo. Por exemplo, pode querer ver os pedidos do servidor, agrupados pelo país de origem, durante as últimas 24 horas. Neste exemplo, cada bolha na visualização representaria uma contagem dos pedidos de servidor para alguns país/regiões durante uma hora.
+O Application Insights Trends cria uma visualização de séries de tempo a partir da telemetria da sua aplicação. Cada visualização de séries de tempo apresenta um tipo de telemetria, agrupado por uma propriedade dessa telemetria, através de algum intervalo de tempo. Por exemplo, é melhor ver pedidos de servidores, agrupados pelo país/região de onde se originaram, nas últimas 24 horas. Neste exemplo, cada bolha na visualização representaria uma contagem dos pedidos de servidor para alguns país/regiões durante uma hora.
 
 Utilize os controlos na parte superior da janela para ajustar que tipos de telemetria pretende ver. Em primeiro lugar, escolha os tipos de telemetria nos quais está interessado:
 

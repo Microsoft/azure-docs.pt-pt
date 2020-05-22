@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: caya
-ms.openlocfilehash: 65f404b52a5fc06d8fa5bb5aad291e57fde8caba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 56622ee2c014bd8dbca7c61ec00b927c56f63a40
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80617204"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83740404"
 ---
 # <a name="application-gateway-high-traffic-support"></a>Suporte de tráfego elevado para o Gateway de Aplicação
 
@@ -51,7 +51,7 @@ Este exemplo mostra como usar o portal Azure para configurar um alerta quando 75
 > Pode definir o alerta para ocorrer a uma percentagem de utilização de CU inferior ou superior, dependendo da sensibilidade que pretende ser para potenciais picos de tráfego.
 
 ## <a name="set-up-waf-with-geofiltering-and-bot-protection-to-stop-attacks"></a>Configurar WAF com geofiltração e proteção de bots para parar ataques
-Se pretender uma camada extra de segurança em frente à sua aplicação, utilize o Gateway de aplicação WAF_v2 SKU para as capacidades waf. Pode configurar o V2 SKU para permitir apenas o acesso às suas aplicações a partir de um determinado país ou país. Configura uma regra personalizada waf para permitir ou bloquear explicitamente o tráfego com base na geolocalização. Para mais informações, consulte a [geofiltração das regras personalizadas](https://docs.microsoft.com/azure/web-application-firewall/ag/geomatch-custom-rules) e [como configurar regras personalizadas sobre o Gateway de aplicação WAF_v2 SKU através do PowerShell](https://docs.microsoft.com/azure/web-application-firewall/ag/configure-waf-custom-rules).
+Se pretender uma camada extra de segurança em frente à sua aplicação, utilize o Gateway de aplicação WAF_v2 SKU para as capacidades waf. Pode configurar o V2 SKU para permitir apenas o acesso às suas aplicações a partir de um determinado país/região ou países/regiões. Configura uma regra personalizada waf para permitir ou bloquear explicitamente o tráfego com base na geolocalização. Para mais informações, consulte a [geofiltração das regras personalizadas](https://docs.microsoft.com/azure/web-application-firewall/ag/geomatch-custom-rules) e [como configurar regras personalizadas sobre o Gateway de aplicação WAF_v2 SKU através do PowerShell](https://docs.microsoft.com/azure/web-application-firewall/ag/configure-waf-custom-rules).
 
 Ativar a proteção do bot para bloquear bots maus conhecidos. Isto deve reduzir a quantidade de tráfego que chega à sua aplicação. Para mais informações, consulte a proteção do [bot com as instruções configuradas](https://docs.microsoft.com/azure/web-application-firewall/ag/configure-waf-custom-rules).
 

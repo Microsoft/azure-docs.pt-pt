@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: e5d73ef1f41337bce593fdd4def3721d95db5392
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: a16b95249562db98d9382f8ca56bf4a27beba2fd
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83664103"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743494"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-python-notebooks-preview"></a>Utilize comandos e funcionalidades de cadernos incorporados nos cadernos Db Python do Azure Cosmos (pré-visualização)
 
@@ -70,7 +70,7 @@ SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c
 ```python
 df_cosmos.head(10)
 
-    Action    ItemRevenue    Country    Item
+    Action    ItemRevenue    Country/Region    Item
 0    Viewed    9.00    Tunisia    Black Tee
 1    Viewed    19.99    Antigua and Barbuda    Flannel Shirt
 2    Added    3.75    Guinea-Bissau    Socks
@@ -80,7 +80,7 @@ df_cosmos.head(10)
 6    Added    19.99    Syrian Arab Republic    Button-Up Shirt
 7    Viewed    19.99    Syrian Arab Republic    Button-Up Shirt
 8    Viewed    33.00    Tuvalu    Red Top
-9    Viewed    14.00    Cape Verde    Flip Flop Shoes
+9    Viewed    14.00    Cabo Verde    Flip Flop Shoes
 ```
 ## <a name="set-default-database-for-queries"></a>Definir base de dados padrão para consultas
 Pode definir os comandos de base de dados ```%%sql``` predefinidos utilizados para o caderno. ```{database_id}```Substitua-a pelo nome da sua base de dados.

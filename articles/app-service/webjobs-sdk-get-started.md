@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 4ee724ec66d5fb474f8c8a9a967cc7235fef5e85
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 287b58f85cad0082ac782a20cdfb0b9b9ea810e7
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81732616"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743623"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Get started with the Azure WebJobs SDK for event-driven background processing (Introdução ao SDK de WebJobs do Azure para processamento em segundo plano condicionado por eventos)
 
@@ -37,7 +37,7 @@ Este artigo mostra-lhe como implementar webJobs como uma aplicação de consola 
 
 ## <a name="webjobs-nuget-packages"></a>Pacotes WebJobs NuGet
 
-1. Instale a mais recente versão estável 3.x `Microsoft.Azure.WebJobs`do [ `Microsoft.Azure.WebJobs.Extensions` pacote NuGet,](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions/)que inclui .
+1. Instale a mais recente versão estável 3.x do [ `Microsoft.Azure.WebJobs.Extensions` pacote NuGet,](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions/)que inclui `Microsoft.Azure.WebJobs` .
 
      Aqui está o comando de **consola do gestor** de pacotes:
 
@@ -49,9 +49,9 @@ Este artigo mostra-lhe como implementar webJobs como uma aplicação de consola 
 
 ## <a name="create-the-host"></a>Criar o Anfitrião
 
-O hospedeiro é o recipiente de tempo de funcionamento para funções que ouvem os gatilhos e as funções de chamadas. Os seguintes passos criam [`IHost`](/dotnet/api/microsoft.extensions.hosting.ihost)um hospedeiro que implementa , que é o Anfitrião Genérico em ASP.NET Core.
+O hospedeiro é o recipiente de tempo de funcionamento para funções que ouvem os gatilhos e as funções de chamadas. Os seguintes passos criam um hospedeiro que implementa [`IHost`](/dotnet/api/microsoft.extensions.hosting.ihost) , que é o Anfitrião Genérico em ASP.NET Core.
 
-1. Em *Program.cs,* `using` adicione estas declarações:
+1. Em *Program.cs,* adicione estas `using` declarações:
 
     ```cs
     using System.Threading.Tasks;
@@ -76,29 +76,28 @@ O hospedeiro é o recipiente de tempo de funcionamento para funções que ouvem 
     }
     ```
 
-Em ASP.NET Core, as configurações do [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) hospedeiro são definidas através de métodos de chamada na instância. Para mais informações, consulte [.NET Generic Host](/aspnet/core/fundamentals/host/generic-host). O `ConfigureWebJobs` método de extensão inicializa o anfitrião WebJobs. Em `ConfigureWebJobs`, inicializa extensões específicas do WebJobs e define propriedades dessas extensões.  
+Em ASP.NET Core, as configurações do hospedeiro são definidas através de métodos de chamada na [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) instância. Para mais informações, consulte [.NET Generic Host](/aspnet/core/fundamentals/host/generic-host). O método de `ConfigureWebJobs` extensão inicializa o anfitrião WebJobs. Em `ConfigureWebJobs` , inicializa extensões específicas do WebJobs e define propriedades dessas extensões.  
 
 ## <a name="enable-console-logging"></a>Ativar o registo de consolas
 
 Nesta secção, configura o registo de consolas que utiliza a [estrutura de registo do Núcleo de ASP.NET](/aspnet/core/fundamentals/logging).
 
-1. Instale a versão mais recente estável `Microsoft.Extensions.Logging`do [ `Microsoft.Extensions.Logging.Console` pacote NuGet,](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console/)que inclui .
+1. Instale a versão mais recente estável do [ `Microsoft.Extensions.Logging.Console` pacote NuGet,](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console/)que inclui `Microsoft.Extensions.Logging` .
 
    Aqui está o comando de **consola do gestor** de pacotes:
 
    ```powershell
    Install-Package Microsoft.Extensions.Logging.Console -version <3_X_VERSION>
    ```
+   Neste comando, `<3_X_VERSION>` substitua-o por uma versão 3.x suportada da embalagem.
 
-1. Em *Program.cs,* `using` adicione um comunicado:
+1. Em *Program.cs,* adicione um `using` comunicado:
 
    ```cs
    using Microsoft.Extensions.Logging;
    ```
 
-    Neste comando, `<3_X_VERSION>` substitua-o por uma versão 3.x suportada da embalagem.
-
-1. Ligue [`ConfigureLogging`](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configurelogging) para [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder)o método. O [`AddConsole`](/dotnet/api/microsoft.extensions.logging.consoleloggerextensions.addconsole) método adiciona o registo da consola à configuração.
+1. Ligue para o [`ConfigureLogging`](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configurelogging) [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) método. O [`AddConsole`](/dotnet/api/microsoft.extensions.logging.consoleloggerextensions.addconsole) método adiciona o registo da consola à configuração.
 
     ```cs
     builder.ConfigureLogging((context, b) =>
@@ -150,7 +149,7 @@ A partir da versão 3.x, deve instalar explicitamente a extensão de encadernaç
     
     Neste comando, `<3_X_VERSION>` substitua-o por uma versão suportada do pacote. 
 
-2. No `ConfigureWebJobs` método de extensão, ligue para o `AddAzureStorage` método da [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) instância para inicializar a extensão de armazenamento. Neste ponto, `ConfigureWebJobs` o método parece ser o seguinte exemplo:
+2. No método de `ConfigureWebJobs` extensão, ligue para o `AddAzureStorage` método da instância para [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) inicializar a extensão de armazenamento. Neste ponto, o `ConfigureWebJobs` método parece ser o seguinte exemplo:
 
     ```cs
     builder.ConfigureWebJobs(b =>
@@ -162,7 +161,7 @@ A partir da versão 3.x, deve instalar explicitamente a extensão de encadernaç
 
 ## <a name="create-a-function"></a>Criar uma função
 
-1. Clique no projeto, selecione **Adicionar** > **Novo Item...** escolha **Classe,** nomeie o novo ficheiro de classe C# *Functions.cs*, e selecione **Adicionar**.
+1. Clique no projeto, selecione **Adicionar**  >  **Novo Item...** escolha **Classe,** nomeie o novo ficheiro de classe C# *Functions.cs*, e selecione **Adicionar**.
 
 1. Em Functions.cs, substitua o modelo gerado pelo seguinte código:
     
@@ -182,7 +181,7 @@ A partir da versão 3.x, deve instalar explicitamente a extensão de encadernaç
     }
     ```
 
-   O `QueueTrigger` atributo diz o tempo de funcionamento para chamar esta função `queue`quando uma nova mensagem é escrita numa fila de Armazenamento Azure chamada . O conteúdo da mensagem de fila é `message` fornecido ao código do método no parâmetro. O corpo do método é onde processa os dados do gatilho. Neste exemplo, o código apenas regista a mensagem.
+   O atributo diz o tempo de `QueueTrigger` funcionamento para chamar esta função quando uma nova mensagem é escrita numa fila de Armazenamento Azure chamada `queue` . O conteúdo da mensagem de fila é fornecido ao código do método no `message` parâmetro. O corpo do método é onde processa os dados do gatilho. Neste exemplo, o código apenas regista a mensagem.
 
    O `message` parâmetro não tem de ser uma corda. Também pode ligar-se a um objeto JSON, uma matriz de byte ou um objeto [CloudQueueMessage.](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) Consulte a [utilização do gatilho](/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp#usage)da fila . Cada tipo de encadernação (como filas, bolhas ou mesas) tem um conjunto diferente de tipos de parâmetros a que se pode ligar.
 
@@ -218,9 +217,9 @@ O emulador de armazenamento Azure que funciona localmente não tem todas as func
 
 O WebJobs SDK procura a cadeia de ligação de armazenamento nas Definições de Aplicação em Azure. Quando corre localmente, procura este valor no ficheiro de configuração local ou em variáveis ambientais.
 
-1. Clique no projeto, selecione **Adicionar** > **Novo Item...**- escolha o ficheiro de **configuração JavaScript JSON,** nomeie as novas *aplicações de ficheiros.json* e selecione **Adicionar**. 
+1. Clique no projeto, selecione **Adicionar**  >  **Novo Item...**- escolha o ficheiro de **configuração JavaScript JSON,** nomeie as novas *aplicações de ficheiros.json* e selecione **Adicionar**. 
 
-1. No novo ficheiro, `AzureWebJobsStorage` adicione um campo, como no seguinte exemplo:
+1. No novo ficheiro, adicione um `AzureWebJobsStorage` campo, como no seguinte exemplo:
 
     ```json
     {
@@ -278,7 +277,7 @@ Nesta secção, você constrói e executa o projeto localmente e despoleta a fun
 
 1. Execute novamente o projeto.
 
-   Como usou `QueueTrigger` o atributo `ProcessQueueMessage` na função, o tempo de funcionamento do WeJobs SDK ouve mensagens de fila quando começa. Encontra uma nova mensagem de fila na fila chamada *fila* e chama a função.
+   Como usou o `QueueTrigger` atributo na `ProcessQueueMessage` função, o tempo de funcionamento do WeJobs SDK ouve mensagens de fila quando começa. Encontra uma nova mensagem de fila na fila chamada *fila* e chama a função.
 
    Devido ao recuo exponencial das [sondagens,](/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp#polling-algorithm)pode levar até 2 minutos para o tempo de funcionamento encontrar a mensagem e invocar a função. Este tempo de espera pode ser reduzido funcionando no modo de [desenvolvimento](webjobs-sdk-how-to.md#host-development-settings).
 
@@ -311,7 +310,7 @@ Nesta secção, você faz as seguintes tarefas para configurar a registo de Insi
 
 ### <a name="create-app-service-app-and-application-insights-instance"></a>Criar app de serviço de aplicações e instância de Insights de Aplicação
 
-1. Se ainda não tem uma aplicação do App Service que pode usar, [crie uma](app-service-web-get-started-dotnet-framework.md). Ao criar a sua aplicação, também pode criar um recurso de Insights de Aplicação conectado. Quando o fizer, `APPINSIGHTS_INSTRUMENTATIONKEY` o está definido para si na sua aplicação.
+1. Se ainda não tem uma aplicação do App Service que pode usar, [crie uma](app-service-web-get-started-dotnet-framework.md). Ao criar a sua aplicação, também pode criar um recurso de Insights de Aplicação conectado. Quando o fizer, o `APPINSIGHTS_INSTRUMENTATIONKEY` está definido para si na sua aplicação.
 
 1. Se ainda não tiver um recurso Application Insights que possa utilizar, [crie um](../azure-monitor/app/create-new-resource.md ). Definir **o tipo de aplicação** para **general,** e saltar as secções que seguem **Copiar a chave de instrumentação**.
 
@@ -327,13 +326,13 @@ Nesta secção, você faz as seguintes tarefas para configurar a registo de Insi
 
 1. Na caixa de cordas de **ligação,** adicione a seguinte entrada.
 
-   |Nome  |conexão String  |Tipo de Base de Dados|
+   |Name  |conexão String  |Tipo de Base de Dados|
    |---------|---------|------|
-   |AzureWebJobsStorage | {a cadeia de ligação de armazenamento que copiou anteriormente}|Personalizado|
+   |AzureWebJobsStorage | {a cadeia de ligação de armazenamento que copiou anteriormente}|Personalizar|
 
 1. Se a caixa de Definições de **Aplicação** não tiver uma chave de instrumentação De Insights de Aplicação, adicione a que copiou anteriormente. (A chave de instrumentação pode já estar lá, dependendo da forma como criou a app App Service.)
 
-   |Nome  |Valor  |
+   |Name  |Valor  |
    |---------|---------|
    |APPINSIGHTS_INSTRUMENTATIONKEY | {chave de instrumentação} |
 
@@ -341,7 +340,7 @@ Nesta secção, você faz as seguintes tarefas para configurar a registo de Insi
 
 1. Selecione **Guardar**.
 
-1. Adicione a ligação De Insights de Aplicação ao projeto para que possa executá-lo localmente. No ficheiro *appsettings.json,* `APPINSIGHTS_INSTRUMENTATIONKEY` adicione um campo, como no seguinte exemplo:
+1. Adicione a ligação De Insights de Aplicação ao projeto para que possa executá-lo localmente. No ficheiro *appsettings.json,* adicione um `APPINSIGHTS_INSTRUMENTATIONKEY` campo, como no seguinte exemplo:
 
     ```json
     {
@@ -359,7 +358,7 @@ Nesta secção, você faz as seguintes tarefas para configurar a registo de Insi
 Para tirar partido da registo de Informação sobre [a Aplicação](../azure-monitor/app/app-insights-overview.md) Insights, atualize o seu código de registo para fazer o seguinte:
 
 * Adicione um fornecedor de registo de Insights de Aplicação com [filtragem](webjobs-sdk-how-to.md#log-filtering)por defeito . Ao executar localmente, todas as Informações e registos de alto nível são escritos tanto para a consola como para os Insights de Aplicação.
-* Coloque o objeto [LoggerFactory](./webjobs-sdk-how-to.md#logging-and-monitoring) num `using` bloco para garantir que a saída de registo é lavada quando o hospedeiro sair.
+* Coloque o objeto [LoggerFactory](./webjobs-sdk-how-to.md#logging-and-monitoring) num bloco para garantir que a saída de `using` registo é lavada quando o hospedeiro sair.
 
 1. Instale a mais recente versão estável 3.x do [ `Microsoft.Azure.WebJobs.Logging.ApplicationInsights` pacote NuGet](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/).
 
@@ -370,7 +369,7 @@ Para tirar partido da registo de Informação sobre [a Aplicação](../azure-mon
    ```
     Neste comando, `<3_X_VERSION>` substitua-o por uma versão suportada do pacote.
 
-1. Abra *Program.cs* e substitua `Main` o código no método pelo seguinte código:
+1. Abra *Program.cs* e substitua o código no `Main` método pelo seguinte código:
 
     ```cs
     static async Task Main()
@@ -460,7 +459,7 @@ Durante a implementação, cria uma instância de serviço de aplicações para 
 
 As encadernações de entrada simplificam o código que lê os dados. Para este exemplo, a mensagem de fila será um nome blob e você usará o nome blob para encontrar e ler uma bolha no Armazenamento Azure.
 
-1. Em *Functions.cs,* `ProcessQueueMessage` substitua o método pelo seguinte código:
+1. Em *Functions.cs,* substitua o `ProcessQueueMessage` método pelo seguinte código:
 
    ```cs
    public static void ProcessQueueMessage(
@@ -474,7 +473,7 @@ As encadernações de entrada simplificam o código que lê os dados. Para este 
 
    Neste código, `queueTrigger` encontra-se uma [expressão vinculativa,](../azure-functions/functions-bindings-expressions-patterns.md)o que significa que se resolve a um valor diferente no prazo de funcionamento.  No tempo de funcionação, tem o conteúdo da mensagem de fila.
 
-1. Adicione `using`um:
+1. Adicione `using` um:
 
    ```cs
    using System.IO;

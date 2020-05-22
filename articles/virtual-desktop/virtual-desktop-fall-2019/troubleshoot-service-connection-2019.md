@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 03/30/2020
+ms.date: 05/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 01aff34839cc7385834468a08f30696efe84561f
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 356506224a0273eeea65f0f901fbc79c338498d2
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614775"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743603"
 ---
 # <a name="windows-virtual-desktop-service-connections"></a>Conexões de serviço de desktop virtual do Windows
 
@@ -39,45 +39,6 @@ Get-RdsAppGroupUser <tenantname> <hostpoolname> <appgroupname>
 Confirme que o utilizador está a fazer login com as credenciais corretas.
 
 Se o cliente da web estiver a ser utilizado, confirme que não existem problemas de credenciais em cache.
-
-## <a name="windows-10-enterprise-multi-session-virtual-machines-dont-respond"></a>Máquinas virtuais multissessões do Windows 10 Enterprise não respondem
-
-Se uma máquina virtual não responder e não conseguir aceder através de RDP, terá de a resolver com a funcionalidade de diagnóstico, verificando o estado do hospedeiro.
-
-Para verificar o estado do anfitrião, execute este cmdlet:
-
-```powershell
-Get-RdsSessionHost -TenantName $TenantName -HostPoolName $HostPool | ft SessionHostName, LastHeartBeat, AllowNewSession, Status
-```
-
-Se o estado `NoHeartBeat`do anfitrião for , isso significa que o VM não está a responder e o agente não pode comunicar com o serviço de ambiente de trabalho virtual do Windows.
-
-```powershell
-SessionHostName          LastHeartBeat     AllowNewSession    Status 
----------------          -------------     ---------------    ------ 
-WVDHost1.contoso.com     21-Nov-19 5:21:35            True     Available 
-WVDHost2.contoso.com     21-Nov-19 5:21:35            True     Available 
-WVDHost3.contoso.com     21-Nov-19 5:21:35            True     NoHeartBeat 
-WVDHost4.contoso.com     21-Nov-19 5:21:35            True     NoHeartBeat 
-WVDHost5.contoso.com     21-Nov-19 5:21:35            True     NoHeartBeat 
-```
-
-Há algumas coisas que pode fazer para corrigir o estado NoHeartBeat.
-
-### <a name="update-fslogix"></a>Atualizar FSLogix
-
-Se o seu FSLogix não estiver atualizado, especialmente se for versão 2.9.7205.27375 de frxdrvvt.sys, pode causar um impasse. Certifique-se de [atualizar o FSLogix para a versão mais recente](https://go.microsoft.com/fwlink/?linkid=2084562).
-
-### <a name="disable-bgtaskregistrationmaintenancetask"></a>Desativar a Tarefa de Manutenção de Registos bgTask
-
-Se a atualização do FSLogix não funcionar, o problema pode ser que um componente BiSrv esteja a esgotar os recursos do sistema durante uma tarefa de manutenção semanal. Desative temporariamente a tarefa de manutenção desativando a Tarefa de Manutenção de Registo seletiva da BgTask com um destes dois métodos:
-
-- Vá ao menu Iniciar e procure o Agendador de **Tarefas**. Navegue para a Biblioteca de Agendadores de **Tarefas** > **Microsoft** > **Windows** > **BrokerInfrastructure**. Procure uma tarefa chamada **BgTaskRegistrationMaintenanceTask**. Quando o encontrar, clique-o à direita e selecione **Desativar** a partir do menu suspenso.
-- Abra um menu de linha de comando como administrador e execute o seguinte comando:
-    
-    ```cmd
-    schtasks /change /tn "\Microsoft\Windows\BrokerInfrastructure\BgTaskRegistrationMaintenanceTask" /disable 
-    ```
 
 ## <a name="next-steps"></a>Passos seguintes
 
