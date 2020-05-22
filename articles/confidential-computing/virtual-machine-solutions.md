@@ -8,20 +8,20 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: e574ac33e5f7da814c4bd813fc1c083c7cb4c2c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 49b159434497d4b455a338ba88058d73d7de10ee
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187890"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773139"
 ---
 # <a name="solutions-on-azure-virtual-machines"></a>Soluções em máquinas virtuais Azure
 
 Este artigo cobre informações sobre a implementação de máquinas virtuais de computação confidencial do Azure (VMs) que executam processadores Intel apoiados pela [Extensão](https://software.intel.com/sgx) da Guarda de Software Intel (Intel SGX). 
 
-## <a name="azure-confidential-computing-vm-sizes"></a>Tamanhos de VM de computação confidencial Azure
+## <a name="azure-confidential-computing-vm-sizes"></a>Tamanhos de VM de computação confidencial do Azure
 
-As máquinas virtuais de computação confidencial Azure são projetadas para proteger a confidencialidade e integridade dos seus dados e código enquanto são processados na nuvem 
+As máquinas virtuais de computação confidencial Azure são projetadas para proteger a confidencialidade e a integridade dos seus dados e código enquanto são processados na nuvem 
 
 [Série DCsv2](../virtual-machines/dcv2-series.md) VMs são a mais recente e mais recente família de tamanho sinuoso confidencial. Estes VMs suportam uma maior variedade de capacidades de implantação, têm 2x a Cache de Página enclave (EPC) e uma maior seleção de tamanhos em comparação com os nossos VMs série dc. Os VMs da série DC estão atualmente em [pré-visualização](../virtual-machines/sizes-previous-gen.md#preview-dc-series) e serão depreciados e não incluídos na disponibilidade geral.
 
@@ -39,7 +39,7 @@ az vm list-skus
     --output table
 ```
 
-A partir de abril de 2020, estas UsK estão disponíveis nas seguintes regiões e zonas de disponibilidade:
+A partir de maio de 2020, estas UsK estão disponíveis nas seguintes regiões e zonas de disponibilidade:
 
 ```output
 Name              Locations      AZ_a
@@ -86,7 +86,7 @@ Siga um tutorial de arranque rápido para implantar uma máquina virtual dCsv2-S
   
 - **Redimensionamento** – Devido ao hardware especializado, só é possível redimensionar instâncias de computação confidenciais dentro da mesma família de tamanho. Por exemplo, só é possível redimensionar um VM da série DCsv2 de um tamanho da série DCsv2 para outro. A redimensionamento de um tamanho de computação não confidencial para um tamanho de computação confidencial não é suportada.  
 
-- **Imagem** – Para fornecer suporte à Extensão da Guarda de Software Intel (Intel SGX) em instâncias confidenciais de cálculo, todas as implementações precisam de ser executadas em imagens da Geração 2. A computação confidencial Azure suporta cargas de trabalho em execução em Ubuntu 18.04 Gen 2, Ubuntu 16.04 Gen 2 e Windows Server 2016 Gen 2. Leia sobre [o apoio à geração 2 VMs no Azure](../virtual-machines/linux/generation-2.md) para saber mais sobre cenários apoiados e não apoiados. 
+- **Imagem** – Para fornecer suporte à Extensão da Guarda de Software Intel (Intel SGX) em instâncias confidenciais de cálculo, todas as implementações precisam de ser executadas em imagens da Geração 2. A computação confidencial Azure suporta cargas de trabalho em execução em Ubuntu 18.04 Gen 2, Ubuntu 16.04 Gen 2, Windows Server 2019 gen2 e Windows Server 2016 Gen 2. Leia sobre [o apoio à geração 2 VMs no Azure](../virtual-machines/linux/generation-2.md) para saber mais sobre cenários apoiados e não apoiados. 
 
 - **Armazenamento** – Discos de dados de máquinas virtuais de computação confidencial Azure e os nossos discos efémeros os efémeros estão nos discos NVMe. As instâncias suportam apenas discos Premium SSD e Standard SSD, não Ultra SSD ou Standard HDD. O tamanho virtual da máquina **DC8_v2** não suporta armazenamento Premium. 
 
@@ -100,15 +100,15 @@ A computação confidencial azure não suporta a redundância da zona através d
 
 ## <a name="deploying-via-an-azure-resource-manager-template"></a>Implantação através de um modelo de gestor de recursos azure 
 
-O Azure Resource Manager é o serviço de implementação e gestão do Azure. Fornece uma camada de gestão que lhe permite criar, atualizar e eliminar recursos na sua subscrição Azure. Utiliza funcionalidades de gestão, como controlo de acesso, fechaduras e etiquetas, para proteger e organizar os seus recursos após a implantação.
+O Azure Resource Manager é o serviço de implementação e gestão do Azure. Fornece uma camada de gestão que lhe permite criar, atualizar e eliminar recursos na sua subscrição Azure. Pode utilizar funcionalidades de gestão, como controlo de acesso, fechaduras e etiquetas, para proteger e organizar os seus recursos após a implantação.
 
 Para saber sobre os modelos do Gestor de Recursos Azure, consulte a visão geral da [implementação](../azure-resource-manager/templates/overview.md)do modelo .
 
-Para implantar um VM série DCsv2 num modelo ARM utilizará o [recurso Máquina Virtual](../virtual-machines/windows/template-description.md). Tem de garantir que especifica as propriedades corretas para **vmSize** e para a sua **imagemReference**.
+Para implantar um VM série DCsv2 num modelo de Gestor de Recursos Azure, utilizará o [recurso Máquina Virtual](../virtual-machines/windows/template-description.md). Certifique-se de especificar as propriedades corretas para **vmSize** e para a sua **imagemReference**.
 
 ### <a name="vm-size"></a>Tamanho da VM
 
-Especifique um dos seguintes tamanhos no seu modelo ARM no recurso Máquina Virtual. Esta corda é colocada como **vmSize** em **propriedades**.
+Especifique um dos seguintes tamanhos no seu modelo de Gestor de Recursos Azure no recurso Máquina Virtual. Esta corda é colocada como **vmSize** em **propriedades**.
 
 ```json
   [
@@ -124,6 +124,12 @@ Especifique um dos seguintes tamanhos no seu modelo ARM no recurso Máquina Virt
 Em **propriedades,** também terá de fazer referência a uma imagem em **armazenamentoPerfil**. Utilize *apenas uma das* seguintes imagens para a sua **imagemReference**.
 
 ```json
+      "2019-datacenter-gensecond": {
+        "offer": "WindowsServer",
+        "publisher": "MicrosoftWindowsServer",
+        "sku": "2019-datacenter-gensecond",
+        "version": "latest"
+      },
       "2016-datacenter-gensecond": {
         "offer": "WindowsServer",
         "publisher": "MicrosoftWindowsServer",
@@ -146,7 +152,7 @@ Em **propriedades,** também terá de fazer referência a uma imagem em **armaze
 
 ## <a name="next-steps"></a>Passos Seguintes 
 
-Neste artigo aprendeu sobre as qualificações e configurações necessárias na criação de máquina virtual de computação confidencial. Agora pode dirigir-se ao Azure Marketplace para implantar um VM série DCsv2.
+Neste artigo, aprendeu sobre as qualificações e configurações necessárias na criação de máquinavirtual de computação confidencial. Agora pode dirigir-se ao Microsoft Azure Marketplace para implementar um VM série DCsv2.
 
 > [!div class="nextstepaction"]
 > [Implementar uma máquina virtual série DCsv2 no Mercado Azure](quick-create-marketplace.md)

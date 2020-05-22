@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/11/2020
+ms.date: 05/18/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: fca794d51e06c72f157dc063445d1cab09d92d28
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: cfc2a7d161619efcd9eee2c32a4dabc2e3a2e6ed
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83115868"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83772068"
 ---
 # <a name="authentication-vs-authorization"></a>Autenticação vs. autorização
 
@@ -36,9 +36,9 @@ Este artigo define a autenticação e a autorização e cobre brevemente como po
 
 Em vez de criar aplicações que cada um mantenha o seu próprio nome de utilizador e informações de palavra-passe, que incorre num elevado fardo administrativo quando precisa de adicionar ou remover utilizadores através de várias aplicações, as aplicações podem delegar essa responsabilidade num fornecedor de identidade centralizado.
 
-O Azure Ative Directory (Azure AD) é um fornecedor de identidade centralizado na nuvem. Delegar a autenticação e autorização permite que cenários como as políticas de Acesso Condicional que exijam que um utilizador esteja num local específico, o uso da autenticação multifactor, bem como permitir que um utilizador assine uma vez e depois seja automaticamente inscrito em todas as aplicações web que partilhem o mesmo diretório centralizado. Esta capacidade é referida como **Single Sign On (SSO)**.
+O Azure Ative Directory (Azure AD) é um fornecedor de identidade centralizado na nuvem. Delegar a autenticação e autorização permite que cenários como as políticas de Acesso Condicional que exijam que um utilizador esteja num local específico, o uso da [autenticação multifactor](../authentication/concept-mfa-howitworks.md) (por vezes referida como autenticação de dois fatores ou 2FA), bem como permitir que um utilizador assine uma vez e depois seja automaticamente inscrito em todas as aplicações web que partilham o mesmo diretório centralizado. Esta capacidade é referida como **Single Sign On (SSO)**.
 
-A plataforma de identidade da Microsoft simplifica a autenticação e a autorização para os desenvolvedores de aplicações, fornecendo identidade como serviço, com suporte para protocolos padrão da indústria, como OAuth 2.0 e OpenID Connect, bem como bibliotecas de código aberto para diferentes plataformas para ajudá-lo a começar a codificar rapidamente. Permite que os desenvolvedores construam aplicações que assinam todas as identidades da Microsoft, obter fichas para ligar para o [Microsoft Graph](https://developer.microsoft.com/graph/), outras APIs da Microsoft ou APIs que os desenvolvedores construíram. Para mais informações, consulte a [evolution of Microsoft identity platform](about-microsoft-identity-platform.md).
+A plataforma de identidade da Microsoft simplifica a autorização e a autenticação para os desenvolvedores de aplicações, fornecendo identidade como serviço, com suporte para protocolos padrão da indústria, como OAuth 2.0 e OpenID Connect, bem como bibliotecas de código aberto para diferentes plataformas para ajudá-lo a começar a codificar rapidamente. Permite que os desenvolvedores construam aplicações que assinam todas as identidades da Microsoft, obter fichas para ligar para o [Microsoft Graph](https://developer.microsoft.com/graph/), outras APIs da Microsoft ou APIs que os desenvolvedores construíram. Para mais informações, consulte a [evolution of Microsoft identity platform](about-microsoft-identity-platform.md).
 
 Segue-se uma breve comparação dos vários protocolos utilizados pela plataforma de identidade da Microsoft:
 
@@ -50,11 +50,10 @@ Segue-se uma breve comparação dos vários protocolos utilizados pela plataform
 
 Para outros tópicos que abranjam a autenticação e os fundamentos de autorização:
 
-* Consulte [fichas](security-tokens.md) de segurança para saber como os tokens de acesso, fichas de atualização e fichas de identificação são usados na autenticação e autorização.
+* Consulte [fichas](security-tokens.md) de segurança para saber como são utilizados tokens de acesso, fichas de atualização e fichas de identificação na autorização e autenticação.
 * Consulte o [modelo de Aplicação](application-model.md) para conhecer o processo de registo da sua aplicação para que possa integrar-se na plataforma de identidade da Microsoft.
 * Consulte o [fluxo de entrada de apps](app-sign-in-flow.md) para saber sobre o fluxo de entrada de aplicações web, desktop e mobile na plataforma de identidade da Microsoft.
 
-Para saber mais sobre os protocolos que a plataforma de identidade da Microsoft implementa:
-
-* Consulte [os protocolos OAuth 2.0 e OpenID Connect na plataforma de identidade da Microsoft](active-directory-v2-protocols.md) para obter mais informações sobre os padrões OpenID Connect e OAuth 2.0.
+* Para saber mais sobre os protocolos que a plataforma de identidade da Microsoft implementa, consulte os [protocolos OAuth 2.0 e OpenID Connect na plataforma de identidade da Microsoft](active-directory-v2-protocols.md).
 * Consulte o [protocolo SAML de acesso único](single-sign-on-saml-protocol.md) para obter mais informações sobre como a plataforma de identidade da Microsoft suporta o Single Sign-On.
+* Consulte o [single sign-on para aplicações no Azure Ative Directory](../manage-apps/what-is-single-sign-on.md) para obter mais informações sobre as diferentes formas de implementar um único início de sessão na sua aplicação.

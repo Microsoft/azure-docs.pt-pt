@@ -1,5 +1,6 @@
 ---
 title: Plataforma de identidade Microsoft e OAuth2.0 Em nome do fluxo [ Azure
+titleSuffix: Microsoft identity platform
 description: Este artigo descreve como usar mensagens HTTP para implementar o serviço de autenticação de serviço utilizando o fluxo OAuth2.0 On-Behalf-Of.
 services: active-directory
 author: hpsin
@@ -8,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 1/3/2020
+ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 9e1711bbb859d855d2490e49c21db5c654eca7f5
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: bcf971b56aa0dc343fdfaf34b329e49a82bba9a8
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83643370"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83771525"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Plataforma de identidade da Microsoft e OAuth 2.0 Em Nome do Fluxo
 
@@ -156,7 +157,7 @@ O exemplo seguinte mostra uma resposta de sucesso a um pedido de acesso para a h
 
 ### <a name="error-response-example"></a>Exemplo de resposta a erros
 
-Uma resposta de erro é devolvida pelo ponto final simbólico ao tentar adquirir um símbolo de acesso para a API a jusante, se a API a jusante tiver uma política de acesso condicional (como a autenticação de vários fatores) definida nele. O serviço de nível médio deve apresentar este erro à aplicação do cliente para que a aplicação do cliente possa fornecer a interação do utilizador para satisfazer a política de Acesso Condicional.
+Uma resposta de erro é devolvida pelo ponto final simbólico ao tentar adquirir um símbolo de acesso para a API a jusante, se a API a jusante tiver uma política de acesso condicional (como a [autenticação de vários fatores)](../authentication/concept-mfa-howitworks.md)definida nele. O serviço de nível médio deve apresentar este erro à aplicação do cliente para que a aplicação do cliente possa fornecer a interação do utilizador para satisfazer a política de Acesso Condicional.
 
 ```json
 {

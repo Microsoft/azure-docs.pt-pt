@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7ac085beaa85a7ddf3a6c3bfc61820e8e5a63ea
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8218b3dbe09e5ce7e6c28e1084b26c6eec4a16ca
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68496911"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773056"
 ---
 # <a name="tutorial-integrate-amazon-business-with-azure-active-directory"></a>Tutorial: Integrar o Negócio da Amazon com o Diretório Ativo Azure
 
@@ -87,24 +87,22 @@ Siga estes passos para permitir o Azure AD SSO no portal Azure.
     
        | | |
        |-|-|
-       | `https://www.amazon.com`|
-       | `https://www.amazon.co.jp`|
-       | `https://www.amazon.de`|
+       | `https://www.amazon.com`| América do Norte |
+       | `https://www.amazon.co.jp`| Ásia Leste |
+       | `https://www.amazon.de`| Europa |
 
     1. Na caixa de texto **URL resposta,** digite um URL utilizando um dos seguintes padrões:
     
        | | |
        |-|-|
-       | `https://www.amazon.com/bb/feature/sso/action/3p_redirect?idpid={idpid}`|
-       | `https://www.amazon.co.jp/bb/feature/sso/action/3p_redirect?idpid={idpid}`|
-       | `https://www.amazon.de/bb/feature/sso/action/3p_redirect?idpid={idpid}`|
+       | `https://www.amazon.com/bb/feature/sso/action/3p_redirect?idpid={idpid}`| América do Norte |
+       | `https://www.amazon.co.jp/bb/feature/sso/action/3p_redirect?idpid={idpid}`| Ásia Leste |
+       | `https://www.amazon.de/bb/feature/sso/action/3p_redirect?idpid={idpid}`| Europa |
 
        > [!NOTE]
-       > O valor url de resposta não é real. Atualize este valor com o URL de Resposta real. Você receberá `<idpid>` o valor da secção de configuração Amazon Business SSO, o que é explicado mais tarde no tutorial. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
+       > O valor url de resposta não é real. Atualize este valor com o URL de Resposta real. Você receberá o `<idpid>` valor da secção de configuração Amazon Business SSO, o que é explicado mais tarde no tutorial. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
 
-1. Clique em **Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação no modo iniciado **por SP:**
-
-    Na caixa de texto **de URL sign-on,** escreva um URL:`https://www.amazon.com/`
+1. Se pretender configurar a aplicação no modo iniciado por **SP,** terá de adicionar o URL completo fornecido na configuração do Amazon Business ao URL de início de **sessão** na secção **DeSet adicionais URLs.**
 
 1. A imagem que se segue mostra a lista de atributos predefinidos. Editar os atributos clicando no ícone **Editar** na secção **Atributos do Utilizador & Reivindicações.**
 
@@ -153,6 +151,9 @@ Siga estes passos para permitir o Azure AD SSO no portal Azure.
 1. No assistente **SSO configurar,** selecione o fornecedor de acordo com os seus requisitos organizacionais e clique em **Next**.
 
     ![Grupo padrão](media/amazon-business-tutorial/default-group1.png)
+    
+    > [!NOTE]
+    > Embora o Microsoft ADFS seja uma opção listada, não funcionará com o Azure AD SSO.
 
 1. Na nova conta de **utilizador,** selecione o **Grupo Predefinido** e, em seguida, selecione **'Predefinido'** de acordo com a função do utilizador na sua Organização e clique em **Next**.
 
@@ -197,7 +198,12 @@ Siga estes passos para permitir o Azure AD SSO no portal Azure.
 1. Finalmente, na secção de detalhes da **Ligação SSO,** o **Estado** é mostrado como **Ativo**.
 
     ![Ligação](media/amazon-business-tutorial/sso-connection5.png)
-
+    
+    > [!NOTE]
+    > Se pretender configurar a aplicação no modo iniciado por **SP,** complete o seguinte passo, colhe o URL de início de sinal a partir da imagem acima na caixa de texto url **signon** da secção **de URLs adicionais set** no portal Azure. Utilize o seguinte formato:
+    >
+    > `https://www.amazon.<TLD>/bb/feature/sso/action/start?domain_hint=<uniqueid>`
+    
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
 
 Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B.Simon.
@@ -209,7 +215,7 @@ Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
    1. No campo **Nome**, introduza `B.Simon`.  
-   1. No campo de nome username@companydomain.extensiondo **Utilizador,** introduza o . Por exemplo, `B.Simon@contoso.com`.
+   1. No campo de **nome do Utilizador,** introduza o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa de verificação de **palavra-passe do Show** e, em seguida, escreva o valor que está apresentado na caixa **password.**
    1. Clique em **Criar**.
 

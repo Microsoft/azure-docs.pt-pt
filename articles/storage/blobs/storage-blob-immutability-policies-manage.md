@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 05a155584f0cb69191883cb82b3db0af435ccc12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 539154135c35e034c889294d911fb53b3d45daa4
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78970106"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83771014"
 ---
 # <a name="set-and-manage-immutability-policies-for-blob-storage"></a>Definir e gerir políticas de imutabilidade para armazenamento blob
 
@@ -61,7 +61,7 @@ Este artigo mostra como definir e gerir políticas de imutabilidade e detém dad
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-A funcionalidade está incluída nos seguintes grupos de comando: `az storage container immutability-policy` e `az storage container legal-hold`. Corre `-h` para eles ver os comandos.
+A funcionalidade está incluída nos seguintes grupos de comando: `az storage container immutability-policy` e `az storage container legal-hold` . Corre `-h` para eles ver os comandos.
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -69,9 +69,9 @@ A funcionalidade está incluída nos seguintes grupos de comando: `az storage co
 
 O módulo Az.Storage suporta armazenamento imutável.  Para ativar a funcionalidade, siga estes passos:
 
-1. Certifique-se de que tem a versão `Install-Module PowerShellGet –Repository PSGallery –Force`mais recente do PowerShellGet instalada: .
+1. Certifique-se de que tem a versão mais recente do PowerShellGet instalada: `Install-Module PowerShellGet –Repository PSGallery –Force` .
 2. Remova qualquer instalação anterior da Azure PowerShell.
-3. Instale o Azure PowerShell: `Install-Module Az –Repository PSGallery –AllowClobber`.
+3. Instale o Azure PowerShell: `Install-Module Az –Repository PSGallery –AllowClobber` .
 
 O seguinte script PowerShell é para referência. Este script cria uma nova conta de armazenamento e recipiente. Mostra-lhe então como definir e limpar os apoios legais, criar e bloquear uma política de retenção baseada no tempo (também conhecida como uma política de imutabilidade) e alargar o intervalo de retenção.
 
@@ -91,7 +91,7 @@ Register-AzResourceProvider -ProviderNamespace "Microsoft.Storage"
 New-AzResourceGroup -Name $resourceGroup -Location $location
 
 # Create your Azure storage account
-$storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup -StorageAccountName `
+$account = New-AzStorageAccount -ResourceGroupName $resourceGroup -StorageAccountName `
     $storageAccount -SkuName Standard_ZRS -Location $location -Kind StorageV2
 
 # Create a new container using the context
@@ -119,7 +119,7 @@ Remove-AzRmStorageContainerLegalHold -ResourceGroupName $resourceGroup `
 Criar ou atualizar políticas de imutabilidade baseadas no tempo:
 
 ```powershell
-# Create a time-based immutablity policy
+# Create a time-based immutability policy
 Set-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName $resourceGroup `
     -StorageAccountName $storageAccount -ContainerName $container -ImmutabilityPeriod 10
 ```
@@ -132,7 +132,7 @@ Get-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName $resourceGroup `
     -StorageAccountName $storageAccount -ContainerName $container
 ```
 
-Bloqueie as políticas de `-Force` imutabilidade (adicione a descartar a solicitação):
+Bloqueie as políticas de imutabilidade (adicione `-Force` a descartar a solicitação):
 
 ```powershell
 # Lock immutability policies
@@ -174,12 +174,12 @@ Remove-AzRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-A funcionalidade está incluída nos seguintes grupos de comando: `az storage container immutability-policy` e `az storage container legal-hold`. Corre `-h` para eles ver os comandos.
+A funcionalidade está incluída nos seguintes grupos de comando: `az storage container immutability-policy` e `az storage container legal-hold` . Corre `-h` para eles ver os comandos.
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```powershell
-# Create an immutablity policy with appends allowed
+# Create an immutability policy with appends allowed
 Set-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName $resourceGroup `
     -StorageAccountName $storageAccount -ContainerName $container -ImmutabilityPeriod 10 -AllowProtectedAppendWrite $true
 ```

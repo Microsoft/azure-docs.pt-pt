@@ -3,7 +3,7 @@ title: 'Portal Azure: Criar uma instância gerida'
 description: Criar uma base de dados SQL gerida por exemplo, ambiente de rede e VM do cliente para acesso.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein, carlrab
 ms.date: 09/26/2019
-ms.openlocfilehash: 25128442cd922f6b9130586e245695b6880f661c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e8a0b27f055f39186371e23e46c8b41679e05dea
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80257619"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770113"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Quickstart: Criar uma base de dados Azure SQL gerida
 
@@ -93,7 +93,7 @@ Os seguintes passos mostram-lhe como criar um caso gerido:
 
    | Definição| Valor sugerido | Descrição |
    | ------ | --------------- | ----------- |
-   | **Agrupamento** | Escolha a colagem que pretende utilizar para a sua instância gerida. Se migrar bases de dados do SQL Server, `SELECT SERVERPROPERTY(N'Collation')` verifique a colagem de origem utilizando e use esse valor.| Para obter informações sobre colagens, consulte [Definir ou alterar a colagem do servidor](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|   
+   | **Agrupamento** | Escolha a colagem que pretende utilizar para a sua instância gerida. Se migrar bases de dados do SQL Server, verifique a colagem de origem utilizando `SELECT SERVERPROPERTY(N'Collation')` e use esse valor.| Para obter informações sobre colagens, consulte [Definir ou alterar a colagem do servidor](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|   
    | **Time zone** (Fuso horário) | Selecione o fuso horário que a sua instância gerida observará.|Para mais informações, consulte [fusos horários.](sql-database-managed-instance-timezone.md)|
    | **Usar como failover secundário** | Selecione **Sim**. | Ative esta opção de utilizar a instância gerida como um grupo secundário de failover.|
    | **Instância gerida primária** (se **a utilização como secundária failover** está definida para **Sim)** | Escolha uma instância primária gerida existente que será unida na mesma zona DNS com a instância gerida que está a criar. | Este passo permitirá a configuração pós-criação do grupo failover. Para mais informações, consulte Tutorial: Adicione uma base de [dados SQL gerida a um grupo](sql-database-managed-instance-failover-group-tutorial.md)de failover .|

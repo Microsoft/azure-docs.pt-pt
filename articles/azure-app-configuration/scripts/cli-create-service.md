@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.topic: sample
 ms.date: 01/24/2020
 ms.author: lcozzens
-ms.openlocfilehash: 667cf9545d87bd9277c59d066933710339b6c079
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a4d15b8ea9b6881add23875e201d7c6be39bb24b
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77623087"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774205"
 ---
 # <a name="create-an-azure-app-configuration-store"></a>Criar uma loja de configuração de aplicações Azure
 
@@ -43,7 +43,7 @@ appConfigHostname=$(az appconfig create \
   --name $myAppConfigStoreName \
   --location eastus \
   --resource-group $myResourceGroupName \
-  --query hostName \
+  --query endpoint \
   --sku free \
   -o tsv
   )

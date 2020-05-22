@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: has-adal-ref
 ms.date: 04/03/2020
-ms.openlocfilehash: 9b5771197c3e2de109af1a3b3475ab28fcbd6453
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 5e46e50da67559f69302357804f6f98fee70d4ad
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647753"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773309"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>Interaja com os clusters Apache Kafka em Azure HDInsight usando um proxy REST
 
@@ -41,6 +41,9 @@ Para pedidos de ponto final de procuração REST, os pedidos de cliente devem ob
 
 > [!NOTE]
 > Consulte gerir aplicativos e acesso a recursos utilizando grupos de [Diretórios Ativos Azure,](../../active-directory/fundamentals/active-directory-manage-groups.md)para saber mais sobre grupos de segurança AAD. Para obter mais informações sobre o funcionamento das fichas da OAuth, consulte [Autorizar o acesso às aplicações web do Azure Ative Directory utilizando o fluxo de subvenção de código OAuth 2.0](../../active-directory/develop/v1-protocols-oauth-code.md).
+
+## <a name="kafka-rest-proxy-with-network-security-groups"></a>Kafka REST proxy com Grupos de Segurança da Rede
+Se trouxer o seu próprio VNet e controlar o tráfego da rede com grupos de segurança da rede, permita o tráfego **de entrada** no porto **9400** para além do porto 443. Isto garantirá que o servidor proxy Kafka REST seja acessível.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

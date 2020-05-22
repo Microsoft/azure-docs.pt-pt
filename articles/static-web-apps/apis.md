@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: b7729ff0b81a9b0271a51272930d5052229ff884
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 4fa3acf0e6cc767aeee4504bbc4df382a75e256b
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655266"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758763"
 ---
 # <a name="api-support-in-azure-static-web-apps-preview-with-azure-functions"></a>Suporte da API na pré-visualização de aplicações estáticas azure com funções azure
 
@@ -32,6 +32,7 @@ Os pontos finais da API estão disponíveis para a aplicação web através da r
 As Aplicações Web Estáticas Azure fornecem uma API através de Funções Azure. As capacidades das Funções Azure estão focadas num conjunto específico de funcionalidades que lhe permitem criar uma API para uma aplicação web e permitir que a aplicação web se conectem à API de forma segura. Estas características vêm com alguns constrangimentos, incluindo:
 
 - O prefixo da rota API deve ser _api_.
+- A aplicação Funções API deve estar no JavaScript.
 - Os gatilhos e encadernações limitam-se a [HTTP](../azure-functions/functions-bindings-http-webhook.md).
   - Todas as [outras funções Azure acionam e encadernações,](../azure-functions/functions-triggers-bindings.md#supported-bindings) com exceção das encadernações de saída.
 - Os registos só estão disponíveis se adicionar insights de [aplicação](../azure-functions/functions-monitoring.md) à sua aplicação Funções.
@@ -39,4 +40,4 @@ As Aplicações Web Estáticas Azure fornecem uma API através de Funções Azur
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Adicione uma API](add-api.md)
+> [Adicionar uma API](add-api.md)

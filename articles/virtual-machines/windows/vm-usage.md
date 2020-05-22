@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: memccror
-ms.openlocfilehash: 0caa028c8352f8dd1b3be4a843b9b49128b2c382
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 62880542e2cc4a93585011837b4cc962c8e79c0e
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82101574"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773773"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Compreender o uso da máquina virtual Azure
 Ao analisar os seus dados de utilização do Azure, podem ser adquiridos insights de consumo poderosos – insights que podem permitir uma melhor gestão e alocação de custos em toda a sua organização. Este documento proporciona um mergulho profundo nos detalhes de consumo da Sua Computação Azure. Para mais detalhes sobre o uso geral do Azure, navegue para [compreender a sua conta.](../../cost-management-billing/understand/review-individual-bill.md)
@@ -58,7 +58,7 @@ Para algumas imagens na galeria Azure, o tipo de imagem é povoado no campo Info
   - Pré-visualização do servidor do Windows 
 
 ## <a name="service-type"></a>Tipo de Serviço
-O campo do tipo de serviço no campo Informação Adicional corresponde ao tamanho exato de VM que implementou. Os VMs de armazenamento premium (baseados em SSD) e VMs de armazenamento não premium (baseadoem em HDD) têm o mesmo preço. Se implementar um tamanho\_baseado em SSD,\_como o Standard DS2 v2,\_vê\_o tamanho não-SSD ('Standard D2 v2 VM') na coluna subcategoria do medidor e no tamanho SSD ('Standard\_DS2\_v2') no campo Informação Adicional.
+O campo do tipo de serviço no campo Informação Adicional corresponde ao tamanho exato de VM que implementou. Os VMs de armazenamento premium (baseados em SSD) e VMs de armazenamento não premium (baseadoem em HDD) têm o mesmo preço. Se implementar um tamanho baseado em SSD, como o Standard \_ \_ DS2 v2, vê o tamanho não-SSD ('Standard \_ D2 \_ v2 VM') na coluna subcategoria do medidor e no tamanho SSD ('Standard \_ DS2 \_ v2') no campo Informação Adicional.
 
 ## <a name="region-names"></a>Nomes da região
 O nome da região povoado no campo de Localização de Recursos nos detalhes de utilização varia do nome da região utilizado no Gestor de Recursos Azure. Aqui está um mapeamento entre os valores da região:
@@ -109,11 +109,11 @@ O nome da região povoado no campo de Localização de Recursos nos detalhes de 
 ### <a name="what-resources-are-charged-when-deploying-a-vm"></a>Que recursos são cobrados na implementação de um VM?    
 Os VMs adquirem custos para o próprio VM, qualquer software premium em execução no VM, a conta de armazenamento\geriu o disco associado ao VM, e as transferências de largura de banda em rede a partir do VM.
 ### <a name="how-can-i-tell-if-a-vm-is-using-azure-hybrid-benefit-in-the-usage-csv"></a>Como posso saber se um VM está a usar o Benefício Híbrido Azure no CSV de utilização?
-Se implementar utilizando o [Azure Hybrid Benefit,](https://azure.microsoft.com/pricing/hybrid-benefit/)é-lhe cobrada a taxa VM não Windows, uma vez que está a trazer a sua própria licença para a nuvem. Na sua conta, pode distinguir quais Os VMs do Gestor de\_Recursos estão a executar\_o Azure Hybrid Benefit porque têm "Windows Server BYOL" ou "Windows Client BYOL" na coluna ImageType.
+Se implementar utilizando o [Azure Hybrid Benefit,](https://azure.microsoft.com/pricing/hybrid-benefit/)é-lhe cobrada a taxa VM não Windows, uma vez que está a trazer a sua própria licença para a nuvem. Na sua conta, pode distinguir quais Os VMs do Gestor de Recursos estão a executar o Azure Hybrid Benefit porque têm "Windows \_ Server BYOL" ou "Windows \_ Client BYOL" na coluna ImageType.
 ### <a name="how-are-basic-vs-standard-vm-types-differentiated-in-the-usage-csv"></a>Como são diferenciados os Tipos De VM Básicovs. Standard no CSV de utilização?
 São oferecidos vMs básicos e standard série A. Se implantar um VM básico, na categoria Sub do medidor, tem a corda "Basic". Se implementar um VM série A padrão, então o tamanho VM aparece como "A1 VM" uma vez que o Standard é o padrão. Para saber mais sobre as diferenças entre Básico e Standard, consulte a [Página de Preços](https://azure.microsoft.com/pricing/details/virtual-machines/).
 ### <a name="what-are-extrasmall-small-medium-large-and-extralarge-sizes"></a>O que são tamanhos ExtraSmall, Small, Medium, Large e ExtraLarge?
-ExtraSmall - ExtraLarge são os\_nomes\_legados do Standard A0 – Standard A4. Nos registos clássicos de utilização de VM, pode ver esta convenção usada se tiver implantado estes tamanhos.
+ExtraSmall - ExtraLarge são os nomes legados do Standard \_ A0 – Standard \_ A4. Nos registos clássicos de utilização de VM, pode ver esta convenção usada se tiver implantado estes tamanhos.
 ### <a name="what-is-the-difference-between-meter-region-and-resource-location"></a>Qual é a diferença entre a Região do Medidor e a Localização dos Recursos?
 A Região do Medidor está associada ao contador. Para alguns serviços Azure que utilizam um preço para todas as regiões, o campo da Região dos Contadores pode ficar em branco. No entanto, uma vez que os VMs têm preços dedicados por região para máquinas virtuais, este campo é povoado. Da mesma forma, a Localização do Recurso para Máquinas Virtuais é o local onde o VM é implantado. A região de Azure em ambos os campos é a mesma, embora possam ter uma convenção de cordas diferente para o nome da região.
 ### <a name="why-is-the-imagetype-value-blank-in-the-additional-info-field"></a>Por que o valor do ImageType está em branco no campo Informação Adicional?
@@ -121,7 +121,7 @@ O campo ImageType só é povoado para um subconjunto de imagens. Se não tiver i
 ### <a name="why-is-the-vmname-blank-in-the-additional-info"></a>Por que o VMName está em branco na Informação Adicional?
 O VMName só é povoado no campo Informação Adicional para VMs num conjunto de escala. O campo InstanceID contém o nome VM para VMs conjuntos não dimensionais.
 ### <a name="what-does-computehr-mean-in-the-usagetype-field-in-the-additional-info"></a>O que significa ComputeHR no campo UsageType no Adicional info?
-ComputeHR significa Compute Hour que representa o evento de utilização para o custo de infraestrutura subjacente. Se o UsageType for\_ComputeHR SW, o evento de utilização representa a taxa de software premium para o VM.
+ComputeHR significa Compute Hour que representa o evento de utilização para o custo de infraestrutura subjacente. Se o UsageType for ComputeHR \_ SW, o evento de utilização representa a taxa de software premium para o VM.
 ### <a name="how-do-i-know-if-i-am-charged-for-premium-software"></a>Como sei se sou cobrado por software premium?
 Ao explorar qual a Imagem VM que melhor se adequa às suas necessidades, certifique-se de que confere o [Azure Marketplace.](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute) A imagem tem a taxa do plano de software. Se vir "Free" para a tarifa, não há custo adicional para o software. 
 ### <a name="what-is-the-difference-between-microsoftclassiccompute-and-microsoftcompute-in-the-consumed-service"></a>Qual é a diferença entre microsoft.ClassicCompute e Microsoft.Compute no serviço Consumido?
@@ -134,6 +134,13 @@ As etiquetas só fluem para si o CSV de utilização apenas para VMs de Gestor d
 No modelo Classic, a faturação de recursos é agregada ao nível do Serviço cloud. Se tiver mais de um VM num Serviço cloud que usa o mesmo medidor de faturação, o seu uso é agregado em conjunto. Os VMs implantados via Resource Manager são faturados ao nível de VM, pelo que esta agregação não se aplicará.
 ### <a name="why-is-pricing-not-available-for-dsfsgsls-sizes-on-the-pricing-page"></a>Porque é que os preços não estão disponíveis para os tamanhos DS/FS/GS/LS na página de preços?
 Os VMs capazes de armazenamento premium são cobrados ao mesmo ritmo que os VMs de armazenamento não premium. Apenas os seus custos de armazenamento diferem. Visite a página de preços de [armazenamento](https://azure.microsoft.com/pricing/details/storage/unmanaged-disks/) para mais informações.
+### <a name="how-to-know-the-operating-system-version-running-on-the-vm"></a>Como saber a versão do sistema operativo em execução no VM?
+
+Existem 3 locais possíveis nas APIs que podem devolver o funcionamento do sistema operativo no VM:
+
+1) Os VMs de execução que incluem o agente convidado (todos os VMs Linux e a maioria dos VMs do Windows) mostrarão o nome oss oso e a versão OS na vista VM Instances. Isto é sempre preciso, mas devido ao facto de a informação vir do agente convidado não estará disponível para todos os VMs. Documentação da API [aqui.](https://docs.microsoft.com/rest/api/compute/virtualmachines/instanceview#virtualmachineagentinstanceview)
+2) Os VMs implantados a partir de uma imagem da plataforma conterão os detalhes da imagem que podem indicar a versão OS na editora nomes selecionados para Oferta ou SKU. No entanto, estes são editores selecionados pelo que não há garantias de que o SO será detetável no nome. Documentação da API [aqui.](https://docs.microsoft.com/rest/api/compute/images/get#operatingsystemtypes)
+3) Cada Disco OS terá um valor especificado de Windows ou Linux. Este valor é herdado da imagem quando o Disco OS foi criado a partir de uma imagem. Quando um disco OS é enviado diretamente para a plataforma, o valor do OS é definido quando o disco OS é criado. Este valor está sempre presente, mas a plataforma Azure não garante que esteja correta. Documentação da API [aqui.](https://docs.microsoft.com/rest/api/compute/virtualmachineimages/get#operatingsystemtypes)
 
 ## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre os seus detalhes de utilização, consulte a sua conta para o [Microsoft Azure.](../../cost-management-billing/understand/review-individual-bill.md)

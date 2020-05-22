@@ -3,18 +3,18 @@ title: Tipos de conexão de instância geridos
 description: Saiba mais sobre tipos de conexão de instâncias geridas
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto
 ms.date: 10/07/2019
-ms.openlocfilehash: 46223d1701b930d93de7c49c1e216a41045dda16
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a7df26590ec1514edcab24a1af9d85048b332d92
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73819464"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773648"
 ---
 # <a name="azure-sql-database-managed-instance-connection-types"></a>Base de dados Azure SQL gerido tipos de conexão de instância
 

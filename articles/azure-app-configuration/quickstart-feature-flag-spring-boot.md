@@ -6,12 +6,12 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 04/18/2020
 ms.author: lcozzens
-ms.openlocfilehash: cc040fe2c9e0686844c8609b9682d757595b9dbf
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: a0d3c23f8f53b8ddfbd3fbd1cb1744a47664ce08
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82981073"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774011"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Quickstart: Adicione bandeiras de recurso a uma aplicação spring boot
 
@@ -29,7 +29,7 @@ As bibliotecas de Gestão de Recursos de Arranque de primavera alargam o quadro 
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selecione > Gestor de **Funcionalidades** `Beta`**+Adicione** para adicionar uma bandeira de recurso chamada .
+6. Selecione Gestor de **Funcionalidades**  >  **+Adicione** para adicionar uma bandeira de recurso chamada `Beta` .
 
     > [!div class="mx-imgBorder"]
     > ![Ativar a bandeira de recurso chamada Beta](media/add-beta-feature-flag.png)
@@ -46,7 +46,7 @@ Use o [Initializr de primavera](https://start.spring.io/) para criar um novo pro
 
    * Gere um projeto do **Maven** com **Java**.
    * Especifique uma versão **Spring Boot** igual ou superior a 2.0.
-   * Especifique os nomes do **Grupo** e do **Artefacto** da aplicação.  Este artigo `com.example` `demo`usa e .
+   * Especifique os nomes do **Grupo** e do **Artefacto** da aplicação.  Este artigo usa `com.example` e `demo` .
    * Adicione a dependência da **Web da primavera.**
 
 1. Depois de especificar as opções anteriores, selecione **Generate Project**. Quando solicitado, descarregue o projeto para o seu computador local.
@@ -55,7 +55,7 @@ Use o [Initializr de primavera](https://start.spring.io/) para criar um novo pro
 
 1. Depois de extrair os ficheiros do seu sistema local, a sua aplicação Spring Boot está pronta para ser editada. Localize *pom.xml* no diretório raiz da sua aplicação.
 
-1. Abra o ficheiro *pom.xml* num editor de texto `<dependencies>`e adicione o seguinte à lista de:
+1. Abra o ficheiro *pom.xml* num editor de texto e adicione o seguinte à lista `<dependencies>` de:
 
     **Nuvem de primavera 1.1.x**
 
@@ -100,7 +100,7 @@ Use o [Initializr de primavera](https://start.spring.io/) para criar um novo pro
 
 ## <a name="connect-to-an-app-configuration-store"></a>Ligar a uma loja de configuração de aplicações
 
-1. Navegue `resources` para o diretório `bootstrap.properties`da sua app e abra.  Se o ficheiro não existir, crie-o. Adicione a seguinte linha ao ficheiro.
+1. Navegue para o `resources` diretório da sua app e `bootstrap.properties` abra.  Se o ficheiro não existir, crie-o. Adicione a seguinte linha ao ficheiro.
 
     ```properties
     spring.cloud.azure.appconfiguration.stores[0].connection-string= ${APP_CONFIGURATION_CONNECTION_STRING}
@@ -108,9 +108,9 @@ Use o [Initializr de primavera](https://start.spring.io/) para criar um novo pro
 
 1. No portal de configuração da aplicação para a sua loja de config, selecione `Access keys` a partir da barra lateral. Selecione o separador de teclas apenas para leitura. Copiar o valor da cadeia de ligação primária.
 
-1. Adicione a cadeia de ligação primária como `APP_CONFIGURATION_CONNECTION_STRING`uma variável ambiental utilizando o nome variável .
+1. Adicione a cadeia de ligação primária como uma variável ambiental utilizando o nome variável `APP_CONFIGURATION_CONNECTION_STRING` .
 
-1. Abra o ficheiro Java da `@EnableConfigurationProperties` aplicação principal e adicione para ativar esta funcionalidade.
+1. Abra o ficheiro Java da aplicação principal e adicione `@EnableConfigurationProperties` para ativar esta funcionalidade.
 
     ```java
     package com.example.demo;
@@ -178,7 +178,7 @@ Use o [Initializr de primavera](https://start.spring.io/) para criar um novo pro
 
         @GetMapping("/welcome")
         public String mainWithParam(Model model) {
-            model.addAttribute("Beta", featureManager.isEnabledAsync("Beta").block());
+            model.addAttribute("Beta", featureManager.isEnabledAsync("featureManagement.Beta").block());
             return "welcome";
         }
     }
@@ -241,7 +241,7 @@ Use o [Initializr de primavera](https://start.spring.io/) para criar um novo pro
 
     ```
 
-1. Crie uma nova pasta `static` chamada CSS dentro e no seu interior um novo ficheiro CSS chamado *main.css*.
+1. Crie uma nova pasta chamada CSS dentro `static` e no seu interior um novo ficheiro CSS chamado *main.css*.
 
     ```css
     html {
@@ -283,7 +283,7 @@ Use o [Initializr de primavera](https://start.spring.io/) para criar um novo pro
     mvn spring-boot:run
     ```
 
-1. Abra uma janela do navegador e `http://localhost:8080/welcome`vá ao URL: .
+1. Abra uma janela do navegador e vá ao URL: `http://localhost:8080/welcome` .
 
     ![Lançamento de app Quickstart local](./media/quickstarts/spring-boot-feature-flag-local-before.png)
 

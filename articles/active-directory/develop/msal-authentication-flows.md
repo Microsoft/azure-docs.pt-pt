@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 01/30/2020
+ms.date: 05/18/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: db9937d87692a1221d72bd27cfd653d803b9a1c6
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
+ms.openlocfilehash: ce81af90baeeda519f1b56d1e10a46923ebd22c2
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82883248"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83772136"
 ---
 # <a name="authentication-flows"></a>Fluxos de autenticação
 
@@ -49,7 +49,7 @@ Dependendo da forma como o seu cliente é construído, pode utilizar um (ou vár
 |[Fluxo de código do dispositivo](v2-oauth2-device-code.md) | | x| x| x| |
 |[Credenciais de cliente](v2-oauth2-client-creds-grant-flow.md) | | | x (apenas app)| | |
  
-Os tokens emitidos através do modo implícito têm uma limitação de `response_mode` comprimento `query` `fragment`devido a ser passado de volta para o navegador através do URL (onde está ou ).  Alguns navegadores têm um limite no tamanho do URL que pode ser colocado na barra do navegador e falhar quando é muito longo.  Assim, estas fichas não `groups` `wids` têm nem reclamam.
+Os tokens emitidos através do modo implícito têm uma limitação de comprimento devido a ser passado de volta para o navegador através do URL (onde `response_mode` está `query` ou `fragment` ).  Alguns navegadores têm um limite no tamanho do URL que pode ser colocado na barra do navegador e falhar quando é muito longo.  Assim, estas fichas não têm `groups` nem `wids` reclamam.
 
 ## <a name="interactive"></a>Interativo
 
@@ -78,7 +78,7 @@ Este fluxo de autenticação não inclui cenários de aplicação que utilizam q
 
 A MSAL apoia a concessão do código de [autorização OAuth 2.](v2-oauth2-auth-code-flow.md) Esta subvenção pode ser utilizada em apps que estão instaladas num dispositivo para ter acesso a recursos protegidos, como apis web. Isto permite-lhe adicionar acesso de sessão e API às suas aplicações móveis e desktop. 
 
-Quando os utilizadores acedem a aplicações web (websites), a aplicação web recebe um código de autorização.  O código de autorização é reembolsado para adquirir um símbolo para ligar para a web APIs. Em ASP.NET e ASP.NET aplicações web `AcquireTokenByAuthorizationCode` Core, o único objetivo é adicionar um token à cache simbólica. O símbolo pode então ser utilizado pela aplicação (geralmente nos controladores, que `AcquireTokenSilent`apenas obtêm um símbolo para uma API utilizando).
+Quando os utilizadores acedem a aplicações web (websites), a aplicação web recebe um código de autorização.  O código de autorização é reembolsado para adquirir um símbolo para ligar para a web APIs. Em ASP.NET e ASP.NET aplicações web Core, o único objetivo `AcquireTokenByAuthorizationCode` é adicionar um token à cache simbólica. O símbolo pode então ser utilizado pela aplicação (geralmente nos controladores, que apenas obtêm um símbolo para uma API `AcquireTokenSilent` utilizando).
 
 ![Diagrama do fluxo de código de autorização](media/msal-authentication-flows/authorization-code.png)
 
@@ -91,7 +91,7 @@ No diagrama anterior, a aplicação:
 
 - Só pode usar o código de autorização uma vez para resgatar um símbolo. Não tente adquirir um símbolo várias vezes com o mesmo código de autorização (é explicitamente proibido pela especificação padrão do protocolo). Se resgatar o código várias vezes intencionalmente, ou porque não sabe que uma estrutura também o faz por si, terá o seguinte erro:`AADSTS70002: Error validating credentials. AADSTS54005: OAuth2 Authorization code was already redeemed, please retry with a new valid code or use an existing refresh token.`
 
-- Se estiver a escrever um pedido ASP.NET ou ASP.NET Core, isto pode acontecer se não disser à estrutura que já redimiu o código de autorização. Para isso, você precisa `context.HandleCodeRedemption()` ligar `AuthorizationCodeReceived` para o método do manipulador de eventos.
+- Se estiver a escrever um pedido ASP.NET ou ASP.NET Core, isto pode acontecer se não disser à estrutura que já redimiu o código de autorização. Para isso, você precisa ligar para o `context.HandleCodeRedemption()` método do manipulador de `AuthorizationCodeReceived` eventos.
 
 - Evite partilhar o símbolo de acesso com ASP.NET, o que pode impedir que o consentimento incremental aconteça corretamente. Para mais informações, consulte [a #693.](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/693)
 
@@ -151,7 +151,7 @@ Ao utilizar o fluxo de código do dispositivo, a aplicação obtém fichas atrav
 
 No diagrama anterior:
 
-1. Sempre que é necessária a autenticação do utilizador, a aplicação fornece um código e pede ao utilizador que utilize `https://microsoft.com/devicelogin`outro dispositivo (como um smartphone ligado à Internet) para ir a um URL (por exemplo). O utilizador é então solicitado a introduzir o código e procede através de uma experiência de autenticação normal, incluindo solicitações de consentimento e autenticação de vários fatores, se necessário.
+1. Sempre que é necessária a autenticação do utilizador, a aplicação fornece um código e pede ao utilizador que utilize outro dispositivo (como um smartphone ligado à Internet) para ir a um URL (por `https://microsoft.com/devicelogin` exemplo). O utilizador é então solicitado a introduzir o código e procede através de uma experiência de autenticação normal, incluindo solicitações de consentimento e [autenticação de vários fatores,](../authentication/concept-mfa-howitworks.md) se necessário.
 
 2. Após a autenticação bem sucedida, a aplicação de linha de comando recebe os tokens necessários através de um canal traseiro, e usa-os para executar as chamadas aAPI da web que necessita.
 
@@ -159,9 +159,9 @@ No diagrama anterior:
 
 - O fluxo de código do dispositivo só está disponível nas aplicações de clientes públicos.
 - A autoridade aprovada na construção da aplicação do cliente público deve ser uma das seguintes:
-  - Arrendatário (da `https://login.microsoftonline.com/{tenant}/` `{tenant}` forma em que é o GUID que representa o ID do arrendatário ou um domínio associado ao inquilino).
-  - Para qualquer trabalho e`https://login.microsoftonline.com/organizations/`contas escolares ( ).
-- As contas pessoais da Microsoft ainda não são suportadas pelo ponto final da AD Azure (não pode usar os `/common` ou `/consumers` inquilinos).
+  - Arrendatário (da forma `https://login.microsoftonline.com/{tenant}/` em que é o GUID que representa o ID do `{tenant}` arrendatário ou um domínio associado ao inquilino).
+  - Para qualquer trabalho e contas escolares `https://login.microsoftonline.com/organizations/` ( ).
+- As contas pessoais da Microsoft ainda não são suportadas pelo ponto final da AD Azure (não pode usar os `/common` `/consumers` ou inquilinos).
 
 ## <a name="integrated-windows-authentication"></a>Autenticação Integrada do Windows.
 
@@ -182,11 +182,11 @@ O IWA é para aplicações escritas para .NET Framework, .NET Core e plataformas
 
 A IWA não ignora a autenticação de vários fatores. Se a autenticação de vários fatores estiver configurada, o IWA poderá falhar se for necessário um desafio de autenticação multifactor. A autenticação de vários fatores requer interação do utilizador.
 
-Não controla quando o fornecedor de identidade pede autenticação de dois fatores para ser realizada. O administrador do inquilino tem. Normalmente, é necessária a autenticação de dois fatores quando se inscreve num país diferente, quando não está ligado via VPN a uma rede corporativa, e às vezes mesmo quando está ligado via VPN. A Azure AD utiliza AI para aprender continuamente se é necessária autenticação de dois fatores. Se o IWA falhar, deve recuar para um [pedido de utilizador interativo] (#interactive).
+Não controla quando o fornecedor de identidade pede autenticação de dois fatores para ser realizada. O administrador do inquilino tem. Normalmente, é necessária a autenticação de dois fatores quando se inscreve num país/região diferente, quando não está ligado via VPN a uma rede corporativa, e às vezes mesmo quando está ligado via VPN. A Azure AD utiliza AI para aprender continuamente se é necessária autenticação de dois fatores. Se o IWA falhar, deve recuar para um [pedido de utilizador interativo] (#interactive).
 
 A autoridade aprovada na construção da aplicação do cliente público deve ser uma das seguintes:
-- Arrendatário (da `https://login.microsoftonline.com/{tenant}/` `tenant` forma onde é o guia que representa o ID do inquilino ou um domínio associado ao inquilino).
-- Para qualquer trabalho e`https://login.microsoftonline.com/organizations/`contas escolares ( ). As contas pessoais da Microsoft não são `/common` `/consumers` suportadas (não pode usar ou inquilinos).
+- Arrendatário (da forma `https://login.microsoftonline.com/{tenant}/` onde é o guia que representa o ID do inquilino ou um domínio associado ao `tenant` inquilino).
+- Para qualquer trabalho e contas escolares `https://login.microsoftonline.com/organizations/` ( ). As contas pessoais da Microsoft não são suportadas (não pode usar `/common` ou `/consumers` inquilinos).
 
 Como a IWA é um fluxo silencioso, um dos seguintes deve ser verdade:
 - O utilizador da sua aplicação deve ter previamente consentido em utilizar a aplicação. 

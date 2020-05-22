@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 62b3445ba841a87f04dbe8c867411814b849be07
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 4fef6102ac2ee69926c1c56af338b6e92670dd71
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682441"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773105"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Utilizar uma partilha de ficheiros do Azure com o Windows
 [Ficheiros do Azure](storage-files-introduction.md) é o sistema de ficheiros na cloud fácil de utilizar da Microsoft. As partilhas de ficheiros do Azure podem ser utilizadas de forma totalmente integrada no Windows e no Windows Server. Este artigo aborda as considerações relativas à utilização de uma partilha de ficheiros do Azure com o Windows e o Windows Server.
@@ -186,7 +186,7 @@ Remove-PSDrive -Name <desired-drive-letter>
     
     ![Instantâneo do menu pendente "Mapear unidade de rede"](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
-1. Selecione a letra de unidade e entre no caminho do CNU, o formato de caminho da CNU é `<storageAccountName>.file.core.windows.net/<fileShareName>` . Por exemplo: `anexampleaccountname.file.core.windows.net/example-share-name`.
+1. Selecione a letra de unidade e entre no caminho do CNU, o formato de caminho da CNU é `\\<storageAccountName>.file.core.windows.net\<fileShareName>` . Por exemplo: `\\anexampleaccountname.file.core.windows.net\example-share-name`.
     
     ![Instantâneo da caixa de diálogo “Mapear Unidade de Rede”](./media/storage-how-to-use-files-windows/2_MountOnWindows10.png)
 

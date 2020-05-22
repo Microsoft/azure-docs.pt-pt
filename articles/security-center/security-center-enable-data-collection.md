@@ -8,15 +8,15 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: memildin
-ms.openlocfilehash: b1edb0791e80a8503e5ecba3154d7b421206272c
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 843cd74c85c619dbbd2b11a32fccf75d030b5613
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198623"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83772969"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Data collection in Azure Security Center (Recolha de dados no Centro de Segurança do Azure)
-O Security Center recolhe dados das suas máquinas virtuais Azure (VMs), conjuntos de escala de máquinas virtuais, contentores IaaS e computadores não-Azure (incluindo no local) para monitorizar vulnerabilidades e ameaças de segurança. Os dados são recolhidos através do agente Log Analytics, que lê várias configurações relacionadas com a segurança e registos de eventos da máquina e copia os dados para o seu espaço de trabalho para análise. Exemplos desses dados são: tipo e versão do sistema operativo, registos do sistema operativo (registos de eventos do Windows), processos de execução, nome da máquina, endereços IP e registos registados no utilizador. O agente Log Analytics também copia ficheiros de despejo de crash para o seu espaço de trabalho.
+O Security Center recolhe dados das suas máquinas virtuais Azure (VMs), conjuntos de escala de máquinas virtuais, contentores IaaS e computadores não-Azure (incluindo no local) para monitorizar vulnerabilidades e ameaças de segurança. Os dados são recolhidos através do agente Log Analytics, que lê várias configurações relacionadas com a segurança e registos de eventos da máquina e copia os dados para o seu espaço de trabalho para análise. Exemplos desses dados são: tipo e versão do sistema operativo, registos do sistema operativo (registos de eventos do Windows), processos de execução, nome da máquina, endereços IP e registos registados no utilizador.
 
 A recolha de dados é necessária para fornecer visibilidade em atualizações em falta, configurações de segurança soco configuradas mal configuradas, estado de proteção de pontos finais e proteção contra a saúde e ameaças. 
 

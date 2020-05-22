@@ -1,14 +1,14 @@
 ---
 title: Tipos de recursos do Gestor de Recursos Suportados
 description: Forneça uma lista dos tipos de recursos do Gestor de Recursos suportados pelo Azure Resource Graph e change History.
-ms.date: 05/16/2020
+ms.date: 05/21/2020
 ms.topic: reference
-ms.openlocfilehash: 61b4865f695fbee7bd425429fde03bc7161043db
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 7ccf8cc58ce19746958f89ff9d9207906aad16bd
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655864"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770589"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Tabela de gráficos de recursos azure e referência do tipo de recurso
 
@@ -217,11 +217,10 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - microsoft.hardwaresecuritymodules/dedicatedhsms
 - microsoft.hdinsight/clusters
 - microsoft.healthcareapis/services
+- microsoft.healthcareapis/services/privateendpointconnections
 - microsoft.hybridcompute/machines
 - microsoft.hybridcompute/machines/extensões
 - microsoft.hybriddata/datamanagers
-- microsoft.hydra/componentes
-- microsoft.hydra/networkscopes
 - microsoft.importexport/jobs
 - microsoft.industrydatalifecycle/derivados
 - microsoft.insights/actiongroups
@@ -361,9 +360,6 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - microsoft.portalsdk/rootresources
 - microsoft.powerbi/workspacecollections
 - microsoft.powerbidedicated/capacities
-- microsoft.projectarcadia/workspaces
-- microsoft.projectarcadia/workspaces/sparkcomputes
-- microsoft.projectarcadia/workspaces/sqlcomputes
 - microsoft.projectbabylon/accounts
 - microsoft.quantum/workspaces
 - microsoft.recoveryservices/vaults
@@ -440,8 +436,6 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - microsoft.vmwarecloudsimple/virtualmachines
 - microsoft.vmwareonazure/privateclouds
 - microsoft.vmwarevirtustream/privateclouds
-- microsoft.vnfmanager/dispositivos
-- microsoft.vnfmanager/vnfs
 - microsoft.vsonline/contas
 - microsoft.vsonline/plans
 - microsoft.web/apimanagementaccounts/apis

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: 8b52dbe8cd12e51c42677ce37acbd57ad551ec50
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4f3889a0ba121cb9a3167c1f6ac95f0bed280539
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80680833"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83759018"
 ---
 # <a name="outline-rendering"></a>Composição de contorno
 
@@ -20,27 +20,39 @@ As propriedades de contorno são um cenário global. Todos os objetos que utiliz
 
 ## <a name="parameters-for-outlinesettings"></a>Parâmetros para`OutlineSettings`
 
-A `OutlineSettings` classe detém as configurações relacionadas com propriedades de contorno global. Expõe os seguintes membros:
+A classe `OutlineSettings` detém as configurações relacionadas com propriedades de contorno global. Expõe os seguintes membros:
 
 | Parâmetro      | Tipo    | Descrição                                             |
 |----------------|---------|---------------------------------------------------------|
 | `Color`          | Color4Ub | A cor que é usada para desenhar o contorno. A porção alfa é ignorada.         |
 | `PulseRateHz`    | float   | A taxa a que o contorno oscila por segundo|
-| `PulseIntensity` | float   | A intensidade do efeito de pulso de contorno. Deve estar entre 0,0 sem pulsação e 1,0 para pulsar. A intensidade define implicitamente a opacidade `MinOpacity = 1.0 - PulseIntensity`mínima do contorno como . |
+| `PulseIntensity` | float   | A intensidade do efeito de pulso de contorno. Deve estar entre 0,0 sem pulsação e 1,0 para pulsar. A intensidade define implicitamente a opacidade mínima do contorno como `MinOpacity = 1.0 - PulseIntensity` . |
 
-![Contornos](./media/outlines.png) O efeito `color` de mudar o parâmetro do amarelo (esquerdo) `pulseIntensity` para magenta (centro) e de 0 para 0,8 (direita).
+![Contornos ](./media/outlines.png) O efeito de mudar o parâmetro do amarelo `color` (esquerdo) para magenta (centro) e `pulseIntensity` de 0 para 0,8 (direita).
 
 ## <a name="example"></a>Exemplo
 
 O seguinte código mostra um exemplo para definir parâmetros de contorno através da API:
 
-``` cs
+```cs
 void SetOutlineParameters(AzureSession session)
 {
     OutlineSettings outlineSettings = session.Actions.OutlineSettings;
     outlineSettings.Color = new Color4Ub(255, 255, 0, 255);
     outlineSettings.PulseRateHz = 2.0f;
     outlineSettings.PulseIntensity = 0.5f;
+}
+```
+
+```cpp
+void SetOutlineParameters(ApiHandle<AzureSession> session)
+{
+    ApiHandle<OutlineSettings> outlineSettings = *session->Actions()->OutlineSettings();
+    Color4Ub outlineColor;
+    outlineColor.channels = { 255, 255, 0, 255 };
+    outlineSettings->Color(outlineColor);
+    outlineSettings->PulseRateHz(2.0f);
+    outlineSettings->PulseIntensity(0.5f);
 }
 ```
 

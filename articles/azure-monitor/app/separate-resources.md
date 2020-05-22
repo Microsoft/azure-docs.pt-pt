@@ -3,12 +3,12 @@ title: Como conceber a sua implementação de Insights de Aplicação - Um vs mu
 description: Telemetria direta para diferentes recursos para o desenvolvimento, teste e selos de produção.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 6df6622cbba251c221533c3307dc194f08e871fb
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 187d84b29e42aa3264417dd66e66c3886b17e92a
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125694"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773699"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>Quantos recursos de Aplicação Insights devo implementar
 
@@ -138,7 +138,7 @@ Quando possui informações de compilação, o módulo Web do Application Insigh
 No entanto, note que o número da versão build é gerado apenas pelo Microsoft Build Engine, e não pela construção do desenvolvedor a partir do Visual Studio.
 
 ### <a name="release-annotations"></a>Anotações da versão
-Se utilizar o Azure DevOps, pode obter um marcador de [anotação](../../azure-monitor/app/annotations.md) adicionado às suas tabelas sempre que lançar uma nova versão. A imagem seguinte mostra como este marcador é apresentado.
+Se utilizar o Azure DevOps, pode obter um marcador de [anotação](../../azure-monitor/app/annotations.md) adicionado às suas tabelas sempre que lançar uma nova versão. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

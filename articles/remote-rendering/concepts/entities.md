@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: d7b9ecd048b080ae0ec9fd3fb7a4fb35009551b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7981a28db23ab8c0aed05013dd260ffd97a11c07
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80681951"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758729"
 ---
 # <a name="entities"></a>Entidades
 
@@ -22,7 +22,7 @@ As entidades têm uma transformação definida por uma posição, rotação e es
 
 O aspeto mais importante da própria entidade é a hierarquia e a transformação hierárquica resultante. Por exemplo, quando várias entidades são ligadas como crianças a uma entidade-mãe partilhada, todas estas entidades podem ser movidas, giradas e dimensionadas em uníssono alterando a transformação da entidade-mãe.
 
-Uma entidade é propriedade única do seu progenitor, o `Entity.Destroy()`que significa que quando o progenitor é destruído com, assim como os seus filhos e todos os [componentes conectados.](components.md) Assim, a remoção de um modelo `Destroy` da cena é realizada chamando `AzureSession.Actions.LoadModelAsync()` o nó raiz `AzureSession.Actions.LoadModelFromSASAsync()`de um modelo, devolvido por ou a sua variante SAS.
+Uma entidade é propriedade única do seu progenitor, o que significa que quando o progenitor é destruído `Entity.Destroy()` com, assim como os seus filhos e todos os [componentes conectados.](components.md) Assim, a remoção de um modelo da cena é realizada chamando `Destroy` o nó raiz de um modelo, devolvido por ou a sua variante `AzureSession.Actions.LoadModelAsync()` `AzureSession.Actions.LoadModelFromSASAsync()` SAS.
 
 As entidades são criadas quando o servidor carrega conteúdo ou quando o utilizador quer adicionar um objeto à cena. Por exemplo, se um utilizador quiser adicionar um plano cortado para visualizar o interior de uma malha, o utilizador pode criar uma entidade onde o avião deve existir e, em seguida, adicionar-lhe o componente de plano cortado.
 
@@ -32,13 +32,20 @@ Existem dois tipos de funções de consulta em entidades: chamadas sincronizadas
 
 ### <a name="querying-components"></a>Componentes de consulta
 
-Para encontrar um componente de `FindComponentOfType`um tipo específico, utilize:
+Para encontrar um componente de um tipo específico, `FindComponentOfType` utilize:
 
 ```cs
 CutPlaneComponent cutplane = (CutPlaneComponent)entity.FindComponentOfType(ObjectType.CutPlaneComponent);
 
 // or alternatively:
 CutPlaneComponent cutplane = entity.FindComponentOfType<CutPlaneComponent>();
+```
+
+```cpp
+ApiHandle<CutPlaneComponent> cutplane = entity->FindComponentOfType(ObjectType::CutPlaneComponent)->as<CutPlaneComponent>();
+
+// or alternatively:
+ApiHandle<CutPlaneComponent> cutplane = *entity->FindComponentOfType<CutPlaneComponent>();
 ```
 
 ### <a name="querying-transforms"></a>A consulta transforma-se
@@ -53,6 +60,13 @@ Transformar consultas são chamadas sincronizadas sobre o objeto. É importante 
 Double3 translation = entity.Position;
 Quaternion rotation = entity.Rotation;
 ```
+
+```cpp
+// local space transform of the entity
+Double3 translation = *entity->Position();
+Quaternion rotation = *entity->Rotation();
+```
+
 
 ### <a name="querying-spatial-bounds"></a>Limites espaciais de consulta
 
@@ -77,6 +91,21 @@ metaDataQuery.Completed += (MetadataQueryAsync query) =>
         // ...
     }
 };
+```
+
+```cpp
+ApiHandle<MetadataQueryAsync> metaDataQuery = *entity->QueryMetaDataAsync();
+metaDataQuery->Completed([](const ApiHandle<MetadataQueryAsync>& query)
+    {
+        if (query->IsRanToCompletion())
+        {
+            ApiHandle<ObjectMetaData> metaData = *query->Result();
+            ApiHandle<ObjectMetaDataEntry> entry = *metaData->GetMetadataByName("MyInt64Value");
+            int64_t intValue = *entry->AsInt64();
+
+            // ...
+        }
+    });
 ```
 
 A consulta terá sucesso mesmo que o objeto não possua metadados.

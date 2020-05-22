@@ -8,19 +8,19 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/15/2020
+ms.date: 05/19/2020
 ms.author: jingwang
-ms.openlocfilehash: fb33e05eae52ebc0274296b5c18783233e3e8969
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: f6b488fc4817e360ed512441f67d2e00356e6134
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657117"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758610"
 ---
 # <a name="copy-data-from-google-cloud-storage-using-azure-data-factory"></a>Copiar dados do Google Cloud Storage utilizando a Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Este artigo descreve como copiar dados do Google Cloud Storage. Para conhecer a Azure Data Factory, leia o [artigo introdutório.](introduction.md)
+Este artigo descreve como copiar dados do Google Cloud Storage (GCS). Para conhecer a Azure Data Factory, leia o [artigo introdutório.](introduction.md)
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
@@ -31,27 +31,22 @@ Este conector google Cloud Storage é suportado para as seguintes atividades:
 - [Obtenha atividade de Metadados](control-flow-get-metadata-activity.md)
 - [Eliminar atividade](delete-activity.md)
 
-Especificamente, este conector google Cloud Storage suporta copiar ficheiros como está ou analisar ficheiros com os [formatos de ficheiros suportados e codificadores](supported-file-formats-and-compression-codecs.md)de compressão .
-
->[!NOTE]
->Copiar dados do Google Cloud Storage aproveita o [conector Amazon S3](connector-amazon-simple-storage-service.md) com o ponto final personalizado s3 correspondente, uma vez que o Google Cloud Storage proporciona interoperabilidade compatível com S3.
+Especificamente, este conector google Cloud Storage suporta copiar ficheiros como está ou analisar ficheiros com os [formatos de ficheiros suportados e codificadores](supported-file-formats-and-compression-codecs.md)de compressão . Aproveita a interoperabilidade compatível com S3 da GCS.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 A seguinte configuração é necessária na sua conta de Armazenamento de Nuvem do Google:
 
 1. Ativar a interoperabilidade para a sua conta de Armazenamento de Nuvem do Google
-2. Desdefinir o projeto predefinido que contém os dados que pretende copiar
-3. Criar uma chave de acesso.
+2. Desprecie o projeto predefinido que contém os dados que pretende copiar a partir do balde de GCS alvo
+3. Crie uma conta de serviço e defina os níveis certos de permissões usando o Cloud IAM no GCP 
+4. Gere as chaves de acesso para esta conta de serviço
 
 ![Recuperar chave de acesso para o Armazenamento de Nuvem do Google](media/connector-google-cloud-storage/google-storage-cloud-settings.png)
 
 ## <a name="required-permissions"></a>Permissões obrigatórias
 
-Para copiar dados do Google Cloud Storage, certifique-se de que lhe foram concedidas as seguintes permissões:
-
-- **Para a execução**da atividade de cópia: : e para operações de `s3:GetObject` `s3:GetObjectVersion` objetos.
-- **Para**a autoria de Data Factory GUI : e para operações de `s3:ListAllMyBuckets` balde são `s3:ListBucket` / `s3:GetBucketLocation` adicionalmente necessárias para operações como ligação de teste e navegar/navegar caminhos de ficheiros. Se não quiser conceder estas permissões, ignore a ligação de teste na página de criação de serviço selecionada e especifique o caminho diretamente nas definições do conjunto de dados.
+Para copiar dados do Google Cloud Storage, certifique-se de que concedeu as permissões necessárias. As permissões definidas na conta de serviço podem `storage.buckets.get` `storage.buckets.list` conter, para operações de `storage.objects.get` objetos.
 
 ## <a name="getting-started"></a>Introdução
 
@@ -68,7 +63,7 @@ As seguintes propriedades são suportadas para o serviço ligado ao Google Cloud
 | tipo | A propriedade do tipo deve ser definida para **o GoogleCloudStorage**. | Sim |
 | acessoKeyId | Identificação da chave de acesso secreta. Para encontrar a chave de acesso e segredo, consulte [os pré-requisitos.](#prerequisites) |Sim |
 | secretAccessKey | A chave de acesso secreta em si. Marque este campo como um SecureString para o armazenar de forma segura na Data Factory, ou [refira um segredo armazenado no Cofre de Chaves Azure](store-credentials-in-key-vault.md). |Sim |
-| serviçoUrl | Especifique o ponto final s3 personalizado como **`https://storage.googleapis.com`** . | Sim |
+| serviçoUrl | Especifique o ponto final gGcS personalizado como **`https://storage.googleapis.com`** . | Sim |
 | connectVia | O Tempo de [Integração](concepts-integration-runtime.md) a utilizar para se ligar à loja de dados. Pode utilizar o Tempo de Execução de Integração Azure ou o Tempo de Execução de Integração Auto-hospedado (se a sua loja de dados estiver localizada em rede privada). Se não especificado, utiliza o tempo de funcionar de integração azure padrão. |Não |
 
 Segue-se um exemplo:
@@ -102,8 +97,8 @@ As seguintes propriedades são suportadas para o Google Cloud Storage em `locati
 
 | Propriedade   | Descrição                                                  | Necessário |
 | ---------- | ------------------------------------------------------------ | -------- |
-| tipo       | A propriedade tipo em conjunto de `location` dados deve ser definida para **AmazonS3Location**. | Sim      |
-| bucketName | O nome do balde S3.                                          | Sim      |
+| tipo       | A propriedade do tipo em conjunto de `location` dados deve ser definida para o **GoogleCloudStorageLocation**. | Sim      |
+| bucketName | O nome do balde gcs.                                          | Sim      |
 | folderPath | O caminho para pasta sob o balde dado. Se pretender utilizar o wildcard para filtrar a pasta, ignore esta definição e especifique nas definições de fonte de atividade. | Não       |
 | fileName   | O nome do ficheiro sob o balde dado + pastaPath. Se pretender utilizar ficheiros wildcard para filtrar ficheiros, ignore esta definição e especifique nas definições de fonte de atividade. | Não       |
 
@@ -121,7 +116,7 @@ As seguintes propriedades são suportadas para o Google Cloud Storage em `locati
         "schema": [ < physical schema, optional, auto retrieved during authoring > ],
         "typeProperties": {
             "location": {
-                "type": "AmazonS3Location",
+                "type": "GoogleCloudStorageLocation",
                 "bucketName": "bucketname",
                 "folderPath": "folder/subfolder"
             },
@@ -146,11 +141,12 @@ As seguintes propriedades são suportadas para o Google Cloud Storage em `storeS
 
 | Propriedade                 | Descrição                                                  | Necessário                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
-| tipo                     | A propriedade do tipo em baixo `storeSettings` deve ser definida para **AmazonS3ReadSettings**. | Sim                                                         |
+| tipo                     | A propriedade do tipo em baixo `storeSettings` deve ser definida para **googleCloudStorageReadSettings**. | Sim                                                         |
 | ***Localize os ficheiros para copiar:*** |  |  |
 | OPÇÃO 1: caminho estático<br> | Cópia do conjunto de dados especificado no conjunto de dados. Se pretender copiar todos os ficheiros de um balde/pasta, especifique adicionalmente `wildcardFileName` como `*` . |  |
-| OPÇÃO 2: wildcard<br>- wildcardFolderPath | O caminho da pasta com caracteres wildcard sob o balde dado configurado no conjunto de dados para filtrar as pastas de origem. <br>Os wildcards permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou personagem único); use `^` para escapar se o seu nome real de pasta tiver wildcard ou este char de fuga no seu interior. <br>Consulte mais exemplos em exemplos de [pastas e filtros de ficheiros](#folder-and-file-filter-examples). | Não                                            |
-| OPÇÃO 2: wildcard<br>- wildcardFileName | O nome do ficheiro com caracteres wildcard sob o balde dado + pastaPath/wildcardFolderPath para filtrar ficheiros de origem. <br>Os wildcards permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou personagem único); use `^` para escapar se o seu nome real de pasta tiver wildcard ou este char de fuga no seu interior.  Consulte mais exemplos em exemplos de [pastas e filtros de ficheiros](#folder-and-file-filter-examples). | Sim |
+| OPÇÃO 2: Prefixo GCS<br>- prefixo | Prefixo para o nome da chave GCS sob o balde dado configurado no conjunto de dados para filtrar ficheiros GCS de origem. As teclas GCS cujo nome começa são `bucket_in_dataset/this_prefix` selecionadas. Utiliza o filtro lateral de serviço do GCS que proporciona um melhor desempenho do que o filtro wildcard. | Não |
+| OPÇÃO 3: wildcard<br>- wildcardFolderPath | O caminho da pasta com caracteres wildcard sob o balde dado configurado no conjunto de dados para filtrar as pastas de origem. <br>Os wildcards permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou personagem único); use `^` para escapar se o seu nome real de pasta tiver wildcard ou este char de fuga no seu interior. <br>Consulte mais exemplos em exemplos de [pastas e filtros de ficheiros](#folder-and-file-filter-examples). | Não                                            |
+| OPÇÃO 3: wildcard<br>- wildcardFileName | O nome do ficheiro com caracteres wildcard sob o balde dado + pastaPath/wildcardFolderPath para filtrar ficheiros de origem. <br>Os wildcards permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou personagem único); use `^` para escapar se o seu nome real de pasta tiver wildcard ou este char de fuga no seu interior.  Consulte mais exemplos em exemplos de [pastas e filtros de ficheiros](#folder-and-file-filter-examples). | Sim |
 | OPÇÃO 3: uma lista de ficheiros<br>- fileListPath | Indica copiar um determinado conjunto de ficheiros. Aponte para um ficheiro de texto que inclua uma lista de ficheiros que pretende copiar, um ficheiro por linha que é o caminho relativo para o caminho configurado no conjunto de dados.<br/>Ao utilizar esta opção, não especifique o nome do ficheiro no conjunto de dados. Veja mais exemplos nos [exemplos da lista de ficheiros](#file-list-examples). |Não |
 | ***Configurações adicionais:*** |  | |
 | recursivo | Indica se os dados são lidos recursivamente a partir das subpastas ou apenas a partir da pasta especificada. Note que quando se recursivo é definido como verdadeiro e a pia é uma loja baseada em ficheiros, uma pasta vazia ou subpasta não é copiada ou criada na pia. <br>Os valores permitidos são **verdadeiros** (predefinidos) e **falsos**.<br>Esta propriedade não se aplica quando configura `fileListPath` . |Não |
@@ -185,7 +181,7 @@ As seguintes propriedades são suportadas para o Google Cloud Storage em `storeS
                     "skipLineCount": 10
                 },
                 "storeSettings":{
-                    "type": "AmazonS3ReadSettings",
+                    "type": "GoogleCloudStorageReadSettings",
                     "recursive": true,
                     "wildcardFolderPath": "myfolder*A",
                     "wildcardFileName": "*.csv"
@@ -234,95 +230,7 @@ Para saber detalhes sobre as propriedades, consulte a [atividade de Eliminar](de
 
 ## <a name="legacy-models"></a>Modelos legados
 
->[!NOTE]
->Os seguintes modelos ainda são suportados como é para retrocompatibilidade. É-lhe sugerido que utilize o novo modelo mencionado nas secções acima, e a UI de autoria da ADF mudou para gerar o novo modelo.
-
-### <a name="legacy-dataset-model"></a>Modelo de conjunto de dados legado
-
-| Propriedade | Descrição | Necessário |
-|:--- |:--- |:--- |
-| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **AmazonS3Object** |Sim |
-| bucketName | O nome do balde S3. O filtro Wildcard não é suportado. |Sim para a atividade de Cópia/Procuração, Não para a atividade getMetadata |
-| chave | O **nome ou filtro wildcard** da chave do objeto S3 sob o balde especificado. Aplica-se apenas quando a propriedade "prefixo" não é especificada. <br/><br/>O filtro wildcard é suportado tanto para a parte da pasta como para a parte do nome do ficheiro. Os wildcards permitidos são: `*` (corresponde a zero ou mais caracteres) e (corresponde a `?` zero ou personagem único).<br/>- Exemplo 1:`"key": "rootfolder/subfolder/*.csv"`<br/>- Exemplo 2:`"key": "rootfolder/subfolder/???20180427.txt"`<br/>Consulte mais exemplos em exemplos de [pastas e filtros de ficheiros](#folder-and-file-filter-examples). Utilize `^` para escapar se o seu nome real de pasta/ficheiro tiver wildcard ou este char de fuga no seu interior. |Não |
-| prefixo | Prefixo para a tecla de objeto S3. São selecionados objetos cujas teclas começam com este prefixo. Aplica-se apenas quando a propriedade "chave" não é especificada. |Não |
-| versão | A versão do objeto S3, se a versão S3 estiver ativada. |Não |
-| alteradoDatetimeStart | Filtro de ficheiros com base no atributo: Última Modificação. Os ficheiros serão selecionados se o seu último tempo modificado estiver dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd` . O tempo é aplicado ao fuso horário UTC no formato "2018-12-01T05:00:00:00Z". <br/><br/> As propriedades podem ser NU, o que significa que nenhum filtro de atributo de ficheiro será aplicado ao conjunto de dados.  Quando tem o valor da `modifiedDatetimeStart` data mas `modifiedDatetimeEnd` é NULO, significa que os ficheiros cujo último atributo modificado é maior ou igual ao valor da data serão selecionados.  Quando tem o valor da `modifiedDatetimeEnd` data mas `modifiedDatetimeStart` é NULO, significa que os ficheiros cujo último atributo modificado é inferior ao valor da data serão selecionados.| Não |
-| alteradoDatetimeEnd | Filtro de ficheiros com base no atributo: Última Modificação. Os ficheiros serão selecionados se o seu último tempo modificado estiver dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd` . O tempo é aplicado ao fuso horário UTC no formato "2018-12-01T05:00:00:00Z". <br/><br/> As propriedades podem ser NU, o que significa que nenhum filtro de atributo de ficheiro será aplicado ao conjunto de dados.  Quando tem o valor da `modifiedDatetimeStart` data mas `modifiedDatetimeEnd` é NULO, significa que os ficheiros cujo último atributo modificado é maior ou igual ao valor da data serão selecionados.  Quando tem o valor da `modifiedDatetimeEnd` data mas `modifiedDatetimeStart` é NULO, significa que os ficheiros cujo último atributo modificado é inferior ao valor da data serão selecionados.| Não |
-| formato | Se pretender **copiar ficheiros como está** entre lojas baseadas em ficheiros (cópia binária), ignore a secção de formato nas definições de conjunto de dados de entrada e de saída.<br/><br/>Se pretender analisar ou gerar ficheiros com um formato específico, são suportados os seguintes tipos de formato de ficheiro: **TextFormat,** **JsonFormat,** **AvroFormat,** **OrcFormat,** **ParquetFormat**. Desloque a propriedade **tipo** em formato a um destes valores. Para mais informações, consulte as secções de [Formato Texto,](supported-file-formats-and-compression-codecs-legacy.md#text-format) [Formato Json,](supported-file-formats-and-compression-codecs-legacy.md#json-format) [Formato Avro,](supported-file-formats-and-compression-codecs-legacy.md#avro-format) [Formato Orc](supported-file-formats-and-compression-codecs-legacy.md#orc-format)e [Formato Parquet.](supported-file-formats-and-compression-codecs-legacy.md#parquet-format) |Não (apenas para cenário de cópia binária) |
-| compressão | Especifique o tipo e o nível de compressão para os dados. Para mais informações, consulte [formatos de ficheiros suportados e codecs](supported-file-formats-and-compression-codecs-legacy.md#compression-support)de compressão .<br/>Os tipos suportados são: **GZip,** **Deflate,** **BZip2,** e **ZipDeflate**.<br/>Os níveis suportados são: **Optimal** e **Fastest**. |Não |
-
->[!TIP]
->Para copiar todos os ficheiros sob uma pasta, especifique **o bucketName** para balde e **prefixo** para a peça da pasta.<br>Para copiar um único ficheiro com um nome dado, especifique **o bucketName** para balde e **chave** para a parte da pasta mais o nome do ficheiro.<br>Para copiar um subconjunto de ficheiros sob uma pasta, especifique **o bucketName** para balde e **chave** para a parte da pasta mais o filtro wildcard.
-
-**Exemplo: utilização de prefixo**
-
-```json
-{
-    "name": "GoogleCloudStorageDataset",
-    "properties": {
-        "type": "AmazonS3Object",
-        "linkedServiceName": {
-            "referenceName": "<linked service name>",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "bucketName": "testbucket",
-            "prefix": "testFolder/test",
-            "modifiedDatetimeStart": "2018-12-01T05:00:00Z",
-            "modifiedDatetimeEnd": "2018-12-01T06:00:00Z",
-            "format": {
-                "type": "TextFormat",
-                "columnDelimiter": ",",
-                "rowDelimiter": "\n"
-            },
-            "compression": {
-                "type": "GZip",
-                "level": "Optimal"
-            }
-        }
-    }
-}
-```
-
-### <a name="legacy-copy-activity-source-model"></a>Modelo de fonte de fonte de atividade de cópia legado
-
-| Propriedade | Descrição | Necessário |
-|:--- |:--- |:--- |
-| tipo | A propriedade do tipo da fonte de atividade de cópia deve ser definida para: **FileSystemSource** |Sim |
-| recursivo | Indica se os dados são lidos recursivamente a partir das subpastas ou apenas a partir da pasta especificada. Note que quando a recursiva for definida como verdadeira e a pia for uma loja baseada em ficheiros, a pasta/subpasta vazia não será copiada/criada na pia.<br/>Os valores permitidos são: **verdadeiros** (padrão), **falsos** | Não |
-| maxConcurrentConnections | O número das ligações para ligar simultaneamente ao armazém. Especifique apenas quando pretende limitar a ligação simultânea à loja de dados. | Não |
-
-**Exemplo:**
-
-```json
-"activities":[
-    {
-        "name": "CopyFromGoogleCloudStorage",
-        "type": "Copy",
-        "inputs": [
-            {
-                "referenceName": "<input dataset name>",
-                "type": "DatasetReference"
-            }
-        ],
-        "outputs": [
-            {
-                "referenceName": "<output dataset name>",
-                "type": "DatasetReference"
-            }
-        ],
-        "typeProperties": {
-            "source": {
-                "type": "FileSystemSource",
-                "recursive": true
-            },
-            "sink": {
-                "type": "<sink type>"
-            }
-        }
-    }
-]
-```
+Se estava a usar o conector Amazon S3 para copiar dados do Google Cloud Storage, ainda é suportado como é para retrocompatibilidade. É-lhe sugerido que utilize o novo modelo mencionado nas secções acima, e a UI de autoria da ADF mudou para gerar o novo modelo.
 
 ## <a name="next-steps"></a>Passos seguintes
 Para obter uma lista de lojas de dados que são suportadas como fontes e pias pela atividade de cópia na Azure Data Factory, consulte as lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)

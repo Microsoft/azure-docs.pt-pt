@@ -9,16 +9,16 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 5f552dfc320459d23e538e65e5f34c085f5b5ad9
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 909c787c8ddc9443dca46dd80c0757cf099449c0
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80136008"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83778170"
 ---
 <a name="HOLTop"></a>
 
-[Documentação de referência](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision) | Pacote[de código fonte](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-computervision) | da biblioteca[(PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-computervision/) | [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
+[Documentação de](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision)  |  referência Código fonte [da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-computervision)  |  [Pacote (Pipy)](https://pypi.org/project/azure-cognitiveservices-vision-computervision/)  |  [Amostras](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -34,11 +34,11 @@ Os Serviços Cognitivos Azure são representados por recursos Azure que subscrev
 * Obtenha uma chave de [teste](https://azure.microsoft.com/try/cognitive-services/#decision) válida por sete dias de graça. Depois de se inscrever, estará disponível no site do [Azure.](https://azure.microsoft.com/try/cognitive-services/my-apis/)  
 * Veja o seu recurso no [portal Azure](https://portal.azure.com/)
 
-Depois de obter uma chave da sua subscrição ou recurso experimental, [crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para o URL chave e final, nomeado `COMPUTER_VISION_SUBSCRIPTION_KEY` e, `COMPUTER_VISION_ENDPOINT`respectivamente.
+Depois de obter uma chave da sua subscrição ou recurso experimental, [crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para o URL chave e final, nomeado `COMPUTER_VISION_SUBSCRIPTION_KEY` `COMPUTER_VISION_ENDPOINT` e, respectivamente.
  
 ### <a name="create-a-new-python-application"></a>Criar uma aplicação Python nova
 
-Crie um&mdash;novo roteiro Python*quickstart-file.py,* por exemplo. Em seguida, abra-a no seu editor preferido ou IDE e importe as seguintes bibliotecas.
+Crie um novo guião Python &mdash; *quickstart-file.py,* por exemplo. Em seguida, abra-a no seu editor preferido ou IDE e importe as seguintes bibliotecas.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_imports)]
 
@@ -61,7 +61,7 @@ pip install --upgrade azure-cognitiveservices-vision-computervision
 
 As seguintes classes e interfaces lidam com algumas das principais características do Computer Vision Python SDK.
 
-|Nome|Descrição|
+|Name|Descrição|
 |---|---|
 |[ComputerVisionClientOperationsMixin](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.operations.computervisionclientoperationsmixin?view=azure-python)| Esta classe lida diretamente com todas as operações de imagem, tais como análise de imagem, deteção de texto e geração de miniaturas.|
 | [ComputerVisionClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python) | Esta aula é necessária para todas as funcionalidades de Visão Computacional. Você instantaneamente com a sua informação de subscrição, e você usa-o para produzir casos de outras classes. Implementa **o ComputerVisionClientOperationsMixin**.|
@@ -78,7 +78,7 @@ Estes fragmentos de código mostram-lhe como fazer as seguintes tarefas com a bi
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
 > [!NOTE]
-> Este quickstart assume que [criou uma variável ambiental](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) para `COMPUTER_VISION_SUBSCRIPTION_KEY`a sua chave Computer Vision, chamada .
+> Este quickstart assume que [criou uma variável ambiental](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) para a sua chave Computer Vision, chamada `COMPUTER_VISION_SUBSCRIPTION_KEY` .
 
 Instantifique um cliente com o seu ponto final e chave. Crie um objeto [CognitiveServicesCredenciais](https://docs.microsoft.com/python/api/msrest/msrest.authentication.cognitiveservicescredentials?view=azure-python) com a sua chave e use-o com o seu ponto final para criar um objeto [ComputerVisionClient.](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python)
 
@@ -152,7 +152,7 @@ O código que se segue analisa os dados sobre marcos detetados na imagem.
 
 ### <a name="get-the-image-type"></a>Obter o tipo de imagem
 
-O código que se segue imprime informações sobre o tipo de imagem,&mdash;quer se trate de clip art ou de desenho de linha.
+O código que se segue imprime informações sobre o tipo de &mdash; imagem, quer se trate de clip art ou de desenho de linha.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_type)]
 
@@ -162,19 +162,19 @@ A Visão computorizada pode ler texto visível numa imagem e convertê-lo num fl
 
 ### <a name="call-the-read-api"></a>Ligue para a API read
 
-Em primeiro lugar, utilize o seguinte código para chamar o método **batch_read_file** para a imagem dada. Isto devolve um ID de operação e inicia um processo assíncrono para ler o conteúdo da imagem.
+Em primeiro lugar, utilize o seguinte código para chamar o método de **leitura** para a imagem dada. Isto devolve um ID de operação e inicia um processo assíncrono para ler o conteúdo da imagem.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_read_call)]
 
 ### <a name="get-read-results"></a>Obter resultados de leitura
 
-Em seguida, retire o ID de operação da **batch_read_file** chamada e use-o para consultar o serviço para obter resultados de operação. O código seguinte verifica a operação em intervalos de um segundo até que os resultados sejam devolvidos. Em seguida, imprime os dados de texto extraídos para a consola.
+Em seguida, retire o ID de operação da chamada de **leitura** e use-o para consultar o serviço para obter resultados de operação. O código seguinte verifica a operação em intervalos de um segundo até que os resultados sejam devolvidos. Em seguida, imprime os dados de texto extraídos para a consola.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_read_response)]
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Execute o `python` pedido com o comando no seu ficheiro de arranque rápido.
+Execute o pedido com o `python` comando no seu ficheiro de arranque rápido.
 
 ```console
 python quickstart-file.py

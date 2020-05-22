@@ -3,16 +3,16 @@ title: Ligar à Base de Dados Oracle
 description: Insira e gerea os registos com as APIs REST da Oracle Database e as Aplicações Lógicas Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 05/20/2020
 tags: connectors
-ms.openlocfilehash: fdbf7fd7dded2fc0026e5c819ca579eeddc5cdb6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5b4f016b53c6c42831d5f5ae08a30ec8ac176e6e
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82147803"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773377"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Começar com o conector Oracle Database
 
@@ -20,6 +20,13 @@ Utilizando o conector Oracle Database, cria fluxos de trabalho organizacionais q
 
 * Construa o seu fluxo de trabalho adicionando um novo cliente a uma base de dados de clientes ou atualizando uma encomenda numa base de dados de encomendas.
 * Use ações para obter uma linha de dados, insira uma nova linha e até mesmo eliminar. Por exemplo, quando um disco é criado no Dynamics CRM Online (um gatilho), em seguida, insira uma linha numa Base de Dados Oracle (uma ação). 
+
+Este conector não suporta os seguintes itens:
+
+* Vistas 
+* Qualquer mesa com chaves compostas
+* Tipos de objetos aninhados em tabelas
+* Funções de base de dados com valores não-escalar
 
 Este artigo mostra-lhe como usar o conector Oracle Database numa aplicação lógica.
 
@@ -60,19 +67,19 @@ Este artigo mostra-lhe como usar o conector Oracle Database numa aplicação ló
     ![](./media/connectors-create-api-oracledatabase/oracledb-actions.png)
 
     > [!TIP]
-    > Esta é também a forma mais rápida de ver os gatilhos e ações disponíveis para qualquer conector. Digite em parte do nome `oracle`do conector, tais como . O designer lista quaisquer gatilhos e quaisquer ações. 
+    > Esta é também a forma mais rápida de ver os gatilhos e ações disponíveis para qualquer conector. Digite em parte do nome do conector, tais como `oracle` . O designer lista quaisquer gatilhos e quaisquer ações. 
 
 5. Selecione uma das ações, como **oracle Database - Obtenha linha**. Selecione **Connect via gateway de dados no local**. Introduza o nome do servidor Oracle, método de autenticação, nome de utilizador, palavra-passe e selecione o gateway:
 
     ![](./media/connectors-create-api-oracledatabase/create-oracle-connection.png)
 
-6. Uma vez ligado, selecione uma tabela da lista e introduza a identificação da linha na sua mesa. Precisa de saber o identificador para a mesa. Se não souber, contacte o administrador da Oracle `select * from yourTableName`DB e obtenha a saída de . Isto dá-lhe a informação identificável que precisa de proceder.
+6. Uma vez ligado, selecione uma tabela da lista e introduza a identificação da linha na sua mesa. Precisa de saber o identificador para a mesa. Se não souber, contacte o administrador da Oracle DB e obtenha a saída de `select * from yourTableName` . Isto dá-lhe a informação identificável que precisa de proceder.
 
     No exemplo seguinte, os dados do emprego estão a ser devolvidos de uma base de dados de Recursos Humanos: 
 
     ![](./media/connectors-create-api-oracledatabase/table-rowid.png)
 
-7. Neste próximo passo, pode utilizar qualquer um dos outros conectores para construir o seu fluxo de trabalho. Se quiser testar a obtenção de dados da Oracle, envie um e-mail com os dados da Oracle utilizando um dos conectores de e-mail de envio, tal Office 365 Outlook. Use os tokens dinâmicos da `Subject` mesa `Body` Oracle para construir o e do seu e-mail:
+7. Neste próximo passo, pode utilizar qualquer um dos outros conectores para construir o seu fluxo de trabalho. Se quiser testar a obtenção de dados da Oracle, envie um e-mail com os dados da Oracle utilizando um dos conectores de e-mail de envio, tal Office 365 Outlook. Use os tokens dinâmicos da mesa Oracle para construir o `Subject` e `Body` do seu e-mail:
 
     ![](./media/connectors-create-api-oracledatabase/oracle-send-email.png)
 
@@ -81,11 +88,11 @@ Este artigo mostra-lhe como usar o conector Oracle Database numa aplicação ló
 
 ### <a name="workflow-ideas"></a>Ideias de fluxo de trabalho
 
-* Você quer monitorizar a hashtag #oracle, e colocar os tweets numa base de dados para que possam ser consultados, e usados dentro de outras aplicações. Numa aplicação lógica, `Twitter - When a new tweet is posted` adicione o gatilho e introduza a **hashtag #oracle.** Em seguida, `Oracle Database - Insert row` adicione a ação e selecione a sua tabela:
+* Você quer monitorizar a hashtag #oracle, e colocar os tweets numa base de dados para que possam ser consultados, e usados dentro de outras aplicações. Numa aplicação lógica, adicione o `Twitter - When a new tweet is posted` gatilho e introduza a **hashtag #oracle.** Em seguida, adicione a `Oracle Database - Insert row` ação e selecione a sua tabela:
 
     ![](./media/connectors-create-api-oracledatabase/twitter-oracledb.png)
 
-* As mensagens são enviadas para uma fila de autocarros de serviço. Queres receber estas mensagens e colocá-las numa base de dados. Numa aplicação lógica, `Service Bus - when a message is received in a queue` adicione o gatilho e selecione a fila. Em seguida, `Oracle Database - Insert row` adicione a ação e selecione a sua tabela:
+* As mensagens são enviadas para uma fila de autocarros de serviço. Queres receber estas mensagens e colocá-las numa base de dados. Numa aplicação lógica, adicione o `Service Bus - when a message is received in a queue` gatilho e selecione a fila. Em seguida, adicione a `Oracle Database - Insert row` ação e selecione a sua tabela:
 
     ![](./media/connectors-create-api-oracledatabase/sbqueue-oracledb.png)
 
@@ -108,12 +115,6 @@ Este artigo mostra-lhe como usar o conector Oracle Database numa aplicação ló
 **Causa:** A mesa não tem nenhuma chave primária.  
 
 **Resolução**: O conector Oracle Database requer a sua utilizada uma tabela com uma coluna principal de chaves.
-
-#### <a name="currently-not-supported"></a>Atualmente não suportado
-
-* Vistas 
-* Qualquer mesa com chaves compostas
-* Tipos de objetos aninhados em tabelas
  
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
@@ -123,7 +124,7 @@ Veja quaisquer gatilhos e ações definidas no swagger, e consulte também quais
 
 O [fórum de Aplicações Lógicas Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) é um ótimo local para fazer perguntas, responder a perguntas e ver o que outros utilizadores de Aplicações Lógicas estão a fazer. 
 
-Pode ajudar a melhorar as Aplicações lógicas e os [https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish)conectores votando e submetendo as suas ideias em . 
+Pode ajudar a melhorar as Aplicações lógicas e os conectores votando e submetendo as suas ideias em [https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish) . 
 
 
 ## <a name="next-steps"></a>Passos seguintes

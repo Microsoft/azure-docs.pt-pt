@@ -3,7 +3,7 @@ title: Limites de recursos - instância gerida
 description: Este artigo fornece uma visão geral dos limites de recursos de base de dados Azure SQL para instâncias geridas.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 02/25/2020
-ms.openlocfilehash: 49a9355d0e5653ac453493a1808ab95136410d19
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: d46746b03935ff5d7893d149b9eb744bb65293ed
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680479"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774230"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Visão geral Azure SQL Base de dados gerido limites de recursos de instância
 

@@ -4,12 +4,12 @@ description: O lote suporta a AD Azure para autenticação do serviço Batch. Ap
 ms.topic: how-to
 ms.date: 01/28/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: 3ed3db184174d0a383c5c1fbd85e69d9fef0da44
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 186de47b61c25485cec602cbc9bb208a795a7785
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726915"
+ms.locfileid: "83757594"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Soluções de serviço authenticate Batch com Diretório Ativo
 
@@ -413,11 +413,11 @@ Utilize as credenciais principais do serviço para abrir um objeto **BatchServic
 ```python
     batch_client = BatchServiceClient(
     credentials,
-    base_url=BATCH_ACCOUNT_URL
+    batch_url=BATCH_ACCOUNT_URL
 )
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para saber mais sobre o Azure AD, consulte a Documentação de [Diretório Ativo Azure.](https://docs.microsoft.com/azure/active-directory/) Exemplos aprofundados que mostram como utilizar o ADAL estão disponíveis na biblioteca De amostras de [código azul.](https://azure.microsoft.com/resources/samples/?service=active-directory)
 

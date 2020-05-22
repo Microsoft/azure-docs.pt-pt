@@ -3,7 +3,7 @@ title: Configure P2S - Instância gerida
 description: Ligue-se a uma instância gerida pela Base de Dados Azure SQL utilizando o Estúdio de Gestão de Servidores SQL utilizando uma ligação ponto-a-local a partir de um computador cliente no local.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova, jovanpop
 ms.date: 03/13/2019
-ms.openlocfilehash: 30b2ba92174996ea2bae34e7553a3258d8ebee27
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 434b3d46d19138b494c9e29add3affb2eecc9c45
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79268889"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773741"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>Quickstart: Configure uma ligação ponto-a-local a uma base de dados Azure SQL Gerida a partir do local
 
@@ -54,7 +54,7 @@ Este guia de início rápido:
      Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/attachVPNGateway.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters, $scriptUrlBase
      ```
 
-3. Repasse o script na janela PowerShell e forneça os parâmetros necessários. Os valores para, `<subscriptionId>` `<resourceGroup>`e `<virtualNetworkName>` devem coincidir com os que usou para o arranque rápido da Create [Managed Instance.](sql-database-managed-instance-get-started.md) O valor `<certificateNamePrefix>` para pode ser uma sequência da sua escolha.
+3. Repasse o script na janela PowerShell e forneça os parâmetros necessários. Os valores `<subscriptionId>` `<resourceGroup>` para, e devem coincidir com os que usou para o arranque rápido da Create `<virtualNetworkName>` [Managed Instance.](sql-database-managed-instance-get-started.md) O valor para `<certificateNamePrefix>` pode ser uma sequência da sua escolha.
 
 4. Execute o script PowerShell.
 

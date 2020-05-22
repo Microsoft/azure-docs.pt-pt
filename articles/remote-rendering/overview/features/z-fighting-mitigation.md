@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
-ms.openlocfilehash: bc06deafe3f589fce9a9178fefdb22388254929d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 69774c0014aac26c7266620bbe7d06ba37d6023b
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80680456"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758814"
 ---
 # <a name="z-fighting-mitigation"></a>Mitigação de combate Z
 
@@ -26,7 +26,7 @@ Quando duas superfícies se sobrepõem, não é claro qual deve ser renderizado 
 
 O seguinte código permite a mitigação do combate ao z:
 
-``` cs
+```cs
 void EnableZFightingMitigation(AzureSession session, bool highlight)
 {
     ZFightingMitigationSettings settings = session.Actions.ZFightingMitigationSettings;
@@ -38,6 +38,20 @@ void EnableZFightingMitigation(AzureSession session, bool highlight)
     settings.Highlighting = highlight;
 }
 ```
+
+```cpp
+void EnableZFightingMitigation(ApiHandle<AzureSession> session, bool highlight)
+{
+    ApiHandle<ZFightingMitigationSettings> settings = *session->Actions()->ZFightingMitigationSettings();
+
+    // enabling z-fighting mitigation
+    settings->Enabled(true);
+
+    // enabling checkerboard highlighting of z-fighting potential
+    settings->Highlighting(highlight);
+}
+```
+
 
 > [!NOTE]
 > A mitigação do combate ao Z é um cenário global que afeta todas as malhas renderizadas.

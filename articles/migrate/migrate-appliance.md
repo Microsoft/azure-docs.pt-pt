@@ -3,12 +3,12 @@ title: Aplicação do Azure Migrate
 description: Fornece uma visão geral do aparelho Azure Migrate utilizado na avaliação e migração do servidor.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: bd5686b30b07c0f7fb8961f8d1f71035cb2688a4
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 98398510acb1eec29ea603d869f1e9ec383cb210
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656423"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758950"
 ---
 # <a name="azure-migrate-appliance"></a>Aplicação do Azure Migrate
 
@@ -105,7 +105,7 @@ O aparelho Azure Migrate precisa de conectividade com a internet.
 *.microsoftonline.com <br/> *.microsoftonline-p.com | Crie aplicativos azure Ative Directory (AD) para que o aparelho se comunique com a Azure Migrate.
 management.azure.com | Crie aplicativos Azure AD para o aparelho comunicar com o serviço Azure Migrate.
 *.services.visualstudio.com | Faça upload dos registos de aplicativos utilizados para monitorização interna.
-*.vault.azure.net | Gerencie segredos no Cofre de Chaves Azure.
+*.vault.azure.net | Gerencie segredos no Cofre de Chaves Azure. Nota: Certifique-se de que as máquinas a replicar têm acesso a isto.
 aka.ms/* | Permitir o acesso a links aka. Utilizado para atualizações de aparelhos Azure Migrate.
 download.microsoft.com/download | Permitir transferências a partir do download da Microsoft.
 *.servicebus.windows.net | Comunicação entre o aparelho e o serviço Azure Migrate.
@@ -440,12 +440,12 @@ Para verificar no Painel de Controlo:
 Se estiver a executar uma versão mais antiga para qualquer um dos componentes, tem de desinstalar o serviço e atualizar manualmente para a versão mais recente.
 
 1. Para verificar as versões mais recentes do serviço de eletrodomésticos, [descarregue](https://aka.ms/latestapplianceservices) o ficheiro LatestComponents.json.
-2.  Depois de descarregar, abra o ficheiro LatestComponents.json no Bloco de Notas.
+2.    Depois de descarregar, abra o ficheiro LatestComponents.json no Bloco de Notas.
 3. Encontre a versão de serviço mais recente no ficheiro e o link de descarregamento para o mesmo. Por exemplo:
 
     "Nome": "ASRMigrationWebApp", "DownloadLink": " https://download.microsoft.com/download/f/3/4/f34b2eb9-cc8d-4978-9ffb-17321ad9b7ed/MicrosoftAzureApplianceConfigurationManager.msi " versão": "6.0.211.2", "Md5Hash": "e00a742acc35e78a64a6a81e75469b84"
 
-4.  Descarregue a versão mais recente de um serviço desatualizado, utilizando o link de descarregamento no ficheiro.
+4.    Descarregue a versão mais recente de um serviço desatualizado, utilizando o link de descarregamento no ficheiro.
 5. Depois de descarregar, faça o seguinte comando numa janela de comando de administrador, para verificar a integridade do MSI descarregado.
 
     ``` C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm] ```Por exemplo: C: \> CertUtil -HashFile C:\Utilizadores\public\downloads\MicrosoftAzureApplianceConfigurationManager.MSI MD5

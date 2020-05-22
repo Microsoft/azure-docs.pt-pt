@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 91a59e1398bf5e68799ad16a20dfb824904edc8a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 509375459d019ead5a7992b808044a75e2666393
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80681691"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758865"
 ---
 # <a name="remote-rendering-sessions"></a>Sessões do Remote Rendering
 
@@ -24,7 +24,7 @@ Isto significa que, quando utilizar a Renderização Remota Azure, um servidor d
 
 ## <a name="managing-sessions"></a>Gestão de sessões
 
-Existem várias formas de gerir e interagir com as sessões. A forma independente de criar, atualizar e encerrar sessões é através [da gestão da sessão REST API.](../how-tos/session-rest-api.md) Em C# e C++, estas operações são expostas através das classes `AzureFrontend` e `AzureSession`. Para aplicações de Unidade, existem outras funções de utilidade fornecidas pelo `ARRServiceUnity` componente.
+Existem várias formas de gerir e interagir com as sessões. A forma independente de criar, atualizar e encerrar sessões é através [da gestão da sessão REST API.](../how-tos/session-rest-api.md) Em C# e C++, estas operações são expostas através das classes `AzureFrontend` e `AzureSession` . Para aplicações de Unidade, existem outras funções de utilidade fornecidas pelo `ARRServiceUnity` componente.
 
 Uma vez *ligado* a uma sessão ativa, operações como [carregar modelos](models.md) e interagir com a cena são expostas através da `AzureSession` classe.
 
@@ -82,7 +82,7 @@ Pode [prolongar o tempo](../how-tos/session-rest-api.md#update-a-session) de arr
 
 O código abaixo mostra uma simples implementação de iniciar uma sessão, à espera do estado *pronto,* conectando-se e, em seguida, desligar e desligar novamente.
 
-``` cs
+```cs
 RemoteRenderingInitialization init = new RemoteRenderingInitialization();
 // fill out RemoteRenderingInitialization parameters...
 
@@ -136,13 +136,13 @@ await session.StopAsync().AsTask();
 RemoteManagerStatic.ShutdownRemoteRendering();
 ```
 
-`AzureFrontend` Várias `AzureSession` e instâncias podem ser mantidas, manipuladas e consultadas a partir do código. Mas apenas um único `AzureSession` dispositivo pode ligar-se a um de cada vez.
+Várias `AzureFrontend` e `AzureSession` instâncias podem ser mantidas, manipuladas e consultadas a partir do código. Mas apenas um único dispositivo pode ligar-se a um de `AzureSession` cada vez.
 
-A vida de uma máquina virtual `AzureFrontend` não está `AzureSession` ligada à instância ou à instância. `AzureSession.StopAsync`deve ser chamado para parar uma sessão.
+A vida de uma máquina virtual não está ligada à `AzureFrontend` instância ou à `AzureSession` instância. `AzureSession.StopAsync`deve ser chamado para parar uma sessão.
 
-O ID de sessão persistente `AzureSession.SessionUUID()` pode ser consultado via e cached localmente. Com este ID, um `AzureFrontend.OpenSession` pedido pode ligar-se a essa sessão.
+O ID de sessão persistente pode ser consultado via `AzureSession.SessionUUID()` e cached localmente. Com este ID, um pedido pode `AzureFrontend.OpenSession` ligar-se a essa sessão.
 
-Quando `AzureSession.IsConnected` é `AzureSession.Actions` verdade, devolve `RemoteManager`uma instância de , que contém as funções de [carregar modelos](models.md), manipular [entidades](entities.md), e [consultar informações](../overview/features/spatial-queries.md) sobre a cena renderizada.
+Quando `AzureSession.IsConnected` é verdade, `AzureSession.Actions` devolve uma instância de , que contém as `RemoteManager` funções de carregar [modelos](models.md), manipular [entidades](entities.md), e [consultar informações](../overview/features/spatial-queries.md) sobre a cena renderizada.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b92d833e6f32821ad907ff966771bbba8bbb77ce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 54ec1392dab19491ba8c041d0342f0fe82e671fe
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80755182"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758202"
 ---
 # <a name="conditional-access-require-mfa-for-azure-management"></a>Acesso Condicional: Exigir MFA para gestão do Azure
 
@@ -39,19 +39,19 @@ As políticas de Acesso Condicional são ferramentas poderosas, recomendamos exc
 
 ## <a name="create-a-conditional-access-policy"></a>Criar uma política de acesso condicional
 
-Os seguintes passos ajudarão a criar uma política de acesso condicional para exigir que as funções administrativas atribuídas realizem a autenticação de vários fatores.
+Os seguintes passos ajudarão a criar uma política de Acesso Condicional para exigir que aqueles com acesso à aplicação [Microsoft Azure Management](concept-conditional-access-cloud-apps.md#microsoft-azure-management) realizem a autenticação de vários fatores.
 
 1. Inscreva-se no **portal Azure** como administrador global, administrador de segurança ou administrador de Acesso Condicional.
-1. Navegue até ao**Acesso Condicional**de**Segurança** >  **do Diretório** > Ativo do Azure.
+1. Navegue até ao Acesso Condicional de Segurança **do Diretório Ativo do Azure.**  >  **Security**  >  **Conditional Access**
 1. Selecione **Nova política.**
 1. Dê um nome à sua apólice. Recomendamos que as organizações criem um padrão significativo para os nomes das suas políticas.
 1. Em **Atribuições**, selecione **Utilizadores e grupos**
    1. Em **Incluir,** selecione **Todos os utilizadores**.
    1. Em **Excluir,** selecione **Utilizadores e grupos** e escolha as contas de acesso de emergência ou de vidro de emergência da sua organização. 
    1. Selecione **Done** (Concluído).
-1. Em **aplicações ou ações** > cloud**Inclua**, **selecione aplicações, escolha**a Microsoft **Azure Management**, e selecione **Select** then **Done**.
-1. Em **condições,** > **as aplicações do Cliente (Pré-visualização)**, definir **Configurar** para **Sim,** e selecionar **Feito**.
-1. Sob **controlos** > de acesso**Grant**, selecione Acesso **ao Grant,** **exija a autenticação de vários fatores,** e selecione **Select**.
+1. Em **aplicações ou ações cloud**  >  **Inclua**, **selecione aplicações, escolha**a Microsoft **Azure Management**, e selecione **Select** then **Done**.
+1. Em **condições,**  >  **as aplicações do Cliente (Pré-visualização)**, definir **Configurar** para **Sim,** e selecionar **Feito**.
+1. Sob **controlos de acesso**  >  **Grant**, selecione Acesso ao **Grant,** **exija a autenticação de vários fatores,** e selecione **Select**.
 1. Confirme as suas definições e ajuste **a política de ativação** para **On**.
 1. Selecione **Criar** para criar para ativar a sua política.
 

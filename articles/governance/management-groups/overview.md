@@ -3,12 +3,12 @@ title: Organize os seus recursos com grupos de gestão - Azure Governance
 description: Saiba mais sobre os grupos de gestão, como as permissões destes funcionam e como utilizá-los.
 ms.date: 04/15/2020
 ms.topic: overview
-ms.openlocfilehash: cc60e4555f0fb2b920b8061fb044ce5dde990d38
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 43c8bb2bdb71b0b75d2fcc31451952214978093c
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81381544"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773156"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizar recursos com os grupos de gestão do Azure
 
@@ -143,7 +143,7 @@ Utilize o ID do grupo de gestão e não o nome de exibição do grupo de gestão
 
 ### <a name="issues-with-breaking-the-role-definition-and-assignment-hierarchy-path"></a>Questões com quebrar a definição de papel e o caminho da hierarquia de atribuição
 
-As definições de papéis são de âmbito atribuível em qualquer lugar da hierarquia do grupo de gestão. Uma definição de função pode ser definida num grupo de gestão dos pais enquanto a atribuição de funções real existe na subscrição da criança. Uma vez que existe uma relação entre os dois itens, receberá um erro ao tentar separar a atribuição da sua definição.
+As definições de papéis são de âmbito atribuível em qualquer lugar da hierarquia do grupo de gestão. Uma definição de função pode ser definida num grupo de gestão dos pais enquanto a atribuição de funções real existe na subscrição da criança. Como há uma relação entre os dois itens, receberá um erro ao tentar separar a atribuição da sua definição.
 
 Por exemplo, vamos olhar para uma pequena secção de uma hierarquia para um visual.
 
@@ -154,7 +154,7 @@ Digamos que há um papel personalizado definido no grupo de gestão de Marketing
 Se tentarmos mover uma dessas subscrições para ser uma criança do grupo de gestão de produção, este movimento quebraria o caminho desde a atribuição de funções de subscrição até à definição de papel de grupo de gestão de Marketing. Neste cenário, receberá um erro dizendo que a mudança não é permitida, uma vez que vai quebrar esta relação.  
 
 Existem algumas opções diferentes para corrigir este cenário:
-- Remova a atribuição de funções da subscrição antes de passar a subscrição para um novo MG-mãe.
+- Retire a atribuição de funções da subscrição antes de passar a subscrição para um novo MG-mãe.
 - Adicione a subscrição ao âmbito designado pela Definição de Funções.
 - Alterar o âmbito atribuível dentro da definição de função. No exemplo acima, pode atualizar os âmbitos atribuíveis do Marketing ao Root Management Group para que a definição possa ser alcançada por ambos os ramos da hierarquia.  
 - Crie um Papel Personalizado adicional que será definido no outro ramo. Esta nova função exigirá que a atribuição de funções seja alterada na subscrição também.  
@@ -163,13 +163,14 @@ Existem algumas opções diferentes para corrigir este cenário:
 
 Existem limitações que existem quando se utilizam funções personalizadas em grupos de gestão. 
 
- - Só é possível definir um grupo de gestão nos âmbitos atribuíveis de um novo papel. Esta limitação está em vigor para reduzir o número de situações em que as definições de papéis e as atribuições de papéis são desligadas. Isto acontece quando uma subscrição ou grupo de gestão com uma atribuição de funções é movido para um pai diferente que não tem a definição de papel.  
- - As ações do RBAC Data Plane não são permitidas para serem definidas em funções personalizadas do grupo de gestão. Esta restrição está em vigor, uma vez que existe um problema de latência com as ações do RBAC que atualizam os fornecedores de recursos de aviões de dados. Esta questão da latência está a ser trabalhada e estas ações serão desativadas da definição de funções para reduzir quaisquer riscos.
- - O Gestor de Recursos Azure não valida a existência do grupo de gestão no âmbito de atribuição da definição de funções. Se houver um erro ou um ID de grupo de gestão incorreto listado, a definição de função continuará a ser criada.  
+ - Só é possível definir um grupo de gestão nos âmbitos atribuíveis de um novo papel. Esta limitação está em vigor para reduzir o número de situações em que as definições de papéis e as atribuições de papéis são desligadas. Esta situação acontece quando uma subscrição ou grupo de gestão com uma atribuição de funções é transferida para um pai diferente que não tem a definição de papel.  
+ - As ações do RBAC Data Plane não podem ser definidas em funções personalizadas do grupo de gestão. Esta restrição está em vigor, uma vez que há um problema de latência com as ações do RBAC que atualizam os fornecedores de recursos de avião de dados.
+   Esta questão da latência está a ser trabalhada e estas ações serão desativadas da definição de funções para reduzir quaisquer riscos.
+ - O Gestor de Recursos Azure não valida a existência do grupo de gestão no âmbito de atribuição da definição de funções. Se houver um erro ou um ID de grupo de gestão incorreto listado, a definição de função ainda será criada.  
 
 ## <a name="moving-management-groups-and-subscriptions"></a>Grupos de gestão em movimento e subscrições 
 
-Para um grupo de gestão ou subscrição para ser filho de outro grupo de gestão, três regras devem ser avaliadas como verdadeiras.
+Para mover um grupo de gestão ou subscrição para ser filho de outro grupo de gestão, três regras precisam de ser avaliadas como verdadeiras.
 
 Se estás a fazer a ação, precisas de: 
 

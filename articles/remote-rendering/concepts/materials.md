@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1a45dc39f5a0795684aba278391e04f6af3f7b55
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 2bc356060bacd1c04ecb3d3dd10b8322ae40b8ba
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659679"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758678"
 ---
 # <a name="materials"></a>Materiais
 
@@ -43,7 +43,7 @@ Durante a conversão, vários materiais com as mesmas propriedades e texturas s�
 
 Todos os materiais fornecidos pela API derivam da classe `Material` base. O seu tipo pode ser consultado através `Material.MaterialSubType` ou lançando-os diretamente:
 
-``` cs
+```cs
 void SetMaterialColorToGreen(Material material)
 {
     if (material.MaterialSubType == MaterialType.Color)
@@ -54,14 +54,33 @@ void SetMaterialColorToGreen(Material material)
     }
 
     PbrMaterial pbrMat = material as PbrMaterial;
-    if( pbrMat!= null )
+    if (pbrMat != null)
     {
-        PbrMaterial pbrMaterial = material.PbrMaterial.Value;
-        pbrMaterial.AlbedoColor = new Color4(0, 1, 0, 1);
+        pbrMat.AlbedoColor = new Color4(0, 1, 0, 1);
         return;
     }
 }
 ```
+
+```cpp
+void SetMaterialColorToGreen(ApiHandle<Material> material)
+{
+    if (*material->MaterialSubType() == MaterialType::Color)
+    {
+        ApiHandle<ColorMaterial> colorMaterial = material.as<ColorMaterial>();
+        colorMaterial->AlbedoColor({ 0, 1, 0, 1 });
+        return;
+    }
+
+    if (*material->MaterialSubType() == MaterialType::Pbr)
+    {
+        ApiHandle<PbrMaterial> pbrMat = material.as<PbrMaterial>();
+        pbrMat->AlbedoColor({ 0, 1, 0, 1 });
+        return;
+    }
+}
+```
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

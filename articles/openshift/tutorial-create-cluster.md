@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: 78ec45f5e6c354644e4303db53f276343225eff9
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 86e1bc088c3e4327fbd0b9ad4a05e7c42c3fb776
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858826"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773496"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Tutorial: Criar um cluster OpenShift 4 do chapéu vermelho azure
 
@@ -24,10 +24,20 @@ Neste tutorial, parte um de três, você vai preparar o seu ambiente para criar 
 
 Se optar por instalar e utilizar o CLI localmente, este tutorial requer que esteja a executar a versão Azure CLI 2.0.75 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-### <a name="install-the-az-aro-extension"></a>Instalar `az aro` a extensão
+### <a name="verify-your-permissions"></a>Verificar as permissões
+
+Para criar um cluster OpenShift de chapéu vermelho Azure, verifique as seguintes permissões na sua conta Azure e no utilizador:
+
+[!div class="mx-tdBreakAll"]
+|Permissões|Grupo de Recursos que contém o VNet|Execução do utilizador`az aro create`|Diretor de serviço passou como`–client-id`|
+|----|:----:|:----:|:----:|
+|**Administrador de Acesso do Utilizador**|X|X| |
+|**Contribuinte**|X|X|X|
+
+### <a name="install-the-az-aro-extension"></a>Instalar a `az aro` extensão
 A `az aro` extensão permite-lhe criar, aceder e eliminar os clusters OpenShift do Chapéu Vermelho Azure diretamente da linha de comando utilizando o Azure CLI.
 
-Executar o seguinte comando `az aro` para instalar a extensão.
+Executar o seguinte comando para instalar a `az aro` extensão.
 
 ```azurecli-interactive
 az extension add -n aro --index https://az.aroapp.io/stable
@@ -41,7 +51,7 @@ az extension update -n aro --index https://az.aroapp.io/stable
 
 ### <a name="register-the-resource-provider"></a>Registar o fornecedor de recursos
 
-Em seguida, precisa `Microsoft.RedHatOpenShift` de registar o fornecedor de recursos na sua subscrição.
+Em seguida, precisa de registar o fornecedor de `Microsoft.RedHatOpenShift` recursos na sua subscrição.
 
 ```azurecli-interactive
 az provider register -n Microsoft.RedHatOpenShift --wait
@@ -72,9 +82,9 @@ Um segredo de pull Red Hat permite ao seu cluster aceder aos registos de content
 
 2. **Clique em Baixar segredo de puxar.**
 
-Mantenha o `pull-secret.txt` ficheiro guardado em algum lugar seguro - será usado em cada criação de cluster.
+Mantenha o ficheiro guardado `pull-secret.txt` em algum lugar seguro - será usado em cada criação de cluster.
 
-Ao executar `az aro create` o comando, pode fazer `--pull-secret @pull-secret.txt` referência ao seu segredo de puxar usando o parâmetro. Execute `az aro create` a partir do diretório `pull-secret.txt` onde guardou o seu ficheiro. Caso contrário, `@pull-secret.txt` `@<path-to-my-pull-secret-file>`substitua-o por .
+Ao executar o comando, pode fazer referência ao `az aro create` seu segredo de puxar usando o `--pull-secret @pull-secret.txt` parâmetro. Execute `az aro create` a partir do diretório onde guardou o seu `pull-secret.txt` ficheiro. Caso contrário, `@pull-secret.txt` substitua-o por `@<path-to-my-pull-secret-file>` .
 
 Se estiver a copiar o seu segredo de puxar ou a referenciar noutros scripts, o seu segredo de puxar deve ser formatado como uma corda JSON válida.
 
@@ -196,12 +206,12 @@ az aro create \
   # --pull-secret @pull-secret.txt # [OPTIONAL]
 ```
 
-Depois de `az aro create` executar o comando, normalmente leva cerca de 35 minutos para criar um cluster.
+Depois de executar o `az aro create` comando, normalmente leva cerca de 35 minutos para criar um cluster.
 
 >[!IMPORTANT]
-> Se optar por especificar um domínio personalizado, por **exemplo, foo.example.com,** a `https://console-openshift-console.apps.foo.example.com`consola OpenShift estará disponível num URL como, em vez do domínio `https://console-openshift-console.apps.<random>.<location>.aroapp.io`incorporado.
+> Se optar por especificar um domínio personalizado, por **exemplo, foo.example.com,** a consola OpenShift estará disponível num URL `https://console-openshift-console.apps.foo.example.com` como, em vez do domínio `https://console-openshift-console.apps.<random>.<location>.aroapp.io` incorporado.
 >
-> Por predefinição, a OpenShift utiliza certificados auto-assinados para todas as rotas criadas em `*.apps.<random>.<location>.aroapp.io`.  Se optar por utilizar DNS personalizados após a ligação ao cluster, terá de seguir a documentação OpenShift para [configurar um CA personalizado para o seu controlador](https://docs.openshift.com/container-platform/4.3/authentication/certificates/replacing-default-ingress-certificate.html) de entrada e um CA personalizado para o seu servidor [API](https://docs.openshift.com/container-platform/4.3/authentication/certificates/api-server.html).
+> Por predefinição, a OpenShift utiliza certificados auto-assinados para todas as rotas criadas em `*.apps.<random>.<location>.aroapp.io` .  Se optar por utilizar DNS personalizados após a ligação ao cluster, terá de seguir a documentação OpenShift para [configurar um CA personalizado para o seu controlador](https://docs.openshift.com/container-platform/4.3/authentication/certificates/replacing-default-ingress-certificate.html) de entrada e um CA personalizado para o seu servidor [API](https://docs.openshift.com/container-platform/4.3/authentication/certificates/api-server.html).
 >
 
 ## <a name="next-steps"></a>Passos seguintes

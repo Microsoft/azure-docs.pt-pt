@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 05/21/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: ea289dbdf22f76c8ea716acf87b0b1a2da6ef0f9
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 6e6be4cd0f8053d356183a75c5a012dee0bd8c68
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196596"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83771320"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerir o uso e os custos com registos do Monitor Azure
 
@@ -92,14 +92,20 @@ Também pode [definir o nível](https://docs.microsoft.com/azure/azure-monitor/p
 
 ## <a name="legacy-pricing-tiers"></a>Níveis de preços legados
 
-As subscrições que tenham um recurso Log Analytics ou Application Insights nele antes de 2 de abril de 2018, ou estão ligadas a um Acordo de Empresa iniciado antes de 1 de fevereiro de 2019, continuarão a ter acesso à utilização dos níveis de preços legados: **Free,** **Standalone (Per GB)** e **Per Node (OMS)**.  Os espaços de trabalho no nível de preços gratuitos terão uma ingestão diária de dados limitada a 500 MB (exceto os tipos de dados de segurança recolhidos pelo Azure Security Center) e a retenção de dados é limitada a 7 dias. O nível de preços gratuitos destina-se apenas a fins de avaliação. Os espaços de trabalho nos níveis de preços Autónomos ou Por Nó têm retenção configurável pelo utilizador de 30 a 730 dias.
+As subscrições que tenham um recurso Log Analytics ou Application Insights nele antes de 2 de abril de 2018, ou estão ligadas a um Acordo de Empresa iniciado antes de 1 de fevereiro de 2019, continuarão a ter acesso à utilização dos níveis de preços legados: **Free,** **Standalone (Per GB)** e **Per Node (OMS)**.  Os espaços de trabalho no nível de preços gratuitos terão uma ingestão diária de dados limitada a 500 MB (com exceção dos tipos de dados de segurança recolhidos pelo [Azure Security Center)](https://docs.microsoft.com/azure/security-center/)e a retenção de dados é limitada a 7 dias. O nível de preços gratuitos destina-se apenas a fins de avaliação. Os espaços de trabalho nos níveis de preços Autónomos ou Por Nó têm retenção configurável pelo utilizador de 30 a 730 dias.
 
 O nível de preços Per Nó por VM monitorizado (nó) numa hora de granularidade. Para cada nó monitorizado, o espaço de trabalho é atribuído 500 MB de dados por dia que não são faturados. Esta dotação é agregada a nível do espaço de trabalho. Os dados ingeridos acima da alocação diária de dados agregados são faturados por GB como excesso de dados. Note que na sua conta, o serviço será **Insight e Analytics** para o uso de Log Analytics se o espaço de trabalho estiver no nível de preços Per Nó. 
 
 > [!TIP]
 > Se o seu espaço de trabalho tiver acesso ao nível de preços **Per Node,** mas está a pensar se custaria menos num nível Pay-As-You-Go, pode [usar a consulta abaixo](#evaluating-the-legacy-per-node-pricing-tier) para obter facilmente uma recomendação. 
 
-Os espaços de trabalho criados antes de abril de 2016 também podem aceder aos níveis de preços **Standard** e **Premium** originais que têm uma retenção fixa de dados de 30 e 365 dias, respectivamente. Não podem ser criados novos espaços de trabalho nos níveis de preços **Standard** ou **Premium,** e se um espaço de trabalho for deslocado para fora destes níveis, não poderá ser transferido para trás. 
+Os espaços de trabalho criados antes de abril de 2016 também podem aceder aos níveis de preços **Standard** e **Premium** originais que têm uma retenção fixa de dados de 30 e 365 dias, respectivamente. Não podem ser criados novos espaços de trabalho nos níveis de preços **Standard** ou **Premium,** e se um espaço de trabalho for deslocado para fora destes níveis, não poderá ser transferido para trás.
+
+Existem também alguns comportamentos entre o uso de camadas de Log Analytics legados e como o uso é faturado para [o Azure Security Center](https://docs.microsoft.com/azure/security-center/). 
+
+1. Se o espaço de trabalho estiver no nível Standard ou Premium, o Azure Security Center será cobrado apenas para ingestão de dados de Log Analytics, e não por nó.
+2. Se o espaço de trabalho estiver no nível per nó, o Azure Security Center será faturado usando o atual modelo de preços baseado no nó do [Azure Security Center.](https://azure.microsoft.com/pricing/details/security-center/) 
+3. Em outros níveis de preços (incluindo Reservas de Capacidade), se o Azure Security Center foi ativado antes de 19 de junho de 2017, o Azure Security Center será cobrado apenas para ingestão de dados do Log Analytics. Caso contrário, o Azure Security Center será faturado utilizando o atual modelo de preços baseado no nó do Azure Security Center.
 
 Mais detalhes sobre as limitações do nível de preços estão disponíveis [aqui.](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#log-analytics-workspaces)
 
@@ -125,7 +131,7 @@ Quando a retenção é reduzida, há um período de carência de vários dias an
 A retenção também pode ser definida através do Gestor de [Recursos Azure](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) utilizando o `retentionInDays` parâmetro. Além disso, se definir a retenção de dados para 30 dias, pode desencadear uma purga imediata de dados mais antigos usando o parâmetro, o `immediatePurgeDataOn30Days` que pode ser útil para cenários relacionados com conformidade. Esta funcionalidade só é exposta através do Gestor de Recursos Azure. 
 
 
-Dois tipos de dados `Usage` `AzureActivity` e.são retidos por 90 dias por padrão, e não há nenhum custo para esta retenção de 90 dias. Estes tipos de dados também estão isentos de taxas de ingestão de dados. 
+Dois tipos de `Usage` dados- e `AzureActivity` -- são retidos por um mínimo de 90 dias por padrão, e não há nenhum custo para esta retenção de 90 dias. Se a retenção do espaço de trabalho for aumentada acima dos 90 dias, a retenção destes tipos de dados também será aumentada.  Estes tipos de dados também estão isentos de taxas de ingestão de dados. 
 
 Os tipos de dados dos recursos de Aplicação Insights baseados no espaço de trabalho , , , , `AppAvailabilityResults` `AppBrowserTimings` , e também `AppDependencies` são `AppExceptions` `AppEvents` `AppMetrics` `AppPageViews` `AppPerformanceCounters` `AppRequests` `AppSystemEvents` `AppTraces` retidos por 90 dias por padrão, e não há qualquer custo para esta retenção de 90 dias. A sua retenção pode ser ajustada utilizando a retenção através da funcionalidade do tipo de dados. 
 

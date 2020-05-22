@@ -10,14 +10,14 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
-ms.openlocfilehash: a8136f8fe6431187884a180925234d6aab36983f
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: f880f189b19b4909268b6e0b24654fc4682ab7c8
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725521"
+ms.locfileid: "83759188"
 ---
-# <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Tutorial: Criar um projeto de rotulagem para classificação de imagem multi-classe 
+# <a name="tutorial-create-a-labeling-project-preview-for-multi-class-image-classification"></a>Tutorial: Criar um projeto de rotulagem (pré-visualização) para classificação de imagem multi-classe 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Este tutorial mostra-lhe como gerir o processo de rotulagem (também designado por marcação) imagens a serem usadas como dados para a construção de modelos de aprendizagem automática. A rotulagem de dados em Azure Machine Learning está em pré-visualização pública.
@@ -201,7 +201,7 @@ As etiquetas de imagem podem ser exportadas em [formato COCO](http://cocodataset
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, rotulou as imagens.  Agora use os seus dados rotulados:
 

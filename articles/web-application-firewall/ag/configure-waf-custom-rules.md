@@ -1,19 +1,19 @@
 ---
 title: Configure as regras personalizadas v2 usando powerShell
 titleSuffix: Azure Web Application Firewall
-description: Saiba como configurar as regras personalizadas WAF v2 usando o Azure PowerShell. Pode criar as suas próprias regras avaliadas para cada pedido que passa pela firewall.
+description: Saiba como configurar as regras personalizadas do Web Application Firewall (WAF) v2 utilizando o Azure PowerShell. Pode criar as suas próprias regras avaliadas para cada pedido que passa pela firewall.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
-ms.date: 11/16/2019
+ms.date: 05/21/2020
 ms.author: victorh
-ms.openlocfilehash: 4c50c4ce344a51a70f6849beb7c5d9d18a2b401d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2572e30c02552859eb5c61915a9ef524c0c6cc70
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77471640"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758967"
 ---
 # <a name="configure-web-application-firewall-v2-on-application-gateway-with-a-custom-rule-using-azure-powershell"></a>Configure firewall v2 de aplicação web no Gateway de aplicações com uma regra personalizada usando O PowerShell Azure
 
@@ -34,7 +34,7 @@ Se quiser executar o Azure PowerShell neste artigo num script contínuo que pode
 Se optar por instalar e utilizar o Azure PowerShell localmente, este script requer a versão 2.1.0 ou mais tarde do módulo PowerShell.
 
 1. Para localizar a versão, execute `Get-Module -ListAvailable Az`. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps).
-2. Para criar uma ligação `Connect-AzAccount`com o Azure, corra.
+2. Para criar uma ligação com o Azure, `Connect-AzAccount` corra.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -136,6 +136,19 @@ $appgw = New-AzApplicationGateway -Name $appgwName -ResourceGroupName $rgname `
   -RequestRoutingRules $rule01 -Sku $sku -AutoscaleConfiguration $autoscaleConfig `
   -WebApplicationFirewallConfig $wafConfig `
   -FirewallPolicy $wafPolicy
+```
+
+## <a name="update-your-waf"></a>Atualize o seu WAF
+
+Depois de criar o seu WAF, pode atualizá-lo utilizando um procedimento semelhante ao seguinte código:
+
+```azurepowershell
+# Get the existing policy
+$policy = Get-AzApplicationGatewayFirewallPolicy -Name $policyName -ResourceGroupName $RGname
+# Add an existing rule named $rule
+$policy.CustomRules.Add($rule)
+# Update the policy
+Set-AzApplicationGatewayFirewallPolicy -InputObject $policy
 ```
 
 ## <a name="next-steps"></a>Passos seguintes

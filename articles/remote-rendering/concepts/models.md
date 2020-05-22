@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5d737b1e85a28661a7491b8d2822e6472538c7a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7832f999de2f6f16cfe816c061925e371f90662e
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617954"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758695"
 ---
 # <a name="models"></a>Modelos
 
@@ -36,8 +36,8 @@ Uma vez convertido um modelo, pode ser carregado do armazenamento de blob Azure 
 
 Existem duas funções de carregamento distintas que diferem pela forma como o ativo é abordado no armazenamento de blob:
 
-* O modelo pode ser abordado pelo seu SAS URI. A função `LoadModelFromSASAsync` de `LoadModelFromSASParams`carga relevante é com parâmetro . Utilize esta variante também ao carregar [modelos incorporados.](../samples/sample-model.md)
-* O modelo pode ser abordado diretamente por parâmetros de armazenamento de bolhas, caso o [armazenamento de blob esteja ligado à conta](../how-tos/create-an-account.md#link-storage-accounts). A função de `LoadModelAsync` carga relevante `LoadModelParams`neste caso é com parâmetro .
+* O modelo pode ser abordado pelo seu SAS URI. A função de carga relevante é `LoadModelFromSASAsync` com parâmetro `LoadModelFromSASParams` . Utilize esta variante também ao carregar [modelos incorporados.](../samples/sample-model.md)
+* O modelo pode ser abordado diretamente por parâmetros de armazenamento de bolhas, caso o [armazenamento de blob esteja ligado à conta](../how-tos/create-an-account.md#link-storage-accounts). A função de carga relevante neste caso é `LoadModelAsync` com parâmetro `LoadModelParams` .
 
 Os seguintes fragmentos de código mostram como carregar modelos com qualquer uma das funções. Para carregar um modelo utilizando o SAS URI, utilize código como o abaixo:
 
@@ -58,6 +58,28 @@ async void LoadModel(AzureSession session, Entity modelParent, string modelUri)
 }
 ```
 
+```cpp
+ApiHandle<LoadModelAsync> LoadModel(ApiHandle<AzureSession> session, ApiHandle<Entity> modelParent, std::string modelUri)
+{
+    LoadModelFromSASParams modelParams;
+    modelParams.ModelUrl = modelUri;
+    modelParams.Parent = modelParent;
+
+    ApiHandle<LoadModelAsync> loadOp = *session->Actions()->LoadModelFromSASAsync(modelParams);
+
+    loadOp->Completed([](const ApiHandle<LoadModelAsync>& async)
+    {
+        printf("Loading: finished.");
+    });
+    loadOp->ProgressUpdated([](float progress)
+    {
+        printf("Loading: %.1f%%", progress*100.f);
+    });
+
+    return loadOp;
+}
+```
+
 Se pretender carregar um modelo utilizando diretamente os seus parâmetros de armazenamento de bolhas, utilize código semelhante ao seguinte corte:
 
 ```csharp
@@ -73,6 +95,20 @@ async void LoadModel(AzureSession session, Entity modelParent, string storageAcc
 
     var loadOp = session.Actions.LoadModelAsync(modelParams);
 
+    // ... (identical to the SAS URI snippet above)
+}
+```
+
+```cpp
+ApiHandle<LoadModelAsync> LoadModel(ApiHandle<AzureSession> session, ApiHandle<Entity> modelParent, std::string storageAccount, std::string containerName, std::string assetFilePath)
+{
+    LoadModelParams modelParams;
+    modelParams.Parent = modelParent;
+    modelParams.Blob.StorageAccountName = std::move(storageAccount);
+    modelParams.Blob.BlobContainerName = std::move(containerName);
+    modelParams.Blob.AssetPath = std::move(assetFilePath);
+
+    ApiHandle<LoadModelAsync> loadOp = *session->Actions()->LoadModelAsync(modelParams);
     // ... (identical to the SAS URI snippet above)
 }
 ```

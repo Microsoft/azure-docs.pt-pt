@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: ffd9919092cdf2481767e58f10ba6525d56ca4a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: baa0ad790491351a17b638ba9d8eb75ed1f355b0
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80548464"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758627"
 ---
-# <a name="azure-identity-management-and-access-control-security-best-practices"></a>Melhores práticas de segurança de controlo de acesso e Gestão de Identidades do Azure
+# <a name="azure-identity-management-and-access-control-security-best-practices"></a>Gestão de Identidade Azure e controlo de acesso saem boas práticas
 
 Neste artigo, discutimos uma coleção de práticas de gestão de identidade azure e de controlo de acesso. Estas boas práticas derivam da nossa experiência com a [Azure AD](../../active-directory/fundamentals/active-directory-whatis.md) e das experiências de clientes como você.
 
@@ -126,10 +126,10 @@ Os utilizadores podem aceder aos recursos da sua organização utilizando uma va
 Para equilibrar a segurança e a produtividade, é preciso pensar em como um recurso é acedido antes de poder tomar uma decisão sobre o controlo de acesso. Com acesso condicional Azure AD, pode responder a este requisito. Com acesso condicional, pode tomar decisões automatizadas de controlo de acesso com base em condições de acesso às suas aplicações na nuvem.
 
 **Boas práticas**: Gerir e controlar o acesso aos recursos corporativos.  
-**Detalhe**: Configure Azure AD [Acesso Condicional](/azure/active-directory/active-directory-conditional-access-azure-portal) com base num grupo, localização e sensibilidade de aplicação para aplicações SaaS e aplicações ligadas a AD Azure.
+**Detalhe**: Configure políticas comuns de [acesso condicional](../../active-directory/conditional-access/concept-conditional-access-policy-common.md) azure aD com base num grupo, localização e sensibilidade de aplicação para aplicações SaaS e aplicações ligadas a AD Azure.
 
 **Boas práticas**: Bloqueie protocolos de autenticação do legado.
-**Detalhe**: Os atacantes exploram fraquezas em protocolos mais antigos todos os dias, especialmente para ataques com spray de palavra-passe. Configure acesso condicional para bloquear protocolos legados. Veja o vídeo [Azure AD: Do's e Don'ts](https://www.youtube.com/watch?v=wGk0J4z90GI) para mais informações.
+**Detalhe**: Os atacantes exploram fraquezas em protocolos mais antigos todos os dias, especialmente para ataques com spray de palavra-passe. Configure acesso condicional para [bloquear protocolos legados.](../../active-directory/conditional-access/howto-conditional-access-policy-block-legacy.md)
 
 ## <a name="plan-for-routine-security-improvements"></a>Plano para melhorias de segurança de rotina
 
@@ -175,11 +175,11 @@ Este método está disponível para todos os níveis de licenciamento, mas não 
 Para determinar onde é que a autenticação multi-factor precisa de ser ativada, veja [qual a versão do Azure MFA é a certa para](/azure/active-directory/authentication/concept-mfa-whichversion)a minha organização?
 
 **Opção 3**: [Ativar a autenticação de vários fatores com a política de acesso condicional.](/azure/active-directory/authentication/howto-mfa-getstarted)
-**Benefício**: Esta opção permite-lhe solicitar uma verificação em duas etapas em condições específicas utilizando o [Acesso Condicional](/azure/active-directory/active-directory-conditional-access-azure-portal). Condições específicas podem ser o utilizador de sessão a partir de diferentes locais, dispositivos não confiáveis ou aplicações que considere arriscadas. Definir condições específicas em que necessita de verificação em duas etapas permite evitar uma constante solicitação para os seus utilizadores, o que pode ser uma experiência desagradável do utilizador.
+**Benefício**: Esta opção permite-lhe solicitar uma verificação em duas etapas em condições específicas utilizando o [Acesso Condicional](../../active-directory/conditional-access/concept-conditional-access-policy-common.md). Condições específicas podem ser o utilizador de sessão a partir de diferentes locais, dispositivos não confiáveis ou aplicações que considere arriscadas. Definir condições específicas em que necessita de verificação em duas etapas permite evitar uma constante solicitação para os seus utilizadores, o que pode ser uma experiência desagradável do utilizador.
 
 Esta é a forma mais flexível de permitir a verificação em duas etapas para os seus utilizadores. Ativar uma política de acesso condicional funciona apenas para a autenticação de multi-factores Azure na nuvem e é uma característica premium da Azure AD. Pode encontrar mais informações sobre este método na implementação da [autenticação azure multi-factor baseada na nuvem.](/azure/active-directory/authentication/howto-mfa-getstarted)
 
-**Opção 4**: Ativar a autenticação multi-factor com políticas de acesso condicional, avaliando o risco de utilizador e de entrada de identidade [azure AD](/azure/active-directory/authentication/tutorial-risk-based-sspr-mfa).   
+**Opção 4**: Ativar a autenticação multi-factor com políticas de acesso condicional, avaliando [as políticas de acesso condicional baseadas no risco.](../../active-directory/conditional-access/howto-conditional-access-policy-risk.md)   
 **Benefício**: Esta opção permite-lhe:
 
 * Detete potenciais vulnerabilidades que afetam as identidades da sua organização.
@@ -261,7 +261,7 @@ O seguinte resume as melhores práticas encontradas na Garantia de [acesso privi
 **Boas práticas**: Defina pelo menos duas contas de acesso de emergência.   
 **Detalhe**: As contas de acesso de emergência ajudam as organizações a restringir o acesso privilegiado num ambiente de Diretório Ativo Azure existente. Estas contas são altamente privilegiadas e não são atribuídas a indivíduos específicos. As contas de acesso de emergência limitam-se a cenários em que as contas administrativas normais não podem ser utilizadas. As organizações devem limitar o uso da conta de emergência apenas ao tempo necessário.
 
-Avalie as contas atribuídas ou elegíveis para o papel de administradora global. Se não vir contas apenas em nuvem `*.onmicrosoft.com` utilizando o domínio (destinado a acesso de emergência), crie-as. Para mais informações, consulte a Gestão de contas administrativas de [acesso de emergência em Azure AD](/azure/active-directory/users-groups-roles/directory-emergency-access).
+Avalie as contas atribuídas ou elegíveis para o papel de administradora global. Se não vir contas apenas em nuvem utilizando o `*.onmicrosoft.com` domínio (destinado a acesso de emergência), crie-as. Para mais informações, consulte a Gestão de contas administrativas de [acesso de emergência em Azure AD](/azure/active-directory/users-groups-roles/directory-emergency-access).
 
 **Boas práticas**: Tenha um processo de "quebrar vidros" em caso de emergência.
 **Detalhe**: Siga os passos de segurança no [acesso privilegiado para implantações híbridas e em nuvem em Azure AD](/azure/active-directory/users-groups-roles/directory-admin-roles-secure).

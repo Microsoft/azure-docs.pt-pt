@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 07/15/2019
 ms.author: rolyon
 ms.reviewer: skwan
-ms.openlocfilehash: f3341f1c30a1581b8507652c322c00581e3972aa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2a52635dbaa7a76034f3a535b099320a901e8c07
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77137417"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758780"
 ---
 # <a name="manage-access-to-azure-management-with-conditional-access"></a>Gerir acesso à gestão azure com acesso condicional
 
@@ -47,5 +47,4 @@ A política que cria aplica-se a todos os pontos finais de gestão do Azure, inc
 
 Note que a política se aplica ao Azure PowerShell, que chama a API do Gestor de Recursos Azure. Não se aplica ao [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2), que chama microsoft graph.
 
-
-Para obter mais informações sobre como configurar e utilizar o Acesso Condicional, consulte [acesso condicional no Diretório Ativo Azure](../active-directory/active-directory-conditional-access-azure-portal.md).
+Para obter mais informações sobre como configurar uma política de amostras para permitir o acesso condicional à gestão do Microsoft Azure, consulte o artigo [Acesso Condicional: Exigir MFA para a gestão do Azure](../active-directory/conditional-access/howto-conditional-access-policy-azure-management.md).

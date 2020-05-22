@@ -3,7 +3,7 @@ title: Restaurar uma base de dados a partir de uma cópia de segurança
 description: Saiba sobre a restauração pontual, que lhe permite reverter uma base de dados Azure SQL até 35 dias.
 services: sql-database
 ms.service: sql-database
-ms.subservice: backup-restore
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: b98331a9cdb359aeefac5db1546f3a15b54010ba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: da841c2f1280bc0dc126e43a9f618e170d0d2553
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79268746"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770691"
 ---
 # <a name="recover-an-azure-sql-database-by-using-automated-database-backups"></a>Recuperar uma base de dados Azure SQL utilizando cópias de dados automatizadas
 
@@ -147,7 +147,7 @@ A partir do portal Azure, cria uma nova base de dados de instâncias únicaou ge
 
 Para restaurar uma única base de dados SQL do portal Azure na região e servidor à sua escolha, siga estes passos:
 
-1. A partir **do Dashboard,** selecione **Criar** > base**de dados SQL**. No separador Basics, introduza as informações **necessárias.**
+1. A partir **do Dashboard,** selecione **Criar**base  >  **de dados SQL**. No separador Basics, introduza as informações **necessárias.**
 2. Selecione **definições adicionais**.
 3. Para **utilizar os dados existentes,** selecione **Backup**.
 4. Para **backup,** selecione uma cópia de segurança da lista de cópias de segurança de georestauro disponíveis.

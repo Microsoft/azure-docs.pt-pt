@@ -5,12 +5,12 @@ author: christophermanthei
 ms.author: chmant
 ms.date: 03/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: 95993a54d321c9581d35f12b56d60e4ea052e505
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 59b235a32ae9363cc5fc804385867e140be502e2
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81415712"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83759001"
 ---
 # <a name="quickstart-deploy-unity-sample-to-desktop"></a>Quickstart: Implementar amostra de unidade para desktop
 
@@ -46,7 +46,7 @@ Apenas aplicações planas para desktop são suportadas no ambiente de trabalho,
 ## <a name="build-the-sample-project"></a>Construir o projeto da amostra
 
 1. Abrir *> construir definições.*
-1. Alterar *plataforma* para **plataforma Universal Windows**.
+1. Alterar *plataforma* para **plataforma Universal Windows** **(PC Autónomo** também é suportado, mas não utilizado aqui).
 1. Definir *dispositivo alvo* para **PC**.
 1. Definir *arquitetura* para **x86**.
 1. Definir *Tipo de construção* para **projeto D3D**.

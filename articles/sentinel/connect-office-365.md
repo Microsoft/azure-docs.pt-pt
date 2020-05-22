@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/12/2020
 ms.author: yelevin
-ms.openlocfilehash: 43eba727b1dc724aae6eea3ec77de1363c5db73f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c3e63063b3ea4e7fba3997ddd645aa59fe857488
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78252521"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758576"
 ---
 # <a name="connect-data-from-office-365-logs"></a>Ligar dados do Office 365 Logs
 
@@ -36,6 +36,9 @@ Pode transmitir registos de auditoria do [Office 365](https://docs.microsoft.com
 - O seu inquilino deve ter uma auditoria unificada ativada. Os inquilinos com licenças Do Office 365 E3 ou E5 têm auditoria unificada viavida por defeito. <br>Se o seu inquilino não tiver uma destas licenças, deve permitir uma auditoria unificada ao seu inquilino utilizando um destes métodos:
     - [Utilizando o cmdlet Set-AdminAuditLogConfig](https://docs.microsoft.com/powershell/module/exchange/policy-and-compliance-audit/set-adminauditlogconfig?view=exchange-ps) e ativar o parâmetro "UnificadoAuditLogIngestionEnabled").
     - [Utilização do Centro](https://docs.microsoft.com/office365/securitycompliance/search-the-audit-log-in-security-and-compliance#before-you-begin)de Conformidade & de Segurança UI .
+   
+   > [!NOTE]
+   > Atualmente o Conector de Dados O365 apenas captura a Activty Exchange e Sharepoint automaticamente como mencionado na página do conector na secção tipos de Dados. Recomendamos que verifique este artigo caso necessite de [equipas auditando dados e proteja as equipas usando o Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/protecting-your-teams-with-azure-sentinel/ba-p/1265761). 
 
 ## <a name="connect-to-office-365"></a>Ligar ao Office 365
 

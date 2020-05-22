@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6ea52474f3b352fabf19050f20012438e9d0c19
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6c020bb70dc26945b013321b2d75cc2e231c39a4
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76120613"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83772935"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-confluence-saml-sso-by-microsoft"></a>Tutorial: Azure Ative Directory integração de um único sign-on (SSO) com confluence SAML SSO pela Microsoft
 
@@ -65,7 +65,7 @@ A partir de agora, as seguintes versões da Confluência são suportadas:
 
 - Confluência: 5.0 a 5.10
 - Confluência: 6.0.1 a 6.15.9
-- Confluência: 7.0.1 a 7.1.0
+- Confluência: 7.0.1 a 7.4.0
 
 > [!NOTE]
 > Por favor, note que o nosso Plugin Confluence também trabalha na versão Ubuntu 16.04
@@ -133,7 +133,7 @@ Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
    1. No campo **Nome**, introduza `B.Simon`.  
-   1. No campo de nome username@companydomain.extensiondo **Utilizador,** introduza o . Por exemplo, `B.Simon@contoso.com`.
+   1. No campo de **nome do Utilizador,** introduza o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa de verificação de **palavra-passe do Show** e, em seguida, escreva o valor que está apresentado na caixa **password.**
    1. Clique em **Criar**.
 
@@ -245,7 +245,7 @@ Para permitir que os utilizadores de AD Azure insinuem no servidor confluence no
 
     b. Na caixa de texto **Nome Completo,** digite o nome completo do utilizador como B.Simon.
 
-    c. Na caixa de texto **e-mail,** B.Simon@contoso.comdigite o endereço de e-mail do utilizador como .
+    c. Na caixa de texto **e-mail,** digite o endereço de e-mail do utilizador como B.Simon@contoso.com .
 
     d. Na caixa de texto **password,** digite a palavra-passe para B.Simon.
 

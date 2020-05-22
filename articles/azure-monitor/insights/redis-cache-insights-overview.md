@@ -4,13 +4,13 @@ description: Este artigo descreve a funcionalidade Azure Monitor para Azure Redi
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 05/07/2020
-ms.openlocfilehash: a6a8499a13e5c14869f9c9063528cea4ee82f419
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 05/21/2020
+ms.openlocfilehash: 8c8265242e09938126bfdb28900b64f2c0e7970a
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650426"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773911"
 ---
 # <a name="explore-azure-monitor-for-azure-cache-for-redis-preview"></a>Explore o Monitor Azure para Azure Cache para Redis (pré-visualização)
 
@@ -123,6 +123,38 @@ Ao selecionar **Falhas** no topo da página, abre-se a tabela **Falhas** do mode
 ### <a name="metric-definitions"></a>Definições métricas
 
 Para obter uma lista completa das definições métricas que formam estes livros, consulte o [artigo sobre métricas disponíveis e intervalos](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-monitor#available-metrics-and-reporting-intervals)de reporte .
+
+## <a name="view-from-an-azure-cache-for-redis-resource"></a>Vista de um Azure Cache para recurso Redis
+
+Para aceder ao Azure Monitor para Azure Cache for Redis diretamente a partir de um recurso individual:
+
+1. No portal Azure, selecione Azure Cache para Redis.
+
+2. Na lista, escolha um Azure Cache individual para o recurso Redis. Na secção de monitorização, escolha Insights (pré-visualização).
+
+    ![Screenshot das opções do Menu com as palavras "Insights(pré-visualização)" realçadas numa caixa vermelha](./media/redis-cache-insights-overview/insights.png)
+
+Estas vistas também são acessíveis selecionando o nome de recurso de um azure cache para recurso Redis do livro de nível Azure Monitor.
+
+### <a name="resource-level-overview"></a>Visão geral do nível dos recursos
+
+No livro **overview** para o Azure Redis Cache, mostra várias métricas de desempenho que lhe dão acesso a:
+
+- Gráficos de desempenho interativos mostrando os detalhes mais essenciais relacionados com O Cache Azure para o desempenho redis.
+
+- Métricas e azulejos de estado destacam o desempenho do fragmento, o número total de clientes conectados e a latência geral.
+
+![Screenshot do painel de instrumentos de visão geral que exibe informações sobre o desempenho do CPU, memória usada, clientes conectados, erros, chaves expiradas e chaves despejadas](./media/redis-cache-insights-overview/resource-overview.png)
+
+A seleção de qualquer um dos outros separadores para **Desempenho** ou **Operações** abre os respetivos livros.
+
+### <a name="resource-level-performance"></a>Desempenho ao nível dos recursos
+
+![Screenshot dos gráficos de desempenho do recurso](./media/redis-cache-insights-overview/resource-performance.png)
+
+### <a name="resource-level-operations"></a>Operações ao nível dos recursos
+
+![Screenshot dos gráficos de operações de recursos](./media/redis-cache-insights-overview/resource-operations.png)
 
 ## <a name="pin-export-and-expand"></a>Pin, exportar e expandir
 

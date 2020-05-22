@@ -3,7 +3,7 @@ title: FAQ de instância gerida
 description: SQL Database gerido instância frequentemente feita perguntas (FAQ)
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: 99fbda6f6d5e8fc88f9f4f34c6e194412a120057
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: 3ffa4bc905a08c1757865db7bab828193ff3c7ea
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82598516"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770147"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>SQL Database gerido instância frequentemente feita perguntas (FAQ)
 
@@ -129,7 +129,7 @@ Não, o armazenamento de reserva não é deduzido do seu espaço de armazenament
 
 Pode fazê-lo utilizando a [solução Azure Cost Management](/azure/cost-management/). Navegue para **Assinaturas** no [portal Azure](https://portal.azure.com) e selecione Análise de **Custos**. 
 
-Utilize a opção **custos acumulados** e, em seguida, filtrar pelo **tipo Recurso** como `microsoft.sql/managedinstances`. 
+Utilize a opção **custos acumulados** e, em seguida, filtrar pelo **tipo Recurso** como `microsoft.sql/managedinstances` . 
   
 ## <a name="inbound-nsg-rules"></a>Regras de NSG de entrada
 

@@ -3,7 +3,7 @@ title: Piscinas de instância (pré-visualização)
 description: Este artigo descreve piscinas de instâncias de base de dados Azure SQL (pré-visualização).
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 0938fbe94cb0d1e6dae3dcb84950a11f90dd9db8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a418972b78750dbed90f0148aac45dbcc2617f8e
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80878158"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773088"
 ---
 # <a name="what-are-sql-database-instance-pools-preview"></a>O que são piscinas de instâncias de base de dados SQL (pré-visualização)?
 
@@ -31,7 +31,7 @@ Além disso, piscinas de exemplo suportam integração vnet nativa para que voc�
 
 As piscinas de instâncias proporcionam os seguintes benefícios:
 
-1. Capacidade de acolher 2 instâncias vCore. *Apenas por exemplo, por exemplo, piscinas. \**
+1. Capacidade de acolher 2 instâncias vCore. * \* Apenas por exemplo, por exemplo, piscinas.*
 2. Tempo de implantação previsível e rápido (até 5 minutos).
 3. Atribuição mínima de endereço IP.
 
@@ -59,7 +59,7 @@ A seguinte lista fornece os principais casos de utilização em que as piscinas 
 
 ## <a name="architecture-of-instance-pools"></a>Arquitetura de piscinas de instância
 
-As piscinas de exemplo têm arquitetura semelhante a instâncias regulares*geridas (instâncias individuais).* Para apoiar as implementações dentro das [Redes Virtuais Azure (VNets)](../virtual-network/virtual-network-for-azure-services.md) e para fornecer isolamento e segurança aos clientes, por exemplo, os pools também dependem de [clusters virtuais.](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture) Os clusters virtuais representam um conjunto dedicado de máquinas virtuais isoladas implantadas dentro da subnet virtual da rede do cliente.
+As piscinas de exemplo têm arquitetura semelhante a instâncias regulares*geridas (instâncias individuais).* Para apoiar as implementações dentro das [Redes Virtuais Azure (VNets)](../virtual-network/virtual-network-for-azure-services.md)   e para fornecer isolamento e segurança aos clientes, por exemplo, os pools também dependem de [clusters virtuais.](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture) Os clusters virtuais representam um conjunto dedicado de máquinas virtuais isoladas implantadas dentro da subnet virtual da rede do cliente.
 
 A principal diferença entre os dois modelos de implementação é que as piscinas de instâncias permitem várias implementações de processos do SQL Server no mesmo nó de máquina virtual, que são repartidos por recursos utilizando [objetos de trabalho do Windows](https://docs.microsoft.com/windows/desktop/ProcThread/job-objects), enquanto as instâncias individuais estão sempre sozinhas num nó de máquina virtual.
 

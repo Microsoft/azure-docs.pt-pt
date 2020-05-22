@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/20/2020
 ms.author: spelluru
-ms.openlocfilehash: fd4b41cc2fe97ad0c2f075884e21f4f2ffc01561
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 44e77330e6a651a93b1f88fa6b20450ebc2b1455
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82159459"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773979"
 ---
-# <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-core-azuremessagingeventhubs"></a>Envie eventos e receba eventos de Azure Event Hubs - .NET Core (Azure.Messaging.EventHubs) 
-Este quickstart mostra como enviar eventos e receber eventos de um centro de eventos usando a biblioteca **Azure.Messaging.EventHubs** .NET Core. 
+# <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-azuremessagingeventhubs"></a>Envie eventos e receba eventos de Azure Event Hubs - .NET (Azure.Messaging.EventHubs) 
+Este quickstart mostra como enviar eventos e receber eventos de um centro de eventos usando a biblioteca **Azure.Messaging.EventHubs** .NET. 
 
 > [!IMPORTANT]
 > Este quickstart utiliza a nova biblioteca **Azure.Messaging.EventHubs.** Para um arranque rápido que utiliza a antiga biblioteca **Microsoft.Azure.EventHubs,** consulte [Enviar e receber eventos utilizando a biblioteca Microsoft.Azure.EventHubs](event-hubs-dotnet-standard-getstarted-send.md). 
@@ -34,7 +34,7 @@ Se você é novo em Azure Event Hubs, consulte a visão geral do [Event Hubs](ev
 Para completar este arranque rápido, precisa dos seguintes pré-requisitos:
 
 - **Subscrição do Microsoft Azure.** Para utilizar os serviços Azure, incluindo o Azure Event Hubs, precisa de uma subscrição.  Se não tiver uma conta Azure existente, pode inscrever-se para um [teste gratuito](https://azure.microsoft.com/free/) ou utilizar os seus benefícios de subscrição MSDN quando [criar uma conta](https://azure.microsoft.com).
-- **Microsoft Visual Studio 2019**. A biblioteca de clientes do Azure Event Hubs utiliza novas funcionalidades que foram introduzidas em C# 8.0.  Ainda pode utilizar a biblioteca com versões mais antigas de C#, mas algumas das suas funcionalidades não estarão disponíveis.  Para ativar estas funcionalidades, deve [visar o .NET Core 3.0](/dotnet/standard/frameworks#how-to-specify-target-frameworks) ou [especificar a versão linguística](/dotnet/csharp/language-reference/configure-language-version#override-a-default) que pretende utilizar (8.0 ou superior). Se estiver a usar o Visual Studio, as versões antes do Visual Studio 2019 não são compatíveis com as ferramentas necessárias para construir projetos C# 8.0. O Visual Studio 2019, incluindo a edição gratuita da Comunidade, pode ser descarregado [aqui](https://visualstudio.microsoft.com/vs/)
+- **Microsoft Visual Studio 2019**. A biblioteca de clientes do Azure Event Hubs utiliza novas funcionalidades que foram introduzidas em C# 8.0.  Ainda pode usar a biblioteca com versões linguísticas C# anteriores, mas a nova sintaxe não estará disponível. Para utilizar a sintaxe completa, recomenda-se que compile com o [.NET Core SDK](https://dotnet.microsoft.com/download) 3.0 ou superior e a [versão linguística](https://docs.microsoft.com/dotnet/csharp/language-reference/configure-language-version#override-a-default) definida para `latest` . Se estiver a usar o Visual Studio, as versões antes do Visual Studio 2019 não são compatíveis com as ferramentas necessárias para construir projetos C# 8.0. O Visual Studio 2019, incluindo a edição gratuita da Comunidade, pode ser descarregado [aqui.](https://visualstudio.microsoft.com/vs/)
 - **Crie um espaço de nome sinuoso do Event Hubs e um centro de eventos.** O primeiro passo consiste em utilizar o [portal do Azure](https://portal.azure.com) para criar um espaço de nomes do tipo Hubs de Eventos e obter as credenciais de gestão de que a sua aplicação precisa para comunicar com o hub de eventos. Para criar um espaço de nome e um centro de eventos, siga o procedimento [neste artigo.](event-hubs-create.md) Em seguida, obtenha a cadeia de **ligação para o espaço** de nome do Event Hubs seguindo as instruções do artigo: Obtenha a corda de [ligação](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Usa a corda de ligação mais tarde neste arranque rápido.
 
 ## <a name="send-events"></a>Enviar eventos 
@@ -57,7 +57,7 @@ Esta secção mostra-lhe como criar uma aplicação de consola .NET Core para en
 
 ### <a name="add-the-event-hubs-nuget-package"></a>Adicionar o pacote NuGet dos Hubs de Eventos
 
-1. Selecione **ferramentas** > **NuGet Package Manager** > **Manager Consola** do menu. 
+1. Selecione **ferramentas**  >  **NuGet Package Manager**Manager  >  **Consola** do menu. 
 1. Executar o seguinte comando para instalar o pacote **NuGet Azure.Messaging.EventHubs** NuGet:
 
     ```cmd
@@ -76,14 +76,14 @@ Esta secção mostra-lhe como criar uma aplicação de consola .NET Core para en
     using Azure.Messaging.EventHubs.Producer;
     ```
 
-2. Adicione constantes `Program` à classe para a cadeia de ligação Event Hubs e o nome do centro do evento. Substitua os espaços reservados nos suportes com os valores adequados que obteve ao criar o centro do evento. Certifique-se de que `{Event Hubs namespace connection string}` é a cadeia de ligação ao nível do espaço de nomes e não é a cadeia de hub de eventos. 
+2. Adicione constantes à classe para a cadeia de `Program` ligação Event Hubs e o nome do centro do evento. Substitua os espaços reservados nos suportes com os valores adequados que obteve ao criar o centro do evento. Certifique-se de que `{Event Hubs namespace connection string}` é a cadeia de ligação ao nível do espaço de nomes e não é a cadeia de hub de eventos. 
 
     ```csharp
     private const string connectionString = "<EVENT HUBS NAMESPACE - CONNECTION STRING>";
     private const string eventHubName = "<EVENT HUB NAME>";
     ```
 
-3. Substitua `Main` o método `async Main` pelo seguinte método. Consulte os comentários de código para mais detalhes. 
+3. Substitua o `Main` método pelo seguinte `async Main` método. Consulte os comentários de código para mais detalhes. 
 
     ```csharp
         static async Task Main()
@@ -139,7 +139,7 @@ Neste arranque rápido, utiliza o Armazenamento Azure como loja de controlo. Sig
 
 ### <a name="add-the-event-hubs-nuget-package"></a>Adicionar o pacote NuGet dos Hubs de Eventos
 
-1. Selecione **ferramentas** > **NuGet Package Manager** > **Manager Consola** do menu. 
+1. Selecione **ferramentas**  >  **NuGet Package Manager**Manager  >  **Consola** do menu. 
 1. Executar o seguinte comando para instalar o pacote **NuGet Azure.Messaging.EventHubs** NuGet:
 
     ```cmd
@@ -163,7 +163,7 @@ Neste arranque rápido, utiliza o Armazenamento Azure como loja de controlo. Sig
     using Azure.Messaging.EventHubs.Consumer;
     using Azure.Messaging.EventHubs.Processor;
     ```
-1. Adicione constantes `Program` à classe para a cadeia de ligação Event Hubs e o nome do centro do evento. Substitua os espaços reservados nos suportes com os valores adequados que obteve ao criar o centro do evento. Substitua os espaços reservados nos suportes pelos valores adequados que obteve ao criar o centro do evento e a conta de armazenamento (teclas de acesso - fio de ligação primária). Certifique-se de que `{Event Hubs namespace connection string}` é a cadeia de ligação ao nível do espaço de nomes e não é a cadeia de hub de eventos.
+1. Adicione constantes à classe para a cadeia de `Program` ligação Event Hubs e o nome do centro do evento. Substitua os espaços reservados nos suportes com os valores adequados que obteve ao criar o centro do evento. Substitua os espaços reservados nos suportes pelos valores adequados que obteve ao criar o centro do evento e a conta de armazenamento (teclas de acesso - fio de ligação primária). Certifique-se de que `{Event Hubs namespace connection string}` é a cadeia de ligação ao nível do espaço de nomes e não é a cadeia de hub de eventos.
 
     ```csharp
         private const string ehubNamespaceConnectionString = "<EVENT HUBS NAMESPACE - CONNECTION STRING>";
@@ -171,7 +171,7 @@ Neste arranque rápido, utiliza o Armazenamento Azure como loja de controlo. Sig
         private const string blobStorageConnectionString = "<AZURE STORAGE CONNECTION STRING>";
         private const string blobContainerName = "<BLOB CONTAINER NAME>";
     ```
-3. Substitua `Main` o método `async Main` pelo seguinte método. Consulte os comentários de código para mais detalhes. 
+3. Substitua o `Main` método pelo seguinte `async Main` método. Consulte os comentários de código para mais detalhes. 
 
     ```csharp
         static async Task Main()

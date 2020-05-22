@@ -1,5 +1,6 @@
 ---
-title: Construa uma aplicação de desktop que chama APIs web - plataforma de identidade microsoft / Azure
+title: Construa uma aplicação de desktop que chama APIs web Azure
+titleSuffix: Microsoft identity platform
 description: Saiba como construir uma aplicação de desktop que chama APIs web (visão geral)
 services: active-directory
 author: jmprieur
@@ -8,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 09cc43dec2eff48754f5a6e693badd6bb1907cce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92f0909660427e414264442523dba3ed2abe0142
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80883006"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83771864"
 ---
 # <a name="scenario-desktop-app-that-calls-web-apis"></a>Cenário: Aplicação de ambiente de trabalho que chama APIs web
 
@@ -50,7 +51,7 @@ Escreve uma aplicação para desktop e pretende inscrever os utilizadores na sua
   - Ou, se for uma aplicação .NET Core e concordar em que a interação de autenticação com o Azure Ative Directory (Azure AD) aconteça no navegador do sistema.
 
 - Para aplicações hospedadas pelo Windows, também é possível que as aplicações em execução em computadores unidos a um domínio Windows ou Azure AD se juntem para adquirir um símbolo silenciosamente utilizando a Autenticação Integrada do Windows.
-- Finalmente, e embora não seja recomendado, pode usar um nome de utilizador e uma palavra-passe em aplicações de clientes públicos. Ainda é necessário em alguns cenários como DevOps. Usá-lo impõe restrições à sua aplicação. Por exemplo, não pode assinar num utilizador que precisa de realizar a autenticação multifactor (acesso condicional). Além disso, a sua aplicação não beneficiará de um único sign-on (SSO).
+- Finalmente, e embora não seja recomendado, pode usar um nome de utilizador e uma palavra-passe em aplicações de clientes públicos. Ainda é necessário em alguns cenários como DevOps. Usá-lo impõe restrições à sua aplicação. Por exemplo, não pode assinar num utilizador que precisa de realizar a [autenticação multifactor](../authentication/concept-mfa-howitworks.md) (acesso condicional). Além disso, a sua aplicação não beneficiará de um único sign-on (SSO).
 
   É também contra os princípios da autenticação moderna e só é fornecido por razões antigas.
 

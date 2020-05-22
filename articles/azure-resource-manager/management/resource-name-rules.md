@@ -2,13 +2,13 @@
 title: Restrições de nomeação de recursos
 description: Mostra as regras e restrições para nomear recursos Azure.
 ms.topic: conceptual
-ms.date: 04/22/2020
-ms.openlocfilehash: 7ab012c5363de643c4cb5de8777de56fad5a9711
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 05/21/2020
+ms.openlocfilehash: 553d0e33c4b9bc1aa238cf582f37be1e148eea5e
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653715"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758899"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Regras de nomenclatura e restrições para recursos do Azure
 
@@ -650,7 +650,7 @@ Nas tabelas a seguir, o termo alfanumérico refere-se a:
 > | armazenamentoContas / gestãoPolíticas | conta de armazenamento |  | Deve `default` ser. |
 > | blob | contentor | 1-1024 | Quaisquer caracteres URL, sensíveis a casos |
 > | fila | conta de armazenamento | 3-63 | Letras minúsculas, números e hífenes.<br><br>Não pode começar ou terminar com hífen. Não se pode usar hífenes consecutivos. |
-> | tabela | conta de armazenamento | 3-63 | Alfanumérico.<br><br>Comece com a carta. |
+> | table | conta de armazenamento | 3-63 | Alfanumérico.<br><br>Comece com a carta. |
 
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
 
@@ -696,6 +696,9 @@ Nas tabelas a seguir, o termo alfanumérico refere-se a:
 > | servidores fazendas | grupo de recursos | 1-40 | Alfanuméricos e hífenes. |
 > | sites | global | 2-60 | Contém alfanuméricos e hífenes.<br><br>Não pode começar ou terminar com hífen. |
 > | sites / slots | site | 2-59 | Alfanuméricos e hífenes. |
+
+> [!NOTE]
+> A Azure Functions tem as mesmas regras e restrições de nomeação que a Microsoft.Web/sites.
 
 ## <a name="next-steps"></a>Passos seguintes
 

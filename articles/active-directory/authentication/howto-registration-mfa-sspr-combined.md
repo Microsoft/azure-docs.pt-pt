@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 466b063253ee49ab58c2685f359b4bb8a4079532
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fb77c2bc1d229ae75da89caae3d8613b27e70b96
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81639686"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83771337"
 ---
 # <a name="enable-combined-security-information-registration-in-azure-active-directory"></a>Permitir o registo combinado de informações de segurança no Diretório Ativo do Azure
 
@@ -31,13 +31,13 @@ Antes de permitir a nova experiência, reveja o artigo Registo combinado de [inf
 Complete estas etapas para permitir o registo combinado:
 
 1. Inscreva-se no portal Azure como administrador de utilizador ou administrador global.
-2. Vá para as > **definições** > de utilizador do **Diretório Ativo do Azure****Gerencie as definições de pré-visualização**do utilizador .
-3. No âmbito do Utilizador pode utilizar funcionalidades de **pré-visualização para registar e gerir informações**de segurança, opte por ativar para um grupo de utilizadores **Selecionados** ou para **Todos os** utilizadores.
+2. Vá para as definições de utilizador **do Diretório Ativo do Azure**  >  **User settings**  >  **Gerencie as definições de pré-visualização**do utilizador .
+3. No âmbito **do Utilizador pode utilizar a experiência de registo de informações**de segurança combinada, opte por ativar um grupo de utilizadores **Selecionados** ou para **Todos os** utilizadores.
 
    ![Ativar a experiência combinada de pré-visualização de informações de segurança para todos os utilizadores](media/howto-registration-mfa-sspr-combined/enable-the-combined-security-info-preview.png)
 
 > [!NOTE]
-> Depois de ativar o registo combinado, os utilizadores que se registem ou confirmem o seu número de telefone ou aplicação móvel através da nova experiência podem utilizá-los para autenticação multi-factor e SSPR, se esses métodos estiverem ativados nas políticas de Autenticação multi-Factor e SSPR. Se, em seguida, desativar esta experiência, os `https://aka.ms/ssprsetup` utilizadores que acederem à página de registo sSPR anterior serão obrigados a efetuar a autenticação de vários fatores antes de poderem aceder à página.
+> Depois de ativar o registo combinado, os utilizadores que se registem ou confirmem o seu número de telefone ou aplicação móvel através da nova experiência podem utilizá-los para autenticação multi-factor e SSPR, se esses métodos estiverem ativados nas políticas de Autenticação multi-Factor e SSPR. Se, em seguida, desativar esta experiência, os utilizadores que acederem à página de registo sSPR anterior `https://aka.ms/ssprsetup` serão obrigados a efetuar a autenticação de vários fatores antes de poderem aceder à página.
 
 Se configurar a Lista de Atribuição de Zonas no Internet Explorer, os seguintes sites têm de estar na mesma zona:
 
@@ -55,7 +55,7 @@ Para obter mais informações sobre a criação de localizações fidedignas no 
 
 A seguinte política aplica-se a todos os utilizadores selecionados que tentem registar-se utilizando a experiência de registo combinado e bloqueia o acesso a menos que estejam a ligar-se a partir de um local marcado como rede fidedigna.
 
-1. No **portal Azure,** navegue até ao**Acesso Condicional** de**Segurança** >  **do Diretório** > Ativo azure
+1. No **portal Azure,** navegue até ao Acesso Condicional de Segurança **do Diretório Ativo azure**  >  **Security**  >  **Conditional Access**
 1. Selecione **+ Nova política**
 1. Insira um nome para esta política, como registo combinado de informações de *segurança em redes fidedignas*.
 1. Em **Atribuições**, selecione **Utilizadores e grupos**. Escolha os utilizadores e grupos a que pretende que esta política se aplique e, em seguida, selecione **Done**.
@@ -67,12 +67,12 @@ A seguinte política aplica-se a todos os utilizadores selecionados que tentem r
 
     ![Criar uma política de acesso condicional para controlar o registo de informações de segurança](media/howto-registration-mfa-sspr-combined/require-registration-from-trusted-location.png)
 
-1. Em **Condições** > **Locais,** configure as seguintes opções:
+1. Em **Conditions**  >  **Condições Locais,** configure as seguintes opções:
    1. Configurar **Sim**
    1. Incluir **Qualquer local**
    1. Excluir **todos os locais confiáveis**
 1. Selecione **Feito** na janela *Locais* e, em seguida, selecione **Feito** na janela *Condições.*
-1. Sob **controlode** > **acesso,** escolha o acesso ao **bloco**e, em seguida, **selecione**
+1. Sob **controlode**  >  **acesso,** escolha o acesso ao **bloco**e, em seguida, **selecione**
 1. Definir **ativar a política** para **on**
 1. Para finalizar a política, selecione **Criar**
 

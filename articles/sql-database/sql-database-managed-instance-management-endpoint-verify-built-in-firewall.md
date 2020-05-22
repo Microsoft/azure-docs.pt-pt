@@ -3,7 +3,7 @@ title: Descubra firewall de instância gerida incorporada
 description: Saiba como verificar a proteção contra firewall incorporada na Instância gerida pela Base de Dados Azure SQL.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab
 ms.date: 12/04/2018
-ms.openlocfilehash: 555ef56aafa37a1e1d384f945b04f9237adc5f7d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 91b8b37de69a3f08bf11650e0328b616d8633e7a
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73821808"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83769926"
 ---
 # <a name="verifying-the-managed-instance-built-in-firewall"></a>Verificar a firewall incorporada da Instância Gerida
 

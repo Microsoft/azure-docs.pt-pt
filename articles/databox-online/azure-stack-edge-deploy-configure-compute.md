@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 29967c5f8d452fbf66d9a121357415176139b39d
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: ab9c93dc029498c70a828f38f297c1e02dcb29ee
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82570672"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774109"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge"></a>Tutorial: Transforme dados com Borda de Stack Azure
 
@@ -22,7 +22,7 @@ Este tutorial descreve como configurar um papel de computação no seu dispositi
 
 Este procedimento pode demorar cerca de 10 a 15 minutos para ser concluído.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Calcular configurar
@@ -53,7 +53,7 @@ Para configurar a computação no seu Azure Stack Edge, irá criar um recurso Io
     |Campo  |Valor  |
     |---------|---------|
     |IoT Hub     | Escolha entre **Novo** ou **Existente.** <br> Por padrão, um nível Standard (S1) é usado para criar um recurso IoT. Para utilizar um recurso IoT de nível livre, crie um e, em seguida, selecione o recurso existente. <br> Em cada caso, o recurso IoT Hub utiliza o mesmo grupo de subscrição e recursos que é utilizado pelo recurso Azure Stack Edge.     |
-    |Nome     |Insira um nome para o seu recurso IoT Hub.         |
+    |Name     |Insira um nome para o seu recurso IoT Hub.         |
 
     ![Começar com a computação](./media/azure-stack-edge-deploy-configure-compute/configure-compute-2.png)
 
@@ -136,11 +136,11 @@ Para verificar se o módulo está em funcionamento, faça o seguinte:
 
     ![Verificar a transformação dos dados](./media/azure-stack-edge-deploy-configure-compute/verify-data-1.png)
  
-1.    No File Explorer, ligue-se às partilhas locais edge e Edge que criou anteriormente.
+1. No File Explorer, ligue-se às partilhas locais edge e Edge que criou anteriormente.
 
     ![Verificar a transformação dos dados](./media/azure-stack-edge-deploy-configure-compute/verify-data-2.png) 
  
-1.    Adicione os dados à partilha local.
+1. Adicione os dados à partilha local.
 
     ![Verificar a transformação dos dados](./media/azure-stack-edge-deploy-configure-compute/verify-data-3.png) 
  

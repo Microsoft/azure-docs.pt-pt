@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 02/25/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 9b8c44f99953d4518f0bc3f558f396250657c632
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: abf5d0d4aeeb18a11f50220e982448d41a9ac1b4
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79138948"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773207"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Inscreva-se nas suas contas utilizando a aplicação Microsoft Authenticator
 
@@ -53,7 +53,7 @@ Abra a aplicação Microsoft Authenticator, vá à sua conta de trabalho ou esco
 
 Num dispositivo Android:
 
-- **Se vir este ![ícone de ícone](media/user-help-auth-app-sign-in/icon.png)mostrando que está configurado .** Se este ícone aparecer ao lado do seu trabalho ou nome de conta escolar, significa que já configura o registo telefónico para a conta. Pode ser-lhe pedido que adicione notificações push para a sua conta, para que possa ser notificado sobre pedidos de autenticação fora da app.
+- **Se vir este ícone de ícone ![ mostrando que está configurado ](media/user-help-auth-app-sign-in/icon.png) .** Se este ícone aparecer ao lado do seu trabalho ou nome de conta escolar, significa que já configura o registo telefónico para a conta. Pode ser-lhe pedido que adicione notificações push para a sua conta, para que possa ser notificado sobre pedidos de autenticação fora da app.
 - **Se já estiver a usar a aplicação para verificação de dois fatores.** Se já tiver usado a aplicação e a verificação de dois fatores, pode selecionar a seta ao lado do nome da conta e, em seguida, selecionar **ativar**o registo do telefone .
 - **Se não encontrar o seu trabalho ou a conta escolar.** Se não encontrar o seu trabalho ou conta escolar no **ecrã** contas da app, significa que ainda não a adicionou à app. Adicione o seu trabalho ou conta escolar seguindo os passos do artigo Adicionar o [seu trabalho ou conta escolar.](user-help-auth-app-add-work-school-account.md)
 
@@ -62,6 +62,9 @@ Num dispositivo iOS:
 - **Quando toca no azulejo da conta,** a conta abre-se para uma visão completa do ecrã da conta. Se vir o **registo do telefone ativado,** isso significa que está totalmente configurado para iniciar sessão sem a sua palavra-passe. Se vir o sinal de entrada do **telefone,** toque-o para ligar o sinal de telefone.
 - **Se já tem usado a app para verificação de dois fatores,** pode tocar no azulejo da conta, que depois se expande para uma visão completa do ecrã da conta. Em seguida, toque em **ativar** o sinal de telefone para ligar o sinal de telefone.
 - **Se não encontrar o seu trabalho ou conta escolar** no ecrã contas da app, significa que ainda não a adicionou à app. **Accounts** Adicione o seu trabalho ou conta escolar seguindo os passos do artigo Adicionar o seu trabalho ou conta escolar.
+
+> [!NOTE]
+> Não suportamos uma combinação de registo de dispositivos e autenticação baseada em certificado no Autenticador no iOS. O utilizador deve utilizar uma suver, registando o dispositivo manualmente através das definições do Autenticador antes de iniciar a sua inscrição.
 
 Depois de ligar o registo do telefone, pode iniciar sessão utilizando apenas a aplicação Microsoft Authenticator.
 
@@ -92,7 +95,7 @@ Abra a aplicação Microsoft Authenticator, vá à sua conta de trabalho ou esco
 
 Num dispositivo Android:
 
-- **Se vir este ![ícone de ícone](media/user-help-auth-app-sign-in/icon.png)mostrando que está configurado .** Se este ícone aparecer ao lado do nome pessoal da sua conta Microsoft, significa que já configura o registo do telefone para a conta. Pode ser-lhe pedido que adicione notificações push para a sua conta, para que possa ser notificado sobre pedidos de autenticação fora da app.
+- **Se vir este ícone de ícone ![ mostrando que está configurado ](media/user-help-auth-app-sign-in/icon.png) .** Se este ícone aparecer ao lado do nome pessoal da sua conta Microsoft, significa que já configura o registo do telefone para a conta. Pode ser-lhe pedido que adicione notificações push para a sua conta, para que possa ser notificado sobre pedidos de autenticação fora da app.
 - **Se tem usado a aplicação para verificação de dois fatores.** Se já tiver usado a aplicação e a verificação de dois fatores, pode selecionar a seta ao lado do nome da conta e, em seguida, selecionar **ativar**o registo do telefone .
 - **Se não encontrar o seu trabalho ou a conta escolar.** Se não conseguir encontrar **a** sua conta no ecrã contas da app, significa que ainda não a adicionou à app. Adicione a sua conta seguindo os passos do artigo contas pessoais da [Microsoft.](user-help-auth-app-add-personal-ms-account.md)
 

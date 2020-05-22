@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1d2dfdb203b05f2f6b7de740718d7407bd88066c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d9f970d08318d7dec685d3021c72b7f80de90049
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80681717"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758882"
 ---
 # <a name="object-bounds"></a>Limites dos objetos
 
@@ -22,9 +22,9 @@ O AABB local de uma [malha](meshes.md) pode ser consultado diretamente a partir 
 
 É possível calcular os limites de toda uma hierarquia de objetos desta forma, mas isso requer atravessar a hierarquia, consultar os limites para cada malha, e combiná-los manualmente. Esta operação é aborrecida e ineficiente.
 
-Uma maneira melhor `QueryLocalBoundsAsync` é `QueryWorldBoundsAsync` ligar ou numa entidade. A computação é então descarregada para o servidor e devolvida com o mínimo de atraso.
+Uma maneira melhor é ligar `QueryLocalBoundsAsync` ou `QueryWorldBoundsAsync` numa entidade. A computação é então descarregada para o servidor e devolvida com o mínimo de atraso.
 
-``` cs
+```cs
 private BoundsQueryAsync _boundsQuery = null;
 
 public void GetBounds(Entity entity)
@@ -39,6 +39,22 @@ public void GetBounds(Entity entity)
             // ...
         }
     };
+}
+```
+
+```cpp
+void GetBounds(ApiHandle<Entity> entity)
+{
+    ApiHandle<BoundsQueryAsync> boundsQuery = *entity->QueryWorldBoundsAsync();
+    boundsQuery->Completed([](ApiHandle<BoundsQueryAsync> bounds)
+    {
+        if (bounds->IsRanToCompletion())
+        {
+            Double3 aabbMin = bounds->Result()->min;
+            Double3 aabbMax = bounds->Result()->max;
+            // ...
+        }
+    });
 }
 ```
 

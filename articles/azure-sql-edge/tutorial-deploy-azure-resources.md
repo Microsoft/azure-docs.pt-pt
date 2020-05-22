@@ -9,12 +9,12 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 0e241b672bcac49c0459c840d46b0c81e158d56b
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: c74e402fa1faa883b1e456f11a8d9d7b1e750d27
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725844"
+ms.locfileid: "83772850"
 ---
 # <a name="install-software-and-set-up-resources-for-the-tutorial"></a>Instale software e instale recursos para o tutorial
 
@@ -46,7 +46,7 @@ Implemente os recursos Azure exigidos por este tutorial Azure SQL Edge. Estes po
    az extension add --name azure-cli-ml
    ```
 
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
+   [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 
 2. Declare as variáveis exigidas pelo script PowerShell.

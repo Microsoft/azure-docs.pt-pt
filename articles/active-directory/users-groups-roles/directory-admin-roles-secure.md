@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c580a39db97e1ce50c3d244db3023bf422bca08
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 16c87eabec8f09f082c258a439a17b9f3aa79336
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82837197"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83759035"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Proteção de acesso privilegiado para implementações híbridas e na cloud no Azure AD
 
@@ -82,7 +82,7 @@ Depois de ligar a Azure AD Privileged Identity Management:
 
 4. Abra a Gestão de Identidade Privilegiada da lista **de todos os serviços** e coloque-a no seu painel de instrumentos.
 
-A primeira pessoa a usar PIM na sua organização é atribuída ao administrador de **Segurança** e funções de **administrador de funções privilegiadas.** Apenas administradores privilegiados podem gerir as atribuições de diretório seletiva seletiva dos utilizadores. O assistente de segurança pim acompanha-o através da experiência inicial de descoberta e atribuição. Pode sair do assistente sem fazer alterações adicionais neste momento.
+Certifique-se de que a primeira pessoa a utilizar PIM na sua organização é atribuída ao administrador de **segurança** e às funções de **administrador de funções privilegiadas.** Apenas administradores privilegiados podem gerir as atribuições de diretório seletiva seletiva dos utilizadores. O assistente de segurança pim acompanha-o através da experiência inicial de descoberta e atribuição. Pode sair do assistente sem fazer alterações adicionais neste momento.
 
 #### <a name="identify-and-categorize-accounts-that-are-in-highly-privileged-roles"></a>Identificar e categorizar contas que estejam em papéis altamente privilegiados
 
@@ -110,11 +110,11 @@ Remova quaisquer contas que já não sejam necessárias nessas funções. Em seg
 
 As contas de acesso de emergência ajudam a restringir o acesso privilegiado dentro de uma organização da AD Azure. Estas contas são altamente privilegiadas e não são atribuídas a indivíduos específicos. As contas de acesso de emergência limitam-se a situações de emergência para cenários de "vidro partido" onde contas administrativas normais não podem ser utilizadas. Certifique-se de que controla e reduz a utilização da conta de emergência para apenas o tempo necessário.
 
-Avalie as contas atribuídas ou elegíveis para o papel de administradora global. Se não vir contas apenas em nuvem \*utilizando o domínio .onmicrosoft.com (para acesso de emergência "break glass"), crie-as. Para mais informações, consulte a Gestão de contas administrativas de [acesso de emergência em Azure AD](directory-emergency-access.md).
+Avalie as contas atribuídas ou elegíveis para o papel de administradora global. Se não vir contas apenas em nuvem utilizando o \* domínio .onmicrosoft.com (para acesso de emergência "break glass"), crie-as. Para mais informações, consulte a Gestão de contas administrativas de [acesso de emergência em Azure AD](directory-emergency-access.md).
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>Ligue a autenticação multifactor e registe todas as outras contas de administração não federadas altamente privilegiadas
 
-Requerer a Autenticação Multi-Factor Azure (MFA) no início do registo para todos os utilizadores individuais que estejam permanentemente atribuídos a uma ou mais funções de administrador da AD Azure: Administrador global, administrador de funções privilegiada, administrador exchange online e administrador do SharePoint Online. Utilize o guia para ativar a [Autenticação Multifactor (MFA) para as suas contas de administração e certifique-se](../authentication/howto-mfa-userstates.md) de que todos os utilizadores se registaram em [https://aka.ms/mfasetup](https://aka.ms/mfasetup). Mais informações podem ser encontradas sob o passo 2 e passo 3 do guia Proteja o [acesso aos dados e serviços no Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
+Requerer a Autenticação Multi-Factor Azure (MFA) no início do registo para todos os utilizadores individuais que estejam permanentemente atribuídos a uma ou mais funções de administrador da AD Azure: Administrador global, administrador de funções privilegiada, administrador exchange online e administrador do SharePoint Online. Utilize o guia para ativar a [Autenticação Multifactor (MFA) para as suas contas de administração e certifique-se](../authentication/howto-mfa-userstates.md) de que todos os utilizadores se registaram em [https://aka.ms/mfasetup](https://aka.ms/mfasetup) . Mais informações podem ser encontradas sob o passo 2 e passo 3 do guia Proteja o [acesso aos dados e serviços no Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
 
 ## <a name="stage-2-mitigate-frequently-used-attacks"></a>Fase 2: Mitigar ataques frequentemente utilizados
 
@@ -177,7 +177,7 @@ A Azure AD Identity Protection é uma ferramenta de monitorização e reporte ba
 
 #### <a name="obtain-your-office-365-secure-score-if-using-office-365"></a>Obtenha o seu Office 365 Secure Score (se utilizar o Office 365)
 
-O Secure Score analisa as suas configurações e atividades para os serviços do Office 365 que está a utilizar e compara-as a uma linha de base estabelecida pela Microsoft. Terá uma pontuação baseada no alinhamento que tem com as práticas de segurança. Qualquer pessoa que tenha permissões de administração para uma subscrição do [https://securescore.office.com](https://securescore.office.com/)Office 365 Business Premium ou da Enterprise pode aceder à Pontuação Segura em .
+O Secure Score analisa as suas configurações e atividades para os serviços do Office 365 que está a utilizar e compara-as a uma linha de base estabelecida pela Microsoft. Terá uma pontuação baseada no alinhamento que tem com as práticas de segurança. Qualquer pessoa que tenha permissões de administração para uma subscrição do Office 365 Business Premium ou da Enterprise pode aceder à Pontuação Segura em [https://securescore.office.com](https://securescore.office.com/) .
 
 #### <a name="review-the-office-365-security-and-compliance-guidance-if-using-office-365"></a>Reveja a orientação de segurança e conformidade do Office 365 (se utilizar o Office 365)
 
@@ -207,7 +207,7 @@ Utilize o portal Enterprise e o portal Azure para identificar as subscrições n
 
 #### <a name="remove-microsoft-accounts-from-admin-roles"></a>Remover as contas da Microsoft das funções de administrador
 
-As contas da Microsoft de outros programas, como Xbox, Live e Outlook, não devem ser usadas como contas de administrador para as subscrições da sua organização. Remova o estado de administração de todas as contas da chris@contoso.comMicrosoft e substitua-o por Azure AD (por exemplo, ) trabalho ou contas escolares. Para efeitos de administração, dependa de contas autenticadas em Azure AD e não em outros serviços.
+As contas da Microsoft de outros programas, como Xbox, Live e Outlook, não devem ser usadas como contas de administrador para as subscrições da sua organização. Remova o estado de administração de todas as contas da Microsoft e substitua-o por Azure AD (por exemplo, chris@contoso.com ) trabalho ou contas escolares. Para efeitos de administração, dependa de contas autenticadas em Azure AD e não em outros serviços.
 
 #### <a name="monitor-azure-activity"></a>Monitorizar a atividade do Azure
 

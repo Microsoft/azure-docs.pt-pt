@@ -4,15 +4,15 @@ description: Aprenda a restringir o tráfego web com uma Firewall de aplicação
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 08/21/2019
+ms.date: 05/21/2020
 ms.author: victorh
 ms.topic: overview
-ms.openlocfilehash: 4882ac51af271625b8e61d862890beb6d5f63213
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a429d1a0f426002595f347794bc1cb97a649d6f6
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80240069"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770249"
 ---
 # <a name="enable-web-application-firewall-using-the-azure-cli"></a>Ativar firewall de aplicação web utilizando o AZURE CLI
 
@@ -30,7 +30,7 @@ Neste artigo, vai aprender a:
 
 Se preferir, pode concluir este procedimento utilizando [o Azure PowerShell](tutorial-restrict-web-traffic-powershell.md).
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -151,12 +151,12 @@ az storage account create \
   --resource-group myResourceGroupAG \
   --location eastus \
   --sku Standard_LRS \
-  --encryption blob
+  --encryption-services blob
 ```
 
 ### <a name="configure-diagnostics"></a>Configurar o diagnóstico
 
-Configure o diagnóstico para registar dados nos registos ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog e ApplicationGatewayFirewallLog. Substitua-o `<subscriptionId>` pelo identificador de subscrição e, em seguida, configure diagnósticos com [az monitor de definições de diagnóstico criar](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create).
+Configure o diagnóstico para registar dados nos registos ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog e ApplicationGatewayFirewallLog. `<subscriptionId>`Substitua-o pelo identificador de subscrição e, em seguida, configure diagnósticos com [az monitor de definições de diagnóstico criar](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create).
 
 ```azurecli-interactive
 appgwid=$(az network application-gateway show --name myAppGateway --resource-group myResourceGroupAG --query id -o tsv)

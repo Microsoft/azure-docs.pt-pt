@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/08/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c3e5beaef7fcc9d407103834e2040957ff32984c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 57b6bf06e34068b5560829838eb9ee1315df6cde
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81008566"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83778168"
 ---
 Os discos partilhados azure (pré-visualização) são uma nova funcionalidade para discos geridos pelo Azure que permitem ligar simultaneamente um disco gerido a várias máquinas virtuais (VMs). A fixação de um disco gerido a vários VMs permite-lhe implementar aplicações agrupadas novas ou migratórias existentes para o Azure.
 
@@ -50,6 +50,10 @@ Algumas aplicações populares em execução no WSFC incluem:
 ### <a name="linux"></a>Linux
 
 Os clusters Linux podem alavancar gestores de clusters como [o Pacemaker](https://wiki.clusterlabs.org/wiki/Pacemaker). O Pacemaker baseia-se em [Corosync,](http://corosync.github.io/corosync/)permitindo comunicações de cluster para aplicações implementadas em ambientes altamente disponíveis. Alguns sistemas comuns de ficheiros agrupados incluem [ocfs2](https://oss.oracle.com/projects/ocfs2/) e [gfs2](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/global_file_system_2/ch-overview-gfs2). Pode manipular reservas e registos utilizando utilitários como [fence_scsi](http://manpages.ubuntu.com/manpages/eoan/man8/fence_scsi.8.html) e [sg_persist.](https://linux.die.net/man/8/sg_persist)
+
+#### <a name="ubuntu"></a>Ubuntu
+
+Para obter informações sobre como configurar a alta disponibilidade de Ubuntu com Corosync e Pacemaker em Discos Partilhados Azure, consulte [o Discurso Comunitário de Ubuntu.](https://discourse.ubuntu.com/t/ubuntu-high-availability-corosync-pacemaker-shared-disk-environments/14874)
 
 ## <a name="persistent-reservation-flow"></a>Fluxo persistente de reserva
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: e60fa73af9bd33c22f8489520b683f244dc46302
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: cbefe2e2b25db7ce16a7a1bde423f60fda412590
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655945"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773360"
 ---
 # <a name="log-analytics-agent-overview"></a>Visão geral do agente de Log Analytics
 O agente Azure Log Analytics foi desenvolvido para uma gestão abrangente através de máquinas virtuais em qualquer nuvem, máquinas no local, e as monitorizadas pelo [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/). Os agentes Windows e Linux enviam dados recolhidos de diferentes fontes para o seu espaço de trabalho Log Analytics no Monitor Azure, bem como quaisquer registos ou métricas únicos, conforme definido numa solução de monitorização. O agente Log Analytics também suporta insights e outros serviços no Azure Monitor, tais como [O Monitor Azure para VMs,](../insights/vminsights-enable-overview.md) [Azure Security Center](/azure/security-center/)e [Azure Automation.](../../automation/automation-intro.md)
@@ -170,10 +170,10 @@ A tabela que se segue lista as informações de configuração de procuração e
 
 |Recursos do Agente|Portas |Direção |Inspeção de HTTPS direto|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |Porto 443 |Entrada e saída|Sim |  
-|*.oms.opinsights.azure.com |Porto 443 |Entrada e saída|Sim |  
-|*.blob.core.windows.net |Porto 443 |Entrada e saída|Sim |
-|*.azure-automation.net |Porto 443 |Entrada e saída|Sim |
+|*.ods.opinsights.azure.com |Porto 443 |Saída|Sim |  
+|*.oms.opinsights.azure.com |Porto 443 |Saída|Sim |  
+|*.blob.core.windows.net |Porto 443 |Saída|Sim |
+|*.azure-automation.net |Porto 443 |Saída|Sim |
 
 Para obter informações sobre firewall necessárias para o Governo de Azure, consulte a [gestão do Governo azure.](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs) 
 

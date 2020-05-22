@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: 87776c14e45ff4bb3cce6661323d74a1315c8ab2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bf674170ff49f55fc7997a87d07f9069306fc0cd
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81757099"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774159"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Otimizar a VM do Linux no Azure
 A criação de uma máquina virtual Linux (VM) é fácil de fazer a partir da linha de comando ou do portal. Este tutorial mostra-lhe como garantir que o configurapara otimizar o seu desempenho na plataforma Microsoft Azure. Este tópico utiliza um Ubuntu Server VM, mas também pode criar uma máquina virtual Linux usando [as suas próprias imagens como modelos](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -29,9 +29,9 @@ Com base no tamanho vm, pode anexar até 16 discos adicionais numa Série A, 32 
 
 Para obter os iOps mais elevados em discos de armazenamento premium onde as suas definições de cache foram definidas para **ReadOnly** ou **None,** deve **desativar as barreiras** enquanto monta o sistema de ficheiros em Linux. Não precisa de barreiras porque os escritos para discos apoiados por Armazenamento Premium são duráveis para estas definições de cache.
 
-* Se utilizar **reiserFS,** desative barreiras utilizando a `barrier=none` opção `barrier=flush`de montagem (Para ativar barreiras, utilize)
-* Se utilizar **ext3/ext4,** desative barreiras utilizando a `barrier=0` opção `barrier=1`de montagem (Para permitir barreiras, utilize)
-* Se utilizar **o XFS,** desative `nobarrier` as barreiras utilizando a `barrier`opção de montagem (Para ativar barreiras, utilize a opção)
+* Se utilizar **reiserFS,** desative barreiras utilizando a opção de montagem `barrier=none` (Para ativar barreiras, `barrier=flush` utilize)
+* Se utilizar **ext3/ext4,** desative barreiras utilizando a opção de montagem `barrier=0` (Para permitir barreiras, `barrier=1` utilize)
+* Se utilizar **o XFS,** desative as barreiras utilizando a opção de montagem `nobarrier` (Para ativar barreiras, utilize a opção) `barrier`
 
 ## <a name="unmanaged-storage-account-considerations"></a>Considerações de conta de armazenamento não geridas
 A ação predefinida quando cria um VM com o AZURE CLI é utilizar discos geridos azure.  Estes discos são manuseados pela plataforma Azure e não requerem qualquer preparação ou localização para os armazenar.  Os discos não geridos requerem uma conta de armazenamento e têm algumas considerações adicionais de desempenho.  Para mais informações sobre discos geridos, veja [Managed Disks Overview (Descrição geral dos Managed Disks)](../windows/managed-disks-overview.md).  A secção seguinte descreve considerações de desempenho apenas quando utiliza discos não geridos.  Mais uma vez, a solução de armazenamento predefinido e recomendada é utilizar discos geridos.
@@ -51,14 +51,14 @@ No Ubuntu Cloud Images, deve utilizar cloud-init para configurar a divisória de
 
 Para imagens sem suporte para cloud-init, as imagens VM implantadas do Azure Marketplace têm um Agente VM Linux integrado com o OS. Este agente permite que o VM interaja com vários serviços Azure. Assumindo que implementou uma imagem padrão do Mercado Azure, teria de fazer o seguinte para configurar corretamente as definições de ficheiros de swap do Linux:
 
-Localize e modifique duas entradas no ficheiro **/etc/waagent.conf.** Controlam a existência de um ficheiro de permuta dedicado e o tamanho do ficheiro swap. Os parâmetros que precisa `ResourceDisk.EnableSwap` de verificar são e`ResourceDisk.SwapSizeMB` 
+Localize e modifique duas entradas no ficheiro **/etc/waagent.conf.** Controlam a existência de um ficheiro de permuta dedicado e o tamanho do ficheiro swap. Os parâmetros que precisa de verificar são `ResourceDisk.EnableSwap` e`ResourceDisk.SwapSizeMB` 
 
 Para ativar um disco devidamente ativado e um ficheiro de troca montado, certifique-se de que os parâmetros têm as seguintes definições:
 
 * Resourcedisk.Enableswap=Y
 * ResourceDisk.SwapSizeMB={size in MB para satisfazer as suas necessidades} 
 
-Depois de ter feito a alteração, tem de reiniciar o waagent ou reiniciar o vM Linux para refletir essas alterações.  Sabe que as alterações foram implementadas e foi criado `free` um ficheiro de troca quando utiliza o comando para visualizar o espaço livre. O exemplo seguinte tem um ficheiro de troca de 512MB criado como resultado da modificação do ficheiro **waagent.conf:**
+Depois de ter feito a alteração, tem de reiniciar o waagent ou reiniciar o vM Linux para refletir essas alterações.  Sabe que as alterações foram implementadas e foi criado um ficheiro de troca quando utiliza o `free` comando para visualizar o espaço livre. O exemplo seguinte tem um ficheiro de troca de 512MB criado como resultado da modificação do ficheiro **waagent.conf:**
 
 ```bash
 azuseruser@myVM:~$ free
@@ -115,6 +115,8 @@ Para a família de distribuição do Chapéu Vermelho, só precisa do seguinte c
 ```bash
 echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 ```
+
+Ubuntu 18.04 com o kernel afinado em Azure usa programadores de I/O multi-fila. Neste cenário, `none` está a seleção adequada em vez de `noop` . Para mais informações, consulte [os Programadores Ubuntu I/O](https://wiki.ubuntu.com/Kernel/Reference/IOSchedulers).
 
 ## <a name="using-software-raid-to-achieve-higher-iops"></a>Usando o Software RAID para obter i/ops mais elevados
 Se as suas cargas de trabalho requerem mais IOps do que um único disco pode fornecer, precisa de utilizar uma configuração RAID de software de vários discos. Como o Azure já realiza a resiliência do disco na camada de tecido local, obtém-se o maior nível de desempenho a partir de uma configuração de striping RAID-0.  Provisão e criação de discos no ambiente Azure e prenda-os ao seu VM Linux antes de dividir, fortar e montar as unidades.  Mais detalhes sobre a configuração de uma configuração RAID de software no seu Linux VM em azure podem ser encontrados no Raid de Software De Configuração no documento **[Linux.](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**

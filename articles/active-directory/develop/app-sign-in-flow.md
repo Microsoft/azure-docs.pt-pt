@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/28/2020
+ms.date: 05/18/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 7b326e17611b5f4b9520d8218a28a67afe9a851a
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: af5b27dc85a276c731a61135ab59ab81f5aaf3c2
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82584353"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83772204"
 ---
 # <a name="app-sign-in-flow-with-microsoft-identity-platform"></a>Fluxo de entrada de aplicativos com plataforma de identidade microsoft
 
@@ -29,7 +29,7 @@ Este tópico discute o fluxo básico de entrada para aplicações web, desktop e
 Quando um utilizador navega no navegador para uma aplicação web, acontece o seguinte:
 
 * A aplicação web determina se o utilizador é autenticado.
-* Se o utilizador não for autenticado, a aplicação web delega à Azure AD para assinar no utilizador. Esse sinal de inscrição estará em conformidade com a política da organização, o que pode significar pedir ao utilizador que introduza as suas credenciais, utilizando a autenticação de vários fatores, ou não utilizando uma palavra-passe (por exemplo, utilizando o Windows Hello).
+* Se o utilizador não for autenticado, a aplicação web delega à Azure AD para assinar no utilizador. Esse sinal de inscrição estará em conformidade com a política da organização, o que pode significar pedir ao utilizador que introduza as suas credenciais, utilizando a [autenticação multifactor](../authentication/concept-mfa-howitworks.md) (por vezes referida como autenticação de dois fatores ou 2FA), ou não utilizando uma palavra-passe (por exemplo, utilizando o Windows Hello).
 * Pede-se ao utilizador que consinta no acesso de que a aplicação do cliente necessita. É por isso que as aplicações de clientes precisam de ser registadas com a Azure AD, para que a plataforma de identidade da Microsoft possa fornecer fichas que representem o acesso que o utilizador consentiu.
 
 Quando o utilizador tiver autenticado com sucesso:
@@ -44,9 +44,9 @@ O diagrama de sequência seguinte resume esta interação:
 
 ### <a name="how-a-web-app-determines-if-the-user-is-authenticated"></a>Como uma aplicação web determina se o utilizador é autenticado
 
-Os desenvolvedores de aplicações web podem indicar se todas ou apenas determinadas páginas requerem autenticação. Por exemplo, em ASP.NET/ASP.NET Core, isto `[Authorize]` é feito adicionando o atributo às ações do controlador.
+Os desenvolvedores de aplicações web podem indicar se todas ou apenas determinadas páginas requerem autenticação. Por exemplo, em ASP.NET/ASP.NET Core, isto é feito adicionando o `[Authorize]` atributo às ações do controlador.
 
-Este atributo faz com que ASP.NET verifique a presença de um cookie de sessão contendo a identidade do utilizador. Se um cookie não estiver presente, ASP.NET redireciona a autenticação para o fornecedor de identidade especificado. Se o fornecedor de identidade for Azure AD, `https://login.microsoftonline.com`a aplicação web redireciona a autenticação para , que apresenta um diálogo de entrada.
+Este atributo faz com que ASP.NET verifique a presença de um cookie de sessão contendo a identidade do utilizador. Se um cookie não estiver presente, ASP.NET redireciona a autenticação para o fornecedor de identidade especificado. Se o fornecedor de identidade for Azure AD, a aplicação web redireciona a autenticação para `https://login.microsoftonline.com` , que apresenta um diálogo de entrada.
 
 ### <a name="how-a-web-app-delegates-sign-in-to-microsoft-identity-platform-and-obtains-a-token"></a>Como uma aplicação web delega iniciar sessão na plataforma de identidade da Microsoft e obtém um símbolo
 

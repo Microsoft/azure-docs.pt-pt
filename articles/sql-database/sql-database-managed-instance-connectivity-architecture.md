@@ -3,7 +3,7 @@ title: Arquitetura de conectividade para um caso gerido
 description: Saiba mais sobre a Azure SQL Database gerida pela arquitetura de comunicação e conectividade, bem como como os componentes direcionam o tráfego para a instância gerida.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: fasttrack-edit
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: e4d6098b7b4de76461e924fc7d42d039046d7ce5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9f341c3c2c299ca358b2a42210f04c6399fe2892
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81677157"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773605"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Arquitetura de conectividade para um caso gerido na Base de Dados Azure SQL
 
@@ -66,7 +66,7 @@ Vamos mergulhar mais fundo na arquitetura de conectividade para casos geridos. O
 
 ![Arquitetura de conectividade do cluster virtual](./media/managed-instance-connectivity-architecture/connectivityarch003.png)
 
-Os clientes ligam-se a uma instância gerida usando `<mi_name>.<dns_zone>.database.windows.net`um nome de anfitrião que tem o formulário . Este nome de anfitrião resolve-se num endereço IP privado, embora esteja registado numa zona pública do Sistema de Nomede Domínio (DNS) e seja publicamente resolúvel. O `zone-id` é gerado automaticamente quando se cria o cluster. Se um cluster recém-criado acolhe uma instância gerida secundária, partilha a sua identidade de zona com o cluster primário. Para obter mais informações, consulte [Utilize grupos de failover automático para permitir falhas transparentes e coordenadas de várias bases de dados](sql-database-auto-failover-group.md#enabling-geo-replication-between-managed-instances-and-their-vnets).
+Os clientes ligam-se a uma instância gerida usando um nome de anfitrião que tem o formulário `<mi_name>.<dns_zone>.database.windows.net` . Este nome de anfitrião resolve-se num endereço IP privado, embora esteja registado numa zona pública do Sistema de Nomede Domínio (DNS) e seja publicamente resolúvel. O `zone-id` é gerado automaticamente quando se cria o cluster. Se um cluster recém-criado acolhe uma instância gerida secundária, partilha a sua identidade de zona com o cluster primário. Para obter mais informações, consulte [Utilize grupos de failover automático para permitir falhas transparentes e coordenadas de várias bases de dados](sql-database-auto-failover-group.md#enabling-geo-replication-between-managed-instances-and-their-vnets).
 
 Este endereço IP privado pertence ao equilibrador interno de carga da instância gerida. O equilibrador de carga direciona o tráfego para o portal da instância gerida. Como várias instâncias geridas podem ser executadas dentro do mesmo cluster, o gateway usa o nome de anfitrião da instância gerida para redirecionar o tráfego para o serviço de motor SQL correto.
 
@@ -83,28 +83,28 @@ Quando as ligações começam dentro da instância gerida (como em backups e reg
 
 ## <a name="service-aided-subnet-configuration"></a>Configuração de sub-rede com a ajuda de um serviço
 
-Para responder aos requisitos de segurança e gestão do cliente, a Instância Gerida está a transitar de configuração manual para subnet ajudada ao serviço.
+Para dar resposta aos requisitos de segurança e capacidade de gestão do cliente, está a ser feita a transição da configuração manual para a configuração da sub-rede com a ajuda de um serviço da Instância Gerida.
 
-Com o utilizador de configuração de sub-rede assistido pelo serviço está em pleno controlo do tráfego de dados (TDS), enquanto a Managed Instance assume a responsabilidade de garantir um fluxo ininterrupto de tráfego de gestão para cumprir o SLA.
+Com a configuração da sub-rede com a ajuda de um serviço, o utilizador tem controlo total sobre o tráfego de dados (TDS), enquanto a Instância Gerida assume a responsabilidade de garantir um fluxo ininterrupto de tráfego gerido para cumprir o SLA.
 
-A configuração da subnet ajudada pelo serviço baseia-se em cima da funcionalidade de delegação de [subnet](../virtual-network/subnet-delegation-overview.md) de rede virtual para fornecer a gestão automática da configuração da rede e permitir pontos finais de serviço. Os pontos finais do serviço poderiam ser usados para configurar regras de firewall de rede virtuais em contas de armazenamento que mantêm backups/registos de auditoria.
+A configuração da sub-rede com a ajuda de um serviço baseia-se na funcionalidade de [delegação de sub-rede](../virtual-network/subnet-delegation-overview.md) da rede virtual para permitir a gestão da configuração de rede automática e ativar os pontos finais de serviço. Poderá utilizar os pontos finais de serviço para configurar as regras de firewall da rede virtual nas contas de armazenamento que armazenam os registos de auditoria/cópias de segurança.
 
 ### <a name="network-requirements"></a>Requisitos da rede 
 
-Implemente uma instância gerida numa subnet dedicada dentro da rede virtual. A sub-rede deve ter estas características:
+Implemente uma instância gerida numa sub-rede dedicada numa rede virtual. A sub-rede deve ter estas características:
 
-- **Sub-rede dedicada:** A subnet da instância gerida não pode conter qualquer outro serviço de nuvem que esteja associado a ele, e não pode ser uma sub-rede de gateway. A sub-rede não pode conter nenhum recurso, mas a instância gerida, e não pode adicionar mais tarde outros tipos de recursos na sub-rede.
-- **Delegação subnet:** A subnet da instância gerida tem de `Microsoft.Sql/managedInstances` ser delegada no fornecedor de recursos.
-- **Grupo de segurança de rede (NSG):** Um NSG precisa de ser associado à subnet da instância gerida. Pode utilizar um NSG para controlar o acesso ao ponto final dos dados da instância gerida filtrando o tráfego na porta 1433 e nas portas 11000-11999 quando a instância gerida está configurada para ligações redirecionais. O serviço fornecerá automaticamente e manterá [as regras](#mandatory-inbound-security-rules-with-service-aided-subnet-configuration) em vigor necessárias para permitir o fluxo ininterrupto de tráfego de gestão.
-- **Tabela de rota definida pelo utilizador (UDR):** Uma tabela UDR precisa de ser associada à subnet da instância gerida. Pode adicionar entradas à tabela de rotas para direcionar o tráfego que tem no local gamas IP privadas como destino através do gateway da rede virtual ou do aparelho de rede virtual (NVA). O serviço fornecerá automaticamente e manterá as entradas atuais [necessárias](#user-defined-routes-with-service-aided-subnet-configuration) para permitir o fluxo ininterrupto de tráfego de gestão.
-- **Endereços IP suficientes:** A sub-rede de instância gerida deve ter pelo menos 16 endereços IP. O mínimo recomendado é de 32 endereços IP. Para obter mais informações, consulte [Determine o tamanho da sub-rede para casos geridos](sql-database-managed-instance-determine-size-vnet-subnet.md). Pode implementar instâncias geridas na [rede existente](sql-database-managed-instance-configure-vnet-subnet.md) depois de configurá-la para satisfazer os requisitos de [networking para instâncias geridas](#network-requirements). Caso contrário, crie uma [nova rede e sub-rede.](sql-database-managed-instance-create-vnet-subnet.md)
+- **Sub-rede dedicada:** a sub-rede da instância gerida não pode ter outro serviço cloud associado e não pode ser uma sub-rede de gateway. A sub-rede não pode ter nenhum recurso para além da instância gerida. Além disso, não pode adicionar posteriormente outros tipos de recursos na sub-rede.
+- **Delegação subnet:** A subnet da instância gerida tem de ser delegada no fornecedor de `Microsoft.Sql/managedInstances` recursos.
+- **Grupo de segurança de rede (NSG):** tem de existir um NSG associado à sub-rede da instância gerida. Pode utilizar um NSG para controlar o acesso ao ponto final de dados da instância gerida ao filtrar o tráfego na porta 1433 e nas portas 11000-11999 quando a instância gerida estiver configurada para redirecionar as ligações. O serviço será automaticamente aprovisionado e manterá as [regras](#mandatory-inbound-security-rules-with-service-aided-subnet-configuration) atuais exigidas para permitir o fluxo do tráfego de gestão ininterrupto.
+- **Tabela de rotas definidas pelo utilizador (UDR):** tem de existir uma tabela UDR associada à sub-rede da instância gerida. Pode adicionar entradas à tabela de rotas para encaminhar o tráfego que possui intervalos de IP privados no local como destino através do gateway da rede virtual ou da aplicação virtual de rede (NVA). O serviço será automaticamente aprovisionado e manterá as [entradas](#user-defined-routes-with-service-aided-subnet-configuration) atuais exigidas para permitir o fluxo do tráfego de gestão ininterrupto.
+- **Endereços IP suficientes:** a sub-rede da instância gerida deve ter, pelo menos, 16 endereços IP. O mínimo recomendado é de 32 endereços IP. Para obter mais informações, veja [Determinar o tamanho da sub-rede das instâncias geridas](sql-database-managed-instance-determine-size-vnet-subnet.md). Pode implementar as instâncias geridas na [rede existente](sql-database-managed-instance-configure-vnet-subnet.md)depois de a configurar para cumprir [os requisitos de rede das instâncias geridas](#network-requirements). Caso contrário, crie uma [nova rede e sub-rede](sql-database-managed-instance-create-vnet-subnet.md).
 
 > [!IMPORTANT]
 > Quando se cria uma instância gerida, aplica-se uma política de intenção de rede na subnet para evitar alterações não conformes à configuração da rede. Após a remoção da última instância da sub-rede, a política de intenção da rede também é removida.
 
 ### <a name="mandatory-inbound-security-rules-with-service-aided-subnet-configuration"></a>Regras de segurança obrigatórias de entrada com configuração de sub-rede ajudada pelo serviço 
 
-| Nome       |Porta                        |Protocolo|Origem           |Destino|Ação|
+| Name       |Porta                        |Protocolo|Origem           |Destino|Ação|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |gestão  |9000, 9003, 1438, 1440, 1452|TCP     |SqlManagement    |MI SUBNET  |Permitir |
 |            |9000, 9003                  |TCP     |CorpnetSaw       |MI SUBNET  |Permitir |
@@ -114,14 +114,14 @@ Implemente uma instância gerida numa subnet dedicada dentro da rede virtual. A 
 
 ### <a name="mandatory-outbound-security-rules-with-service-aided-subnet-configuration"></a>Regras de segurança obrigatórias de saída com configuração de sub-rede ajudada pelo serviço 
 
-| Nome       |Porta          |Protocolo|Origem           |Destino|Ação|
+| Name       |Porta          |Protocolo|Origem           |Destino|Ação|
 |------------|--------------|--------|-----------------|-----------|------|
 |gestão  |443, 12000    |TCP     |MI SUBNET        |AzureCloud |Permitir |
 |mi_subnet   |Qualquer           |Qualquer     |MI SUBNET        |MI SUBNET  |Permitir |
 
 ### <a name="user-defined-routes-with-service-aided-subnet-configuration"></a>Vias definidas pelo utilizador com configuração de sub-rede ajudada pelo serviço 
 
-|Nome|Prefixo de endereço|Próximo Hop|
+|Name|Prefixo de endereço|Próximo Hop|
 |----|--------------|-------|
 |subnet-to-vnetlocal|MI SUBNET|Rede virtual|
 |mi-13-64-11-nexthop-internet|13.64.0.0/11|Internet|
@@ -310,20 +310,20 @@ As seguintes funcionalidades de rede virtual não são atualmente suportadas com
 
 ### <a name="deprecated-network-requirements-without-service-aided-subnet-configuration"></a>[Depreciado] Requisitos de rede sem configuração de sub-rede ajudada pelo serviço
 
-Implemente uma instância gerida numa subnet dedicada dentro da rede virtual. A sub-rede deve ter estas características:
+Implemente uma instância gerida numa sub-rede dedicada numa rede virtual. A sub-rede deve ter estas características:
 
-- **Sub-rede dedicada:** A subnet da instância gerida não pode conter qualquer outro serviço de nuvem que esteja associado a ele, e não pode ser uma sub-rede de gateway. A sub-rede não pode conter nenhum recurso, mas a instância gerida, e não pode adicionar mais tarde outros tipos de recursos na sub-rede.
-- **Grupo de segurança de rede (NSG):** Um NSG associado à rede virtual deve definir regras de segurança de [entrada](#mandatory-inbound-security-rules) e regras de segurança de [saída](#mandatory-outbound-security-rules) antes de quaisquer outras regras. Pode utilizar um NSG para controlar o acesso ao ponto final dos dados da instância gerida filtrando o tráfego na porta 1433 e nas portas 11000-11999 quando a instância gerida está configurada para ligações redirecionais.
+- **Sub-rede dedicada:** a sub-rede da instância gerida não pode ter outro serviço cloud associado e não pode ser uma sub-rede de gateway. A sub-rede não pode ter nenhum recurso para além da instância gerida. Além disso, não pode adicionar posteriormente outros tipos de recursos na sub-rede.
+- **Grupo de segurança de rede (NSG):** Um NSG associado à rede virtual deve definir regras de segurança de [entrada](#mandatory-inbound-security-rules) e regras de segurança de [saída](#mandatory-outbound-security-rules) antes de quaisquer outras regras. Pode utilizar um NSG para controlar o acesso ao ponto final de dados da instância gerida ao filtrar o tráfego na porta 1433 e nas portas 11000-11999 quando a instância gerida estiver configurada para redirecionar as ligações.
 - **Tabela de rota definida pelo utilizador (UDR):** Uma tabela UDR associada à rede virtual deve incluir [entradas específicas.](#user-defined-routes)
 - **Sem pontos finais de serviço:** Nenhum ponto final de serviço deve ser associado à sub-rede da instância gerida. Certifique-se de que a opção de pontos finais do serviço está desativada quando criar a rede virtual.
-- **Endereços IP suficientes:** A sub-rede de instância gerida deve ter pelo menos 16 endereços IP. O mínimo recomendado é de 32 endereços IP. Para obter mais informações, consulte [Determine o tamanho da sub-rede para casos geridos](sql-database-managed-instance-determine-size-vnet-subnet.md). Pode implementar instâncias geridas na [rede existente](sql-database-managed-instance-configure-vnet-subnet.md) depois de configurá-la para satisfazer os requisitos de [networking para instâncias geridas](#network-requirements). Caso contrário, crie uma [nova rede e sub-rede.](sql-database-managed-instance-create-vnet-subnet.md)
+- **Endereços IP suficientes:** a sub-rede da instância gerida deve ter, pelo menos, 16 endereços IP. O mínimo recomendado é de 32 endereços IP. Para obter mais informações, veja [Determinar o tamanho da sub-rede das instâncias geridas](sql-database-managed-instance-determine-size-vnet-subnet.md). Pode implementar as instâncias geridas na [rede existente](sql-database-managed-instance-configure-vnet-subnet.md)depois de a configurar para cumprir [os requisitos de rede das instâncias geridas](#network-requirements). Caso contrário, crie uma [nova rede e sub-rede](sql-database-managed-instance-create-vnet-subnet.md).
 
 > [!IMPORTANT]
 > Não é possível implementar uma nova instância gerida se a subnet de destino não tiver estas características. Quando se cria uma instância gerida, aplica-se uma política de intenção de rede na subnet para evitar alterações não conformes à configuração da rede. Após a remoção da última instância da sub-rede, a política de intenção da rede também é removida.
 
 ### <a name="mandatory-inbound-security-rules"></a>Regras de segurança obrigatórias
 
-| Nome       |Porta                        |Protocolo|Origem           |Destino|Ação|
+| Name       |Porta                        |Protocolo|Origem           |Destino|Ação|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |gestão  |9000, 9003, 1438, 1440, 1452|TCP     |Qualquer              |MI SUBNET  |Permitir |
 |mi_subnet   |Qualquer                         |Qualquer     |MI SUBNET        |MI SUBNET  |Permitir |
@@ -331,7 +331,7 @@ Implemente uma instância gerida numa subnet dedicada dentro da rede virtual. A 
 
 ### <a name="mandatory-outbound-security-rules"></a>Regras de segurança obrigatórias
 
-| Nome       |Porta          |Protocolo|Origem           |Destino|Ação|
+| Name       |Porta          |Protocolo|Origem           |Destino|Ação|
 |------------|--------------|--------|-----------------|-----------|------|
 |gestão  |443, 12000    |TCP     |MI SUBNET        |AzureCloud |Permitir |
 |mi_subnet   |Qualquer           |Qualquer     |MI SUBNET        |MI SUBNET  |Permitir |
@@ -349,7 +349,7 @@ Implemente uma instância gerida numa subnet dedicada dentro da rede virtual. A 
 
 ### <a name="user-defined-routes"></a>Rotas definidas pelo utilizador
 
-|Nome|Prefixo de endereço|Próximo Hop|
+|Name|Prefixo de endereço|Próximo Hop|
 |----|--------------|-------|
 |subnet_to_vnetlocal|MI SUBNET|Rede virtual|
 |mi-13-64-11-nexthop-internet|13.64.0.0/11|Internet|

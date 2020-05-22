@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: aahi
-ms.openlocfilehash: 84000016af4b16bd0716c15e7c27b4ab56614532
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: d1df46a5a8de4396011cc18ea062fe2d6b52ca8d
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83702165"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773975"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Instalar e executar recipientes de serviço de fala (Pré-visualização)
 
@@ -30,8 +30,8 @@ Os recipientes de fala permitem aos clientes construir uma arquitetura de aplica
 |--|--|--|
 | Conversão de voz em texto | Analisa o sentimento e transcreve gravações contínuas de fala em tempo real ou gravações áudio de lote com resultados intermédios.  | 2.2.0 |
 | Discurso personalizado a texto | Utilizando um modelo personalizado do [portal Custom Speech,](https://speech.microsoft.com/customspeech)transcreve gravações contínuas de fala em tempo real ou gravações áudio em lote em texto com resultados intermédios. | 2.2.0 |
-| Conversão de texto em voz | Converte o texto em discurso de som natural com entrada de texto simples ou linguagem de marcação de síntese da fala (SSML). | 1.3.0 |
-| Texto-a-fala personalizado | Utilizando um modelo personalizado do [portal Voz Personalizada,](https://aka.ms/custom-voice-portal)converte texto em discurso de som natural com entrada de texto simples ou linguagem de marcação de síntese da fala (SSML). | 1.3.0 |
+| Conversão de texto em voz | Converte o texto em discurso de som natural com entrada de texto simples ou linguagem de marcação de síntese da fala (SSML). | 1.4.0 |
+| Texto-a-fala personalizado | Utilizando um modelo personalizado do [portal Voz Personalizada,](https://aka.ms/custom-voice-portal)converte texto em discurso de som natural com entrada de texto simples ou linguagem de marcação de síntese da fala (SSML). | 1.4.0 |
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f20636bfaf8b1b1f7714a9cede63886deaf53e36
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 82439f8380b0dca676b781e36fff738b5d5bee93
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83641184"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758185"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>Uma aplicação web que chama APIs web: Configuração de código
 
@@ -80,7 +80,7 @@ Exemplos de código neste artigo e no seguinte são extraídos da [amostra de ap
 Exemplos de código neste artigo e no seguinte são extraídos da [aplicação web Java que chama microsoft graph](https://github.com/Azure-Samples/ms-identity-java-webapp), uma amostra de aplicação web que usa MSAL para Java.
 A amostra permite atualmente que a MSAL para a Java produza o URL do código de autorização e manuseie a navegação até ao ponto final de autorização da plataforma de identidade da Microsoft. Também é possível usar a segurança sprint para iniciar sessão. Talvez queira consultar a amostra para obter detalhes completos de implementação.
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Exemplos de código neste artigo e no seguinte são extraídos da [aplicação web Python chamada Microsoft Graph](https://github.com/Azure-Samples/ms-identity-python-webapp), uma amostra de aplicação web que utiliza mSAL. A Python.
 A amostra permite atualmente a MSAL. Python produz o URL de código de autorização e manuseia a navegação até ao ponto final de autorização para a plataforma de identidade da Microsoft. Talvez queira consultar a amostra para obter detalhes completos de implementação.
@@ -233,7 +233,7 @@ O `getAuthResultByAuthCode` método é definido em [AuthHelper.java#L176](https:
     }
 ```
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 O fluxo de código de autorização é solicitado como mostrado na [aplicação Web que assina nos utilizadores: Configuração de código](scenario-web-app-sign-user-app-configuration.md?tabs=python#initialization-code). O código é então recebido na `authorized` função, que o Flask faz a partir do `/getAToken` URL. Consulte [app.py#L30-L44](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/app.py#L30-L44) para obter todo o contexto deste código:
 
@@ -272,14 +272,14 @@ O tutorial central ASP.NET usa a injeção de dependência para que você decida
 
 ```csharp
 // Use a distributed token cache by adding:
-    services.AddSignIn(Configuration, "AzureAd");
+    services.AddSignIn(Configuration, "AzureAd")
             .AddWebAppCallsProtectedWebApi(Configuration,
                                            initialScopes: new string[] { "user.read" })
             .AddDistributedTokenCaches();
 
 // Then, choose your implementation.
 // For instance, the distributed in-memory cache (not cleared when you stop the app):
-services.AddDistributedMemoryCache()
+services.AddDistributedMemoryCache();
 
 // Or a Redis cache:
 services.AddStackExchangeRedisCache(options =>
@@ -357,7 +357,7 @@ IAuthenticationResult getAuthResultBySilentFlow(HttpServletRequest httpRequest, 
 
 Os detalhes da `SessionManagementHelper` aula são fornecidos na amostra [MSAL para Java.](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/SessionManagementHelper.java)
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Na amostra Python, uma cache por conta é assegurada recriando um pedido de cliente confidencial para cada pedido e, em seguida, serializando-o na cache da sessão do Flask:
 

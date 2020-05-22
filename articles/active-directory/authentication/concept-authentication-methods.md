@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 3947bf0dcad598bf52a742c790a2f99538d6facb
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 642f2705f54fe8f84cfde7ff039c9a723be59595
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83116425"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770964"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Que métodos de autenticação e verificação estão disponíveis no Diretório Ativo do Azure?
 
@@ -31,14 +31,15 @@ Um utilizador em AD Azure pode optar por autenticar utilizando um dos seguintes 
 
 Muitas contas em AD Azure estão ativadas para reset de senha de autosserviço (SSPR) ou Autenticação Multi-Factor Azure. Estas funcionalidades incluem métodos de verificação adicionais, tais como um telefonema ou questões de segurança. Recomenda-se que exija que os utilizadores registem vários métodos de verificação. Quando um método não está disponível para um utilizador, pode optar por autenticar com outro método.
 
-A tabela que se segue descreve quais os métodos de autenticação ou verificação disponíveis para os diferentes cenários:
+O quadro seguinte descreve quais os métodos disponíveis para a autenticação primária ou secundária:
 
-| Método | Utilização no início do sessão | Utilização durante a verificação |
+| Método | Autenticação primária | Autenticação secundária |
 | --- | --- | --- |
-| [Palavra-passe](#password) | Sim | MFA e SSPR |
+| [Palavra-passe](#password) | Sim | |
 | [Aplicação Microsoft Authenticator](#microsoft-authenticator-app) | Sim (pré-visualização) | MFA e SSPR |
 | [Teclas de segurança FIDO2 (pré-visualização)](#fido2-security-keys) | Sim | Só de MFA |
-| [Fichas de hardware DO JURAMENTO (pré-visualização)](#oath-hardware-tokens) | Sim | SSPR e MFA |
+| [Fichas de software OATH](#oath-software-tokens) | Não | MFA |
+| [Fichas de hardware DO JURAMENTO (pré-visualização)](#oath-hardware-tokens-preview) | Sim | MFA |
 | [SMS](#phone-options) | Sim (pré-visualização) | MFA e SSPR |
 | [Chamada de voz](#phone-options) | Não | MFA e SSPR |
 | [Questões de segurança](#security-questions) | Não | SSPR-only |
@@ -73,7 +74,7 @@ A aplicação Authenticator pode ajudar a prevenir o acesso não autorizado a co
 ![Screenshot de exemplo web browser solicitação para notificação de app Autenticador para completar processo de iniciar sessão](media/tutorial-enable-azure-mfa/azure-multi-factor-authentication-browser-prompt.png)
 
 > [!NOTE]
-> Se a sua organização tem pessoal a trabalhar ou a viajar para a China, a Notificação através do método de *aplicação móvel* em dispositivos Android não funciona nesse país. Devem ser disponibilizados métodos de autenticação alternativos para esses utilizadores.
+> Se a sua organização tem pessoal a trabalhar ou a viajar para a China, a Notificação através do método de *aplicação móvel* em dispositivos Android não funciona nesse país/região. Devem ser disponibilizados métodos de autenticação alternativos para esses utilizadores.
 
 ### <a name="verification-code-from-mobile-app"></a>Código de verificação da aplicação móvel
 
@@ -96,15 +97,29 @@ Os utilizadores podem registar-se e, em seguida, selecionar uma chave de seguran
 
 As chaves de segurança FIDO2 em Azure AD estão atualmente em pré-visualização. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="oath-hardware-tokens"></a>Tokens de hardware de OATH
+## <a name="oath-tokens"></a>Fichas do JURAMENTO
 
-O OATH é um padrão aberto que especifica como os códigos de senha única (OTP) são gerados. A Azure AD suporta a utilização de tokens SHA-1 DE JURAMENTO-TOTP da variedade de 30 segundos ou 60 segundos. Os clientes podem comprar estes tokens ao fornecedor à sua escolha.
+OATH TOTP (Time-based One Time Password) é um padrão aberto que especifica como os códigos de senha única (OTP) são gerados. O OATH TOTP pode ser implementado utilizando software ou hardware para gerar os códigos. A Azure AD não suporta o OATH HOTP, um padrão de geração de códigodiferente.
 
-As teclas secretas estão limitadas a 128 caracteres, que podem não ser compatíveis com todas as fichas. A chave secreta só pode conter os caracteres *a-z* ou *A-Z* e os dígitos *1-7*, e deve ser codificado na *Base32*.
+### <a name="oath-software-tokens"></a>Fichas de software OATH
 
-Os tokens de hardware do OATH em Azure AD estão atualmente em pré-visualização. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Os tokens do Software OATH são aplicações tipicamente como a aplicação Microsoft Authenticator e outras aplicações autenticadoras. A Azure AD gera a chave secreta, ou semente, que é entrada na app e usada para gerar cada OTP.
 
-![Upload de fichas DE JURAMENTO para a janela de fichas do Juramento mfa](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
+A aplicação Autenticador aaplica automaticamente gera códigos quando configurada para fazer notificações push para que um utilizador tenha uma cópia de segurança mesmo que o seu dispositivo não tenha conectividade. Aplicações de terceiros que usam O JURAMENTO TOTP para gerar códigos também podem ser usadas.
+
+Alguns tokens de hardware TOTP do JURAMENTO são programáveis, o que significa que não vêm com uma chave secreta ou semente pré-programada. Estes tokens de hardware programáveis podem ser configurados utilizando a chave secreta ou semente obtida a partir do fluxo de configuração de token do software. Os clientes podem comprar estes tokens ao fornecedor à sua escolha e usar a chave ou semente secretas no processo de configuração do seu fornecedor.
+
+### <a name="oath-hardware-tokens-preview"></a>Fichas de hardware DO JURAMENTO (pré-visualização)
+
+A Azure AD suporta a utilização de fichas SHA-1 OATH-TOTP que atualizam códigos a cada 30 ou 60 segundos. Os clientes podem comprar estes tokens ao fornecedor à sua escolha.
+
+As fichas de hardware DO JURAMENTO TOTP normalmente vêm com uma chave secreta, ou semente, pré-programada no símbolo. Estas teclas devem ser introduzidas em AD Azure, conforme descrito nos seguintes passos. As teclas secretas estão limitadas a 128 caracteres, que podem não ser compatíveis com todas as fichas. A chave secreta só pode conter os caracteres *a-z* ou *A-Z* e os dígitos *1-7*, e deve ser codificado na *Base32*.
+
+Tokens de hardware TOTP PRSI programáveis que podem ser resseados também podem ser configurados com Azure AD no fluxo de configuração de token software.
+
+Os tokens de hardware do OATH são suportados como parte de uma pré-visualização pública. Para mais informações sobre pré-visualizações, consulte [Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) do Microsoft Azure
+
+![Upload de fichas DE JURAMENTO para a lâmina de fichas do Juramento MFA](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
 
 Uma vez adquiridas fichas, devem ser carregadas num formato de ficheiro separado de vírem (CSV), incluindo a UPN, número de série, chave secreta, intervalo de tempo, fabricante e modelo, como mostra o seguinte exemplo:
 
@@ -116,7 +131,7 @@ Helga@contoso.com,1234567,1234567abcdef1234567abcdef,60,Contoso,HardwareKey
 > [!NOTE]
 > Certifique-se de que inclui a linha do cabeçalho no seu ficheiro CSV.
 
-Uma vez devidamente formatado como ficheiro CSV, um administrador pode então iniciar sessão no portal Azure, navegar para as fichas do Juramento de Segurança **do Diretório Ativo Azure,**  >  **Security**  >  **MFA**  >  **OATH tokens**e carregar o ficheiro CSV resultante.
+Uma vez devidamente formatado como ficheiro CSV, um administrador pode então iniciar sessão no portal Azure, navegar para **o Azure Ative Directory > Security > MFA > tokens DO JURAMENTO,** e carregar o ficheiro CSV resultante.
 
 Dependendo do tamanho do ficheiro CSV, pode levar alguns minutos para processar. Selecione o botão **Refresh** para obter o estado atual. Se houver algum erro no ficheiro, pode descarregar um ficheiro CSV que lista quaisquer erros para que possa resolver. Os nomes de campo no ficheiro CSV descarregado são diferentes da versão carregada.
 
@@ -133,7 +148,7 @@ Os utilizadores também podem verificar-se usando um telemóvel ou telefone de e
 Para funcionar corretamente, os números de telefone devem estar no formato *+CountryCode PhoneNumber*, por exemplo, *+1 4251234567*.
 
 > [!NOTE]
-> Tem de haver um espaço entre o código do país e o número de telefone.
+> Tem de haver um espaço entre o código país/região e o número de telefone.
 >
 > O reset da palavra-passe não suporta extensões de telefone. Mesmo no formato *+1 4251234567X12345,* as extensões são removidas antes da chamada ser colocada.
 
@@ -167,7 +182,7 @@ Se tiver problemas com a autenticação do telefone para a AD Azure, reveja as s
 
 * Id de chamada bloqueada num único dispositivo.
    * Reveja os números bloqueados configurados no dispositivo.
-* Número de telefone errado ou código de país incorreto, ou confusão entre o número de telefone pessoal versus número de telefone de trabalho.
+* Número de telefone errado ou código país/região incorreto, ou confusão entre o número de telefone pessoal versus número de telefone de trabalho.
    * Problemas entrem no objeto do utilizador e métodos de autenticação configurados. Certifique-se de que os números de telefone corretos estão registados.
 * PIN errado introduzido.
    * Confirme que o utilizador utilizou o PIN correto como registado para a sua conta.

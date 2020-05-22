@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfde52db9cbe5bc14be7b30c1063215472bff699
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 3ef98f243abd02f0156190638cda8ab7c33f935d
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83116293"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770912"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurar Definições do Multi-Factor Authentication do Azure
 
@@ -36,7 +36,7 @@ Algumas destas definições aplicam-se ao MFA Server, Ao Azure MFA, ou a ambos.
 | [Bloquear/desbloquear utilizadores](#block-and-unblock-users) | Usado para impedir utilizadores específicos de poderem receber pedidos de autenticação multi-factor. Todas as tentativas de autenticação de utilizadores bloqueados são automaticamente negadas. Os utilizadores permanecem bloqueados durante 90 dias a partir do momento em que são bloqueados. |
 | [Alerta de fraudes](#fraud-alert) | Configure configurar configurações relacionadas com a capacidade dos utilizadores de reportar pedidos fraudulentos de verificação |
 | [Notificações](#notifications) | Ativar notificações de eventos do MFA Server. |
-| [Fichas do JURAMENTO](concept-authentication-methods.md#oath-hardware-tokens) | Usado em ambientes Azure MFA baseados em nuvem para gerir tokens DE JURAMENTO para utilizadores. |
+| [Fichas do JURAMENTO](concept-authentication-methods.md#oath-tokens) | Usado em ambientes Azure MFA baseados em nuvem para gerir tokens DE JURAMENTO para utilizadores. |
 | [Definições de chamadas telefónicas](#phone-call-settings) | Configure as definições relacionadas com chamadas telefónicas e saudações para ambientes de nuvem e no local. |
 | Fornecedores | Isto mostrará quaisquer fornecedores de autenticação existentes que possa ter associado à sua conta. Novos fornecedores de autenticação não podem ser criados a partir de 1 de setembro de 2018 |
 

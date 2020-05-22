@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d6212692465270182db541889bed5f03a08a345
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fa952e0a237ca30a3bd109f51ee45c2f4dafa533
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74008277"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758270"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Analise registos de atividade da Azure AD com registos do Monitor Azure
 
@@ -60,8 +60,8 @@ Os registos são empurrados para as **tabelas De Registos e** **SigninLogs** no 
 
 1. A partir da vista de consulta padrão na secção anterior, selecione **Schema** e expanda o espaço de trabalho. 
 
-2. Expanda a secção de Gestão de **Registos** e, em seguida, expanda os **Registos de Auditoria** ou os **SignInLogs** para visualizar o esquema de registo.
-    ![Registos](./media/howto-analyze-activity-logs-log-analytics/auditlogschema.png) ![de auditoria Registos Signin](./media/howto-analyze-activity-logs-log-analytics/signinlogschema.png)
+2. Expanda a secção de Gestão de **Registos** e, em seguida, expanda os **Registos de Auditoria** ou **signinLogs** para visualizar o esquema de registo.
+    ![Registos de auditoria ](./media/howto-analyze-activity-logs-log-analytics/auditlogschema.png) ![ Registos Signin](./media/howto-analyze-activity-logs-log-analytics/signinlogschema.png)
 
 ## <a name="query-the-azure-ad-activity-logs"></a>Consulta dos registos de atividade da AD Azure
 

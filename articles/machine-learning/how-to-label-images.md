@@ -7,14 +7,14 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 1a928726665a743cb874a2f8a51ee63fcf64d9ad
-ms.sourcegitcommit: 801a551e047e933e5e844ea4e735d044d170d99a
+ms.openlocfilehash: 22b77b79ea3f8c6744c2eba064c52e6d9e29c2b9
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2020
-ms.locfileid: "83007530"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758916"
 ---
-# <a name="tag-images-in-a-labeling-project"></a>Marque imagens em um projeto de rotulagem
+# <a name="tag-images-in-a-labeling-project-preview"></a>Marque imagens num projeto de rotulagem (pré-visualização)
 
 Depois de o administrador do projeto criar um projeto de [rotulagem](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) no Azure Machine Learning, pode utilizar a ferramenta de rotulagem (pré-visualização pública) para preparar rapidamente dados para um projeto de Machine Learning. Este artigo descreve:
 
@@ -105,7 +105,7 @@ O Azure só ativará o botão **Enviar** depois de ter aplicado pelo menos uma e
 Se o seu projeto for do tipo "Identificação de Objetos (Caixas de delimitação)", especifique uma ou mais caixas de delimitação na imagem e aplique uma etiqueta em cada caixa. As imagens podem ter várias caixas de delimitação, cada uma com uma única etiqueta. Utilização **Ver instruções detalhadas** para determinar se várias caixas de delimitação são usadas no seu projeto.
 
 1. Selecione uma etiqueta para a caixa de delimitação que pretende criar.
-1. Selecione a ferramenta ![](./media/how-to-label-images/rectangular-box-tool.png) **retangular** da caixa Retangular ou selecione "R"
+1. Selecione a ferramenta **retangular** da ![ caixa Retangular ](./media/how-to-label-images/rectangular-box-tool.png) ou selecione "R"
 3. Clique e arraste na diagonal através do seu alvo para criar uma caixa de delimitação áspera. Para ajustar a caixa de delimitação, arraste as bordas ou cantos.
 
 ![Uma imagem mostra a criação básica de caixa de limitador.](./media/how-to-label-images/bounding-box-sequence.png)
@@ -114,13 +114,13 @@ Para eliminar uma caixa de delimitação, clique no alvo em forma de X que apare
 
 Não pode supor a etiqueta de uma caixa de delimitação existente. Se cometer um erro de atribuição de etiquetas, tem de apagar a caixa de delimitação e criar uma nova com a etiqueta correta.
 
-Por padrão, pode editar as caixas de delimitação existentes. A ferramenta ![ **Lock/unlock regions** Lock/unlock regions](./media/how-to-label-images/lock-bounding-boxes-tool.png) ou "L" alterna esse comportamento. Se as regiões estiverem bloqueadas, só pode alterar a forma ou a localização de uma nova caixa de delimitação.
+Por padrão, pode editar as caixas de delimitação existentes. A ferramenta **Lock/unlock regions** ![ Lock/unlock regions ](./media/how-to-label-images/lock-bounding-boxes-tool.png) ou "L" alterna esse comportamento. Se as regiões estiverem bloqueadas, só pode alterar a forma ou a localização de uma nova caixa de delimitação.
 
-Utilize a ferramenta ![](./media/how-to-label-images/regions-tool.png) de **manipulação regiões** Ferramenta de manipulação regiões ou "M" para ajustar uma caixa de delimitação existente. Arraste as bordas ou cantos para ajustar a forma. Clique no interior para poder arrastar toda a caixa de limitadora. Se não consegue editar uma região, provavelmente alterou a ferramenta **de regiões Lock/unlock.**
+Utilize a ferramenta de **manipulação regiões** ![ Ferramenta de manipulação ](./media/how-to-label-images/regions-tool.png) regiões ou "M" para ajustar uma caixa de delimitação existente. Arraste as bordas ou cantos para ajustar a forma. Clique no interior para poder arrastar toda a caixa de limitadora. Se não consegue editar uma região, provavelmente alterou a ferramenta **de regiões Lock/unlock.**
 
-Utilize a ferramenta](./media/how-to-label-images/template-box-tool.png) de ![caixa de modelo **seleção baseada em modeloou** "T" para criar várias caixas de delimitação do mesmo tamanho. Se a imagem não tiver caixas de delimitação e ativar caixas baseadas em modelos, a ferramenta produzirá caixas de 50 por 50 pixels. Se criar uma caixa de delimitação e, em seguida, ativar caixas baseadas em modelos, quaisquer novas caixas de delimitação serão do tamanho da última caixa que criou. As caixas baseadas em modelos podem ser redimensionadas após a colocação. Redimensionar uma caixa baseada em modelo somente apenas redimensiona essa caixa em particular.
+Utilize a ferramenta de caixa de modelo **seleção baseada em** ![ ](./media/how-to-label-images/template-box-tool.png) modeloou "T" para criar várias caixas de delimitação do mesmo tamanho. Se a imagem não tiver caixas de delimitação e ativar caixas baseadas em modelos, a ferramenta produzirá caixas de 50 por 50 pixels. Se criar uma caixa de delimitação e, em seguida, ativar caixas baseadas em modelos, quaisquer novas caixas de delimitação serão do tamanho da última caixa que criou. As caixas baseadas em modelos podem ser redimensionadas após a colocação. Redimensionar uma caixa baseada em modelo somente apenas redimensiona essa caixa em particular.
 
-Para eliminar *todas as* caixas de delimitação na imagem atual, selecione a ferramenta ![](./media/how-to-label-images/delete-regions-tool.png)Eliminar todas as **regiões** Eliminar as regiões ferramenta .
+Para eliminar *todas as* caixas de delimitação na imagem atual, selecione a ferramenta Eliminar todas **as regiões** Eliminar as ![ regiões ferramenta ](./media/how-to-label-images/delete-regions-tool.png) .
 
 Depois de criar as caixas de delimitação para uma imagem, selecione **Enviar** para salvar o seu trabalho, ou o seu trabalho em curso não será guardado.
 

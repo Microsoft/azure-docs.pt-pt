@@ -9,22 +9,22 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 05/18/2020
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 28f57c5657ce2f8537a654a7f67ed4481fab2c91
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 781406a1bfd253f0ab3eb333f23917be4aeb3ba9
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80882697"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83771745"
 ---
 # <a name="call-a-web-api-from-a-mobile-app"></a>Ligue para uma Web API de uma aplicação móvel
 
 Depois de a sua aplicação assinar num utilizador e receber fichas, a Microsoft Authentication Library (MSAL) expõe informações sobre o utilizador, o ambiente do utilizador e os tokens emitidos. A sua aplicação pode utilizar estes valores para chamar uma API web ou apresentar uma mensagem de boas-vindas ao utilizador.
 
-Neste artigo, vamos primeiro olhar para o resultado da MSAL. Então vamos ver como usar um sinal `AuthenticationResult` `result` de acesso de ou chamar uma API protegida.
+Neste artigo, vamos primeiro olhar para o resultado da MSAL. Então vamos ver como usar um sinal de acesso de `AuthenticationResult` ou `result` chamar uma API protegida.
 
 ## <a name="msal-result"></a>Resultado da MSAL
 A MSAL fornece os seguintes valores: 
@@ -35,11 +35,11 @@ A MSAL fornece os seguintes valores:
 - `TenantId`é o identificador do inquilino onde o utilizador assinou. Para os utilizadores convidados do Azure Ative Directory (Azure AD) B2B, este valor identifica o inquilino onde o utilizador inscreveu. O valor não identifica o inquilino da casa do utilizador.  
 - `Scopes`indica os âmbitos que foram concedidos com o seu símbolo. Os âmbitos concedidos podem ser um subconjunto dos âmbitos que solicitou.
 
-A MSAL também fornece uma `Account` abstração por um valor. Um `Account` valor representa a conta de assinatura do utilizador atual:
+A MSAL também fornece uma abstração por um `Account` valor. Um `Account` valor representa a conta de assinatura do utilizador atual:
 
 - `HomeAccountIdentifier`identifica o inquilino da casa do utilizador.
 - `UserName`é o nome de utilizador preferido do utilizador. Este valor pode estar vazio para os utilizadores do Azure AD B2C.
-- `AccountIdentifier`identifica o utilizador inscrito. Na maioria dos casos, este `HomeAccountIdentifier` valor é o mesmo que o valor, a menos que o utilizador seja hóspede de outro inquilino.
+- `AccountIdentifier`identifica o utilizador inscrito. Na maioria dos casos, este valor é o mesmo que o `HomeAccountIdentifier` valor, a menos que o utilizador seja hóspede de outro inquilino.
 
 ## <a name="call-an-api"></a>Chame uma API
 
@@ -87,7 +87,7 @@ Depois de ter o sinal de acesso, pode chamar uma API web. A sua aplicação util
 
 ### <a name="msal-for-ios-and-macos"></a>MSAL para iOS e macOS
 
-Os métodos para adquirir `MSALResult` fichas devolvem um objeto. `MSALResult`expõe uma `accessToken` propriedade. Pode usar `accessToken` para chamar uma API web. Adicione esta propriedade ao cabeçalho de autorização http antes de ligar para aceder à API da web protegida.
+Os métodos para adquirir fichas devolvem um `MSALResult` objeto. `MSALResult`expõe uma `accessToken` propriedade. Pode usar `accessToken` para chamar uma API web. Adicione esta propriedade ao cabeçalho de autorização http antes de ligar para aceder à API da web protegida.
 
 ```objc
 NSMutableURLRequest *urlRequest = [NSMutableURLRequest new];
@@ -125,7 +125,7 @@ Se precisar de ligar várias vezes para a mesma API, ou se precisar de ligar par
 
 ## <a name="call-several-apis-by-using-incremental-consent-and-conditional-access"></a>Ligue para várias APIs usando o consentimento incremental e o acesso condicional
 
-Se necessitar de ligar para várias APIs para o mesmo utilizador, depois de adquirir um símbolo para `AcquireTokenSilent` o utilizador, pode evitar repetidamente pedir credenciais ao utilizador, ligando posteriormente para obter um sinal:
+Se necessitar de ligar para várias APIs para o mesmo utilizador, depois de adquirir um símbolo para o utilizador, pode evitar repetidamente pedir credenciais ao utilizador, ligando posteriormente `AcquireTokenSilent` para obter um sinal:
 
 ```csharp
 var result = await app.AcquireTokenXX("scopeApi1")
@@ -138,7 +138,7 @@ result = await app.AcquireTokenSilent("scopeApi2")
 A interação é necessária quando:
 
 - O utilizador consentiu na primeira API, mas agora precisa de consentir mais âmbitos. Neste caso, usa o consentimento incremental.
-- A primeira API não requer autenticação de vários fatores, mas a próxima API requer.
+- A primeira API não requer [autenticação multifactor,](../authentication/concept-mfa-howitworks.md)mas a próxima API requer.
 
 ```csharp
 var result = await app.AcquireTokenXX("scopeApi1")

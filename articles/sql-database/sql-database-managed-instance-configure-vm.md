@@ -3,7 +3,7 @@ title: Ligar vM do cliente - instância gerida
 description: Ligue-se a uma instância gerida pela Base de Dados Azure SQL utilizando o Estúdio de Gestão de Servidores SQL a partir de uma máquina virtual Azure.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, srbozovi, bonova
 ms.date: 02/18/2019
-ms.openlocfilehash: 8b5dce0b43fac7cfd0e974f26451338ca1541f8f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2787756da048de0a4354d88feb8445c03fb3ef74
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80528424"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773678"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Quickstart: Configure Azure VM para ligar a uma instância gerida pela Base de Dados Azure SQL
 
@@ -48,10 +48,10 @@ Os passos seguintes criam uma nova subrede no VNet de instância gerida para que
    | ---------------- | ----------------- | ----------- |
    | **Nome** | Qualquer nome válido|Para nomes válidos, veja [Regras e restrições de nomenclatura](/azure/architecture/best-practices/resource-naming).|
    | **Intervalo de endereços (bloco CIDR)** | Uma gama válida | O valor padrão é bom para este arranque rápido.|
-   | **Grupo de segurança da rede** | Nenhuma | O valor padrão é bom para este arranque rápido.|
-   | **Tabela de rota** | Nenhuma | O valor padrão é bom para este arranque rápido.|
+   | **Grupo de segurança da rede** | Nenhum | O valor padrão é bom para este arranque rápido.|
+   | **Tabela de rota** | Nenhum | O valor padrão é bom para este arranque rápido.|
    | **Pontos finais de serviço** | 0 selecionados | O valor padrão é bom para este arranque rápido.|
-   | **Delegação de sub-rede** | Nenhuma | O valor padrão é bom para este arranque rápido.|
+   | **Delegação de sub-rede** | Nenhum | O valor padrão é bom para este arranque rápido.|
 
    ![Nova subnet de instância gerida para vm cliente](./media/sql-database-managed-instance-configure-vm/new-subnet.png)
 

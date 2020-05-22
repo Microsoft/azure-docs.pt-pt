@@ -1,16 +1,16 @@
 ---
 title: Monitorize aplicações no Serviço Azure Kubernetes (AKS) com Insights de Aplicação - Monitor Azure [ Monitor De Aplicação ] Microsoft Docs
-description: O Azure Monitor integra-se perfeitamente com a sua aplicação em execução na Kubernetes, e permite-lhe monitorizá-lo detetando os problemas com as suas apps num instante.
+description: O Azure Monitor integra-se perfeitamente com a sua aplicação em execução na Kubernetes, e permite-lhe detetar os problemas com as suas apps num instante.
 ms.topic: conceptual
 author: MS-jgol
 ms.author: jgol
 ms.date: 05/13/2020
-ms.openlocfilehash: aaca07febedc609fb0dc9b9ca0e536510f9ca8d1
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 76f9f922697ef6be6c959ea7f9bafd0872dba6ff
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83704521"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773764"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes---azure-monitor-application-insights"></a>Monitorização de aplicações de instrumentação zero para Kubernetes - Insights de aplicação do Monitor Azure
 
@@ -32,7 +32,7 @@ Para as aplicações em outros idiomas recomendamos atualmente a utilização do
 * [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net)
 * [Node.js](https://docs.microsoft.com/azure/azure-monitor/app/nodejs) 
 * [JavaScript](https://docs.microsoft.com/azure/azure-monitor/app/javascript)
-* [Pitão](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python)
+* [Python](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python)
 
 ## <a name="next-steps"></a>Passos seguintes
 

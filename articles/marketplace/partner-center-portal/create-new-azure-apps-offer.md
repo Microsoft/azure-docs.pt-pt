@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 55d544ecf6c96335ca65255e1af695f7757b818c
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 2885df9e64bdbfa21eaaa38f423b90554f767cd7
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83699515"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773292"
 ---
 # <a name="create-an-azure-application-offer"></a>Criar uma oferta de aplicações do Azure
 
@@ -354,7 +354,7 @@ Pode configurar cada plano para ser visível para todos ou apenas para um públi
 
 Selecione **Este é um plano privado** para tornar o seu plano privado e visível apenas para o público restrito da sua escolha. Uma vez publicado como um plano privado, pode atualizar o público ou optar por disponibilizar o plano a todos. Uma vez que um plano é publicado como visível para todos, deve permanecer visível para todos; não pode ser reconfigurado como um plano privado.
 
-Se tornar a fábrica privada, insira uma identificação de **assinatura Azure** e a sua descrição. Cada um é um público que terá acesso a este plano privado. O acesso é atribuído utilizando IDs de subscrição Azure com a opção de incluir uma descrição de cada ID de subscrição Azure atribuído. Adicione até 10 iDs de subscrição de clientes individualmente, ou 20.000 importando um ficheiro CSV. Os IDs de subscrição azure são representados como GUIDs e as letras devem ser minúsculas.
+Se tornar o plano privado, insira uma identificação de **subscrição Azure** e a sua descrição. Cada um é um público que terá acesso a este plano privado. O acesso é atribuído utilizando IDs de subscrição Azure com a opção de incluir uma descrição de cada ID de subscrição Azure atribuído. Adicione até 10 iDs de subscrição de clientes individualmente, ou 20.000 importando um ficheiro CSV. Os IDs de subscrição azure são representados como GUIDs e as letras devem ser minúsculas.
 
 >[!Note]
 >Um público privado ou restrito é diferente do público de pré-visualização que definiu no separador **Preview.** Um público pré-visualizado pode aceder à sua oferta _antes_ da sua publicação ao vivo no mercado. Embora a escolha do público privado se aplique apenas a um plano específico, o público pré-visualização pode ver todos os planos (privados ou não) para fins de validação.
@@ -373,7 +373,7 @@ Selecione **guardar rascunho** antes de continuar.
 
 #### <a name="markets"></a>Mercados
 
-Todos os planos devem estar disponíveis em pelo menos um mercado. Selecione a caixa de verificação para qualquer local de mercado onde pretenda disponibilizar este plano. Uma caixa de pesquisa e um botão para selecionar países "Tax Remitted", no qual a Microsoft atribui as vendas e o imposto usado em seu nome, estão incluídos para ajudar.
+Todos os planos devem estar disponíveis em pelo menos um mercado. Selecione a caixa de verificação para qualquer local de mercado onde pretenda disponibilizar este plano. Uma caixa de pesquisa e um botão para selecionar países/regiões "Tax Remitted", em que a Microsoft atribui as vendas e o imposto usado em seu nome, estão incluídos para ajudar.
 
 Se já definiu preços para o seu plano em Dólares dos Estados Unidos (USD) e adicionar outra localização de mercado, o preço do novo mercado será calculado de acordo com as taxas de câmbio atuais. Reveja sempre o preço de cada mercado antes de publicar. Os preços podem ser revistos utilizando o link "Preços de Exportação (xlsx)" depois de guardar as suas alterações.
 
@@ -399,7 +399,7 @@ Pode configurar cada plano para ser visível para todos ou apenas para um públi
 
 Selecione **Este é um plano privado** para tornar o seu plano privado e visível apenas para o público restrito da sua escolha. Uma vez publicado como um plano privado, pode atualizar o público ou optar por disponibilizar o plano a todos. Uma vez que um plano é publicado como visível para todos, deve permanecer visível para todos; não pode ser reconfigurado como um plano privado.
 
-Se tornar a fábrica privada, insira uma identificação de **assinatura Azure** e a sua descrição. Cada um é um público que terá acesso a este plano privado. O acesso é atribuído utilizando IDs de subscrição Azure com a opção de incluir uma descrição de cada ID de subscrição Azure atribuído. Adicione até 10 iDs de subscrição de clientes individualmente, ou 20.000 importando um ficheiro CSV. Os IDs de subscrição azure são representados como GUIDs e as letras devem ser minúsculas.
+Se tornar o plano privado, insira uma identificação de **subscrição Azure** e a sua descrição. Cada um é um público que terá acesso a este plano privado. O acesso é atribuído utilizando IDs de subscrição Azure com a opção de incluir uma descrição de cada ID de subscrição Azure atribuído. Adicione até 10 iDs de subscrição de clientes individualmente, ou 20.000 importando um ficheiro CSV. Os IDs de subscrição azure são representados como GUIDs e as letras devem ser minúsculas.
 
 >[!Note]
 >Um público privado ou restrito é diferente do público de pré-visualização que definiu no separador **Preview.** Um público pré-visualizado pode aceder à sua oferta _antes_ da sua publicação ao vivo no mercado. Embora a escolha do público privado se aplique apenas a um plano específico, o público pré-visualização pode ver todos os planos (privados ou não) para fins de validação.

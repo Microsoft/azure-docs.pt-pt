@@ -4,12 +4,12 @@ description: Aprenda a usar o portal Azure para criar um cluster Azure Kubernete
 services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 5f7bf75598c09c5c8c0654f7db863068f9e7be7d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7fa547ca8a3907669c9e7671b11fe3a6307d97f4
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82128869"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773428"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Criar e configurar um cluster azure Kubernetes Services (AKS) para usar nós virtuais no portal Azure
 
@@ -74,7 +74,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 ## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS (Create an AKS cluster)
 
-No canto superior esquerdo do portal Azure, selecione **Criar um recurso** > **Serviço Kubernetes**.
+No canto superior esquerdo do portal Azure, selecione **Criar um recurso**Serviço  >  **Kubernetes**.
 
 Na página **Basics,** configure as seguintes opções:
 
@@ -101,7 +101,7 @@ O cluster do AKS demora alguns minutos a ser criado e a estar pronto para utiliz
 
 O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Para gerir um cluster de Kubernetes, utilize [kubectl][kubectl], o cliente de linha de comandos do Kubernetes. O cliente `kubectl` está pré-instalado no Azure Cloud Shell.
 
-Para abrir a Cloud Shell, selecione **Experimente** a partir do canto superior direito de um bloco de código. Também pode lançar cloud Shell em um [https://shell.azure.com/bash](https://shell.azure.com/bash)separado separado browser, indo para . Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
+Para abrir a Cloud Shell, selecione **Experimente** a partir do canto superior direito de um bloco de código. Também pode lançar cloud Shell em um separado separado browser, indo para [https://shell.azure.com/bash](https://shell.azure.com/bash) . Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
 
 Utilize o comando [az aks get-credentials][az-aks-get-credentials] para configurar `kubectl` para se ligar ao seu cluster do Kubernetes. O exemplo seguinte obtém credenciais para o nome do cluster *myAKSCluster* no grupo de recursos denominado *myResourceGroup*:
 
@@ -125,7 +125,7 @@ aks-agentpool-14693408-0       Ready     agent     32m       v1.11.2
 
 ## <a name="deploy-a-sample-app"></a>Implementar uma aplicação de amostra
 
-Na Casca de Nuvem Azure, `virtual-node.yaml` crie um ficheiro nomeado e copie no seguinte YAML. Para agendar o recipiente no nó, é definido um [nodeSelector][node-selector] e [toleração.][toleration] Estas definições permitem que a cápsula seja programada no nó virtual e confirme que a funcionalidade está ativada com sucesso.
+Na Casca de Nuvem Azure, crie um ficheiro nomeado `virtual-node.yaml` e copie no seguinte YAML. Para agendar o recipiente no nó, é definido um [nodeSelector][node-selector] e [toleração.][toleration] Estas definições permitem que a cápsula seja programada no nó virtual e confirme que a funcionalidade está ativada com sucesso.
 
 ```yaml
 apiVersion: apps/v1
@@ -154,8 +154,6 @@ spec:
       tolerations:
       - key: virtual-kubelet.io/provider
         operator: Exists
-      - key: azure.com/aci
-        effect: NoSchedule
 ```
 
 Executar a aplicação com o [kubectl aplicar][kubectl-apply] comando.
@@ -164,7 +162,7 @@ Executar a aplicação com o [kubectl aplicar][kubectl-apply] comando.
 kubectl apply -f virtual-node.yaml
 ```
 
-Use o [kubectl obter comando de cápsulas][kubectl-get] com o `-o wide` argumento de obter uma lista de cápsulas e o nó programado. Reparem `virtual-node-helloworld` que a cápsula foi `virtual-node-linux` programada no nó.
+Use o [kubectl obter comando de cápsulas][kubectl-get] com o `-o wide` argumento de obter uma lista de cápsulas e o nó programado. Reparem que a `virtual-node-helloworld` cápsula foi programada no `virtual-node-linux` nó.
 
 ```console
 kubectl get pods -o wide
@@ -178,7 +176,7 @@ virtual-node-helloworld-9b55975f-bnmfl   1/1       Running   0          4m      
 A cápsula é atribuída a um endereço IP interno da subnet de rede virtual Azure delegada para utilização com nódosos virtuais.
 
 > [!NOTE]
-> Se utilizar imagens armazenadas no Registo de Contentores Azure, [configure e utilize um segredo kubernetes][acr-aks-secrets]. Uma limitação atual dos nódosos virtuais é que não pode utilizar a autenticação principal integrada do serviço Azure AD. Se não utilizar um segredo, as cápsulas programadas em nós virtuais `HTTP response status code 400 error code "InaccessibleImage"`não começam e reportam o erro .
+> Se utilizar imagens armazenadas no Registo de Contentores Azure, [configure e utilize um segredo kubernetes][acr-aks-secrets]. Uma limitação atual dos nódosos virtuais é que não pode utilizar a autenticação principal integrada do serviço Azure AD. Se não utilizar um segredo, as cápsulas programadas em nós virtuais não começam e reportam o erro `HTTP response status code 400 error code "InaccessibleImage"` .
 
 ## <a name="test-the-virtual-node-pod"></a>Teste a vagem de nó virtual
 
@@ -188,13 +186,13 @@ Para testar a cápsula que corre no nó virtual, navegue para a aplicação de d
 kubectl run -it --rm virtual-node-test --image=debian
 ```
 
-Instale `curl` na `apt-get`cápsula utilizando:
+Instale `curl` na cápsula `apt-get` utilizando:
 
 ```console
 apt-get update && apt-get install -y curl
 ```
 
-Aceda agora ao endereço `curl`da *http://10.241.0.4*sua cápsula utilizando , como . Forneça o seu próprio endereço IP `kubectl get pods` interno mostrado no comando anterior:
+Aceda agora ao endereço da sua cápsula utilizando `curl` , como *http://10.241.0.4* . Forneça o seu próprio endereço IP interno mostrado no `kubectl get pods` comando anterior:
 
 ```console
 curl -L http://10.241.0.4
@@ -210,7 +208,7 @@ A aplicação de demonstração é apresentada, como mostra a seguinte saída de
 [...]
 ```
 
-Feche a sessão terminal `exit`na sua cápsula de teste com . Quando a sua sessão terminar, a cápsula é a eliminada.
+Feche a sessão terminal na sua cápsula de teste com `exit` . Quando a sua sessão terminar, a cápsula é a eliminada.
 
 ## <a name="next-steps"></a>Passos seguintes
 

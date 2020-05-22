@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/07/2020
 ms.topic: article
-ms.openlocfilehash: 7316df7bcf78e3a154510e69116c288b2b293d4c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: be3dc2b113cb21c2dfb54a29e7f426e0d925c6d9
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80680612"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83759120"
 ---
 # <a name="sky-reflections"></a>Reflexos do céu
 
@@ -37,9 +37,9 @@ Para obter mais informações sobre o modelo de iluminação, consulte o capítu
 
 ## <a name="changing-the-sky-texture"></a>Mudando a textura do céu
 
-Para alterar o mapa ambiental, tudo o que precisa fazer `SkyReflectionSettings`é carregar uma [textura](../../concepts/textures.md) e mudar a sessão:
+Para alterar o mapa ambiental, tudo o que precisa fazer é [carregar uma textura](../../concepts/textures.md) e mudar a sessão: `SkyReflectionSettings`
 
-``` cs
+```cs
 LoadTextureAsync _skyTextureLoad = null;
 void ChangeEnvironmentMap(AzureSession session)
 {
@@ -66,7 +66,31 @@ void ChangeEnvironmentMap(AzureSession session)
 }
 ```
 
-Note que `LoadTextureFromSASAsync` a variante é usada acima porque uma textura incorporada é carregada. Em caso de carregamento a partir de `LoadTextureAsync` [armazenamentos de blob ligados,](../../how-tos/create-an-account.md#link-storage-accounts)utilize a variante.
+```cpp
+void ChangeEnvironmentMap(ApiHandle<AzureSession> session)
+{
+    LoadTextureFromSASParams params;
+    params.TextureType = TextureType::CubeMap;
+    params.TextureUrl = "builtin://VeniceSunset";
+    ApiHandle<LoadTextureAsync> skyTextureLoad = *session->Actions()->LoadTextureFromSASAsync(params);
+
+    skyTextureLoad->Completed([&](ApiHandle<LoadTextureAsync> res)
+    {
+        if (res->IsRanToCompletion())
+        {
+            ApiHandle<SkyReflectionSettings> settings = *session->Actions()->SkyReflectionSettings();
+            settings->SkyReflectionTexture(*res->Result());
+        }
+        else
+        {
+            printf("Texture loading failed!");
+        }
+    });
+}
+
+```
+
+Note que a `LoadTextureFromSASAsync` variante é usada acima porque uma textura incorporada é carregada. Em caso de carregamento a partir de [armazenamentos de blob ligados,](../../how-tos/create-an-account.md#link-storage-accounts)utilize a `LoadTextureAsync` variante.
 
 ## <a name="sky-texture-types"></a>Tipos de textura do céu
 
@@ -80,7 +104,7 @@ Para referência, aqui está um mapa cubo desembrulhado:
 
 ![Um mapa cubo desembrulhado](media/Cubemap-example.png)
 
-`AzureSession.Actions.LoadTextureAsync` /  Use `LoadTextureFromSASAsync` `TextureType.CubeMap` com para carregar texturas de cubos.
+Use `AzureSession.Actions.LoadTextureAsync` /  `LoadTextureFromSASAsync` com para `TextureType.CubeMap` carregar texturas de cubos.
 
 ### <a name="sphere-environment-maps"></a>Mapas do ambiente da esfera
 
@@ -88,7 +112,7 @@ Quando se usa uma textura 2D como mapa ambiental, a imagem tem de estar no espa�
 
 ![Uma imagem do céu em coordenadas esféricas](media/spheremap-example.png)
 
-Utilize `AzureSession.Actions.LoadTextureAsync` `TextureType.Texture2D` com para carregar mapas ambientais esféricos.
+Utilize `AzureSession.Actions.LoadTextureAsync` com para carregar mapas `TextureType.Texture2D` ambientais esféricos.
 
 ## <a name="built-in-environment-maps"></a>Mapas ambientais embutidos
 

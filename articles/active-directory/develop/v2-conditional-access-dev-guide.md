@@ -1,5 +1,6 @@
 ---
 title: Orientação do desenvolvedor para acesso condicional do Diretório Ativo Azure
+titleSuffix: Microsoft identity platform
 description: Orientação e cenários para o Azure AD Conditional Access e a plataforma de identidade da Microsoft.
 services: active-directory
 keywords: ''
@@ -7,28 +8,28 @@ author: rwike77
 manager: CelesteDG
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
-ms.date: 03/16/2020
+ms.date: 05/18/2020
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
-ms.openlocfilehash: 4aaeb2ab6e22107d8c9edfbce45c4ae212e8649f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 6b31a03a6367c9c6f2025c1544b59c95b3f69175
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83640426"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83771082"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Orientação do desenvolvedor para acesso condicional do Diretório Ativo Azure
 
 A funcionalidade de Acesso Condicional no Azure Ative Directory (Azure AD) oferece uma das várias formas que pode utilizar para proteger a sua app e proteger um serviço. O Acesso Condicional permite aos desenvolvedores e clientes empresariais proteger os serviços de várias formas, incluindo:
 
-* Multi-factor authentication
+* [Autenticação de vários fatores](../authentication/concept-mfa-howitworks.md)
 * Permitindo que apenas dispositivos inscritos Intune acedam a serviços específicos
 * Restringir a localização dos utilizadores e as gamas IP
 
-Para obter mais informações sobre as capacidades completas de Acesso Condicional, consulte [acesso condicional no Diretório Ativo Azure](../active-directory-conditional-access-azure-portal.md).
+Para obter mais informações sobre as capacidades completas do Acesso Condicional, consulte o artigo [O que é acesso condicional.](../conditional-access/overview.md)
 
 Para os desenvolvedores que criam aplicativos para o Azure AD, este artigo mostra como pode usar o Acesso Condicional e também aprenderá sobre o impacto do acesso a recursos que não tem controlo sobre o que pode ter políticas de Acesso Condicional aplicadas. O artigo também explora as implicações do Acesso Condicional no fluxo em nome do fluxo, aplicações web, acesso ao Microsoft Graph e chamadas APIs.
 
@@ -130,7 +131,7 @@ Para experimentar este cenário, consulte a nossa [amostra de código .NET](http
 
 ## <a name="scenario-app-accessing-multiple-services"></a>Cenário: App que acede a vários serviços
 
-Neste cenário, percorremos o caso em que uma aplicação web acede a dois serviços, um dos quais tem uma política de Acesso Condicional atribuída. Dependendo da lógica da sua aplicação, pode existir um caminho no qual a sua aplicação não requer acesso a ambos os serviços web. Neste cenário, a ordem em que solicita um símbolo desempenha um papel importante na experiência final do utilizador.
+Neste cenário, percorremos o caso em que uma aplicação web acede a dois serviços, um dos quais tem uma política de Acesso Condicional atribuída. Dependendo da lógica da sua aplicação, pode existir um caminho no qual a sua aplicação não requer acesso a ambos os serviços web. Neste cenário, a ordem em que solicita um símbolo desempenha um papel importante na experiência do utilizador final.
 
 Vamos assumir que temos o serviço web A e B e o serviço web B tem a nossa política de Acesso Condicional aplicada. Embora o pedido inicial de auth interativo exija o consentimento para ambos os serviços, a política de Acesso Condicional não é necessária em todos os casos. Se a aplicação solicitar um símbolo para o serviço web B, então a política é invocada e os pedidos subsequentes de serviço web A também têm sucesso da seguinte forma.
 
@@ -175,9 +176,9 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 
 A nossa aplicação precisa de apanhar o `error=interaction_required` . A aplicação pode então utilizar ou `acquireTokenPopup()` `acquireTokenRedirect()` no mesmo recurso. O utilizador é obrigado a fazer uma autenticação multifactor. Após o utilizador completar a autenticação de vários fatores, a aplicação é emitida um novo sinal de acesso para o recurso solicitado.
 
-Para experimentar este cenário, consulte a nossa [amostra de código JS SPA em nome de código](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/master/Microsoft.Identity.Web/README.md#handle-conditional-access). Esta amostra de código utiliza a política de Acesso Condicional e a API web que registou anteriormente com um JS SPA para demonstrar este cenário. Mostra como lidar adequadamente com o desafio das reclamações e obter um sinal de acesso que pode ser usado para a sua Web API. Alternativamente, check-out a amostra geral de [código Angular.js](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2) para orientação em um SPA angular
+Para experimentar este cenário, consulte a nossa [amostra de código JS SPA em nome de código](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/a2b257381b410c765ee01ecb611aa6f98c099eb1/2.%20Web%20API%20now%20calls%20Microsoft%20Graph/README.md). Esta amostra de código utiliza a política de Acesso Condicional e a API web que registou anteriormente com um JS SPA para demonstrar este cenário. Mostra como lidar adequadamente com o desafio das reclamações e obter um sinal de acesso que pode ser usado para a sua Web API. Alternativamente, check-out a amostra geral de [código Angular.js](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2) para orientação em um SPA angular
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 * Para saber mais sobre as capacidades, consulte [Acesso Condicional no Diretório Ativo Azure.](/azure/active-directory/conditional-access/overview)
 * Para mais amostras de código Azure AD, consulte [amostras](sample-v2-code.md).

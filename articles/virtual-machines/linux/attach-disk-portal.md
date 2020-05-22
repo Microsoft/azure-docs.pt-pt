@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 746cef8dfe026c731a677cbf77f729d36342f007
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6c485c1612df526e813119239fd2202b7657db9c
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78969361"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774188"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Utilizar o portal para anexar um disco de dados a uma VM do Linux 
 Este artigo mostra-lhe como anexar discos novos e existentes a uma máquina virtual Linux através do portal Azure. Também pode anexar um disco de [dados a um VM do Windows no portal Azure](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -70,7 +70,7 @@ Para a partilha, formato e montagem do seu novo disco para que o seu VM Linux po
 ssh azureuser@mypublicdns.westus.cloudapp.azure.com
 ```
 
-Uma vez ligado ao seu VM, está pronto para anexar um disco. Primeiro, encontre o `dmesg` disco utilizando (o método que utiliza para descobrir o seu novo disco pode variar). O exemplo seguinte utiliza dmesg para filtrar em discos *SCSI:*
+Uma vez ligado ao seu VM, está pronto para anexar um disco. Primeiro, encontre o disco utilizando `dmesg` (o método que utiliza para descobrir o seu novo disco pode variar). O exemplo seguinte utiliza dmesg para filtrar em discos *SCSI:*
 
 ```bash
 dmesg | grep SCSI
@@ -94,13 +94,13 @@ Se estiver a utilizar um disco existente que contenha dados, salte para a montag
 > [!NOTE]
 > Recomenda-se que utilize as versões mais recentes do disco ou da parte que estão disponíveis para a sua distro.
 
-Particione o disco com `fdisk`. Se o tamanho do disco for de 2 tebibytes (TiB) ou `parted` maior, então deve utilizar a divisão GPT, pode utilizar para executar a divisão de GPT. Se o tamanho do disco for inferior a 2TiB, pode utilizar divisórias MBR ou GPT. Faça-o um disco primário na divisória 1 e aceite os outros incumprimentos. O seguinte exemplo `fdisk` inicia o processo em */dev/sdc:*
+Particione o disco com `fdisk`. Se o tamanho do disco for de 2 tebibytes (TiB) ou maior, então deve utilizar a divisão GPT, pode utilizar `parted` para executar a divisão de GPT. Se o tamanho do disco for inferior a 2TiB, pode utilizar divisórias MBR ou GPT. Faça-o um disco primário na divisória 1 e aceite os outros incumprimentos. O seguinte exemplo inicia o `fdisk` processo em */dev/sdc:*
 
 ```bash
 sudo fdisk /dev/sdc
 ```
 
-Utilize o comando `n` para adicionar uma nova partição. Neste exemplo, também `p` escolhemos uma partição primária e aceitamos o resto dos valores predefinidos. O resultado vai ser semelhante ao exemplo seguinte:
+Utilize o comando `n` para adicionar uma nova partição. Neste exemplo, também escolhemos `p` uma partição primária e aceitamos o resto dos valores predefinidos. O resultado vai ser semelhante ao exemplo seguinte:
 
 ```bash
 Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
@@ -122,7 +122,7 @@ Last sector, +sectors or +size{K,M,G} (2048-10485759, default 10485759):
 Using default value 10485759
 ```
 
-Imprima a tabela `p` de `w` partição digitando e, em seguida, use para escrever a tabela para o disco e saída. A saída deve ser semelhante ao seguinte exemplo:
+Imprima a tabela de partição digitando `p` e, em seguida, use `w` para escrever a tabela para o disco e saída. A saída deve ser semelhante ao seguinte exemplo:
 
 ```bash
 Command (m for help): p
@@ -144,7 +144,7 @@ Calling ioctl() to re-read partition table.
 Syncing disks.
 ```
 
-Escreva um sistema de ficheiros `mkfs` para a partição com o comando. Especifique o seu tipo de sistema de ficheiros e o nome do dispositivo. O exemplo seguinte cria um sistema de *ficheiros ext4* na partição */dev/sdc1* que foi criado nos passos anteriores:
+Escreva um sistema de ficheiros para a partição com o `mkfs` comando. Especifique o seu tipo de sistema de ficheiros e o nome do dispositivo. O exemplo seguinte cria um sistema de *ficheiros ext4* na partição */dev/sdc1* que foi criado nos passos anteriores:
 
 ```bash
 sudo mkfs -t ext4 /dev/sdc1
@@ -179,12 +179,13 @@ Writing superblocks and filesystem accounting information: done
 O utilitário de disco necessita de entrada interativa e, portanto, não é ideal para ser usado dentro de scripts de automação. No entanto, a utilidade [separada](https://www.gnu.org/software/parted/) pode ser escrita e, portanto, presta-se melhor em cenários de automação. O utilitário separado pode ser usado para a partilha e para formatar um disco de dados. Para a passagem abaixo, utilizamos um novo disco de dados /dev/sdc e formamos-os utilizando o sistema de ficheiros [XFS.](https://xfs.wiki.kernel.org/)
 ```bash
 sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
+sudo mkfs.xfs /dev/sdc1
 partprobe /dev/sdc1
 ```
 Como acima visto, utilizamos o utilitário [partprobe](https://linux.die.net/man/8/partprobe) para garantir que o núcleo está imediatamente ciente da nova partilha e sistema de ficheiros. A não utilização da sonda partprobe pode fazer com que os comandos blkid ou lslbk não devolvam imediatamente o UUID para o novo sistema de ficheiros.
 
 ### <a name="mount-the-disk"></a>Monte o disco
-Crie um diretório para `mkdir`montar o sistema de ficheiros utilizando . O exemplo seguinte cria um diretório no */datadrive:*
+Crie um diretório para montar o sistema de ficheiros utilizando `mkdir` . O exemplo seguinte cria um diretório no */datadrive:*
 
 ```bash
 sudo mkdir /datadrive
@@ -235,12 +236,12 @@ Alguns núcleos linux suportam operações TRIM/UNMAP para descartar blocos não
 
 Existem duas formas de permitir o suporte trim no seu VM Linux. Como de costume, consulte a sua distribuição para obter a abordagem recomendada:
 
-* Utilize `discard` a opção montagem em */etc/fstab,* por exemplo:
+* Utilize a `discard` opção montagem em */etc/fstab,* por exemplo:
 
     ```bash
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
     ```
-* Em alguns `discard` casos, a opção pode ter implicações no desempenho. Em alternativa, pode `fstrim` executar o comando manualmente a partir da linha de comando, ou adicioná-lo ao seu crontab para executar regularmente:
+* Em alguns casos, a `discard` opção pode ter implicações no desempenho. Em alternativa, pode executar o `fstrim` comando manualmente a partir da linha de comando, ou adicioná-lo ao seu crontab para executar regularmente:
   
     **Ubuntu**
   

@@ -5,12 +5,12 @@ author: jumeder
 ms.author: jumeder
 ms.date: 04/09/2020
 ms.topic: article
-ms.openlocfilehash: f10c736cad9322752d5d552d29ef0c63635628a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dc07b20340b852eadeb7c93e5cef2ed2092b3641
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81868165"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758661"
 ---
 # <a name="debug-rendering"></a>Composição de Depuração
 
@@ -26,7 +26,7 @@ A API de renderização de depuração fornece uma gama de opções globais para
 
 O seguinte código permite estes efeitos de depuração:
 
-``` cs
+```cs
 void EnableDebugRenderingEffects(AzureSession session, bool highlight)
 {
     DebugRenderingSettings settings = session.Actions.DebugRenderingSettings;
@@ -39,6 +39,22 @@ void EnableDebugRenderingEffects(AzureSession session, bool highlight)
 
     // Enable wireframe rendering of object geometry on the server
     settings.RenderWireframe = true;
+}
+```
+
+```cpp
+void EnableDebugRenderingEffects(ApiHandle<AzureSession> session, bool highlight)
+{
+    ApiHandle<DebugRenderingSettings> settings = *session->Actions()->DebugRenderingSettings();
+
+    // Enable frame counter text overlay on the server side rendering
+    settings->RenderFrameCount(true);
+
+    // Enable polygon count text overlay on the server side rendering
+    settings->RenderPolygonCount(true);
+
+    // Enable wireframe rendering of object geometry on the server
+    settings->RenderWireframe(true);
 }
 ```
 

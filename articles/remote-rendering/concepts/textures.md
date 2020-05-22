@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 09fa22d33377dfcbafd84f0caeb5f33a575b1bce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: de3f127d97803ea920d61d748a1af0c80a1a1afc
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80681665"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83759137"
 ---
 # <a name="textures"></a>Texturas
 
@@ -34,16 +34,16 @@ Carregar uma textura com o mesmo URI duas vezes devolverá o mesmo objeto de tex
 
 Semelhantes aos modelos de carregamento, existem duas variantes de abordar um ativo de textura no armazenamento de bolhas de origem:
 
-* O ativo de textura pode ser abordado pelo seu SAS URI. A função `LoadTextureFromSASAsync` de `LoadTextureFromSASParams`carga relevante é com parâmetro . Utilize esta variante também ao carregar [texturas incorporadas.](../overview/features/sky.md#built-in-environment-maps)
-* A textura pode ser abordada diretamente por parâmetros de armazenamento de bolhas, caso o [armazenamento de bolhas esteja ligado à conta](../how-tos/create-an-account.md#link-storage-accounts). A função de `LoadTextureAsync` carga relevante `LoadTextureParams`neste caso é com parâmetro .
+* O ativo de textura pode ser abordado pelo seu SAS URI. A função de carga relevante é `LoadTextureFromSASAsync` com parâmetro `LoadTextureFromSASParams` . Utilize esta variante também ao carregar [texturas incorporadas.](../overview/features/sky.md#built-in-environment-maps)
+* A textura pode ser abordada diretamente por parâmetros de armazenamento de bolhas, caso o [armazenamento de bolhas esteja ligado à conta](../how-tos/create-an-account.md#link-storage-accounts). A função de carga relevante neste caso é `LoadTextureAsync` com parâmetro `LoadTextureParams` .
 
 O seguinte código de amostra mostra como carregar uma textura através do seu SAS URI (ou textura incorporada) - note que apenas a função/parâmetro de carregamento difere para o outro caso:
 
-``` cs
+```cs
 LoadTextureAsync _textureLoad = null;
 void LoadMyTexture(AzureSession session, string textureUri)
 {
-    _textureLoad = session.Actions.LoadTextureAsync(new LoadTextureParams(textureUri, TextureType.Texture2D));
+    _textureLoad = session.Actions.LoadTextureFromSASAsync(new LoadTextureFromSASParams(textureUri, TextureType.Texture2D));
     _textureLoad.Completed +=
         (LoadTextureAsync res) =>
         {
@@ -59,6 +59,28 @@ void LoadMyTexture(AzureSession session, string textureUri)
         };
 }
 ```
+
+```cpp
+void LoadMyTexture(ApiHandle<AzureSession> session, std::string textureUri)
+{
+    LoadTextureFromSASParams params;
+    params.TextureType = TextureType::Texture2D;
+    params.TextureUrl = std::move(textureUri);
+    ApiHandle<LoadTextureAsync> textureLoad = *session->Actions()->LoadTextureFromSASAsync(params);
+    textureLoad->Completed([](ApiHandle<LoadTextureAsync> res)
+    {
+        if (res->IsRanToCompletion())
+        {
+            //use res->Result()
+        }
+        else
+        {
+            printf("Texture loading failed!");
+        }
+    });
+}
+```
+
 
 Dependendo do que a textura deve ser usada, pode haver restrições para o tipo de textura e conteúdo. Por exemplo, o mapa de rugosidade de um [material PBR](../overview/features/pbr-materials.md) deve ser de escala cinzenta.
 

@@ -5,14 +5,14 @@ ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 05/01/2020
-ms.openlocfilehash: bd0ed9db9723af9015d15429d632712d63e249c1
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.openlocfilehash: f6b35551af61c50a3db2d15b47d8f3910024b527
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82652748"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773728"
 ---
-# <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Endereços IP utilizados por Insights de Aplicação e Log Analytics
+# <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Endereços IP utilizados pelo Application Insights e pela Análise de Registos
 O serviço [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) utiliza vários endereços IP. Poderá precisar de saber estes endereços se a aplicação que está a monitorizar estiver hospedada atrás de uma firewall.
 
 > [!NOTE]
@@ -22,15 +22,15 @@ O serviço [Azure Application Insights](../../azure-monitor/app/app-insights-ove
 > Pode utilizar [etiquetas](https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 ) de serviço de rede Azure para gerir o acesso se estiver a utilizar grupos de segurança de rede Azure. Se estiver a gerir o acesso a recursos híbridos/nas instalações, pode descarregar as listas de endereços IP equivalentes como [ficheiros JSON](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) que são atualizados todas as semanas: . Para cobrir todas as exceções neste artigo, teria de utilizar as etiquetas de serviço: 'ActionGroup', 'ApplicationInsightsAvailability', 'AzureMonitor'.
 
-Em alternativa, pode subscrever esta página como um https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/azure-monitor/app/ip-addresses.md.atom feed RSS adicionando ao seu leitor rSS/ATOM favorito para ser notificado das últimas alterações.
+Em alternativa, pode subscrever esta página como um feed RSS adicionando https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/azure-monitor/app/ip-addresses.md.atom ao seu leitor rSS/ATOM favorito para ser notificado das últimas alterações.
 
 
 ## <a name="outgoing-ports"></a>Portos de saída
 É necessário abrir algumas portas de saída na firewall do seu servidor para permitir que o SDK de Insights de Aplicação e/ou monitor de estado envie dados para o portal:
 
-| Objetivo | do IdP | IP | Portas |
+| Objetivo | URL | IP | Portas |
 | --- | --- | --- | --- |
-| Telemetria |dc.applicationinsights.azure.com<br/>dc.applicationinsights.microsoft.com<br/>dc.services.visualstudio.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54<br/>52.175.198.74<br/>51.140.6.23<br/>40.71.12.231<br/>13.69.65.22<br/>13.78.108.165<br/>13.70.72.233<br/>20.44.8.7<br/>13.86.218.248<br/>40.79.138.41<br/>52.231.18.241<br/>13.75.38.7<br/>102.133.155.50<br/>52.162.110.67<br/>191.233.204.248<br/>13.69.66.140<br/>13.77.52.29<br/>51.107.59.180<br/>40.71.12.235<br/>20.44.8.10<br/>40.71.13.169<br/>13.66.141.156<br/>40.71.13.170 | 443 |
+| Telemetria |dc.applicationinsights.azure.com<br/>dc.applicationinsights.microsoft.com<br/>dc.services.visualstudio.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54<br/>52.175.198.74<br/>51.140.6.23<br/>40.71.12.231<br/>13.69.65.22<br/>13.78.108.165<br/>13.70.72.233<br/>20.44.8.7<br/>13.86.218.248<br/>40.79.138.41<br/>52.231.18.241<br/>13.75.38.7<br/>102.133.155.50<br/>52.162.110.67<br/>191.233.204.248<br/>13.69.66.140<br/>13.77.52.29<br/>51.107.59.180<br/>40.71.12.235<br/>20.44.8.10<br/>40.71.13.169<br/>13.66.141.156<br/>40.71.13.170<br/>13.69.65.23 | 443 |
 | Live Metrics Stream (Leste dos EUA) |use.rt.prod.applicationinsights.trafficmanager.net |23.96.28.38<br/>13.92.40.198<br/>40.112.49.101<br/>40.117.80.207 |443 |
 | Live Metrics Stream (Centro Sul dos EUA) |ussc.rt.prod.applicationinsights.trafficmanager.net |157.55.177.6<br/>104.44.140.84<br/>104.215.81.124<br/>23.100.122.113 |443 |
 | Live Metrics Stream (Norte da Europa) |eun.rt.prod.applicationinsights.trafficmanager.net |40.115.103.168<br/>40.115.104.31<br/>40.87.140.215<br/>40.87.138.220 |443 |
@@ -41,7 +41,7 @@ Em alternativa, pode subscrever esta página como um https://github.com/Microsof
 ## <a name="status-monitor"></a>Monitor de Estado
 Configuração do Monitor de Estado - necessária apenas para fazer alterações.
 
-| Objetivo | do IdP | IP | Portas |
+| Objetivo | URL | IP | Portas |
 | --- | --- | --- | --- |
 | Configuração |`management.core.windows.net` | |`443` |
 | Configuração |`management.azure.com` | |`443` |
@@ -70,7 +70,7 @@ Abrir portas 80 (http) e 443 (https) para o tráfego de entrada destes endereço
 ### <a name="addresses-grouped-by-location"></a>Endereços agrupados por localização
 
 > [!NOTE]
-> Estes endereços estão listados utilizando a notação de encaminhamento inter-domínio sem classe (CIDR). Isto significa que `51.144.56.112/28` uma entrada similar é equivalente `51.144.56.112` a 16 IPs a partir e terminando em `51.144.56.127`.
+> Estes endereços estão listados utilizando a notação de encaminhamento inter-domínio sem classe (CIDR). Isto significa que uma entrada similar `51.144.56.112/28` é equivalente a 16 IPs a partir `51.144.56.112` e terminando em `51.144.56.127` .
 
 ```
 Australia East

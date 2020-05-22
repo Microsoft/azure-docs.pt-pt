@@ -12,12 +12,12 @@ ms.date: 07/19/2019
 ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad27ad5e34d9f44fe7d7be80e05e33dd6fb5e7b1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6d97cef332b24700920693bab55dcbd396015dc7
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79244215"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758372"
 ---
 # <a name="configure-saml-based-single-sign-on-to-non-gallery-applications"></a>Configure a inscrição única baseada em SAML em aplicações não-galerias
 
@@ -26,7 +26,7 @@ Quando [adiciona uma aplicação](add-gallery-app.md) de galeria ou uma [aplica�
 > [!NOTE]
 > Adicionar uma aplicação de galeria? Encontre instruções passo a passo na [lista de tutoriais de aplicações SaaS](../saas-apps/tutorial-list.md)
 
-Para configurar o único sign-on da SAML para uma aplicação não-galeria sem código de escrita, precisa de ter uma subscrição juntamente com uma licença Azure AD Premium e a aplicação deve suportar o SAML 2.0. Para mais informações sobre as versões Azure AD, visite [o preço da AD Azure.](https://azure.microsoft.com/pricing/details/active-directory/)
+Para configurar o único sinal da SAML para uma aplicação não-galeria sem código de escrita, precisa de ter uma subscrição Azure AD e a aplicação deve suportar o SAML 2.0. Para mais informações sobre as versões Azure AD, visite [o preço da AD Azure.](https://azure.microsoft.com/pricing/details/active-directory/)
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -36,7 +36,7 @@ Se a aplicação não tiver sido adicionada ao seu inquilino DaD Azure, consulte
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) como administrador de aplicação em nuvem ou administrador de candidatura para o seu inquilino Azure AD.
 
-2. Navegue para**as aplicações** **da Azure Ative Directory** > Enterprise e selecione a aplicação da lista. 
+2. Navegue para as aplicações **da Azure Ative Directory**  >  **Enterprise** e selecione a aplicação da lista. 
    
    - Para procurar a aplicação, no menu **Tipo de Aplicação,** selecione **Todas as aplicações,** e depois selecione **Aplicar**. Introduza o nome da aplicação na caixa de pesquisa e, em seguida, selecione a aplicação a partir dos resultados.
 
@@ -52,7 +52,7 @@ Se a aplicação não tiver sido adicionada ao seu inquilino DaD Azure, consulte
 
     | Definição básica de configuração SAML | Iniciado pelo SP | Iniciado pelo idP | Descrição |
     |:--|:--|:--|:--|
-    | **Identificador (ID de Entidade)** | Necessário para algumas aplicações | Necessário para algumas aplicações | Identifica exclusivamente a aplicação. A Azure AD envia o identificador para a aplicação como parâmetro do público do símbolo SAML. Espera-se que a aplicação o valide. Este valor também aparece como o ID da Entidade nos metadados SAML que a aplicação fornece. Introduza um URL que utilize<subdomain>o seguinte padrão: 'https:// .contoso.com' *Pode encontrar este valor como elemento **Emitente** no **Pedido AuthnRequest** (pedido SAML) enviado pelo pedido.* |
+    | **Identificador (ID de Entidade)** | Necessário para algumas aplicações | Necessário para algumas aplicações | Identifica exclusivamente a aplicação. A Azure AD envia o identificador para a aplicação como parâmetro do público do símbolo SAML. Espera-se que a aplicação o valide. Este valor também aparece como o ID da Entidade nos metadados SAML que a aplicação fornece. Introduza um URL que utilize o seguinte padrão: 'https:// <subdomain> .contoso.com' *Pode encontrar este valor como elemento **Emitente** no **Pedido AuthnRequest** (pedido SAML) enviado pelo pedido.* |
     | **URL de resposta** | Necessário | Necessário | Especifica onde é que a aplicação espera receber o token SAML. O URL de resposta também é denominado URL do Serviço de Consumidor de Asserções (ACS). Pode utilizar os campos de URL de resposta adicional para especificar URLs de resposta múltipla. Por exemplo, pode necessitar de URLs de resposta adicional para vários subdomínios. Ou, para efeitos de teste, pode especificar urLs de resposta múltipla (hospedeiro local e URLs públicos) de uma só vez. |
     | **URL de inscrição** | Necessário | Não especifique | Quando um utilizador abre este URL, o fornecedor de serviços redireciona para o Azure AD para autenticar e iniciar a sessão do utilizador. A Azure AD utiliza o URL para iniciar a aplicação a partir do Office 365 ou do Painel de Acesso AD Azure. Quando em branco, a Azure AD executa o sinal iniciado pelo IdP quando um utilizador lança a aplicação a partir do Office 365, do Painel de Acesso AD Azure ou do URL Azure AD SSO.|
     | **Estado de Reencaminhamento** | Opcional | Opcional | Especifica à aplicação para onde deve redirecionar o utilizador após a conclusão da autenticação. Tipicamente, o valor é um URL válido para a aplicação. No entanto, algumas aplicações utilizam este campo de forma diferente. Para obter mais informações, contacte o fornecedor da aplicação.
@@ -102,7 +102,7 @@ A partir do Azure AD, pode descarregar o certificado ativo em formato Base64 ou 
    - *A opção de assinatura correta e algoritmo.*
    - *O endereço de e-mail de notificação correto(es).* Quando o certificado ativo se encontra próximo da data de validade, a Azure AD envia uma notificação para o endereço de e-mail configurado neste campo.
 
-2. Para descarregar o certificado, selecione uma das opções para o formato Base64, formato Raw ou Federação de Metadados XML. O Azure AD também fornece o Url de **Metadados da Federação de Aplicações** onde pode aceder aos metadados específicos da aplicação no formato `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>`.
+2. Para descarregar o certificado, selecione uma das opções para o formato Base64, formato Raw ou Federação de Metadados XML. O Azure AD também fornece o Url de **Metadados da Federação de Aplicações** onde pode aceder aos metadados específicos da aplicação no formato `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>` .
 
 3. Para gerir, criar ou importar um certificado, selecione o ícone **Editar** (um lápis) no canto superior direito da secção certificado de **assinatura SAML.**
 
@@ -122,9 +122,9 @@ A partir do Azure AD, pode descarregar o certificado ativo em formato Base64 ou 
 
 ## <a name="step-4-set-up-the-application-to-use-azure-ad"></a>Passo 4. Configurar a aplicação para utilizar a Azure AD
 
-A ** \<configuração nome>** secção lista os valores que precisam de ser configurados na aplicação para que utilize a AD Azure como fornecedor de identidade SAML. Os valores exigidos variam de acordo com a aplicação. Para mais detalhes, consulte a documentação SAML da aplicação. Para encontrar a documentação, **dirija-se \<** ao nome de aplicação Configurar>título e selecione **Ver instruções passo a passo**. A documentação aparece na página de inscrição do **Configure.** Esta página guia-o no preenchimento do URL de **Login,** **do Identificador AD Azure**e dos valores de URL de **Logout** no **nome da aplicação Configurar \<>** título.
+A **secção Configuração \< nome>** lista os valores que precisam de ser configurados na aplicação para que utilize a AD Azure como fornecedor de identidade SAML. Os valores exigidos variam de acordo com a aplicação. Para mais detalhes, consulte a documentação SAML da aplicação. Para encontrar a documentação, dirija-se ao nome de ** \< aplicação Configurar>** título e selecione **Ver instruções passo a passo**. A documentação aparece na página de inscrição do **Configure.** Esta página guia-o no preenchimento do URL de **Login,** **do Identificador AD Azure**e dos valores de URL de **Logout** no **nome de \< aplicação Configurar>** título.
 
-1. Desloque-se até à secção **Configurar \<nome>.** 
+1. Desloque-se até à secção **De \< configurar nome>.** 
    
    ![Passo 4 Configurar a aplicação](media/configure-single-sign-on-non-gallery-applications/step-four-app-config.png)
 

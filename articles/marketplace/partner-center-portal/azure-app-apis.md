@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: 2c37e51ad0c6618e20d9445fab7472b1a3a72ab9
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: e50534639f5f46b1675ba5c074fb8fdd843ac87e
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744883"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770062"
 ---
 # <a name="partner-center-submission-api-to-onboard-azure-apps-in-partner-center"></a>Submissão do Partner Center API para aplicações azure a bordo no Partner Center
 
@@ -49,7 +49,7 @@ Para utilizar a API de submissão da Microsoft Store, deve associar uma aplicaç
 
 Antes de ligar para qualquer um dos métodos da API de submissão do Partner Center, primeiro deve obter um sinal de acesso Azure AD que passe para o cabeçalho de **Autorização** de cada método na API. Depois de obter um sinal de acesso, tem 60 minutos para usá-lo antes de expirar. Depois de expirar o token, pode refrescar o token para que possa continuar a usá-lo em futuras chamadas para a API.
 
-Para obter o sinal de acesso, siga as instruções em [Serviço para Chamadas de Serviço Utilizando Credenciais de Cliente](https://azure.microsoft.com/documentation/articles/active-directory-protocols-oauth-service-to-service/) para enviar um `HTTP POST` para o `https://login.microsoftonline.com/<tenant_id>/oauth2/token` ponto final. Aqui está um pedido de amostra:
+Para obter o sinal de acesso, siga as instruções em [Serviço para Chamadas de Serviço Utilizando Credenciais de Cliente](https://azure.microsoft.com/documentation/articles/active-directory-protocols-oauth-service-to-service/) para enviar um para o ponto `HTTP POST` `https://login.microsoftonline.com/<tenant_id>/oauth2/token` final. Aqui está um pedido de amostra:
 
 JSONCopy
 ```Json
@@ -63,7 +63,7 @@ grant_type=client_credentials
 &resource= https://api.partner.microsoft.com
 ```
 
-Para o *valor* `POST URI` tenant_id nos parâmetros *client_id* e *client_secret,* especifique o ID do inquilino, o ID do cliente e a chave para a sua aplicação que recuperou do Partner Center na secção anterior. Para o parâmetro de *recurso,* deve especificar `https://api.partner.microsoft.com`.
+Para o *valor tenant_id* nos `POST URI` parâmetros *client_id* e *client_secret,* especifique o ID do inquilino, o ID do cliente e a chave para a sua aplicação que recuperou do Partner Center na secção anterior. Para o parâmetro de *recurso,* deve especificar `https://api.partner.microsoft.com` .
 
 ### <a name="step-3-use-the-microsoft-store-submission-api"></a>Passo 3: Utilize a API de submissão da Microsoft Store
 
@@ -74,4 +74,4 @@ https://apidocs.microsoft.com/services/partneringestion/
 ## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como criar um [ativo técnico Azure VM](create-azure-container-technical-assets.md)
-* Aprenda enxada para criar uma [oferta de contentores Azure](create-azure-container-offer.md)
+* Saiba como criar uma oferta de [contentores Azure](create-azure-container-offer.md)

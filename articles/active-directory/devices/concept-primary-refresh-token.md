@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a237ad35d9d5d8abee784926563d972d0ee95f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3ccd51bd69c982aeae25dbf52d1e5d076542cf35
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78672638"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83771201"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>O que é um Token De Refresco Primário?
 
@@ -39,7 +39,7 @@ Os seguintes componentes do Windows desempenham um papel fundamental na solicita
 
 Um PRT contém alegações geralmente contidas em qualquer token de atualização da AD Azure. Além disso, existem algumas reclamações específicas do dispositivo incluídas no PrT. São os seguintes:
 
-* **ID do dispositivo**: Um PRT é emitido a um utilizador num dispositivo específico. A alegação `deviceID` de ID do dispositivo determina o dispositivo em que o PRT foi emitido para o utilizador. Esta alegação é posteriormente emitida a fichas obtidas através da PrT. A alegação de ID do dispositivo é utilizada para determinar a autorização de Acesso Condicional com base no estado do dispositivo ou na conformidade.
+* **ID do dispositivo**: Um PRT é emitido a um utilizador num dispositivo específico. A alegação de ID do dispositivo `deviceID` determina o dispositivo em que o PRT foi emitido para o utilizador. Esta alegação é posteriormente emitida a fichas obtidas através da PrT. A alegação de ID do dispositivo é utilizada para determinar a autorização de Acesso Condicional com base no estado do dispositivo ou na conformidade.
 * **Chave da sessão**: A chave da sessão é uma chave simétrica encriptada, gerada pelo serviço de autenticação Azure AD, emitida como parte do PRT. A chave da sessão funciona como prova de posse quando um PRT é usado para obter fichas para outras aplicações.
 
 ### <a name="can-i-see-whats-in-a-prt"></a>Posso ver o que há numa prt?
@@ -60,7 +60,7 @@ O PRT é emitido durante a autenticação do utilizador num dispositivo Windows 
 * **Azure AD juntou-se** ou **Hybrid Azure AD juntou-se**: A PRT é emitida durante o logon do Windows quando um utilizador inicia sessão com as suas credenciais de organização. É emitida uma PRT com todas as credenciais suportadas pelo Windows 10, por exemplo, palavra-passe e Windows Hello for Business. Neste cenário, o plugin Azure AD CloudAP é a principal autoridade para o PRT.
 * **Dispositivo registado em Azure AD**: Um PRT é emitido quando um utilizador adiciona uma conta de trabalho secundária ao seu dispositivo Windows 10. Os utilizadores podem adicionar uma conta ao Windows 10 de duas maneiras diferentes -  
    * Adicionar uma conta através da **utilização desta conta em todo o lado neste dispositivo** solicita-se depois de iniciar sessão numa app (por exemplo, Outlook)
-   * Adicionar uma conta a partir de **Definições** > **Accounts** > Contas**Trabalho de Acesso ou** > **Ligação** Escolar
+   * Adicionar uma **Settings**conta a partir de  >  **Definições Contas**  >  **Trabalho de Acesso ou**  >  **Ligação** Escolar
 
 Nos cenários do dispositivo registado pela Azure AD, o plugin WAM Azure AD é a principal autoridade para o PRT, uma vez que o logon do Windows não está a acontecer com esta conta Azure AD.
 
@@ -76,7 +76,7 @@ Uma vez emitido, um PRT é válido por 14 dias e é continuamente renovado desde
 Um PRT é utilizado por dois componentes chave no Windows:
 
 * **Plugin Azure AD CloudAP**: Durante o início do windows, o plugin Azure AD CloudAP solicita um PRT da Azure AD utilizando as credenciais fornecidas pelo utilizador. Também coloca o PRT para permitir o registo em cache quando o utilizador não tem acesso a uma ligação à Internet.
-* **Plugin WAM Azure AD**: Quando os utilizadores tentam aceder a aplicações, o plugin WAM Azure AD utiliza o PRT para ativar o SSO no Windows 10. O plugin WAM Azure AD utiliza o PRT para solicitar fichas de atualização e acesso para aplicações que dependem da WAM para pedidos simbólicos. Também permite o SSO nos navegadores injetando o PRT em pedidos de navegador. O Navegador SSO no Windows 10 é suportado no Microsoft Edge (de forma nativa) e no Chrome (através das Contas Windows 10 ou da extensão Do Office Online).
+* **Plugin WAM Azure AD**: Quando os utilizadores tentam aceder a aplicações, o plugin WAM Azure AD utiliza o PRT para ativar o SSO no Windows 10. O plugin WAM Azure AD utiliza o PRT para solicitar fichas de atualização e acesso para aplicações que dependem da WAM para pedidos simbólicos. Também permite o SSO nos navegadores injetando o PRT em pedidos de navegador. O Navegador SSO no Windows 10 é suportado no Microsoft Edge (de forma nativa) e no Chrome (através das [contas do Windows 10](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji?hl=en) ou das extensões [do Office Online).](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb?hl=en)
 
 ## <a name="how-is-a-prt-renewed"></a>Como é renovado um PRT?
 

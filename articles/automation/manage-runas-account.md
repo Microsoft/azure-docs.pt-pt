@@ -1,18 +1,18 @@
 ---
-title: Gerir a execução de automação azure como contas
-description: Este artigo descreve como gerir o seu Run As contas com powerShell, ou a partir do portal.
+title: Gerir uma execução de automação Azure Como conta
+description: Este artigo diz como gerir a sua conta Run As com powerShell ou a partir do portal Azure.
 services: automation
 ms.subservice: shared-capabilities
 ms.date: 04/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 68d04603ba9f0633bfa55598790b790055384fdb
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: d85eac7af71f03be384b8fa9d9603525c0807dac
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648150"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770793"
 ---
-# <a name="manage-azure-automation-run-as-accounts"></a>Gerir a execução de automação azure como contas
+# <a name="manage-an-azure-automation-run-as-account"></a>Gerir uma execução de automação Azure Como conta
 
 Executar Como contas na Azure Automation fornecem autenticação para gestão de recursos em Azure usando os cmdlets Azure. Ao criar uma conta Run As, cria um novo utilizador principal de serviço no Azure Ative Directory (AD) e atribui a função de Colaborador a este utilizador ao nível da subscrição.
 
@@ -53,11 +53,11 @@ A conta Azure Classic Run As conta executa as seguintes tarefas.
 >[!NOTE]
 >Azure Classic Run Uma conta não é criada por padrão ao mesmo tempo que cria uma conta Automation. Esta conta é criada individualmente seguindo os passos descritos mais tarde neste artigo.
 
-## <a name="run-as-account-permissions"></a><a name="permissions"></a>Executar Como permissões de conta
+## <a name="obtain-run-as-account-permissions"></a><a name="permissions"></a>Obter Executar Como permissões de conta
 
 Esta secção define permissões tanto para o Run Regular Como contas como para o Classic Run As contas.
 
-### <a name="permissions-to-configure-run-as-accounts"></a>Permissões para configurar Executar Como contas
+### <a name="get-permissions-to-configure-run-as-accounts"></a>Obtenha permissões para configurar Executar Como contas
 
 Para criar ou atualizar uma conta Run As, você deve ter privilégios e permissões específicas. Um administrador de aplicação no Azure Ative Directory e um Proprietário numa subscrição podem completar todas as tarefas. Numa situação em que se tem separação de funções, a tabela seguinte apresenta uma listagem das tarefas, o equivalente cmdlet e permissões necessárias:
 
@@ -83,11 +83,11 @@ Para verificar se a situação que produz a mensagem de erro foi corrigida:
 3. Escolha o seu nome e, em seguida, selecione **Perfil**. 
 4. Certifique-se de que o valor do **atributo** do tipo Utilizador no perfil do utilizador não está definido para **o Hóspede**.
 
-### <a name="permissions-to-configure-classic-run-as-accounts"></a><a name="permissions-classic"></a>Permissões para configurar Classic Run Como contas
+### <a name="get-permissions-to-configure-classic-run-as-accounts"></a><a name="permissions-classic"></a>Obtenha permissões para configurar Classic Run Como contas
 
 Para configurar ou renovar o Classic Run As contas, deve ter o papel de Coadministrador ao nível da subscrição. Para saber mais sobre permissões clássicas de subscrição, consulte [os administradores de subscrição clássicos do Azure.](../role-based-access-control/classic-administrators.md#add-a-co-administrator)
 
-## <a name="creating-a-run-as-account-in-azure-portal"></a>Criar uma conta Como Conta No portal Azure
+## <a name="create-a-run-as-account-in-azure-portal"></a>Criar uma conta Como Conta No portal Azure
 
 Execute os seguintes passos para atualizar a sua conta Azure Automation no portal Azure. Crie a Run As e Classic Run Como contas individualmente. Se não precisar de gerir os recursos clássicos, pode simplesmente criar a conta Run As do Azure.
 
@@ -99,7 +99,7 @@ Execute os seguintes passos para atualizar a sua conta Azure Automation no porta
 6. Dependendo da conta de juros, use o **Add Azure Run As** ou Add **Azure Classic Run As Account** pane. Depois de rever as informações sobre a visão geral, clique em **Criar**.
 6. Enquanto o Azure cria a conta Run As, pode acompanhar o progresso em **Notificações** a partir do menu. É também apresentado um banner afirmando que a conta está a ser criada. O processo pode levar alguns minutos para ser concluído.
 
-## <a name="creating-a-run-as-account-using-powershell"></a>Criar uma conta Run As usando powerShell
+## <a name="create-a-run-as-account-using-powershell"></a>Criar uma conta Run As usando powerShell
 
 A lista seguinte fornece os requisitos para criar uma conta Run As no PowerShell. Estes requisitos aplicam-se a ambos os tipos de Run As contas.
 
@@ -108,7 +108,7 @@ A lista seguinte fornece os requisitos para criar uma conta Run As no PowerShell
 * Uma conta de Automação, que é referenciada como o valor para os `AutomationAccountName` `ApplicationDisplayName` e parâmetros.
 * Permissões equivalentes às listadas nas [permissões necessárias para configurar executar como contas](#permissions).
 
-Para obter os valores para `SubscriptionId` , e , que são `ResourceGroupName` `AutomationAccountName` necessários parâmetros para o script PowerShell, complete os próximos passos.
+Para obter os valores para `SubscriptionId` , e , que são `ResourceGroupName` necessários parâmetros para o script PowerShell, complete os próximos passos.
 
 1. No portal Azure, selecione **Contas de Automação.**
 1. Na página Contas de Automação, selecione a sua conta De automação.
@@ -126,7 +126,7 @@ Esta secção fornece um script PowerShell para criar uma conta Run As. O script
 * Criar uma conta Run As e uma conta Run As Clássica mediante a utilização de um certificado emitido pela sua autoridade de certificação empresarial (AC).
 * Utilizar um certificado autoassinado na cloud do Azure Government para criar uma conta Run As e uma conta Run As Clássica.
 
-O script utiliza vários cmdlets do Gestor de Recursos Azure para criar recursos. Para as cmdlets e as permissões que necessitam, consulte [permissões para configurar executar como contas](#permissions-to-configure-run-as-accounts).
+O script utiliza vários cmdlets do Gestor de Recursos Azure para criar recursos. Para as cmdlets e as permissões que necessitam, consulte [Obter permissões para configurar Executar Como contas](#get-permissions-to-configure-run-as-accounts).
 
 Guarde o script no seu computador utilizando o nome de ficheiro **New-RunAsAccount.ps1**.
 
@@ -237,7 +237,7 @@ if (!(($AzureRmProfileVersion.Major -ge 3 -and $AzureRmProfileVersion.Minor -ge 
 
 
 Connect-AzAccount -Environment $EnvironmentName
-$Subscription = Get-AzSubscription -SubscriptionId $SubscriptionId
+$Subscription = Get-AzSubscription -SubscriptionId $SubscriptionId | Set-AzContext
 
 # Create a Run As account by using a service principal
 $CertifcateAssetName = "AzureRunAsCertificate"
@@ -299,7 +299,7 @@ if ($CreateClassicRunAsAccount) {
     CreateAutomationCertificateAsset $ResourceGroup $AutomationAccountName $ClassicRunAsAccountCertifcateAssetName $PfxCertPathForClassicRunAsAccount $PfxCertPlainPasswordForClassicRunAsAccount $false
 
     # Populate the ConnectionFieldValues
-    $SubscriptionName = $subscription.Subscription.Name
+    $SubscriptionName = $subscription.Name
     $ClassicRunAsAccountConnectionFieldValues = @{"SubscriptionName" = $SubscriptionName; "SubscriptionId" = $SubscriptionId; "CertificateAssetName" = $ClassicRunAsAccountCertifcateAssetName}
 
     # Create an Automation connection asset named AzureRunAsConnection in the Automation account. This connection uses the service principal.
@@ -349,7 +349,7 @@ Se criou uma conta Classic Run As com um certificado público da empresa (fichei
 
 Se criou uma conta Classic Run As com um certificado público auto-assinado (ficheiro **.cer),** o script cria e guarda-o para a pasta de ficheiros temporários no seu computador. Pode ser encontrado no perfil do utilizador `%USERPROFILE%\AppData\Local\Temp` , que utilizou para executar a sessão PowerShell.
 
-## <a name="deleting-a-run-as-or-classic-run-as-account"></a>Apagar uma corrida como ou clássica corrida como conta
+## <a name="delete-a-run-as-or-classic-run-as-account"></a>Eliminar uma conta Run As ou Run As Clássica
 
 Esta secção descreve como eliminar uma conta Run As ou Classic Run As. Quando executar esta ação, a conta de Automatização é mantida. Depois de apagar a conta, pode recriá-la no portal Azure.
 
@@ -369,7 +369,7 @@ Esta secção descreve como eliminar uma conta Run As ou Classic Run As. Quando 
 
    ![Recriar a conta Run As de Automatização](media/manage-runas-account/automation-account-create-runas.png)
 
-## <a name="renewing-a-self-signed-certificate"></a><a name="cert-renewal"></a>Renovação de um certificado auto-assinado
+## <a name="renew-a-self-signed-certificate"></a><a name="cert-renewal"></a>Renovar um certificado auto-assinado
 
 O certificado auto-assinado que criou para a conta Run As expira um ano a partir da data de criação. Em algum momento antes da sua conta Run As expirar, você deve renovar o certificado. Pode renová-lo a qualquer momento antes que expire. 
 
@@ -397,7 +397,7 @@ Utilize os seguintes passos para renovar o certificado auto-assinado.
 
 1. Enquanto o certificado estiver a ser renovado, pode acompanhar o progresso em **Notificações** a partir do menu.
 
-## <a name="setting-up-automatic-certificate-renewal-with-an-automation-runbook"></a><a name="auto-cert-renewal"></a>Criação de renovação automática de certificados com um livro de execução de automação
+## <a name="set-up-automatic-certificate-renewal-with-an-automation-runbook"></a><a name="auto-cert-renewal"></a>Configurar renovação automática de certificados com um livro de execução de automação
 
 Para renovar os certificados automaticamente, pode utilizar um livro de execução de automação. Este script no [GitHub](https://github.com/ikanni/PowerShellScripts/blob/master/AzureAutomation/RunAsAccount/GrantPermissionToRunAsAccountAADApplication-ToRenewCertificateItself-CreateSchedule.ps1) permite esta funcionalidade na sua conta Automation.
 
@@ -432,7 +432,7 @@ Utilize os seguintes passos para testar imediatamente o processo de renovação.
 5. Após o teste, edite o livro de execução e remova o personagem de comentário que adicionou no passo 1.
 6. Publique o livro de corridas.
 
-## <a name="limiting-run-as-account-permissions"></a><a name="limiting-run-as-account-permissions"></a>Limitação do execução Como permissões de conta
+## <a name="limit-run-as-account-permissions"></a>Limite executar como permissões de conta
 
 Para controlar a segmentação da Automação contra recursos no Azure, pode executar o script [Update-AutomationRunAsAccountRoleAssignments.ps1.](https://aka.ms/AA5hug8) Este script altera o seu executar existente Como principal de serviço de conta para criar e usar uma definição de função personalizada. O papel tem permissões para todos os recursos, exceto [o Cofre Chave.](https://docs.microsoft.com/azure/key-vault/)
 
@@ -466,7 +466,7 @@ Pode permitir que a Automação Azure verifique se o Key Vault e o seu diretor d
 
 Pode utilizar o script [Extend-AutomationRunAsAccountRoleRoleToKeyVault.ps1](https://aka.ms/AA5hugb) na PowerShell Gallery para dar ao seu Run As permissões de conta para o Cofre de Chaves. Consulte o [acesso dos pedidos grant a um cofre chave](../key-vault/general/group-permissions-for-apps.md) para obter mais detalhes sobre a definição de permissões no Key Vault.
 
-## <a name="resolving-misconfiguration-issues-for-run-as-accounts"></a>Resolução de problemas de configuração errada para Executar Como contas
+## <a name="resolve-misconfiguration-issues-for-run-as-accounts"></a>Resolver problemas de configuração errada para Executar Como contas
 
 Alguns itens de configuração necessários para uma execução Como ou corrida clássica Como conta pode ter sido eliminada ou criada indevidamente durante a configuração inicial. Possíveis casos de configuração errada incluem:
 
@@ -489,5 +489,5 @@ Pode resolver rapidamente estes problemas da conta Run As, ao eliminar e recriar
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para mais informações sobre os principais de serviço, consulte Objetos de [Aplicação e Objetos Principais](../active-directory/develop/app-objects-and-service-principals.md)de Serviço .
-* Para obter mais informações sobre certificados e serviços Azure, consulte a visão geral dos [Certificados para os Serviços Azure Cloud.](../cloud-services/cloud-services-certs-create.md)
+* [Objetos de aplicação e objetos principais](../active-directory/develop/app-objects-and-service-principals.md)de serviço.
+* [Visão geral dos certificados para os Serviços Azure Cloud.](../cloud-services/cloud-services-certs-create.md)

@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 26b3cb343aba2d45d5a14944a7f8856715bca100
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: bfc6b6fa6a2af8750c868aaacb289d39306ce06e
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690089"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770981"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Plataforma de identidade da Microsoft e Credenciais de senha do proprietário de recursos OAuth 2.0
 
@@ -29,10 +29,10 @@ A plataforma de identidade da Microsoft suporta a concessão de credenciais de s
 
 > [!IMPORTANT]
 >
-> * O ponto final da plataforma de identidade da Microsoft apenas suporta ROPC para inquilinos da AD Azure, não contas pessoais. Isto significa que você deve usar um`https://login.microsoftonline.com/{TenantId_or_Name}`ponto `organizations` final específico do inquilino ( ) ou o ponto final.
+> * O ponto final da plataforma de identidade da Microsoft apenas suporta ROPC para inquilinos da AD Azure, não contas pessoais. Isto significa que você deve usar um ponto final específico do inquilino `https://login.microsoftonline.com/{TenantId_or_Name}` ( ) ou o ponto `organizations` final.
 > * As contas pessoais que são convidadas para um inquilino da AD Azure não podem usar ropc.
 > * Contas que não têm senhas não podem entrar através do ROPC. Para este cenário, recomendamos que utilize um fluxo diferente para a sua aplicação.
-> * Se os utilizadores precisarem de utilizar a autenticação de vários fatores (MFA) para iniciar sessão na aplicação, serão bloqueados.
+> * Se os utilizadores precisarem de utilizar a [autenticação de vários fatores (MFA)](../authentication/concept-mfa-howitworks.md) para iniciar sessão na aplicação, serão bloqueados.
 > * A ROPC não é suportada em cenários de federação de [identidade híbrida](/azure/active-directory/hybrid/whatis-fed) (por exemplo, AD Azure e ADFS usadas para autenticar contas no local). Se os utilizadores forem redirecionados para um fornecedor de identidade no local, a Azure AD não é capaz de testar o nome de utilizador e a palavra-passe contra esse fornecedor de identidade. No entanto, a [autenticação pass-through](/azure/active-directory/hybrid/how-to-connect-pta) é suportada com ropc.
 
 ## <a name="protocol-diagram"></a>Diagrama de protocolo
@@ -66,14 +66,14 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parâmetro | Condição | Descrição |
 | --- | --- | --- |
-| `tenant` | Necessário | O inquilino de diretório em que quer registar o utilizador. Isto pode ser em formato DE NOME GUIA ou amigável. Este parâmetro não pode ser `common` `consumers`definido para ou `organizations`, mas pode ser definido para . |
+| `tenant` | Necessário | O inquilino de diretório em que quer registar o utilizador. Isto pode ser em formato DE NOME GUIA ou amigável. Este parâmetro não pode ser definido `common` para ou , mas pode ser definido para `consumers` `organizations` . |
 | `client_id` | Necessário | O ID de Aplicação (cliente) que o [portal Azure - Página](https://go.microsoft.com/fwlink/?linkid=2083908) de registos de aplicações atribuída à sua app. |
-| `grant_type` | Necessário | Tem de `password`ser definido para. |
+| `grant_type` | Necessário | Tem de ser definido `password` para. |
 | `username` | Necessário | O endereço de correio eletrónico do utilizador. |
 | `password` | Necessário | A senha do utilizador. |
 | `scope` | Recomendado | Uma lista de [âmbitos separados](v2-permissions-and-consent.md)do espaço, ou permissões, que a aplicação necessita. Num fluxo interativo, o administrador ou o utilizador devem consentir com estes âmbitos com antecedência. |
-| `client_secret`| Às vezes necessário | Se a sua aplicação for `client_secret` `client_assertion` um cliente público, então a ou não pode ser incluída.  Se a aplicação é um cliente confidencial, então deve ser incluída. |
-| `client_assertion` | Às vezes necessário | Uma forma `client_secret`diferente de, gerada com um certificado.  Consulte [as credenciais](active-directory-certificate-credentials.md) de certificado para mais detalhes. |
+| `client_secret`| Às vezes necessário | Se a sua aplicação for um cliente público, então a `client_secret` ou não pode ser `client_assertion` incluída.  Se a aplicação é um cliente confidencial, então deve ser incluída. |
+| `client_assertion` | Às vezes necessário | Uma forma diferente `client_secret` de, gerada com um certificado.  Consulte [as credenciais](active-directory-certificate-credentials.md) de certificado para mais detalhes. |
 
 ### <a name="successful-authentication-response"></a>Resposta de autenticação bem sucedida
 
@@ -92,12 +92,12 @@ O exemplo que se segue mostra uma resposta simbólica bem sucedida:
 
 | Parâmetro | Formato | Descrição |
 | --------- | ------ | ----------- |
-| `token_type` | String | Sempre definido `Bearer`para . |
+| `token_type` | String | Sempre definido para `Bearer` . |
 | `scope` | Cordas separadas do espaço | Se um token de acesso tiver sido devolvido, este parâmetro lista os âmbitos para os que o token de acesso é válido. |
 | `expires_in`| int | Número de segundos para o que o token de acesso incluído é válido para. |
 | `access_token`| Corda opaca | Emitido para os [âmbitos solicitados.](v2-permissions-and-consent.md) |
-| `id_token` | JWT | Emitido se o `scope` parâmetro original `openid` incluía o âmbito. |
-| `refresh_token` | Corda opaca | Emitido se o `scope` parâmetro original `offline_access`incluído . |
+| `id_token` | JWT | Emitido se o parâmetro original `scope` incluía o `openid` âmbito. |
+| `refresh_token` | Corda opaca | Emitido se o parâmetro original `scope` incluído `offline_access` . |
 
 Pode utilizar o token de atualização para adquirir novos tokens de acesso e fichas de atualização utilizando o mesmo fluxo descrito na documentação de fluxo do [Código OAuth](v2-oauth2-auth-code-flow.md#refresh-the-access-token).
 
@@ -108,7 +108,7 @@ Se o utilizador não tiver fornecido o nome de utilizador ou palavra-passe corre
 | Erro | Descrição | Ação do cliente |
 |------ | ----------- | -------------|
 | `invalid_grant` | A autenticação falhou | As credenciais estavam incorretas ou o cliente não tem consentimento para os âmbitos solicitados. Se os âmbitos não forem concedidos, um `consent_required` erro será devolvido. Se isso ocorrer, o cliente deve enviar o utilizador para um pedido interativo usando um webview ou navegador. |
-| `invalid_request` | O pedido foi mal construído | O tipo de subvenção não `/common` `/consumers` é suportado nos contextos de autenticação ou autenticação.  Use `/organizations` ou uma identificação de inquilino. |
+| `invalid_request` | O pedido foi mal construído | O tipo de subvenção não é suportado nos `/common` contextos de `/consumers` autenticação ou autenticação.  Use `/organizations` ou uma identificação de inquilino. |
 
 ## <a name="learn-more"></a>Saiba mais
 

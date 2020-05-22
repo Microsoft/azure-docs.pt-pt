@@ -6,19 +6,19 @@ ms.author: lcozzens
 ms.date: 02/13/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 18fa1b60b15b7eef96efa8dcc4fbf9cd7c4dc7f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3ec30aafe63259237a89de6597970b908fb969cf
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77472625"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773445"
 ---
 # <a name="authorize-access-to-azure-app-configuration-using-azure-active-directory"></a>Autorizar acesso à Configuração de Aplicações Azure utilizando o Diretório Ativo do Azure
 A Configuração de Aplicações Azure suporta a utilização do Diretório Ativo Azure (Azure AD) para autorizar pedidos para casos de Configuração de Aplicações.  A Azure AD permite-lhe utilizar o controlo de acesso baseado em funções (RBAC) para conceder permissões a um diretor de segurança.  Um diretor de segurança pode ser um utilizador, ou um diretor de serviço de [aplicação.](../active-directory/develop/app-objects-and-service-principals.md)  Para saber mais sobre papéis e atribuições de papéis, consulte [compreender diferentes papéis.](../role-based-access-control/overview.md)
 
 ## <a name="overview"></a>Descrição geral
 Os pedidos feitos pelo diretor de segurança (um utilizador ou uma aplicação) para aceder a um recurso de Configuração de Aplicações devem ser autorizados.  Com a AD Azure, o acesso a um recurso é um processo em duas etapas.
-1. A identidade do diretor de segurança é autenticada e um token OAuth 2.0 é devolvido.  O nome do recurso para `https://login.microsoftonline.com/{tenantID}` `{tenantID}` solicitar um símbolo é onde corresponde ao ID de inquilino do Azure Ative Directory a que pertence o diretor de serviço.
+1. A identidade do diretor de segurança é autenticada e um token OAuth 2.0 é devolvido.  O nome do recurso para solicitar um símbolo é onde corresponde ao ID de inquilino do `https://login.microsoftonline.com/{tenantID}` `{tenantID}` Azure Ative Directory a que pertence o diretor de serviço.
 2. O símbolo é passado como parte de um pedido ao serviço de Configuração de Aplicações para autorizar o acesso ao recurso especificado.
 
 A etapa de autenticação requer que um pedido de pedido contenha um sinal de acesso OAuth 2.0 no prazo de execução.  Se uma aplicação estiver a funcionar dentro de uma entidade Azure, como uma aplicação Azure Functions, uma Web App Azure ou um Azure VM, pode usar uma identidade gerida para aceder aos recursos.  Para saber autenticar pedidos feitos por uma identidade gerida para a Configuração de Aplicações Azure, consulte o acesso autenticado aos recursos de configuração de [aplicações do Azure com o Diretório Ativo Azure e identidades geridas para os Recursos Azure.](howto-integrate-azure-managed-service-identity.md)
@@ -33,9 +33,10 @@ Quando uma função RBAC é atribuída a um diretor de segurança da AD Azure, o
 ## <a name="built-in-rbac-roles-for-azure-app-configuration"></a>Funções RBAC incorporadas para configuração de aplicações azure
 O Azure fornece as seguintes funções de RBAC incorporadopara autorizar o acesso aos dados de configuração de aplicações utilizando a Azure AD e a OAuth:
 
-- Dono de dados de configuração de aplicações do Azure: Use esta função para dar acesso a leitura/escrita aos recursos de configuração da aplicação.
-- Leitor de dados de configuração de aplicações azure: Use esta função para dar acesso a recursos de configuração de aplicações.
-- Colaborador: Utilize esta função para dar acesso ao serviço sem conceder acesso aos dados armazenados na instância de Configuração da Aplicação.
+- **Configuração de aplicativos Data Owner**: Use esta função para dar acesso a dados de configuração de aplicações/ leitura/escrita/exclusão. Isto não permite o acesso ao recurso de Configuração de Aplicações.
+- Leitor de dados de **configuração de aplicações**: Utilize esta função para dar acesso à leitura aos dados de configuração da aplicação. Isto não permite o acesso ao recurso de Configuração de Aplicações.
+- **Colaborador**: Utilize esta função para gerir o recurso de configuração da aplicação. Embora os dados de Configuração da Aplicação possam ser acedidos através de chaves de acesso, esta função não permite o acesso aos dados através da AD Azure.
+- **Leitor**: Utilize esta função para dar acesso ao recurso de configuração da aplicação. Isto não permite o acesso às chaves de acesso do recurso, nem aos dados armazenados na Configuração da Aplicação.
 
 ## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre o uso [de identidades geridas](howto-integrate-azure-managed-service-identity.md) para administrar o seu serviço de Configuração de Aplicações.

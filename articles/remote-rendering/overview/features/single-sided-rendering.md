@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
-ms.openlocfilehash: 34ee5d4978c6476da407cde33598a5713177078e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 97e0456e274adee7d678e373cfd92b5003f3d801
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80682016"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83759103"
 ---
 # <a name="single-sided-rendering"></a>Composição unilateral
 
@@ -25,13 +25,13 @@ A definição *de renderização unilateral* permite-lhe personalizar este compo
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-A definição de renderização unilateral só tem um efeito para `opaqueMaterialDefaultSidedness` as `SingleSided`maltes que foram [convertidas](../../how-tos/conversion/configure-model-conversion.md) com a opção definida para . Por defeito, esta `DoubleSided`opção está definida para .
+A definição de renderização unilateral só tem um efeito para as maltes que foram [convertidas](../../how-tos/conversion/configure-model-conversion.md) com a `opaqueMaterialDefaultSidedness` opção definida para `SingleSided` . Por defeito, esta opção está definida para `DoubleSided` .
 
 ## <a name="single-sided-rendering-setting"></a>Definição de renderização unilateral
 
 Existem três modos diferentes:
 
-**Normal:** Neste modo, as meshes são sempre renderizadas à medida que são convertidas. Isso significa que as `opaqueMaterialDefaultSidedness` malshes convertidas com set para `SingleSided` serão sempre renderizadas com abate de costas ativado, mesmo quando cruzam um avião cortado.
+**Normal:** Neste modo, as meshes são sempre renderizadas à medida que são convertidas. Isso significa que as malshes convertidas com `opaqueMaterialDefaultSidedness` set para `SingleSided` serão sempre renderizadas com abate de costas ativado, mesmo quando cruzam um avião cortado.
 
 **DynamicDoubleSiding:** Neste modo, quando um plano cortado cruza uma malha, é automaticamente trocado para renderização dupla. Este modo é o modo predefinido.
 
@@ -39,7 +39,7 @@ Existem três modos diferentes:
 
 A alteração das definições de renderização unifaceda pode ser feita da seguinte forma:
 
-``` cs
+```cs
 void ChangeSingleSidedRendering(AzureSession session)
 {
     SingleSidedSettings settings = session.Actions.SingleSidedSettings;
@@ -49,6 +49,19 @@ void ChangeSingleSidedRendering(AzureSession session)
 
     // Single-sided geometry is always rendered double-sided
     settings.Mode = SingleSidedMode.AlwaysDoubleSided;
+}
+```
+
+```cpp
+void ChangeSingleSidedRendering(ApiHandle<AzureSession> session)
+{
+    ApiHandle<SingleSidedSettings> settings = *session->Actions()->SingleSidedSettings();
+
+    // Single-sided geometry is rendered as is
+    settings->Mode(SingleSidedMode::Normal);
+
+    // Single-sided geometry is always rendered double-sided
+    settings->Mode(SingleSidedMode::AlwaysDoubleSided);
 }
 ```
 

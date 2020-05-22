@@ -3,7 +3,7 @@ title: Backups automáticos e geo-redundantes
 description: A Base de Dados SQL cria automaticamente uma cópia de dados local a cada poucos minutos e utiliza armazenamento geo-redundante de acesso à leitura azure para geo-redundância.
 services: sql-database
 ms.service: sql-database
-ms.subservice: backup-restore
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 12/13/2019
-ms.openlocfilehash: dd5ca3c52364813a9aabe3db821c4f7e094fa637
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 7858d626282b3090e6c95af9c06b3a0a7e603462
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83634136"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773601"
 ---
 # <a name="automated-backups"></a>Cópias de segurança automatizadas
 

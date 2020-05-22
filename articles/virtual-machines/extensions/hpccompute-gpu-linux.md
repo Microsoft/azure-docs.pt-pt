@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: akjosh
-ms.openlocfilehash: e7f6653043d46925d6a4c35eedaf81224ea6c36d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2cfc48f7c152f0f38ca70713dc989029e4e64e8b
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81415791"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773122"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Extensão do condutor da GPU da NVIDIA para o Linux
 
@@ -72,9 +72,9 @@ O seguinte JSON mostra o esquema para a extensão.
 
 ### <a name="properties"></a>Propriedades
 
-| Nome | Valor / Exemplo | Tipo de Dados |
+| Name | Valor / Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
+| apiVersion | 2015-06-15 | data |
 | publicador | Microsoft.HpcCompute | string |
 | tipo | NvidiaGpuDriverLinux | string |
 | typeHandlerVersion | 1.2 | int |
@@ -83,7 +83,7 @@ O seguinte JSON mostra o esquema para a extensão.
 
 Todas as definições são opcionais. O comportamento predefinido é não atualizar o núcleo se não for necessário para a instalação do controlador, instalar o mais recente controlador suportado e o conjunto de ferramentas CUDA (conforme aplicável).
 
-| Nome | Descrição | Valor Predefinido | Valores válidos | Tipo de Dados |
+| Name | Descrição | Valor Predefinido | Valores válidos | Tipo de Dados |
 | ---- | ---- | ---- | ---- | ---- |
 | atualizandoOS | Atualize o núcleo mesmo que não seja necessário para a instalação do condutor | false | TRUE, false | boolean |
 | driverVersão | NV: Versão do controlador grid<br> VERSÃO NC/ND: versão de kit de ferramentas CUDA. Os mais recentes controladores para o CUDA escolhido saem automaticamente instalados. | mais recente | GRELHA: "430,30", "418,70", "410,92", "410,71", "390,75", "390,57", "390,42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
@@ -99,7 +99,7 @@ As extensões VM azure podem ser implantadas com modelos de Gestor de Recursos A
 
 A configuração JSON para uma extensão virtual da máquina pode ser aninhada dentro do recurso virtual da máquina, ou colocada no nível raiz ou superior de um modelo JSON do Gestor de Recursos. A colocação da configuração JSON afeta o valor do nome e do tipo de recursos. Para mais informações, consulte o nome e o [tipo de definição para os recursos infantis.](../../azure-resource-manager/resource-manager-template-child-resource.md) 
 
-O exemplo que se segue pressupõe que a extensão está aninhada dentro do recurso virtual da máquina. Ao nidificar o recurso de extensão, `"resources": []` o JSON é colocado no objeto da máquina virtual.
+O exemplo que se segue pressupõe que a extensão está aninhada dentro do recurso virtual da máquina. Ao nidificar o recurso de extensão, o JSON é colocado no `"resources": []` objeto da máquina virtual.
 
 ```json
 {
@@ -149,7 +149,7 @@ az vm extension set \
   --version 1.2 \
   --settings '{ \
     "updateOS": true, \
-    "driverVersion": "9.1.85", \
+    "driverVersion": "9.1.85" \
   }'
 ```
 

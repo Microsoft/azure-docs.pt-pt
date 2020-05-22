@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 02/22/2019
 ms.author: cynthn
-ms.openlocfilehash: f813551ed665628898bb219a611947c3026ac67c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4180f62e589ef79227d8e60ca19661e1c65f0097
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82084486"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773326"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Como usar o Packer para criar imagens de máquinas virtuais do Windows em Azure
 Cada máquina virtual (VM) em Azure é criada a partir de uma imagem que define a distribuição do Windows e a versão OS. As imagens podem incluir aplicações e configurações pré-instaladas. O Azure Marketplace fornece muitas imagens de primeira e terceira para ambientes de sistema so' e aplicação mais comuns, ou pode criar as suas próprias imagens personalizadas adaptadas às suas necessidades. Este artigo detalha como usar a ferramenta de código aberto [Packer](https://www.packer.io/) para definir e construir imagens personalizadas em Azure.
@@ -37,7 +37,7 @@ New-AzResourceGroup -Name $rgName -Location $location
 ## <a name="create-azure-credentials"></a>Criar credenciais do Azure
 Packer autentica com Azure usando um diretor de serviço. Um diretor de serviço Azure é uma identidade de segurança que pode usar com apps, serviços e ferramentas de automação como o Packer. Controla e define as permissões sobre que operações o diretor de serviço pode realizar em Azure.
 
-Crie um diretor de serviço com o [New-AzADServicePrincipal e atribua](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal) permissões para o principal de serviço criar e gerir recursos com [a New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment). O valor `-DisplayName` para as necessidades deve ser único; substituir pelo seu próprio valor, conforme necessário.  
+Crie um diretor de serviço com o [New-AzADServicePrincipal e atribua](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal) permissões para o principal de serviço criar e gerir recursos com [a New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment). O valor para `-DisplayName` as necessidades tem de ser único; substitua-o pelo seu próprio valor, conforme necessário.  
 
 ```azurepowershell
 $sp = New-AzADServicePrincipal -DisplayName "PackerServicePrincipal"
@@ -70,8 +70,8 @@ Crie um ficheiro chamado *windows.json* e colhe o seguinte conteúdo. Insira os 
 |-------------------------------------|----------------------------------------------------|
 | *client_id*                         | Ver ID principal de serviço com`$sp.applicationId` |
 | *client_secret*                     | Ver a senha gerada automaticamente com`$plainPassword` |
-| *tenant_id*                         | Saída `$sub.TenantId` a partir do comando |
-| *subscription_id*                   | Saída `$sub.SubscriptionId` a partir do comando |
+| *tenant_id*                         | Saída a partir do `$sub.TenantId` comando |
+| *subscription_id*                   | Saída a partir do `$sub.SubscriptionId` comando |
 | *managed_image_resource_group_name* | Nome do grupo de recursos que criou no primeiro passo |
 | *managed_image_name*                | Nome para a imagem de disco gerida que é criada |
 
@@ -105,7 +105,7 @@ Crie um ficheiro chamado *windows.json* e colhe o seguinte conteúdo. Insira os 
     },
 
     "location": "East US",
-    "vm_size": "Standard_DS2_v2"
+    "vm_size": "Standard_D2_v2"
   }],
   "provisioners": [{
     "type": "powershell",

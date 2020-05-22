@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 600f19a6fc0b44fa8cb4b3ba6d37fcc601605dc5
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 3abd93e1699a701140e8b3558dcdf0161110ff6f
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82206736"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758134"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Escolha o método de autenticação certo para a sua solução de identidade híbrida Azure Ative Directory
 
@@ -92,7 +92,7 @@ Detalhes sobre questões de decisão:
 
 * **Cenários avançados.** Se as organizações optarem por fazê-lo, é possível utilizar insights de identidades com relatórios de Proteção de Identidade Azure AD com o Azure AD Premium P2. Um exemplo é o relatório de credenciais vazado. O Windows Hello for Business tem [requisitos específicos quando utiliza](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification)a sincronização de hash de palavra-passe . [O Azure AD Domain Services](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md) requer sincronização de hash de palavra-passe para fornecer aos utilizadores as suas credenciais corporativas no domínio gerido.
 
-    As organizações que necessitem de autenticação multifactor com sincronização de hash de palavra-passe devem utilizar a autenticação multifactor Azure AD ou [controlos personalizados de Acesso Condicional](../../active-directory/conditional-access/controls.md#custom-controls-preview). Essas organizações não podem usar métodos de autenticação multifactor de terceiros ou no local que dependem da federação.
+    As organizações que necessitem de autenticação multifactor com sincronização de hash de palavra-passe devem utilizar a autenticação de multi-factors Azure ou [controlos personalizados de acesso condicional.](../../active-directory/conditional-access/controls.md#custom-controls-preview) Essas organizações não podem usar métodos de autenticação multifactor de terceiros ou no local que dependem da federação.
 
 > [!NOTE]
 > O Acesso Condicional Azure AD requer licenças [Azure AD Premium P1.](https://azure.microsoft.com/pricing/details/active-directory/)
@@ -139,7 +139,7 @@ Consulte a implementação da [autenticação pass-through](../../active-directo
   * Autenticação que requer cartões inteligentes ou certificados.
   * No local, servidores MFA ou fornecedores multifactor de terceiros que requerem um fornecedor de identidade federado.
   * Autenticação utilizando soluções de autenticação de terceiros. Consulte a lista de compatibilidade da [Federação Azure.](../../active-directory/hybrid/how-to-connect-fed-compatibility.md)
-  * Assine o que requer um nome sAMAccount, por exemplo DOMAIN\username, em vez user@domain.comde um Nome Principal do Utilizador (UPN), por exemplo, .
+  * Assine o que requer um nome sAMAccount, por exemplo DOMAIN\username, em vez de um Nome Principal do Utilizador (UPN), por exemplo, user@domain.com .
 
 * **Continuidade do negócio.** Os sistemas federados normalmente requerem um conjunto de servidores equilibrados em carga, conhecidos como uma fazenda. Esta quinta está configurada numa rede interna e topologia de rede de perímetro para garantir uma elevada disponibilidade para pedidos de autenticação.
 
@@ -175,8 +175,8 @@ Os seguintes diagramas descrevem os componentes de arquitetura de alto nível ne
 |Consideração|Sincronização de hash de palavra-passe + SSO sem emenda|Autenticação pass-through + SSO sem emenda|Federação com o AD FS|
 |:-----|:-----|:-----|:-----|
 |Onde é que a autenticação acontece?|Na cloud|Na nuvem após uma troca segura de verificação de senha com o agente de autenticação no local|Local|
-|Quais são os requisitos do servidor no local para além do sistema de provisionamento: Azure AD Connect?|Nenhuma|Um servidor para cada agente de autenticação adicional|Dois ou mais servidores AD FS<br><br>Dois ou mais servidores WAP na rede perímetro/DMZ|
-|Quais são os requisitos para a Internet no local e para a rede para além do sistema de provisionamento?|Nenhuma|[Acesso à Internet de saída](../../active-directory/hybrid/how-to-connect-pta-quick-start.md) dos servidores que executam agentes de autenticação|[Acesso à Internet de entrada](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-requirements) a servidores WAP no perímetro<br><br>Acesso à rede de entrada aos servidores AD FS dos servidores WAP no perímetro<br><br>Balanceamento de carga de rede|
+|Quais são os requisitos do servidor no local para além do sistema de provisionamento: Azure AD Connect?|Nenhum|Um servidor para cada agente de autenticação adicional|Dois ou mais servidores AD FS<br><br>Dois ou mais servidores WAP na rede perímetro/DMZ|
+|Quais são os requisitos para a Internet no local e para a rede para além do sistema de provisionamento?|Nenhum|[Acesso à Internet de saída](../../active-directory/hybrid/how-to-connect-pta-quick-start.md) dos servidores que executam agentes de autenticação|[Acesso à Internet de entrada](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-requirements) a servidores WAP no perímetro<br><br>Acesso à rede de entrada aos servidores AD FS dos servidores WAP no perímetro<br><br>Balanceamento de carga de rede|
 |Existe um requisito de certificado TLS/SSL?|Não|Não|Sim|
 |Existe uma solução de monitorização da saúde?|Não é necessária|Estatuto de agente fornecido pelo Centro de [Administração do Diretório Ativo azure](../../active-directory/hybrid/tshoot-connect-pass-through-authentication.md)|[Azure AD Connect Health](../../active-directory/hybrid/how-to-connect-health-adfs.md)|
 |Os utilizadores obtêm um único sinal para os recursos na nuvem a partir de dispositivos ligados ao domínio dentro da rede da empresa?|Sim com [SSO SSO Sem Emenda](../../active-directory/hybrid/how-to-connect-sso.md)|Sim com [SSO SSO Sem Emenda](../../active-directory/hybrid/how-to-connect-sso.md)|Sim|

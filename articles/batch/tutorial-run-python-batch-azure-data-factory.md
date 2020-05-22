@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 12/11/2019
 ms.author: komammas
 ms.custom: mvc
-ms.openlocfilehash: 49f675a56247433ce92763a69045fb214c7c37dc
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 433a652ffa3fa3ae5a570fac6160ef8a04ee11c8
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/21/2020
-ms.locfileid: "83723073"
+ms.locfileid: "83773190"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Tutorial: Executar scripts Python através da Fábrica de Dados Azure usando o Lote Azure
 
@@ -34,6 +34,7 @@ Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.mi
 
 * Uma distribuição de [Python](https://www.python.org/downloads/) instalada, para testes locais.
 * O pacote [Azure.](https://pypi.org/project/azure/) `pip`
+* O [conjunto de dados iris.csv](https://www.kaggle.com/uciml/iris/version/2#Iris.csv)
 * Uma conta do Batch do Azure e uma conta de Armazenamento do Microsoft Azure associada. Consulte criar [uma conta de Lote](quick-create-portal.md#create-a-batch-account) para obter mais informações sobre como criar e ligar contas do Lote a contas de armazenamento.
 * Uma conta azure data factory. Consulte [Criar uma fábrica](../data-factory/quickstart-create-data-factory-portal.md#create-a-data-factory) de dados para obter mais informações sobre como criar uma fábrica de dados através do portal Azure.
 * [Explorador de lote](https://azure.github.io/BatchExplorer/).
@@ -66,7 +67,7 @@ Aqui irá criar recipientes blob que armazenarão os seus ficheiros de entrada e
 1. Inscreva-se no Storage Explorer utilizando as suas credenciais Azure.
 1. Utilizando a conta de armazenamento ligada à sua conta Batch, crie dois recipientes blob (um para ficheiros de entrada, um para ficheiros de saída) seguindo os passos em [Criar um recipiente de bolha](../vs-azure-tools-storage-explorer-blobs.md#create-a-blob-container).
     * Neste exemplo, chamaremos o nosso recipiente de entrada `input` , e o nosso recipiente de saída `output` .
-1. Carregue e para o seu recipiente de `main.py` entrada utilizando o Storage Explorer seguindo os `iris.csv` `input` passos de [Gestão](../vs-azure-tools-storage-explorer-blobs.md#managing-blobs-in-a-blob-container) de bolhas num recipiente de bolha
+1. Carregue e para o seu recipiente de `main.py` entrada utilizando o Storage Explorer seguindo os [`iris.csv`](https://www.kaggle.com/uciml/iris/version/2#Iris.csv) `input` passos de [Gestão](../vs-azure-tools-storage-explorer-blobs.md#managing-blobs-in-a-blob-container) de bolhas num recipiente de bolha
 
 
 ## <a name="develop-a-script-in-python"></a>Desenvolver um roteiro em Python
@@ -146,7 +147,7 @@ Caso os avisos ou erros sejam produzidos pela execução do seu script, pode con
 1. Clique na tarefa que tinha um código de saída de falha.
 1. Veja `stdout.txt` e investigue e `stderr.txt` diagnostice o seu problema.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você explorou um exemplo que o ensinou a executar scripts Python como parte de um oleoduto através da Azure Data Factory usando o Azure Batch.
 

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 031dbb0e8c9b9fb8dc37b264f9ba8e1186efc832
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 54a55789cf867c97cf2384b48f1e5545ee54dafc
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82783594"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773411"
 ---
 # <a name="control-network-traffic-in-azure-hdinsight"></a>Controlar o tráfego da rede em Azure HDInsight
 
@@ -36,7 +36,7 @@ Se planeia utilizar **grupos** de segurança de rede para controlar o tráfego d
 
 3. Crie ou modifique os grupos de segurança da rede para a subnet a que planeia instalar o HDInsight.
 
-    * __Grupos__de segurança da rede : permitir o tráfego __de entrada__ no porto __443__ a partir dos endereços IP. Isto garantirá que os serviços de gestão HDInsight possam chegar ao cluster de fora da rede virtual.
+    * __Grupos__de segurança da rede : permitir o tráfego __de entrada__ no porto __443__ a partir dos endereços IP. Isto garantirá que os serviços de gestão HDInsight possam chegar ao cluster de fora da rede virtual. Para os clusters ativados por __proxy Kafka REST,__ permita o tráfego __de entrada__ no porto __9400__ também. Isto garantirá que o servidor proxy Kafka REST seja acessível.
 
 Para obter mais informações sobre os grupos de segurança da rede, consulte a [visão geral dos grupos de segurança da rede](../virtual-network/security-overview.md).
 

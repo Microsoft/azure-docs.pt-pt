@@ -3,7 +3,7 @@ title: Instância gerida - Restauro ponto-a-tempo (PITR)
 description: Restaurar uma base de dados SQL num caso gerido até um ponto anterior no tempo.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: 27f465e6864d0ff639e825c8a816d86648bd8853
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 21af96e8527bb3fc18666c0353ab3bdbe2a010f1
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79268811"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773818"
 ---
 # <a name="restore-a-sql-database-in-a-managed-instance-to-a-previous-point-in-time"></a>Restaurar uma base de dados SQL num caso gerido até um ponto anterior no tempo
 

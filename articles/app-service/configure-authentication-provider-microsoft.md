@@ -7,12 +7,12 @@ ms.date: 08/08/2019
 ms.custom:
 - seodec18
 - fasttrack-edit
-ms.openlocfilehash: 6fe0e39584cbaa001e11f712bb2f60b45dba6914
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 68af882bf240b354bdad1afe322135c048576ed4
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203493"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83772841"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-microsoft-account-login"></a>Configure o seu app service ou app Funções Azure para usar login da Conta Microsoft
 
@@ -28,11 +28,11 @@ Este tópico mostra-lhe como configurar o Azure App Service ou as Funções Azur
 1. Vá às [**inscrições**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) da App no portal Azure. Se necessário, inscreva-se na sua conta Microsoft.
 1. Selecione **Novo registo**e, em seguida, insira um nome de candidatura.
 1. Sob os tipos de **conta suportados**, selecione **Contas em qualquer diretório organizacional (Qualquer diretório AD Azure - Multitenant) e contas pessoais da Microsoft (por exemplo, Skype, Xbox)**
-1. Em **Redirecionar URIs,** `https://<app-domain-name>/.auth/login/aad/callback`selecione **Web**, e, em seguida, introduza . Substitua o * \<nome de domínio da aplicação>* pelo nome de domínio da sua aplicação.  Por exemplo, `https://contoso.azurewebsites.net/.auth/login/aad/callback`. Certifique-se de utilizar o esquema HTTPS no URL.
+1. Em **Redirecionar URIs,** selecione **Web**, e, em seguida, introduza `https://<app-domain-name>/.auth/login/aad/callback` . Substitua>de * \< nome de domínio* de aplicativo com o nome de domínio da sua aplicação.  Por exemplo, `https://contoso.azurewebsites.net/.auth/login/aad/callback`. Certifique-se de utilizar o esquema HTTPS no URL.
 
 1. Selecione **Registar**.
 1. Copiar o ID da **Aplicação (Cliente)**. Precisará dela mais tarde.
-1. Do painel esquerdo, selecione **Certificados & segredos** > Novo segredo do**cliente.** Introduza uma descrição, selecione a duração da validade e selecione **Adicionar**.
+1. Do painel esquerdo, selecione **Certificados & segredos**Novo segredo do  >  **cliente.** Introduza uma descrição, selecione a duração da validade e selecione **Adicionar**.
 1. Copie o valor que aparece na página de **Certificados & segredos.** Depois de sair da página, não voltará a ser exibido.
 
     > [!IMPORTANT]
@@ -41,8 +41,8 @@ Este tópico mostra-lhe como configurar o Azure App Service ou as Funções Azur
 ## <a name="add-microsoft-account-information-to-your-app-service-application"></a><a name="secrets"> </a>Adicione informações da Conta Microsoft à sua aplicação de Serviço de Aplicações
 
 1. Vá à sua aplicação no [portal Azure.]
-1. Selecione **Definições** > **Autenticação / Autorização,** e certifique-se de que a autenticação do serviço de aplicações está **a ser ressoada**. **App Service Authentication**
-1. No âmbito dos **Fornecedores de Autenticação,** selecione **Diretório Ativo Azure**. Selecione **Advanced** no **modo de gestão**. Colar no ID de Aplicação (cliente) e no segredo do cliente que obteve anteriormente. Utilizar **`https://login.microsoftonline.com/9188040d-6c67-4c5b-b112-36a304b66dad/v2.0`** para o campo **Url emitente.**
+1. Selecione **Definições**  >  **Autenticação / Autorização,** e certifique-se de que a **autenticação** do serviço de aplicações está a ser **ressoada**.
+1. No âmbito dos **Fornecedores de Autenticação,** selecione **Diretório Ativo Azure**. Selecione **Advanced** no **modo de gestão**. Colar no ID de Aplicação (cliente) e no segredo do cliente que obteve anteriormente. Utilizar **`https://login.microsoftonline.com/9188040d-6c67-4c5b-b112-36a304b66dad/v2.0`** para o campo Url **emitente.**
 1. Selecione **OK**.
 
    O Serviço de Aplicações fornece a autenticação, mas não restringe o acesso autorizado aos conteúdos e APIs do seu site. Tem de autorizar os utilizadores no seu código de aplicações.

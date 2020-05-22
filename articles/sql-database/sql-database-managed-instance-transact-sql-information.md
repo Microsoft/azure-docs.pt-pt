@@ -3,7 +3,7 @@ title: Diferenças t-SQL de instância gerida
 description: Este artigo discute as diferenças T-SQL entre um caso gerido na Base de Dados Azure SQL e no Servidor SQL
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova, danil
 ms.date: 03/11/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: 2e121d94b27710eb952f98bf97c3b4e5602866f4
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: bc5aed6c00afc5ffc9d44f43a9163b2ae2de1e17
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/21/2020
-ms.locfileid: "83724637"
+ms.locfileid: "83772306"
 ---
 # <a name="managed-instance-t-sql-differences-and-limitations"></a>Diferenças e limitações t-SQL geridas
 
@@ -531,7 +531,7 @@ Os seguintes schemas de MSDB em instância gerida devem ser propriedade das resp
 
 Uma instância gerida coloca informações verbosas em registos de erros. Há muitos eventos do sistema interno que estão registados no registo de erros. Utilize um procedimento personalizado para ler registos de erros que filtram algumas entradas irrelevantes. Para mais informações, consulte a [exemplo gerida – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/) ou [extensão de instância gerida (pré-visualização)](/sql/azure-data-studio/azure-sql-managed-instance-extension#logs) para o Azure Data Studio.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter mais informações sobre casos geridos, consulte [O que é um caso gerido?](sql-database-managed-instance.md)
 - Para obter uma lista de funcionalidades e comparação, consulte a comparação de funcionalidades de [recurso Azure SQL](sql-database-features.md).

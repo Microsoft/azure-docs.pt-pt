@@ -5,12 +5,12 @@ author: erscorms
 ms.author: erscor
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: b6e501cdc1d5091a27d86406c6919587bedb261a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6a1a51ee09422607ae1392704add4d49d3367d57
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417696"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83759052"
 ---
 # <a name="limitations"></a>Limitações
 
@@ -44,7 +44,6 @@ O número admissível de polígonos para todos os modelos carregados depende do 
 
 **Ambiente de trabalho do Windows 10**
 
-* A implantação "PC Autónomo" da Unidade não é apoiada. Use o UWP em vez disso.
 * O UWP/x86 é a única plataforma suportada da UWP. O UWP/x64 não é suportado.
 
 **Hololens 2**

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 634f89b3123902d981ad07dd1404315387104322
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 19fd257e76cdf811343f1c1c772fb3646933bb86
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "68726734"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774053"
 ---
 # <a name="azure-facilities-premises-and-physical-security"></a>Instalações, instalações e segurança física do Azure
 Este artigo descreve o que a Microsoft faz para garantir a infraestrutura Azure.
@@ -28,7 +28,7 @@ Este artigo descreve o que a Microsoft faz para garantir a infraestrutura Azure.
 ## <a name="datacenter-infrastructure"></a>Infraestrutura de datacenter
 O Azure é composto por uma infraestrutura de [datacenter distribuída globalmente,](https://azure.microsoft.com/global-infrastructure/)apoiando milhares de serviços online e abrangendo mais de 100 instalações altamente seguras em todo o mundo.
 
-A infraestrutura destina-se a aproximar as aplicações dos utilizadores em todo o mundo, preservando a residência de dados e oferecendo opções abrangentes de conformidade e resiliência para os clientes. O Azure tem 52 regiões em todo o mundo e está disponível em 140 países/regiões.
+A infraestrutura destina-se a aproximar as aplicações dos utilizadores em todo o mundo, preservando a residência de dados e oferecendo opções abrangentes de conformidade e resiliência para os clientes. O Azure tem 58 regiões em todo o mundo e está disponível em 140 países/regiões.
 
 Uma região é um conjunto de datacenters que está interligado através de uma rede maciça e resiliente. A rede inclui distribuição de conteúdo, equilíbrio de carga, redundância e encriptação por padrão. Com regiões mais globais do que qualquer outro fornecedor de nuvem, o Azure dá-lhe a flexibilidade para implementar aplicações onde você precisa delas.
 

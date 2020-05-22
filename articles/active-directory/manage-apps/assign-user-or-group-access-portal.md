@@ -12,12 +12,12 @@ ms.date: 02/21/2020
 ms.author: mimart
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 186e36e4625a60362c54972b16b53f0f3e6753fa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b52bc45287e0e3a8f4908630cb6e57130c1725df
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79409197"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83772425"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Atribuir um utilizador ou grupo a uma aplicação empresarial no Azure Ative Directory
 
@@ -38,7 +38,7 @@ Com os seguintes tipos de aplicações, tem a opção de exigir que os utilizado
 - Aplicações proxy de aplicação que usam pré-autenticação de diretório ativo Azure
 - Aplicações construídas na plataforma de aplicação Azure AD que utilizam a Autenticação de Ligação OAuth 2.0 / OpenID depois de um utilizador ou administrador ter consentido com essa aplicação.
 
-Quando a atribuição do utilizador for necessária, apenas os utilizadores que atribuir explicitamente à aplicação poderão iniciar sessão. Podem aceder à aplicação na sua página My Apps ou através de um link direto. 
+Quando a atribuição do utilizador for necessária, apenas os utilizadores que atribuir explicitamente à aplicação (seja através da atribuição direta do utilizador ou com base na adesão ao grupo) poderão iniciar sessão. Podem aceder à aplicação na sua página My Apps ou através de um link direto. 
 
 Quando a atribuição *não*for necessária , quer porque definiu esta opção para **Nº** ou porque a aplicação utiliza outro modo SSO, qualquer utilizador poderá aceder à aplicação se tiver um link direto para a aplicação ou o URL de Acesso ao **Utilizador** na página **'Propriedades'** da aplicação. 
 
@@ -90,9 +90,9 @@ Para exigir a atribuição do utilizador para uma aplicação:
 1. Abra um pedido de comando Windows PowerShell elevado.
 
    > [!NOTE]
-   > É necessário instalar o módulo AzureAD `Install-Module -Name AzureAD`(utilize o comando). Se solicitado a instalar um módulo NuGet ou o novo módulo PowerShell do Diretório Ativo Azure, escreva Y e prima ENTER.
+   > É necessário instalar o módulo AzureAD (utilize o `Install-Module -Name AzureAD` comando). Se solicitado a instalar um módulo NuGet ou o novo módulo PowerShell do Diretório Ativo Azure, escreva Y e prima ENTER.
 
-1. Executar `Connect-AzureAD` e iniciar sessão com uma conta de utilizador global da Admin.
+1. Executar e iniciar sessão com uma conta de `Connect-AzureAD` utilizador global da Admin.
 1. Utilize o seguinte script para atribuir um utilizador e uma função a uma aplicação:
 
     ```powershell
@@ -110,9 +110,11 @@ Para exigir a atribuição do utilizador para uma aplicação:
     New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
     ```
 
-Para mais informações sobre como atribuir um utilizador a uma função de aplicação visite a documentação para [New-AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0)
+Para obter mais informações sobre como atribuir um utilizador a uma função de aplicação, consulte a documentação para [New-AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0).
 
-Para atribuir um grupo a uma aplicação `Get-AzureADUser` `Get-AzureADGroup`empresarial, tem de substituir por .
+Para atribuir um grupo a uma aplicação empresarial, deve substituir `Get-AzureADUser` `Get-AzureADGroup` e substituir por `New-AzureADUserAppRoleAssignment` `New-AzureADGroupAppRoleAssignment` .
+
+Para obter mais informações sobre como atribuir um grupo a uma função de aplicação, consulte a documentação para [New-AzureADGroupAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureadgroupapproleassignment?view=azureadps-2.0).
 
 ### <a name="example"></a>Exemplo
 
@@ -134,11 +136,11 @@ Este exemplo atribui a utilizadora Britta Simon à aplicação [Microsoft Workpl
     $sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"
     ```
 
-1. Executar o `$sp.AppRoles` comando para exibir as funções disponíveis para a aplicação Workplace Analytics. Neste exemplo, queremos atribuir a Britta Simon o papel de Analista (acesso limitado).
+1. Executar o comando `$sp.AppRoles` para exibir as funções disponíveis para a aplicação Workplace Analytics. Neste exemplo, queremos atribuir a Britta Simon o papel de Analista (acesso limitado).
 
    ![Mostra as funções disponíveis para um utilizador que utiliza o Workplace Analytics Role](./media/assign-user-or-group-access-portal/workplace-analytics-role.png)
 
-1. Atribuir o nome do `$app_role_name` papel à variável.
+1. Atribuir o nome do papel à `$app_role_name` variável.
 
     ```powershell
     # Assign the values to the variables
